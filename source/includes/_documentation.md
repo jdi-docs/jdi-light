@@ -1,6 +1,10 @@
 # Documentation
 ## Extended Selenium features
 TBD
+---
+includes:
+  - fake
+---
 
 ## Simple elements
 TBD

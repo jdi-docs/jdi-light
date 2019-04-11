@@ -384,8 +384,25 @@ Here is the list of some available methods in C# JDI Light:
 [C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/CheckListTests.cs)
 
 ### MultiSelector
+**MultiSelector** – a graphical control element, that allows the user to do multiple choice.
+Multi Selector are represented by the following class:
+ 
+  - __Java__: _com.epam.jdi.light.ui.html.complex.MultiSelect_
+  - __C#__: _JDI.Light.Elements.Common.MultiSelector_
 ```java 
-TBD
+public static MultiSelect ages;
+@UI("#ages") public static MultiSelect ages;
+
+@Test
+public void checkTest() {
+       ages.check("Electro", "Metalic");
+       assertEquals(ages.checked(), asList("Electro", "Metalic"));
+    }
+@Test
+public void disabledTest() {
+        ages.select("Disabled");
+        assertEquals(ages.getValue(), text);
+    }
 ```
 ```csharp 
 [Test]
@@ -399,19 +416,20 @@ public void MultiSelectByIndexes()
     MyMultiSelector.Select(int[]);
 }
 ```
-**MultiSelector** – a graphical control element, that allows the user to do multiple choice.
+![MultiSelector](../images/multiSelectHtml.png)
 
-![MultiSelector](../images/multiselector.png)
-
-Here is the list of some available methods:
+Here is the list of available methods:
 
 |Method | Description | Return Type
 --- | --- | ---
-**Select(string[]/int[])** |Select multiselector by values/indexes  | void
-**GetSelected(Array)** |Get selected values  | string[]
-**UnselectAll(Array)** |Unselect all values  | void
+**check(String/Strings.../TEnum...)** |Select multiselector by values | void
+**uncheck(Strings.../TEnum.../int)** |Select multiselector by values/indexes  | void
+**selected()** |Get selected values  | String
+**checked()** |Get selected values  | List\<String>
 
-[Test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/MultiSelectorTests.cs)
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/MultiSelectorTests.java)
+
+[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/MultiSelectorTests.cs)
 
 ### ComboBox
 

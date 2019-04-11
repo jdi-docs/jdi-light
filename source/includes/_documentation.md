@@ -479,7 +479,24 @@ Here is the list of some available methods:
 
 ### Input Type Date
 ```java 
-TBD
+@UI("#birth-date") 
+public static DateTimeSelector birthDate;
+
+    @Test
+    public void setDateTimeTest() {
+        birthDate.setDateTime("2018-11-13");
+        assertEquals(birthDate.value(), "2018-11-13");
+    }
+    
+    @Test
+     public void minTest() {
+            assertEquals(birthDate.min(), "1970-01-01");
+     }
+    
+     @Test
+     public void maxTest() {
+            assertEquals(birthDate.max(), "2030-12-31");
+     }
 ```
 ```csharp 
 [Test]
@@ -489,18 +506,34 @@ public void SetGetDateTime()
     MyDateTime.GetValue();
 }
 ```
-**Input Type Date** – a graphical control element, that allows the user to set the value of date.
+**Input Type Date** – a graphical control element, that allows users to set the value of date.
 
-![InputTypeDate](../images/inputTypeDate.png)
+![InputTypeDate](../images/inputTypeDateWithHtml.png)
 
-Here is the list of some available methods:
+Input Type Date is represented by following classes:
+
+ - __C#__: _JDI.Light.Elements.Common.DateTimeSelector_
+ - __Java__: _com.epam.jdi.light.ui.html.common.DateTimeSelector_
+
+Here is the list of some available methods in C#:
 
 |Method | Description | Return Type
 --- | --- | ---
-**SetDateTime(string value)** | Sets the date or time | void
+**SetDateTime(string value)** | Sets a date or time | void
 **GetValue()** | Returns the set date or time | string
 
-[Test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs)
+[Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs)
+
+And here are some of the methods available in Java:
+
+|Method | Description | Return Type
+--- | --- | ---
+**setDateTime(string value)** | Sets a date or time | void
+**value()** | Returns the set date or time | String
+**min()** | Gets attribute with name min | String
+**max()** | Gets attribute with name max | String
+
+[Test examples in Java](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/DateTests.java)
 
 ### Input Type Week
 ```java 

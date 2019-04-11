@@ -71,21 +71,6 @@ Table implementation has an entry point in class:
  
   - __C#__: _JDI.Light.Elements.Complex.Table.cs_
 
-Already implemented methods:
-
-| Method | Description | Return Type|
---- | --- | ---
-**AssertThat()** | Applicable for performing assert actions for tables | TableAssert
-**Is()** | Applicable for performing assert actions for tables | TableAssert
-**HasRowWithValues(params TableMatcher[] matchers)** | Asserts whether a row with particular matchers exists in a table | TableAssert
-**ContainsValue(string value, Column column)** | Sets an object finding by some value occurance in particular column | TableMatcher 
-**HasValue(string value, Column column)** | Sets an object finding by some full value in particular column | TableMatcher
-**InColumn(string value)** | Sets an object of some column by particular value | Column
-**InColumn(int num)** | Sets an object of some column by particular column's number | Column
-**Row(params TableMatcher[] matchers)** | Sets and returns a row object of a table according to some matchers' params (returns 'null' if there is no such row) | Line
-**Row(int rowNum)** | Sets and returns a row object of a table according to the row's index | Line
-**GetValue()** | Returns a string content of values for particular row, where values are separated by ";" | string
-
 ```csharp
        
         [Test]
@@ -138,6 +123,21 @@ Already implemented methods:
                 row.GetValue());
         }   
 ```
+
+Already implemented methods:
+
+| Method | Description | Return Type|
+--- | --- | ---
+**AssertThat()** | Applicable for performing assert actions for tables | TableAssert
+**Is()** | Applicable for performing assert actions for tables | TableAssert
+**HasRowWithValues(params TableMatcher[] matchers)** | Asserts whether a row with particular matchers exists in a table | TableAssert
+**ContainsValue(string value, Column column)** | Sets an object finding by some value occurance in particular column | TableMatcher 
+**HasValue(string value, Column column)** | Sets an object finding by some full value in particular column | TableMatcher
+**InColumn(string value)** | Sets an object of some column by particular value | Column
+**InColumn(int num)** | Sets an object of some column by particular column's number | Column
+**Row(params TableMatcher[] matchers)** | Sets and returns a row object of a table according to some matchers' params (returns 'null' if there is no such row) | Line
+**Row(int rowNum)** | Sets and returns a row object of a table according to the row's index | Line
+**GetValue()** | Returns a string content of values for particular row, where values are separated by ";" | string
 
 [Test examples C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Complex/TableTests.cs)
 

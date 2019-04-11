@@ -1107,23 +1107,7 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
                 <span class="nf">ContainsValue</span><span class="p">(</span><span class="s">"co.uk"</span><span class="p">,</span> <span class="nf">InColumn</span><span class="p">(</span><span class="s">"Email"</span><span class="p">)));</span>
             <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="s">"Brian Meyer;(016977) 0358;mollis.nec@seddictumeleifend.co.uk;Houston"</span><span class="p">,</span>
                 <span class="n">row</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">());</span>
-        <span class="p">}</span> 
-
-        <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
-        <span class="k">public</span> <span class="k">void</span> <span class="nf">TableChainTest</span><span class="p">()</span>
-        <span class="p">{</span>            
-            <span class="n">PerformancePage</span><span class="p">.</span><span class="n">UsersTable</span><span class="p">.</span><span class="nf">AssertThat</span><span class="p">()</span>
-                <span class="p">.</span><span class="nf">Size</span><span class="p">(</span><span class="m">400</span><span class="p">)</span>
-                <span class="p">.</span><span class="nf">Size</span><span class="p">(</span><span class="n">Is</span><span class="p">.</span><span class="nf">GreaterThan</span><span class="p">(</span><span class="m">399</span><span class="p">))</span>                
-                <span class="p">.</span><span class="nf">HasRowWithValues</span><span class="p">(</span>
-                    <span class="nf">HasValue</span><span class="p">(</span><span class="s">"Brian Meyer"</span><span class="p">,</span> <span class="nf">InColumn</span><span class="p">(</span><span class="s">"Name"</span><span class="p">)),</span>
-                    <span class="nf">HasValue</span><span class="p">(</span><span class="s">"mollis.nec@seddictumeleifend.co.uk"</span><span class="p">,</span> <span class="nf">InColumn</span><span class="p">(</span><span class="s">"Email"</span><span class="p">)))</span>
-                <span class="p">.</span><span class="nf">NotEmpty</span><span class="p">()</span>
-                <span class="p">.</span><span class="nf">RowsWithValues</span><span class="p">(</span><span class="m">3</span><span class="p">,</span> <span class="nf">ContainsValue</span><span class="p">(</span><span class="s">"Baker"</span><span class="p">,</span> <span class="nf">InColumn</span><span class="p">(</span><span class="m">1</span><span class="p">)))</span>
-                <span class="p">.</span><span class="nf">HasColumn</span><span class="p">(</span><span class="s">"Email"</span><span class="p">)</span>
-                <span class="p">.</span><span class="nf">HasColumns</span><span class="p">(</span><span class="k">new</span><span class="p">[]</span> <span class="p">{</span><span class="s">"Name"</span><span class="p">,</span> <span class="s">"City"</span><span class="p">})</span>
-                <span class="p">.</span><span class="nf">Columns</span><span class="p">(</span><span class="n">Is</span><span class="p">.</span><span class="nf">SubsequenceOf</span><span class="p">(</span><span class="k">new</span><span class="p">[]</span> <span class="p">{</span><span class="s">"Name"</span><span class="p">,</span> <span class="s">"City"</span><span class="p">,</span> <span class="s">"Phone"</span><span class="p">,</span> <span class="s">"Email"</span><span class="p">,</span> <span class="s">"Address"</span><span class="p">}));</span>
-        <span class="p">}</span>       
+        <span class="p">}</span>   
 </code></pre>
 <p>Already implemented methods:</p>
 
@@ -1142,6 +1126,11 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 <tr>
 <td><strong>Is()</strong></td>
 <td>Applicable for performing assert actions for tables</td>
+<td>TableAssert</td>
+</tr>
+<tr>
+<td><strong>HasRowWithValues(params TableMatcher[] matchers)</strong></td>
+<td>Asserts whether a row with particular matchers exists in a table</td>
 <td>TableAssert</td>
 </tr>
 <tr>
@@ -1178,62 +1167,6 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 <td><strong>GetValue()</strong></td>
 <td>Returns a string content of values for particular row, where values are separated by &quot;;&quot;</td>
 <td>string</td>
-</tr>
-</tbody></table>
-
-<p>AssertTable methods:</p>
-
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>Empty()</strong></td>
-<td>Asserts whether table is empty</td>
-<td>TableAssert</td>
-</tr>
-<tr>
-<td><strong>NotEmpty()</strong></td>
-<td>Asserts whether table is not empty</td>
-<td>TableAssert</td>
-</tr>
-<tr>
-<td><strong>Size(Matcher<int> condition)</strong></td>
-<td>Asserts whether table size satisfy some matcher</td>
-<td>TableAssert</td>
-</tr>
-<tr>
-<td><strong>Size(int expectedSize)</strong></td>
-<td>Asserts whether table has particular size</td>
-<td>TableAssert</td>
-</tr>
-<tr>
-<td><strong>HasColumn(string column)</strong></td>
-<td>Asserts whether table has particular header</td>
-<td>TableAssert</td>
-</tr>
-<tr>
-<td><strong>HasColumns(IEnumerable<string> columns)</strong></td>
-<td>Asserts whether table has particular headers</td>
-<td>TableAssert</td>
-</tr>
-<tr>
-<td><strong>Columns(Matcher<IEnumerable<string>&gt; condition)</strong></td>
-<td>Asserts whether headers satisfy some matcher</td>
-<td>TableAssert</td>
-</tr>
-<tr>
-<td><strong>RowsWithValues(int count, params TableMatcher[] matchers)</strong></td>
-<td>Asserts whether rows with particular matchers exist in a table multiple times</td>
-<td>TableAssert</td>
-</tr>
-<tr>
-<td><strong>HasRowWithValues(params TableMatcher[] matchers)</strong></td>
-<td>Asserts whether a row with particular matchers exists in a table</td>
-<td>TableAssert</td>
 </tr>
 </tbody></table>
 
@@ -1772,10 +1705,6 @@ public void MultiSelectByIndexes()
 <li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.complex.Combobox</em></li>
 <li><strong>C#</strong>: <em>JDI.Light.Elements.Common.Combobox</em></li>
 </ul>
-
-<p>Have a look at the following example with provided HTML code:  </p>
-
-<p><img src="images/html/datalist_html.png" alt="Datalist example" /></p>
 <pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">static</span> <span class="n">Combobox</span> <span class="n">iceCream</span><span class="o">;</span>
 <span class="nd">@UI</span><span class="o">(</span><span class="s">"#ice-cream"</span><span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">DataList</span> <span class="n">iceCreamDataList</span><span class="o">;</span>
 
@@ -1827,6 +1756,10 @@ public void MultiSelectByIndexes()
     <span class="n">SubmitButton</span><span class="p">.</span><span class="nf">Click</span><span class="p">();</span>
 <span class="p">}</span>
 </code></pre>
+<p>Have a look at the following example with provided HTML code:  </p>
+
+<p><img src="images/html/datalist_html.png" alt="Datalist example" /></p>
+
 <p>The list of available methods in Java JDI Light:</p>
 
 <table><thead>
@@ -2298,15 +2231,53 @@ public void SetGetRange()
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/RangeTests.java">Java test examples</a></p>
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/RangeTests.cs">C# test examples</a></p>
-<h3 id='fileinput'>FileInput</h3><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
+<h3 id='fileinput'>FileInput</h3>
+<p><strong>FileInput</strong> - a grafical control element, that allows the user to upload documents on the web site</p>
+
+<p><img src="images/fileinput.png" alt="FileInput" /></p>
+
+<p>FileInput element is located in JDI Light in:</p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.FileInput</em></li>
+<li><strong>C#</strong>: <em>JDI.Light.Elements.Composite.FileInput</em></li>
+</ul>
+<pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">static</span> <span class="n">FileInput</span> <span class="n">avatar</span><span class="o">;</span>
+<span class="nd">@UI</span><span class="o">(</span><span class="s">"input[type=file][disabled]"</span><span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">FileInput</span> <span class="n">disabledFileInput</span><span class="o">;</span>
+<span class="nd">@UI</span><span class="o">(</span><span class="s">"[download]"</span><span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">Link</span> <span class="n">downloadJdiLogo</span><span class="o">;</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">uploadTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">avatar</span><span class="o">.</span><span class="na">uploadFile</span><span class="o">(</span><span class="n">mergePath</span><span class="o">(</span><span class="n">PROJECT_PATH</span><span class="o">,</span><span class="s">"/src/test/resources/general.xml"</span><span class="o">));</span>
+    <span class="n">avatar</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"general.xml"</span><span class="o">));</span>
+    <span class="n">assertTrue</span><span class="o">(</span><span class="n">avatar</span><span class="o">.</span><span class="na">getText</span><span class="o">().</span><span class="na">contains</span><span class="o">(</span><span class="s">"general.xml"</span><span class="o">));</span>
+    <span class="n">assertTrue</span><span class="o">(</span><span class="n">avatar</span><span class="o">.</span><span class="na">getValue</span><span class="o">().</span><span class="na">contains</span><span class="o">(</span><span class="s">"general.xml"</span><span class="o">));</span>
+    <span class="k">try</span> <span class="o">{</span>
+        <span class="n">disabledFileInput</span><span class="o">.</span><span class="na">uploadFile</span><span class="o">(</span><span class="n">mergePath</span><span class="o">(</span><span class="n">PROJECT_PATH</span><span class="o">,</span> <span class="s">"/src/test/resources/general.xml"</span><span class="o">));</span>
+    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">ignore</span><span class="o">)</span> <span class="o">{}</span>
+    <span class="n">disabledFileInput</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="s">""</span><span class="o">));</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">downloadTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">isFireFox</span><span class="o">())</span> <span class="k">return</span><span class="o">;</span>
+    <span class="n">cleanupDownloads</span><span class="o">();</span>
+    <span class="n">downloadJdiLogo</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+    <span class="n">assertThatFile</span><span class="o">(</span><span class="s">"jdi-logo.jpg"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">isDownloaded</span><span class="o">()</span>
+        <span class="o">.</span><span class="na">hasSize</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="mi">32225L</span><span class="o">));</span>
+    <span class="n">assertThatFile</span><span class="o">(</span><span class="s">"jdi-logo.jpg"</span><span class="o">).</span><span class="na">hasSize</span><span class="o">(</span><span class="n">greaterThan</span><span class="o">(</span><span class="mi">100L</span><span class="o">));</span>
+<span class="o">}</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
 <span class="k">public</span> <span class="k">void</span> <span class="nf">FileInputTest</span><span class="p">()</span>
 <span class="p">{</span>
     <span class="n">FileInput</span><span class="p">.</span><span class="nf">SelectFile</span><span class="p">(</span><span class="nf">CreateFile</span><span class="p">(</span><span class="n">filename</span><span class="p">));</span>
 <span class="p">}</span>
 </code></pre>
-<p><strong>FileInput</strong> - a grafical control element, that allows the user to upload documents on the web site</p>
+<p>Here is an example with provided HTML code:</p>
 
-<p><img src="images/fileinput.png" alt="FileInput" /></p>
+<p><img src="images/html/fileinput_html.png" alt="FileInput example" /></p>
+
+<p>Available method in Java JDI Light:</p>
 
 <table><thead>
 <tr>
@@ -2323,6 +2294,8 @@ public void SetGetRange()
 </tbody></table>
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/FileInputTests.cs">Test examples</a></p>
+
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/FileInputTests.cs">C# test examples</a></p>
 <h2 id='composite-elements'>Composite elements</h2>
 <p>TBD</p>
 <h2 id='ui-objects'>UI Objects</h2>

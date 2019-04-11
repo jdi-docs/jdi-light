@@ -69,7 +69,7 @@ Here is the list of some available methods:
 
 Table implementation has an entry point in class:
  
-  - __C#__: _JDI.Light.Elements.Complex.Table_
+  - __C#__: _JDI.Light.Elements.Complex.Table.cs_
 
 Already implemented methods:
 
@@ -137,7 +137,6 @@ Already implemented methods:
             Assert.AreEqual("Brian Meyer;(016977) 0358;mollis.nec@seddictumeleifend.co.uk;Houston",
                 row.GetValue());
         }   
-        
 ```
 
 [Test examples C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Complex/TableTests.cs)

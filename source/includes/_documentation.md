@@ -59,7 +59,7 @@ Here is the list of some available methods:
 **select(String/int/Enum)/Select(string/int)** |Select radiobutton by value/index  | void
 **selected()/GetSelected()** |Get selected radiobutton value  | string
 
-[Java text examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/RadioTests.java)
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/RadioTests.java)
 
 [C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/RadioButtonTests.cs)
 
@@ -414,16 +414,43 @@ Here is the list of some available methods:
 [Test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/MultiSelectorTests.cs)
 
 ### ComboBox
+
+**ComboBox** – a graphical control element, that allows the user to choose one value from a list or enter it by himself (is inherited from the DataList).
+
+![ComboBox](../images/datalist.png)
+
+ComboBox is provided by JDI Light in:
+ 
+  - __Java__: _com.epam.jdi.light.ui.html.complex.Combobox_
+  - __C#__: _JDI.Light.Elements.Common.Combobox_
+
+Have a look at the following example with provided HTML code:  
+
+![Datalist example](../images/html/datalist_html.png)
+
 ```java 
 public static Combobox iceCream;
 @UI("#ice-cream") public static DataList iceCreamDataList;
   
 @Test
 public void selectTest() {
-    iceCream.select("Chocolate");
-    assertEquals(iceCream.getValue(), "Chocolate");
+    iceCreamDataList.select("Chocolate");
+    assertEquals(iceCreamDataList.getValue(), "Chocolate");
 }
-
+@Test
+public void selectNumTest() {
+    iceCreamDataList.select(5);
+    assertEquals(iceCreamDataList.getValue(), "Vanilla");
+}
+@Test
+public void selectedTest() {
+    assertEquals(iceCreamDataList.selected(), "Coconut");
+}
+@Test
+public void labelTest() {
+    assertEquals(iceCreamDataList.label().getText(), "Choose your lovely icecream");
+    iceCreamDataList.label().is().text(containsString("lovely icecream"));
+}
 @Test
 public void isValidationTest() {
     iceCream.is().enabled();
@@ -455,22 +482,24 @@ public void FillComboBox()
     SubmitButton.Click();
 }
 ```
-**ComboBox** – a graphical control element, that allows the user to choose one value from a list or enter it by himself (is inherited from the DataList).
 
-![ComboBox](../images/datalist.png)
+The list of available methods in Java JDI Light:
 
-ComboBox is provided by JDI Light in:
- 
-  - __Java__: _com.epam.jdi.light.ui.html.complex.Combobox_
-  - __C#__: _JDI.Light.Elements.Common.Combobox_
+|Method | Description | Return Type
+--- | --- | ---
+**select(String/Enum/int)** |Select datalist option by value or index | void
+**selected()** |Get selected option value | String
+**values()** |Get all option values from datalist | List\<String>
+**listEnabled()** |Return list of values of enabled options | List\<String>
+**listDisabled()** |Return list of values of disabled options | List\<String>
 
-Here is the list of some available methods:
+Here is the list of some available methods in C# JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
 **Expand()** |Expands the list of possible values | void
 **Select(string/int)** |Select datalist by value/index  | void
-**Input(string value)** |Input user's value into datalist  | void
+**Input(string)** |Input user's value into datalist  | void
 **GetSelected()** |Get selected datalist value  | string
 
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/ComboboxTests.java)

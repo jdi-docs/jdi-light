@@ -121,7 +121,23 @@ Table implementation has an entry point in class:
                 ContainsValue("co.uk", InColumn("Email")));
             Assert.AreEqual("Brian Meyer;(016977) 0358;mollis.nec@seddictumeleifend.co.uk;Houston",
                 row.GetValue());
-        }   
+        } 
+
+		[Test]
+        public void TableChainTest()
+        {            
+            PerformancePage.UsersTable.AssertThat()
+                .Size(400)
+                .Size(Is.GreaterThan(399))                
+                .HasRowWithValues(
+                    HasValue("Brian Meyer", InColumn("Name")),
+                    HasValue("mollis.nec@seddictumeleifend.co.uk", InColumn("Email")))
+                .NotEmpty()
+                .RowsWithValues(3, ContainsValue("Baker", InColumn(1)))
+                .HasColumn("Email")
+                .HasColumns(new[] {"Name", "City"})
+                .Columns(Is.SubsequenceOf(new[] {"Name", "City", "Phone", "Email", "Address"}));
+        }		
 ```
 
 Already implemented methods:
@@ -130,7 +146,6 @@ Already implemented methods:
 --- | --- | ---
 **AssertThat()** | Applicable for performing assert actions for tables | TableAssert
 **Is()** | Applicable for performing assert actions for tables | TableAssert
-**HasRowWithValues(params TableMatcher[] matchers)** | Asserts whether a row with particular matchers exists in a table | TableAssert
 **ContainsValue(string value, Column column)** | Sets an object finding by some value occurance in particular column | TableMatcher 
 **HasValue(string value, Column column)** | Sets an object finding by some full value in particular column | TableMatcher
 **InColumn(string value)** | Sets an object of some column by particular value | Column
@@ -138,6 +153,21 @@ Already implemented methods:
 **Row(params TableMatcher[] matchers)** | Sets and returns a row object of a table according to some matchers' params (returns 'null' if there is no such row) | Line
 **Row(int rowNum)** | Sets and returns a row object of a table according to the row's index | Line
 **GetValue()** | Returns a string content of values for particular row, where values are separated by ";" | string
+
+
+AssertTable methods:
+
+| Method | Description | Return Type|
+--- | --- | ---
+**Empty()** | Asserts whether table is empty | TableAssert
+**NotEmpty()** | Asserts whether table is not empty | TableAssert
+**Size(Matcher<int> condition)** | Asserts whether table size satisfy some matcher | TableAssert
+**Size(int expectedSize)** | Asserts whether table has particular size | TableAssert
+**HasColumn(string column)** | Asserts whether table has particular header | TableAssert
+**HasColumns(IEnumerable<string> columns)** | Asserts whether table has particular headers | TableAssert
+**Columns(Matcher<IEnumerable<string>> condition)** | Asserts whether headers satisfy some matcher | TableAssert
+**RowsWithValues(int count, params TableMatcher[] matchers)** | Asserts whether rows with particular matchers exist in a table multiple times | TableAssert
+**HasRowWithValues(params TableMatcher[] matchers)** | Asserts whether a row with particular matchers exists in a table | TableAssert
 
 [Test examples C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Complex/TableTests.cs)
 

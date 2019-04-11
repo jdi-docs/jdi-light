@@ -275,7 +275,7 @@ public void FillDataList()
 **DataList** – a graphical control element, that allows the user to choose one value from a list or enter it by himself.
 Datalist element contains a set of options with values available for entering.
 
-![DataList](../images/datalist.png)
+![DataList](../images/icecreamdatalist.png)
 
 Datalist element type is provided by JDI Light in:
 
@@ -417,7 +417,7 @@ Here is the list of some available methods:
 
 **ComboBox** – a graphical control element, that allows the user to choose one value from a list or enter it by himself (is inherited from the DataList).
 
-![ComboBox](../images/datalist.png)
+![ComboBox](../images/icecreamdatalist.png)
 
 ComboBox is provided by JDI Light in:
  

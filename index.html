@@ -1921,7 +1921,25 @@ public void MultiSelectByIndexes()
 </tbody></table>
 
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/DateTests.java">Test examples in Java</a></p>
-<h3 id='input-type-week'>Input Type Week</h3><pre class="highlight java tab-java"><code><span class="n">TBD</span>
+<h3 id='input-type-week'>Input Type Week</h3><pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#autumn-week"</span><span class="o">)</span> 
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">DateTimeSelector</span> <span class="n">autumnWeek</span><span class="o">;</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">minTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">autumnWeek</span><span class="o">.</span><span class="na">min</span><span class="o">(),</span> <span class="s">"2018-W35"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">maxTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">autumnWeek</span><span class="o">.</span><span class="na">max</span><span class="o">(),</span> <span class="s">"2018-W48"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setDateTimeTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">autumnWeek</span><span class="o">.</span><span class="na">setDateTime</span><span class="o">(</span><span class="s">"2018-W12"</span><span class="o">);</span>
+        <span class="n">autumnWeek</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">autumnWeek</span><span class="o">.</span><span class="na">value</span><span class="o">(),</span> <span class="s">"2018-W12"</span><span class="o">);</span>
+    <span class="o">}</span>
 </code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
 <span class="k">public</span> <span class="k">void</span> <span class="nf">SetGetDateTime</span><span class="p">()</span> 
 <span class="p">{</span>
@@ -1929,11 +1947,18 @@ public void MultiSelectByIndexes()
     <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">();</span>
 <span class="p">}</span>
 </code></pre>
-<p><strong>Input Type Week</strong> – a graphical control element, that allows the user to set the value of week and year.</p>
+<p><strong>Input Type Week</strong> – a graphical control element, that allows users to set the value of week and year.</p>
 
-<p><img src="images/inputTypeWeek.png" alt="InputTypeWeek" /></p>
+<p><img src="images/html/inputTypeWeek_html.png" alt="InputTypeWeek" /></p>
 
-<p>Here is the list of some available methods:</p>
+<p>Input Type Week is represented by following classes:</p>
+
+<ul>
+<li><strong>C#</strong>: <em>JDI.Light.Elements.Common.DateTimeSelector</em></li>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.DateTimeSelector</em></li>
+</ul>
+
+<p>Here is the list of some available methods in C#:</p>
 
 <table><thead>
 <tr>
@@ -1944,7 +1969,7 @@ public void MultiSelectByIndexes()
 </thead><tbody>
 <tr>
 <td><strong>SetDateTime(string value)</strong></td>
-<td>Sets the date or time</td>
+<td>Sets a date or time</td>
 <td>void</td>
 </tr>
 <tr>
@@ -1954,7 +1979,40 @@ public void MultiSelectByIndexes()
 </tr>
 </tbody></table>
 
-<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs">Test examples</a></p>
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs">Test examples in C#</a></p>
+
+<p>And here is the list of some available methods in Java:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>setDateTime(string value)</strong></td>
+<td>Sets a date or time</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>value()</strong></td>
+<td>Returns the set date or time</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>min()</strong></td>
+<td>Gets attribute with name min</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>max()</strong></td>
+<td>Gets attribute with name max</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/WeekTests.java">Test examples in Java</a></p>
 <h3 id='input-type-month'>Input Type Month</h3><pre class="highlight java tab-java"><code><span class="n">TBD</span>
 </code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
 <span class="k">public</span> <span class="k">void</span> <span class="nf">SetGetDateTime</span><span class="p">()</span> 

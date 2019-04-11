@@ -1047,7 +1047,7 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 </tr>
 </tbody></table>
 
-<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/RadioTests.java">Java text examples</a></p>
+<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/RadioTests.java">Java test examples</a></p>
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/RadioButtonTests.cs">C# test examples</a></p>
 <h3 id='table'>Table</h3>
@@ -1547,15 +1547,43 @@ Datalist element contains a set of options with values available for entering.</
 </tbody></table>
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/MultiSelectorTests.cs">Test examples</a></p>
-<h3 id='combobox'>ComboBox</h3><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">static</span> <span class="n">Combobox</span> <span class="n">iceCream</span><span class="o">;</span>
+<h3 id='combobox'>ComboBox</h3>
+<p><strong>ComboBox</strong> – a graphical control element, that allows the user to choose one value from a list or enter it by himself (is inherited from the DataList).</p>
+
+<p><img src="images/datalist.png" alt="ComboBox" /></p>
+
+<p>ComboBox is provided by JDI Light in:</p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.complex.Combobox</em></li>
+<li><strong>C#</strong>: <em>JDI.Light.Elements.Common.Combobox</em></li>
+</ul>
+
+<p>Have a look at the following example with provided HTML code:  </p>
+
+<p><img src="images/html/datalist_html.png" alt="Datalist example" /></p>
+<pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">static</span> <span class="n">Combobox</span> <span class="n">iceCream</span><span class="o">;</span>
 <span class="nd">@UI</span><span class="o">(</span><span class="s">"#ice-cream"</span><span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">DataList</span> <span class="n">iceCreamDataList</span><span class="o">;</span>
 
 <span class="nd">@Test</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">selectTest</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">iceCream</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="s">"Chocolate"</span><span class="o">);</span>
-    <span class="n">assertEquals</span><span class="o">(</span><span class="n">iceCream</span><span class="o">.</span><span class="na">getValue</span><span class="o">(),</span> <span class="s">"Chocolate"</span><span class="o">);</span>
+    <span class="n">iceCreamDataList</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="s">"Chocolate"</span><span class="o">);</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="n">iceCreamDataList</span><span class="o">.</span><span class="na">getValue</span><span class="o">(),</span> <span class="s">"Chocolate"</span><span class="o">);</span>
 <span class="o">}</span>
-
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">selectNumTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">iceCreamDataList</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="mi">5</span><span class="o">);</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="n">iceCreamDataList</span><span class="o">.</span><span class="na">getValue</span><span class="o">(),</span> <span class="s">"Vanilla"</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">selectedTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="n">iceCreamDataList</span><span class="o">.</span><span class="na">selected</span><span class="o">(),</span> <span class="s">"Coconut"</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">labelTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="n">iceCreamDataList</span><span class="o">.</span><span class="na">label</span><span class="o">().</span><span class="na">getText</span><span class="o">(),</span> <span class="s">"Choose your lovely icecream"</span><span class="o">);</span>
+    <span class="n">iceCreamDataList</span><span class="o">.</span><span class="na">label</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"lovely icecream"</span><span class="o">));</span>
+<span class="o">}</span>
 <span class="nd">@Test</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">isValidationTest</span><span class="o">()</span> <span class="o">{</span>
     <span class="n">iceCream</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
@@ -1585,18 +1613,43 @@ Datalist element contains a set of options with values available for entering.</
     <span class="n">SubmitButton</span><span class="p">.</span><span class="nf">Click</span><span class="p">();</span>
 <span class="p">}</span>
 </code></pre>
-<p><strong>ComboBox</strong> – a graphical control element, that allows the user to choose one value from a list or enter it by himself (is inherited from the DataList).</p>
+<p>The list of available methods in Java JDI Light:</p>
 
-<p><img src="images/datalist.png" alt="ComboBox" /></p>
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>select(String/Enum/int)</strong></td>
+<td>Select datalist option by value or index</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>selected()</strong></td>
+<td>Get selected option value</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>values()</strong></td>
+<td>Get all option values from datalist</td>
+<td>List&lt;String&gt;</td>
+</tr>
+<tr>
+<td><strong>listEnabled()</strong></td>
+<td>Return list of values of enabled options</td>
+<td>List&lt;String&gt;</td>
+</tr>
+<tr>
+<td><strong>listDisabled()</strong></td>
+<td>Return list of values of disabled options</td>
+<td>List&lt;String&gt;</td>
+</tr>
+</tbody></table>
 
-<p>ComboBox is provided by JDI Light in:</p>
-
-<ul>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.complex.Combobox</em></li>
-<li><strong>C#</strong>: <em>JDI.Light.Elements.Common.Combobox</em></li>
-</ul>
-
-<p>Here is the list of some available methods:</p>
+<p>Here is the list of some available methods in C# JDI Light:</p>
 
 <table><thead>
 <tr>
@@ -1616,7 +1669,7 @@ Datalist element contains a set of options with values available for entering.</
 <td>void</td>
 </tr>
 <tr>
-<td><strong>Input(string value)</strong></td>
+<td><strong>Input(string)</strong></td>
 <td>Input user&#39;s value into datalist</td>
 <td>void</td>
 </tr>
@@ -1630,24 +1683,7 @@ Datalist element contains a set of options with values available for entering.</
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/ComboboxTests.java">Java test examples</a></p>
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/ComboBoxTests.cs">C# test examples</a></p>
-<h3 id='input-type-date'>Input Type Date</h3><pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#birth-date"</span><span class="o">)</span> 
-<span class="kd">public</span> <span class="kd">static</span> <span class="n">DateTimeSelector</span> <span class="n">birthDate</span><span class="o">;</span>
-
-    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setDateTimeTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">birthDate</span><span class="o">.</span><span class="na">setDateTime</span><span class="o">(</span><span class="s">"2018-11-13"</span><span class="o">);</span>
-        <span class="n">assertEquals</span><span class="o">(</span><span class="n">birthDate</span><span class="o">.</span><span class="na">value</span><span class="o">(),</span> <span class="s">"2018-11-13"</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Test</span>
-     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">minTest</span><span class="o">()</span> <span class="o">{</span>
-            <span class="n">assertEquals</span><span class="o">(</span><span class="n">birthDate</span><span class="o">.</span><span class="na">min</span><span class="o">(),</span> <span class="s">"1970-01-01"</span><span class="o">);</span>
-     <span class="o">}</span>
-
-     <span class="nd">@Test</span>
-     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">maxTest</span><span class="o">()</span> <span class="o">{</span>
-            <span class="n">assertEquals</span><span class="o">(</span><span class="n">birthDate</span><span class="o">.</span><span class="na">max</span><span class="o">(),</span> <span class="s">"2030-12-31"</span><span class="o">);</span>
-     <span class="o">}</span>
+<h3 id='input-type-date'>Input Type Date</h3><pre class="highlight java tab-java"><code><span class="n">TBD</span>
 </code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
 <span class="k">public</span> <span class="k">void</span> <span class="nf">SetGetDateTime</span><span class="p">()</span> 
 <span class="p">{</span>
@@ -1655,18 +1691,11 @@ Datalist element contains a set of options with values available for entering.</
     <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">();</span>
 <span class="p">}</span>
 </code></pre>
-<p><strong>Input Type Date</strong> – a graphical control element, that allows users to set the value of date.</p>
+<p><strong>Input Type Date</strong> – a graphical control element, that allows the user to set the value of date.</p>
 
-<p><img src="images/inputTypeDateWithHtml.png" alt="InputTypeDate" /></p>
+<p><img src="images/inputTypeDate.png" alt="InputTypeDate" /></p>
 
-<p>Input Type Date is represented by following classes:</p>
-
-<ul>
-<li><strong>C#</strong>: <em>JDI.Light.Elements.Common.DateTimeSelector</em></li>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.DateTimeSelector</em></li>
-</ul>
-
-<p>Here is the list of some available methods in C#:</p>
+<p>Here is the list of some available methods:</p>
 
 <table><thead>
 <tr>
@@ -1677,7 +1706,7 @@ Datalist element contains a set of options with values available for entering.</
 </thead><tbody>
 <tr>
 <td><strong>SetDateTime(string value)</strong></td>
-<td>Sets a date or time</td>
+<td>Sets the date or time</td>
 <td>void</td>
 </tr>
 <tr>
@@ -1687,40 +1716,7 @@ Datalist element contains a set of options with values available for entering.</
 </tr>
 </tbody></table>
 
-<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs">Test examples in C#</a></p>
-
-<p>And here are some of the methods available in Java:</p>
-
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>setDateTime(string value)</strong></td>
-<td>Sets a date or time</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>value()</strong></td>
-<td>Returns the set date or time</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>min()</strong></td>
-<td>Gets attribute with name min</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>max()</strong></td>
-<td>Gets attribute with name max</td>
-<td>String</td>
-</tr>
-</tbody></table>
-
-<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/DateTests.java">Test examples in Java</a></p>
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs">Test examples</a></p>
 <h3 id='input-type-week'>Input Type Week</h3><pre class="highlight java tab-java"><code><span class="n">TBD</span>
 </code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
 <span class="k">public</span> <span class="k">void</span> <span class="nf">SetGetDateTime</span><span class="p">()</span> 

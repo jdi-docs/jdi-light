@@ -410,7 +410,23 @@ Here is the list of some available methods:
 
 ### ComboBox
 ```java 
-TBD
+@JDropdown(root = "div[ui=combobox]",
+           value = "input",
+           list = "li",
+           expand = ".caret")
+public static Droplist metals;
+	
+@JDropdown(root = "div[ui=combobox]",
+           value = "input",
+           list = "*root*div[ui=combobox] li",
+           expand = ".caret")
+public static Droplist metals2;
+  
+@Test
+public void complexTest() {
+    metals.select(Gold);
+    metals2.select(Silver);
+}  
 ```
 ```csharp 
 [Test]
@@ -448,7 +464,9 @@ Here is the list of some available methods:
 **Input(string value)** |Input user's value into datalist  | void
 **GetSelected()** |Get selected datalist value  | string
 
-[Test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/ComboBoxTests.cs)
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/ComboboxTests.java)
+
+[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/ComboBoxTests.cs)
 
 ### Input Type Date
 ```java 

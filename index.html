@@ -1051,6 +1051,128 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/RadioButtonTests.cs">C# test examples</a></p>
 <h3 id='table'>Table</h3>
+<p><strong>Table</strong> – a complex element that consists of header, body (at least one row and one column) and footer. You are able to perform a list of readonly interactions with this element.</p>
+
+<p>Table implementation has an entry point in class:</p>
+
+<ul>
+<li><strong>C#</strong>: <em>JDI.Light.Elements.Complex.Table</em></li>
+</ul>
+
+<p>Already implemented methods:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>AssertThat()</strong></td>
+<td>Applicable for performing assert actions for tables</td>
+<td>TableAssert</td>
+</tr>
+<tr>
+<td><strong>Is()</strong></td>
+<td>Applicable for performing assert actions for tables</td>
+<td>TableAssert</td>
+</tr>
+<tr>
+<td><strong>HasRowWithValues(params TableMatcher[] matchers)</strong></td>
+<td>Asserts whether a row with particular matchers exists in a table</td>
+<td>TableAssert</td>
+</tr>
+<tr>
+<td><strong>ContainsValue(string value, Column column)</strong></td>
+<td>Sets an object finding by some value occurance in particular column</td>
+<td>TableMatcher</td>
+</tr>
+<tr>
+<td><strong>HasValue(string value, Column column)</strong></td>
+<td>Sets an object finding by some full value in particular column</td>
+<td>TableMatcher</td>
+</tr>
+<tr>
+<td><strong>InColumn(string value)</strong></td>
+<td>Sets an object of some column by particular value</td>
+<td>Column</td>
+</tr>
+<tr>
+<td><strong>InColumn(int num)</strong></td>
+<td>Sets an object of some column by particular column&#39;s number</td>
+<td>Column</td>
+</tr>
+<tr>
+<td><strong>Row(params TableMatcher[] matchers)</strong></td>
+<td>Sets and returns a row object of a table according to some matchers&#39; params (returns &#39;null&#39; if there is no such row)</td>
+<td>Line</td>
+</tr>
+<tr>
+<td><strong>Row(int rowNum)</strong></td>
+<td>Sets and returns a row object of a table according to the row&#39;s index</td>
+<td>Line</td>
+</tr>
+<tr>
+<td><strong>GetValue()</strong></td>
+<td>Returns a string content of values for particular row, where values are separated by &quot;;&quot;</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p>Action &gt; Examples:</p>
+<pre class="highlight csharp tab-csharp"><code>
+        <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+        <span class="k">public</span> <span class="k">void</span> <span class="nf">HugeTableSearchByColumnNamesContainValuesTest</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">PerformancePage</span><span class="p">.</span><span class="n">UsersTable</span><span class="p">.</span><span class="nf">AssertThat</span><span class="p">().</span><span class="nf">HasRowWithValues</span><span class="p">(</span>
+                <span class="nf">ContainsValue</span><span class="p">(</span><span class="s">"Meyer"</span><span class="p">,</span> <span class="nf">InColumn</span><span class="p">(</span><span class="s">"Name"</span><span class="p">)),</span>
+                <span class="nf">ContainsValue</span><span class="p">(</span><span class="s">"co.uk"</span><span class="p">,</span> <span class="nf">InColumn</span><span class="p">(</span><span class="s">"Email"</span><span class="p">)));</span>
+            <span class="kt">var</span> <span class="n">row</span> <span class="p">=</span> <span class="n">PerformancePage</span><span class="p">.</span><span class="n">UsersTable</span><span class="p">.</span><span class="nf">Row</span><span class="p">(</span>
+                <span class="nf">ContainsValue</span><span class="p">(</span><span class="s">"Meyer"</span><span class="p">,</span> <span class="nf">InColumn</span><span class="p">(</span><span class="s">"Name"</span><span class="p">)),</span>
+                <span class="nf">ContainsValue</span><span class="p">(</span><span class="s">"co.uk"</span><span class="p">,</span> <span class="nf">InColumn</span><span class="p">(</span><span class="s">"Email"</span><span class="p">)));</span>
+                <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="s">"Brian Meyer;(016977) 0358;mollis.nec@seddictumeleifend.co.uk;Houston"</span><span class="p">,</span>
+                    <span class="n">row</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">());</span>
+        <span class="p">}</span>
+
+        <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+        <span class="k">public</span> <span class="k">void</span> <span class="nf">HugeTableSearchByColumnNumbersContainValuesTest</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">PerformancePage</span><span class="p">.</span><span class="n">UsersTable</span><span class="p">.</span><span class="nf">AssertThat</span><span class="p">().</span><span class="nf">HasRowWithValues</span><span class="p">(</span>
+                <span class="nf">ContainsValue</span><span class="p">(</span><span class="s">"Burke"</span><span class="p">,</span> <span class="nf">InColumn</span><span class="p">(</span><span class="m">1</span><span class="p">)),</span>
+                <span class="nf">ContainsValue</span><span class="p">(</span><span class="s">"ut.edu"</span><span class="p">,</span> <span class="nf">InColumn</span><span class="p">(</span><span class="m">3</span><span class="p">)));</span>
+            <span class="kt">var</span> <span class="n">row</span> <span class="p">=</span> <span class="n">PerformancePage</span><span class="p">.</span><span class="n">UsersTable</span><span class="p">.</span><span class="nf">Row</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
+            <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="s">"Burke Tucker;076 1971 1687;et.euismod.et@ut.edu;GozŽe"</span><span class="p">,</span>
+                <span class="n">row</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">());</span>
+        <span class="p">}</span>
+
+        <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+        <span class="k">public</span> <span class="k">void</span> <span class="nf">HugeTableSearchByColumnNamesHasValuesTest</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">PerformancePage</span><span class="p">.</span><span class="n">UsersTable</span><span class="p">.</span><span class="nf">AssertThat</span><span class="p">().</span><span class="nf">HasRowWithValues</span><span class="p">(</span>
+                <span class="nf">HasValue</span><span class="p">(</span><span class="s">"Brian Meyer"</span><span class="p">,</span> <span class="nf">InColumn</span><span class="p">(</span><span class="s">"Name"</span><span class="p">)),</span>
+                <span class="nf">HasValue</span><span class="p">(</span><span class="s">"mollis.nec@seddictumeleifend.co.uk"</span><span class="p">,</span> <span class="nf">InColumn</span><span class="p">(</span><span class="s">"Email"</span><span class="p">)));</span>
+            <span class="kt">var</span> <span class="n">row</span> <span class="p">=</span> <span class="n">PerformancePage</span><span class="p">.</span><span class="n">UsersTable</span><span class="p">.</span><span class="nf">Row</span><span class="p">(</span>
+                <span class="nf">HasValue</span><span class="p">(</span><span class="s">"Brian Meyer"</span><span class="p">,</span> <span class="nf">InColumn</span><span class="p">(</span><span class="s">"Name"</span><span class="p">)),</span>
+                <span class="nf">HasValue</span><span class="p">(</span><span class="s">"mollis.nec@seddictumeleifend.co.uk"</span><span class="p">,</span> <span class="nf">InColumn</span><span class="p">(</span><span class="s">"Email"</span><span class="p">)));</span>
+            <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="s">"Brian Meyer;(016977) 0358;mollis.nec@seddictumeleifend.co.uk;Houston"</span><span class="p">,</span>
+                <span class="n">row</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">());</span>
+        <span class="p">}</span>
+
+        <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+        <span class="k">public</span> <span class="k">void</span> <span class="nf">HugeTableSearchByColumnNumbersHasValuesTest</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">PerformancePage</span><span class="p">.</span><span class="n">UsersTable</span><span class="p">.</span><span class="nf">AssertThat</span><span class="p">().</span><span class="nf">HasRowWithValues</span><span class="p">(</span>
+                <span class="nf">HasValue</span><span class="p">(</span><span class="s">"Brian Meyer"</span><span class="p">,</span> <span class="nf">InColumn</span><span class="p">(</span><span class="m">1</span><span class="p">)),</span>
+                <span class="nf">HasValue</span><span class="p">(</span><span class="s">"mollis.nec@seddictumeleifend.co.uk"</span><span class="p">,</span> <span class="nf">InColumn</span><span class="p">(</span><span class="m">3</span><span class="p">)));</span>
+            <span class="kt">var</span> <span class="n">row</span> <span class="p">=</span> <span class="n">PerformancePage</span><span class="p">.</span><span class="n">UsersTable</span><span class="p">.</span><span class="nf">Row</span><span class="p">(</span>
+                <span class="nf">ContainsValue</span><span class="p">(</span><span class="s">"Meyer"</span><span class="p">,</span> <span class="nf">InColumn</span><span class="p">(</span><span class="s">"Name"</span><span class="p">)),</span>
+                <span class="nf">ContainsValue</span><span class="p">(</span><span class="s">"co.uk"</span><span class="p">,</span> <span class="nf">InColumn</span><span class="p">(</span><span class="s">"Email"</span><span class="p">)));</span>
+            <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="s">"Brian Meyer;(016977) 0358;mollis.nec@seddictumeleifend.co.uk;Houston"</span><span class="p">,</span>
+                <span class="n">row</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">());</span>
+        <span class="p">}</span>   
+
+</code></pre>
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Complex/TableTests.cs">Test examples</a></p>
 <h3 id='dropdown'>DropDown</h3>
 <p><strong>DropDown</strong> – a graphical control element, that allows the user to choose one value from a list.</p>

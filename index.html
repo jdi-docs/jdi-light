@@ -1504,23 +1504,44 @@ Datalist element contains a set of options with values available for entering.</
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/ChecklistTests.java">Java test examples</a></p>
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/CheckListTests.cs">C# test examples</a></p>
-<h3 id='multiselector'>MultiSelector</h3><pre class="highlight java tab-java"><code><span class="n">TBD</span>
-</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">MultiSelectByValues</span><span class="p">()</span> 
-<span class="p">{</span>
-    <span class="n">MyMultiSelector</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="kt">string</span><span class="p">[]);</span>
-<span class="p">}</span>
-<span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">MultiSelectByIndexes</span><span class="p">()</span> 
-<span class="p">{</span>
-    <span class="n">MyMultiSelector</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="kt">int</span><span class="p">[]);</span>
-<span class="p">}</span>
-</code></pre>
-<p><strong>MultiSelector</strong> – a graphical control element, that allows the user to do multiple choice.</p>
+<h3 id='multiselector'>MultiSelector</h3>
+<p><strong>MultiSelector</strong> – a graphical control element, that allows the user to do multiple choice.
+Multi Selector are represented by the following class:</p>
 
-<p><img src="images/multiselector.png" alt="MultiSelector" /></p>
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.complex.MultiSelect</em></li>
+<li><strong>C#</strong>: <em>JDI.Light.Elements.Common.MultiSelector</em>
+```java 
+public static MultiSelect ages;
+@UI(&quot;#ages&quot;) public static MultiSelect ages;</li>
+</ul>
 
-<p>Here is the list of some available methods:</p>
+<p>@Test
+public void checkTest() {
+       ages.check(&quot;Electro&quot;, &quot;Metalic&quot;);
+       assertEquals(ages.checked(), asList(&quot;Electro&quot;, &quot;Metalic&quot;));
+    }
+@Test
+public void disabledTest() {
+        ages.select(&quot;Disabled&quot;);
+        assertEquals(ages.getValue(), text);
+    }
+<code>
+</code>csharp 
+[Test]
+public void MultiSelectByValues() 
+{
+    MyMultiSelector.Select(string[]);
+}
+[Test]
+public void MultiSelectByIndexes() 
+{
+    MyMultiSelector.Select(int[]);
+}
+```
+<img src="images/multiSelectHtml.png" alt="MultiSelector" /></p>
+
+<p>Here is the list of available methods:</p>
 
 <table><thead>
 <tr>
@@ -1530,23 +1551,30 @@ Datalist element contains a set of options with values available for entering.</
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>Select(string[]/int[])</strong></td>
+<td><strong>check(String/Strings.../TEnum...)</strong></td>
+<td>Select multiselector by values</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>uncheck(Strings.../TEnum.../int)</strong></td>
 <td>Select multiselector by values/indexes</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>GetSelected(Array)</strong></td>
+<td><strong>selected()</strong></td>
 <td>Get selected values</td>
-<td>string[]</td>
+<td>String</td>
 </tr>
 <tr>
-<td><strong>UnselectAll(Array)</strong></td>
-<td>Unselect all values</td>
-<td>void</td>
+<td><strong>checked()</strong></td>
+<td>Get selected values</td>
+<td>List&lt;String&gt;</td>
 </tr>
 </tbody></table>
 
-<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/MultiSelectorTests.cs">Test examples</a></p>
+<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/MultiSelectorTests.java">Java test examples</a></p>
+
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/MultiSelectorTests.cs">C# test examples</a></p>
 <h3 id='combobox'>ComboBox</h3>
 <p><strong>ComboBox</strong> – a graphical control element, that allows the user to choose one value from a list or enter it by himself (is inherited from the DataList).</p>
 

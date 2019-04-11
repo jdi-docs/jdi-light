@@ -410,23 +410,22 @@ Here is the list of some available methods:
 
 ### ComboBox
 ```java 
-@JDropdown(root = "div[ui=combobox]",
-           value = "input",
-           list = "li",
-           expand = ".caret")
-public static Droplist metals;
-	
-@JDropdown(root = "div[ui=combobox]",
-           value = "input",
-           list = "*root*div[ui=combobox] li",
-           expand = ".caret")
-public static Droplist metals2;
+public static Combobox iceCream;
+@UI("#ice-cream") public static DataList iceCreamDataList;
   
 @Test
-public void complexTest() {
-    metals.select(Gold);
-    metals2.select(Silver);
-}  
+public void selectTest() {
+    iceCream.select("Chocolate");
+    assertEquals(iceCream.getValue(), "Chocolate");
+}
+
+@Test
+public void isValidationTest() {
+    iceCream.is().enabled();
+    iceCream.is().text(is(text));
+    iceCream.select(Vanilla);
+    iceCream.is().text(containsString("Van"));
+}
 ```
 ```csharp 
 [Test]

@@ -642,7 +642,13 @@ Here is the list of some available methods:
 
 ### Input Type DateTime-Local
 ```java 
-TBD
+public static DateTimeSelector partyTime;
+
+@Test
+public void setDateTimeTest() {
+    partyTime.setDateTime("2017-05-10T00:00");
+    assertEquals(partyTime.value(), "2017-05-10T00:00");
+}
 ```
 ```csharp 
 [Test]
@@ -656,14 +662,30 @@ public void SetGetDateTime()
 
 ![InputTypeDateTime](../images/inputDateTimeLocal.png)
 
-Here is the list of some available methods:
+There is a type for that element is available in JDI Light, which can be found in:
+
+ - __Java__: com.epam.jdi.light.ui.html.common.DateTimeSelector
+ - __C#__: JDI.Light.Elements.Common.DateTimeSelector
+
+The list of available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**setDateTime(String)** | Sets the date and time | void
+**value()** | Get date and time | String
+**min()** | Get minimum available date and time value | String
+**max()** | Get maximum available date and time value | String
+
+Here is the list of some available methods in C# JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
 **SetDateTime(string value)** | Sets the date or time | void
 **GetValue()** | Returns the set date or time | string
 
-[Test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs)
+[Java test example](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/DateTimeTests.java)
+
+[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs)
 
 ### Input Type Range
 ```java 

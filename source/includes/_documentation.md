@@ -454,6 +454,11 @@ public void FillComboBox()
 
 ![ComboBox](../images/datalist.png)
 
+ComboBox is provided by JDI Light in:
+ 
+  - __Java__: _com.epam.jdi.light.ui.html.complex.Combobox_
+  - __C#__: _JDI.Light.Elements.Common.Combobox_
+
 Here is the list of some available methods:
 
 |Method | Description | Return Type

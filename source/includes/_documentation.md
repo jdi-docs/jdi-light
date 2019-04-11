@@ -322,6 +322,11 @@ Here is the list of some available methods in C# JDI Light:
 ### CheckList
 **CheckList** – a graphical control element representing a set of checkboxes, each of which allows the user to control a two-state parameter (enabled or disabled).
 
+Checklist element type is available in the following packages:
+ 
+ - __Java__: com.epam.jdi.light.ui.html.complex.Checklist
+ - __C__#: JDI.Light.Elements.Common.CheckList 
+
 See an example with a given HTML code describing checklist element.
 
 ```java 

@@ -1876,7 +1876,13 @@ Datalist element contains a set of options with values available for entering.</
 </tbody></table>
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs">Test examples</a></p>
-<h3 id='input-type-datetime-local'>Input Type DateTime-Local</h3><pre class="highlight java tab-java"><code><span class="n">TBD</span>
+<h3 id='input-type-datetime-local'>Input Type DateTime-Local</h3><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">static</span> <span class="n">DateTimeSelector</span> <span class="n">partyTime</span><span class="o">;</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">setDateTimeTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">partyTime</span><span class="o">.</span><span class="na">setDateTime</span><span class="o">(</span><span class="s">"2017-05-10T00:00"</span><span class="o">);</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="n">partyTime</span><span class="o">.</span><span class="na">value</span><span class="o">(),</span> <span class="s">"2017-05-10T00:00"</span><span class="o">);</span>
+<span class="o">}</span>
 </code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
 <span class="k">public</span> <span class="k">void</span> <span class="nf">SetGetDateTime</span><span class="p">()</span> 
 <span class="p">{</span>
@@ -1888,7 +1894,45 @@ Datalist element contains a set of options with values available for entering.</
 
 <p><img src="images/inputDateTimeLocal.png" alt="InputTypeDateTime" /></p>
 
-<p>Here is the list of some available methods:</p>
+<p>There is a type for that element is available in JDI Light, which can be found in:</p>
+
+<ul>
+<li><strong>Java</strong>: com.epam.jdi.light.ui.html.common.DateTimeSelector</li>
+<li><strong>C#</strong>: JDI.Light.Elements.Common.DateTimeSelector</li>
+</ul>
+
+<p>The list of available methods in Java JDI Light:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>setDateTime(String)</strong></td>
+<td>Sets the date and time</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>value()</strong></td>
+<td>Get date and time</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>min()</strong></td>
+<td>Get minimum available date and time value</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>max()</strong></td>
+<td>Get maximum available date and time value</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+<p>Here is the list of some available methods in C# JDI Light:</p>
 
 <table><thead>
 <tr>
@@ -1909,7 +1953,9 @@ Datalist element contains a set of options with values available for entering.</
 </tr>
 </tbody></table>
 
-<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs">Test examples</a></p>
+<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/DateTimeTests.java">Java test example</a></p>
+
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs">C# test examples</a></p>
 <h3 id='input-type-range'>Input Type Range</h3><pre class="highlight java tab-java"><code><span class="n">TBD</span>
 </code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
 <span class="k">public</span> <span class="k">void</span> <span class="nf">SetGetRange</span><span class="p">()</span> 

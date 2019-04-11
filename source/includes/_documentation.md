@@ -555,7 +555,7 @@ public void SetGetDateTime()
 ```
 **Input Type Date** – a graphical control element, that allows users to set the value of date.
 
-![InputTypeDate](../images/inputTypeDateWithHtml.png)
+![InputTypeDate](../images/html/inputTypeDate_html.png)
 
 Input Type Date is represented by following classes:
 

@@ -86,8 +86,6 @@ Already implemented methods:
 **Row(int rowNum)** | Sets and returns a row object of a table according to the row's index | Line
 **GetValue()** | Returns a string content of values for particular row, where values are separated by ";" | string
 
-Action > Examples:
-
 ```csharp
        
         [Test]

@@ -659,7 +659,25 @@ And here are some of the methods available in Java:
 
 ### Input Type Week
 ```java 
-TBD
+@UI("#autumn-week") 
+public static DateTimeSelector autumnWeek;
+
+    @Test
+    public void minTest() {
+        assertEquals(autumnWeek.min(), "2018-W35");
+    }
+
+    @Test
+    public void maxTest() {
+        assertEquals(autumnWeek.max(), "2018-W48");
+    }
+
+    @Test
+    public void setDateTimeTest() {
+        autumnWeek.setDateTime("2018-W12");
+        autumnWeek.show();
+        assertEquals(autumnWeek.value(), "2018-W12");
+    }
 ```
 ```csharp 
 [Test]
@@ -669,18 +687,34 @@ public void SetGetDateTime()
     MyDateTime.GetValue();
 }
 ```
-**Input Type Week** – a graphical control element, that allows the user to set the value of week and year.
+**Input Type Week** – a graphical control element, that allows users to set the value of week and year.
 
-![InputTypeWeek](../images/inputTypeWeek.png)
+![InputTypeWeek](../images/html/inputTypeWeek_html.png)
 
-Here is the list of some available methods:
+Input Type Week is represented by following classes:
+
+ - __C#__: _JDI.Light.Elements.Common.DateTimeSelector_
+ - __Java__: _com.epam.jdi.light.ui.html.common.DateTimeSelector_
+
+Here is the list of some available methods in C#:
 
 |Method | Description | Return Type
 --- | --- | ---
-**SetDateTime(string value)** | Sets the date or time | void
+**SetDateTime(string value)** | Sets a date or time | void
 **GetValue()** | Returns the set date or time | string
 
-[Test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs)
+[Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs)
+
+And here is the list of some available methods in Java:
+
+|Method | Description | Return Type
+--- | --- | ---
+**setDateTime(string value)** | Sets a date or time | void
+**value()** | Returns the set date or time | String
+**min()** | Gets attribute with name min | String
+**max()** | Gets attribute with name max | String
+
+[Test examples in Java](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/WeekTests.java)
 
 ### Input Type Month
 ```java 

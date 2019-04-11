@@ -706,8 +706,22 @@ Here is the list of some available methods in C# JDI Light:
 [C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs)
 
 ### Input Type Range
+**Input Type Range** – a graphical control element, that allows the user to set the value from the range.
+ 
+  - __Java__: _com.epam.jdi.light.ui.html.common.Range_
+  - __C#__: _JDI.Light.Elements.Common.Range_
 ```java 
-TBD
+public static Range volume;
+@UI("#volume") public static Range volume;
+
+@Test
+public void volumeTest() {
+        volume.setVolume(10);
+        assertEquals(volume.volume(), 10);
+        assertEquals(volume.max(), "100");
+        assertEquals(volume.min(), "10");
+        assertEquals(volume.step(), "5");
+    }
 ```
 ```csharp 
 [Test]
@@ -717,18 +731,22 @@ public void SetGetRange()
     MyDateTime.GetValue();
 }
 ```
-**Input Type Range** – a graphical control element, that allows the user to set the value from the range.
 
-![InputTypeDateTime](../images/range.png)
+![InputTypeDateTime](../images/rangeHtml.png)
 
-Here is the list of some available methods:
+Here is the list of available methods:
 
 |Method | Description | Return Type
 --- | --- | ---
-**SetRange(string value)** | Sets the value | void
-**GetValue()** | Returns the set date or time | string
+**setVolume(int volume)** | Sets the value | void
+**volume()** | Returns the value | int
+**max()** | Returns the max value | String
+**min()** | Returns the min value | String
+**step()** | Returns the step value | String
 
-[Test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/RangeTests.cs)
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/RangeTests.java)
+
+[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/RangeTests.cs)
 
 ### FileInput
 ```csharp

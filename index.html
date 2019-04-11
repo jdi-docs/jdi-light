@@ -395,6 +395,9 @@
                               <a href="#multiselector" class="toc-h2 h3 toc-link" data-title="MultiSelector">MultiSelector</a>
                             </li>
                             <li>
+                              <a href="#table-2" class="toc-h2 h3 toc-link" data-title="Table">Table</a>
+                            </li>
+                            <li>
                               <a href="#combobox" class="toc-h2 h3 toc-link" data-title="ComboBox">ComboBox</a>
                             </li>
                             <li>
@@ -1497,7 +1500,21 @@ Datalist element contains a set of options with values available for entering.</
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/ChecklistTests.java">Java text examples</a></p>
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/CheckListTests.cs">C# test examples</a></p>
-<h3 id='multiselector'>MultiSelector</h3><pre class="highlight java tab-java"><code><span class="n">TBD</span>
+<h3 id='multiselector'>MultiSelector</h3><pre class="highlight java tab-java"><code><span class="o">[</span><span class="n">Test</span><span class="o">]</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">MultiSelectByValues</span><span class="o">()</span>
+<span class="o">{</span>
+    <span class="n">var</span> <span class="n">toSelect</span> <span class="o">=</span> <span class="k">new</span><span class="o">[]</span> <span class="o">{</span><span class="n">Ages</span><span class="o">.</span><span class="na">Metalic</span><span class="o">.</span><span class="na">ToString</span><span class="o">(),</span> <span class="n">Ages</span><span class="o">.</span><span class="na">Electro</span><span class="o">.</span><span class="na">ToString</span><span class="o">()};</span>
+    <span class="n">TestSite</span><span class="o">.</span><span class="na">Html5Page</span><span class="o">.</span><span class="na">AgeSelector</span><span class="o">.</span><span class="na">Select</span><span class="o">(</span><span class="n">toSelect</span><span class="o">);</span>
+    <span class="n">var</span> <span class="n">selectedItems</span> <span class="o">=</span> <span class="n">TestSite</span><span class="o">.</span><span class="na">Html5Page</span><span class="o">.</span><span class="na">AgeSelector</span><span class="o">.</span><span class="na">GetSelected</span><span class="o">(</span><span class="n">Enum</span><span class="o">.</span><span class="na">GetValues</span><span class="o">(</span><span class="n">typeof</span><span class="o">(</span><span class="n">Ages</span><span class="o">)));</span>
+    <span class="n">Assert</span><span class="o">.</span><span class="na">AreEqual</span><span class="o">(</span><span class="n">selectedItems</span><span class="o">,</span> <span class="n">toSelect</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="o">[</span><span class="n">Test</span><span class="o">]</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">MultiSelectByIndexes</span><span class="o">()</span>
+<span class="o">{</span>
+     <span class="n">TestSite</span><span class="o">.</span><span class="na">Html5Page</span><span class="o">.</span><span class="na">AgeSelector</span><span class="o">.</span><span class="na">Select</span><span class="o">(</span><span class="k">new</span><span class="o">[]</span> <span class="o">{</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">4</span> <span class="o">});</span>
+     <span class="n">var</span> <span class="n">selectedItems</span> <span class="o">=</span> <span class="n">TestSite</span><span class="o">.</span><span class="na">Html5Page</span><span class="o">.</span><span class="na">AgeSelector</span><span class="o">.</span><span class="na">GetSelected</span><span class="o">(</span><span class="n">Enum</span><span class="o">.</span><span class="na">GetValues</span><span class="o">(</span><span class="n">typeof</span><span class="o">(</span><span class="n">Ages</span><span class="o">)));</span>
+      <span class="n">Assert</span><span class="o">.</span><span class="na">AreEqual</span><span class="o">(</span><span class="n">selectedItems</span><span class="o">,</span> <span class="k">new</span><span class="o">[]</span> <span class="o">{</span><span class="s">"Wood"</span><span class="o">,</span> <span class="s">"Steam"</span> <span class="o">});</span>
+<span class="o">}</span>
 </code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
 <span class="k">public</span> <span class="k">void</span> <span class="nf">MultiSelectByValues</span><span class="p">()</span> 
 <span class="p">{</span>
@@ -1509,11 +1526,17 @@ Datalist element contains a set of options with values available for entering.</
     <span class="n">MyMultiSelector</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="kt">int</span><span class="p">[]);</span>
 <span class="p">}</span>
 </code></pre>
-<p><strong>MultiSelector</strong> – a graphical control element, that allows the user to do multiple choice.</p>
+<p><strong>MultiSelector</strong> – a graphical control element, that allows the user to do multiple choice.
+Multi Selector are represented by the following class:</p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.complex.MultiSelect</em></li>
+<li><strong>C#</strong>: <em>JDI.Light.Elements.Common.MultiSelector</em></li>
+</ul>
 
 <p><img src="images/multiselector.png" alt="MultiSelector" /></p>
 
-<p>Here is the list of some available methods:</p>
+<p>Here is the list of some available methods in C# JDI Light:</p>
 
 <table><thead>
 <tr>
@@ -1539,7 +1562,42 @@ Datalist element contains a set of options with values available for entering.</
 </tr>
 </tbody></table>
 
-<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/MultiSelectorTests.cs">Test examples</a></p>
+<p>Here is the list of some available methods in Java JDI Light:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>check(String/Strings.../TEnum...)</strong></td>
+<td>Select multiselector by values</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>uncheck(Strings.../TEnum.../int)</strong></td>
+<td>Select multiselector by values/indexes</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>selected()</strong></td>
+<td>Get selected values</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>checked()</strong></td>
+<td>Get selected values</td>
+<td>List<String></td>
+</tr>
+</tbody></table>
+
+<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/MultiSelectorTests.java">Java text examples</a></p>
+
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/MultiSelectorTests.cs">C# test examples</a></p>
+<h3 id='table-2'>Table</h3>
+<p>[Test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JD</p>
 <h3 id='combobox'>ComboBox</h3><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">static</span> <span class="n">Combobox</span> <span class="n">iceCream</span><span class="o">;</span>
 <span class="nd">@UI</span><span class="o">(</span><span class="s">"#ice-cream"</span><span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">DataList</span> <span class="n">iceCreamDataList</span><span class="o">;</span>
 

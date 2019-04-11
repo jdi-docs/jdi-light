@@ -517,10 +517,6 @@ ComboBox is provided by JDI Light in:
   - __Java__: _com.epam.jdi.light.ui.html.complex.Combobox_
   - __C#__: _JDI.Light.Elements.Common.Combobox_
 
-Have a look at the following example with provided HTML code:  
-
-![Datalist example](../images/html/datalist_html.png)
-
 ```java 
 public static Combobox iceCream;
 @UI("#ice-cream") public static DataList iceCreamDataList;
@@ -575,6 +571,10 @@ public void FillComboBox()
     SubmitButton.Click();
 }
 ```
+
+Have a look at the following example with provided HTML code:  
+
+![Datalist example](../images/html/datalist_html.png)
 
 The list of available methods in Java JDI Light:
 
@@ -858,6 +858,43 @@ Here is the list of available methods:
 [C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/RangeTests.cs)
 
 ### FileInput
+
+**FileInput** - a grafical control element, that allows the user to upload documents on the web site
+
+![FileInput](../images/fileinput.png)
+
+FileInput element is located in JDI Light in:
+
+  - __Java__: _com.epam.jdi.light.ui.html.common.FileInput_
+  - __C#__: _JDI.Light.Elements.Composite.FileInput_
+
+```java 
+public static FileInput avatar;
+@UI("input[type=file][disabled]") public static FileInput disabledFileInput;
+@UI("[download]") public static Link downloadJdiLogo;
+
+@Test
+public void uploadTest() {
+    avatar.uploadFile(mergePath(PROJECT_PATH,"/src/test/resources/general.xml"));
+    avatar.is().text(containsString("general.xml"));
+    assertTrue(avatar.getText().contains("general.xml"));
+    assertTrue(avatar.getValue().contains("general.xml"));
+    try {
+        disabledFileInput.uploadFile(mergePath(PROJECT_PATH, "/src/test/resources/general.xml"));
+    } catch (Exception ignore) {}
+    disabledFileInput.is().text(is(""));
+}
+@Test
+public void downloadTest() {
+    if (isFireFox()) return;
+    cleanupDownloads();
+    downloadJdiLogo.click();
+    assertThatFile("jdi-logo.jpg")
+        .isDownloaded()
+        .hasSize(is(32225L));
+    assertThatFile("jdi-logo.jpg").hasSize(greaterThan(100L));
+}
+```
 ```csharp
 [Test]
 public void FileInputTest()
@@ -865,15 +902,20 @@ public void FileInputTest()
     FileInput.SelectFile(CreateFile(filename));
 }
 ```
-**FileInput** - a grafical control element, that allows the user to upload documents on the web site
 
-![FileInput](../images/fileinput.png)
+Here is an example with provided HTML code:
+
+![FileInput example](../images/html/fileinput_html.png)
+
+Available method in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
 **SelectFile(string filepath)** |Select file to upload  | void
 
 [Test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/FileInputTests.cs)
+
+[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/FileInputTests.cs)
 
 ## Composite elements
 TBD

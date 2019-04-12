@@ -494,6 +494,8 @@ Multi Selector are represented by the following class:
  
   - __Java__: _com.epam.jdi.light.ui.html.complex.MultiSelect_
   - __C#__: _JDI.Light.Elements.Common.MultiSelector_
+  
+  
 ```java 
 public static MultiSelect ages;
 @UI("#ages") public static MultiSelect ages;
@@ -521,6 +523,8 @@ public void MultiSelectByIndexes()
     MyMultiSelector.Select(int[]);
 }
 ```
+
+
 ![MultiSelector](../images/multiSelectHtml.png)
 
 Here is the list of available methods:
@@ -883,6 +887,8 @@ Here is the list of some available methods in C# JDI Light:
  
   - __Java__: _com.epam.jdi.light.ui.html.common.Range_
   - __C#__: _JDI.Light.Elements.Common.Range_
+  
+  
 ```java 
 public static Range volume;
 @UI("#volume") public static Range volume;

@@ -814,7 +814,26 @@ And here is the list of some available methods in Java:
 
 ### Input Type Time
 ```java 
-TBD
+@UI("#booking-date") 
+// equal to @FindBy(css = "#booking-date") 
+public static DateTimeSelector bookingTime;
+
+    @Test
+    public void minTest() {
+        assertEquals(bookingTime.min(), "9:00");
+    }
+
+    @Test
+    public void maxTest() {
+        assertEquals(bookingTime.max(), "18:00");
+    }
+
+    @Test
+    public void setDateTimeTest() {
+        bookingTime.setDateTime("05:00");
+        bookingTime.show();
+        assertEquals(bookingTime.value(), "05:00");
+    }
 ```
 ```csharp 
 [Test]
@@ -826,17 +845,32 @@ public void SetGetDateTime()
 ```
 **Input Type Time** – a graphical control element, that allows the user to set the value of time.
 
-![InputTypeTime](../images/inputTime.png)
+![InputTypeTime](../images/html/inputTypeTime_html.png)
 
-Here is the list of some available methods:
+Input Type Time is represented by following classes:
+
+ - __C#__: _JDI.Light.Elements.Common.DateTimeSelector_
+ - __Java__: _com.epam.jdi.light.ui.html.common.DateTimeSelector_
+
+Here is the list of some available methods in C#:
 
 |Method | Description | Return Type
 --- | --- | ---
-**SetDateTime(string value)** | Sets the date or time | void
-**GetValue()** | Returns the set date or time | string
+**SetDateTime(string value)** | Sets time | void
+**GetValue()** | Returns the set time | string
 
-[Test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs)
+[Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs)
 
+And here is a list of some available methods in Java:
+
+|Method | Description | Return Type
+--- | --- | ---
+**setDateTime(string value)** | Sets time | void
+**value()** | Returns the set time | String
+**min()** | Gets attribute with name min | String
+**max()** | Gets attribute with name max | String
+
+[Test examples in Java](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/TimeTests.java)
 
 ### Input Type DateTime-Local
 ```java 

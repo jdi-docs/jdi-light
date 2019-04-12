@@ -636,6 +636,7 @@ Here is the list of some available methods in C# JDI Light:
 ### Input Type Date
 ```java 
 @UI("#birth-date") 
+// equal to @FindBy(css = "#birth-date") 
 public static DateTimeSelector birthDate;
 
     @Test
@@ -694,6 +695,7 @@ And here are some of the methods available in Java:
 ### Input Type Week
 ```java 
 @UI("#autumn-week") 
+// equal to @FindBy(css = "#autumn-week") 
 public static DateTimeSelector autumnWeek;
 
     @Test
@@ -753,6 +755,7 @@ And here is the list of some available methods in Java:
 ### Input Type Month
 ```java 
 @UI("#month-date") 
+// equal to @FindBy(css = "#month-date") 
 public static DateTimeSelector monthDate;
 
     @Test

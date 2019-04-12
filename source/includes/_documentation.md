@@ -700,6 +700,7 @@ List of available methods in Java JDI Light:
 --- | --- | ---
 **check(String.../Enum/int...)** |Select checkboxes | void
 **uncheck(String.../Enum/int...)** | Unselect checkboxes | void
+**uncheckAll()** | Uncheck all checkboxes | void
 **checked()** | Get selected checkbox values | List\<String>
 
 Here is the list of some available methods in C# JDI Light:

@@ -100,13 +100,6 @@ public void isValidationTest() {
     acceptConditions.is().displayed();
 }
 
-@Test
-public void labelTest() {
-    assertEquals(acceptConditions.label().getText(),
-        "Accept terms and conditions");
-    acceptConditions.label().is().text(containsString("terms and conditions"));
-    acceptConditions.label().is().text(equalToIgnoringCase("accept terms and conditions"));
-}
 ```
 ```csharp
 TBD 
@@ -156,8 +149,12 @@ FileInput element is located in JDI Light in:
 
 ```java 
 public static FileInput avatar; // @FindBy(id = "text")
-@UI("input[type=file][disabled]") public static FileInput disabledFileInput; // @FindBy(css = "input[type=file][disabled]")
-@UI("[download]") public static Link downloadJdiLogo;  // @FindBy(css = "[download]")
+
+@UI("input[type=file][disabled]") // @FindBy(css = "input[type=file][disabled]")
+public static FileInput disabledFileInput; 
+
+@UI("[download]") // @FindBy(css = "[download]")
+public static Link downloadJdiLogo;
 
 @Test
 public void uploadTest() {
@@ -172,8 +169,6 @@ public void uploadTest() {
 }
 @Test
 public void downloadTest() {
-    if (isFireFox()) return;
-    cleanupDownloads();
     downloadJdiLogo.click();
     assertThatFile("jdi-logo.jpg")
         .isDownloaded()

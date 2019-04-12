@@ -497,8 +497,8 @@ Multi Selector are represented by the following class:
   
   
 ```java 
-public static MultiSelect ages;
 @UI("#ages") public static MultiSelect ages;
+// equal to @FindBy(css = "#ages") public static MultiSelect ages;
 
 @Test
 public void checkTest() {
@@ -525,7 +525,7 @@ public void MultiSelectByIndexes()
 ```
 
 
-![MultiSelector](../images/multiSelectHtml.png)
+![MultiSelector](../images/html/multiSelectHtml.png)
 
 Here is the list of available methods:
 
@@ -893,8 +893,8 @@ Here is the list of some available methods in C# JDI Light:
   
   
 ```java 
-public static Range volume;
 @UI("#volume") public static Range volume;
+// equal to @FindBy(css = "#volume") public static Range volume;
 
 @Test
 public void volumeTest() {
@@ -914,7 +914,7 @@ public void SetGetRange()
 }
 ```
 
-![InputTypeDateTime](../images/rangeHtml.png)
+![InputTypeDateTime](../images/html/rangeHtml.png)
 
 Here is the list of available methods:
 

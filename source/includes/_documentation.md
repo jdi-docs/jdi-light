@@ -981,6 +981,12 @@ Available method in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
+**uploadFile(String)** |Select file to upload  | void
+
+Available method in C# JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
 **SelectFile(string filepath)** |Select file to upload  | void
 
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/FileUploadTests.java)

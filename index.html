@@ -1107,23 +1107,7 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
                 <span class="nf">ContainsValue</span><span class="p">(</span><span class="s">"co.uk"</span><span class="p">,</span> <span class="nf">InColumn</span><span class="p">(</span><span class="s">"Email"</span><span class="p">)));</span>
             <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="s">"Brian Meyer;(016977) 0358;mollis.nec@seddictumeleifend.co.uk;Houston"</span><span class="p">,</span>
                 <span class="n">row</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">());</span>
-        <span class="p">}</span> 
-
-        <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
-        <span class="k">public</span> <span class="k">void</span> <span class="nf">TableChainTest</span><span class="p">()</span>
-        <span class="p">{</span>            
-            <span class="n">PerformancePage</span><span class="p">.</span><span class="n">UsersTable</span><span class="p">.</span><span class="nf">AssertThat</span><span class="p">()</span>
-                <span class="p">.</span><span class="nf">Size</span><span class="p">(</span><span class="m">400</span><span class="p">)</span>
-                <span class="p">.</span><span class="nf">Size</span><span class="p">(</span><span class="n">Is</span><span class="p">.</span><span class="nf">GreaterThan</span><span class="p">(</span><span class="m">399</span><span class="p">))</span>                
-                <span class="p">.</span><span class="nf">HasRowWithValues</span><span class="p">(</span>
-                    <span class="nf">HasValue</span><span class="p">(</span><span class="s">"Brian Meyer"</span><span class="p">,</span> <span class="nf">InColumn</span><span class="p">(</span><span class="s">"Name"</span><span class="p">)),</span>
-                    <span class="nf">HasValue</span><span class="p">(</span><span class="s">"mollis.nec@seddictumeleifend.co.uk"</span><span class="p">,</span> <span class="nf">InColumn</span><span class="p">(</span><span class="s">"Email"</span><span class="p">)))</span>
-                <span class="p">.</span><span class="nf">NotEmpty</span><span class="p">()</span>
-                <span class="p">.</span><span class="nf">RowsWithValues</span><span class="p">(</span><span class="m">3</span><span class="p">,</span> <span class="nf">ContainsValue</span><span class="p">(</span><span class="s">"Baker"</span><span class="p">,</span> <span class="nf">InColumn</span><span class="p">(</span><span class="m">1</span><span class="p">)))</span>
-                <span class="p">.</span><span class="nf">HasColumn</span><span class="p">(</span><span class="s">"Email"</span><span class="p">)</span>
-                <span class="p">.</span><span class="nf">HasColumns</span><span class="p">(</span><span class="k">new</span><span class="p">[]</span> <span class="p">{</span><span class="s">"Name"</span><span class="p">,</span> <span class="s">"City"</span><span class="p">})</span>
-                <span class="p">.</span><span class="nf">Columns</span><span class="p">(</span><span class="n">Is</span><span class="p">.</span><span class="nf">SubsequenceOf</span><span class="p">(</span><span class="k">new</span><span class="p">[]</span> <span class="p">{</span><span class="s">"Name"</span><span class="p">,</span> <span class="s">"City"</span><span class="p">,</span> <span class="s">"Phone"</span><span class="p">,</span> <span class="s">"Email"</span><span class="p">,</span> <span class="s">"Address"</span><span class="p">}));</span>
-        <span class="p">}</span>       
+        <span class="p">}</span>   
 </code></pre>
 <p>Already implemented methods:</p>
 
@@ -1142,6 +1126,11 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 <tr>
 <td><strong>Is()</strong></td>
 <td>Applicable for performing assert actions for tables</td>
+<td>TableAssert</td>
+</tr>
+<tr>
+<td><strong>HasRowWithValues(params TableMatcher[] matchers)</strong></td>
+<td>Asserts whether a row with particular matchers exists in a table</td>
 <td>TableAssert</td>
 </tr>
 <tr>
@@ -1178,62 +1167,6 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 <td><strong>GetValue()</strong></td>
 <td>Returns a string content of values for particular row, where values are separated by &quot;;&quot;</td>
 <td>string</td>
-</tr>
-</tbody></table>
-
-<p>AssertTable methods:</p>
-
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>Empty()</strong></td>
-<td>Asserts whether table is empty</td>
-<td>TableAssert</td>
-</tr>
-<tr>
-<td><strong>NotEmpty()</strong></td>
-<td>Asserts whether table is not empty</td>
-<td>TableAssert</td>
-</tr>
-<tr>
-<td><strong>Size(Matcher<int> condition)</strong></td>
-<td>Asserts whether table size satisfy some matcher</td>
-<td>TableAssert</td>
-</tr>
-<tr>
-<td><strong>Size(int expectedSize)</strong></td>
-<td>Asserts whether table has particular size</td>
-<td>TableAssert</td>
-</tr>
-<tr>
-<td><strong>HasColumn(string column)</strong></td>
-<td>Asserts whether table has particular header</td>
-<td>TableAssert</td>
-</tr>
-<tr>
-<td><strong>HasColumns(IEnumerable<string> columns)</strong></td>
-<td>Asserts whether table has particular headers</td>
-<td>TableAssert</td>
-</tr>
-<tr>
-<td><strong>Columns(Matcher<IEnumerable<string>&gt; condition)</strong></td>
-<td>Asserts whether headers satisfy some matcher</td>
-<td>TableAssert</td>
-</tr>
-<tr>
-<td><strong>RowsWithValues(int count, params TableMatcher[] matchers)</strong></td>
-<td>Asserts whether rows with particular matchers exist in a table multiple times</td>
-<td>TableAssert</td>
-</tr>
-<tr>
-<td><strong>HasRowWithValues(params TableMatcher[] matchers)</strong></td>
-<td>Asserts whether a row with particular matchers exists in a table</td>
-<td>TableAssert</td>
 </tr>
 </tbody></table>
 
@@ -2080,25 +2013,7 @@ public void MultiSelectByIndexes()
 </tbody></table>
 
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/WeekTests.java">Test examples in Java</a></p>
-<h3 id='input-type-month'>Input Type Month</h3><pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#month-date"</span><span class="o">)</span> 
-<span class="kd">public</span> <span class="kd">static</span> <span class="n">DateTimeSelector</span> <span class="n">monthDate</span><span class="o">;</span>
-
-    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">minTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">assertEquals</span><span class="o">(</span><span class="n">monthDate</span><span class="o">.</span><span class="na">min</span><span class="o">(),</span> <span class="s">"2015-03"</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">maxTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">assertEquals</span><span class="o">(</span><span class="n">monthDate</span><span class="o">.</span><span class="na">max</span><span class="o">(),</span> <span class="s">"2020-12"</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setDateTimeTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">monthDate</span><span class="o">.</span><span class="na">setDateTime</span><span class="o">(</span><span class="s">"2018-10"</span><span class="o">);</span>
-        <span class="n">monthDate</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
-        <span class="n">assertEquals</span><span class="o">(</span><span class="n">monthDate</span><span class="o">.</span><span class="na">value</span><span class="o">(),</span> <span class="s">"2018-10"</span><span class="o">);</span>
-    <span class="o">}</span>
+<h3 id='input-type-month'>Input Type Month</h3><pre class="highlight java tab-java"><code><span class="n">TBD</span>
 </code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
 <span class="k">public</span> <span class="k">void</span> <span class="nf">SetGetDateTime</span><span class="p">()</span> 
 <span class="p">{</span>
@@ -2106,18 +2021,11 @@ public void MultiSelectByIndexes()
     <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">();</span>
 <span class="p">}</span>
 </code></pre>
-<p><strong>Input Type Month</strong> – a graphical control element, that allows users to set the value of month and year.</p>
+<p><strong>Input Type Month</strong> – a graphical control element, that allows the user to set the value of month and year.</p>
 
-<p><img src="images/html/inputTypeMonth_html.png" alt="InputTypeMonth" /></p>
+<p><img src="images/inputTypeMonth.png" alt="InputTypeMonth" /></p>
 
-<p>Input Type Month is represented by following classes:</p>
-
-<ul>
-<li><strong>C#</strong>: <em>JDI.Light.Elements.Common.DateTimeSelector</em></li>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.DateTimeSelector</em></li>
-</ul>
-
-<p>Here is the list of some available methods in C#:</p>
+<p>Here is the list of some available methods:</p>
 
 <table><thead>
 <tr>
@@ -2128,7 +2036,7 @@ public void MultiSelectByIndexes()
 </thead><tbody>
 <tr>
 <td><strong>SetDateTime(string value)</strong></td>
-<td>Sets a date or time</td>
+<td>Sets the date or time</td>
 <td>void</td>
 </tr>
 <tr>
@@ -2138,40 +2046,7 @@ public void MultiSelectByIndexes()
 </tr>
 </tbody></table>
 
-<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs">Test examples in C#</a></p>
-
-<p>And here is the list of some available methods in Java:</p>
-
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>setDateTime(string value)</strong></td>
-<td>Sets a date or time</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>value()</strong></td>
-<td>Returns the set date or time</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>min()</strong></td>
-<td>Gets attribute with name min</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>max()</strong></td>
-<td>Gets attribute with name max</td>
-<td>String</td>
-</tr>
-</tbody></table>
-
-<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/MonthTests.java">Test examples in Java</a></p>
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs">Test examples</a></p>
 <h3 id='input-type-time'>Input Type Time</h3><pre class="highlight java tab-java"><code><span class="n">TBD</span>
 </code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
 <span class="k">public</span> <span class="k">void</span> <span class="nf">SetGetDateTime</span><span class="p">()</span> 
@@ -2403,6 +2278,22 @@ public void SetGetRange()
 <p><img src="images/html/fileinput_html.png" alt="FileInput example" /></p>
 
 <p>Available method in Java JDI Light:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>uploadFile(String)</strong></td>
+<td>Select file to upload</td>
+<td>void</td>
+</tr>
+</tbody></table>
+
+<p>Available method in C# JDI Light:</p>
 
 <table><thead>
 <tr>

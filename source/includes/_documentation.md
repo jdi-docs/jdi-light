@@ -32,37 +32,6 @@ public void getTextTest() {
 public void getValueTest() {
     assertEquals(redButton.getValue(), text);
 }
-
-@Test
-public void isValidationTest() {
-    redButton.is().displayed();
-    redButton.is().enabled();
-    redButton.is().text(is(text));
-    redButton.is().text(containsString("Red Button"));
-    redButton.is()
-            .text(is(text))
-            .cssClass(is("uui-button red"))
-            .attr("type", is("button"))
-            .tag(is("input"));
-    blueButton.is().text(containsString("Blue Button".toUpperCase()));
-    disabledButton.is().text(containsString("Disabled Button".toUpperCase()));
-    disabledButtonInput.is().text(containsString("Disabled Button"));
-    disabledButton.is().disabled();
-}
-
-@Test
-public void suspendButtonTest() {
-    refresh();
-    suspendButton.click();
-    assertEquals(getAlertText(), "Suspend button");
-    acceptAlert();
-}
-
-@Test
-public void vanishButtonTest() {
-    refresh();
-    ghostButton.is().disappear();
-}
 ```
 ```csharp
 TBD 

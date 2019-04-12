@@ -2,7 +2,272 @@
 ## Extended Selenium features
 TBD
 
-## Simple elements
+## ~~Simple~~ Common elements
+
+### Button
+**Button** – Element that represents a clickable button
+
+![Button](../images/button.png)
+
+Button is located in the following classes:
+ 
+  - __Java__: _com.epam.jdi.light.ui.html.common.Button_
+  - __C#__: _JDI.Light.Elements.Common.Button_
+
+```java 
+public static Button blueButton, disabledButton, suspendButton, ghostButton;
+
+@UI("[value*='Red Button']") // @FindBy(css = "[value*='Red Button']")
+public static Button redButton;
+
+@UI("[value*='Disabled Button']") // @UI("input[type=button][disabled]")
+public static Button disabledButtonInput;
+
+@Test
+public void getTextTest() {
+    assertEquals(redButton.getText(), text);
+}
+
+@Test
+public void getValueTest() {
+    assertEquals(redButton.getValue(), text);
+}
+
+@Test
+public void isValidationTest() {
+    redButton.is().displayed();
+    redButton.is().enabled();
+    redButton.is().text(is(text));
+    redButton.is().text(containsString("Red Button"));
+    redButton.is()
+            .text(is(text))
+            .cssClass(is("uui-button red"))
+            .attr("type", is("button"))
+            .tag(is("input"));
+    blueButton.is().text(containsString("Blue Button".toUpperCase()));
+    disabledButton.is().text(containsString("Disabled Button".toUpperCase()));
+    disabledButtonInput.is().text(containsString("Disabled Button"));
+    disabledButton.is().disabled();
+}
+
+@Test
+public void suspendButtonTest() {
+    refresh();
+    suspendButton.click();
+    assertEquals(getAlertText(), "Suspend button");
+    acceptAlert();
+}
+
+@Test
+public void vanishButtonTest() {
+    refresh();
+    ghostButton.is().disappear();
+}
+```
+```csharp
+TBD 
+```
+
+Here is an example with provided HTML code:
+
+![Button example](../images/html/button_html.png)
+
+Available method in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**click()** |Click the button  | void
+
+Available method in C# JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ButtonTests.java)
+
+[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/ButtonTests.cs)
+
+### Checkbox
+**Checkbox** – Element allows you to select single value for submission.
+
+![Checkbox](../images/checkbox.png)
+
+Checkbox is located in the following classes:
+ 
+  - __Java__: _com.epam.jdi.light.ui.html.common.Checkbox*_
+  - __C#__: _JDI.Light.Elements.Common.CheckBox*_
+
+```java 
+public static Checkbox acceptConditions;
+
+@UI("#accept-conditions") // @FindBy(id = "accept-conditions")
+public static Checkbox acceptConditions;
+
+@Test
+public void checkTest() {
+    acceptConditions.check();
+    assertEquals(acceptConditions.isSelected(), true);
+}
+
+@Test
+public void uncheckTest() {
+    acceptConditions.uncheck();
+    assertEquals(acceptConditions.isSelected(), false);
+}
+
+@Test
+public void clickTest() {
+    assertTrue(acceptConditions.isSelected());
+    acceptConditions.click();
+    assertFalse(acceptConditions.isSelected());
+}
+
+@Test
+public void isValidationTest() {
+    acceptConditions.is().selected();
+    acceptConditions.click();
+    acceptConditions.is().deselected();
+    acceptConditions.is().enabled();
+    acceptConditions.is().displayed();
+}
+
+@Test
+public void labelTest() {
+    assertEquals(acceptConditions.label().getText(),
+        "Accept terms and conditions");
+    acceptConditions.label().is().text(containsString("terms and conditions"));
+    acceptConditions.label().is().text(equalToIgnoringCase("accept terms and conditions"));
+}
+```
+```csharp
+TBD 
+```
+
+Here is an example with provided HTML code:
+
+![Checkbox example](../images/html/checkbox_html.png)
+
+Available methods in Java JDI Light:
+
+|Methods | Description | Return Type
+--- | --- | ---
+**click()** | Click the checkbox  | void
+**check(String)**| Set to checked on "true" (case insensitive) or unchecked otherwise | void
+**check()**| Set to checked | void
+**uncheck()**| Set to unchecked | void
+**isSelected()** | Verify value | boolean 
+**assertThat()** | Assert action checkbox | CheckboxAssert
+**is()** | Assert action checkbox | CheckboxAssert
+
+Available methods in C# JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/CheckboxTests.java)
+
+[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/CheckBoxTests.cs)
+
+### ColorPicker
+TBD
+
+### DateTimeSelector
+TBD
+
+### FileInput
+
+**FileInput** - a grafical control element, that allows the user to upload documents on the web site
+
+![FileInput](../images/fileinput.png)
+
+FileInput element is located in JDI Light in:
+
+  - __Java__: _com.epam.jdi.light.ui.html.common.FileInput_
+  - __C#__: _JDI.Light.Elements.Composite.FileInput_
+
+```java 
+public static FileInput avatar; // @FindBy(id = "text")
+@UI("input[type=file][disabled]") public static FileInput disabledFileInput; // @FindBy(css = "input[type=file][disabled]")
+@UI("[download]") public static Link downloadJdiLogo;  // @FindBy(css = "[download]")
+
+@Test
+public void uploadTest() {
+    avatar.uploadFile(mergePath(PROJECT_PATH,"/src/test/resources/general.xml"));
+    avatar.is().text(containsString("general.xml"));
+    assertTrue(avatar.getText().contains("general.xml"));
+    assertTrue(avatar.getValue().contains("general.xml"));
+    try {
+        disabledFileInput.uploadFile(mergePath(PROJECT_PATH, "/src/test/resources/general.xml"));
+    } catch (Exception ignore) {}
+    disabledFileInput.is().text(is(""));
+}
+@Test
+public void downloadTest() {
+    if (isFireFox()) return;
+    cleanupDownloads();
+    downloadJdiLogo.click();
+    assertThatFile("jdi-logo.jpg")
+        .isDownloaded()
+        .hasSize(is(32225L));
+    assertThatFile("jdi-logo.jpg").hasSize(greaterThan(100L));
+}
+```
+```csharp
+[Test]
+public void FileInputTest()
+{
+    FileInput.SelectFile(CreateFile(filename));
+}
+```
+
+Here is an example with provided HTML code:
+
+![FileInput example](../images/html/fileinput_html.png)
+
+Available method in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**uploadFile(String)** |Select file to upload  | void
+
+Available method in C# JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**SelectFile(string filepath)** |Select file to upload  | void
+
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/FileUploadTests.java)
+
+[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/FileInputTests.cs)
+
+### Icon
+TBD
+
+### Image
+TBD
+
+### Link
+TBD
+
+### NumberSelector
+TBD
+
+### ProgressBar
+TBD
+
+### Range
+TBD
+
+### Text
+TBD
+
+### TextArea
+TBD
+
+### TextField
+TBD
+
+### Title
 TBD
 
 ## Complex elements
@@ -542,7 +807,8 @@ Here is the list of available methods:
 
 ### ComboBox
 
-**ComboBox** – a graphical control element, that allows the user to choose one value from a list or enter it by himself (is inherited from the DataList).
+**ComboBox** – a graphical control element, that allows the user to choose one
+ value from a list or enter it by himself (is inherited from the [Datalist](#datalist))
 
 ![ComboBox](../images/icecreamdatalist.png)
 
@@ -553,7 +819,10 @@ ComboBox is provided by JDI Light in:
 
 ```java 
 public static Combobox iceCream;
-@UI("#ice-cream") public static DataList iceCreamDataList;
+
+@UI("#ice-cream") // @FindBy(id = "ice-cream")
+public static DataList iceCreamDataList;
+
   
 @Test
 public void selectTest() {
@@ -608,7 +877,7 @@ public void FillComboBox()
 
 Have a look at the following example with provided HTML code:  
 
-![Datalist example](../images/html/datalist_html.png)
+![Combobox example](../images/html/datalist_html.png)
 
 The list of available methods in Java JDI Light:
 
@@ -929,72 +1198,6 @@ Here is the list of available methods:
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/RangeTests.java)
 
 [C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/RangeTests.cs)
-
-### FileInput
-
-**FileInput** - a grafical control element, that allows the user to upload documents on the web site
-
-![FileInput](../images/fileinput.png)
-
-FileInput element is located in JDI Light in:
-
-  - __Java__: _com.epam.jdi.light.ui.html.common.FileInput_
-  - __C#__: _JDI.Light.Elements.Composite.FileInput_
-
-```java 
-public static FileInput avatar;
-@UI("input[type=file][disabled]") public static FileInput disabledFileInput;
-@UI("[download]") public static Link downloadJdiLogo;
-
-@Test
-public void uploadTest() {
-    avatar.uploadFile(mergePath(PROJECT_PATH,"/src/test/resources/general.xml"));
-    avatar.is().text(containsString("general.xml"));
-    assertTrue(avatar.getText().contains("general.xml"));
-    assertTrue(avatar.getValue().contains("general.xml"));
-    try {
-        disabledFileInput.uploadFile(mergePath(PROJECT_PATH, "/src/test/resources/general.xml"));
-    } catch (Exception ignore) {}
-    disabledFileInput.is().text(is(""));
-}
-@Test
-public void downloadTest() {
-    if (isFireFox()) return;
-    cleanupDownloads();
-    downloadJdiLogo.click();
-    assertThatFile("jdi-logo.jpg")
-        .isDownloaded()
-        .hasSize(is(32225L));
-    assertThatFile("jdi-logo.jpg").hasSize(greaterThan(100L));
-}
-```
-```csharp
-[Test]
-public void FileInputTest()
-{
-    FileInput.SelectFile(CreateFile(filename));
-}
-```
-
-Here is an example with provided HTML code:
-
-![FileInput example](../images/html/fileinput_html.png)
-
-Available method in Java JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
-**uploadFile(String)** |Select file to upload  | void
-
-Available method in C# JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
-**SelectFile(string filepath)** |Select file to upload  | void
-
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/FileUploadTests.java)
-
-[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/FileInputTests.cs)
 
 ## Composite elements
 TBD

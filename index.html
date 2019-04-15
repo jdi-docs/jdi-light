@@ -392,6 +392,12 @@
                               <a href="#input-type-time" class="toc-h2 h3 toc-link" data-title="Input Type Time">Input Type Time</a>
                             </li>
                             <li>
+                              <a href="#input-type-datetime-local" class="toc-h2 h3 toc-link" data-title="Input Type DateTime-Local">Input Type DateTime-Local</a>
+                            </li>
+                            <li>
+                              <a href="#input-type-range" class="toc-h2 h3 toc-link" data-title="Input Type Range">Input Type Range</a>
+                            </li>
+                            <li>
                               <a href="#fileinput" class="toc-h2 h3 toc-link" data-title="FileInput">FileInput</a>
                             </li>
                             <li>
@@ -452,12 +458,6 @@
                             </li>
                             <li>
                               <a href="#combobox" class="toc-h2 h3 toc-link" data-title="ComboBox">ComboBox</a>
-                            </li>
-                            <li>
-                              <a href="#input-type-datetime-local" class="toc-h2 h3 toc-link" data-title="Input Type DateTime-Local">Input Type DateTime-Local</a>
-                            </li>
-                            <li>
-                              <a href="#input-type-range" class="toc-h2 h3 toc-link" data-title="Input Type Range">Input Type Range</a>
                             </li>
                         </ul>
                   </li>
@@ -1653,6 +1653,152 @@ Available methods in C# JDI Light:
 </tbody></table>
 
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/TimeTests.java">Test examples in Java</a></p>
+<h3 id='input-type-datetime-local'>Input Type DateTime-Local</h3><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">static</span> <span class="n">DateTimeSelector</span> <span class="n">partyTime</span><span class="o">;</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">setDateTimeTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">partyTime</span><span class="o">.</span><span class="na">setDateTime</span><span class="o">(</span><span class="s">"2017-05-10T00:00"</span><span class="o">);</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="n">partyTime</span><span class="o">.</span><span class="na">value</span><span class="o">(),</span> <span class="s">"2017-05-10T00:00"</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">SetGetDateTime</span><span class="p">()</span> 
+<span class="p">{</span>
+    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">SetDateTime</span><span class="p">(</span><span class="s">"2000-01-01T12:00"</span><span class="p">);</span>
+    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre>
+<p><strong>Input Type DateTime-Local</strong> – a graphical control element, that allows the user to set the value of time and date.</p>
+
+<p><img src="images/inputDateTimeLocal.png" alt="InputTypeDateTime" /></p>
+
+<p>There is a type for that element is available in JDI Light, which can be found in:</p>
+
+<ul>
+<li><strong>Java</strong>: com.epam.jdi.light.ui.html.common.DateTimeSelector</li>
+<li><strong>C#</strong>: JDI.Light.Elements.Common.DateTimeSelector</li>
+</ul>
+
+<p>The list of available methods in Java JDI Light:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>setDateTime(String)</strong></td>
+<td>Sets the date and time</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>value()</strong></td>
+<td>Get date and time</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>min()</strong></td>
+<td>Get minimum available date and time value</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>max()</strong></td>
+<td>Get maximum available date and time value</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+<p>Here is the list of some available methods in C# JDI Light:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>SetDateTime(string value)</strong></td>
+<td>Sets the date or time</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>GetValue()</strong></td>
+<td>Returns the set date or time</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/DateTimeTests.java">Java test example</a></p>
+
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs">C# test examples</a></p>
+<h3 id='input-type-range'>Input Type Range</h3>
+<p><strong>Input Type Range</strong> – a graphical control element, that allows the user to set the value from the range.</p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.Range</em></li>
+<li><strong>C#</strong>: <em>JDI.Light.Elements.Common.Range</em></li>
+</ul>
+<pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#volume"</span><span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">Range</span> <span class="n">volume</span><span class="o">;</span>
+<span class="c1">// equal to @FindBy(css = "#volume") public static Range volume;</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">volumeTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">volume</span><span class="o">.</span><span class="na">setVolume</span><span class="o">(</span><span class="mi">10</span><span class="o">);</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">volume</span><span class="o">.</span><span class="na">volume</span><span class="o">(),</span> <span class="mi">10</span><span class="o">);</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">volume</span><span class="o">.</span><span class="na">max</span><span class="o">(),</span> <span class="s">"100"</span><span class="o">);</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">volume</span><span class="o">.</span><span class="na">min</span><span class="o">(),</span> <span class="s">"10"</span><span class="o">);</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">volume</span><span class="o">.</span><span class="na">step</span><span class="o">(),</span> <span class="s">"5"</span><span class="o">);</span>
+    <span class="o">}</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">SetGetRange</span><span class="p">()</span> 
+<span class="p">{</span>
+    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">SetRange</span><span class="p">(</span><span class="s">"50"</span><span class="p">);</span>
+    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre>
+<p><img src="images/html/rangeHtml.png" alt="InputTypeDateTime" /></p>
+
+<p>Here is the list of available methods:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>setVolume(int volume)</strong></td>
+<td>Sets the value</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>volume()</strong></td>
+<td>Returns the value</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>max()</strong></td>
+<td>Returns the max value</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>min()</strong></td>
+<td>Returns the min value</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>step()</strong></td>
+<td>Returns the step value</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/RangeTests.java">Java test examples</a></p>
+
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/RangeTests.cs">C# test examples</a></p>
 <h3 id='fileinput'>FileInput</h3>
 <p><strong>FileInput</strong> - a grafical control element, that allows the user to upload documents on the web site</p>
 
@@ -2671,152 +2817,6 @@ Multi Selector are represented by the following class:</p>
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/ComboboxTests.java">Java test examples</a></p>
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/ComboBoxTests.cs">C# test examples</a></p>
-<h3 id='input-type-datetime-local'>Input Type DateTime-Local</h3><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">static</span> <span class="n">DateTimeSelector</span> <span class="n">partyTime</span><span class="o">;</span>
-
-<span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">setDateTimeTest</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">partyTime</span><span class="o">.</span><span class="na">setDateTime</span><span class="o">(</span><span class="s">"2017-05-10T00:00"</span><span class="o">);</span>
-    <span class="n">assertEquals</span><span class="o">(</span><span class="n">partyTime</span><span class="o">.</span><span class="na">value</span><span class="o">(),</span> <span class="s">"2017-05-10T00:00"</span><span class="o">);</span>
-<span class="o">}</span>
-</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">SetGetDateTime</span><span class="p">()</span> 
-<span class="p">{</span>
-    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">SetDateTime</span><span class="p">(</span><span class="s">"2000-01-01T12:00"</span><span class="p">);</span>
-    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">();</span>
-<span class="p">}</span>
-</code></pre>
-<p><strong>Input Type DateTime-Local</strong> – a graphical control element, that allows the user to set the value of time and date.</p>
-
-<p><img src="images/inputDateTimeLocal.png" alt="InputTypeDateTime" /></p>
-
-<p>There is a type for that element is available in JDI Light, which can be found in:</p>
-
-<ul>
-<li><strong>Java</strong>: com.epam.jdi.light.ui.html.common.DateTimeSelector</li>
-<li><strong>C#</strong>: JDI.Light.Elements.Common.DateTimeSelector</li>
-</ul>
-
-<p>The list of available methods in Java JDI Light:</p>
-
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>setDateTime(String)</strong></td>
-<td>Sets the date and time</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>value()</strong></td>
-<td>Get date and time</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>min()</strong></td>
-<td>Get minimum available date and time value</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>max()</strong></td>
-<td>Get maximum available date and time value</td>
-<td>String</td>
-</tr>
-</tbody></table>
-
-<p>Here is the list of some available methods in C# JDI Light:</p>
-
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>SetDateTime(string value)</strong></td>
-<td>Sets the date or time</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>GetValue()</strong></td>
-<td>Returns the set date or time</td>
-<td>string</td>
-</tr>
-</tbody></table>
-
-<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/DateTimeTests.java">Java test example</a></p>
-
-<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs">C# test examples</a></p>
-<h3 id='input-type-range'>Input Type Range</h3>
-<p><strong>Input Type Range</strong> – a graphical control element, that allows the user to set the value from the range.</p>
-
-<ul>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.Range</em></li>
-<li><strong>C#</strong>: <em>JDI.Light.Elements.Common.Range</em></li>
-</ul>
-<pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#volume"</span><span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">Range</span> <span class="n">volume</span><span class="o">;</span>
-<span class="c1">// equal to @FindBy(css = "#volume") public static Range volume;</span>
-
-<span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">volumeTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">volume</span><span class="o">.</span><span class="na">setVolume</span><span class="o">(</span><span class="mi">10</span><span class="o">);</span>
-        <span class="n">assertEquals</span><span class="o">(</span><span class="n">volume</span><span class="o">.</span><span class="na">volume</span><span class="o">(),</span> <span class="mi">10</span><span class="o">);</span>
-        <span class="n">assertEquals</span><span class="o">(</span><span class="n">volume</span><span class="o">.</span><span class="na">max</span><span class="o">(),</span> <span class="s">"100"</span><span class="o">);</span>
-        <span class="n">assertEquals</span><span class="o">(</span><span class="n">volume</span><span class="o">.</span><span class="na">min</span><span class="o">(),</span> <span class="s">"10"</span><span class="o">);</span>
-        <span class="n">assertEquals</span><span class="o">(</span><span class="n">volume</span><span class="o">.</span><span class="na">step</span><span class="o">(),</span> <span class="s">"5"</span><span class="o">);</span>
-    <span class="o">}</span>
-</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">SetGetRange</span><span class="p">()</span> 
-<span class="p">{</span>
-    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">SetRange</span><span class="p">(</span><span class="s">"50"</span><span class="p">);</span>
-    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">();</span>
-<span class="p">}</span>
-</code></pre>
-<p><img src="images/html/rangeHtml.png" alt="InputTypeDateTime" /></p>
-
-<p>Here is the list of available methods:</p>
-
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>setVolume(int volume)</strong></td>
-<td>Sets the value</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>volume()</strong></td>
-<td>Returns the value</td>
-<td>int</td>
-</tr>
-<tr>
-<td><strong>max()</strong></td>
-<td>Returns the max value</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>min()</strong></td>
-<td>Returns the min value</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>step()</strong></td>
-<td>Returns the step value</td>
-<td>String</td>
-</tr>
-</tbody></table>
-
-<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/RangeTests.java">Java test examples</a></p>
-
-<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/RangeTests.cs">C# test examples</a></p>
 <h2 id='composite-elements'>Composite elements</h2>
 <p>TBD</p>
 <h2 id='ui-objects'>UI Objects</h2>

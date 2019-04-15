@@ -116,7 +116,9 @@ Available methods in C# JDI Light:
 Colorpicker is located in the following classes:
 
   - __Java__: _com.epam.jdi.light.ui.html.common.ColorPicker*_
-<!--- - __C#__: _JDI.Light.Elements.Common.ColorPicker*_ -->
+<!---
+- __C#__: _JDI.Light.Elements.Common.ColorPicker*_ 
+-->
 
 ```java 
 @UI("#color-picker") // @FindBy(id = "color-picker")
@@ -562,7 +564,9 @@ TBD
 ProgressBar is located in the following classes:
  
   - __Java__: _com.epam.jdi.light.ui.html.common.ProgressBar_
-<!--- - __C#__: _JDI.Light.Elements.Common.ProgressBar_ -->
+<!--- 
+- __C#__: _JDI.Light.Elements.Common.ProgressBar_
+ -->
 
 ```java 
 @UI("#progress") // @FindBy(id = "progress")

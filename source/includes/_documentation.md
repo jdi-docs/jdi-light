@@ -133,8 +133,245 @@ Available methods in C# JDI Light:
 ### ColorPicker
 TBD
 
-### DateTimeSelector
-TBD
+### Input Type Date
+```java 
+@UI("#birth-date") 
+// equal to @FindBy(css = "#birth-date") 
+public static DateTimeSelector birthDate;
+
+    @Test
+    public void setDateTimeTest() {
+        birthDate.setDateTime("2018-11-13");
+        assertEquals(birthDate.value(), "2018-11-13");
+    }
+    
+    @Test
+     public void minTest() {
+            assertEquals(birthDate.min(), "1970-01-01");
+     }
+    
+     @Test
+     public void maxTest() {
+            assertEquals(birthDate.max(), "2030-12-31");
+     }
+```
+```csharp 
+[Test]
+public void SetGetDateTime() 
+{
+    MyDateTime.SetDateTime("2000-01-01");
+    MyDateTime.GetValue();
+}
+```
+**Input Type Date** – a graphical control element, that allows users to set the value of date.
+
+![InputTypeDate](../images/html/inputTypeDate_html.png)
+
+Input Type Date is represented by following classes:
+
+ - __C#__: _JDI.Light.Elements.Common.DateTimeSelector_
+ - __Java__: _com.epam.jdi.light.ui.html.common.DateTimeSelector_
+
+Here is the list of some available methods in C#:
+
+|Method | Description | Return Type
+--- | --- | ---
+**SetDateTime(string value)** | Sets a date or time | void
+**GetValue()** | Returns the set date or time | string
+
+[Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs)
+
+And here are some of the methods available in Java:
+
+|Method | Description | Return Type
+--- | --- | ---
+**setDateTime(string value)** | Sets a date or time | void
+**value()** | Returns the set date or time | String
+**min()** | Gets attribute with name min | String
+**max()** | Gets attribute with name max | String
+
+[Test examples in Java](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/DateTests.java)
+
+### Input Type Week
+```java 
+@UI("#autumn-week") 
+// equal to @FindBy(css = "#autumn-week") 
+public static DateTimeSelector autumnWeek;
+
+    @Test
+    public void minTest() {
+        assertEquals(autumnWeek.min(), "2018-W35");
+    }
+
+    @Test
+    public void maxTest() {
+        assertEquals(autumnWeek.max(), "2018-W48");
+    }
+
+    @Test
+    public void setDateTimeTest() {
+        autumnWeek.setDateTime("2018-W12");
+        autumnWeek.show();
+        assertEquals(autumnWeek.value(), "2018-W12");
+    }
+```
+```csharp 
+[Test]
+public void SetGetDateTime() 
+{
+    MyDateTime.SetDateTime("2019-W11");
+    MyDateTime.GetValue();
+}
+```
+**Input Type Week** – a graphical control element, that allows users to set the value of week and year.
+
+![InputTypeWeek](../images/html/inputTypeWeek_html.png)
+
+Input Type Week is represented by following classes:
+
+ - __C#__: _JDI.Light.Elements.Common.DateTimeSelector_
+ - __Java__: _com.epam.jdi.light.ui.html.common.DateTimeSelector_
+
+Here is the list of some available methods in C#:
+
+|Method | Description | Return Type
+--- | --- | ---
+**SetDateTime(string value)** | Sets a date or time | void
+**GetValue()** | Returns the set date or time | string
+
+[Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs)
+
+And here is the list of some available methods in Java:
+
+|Method | Description | Return Type
+--- | --- | ---
+**setDateTime(string value)** | Sets a date or time | void
+**value()** | Returns the set date or time | String
+**min()** | Gets attribute with name min | String
+**max()** | Gets attribute with name max | String
+
+[Test examples in Java](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/WeekTests.java)
+
+### Input Type Month
+```java 
+@UI("#month-date") 
+// equal to @FindBy(css = "#month-date") 
+public static DateTimeSelector monthDate;
+
+    @Test
+    public void minTest() {
+        assertEquals(monthDate.min(), "2015-03");
+    }
+
+    @Test
+    public void maxTest() {
+        assertEquals(monthDate.max(), "2020-12");
+    }
+
+    @Test
+    public void setDateTimeTest() {
+        monthDate.setDateTime("2018-10");
+        monthDate.show();
+        assertEquals(monthDate.value(), "2018-10");
+    }
+```
+```csharp 
+[Test]
+public void SetGetDateTime() 
+{
+    MyDateTime.SetDateTime("2019-01");
+    MyDateTime.GetValue();
+}
+```
+**Input Type Month** – a graphical control element, that allows users to set the value of month and year.
+
+![InputTypeMonth](../images/html/inputTypeMonth_html.png)
+
+Input Type Month is represented by following classes:
+
+ - __C#__: _JDI.Light.Elements.Common.DateTimeSelector_
+ - __Java__: _com.epam.jdi.light.ui.html.common.DateTimeSelector_
+
+Here is the list of some available methods in C#:
+
+|Method | Description | Return Type
+--- | --- | ---
+**SetDateTime(string value)** | Sets a date or time | void
+**GetValue()** | Returns the set date or time | string
+
+[Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs)
+
+And here is the list of some available methods in Java:
+
+|Method | Description | Return Type
+--- | --- | ---
+**setDateTime(string value)** | Sets a date or time | void
+**value()** | Returns the set date or time | String
+**min()** | Gets attribute with name min | String
+**max()** | Gets attribute with name max | String
+
+[Test examples in Java](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/MonthTests.java)
+
+### Input Type Time
+```java 
+@UI("#booking-date") 
+// equal to @FindBy(css = "#booking-date") 
+public static DateTimeSelector bookingTime;
+
+    @Test
+    public void minTest() {
+        assertEquals(bookingTime.min(), "9:00");
+    }
+
+    @Test
+    public void maxTest() {
+        assertEquals(bookingTime.max(), "18:00");
+    }
+
+    @Test
+    public void setDateTimeTest() {
+        bookingTime.setDateTime("05:00");
+        bookingTime.show();
+        assertEquals(bookingTime.value(), "05:00");
+    }
+```
+```csharp 
+[Test]
+public void SetGetDateTime() 
+{
+    MyDateTime.SetDateTime("15:00");
+    MyDateTime.GetValue();
+}
+```
+**Input Type Time** – a graphical control element, that allows the user to set the value of time.
+
+![InputTypeTime](../images/html/inputTypeTime_html.png)
+
+Input Type Time is represented by following classes:
+
+ - __C#__: _JDI.Light.Elements.Common.DateTimeSelector_
+ - __Java__: _com.epam.jdi.light.ui.html.common.DateTimeSelector_
+
+Here is the list of some available methods in C#:
+
+|Method | Description | Return Type
+--- | --- | ---
+**SetDateTime(string value)** | Sets time | void
+**GetValue()** | Returns the set time | string
+
+[Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs)
+
+And here is a list of some available methods in Java:
+
+|Method | Description | Return Type
+--- | --- | ---
+**setDateTime(string value)** | Sets time | void
+**value()** | Returns the set time | String
+**min()** | Gets attribute with name min | String
+**max()** | Gets attribute with name max | String
+
+[Test examples in Java](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/TimeTests.java)
+
 
 ### FileInput
 
@@ -865,245 +1102,6 @@ Here is the list of some available methods in C# JDI Light:
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/ComboboxTests.java)
 
 [C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/ComboBoxTests.cs)
-
-### Input Type Date
-```java 
-@UI("#birth-date") 
-// equal to @FindBy(css = "#birth-date") 
-public static DateTimeSelector birthDate;
-
-    @Test
-    public void setDateTimeTest() {
-        birthDate.setDateTime("2018-11-13");
-        assertEquals(birthDate.value(), "2018-11-13");
-    }
-    
-    @Test
-     public void minTest() {
-            assertEquals(birthDate.min(), "1970-01-01");
-     }
-    
-     @Test
-     public void maxTest() {
-            assertEquals(birthDate.max(), "2030-12-31");
-     }
-```
-```csharp 
-[Test]
-public void SetGetDateTime() 
-{
-    MyDateTime.SetDateTime("2000-01-01");
-    MyDateTime.GetValue();
-}
-```
-**Input Type Date** – a graphical control element, that allows users to set the value of date.
-
-![InputTypeDate](../images/html/inputTypeDate_html.png)
-
-Input Type Date is represented by following classes:
-
- - __C#__: _JDI.Light.Elements.Common.DateTimeSelector_
- - __Java__: _com.epam.jdi.light.ui.html.common.DateTimeSelector_
-
-Here is the list of some available methods in C#:
-
-|Method | Description | Return Type
---- | --- | ---
-**SetDateTime(string value)** | Sets a date or time | void
-**GetValue()** | Returns the set date or time | string
-
-[Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs)
-
-And here are some of the methods available in Java:
-
-|Method | Description | Return Type
---- | --- | ---
-**setDateTime(string value)** | Sets a date or time | void
-**value()** | Returns the set date or time | String
-**min()** | Gets attribute with name min | String
-**max()** | Gets attribute with name max | String
-
-[Test examples in Java](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/DateTests.java)
-
-### Input Type Week
-```java 
-@UI("#autumn-week") 
-// equal to @FindBy(css = "#autumn-week") 
-public static DateTimeSelector autumnWeek;
-
-    @Test
-    public void minTest() {
-        assertEquals(autumnWeek.min(), "2018-W35");
-    }
-
-    @Test
-    public void maxTest() {
-        assertEquals(autumnWeek.max(), "2018-W48");
-    }
-
-    @Test
-    public void setDateTimeTest() {
-        autumnWeek.setDateTime("2018-W12");
-        autumnWeek.show();
-        assertEquals(autumnWeek.value(), "2018-W12");
-    }
-```
-```csharp 
-[Test]
-public void SetGetDateTime() 
-{
-    MyDateTime.SetDateTime("2019-W11");
-    MyDateTime.GetValue();
-}
-```
-**Input Type Week** – a graphical control element, that allows users to set the value of week and year.
-
-![InputTypeWeek](../images/html/inputTypeWeek_html.png)
-
-Input Type Week is represented by following classes:
-
- - __C#__: _JDI.Light.Elements.Common.DateTimeSelector_
- - __Java__: _com.epam.jdi.light.ui.html.common.DateTimeSelector_
-
-Here is the list of some available methods in C#:
-
-|Method | Description | Return Type
---- | --- | ---
-**SetDateTime(string value)** | Sets a date or time | void
-**GetValue()** | Returns the set date or time | string
-
-[Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs)
-
-And here is the list of some available methods in Java:
-
-|Method | Description | Return Type
---- | --- | ---
-**setDateTime(string value)** | Sets a date or time | void
-**value()** | Returns the set date or time | String
-**min()** | Gets attribute with name min | String
-**max()** | Gets attribute with name max | String
-
-[Test examples in Java](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/WeekTests.java)
-
-### Input Type Month
-```java 
-@UI("#month-date") 
-// equal to @FindBy(css = "#month-date") 
-public static DateTimeSelector monthDate;
-
-    @Test
-    public void minTest() {
-        assertEquals(monthDate.min(), "2015-03");
-    }
-
-    @Test
-    public void maxTest() {
-        assertEquals(monthDate.max(), "2020-12");
-    }
-
-    @Test
-    public void setDateTimeTest() {
-        monthDate.setDateTime("2018-10");
-        monthDate.show();
-        assertEquals(monthDate.value(), "2018-10");
-    }
-```
-```csharp 
-[Test]
-public void SetGetDateTime() 
-{
-    MyDateTime.SetDateTime("2019-01");
-    MyDateTime.GetValue();
-}
-```
-**Input Type Month** – a graphical control element, that allows users to set the value of month and year.
-
-![InputTypeMonth](../images/html/inputTypeMonth_html.png)
-
-Input Type Month is represented by following classes:
-
- - __C#__: _JDI.Light.Elements.Common.DateTimeSelector_
- - __Java__: _com.epam.jdi.light.ui.html.common.DateTimeSelector_
-
-Here is the list of some available methods in C#:
-
-|Method | Description | Return Type
---- | --- | ---
-**SetDateTime(string value)** | Sets a date or time | void
-**GetValue()** | Returns the set date or time | string
-
-[Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs)
-
-And here is the list of some available methods in Java:
-
-|Method | Description | Return Type
---- | --- | ---
-**setDateTime(string value)** | Sets a date or time | void
-**value()** | Returns the set date or time | String
-**min()** | Gets attribute with name min | String
-**max()** | Gets attribute with name max | String
-
-[Test examples in Java](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/MonthTests.java)
-
-### Input Type Time
-```java 
-@UI("#booking-date") 
-// equal to @FindBy(css = "#booking-date") 
-public static DateTimeSelector bookingTime;
-
-    @Test
-    public void minTest() {
-        assertEquals(bookingTime.min(), "9:00");
-    }
-
-    @Test
-    public void maxTest() {
-        assertEquals(bookingTime.max(), "18:00");
-    }
-
-    @Test
-    public void setDateTimeTest() {
-        bookingTime.setDateTime("05:00");
-        bookingTime.show();
-        assertEquals(bookingTime.value(), "05:00");
-    }
-```
-```csharp 
-[Test]
-public void SetGetDateTime() 
-{
-    MyDateTime.SetDateTime("15:00");
-    MyDateTime.GetValue();
-}
-```
-**Input Type Time** – a graphical control element, that allows the user to set the value of time.
-
-![InputTypeTime](../images/html/inputTypeTime_html.png)
-
-Input Type Time is represented by following classes:
-
- - __C#__: _JDI.Light.Elements.Common.DateTimeSelector_
- - __Java__: _com.epam.jdi.light.ui.html.common.DateTimeSelector_
-
-Here is the list of some available methods in C#:
-
-|Method | Description | Return Type
---- | --- | ---
-**SetDateTime(string value)** | Sets time | void
-**GetValue()** | Returns the set time | string
-
-[Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs)
-
-And here is a list of some available methods in Java:
-
-|Method | Description | Return Type
---- | --- | ---
-**setDateTime(string value)** | Sets time | void
-**value()** | Returns the set time | String
-**min()** | Gets attribute with name min | String
-**max()** | Gets attribute with name max | String
-
-[Test examples in Java](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/TimeTests.java)
 
 ### Input Type DateTime-Local
 ```java 

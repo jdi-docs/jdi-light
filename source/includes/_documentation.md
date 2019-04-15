@@ -207,7 +207,7 @@ Here is the list of some available methods in C#:
 **SetDateTime(string value)** | Sets a date or time | void
 **GetValue()** | Returns the set date or time | string
 
-[Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs)
+[Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/DateTimeTests.cs)
 
 And here are some of the methods available in Java:
 
@@ -267,7 +267,7 @@ Here is the list of some available methods in C#:
 **SetDateTime(string value)** | Sets a date or time | void
 **GetValue()** | Returns the set date or time | string
 
-[Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs)
+[Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/DateTimeTests.cs)
 
 And here is the list of some available methods in Java:
 
@@ -327,7 +327,7 @@ Here is the list of some available methods in C#:
 **SetDateTime(string value)** | Sets a date or time | void
 **GetValue()** | Returns the set date or time | string
 
-[Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs)
+[Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/DateTimeTests.cs)
 
 And here is the list of some available methods in Java:
 
@@ -387,7 +387,7 @@ Here is the list of some available methods in C#:
 **SetDateTime(string value)** | Sets time | void
 **GetValue()** | Returns the set time | string
 
-[Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs)
+[Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/DateTimeTests.cs)
 
 And here is a list of some available methods in Java:
 
@@ -690,11 +690,183 @@ TBD
 ### Text
 TBD
 
-### TextArea
-TBD
-
 ### TextField
-TBD
+```java 
+@UI("#name") 
+// same as @FindBy(css = "#name")
+public static TextField name;
+
+    @Test
+    public void sendKeysTest() {
+        name.sendKeys("Test");
+        assertEquals(name.getValue(), text+"Test");
+    }
+
+    @Test
+    public void inputTest() {
+        name.input("New text");
+        assertEquals(name.getText(), "New text");
+    }
+
+    @Test
+    public void clearTest() {
+        name.clear();
+        assertEquals(name.getText(), "");
+    }
+
+    @Test
+    public void placeholderTest() {
+        assertEquals(name.placeholder(), "Input name");
+    }
+```
+```csharp 
+[FindBy(Id = "name")]
+public TextField NameField;
+        
+        [Test]
+        public void InputTest()
+        {
+            TestSite.ContactFormPage.NameField.Input(ToAddText);
+            Jdi.Assert.AreEquals(TestSite.ContactFormPage.NameField.Value, _defaultText + ToAddText);
+        }
+        
+        [Test]
+        public void SendKeyTest()
+        {
+            TestSite.ContactFormPage.NameField.SendKeys(ToAddText);
+            Jdi.Assert.AreEquals(TestSite.ContactFormPage.NameField.Value, _defaultText + ToAddText);
+        }
+
+        [Test]
+        public void NewInputTest()
+        {
+            TestSite.ContactFormPage.NameField.NewInput(ToAddText);
+            Jdi.Assert.AreEquals(TestSite.ContactFormPage.NameField.Value, ToAddText);
+        }
+
+        [Test]
+        public void ClearTest()
+        {
+            TestSite.ContactFormPage.NameField.Clear();
+            Jdi.Assert.AreEquals(TestSite.ContactFormPage.NameField.Value, "");
+        }
+```
+**TextField** – is a simple element type that allows users to fill in text fields.
+
+![InputTypeTextField](../images/html/textField_html.png)
+
+Text fields are represented by the following classes in Java and C#:
+ 
+  - __C#__: _JDI.Light.Elements.Common.TextField_
+  - __Java__: _com.epam.jdi.light.ui.html.common.TextField_
+  
+Here is a list of available methods in C#:
+
+|Method | Description | Return Type
+--- | --- | ---
+**Input(string text)** | adds text to the field  | void
+**SendKeys(string text)** | adds text to the field | void
+**NewInput(string text)** | clears the text field and sets new text  | void
+**Clear()** | clears the text field | void
+
+[Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/TextFieldsTests.cs)
+
+And here are methods available in Java:
+
+|Method | Description | Return Type
+--- | --- | ---
+**sendKeys(CharSequence... value)** | adds text to the field | void
+**setText(String value)** | sets new text | void
+**clear()** | clears the text field | void
+**input(String value)** | sets new text | void
+**focus()** | places cursor within the text field | void
+**placeholder()** | returns value of the placeholder attribute | String
+**getText()** | returns text from the text field  | String
+**getValue()** | calls placeholder() method| String
+
+[Test examples in Java](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/TextFieldTests.java)
+
+### TextArea
+```java 
+@UI("#text-area") 
+// same as FindBy(css = "#text-area")
+public static TextArea textArea;
+
+    @Test
+    public void getLinesTest() {
+        textArea.setLines("test 1", "test 2", "test 3");
+        assertEquals(textArea.getLines(), asList("test 1", "test 2", "test 3"));
+    }
+    
+    @Test
+    public void focusTest() {
+        textArea.focus();
+    }
+    
+    @Test
+    public void rowsTest() {
+        assertEquals(textArea.rows(), 3);
+        assertEquals(textArea.cols(), 33);
+        assertEquals(textArea.minlength(), 10);
+        assertEquals(textArea.maxlength(), 200);
+    }
+     
+    @Test
+    // this test demonstrates usage of methods inherited from TextField interface:
+    public void clearTest() {
+             textArea.setText(text);
+             textArea.clear();
+             assertEquals(textArea.getText(), "");
+    }
+```
+```csharp 
+[FindBy(Id = "description")]
+public TextArea DescriptionArea;
+
+   [Test]
+   public void AddNewLineTest()
+   {
+      TestSite.ContactFormPage.DescriptionArea.Clear(); // method Clear() is inherited from TextField
+      TestSite.ContactFormPage.DescriptionArea.InputLines("line1", "line2");
+      TestSite.ContactFormPage.DescriptionArea.AddNewLine("line3");
+      Jdi.Assert.CollectionEquals(TestSite.ContactFormPage.DescriptionArea.GetLines(), new[] { "line1", "line2", "line3" });
+   }
+```
+
+**TextArea** – is a simple element type that allows users to fill in text areas (that may contain a few lines). 
+
+![InputTypeTextArea](../images/html/textArea_html.png)
+
+Text areas are represented by the following classes in Java and C#:
+ 
+  - __C#__: _JDI.Light.Elements.Common.TextArea_
+  - __Java__: _com.epam.jdi.light.ui.html.common.TextArea_
+  
+In both Java and C# TextArea is a descendant of TextField and inherits its methods. But TextArea also has methods of its own.
+ 
+Here is a list of available methods in C#:
+  
+  |Method | Description | Return Type
+  --- | --- | ---
+  **InputLines(params string[] textLines)** | clears area and sets new lines | void
+  **AddNewLine(string textLine)** | adds a new line to existing text | void
+  **GetLines()** | returns lines (text) from the text area | string[]
+  
+  [Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/TextAreaTests.cs)
+  
+  And here are methods available in Java:
+  
+  |Method | Description | Return Type
+  --- | --- | ---
+ **setLines(String... lines)** | sets lines (text)  | void
+ **getLines()** | returns lines (text) from the text area | List<String> 
+ **rows()** | returns value of rows attribute | int
+ **cols()** | returns value of cols attribute | int
+ **minlength()** | returns value of minlength attribute | int
+ **maxlength()** | returns value of maxlength attribute | int
+ **placeholder()** | returns value of placeholder attribute | String
+
+  [Test examples in Java](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/TextAreaTests.java)
 
 ### Title
 TBD

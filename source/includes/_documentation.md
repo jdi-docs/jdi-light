@@ -245,17 +245,13 @@ Radio buttons are represented by the following class:
   - __C#__: _JDI.Light.Elements.Common.RadioButton_
 
 ```java 
-@UI("[name=colors]")
+@UI("[name=colors]") //@FindBy(name = "colors")
 public static RadioButtons colors;
-
-public static RadioButtons colorsNoLocator;
 
 @Test
 public void selectTest() {
     colors.select(Blue);
     assertEquals(colors.getValue(), "Blue");
-    colorsNoLocator.select(Red);
-    colorsNoLocator.is().selected(Red);
 }
 ```
 ```csharp 
@@ -527,8 +523,8 @@ Here is the list of some available methods:
 ### MultiDropDown
 
 ```java 
+@UI("#multi-dropdown") //@FindBy(id = "multi-dropdown")
 public static MultiSelect multiDropdown;
-@UI("#multi-dropdown") public static MultiSelect multiDropdown;
 
 @Test
 public void selectTest() {
@@ -619,7 +615,8 @@ Datalist element type is provided by JDI Light in:
 Have a look at the following example with provided HTML code:
 
 ```java 
-@UI("#ice-cream") public static DataList iceCreamDataList;
+@UI("#ice-cream") //@FindBy(id = "ice-cream")
+public static DataList iceCreamDataList;
 
 @Test
 public void selectEnumTest() {
@@ -664,8 +661,8 @@ Checklist element type is available in the following packages:
 See an example with a given HTML code describing checklist element.
 
 ```java 
-@UI("[name=checks-group]") public static Checklist weather;
-public static Checklist weatherNoLocator;
+@UI("[name=checks-group]") //@FindBy(name = "checks-group")
+public static Checklist weather;
 
 @Test
 public void selectTest() {
@@ -677,7 +674,7 @@ public void selectTest() {
 public void assertValidationTest() {
     weather.assertThat().values(containsInAnyOrder(
       "Hot option", "Cold", "Rainy day", "Sunny", "Disabled"));
-    weatherNoLocator.assertThat().selected("Hot option");
+    weather.assertThat().selected("Hot option");
 }
 ```
 ```csharp 
@@ -1108,6 +1105,7 @@ And here is a list of some available methods in Java:
 
 ### Input Type DateTime-Local
 ```java 
+@UI("#party-time") //@FindBy(id = "party-time")
 public static DateTimeSelector partyTime;
 
 @Test
@@ -1126,7 +1124,7 @@ public void SetGetDateTime()
 ```
 **Input Type DateTime-Local** – a graphical control element, that allows the user to set the value of time and date.
 
-![InputTypeDateTime](../images/inputDateTimeLocal.png)
+![InputTypeDateTime](../images/html/inputDateTimeLocal_html.png)
 
 There is a type for that element is available in JDI Light, which can be found in:
 

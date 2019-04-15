@@ -131,7 +131,70 @@ Available methods in C# JDI Light:
 [C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/CheckBoxTests.cs)
 
 ### ColorPicker
-TBD
+**ColorPicker** – Elements of this type provide a user interface element that lets a user specify a color, either by using a visual color picker interface or by entering the color into a text field in "#rrggbb" hexadecimal format. Only simple colors (with no alpha channel) are allowed. The values are compatible with CSS.
+
+![ColorPicker](../images/colorpicker.png)
+
+Colorpicker is located in the following classes:
+
+  - __Java__: _com.epam.jdi.light.ui.html.common.ColorPicker*_
+
+<!--- 
+  - __C#__: _JDI.Light.Elements.Common.CheckBox*_
+-->
+```java 
+// @FindBy(id = "color-picker")
+public static ColorPicker colorPicker;
+
+@UI("#disabled-picker") // @FindBy(id = "disabled-picker")
+public static ColorPicker disabledPicker;
+
+@Test
+public void setColorTest() {
+    colorPicker.setColor("#432376");
+    assertEquals(colorPicker.color(), "#432376");
+    try {
+      disabledPicker.setColor("#432376");
+    } catch (Exception ignore) {}
+    assertEquals(disabledPicker.color(), #ffd7a6");
+}
+
+@Test
+public void isValidationTest() {
+    disabledPicker.is().color("#ffd7a6");
+    colorPicker.is().enabled();
+    disabledPicker.is().disabled();
+}
+```
+```csharp
+TBD 
+```
+
+Here is an example with provided HTML code:
+
+![ColorPicker](../images/html/colorpicker_html.png)
+
+Available methods in Java JDI Light:
+
+|Methods | Description | Return Type
+--- | --- | ---
+**color()** | Returns color code in  hexadecimal format ("#rrggbb") | String
+**setColor(String)** | Set color from string hex representation ("#rrggbb") | void
+**is()** | Assert acton color | ColorAssert
+**assertThat()** | Assert acton color | ColorAssert 
+
+<!---
+Available methods in C# JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+-->
+
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ColorPickerTests.java)
+
+<!---
+[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/CheckBoxTests.cs)
+-->
 
 ### DateTimeSelector
 TBD
@@ -148,7 +211,8 @@ FileInput element is located in JDI Light in:
   - __C#__: _JDI.Light.Elements.Composite.FileInput_
 
 ```java 
-public static FileInput avatar; // @FindBy(id = "text")
+// @FindBy(id = "avatar")
+public static FileInput avatar; 
 
 @UI("input[type=file][disabled]") // @FindBy(css = "input[type=file][disabled]")
 public static FileInput disabledFileInput; 

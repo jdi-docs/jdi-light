@@ -422,10 +422,10 @@
                               <a href="#text" class="toc-h2 h3 toc-link" data-title="Text">Text</a>
                             </li>
                             <li>
-                              <a href="#textarea" class="toc-h2 h3 toc-link" data-title="TextArea">TextArea</a>
+                              <a href="#textfield" class="toc-h2 h3 toc-link" data-title="TextField">TextField</a>
                             </li>
                             <li>
-                              <a href="#textfield" class="toc-h2 h3 toc-link" data-title="TextField">TextField</a>
+                              <a href="#textarea" class="toc-h2 h3 toc-link" data-title="TextArea">TextArea</a>
                             </li>
                             <li>
                               <a href="#title" class="toc-h2 h3 toc-link" data-title="Title">Title</a>
@@ -1183,7 +1183,10 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 <p>Colorpicker is located in the following classes:</p>
 
 <ul>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.ColorPicker*</em></li>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.ColorPicker*</em>
+&lt;!---</li>
+<li><strong>C#</strong>: <em>JDI.Light.Elements.Common.ColorPicker*</em><br>
+--&gt;</li>
 </ul>
 <pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#color-picker"</span><span class="o">)</span> <span class="c1">// @FindBy(id = "color-picker")</span>
 <span class="kd">public</span> <span class="kd">static</span> <span class="n">ColorPicker</span> <span class="n">colorPicker</span><span class="o">;</span>
@@ -1301,7 +1304,7 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 </tr>
 </tbody></table>
 
-<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs">Test examples in C#</a></p>
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/DateTimeTests.cs">Test examples in C#</a></p>
 
 <p>And here are some of the methods available in Java:</p>
 
@@ -1394,7 +1397,7 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 </tr>
 </tbody></table>
 
-<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs">Test examples in C#</a></p>
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/DateTimeTests.cs">Test examples in C#</a></p>
 
 <p>And here is the list of some available methods in Java:</p>
 
@@ -1487,7 +1490,7 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 </tr>
 </tbody></table>
 
-<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs">Test examples in C#</a></p>
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/DateTimeTests.cs">Test examples in C#</a></p>
 
 <p>And here is the list of some available methods in Java:</p>
 
@@ -1580,7 +1583,7 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 </tr>
 </tbody></table>
 
-<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs">Test examples in C#</a></p>
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/DateTimeTests.cs">Test examples in C#</a></p>
 
 <p>And here is a list of some available methods in Java:</p>
 
@@ -1963,7 +1966,10 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 <p>ProgressBar is located in the following classes:</p>
 
 <ul>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.ProgressBar</em></li>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.ProgressBar</em>
+&lt;!--- </li>
+<li><strong>C#</strong>: <em>JDI.Light.Elements.Common.ProgressBar</em> 
+--&gt;</li>
 </ul>
 <pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#progress"</span><span class="o">)</span> <span class="c1">// @FindBy(id = "progress")</span>
 <span class="kd">public</span> <span class="kd">static</span> <span class="n">ProgressBar</span> <span class="n">progress</span><span class="o">;</span>
@@ -2028,10 +2034,237 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 <p>TBD</p>
 <h3 id='text'>Text</h3>
 <p>TBD</p>
-<h3 id='textarea'>TextArea</h3>
-<p>TBD</p>
-<h3 id='textfield'>TextField</h3>
-<p>TBD</p>
+<h3 id='textfield'>TextField</h3><pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#name"</span><span class="o">)</span> 
+<span class="c1">// same as @FindBy(css = "#name")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">TextField</span> <span class="n">name</span><span class="o">;</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">sendKeysTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">name</span><span class="o">.</span><span class="na">sendKeys</span><span class="o">(</span><span class="s">"Test"</span><span class="o">);</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">name</span><span class="o">.</span><span class="na">getValue</span><span class="o">(),</span> <span class="n">text</span><span class="o">+</span><span class="s">"Test"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">inputTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">name</span><span class="o">.</span><span class="na">input</span><span class="o">(</span><span class="s">"New text"</span><span class="o">);</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">name</span><span class="o">.</span><span class="na">getText</span><span class="o">(),</span> <span class="s">"New text"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">clearTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">name</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">name</span><span class="o">.</span><span class="na">getText</span><span class="o">(),</span> <span class="s">""</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">placeholderTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">name</span><span class="o">.</span><span class="na">placeholder</span><span class="o">(),</span> <span class="s">"Input name"</span><span class="o">);</span>
+    <span class="o">}</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[FindBy(Id = "name")]</span>
+<span class="k">public</span> <span class="n">TextField</span> <span class="n">NameField</span><span class="p">;</span>
+
+        <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+        <span class="k">public</span> <span class="k">void</span> <span class="nf">InputTest</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">TestSite</span><span class="p">.</span><span class="n">ContactFormPage</span><span class="p">.</span><span class="n">NameField</span><span class="p">.</span><span class="nf">Input</span><span class="p">(</span><span class="n">ToAddText</span><span class="p">);</span>
+            <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">AreEquals</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">ContactFormPage</span><span class="p">.</span><span class="n">NameField</span><span class="p">.</span><span class="n">Value</span><span class="p">,</span> <span class="n">_defaultText</span> <span class="p">+</span> <span class="n">ToAddText</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+        <span class="k">public</span> <span class="k">void</span> <span class="nf">SendKeyTest</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">TestSite</span><span class="p">.</span><span class="n">ContactFormPage</span><span class="p">.</span><span class="n">NameField</span><span class="p">.</span><span class="nf">SendKeys</span><span class="p">(</span><span class="n">ToAddText</span><span class="p">);</span>
+            <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">AreEquals</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">ContactFormPage</span><span class="p">.</span><span class="n">NameField</span><span class="p">.</span><span class="n">Value</span><span class="p">,</span> <span class="n">_defaultText</span> <span class="p">+</span> <span class="n">ToAddText</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+        <span class="k">public</span> <span class="k">void</span> <span class="nf">NewInputTest</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">TestSite</span><span class="p">.</span><span class="n">ContactFormPage</span><span class="p">.</span><span class="n">NameField</span><span class="p">.</span><span class="nf">NewInput</span><span class="p">(</span><span class="n">ToAddText</span><span class="p">);</span>
+            <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">AreEquals</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">ContactFormPage</span><span class="p">.</span><span class="n">NameField</span><span class="p">.</span><span class="n">Value</span><span class="p">,</span> <span class="n">ToAddText</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+        <span class="k">public</span> <span class="k">void</span> <span class="nf">ClearTest</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">TestSite</span><span class="p">.</span><span class="n">ContactFormPage</span><span class="p">.</span><span class="n">NameField</span><span class="p">.</span><span class="nf">Clear</span><span class="p">();</span>
+            <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">AreEquals</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">ContactFormPage</span><span class="p">.</span><span class="n">NameField</span><span class="p">.</span><span class="n">Value</span><span class="p">,</span> <span class="s">""</span><span class="p">);</span>
+        <span class="p">}</span>
+</code></pre>
+<p><strong>TextField</strong> – is a simple element type that allows users to fill in text fields.</p>
+
+<p><img src="images/html/textField_html.png" alt="InputTypeTextField" /></p>
+
+<p>Text fields are represented by the following classes in Java and C#:</p>
+
+<ul>
+<li><strong>C#</strong>: <em>JDI.Light.Elements.Common.TextField</em></li>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.TextField</em></li>
+</ul>
+
+<p>Here is a list of available methods in C#:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Input(string text)</strong></td>
+<td>adds text to the field</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>SendKeys(string text)</strong></td>
+<td>adds text to the field</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>NewInput(string text)</strong></td>
+<td>clears the text field and sets new text</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>Clear()</strong></td>
+<td>clears the text field</td>
+<td>void</td>
+</tr>
+</tbody></table>
+
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/TextFieldsTests.cs">Test examples in C#</a></p>
+
+<p>And here are methods available in Java:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>sendKeys(CharSequence... value)</strong></td>
+<td>adds text to the field</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>setText(String value)</strong></td>
+<td>sets new text</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>clear()</strong></td>
+<td>clears the text field</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>input(String value)</strong></td>
+<td>sets new text</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>focus()</strong></td>
+<td>places cursor within the text field</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>placeholder()</strong></td>
+<td>returns value of the placeholder attribute</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>getText()</strong></td>
+<td>returns text from the text field</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>getValue()</strong></td>
+<td>calls placeholder() method</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/TextFieldTests.java">Test examples in Java</a></p>
+<h3 id='textarea'>TextArea</h3><pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#text-area"</span><span class="o">)</span> 
+<span class="c1">// same as FindBy(css = "#text-area")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">TextArea</span> <span class="n">textArea</span><span class="o">;</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">getLinesTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">textArea</span><span class="o">.</span><span class="na">setLines</span><span class="o">(</span><span class="s">"test 1"</span><span class="o">,</span> <span class="s">"test 2"</span><span class="o">,</span> <span class="s">"test 3"</span><span class="o">);</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">textArea</span><span class="o">.</span><span class="na">getLines</span><span class="o">(),</span> <span class="n">asList</span><span class="o">(</span><span class="s">"test 1"</span><span class="o">,</span> <span class="s">"test 2"</span><span class="o">,</span> <span class="s">"test 3"</span><span class="o">));</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">focusTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">textArea</span><span class="o">.</span><span class="na">focus</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">rowsTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">textArea</span><span class="o">.</span><span class="na">rows</span><span class="o">(),</span> <span class="mi">3</span><span class="o">);</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">textArea</span><span class="o">.</span><span class="na">cols</span><span class="o">(),</span> <span class="mi">33</span><span class="o">);</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">textArea</span><span class="o">.</span><span class="na">minlength</span><span class="o">(),</span> <span class="mi">10</span><span class="o">);</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">textArea</span><span class="o">.</span><span class="na">maxlength</span><span class="o">(),</span> <span class="mi">200</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="c1">// this test demonstrates usage of methods inherited from TextField interface:</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">clearTest</span><span class="o">()</span> <span class="o">{</span>
+             <span class="n">textArea</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="n">text</span><span class="o">);</span>
+             <span class="n">textArea</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
+             <span class="n">assertEquals</span><span class="o">(</span><span class="n">textArea</span><span class="o">.</span><span class="na">getText</span><span class="o">(),</span> <span class="s">""</span><span class="o">);</span>
+    <span class="o">}</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[FindBy(Id = "description")]</span>
+<span class="k">public</span> <span class="n">TextArea</span> <span class="n">DescriptionArea</span><span class="p">;</span>
+
+   <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+   <span class="k">public</span> <span class="k">void</span> <span class="nf">AddNewLineTest</span><span class="p">()</span>
+   <span class="p">{</span>
+      <span class="n">TestSite</span><span class="p">.</span><span class="n">ContactFormPage</span><span class="p">.</span><span class="n">DescriptionArea</span><span class="p">.</span><span class="nf">Clear</span><span class="p">();</span> <span class="c1">// method Clear() is inherited from TextField</span>
+      <span class="n">TestSite</span><span class="p">.</span><span class="n">ContactFormPage</span><span class="p">.</span><span class="n">DescriptionArea</span><span class="p">.</span><span class="nf">InputLines</span><span class="p">(</span><span class="s">"line1"</span><span class="p">,</span> <span class="s">"line2"</span><span class="p">);</span>
+      <span class="n">TestSite</span><span class="p">.</span><span class="n">ContactFormPage</span><span class="p">.</span><span class="n">DescriptionArea</span><span class="p">.</span><span class="nf">AddNewLine</span><span class="p">(</span><span class="s">"line3"</span><span class="p">);</span>
+      <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">CollectionEquals</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">ContactFormPage</span><span class="p">.</span><span class="n">DescriptionArea</span><span class="p">.</span><span class="nf">GetLines</span><span class="p">(),</span> <span class="k">new</span><span class="p">[]</span> <span class="p">{</span> <span class="s">"line1"</span><span class="p">,</span> <span class="s">"line2"</span><span class="p">,</span> <span class="s">"line3"</span> <span class="p">});</span>
+   <span class="p">}</span>
+</code></pre>
+<p><strong>TextArea</strong> – is a simple element type that allows users to fill in text areas (that may contain a few lines). </p>
+
+<p><img src="images/html/textArea_html.png" alt="InputTypeTextArea" /></p>
+
+<p>Text areas are represented by the following classes in Java and C#:</p>
+
+<ul>
+<li><strong>C#</strong>: <em>JDI.Light.Elements.Common.TextArea</em></li>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.TextArea</em></li>
+</ul>
+
+<p>In both Java and C# TextArea is a descendant of TextField and inherits its methods. But TextArea also has methods of its own.</p>
+
+<p>Here is a list of available methods in C#:</p>
+
+<p>|Method | Description | Return Type
+  --- | --- | ---
+  <strong>InputLines(params string[] textLines)</strong> | clears area and sets new lines | void
+  <strong>AddNewLine(string textLine)</strong> | adds a new line to existing text | void
+  <strong>GetLines()</strong> | returns lines (text) from the text area | string[]</p>
+
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/TextAreaTests.cs">Test examples in C#</a></p>
+
+<p>And here are methods available in Java:</p>
+
+<p>|Method | Description | Return Type
+  --- | --- | ---
+ <strong>setLines(String... lines)</strong> | sets lines (text)  | void
+ <strong>getLines()</strong> | returns lines (text) from the text area | List<String> 
+ <strong>rows()</strong> | returns value of rows attribute | int
+ <strong>cols()</strong> | returns value of cols attribute | int
+ <strong>minlength()</strong> | returns value of minlength attribute | int
+ <strong>maxlength()</strong> | returns value of maxlength attribute | int
+ <strong>placeholder()</strong> | returns value of placeholder attribute | String</p>
+
+<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/TextAreaTests.java">Test examples in Java</a></p>
 <h3 id='title'>Title</h3>
 <p>TBD</p>
 <h2 id='complex-elements'>Complex elements</h2><h3 id='radiobutton'>RadioButton</h3>

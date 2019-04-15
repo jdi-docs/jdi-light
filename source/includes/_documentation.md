@@ -620,18 +620,8 @@ Menu element is located in JDI Light in:
 @UI(".sidebar-menu span") public static JList<MenuItem> menu;
 
 @Test
-public void getTestList() {
-     HtmlElement item = leftMenuList.get("Contact form");
-     item.show();
-     item.is().deselected();
-     item.click();
-     item.is().selected();
-     contactFormPage.checkOpened();
-}
-
-@Test
-public void selectEnumTestList() {
-    leftMenuList.select(MetalsColors);
+public void selectEnumTest() {
+    leftMenu.select(MetalsColors);
     metalAndColorsPage.checkOpened();
 }
 ```

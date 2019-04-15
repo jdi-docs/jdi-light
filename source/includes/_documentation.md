@@ -2,7 +2,7 @@
 ## Extended Selenium features
 TBD
 
-## ~~Simple~~ Common elements
+## Common elements
 
 ### Button
 **Button** – Element that represents a clickable button
@@ -15,22 +15,19 @@ Button is located in the following classes:
   - __C#__: _JDI.Light.Elements.Common.Button_
 
 ```java 
-public static Button blueButton, disabledButton, suspendButton, ghostButton;
-
 @UI("[value*='Red Button']") // @FindBy(css = "[value*='Red Button']")
 public static Button redButton;
 
-@UI("[value*='Disabled Button']") // @UI("input[type=button][disabled]")
-public static Button disabledButtonInput;
-
 @Test
-public void getTextTest() {
-    assertEquals(redButton.getText(), text);
+public void clickTest() {
+    redButton.click();
+    assertEquals(getAlertText(), "Red button");
+    acceptAlert();
 }
 
 @Test
-public void getValueTest() {
-    assertEquals(redButton.getValue(), text);
+public void getTextTest() {
+    assertEquals(redButton.getText(), "Big Red Button-Input");
 }
 ```
 ```csharp
@@ -67,8 +64,6 @@ Checkbox is located in the following classes:
   - __C#__: _JDI.Light.Elements.Common.CheckBox*_
 
 ```java 
-public static Checkbox acceptConditions;
-
 @UI("#accept-conditions") // @FindBy(id = "accept-conditions")
 public static Checkbox acceptConditions;
 
@@ -83,23 +78,6 @@ public void uncheckTest() {
     acceptConditions.uncheck();
     assertEquals(acceptConditions.isSelected(), false);
 }
-
-@Test
-public void clickTest() {
-    assertTrue(acceptConditions.isSelected());
-    acceptConditions.click();
-    assertFalse(acceptConditions.isSelected());
-}
-
-@Test
-public void isValidationTest() {
-    acceptConditions.is().selected();
-    acceptConditions.click();
-    acceptConditions.is().deselected();
-    acceptConditions.is().enabled();
-    acceptConditions.is().displayed();
-}
-
 ```
 ```csharp
 TBD 
@@ -138,32 +116,26 @@ Available methods in C# JDI Light:
 Colorpicker is located in the following classes:
 
   - __Java__: _com.epam.jdi.light.ui.html.common.ColorPicker*_
+<!--- - __C#__: _JDI.Light.Elements.Common.ColorPicker*_ -->
 
-<!--- 
-  - __C#__: _JDI.Light.Elements.Common.CheckBox*_
--->
 ```java 
-// @FindBy(id = "color-picker")
+@UI("#color-picker") // @FindBy(id = "color-picker")
 public static ColorPicker colorPicker;
 
-@UI("#disabled-picker") // @FindBy(id = "disabled-picker")
-public static ColorPicker disabledPicker;
+@Test
+public void getColorTest() {
+    assertEquals(colorPicker.color(), "#3fd7a6");
+}
 
 @Test
 public void setColorTest() {
     colorPicker.setColor("#432376");
     assertEquals(colorPicker.color(), "#432376");
-    try {
-      disabledPicker.setColor("#432376");
-    } catch (Exception ignore) {}
-    assertEquals(disabledPicker.color(), #ffd7a6");
 }
 
 @Test
-public void isValidationTest() {
-    disabledPicker.is().color("#ffd7a6");
-    colorPicker.is().enabled();
-    disabledPicker.is().disabled();
+public void getLabelTextTest() {
+    assertEquals(colorPicker.labelText(), "Select a color");
 }
 ```
 ```csharp
@@ -183,18 +155,9 @@ Available methods in Java JDI Light:
 **is()** | Assert acton color | ColorAssert
 **assertThat()** | Assert acton color | ColorAssert 
 
-<!---
-Available methods in C# JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
--->
-
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ColorPickerTests.java)
 
-<!---
-[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/CheckBoxTests.cs)
--->
+<!--- [C# test examples]() -->
 
 ### Input Type Date
 ```java 
@@ -540,14 +503,8 @@ FileInput element is located in JDI Light in:
   - __C#__: _JDI.Light.Elements.Composite.FileInput_
 
 ```java 
-// @FindBy(id = "avatar")
+@UI("#avatar") // @FindBy(id = "avatar")
 public static FileInput avatar; 
-
-@UI("input[type=file][disabled]") // @FindBy(css = "input[type=file][disabled]")
-public static FileInput disabledFileInput; 
-
-@UI("[download]") // @FindBy(css = "[download]")
-public static Link downloadJdiLogo;
 
 @Test
 public void uploadTest() {
@@ -555,18 +512,6 @@ public void uploadTest() {
     avatar.is().text(containsString("general.xml"));
     assertTrue(avatar.getText().contains("general.xml"));
     assertTrue(avatar.getValue().contains("general.xml"));
-    try {
-        disabledFileInput.uploadFile(mergePath(PROJECT_PATH, "/src/test/resources/general.xml"));
-    } catch (Exception ignore) {}
-    disabledFileInput.is().text(is(""));
-}
-@Test
-public void downloadTest() {
-    downloadJdiLogo.click();
-    assertThatFile("jdi-logo.jpg")
-        .isDownloaded()
-        .hasSize(is(32225L));
-    assertThatFile("jdi-logo.jpg").hasSize(greaterThan(100L));
 }
 ```
 ```csharp
@@ -610,7 +555,56 @@ TBD
 TBD
 
 ### ProgressBar
-TBD
+**Progress Bar** - Element for displaying an indicator showing the completion progress of a task
+
+![ProgressBar](../images/progressbar.png)
+
+ProgressBar is located in the following classes:
+ 
+  - __Java__: _com.epam.jdi.light.ui.html.common.ProgressBar_
+<!--- - __C#__: _JDI.Light.Elements.Common.ProgressBar_ -->
+
+```java 
+@UI("#progress") // @FindBy(id = "progress")
+public static ProgressBar progress;
+
+@Test
+public void getValueTest() {
+    assertEquals(progress.value(), "70");
+}
+
+@Test
+public void maxTest() {
+    assertEquals(progress.max(), "100");
+}
+
+@Test
+public void assertValidationTest() {
+    progress.assertThat().volume(greaterThan(0));
+    progress.assertThat().volume(lessThan(200));
+    progress.assertThat().volume(is(70));
+}
+```
+```csharp
+TBD 
+```
+
+Here is an example with provided HTML code:
+
+![ProgressBar example](../images/html/progressbar_html.png)
+
+Available method in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**value()** |Click the button  | String
+**max()** |Click the button  | String
+**is()** |Various assert actions for Progress bar  | ProgressAssert
+**assertThat()** |Various assert actions for Progress bar | ProgressAssert 
+
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ProgressTests.java)
+
+<!--- [C# test examples]() -->
 
 ### Range
 TBD

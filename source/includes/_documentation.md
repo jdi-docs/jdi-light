@@ -549,10 +549,84 @@ TBD
 TBD
 
 ### Link
+**Link** – a graphical control element, that allows the user to link from one page to other web pages, files, locations within the same page, email addresses, or any other URL.
+
+Link are represented by the following class:
+ 
+  - __Java__: _com.epam.jdi.light.ui.html.common.Link_
+  - __C#__: _JDI.Light.Elements.Common.Link_
+  
+  
+```java 
+@UI("[ui=github-link]") 
+// equal to @FindBy(css = "[ui=github-link]") 
+public static Link githubLink;
+
+@Test
+public void getTextTest() {
+        assertEquals(githubLink.getText(), text);
+    }
+```
+```csharp 
+[Test]
 TBD
+```
+
+
+![Link](../images/html/link_html.png)
+
+Here is the list of available methods:
+
+|Method | Description | Return Type
+--- | --- | ---
+**click()** |Follow the link | void
+**getText()** |Returns the link text  | String
+**ref()** |Returns the reference  | String
+**url()** |Returns the URL  | URL
+**alt()** |Returns the alternate text | String
+
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/LinkTests.java)
+
+[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/LinkTests.cs)
 
 ### NumberSelector
+**NumberSelector** – a graphical control element, that allows the user to let the user enter a number.
+
+NumberSelector are represented by the following class:
+ 
+  - __Java__: _com.epam.jdi.light.ui.html.common.NumberSelector_
+  
+  
+```java 
+@UI("#height") 
+// equal to @FindBy(css = "#height") 
+public static NumberSelector height;
+
+@Test
+public void getNumberTest() {
+        assertEquals(height.value(), number);
+    }
+```
+```csharp 
+[Test]
 TBD
+```
+
+
+![NumberSelector](../images/html/numberSelector_html.png)
+
+Here is the list of available methods:
+
+|Method | Description | Return Type
+--- | --- | ---
+**placeholder()** |Returns the placeholder text  | String
+**min()** |Returns the min value   | String
+**max()** |Returns the max value  | String
+**value()** |Returns the value  | String
+**step()** |Returns the step value | String
+**setNumber(String)** |Sets the value | void
+
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/NumberSelectorTests.java)
 
 ### ProgressBar
 **Progress Bar** - Element for displaying an indicator showing the completion progress of a task
@@ -1107,13 +1181,14 @@ Here is the list of some available methods in C# JDI Light:
 **MultiSelector** – a graphical control element, that allows the user to do multiple choice.
 Multi Selector are represented by the following class:
  
-  - __Java__: _com.epam.jdi.light.ui.html.complex.MultiSelect_
+  - __Java__: _com.epam.jdi.light.ui.html.complex.MultiSelector_
   - __C#__: _JDI.Light.Elements.Common.MultiSelector_
   
   
 ```java 
-@UI("#ages") public static MultiSelect ages;
-// equal to @FindBy(css = "#ages") public static MultiSelect ages;
+@UI("#ages") 
+// equal to @FindBy(css = "#ages") 
+public static MultiSelect ages;
 
 @Test
 public void checkTest() {

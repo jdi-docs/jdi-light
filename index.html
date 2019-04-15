@@ -368,7 +368,7 @@
                     <a href="#extended-selenium-features" class="toc-h2 toc-link" data-title="Extended Selenium features">Extended Selenium features</a>
                   </li>
                   <li>
-                    <a href="#common-elements" class="toc-h2 toc-link" data-title="Common elements">Common elements</a>
+                    <a href="#simple-common-elements" class="toc-h2 toc-link" data-title="Simple Common elements"><del>Simple</del> Common elements</a>
                         <ul class="toc-list-h2">
                             <li>
                               <a href="#button" class="toc-h2 h3 toc-link" data-title="Button">Button</a>
@@ -410,6 +410,9 @@
                               <a href="#link" class="toc-h2 h3 toc-link" data-title="Link">Link</a>
                             </li>
                             <li>
+                              <a href="#menu" class="toc-h2 h3 toc-link" data-title="Menu">Menu</a>
+                            </li>
+                            <li>
                               <a href="#numberselector" class="toc-h2 h3 toc-link" data-title="NumberSelector">NumberSelector</a>
                             </li>
                             <li>
@@ -422,10 +425,10 @@
                               <a href="#text" class="toc-h2 h3 toc-link" data-title="Text">Text</a>
                             </li>
                             <li>
-                              <a href="#textfield" class="toc-h2 h3 toc-link" data-title="TextField">TextField</a>
+                              <a href="#textarea" class="toc-h2 h3 toc-link" data-title="TextArea">TextArea</a>
                             </li>
                             <li>
-                              <a href="#textarea" class="toc-h2 h3 toc-link" data-title="TextArea">TextArea</a>
+                              <a href="#textfield" class="toc-h2 h3 toc-link" data-title="TextField">TextField</a>
                             </li>
                             <li>
                               <a href="#title" class="toc-h2 h3 toc-link" data-title="Title">Title</a>
@@ -1023,7 +1026,7 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 <p>TBD</p>
 <h1 id='documentation'>Documentation</h1><h2 id='extended-selenium-features'>Extended Selenium features</h2>
 <p>TBD</p>
-<h2 id='common-elements'>Common elements</h2><h3 id='button'>Button</h3>
+<h2 id='simple-common-elements'><del>Simple</del> Common elements</h2><h3 id='button'>Button</h3>
 <p><strong>Button</strong> – Element that represents a clickable button</p>
 
 <p><img src="images/button.png" alt="Button" /></p>
@@ -1034,19 +1037,22 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 <li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.Button</em></li>
 <li><strong>C#</strong>: <em>JDI.Light.Elements.Common.Button</em></li>
 </ul>
-<pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"[value*='Red Button']"</span><span class="o">)</span> <span class="c1">// @FindBy(css = "[value*='Red Button']")</span>
+<pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">static</span> <span class="n">Button</span> <span class="n">blueButton</span><span class="o">,</span> <span class="n">disabledButton</span><span class="o">,</span> <span class="n">suspendButton</span><span class="o">,</span> <span class="n">ghostButton</span><span class="o">;</span>
+
+<span class="nd">@UI</span><span class="o">(</span><span class="s">"[value*='Red Button']"</span><span class="o">)</span> <span class="c1">// @FindBy(css = "[value*='Red Button']")</span>
 <span class="kd">public</span> <span class="kd">static</span> <span class="n">Button</span> <span class="n">redButton</span><span class="o">;</span>
 
-<span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">clickTest</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">redButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
-    <span class="n">assertEquals</span><span class="o">(</span><span class="n">getAlertText</span><span class="o">(),</span> <span class="s">"Red button"</span><span class="o">);</span>
-    <span class="n">acceptAlert</span><span class="o">();</span>
-<span class="o">}</span>
+<span class="nd">@UI</span><span class="o">(</span><span class="s">"[value*='Disabled Button']"</span><span class="o">)</span> <span class="c1">// @UI("input[type=button][disabled]")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">Button</span> <span class="n">disabledButtonInput</span><span class="o">;</span>
 
 <span class="nd">@Test</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">getTextTest</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">assertEquals</span><span class="o">(</span><span class="n">redButton</span><span class="o">.</span><span class="na">getText</span><span class="o">(),</span> <span class="s">"Big Red Button-Input"</span><span class="o">);</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="n">redButton</span><span class="o">.</span><span class="na">getText</span><span class="o">(),</span> <span class="n">text</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">getValueTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="n">redButton</span><span class="o">.</span><span class="na">getValue</span><span class="o">(),</span> <span class="n">text</span><span class="o">);</span>
 <span class="o">}</span>
 </code></pre><pre class="highlight csharp tab-csharp"><code><span class="n">TBD</span> 
 </code></pre>
@@ -1095,7 +1101,9 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 <li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.Checkbox*</em></li>
 <li><strong>C#</strong>: <em>JDI.Light.Elements.Common.CheckBox*</em></li>
 </ul>
-<pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#accept-conditions"</span><span class="o">)</span> <span class="c1">// @FindBy(id = "accept-conditions")</span>
+<pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">static</span> <span class="n">Checkbox</span> <span class="n">acceptConditions</span><span class="o">;</span>
+
+<span class="nd">@UI</span><span class="o">(</span><span class="s">"#accept-conditions"</span><span class="o">)</span> <span class="c1">// @FindBy(id = "accept-conditions")</span>
 <span class="kd">public</span> <span class="kd">static</span> <span class="n">Checkbox</span> <span class="n">acceptConditions</span><span class="o">;</span>
 
 <span class="nd">@Test</span>
@@ -1109,6 +1117,23 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
     <span class="n">acceptConditions</span><span class="o">.</span><span class="na">uncheck</span><span class="o">();</span>
     <span class="n">assertEquals</span><span class="o">(</span><span class="n">acceptConditions</span><span class="o">.</span><span class="na">isSelected</span><span class="o">(),</span> <span class="kc">false</span><span class="o">);</span>
 <span class="o">}</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">clickTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">assertTrue</span><span class="o">(</span><span class="n">acceptConditions</span><span class="o">.</span><span class="na">isSelected</span><span class="o">());</span>
+    <span class="n">acceptConditions</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+    <span class="n">assertFalse</span><span class="o">(</span><span class="n">acceptConditions</span><span class="o">.</span><span class="na">isSelected</span><span class="o">());</span>
+<span class="o">}</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">isValidationTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">acceptConditions</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">();</span>
+    <span class="n">acceptConditions</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+    <span class="n">acceptConditions</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">deselected</span><span class="o">();</span>
+    <span class="n">acceptConditions</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
+    <span class="n">acceptConditions</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+<span class="o">}</span>
+
 </code></pre><pre class="highlight csharp tab-csharp"><code><span class="n">TBD</span> 
 </code></pre>
 <p>Here is an example with provided HTML code:</p>
@@ -1183,28 +1208,33 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 <p>Colorpicker is located in the following classes:</p>
 
 <ul>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.ColorPicker*</em>
-&lt;!---</li>
-<li><strong>C#</strong>: <em>JDI.Light.Elements.Common.ColorPicker*</em><br>
---&gt;</li>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.ColorPicker*</em></li>
 </ul>
-<pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#color-picker"</span><span class="o">)</span> <span class="c1">// @FindBy(id = "color-picker")</span>
+
+<!--- 
+  - __C#__: _JDI.Light.Elements.Common.CheckBox*_
+-->
+<pre class="highlight java tab-java"><code><span class="c1">// @FindBy(id = "color-picker")</span>
 <span class="kd">public</span> <span class="kd">static</span> <span class="n">ColorPicker</span> <span class="n">colorPicker</span><span class="o">;</span>
 
-<span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">getColorTest</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">assertEquals</span><span class="o">(</span><span class="n">colorPicker</span><span class="o">.</span><span class="na">color</span><span class="o">(),</span> <span class="s">"#3fd7a6"</span><span class="o">);</span>
-<span class="o">}</span>
+<span class="nd">@UI</span><span class="o">(</span><span class="s">"#disabled-picker"</span><span class="o">)</span> <span class="c1">// @FindBy(id = "disabled-picker")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">ColorPicker</span> <span class="n">disabledPicker</span><span class="o">;</span>
 
 <span class="nd">@Test</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setColorTest</span><span class="o">()</span> <span class="o">{</span>
     <span class="n">colorPicker</span><span class="o">.</span><span class="na">setColor</span><span class="o">(</span><span class="s">"#432376"</span><span class="o">);</span>
     <span class="n">assertEquals</span><span class="o">(</span><span class="n">colorPicker</span><span class="o">.</span><span class="na">color</span><span class="o">(),</span> <span class="s">"#432376"</span><span class="o">);</span>
-<span class="o">}</span>
+    <span class="k">try</span> <span class="o">{</span>
+      <span class="n">disabledPicker</span><span class="o">.</span><span class="na">setColor</span><span class="o">(</span><span class="s">"#432376"</span><span class="o">);</span>
+    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">ignore</span><span class="o">)</span> <span class="o">{}</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="n">disabledPicker</span><span class="o">.</span><span class="na">color</span><span class="o">(),</span> <span class="err">#</span><span class="n">ffd7a6</span><span class="s">");
+}
 
-<span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">getLabelTextTest</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">assertEquals</span><span class="o">(</span><span class="n">colorPicker</span><span class="o">.</span><span class="na">labelText</span><span class="o">(),</span> <span class="s">"Select a color"</span><span class="o">);</span>
+@Test
+public void isValidationTest() {
+    disabledPicker.is().color("</span><span class="err">#</span><span class="n">ffd7a6</span><span class="err">"</span><span class="o">);</span>
+    <span class="n">colorPicker</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
+    <span class="n">disabledPicker</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">disabled</span><span class="o">();</span>
 <span class="o">}</span>
 </code></pre><pre class="highlight csharp tab-csharp"><code><span class="n">TBD</span> 
 </code></pre>
@@ -1243,9 +1273,18 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 </tr>
 </tbody></table>
 
+<!---
+Available methods in C# JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+-->
+
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ColorPickerTests.java">Java test examples</a></p>
 
-<!--- [C# test examples]() -->
+<!---
+[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/CheckBoxTests.cs)
+-->
 <h3 id='input-type-date'>Input Type Date</h3><pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#birth-date"</span><span class="o">)</span> 
 <span class="c1">// equal to @FindBy(css = "#birth-date") </span>
 <span class="kd">public</span> <span class="kd">static</span> <span class="n">DateTimeSelector</span> <span class="n">birthDate</span><span class="o">;</span>
@@ -1304,7 +1343,7 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 </tr>
 </tbody></table>
 
-<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/DateTimeTests.cs">Test examples in C#</a></p>
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs">Test examples in C#</a></p>
 
 <p>And here are some of the methods available in Java:</p>
 
@@ -1397,7 +1436,7 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 </tr>
 </tbody></table>
 
-<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/DateTimeTests.cs">Test examples in C#</a></p>
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs">Test examples in C#</a></p>
 
 <p>And here is the list of some available methods in Java:</p>
 
@@ -1490,7 +1529,7 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 </tr>
 </tbody></table>
 
-<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/DateTimeTests.cs">Test examples in C#</a></p>
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs">Test examples in C#</a></p>
 
 <p>And here is the list of some available methods in Java:</p>
 
@@ -1583,7 +1622,7 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 </tr>
 </tbody></table>
 
-<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/DateTimeTests.cs">Test examples in C#</a></p>
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs">Test examples in C#</a></p>
 
 <p>And here is a list of some available methods in Java:</p>
 
@@ -1617,8 +1656,7 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 </tbody></table>
 
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/TimeTests.java">Test examples in Java</a></p>
-<h3 id='input-type-datetime-local'>Input Type DateTime-Local</h3><pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#party-time"</span><span class="o">)</span> <span class="c1">//@FindBy(id = "party-time")</span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="n">DateTimeSelector</span> <span class="n">partyTime</span><span class="o">;</span>
+<h3 id='input-type-datetime-local'>Input Type DateTime-Local</h3><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">static</span> <span class="n">DateTimeSelector</span> <span class="n">partyTime</span><span class="o">;</span>
 
 <span class="nd">@Test</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setDateTimeTest</span><span class="o">()</span> <span class="o">{</span>
@@ -1634,7 +1672,7 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 </code></pre>
 <p><strong>Input Type DateTime-Local</strong> – a graphical control element, that allows the user to set the value of time and date.</p>
 
-<p><img src="images/html/inputDateTimeLocal_html.png" alt="InputTypeDateTime" /></p>
+<p><img src="images/inputDateTimeLocal.png" alt="InputTypeDateTime" /></p>
 
 <p>There is a type for that element is available in JDI Light, which can be found in:</p>
 
@@ -1775,8 +1813,14 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 <li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.FileInput</em></li>
 <li><strong>C#</strong>: <em>JDI.Light.Elements.Composite.FileInput</em></li>
 </ul>
-<pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#avatar"</span><span class="o">)</span> <span class="c1">// @FindBy(id = "avatar")</span>
+<pre class="highlight java tab-java"><code><span class="c1">// @FindBy(id = "avatar")</span>
 <span class="kd">public</span> <span class="kd">static</span> <span class="n">FileInput</span> <span class="n">avatar</span><span class="o">;</span> 
+
+<span class="nd">@UI</span><span class="o">(</span><span class="s">"input[type=file][disabled]"</span><span class="o">)</span> <span class="c1">// @FindBy(css = "input[type=file][disabled]")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">FileInput</span> <span class="n">disabledFileInput</span><span class="o">;</span> 
+
+<span class="nd">@UI</span><span class="o">(</span><span class="s">"[download]"</span><span class="o">)</span> <span class="c1">// @FindBy(css = "[download]")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">Link</span> <span class="n">downloadJdiLogo</span><span class="o">;</span>
 
 <span class="nd">@Test</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">uploadTest</span><span class="o">()</span> <span class="o">{</span>
@@ -1784,6 +1828,18 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
     <span class="n">avatar</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"general.xml"</span><span class="o">));</span>
     <span class="n">assertTrue</span><span class="o">(</span><span class="n">avatar</span><span class="o">.</span><span class="na">getText</span><span class="o">().</span><span class="na">contains</span><span class="o">(</span><span class="s">"general.xml"</span><span class="o">));</span>
     <span class="n">assertTrue</span><span class="o">(</span><span class="n">avatar</span><span class="o">.</span><span class="na">getValue</span><span class="o">().</span><span class="na">contains</span><span class="o">(</span><span class="s">"general.xml"</span><span class="o">));</span>
+    <span class="k">try</span> <span class="o">{</span>
+        <span class="n">disabledFileInput</span><span class="o">.</span><span class="na">uploadFile</span><span class="o">(</span><span class="n">mergePath</span><span class="o">(</span><span class="n">PROJECT_PATH</span><span class="o">,</span> <span class="s">"/src/test/resources/general.xml"</span><span class="o">));</span>
+    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">ignore</span><span class="o">)</span> <span class="o">{}</span>
+    <span class="n">disabledFileInput</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="s">""</span><span class="o">));</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">downloadTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">downloadJdiLogo</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+    <span class="n">assertThatFile</span><span class="o">(</span><span class="s">"jdi-logo.jpg"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">isDownloaded</span><span class="o">()</span>
+        <span class="o">.</span><span class="na">hasSize</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="mi">32225L</span><span class="o">));</span>
+    <span class="n">assertThatFile</span><span class="o">(</span><span class="s">"jdi-logo.jpg"</span><span class="o">).</span><span class="na">hasSize</span><span class="o">(</span><span class="n">greaterThan</span><span class="o">(</span><span class="mi">100L</span><span class="o">));</span>
 <span class="o">}</span>
 </code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
 <span class="k">public</span> <span class="k">void</span> <span class="nf">FileInputTest</span><span class="p">()</span>
@@ -1835,166 +1891,39 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 <h3 id='image'>Image</h3>
 <p>TBD</p>
 <h3 id='link'>Link</h3>
-<p><strong>Link</strong> – a graphical control element, that allows the user to link from one page to other web pages, files, locations within the same page, email addresses, or any other URL.</p>
+<p>TBD</p>
+<h3 id='menu'>Menu</h3>
+<p><strong>Menu</strong> - a list of links, which leads to different pages or sections of website</p>
 
-<p>Link are represented by the following class:</p>
-
-<ul>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.Link</em></li>
-<li><strong>C#</strong>: <em>JDI.Light.Elements.Common.Link</em></li>
-</ul>
-<pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"[ui=github-link]"</span><span class="o">)</span> 
-<span class="c1">// equal to @FindBy(css = "[ui=github-link]") </span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="n">Link</span> <span class="n">githubLink</span><span class="o">;</span>
-
-<span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">getTextTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">assertEquals</span><span class="o">(</span><span class="n">githubLink</span><span class="o">.</span><span class="na">getText</span><span class="o">(),</span> <span class="n">text</span><span class="o">);</span>
-    <span class="o">}</span>
-</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
-<span class="n">TBD</span>
-</code></pre>
-<p><img src="images/html/link_html.png" alt="Link" /></p>
-
-<p>Here is the list of available methods:</p>
-
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>click()</strong></td>
-<td>Follow the link</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>getText()</strong></td>
-<td>Returns the link text</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>ref()</strong></td>
-<td>Returns the reference</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>url()</strong></td>
-<td>Returns the URL</td>
-<td>URL</td>
-</tr>
-<tr>
-<td><strong>alt()</strong></td>
-<td>Returns the alternate text</td>
-<td>String</td>
-</tr>
-</tbody></table>
-
-<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/LinkTests.java">Java test examples</a></p>
-
-<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/LinkTests.cs">C# test examples</a></p>
-<h3 id='numberselector'>NumberSelector</h3>
-<p><strong>NumberSelector</strong> – a graphical control element, that allows the user to let the user enter a number.</p>
-
-<p>NumberSelector are represented by the following class:</p>
+<p>Menu element is located in JDI Light in:</p>
 
 <ul>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.NumberSelector</em></li>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.complex.Menu</em></li>
+<li><strong>C#</strong>: <em>JDI.Light.Elements.Composite.Menu</em></li>
 </ul>
-<pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#height"</span><span class="o">)</span> 
-<span class="c1">// equal to @FindBy(css = "#height") </span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="n">NumberSelector</span> <span class="n">height</span><span class="o">;</span>
+<pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">".sidebar-menu span&lt;[*'%s']&lt;&lt;"</span><span class="o">)</span> 
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">Menu</span> <span class="n">leftMenu</span><span class="o">;</span>
+<span class="nd">@Url</span><span class="o">(</span><span class="s">"/metals-colors.html"</span><span class="o">)</span> <span class="nd">@Title</span><span class="o">(</span><span class="s">"Metal and Colors"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">MetalAndColorsPage</span> <span class="n">metalAndColorsPage</span><span class="o">;</span>
 
 <span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">getNumberTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">assertEquals</span><span class="o">(</span><span class="n">height</span><span class="o">.</span><span class="na">value</span><span class="o">(),</span> <span class="n">number</span><span class="o">);</span>
-    <span class="o">}</span>
-</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
-<span class="n">TBD</span>
-</code></pre>
-<p><img src="images/html/numberSelector_html.png" alt="NumberSelector" /></p>
-
-<p>Here is the list of available methods:</p>
-
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>placeholder()</strong></td>
-<td>Returns the placeholder text</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>min()</strong></td>
-<td>Returns the min value</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>max()</strong></td>
-<td>Returns the max value</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>value()</strong></td>
-<td>Returns the value</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>step()</strong></td>
-<td>Returns the step value</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>setNumber(String)</strong></td>
-<td>Sets the value</td>
-<td>void</td>
-</tr>
-</tbody></table>
-
-<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/NumberSelectorTests.java">Java test examples</a></p>
-<h3 id='progressbar'>ProgressBar</h3>
-<p><strong>Progress Bar</strong> - Element for displaying an indicator showing the completion progress of a task</p>
-
-<p><img src="images/progressbar.png" alt="ProgressBar" /></p>
-
-<p>ProgressBar is located in the following classes:</p>
-
-<ul>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.ProgressBar</em>
-&lt;!--- </li>
-<li><strong>C#</strong>: <em>JDI.Light.Elements.Common.ProgressBar</em> 
---&gt;</li>
-</ul>
-<pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#progress"</span><span class="o">)</span> <span class="c1">// @FindBy(id = "progress")</span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="n">ProgressBar</span> <span class="n">progress</span><span class="o">;</span>
-
-<span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">getValueTest</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">assertEquals</span><span class="o">(</span><span class="n">progress</span><span class="o">.</span><span class="na">value</span><span class="o">(),</span> <span class="s">"70"</span><span class="o">);</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">selectEnumTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">leftMenu</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">MetalsColors</span><span class="o">);</span>
+    <span class="n">metalAndColorsPage</span><span class="o">.</span><span class="na">checkOpened</span><span class="o">();</span>
 <span class="o">}</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[FindBy(Css = "ul.sidebar-menu")]</span>
+<span class="k">public</span> <span class="n">Menu</span> <span class="n">SidebarMenu</span><span class="p">;</span>
 
-<span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">maxTest</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">assertEquals</span><span class="o">(</span><span class="n">progress</span><span class="o">.</span><span class="na">max</span><span class="o">(),</span> <span class="s">"100"</span><span class="o">);</span>
-<span class="o">}</span>
-
-<span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">assertValidationTest</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">progress</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">volume</span><span class="o">(</span><span class="n">greaterThan</span><span class="o">(</span><span class="mi">0</span><span class="o">));</span>
-    <span class="n">progress</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">volume</span><span class="o">(</span><span class="n">lessThan</span><span class="o">(</span><span class="mi">200</span><span class="o">));</span>
-    <span class="n">progress</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">volume</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="mi">70</span><span class="o">));</span>
-<span class="o">}</span>
-</code></pre><pre class="highlight csharp tab-csharp"><code><span class="n">TBD</span> 
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">SelectEnumTest</span><span class="p">()</span>
+<span class="p">{</span>
+     <span class="n">TestSite</span><span class="p">.</span><span class="n">SidebarMenu</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="n">Navigation</span><span class="p">.</span><span class="n">MetalsColors</span><span class="p">);</span>
+     <span class="n">TestSite</span><span class="p">.</span><span class="n">MetalsColorsPage</span><span class="p">.</span><span class="nf">CheckOpened</span><span class="p">();</span>
+<span class="p">}</span>
 </code></pre>
 <p>Here is an example with provided HTML code:</p>
 
-<p><img src="images/html/progressbar_html.png" alt="ProgressBar example" /></p>
+<p><img src="images/html/menu.png" alt="Menu example" /></p>
 
 <p>Available method in Java JDI Light:</p>
 
@@ -2006,317 +1935,98 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>value()</strong></td>
-<td>Click the button</td>
+<td><strong>void select(String...)</strong></td>
+<td>Select menu element and subelement</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>void select(String)</strong></td>
+<td>Select menu element</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>void select(TEnum...)</strong></td>
+<td>Select menu element and subelement</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>void select(TEnum)</strong></td>
+<td>Select menu element</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>void select(int...)</strong></td>
+<td>Select menu element by index</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>void select(int)</strong></td>
+<td>Select menu element and subelements by index</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>String selected()</strong></td>
+<td>Returns selected menu item</td>
 <td>String</td>
 </tr>
 <tr>
-<td><strong>max()</strong></td>
-<td>Click the button</td>
-<td>String</td>
+<td><strong>List<String> values()</strong></td>
+<td>Returns selected menu item and subitems</td>
+<td>List<String></td>
 </tr>
 <tr>
-<td><strong>is()</strong></td>
-<td>Various assert actions for Progress bar</td>
-<td>ProgressAssert</td>
+<td><strong>void hoverAndClick(String...)</strong></td>
+<td>Hovers and clicks menu item and subitems</td>
+<td>void</td>
 </tr>
 <tr>
-<td><strong>assertThat()</strong></td>
-<td>Various assert actions for Progress bar</td>
-<td>ProgressAssert</td>
+<td><strong>void hoverAndClick(String)</strong></td>
+<td>Hovers and clicks menu item</td>
+<td>void</td>
 </tr>
 </tbody></table>
 
-<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ProgressTests.java">Java test examples</a></p>
+<p>Available method in C# JDI Light:</p>
 
-<!--- [C# test examples]() -->
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>void select(String[])</strong></td>
+<td>Select menu element and subelement</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>void select(String)</strong></td>
+<td>Select menu element</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>void select(TEnum)</strong></td>
+<td>Select menu element</td>
+<td>void</td>
+</tr>
+</tbody></table>
+
+<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/complex/MenuTests.java">Java test examples</a></p>
+
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Composite/MenuTests.cs">C# test examples</a></p>
+<h3 id='numberselector'>NumberSelector</h3>
+<p>TBD</p>
+<h3 id='progressbar'>ProgressBar</h3>
+<p>TBD</p>
 <h3 id='range'>Range</h3>
 <p>TBD</p>
 <h3 id='text'>Text</h3>
 <p>TBD</p>
-<h3 id='textfield'>TextField</h3><pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#name"</span><span class="o">)</span> 
-<span class="c1">// same as @FindBy(css = "#name")</span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="n">TextField</span> <span class="n">name</span><span class="o">;</span>
-
-    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">sendKeysTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">name</span><span class="o">.</span><span class="na">sendKeys</span><span class="o">(</span><span class="s">"Test"</span><span class="o">);</span>
-        <span class="n">assertEquals</span><span class="o">(</span><span class="n">name</span><span class="o">.</span><span class="na">getValue</span><span class="o">(),</span> <span class="n">text</span><span class="o">+</span><span class="s">"Test"</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">inputTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">name</span><span class="o">.</span><span class="na">input</span><span class="o">(</span><span class="s">"New text"</span><span class="o">);</span>
-        <span class="n">assertEquals</span><span class="o">(</span><span class="n">name</span><span class="o">.</span><span class="na">getText</span><span class="o">(),</span> <span class="s">"New text"</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">clearTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">name</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
-        <span class="n">assertEquals</span><span class="o">(</span><span class="n">name</span><span class="o">.</span><span class="na">getText</span><span class="o">(),</span> <span class="s">""</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">placeholderTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">assertEquals</span><span class="o">(</span><span class="n">name</span><span class="o">.</span><span class="na">placeholder</span><span class="o">(),</span> <span class="s">"Input name"</span><span class="o">);</span>
-    <span class="o">}</span>
-</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[FindBy(Id = "name")]</span>
-<span class="k">public</span> <span class="n">TextField</span> <span class="n">NameField</span><span class="p">;</span>
-
-        <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
-        <span class="k">public</span> <span class="k">void</span> <span class="nf">InputTest</span><span class="p">()</span>
-        <span class="p">{</span>
-            <span class="n">TestSite</span><span class="p">.</span><span class="n">ContactFormPage</span><span class="p">.</span><span class="n">NameField</span><span class="p">.</span><span class="nf">Input</span><span class="p">(</span><span class="n">ToAddText</span><span class="p">);</span>
-            <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">AreEquals</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">ContactFormPage</span><span class="p">.</span><span class="n">NameField</span><span class="p">.</span><span class="n">Value</span><span class="p">,</span> <span class="n">_defaultText</span> <span class="p">+</span> <span class="n">ToAddText</span><span class="p">);</span>
-        <span class="p">}</span>
-
-        <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
-        <span class="k">public</span> <span class="k">void</span> <span class="nf">SendKeyTest</span><span class="p">()</span>
-        <span class="p">{</span>
-            <span class="n">TestSite</span><span class="p">.</span><span class="n">ContactFormPage</span><span class="p">.</span><span class="n">NameField</span><span class="p">.</span><span class="nf">SendKeys</span><span class="p">(</span><span class="n">ToAddText</span><span class="p">);</span>
-            <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">AreEquals</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">ContactFormPage</span><span class="p">.</span><span class="n">NameField</span><span class="p">.</span><span class="n">Value</span><span class="p">,</span> <span class="n">_defaultText</span> <span class="p">+</span> <span class="n">ToAddText</span><span class="p">);</span>
-        <span class="p">}</span>
-
-        <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
-        <span class="k">public</span> <span class="k">void</span> <span class="nf">NewInputTest</span><span class="p">()</span>
-        <span class="p">{</span>
-            <span class="n">TestSite</span><span class="p">.</span><span class="n">ContactFormPage</span><span class="p">.</span><span class="n">NameField</span><span class="p">.</span><span class="nf">NewInput</span><span class="p">(</span><span class="n">ToAddText</span><span class="p">);</span>
-            <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">AreEquals</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">ContactFormPage</span><span class="p">.</span><span class="n">NameField</span><span class="p">.</span><span class="n">Value</span><span class="p">,</span> <span class="n">ToAddText</span><span class="p">);</span>
-        <span class="p">}</span>
-
-        <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
-        <span class="k">public</span> <span class="k">void</span> <span class="nf">ClearTest</span><span class="p">()</span>
-        <span class="p">{</span>
-            <span class="n">TestSite</span><span class="p">.</span><span class="n">ContactFormPage</span><span class="p">.</span><span class="n">NameField</span><span class="p">.</span><span class="nf">Clear</span><span class="p">();</span>
-            <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">AreEquals</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">ContactFormPage</span><span class="p">.</span><span class="n">NameField</span><span class="p">.</span><span class="n">Value</span><span class="p">,</span> <span class="s">""</span><span class="p">);</span>
-        <span class="p">}</span>
-</code></pre>
-<p><strong>TextField</strong> – is a simple element type that allows users to fill in text fields.</p>
-
-<p><img src="images/html/textField_html.png" alt="InputTypeTextField" /></p>
-
-<p>Text fields are represented by the following classes in Java and C#:</p>
-
-<ul>
-<li><strong>C#</strong>: <em>JDI.Light.Elements.Common.TextField</em></li>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.TextField</em></li>
-</ul>
-
-<p>Here is a list of available methods in C#:</p>
-
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>Input(string text)</strong></td>
-<td>adds text to the field</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>SendKeys(string text)</strong></td>
-<td>adds text to the field</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>NewInput(string text)</strong></td>
-<td>clears the text field and sets new text</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>Clear()</strong></td>
-<td>clears the text field</td>
-<td>void</td>
-</tr>
-</tbody></table>
-
-<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/TextFieldsTests.cs">Test examples in C#</a></p>
-
-<p>And here are methods available in Java:</p>
-
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>sendKeys(CharSequence... value)</strong></td>
-<td>adds text to the field</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>setText(String value)</strong></td>
-<td>sets new text</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>clear()</strong></td>
-<td>clears the text field</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>input(String value)</strong></td>
-<td>sets new text</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>focus()</strong></td>
-<td>places cursor within the text field</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>placeholder()</strong></td>
-<td>returns value of the placeholder attribute</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>getText()</strong></td>
-<td>returns text from the text field</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>getValue()</strong></td>
-<td>calls placeholder() method</td>
-<td>String</td>
-</tr>
-</tbody></table>
-
-<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/TextFieldTests.java">Test examples in Java</a></p>
-<h3 id='textarea'>TextArea</h3><pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#text-area"</span><span class="o">)</span> 
-<span class="c1">// same as FindBy(css = "#text-area")</span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="n">TextArea</span> <span class="n">textArea</span><span class="o">;</span>
-
-    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">getLinesTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">textArea</span><span class="o">.</span><span class="na">setLines</span><span class="o">(</span><span class="s">"test 1"</span><span class="o">,</span> <span class="s">"test 2"</span><span class="o">,</span> <span class="s">"test 3"</span><span class="o">);</span>
-        <span class="n">assertEquals</span><span class="o">(</span><span class="n">textArea</span><span class="o">.</span><span class="na">getLines</span><span class="o">(),</span> <span class="n">asList</span><span class="o">(</span><span class="s">"test 1"</span><span class="o">,</span> <span class="s">"test 2"</span><span class="o">,</span> <span class="s">"test 3"</span><span class="o">));</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">focusTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">textArea</span><span class="o">.</span><span class="na">focus</span><span class="o">();</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">rowsTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">assertEquals</span><span class="o">(</span><span class="n">textArea</span><span class="o">.</span><span class="na">rows</span><span class="o">(),</span> <span class="mi">3</span><span class="o">);</span>
-        <span class="n">assertEquals</span><span class="o">(</span><span class="n">textArea</span><span class="o">.</span><span class="na">cols</span><span class="o">(),</span> <span class="mi">33</span><span class="o">);</span>
-        <span class="n">assertEquals</span><span class="o">(</span><span class="n">textArea</span><span class="o">.</span><span class="na">minlength</span><span class="o">(),</span> <span class="mi">10</span><span class="o">);</span>
-        <span class="n">assertEquals</span><span class="o">(</span><span class="n">textArea</span><span class="o">.</span><span class="na">maxlength</span><span class="o">(),</span> <span class="mi">200</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Test</span>
-    <span class="c1">// this test demonstrates usage of methods inherited from TextField interface:</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">clearTest</span><span class="o">()</span> <span class="o">{</span>
-             <span class="n">textArea</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="n">text</span><span class="o">);</span>
-             <span class="n">textArea</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
-             <span class="n">assertEquals</span><span class="o">(</span><span class="n">textArea</span><span class="o">.</span><span class="na">getText</span><span class="o">(),</span> <span class="s">""</span><span class="o">);</span>
-    <span class="o">}</span>
-</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[FindBy(Id = "description")]</span>
-<span class="k">public</span> <span class="n">TextArea</span> <span class="n">DescriptionArea</span><span class="p">;</span>
-
-   <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
-   <span class="k">public</span> <span class="k">void</span> <span class="nf">AddNewLineTest</span><span class="p">()</span>
-   <span class="p">{</span>
-      <span class="n">TestSite</span><span class="p">.</span><span class="n">ContactFormPage</span><span class="p">.</span><span class="n">DescriptionArea</span><span class="p">.</span><span class="nf">Clear</span><span class="p">();</span> <span class="c1">// method Clear() is inherited from TextField</span>
-      <span class="n">TestSite</span><span class="p">.</span><span class="n">ContactFormPage</span><span class="p">.</span><span class="n">DescriptionArea</span><span class="p">.</span><span class="nf">InputLines</span><span class="p">(</span><span class="s">"line1"</span><span class="p">,</span> <span class="s">"line2"</span><span class="p">);</span>
-      <span class="n">TestSite</span><span class="p">.</span><span class="n">ContactFormPage</span><span class="p">.</span><span class="n">DescriptionArea</span><span class="p">.</span><span class="nf">AddNewLine</span><span class="p">(</span><span class="s">"line3"</span><span class="p">);</span>
-      <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">CollectionEquals</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">ContactFormPage</span><span class="p">.</span><span class="n">DescriptionArea</span><span class="p">.</span><span class="nf">GetLines</span><span class="p">(),</span> <span class="k">new</span><span class="p">[]</span> <span class="p">{</span> <span class="s">"line1"</span><span class="p">,</span> <span class="s">"line2"</span><span class="p">,</span> <span class="s">"line3"</span> <span class="p">});</span>
-   <span class="p">}</span>
-</code></pre>
-<p><strong>TextArea</strong> – is a simple element type that allows users to fill in text areas (that may contain a few lines). </p>
-
-<p><img src="images/html/textArea_html.png" alt="InputTypeTextArea" /></p>
-
-<p>Text areas are represented by the following classes in Java and C#:</p>
-
-<ul>
-<li><strong>C#</strong>: <em>JDI.Light.Elements.Common.TextArea</em></li>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.TextArea</em></li>
-</ul>
-
-<p>In both Java and C# TextArea is a descendant of TextField and inherits its methods. But TextArea also has methods of its own.</p>
-
-<p>Here is a list of available methods in C#:</p>
-
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>InputLines(params string[] textLines)</strong></td>
-<td>clears area and sets new lines</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>AddNewLine(string textLine)</strong></td>
-<td>adds a new line to existing text</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>GetLines()</strong></td>
-<td>returns lines (text) from the text area</td>
-<td>string[]</td>
-</tr>
-</tbody></table>
-
-<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/TextAreaTests.cs">Test examples in C#</a></p>
-
-<p>And here are methods available in Java:</p>
-
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>setLines(String... lines)</strong></td>
-<td>sets lines (text)</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>getLines()</strong></td>
-<td>returns lines (text) from the text area</td>
-<td>List<String></td>
-</tr>
-<tr>
-<td><strong>rows()</strong></td>
-<td>returns value of rows attribute</td>
-<td>int</td>
-</tr>
-<tr>
-<td><strong>cols()</strong></td>
-<td>returns value of cols attribute</td>
-<td>int</td>
-</tr>
-<tr>
-<td><strong>minlength()</strong></td>
-<td>returns value of minlength attribute</td>
-<td>int</td>
-</tr>
-<tr>
-<td><strong>maxlength()</strong></td>
-<td>returns value of maxlength attribute</td>
-<td>int</td>
-</tr>
-<tr>
-<td><strong>placeholder()</strong></td>
-<td>returns value of placeholder attribute</td>
-<td>String</td>
-</tr>
-</tbody></table>
-
-<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/TextAreaTests.java">Test examples in Java</a></p>
+<h3 id='textarea'>TextArea</h3>
+<p>TBD</p>
+<h3 id='textfield'>TextField</h3>
+<p>TBD</p>
 <h3 id='title'>Title</h3>
 <p>TBD</p>
 <h2 id='complex-elements'>Complex elements</h2><h3 id='radiobutton'>RadioButton</h3>
@@ -2328,13 +2038,17 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 <li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.complex.RadioButtons</em></li>
 <li><strong>C#</strong>: <em>JDI.Light.Elements.Common.RadioButton</em></li>
 </ul>
-<pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"[name=colors]"</span><span class="o">)</span> <span class="c1">//@FindBy(name = "colors")</span>
+<pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"[name=colors]"</span><span class="o">)</span>
 <span class="kd">public</span> <span class="kd">static</span> <span class="n">RadioButtons</span> <span class="n">colors</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">RadioButtons</span> <span class="n">colorsNoLocator</span><span class="o">;</span>
 
 <span class="nd">@Test</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">selectTest</span><span class="o">()</span> <span class="o">{</span>
     <span class="n">colors</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">Blue</span><span class="o">);</span>
     <span class="n">assertEquals</span><span class="o">(</span><span class="n">colors</span><span class="o">.</span><span class="na">getValue</span><span class="o">(),</span> <span class="s">"Blue"</span><span class="o">);</span>
+    <span class="n">colorsNoLocator</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">Red</span><span class="o">);</span>
+    <span class="n">colorsNoLocator</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="n">Red</span><span class="o">);</span>
 <span class="o">}</span>
 </code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
 <span class="k">public</span> <span class="k">void</span> <span class="nf">SelectRadioButton</span><span class="p">()</span> 
@@ -2646,8 +2360,7 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 This type can be used in cases when dropdown is represented with HTML <em>&lt;select&gt;</em> tag.</p>
 
 <p>Consider an example of HTML5 dropdown with a given HTML code:</p>
-<pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#dress-code"</span><span class="o">)</span> <span class="c1">//@FindBy(id = "dress-code")</span>
-<span class="kd">public</span> <span class="n">Dropdown</span> <span class="n">dressCode</span><span class="o">;</span>
+<pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#dress-code"</span><span class="o">)</span> <span class="kd">public</span> <span class="n">Dropdown</span> <span class="n">dressCode</span><span class="o">;</span>
 
 <span class="nd">@Test</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">selectEnumTest</span><span class="o">()</span> <span class="o">{</span>
@@ -2690,8 +2403,8 @@ This type can be used in cases when dropdown is represented with HTML <em>&lt;se
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/DropdownTests.java">Java test examples</a></p>
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DropDownTests.cs">C# test examples</a></p>
-<h3 id='multidropdown'>MultiDropDown</h3><pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#multi-dropdown"</span><span class="o">)</span> <span class="c1">//@FindBy(id = "multi-dropdown")</span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="n">MultiSelect</span> <span class="n">multiDropdown</span><span class="o">;</span>
+<h3 id='multidropdown'>MultiDropDown</h3><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">static</span> <span class="n">MultiSelect</span> <span class="n">multiDropdown</span><span class="o">;</span>
+<span class="nd">@UI</span><span class="o">(</span><span class="s">"#multi-dropdown"</span><span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">MultiSelect</span> <span class="n">multiDropdown</span><span class="o">;</span>
 
 <span class="nd">@Test</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">selectTest</span><span class="o">()</span> <span class="o">{</span>
@@ -2834,8 +2547,7 @@ Datalist element contains a set of options with values available for entering.</
 </ul>
 
 <p>Have a look at the following example with provided HTML code:</p>
-<pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#ice-cream"</span><span class="o">)</span> <span class="c1">//@FindBy(id = "ice-cream")</span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="n">DataList</span> <span class="n">iceCreamDataList</span><span class="o">;</span>
+<pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#ice-cream"</span><span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">DataList</span> <span class="n">iceCreamDataList</span><span class="o">;</span>
 
 <span class="nd">@Test</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">selectEnumTest</span><span class="o">()</span> <span class="o">{</span>
@@ -2926,8 +2638,8 @@ Datalist element contains a set of options with values available for entering.</
 </ul>
 
 <p>See an example with a given HTML code describing checklist element.</p>
-<pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"[name=checks-group]"</span><span class="o">)</span> <span class="c1">//@FindBy(name = "checks-group")</span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="n">Checklist</span> <span class="n">weather</span><span class="o">;</span>
+<pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"[name=checks-group]"</span><span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">Checklist</span> <span class="n">weather</span><span class="o">;</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">Checklist</span> <span class="n">weatherNoLocator</span><span class="o">;</span>
 
 <span class="nd">@Test</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">selectTest</span><span class="o">()</span> <span class="o">{</span>
@@ -2939,7 +2651,7 @@ Datalist element contains a set of options with values available for entering.</
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">assertValidationTest</span><span class="o">()</span> <span class="o">{</span>
     <span class="n">weather</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">values</span><span class="o">(</span><span class="n">containsInAnyOrder</span><span class="o">(</span>
       <span class="s">"Hot option"</span><span class="o">,</span> <span class="s">"Cold"</span><span class="o">,</span> <span class="s">"Rainy day"</span><span class="o">,</span> <span class="s">"Sunny"</span><span class="o">,</span> <span class="s">"Disabled"</span><span class="o">));</span>
-    <span class="n">weather</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="s">"Hot option"</span><span class="o">);</span>
+    <span class="n">weatherNoLocator</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="s">"Hot option"</span><span class="o">);</span>
 <span class="o">}</span>
 </code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[FindBy(Css = "div:nth-child(11) &gt; div.html-left")]</span>
 <span class="k">public</span> <span class="n">ICheckList</span> <span class="n">WeatherCheckList</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
@@ -2970,11 +2682,6 @@ Datalist element contains a set of options with values available for entering.</
 <tr>
 <td><strong>uncheck(String.../Enum/int...)</strong></td>
 <td>Unselect checkboxes</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>uncheckAll()</strong></td>
-<td>Uncheck all checkboxes</td>
 <td>void</td>
 </tr>
 <tr>
@@ -3033,12 +2740,11 @@ Datalist element contains a set of options with values available for entering.</
 Multi Selector are represented by the following class:</p>
 
 <ul>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.complex.MultiSelector</em></li>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.complex.MultiSelect</em></li>
 <li><strong>C#</strong>: <em>JDI.Light.Elements.Common.MultiSelector</em></li>
 </ul>
-<pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#ages"</span><span class="o">)</span> 
-<span class="c1">// equal to @FindBy(css = "#ages") </span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="n">MultiSelect</span> <span class="n">ages</span><span class="o">;</span>
+<pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#ages"</span><span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">MultiSelect</span> <span class="n">ages</span><span class="o">;</span>
+<span class="c1">// equal to @FindBy(css = "#ages") public static MultiSelect ages;</span>
 
 <span class="nd">@Test</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkTest</span><span class="o">()</span> <span class="o">{</span>

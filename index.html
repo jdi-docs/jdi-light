@@ -380,7 +380,16 @@
                               <a href="#colorpicker" class="toc-h2 h3 toc-link" data-title="ColorPicker">ColorPicker</a>
                             </li>
                             <li>
-                              <a href="#datetimeselector" class="toc-h2 h3 toc-link" data-title="DateTimeSelector">DateTimeSelector</a>
+                              <a href="#input-type-date" class="toc-h2 h3 toc-link" data-title="Input Type Date">Input Type Date</a>
+                            </li>
+                            <li>
+                              <a href="#input-type-week" class="toc-h2 h3 toc-link" data-title="Input Type Week">Input Type Week</a>
+                            </li>
+                            <li>
+                              <a href="#input-type-month" class="toc-h2 h3 toc-link" data-title="Input Type Month">Input Type Month</a>
+                            </li>
+                            <li>
+                              <a href="#input-type-time" class="toc-h2 h3 toc-link" data-title="Input Type Time">Input Type Time</a>
                             </li>
                             <li>
                               <a href="#fileinput" class="toc-h2 h3 toc-link" data-title="FileInput">FileInput</a>
@@ -443,18 +452,6 @@
                             </li>
                             <li>
                               <a href="#combobox" class="toc-h2 h3 toc-link" data-title="ComboBox">ComboBox</a>
-                            </li>
-                            <li>
-                              <a href="#input-type-date" class="toc-h2 h3 toc-link" data-title="Input Type Date">Input Type Date</a>
-                            </li>
-                            <li>
-                              <a href="#input-type-week" class="toc-h2 h3 toc-link" data-title="Input Type Week">Input Type Week</a>
-                            </li>
-                            <li>
-                              <a href="#input-type-month" class="toc-h2 h3 toc-link" data-title="Input Type Month">Input Type Month</a>
-                            </li>
-                            <li>
-                              <a href="#input-type-time" class="toc-h2 h3 toc-link" data-title="Input Type Time">Input Type Time</a>
                             </li>
                             <li>
                               <a href="#input-type-datetime-local" class="toc-h2 h3 toc-link" data-title="Input Type DateTime-Local">Input Type DateTime-Local</a>
@@ -1202,8 +1199,377 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/CheckBoxTests.cs">C# test examples</a></p>
 <h3 id='colorpicker'>ColorPicker</h3>
 <p>TBD</p>
-<h3 id='datetimeselector'>DateTimeSelector</h3>
-<p>TBD</p>
+<h3 id='input-type-date'>Input Type Date</h3><pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#birth-date"</span><span class="o">)</span> 
+<span class="c1">// equal to @FindBy(css = "#birth-date") </span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">DateTimeSelector</span> <span class="n">birthDate</span><span class="o">;</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setDateTimeTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">birthDate</span><span class="o">.</span><span class="na">setDateTime</span><span class="o">(</span><span class="s">"2018-11-13"</span><span class="o">);</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">birthDate</span><span class="o">.</span><span class="na">value</span><span class="o">(),</span> <span class="s">"2018-11-13"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">minTest</span><span class="o">()</span> <span class="o">{</span>
+            <span class="n">assertEquals</span><span class="o">(</span><span class="n">birthDate</span><span class="o">.</span><span class="na">min</span><span class="o">(),</span> <span class="s">"1970-01-01"</span><span class="o">);</span>
+     <span class="o">}</span>
+
+     <span class="nd">@Test</span>
+     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">maxTest</span><span class="o">()</span> <span class="o">{</span>
+            <span class="n">assertEquals</span><span class="o">(</span><span class="n">birthDate</span><span class="o">.</span><span class="na">max</span><span class="o">(),</span> <span class="s">"2030-12-31"</span><span class="o">);</span>
+     <span class="o">}</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">SetGetDateTime</span><span class="p">()</span> 
+<span class="p">{</span>
+    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">SetDateTime</span><span class="p">(</span><span class="s">"2000-01-01"</span><span class="p">);</span>
+    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre>
+<p><strong>Input Type Date</strong> – a graphical control element, that allows users to set the value of date.</p>
+
+<p><img src="images/html/inputTypeDate_html.png" alt="InputTypeDate" /></p>
+
+<p>Input Type Date is represented by following classes:</p>
+
+<ul>
+<li><strong>C#</strong>: <em>JDI.Light.Elements.Common.DateTimeSelector</em></li>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.DateTimeSelector</em></li>
+</ul>
+
+<p>Here is the list of some available methods in C#:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>SetDateTime(string value)</strong></td>
+<td>Sets a date or time</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>GetValue()</strong></td>
+<td>Returns the set date or time</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs">Test examples in C#</a></p>
+
+<p>And here are some of the methods available in Java:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>setDateTime(string value)</strong></td>
+<td>Sets a date or time</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>value()</strong></td>
+<td>Returns the set date or time</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>min()</strong></td>
+<td>Gets attribute with name min</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>max()</strong></td>
+<td>Gets attribute with name max</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/DateTests.java">Test examples in Java</a></p>
+<h3 id='input-type-week'>Input Type Week</h3><pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#autumn-week"</span><span class="o">)</span> 
+<span class="c1">// equal to @FindBy(css = "#autumn-week") </span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">DateTimeSelector</span> <span class="n">autumnWeek</span><span class="o">;</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">minTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">autumnWeek</span><span class="o">.</span><span class="na">min</span><span class="o">(),</span> <span class="s">"2018-W35"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">maxTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">autumnWeek</span><span class="o">.</span><span class="na">max</span><span class="o">(),</span> <span class="s">"2018-W48"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setDateTimeTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">autumnWeek</span><span class="o">.</span><span class="na">setDateTime</span><span class="o">(</span><span class="s">"2018-W12"</span><span class="o">);</span>
+        <span class="n">autumnWeek</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">autumnWeek</span><span class="o">.</span><span class="na">value</span><span class="o">(),</span> <span class="s">"2018-W12"</span><span class="o">);</span>
+    <span class="o">}</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">SetGetDateTime</span><span class="p">()</span> 
+<span class="p">{</span>
+    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">SetDateTime</span><span class="p">(</span><span class="s">"2019-W11"</span><span class="p">);</span>
+    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre>
+<p><strong>Input Type Week</strong> – a graphical control element, that allows users to set the value of week and year.</p>
+
+<p><img src="images/html/inputTypeWeek_html.png" alt="InputTypeWeek" /></p>
+
+<p>Input Type Week is represented by following classes:</p>
+
+<ul>
+<li><strong>C#</strong>: <em>JDI.Light.Elements.Common.DateTimeSelector</em></li>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.DateTimeSelector</em></li>
+</ul>
+
+<p>Here is the list of some available methods in C#:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>SetDateTime(string value)</strong></td>
+<td>Sets a date or time</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>GetValue()</strong></td>
+<td>Returns the set date or time</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs">Test examples in C#</a></p>
+
+<p>And here is the list of some available methods in Java:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>setDateTime(string value)</strong></td>
+<td>Sets a date or time</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>value()</strong></td>
+<td>Returns the set date or time</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>min()</strong></td>
+<td>Gets attribute with name min</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>max()</strong></td>
+<td>Gets attribute with name max</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/WeekTests.java">Test examples in Java</a></p>
+<h3 id='input-type-month'>Input Type Month</h3><pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#month-date"</span><span class="o">)</span> 
+<span class="c1">// equal to @FindBy(css = "#month-date") </span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">DateTimeSelector</span> <span class="n">monthDate</span><span class="o">;</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">minTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">monthDate</span><span class="o">.</span><span class="na">min</span><span class="o">(),</span> <span class="s">"2015-03"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">maxTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">monthDate</span><span class="o">.</span><span class="na">max</span><span class="o">(),</span> <span class="s">"2020-12"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setDateTimeTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">monthDate</span><span class="o">.</span><span class="na">setDateTime</span><span class="o">(</span><span class="s">"2018-10"</span><span class="o">);</span>
+        <span class="n">monthDate</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">monthDate</span><span class="o">.</span><span class="na">value</span><span class="o">(),</span> <span class="s">"2018-10"</span><span class="o">);</span>
+    <span class="o">}</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">SetGetDateTime</span><span class="p">()</span> 
+<span class="p">{</span>
+    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">SetDateTime</span><span class="p">(</span><span class="s">"2019-01"</span><span class="p">);</span>
+    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre>
+<p><strong>Input Type Month</strong> – a graphical control element, that allows users to set the value of month and year.</p>
+
+<p><img src="images/html/inputTypeMonth_html.png" alt="InputTypeMonth" /></p>
+
+<p>Input Type Month is represented by following classes:</p>
+
+<ul>
+<li><strong>C#</strong>: <em>JDI.Light.Elements.Common.DateTimeSelector</em></li>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.DateTimeSelector</em></li>
+</ul>
+
+<p>Here is the list of some available methods in C#:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>SetDateTime(string value)</strong></td>
+<td>Sets a date or time</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>GetValue()</strong></td>
+<td>Returns the set date or time</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs">Test examples in C#</a></p>
+
+<p>And here is the list of some available methods in Java:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>setDateTime(string value)</strong></td>
+<td>Sets a date or time</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>value()</strong></td>
+<td>Returns the set date or time</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>min()</strong></td>
+<td>Gets attribute with name min</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>max()</strong></td>
+<td>Gets attribute with name max</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/MonthTests.java">Test examples in Java</a></p>
+<h3 id='input-type-time'>Input Type Time</h3><pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#booking-date"</span><span class="o">)</span> 
+<span class="c1">// equal to @FindBy(css = "#booking-date") </span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">DateTimeSelector</span> <span class="n">bookingTime</span><span class="o">;</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">minTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">bookingTime</span><span class="o">.</span><span class="na">min</span><span class="o">(),</span> <span class="s">"9:00"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">maxTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">bookingTime</span><span class="o">.</span><span class="na">max</span><span class="o">(),</span> <span class="s">"18:00"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setDateTimeTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">bookingTime</span><span class="o">.</span><span class="na">setDateTime</span><span class="o">(</span><span class="s">"05:00"</span><span class="o">);</span>
+        <span class="n">bookingTime</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">bookingTime</span><span class="o">.</span><span class="na">value</span><span class="o">(),</span> <span class="s">"05:00"</span><span class="o">);</span>
+    <span class="o">}</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">SetGetDateTime</span><span class="p">()</span> 
+<span class="p">{</span>
+    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">SetDateTime</span><span class="p">(</span><span class="s">"15:00"</span><span class="p">);</span>
+    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre>
+<p><strong>Input Type Time</strong> – a graphical control element, that allows the user to set the value of time.</p>
+
+<p><img src="images/html/inputTypeTime_html.png" alt="InputTypeTime" /></p>
+
+<p>Input Type Time is represented by following classes:</p>
+
+<ul>
+<li><strong>C#</strong>: <em>JDI.Light.Elements.Common.DateTimeSelector</em></li>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.DateTimeSelector</em></li>
+</ul>
+
+<p>Here is the list of some available methods in C#:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>SetDateTime(string value)</strong></td>
+<td>Sets time</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>GetValue()</strong></td>
+<td>Returns the set time</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs">Test examples in C#</a></p>
+
+<p>And here is a list of some available methods in Java:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>setDateTime(string value)</strong></td>
+<td>Sets time</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>value()</strong></td>
+<td>Returns the set time</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>min()</strong></td>
+<td>Gets attribute with name min</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>max()</strong></td>
+<td>Gets attribute with name max</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/TimeTests.java">Test examples in Java</a></p>
 <h3 id='fileinput'>FileInput</h3>
 <p><strong>FileInput</strong> - a grafical control element, that allows the user to upload documents on the web site</p>
 
@@ -1963,11 +2329,6 @@ Datalist element contains a set of options with values available for entering.</
 <td>void</td>
 </tr>
 <tr>
-<td><strong>uncheckAll()</strong></td>
-<td>Uncheck all checkboxes</td>
-<td>void</td>
-</tr>
-<tr>
 <td><strong>checked()</strong></td>
 <td>Get selected checkbox values</td>
 <td>List&lt;String&gt;</td>
@@ -2226,377 +2587,6 @@ Multi Selector are represented by the following class:</p>
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/ComboboxTests.java">Java test examples</a></p>
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/ComboBoxTests.cs">C# test examples</a></p>
-<h3 id='input-type-date'>Input Type Date</h3><pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#birth-date"</span><span class="o">)</span> 
-<span class="c1">// equal to @FindBy(css = "#birth-date") </span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="n">DateTimeSelector</span> <span class="n">birthDate</span><span class="o">;</span>
-
-    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setDateTimeTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">birthDate</span><span class="o">.</span><span class="na">setDateTime</span><span class="o">(</span><span class="s">"2018-11-13"</span><span class="o">);</span>
-        <span class="n">assertEquals</span><span class="o">(</span><span class="n">birthDate</span><span class="o">.</span><span class="na">value</span><span class="o">(),</span> <span class="s">"2018-11-13"</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Test</span>
-     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">minTest</span><span class="o">()</span> <span class="o">{</span>
-            <span class="n">assertEquals</span><span class="o">(</span><span class="n">birthDate</span><span class="o">.</span><span class="na">min</span><span class="o">(),</span> <span class="s">"1970-01-01"</span><span class="o">);</span>
-     <span class="o">}</span>
-
-     <span class="nd">@Test</span>
-     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">maxTest</span><span class="o">()</span> <span class="o">{</span>
-            <span class="n">assertEquals</span><span class="o">(</span><span class="n">birthDate</span><span class="o">.</span><span class="na">max</span><span class="o">(),</span> <span class="s">"2030-12-31"</span><span class="o">);</span>
-     <span class="o">}</span>
-</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">SetGetDateTime</span><span class="p">()</span> 
-<span class="p">{</span>
-    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">SetDateTime</span><span class="p">(</span><span class="s">"2000-01-01"</span><span class="p">);</span>
-    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">();</span>
-<span class="p">}</span>
-</code></pre>
-<p><strong>Input Type Date</strong> – a graphical control element, that allows users to set the value of date.</p>
-
-<p><img src="images/html/inputTypeDate_html.png" alt="InputTypeDate" /></p>
-
-<p>Input Type Date is represented by following classes:</p>
-
-<ul>
-<li><strong>C#</strong>: <em>JDI.Light.Elements.Common.DateTimeSelector</em></li>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.DateTimeSelector</em></li>
-</ul>
-
-<p>Here is the list of some available methods in C#:</p>
-
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>SetDateTime(string value)</strong></td>
-<td>Sets a date or time</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>GetValue()</strong></td>
-<td>Returns the set date or time</td>
-<td>string</td>
-</tr>
-</tbody></table>
-
-<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs">Test examples in C#</a></p>
-
-<p>And here are some of the methods available in Java:</p>
-
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>setDateTime(string value)</strong></td>
-<td>Sets a date or time</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>value()</strong></td>
-<td>Returns the set date or time</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>min()</strong></td>
-<td>Gets attribute with name min</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>max()</strong></td>
-<td>Gets attribute with name max</td>
-<td>String</td>
-</tr>
-</tbody></table>
-
-<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/DateTests.java">Test examples in Java</a></p>
-<h3 id='input-type-week'>Input Type Week</h3><pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#autumn-week"</span><span class="o">)</span> 
-<span class="c1">// equal to @FindBy(css = "#autumn-week") </span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="n">DateTimeSelector</span> <span class="n">autumnWeek</span><span class="o">;</span>
-
-    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">minTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">assertEquals</span><span class="o">(</span><span class="n">autumnWeek</span><span class="o">.</span><span class="na">min</span><span class="o">(),</span> <span class="s">"2018-W35"</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">maxTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">assertEquals</span><span class="o">(</span><span class="n">autumnWeek</span><span class="o">.</span><span class="na">max</span><span class="o">(),</span> <span class="s">"2018-W48"</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setDateTimeTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">autumnWeek</span><span class="o">.</span><span class="na">setDateTime</span><span class="o">(</span><span class="s">"2018-W12"</span><span class="o">);</span>
-        <span class="n">autumnWeek</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
-        <span class="n">assertEquals</span><span class="o">(</span><span class="n">autumnWeek</span><span class="o">.</span><span class="na">value</span><span class="o">(),</span> <span class="s">"2018-W12"</span><span class="o">);</span>
-    <span class="o">}</span>
-</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">SetGetDateTime</span><span class="p">()</span> 
-<span class="p">{</span>
-    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">SetDateTime</span><span class="p">(</span><span class="s">"2019-W11"</span><span class="p">);</span>
-    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">();</span>
-<span class="p">}</span>
-</code></pre>
-<p><strong>Input Type Week</strong> – a graphical control element, that allows users to set the value of week and year.</p>
-
-<p><img src="images/html/inputTypeWeek_html.png" alt="InputTypeWeek" /></p>
-
-<p>Input Type Week is represented by following classes:</p>
-
-<ul>
-<li><strong>C#</strong>: <em>JDI.Light.Elements.Common.DateTimeSelector</em></li>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.DateTimeSelector</em></li>
-</ul>
-
-<p>Here is the list of some available methods in C#:</p>
-
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>SetDateTime(string value)</strong></td>
-<td>Sets a date or time</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>GetValue()</strong></td>
-<td>Returns the set date or time</td>
-<td>string</td>
-</tr>
-</tbody></table>
-
-<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs">Test examples in C#</a></p>
-
-<p>And here is the list of some available methods in Java:</p>
-
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>setDateTime(string value)</strong></td>
-<td>Sets a date or time</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>value()</strong></td>
-<td>Returns the set date or time</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>min()</strong></td>
-<td>Gets attribute with name min</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>max()</strong></td>
-<td>Gets attribute with name max</td>
-<td>String</td>
-</tr>
-</tbody></table>
-
-<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/WeekTests.java">Test examples in Java</a></p>
-<h3 id='input-type-month'>Input Type Month</h3><pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#month-date"</span><span class="o">)</span> 
-<span class="c1">// equal to @FindBy(css = "#month-date") </span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="n">DateTimeSelector</span> <span class="n">monthDate</span><span class="o">;</span>
-
-    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">minTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">assertEquals</span><span class="o">(</span><span class="n">monthDate</span><span class="o">.</span><span class="na">min</span><span class="o">(),</span> <span class="s">"2015-03"</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">maxTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">assertEquals</span><span class="o">(</span><span class="n">monthDate</span><span class="o">.</span><span class="na">max</span><span class="o">(),</span> <span class="s">"2020-12"</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setDateTimeTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">monthDate</span><span class="o">.</span><span class="na">setDateTime</span><span class="o">(</span><span class="s">"2018-10"</span><span class="o">);</span>
-        <span class="n">monthDate</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
-        <span class="n">assertEquals</span><span class="o">(</span><span class="n">monthDate</span><span class="o">.</span><span class="na">value</span><span class="o">(),</span> <span class="s">"2018-10"</span><span class="o">);</span>
-    <span class="o">}</span>
-</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">SetGetDateTime</span><span class="p">()</span> 
-<span class="p">{</span>
-    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">SetDateTime</span><span class="p">(</span><span class="s">"2019-01"</span><span class="p">);</span>
-    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">();</span>
-<span class="p">}</span>
-</code></pre>
-<p><strong>Input Type Month</strong> – a graphical control element, that allows users to set the value of month and year.</p>
-
-<p><img src="images/html/inputTypeMonth_html.png" alt="InputTypeMonth" /></p>
-
-<p>Input Type Month is represented by following classes:</p>
-
-<ul>
-<li><strong>C#</strong>: <em>JDI.Light.Elements.Common.DateTimeSelector</em></li>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.DateTimeSelector</em></li>
-</ul>
-
-<p>Here is the list of some available methods in C#:</p>
-
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>SetDateTime(string value)</strong></td>
-<td>Sets a date or time</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>GetValue()</strong></td>
-<td>Returns the set date or time</td>
-<td>string</td>
-</tr>
-</tbody></table>
-
-<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs">Test examples in C#</a></p>
-
-<p>And here is the list of some available methods in Java:</p>
-
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>setDateTime(string value)</strong></td>
-<td>Sets a date or time</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>value()</strong></td>
-<td>Returns the set date or time</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>min()</strong></td>
-<td>Gets attribute with name min</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>max()</strong></td>
-<td>Gets attribute with name max</td>
-<td>String</td>
-</tr>
-</tbody></table>
-
-<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/MonthTests.java">Test examples in Java</a></p>
-<h3 id='input-type-time'>Input Type Time</h3><pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#booking-date"</span><span class="o">)</span> 
-<span class="c1">// equal to @FindBy(css = "#booking-date") </span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="n">DateTimeSelector</span> <span class="n">bookingTime</span><span class="o">;</span>
-
-    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">minTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">assertEquals</span><span class="o">(</span><span class="n">bookingTime</span><span class="o">.</span><span class="na">min</span><span class="o">(),</span> <span class="s">"9:00"</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">maxTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">assertEquals</span><span class="o">(</span><span class="n">bookingTime</span><span class="o">.</span><span class="na">max</span><span class="o">(),</span> <span class="s">"18:00"</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setDateTimeTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">bookingTime</span><span class="o">.</span><span class="na">setDateTime</span><span class="o">(</span><span class="s">"05:00"</span><span class="o">);</span>
-        <span class="n">bookingTime</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
-        <span class="n">assertEquals</span><span class="o">(</span><span class="n">bookingTime</span><span class="o">.</span><span class="na">value</span><span class="o">(),</span> <span class="s">"05:00"</span><span class="o">);</span>
-    <span class="o">}</span>
-</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">SetGetDateTime</span><span class="p">()</span> 
-<span class="p">{</span>
-    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">SetDateTime</span><span class="p">(</span><span class="s">"15:00"</span><span class="p">);</span>
-    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">();</span>
-<span class="p">}</span>
-</code></pre>
-<p><strong>Input Type Time</strong> – a graphical control element, that allows the user to set the value of time.</p>
-
-<p><img src="images/html/inputTypeTime_html.png" alt="InputTypeTime" /></p>
-
-<p>Input Type Time is represented by following classes:</p>
-
-<ul>
-<li><strong>C#</strong>: <em>JDI.Light.Elements.Common.DateTimeSelector</em></li>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.DateTimeSelector</em></li>
-</ul>
-
-<p>Here is the list of some available methods in C#:</p>
-
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>SetDateTime(string value)</strong></td>
-<td>Sets time</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>GetValue()</strong></td>
-<td>Returns the set time</td>
-<td>string</td>
-</tr>
-</tbody></table>
-
-<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs">Test examples in C#</a></p>
-
-<p>And here is a list of some available methods in Java:</p>
-
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>setDateTime(string value)</strong></td>
-<td>Sets time</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>value()</strong></td>
-<td>Returns the set time</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>min()</strong></td>
-<td>Gets attribute with name min</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>max()</strong></td>
-<td>Gets attribute with name max</td>
-<td>String</td>
-</tr>
-</tbody></table>
-
-<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/TimeTests.java">Test examples in Java</a></p>
 <h3 id='input-type-datetime-local'>Input Type DateTime-Local</h3><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">static</span> <span class="n">DateTimeSelector</span> <span class="n">partyTime</span><span class="o">;</span>
 
 <span class="nd">@Test</span>

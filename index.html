@@ -1184,7 +1184,12 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 
 <ul>
 <li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.ColorPicker*</em>
-&lt;!--- - <strong>C#</strong>: <em>JDI.Light.Elements.Common.ColorPicker*</em> --&gt;</li>
+&lt;!---
+
+<ul>
+<li><strong>C#</strong>: <em>JDI.Light.Elements.Common.ColorPicker*</em> 
+--&gt;</li>
+</ul></li>
 </ul>
 <pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#color-picker"</span><span class="o">)</span> <span class="c1">// @FindBy(id = "color-picker")</span>
 <span class="kd">public</span> <span class="kd">static</span> <span class="n">ColorPicker</span> <span class="n">colorPicker</span><span class="o">;</span>
@@ -1833,129 +1838,9 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 <h3 id='image'>Image</h3>
 <p>TBD</p>
 <h3 id='link'>Link</h3>
-<p><strong>Link</strong> – a graphical control element, that allows the user to link from one page to other web pages, files, locations within the same page, email addresses, or any other URL.</p>
-
-<p>Link are represented by the following class:</p>
-
-<ul>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.Link</em></li>
-<li><strong>C#</strong>: <em>JDI.Light.Elements.Common.Link</em></li>
-</ul>
-<pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"[ui=github-link]"</span><span class="o">)</span> 
-<span class="c1">// equal to @FindBy(css = "[ui=github-link]") </span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="n">Link</span> <span class="n">githubLink</span><span class="o">;</span>
-
-<span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">getTextTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">assertEquals</span><span class="o">(</span><span class="n">githubLink</span><span class="o">.</span><span class="na">getText</span><span class="o">(),</span> <span class="n">text</span><span class="o">);</span>
-    <span class="o">}</span>
-</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
-<span class="n">TBD</span>
-</code></pre>
-<p><img src="images/html/link_html.png" alt="Link" /></p>
-
-<p>Here is the list of available methods:</p>
-
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>click()</strong></td>
-<td>Follow the link</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>getText()</strong></td>
-<td>Returns the link text</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>ref()</strong></td>
-<td>Returns the reference</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>url()</strong></td>
-<td>Returns the URL</td>
-<td>URL</td>
-</tr>
-<tr>
-<td><strong>alt()</strong></td>
-<td>Returns the alternate text</td>
-<td>String</td>
-</tr>
-</tbody></table>
-
-<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/LinkTests.java">Java test examples</a></p>
-
-<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/LinkTests.cs">C# test examples</a></p>
+<p>TBD</p>
 <h3 id='numberselector'>NumberSelector</h3>
-<p><strong>NumberSelector</strong> – a graphical control element, that allows the user to let the user enter a number.</p>
-
-<p>NumberSelector are represented by the following class:</p>
-
-<ul>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.NumberSelector</em></li>
-</ul>
-<pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#height"</span><span class="o">)</span> 
-<span class="c1">// equal to @FindBy(css = "#height") </span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="n">NumberSelector</span> <span class="n">height</span><span class="o">;</span>
-
-<span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">getNumberTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">assertEquals</span><span class="o">(</span><span class="n">height</span><span class="o">.</span><span class="na">value</span><span class="o">(),</span> <span class="n">number</span><span class="o">);</span>
-    <span class="o">}</span>
-</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
-<span class="n">TBD</span>
-</code></pre>
-<p><img src="images/html/numberSelector_html.png" alt="NumberSelector" /></p>
-
-<p>Here is the list of available methods:</p>
-
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>placeholder()</strong></td>
-<td>Returns the placeholder text</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>min()</strong></td>
-<td>Returns the min value</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>max()</strong></td>
-<td>Returns the max value</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>value()</strong></td>
-<td>Returns the value</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>step()</strong></td>
-<td>Returns the step value</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>setNumber(String)</strong></td>
-<td>Sets the value</td>
-<td>void</td>
-</tr>
-</tbody></table>
-
-<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/NumberSelectorTests.java">Java test examples</a></p>
+<p>TBD</p>
 <h3 id='progressbar'>ProgressBar</h3>
 <p><strong>Progress Bar</strong> - Element for displaying an indicator showing the completion progress of a task</p>
 
@@ -1965,7 +1850,12 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 
 <ul>
 <li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.ProgressBar</em>
-&lt;!--- - <strong>C#</strong>: <em>JDI.Light.Elements.Common.ProgressBar</em> --&gt;</li>
+&lt;!--- 
+
+<ul>
+<li><strong>C#</strong>: <em>JDI.Light.Elements.Common.ProgressBar</em>
+--&gt;</li>
+</ul></li>
 </ul>
 <pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#progress"</span><span class="o">)</span> <span class="c1">// @FindBy(id = "progress")</span>
 <span class="kd">public</span> <span class="kd">static</span> <span class="n">ProgressBar</span> <span class="n">progress</span><span class="o">;</span>
@@ -2750,12 +2640,11 @@ Datalist element contains a set of options with values available for entering.</
 Multi Selector are represented by the following class:</p>
 
 <ul>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.complex.MultiSelector</em></li>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.complex.MultiSelect</em></li>
 <li><strong>C#</strong>: <em>JDI.Light.Elements.Common.MultiSelector</em></li>
 </ul>
-<pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#ages"</span><span class="o">)</span> 
-<span class="c1">// equal to @FindBy(css = "#ages") </span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="n">MultiSelect</span> <span class="n">ages</span><span class="o">;</span>
+<pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#ages"</span><span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">MultiSelect</span> <span class="n">ages</span><span class="o">;</span>
+<span class="c1">// equal to @FindBy(css = "#ages") public static MultiSelect ages;</span>
 
 <span class="nd">@Test</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkTest</span><span class="o">()</span> <span class="o">{</span>

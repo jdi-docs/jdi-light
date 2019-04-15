@@ -846,25 +846,25 @@ In both Java and C# TextArea is a descendant of TextField and inherits its metho
  
 Here is a list of available methods in C#:
   
-  |Method | Description | Return Type
-  --- | --- | ---
-  **InputLines(params string[] textLines)** | clears area and sets new lines | void
-  **AddNewLine(string textLine)** | adds a new line to existing text | void
-  **GetLines()** | returns lines (text) from the text area | string[]
+|Method | Description | Return Type
+--- | --- | ---
+**InputLines(params string[] textLines)** | clears area and sets new lines | void
+**AddNewLine(string textLine)** | adds a new line to existing text | void
+**GetLines()** | returns lines (text) from the text area | string[]
   
   [Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/TextAreaTests.cs)
   
   And here are methods available in Java:
   
-  |Method | Description | Return Type
-  --- | --- | ---
- **setLines(String... lines)** | sets lines (text)  | void
- **getLines()** | returns lines (text) from the text area | List<String> 
- **rows()** | returns value of rows attribute | int
- **cols()** | returns value of cols attribute | int
- **minlength()** | returns value of minlength attribute | int
- **maxlength()** | returns value of maxlength attribute | int
- **placeholder()** | returns value of placeholder attribute | String
+|Method | Description | Return Type
+--- | --- | ---
+**setLines(String... lines)** | sets lines (text)  | void
+**getLines()** | returns lines (text) from the text area | List<String>
+**rows()** | returns value of rows attribute | int
+**cols()** | returns value of cols attribute | int
+**minlength()** | returns value of minlength attribute | int
+**maxlength()** | returns value of maxlength attribute | int
+**placeholder()** | returns value of placeholder attribute | String
 
   [Test examples in Java](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/TextAreaTests.java)
 

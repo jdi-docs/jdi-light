@@ -437,6 +437,7 @@ And here is a list of some available methods in Java:
 
 ### Input Type DateTime-Local
 ```java 
+@UI("#party-time") //@FindBy(id = "party-time")
 public static DateTimeSelector partyTime;
 
 @Test
@@ -455,7 +456,7 @@ public void SetGetDateTime()
 ```
 **Input Type DateTime-Local** – a graphical control element, that allows the user to set the value of time and date.
 
-![InputTypeDateTime](../images/inputDateTimeLocal.png)
+![InputTypeDateTime](../images/html/inputDateTimeLocal_html.png)
 
 There is a type for that element is available in JDI Light, which can be found in:
 
@@ -878,7 +879,8 @@ This type can be used in cases when dropdown is represented with HTML _\<select>
 Consider an example of HTML5 dropdown with a given HTML code:
 
 ```java 
-@UI("#dress-code") public Dropdown dressCode;
+@UI("#dress-code") //@FindBy(id = "dress-code")
+public Dropdown dressCode;
 
 @Test
 public void selectEnumTest() {

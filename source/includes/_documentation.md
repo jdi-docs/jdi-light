@@ -615,9 +615,10 @@ Menu element is located in JDI Light in:
   - __C#__: _JDI.Light.Elements.Composite.Menu_
 
 ```java 
-@UI(".sidebar-menu span<[*'%s']<<") public static Menu leftMenu;
-@UI(".sidebar-menu span<[*'%s']<<") public static JList<HtmlElement> leftMenuList;
-@UI(".sidebar-menu span") public static JList<MenuItem> menu;
+@UI(".sidebar-menu span<[*'%s']<<") 
+public static Menu leftMenu;
+@Url("/metals-colors.html") @Title("Metal and Colors")
+public static MetalAndColorsPage metalAndColorsPage;
 
 @Test
 public void selectEnumTest() {

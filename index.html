@@ -380,22 +380,7 @@
                               <a href="#colorpicker" class="toc-h2 h3 toc-link" data-title="ColorPicker">ColorPicker</a>
                             </li>
                             <li>
-                              <a href="#input-type-date" class="toc-h2 h3 toc-link" data-title="Input Type Date">Input Type Date</a>
-                            </li>
-                            <li>
-                              <a href="#input-type-week" class="toc-h2 h3 toc-link" data-title="Input Type Week">Input Type Week</a>
-                            </li>
-                            <li>
-                              <a href="#input-type-month" class="toc-h2 h3 toc-link" data-title="Input Type Month">Input Type Month</a>
-                            </li>
-                            <li>
-                              <a href="#input-type-time" class="toc-h2 h3 toc-link" data-title="Input Type Time">Input Type Time</a>
-                            </li>
-                            <li>
-                              <a href="#input-type-datetime-local" class="toc-h2 h3 toc-link" data-title="Input Type DateTime-Local">Input Type DateTime-Local</a>
-                            </li>
-                            <li>
-                              <a href="#input-type-range" class="toc-h2 h3 toc-link" data-title="Input Type Range">Input Type Range</a>
+                              <a href="#datetimeselector" class="toc-h2 h3 toc-link" data-title="DateTimeSelector">DateTimeSelector</a>
                             </li>
                             <li>
                               <a href="#fileinput" class="toc-h2 h3 toc-link" data-title="FileInput">FileInput</a>
@@ -458,6 +443,24 @@
                             </li>
                             <li>
                               <a href="#combobox" class="toc-h2 h3 toc-link" data-title="ComboBox">ComboBox</a>
+                            </li>
+                            <li>
+                              <a href="#input-type-date" class="toc-h2 h3 toc-link" data-title="Input Type Date">Input Type Date</a>
+                            </li>
+                            <li>
+                              <a href="#input-type-week" class="toc-h2 h3 toc-link" data-title="Input Type Week">Input Type Week</a>
+                            </li>
+                            <li>
+                              <a href="#input-type-month" class="toc-h2 h3 toc-link" data-title="Input Type Month">Input Type Month</a>
+                            </li>
+                            <li>
+                              <a href="#input-type-time" class="toc-h2 h3 toc-link" data-title="Input Type Time">Input Type Time</a>
+                            </li>
+                            <li>
+                              <a href="#input-type-datetime-local" class="toc-h2 h3 toc-link" data-title="Input Type DateTime-Local">Input Type DateTime-Local</a>
+                            </li>
+                            <li>
+                              <a href="#input-type-range" class="toc-h2 h3 toc-link" data-title="Input Type Range">Input Type Range</a>
                             </li>
                         </ul>
                   </li>
@@ -1198,90 +1201,1028 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/CheckBoxTests.cs">C# test examples</a></p>
 <h3 id='colorpicker'>ColorPicker</h3>
-<p><strong>ColorPicker</strong> – Elements of this type provide a user interface element that lets a user specify a color, either by using a visual color picker interface or by entering the color into a text field in &quot;#rrggbb&quot; hexadecimal format. Only simple colors (with no alpha channel) are allowed. The values are compatible with CSS.</p>
+<p>TBD</p>
+<h3 id='datetimeselector'>DateTimeSelector</h3>
+<p>TBD</p>
+<h3 id='fileinput'>FileInput</h3>
+<p><strong>FileInput</strong> - a grafical control element, that allows the user to upload documents on the web site</p>
 
-<p><img src="images/colorpicker.png" alt="ColorPicker" /></p>
+<p><img src="images/fileinput.png" alt="FileInput" /></p>
 
-<p>Colorpicker is located in the following classes:</p>
+<p>FileInput element is located in JDI Light in:</p>
 
 <ul>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.ColorPicker*</em></li>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.FileInput</em></li>
+<li><strong>C#</strong>: <em>JDI.Light.Elements.Composite.FileInput</em></li>
 </ul>
+<pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">static</span> <span class="n">FileInput</span> <span class="n">avatar</span><span class="o">;</span> <span class="c1">// @FindBy(id = "text")</span>
 
-<!--- 
-  - __C#__: _JDI.Light.Elements.Common.CheckBox*_
--->
-<pre class="highlight java tab-java"><code><span class="c1">// @FindBy(id = "color-picker")</span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="n">ColorPicker</span> <span class="n">colorPicker</span><span class="o">;</span>
+<span class="nd">@UI</span><span class="o">(</span><span class="s">"input[type=file][disabled]"</span><span class="o">)</span> <span class="c1">// @FindBy(css = "input[type=file][disabled]")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">FileInput</span> <span class="n">disabledFileInput</span><span class="o">;</span> 
 
-<span class="nd">@UI</span><span class="o">(</span><span class="s">"#disabled-picker"</span><span class="o">)</span> <span class="c1">// @FindBy(id = "disabled-picker")</span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="n">ColorPicker</span> <span class="n">disabledPicker</span><span class="o">;</span>
+<span class="nd">@UI</span><span class="o">(</span><span class="s">"[download]"</span><span class="o">)</span> <span class="c1">// @FindBy(css = "[download]")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">Link</span> <span class="n">downloadJdiLogo</span><span class="o">;</span>
 
 <span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">setColorTest</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">colorPicker</span><span class="o">.</span><span class="na">setColor</span><span class="o">(</span><span class="s">"#432376"</span><span class="o">);</span>
-    <span class="n">assertEquals</span><span class="o">(</span><span class="n">colorPicker</span><span class="o">.</span><span class="na">color</span><span class="o">(),</span> <span class="s">"#432376"</span><span class="o">);</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">uploadTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">avatar</span><span class="o">.</span><span class="na">uploadFile</span><span class="o">(</span><span class="n">mergePath</span><span class="o">(</span><span class="n">PROJECT_PATH</span><span class="o">,</span><span class="s">"/src/test/resources/general.xml"</span><span class="o">));</span>
+    <span class="n">avatar</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"general.xml"</span><span class="o">));</span>
+    <span class="n">assertTrue</span><span class="o">(</span><span class="n">avatar</span><span class="o">.</span><span class="na">getText</span><span class="o">().</span><span class="na">contains</span><span class="o">(</span><span class="s">"general.xml"</span><span class="o">));</span>
+    <span class="n">assertTrue</span><span class="o">(</span><span class="n">avatar</span><span class="o">.</span><span class="na">getValue</span><span class="o">().</span><span class="na">contains</span><span class="o">(</span><span class="s">"general.xml"</span><span class="o">));</span>
     <span class="k">try</span> <span class="o">{</span>
-      <span class="n">disabledPicker</span><span class="o">.</span><span class="na">setColor</span><span class="o">(</span><span class="s">"#432376"</span><span class="o">);</span>
+        <span class="n">disabledFileInput</span><span class="o">.</span><span class="na">uploadFile</span><span class="o">(</span><span class="n">mergePath</span><span class="o">(</span><span class="n">PROJECT_PATH</span><span class="o">,</span> <span class="s">"/src/test/resources/general.xml"</span><span class="o">));</span>
     <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">ignore</span><span class="o">)</span> <span class="o">{}</span>
-    <span class="n">assertEquals</span><span class="o">(</span><span class="n">disabledPicker</span><span class="o">.</span><span class="na">color</span><span class="o">(),</span> <span class="err">#</span><span class="n">ffd7a6</span><span class="s">");
-}
-
-@Test
-public void isValidationTest() {
-    disabledPicker.is().color("</span><span class="err">#</span><span class="n">ffd7a6</span><span class="err">"</span><span class="o">);</span>
-    <span class="n">colorPicker</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
-    <span class="n">disabledPicker</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">disabled</span><span class="o">();</span>
+    <span class="n">disabledFileInput</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="s">""</span><span class="o">));</span>
 <span class="o">}</span>
-</code></pre><pre class="highlight csharp tab-csharp"><code><span class="n">TBD</span> 
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">downloadTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">downloadJdiLogo</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+    <span class="n">assertThatFile</span><span class="o">(</span><span class="s">"jdi-logo.jpg"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">isDownloaded</span><span class="o">()</span>
+        <span class="o">.</span><span class="na">hasSize</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="mi">32225L</span><span class="o">));</span>
+    <span class="n">assertThatFile</span><span class="o">(</span><span class="s">"jdi-logo.jpg"</span><span class="o">).</span><span class="na">hasSize</span><span class="o">(</span><span class="n">greaterThan</span><span class="o">(</span><span class="mi">100L</span><span class="o">));</span>
+<span class="o">}</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">FileInputTest</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">FileInput</span><span class="p">.</span><span class="nf">SelectFile</span><span class="p">(</span><span class="nf">CreateFile</span><span class="p">(</span><span class="n">filename</span><span class="p">));</span>
+<span class="p">}</span>
 </code></pre>
 <p>Here is an example with provided HTML code:</p>
 
-<p><img src="images/html/colorpicker_html.png" alt="ColorPicker" /></p>
+<p><img src="images/html/fileinput_html.png" alt="FileInput example" /></p>
 
-<p>Available methods in Java JDI Light:</p>
+<p>Available method in Java JDI Light:</p>
 
 <table><thead>
 <tr>
-<th>Methods</th>
+<th>Method</th>
 <th>Description</th>
 <th>Return Type</th>
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>color()</strong></td>
-<td>Returns color code in  hexadecimal format (&quot;#rrggbb&quot;)</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>setColor(String)</strong></td>
-<td>Set color from string hex representation (&quot;#rrggbb&quot;)</td>
+<td><strong>uploadFile(String)</strong></td>
+<td>Select file to upload</td>
 <td>void</td>
-</tr>
-<tr>
-<td><strong>is()</strong></td>
-<td>Assert acton color</td>
-<td>ColorAssert</td>
-</tr>
-<tr>
-<td><strong>assertThat()</strong></td>
-<td>Assert acton color</td>
-<td>ColorAssert</td>
 </tr>
 </tbody></table>
 
-<!---
-Available methods in C# JDI Light:
+<p>Available method in C# JDI Light:</p>
 
-|Method | Description | Return Type
---- | --- | ---
--->
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>SelectFile(string filepath)</strong></td>
+<td>Select file to upload</td>
+<td>void</td>
+</tr>
+</tbody></table>
 
-<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ColorPickerTests.java">Java test examples</a></p>
+<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/FileUploadTests.java">Java test examples</a></p>
 
-<!---
-[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/CheckBoxTests.cs)
--->
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/FileInputTests.cs">C# test examples</a></p>
+<h3 id='icon'>Icon</h3>
+<p>TBD</p>
+<h3 id='image'>Image</h3>
+<p>TBD</p>
+<h3 id='link'>Link</h3>
+<p>TBD</p>
+<h3 id='numberselector'>NumberSelector</h3>
+<p>TBD</p>
+<h3 id='progressbar'>ProgressBar</h3>
+<p>TBD</p>
+<h3 id='range'>Range</h3>
+<p>TBD</p>
+<h3 id='text'>Text</h3>
+<p>TBD</p>
+<h3 id='textarea'>TextArea</h3>
+<p>TBD</p>
+<h3 id='textfield'>TextField</h3>
+<p>TBD</p>
+<h3 id='title'>Title</h3>
+<p>TBD</p>
+<h2 id='complex-elements'>Complex elements</h2><h3 id='radiobutton'>RadioButton</h3>
+<p><strong>RadioButton</strong> – interface element that allows user to select one option from a predefined group.</p>
+
+<p>Radio buttons are represented by the following class:</p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.complex.RadioButtons</em></li>
+<li><strong>C#</strong>: <em>JDI.Light.Elements.Common.RadioButton</em></li>
+</ul>
+<pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"[name=colors]"</span><span class="o">)</span> <span class="c1">//@FindBy(name = "colors")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">RadioButtons</span> <span class="n">colors</span><span class="o">;</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">selectTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">colors</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">Blue</span><span class="o">);</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="n">colors</span><span class="o">.</span><span class="na">getValue</span><span class="o">(),</span> <span class="s">"Blue"</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">SelectRadioButton</span><span class="p">()</span> 
+<span class="p">{</span>
+    <span class="n">MyRadioButton</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="s">"some value"</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">SelectRadioButtonByIndex</span><span class="p">()</span> 
+<span class="p">{</span>
+    <span class="n">MyRadioButton</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">GetSelected</span><span class="p">()</span> 
+<span class="p">{</span>
+    <span class="kt">var</span> <span class="n">selected</span> <span class="p">=</span> <span class="n">MyRadioButton</span><span class="p">.</span><span class="nf">GetSelected</span><span class="p">();</span>
+    <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">selected</span><span class="p">,</span> <span class="s">"some value"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<p>Consider an example where each radio button is a particular color, described with given HTML code:</p>
+
+<p><img src="images/html/radio_html.png" alt="RadioButton" /></p>
+
+<p>Here is the list of some available methods:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>select(String/int/Enum)/Select(string/int)</strong></td>
+<td>Select radiobutton by value/index</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>selected()/GetSelected()</strong></td>
+<td>Get selected radiobutton value</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/RadioTests.java">Java test examples</a></p>
+
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/RadioButtonTests.cs">C# test examples</a></p>
+<h3 id='table'>Table</h3>
+<p><strong>Table</strong> – a complex element that consists of header, body (at least one row and one column) and footer. You are able to perform a list of readonly interactions with this element.</p>
+
+<p>Table implementation has an entry point in class:</p>
+
+<ul>
+<li><strong>C#</strong>: <em>JDI.Light.Elements.Complex.Table.cs</em></li>
+</ul>
+<pre class="highlight csharp tab-csharp"><code>
+        <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+        <span class="k">public</span> <span class="k">void</span> <span class="nf">HugeTableSearchByColumnNamesContainValuesTest</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">PerformancePage</span><span class="p">.</span><span class="n">UsersTable</span><span class="p">.</span><span class="nf">AssertThat</span><span class="p">().</span><span class="nf">HasRowWithValues</span><span class="p">(</span>
+                <span class="nf">ContainsValue</span><span class="p">(</span><span class="s">"Meyer"</span><span class="p">,</span> <span class="nf">InColumn</span><span class="p">(</span><span class="s">"Name"</span><span class="p">)),</span>
+                <span class="nf">ContainsValue</span><span class="p">(</span><span class="s">"co.uk"</span><span class="p">,</span> <span class="nf">InColumn</span><span class="p">(</span><span class="s">"Email"</span><span class="p">)));</span>
+            <span class="kt">var</span> <span class="n">row</span> <span class="p">=</span> <span class="n">PerformancePage</span><span class="p">.</span><span class="n">UsersTable</span><span class="p">.</span><span class="nf">Row</span><span class="p">(</span>
+                <span class="nf">ContainsValue</span><span class="p">(</span><span class="s">"Meyer"</span><span class="p">,</span> <span class="nf">InColumn</span><span class="p">(</span><span class="s">"Name"</span><span class="p">)),</span>
+                <span class="nf">ContainsValue</span><span class="p">(</span><span class="s">"co.uk"</span><span class="p">,</span> <span class="nf">InColumn</span><span class="p">(</span><span class="s">"Email"</span><span class="p">)));</span>
+                <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="s">"Brian Meyer;(016977) 0358;mollis.nec@seddictumeleifend.co.uk;Houston"</span><span class="p">,</span>
+                    <span class="n">row</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">());</span>
+        <span class="p">}</span>
+
+        <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+        <span class="k">public</span> <span class="k">void</span> <span class="nf">HugeTableSearchByColumnNumbersContainValuesTest</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">PerformancePage</span><span class="p">.</span><span class="n">UsersTable</span><span class="p">.</span><span class="nf">AssertThat</span><span class="p">().</span><span class="nf">HasRowWithValues</span><span class="p">(</span>
+                <span class="nf">ContainsValue</span><span class="p">(</span><span class="s">"Burke"</span><span class="p">,</span> <span class="nf">InColumn</span><span class="p">(</span><span class="m">1</span><span class="p">)),</span>
+                <span class="nf">ContainsValue</span><span class="p">(</span><span class="s">"ut.edu"</span><span class="p">,</span> <span class="nf">InColumn</span><span class="p">(</span><span class="m">3</span><span class="p">)));</span>
+            <span class="kt">var</span> <span class="n">row</span> <span class="p">=</span> <span class="n">PerformancePage</span><span class="p">.</span><span class="n">UsersTable</span><span class="p">.</span><span class="nf">Row</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
+            <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="s">"Burke Tucker;076 1971 1687;et.euismod.et@ut.edu;GozŽe"</span><span class="p">,</span>
+                <span class="n">row</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">());</span>
+        <span class="p">}</span>
+
+        <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+        <span class="k">public</span> <span class="k">void</span> <span class="nf">HugeTableSearchByColumnNamesHasValuesTest</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">PerformancePage</span><span class="p">.</span><span class="n">UsersTable</span><span class="p">.</span><span class="nf">AssertThat</span><span class="p">().</span><span class="nf">HasRowWithValues</span><span class="p">(</span>
+                <span class="nf">HasValue</span><span class="p">(</span><span class="s">"Brian Meyer"</span><span class="p">,</span> <span class="nf">InColumn</span><span class="p">(</span><span class="s">"Name"</span><span class="p">)),</span>
+                <span class="nf">HasValue</span><span class="p">(</span><span class="s">"mollis.nec@seddictumeleifend.co.uk"</span><span class="p">,</span> <span class="nf">InColumn</span><span class="p">(</span><span class="s">"Email"</span><span class="p">)));</span>
+            <span class="kt">var</span> <span class="n">row</span> <span class="p">=</span> <span class="n">PerformancePage</span><span class="p">.</span><span class="n">UsersTable</span><span class="p">.</span><span class="nf">Row</span><span class="p">(</span>
+                <span class="nf">HasValue</span><span class="p">(</span><span class="s">"Brian Meyer"</span><span class="p">,</span> <span class="nf">InColumn</span><span class="p">(</span><span class="s">"Name"</span><span class="p">)),</span>
+                <span class="nf">HasValue</span><span class="p">(</span><span class="s">"mollis.nec@seddictumeleifend.co.uk"</span><span class="p">,</span> <span class="nf">InColumn</span><span class="p">(</span><span class="s">"Email"</span><span class="p">)));</span>
+            <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="s">"Brian Meyer;(016977) 0358;mollis.nec@seddictumeleifend.co.uk;Houston"</span><span class="p">,</span>
+                <span class="n">row</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">());</span>
+        <span class="p">}</span>
+
+        <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+        <span class="k">public</span> <span class="k">void</span> <span class="nf">HugeTableSearchByColumnNumbersHasValuesTest</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">PerformancePage</span><span class="p">.</span><span class="n">UsersTable</span><span class="p">.</span><span class="nf">AssertThat</span><span class="p">().</span><span class="nf">HasRowWithValues</span><span class="p">(</span>
+                <span class="nf">HasValue</span><span class="p">(</span><span class="s">"Brian Meyer"</span><span class="p">,</span> <span class="nf">InColumn</span><span class="p">(</span><span class="m">1</span><span class="p">)),</span>
+                <span class="nf">HasValue</span><span class="p">(</span><span class="s">"mollis.nec@seddictumeleifend.co.uk"</span><span class="p">,</span> <span class="nf">InColumn</span><span class="p">(</span><span class="m">3</span><span class="p">)));</span>
+            <span class="kt">var</span> <span class="n">row</span> <span class="p">=</span> <span class="n">PerformancePage</span><span class="p">.</span><span class="n">UsersTable</span><span class="p">.</span><span class="nf">Row</span><span class="p">(</span>
+                <span class="nf">ContainsValue</span><span class="p">(</span><span class="s">"Meyer"</span><span class="p">,</span> <span class="nf">InColumn</span><span class="p">(</span><span class="s">"Name"</span><span class="p">)),</span>
+                <span class="nf">ContainsValue</span><span class="p">(</span><span class="s">"co.uk"</span><span class="p">,</span> <span class="nf">InColumn</span><span class="p">(</span><span class="s">"Email"</span><span class="p">)));</span>
+            <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="s">"Brian Meyer;(016977) 0358;mollis.nec@seddictumeleifend.co.uk;Houston"</span><span class="p">,</span>
+                <span class="n">row</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">());</span>
+        <span class="p">}</span> 
+
+        <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+        <span class="k">public</span> <span class="k">void</span> <span class="nf">TableChainTest</span><span class="p">()</span>
+        <span class="p">{</span>            
+            <span class="n">PerformancePage</span><span class="p">.</span><span class="n">UsersTable</span><span class="p">.</span><span class="nf">AssertThat</span><span class="p">()</span>
+                <span class="p">.</span><span class="nf">Size</span><span class="p">(</span><span class="m">400</span><span class="p">)</span>
+                <span class="p">.</span><span class="nf">Size</span><span class="p">(</span><span class="n">Is</span><span class="p">.</span><span class="nf">GreaterThan</span><span class="p">(</span><span class="m">399</span><span class="p">))</span>                
+                <span class="p">.</span><span class="nf">HasRowWithValues</span><span class="p">(</span>
+                    <span class="nf">HasValue</span><span class="p">(</span><span class="s">"Brian Meyer"</span><span class="p">,</span> <span class="nf">InColumn</span><span class="p">(</span><span class="s">"Name"</span><span class="p">)),</span>
+                    <span class="nf">HasValue</span><span class="p">(</span><span class="s">"mollis.nec@seddictumeleifend.co.uk"</span><span class="p">,</span> <span class="nf">InColumn</span><span class="p">(</span><span class="s">"Email"</span><span class="p">)))</span>
+                <span class="p">.</span><span class="nf">NotEmpty</span><span class="p">()</span>
+                <span class="p">.</span><span class="nf">RowsWithValues</span><span class="p">(</span><span class="m">3</span><span class="p">,</span> <span class="nf">ContainsValue</span><span class="p">(</span><span class="s">"Baker"</span><span class="p">,</span> <span class="nf">InColumn</span><span class="p">(</span><span class="m">1</span><span class="p">)))</span>
+                <span class="p">.</span><span class="nf">HasColumn</span><span class="p">(</span><span class="s">"Email"</span><span class="p">)</span>
+                <span class="p">.</span><span class="nf">HasColumns</span><span class="p">(</span><span class="k">new</span><span class="p">[]</span> <span class="p">{</span><span class="s">"Name"</span><span class="p">,</span> <span class="s">"City"</span><span class="p">})</span>
+                <span class="p">.</span><span class="nf">Columns</span><span class="p">(</span><span class="n">Is</span><span class="p">.</span><span class="nf">SubsequenceOf</span><span class="p">(</span><span class="k">new</span><span class="p">[]</span> <span class="p">{</span><span class="s">"Name"</span><span class="p">,</span> <span class="s">"City"</span><span class="p">,</span> <span class="s">"Phone"</span><span class="p">,</span> <span class="s">"Email"</span><span class="p">,</span> <span class="s">"Address"</span><span class="p">}));</span>
+        <span class="p">}</span>       
+</code></pre>
+<p>Already implemented methods:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>AssertThat()</strong></td>
+<td>Applicable for performing assert actions for tables</td>
+<td>TableAssert</td>
+</tr>
+<tr>
+<td><strong>Is()</strong></td>
+<td>Applicable for performing assert actions for tables</td>
+<td>TableAssert</td>
+</tr>
+<tr>
+<td><strong>ContainsValue(string value, Column column)</strong></td>
+<td>Sets an object finding by some value occurance in particular column</td>
+<td>TableMatcher</td>
+</tr>
+<tr>
+<td><strong>HasValue(string value, Column column)</strong></td>
+<td>Sets an object finding by some full value in particular column</td>
+<td>TableMatcher</td>
+</tr>
+<tr>
+<td><strong>InColumn(string value)</strong></td>
+<td>Sets an object of some column by particular value</td>
+<td>Column</td>
+</tr>
+<tr>
+<td><strong>InColumn(int num)</strong></td>
+<td>Sets an object of some column by particular column&#39;s number</td>
+<td>Column</td>
+</tr>
+<tr>
+<td><strong>Row(params TableMatcher[] matchers)</strong></td>
+<td>Sets and returns a row object of a table according to some matchers&#39; params (returns &#39;null&#39; if there is no such row)</td>
+<td>Line</td>
+</tr>
+<tr>
+<td><strong>Row(int rowNum)</strong></td>
+<td>Sets and returns a row object of a table according to the row&#39;s index</td>
+<td>Line</td>
+</tr>
+<tr>
+<td><strong>GetValue()</strong></td>
+<td>Returns a string content of values for particular row, where values are separated by &quot;;&quot;</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p>AssertTable methods:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Empty()</strong></td>
+<td>Asserts whether table is empty</td>
+<td>TableAssert</td>
+</tr>
+<tr>
+<td><strong>NotEmpty()</strong></td>
+<td>Asserts whether table is not empty</td>
+<td>TableAssert</td>
+</tr>
+<tr>
+<td><strong>Size(Matcher<int> condition)</strong></td>
+<td>Asserts whether table size satisfy some matcher</td>
+<td>TableAssert</td>
+</tr>
+<tr>
+<td><strong>Size(int expectedSize)</strong></td>
+<td>Asserts whether table has particular size</td>
+<td>TableAssert</td>
+</tr>
+<tr>
+<td><strong>HasColumn(string column)</strong></td>
+<td>Asserts whether table has particular header</td>
+<td>TableAssert</td>
+</tr>
+<tr>
+<td><strong>HasColumns(IEnumerable<string> columns)</strong></td>
+<td>Asserts whether table has particular headers</td>
+<td>TableAssert</td>
+</tr>
+<tr>
+<td><strong>Columns(Matcher<IEnumerable<string>&gt; condition)</strong></td>
+<td>Asserts whether headers satisfy some matcher</td>
+<td>TableAssert</td>
+</tr>
+<tr>
+<td><strong>RowsWithValues(int count, params TableMatcher[] matchers)</strong></td>
+<td>Asserts whether rows with particular matchers exist in a table multiple times</td>
+<td>TableAssert</td>
+</tr>
+<tr>
+<td><strong>HasRowWithValues(params TableMatcher[] matchers)</strong></td>
+<td>Asserts whether a row with particular matchers exists in a table</td>
+<td>TableAssert</td>
+</tr>
+</tbody></table>
+
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Complex/TableTests.cs">Test examples C#</a></p>
+<h3 id='dropdown'>DropDown</h3>
+<p><strong>DropDown</strong> – a graphical control element, that allows the user to choose one value from a list.</p>
+
+<p><img src="images/dropdown.png" alt="DropDown" /></p>
+
+<p>JDI Light has support for dropdown elements with its own type. There are several ways of dropdown usage in JDI Light, serving different needs.</p>
+
+<p><strong>JDI Dropdown annotation</strong></p>
+
+<p>For better use JDI Light provides a <strong><em>@JDropdown</em></strong> annotation to locate dropdown elements. This annotation consists of the following elements:</p>
+
+<ul>
+<li><strong><em>root()</em></strong> - value of this element points to the root locator of dropdown element</li>
+<li><strong><em>value()</em></strong> - locator of selected by default option in dropdown list</li>
+<li><strong><em>list()</em></strong> - locator representing list options</li>
+<li><strong><em>expand()</em></strong> - locator for expanding the dropdown list</li>
+</ul>
+<pre class="highlight java tab-java"><code><span class="nd">@JDropdown</span><span class="o">(</span><span class="n">root</span> <span class="o">=</span> <span class="s">"div[ui=dropdown]"</span><span class="o">,</span>
+           <span class="n">value</span> <span class="o">=</span> <span class="s">".filter-option"</span><span class="o">,</span>
+           <span class="n">list</span> <span class="o">=</span> <span class="s">"li"</span><span class="o">,</span>
+           <span class="n">expand</span> <span class="o">=</span> <span class="s">".caret"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="n">Droplist</span> <span class="n">colors</span><span class="o">;</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">complexTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">metalAndColorsPage</span><span class="o">.</span><span class="na">shouldBeOpened</span><span class="o">();</span>
+    <span class="n">metalAndColorsPage</span><span class="o">.</span><span class="na">colors</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">Green</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="p">[</span><span class="nf">JDropDown</span><span class="p">(</span><span class="n">root</span><span class="p">:</span> <span class="s">"#colors"</span><span class="p">,</span> 
+           <span class="k">value</span><span class="p">:</span> <span class="s">".filter-option"</span><span class="p">,</span> 
+           <span class="n">list</span><span class="p">:</span><span class="s">"li"</span><span class="p">,</span> 
+           <span class="n">expand</span><span class="p">:</span><span class="s">".caret"</span><span class="p">)]</span>
+<span class="k">public</span> <span class="n">Droplist</span> <span class="n">Colors</span><span class="p">;</span>
+
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">ComplexTest</span><span class="p">()</span> 
+<span class="p">{</span>
+    <span class="n">MetalAndColorsPage</span><span class="p">.</span><span class="nf">ShouldBeOpened</span><span class="p">();</span>
+    <span class="n">MetalAndColorsPage</span><span class="p">.</span><span class="n">Colors</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="n">Green</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<p>Suppose we have &#39;Colors&#39; dropdown, which looks like this in HTML code:</p>
+
+<p><img src="images/html/dropdown_html.png" alt="Dropdown HTML" /> </p>
+
+<p><strong>Dropdown representation</strong></p>
+<pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="n">Droplist</span> <span class="n">colors</span><span class="o">;</span>
+<span class="nd">@CSS</span><span class="o">(</span><span class="s">"#colors"</span><span class="o">)</span> <span class="kd">public</span> <span class="n">Droplist</span> <span class="n">colors</span><span class="o">;</span>
+<span class="kd">public</span> <span class="n">Droplist</span> <span class="n">colors</span> <span class="o">=</span> <span class="n">dropdown</span><span class="o">(</span><span class="s">"#colors"</span><span class="o">);</span>
+<span class="kd">public</span> <span class="n">Droplist</span> <span class="n">colors</span> <span class="o">=</span> <span class="n">$d</span><span class="o">(</span><span class="s">"#colors"</span><span class="o">);</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">colorsTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">colors</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">Green</span><span class="o">);</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="n">colors</span><span class="o">.</span><span class="na">selected</span><span class="o">(),</span> <span class="n">Green</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="k">public</span> <span class="n">DropDown</span> <span class="n">Colors</span><span class="p">;</span>
+<span class="na">[FindBy(Css = "#colors")]</span> 
+<span class="k">public</span> <span class="n">DropDown</span> <span class="n">Colors</span><span class="p">;</span>
+
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">ColorsTest</span><span class="p">()</span> 
+<span class="p">{</span>
+    <span class="n">Colors</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="n">Green</span><span class="p">);</span>
+    <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEquals</span><span class="p">(</span><span class="n">Colors</span><span class="p">.</span><span class="nf">Selected</span><span class="p">(),</span> <span class="n">Green</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<p>JDI Light provides a <strong>Droplist</strong> class which can be used for dropdown representation as a type of web element.</p>
+
+<p>Locator simple annotations from <em>com.epam.jdi.light.elements.pageobjects.annotations.simple</em> can be used together with dropdown elements.</p>
+
+<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-examples/src/test/java/io/github/epam/tests/epam/ComplexElementsTests.java">Java test examples</a></p>
+
+<p>For HTML5 elements Dropdown lists are also supported in JDI light. There is a <strong>Dropdown</strong> class which is more like a special case of Droplist.
+This type can be used in cases when dropdown is represented with HTML <em>&lt;select&gt;</em> tag.</p>
+
+<p>Consider an example of HTML5 dropdown with a given HTML code:</p>
+<pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#dress-code"</span><span class="o">)</span> <span class="kd">public</span> <span class="n">Dropdown</span> <span class="n">dressCode</span><span class="o">;</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">selectEnumTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">dressCode</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">Fancy</span><span class="o">);</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="n">dressCode</span><span class="o">.</span><span class="na">getValue</span><span class="o">(),</span> <span class="s">"Fancy"</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[FindBy(Css = "#dress-code")]</span> 
+<span class="k">public</span> <span class="n">Dropdown</span> <span class="n">DressCode</span><span class="p">;</span>
+
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">SelectEnumTest</span><span class="p">()</span> 
+<span class="p">{</span>
+    <span class="n">DressCode</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="n">Fancy</span><span class="p">);</span>
+    <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEquals</span><span class="p">(</span><span class="n">DressCode</span><span class="p">.</span><span class="nf">GetSelected</span><span class="p">(),</span> <span class="s">"Fancy"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<p><img src="images/html/dropdown_html5.png" alt="Dropdown HTML5" /></p>
+
+<p>Here is the list of some available methods:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>select()/Select(string/int)</strong></td>
+<td>Select dropdown by value/index</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>selected()/GetSelected()</strong></td>
+<td>Get selected dropdown value</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/DropdownTests.java">Java test examples</a></p>
+
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DropDownTests.cs">C# test examples</a></p>
+<h3 id='multidropdown'>MultiDropDown</h3><pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#multi-dropdown"</span><span class="o">)</span> <span class="c1">//@FindBy(id = "multi-dropdown")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">MultiSelect</span> <span class="n">multiDropdown</span><span class="o">;</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">selectTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">multiDropdown</span><span class="o">.</span><span class="na">check</span><span class="o">(</span><span class="n">Wood</span><span class="o">,</span> <span class="n">Steam</span><span class="o">);</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="n">multiDropdown</span><span class="o">.</span><span class="na">checked</span><span class="o">(),</span> <span class="n">asList</span><span class="o">(</span><span class="s">"Steam"</span><span class="o">,</span> <span class="s">"Wood"</span><span class="o">));</span>
+<span class="o">}</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[FindBy(Css = "#multi-dropdown")]</span>
+<span class="k">public</span> <span class="n">MultiDropdown</span> <span class="n">MultiDropdown</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">SelectMultipleOptions</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">var</span> <span class="n">optionsList</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="p">{</span> <span class="s">"Steam"</span><span class="p">,</span> <span class="s">"Electro"</span> <span class="p">};</span>
+    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">MultiDropdown</span><span class="p">.</span><span class="nf">SelectOptions</span><span class="p">(</span><span class="n">optionsList</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<p><strong>MultiDropDown</strong> – a graphical control element, that allows the user to choose several values from a list.</p>
+
+<p><img src="images/multidropdown.png" alt="DropDown" /></p>
+
+<p>Multi dropdown elements can be described by the following class:</p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.complex.MultiSelect</em></li>
+<li><strong>C#</strong>: <em>JDI.Light.Elements.Composite.MultiDropdown</em></li>
+</ul>
+
+<p>Here is the list of some available methods in C# JDI Light:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>OptionIsEnabled(string)</strong></td>
+<td>Check whether option is enabled</td>
+<td>bool</td>
+</tr>
+<tr>
+<td><strong>SelectOption(string)</strong></td>
+<td>Select specified option</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>GetSelectedOptions()</strong></td>
+<td>Get selected options</td>
+<td>List</td>
+</tr>
+<tr>
+<td><strong>SelectOptions(List)</strong></td>
+<td>Select specified options</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>OptionExists(string)</strong></td>
+<td>Check whether option exists in list</td>
+<td>bool</td>
+</tr>
+<tr>
+<td><strong>Expand()</strong></td>
+<td>Expand list</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>Close()</strong></td>
+<td>Close expanded list</td>
+<td>void</td>
+</tr>
+</tbody></table>
+
+<p>The list of available methods for Java JDI Light:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>check(String/String.../Enum.../int...)</strong></td>
+<td>Select values in multi dropdown</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>uncheck(String.../Enum.../int...)</strong></td>
+<td>Unselect values in multi dropdown</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>selected()</strong></td>
+<td>Get selected value by default</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>checked()</strong></td>
+<td>Get selected values</td>
+<td>List&lt;String&gt;</td>
+</tr>
+</tbody></table>
+
+<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/MultiDropdownTests.java">Java test examples</a></p>
+
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Composite/MultiDropdownTests.cs">C# test examples</a></p>
+<h3 id='datalist'>DataList</h3><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">ExpandDataList</span><span class="p">()</span> 
+<span class="p">{</span>
+    <span class="n">MyDataList</span><span class="p">.</span><span class="nf">Expand</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">SelectDataList</span><span class="p">()</span> 
+<span class="p">{</span>
+    <span class="n">MyDataList</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="s">"some value"</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">SelectByIndex</span><span class="p">()</span> 
+<span class="p">{</span>
+    <span class="n">MyDataList</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">FillDataList</span><span class="p">()</span> 
+<span class="p">{</span>
+    <span class="n">MyDataList</span><span class="p">.</span><span class="nf">Input</span><span class="p">(</span><span class="s">"some value"</span><span class="p">);</span>
+    <span class="n">SubmitButton</span><span class="p">.</span><span class="nf">Click</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre>
+<p><strong>DataList</strong> – a graphical control element, that allows the user to choose one value from a list or enter it by himself.
+Datalist element contains a set of options with values available for entering.</p>
+
+<p><img src="images/icecreamdatalist.png" alt="DataList" /></p>
+
+<p>Datalist element type is provided by JDI Light in:</p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.complex.DataList</em></li>
+<li><strong>C#</strong>: <em>JDI.Light.Elements.Common.DataList</em></li>
+</ul>
+
+<p>Have a look at the following example with provided HTML code:</p>
+<pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#ice-cream"</span><span class="o">)</span> <span class="c1">//@FindBy(id = "ice-cream")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">DataList</span> <span class="n">iceCreamDataList</span><span class="o">;</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">selectEnumTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">iceCreamDataList</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">Strawberry</span><span class="o">);</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="n">iceCreamDataList</span><span class="o">.</span><span class="na">getValue</span><span class="o">(),</span> <span class="s">"Strawberry"</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<p><img src="images/html/datalist_html.png" alt="Datalist example" /></p>
+
+<p>The list of available methods in Java JDI Light:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>select(String/Enum/int)</strong></td>
+<td>Select datalist option by value or index</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>selected()</strong></td>
+<td>Get selected option value</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>values()</strong></td>
+<td>Get all option values from datalist</td>
+<td>List&lt;String&gt;</td>
+</tr>
+<tr>
+<td><strong>listEnabled()</strong></td>
+<td>Return list of values of enabled options</td>
+<td>List&lt;String&gt;</td>
+</tr>
+<tr>
+<td><strong>listDisabled()</strong></td>
+<td>Return list of values of disabled options</td>
+<td>List&lt;String&gt;</td>
+</tr>
+</tbody></table>
+
+<p>Here is the list of some available methods in C# JDI Light:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Expand()</strong></td>
+<td>Expands the list of possible values</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>Select(string/int)</strong></td>
+<td>Select datalist by value/index</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>Input(string value)</strong></td>
+<td>Input user&#39;s value into datalist</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>GetSelected()</strong></td>
+<td>Get selected datalist value</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/DataListTests.java">Java test examples</a></p>
+
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DataListTests.cs">C# test examples</a></p>
+<h3 id='checklist'>CheckList</h3>
+<p><strong>CheckList</strong> – a graphical control element representing a set of checkboxes, each of which allows the user to control a two-state parameter (enabled or disabled).</p>
+
+<p>Checklist element type is available in the following packages:</p>
+
+<ul>
+<li><strong>Java</strong>: com.epam.jdi.light.ui.html.complex.Checklist</li>
+<li><strong>C</strong>#: JDI.Light.Elements.Common.CheckList </li>
+</ul>
+
+<p>See an example with a given HTML code describing checklist element.</p>
+<pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"[name=checks-group]"</span><span class="o">)</span> <span class="c1">//@FindBy(name = "checks-group")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">Checklist</span> <span class="n">weather</span><span class="o">;</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">selectTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">weather</span><span class="o">.</span><span class="na">check</span><span class="o">(</span><span class="n">Cold</span><span class="o">,</span> <span class="n">Rainy</span><span class="o">);</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="n">weather</span><span class="o">.</span><span class="na">checked</span><span class="o">(),</span> <span class="n">asList</span><span class="o">(</span><span class="s">"Cold"</span><span class="o">,</span> <span class="s">"Rainy day"</span><span class="o">));</span>
+<span class="o">}</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">assertValidationTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">weather</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">values</span><span class="o">(</span><span class="n">containsInAnyOrder</span><span class="o">(</span>
+      <span class="s">"Hot option"</span><span class="o">,</span> <span class="s">"Cold"</span><span class="o">,</span> <span class="s">"Rainy day"</span><span class="o">,</span> <span class="s">"Sunny"</span><span class="o">,</span> <span class="s">"Disabled"</span><span class="o">));</span>
+    <span class="n">weather</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="s">"Hot option"</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[FindBy(Css = "div:nth-child(11) &gt; div.html-left")]</span>
+<span class="k">public</span> <span class="n">ICheckList</span> <span class="n">WeatherCheckList</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">CheckCheckList</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">WeatherCheckList</span><span class="p">.</span><span class="nf">Check</span><span class="p">(</span><span class="k">new</span><span class="p">[]</span> <span class="p">{</span> <span class="s">"Cold"</span><span class="p">,</span> <span class="s">"Sunny"</span> <span class="p">});</span>
+    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">WeatherCheckList</span><span class="p">.</span><span class="nf">Uncheck</span><span class="p">(</span><span class="s">"Cold"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<p><img src="images/html/checklist_html.png" alt="Checklist Example" /></p>
+
+<p>List of available methods in Java JDI Light:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>check(String.../Enum/int...)</strong></td>
+<td>Select checkboxes</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>uncheck(String.../Enum/int...)</strong></td>
+<td>Unselect checkboxes</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>uncheckAll()</strong></td>
+<td>Uncheck all checkboxes</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>checked()</strong></td>
+<td>Get selected checkbox values</td>
+<td>List&lt;String&gt;</td>
+</tr>
+</tbody></table>
+
+<p>Here is the list of some available methods in C# JDI Light:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Check(string[]/int[])</strong></td>
+<td>Select checklist by values/indexes</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>Check(string/int)</strong></td>
+<td>Select checklist by value/index</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>Uncheck(string[]/int[])</strong></td>
+<td>Unselect checklist by values/indexes</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>Uncheck(string/int)</strong></td>
+<td>Unselect checklist by value/index</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>UncheckAll(Array)</strong></td>
+<td>Uncheck all checkboxes</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>GetChecked()</strong></td>
+<td>Get selected checkboxes from checklist value</td>
+<td>string[]</td>
+</tr>
+</tbody></table>
+
+<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/ChecklistTests.java">Java test examples</a></p>
+
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/CheckListTests.cs">C# test examples</a></p>
+<h3 id='multiselector'>MultiSelector</h3>
+<p><strong>MultiSelector</strong> – a graphical control element, that allows the user to do multiple choice.
+Multi Selector are represented by the following class:</p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.complex.MultiSelect</em></li>
+<li><strong>C#</strong>: <em>JDI.Light.Elements.Common.MultiSelector</em></li>
+</ul>
+<pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#ages"</span><span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">MultiSelect</span> <span class="n">ages</span><span class="o">;</span>
+<span class="c1">// equal to @FindBy(css = "#ages") public static MultiSelect ages;</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkTest</span><span class="o">()</span> <span class="o">{</span>
+       <span class="n">ages</span><span class="o">.</span><span class="na">check</span><span class="o">(</span><span class="s">"Electro"</span><span class="o">,</span> <span class="s">"Metalic"</span><span class="o">);</span>
+       <span class="n">assertEquals</span><span class="o">(</span><span class="n">ages</span><span class="o">.</span><span class="na">checked</span><span class="o">(),</span> <span class="n">asList</span><span class="o">(</span><span class="s">"Electro"</span><span class="o">,</span> <span class="s">"Metalic"</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">disabledTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">ages</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="s">"Disabled"</span><span class="o">);</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">ages</span><span class="o">.</span><span class="na">getValue</span><span class="o">(),</span> <span class="n">text</span><span class="o">);</span>
+    <span class="o">}</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">MultiSelectByValues</span><span class="p">()</span> 
+<span class="p">{</span>
+    <span class="n">MyMultiSelector</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="kt">string</span><span class="p">[]);</span>
+<span class="p">}</span>
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">MultiSelectByIndexes</span><span class="p">()</span> 
+<span class="p">{</span>
+    <span class="n">MyMultiSelector</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="kt">int</span><span class="p">[]);</span>
+<span class="p">}</span>
+</code></pre>
+<p><img src="images/html/multiSelectHtml.png" alt="MultiSelector" /></p>
+
+<p>Here is the list of available methods:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>check(String/Strings.../TEnum...)</strong></td>
+<td>Select multiselector by values</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>uncheck(Strings.../TEnum.../int)</strong></td>
+<td>Select multiselector by values/indexes</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>selected()</strong></td>
+<td>Get selected values</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>checked()</strong></td>
+<td>Get selected values</td>
+<td>List&lt;String&gt;</td>
+</tr>
+</tbody></table>
+
+<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/MultiSelectorTests.java">Java test examples</a></p>
+
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/MultiSelectorTests.cs">C# test examples</a></p>
+<h3 id='combobox'>ComboBox</h3>
+<p><strong>ComboBox</strong> – a graphical control element, that allows the user to choose one
+ value from a list or enter it by himself (is inherited from the <a href="#datalist">Datalist</a>)</p>
+
+<p><img src="images/icecreamdatalist.png" alt="ComboBox" /></p>
+
+<p>ComboBox is provided by JDI Light in:</p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.complex.Combobox</em></li>
+<li><strong>C#</strong>: <em>JDI.Light.Elements.Common.Combobox</em></li>
+</ul>
+<pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">static</span> <span class="n">Combobox</span> <span class="n">iceCream</span><span class="o">;</span>
+
+<span class="nd">@UI</span><span class="o">(</span><span class="s">"#ice-cream"</span><span class="o">)</span> <span class="c1">// @FindBy(id = "ice-cream")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">DataList</span> <span class="n">iceCreamDataList</span><span class="o">;</span>
+
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">selectTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">iceCreamDataList</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="s">"Chocolate"</span><span class="o">);</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="n">iceCreamDataList</span><span class="o">.</span><span class="na">getValue</span><span class="o">(),</span> <span class="s">"Chocolate"</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">selectNumTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">iceCreamDataList</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="mi">5</span><span class="o">);</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="n">iceCreamDataList</span><span class="o">.</span><span class="na">getValue</span><span class="o">(),</span> <span class="s">"Vanilla"</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">selectedTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="n">iceCreamDataList</span><span class="o">.</span><span class="na">selected</span><span class="o">(),</span> <span class="s">"Coconut"</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">labelTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="n">iceCreamDataList</span><span class="o">.</span><span class="na">label</span><span class="o">().</span><span class="na">getText</span><span class="o">(),</span> <span class="s">"Choose your lovely icecream"</span><span class="o">);</span>
+    <span class="n">iceCreamDataList</span><span class="o">.</span><span class="na">label</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"lovely icecream"</span><span class="o">));</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">isValidationTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">iceCream</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
+    <span class="n">iceCream</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="n">text</span><span class="o">));</span>
+    <span class="n">iceCream</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">Vanilla</span><span class="o">);</span>
+    <span class="n">iceCream</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"Van"</span><span class="o">));</span>
+<span class="o">}</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">ExpandComboBox</span><span class="p">()</span> 
+<span class="p">{</span>
+    <span class="n">MyComboBox</span><span class="p">.</span><span class="nf">Expand</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">SelectComboBox</span><span class="p">()</span> 
+<span class="p">{</span>
+    <span class="n">MyComboBox</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="s">"some value"</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">SelectByIndex</span><span class="p">()</span> 
+<span class="p">{</span>
+    <span class="n">MyComboBox</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">FillComboBox</span><span class="p">()</span> 
+<span class="p">{</span>
+    <span class="n">MyComboBox</span><span class="p">.</span><span class="nf">Input</span><span class="p">(</span><span class="s">"some value"</span><span class="p">);</span>
+    <span class="n">SubmitButton</span><span class="p">.</span><span class="nf">Click</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre>
+<p>Have a look at the following example with provided HTML code:  </p>
+
+<p><img src="images/html/datalist_html.png" alt="Combobox example" /></p>
+
+<p>The list of available methods in Java JDI Light:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>select(String/Enum/int)</strong></td>
+<td>Select datalist option by value or index</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>selected()</strong></td>
+<td>Get selected option value</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>values()</strong></td>
+<td>Get all option values from datalist</td>
+<td>List&lt;String&gt;</td>
+</tr>
+<tr>
+<td><strong>listEnabled()</strong></td>
+<td>Return list of values of enabled options</td>
+<td>List&lt;String&gt;</td>
+</tr>
+<tr>
+<td><strong>listDisabled()</strong></td>
+<td>Return list of values of disabled options</td>
+<td>List&lt;String&gt;</td>
+</tr>
+</tbody></table>
+
+<p>Here is the list of some available methods in C# JDI Light:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Expand()</strong></td>
+<td>Expands the list of possible values</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>Select(string/int)</strong></td>
+<td>Select datalist by value/index</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>Input(string)</strong></td>
+<td>Input user&#39;s value into datalist</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>GetSelected()</strong></td>
+<td>Get selected datalist value</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/ComboboxTests.java">Java test examples</a></p>
+
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/ComboBoxTests.cs">C# test examples</a></p>
 <h3 id='input-type-date'>Input Type Date</h3><pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#birth-date"</span><span class="o">)</span> 
 <span class="c1">// equal to @FindBy(css = "#birth-date") </span>
 <span class="kd">public</span> <span class="kd">static</span> <span class="n">DateTimeSelector</span> <span class="n">birthDate</span><span class="o">;</span>
@@ -1653,7 +2594,8 @@ Available methods in C# JDI Light:
 </tbody></table>
 
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/TimeTests.java">Test examples in Java</a></p>
-<h3 id='input-type-datetime-local'>Input Type DateTime-Local</h3><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">static</span> <span class="n">DateTimeSelector</span> <span class="n">partyTime</span><span class="o">;</span>
+<h3 id='input-type-datetime-local'>Input Type DateTime-Local</h3><pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#party-time"</span><span class="o">)</span> <span class="c1">//@FindBy(id = "party-time")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">DateTimeSelector</span> <span class="n">partyTime</span><span class="o">;</span>
 
 <span class="nd">@Test</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setDateTimeTest</span><span class="o">()</span> <span class="o">{</span>
@@ -1669,7 +2611,7 @@ Available methods in C# JDI Light:
 </code></pre>
 <p><strong>Input Type DateTime-Local</strong> – a graphical control element, that allows the user to set the value of time and date.</p>
 
-<p><img src="images/inputDateTimeLocal.png" alt="InputTypeDateTime" /></p>
+<p><img src="images/html/inputDateTimeLocal_html.png" alt="InputTypeDateTime" /></p>
 
 <p>There is a type for that element is available in JDI Light, which can be found in:</p>
 
@@ -1799,1024 +2741,6 @@ Available methods in C# JDI Light:
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/RangeTests.java">Java test examples</a></p>
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/RangeTests.cs">C# test examples</a></p>
-<h3 id='fileinput'>FileInput</h3>
-<p><strong>FileInput</strong> - a grafical control element, that allows the user to upload documents on the web site</p>
-
-<p><img src="images/fileinput.png" alt="FileInput" /></p>
-
-<p>FileInput element is located in JDI Light in:</p>
-
-<ul>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.FileInput</em></li>
-<li><strong>C#</strong>: <em>JDI.Light.Elements.Composite.FileInput</em></li>
-</ul>
-<pre class="highlight java tab-java"><code><span class="c1">// @FindBy(id = "avatar")</span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="n">FileInput</span> <span class="n">avatar</span><span class="o">;</span> 
-
-<span class="nd">@UI</span><span class="o">(</span><span class="s">"input[type=file][disabled]"</span><span class="o">)</span> <span class="c1">// @FindBy(css = "input[type=file][disabled]")</span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="n">FileInput</span> <span class="n">disabledFileInput</span><span class="o">;</span> 
-
-<span class="nd">@UI</span><span class="o">(</span><span class="s">"[download]"</span><span class="o">)</span> <span class="c1">// @FindBy(css = "[download]")</span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="n">Link</span> <span class="n">downloadJdiLogo</span><span class="o">;</span>
-
-<span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">uploadTest</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">avatar</span><span class="o">.</span><span class="na">uploadFile</span><span class="o">(</span><span class="n">mergePath</span><span class="o">(</span><span class="n">PROJECT_PATH</span><span class="o">,</span><span class="s">"/src/test/resources/general.xml"</span><span class="o">));</span>
-    <span class="n">avatar</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"general.xml"</span><span class="o">));</span>
-    <span class="n">assertTrue</span><span class="o">(</span><span class="n">avatar</span><span class="o">.</span><span class="na">getText</span><span class="o">().</span><span class="na">contains</span><span class="o">(</span><span class="s">"general.xml"</span><span class="o">));</span>
-    <span class="n">assertTrue</span><span class="o">(</span><span class="n">avatar</span><span class="o">.</span><span class="na">getValue</span><span class="o">().</span><span class="na">contains</span><span class="o">(</span><span class="s">"general.xml"</span><span class="o">));</span>
-    <span class="k">try</span> <span class="o">{</span>
-        <span class="n">disabledFileInput</span><span class="o">.</span><span class="na">uploadFile</span><span class="o">(</span><span class="n">mergePath</span><span class="o">(</span><span class="n">PROJECT_PATH</span><span class="o">,</span> <span class="s">"/src/test/resources/general.xml"</span><span class="o">));</span>
-    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">ignore</span><span class="o">)</span> <span class="o">{}</span>
-    <span class="n">disabledFileInput</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="s">""</span><span class="o">));</span>
-<span class="o">}</span>
-<span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">downloadTest</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">downloadJdiLogo</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
-    <span class="n">assertThatFile</span><span class="o">(</span><span class="s">"jdi-logo.jpg"</span><span class="o">)</span>
-        <span class="o">.</span><span class="na">isDownloaded</span><span class="o">()</span>
-        <span class="o">.</span><span class="na">hasSize</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="mi">32225L</span><span class="o">));</span>
-    <span class="n">assertThatFile</span><span class="o">(</span><span class="s">"jdi-logo.jpg"</span><span class="o">).</span><span class="na">hasSize</span><span class="o">(</span><span class="n">greaterThan</span><span class="o">(</span><span class="mi">100L</span><span class="o">));</span>
-<span class="o">}</span>
-</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">FileInputTest</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="n">FileInput</span><span class="p">.</span><span class="nf">SelectFile</span><span class="p">(</span><span class="nf">CreateFile</span><span class="p">(</span><span class="n">filename</span><span class="p">));</span>
-<span class="p">}</span>
-</code></pre>
-<p>Here is an example with provided HTML code:</p>
-
-<p><img src="images/html/fileinput_html.png" alt="FileInput example" /></p>
-
-<p>Available method in Java JDI Light:</p>
-
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>uploadFile(String)</strong></td>
-<td>Select file to upload</td>
-<td>void</td>
-</tr>
-</tbody></table>
-
-<p>Available method in C# JDI Light:</p>
-
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>SelectFile(string filepath)</strong></td>
-<td>Select file to upload</td>
-<td>void</td>
-</tr>
-</tbody></table>
-
-<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/FileUploadTests.java">Java test examples</a></p>
-
-<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/FileInputTests.cs">C# test examples</a></p>
-<h3 id='icon'>Icon</h3>
-<p>TBD</p>
-<h3 id='image'>Image</h3>
-<p>TBD</p>
-<h3 id='link'>Link</h3>
-<p>TBD</p>
-<h3 id='numberselector'>NumberSelector</h3>
-<p>TBD</p>
-<h3 id='progressbar'>ProgressBar</h3>
-<p>TBD</p>
-<h3 id='range'>Range</h3>
-<p>TBD</p>
-<h3 id='text'>Text</h3>
-<p>TBD</p>
-<h3 id='textarea'>TextArea</h3>
-<p>TBD</p>
-<h3 id='textfield'>TextField</h3>
-<p>TBD</p>
-<h3 id='title'>Title</h3>
-<p>TBD</p>
-<h2 id='complex-elements'>Complex elements</h2><h3 id='radiobutton'>RadioButton</h3>
-<p><strong>RadioButton</strong> – interface element that allows user to select one option from a predefined group.</p>
-
-<p>Radio buttons are represented by the following class:</p>
-
-<ul>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.complex.RadioButtons</em></li>
-<li><strong>C#</strong>: <em>JDI.Light.Elements.Common.RadioButton</em></li>
-</ul>
-<pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"[name=colors]"</span><span class="o">)</span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="n">RadioButtons</span> <span class="n">colors</span><span class="o">;</span>
-
-<span class="kd">public</span> <span class="kd">static</span> <span class="n">RadioButtons</span> <span class="n">colorsNoLocator</span><span class="o">;</span>
-
-<span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">selectTest</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">colors</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">Blue</span><span class="o">);</span>
-    <span class="n">assertEquals</span><span class="o">(</span><span class="n">colors</span><span class="o">.</span><span class="na">getValue</span><span class="o">(),</span> <span class="s">"Blue"</span><span class="o">);</span>
-    <span class="n">colorsNoLocator</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">Red</span><span class="o">);</span>
-    <span class="n">colorsNoLocator</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="n">Red</span><span class="o">);</span>
-<span class="o">}</span>
-</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">SelectRadioButton</span><span class="p">()</span> 
-<span class="p">{</span>
-    <span class="n">MyRadioButton</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="s">"some value"</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">SelectRadioButtonByIndex</span><span class="p">()</span> 
-<span class="p">{</span>
-    <span class="n">MyRadioButton</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">GetSelected</span><span class="p">()</span> 
-<span class="p">{</span>
-    <span class="kt">var</span> <span class="n">selected</span> <span class="p">=</span> <span class="n">MyRadioButton</span><span class="p">.</span><span class="nf">GetSelected</span><span class="p">();</span>
-    <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">selected</span><span class="p">,</span> <span class="s">"some value"</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre>
-<p>Consider an example where each radio button is a particular color, described with given HTML code:</p>
-
-<p><img src="images/html/radio_html.png" alt="RadioButton" /></p>
-
-<p>Here is the list of some available methods:</p>
-
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>select(String/int/Enum)/Select(string/int)</strong></td>
-<td>Select radiobutton by value/index</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>selected()/GetSelected()</strong></td>
-<td>Get selected radiobutton value</td>
-<td>string</td>
-</tr>
-</tbody></table>
-
-<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/RadioTests.java">Java test examples</a></p>
-
-<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/RadioButtonTests.cs">C# test examples</a></p>
-<h3 id='table'>Table</h3>
-<p><strong>Table</strong> – a complex element that consists of header, body (at least one row and one column) and footer. You are able to perform a list of readonly interactions with this element.</p>
-
-<p>Table implementation has an entry point in class:</p>
-
-<ul>
-<li><strong>C#</strong>: <em>JDI.Light.Elements.Complex.Table.cs</em></li>
-</ul>
-<pre class="highlight csharp tab-csharp"><code>
-        <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
-        <span class="k">public</span> <span class="k">void</span> <span class="nf">HugeTableSearchByColumnNamesContainValuesTest</span><span class="p">()</span>
-        <span class="p">{</span>
-            <span class="n">PerformancePage</span><span class="p">.</span><span class="n">UsersTable</span><span class="p">.</span><span class="nf">AssertThat</span><span class="p">().</span><span class="nf">HasRowWithValues</span><span class="p">(</span>
-                <span class="nf">ContainsValue</span><span class="p">(</span><span class="s">"Meyer"</span><span class="p">,</span> <span class="nf">InColumn</span><span class="p">(</span><span class="s">"Name"</span><span class="p">)),</span>
-                <span class="nf">ContainsValue</span><span class="p">(</span><span class="s">"co.uk"</span><span class="p">,</span> <span class="nf">InColumn</span><span class="p">(</span><span class="s">"Email"</span><span class="p">)));</span>
-            <span class="kt">var</span> <span class="n">row</span> <span class="p">=</span> <span class="n">PerformancePage</span><span class="p">.</span><span class="n">UsersTable</span><span class="p">.</span><span class="nf">Row</span><span class="p">(</span>
-                <span class="nf">ContainsValue</span><span class="p">(</span><span class="s">"Meyer"</span><span class="p">,</span> <span class="nf">InColumn</span><span class="p">(</span><span class="s">"Name"</span><span class="p">)),</span>
-                <span class="nf">ContainsValue</span><span class="p">(</span><span class="s">"co.uk"</span><span class="p">,</span> <span class="nf">InColumn</span><span class="p">(</span><span class="s">"Email"</span><span class="p">)));</span>
-                <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="s">"Brian Meyer;(016977) 0358;mollis.nec@seddictumeleifend.co.uk;Houston"</span><span class="p">,</span>
-                    <span class="n">row</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">());</span>
-        <span class="p">}</span>
-
-        <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
-        <span class="k">public</span> <span class="k">void</span> <span class="nf">HugeTableSearchByColumnNumbersContainValuesTest</span><span class="p">()</span>
-        <span class="p">{</span>
-            <span class="n">PerformancePage</span><span class="p">.</span><span class="n">UsersTable</span><span class="p">.</span><span class="nf">AssertThat</span><span class="p">().</span><span class="nf">HasRowWithValues</span><span class="p">(</span>
-                <span class="nf">ContainsValue</span><span class="p">(</span><span class="s">"Burke"</span><span class="p">,</span> <span class="nf">InColumn</span><span class="p">(</span><span class="m">1</span><span class="p">)),</span>
-                <span class="nf">ContainsValue</span><span class="p">(</span><span class="s">"ut.edu"</span><span class="p">,</span> <span class="nf">InColumn</span><span class="p">(</span><span class="m">3</span><span class="p">)));</span>
-            <span class="kt">var</span> <span class="n">row</span> <span class="p">=</span> <span class="n">PerformancePage</span><span class="p">.</span><span class="n">UsersTable</span><span class="p">.</span><span class="nf">Row</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
-            <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="s">"Burke Tucker;076 1971 1687;et.euismod.et@ut.edu;GozŽe"</span><span class="p">,</span>
-                <span class="n">row</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">());</span>
-        <span class="p">}</span>
-
-        <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
-        <span class="k">public</span> <span class="k">void</span> <span class="nf">HugeTableSearchByColumnNamesHasValuesTest</span><span class="p">()</span>
-        <span class="p">{</span>
-            <span class="n">PerformancePage</span><span class="p">.</span><span class="n">UsersTable</span><span class="p">.</span><span class="nf">AssertThat</span><span class="p">().</span><span class="nf">HasRowWithValues</span><span class="p">(</span>
-                <span class="nf">HasValue</span><span class="p">(</span><span class="s">"Brian Meyer"</span><span class="p">,</span> <span class="nf">InColumn</span><span class="p">(</span><span class="s">"Name"</span><span class="p">)),</span>
-                <span class="nf">HasValue</span><span class="p">(</span><span class="s">"mollis.nec@seddictumeleifend.co.uk"</span><span class="p">,</span> <span class="nf">InColumn</span><span class="p">(</span><span class="s">"Email"</span><span class="p">)));</span>
-            <span class="kt">var</span> <span class="n">row</span> <span class="p">=</span> <span class="n">PerformancePage</span><span class="p">.</span><span class="n">UsersTable</span><span class="p">.</span><span class="nf">Row</span><span class="p">(</span>
-                <span class="nf">HasValue</span><span class="p">(</span><span class="s">"Brian Meyer"</span><span class="p">,</span> <span class="nf">InColumn</span><span class="p">(</span><span class="s">"Name"</span><span class="p">)),</span>
-                <span class="nf">HasValue</span><span class="p">(</span><span class="s">"mollis.nec@seddictumeleifend.co.uk"</span><span class="p">,</span> <span class="nf">InColumn</span><span class="p">(</span><span class="s">"Email"</span><span class="p">)));</span>
-            <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="s">"Brian Meyer;(016977) 0358;mollis.nec@seddictumeleifend.co.uk;Houston"</span><span class="p">,</span>
-                <span class="n">row</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">());</span>
-        <span class="p">}</span>
-
-        <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
-        <span class="k">public</span> <span class="k">void</span> <span class="nf">HugeTableSearchByColumnNumbersHasValuesTest</span><span class="p">()</span>
-        <span class="p">{</span>
-            <span class="n">PerformancePage</span><span class="p">.</span><span class="n">UsersTable</span><span class="p">.</span><span class="nf">AssertThat</span><span class="p">().</span><span class="nf">HasRowWithValues</span><span class="p">(</span>
-                <span class="nf">HasValue</span><span class="p">(</span><span class="s">"Brian Meyer"</span><span class="p">,</span> <span class="nf">InColumn</span><span class="p">(</span><span class="m">1</span><span class="p">)),</span>
-                <span class="nf">HasValue</span><span class="p">(</span><span class="s">"mollis.nec@seddictumeleifend.co.uk"</span><span class="p">,</span> <span class="nf">InColumn</span><span class="p">(</span><span class="m">3</span><span class="p">)));</span>
-            <span class="kt">var</span> <span class="n">row</span> <span class="p">=</span> <span class="n">PerformancePage</span><span class="p">.</span><span class="n">UsersTable</span><span class="p">.</span><span class="nf">Row</span><span class="p">(</span>
-                <span class="nf">ContainsValue</span><span class="p">(</span><span class="s">"Meyer"</span><span class="p">,</span> <span class="nf">InColumn</span><span class="p">(</span><span class="s">"Name"</span><span class="p">)),</span>
-                <span class="nf">ContainsValue</span><span class="p">(</span><span class="s">"co.uk"</span><span class="p">,</span> <span class="nf">InColumn</span><span class="p">(</span><span class="s">"Email"</span><span class="p">)));</span>
-            <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="s">"Brian Meyer;(016977) 0358;mollis.nec@seddictumeleifend.co.uk;Houston"</span><span class="p">,</span>
-                <span class="n">row</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">());</span>
-        <span class="p">}</span> 
-
-        <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
-        <span class="k">public</span> <span class="k">void</span> <span class="nf">TableChainTest</span><span class="p">()</span>
-        <span class="p">{</span>            
-            <span class="n">PerformancePage</span><span class="p">.</span><span class="n">UsersTable</span><span class="p">.</span><span class="nf">AssertThat</span><span class="p">()</span>
-                <span class="p">.</span><span class="nf">Size</span><span class="p">(</span><span class="m">400</span><span class="p">)</span>
-                <span class="p">.</span><span class="nf">Size</span><span class="p">(</span><span class="n">Is</span><span class="p">.</span><span class="nf">GreaterThan</span><span class="p">(</span><span class="m">399</span><span class="p">))</span>                
-                <span class="p">.</span><span class="nf">HasRowWithValues</span><span class="p">(</span>
-                    <span class="nf">HasValue</span><span class="p">(</span><span class="s">"Brian Meyer"</span><span class="p">,</span> <span class="nf">InColumn</span><span class="p">(</span><span class="s">"Name"</span><span class="p">)),</span>
-                    <span class="nf">HasValue</span><span class="p">(</span><span class="s">"mollis.nec@seddictumeleifend.co.uk"</span><span class="p">,</span> <span class="nf">InColumn</span><span class="p">(</span><span class="s">"Email"</span><span class="p">)))</span>
-                <span class="p">.</span><span class="nf">NotEmpty</span><span class="p">()</span>
-                <span class="p">.</span><span class="nf">RowsWithValues</span><span class="p">(</span><span class="m">3</span><span class="p">,</span> <span class="nf">ContainsValue</span><span class="p">(</span><span class="s">"Baker"</span><span class="p">,</span> <span class="nf">InColumn</span><span class="p">(</span><span class="m">1</span><span class="p">)))</span>
-                <span class="p">.</span><span class="nf">HasColumn</span><span class="p">(</span><span class="s">"Email"</span><span class="p">)</span>
-                <span class="p">.</span><span class="nf">HasColumns</span><span class="p">(</span><span class="k">new</span><span class="p">[]</span> <span class="p">{</span><span class="s">"Name"</span><span class="p">,</span> <span class="s">"City"</span><span class="p">})</span>
-                <span class="p">.</span><span class="nf">Columns</span><span class="p">(</span><span class="n">Is</span><span class="p">.</span><span class="nf">SubsequenceOf</span><span class="p">(</span><span class="k">new</span><span class="p">[]</span> <span class="p">{</span><span class="s">"Name"</span><span class="p">,</span> <span class="s">"City"</span><span class="p">,</span> <span class="s">"Phone"</span><span class="p">,</span> <span class="s">"Email"</span><span class="p">,</span> <span class="s">"Address"</span><span class="p">}));</span>
-        <span class="p">}</span>       
-</code></pre>
-<p>Already implemented methods:</p>
-
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>AssertThat()</strong></td>
-<td>Applicable for performing assert actions for tables</td>
-<td>TableAssert</td>
-</tr>
-<tr>
-<td><strong>Is()</strong></td>
-<td>Applicable for performing assert actions for tables</td>
-<td>TableAssert</td>
-</tr>
-<tr>
-<td><strong>ContainsValue(string value, Column column)</strong></td>
-<td>Sets an object finding by some value occurance in particular column</td>
-<td>TableMatcher</td>
-</tr>
-<tr>
-<td><strong>HasValue(string value, Column column)</strong></td>
-<td>Sets an object finding by some full value in particular column</td>
-<td>TableMatcher</td>
-</tr>
-<tr>
-<td><strong>InColumn(string value)</strong></td>
-<td>Sets an object of some column by particular value</td>
-<td>Column</td>
-</tr>
-<tr>
-<td><strong>InColumn(int num)</strong></td>
-<td>Sets an object of some column by particular column&#39;s number</td>
-<td>Column</td>
-</tr>
-<tr>
-<td><strong>Row(params TableMatcher[] matchers)</strong></td>
-<td>Sets and returns a row object of a table according to some matchers&#39; params (returns &#39;null&#39; if there is no such row)</td>
-<td>Line</td>
-</tr>
-<tr>
-<td><strong>Row(int rowNum)</strong></td>
-<td>Sets and returns a row object of a table according to the row&#39;s index</td>
-<td>Line</td>
-</tr>
-<tr>
-<td><strong>GetValue()</strong></td>
-<td>Returns a string content of values for particular row, where values are separated by &quot;;&quot;</td>
-<td>string</td>
-</tr>
-</tbody></table>
-
-<p>AssertTable methods:</p>
-
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>Empty()</strong></td>
-<td>Asserts whether table is empty</td>
-<td>TableAssert</td>
-</tr>
-<tr>
-<td><strong>NotEmpty()</strong></td>
-<td>Asserts whether table is not empty</td>
-<td>TableAssert</td>
-</tr>
-<tr>
-<td><strong>Size(Matcher<int> condition)</strong></td>
-<td>Asserts whether table size satisfy some matcher</td>
-<td>TableAssert</td>
-</tr>
-<tr>
-<td><strong>Size(int expectedSize)</strong></td>
-<td>Asserts whether table has particular size</td>
-<td>TableAssert</td>
-</tr>
-<tr>
-<td><strong>HasColumn(string column)</strong></td>
-<td>Asserts whether table has particular header</td>
-<td>TableAssert</td>
-</tr>
-<tr>
-<td><strong>HasColumns(IEnumerable<string> columns)</strong></td>
-<td>Asserts whether table has particular headers</td>
-<td>TableAssert</td>
-</tr>
-<tr>
-<td><strong>Columns(Matcher<IEnumerable<string>&gt; condition)</strong></td>
-<td>Asserts whether headers satisfy some matcher</td>
-<td>TableAssert</td>
-</tr>
-<tr>
-<td><strong>RowsWithValues(int count, params TableMatcher[] matchers)</strong></td>
-<td>Asserts whether rows with particular matchers exist in a table multiple times</td>
-<td>TableAssert</td>
-</tr>
-<tr>
-<td><strong>HasRowWithValues(params TableMatcher[] matchers)</strong></td>
-<td>Asserts whether a row with particular matchers exists in a table</td>
-<td>TableAssert</td>
-</tr>
-</tbody></table>
-
-<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Complex/TableTests.cs">Test examples C#</a></p>
-<h3 id='dropdown'>DropDown</h3>
-<p><strong>DropDown</strong> – a graphical control element, that allows the user to choose one value from a list.</p>
-
-<p><img src="images/dropdown.png" alt="DropDown" /></p>
-
-<p>JDI Light has support for dropdown elements with its own type. There are several ways of dropdown usage in JDI Light, serving different needs.</p>
-
-<p><strong>JDI Dropdown annotation</strong></p>
-
-<p>For better use JDI Light provides a <strong><em>@JDropdown</em></strong> annotation to locate dropdown elements. This annotation consists of the following elements:</p>
-
-<ul>
-<li><strong><em>root()</em></strong> - value of this element points to the root locator of dropdown element</li>
-<li><strong><em>value()</em></strong> - locator of selected by default option in dropdown list</li>
-<li><strong><em>list()</em></strong> - locator representing list options</li>
-<li><strong><em>expand()</em></strong> - locator for expanding the dropdown list</li>
-</ul>
-<pre class="highlight java tab-java"><code><span class="nd">@JDropdown</span><span class="o">(</span><span class="n">root</span> <span class="o">=</span> <span class="s">"div[ui=dropdown]"</span><span class="o">,</span>
-           <span class="n">value</span> <span class="o">=</span> <span class="s">".filter-option"</span><span class="o">,</span>
-           <span class="n">list</span> <span class="o">=</span> <span class="s">"li"</span><span class="o">,</span>
-           <span class="n">expand</span> <span class="o">=</span> <span class="s">".caret"</span><span class="o">)</span>
-<span class="kd">public</span> <span class="n">Droplist</span> <span class="n">colors</span><span class="o">;</span>
-
-<span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">complexTest</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">metalAndColorsPage</span><span class="o">.</span><span class="na">shouldBeOpened</span><span class="o">();</span>
-    <span class="n">metalAndColorsPage</span><span class="o">.</span><span class="na">colors</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">Green</span><span class="o">);</span>
-<span class="o">}</span>
-</code></pre><pre class="highlight csharp tab-csharp"><code><span class="p">[</span><span class="nf">JDropDown</span><span class="p">(</span><span class="n">root</span><span class="p">:</span> <span class="s">"#colors"</span><span class="p">,</span> 
-           <span class="k">value</span><span class="p">:</span> <span class="s">".filter-option"</span><span class="p">,</span> 
-           <span class="n">list</span><span class="p">:</span><span class="s">"li"</span><span class="p">,</span> 
-           <span class="n">expand</span><span class="p">:</span><span class="s">".caret"</span><span class="p">)]</span>
-<span class="k">public</span> <span class="n">Droplist</span> <span class="n">Colors</span><span class="p">;</span>
-
-<span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">ComplexTest</span><span class="p">()</span> 
-<span class="p">{</span>
-    <span class="n">MetalAndColorsPage</span><span class="p">.</span><span class="nf">ShouldBeOpened</span><span class="p">();</span>
-    <span class="n">MetalAndColorsPage</span><span class="p">.</span><span class="n">Colors</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="n">Green</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre>
-<p>Suppose we have &#39;Colors&#39; dropdown, which looks like this in HTML code:</p>
-
-<p><img src="images/html/dropdown_html.png" alt="Dropdown HTML" /> </p>
-
-<p><strong>Dropdown representation</strong></p>
-<pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="n">Droplist</span> <span class="n">colors</span><span class="o">;</span>
-<span class="nd">@CSS</span><span class="o">(</span><span class="s">"#colors"</span><span class="o">)</span> <span class="kd">public</span> <span class="n">Droplist</span> <span class="n">colors</span><span class="o">;</span>
-<span class="kd">public</span> <span class="n">Droplist</span> <span class="n">colors</span> <span class="o">=</span> <span class="n">dropdown</span><span class="o">(</span><span class="s">"#colors"</span><span class="o">);</span>
-<span class="kd">public</span> <span class="n">Droplist</span> <span class="n">colors</span> <span class="o">=</span> <span class="n">$d</span><span class="o">(</span><span class="s">"#colors"</span><span class="o">);</span>
-
-<span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">colorsTest</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">colors</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">Green</span><span class="o">);</span>
-    <span class="n">assertEquals</span><span class="o">(</span><span class="n">colors</span><span class="o">.</span><span class="na">selected</span><span class="o">(),</span> <span class="n">Green</span><span class="o">);</span>
-<span class="o">}</span>
-</code></pre><pre class="highlight csharp tab-csharp"><code><span class="k">public</span> <span class="n">DropDown</span> <span class="n">Colors</span><span class="p">;</span>
-<span class="na">[FindBy(Css = "#colors")]</span> 
-<span class="k">public</span> <span class="n">DropDown</span> <span class="n">Colors</span><span class="p">;</span>
-
-<span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">ColorsTest</span><span class="p">()</span> 
-<span class="p">{</span>
-    <span class="n">Colors</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="n">Green</span><span class="p">);</span>
-    <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEquals</span><span class="p">(</span><span class="n">Colors</span><span class="p">.</span><span class="nf">Selected</span><span class="p">(),</span> <span class="n">Green</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre>
-<p>JDI Light provides a <strong>Droplist</strong> class which can be used for dropdown representation as a type of web element.</p>
-
-<p>Locator simple annotations from <em>com.epam.jdi.light.elements.pageobjects.annotations.simple</em> can be used together with dropdown elements.</p>
-
-<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-examples/src/test/java/io/github/epam/tests/epam/ComplexElementsTests.java">Java test examples</a></p>
-
-<p>For HTML5 elements Dropdown lists are also supported in JDI light. There is a <strong>Dropdown</strong> class which is more like a special case of Droplist.
-This type can be used in cases when dropdown is represented with HTML <em>&lt;select&gt;</em> tag.</p>
-
-<p>Consider an example of HTML5 dropdown with a given HTML code:</p>
-<pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#dress-code"</span><span class="o">)</span> <span class="kd">public</span> <span class="n">Dropdown</span> <span class="n">dressCode</span><span class="o">;</span>
-
-<span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">selectEnumTest</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">dressCode</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">Fancy</span><span class="o">);</span>
-    <span class="n">assertEquals</span><span class="o">(</span><span class="n">dressCode</span><span class="o">.</span><span class="na">getValue</span><span class="o">(),</span> <span class="s">"Fancy"</span><span class="o">);</span>
-<span class="o">}</span>
-</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[FindBy(Css = "#dress-code")]</span> 
-<span class="k">public</span> <span class="n">Dropdown</span> <span class="n">DressCode</span><span class="p">;</span>
-
-<span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">SelectEnumTest</span><span class="p">()</span> 
-<span class="p">{</span>
-    <span class="n">DressCode</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="n">Fancy</span><span class="p">);</span>
-    <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEquals</span><span class="p">(</span><span class="n">DressCode</span><span class="p">.</span><span class="nf">GetSelected</span><span class="p">(),</span> <span class="s">"Fancy"</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre>
-<p><img src="images/html/dropdown_html5.png" alt="Dropdown HTML5" /></p>
-
-<p>Here is the list of some available methods:</p>
-
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>select()/Select(string/int)</strong></td>
-<td>Select dropdown by value/index</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>selected()/GetSelected()</strong></td>
-<td>Get selected dropdown value</td>
-<td>string</td>
-</tr>
-</tbody></table>
-
-<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/DropdownTests.java">Java test examples</a></p>
-
-<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DropDownTests.cs">C# test examples</a></p>
-<h3 id='multidropdown'>MultiDropDown</h3><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">static</span> <span class="n">MultiSelect</span> <span class="n">multiDropdown</span><span class="o">;</span>
-<span class="nd">@UI</span><span class="o">(</span><span class="s">"#multi-dropdown"</span><span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">MultiSelect</span> <span class="n">multiDropdown</span><span class="o">;</span>
-
-<span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">selectTest</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">multiDropdown</span><span class="o">.</span><span class="na">check</span><span class="o">(</span><span class="n">Wood</span><span class="o">,</span> <span class="n">Steam</span><span class="o">);</span>
-    <span class="n">assertEquals</span><span class="o">(</span><span class="n">multiDropdown</span><span class="o">.</span><span class="na">checked</span><span class="o">(),</span> <span class="n">asList</span><span class="o">(</span><span class="s">"Steam"</span><span class="o">,</span> <span class="s">"Wood"</span><span class="o">));</span>
-<span class="o">}</span>
-</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[FindBy(Css = "#multi-dropdown")]</span>
-<span class="k">public</span> <span class="n">MultiDropdown</span> <span class="n">MultiDropdown</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-
-<span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">SelectMultipleOptions</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">var</span> <span class="n">optionsList</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="p">{</span> <span class="s">"Steam"</span><span class="p">,</span> <span class="s">"Electro"</span> <span class="p">};</span>
-    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">MultiDropdown</span><span class="p">.</span><span class="nf">SelectOptions</span><span class="p">(</span><span class="n">optionsList</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre>
-<p><strong>MultiDropDown</strong> – a graphical control element, that allows the user to choose several values from a list.</p>
-
-<p><img src="images/multidropdown.png" alt="DropDown" /></p>
-
-<p>Multi dropdown elements can be described by the following class:</p>
-
-<ul>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.complex.MultiSelect</em></li>
-<li><strong>C#</strong>: <em>JDI.Light.Elements.Composite.MultiDropdown</em></li>
-</ul>
-
-<p>Here is the list of some available methods in C# JDI Light:</p>
-
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>OptionIsEnabled(string)</strong></td>
-<td>Check whether option is enabled</td>
-<td>bool</td>
-</tr>
-<tr>
-<td><strong>SelectOption(string)</strong></td>
-<td>Select specified option</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>GetSelectedOptions()</strong></td>
-<td>Get selected options</td>
-<td>List</td>
-</tr>
-<tr>
-<td><strong>SelectOptions(List)</strong></td>
-<td>Select specified options</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>OptionExists(string)</strong></td>
-<td>Check whether option exists in list</td>
-<td>bool</td>
-</tr>
-<tr>
-<td><strong>Expand()</strong></td>
-<td>Expand list</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>Close()</strong></td>
-<td>Close expanded list</td>
-<td>void</td>
-</tr>
-</tbody></table>
-
-<p>The list of available methods for Java JDI Light:</p>
-
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>check(String/String.../Enum.../int...)</strong></td>
-<td>Select values in multi dropdown</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>uncheck(String.../Enum.../int...)</strong></td>
-<td>Unselect values in multi dropdown</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>selected()</strong></td>
-<td>Get selected value by default</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>checked()</strong></td>
-<td>Get selected values</td>
-<td>List&lt;String&gt;</td>
-</tr>
-</tbody></table>
-
-<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/MultiDropdownTests.java">Java test examples</a></p>
-
-<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Composite/MultiDropdownTests.cs">C# test examples</a></p>
-<h3 id='datalist'>DataList</h3><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">ExpandDataList</span><span class="p">()</span> 
-<span class="p">{</span>
-    <span class="n">MyDataList</span><span class="p">.</span><span class="nf">Expand</span><span class="p">();</span>
-<span class="p">}</span>
-<span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">SelectDataList</span><span class="p">()</span> 
-<span class="p">{</span>
-    <span class="n">MyDataList</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="s">"some value"</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">SelectByIndex</span><span class="p">()</span> 
-<span class="p">{</span>
-    <span class="n">MyDataList</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">FillDataList</span><span class="p">()</span> 
-<span class="p">{</span>
-    <span class="n">MyDataList</span><span class="p">.</span><span class="nf">Input</span><span class="p">(</span><span class="s">"some value"</span><span class="p">);</span>
-    <span class="n">SubmitButton</span><span class="p">.</span><span class="nf">Click</span><span class="p">();</span>
-<span class="p">}</span>
-</code></pre>
-<p><strong>DataList</strong> – a graphical control element, that allows the user to choose one value from a list or enter it by himself.
-Datalist element contains a set of options with values available for entering.</p>
-
-<p><img src="images/icecreamdatalist.png" alt="DataList" /></p>
-
-<p>Datalist element type is provided by JDI Light in:</p>
-
-<ul>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.complex.DataList</em></li>
-<li><strong>C#</strong>: <em>JDI.Light.Elements.Common.DataList</em></li>
-</ul>
-
-<p>Have a look at the following example with provided HTML code:</p>
-<pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#ice-cream"</span><span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">DataList</span> <span class="n">iceCreamDataList</span><span class="o">;</span>
-
-<span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">selectEnumTest</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">iceCreamDataList</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">Strawberry</span><span class="o">);</span>
-    <span class="n">assertEquals</span><span class="o">(</span><span class="n">iceCreamDataList</span><span class="o">.</span><span class="na">getValue</span><span class="o">(),</span> <span class="s">"Strawberry"</span><span class="o">);</span>
-<span class="o">}</span>
-</code></pre>
-<p><img src="images/html/datalist_html.png" alt="Datalist example" /></p>
-
-<p>The list of available methods in Java JDI Light:</p>
-
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>select(String/Enum/int)</strong></td>
-<td>Select datalist option by value or index</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>selected()</strong></td>
-<td>Get selected option value</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>values()</strong></td>
-<td>Get all option values from datalist</td>
-<td>List&lt;String&gt;</td>
-</tr>
-<tr>
-<td><strong>listEnabled()</strong></td>
-<td>Return list of values of enabled options</td>
-<td>List&lt;String&gt;</td>
-</tr>
-<tr>
-<td><strong>listDisabled()</strong></td>
-<td>Return list of values of disabled options</td>
-<td>List&lt;String&gt;</td>
-</tr>
-</tbody></table>
-
-<p>Here is the list of some available methods in C# JDI Light:</p>
-
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>Expand()</strong></td>
-<td>Expands the list of possible values</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>Select(string/int)</strong></td>
-<td>Select datalist by value/index</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>Input(string value)</strong></td>
-<td>Input user&#39;s value into datalist</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>GetSelected()</strong></td>
-<td>Get selected datalist value</td>
-<td>string</td>
-</tr>
-</tbody></table>
-
-<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/DataListTests.java">Java test examples</a></p>
-
-<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DataListTests.cs">C# test examples</a></p>
-<h3 id='checklist'>CheckList</h3>
-<p><strong>CheckList</strong> – a graphical control element representing a set of checkboxes, each of which allows the user to control a two-state parameter (enabled or disabled).</p>
-
-<p>Checklist element type is available in the following packages:</p>
-
-<ul>
-<li><strong>Java</strong>: com.epam.jdi.light.ui.html.complex.Checklist</li>
-<li><strong>C</strong>#: JDI.Light.Elements.Common.CheckList </li>
-</ul>
-
-<p>See an example with a given HTML code describing checklist element.</p>
-<pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"[name=checks-group]"</span><span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">Checklist</span> <span class="n">weather</span><span class="o">;</span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="n">Checklist</span> <span class="n">weatherNoLocator</span><span class="o">;</span>
-
-<span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">selectTest</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">weather</span><span class="o">.</span><span class="na">check</span><span class="o">(</span><span class="n">Cold</span><span class="o">,</span> <span class="n">Rainy</span><span class="o">);</span>
-    <span class="n">assertEquals</span><span class="o">(</span><span class="n">weather</span><span class="o">.</span><span class="na">checked</span><span class="o">(),</span> <span class="n">asList</span><span class="o">(</span><span class="s">"Cold"</span><span class="o">,</span> <span class="s">"Rainy day"</span><span class="o">));</span>
-<span class="o">}</span>
-
-<span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">assertValidationTest</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">weather</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">values</span><span class="o">(</span><span class="n">containsInAnyOrder</span><span class="o">(</span>
-      <span class="s">"Hot option"</span><span class="o">,</span> <span class="s">"Cold"</span><span class="o">,</span> <span class="s">"Rainy day"</span><span class="o">,</span> <span class="s">"Sunny"</span><span class="o">,</span> <span class="s">"Disabled"</span><span class="o">));</span>
-    <span class="n">weatherNoLocator</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="s">"Hot option"</span><span class="o">);</span>
-<span class="o">}</span>
-</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[FindBy(Css = "div:nth-child(11) &gt; div.html-left")]</span>
-<span class="k">public</span> <span class="n">ICheckList</span> <span class="n">WeatherCheckList</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-
-<span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">CheckCheckList</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">WeatherCheckList</span><span class="p">.</span><span class="nf">Check</span><span class="p">(</span><span class="k">new</span><span class="p">[]</span> <span class="p">{</span> <span class="s">"Cold"</span><span class="p">,</span> <span class="s">"Sunny"</span> <span class="p">});</span>
-    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">WeatherCheckList</span><span class="p">.</span><span class="nf">Uncheck</span><span class="p">(</span><span class="s">"Cold"</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre>
-<p><img src="images/html/checklist_html.png" alt="Checklist Example" /></p>
-
-<p>List of available methods in Java JDI Light:</p>
-
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>check(String.../Enum/int...)</strong></td>
-<td>Select checkboxes</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>uncheck(String.../Enum/int...)</strong></td>
-<td>Unselect checkboxes</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>checked()</strong></td>
-<td>Get selected checkbox values</td>
-<td>List&lt;String&gt;</td>
-</tr>
-</tbody></table>
-
-<p>Here is the list of some available methods in C# JDI Light:</p>
-
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>Check(string[]/int[])</strong></td>
-<td>Select checklist by values/indexes</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>Check(string/int)</strong></td>
-<td>Select checklist by value/index</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>Uncheck(string[]/int[])</strong></td>
-<td>Unselect checklist by values/indexes</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>Uncheck(string/int)</strong></td>
-<td>Unselect checklist by value/index</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>UncheckAll(Array)</strong></td>
-<td>Uncheck all checkboxes</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>GetChecked()</strong></td>
-<td>Get selected checkboxes from checklist value</td>
-<td>string[]</td>
-</tr>
-</tbody></table>
-
-<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/ChecklistTests.java">Java test examples</a></p>
-
-<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/CheckListTests.cs">C# test examples</a></p>
-<h3 id='multiselector'>MultiSelector</h3>
-<p><strong>MultiSelector</strong> – a graphical control element, that allows the user to do multiple choice.
-Multi Selector are represented by the following class:</p>
-
-<ul>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.complex.MultiSelect</em></li>
-<li><strong>C#</strong>: <em>JDI.Light.Elements.Common.MultiSelector</em></li>
-</ul>
-<pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#ages"</span><span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">MultiSelect</span> <span class="n">ages</span><span class="o">;</span>
-<span class="c1">// equal to @FindBy(css = "#ages") public static MultiSelect ages;</span>
-
-<span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkTest</span><span class="o">()</span> <span class="o">{</span>
-       <span class="n">ages</span><span class="o">.</span><span class="na">check</span><span class="o">(</span><span class="s">"Electro"</span><span class="o">,</span> <span class="s">"Metalic"</span><span class="o">);</span>
-       <span class="n">assertEquals</span><span class="o">(</span><span class="n">ages</span><span class="o">.</span><span class="na">checked</span><span class="o">(),</span> <span class="n">asList</span><span class="o">(</span><span class="s">"Electro"</span><span class="o">,</span> <span class="s">"Metalic"</span><span class="o">));</span>
-    <span class="o">}</span>
-<span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">disabledTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">ages</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="s">"Disabled"</span><span class="o">);</span>
-        <span class="n">assertEquals</span><span class="o">(</span><span class="n">ages</span><span class="o">.</span><span class="na">getValue</span><span class="o">(),</span> <span class="n">text</span><span class="o">);</span>
-    <span class="o">}</span>
-</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">MultiSelectByValues</span><span class="p">()</span> 
-<span class="p">{</span>
-    <span class="n">MyMultiSelector</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="kt">string</span><span class="p">[]);</span>
-<span class="p">}</span>
-<span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">MultiSelectByIndexes</span><span class="p">()</span> 
-<span class="p">{</span>
-    <span class="n">MyMultiSelector</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="kt">int</span><span class="p">[]);</span>
-<span class="p">}</span>
-</code></pre>
-<p><img src="images/html/multiSelectHtml.png" alt="MultiSelector" /></p>
-
-<p>Here is the list of available methods:</p>
-
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>check(String/Strings.../TEnum...)</strong></td>
-<td>Select multiselector by values</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>uncheck(Strings.../TEnum.../int)</strong></td>
-<td>Select multiselector by values/indexes</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>selected()</strong></td>
-<td>Get selected values</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>checked()</strong></td>
-<td>Get selected values</td>
-<td>List&lt;String&gt;</td>
-</tr>
-</tbody></table>
-
-<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/MultiSelectorTests.java">Java test examples</a></p>
-
-<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/MultiSelectorTests.cs">C# test examples</a></p>
-<h3 id='combobox'>ComboBox</h3>
-<p><strong>ComboBox</strong> – a graphical control element, that allows the user to choose one
- value from a list or enter it by himself (is inherited from the <a href="#datalist">Datalist</a>)</p>
-
-<p><img src="images/icecreamdatalist.png" alt="ComboBox" /></p>
-
-<p>ComboBox is provided by JDI Light in:</p>
-
-<ul>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.complex.Combobox</em></li>
-<li><strong>C#</strong>: <em>JDI.Light.Elements.Common.Combobox</em></li>
-</ul>
-<pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">static</span> <span class="n">Combobox</span> <span class="n">iceCream</span><span class="o">;</span>
-
-<span class="nd">@UI</span><span class="o">(</span><span class="s">"#ice-cream"</span><span class="o">)</span> <span class="c1">// @FindBy(id = "ice-cream")</span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="n">DataList</span> <span class="n">iceCreamDataList</span><span class="o">;</span>
-
-
-<span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">selectTest</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">iceCreamDataList</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="s">"Chocolate"</span><span class="o">);</span>
-    <span class="n">assertEquals</span><span class="o">(</span><span class="n">iceCreamDataList</span><span class="o">.</span><span class="na">getValue</span><span class="o">(),</span> <span class="s">"Chocolate"</span><span class="o">);</span>
-<span class="o">}</span>
-<span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">selectNumTest</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">iceCreamDataList</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="mi">5</span><span class="o">);</span>
-    <span class="n">assertEquals</span><span class="o">(</span><span class="n">iceCreamDataList</span><span class="o">.</span><span class="na">getValue</span><span class="o">(),</span> <span class="s">"Vanilla"</span><span class="o">);</span>
-<span class="o">}</span>
-<span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">selectedTest</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">assertEquals</span><span class="o">(</span><span class="n">iceCreamDataList</span><span class="o">.</span><span class="na">selected</span><span class="o">(),</span> <span class="s">"Coconut"</span><span class="o">);</span>
-<span class="o">}</span>
-<span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">labelTest</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">assertEquals</span><span class="o">(</span><span class="n">iceCreamDataList</span><span class="o">.</span><span class="na">label</span><span class="o">().</span><span class="na">getText</span><span class="o">(),</span> <span class="s">"Choose your lovely icecream"</span><span class="o">);</span>
-    <span class="n">iceCreamDataList</span><span class="o">.</span><span class="na">label</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"lovely icecream"</span><span class="o">));</span>
-<span class="o">}</span>
-<span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">isValidationTest</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">iceCream</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
-    <span class="n">iceCream</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="n">text</span><span class="o">));</span>
-    <span class="n">iceCream</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">Vanilla</span><span class="o">);</span>
-    <span class="n">iceCream</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"Van"</span><span class="o">));</span>
-<span class="o">}</span>
-</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">ExpandComboBox</span><span class="p">()</span> 
-<span class="p">{</span>
-    <span class="n">MyComboBox</span><span class="p">.</span><span class="nf">Expand</span><span class="p">();</span>
-<span class="p">}</span>
-<span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">SelectComboBox</span><span class="p">()</span> 
-<span class="p">{</span>
-    <span class="n">MyComboBox</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="s">"some value"</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">SelectByIndex</span><span class="p">()</span> 
-<span class="p">{</span>
-    <span class="n">MyComboBox</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">FillComboBox</span><span class="p">()</span> 
-<span class="p">{</span>
-    <span class="n">MyComboBox</span><span class="p">.</span><span class="nf">Input</span><span class="p">(</span><span class="s">"some value"</span><span class="p">);</span>
-    <span class="n">SubmitButton</span><span class="p">.</span><span class="nf">Click</span><span class="p">();</span>
-<span class="p">}</span>
-</code></pre>
-<p>Have a look at the following example with provided HTML code:  </p>
-
-<p><img src="images/html/datalist_html.png" alt="Combobox example" /></p>
-
-<p>The list of available methods in Java JDI Light:</p>
-
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>select(String/Enum/int)</strong></td>
-<td>Select datalist option by value or index</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>selected()</strong></td>
-<td>Get selected option value</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>values()</strong></td>
-<td>Get all option values from datalist</td>
-<td>List&lt;String&gt;</td>
-</tr>
-<tr>
-<td><strong>listEnabled()</strong></td>
-<td>Return list of values of enabled options</td>
-<td>List&lt;String&gt;</td>
-</tr>
-<tr>
-<td><strong>listDisabled()</strong></td>
-<td>Return list of values of disabled options</td>
-<td>List&lt;String&gt;</td>
-</tr>
-</tbody></table>
-
-<p>Here is the list of some available methods in C# JDI Light:</p>
-
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>Expand()</strong></td>
-<td>Expands the list of possible values</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>Select(string/int)</strong></td>
-<td>Select datalist by value/index</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>Input(string)</strong></td>
-<td>Input user&#39;s value into datalist</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>GetSelected()</strong></td>
-<td>Get selected datalist value</td>
-<td>string</td>
-</tr>
-</tbody></table>
-
-<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/ComboboxTests.java">Java test examples</a></p>
-
-<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/ComboBoxTests.cs">C# test examples</a></p>
 <h2 id='composite-elements'>Composite elements</h2>
 <p>TBD</p>
 <h2 id='ui-objects'>UI Objects</h2>

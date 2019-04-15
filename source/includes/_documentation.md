@@ -435,6 +435,97 @@ And here is a list of some available methods in Java:
 
 [Test examples in Java](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/TimeTests.java)
 
+### Input Type DateTime-Local
+```java 
+public static DateTimeSelector partyTime;
+
+@Test
+public void setDateTimeTest() {
+    partyTime.setDateTime("2017-05-10T00:00");
+    assertEquals(partyTime.value(), "2017-05-10T00:00");
+}
+```
+```csharp 
+[Test]
+public void SetGetDateTime() 
+{
+    MyDateTime.SetDateTime("2000-01-01T12:00");
+    MyDateTime.GetValue();
+}
+```
+**Input Type DateTime-Local** – a graphical control element, that allows the user to set the value of time and date.
+
+![InputTypeDateTime](../images/inputDateTimeLocal.png)
+
+There is a type for that element is available in JDI Light, which can be found in:
+
+ - __Java__: com.epam.jdi.light.ui.html.common.DateTimeSelector
+ - __C#__: JDI.Light.Elements.Common.DateTimeSelector
+
+The list of available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**setDateTime(String)** | Sets the date and time | void
+**value()** | Get date and time | String
+**min()** | Get minimum available date and time value | String
+**max()** | Get maximum available date and time value | String
+
+Here is the list of some available methods in C# JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**SetDateTime(string value)** | Sets the date or time | void
+**GetValue()** | Returns the set date or time | string
+
+[Java test example](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/DateTimeTests.java)
+
+[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs)
+
+### Input Type Range
+**Input Type Range** – a graphical control element, that allows the user to set the value from the range.
+ 
+  - __Java__: _com.epam.jdi.light.ui.html.common.Range_
+  - __C#__: _JDI.Light.Elements.Common.Range_
+  
+  
+```java 
+@UI("#volume") public static Range volume;
+// equal to @FindBy(css = "#volume") public static Range volume;
+
+@Test
+public void volumeTest() {
+        volume.setVolume(10);
+        assertEquals(volume.volume(), 10);
+        assertEquals(volume.max(), "100");
+        assertEquals(volume.min(), "10");
+        assertEquals(volume.step(), "5");
+    }
+```
+```csharp 
+[Test]
+public void SetGetRange() 
+{
+    MyDateTime.SetRange("50");
+    MyDateTime.GetValue();
+}
+```
+
+![InputTypeDateTime](../images/html/rangeHtml.png)
+
+Here is the list of available methods:
+
+|Method | Description | Return Type
+--- | --- | ---
+**setVolume(int volume)** | Sets the value | void
+**volume()** | Returns the value | int
+**max()** | Returns the max value | String
+**min()** | Returns the min value | String
+**step()** | Returns the step value | String
+
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/RangeTests.java)
+
+[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/RangeTests.cs)
 
 ### FileInput
 
@@ -1166,98 +1257,6 @@ Here is the list of some available methods in C# JDI Light:
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/ComboboxTests.java)
 
 [C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/ComboBoxTests.cs)
-
-### Input Type DateTime-Local
-```java 
-public static DateTimeSelector partyTime;
-
-@Test
-public void setDateTimeTest() {
-    partyTime.setDateTime("2017-05-10T00:00");
-    assertEquals(partyTime.value(), "2017-05-10T00:00");
-}
-```
-```csharp 
-[Test]
-public void SetGetDateTime() 
-{
-    MyDateTime.SetDateTime("2000-01-01T12:00");
-    MyDateTime.GetValue();
-}
-```
-**Input Type DateTime-Local** – a graphical control element, that allows the user to set the value of time and date.
-
-![InputTypeDateTime](../images/inputDateTimeLocal.png)
-
-There is a type for that element is available in JDI Light, which can be found in:
-
- - __Java__: com.epam.jdi.light.ui.html.common.DateTimeSelector
- - __C#__: JDI.Light.Elements.Common.DateTimeSelector
-
-The list of available methods in Java JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
-**setDateTime(String)** | Sets the date and time | void
-**value()** | Get date and time | String
-**min()** | Get minimum available date and time value | String
-**max()** | Get maximum available date and time value | String
-
-Here is the list of some available methods in C# JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
-**SetDateTime(string value)** | Sets the date or time | void
-**GetValue()** | Returns the set date or time | string
-
-[Java test example](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/DateTimeTests.java)
-
-[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs)
-
-### Input Type Range
-**Input Type Range** – a graphical control element, that allows the user to set the value from the range.
- 
-  - __Java__: _com.epam.jdi.light.ui.html.common.Range_
-  - __C#__: _JDI.Light.Elements.Common.Range_
-  
-  
-```java 
-@UI("#volume") public static Range volume;
-// equal to @FindBy(css = "#volume") public static Range volume;
-
-@Test
-public void volumeTest() {
-        volume.setVolume(10);
-        assertEquals(volume.volume(), 10);
-        assertEquals(volume.max(), "100");
-        assertEquals(volume.min(), "10");
-        assertEquals(volume.step(), "5");
-    }
-```
-```csharp 
-[Test]
-public void SetGetRange() 
-{
-    MyDateTime.SetRange("50");
-    MyDateTime.GetValue();
-}
-```
-
-![InputTypeDateTime](../images/html/rangeHtml.png)
-
-Here is the list of available methods:
-
-|Method | Description | Return Type
---- | --- | ---
-**setVolume(int volume)** | Sets the value | void
-**volume()** | Returns the value | int
-**max()** | Returns the max value | String
-**min()** | Returns the min value | String
-**step()** | Returns the step value | String
-
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/RangeTests.java)
-
-[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/RangeTests.cs)
 
 ## Composite elements
 TBD

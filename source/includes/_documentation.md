@@ -605,6 +605,79 @@ TBD
 ### Link
 TBD
 
+### Menu
+
+**Menu** - a list of links, which leads to different pages or sections of website
+
+Menu element is located in JDI Light in:
+
+  - __Java__: _com.epam.jdi.light.ui.html.complex.Menu_
+  - __C#__: _JDI.Light.Elements.Composite.Menu_
+
+```java 
+@UI(".sidebar-menu span<[*'%s']<<") public static Menu leftMenu;
+@UI(".sidebar-menu span<[*'%s']<<") public static JList<HtmlElement> leftMenuList;
+@UI(".sidebar-menu span") public static JList<MenuItem> menu;
+
+@Test
+public void getTestList() {
+     HtmlElement item = leftMenuList.get("Contact form");
+     item.show();
+     item.is().deselected();
+     item.click();
+     item.is().selected();
+     contactFormPage.checkOpened();
+}
+
+@Test
+public void selectEnumTestList() {
+    leftMenuList.select(MetalsColors);
+    metalAndColorsPage.checkOpened();
+}
+```
+```csharp
+[FindBy(Css = "ul.sidebar-menu")]
+public Menu SidebarMenu;
+
+[Test]
+public void SelectEnumTest()
+{
+     TestSite.SidebarMenu.Select(Navigation.MetalsColors);
+     TestSite.MetalsColorsPage.CheckOpened();
+}
+```
+
+Here is an example with provided HTML code:
+
+![Menu example](../images/html/menu.png)
+
+Available method in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**void select(String...)** | Select menu element and subelement | void
+**void select(String)** | Select menu element | void
+**void select(TEnum...)** | Select menu element and subelement | void
+**void select(TEnum)** | Select menu element | void
+**void select(int...)** | Select menu element by index | void
+**void select(int)** | Select menu element and subelements by index | void    
+**String selected()** | Returns selected menu item | String
+**List<String> values()** | Returns selected menu item and subitems | List<String>
+**void hoverAndClick(String...)** | Hovers and clicks menu item and subitems | void
+**void hoverAndClick(String)** | Hovers and clicks menu item | void
+
+Available method in C# JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**void select(String[])** | Select menu element and subelement | void
+**void select(String)** | Select menu element | void
+**void select(TEnum)** | Select menu element | void
+
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/complex/MenuTests.java)
+
+[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Composite/MenuTests.cs)
+
 ### NumberSelector
 TBD
 

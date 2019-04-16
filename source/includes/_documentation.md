@@ -190,6 +190,8 @@ And here are some of the methods available in Java:
 **value()** | Returns the set date or time | String
 **min()** | Gets attribute with name min | String
 **max()** | Gets attribute with name max | String
+**is()** | Assertion | DateTimeAssert
+**assertThat()** | Assertion | DateTimeAssert
 
 __In the following sections there are examples of different implementations of such fields.__
 

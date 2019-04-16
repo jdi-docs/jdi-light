@@ -859,7 +859,62 @@ Here is a list of available methods in C#:
   [Test examples in Java](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/TextAreaTests.java)
 
 ### Title
-TBD
+**Title** – a graphical control element, that is the title of the document, which is displayed in the title bar of the browser or tab page.
+
+Title is represented by the following class:
+ 
+  - __Java__: _com.epam.jdi.light.ui.html.common.Title_
+  - __C#__: _JDI.Light.Elements.Common.Title_
+  
+  
+```java 
+@UI("[ui=jdi-title]") 
+// equal to @FindBy(css = "[ui=jdi-title]") 
+public static Title jdiTitle;
+
+@Test
+public void getTextTest() {
+        assertEquals(jdiTitle.getText(), "Title text");
+}
+
+@Test
+public void clickTest() {
+        jdiTitle.click();
+}    
+    
+```
+```csharp 
+[FindBy(Css = "[ui=jdi-title]")]
+public Title JdiTitle;
+
+[Test]
+public void GetTextTest() 
+{
+        Assert.AreEqual(JdiTitle.GetText(), "Title text");
+}
+
+[Test]
+public void ClickTest() 
+{
+        JdiTitle.ClickTitle();
+}    
+    
+```
+
+
+![Title](../images/title.png)
+
+Here is the list of available methods:
+
+|Method | Description | Return Type
+--- | --- | ---
+**click()** |Click the title | void
+**getText()** |Returns the title text  | String
+
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/TitleTests.java)
+
+[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/TitleTests.cs)
+
 
 ## Complex elements
 ### RadioButton

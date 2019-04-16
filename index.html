@@ -1318,31 +1318,28 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 
 <p><strong>In the following sections there are examples of different implementations of such fields.</strong></p>
 
-<p><strong>Input Type Date</strong>
-```java 
-@UI(&quot;#birth-date&quot;) //@FindBy(css = &quot;#birth-date&quot;) 
-public static DateTimeSelector birthDate;</p>
+<p><strong>Input Type Date</strong></p>
+<pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#birth-date"</span><span class="o">)</span> <span class="c1">//@FindBy(css = "#birth-date") </span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">DateTimeSelector</span> <span class="n">birthDate</span><span class="o">;</span>
 
-<p>@Test
-public void setDateTimeTest() {
-    birthDate.setDateTime(&quot;2018-11-13&quot;);
-    assertEquals(birthDate.value(), &quot;2018-11-13&quot;);
-}</p>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">setDateTimeTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">birthDate</span><span class="o">.</span><span class="na">setDateTime</span><span class="o">(</span><span class="s">"2018-11-13"</span><span class="o">);</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="n">birthDate</span><span class="o">.</span><span class="na">value</span><span class="o">(),</span> <span class="s">"2018-11-13"</span><span class="o">);</span>
+<span class="o">}</span>
 
-<p>@Test
-public void maxTest() {
-    assertEquals(birthDate.max(), &quot;2030-12-31&quot;);
-}
-<code>
-</code>csharp 
-[Test]
-public void SetGetDateTime() 
-{
-    MyDateTime.SetDateTime(&quot;2000-01-01&quot;);
-    MyDateTime.GetValue();
-}
-```
-<strong>Input Type Date</strong> – a graphical control element, that allows users to set the value of date.</p>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">maxTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="n">birthDate</span><span class="o">.</span><span class="na">max</span><span class="o">(),</span> <span class="s">"2030-12-31"</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">SetGetDateTime</span><span class="p">()</span> 
+<span class="p">{</span>
+    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">SetDateTime</span><span class="p">(</span><span class="s">"2000-01-01"</span><span class="p">);</span>
+    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre>
+<p><strong>Input Type Date</strong> – a graphical control element, that allows users to set the value of date.</p>
 
 <p><img src="images/html/inputTypeDate_html.png" alt="InputTypeDate" /></p>
 

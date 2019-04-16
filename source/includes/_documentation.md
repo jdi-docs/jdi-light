@@ -455,7 +455,67 @@ Available method in C# JDI Light:
 TBD
 
 ### Image
-TBD
+```java 
+@UI("#jdi-logo") 
+// same as FindBy(css = "#jdi-logo")
+public static Image jdiLogo;
+
+    @Test
+    public void isValidationTest() {
+        WebPage.refresh();
+        jdiLogo.is().src(containsString("jdi-logo.jpg"));
+        jdiLogo.is().alt(is("Jdi Logo 2"));
+        jdiLogo.assertThat().height(is(100));
+        jdiLogo.assertThat().width(is(101));
+    }
+```
+```csharp 
+[FindBy(Css = "#jdi-logo")]
+public IImage LogoImage;
+
+   [Test]
+   public void GetSourceTest()
+   {
+     Jdi.Assert.AreEquals(LogoImage.GetSource(), Src);
+   }
+
+   [Test]
+   public void GetTipTest()
+   {
+     Jdi.Assert.AreEquals(LogoImage.GetAlt(), Alt);
+   }
+```
+**Image** – is a simple element type that represents graphic images.
+
+![Image](../images/html/image_html.png)
+
+Images are represented by the following classes in Java and C#:
+ 
+  - __C#__: _JDI.Light.Elements.Common.Image_
+  - __Java__: _com.epam.jdi.light.ui.html.common.Image_
+  
+Here is a list of available methods in C#:
+
+|Method | Description | Return Type
+--- | --- | ---
+**GetSource()** |get value of src attribute  | string
+**GetAlt()** |get value of alt attribute   | string
+
+[Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/ImagesTests.cs)
+
+And here are methods available in Java:
+
+|Method | Description | Return Type
+--- | --- | ---
+**click()** | click on the image| void
+**src()** | get value of src attribute | String
+**height()** |get value of height attribute| String
+**width()** | get value of width attribute| String
+**alt()** |get value of alt attribute | String
+**is()** | method for building assertions | ImageAssert
+**assertThat()** |method for building assertions  | ImageAssert
+
+[Test examples in Java](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ImageTests.java)
 
 ### Link
 **Link** – a graphical control element, that allows the user to link from one page to other web pages, files, locations within the same page, email addresses, or any other URL.

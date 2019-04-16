@@ -3176,11 +3176,11 @@ Multi Selector are represented by the following class:</p>
 <h2 id='alerts'>Alerts</h2><pre class="highlight java tab-java"><code><span class="n">alertButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
 <span class="n">acceptAlert</span><span class="o">();</span>
 </code></pre><pre class="highlight csharp tab-csharp"><code><span class="n">AlertButton</span><span class="p">.</span><span class="nf">Click</span><span class="p">();</span>
-<span class="nf">AcceptAlert</span><span class="p">();</span>
+<span class="nf">GetAlert</span><span class="p">().</span><span class="nf">AcceptAlert</span><span class="p">();</span>
 </code></pre><pre class="highlight java tab-java"><code><span class="n">alertButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
 <span class="n">dismissAlert</span><span class="o">();</span>
 </code></pre><pre class="highlight csharp tab-csharp"><code><span class="n">AlertButton</span><span class="p">.</span><span class="nf">Click</span><span class="p">();</span>
-<span class="nf">DismissAlert</span><span class="p">();</span>
+<span class="nf">GetAlert</span><span class="p">().</span><span class="nf">DismissAlert</span><span class="p">();</span>
 </code></pre>
 <p><strong>Alert</strong> –  a window with a message that displays on the screen and pauses the execution of the script until the user performs an action</p>
 
@@ -3197,8 +3197,8 @@ Note that you can make static import in order to simplify code Alerts.acceptAler
 <span class="n">String</span> <span class="n">text</span> <span class="o">=</span> <span class="n">getAlertText</span><span class="o">();</span>
 <span class="n">acceptAlert</span><span class="o">();</span>
 </code></pre><pre class="highlight csharp tab-csharp"><code><span class="n">AlertButton</span><span class="p">.</span><span class="nf">Click</span><span class="p">();</span>
-<span class="n">String</span> <span class="n">text</span> <span class="p">=</span> <span class="nf">GetAlertText</span><span class="p">();</span>
-<span class="nf">AcceptAlert</span><span class="p">();</span>
+<span class="n">String</span> <span class="n">text</span> <span class="p">=</span> <span class="nf">GetAlert</span><span class="p">().</span><span class="nf">GetAlertText</span><span class="p">()</span>
+<span class="nf">GetAlert</span><span class="p">().</span><span class="nf">AcceptAlert</span><span class="p">();</span>
 </code></pre><pre class="highlight java tab-java"><code><span class="n">alertButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
 <span class="n">validateAlert</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="s">"Red button"</span><span class="o">));</span>
 <span class="n">validateAlert</span><span class="o">(</span><span class="n">equalToIgnoringCase</span><span class="o">(</span><span class="s">"red button"</span><span class="o">));</span>
@@ -3210,7 +3210,8 @@ Note that you can make static import in order to simplify code Alerts.acceptAler
 <p><img src="images/confirm.png" alt="Confirmation dialog" /></p>
 <pre class="highlight java tab-java"><code><span class="n">alertButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
 <span class="n">inputAndAcceptAlert</span><span class="o">(</span><span class="s">"Some Text"</span><span class="o">);</span>
-</code></pre><pre class="highlight csharp tab-csharp"><code><span class="n">TBD</span> <span class="n">InputAndAcceptAlert</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="n">AlertButton</span><span class="p">.</span><span class="nf">Click</span><span class="p">();</span>
+<span class="nf">GetAlert</span><span class="p">().</span><span class="nf">InputAndAcceptAlert</span><span class="p">(</span><span class="s">"Some text"</span><span class="p">);</span>
 </code></pre>
 <p>prompt(&#39;Alert&#39;, &#39;Default value&#39;)</p>
 

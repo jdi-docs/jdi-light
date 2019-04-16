@@ -1350,32 +1350,29 @@ public void SetGetDateTime()
 
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/DateTests.java">Test examples in Java</a></p>
 
-<p><strong>Input Type Week</strong>
-```java 
-@UI(&quot;#autumn-week&quot;) //@FindBy(css = &quot;#autumn-week&quot;) 
-public static DateTimeSelector autumnWeek;</p>
+<p><strong>Input Type Week</strong></p>
+<pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#autumn-week"</span><span class="o">)</span> <span class="c1">//@FindBy(css = "#autumn-week") </span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">DateTimeSelector</span> <span class="n">autumnWeek</span><span class="o">;</span>
 
-<p>@Test
-public void minTest() {
-    assertEquals(autumnWeek.min(), &quot;2018-W35&quot;);
-}</p>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">minTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="n">autumnWeek</span><span class="o">.</span><span class="na">min</span><span class="o">(),</span> <span class="s">"2018-W35"</span><span class="o">);</span>
+<span class="o">}</span>
 
-<p>@Test
-public void setDateTimeTest() {
-    autumnWeek.setDateTime(&quot;2018-W12&quot;);
-    autumnWeek.show();
-    assertEquals(autumnWeek.value(), &quot;2018-W12&quot;);
-}
-<code>
-</code>csharp 
-[Test]
-public void SetGetDateTime() 
-{
-    MyDateTime.SetDateTime(&quot;2019-W11&quot;);
-    MyDateTime.GetValue();
-}
-```
-<strong>Input Type Week</strong> – a graphical control element, that allows users to set the value of week and year.</p>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">setDateTimeTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">autumnWeek</span><span class="o">.</span><span class="na">setDateTime</span><span class="o">(</span><span class="s">"2018-W12"</span><span class="o">);</span>
+    <span class="n">autumnWeek</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="n">autumnWeek</span><span class="o">.</span><span class="na">value</span><span class="o">(),</span> <span class="s">"2018-W12"</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">SetGetDateTime</span><span class="p">()</span> 
+<span class="p">{</span>
+    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">SetDateTime</span><span class="p">(</span><span class="s">"2019-W11"</span><span class="p">);</span>
+    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre>
+<p><strong>Input Type Week</strong> – a graphical control element, that allows users to set the value of week and year.</p>
 
 <p><img src="images/html/inputTypeWeek_html.png" alt="InputTypeWeek" /></p>
 
@@ -1383,32 +1380,29 @@ public void SetGetDateTime()
 
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/WeekTests.java">Test examples in Java</a></p>
 
-<p><strong>Input Type Month</strong>
-```java 
-@UI(&quot;#month-date&quot;) //@FindBy(css = &quot;#month-date&quot;) 
-public static DateTimeSelector monthDate;</p>
+<p><strong>Input Type Month</strong></p>
+<pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#month-date"</span><span class="o">)</span> <span class="c1">//@FindBy(css = "#month-date") </span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">DateTimeSelector</span> <span class="n">monthDate</span><span class="o">;</span>
 
-<p>@Test
-public void maxTest() {
-    assertEquals(monthDate.max(), &quot;2020-12&quot;);
-}</p>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">maxTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="n">monthDate</span><span class="o">.</span><span class="na">max</span><span class="o">(),</span> <span class="s">"2020-12"</span><span class="o">);</span>
+<span class="o">}</span>
 
-<p>@Test
-public void setDateTimeTest() {
-    monthDate.setDateTime(&quot;2018-10&quot;);
-    monthDate.show();
-    assertEquals(monthDate.value(), &quot;2018-10&quot;);
-}
-<code>
-</code>csharp 
-[Test]
-public void SetGetDateTime() 
-{
-    MyDateTime.SetDateTime(&quot;2019-01&quot;);
-    MyDateTime.GetValue();
-}
-```
-<strong>Input Type Month</strong> – a graphical control element, that allows users to set the value of month and year.</p>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">setDateTimeTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">monthDate</span><span class="o">.</span><span class="na">setDateTime</span><span class="o">(</span><span class="s">"2018-10"</span><span class="o">);</span>
+    <span class="n">monthDate</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="n">monthDate</span><span class="o">.</span><span class="na">value</span><span class="o">(),</span> <span class="s">"2018-10"</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">SetGetDateTime</span><span class="p">()</span> 
+<span class="p">{</span>
+    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">SetDateTime</span><span class="p">(</span><span class="s">"2019-01"</span><span class="p">);</span>
+    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre>
+<p><strong>Input Type Month</strong> – a graphical control element, that allows users to set the value of month and year.</p>
 
 <p><img src="images/html/inputTypeMonth_html.png" alt="InputTypeMonth" /></p>
 
@@ -1416,32 +1410,29 @@ public void SetGetDateTime()
 
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/MonthTests.java">Test examples in Java</a></p>
 
-<p><strong>Input Type Time</strong>
-```java 
-@UI(&quot;#booking-date&quot;) //@FindBy(css = &quot;#booking-date&quot;) 
-public static DateTimeSelector bookingTime;</p>
+<p><strong>Input Type Time</strong></p>
+<pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#booking-date"</span><span class="o">)</span> <span class="c1">//@FindBy(css = "#booking-date") </span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">DateTimeSelector</span> <span class="n">bookingTime</span><span class="o">;</span>
 
-<p>@Test
-public void minTest() {
-    assertEquals(bookingTime.min(), &quot;9:00&quot;);
-}</p>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">minTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="n">bookingTime</span><span class="o">.</span><span class="na">min</span><span class="o">(),</span> <span class="s">"9:00"</span><span class="o">);</span>
+<span class="o">}</span>
 
-<p>@Test
-public void setDateTimeTest() {
-    bookingTime.setDateTime(&quot;05:00&quot;);
-    bookingTime.show();
-    assertEquals(bookingTime.value(), &quot;05:00&quot;);
-}
-<code>
-</code>csharp 
-[Test]
-public void SetGetDateTime() 
-{
-    MyDateTime.SetDateTime(&quot;15:00&quot;);
-    MyDateTime.GetValue();
-}
-```
-<strong>Input Type Time</strong> – a graphical control element, that allows the user to set the value of time.</p>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">setDateTimeTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">bookingTime</span><span class="o">.</span><span class="na">setDateTime</span><span class="o">(</span><span class="s">"05:00"</span><span class="o">);</span>
+    <span class="n">bookingTime</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="n">bookingTime</span><span class="o">.</span><span class="na">value</span><span class="o">(),</span> <span class="s">"05:00"</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">SetGetDateTime</span><span class="p">()</span> 
+<span class="p">{</span>
+    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">SetDateTime</span><span class="p">(</span><span class="s">"15:00"</span><span class="p">);</span>
+    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre>
+<p><strong>Input Type Time</strong> – a graphical control element, that allows the user to set the value of time.</p>
 
 <p><img src="images/html/inputTypeTime_html.png" alt="InputTypeTime" /></p>
 
@@ -1449,26 +1440,23 @@ public void SetGetDateTime()
 
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/TimeTests.java">Test examples in Java</a></p>
 
-<p><strong>Input Type DateTime-Local</strong>
-```java 
-@UI(&quot;#party-time&quot;) //@FindBy(id = &quot;party-time&quot;)
-public static DateTimeSelector partyTime;</p>
+<p><strong>Input Type DateTime-Local</strong></p>
+<pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#party-time"</span><span class="o">)</span> <span class="c1">//@FindBy(id = "party-time")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">DateTimeSelector</span> <span class="n">partyTime</span><span class="o">;</span>
 
-<p>@Test
-public void setDateTimeTest() {
-    partyTime.setDateTime(&quot;2017-05-10T00:00&quot;);
-    assertEquals(partyTime.value(), &quot;2017-05-10T00:00&quot;);
-}
-<code>
-</code>csharp 
-[Test]
-public void SetGetDateTime() 
-{
-    MyDateTime.SetDateTime(&quot;2000-01-01T12:00&quot;);
-    MyDateTime.GetValue();
-}
-```
-<strong>Input Type DateTime-Local</strong> – a graphical control element, that allows the user to set the value of time and date.</p>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">setDateTimeTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">partyTime</span><span class="o">.</span><span class="na">setDateTime</span><span class="o">(</span><span class="s">"2017-05-10T00:00"</span><span class="o">);</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="n">partyTime</span><span class="o">.</span><span class="na">value</span><span class="o">(),</span> <span class="s">"2017-05-10T00:00"</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">SetGetDateTime</span><span class="p">()</span> 
+<span class="p">{</span>
+    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">SetDateTime</span><span class="p">(</span><span class="s">"2000-01-01T12:00"</span><span class="p">);</span>
+    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre>
+<p><strong>Input Type DateTime-Local</strong> – a graphical control element, that allows the user to set the value of time and date.</p>
 
 <p><img src="images/html/inputDateTimeLocal_html.png" alt="InputTypeDateTime" /></p>
 

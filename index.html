@@ -1594,114 +1594,8 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/FileInputTests.cs">C# test examples</a></p>
 <h3 id='icon'>Icon</h3>
 <p>TBD</p>
-<h3 id='image'>Image</h3><pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#jdi-logo"</span><span class="o">)</span> 
-<span class="c1">// same as FindBy(css = "#jdi-logo")</span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="n">Image</span> <span class="n">jdiLogo</span><span class="o">;</span>
-
-    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">isValidationTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">WebPage</span><span class="o">.</span><span class="na">refresh</span><span class="o">();</span>
-        <span class="n">jdiLogo</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">src</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"jdi-logo.jpg"</span><span class="o">));</span>
-        <span class="n">jdiLogo</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">alt</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="s">"Jdi Logo 2"</span><span class="o">));</span>
-        <span class="n">jdiLogo</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">height</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="mi">100</span><span class="o">));</span>
-        <span class="n">jdiLogo</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">width</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="mi">101</span><span class="o">));</span>
-    <span class="o">}</span>
-</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[FindBy(Css = "#jdi-logo")]</span>
-<span class="k">public</span> <span class="n">IImage</span> <span class="n">LogoImage</span><span class="p">;</span>
-
-   <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
-   <span class="k">public</span> <span class="k">void</span> <span class="nf">GetSourceTest</span><span class="p">()</span>
-   <span class="p">{</span>
-     <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">AreEquals</span><span class="p">(</span><span class="n">LogoImage</span><span class="p">.</span><span class="nf">GetSource</span><span class="p">(),</span> <span class="n">Src</span><span class="p">);</span>
-   <span class="p">}</span>
-
-   <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
-   <span class="k">public</span> <span class="k">void</span> <span class="nf">GetTipTest</span><span class="p">()</span>
-   <span class="p">{</span>
-     <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">AreEquals</span><span class="p">(</span><span class="n">LogoImage</span><span class="p">.</span><span class="nf">GetAlt</span><span class="p">(),</span> <span class="n">Alt</span><span class="p">);</span>
-   <span class="p">}</span>
-</code></pre>
-<p><strong>Image</strong> – is a simple element type that represents graphic images.</p>
-
-<p><img src="images/html/image_html.png" alt="Image" /></p>
-
-<p>Images are represented by the following classes in Java and C#:</p>
-
-<ul>
-<li><strong>C#</strong>: <em>JDI.Light.Elements.Common.Image</em></li>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.Image</em></li>
-</ul>
-
-<p>Here is a list of available methods in C#:</p>
-
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>GetSource()</strong></td>
-<td>get value of src attribute</td>
-<td>string</td>
-</tr>
-<tr>
-<td><strong>GetAlt()</strong></td>
-<td>get value of alt attribute</td>
-<td>string</td>
-</tr>
-</tbody></table>
-
-<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/ImagesTests.cs">Test examples in C#</a></p>
-
-<p>And here are methods available in Java:</p>
-
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>click()</strong></td>
-<td>click on the image</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>src()</strong></td>
-<td>get value of src attribute</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>height()</strong></td>
-<td>get value of height attribute</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>width()</strong></td>
-<td>get value of width attribute</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>alt()</strong></td>
-<td>get value of alt attribute</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>is()</strong></td>
-<td>method for building assertions</td>
-<td>ImageAssert</td>
-</tr>
-<tr>
-<td><strong>assertThat()</strong></td>
-<td>method for building assertions</td>
-<td>ImageAssert</td>
-</tr>
-</tbody></table>
-
-<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ImageTests.java">Test examples in Java</a></p>
+<h3 id='image'>Image</h3>
+<p>TBD</p>
 <h3 id='link'>Link</h3>
 <p><strong>Link</strong> – a graphical control element, that allows the user to link from one page to other web pages, files, locations within the same page, email addresses, or any other URL.</p>
 
@@ -2352,7 +2246,70 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/TextAreaTests.java">Test examples in Java</a></p>
 <h3 id='title'>Title</h3>
-<p>TBD</p>
+<p><strong>Title</strong> – a graphical control element, that is the title of the document, which is displayed in the title bar of the browser or tab page.</p>
+
+<p>Title is represented by the following class:</p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.Title</em></li>
+<li><strong>C#</strong>: <em>JDI.Light.Elements.Common.Title</em></li>
+</ul>
+<pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"[ui=jdi-title]"</span><span class="o">)</span> 
+<span class="c1">// equal to @FindBy(css = "[ui=jdi-title]") </span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">Title</span> <span class="n">jdiTitle</span><span class="o">;</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">getTextTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">jdiTitle</span><span class="o">.</span><span class="na">getText</span><span class="o">(),</span> <span class="s">"Title text"</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">clickTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">jdiTitle</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+<span class="o">}</span>    
+
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[FindBy(Css = "[ui=jdi-title]</span><span class="s">")]
+</span><span class="k">public</span> <span class="n">Title</span> <span class="n">JdiTitle</span><span class="p">;</span>
+
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">GetTextTest</span><span class="p">()</span> 
+<span class="p">{</span>
+        <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">JdiTitle</span><span class="p">.</span><span class="nf">GetText</span><span class="p">(),</span> <span class="s">"Title text"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">ClickTest</span><span class="p">()</span> 
+<span class="p">{</span>
+        <span class="n">JdiTitle</span><span class="p">.</span><span class="nf">ClickTitle</span><span class="p">();</span>
+<span class="p">}</span>    
+
+</code></pre>
+<p><img src="images/title.png" alt="Title" /></p>
+
+<p>Here is the list of available methods:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>click()</strong></td>
+<td>Click the title</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>getText()</strong></td>
+<td>Returns the title text</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/TitleTests.java">Java test examples</a></p>
+
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/TitleTests.cs">C# test examples</a></p>
 <h2 id='complex-elements'>Complex elements</h2><h3 id='radiobutton'>RadioButton</h3>
 <p><strong>RadioButton</strong> – interface element that allows user to select one option from a predefined group.</p>
 

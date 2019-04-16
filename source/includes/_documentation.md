@@ -1512,7 +1512,7 @@ acceptAlert();
 ```
 ```csharp 
 AlertButton.Click();
-AcceptAlert();
+GetAlert().AcceptAlert();
 ```
 ```java 
 alertButton.click();
@@ -1520,7 +1520,7 @@ dismissAlert();
 ```
 ```csharp 
 AlertButton.Click();
-DismissAlert();
+GetAlert().DismissAlert();
 ```
 **Alert** –  a window with a message that displays on the screen and pauses the execution of the script until the user performs an action
 
@@ -1541,8 +1541,8 @@ acceptAlert();
 ```
 ```csharp 
 AlertButton.Click();
-String text = GetAlertText();
-AcceptAlert();
+String text = GetAlert().GetAlertText()
+GetAlert().AcceptAlert();
 ```
 ```java 
 alertButton.click();
@@ -1563,7 +1563,8 @@ alertButton.click();
 inputAndAcceptAlert("Some Text");
 ```
 ```csharp 
-TBD InputAndAcceptAlert
+AlertButton.Click();
+GetAlert().InputAndAcceptAlert("Some text");
 ```
 
 prompt('Alert', 'Default value')

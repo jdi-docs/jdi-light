@@ -1183,7 +1183,10 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 <p>Colorpicker is located in the following classes:</p>
 
 <ul>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.ColorPicker*</em></li>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.ColorPicker*</em>
+&lt;!---</li>
+<li><strong>C#</strong>: <em>JDI.Light.Elements.Common.ColorPicker*</em><br>
+--&gt;</li>
 </ul>
 <pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#color-picker"</span><span class="o">)</span> <span class="c1">// @FindBy(id = "color-picker")</span>
 <span class="kd">public</span> <span class="kd">static</span> <span class="n">ColorPicker</span> <span class="n">colorPicker</span><span class="o">;</span>
@@ -1963,7 +1966,10 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 <p>ProgressBar is located in the following classes:</p>
 
 <ul>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.ProgressBar</em></li>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.ProgressBar</em>
+&lt;!--- </li>
+<li><strong>C#</strong>: <em>JDI.Light.Elements.Common.ProgressBar</em> 
+--&gt;</li>
 </ul>
 <pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#progress"</span><span class="o">)</span> <span class="c1">// @FindBy(id = "progress")</span>
 <span class="kd">public</span> <span class="kd">static</span> <span class="n">ProgressBar</span> <span class="n">progress</span><span class="o">;</span>
@@ -2931,7 +2937,7 @@ Datalist element contains a set of options with values available for entering.</
 
 <ul>
 <li><strong>Java</strong>: com.epam.jdi.light.ui.html.complex.Checklist</li>
-<li><strong>C</strong>#: JDI.Light.Elements.Complex.CheckList </li>
+<li><strong>C</strong>#: JDI.Light.Elements.Common.CheckList </li>
 </ul>
 
 <p>See an example with a given HTML code describing checklist element.</p>
@@ -2977,11 +2983,6 @@ Datalist element contains a set of options with values available for entering.</
 <td>void</td>
 </tr>
 <tr>
-<td><strong>select(String.../Enum/int...)</strong></td>
-<td>Select checkboxes</td>
-<td>void</td>
-</tr>
-<tr>
 <td><strong>uncheck(String.../Enum/int...)</strong></td>
 <td>Unselect checkboxes</td>
 <td>void</td>
@@ -3008,27 +3009,32 @@ Datalist element contains a set of options with values available for entering.</
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>Check(params string[]/params int[])</strong></td>
+<td><strong>Check(string[]/int[])</strong></td>
 <td>Select checklist by values/indexes</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>Uncheck(params string[]/params int[])</strong></td>
+<td><strong>Check(string/int)</strong></td>
+<td>Select checklist by value/index</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>Uncheck(string[]/int[])</strong></td>
 <td>Unselect checklist by values/indexes</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>Select(params string[]/params int[])</strong></td>
-<td>Select checklist by values/indexes</td>
+<td><strong>Uncheck(string/int)</strong></td>
+<td>Unselect checklist by value/index</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>UncheckAll()</strong></td>
+<td><strong>UncheckAll(Array)</strong></td>
 <td>Uncheck all checkboxes</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>Checked()</strong></td>
+<td><strong>GetChecked()</strong></td>
 <td>Get selected checkboxes from checklist value</td>
 <td>string[]</td>
 </tr>

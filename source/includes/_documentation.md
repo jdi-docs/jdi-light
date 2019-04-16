@@ -468,7 +468,7 @@ public static Image jdiLogo;
     }
 ```
 ```csharp 
-[FindBy(Css = ".epam-logo img")]
+[FindBy(Css = "#jdi-logo")]
 public IImage LogoImage;
 
    [Test]
@@ -510,8 +510,8 @@ And here are methods available in Java:
 **height()** |get value of height attribute| String
 **width()** | get value of width attribute| String
 **alt()** |get value of alt attribute | String
-**is()** |returns object for work with assertions | ImageAssert
-**assertThat()** |returns object for work with assertions | ImageAssert
+**is()** | method for building assertions | ImageAssert
+**assertThat()** |method for building assertions  | ImageAssert
 
 [Test examples in Java](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ImageTests.java)
 

@@ -669,12 +669,14 @@ public void assertValidationTest() {
 public ProgressBar Progress;
 
 [Test]
-public void GetValueTest() {
+public void GetValueTest() 
+{
      Assert.AreEqual(Progress.Value(), "70");
 }
 
 [Test]
-public void MaxTest() {
+public void MaxTest() 
+{
      Assert.AreEqual(Progress.Max(), "100");
 }
 

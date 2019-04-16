@@ -196,6 +196,7 @@ And here are some of the methods available in Java:
 __In the following sections there are examples of different implementations of such fields.__
 
 __Input Type Date__
+
 ```java 
 @UI("#birth-date") //@FindBy(css = "#birth-date") 
 public static DateTimeSelector birthDate;

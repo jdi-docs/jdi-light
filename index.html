@@ -380,19 +380,7 @@
                               <a href="#colorpicker" class="toc-h2 h3 toc-link" data-title="ColorPicker">ColorPicker</a>
                             </li>
                             <li>
-                              <a href="#input-type-date" class="toc-h2 h3 toc-link" data-title="Input Type Date">Input Type Date</a>
-                            </li>
-                            <li>
-                              <a href="#input-type-week" class="toc-h2 h3 toc-link" data-title="Input Type Week">Input Type Week</a>
-                            </li>
-                            <li>
-                              <a href="#input-type-month" class="toc-h2 h3 toc-link" data-title="Input Type Month">Input Type Month</a>
-                            </li>
-                            <li>
-                              <a href="#input-type-time" class="toc-h2 h3 toc-link" data-title="Input Type Time">Input Type Time</a>
-                            </li>
-                            <li>
-                              <a href="#input-type-datetime-local" class="toc-h2 h3 toc-link" data-title="Input Type DateTime-Local">Input Type DateTime-Local</a>
+                              <a href="#datetimeselector" class="toc-h2 h3 toc-link" data-title="DateTimeSelector">DateTimeSelector</a>
                             </li>
                             <li>
                               <a href="#input-type-range" class="toc-h2 h3 toc-link" data-title="Input Type Range">Input Type Range</a>
@@ -410,6 +398,9 @@
                               <a href="#link" class="toc-h2 h3 toc-link" data-title="Link">Link</a>
                             </li>
                             <li>
+                              <a href="#menu" class="toc-h2 h3 toc-link" data-title="Menu">Menu</a>
+                            </li>
+                            <li>
                               <a href="#numberselector" class="toc-h2 h3 toc-link" data-title="NumberSelector">NumberSelector</a>
                             </li>
                             <li>
@@ -422,10 +413,10 @@
                               <a href="#text" class="toc-h2 h3 toc-link" data-title="Text">Text</a>
                             </li>
                             <li>
-                              <a href="#textarea" class="toc-h2 h3 toc-link" data-title="TextArea">TextArea</a>
+                              <a href="#textfield" class="toc-h2 h3 toc-link" data-title="TextField">TextField</a>
                             </li>
                             <li>
-                              <a href="#textfield" class="toc-h2 h3 toc-link" data-title="TextField">TextField</a>
+                              <a href="#textarea" class="toc-h2 h3 toc-link" data-title="TextArea">TextArea</a>
                             </li>
                             <li>
                               <a href="#title" class="toc-h2 h3 toc-link" data-title="Title">Title</a>
@@ -1243,37 +1234,20 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ColorPickerTests.java">Java test examples</a></p>
 
 <!--- [C# test examples]() -->
-<h3 id='input-type-date'>Input Type Date</h3><pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#birth-date"</span><span class="o">)</span> 
-<span class="c1">// equal to @FindBy(css = "#birth-date") </span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="n">DateTimeSelector</span> <span class="n">birthDate</span><span class="o">;</span>
+<h3 id='datetimeselector'>DateTimeSelector</h3>
+<p><strong>DateTimeSelector</strong> is used for Input Type Date and its derivatives and allows users to set the value of date and/or time.</p>
 
-    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setDateTimeTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">birthDate</span><span class="o">.</span><span class="na">setDateTime</span><span class="o">(</span><span class="s">"2018-11-13"</span><span class="o">);</span>
-        <span class="n">assertEquals</span><span class="o">(</span><span class="n">birthDate</span><span class="o">.</span><span class="na">value</span><span class="o">(),</span> <span class="s">"2018-11-13"</span><span class="o">);</span>
-    <span class="o">}</span>
+<p>The list of supported elements:</p>
 
-    <span class="nd">@Test</span>
-     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">minTest</span><span class="o">()</span> <span class="o">{</span>
-            <span class="n">assertEquals</span><span class="o">(</span><span class="n">birthDate</span><span class="o">.</span><span class="na">min</span><span class="o">(),</span> <span class="s">"1970-01-01"</span><span class="o">);</span>
-     <span class="o">}</span>
+<ul>
+<li>Input Type Date</li>
+<li>Input Type Week</li>
+<li>Input Type Month</li>
+<li>Input Type Time</li>
+<li>Input Type DateTime-Local</li>
+</ul>
 
-     <span class="nd">@Test</span>
-     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">maxTest</span><span class="o">()</span> <span class="o">{</span>
-            <span class="n">assertEquals</span><span class="o">(</span><span class="n">birthDate</span><span class="o">.</span><span class="na">max</span><span class="o">(),</span> <span class="s">"2030-12-31"</span><span class="o">);</span>
-     <span class="o">}</span>
-</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">SetGetDateTime</span><span class="p">()</span> 
-<span class="p">{</span>
-    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">SetDateTime</span><span class="p">(</span><span class="s">"2000-01-01"</span><span class="p">);</span>
-    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">();</span>
-<span class="p">}</span>
-</code></pre>
-<p><strong>Input Type Date</strong> – a graphical control element, that allows users to set the value of date.</p>
-
-<p><img src="images/html/inputTypeDate_html.png" alt="InputTypeDate" /></p>
-
-<p>Input Type Date is represented by following classes:</p>
+<p>There are the following classes represent this type of elements:</p>
 
 <ul>
 <li><strong>C#</strong>: <em>JDI.Light.Elements.Common.DateTimeSelector</em></li>
@@ -1300,8 +1274,6 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 <td>string</td>
 </tr>
 </tbody></table>
-
-<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs">Test examples in C#</a></p>
 
 <p>And here are some of the methods available in Java:</p>
 
@@ -1332,29 +1304,60 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 <td>Gets attribute with name max</td>
 <td>String</td>
 </tr>
+<tr>
+<td><strong>is()</strong></td>
+<td>Assertion</td>
+<td>DateTimeAssert</td>
+</tr>
+<tr>
+<td><strong>assertThat()</strong></td>
+<td>Assertion</td>
+<td>DateTimeAssert</td>
+</tr>
 </tbody></table>
 
+<p><strong>In the following sections there are examples of different implementations of such fields.</strong></p>
+<h4 id='input-type-date'>Input Type Date</h4><pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#birth-date"</span><span class="o">)</span> <span class="c1">//@FindBy(css = "#birth-date") </span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">DateTimeSelector</span> <span class="n">birthDate</span><span class="o">;</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">setDateTimeTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">birthDate</span><span class="o">.</span><span class="na">setDateTime</span><span class="o">(</span><span class="s">"2018-11-13"</span><span class="o">);</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="n">birthDate</span><span class="o">.</span><span class="na">value</span><span class="o">(),</span> <span class="s">"2018-11-13"</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">maxTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="n">birthDate</span><span class="o">.</span><span class="na">max</span><span class="o">(),</span> <span class="s">"2030-12-31"</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">SetGetDateTime</span><span class="p">()</span> 
+<span class="p">{</span>
+    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">SetDateTime</span><span class="p">(</span><span class="s">"2000-01-01"</span><span class="p">);</span>
+    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre>
+<p><strong>Input Type Date</strong> – a graphical control element, that allows users to set the value of date.</p>
+
+<p><img src="images/html/inputTypeDate_html.png" alt="InputTypeDate" /></p>
+
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs">Test examples in C#</a></p>
+
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/DateTests.java">Test examples in Java</a></p>
-<h3 id='input-type-week'>Input Type Week</h3><pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#autumn-week"</span><span class="o">)</span> 
-<span class="c1">// equal to @FindBy(css = "#autumn-week") </span>
+<h4 id='input-type-week'>Input Type Week</h4><pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#autumn-week"</span><span class="o">)</span> <span class="c1">//@FindBy(css = "#autumn-week") </span>
 <span class="kd">public</span> <span class="kd">static</span> <span class="n">DateTimeSelector</span> <span class="n">autumnWeek</span><span class="o">;</span>
 
-    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">minTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">assertEquals</span><span class="o">(</span><span class="n">autumnWeek</span><span class="o">.</span><span class="na">min</span><span class="o">(),</span> <span class="s">"2018-W35"</span><span class="o">);</span>
-    <span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">minTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="n">autumnWeek</span><span class="o">.</span><span class="na">min</span><span class="o">(),</span> <span class="s">"2018-W35"</span><span class="o">);</span>
+<span class="o">}</span>
 
-    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">maxTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">assertEquals</span><span class="o">(</span><span class="n">autumnWeek</span><span class="o">.</span><span class="na">max</span><span class="o">(),</span> <span class="s">"2018-W48"</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setDateTimeTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">autumnWeek</span><span class="o">.</span><span class="na">setDateTime</span><span class="o">(</span><span class="s">"2018-W12"</span><span class="o">);</span>
-        <span class="n">autumnWeek</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
-        <span class="n">assertEquals</span><span class="o">(</span><span class="n">autumnWeek</span><span class="o">.</span><span class="na">value</span><span class="o">(),</span> <span class="s">"2018-W12"</span><span class="o">);</span>
-    <span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">setDateTimeTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">autumnWeek</span><span class="o">.</span><span class="na">setDateTime</span><span class="o">(</span><span class="s">"2018-W12"</span><span class="o">);</span>
+    <span class="n">autumnWeek</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="n">autumnWeek</span><span class="o">.</span><span class="na">value</span><span class="o">(),</span> <span class="s">"2018-W12"</span><span class="o">);</span>
+<span class="o">}</span>
 </code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
 <span class="k">public</span> <span class="k">void</span> <span class="nf">SetGetDateTime</span><span class="p">()</span> 
 <span class="p">{</span>
@@ -1366,88 +1369,23 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 
 <p><img src="images/html/inputTypeWeek_html.png" alt="InputTypeWeek" /></p>
 
-<p>Input Type Week is represented by following classes:</p>
-
-<ul>
-<li><strong>C#</strong>: <em>JDI.Light.Elements.Common.DateTimeSelector</em></li>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.DateTimeSelector</em></li>
-</ul>
-
-<p>Here is the list of some available methods in C#:</p>
-
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>SetDateTime(string value)</strong></td>
-<td>Sets a date or time</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>GetValue()</strong></td>
-<td>Returns the set date or time</td>
-<td>string</td>
-</tr>
-</tbody></table>
-
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs">Test examples in C#</a></p>
 
-<p>And here is the list of some available methods in Java:</p>
-
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>setDateTime(string value)</strong></td>
-<td>Sets a date or time</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>value()</strong></td>
-<td>Returns the set date or time</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>min()</strong></td>
-<td>Gets attribute with name min</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>max()</strong></td>
-<td>Gets attribute with name max</td>
-<td>String</td>
-</tr>
-</tbody></table>
-
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/WeekTests.java">Test examples in Java</a></p>
-<h3 id='input-type-month'>Input Type Month</h3><pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#month-date"</span><span class="o">)</span> 
-<span class="c1">// equal to @FindBy(css = "#month-date") </span>
+<h4 id='input-type-month'>Input Type Month</h4><pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#month-date"</span><span class="o">)</span> <span class="c1">//@FindBy(css = "#month-date") </span>
 <span class="kd">public</span> <span class="kd">static</span> <span class="n">DateTimeSelector</span> <span class="n">monthDate</span><span class="o">;</span>
 
-    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">minTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">assertEquals</span><span class="o">(</span><span class="n">monthDate</span><span class="o">.</span><span class="na">min</span><span class="o">(),</span> <span class="s">"2015-03"</span><span class="o">);</span>
-    <span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">maxTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="n">monthDate</span><span class="o">.</span><span class="na">max</span><span class="o">(),</span> <span class="s">"2020-12"</span><span class="o">);</span>
+<span class="o">}</span>
 
-    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">maxTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">assertEquals</span><span class="o">(</span><span class="n">monthDate</span><span class="o">.</span><span class="na">max</span><span class="o">(),</span> <span class="s">"2020-12"</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setDateTimeTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">monthDate</span><span class="o">.</span><span class="na">setDateTime</span><span class="o">(</span><span class="s">"2018-10"</span><span class="o">);</span>
-        <span class="n">monthDate</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
-        <span class="n">assertEquals</span><span class="o">(</span><span class="n">monthDate</span><span class="o">.</span><span class="na">value</span><span class="o">(),</span> <span class="s">"2018-10"</span><span class="o">);</span>
-    <span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">setDateTimeTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">monthDate</span><span class="o">.</span><span class="na">setDateTime</span><span class="o">(</span><span class="s">"2018-10"</span><span class="o">);</span>
+    <span class="n">monthDate</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="n">monthDate</span><span class="o">.</span><span class="na">value</span><span class="o">(),</span> <span class="s">"2018-10"</span><span class="o">);</span>
+<span class="o">}</span>
 </code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
 <span class="k">public</span> <span class="k">void</span> <span class="nf">SetGetDateTime</span><span class="p">()</span> 
 <span class="p">{</span>
@@ -1459,88 +1397,23 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 
 <p><img src="images/html/inputTypeMonth_html.png" alt="InputTypeMonth" /></p>
 
-<p>Input Type Month is represented by following classes:</p>
-
-<ul>
-<li><strong>C#</strong>: <em>JDI.Light.Elements.Common.DateTimeSelector</em></li>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.DateTimeSelector</em></li>
-</ul>
-
-<p>Here is the list of some available methods in C#:</p>
-
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>SetDateTime(string value)</strong></td>
-<td>Sets a date or time</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>GetValue()</strong></td>
-<td>Returns the set date or time</td>
-<td>string</td>
-</tr>
-</tbody></table>
-
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs">Test examples in C#</a></p>
 
-<p>And here is the list of some available methods in Java:</p>
-
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>setDateTime(string value)</strong></td>
-<td>Sets a date or time</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>value()</strong></td>
-<td>Returns the set date or time</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>min()</strong></td>
-<td>Gets attribute with name min</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>max()</strong></td>
-<td>Gets attribute with name max</td>
-<td>String</td>
-</tr>
-</tbody></table>
-
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/MonthTests.java">Test examples in Java</a></p>
-<h3 id='input-type-time'>Input Type Time</h3><pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#booking-date"</span><span class="o">)</span> 
-<span class="c1">// equal to @FindBy(css = "#booking-date") </span>
+<h4 id='input-type-time'>Input Type Time</h4><pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#booking-date"</span><span class="o">)</span> <span class="c1">//@FindBy(css = "#booking-date") </span>
 <span class="kd">public</span> <span class="kd">static</span> <span class="n">DateTimeSelector</span> <span class="n">bookingTime</span><span class="o">;</span>
 
-    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">minTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">assertEquals</span><span class="o">(</span><span class="n">bookingTime</span><span class="o">.</span><span class="na">min</span><span class="o">(),</span> <span class="s">"9:00"</span><span class="o">);</span>
-    <span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">minTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="n">bookingTime</span><span class="o">.</span><span class="na">min</span><span class="o">(),</span> <span class="s">"9:00"</span><span class="o">);</span>
+<span class="o">}</span>
 
-    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">maxTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">assertEquals</span><span class="o">(</span><span class="n">bookingTime</span><span class="o">.</span><span class="na">max</span><span class="o">(),</span> <span class="s">"18:00"</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setDateTimeTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">bookingTime</span><span class="o">.</span><span class="na">setDateTime</span><span class="o">(</span><span class="s">"05:00"</span><span class="o">);</span>
-        <span class="n">bookingTime</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
-        <span class="n">assertEquals</span><span class="o">(</span><span class="n">bookingTime</span><span class="o">.</span><span class="na">value</span><span class="o">(),</span> <span class="s">"05:00"</span><span class="o">);</span>
-    <span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">setDateTimeTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">bookingTime</span><span class="o">.</span><span class="na">setDateTime</span><span class="o">(</span><span class="s">"05:00"</span><span class="o">);</span>
+    <span class="n">bookingTime</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="n">bookingTime</span><span class="o">.</span><span class="na">value</span><span class="o">(),</span> <span class="s">"05:00"</span><span class="o">);</span>
+<span class="o">}</span>
 </code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
 <span class="k">public</span> <span class="k">void</span> <span class="nf">SetGetDateTime</span><span class="p">()</span> 
 <span class="p">{</span>
@@ -1552,69 +1425,10 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 
 <p><img src="images/html/inputTypeTime_html.png" alt="InputTypeTime" /></p>
 
-<p>Input Type Time is represented by following classes:</p>
-
-<ul>
-<li><strong>C#</strong>: <em>JDI.Light.Elements.Common.DateTimeSelector</em></li>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.DateTimeSelector</em></li>
-</ul>
-
-<p>Here is the list of some available methods in C#:</p>
-
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>SetDateTime(string value)</strong></td>
-<td>Sets time</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>GetValue()</strong></td>
-<td>Returns the set time</td>
-<td>string</td>
-</tr>
-</tbody></table>
-
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs">Test examples in C#</a></p>
 
-<p>And here is a list of some available methods in Java:</p>
-
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>setDateTime(string value)</strong></td>
-<td>Sets time</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>value()</strong></td>
-<td>Returns the set time</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>min()</strong></td>
-<td>Gets attribute with name min</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>max()</strong></td>
-<td>Gets attribute with name max</td>
-<td>String</td>
-</tr>
-</tbody></table>
-
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/TimeTests.java">Test examples in Java</a></p>
-<h3 id='input-type-datetime-local'>Input Type DateTime-Local</h3><pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#party-time"</span><span class="o">)</span> <span class="c1">//@FindBy(id = "party-time")</span>
+<h4 id='input-type-datetime-local'>Input Type DateTime-Local</h4><pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#party-time"</span><span class="o">)</span> <span class="c1">//@FindBy(id = "party-time")</span>
 <span class="kd">public</span> <span class="kd">static</span> <span class="n">DateTimeSelector</span> <span class="n">partyTime</span><span class="o">;</span>
 
 <span class="nd">@Test</span>
@@ -1632,65 +1446,6 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 <p><strong>Input Type DateTime-Local</strong> – a graphical control element, that allows the user to set the value of time and date.</p>
 
 <p><img src="images/html/inputDateTimeLocal_html.png" alt="InputTypeDateTime" /></p>
-
-<p>There is a type for that element is available in JDI Light, which can be found in:</p>
-
-<ul>
-<li><strong>Java</strong>: com.epam.jdi.light.ui.html.common.DateTimeSelector</li>
-<li><strong>C#</strong>: JDI.Light.Elements.Common.DateTimeSelector</li>
-</ul>
-
-<p>The list of available methods in Java JDI Light:</p>
-
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>setDateTime(String)</strong></td>
-<td>Sets the date and time</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>value()</strong></td>
-<td>Get date and time</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>min()</strong></td>
-<td>Get minimum available date and time value</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>max()</strong></td>
-<td>Get maximum available date and time value</td>
-<td>String</td>
-</tr>
-</tbody></table>
-
-<p>Here is the list of some available methods in C# JDI Light:</p>
-
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>SetDateTime(string value)</strong></td>
-<td>Sets the date or time</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>GetValue()</strong></td>
-<td>Returns the set date or time</td>
-<td>string</td>
-</tr>
-</tbody></table>
 
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/DateTimeTests.java">Java test example</a></p>
 
@@ -1755,6 +1510,16 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 <td><strong>step()</strong></td>
 <td>Returns the step value</td>
 <td>String</td>
+</tr>
+<tr>
+<td><strong>is()</strong></td>
+<td>Returns object for work with assertions</td>
+<td>RangeAssert</td>
+</tr>
+<tr>
+<td><strong>assertThat()</strong></td>
+<td>Returns object for work with assertions</td>
+<td>RangeAssert</td>
 </tr>
 </tbody></table>
 
@@ -1832,9 +1597,272 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 <h3 id='image'>Image</h3>
 <p>TBD</p>
 <h3 id='link'>Link</h3>
-<p>TBD</p>
+<p><strong>Link</strong> – a graphical control element, that allows the user to link from one page to other web pages, files, locations within the same page, email addresses, or any other URL.</p>
+
+<p>Link are represented by the following class:</p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.Link</em></li>
+<li><strong>C#</strong>: <em>JDI.Light.Elements.Common.Link</em></li>
+</ul>
+<pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"[ui=github-link]"</span><span class="o">)</span> 
+<span class="c1">// equal to @FindBy(css = "[ui=github-link]") </span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">Link</span> <span class="n">githubLink</span><span class="o">;</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">getTextTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">githubLink</span><span class="o">.</span><span class="na">getText</span><span class="o">(),</span> <span class="n">text</span><span class="o">);</span>
+    <span class="o">}</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
+<span class="n">TBD</span>
+</code></pre>
+<p><img src="images/html/link_html.png" alt="Link" /></p>
+
+<p>Here is the list of available methods:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>click()</strong></td>
+<td>Follow the link</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>getText()</strong></td>
+<td>Returns the link text</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>ref()</strong></td>
+<td>Returns the reference</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>url()</strong></td>
+<td>Returns the URL</td>
+<td>URL</td>
+</tr>
+<tr>
+<td><strong>alt()</strong></td>
+<td>Returns the alternate text</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>is()</strong></td>
+<td>Returns object for work with assertions</td>
+<td>LinkAssert</td>
+</tr>
+<tr>
+<td><strong>assertThat()</strong></td>
+<td>Returns object for work with assertions</td>
+<td>LinkAssert</td>
+</tr>
+</tbody></table>
+
+<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/LinkTests.java">Java test examples</a></p>
+
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/LinkTests.cs">C# test examples</a></p>
+<h3 id='menu'>Menu</h3>
+<p><strong>Menu</strong> - a list of links, which leads to different pages or sections of website</p>
+
+<p>Menu element is located in JDI Light in:</p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.complex.Menu</em></li>
+<li><strong>C#</strong>: <em>JDI.Light.Elements.Composite.Menu</em></li>
+</ul>
+<pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">".sidebar-menu span&lt;[*'%s']&lt;&lt;"</span><span class="o">)</span> 
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">Menu</span> <span class="n">leftMenu</span><span class="o">;</span>
+<span class="nd">@Url</span><span class="o">(</span><span class="s">"/metals-colors.html"</span><span class="o">)</span> <span class="nd">@Title</span><span class="o">(</span><span class="s">"Metal and Colors"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">MetalAndColorsPage</span> <span class="n">metalAndColorsPage</span><span class="o">;</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">selectEnumTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">leftMenu</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">MetalsColors</span><span class="o">);</span>
+    <span class="n">metalAndColorsPage</span><span class="o">.</span><span class="na">checkOpened</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[FindBy(Css = "ul.sidebar-menu")]</span>
+<span class="k">public</span> <span class="n">Menu</span> <span class="n">SidebarMenu</span><span class="p">;</span>
+
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">SelectEnumTest</span><span class="p">()</span>
+<span class="p">{</span>
+     <span class="n">TestSite</span><span class="p">.</span><span class="n">SidebarMenu</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="n">Navigation</span><span class="p">.</span><span class="n">MetalsColors</span><span class="p">);</span>
+     <span class="n">TestSite</span><span class="p">.</span><span class="n">MetalsColorsPage</span><span class="p">.</span><span class="nf">CheckOpened</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre>
+<p>Here is an example with provided HTML code:</p>
+
+<p><img src="images/html/menu.png" alt="Menu example" /></p>
+
+<p>Available method in Java JDI Light:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>void select(String...)</strong></td>
+<td>Select menu element and subelement</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>void select(String)</strong></td>
+<td>Select menu element</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>void select(TEnum...)</strong></td>
+<td>Select menu element and subelement</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>void select(TEnum)</strong></td>
+<td>Select menu element</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>void select(int...)</strong></td>
+<td>Select menu element by index</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>void select(int)</strong></td>
+<td>Select menu element and subelements by index</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>String selected()</strong></td>
+<td>Returns selected menu item</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>List<String> values()</strong></td>
+<td>Returns selected menu item and subitems</td>
+<td>List<String></td>
+</tr>
+<tr>
+<td><strong>void hoverAndClick(String...)</strong></td>
+<td>Hovers and clicks menu item and subitems</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>void hoverAndClick(String)</strong></td>
+<td>Hovers and clicks menu item</td>
+<td>void</td>
+</tr>
+</tbody></table>
+
+<p>Available method in C# JDI Light:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>void select(String[])</strong></td>
+<td>Select menu element and subelement</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>void select(String)</strong></td>
+<td>Select menu element</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>void select(TEnum)</strong></td>
+<td>Select menu element</td>
+<td>void</td>
+</tr>
+</tbody></table>
+
+<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/complex/MenuTests.java">Java test examples</a></p>
+
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Composite/MenuTests.cs">C# test examples</a></p>
 <h3 id='numberselector'>NumberSelector</h3>
-<p>TBD</p>
+<p><strong>NumberSelector</strong> – a graphical control element, that allows the user to let the user enter a number.</p>
+
+<p>NumberSelector are represented by the following class:</p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.NumberSelector</em></li>
+</ul>
+<pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#height"</span><span class="o">)</span> 
+<span class="c1">// equal to @FindBy(css = "#height") </span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">NumberSelector</span> <span class="n">height</span><span class="o">;</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">getNumberTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">height</span><span class="o">.</span><span class="na">value</span><span class="o">(),</span> <span class="n">number</span><span class="o">);</span>
+    <span class="o">}</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
+<span class="n">TBD</span>
+</code></pre>
+<p><img src="images/html/numberSelector_html.png" alt="NumberSelector" /></p>
+
+<p>Here is the list of available methods:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>placeholder()</strong></td>
+<td>Returns the placeholder text</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>min()</strong></td>
+<td>Returns the min value</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>max()</strong></td>
+<td>Returns the max value</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>value()</strong></td>
+<td>Returns the value</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>step()</strong></td>
+<td>Returns the step value</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>setNumber(String)</strong></td>
+<td>Sets the value</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>is()</strong></td>
+<td>Returns object for work with assertions</td>
+<td>NumberAssert</td>
+</tr>
+<tr>
+<td><strong>assertThat()</strong></td>
+<td>Returns object for work with assertions</td>
+<td>NumberAssert</td>
+</tr>
+</tbody></table>
+
+<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/NumberSelectorTests.java">Java test examples</a></p>
 <h3 id='progressbar'>ProgressBar</h3>
 <p><strong>Progress Bar</strong> - Element for displaying an indicator showing the completion progress of a task</p>
 
@@ -1843,7 +1871,8 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 <p>ProgressBar is located in the following classes:</p>
 
 <ul>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.ProgressBar</em></li>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.ProgressBar</em>
+&lt;!--- - <strong>C#</strong>: <em>JDI.Light.Elements.Common.ProgressBar</em> --&gt;</li>
 </ul>
 <pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#progress"</span><span class="o">)</span> <span class="c1">// @FindBy(id = "progress")</span>
 <span class="kd">public</span> <span class="kd">static</span> <span class="n">ProgressBar</span> <span class="n">progress</span><span class="o">;</span>
@@ -1864,7 +1893,22 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
     <span class="n">progress</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">volume</span><span class="o">(</span><span class="n">lessThan</span><span class="o">(</span><span class="mi">200</span><span class="o">));</span>
     <span class="n">progress</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">volume</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="mi">70</span><span class="o">));</span>
 <span class="o">}</span>
-</code></pre><pre class="highlight csharp tab-csharp"><code><span class="n">TBD</span> 
+</code></pre><pre class="highlight csharp tab-csharp"><code>
+<span class="na">[FindBy(Css = "#progress")]</span>
+<span class="k">public</span> <span class="n">ProgressBar</span> <span class="n">Progress</span><span class="p">;</span>
+
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">GetValueTest</span><span class="p">()</span> 
+<span class="p">{</span>
+     <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">Progress</span><span class="p">.</span><span class="nf">Value</span><span class="p">(),</span> <span class="s">"70"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">MaxTest</span><span class="p">()</span> 
+<span class="p">{</span>
+     <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">Progress</span><span class="p">.</span><span class="nf">Max</span><span class="p">(),</span> <span class="s">"100"</span><span class="p">);</span>
+<span class="p">}</span>
+
 </code></pre>
 <p>Here is an example with provided HTML code:</p>
 
@@ -1908,10 +1952,299 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 <p>TBD</p>
 <h3 id='text'>Text</h3>
 <p>TBD</p>
-<h3 id='textarea'>TextArea</h3>
-<p>TBD</p>
-<h3 id='textfield'>TextField</h3>
-<p>TBD</p>
+<h3 id='textfield'>TextField</h3><pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#name"</span><span class="o">)</span> 
+<span class="c1">// same as @FindBy(css = "#name")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">TextField</span> <span class="n">name</span><span class="o">;</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">sendKeysTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">name</span><span class="o">.</span><span class="na">sendKeys</span><span class="o">(</span><span class="s">"Test"</span><span class="o">);</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">name</span><span class="o">.</span><span class="na">getValue</span><span class="o">(),</span> <span class="n">text</span><span class="o">+</span><span class="s">"Test"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">inputTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">name</span><span class="o">.</span><span class="na">input</span><span class="o">(</span><span class="s">"New text"</span><span class="o">);</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">name</span><span class="o">.</span><span class="na">getText</span><span class="o">(),</span> <span class="s">"New text"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">clearTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">name</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">name</span><span class="o">.</span><span class="na">getText</span><span class="o">(),</span> <span class="s">""</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">placeholderTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">name</span><span class="o">.</span><span class="na">placeholder</span><span class="o">(),</span> <span class="s">"Input name"</span><span class="o">);</span>
+    <span class="o">}</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[FindBy(Id = "name")]</span>
+<span class="k">public</span> <span class="n">TextField</span> <span class="n">NameField</span><span class="p">;</span>
+
+        <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+        <span class="k">public</span> <span class="k">void</span> <span class="nf">InputTest</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">TestSite</span><span class="p">.</span><span class="n">ContactFormPage</span><span class="p">.</span><span class="n">NameField</span><span class="p">.</span><span class="nf">Input</span><span class="p">(</span><span class="n">ToAddText</span><span class="p">);</span>
+            <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">AreEquals</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">ContactFormPage</span><span class="p">.</span><span class="n">NameField</span><span class="p">.</span><span class="n">Value</span><span class="p">,</span> <span class="n">_defaultText</span> <span class="p">+</span> <span class="n">ToAddText</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+        <span class="k">public</span> <span class="k">void</span> <span class="nf">SendKeyTest</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">TestSite</span><span class="p">.</span><span class="n">ContactFormPage</span><span class="p">.</span><span class="n">NameField</span><span class="p">.</span><span class="nf">SendKeys</span><span class="p">(</span><span class="n">ToAddText</span><span class="p">);</span>
+            <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">AreEquals</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">ContactFormPage</span><span class="p">.</span><span class="n">NameField</span><span class="p">.</span><span class="n">Value</span><span class="p">,</span> <span class="n">_defaultText</span> <span class="p">+</span> <span class="n">ToAddText</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+        <span class="k">public</span> <span class="k">void</span> <span class="nf">NewInputTest</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">TestSite</span><span class="p">.</span><span class="n">ContactFormPage</span><span class="p">.</span><span class="n">NameField</span><span class="p">.</span><span class="nf">NewInput</span><span class="p">(</span><span class="n">ToAddText</span><span class="p">);</span>
+            <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">AreEquals</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">ContactFormPage</span><span class="p">.</span><span class="n">NameField</span><span class="p">.</span><span class="n">Value</span><span class="p">,</span> <span class="n">ToAddText</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+        <span class="k">public</span> <span class="k">void</span> <span class="nf">ClearTest</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">TestSite</span><span class="p">.</span><span class="n">ContactFormPage</span><span class="p">.</span><span class="n">NameField</span><span class="p">.</span><span class="nf">Clear</span><span class="p">();</span>
+            <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">AreEquals</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">ContactFormPage</span><span class="p">.</span><span class="n">NameField</span><span class="p">.</span><span class="n">Value</span><span class="p">,</span> <span class="s">""</span><span class="p">);</span>
+        <span class="p">}</span>
+</code></pre>
+<p><strong>TextField</strong> – is a simple element type that allows users to fill in text fields.</p>
+
+<p><img src="images/html/textField_html.png" alt="InputTypeTextField" /></p>
+
+<p>Text fields are represented by the following classes in Java and C#:</p>
+
+<ul>
+<li><strong>C#</strong>: <em>JDI.Light.Elements.Common.TextField</em></li>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.TextField</em></li>
+</ul>
+
+<p>Here is a list of available methods in C#:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Input(string text)</strong></td>
+<td>adds text to the field</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>SendKeys(string text)</strong></td>
+<td>adds text to the field</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>NewInput(string text)</strong></td>
+<td>clears the text field and sets new text</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>Clear()</strong></td>
+<td>clears the text field</td>
+<td>void</td>
+</tr>
+</tbody></table>
+
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/TextFieldsTests.cs">Test examples in C#</a></p>
+
+<p>And here are methods available in Java:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>sendKeys(CharSequence... value)</strong></td>
+<td>adds text to the field</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>setText(String value)</strong></td>
+<td>sets new text</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>clear()</strong></td>
+<td>clears the text field</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>input(String value)</strong></td>
+<td>sets new text</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>focus()</strong></td>
+<td>places cursor within the text field</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>placeholder()</strong></td>
+<td>returns value of the placeholder attribute</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>getText()</strong></td>
+<td>returns text from the text field</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>getValue()</strong></td>
+<td>calls placeholder() method</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/TextFieldTests.java">Test examples in Java</a></p>
+<h3 id='textarea'>TextArea</h3><pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#text-area"</span><span class="o">)</span> 
+<span class="c1">// same as FindBy(css = "#text-area")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">TextArea</span> <span class="n">textArea</span><span class="o">;</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">getLinesTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">textArea</span><span class="o">.</span><span class="na">setLines</span><span class="o">(</span><span class="s">"test 1"</span><span class="o">,</span> <span class="s">"test 2"</span><span class="o">,</span> <span class="s">"test 3"</span><span class="o">);</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">textArea</span><span class="o">.</span><span class="na">getLines</span><span class="o">(),</span> <span class="n">asList</span><span class="o">(</span><span class="s">"test 1"</span><span class="o">,</span> <span class="s">"test 2"</span><span class="o">,</span> <span class="s">"test 3"</span><span class="o">));</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">focusTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">textArea</span><span class="o">.</span><span class="na">focus</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">rowsTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">textArea</span><span class="o">.</span><span class="na">rows</span><span class="o">(),</span> <span class="mi">3</span><span class="o">);</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">textArea</span><span class="o">.</span><span class="na">cols</span><span class="o">(),</span> <span class="mi">33</span><span class="o">);</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">textArea</span><span class="o">.</span><span class="na">minlength</span><span class="o">(),</span> <span class="mi">10</span><span class="o">);</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">textArea</span><span class="o">.</span><span class="na">maxlength</span><span class="o">(),</span> <span class="mi">200</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="c1">// this test demonstrates usage of methods inherited from TextField interface:</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">clearTest</span><span class="o">()</span> <span class="o">{</span>
+             <span class="n">textArea</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="n">text</span><span class="o">);</span>
+             <span class="n">textArea</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
+             <span class="n">assertEquals</span><span class="o">(</span><span class="n">textArea</span><span class="o">.</span><span class="na">getText</span><span class="o">(),</span> <span class="s">""</span><span class="o">);</span>
+    <span class="o">}</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[FindBy(Id = "description")]</span>
+<span class="k">public</span> <span class="n">TextArea</span> <span class="n">DescriptionArea</span><span class="p">;</span>
+
+   <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+   <span class="k">public</span> <span class="k">void</span> <span class="nf">AddNewLineTest</span><span class="p">()</span>
+   <span class="p">{</span>
+      <span class="n">TestSite</span><span class="p">.</span><span class="n">ContactFormPage</span><span class="p">.</span><span class="n">DescriptionArea</span><span class="p">.</span><span class="nf">Clear</span><span class="p">();</span> <span class="c1">// method Clear() is inherited from TextField</span>
+      <span class="n">TestSite</span><span class="p">.</span><span class="n">ContactFormPage</span><span class="p">.</span><span class="n">DescriptionArea</span><span class="p">.</span><span class="nf">InputLines</span><span class="p">(</span><span class="s">"line1"</span><span class="p">,</span> <span class="s">"line2"</span><span class="p">);</span>
+      <span class="n">TestSite</span><span class="p">.</span><span class="n">ContactFormPage</span><span class="p">.</span><span class="n">DescriptionArea</span><span class="p">.</span><span class="nf">AddNewLine</span><span class="p">(</span><span class="s">"line3"</span><span class="p">);</span>
+      <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">CollectionEquals</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">ContactFormPage</span><span class="p">.</span><span class="n">DescriptionArea</span><span class="p">.</span><span class="nf">GetLines</span><span class="p">(),</span> <span class="k">new</span><span class="p">[]</span> <span class="p">{</span> <span class="s">"line1"</span><span class="p">,</span> <span class="s">"line2"</span><span class="p">,</span> <span class="s">"line3"</span> <span class="p">});</span>
+   <span class="p">}</span>
+</code></pre>
+<p><strong>TextArea</strong> – is a simple element type that allows users to fill in text areas (that may contain a few lines). </p>
+
+<p><img src="images/html/textArea_html.png" alt="InputTypeTextArea" /></p>
+
+<p>Text areas are represented by the following classes in Java and C#:</p>
+
+<ul>
+<li><strong>C#</strong>: <em>JDI.Light.Elements.Common.TextArea</em></li>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.TextArea</em></li>
+</ul>
+
+<p>In both Java and C# TextArea is a descendant of TextField and inherits its methods. But TextArea also has methods of its own.</p>
+
+<p>Here is a list of available methods in C#:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>InputLines(params string[] textLines)</strong></td>
+<td>clears area and sets new lines</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>AddNewLine(string textLine)</strong></td>
+<td>adds a new line to existing text</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>GetLines()</strong></td>
+<td>returns lines (text) from the text area</td>
+<td>string[]</td>
+</tr>
+</tbody></table>
+
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/TextAreaTests.cs">Test examples in C#</a></p>
+
+<p>And here are methods available in Java:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>setLines(String... lines)</strong></td>
+<td>sets lines (text)</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>getLines()</strong></td>
+<td>returns lines (text) from the text area</td>
+<td>List<String></td>
+</tr>
+<tr>
+<td><strong>rows()</strong></td>
+<td>returns value of rows attribute</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>cols()</strong></td>
+<td>returns value of cols attribute</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>minlength()</strong></td>
+<td>returns value of minlength attribute</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>maxlength()</strong></td>
+<td>returns value of maxlength attribute</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>placeholder()</strong></td>
+<td>returns value of placeholder attribute</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>is()</strong></td>
+<td>returns object for work with assertions</td>
+<td>TextAreaAssert</td>
+</tr>
+<tr>
+<td><strong>assertThat()</strong></td>
+<td>returns object for work with assertions</td>
+<td>TextAreaAssert</td>
+</tr>
+</tbody></table>
+
+<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/TextAreaTests.java">Test examples in Java</a></p>
 <h3 id='title'>Title</h3>
 <p>TBD</p>
 <h2 id='complex-elements'>Complex elements</h2><h3 id='radiobutton'>RadioButton</h3>
@@ -2517,7 +2850,7 @@ Datalist element contains a set of options with values available for entering.</
 
 <ul>
 <li><strong>Java</strong>: com.epam.jdi.light.ui.html.complex.Checklist</li>
-<li><strong>C</strong>#: JDI.Light.Elements.Common.CheckList </li>
+<li><strong>C</strong>#: JDI.Light.Elements.Complex.CheckList </li>
 </ul>
 
 <p>See an example with a given HTML code describing checklist element.</p>
@@ -2563,6 +2896,11 @@ Datalist element contains a set of options with values available for entering.</
 <td>void</td>
 </tr>
 <tr>
+<td><strong>select(String.../Enum/int...)</strong></td>
+<td>Select checkboxes</td>
+<td>void</td>
+</tr>
+<tr>
 <td><strong>uncheck(String.../Enum/int...)</strong></td>
 <td>Unselect checkboxes</td>
 <td>void</td>
@@ -2589,32 +2927,27 @@ Datalist element contains a set of options with values available for entering.</
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>Check(string[]/int[])</strong></td>
+<td><strong>Check(params string[]/params int[])</strong></td>
 <td>Select checklist by values/indexes</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>Check(string/int)</strong></td>
-<td>Select checklist by value/index</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>Uncheck(string[]/int[])</strong></td>
+<td><strong>Uncheck(params string[]/params int[])</strong></td>
 <td>Unselect checklist by values/indexes</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>Uncheck(string/int)</strong></td>
-<td>Unselect checklist by value/index</td>
+<td><strong>Select(params string[]/params int[])</strong></td>
+<td>Select checklist by values/indexes</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>UncheckAll(Array)</strong></td>
+<td><strong>UncheckAll()</strong></td>
 <td>Uncheck all checkboxes</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>GetChecked()</strong></td>
+<td><strong>Checked()</strong></td>
 <td>Get selected checkboxes from checklist value</td>
 <td>string[]</td>
 </tr>
@@ -2628,11 +2961,12 @@ Datalist element contains a set of options with values available for entering.</
 Multi Selector are represented by the following class:</p>
 
 <ul>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.complex.MultiSelect</em></li>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.complex.MultiSelector</em></li>
 <li><strong>C#</strong>: <em>JDI.Light.Elements.Common.MultiSelector</em></li>
 </ul>
-<pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#ages"</span><span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">MultiSelect</span> <span class="n">ages</span><span class="o">;</span>
-<span class="c1">// equal to @FindBy(css = "#ages") public static MultiSelect ages;</span>
+<pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#ages"</span><span class="o">)</span> 
+<span class="c1">// equal to @FindBy(css = "#ages") </span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">MultiSelect</span> <span class="n">ages</span><span class="o">;</span>
 
 <span class="nd">@Test</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkTest</span><span class="o">()</span> <span class="o">{</span>

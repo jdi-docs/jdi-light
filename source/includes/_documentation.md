@@ -1294,7 +1294,7 @@ Here is the list of some available methods in C# JDI Light:
 Checklist element type is available in the following packages:
  
  - __Java__: com.epam.jdi.light.ui.html.complex.Checklist
- - __C__#: JDI.Light.Elements.Common.CheckList 
+ - __C__#: JDI.Light.Elements.Complex.CheckList 
 
 See an example with a given HTML code describing checklist element.
 
@@ -1334,6 +1334,7 @@ List of available methods in Java JDI Light:
 |Method | Description | Return Type
 --- | --- | ---
 **check(String.../Enum/int...)** |Select checkboxes | void
+**select(String.../Enum/int...)** |Select checkboxes | void
 **uncheck(String.../Enum/int...)** | Unselect checkboxes | void
 **uncheckAll()** | Uncheck all checkboxes | void
 **checked()** | Get selected checkbox values | List\<String>
@@ -1342,12 +1343,11 @@ Here is the list of some available methods in C# JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**Check(string[]/int[])** |Select checklist by values/indexes  | void
-**Check(string/int)** |Select checklist by value/index  | void
-**Uncheck(string[]/int[])** |Unselect checklist by values/indexes  | void
-**Uncheck(string/int)** |Unselect checklist by value/index  | void
-**UncheckAll(Array)** |Uncheck all checkboxes | void
-**GetChecked()** |Get selected checkboxes from checklist value  | string[]
+**Check(params string[]/params int[])** |Select checklist by values/indexes  | void
+**Uncheck(params string[]/params int[])** |Unselect checklist by values/indexes  | void
+**Select(params string[]/params int[])** |Select checklist by values/indexes  | void
+**UncheckAll()** |Uncheck all checkboxes | void
+**Checked()** |Get selected checkboxes from checklist value  | string[]
 
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/ChecklistTests.java)
 

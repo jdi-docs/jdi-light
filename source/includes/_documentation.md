@@ -393,6 +393,8 @@ Here is the list of available methods:
 **max()** | Returns the max value | String
 **min()** | Returns the min value | String
 **step()** | Returns the step value | String
+**is()** | Returns object for work with assertions | RangeAssert
+**assertThat()** | Returns object for work with assertions | RangeAssert
 
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/RangeTests.java)
 
@@ -491,6 +493,8 @@ Here is the list of available methods:
 **ref()** |Returns the reference  | String
 **url()** |Returns the URL  | URL
 **alt()** |Returns the alternate text | String
+**is()** | Returns object for work with assertions | LinkAssert
+**assertThat()** | Returns object for work with assertions | LinkAssert
 
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/LinkTests.java)
 
@@ -596,6 +600,8 @@ Here is the list of available methods:
 **value()** |Returns the value  | String
 **step()** |Returns the step value | String
 **setNumber(String)** |Sets the value | void
+**is()** | Returns object for work with assertions | NumberAssert
+**assertThat()** | Returns object for work with assertions | NumberAssert
 
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/NumberSelectorTests.java)
 

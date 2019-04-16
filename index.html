@@ -410,9 +410,6 @@
                               <a href="#link" class="toc-h2 h3 toc-link" data-title="Link">Link</a>
                             </li>
                             <li>
-                              <a href="#menu" class="toc-h2 h3 toc-link" data-title="Menu">Menu</a>
-                            </li>
-                            <li>
                               <a href="#numberselector" class="toc-h2 h3 toc-link" data-title="NumberSelector">NumberSelector</a>
                             </li>
                             <li>
@@ -1898,129 +1895,6 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/LinkTests.java">Java test examples</a></p>
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/LinkTests.cs">C# test examples</a></p>
-<h3 id='menu'>Menu</h3>
-<p><strong>Menu</strong> - a list of links, which leads to different pages or sections of website</p>
-
-<p>Menu element is located in JDI Light in:</p>
-
-<ul>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.complex.Menu</em></li>
-<li><strong>C#</strong>: <em>JDI.Light.Elements.Composite.Menu</em></li>
-</ul>
-<pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">".sidebar-menu span&lt;[*'%s']&lt;&lt;"</span><span class="o">)</span> 
-<span class="kd">public</span> <span class="kd">static</span> <span class="n">Menu</span> <span class="n">leftMenu</span><span class="o">;</span>
-<span class="nd">@Url</span><span class="o">(</span><span class="s">"/metals-colors.html"</span><span class="o">)</span> <span class="nd">@Title</span><span class="o">(</span><span class="s">"Metal and Colors"</span><span class="o">)</span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="n">MetalAndColorsPage</span> <span class="n">metalAndColorsPage</span><span class="o">;</span>
-
-<span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">selectEnumTest</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">leftMenu</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">MetalsColors</span><span class="o">);</span>
-    <span class="n">metalAndColorsPage</span><span class="o">.</span><span class="na">checkOpened</span><span class="o">();</span>
-<span class="o">}</span>
-</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[FindBy(Css = "ul.sidebar-menu")]</span>
-<span class="k">public</span> <span class="n">Menu</span> <span class="n">SidebarMenu</span><span class="p">;</span>
-
-<span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">SelectEnumTest</span><span class="p">()</span>
-<span class="p">{</span>
-     <span class="n">TestSite</span><span class="p">.</span><span class="n">SidebarMenu</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="n">Navigation</span><span class="p">.</span><span class="n">MetalsColors</span><span class="p">);</span>
-     <span class="n">TestSite</span><span class="p">.</span><span class="n">MetalsColorsPage</span><span class="p">.</span><span class="nf">CheckOpened</span><span class="p">();</span>
-<span class="p">}</span>
-</code></pre>
-<p>Here is an example with provided HTML code:</p>
-
-<p><img src="images/html/menu.png" alt="Menu example" /></p>
-
-<p>Available method in Java JDI Light:</p>
-
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>void select(String...)</strong></td>
-<td>Select menu element and subelement</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>void select(String)</strong></td>
-<td>Select menu element</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>void select(TEnum...)</strong></td>
-<td>Select menu element and subelement</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>void select(TEnum)</strong></td>
-<td>Select menu element</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>void select(int...)</strong></td>
-<td>Select menu element by index</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>void select(int)</strong></td>
-<td>Select menu element and subelements by index</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>String selected()</strong></td>
-<td>Returns selected menu item</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>List<String> values()</strong></td>
-<td>Returns selected menu item and subitems</td>
-<td>List<String></td>
-</tr>
-<tr>
-<td><strong>void hoverAndClick(String...)</strong></td>
-<td>Hovers and clicks menu item and subitems</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>void hoverAndClick(String)</strong></td>
-<td>Hovers and clicks menu item</td>
-<td>void</td>
-</tr>
-</tbody></table>
-
-<p>Available method in C# JDI Light:</p>
-
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>void select(String[])</strong></td>
-<td>Select menu element and subelement</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>void select(String)</strong></td>
-<td>Select menu element</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>void select(TEnum)</strong></td>
-<td>Select menu element</td>
-<td>void</td>
-</tr>
-</tbody></table>
-
-<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/complex/MenuTests.java">Java test examples</a></p>
-
-<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Composite/MenuTests.cs">C# test examples</a></p>
 <h3 id='numberselector'>NumberSelector</h3>
 <p><strong>NumberSelector</strong> – a graphical control element, that allows the user to let the user enter a number.</p>
 
@@ -3048,7 +2922,7 @@ Datalist element contains a set of options with values available for entering.</
 
 <ul>
 <li><strong>Java</strong>: com.epam.jdi.light.ui.html.complex.Checklist</li>
-<li><strong>C</strong>#: JDI.Light.Elements.Common.CheckList </li>
+<li><strong>C</strong>#: JDI.Light.Elements.Complex.CheckList </li>
 </ul>
 
 <p>See an example with a given HTML code describing checklist element.</p>
@@ -3094,6 +2968,11 @@ Datalist element contains a set of options with values available for entering.</
 <td>void</td>
 </tr>
 <tr>
+<td><strong>select(String.../Enum/int...)</strong></td>
+<td>Select checkboxes</td>
+<td>void</td>
+</tr>
+<tr>
 <td><strong>uncheck(String.../Enum/int...)</strong></td>
 <td>Unselect checkboxes</td>
 <td>void</td>
@@ -3120,32 +2999,27 @@ Datalist element contains a set of options with values available for entering.</
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>Check(string[]/int[])</strong></td>
+<td><strong>Check(params string[]/params int[])</strong></td>
 <td>Select checklist by values/indexes</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>Check(string/int)</strong></td>
-<td>Select checklist by value/index</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>Uncheck(string[]/int[])</strong></td>
+<td><strong>Uncheck(params string[]/params int[])</strong></td>
 <td>Unselect checklist by values/indexes</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>Uncheck(string/int)</strong></td>
-<td>Unselect checklist by value/index</td>
+<td><strong>Select(params string[]/params int[])</strong></td>
+<td>Select checklist by values/indexes</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>UncheckAll(Array)</strong></td>
+<td><strong>UncheckAll()</strong></td>
 <td>Uncheck all checkboxes</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>GetChecked()</strong></td>
+<td><strong>Checked()</strong></td>
 <td>Get selected checkboxes from checklist value</td>
 <td>string[]</td>
 </tr>

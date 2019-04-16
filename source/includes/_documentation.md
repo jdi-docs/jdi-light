@@ -658,7 +658,22 @@ public void assertValidationTest() {
 }
 ```
 ```csharp
-TBD 
+
+[FindBy(Css = "#progress")]
+public ProgressBar Progress;
+
+[Test]
+public void GetValueTest() 
+{
+     Assert.AreEqual(Progress.Value(), "70");
+}
+
+[Test]
+public void MaxTest() 
+{
+     Assert.AreEqual(Progress.Max(), "100");
+}
+
 ```
 
 Here is an example with provided HTML code:

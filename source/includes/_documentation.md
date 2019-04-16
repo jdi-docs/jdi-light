@@ -847,6 +847,8 @@ Here is a list of available methods in C#:
 **minlength()** | returns value of minlength attribute | int
 **maxlength()** | returns value of maxlength attribute | int
 **placeholder()** | returns value of placeholder attribute | String
+**is()** | returns object for work with assertions  | TextAreaAssert
+**assertThat()** | returns object for work with assertions  | TextAreaAssert
 
   [Test examples in Java](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/TextAreaTests.java)
 

@@ -195,7 +195,7 @@ And here are some of the methods available in Java:
 
 __In the following sections there are examples of different implementations of such fields.__
 
-#### Input Type Date
+__Input Type Date__
 ```java 
 @UI("#birth-date") //@FindBy(css = "#birth-date") 
 public static DateTimeSelector birthDate;
@@ -227,7 +227,7 @@ public void SetGetDateTime()
 
 [Test examples in Java](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/DateTests.java)
 
-#### Input Type Week
+__Input Type Week__
 ```java 
 @UI("#autumn-week") //@FindBy(css = "#autumn-week") 
 public static DateTimeSelector autumnWeek;
@@ -260,7 +260,7 @@ public void SetGetDateTime()
 
 [Test examples in Java](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/WeekTests.java)
 
-#### Input Type Month
+__Input Type Month__
 ```java 
 @UI("#month-date") //@FindBy(css = "#month-date") 
 public static DateTimeSelector monthDate;
@@ -293,7 +293,7 @@ public void SetGetDateTime()
 
 [Test examples in Java](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/MonthTests.java)
 
-#### Input Type Time
+__Input Type Time__
 ```java 
 @UI("#booking-date") //@FindBy(css = "#booking-date") 
 public static DateTimeSelector bookingTime;
@@ -326,7 +326,7 @@ public void SetGetDateTime()
 
 [Test examples in Java](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/TimeTests.java)
 
-#### Input Type DateTime-Local
+__Input Type DateTime-Local__
 ```java 
 @UI("#party-time") //@FindBy(id = "party-time")
 public static DateTimeSelector partyTime;

@@ -595,8 +595,8 @@ Available method in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**value()** |Click the button  | String
-**max()** |Click the button  | String
+**value()** |Get current progress value  | String
+**max()** |Get progressbar maximum possible value  | String
 **is()** |Various assert actions for Progress bar  | ProgressAssert
 **assertThat()** |Various assert actions for Progress bar | ProgressAssert 
 

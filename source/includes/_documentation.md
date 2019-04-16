@@ -2,7 +2,7 @@
 ## Extended Selenium features
 TBD
 
-## Common elements
+## ~~Simple~~ Common elements
 
 ### Button
 **Button** – Element that represents a clickable button
@@ -15,19 +15,22 @@ Button is located in the following classes:
   - __C#__: _JDI.Light.Elements.Common.Button_
 
 ```java 
+public static Button blueButton, disabledButton, suspendButton, ghostButton;
+
 @UI("[value*='Red Button']") // @FindBy(css = "[value*='Red Button']")
 public static Button redButton;
 
-@Test
-public void clickTest() {
-    redButton.click();
-    assertEquals(getAlertText(), "Red button");
-    acceptAlert();
-}
+@UI("[value*='Disabled Button']") // @UI("input[type=button][disabled]")
+public static Button disabledButtonInput;
 
 @Test
 public void getTextTest() {
-    assertEquals(redButton.getText(), "Big Red Button-Input");
+    assertEquals(redButton.getText(), text);
+}
+
+@Test
+public void getValueTest() {
+    assertEquals(redButton.getValue(), text);
 }
 ```
 ```csharp
@@ -64,6 +67,8 @@ Checkbox is located in the following classes:
   - __C#__: _JDI.Light.Elements.Common.CheckBox*_
 
 ```java 
+public static Checkbox acceptConditions;
+
 @UI("#accept-conditions") // @FindBy(id = "accept-conditions")
 public static Checkbox acceptConditions;
 
@@ -78,6 +83,23 @@ public void uncheckTest() {
     acceptConditions.uncheck();
     assertEquals(acceptConditions.isSelected(), false);
 }
+
+@Test
+public void clickTest() {
+    assertTrue(acceptConditions.isSelected());
+    acceptConditions.click();
+    assertFalse(acceptConditions.isSelected());
+}
+
+@Test
+public void isValidationTest() {
+    acceptConditions.is().selected();
+    acceptConditions.click();
+    acceptConditions.is().deselected();
+    acceptConditions.is().enabled();
+    acceptConditions.is().displayed();
+}
+
 ```
 ```csharp
 TBD 
@@ -117,24 +139,31 @@ Colorpicker is located in the following classes:
 
   - __Java__: _com.epam.jdi.light.ui.html.common.ColorPicker*_
 
+<!--- 
+  - __C#__: _JDI.Light.Elements.Common.CheckBox*_
+-->
 ```java 
-@UI("#color-picker") // @FindBy(id = "color-picker")
+// @FindBy(id = "color-picker")
 public static ColorPicker colorPicker;
 
-@Test
-public void getColorTest() {
-    assertEquals(colorPicker.color(), "#3fd7a6");
-}
+@UI("#disabled-picker") // @FindBy(id = "disabled-picker")
+public static ColorPicker disabledPicker;
 
 @Test
 public void setColorTest() {
     colorPicker.setColor("#432376");
     assertEquals(colorPicker.color(), "#432376");
+    try {
+      disabledPicker.setColor("#432376");
+    } catch (Exception ignore) {}
+    assertEquals(disabledPicker.color(), #ffd7a6");
 }
 
 @Test
-public void getLabelTextTest() {
-    assertEquals(colorPicker.labelText(), "Select a color");
+public void isValidationTest() {
+    disabledPicker.is().color("#ffd7a6");
+    colorPicker.is().enabled();
+    disabledPicker.is().disabled();
 }
 ```
 ```csharp
@@ -154,62 +183,40 @@ Available methods in Java JDI Light:
 **is()** | Assert acton color | ColorAssert
 **assertThat()** | Assert acton color | ColorAssert 
 
+<!---
+Available methods in C# JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+-->
+
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ColorPickerTests.java)
 
-<!--- [C# test examples]() -->
+<!---
+[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/CheckBoxTests.cs)
+-->
 
-### DateTimeSelector
-
-**DateTimeSelector** is used for Input Type Date and its derivatives and allows users to set the value of date and/or time.
-
-The list of supported elements:
-
- - Input Type Date
- - Input Type Week
- - Input Type Month
- - Input Type Time
- - Input Type DateTime-Local
-
-There are the following classes represent this type of elements:
-
- - __C#__: _JDI.Light.Elements.Common.DateTimeSelector_
- - __Java__: _com.epam.jdi.light.ui.html.common.DateTimeSelector_
-
-Here is the list of some available methods in C#:
-
-|Method | Description | Return Type
---- | --- | ---
-**SetDateTime(string value)** | Sets a date or time | void
-**GetValue()** | Returns the set date or time | string
-
-And here are some of the methods available in Java:
-
-|Method | Description | Return Type
---- | --- | ---
-**setDateTime(string value)** | Sets a date or time | void
-**value()** | Returns the set date or time | String
-**min()** | Gets attribute with name min | String
-**max()** | Gets attribute with name max | String
-**is()** | Assertion | DateTimeAssert
-**assertThat()** | Assertion | DateTimeAssert
-
-__In the following sections there are examples of different implementations of such fields.__
-
-#### Input Type Date
+### Input Type Date
 ```java 
-@UI("#birth-date") //@FindBy(css = "#birth-date") 
+@UI("#birth-date") 
+// equal to @FindBy(css = "#birth-date") 
 public static DateTimeSelector birthDate;
 
-@Test
-public void setDateTimeTest() {
-    birthDate.setDateTime("2018-11-13");
-    assertEquals(birthDate.value(), "2018-11-13");
-}
-
-@Test
-public void maxTest() {
-    assertEquals(birthDate.max(), "2030-12-31");
-}
+    @Test
+    public void setDateTimeTest() {
+        birthDate.setDateTime("2018-11-13");
+        assertEquals(birthDate.value(), "2018-11-13");
+    }
+    
+    @Test
+     public void minTest() {
+            assertEquals(birthDate.min(), "1970-01-01");
+     }
+    
+     @Test
+     public void maxTest() {
+            assertEquals(birthDate.max(), "2030-12-31");
+     }
 ```
 ```csharp 
 [Test]
@@ -223,26 +230,53 @@ public void SetGetDateTime()
 
 ![InputTypeDate](../images/html/inputTypeDate_html.png)
 
+Input Type Date is represented by following classes:
+
+ - __C#__: _JDI.Light.Elements.Common.DateTimeSelector_
+ - __Java__: _com.epam.jdi.light.ui.html.common.DateTimeSelector_
+
+Here is the list of some available methods in C#:
+
+|Method | Description | Return Type
+--- | --- | ---
+**SetDateTime(string value)** | Sets a date or time | void
+**GetValue()** | Returns the set date or time | string
+
 [Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs)
+
+And here are some of the methods available in Java:
+
+|Method | Description | Return Type
+--- | --- | ---
+**setDateTime(string value)** | Sets a date or time | void
+**value()** | Returns the set date or time | String
+**min()** | Gets attribute with name min | String
+**max()** | Gets attribute with name max | String
 
 [Test examples in Java](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/DateTests.java)
 
-#### Input Type Week
+### Input Type Week
 ```java 
-@UI("#autumn-week") //@FindBy(css = "#autumn-week") 
+@UI("#autumn-week") 
+// equal to @FindBy(css = "#autumn-week") 
 public static DateTimeSelector autumnWeek;
 
-@Test
-public void minTest() {
-    assertEquals(autumnWeek.min(), "2018-W35");
-}
+    @Test
+    public void minTest() {
+        assertEquals(autumnWeek.min(), "2018-W35");
+    }
 
-@Test
-public void setDateTimeTest() {
-    autumnWeek.setDateTime("2018-W12");
-    autumnWeek.show();
-    assertEquals(autumnWeek.value(), "2018-W12");
-}
+    @Test
+    public void maxTest() {
+        assertEquals(autumnWeek.max(), "2018-W48");
+    }
+
+    @Test
+    public void setDateTimeTest() {
+        autumnWeek.setDateTime("2018-W12");
+        autumnWeek.show();
+        assertEquals(autumnWeek.value(), "2018-W12");
+    }
 ```
 ```csharp 
 [Test]
@@ -256,26 +290,53 @@ public void SetGetDateTime()
 
 ![InputTypeWeek](../images/html/inputTypeWeek_html.png)
 
+Input Type Week is represented by following classes:
+
+ - __C#__: _JDI.Light.Elements.Common.DateTimeSelector_
+ - __Java__: _com.epam.jdi.light.ui.html.common.DateTimeSelector_
+
+Here is the list of some available methods in C#:
+
+|Method | Description | Return Type
+--- | --- | ---
+**SetDateTime(string value)** | Sets a date or time | void
+**GetValue()** | Returns the set date or time | string
+
 [Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs)
+
+And here is the list of some available methods in Java:
+
+|Method | Description | Return Type
+--- | --- | ---
+**setDateTime(string value)** | Sets a date or time | void
+**value()** | Returns the set date or time | String
+**min()** | Gets attribute with name min | String
+**max()** | Gets attribute with name max | String
 
 [Test examples in Java](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/WeekTests.java)
 
-#### Input Type Month
+### Input Type Month
 ```java 
-@UI("#month-date") //@FindBy(css = "#month-date") 
+@UI("#month-date") 
+// equal to @FindBy(css = "#month-date") 
 public static DateTimeSelector monthDate;
 
-@Test
-public void maxTest() {
-    assertEquals(monthDate.max(), "2020-12");
-}
+    @Test
+    public void minTest() {
+        assertEquals(monthDate.min(), "2015-03");
+    }
 
-@Test
-public void setDateTimeTest() {
-    monthDate.setDateTime("2018-10");
-    monthDate.show();
-    assertEquals(monthDate.value(), "2018-10");
-}
+    @Test
+    public void maxTest() {
+        assertEquals(monthDate.max(), "2020-12");
+    }
+
+    @Test
+    public void setDateTimeTest() {
+        monthDate.setDateTime("2018-10");
+        monthDate.show();
+        assertEquals(monthDate.value(), "2018-10");
+    }
 ```
 ```csharp 
 [Test]
@@ -289,26 +350,53 @@ public void SetGetDateTime()
 
 ![InputTypeMonth](../images/html/inputTypeMonth_html.png)
 
+Input Type Month is represented by following classes:
+
+ - __C#__: _JDI.Light.Elements.Common.DateTimeSelector_
+ - __Java__: _com.epam.jdi.light.ui.html.common.DateTimeSelector_
+
+Here is the list of some available methods in C#:
+
+|Method | Description | Return Type
+--- | --- | ---
+**SetDateTime(string value)** | Sets a date or time | void
+**GetValue()** | Returns the set date or time | string
+
 [Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs)
+
+And here is the list of some available methods in Java:
+
+|Method | Description | Return Type
+--- | --- | ---
+**setDateTime(string value)** | Sets a date or time | void
+**value()** | Returns the set date or time | String
+**min()** | Gets attribute with name min | String
+**max()** | Gets attribute with name max | String
 
 [Test examples in Java](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/MonthTests.java)
 
-#### Input Type Time
+### Input Type Time
 ```java 
-@UI("#booking-date") //@FindBy(css = "#booking-date") 
+@UI("#booking-date") 
+// equal to @FindBy(css = "#booking-date") 
 public static DateTimeSelector bookingTime;
 
-@Test
-public void minTest() {
-    assertEquals(bookingTime.min(), "9:00");
-}
+    @Test
+    public void minTest() {
+        assertEquals(bookingTime.min(), "9:00");
+    }
 
-@Test
-public void setDateTimeTest() {
-    bookingTime.setDateTime("05:00");
-    bookingTime.show();
-    assertEquals(bookingTime.value(), "05:00");
-}
+    @Test
+    public void maxTest() {
+        assertEquals(bookingTime.max(), "18:00");
+    }
+
+    @Test
+    public void setDateTimeTest() {
+        bookingTime.setDateTime("05:00");
+        bookingTime.show();
+        assertEquals(bookingTime.value(), "05:00");
+    }
 ```
 ```csharp 
 [Test]
@@ -322,13 +410,33 @@ public void SetGetDateTime()
 
 ![InputTypeTime](../images/html/inputTypeTime_html.png)
 
+Input Type Time is represented by following classes:
+
+ - __C#__: _JDI.Light.Elements.Common.DateTimeSelector_
+ - __Java__: _com.epam.jdi.light.ui.html.common.DateTimeSelector_
+
+Here is the list of some available methods in C#:
+
+|Method | Description | Return Type
+--- | --- | ---
+**SetDateTime(string value)** | Sets time | void
+**GetValue()** | Returns the set time | string
+
 [Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs)
+
+And here is a list of some available methods in Java:
+
+|Method | Description | Return Type
+--- | --- | ---
+**setDateTime(string value)** | Sets time | void
+**value()** | Returns the set time | String
+**min()** | Gets attribute with name min | String
+**max()** | Gets attribute with name max | String
 
 [Test examples in Java](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/TimeTests.java)
 
-#### Input Type DateTime-Local
+### Input Type DateTime-Local
 ```java 
-@UI("#party-time") //@FindBy(id = "party-time")
 public static DateTimeSelector partyTime;
 
 @Test
@@ -347,7 +455,28 @@ public void SetGetDateTime()
 ```
 **Input Type DateTime-Local** – a graphical control element, that allows the user to set the value of time and date.
 
-![InputTypeDateTime](../images/html/inputDateTimeLocal_html.png)
+![InputTypeDateTime](../images/inputDateTimeLocal.png)
+
+There is a type for that element is available in JDI Light, which can be found in:
+
+ - __Java__: com.epam.jdi.light.ui.html.common.DateTimeSelector
+ - __C#__: JDI.Light.Elements.Common.DateTimeSelector
+
+The list of available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**setDateTime(String)** | Sets the date and time | void
+**value()** | Get date and time | String
+**min()** | Get minimum available date and time value | String
+**max()** | Get maximum available date and time value | String
+
+Here is the list of some available methods in C# JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**SetDateTime(string value)** | Sets the date or time | void
+**GetValue()** | Returns the set date or time | string
 
 [Java test example](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/DateTimeTests.java)
 
@@ -393,8 +522,6 @@ Here is the list of available methods:
 **max()** | Returns the max value | String
 **min()** | Returns the min value | String
 **step()** | Returns the step value | String
-**is()** | Returns object for work with assertions | RangeAssert
-**assertThat()** | Returns object for work with assertions | RangeAssert
 
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/RangeTests.java)
 
@@ -412,8 +539,14 @@ FileInput element is located in JDI Light in:
   - __C#__: _JDI.Light.Elements.Composite.FileInput_
 
 ```java 
-@UI("#avatar") // @FindBy(id = "avatar")
+// @FindBy(id = "avatar")
 public static FileInput avatar; 
+
+@UI("input[type=file][disabled]") // @FindBy(css = "input[type=file][disabled]")
+public static FileInput disabledFileInput; 
+
+@UI("[download]") // @FindBy(css = "[download]")
+public static Link downloadJdiLogo;
 
 @Test
 public void uploadTest() {
@@ -421,6 +554,18 @@ public void uploadTest() {
     avatar.is().text(containsString("general.xml"));
     assertTrue(avatar.getText().contains("general.xml"));
     assertTrue(avatar.getValue().contains("general.xml"));
+    try {
+        disabledFileInput.uploadFile(mergePath(PROJECT_PATH, "/src/test/resources/general.xml"));
+    } catch (Exception ignore) {}
+    disabledFileInput.is().text(is(""));
+}
+@Test
+public void downloadTest() {
+    downloadJdiLogo.click();
+    assertThatFile("jdi-logo.jpg")
+        .isDownloaded()
+        .hasSize(is(32225L));
+    assertThatFile("jdi-logo.jpg").hasSize(greaterThan(100L));
 }
 ```
 ```csharp
@@ -455,110 +600,10 @@ Available method in C# JDI Light:
 TBD
 
 ### Image
-```java 
-@UI("#jdi-logo") 
-// same as FindBy(css = "#jdi-logo")
-public static Image jdiLogo;
-
-    @Test
-    public void isValidationTest() {
-        WebPage.refresh();
-        jdiLogo.is().src(containsString("jdi-logo.jpg"));
-        jdiLogo.is().alt(is("Jdi Logo 2"));
-        jdiLogo.assertThat().height(is(100));
-        jdiLogo.assertThat().width(is(101));
-    }
-```
-```csharp 
-[FindBy(Css = "#jdi-logo")]
-public IImage LogoImage;
-
-   [Test]
-   public void GetSourceTest()
-   {
-     Jdi.Assert.AreEquals(LogoImage.GetSource(), Src);
-   }
-
-   [Test]
-   public void GetTipTest()
-   {
-     Jdi.Assert.AreEquals(LogoImage.GetAlt(), Alt);
-   }
-```
-**Image** – is a simple element type that represents graphic images.
-
-![Image](../images/html/image_html.png)
-
-Images are represented by the following classes in Java and C#:
- 
-  - __C#__: _JDI.Light.Elements.Common.Image_
-  - __Java__: _com.epam.jdi.light.ui.html.common.Image_
-  
-Here is a list of available methods in C#:
-
-|Method | Description | Return Type
---- | --- | ---
-**GetSource()** |get value of src attribute  | string
-**GetAlt()** |get value of alt attribute   | string
-
-[Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/ImagesTests.cs)
-
-And here are methods available in Java:
-
-|Method | Description | Return Type
---- | --- | ---
-**click()** | click on the image| void
-**src()** | get value of src attribute | String
-**height()** |get value of height attribute| String
-**width()** | get value of width attribute| String
-**alt()** |get value of alt attribute | String
-**is()** | method for building assertions | ImageAssert
-**assertThat()** |method for building assertions  | ImageAssert
-
-[Test examples in Java](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ImageTests.java)
+TBD
 
 ### Link
-**Link** – a graphical control element, that allows the user to link from one page to other web pages, files, locations within the same page, email addresses, or any other URL.
-
-Link are represented by the following class:
- 
-  - __Java__: _com.epam.jdi.light.ui.html.common.Link_
-  - __C#__: _JDI.Light.Elements.Common.Link_
-  
-  
-```java 
-@UI("[ui=github-link]") 
-// equal to @FindBy(css = "[ui=github-link]") 
-public static Link githubLink;
-
-@Test
-public void getTextTest() {
-        assertEquals(githubLink.getText(), text);
-    }
-```
-```csharp 
-[Test]
 TBD
-```
-
-
-![Link](../images/html/link_html.png)
-
-Here is the list of available methods:
-
-|Method | Description | Return Type
---- | --- | ---
-**click()** |Follow the link | void
-**getText()** |Returns the link text  | String
-**ref()** |Returns the reference  | String
-**url()** |Returns the URL  | URL
-**alt()** |Returns the alternate text | String
-**is()** | Returns object for work with assertions | LinkAssert
-**assertThat()** | Returns object for work with assertions | LinkAssert
-
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/LinkTests.java)
-
-[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/LinkTests.cs)
 
 ### Menu
 
@@ -625,112 +670,10 @@ Available method in C# JDI Light:
 [C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Composite/MenuTests.cs)
 
 ### NumberSelector
-**NumberSelector** – a graphical control element, that allows the user to let the user enter a number.
-
-NumberSelector are represented by the following class:
- 
-  - __Java__: _com.epam.jdi.light.ui.html.common.NumberSelector_
-  
-  
-```java 
-@UI("#height") 
-// equal to @FindBy(css = "#height") 
-public static NumberSelector height;
-
-@Test
-public void getNumberTest() {
-        assertEquals(height.value(), number);
-    }
-```
-```csharp 
-[Test]
 TBD
-```
-
-
-![NumberSelector](../images/html/numberSelector_html.png)
-
-Here is the list of available methods:
-
-|Method | Description | Return Type
---- | --- | ---
-**placeholder()** |Returns the placeholder text  | String
-**min()** |Returns the min value   | String
-**max()** |Returns the max value  | String
-**value()** |Returns the value  | String
-**step()** |Returns the step value | String
-**setNumber(String)** |Sets the value | void
-**is()** | Returns object for work with assertions | NumberAssert
-**assertThat()** | Returns object for work with assertions | NumberAssert
-
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/NumberSelectorTests.java)
 
 ### ProgressBar
-**Progress Bar** - Element for displaying an indicator showing the completion progress of a task
-
-![ProgressBar](../images/progressbar.png)
-
-ProgressBar is located in the following classes:
- 
-  - __Java__: _com.epam.jdi.light.ui.html.common.ProgressBar_
-<!--- - __C#__: _JDI.Light.Elements.Common.ProgressBar_ -->
-
-```java 
-@UI("#progress") // @FindBy(id = "progress")
-public static ProgressBar progress;
-
-@Test
-public void getValueTest() {
-    assertEquals(progress.value(), "70");
-}
-
-@Test
-public void maxTest() {
-    assertEquals(progress.max(), "100");
-}
-
-@Test
-public void assertValidationTest() {
-    progress.assertThat().volume(greaterThan(0));
-    progress.assertThat().volume(lessThan(200));
-    progress.assertThat().volume(is(70));
-}
-```
-```csharp
-
-[FindBy(Css = "#progress")]
-public ProgressBar Progress;
-
-[Test]
-public void GetValueTest() 
-{
-     Assert.AreEqual(Progress.Value(), "70");
-}
-
-[Test]
-public void MaxTest() 
-{
-     Assert.AreEqual(Progress.Max(), "100");
-}
-
-```
-
-Here is an example with provided HTML code:
-
-![ProgressBar example](../images/html/progressbar_html.png)
-
-Available method in Java JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
-**value()** |Get current progress value  | String
-**max()** |Get progressbar maximum possible value  | String
-**is()** |Various assert actions for Progress bar  | ProgressAssert
-**assertThat()** |Various assert actions for Progress bar | ProgressAssert 
-
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ProgressTests.java)
-
-<!--- [C# test examples]() -->
+TBD
 
 ### Range
 TBD
@@ -738,243 +681,14 @@ TBD
 ### Text
 TBD
 
-### TextField
-```java 
-@UI("#name") 
-// same as @FindBy(css = "#name")
-public static TextField name;
-
-    @Test
-    public void sendKeysTest() {
-        name.sendKeys("Test");
-        assertEquals(name.getValue(), text+"Test");
-    }
-
-    @Test
-    public void inputTest() {
-        name.input("New text");
-        assertEquals(name.getText(), "New text");
-    }
-
-    @Test
-    public void clearTest() {
-        name.clear();
-        assertEquals(name.getText(), "");
-    }
-
-    @Test
-    public void placeholderTest() {
-        assertEquals(name.placeholder(), "Input name");
-    }
-```
-```csharp 
-[FindBy(Id = "name")]
-public TextField NameField;
-        
-        [Test]
-        public void InputTest()
-        {
-            TestSite.ContactFormPage.NameField.Input(ToAddText);
-            Jdi.Assert.AreEquals(TestSite.ContactFormPage.NameField.Value, _defaultText + ToAddText);
-        }
-        
-        [Test]
-        public void SendKeyTest()
-        {
-            TestSite.ContactFormPage.NameField.SendKeys(ToAddText);
-            Jdi.Assert.AreEquals(TestSite.ContactFormPage.NameField.Value, _defaultText + ToAddText);
-        }
-
-        [Test]
-        public void NewInputTest()
-        {
-            TestSite.ContactFormPage.NameField.NewInput(ToAddText);
-            Jdi.Assert.AreEquals(TestSite.ContactFormPage.NameField.Value, ToAddText);
-        }
-
-        [Test]
-        public void ClearTest()
-        {
-            TestSite.ContactFormPage.NameField.Clear();
-            Jdi.Assert.AreEquals(TestSite.ContactFormPage.NameField.Value, "");
-        }
-```
-**TextField** – is a simple element type that allows users to fill in text fields.
-
-![InputTypeTextField](../images/html/textField_html.png)
-
-Text fields are represented by the following classes in Java and C#:
- 
-  - __C#__: _JDI.Light.Elements.Common.TextField_
-  - __Java__: _com.epam.jdi.light.ui.html.common.TextField_
-  
-Here is a list of available methods in C#:
-
-|Method | Description | Return Type
---- | --- | ---
-**Input(string text)** | adds text to the field  | void
-**SendKeys(string text)** | adds text to the field | void
-**NewInput(string text)** | clears the text field and sets new text  | void
-**Clear()** | clears the text field | void
-
-[Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/TextFieldsTests.cs)
-
-And here are methods available in Java:
-
-|Method | Description | Return Type
---- | --- | ---
-**sendKeys(CharSequence... value)** | adds text to the field | void
-**setText(String value)** | sets new text | void
-**clear()** | clears the text field | void
-**input(String value)** | sets new text | void
-**focus()** | places cursor within the text field | void
-**placeholder()** | returns value of the placeholder attribute | String
-**getText()** | returns text from the text field  | String
-**getValue()** | calls placeholder() method| String
-
-[Test examples in Java](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/TextFieldTests.java)
-
 ### TextArea
-```java 
-@UI("#text-area") 
-// same as FindBy(css = "#text-area")
-public static TextArea textArea;
+TBD
 
-    @Test
-    public void getLinesTest() {
-        textArea.setLines("test 1", "test 2", "test 3");
-        assertEquals(textArea.getLines(), asList("test 1", "test 2", "test 3"));
-    }
-    
-    @Test
-    public void focusTest() {
-        textArea.focus();
-    }
-    
-    @Test
-    public void rowsTest() {
-        assertEquals(textArea.rows(), 3);
-        assertEquals(textArea.cols(), 33);
-        assertEquals(textArea.minlength(), 10);
-        assertEquals(textArea.maxlength(), 200);
-    }
-     
-    @Test
-    // this test demonstrates usage of methods inherited from TextField interface:
-    public void clearTest() {
-             textArea.setText(text);
-             textArea.clear();
-             assertEquals(textArea.getText(), "");
-    }
-```
-```csharp 
-[FindBy(Id = "description")]
-public TextArea DescriptionArea;
-
-   [Test]
-   public void AddNewLineTest()
-   {
-      TestSite.ContactFormPage.DescriptionArea.Clear(); // method Clear() is inherited from TextField
-      TestSite.ContactFormPage.DescriptionArea.InputLines("line1", "line2");
-      TestSite.ContactFormPage.DescriptionArea.AddNewLine("line3");
-      Jdi.Assert.CollectionEquals(TestSite.ContactFormPage.DescriptionArea.GetLines(), new[] { "line1", "line2", "line3" });
-   }
-```
-
-**TextArea** – is a simple element type that allows users to fill in text areas (that may contain a few lines). 
-
-![InputTypeTextArea](../images/html/textArea_html.png)
-
-Text areas are represented by the following classes in Java and C#:
- 
-  - __C#__: _JDI.Light.Elements.Common.TextArea_
-  - __Java__: _com.epam.jdi.light.ui.html.common.TextArea_
-  
-In both Java and C# TextArea is a descendant of TextField and inherits its methods. But TextArea also has methods of its own.
- 
-Here is a list of available methods in C#:
-  
-|Method | Description | Return Type
---- | --- | ---
-**InputLines(params string[] textLines)** | clears area and sets new lines | void
-**AddNewLine(string textLine)** | adds a new line to existing text | void
-**GetLines()** | returns lines (text) from the text area | string[]
-  
-  [Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/TextAreaTests.cs)
-  
-  And here are methods available in Java:
-  
-|Method | Description | Return Type
---- | --- | ---
-**setLines(String... lines)** | sets lines (text)  | void
-**getLines()** | returns lines (text) from the text area | List<String>
-**rows()** | returns value of rows attribute | int
-**cols()** | returns value of cols attribute | int
-**minlength()** | returns value of minlength attribute | int
-**maxlength()** | returns value of maxlength attribute | int
-**placeholder()** | returns value of placeholder attribute | String
-**is()** | returns object for work with assertions  | TextAreaAssert
-**assertThat()** | returns object for work with assertions  | TextAreaAssert
-
-  [Test examples in Java](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/TextAreaTests.java)
+### TextField
+TBD
 
 ### Title
-**Title** – a graphical control element, that is the title of the document, which is displayed in the title bar of the browser or tab page.
-
-Title is represented by the following class:
- 
-  - __Java__: _com.epam.jdi.light.ui.html.common.Title_
-  - __C#__: _JDI.Light.Elements.Common.Title_
-  
-  
-```java 
-@UI("[ui=jdi-title]") 
-// equal to @FindBy(css = "[ui=jdi-title]") 
-public static Title jdiTitle;
-
-@Test
-public void getTextTest() {
-        assertEquals(jdiTitle.getText(), "Title text");
-}
-
-@Test
-public void clickTest() {
-        jdiTitle.click();
-}    
-    
-```
-```csharp 
-[FindBy(Css = "[ui=jdi-title]")]
-public Title JdiTitle;
-
-[Test]
-public void GetTextTest() 
-{
-        Assert.AreEqual(JdiTitle.GetText(), "Title text");
-}
-
-[Test]
-public void ClickTest() 
-{
-        JdiTitle.ClickTitle();
-}    
-    
-```
-
-
-![Title](../images/title.png)
-
-Here is the list of available methods:
-
-|Method | Description | Return Type
---- | --- | ---
-**click()** |Click the title | void
-**getText()** |Returns the title text  | String
-
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/TitleTests.java)
-
-[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/TitleTests.cs)
-
+TBD
 
 ## Complex elements
 ### RadioButton
@@ -987,13 +701,17 @@ Radio buttons are represented by the following class:
   - __C#__: _JDI.Light.Elements.Common.RadioButton_
 
 ```java 
-@UI("[name=colors]") //@FindBy(name = "colors")
+@UI("[name=colors]")
 public static RadioButtons colors;
+
+public static RadioButtons colorsNoLocator;
 
 @Test
 public void selectTest() {
     colors.select(Blue);
     assertEquals(colors.getValue(), "Blue");
+    colorsNoLocator.select(Red);
+    colorsNoLocator.is().selected(Red);
 }
 ```
 ```csharp 
@@ -1228,8 +946,7 @@ This type can be used in cases when dropdown is represented with HTML _\<select>
 Consider an example of HTML5 dropdown with a given HTML code:
 
 ```java 
-@UI("#dress-code") //@FindBy(id = "dress-code")
-public Dropdown dressCode;
+@UI("#dress-code") public Dropdown dressCode;
 
 @Test
 public void selectEnumTest() {
@@ -1266,8 +983,8 @@ Here is the list of some available methods:
 ### MultiDropDown
 
 ```java 
-@UI("#multi-dropdown") //@FindBy(id = "multi-dropdown")
 public static MultiSelect multiDropdown;
+@UI("#multi-dropdown") public static MultiSelect multiDropdown;
 
 @Test
 public void selectTest() {
@@ -1358,8 +1075,7 @@ Datalist element type is provided by JDI Light in:
 Have a look at the following example with provided HTML code:
 
 ```java 
-@UI("#ice-cream") //@FindBy(id = "ice-cream")
-public static DataList iceCreamDataList;
+@UI("#ice-cream") public static DataList iceCreamDataList;
 
 @Test
 public void selectEnumTest() {
@@ -1399,13 +1115,13 @@ Here is the list of some available methods in C# JDI Light:
 Checklist element type is available in the following packages:
  
  - __Java__: com.epam.jdi.light.ui.html.complex.Checklist
- - __C__#: JDI.Light.Elements.Complex.CheckList 
+ - __C__#: JDI.Light.Elements.Common.CheckList 
 
 See an example with a given HTML code describing checklist element.
 
 ```java 
-@UI("[name=checks-group]") //@FindBy(name = "checks-group")
-public static Checklist weather;
+@UI("[name=checks-group]") public static Checklist weather;
+public static Checklist weatherNoLocator;
 
 @Test
 public void selectTest() {
@@ -1417,7 +1133,7 @@ public void selectTest() {
 public void assertValidationTest() {
     weather.assertThat().values(containsInAnyOrder(
       "Hot option", "Cold", "Rainy day", "Sunny", "Disabled"));
-    weather.assertThat().selected("Hot option");
+    weatherNoLocator.assertThat().selected("Hot option");
 }
 ```
 ```csharp 
@@ -1427,8 +1143,9 @@ public ICheckList WeatherCheckList { get; set; }
 [Test]
 public void CheckCheckList()
 {
-    TestSite.Html5Page.WeatherCheckList.Check(new[] { "Cold", "Sunny" });
-    TestSite.Html5Page.WeatherCheckList.Uncheck("Cold");
+       TestSite.Html5Page.WeatherCheckList.Check(new[] { "cold", "sunny-day" });
+       TestSite.Html5Page.WeatherCheckList.Uncheck("cold");
+       Assert.IsFalse(TestSite.Html5Page.WeatherCheckList.IsChecked("cold"));
 }
 ```
 
@@ -1439,20 +1156,22 @@ List of available methods in Java JDI Light:
 |Method | Description | Return Type
 --- | --- | ---
 **check(String.../Enum/int...)** |Select checkboxes | void
-**select(String.../Enum/int...)** |Select checkboxes | void
 **uncheck(String.../Enum/int...)** | Unselect checkboxes | void
-**uncheckAll()** | Uncheck all checkboxes | void
 **checked()** | Get selected checkbox values | List\<String>
 
 Here is the list of some available methods in C# JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**Check(params string[]/params int[])** |Select checklist by values/indexes  | void
-**Uncheck(params string[]/params int[])** |Unselect checklist by values/indexes  | void
-**Select(params string[]/params int[])** |Select checklist by values/indexes  | void
+**Check(string[]/int[])** |Select checklist by values/indexes  | void
+**Check(string/int)** |Select checklist by value/index  | void
+**Uncheck(string[]/int[])** |Unselect checklist by values/indexes  | void
+**Uncheck(string/int)** |Unselect checklist by value/index  | void
 **UncheckAll()** |Uncheck all checkboxes | void
-**Checked()** |Get selected checkboxes from checklist value  | string[]
+**CheckAll()** |Check all checkboxes | void
+**GetChecked()** |Get selected checkboxes from checklist value  | string[]
+**IsChecked(string/int)** | Checks whether checkbox is checked | bool
+**IsDisabled(string/int)** | Checks whether checkbox is disabled | bool
 
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/ChecklistTests.java)
 
@@ -1462,14 +1181,13 @@ Here is the list of some available methods in C# JDI Light:
 **MultiSelector** – a graphical control element, that allows the user to do multiple choice.
 Multi Selector are represented by the following class:
  
-  - __Java__: _com.epam.jdi.light.ui.html.complex.MultiSelector_
+  - __Java__: _com.epam.jdi.light.ui.html.complex.MultiSelect_
   - __C#__: _JDI.Light.Elements.Common.MultiSelector_
   
   
 ```java 
-@UI("#ages") 
-// equal to @FindBy(css = "#ages") 
-public static MultiSelect ages;
+@UI("#ages") public static MultiSelect ages;
+// equal to @FindBy(css = "#ages") public static MultiSelect ages;
 
 @Test
 public void checkTest() {
@@ -1627,7 +1345,7 @@ acceptAlert();
 ```
 ```csharp 
 AlertButton.Click();
-GetAlert().AcceptAlert();
+AcceptAlert();
 ```
 ```java 
 alertButton.click();
@@ -1635,7 +1353,7 @@ dismissAlert();
 ```
 ```csharp 
 AlertButton.Click();
-GetAlert().DismissAlert();
+DismissAlert();
 ```
 **Alert** –  a window with a message that displays on the screen and pauses the execution of the script until the user performs an action
 
@@ -1656,8 +1374,8 @@ acceptAlert();
 ```
 ```csharp 
 AlertButton.Click();
-String text = GetAlert().GetAlertText()
-GetAlert().AcceptAlert();
+String text = GetAlertText();
+AcceptAlert();
 ```
 ```java 
 alertButton.click();
@@ -1678,8 +1396,7 @@ alertButton.click();
 inputAndAcceptAlert("Some Text");
 ```
 ```csharp 
-AlertButton.Click();
-GetAlert().InputAndAcceptAlert("Some text");
+TBD InputAndAcceptAlert
 ```
 
 prompt('Alert', 'Default value')

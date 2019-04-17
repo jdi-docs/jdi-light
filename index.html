@@ -1332,11 +1332,16 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">maxTest</span><span class="o">()</span> <span class="o">{</span>
     <span class="n">assertEquals</span><span class="o">(</span><span class="n">birthDate</span><span class="o">.</span><span class="na">max</span><span class="o">(),</span> <span class="s">"2030-12-31"</span><span class="o">);</span>
 <span class="o">}</span>
-</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">SetGetDateTime</span><span class="p">()</span> 
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[FindBy(Css = "#birth-date")]</span>
+<span class="k">public</span> <span class="n">IDateTimeSelector</span> <span class="n">BirthDate</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">SetBirthDateTest</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">SetDateTime</span><span class="p">(</span><span class="s">"2000-01-01"</span><span class="p">);</span>
-    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">();</span>
+    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">BirthDate</span><span class="p">.</span><span class="n">Format</span> <span class="p">=</span> <span class="s">"yyyy-MM-dd"</span><span class="p">;</span>
+    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">BirthDate</span><span class="p">.</span><span class="nf">SetDateTime</span><span class="p">(</span><span class="n">_dateTime</span><span class="p">);</span>
+    <span class="kt">var</span> <span class="n">setValue</span> <span class="p">=</span> <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">BirthDate</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">();</span>
+    <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">setValue</span><span class="p">,</span> <span class="s">"2019-04-01"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre>
 <p><strong>Input Type Date</strong> – a graphical control element, that allows users to set the value of date.</p>
@@ -1362,11 +1367,19 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
     <span class="n">autumnWeek</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
     <span class="n">assertEquals</span><span class="o">(</span><span class="n">autumnWeek</span><span class="o">.</span><span class="na">value</span><span class="o">(),</span> <span class="s">"2018-W12"</span><span class="o">);</span>
 <span class="o">}</span>
-</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">SetGetDateTime</span><span class="p">()</span> 
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[FindBy(Css = "#autumn-week")]</span>
+<span class="k">public</span> <span class="n">IDateTimeSelector</span> <span class="n">AutumnDateTime</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">AutumnDateTimeTest</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">SetDateTime</span><span class="p">(</span><span class="s">"2019-W11"</span><span class="p">);</span>
-    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">();</span>
+    <span class="kt">var</span> <span class="n">calendar</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">GregorianCalendar</span><span class="p">();</span>
+    <span class="kt">var</span> <span class="n">weekNum</span> <span class="p">=</span> <span class="n">calendar</span><span class="p">.</span><span class="nf">GetWeekOfYear</span><span class="p">(</span><span class="n">_dateTime</span><span class="p">,</span> <span class="n">CalendarWeekRule</span><span class="p">.</span><span class="n">FirstFullWeek</span><span class="p">,</span> <span class="n">DayOfWeek</span><span class="p">.</span><span class="n">Monday</span><span class="p">);</span>
+    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">AutumnDateTime</span><span class="p">.</span><span class="n">Format</span> <span class="p">=</span> <span class="s">"yyyy-"</span> <span class="p">+</span> <span class="err">$</span><span class="s">"W{weekNum}"</span><span class="p">;</span>
+
+    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">AutumnDateTime</span><span class="p">.</span><span class="nf">SetDateTime</span><span class="p">(</span><span class="n">_dateTime</span><span class="p">);</span>
+    <span class="kt">var</span> <span class="n">setValue</span> <span class="p">=</span> <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">AutumnDateTime</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">();</span>
+    <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">setValue</span><span class="p">,</span> <span class="s">"2019-W13"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre>
 <p><strong>Input Type Week</strong> – a graphical control element, that allows users to set the value of week and year.</p>
@@ -1392,11 +1405,16 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
     <span class="n">monthDate</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
     <span class="n">assertEquals</span><span class="o">(</span><span class="n">monthDate</span><span class="o">.</span><span class="na">value</span><span class="o">(),</span> <span class="s">"2018-10"</span><span class="o">);</span>
 <span class="o">}</span>
-</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">SetGetDateTime</span><span class="p">()</span> 
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[FindBy(Css = "#month-date")]</span>
+<span class="k">public</span> <span class="n">IDateTimeSelector</span> <span class="n">MonthOfHolidays</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">SetMonthTest</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">SetDateTime</span><span class="p">(</span><span class="s">"2019-01"</span><span class="p">);</span>
-    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">();</span>
+    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">MonthOfHolidays</span><span class="p">.</span><span class="n">Format</span> <span class="p">=</span> <span class="s">"yyyy-MM"</span><span class="p">;</span>
+    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">MonthOfHolidays</span><span class="p">.</span><span class="nf">SetDateTime</span><span class="p">(</span><span class="n">_dateTime</span><span class="p">);</span>
+    <span class="kt">var</span> <span class="n">setValue</span> <span class="p">=</span> <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">MonthOfHolidays</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">();</span>
+    <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">setValue</span><span class="p">,</span> <span class="s">"2019-04"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre>
 <p><strong>Input Type Month</strong> – a graphical control element, that allows users to set the value of month and year.</p>
@@ -1422,11 +1440,16 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
     <span class="n">bookingTime</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
     <span class="n">assertEquals</span><span class="o">(</span><span class="n">bookingTime</span><span class="o">.</span><span class="na">value</span><span class="o">(),</span> <span class="s">"05:00"</span><span class="o">);</span>
 <span class="o">}</span>
-</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">SetGetDateTime</span><span class="p">()</span> 
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[FindBy(Css = "#booking-date")]</span>
+<span class="k">public</span> <span class="n">IDateTimeSelector</span> <span class="n">BookingTime</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">SetTimeTest</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">SetDateTime</span><span class="p">(</span><span class="s">"15:00"</span><span class="p">);</span>
-    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">();</span>
+    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">BookingTime</span><span class="p">.</span><span class="n">Format</span> <span class="p">=</span> <span class="s">"H:mm"</span><span class="p">;</span>
+    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">BookingTime</span><span class="p">.</span><span class="nf">SetDateTime</span><span class="p">(</span><span class="n">_dateTime</span><span class="p">);</span>
+    <span class="kt">var</span> <span class="n">setValue</span> <span class="p">=</span> <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">BookingTime</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">();</span>
+    <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">setValue</span><span class="p">,</span> <span class="s">"15:00"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre>
 <p><strong>Input Type Time</strong> – a graphical control element, that allows the user to set the value of time.</p>
@@ -1446,11 +1469,16 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
     <span class="n">partyTime</span><span class="o">.</span><span class="na">setDateTime</span><span class="o">(</span><span class="s">"2017-05-10T00:00"</span><span class="o">);</span>
     <span class="n">assertEquals</span><span class="o">(</span><span class="n">partyTime</span><span class="o">.</span><span class="na">value</span><span class="o">(),</span> <span class="s">"2017-05-10T00:00"</span><span class="o">);</span>
 <span class="o">}</span>
-</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">SetGetDateTime</span><span class="p">()</span> 
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[FindBy(Css = "#party-time")]</span>
+<span class="k">public</span> <span class="n">IDateTimeSelector</span> <span class="n">PartyTime</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">SetPartyTimeTest</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">SetDateTime</span><span class="p">(</span><span class="s">"2000-01-01T12:00"</span><span class="p">);</span>
-    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">();</span>
+    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">PartyTime</span><span class="p">.</span><span class="n">Format</span> <span class="p">=</span> <span class="s">"yyyy-MM-ddTHH:mm"</span><span class="p">;</span>
+    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">PartyTime</span><span class="p">.</span><span class="nf">SetDateTime</span><span class="p">(</span><span class="n">_dateTime</span><span class="p">);</span>
+    <span class="kt">var</span> <span class="n">setValue</span> <span class="p">=</span> <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">PartyTime</span><span class="p">.</span><span class="nf">GetDateTime</span><span class="p">();</span>
+    <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">setValue</span><span class="p">,</span> <span class="n">_dateTime</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre>
 <p><strong>Input Type DateTime-Local</strong> – a graphical control element, that allows the user to set the value of time and date.</p>
@@ -3078,6 +3106,16 @@ Datalist element contains a set of options with values available for entering.</
 <tr>
 <td><strong>uncheck(String.../Enum/int...)</strong></td>
 <td>Unselect checkboxes</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>checkAll()</strong></td>
+<td>Check all checkboxes from checklist</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>uncheckAll()</strong></td>
+<td>Uncheck all checkboxes from checklist</td>
 <td>void</td>
 </tr>
 <tr>

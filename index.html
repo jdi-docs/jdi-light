@@ -1426,7 +1426,7 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/MonthTests.java">Test examples in Java</a></p>
 
 <p><strong>Input Type Time</strong></p>
-<pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#booking-date"</span><span class="o">)</span> <span class="c1">//@FindBy(css = "#booking-date") </span>
+<pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#booking-date"</span><span class="o">)</span> <span class="c1">//@FindBy(css = "#booking-time") </span>
 <span class="kd">public</span> <span class="kd">static</span> <span class="n">DateTimeSelector</span> <span class="n">bookingTime</span><span class="o">;</span>
 
 <span class="nd">@Test</span>
@@ -1440,7 +1440,7 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
     <span class="n">bookingTime</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
     <span class="n">assertEquals</span><span class="o">(</span><span class="n">bookingTime</span><span class="o">.</span><span class="na">value</span><span class="o">(),</span> <span class="s">"05:00"</span><span class="o">);</span>
 <span class="o">}</span>
-</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[FindBy(Css = "#booking-date")]</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[FindBy(Css = "#booking-time")]</span>
 <span class="k">public</span> <span class="n">IDateTimeSelector</span> <span class="n">BookingTime</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
 
 <span class="na">[Test]</span>

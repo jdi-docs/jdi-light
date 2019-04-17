@@ -317,7 +317,7 @@ public void SetMonthTest()
 __Input Type Time__
 
 ```java 
-@UI("#booking-date") //@FindBy(css = "#booking-date") 
+@UI("#booking-date") //@FindBy(css = "#booking-time") 
 public static DateTimeSelector bookingTime;
 
 @Test
@@ -333,7 +333,7 @@ public void setDateTimeTest() {
 }
 ```
 ```csharp 
-[FindBy(Css = "#booking-date")]
+[FindBy(Css = "#booking-time")]
 public IDateTimeSelector BookingTime { get; set; }
         
 [Test]

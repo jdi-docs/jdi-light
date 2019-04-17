@@ -3402,7 +3402,15 @@ Note that you can make static import in order to simplify code Alerts.acceptAler
 <h3 id='report-portal'>Report Portal</h3>
 <p>TBD</p>
 <h2 id='jdi-settings'>JDI Settings</h2>
-<p>TBD</p>
+<ul>
+<li><strong>driver</strong> -  we can set up where we would like to run our tests. Some typical options: chrome, firefox, ie... or we can just place it with ${driver} and read the exact driver name from command line</li>
+<li><strong>drivers.version</strong> - by default JDI Light will download the latest version of drive for us but if we need a specific version we can put it here (in this case the framework will find and download exactly this version)</li>
+<li><strong>timeout.wait.element</strong> – timeout in seconds to wait for an element on the opened page. Default 10 seconds.</li>
+<li><strong>timeout.wait.page</strong> - JDI Light automatically define that new page opened and in this case will use this timeout (usually it is more than for element). By default 30 seconds.</li>
+<li><strong>domain</strong> – web application root URL (used if we work with one application in tests). Can be also read from the command line like ${domain}</li>
+<li><strong>page.load.strategy</strong> - like in <a href="https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/capabilities_exports_PageLoadStrategy.html" target="_blank">Selenium strategies</a> to load the page. Options: normal, eager, none</li>
+<li><strong>browser.size</strong> - the size of the tested browser. By default, JDI Light will maximize browser, but we can set exact values.</li>
+</ul>
 <h2 id='driver-settings'>Driver Settings</h2>
 <p>TBD</p>
 <h2 id='parallel-tests-run'>Parallel tests run</h2>

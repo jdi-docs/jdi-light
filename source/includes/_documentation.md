@@ -485,7 +485,46 @@ Available method in C# JDI Light:
 [C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/FileInputTests.cs)
 
 ### Icon
+```java 
+@UI("#jdi-logo") 
+// same as FindBy(css = "#jdi-logo")
+public static Icon jdiLogo;
+
+    @Test
+    public void isValidationTest() {
+        WebPage.refresh();
+        jdiLogo.is().src(containsString("jdi-logo.jpg"));
+        jdiLogo.is().alt(is("Jdi Logo 2"));
+        jdiLogo.assertThat().height(is(100));
+        jdiLogo.assertThat().width(is(101));
+    }
+```
+```csharp 
 TBD
+```
+**Icon** – is a simple element type that represents icons and graphic images.
+
+![Icon](../images/html/image_html.png)
+
+Icons are represented by the following classes:
+ 
+  - __Java__: _com.epam.jdi.light.ui.html.common.Icon , com.epam.jdi.light.ui.html.common.Image_
+
+
+ 
+Icon in JDI is a descendant of Image. It inherits all Image's methods and serves as its wrapper. Here are Java methods for Icon inherited from Image interface:
+
+|Method | Description | Return Type
+--- | --- | ---
+**click()** | click on the image| void
+**src()** | get value of src attribute | String
+**height()** |get value of height attribute| String
+**width()** | get value of width attribute| String
+**alt()** |get value of alt attribute | String
+**is()** | method for building assertions | ImageAssert
+**assertThat()** |method for building assertions  | ImageAssert
+
+[Test examples in Java](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ImageTests.java)
 
 ### Image
 ```java 

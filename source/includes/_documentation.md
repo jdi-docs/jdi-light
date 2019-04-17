@@ -213,11 +213,16 @@ public void maxTest() {
 }
 ```
 ```csharp 
+[FindBy(Css = "#birth-date")]
+public IDateTimeSelector BirthDate { get; set; }
+        
 [Test]
-public void SetGetDateTime() 
+public void SetBirthDateTest()
 {
-    MyDateTime.SetDateTime("2000-01-01");
-    MyDateTime.GetValue();
+    TestSite.Html5Page.BirthDate.Format = "yyyy-MM-dd";
+    TestSite.Html5Page.BirthDate.SetDateTime(_dateTime);
+    var setValue = TestSite.Html5Page.BirthDate.GetValue();
+    Assert.AreEqual(setValue, "2019-04-01");
 }
 ```
 **Input Type Date** – a graphical control element, that allows users to set the value of date.
@@ -247,11 +252,19 @@ public void setDateTimeTest() {
 }
 ```
 ```csharp 
+[FindBy(Css = "#autumn-week")]
+public IDateTimeSelector AutumnDateTime { get; set; }
+        
 [Test]
-public void SetGetDateTime() 
+public void AutumnDateTimeTest()
 {
-    MyDateTime.SetDateTime("2019-W11");
-    MyDateTime.GetValue();
+    var calendar = new GregorianCalendar();
+    var weekNum = calendar.GetWeekOfYear(_dateTime, CalendarWeekRule.FirstFullWeek, DayOfWeek.Monday);
+    TestSite.Html5Page.AutumnDateTime.Format = "yyyy-" + $"W{weekNum}";
+
+    TestSite.Html5Page.AutumnDateTime.SetDateTime(_dateTime);
+    var setValue = TestSite.Html5Page.AutumnDateTime.GetValue();
+    Assert.AreEqual(setValue, "2019-W13");
 }
 ```
 **Input Type Week** – a graphical control element, that allows users to set the value of week and year.
@@ -281,11 +294,16 @@ public void setDateTimeTest() {
 }
 ```
 ```csharp 
+[FindBy(Css = "#month-date")]
+public IDateTimeSelector MonthOfHolidays { get; set; }
+        
 [Test]
-public void SetGetDateTime() 
+public void SetMonthTest()
 {
-    MyDateTime.SetDateTime("2019-01");
-    MyDateTime.GetValue();
+    TestSite.Html5Page.MonthOfHolidays.Format = "yyyy-MM";
+    TestSite.Html5Page.MonthOfHolidays.SetDateTime(_dateTime);
+    var setValue = TestSite.Html5Page.MonthOfHolidays.GetValue();
+    Assert.AreEqual(setValue, "2019-04");
 }
 ```
 **Input Type Month** – a graphical control element, that allows users to set the value of month and year.
@@ -315,11 +333,16 @@ public void setDateTimeTest() {
 }
 ```
 ```csharp 
+[FindBy(Css = "#booking-date")]
+public IDateTimeSelector BookingTime { get; set; }
+        
 [Test]
-public void SetGetDateTime() 
+public void SetTimeTest()
 {
-    MyDateTime.SetDateTime("15:00");
-    MyDateTime.GetValue();
+    TestSite.Html5Page.BookingTime.Format = "H:mm";
+    TestSite.Html5Page.BookingTime.SetDateTime(_dateTime);
+    var setValue = TestSite.Html5Page.BookingTime.GetValue();
+    Assert.AreEqual(setValue, "15:00");
 }
 ```
 **Input Type Time** – a graphical control element, that allows the user to set the value of time.
@@ -343,11 +366,16 @@ public void setDateTimeTest() {
 }
 ```
 ```csharp 
+[FindBy(Css = "#party-time")]
+public IDateTimeSelector PartyTime { get; set; }
+
 [Test]
-public void SetGetDateTime() 
+public void SetPartyTimeTest()
 {
-    MyDateTime.SetDateTime("2000-01-01T12:00");
-    MyDateTime.GetValue();
+    TestSite.Html5Page.PartyTime.Format = "yyyy-MM-ddTHH:mm";
+    TestSite.Html5Page.PartyTime.SetDateTime(_dateTime);
+    var setValue = TestSite.Html5Page.PartyTime.GetDateTime();
+    Assert.AreEqual(setValue, _dateTime);
 }
 ```
 **Input Type DateTime-Local** – a graphical control element, that allows the user to set the value of time and date.
@@ -1446,6 +1474,8 @@ List of available methods in Java JDI Light:
 --- | --- | ---
 **check(String.../Enum/int...)** |Select checkboxes | void
 **uncheck(String.../Enum/int...)** | Unselect checkboxes | void
+**checkAll()** | Check all checkboxes from checklist | void
+**uncheckAll()** | Uncheck all checkboxes from checklist | void
 **checked()** | Get selected checkbox values | List\<String>
 
 Here is the list of some available methods in C# JDI Light:

@@ -1404,13 +1404,13 @@ Here is the list of some available methods in C# JDI Light:
 Checklist element type is available in the following packages:
  
  - __Java__: com.epam.jdi.light.ui.html.complex.Checklist
- - __C__#: JDI.Light.Elements.Complex.CheckList 
+ - __C__#: JDI.Light.Elements.Common.CheckList 
 
 See an example with a given HTML code describing checklist element.
 
 ```java 
-@UI("[name=checks-group]") //@FindBy(name = "checks-group")
-public static Checklist weather;
+@UI("[name=checks-group]") public static Checklist weather;
+public static Checklist weatherNoLocator;
 
 @Test
 public void selectTest() {
@@ -1422,7 +1422,7 @@ public void selectTest() {
 public void assertValidationTest() {
     weather.assertThat().values(containsInAnyOrder(
       "Hot option", "Cold", "Rainy day", "Sunny", "Disabled"));
-    weather.assertThat().selected("Hot option");
+    weatherNoLocator.assertThat().selected("Hot option");
 }
 ```
 ```csharp 
@@ -1432,8 +1432,9 @@ public ICheckList WeatherCheckList { get; set; }
 [Test]
 public void CheckCheckList()
 {
-    TestSite.Html5Page.WeatherCheckList.Check(new[] { "Cold", "Sunny" });
-    TestSite.Html5Page.WeatherCheckList.Uncheck("Cold");
+       TestSite.Html5Page.WeatherCheckList.Check(new[] { "cold", "sunny-day" });
+       TestSite.Html5Page.WeatherCheckList.Uncheck("cold");
+       Assert.IsFalse(TestSite.Html5Page.WeatherCheckList.IsChecked("cold"));
 }
 ```
 
@@ -1444,20 +1445,22 @@ List of available methods in Java JDI Light:
 |Method | Description | Return Type
 --- | --- | ---
 **check(String.../Enum/int...)** |Select checkboxes | void
-**select(String.../Enum/int...)** |Select checkboxes | void
 **uncheck(String.../Enum/int...)** | Unselect checkboxes | void
-**uncheckAll()** | Uncheck all checkboxes | void
 **checked()** | Get selected checkbox values | List\<String>
 
 Here is the list of some available methods in C# JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**Check(params string[]/params int[])** |Select checklist by values/indexes  | void
-**Uncheck(params string[]/params int[])** |Unselect checklist by values/indexes  | void
-**Select(params string[]/params int[])** |Select checklist by values/indexes  | void
+**Check(string[]/int[])** |Select checklist by values/indexes  | void
+**Check(string/int)** |Select checklist by value/index  | void
+**Uncheck(string[]/int[])** |Unselect checklist by values/indexes  | void
+**Uncheck(string/int)** |Unselect checklist by value/index  | void
 **UncheckAll()** |Uncheck all checkboxes | void
-**Checked()** |Get selected checkboxes from checklist value  | string[]
+**CheckAll()** |Check all checkboxes | void
+**GetChecked()** |Get selected checkboxes from checklist value  | string[]
+**IsChecked(string/int)** | Checks whether checkbox is checked | bool
+**IsDisabled(string/int)** | Checks whether checkbox is disabled | bool
 
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/ChecklistTests.java)
 

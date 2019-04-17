@@ -2433,7 +2433,7 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 
 <ul>
 <li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.complex.RadioButtons</em></li>
-<li><strong>C#</strong>: <em>JDI.Light.Elements.Common.RadioButton</em></li>
+<li><strong>C#</strong>: <em>JDI.Light.Elements.Complex.RadioButtons</em></li>
 </ul>
 <pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"[name=colors]"</span><span class="o">)</span> <span class="c1">//@FindBy(name = "colors")</span>
 <span class="kd">public</span> <span class="kd">static</span> <span class="n">RadioButtons</span> <span class="n">colors</span><span class="o">;</span>
@@ -2479,7 +2479,7 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 <td>void</td>
 </tr>
 <tr>
-<td><strong>selected()/GetSelected()</strong></td>
+<td><strong>selected()/Selected()</strong></td>
 <td>Get selected radiobutton value</td>
 <td>string</td>
 </tr>
@@ -2487,7 +2487,7 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/RadioTests.java">Java test examples</a></p>
 
-<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/RadioButtonTests.cs">C# test examples</a></p>
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Complex/RadioButtonTests.cs">C# test examples</a></p>
 <h3 id='table'>Table</h3>
 <p><strong>Table</strong> – a complex element that consists of header, body (at least one row and one column) and footer. You are able to perform a list of readonly interactions with this element.</p>
 
@@ -3029,12 +3029,12 @@ Datalist element contains a set of options with values available for entering.</
 
 <ul>
 <li><strong>Java</strong>: com.epam.jdi.light.ui.html.complex.Checklist</li>
-<li><strong>C</strong>#: JDI.Light.Elements.Common.CheckList </li>
+<li><strong>C</strong>#: JDI.Light.Elements.Complex.CheckList </li>
 </ul>
 
 <p>See an example with a given HTML code describing checklist element.</p>
-<pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"[name=checks-group]"</span><span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">Checklist</span> <span class="n">weather</span><span class="o">;</span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="n">Checklist</span> <span class="n">weatherNoLocator</span><span class="o">;</span>
+<pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"[name=checks-group]"</span><span class="o">)</span> <span class="c1">//@FindBy(name = "checks-group")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">Checklist</span> <span class="n">weather</span><span class="o">;</span>
 
 <span class="nd">@Test</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">selectTest</span><span class="o">()</span> <span class="o">{</span>
@@ -3046,7 +3046,7 @@ Datalist element contains a set of options with values available for entering.</
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">assertValidationTest</span><span class="o">()</span> <span class="o">{</span>
     <span class="n">weather</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">values</span><span class="o">(</span><span class="n">containsInAnyOrder</span><span class="o">(</span>
       <span class="s">"Hot option"</span><span class="o">,</span> <span class="s">"Cold"</span><span class="o">,</span> <span class="s">"Rainy day"</span><span class="o">,</span> <span class="s">"Sunny"</span><span class="o">,</span> <span class="s">"Disabled"</span><span class="o">));</span>
-    <span class="n">weatherNoLocator</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="s">"Hot option"</span><span class="o">);</span>
+    <span class="n">weather</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="s">"Hot option"</span><span class="o">);</span>
 <span class="o">}</span>
 </code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[FindBy(Css = "div:nth-child(11) &gt; div.html-left")]</span>
 <span class="k">public</span> <span class="n">ICheckList</span> <span class="n">WeatherCheckList</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
@@ -3054,9 +3054,8 @@ Datalist element contains a set of options with values available for entering.</
 <span class="na">[Test]</span>
 <span class="k">public</span> <span class="k">void</span> <span class="nf">CheckCheckList</span><span class="p">()</span>
 <span class="p">{</span>
-       <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">WeatherCheckList</span><span class="p">.</span><span class="nf">Check</span><span class="p">(</span><span class="k">new</span><span class="p">[]</span> <span class="p">{</span> <span class="s">"cold"</span><span class="p">,</span> <span class="s">"sunny-day"</span> <span class="p">});</span>
-       <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">WeatherCheckList</span><span class="p">.</span><span class="nf">Uncheck</span><span class="p">(</span><span class="s">"cold"</span><span class="p">);</span>
-       <span class="n">Assert</span><span class="p">.</span><span class="nf">IsFalse</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">WeatherCheckList</span><span class="p">.</span><span class="nf">IsChecked</span><span class="p">(</span><span class="s">"cold"</span><span class="p">));</span>
+    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">WeatherCheckList</span><span class="p">.</span><span class="nf">Check</span><span class="p">(</span><span class="k">new</span><span class="p">[]</span> <span class="p">{</span> <span class="s">"Cold"</span><span class="p">,</span> <span class="s">"Sunny"</span> <span class="p">});</span>
+    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">WeatherCheckList</span><span class="p">.</span><span class="nf">Uncheck</span><span class="p">(</span><span class="s">"Cold"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre>
 <p><img src="images/html/checklist_html.png" alt="Checklist Example" /></p>
@@ -3076,8 +3075,18 @@ Datalist element contains a set of options with values available for entering.</
 <td>void</td>
 </tr>
 <tr>
+<td><strong>select(String.../Enum/int...)</strong></td>
+<td>Select checkboxes</td>
+<td>void</td>
+</tr>
+<tr>
 <td><strong>uncheck(String.../Enum/int...)</strong></td>
 <td>Unselect checkboxes</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>uncheckAll()</strong></td>
+<td>Uncheck all checkboxes</td>
 <td>void</td>
 </tr>
 <tr>
@@ -3097,23 +3106,18 @@ Datalist element contains a set of options with values available for entering.</
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>Check(string[]/int[])</strong></td>
+<td><strong>Check(params string[]/params int[])</strong></td>
 <td>Select checklist by values/indexes</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>Check(string/int)</strong></td>
-<td>Select checklist by value/index</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>Uncheck(string[]/int[])</strong></td>
+<td><strong>Uncheck(params string[]/params int[])</strong></td>
 <td>Unselect checklist by values/indexes</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>Uncheck(string/int)</strong></td>
-<td>Unselect checklist by value/index</td>
+<td><strong>Select(params string[]/params int[])</strong></td>
+<td>Select checklist by values/indexes</td>
 <td>void</td>
 </tr>
 <tr>
@@ -3122,24 +3126,9 @@ Datalist element contains a set of options with values available for entering.</
 <td>void</td>
 </tr>
 <tr>
-<td><strong>CheckAll()</strong></td>
-<td>Check all checkboxes</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>GetChecked()</strong></td>
+<td><strong>Checked()</strong></td>
 <td>Get selected checkboxes from checklist value</td>
 <td>string[]</td>
-</tr>
-<tr>
-<td><strong>IsChecked(string/int)</strong></td>
-<td>Checks whether checkbox is checked</td>
-<td>bool</td>
-</tr>
-<tr>
-<td><strong>IsDisabled(string/int)</strong></td>
-<td>Checks whether checkbox is disabled</td>
-<td>bool</td>
 </tr>
 </tbody></table>
 

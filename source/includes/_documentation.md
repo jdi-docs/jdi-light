@@ -1703,7 +1703,13 @@ TBD
 TBD
 
 ## JDI Settings
-TBD
+- **driver** -  we can set up where we would like to run our tests. Some typical options: chrome, firefox, ie... or we can just place it with ${driver} and read the exact driver name from command line
+- **drivers.version** - by default JDI Light will download the latest version of drive for us but if we need a specific version we can put it here (in this case the framework will find and download exactly this version)
+- **timeout.wait.element** – timeout in seconds to wait for an element on the opened page. Default 10 seconds.
+- **timeout.wait.page** - JDI Light automatically define that new page opened and in this case will use this timeout (usually it is more than for element). By default 30 seconds.
+- **domain** – web application root URL (used if we work with one application in tests). Can be also read from the command line like ${domain}
+- **page.load.strategy** - like in <a href="https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/capabilities_exports_PageLoadStrategy.html" target="_blank">Selenium strategies</a> to load the page. Options: normal, eager, none
+- **browser.size** - the size of the tested browser. By default, JDI Light will maximize browser, but we can set exact values.
 
 ## Driver Settings
 TBD

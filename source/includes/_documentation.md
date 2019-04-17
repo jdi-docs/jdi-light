@@ -989,7 +989,7 @@ Here is the list of available methods:
 Radio buttons are represented by the following class:
  
   - __Java__: _com.epam.jdi.light.ui.html.complex.RadioButtons_
-  - __C#__: _JDI.Light.Elements.Common.RadioButton_
+  - __C#__: _JDI.Light.Elements.Complex.RadioButtons_
 
 ```java 
 @UI("[name=colors]") //@FindBy(name = "colors")
@@ -1029,11 +1029,11 @@ Here is the list of some available methods:
 |Method | Description | Return Type
 --- | --- | ---
 **select(String/int/Enum)/Select(string/int)** |Select radiobutton by value/index  | void
-**selected()/GetSelected()** |Get selected radiobutton value  | string
+**selected()/Selected()** |Get selected radiobutton value  | string
 
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/RadioTests.java)
 
-[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/RadioButtonTests.cs)
+[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Complex/RadioButtonTests.cs)
 
 ### Table
 

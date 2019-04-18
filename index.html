@@ -1657,7 +1657,20 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
         <span class="n">jdiLogo</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">height</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="mi">100</span><span class="o">));</span>
         <span class="n">jdiLogo</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">width</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="mi">101</span><span class="o">));</span>
     <span class="o">}</span>
-</code></pre><pre class="highlight csharp tab-csharp"><code><span class="n">TBD</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[FindBy(Css = "#jdi-logo")]</span>
+<span class="k">public</span> <span class="n">IIcon</span> <span class="n">LogoImage</span><span class="p">;</span>
+
+   <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+   <span class="k">public</span> <span class="k">void</span> <span class="nf">GetSourceTest</span><span class="p">()</span>
+   <span class="p">{</span>
+     <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">AreEquals</span><span class="p">(</span><span class="n">LogoImage</span><span class="p">.</span><span class="nf">GetSource</span><span class="p">(),</span> <span class="n">Src</span><span class="p">);</span>
+   <span class="p">}</span>
+
+   <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+   <span class="k">public</span> <span class="k">void</span> <span class="nf">GetTipTest</span><span class="p">()</span>
+   <span class="p">{</span>
+     <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">AreEquals</span><span class="p">(</span><span class="n">LogoImage</span><span class="p">.</span><span class="nf">GetAlt</span><span class="p">(),</span> <span class="n">Alt</span><span class="p">);</span>
+   <span class="p">}</span>
 </code></pre>
 <p><strong>Icon</strong> – is a simple element type that represents icons and graphic images.</p>
 
@@ -1667,6 +1680,7 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 
 <ul>
 <li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.Icon , com.epam.jdi.light.ui.html.common.Image</em></li>
+<li><strong>C#</strong>: JDI.Light.Interfaces.Common.IIcon, _JDI.Light.Elements.Common.Image</li>
 </ul>
 
 <p>Icon in JDI is a descendant of Image. It inherits all Image&#39;s methods and serves as its wrapper. Here are Java methods for Icon inherited from Image interface:</p>
@@ -1712,6 +1726,27 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 <td><strong>assertThat()</strong></td>
 <td>method for building assertions</td>
 <td>ImageAssert</td>
+</tr>
+</tbody></table>
+
+<p>Here is a list of available methods in C#:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>GetSource()</strong></td>
+<td>get value of src attribute</td>
+<td>string</td>
+</tr>
+<tr>
+<td><strong>GetAlt()</strong></td>
+<td>get value of alt attribute</td>
+<td>string</td>
 </tr>
 </tbody></table>
 

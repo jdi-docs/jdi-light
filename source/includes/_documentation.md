@@ -1584,6 +1584,8 @@ Here is the list of some available methods in C# JDI Light:
 **UncheckAll()** |Uncheck all checkboxes | void
 **CheckAll()** |Check all checkboxes | void
 **Checked()** |Get selected checkboxes from checklist value  | string[]
+**IsChecked(string/int)** |Checks whether checkbox is checked | bool
+**IsDisabled(string/int)** | Checks whether checkbox is disabled | bool
 
 
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/ChecklistTests.java)

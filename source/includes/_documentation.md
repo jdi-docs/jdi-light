@@ -1095,9 +1095,9 @@ Here is the list of available methods:
 
 
 ## Complex elements
-### RadioButton
+### RadioButtons
 
-**RadioButton** – interface element that allows user to select one option from a predefined group.
+**RadioButtons** – interface element that allows user to select one option from a predefined group.
 
 Radio buttons are represented by the following class:
  
@@ -1115,20 +1115,23 @@ public void selectTest() {
 }
 ```
 ```csharp 
+[FindBy(Css = "#colors")] 
+public IRadioButtons MyRadioButtons;
+
 [Test]
 public void SelectRadioButton() 
 {
-    MyRadioButton.Select("some value");
+    MyRadioButtons.Select("some value");
 }
 [Test]
 public void SelectRadioButtonByIndex() 
 {
-    MyRadioButton.Select(1);
+    MyRadioButtons.Select(1);
 }
 [Test]
 public void GetSelected() 
 {
-    var selected = MyRadioButton.GetSelected();
+    var selected = MyRadioButtons.GetSelected();
     Assert.AreEqual(selected, "some value");
 }
 ```

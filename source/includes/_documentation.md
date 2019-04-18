@@ -557,7 +557,7 @@ Here is a list of available methods in C#:
 
 |Method | Description | Return Type
 --- | --- | ---
-**click()** | click on the image| void
+**Click()** | click on the image| void
 **Src** | get value of src attribute | String
 **Height** |get value of height attribute| String
 **Width** | get value of width attribute| String
@@ -613,7 +613,7 @@ Here is a list of available methods in C#:
 
 |Method | Description | Return Type
 --- | --- | ---
-**click()** | click on the image| void
+**Click()** | click on the image| void
 **Src** | get value of src attribute | String
 **Height** |get value of height attribute| String
 **Width** | get value of width attribute| String

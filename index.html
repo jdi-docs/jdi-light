@@ -427,7 +427,7 @@
                     <a href="#complex-elements" class="toc-h2 toc-link" data-title="Complex elements">Complex elements</a>
                         <ul class="toc-list-h2">
                             <li>
-                              <a href="#radiobutton" class="toc-h2 h3 toc-link" data-title="RadioButton">RadioButton</a>
+                              <a href="#radiobuttons" class="toc-h2 h3 toc-link" data-title="RadioButtons">RadioButtons</a>
                             </li>
                             <li>
                               <a href="#table" class="toc-h2 h3 toc-link" data-title="Table">Table</a>
@@ -2605,8 +2605,8 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/TitleTests.java">Java test examples</a></p>
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/TitleTests.cs">C# test examples</a></p>
-<h2 id='complex-elements'>Complex elements</h2><h3 id='radiobutton'>RadioButton</h3>
-<p><strong>RadioButton</strong> – interface element that allows user to select one option from a predefined group.</p>
+<h2 id='complex-elements'>Complex elements</h2><h3 id='radiobuttons'>RadioButtons</h3>
+<p><strong>RadioButtons</strong> – interface element that allows user to select one option from a predefined group.</p>
 
 <p>Radio buttons are represented by the following class:</p>
 
@@ -2622,20 +2622,23 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
     <span class="n">colors</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">Blue</span><span class="o">);</span>
     <span class="n">assertEquals</span><span class="o">(</span><span class="n">colors</span><span class="o">.</span><span class="na">getValue</span><span class="o">(),</span> <span class="s">"Blue"</span><span class="o">);</span>
 <span class="o">}</span>
-</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[FindBy(Css = "#colors")]</span> 
+<span class="k">public</span> <span class="n">IRadioButtons</span> <span class="n">MyRadioButtons</span><span class="p">;</span>
+
+<span class="na">[Test]</span>
 <span class="k">public</span> <span class="k">void</span> <span class="nf">SelectRadioButton</span><span class="p">()</span> 
 <span class="p">{</span>
-    <span class="n">MyRadioButton</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="s">"some value"</span><span class="p">);</span>
+    <span class="n">MyRadioButtons</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="s">"some value"</span><span class="p">);</span>
 <span class="p">}</span>
 <span class="na">[Test]</span>
 <span class="k">public</span> <span class="k">void</span> <span class="nf">SelectRadioButtonByIndex</span><span class="p">()</span> 
 <span class="p">{</span>
-    <span class="n">MyRadioButton</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
+    <span class="n">MyRadioButtons</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
 <span class="p">}</span>
 <span class="na">[Test]</span>
 <span class="k">public</span> <span class="k">void</span> <span class="nf">GetSelected</span><span class="p">()</span> 
 <span class="p">{</span>
-    <span class="kt">var</span> <span class="n">selected</span> <span class="p">=</span> <span class="n">MyRadioButton</span><span class="p">.</span><span class="nf">GetSelected</span><span class="p">();</span>
+    <span class="kt">var</span> <span class="n">selected</span> <span class="p">=</span> <span class="n">MyRadioButtons</span><span class="p">.</span><span class="nf">GetSelected</span><span class="p">();</span>
     <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">selected</span><span class="p">,</span> <span class="s">"some value"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre>

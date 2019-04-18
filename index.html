@@ -1194,7 +1194,22 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">getLabelTextTest</span><span class="o">()</span> <span class="o">{</span>
     <span class="n">assertEquals</span><span class="o">(</span><span class="n">colorPicker</span><span class="o">.</span><span class="na">labelText</span><span class="o">(),</span> <span class="s">"Select a color"</span><span class="o">);</span>
 <span class="o">}</span>
-</code></pre><pre class="highlight csharp tab-csharp"><code><span class="n">TBD</span> 
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[FindBy(Css = "#color-picker")]</span>
+<span class="k">public</span> <span class="n">ColorPicker</span> <span class="n">ColorPicker</span><span class="p">;</span>
+
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">GetColorTest</span><span class="p">()</span> 
+<span class="p">{</span>
+    <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">ColorPicker</span><span class="p">.</span><span class="nf">Color</span><span class="p">(),</span> <span class="s">"#3fd7a6"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">SetColorTest</span><span class="p">()</span> 
+<span class="p">{</span>
+    <span class="n">ColorPicker</span><span class="p">.</span><span class="nf">SetColor</span><span class="p">(</span><span class="s">"#432376"</span><span class="p">);</span>
+    <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">ColorPicker</span><span class="p">.</span><span class="nf">Color</span><span class="p">(),</span> <span class="s">"#432376"</span><span class="p">);</span>
+<span class="p">}</span>
+
 </code></pre>
 <p>Here is an example with provided HTML code:</p>
 
@@ -1233,7 +1248,7 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ColorPickerTests.java">Java test examples</a></p>
 
-<!--- [C# test examples]() -->
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/ColorPickerTests.cs">Test examples in C#</a></p>
 <h3 id='datetimeselector'>DateTimeSelector</h3>
 <p><strong>DateTimeSelector</strong> is used for Input Type Date and its derivatives and allows users to set the value of date and/or time.</p>
 

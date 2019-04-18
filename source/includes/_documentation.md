@@ -748,6 +748,7 @@ Available method in C# JDI Light:
 NumberSelector are represented by the following class:
  
   - __Java__: _com.epam.jdi.light.ui.html.common.NumberSelector_
+  - __C#__: _JDI.Light.Elements.Common.NumberSelector_
   
   
 ```java 
@@ -761,8 +762,14 @@ public void getNumberTest() {
     }
 ```
 ```csharp 
+[FindBy(Css = "#height")]
+public INumberSelector numberSelector;
+
 [Test]
-TBD
+public void GetNumberTest()
+{
+    Jdi.Assert.AreEquals(number, numberSelector.Value());
+}
 ```
 
 

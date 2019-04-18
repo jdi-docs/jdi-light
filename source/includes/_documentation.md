@@ -138,7 +138,22 @@ public void getLabelTextTest() {
 }
 ```
 ```csharp
-TBD 
+[FindBy(Css = "#color-picker")]
+public ColorPicker ColorPicker;
+
+[Test]
+public void GetColorTest() 
+{
+    Assert.AreEqual(ColorPicker.Color(), "#3fd7a6");
+}
+
+[Test]
+public void SetColorTest() 
+{
+    ColorPicker.SetColor("#432376");
+    Assert.AreEqual(ColorPicker.Color(), "#432376");
+}
+ 
 ```
 
 Here is an example with provided HTML code:
@@ -156,7 +171,7 @@ Available methods in Java JDI Light:
 
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ColorPickerTests.java)
 
-<!--- [C# test examples]() -->
+[Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/ColorPickerTests.cs)
 
 ### DateTimeSelector
 

@@ -515,7 +515,20 @@ public static Icon jdiLogo;
     }
 ```
 ```csharp 
-TBD
+[FindBy(Css = "#jdi-logo")]
+public IIcon LogoImage;
+
+   [Test]
+   public void GetSourceTest()
+   {
+     Jdi.Assert.AreEquals(LogoImage.GetSource(), Src);
+   }
+
+   [Test]
+   public void GetTipTest()
+   {
+     Jdi.Assert.AreEquals(LogoImage.GetAlt(), Alt);
+   }
 ```
 **Icon** – is a simple element type that represents icons and graphic images.
 
@@ -524,6 +537,7 @@ TBD
 Icons are represented by the following classes:
  
   - __Java__: _com.epam.jdi.light.ui.html.common.Icon , com.epam.jdi.light.ui.html.common.Image_
+  - __C#__: JDI.Light.Interfaces.Common.IIcon, _JDI.Light.Elements.Common.Image
 
 
  
@@ -538,6 +552,13 @@ Icon in JDI is a descendant of Image. It inherits all Image's methods and serves
 **alt()** |get value of alt attribute | String
 **is()** | method for building assertions | ImageAssert
 **assertThat()** |method for building assertions  | ImageAssert
+
+Here is a list of available methods in C#:
+
+|Method | Description | Return Type
+--- | --- | ---
+**GetSource()** |get value of src attribute  | string
+**GetAlt()** |get value of alt attribute   | string
 
 [Test examples in Java](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ImageTests.java)
 

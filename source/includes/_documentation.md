@@ -775,7 +775,7 @@ public void GetNumberTest()
 
 ![NumberSelector](../images/html/numberSelector_html.png)
 
-Here is the list of available methods:
+Here is the list of available methods in Java:
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -788,7 +788,21 @@ Here is the list of available methods:
 **is()** | Returns object for work with assertions | NumberAssert
 **assertThat()** | Returns object for work with assertions | NumberAssert
 
+Here is the list of available methods in C#:
+
+|Method | Description | Return Type
+--- | --- | ---
+**Placeholder** |Returns the placeholder text  | String
+**Min** |Returns the min value   | double
+**Max** |Returns the max value  | double
+**Value** |Returns the value  | double
+**Step** |Returns the step value | double
+**SetNumber(double)** |Sets the value | void
+
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/NumberSelectorTests.java)
+
+[Test examples in C#]
+(https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/NumberSelectorTests.cs)
 
 ### ProgressBar
 **Progress Bar** - Element for displaying an indicator showing the completion progress of a task

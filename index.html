@@ -2092,6 +2092,7 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 
 <ul>
 <li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.NumberSelector</em></li>
+<li><strong>C#</strong>: <em>JDI.Light.Elements.Common.NumberSelector</em></li>
 </ul>
 <pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#height"</span><span class="o">)</span> 
 <span class="c1">// equal to @FindBy(css = "#height") </span>
@@ -2101,12 +2102,18 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">getNumberTest</span><span class="o">()</span> <span class="o">{</span>
         <span class="n">assertEquals</span><span class="o">(</span><span class="n">height</span><span class="o">.</span><span class="na">value</span><span class="o">(),</span> <span class="n">number</span><span class="o">);</span>
     <span class="o">}</span>
-</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
-<span class="n">TBD</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[FindBy(Css = "#height")]</span>
+<span class="k">public</span> <span class="n">INumberSelector</span> <span class="n">numberSelector</span><span class="p">;</span>
+
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">GetNumberTest</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">AreEquals</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="n">numberSelector</span><span class="p">.</span><span class="nf">Value</span><span class="p">());</span>
+<span class="p">}</span>
 </code></pre>
 <p><img src="images/html/numberSelector_html.png" alt="NumberSelector" /></p>
 
-<p>Here is the list of available methods:</p>
+<p>Here is the list of available methods in Java:</p>
 
 <table><thead>
 <tr>
@@ -2157,7 +2164,50 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 </tr>
 </tbody></table>
 
+<p>Here is the list of available methods in C#:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Placeholder</strong></td>
+<td>Returns the placeholder text</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>Min</strong></td>
+<td>Returns the min value</td>
+<td>double</td>
+</tr>
+<tr>
+<td><strong>Max</strong></td>
+<td>Returns the max value</td>
+<td>double</td>
+</tr>
+<tr>
+<td><strong>Value</strong></td>
+<td>Returns the value</td>
+<td>double</td>
+</tr>
+<tr>
+<td><strong>Step</strong></td>
+<td>Returns the step value</td>
+<td>double</td>
+</tr>
+<tr>
+<td><strong>SetNumber(double)</strong></td>
+<td>Sets the value</td>
+<td>void</td>
+</tr>
+</tbody></table>
+
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/NumberSelectorTests.java">Java test examples</a></p>
+
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/NumberSelectorTests.cs">Test examples in C#</a></p>
 <h3 id='progressbar'>ProgressBar</h3>
 <p><strong>Progress Bar</strong> - Element for displaying an indicator showing the completion progress of a task</p>
 
@@ -3211,7 +3261,7 @@ Datalist element contains a set of options with values available for entering.</
 
 <ul>
 <li><strong>Java</strong>: com.epam.jdi.light.ui.html.complex.Checklist</li>
-<li><strong>C</strong>#: JDI.Light.Elements.Complex.CheckList </li>
+<li><strong>C</strong>#: JDI.Light.Elements.Common.CheckList </li>
 </ul>
 
 <p>See an example with a given HTML code describing checklist element.</p>
@@ -3231,22 +3281,15 @@ Datalist element contains a set of options with values available for entering.</
     <span class="n">weatherNoLocator</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="s">"Hot option"</span><span class="o">);</span>
 <span class="o">}</span>
 </code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[FindBy(Css = "div:nth-child(11) &gt; div.html-left")]</span>
-<span class="k">public</span> <span class="n">ICheckList</span> <span class="n">weather</span><span class="p">;</span>
+<span class="k">public</span> <span class="n">ICheckList</span> <span class="n">WeatherCheckList</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
 
 <span class="na">[Test]</span>
 <span class="k">public</span> <span class="k">void</span> <span class="nf">CheckCheckList</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="n">weather</span><span class="p">.</span><span class="nf">Check</span><span class="p">(</span><span class="s">"Cold"</span><span class="p">,</span> <span class="s">"Hot option"</span><span class="p">);</span>
-    <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">CollectionEquals</span><span class="p">(</span><span class="k">new</span><span class="p">[]</span> <span class="p">{</span> <span class="s">"Cold"</span><span class="p">,</span> <span class="s">"Hot option"</span> <span class="p">},</span> <span class="n">weather</span><span class="p">.</span><span class="nf">Checked</span><span class="p">());</span>
+       <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">WeatherCheckList</span><span class="p">.</span><span class="nf">Check</span><span class="p">(</span><span class="k">new</span><span class="p">[]</span> <span class="p">{</span> <span class="s">"cold"</span><span class="p">,</span> <span class="s">"sunny-day"</span> <span class="p">});</span>
+       <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">WeatherCheckList</span><span class="p">.</span><span class="nf">Uncheck</span><span class="p">(</span><span class="s">"cold"</span><span class="p">);</span>
+       <span class="n">Assert</span><span class="p">.</span><span class="nf">IsFalse</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">WeatherCheckList</span><span class="p">.</span><span class="nf">IsChecked</span><span class="p">(</span><span class="s">"cold"</span><span class="p">));</span>
 <span class="p">}</span>
-
-<span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">UncheckNumTest</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="n">weather</span><span class="p">.</span><span class="nf">Uncheck</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">3</span><span class="p">);</span>
-    <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">CollectionEquals</span><span class="p">(</span><span class="k">new</span><span class="p">[]</span> <span class="p">{</span> <span class="s">"Cold"</span><span class="p">,</span> <span class="s">"Sunny"</span> <span class="p">},</span> <span class="n">_weather</span><span class="p">.</span><span class="nf">Checked</span><span class="p">());</span>
-<span class="p">}</span>
-
 </code></pre>
 <p><img src="images/html/checklist_html.png" alt="Checklist Example" /></p>
 
@@ -3261,17 +3304,12 @@ Datalist element contains a set of options with values available for entering.</
 </thead><tbody>
 <tr>
 <td><strong>check(String.../Enum/int...)</strong></td>
-<td>Check checkboxes</td>
+<td>Select checkboxes</td>
 <td>void</td>
 </tr>
 <tr>
 <td><strong>uncheck(String.../Enum/int...)</strong></td>
 <td>Unselect checkboxes</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>select(String.../Enum/int...)</strong></td>
-<td>Select checkboxes</td>
 <td>void</td>
 </tr>
 <tr>
@@ -3301,18 +3339,23 @@ Datalist element contains a set of options with values available for entering.</
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>Check(params string[]/params int[])</strong></td>
-<td>Check checklist by values/indexes</td>
+<td><strong>Check(string[]/int[])</strong></td>
+<td>Select checklist by values/indexes</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>Uncheck(params string[]/params int[])</strong></td>
+<td><strong>Check(string/int)</strong></td>
+<td>Select checklist by value/index</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>Uncheck(string[]/int[])</strong></td>
 <td>Unselect checklist by values/indexes</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>Uncheck(params string[]/params int[])</strong></td>
-<td>Select checklist by values/indexes</td>
+<td><strong>Uncheck(string/int)</strong></td>
+<td>Unselect checklist by value/index</td>
 <td>void</td>
 </tr>
 <tr>
@@ -3326,7 +3369,7 @@ Datalist element contains a set of options with values available for entering.</
 <td>void</td>
 </tr>
 <tr>
-<td><strong>Checked()</strong></td>
+<td><strong>GetChecked()</strong></td>
 <td>Get selected checkboxes from checklist value</td>
 <td>string[]</td>
 </tr>
@@ -3344,7 +3387,7 @@ Datalist element contains a set of options with values available for entering.</
 
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/ChecklistTests.java">Java test examples</a></p>
 
-<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Complex/CheckListTests.cs">C# test examples</a></p>
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/CheckListTests.cs">C# test examples</a></p>
 <h3 id='multiselector'>MultiSelector</h3>
 <p><strong>MultiSelector</strong> – a graphical control element, that allows the user to do multiple choice.
 Multi Selector are represented by the following class:</p>

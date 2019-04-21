@@ -756,39 +756,62 @@ Just download one the templates from <a href='https://github.com/jdi-templates' 
 <p><a href='https://github.com/jdi-templates/jdi-light-junit-template' target="_blank">Github link</a> <br/></p>
 <h3 id='csharp-nunit'>CSharp + NUnit</h3>
 <p><a href='https://github.com/jdi-templates/jdi-light-csharp-template' target="_blank">Github link</a> <br/></p>
-<h2 id='how-to-improve-your-selenium-project-with-new-capabilities-in-few-minutes'>How to improve your Selenium project with new capabilities in few minutes</h2><h2 id='logging-and-reporting'>Logging and Reporting</h2><h1 id='tutorial'>Tutorial</h1><h2 id='integration'>Integration</h2>
-<p>This is set of simple tutorials that helps you to learn how to write tests fast with JDI Light <a href="https://github.com/jdi-testing/jdi-light">JDI Light</a>.<br/></p>
+<h2 id='how-to-improve-your-selenium-project-with-new-capabilities-in-few-minutes'>How to improve your Selenium project with new capabilities in few minutes</h2><h2 id='logging-and-reporting'>Logging and Reporting</h2><h1 id='tutorial'>Tutorial</h1>
+<p>In this tutorial, we’ll look at glance on <a href="https://github.com/jdi-testing/jdi-light">JDI Light</a>, a library that simplifies test automation, makes test run results stable, predictable and easy to maintain.<br/></p>
+<h2 id='integration'>Integration</h2>
+<p>Let’s start from the beginning and add JDI Light into our test project going through the setup step by step.<br/>
+Note: JDI Light also ships with a <a href="https://github.com/jdi-templates/jdi-light-testng-template">template project</a> that can be used to save us some time for the setup.</p>
 <h3 id='maven-dependencies'>Maven Dependencies</h3><pre class="highlight java tab-java"><code><span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span>
     <span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">com</span><span class="o">.</span><span class="na">epam</span><span class="o">.</span><span class="na">jdi</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
     <span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">jdi</span><span class="o">-</span><span class="n">light</span><span class="o">-</span><span class="n">html</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
     <span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="n">RELEASE</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
 <span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span>
 </code></pre>
-<p>In order to add JDI Light in to your project add in to the pom.xml file following dependency: <br/>
+<p>First, we need to add JDI Light in dependency in our pom.xml file: <br/>
 <em>The latest version can be found in the <a href="https://search.maven.org/classic/#search%7Cga%7C1%7Cjdi-light">Maven Central Repository</a></em><br/>
 <br/><br/></p>
-<h3 id='configuration'>Configuration</h3><pre class="highlight java tab-java"><code><span class="n">driver</span><span class="o">=</span><span class="n">chrome</span>
-<span class="err">#</span><span class="n">drivers</span><span class="o">.</span><span class="na">version</span><span class="o">=</span><span class="mf">2.23</span> <span class="o">|</span> <span class="n">LATEST</span><span class="err">–</span> <span class="n">by</span> <span class="k">default</span> <span class="n">latest</span>
-<span class="err">#</span><span class="n">timeout</span><span class="o">.</span><span class="na">wait</span><span class="o">.</span><span class="na">element</span><span class="o">=</span><span class="mi">10</span> <span class="err">–</span> <span class="n">timeout</span> <span class="n">in</span> <span class="n">seconds</span> <span class="n">to</span> <span class="n">wait</span> <span class="n">element</span> <span class="n">on</span> <span class="n">opened</span> <span class="n">page</span>
-<span class="err">#</span><span class="n">timeout</span><span class="o">.</span><span class="na">wait</span><span class="o">.</span><span class="na">page</span><span class="o">=</span><span class="mi">60</span> <span class="err">–</span> <span class="n">timeout</span> <span class="n">in</span> <span class="n">seconds</span> <span class="n">to</span> <span class="n">open</span> <span class="n">a</span> <span class="k">new</span> <span class="n">page</span>
-<span class="n">domain</span><span class="o">=</span><span class="nl">https:</span><span class="c1">//epam.github.io/JDI/ – web application (used if you work with one application in tests)</span>
-<span class="err">#</span><span class="n">page</span><span class="o">.</span><span class="na">check</span><span class="o">.</span><span class="na">after</span><span class="o">.</span><span class="na">open</span><span class="o">=</span><span class="n">NONE</span> <span class="err">–</span> <span class="n">no</span> <span class="n">auto</span><span class="o">-</span><span class="n">validation</span> <span class="o">|</span> <span class="n">NEW_PAGE</span> <span class="err">–</span> <span class="n">will</span> <span class="n">validate</span> <span class="n">page</span> <span class="n">url</span> <span class="n">and</span> <span class="n">titile</span> <span class="n">utomatically</span> <span class="k">while</span> <span class="k">new</span> <span class="n">page</span> <span class="n">opens</span> <span class="o">|</span> <span class="n">EVERY_PAGE</span> <span class="err">–</span> <span class="n">validate</span> <span class="n">page</span> <span class="n">on</span> <span class="n">each</span> <span class="n">action</span>
-<span class="err">#</span><span class="n">page</span><span class="o">.</span><span class="na">load</span><span class="o">.</span><span class="na">strategy</span><span class="o">=</span><span class="n">normal</span> <span class="err">–</span> <span class="n">how</span> <span class="n">to</span> <span class="n">wait</span> <span class="n">page</span> <span class="n">load</span>
-<span class="err">#</span><span class="n">element</span><span class="o">.</span><span class="na">search</span><span class="o">.</span><span class="na">strategy</span><span class="o">=</span><span class="n">strict</span> <span class="o">|</span> <span class="n">soft</span> <span class="o">|</span> <span class="n">visible</span><span class="o">,</span> <span class="n">multiple</span> <span class="o">|</span> <span class="n">any</span><span class="o">,</span> <span class="n">single</span> <span class="err">–</span> <span class="n">how</span> <span class="n">to</span> <span class="n">find</span> <span class="n">element</span>
+<h3 id='configuration'>Configuration</h3>
+<p>That’s all! We don’t need to set up anything. By default, JDI Light will download Chrome driver automatically, setup it and run while we try to access the first page.<br/>
+We can change default settings placed in the test.properties file (src/test/resources)</p>
+<pre class="highlight java tab-java"><code><span class="n">driver</span><span class="o">=</span><span class="n">chrome</span>
+<span class="err">#</span><span class="n">drivers</span><span class="o">.</span><span class="na">version</span><span class="o">=</span><span class="mf">2.23</span> <span class="o">|</span> <span class="n">LATEST</span>
+<span class="err">#</span><span class="n">timeout</span><span class="o">.</span><span class="na">wait</span><span class="o">.</span><span class="na">element</span><span class="o">=</span><span class="mi">10</span>
+<span class="err">#</span><span class="n">timeout</span><span class="o">.</span><span class="na">wait</span><span class="o">.</span><span class="na">page</span><span class="o">=</span><span class="mi">30</span>
+<span class="n">domain</span><span class="o">=</span><span class="nl">http:</span><span class="c1">//www.baeldung.com/</span>
+<span class="err">#</span><span class="n">page</span><span class="o">.</span><span class="na">load</span><span class="o">.</span><span class="na">strategy</span><span class="o">=</span><span class="n">normal</span>
 <span class="err">#</span><span class="n">browser</span><span class="o">.</span><span class="na">size</span><span class="o">=</span><span class="n">MAXIMIZE</span> <span class="o">|</span> <span class="mi">1024</span><span class="n">x762</span>
+<span class="o">...</span>
 </code></pre>
-<p>To run tests in JDI you don’t need to setup anything. By default JDI will download Chrome driver automatically, setup it and run while you try to access some page.<br/>
-But if you would like to change default settings you can do this in test.properties file (src/test/resources). Here some typical settings.</p>
-<h2 id='simple-test-example'>Simple Test Example</h2><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">JDILightExample</span> <span class="o">{</span> 
-    <span class="kd">public</span> <span class="nf">openPage</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">WebPage</span><span class="o">.</span><span class="na">openUrl</span><span class="o">(</span><span class="s">"http://www.baeldung.com/"</span><span class="o">)</span>
-    <span class="o">}</span>
+<p>Let’s look on some of them in details:
+- <strong>driver</strong> –  we can set up where we would like to run our tests. Some typical options: chrome, firefox, ie… or we can just place it with <em>${driver}</em> and read the exact driver name from command line
+- <strong>drivers.version</strong> – by default JDI Light will download the latest version of drive for us but if we need a specific version we can put it here (in this case the framework will find and download exactly this version)
+- <strong>timeout.wait.element</strong> – timeout in seconds to wait for an element on the opened page. Default 10 seconds
+- <strong>timeout.wait.page</strong> – JDI Light automatically define that new page opened and in this case will use this timeout (usually it is more than for element). By default 30 seconds.
+- <strong>domain</strong> – web application root URL (used if we work with one application in tests). Can be also read from the command line like <em>${domain}</em>
+- <strong>page.load.strategy</strong> – like in Selenium strategies to load the page. Options: <em>normal, eager, none</em>
+- <strong>browser.size</strong> – the size of the tested browser. By default, JDI Light will maximize browser, but we can set exact values
+<em>Note: you can find more examples in the documentation.</em></p>
+<h2 id='simple-test-example'>Simple Test Example</h2><pre class="highlight java tab-java"><code><span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">openJDITestSite</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">openUrl</span><span class="o">(</span><span class="s">"https://jdi-testing.github.io/jdi-light/"</span><span class="o">);</span>
 <span class="o">}</span>
 </code></pre>
-<p>Simple test to open http://www.baeldung.com/ site will look like this: <br/>
-You also can do all typical actions with browser using WebPage static methods like: <strong>getUrl(), getTitle(), back(), forward(), getHtml(), refresh()</strong><br/>
-And not so typical like <strong>scroll up/down/left/right/top/bottom</strong> and <strong>zoom</strong> the page.</p>
-<pre class="highlight java tab-java"><code><span class="nd">@JSite</span><span class="o">(</span><span class="s">"http://www.baeldung.com/"</span><span class="o">)</span>
+<p>Ok, now let’s write our first test case. We can open JDI Test Site (https://jdi-testing.github.io/jdi-light/) using a simple static method <em>openUrl</em> in <em>WebPage</em> class.<br/>
+In WebPage we can find other typical methods that helps us to operate with browser:<strong>getUrl(), getTitle(), back(), forward(), getHtml(), refresh()</strong>.<br/>
+And some not so typical like scroll <strong>up/down/left/right/top/bottom</strong> and <strong>zoom</strong> the page.</p>
+
+<p>Now write more complex test with login on Page and validate that we succesfully logged INNext, we will navigate to the About page using links in Menu and validate that page is opened.
+Every test should end with an assertion so let’s add it in our test.</p>
+<pre class="highlight java tab-java"><code><span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">loginAndOpenContactPage</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">openUrl</span><span class="o">(</span><span class="s">"https://jdi-testing.github.io/jdi-light/"</span><span class="o">);</span>
+    <span class="err">$</span><span class="o">(</span><span class="s">"img#user-icon"</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+    <span class="err">$</span><span class="o">(</span><span class="s">"#name"</span><span class="o">).</span><span class="na">sendKeys</span><span class="o">(</span><span class="s">"Roman"</span><span class="o">);</span>
+    <span class="err">$</span><span class="o">(</span><span class="s">"#password"</span><span class="o">).</span><span class="na">sendKeys</span><span class="o">(</span><span class="s">"Jdi1234"</span><span class="o">);</span>
+    <span class="err">$</span><span class="o">(</span><span class="s">"#login-button"</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+    <span class="err">$</span><span class="o">(</span><span class="s">"#user-name"</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="nd">@JSite</span><span class="o">(</span><span class="s">"http://www.baeldung.com/"</span><span class="o">)</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">SiteJdi</span> <span class="o">{</span>
     <span class="nd">@Url</span><span class="o">(</span><span class="s">"/"</span><span class="o">)</span> <span class="nd">@Title</span><span class="o">(</span><span class="s">"Baeldung | Java, Spring and Web Development tutorials"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">HomePage</span> <span class="n">homePage</span><span class="o">;</span>

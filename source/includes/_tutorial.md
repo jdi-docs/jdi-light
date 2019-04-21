@@ -1,6 +1,8 @@
 # Tutorial
+In this tutorial, we’ll look at glance on [JDI Light](https://github.com/jdi-testing/jdi-light), a library that simplifies test automation, makes test run results stable, predictable and easy to maintain.<br/>
 ## Integration
-This is set of simple tutorials that helps you to learn how to write tests fast with JDI Light [JDI Light](https://github.com/jdi-testing/jdi-light).<br/>
+Let’s start from the beginning and add JDI Light into our test project going through the setup step by step.<br/>
+Note: JDI Light also ships with a [template project](https://github.com/jdi-templates/jdi-light-testng-template) that can be used to save us some time for the setup.
 ### Maven Dependencies
 
 ```java 
@@ -10,36 +12,58 @@ This is set of simple tutorials that helps you to learn how to write tests fast 
     <version>RELEASE</version>
 </dependency>
 ```
-In order to add JDI Light in to your project add in to the pom.xml file following dependency: <br/>
+First, we need to add JDI Light in dependency in our pom.xml file: <br/>
 _The latest version can be found in the [Maven Central Repository](https://search.maven.org/classic/#search%7Cga%7C1%7Cjdi-light)_<br/>
 <br/><br/>
 ### Configuration
+That’s all! We don’t need to set up anything. By default, JDI Light will download Chrome driver automatically, setup it and run while we try to access the first page.<br/>
+We can change default settings placed in the test.properties file (src/test/resources)
 
 ```java
 driver=chrome
-#drivers.version=2.23 | LATEST– by default latest
-#timeout.wait.element=10 – timeout in seconds to wait element on opened page
-#timeout.wait.page=60 – timeout in seconds to open a new page
-domain=https://epam.github.io/JDI/ – web application (used if you work with one application in tests)
-#page.check.after.open=NONE – no auto-validation | NEW_PAGE – will validate page url and titile utomatically while new page opens | EVERY_PAGE – validate page on each action
-#page.load.strategy=normal – how to wait page load
-#element.search.strategy=strict | soft | visible, multiple | any, single – how to find element
+#drivers.version=2.23 | LATEST
+#timeout.wait.element=10
+#timeout.wait.page=30
+domain=http://www.baeldung.com/
+#page.load.strategy=normal
 #browser.size=MAXIMIZE | 1024x762
+...
 ```
-To run tests in JDI you don’t need to setup anything. By default JDI will download Chrome driver automatically, setup it and run while you try to access some page.<br/>
-But if you would like to change default settings you can do this in test.properties file (src/test/resources). Here some typical settings.
+Let’s look on some of them in details:
+- **driver** –  we can set up where we would like to run our tests. Some typical options: chrome, firefox, ie… or we can just place it with _${driver}_ and read the exact driver name from command line
+- **drivers.version** – by default JDI Light will download the latest version of drive for us but if we need a specific version we can put it here (in this case the framework will find and download exactly this version)
+- **timeout.wait.element** – timeout in seconds to wait for an element on the opened page. Default 10 seconds
+- **timeout.wait.page** – JDI Light automatically define that new page opened and in this case will use this timeout (usually it is more than for element). By default 30 seconds.
+- **domain** – web application root URL (used if we work with one application in tests). Can be also read from the command line like _${domain}_
+- **page.load.strategy** – like in Selenium strategies to load the page. Options: _normal, eager, none_
+- **browser.size** – the size of the tested browser. By default, JDI Light will maximize browser, but we can set exact values
+_Note: you can find more examples in the documentation._
 ## Simple Test Example
 
 ```java
-public class JDILightExample { 
-    public openPage() {
-        WebPage.openUrl("http://www.baeldung.com/")
-    }
+@Test
+public void openJDITestSite() {
+    openUrl("https://jdi-testing.github.io/jdi-light/");
 }
 ```
-Simple test to open http://www.baeldung.com/ site will look like this: <br/>
-You also can do all typical actions with browser using WebPage static methods like: **getUrl(), getTitle(), back(), forward(), getHtml(), refresh()**<br/>
-And not so typical like **scroll up/down/left/right/top/bottom** and **zoom** the page.
+Ok, now let’s write our first test case. We can open JDI Test Site (https://jdi-testing.github.io/jdi-light/) using a simple static method _openUrl_ in _WebPage_ class.<br/>
+In WebPage we can find other typical methods that helps us to operate with browser:**getUrl(), getTitle(), back(), forward(), getHtml(), refresh()**.<br/>
+And some not so typical like scroll **up/down/left/right/top/bottom** and **zoom** the page.
+
+Now write more complex test with login on Page and validate that we succesfully logged INNext, we will navigate to the About page using links in Menu and validate that page is opened.
+Every test should end with an assertion so let’s add it in our test.
+
+```java
+@Test
+public void loginAndOpenContactPage() {
+    openUrl("https://jdi-testing.github.io/jdi-light/");
+    $("img#user-icon").click();
+    $("#name").sendKeys("Roman");
+    $("#password").sendKeys("Jdi1234");
+    $("#login-button").click();
+    $("#user-name").is().displayed();
+}
+```
 
 ```java
 @JSite("http://www.baeldung.com/")

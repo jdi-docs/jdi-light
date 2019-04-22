@@ -495,6 +495,15 @@ Available method in C# JDI Light:
 --- | --- | ---
 **SelectFile(string filepath)** |Select file to upload  | void
 
+Available assert methods in C# JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**IsDownloaded()** |Checks whether a file is downloaded  | FileAssert
+**Text(Matcher<string> value)** | Checks whether an occurence of a text is contained in a text file | FileAssert
+**HasSize(Matcher<long> size)** | Checks that a file has a particular size according to the matcher | FileAssert
+**CleanupDownloads()** | Cleans the directory | void
+
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/FileUploadTests.java)
 
 [C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/FileInputTests.cs)

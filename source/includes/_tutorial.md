@@ -154,7 +154,7 @@ Now we can write our test using this UI Objects and execute it<br/><br/>
 - This test scenario is pretty clear and based on real UI elements<br/>
 - We can easily update elements on UI Objects without going through all tests<br/>
 - We have all meta data about pages in one place and can open them and validate from tests without urls and title duplication in code <br/>
-- JDI Light tests are stable and will not fail in cases where Selenium throws exceptions (like _StaleElement_ or _NoSuchElement_)<br/>
+- JDI Light tests are stable and will not fail in cases where Selenium throws exceptions (like _StaleElement_ or _NoSuchElement_)<br/><br/><br/>
 - We will get the following text in the log: <br/>
 Exactly what we do in our test with all the details and without any effort from our side. Fabulous! <br/>
 <br/><br/><br/><br/>

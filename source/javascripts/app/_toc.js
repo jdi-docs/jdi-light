@@ -6,6 +6,15 @@
   var htmlPattern = /<[^>]*>/g;
   var loaded = false;
 
+  $(document).scroll(function() {
+    var y = $(this).scrollTop();
+    if (y > 800) {
+      $('.up').fadeIn();
+    } else {
+      $('.up').fadeOut();
+    }
+  });
+
   var debounce = function(func, waitTime) {
     var timeout = false;
     return function() {
@@ -21,7 +30,8 @@
 
   var closeToc = function() {
     $(".toc-wrapper").removeClass('open');
-    $("#nav-button").removeClass('open');
+    $(".nav-button").removeClass('open');
+    $(".panel-left").removeClass('expand');
   };
 
   function loadToc($toc, tocLinkSelector, tocListSelector, scrollOffset) {
@@ -93,9 +103,10 @@
       recacheHeights();
       refreshToc();
 
-      $("#nav-button").click(function() {
+      $(".nav-button").click(function() {
         $(".toc-wrapper").toggleClass('open');
-        $("#nav-button").toggleClass('open');
+        $(".nav-button").toggleClass('open');
+       $(".panel-left").toggleClass('expand');
         return false;
       });
       $(".page-wrapper").click(closeToc);

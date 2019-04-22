@@ -48,10 +48,6 @@ _Note: you can find more examples in the documentation._ <br/>
 @Test
 public void openJDITestSite() {
     openUrl("https://jdi-testing.github.io/jdi-light/");
-    WebPage.getUrl(); // WebPage.getTitle();
-    WebPage.back();   // WebPage.forward();
-    WebPage.getHtml();
-    WebPage.refresh();    
 }
 ```
 Ok, now let’s write our first test case. We can open JDI Test Site (https://jdi-testing.github.io/jdi-light/) using a simple static method _openUrl_ in _WebPage_ class.<br/>
@@ -61,7 +57,7 @@ And some not so typical like scroll **up/down/left/right/top/bottom** and **zoom
 ### Simple test scenario
 ```java
 @Test
-public void loginAndOpenContactPage() {
+public void loginSimpleTest() {
     openUrl("https://jdi-testing.github.io/jdi-light/");
     $("img#user-icon").click();
     $("#name").sendKeys("Roman");
@@ -73,7 +69,7 @@ public void loginAndOpenContactPage() {
 Now we can write more complex typical test: login on Page.<br/>
 Every test should end with an assertion so let’s add it in our test. </br>
 Code like this is easy to write but! it will be hard to maintain while the number of tests grows and used in tests elements should be reused. For example, if we have element $(“.menu-about a”) in 10+ tests and locator is changed, we must go through all the tests and correct locator...</br>
-<a href="https://github.com/jdi-tutorials/01-jdi-light-intro/blob/master/src/test/java/nopageobjects/tests/JDILightExample.java" target="_blank">See examples above on Github</a>
+<a href="https://github.com/jdi-tutorials/01-jdi-light-intro/blob/master/src/test/java/nopageobjects/tests/JDILightExample.java" target="_blank">See examples above on Github</a></br>
 Page Objects will help us.
 
 ### Page Objects
@@ -132,7 +128,7 @@ And the last thing before writing a test that should be done once – init all U
 ```java
 public class PageObjectExample implements TestsInit {
     @Test
-    public void openPage() {
+    public void loginTest() {
         homePage.open();
         userIcon.click();
         name.sendKeys("Roman");
@@ -142,11 +138,6 @@ public class PageObjectExample implements TestsInit {
     }
 }
 ```
-Now we can write our test using this UI Objects and execute it<br/>
-- This is test scenario is pretty clear <br/>
-- We can easily update elements on UI Objects without going through all tests<br/>
-- We have all meta data about pages in one place and can open them and validate from tests without urls and title duplication in code <br/>
-- JDI Light tests are stable: that means that if by some reaons Selenium can't perform and action with element, JDI Light will retry to find element and re-execute an action <br/>
 
 ```
 [INFO 29:11.362] : Open 'Home Page'(url=https://www.baeldung.com/) (SiteJdi.homePage (url=https://www.baeldung.com/; title=))
@@ -155,6 +146,11 @@ Now we can write our test using this UI Objects and execute it<br/>
 [INFO 29:19.507] : Check that 'About Page' is opened (url CONTAINS '/about/'; title EQUALS 'About Baeldung | Baeldung') 
     (SiteJdi.aboutPage (url=https://www.baeldung.com/about/; title=About Baeldung | Baeldung))
 ```
+Now we can write our test using this UI Objects and execute it<br/>
+- This test scenario is pretty clear <br/>
+- We can easily update elements on UI Objects without going through all tests<br/>
+- We have all meta data about pages in one place and can open them and validate from tests without urls and title duplication in code <br/>
+- JDI Light tests are stable: that means that if by some reaons Selenium can't perform and action with element, JDI Light will retry to find element and re-execute an action <br/>
 - We will get the following text in the log: <br/>
 Exactly what we do in our test with all the details and without any effort from our side. Fabulous! <br/>
 <br/><br/><br/>
@@ -167,7 +163,7 @@ Exactly what we do in our test with all the details and without any effort from 
     title EQUALS 'About Baeldung | Baeldung')
 ```
 We can change the log level to STEP (just add logger.setLogLevel(STEP) in to setUp() method) and remove details. This log can be shared with our Customer or Manual QA and let them know what our Automated tests verify.<br/><br/><br/>
-<a href="https://github.com/jdi-tutorials/01-jdi-light-intro" target="_blank">See PageObject exampels in PageObjectExample.java on Github</a>
+<a href="https://github.com/jdi-tutorials/01-jdi-light-intro" target="_blank">See PageObject examples in PageObjectExample.java on Github</a>
 
 ## 3. JDI Light Forms
 ### Standard Login form
@@ -184,7 +180,7 @@ Let's move elements placed on Login Form in separate UI Object _LoginForm_<br/><
 
 ```java
 public class JDISite {
-    public static HomePage homePage;
+    @Url("/") public static HomePage homePage;
     public static LoginForm loginForm;
     ...
 }
@@ -193,7 +189,7 @@ And place LoginForm in root UI Object - JDI Site<br/><br/><br/>
 
 ```java
 @Test
-public void fillContactTest() {
+public void loginTest() {
     userIcon.click();
     loginForm.loginAs(ROMAN);
     userName.is().displayed();
@@ -207,7 +203,7 @@ public class User extends DataClass<User> {
 }
 ```
 User class is simple data class with two String fields that has same names as has TextFields in LoginForm. <br/>
-In this way you can fill any types of elements in form that can be filled: TextField, TextArea, Checkbox, DropDown etc. We will go through this in next the example.<br/>
+In this way you can fill any types of elements in form that can be filled: TextField, TextArea, Checkbox, DropDown etc. We will go through this in Contact Form example.<br/>
 
 ```java
 User ROMAN = new User().set(c -> {
@@ -220,101 +216,8 @@ For data class we can use any class but if we add _extends DataClass_ we will ge
 - Ability to fill User fields in any order and numbers without constructors with method _set_<br/>
 - Compare two users by equality of their fields and not by reference with method _equal_<br/>
 - Have good toString for User based on its fields<br/>
+<a href="https://github.com/jdi-tutorials/01-jdi-light-intro" target="_blank">See this example in LoginExample.java on Github</a>
 
-### Create PageObjects
-
-```java
-@Url("/") @Title(value = "Baeldung | Java", validate = CONTAINS)
-public class HomePage extends WebPage { }
-
-@Url("/contact") @Title("Contact Me | Baeldung")
-public class ContactPage extends WebPage {
-    @FindBy(css = "[name=first_name]") TextField firstName;
-    @FindBy(css = "[name=email]") TextField email;
-    @FindBy(css = "[name=message]") TextArea message;
-    @FindBy(xpath = "//*[text()='Send Your Message']") Button send;
-}
-```
-First we need to create 2 Page Objects: HomePage – from previous example and ContactPage with fields and button on it<br/>
-<br/><br/><br/><br/><br/><br/><br/><br/>
-
-```java
-public class ContactPage extends WebPage {
-    @Css("[name=first_name]") TextField firstName;
-    @Css("[name=email]") TextField email;
-    @Css("[name=message]") TextArea message;
-    @XPath("//*[text()='Send Your Message']") Button send;
-}
-public class ContactPage extends WebPage {
-    @UI("[name=first_name]") TextField firstName;
-    @UI("[name=email]") TextField email;
-    @UI("[name=message]") TextArea message;
-    @ByText("Send Your Message") Button send;
-}
-```
-But standard @Findby can be simplified in JDI annotations @Css and @XPath or even with universal @UI:<br/>
-<br/><br/><br/><br/><br/><br/><br/><br/><br/>
-
-```java
-@JSite("http://www.baeldung.com/")
-public class BaeldungSite {
-    public static HomePage homePage;
-    public static ContactPage contactPage;
-}
-```
-In this case our Site entity will look like this:
-<br/><br/><br/><br/>
-### Create Test Data
-
-```java
-public class ContactInfo extends DataClass<ContactInfo> {
-    public String firstName, email, message;
-}
-```
-We need to fill the form with some Contact information, let’s create an entity for it<br/>
-<br/>
-
-```java
-ContactInfo MY_CONTACT = new ContactInfo().set(c -> {
-        c.firstName = "Roman";
-        c.email = "roman.iovlev.jdi@gmail.com";
-        c.message = "Hi Baeldung!";} 
-);
-```
-And fill it with some data:<br/>
-_* You can put you entities in separate DataProvider file or just near the test if this is one time entity<br/>
-<br/>
-### Init Page Objects and Open BaeldungSite site
-
-```java
-public interface TestsInit {
-    static void setUp() {
-        logger.setLogLevel(STEP);
-        initElements(BaeldungSite.class);
-        homepage.open()
-    }
-}
-```
-Init all this pages and open home page of Baeldung site:<br/>
-_* For demo purposes we also set log level to STEP in order to have business actions level log. For more details you can change log level to INFO (by default) or DEBUG._<br/>
-<br/><br/><br/>
-### Write test scenario
-
-```java
-public class ContactsExample implements TestsInit {
-    @Test
-    public void fillContactTest() {
-        contactPage.open();
-        contactPage.asForm().send(MY_CONTACT);
-        contactPage.asForm().check(MY_CONTACT);
-    }
-}
-```
-And now we can write a test:<br/>
-    **0. Open Baeldung**<br/>
-    **1. Go to Contact page**<br/>
-    **2. Fill Contact Form**<br/>
-    **3. And validate that data in form is correct**<br/>
 ## Test run results
 ### Test scenario and log
 This simple 3 rows test will:<br/>

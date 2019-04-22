@@ -840,7 +840,7 @@ And one more good news. We can make elements on Page Object static and keep test
 </code></pre>
 <p>Page Objects in JDI Light called <strong>UI Objects</strong> and extends standard Selenium Page Objects capabilities with typified elements like Textfield, Button, Text etc. and additional meta information for pages like <strong>Url</strong> and <strong>Title</strong>. 
 Pretty simple and obvious isn’t it? Url for pages is relative from the site domain written in the @JSite annotation or in the test.properties (see abstract 2.2 in this article). <br/>
-<em>Note: We don&#39;t need ContactsPage, I just add it to illustrate Url and Title, but in any case will use it later</em> </p>
+<em>Note: We don&#39;t need ContactsPage in this example but in order illustrate <strong>@Url</strong> and <strong>@Title</strong> annotations it is placed here</em> </p>
 <pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">TestsInit</span> <span class="o">{</span>
     <span class="nd">@BeforeSuite</span><span class="o">(</span><span class="n">alwaysRun</span> <span class="o">=</span> <span class="kc">true</span><span class="o">)</span>
     <span class="kd">static</span> <span class="kt">void</span> <span class="nf">setUp</span><span class="o">()</span> <span class="o">{</span>
@@ -848,7 +848,8 @@ Pretty simple and obvious isn’t it? Url for pages is relative from the site do
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre>
-<p>And the last thing before writing a test that should be done once – init all UI Objects for our application. We can do this in the setup method that runs before all tests just in one line (in other frameworks we must write initElements for each Page Object). <br/>
+<p>And the last thing before writing a test that should be done once – init all UI Objects for our application. We can do this in the setup method that runs before all tests just in one line. <br/>
+<em>Note: in other frameworks we must write initElements for each Page Object</em> <br/>
 <br/><br/><br/></p>
 <pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">PageObjectExample</span> <span class="kd">implements</span> <span class="n">TestsInit</span> <span class="o">{</span>
     <span class="nd">@Test</span>
@@ -861,23 +862,24 @@ Pretty simple and obvious isn’t it? Url for pages is relative from the site do
         <span class="n">userName</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre><pre class="highlight plaintext"><code>[INFO 29:11.362] : Open 'Home Page'(url=https://www.baeldung.com/) (SiteJdi.homePage (url=https://www.baeldung.com/; title=))
-[INFO 29:17.702] : Click on 'Menu About' (HomePage.menuAbout (css='.menu-about a'))
-[INFO 29:17.918] : Click on 'About Baeldung' (HomePage.aboutBaeldung (xpath='//h3[contains(.,'About Baeldung')]'))
-[INFO 29:19.507] : Check that 'About Page' is opened (url CONTAINS '/about/'; title EQUALS 'About Baeldung | Baeldung') 
-    (SiteJdi.aboutPage (url=https://www.baeldung.com/about/; title=About Baeldung | Baeldung))
 
-[STEP 29:11.362] : Open 'Home Page'(url=https://www.baeldung.com/)
-[STEP 29:17.702] : Click on 'Menu About'
-[STEP 29:17.918] : Click on 'About Baeldung'
-[STEP 29:19.507] : Check that 'About Page' is opened (url CONTAINS '/about/'; 
-    title EQUALS 'About Baeldung | Baeldung')
+<span class="o">[</span><span class="n">INFO</span> <span class="mi">29</span><span class="o">:</span><span class="mf">11.362</span><span class="o">]</span> <span class="o">:</span> <span class="n">Open</span> <span class="err">'</span><span class="n">Home</span> <span class="n">Page</span><span class="err">'</span><span class="o">(</span><span class="n">url</span><span class="o">=</span><span class="nl">https:</span><span class="c1">//www.baeldung.com/) (SiteJdi.homePage (url=https://www.baeldung.com/; title=))</span>
+<span class="o">[</span><span class="n">INFO</span> <span class="mi">29</span><span class="o">:</span><span class="mf">17.702</span><span class="o">]</span> <span class="o">:</span> <span class="n">Click</span> <span class="n">on</span> <span class="err">'</span><span class="n">Menu</span> <span class="n">About</span><span class="err">'</span> <span class="o">(</span><span class="n">HomePage</span><span class="o">.</span><span class="na">menuAbout</span> <span class="o">(</span><span class="n">css</span><span class="o">=</span><span class="err">'</span><span class="o">.</span><span class="na">menu</span><span class="o">-</span><span class="n">about</span> <span class="n">a</span><span class="err">'</span><span class="o">))</span>
+<span class="o">[</span><span class="n">INFO</span> <span class="mi">29</span><span class="o">:</span><span class="mf">17.918</span><span class="o">]</span> <span class="o">:</span> <span class="n">Click</span> <span class="n">on</span> <span class="err">'</span><span class="n">About</span> <span class="n">Baeldung</span><span class="err">'</span> <span class="o">(</span><span class="n">HomePage</span><span class="o">.</span><span class="na">aboutBaeldung</span> <span class="o">(</span><span class="n">xpath</span><span class="o">=</span><span class="err">'</span><span class="c1">//h3[contains(.,'About Baeldung')]'))</span>
+<span class="o">[</span><span class="n">INFO</span> <span class="mi">29</span><span class="o">:</span><span class="mf">19.507</span><span class="o">]</span> <span class="o">:</span> <span class="n">Check</span> <span class="n">that</span> <span class="err">'</span><span class="n">About</span> <span class="n">Page</span><span class="err">'</span> <span class="n">is</span> <span class="nf">opened</span> <span class="o">(</span><span class="n">url</span> <span class="n">CONTAINS</span> <span class="err">'</span><span class="o">/</span><span class="n">about</span><span class="o">/</span><span class="err">'</span><span class="o">;</span> <span class="n">title</span> <span class="n">EQUALS</span> <span class="err">'</span><span class="n">About</span> <span class="n">Baeldung</span> <span class="o">|</span> <span class="n">Baeldung</span><span class="err">'</span><span class="o">)</span> 
+    <span class="o">(</span><span class="n">SiteJdi</span><span class="o">.</span><span class="na">aboutPage</span> <span class="o">(</span><span class="n">url</span><span class="o">=</span><span class="nl">https:</span><span class="c1">//www.baeldung.com/about/; title=About Baeldung | Baeldung))</span>
+
+<span class="o">[</span><span class="n">STEP</span> <span class="mi">29</span><span class="o">:</span><span class="mf">11.362</span><span class="o">]</span> <span class="o">:</span> <span class="n">Open</span> <span class="err">'</span><span class="n">Home</span> <span class="n">Page</span><span class="err">'</span><span class="o">(</span><span class="n">url</span><span class="o">=</span><span class="nl">https:</span><span class="c1">//www.baeldung.com/)</span>
+<span class="o">[</span><span class="n">STEP</span> <span class="mi">29</span><span class="o">:</span><span class="mf">17.702</span><span class="o">]</span> <span class="o">:</span> <span class="n">Click</span> <span class="n">on</span> <span class="err">'</span><span class="n">Menu</span> <span class="n">About</span><span class="err">'</span>
+<span class="o">[</span><span class="n">STEP</span> <span class="mi">29</span><span class="o">:</span><span class="mf">17.918</span><span class="o">]</span> <span class="o">:</span> <span class="n">Click</span> <span class="n">on</span> <span class="err">'</span><span class="n">About</span> <span class="n">Baeldung</span><span class="err">'</span>
+<span class="o">[</span><span class="n">STEP</span> <span class="mi">29</span><span class="o">:</span><span class="mf">19.507</span><span class="o">]</span> <span class="o">:</span> <span class="n">Check</span> <span class="n">that</span> <span class="err">'</span><span class="n">About</span> <span class="n">Page</span><span class="err">'</span> <span class="n">is</span> <span class="nf">opened</span> <span class="o">(</span><span class="n">url</span> <span class="n">CONTAINS</span> <span class="err">'</span><span class="o">/</span><span class="n">about</span><span class="o">/</span><span class="err">'</span><span class="o">;</span> 
+    <span class="n">title</span> <span class="n">EQUALS</span> <span class="err">'</span><span class="n">About</span> <span class="n">Baeldung</span> <span class="o">|</span> <span class="n">Baeldung</span><span class="err">'</span><span class="o">)</span>
 </code></pre>
-<p>Now we can write our test using this UI Objects and execute it<br/>
-- This test scenario is pretty clear <br/>
+<p>Now we can write our test using this UI Objects and execute it<br/><br/>
+- This test scenario is pretty clear and based on real UI elements<br/>
 - We can easily update elements on UI Objects without going through all tests<br/>
 - We have all meta data about pages in one place and can open them and validate from tests without urls and title duplication in code <br/>
-- JDI Light tests are stable: that means that if by some reaons Selenium can&#39;t perform and action with element, JDI Light will retry to find element and re-execute an action <br/>
+- JDI Light tests are stable and will not fail in cases where Selenium throws exceptions (like <em>StaleElement</em> or <em>NoSuchElement</em>)<br/>
 - We will get the following text in the log: <br/>
 Exactly what we do in our test with all the details and without any effort from our side. Fabulous! <br/>
 <br/><br/><br/><br/></p>

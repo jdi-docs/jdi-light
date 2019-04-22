@@ -82,14 +82,6 @@ public class HomePage extends WebPage {
     @FindBy(id = "login-button") public WebElement loginButton;
     @FindBy(id = "user-name") public WebElement userName;
 }
-```
-Let’s develop our first simple Page Objects and see how our test case will look like. We Home Page with list few elements: <br/>
-- **user icon** - to open Login Form <br/>
-- **name, password** - two textfield on Login form<br/>
-- **login button** - button for Login<br/>
-- **user name** - element that will appear on after success login<br/>
-
-```java
 public class HomePage extends WebPage {
     @UI("img#user-icon") public static Link userIcon;
     @UI("#name") public static TextField name;
@@ -98,9 +90,15 @@ public class HomePage extends WebPage {
     @UI("#user-name") public static Text userName;
 }
 ```
+Let’s develop our first simple Page Objects and see how our test case will look like. We Home Page with list few elements: <br/>
+- **user icon** - to open Login Form <br/>
+- **name, password** - two textfield on Login form<br/>
+- **login button** - button for Login<br/>
+- **user name** - element that will appear on after success login<br/>
+
 In order to make the code simple in JDI Light, we can use unified annotations **@UI("...")** that handle both Css and XPath locators and reduce the length of our code. <br/>
 And of course we can use one of the main JDI Light feature: Typified elements like **TextField, Button, Text**. <br/>
-And one more good news. We can make elements on Page Object static and keep tests more clear and obvious. <br/></br></br></br>
+And one more good news. We can make elements on Page Object static and keep tests more clear and obvious. <br/></br>
 
 ```java
 @JSite("https://jdi-testing.github.io/jdi-light/")
@@ -110,7 +108,7 @@ public class SiteJdi {
     public static ContactsPage contactPage;
 }
 ```
-Page Objects in JDI Light called UI Objects and extends standard Selenium Page Objects capabilities with typified elements like Textfield, Button, Text etc. and additional meta information for pages like **Url** and **Title**. 
+Page Objects in JDI Light called **UI Objects** and extends standard Selenium Page Objects capabilities with typified elements like Textfield, Button, Text etc. and additional meta information for pages like **Url** and **Title**. 
 Pretty simple and obvious isn’t it? Url for pages is relative from the site domain written in the @JSite annotation or in the test.properties (see abstract 2.2 in this article). <br/>
 _Note: We don't need ContactsPage, I just add it to illustrate Url and Title, but in any case will use it later_ 
 
@@ -159,7 +157,7 @@ Now we can write our test using this UI Objects and execute it<br/>
 - JDI Light tests are stable: that means that if by some reaons Selenium can't perform and action with element, JDI Light will retry to find element and re-execute an action <br/>
 - We will get the following text in the log: <br/>
 Exactly what we do in our test with all the details and without any effort from our side. Fabulous! <br/>
-<br/><br/><br/>
+<br/><br/><br/><br/>
 
 We can change the log level to STEP (just add logger.setLogLevel(STEP) in to setUp() method) and remove details. This log can be shared with our Customer or Manual QA and let them know what our Automated tests verify.<br/><br/><br/>
 <a href="https://github.com/jdi-tutorials/01-jdi-light-intro" target="_blank">See PageObject examples in PageObjectExample.java on Github</a>
@@ -194,7 +192,7 @@ User ROMAN = new User().set(c -> {
 Output: ROMAN.toString() --> User(name:Roman; password:Jdi1234)
 ```
 Pretty good. Now we will optimize previous example using forms. <br/>
-Let's move elements placed on Login Form in separate UI Object _LoginForm_<br/><br/>
+Let's move elements placed on Login Form in separate UI Object _LoginForm_<br/><br/><br/>
 
 And place LoginForm in root UI Object - JDI Site<br/><br/><br/>
 

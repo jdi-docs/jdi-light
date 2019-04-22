@@ -123,7 +123,7 @@ public interface TestsInit {
 }
 ```
 And the last thing before writing a test that should be done once – init all UI Objects for our application. We can do this in the setup method that runs before all tests just in one line (in other frameworks we must write initElements for each Page Object). <br/>
-<br/><br/>
+<br/><br/><br/><br/>
 
 ```java
 public class PageObjectExample implements TestsInit {
@@ -156,13 +156,13 @@ Exactly what we do in our test with all the details and without any effort from 
 <br/><br/><br/>
 
 ```
-[INFO 29:11.362] : Open 'Home Page'(url=https://www.baeldung.com/) (SiteJdi.homePage (url=https://www.baeldung.com/; title=))
-[INFO 29:17.702] : Click on 'Menu About' (HomePage.menuAbout (css='.menu-about a'))
-[INFO 29:17.918] : Click on 'About Baeldung' (HomePage.aboutBaeldung (xpath='//h3[contains(.,'About Baeldung')]'))
-[INFO 29:19.507] : Check that 'About Page' is opened (url CONTAINS '/about/'; title EQUALS 'About Baeldung | Baeldung') 
-    (SiteJdi.aboutPage (url=https://www.baeldung.com/about/; title=About Baeldung | Baeldung))
+[STEP 29:11.362] : Open 'Home Page'(url=https://www.baeldung.com/)
+[STEP 29:17.702] : Click on 'Menu About'
+[STEP 29:17.918] : Click on 'About Baeldung'
+[STEP 29:19.507] : Check that 'About Page' is opened (url CONTAINS '/about/'; 
+    title EQUALS 'About Baeldung | Baeldung')
 ```
-We can change the log level to STEP (just add logger.setLogLevel(STEP) in to setUp() method) and remove details. This log can be shared with our Customer or Manual QA and let them know what our Automated tests verify.
+We can change the log level to STEP (just add logger.setLogLevel(STEP) in to setUp() method) and remove details. This log can be shared with our Customer or Manual QA and let them know what our Automated tests verify.<br/><br/><br/>
 
 ### Fill Contact Form Example
 Now let’s look on more complex case:<br/>

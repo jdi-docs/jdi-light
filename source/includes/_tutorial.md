@@ -112,7 +112,7 @@ public class SiteJdi {
 ```
 Page Objects in JDI Light called UI Objects and extends standard Selenium Page Objects capabilities with typified elements like Textfield, Button, Text etc. and additional meta information for pages like **Url** and **Title**. 
 Pretty simple and obvious isn’t it? Url for pages is relative from the site domain written in the @JSite annotation or in the test.properties (see abstract 2.2 in this article). <br/>
-_Note: We don't need ContactsPage, I just add it to illustrate Url and Title, but in any case will use it later_ <br/>
+_Note: We don't need ContactsPage, I just add it to illustrate Url and Title, but in any case will use it later_ 
 
 ```java
 public interface TestsInit {
@@ -138,7 +138,7 @@ public class PageObjectExample implements TestsInit {
     }
 }
 ```
-Now we can write our test using this UI Objects and execute it
+Now we can write our test using this UI Objects and execute it<br/>
 - This is test scenario is pretty clear <br/>
 - We can easily update elements on UI Objects without going through all tests<br/>
 - We have all meta data about pages in one place and can open them and validate from tests without urls and title duplication in code <br/>

@@ -1665,6 +1665,37 @@ Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
 </tr>
 </tbody></table>
 
+<p>Available assert methods in C# JDI Light:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>IsDownloaded()</strong></td>
+<td>Checks whether a file is downloaded</td>
+<td>FileAssert</td>
+</tr>
+<tr>
+<td><strong>Text(Matcher<string> value)</strong></td>
+<td>Checks whether an occurence of a text is contained in a text file</td>
+<td>FileAssert</td>
+</tr>
+<tr>
+<td><strong>HasSize(Matcher<long> size)</strong></td>
+<td>Checks that a file has a particular size according to the matcher</td>
+<td>FileAssert</td>
+</tr>
+<tr>
+<td><strong>CleanupDownloads()</strong></td>
+<td>Cleans the directory</td>
+<td>void</td>
+</tr>
+</tbody></table>
+
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/FileUploadTests.java">Java test examples</a></p>
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/FileInputTests.cs">C# test examples</a></p>

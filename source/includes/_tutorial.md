@@ -1,6 +1,6 @@
 # Tutorial
 In this tutorial, we’ll look at glance on [JDI Light](https://github.com/jdi-testing/jdi-light), a library that simplifies test automation, makes test run results stable, predictable and easy to maintain.<br/>
-## Integration
+## 1. Integration
 Let’s start from the beginning and add JDI Light into our test project going through the setup step by step.<br/>
 Note: JDI Light also ships with a [template project](https://github.com/jdi-templates/jdi-light-testng-template) that can be used to save us some time for the setup.
 ### Maven Dependencies
@@ -39,8 +39,10 @@ Let’s look on some of them in details: <br/>
 - **page.load.strategy** – like in Selenium strategies to load the page. Options: _normal, eager, none_ <br/>
 - **browser.size** – the size of the tested browser. By default, JDI Light will maximize browser, but we can set exact values
 _Note: you can find more examples in the documentation._ <br/>
-## JDI Light Examples
-### Simple Test Examples
+<a href="https://github.com/jdi-tutorials/01-jdi-light-intro/blob/master/src/test/resources/test.properties" target="_blank">See examples on Github</a>
+
+## 2. JDI Light at glance
+### Let's start
 
 ```java
 @Test
@@ -56,6 +58,7 @@ Ok, now let’s write our first test case. We can open JDI Test Site (https://jd
 In WebPage we can find other typical methods that helps us to operate with browser:**getUrl(), getTitle(), back(), forward(), getHtml(), refresh()**.<br/>
 And some not so typical like scroll **up/down/left/right/top/bottom** and **zoom** the page.
 
+### Simple test scenario
 ```java
 @Test
 public void loginAndOpenContactPage() {
@@ -70,6 +73,7 @@ public void loginAndOpenContactPage() {
 Now we can write more complex typical test: login on Page.<br/>
 Every test should end with an assertion so let’s add it in our test. </br>
 Code like this is easy to write but! it will be hard to maintain while the number of tests grows and used in tests elements should be reused. For example, if we have element $(“.menu-about a”) in 10+ tests and locator is changed, we must go through all the tests and correct locator...</br>
+<a href="https://github.com/jdi-tutorials/01-jdi-light-intro/blob/master/src/test/java/nopageobjects/tests/JDILightExample.java" target="_blank">See examples above on Github</a>
 Page Objects will help us.
 
 ### Page Objects
@@ -123,7 +127,7 @@ public interface TestsInit {
 }
 ```
 And the last thing before writing a test that should be done once – init all UI Objects for our application. We can do this in the setup method that runs before all tests just in one line (in other frameworks we must write initElements for each Page Object). <br/>
-<br/><br/><br/><br/>
+<br/><br/><br/>
 
 ```java
 public class PageObjectExample implements TestsInit {
@@ -163,14 +167,60 @@ Exactly what we do in our test with all the details and without any effort from 
     title EQUALS 'About Baeldung | Baeldung')
 ```
 We can change the log level to STEP (just add logger.setLogLevel(STEP) in to setUp() method) and remove details. This log can be shared with our Customer or Manual QA and let them know what our Automated tests verify.<br/><br/><br/>
+<a href="https://github.com/jdi-tutorials/01-jdi-light-intro" target="_blank">See PageObject exampels in PageObjectExample.java on Github</a>
 
-### Fill Contact Form Example
-Now let’s look on more complex case:<br/>
-    **0. Open Baeldung**<br/>
-    **1. Go to Contact page**<br/>
-    **2. Fill Contact Form**<br/>
-    **3. And validate that data in form is correct**<br/>
-_* Thanks to captcha we will not sent the form in this case but in your test application you can switch off captcha and validate filled form on next page for example or in DB_<br/>
+## 3. JDI Light Forms
+### Standard Login form
+
+```java
+public class LoginForm extends Form<User> {
+    @UI("#name") TextField name;
+    @UI("#password") TextField password;
+    @UI("#login-button") Button loginButton;
+}
+```
+Pretty good. Now we will optimize previous example using forms. <br/>
+Let's move elements placed on Login Form in separate UI Object _LoginForm_<br/><br/>
+
+```java
+public class JDISite {
+    public static HomePage homePage;
+    public static LoginForm loginForm;
+    ...
+}
+```
+And place LoginForm in root UI Object - JDI Site<br/><br/><br/>
+
+```java
+@Test
+public void fillContactTest() {
+    userIcon.click();
+    loginForm.loginAs(ROMAN);
+    userName.is().displayed();
+}
+```
+Now we can rewrite test in following way where _ROMAN_ is simple business entity User that associated with form<br/><br/><br/>
+
+```java
+public class User extends DataClass<User> {
+    public String name, password;
+}
+```
+User class is simple data class with two String fields that has same names as has TextFields in LoginForm. <br/>
+In this way you can fill any types of elements in form that can be filled: TextField, TextArea, Checkbox, DropDown etc. We will go through this in next the example.<br/>
+
+```java
+User ROMAN = new User().set(c -> {
+    c.name = "Roman";
+    c.password = "Jdi1234";} 
+);
+Output: ROMAN.toString() --> User(name:Roman; password:Jdi1234)
+```
+For data class we can use any class but if we add _extends DataClass_ we will get additional benefits:<br/>
+- Ability to fill User fields in any order and numbers without constructors with method _set_<br/>
+- Compare two users by equality of their fields and not by reference with method _equal_<br/>
+- Have good toString for User based on its fields<br/>
+
 ### Create PageObjects
 
 ```java

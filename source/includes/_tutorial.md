@@ -185,67 +185,37 @@ public void loginTest() {
 public class User extends DataClass<User> {
     public String name, password;
 }
-User ROMAN = new User().set(c -> {
-    c.name = "Roman";
-    c.password = "Jdi1234";} 
-);
-Output: ROMAN.toString() --> User(name:Roman; password:Jdi1234)
 ```
 Pretty good. Now we will optimize previous example using forms. <br/>
 Let's move elements placed on Login Form in separate UI Object _LoginForm_<br/><br/><br/>
 
 And place LoginForm in root UI Object - JDI Site<br/><br/><br/>
 
-Now we can rewrite test in following way where _ROMAN_ is simple business entity User that associated with form<br/><br/><br/>
+Now we can rewrite test in the following way:
+_Note: **ROMAN** is a business entity User that associated with Login Form<br/><br/><br/>_
 
-User class is simple data class with two String fields that has same names as has TextFields in LoginForm. <br/>
-In this way you can fill any types of elements in form that can be filled: TextField, TextArea, Checkbox, DropDown etc. We will go through this in Contact Form example.<br/>
+User class is simple data class with two String fields that has same names as TextFields in LoginForm. <br/>
+In this way you can fill any types of elements in form that can be filled: TextField, TextArea, Checkbox, DropDown etc. <br/>
+_We will go through this in Contact Form example._<br/>
 
-For data class we can use any class but if we add _extends DataClass_ we will get additional benefits:<br/>
+```java
+User ROMAN = new User().set(c -> {
+    c.name = "Roman";
+    c.password = "Jdi1234";} 
+);
+Output: ROMAN.toString() --> User(name:Roman; password:Jdi1234)
+```
+For data class we can use any class but if we add **extends DataClass** we will get additional benefits:<br/>
 - Ability to fill User fields in any order and numbers without constructors with method _set_<br/>
 - Compare two users by equality of their fields and not by reference with method _equal_<br/>
-- Have good toString for User based on its fields<br/>
+- Have good toString() for User based on its fields<br/>
 <a href="https://github.com/jdi-tutorials/01-jdi-light-intro" target="_blank">See this example in LoginExample.java on Github</a>
 
-## Test run results
-### Test scenario and log
-This simple 3 rows test will:<br/>
-- Open Baeldung site<br/>
-- Navigate to Contact Page<br/>
-- Fill contact form with your data and<br/>
-- Validate that form filled correctly<br/>
-Exactly what see in test scenario. As result you will see detailed user actions log:
+### Complex Contact form and UI Elements
 
-```
-[ STEP 21:52.780]: Open 'Home Page'(url=http://www.baeldung.com/)
-[ STEP 21:59.008]: Open 'Contact Page'(url=http://www.baeldung.com/contact)
-[ STEP 22:00.236]: Send ContactInfo(firstName:Roman; email:roman.iovlev.jdi@gmail.com; message:Hi Baeldung!) in 'Contact Page Form'
-[ STEP 22:01.633]: Check that 'Contact Page Form' values are: ContactInfo(firstName:Roman; email:roman.iovlev.jdi@gmail.com; message:Hi Baeldung!)
-```
-Pretty much the same as test scenario do. You can share this log with BA or Client to demonstrate what your tests do.<br/>
-If you need more details for maintenance purposes, you can change the level of your log to INFO. Using log4J settings you can customize output streams and log formats.<br/>
-### Page Object actions with elements. Handle flaky tests
-You don’t need to implement **open()**, **send()** and **check()** methods they are already developed for you (as well as a lot of other typical functions).<br/>
-In addition, you don’t need to think about Thread sleeps, Explicit waits, stale or no such element exceptions. JDI Light will handle all staff that can make tests flaky for you. You just need to think about business part of test scenarios.
-### Failed test and Allure reports
 
-```
-Failed to execute 'check' for element 'Contact Page Form' action during '10' seconds. 
-Exception: Check form failed:
-Field 'firstName' (Actual: 'Roman (changed)' <> Expected: 'Roman')
-```
-You can stop before method check execution, change some filled (e.g. firstName to “Roman (changed)”) and continue test to see that check will throw exception in case of some mismatch. And this assertion will be pretty much readable also:
 
-JDI has good integration with Allure so as result of this test (if Allure are in place) you can see colorful and readable report with all tests execution results:
-![Allure results](../images/tutorial/allure-results.png)
-- **Test execution log**
-![Allure test run](../images/tutorial/allure-test-run.png)
-- **Detailed test’s fail reasons information (you can click on … under error text and observe full exception stack trace)**
-![Allure test fail](../images/tutorial/allure-test-fail.png)
-- **And history of all previous tests executions**
-![Allure history](../images/tutorial/allure-history.png)
- 
-To generate such Allure report you need to copy allure-results folder from project root to target folder and run allure-serve maven plugin
+### Use Form in different ways
 
 ## Create Custom controls
 TBD

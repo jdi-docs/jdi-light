@@ -822,13 +822,7 @@ Page Objects will help us.</p>
     <span class="nd">@FindBy</span><span class="o">(</span><span class="n">id</span> <span class="o">=</span> <span class="s">"login-button"</span><span class="o">)</span> <span class="kd">public</span> <span class="n">WebElement</span> <span class="n">loginButton</span><span class="o">;</span>
     <span class="nd">@FindBy</span><span class="o">(</span><span class="n">id</span> <span class="o">=</span> <span class="s">"user-name"</span><span class="o">)</span> <span class="kd">public</span> <span class="n">WebElement</span> <span class="n">userName</span><span class="o">;</span>
 <span class="o">}</span>
-</code></pre>
-<p>Let’s develop our first simple Page Objects and see how our test case will look like. We Home Page with list few elements: <br/>
-- <strong>user icon</strong> - to open Login Form <br/>
-- <strong>name, password</strong> - two textfield on Login form<br/>
-- <strong>login button</strong> - button for Login<br/>
-- <strong>user name</strong> - element that will appear on after success login<br/></p>
-<pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">HomePage</span> <span class="kd">extends</span> <span class="n">WebPage</span> <span class="o">{</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HomePage</span> <span class="kd">extends</span> <span class="n">WebPage</span> <span class="o">{</span>
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"img#user-icon"</span><span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">Link</span> <span class="n">userIcon</span><span class="o">;</span>
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"#name"</span><span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">TextField</span> <span class="n">name</span><span class="o">;</span>
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"#password"</span><span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">TextField</span> <span class="n">password</span><span class="o">;</span>
@@ -836,9 +830,15 @@ Page Objects will help us.</p>
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"#user-name"</span><span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">Text</span> <span class="n">userName</span><span class="o">;</span>
 <span class="o">}</span>
 </code></pre>
+<p>Let’s develop our first simple Page Objects and see how our test case will look like. We Home Page with list few elements: <br/>
+- <strong>user icon</strong> - to open Login Form <br/>
+- <strong>name, password</strong> - two textfield on Login form<br/>
+- <strong>login button</strong> - button for Login<br/>
+- <strong>user name</strong> - element that will appear on after success login<br/></p>
+
 <p>In order to make the code simple in JDI Light, we can use unified annotations <strong>@UI(&quot;...&quot;)</strong> that handle both Css and XPath locators and reduce the length of our code. <br/>
 And of course we can use one of the main JDI Light feature: Typified elements like <strong>TextField, Button, Text</strong>. <br/>
-And one more good news. We can make elements on Page Object static and keep tests more clear and obvious. <br/></br></br></br></p>
+And one more good news. We can make elements on Page Object static and keep tests more clear and obvious. <br/></br></p>
 <pre class="highlight java tab-java"><code><span class="nd">@JSite</span><span class="o">(</span><span class="s">"https://jdi-testing.github.io/jdi-light/"</span><span class="o">)</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">SiteJdi</span> <span class="o">{</span>
     <span class="nd">@Url</span><span class="o">(</span><span class="s">"/"</span><span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">HomePage</span> <span class="n">homePage</span><span class="o">;</span>
@@ -846,7 +846,7 @@ And one more good news. We can make elements on Page Object static and keep test
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">ContactsPage</span> <span class="n">contactPage</span><span class="o">;</span>
 <span class="o">}</span>
 </code></pre>
-<p>Page Objects in JDI Light called UI Objects and extends standard Selenium Page Objects capabilities with typified elements like Textfield, Button, Text etc. and additional meta information for pages like <strong>Url</strong> and <strong>Title</strong>. 
+<p>Page Objects in JDI Light called <strong>UI Objects</strong> and extends standard Selenium Page Objects capabilities with typified elements like Textfield, Button, Text etc. and additional meta information for pages like <strong>Url</strong> and <strong>Title</strong>. 
 Pretty simple and obvious isn’t it? Url for pages is relative from the site domain written in the @JSite annotation or in the test.properties (see abstract 2.2 in this article). <br/>
 <em>Note: We don&#39;t need ContactsPage, I just add it to illustrate Url and Title, but in any case will use it later</em> </p>
 <pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">TestsInit</span> <span class="o">{</span>
@@ -888,7 +888,7 @@ Pretty simple and obvious isn’t it? Url for pages is relative from the site do
 - JDI Light tests are stable: that means that if by some reaons Selenium can&#39;t perform and action with element, JDI Light will retry to find element and re-execute an action <br/>
 - We will get the following text in the log: <br/>
 Exactly what we do in our test with all the details and without any effort from our side. Fabulous! <br/>
-<br/><br/><br/></p>
+<br/><br/><br/><br/></p>
 
 <p>We can change the log level to STEP (just add logger.setLogLevel(STEP) in to setUp() method) and remove details. This log can be shared with our Customer or Manual QA and let them know what our Automated tests verify.<br/><br/><br/>
 <a href="https://github.com/jdi-tutorials/01-jdi-light-intro" target="_blank">See PageObject examples in PageObjectExample.java on Github</a></p>
@@ -918,7 +918,7 @@ Exactly what we do in our test with all the details and without any effort from 
 <span class="nl">Output:</span> <span class="n">ROMAN</span><span class="o">.</span><span class="na">toString</span><span class="o">()</span> <span class="o">--&gt;</span> <span class="n">User</span><span class="o">(</span><span class="nl">name:</span><span class="n">Roman</span><span class="o">;</span> <span class="nl">password:</span><span class="n">Jdi1234</span><span class="o">)</span>
 </code></pre>
 <p>Pretty good. Now we will optimize previous example using forms. <br/>
-Let&#39;s move elements placed on Login Form in separate UI Object <em>LoginForm</em><br/><br/></p>
+Let&#39;s move elements placed on Login Form in separate UI Object <em>LoginForm</em><br/><br/><br/></p>
 
 <p>And place LoginForm in root UI Object - JDI Site<br/><br/><br/></p>
 

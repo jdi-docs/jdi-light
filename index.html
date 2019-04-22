@@ -278,7 +278,7 @@
             <a href="#tutorial" class="toc-h1 toc-link" data-title="Tutorial">Tutorial</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#integration" class="toc-h2 toc-link" data-title="Integration">Integration</a>
+                    <a href="#1-integration" class="toc-h2 toc-link" data-title="1. Integration">1. Integration</a>
                         <ul class="toc-list-h2">
                             <li>
                               <a href="#maven-dependencies" class="toc-h2 h3 toc-link" data-title="Maven Dependencies">Maven Dependencies</a>
@@ -289,16 +289,24 @@
                         </ul>
                   </li>
                   <li>
-                    <a href="#jdi-light-examples" class="toc-h2 toc-link" data-title="JDI Light Examples">JDI Light Examples</a>
+                    <a href="#2-jdi-light-at-glance" class="toc-h2 toc-link" data-title="2. JDI Light at glance">2. JDI Light at glance</a>
                         <ul class="toc-list-h2">
                             <li>
-                              <a href="#simple-test-examples" class="toc-h2 h3 toc-link" data-title="Simple Test Examples">Simple Test Examples</a>
+                              <a href="#let-39-s-start" class="toc-h2 h3 toc-link" data-title="Let's start">Let's start</a>
+                            </li>
+                            <li>
+                              <a href="#simple-test-scenario" class="toc-h2 h3 toc-link" data-title="Simple test scenario">Simple test scenario</a>
                             </li>
                             <li>
                               <a href="#page-objects" class="toc-h2 h3 toc-link" data-title="Page Objects">Page Objects</a>
                             </li>
+                        </ul>
+                  </li>
+                  <li>
+                    <a href="#3-jdi-light-forms" class="toc-h2 toc-link" data-title="3. JDI Light Forms">3. JDI Light Forms</a>
+                        <ul class="toc-list-h2">
                             <li>
-                              <a href="#fill-contact-form-example" class="toc-h2 h3 toc-link" data-title="Fill Contact Form Example">Fill Contact Form Example</a>
+                              <a href="#standard-login-form" class="toc-h2 h3 toc-link" data-title="Standard Login form">Standard Login form</a>
                             </li>
                             <li>
                               <a href="#create-pageobjects" class="toc-h2 h3 toc-link" data-title="Create PageObjects">Create PageObjects</a>
@@ -761,7 +769,7 @@ Just download one the templates from <a href='https://github.com/jdi-templates' 
 <p><a href='https://github.com/jdi-templates/jdi-light-csharp-template' target="_blank">Github link</a> <br/></p>
 <h2 id='how-to-improve-your-selenium-project-with-new-capabilities-in-few-minutes'>How to improve your Selenium project with new capabilities in few minutes</h2><h2 id='logging-and-reporting'>Logging and Reporting</h2><h1 id='tutorial'>Tutorial</h1>
 <p>In this tutorial, we’ll look at glance on <a href="https://github.com/jdi-testing/jdi-light">JDI Light</a>, a library that simplifies test automation, makes test run results stable, predictable and easy to maintain.<br/></p>
-<h2 id='integration'>Integration</h2>
+<h2 id='1-integration'>1. Integration</h2>
 <p>Let’s start from the beginning and add JDI Light into our test project going through the setup step by step.<br/>
 Note: JDI Light also ships with a <a href="https://github.com/jdi-templates/jdi-light-testng-template">template project</a> that can be used to save us some time for the setup.</p>
 <h3 id='maven-dependencies'>Maven Dependencies</h3><pre class="highlight java tab-java"><code><span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span>
@@ -794,8 +802,9 @@ We can change default settings placed in the test.properties file (src/test/reso
 - <strong>domain</strong> – web application root URL (used if we work with one application in tests). Can be also read from the command line like <em>${domain}</em> <br/>
 - <strong>page.load.strategy</strong> – like in Selenium strategies to load the page. Options: <em>normal, eager, none</em> <br/>
 - <strong>browser.size</strong> – the size of the tested browser. By default, JDI Light will maximize browser, but we can set exact values
-<em>Note: you can find more examples in the documentation.</em> <br/></p>
-<h2 id='jdi-light-examples'>JDI Light Examples</h2><h3 id='simple-test-examples'>Simple Test Examples</h3><pre class="highlight java tab-java"><code><span class="nd">@Test</span>
+<em>Note: you can find more examples in the documentation.</em> <br/>
+<a href="https://github.com/jdi-tutorials/01-jdi-light-intro/blob/master/src/test/resources/test.properties" target="_blank">See examples on Github</a></p>
+<h2 id='2-jdi-light-at-glance'>2. JDI Light at glance</h2><h3 id='let-39-s-start'>Let&#39;s start</h3><pre class="highlight java tab-java"><code><span class="nd">@Test</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">openJDITestSite</span><span class="o">()</span> <span class="o">{</span>
     <span class="n">openUrl</span><span class="o">(</span><span class="s">"https://jdi-testing.github.io/jdi-light/"</span><span class="o">);</span>
     <span class="n">WebPage</span><span class="o">.</span><span class="na">getUrl</span><span class="o">();</span> <span class="c1">// WebPage.getTitle();</span>
@@ -807,7 +816,7 @@ We can change default settings placed in the test.properties file (src/test/reso
 <p>Ok, now let’s write our first test case. We can open JDI Test Site (https://jdi-testing.github.io/jdi-light/) using a simple static method <em>openUrl</em> in <em>WebPage</em> class.<br/>
 In WebPage we can find other typical methods that helps us to operate with browser:<strong>getUrl(), getTitle(), back(), forward(), getHtml(), refresh()</strong>.<br/>
 And some not so typical like scroll <strong>up/down/left/right/top/bottom</strong> and <strong>zoom</strong> the page.</p>
-<pre class="highlight java tab-java"><code><span class="nd">@Test</span>
+<h3 id='simple-test-scenario'>Simple test scenario</h3><pre class="highlight java tab-java"><code><span class="nd">@Test</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">loginAndOpenContactPage</span><span class="o">()</span> <span class="o">{</span>
     <span class="n">openUrl</span><span class="o">(</span><span class="s">"https://jdi-testing.github.io/jdi-light/"</span><span class="o">);</span>
     <span class="err">$</span><span class="o">(</span><span class="s">"img#user-icon"</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
@@ -820,6 +829,7 @@ And some not so typical like scroll <strong>up/down/left/right/top/bottom</stron
 <p>Now we can write more complex typical test: login on Page.<br/>
 Every test should end with an assertion so let’s add it in our test. </br>
 Code like this is easy to write but! it will be hard to maintain while the number of tests grows and used in tests elements should be reused. For example, if we have element $(“.menu-about a”) in 10+ tests and locator is changed, we must go through all the tests and correct locator...</br>
+<a href="https://github.com/jdi-tutorials/01-jdi-light-intro/blob/master/src/test/java/nopageobjects/tests/JDILightExample.java" target="_blank">See examples above on Github</a>
 Page Objects will help us.</p>
 <h3 id='page-objects'>Page Objects</h3><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">HomePage</span> <span class="kd">extends</span> <span class="n">WebPage</span> <span class="o">{</span>
     <span class="nd">@FindBy</span><span class="o">(</span><span class="n">css</span> <span class="o">=</span> <span class="s">"img#user-icon"</span><span class="o">)</span> <span class="kd">public</span> <span class="n">WebElement</span> <span class="n">userIcon</span><span class="o">;</span>
@@ -863,7 +873,7 @@ Pretty simple and obvious isn’t it? Url for pages is relative from the site do
 <span class="o">}</span>
 </code></pre>
 <p>And the last thing before writing a test that should be done once – init all UI Objects for our application. We can do this in the setup method that runs before all tests just in one line (in other frameworks we must write initElements for each Page Object). <br/>
-<br/><br/><br/><br/></p>
+<br/><br/><br/></p>
 <pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">PageObjectExample</span> <span class="kd">implements</span> <span class="n">TestsInit</span> <span class="o">{</span>
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">openPage</span><span class="o">()</span> <span class="o">{</span>
@@ -898,14 +908,47 @@ Exactly what we do in our test with all the details and without any effort from 
 [STEP 29:19.507] : Check that 'About Page' is opened (url CONTAINS '/about/'; 
     title EQUALS 'About Baeldung | Baeldung')
 </code></pre>
-<p>We can change the log level to STEP (just add logger.setLogLevel(STEP) in to setUp() method) and remove details. This log can be shared with our Customer or Manual QA and let them know what our Automated tests verify.<br/><br/><br/></p>
-<h3 id='fill-contact-form-example'>Fill Contact Form Example</h3>
-<p>Now let’s look on more complex case:<br/>
-    <strong>0. Open Baeldung</strong><br/>
-    <strong>1. Go to Contact page</strong><br/>
-    <strong>2. Fill Contact Form</strong><br/>
-    <strong>3. And validate that data in form is correct</strong><br/>
-<em>* Thanks to captcha we will not sent the form in this case but in your test application you can switch off captcha and validate filled form on next page for example or in DB</em><br/></p>
+<p>We can change the log level to STEP (just add logger.setLogLevel(STEP) in to setUp() method) and remove details. This log can be shared with our Customer or Manual QA and let them know what our Automated tests verify.<br/><br/><br/>
+<a href="https://github.com/jdi-tutorials/01-jdi-light-intro" target="_blank">See PageObject exampels in PageObjectExample.java on Github</a></p>
+<h2 id='3-jdi-light-forms'>3. JDI Light Forms</h2><h3 id='standard-login-form'>Standard Login form</h3><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LoginForm</span> <span class="kd">extends</span> <span class="n">Form</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#name"</span><span class="o">)</span> <span class="n">TextField</span> <span class="n">name</span><span class="o">;</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#password"</span><span class="o">)</span> <span class="n">TextField</span> <span class="n">password</span><span class="o">;</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#login-button"</span><span class="o">)</span> <span class="n">Button</span> <span class="n">loginButton</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre>
+<p>Pretty good. Now we will optimize previous example using forms. <br/>
+Let&#39;s move elements placed on Login Form in separate UI Object <em>LoginForm</em><br/><br/></p>
+<pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">JDISite</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">HomePage</span> <span class="n">homePage</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">LoginForm</span> <span class="n">loginForm</span><span class="o">;</span>
+    <span class="o">...</span>
+<span class="o">}</span>
+</code></pre>
+<p>And place LoginForm in root UI Object - JDI Site<br/><br/><br/></p>
+<pre class="highlight java tab-java"><code><span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">fillContactTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">userIcon</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+    <span class="n">loginForm</span><span class="o">.</span><span class="na">loginAs</span><span class="o">(</span><span class="n">ROMAN</span><span class="o">);</span>
+    <span class="n">userName</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre>
+<p>Now we can rewrite test in following way where <em>ROMAN</em> is simple business entity User that associated with form<br/><br/><br/></p>
+<pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">User</span> <span class="kd">extends</span> <span class="n">DataClass</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="n">password</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre>
+<p>User class is simple data class with two String fields that has same names as has TextFields in LoginForm. <br/>
+In this way you can fill any types of elements in form that can be filled: TextField, TextArea, Checkbox, DropDown etc. We will go through this in next the example.<br/></p>
+<pre class="highlight java tab-java"><code><span class="n">User</span> <span class="n">ROMAN</span> <span class="o">=</span> <span class="k">new</span> <span class="n">User</span><span class="o">().</span><span class="na">set</span><span class="o">(</span><span class="n">c</span> <span class="o">-&gt;</span> <span class="o">{</span>
+    <span class="n">c</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">"Roman"</span><span class="o">;</span>
+    <span class="n">c</span><span class="o">.</span><span class="na">password</span> <span class="o">=</span> <span class="s">"Jdi1234"</span><span class="o">;}</span> 
+<span class="o">);</span>
+<span class="nl">Output:</span> <span class="n">ROMAN</span><span class="o">.</span><span class="na">toString</span><span class="o">()</span> <span class="o">--&gt;</span> <span class="n">User</span><span class="o">(</span><span class="nl">name:</span><span class="n">Roman</span><span class="o">;</span> <span class="nl">password:</span><span class="n">Jdi1234</span><span class="o">)</span>
+</code></pre>
+<p>For data class we can use any class but if we add <em>extends DataClass</em> we will get additional benefits:<br/>
+- Ability to fill User fields in any order and numbers without constructors with method <em>set</em><br/>
+- Compare two users by equality of their fields and not by reference with method <em>equal</em><br/>
+- Have good toString for User based on its fields<br/></p>
 <h3 id='create-pageobjects'>Create PageObjects</h3><pre class="highlight java tab-java"><code><span class="nd">@Url</span><span class="o">(</span><span class="s">"/"</span><span class="o">)</span> <span class="nd">@Title</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">"Baeldung | Java"</span><span class="o">,</span> <span class="n">validate</span> <span class="o">=</span> <span class="n">CONTAINS</span><span class="o">)</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">HomePage</span> <span class="kd">extends</span> <span class="n">WebPage</span> <span class="o">{</span> <span class="o">}</span>
 

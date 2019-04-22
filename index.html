@@ -308,19 +308,11 @@
                             <li>
                               <a href="#standard-login-form" class="toc-h2 h3 toc-link" data-title="Standard Login form">Standard Login form</a>
                             </li>
-                        </ul>
-                  </li>
-                  <li>
-                    <a href="#test-run-results" class="toc-h2 toc-link" data-title="Test run results">Test run results</a>
-                        <ul class="toc-list-h2">
                             <li>
-                              <a href="#test-scenario-and-log" class="toc-h2 h3 toc-link" data-title="Test scenario and log">Test scenario and log</a>
+                              <a href="#complex-contact-form-and-ui-elements" class="toc-h2 h3 toc-link" data-title="Complex Contact form and UI Elements">Complex Contact form and UI Elements</a>
                             </li>
                             <li>
-                              <a href="#page-object-actions-with-elements-handle-flaky-tests" class="toc-h2 h3 toc-link" data-title="Page Object actions with elements. Handle flaky tests">Page Object actions with elements. Handle flaky tests</a>
-                            </li>
-                            <li>
-                              <a href="#failed-test-and-allure-reports" class="toc-h2 h3 toc-link" data-title="Failed test and Allure reports">Failed test and Allure reports</a>
+                              <a href="#use-form-in-different-ways" class="toc-h2 h3 toc-link" data-title="Use Form in different ways">Use Form in different ways</a>
                             </li>
                         </ul>
                   </li>
@@ -911,61 +903,30 @@ Exactly what we do in our test with all the details and without any effort from 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">User</span> <span class="kd">extends</span> <span class="n">DataClass</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="n">password</span><span class="o">;</span>
 <span class="o">}</span>
-<span class="n">User</span> <span class="n">ROMAN</span> <span class="o">=</span> <span class="k">new</span> <span class="n">User</span><span class="o">().</span><span class="na">set</span><span class="o">(</span><span class="n">c</span> <span class="o">-&gt;</span> <span class="o">{</span>
-    <span class="n">c</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">"Roman"</span><span class="o">;</span>
-    <span class="n">c</span><span class="o">.</span><span class="na">password</span> <span class="o">=</span> <span class="s">"Jdi1234"</span><span class="o">;}</span> 
-<span class="o">);</span>
-<span class="nl">Output:</span> <span class="n">ROMAN</span><span class="o">.</span><span class="na">toString</span><span class="o">()</span> <span class="o">--&gt;</span> <span class="n">User</span><span class="o">(</span><span class="nl">name:</span><span class="n">Roman</span><span class="o">;</span> <span class="nl">password:</span><span class="n">Jdi1234</span><span class="o">)</span>
 </code></pre>
 <p>Pretty good. Now we will optimize previous example using forms. <br/>
 Let&#39;s move elements placed on Login Form in separate UI Object <em>LoginForm</em><br/><br/><br/></p>
 
 <p>And place LoginForm in root UI Object - JDI Site<br/><br/><br/></p>
 
-<p>Now we can rewrite test in following way where <em>ROMAN</em> is simple business entity User that associated with form<br/><br/><br/></p>
+<p>Now we can rewrite test in the following way:
+<em>Note: <strong>ROMAN</strong> is a business entity User that associated with Login Form<br/><br/><br/></em></p>
 
-<p>User class is simple data class with two String fields that has same names as has TextFields in LoginForm. <br/>
-In this way you can fill any types of elements in form that can be filled: TextField, TextArea, Checkbox, DropDown etc. We will go through this in Contact Form example.<br/></p>
-
-<p>For data class we can use any class but if we add <em>extends DataClass</em> we will get additional benefits:<br/>
+<p>User class is simple data class with two String fields that has same names as TextFields in LoginForm. <br/>
+In this way you can fill any types of elements in form that can be filled: TextField, TextArea, Checkbox, DropDown etc. <br/>
+<em>We will go through this in Contact Form example.</em><br/></p>
+<pre class="highlight java tab-java"><code><span class="n">User</span> <span class="n">ROMAN</span> <span class="o">=</span> <span class="k">new</span> <span class="n">User</span><span class="o">().</span><span class="na">set</span><span class="o">(</span><span class="n">c</span> <span class="o">-&gt;</span> <span class="o">{</span>
+    <span class="n">c</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">"Roman"</span><span class="o">;</span>
+    <span class="n">c</span><span class="o">.</span><span class="na">password</span> <span class="o">=</span> <span class="s">"Jdi1234"</span><span class="o">;}</span> 
+<span class="o">);</span>
+<span class="nl">Output:</span> <span class="n">ROMAN</span><span class="o">.</span><span class="na">toString</span><span class="o">()</span> <span class="o">--&gt;</span> <span class="n">User</span><span class="o">(</span><span class="nl">name:</span><span class="n">Roman</span><span class="o">;</span> <span class="nl">password:</span><span class="n">Jdi1234</span><span class="o">)</span>
+</code></pre>
+<p>For data class we can use any class but if we add <strong>extends DataClass</strong> we will get additional benefits:<br/>
 - Ability to fill User fields in any order and numbers without constructors with method <em>set</em><br/>
 - Compare two users by equality of their fields and not by reference with method <em>equal</em><br/>
-- Have good toString for User based on its fields<br/>
+- Have good toString() for User based on its fields<br/>
 <a href="https://github.com/jdi-tutorials/01-jdi-light-intro" target="_blank">See this example in LoginExample.java on Github</a></p>
-<h2 id='test-run-results'>Test run results</h2><h3 id='test-scenario-and-log'>Test scenario and log</h3>
-<p>This simple 3 rows test will:<br/>
-- Open Baeldung site<br/>
-- Navigate to Contact Page<br/>
-- Fill contact form with your data and<br/>
-- Validate that form filled correctly<br/>
-Exactly what see in test scenario. As result you will see detailed user actions log:</p>
-<pre class="highlight plaintext"><code>[ STEP 21:52.780]: Open 'Home Page'(url=http://www.baeldung.com/)
-[ STEP 21:59.008]: Open 'Contact Page'(url=http://www.baeldung.com/contact)
-[ STEP 22:00.236]: Send ContactInfo(firstName:Roman; email:roman.iovlev.jdi@gmail.com; message:Hi Baeldung!) in 'Contact Page Form'
-[ STEP 22:01.633]: Check that 'Contact Page Form' values are: ContactInfo(firstName:Roman; email:roman.iovlev.jdi@gmail.com; message:Hi Baeldung!)
-</code></pre>
-<p>Pretty much the same as test scenario do. You can share this log with BA or Client to demonstrate what your tests do.<br/>
-If you need more details for maintenance purposes, you can change the level of your log to INFO. Using log4J settings you can customize output streams and log formats.<br/></p>
-<h3 id='page-object-actions-with-elements-handle-flaky-tests'>Page Object actions with elements. Handle flaky tests</h3>
-<p>You don’t need to implement <strong>open()</strong>, <strong>send()</strong> and <strong>check()</strong> methods they are already developed for you (as well as a lot of other typical functions).<br/>
-In addition, you don’t need to think about Thread sleeps, Explicit waits, stale or no such element exceptions. JDI Light will handle all staff that can make tests flaky for you. You just need to think about business part of test scenarios.</p>
-<h3 id='failed-test-and-allure-reports'>Failed test and Allure reports</h3><pre class="highlight plaintext"><code>Failed to execute 'check' for element 'Contact Page Form' action during '10' seconds. 
-Exception: Check form failed:
-Field 'firstName' (Actual: 'Roman (changed)' &lt;&gt; Expected: 'Roman')
-</code></pre>
-<p>You can stop before method check execution, change some filled (e.g. firstName to “Roman (changed)”) and continue test to see that check will throw exception in case of some mismatch. And this assertion will be pretty much readable also:</p>
-
-<p>JDI has good integration with Allure so as result of this test (if Allure are in place) you can see colorful and readable report with all tests execution results:
-<img src="images/tutorial/allure-results.png" alt="Allure results" />
-- <strong>Test execution log</strong>
-<img src="images/tutorial/allure-test-run.png" alt="Allure test run" />
-- <strong>Detailed test’s fail reasons information (you can click on … under error text and observe full exception stack trace)</strong>
-<img src="images/tutorial/allure-test-fail.png" alt="Allure test fail" />
-- <strong>And history of all previous tests executions</strong>
-<img src="images/tutorial/allure-history.png" alt="Allure history" /></p>
-
-<p>To generate such Allure report you need to copy allure-results folder from project root to target folder and run allure-serve maven plugin</p>
-<h2 id='create-custom-controls'>Create Custom controls</h2>
+<h3 id='complex-contact-form-and-ui-elements'>Complex Contact form and UI Elements</h3><h3 id='use-form-in-different-ways'>Use Form in different ways</h3><h2 id='create-custom-controls'>Create Custom controls</h2>
 <p>TBD</p>
 <h2 id='jdi-settings-at-glance'>JDI settings at glance</h2>
 <p>TBD</p>

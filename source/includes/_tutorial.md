@@ -85,9 +85,9 @@ public class HomePage extends WebPage {
 ```
 Let’s develop our first simple Page Objects and see how our test case will look like. We Home Page with list few elements: <br/>
 - **user icon** - to open Login Form <br/>
-- **name, password** - two textfield on Login form
-- **login button** - button for Login
-- **user name** - element that will appear on after success login
+- **name, password** - two textfield on Login form<br/>
+- **login button** - button for Login<br/>
+- **user name** - element that will appear on after success login<br/>
 
 ```java
 public class HomePage extends WebPage {
@@ -100,7 +100,7 @@ public class HomePage extends WebPage {
 ```
 In order to make the code simple in JDI Light, we can use unified annotations **@UI("...")** that handle both Css and XPath locators and reduce the length of our code. <br/>
 And of course we can use one of the main JDI Light feature: Typified elements like **TextField, Button, Text**. <br/>
-And one more good news. We can make elements on Page Object static and keep tests more clear and obvious. <br/></br></br>
+And one more good news. We can make elements on Page Object static and keep tests more clear and obvious. <br/></br></br></br>
 
 ```java
 @JSite("https://jdi-testing.github.io/jdi-light/")

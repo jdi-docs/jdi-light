@@ -110,7 +110,7 @@ public class SiteJdi {
 ```
 Page Objects in JDI Light called **UI Objects** and extends standard Selenium Page Objects capabilities with typified elements like Textfield, Button, Text etc. and additional meta information for pages like **Url** and **Title**. 
 Pretty simple and obvious isn’t it? Url for pages is relative from the site domain written in the @JSite annotation or in the test.properties (see abstract 2.2 in this article). <br/>
-_Note: We don't need ContactsPage, I just add it to illustrate Url and Title, but in any case will use it later_ 
+_Note: We don't need ContactsPage in this example but in order illustrate **@Url** and **@Title** annotations it is placed here_ 
 
 ```java
 public interface TestsInit {
@@ -120,7 +120,8 @@ public interface TestsInit {
     }
 }
 ```
-And the last thing before writing a test that should be done once – init all UI Objects for our application. We can do this in the setup method that runs before all tests just in one line (in other frameworks we must write initElements for each Page Object). <br/>
+And the last thing before writing a test that should be done once – init all UI Objects for our application. We can do this in the setup method that runs before all tests just in one line. <br/>
+_Note: in other frameworks we must write initElements for each Page Object_ <br/>
 <br/><br/><br/>
 
 ```java
@@ -135,9 +136,7 @@ public class PageObjectExample implements TestsInit {
         userName.assertThat().displayed();
     }
 }
-```
 
-```
 [INFO 29:11.362] : Open 'Home Page'(url=https://www.baeldung.com/) (SiteJdi.homePage (url=https://www.baeldung.com/; title=))
 [INFO 29:17.702] : Click on 'Menu About' (HomePage.menuAbout (css='.menu-about a'))
 [INFO 29:17.918] : Click on 'About Baeldung' (HomePage.aboutBaeldung (xpath='//h3[contains(.,'About Baeldung')]'))
@@ -150,11 +149,12 @@ public class PageObjectExample implements TestsInit {
 [STEP 29:19.507] : Check that 'About Page' is opened (url CONTAINS '/about/'; 
     title EQUALS 'About Baeldung | Baeldung')
 ```
-Now we can write our test using this UI Objects and execute it<br/>
-- This test scenario is pretty clear <br/>
+
+Now we can write our test using this UI Objects and execute it<br/><br/>
+- This test scenario is pretty clear and based on real UI elements<br/>
 - We can easily update elements on UI Objects without going through all tests<br/>
 - We have all meta data about pages in one place and can open them and validate from tests without urls and title duplication in code <br/>
-- JDI Light tests are stable: that means that if by some reaons Selenium can't perform and action with element, JDI Light will retry to find element and re-execute an action <br/>
+- JDI Light tests are stable and will not fail in cases where Selenium throws exceptions (like _StaleElement_ or _NoSuchElement_)<br/>
 - We will get the following text in the log: <br/>
 Exactly what we do in our test with all the details and without any effort from our side. Fabulous! <br/>
 <br/><br/><br/><br/>

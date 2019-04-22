@@ -3321,6 +3321,9 @@ Datalist element contains a set of options with values available for entering.</
 </code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[FindBy(Css = "div:nth-child(11) &gt; div.html-left")]</span>
 <span class="k">public</span> <span class="n">ICheckList</span> <span class="n">weather</span><span class="p">;</span>
 
+<span class="na">[FindBy(Css = "div:nth-child(11) &gt; div.html-left")]</span>
+<span class="k">public</span> <span class="n">ICheckList</span><span class="p">&lt;</span><span class="n">MyCheckBox</span><span class="p">&gt;</span> <span class="n">genericWeather</span><span class="p">;</span>
+
 <span class="na">[Test]</span>
 <span class="k">public</span> <span class="k">void</span> <span class="nf">CheckCheckList</span><span class="p">()</span>
 <span class="p">{</span>
@@ -3332,9 +3335,8 @@ Datalist element contains a set of options with values available for entering.</
 <span class="k">public</span> <span class="k">void</span> <span class="nf">UncheckNumTest</span><span class="p">()</span>
 <span class="p">{</span>
     <span class="n">weather</span><span class="p">.</span><span class="nf">Uncheck</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">3</span><span class="p">);</span>
-    <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">CollectionEquals</span><span class="p">(</span><span class="k">new</span><span class="p">[]</span> <span class="p">{</span> <span class="s">"Cold"</span><span class="p">,</span> <span class="s">"Sunny"</span> <span class="p">},</span> <span class="n">_weather</span><span class="p">.</span><span class="nf">Checked</span><span class="p">());</span>
+    <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">CollectionEquals</span><span class="p">(</span><span class="k">new</span><span class="p">[]</span> <span class="p">{</span> <span class="s">"Cold"</span><span class="p">,</span> <span class="s">"Sunny"</span> <span class="p">},</span> <span class="n">genericWeather</span><span class="p">.</span><span class="nf">Checked</span><span class="p">());</span>
 <span class="p">}</span>
-
 </code></pre>
 <p><img src="images/html/checklist_html.png" alt="Checklist Example" /></p>
 

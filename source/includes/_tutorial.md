@@ -68,8 +68,8 @@ public void loginAndOpenContactPage() {
 }
 ```
 Now we can write more complex typical test: login on Page.<br/>
-Every test should end with an assertion so let’s add it in our test. </br><br/><br/>
-Code like this is easy to write but! it will be hard to maintain while the number of tests grows and used in tests elements should be reused. For example, if we have element $(“.menu-about a”) in 10+ tests and locator is changed, we must go through all the tests and correct locator...
+Every test should end with an assertion so let’s add it in our test. </br>
+Code like this is easy to write but! it will be hard to maintain while the number of tests grows and used in tests elements should be reused. For example, if we have element $(“.menu-about a”) in 10+ tests and locator is changed, we must go through all the tests and correct locator...</br>
 Page Objects will help us.
 
 ### Page Objects
@@ -100,7 +100,7 @@ public class HomePage extends WebPage {
 ```
 In order to make the code simple in JDI Light, we can use unified annotations **@UI("...")** that handle both Css and XPath locators and reduce the length of our code. <br/>
 And of course we can use one of the main JDI Light feature: Typified elements like **TextField, Button, Text**. <br/>
-And one more good news. We can make elements on Page Object static and keep tests more clear and obvious. <br/>
+And one more good news. We can make elements on Page Object static and keep tests more clear and obvious. <br/></br></br>
 
 ```java
 @JSite("https://jdi-testing.github.io/jdi-light/")
@@ -154,6 +154,7 @@ Now we can write our test using this UI Objects and execute it
 - We will get the following text in the log: <br/>
 Exactly what we do in our test with all the details and without any effort from our side. Fabulous! <br/>
 <br/><br/><br/>
+
 ```
 [INFO 29:11.362] : Open 'Home Page'(url=https://www.baeldung.com/) (SiteJdi.homePage (url=https://www.baeldung.com/; title=))
 [INFO 29:17.702] : Click on 'Menu About' (HomePage.menuAbout (css='.menu-about a'))

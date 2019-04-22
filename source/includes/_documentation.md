@@ -1577,6 +1577,9 @@ public void assertValidationTest() {
 [FindBy(Css = "div:nth-child(11) > div.html-left")]
 public ICheckList weather;
 
+[FindBy(Css = "div:nth-child(11) > div.html-left")]
+public ICheckList<MyCheckBox> genericWeather;
+
 [Test]
 public void CheckCheckList()
 {
@@ -1588,9 +1591,8 @@ public void CheckCheckList()
 public void UncheckNumTest()
 {
     weather.Uncheck(1, 3);
-    Jdi.Assert.CollectionEquals(new[] { "Cold", "Sunny" }, _weather.Checked());
+    Jdi.Assert.CollectionEquals(new[] { "Cold", "Sunny" }, genericWeather.Checked());
 }
-
 ```
 
 ![Checklist Example](../images/html/checklist_html.png)

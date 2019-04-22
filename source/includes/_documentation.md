@@ -1305,6 +1305,7 @@ For better use JDI Light provides a __*@JDropdown*__ annotation to locate dropdo
  - __*value()*__ - locator of selected by default option in dropdown list
  - __*list()*__ - locator representing list options
  - __*expand()*__ - locator for expanding the dropdown list
+  - __*how*__ - type of locators with which elements will be identified. By default this is css
  
 ```java 
 @JDropdown(root = "div[ui=dropdown]",

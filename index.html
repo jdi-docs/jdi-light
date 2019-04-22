@@ -863,7 +863,7 @@ Pretty simple and obvious isn’t it? Url for pages is relative from the site do
 <span class="o">}</span>
 </code></pre>
 <p>And the last thing before writing a test that should be done once – init all UI Objects for our application. We can do this in the setup method that runs before all tests just in one line (in other frameworks we must write initElements for each Page Object). <br/>
-<br/><br/></p>
+<br/><br/><br/><br/></p>
 <pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">PageObjectExample</span> <span class="kd">implements</span> <span class="n">TestsInit</span> <span class="o">{</span>
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">openPage</span><span class="o">()</span> <span class="o">{</span>
@@ -892,13 +892,13 @@ Pretty simple and obvious isn’t it? Url for pages is relative from the site do
 Exactly what we do in our test with all the details and without any effort from our side. Fabulous! <br/>
 <br/><br/><br/></li>
 </ul>
-<pre class="highlight plaintext"><code>[INFO 29:11.362] : Open 'Home Page'(url=https://www.baeldung.com/) (SiteJdi.homePage (url=https://www.baeldung.com/; title=))
-[INFO 29:17.702] : Click on 'Menu About' (HomePage.menuAbout (css='.menu-about a'))
-[INFO 29:17.918] : Click on 'About Baeldung' (HomePage.aboutBaeldung (xpath='//h3[contains(.,'About Baeldung')]'))
-[INFO 29:19.507] : Check that 'About Page' is opened (url CONTAINS '/about/'; title EQUALS 'About Baeldung | Baeldung') 
-    (SiteJdi.aboutPage (url=https://www.baeldung.com/about/; title=About Baeldung | Baeldung))
+<pre class="highlight plaintext"><code>[STEP 29:11.362] : Open 'Home Page'(url=https://www.baeldung.com/)
+[STEP 29:17.702] : Click on 'Menu About'
+[STEP 29:17.918] : Click on 'About Baeldung'
+[STEP 29:19.507] : Check that 'About Page' is opened (url CONTAINS '/about/'; 
+    title EQUALS 'About Baeldung | Baeldung')
 </code></pre>
-<p>We can change the log level to STEP (just add logger.setLogLevel(STEP) in to setUp() method) and remove details. This log can be shared with our Customer or Manual QA and let them know what our Automated tests verify.</p>
+<p>We can change the log level to STEP (just add logger.setLogLevel(STEP) in to setUp() method) and remove details. This log can be shared with our Customer or Manual QA and let them know what our Automated tests verify.<br/><br/><br/></p>
 <h3 id='fill-contact-form-example'>Fill Contact Form Example</h3>
 <p>Now let’s look on more complex case:<br/>
     <strong>0. Open Baeldung</strong><br/>

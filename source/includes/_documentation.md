@@ -1474,33 +1474,35 @@ The list of available methods for Java JDI Light:
 [C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Composite/MultiDropdownTests.cs)
 
 ### DataList
-```csharp 
-[Test]
-public void ExpandDataList() 
-{
-    MyDataList.Expand();
-}
-[Test]
-public void SelectDataList() 
-{
-    MyDataList.Select("some value");
-}
-[Test]
-public void SelectByIndex() 
-{
-    MyDataList.Select(1);
-}
-[Test]
-public void FillDataList() 
-{
-    MyDataList.Input("some value");
-    SubmitButton.Click();
-}
-```
+
 **DataList** – a graphical control element, that allows the user to choose one value from a list or enter it by himself.
 Datalist element contains a set of options with values available for entering.
 
 ![DataList](../images/icecreamdatalist.png)
+
+__JDI DataList annotation__
+
+For better use JDI Light provides a __*@JDataList*__ annotation to locate datalist elements. This annotation consists of the following elements:
+
+ - __*root*__ - value of this element points to the root locator of dropdown element
+ - __*values*__ - options locator in dropdown list
+ - __*how*__ - type of locators with which elements will be identified. By default this is css
+ 
+```java 
+TBD
+```
+
+```csharp 
+[JDataList(root: "#ice-cream", 
+           values: "#ice-cream-flavors > option"]
+public IDataList IceCream;
+
+[Test]
+public void ComplexTest() 
+{
+    IceCream.Select("Coconut");
+}
+```
 
 Datalist element type is provided by JDI Light in:
 
@@ -1519,6 +1521,7 @@ public void selectEnumTest() {
     assertEquals(iceCreamDataList.getValue(), "Strawberry");
 }
 ```
+
 
 ![Datalist example](../images/html/datalist_html.png)
 

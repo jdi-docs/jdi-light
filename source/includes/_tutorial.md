@@ -174,44 +174,36 @@ public class LoginForm extends Form<User> {
     @UI("#password") TextField password;
     @UI("#login-button") Button loginButton;
 }
-```
-Pretty good. Now we will optimize previous example using forms. <br/>
-Let's move elements placed on Login Form in separate UI Object _LoginForm_<br/><br/>
-
-```java
 public class JDISite {
     @Url("/") public static HomePage homePage;
     public static LoginForm loginForm;
     ...
 }
-```
-And place LoginForm in root UI Object - JDI Site<br/><br/><br/>
-
-```java
 @Test
 public void loginTest() {
     userIcon.click();
     loginForm.loginAs(ROMAN);
     userName.is().displayed();
 }
-```
-Now we can rewrite test in following way where _ROMAN_ is simple business entity User that associated with form<br/><br/><br/>
-
-```java
 public class User extends DataClass<User> {
     public String name, password;
 }
-```
-User class is simple data class with two String fields that has same names as has TextFields in LoginForm. <br/>
-In this way you can fill any types of elements in form that can be filled: TextField, TextArea, Checkbox, DropDown etc. We will go through this in Contact Form example.<br/>
-
-```java
 User ROMAN = new User().set(c -> {
     c.name = "Roman";
     c.password = "Jdi1234";} 
 );
 Output: ROMAN.toString() --> User(name:Roman; password:Jdi1234)
 ```
+Pretty good. Now we will optimize previous example using forms. <br/>
+Let's move elements placed on Login Form in separate UI Object _LoginForm_<br/><br/>
+
+And place LoginForm in root UI Object - JDI Site<br/><br/><br/>
+
+Now we can rewrite test in following way where _ROMAN_ is simple business entity User that associated with form<br/><br/><br/>
+
+User class is simple data class with two String fields that has same names as has TextFields in LoginForm. <br/>
+In this way you can fill any types of elements in form that can be filled: TextField, TextArea, Checkbox, DropDown etc. We will go through this in Contact Form example.<br/>
+
 For data class we can use any class but if we add _extends DataClass_ we will get additional benefits:<br/>
 - Ability to fill User fields in any order and numbers without constructors with method _set_<br/>
 - Compare two users by equality of their fields and not by reference with method _equal_<br/>

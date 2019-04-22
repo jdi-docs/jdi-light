@@ -879,7 +879,7 @@ Pretty simple and obvious isn’t it? Url for pages is relative from the site do
 - This test scenario is pretty clear and based on real UI elements<br/>
 - We can easily update elements on UI Objects without going through all tests<br/>
 - We have all meta data about pages in one place and can open them and validate from tests without urls and title duplication in code <br/>
-- JDI Light tests are stable and will not fail in cases where Selenium throws exceptions (like <em>StaleElement</em> or <em>NoSuchElement</em>)<br/>
+- JDI Light tests are stable and will not fail in cases where Selenium throws exceptions (like <em>StaleElement</em> or <em>NoSuchElement</em>)<br/><br/><br/>
 - We will get the following text in the log: <br/>
 Exactly what we do in our test with all the details and without any effort from our side. Fabulous! <br/>
 <br/><br/><br/><br/></p>
@@ -2349,13 +2349,13 @@ In this way you can fill any types of elements in form that can be filled: TextF
         <span class="n">assertEquals</span><span class="o">(</span><span class="n">name</span><span class="o">.</span><span class="na">placeholder</span><span class="o">(),</span> <span class="s">"Input name"</span><span class="o">);</span>
     <span class="o">}</span>
 </code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[FindBy(Id = "name")]</span>
-<span class="k">public</span> <span class="n">ITextField</span> <span class="n">NameField</span><span class="p">;</span>
+<span class="k">public</span> <span class="n">TextField</span> <span class="n">NameField</span><span class="p">;</span>
 
         <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
         <span class="k">public</span> <span class="k">void</span> <span class="nf">InputTest</span><span class="p">()</span>
         <span class="p">{</span>
             <span class="n">TestSite</span><span class="p">.</span><span class="n">ContactFormPage</span><span class="p">.</span><span class="n">NameField</span><span class="p">.</span><span class="nf">Input</span><span class="p">(</span><span class="n">ToAddText</span><span class="p">);</span>
-            <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">AreEquals</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">ContactFormPage</span><span class="p">.</span><span class="n">NameField</span><span class="p">.</span><span class="n">Value</span><span class="p">,</span> <span class="n">ToAddText</span><span class="p">);</span>
+            <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">AreEquals</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">ContactFormPage</span><span class="p">.</span><span class="n">NameField</span><span class="p">.</span><span class="n">Value</span><span class="p">,</span> <span class="n">_defaultText</span> <span class="p">+</span> <span class="n">ToAddText</span><span class="p">);</span>
         <span class="p">}</span>
 
         <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
@@ -2363,6 +2363,13 @@ In this way you can fill any types of elements in form that can be filled: TextF
         <span class="p">{</span>
             <span class="n">TestSite</span><span class="p">.</span><span class="n">ContactFormPage</span><span class="p">.</span><span class="n">NameField</span><span class="p">.</span><span class="nf">SendKeys</span><span class="p">(</span><span class="n">ToAddText</span><span class="p">);</span>
             <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">AreEquals</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">ContactFormPage</span><span class="p">.</span><span class="n">NameField</span><span class="p">.</span><span class="n">Value</span><span class="p">,</span> <span class="n">_defaultText</span> <span class="p">+</span> <span class="n">ToAddText</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+        <span class="k">public</span> <span class="k">void</span> <span class="nf">NewInputTest</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">TestSite</span><span class="p">.</span><span class="n">ContactFormPage</span><span class="p">.</span><span class="n">NameField</span><span class="p">.</span><span class="nf">NewInput</span><span class="p">(</span><span class="n">ToAddText</span><span class="p">);</span>
+            <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">AreEquals</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">ContactFormPage</span><span class="p">.</span><span class="n">NameField</span><span class="p">.</span><span class="n">Value</span><span class="p">,</span> <span class="n">ToAddText</span><span class="p">);</span>
         <span class="p">}</span>
 
         <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
@@ -2393,13 +2400,18 @@ In this way you can fill any types of elements in form that can be filled: TextF
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>SendKeys(string value)</strong></td>
+<td><strong>Input(string text)</strong></td>
 <td>adds text to the field</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>SetText(String value)</strong></td>
-<td>sets new text</td>
+<td><strong>SendKeys(string text)</strong></td>
+<td>adds text to the field</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>NewInput(string text)</strong></td>
+<td>clears the text field and sets new text</td>
 <td>void</td>
 </tr>
 <tr>
@@ -2407,34 +2419,9 @@ In this way you can fill any types of elements in form that can be filled: TextF
 <td>clears the text field</td>
 <td>void</td>
 </tr>
-<tr>
-<td><strong>Input(string text)</strong></td>
-<td>sets new text</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>Focus()</strong></td>
-<td>places cursor within the text field</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>Placeholder</strong></td>
-<td>returns value of the placeholder attribute</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>GetText()</strong></td>
-<td>returns text from the text field</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>GetValue()</strong></td>
-<td>returns text from the text field</td>
-<td>String</td>
-</tr>
 </tbody></table>
 
-<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/TextFieldsTests.cs">Test examples in C#</a></p>
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/TextFieldsTests.cs">Test examples in C#</a></p>
 
 <p>And here are methods available in Java:</p>
 
@@ -2482,7 +2469,7 @@ In this way you can fill any types of elements in form that can be filled: TextF
 </tr>
 <tr>
 <td><strong>getValue()</strong></td>
-<td>returns text from the text field</td>
+<td>calls placeholder() method</td>
 <td>String</td>
 </tr>
 </tbody></table>

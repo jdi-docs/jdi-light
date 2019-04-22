@@ -20,38 +20,41 @@ That’s all! We don’t need to set up anything. By default, JDI Light will dow
 We can change default settings placed in the test.properties file (src/test/resources)
 
 ```java
+src/test/resources/test.properties
 driver=chrome
 #drivers.version=2.23 | LATEST
 #timeout.wait.element=10
 #timeout.wait.page=30
 domain=http://www.baeldung.com/
-#page.load.strategy=normal
+#page.load.strategy=normal | eager | none
 #browser.size=MAXIMIZE | 1024x762
 ...
 ```
-Let’s look on some of them in details:
-- **driver** –  we can set up where we would like to run our tests. Some typical options: chrome, firefox, ie… or we can just place it with _${driver}_ and read the exact driver name from command line
-- **drivers.version** – by default JDI Light will download the latest version of drive for us but if we need a specific version we can put it here (in this case the framework will find and download exactly this version)
-- **timeout.wait.element** – timeout in seconds to wait for an element on the opened page. Default 10 seconds
-- **timeout.wait.page** – JDI Light automatically define that new page opened and in this case will use this timeout (usually it is more than for element). By default 30 seconds.
-- **domain** – web application root URL (used if we work with one application in tests). Can be also read from the command line like _${domain}_
-- **page.load.strategy** – like in Selenium strategies to load the page. Options: _normal, eager, none_
+Let’s look on some of them in details: <br/>
+- **driver** –  we can set up where we would like to run our tests. Some typical options: chrome, firefox, ie… or we can just place it with _${driver}_ and read the exact driver name from command line<br/>
+- **drivers.version** – by default JDI Light will download the latest version of drive for us but if we need a specific version we can put it here (in this case the framework will find and download exactly this version)<br/>
+- **timeout.wait.element** – timeout in seconds to wait for an element on the opened page. Default 10 seconds<br/>
+- **timeout.wait.page** – JDI Light automatically define that new page opened and in this case will use this timeout (usually it is more than for element). By default 30 seconds<br/>
+- **domain** – web application root URL (used if we work with one application in tests). Can be also read from the command line like _${domain}_ <br/>
+- **page.load.strategy** – like in Selenium strategies to load the page. Options: _normal, eager, none_ <br/>
 - **browser.size** – the size of the tested browser. By default, JDI Light will maximize browser, but we can set exact values
-_Note: you can find more examples in the documentation._
-## Simple Test Example
+_Note: you can find more examples in the documentation._ <br/>
+## JDI Light Examples
+### Simple Test Examples
 
 ```java
 @Test
 public void openJDITestSite() {
     openUrl("https://jdi-testing.github.io/jdi-light/");
+    WebPage.getUrl(); // WebPage.getTitle();
+    WebPage.back();   // WebPage.forward();
+    WebPage.getHtml();
+    WebPage.refresh();    
 }
 ```
 Ok, now let’s write our first test case. We can open JDI Test Site (https://jdi-testing.github.io/jdi-light/) using a simple static method _openUrl_ in _WebPage_ class.<br/>
 In WebPage we can find other typical methods that helps us to operate with browser:**getUrl(), getTitle(), back(), forward(), getHtml(), refresh()**.<br/>
 And some not so typical like scroll **up/down/left/right/top/bottom** and **zoom** the page.
-
-Now write more complex test with login on Page and validate that we succesfully logged INNext, we will navigate to the About page using links in Menu and validate that page is opened.
-Every test should end with an assertion so let’s add it in our test.
 
 ```java
 @Test
@@ -64,43 +67,103 @@ public void loginAndOpenContactPage() {
     $("#user-name").is().displayed();
 }
 ```
+Now we can write more complex typical test: login on Page.<br/>
+Every test should end with an assertion so let’s add it in our test. </br><br/><br/>
+Code like this is easy to write but! it will be hard to maintain while the number of tests grows and used in tests elements should be reused. For example, if we have element $(“.menu-about a”) in 10+ tests and locator is changed, we must go through all the tests and correct locator...
+Page Objects will help us.
+
+### Page Objects
 
 ```java
-@JSite("http://www.baeldung.com/")
-public class SiteJdi {
-    @Url("/") @Title("Baeldung | Java, Spring and Web Development tutorials")
-    public static HomePage homePage;
-}
-public class PageObjectExample implements TestsInit { 
-    public void openPage() {
-        homePage.open();
-        homePage.checkOpened();
-        //...
-    }
-    public void onHomePage() {
-        homePage.shouldBeOpened();
-        //...
-    }
+public class HomePage extends WebPage {
+    @FindBy(css = "img#user-icon") public WebElement userIcon;
+    @FindBy(id = "name") public WebElement name;
+    @FindBy(id = "password") public WebElement password;
+    @FindBy(id = "login-button") public WebElement loginButton;
+    @FindBy(id = "user-name") public WebElement userName;
 }
 ```
-But if you would like to operate with pages we recommend to create PageObject for it:<br/>
-Pretty simple and obvious isn’t it? Now we can open home page in one line after that we can validate that correct page opened (will throw exception if action failed).<br/>
-<br/>
-Additional option is to use method shouldBeOpened() that validate if page is already opened and if not will open it. This smart action can save your tests time.<br/>
-<br/><br/><br/><br/><br/><br/><br/>
+Let’s develop our first simple Page Objects and see how our test case will look like. We Home Page with list few elements: <br/>
+- **user icon** - to open Login Form <br/>
+- **name, password** - two textfield on Login form
+- **login button** - button for Login
+- **user name** - element that will appear on after success login
+
+```java
+public class HomePage extends WebPage {
+    @UI("img#user-icon") public static Link userIcon;
+    @UI("#name") public static TextField name;
+    @UI("#password") public static TextField password;
+    @UI("#login-button") public static Button loginButton;
+    @UI("#user-name") public static Text userName;
+}
+```
+In order to make the code simple in JDI Light, we can use unified annotations **@UI("...")** that handle both Css and XPath locators and reduce the length of our code. <br/>
+And of course we can use one of the main JDI Light feature: Typified elements like **TextField, Button, Text**. <br/>
+And one more good news. We can make elements on Page Object static and keep tests more clear and obvious. <br/>
+
+```java
+@JSite("https://jdi-testing.github.io/jdi-light/")
+public class SiteJdi {
+    @Url("/") public static HomePage homePage;
+    @Url("/contacts") @Title("Contact Form")
+    public static ContactsPage contactPage;
+}
+```
+Page Objects in JDI Light called UI Objects and extends standard Selenium Page Objects capabilities with typified elements like Textfield, Button, Text etc. and additional meta information for pages like **Url** and **Title**. 
+Pretty simple and obvious isn’t it? Url for pages is relative from the site domain written in the @JSite annotation or in the test.properties (see abstract 2.2 in this article). <br/>
+_Note: We don't need ContactsPage, I just add it to illustrate Url and Title, but in any case will use it later_ <br/>
 
 ```java
 public interface TestsInit {
+    @BeforeSuite(alwaysRun = true)
     static void setUp() {
-        PageFactory.initElements(SiteJdi.class);
+        initElements(SiteJdi.class);
     }
 }
 ```
-_*I hope you awareness enough and interested about TestInit class. This is just simple one method interface that initialize all PageObjects (HomePage in our case) in one line._<br/>
-_Yes with JDI Light you can do it in one line for all your Page Objects!_
+And the last thing before writing a test that should be done once – init all UI Objects for our application. We can do this in the setup method that runs before all tests just in one line (in other frameworks we must write initElements for each Page Object). <br/>
+<br/><br/>
 
-## Fill Contact Form Example
-### Scenario
+```java
+public class PageObjectExample implements TestsInit {
+    @Test
+    public void openPage() {
+        homePage.open();
+        userIcon.click();
+        name.sendKeys("Roman");
+        password.sendKeys("Jdi1234");
+        loginButton.click();
+        userName.assertThat().displayed();
+    }
+}
+```
+Now we can write our test using this UI Objects and execute it
+- This is test scenario is pretty clear <br/>
+- We can easily update elements on UI Objects without going through all tests<br/>
+- We have all meta data about pages in one place and can open them and validate from tests without urls and title duplication in code <br/>
+- JDI Light tests are stable: that means that if by some reaons Selenium can't perform and action with element, JDI Light will retry to find element and re-execute an action <br/>
+
+```
+[INFO 29:11.362] : Open 'Home Page'(url=https://www.baeldung.com/) (SiteJdi.homePage (url=https://www.baeldung.com/; title=))
+[INFO 29:17.702] : Click on 'Menu About' (HomePage.menuAbout (css='.menu-about a'))
+[INFO 29:17.918] : Click on 'About Baeldung' (HomePage.aboutBaeldung (xpath='//h3[contains(.,'About Baeldung')]'))
+[INFO 29:19.507] : Check that 'About Page' is opened (url CONTAINS '/about/'; title EQUALS 'About Baeldung | Baeldung') 
+    (SiteJdi.aboutPage (url=https://www.baeldung.com/about/; title=About Baeldung | Baeldung))
+```
+- We will get the following text in the log: <br/>
+Exactly what we do in our test with all the details and without any effort from our side. Fabulous! <br/>
+<br/><br/><br/>
+```
+[INFO 29:11.362] : Open 'Home Page'(url=https://www.baeldung.com/) (SiteJdi.homePage (url=https://www.baeldung.com/; title=))
+[INFO 29:17.702] : Click on 'Menu About' (HomePage.menuAbout (css='.menu-about a'))
+[INFO 29:17.918] : Click on 'About Baeldung' (HomePage.aboutBaeldung (xpath='//h3[contains(.,'About Baeldung')]'))
+[INFO 29:19.507] : Check that 'About Page' is opened (url CONTAINS '/about/'; title EQUALS 'About Baeldung | Baeldung') 
+    (SiteJdi.aboutPage (url=https://www.baeldung.com/about/; title=About Baeldung | Baeldung))
+```
+We can change the log level to STEP (just add logger.setLogLevel(STEP) in to setUp() method) and remove details. This log can be shared with our Customer or Manual QA and let them know what our Automated tests verify.
+
+### Fill Contact Form Example
 Now let’s look on more complex case:<br/>
     **0. Open Baeldung**<br/>
     **1. Go to Contact page**<br/>

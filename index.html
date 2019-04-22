@@ -825,9 +825,9 @@ Page Objects will help us.</p>
 </code></pre>
 <p>Let’s develop our first simple Page Objects and see how our test case will look like. We Home Page with list few elements: <br/>
 - <strong>user icon</strong> - to open Login Form <br/>
-- <strong>name, password</strong> - two textfield on Login form
-- <strong>login button</strong> - button for Login
-- <strong>user name</strong> - element that will appear on after success login</p>
+- <strong>name, password</strong> - two textfield on Login form<br/>
+- <strong>login button</strong> - button for Login<br/>
+- <strong>user name</strong> - element that will appear on after success login<br/></p>
 <pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">HomePage</span> <span class="kd">extends</span> <span class="n">WebPage</span> <span class="o">{</span>
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"img#user-icon"</span><span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">Link</span> <span class="n">userIcon</span><span class="o">;</span>
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"#name"</span><span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">TextField</span> <span class="n">name</span><span class="o">;</span>
@@ -838,7 +838,7 @@ Page Objects will help us.</p>
 </code></pre>
 <p>In order to make the code simple in JDI Light, we can use unified annotations <strong>@UI(&quot;...&quot;)</strong> that handle both Css and XPath locators and reduce the length of our code. <br/>
 And of course we can use one of the main JDI Light feature: Typified elements like <strong>TextField, Button, Text</strong>. <br/>
-And one more good news. We can make elements on Page Object static and keep tests more clear and obvious. <br/></br></br></p>
+And one more good news. We can make elements on Page Object static and keep tests more clear and obvious. <br/></br></br></br></p>
 <pre class="highlight java tab-java"><code><span class="nd">@JSite</span><span class="o">(</span><span class="s">"https://jdi-testing.github.io/jdi-light/"</span><span class="o">)</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">SiteJdi</span> <span class="o">{</span>
     <span class="nd">@Url</span><span class="o">(</span><span class="s">"/"</span><span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">HomePage</span> <span class="n">homePage</span><span class="o">;</span>

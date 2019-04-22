@@ -917,13 +917,13 @@ public static TextField name;
 ```
 ```csharp 
 [FindBy(Id = "name")]
-public TextField NameField;
+public ITextField NameField;
         
         [Test]
         public void InputTest()
         {
             TestSite.ContactFormPage.NameField.Input(ToAddText);
-            Jdi.Assert.AreEquals(TestSite.ContactFormPage.NameField.Value, _defaultText + ToAddText);
+            Jdi.Assert.AreEquals(TestSite.ContactFormPage.NameField.Value, ToAddText);
         }
         
         [Test]
@@ -931,13 +931,6 @@ public TextField NameField;
         {
             TestSite.ContactFormPage.NameField.SendKeys(ToAddText);
             Jdi.Assert.AreEquals(TestSite.ContactFormPage.NameField.Value, _defaultText + ToAddText);
-        }
-
-        [Test]
-        public void NewInputTest()
-        {
-            TestSite.ContactFormPage.NameField.NewInput(ToAddText);
-            Jdi.Assert.AreEquals(TestSite.ContactFormPage.NameField.Value, ToAddText);
         }
 
         [Test]
@@ -960,12 +953,17 @@ Here is a list of available methods in C#:
 
 |Method | Description | Return Type
 --- | --- | ---
-**Input(string text)** | adds text to the field  | void
-**SendKeys(string text)** | adds text to the field | void
-**NewInput(string text)** | clears the text field and sets new text  | void
+**SendKeys(string value)** | adds text to the field | void
+**SetText(String value)** | sets new text | void
 **Clear()** | clears the text field | void
+**Input(string text)** | sets new text  | void
+**Focus()** | places cursor within the text field | void
+**Placeholder** | returns value of the placeholder attribute | String
+**GetText()** | returns text from the text field  | String
+**GetValue()** | returns text from the text field| String
 
-[Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/TextFieldsTests.cs)
+
+[Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/TextFieldsTests.cs)
 
 And here are methods available in Java:
 
@@ -978,7 +976,7 @@ And here are methods available in Java:
 **focus()** | places cursor within the text field | void
 **placeholder()** | returns value of the placeholder attribute | String
 **getText()** | returns text from the text field  | String
-**getValue()** | calls placeholder() method| String
+**getValue()** | returns text from the text field| String
 
 [Test examples in Java](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/TextFieldTests.java)
 

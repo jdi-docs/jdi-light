@@ -3193,33 +3193,32 @@ This type can be used in cases when dropdown is represented with HTML <em>&lt;se
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/MultiDropdownTests.java">Java test examples</a></p>
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Composite/MultiDropdownTests.cs">C# test examples</a></p>
-<h3 id='datalist'>DataList</h3><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">ExpandDataList</span><span class="p">()</span> 
-<span class="p">{</span>
-    <span class="n">MyDataList</span><span class="p">.</span><span class="nf">Expand</span><span class="p">();</span>
-<span class="p">}</span>
-<span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">SelectDataList</span><span class="p">()</span> 
-<span class="p">{</span>
-    <span class="n">MyDataList</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="s">"some value"</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">SelectByIndex</span><span class="p">()</span> 
-<span class="p">{</span>
-    <span class="n">MyDataList</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">FillDataList</span><span class="p">()</span> 
-<span class="p">{</span>
-    <span class="n">MyDataList</span><span class="p">.</span><span class="nf">Input</span><span class="p">(</span><span class="s">"some value"</span><span class="p">);</span>
-    <span class="n">SubmitButton</span><span class="p">.</span><span class="nf">Click</span><span class="p">();</span>
-<span class="p">}</span>
-</code></pre>
+<h3 id='datalist'>DataList</h3>
 <p><strong>DataList</strong> – a graphical control element, that allows the user to choose one value from a list or enter it by himself.
 Datalist element contains a set of options with values available for entering.</p>
 
 <p><img src="images/icecreamdatalist.png" alt="DataList" /></p>
 
+<p><strong>JDI DataList annotation</strong></p>
+
+<p>For better use JDI Light provides a <strong><em>@JDataList</em></strong> annotation to locate datalist elements. This annotation consists of the following elements:</p>
+
+<ul>
+<li><strong><em>root</em></strong> - value of this element points to the root locator of dropdown element</li>
+<li><strong><em>values</em></strong> - options locator in dropdown list</li>
+<li><strong><em>how</em></strong> - type of locators with which elements will be identified. By default this is css</li>
+</ul>
+<pre class="highlight java tab-java"><code><span class="n">TBD</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="p">[</span><span class="nf">JDataList</span><span class="p">(</span><span class="n">root</span><span class="p">:</span> <span class="s">"#ice-cream"</span><span class="p">,</span> 
+           <span class="n">values</span><span class="p">:</span> <span class="s">"#ice-cream-flavors &gt; option"</span><span class="p">]</span>
+<span class="k">public</span> <span class="n">IDataList</span> <span class="n">IceCream</span><span class="p">;</span>
+
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">ComplexTest</span><span class="p">()</span> 
+<span class="p">{</span>
+    <span class="n">IceCream</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="s">"Coconut"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
 <p>Datalist element type is provided by JDI Light in:</p>
 
 <ul>

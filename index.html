@@ -289,13 +289,16 @@
                         </ul>
                   </li>
                   <li>
-                    <a href="#simple-test-example" class="toc-h2 toc-link" data-title="Simple Test Example">Simple Test Example</a>
-                  </li>
-                  <li>
-                    <a href="#fill-contact-form-example" class="toc-h2 toc-link" data-title="Fill Contact Form Example">Fill Contact Form Example</a>
+                    <a href="#jdi-light-examples" class="toc-h2 toc-link" data-title="JDI Light Examples">JDI Light Examples</a>
                         <ul class="toc-list-h2">
                             <li>
-                              <a href="#scenario" class="toc-h2 h3 toc-link" data-title="Scenario">Scenario</a>
+                              <a href="#simple-test-examples" class="toc-h2 h3 toc-link" data-title="Simple Test Examples">Simple Test Examples</a>
+                            </li>
+                            <li>
+                              <a href="#page-objects" class="toc-h2 h3 toc-link" data-title="Page Objects">Page Objects</a>
+                            </li>
+                            <li>
+                              <a href="#fill-contact-form-example" class="toc-h2 h3 toc-link" data-title="Fill Contact Form Example">Fill Contact Form Example</a>
                             </li>
                             <li>
                               <a href="#create-pageobjects" class="toc-h2 h3 toc-link" data-title="Create PageObjects">Create PageObjects</a>
@@ -773,35 +776,37 @@ Note: JDI Light also ships with a <a href="https://github.com/jdi-templates/jdi-
 <h3 id='configuration'>Configuration</h3>
 <p>That’s all! We don’t need to set up anything. By default, JDI Light will download Chrome driver automatically, setup it and run while we try to access the first page.<br/>
 We can change default settings placed in the test.properties file (src/test/resources)</p>
-<pre class="highlight java tab-java"><code><span class="n">driver</span><span class="o">=</span><span class="n">chrome</span>
+<pre class="highlight java tab-java"><code><span class="n">src</span><span class="o">/</span><span class="n">test</span><span class="o">/</span><span class="n">resources</span><span class="o">/</span><span class="n">test</span><span class="o">.</span><span class="na">properties</span>
+<span class="n">driver</span><span class="o">=</span><span class="n">chrome</span>
 <span class="err">#</span><span class="n">drivers</span><span class="o">.</span><span class="na">version</span><span class="o">=</span><span class="mf">2.23</span> <span class="o">|</span> <span class="n">LATEST</span>
 <span class="err">#</span><span class="n">timeout</span><span class="o">.</span><span class="na">wait</span><span class="o">.</span><span class="na">element</span><span class="o">=</span><span class="mi">10</span>
 <span class="err">#</span><span class="n">timeout</span><span class="o">.</span><span class="na">wait</span><span class="o">.</span><span class="na">page</span><span class="o">=</span><span class="mi">30</span>
 <span class="n">domain</span><span class="o">=</span><span class="nl">http:</span><span class="c1">//www.baeldung.com/</span>
-<span class="err">#</span><span class="n">page</span><span class="o">.</span><span class="na">load</span><span class="o">.</span><span class="na">strategy</span><span class="o">=</span><span class="n">normal</span>
+<span class="err">#</span><span class="n">page</span><span class="o">.</span><span class="na">load</span><span class="o">.</span><span class="na">strategy</span><span class="o">=</span><span class="n">normal</span> <span class="o">|</span> <span class="n">eager</span> <span class="o">|</span> <span class="n">none</span>
 <span class="err">#</span><span class="n">browser</span><span class="o">.</span><span class="na">size</span><span class="o">=</span><span class="n">MAXIMIZE</span> <span class="o">|</span> <span class="mi">1024</span><span class="n">x762</span>
 <span class="o">...</span>
 </code></pre>
-<p>Let’s look on some of them in details:
-- <strong>driver</strong> –  we can set up where we would like to run our tests. Some typical options: chrome, firefox, ie… or we can just place it with <em>${driver}</em> and read the exact driver name from command line
-- <strong>drivers.version</strong> – by default JDI Light will download the latest version of drive for us but if we need a specific version we can put it here (in this case the framework will find and download exactly this version)
-- <strong>timeout.wait.element</strong> – timeout in seconds to wait for an element on the opened page. Default 10 seconds
-- <strong>timeout.wait.page</strong> – JDI Light automatically define that new page opened and in this case will use this timeout (usually it is more than for element). By default 30 seconds.
-- <strong>domain</strong> – web application root URL (used if we work with one application in tests). Can be also read from the command line like <em>${domain}</em>
-- <strong>page.load.strategy</strong> – like in Selenium strategies to load the page. Options: <em>normal, eager, none</em>
+<p>Let’s look on some of them in details: <br/>
+- <strong>driver</strong> –  we can set up where we would like to run our tests. Some typical options: chrome, firefox, ie… or we can just place it with <em>${driver}</em> and read the exact driver name from command line<br/>
+- <strong>drivers.version</strong> – by default JDI Light will download the latest version of drive for us but if we need a specific version we can put it here (in this case the framework will find and download exactly this version)<br/>
+- <strong>timeout.wait.element</strong> – timeout in seconds to wait for an element on the opened page. Default 10 seconds<br/>
+- <strong>timeout.wait.page</strong> – JDI Light automatically define that new page opened and in this case will use this timeout (usually it is more than for element). By default 30 seconds<br/>
+- <strong>domain</strong> – web application root URL (used if we work with one application in tests). Can be also read from the command line like <em>${domain}</em> <br/>
+- <strong>page.load.strategy</strong> – like in Selenium strategies to load the page. Options: <em>normal, eager, none</em> <br/>
 - <strong>browser.size</strong> – the size of the tested browser. By default, JDI Light will maximize browser, but we can set exact values
-<em>Note: you can find more examples in the documentation.</em></p>
-<h2 id='simple-test-example'>Simple Test Example</h2><pre class="highlight java tab-java"><code><span class="nd">@Test</span>
+<em>Note: you can find more examples in the documentation.</em> <br/></p>
+<h2 id='jdi-light-examples'>JDI Light Examples</h2><h3 id='simple-test-examples'>Simple Test Examples</h3><pre class="highlight java tab-java"><code><span class="nd">@Test</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">openJDITestSite</span><span class="o">()</span> <span class="o">{</span>
     <span class="n">openUrl</span><span class="o">(</span><span class="s">"https://jdi-testing.github.io/jdi-light/"</span><span class="o">);</span>
+    <span class="n">WebPage</span><span class="o">.</span><span class="na">getUrl</span><span class="o">();</span> <span class="c1">// WebPage.getTitle();</span>
+    <span class="n">WebPage</span><span class="o">.</span><span class="na">back</span><span class="o">();</span>   <span class="c1">// WebPage.forward();</span>
+    <span class="n">WebPage</span><span class="o">.</span><span class="na">getHtml</span><span class="o">();</span>
+    <span class="n">WebPage</span><span class="o">.</span><span class="na">refresh</span><span class="o">();</span>    
 <span class="o">}</span>
 </code></pre>
 <p>Ok, now let’s write our first test case. We can open JDI Test Site (https://jdi-testing.github.io/jdi-light/) using a simple static method <em>openUrl</em> in <em>WebPage</em> class.<br/>
 In WebPage we can find other typical methods that helps us to operate with browser:<strong>getUrl(), getTitle(), back(), forward(), getHtml(), refresh()</strong>.<br/>
 And some not so typical like scroll <strong>up/down/left/right/top/bottom</strong> and <strong>zoom</strong> the page.</p>
-
-<p>Now write more complex test with login on Page and validate that we succesfully logged INNext, we will navigate to the About page using links in Menu and validate that page is opened.
-Every test should end with an assertion so let’s add it in our test.</p>
 <pre class="highlight java tab-java"><code><span class="nd">@Test</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">loginAndOpenContactPage</span><span class="o">()</span> <span class="o">{</span>
     <span class="n">openUrl</span><span class="o">(</span><span class="s">"https://jdi-testing.github.io/jdi-light/"</span><span class="o">);</span>
@@ -811,37 +816,91 @@ Every test should end with an assertion so let’s add it in our test.</p>
     <span class="err">$</span><span class="o">(</span><span class="s">"#login-button"</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
     <span class="err">$</span><span class="o">(</span><span class="s">"#user-name"</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
 <span class="o">}</span>
-</code></pre><pre class="highlight java tab-java"><code><span class="nd">@JSite</span><span class="o">(</span><span class="s">"http://www.baeldung.com/"</span><span class="o">)</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SiteJdi</span> <span class="o">{</span>
-    <span class="nd">@Url</span><span class="o">(</span><span class="s">"/"</span><span class="o">)</span> <span class="nd">@Title</span><span class="o">(</span><span class="s">"Baeldung | Java, Spring and Web Development tutorials"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">HomePage</span> <span class="n">homePage</span><span class="o">;</span>
+</code></pre>
+<p>Now we can write more complex typical test: login on Page.<br/>
+Every test should end with an assertion so let’s add it in our test. </br><br/><br/>
+Code like this is easy to write but! it will be hard to maintain while the number of tests grows and used in tests elements should be reused. For example, if we have element $(“.menu-about a”) in 10+ tests and locator is changed, we must go through all the tests and correct locator...
+Page Objects will help us.</p>
+<h3 id='page-objects'>Page Objects</h3><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">HomePage</span> <span class="kd">extends</span> <span class="n">WebPage</span> <span class="o">{</span>
+    <span class="nd">@FindBy</span><span class="o">(</span><span class="n">css</span> <span class="o">=</span> <span class="s">"img#user-icon"</span><span class="o">)</span> <span class="kd">public</span> <span class="n">WebElement</span> <span class="n">userIcon</span><span class="o">;</span>
+    <span class="nd">@FindBy</span><span class="o">(</span><span class="n">id</span> <span class="o">=</span> <span class="s">"name"</span><span class="o">)</span> <span class="kd">public</span> <span class="n">WebElement</span> <span class="n">name</span><span class="o">;</span>
+    <span class="nd">@FindBy</span><span class="o">(</span><span class="n">id</span> <span class="o">=</span> <span class="s">"password"</span><span class="o">)</span> <span class="kd">public</span> <span class="n">WebElement</span> <span class="n">password</span><span class="o">;</span>
+    <span class="nd">@FindBy</span><span class="o">(</span><span class="n">id</span> <span class="o">=</span> <span class="s">"login-button"</span><span class="o">)</span> <span class="kd">public</span> <span class="n">WebElement</span> <span class="n">loginButton</span><span class="o">;</span>
+    <span class="nd">@FindBy</span><span class="o">(</span><span class="n">id</span> <span class="o">=</span> <span class="s">"user-name"</span><span class="o">)</span> <span class="kd">public</span> <span class="n">WebElement</span> <span class="n">userName</span><span class="o">;</span>
 <span class="o">}</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">PageObjectExample</span> <span class="kd">implements</span> <span class="n">TestsInit</span> <span class="o">{</span> 
+</code></pre>
+<p>Let’s develop our first simple Page Objects and see how our test case will look like. We Home Page with list few elements: <br/>
+- <strong>user icon</strong> - to open Login Form <br/>
+- <strong>name, password</strong> - two textfield on Login form
+- <strong>login button</strong> - button for Login
+- <strong>user name</strong> - element that will appear on after success login</p>
+<pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">HomePage</span> <span class="kd">extends</span> <span class="n">WebPage</span> <span class="o">{</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"img#user-icon"</span><span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">Link</span> <span class="n">userIcon</span><span class="o">;</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#name"</span><span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">TextField</span> <span class="n">name</span><span class="o">;</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#password"</span><span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">TextField</span> <span class="n">password</span><span class="o">;</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#login-button"</span><span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">Button</span> <span class="n">loginButton</span><span class="o">;</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#user-name"</span><span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">Text</span> <span class="n">userName</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre>
+<p>In order to make the code simple in JDI Light, we can use unified annotations <strong>@UI(&quot;...&quot;)</strong> that handle both Css and XPath locators and reduce the length of our code. <br/>
+And of course we can use one of the main JDI Light feature: Typified elements like <strong>TextField, Button, Text</strong>. <br/>
+And one more good news. We can make elements on Page Object static and keep tests more clear and obvious. <br/></p>
+<pre class="highlight java tab-java"><code><span class="nd">@JSite</span><span class="o">(</span><span class="s">"https://jdi-testing.github.io/jdi-light/"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SiteJdi</span> <span class="o">{</span>
+    <span class="nd">@Url</span><span class="o">(</span><span class="s">"/"</span><span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">HomePage</span> <span class="n">homePage</span><span class="o">;</span>
+    <span class="nd">@Url</span><span class="o">(</span><span class="s">"/contacts"</span><span class="o">)</span> <span class="nd">@Title</span><span class="o">(</span><span class="s">"Contact Form"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">ContactsPage</span> <span class="n">contactPage</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre>
+<p>Page Objects in JDI Light called UI Objects and extends standard Selenium Page Objects capabilities with typified elements like Textfield, Button, Text etc. and additional meta information for pages like <strong>Url</strong> and <strong>Title</strong>. 
+Pretty simple and obvious isn’t it? Url for pages is relative from the site domain written in the @JSite annotation or in the test.properties (see abstract 2.2 in this article). <br/>
+<em>Note: We don&#39;t need ContactsPage, I just add it to illustrate Url and Title, but in any case will use it later</em> <br/></p>
+<pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">TestsInit</span> <span class="o">{</span>
+    <span class="nd">@BeforeSuite</span><span class="o">(</span><span class="n">alwaysRun</span> <span class="o">=</span> <span class="kc">true</span><span class="o">)</span>
+    <span class="kd">static</span> <span class="kt">void</span> <span class="nf">setUp</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">initElements</span><span class="o">(</span><span class="n">SiteJdi</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+<p>And the last thing before writing a test that should be done once – init all UI Objects for our application. We can do this in the setup method that runs before all tests just in one line (in other frameworks we must write initElements for each Page Object). <br/>
+<br/><br/></p>
+<pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">PageObjectExample</span> <span class="kd">implements</span> <span class="n">TestsInit</span> <span class="o">{</span>
+    <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">openPage</span><span class="o">()</span> <span class="o">{</span>
         <span class="n">homePage</span><span class="o">.</span><span class="na">open</span><span class="o">();</span>
-        <span class="n">homePage</span><span class="o">.</span><span class="na">checkOpened</span><span class="o">();</span>
-        <span class="c1">//...</span>
-    <span class="o">}</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onHomePage</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">homePage</span><span class="o">.</span><span class="na">shouldBeOpened</span><span class="o">();</span>
-        <span class="c1">//...</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre>
-<p>But if you would like to operate with pages we recommend to create PageObject for it:<br/>
-Pretty simple and obvious isn’t it? Now we can open home page in one line after that we can validate that correct page opened (will throw exception if action failed).<br/>
-<br/>
-Additional option is to use method shouldBeOpened() that validate if page is already opened and if not will open it. This smart action can save your tests time.<br/>
-<br/><br/><br/><br/><br/><br/><br/></p>
-<pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">TestsInit</span> <span class="o">{</span>
-    <span class="kd">static</span> <span class="kt">void</span> <span class="nf">setUp</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">PageFactory</span><span class="o">.</span><span class="na">initElements</span><span class="o">(</span><span class="n">SiteJdi</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+        <span class="n">userIcon</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">name</span><span class="o">.</span><span class="na">sendKeys</span><span class="o">(</span><span class="s">"Roman"</span><span class="o">);</span>
+        <span class="n">password</span><span class="o">.</span><span class="na">sendKeys</span><span class="o">(</span><span class="s">"Jdi1234"</span><span class="o">);</span>
+        <span class="n">loginButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">userName</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre>
-<p><em>*I hope you awareness enough and interested about TestInit class. This is just simple one method interface that initialize all PageObjects (HomePage in our case) in one line.</em><br/>
-<em>Yes with JDI Light you can do it in one line for all your Page Objects!</em></p>
-<h2 id='fill-contact-form-example'>Fill Contact Form Example</h2><h3 id='scenario'>Scenario</h3>
+<p>Now we can write our test using this UI Objects and execute it
+- This is test scenario is pretty clear <br/>
+- We can easily update elements on UI Objects without going through all tests<br/>
+- We have all meta data about pages in one place and can open them and validate from tests without urls and title duplication in code <br/>
+- JDI Light tests are stable: that means that if by some reaons Selenium can&#39;t perform and action with element, JDI Light will retry to find element and re-execute an action <br/></p>
+<pre class="highlight plaintext"><code>[INFO 29:11.362] : Open 'Home Page'(url=https://www.baeldung.com/) (SiteJdi.homePage (url=https://www.baeldung.com/; title=))
+[INFO 29:17.702] : Click on 'Menu About' (HomePage.menuAbout (css='.menu-about a'))
+[INFO 29:17.918] : Click on 'About Baeldung' (HomePage.aboutBaeldung (xpath='//h3[contains(.,'About Baeldung')]'))
+[INFO 29:19.507] : Check that 'About Page' is opened (url CONTAINS '/about/'; title EQUALS 'About Baeldung | Baeldung') 
+    (SiteJdi.aboutPage (url=https://www.baeldung.com/about/; title=About Baeldung | Baeldung))
+</code></pre>
+<ul>
+<li>We will get the following text in the log: <br/>
+Exactly what we do in our test with all the details and without any effort from our side. Fabulous! <br/>
+<br/><br/><br/>
+<code>
+[INFO 29:11.362] : Open &#39;Home Page&#39;(url=https://www.baeldung.com/) (SiteJdi.homePage (url=https://www.baeldung.com/; title=))
+[INFO 29:17.702] : Click on &#39;Menu About&#39; (HomePage.menuAbout (css=&#39;.menu-about a&#39;))
+[INFO 29:17.918] : Click on &#39;About Baeldung&#39; (HomePage.aboutBaeldung (xpath=&#39;//h3[contains(.,&#39;About Baeldung&#39;)]&#39;))
+[INFO 29:19.507] : Check that &#39;About Page&#39; is opened (url CONTAINS &#39;/about/&#39;; title EQUALS &#39;About Baeldung | Baeldung&#39;) 
+(SiteJdi.aboutPage (url=https://www.baeldung.com/about/; title=About Baeldung | Baeldung))
+</code>
+We can change the log level to STEP (just add logger.setLogLevel(STEP) in to setUp() method) and remove details. This log can be shared with our Customer or Manual QA and let them know what our Automated tests verify.</li>
+</ul>
+<h3 id='fill-contact-form-example'>Fill Contact Form Example</h3>
 <p>Now let’s look on more complex case:<br/>
     <strong>0. Open Baeldung</strong><br/>
     <strong>1. Go to Contact page</strong><br/>

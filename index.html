@@ -818,8 +818,8 @@ And some not so typical like scroll <strong>up/down/left/right/top/bottom</stron
 <span class="o">}</span>
 </code></pre>
 <p>Now we can write more complex typical test: login on Page.<br/>
-Every test should end with an assertion so let’s add it in our test. </br><br/><br/>
-Code like this is easy to write but! it will be hard to maintain while the number of tests grows and used in tests elements should be reused. For example, if we have element $(“.menu-about a”) in 10+ tests and locator is changed, we must go through all the tests and correct locator...
+Every test should end with an assertion so let’s add it in our test. </br>
+Code like this is easy to write but! it will be hard to maintain while the number of tests grows and used in tests elements should be reused. For example, if we have element $(“.menu-about a”) in 10+ tests and locator is changed, we must go through all the tests and correct locator...</br>
 Page Objects will help us.</p>
 <h3 id='page-objects'>Page Objects</h3><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">HomePage</span> <span class="kd">extends</span> <span class="n">WebPage</span> <span class="o">{</span>
     <span class="nd">@FindBy</span><span class="o">(</span><span class="n">css</span> <span class="o">=</span> <span class="s">"img#user-icon"</span><span class="o">)</span> <span class="kd">public</span> <span class="n">WebElement</span> <span class="n">userIcon</span><span class="o">;</span>
@@ -844,7 +844,7 @@ Page Objects will help us.</p>
 </code></pre>
 <p>In order to make the code simple in JDI Light, we can use unified annotations <strong>@UI(&quot;...&quot;)</strong> that handle both Css and XPath locators and reduce the length of our code. <br/>
 And of course we can use one of the main JDI Light feature: Typified elements like <strong>TextField, Button, Text</strong>. <br/>
-And one more good news. We can make elements on Page Object static and keep tests more clear and obvious. <br/></p>
+And one more good news. We can make elements on Page Object static and keep tests more clear and obvious. <br/></br></br></p>
 <pre class="highlight java tab-java"><code><span class="nd">@JSite</span><span class="o">(</span><span class="s">"https://jdi-testing.github.io/jdi-light/"</span><span class="o">)</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">SiteJdi</span> <span class="o">{</span>
     <span class="nd">@Url</span><span class="o">(</span><span class="s">"/"</span><span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">HomePage</span> <span class="n">homePage</span><span class="o">;</span>
@@ -890,16 +890,15 @@ Pretty simple and obvious isn’t it? Url for pages is relative from the site do
 <ul>
 <li>We will get the following text in the log: <br/>
 Exactly what we do in our test with all the details and without any effort from our side. Fabulous! <br/>
-<br/><br/><br/>
-<code>
-[INFO 29:11.362] : Open &#39;Home Page&#39;(url=https://www.baeldung.com/) (SiteJdi.homePage (url=https://www.baeldung.com/; title=))
-[INFO 29:17.702] : Click on &#39;Menu About&#39; (HomePage.menuAbout (css=&#39;.menu-about a&#39;))
-[INFO 29:17.918] : Click on &#39;About Baeldung&#39; (HomePage.aboutBaeldung (xpath=&#39;//h3[contains(.,&#39;About Baeldung&#39;)]&#39;))
-[INFO 29:19.507] : Check that &#39;About Page&#39; is opened (url CONTAINS &#39;/about/&#39;; title EQUALS &#39;About Baeldung | Baeldung&#39;) 
-(SiteJdi.aboutPage (url=https://www.baeldung.com/about/; title=About Baeldung | Baeldung))
-</code>
-We can change the log level to STEP (just add logger.setLogLevel(STEP) in to setUp() method) and remove details. This log can be shared with our Customer or Manual QA and let them know what our Automated tests verify.</li>
+<br/><br/><br/></li>
 </ul>
+<pre class="highlight plaintext"><code>[INFO 29:11.362] : Open 'Home Page'(url=https://www.baeldung.com/) (SiteJdi.homePage (url=https://www.baeldung.com/; title=))
+[INFO 29:17.702] : Click on 'Menu About' (HomePage.menuAbout (css='.menu-about a'))
+[INFO 29:17.918] : Click on 'About Baeldung' (HomePage.aboutBaeldung (xpath='//h3[contains(.,'About Baeldung')]'))
+[INFO 29:19.507] : Check that 'About Page' is opened (url CONTAINS '/about/'; title EQUALS 'About Baeldung | Baeldung') 
+    (SiteJdi.aboutPage (url=https://www.baeldung.com/about/; title=About Baeldung | Baeldung))
+</code></pre>
+<p>We can change the log level to STEP (just add logger.setLogLevel(STEP) in to setUp() method) and remove details. This log can be shared with our Customer or Manual QA and let them know what our Automated tests verify.</p>
 <h3 id='fill-contact-form-example'>Fill Contact Form Example</h3>
 <p>Now let’s look on more complex case:<br/>
     <strong>0. Open Baeldung</strong><br/>

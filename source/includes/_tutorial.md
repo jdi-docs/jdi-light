@@ -145,6 +145,12 @@ public class PageObjectExample implements TestsInit {
 [INFO 29:17.918] : Click on 'About Baeldung' (HomePage.aboutBaeldung (xpath='//h3[contains(.,'About Baeldung')]'))
 [INFO 29:19.507] : Check that 'About Page' is opened (url CONTAINS '/about/'; title EQUALS 'About Baeldung | Baeldung') 
     (SiteJdi.aboutPage (url=https://www.baeldung.com/about/; title=About Baeldung | Baeldung))
+
+[STEP 29:11.362] : Open 'Home Page'(url=https://www.baeldung.com/)
+[STEP 29:17.702] : Click on 'Menu About'
+[STEP 29:17.918] : Click on 'About Baeldung'
+[STEP 29:19.507] : Check that 'About Page' is opened (url CONTAINS '/about/'; 
+    title EQUALS 'About Baeldung | Baeldung')
 ```
 Now we can write our test using this UI Objects and execute it<br/>
 - This test scenario is pretty clear <br/>
@@ -155,13 +161,6 @@ Now we can write our test using this UI Objects and execute it<br/>
 Exactly what we do in our test with all the details and without any effort from our side. Fabulous! <br/>
 <br/><br/><br/>
 
-```
-[STEP 29:11.362] : Open 'Home Page'(url=https://www.baeldung.com/)
-[STEP 29:17.702] : Click on 'Menu About'
-[STEP 29:17.918] : Click on 'About Baeldung'
-[STEP 29:19.507] : Check that 'About Page' is opened (url CONTAINS '/about/'; 
-    title EQUALS 'About Baeldung | Baeldung')
-```
 We can change the log level to STEP (just add logger.setLogLevel(STEP) in to setUp() method) and remove details. This log can be shared with our Customer or Manual QA and let them know what our Automated tests verify.<br/><br/><br/>
 <a href="https://github.com/jdi-tutorials/01-jdi-light-intro" target="_blank">See PageObject examples in PageObjectExample.java on Github</a>
 

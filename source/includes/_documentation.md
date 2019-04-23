@@ -1590,7 +1590,7 @@ public void CheckCheckList()
 [Test]
 public void UncheckNumTest()
 {
-    weather.Uncheck(1, 3);
+    genericWeather.Uncheck(1, 3);
     Jdi.Assert.CollectionEquals(new[] { "Cold", "Sunny" }, genericWeather.Checked());
 }
 ```

@@ -888,7 +888,7 @@ Pretty simple and obvious isn’t it? Url for pages is relative from the site do
 - We will get the following text in the log: <br/>
 Exactly what we do in our test with all the details and without any effort from our side. Fabulous! <br/>
 <br/>
-We can change the log level to STEP (just add logger.setLogLevel(STEP) in to setUp() method) and remove details. This log can be shared with our Customer or Manual QA and let them know what our Automated tests verify.<br/>
+We can change the log level to STEP (just add logger.setLogLevel(STEP) in to setUp() method) and remove details. This log can be shared with our Customer or Manual QA and let them know what our Automated tests verify.<br/><br/><br/>
 <a href="https://github.com/jdi-tutorials/01-jdi-light-intro" target="_blank">See PageObject examples in PageObjectExample.java on Github</a></p>
 <h2 id='3-jdi-light-forms'>3. JDI Light Forms</h2><h3 id='standard-login-form'>Standard Login form</h3><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LoginForm</span> <span class="kd">extends</span> <span class="n">Form</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="o">{</span>
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"#name"</span><span class="o">)</span> <span class="n">TextField</span> <span class="n">name</span><span class="o">;</span>
@@ -980,7 +980,7 @@ In order to do this we will create file (UsersDataProvider.java) for our Test Da
 <br/>
 Now we can write our tests <br/>
 <em>Note: we don&#39;t need to write any other code except test scenarios. Already written UI Objects is enough</em><br/>
-<em>Note: In order to be sure that before each test user <strong>logged out</strong> and <strong>Login form is opened</strong> we can add this as States in <strong>@BeforeMethod</strong></em><br/></p>
+<em>Note: In order to be sure that before each test user logged out and login form opened we can add @BeforeMethod with this States</em><br/></p>
 <h3 id='failed-login-form-tests-with-data-provider'>Failed Login Form tests with Data Provider</h3><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">UsersDataProvider</span> <span class="o">{</span>
     <span class="o">...</span>
     <span class="nd">@DataProvider</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"failedUsers"</span><span class="o">)</span>

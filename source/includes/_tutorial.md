@@ -366,8 +366,8 @@ and one new <u>Complex</u> element - **Menu** - list of links in left side bar. 
 public void simpleContactFormTest() {
     sideMenu.select("Contact form");
     contactPage.checkOpened();
-    contactForm.submit(SIMPLE_CONTACT);
-    contactForm.check(SIMPLE_CONTACT);
+    contactForm.submit(FULL_CONTACT);
+    contactForm.check(FULL_CONTACT);
 }
 public static ContactInfo FULL_CONTACT = new ContactInfo().set(c -> {
     c.name = "Roman"; c.lastName = "Full Contact"; c.position = "ChiefQA"; 
@@ -387,6 +387,21 @@ Let's write complex test that:<br/>
 ...<br/>
 This is as much simple as for Login Form! Amazing!<br/>
 The most complex part is create test data that we would like to enter<br/>
+```java
+public static ContactInfo SIMPLE_CONTACT = new ContactInfo().set(c -> {
+    c.name = "Roman"; c.lastName = "Iovlev"; c.position = "ChiefQA";
+    c.passportNumber = "4321"; c.passportSeria = "123456"; }
+);
+@Test
+public void simpleContactFormTest() {
+    sideMenu.select(ContactForm);
+    contactPage.checkOpened();
+    contactForm.submit(SIMPLE_CONTACT);
+    contactForm.check(SIMPLE_CONTACT);
+}
+```
+Now if we would like to fill only TextFields, we should just change test data.<br/>
+_Note:_In second example we use select by enum value for sideMenu it works the same as by text but allow us to choose from limited list of options and reduce chance to make a mistake_<br/>
 
 ### Use Form in different ways
 

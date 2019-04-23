@@ -1033,24 +1033,7 @@ In this way you can fill any types of elements in form that can be filled: TextF
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">getTextTest</span><span class="o">()</span> <span class="o">{</span>
     <span class="n">assertEquals</span><span class="o">(</span><span class="n">redButton</span><span class="o">.</span><span class="na">getText</span><span class="o">(),</span> <span class="s">"Big Red Button-Input"</span><span class="o">);</span>
 <span class="o">}</span>
-</code></pre><pre class="highlight csharp tab-csharp"><code>
-<span class="na">[FindBy(Css = ".red")]</span>
-<span class="k">public</span> <span class="n">Button</span> <span class="n">RedButton</span><span class="p">;</span>
-
-<span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">ClickTest</span><span class="p">()</span> 
-<span class="p">{</span>
-    <span class="n">RedButton</span><span class="p">.</span><span class="nf">Click</span><span class="p">();</span>
-    <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="nf">GetAlert</span><span class="p">().</span><span class="nf">GetAlertText</span><span class="p">(),</span> <span class="s">"Red button"</span><span class="p">);</span>
-    <span class="nf">GetAlert</span><span class="p">().</span><span class="nf">AcceptAlert</span><span class="p">();</span>
-<span class="p">}</span>
-
-<span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">GetTextTest</span><span class="p">()</span> 
-<span class="p">{</span>
-    <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">RedButton</span><span class="p">.</span><span class="nf">GetText</span><span class="p">(),</span> <span class="s">"Big Red Button-Input"</span><span class="p">);</span>
-<span class="p">}</span>
-
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="n">TBD</span> 
 </code></pre>
 <p>Here is an example with provided HTML code:</p>
 
@@ -1070,6 +1053,17 @@ In this way you can fill any types of elements in form that can be filled: TextF
 <td>Click the button</td>
 <td>void</td>
 </tr>
+</tbody></table>
+
+<p>Available method in C# JDI Light:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
 </tbody></table>
 
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ButtonTests.java">Java test examples</a></p>
@@ -2968,7 +2962,7 @@ In this way you can fill any types of elements in form that can be filled: TextF
 <li><strong><em>value()</em></strong> - locator of selected by default option in dropdown list</li>
 <li><strong><em>list()</em></strong> - locator representing list options</li>
 <li><strong><em>expand()</em></strong> - locator for expanding the dropdown list</li>
-<li><strong><em>how</em></strong> - type of locators with which elements will be identified. By default this is css</li>
+<li><strong><em>how()</em></strong> - type of locators with which elements will be identified. By default this is css</li>
 </ul>
 <pre class="highlight java tab-java"><code><span class="nd">@JDropdown</span><span class="o">(</span><span class="n">root</span> <span class="o">=</span> <span class="s">"div[ui=dropdown]"</span><span class="o">,</span>
            <span class="n">value</span> <span class="o">=</span> <span class="s">".filter-option"</span><span class="o">,</span>

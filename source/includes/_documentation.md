@@ -31,7 +31,24 @@ public void getTextTest() {
 }
 ```
 ```csharp
-TBD 
+
+[FindBy(Css = ".red")]
+public Button RedButton;
+
+[Test]
+public void ClickTest() 
+{
+    RedButton.Click();
+    Assert.AreEqual(GetAlert().GetAlertText(), "Red button");
+    GetAlert().AcceptAlert();
+}
+
+[Test]
+public void GetTextTest() 
+{
+    Assert.AreEqual(RedButton.GetText(), "Big Red Button-Input");
+}
+
 ```
 
 Here is an example with provided HTML code:
@@ -44,10 +61,6 @@ Available method in Java JDI Light:
 --- | --- | ---
 **click()** |Click the button  | void
 
-Available method in C# JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
 
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ButtonTests.java)
 

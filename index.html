@@ -309,7 +309,10 @@
                               <a href="#standard-login-form" class="toc-h2 h3 toc-link" data-title="Standard Login form">Standard Login form</a>
                             </li>
                             <li>
-                              <a href="#complex-contact-form-and-ui-elements" class="toc-h2 h3 toc-link" data-title="Complex Contact form and UI Elements">Complex Contact form and UI Elements</a>
+                              <a href="#cover-login-functionality" class="toc-h2 h3 toc-link" data-title="Cover Login functionality">Cover Login functionality</a>
+                            </li>
+                            <li>
+                              <a href="#ui-elements-on-contact-form" class="toc-h2 h3 toc-link" data-title="UI Elements on Contact Form">UI Elements on Contact Form</a>
                             </li>
                             <li>
                               <a href="#use-form-in-different-ways" class="toc-h2 h3 toc-link" data-title="Use Form in different ways">Use Form in different ways</a>
@@ -872,8 +875,7 @@ Pretty simple and obvious isn’t it? Url for pages is relative from the site do
 <span class="o">[</span><span class="n">STEP</span> <span class="mi">29</span><span class="o">:</span><span class="mf">11.362</span><span class="o">]</span> <span class="o">:</span> <span class="n">Open</span> <span class="err">'</span><span class="n">Home</span> <span class="n">Page</span><span class="err">'</span><span class="o">(</span><span class="n">url</span><span class="o">=</span><span class="nl">https:</span><span class="c1">//www.baeldung.com/)</span>
 <span class="o">[</span><span class="n">STEP</span> <span class="mi">29</span><span class="o">:</span><span class="mf">17.702</span><span class="o">]</span> <span class="o">:</span> <span class="n">Click</span> <span class="n">on</span> <span class="err">'</span><span class="n">Menu</span> <span class="n">About</span><span class="err">'</span>
 <span class="o">[</span><span class="n">STEP</span> <span class="mi">29</span><span class="o">:</span><span class="mf">17.918</span><span class="o">]</span> <span class="o">:</span> <span class="n">Click</span> <span class="n">on</span> <span class="err">'</span><span class="n">About</span> <span class="n">Baeldung</span><span class="err">'</span>
-<span class="o">[</span><span class="n">STEP</span> <span class="mi">29</span><span class="o">:</span><span class="mf">19.507</span><span class="o">]</span> <span class="o">:</span> <span class="n">Check</span> <span class="n">that</span> <span class="err">'</span><span class="n">About</span> <span class="n">Page</span><span class="err">'</span> <span class="n">is</span> <span class="nf">opened</span> <span class="o">(</span><span class="n">url</span> <span class="n">CONTAINS</span> <span class="err">'</span><span class="o">/</span><span class="n">about</span><span class="o">/</span><span class="err">'</span><span class="o">;</span> 
-    <span class="n">title</span> <span class="n">EQUALS</span> <span class="err">'</span><span class="n">About</span> <span class="n">Baeldung</span> <span class="o">|</span> <span class="n">Baeldung</span><span class="err">'</span><span class="o">)</span>
+<span class="o">[</span><span class="n">STEP</span> <span class="mi">29</span><span class="o">:</span><span class="mf">19.507</span><span class="o">]</span> <span class="o">:</span> <span class="n">Check</span> <span class="n">that</span> <span class="err">'</span><span class="n">About</span> <span class="n">Page</span><span class="err">'</span> <span class="n">is</span> <span class="nf">opened</span> <span class="o">(</span><span class="n">url</span> <span class="n">CONTAINS</span> <span class="err">'</span><span class="o">/</span><span class="n">about</span><span class="o">/</span><span class="err">'</span><span class="o">;</span> <span class="n">title</span> <span class="n">EQUALS</span> <span class="err">'</span><span class="n">About</span> <span class="n">Baeldung</span> <span class="o">|</span> <span class="n">Baeldung</span><span class="err">'</span><span class="o">)</span>
 </code></pre>
 <p>Now we can write our test using this UI Objects and execute it<br/><br/>
 - This test scenario is pretty clear and based on real UI elements<br/>
@@ -882,9 +884,8 @@ Pretty simple and obvious isn’t it? Url for pages is relative from the site do
 - JDI Light tests are stable and will not fail in cases where Selenium throws exceptions (like <em>StaleElement</em> or <em>NoSuchElement</em>)<br/><br/><br/>
 - We will get the following text in the log: <br/>
 Exactly what we do in our test with all the details and without any effort from our side. Fabulous! <br/>
-<br/><br/><br/><br/></p>
-
-<p>We can change the log level to STEP (just add logger.setLogLevel(STEP) in to setUp() method) and remove details. This log can be shared with our Customer or Manual QA and let them know what our Automated tests verify.<br/><br/><br/>
+<br/>
+We can change the log level to STEP (just add logger.setLogLevel(STEP) in to setUp() method) and remove details. This log can be shared with our Customer or Manual QA and let them know what our Automated tests verify.<br/><br/><br/>
 <a href="https://github.com/jdi-tutorials/01-jdi-light-intro" target="_blank">See PageObject examples in PageObjectExample.java on Github</a></p>
 <h2 id='3-jdi-light-forms'>3. JDI Light Forms</h2><h3 id='standard-login-form'>Standard Login form</h3><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LoginForm</span> <span class="kd">extends</span> <span class="n">Form</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="o">{</span>
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"#name"</span><span class="o">)</span> <span class="n">TextField</span> <span class="n">name</span><span class="o">;</span>
@@ -924,11 +925,60 @@ In this way you can fill any types of elements in form that can be filled: TextF
 <span class="nl">Output:</span> <span class="n">ROMAN</span><span class="o">.</span><span class="na">toString</span><span class="o">()</span> <span class="o">--&gt;</span> <span class="n">User</span><span class="o">(</span><span class="nl">name:</span><span class="n">Roman</span><span class="o">;</span> <span class="nl">password:</span><span class="n">Jdi1234</span><span class="o">)</span>
 </code></pre>
 <p>For data class we can use any class but if we add <strong>extends DataClass</strong> we will get additional benefits:<br/>
-- Ability to fill User fields in any order and numbers without constructors with method <em>set</em><br/>
-- Compare two users by equality of their fields and not by reference with method <em>equal</em><br/>
-- Have good toString() for User based on its fields<br/>
+- Ability to fill User fields in any order and numbers without constructors with method <strong>set()</strong><br/>
+- Compare two users by equality of their fields and not by reference with method <strong>equal()</strong><br/>
+- Have good <strong>toString()</strong> for User based on its fields<br/>
 <a href="https://github.com/jdi-tutorials/01-jdi-light-intro" target="_blank">See this example in LoginExample.java on Github</a></p>
-<h3 id='complex-contact-form-and-ui-elements'>Complex Contact form and UI Elements</h3><h3 id='use-form-in-different-ways'>Use Form in different ways</h3><h2 id='create-custom-controls'>Create Custom controls</h2>
+<h3 id='cover-login-functionality'>Cover Login functionality</h3><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">UsersDataProvider</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">User</span> <span class="n">NO_PASSWORD</span> <span class="o">=</span> <span class="k">new</span> <span class="n">User</span><span class="o">().</span><span class="na">set</span><span class="o">(</span><span class="n">c</span> <span class="o">-&gt;</span> <span class="n">c</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">"Roman"</span><span class="o">);</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">User</span> <span class="n">NO_CREDENTIALS</span> <span class="o">=</span> <span class="k">new</span> <span class="n">User</span><span class="o">().</span><span class="na">set</span><span class="o">(</span><span class="n">c</span> <span class="o">-&gt;</span> <span class="o">{</span>
+        <span class="n">c</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
+        <span class="n">c</span><span class="o">.</span><span class="na">password</span> <span class="o">=</span> <span class="s">""</span><span class="o">;}</span>
+    <span class="o">);</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">User</span> <span class="n">WRONG_CREDENTIALS</span> <span class="o">=</span> <span class="k">new</span> <span class="n">User</span><span class="o">().</span><span class="na">set</span><span class="o">(</span><span class="n">c</span> <span class="o">-&gt;</span> <span class="o">{</span>
+        <span class="n">c</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">"Alex"</span><span class="o">;</span>
+        <span class="n">c</span><span class="o">.</span><span class="na">password</span> <span class="o">=</span> <span class="s">"Password"</span><span class="o">;}</span>
+    <span class="o">);</span>
+    <span class="o">...</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LoginExample</span> <span class="kd">implements</span> <span class="n">TestsInit</span> <span class="o">{</span>
+    <span class="nd">@BeforeMethod</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">before</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">loggedOut</span><span class="o">();</span>
+        <span class="n">loginFormShown</span><span class="o">();</span>
+    <span class="o">}</span>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">failedLoginTest1</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">loginForm</span><span class="o">.</span><span class="na">loginAs</span><span class="o">(</span><span class="n">NO_PASSWORD</span><span class="o">);</span>
+        <span class="n">userName</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">hidden</span><span class="o">();</span>
+    <span class="o">}</span>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">failedLoginTest2</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">loginForm</span><span class="o">.</span><span class="na">loginAs</span><span class="o">(</span><span class="n">WRONG_CREDENTIALS</span><span class="o">);</span>
+        <span class="n">userName</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">hidden</span><span class="o">();</span>
+    <span class="o">}</span>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">failedLoginTest3</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">loginForm</span><span class="o">.</span><span class="na">loginAs</span><span class="o">(</span><span class="n">NO_CREDENTIALS</span><span class="o">);</span>
+        <span class="n">userName</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">hidden</span><span class="o">();</span>
+    <span class="o">}</span>
+    <span class="o">...</span>
+<span class="o">}</span>
+</code></pre>
+<p>And we can easily increase amount of different tests<br/>
+Let&#39;s cover login functionality with tests:<br/>
+1. No Password<br/>
+2. Wrong Credentials<br/>
+3. No data<br/>
+<br/>
+In order to do this we will create file (UsersDataProvider.java) for our Test Data and put User entities with required values<br/>
+<em>Note: that if you will leave some fields null this data will not be entered, because we would like to validate empty values in fields for NO_CREDENTIALS we should set them as empty strings</em><br/>
+<br/>
+Now we can write our tests <br/>
+<em>Note: we don&#39;t need to write any other code except test scenarios. Already written UI Objects is enough</em><br/>
+<em>Note: In order to be sure that before each test user logged out and login form opened we can add @BeforeMethod with this States</em><br/></p>
+<h3 id='ui-elements-on-contact-form'>UI Elements on Contact Form</h3><h3 id='use-form-in-different-ways'>Use Form in different ways</h3><h2 id='create-custom-controls'>Create Custom controls</h2>
 <p>TBD</p>
 <h2 id='jdi-settings-at-glance'>JDI settings at glance</h2>
 <p>TBD</p>
@@ -1069,21 +1119,6 @@ In this way you can fill any types of elements in form that can be filled: TextF
 <td><strong>click()</strong></td>
 <td>Click the button</td>
 <td>void</td>
-</tr>
-<tr>
-<td><strong>getText()</strong></td>
-<td>Get button text</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>is()</strong></td>
-<td>Assert action</td>
-<td>TextAssert</td>
-</tr>
-<tr>
-<td><strong>assertThat()</strong></td>
-<td>Assert action</td>
-<td>TextAssert</td>
 </tr>
 </tbody></table>
 

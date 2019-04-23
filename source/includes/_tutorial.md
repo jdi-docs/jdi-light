@@ -257,6 +257,7 @@ _Note: that if you will leave some fields null this data will not be entered, be
 Now we can write our tests <br/>
 _Note: we don't need to write any other code except test scenarios. Already written UI Objects is enough_<br/>
 _Note: In order to be sure that before each test user **logged out** and **Login form is opened** we can add this as States in **@BeforeMethod**_<br/>
+<a href="https://github.com/jdi-tutorials/02-jdi-light-forms-elements" target="_blank">See this example in LoginExample.java on Github</a>
 
 ### Failed Login Form tests with Data Provider
 
@@ -284,11 +285,108 @@ As Next step we will create one common test scenario and put User as parameter f
 And the last thing is just link our test to dataprovider method using **@Test** annotation parameters.<br/>
 Thats it! If we run this one scenario we will get 3 tests that validate different cases of failed login.<br/>
 In this way you can easily manage same scenarios with different test data, increase testing coverage, add new data sets or update them without changing tests<br/>
-So simple!
+So simple!<br/>
+<a href="https://github.com/jdi-tutorials/02-jdi-light-forms-elements" target="_blank">See this example in LoginExample.java on Github</a>
 
+## 4. UI Elements and optimization
 ### UI Elements on Contact Form
+We got first look on JDI Light and now let's look closer to UI Elements. In JDI we have 3 kinds of elements:<br/>
+1. Common Elements: Buttons, TextFields, Text, Checkbox etc. Some of them we already use in Login Form. All this elements are simple and can be described by one locator or Selenium element.<br/>
+_Note: See full list and more details in <a href="https://jdi-docs.github.io/jdi-light/?java#common-elements">Documentation</a>_<br/>
+2. Complex elements like Dropdown, Checklist, RadioButtons, MultSelect, DataList etc.. This elements work with List of Common Elements one or different types. E.g. Dropdown has _value_, _expand arrow_ and _list of options_; Checklist - just list of Checkboxes<br/>
+_Note: See full list and more details in <a href="https://jdi-docs.github.io/jdi-light/?java#complex-elements">Documentation</a>_<br/>
+3. Composite elements are typified Page Objects. This is WebPage, Form, Section and just simple class with list of UI Elements or sub-sections.<br/>
+_Note: See full list and more details in <a href="https://jdi-docs.github.io/jdi-light/?java#composite-elements">Documentation</a>_<br/>
 
+```java
+public class ContactForm extends Form<ContactInfo> {
+    @UI("#passport") Checkbox passport;
+    @UI("#name") TextField name;
+    @UI("#last-name") TextField lastName;
+    @UI("#position") TextField position;
+    @UI("#passport-number") TextField passportNumber;
+    @UI("#passport-seria") TextField passportSeria;
+    @UI("#gender") Dropdown gender;
+    @UI("#religion") Combobox religion;
+    @UI("#weather") MultiDropdown weather;
 
+    @UI("#accept-conditions") public Checkbox acceptConditions;
+    @UI("#description") TextArea description;
+
+    @UI("button[type=submit]") Button submit;
+}
+@Url("/contacts") @Title("Contact Form")
+public class ContactPage extends WebPage {
+    @UI("#contact-form") public static ContactForm contactForm;
+}
+```
+Let's look on example: Contact Form on <a href="https://jdi-testing.github.io/jdi-light/contacts.html" target="_blank">Contacts page</a> <br/>
+This Form opposite to Login Form has more different UI elemnts. Let's describe it.<br/>
+We have here <u>Common</u> elements: <br/>
+5 **TextField**s (name, lastName, position, passportNumber, passportSeria)<br/>
+![TextField](../images/tutorial/textfield.png)<br/>
+2 **Checkbox**es (passport, acceptConditions)<br/>
+![Checkbox](../images/tutorial/checkbox.png)<br/>
+1 **TextArea** (description)<br/>
+![TextArea](../images/tutorial/textarea.png)<br/>
+1 **Button** (submit)
+![Button](../images/tutorial/button.png)<br/>
+And <u>Complex</u> elements:
+**Dropdown** (gender) -  Element with one value, expand arrow and list of options <br/>
+![Dropdown](../images/tutorial/dropdown.png)<br/>
+**Combobox** (religion) - Mix of Dropdown and TextField. You set value from list of options or enter your own<br/>
+![Combobox](../images/tutorial/combobox.png)<br/>
+**MultiDropdown** (weather) - Dropdown with ability to select list of options<br/>
+![MultiDropdown](../images/tutorial/multiselect.png)<br/>
+And the **Contact Form** itself is <u>Composite</u> Page Object<br/>
+Contact Form placed on another <u>Composite</u> Page Object called **Contact Page**<br/>
+Put your attention that Contact Form and Contact Page have additional meta information: <br/>
+- Already known **@Url** and **@Title** for WebPage and <br/>
+- Locator in **@UI** annotation. This mean that all elements placed in this Page Object will be found only in this context and even if their simple locator <u>"button[type=submit]"</u> present on this page multiple times it will be found correctly for this form<br/>
+
+```java
+public class ContactInfo extends DataClass<ContactInfo> {
+    public String passport, name, lastName, position, passportNumber, passportSeria,
+                    gender, religion, weather, acceptConditions, description;
+}
+```  
+Next point is "extend WebPage" and "extend Form\<ContactInfo\>" let this Page Objects have actions to operate with elements on it and related meta-info<br/>
+Data entity for this form (ContactInfo) looks pretty much the same as for Login Form. All fields that can be managed by Form are String.</br>
+
+```java
+@UI("img#user-icon") public static Link userIcon;
+@UI("#user-name") public static Text userName;
+@UI(".sidebar-menu span") public static Menu sideMenu;
+```  
+We also have few <u>Common</u> elements directly on Site: already used **Link** <u>userIcon</u> and **Text** element <u>userName</u></br>
+and one new <u>Complex</u> element - **Menu** - list of links in left side bar. This element also described by one locator but returns 16 items and you can call the one that you need by its name desribed in enum <u>MenuOptions</u></br>
+
+```java
+@Test
+public void simpleContactFormTest() {
+    sideMenu.select("Contact form");
+    contactPage.checkOpened();
+    contactForm.submit(SIMPLE_CONTACT);
+    contactForm.check(SIMPLE_CONTACT);
+}
+public static ContactInfo FULL_CONTACT = new ContactInfo().set(c -> {
+    c.name = "Roman"; c.lastName = "Full Contact"; c.position = "ChiefQA"; 
+    c.passportNumber = "4321"; c.passportSeria = "123456"; 
+    c.description = "JDI - awesome UI automation tool";
+
+    c.gender = "Female"; c.religion = "Other"; c.weather = "Sun, Snow";
+    c.acceptConditions = "true"; c.passport = "true";
+    }
+);
+```
+Let's write complex test that:<br/> 
+- Open Contact Page from menu<br/>
+- Validate that this Page has correct url and title<br/>
+- Fill all 11 different elements in this Complex form by some values<br/>
+- And validate that form filled correctly<br/>
+...<br/>
+This is as much simple as for Login Form! Amazing!<br/>
+The most complex part is create test data that we would like to enter<br/>
 
 ### Use Form in different ways
 

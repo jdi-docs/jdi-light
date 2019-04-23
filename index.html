@@ -1045,9 +1045,9 @@ We have here <u>Common</u> elements: <br/>
 <img src="images/tutorial/checkbox.png" alt="Checkbox" /><br/>
 1 <strong>TextArea</strong> (description)<br/>
 <img src="images/tutorial/textarea.png" alt="TextArea" /><br/>
-1 <strong>Button</strong> (submit)
+1 <strong>Button</strong> (submit)<br/>
 <img src="images/tutorial/button.png" alt="Button" /><br/>
-And <u>Complex</u> elements:
+And <u>Complex</u> elements:<br/>
 <strong>Dropdown</strong> (gender) -  Element with one value, expand arrow and list of options <br/>
 <img src="images/tutorial/dropdown.png" alt="Dropdown" /><br/>
 <strong>Combobox</strong> (religion) - Mix of Dropdown and TextField. You set value from list of options or enter your own<br/>
@@ -1060,8 +1060,8 @@ Put your attention that Contact Form and Contact Page have additional meta infor
 - Already known <strong>@Url</strong> and <strong>@Title</strong> for WebPage and <br/>
 - Locator in <strong>@UI</strong> annotation. This mean that all elements placed in this Page Object will be found only in this context and even if their simple locator <u>&quot;button[type=submit]&quot;</u> present on this page multiple times it will be found correctly for this form<br/></p>
 <pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ContactInfo</span> <span class="kd">extends</span> <span class="n">DataClass</span><span class="o">&lt;</span><span class="n">ContactInfo</span><span class="o">&gt;</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="n">String</span> <span class="n">passport</span><span class="o">,</span> <span class="n">name</span><span class="o">,</span> <span class="n">lastName</span><span class="o">,</span> <span class="n">position</span><span class="o">,</span> <span class="n">passportNumber</span><span class="o">,</span> <span class="n">passportSeria</span><span class="o">,</span>
-                    <span class="n">gender</span><span class="o">,</span> <span class="n">religion</span><span class="o">,</span> <span class="n">weather</span><span class="o">,</span> <span class="n">acceptConditions</span><span class="o">,</span> <span class="n">description</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="n">passport</span><span class="o">,</span> <span class="n">name</span><span class="o">,</span> <span class="n">lastName</span><span class="o">,</span> <span class="n">position</span><span class="o">,</span> <span class="n">passportNumber</span><span class="o">,</span> 
+        <span class="n">passportSeria</span><span class="o">,</span> <span class="n">gender</span><span class="o">,</span> <span class="n">religion</span><span class="o">,</span> <span class="n">weather</span><span class="o">,</span> <span class="n">acceptConditions</span><span class="o">,</span> <span class="n">description</span><span class="o">;</span>
 <span class="o">}</span>
 </code></pre>
 <p>Next point is &quot;extend WebPage&quot; and &quot;extend Form&lt;ContactInfo&gt;&quot; let this Page Objects have actions to operate with elements on it and related meta-info<br/>

@@ -309,7 +309,10 @@
                               <a href="#standard-login-form" class="toc-h2 h3 toc-link" data-title="Standard Login form">Standard Login form</a>
                             </li>
                             <li>
-                              <a href="#cover-login-functionality" class="toc-h2 h3 toc-link" data-title="Cover Login functionality">Cover Login functionality</a>
+                              <a href="#cover-login-form-with-data-driven-tests" class="toc-h2 h3 toc-link" data-title="Cover Login Form with Data Driven tests">Cover Login Form with Data Driven tests</a>
+                            </li>
+                            <li>
+                              <a href="#failed-login-form-tests-with-data-provider" class="toc-h2 h3 toc-link" data-title="Failed Login Form tests with Data Provider">Failed Login Form tests with Data Provider</a>
                             </li>
                             <li>
                               <a href="#ui-elements-on-contact-form" class="toc-h2 h3 toc-link" data-title="UI Elements on Contact Form">UI Elements on Contact Form</a>
@@ -929,7 +932,7 @@ In this way you can fill any types of elements in form that can be filled: TextF
 - Compare two users by equality of their fields and not by reference with method <strong>equal()</strong><br/>
 - Have good <strong>toString()</strong> for User based on its fields<br/>
 <a href="https://github.com/jdi-tutorials/01-jdi-light-intro" target="_blank">See this example in LoginExample.java on Github</a></p>
-<h3 id='cover-login-functionality'>Cover Login functionality</h3><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">UsersDataProvider</span> <span class="o">{</span>
+<h3 id='cover-login-form-with-data-driven-tests'>Cover Login Form with Data Driven tests</h3><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">UsersDataProvider</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">User</span> <span class="n">NO_PASSWORD</span> <span class="o">=</span> <span class="k">new</span> <span class="n">User</span><span class="o">().</span><span class="na">set</span><span class="o">(</span><span class="n">c</span> <span class="o">-&gt;</span> <span class="n">c</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">"Roman"</span><span class="o">);</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">User</span> <span class="n">NO_CREDENTIALS</span> <span class="o">=</span> <span class="k">new</span> <span class="n">User</span><span class="o">().</span><span class="na">set</span><span class="o">(</span><span class="n">c</span> <span class="o">-&gt;</span> <span class="o">{</span>
         <span class="n">c</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
@@ -978,6 +981,27 @@ In order to do this we will create file (UsersDataProvider.java) for our Test Da
 Now we can write our tests <br/>
 <em>Note: we don&#39;t need to write any other code except test scenarios. Already written UI Objects is enough</em><br/>
 <em>Note: In order to be sure that before each test user logged out and login form opened we can add @BeforeMethod with this States</em><br/></p>
+<h3 id='failed-login-form-tests-with-data-provider'>Failed Login Form tests with Data Provider</h3><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">UsersDataProvider</span> <span class="o">{</span>
+    <span class="o">...</span>
+    <span class="nd">@DataProvider</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"failedUsers"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Object</span><span class="o">[][]</span> <span class="nf">failedUsers</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">User</span><span class="o">[][]{{</span><span class="n">NO_PASSWORD</span><span class="o">},</span> <span class="o">{</span><span class="n">NO_CREDENTIALS</span><span class="o">},</span> <span class="o">{</span><span class="n">WRONG_CREDENTIALS</span><span class="o">}};</span>
+    <span class="o">}</span>
+</code></pre>
+<p>But scenarios in previous example are pretty much the same and difference only in Test Data. We can simplify our tests with DataProvider.<br/>
+Let&#39;s add in our UsersDataProvider.java file method that returns test data for our cases as 2D array of Users and mark it by annotation <strong>@DataProvider</strong> with name <strong>failedUsers</strong><br/><br/></p>
+<pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">UsersDataProvider</span> <span class="o">{</span>
+    <span class="o">...</span>
+    <span class="nd">@Test</span><span class="o">(</span><span class="n">dataProvider</span> <span class="o">=</span> <span class="s">"failedUsers"</span><span class="o">,</span> <span class="n">dataProviderClass</span> <span class="o">=</span> <span class="n">UsersDataProvider</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">dataFailedLoginTest</span><span class="o">(</span><span class="n">User</span> <span class="n">user</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">loginForm</span><span class="o">.</span><span class="na">loginAs</span><span class="o">(</span><span class="n">user</span><span class="o">);</span>
+        <span class="n">userName</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">hidden</span><span class="o">();</span>
+    <span class="o">}</span>
+</code></pre>
+<p>As Next step we will create one common test scenario and put User as parameter for it. <br/>
+And the last thing is just link our test to dataprovider method using <strong>@Test</strong> annotation parameters.<br/>
+Thats it! If we run this one scenario we will get 3 tests that validate different cases of failed login.<br/>
+So simple!</p>
 <h3 id='ui-elements-on-contact-form'>UI Elements on Contact Form</h3><h3 id='use-form-in-different-ways'>Use Form in different ways</h3><h2 id='create-custom-controls'>Create Custom controls</h2>
 <p>TBD</p>
 <h2 id='jdi-settings-at-glance'>JDI settings at glance</h2>

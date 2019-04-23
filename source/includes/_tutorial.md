@@ -196,10 +196,9 @@ In this way you can fill any types of elements in form that can be filled: TextF
 _We will go through this in Contact Form example._<br/>
 
 ```java
-User ROMAN = new User().set(c -> {
-    c.name = "Roman";
-    c.password = "Jdi1234";} 
-);
+  User ROMAN = new User().set(c -> {
+      c.name = "Roman"; c.password = "Jdi1234";
+  } );
 Output: ROMAN.toString() --> User(name:Roman; password:Jdi1234)
 ```
 For data class we can use any class but if we add **extends DataClass** we will get additional benefits:<br/>
@@ -214,12 +213,10 @@ For data class we can use any class but if we add **extends DataClass** we will 
 public class UsersDataProvider {
     public static User NO_PASSWORD = new User().set(c -> c.name = "Roman");
     public static User NO_CREDENTIALS = new User().set(c -> {
-        c.name = "";
-        c.password = "";}
+        c.name = ""; c.password = "";}
     );
     public static User WRONG_CREDENTIALS = new User().set(c -> {
-        c.name = "Alex";
-        c.password = "Password";}
+        c.name = "Alex"; c.password = "Password";}
     );
     ...
 }
@@ -286,6 +283,7 @@ public class UsersDataProvider {
 As Next step we will create one common test scenario and put User as parameter for it. <br/>
 And the last thing is just link our test to dataprovider method using **@Test** annotation parameters.<br/>
 Thats it! If we run this one scenario we will get 3 tests that validate different cases of failed login.<br/>
+In this way you can easily manage same scenarios with different test data, increase testing coverage, add new data sets or update them without changing tests<br/>
 So simple!
 
 ### UI Elements on Contact Form

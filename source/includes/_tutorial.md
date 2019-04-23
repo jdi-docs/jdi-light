@@ -208,7 +208,7 @@ For data class we can use any class but if we add **extends DataClass** we will 
 - Have good **toString()** for User based on its fields<br/>
 <a href="https://github.com/jdi-tutorials/01-jdi-light-intro" target="_blank">See this example in LoginExample.java on Github</a>
 
-### Cover Login functionality
+### Cover Login Form with Data Driven tests
 
 ```java
 public class UsersDataProvider {
@@ -261,6 +261,32 @@ Now we can write our tests <br/>
 _Note: we don't need to write any other code except test scenarios. Already written UI Objects is enough_<br/>
 _Note: In order to be sure that before each test user logged out and login form opened we can add @BeforeMethod with this States_<br/>
 
+### Failed Login Form tests with Data Provider
+
+```java
+public class UsersDataProvider {
+    ...
+    @DataProvider(name = "failedUsers")
+    public static Object[][] failedUsers() {
+        return new User[][]{{NO_PASSWORD}, {NO_CREDENTIALS}, {WRONG_CREDENTIALS}};
+    }
+```
+But scenarios in previous example are pretty much the same and difference only in Test Data. We can simplify our tests with DataProvider.<br/>
+Let's add in our UsersDataProvider.java file method that returns test data for our cases as 2D array of Users and mark it by annotation **@DataProvider** with name **failedUsers**<br/><br/>
+
+```java
+public class UsersDataProvider {
+    ...
+    @Test(dataProvider = "failedUsers", dataProviderClass = UsersDataProvider.class)
+    public void dataFailedLoginTest(User user) {
+        loginForm.loginAs(user);
+        userName.is().hidden();
+    }
+```
+As Next step we will create one common test scenario and put User as parameter for it. <br/>
+And the last thing is just link our test to dataprovider method using **@Test** annotation parameters.<br/>
+Thats it! If we run this one scenario we will get 3 tests that validate different cases of failed login.<br/>
+So simple!
 
 ### UI Elements on Contact Form
 

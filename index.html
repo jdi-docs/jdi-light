@@ -921,10 +921,9 @@ Let&#39;s move elements placed on Login Form in separate UI Object <em>LoginForm
 <p>User class is simple data class with two String fields that has same names as TextFields in LoginForm. <br/>
 In this way you can fill any types of elements in form that can be filled: TextField, TextArea, Checkbox, DropDown etc. <br/>
 <em>We will go through this in Contact Form example.</em><br/></p>
-<pre class="highlight java tab-java"><code><span class="n">User</span> <span class="n">ROMAN</span> <span class="o">=</span> <span class="k">new</span> <span class="n">User</span><span class="o">().</span><span class="na">set</span><span class="o">(</span><span class="n">c</span> <span class="o">-&gt;</span> <span class="o">{</span>
-    <span class="n">c</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">"Roman"</span><span class="o">;</span>
-    <span class="n">c</span><span class="o">.</span><span class="na">password</span> <span class="o">=</span> <span class="s">"Jdi1234"</span><span class="o">;}</span> 
-<span class="o">);</span>
+<pre class="highlight java tab-java"><code>  <span class="n">User</span> <span class="n">ROMAN</span> <span class="o">=</span> <span class="k">new</span> <span class="n">User</span><span class="o">().</span><span class="na">set</span><span class="o">(</span><span class="n">c</span> <span class="o">-&gt;</span> <span class="o">{</span>
+      <span class="n">c</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">"Roman"</span><span class="o">;</span> <span class="n">c</span><span class="o">.</span><span class="na">password</span> <span class="o">=</span> <span class="s">"Jdi1234"</span><span class="o">;</span>
+  <span class="o">}</span> <span class="o">);</span>
 <span class="nl">Output:</span> <span class="n">ROMAN</span><span class="o">.</span><span class="na">toString</span><span class="o">()</span> <span class="o">--&gt;</span> <span class="n">User</span><span class="o">(</span><span class="nl">name:</span><span class="n">Roman</span><span class="o">;</span> <span class="nl">password:</span><span class="n">Jdi1234</span><span class="o">)</span>
 </code></pre>
 <p>For data class we can use any class but if we add <strong>extends DataClass</strong> we will get additional benefits:<br/>
@@ -935,12 +934,10 @@ In this way you can fill any types of elements in form that can be filled: TextF
 <h3 id='cover-login-form-with-data-driven-tests'>Cover Login Form with Data Driven tests</h3><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">UsersDataProvider</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">User</span> <span class="n">NO_PASSWORD</span> <span class="o">=</span> <span class="k">new</span> <span class="n">User</span><span class="o">().</span><span class="na">set</span><span class="o">(</span><span class="n">c</span> <span class="o">-&gt;</span> <span class="n">c</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">"Roman"</span><span class="o">);</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">User</span> <span class="n">NO_CREDENTIALS</span> <span class="o">=</span> <span class="k">new</span> <span class="n">User</span><span class="o">().</span><span class="na">set</span><span class="o">(</span><span class="n">c</span> <span class="o">-&gt;</span> <span class="o">{</span>
-        <span class="n">c</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
-        <span class="n">c</span><span class="o">.</span><span class="na">password</span> <span class="o">=</span> <span class="s">""</span><span class="o">;}</span>
+        <span class="n">c</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span> <span class="n">c</span><span class="o">.</span><span class="na">password</span> <span class="o">=</span> <span class="s">""</span><span class="o">;}</span>
     <span class="o">);</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">User</span> <span class="n">WRONG_CREDENTIALS</span> <span class="o">=</span> <span class="k">new</span> <span class="n">User</span><span class="o">().</span><span class="na">set</span><span class="o">(</span><span class="n">c</span> <span class="o">-&gt;</span> <span class="o">{</span>
-        <span class="n">c</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">"Alex"</span><span class="o">;</span>
-        <span class="n">c</span><span class="o">.</span><span class="na">password</span> <span class="o">=</span> <span class="s">"Password"</span><span class="o">;}</span>
+        <span class="n">c</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">"Alex"</span><span class="o">;</span> <span class="n">c</span><span class="o">.</span><span class="na">password</span> <span class="o">=</span> <span class="s">"Password"</span><span class="o">;}</span>
     <span class="o">);</span>
     <span class="o">...</span>
 <span class="o">}</span>
@@ -1001,6 +998,7 @@ Let&#39;s add in our UsersDataProvider.java file method that returns test data f
 <p>As Next step we will create one common test scenario and put User as parameter for it. <br/>
 And the last thing is just link our test to dataprovider method using <strong>@Test</strong> annotation parameters.<br/>
 Thats it! If we run this one scenario we will get 3 tests that validate different cases of failed login.<br/>
+In this way you can easily manage same scenarios with different test data, increase testing coverage, add new data sets or update them without changing tests<br/>
 So simple!</p>
 <h3 id='ui-elements-on-contact-form'>UI Elements on Contact Form</h3><h3 id='use-form-in-different-ways'>Use Form in different ways</h3><h2 id='create-custom-controls'>Create Custom controls</h2>
 <p>TBD</p>

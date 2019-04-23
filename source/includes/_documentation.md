@@ -1614,12 +1614,17 @@ List of available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**check(String.../Enum/int...)** |Check checkboxes | void
-**uncheck(String.../Enum/int...)** | Unselect checkboxes | void
-**select(String.../Enum/int...)** | Select checkboxes | void
+**check(String.../Enum/int...)** | Check checkboxes | void
 **checkAll()** | Check all checkboxes from checklist | void
+**uncheck(String.../Enum/int...)** | Unselect checkboxes | void
 **uncheckAll()** | Uncheck all checkboxes from checklist | void
+**select(String.../Enum/int...)** | Select checkboxes | void
 **checked()** | Get selected checkbox values | List\<String>
+**selected()** | Get selected checkbox values | **String**
+**values()** | Get checklist values | List\<String>
+**listEnabled()** | Get enabled checkboxes | List\<String>
+**listDisabled()** | Get disabled checkboxes | List\<String>
+**size()** | Get checklist size | int
 
 Here is the list of some available methods in C# JDI Light:
 

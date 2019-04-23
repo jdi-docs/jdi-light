@@ -329,9 +329,9 @@ We have here <u>Common</u> elements: <br/>
 ![Checkbox](../images/tutorial/checkbox.png)<br/>
 1 **TextArea** (description)<br/>
 ![TextArea](../images/tutorial/textarea.png)<br/>
-1 **Button** (submit)
+1 **Button** (submit)<br/>
 ![Button](../images/tutorial/button.png)<br/>
-And <u>Complex</u> elements:
+And <u>Complex</u> elements:<br/>
 **Dropdown** (gender) -  Element with one value, expand arrow and list of options <br/>
 ![Dropdown](../images/tutorial/dropdown.png)<br/>
 **Combobox** (religion) - Mix of Dropdown and TextField. You set value from list of options or enter your own<br/>
@@ -346,8 +346,8 @@ Put your attention that Contact Form and Contact Page have additional meta infor
 
 ```java
 public class ContactInfo extends DataClass<ContactInfo> {
-    public String passport, name, lastName, position, passportNumber, passportSeria,
-                    gender, religion, weather, acceptConditions, description;
+    public String passport, name, lastName, position, passportNumber, 
+        passportSeria, gender, religion, weather, acceptConditions, description;
 }
 ```  
 Next point is "extend WebPage" and "extend Form\<ContactInfo\>" let this Page Objects have actions to operate with elements on it and related meta-info<br/>

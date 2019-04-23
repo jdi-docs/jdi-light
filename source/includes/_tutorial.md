@@ -146,10 +146,8 @@ public class PageObjectExample implements TestsInit {
 [STEP 29:11.362] : Open 'Home Page'(url=https://www.baeldung.com/)
 [STEP 29:17.702] : Click on 'Menu About'
 [STEP 29:17.918] : Click on 'About Baeldung'
-[STEP 29:19.507] : Check that 'About Page' is opened (url CONTAINS '/about/'; 
-    title EQUALS 'About Baeldung | Baeldung')
+[STEP 29:19.507] : Check that 'About Page' is opened (url CONTAINS '/about/'; title EQUALS 'About Baeldung | Baeldung')
 ```
-
 Now we can write our test using this UI Objects and execute it<br/><br/>
 - This test scenario is pretty clear and based on real UI elements<br/>
 - We can easily update elements on UI Objects without going through all tests<br/>
@@ -157,8 +155,7 @@ Now we can write our test using this UI Objects and execute it<br/><br/>
 - JDI Light tests are stable and will not fail in cases where Selenium throws exceptions (like _StaleElement_ or _NoSuchElement_)<br/><br/><br/>
 - We will get the following text in the log: <br/>
 Exactly what we do in our test with all the details and without any effort from our side. Fabulous! <br/>
-<br/><br/><br/><br/>
-
+<br/>
 We can change the log level to STEP (just add logger.setLogLevel(STEP) in to setUp() method) and remove details. This log can be shared with our Customer or Manual QA and let them know what our Automated tests verify.<br/><br/><br/>
 <a href="https://github.com/jdi-tutorials/01-jdi-light-intro" target="_blank">See PageObject examples in PageObjectExample.java on Github</a>
 
@@ -206,12 +203,66 @@ User ROMAN = new User().set(c -> {
 Output: ROMAN.toString() --> User(name:Roman; password:Jdi1234)
 ```
 For data class we can use any class but if we add **extends DataClass** we will get additional benefits:<br/>
-- Ability to fill User fields in any order and numbers without constructors with method _set_<br/>
-- Compare two users by equality of their fields and not by reference with method _equal_<br/>
-- Have good toString() for User based on its fields<br/>
+- Ability to fill User fields in any order and numbers without constructors with method **set()**<br/>
+- Compare two users by equality of their fields and not by reference with method **equal()**<br/>
+- Have good **toString()** for User based on its fields<br/>
 <a href="https://github.com/jdi-tutorials/01-jdi-light-intro" target="_blank">See this example in LoginExample.java on Github</a>
 
-### Complex Contact form and UI Elements
+### Cover Login functionality
+
+```java
+public class UsersDataProvider {
+    public static User NO_PASSWORD = new User().set(c -> c.name = "Roman");
+    public static User NO_CREDENTIALS = new User().set(c -> {
+        c.name = "";
+        c.password = "";}
+    );
+    public static User WRONG_CREDENTIALS = new User().set(c -> {
+        c.name = "Alex";
+        c.password = "Password";}
+    );
+    ...
+}
+
+public class LoginExample implements TestsInit {
+    @BeforeMethod
+    public void before() {
+        loggedOut();
+        loginFormShown();
+    }
+    @Test
+    public void failedLoginTest1() {
+        loginForm.loginAs(NO_PASSWORD);
+        userName.is().hidden();
+    }
+    @Test
+    public void failedLoginTest2() {
+        loginForm.loginAs(WRONG_CREDENTIALS);
+        userName.is().hidden();
+    }
+    @Test
+    public void failedLoginTest3() {
+        loginForm.loginAs(NO_CREDENTIALS);
+        userName.is().hidden();
+    }
+    ...
+}
+```
+And we can easily increase amount of different tests<br/>
+Let's cover login functionality with tests:<br/>
+1. No Password<br/>
+2. Wrong Credentials<br/>
+3. No data<br/>
+<br/>
+In order to do this we will create file (UsersDataProvider.java) for our Test Data and put User entities with required values<br/>
+_Note: that if you will leave some fields null this data will not be entered, because we would like to validate empty values in fields for NO_CREDENTIALS we should set them as empty strings_<br/>
+<br/>
+Now we can write our tests <br/>
+_Note: we don't need to write any other code except test scenarios. Already written UI Objects is enough_<br/>
+_Note: In order to be sure that before each test user logged out and login form opened we can add @BeforeMethod with this States_<br/>
+
+
+### UI Elements on Contact Form
 
 
 

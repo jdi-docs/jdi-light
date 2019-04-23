@@ -156,7 +156,7 @@ Now we can write our test using this UI Objects and execute it<br/><br/>
 - We will get the following text in the log: <br/>
 Exactly what we do in our test with all the details and without any effort from our side. Fabulous! <br/>
 <br/>
-We can change the log level to STEP (just add logger.setLogLevel(STEP) in to setUp() method) and remove details. This log can be shared with our Customer or Manual QA and let them know what our Automated tests verify.<br/><br/><br/>
+We can change the log level to STEP (just add logger.setLogLevel(STEP) in to setUp() method) and remove details. This log can be shared with our Customer or Manual QA and let them know what our Automated tests verify.<br/>
 <a href="https://github.com/jdi-tutorials/01-jdi-light-intro" target="_blank">See PageObject examples in PageObjectExample.java on Github</a>
 
 ## 3. JDI Light Forms
@@ -259,7 +259,7 @@ _Note: that if you will leave some fields null this data will not be entered, be
 <br/>
 Now we can write our tests <br/>
 _Note: we don't need to write any other code except test scenarios. Already written UI Objects is enough_<br/>
-_Note: In order to be sure that before each test user logged out and login form opened we can add @BeforeMethod with this States_<br/>
+_Note: In order to be sure that before each test user **logged out** and **Login form is opened** we can add this as States in **@BeforeMethod**_<br/>
 
 ### Failed Login Form tests with Data Provider
 

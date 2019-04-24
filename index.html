@@ -3639,7 +3639,7 @@ Datalist element contains a set of options with values available for entering.</
 <td>void</td>
 </tr>
 <tr>
-<td><strong>Uncheck(params string[]/params int[])</strong></td>
+<td><strong>Select(params string[]/params int[])</strong></td>
 <td>Select checklist by values/indexes</td>
 <td>void</td>
 </tr>
@@ -3656,7 +3656,7 @@ Datalist element contains a set of options with values available for entering.</
 <tr>
 <td><strong>Checked()</strong></td>
 <td>Get selected checkboxes from checklist value</td>
-<td>string[]</td>
+<td>List&lt;String&gt;</td>
 </tr>
 <tr>
 <td><strong>IsChecked(string/int)</strong></td>
@@ -3667,6 +3667,26 @@ Datalist element contains a set of options with values available for entering.</
 <td><strong>IsDisabled(string/int)</strong></td>
 <td>Checks whether checkbox is disabled</td>
 <td>bool</td>
+</tr>
+<tr>
+<td><strong>Values()</strong></td>
+<td>Get checklist values</td>
+<td>List&lt;String&gt;</td>
+</tr>
+<tr>
+<td><strong>ListEnabled()</strong></td>
+<td>Get enabled checkboxes</td>
+<td>List&lt;String&gt;</td>
+</tr>
+<tr>
+<td><strong>ListDisabled()</strong></td>
+<td>Get disabled checkboxes</td>
+<td>List&lt;String&gt;</td>
+</tr>
+<tr>
+<td><strong>Size</strong></td>
+<td>Get checklist size</td>
+<td>int</td>
 </tr>
 </tbody></table>
 

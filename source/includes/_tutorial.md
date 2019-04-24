@@ -395,6 +395,7 @@ Now let's write complex test that:<br/>
 This is as so simple as for Login Form! Amazing!<br/>
 The most complex part is create test data that we would like to enter<br/>
 <br/><br/><br/><br/><br/><br/>
+
 ```java
 public static ContactInfo SIMPLE_CONTACT = new ContactInfo().set(c -> {
     c.name = "Roman"; c.lastName = "Iovlev"; c.position = "ChiefQA";
@@ -410,7 +411,26 @@ public void simpleContactFormTest() {
 ```
 Now if we would like to fill only TextFields, we should just change test data.<br/>
 _Note:_In second example we use select by enum value for sideMenu it works the same as by text but allow us to choose from limited list of options and reduce chance to make a mistake_<br/>
-<br/><br/><br/>
+<a href="https://github.com/jdi-tutorials/02-jdi-light-forms-elements" target="_blank">See this example in LoginExample.java on Github</a><br/><br/><br/>
+
+### Failed form example in logs
+
+```java
+@Test
+public void failCheckExample() {
+    sideMenu.select(ContactForm);
+    contactPage.checkOpened();
+    contactForm.fill(FULL_CONTACT);
+    contactForm.acceptConditions.uncheck();
+    contactForm.submit();
+    List<String> result = contactForm.verify(FULL_CONTACT);
+    assertThat(result, Matchers.hasSize(1));
+    assertThat(result, hasItem("Field 'acceptConditions' (Actual: 'false' <> Expected: 'true')"));
+}
+```
+I would like to emulate case where something goes wrong in filling form, for example we try to check _acceptConditions_
+
+
 ### Use Form in different ways
 
 ## Create Custom controls

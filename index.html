@@ -323,6 +323,9 @@
                               <a href="#ui-elements-on-contact-form" class="toc-h2 h3 toc-link" data-title="UI Elements on Contact Form">UI Elements on Contact Form</a>
                             </li>
                             <li>
+                              <a href="#failed-form-example-in-logs" class="toc-h2 h3 toc-link" data-title="Failed form example in logs">Failed form example in logs</a>
+                            </li>
+                            <li>
                               <a href="#use-form-in-different-ways" class="toc-h2 h3 toc-link" data-title="Use Form in different ways">Use Form in different ways</a>
                             </li>
                         </ul>
@@ -1103,23 +1106,35 @@ Data entity for this form (ContactInfo) looks pretty much the same as for Login 
 ...<br/>
 This is as so simple as for Login Form! Amazing!<br/>
 The most complex part is create test data that we would like to enter<br/>
-<br/><br/><br/><br/><br/><br/>
-<code>java
-public static ContactInfo SIMPLE_CONTACT = new ContactInfo().set(c -&gt; {
-    c.name = &quot;Roman&quot;; c.lastName = &quot;Iovlev&quot;; c.position = &quot;ChiefQA&quot;;
-    c.passportNumber = &quot;4321&quot;; c.passportSeria = &quot;123456&quot;; }
-);
-@Test
-public void simpleContactFormTest() {
-    sideMenu.select(ContactForm);
-    contactPage.checkOpened();
-    contactForm.submit(SIMPLE_CONTACT);
-    contactForm.check(SIMPLE_CONTACT);
-}
-</code>
-Now if we would like to fill only TextFields, we should just change test data.<br/>
+<br/><br/><br/><br/><br/><br/></p>
+<pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">static</span> <span class="n">ContactInfo</span> <span class="n">SIMPLE_CONTACT</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ContactInfo</span><span class="o">().</span><span class="na">set</span><span class="o">(</span><span class="n">c</span> <span class="o">-&gt;</span> <span class="o">{</span>
+    <span class="n">c</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">"Roman"</span><span class="o">;</span> <span class="n">c</span><span class="o">.</span><span class="na">lastName</span> <span class="o">=</span> <span class="s">"Iovlev"</span><span class="o">;</span> <span class="n">c</span><span class="o">.</span><span class="na">position</span> <span class="o">=</span> <span class="s">"ChiefQA"</span><span class="o">;</span>
+    <span class="n">c</span><span class="o">.</span><span class="na">passportNumber</span> <span class="o">=</span> <span class="s">"4321"</span><span class="o">;</span> <span class="n">c</span><span class="o">.</span><span class="na">passportSeria</span> <span class="o">=</span> <span class="s">"123456"</span><span class="o">;</span> <span class="o">}</span>
+<span class="o">);</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">simpleContactFormTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">sideMenu</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">ContactForm</span><span class="o">);</span>
+    <span class="n">contactPage</span><span class="o">.</span><span class="na">checkOpened</span><span class="o">();</span>
+    <span class="n">contactForm</span><span class="o">.</span><span class="na">submit</span><span class="o">(</span><span class="n">SIMPLE_CONTACT</span><span class="o">);</span>
+    <span class="n">contactForm</span><span class="o">.</span><span class="na">check</span><span class="o">(</span><span class="n">SIMPLE_CONTACT</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<p>Now if we would like to fill only TextFields, we should just change test data.<br/>
 <em>Note:_In second example we use select by enum value for sideMenu it works the same as by text but allow us to choose from limited list of options and reduce chance to make a mistake</em><br/>
-<br/><br/><br/></p>
+<a href="https://github.com/jdi-tutorials/02-jdi-light-forms-elements" target="_blank">See this example in LoginExample.java on Github</a><br/><br/><br/></p>
+<h3 id='failed-form-example-in-logs'>Failed form example in logs</h3><pre class="highlight java tab-java"><code><span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">failCheckExample</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">sideMenu</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">ContactForm</span><span class="o">);</span>
+    <span class="n">contactPage</span><span class="o">.</span><span class="na">checkOpened</span><span class="o">();</span>
+    <span class="n">contactForm</span><span class="o">.</span><span class="na">fill</span><span class="o">(</span><span class="n">FULL_CONTACT</span><span class="o">);</span>
+    <span class="n">contactForm</span><span class="o">.</span><span class="na">acceptConditions</span><span class="o">.</span><span class="na">uncheck</span><span class="o">();</span>
+    <span class="n">contactForm</span><span class="o">.</span><span class="na">submit</span><span class="o">();</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="n">contactForm</span><span class="o">.</span><span class="na">verify</span><span class="o">(</span><span class="n">FULL_CONTACT</span><span class="o">);</span>
+    <span class="n">assertThat</span><span class="o">(</span><span class="n">result</span><span class="o">,</span> <span class="n">Matchers</span><span class="o">.</span><span class="na">hasSize</span><span class="o">(</span><span class="mi">1</span><span class="o">));</span>
+    <span class="n">assertThat</span><span class="o">(</span><span class="n">result</span><span class="o">,</span> <span class="n">hasItem</span><span class="o">(</span><span class="s">"Field 'acceptConditions' (Actual: 'false' &lt;&gt; Expected: 'true')"</span><span class="o">));</span>
+<span class="o">}</span>
+</code></pre>
+<p>I would like to emulate case where something goes wrong in filling form, for example we try to check <em>acceptConditions</em></p>
 <h3 id='use-form-in-different-ways'>Use Form in different ways</h3><h2 id='create-custom-controls'>Create Custom controls</h2>
 <p>TBD</p>
 <h2 id='jdi-settings-at-glance'>JDI settings at glance</h2>

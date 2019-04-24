@@ -188,13 +188,13 @@ public class User extends DataClass<User> {
 Pretty good. Now we will optimize previous example using forms. <br/>
 Let's move elements placed on Login Form in separate UI Object _LoginForm_<br/><br/><br/>
 
-And place LoginForm in root UI Object - JDI Site<br/><br/><br/>
+And place LoginForm as root UI Object on **JDI Site** class<br/><br/><br/>
 
-Now we can rewrite test in the following way:
+Now we can rewrite test in the following way:<br/>
 _Note: **ROMAN** is a business entity User that associated with Login Form<br/><br/><br/>_
 
 User class is simple data class with two String fields that has same names as TextFields in LoginForm. <br/>
-In this way you can fill any types of elements in form that can be filled: TextField, TextArea, Checkbox, DropDown etc. <br/>
+In this way you can fill any types of elements in Form that can be filled: TextField, TextArea, Checkbox, DropDown etc. <br/>
 _We will go through this in Contact Form example._<br/>
 
 ```java
@@ -254,13 +254,14 @@ Let's cover login functionality with tests:<br/>
 3. No data<br/>
 <br/>
 In order to do this we will create file (UsersDataProvider.java) for our Test Data and put User entities with required values<br/>
-_Note: that if you will leave some fields null this data will not be entered, because we would like to validate empty values in fields for NO_CREDENTIALS we should set them as empty strings_<br/>
+_Note: if you will leave some fields null this data will not be entered_<br/>
+_Because we would like to validate empty values in fields for NO_CREDENTIALS we should set them as empty strings_<br/>
 <br/>
 Now we can write our tests <br/>
 _Note: we don't need to write any other code except test scenarios. Already written UI Objects is enough_<br/>
 _Note: In order to be sure that before each test user **logged out** and **Login form is opened** we can add this as States in **@BeforeMethod**_<br/>
 <a href="https://github.com/jdi-tutorials/02-jdi-light-forms-elements" target="_blank">See this example in LoginExample.java on Github</a>
-
+<br/><br/><br/><br/><br/><br/><br/><br/><br/>
 ### Failed Login Form tests with Data Provider
 
 ```java
@@ -272,7 +273,7 @@ public class UsersDataProvider {
     }
 ```
 But scenarios in previous example are pretty much the same and difference only in Test Data. We can simplify our tests with DataProvider.<br/>
-Let's add in our UsersDataProvider.java file method that returns test data for our cases as 2D array of Users and mark it by annotation **@DataProvider** with name **failedUsers**<br/><br/>
+Let's add in our UsersDataProvider.java file method that returns test data for our cases as 2D array of Users and mark it by annotation **@DataProvider** with name **failedUsers**<br/>
 
 ```java
 public class UsersDataProvider {

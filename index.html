@@ -1040,20 +1040,20 @@ So simple!<br/>
 This Form opposite to Login Form has more different UI elemnts. Let&#39;s describe it.<br/>
 We have here <u>Common</u> elements: <br/>
 5 <strong>TextField</strong>s (name, lastName, position, passportNumber, passportSeria)<br/>
-<img src="images/tutorial/textfield.png" alt="TextField" width="200px">
+<img src="images/tutorial/textfield.png" alt="TextField" width="200px"><br/>
 2 <strong>Checkbox</strong>es (passport, acceptConditions)<br/>
-<img src="images/tutorial/checkbox.png" alt="Checkbox" width="100px">
+<img src="images/tutorial/checkbox.png" alt="Checkbox" width="100px"><br/>
 1 <strong>TextArea</strong> (description)<br/>
-<img src="images/tutorial/textarea.png" alt="TextArea" width="200px">
+<img src="images/tutorial/textarea.png" alt="TextArea" width="200px"><br/>
 1 <strong>Button</strong> (submit)<br/>
-<img src="images/tutorial/button.png" alt="Button" width="100px">
+<img src="images/tutorial/button.png" alt="Button" width="100px"><br/>
 And <u>Complex</u> elements:<br/>
 <strong>Dropdown</strong> (gender) -  Element with one value, expand arrow and list of options <br/>
-<img src="images/tutorial/dropdown.png" alt="Dropdown" width="200">
+<img src="images/tutorial/dropdown.png" alt="Dropdown" width="200"><br/>
 <strong>Combobox</strong> (religion) - Mix of Dropdown and TextField. You set value from list of options or enter your own<br/>
-<img src="images/tutorial/combobox.png" alt="Combobox" width="200">
+<img src="images/tutorial/combobox.png" alt="Combobox" width="200"><br/>
 <strong>MultiDropdown</strong> (weather) - Dropdown with ability to select list of options<br/>
-<img src="images/tutorial/multiselect.png" alt="MultiDropdown" width="200"></p>
+<img src="images/tutorial/multiselect.png" alt="MultiDropdown" width="200"><br/></p>
 <pre class="highlight java tab-java"><code><span class="nd">@Url</span><span class="o">(</span><span class="s">"/contacts"</span><span class="o">)</span> <span class="nd">@Title</span><span class="o">(</span><span class="s">"Contact Form"</span><span class="o">)</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">ContactPage</span> <span class="kd">extends</span> <span class="n">WebPage</span> <span class="o">{</span>
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"#contact-form"</span><span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">ContactForm</span> <span class="n">contactForm</span><span class="o">;</span>
@@ -1102,21 +1102,24 @@ Data entity for this form (ContactInfo) looks pretty much the same as for Login 
 - And validate that form filled correctly<br/>
 ...<br/>
 This is as so simple as for Login Form! Amazing!<br/>
-The most complex part is create test data that we would like to enter<br/></p>
-<pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">static</span> <span class="n">ContactInfo</span> <span class="n">SIMPLE_CONTACT</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ContactInfo</span><span class="o">().</span><span class="na">set</span><span class="o">(</span><span class="n">c</span> <span class="o">-&gt;</span> <span class="o">{</span>
-    <span class="n">c</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">"Roman"</span><span class="o">;</span> <span class="n">c</span><span class="o">.</span><span class="na">lastName</span> <span class="o">=</span> <span class="s">"Iovlev"</span><span class="o">;</span> <span class="n">c</span><span class="o">.</span><span class="na">position</span> <span class="o">=</span> <span class="s">"ChiefQA"</span><span class="o">;</span>
-    <span class="n">c</span><span class="o">.</span><span class="na">passportNumber</span> <span class="o">=</span> <span class="s">"4321"</span><span class="o">;</span> <span class="n">c</span><span class="o">.</span><span class="na">passportSeria</span> <span class="o">=</span> <span class="s">"123456"</span><span class="o">;</span> <span class="o">}</span>
-<span class="o">);</span>
-<span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">simpleContactFormTest</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">sideMenu</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">ContactForm</span><span class="o">);</span>
-    <span class="n">contactPage</span><span class="o">.</span><span class="na">checkOpened</span><span class="o">();</span>
-    <span class="n">contactForm</span><span class="o">.</span><span class="na">submit</span><span class="o">(</span><span class="n">SIMPLE_CONTACT</span><span class="o">);</span>
-    <span class="n">contactForm</span><span class="o">.</span><span class="na">check</span><span class="o">(</span><span class="n">SIMPLE_CONTACT</span><span class="o">);</span>
-<span class="o">}</span>
-</code></pre>
-<p>Now if we would like to fill only TextFields, we should just change test data.<br/>
-<em>Note:_In second example we use select by enum value for sideMenu it works the same as by text but allow us to choose from limited list of options and reduce chance to make a mistake</em><br/></p>
+The most complex part is create test data that we would like to enter<br/>
+<br/><br/><br/><br/><br/><br/>
+<code>java
+public static ContactInfo SIMPLE_CONTACT = new ContactInfo().set(c -&gt; {
+    c.name = &quot;Roman&quot;; c.lastName = &quot;Iovlev&quot;; c.position = &quot;ChiefQA&quot;;
+    c.passportNumber = &quot;4321&quot;; c.passportSeria = &quot;123456&quot;; }
+);
+@Test
+public void simpleContactFormTest() {
+    sideMenu.select(ContactForm);
+    contactPage.checkOpened();
+    contactForm.submit(SIMPLE_CONTACT);
+    contactForm.check(SIMPLE_CONTACT);
+}
+</code>
+Now if we would like to fill only TextFields, we should just change test data.<br/>
+<em>Note:_In second example we use select by enum value for sideMenu it works the same as by text but allow us to choose from limited list of options and reduce chance to make a mistake</em><br/>
+<br/><br/><br/></p>
 <h3 id='use-form-in-different-ways'>Use Form in different ways</h3><h2 id='create-custom-controls'>Create Custom controls</h2>
 <p>TBD</p>
 <h2 id='jdi-settings-at-glance'>JDI settings at glance</h2>

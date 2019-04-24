@@ -920,13 +920,13 @@ We can change the log level to <strong>STEP</strong> (just add logger.setLogLeve
 <p>Pretty good. Now we will optimize previous example using forms. <br/>
 Let&#39;s move elements placed on Login Form in separate UI Object <em>LoginForm</em><br/><br/><br/></p>
 
-<p>And place LoginForm in root UI Object - JDI Site<br/><br/><br/></p>
+<p>And place LoginForm as root UI Object on <strong>JDI Site</strong> class<br/><br/><br/></p>
 
-<p>Now we can rewrite test in the following way:
+<p>Now we can rewrite test in the following way:<br/>
 <em>Note: <strong>ROMAN</strong> is a business entity User that associated with Login Form<br/><br/><br/></em></p>
 
 <p>User class is simple data class with two String fields that has same names as TextFields in LoginForm. <br/>
-In this way you can fill any types of elements in form that can be filled: TextField, TextArea, Checkbox, DropDown etc. <br/>
+In this way you can fill any types of elements in Form that can be filled: TextField, TextArea, Checkbox, DropDown etc. <br/>
 <em>We will go through this in Contact Form example.</em><br/></p>
 <pre class="highlight java tab-java"><code>  <span class="n">User</span> <span class="n">ROMAN</span> <span class="o">=</span> <span class="k">new</span> <span class="n">User</span><span class="o">().</span><span class="na">set</span><span class="o">(</span><span class="n">c</span> <span class="o">-&gt;</span> <span class="o">{</span>
       <span class="n">c</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">"Roman"</span><span class="o">;</span> <span class="n">c</span><span class="o">.</span><span class="na">password</span> <span class="o">=</span> <span class="s">"Jdi1234"</span><span class="o">;</span>
@@ -980,12 +980,14 @@ Let&#39;s cover login functionality with tests:<br/>
 3. No data<br/>
 <br/>
 In order to do this we will create file (UsersDataProvider.java) for our Test Data and put User entities with required values<br/>
-<em>Note: that if you will leave some fields null this data will not be entered, because we would like to validate empty values in fields for NO_CREDENTIALS we should set them as empty strings</em><br/>
+<em>Note: if you will leave some fields null this data will not be entered</em><br/>
+<em>Because we would like to validate empty values in fields for NO_CREDENTIALS we should set them as empty strings</em><br/>
 <br/>
 Now we can write our tests <br/>
 <em>Note: we don&#39;t need to write any other code except test scenarios. Already written UI Objects is enough</em><br/>
 <em>Note: In order to be sure that before each test user <strong>logged out</strong> and <strong>Login form is opened</strong> we can add this as States in <strong>@BeforeMethod</strong></em><br/>
-<a href="https://github.com/jdi-tutorials/02-jdi-light-forms-elements" target="_blank">See this example in LoginExample.java on Github</a></p>
+<a href="https://github.com/jdi-tutorials/02-jdi-light-forms-elements" target="_blank">See this example in LoginExample.java on Github</a>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/></p>
 <h3 id='failed-login-form-tests-with-data-provider'>Failed Login Form tests with Data Provider</h3><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">UsersDataProvider</span> <span class="o">{</span>
     <span class="o">...</span>
     <span class="nd">@DataProvider</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"failedUsers"</span><span class="o">)</span>
@@ -994,7 +996,7 @@ Now we can write our tests <br/>
     <span class="o">}</span>
 </code></pre>
 <p>But scenarios in previous example are pretty much the same and difference only in Test Data. We can simplify our tests with DataProvider.<br/>
-Let&#39;s add in our UsersDataProvider.java file method that returns test data for our cases as 2D array of Users and mark it by annotation <strong>@DataProvider</strong> with name <strong>failedUsers</strong><br/><br/></p>
+Let&#39;s add in our UsersDataProvider.java file method that returns test data for our cases as 2D array of Users and mark it by annotation <strong>@DataProvider</strong> with name <strong>failedUsers</strong><br/></p>
 <pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">UsersDataProvider</span> <span class="o">{</span>
     <span class="o">...</span>
     <span class="nd">@Test</span><span class="o">(</span><span class="n">dataProvider</span> <span class="o">=</span> <span class="s">"failedUsers"</span><span class="o">,</span> <span class="n">dataProviderClass</span> <span class="o">=</span> <span class="n">UsersDataProvider</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>

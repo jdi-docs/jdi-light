@@ -1634,12 +1634,16 @@ Here is the list of some available methods in C# JDI Light:
 --- | --- | ---
 **Check(params string[]/params int[])** |Check checklist by values/indexes  | void
 **Uncheck(params string[]/params int[])** |Unselect checklist by values/indexes  | void
-**Uncheck(params string[]/params int[])** |Select checklist by values/indexes  | void
+**Select(params string[]/params int[])** |Select checklist by values/indexes  | void
 **UncheckAll()** |Uncheck all checkboxes | void
 **CheckAll()** |Check all checkboxes | void
-**Checked()** |Get selected checkboxes from checklist value  | string[]
+**Checked()** |Get selected checkboxes from checklist value  | List\<String>
 **IsChecked(string/int)** |Checks whether checkbox is checked | bool
 **IsDisabled(string/int)** | Checks whether checkbox is disabled | bool
+**Values()** | Get checklist values | List\<String>
+**ListEnabled()** | Get enabled checkboxes | List\<String>
+**ListDisabled()** | Get disabled checkboxes | List\<String>
+**Size** | Get checklist size | int
 
 
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/ChecklistTests.java)

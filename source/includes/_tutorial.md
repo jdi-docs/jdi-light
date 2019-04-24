@@ -323,20 +323,20 @@ Let's look on example: Contact Form on <a href="https://jdi-testing.github.io/jd
 This Form opposite to Login Form has more different UI elemnts. Let's describe it.<br/>
 We have here <u>Common</u> elements: <br/>
 5 **TextField**s (name, lastName, position, passportNumber, passportSeria)<br/>
-<img src="images/tutorial/textfield.png" alt="TextField" width="200px">
+<img src="images/tutorial/textfield.png" alt="TextField" width="200px"><br/>
 2 **Checkbox**es (passport, acceptConditions)<br/>
-<img src="images/tutorial/checkbox.png" alt="Checkbox" width="100px">
+<img src="images/tutorial/checkbox.png" alt="Checkbox" width="100px"><br/>
 1 **TextArea** (description)<br/>
-<img src="images/tutorial/textarea.png" alt="TextArea" width="200px">
+<img src="images/tutorial/textarea.png" alt="TextArea" width="200px"><br/>
 1 **Button** (submit)<br/>
-<img src="images/tutorial/button.png" alt="Button" width="100px">
+<img src="images/tutorial/button.png" alt="Button" width="100px"><br/>
 And <u>Complex</u> elements:<br/>
 **Dropdown** (gender) -  Element with one value, expand arrow and list of options <br/>
-<img src="images/tutorial/dropdown.png" alt="Dropdown" width="200">
+<img src="images/tutorial/dropdown.png" alt="Dropdown" width="200"><br/>
 **Combobox** (religion) - Mix of Dropdown and TextField. You set value from list of options or enter your own<br/>
-<img src="images/tutorial/combobox.png" alt="Combobox" width="200">
+<img src="images/tutorial/combobox.png" alt="Combobox" width="200"><br/>
 **MultiDropdown** (weather) - Dropdown with ability to select list of options<br/>
-<img src="images/tutorial/multiselect.png" alt="MultiDropdown" width="200">
+<img src="images/tutorial/multiselect.png" alt="MultiDropdown" width="200"><br/>
 
 ```java
 @Url("/contacts") @Title("Contact Form")
@@ -394,7 +394,7 @@ Now let's write complex test that:<br/>
 ...<br/>
 This is as so simple as for Login Form! Amazing!<br/>
 The most complex part is create test data that we would like to enter<br/>
-
+<br/><br/><br/><br/><br/><br/>
 ```java
 public static ContactInfo SIMPLE_CONTACT = new ContactInfo().set(c -> {
     c.name = "Roman"; c.lastName = "Iovlev"; c.position = "ChiefQA";
@@ -410,7 +410,7 @@ public void simpleContactFormTest() {
 ```
 Now if we would like to fill only TextFields, we should just change test data.<br/>
 _Note:_In second example we use select by enum value for sideMenu it works the same as by text but allow us to choose from limited list of options and reduce chance to make a mistake_<br/>
-
+<br/><br/><br/>
 ### Use Form in different ways
 
 ## Create Custom controls

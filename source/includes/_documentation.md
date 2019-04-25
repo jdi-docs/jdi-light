@@ -1643,7 +1643,7 @@ Here is the list of some available methods in C# JDI Light:
 **Values()** | Get checklist values | List\<String>
 **ListEnabled()** | Get enabled checkboxes | List\<String>
 **ListDisabled()** | Get disabled checkboxes | List\<String>
-**Size** | Get checklist size | int
+**GetSize()** | Get checklist size | int
 
 
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/ChecklistTests.java)

@@ -2836,16 +2836,22 @@ We plan to have lot of tests that starts from point ther <u>user is logged out</
              <span class="n">textArea</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
              <span class="n">assertEquals</span><span class="o">(</span><span class="n">textArea</span><span class="o">.</span><span class="na">getText</span><span class="o">(),</span> <span class="s">""</span><span class="o">);</span>
     <span class="o">}</span>
-</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[FindBy(Id = "description")]</span>
-<span class="k">public</span> <span class="n">TextArea</span> <span class="n">DescriptionArea</span><span class="p">;</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[FindBy(Css = "#text-area")]</span>
+<span class="k">public</span> <span class="n">ITextArea</span> <span class="n">TextArea</span><span class="err">ж</span>
+
+    <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">GetTextTest</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">TextArea</span><span class="p">.</span><span class="nf">SetText</span><span class="p">(</span><span class="n">Text</span><span class="p">);</span>
+        <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">TextArea</span><span class="p">.</span><span class="nf">GetText</span><span class="p">(),</span> <span class="s">"Text"</span><span class="p">);</span>
+    <span class="p">}</span>
 
    <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
    <span class="k">public</span> <span class="k">void</span> <span class="nf">AddNewLineTest</span><span class="p">()</span>
    <span class="p">{</span>
-      <span class="n">TestSite</span><span class="p">.</span><span class="n">ContactFormPage</span><span class="p">.</span><span class="n">DescriptionArea</span><span class="p">.</span><span class="nf">Clear</span><span class="p">();</span> <span class="c1">// method Clear() is inherited from TextField</span>
-      <span class="n">TestSite</span><span class="p">.</span><span class="n">ContactFormPage</span><span class="p">.</span><span class="n">DescriptionArea</span><span class="p">.</span><span class="nf">InputLines</span><span class="p">(</span><span class="s">"line1"</span><span class="p">,</span> <span class="s">"line2"</span><span class="p">);</span>
-      <span class="n">TestSite</span><span class="p">.</span><span class="n">ContactFormPage</span><span class="p">.</span><span class="n">DescriptionArea</span><span class="p">.</span><span class="nf">AddNewLine</span><span class="p">(</span><span class="s">"line3"</span><span class="p">);</span>
-      <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">CollectionEquals</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">ContactFormPage</span><span class="p">.</span><span class="n">DescriptionArea</span><span class="p">.</span><span class="nf">GetLines</span><span class="p">(),</span> <span class="k">new</span><span class="p">[]</span> <span class="p">{</span> <span class="s">"line1"</span><span class="p">,</span> <span class="s">"line2"</span><span class="p">,</span> <span class="s">"line3"</span> <span class="p">});</span>
+      <span class="n">TextArea</span><span class="p">.</span><span class="nf">SetText</span><span class="p">(</span><span class="s">"line1"</span><span class="p">,</span> <span class="s">"line2"</span><span class="p">);</span>
+      <span class="n">TextArea</span><span class="p">.</span><span class="nf">AddNewLine</span><span class="p">(</span><span class="s">"line3"</span><span class="p">);</span>
+      <span class="n">Assert</span><span class="p">.</span><span class="nf">CollectionEquals</span><span class="p">(</span><span class="n">TextArea</span><span class="p">.</span><span class="nf">GetLines</span><span class="p">(),</span> <span class="k">new</span><span class="p">[]</span> <span class="p">{</span> <span class="s">"line1"</span><span class="p">,</span> <span class="s">"line2"</span><span class="p">,</span> <span class="s">"line3"</span> <span class="p">});</span>
    <span class="p">}</span>
 </code></pre>
 <p><strong>TextArea</strong> – is a simple element type that allows users to fill in text areas (that may contain a few lines). </p>
@@ -2871,19 +2877,39 @@ We plan to have lot of tests that starts from point ther <u>user is logged out</
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>InputLines(params string[] textLines)</strong></td>
-<td>clears area and sets new lines</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>AddNewLine(string textLine)</strong></td>
-<td>adds a new line to existing text</td>
+<td><strong>SetLines(string[] lines)</strong></td>
+<td>sets lines (text)</td>
 <td>void</td>
 </tr>
 <tr>
 <td><strong>GetLines()</strong></td>
 <td>returns lines (text) from the text area</td>
 <td>string[]</td>
+</tr>
+<tr>
+<td><strong>Rows()</strong></td>
+<td>returns value of rows attribute</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>Cols()</strong></td>
+<td>returns value of cols attribute</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>Minlength()</strong></td>
+<td>returns value of minlength attribute</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>Maxlength()</strong></td>
+<td>returns value of maxlength attribute</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>AddNewLine(string line)</strong></td>
+<td>add line to the already existing</td>
+<td>void</td>
 </tr>
 </tbody></table>
 

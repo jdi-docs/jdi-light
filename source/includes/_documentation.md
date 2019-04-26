@@ -1608,6 +1608,16 @@ public void UncheckNumTest()
     genericWeather.Uncheck(1, 3);
     Jdi.Assert.CollectionEquals(new[] { "Cold", "Sunny" }, genericWeather.Checked());
 }
+
+[Test]
+public void IsValidationTests()
+{
+    weather.AssertThat
+                .Values(HasItems(new[] {"Cold", "Sunny"}))
+                .Disabled(HasItems(new[] {"Disabled"}))                
+                .Size(Is.LessThan(6))
+                .AllDisplayed();
+}
 ```
 
 ![Checklist Example](../images/html/checklist_html.png)
@@ -1617,16 +1627,19 @@ List of available methods in Java JDI Light:
 |Method | Description | Return Type
 --- | --- | ---
 **check(String.../Enum/int...)** | Check checkboxes | void
-**checkAll()** | Check all checkboxes from checklist | void
 **uncheck(String.../Enum/int...)** | Unselect checkboxes | void
-**uncheckAll()** | Uncheck all checkboxes from checklist | void
 **select(String.../Enum/int...)** | Select checkboxes | void
+**uncheckAll()** | Uncheck all checkboxes from checklist | void
+**checkAll()** | Check all checkboxes from checklist | void
 **checked()** | Get selected checkbox values | List\<String>
-**selected()** | Get selected checkbox values | **String**
 **values()** | Get checklist values | List\<String>
 **listEnabled()** | Get enabled checkboxes | List\<String>
 **listDisabled()** | Get disabled checkboxes | List\<String>
 **size()** | Get checklist size | int
+**is()** | Get select assert | selectAssert
+**assertThat()** | Get select assert | selectAssert
+**has()** | Get select assert | selectAssert
+**selected()** | Get selected checkbox values | **String**
 
 Here is the list of some available methods in C# JDI Light:
 
@@ -1638,12 +1651,15 @@ Here is the list of some available methods in C# JDI Light:
 **UncheckAll()** |Uncheck all checkboxes | void
 **CheckAll()** |Check all checkboxes | void
 **Checked()** |Get selected checkboxes from checklist value  | List\<String>
-**IsChecked(string/int)** |Checks whether checkbox is checked | bool
-**IsDisabled(string/int)** | Checks whether checkbox is disabled | bool
 **Values()** | Get checklist values | List\<String>
 **ListEnabled()** | Get enabled checkboxes | List\<String>
 **ListDisabled()** | Get disabled checkboxes | List\<String>
 **GetSize()** | Get checklist size | int
+**Is** | Get select assert | SelectAssert
+**AssertThat** | Get select assert | SelectAssert
+**Has** | Get select assert | SelectAssert
+**IsChecked(string/int)** |Checks whether checkbox is checked | bool
+**IsDisabled(string/int)** | Checks whether checkbox is disabled | bool
 
 
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/ChecklistTests.java)

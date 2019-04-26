@@ -497,8 +497,6 @@ public class LoginFormSmart extends Form<User> {
     Button loginButton;
 }
 on JDISite.java >> public static LoginFormSmart loginFormSmart;
-
-on JDISite.java >> public static Form<User> lightLoginForm;
 ```
 In JDI Light we have different ways to describe the Form: <br/>
 **Selenium** - typical Page Object with **WebElement**s and **@FindBy** annotations, actions with them and without extending from something. Exactly this code will work in original Selenium project without JDI<br/>
@@ -511,10 +509,16 @@ In JDI Light we have different ways to describe the Form: <br/>
 <a href="https://github.com/jdi-tutorials/04-jdi-light-different-forms/blob/master/src/main/java/jdisite/sections/LoginForm.java" target="_blank">See example in LoginForm.java on Github</a><br/><br/><br/><br/><br/>
 
 **Smart JDI Forms** - If you have ability to get locator from variable name you can use Smart locators for elements and remove locator annotations from Forms. This allows also to combine UI Fields with same Type like **TextField** in example<br/>
-[See more details and exampels about Smart locators in documentation](https://jdi-docs.github.io/jdi-light/?java#smart-locators)<br/>
+[See more details and exampels for Smart locators in documentation](https://jdi-docs.github.io/jdi-light/?java#smart-locators)<br/>
 <a href="https://github.com/jdi-tutorials/04-jdi-light-different-forms/blob/master/src/main/java/jdisite/sections/LoginFormSmart.java" target="_blank">See example in LoginFormSmart.java on Github</a><br/><br/>
 
+```java
+on JDISite.java >> public static Form<User> lightLoginForm;
+```
 **Light Forms** - if your Form consists only with TextFields (or other elements where value set directly in "value" attribute) and buttons you can avoid UI Object at all and just write one line in related page or in root Site class<br/>
+<a class="github-button" href="https://github.com/jdi-testing/jdi-light" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star jdi-testing/jdi-light on GitHub">Nice job man!</a>
+
+## Reduce Amount of code with JDI Light
 
 ## Create Custom controls
 TBD

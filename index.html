@@ -331,6 +331,9 @@
                         </ul>
                   </li>
                   <li>
+                    <a href="#reduce-amount-of-code-with-jdi-light" class="toc-h2 toc-link" data-title="Reduce Amount of code with JDI Light">Reduce Amount of code with JDI Light</a>
+                  </li>
+                  <li>
                     <a href="#create-custom-controls" class="toc-h2 toc-link" data-title="Create Custom controls">Create Custom controls</a>
                   </li>
                   <li>
@@ -1200,8 +1203,6 @@ We plan to have lot of tests that starts from point ther <u>user is logged out</
     <span class="n">Button</span> <span class="n">loginButton</span><span class="o">;</span>
 <span class="o">}</span>
 <span class="n">on</span> <span class="n">JDISite</span><span class="o">.</span><span class="na">java</span> <span class="o">&gt;&gt;</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">LoginFormSmart</span> <span class="n">loginFormSmart</span><span class="o">;</span>
-
-<span class="n">on</span> <span class="n">JDISite</span><span class="o">.</span><span class="na">java</span> <span class="o">&gt;&gt;</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">Form</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">lightLoginForm</span><span class="o">;</span>
 </code></pre>
 <p>In JDI Light we have different ways to describe the Form: <br/>
 <strong>Selenium</strong> - typical Page Object with <strong>WebElement</strong>s and <strong>@FindBy</strong> annotations, actions with them and without extending from something. Exactly this code will work in original Selenium project without JDI<br/>
@@ -1214,11 +1215,13 @@ We plan to have lot of tests that starts from point ther <u>user is logged out</
 <a href="https://github.com/jdi-tutorials/04-jdi-light-different-forms/blob/master/src/main/java/jdisite/sections/LoginForm.java" target="_blank">See example in LoginForm.java on Github</a><br/><br/><br/><br/><br/></p>
 
 <p><strong>Smart JDI Forms</strong> - If you have ability to get locator from variable name you can use Smart locators for elements and remove locator annotations from Forms. This allows also to combine UI Fields with same Type like <strong>TextField</strong> in example<br/>
-<a href="https://jdi-docs.github.io/jdi-light/?java#smart-locators">See more details and exampels about Smart locators in documentation</a><br/>
+<a href="https://jdi-docs.github.io/jdi-light/?java#smart-locators">See more details and exampels for Smart locators in documentation</a><br/>
 <a href="https://github.com/jdi-tutorials/04-jdi-light-different-forms/blob/master/src/main/java/jdisite/sections/LoginFormSmart.java" target="_blank">See example in LoginFormSmart.java on Github</a><br/><br/></p>
-
-<p><strong>Light Forms</strong> - if your Form consists only with TextFields (or other elements where value set directly in &quot;value&quot; attribute) and buttons you can avoid UI Object at all and just write one line in related page or in root Site class<br/></p>
-<h2 id='create-custom-controls'>Create Custom controls</h2>
+<pre class="highlight java tab-java"><code><span class="n">on</span> <span class="n">JDISite</span><span class="o">.</span><span class="na">java</span> <span class="o">&gt;&gt;</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">Form</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">lightLoginForm</span><span class="o">;</span>
+</code></pre>
+<p><strong>Light Forms</strong> - if your Form consists only with TextFields (or other elements where value set directly in &quot;value&quot; attribute) and buttons you can avoid UI Object at all and just write one line in related page or in root Site class<br/>
+<a class="github-button" href="https://github.com/jdi-testing/jdi-light" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star jdi-testing/jdi-light on GitHub">Nice job man!</a></p>
+<h2 id='reduce-amount-of-code-with-jdi-light'>Reduce Amount of code with JDI Light</h2><h2 id='create-custom-controls'>Create Custom controls</h2>
 <p>TBD</p>
 <h2 id='jdi-settings-at-glance'>JDI settings at glance</h2>
 <p>TBD</p>

@@ -858,7 +858,7 @@ And one more good news. We can make elements on Page Object static and keep test
 <span class="o">}</span>
 </code></pre>
 <p>Page Objects in JDI Light called <strong>UI Objects</strong> and extends standard Selenium Page Objects capabilities with typified elements like <strong>Textfield, Button, Text</strong> etc. and additional meta information for pages like <strong>Url</strong> and <strong>Title</strong>. 
-Pretty simple and obvious isn’t it? 
+Pretty simple and obvious isn’t it? <br/>
 <a class="github-button" href="https://github.com/jdi-testing/jdi-light" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star jdi-testing/jdi-light on GitHub">Nice!</a><br/>
 Url for pages is relative from the site domain written in the <strong>@JSite</strong> annotation or in the <em>test.properties</em> (see abstract 2.2 in this article). <br/>
 <em>Note: We don&#39;t need ContactsPage in this example but in order to illustrate <strong>@Url</strong> and <strong>@Title</strong> annotations it is placed here</em> </p>
@@ -925,18 +925,19 @@ We can change the log level to <strong>STEP</strong> (just add logger.setLogLeve
     <span class="kd">public</span> <span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="n">password</span><span class="o">;</span>
 <span class="o">}</span>
 </code></pre>
-<p><a class="github-button" href="https://github.com/jdi-testing/jdi-light" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star jdi-testing/jdi-light on GitHub">I Like it!</a><br/>
-Now we will optimize previous example using forms. <br/>
-Let&#39;s move elements placed on Login Form in separate UI Object <em>LoginForm</em><br/><br/><br/></p>
+<p>Now we will optimize previous example using forms. <br/>
+Let&#39;s move elements placed on Login Form in separate UI Object <em>LoginForm</em><br/></p>
 
 <p>And place LoginForm as root UI Object on <strong>JDI Site</strong> class<br/><br/><br/></p>
 
 <p>Now we can rewrite test in the following way:<br/>
-<em>Note: <strong>ROMAN</strong> is a business entity User that associated with Login Form<br/><br/><br/></em></p>
+<em>Note: <strong>ROMAN</strong> is a business entity User that associated with Login Form<br/></em>
+<a class="github-button" href="https://github.com/jdi-testing/jdi-light" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star jdi-testing/jdi-light on GitHub">I Like it!</a><br/></p>
 
 <p>User class is simple data class with two String fields that has same names as TextFields in LoginForm. <br/>
 In this way you can fill any types of elements in Form that can be filled: TextField, TextArea, Checkbox, DropDown etc. <br/>
-<em>We will go through this in Contact Form example.</em><br/></p>
+<em>We will go through this in Contact Form example.</em><br/>
+<a class="github-button" href="https://github.com/jdi-testing/jdi-light" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star jdi-testing/jdi-light on GitHub">I Like it!</a><br/></p>
 <pre class="highlight java tab-java"><code>  <span class="n">User</span> <span class="n">ROMAN</span> <span class="o">=</span> <span class="k">new</span> <span class="n">User</span><span class="o">().</span><span class="na">set</span><span class="o">(</span><span class="n">c</span> <span class="o">-&gt;</span> <span class="o">{</span>
       <span class="n">c</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">"Roman"</span><span class="o">;</span> <span class="n">c</span><span class="o">.</span><span class="na">password</span> <span class="o">=</span> <span class="s">"Jdi1234"</span><span class="o">;</span>
   <span class="o">}</span> <span class="o">);</span>

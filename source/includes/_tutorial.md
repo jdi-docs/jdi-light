@@ -434,12 +434,104 @@ Let's write the code of the test that emulates this behaviour and observe the re
 **verify** - has the same behaviour as _check_ but instead of throwing exeption this method returns list of fails on per failed field and this is for you to decide how to manage this result<br/>
 In our example we change one field _acceptConditions_ to uncheck and the result of the test return this exception in clear way:<br/>
 > "Field 'acceptConditions' (Actual: 'false' <> Expected: 'true')"
-<a href="https://github.com/jdi-tutorials/03-jdi-light-forms-ui-elements" target="_blank">You can find this example in ContactFormExamples.java on Github</a><br/
+<a href="https://github.com/jdi-tutorials/03-jdi-light-forms-ui-elements" target="_blank">You can find this example in ContactFormExamples.java on Github</a><br/>
 
 ### Use Form in different ways
-We get first look on UI Elements in JDI Light and on Forms capabilities and now we can look deeper on Forms initialization and how this can help you to write less code
 
+```java
+    @BeforeMethod
+    public void before() {
+        loggedOut();
+        if (loginForm.isHidden())
+            userIcon.click();
+    }
+```
+We get first look on UI Elements in JDI Light and on Forms capabilities and now we can look deeper on Forms initialization and how this can help you to write less code<br/>
+Let's start from simple Form - Login<br/>
+We plan to have lot of tests that starts from point ther user loggedOut and Login form is opened, so let's write @BeforeMethod state for this set of test cases<br/><br/><br/>
 
+```java
+public class SeleniumLoginForm {
+    @FindBy(id = "name") public WebElement name;
+    @FindBy(id = "password") public WebElement password;
+    @FindBy(id = "login-button") public WebElement loginButton;
+
+    public boolean isHidden() {
+        return !name.isDisplayed();
+    }
+    public void loginAs(User user) {
+        if (user.name != null) {
+            this.name.clear();
+            this.name.sendKeys(user.name);
+        }
+        if (user.password != null) {
+            this.password.clear();
+            this.password.sendKeys(user.password);
+        }
+        loginButton.click();
+    }
+}
+on JDISite.java >> public static SeleniumLoginForm seleniumloginForm;
+```
+In JDI Light we have different ways to describe the Form: <br/>
+**Selenium** - typical Page Object with **WebElement**s and **@FindBy** annotations, actions with them and without extending from something. Exactly this code will work in original Selenium project without JDI<br/>
+<a href="https://github.com/jdi-tutorials/04-jdi-light-different-forms/blob/master/src/main/java/jdisite/sections/SeleniumLoginForm.java" target="_blank">See example in SeleniumLoginForm.java on Github</a><br/>
+
+```java
+public class SelenideLoginForm {
+    public WebElement name = $("#name");
+    public WebElement password = $("#password");
+    public WebElement loginButton = $("#login-button");
+
+    public boolean isHidden() {
+        return !name.isDisplayed();
+    }
+    public void loginAs(User user) {
+        if (user.name != null) {
+            this.name.clear();
+            this.name.sendKeys(user.name);
+        }
+        if (user.password != null) {
+            this.password.clear();
+            this.password.sendKeys(user.password);
+        }
+        loginButton.click();
+    }
+}
+on JDISite.java >> public static SelenideLoginForm selenideLoginForm;
+```
+**JQuery/Selenide** - Selenide or JQuery like style where instead of annotations @Findby you can use direct initialization<br/>
+<a href="https://github.com/jdi-tutorials/04-jdi-light-different-forms/blob/master/src/main/java/jdisite/sections/SelenideLoginForm.java" target="_blank">See example in SelenideLoginForm.java on Github</a><br/>
+
+```java
+public class LoginForm extends Form<User> {
+    @UI("#name") TextField name;
+    @UI("#password") TextField password;
+    @UI("#login-button") Button loginButton;
+
+    @Override
+    public boolean isHidden() { return name.isHidden(); }
+}
+on JDISite.java >> public static LoginForm loginForm;
+```
+**JDI Light Forms** - typical Forms in JDI with **typified elements**, **@UI** annotations, extending from Form and without **fill/check** methods<br/>
+<a href="https://github.com/jdi-tutorials/04-jdi-light-different-forms/blob/master/src/main/java/jdisite/sections/LoginForm.java" target="_blank">See example in LoginForm.java on Github</a><br/>
+
+```java
+public class LoginFormSmart extends Form<User> {
+    TextField name, password;
+    Button loginButton;
+}
+on JDISite.java >> public static LoginFormSmart loginFormSmart;
+```
+**Smart JDI Forms** - If you have ability to get locator from variable name you can use Smart locators for elements and remove locator annotations from Forms. This allows also to combine UI Fields with same Type like **TextField** in example<br/>
+[See more details and exampels about Smart locators in documentation](https://jdi-docs.github.io/jdi-light/?java#smart-locators)<br/>
+<a href="https://github.com/jdi-tutorials/04-jdi-light-different-forms/blob/master/src/main/java/jdisite/sections/LoginFormSmart.java" target="_blank">See example in LoginFormSmart.java on Github</a><br/>
+
+```java
+on JDISite.java >> public static Form<User> lightLoginForm;
+```
+**Light Forms** - if your Form consists only with TextFields (or other elements where value set directly in "value" attribute) and buttons you can avoid UI Object at all and just write one line in related page or in root Site class<br/>
 
 ## Create Custom controls
 TBD

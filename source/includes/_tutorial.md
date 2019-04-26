@@ -110,7 +110,8 @@ public class SiteJdi {
 }
 ```
 Page Objects in JDI Light called **UI Objects** and extends standard Selenium Page Objects capabilities with typified elements like **Textfield, Button, Text** etc. and additional meta information for pages like **Url** and **Title**. 
-Pretty simple and obvious isn’t it?<br/>
+Pretty simple and obvious isn’t it? 
+<a class="github-button" href="https://github.com/jdi-testing/jdi-light" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star jdi-testing/jdi-light on GitHub">Nice!</a><br/>
 Url for pages is relative from the site domain written in the **@JSite** annotation or in the _test.properties_ (see abstract 2.2 in this article). <br/>
 _Note: We don't need ContactsPage in this example but in order to illustrate **@Url** and **@Title** annotations it is placed here_ 
 
@@ -185,7 +186,8 @@ public class User extends DataClass<User> {
     public String name, password;
 }
 ```
-Pretty good. Now we will optimize previous example using forms. <br/>
+<a class="github-button" href="https://github.com/jdi-testing/jdi-light" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star jdi-testing/jdi-light on GitHub">I Like it!</a><br/>
+Now we will optimize previous example using forms. <br/>
 Let's move elements placed on Login Form in separate UI Object _LoginForm_<br/><br/><br/>
 
 And place LoginForm as root UI Object on **JDI Site** class<br/><br/><br/>
@@ -392,7 +394,7 @@ Now let's write complex test that:<br/>
 - Fill all 11 different elements in this Complex form by some values<br/>
 - And validate that form filled correctly<br/>
 ...<br/>
-This is so simple as for Login Form! Amazing!<br/>
+This is so simple as for Login Form! <a class="github-button" href="https://github.com/jdi-testing/jdi-light" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star jdi-testing/jdi-light on GitHub">Amazing!</a><br/>
 The most complex part is create test data that we would like to enter<br/>
 <br/><br/><br/><br/><br/><br/><br/><br/>
 

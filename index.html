@@ -1141,9 +1141,10 @@ Let&#39;s write the code of the test that emulates this behaviour and observe th
 In our example we change one field <em>acceptConditions</em> to uncheck and the result of the test return this exception in clear way:<br/></p>
 
 <blockquote>
-<p>&quot;Field &#39;acceptConditions&#39; (Actual: &#39;false&#39; &lt;&gt; Expected: &#39;true&#39;)&quot;
-<a href="https://github.com/jdi-tutorials/03-jdi-light-forms-ui-elements" target="_blank">You can find this example in ContactFormExamples.java on Github</a><br/></p>
+<p>&quot;Field &#39;acceptConditions&#39; (Actual: &#39;false&#39; &lt;&gt; Expected: &#39;true&#39;)&quot;</p>
 </blockquote>
+
+<p><a href="https://github.com/jdi-tutorials/03-jdi-light-forms-ui-elements" target="_blank">You can find this example in ContactFormExamples.java on Github</a><br/></p>
 <h3 id='use-form-in-different-ways'>Use Form in different ways</h3><pre class="highlight java tab-java"><code>    <span class="nd">@BeforeMethod</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">before</span><span class="o">()</span> <span class="o">{</span>
         <span class="n">loggedOut</span><span class="o">();</span>

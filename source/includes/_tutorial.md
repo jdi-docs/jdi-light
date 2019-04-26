@@ -392,7 +392,7 @@ Now let's write complex test that:<br/>
 - Fill all 11 different elements in this Complex form by some values<br/>
 - And validate that form filled correctly<br/>
 ...<br/>
-This is as so simple as for Login Form! Amazing!<br/>
+This is so simple as for Login Form! Amazing!<br/>
 The most complex part is create test data that we would like to enter<br/>
 <br/><br/><br/><br/><br/><br/><br/><br/>
 
@@ -428,7 +428,7 @@ public void failCheckExample() {
     assertThat(result, hasItem("Field 'acceptConditions' (Actual: 'false' <> Expected: 'true')"));
 }
 ```
-No let's faile validation of our form and see how JDI Light will display the result of failure. For this reason we can use the example above and just change some field before check.<br/>
+Now let's fail validation for our form and see how JDI Light will display the result of failure. For this reason we can use the example above and just change some field before check.<br/>
 Let's write the code of the test that emulates this behaviour and observe the result. Forms in JDI has two methods that verifies filled data.<br/>
 **check** - typically used verification that validate form and throws an exception at the end with all wrond fields<br/>
 **verify** - has the same behaviour as _check_ but instead of throwing exeption this method returns list of fails on per failed field and this is for you to decide how to manage this result<br/>

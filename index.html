@@ -1106,7 +1106,7 @@ Data entity for this form (ContactInfo) looks pretty much the same as for Login 
 ...<br/>
 This is as so simple as for Login Form! Amazing!<br/>
 The most complex part is create test data that we would like to enter<br/>
-<br/><br/><br/><br/><br/><br/></p>
+<br/><br/><br/><br/><br/><br/><br/><br/></p>
 <pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">static</span> <span class="n">ContactInfo</span> <span class="n">SIMPLE_CONTACT</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ContactInfo</span><span class="o">().</span><span class="na">set</span><span class="o">(</span><span class="n">c</span> <span class="o">-&gt;</span> <span class="o">{</span>
     <span class="n">c</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">"Roman"</span><span class="o">;</span> <span class="n">c</span><span class="o">.</span><span class="na">lastName</span> <span class="o">=</span> <span class="s">"Iovlev"</span><span class="o">;</span> <span class="n">c</span><span class="o">.</span><span class="na">position</span> <span class="o">=</span> <span class="s">"ChiefQA"</span><span class="o">;</span>
     <span class="n">c</span><span class="o">.</span><span class="na">passportNumber</span> <span class="o">=</span> <span class="s">"4321"</span><span class="o">;</span> <span class="n">c</span><span class="o">.</span><span class="na">passportSeria</span> <span class="o">=</span> <span class="s">"123456"</span><span class="o">;</span> <span class="o">}</span>
@@ -1121,7 +1121,7 @@ The most complex part is create test data that we would like to enter<br/>
 </code></pre>
 <p>Now if we would like to fill only TextFields, we should just change test data.<br/>
 <em>Note:_In second example we use select by enum value for sideMenu it works the same as by text but allow us to choose from limited list of options and reduce chance to make a mistake</em><br/>
-<a href="https://github.com/jdi-tutorials/02-jdi-light-forms-elements" target="_blank">See this example in LoginExample.java on Github</a><br/><br/><br/></p>
+<a href="https://github.com/jdi-tutorials/03-jdi-light-forms-ui-elements" target="_blank">See this example in ContactFormExamples.java on Github</a><br/><br/><br/><br/><br/></p>
 <h3 id='failed-form-example-in-logs'>Failed form example in logs</h3><pre class="highlight java tab-java"><code><span class="nd">@Test</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">failCheckExample</span><span class="o">()</span> <span class="o">{</span>
     <span class="n">sideMenu</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">ContactForm</span><span class="o">);</span>
@@ -1134,8 +1134,19 @@ The most complex part is create test data that we would like to enter<br/>
     <span class="n">assertThat</span><span class="o">(</span><span class="n">result</span><span class="o">,</span> <span class="n">hasItem</span><span class="o">(</span><span class="s">"Field 'acceptConditions' (Actual: 'false' &lt;&gt; Expected: 'true')"</span><span class="o">));</span>
 <span class="o">}</span>
 </code></pre>
-<p>I would like to emulate case where something goes wrong in filling form, for example we try to check <em>acceptConditions</em></p>
-<h3 id='use-form-in-different-ways'>Use Form in different ways</h3><h2 id='create-custom-controls'>Create Custom controls</h2>
+<p>No let&#39;s faile validation of our form and see how JDI Light will display the result of failure. For this reason we can use the example above and just change some field before check.<br/>
+Let&#39;s write the code of the test that emulates this behaviour and observe the result. Forms in JDI has two methods that verifies filled data.<br/>
+<strong>check</strong> - typically used verification that validate form and throws an exception at the end with all wrond fields<br/>
+<strong>verify</strong> - has the same behaviour as <em>check</em> but instead of throwing exeption this method returns list of fails on per failed field and this is for you to decide how to manage this result<br/>
+In our example we change one field <em>acceptConditions</em> to uncheck and the result of the test return this exception in clear way:<br/></p>
+
+<blockquote>
+<p>&quot;Field &#39;acceptConditions&#39; (Actual: &#39;false&#39; &lt;&gt; Expected: &#39;true&#39;)&quot;
+<a href="https://github.com/jdi-tutorials/03-jdi-light-forms-ui-elements" target="_blank">You can find this example in ContactFormExamples.java on Github</a>&lt;br/</p>
+</blockquote>
+<h3 id='use-form-in-different-ways'>Use Form in different ways</h3>
+<p>We get first look on UI Elements in JDI Light and on Forms capabilities and now we can look deeper on Forms initialization and how this can help you to write less code</p>
+<h2 id='create-custom-controls'>Create Custom controls</h2>
 <p>TBD</p>
 <h2 id='jdi-settings-at-glance'>JDI settings at glance</h2>
 <p>TBD</p>

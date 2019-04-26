@@ -394,7 +394,7 @@ Now let's write complex test that:<br/>
 ...<br/>
 This is as so simple as for Login Form! Amazing!<br/>
 The most complex part is create test data that we would like to enter<br/>
-<br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/>
 
 ```java
 public static ContactInfo SIMPLE_CONTACT = new ContactInfo().set(c -> {
@@ -411,7 +411,7 @@ public void simpleContactFormTest() {
 ```
 Now if we would like to fill only TextFields, we should just change test data.<br/>
 _Note:_In second example we use select by enum value for sideMenu it works the same as by text but allow us to choose from limited list of options and reduce chance to make a mistake_<br/>
-<a href="https://github.com/jdi-tutorials/02-jdi-light-forms-elements" target="_blank">See this example in LoginExample.java on Github</a><br/><br/><br/>
+<a href="https://github.com/jdi-tutorials/03-jdi-light-forms-ui-elements" target="_blank">See this example in ContactFormExamples.java on Github</a><br/><br/><br/><br/><br/>
 
 ### Failed form example in logs
 
@@ -428,10 +428,18 @@ public void failCheckExample() {
     assertThat(result, hasItem("Field 'acceptConditions' (Actual: 'false' <> Expected: 'true')"));
 }
 ```
-I would like to emulate case where something goes wrong in filling form, for example we try to check _acceptConditions_
-
+No let's faile validation of our form and see how JDI Light will display the result of failure. For this reason we can use the example above and just change some field before check.<br/>
+Let's write the code of the test that emulates this behaviour and observe the result. Forms in JDI has two methods that verifies filled data.<br/>
+**check** - typically used verification that validate form and throws an exception at the end with all wrond fields<br/>
+**verify** - has the same behaviour as _check_ but instead of throwing exeption this method returns list of fails on per failed field and this is for you to decide how to manage this result<br/>
+In our example we change one field _acceptConditions_ to uncheck and the result of the test return this exception in clear way:<br/>
+> "Field 'acceptConditions' (Actual: 'false' <> Expected: 'true')"
+<a href="https://github.com/jdi-tutorials/03-jdi-light-forms-ui-elements" target="_blank">You can find this example in ContactFormExamples.java on Github</a><br/
 
 ### Use Form in different ways
+We get first look on UI Elements in JDI Light and on Forms capabilities and now we can look deeper on Forms initialization and how this can help you to write less code
+
+
 
 ## Create Custom controls
 TBD

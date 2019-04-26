@@ -1030,7 +1030,7 @@ public static TextArea textArea;
 ```
 ```csharp 
 [FindBy(Css = "#text-area")]
-public ITextArea TextAreaж
+public ITextArea TextArea;
 
     [Test]
     public void GetTextTest()

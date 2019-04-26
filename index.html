@@ -1138,7 +1138,7 @@ The most complex part is create test data that we would like to enter<br/>
 Let&#39;s write the code of the test that emulates this behaviour and observe the result. Forms in JDI has two methods that verifies filled data.<br/>
 <strong>check</strong> - typically used verification that validate form and throws an exception at the end with all wrond fields<br/>
 <strong>verify</strong> - has the same behaviour as <em>check</em> but instead of throwing exeption this method returns list of fails on per failed field and this is for you to decide how to manage this result<br/>
-In our example we change one field <em>acceptConditions</em> to uncheck and the result of the test return this exception in clear way:<br/></p>
+In our example we change one field <em>acceptConditions</em> to &quot;uncheck&quot; and the result of the test return this exception in clear way:<br/></p>
 
 <blockquote>
 <p>&quot;Field &#39;acceptConditions&#39; (Actual: &#39;false&#39; &lt;&gt; Expected: &#39;true&#39;)&quot;</p>

@@ -1142,10 +1142,91 @@ In our example we change one field <em>acceptConditions</em> to uncheck and the 
 
 <blockquote>
 <p>&quot;Field &#39;acceptConditions&#39; (Actual: &#39;false&#39; &lt;&gt; Expected: &#39;true&#39;)&quot;
-<a href="https://github.com/jdi-tutorials/03-jdi-light-forms-ui-elements" target="_blank">You can find this example in ContactFormExamples.java on Github</a>&lt;br/</p>
+<a href="https://github.com/jdi-tutorials/03-jdi-light-forms-ui-elements" target="_blank">You can find this example in ContactFormExamples.java on Github</a><br/></p>
 </blockquote>
-<h3 id='use-form-in-different-ways'>Use Form in different ways</h3>
-<p>We get first look on UI Elements in JDI Light and on Forms capabilities and now we can look deeper on Forms initialization and how this can help you to write less code</p>
+<h3 id='use-form-in-different-ways'>Use Form in different ways</h3><pre class="highlight java tab-java"><code>    <span class="nd">@BeforeMethod</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">before</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">loggedOut</span><span class="o">();</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">loginForm</span><span class="o">.</span><span class="na">isHidden</span><span class="o">())</span>
+            <span class="n">userIcon</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+    <span class="o">}</span>
+</code></pre>
+<p>We get first look on UI Elements in JDI Light and on Forms capabilities and now we can look deeper on Forms initialization and how this can help you to write less code<br/>
+Let&#39;s start from simple Form - Login<br/>
+We plan to have lot of tests that starts from point ther user loggedOut and Login form is opened, so let&#39;s write @BeforeMethod state for this set of test cases<br/><br/><br/></p>
+<pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SeleniumLoginForm</span> <span class="o">{</span>
+    <span class="nd">@FindBy</span><span class="o">(</span><span class="n">id</span> <span class="o">=</span> <span class="s">"name"</span><span class="o">)</span> <span class="kd">public</span> <span class="n">WebElement</span> <span class="n">name</span><span class="o">;</span>
+    <span class="nd">@FindBy</span><span class="o">(</span><span class="n">id</span> <span class="o">=</span> <span class="s">"password"</span><span class="o">)</span> <span class="kd">public</span> <span class="n">WebElement</span> <span class="n">password</span><span class="o">;</span>
+    <span class="nd">@FindBy</span><span class="o">(</span><span class="n">id</span> <span class="o">=</span> <span class="s">"login-button"</span><span class="o">)</span> <span class="kd">public</span> <span class="n">WebElement</span> <span class="n">loginButton</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isHidden</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="o">!</span><span class="n">name</span><span class="o">.</span><span class="na">isDisplayed</span><span class="o">();</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">loginAs</span><span class="o">(</span><span class="n">User</span> <span class="n">user</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">user</span><span class="o">.</span><span class="na">name</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">this</span><span class="o">.</span><span class="na">name</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
+            <span class="k">this</span><span class="o">.</span><span class="na">name</span><span class="o">.</span><span class="na">sendKeys</span><span class="o">(</span><span class="n">user</span><span class="o">.</span><span class="na">name</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">user</span><span class="o">.</span><span class="na">password</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">this</span><span class="o">.</span><span class="na">password</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
+            <span class="k">this</span><span class="o">.</span><span class="na">password</span><span class="o">.</span><span class="na">sendKeys</span><span class="o">(</span><span class="n">user</span><span class="o">.</span><span class="na">password</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="n">loginButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+<span class="n">on</span> <span class="n">JDISite</span><span class="o">.</span><span class="na">java</span> <span class="o">&gt;&gt;</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">SeleniumLoginForm</span> <span class="n">seleniumloginForm</span><span class="o">;</span>
+</code></pre>
+<p>In JDI Light we have different ways to describe the Form: <br/>
+<strong>Selenium</strong> - typical Page Object with <strong>WebElement</strong>s and <strong>@FindBy</strong> annotations, actions with them and without extending from something. Exactly this code will work in original Selenium project without JDI<br/>
+<a href="https://github.com/jdi-tutorials/04-jdi-light-different-forms/blob/master/src/main/java/jdisite/sections/SeleniumLoginForm.java" target="_blank">See example in SeleniumLoginForm.java on Github</a><br/></p>
+<pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SelenideLoginForm</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="n">WebElement</span> <span class="n">name</span> <span class="o">=</span> <span class="err">$</span><span class="o">(</span><span class="s">"#name"</span><span class="o">);</span>
+    <span class="kd">public</span> <span class="n">WebElement</span> <span class="n">password</span> <span class="o">=</span> <span class="err">$</span><span class="o">(</span><span class="s">"#password"</span><span class="o">);</span>
+    <span class="kd">public</span> <span class="n">WebElement</span> <span class="n">loginButton</span> <span class="o">=</span> <span class="err">$</span><span class="o">(</span><span class="s">"#login-button"</span><span class="o">);</span>
+
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isHidden</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="o">!</span><span class="n">name</span><span class="o">.</span><span class="na">isDisplayed</span><span class="o">();</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">loginAs</span><span class="o">(</span><span class="n">User</span> <span class="n">user</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">user</span><span class="o">.</span><span class="na">name</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">this</span><span class="o">.</span><span class="na">name</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
+            <span class="k">this</span><span class="o">.</span><span class="na">name</span><span class="o">.</span><span class="na">sendKeys</span><span class="o">(</span><span class="n">user</span><span class="o">.</span><span class="na">name</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">user</span><span class="o">.</span><span class="na">password</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">this</span><span class="o">.</span><span class="na">password</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
+            <span class="k">this</span><span class="o">.</span><span class="na">password</span><span class="o">.</span><span class="na">sendKeys</span><span class="o">(</span><span class="n">user</span><span class="o">.</span><span class="na">password</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="n">loginButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+<span class="n">on</span> <span class="n">JDISite</span><span class="o">.</span><span class="na">java</span> <span class="o">&gt;&gt;</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">SelenideLoginForm</span> <span class="n">selenideLoginForm</span><span class="o">;</span>
+</code></pre>
+<p><strong>JQuery/Selenide</strong> - Selenide or JQuery like style where instead of annotations @Findby you can use direct initialization<br/>
+<a href="https://github.com/jdi-tutorials/04-jdi-light-different-forms/blob/master/src/main/java/jdisite/sections/SelenideLoginForm.java" target="_blank">See example in SelenideLoginForm.java on Github</a><br/></p>
+<pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LoginForm</span> <span class="kd">extends</span> <span class="n">Form</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#name"</span><span class="o">)</span> <span class="n">TextField</span> <span class="n">name</span><span class="o">;</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#password"</span><span class="o">)</span> <span class="n">TextField</span> <span class="n">password</span><span class="o">;</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#login-button"</span><span class="o">)</span> <span class="n">Button</span> <span class="n">loginButton</span><span class="o">;</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isHidden</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">name</span><span class="o">.</span><span class="na">isHidden</span><span class="o">();</span> <span class="o">}</span>
+<span class="o">}</span>
+<span class="n">on</span> <span class="n">JDISite</span><span class="o">.</span><span class="na">java</span> <span class="o">&gt;&gt;</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">LoginForm</span> <span class="n">loginForm</span><span class="o">;</span>
+</code></pre>
+<p><strong>JDI Light Forms</strong> - typical Forms in JDI with <strong>typified elements</strong>, <strong>@UI</strong> annotations, extending from Form and without <strong>fill/check</strong> methods<br/>
+<a href="https://github.com/jdi-tutorials/04-jdi-light-different-forms/blob/master/src/main/java/jdisite/sections/LoginForm.java" target="_blank">See example in LoginForm.java on Github</a><br/></p>
+<pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LoginFormSmart</span> <span class="kd">extends</span> <span class="n">Form</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="n">TextField</span> <span class="n">name</span><span class="o">,</span> <span class="n">password</span><span class="o">;</span>
+    <span class="n">Button</span> <span class="n">loginButton</span><span class="o">;</span>
+<span class="o">}</span>
+<span class="n">on</span> <span class="n">JDISite</span><span class="o">.</span><span class="na">java</span> <span class="o">&gt;&gt;</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">LoginFormSmart</span> <span class="n">loginFormSmart</span><span class="o">;</span>
+</code></pre>
+<p><strong>Smart JDI Forms</strong> - If you have ability to get locator from variable name you can use Smart locators for elements and remove locator annotations from Forms. This allows also to combine UI Fields with same Type like <strong>TextField</strong> in example<br/>
+<a href="https://jdi-docs.github.io/jdi-light/?java#smart-locators">See more details and exampels about Smart locators in documentation</a><br/>
+<a href="https://github.com/jdi-tutorials/04-jdi-light-different-forms/blob/master/src/main/java/jdisite/sections/LoginFormSmart.java" target="_blank">See example in LoginFormSmart.java on Github</a><br/></p>
+<pre class="highlight java tab-java"><code><span class="n">on</span> <span class="n">JDISite</span><span class="o">.</span><span class="na">java</span> <span class="o">&gt;&gt;</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">Form</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">lightLoginForm</span><span class="o">;</span>
+</code></pre>
+<p><strong>Light Forms</strong> - if your Form consists only with TextFields (or other elements where value set directly in &quot;value&quot; attribute) and buttons you can avoid UI Object at all and just write one line in related page or in root Site class<br/></p>
 <h2 id='create-custom-controls'>Create Custom controls</h2>
 <p>TBD</p>
 <h2 id='jdi-settings-at-glance'>JDI settings at glance</h2>

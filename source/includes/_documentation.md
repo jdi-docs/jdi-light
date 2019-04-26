@@ -1029,16 +1029,22 @@ public static TextArea textArea;
     }
 ```
 ```csharp 
-[FindBy(Id = "description")]
-public TextArea DescriptionArea;
+[FindBy(Css = "#text-area")]
+public ITextArea TextAreaж
 
+    [Test]
+    public void GetTextTest()
+    {
+        TextArea.SetText(Text);
+        Assert.AreEqual(TextArea.GetText(), "Text");
+    }
+    
    [Test]
    public void AddNewLineTest()
    {
-      TestSite.ContactFormPage.DescriptionArea.Clear(); // method Clear() is inherited from TextField
-      TestSite.ContactFormPage.DescriptionArea.InputLines("line1", "line2");
-      TestSite.ContactFormPage.DescriptionArea.AddNewLine("line3");
-      Jdi.Assert.CollectionEquals(TestSite.ContactFormPage.DescriptionArea.GetLines(), new[] { "line1", "line2", "line3" });
+      TextArea.SetText("line1", "line2");
+      TextArea.AddNewLine("line3");
+      Assert.CollectionEquals(TextArea.GetLines(), new[] { "line1", "line2", "line3" });
    }
 ```
 
@@ -1057,10 +1063,14 @@ Here is a list of available methods in C#:
   
 |Method | Description | Return Type
 --- | --- | ---
-**InputLines(params string[] textLines)** | clears area and sets new lines | void
-**AddNewLine(string textLine)** | adds a new line to existing text | void
+**SetLines(string[] lines)** | sets lines (text)  | void
 **GetLines()** | returns lines (text) from the text area | string[]
-  
+**Rows()** | returns value of rows attribute | int
+**Cols()** | returns value of cols attribute | int
+**Minlength()** | returns value of minlength attribute | int
+**Maxlength()** | returns value of maxlength attribute | int
+**AddNewLine(string line)** | add line to the already existing  | void
+ 
   [Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/TextAreaTests.cs)
   
   And here are methods available in Java:

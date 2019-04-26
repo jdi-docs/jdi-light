@@ -434,6 +434,7 @@ Let's write the code of the test that emulates this behaviour and observe the re
 **verify** - has the same behaviour as _check_ but instead of throwing exeption this method returns list of fails on per failed field and this is for you to decide how to manage this result<br/>
 In our example we change one field _acceptConditions_ to uncheck and the result of the test return this exception in clear way:<br/>
 > "Field 'acceptConditions' (Actual: 'false' <> Expected: 'true')"
+
 <a href="https://github.com/jdi-tutorials/03-jdi-light-forms-ui-elements" target="_blank">You can find this example in ContactFormExamples.java on Github</a><br/>
 
 ### Use Form in different ways

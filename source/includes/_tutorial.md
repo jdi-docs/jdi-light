@@ -110,7 +110,7 @@ public class SiteJdi {
 }
 ```
 Page Objects in JDI Light called **UI Objects** and extends standard Selenium Page Objects capabilities with typified elements like **Textfield, Button, Text** etc. and additional meta information for pages like **Url** and **Title**. 
-Pretty simple and obvious isn’t it? 
+Pretty simple and obvious isn’t it? <br/>
 <a class="github-button" href="https://github.com/jdi-testing/jdi-light" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star jdi-testing/jdi-light on GitHub">Nice!</a><br/>
 Url for pages is relative from the site domain written in the **@JSite** annotation or in the _test.properties_ (see abstract 2.2 in this article). <br/>
 _Note: We don't need ContactsPage in this example but in order to illustrate **@Url** and **@Title** annotations it is placed here_ 
@@ -186,18 +186,19 @@ public class User extends DataClass<User> {
     public String name, password;
 }
 ```
-<a class="github-button" href="https://github.com/jdi-testing/jdi-light" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star jdi-testing/jdi-light on GitHub">I Like it!</a><br/>
 Now we will optimize previous example using forms. <br/>
-Let's move elements placed on Login Form in separate UI Object _LoginForm_<br/><br/><br/>
+Let's move elements placed on Login Form in separate UI Object _LoginForm_<br/>
 
 And place LoginForm as root UI Object on **JDI Site** class<br/><br/><br/>
 
 Now we can rewrite test in the following way:<br/>
-_Note: **ROMAN** is a business entity User that associated with Login Form<br/><br/><br/>_
+_Note: **ROMAN** is a business entity User that associated with Login Form<br/>_
+<a class="github-button" href="https://github.com/jdi-testing/jdi-light" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star jdi-testing/jdi-light on GitHub">I Like it!</a><br/>
 
 User class is simple data class with two String fields that has same names as TextFields in LoginForm. <br/>
 In this way you can fill any types of elements in Form that can be filled: TextField, TextArea, Checkbox, DropDown etc. <br/>
 _We will go through this in Contact Form example._<br/>
+<a class="github-button" href="https://github.com/jdi-testing/jdi-light" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star jdi-testing/jdi-light on GitHub">I Like it!</a><br/>
 
 ```java
   User ROMAN = new User().set(c -> {

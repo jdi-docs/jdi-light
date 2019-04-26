@@ -1104,7 +1104,7 @@ Data entity for this form (ContactInfo) looks pretty much the same as for Login 
 - Fill all 11 different elements in this Complex form by some values<br/>
 - And validate that form filled correctly<br/>
 ...<br/>
-This is as so simple as for Login Form! Amazing!<br/>
+This is so simple as for Login Form! Amazing!<br/>
 The most complex part is create test data that we would like to enter<br/>
 <br/><br/><br/><br/><br/><br/><br/><br/></p>
 <pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">static</span> <span class="n">ContactInfo</span> <span class="n">SIMPLE_CONTACT</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ContactInfo</span><span class="o">().</span><span class="na">set</span><span class="o">(</span><span class="n">c</span> <span class="o">-&gt;</span> <span class="o">{</span>
@@ -1134,7 +1134,7 @@ The most complex part is create test data that we would like to enter<br/>
     <span class="n">assertThat</span><span class="o">(</span><span class="n">result</span><span class="o">,</span> <span class="n">hasItem</span><span class="o">(</span><span class="s">"Field 'acceptConditions' (Actual: 'false' &lt;&gt; Expected: 'true')"</span><span class="o">));</span>
 <span class="o">}</span>
 </code></pre>
-<p>No let&#39;s faile validation of our form and see how JDI Light will display the result of failure. For this reason we can use the example above and just change some field before check.<br/>
+<p>Now let&#39;s fail validation for our form and see how JDI Light will display the result of failure. For this reason we can use the example above and just change some field before check.<br/>
 Let&#39;s write the code of the test that emulates this behaviour and observe the result. Forms in JDI has two methods that verifies filled data.<br/>
 <strong>check</strong> - typically used verification that validate form and throws an exception at the end with all wrond fields<br/>
 <strong>verify</strong> - has the same behaviour as <em>check</em> but instead of throwing exeption this method returns list of fails on per failed field and this is for you to decide how to manage this result<br/>

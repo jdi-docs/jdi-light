@@ -432,7 +432,7 @@ No let's faile validation of our form and see how JDI Light will display the res
 Let's write the code of the test that emulates this behaviour and observe the result. Forms in JDI has two methods that verifies filled data.<br/>
 **check** - typically used verification that validate form and throws an exception at the end with all wrond fields<br/>
 **verify** - has the same behaviour as _check_ but instead of throwing exeption this method returns list of fails on per failed field and this is for you to decide how to manage this result<br/>
-In our example we change one field _acceptConditions_ to uncheck and the result of the test return this exception in clear way:<br/>
+In our example we change one field _acceptConditions_ to "uncheck" and the result of the test return this exception in clear way:<br/>
 > "Field 'acceptConditions' (Actual: 'false' <> Expected: 'true')"
 
 <a href="https://github.com/jdi-tutorials/03-jdi-light-forms-ui-elements" target="_blank">You can find this example in ContactFormExamples.java on Github</a><br/>

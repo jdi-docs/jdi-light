@@ -457,9 +457,7 @@ public class SeleniumLoginForm {
     @FindBy(id = "password") public WebElement password;
     @FindBy(id = "login-button") public WebElement loginButton;
 
-    public boolean isHidden() {
-        return !name.isDisplayed();
-    }
+    public boolean isHidden() { return !name.isDisplayed(); }
     public void loginAs(User user) {
         if (user.name != null) {
             this.name.clear();
@@ -479,20 +477,8 @@ public class SelenideLoginForm {
     public WebElement password = $("#password");
     public WebElement loginButton = $("#login-button");
 
-    public boolean isHidden() {
-        return !name.isDisplayed();
-    }
-    public void loginAs(User user) {
-        if (user.name != null) {
-            this.name.clear();
-            this.name.sendKeys(user.name);
-        }
-        if (user.password != null) {
-            this.password.clear();
-            this.password.sendKeys(user.password);
-        }
-        loginButton.click();
-    }
+    // Same 12 rows for methods like in Selenium
+    ...
 }
 on JDISite.java >> public static SelenideLoginForm selenideLoginForm;
 
@@ -516,10 +502,10 @@ on JDISite.java >> public static Form<User> lightLoginForm;
 ```
 In JDI Light we have different ways to describe the Form: <br/>
 **Selenium** - typical Page Object with **WebElement**s and **@FindBy** annotations, actions with them and without extending from something. Exactly this code will work in original Selenium project without JDI<br/>
-<a href="https://github.com/jdi-tutorials/04-jdi-light-different-forms/blob/master/src/main/java/jdisite/sections/SeleniumLoginForm.java" target="_blank">See example in SeleniumLoginForm.java on Github</a><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<a href="https://github.com/jdi-tutorials/04-jdi-light-different-forms/blob/master/src/main/java/jdisite/sections/SeleniumLoginForm.java" target="_blank">See example in SeleniumLoginForm.java on Github</a><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 **JQuery/Selenide** - Selenide or JQuery like style where instead of annotations @Findby you can use direct initialization<br/>
-<a href="https://github.com/jdi-tutorials/04-jdi-light-different-forms/blob/master/src/main/java/jdisite/sections/SelenideLoginForm.java" target="_blank">See example in SelenideLoginForm.java on Github</a><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<a href="https://github.com/jdi-tutorials/04-jdi-light-different-forms/blob/master/src/main/java/jdisite/sections/SelenideLoginForm.java" target="_blank">See example in SelenideLoginForm.java on Github</a><br/><br/><br/><br/><br/><br/><br/><br/>
 
 **JDI Light Forms** - typical Forms in JDI with **typified elements**, **@UI** annotations, extending from Form and without **fill/check** methods<br/>
 <a href="https://github.com/jdi-tutorials/04-jdi-light-different-forms/blob/master/src/main/java/jdisite/sections/LoginForm.java" target="_blank">See example in LoginForm.java on Github</a><br/><br/><br/><br/><br/><br/><br/>

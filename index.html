@@ -338,7 +338,16 @@
                     <a href="#reduce-amount-of-code-with-jdi-light" class="toc-h2 toc-link" data-title="Reduce Amount of code with JDI Light">Reduce Amount of code with JDI Light</a>
                         <ul class="toc-list-h2">
                             <li>
-                              <a href="#implementation" class="toc-h2 h3 toc-link" data-title="Implementation">Implementation</a>
+                              <a href="#1-we-need-to-setup-and-run-chrome-driver" class="toc-h2 h3 toc-link" data-title="1. We need to setup and run Chrome driver.">1. We need to setup and run Chrome driver.</a>
+                            </li>
+                            <li>
+                              <a href="#2-create-page-objects-for-home-and-contact-pages" class="toc-h2 h3 toc-link" data-title="2. Create Page Objects for Home and Contact pages">2. Create Page Objects for Home and Contact pages</a>
+                            </li>
+                            <li>
+                              <a href="#3-create-simple-login-form" class="toc-h2 h3 toc-link" data-title="3. Create simple Login Form">3. Create simple Login Form</a>
+                            </li>
+                            <li>
+                              <a href="#4-create-complex-contact-form" class="toc-h2 h3 toc-link" data-title="4. Create complex Contact Form">4. Create complex Contact Form</a>
                             </li>
                         </ul>
                   </li>
@@ -1240,31 +1249,24 @@ Let&#39;s try to write a code on Selenium for the same scenario <a href="https:/
 
 <p><em>Note: You can found all the Selenium code by this</em> <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium" <br/>
 <em>Same scenario on JDI Light you can find _ <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-reduce-code" target="_blank">here</a>.<br/></em></p>
-<h3 id='implementation'>Implementation</h3>
+
 <p>In this example I will develop Selenium code as much effective as possible and try to keep same look and fill of the test scenario.<br/>
 In parallel we will see how this code can be optimized using knowledge we get from <a href="https://jdi-docs.github.io/jdi-light/?java#use-form-in-different-ways">Use Form in different ways</a> topic.<br/>
 In brackets you can find amount of lines of code we spent on each action<br/></p>
-
-<ol>
-<li>We need to setup and run Chrome driver. <br/> </li>
-</ol>
-<pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">static</span> <span class="n">WebDriver</span> <span class="n">DRIVER</span><span class="o">;</span>
+<h3 id='1-we-need-to-setup-and-run-chrome-driver'>1. We need to setup and run Chrome driver.</h3><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">static</span> <span class="n">WebDriver</span> <span class="n">DRIVER</span><span class="o">;</span>
 <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">runChromeDriver</span><span class="o">()</span> <span class="o">{</span>
     <span class="n">System</span><span class="o">.</span><span class="na">setProperty</span><span class="o">(</span><span class="s">"webdriver.chrome.driver"</span><span class="o">,</span> <span class="s">"C:\\Selenium\\chromedriver.exe"</span><span class="o">);</span>
     <span class="n">DRIVER</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ChromeDriver</span><span class="o">();</span>
     <span class="n">DRIVER</span><span class="o">.</span><span class="na">manage</span><span class="o">().</span><span class="na">window</span><span class="o">().</span><span class="na">maximize</span><span class="o">();</span>
 <span class="o">}</span>
 </code></pre>
-<p><strong>Selenium:</strong>(6 loc)
+<p><strong>Selenium:</strong>(6 loc)<br/>
 This is done here by simple method <em>runChromeDriver();</em><br/> 
-<em>Note: To run the driver in Selenium you need to download latest version from <a href="https://chromedriver.storage.googleapis.com/index.htmle" target="_blank">oficial site </a> and put it in <strong>C:\Selenium</strong> folder</em><br/> 
-<strong>JDI Light</strong>(0 loc)<br/> 
-You don&#39;t need to write a code for this. Latest version of ChromeDriver will be downloaded automatically.<br/> </p>
+<em>Note: To run the driver in Selenium you need to download latest version from <a href="https://chromedriver.storage.googleapis.com/index.htmle" target="_blank">oficial site </a> and put it in <strong>C:\Selenium</strong> folder</em><br/><br/><br/><br/><br/></p>
 
-<ol>
-<li>Create Page Objects for Home and Contact pages</li>
-</ol>
-<pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">BasePage</span> <span class="o">{</span>
+<p><strong>JDI Light</strong>(0 loc)<br/> 
+You don&#39;t need to write a code for this. Latest version of ChromeDriver will be downloaded automatically.<br/> </p>
+<h3 id='2-create-page-objects-for-home-and-contact-pages'>2. Create Page Objects for Home and Contact pages</h3><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">BasePage</span> <span class="o">{</span>
     <span class="kd">private</span> <span class="n">String</span> <span class="n">url</span><span class="o">;</span>
     <span class="kd">private</span> <span class="n">String</span> <span class="n">title</span><span class="o">;</span>
 
@@ -1297,7 +1299,7 @@ You don&#39;t need to write a code for this. Latest version of ChromeDriver will
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">ContactForm</span> <span class="n">contactForm</span> <span class="o">=</span> <span class="n">initElements</span><span class="o">(</span><span class="n">DRIVER</span><span class="o">,</span> <span class="n">ContactForm</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
 <span class="o">}</span>
 </code></pre>
-<p><strong>Selenium:</strong>(35 loc)</p>
+<p><strong>Selenium:</strong>(35 loc)<br/></p>
 
 <p>First we will create Base Page that will handle all Page Objects initialization. And add common parameteres for pages like url and titile and methods typical to pages.<br/> 
 Next to that we can write simple code for Home page and Contact page Page Objects<br/> 
@@ -1321,11 +1323,7 @@ Just few points for your attention<br/>
 - Elements can be static on UI Objects in JDI Light<br/> 
 - Forms can have root locators that will simplify locators for subelements<br/> 
 - In Selenium we must init each page with PageFactory.initElements(...) method<br/> </p>
-
-<ol>
-<li>Create simple Login Form</li>
-</ol>
-<pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LoginForm</span> <span class="o">{</span>
+<h3 id='3-create-simple-login-form'>3. Create simple Login Form</h3><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LoginForm</span> <span class="o">{</span>
     <span class="nd">@FindBy</span><span class="o">(</span><span class="n">id</span> <span class="o">=</span> <span class="s">"name"</span><span class="o">)</span> <span class="n">WebElement</span> <span class="n">name</span><span class="o">;</span>
     <span class="nd">@FindBy</span><span class="o">(</span><span class="n">id</span> <span class="o">=</span> <span class="s">"password"</span><span class="o">)</span> <span class="n">WebElement</span> <span class="n">password</span><span class="o">;</span>
     <span class="nd">@FindBy</span><span class="o">(</span><span class="n">id</span> <span class="o">=</span> <span class="s">"login-button"</span><span class="o">)</span> <span class="n">WebElement</span> <span class="n">loginButton</span><span class="o">;</span>
@@ -1347,19 +1345,15 @@ Just few points for your attention<br/>
 <span class="o">}</span>
 <span class="kd">public</span> <span class="kd">static</span> <span class="n">LoginForm</span> <span class="n">loginForm</span> <span class="o">=</span> <span class="n">initElements</span><span class="o">(</span><span class="n">DRIVER</span><span class="o">,</span> <span class="n">LoginForm</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
 </code></pre>
-<p><strong>Selenium:</strong>(21 loc)
-This form contains WebElements (name, password, loginButton) and actions like loginAs() and isHidden()</p>
-
-<p><strong>JDI Light</strong>(10 loc)<br/> </p>
+<p><strong>Selenium:</strong>(21 loc)<br/> 
+This form contains WebElements (name, password, loginButton) and actions like loginAs() and isHidden()<br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<strong>JDI Light</strong>(10 loc)<br/> </p>
 <pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">static</span> <span class="n">Form</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">loginForm</span><span class="o">;</span>
 </code></pre>
 <p>In JDI Light you don&#39;t need to write UI Object for such simple form. Just declare it on site.
-<em>And of course you don&#39;t need to initialize this form</em></p>
-
-<ol>
-<li>Create complex Contact Form</li>
-</ol>
-<h2 id='create-custom-controls'>Create Custom controls</h2>
+<em>Note: And of course you don&#39;t need to initialize this form</em></p>
+<h3 id='4-create-complex-contact-form'>4. Create complex Contact Form</h3><h2 id='create-custom-controls'>Create Custom controls</h2>
 <p>TBD</p>
 <h2 id='jdi-settings-at-glance'>JDI settings at glance</h2>
 <p>TBD</p>

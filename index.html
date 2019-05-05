@@ -336,6 +336,11 @@
                   </li>
                   <li>
                     <a href="#reduce-amount-of-code-with-jdi-light" class="toc-h2 toc-link" data-title="Reduce Amount of code with JDI Light">Reduce Amount of code with JDI Light</a>
+                        <ul class="toc-list-h2">
+                            <li>
+                              <a href="#implementation" class="toc-h2 h3 toc-link" data-title="Implementation">Implementation</a>
+                            </li>
+                        </ul>
                   </li>
                   <li>
                     <a href="#create-custom-controls" class="toc-h2 toc-link" data-title="Create Custom controls">Create Custom controls</a>
@@ -1215,7 +1220,7 @@ We plan to have lot of tests that starts from point ther <u>user is logged out</
 <a href="https://github.com/jdi-tutorials/04-jdi-light-different-forms/blob/master/src/main/java/jdisite/sections/SelenideLoginForm.java" target="_blank">See example in SelenideLoginForm.java on Github</a><br/><br/><br/><br/><br/><br/></p>
 
 <p><strong>JDI Light Forms</strong> - typical Forms in JDI with <strong>typified elements</strong>, <strong>@UI</strong> annotations, extending from Form and without <strong>fill/check</strong> methods<br/>
-<a href="https://github.com/jdi-tutorials/04-jdi-light-different-forms/blob/master/src/main/java/jdisite/sections/LoginForm.java" target="_blank">See example in LoginForm.java on Github</a><br/><br/><br/><br/><br/></p>
+<a href="https://github.com/jdi-tutorials/04-jdi-light-different-forms/blob/master/src/main/java/jdisite/sections/LoginForm.java" target="_blank">See example in LoginForm.java on Github</a><br/></p>
 
 <p><strong>Smart JDI Forms</strong> - If you have ability to get locator from variable name you can use Smart locators for elements and remove locator annotations from Forms. This allows also to combine UI Fields with same Type like <strong>TextField</strong>s in example<br/>
 <a href="https://jdi-docs.github.io/jdi-light/?java#smart-locators">See more details and exampels for Smart locators in documentation</a><br/>
@@ -1226,13 +1231,91 @@ We plan to have lot of tests that starts from point ther <u>user is logged out</
 <a class="github-button" href="https://github.com/jdi-testing/jdi-light" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star jdi-testing/jdi-light on GitHub">Nice job man!</a></p>
 <h2 id='reduce-amount-of-code-with-jdi-light'>Reduce Amount of code with JDI Light</h2>
 <p>Now we know enough about Forms and lets see how we this can help us to write code faster (less code)<br/>
-Let&#39;s try to write a code on Selenium for for <a href="https://jdi-docs.github.io/jdi-light/?java#contact-form-test-scenario">Fill Contact Form test scenario</a> what we done on JDI Light before
+Let&#39;s try to write a code on Selenium for the same scenario <a href="https://jdi-docs.github.io/jdi-light/?java#contact-form-test-scenario">Fill Contact Form test scenario</a> what we done on JDI Light before<br/>
+- Open Home Page by url<br/>
 - Open Contact Page from menu<br/>
 - Validate that this Page has correct url and title<br/>
 - Fill all 11 different elements in this Complex form by some values<br/>
 - And validate that form filled correctly<br/></p>
 
-<p>First We should </p>
+<p><em>Note: You can found all the Selenium code by this</em> <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium" <br/>
+<em>Same scenario on JDI Light you can find _ <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-reduce-code" target="_blank">here</a>.<br/></em></p>
+<h3 id='implementation'>Implementation</h3>
+<p>In this example I will develop Selenium code as much effective as possible and try to keep same look and fill of the test scenario.<br/>
+In parallel we will see how this code can be optimized using knowledge we get from <a href="https://jdi-docs.github.io/jdi-light/?java#use-form-in-different-ways">Use Form in different ways</a> topic.<br/>
+In brackets you can find amount of lines of code we spent on each action<br/></p>
+
+<ol>
+<li>We need to setup and run Chrome driver. <br/> </li>
+</ol>
+<pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">static</span> <span class="n">WebDriver</span> <span class="n">DRIVER</span><span class="o">;</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">runChromeDriver</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">setProperty</span><span class="o">(</span><span class="s">"webdriver.chrome.driver"</span><span class="o">,</span> <span class="s">"C:\\Selenium\\chromedriver.exe"</span><span class="o">);</span>
+    <span class="n">DRIVER</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ChromeDriver</span><span class="o">();</span>
+    <span class="n">DRIVER</span><span class="o">.</span><span class="na">manage</span><span class="o">().</span><span class="na">window</span><span class="o">().</span><span class="na">maximize</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre>
+<p><strong>Selenium:</strong>(6 loc)
+This is done here by simple method <em>runChromeDriver();</em><br/> 
+<em>Note: To run the driver in Selenium you need to download latest version from <a href="https://chromedriver.storage.googleapis.com/index.htmle" target="_blank">oficial site </a> and put it in <strong>C:\Selenium</strong> folder</em><br/> 
+<strong>JDI Light</strong>(0 loc)<br/> 
+You don&#39;t need to write a code for this. Latest version of ChromeDriver will be downloaded automatically.<br/> </p>
+
+<ol>
+<li>Create Page Objects for Home and Contact pages</li>
+</ol>
+<pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">BasePage</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">url</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">title</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">BasePage</span><span class="o">()</span> <span class="o">{</span> <span class="o">}</span>
+    <span class="kd">public</span> <span class="nf">BasePage</span><span class="o">(</span><span class="n">String</span> <span class="n">url</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">url</span> <span class="o">=</span> <span class="n">url</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="nf">BasePage</span><span class="o">(</span><span class="n">String</span> <span class="n">url</span><span class="o">,</span> <span class="n">String</span> <span class="n">title</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">url</span> <span class="o">=</span> <span class="n">url</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">title</span> <span class="o">=</span> <span class="n">title</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">open</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">DRIVER</span><span class="o">.</span><span class="na">navigate</span><span class="o">().</span><span class="na">to</span><span class="o">(</span><span class="n">url</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkOpened</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">url</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span>
+            <span class="n">assertEquals</span><span class="o">(</span><span class="n">url</span><span class="o">,</span> <span class="n">DRIVER</span><span class="o">.</span><span class="na">getCurrentUrl</span><span class="o">());</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">title</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span>
+            <span class="n">assertEquals</span><span class="o">(</span><span class="n">title</span><span class="o">,</span> <span class="n">DRIVER</span><span class="o">.</span><span class="na">getTitle</span><span class="o">());</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HomePage</span> <span class="kd">extends</span> <span class="n">BasePage</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="nf">HomePage</span><span class="o">()</span> <span class="o">{</span> <span class="kd">super</span><span class="o">(</span><span class="s">"https://jdi-testing.github.io/jdi-light/"</span><span class="o">);</span> <span class="o">}</span>
+    <span class="nd">@FindBy</span><span class="o">(</span><span class="n">id</span> <span class="o">=</span><span class="s">"user-icon"</span><span class="o">)</span> <span class="kd">public</span> <span class="n">WebElement</span> <span class="n">userIcon</span><span class="o">;</span>
+    <span class="nd">@FindBy</span><span class="o">(</span><span class="n">id</span> <span class="o">=</span><span class="s">"user-name"</span><span class="o">)</span> <span class="kd">public</span> <span class="n">WebElement</span> <span class="n">userName</span><span class="o">;</span>
+    <span class="nd">@FindBy</span><span class="o">(</span><span class="n">css</span> <span class="o">=</span> <span class="s">".fa-sign-out"</span><span class="o">)</span> <span class="kd">public</span> <span class="n">WebElement</span> <span class="n">logout</span><span class="o">;</span>
+<span class="o">}</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ContactPage</span> <span class="kd">extends</span> <span class="n">BasePage</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="nf">ContactPage</span><span class="o">()</span> <span class="o">{</span> <span class="kd">super</span><span class="o">(</span> <span class="s">"https://jdi-testing.github.io/jdi-light/contacts"</span><span class="o">,</span> <span class="s">"Contact Form"</span><span class="o">);</span> <span class="o">}</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">ContactForm</span> <span class="n">contactForm</span> <span class="o">=</span> <span class="n">initElements</span><span class="o">(</span><span class="n">DRIVER</span><span class="o">,</span> <span class="n">ContactForm</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<p><strong>Selenium:</strong>(35 loc)</p>
+
+<p>First we will create Base Page that will handle all Page Objects initialization. And add common parameteres for pages like url and titile and methods typical to pages.<br/> 
+Next to that we can write simple code for Home page and Contact page Page Objects<br/> 
+_Note: I hope this &quot;BasePage&quot; approach will be useful for your Selenium projects.<br/> </p>
+<pre class="highlight java tab-java"><code><span class="nd">@Url</span><span class="o">(</span><span class="s">"/"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HomePage</span> <span class="kd">extends</span> <span class="n">WebPage</span> <span class="o">{</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#user-icon"</span><span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">Link</span> <span class="n">userIcon</span><span class="o">;</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#user-name"</span><span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">Text</span> <span class="n">userName</span><span class="o">;</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">".fa-sign-out"</span><span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">Button</span> <span class="n">logout</span><span class="o">;</span>
+<span class="o">}</span>
+<span class="nd">@Url</span><span class="o">(</span><span class="s">"/contacts"</span><span class="o">)</span> <span class="nd">@Title</span><span class="o">(</span><span class="s">"Contact Form"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ContactPage</span> <span class="kd">extends</span> <span class="n">WebPage</span> <span class="o">{</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#contact-form"</span><span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">ContactForm</span> <span class="n">contactForm</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre>
+<p><strong>JDI Light</strong>(10 loc)<br/> 
+In JDI Light we already have all functions described in BasePage and something more.<br/> 
+Code for PageObjects in Selenium and JDI Light in this case looks pretty much the same. Thanks to &quot;BasePage&quot; approach.<br/> </p>
 <h2 id='create-custom-controls'>Create Custom controls</h2>
 <p>TBD</p>
 <h2 id='jdi-settings-at-glance'>JDI settings at glance</h2>

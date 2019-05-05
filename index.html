@@ -324,6 +324,9 @@
                               <a href="#ui-elements-on-contact-form" class="toc-h2 h3 toc-link" data-title="UI Elements on Contact Form">UI Elements on Contact Form</a>
                             </li>
                             <li>
+                              <a href="#contact-form-test-scenario" class="toc-h2 h3 toc-link" data-title="Contact Form test scenario">Contact Form test scenario</a>
+                            </li>
+                            <li>
                               <a href="#failed-form-example-in-logs" class="toc-h2 h3 toc-link" data-title="Failed form example in logs">Failed form example in logs</a>
                             </li>
                             <li>
@@ -1088,7 +1091,7 @@ Data entity for this form (ContactInfo) looks pretty much the same as for Login 
 <p>We also have few <u>Common</u> elements directly on Site: <br/>
 1. already used <strong>Link</strong> <u>userIcon</u> and <strong>Text</strong> element <u>userName</u></br>
 2. and one new <u>Complex</u> element - <strong>Menu</strong> - list of links in left side bar. This element also described by one locator but returns 16 items and you can call the one that you need by its name desribed in enum <u>MenuOptions</u></br></p>
-<pre class="highlight java tab-java"><code><span class="nd">@Test</span>
+<h3 id='contact-form-test-scenario'>Contact Form test scenario</h3><pre class="highlight java tab-java"><code><span class="nd">@Test</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">simpleContactFormTest</span><span class="o">()</span> <span class="o">{</span>
     <span class="n">sideMenu</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="s">"Contact form"</span><span class="o">);</span>
     <span class="n">contactPage</span><span class="o">.</span><span class="na">checkOpened</span><span class="o">();</span>
@@ -1167,7 +1170,6 @@ We plan to have lot of tests that starts from point ther <u>user is logged out</
     <span class="nd">@FindBy</span><span class="o">(</span><span class="n">id</span> <span class="o">=</span> <span class="s">"password"</span><span class="o">)</span> <span class="kd">public</span> <span class="n">WebElement</span> <span class="n">password</span><span class="o">;</span>
     <span class="nd">@FindBy</span><span class="o">(</span><span class="n">id</span> <span class="o">=</span> <span class="s">"login-button"</span><span class="o">)</span> <span class="kd">public</span> <span class="n">WebElement</span> <span class="n">loginButton</span><span class="o">;</span>
 
-    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isHidden</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="o">!</span><span class="n">name</span><span class="o">.</span><span class="na">isDisplayed</span><span class="o">();</span> <span class="o">}</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">loginAs</span><span class="o">(</span><span class="n">User</span> <span class="n">user</span><span class="o">)</span> <span class="o">{</span>
         <span class="k">if</span> <span class="o">(</span><span class="n">user</span><span class="o">.</span><span class="na">name</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
             <span class="k">this</span><span class="o">.</span><span class="na">name</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
@@ -1180,14 +1182,14 @@ We plan to have lot of tests that starts from point ther <u>user is logged out</
         <span class="n">loginButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
     <span class="o">}</span>
 <span class="o">}</span>
-<span class="n">on</span> <span class="n">JDISite</span><span class="o">.</span><span class="na">java</span> <span class="o">&gt;&gt;</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">SeleniumLoginForm</span> <span class="n">seleniumloginForm</span><span class="o">;</span>
+<span class="n">on</span> <span class="n">JDISite</span><span class="o">.</span><span class="na">java</span> <span class="o">&gt;&gt;</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">SeleniumLoginForm</span> <span class="n">seleniumLoginForm</span><span class="o">;</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">SelenideLoginForm</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="n">WebElement</span> <span class="n">name</span> <span class="o">=</span> <span class="err">$</span><span class="o">(</span><span class="s">"#name"</span><span class="o">);</span>
-    <span class="kd">public</span> <span class="n">WebElement</span> <span class="n">password</span> <span class="o">=</span> <span class="err">$</span><span class="o">(</span><span class="s">"#password"</span><span class="o">);</span>
-    <span class="kd">public</span> <span class="n">WebElement</span> <span class="n">loginButton</span> <span class="o">=</span> <span class="err">$</span><span class="o">(</span><span class="s">"#login-button"</span><span class="o">);</span>
+    <span class="n">UIElement</span> <span class="n">name</span> <span class="o">=</span> <span class="err">$</span><span class="o">(</span><span class="s">"#name"</span><span class="o">),</span> 
+          <span class="n">password</span> <span class="o">=</span> <span class="err">$</span><span class="o">(</span><span class="s">"#password"</span><span class="o">),</span> 
+       <span class="n">loginButton</span> <span class="o">=</span> <span class="err">$</span><span class="o">(</span><span class="s">"#login-button"</span><span class="o">);</span>
 
-    <span class="c1">// Same 12 rows for methods like in Selenium</span>
+    <span class="c1">// + Same 11 rows for methods like in Selenium</span>
     <span class="o">...</span>
 <span class="o">}</span>
 <span class="n">on</span> <span class="n">JDISite</span><span class="o">.</span><span class="na">java</span> <span class="o">&gt;&gt;</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">SelenideLoginForm</span> <span class="n">selenideLoginForm</span><span class="o">;</span>
@@ -1196,9 +1198,6 @@ We plan to have lot of tests that starts from point ther <u>user is logged out</
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"#name"</span><span class="o">)</span> <span class="n">TextField</span> <span class="n">name</span><span class="o">;</span>
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"#password"</span><span class="o">)</span> <span class="n">TextField</span> <span class="n">password</span><span class="o">;</span>
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"#login-button"</span><span class="o">)</span> <span class="n">Button</span> <span class="n">loginButton</span><span class="o">;</span>
-
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isHidden</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">name</span><span class="o">.</span><span class="na">isHidden</span><span class="o">();</span> <span class="o">}</span>
 <span class="o">}</span>
 <span class="n">on</span> <span class="n">JDISite</span><span class="o">.</span><span class="na">java</span> <span class="o">&gt;&gt;</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">LoginForm</span> <span class="n">loginForm</span><span class="o">;</span>
 
@@ -1218,14 +1217,23 @@ We plan to have lot of tests that starts from point ther <u>user is logged out</
 <p><strong>JDI Light Forms</strong> - typical Forms in JDI with <strong>typified elements</strong>, <strong>@UI</strong> annotations, extending from Form and without <strong>fill/check</strong> methods<br/>
 <a href="https://github.com/jdi-tutorials/04-jdi-light-different-forms/blob/master/src/main/java/jdisite/sections/LoginForm.java" target="_blank">See example in LoginForm.java on Github</a><br/><br/><br/><br/><br/></p>
 
-<p><strong>Smart JDI Forms</strong> - If you have ability to get locator from variable name you can use Smart locators for elements and remove locator annotations from Forms. This allows also to combine UI Fields with same Type like <strong>TextField</strong> in example<br/>
+<p><strong>Smart JDI Forms</strong> - If you have ability to get locator from variable name you can use Smart locators for elements and remove locator annotations from Forms. This allows also to combine UI Fields with same Type like <strong>TextField</strong>s in example<br/>
 <a href="https://jdi-docs.github.io/jdi-light/?java#smart-locators">See more details and exampels for Smart locators in documentation</a><br/>
 <a href="https://github.com/jdi-tutorials/04-jdi-light-different-forms/blob/master/src/main/java/jdisite/sections/LoginFormSmart.java" target="_blank">See example in LoginFormSmart.java on Github</a><br/><br/></p>
 <pre class="highlight java tab-java"><code><span class="n">on</span> <span class="n">JDISite</span><span class="o">.</span><span class="na">java</span> <span class="o">&gt;&gt;</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">Form</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">lightLoginForm</span><span class="o">;</span>
 </code></pre>
-<p><strong>Light Forms</strong> - if your Form consists only with TextFields (or other elements where value set directly in &quot;value&quot; attribute) and buttons you can avoid UI Object at all and just write one line in related page or in root Site class<br/>
+<p><strong>Light Forms</strong> - if your Form consists of only TextFields and buttons you can avoid UI Object at all and just write one line in related page or in root Site class<br/>
 <a class="github-button" href="https://github.com/jdi-testing/jdi-light" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star jdi-testing/jdi-light on GitHub">Nice job man!</a></p>
-<h2 id='reduce-amount-of-code-with-jdi-light'>Reduce Amount of code with JDI Light</h2><h2 id='create-custom-controls'>Create Custom controls</h2>
+<h2 id='reduce-amount-of-code-with-jdi-light'>Reduce Amount of code with JDI Light</h2>
+<p>Now we know enough about Forms and lets see how we this can help us to write code faster (less code)<br/>
+Let&#39;s try to write a code on Selenium for for <a href="https://jdi-docs.github.io/jdi-light/?java#contact-form-test-scenario">Fill Contact Form test scenario</a> what we done on JDI Light before
+- Open Contact Page from menu<br/>
+- Validate that this Page has correct url and title<br/>
+- Fill all 11 different elements in this Complex form by some values<br/>
+- And validate that form filled correctly<br/></p>
+
+<p>First We should </p>
+<h2 id='create-custom-controls'>Create Custom controls</h2>
 <p>TBD</p>
 <h2 id='jdi-settings-at-glance'>JDI settings at glance</h2>
 <p>TBD</p>

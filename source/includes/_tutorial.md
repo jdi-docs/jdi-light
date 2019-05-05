@@ -371,6 +371,7 @@ We also have few <u>Common</u> elements directly on Site: <br/>
 1. already used **Link** <u>userIcon</u> and **Text** element <u>userName</u></br>
 2. and one new <u>Complex</u> element - **Menu** - list of links in left side bar. This element also described by one locator but returns 16 items and you can call the one that you need by its name desribed in enum <u>MenuOptions</u></br>
 
+### Contact Form test scenario
 ```java
 @Test
 public void simpleContactFormTest() {
@@ -460,7 +461,6 @@ public class SeleniumLoginForm {
     @FindBy(id = "password") public WebElement password;
     @FindBy(id = "login-button") public WebElement loginButton;
 
-    public boolean isHidden() { return !name.isDisplayed(); }
     public void loginAs(User user) {
         if (user.name != null) {
             this.name.clear();
@@ -473,14 +473,14 @@ public class SeleniumLoginForm {
         loginButton.click();
     }
 }
-on JDISite.java >> public static SeleniumLoginForm seleniumloginForm;
+on JDISite.java >> public static SeleniumLoginForm seleniumLoginForm;
 
 public class SelenideLoginForm {
-    public WebElement name = $("#name");
-    public WebElement password = $("#password");
-    public WebElement loginButton = $("#login-button");
+    UIElement name = $("#name"), 
+          password = $("#password"), 
+       loginButton = $("#login-button");
 
-    // Same 12 rows for methods like in Selenium
+    // + Same 11 rows for methods like in Selenium
     ...
 }
 on JDISite.java >> public static SelenideLoginForm selenideLoginForm;
@@ -489,9 +489,6 @@ public class LoginForm extends Form<User> {
     @UI("#name") TextField name;
     @UI("#password") TextField password;
     @UI("#login-button") Button loginButton;
-
-    @Override
-    public boolean isHidden() { return name.isHidden(); }
 }
 on JDISite.java >> public static LoginForm loginForm;
 
@@ -511,17 +508,25 @@ In JDI Light we have different ways to describe the Form: <br/>
 **JDI Light Forms** - typical Forms in JDI with **typified elements**, **@UI** annotations, extending from Form and without **fill/check** methods<br/>
 <a href="https://github.com/jdi-tutorials/04-jdi-light-different-forms/blob/master/src/main/java/jdisite/sections/LoginForm.java" target="_blank">See example in LoginForm.java on Github</a><br/><br/><br/><br/><br/>
 
-**Smart JDI Forms** - If you have ability to get locator from variable name you can use Smart locators for elements and remove locator annotations from Forms. This allows also to combine UI Fields with same Type like **TextField** in example<br/>
+**Smart JDI Forms** - If you have ability to get locator from variable name you can use Smart locators for elements and remove locator annotations from Forms. This allows also to combine UI Fields with same Type like **TextField**s in example<br/>
 [See more details and exampels for Smart locators in documentation](https://jdi-docs.github.io/jdi-light/?java#smart-locators)<br/>
 <a href="https://github.com/jdi-tutorials/04-jdi-light-different-forms/blob/master/src/main/java/jdisite/sections/LoginFormSmart.java" target="_blank">See example in LoginFormSmart.java on Github</a><br/><br/>
 
 ```java
 on JDISite.java >> public static Form<User> lightLoginForm;
 ```
-**Light Forms** - if your Form consists only with TextFields (or other elements where value set directly in "value" attribute) and buttons you can avoid UI Object at all and just write one line in related page or in root Site class<br/>
+**Light Forms** - if your Form consists of only TextFields and buttons you can avoid UI Object at all and just write one line in related page or in root Site class<br/>
 <a class="github-button" href="https://github.com/jdi-testing/jdi-light" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star jdi-testing/jdi-light on GitHub">Nice job man!</a>
 
 ## Reduce Amount of code with JDI Light
+Now we know enough about Forms and lets see how we this can help us to write code faster (less code)<br/>
+Let's try to write a code on Selenium for for [Fill Contact Form test scenario](https://jdi-docs.github.io/jdi-light/?java#contact-form-test-scenario) what we done on JDI Light before
+- Open Contact Page from menu<br/>
+- Validate that this Page has correct url and title<br/>
+- Fill all 11 different elements in this Complex form by some values<br/>
+- And validate that form filled correctly<br/>
+
+First We should 
 
 ## Create Custom controls
 TBD

@@ -530,13 +530,11 @@ Let's try to write a code on Selenium for the same scenario [Fill Contact Form t
 _Note: You can found all the Selenium code by this_ <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium" <br/>
 _Same scenario on JDI Light you can find _ <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-reduce-code" target="_blank">here</a>.<br/>_
 
-
-### Implementation
 In this example I will develop Selenium code as much effective as possible and try to keep same look and fill of the test scenario.<br/>
 In parallel we will see how this code can be optimized using knowledge we get from [Use Form in different ways](https://jdi-docs.github.io/jdi-light/?java#use-form-in-different-ways) topic.<br/>
 In brackets you can find amount of lines of code we spent on each action<br/>
 
-1. We need to setup and run Chrome driver. <br/> 
+### 1. We need to setup and run Chrome driver. ###
 
 ```java
 public static WebDriver DRIVER;
@@ -546,13 +544,14 @@ public static void runChromeDriver() {
     DRIVER.manage().window().maximize();
 }
 ```
-**Selenium:**(6 loc)
+**Selenium:**(6 loc)<br/>
 This is done here by simple method _runChromeDriver();_<br/> 
-_Note: To run the driver in Selenium you need to download latest version from <a href="https://chromedriver.storage.googleapis.com/index.htmle" target="_blank">oficial site </a> and put it in **C:\Selenium** folder_<br/> 
+_Note: To run the driver in Selenium you need to download latest version from <a href="https://chromedriver.storage.googleapis.com/index.htmle" target="_blank">oficial site </a> and put it in **C:\Selenium** folder_<br/><br/><br/><br/><br/>
+
 **JDI Light**(0 loc)<br/> 
 You don't need to write a code for this. Latest version of ChromeDriver will be downloaded automatically.<br/> 
 
-2. Create Page Objects for Home and Contact pages
+### 2. Create Page Objects for Home and Contact pages ###
 
 ```java
 public abstract class BasePage {
@@ -588,7 +587,7 @@ public class ContactPage extends BasePage {
     public static ContactForm contactForm = initElements(DRIVER, ContactForm.class);
 }
 ```
-**Selenium:**(35 loc)
+**Selenium:**(35 loc)<br/>
 
 First we will create Base Page that will handle all Page Objects initialization. And add common parameteres for pages like url and titile and methods typical to pages.<br/> 
 Next to that we can write simple code for Home page and Contact page Page Objects<br/> 
@@ -615,7 +614,7 @@ Just few points for your attention<br/>
 - Forms can have root locators that will simplify locators for subelements<br/> 
 - In Selenium we must init each page with PageFactory.initElements(...) method<br/> 
 
-3. Create simple Login Form
+### 3. Create simple Login Form ###
 
 ```java
 public class LoginForm {
@@ -640,19 +639,19 @@ public class LoginForm {
 }
 public static LoginForm loginForm = initElements(DRIVER, LoginForm.class);
 ```
-**Selenium:**(21 loc)
-This form contains WebElements (name, password, loginButton) and actions like loginAs() and isHidden()
-
+**Selenium:**(21 loc)<br/> 
+This form contains WebElements (name, password, loginButton) and actions like loginAs() and isHidden()<br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 **JDI Light**(10 loc)<br/> 
 
 ```java
 public static Form<User> loginForm;
 ```
 In JDI Light you don't need to write UI Object for such simple form. Just declare it on site.
-_And of course you don't need to initialize this form_
+_Note: And of course you don't need to initialize this form_
 
 
-4. Create complex Contact Form
+### 4. Create complex Contact Form ###
 
 
 

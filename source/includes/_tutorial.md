@@ -615,7 +615,7 @@ public static LoginForm loginForm = initElements(DRIVER, LoginForm.class);
 ```
 **Selenium:**(21 loc)<br/> 
 This form contains WebElements (name, password, loginButton) and actions like loginAs() and isHidden()<br/>
-<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 **JDI Light**(1 loc)<br/> 
 
 ```java

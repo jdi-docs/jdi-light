@@ -1327,7 +1327,54 @@ This form contains WebElements (name, password, loginButton) and actions like lo
 </code></pre>
 <p>In JDI Light you don&#39;t need to write UI Object for such simple form. Just declare it on site.<br/>
 <em>Note: And of course you don&#39;t need to initialize this form</em></p>
-<h3 id='4-create-complex-contact-form'>4. Create complex Contact Form</h3><h2 id='create-custom-controls'>Create Custom controls</h2>
+<h3 id='4-create-complex-contact-form'>4. Create complex Contact Form</h3>
+<p>In total this is 64 lines of code for Selenium and only 9 lines of code in JDI Light but lets make our overview step by step.
+<em>Note: Unfortunately we can&#39;t use one string Form in this case because form has elements of different kinds but we can still can use short form description with Smart locators. Just describe element&#39;s types and names and one string initialization with root locator &quot;#contact-form&quot;</em><br/></p>
+<pre class="highlight java tab-java"><code>    <span class="nd">@FindBy</span><span class="o">(</span><span class="n">css</span> <span class="o">=</span><span class="s">"#contact-form #name"</span><span class="o">)</span> <span class="n">WebElement</span> <span class="n">name</span><span class="o">;</span> 
+    <span class="c1">// +4 more TextFields</span>
+    <span class="nd">@FindBy</span><span class="o">(</span><span class="n">css</span> <span class="o">=</span><span class="s">"#contact-form #accept-conditions"</span><span class="o">)</span> <span class="n">WebElement</span> <span class="n">acceptConditionsCheckbox</span><span class="o">;</span>
+    <span class="nd">@FindBy</span><span class="o">(</span><span class="n">css</span> <span class="o">=</span><span class="s">"#contact-form #passport"</span><span class="o">)</span> <span class="n">WebElement</span> <span class="n">passportCheckbox</span><span class="o">;</span>
+    <span class="nd">@FindBy</span><span class="o">(</span><span class="n">css</span> <span class="o">=</span><span class="s">"#contact-form #description"</span><span class="o">)</span> <span class="n">WebElement</span> <span class="n">descriptionText</span><span class="o">;</span>
+    <span class="nd">@FindBy</span><span class="o">(</span><span class="n">css</span> <span class="o">=</span><span class="s">"#contact-form [type=submit]"</span><span class="o">)</span> <span class="n">WebElement</span> <span class="n">submitButton</span><span class="o">;</span>
+</code></pre>
+<p><strong>Selenium:</strong>(9 loc)<br/> 
+In Selenium we should describe all elements on form. This is easy to do for simple elements like TextField&#39;s, Checkboxes, TextArea and buttons.<br/>
+_Note: you must add <strong>#contact-form</strong> to some elements locators.<br/>
+And because we have no ideas on what UI element this WebElement represent this is a good practice to add type as part of its names
+<br/></p>
+<pre class="highlight java tab-java"><code>    <span class="n">TextField</span> <span class="n">name</span><span class="o">,</span> <span class="n">lastName</span><span class="o">,</span> <span class="n">position</span><span class="o">,</span> <span class="n">passportNumber</span><span class="o">,</span> <span class="n">passportSeria</span><span class="o">;</span>
+    <span class="n">Checkbox</span> <span class="n">passport</span><span class="o">,</span> <span class="n">acceptConditions</span><span class="o">;</span>
+    <span class="n">TextArea</span> <span class="n">description</span><span class="o">;</span>
+</code></pre>
+<p><strong>JDI Light</strong>(3 loc)<br/> 
+In JDI Light we just need to describe Types of elements and list them for each type. In this example we have good locators so don&#39;t need to write them on form.</p>
+<pre class="highlight java tab-java"><code>    <span class="c1">// Dropdown</span>
+    <span class="nd">@FindBy</span><span class="o">(</span><span class="n">id</span> <span class="o">=</span> <span class="s">"gender"</span><span class="o">)</span> <span class="n">WebElement</span> <span class="n">gender</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">Select</span> <span class="nf">gender</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="k">new</span> <span class="n">Select</span><span class="o">(</span><span class="n">gender</span><span class="o">);</span> <span class="o">}</span>
+    <span class="c1">// Combobox</span>
+    <span class="nd">@FindBy</span><span class="o">(</span><span class="n">id</span> <span class="o">=</span> <span class="s">"religion"</span><span class="o">)</span> <span class="n">WebElement</span> <span class="n">religion</span><span class="o">;</span>
+    <span class="c1">// MultiDropdown</span>
+    <span class="nd">@FindBy</span><span class="o">(</span><span class="n">css</span> <span class="o">=</span><span class="s">"#weather .caret"</span><span class="o">)</span> <span class="n">WebElement</span> <span class="n">weatherExpand</span><span class="o">;</span>
+    <span class="nd">@FindBy</span><span class="o">(</span><span class="n">css</span> <span class="o">=</span><span class="s">"#weather label"</span><span class="o">)</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">WebElement</span><span class="o">&gt;</span> <span class="n">weatherList</span><span class="o">;</span>
+    <span class="nd">@FindBy</span><span class="o">(</span><span class="n">css</span> <span class="o">=</span><span class="s">"#weather button"</span><span class="o">)</span> <span class="n">WebElement</span> <span class="n">weatherValue</span><span class="o">;</span>
+    <span class="nd">@FindBy</span><span class="o">(</span><span class="n">css</span> <span class="o">=</span><span class="s">"#weather ul"</span><span class="o">)</span> <span class="n">WebElement</span> <span class="n">weatherIsExpanded</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kt">boolean</span> <span class="nf">weatherIsExpanded</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">weatherIsExpanded</span><span class="o">.</span><span class="na">getAttribute</span><span class="o">(</span><span class="s">"style"</span><span class="o">).</span><span class="na">equals</span><span class="o">(</span><span class="s">"display: block;"</span><span class="o">);</span>
+    <span class="o">}</span>
+</code></pre>
+<p><strong>Selenium:</strong>(13 loc)<br/> 
+More interesting situation with Complex elements: <br/>
+For Dropdown we can use Select class from <strong>selenium-support</strong> package<br/>
+For Combobox we can use one line WebEleemnt just using it as standard TextField<br/>
+But for MultiDropdown we need to write 4 WebElements and on method</p>
+<pre class="highlight java tab-java"><code>    <span class="n">Dropdown</span> <span class="n">gender</span><span class="o">;</span>
+    <span class="n">Combobox</span> <span class="n">religion</span><span class="o">;</span>
+    <span class="n">MultiDropdown</span> <span class="n">weather</span><span class="o">;</span>
+</code></pre>
+<p><strong>JDI Light</strong>(3 loc)<br/> 
+In JDI Light this is as simple as for Common elements. 
+<em>Note: They are so short that we can write them in one line but let keep each time in its own line</em></p>
+<h2 id='create-custom-controls'>Create Custom controls</h2>
 <p>TBD</p>
 <h2 id='jdi-settings-at-glance'>JDI settings at glance</h2>
 <p>TBD</p>

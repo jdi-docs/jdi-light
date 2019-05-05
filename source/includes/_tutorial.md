@@ -608,7 +608,52 @@ public class ContactPage extends WebPage {
 ```
 **JDI Light**(10 loc)<br/> 
 In JDI Light we already have all functions described in BasePage and something more.<br/> 
-Code for PageObjects in Selenium and JDI Light in this case looks pretty much the same. Thanks to "BasePage" approach.<br/> 
+Code for UI Objects in Selenium and JDI Light in this case looks pretty much the same. Thanks to "BasePage" approach.<br/> 
+Just few points for your attention<br/> 
+- Locators a little bit smaller thanks to @UI annotations<br/> 
+- Elements can be static on UI Objects in JDI Light<br/> 
+- Forms can have root locators that will simplify locators for subelements<br/> 
+- In Selenium we must init each page with PageFactory.initElements(...) method<br/> 
+
+3. Create simple Login Form
+
+```java
+public class LoginForm {
+    @FindBy(id = "name") WebElement name;
+    @FindBy(id = "password") WebElement password;
+    @FindBy(id = "login-button") WebElement loginButton;
+
+    public void loginAs(User user) {
+        if (user.name != null) {
+            this.name.clear();
+            this.name.sendKeys(user.name);
+        }
+        if (user.password != null) {
+            this.password.clear();
+            this.password.sendKeys(user.password);
+        }
+        loginButton.click();
+    }
+    public boolean isHidden() {
+        return !name.isDisplayed();
+    }
+}
+public static LoginForm loginForm = initElements(DRIVER, LoginForm.class);
+```
+**Selenium:**(21 loc)
+This form contains WebElements (name, password, loginButton) and actions like loginAs() and isHidden()
+
+**JDI Light**(10 loc)<br/> 
+
+```java
+public static Form<User> loginForm;
+```
+In JDI Light you don't need to write UI Object for such simple form. Just declare it on site.
+_And of course you don't need to initialize this form_
+
+
+4. Create complex Contact Form
+
 
 
 ## Create Custom controls

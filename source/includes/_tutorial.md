@@ -506,7 +506,7 @@ In JDI Light we have different ways to describe the Form: <br/>
 <a href="https://github.com/jdi-tutorials/04-jdi-light-different-forms/blob/master/src/main/java/jdisite/sections/SelenideLoginForm.java" target="_blank">See example in SelenideLoginForm.java on Github</a><br/><br/><br/><br/><br/><br/>
 
 **JDI Light Forms** - typical Forms in JDI with **typified elements**, **@UI** annotations, extending from Form and without **fill/check** methods<br/>
-<a href="https://github.com/jdi-tutorials/04-jdi-light-different-forms/blob/master/src/main/java/jdisite/sections/LoginForm.java" target="_blank">See example in LoginForm.java on Github</a><br/><br/><br/><br/><br/>
+<a href="https://github.com/jdi-tutorials/04-jdi-light-different-forms/blob/master/src/main/java/jdisite/sections/LoginForm.java" target="_blank">See example in LoginForm.java on Github</a><br/>
 
 **Smart JDI Forms** - If you have ability to get locator from variable name you can use Smart locators for elements and remove locator annotations from Forms. This allows also to combine UI Fields with same Type like **TextField**s in example<br/>
 [See more details and exampels for Smart locators in documentation](https://jdi-docs.github.io/jdi-light/?java#smart-locators)<br/>
@@ -520,13 +520,96 @@ on JDISite.java >> public static Form<User> lightLoginForm;
 
 ## Reduce Amount of code with JDI Light
 Now we know enough about Forms and lets see how we this can help us to write code faster (less code)<br/>
-Let's try to write a code on Selenium for for [Fill Contact Form test scenario](https://jdi-docs.github.io/jdi-light/?java#contact-form-test-scenario) what we done on JDI Light before
+Let's try to write a code on Selenium for the same scenario [Fill Contact Form test scenario](https://jdi-docs.github.io/jdi-light/?java#contact-form-test-scenario) what we done on JDI Light before<br/>
+- Open Home Page by url<br/>
 - Open Contact Page from menu<br/>
 - Validate that this Page has correct url and title<br/>
 - Fill all 11 different elements in this Complex form by some values<br/>
 - And validate that form filled correctly<br/>
 
-First We should 
+_Note: You can found all the Selenium code by this_ <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium" <br/>
+_Same scenario on JDI Light you can find _ <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-reduce-code" target="_blank">here</a>.<br/>_
+
+
+### Implementation
+In this example I will develop Selenium code as much effective as possible and try to keep same look and fill of the test scenario.<br/>
+In parallel we will see how this code can be optimized using knowledge we get from [Use Form in different ways](https://jdi-docs.github.io/jdi-light/?java#use-form-in-different-ways) topic.<br/>
+In brackets you can find amount of lines of code we spent on each action<br/>
+
+1. We need to setup and run Chrome driver. <br/> 
+
+```java
+public static WebDriver DRIVER;
+public static void runChromeDriver() {
+    System.setProperty("webdriver.chrome.driver", "C:\\Selenium\\chromedriver.exe");
+    DRIVER = new ChromeDriver();
+    DRIVER.manage().window().maximize();
+}
+```
+**Selenium:**(6 loc)
+This is done here by simple method _runChromeDriver();_<br/> 
+_Note: To run the driver in Selenium you need to download latest version from <a href="https://chromedriver.storage.googleapis.com/index.htmle" target="_blank">oficial site </a> and put it in **C:\Selenium** folder_<br/> 
+**JDI Light**(0 loc)<br/> 
+You don't need to write a code for this. Latest version of ChromeDriver will be downloaded automatically.<br/> 
+
+2. Create Page Objects for Home and Contact pages
+
+```java
+public abstract class BasePage {
+    private String url;
+    private String title;
+
+    public BasePage() { }
+    public BasePage(String url) {
+        this.url = url;
+    }
+    public BasePage(String url, String title) {
+        this.url = url;
+        this.title = title;
+    }
+    public void open() {
+        DRIVER.navigate().to(url);
+    }
+    public void checkOpened() {
+        if (url != null)
+            assertEquals(url, DRIVER.getCurrentUrl());
+        if (title != null)
+            assertEquals(title, DRIVER.getTitle());
+    }
+}
+public class HomePage extends BasePage {
+    public HomePage() { super("https://jdi-testing.github.io/jdi-light/"); }
+    @FindBy(id ="user-icon") public WebElement userIcon;
+    @FindBy(id ="user-name") public WebElement userName;
+    @FindBy(css = ".fa-sign-out") public WebElement logout;
+}
+public class ContactPage extends BasePage {
+    public ContactPage() { super( "https://jdi-testing.github.io/jdi-light/contacts", "Contact Form"); }
+    public static ContactForm contactForm = initElements(DRIVER, ContactForm.class);
+}
+```
+**Selenium:**(35 loc)
+
+First we will create Base Page that will handle all Page Objects initialization. And add common parameteres for pages like url and titile and methods typical to pages.<br/> 
+Next to that we can write simple code for Home page and Contact page Page Objects<br/> 
+_Note: I hope this "BasePage" approach will be useful for your Selenium projects.<br/> 
+
+```java
+@Url("/")
+public class HomePage extends WebPage {
+    @UI("#user-icon") public static Link userIcon;
+    @UI("#user-name") public static Text userName;
+    @UI(".fa-sign-out") public static Button logout;
+}
+@Url("/contacts") @Title("Contact Form")
+public class ContactPage extends WebPage {
+    @UI("#contact-form") public static ContactForm contactForm;
+}
+```
+**JDI Light**(10 loc)<br/> 
+In JDI Light we already have all functions described in BasePage and something more.<br/> 
+Code for PageObjects in Selenium and JDI Light in this case looks pretty much the same. Thanks to "BasePage" approach.<br/> 
+
 
 ## Create Custom controls
 TBD

@@ -625,7 +625,60 @@ In JDI Light you don't need to write UI Object for such simple form. Just declar
 _Note: And of course you don't need to initialize this form_
 
 ### 4. Create complex Contact Form ###
+In total this is 64 lines of code for Selenium and only 9 lines of code in JDI Light but lets make our overview step by step.
+_Note: Unfortunately we can't use one string Form in this case because form has elements of different kinds but we can still can use short form description with Smart locators. Just describe element's types and names and one string initialization with root locator "#contact-form"_<br/>
 
+```java
+    @FindBy(css ="#contact-form #name") WebElement name; 
+    // +4 more TextFields
+    @FindBy(css ="#contact-form #accept-conditions") WebElement acceptConditionsCheckbox;
+    @FindBy(css ="#contact-form #passport") WebElement passportCheckbox;
+    @FindBy(css ="#contact-form #description") WebElement descriptionText;
+    @FindBy(css ="#contact-form [type=submit]") WebElement submitButton;
+```
+**Selenium:**(9 loc)<br/> 
+In Selenium we should describe all elements on form. This is easy to do for simple elements like TextField's, Checkboxes, TextArea and buttons.<br/>
+_Note: you must add **#contact-form** to some elements locators.<br/>
+And because we have no ideas on what UI element this WebElement represent this is a good practice to add type as part of its names
+<br/>
+
+```java
+    TextField name, lastName, position, passportNumber, passportSeria;
+    Checkbox passport, acceptConditions;
+    TextArea description;
+```
+**JDI Light**(3 loc)<br/> 
+In JDI Light we just need to describe Types of elements and list them for each type. In this example we have good locators so don't need to write them on form.
+
+```java
+    // Dropdown
+    @FindBy(id = "gender") WebElement gender;
+    private Select gender() { return new Select(gender); }
+    // Combobox
+    @FindBy(id = "religion") WebElement religion;
+    // MultiDropdown
+    @FindBy(css ="#weather .caret") WebElement weatherExpand;
+    @FindBy(css ="#weather label") List<WebElement> weatherList;
+    @FindBy(css ="#weather button") WebElement weatherValue;
+    @FindBy(css ="#weather ul") WebElement weatherIsExpanded;
+    private boolean weatherIsExpanded() {
+        return weatherIsExpanded.getAttribute("style").equals("display: block;");
+    }
+```
+**Selenium:**(13 loc)<br/> 
+More interesting situation with Complex elements: <br/>
+For Dropdown we can use Select class from **selenium-support** package<br/>
+For Combobox we can use one line WebEleemnt just using it as standard TextField<br/>
+But for MultiDropdown we need to write 4 WebElements and on method
+
+```java
+    Dropdown gender;
+    Combobox religion;
+    MultiDropdown weather;
+```
+**JDI Light**(3 loc)<br/> 
+In JDI Light this is as simple as for Common elements. 
+_Note: They are so short that we can write them in one line but let keep each time in its own line_
 
 
 ## Create Custom controls

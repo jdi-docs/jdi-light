@@ -534,7 +534,7 @@ In this example I will develop Selenium code as much effective as possible and t
 In parallel we will see how this code can be optimized using knowledge we get from [Use Form in different ways](https://jdi-docs.github.io/jdi-light/?java#use-form-in-different-ways) topic.<br/>
 In brackets you can find amount of lines of code we spent on each action<br/>
 
-### 1. We need to setup and run Chrome driver. ###
+### 1. Setup and run Chrome driver. ###
 
 ```java
 public static WebDriver DRIVER;
@@ -549,63 +549,37 @@ This is done here by simple method _runChromeDriver();_<br/>
 _Note: To run the driver in Selenium you need to download latest version from <a href="https://chromedriver.storage.googleapis.com/index.htmle" target="_blank">oficial site </a> and put it in **C:\Selenium** folder_<br/><br/><br/><br/><br/>
 
 **JDI Light**(0 loc)<br/> 
-You don't need to write a code for this. Latest version of ChromeDriver will be downloaded automatically.<br/> 
+You don't need to write a code for this. Latest version of ChromeDriver will be downloaded automatically.
 
 ### 2. Create Page Objects for Home and Contact pages ###
 
 ```java
-public abstract class BasePage {
-    private String url;
-    private String title;
-
-    public BasePage() { }
-    public BasePage(String url) {
-        this.url = url;
-    }
-    public BasePage(String url, String title) {
-        this.url = url;
-        this.title = title;
-    }
-    public void open() {
-        DRIVER.navigate().to(url);
-    }
-    public void checkOpened() {
-        if (url != null)
-            assertEquals(url, DRIVER.getCurrentUrl());
-        if (title != null)
-            assertEquals(title, DRIVER.getTitle());
-    }
-}
-public class HomePage extends BasePage {
-    public HomePage() { super("https://jdi-testing.github.io/jdi-light/"); }
+public class HomePage {
     @FindBy(id ="user-icon") public WebElement userIcon;
     @FindBy(id ="user-name") public WebElement userName;
     @FindBy(css = ".fa-sign-out") public WebElement logout;
 }
-public class ContactPage extends BasePage {
-    public ContactPage() { super( "https://jdi-testing.github.io/jdi-light/contacts", "Contact Form"); }
+public class ContactPage {
     public static ContactForm contactForm = initElements(DRIVER, ContactForm.class);
 }
 ```
-**Selenium:**(35 loc)<br/>
+**Selenium:**(8 loc)<br/>
 
 First we will create Base Page that will handle all Page Objects initialization. And add common parameteres for pages like url and titile and methods typical to pages.<br/> 
 Next to that we can write simple code for Home page and Contact page Page Objects<br/> 
 _Note: I hope this "BasePage" approach will be useful for your Selenium projects.<br/> 
 
 ```java
-@Url("/")
 public class HomePage extends WebPage {
     @UI("#user-icon") public static Link userIcon;
     @UI("#user-name") public static Text userName;
     @UI(".fa-sign-out") public static Button logout;
 }
-@Url("/contacts") @Title("Contact Form")
 public class ContactPage extends WebPage {
     @UI("#contact-form") public static ContactForm contactForm;
 }
 ```
-**JDI Light**(10 loc)<br/> 
+**JDI Light**(8 loc)<br/> 
 In JDI Light we already have all functions described in BasePage and something more.<br/> 
 Code for UI Objects in Selenium and JDI Light in this case looks pretty much the same. Thanks to "BasePage" approach.<br/> 
 Just few points for your attention<br/> 
@@ -642,14 +616,13 @@ public static LoginForm loginForm = initElements(DRIVER, LoginForm.class);
 **Selenium:**(21 loc)<br/> 
 This form contains WebElements (name, password, loginButton) and actions like loginAs() and isHidden()<br/>
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-**JDI Light**(10 loc)<br/> 
+**JDI Light**(1 loc)<br/> 
 
 ```java
 public static Form<User> loginForm;
 ```
-In JDI Light you don't need to write UI Object for such simple form. Just declare it on site.
+In JDI Light you don't need to write UI Object for such simple form. Just declare it on site.<br/>
 _Note: And of course you don't need to initialize this form_
-
 
 ### 4. Create complex Contact Form ###
 

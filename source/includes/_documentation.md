@@ -896,10 +896,283 @@ Available method in Java JDI Light:
 <!--- [C# test examples]() -->
 
 ### Range
-TBD
+**Range** - a graphical control element that allows the user to set the value from the range.
+
+![Range](../images/html/range_html.png)
+
+Range is represented by the following class:
+
+Java: com.epam.jdi.light.ui.html.common.Range  
+C#: JDI.Light.Elements.Common.Range
+
+```java 
+  @UI("#volume")  //@FindBy(id = "volume") 
+  public static Text jdiText;
+
+  @Test
+  public void getLabelTextTest() {
+      assertEquals(volume.labelText(), "Volume");
+  }
+
+  @Test
+  public void getValueTest() {
+      assertEquals(disabledRange.volume(), 50);
+  }
+  @Test
+  public void minTest() {
+      assertEquals(volume.min(), "10");
+  }
+  @Test
+  public void maxTest() {
+      assertEquals(volume.max(), "100");
+  }
+  @Test
+  public void stepTest() {
+      assertEquals(volume.step(), "5");
+  }
+
+  @Test
+  public void setVolumeTest() {
+      volume.setVolume(10);
+      assertEquals(volume.volume(), 10);
+  }
+
+  @Test
+  public void isValidationTest() {
+      volume.is().enabled();
+      volume.assertThat().minVolume(is(10));
+      volume.assertThat().maxVolume(is(100));
+      volume.assertThat().step(is(5));
+      volume.is().volume(greaterThanOrEqualTo(10));
+      volume.is().volume(lessThanOrEqualTo(100));
+      volume.is().volume(is(90));
+  }
+
+  @Test
+  public void labelTest() {
+      assertEquals(volume.label().getText(), "Volume");
+      volume.label().is().text(containsString("lume"));
+      volume.label().assertThat().text(equalToIgnoringCase("volume"));
+  }
+
+  @Test
+  public void assertValidationTest() {
+      volume.assertThat().volume(greaterThan(0));
+      volume.assertThat().volume(lessThan(200));
+      disabledRange.assertThat().volume(is(50));
+  }
+
+  @Test
+  public void baseValidationTest() {
+      baseValidation(volume);
+  }
+  
+```
+```csharp
+   [FindBy(Css = "#volume")]
+   public IRange Volume { get; set; }
+        
+  [Test]
+  public void GetValueTest()
+  {
+      Assert.AreEqual(TestSite.Html5Page.DisabledRange.Value(), 50);
+  }
+
+  [Test]
+  public void MinTest()
+  {
+      Assert.AreEqual(TestSite.Html5Page.Volume.Min(), 10);
+  }
+
+  [Test]
+  public void MaxTest()
+  {
+      Assert.AreEqual(TestSite.Html5Page.Volume.Max(), 100);
+  }
+
+  [Test]
+  public void StepTest()
+  {
+      Assert.AreEqual(TestSite.Html5Page.Volume.Step(), 5);
+  }
+
+  [Test]
+  public void SetRangeTest()
+  {
+      TestSite.Html5Page.Volume.SetValue(10);
+      Assert.AreEqual(TestSite.Html5Page.Volume.Value(), 10);
+  }
+
+  [Test]
+  public void RangeTest()
+  {
+      TestSite.Html5Page.Volume.SetValue("30");
+      Assert.AreEqual(TestSite.Html5Page.Volume.GetValue(), "30");
+  }
+```
+
+Here is a list of available methods in C#:
+
+|Method | Description | Return Type
+--- | --- | ---
+**SetValue(string value)** | Sets the value | void
+**SetValue(double value)** | Sets the value | void
+**GetValue()** | Returns the value | String
+**Value()** | Returns the value | Double
+**Min()** | Returns the min value | Double
+**Max()** | Returns the max value| Double
+**Step()** | Returns the step value | Double
+
+[Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/RangeTests.cs)
+
+And here are methods available in Java:
+    
+|Method | Description | Return Type
+--- | --- | ---
+**setVolume(int volume)** | Sets the value | void
+**volume()** | Returns the value | int
+**max()** | Returns the max value | String
+**min()** | Returns the min value | String
+**step()** | Returns the step value | String
+**is()** | Returns object for work with assertions | RangeAssert
+**assertThat()** | Returns object for work with assertions | RangeAssert
+
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/RangeTests.java)
 
 ### Text
-TBD
+**Text** is a combination of letters and textual symbols. When performing testing, the text is used in most operations: when typing text into the login field, when finding a button with some certain text in it, or when checking if actual text matches expected one.
+![Text](../images/html/text_html.png)
+
+Text is represented by the following class:
+
+Java: com.epam.jdi.light.ui.html.common.Text  
+C#: JDI.Light.Elements.Common.TextElement
+
+```java 
+  @UI("[ui=jdi-text]") //@FindBy(css = "[ui=jdi-text]") 
+  public static Text jdiText;
+
+  @Test
+  public void getTextTest() {
+      assertEquals(jdiText.getText(), text);
+  }
+
+  @Test
+  public void getValueTest() {
+      assertEquals(jdiText.getValue(), text);
+  }
+
+  @Test
+  public void isValidationTest() {
+      jdiText.is().enabled();
+      jdiText.is().text(is(text));
+      jdiText.is().text(containsString("Powerful Framework for UI"));
+  }
+
+  @Test
+  public void assertValidationTest() {
+      jdiText.assertThat().text(is(text));
+  }
+
+  @Test
+  public void baseValidationTest() {
+      baseValidation(jdiText);
+  }
+  
+```
+```csharp
+  [FindBy(Css = ".main-txt")]
+  public TextElement Text;
+        
+  [Test]
+  public void GetTextTest()
+  {
+      Jdi.Assert.AreEquals(TestSite.HomePage.Text.Value, _expectedText);
+  }
+
+  [Test]
+  public void GetValueTest()
+  {
+      Jdi.Assert.AreEquals(TestSite.HomePage.Text.Value, _expectedText);
+  }
+
+  [Test]
+  public void SetAttributeTest()
+  {
+      var attributeName = "testAttr";
+      var value = "testValue";
+      TestSite.HomePage.Text.SetAttribute(attributeName, value);
+      Jdi.Assert.AreEquals(TestSite.HomePage.Text.GetAttribute(attributeName), value);
+  }
+
+  [Test]
+  public void WaitMatchTest()
+  {
+      Jdi.Assert.AreEquals(TestSite.HomePage.Text.WaitMatchText(_regEx), _expectedText);
+  }
+
+  [Test]
+  public void WaitMatchTextParallelTest()
+  {
+      TestSite.SupportPage.Open();
+      var actualResultTask = Task.Factory.StartNew(() =>
+      {
+          Thread.Sleep(200);
+          return TestSite.HomePage.Text.WaitMatchText(_regEx);
+      });
+      Task.Factory.StartNew(() =>
+      {
+          Thread.Sleep(100);
+          TestSite.HomePage.Open();
+      });
+      Jdi.Assert.AreEquals(actualResultTask.Result, _expectedText);
+  }
+
+  [Test]
+  public void WaitText()
+  {
+      Jdi.Assert.AreEquals(TestSite.HomePage.Text.WaitText(_contains), _expectedText);
+  }
+
+  [Test]
+  public void WaitTextParallelTest()
+  {
+      TestSite.SupportPage.Open();
+      var actualResultTask = Task.Factory.StartNew(() =>
+      {
+          Thread.Sleep(200);
+          return TestSite.HomePage.Text.WaitText(_contains);
+      });
+      Task.Run(() =>
+      {
+          Thread.Sleep(100);
+          TestSite.HomePage.Open();
+      });
+      Jdi.Assert.AreEquals(actualResultTask.Result, _expectedText);
+  }
+```
+
+Here is a list of available methods in C#:
+
+|Method | Description | Return Type
+--- | --- | ---
+**GetTextAction()** | returns element text if not empty otherwise returns value attribute| String
+**WaitText(string text)** | return all text which contains text from parameters| String 
+**WaitMatchText(string regEx)** | return all text which contains matcher from parameters| String
+**GetText()** | returns text| String
+**GetValue()** | returns text| String
+
+[Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/TextTests.cs)
+
+And here are methods available in Java:
+    
+|Method | Description | Return Type
+--- | --- | ---
+**getText()** |Get current value  | String
+**is()** |Various assert actions for Text| TextAssert
+**assertThat()** |Various assert actions for Text| TextAssert 
+
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/TextTests.java)  
 
 ### TextField
 ```java 

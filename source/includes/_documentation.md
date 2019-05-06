@@ -836,7 +836,7 @@ Here is the list of available methods in C#:
 ProgressBar is located in the following classes:
  
   - __Java__: _com.epam.jdi.light.ui.html.common.ProgressBar_
-<!--- - __C#__: _JDI.Light.Elements.Common.ProgressBar_ -->
+  - __C#__: _JDI.Light.Elements.Common.ProgressBar_
 
 ```java 
 @UI("#progress") // @FindBy(id = "progress")
@@ -891,9 +891,19 @@ Available method in Java JDI Light:
 **is()** |Various assert actions for Progress bar  | ProgressAssert
 **assertThat()** |Various assert actions for Progress bar | ProgressAssert 
 
+
+Available method in C# JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**Value()** |Get current progress value  | string
+**Max()** |Get progressbar maximum possible value  | string
+**Is()** |Various assert actions for Progress bar  | ProgressAssert
+**AssertThat()** |Various assert actions for Progress bar | ProgressAssert 
+
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ProgressTests.java)
 
-<!--- [C# test examples]() -->
+[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/ProgressTests.cs)
 
 ### Range
 TBD

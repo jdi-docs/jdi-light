@@ -324,9 +324,6 @@
                               <a href="#ui-elements-on-contact-form" class="toc-h2 h3 toc-link" data-title="UI Elements on Contact Form">UI Elements on Contact Form</a>
                             </li>
                             <li>
-                              <a href="#contact-form-test-scenario" class="toc-h2 h3 toc-link" data-title="Contact Form test scenario">Contact Form test scenario</a>
-                            </li>
-                            <li>
                               <a href="#failed-form-example-in-logs" class="toc-h2 h3 toc-link" data-title="Failed form example in logs">Failed form example in logs</a>
                             </li>
                             <li>
@@ -336,20 +333,6 @@
                   </li>
                   <li>
                     <a href="#reduce-amount-of-code-with-jdi-light" class="toc-h2 toc-link" data-title="Reduce Amount of code with JDI Light">Reduce Amount of code with JDI Light</a>
-                        <ul class="toc-list-h2">
-                            <li>
-                              <a href="#1-setup-and-run-chrome-driver" class="toc-h2 h3 toc-link" data-title="1. Setup and run Chrome driver.">1. Setup and run Chrome driver.</a>
-                            </li>
-                            <li>
-                              <a href="#2-create-page-objects-for-home-and-contact-pages" class="toc-h2 h3 toc-link" data-title="2. Create Page Objects for Home and Contact pages">2. Create Page Objects for Home and Contact pages</a>
-                            </li>
-                            <li>
-                              <a href="#3-create-simple-login-form" class="toc-h2 h3 toc-link" data-title="3. Create simple Login Form">3. Create simple Login Form</a>
-                            </li>
-                            <li>
-                              <a href="#4-create-complex-contact-form" class="toc-h2 h3 toc-link" data-title="4. Create complex Contact Form">4. Create complex Contact Form</a>
-                            </li>
-                        </ul>
                   </li>
                   <li>
                     <a href="#create-custom-controls" class="toc-h2 toc-link" data-title="Create Custom controls">Create Custom controls</a>
@@ -1105,7 +1088,7 @@ Data entity for this form (ContactInfo) looks pretty much the same as for Login 
 <p>We also have few <u>Common</u> elements directly on Site: <br/>
 1. already used <strong>Link</strong> <u>userIcon</u> and <strong>Text</strong> element <u>userName</u></br>
 2. and one new <u>Complex</u> element - <strong>Menu</strong> - list of links in left side bar. This element also described by one locator but returns 16 items and you can call the one that you need by its name desribed in enum <u>MenuOptions</u></br></p>
-<h3 id='contact-form-test-scenario'>Contact Form test scenario</h3><pre class="highlight java tab-java"><code><span class="nd">@Test</span>
+<pre class="highlight java tab-java"><code><span class="nd">@Test</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">simpleContactFormTest</span><span class="o">()</span> <span class="o">{</span>
     <span class="n">sideMenu</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="s">"Contact form"</span><span class="o">);</span>
     <span class="n">contactPage</span><span class="o">.</span><span class="na">checkOpened</span><span class="o">();</span>
@@ -1184,6 +1167,7 @@ We plan to have lot of tests that starts from point ther <u>user is logged out</
     <span class="nd">@FindBy</span><span class="o">(</span><span class="n">id</span> <span class="o">=</span> <span class="s">"password"</span><span class="o">)</span> <span class="kd">public</span> <span class="n">WebElement</span> <span class="n">password</span><span class="o">;</span>
     <span class="nd">@FindBy</span><span class="o">(</span><span class="n">id</span> <span class="o">=</span> <span class="s">"login-button"</span><span class="o">)</span> <span class="kd">public</span> <span class="n">WebElement</span> <span class="n">loginButton</span><span class="o">;</span>
 
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isHidden</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="o">!</span><span class="n">name</span><span class="o">.</span><span class="na">isDisplayed</span><span class="o">();</span> <span class="o">}</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">loginAs</span><span class="o">(</span><span class="n">User</span> <span class="n">user</span><span class="o">)</span> <span class="o">{</span>
         <span class="k">if</span> <span class="o">(</span><span class="n">user</span><span class="o">.</span><span class="na">name</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
             <span class="k">this</span><span class="o">.</span><span class="na">name</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
@@ -1196,14 +1180,14 @@ We plan to have lot of tests that starts from point ther <u>user is logged out</
         <span class="n">loginButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
     <span class="o">}</span>
 <span class="o">}</span>
-<span class="n">on</span> <span class="n">JDISite</span><span class="o">.</span><span class="na">java</span> <span class="o">&gt;&gt;</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">SeleniumLoginForm</span> <span class="n">seleniumLoginForm</span><span class="o">;</span>
+<span class="n">on</span> <span class="n">JDISite</span><span class="o">.</span><span class="na">java</span> <span class="o">&gt;&gt;</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">SeleniumLoginForm</span> <span class="n">seleniumloginForm</span><span class="o">;</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">SelenideLoginForm</span> <span class="o">{</span>
-    <span class="n">UIElement</span> <span class="n">name</span> <span class="o">=</span> <span class="err">$</span><span class="o">(</span><span class="s">"#name"</span><span class="o">),</span> 
-          <span class="n">password</span> <span class="o">=</span> <span class="err">$</span><span class="o">(</span><span class="s">"#password"</span><span class="o">),</span> 
-       <span class="n">loginButton</span> <span class="o">=</span> <span class="err">$</span><span class="o">(</span><span class="s">"#login-button"</span><span class="o">);</span>
+    <span class="kd">public</span> <span class="n">WebElement</span> <span class="n">name</span> <span class="o">=</span> <span class="err">$</span><span class="o">(</span><span class="s">"#name"</span><span class="o">);</span>
+    <span class="kd">public</span> <span class="n">WebElement</span> <span class="n">password</span> <span class="o">=</span> <span class="err">$</span><span class="o">(</span><span class="s">"#password"</span><span class="o">);</span>
+    <span class="kd">public</span> <span class="n">WebElement</span> <span class="n">loginButton</span> <span class="o">=</span> <span class="err">$</span><span class="o">(</span><span class="s">"#login-button"</span><span class="o">);</span>
 
-    <span class="c1">// + Same 11 rows for methods like in Selenium</span>
+    <span class="c1">// Same 12 rows for methods like in Selenium</span>
     <span class="o">...</span>
 <span class="o">}</span>
 <span class="n">on</span> <span class="n">JDISite</span><span class="o">.</span><span class="na">java</span> <span class="o">&gt;&gt;</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">SelenideLoginForm</span> <span class="n">selenideLoginForm</span><span class="o">;</span>
@@ -1212,6 +1196,9 @@ We plan to have lot of tests that starts from point ther <u>user is logged out</
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"#name"</span><span class="o">)</span> <span class="n">TextField</span> <span class="n">name</span><span class="o">;</span>
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"#password"</span><span class="o">)</span> <span class="n">TextField</span> <span class="n">password</span><span class="o">;</span>
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"#login-button"</span><span class="o">)</span> <span class="n">Button</span> <span class="n">loginButton</span><span class="o">;</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isHidden</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">name</span><span class="o">.</span><span class="na">isHidden</span><span class="o">();</span> <span class="o">}</span>
 <span class="o">}</span>
 <span class="n">on</span> <span class="n">JDISite</span><span class="o">.</span><span class="na">java</span> <span class="o">&gt;&gt;</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">LoginForm</span> <span class="n">loginForm</span><span class="o">;</span>
 
@@ -1229,152 +1216,16 @@ We plan to have lot of tests that starts from point ther <u>user is logged out</
 <a href="https://github.com/jdi-tutorials/04-jdi-light-different-forms/blob/master/src/main/java/jdisite/sections/SelenideLoginForm.java" target="_blank">See example in SelenideLoginForm.java on Github</a><br/><br/><br/><br/><br/><br/></p>
 
 <p><strong>JDI Light Forms</strong> - typical Forms in JDI with <strong>typified elements</strong>, <strong>@UI</strong> annotations, extending from Form and without <strong>fill/check</strong> methods<br/>
-<a href="https://github.com/jdi-tutorials/04-jdi-light-different-forms/blob/master/src/main/java/jdisite/sections/LoginForm.java" target="_blank">See example in LoginForm.java on Github</a><br/></p>
+<a href="https://github.com/jdi-tutorials/04-jdi-light-different-forms/blob/master/src/main/java/jdisite/sections/LoginForm.java" target="_blank">See example in LoginForm.java on Github</a><br/><br/><br/><br/><br/></p>
 
-<p><strong>Smart JDI Forms</strong> - If you have ability to get locator from variable name you can use Smart locators for elements and remove locator annotations from Forms. This allows also to combine UI Fields with same Type like <strong>TextField</strong>s in example<br/>
+<p><strong>Smart JDI Forms</strong> - If you have ability to get locator from variable name you can use Smart locators for elements and remove locator annotations from Forms. This allows also to combine UI Fields with same Type like <strong>TextField</strong> in example<br/>
 <a href="https://jdi-docs.github.io/jdi-light/?java#smart-locators">See more details and exampels for Smart locators in documentation</a><br/>
 <a href="https://github.com/jdi-tutorials/04-jdi-light-different-forms/blob/master/src/main/java/jdisite/sections/LoginFormSmart.java" target="_blank">See example in LoginFormSmart.java on Github</a><br/><br/></p>
 <pre class="highlight java tab-java"><code><span class="n">on</span> <span class="n">JDISite</span><span class="o">.</span><span class="na">java</span> <span class="o">&gt;&gt;</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">Form</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">lightLoginForm</span><span class="o">;</span>
 </code></pre>
-<p><strong>Light Forms</strong> - if your Form consists of only TextFields and buttons you can avoid UI Object at all and just write one line in related page or in root Site class<br/>
+<p><strong>Light Forms</strong> - if your Form consists only with TextFields (or other elements where value set directly in &quot;value&quot; attribute) and buttons you can avoid UI Object at all and just write one line in related page or in root Site class<br/>
 <a class="github-button" href="https://github.com/jdi-testing/jdi-light" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star jdi-testing/jdi-light on GitHub">Nice job man!</a></p>
-<h2 id='reduce-amount-of-code-with-jdi-light'>Reduce Amount of code with JDI Light</h2>
-<p>Now we know enough about Forms and lets see how we this can help us to write code faster (less code)<br/>
-Let&#39;s try to write a code on Selenium for the same scenario <a href="https://jdi-docs.github.io/jdi-light/?java#contact-form-test-scenario">Fill Contact Form test scenario</a> what we done on JDI Light before<br/>
-- Open Home Page by url<br/>
-- Open Contact Page from menu<br/>
-- Validate that this Page has correct url and title<br/>
-- Fill all 11 different elements in this Complex form by some values<br/>
-- And validate that form filled correctly<br/></p>
-
-<p><em>Note: You can found all the Selenium code by this</em> <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium" <br/>
-<em>Same scenario on JDI Light you can find _ <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-reduce-code" target="_blank">here</a>.<br/></em></p>
-
-<p>In this example I will develop Selenium code as much effective as possible and try to keep same look and fill of the test scenario.<br/>
-In parallel we will see how this code can be optimized using knowledge we get from <a href="https://jdi-docs.github.io/jdi-light/?java#use-form-in-different-ways">Use Form in different ways</a> topic.<br/>
-In brackets you can find amount of lines of code we spent on each action<br/></p>
-<h3 id='1-setup-and-run-chrome-driver'>1. Setup and run Chrome driver.</h3><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">static</span> <span class="n">WebDriver</span> <span class="n">DRIVER</span><span class="o">;</span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">runChromeDriver</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">System</span><span class="o">.</span><span class="na">setProperty</span><span class="o">(</span><span class="s">"webdriver.chrome.driver"</span><span class="o">,</span> <span class="s">"C:\\Selenium\\chromedriver.exe"</span><span class="o">);</span>
-    <span class="n">DRIVER</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ChromeDriver</span><span class="o">();</span>
-    <span class="n">DRIVER</span><span class="o">.</span><span class="na">manage</span><span class="o">().</span><span class="na">window</span><span class="o">().</span><span class="na">maximize</span><span class="o">();</span>
-<span class="o">}</span>
-</code></pre>
-<p><strong>Selenium:</strong>(6 loc)<br/>
-This is done here by simple method <em>runChromeDriver();</em><br/> 
-<em>Note: To run the driver in Selenium you need to download latest version from <a href="https://chromedriver.storage.googleapis.com/index.htmle" target="_blank">oficial site </a> and put it in <strong>C:\Selenium</strong> folder</em><br/><br/><br/><br/><br/></p>
-
-<p><strong>JDI Light</strong>(0 loc)<br/> 
-You don&#39;t need to write a code for this. Latest version of ChromeDriver will be downloaded automatically.</p>
-<h3 id='2-create-page-objects-for-home-and-contact-pages'>2. Create Page Objects for Home and Contact pages</h3><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">HomePage</span> <span class="o">{</span>
-    <span class="nd">@FindBy</span><span class="o">(</span><span class="n">id</span> <span class="o">=</span><span class="s">"user-icon"</span><span class="o">)</span> <span class="kd">public</span> <span class="n">WebElement</span> <span class="n">userIcon</span><span class="o">;</span>
-    <span class="nd">@FindBy</span><span class="o">(</span><span class="n">id</span> <span class="o">=</span><span class="s">"user-name"</span><span class="o">)</span> <span class="kd">public</span> <span class="n">WebElement</span> <span class="n">userName</span><span class="o">;</span>
-    <span class="nd">@FindBy</span><span class="o">(</span><span class="n">css</span> <span class="o">=</span> <span class="s">".fa-sign-out"</span><span class="o">)</span> <span class="kd">public</span> <span class="n">WebElement</span> <span class="n">logout</span><span class="o">;</span>
-<span class="o">}</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ContactPage</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">ContactForm</span> <span class="n">contactForm</span> <span class="o">=</span> <span class="n">initElements</span><span class="o">(</span><span class="n">DRIVER</span><span class="o">,</span> <span class="n">ContactForm</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
-<span class="o">}</span>
-</code></pre>
-<p><strong>Selenium:</strong>(8 loc)<br/></p>
-
-<p>First we will create Base Page that will handle all Page Objects initialization. And add common parameteres for pages like url and titile and methods typical to pages.<br/> 
-Next to that we can write simple code for Home page and Contact page Page Objects<br/> 
-_Note: I hope this &quot;BasePage&quot; approach will be useful for your Selenium projects.<br/> </p>
-<pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">HomePage</span> <span class="kd">extends</span> <span class="n">WebPage</span> <span class="o">{</span>
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#user-icon"</span><span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">Link</span> <span class="n">userIcon</span><span class="o">;</span>
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#user-name"</span><span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">Text</span> <span class="n">userName</span><span class="o">;</span>
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">".fa-sign-out"</span><span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">Button</span> <span class="n">logout</span><span class="o">;</span>
-<span class="o">}</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ContactPage</span> <span class="kd">extends</span> <span class="n">WebPage</span> <span class="o">{</span>
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#contact-form"</span><span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">ContactForm</span> <span class="n">contactForm</span><span class="o">;</span>
-<span class="o">}</span>
-</code></pre>
-<p><strong>JDI Light</strong>(8 loc)<br/> 
-In JDI Light we already have all functions described in BasePage and something more.<br/> 
-Code for UI Objects in Selenium and JDI Light in this case looks pretty much the same. Thanks to &quot;BasePage&quot; approach.<br/> 
-Just few points for your attention<br/> 
-- Locators a little bit smaller thanks to @UI annotations<br/> 
-- Elements can be static on UI Objects in JDI Light<br/> 
-- Forms can have root locators that will simplify locators for subelements<br/> 
-- In Selenium we must init each page with PageFactory.initElements(...) method<br/> </p>
-<h3 id='3-create-simple-login-form'>3. Create simple Login Form</h3><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LoginForm</span> <span class="o">{</span>
-    <span class="nd">@FindBy</span><span class="o">(</span><span class="n">id</span> <span class="o">=</span> <span class="s">"name"</span><span class="o">)</span> <span class="n">WebElement</span> <span class="n">name</span><span class="o">;</span>
-    <span class="nd">@FindBy</span><span class="o">(</span><span class="n">id</span> <span class="o">=</span> <span class="s">"password"</span><span class="o">)</span> <span class="n">WebElement</span> <span class="n">password</span><span class="o">;</span>
-    <span class="nd">@FindBy</span><span class="o">(</span><span class="n">id</span> <span class="o">=</span> <span class="s">"login-button"</span><span class="o">)</span> <span class="n">WebElement</span> <span class="n">loginButton</span><span class="o">;</span>
-
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">loginAs</span><span class="o">(</span><span class="n">User</span> <span class="n">user</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">user</span><span class="o">.</span><span class="na">name</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">this</span><span class="o">.</span><span class="na">name</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
-            <span class="k">this</span><span class="o">.</span><span class="na">name</span><span class="o">.</span><span class="na">sendKeys</span><span class="o">(</span><span class="n">user</span><span class="o">.</span><span class="na">name</span><span class="o">);</span>
-        <span class="o">}</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">user</span><span class="o">.</span><span class="na">password</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">this</span><span class="o">.</span><span class="na">password</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
-            <span class="k">this</span><span class="o">.</span><span class="na">password</span><span class="o">.</span><span class="na">sendKeys</span><span class="o">(</span><span class="n">user</span><span class="o">.</span><span class="na">password</span><span class="o">);</span>
-        <span class="o">}</span>
-        <span class="n">loginButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
-    <span class="o">}</span>
-    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isHidden</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="o">!</span><span class="n">name</span><span class="o">.</span><span class="na">isDisplayed</span><span class="o">();</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="n">LoginForm</span> <span class="n">loginForm</span> <span class="o">=</span> <span class="n">initElements</span><span class="o">(</span><span class="n">DRIVER</span><span class="o">,</span> <span class="n">LoginForm</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
-</code></pre>
-<p><strong>Selenium:</strong>(21 loc)<br/> 
-This form contains WebElements (name, password, loginButton) and actions like loginAs() and isHidden()<br/>
-<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-<strong>JDI Light</strong>(1 loc)<br/> </p>
-<pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">static</span> <span class="n">Form</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">loginForm</span><span class="o">;</span>
-</code></pre>
-<p>In JDI Light you don&#39;t need to write UI Object for such simple form. Just declare it on site.<br/>
-<em>Note: And of course you don&#39;t need to initialize this form</em></p>
-<h3 id='4-create-complex-contact-form'>4. Create complex Contact Form</h3>
-<p>In total this is 64 lines of code for Selenium and only 9 lines of code in JDI Light but lets make our overview step by step.
-<em>Note: Unfortunately we can&#39;t use one string Form in this case because form has elements of different kinds but we can still can use short form description with Smart locators. Just describe element&#39;s types and names and one string initialization with root locator &quot;#contact-form&quot;</em><br/></p>
-<pre class="highlight java tab-java"><code>    <span class="nd">@FindBy</span><span class="o">(</span><span class="n">css</span> <span class="o">=</span><span class="s">"#contact-form #name"</span><span class="o">)</span> <span class="n">WebElement</span> <span class="n">name</span><span class="o">;</span> 
-    <span class="c1">// +4 more TextFields</span>
-    <span class="nd">@FindBy</span><span class="o">(</span><span class="n">css</span> <span class="o">=</span><span class="s">"#contact-form #accept-conditions"</span><span class="o">)</span> <span class="n">WebElement</span> <span class="n">acceptConditionsCheckbox</span><span class="o">;</span>
-    <span class="nd">@FindBy</span><span class="o">(</span><span class="n">css</span> <span class="o">=</span><span class="s">"#contact-form #passport"</span><span class="o">)</span> <span class="n">WebElement</span> <span class="n">passportCheckbox</span><span class="o">;</span>
-    <span class="nd">@FindBy</span><span class="o">(</span><span class="n">css</span> <span class="o">=</span><span class="s">"#contact-form #description"</span><span class="o">)</span> <span class="n">WebElement</span> <span class="n">descriptionText</span><span class="o">;</span>
-    <span class="nd">@FindBy</span><span class="o">(</span><span class="n">css</span> <span class="o">=</span><span class="s">"#contact-form [type=submit]"</span><span class="o">)</span> <span class="n">WebElement</span> <span class="n">submitButton</span><span class="o">;</span>
-</code></pre>
-<p><strong>Selenium:</strong>(9 loc)<br/> 
-In Selenium we should describe all elements on form. This is easy to do for simple elements like TextField&#39;s, Checkboxes, TextArea and buttons.<br/>
-_Note: you must add <strong>#contact-form</strong> to some elements locators.<br/>
-And because we have no ideas on what UI element this WebElement represent this is a good practice to add type as part of its names
-<br/></p>
-<pre class="highlight java tab-java"><code>    <span class="n">TextField</span> <span class="n">name</span><span class="o">,</span> <span class="n">lastName</span><span class="o">,</span> <span class="n">position</span><span class="o">,</span> <span class="n">passportNumber</span><span class="o">,</span> <span class="n">passportSeria</span><span class="o">;</span>
-    <span class="n">Checkbox</span> <span class="n">passport</span><span class="o">,</span> <span class="n">acceptConditions</span><span class="o">;</span>
-    <span class="n">TextArea</span> <span class="n">description</span><span class="o">;</span>
-</code></pre>
-<p><strong>JDI Light</strong>(3 loc)<br/> 
-In JDI Light we just need to describe Types of elements and list them for each type. In this example we have good locators so don&#39;t need to write them on form.</p>
-<pre class="highlight java tab-java"><code>    <span class="c1">// Dropdown</span>
-    <span class="nd">@FindBy</span><span class="o">(</span><span class="n">id</span> <span class="o">=</span> <span class="s">"gender"</span><span class="o">)</span> <span class="n">WebElement</span> <span class="n">gender</span><span class="o">;</span>
-    <span class="kd">private</span> <span class="n">Select</span> <span class="nf">gender</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="k">new</span> <span class="n">Select</span><span class="o">(</span><span class="n">gender</span><span class="o">);</span> <span class="o">}</span>
-    <span class="c1">// Combobox</span>
-    <span class="nd">@FindBy</span><span class="o">(</span><span class="n">id</span> <span class="o">=</span> <span class="s">"religion"</span><span class="o">)</span> <span class="n">WebElement</span> <span class="n">religion</span><span class="o">;</span>
-    <span class="c1">// MultiDropdown</span>
-    <span class="nd">@FindBy</span><span class="o">(</span><span class="n">css</span> <span class="o">=</span><span class="s">"#weather .caret"</span><span class="o">)</span> <span class="n">WebElement</span> <span class="n">weatherExpand</span><span class="o">;</span>
-    <span class="nd">@FindBy</span><span class="o">(</span><span class="n">css</span> <span class="o">=</span><span class="s">"#weather label"</span><span class="o">)</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">WebElement</span><span class="o">&gt;</span> <span class="n">weatherList</span><span class="o">;</span>
-    <span class="nd">@FindBy</span><span class="o">(</span><span class="n">css</span> <span class="o">=</span><span class="s">"#weather button"</span><span class="o">)</span> <span class="n">WebElement</span> <span class="n">weatherValue</span><span class="o">;</span>
-    <span class="nd">@FindBy</span><span class="o">(</span><span class="n">css</span> <span class="o">=</span><span class="s">"#weather ul"</span><span class="o">)</span> <span class="n">WebElement</span> <span class="n">weatherIsExpanded</span><span class="o">;</span>
-    <span class="kd">private</span> <span class="kt">boolean</span> <span class="nf">weatherIsExpanded</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="n">weatherIsExpanded</span><span class="o">.</span><span class="na">getAttribute</span><span class="o">(</span><span class="s">"style"</span><span class="o">).</span><span class="na">equals</span><span class="o">(</span><span class="s">"display: block;"</span><span class="o">);</span>
-    <span class="o">}</span>
-</code></pre>
-<p><strong>Selenium:</strong>(13 loc)<br/> 
-More interesting situation with Complex elements: <br/>
-For Dropdown we can use Select class from <strong>selenium-support</strong> package<br/>
-For Combobox we can use one line WebEleemnt just using it as standard TextField<br/>
-But for MultiDropdown we need to write 4 WebElements and on method</p>
-<pre class="highlight java tab-java"><code>    <span class="n">Dropdown</span> <span class="n">gender</span><span class="o">;</span>
-    <span class="n">Combobox</span> <span class="n">religion</span><span class="o">;</span>
-    <span class="n">MultiDropdown</span> <span class="n">weather</span><span class="o">;</span>
-</code></pre>
-<p><strong>JDI Light</strong>(3 loc)<br/> 
-In JDI Light this is as simple as for Common elements. 
-<em>Note: They are so short that we can write them in one line but let keep each time in its own line</em></p>
-<h2 id='create-custom-controls'>Create Custom controls</h2>
+<h2 id='reduce-amount-of-code-with-jdi-light'>Reduce Amount of code with JDI Light</h2><h2 id='create-custom-controls'>Create Custom controls</h2>
 <p>TBD</p>
 <h2 id='jdi-settings-at-glance'>JDI settings at glance</h2>
 <p>TBD</p>
@@ -2786,9 +2637,384 @@ In JDI Light this is as simple as for Common elements.
 
 <!--- [C# test examples]() -->
 <h3 id='range'>Range</h3>
-<p>TBD</p>
+<p><strong>Range</strong> - a graphical control element that allows the user to set the value from the range.</p>
+
+<p><img src="images/html/range_html.png" alt="Range" /></p>
+
+<p>Range is represented by the following class:</p>
+
+<p>Java: com.epam.jdi.light.ui.html.common.Range<br>
+C#: JDI.Light.Elements.Common.Range</p>
+<pre class="highlight java tab-java"><code>  <span class="nd">@UI</span><span class="o">(</span><span class="s">"#volume"</span><span class="o">)</span>  <span class="c1">//@FindBy(id = "volume") </span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Text</span> <span class="n">jdiText</span><span class="o">;</span>
+
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">getLabelTextTest</span><span class="o">()</span> <span class="o">{</span>
+      <span class="n">assertEquals</span><span class="o">(</span><span class="n">volume</span><span class="o">.</span><span class="na">labelText</span><span class="o">(),</span> <span class="s">"Volume"</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">getValueTest</span><span class="o">()</span> <span class="o">{</span>
+      <span class="n">assertEquals</span><span class="o">(</span><span class="n">disabledRange</span><span class="o">.</span><span class="na">volume</span><span class="o">(),</span> <span class="mi">50</span><span class="o">);</span>
+  <span class="o">}</span>
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">minTest</span><span class="o">()</span> <span class="o">{</span>
+      <span class="n">assertEquals</span><span class="o">(</span><span class="n">volume</span><span class="o">.</span><span class="na">min</span><span class="o">(),</span> <span class="s">"10"</span><span class="o">);</span>
+  <span class="o">}</span>
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">maxTest</span><span class="o">()</span> <span class="o">{</span>
+      <span class="n">assertEquals</span><span class="o">(</span><span class="n">volume</span><span class="o">.</span><span class="na">max</span><span class="o">(),</span> <span class="s">"100"</span><span class="o">);</span>
+  <span class="o">}</span>
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">stepTest</span><span class="o">()</span> <span class="o">{</span>
+      <span class="n">assertEquals</span><span class="o">(</span><span class="n">volume</span><span class="o">.</span><span class="na">step</span><span class="o">(),</span> <span class="s">"5"</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setVolumeTest</span><span class="o">()</span> <span class="o">{</span>
+      <span class="n">volume</span><span class="o">.</span><span class="na">setVolume</span><span class="o">(</span><span class="mi">10</span><span class="o">);</span>
+      <span class="n">assertEquals</span><span class="o">(</span><span class="n">volume</span><span class="o">.</span><span class="na">volume</span><span class="o">(),</span> <span class="mi">10</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">isValidationTest</span><span class="o">()</span> <span class="o">{</span>
+      <span class="n">volume</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
+      <span class="n">volume</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">minVolume</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="mi">10</span><span class="o">));</span>
+      <span class="n">volume</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">maxVolume</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="mi">100</span><span class="o">));</span>
+      <span class="n">volume</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">step</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="mi">5</span><span class="o">));</span>
+      <span class="n">volume</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">volume</span><span class="o">(</span><span class="n">greaterThanOrEqualTo</span><span class="o">(</span><span class="mi">10</span><span class="o">));</span>
+      <span class="n">volume</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">volume</span><span class="o">(</span><span class="n">lessThanOrEqualTo</span><span class="o">(</span><span class="mi">100</span><span class="o">));</span>
+      <span class="n">volume</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">volume</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="mi">90</span><span class="o">));</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">labelTest</span><span class="o">()</span> <span class="o">{</span>
+      <span class="n">assertEquals</span><span class="o">(</span><span class="n">volume</span><span class="o">.</span><span class="na">label</span><span class="o">().</span><span class="na">getText</span><span class="o">(),</span> <span class="s">"Volume"</span><span class="o">);</span>
+      <span class="n">volume</span><span class="o">.</span><span class="na">label</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"lume"</span><span class="o">));</span>
+      <span class="n">volume</span><span class="o">.</span><span class="na">label</span><span class="o">().</span><span class="na">assertThat</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">equalToIgnoringCase</span><span class="o">(</span><span class="s">"volume"</span><span class="o">));</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">assertValidationTest</span><span class="o">()</span> <span class="o">{</span>
+      <span class="n">volume</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">volume</span><span class="o">(</span><span class="n">greaterThan</span><span class="o">(</span><span class="mi">0</span><span class="o">));</span>
+      <span class="n">volume</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">volume</span><span class="o">(</span><span class="n">lessThan</span><span class="o">(</span><span class="mi">200</span><span class="o">));</span>
+      <span class="n">disabledRange</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">volume</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="mi">50</span><span class="o">));</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">baseValidationTest</span><span class="o">()</span> <span class="o">{</span>
+      <span class="n">baseValidation</span><span class="o">(</span><span class="n">volume</span><span class="o">);</span>
+  <span class="o">}</span>
+
+</code></pre><pre class="highlight csharp tab-csharp"><code>   <span class="p">[</span><span class="nf">FindBy</span><span class="p">(</span><span class="n">Css</span> <span class="p">=</span> <span class="s">"#volume"</span><span class="p">)]</span>
+   <span class="k">public</span> <span class="n">IRange</span> <span class="n">Volume</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+
+  <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+  <span class="k">public</span> <span class="k">void</span> <span class="nf">GetValueTest</span><span class="p">()</span>
+  <span class="p">{</span>
+      <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">DisabledRange</span><span class="p">.</span><span class="nf">Value</span><span class="p">(),</span> <span class="m">50</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+  <span class="k">public</span> <span class="k">void</span> <span class="nf">MinTest</span><span class="p">()</span>
+  <span class="p">{</span>
+      <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">Volume</span><span class="p">.</span><span class="nf">Min</span><span class="p">(),</span> <span class="m">10</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+  <span class="k">public</span> <span class="k">void</span> <span class="nf">MaxTest</span><span class="p">()</span>
+  <span class="p">{</span>
+      <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">Volume</span><span class="p">.</span><span class="nf">Max</span><span class="p">(),</span> <span class="m">100</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+  <span class="k">public</span> <span class="k">void</span> <span class="nf">StepTest</span><span class="p">()</span>
+  <span class="p">{</span>
+      <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">Volume</span><span class="p">.</span><span class="nf">Step</span><span class="p">(),</span> <span class="m">5</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+  <span class="k">public</span> <span class="k">void</span> <span class="nf">SetRangeTest</span><span class="p">()</span>
+  <span class="p">{</span>
+      <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">Volume</span><span class="p">.</span><span class="nf">SetValue</span><span class="p">(</span><span class="m">10</span><span class="p">);</span>
+      <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">Volume</span><span class="p">.</span><span class="nf">Value</span><span class="p">(),</span> <span class="m">10</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+  <span class="k">public</span> <span class="k">void</span> <span class="nf">RangeTest</span><span class="p">()</span>
+  <span class="p">{</span>
+      <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">Volume</span><span class="p">.</span><span class="nf">SetValue</span><span class="p">(</span><span class="s">"30"</span><span class="p">);</span>
+      <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">Volume</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">(),</span> <span class="s">"30"</span><span class="p">);</span>
+  <span class="p">}</span>
+</code></pre>
+<p>Here is a list of available methods in C#:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>SetValue(string value)</strong></td>
+<td>Sets the value</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>SetValue(double value)</strong></td>
+<td>Sets the value</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>GetValue()</strong></td>
+<td>Returns the value</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>Value()</strong></td>
+<td>Returns the value</td>
+<td>Double</td>
+</tr>
+<tr>
+<td><strong>Min()</strong></td>
+<td>Returns the min value</td>
+<td>Double</td>
+</tr>
+<tr>
+<td><strong>Max()</strong></td>
+<td>Returns the max value</td>
+<td>Double</td>
+</tr>
+<tr>
+<td><strong>Step()</strong></td>
+<td>Returns the step value</td>
+<td>Double</td>
+</tr>
+</tbody></table>
+
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/RangeTests.cs">Test examples in C#</a></p>
+
+<p>And here are methods available in Java:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>setVolume(int volume)</strong></td>
+<td>Sets the value</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>volume()</strong></td>
+<td>Returns the value</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>max()</strong></td>
+<td>Returns the max value</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>min()</strong></td>
+<td>Returns the min value</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>step()</strong></td>
+<td>Returns the step value</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>is()</strong></td>
+<td>Returns object for work with assertions</td>
+<td>RangeAssert</td>
+</tr>
+<tr>
+<td><strong>assertThat()</strong></td>
+<td>Returns object for work with assertions</td>
+<td>RangeAssert</td>
+</tr>
+</tbody></table>
+
+<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/RangeTests.java">Java test examples</a></p>
 <h3 id='text'>Text</h3>
-<p>TBD</p>
+<p><strong>Text</strong> is a combination of letters and textual symbols. When performing testing, the text is used in most operations: when typing text into the login field, when finding a button with some certain text in it, or when checking if actual text matches expected one.
+<img src="images/html/text_html.png" alt="Text" /></p>
+
+<p>Text is represented by the following class:</p>
+
+<p>Java: com.epam.jdi.light.ui.html.common.Text<br>
+C#: JDI.Light.Elements.Common.TextElement</p>
+<pre class="highlight java tab-java"><code>  <span class="nd">@UI</span><span class="o">(</span><span class="s">"[ui=jdi-text]"</span><span class="o">)</span> <span class="c1">//@FindBy(css = "[ui=jdi-text]") </span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Text</span> <span class="n">jdiText</span><span class="o">;</span>
+
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">getTextTest</span><span class="o">()</span> <span class="o">{</span>
+      <span class="n">assertEquals</span><span class="o">(</span><span class="n">jdiText</span><span class="o">.</span><span class="na">getText</span><span class="o">(),</span> <span class="n">text</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">getValueTest</span><span class="o">()</span> <span class="o">{</span>
+      <span class="n">assertEquals</span><span class="o">(</span><span class="n">jdiText</span><span class="o">.</span><span class="na">getValue</span><span class="o">(),</span> <span class="n">text</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">isValidationTest</span><span class="o">()</span> <span class="o">{</span>
+      <span class="n">jdiText</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
+      <span class="n">jdiText</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="n">text</span><span class="o">));</span>
+      <span class="n">jdiText</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"Powerful Framework for UI"</span><span class="o">));</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">assertValidationTest</span><span class="o">()</span> <span class="o">{</span>
+      <span class="n">jdiText</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="n">text</span><span class="o">));</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">baseValidationTest</span><span class="o">()</span> <span class="o">{</span>
+      <span class="n">baseValidation</span><span class="o">(</span><span class="n">jdiText</span><span class="o">);</span>
+  <span class="o">}</span>
+
+</code></pre><pre class="highlight csharp tab-csharp"><code>  <span class="p">[</span><span class="nf">FindBy</span><span class="p">(</span><span class="n">Css</span> <span class="p">=</span> <span class="s">".main-txt"</span><span class="p">)]</span>
+  <span class="k">public</span> <span class="n">TextElement</span> <span class="n">Text</span><span class="p">;</span>
+
+  <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+  <span class="k">public</span> <span class="k">void</span> <span class="nf">GetTextTest</span><span class="p">()</span>
+  <span class="p">{</span>
+      <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">AreEquals</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">HomePage</span><span class="p">.</span><span class="n">Text</span><span class="p">.</span><span class="n">Value</span><span class="p">,</span> <span class="n">_expectedText</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+  <span class="k">public</span> <span class="k">void</span> <span class="nf">GetValueTest</span><span class="p">()</span>
+  <span class="p">{</span>
+      <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">AreEquals</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">HomePage</span><span class="p">.</span><span class="n">Text</span><span class="p">.</span><span class="n">Value</span><span class="p">,</span> <span class="n">_expectedText</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+  <span class="k">public</span> <span class="k">void</span> <span class="nf">SetAttributeTest</span><span class="p">()</span>
+  <span class="p">{</span>
+      <span class="kt">var</span> <span class="n">attributeName</span> <span class="p">=</span> <span class="s">"testAttr"</span><span class="p">;</span>
+      <span class="kt">var</span> <span class="k">value</span> <span class="p">=</span> <span class="s">"testValue"</span><span class="p">;</span>
+      <span class="n">TestSite</span><span class="p">.</span><span class="n">HomePage</span><span class="p">.</span><span class="n">Text</span><span class="p">.</span><span class="nf">SetAttribute</span><span class="p">(</span><span class="n">attributeName</span><span class="p">,</span> <span class="k">value</span><span class="p">);</span>
+      <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">AreEquals</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">HomePage</span><span class="p">.</span><span class="n">Text</span><span class="p">.</span><span class="nf">GetAttribute</span><span class="p">(</span><span class="n">attributeName</span><span class="p">),</span> <span class="k">value</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+  <span class="k">public</span> <span class="k">void</span> <span class="nf">WaitMatchTest</span><span class="p">()</span>
+  <span class="p">{</span>
+      <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">AreEquals</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">HomePage</span><span class="p">.</span><span class="n">Text</span><span class="p">.</span><span class="nf">WaitMatchText</span><span class="p">(</span><span class="n">_regEx</span><span class="p">),</span> <span class="n">_expectedText</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+  <span class="k">public</span> <span class="k">void</span> <span class="nf">WaitMatchTextParallelTest</span><span class="p">()</span>
+  <span class="p">{</span>
+      <span class="n">TestSite</span><span class="p">.</span><span class="n">SupportPage</span><span class="p">.</span><span class="nf">Open</span><span class="p">();</span>
+      <span class="kt">var</span> <span class="n">actualResultTask</span> <span class="p">=</span> <span class="n">Task</span><span class="p">.</span><span class="n">Factory</span><span class="p">.</span><span class="nf">StartNew</span><span class="p">(()</span> <span class="p">=&gt;</span>
+      <span class="p">{</span>
+          <span class="n">Thread</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="m">200</span><span class="p">);</span>
+          <span class="k">return</span> <span class="n">TestSite</span><span class="p">.</span><span class="n">HomePage</span><span class="p">.</span><span class="n">Text</span><span class="p">.</span><span class="nf">WaitMatchText</span><span class="p">(</span><span class="n">_regEx</span><span class="p">);</span>
+      <span class="p">});</span>
+      <span class="n">Task</span><span class="p">.</span><span class="n">Factory</span><span class="p">.</span><span class="nf">StartNew</span><span class="p">(()</span> <span class="p">=&gt;</span>
+      <span class="p">{</span>
+          <span class="n">Thread</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="m">100</span><span class="p">);</span>
+          <span class="n">TestSite</span><span class="p">.</span><span class="n">HomePage</span><span class="p">.</span><span class="nf">Open</span><span class="p">();</span>
+      <span class="p">});</span>
+      <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">AreEquals</span><span class="p">(</span><span class="n">actualResultTask</span><span class="p">.</span><span class="n">Result</span><span class="p">,</span> <span class="n">_expectedText</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+  <span class="k">public</span> <span class="k">void</span> <span class="nf">WaitText</span><span class="p">()</span>
+  <span class="p">{</span>
+      <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">AreEquals</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">HomePage</span><span class="p">.</span><span class="n">Text</span><span class="p">.</span><span class="nf">WaitText</span><span class="p">(</span><span class="n">_contains</span><span class="p">),</span> <span class="n">_expectedText</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+  <span class="k">public</span> <span class="k">void</span> <span class="nf">WaitTextParallelTest</span><span class="p">()</span>
+  <span class="p">{</span>
+      <span class="n">TestSite</span><span class="p">.</span><span class="n">SupportPage</span><span class="p">.</span><span class="nf">Open</span><span class="p">();</span>
+      <span class="kt">var</span> <span class="n">actualResultTask</span> <span class="p">=</span> <span class="n">Task</span><span class="p">.</span><span class="n">Factory</span><span class="p">.</span><span class="nf">StartNew</span><span class="p">(()</span> <span class="p">=&gt;</span>
+      <span class="p">{</span>
+          <span class="n">Thread</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="m">200</span><span class="p">);</span>
+          <span class="k">return</span> <span class="n">TestSite</span><span class="p">.</span><span class="n">HomePage</span><span class="p">.</span><span class="n">Text</span><span class="p">.</span><span class="nf">WaitText</span><span class="p">(</span><span class="n">_contains</span><span class="p">);</span>
+      <span class="p">});</span>
+      <span class="n">Task</span><span class="p">.</span><span class="nf">Run</span><span class="p">(()</span> <span class="p">=&gt;</span>
+      <span class="p">{</span>
+          <span class="n">Thread</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="m">100</span><span class="p">);</span>
+          <span class="n">TestSite</span><span class="p">.</span><span class="n">HomePage</span><span class="p">.</span><span class="nf">Open</span><span class="p">();</span>
+      <span class="p">});</span>
+      <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">AreEquals</span><span class="p">(</span><span class="n">actualResultTask</span><span class="p">.</span><span class="n">Result</span><span class="p">,</span> <span class="n">_expectedText</span><span class="p">);</span>
+  <span class="p">}</span>
+</code></pre>
+<p>Here is a list of available methods in C#:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>GetTextAction()</strong></td>
+<td>returns element text if not empty otherwise returns value attribute</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>WaitText(string text)</strong></td>
+<td>return all text which contains text from parameters</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>WaitMatchText(string regEx)</strong></td>
+<td>return all text which contains matcher from parameters</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>GetText()</strong></td>
+<td>returns text</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>GetValue()</strong></td>
+<td>returns text</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/TextTests.cs">Test examples in C#</a></p>
+
+<p>And here are methods available in Java:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>getText()</strong></td>
+<td>Get current value</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>is()</strong></td>
+<td>Various assert actions for Text</td>
+<td>TextAssert</td>
+</tr>
+<tr>
+<td><strong>assertThat()</strong></td>
+<td>Various assert actions for Text</td>
+<td>TextAssert</td>
+</tr>
+</tbody></table>
+
+<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/TextTests.java">Java test examples</a>  </p>
 <h3 id='textfield'>TextField</h3><pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#name"</span><span class="o">)</span> 
 <span class="c1">// same as @FindBy(css = "#name")</span>
 <span class="kd">public</span> <span class="kd">static</span> <span class="n">TextField</span> <span class="n">name</span><span class="o">;</span>

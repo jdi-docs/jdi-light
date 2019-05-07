@@ -1080,6 +1080,8 @@ Here is a list of available methods in C#:
 **Minlength()** | returns value of minlength attribute | int
 **Maxlength()** | returns value of maxlength attribute | int
 **AddNewLine(string line)** | add line to the already existing  | void
+**Is()** | returns object for work with assertions  | TextAreaAssert
+**AssertThat()** | returns object for work with assertions  | TextAreaAssert
  
   [Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/TextAreaTests.cs)
   
@@ -1094,6 +1096,7 @@ Here is a list of available methods in C#:
 **minlength()** | returns value of minlength attribute | int
 **maxlength()** | returns value of maxlength attribute | int
 **placeholder()** | returns value of placeholder attribute | String
+**addNewLine(String line)** | add line to the already existing  | void
 **is()** | returns object for work with assertions  | TextAreaAssert
 **assertThat()** | returns object for work with assertions  | TextAreaAssert
 

@@ -1843,9 +1843,13 @@ Here is the list of some available methods in C# JDI Light:
 
 ![Section](../images/section.png)  
    
-Section is represented by the following class:  
+Section is represented by the following class:   
+
 Java: com.epam.jdi.light.elements.composite.Section  
-C#: JDI.Light.Elements.Composite.Section
+public class Section extends JDIBase implements PageObject 
+
+C#: JDI.Light.Elements.Composite.Section  
+public class Section : UIElement
   
 ```java 
   @UI(".main-title") 
@@ -1871,6 +1875,15 @@ C#: JDI.Light.Elements.Composite.Section
       Assert.AreEqual("h3", e.TagName);
   }
 ```
+
+And here are constructor available in C#:
+
+|Constructor  | Description
+--- | --- 
+Section(By locator) | Initializes a newly created Section object by the locator of the By class.
+Section() | Initializes a newly created Section object
+
+In C# section does not have its own methods, but it is extends from [UIElement]();
 
 And here are methods available in Java:
 

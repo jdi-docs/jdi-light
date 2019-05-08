@@ -4,6 +4,43 @@ TBD
 
 ## Common elements
 
+### Label
+**Label** – Elements' caption for big number of JDI common elements
+
+![Label](../images/colorpicker.png)
+
+Label's implementation is located in the following class:
+
+   - __C#__: _JDI.Light.Elements.Base.UIElement_
+   
+   ```csharp
+
+	[Test]
+    public void GetLabelTextTest()
+    {
+        AreEqual(TestSite.Html5Page.ColorPicker.LabelText(), "Select a color");
+    }
+		
+	[Test]
+    public void LabelTest()
+    {
+        Assert.AreEqual(TestSite.Html5Page.NameTextField.Label().GetText(), "Your name:");
+        TestSite.Html5Page.NameTextField.Is.Text(ContainsString("Your"));
+        Assert.AreEqual(TestSite.Html5Page.SurnameTextField.Label().GetText(), "Surname:");
+    }	
+
+```
+   
+   	Available methods in C# JDI Light:
+
+	|Method | Description | Return Type
+	--- | --- | ---
+	**Label()** | Creates label for element using element's Id | Label
+	**LabelText()** | Gets the text of a label | string
+	
+	[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/TextFieldsTests.cs)
+	[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/ColorPickerTests)
+
 ### Button
 **Button** – Element that represents a clickable button
 
@@ -36,7 +73,7 @@ public void getTextTest() {
 public Button RedButton;
 
 [Test]
-public void ClickTest() 
+public void ClickTest() Table
 {
     RedButton.Click();
     Assert.AreEqual(GetAlert().GetAlertText(), "Red button");
@@ -1293,7 +1330,7 @@ Table implementation has an entry point in class:
                 .Columns(Is.SubsequenceOf(new[] {"Name", "City", "Phone", "Email", "Address"}));
         }		
 ```
-
+Text
 Already implemented methods:
 
 | Method | Description | Return Type|

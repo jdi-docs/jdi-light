@@ -25,7 +25,7 @@ driver=chrome
 #drivers.version=2.23 | LATEST
 #timeout.wait.element=10
 #timeout.wait.page=30
-domain=http://www.baeldung.com/
+domain=https://jdi-testing.github.io/jdi-light/
 #page.load.strategy=normal | eager | none
 #browser.size=MAXIMIZE | 1024x762
 ...
@@ -140,16 +140,19 @@ public class PageObjectExample implements TestsInit {
     }
 }
 
-[INFO 29:11.362] : Open 'Home Page'(url=https://www.baeldung.com/) (SiteJdi.homePage (url=https://www.baeldung.com/; title=))
-[INFO 29:17.702] : Click on 'Menu About' (HomePage.menuAbout (css='.menu-about a'))
-[INFO 29:17.918] : Click on 'About Baeldung' (HomePage.aboutBaeldung (xpath='//h3[contains(.,'About Baeldung')]'))
-[INFO 29:19.507] : Check that 'About Page' is opened (url CONTAINS '/about/'; title EQUALS 'About Baeldung | Baeldung') 
-    (SiteJdi.aboutPage (url=https://www.baeldung.com/about/; title=About Baeldung | Baeldung))
+[ STEP 09:30.825] : Open 'Home Page'(url=https://jdi-testing.github.io/jdi-light/) (SiteJdi.homePage (url=https://jdi-testing.github.io/jdi-light/; title=))
+[ STEP 09:37.188] : Click on 'User Icon' (HomePage.userIcon (css='img#user-icon'))
+[ STEP 09:37.291] : Input 'Roman' in 'Name' (HomePage.name (css='#name'))
+[ STEP 09:37.539] : Input 'Jdi1234' in 'Password' (HomePage.password (css='#password'))
+[ STEP 09:37.756] : Click on 'Login Button' (HomePage.loginButton (css='#login-button'))
+[ STEP 09:37.860] : Assert that 'User Name' is displayed (HomePage.userName (css='#user-name'))
 
-[STEP 29:11.362] : Open 'Home Page'(url=https://www.baeldung.com/)
-[STEP 29:17.702] : Click on 'Menu About'
-[STEP 29:17.918] : Click on 'About Baeldung'
-[STEP 29:19.507] : Check that 'About Page' is opened (url CONTAINS '/about/'; title EQUALS 'About Baeldung | Baeldung')
+[ STEP 11:16.923] : Open 'Home Page'(url=https://jdi-testing.github.io/jdi-light/)
+[ STEP 11:22.983] : Click on 'User Icon'
+[ STEP 11:23.088] : Input 'Roman' in 'Name'
+[ STEP 11:23.369] : Input 'Jdi1234' in 'Password'
+[ STEP 11:23.598] : Click on 'Login Button'
+[ STEP 11:23.688] : Assert that 'User Name' is displayed
 ```
 Now we can write our test using this UI Objects and execute it<br/>
 - This test scenario is pretty clear and based on real UI elements<br/>
@@ -197,8 +200,7 @@ _Note: **ROMAN** is a business entity User that associated with Login Form<br/>_
 
 User class is simple data class with two String fields that has same names as TextFields in LoginForm. <br/>
 In this way you can fill any types of elements in Form that can be filled: TextField, TextArea, Checkbox, DropDown etc. <br/>
-_We will go through this in Contact Form example._<br/>
-<a class="github-button" href="https://github.com/jdi-testing/jdi-light" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star jdi-testing/jdi-light on GitHub">I Like it!</a><br/>
+_We will go through this in <a href="https://jdi-docs.github.io/jdi-light/?java#ui-elements-on-contact-form" target="_blank">Contact Form example</a>._<br/>
 
 ```java
   User ROMAN = new User().set(c -> {
@@ -518,7 +520,7 @@ on JDISite.java >> public static Form<User> lightLoginForm;
 **Light Forms** - if your Form consists of only TextFields and buttons you can avoid UI Object at all and just write one line in related page or in root Site class<br/>
 <a class="github-button" href="https://github.com/jdi-testing/jdi-light" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star jdi-testing/jdi-light on GitHub">Nice job man!</a>
 
-## Reduce Amount of code with JDI Light
+## 5. Reduce Amount of code with JDI Light
 Now we know enough about Forms and lets see how we this can help us to write code faster (less code)<br/>
 Let's try to write a code on Selenium for the same scenario [Fill Contact Form test scenario](https://jdi-docs.github.io/jdi-light/?java#contact-form-test-scenario) what we done on JDI Light before<br/>
 - Open Home Page by url<br/>

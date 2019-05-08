@@ -384,15 +384,6 @@ public void simpleContactFormTest() {
     contactForm.submit(FULL_CONTACT);
     contactForm.check(FULL_CONTACT);
 }
-public static ContactInfo FULL_CONTACT = new ContactInfo().set(c -> {
-    c.name = "Roman"; c.lastName = "Full Contact"; c.position = "ChiefQA"; 
-    c.passportNumber = "4321"; c.passportSeria = "123456"; 
-    c.description = "JDI - awesome UI automation tool";
-
-    c.gender = "Female"; c.religion = "Other"; c.weather = "Sun, Snow";
-    c.acceptConditions = "true"; c.passport = "true";
-    }
-);
 ```
 Now let's write complex test that:<br/> 
 - Open Contact Page from menu<br/>
@@ -401,13 +392,25 @@ Now let's write complex test that:<br/>
 - And validate that form filled correctly<br/>
 ...<br/>
 This is so simple as for Login Form! <a class="github-button" href="https://github.com/jdi-testing/jdi-light" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star jdi-testing/jdi-light on GitHub">Amazing!</a><br/>
+
+```java
+public static ContactInfo FULL_CONTACT = new ContactInfo().set(c -> {
+    c.name = "Roman"; c.lastName = "Full Contact"; c.position = "ChiefQA"; 
+    c.passportNumber = 4321; c.passportSeria = 123456; 
+    c.description = "JDI - awesome UI automation tool";
+
+    c.gender = "Female"; c.religion = "Other"; c.weather = "Sun, Snow";
+    c.acceptConditions = true; c.passport = true;
+    }
+);
+```
 The most complex part is create test data that we would like to enter<br/>
 <br/><br/><br/><br/><br/><br/><br/><br/>
 
 ```java
 public static ContactInfo SIMPLE_CONTACT = new ContactInfo().set(c -> {
     c.name = "Roman"; c.lastName = "Iovlev"; c.position = "ChiefQA";
-    c.passportNumber = "4321"; c.passportSeria = "123456"; }
+    c.passportNumber = 4321; c.passportSeria = 123456; }
 );
 @Test
 public void simpleContactFormTest() {

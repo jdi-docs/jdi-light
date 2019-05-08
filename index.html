@@ -1066,10 +1066,7 @@ This Form opposite to Login Form has more different UI elemnts. Let&#39;s descri
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"#accept-conditions"</span><span class="o">)</span> <span class="kd">public</span> <span class="n">Checkbox</span> <span class="n">acceptConditions</span><span class="o">;</span>
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"#description"</span><span class="o">)</span> <span class="n">TextArea</span> <span class="n">description</span><span class="o">;</span>
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"button[type=submit]"</span><span class="o">)</span> <span class="n">Button</span> <span class="n">submit</span><span class="o">;</span>
-
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#gender"</span><span class="o">)</span> <span class="n">Dropdown</span> <span class="n">gender</span><span class="o">;</span>
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#religion"</span><span class="o">)</span> <span class="n">Combobox</span> <span class="n">religion</span><span class="o">;</span>
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#weather"</span><span class="o">)</span> <span class="n">MultiDropdown</span> <span class="n">weather</span><span class="o">;</span>
+    <span class="o">...</span>
 <span class="o">}</span>
 </code></pre>
 <p>We have here <b><u>Common</u></b> elements: <br/>
@@ -1080,8 +1077,15 @@ This Form opposite to Login Form has more different UI elemnts. Let&#39;s descri
 1 <strong>TextArea</strong> (description)<br/>
 <img src="images/tutorial/textarea.png" alt="TextArea" width="200px"><br/>
 1 <strong>Button</strong> (submit)<br/>
-<img src="images/tutorial/button.png" alt="Button" width="100px"><br/>
-And <b><u>Complex</u></b> elements:<br/>
+<img src="images/tutorial/button.png" alt="Button" width="100px"><br/></p>
+<pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ContactForm</span> <span class="kd">extends</span> <span class="n">Form</span><span class="o">&lt;</span><span class="n">ContactInfo</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="o">...</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#gender"</span><span class="o">)</span> <span class="n">Dropdown</span> <span class="n">gender</span><span class="o">;</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#religion"</span><span class="o">)</span> <span class="n">Combobox</span> <span class="n">religion</span><span class="o">;</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#weather"</span><span class="o">)</span> <span class="n">MultiDropdown</span> <span class="n">weather</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre>
+<p>And <b><u>Complex</u></b> elements:<br/>
 <strong>Dropdown</strong> (gender) -  Element with one value, expand arrow and list of options <br/>
 <img src="images/tutorial/dropdown.png" alt="Dropdown" width="200"><br/>
 <strong>Combobox</strong> (religion) - Mix of Dropdown and TextField. You set value from list of options or enter your own<br/>

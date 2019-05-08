@@ -39,7 +39,6 @@ Label's implementation is located in the following class:
 **LabelText()** | Gets the text of a label | string
 	
 [C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/TextFieldsTests.cs)
-[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/ColorPickerTests)
 
 ### Button
 **Button** – Element that represents a clickable button

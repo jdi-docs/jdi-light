@@ -29,17 +29,17 @@ Label's implementation is located in the following class:
         Assert.AreEqual(TestSite.Html5Page.SurnameTextField.Label().GetText(), "Surname:");
     }	
 
-```
+  ```
    
-   	Available methods in C# JDI Light:
+ Available methods in C# JDI Light:
 
-	|Method | Description | Return Type
-	--- | --- | ---
-	**Label()** | Creates label for element using element's Id | Label
-	**LabelText()** | Gets the text of a label | string
+|Method | Description | Return Type
+--- | --- | ---
+**Label()** | Creates label for element using element's Id | Label
+**LabelText()** | Gets the text of a label | string
 	
-	[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/TextFieldsTests.cs)
-	[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/ColorPickerTests)
+[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/TextFieldsTests.cs)
+[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/ColorPickerTests)
 
 ### Button
 **Button** – Element that represents a clickable button

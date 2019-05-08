@@ -351,8 +351,8 @@ public class ContactPage extends WebPage {
     @UI("#contact-form") public static ContactForm contactForm;
 }
 ```
-And the **Contact Form** itself is <u>Composite</u> Page Object<br/>
-Contact Form placed on another <u>Composite</u> Page Object called **Contact Page**<br/>
+And the **Contact Form** itself is <b><u>Composite</u></b> UI Object (PageObject with additional capabilities in JDI)<br/>
+Contact Form placed on another Composite Page Object called **Contact Page**<br/>
 Put your attention that Contact Form and Contact Page have additional meta information: <br/>
 - Already known **@Url** and **@Title** for WebPage and <br/>
 - Locator in **@UI** annotation. This mean that all elements placed in this Page Object will be found only in this context and even if their simple locator <u>"button[type=submit]"</u> present on this page multiple times it will be found correctly for this form<br/>

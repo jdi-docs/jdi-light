@@ -397,9 +397,6 @@
                     <a href="#common-elements" class="toc-h2 toc-link" data-title="Common elements">Common elements</a>
                         <ul class="toc-list-h2">
                             <li>
-                              <a href="#label" class="toc-h2 h3 toc-link" data-title="Label">Label</a>
-                            </li>
-                            <li>
                               <a href="#button" class="toc-h2 h3 toc-link" data-title="Button">Button</a>
                             </li>
                             <li>
@@ -1457,55 +1454,7 @@ In JDI Light this is as simple as for Common elements.
 <p>TBD</p>
 <h1 id='documentation'>Documentation</h1><h2 id='extended-selenium-features'>Extended Selenium features</h2>
 <p>TBD</p>
-<h2 id='common-elements'>Common elements</h2><h3 id='label'>Label</h3>
-<p><strong>Label</strong> – Elements&#39; caption for big number of JDI common elements</p>
-
-<p><img src="images/colorpicker.png" alt="Label" /></p>
-
-<p>Label&#39;s implementation is located in the following class:</p>
-
-<ul>
-<li><strong>C#</strong>: <em>JDI.Light.Elements.Base.UIElement</em></li>
-</ul>
-<pre class="highlight csharp tab-csharp"><code>
-    <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
-    <span class="k">public</span> <span class="k">void</span> <span class="nf">GetLabelTextTest</span><span class="p">()</span>
-    <span class="p">{</span>
-        <span class="nf">AreEqual</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">ColorPicker</span><span class="p">.</span><span class="nf">LabelText</span><span class="p">(),</span> <span class="s">"Select a color"</span><span class="p">);</span>
-    <span class="p">}</span>
-
-    <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
-    <span class="k">public</span> <span class="k">void</span> <span class="nf">LabelTest</span><span class="p">()</span>
-    <span class="p">{</span>
-        <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">NameTextField</span><span class="p">.</span><span class="nf">Label</span><span class="p">().</span><span class="nf">GetText</span><span class="p">(),</span> <span class="s">"Your name:"</span><span class="p">);</span>
-        <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">NameTextField</span><span class="p">.</span><span class="n">Is</span><span class="p">.</span><span class="nf">Text</span><span class="p">(</span><span class="nf">ContainsString</span><span class="p">(</span><span class="s">"Your"</span><span class="p">));</span>
-        <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">SurnameTextField</span><span class="p">.</span><span class="nf">Label</span><span class="p">().</span><span class="nf">GetText</span><span class="p">(),</span> <span class="s">"Surname:"</span><span class="p">);</span>
-    <span class="p">}</span>   
-
-</code></pre>
-<p>Available methods in C# JDI Light:</p>
-
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>Label()</strong></td>
-<td>Creates label for element using the element&#39;s Id</td>
-<td>Label</td>
-</tr>
-<tr>
-<td><strong>LabelText()</strong></td>
-<td>Gets the text of a label</td>
-<td>string</td>
-</tr>
-</tbody></table>
-
-<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/TextFieldsTests.cs">C# test examples</a></p>
-<h3 id='button'>Button</h3>
+<h2 id='common-elements'>Common elements</h2><h3 id='button'>Button</h3>
 <p><strong>Button</strong> – Element that represents a clickable button</p>
 
 <p><img src="images/button.png" alt="Button" /></p>
@@ -1535,7 +1484,7 @@ In JDI Light this is as simple as for Common elements.
 <span class="k">public</span> <span class="n">Button</span> <span class="n">RedButton</span><span class="p">;</span>
 
 <span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">ClickTest</span><span class="p">()</span> <span class="n">Table</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">ClickTest</span><span class="p">()</span> 
 <span class="p">{</span>
     <span class="n">RedButton</span><span class="p">.</span><span class="nf">Click</span><span class="p">();</span>
     <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="nf">GetAlert</span><span class="p">().</span><span class="nf">GetAlertText</span><span class="p">(),</span> <span class="s">"Red button"</span><span class="p">);</span>
@@ -3351,12 +3300,30 @@ In JDI Light this is as simple as for Common elements.
 <h3 id='table'>Table</h3>
 <p><strong>Table</strong> – a complex element that consists of header, body (at least one row and one column) and footer. You are able to perform a list of readonly interactions with this element.</p>
 
-<p>Table implementation has an entry point in class:</p>
+<p><img src="images/html/table_html.png" alt="Table" /></p>
+
+<p>Tables are represented by the following classes in Java and C#:</p>
 
 <ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.elements.complex.table.Table.java</em></li>
 <li><strong>C#</strong>: <em>JDI.Light.Elements.Complex.Table.cs</em></li>
 </ul>
-<pre class="highlight csharp tab-csharp"><code>
+<pre class="highlight java tab-java"><code>
+         <span class="nd">@Test</span>
+             <span class="kd">public</span> <span class="kt">void</span> <span class="nf">tableDataTest</span><span class="o">()</span> <span class="o">{</span>
+                 <span class="n">assertEquals</span><span class="o">(</span><span class="n">users</span><span class="o">.</span><span class="na">row</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">asData</span><span class="o">(</span><span class="n">UserInfo</span><span class="o">.</span><span class="na">class</span><span class="o">),</span>
+                         <span class="n">GRADY_BROCK</span><span class="o">);</span>
+             <span class="o">}</span>
+
+             <span class="nd">@Test</span>
+             <span class="kd">public</span> <span class="kt">void</span> <span class="nf">tableEntityTest</span><span class="o">()</span> <span class="o">{</span>
+                 <span class="n">UserRow</span> <span class="n">user</span> <span class="o">=</span> <span class="n">users</span><span class="o">.</span><span class="na">row</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">asLine</span><span class="o">(</span><span class="n">UserRow</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+                 <span class="n">user</span><span class="o">.</span><span class="na">name</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+                 <span class="n">validateAlert</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"Brock"</span><span class="o">));</span>
+                 <span class="n">user</span><span class="o">.</span><span class="na">city</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+                 <span class="n">validateAlert</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="s">"Alcobendas"</span><span class="o">));</span>
+             <span class="o">}</span>      
+</code></pre><pre class="highlight csharp tab-csharp"><code>
         <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
         <span class="k">public</span> <span class="k">void</span> <span class="nf">HugeTableSearchByColumnNamesContainValuesTest</span><span class="p">()</span>
         <span class="p">{</span>
@@ -3423,8 +3390,164 @@ In JDI Light this is as simple as for Common elements.
                 <span class="p">.</span><span class="nf">Columns</span><span class="p">(</span><span class="n">Is</span><span class="p">.</span><span class="nf">SubsequenceOf</span><span class="p">(</span><span class="k">new</span><span class="p">[]</span> <span class="p">{</span><span class="s">"Name"</span><span class="p">,</span> <span class="s">"City"</span><span class="p">,</span> <span class="s">"Phone"</span><span class="p">,</span> <span class="s">"Email"</span><span class="p">,</span> <span class="s">"Address"</span><span class="p">}));</span>
         <span class="p">}</span>       
 </code></pre>
-<p>Text
-Already implemented methods:</p>
+<p>Here is a list of available methods in Java:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>cell(int colNum, int rowNum)</strong></td>
+<td>Sets and returns a cell object of a table according to the cell&#39;s index</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>cell(int colNum, String rowName)</strong></td>
+<td>Sets and returns a cell object of a table according to the cell&#39;s index</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>cell(String colName, int rowNum)</strong></td>
+<td>Sets and returns a cell object of a table according to the cell&#39;s index</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>cell(String colName, String rowNum)</strong></td>
+<td>Sets and returns a cell object of a table according to the cell&#39;s index</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>column(Enum colName)</strong></td>
+<td>Sets and returns a column object of a table according to column name</td>
+<td>Line</td>
+</tr>
+<tr>
+<td><strong>column(int colNum)</strong></td>
+<td>Sets and returns a column object of a table according to column number</td>
+<td>Line</td>
+</tr>
+<tr>
+<td><strong>column(String colName)</strong></td>
+<td>Sets and returns a column object of a table according to column name</td>
+<td>Line</td>
+</tr>
+<tr>
+<td><strong>columns(String colName)</strong></td>
+<td>Sets and returns a list of column objects of a table according to column name</td>
+<td>List<Line></td>
+</tr>
+<tr>
+<td><strong>filterRows(Matcher<String> matcher, Column column)</strong></td>
+<td>Sets and returns a list of filtered rows of a table according to matching column</td>
+<td>List<Line></td>
+</tr>
+<tr>
+<td><strong>filterRows(Pair<Matcher<String>,Column&gt;... matchers)</strong></td>
+<td>Sets and returns a list of filtered rows of a table according to matching column</td>
+<td>List<Line></td>
+</tr>
+<tr>
+<td><strong>getValue()</strong></td>
+<td>Returns a string content of values for particular row, where values are separated by &quot;;&quot;</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>isEmpty()</strong></td>
+<td>Asserts whether table is empty</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isNotEmpty()</strong></td>
+<td>Asserts whether table is not empty</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>preview()</strong></td>
+<td>Returns table preview</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>row(Enum rowName)</strong></td>
+<td>Sets and returns a row object of a table according to row name</td>
+<td>Line</td>
+</tr>
+<tr>
+<td><strong>row(int rowNum)</strong></td>
+<td>Sets and returns a row object of a table according to row number</td>
+<td>Line</td>
+</tr>
+<tr>
+<td><strong>row(Matcher<String> matcher, Column column)</strong></td>
+<td>Sets and returns a row object of a table according to matching column</td>
+<td>Line</td>
+</tr>
+<tr>
+<td><strong>row(Pair<Matcher<String>,Column&gt;... matchers)</strong></td>
+<td>Sets and returns a row object of a table according to matching column</td>
+<td>Line</td>
+</tr>
+<tr>
+<td><strong>row(String rowName)</strong></td>
+<td>Sets and returns a row object of a table according to row name</td>
+<td>Line</td>
+</tr>
+<tr>
+<td><strong>row(TableMatcher... matchers)</strong></td>
+<td>Sets and returns a row object of a table according to matcher</td>
+<td>Line</td>
+</tr>
+<tr>
+<td><strong>rows()</strong></td>
+<td>Sets and returns a list of rows of a table</td>
+<td>List<Line></td>
+</tr>
+<tr>
+<td><strong>rows(TableMatcher... matchers)</strong></td>
+<td>Sets and returns a a list of rows of a table according to matchers</td>
+<td>List<Line></td>
+</tr>
+</tbody></table>
+
+<p>AssertTable methods in Java:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>assertThat()</strong></td>
+<td>Applicable for performing assert actions for tables</td>
+<td>TableAssert</td>
+</tr>
+<tr>
+<td><strong>has()</strong></td>
+<td>Applicable for performing assert actions for tables</td>
+<td>TableAssert</td>
+</tr>
+<tr>
+<td><strong>is()</strong></td>
+<td>Applicable for performing assert actions for tables</td>
+<td>TableAssert</td>
+</tr>
+<tr>
+<td><strong>shouldBe()</strong></td>
+<td>Applicable for performing assert actions for tables</td>
+<td>TableAssert</td>
+</tr>
+<tr>
+<td><strong>waitFor()</strong></td>
+<td>Applicable for performing assert actions for tables</td>
+<td>TableAssert</td>
+</tr>
+</tbody></table>
+
+<p>And here are methods available in C#:</p>
 
 <table><thead>
 <tr>
@@ -3480,7 +3603,7 @@ Already implemented methods:</p>
 </tr>
 </tbody></table>
 
-<p>AssertTable methods:</p>
+<p>AssertTable methods in C#:</p>
 
 <table><thead>
 <tr>
@@ -3536,7 +3659,9 @@ Already implemented methods:</p>
 </tr>
 </tbody></table>
 
-<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Complex/TableTests.cs">Test examples C#</a></p>
+<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-examples/src/test/java/io/github/epam/tests/recommended/TableTests.java">Java test examples</a></p>
+
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Composite/TableTests.cs">C# test examples</a></p>
 <h3 id='dropdown'>DropDown</h3>
 <p><strong>DropDown</strong> – a graphical control element, that allows the user to choose one value from a list.</p>
 

@@ -4,6 +4,44 @@ TBD
 
 ## Common elements
 
+### Label 
+ **Label** – Elements' caption for a big number of JDI common elements 
+ 
+![Label](../images/colorpicker.png) 
+
+Label's implementation is located in the following class: 
+
+   - __C#__: _JDI.Light.Elements.Base.UIElement_ 
+
+
+  ```csharp 
+
+	[Test] 
+    public void GetLabelTextTest() 
+    { 
+        AreEqual(TestSite.Html5Page.ColorPicker.LabelText(), "Select a color"); 
+    } 
+
+
+	[Test] 
+	public void LabelTest() 
+    { 
+        Assert.AreEqual(TestSite.Html5Page.NameTextField.Label().GetText(), "Your name:"); 
+        TestSite.Html5Page.NameTextField.Is.Text(ContainsString("Your")); 
+        Assert.AreEqual(TestSite.Html5Page.SurnameTextField.Label().GetText(), "Surname:"); 
+    }	 
+ 
+  ``` 
+ 
+ Available methods in C# JDI Light: 
+
+|Method | Description | Return Type 
+--- | --- | --- 
+**Label()** | Creates label for element using the element's Id | Label 
+**LabelText()** | Gets the text of a label | string 
+ 
+[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/TextFieldsTests.cs) 
+
 ### Button
 **Button** – Element that represents a clickable button
 

@@ -8,9 +8,6 @@ rvm:
 cache: bundler
 script:
   - bash deploy.sh --source-only
-
-deploy:
-- provider: script
-  script: bash deploy.sh --push-only
-  on:
-    branch: master
+  
+after_success: 
+- test $TRAVIS_BRANCH = "master" && test $TRAVIS_PULL_REQUEST = "false" && bash deploy.sh

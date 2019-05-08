@@ -480,14 +480,6 @@
                   </li>
                   <li>
                     <a href="#composite-elements" class="toc-h2 toc-link" data-title="Composite elements">Composite elements</a>
-                        <ul class="toc-list-h2">
-                            <li>
-                              <a href="#section" class="toc-h2 h3 toc-link" data-title="Section">Section</a>
-                            </li>
-                            <li>
-                              <a href="#webpage" class="toc-h2 h3 toc-link" data-title="WebPage">WebPage</a>
-                            </li>
-                        </ul>
                   </li>
                   <li>
                     <a href="#ui-objects" class="toc-h2 toc-link" data-title="UI Objects">UI Objects</a>
@@ -3099,6 +3091,16 @@ In JDI Light this is as simple as for Common elements.
 <td>add line to the already existing</td>
 <td>void</td>
 </tr>
+<tr>
+<td><strong>Is()</strong></td>
+<td>returns object for work with assertions</td>
+<td>TextAreaAssert</td>
+</tr>
+<tr>
+<td><strong>AssertThat()</strong></td>
+<td>returns object for work with assertions</td>
+<td>TextAreaAssert</td>
+</tr>
 </tbody></table>
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/TextAreaTests.cs">Test examples in C#</a></p>
@@ -3146,6 +3148,11 @@ In JDI Light this is as simple as for Common elements.
 <td><strong>placeholder()</strong></td>
 <td>returns value of placeholder attribute</td>
 <td>String</td>
+</tr>
+<tr>
+<td><strong>addNewLine(String line)</strong></td>
+<td>add line to the already existing</td>
+<td>void</td>
 </tr>
 <tr>
 <td><strong>is()</strong></td>
@@ -4261,98 +4268,7 @@ Multi Selector are represented by the following class:</p>
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/ComboboxTests.java">Java test examples</a></p>
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/ComboBoxTests.cs">C# test examples</a></p>
-<h2 id='composite-elements'>Composite elements</h2><h3 id='section'>Section</h3>
-<p><strong>Section</strong> - logical part of Web Page that contains other UI Elements</p>
-
-<p><img src="images/section.png" alt="Section" />  </p>
-
-<p>Section is represented by the following class:   </p>
-
-<p>Java: com.epam.jdi.light.elements.composite.Section<br>
-public class Section extends JDIBase implements PageObject </p>
-
-<p>C#: JDI.Light.Elements.Composite.Section<br>
-public class Section : UIElement</p>
-<pre class="highlight java tab-java"><code>  <span class="nd">@UI</span><span class="o">(</span><span class="s">".main-title"</span><span class="o">)</span> 
-  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Section</span> <span class="n">mainTitle</span><span class="o">;</span>
-
-  <span class="nd">@Test</span>
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">selectTest</span><span class="o">()</span> <span class="o">{</span>
-      <span class="n">mainTitle</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-  <span class="o">}</span>
-</code></pre><pre class="highlight csharp tab-csharp"><code>  <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
-  <span class="k">public</span> <span class="k">void</span> <span class="nf">SectionTest</span><span class="p">()</span>
-  <span class="p">{</span>
-      <span class="kt">var</span> <span class="n">e</span> <span class="p">=</span> <span class="n">TestSite</span><span class="p">.</span><span class="n">HomePage</span><span class="p">.</span><span class="n">Get</span><span class="p">&lt;</span><span class="n">Section</span><span class="p">&gt;(</span><span class="n">By</span><span class="p">.</span><span class="nf">CssSelector</span><span class="p">(</span><span class="s">".main-title"</span><span class="p">));</span>
-      <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="s">"EPAM FRAMEWORK WISHES…"</span><span class="p">,</span> <span class="n">e</span><span class="p">.</span><span class="n">Text</span><span class="p">);</span>
-      <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="s">"Section"</span><span class="p">,</span> <span class="n">e</span><span class="p">.</span><span class="n">Name</span><span class="p">);</span>
-      <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="k">true</span><span class="p">,</span> <span class="n">e</span><span class="p">.</span><span class="n">Displayed</span><span class="p">);</span>
-      <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="k">true</span><span class="p">,</span> <span class="n">e</span><span class="p">.</span><span class="n">Enabled</span><span class="p">);</span>
-      <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="k">false</span><span class="p">,</span> <span class="n">e</span><span class="p">.</span><span class="n">Hidden</span><span class="p">);</span>
-      <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">By</span><span class="p">.</span><span class="nf">CssSelector</span><span class="p">(</span><span class="s">".main-title"</span><span class="p">),</span> <span class="n">e</span><span class="p">.</span><span class="n">Locator</span><span class="p">);</span>
-      <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="k">false</span><span class="p">,</span> <span class="n">e</span><span class="p">.</span><span class="n">Selected</span><span class="p">);</span>
-      <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="s">"h3"</span><span class="p">,</span> <span class="n">e</span><span class="p">.</span><span class="n">TagName</span><span class="p">);</span>
-  <span class="p">}</span>
-</code></pre>
-<p>And here are constructor available in C#:</p>
-
-<table><thead>
-<tr>
-<th>Constructor</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Section(By locator)</td>
-<td>Initializes a newly created Section object by the locator of the By class.</td>
-</tr>
-<tr>
-<td>Section()</td>
-<td>Initializes a newly created Section object</td>
-</tr>
-</tbody></table>
-
-<p>In C# section does not have its own methods, but it is extends from <a href="#">UIElement</a>;</p>
-
-<p>And here are methods available in Java:</p>
-
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>shouldBe()</strong></td>
-<td>Returns object for work with assertions</td>
-<td>IsAssert</td>
-</tr>
-<tr>
-<td><strong>waitFor()</strong></td>
-<td>Returns object for work with assertions</td>
-<td>IsAssert</td>
-</tr>
-<tr>
-<td><strong>has()</strong></td>
-<td>Returns object for work with assertions</td>
-<td>IsAssert</td>
-</tr>
-<tr>
-<td><strong>is()</strong></td>
-<td>Returns object for work with assertions</td>
-<td>IsAssert</td>
-</tr>
-<tr>
-<td><strong>assertThat()</strong></td>
-<td>Returns object for work with assertions</td>
-<td>IsAssert</td>
-</tr>
-</tbody></table>
-
-<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/composite/SectionTests.java">Java test examples</a><br>
-<a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Composite/SectionTests.cs">Test examples in C#</a></p>
-<h3 id='webpage'>WebPage</h3>
+<h2 id='composite-elements'>Composite elements</h2>
 <p>TBD</p>
 <h2 id='ui-objects'>UI Objects</h2>
 <p>TBD</p>

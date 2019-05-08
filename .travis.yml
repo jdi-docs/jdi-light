@@ -6,7 +6,8 @@ rvm:
   - 2.4.0
 
 cache: bundler
-script: bash deploy.sh --source-only
+script:
+  - bash deploy.sh --source-only
 
 deploy:
 - provider: script

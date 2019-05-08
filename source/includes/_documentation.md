@@ -1221,9 +1221,30 @@ Here is the list of some available methods:
 
 **Table** – a complex element that consists of header, body (at least one row and one column) and footer. You are able to perform a list of readonly interactions with this element.
 
-Table implementation has an entry point in class:
+![Table](../images/html/table_html.png)
+
+Tables are represented by the following classes in Java and C#:
  
+  - __Java__: _com.epam.jdi.light.elements.complex.table.Table.java_
   - __C#__: _JDI.Light.Elements.Complex.Table.cs_
+  
+```java 
+         
+         @Test
+             public void tableDataTest() {
+                 assertEquals(users.row(2).asData(UserInfo.class),
+                         GRADY_BROCK);
+             }
+         
+             @Test
+             public void tableEntityTest() {
+                 UserRow user = users.row(2).asLine(UserRow.class);
+                 user.name.click();
+                 validateAlert(containsString("Brock"));
+                 user.city.click();
+                 validateAlert(is("Alcobendas"));
+             }		
+  ```
 
 ```csharp
        
@@ -1294,7 +1315,44 @@ Table implementation has an entry point in class:
         }		
 ```
 
-Already implemented methods:
+Here is a list of available methods in Java:
+
+| Method | Description | Return Type|
+--- | --- | ---
+**cell(int colNum, int rowNum)** | Sets and returns a cell object of a table according to the cell's index | String
+**cell(int colNum, String rowName)** | Sets and returns a cell object of a table according to the cell's index | String
+**cell(String colName, int rowNum)** | Sets and returns a cell object of a table according to the cell's index | String
+**cell(String colName, String rowNum)** | Sets and returns a cell object of a table according to the cell's index | String
+**column(Enum colName)** | Sets and returns a column object of a table according to column name | Line
+**column(int colNum)** | Sets and returns a column object of a table according to column number | Line
+**column(String colName)** | Sets and returns a column object of a table according to column name | Line
+**columns(String colName)** | Sets and returns a list of column objects of a table according to column name | List<Line>
+**filterRows(Matcher<String> matcher, Column column)** | Sets and returns a list of filtered rows of a table according to matching column | List<Line>
+**filterRows(Pair<Matcher<String>,Column>... matchers)** | Sets and returns a list of filtered rows of a table according to matching column | List<Line>
+**getValue()** | Returns a string content of values for particular row, where values are separated by ";" | String
+**isEmpty()** | Asserts whether table is empty | boolean
+**isNotEmpty()** | Asserts whether table is not empty | boolean
+**preview()** | Returns table preview | String
+**row(Enum rowName)** | Sets and returns a row object of a table according to row name | Line
+**row(int rowNum)** | Sets and returns a row object of a table according to row number | Line
+**row(Matcher<String> matcher, Column column)** | Sets and returns a row object of a table according to matching column | Line
+**row(Pair<Matcher<String>,Column>... matchers)** | Sets and returns a row object of a table according to matching column | Line
+**row(String rowName)** | Sets and returns a row object of a table according to row name | Line
+**row(TableMatcher... matchers)** | Sets and returns a row object of a table according to matcher | Line
+**rows()** | Sets and returns a list of rows of a table | List<Line>
+**rows(TableMatcher... matchers)** | Sets and returns a a list of rows of a table according to matchers | List<Line>
+
+AssertTable methods in Java:
+
+| Method | Description | Return Type|
+--- | --- | ---
+**assertThat()** | Applicable for performing assert actions for tables | TableAssert
+**has()** | Applicable for performing assert actions for tables | TableAssert
+**is()** | Applicable for performing assert actions for tables | TableAssert
+**shouldBe()** | Applicable for performing assert actions for tables | TableAssert
+**waitFor()** | Applicable for performing assert actions for tables | TableAssert
+
+And here are methods available in C#:
 
 | Method | Description | Return Type|
 --- | --- | ---
@@ -1308,8 +1366,7 @@ Already implemented methods:
 **Row(int rowNum)** | Sets and returns a row object of a table according to the row's index | Line
 **GetValue()** | Returns a string content of values for particular row, where values are separated by ";" | string
 
-
-AssertTable methods:
+AssertTable methods in C#:
 
 | Method | Description | Return Type|
 --- | --- | ---
@@ -1323,7 +1380,9 @@ AssertTable methods:
 **RowsWithValues(int count, params TableMatcher[] matchers)** | Asserts whether rows with particular matchers exist in a table multiple times | TableAssert
 **HasRowWithValues(params TableMatcher[] matchers)** | Asserts whether a row with particular matchers exists in a table | TableAssert
 
-[Test examples C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Complex/TableTests.cs)
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-examples/src/test/java/io/github/epam/tests/recommended/TableTests.java)
+
+[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Composite/TableTests.cs)
 
 ### DropDown
 

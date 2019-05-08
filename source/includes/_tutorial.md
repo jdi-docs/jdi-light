@@ -207,10 +207,11 @@ _We will go through this in <a href="https://jdi-docs.github.io/jdi-light/?java#
       c.name = "Roman"; c.password = "Jdi1234";
   } );
 Output: ROMAN.toString() --> User(name:Roman; password:Jdi1234)
+new User.equals(new User());
 ```
 For data class we can use any class but if we add **extends DataClass** we will get additional benefits:<br/>
 - Ability to fill User fields in any order and numbers without constructors with method **set()**<br/>
-- Compare two users by equality of their fields and not by reference with method **equal()**<br/>
+- Compare two users by equality of their fields and not by reference with method **equals()**<br/>
 - Have good **toString()** for User based on its fields<br/>
 <a href="https://github.com/jdi-tutorials/01-jdi-light-intro" target="_blank">See this example in LoginExample.java on Github</a>
 
@@ -291,9 +292,10 @@ public class UsersDataProvider {
 ```
 As Next step we will create one common test scenario and put User as parameter for it. <br/>
 And the last thing is just link our test to dataprovider method using **@Test** annotation parameters.<br/>
-Thats it! If we run this one scenario we will get 3 tests that validate different cases of failed login.<br/>
+Thats it!<br/>
+If we run this one scenario we will get 3 tests that validate different cases of failed login.<br/>
 In this way you can easily manage same scenarios with different test data, increase testing coverage, add new data sets or update them without changing tests<br/>
-So simple!<br/>
+So simple! <a class="github-button" href="https://github.com/jdi-testing/jdi-light" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star jdi-testing/jdi-light on GitHub">I Like it!</a><br/> 
 <a href="https://github.com/jdi-tutorials/02-jdi-light-forms-elements" target="_blank">See this example in LoginExample.java on Github</a>
 
 ## 4. UI Elements and optimization

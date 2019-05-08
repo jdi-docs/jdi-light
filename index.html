@@ -1093,8 +1093,8 @@ And <b><u>Complex</u></b> elements:<br/>
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"#contact-form"</span><span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">ContactForm</span> <span class="n">contactForm</span><span class="o">;</span>
 <span class="o">}</span>
 </code></pre>
-<p>And the <strong>Contact Form</strong> itself is <u>Composite</u> Page Object<br/>
-Contact Form placed on another <u>Composite</u> Page Object called <strong>Contact Page</strong><br/>
+<p>And the <strong>Contact Form</strong> itself is <b><u>Composite</u></b> UI Object (PageObject with additional capabilities in JDI)<br/>
+Contact Form placed on another Composite Page Object called <strong>Contact Page</strong><br/>
 Put your attention that Contact Form and Contact Page have additional meta information: <br/>
 - Already known <strong>@Url</strong> and <strong>@Title</strong> for WebPage and <br/>
 - Locator in <strong>@UI</strong> annotation. This mean that all elements placed in this Page Object will be found only in this context and even if their simple locator <u>&quot;button[type=submit]&quot;</u> present on this page multiple times it will be found correctly for this form<br/></p>

@@ -207,7 +207,7 @@ _We will go through this in <a href="https://jdi-docs.github.io/jdi-light/?java#
       c.name = "Roman"; c.password = "Jdi1234";
   } );
 Output: ROMAN.toString() --> User(name:Roman; password:Jdi1234)
-new User.equals(new User());
+new User().equals(new User());
 ```
 For data class we can use any class but if we add **extends DataClass** we will get additional benefits:<br/>
 - Ability to fill User fields in any order and numbers without constructors with method **set()**<br/>
@@ -308,6 +308,9 @@ _Note: See full list and more details in <a href="https://jdi-docs.github.io/jdi
 3. **Composite elements** are typified Page Objects. This is WebPage, Form, Section and just simple class with list of UI Elements or sub-sections<br/>
 _Note: See full list and more details in <a href="https://jdi-docs.github.io/jdi-light/?java#composite-elements">Documentation</a>_<br/>
 
+Let's look on example: Contact Form on <a href="https://jdi-testing.github.io/jdi-light/contacts.html" target="_blank">Contacts page</a> <br/>
+This Form opposite to Login Form has more different UI elemnts. Let's describe it.<br/>
+
 ```java
 public class ContactForm extends Form<ContactInfo> {
     @UI("#passport") Checkbox passport;
@@ -316,19 +319,16 @@ public class ContactForm extends Form<ContactInfo> {
     @UI("#position") TextField position;
     @UI("#passport-number") TextField passportNumber;
     @UI("#passport-seria") TextField passportSeria;
+    @UI("#accept-conditions") public Checkbox acceptConditions;
+    @UI("#description") TextArea description;
+    @UI("button[type=submit]") Button submit;
+    
     @UI("#gender") Dropdown gender;
     @UI("#religion") Combobox religion;
     @UI("#weather") MultiDropdown weather;
-
-    @UI("#accept-conditions") public Checkbox acceptConditions;
-    @UI("#description") TextArea description;
-
-    @UI("button[type=submit]") Button submit;
 }
 ```
-Let's look on example: Contact Form on <a href="https://jdi-testing.github.io/jdi-light/contacts.html" target="_blank">Contacts page</a> <br/>
-This Form opposite to Login Form has more different UI elemnts. Let's describe it.<br/>
-We have here <u>Common</u> elements: <br/>
+We have here <b><u>Common</u></b> elements: <br/>
 5 **TextField**s (name, lastName, position, passportNumber, passportSeria)<br/>
 <img src="images/tutorial/textfield.png" alt="TextField" width="200px"><br/>
 2 **Checkbox**es (passport, acceptConditions)<br/>
@@ -337,7 +337,7 @@ We have here <u>Common</u> elements: <br/>
 <img src="images/tutorial/textarea.png" alt="TextArea" width="200px"><br/>
 1 **Button** (submit)<br/>
 <img src="images/tutorial/button.png" alt="Button" width="100px"><br/>
-And <u>Complex</u> elements:<br/>
+And <b><u>Complex</u></b> elements:<br/>
 **Dropdown** (gender) -  Element with one value, expand arrow and list of options <br/>
 <img src="images/tutorial/dropdown.png" alt="Dropdown" width="200"><br/>
 **Combobox** (religion) - Mix of Dropdown and TextField. You set value from list of options or enter your own<br/>

@@ -322,10 +322,7 @@ public class ContactForm extends Form<ContactInfo> {
     @UI("#accept-conditions") public Checkbox acceptConditions;
     @UI("#description") TextArea description;
     @UI("button[type=submit]") Button submit;
-    
-    @UI("#gender") Dropdown gender;
-    @UI("#religion") Combobox religion;
-    @UI("#weather") MultiDropdown weather;
+    ...
 }
 ```
 We have here <b><u>Common</u></b> elements: <br/>
@@ -337,6 +334,15 @@ We have here <b><u>Common</u></b> elements: <br/>
 <img src="images/tutorial/textarea.png" alt="TextArea" width="200px"><br/>
 1 **Button** (submit)<br/>
 <img src="images/tutorial/button.png" alt="Button" width="100px"><br/>
+
+```java
+public class ContactForm extends Form<ContactInfo> {
+    ...
+    @UI("#gender") Dropdown gender;
+    @UI("#religion") Combobox religion;
+    @UI("#weather") MultiDropdown weather;
+}
+```
 And <b><u>Complex</u></b> elements:<br/>
 **Dropdown** (gender) -  Element with one value, expand arrow and list of options <br/>
 <img src="images/tutorial/dropdown.png" alt="Dropdown" width="200"><br/>

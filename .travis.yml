@@ -7,4 +7,10 @@ rvm:
 
 cache: bundler
 script:
-  - bash deploy.sh
+  - bash deploy.sh --source-only
+
+deploy:
+- provider: script
+  script: bash deploy.sh
+  on:
+    branch: master

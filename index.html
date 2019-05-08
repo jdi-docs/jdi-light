@@ -397,6 +397,9 @@
                     <a href="#common-elements" class="toc-h2 toc-link" data-title="Common elements">Common elements</a>
                         <ul class="toc-list-h2">
                             <li>
+                              <a href="#label" class="toc-h2 h3 toc-link" data-title="Label">Label</a>
+                            </li>
+                            <li>
                               <a href="#button" class="toc-h2 h3 toc-link" data-title="Button">Button</a>
                             </li>
                             <li>
@@ -1454,7 +1457,56 @@ In JDI Light this is as simple as for Common elements.
 <p>TBD</p>
 <h1 id='documentation'>Documentation</h1><h2 id='extended-selenium-features'>Extended Selenium features</h2>
 <p>TBD</p>
-<h2 id='common-elements'>Common elements</h2><h3 id='button'>Button</h3>
+<h2 id='common-elements'>Common elements</h2><h3 id='label'>Label</h3>
+<p><strong>Label</strong> – Elements&#39; caption for a big number of JDI common elements </p>
+
+<p><img src="images/colorpicker.png" alt="Label" /> </p>
+
+<p>Label&#39;s implementation is located in the following class: </p>
+
+<ul>
+<li><strong>C#</strong>: <em>JDI.Light.Elements.Base.UIElement</em> </li>
+</ul>
+<pre class="highlight csharp tab-csharp"><code>
+    <span class="p">[</span><span class="n">Test</span><span class="p">]</span> 
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">GetLabelTextTest</span><span class="p">()</span> 
+    <span class="p">{</span> 
+        <span class="nf">AreEqual</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">ColorPicker</span><span class="p">.</span><span class="nf">LabelText</span><span class="p">(),</span> <span class="s">"Select a color"</span><span class="p">);</span> 
+    <span class="p">}</span> 
+
+
+    <span class="p">[</span><span class="n">Test</span><span class="p">]</span> 
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">LabelTest</span><span class="p">()</span> 
+    <span class="p">{</span> 
+        <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">NameTextField</span><span class="p">.</span><span class="nf">Label</span><span class="p">().</span><span class="nf">GetText</span><span class="p">(),</span> <span class="s">"Your name:"</span><span class="p">);</span> 
+        <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">NameTextField</span><span class="p">.</span><span class="n">Is</span><span class="p">.</span><span class="nf">Text</span><span class="p">(</span><span class="nf">ContainsString</span><span class="p">(</span><span class="s">"Your"</span><span class="p">));</span> 
+        <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">SurnameTextField</span><span class="p">.</span><span class="nf">Label</span><span class="p">().</span><span class="nf">GetText</span><span class="p">(),</span> <span class="s">"Surname:"</span><span class="p">);</span> 
+    <span class="p">}</span>    
+
+</code></pre>
+<p>Available methods in C# JDI Light: </p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Label()</strong></td>
+<td>Creates label for element using the element&#39;s Id</td>
+<td>Label</td>
+</tr>
+<tr>
+<td><strong>LabelText()</strong></td>
+<td>Gets the text of a label</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/TextFieldsTests.cs">C# test examples</a> </p>
+<h3 id='button'>Button</h3>
 <p><strong>Button</strong> – Element that represents a clickable button</p>
 
 <p><img src="images/button.png" alt="Button" /></p>

@@ -35,7 +35,7 @@ Label's implementation is located in the following class:
 
 |Method | Description | Return Type
 --- | --- | ---
-**Label()** | Creates label for element using element's Id | Label
+**Label()** | Creates label for element using the element's Id | Label
 **LabelText()** | Gets the text of a label | string
 	
 [C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/TextFieldsTests.cs)

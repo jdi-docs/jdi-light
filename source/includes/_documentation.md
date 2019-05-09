@@ -1840,7 +1840,67 @@ Here is the list of some available methods in C# JDI Light:
 [C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/ComboBoxTests.cs)
 
 ## Composite elements
-TBD
+
+### WebPage
+
+**WebPage** - is a parent Java class for all JDI Java classes, implementing Page Object pattern.
+It located in package *com.epam.jdi.light.elements.composite*, extends DriverBase class, implements PageObject interface and contains a scope of common used methods:
+
+|Method | Description | Return Type
+--- | --- | ---
+**asForm()**|Returning new Form parameterized with local Name|Form<T>
+**getCurrentPage()**|Returning the name of current Page|String
+**setCurrentPage(WebPage page)**|Instantiating the current Page with Name|void
+**WebPage()**|Default constructor for WebPage class|WebPage
+**WebPage(String url)**|Parameterizing with URL constructor for WebPage class|void
+**openUrl(String url)**|Opening WebPage with URL|void
+**getUrl()**|Returning URL of Page|String
+**getTitle()**|Returning Title of Page|String
+**updatePageData(Url urlAnnotation, Title titleAnnotation)**|Setting Page URL and Title|void
+**url()**|Returning new StringCheckType object wit checked URL|StringCheckType
+**title()**|Returning new StringCheckType object wit checked Title|StringCheckType
+**open(String url)**||
+**open(Object... params)**||
+**checkOpened()**||
+**isOpened()**||
+**shouldBeOpened()**||
+**shouldBeOpened(Object... params)**||
+**openePage(String url)**||
+**refresh()**||
+**reload()**||
+**back()**||
+**forward()**||
+**zoom(double factor)**||
+**getHtml()**||
+**scroll(int x, int y)**||
+**scrollToTop()**||
+**scrollToBottom()**||
+**scrollDown(int value)**||
+**scrollUp(int value)**||
+**scrollRight(int value)**||
+**scrollLeft(int value)**||
+**addPage(WebPage page)**||
+**getPage(String value)**||
+**toString()**||
+****||
+****||
+****||
+****||
+****||
+****||
+****||
+****||
+****||
+
+more than that, it has nested Class **StringCheckType** with such methods:
+
+|Method | Description | Return Type
+--- | --- | ---
+**StringCheckType(Supplier<String> actual, String equals, String what)**|parametrized constructor|StringCheckType
+**check()**|Check that current page url/title equals to expected url/title|boolean
+**match()**|Check that current page url/title matches to expected url/title-matcher|boolean
+**contains()**|Check that current page url/title contains expected url/title-matcher|boolean
+
 
 ## UI Objects
 TBD

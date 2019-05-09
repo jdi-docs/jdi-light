@@ -1883,7 +1883,7 @@ Here is the list of some available methods in C# JDI Light:
 **scrollRight(int value)**|Scrolling right to designated position|void
 **scrollLeft(int value)**|Scrolling left to designated position|void
 **addPage(WebPage page)**|Adding selected page to Map of pages|void
-**getPage(String value)**|Getting page from Map by value|<T extends WebPage> T
+**getPage(String value)**|Getting page from Map by value|"<T extends WebPage> T"
 **toString()**|Overriding method of Object class|String
 
 more than that, it has nested Class **StringCheckType** with such methods:

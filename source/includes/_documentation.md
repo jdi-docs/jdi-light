@@ -1859,38 +1859,29 @@ It located in package *com.epam.jdi.light.elements.composite*, extends DriverBas
 **updatePageData(Url urlAnnotation, Title titleAnnotation)**|Setting Page URL and Title|void
 **url()**|Returning new StringCheckType object wit checked URL|StringCheckType
 **title()**|Returning new StringCheckType object wit checked Title|StringCheckType
-**open(String url)**||
-**open(Object... params)**||
-**checkOpened()**||
-**isOpened()**||
-**shouldBeOpened()**||
-**shouldBeOpened(Object... params)**||
-**openePage(String url)**||
-**refresh()**||
-**reload()**||
-**back()**||
-**forward()**||
-**zoom(double factor)**||
-**getHtml()**||
-**scroll(int x, int y)**||
-**scrollToTop()**||
-**scrollToBottom()**||
-**scrollDown(int value)**||
-**scrollUp(int value)**||
-**scrollRight(int value)**||
-**scrollLeft(int value)**||
-**addPage(WebPage page)**||
-**getPage(String value)**||
-**toString()**||
-****||
-****||
-****||
-****||
-****||
-****||
-****||
-****||
-****||
+**open(String url)**|Opens url specified for page|void
+**open(Object... params)**|Opens url specified for page with parameters|void
+**checkOpened()**|Check that page opened|void(!)(?)
+**isOpened()**|Check that page opened|boolean
+**shouldBeOpened()**|Check that page opened|void(!)(?)
+**shouldBeOpened(Object... params)**|Check that page opened with parameters|void(!)(?)
+**openePage(!)(?)(String url)**|Check that page opened|void(!)(?)
+**refresh()**|Reload current page|void
+**reload()(?)**|mean refresh()|void
+**back()**|Go back to previous page|void(!)(?)
+**forward()**|Go forward to next page|void(!)(?)
+**zoom(double factor)**|Zooming current page|void
+**getHtml()**|Getting HTML of current page|String
+**scroll(int x, int y)**|Scrolling to designated position|void
+**scrollToTop()**|Scrolling to top|void
+**scrollToBottom()**|Scrolling to bottom|void
+**scrollDown(int value)**|Scrolling dowd to designated position|void
+**scrollUp(int value)**|Scrolling up to designated position|void
+**scrollRight(int value)**|Scrolling right to designated position|void
+**scrollLeft(int value)**|Scrolling left to designated position|void
+**addPage(WebPage page)**|Adding selected page to Map of pages|void
+**getPage(String value)**|Getting page from Map by value|<T extends WebPage> T
+**toString()**|Overriding method of Object class|String
 
 more than that, it has nested Class **StringCheckType** with such methods:
 

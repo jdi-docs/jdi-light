@@ -1843,8 +1843,11 @@ Here is the list of some available methods in C# JDI Light:
 
 ### WebPage
 
-**WebPage** - is a parent Java class for all JDI Java classes, implementing Page Object pattern.
-It located in package *com.epam.jdi.light.elements.composite*, extends DriverBase class, implements PageObject interface and contains a scope of common used methods:
+**WebPage** is provided by JDI Light in:
+ 
+  - __Java__: _com.epam.jdi.light.elements.composite_
+
+**WebPage** - is a parent Java class for all JDI Page Object classes. WebPage class extending DriverBase class, implementing PageObject interface and containing a scope of common used methods:
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -1892,6 +1895,28 @@ more than that, it has nested Class **StringCheckType** with such methods:
 **match()**|Check that current page url/title matches to expected url/title-matcher|boolean
 **contains()**|Check that current page url/title contains expected url/title-matcher|boolean
 
+```java 
+public class MainPage extends WebPage{}
+MainPage mainPage = new MainPage;
+mainPage.setCurrentPage(WebPage page);
+mainPage.getCurrentPage();
+mainPage.getUrl()
+mainPage.getTitle()
+mainPage.checkOpened()
+mainPage.toString()
+mainPage.StringCheckType().check()
+
+@Test
+public void verifyURL() {
+    mainPage.setCurrentPage(mainPage);
+    assertEquals(mainPage.getUrl(), "www.mainpage.ru");
+}
+@Test
+public void verifyTitle() {
+    mainPage.setCurrentPage(mainPage);
+    assertEquals(mainPage.getTitle(), "Main page");
+}
+```
 
 ## UI Objects
 TBD

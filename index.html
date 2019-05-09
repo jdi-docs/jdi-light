@@ -4274,8 +4274,13 @@ Multi Selector are represented by the following class:</p>
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/ComboBoxTests.cs">C# test examples</a></p>
 <h2 id='composite-elements'>Composite elements</h2><h3 id='webpage'>WebPage</h3>
-<p><strong>WebPage</strong> - is a parent Java class for all JDI Java classes, implementing Page Object pattern.
-It located in package <em>com.epam.jdi.light.elements.composite</em>, extends DriverBase class, implements PageObject interface and contains a scope of common used methods:</p>
+<p><strong>WebPage</strong> is provided by JDI Light in:</p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.elements.composite</em></li>
+</ul>
+
+<p><strong>WebPage</strong> - is a parent Java class for all JDI Page Object classes. WebPage class extending DriverBase class, implementing PageObject interface and containing a scope of common used methods:</p>
 
 <table><thead>
 <tr>
@@ -4486,7 +4491,27 @@ It located in package <em>com.epam.jdi.light.elements.composite</em>, extends Dr
 <td>boolean</td>
 </tr>
 </tbody></table>
-<h2 id='ui-objects'>UI Objects</h2>
+<pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MainPage</span> <span class="kd">extends</span> <span class="n">WebPage</span><span class="o">{}</span>
+<span class="n">MainPage</span> <span class="n">mainPage</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MainPage</span><span class="o">;</span>
+<span class="n">mainPage</span><span class="o">.</span><span class="na">setCurrentPage</span><span class="o">(</span><span class="n">WebPage</span> <span class="n">page</span><span class="o">);</span>
+<span class="n">mainPage</span><span class="o">.</span><span class="na">getCurrentPage</span><span class="o">();</span>
+<span class="n">mainPage</span><span class="o">.</span><span class="na">getUrl</span><span class="o">()</span>
+<span class="n">mainPage</span><span class="o">.</span><span class="na">getTitle</span><span class="o">()</span>
+<span class="n">mainPage</span><span class="o">.</span><span class="na">checkOpened</span><span class="o">()</span>
+<span class="n">mainPage</span><span class="o">.</span><span class="na">toString</span><span class="o">()</span>
+<span class="n">mainPage</span><span class="o">.</span><span class="na">StringCheckType</span><span class="o">().</span><span class="na">check</span><span class="o">()</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">verifyURL</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">mainPage</span><span class="o">.</span><span class="na">setCurrentPage</span><span class="o">(</span><span class="n">mainPage</span><span class="o">);</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="n">mainPage</span><span class="o">.</span><span class="na">getUrl</span><span class="o">(),</span> <span class="s">"www.mainpage.ru"</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">verifyTitle</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">mainPage</span><span class="o">.</span><span class="na">setCurrentPage</span><span class="o">(</span><span class="n">mainPage</span><span class="o">);</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="n">mainPage</span><span class="o">.</span><span class="na">getTitle</span><span class="o">(),</span> <span class="s">"Main page"</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre><h2 id='ui-objects'>UI Objects</h2>
 <p>TBD</p>
 <h2 id='jdi-locators'>JDI Locators</h2>
 <p>TBD</p>

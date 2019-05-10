@@ -469,6 +469,19 @@ Let's start from simple Form - Login<br/>
 We plan to have lot of tests that starts from point ther <u>user is logged out</u> and <u>Login form is opened</u>, so let's write @BeforeMethod state for this set of test cases<br/>
 
 ```java
+Example 1
+public class SeleniumLoginForm {
+    @FindBy(id = "name") public WebElement name;
+    @FindBy(id = "password") public WebElement password;
+    @FindBy(id = "login-button") public WebElement loginButton;
+    
+    public void loginAs(User user) {
+        this.name.sendKeys(user.name);
+        this.password.sendKeys(user.password);
+        loginButton.click();
+    }
+}
+Example 2
 public class SeleniumLoginForm {
     @FindBy(id = "name") public WebElement name;
     @FindBy(id = "password") public WebElement password;
@@ -512,8 +525,9 @@ public class LoginFormSmart extends Form<User> {
 on JDISite.java >> public static LoginFormSmart loginFormSmart;
 ```
 In JDI Light we have different ways to describe the Form: <br/>
-**Selenium** - typical Page Object with **WebElement**s and **@FindBy** annotations, actions with them and without extending from something. Exactly this code will work in original Selenium project without JDI<br/>
-<a href="https://github.com/jdi-tutorials/04-jdi-light-different-forms/blob/master/src/main/java/jdisite/sections/SeleniumLoginForm.java" target="_blank">See example in SeleniumLoginForm.java on Github</a><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+**Selenium** - typical Page Object with **WebElement**s and **@FindBy** annotations, actions with them and without extending from something. Exactly this code will work in original Selenium project without JDI. See Example 1<br/>
+But for cases <a href="https://jdi-docs.github.io/jdi-light/?java#cover-login-form-with-data-driven-tests" target="_blank">where we would like to fill form with different values</a> and not always form fields are empty we need to extend our loginAs method an make it more complex and stable. See Example 2 <br/>
+<a href="https://github.com/jdi-tutorials/04-jdi-light-different-forms/blob/master/src/main/java/jdisite/sections/SeleniumLoginForm.java" target="_blank">See example in Selenium LoginForm.java on Github</a><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 **JQuery/Selenide** - Selenide or JQuery like style where instead of annotations @Findby you can use direct initialization<br/>
 <a href="https://github.com/jdi-tutorials/04-jdi-light-different-forms/blob/master/src/main/java/jdisite/sections/SelenideLoginForm.java" target="_blank">See example in SelenideLoginForm.java on Github</a><br/><br/><br/><br/><br/><br/>
@@ -529,6 +543,7 @@ In JDI Light we have different ways to describe the Form: <br/>
 on JDISite.java >> public static Form<User> lightLoginForm;
 ```
 **Light Forms** - if your Form consists of only TextFields and buttons you can avoid UI Object at all and just write one line in related page or in root Site class<br/>
+This allow us to write Login Form in our case in 1 line instead of 17!<br/>
 <a class="github-button" href="https://github.com/jdi-testing/jdi-light" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star jdi-testing/jdi-light on GitHub">Nice job man!</a>
 
 ## 5. Reduce Amount of code with JDI Light

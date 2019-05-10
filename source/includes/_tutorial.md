@@ -371,6 +371,7 @@ And <b><u>Complex</u></b> elements:<br/>
 **Combobox** (religion) - Mix of Dropdown and TextField. You set value from list of options or enter your own<br/>
 <img src="images/tutorial/combobox.png" alt="Combobox" width="200"><br/>
 **MultiDropdown** (weather) - Dropdown with ability to select list of options<br/>
+See as example amount of code that should be implemented on Selenium for one Complex element<br/>
 <img src="images/tutorial/multiselect.png" alt="MultiDropdown" width="200"><br/>
 
 ```java

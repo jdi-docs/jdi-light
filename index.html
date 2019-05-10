@@ -1084,6 +1084,28 @@ This Form opposite to Login Form has more different UI elemnts. Let&#39;s descri
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"#religion"</span><span class="o">)</span> <span class="n">Combobox</span> <span class="n">religion</span><span class="o">;</span>
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"#weather"</span><span class="o">)</span> <span class="n">MultiDropdown</span> <span class="n">weather</span><span class="o">;</span>
 <span class="o">}</span>
+<span class="c1">// Selenium code that should be implemented instead of @UI("#weather") MultiDropdown weather</span>
+<span class="nd">@FindBy</span><span class="o">(</span><span class="n">css</span> <span class="o">=</span><span class="s">"#weather .caret"</span><span class="o">)</span> <span class="n">WebElement</span> <span class="n">weatherExpand</span><span class="o">;</span>
+<span class="nd">@FindBy</span><span class="o">(</span><span class="n">css</span> <span class="o">=</span><span class="s">"#weather label"</span><span class="o">)</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">WebElement</span><span class="o">&gt;</span> <span class="n">weatherList</span><span class="o">;</span>
+<span class="nd">@FindBy</span><span class="o">(</span><span class="n">css</span> <span class="o">=</span><span class="s">"#weather button"</span><span class="o">)</span> <span class="n">WebElement</span> <span class="n">weatherValue</span><span class="o">;</span>
+<span class="nd">@FindBy</span><span class="o">(</span><span class="n">css</span> <span class="o">=</span><span class="s">"#weather ul"</span><span class="o">)</span> <span class="n">WebElement</span> <span class="n">weatherIsExpanded</span><span class="o">;</span>
+<span class="kd">private</span> <span class="kt">boolean</span> <span class="nf">weatherIsExpanded</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">weatherIsExpanded</span><span class="o">.</span><span class="na">getAttribute</span><span class="o">(</span><span class="s">"style"</span><span class="o">).</span><span class="na">equals</span><span class="o">(</span><span class="s">"display: block;"</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">select</span><span class="o">(</span><span class="n">String</span> <span class="n">value</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(!</span><span class="n">weatherIsExpanded</span><span class="o">())</span>
+        <span class="n">weatherExpand</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+    <span class="n">String</span><span class="o">[]</span> <span class="n">values</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="na">split</span><span class="o">(</span><span class="s">", "</span><span class="o">);</span>
+    <span class="k">for</span> <span class="o">(</span><span class="n">String</span> <span class="n">val</span> <span class="o">:</span> <span class="n">values</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">for</span> <span class="o">(</span><span class="n">WebElement</span> <span class="n">listOption</span> <span class="o">:</span> <span class="n">weatherList</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">listOption</span><span class="o">.</span><span class="na">getText</span><span class="o">().</span><span class="na">trim</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="n">val</span><span class="o">))</span>
+                <span class="n">listOption</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+<span class="kd">public</span> <span class="n">String</span> <span class="nf">getValue</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">weatherValue</span><span class="o">.</span><span class="na">getText</span><span class="o">();</span>
+<span class="o">}</span>
 </code></pre>
 <p>And <b><u>Complex</u></b> elements:<br/>
 <strong>Dropdown</strong> (gender) -  Element with one value, expand arrow and list of options <br/>

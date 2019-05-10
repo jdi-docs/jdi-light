@@ -1198,25 +1198,23 @@ We plan to have lot of tests that starts from point ther <u>user is logged out</
     <span class="nd">@FindBy</span><span class="o">(</span><span class="n">id</span> <span class="o">=</span> <span class="s">"login-button"</span><span class="o">)</span> <span class="kd">public</span> <span class="n">WebElement</span> <span class="n">loginButton</span><span class="o">;</span>
 
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">loginAs</span><span class="o">(</span><span class="n">User</span> <span class="n">user</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">name</span><span class="o">.</span><span class="na">sendKeys</span><span class="o">(</span><span class="n">user</span><span class="o">.</span><span class="na">name</span><span class="o">);</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">password</span><span class="o">.</span><span class="na">sendKeys</span><span class="o">(</span><span class="n">user</span><span class="o">.</span><span class="na">password</span><span class="o">);</span>
+        <span class="n">name</span><span class="o">.</span><span class="na">sendKeys</span><span class="o">(</span><span class="n">user</span><span class="o">.</span><span class="na">name</span><span class="o">);</span>
+        <span class="n">password</span><span class="o">.</span><span class="na">sendKeys</span><span class="o">(</span><span class="n">user</span><span class="o">.</span><span class="na">password</span><span class="o">);</span>
         <span class="n">loginButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
     <span class="o">}</span>
 <span class="o">}</span>
 <span class="n">Example</span> <span class="mi">2</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">SeleniumLoginForm</span> <span class="o">{</span>
-    <span class="nd">@FindBy</span><span class="o">(</span><span class="n">id</span> <span class="o">=</span> <span class="s">"name"</span><span class="o">)</span> <span class="kd">public</span> <span class="n">WebElement</span> <span class="n">name</span><span class="o">;</span>
-    <span class="nd">@FindBy</span><span class="o">(</span><span class="n">id</span> <span class="o">=</span> <span class="s">"password"</span><span class="o">)</span> <span class="kd">public</span> <span class="n">WebElement</span> <span class="n">password</span><span class="o">;</span>
-    <span class="nd">@FindBy</span><span class="o">(</span><span class="n">id</span> <span class="o">=</span> <span class="s">"login-button"</span><span class="o">)</span> <span class="kd">public</span> <span class="n">WebElement</span> <span class="n">loginButton</span><span class="o">;</span>
-
+    <span class="o">...</span>
+    <span class="c1">// 3 lines for Elements</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">loginAs</span><span class="o">(</span><span class="n">User</span> <span class="n">user</span><span class="o">)</span> <span class="o">{</span>
         <span class="k">if</span> <span class="o">(</span><span class="n">user</span><span class="o">.</span><span class="na">name</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">this</span><span class="o">.</span><span class="na">name</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
-            <span class="k">this</span><span class="o">.</span><span class="na">name</span><span class="o">.</span><span class="na">sendKeys</span><span class="o">(</span><span class="n">user</span><span class="o">.</span><span class="na">name</span><span class="o">);</span>
+            <span class="n">name</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
+            <span class="n">name</span><span class="o">.</span><span class="na">sendKeys</span><span class="o">(</span><span class="n">user</span><span class="o">.</span><span class="na">name</span><span class="o">);</span>
         <span class="o">}</span>
         <span class="k">if</span> <span class="o">(</span><span class="n">user</span><span class="o">.</span><span class="na">password</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">this</span><span class="o">.</span><span class="na">password</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
-            <span class="k">this</span><span class="o">.</span><span class="na">password</span><span class="o">.</span><span class="na">sendKeys</span><span class="o">(</span><span class="n">user</span><span class="o">.</span><span class="na">password</span><span class="o">);</span>
+            <span class="n">password</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
+            <span class="n">password</span><span class="o">.</span><span class="na">sendKeys</span><span class="o">(</span><span class="n">user</span><span class="o">.</span><span class="na">password</span><span class="o">);</span>
         <span class="o">}</span>
         <span class="n">loginButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
     <span class="o">}</span>
@@ -1227,7 +1225,6 @@ We plan to have lot of tests that starts from point ther <u>user is logged out</
     <span class="n">UIElement</span> <span class="n">name</span> <span class="o">=</span> <span class="err">$</span><span class="o">(</span><span class="s">"#name"</span><span class="o">),</span> 
           <span class="n">password</span> <span class="o">=</span> <span class="err">$</span><span class="o">(</span><span class="s">"#password"</span><span class="o">),</span> 
        <span class="n">loginButton</span> <span class="o">=</span> <span class="err">$</span><span class="o">(</span><span class="s">"#login-button"</span><span class="o">);</span>
-
     <span class="c1">// + Same 11 rows for methods like in Selenium</span>
     <span class="o">...</span>
 <span class="o">}</span>
@@ -1249,7 +1246,7 @@ We plan to have lot of tests that starts from point ther <u>user is logged out</
 <p>In JDI Light we have different ways to describe the Form: <br/>
 <strong>Selenium</strong> - typical Page Object with <strong>WebElement</strong>s and <strong>@FindBy</strong> annotations, actions with them and without extending from something. Exactly this code will work in original Selenium project without JDI. See Example 1<br/>
 But for cases <a href="https://jdi-docs.github.io/jdi-light/?java#cover-login-form-with-data-driven-tests" target="_blank">where we would like to fill form with different values</a> and not always form fields are empty we need to extend our loginAs method an make it more complex and stable. See Example 2 <br/>
-<a href="https://github.com/jdi-tutorials/04-jdi-light-different-forms/blob/master/src/main/java/jdisite/sections/SeleniumLoginForm.java" target="_blank">See example in Selenium LoginForm.java on Github</a><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></p>
+<a href="https://github.com/jdi-tutorials/04-jdi-light-different-forms/blob/master/src/main/java/jdisite/sections/SeleniumLoginForm.java" target="_blank">See example in Selenium LoginForm.java on Github</a><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></p>
 
 <p><strong>JQuery/Selenide</strong> - Selenide or JQuery like style where instead of annotations @Findby you can use direct initialization<br/>
 <a href="https://github.com/jdi-tutorials/04-jdi-light-different-forms/blob/master/src/main/java/jdisite/sections/SelenideLoginForm.java" target="_blank">See example in SelenideLoginForm.java on Github</a><br/><br/><br/><br/><br/><br/></p>

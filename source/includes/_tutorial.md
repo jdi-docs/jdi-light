@@ -623,12 +623,12 @@ public class LoginForm {
 
     public void loginAs(User user) {
         if (user.name != null) {
-            this.name.clear();
-            this.name.sendKeys(user.name);
+            name.clear();
+            name.sendKeys(user.name);
         }
         if (user.password != null) {
-            this.password.clear();
-            this.password.sendKeys(user.password);
+            password.clear();
+            password.sendKeys(user.password);
         }
         loginButton.click();
     }

@@ -342,6 +342,28 @@ public class ContactForm extends Form<ContactInfo> {
     @UI("#religion") Combobox religion;
     @UI("#weather") MultiDropdown weather;
 }
+// Selenium code that should be implemented instead of @UI("#weather") MultiDropdown weather
+@FindBy(css ="#weather .caret") WebElement weatherExpand;
+@FindBy(css ="#weather label") List<WebElement> weatherList;
+@FindBy(css ="#weather button") WebElement weatherValue;
+@FindBy(css ="#weather ul") WebElement weatherIsExpanded;
+private boolean weatherIsExpanded() {
+    return weatherIsExpanded.getAttribute("style").equals("display: block;");
+}
+public void select(String value) {
+    if (!weatherIsExpanded())
+        weatherExpand.click();
+    String[] values = value.split(", ");
+    for (String val : values) {
+        for (WebElement listOption : weatherList) {
+            if (listOption.getText().trim().equals(val))
+                listOption.click();
+        }
+    }
+}
+public String getValue() {
+    return weatherValue.getText();
+}
 ```
 And <b><u>Complex</u></b> elements:<br/>
 **Dropdown** (gender) -  Element with one value, expand arrow and list of options <br/>

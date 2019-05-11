@@ -342,7 +342,8 @@ public class ContactForm extends Form<ContactInfo> {
     @UI("#religion") Combobox religion;
     @UI("#weather") MultiDropdown weather;
 }
-// Selenium code that should be implemented instead of @UI("#weather") MultiDropdown weather
+// 21 Selenium lines of code that should be implemented instead of 1 line in JDI Light
+// @UI("#weather") MultiDropdown weather
 @FindBy(css ="#weather .caret") WebElement weatherExpand;
 @FindBy(css ="#weather label") List<WebElement> weatherList;
 @FindBy(css ="#weather button") WebElement weatherValue;
@@ -487,9 +488,9 @@ In our example we change one field _acceptConditions_ to "uncheck" and the resul
             userIcon.click();
     }
 ```
-We get first look on UI Elements in JDI Light and on Forms capabilities and now we can look deeper on Forms initialization and how this can help you to write less code<br/>
-Let's start from simple Form - Login<br/>
-We plan to have lot of tests that starts from point ther <u>user is logged out</u> and <u>Login form is opened</u>, so let's write @BeforeMethod state for this set of test cases<br/>
+We get first look on UI Elements in JDI Light and on Forms capabilities and now we can look deeper on Forms initialization and how this can help you to write less code.<br/>
+Let's start from simple Form - Login.<br/>
+We plan to have lot of tests that starts from point ther <u>user is logged out</u> and <u>Login form is opened</u>, so let's write @BeforeMethod state for this set of test cases.<br/><br/>
 
 ```java
 Example 1
@@ -545,8 +546,10 @@ public class LoginFormSmart extends Form<User> {
 on JDISite.java >> public static LoginFormSmart loginFormSmart;
 ```
 In JDI Light we have different ways to describe the Form: <br/>
-**Selenium** - typical Page Object with **WebElement**s and **@FindBy** annotations, actions with them and without extending from something. Exactly this code will work in original Selenium project without JDI. See Example 1<br/>
-But for cases <a href="https://jdi-docs.github.io/jdi-light/?java#cover-login-form-with-data-driven-tests" target="_blank">where we would like to fill form with different values</a> and not always form fields are empty we need to extend our loginAs method an make it more complex and stable. See Example 2 <br/>
+**Selenium** - typical Page Object with **WebElement**s and **@FindBy** annotations, actions with them and without extending from something. Exactly this code will work in original Selenium project without JDI.<br/>
+See Example 1<br/>
+But for cases <a href="https://jdi-docs.github.io/jdi-light/?java#cover-login-form-with-data-driven-tests" target="_blank">where we would like to fill form with different values</a> and not always form fields are empty we need to extend our loginAs method an make it more complex and stable. <br/>
+See Example 2 <br/>
 <a href="https://github.com/jdi-tutorials/04-jdi-light-different-forms/blob/master/src/main/java/jdisite/sections/SeleniumLoginForm.java" target="_blank">See example in Selenium LoginForm.java on Github</a><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 **JQuery/Selenide** - Selenide or JQuery like style where instead of annotations @Findby you can use direct initialization<br/>
@@ -592,11 +595,11 @@ public static void runChromeDriver() {
     DRIVER.manage().window().maximize();
 }
 ```
-**Selenium:**(6 loc)<br/>
+**Selenium:** (6 loc)<br/>
 This is done here by simple method _runChromeDriver();_<br/> 
 _Note: To run the driver in Selenium you need to download latest version from <a href="https://chromedriver.storage.googleapis.com/index.htmle" target="_blank">oficial site </a> and put it in **C:\Selenium** folder_<br/><br/><br/><br/><br/>
 
-**JDI Light**(0 loc)<br/> 
+**JDI Light** (0 loc)<br/> 
 You don't need to write a code for this. Latest version of ChromeDriver will be downloaded automatically.
 
 ### 2. Create Page Objects for Home and Contact pages ###
@@ -611,7 +614,7 @@ public class ContactPage {
     public static ContactForm contactForm = initElements(DRIVER, ContactForm.class);
 }
 ```
-**Selenium:**(8 loc)<br/>
+**Selenium:** (8 loc)<br/>
 
 First we will create Base Page that will handle all Page Objects initialization. And add common parameteres for pages like url and titile and methods typical to pages.<br/> 
 Next to that we can write simple code for Home page and Contact page Page Objects<br/> 
@@ -627,7 +630,7 @@ public class ContactPage extends WebPage {
     @UI("#contact-form") public static ContactForm contactForm;
 }
 ```
-**JDI Light**(8 loc)<br/> 
+**JDI Light** (8 loc)<br/> 
 In JDI Light we already have all functions described in BasePage and something more.<br/> 
 Code for UI Objects in Selenium and JDI Light in this case looks pretty much the same. Thanks to "BasePage" approach.<br/> 
 Just few points for your attention<br/> 
@@ -661,7 +664,7 @@ public class LoginForm {
 }
 public static LoginForm loginForm = initElements(DRIVER, LoginForm.class);
 ```
-**Selenium:**(21 loc)<br/> 
+**Selenium:** (21 loc)<br/> 
 This form contains WebElements (name, password, loginButton) and actions like loginAs() and isHidden()<br/>
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 **JDI Light**(1 loc)<br/> 
@@ -684,7 +687,7 @@ _Note: Unfortunately we can't use one string Form in this case because form has 
     @FindBy(css ="#contact-form #description") WebElement descriptionText;
     @FindBy(css ="#contact-form [type=submit]") WebElement submitButton;
 ```
-**Selenium:**(9 loc)<br/> 
+**Selenium:** (9 loc)<br/> 
 In Selenium we should describe all elements on form. This is easy to do for simple elements like TextField's, Checkboxes, TextArea and buttons.<br/>
 _Note: you must add **#contact-form** to some elements locators.<br/>
 And because we have no ideas on what UI element this WebElement represent this is a good practice to add type as part of its names
@@ -695,13 +698,15 @@ And because we have no ideas on what UI element this WebElement represent this i
     Checkbox passport, acceptConditions;
     TextArea description;
 ```
-**JDI Light**(3 loc)<br/> 
+**JDI Light** (3 loc)<br/> 
 In JDI Light we just need to describe Types of elements and list them for each type. In this example we have good locators so don't need to write them on form.
 
 ```java
     // Dropdown
     @FindBy(id = "gender") WebElement gender;
-    private Select gender() { return new Select(gender); }
+    private Select gender() { 
+        return new Select(gender); 
+    }
     // Combobox
     @FindBy(id = "religion") WebElement religion;
     // MultiDropdown
@@ -712,21 +717,83 @@ In JDI Light we just need to describe Types of elements and list them for each t
     private boolean weatherIsExpanded() {
         return weatherIsExpanded.getAttribute("style").equals("display: block;");
     }
+    private void selectWeather(String value) {
+        if (!weatherIsExpanded())
+            weatherExpand.click();
+        String[] values = value.split(", ");
+        for (String val : values) {
+            for (WebElement listOption : weatherList) {
+                if (listOption.getText().trim().equals(val))
+                    listOption.click();
+            }
+        }
+    }
 ```
-**Selenium:**(13 loc)<br/> 
+**Selenium:** (23 loc)<br/> 
 More interesting situation with Complex elements: <br/>
-For Dropdown we can use Select class from **selenium-support** package<br/>
-For Combobox we can use one line WebEleemnt just using it as standard TextField<br/>
-But for MultiDropdown we need to write 4 WebElements and on method
+For Dropdown we can use Select class from **selenium-support** package and WebElement + gender() method is enough to handle all actions<br/>
+For Combobox we can use one line WebElement just using it as standard TextField<br/>
+But for MultiDropdown we need to write 4 WebElements and few methods: select and isExpanded.
+General problem with Complex elements in standard Selenium approach that we must creat such methods for every Dropdown, MultiDropdown etc. JDI Light allow to write element once (or use it from library) and just use it in one line in all PageObjects
 
 ```java
     Dropdown gender;
     Combobox religion;
     MultiDropdown weather;
 ```
-**JDI Light**(3 loc)<br/> 
+**JDI Light** (3 loc)<br/> 
 In JDI Light this is as simple as for Common elements. 
 _Note: They are so short that we can write them in one line but let keep each time in its own line_
+
+```java
+public void submit(ContactInfo contact) {
+    if (contact.name != null) {
+        nameTextField.clear();
+        nameTextField.sendKeys(contact.name);
+    }
+    // +6 more elements with 4 lines each including Combobox and TextArea
+    // Dropdown
+    if (contact.gender != null) {
+        gender().selectByVisibleText(contact.gender);
+    }
+    // MultiDropdown
+    if (contact.weather != null) {
+        selectWeather(contact.weather);
+    }
+    // Checkboxes
+    if (contact.passport && !passportCheckbox.isSelected() ||
+            !contact.passport && passportCheckbox.isSelected())
+        passportCheckbox.click();
+    if (contact.acceptConditions && !acceptConditionsCheckbox.isSelected() ||
+            !contact.acceptConditions && acceptConditionsCheckbox.isSelected())
+        acceptConditionsCheckbox.click();
+    submitButton.click();
+}
+public void check(ContactInfo contact) {
+    // TextFields
+    if (contact.name != null)
+        assertEquals(nameTextField.getAttribute("value"), contact.name);
+    // +6 more elements with 2-3 lines each including Combobox and TextArea        
+    // Dropdown
+    if (contact.gender != null)
+        assertEquals(gender().getFirstSelectedOption().getText(), contact.gender);
+    // MultiDropdown
+    if (contact.weather != null)
+        assertEquals(weatherValue.getText(), contact.weather);
+    // Checkboxes
+    assertEquals(passportCheckbox.isSelected(), contact.passport);
+    assertEquals(acceptConditionsCheckbox.isSelected(), contact.acceptConditions);
+}
+```
+**Selenium:** (65(33) loc)<br/> 
+For our needs we should write two methods: submit and check<br/>
+As for Login Form in order to manage different Test Data via Contact Form we should check values for null. For only one case for example just Fill all fields we can avoid check for null and save some lines of code.<br/>
+In flexible approach we need 43+22=65 lines of code<br/>
+We can improve this code by using common method to clean and sendKeys for abstract WebElement - this will reduce code loc to 51.<br/>
+If we remove null validations, this will make our methods less common but will save additional 18 lines and reduce code to 33 lines for Form methods<br/><br/><br/><br/><br/>
+
+**JDI Light** (0 loc)<br/> 
+In JDI Light we don't need methods for this typical actions. Standard Form actions are flexible and allow to operate with any knid of data.
 
 
 ## Create Custom controls

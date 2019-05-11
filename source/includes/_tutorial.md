@@ -795,6 +795,7 @@ If we remove null validations, this will make our methods less common but will s
 **JDI Light** (0 loc)<br/> 
 In JDI Light we don't need methods for this typical actions. Standard Form actions are flexible and allow to operate with any knid of data.
 
+### 5. Test Data ###
 
 ## Create Custom controls
 TBD

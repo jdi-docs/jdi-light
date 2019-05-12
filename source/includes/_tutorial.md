@@ -606,39 +606,44 @@ You don't need to write a code for this. Latest version of ChromeDriver will be 
 
 ```java
 public class HomePage {
-    @FindBy(id ="user-icon") public WebElement userIcon;
-    @FindBy(id ="user-name") public WebElement userName;
-    @FindBy(css = ".fa-sign-out") public WebElement logout;
+    public static final String URL = "https://jdi-testing.github.io/jdi-light/";
+    @FindBy(id ="user-icon") public static WebElement userIcon;
+    @FindBy(id ="user-name") public static WebElement userName;
+    @FindBy(css = ".fa-sign-out") public static WebElement logout;
 }
 public static HomePage homePage = initElements(DRIVER, HomePage.class);
+
 public class ContactPage {
+    public static final String URL = "https://jdi-testing.github.io/jdi-light/contacts.html";
     public static ContactForm contactForm = initElements(DRIVER, ContactForm.class);
 }
 public static ContactPage contactPage = initElements(DRIVER, ContactPage.class);
 ```
-**Selenium:** (10 loc)<br/>
-First we will create Base Page that will handle all Page Objects initialization. And add common parameteres for pages like url and titile and methods typical to pages.<br/> 
-Next to that we can write simple code for Home page and Contact page Page Objects<br/> 
+**Selenium:** (12 loc)<br/>
+Using Page Factory initElements we can create simple PageObjects with minimum code like in example<br/>
+If you would like to have cool pages in Selenium you can use <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/pages/BasePage.java" target="_blank">BasePage</a> where handle all standard staff related to open and check page.<br/>
 _Note: I hope this "BasePage" approach will be useful for your Selenium projects.<br/> 
 
 ```java
+@Url("/")
 public class HomePage extends WebPage {
     @UI("#user-icon") public static Link userIcon;
     @UI("#user-name") public static Text userName;
     @UI(".fa-sign-out") public static Button logout;
 }
 public static HomePage homePage;
+
+@Url("/contacts") @Title("Contact Form")
 public class ContactPage extends WebPage {
     @UI("#contact-form") public static ContactForm contactForm;
 }
 public static ContactPage contactPage;
 ```
-**JDI Light** (10 loc)<br/> 
-In JDI Light we already have all functions described in BasePage and something more.<br/> 
-Code for UI Objects in Selenium and JDI Light in this case looks pretty much the same. Thanks to "BasePage" approach.<br/> 
+**JDI Light** (12 loc)<br/> 
+In JDI Light we already have all functions related to Pages in **WebPage** class so you just need to extend your PageObject from it and use @Url and @Title annotations for Page metadata<br/> 
+Code for UI Objects in Selenium and JDI Light in this case looks pretty much the same.<br/> 
 Just few points for your attention<br/> 
 - Locators a little bit smaller thanks to @UI annotations<br/> 
-- Elements can be static on UI Objects in JDI Light<br/> 
 - Forms can have root locators that will simplify locators for subelements<br/> 
 - In Selenium we must init each page with PageFactory.initElements(...) method<br/> 
 

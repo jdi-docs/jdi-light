@@ -1315,7 +1315,7 @@ In brackets you can find amount of lines of code we spent on each action<br/></p
 </code></pre>
 <p><strong>Selenium:</strong> (6 loc)<br/>
 This is done here by simple method <em>runChromeDriver();</em><br/> 
-<em>Note: To run the driver in Selenium you need to download latest version from <a href="https://chromedriver.storage.googleapis.com/index.html" target="_blank">oficial site </a> and put it in <strong>C:\Selenium</strong> folder</em><br/><br/><br/><br/><br/></p>
+<em>Note: To run the driver in Selenium you need to download latest version from <a href="https://chromedriver.storage.googleapis.com/index.html" target="_blank">oficial site </a> and put it in <strong>C:\Selenium</strong> folder</em><br/></p>
 
 <p><strong>JDI Light</strong> (0 loc)<br/> 
 You don&#39;t need to write a code for this. Latest version of ChromeDriver will be downloaded automatically.</p>
@@ -1324,11 +1324,13 @@ You don&#39;t need to write a code for this. Latest version of ChromeDriver will
     <span class="nd">@FindBy</span><span class="o">(</span><span class="n">id</span> <span class="o">=</span><span class="s">"user-name"</span><span class="o">)</span> <span class="kd">public</span> <span class="n">WebElement</span> <span class="n">userName</span><span class="o">;</span>
     <span class="nd">@FindBy</span><span class="o">(</span><span class="n">css</span> <span class="o">=</span> <span class="s">".fa-sign-out"</span><span class="o">)</span> <span class="kd">public</span> <span class="n">WebElement</span> <span class="n">logout</span><span class="o">;</span>
 <span class="o">}</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">HomePage</span> <span class="n">homePage</span> <span class="o">=</span> <span class="n">initElements</span><span class="o">(</span><span class="n">DRIVER</span><span class="o">,</span> <span class="n">HomePage</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">ContactPage</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">ContactForm</span> <span class="n">contactForm</span> <span class="o">=</span> <span class="n">initElements</span><span class="o">(</span><span class="n">DRIVER</span><span class="o">,</span> <span class="n">ContactForm</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
 <span class="o">}</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">ContactPage</span> <span class="n">contactPage</span> <span class="o">=</span> <span class="n">initElements</span><span class="o">(</span><span class="n">DRIVER</span><span class="o">,</span> <span class="n">ContactPage</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
 </code></pre>
-<p><strong>Selenium:</strong> (8 loc)<br/>
+<p><strong>Selenium:</strong> (10 loc)<br/>
 First we will create Base Page that will handle all Page Objects initialization. And add common parameteres for pages like url and titile and methods typical to pages.<br/> 
 Next to that we can write simple code for Home page and Contact page Page Objects<br/> 
 _Note: I hope this &quot;BasePage&quot; approach will be useful for your Selenium projects.<br/> </p>
@@ -1337,11 +1339,13 @@ _Note: I hope this &quot;BasePage&quot; approach will be useful for your Seleniu
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"#user-name"</span><span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">Text</span> <span class="n">userName</span><span class="o">;</span>
     <span class="nd">@UI</span><span class="o">(</span><span class="s">".fa-sign-out"</span><span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">Button</span> <span class="n">logout</span><span class="o">;</span>
 <span class="o">}</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">HomePage</span> <span class="n">homePage</span><span class="o">;</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">ContactPage</span> <span class="kd">extends</span> <span class="n">WebPage</span> <span class="o">{</span>
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"#contact-form"</span><span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">ContactForm</span> <span class="n">contactForm</span><span class="o">;</span>
 <span class="o">}</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">ContactPage</span> <span class="n">contactPage</span><span class="o">;</span>
 </code></pre>
-<p><strong>JDI Light</strong> (8 loc)<br/> 
+<p><strong>JDI Light</strong> (10 loc)<br/> 
 In JDI Light we already have all functions described in BasePage and something more.<br/> 
 Code for UI Objects in Selenium and JDI Light in this case looks pretty much the same. Thanks to &quot;BasePage&quot; approach.<br/> 
 Just few points for your attention<br/> 

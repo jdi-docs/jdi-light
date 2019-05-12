@@ -690,7 +690,7 @@ _Note: And of course you don't need to initialize this form_
 In total this is 97 lines of code for Selenium and only 8 lines of code in JDI Light but lets go step by step and see the difference in details.<br/>
 <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/sections/ContactForm.java" target="_blank">Selenium Contact Form code (97)</a><br/>
 <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-reduce-code/blob/master/src/main/java/jdisite/sections/ContactForm.java" target="_blank">JDI Light Contact Form code (8)</a><br/>
-_Note: Unfortunately we can't use one string Form in this case because form has elements of different kinds but we can still can use short form description with Smart locators. Just describe element's types and names and one string initialization with root locator "#contact-form"_<br/>
+_Note: Unfortunately we can't use one string Form in this case because form has elements of different kinds but we can still can use short form description with Smart locators. Just describe element's types and names and one string initialization with root locator **"#contact-form"**_<br/>
 
 ```java
     @FindBy(css ="#contact-form #name") WebElement name; 

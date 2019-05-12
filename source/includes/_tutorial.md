@@ -623,7 +623,7 @@ public static ContactPage contactPage = initElements(DRIVER, ContactPage.class);
 **Selenium:** (13 loc)<br/>
 Using Page Factory initElements we can create simple PageObjects with minimum code like in example<br/>
 If you would like to have cool pages in Selenium you can use <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/pages/BasePage.java" target="_blank">BasePage</a> where handle all standard staff related to open and check page.<br/>
-_Note: I hope this "BasePage" approach will be useful for your Selenium projects.<br/><br/><br/><br/><br/><br/><br/>
+_Note: I hope this "BasePage" approach will be useful for your Selenium projects.<br/><br/><br/><br/><br/><br/><br/><br/>
 
 ```java
 @Url("/")
@@ -648,8 +648,6 @@ Just few points for your attention<br/>
 - Forms can have root locators that will simplify locators for subelements<br/> 
 - In Selenium we must init each page with PageFactory.initElements(...) method<br/> 
 
-### 3. Create simple Login Form ###
-
 ```java
 public class LoginForm {
     @FindBy(id = "name") WebElement name;
@@ -673,6 +671,8 @@ public class LoginForm {
 }
 public static LoginForm loginForm = initElements(DRIVER, LoginForm.class);
 ```
+### 3. Create simple Login Form ###
+
 **Selenium:** (21 loc)<br/> 
 This form contains WebElements (name, password, loginButton) and actions like loginAs() and isHidden()<br/>
 <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/sections/LoginForm.java" target="_blank">Code example</a><br/>

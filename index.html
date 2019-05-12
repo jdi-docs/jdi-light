@@ -1384,7 +1384,7 @@ Just few points for your attention<br/>
 <p><strong>Selenium:</strong> (21 loc)<br/> 
 This form contains WebElements (name, password, loginButton) and actions like loginAs() and isHidden()<br/>
 <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/sections/LoginForm.java" target="_blank">Code example</a><br/>
-<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></p>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></p>
 
 <p><strong>JDI Light</strong>(1 loc)<br/> </p>
 <pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">static</span> <span class="n">Form</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">loginForm</span><span class="o">;</span>
@@ -1407,13 +1407,13 @@ This form contains WebElements (name, password, loginButton) and actions like lo
 In Selenium we should describe all elements on form. This is easy to do for simple elements like TextField&#39;s, Checkboxes, TextArea and buttons.<br/>
 _Note: you must add <strong>#contact-form</strong> to some elements locators.<br/>
 And because we have no ideas on what UI element this WebElement represent this is a good practice to add type as part of its names
-<br/></p>
+<br/><br/></p>
 <pre class="highlight java tab-java"><code>    <span class="n">TextField</span> <span class="n">name</span><span class="o">,</span> <span class="n">lastName</span><span class="o">,</span> <span class="n">position</span><span class="o">,</span> <span class="n">passportNumber</span><span class="o">,</span> <span class="n">passportSeria</span><span class="o">;</span>
     <span class="n">Checkbox</span> <span class="n">passport</span><span class="o">,</span> <span class="n">acceptConditions</span><span class="o">;</span>
     <span class="n">TextArea</span> <span class="n">description</span><span class="o">;</span>
 </code></pre>
 <p><strong>JDI Light</strong> (3 loc)<br/> 
-In JDI Light we just need to describe Types of elements and list them for each type. In this example we have good locators so don&#39;t need to write them on form.</p>
+In JDI Light we just need to describe Types of elements and list them for each type. In this example we have good locators so don&#39;t need to write them on form.<br/><br/></p>
 <pre class="highlight java tab-java"><code>    <span class="c1">// Dropdown</span>
     <span class="nd">@FindBy</span><span class="o">(</span><span class="n">id</span> <span class="o">=</span> <span class="s">"gender"</span><span class="o">)</span> <span class="n">WebElement</span> <span class="n">gender</span><span class="o">;</span>
     <span class="kd">private</span> <span class="n">Select</span> <span class="nf">gender</span><span class="o">()</span> <span class="o">{</span> 
@@ -1447,7 +1447,7 @@ For Dropdown we can use Select class from <strong>selenium-support</strong> pack
 For Combobox we can use one line WebElement just using it as standard TextField<br/>
 But for MultiDropdown we need to write 4 WebElements and few methods: select and isExpanded.
 General problem with Complex elements in standard Selenium approach that we must creat such methods for every Dropdown, MultiDropdown etc. JDI Light allow to write element once (or use it from library) and just use it in one line in all PageObjects<br/>
-<a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/elements/MultiDropdown.java" target="_blank">Multidropdown example</a><br/></p>
+<a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/elements/MultiDropdown.java" target="_blank">Multidropdown example</a><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></p>
 <pre class="highlight java tab-java"><code>    <span class="n">Dropdown</span> <span class="n">gender</span><span class="o">;</span>
     <span class="n">Combobox</span> <span class="n">religion</span><span class="o">;</span>
     <span class="n">MultiDropdown</span> <span class="n">weather</span><span class="o">;</span>

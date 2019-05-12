@@ -792,10 +792,10 @@ In flexible approach we need 43+22=65 lines of code<br/>
 We can improve this code by using common method to clean and sendKeys for abstract WebElement - this will reduce code to 55.<br/>
 If we remove null validations, this will make our methods less common but will save additional 18 lines and reduce code to 37 lines for Form methods<br/>
 <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/sections/ContactForm.java" target="_blank">Selenium Contact Form code (97)</a><br/>
-<a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/sections/ShortContactForm.java" target="_blank">Short Selenium Contact Form code (69)</a><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/sections/ShortContactForm.java" target="_blank">Short Selenium Contact Form code (69)</a><br/><br/><br/><br/><br/><br/><br/>
 
 **JDI Light** (0 loc)<br/> 
-In JDI Light we don't need methods for this typical actions. Standard Form actions are flexible and allow to operate with any knid of data.<br/>
+In JDI Light we don't need methods for this typical actions. Standard Form actions are flexible and allow to operate with any kind of data.<br/>
 <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-reduce-code/blob/master/src/main/java/jdisite/sections/ContactForm.java" target="_blank">JDI Light Contact Form code (8)</a><br/>
 
 ### 5. Test Data ###
@@ -838,6 +838,7 @@ After that manipulations we can create clear TestData<br/>
 <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/entities/DefaultData.java" target="_blank">User Roman</a><br/>
 <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/test/java/com/jdi/test/data/DefaultDataProvider.java" target="_blank">Full and Simple Contact info</a><br/>
 <br/><br/>
+
 ```java
 public class User extends DataClass<User> {
     public String name, password;
@@ -926,8 +927,8 @@ public void simpleContactFormTest() {
 As result we have Test scenarios that looks pretty much the same in Selenium and JDI Light but amount of code and time that we need to write this code are different. <br/>
 You can find clear projects code in "result" branch of <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/tree/result" target="_blank">Selenium</a> and <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-reduce-code/tree/result" target="_blank">JDI Light</a> example repositories.<br/>
 Statistical results:<br/>
-<img src="images/tutorial/selenium-results.png" alt="Selenium Statistic" width="200"><br/>
-<img src="images/tutorial/jdi-light-results.png" alt="JDI Light Statistic" width="200"><br/>
+<img src="images/tutorial/selenium-results.png" alt="Selenium Statistic" width="400"><br/>
+<img src="images/tutorial/jdi-light-results.png" alt="JDI Light Statistic" width="400"><br/>
 In our example we write 3 times less amount of code. <br/>
 This means that if for this test scenario regular test engineer needs about 1 working day on JDI Light this work can be done in 2-3 hours. Or automate 3 times more test cases in the same period of time.<br/>
 _Note: You can try to automate this test scenario by yourself from scratch without clues and check how much time this will take from you_<br/>

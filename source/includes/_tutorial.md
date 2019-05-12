@@ -622,7 +622,7 @@ public static ContactPage contactPage = initElements(DRIVER, ContactPage.class);
 **Selenium:** (12 loc)<br/>
 Using Page Factory initElements we can create simple PageObjects with minimum code like in example<br/>
 If you would like to have cool pages in Selenium you can use <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/pages/BasePage.java" target="_blank">BasePage</a> where handle all standard staff related to open and check page.<br/>
-_Note: I hope this "BasePage" approach will be useful for your Selenium projects.<br/> 
+_Note: I hope this "BasePage" approach will be useful for your Selenium projects.<br/><br/><br/><br/><br/>
 
 ```java
 @Url("/")

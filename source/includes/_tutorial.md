@@ -597,7 +597,7 @@ public static void runChromeDriver() {
 ```
 **Selenium:** (6 loc)<br/>
 This is done here by simple method _runChromeDriver();_<br/> 
-_Note: To run the driver in Selenium you need to download latest version from <a href="https://chromedriver.storage.googleapis.com/index.html" target="_blank">oficial site </a> and put it in **C:\Selenium** folder_<br/><br/><br/><br/><br/>
+_Note: To run the driver in Selenium you need to download latest version from <a href="https://chromedriver.storage.googleapis.com/index.html" target="_blank">oficial site </a> and put it in **C:\Selenium** folder_<br/>
 
 **JDI Light** (0 loc)<br/> 
 You don't need to write a code for this. Latest version of ChromeDriver will be downloaded automatically.
@@ -610,11 +610,13 @@ public class HomePage {
     @FindBy(id ="user-name") public WebElement userName;
     @FindBy(css = ".fa-sign-out") public WebElement logout;
 }
+public static HomePage homePage = initElements(DRIVER, HomePage.class);
 public class ContactPage {
     public static ContactForm contactForm = initElements(DRIVER, ContactForm.class);
 }
+public static ContactPage contactPage = initElements(DRIVER, ContactPage.class);
 ```
-**Selenium:** (8 loc)<br/>
+**Selenium:** (10 loc)<br/>
 First we will create Base Page that will handle all Page Objects initialization. And add common parameteres for pages like url and titile and methods typical to pages.<br/> 
 Next to that we can write simple code for Home page and Contact page Page Objects<br/> 
 _Note: I hope this "BasePage" approach will be useful for your Selenium projects.<br/> 
@@ -625,11 +627,13 @@ public class HomePage extends WebPage {
     @UI("#user-name") public static Text userName;
     @UI(".fa-sign-out") public static Button logout;
 }
+public static HomePage homePage;
 public class ContactPage extends WebPage {
     @UI("#contact-form") public static ContactForm contactForm;
 }
+public static ContactPage contactPage;
 ```
-**JDI Light** (8 loc)<br/> 
+**JDI Light** (10 loc)<br/> 
 In JDI Light we already have all functions described in BasePage and something more.<br/> 
 Code for UI Objects in Selenium and JDI Light in this case looks pretty much the same. Thanks to "BasePage" approach.<br/> 
 Just few points for your attention<br/> 

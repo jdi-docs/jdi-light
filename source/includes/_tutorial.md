@@ -794,7 +794,7 @@ In flexible approach we need 43+22=65 lines of code<br/>
 We can improve this code by using common method to clean and sendKeys for abstract WebElement - this will reduce code to 55.<br/>
 If we remove null validations, this will make our methods less common but will save additional 18 lines and reduce code to 37 lines for Form methods<br/>
 <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/sections/ContactForm.java" target="_blank">Selenium Contact Form code (97)</a><br/>
-<a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/sections/ShortContactForm.java" target="_blank">Short Selenium Contact Form code (69)</a><br/><br/><br/><br/>
+<a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/sections/ShortContactForm.java" target="_blank">Short Selenium Contact Form code (69)</a><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 **JDI Light** (0 loc)<br/> 
 In JDI Light we don't need methods for this typical actions. Standard Form actions are flexible and allow to operate with any knid of data.<br/>

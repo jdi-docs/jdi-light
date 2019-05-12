@@ -677,7 +677,7 @@ In JDI Light you don't need to write UI Object for such simple form. Just declar
 _Note: And of course you don't need to initialize this form_
 
 ### 4. Create complex Contact Form ###
-In total this is 64 lines of code for Selenium and only 9 lines of code in JDI Light but lets make our overview step by step.
+In total this is 97 lines of code for Selenium and only 8 lines of code in JDI Light but lets make our overview step by step.
 _Note: Unfortunately we can't use one string Form in this case because form has elements of different kinds but we can still can use short form description with Smart locators. Just describe element's types and names and one string initialization with root locator "#contact-form"_<br/>
 
 ```java
@@ -791,7 +791,7 @@ public void check(ContactInfo contact) {
 For our needs we should write two methods: submit and check<br/>
 As for Login Form in order to manage different Test Data via Contact Form we should check values for null. For only one case for example just Fill all fields we can avoid check for null and save some lines of code.<br/>
 In flexible approach we need 43+22=65 lines of code<br/>
-We can improve this code by using common method to clean and sendKeys for abstract WebElement - this will reduce code loc to 55.<br/>
+We can improve this code by using common method to clean and sendKeys for abstract WebElement - this will reduce code to 55.<br/>
 If we remove null validations, this will make our methods less common but will save additional 18 lines and reduce code to 37 lines for Form methods<br/><br/><br/><br/>
 <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/sections/ContactForm.java" target="_blank">See Selenium Contact Form code example (97)</a><br/>
 <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/sections/ShortContactForm.java" target="_blank">See Short Selenium Contact Form code example (69)</a><br/>

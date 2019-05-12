@@ -1454,7 +1454,7 @@ General problem with Complex elements in standard Selenium approach that we must
 </code></pre>
 <p><strong>JDI Light</strong> (3 loc)<br/> 
 In JDI Light this is as simple as for Common elements. 
-<em>Note: They are so short that we can write them in one line but let keep each time in its own line</em></p>
+<em>Note: They are so short that we can write them in one line but let keep each time in its own line</em><br/><br/></p>
 <pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kt">void</span> <span class="nf">submit</span><span class="o">(</span><span class="n">ContactInfo</span> <span class="n">contact</span><span class="o">)</span> <span class="o">{</span>
     <span class="k">if</span> <span class="o">(</span><span class="n">contact</span><span class="o">.</span><span class="na">name</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
         <span class="n">nameTextField</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
@@ -1479,19 +1479,7 @@ In JDI Light this is as simple as for Common elements.
     <span class="n">submitButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
 <span class="o">}</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">check</span><span class="o">(</span><span class="n">ContactInfo</span> <span class="n">contact</span><span class="o">)</span> <span class="o">{</span>
-    <span class="c1">// TextFields</span>
-    <span class="k">if</span> <span class="o">(</span><span class="n">contact</span><span class="o">.</span><span class="na">name</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span>
-        <span class="n">assertEquals</span><span class="o">(</span><span class="n">nameTextField</span><span class="o">.</span><span class="na">getAttribute</span><span class="o">(</span><span class="s">"value"</span><span class="o">),</span> <span class="n">contact</span><span class="o">.</span><span class="na">name</span><span class="o">);</span>
-    <span class="c1">// +6 more elements with 2-3 lines each including Combobox and TextArea        </span>
-    <span class="c1">// Dropdown</span>
-    <span class="k">if</span> <span class="o">(</span><span class="n">contact</span><span class="o">.</span><span class="na">gender</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span>
-        <span class="n">assertEquals</span><span class="o">(</span><span class="n">gender</span><span class="o">().</span><span class="na">getFirstSelectedOption</span><span class="o">().</span><span class="na">getText</span><span class="o">(),</span> <span class="n">contact</span><span class="o">.</span><span class="na">gender</span><span class="o">);</span>
-    <span class="c1">// MultiDropdown</span>
-    <span class="k">if</span> <span class="o">(</span><span class="n">contact</span><span class="o">.</span><span class="na">weather</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span>
-        <span class="n">assertEquals</span><span class="o">(</span><span class="n">weatherValue</span><span class="o">.</span><span class="na">getText</span><span class="o">(),</span> <span class="n">contact</span><span class="o">.</span><span class="na">weather</span><span class="o">);</span>
-    <span class="c1">// Checkboxes</span>
-    <span class="n">assertEquals</span><span class="o">(</span><span class="n">passportCheckbox</span><span class="o">.</span><span class="na">isSelected</span><span class="o">(),</span> <span class="n">contact</span><span class="o">.</span><span class="na">passport</span><span class="o">);</span>
-    <span class="n">assertEquals</span><span class="o">(</span><span class="n">acceptConditionsCheckbox</span><span class="o">.</span><span class="na">isSelected</span><span class="o">(),</span> <span class="n">contact</span><span class="o">.</span><span class="na">acceptConditions</span><span class="o">);</span>
+    <span class="c1">//  20 lines to validate contact</span>
 <span class="o">}</span>
 </code></pre>
 <p><strong>Selenium:</strong> (65(37) loc)<br/> 
@@ -1499,9 +1487,9 @@ For our needs we should write two methods: submit and check<br/>
 As for Login Form in order to manage different Test Data via Contact Form we should check values for null. For only one case for example just Fill all fields we can avoid check for null and save some lines of code.<br/>
 In flexible approach we need 43+22=65 lines of code<br/>
 We can improve this code by using common method to clean and sendKeys for abstract WebElement - this will reduce code to 55.<br/>
-If we remove null validations, this will make our methods less common but will save additional 18 lines and reduce code to 37 lines for Form methods<br/><br/><br/><br/>
+If we remove null validations, this will make our methods less common but will save additional 18 lines and reduce code to 37 lines for Form methods<br/>
 <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/sections/ContactForm.java" target="_blank">Selenium Contact Form code (97)</a><br/>
-<a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/sections/ShortContactForm.java" target="_blank">Short Selenium Contact Form code (69)</a><br/></p>
+<a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/sections/ShortContactForm.java" target="_blank">Short Selenium Contact Form code (69)</a><br/><br/><br/><br/></p>
 
 <p><strong>JDI Light</strong> (0 loc)<br/> 
 In JDI Light we don&#39;t need methods for this typical actions. Standard Form actions are flexible and allow to operate with any knid of data.<br/>

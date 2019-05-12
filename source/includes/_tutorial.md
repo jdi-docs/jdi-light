@@ -859,7 +859,7 @@ public static ContactInfo FULL_CONTACT = new ContactInfo().set(c -> {
     c.name = "Roman"; c.lastName = "Full Contact"; c.position = "ChiefQA";
     c.religion = "Other"; c.weather = "Sun, Snow"; c.acceptConditions = true;
     c.gender = "Female"; c.passportNumber = 4321; c.passportSeria = 123456;
-    c.description = "JDI - awesome UI automation tool"; }
+    c.passport = true; c.description = "JDI - awesome UI automation tool"; }
 );
 ```
 **JDI Light** (22 loc)<br/> 
@@ -888,7 +888,7 @@ static void setUp() {
 @BeforeMethod
 public void before() {
     loggedIn();
-    selectInMenu(ContactForm);
+    selectInMenu("Contact form");
 }
 @Test
 public void submitContactDataTest() {
@@ -908,7 +908,7 @@ public void submitContactSimpleDataTest() {
 @BeforeMethod
 public void before() {
     loggedIn();
-    sideMenu.select(ContactForm);
+    sideMenu.select("Contact form");
 }
 @Test
 public void submitContactFormTest() {
@@ -924,7 +924,15 @@ public void simpleContactFormTest() {
 }
 ```
 As result we have Test scenarios that looks pretty much the same in Selenium and JDI Light but amount of code and time that we need to write this code are different. <br/>
-In addition less amount of code will make tests more clear to understand because JDI Light removes only waste and keep all business important parts in place. <br/>
+You can find clear projects code in "result" branch of <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/tree/result" target="_blank">Selenium</a> and <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-reduce-code/tree/result" target="_blank">JDI Light</a> example repositories.<br/>
+Statistical results:<br/>
+<img src="images/tutorial/selenium-results.png" alt="Selenium Statistic" width="200"><br/>
+<img src="images/tutorial/jdi-light-results.png" alt="JDI Light Statistic" width="200"><br/>
+In our example we write 3 times less amount of code. <br/>
+This means that if for this test scenario regular test engineer needs about 1 working day on JDI Light this work can be done in 2-3 hours. Or automate 3 times more test cases in the same period of time.<br/>
+_Note: You can try to automate this test scenario by yourself from scratch without clues and check how much time this will take from you_<br/>
+But JDI Light not only saves your time. Less amount of code will increase clearness of code.<br/>
+_Note: JDI Light removes only waste code and keep all business important parts in place. <br/>
 And this is not all as result of execution tests on JDI Light you will get logs of all your actions in pretty readable form. If you would like to have same level of logs in Selenium you need to write additional 30-50 lines of code for this example and keep to write logs in code all the time.<br/>
 
 

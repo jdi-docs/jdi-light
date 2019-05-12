@@ -929,7 +929,7 @@ You can find clear projects code in "result" branch of <a href="https://github.c
 Statistical results:<br/>
 <img src="images/tutorial/selenium-results.png" alt="Selenium Statistic" width="400"><br/>
 <img src="images/tutorial/jdi-light-results.png" alt="JDI Light Statistic" width="400"><br/>
-In our example we write 3 times less amount of code. <br/>
+In our example we write 3 times less amount of code with JDI Light. <br/>
 This means that if for this test scenario regular test engineer needs about 1 working day on JDI Light this work can be done in 2-3 hours. Or automate 3 times more test cases in the same period of time.<br/>
 _Note: You can try to automate this test scenario by yourself from scratch without clues and check how much time this will take from you_<br/>
 But JDI Light not only saves your time. Less amount of code will increase clearness of code.<br/>

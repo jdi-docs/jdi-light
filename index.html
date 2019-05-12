@@ -1490,10 +1490,10 @@ In flexible approach we need 43+22=65 lines of code<br/>
 We can improve this code by using common method to clean and sendKeys for abstract WebElement - this will reduce code to 55.<br/>
 If we remove null validations, this will make our methods less common but will save additional 18 lines and reduce code to 37 lines for Form methods<br/>
 <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/sections/ContactForm.java" target="_blank">Selenium Contact Form code (97)</a><br/>
-<a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/sections/ShortContactForm.java" target="_blank">Short Selenium Contact Form code (69)</a><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></p>
+<a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/sections/ShortContactForm.java" target="_blank">Short Selenium Contact Form code (69)</a><br/><br/><br/><br/><br/><br/><br/></p>
 
 <p><strong>JDI Light</strong> (0 loc)<br/> 
-In JDI Light we don&#39;t need methods for this typical actions. Standard Form actions are flexible and allow to operate with any knid of data.<br/>
+In JDI Light we don&#39;t need methods for this typical actions. Standard Form actions are flexible and allow to operate with any kind of data.<br/>
 <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-reduce-code/blob/master/src/main/java/jdisite/sections/ContactForm.java" target="_blank">JDI Light Contact Form code (8)</a><br/></p>
 <h3 id='5-test-data'>5. Test Data</h3><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">User</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="n">password</span><span class="o">;</span>
@@ -1531,32 +1531,31 @@ After that manipulations we can create clear TestData<br/>
 <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/entities/ContactInfo.java" target="_blank">ContactInfo data</a><br/>
 <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/entities/DefaultData.java" target="_blank">User Roman</a><br/>
 <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/test/java/com/jdi/test/data/DefaultDataProvider.java" target="_blank">Full and Simple Contact info</a><br/>
-<br/><br/>
-<code>java
-public class User extends DataClass&lt;User&gt; {
-    public String name, password;
-}
-public class ContactInfo extends DataClass&lt;ContactInfo&gt; {
-    public String name, lastName, position, gender, religion, weather, description;
-    public int passportNumber, passportSeria = -1;
-    public boolean passport, acceptConditions;
-}
-public static User ROMAN = new User().set(c -&gt; {
-    c.name = &quot;Roman&quot;; c.password = &quot;Jdi1234&quot;;}
-);
-public static ContactInfo SIMPLE_CONTACT = new ContactInfo().set(c -&gt; {
-    c.name = &quot;Roman&quot;; c.lastName = &quot;Iovlev&quot;; c.position = &quot;ChiefQA&quot;;
-    c.passportNumber = 4321; c.passportSeria = 123456;
-    c.description = &quot;JDI - awesome UI autoamtion tool&quot;; }
-);
-public static ContactInfo FULL_CONTACT = new ContactInfo().set(c -&gt; {
-    c.name = &quot;Roman&quot;; c.lastName = &quot;Full Contact&quot;; c.position = &quot;ChiefQA&quot;;
-    c.religion = &quot;Other&quot;; c.weather = &quot;Sun, Snow&quot;; c.acceptConditions = true;
-    c.gender = &quot;Female&quot;; c.passportNumber = 4321; c.passportSeria = 123456;
-    c.passport = true; c.description = &quot;JDI - awesome UI automation tool&quot;; }
-);
-</code>
-<strong>JDI Light</strong> (22 loc)<br/> 
+<br/><br/></p>
+<pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">User</span> <span class="kd">extends</span> <span class="n">DataClass</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="n">password</span><span class="o">;</span>
+<span class="o">}</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ContactInfo</span> <span class="kd">extends</span> <span class="n">DataClass</span><span class="o">&lt;</span><span class="n">ContactInfo</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="n">lastName</span><span class="o">,</span> <span class="n">position</span><span class="o">,</span> <span class="n">gender</span><span class="o">,</span> <span class="n">religion</span><span class="o">,</span> <span class="n">weather</span><span class="o">,</span> <span class="n">description</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="n">passportNumber</span><span class="o">,</span> <span class="n">passportSeria</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="n">passport</span><span class="o">,</span> <span class="n">acceptConditions</span><span class="o">;</span>
+<span class="o">}</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">User</span> <span class="n">ROMAN</span> <span class="o">=</span> <span class="k">new</span> <span class="n">User</span><span class="o">().</span><span class="na">set</span><span class="o">(</span><span class="n">c</span> <span class="o">-&gt;</span> <span class="o">{</span>
+    <span class="n">c</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">"Roman"</span><span class="o">;</span> <span class="n">c</span><span class="o">.</span><span class="na">password</span> <span class="o">=</span> <span class="s">"Jdi1234"</span><span class="o">;}</span>
+<span class="o">);</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">ContactInfo</span> <span class="n">SIMPLE_CONTACT</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ContactInfo</span><span class="o">().</span><span class="na">set</span><span class="o">(</span><span class="n">c</span> <span class="o">-&gt;</span> <span class="o">{</span>
+    <span class="n">c</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">"Roman"</span><span class="o">;</span> <span class="n">c</span><span class="o">.</span><span class="na">lastName</span> <span class="o">=</span> <span class="s">"Iovlev"</span><span class="o">;</span> <span class="n">c</span><span class="o">.</span><span class="na">position</span> <span class="o">=</span> <span class="s">"ChiefQA"</span><span class="o">;</span>
+    <span class="n">c</span><span class="o">.</span><span class="na">passportNumber</span> <span class="o">=</span> <span class="mi">4321</span><span class="o">;</span> <span class="n">c</span><span class="o">.</span><span class="na">passportSeria</span> <span class="o">=</span> <span class="mi">123456</span><span class="o">;</span>
+    <span class="n">c</span><span class="o">.</span><span class="na">description</span> <span class="o">=</span> <span class="s">"JDI - awesome UI autoamtion tool"</span><span class="o">;</span> <span class="o">}</span>
+<span class="o">);</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">ContactInfo</span> <span class="n">FULL_CONTACT</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ContactInfo</span><span class="o">().</span><span class="na">set</span><span class="o">(</span><span class="n">c</span> <span class="o">-&gt;</span> <span class="o">{</span>
+    <span class="n">c</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">"Roman"</span><span class="o">;</span> <span class="n">c</span><span class="o">.</span><span class="na">lastName</span> <span class="o">=</span> <span class="s">"Full Contact"</span><span class="o">;</span> <span class="n">c</span><span class="o">.</span><span class="na">position</span> <span class="o">=</span> <span class="s">"ChiefQA"</span><span class="o">;</span>
+    <span class="n">c</span><span class="o">.</span><span class="na">religion</span> <span class="o">=</span> <span class="s">"Other"</span><span class="o">;</span> <span class="n">c</span><span class="o">.</span><span class="na">weather</span> <span class="o">=</span> <span class="s">"Sun, Snow"</span><span class="o">;</span> <span class="n">c</span><span class="o">.</span><span class="na">acceptConditions</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+    <span class="n">c</span><span class="o">.</span><span class="na">gender</span> <span class="o">=</span> <span class="s">"Female"</span><span class="o">;</span> <span class="n">c</span><span class="o">.</span><span class="na">passportNumber</span> <span class="o">=</span> <span class="mi">4321</span><span class="o">;</span> <span class="n">c</span><span class="o">.</span><span class="na">passportSeria</span> <span class="o">=</span> <span class="mi">123456</span><span class="o">;</span>
+    <span class="n">c</span><span class="o">.</span><span class="na">passport</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span> <span class="n">c</span><span class="o">.</span><span class="na">description</span> <span class="o">=</span> <span class="s">"JDI - awesome UI automation tool"</span><span class="o">;</span> <span class="o">}</span>
+<span class="o">);</span>
+</code></pre>
+<p><strong>JDI Light</strong> (22 loc)<br/> 
 To create Test Data in JDI Light we can use DataClass that allow us to setup different test data, compare it and print and in the same time keep its clearness.<br/>
 No Constructors, no methods Overrides but all functions are in place with <strong>DataClass</strong><br/>
 <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-reduce-code/blob/master/src/main/java/jdisite/entities/User.java" target="_blank">User data</a><br/>
@@ -1616,8 +1615,8 @@ No Constructors, no methods Overrides but all functions are in place with <stron
 <p>As result we have Test scenarios that looks pretty much the same in Selenium and JDI Light but amount of code and time that we need to write this code are different. <br/>
 You can find clear projects code in &quot;result&quot; branch of <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/tree/result" target="_blank">Selenium</a> and <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-reduce-code/tree/result" target="_blank">JDI Light</a> example repositories.<br/>
 Statistical results:<br/>
-<img src="images/tutorial/selenium-results.png" alt="Selenium Statistic" width="200"><br/>
-<img src="images/tutorial/jdi-light-results.png" alt="JDI Light Statistic" width="200"><br/>
+<img src="images/tutorial/selenium-results.png" alt="Selenium Statistic" width="400"><br/>
+<img src="images/tutorial/jdi-light-results.png" alt="JDI Light Statistic" width="400"><br/>
 In our example we write 3 times less amount of code. <br/>
 This means that if for this test scenario regular test engineer needs about 1 working day on JDI Light this work can be done in 2-3 hours. Or automate 3 times more test cases in the same period of time.<br/>
 <em>Note: You can try to automate this test scenario by yourself from scratch without clues and check how much time this will take from you</em><br/>

@@ -793,61 +793,83 @@ As for Login Form in order to manage different Test Data via Contact Form we sho
 In flexible approach we need 43+22=65 lines of code<br/>
 We can improve this code by using common method to clean and sendKeys for abstract WebElement - this will reduce code loc to 55.<br/>
 If we remove null validations, this will make our methods less common but will save additional 18 lines and reduce code to 37 lines for Form methods<br/><br/><br/><br/>
-<a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/sections/ContactForm.java" target="_blank">See Selenium Contact Form code example</a><br/>
-<a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/sections/ShortContactForm.java" target="_blank">See Short Selenium Contact Form code example</a><br/>
+<a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/sections/ContactForm.java" target="_blank">See Selenium Contact Form code example (97)</a><br/>
+<a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/sections/ShortContactForm.java" target="_blank">See Short Selenium Contact Form code example (69)</a><br/>
 
 **JDI Light** (0 loc)<br/> 
 In JDI Light we don't need methods for this typical actions. Standard Form actions are flexible and allow to operate with any knid of data.<br/>
-<a href="https://github.com/jdi-tutorials/05-jdi-light-forms-reduce-code/blob/master/src/main/java/jdisite/sections/ContactForm.java" target="_blank">See JDI Light Contact Form code example</a><br/>
+<a href="https://github.com/jdi-tutorials/05-jdi-light-forms-reduce-code/blob/master/src/main/java/jdisite/sections/ContactForm.java" target="_blank">See JDI Light Contact Form code example (8)</a><br/>
 
 ### 5. Test Data ###
 
 ```java
 public class User {
     public String name, password;
-    public User(String name, String password) {
-        this.name = name;
-        this.password = password;
-    }
-    public User setName(String name) {
-        this.name = name;
-        return this;
-    }
-    public User setPassword(String password) {
-        this.password = password;
-        return this;
-    }
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
-        return Objects.equals(name, user.name) &&
-                Objects.equals(password, user.password);
-    }
-    @Override
-    public int hashCode() {
-        return Objects.hash(name, password);
-    }
-    @Override
-    public String toString() {
-        return format("User{name='%s'; password='%s'}",name, password);
-    }
+    // + 3 lines constructior
+    // + 8 lines set methods
+    // + 16 lines to Override equals, hashCode and toString
 }
+public class ContactInfo {
+    public String name, lastName, position, gender, religion, weather, description;
+    public int passportNumber, passportSeria;
+    public boolean passport, acceptConditions;
+    // + 16 lines constructior
+    // + 44 lines set methods
+    // + 30 lines to Override equals, hashCode and toString
+}
+public static User ROMAN = new User("Roman", "Jdi1234");
+public static ContactInfo SIMPLE_CONTACT = new ContactInfo()
+    .setName("Roman").setLastName("Iovlev").setPosition("ChiefQA")
+    .setPassportNumber(4321).setPassportSeria(123456)
+    .setDescription("JDI - awesome UI autoamtion tool");
+public static ContactInfo FULL_CONTACT = new ContactInfo(
+    "Roman", "Full Contact", "ChiefQA", "Female", "Other", 
+    "Sun, Snow", "JDI - awesome UI automation tool",
+    4321, 123456, true, false
+);
 ```
-**Selenium:** (65(33) loc)<br/> 
+**Selenium:** (134 loc)<br/> 
 For simple User entity with two fields it we should have at least one Constructor but it will be good to Override equals(), hashCode() and toString() method in order to have ability to log entity and compare actual and expected by its data.<br/>
 Additionally if we would like to have ability to setup different data we should create set methods for each field.<br/>
 You can generate all this methods using "Generate" option in IntelliJIdea (press Right-Click in data class and select "Generate")<br/>
 Minimum we need at least 7 lines of code but for reusable entity we should write 31 lines of code.<br/>
-Same situation for ContactInfo and for any Data entity in standard approach. For ContactInfo full description is more important because we plan to manipulate with more fields and it will take 
+Same situation for ContactInfo and for any Data entity in standard approach. For ContactInfo full declaration is more important because we plan to manipulate with more fields and it will take more lines of code<br/>
+After that manipulations we can create clear TestData<br/>
+<a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/entities/User.java" target="_blank">User data</a><br/>
+<a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/entities/ContactInfo.java" target="_blank">ContactInfo data</a><br/>
+<a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/entities/DefaultData.java" target="_blank">User Roman</a><br/>
+<a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/test/java/com/jdi/test/data/DefaultDataProvider.java" target="_blank">Full and Simple Contact info</a><br/>
 
 ```java
 public class User extends DataClass<User> {
     public String name, password;
 }
+public class ContactInfo extends DataClass<ContactInfo> {
+    public String name, lastName, position, gender, religion, weather, description;
+    public int passportNumber, passportSeria = -1;
+    public boolean passport, acceptConditions;
+}
+public static User ROMAN = new User().set(c -> {
+    c.name = "Roman"; c.password = "Jdi1234";}
+);
+public static ContactInfo SIMPLE_CONTACT = new ContactInfo().set(c -> {
+    c.name = "Roman"; c.lastName = "Iovlev"; c.position = "ChiefQA";
+    c.passportNumber = 4321; c.passportSeria = 123456;
+    c.description = "JDI - awesome UI autoamtion tool"; }
+);
+public static ContactInfo FULL_CONTACT = new ContactInfo().set(c -> {
+    c.name = "Roman"; c.lastName = "Full Contact"; c.position = "ChiefQA";
+    c.religion = "Other"; c.weather = "Sun, Snow"; c.acceptConditions = true;
+    c.gender = "Female"; c.passportNumber = 4321; c.passportSeria = 123456;
+    c.description = "JDI - awesome UI automation tool"; }
+);
 ```
-**JDI Light** (0 loc)<br/> 
+**JDI Light** (22 loc)<br/> 
+To create Test Data in JDI Light we can use DataClass that allow us to setup different test data, compare it and print and in the same time keep its clearness.<br/>
+No Constructors, no methods Overrides but all functions are in place with **DataClass**<br/>
+<a href="https://github.com/jdi-tutorials/05-jdi-light-forms-reduce-code/blob/master/src/main/java/jdisite/entities/User.java" target="_blank">User data</a><br/>
+<a href="https://github.com/jdi-tutorials/05-jdi-light-forms-reduce-code/blob/master/src/main/java/jdisite/entities/ContactInfo.java" target="_blank">ContactInfo data</a><br/>
+<a href="https://github.com/jdi-tutorials/05-jdi-light-forms-reduce-code/blob/master/src/test/java/com/jdi/test/data/DefaultDataProvider.java" target="_blank">Test Data</a><br/>
 
 ## Create Custom controls
 TBD

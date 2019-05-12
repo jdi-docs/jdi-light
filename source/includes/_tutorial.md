@@ -757,7 +757,7 @@ General problem with Complex elements in standard Selenium approach that we must
 ```
 **JDI Light** (3 loc)<br/> 
 In JDI Light this is as simple as for Common elements. 
-_Note: They are so short that we can write them in one line but let keep each time in its own line_
+_Note: They are so short that we can write them in one line but let keep each time in its own line_<br/><br/>
 
 ```java
 public void submit(ContactInfo contact) {
@@ -784,19 +784,7 @@ public void submit(ContactInfo contact) {
     submitButton.click();
 }
 public void check(ContactInfo contact) {
-    // TextFields
-    if (contact.name != null)
-        assertEquals(nameTextField.getAttribute("value"), contact.name);
-    // +6 more elements with 2-3 lines each including Combobox and TextArea        
-    // Dropdown
-    if (contact.gender != null)
-        assertEquals(gender().getFirstSelectedOption().getText(), contact.gender);
-    // MultiDropdown
-    if (contact.weather != null)
-        assertEquals(weatherValue.getText(), contact.weather);
-    // Checkboxes
-    assertEquals(passportCheckbox.isSelected(), contact.passport);
-    assertEquals(acceptConditionsCheckbox.isSelected(), contact.acceptConditions);
+    //  20 lines to validate contact
 }
 ```
 **Selenium:** (65(37) loc)<br/> 
@@ -804,9 +792,9 @@ For our needs we should write two methods: submit and check<br/>
 As for Login Form in order to manage different Test Data via Contact Form we should check values for null. For only one case for example just Fill all fields we can avoid check for null and save some lines of code.<br/>
 In flexible approach we need 43+22=65 lines of code<br/>
 We can improve this code by using common method to clean and sendKeys for abstract WebElement - this will reduce code to 55.<br/>
-If we remove null validations, this will make our methods less common but will save additional 18 lines and reduce code to 37 lines for Form methods<br/><br/><br/><br/>
+If we remove null validations, this will make our methods less common but will save additional 18 lines and reduce code to 37 lines for Form methods<br/>
 <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/sections/ContactForm.java" target="_blank">Selenium Contact Form code (97)</a><br/>
-<a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/sections/ShortContactForm.java" target="_blank">Short Selenium Contact Form code (69)</a><br/>
+<a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/sections/ShortContactForm.java" target="_blank">Short Selenium Contact Form code (69)</a><br/><br/><br/><br/>
 
 **JDI Light** (0 loc)<br/> 
 In JDI Light we don't need methods for this typical actions. Standard Form actions are flexible and allow to operate with any knid of data.<br/>

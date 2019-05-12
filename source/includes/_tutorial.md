@@ -609,7 +609,6 @@ public class HomePage {
     public static final String URL = "https://jdi-testing.github.io/jdi-light/";
     @FindBy(id ="user-icon") public static WebElement userIcon;
     @FindBy(id ="user-name") public static WebElement userName;
-    @FindBy(css = ".fa-sign-out") public static WebElement logout;
 }
 public static HomePage homePage = initElements(DRIVER, HomePage.class);
 
@@ -620,7 +619,7 @@ public class ContactPage {
 }
 public static ContactPage contactPage = initElements(DRIVER, ContactPage.class);
 ```
-**Selenium:** (13 loc)<br/>
+**Selenium:** (12 loc)<br/>
 Using Page Factory initElements we can create simple PageObjects with minimum code like in example<br/>
 If you would like to have cool pages in Selenium you can use <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/pages/BasePage.java" target="_blank">BasePage</a> where handle all standard staff related to open and check page.<br/>
 _Note: I hope this "BasePage" approach will be useful for your Selenium projects.<br/><br/><br/><br/><br/><br/><br/><br/>
@@ -630,7 +629,6 @@ _Note: I hope this "BasePage" approach will be useful for your Selenium projects
 public class HomePage extends WebPage {
     @UI("#user-icon") public static Link userIcon;
     @UI("#user-name") public static Text userName;
-    @UI(".fa-sign-out") public static Button logout;
 }
 public static HomePage homePage;
 
@@ -640,7 +638,7 @@ public class ContactPage extends WebPage {
 }
 public static ContactPage contactPage;
 ```
-**JDI Light** (12 loc)<br/> 
+**JDI Light** (11 loc)<br/> 
 In JDI Light we already have all functions related to Pages in **WebPage** class so you just need to extend your PageObject from it and use @Url and @Title annotations for Page metadata<br/> 
 Code for UI Objects in Selenium and JDI Light in this case looks pretty much the same.<br/> 
 Just few points for your attention<br/> 
@@ -794,7 +792,7 @@ In flexible approach we need 43+22=65 lines of code<br/>
 We can improve this code by using common method to clean and sendKeys for abstract WebElement - this will reduce code to 55.<br/>
 If we remove null validations, this will make our methods less common but will save additional 18 lines and reduce code to 37 lines for Form methods<br/>
 <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/sections/ContactForm.java" target="_blank">Selenium Contact Form code (97)</a><br/>
-<a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/sections/ShortContactForm.java" target="_blank">Short Selenium Contact Form code (69)</a><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/sections/ShortContactForm.java" target="_blank">Short Selenium Contact Form code (69)</a><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 **JDI Light** (0 loc)<br/> 
 In JDI Light we don't need methods for this typical actions. Standard Form actions are flexible and allow to operate with any knid of data.<br/>
@@ -839,7 +837,7 @@ After that manipulations we can create clear TestData<br/>
 <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/entities/ContactInfo.java" target="_blank">ContactInfo data</a><br/>
 <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/entities/DefaultData.java" target="_blank">User Roman</a><br/>
 <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/test/java/com/jdi/test/data/DefaultDataProvider.java" target="_blank">Full and Simple Contact info</a><br/>
-
+<br/><br/>
 ```java
 public class User extends DataClass<User> {
     public String name, password;
@@ -870,6 +868,66 @@ No Constructors, no methods Overrides but all functions are in place with **Data
 <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-reduce-code/blob/master/src/main/java/jdisite/entities/User.java" target="_blank">User data</a><br/>
 <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-reduce-code/blob/master/src/main/java/jdisite/entities/ContactInfo.java" target="_blank">ContactInfo data</a><br/>
 <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-reduce-code/blob/master/src/test/java/com/jdi/test/data/DefaultDataProvider.java" target="_blank">Test Data</a><br/>
+
+### 6. Conclusions ###
+
+```java
+// Selenium Init
+@BeforeSuite(alwaysRun = true)
+static void setUp() {
+    runChromeDriver();
+    DRIVER.navigate().to(HomePage.URL);
+}
+// JDI Light Init
+@BeforeSuite(alwaysRun = true)
+static void setUp() {
+    initElements(JDISite.class);
+    homePage.open();
+}
+// Selenium Test Scenarios
+@BeforeMethod
+public void before() {
+    loggedIn();
+    selectInMenu(ContactForm);
+}
+@Test
+public void submitContactDataTest() {
+    assertEquals(DRIVER.getCurrentUrl(), ContactPage.URL);
+    assertEquals(DRIVER.getTitle(), ContactPage.TITLE);
+    contactForm.submit(FULL_CONTACT);
+    contactForm.check(FULL_CONTACT);
+}
+@Test
+public void submitContactSimpleDataTest() {
+    assertEquals(DRIVER.getCurrentUrl(), ContactPage.URL);
+    assertEquals(DRIVER.getTitle(), ContactPage.TITLE);
+    contactForm.submit(SIMPLE_CONTACT);
+    contactForm.check(SIMPLE_CONTACT);
+}
+// JDI Test Scenarios
+@BeforeMethod
+public void before() {
+    loggedIn();
+    sideMenu.select(ContactForm);
+}
+@Test
+public void submitContactFormTest() {
+    contactPage.checkOpened();
+    contactForm.submit(FULL_CONTACT);
+    contactForm.check(FULL_CONTACT);
+}
+@Test
+public void simpleContactFormTest() {
+    contactPage.checkOpened();
+    contactForm.submit(SIMPLE_CONTACT);
+    contactForm.check(SIMPLE_CONTACT);
+}
+```
+As result we have Test scenarios that looks pretty much the same in Selenium and JDI Light but amount of code and time that we need to write this code are different. <br/>
+In addition less amount of code will make tests more clear to understand because JDI Light removes only waste and keep all business important parts in place. <br/>
+And this is not all as result of execution tests on JDI Light you will get logs of all your actions in pretty readable form. If you would like to have same level of logs in Selenium you need to write additional 30-50 lines of code for this example and keep to write logs in code all the time.<br/>
+
+
 
 ## Create Custom controls
 TBD

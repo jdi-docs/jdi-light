@@ -930,13 +930,13 @@ You can find clear projects code in "result" branch of <a href="https://github.c
 Statistical results:<br/>
 <img src="images/tutorial/selenium-results.png" alt="Selenium Statistic" width="400"><br/>
 <img src="images/tutorial/jdi-light-results.png" alt="JDI Light Statistic" width="400"><br/>
-In our example we write 3 times less amount of code with JDI Light. <br/>
-This means that if this test scenario regular Test Automation engineer will write in about 1 working day on JDI Light this work will take only 2-3 hours. Or he can automate 3 times more test cases in the same period of time.<br/>
-_Note: You can try to automate this test scenario by yourself from scratch without clues and check how much time this will take from you_<br/>
-But JDI Light not only saves your time. Less amount of code will increase clearness of code.<br/>
-In addition if you run test scenarios on JDI Light you will get logs of all your actions in pretty readable form. If you would like to have same level of logs in Selenium you need to write additional 30-50 lines of code for this example and keep to spent 5-10% of your effort on logs.<br/>
-_Note: JDI Light removes only waste code and keep all business important parts in place._ <br/>
-Less amount of code, stable tests and clear logs will reduce maintanance effort for your regression and increase respect of your tests because with JDI Light once written tests will fail only because of real application changes or performance issues and not because of tests instability<br/>
+In our example we write **3 times less amount of code with JDI Light**. <br/>
+This means that if this test scenario regular Test Automation engineer will write on **Selenium** in about **1 working day** on **JDI Light** this work will take only **2-3 hours**. **Or** he can **automate 3 times more test cases** in the same period of time.<br/>
+_Note: You can try to automate this test scenario by yourself from scratch without clues and check how much time this will take from you_<br/><br/>
+But JDI Light not only saves your time. Less amount of code will **increase clearness of code**.<br/>
+In addition if you run test scenarios on JDI Light you will **get logs of all your actions** in readable format. If you would like to have same level of logs in Selenium you need to write additional 30-50 lines of code for this example and keep to spent 5-10% of your effort on logs.<br/>
+_Note: JDI Light removes only waste code and keep all business important parts in place._ <br/><br/>
+**Less amount of code, stable tests and clear logs will reduce maintanance effort of your regression** and **increase respect to your tests** because with JDI Light once written tests will fail only because of real application changes or performance issues and not because of tests instability<br/>
 
 ## Create Custom controls
 TBD

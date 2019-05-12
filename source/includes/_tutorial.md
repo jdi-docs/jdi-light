@@ -676,7 +676,7 @@ public static LoginForm loginForm = initElements(DRIVER, LoginForm.class);
 **Selenium:** (21 loc)<br/> 
 This form contains WebElements (name, password, loginButton) and actions like loginAs() and isHidden()<br/>
 <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/sections/LoginForm.java" target="_blank">Code example</a><br/>
-<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 **JDI Light**(1 loc)<br/> 
 
@@ -704,7 +704,7 @@ _Note: Unfortunately we can't use one string Form in this case because form has 
 In Selenium we should describe all elements on form. This is easy to do for simple elements like TextField's, Checkboxes, TextArea and buttons.<br/>
 _Note: you must add **#contact-form** to some elements locators.<br/>
 And because we have no ideas on what UI element this WebElement represent this is a good practice to add type as part of its names
-<br/>
+<br/><br/>
 
 ```java
     TextField name, lastName, position, passportNumber, passportSeria;
@@ -712,7 +712,7 @@ And because we have no ideas on what UI element this WebElement represent this i
     TextArea description;
 ```
 **JDI Light** (3 loc)<br/> 
-In JDI Light we just need to describe Types of elements and list them for each type. In this example we have good locators so don't need to write them on form.
+In JDI Light we just need to describe Types of elements and list them for each type. In this example we have good locators so don't need to write them on form.<br/><br/>
 
 ```java
     // Dropdown
@@ -748,7 +748,7 @@ For Dropdown we can use Select class from **selenium-support** package and WebEl
 For Combobox we can use one line WebElement just using it as standard TextField<br/>
 But for MultiDropdown we need to write 4 WebElements and few methods: select and isExpanded.
 General problem with Complex elements in standard Selenium approach that we must creat such methods for every Dropdown, MultiDropdown etc. JDI Light allow to write element once (or use it from library) and just use it in one line in all PageObjects<br/>
-<a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/elements/MultiDropdown.java" target="_blank">Multidropdown example</a><br/>
+<a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/elements/MultiDropdown.java" target="_blank">Multidropdown example</a><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 ```java
     Dropdown gender;

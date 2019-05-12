@@ -597,7 +597,7 @@ public static void runChromeDriver() {
 ```
 **Selenium:** (6 loc)<br/>
 This is done here by simple method _runChromeDriver();_<br/> 
-_Note: To run the driver in Selenium you need to download latest version from <a href="https://chromedriver.storage.googleapis.com/index.htmle" target="_blank">oficial site </a> and put it in **C:\Selenium** folder_<br/><br/><br/><br/><br/>
+_Note: To run the driver in Selenium you need to download latest version from <a href="https://chromedriver.storage.googleapis.com/index.html" target="_blank">oficial site </a> and put it in **C:\Selenium** folder_<br/><br/><br/><br/><br/>
 
 **JDI Light** (0 loc)<br/> 
 You don't need to write a code for this. Latest version of ChromeDriver will be downloaded automatically.
@@ -615,7 +615,6 @@ public class ContactPage {
 }
 ```
 **Selenium:** (8 loc)<br/>
-
 First we will create Base Page that will handle all Page Objects initialization. And add common parameteres for pages like url and titile and methods typical to pages.<br/> 
 Next to that we can write simple code for Home page and Contact page Page Objects<br/> 
 _Note: I hope this "BasePage" approach will be useful for your Selenium projects.<br/> 
@@ -666,7 +665,9 @@ public static LoginForm loginForm = initElements(DRIVER, LoginForm.class);
 ```
 **Selenium:** (21 loc)<br/> 
 This form contains WebElements (name, password, loginButton) and actions like loginAs() and isHidden()<br/>
-<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/sections/LoginForm.java" target="_blank">Code example</a><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
 **JDI Light**(1 loc)<br/> 
 
 ```java
@@ -734,7 +735,8 @@ More interesting situation with Complex elements: <br/>
 For Dropdown we can use Select class from **selenium-support** package and WebElement + gender() method is enough to handle all actions<br/>
 For Combobox we can use one line WebElement just using it as standard TextField<br/>
 But for MultiDropdown we need to write 4 WebElements and few methods: select and isExpanded.
-General problem with Complex elements in standard Selenium approach that we must creat such methods for every Dropdown, MultiDropdown etc. JDI Light allow to write element once (or use it from library) and just use it in one line in all PageObjects
+General problem with Complex elements in standard Selenium approach that we must creat such methods for every Dropdown, MultiDropdown etc. JDI Light allow to write element once (or use it from library) and just use it in one line in all PageObjects<br/>
+<a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/elements/MultiDropdown.java" target="_blank">Multidropdown example</a><br/>
 
 ```java
     Dropdown gender;
@@ -785,17 +787,67 @@ public void check(ContactInfo contact) {
     assertEquals(acceptConditionsCheckbox.isSelected(), contact.acceptConditions);
 }
 ```
-**Selenium:** (65(33) loc)<br/> 
+**Selenium:** (65(37) loc)<br/> 
 For our needs we should write two methods: submit and check<br/>
 As for Login Form in order to manage different Test Data via Contact Form we should check values for null. For only one case for example just Fill all fields we can avoid check for null and save some lines of code.<br/>
 In flexible approach we need 43+22=65 lines of code<br/>
-We can improve this code by using common method to clean and sendKeys for abstract WebElement - this will reduce code loc to 51.<br/>
-If we remove null validations, this will make our methods less common but will save additional 18 lines and reduce code to 33 lines for Form methods<br/><br/><br/><br/><br/>
+We can improve this code by using common method to clean and sendKeys for abstract WebElement - this will reduce code loc to 55.<br/>
+If we remove null validations, this will make our methods less common but will save additional 18 lines and reduce code to 37 lines for Form methods<br/><br/><br/><br/>
+<a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/sections/ContactForm.java" target="_blank">See Selenium Contact Form code example</a><br/>
+<a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/sections/ShortContactForm.java" target="_blank">See Short Selenium Contact Form code example</a><br/>
 
 **JDI Light** (0 loc)<br/> 
-In JDI Light we don't need methods for this typical actions. Standard Form actions are flexible and allow to operate with any knid of data.
+In JDI Light we don't need methods for this typical actions. Standard Form actions are flexible and allow to operate with any knid of data.<br/>
+<a href="https://github.com/jdi-tutorials/05-jdi-light-forms-reduce-code/blob/master/src/main/java/jdisite/sections/ContactForm.java" target="_blank">See JDI Light Contact Form code example</a><br/>
 
 ### 5. Test Data ###
+
+```java
+public class User {
+    public String name, password;
+    public User(String name, String password) {
+        this.name = name;
+        this.password = password;
+    }
+    public User setName(String name) {
+        this.name = name;
+        return this;
+    }
+    public User setPassword(String password) {
+        this.password = password;
+        return this;
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return Objects.equals(name, user.name) &&
+                Objects.equals(password, user.password);
+    }
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, password);
+    }
+    @Override
+    public String toString() {
+        return format("User{name='%s'; password='%s'}",name, password);
+    }
+}
+```
+**Selenium:** (65(33) loc)<br/> 
+For simple User entity with two fields it we should have at least one Constructor but it will be good to Override equals(), hashCode() and toString() method in order to have ability to log entity and compare actual and expected by its data.<br/>
+Additionally if we would like to have ability to setup different data we should create set methods for each field.<br/>
+You can generate all this methods using "Generate" option in IntelliJIdea (press Right-Click in data class and select "Generate")<br/>
+Minimum we need at least 7 lines of code but for reusable entity we should write 31 lines of code.<br/>
+Same situation for ContactInfo and for any Data entity in standard approach. For ContactInfo full description is more important because we plan to manipulate with more fields and it will take 
+
+```java
+public class User extends DataClass<User> {
+    public String name, password;
+}
+```
+**JDI Light** (0 loc)<br/> 
 
 ## Create Custom controls
 TBD

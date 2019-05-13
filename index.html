@@ -482,9 +482,6 @@
                     <a href="#composite-elements" class="toc-h2 toc-link" data-title="Composite elements">Composite elements</a>
                         <ul class="toc-list-h2">
                             <li>
-                              <a href="#section" class="toc-h2 h3 toc-link" data-title="Section">Section</a>
-                            </li>
-                            <li>
                               <a href="#webpage" class="toc-h2 h3 toc-link" data-title="WebPage">WebPage</a>
                             </li>
                         </ul>
@@ -3099,6 +3096,16 @@ In JDI Light this is as simple as for Common elements.
 <td>add line to the already existing</td>
 <td>void</td>
 </tr>
+<tr>
+<td><strong>Is()</strong></td>
+<td>returns object for work with assertions</td>
+<td>TextAreaAssert</td>
+</tr>
+<tr>
+<td><strong>AssertThat()</strong></td>
+<td>returns object for work with assertions</td>
+<td>TextAreaAssert</td>
+</tr>
 </tbody></table>
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/TextAreaTests.cs">Test examples in C#</a></p>
@@ -3146,6 +3153,11 @@ In JDI Light this is as simple as for Common elements.
 <td><strong>placeholder()</strong></td>
 <td>returns value of placeholder attribute</td>
 <td>String</td>
+</tr>
+<tr>
+<td><strong>addNewLine(String line)</strong></td>
+<td>add line to the already existing</td>
+<td>void</td>
 </tr>
 <tr>
 <td><strong>is()</strong></td>
@@ -4261,87 +4273,14 @@ Multi Selector are represented by the following class:</p>
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/ComboboxTests.java">Java test examples</a></p>
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/ComboBoxTests.cs">C# test examples</a></p>
-<h2 id='composite-elements'>Composite elements</h2><h3 id='section'>Section</h3>
-<p><strong>Section</strong> - logical part of Web Page that contains other UI Elements</p>
+<h2 id='composite-elements'>Composite elements</h2><h3 id='webpage'>WebPage</h3>
+<p><strong>WebPage</strong> is provided by JDI Light in:</p>
 
-<p><img src="images/section.png" alt="Section" />  </p>
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.elements.composite</em></li>
+</ul>
 
-<p>Section is represented by the following class:   </p>
-
-<p>Java: com.epam.jdi.light.elements.composite.Section<br>
-public class Section extends JDIBase implements PageObject </p>
-
-<p>C#: JDI.Light.Elements.Composite.Section<br>
-public class Section : UIElement</p>
-<pre class="highlight java tab-java"><code>  <span class="nd">@UI</span><span class="o">(</span><span class="s">".main-title"</span><span class="o">)</span> 
-  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Section</span> <span class="n">mainTitle</span><span class="o">;</span>
-
-  <span class="nd">@Frame</span><span class="o">(</span><span class="s">".main-content-hg"</span><span class="o">)</span> 
-  <span class="kd">public</span> <span class="kd">static</span> <span class="n">MainSection</span> <span class="n">mainSection</span><span class="o">;</span>
-
-  <span class="nd">@Test</span>
-   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">displayedTest</span><span class="o">()</span> <span class="o">{</span>
-       <span class="n">homePage</span><span class="o">.</span><span class="na">shouldBeOpened</span><span class="o">();</span>
-       <span class="n">mainTitle</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-   <span class="o">}</span>
-
-   <span class="nd">@Test</span>
-   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">basePageTest</span><span class="o">()</span> <span class="o">{</span>
-       <span class="c1">//Place some elements on Base Page and validate that these elements are not null</span>
-       <span class="c1">//Validate that Base action also work for section (like isDisplayed and all is() validations)</span>
-       <span class="n">Assert</span><span class="o">.</span><span class="na">assertTrue</span><span class="o">(</span><span class="n">basePage</span><span class="o">.</span><span class="na">passportNumber</span><span class="o">.</span><span class="na">isDisplayed</span><span class="o">());</span>
-       <span class="n">basePage</span><span class="o">.</span><span class="na">passportNumber</span><span class="o">.</span><span class="na">sendKeys</span><span class="o">(</span><span class="s">"1234"</span><span class="o">);</span>
-       <span class="n">Assert</span><span class="o">.</span><span class="na">assertEquals</span><span class="o">(</span><span class="n">basePage</span><span class="o">.</span><span class="na">passportNumber</span><span class="o">.</span><span class="na">getText</span><span class="o">(),</span> <span class="s">"1234"</span><span class="o">);</span>
-   <span class="o">}</span>
-
-   <span class="nd">@Test</span>
-   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">packageVisibleTest</span><span class="o">()</span> <span class="o">{</span>
-       <span class="n">Assert</span><span class="o">.</span><span class="na">assertNotNull</span><span class="o">(</span><span class="n">mainSection</span><span class="o">.</span><span class="na">accessPackageElementName</span><span class="o">());</span>
-       <span class="n">Assert</span><span class="o">.</span><span class="na">assertTrue</span><span class="o">(</span><span class="n">mainSection</span><span class="o">.</span><span class="na">displayedPackageElementReligion</span><span class="o">());</span>
-   <span class="o">}</span>
-
-   <span class="nd">@Test</span>
-   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">publicVisibleTest</span><span class="o">()</span> <span class="o">{</span>
-       <span class="c1">//Validate that they are not null</span>
-       <span class="c1">//And validate that elements in IFrame are intractable</span>
-       <span class="n">mainSection</span><span class="o">.</span><span class="na">lastName</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="s">"lastName"</span><span class="o">);</span>
-       <span class="n">Assert</span><span class="o">.</span><span class="na">assertNotNull</span><span class="o">(</span><span class="n">mainSection</span><span class="o">.</span><span class="na">lastName</span><span class="o">);</span>
-       <span class="n">Assert</span><span class="o">.</span><span class="na">assertTrue</span><span class="o">(</span><span class="n">mainSection</span><span class="o">.</span><span class="na">lastName</span><span class="o">.</span><span class="na">isDisplayed</span><span class="o">());</span>
-       <span class="n">Assert</span><span class="o">.</span><span class="na">assertTrue</span><span class="o">(</span><span class="n">mainSection</span><span class="o">.</span><span class="na">wather</span><span class="o">.</span><span class="na">isDisplayed</span><span class="o">());</span>
-   <span class="o">}</span>
-
-   <span class="nd">@Test</span>
-   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">staticElementTest</span><span class="o">()</span> <span class="o">{</span>
-       <span class="n">Assert</span><span class="o">.</span><span class="na">assertTrue</span><span class="o">(</span><span class="n">mainSection</span><span class="o">.</span><span class="na">position</span><span class="o">.</span><span class="na">isDisplayed</span><span class="o">());</span>
-       <span class="n">Assert</span><span class="o">.</span><span class="na">assertTrue</span><span class="o">(</span><span class="n">mainSection</span><span class="o">.</span><span class="na">passport</span><span class="o">.</span><span class="na">isDisplayed</span><span class="o">());</span>
-   <span class="o">}</span>
-
-   <span class="nd">@Test</span>
-   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">parentLocatorTest</span><span class="o">()</span> <span class="o">{</span>
-       <span class="c1">//Use Section (parent) locator as context</span>
-       <span class="n">mainSection</span><span class="o">.</span><span class="na">wather</span><span class="o">.</span><span class="na">findElement</span><span class="o">(</span><span class="k">new</span> <span class="n">By</span><span class="o">.</span><span class="na">ByCssSelector</span><span class="o">(</span><span class="s">".checkbox"</span><span class="o">));</span>
-   <span class="o">}</span>
-
-   <span class="nd">@Test</span>
-   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">notExtendSectionTest</span><span class="o">()</span> <span class="o">{</span>
-       <span class="c1">//Add tests for PageObjects that not extend Section and placed on some WebPage</span>
-       <span class="n">Assert</span><span class="o">.</span><span class="na">assertTrue</span><span class="o">(</span><span class="err">$</span><span class="o">(</span><span class="k">new</span> <span class="n">By</span><span class="o">.</span><span class="na">ByCssSelector</span><span class="o">(</span><span class="s">".info-panel-body-log"</span><span class="o">)).</span><span class="na">isDisplayed</span><span class="o">());</span>
-   <span class="o">}</span>
-</code></pre><pre class="highlight csharp tab-csharp"><code>  <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
-  <span class="k">public</span> <span class="k">void</span> <span class="nf">SectionTest</span><span class="p">()</span>
-  <span class="p">{</span>
-      <span class="kt">var</span> <span class="n">e</span> <span class="p">=</span> <span class="n">TestSite</span><span class="p">.</span><span class="n">HomePage</span><span class="p">.</span><span class="n">Get</span><span class="p">&lt;</span><span class="n">Section</span><span class="p">&gt;(</span><span class="n">By</span><span class="p">.</span><span class="nf">CssSelector</span><span class="p">(</span><span class="s">".main-title"</span><span class="p">));</span>
-      <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="s">"EPAM FRAMEWORK WISHES…"</span><span class="p">,</span> <span class="n">e</span><span class="p">.</span><span class="n">Text</span><span class="p">);</span>
-      <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="s">"Section"</span><span class="p">,</span> <span class="n">e</span><span class="p">.</span><span class="n">Name</span><span class="p">);</span>
-      <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="k">true</span><span class="p">,</span> <span class="n">e</span><span class="p">.</span><span class="n">Displayed</span><span class="p">);</span>
-      <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="k">true</span><span class="p">,</span> <span class="n">e</span><span class="p">.</span><span class="n">Enabled</span><span class="p">);</span>
-      <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="k">false</span><span class="p">,</span> <span class="n">e</span><span class="p">.</span><span class="n">Hidden</span><span class="p">);</span>
-      <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">By</span><span class="p">.</span><span class="nf">CssSelector</span><span class="p">(</span><span class="s">".main-title"</span><span class="p">),</span> <span class="n">e</span><span class="p">.</span><span class="n">Locator</span><span class="p">);</span>
-      <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="k">false</span><span class="p">,</span> <span class="n">e</span><span class="p">.</span><span class="n">Selected</span><span class="p">);</span>
-      <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="s">"h3"</span><span class="p">,</span> <span class="n">e</span><span class="p">.</span><span class="n">TagName</span><span class="p">);</span>
-  <span class="p">}</span>
-</code></pre>
-<p>And here are methods available in Java:</p>
+<p><strong>WebPage</strong> - is a parent Java class for all JDI Page Object classes. WebPage class extending DriverBase class, implementing PageObject interface and containing a scope of common used methods:</p>
 
 <table><thead>
 <tr>
@@ -4351,37 +4290,228 @@ public class Section : UIElement</p>
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>shouldBe()</strong></td>
-<td>Returns object for work with assertions</td>
-<td>IsAssert</td>
+<td><strong>asForm()</strong></td>
+<td>Returning new Form parameterized with local Name</td>
+<td>Form<T></td>
 </tr>
 <tr>
-<td><strong>waitFor()</strong></td>
-<td>Returns object for work with assertions</td>
-<td>IsAssert</td>
+<td><strong>getCurrentPage()</strong></td>
+<td>Returning the name of current Page</td>
+<td>String</td>
 </tr>
 <tr>
-<td><strong>has()</strong></td>
-<td>Returns object for work with assertions</td>
-<td>IsAssert</td>
+<td><strong>setCurrentPage(WebPage page)</strong></td>
+<td>Instantiating the current Page with Name</td>
+<td>void</td>
 </tr>
 <tr>
-<td><strong>is()</strong></td>
-<td>Returns object for work with assertions</td>
-<td>IsAssert</td>
+<td><strong>WebPage()</strong></td>
+<td>Default constructor for WebPage class</td>
+<td>WebPage</td>
 </tr>
 <tr>
-<td><strong>assertThat()</strong></td>
-<td>Returns object for work with assertions</td>
-<td>IsAssert</td>
+<td><strong>WebPage(String url)</strong></td>
+<td>Parameterizing with URL constructor for WebPage class</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>openUrl(String url)</strong></td>
+<td>Opening WebPage with URL</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>getUrl()</strong></td>
+<td>Returning URL of Page</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>getTitle()</strong></td>
+<td>Returning Title of Page</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>updatePageData(Url urlAnnotation, Title titleAnnotation)</strong></td>
+<td>Setting Page URL and Title</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>url()</strong></td>
+<td>Returning new StringCheckType object wit checked URL</td>
+<td>StringCheckType</td>
+</tr>
+<tr>
+<td><strong>title()</strong></td>
+<td>Returning new StringCheckType object wit checked Title</td>
+<td>StringCheckType</td>
+</tr>
+<tr>
+<td><strong>open(String url)</strong></td>
+<td>Opens url specified for page</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>open(Object... params)</strong></td>
+<td>Opens url specified for page with parameters</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>checkOpened()</strong></td>
+<td>Check that page opened</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>isOpened()</strong></td>
+<td>Check that page opened</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>shouldBeOpened()</strong></td>
+<td>Check that page opened</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>shouldBeOpened(Object... params)</strong></td>
+<td>Check that page opened with parameters</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>openePage(!)(?)(String url)</strong></td>
+<td>Check that page opened</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>refresh()</strong></td>
+<td>Reload current page</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>reload()(?)</strong></td>
+<td>mean refresh()</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>back()</strong></td>
+<td>Go back to previous page</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>forward()</strong></td>
+<td>Go forward to next page</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>zoom(double factor)</strong></td>
+<td>Zooming current page</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>getHtml()</strong></td>
+<td>Getting HTML of current page</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>scroll(int x, int y)</strong></td>
+<td>Scrolling to designated position</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>scrollToTop()</strong></td>
+<td>Scrolling to top</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>scrollToBottom()</strong></td>
+<td>Scrolling to bottom</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>scrollDown(int value)</strong></td>
+<td>Scrolling dowd to designated position</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>scrollUp(int value)</strong></td>
+<td>Scrolling up to designated position</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>scrollRight(int value)</strong></td>
+<td>Scrolling right to designated position</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>scrollLeft(int value)</strong></td>
+<td>Scrolling left to designated position</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>addPage(WebPage page)</strong></td>
+<td>Adding selected page to Map of pages</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>getPage(String value)</strong></td>
+<td>Getting page from Map by value</td>
+<td>T_extends_WebPage</td>
+</tr>
+<tr>
+<td><strong>toString()</strong></td>
+<td>Overriding method of Object class</td>
+<td>String</td>
 </tr>
 </tbody></table>
 
-<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/composite/SectionTests.java">Java test examples</a><br>
-<a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Composite/SectionTests.cs">Test examples in C#</a></p>
-<h3 id='webpage'>WebPage</h3>
-<p>TBD</p>
-<h2 id='ui-objects'>UI Objects</h2>
+<p>more than that, it has nested Class <strong>StringCheckType</strong> with such methods:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>StringCheckType(Supplier<String> actual, String equals, String what)</strong></td>
+<td>parametrized constructor</td>
+<td>StringCheckType</td>
+</tr>
+<tr>
+<td><strong>check()</strong></td>
+<td>Check that current page url/title equals to expected url/title</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>match()</strong></td>
+<td>Check that current page url/title matches to expected url/title-matcher</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>contains()</strong></td>
+<td>Check that current page url/title contains expected url/title-matcher</td>
+<td>boolean</td>
+</tr>
+</tbody></table>
+<pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MainPage</span> <span class="kd">extends</span> <span class="n">WebPage</span><span class="o">{}</span>
+<span class="n">MainPage</span> <span class="n">mainPage</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MainPage</span><span class="o">;</span>
+<span class="n">mainPage</span><span class="o">.</span><span class="na">setCurrentPage</span><span class="o">(</span><span class="n">WebPage</span> <span class="n">page</span><span class="o">);</span>
+<span class="n">mainPage</span><span class="o">.</span><span class="na">getCurrentPage</span><span class="o">();</span>
+<span class="n">mainPage</span><span class="o">.</span><span class="na">getUrl</span><span class="o">()</span>
+<span class="n">mainPage</span><span class="o">.</span><span class="na">getTitle</span><span class="o">()</span>
+<span class="n">mainPage</span><span class="o">.</span><span class="na">checkOpened</span><span class="o">()</span>
+<span class="n">mainPage</span><span class="o">.</span><span class="na">toString</span><span class="o">()</span>
+<span class="n">mainPage</span><span class="o">.</span><span class="na">StringCheckType</span><span class="o">().</span><span class="na">check</span><span class="o">()</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">verifyURL</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">mainPage</span><span class="o">.</span><span class="na">setCurrentPage</span><span class="o">(</span><span class="n">mainPage</span><span class="o">);</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="n">mainPage</span><span class="o">.</span><span class="na">getUrl</span><span class="o">(),</span> <span class="s">"www.mainpage.ru"</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">verifyTitle</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">mainPage</span><span class="o">.</span><span class="na">setCurrentPage</span><span class="o">(</span><span class="n">mainPage</span><span class="o">);</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="n">mainPage</span><span class="o">.</span><span class="na">getTitle</span><span class="o">(),</span> <span class="s">"Main page"</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre><h2 id='ui-objects'>UI Objects</h2>
 <p>TBD</p>
 <h2 id='jdi-locators'>JDI Locators</h2>
 <p>TBD</p>

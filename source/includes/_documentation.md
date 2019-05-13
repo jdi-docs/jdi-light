@@ -860,6 +860,8 @@ Here is the list of available methods in C#:
 **Value** |Returns the value  | double
 **Step** |Returns the step value | double
 **SetNumber(double)** |Sets the value | void
+**Is()** | Returns object for work with assertions | NumberAssert
+**AssertThat()** | Returns object for work with assertions | NumberAssert
 
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/NumberSelectorTests.java)
 

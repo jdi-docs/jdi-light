@@ -1286,7 +1286,7 @@ Tables are represented by the following classes in Java and C#:
             public void tablePerformanceTest() {
                 tablePerformance(users);
             }
-            @Test
+         @Test
             public void jTablePerformanceTest() {
                 tablePerformance(usersSetup);
             }
@@ -1337,14 +1337,12 @@ Tables are represented by the following classes in Java and C#:
                     "||3||Harding Lloyd|0800 1111|neque.In.ornare@mauris.co.uk|Beauvais||");
                 logTime("Get value");*/
             }
-        
-            @Test
+         @Test
             public void tableDataTest() {
                 assertEquals(users.row(2).asData(UserInfo.class),
                         GRADY_BROCK);
             }
-        
-            @Test
+         @Test
             public void tableEntityTest() {
                 UserRow user = users.row(2).asLine(UserRow.class);
                 user.name.click();
@@ -1360,7 +1358,43 @@ Tables are represented by the following classes in Java and C#:
             public static void logTime(String description) {
                 out.println(description + ": " + (currentTimeMillis() - timeStart) + "ms");
                 timeStart = currentTimeMillis();
-            }		
+            }	
+         @Test
+             public void hugeTableSearchTest() {
+                 StopWatch timer = StopWatch.createStarted();
+                 Line row = usersTable.row(
+                     containsValue("Meyer", inColumn("Name")),
+                     containsValue("co.uk", inColumn("Email")));
+                 System.out.println("Huge table search test Time: " + timer.getTime());
+                 Assert.assertEquals(row.getValue(),
+                 "Brian Meyer;(016977) 0358;mollis.nec@seddictumeleifend.co.uk;Houston");
+             }
+         @Test
+             public void hugeTableValidateTest() {
+                 StopWatch timer = StopWatch.createStarted();
+                 String actualTable = usersTable.preview();
+                 System.out.println("Huge table validate test Time: " + timer.getTime());
+                 Assert.assertEquals(actualTable, TABLE_SNAPSHOOT);
+             }
+         @Test
+             public void bigDropdownTest() {
+                 String name = "Charles Byers";
+                 StopWatch timer = StopWatch.createStarted();
+                 userNames.select(name);
+                 System.out.println("Big dropdown test Time: " + timer.getTime());
+                 Assert.assertEquals(userNames.selected(), name);
+             }
+         @Test
+             public void longTextTest() {
+                 String text = "Lorem ipsum dolor sit amet, eos numquam rationibus ad. Ius cu accumsan salutatus, ne pro purto ridens vulputate. Cu eum doctus tritani, munere sanctus complectitur vis id. Paulo vulputate te eos, suas tollit laudem nam id. His esse rebum reprimique ut, te solum atqui homero vim.\\n\\n" +
+                         "Labitur salutatus eos an. Vim ut dicam fuisset. Ex sed animal accommodare, utinam graeci iisque vim id, ea fugit scripta deleniti nec. Eos cu nisl veri meis. Affert audiam copiosae mel ne, fabulas menandri temporibus has et. Sed latine graecis ei, eu fugit soluta intellegam vis, nibh graeci meliore ad duo.\\n\\n" +
+                         "Et quis meis delenit mea, ius ea sumo laboramus vituperatoribus. Te simul luptatum tractatos nam, eam in causae constituam, quod stet ancillae nam ei. Ne his dico veniam legere, id has vidisse euismod sanctus. Vis putant volumus tincidunt et.\\n\\n" +
+                         "Has eirmod consequat ad. Sea illud clita ut, has quando accusata cotidieque an, volutpat iudicabit definitionem ut sea. Pri at atqui molestiae, nibh ullum consulatu vix at. Nec id nisl nonumes epicurei, et vitae possit probatus ius. Fierent delicata argumentum ut quo. Tation tincidunt sed eu, sit in nostrud democritum.\\n\\n" +
+                         "Usu esse utroque sapientem ad. Eam ut consul soleat sapientem, cu dolor consequuntur vis. Erat temporibus mea id, has ex dicam tritani. Pertinacia expetendis consectetuer eos ei, vidit malis periculis est ea, ne nam movet fuisset. Pro id habemus definitiones, in ferri solum reprehendunt mei. Vel eligendi honestatis liberavisse id.";
+                 StopWatch timer = StopWatch.createStarted();
+                 textareaPerformance.setText(text + "\\n"+ text);
+                 System.out.println("Long text test Time: " + timer.getTime());
+             }	
   ```
 
 ```csharp
@@ -1528,7 +1562,7 @@ DataTables are represented by the following classes in Java and C#:
              public void dataTableTest() {
                  dataTableValidation(usersData);
              }
-             @Test
+         @Test
              public void jDataTableTest() {
                  dataTableValidation(usersDataSetup);
              }
@@ -1543,7 +1577,7 @@ DataTables are represented by the following classes in Java and C#:
                      "Grady Brock (011307) 16843 cursus.et@commodo.org Alcobendas" +
                      "Harding Lloyd 0800 1111 neque.In.ornare@mauris.co.uk Beauvais");
              }
-             @Test
+         @Test
              public void filterDataTest() {
                  assertEquals(usersData.data(2), GRADY_BROCK);
                  assertEquals(usersData.data("Grady Brock"), GRADY_BROCK);
@@ -1555,8 +1589,7 @@ DataTables are represented by the following classes in Java and C#:
                  assertEquals(filteredData.get(0), GRADY_BROCK);
                  */
              }
-         
-             @Test
+         @Test
              public void filterLinesTest() {
                  UserRow line =  usersData.line(2);
                  validateUserRow(line);
@@ -1575,7 +1608,127 @@ DataTables are represented by the following classes in Java and C#:
                  line.city.click();
                  validateAlert(is(GRADY_BROCK.city));
                  assertEquals(line.email.getText(), GRADY_BROCK.email);
-             }		
+             }	    
+         @Test
+             public void tableParamsTest() {
+                     assertEquals(users.size(), 4);
+                     assertEquals(users.count(), 6);
+                     assertEquals(users.header(), asList("Number", "Type", "User", "Description"));
+             }    
+         @Test
+             public void previewTest() {
+                     if (isFireFox()) return;
+                     String value = users.preview();
+                     assertEquals(value,
+                             "Number Type User Desciption1  Admin User Manager RomanWolverineVip2  Admin User Manager Sergey IvanSpider ManVip3  Admin User Manager VladzimirPunisherVip4  Admin User Manager Helen BennettCaptain Americasome descriptionVip5  Admin User Manager Yoshi TannamuriCyclopesome descriptionVip6  Admin User Manager Giovanni RovelliHulksome descriptionVip");
+             }   
+         @Test
+             public void valueTest() {
+                     String value = users.getValue();
+                     assertEquals(value,
+                     "||X||Number|Type|User|Description||\r\n" +
+                         "||1||1|Admin|Roman|Wolverine:VIP||\r\n" +
+                         "||2||2|User|Sergey Ivan|Spider Man:Dude||\r\n" +
+                         "||3||3|Manager|Vladzimir|Punisher:VIP||\r\n" +
+                         "||4||4|User|Helen Bennett|Captain America\\nsome description:Dude||\r\n" +
+                         "||5||5|User|Yoshi Tannamuri|Cyclope\\nsome description:Dude||\r\n" +
+                         "||6||6|User|Giovanni Rovelli|Hulk\\nsome description:Dude||\r\n");
+             }
+         @Test
+             public void dataColumnTestIndex() {
+                     assertEquals(users.data(2), SPIDER_MAN);
+             }
+         @Test
+             public void dataColumnNameTest() {
+                     assertEquals(usersSetup.data("Sergey Ivan"), SPIDER_MAN);
+             }
+         @Test
+             public void dataFilterTest() {
+                     assertEquals(users.data(d -> d.user.contains("Ivan")), SPIDER_MAN);
+             }
+         @Test
+             public void allDataFilterTest() {
+                     List<MarvelUserInfo> filteredData = users.datas(d -> d.user.contains("Ivan"));
+                     assertEquals(filteredData.size(), 1);
+                     assertEquals(filteredData.get(0), SPIDER_MAN);
+             }
+         @Test
+             public void commonMatchersTest() {
+                     users.is().displayed();
+                     users.has().size(6);
+                     users.assertThat().size(greaterThan(3));
+                     users.is().notEmpty().size(lessThanOrEqualTo(6));
+             }
+         @Test
+             public void rowMatcherTest() {
+                     users.has().row(d -> d.user.contains("Ivan"));
+             }
+         @Test
+             public void rowsMatcherTest() {
+                     users.assertThat().allRows(d -> d.user.length() > 4);
+             }
+         @Test
+             public void atLeastMatcherTest() {
+                     users.assertThat().atLeast(3).rows(d -> d.type.contains("User"));
+             }
+         @Test
+             public void exactMatcherTest() {
+                     users.assertThat().exact(2).rows(d -> d.description.contains(":VIP"));
+             }
+         @Test
+             public void rowDataMatcherTest() {
+                     users.has().row(SPIDER_MAN);
+             }
+         @Test
+             public void rowDataExactMatcherTest() {
+                     users.assertThat().exact(1).rows(SPIDER_MAN);
+             }
+         @Test
+             public void tableChainTest() {
+                     users.assertThat()
+                         .displayed()
+                         .size(6)
+                         .size(greaterThan(3))
+                         .notEmpty()
+                         .row(d -> d.user.contains("Ivan"))
+                         .allRows(d -> d.user.length() > 4)
+                         .atLeast(3).rows(d -> d.type.contains("User"))
+                         .row(SPIDER_MAN)
+                         .exact(2).rows(d -> d.description.contains(":VIP"))
+                         .exact(1).rows(SPIDER_MAN);
+             }	
+         @Test
+             public void lineByIndexTest() {
+                 MarvelUser line = users.line(2);
+                 validateUserRow(line);
+             }
+         @Test
+             public void lineByNameTest() {
+                 MarvelUser line = usersSetup.line("Sergey Ivan");
+                 validateUserRow(line);
+             }
+         @Test
+             public void lineFilterTest() {
+                 MarvelUser line = users.line(d -> d.user.contains("Ivan"));
+                 validateUserRow(line);
+             }
+         @Test
+             public void linesFilterTest() {
+                 List<MarvelUser> filteredData = users.lines(d -> d.user.contains("Ivan"));
+                 assertEquals(filteredData.size(), 1);
+                 validateUserRow(filteredData.get(0));
+             }
+         
+             public static void validateUserRow(MarvelUser line) {
+                 line.type.select("Admin");
+                 assertEquals(line.type.getValue(), "Admin");
+                 line.type.select("User");
+                 line.number.assertThat().text(is("2"));
+             } 
+         @Test
+             public void baseValidationTest() {
+                 baseValidation(users);
+             }
   ```
  
   - __Java__: _com.epam.jdi.light.elements.complex.table.DataTable.java_

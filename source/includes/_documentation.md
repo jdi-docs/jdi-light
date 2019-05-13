@@ -1854,11 +1854,58 @@ public class Section : UIElement
 ```java 
   @UI(".main-title") 
   public static Section mainTitle;
-
+  
+  @Frame(".main-content-hg") 
+  public static MainSection mainSection;
+  
   @Test
-  public void selectTest() {
-      mainTitle.is().displayed();
-  }
+   public void displayedTest() {
+       homePage.shouldBeOpened();
+       mainTitle.is().displayed();
+   }
+
+   @Test
+   public void basePageTest() {
+       //Place some elements on Base Page and validate that these elements are not null
+       //Validate that Base action also work for section (like isDisplayed and all is() validations)
+       Assert.assertTrue(basePage.passportNumber.isDisplayed());
+       basePage.passportNumber.sendKeys("1234");
+       Assert.assertEquals(basePage.passportNumber.getText(), "1234");
+   }
+
+   @Test
+   public void packageVisibleTest() {
+       Assert.assertNotNull(mainSection.accessPackageElementName());
+       Assert.assertTrue(mainSection.displayedPackageElementReligion());
+   }
+
+   @Test
+   public void publicVisibleTest() {
+       //Validate that they are not null
+       //And validate that elements in IFrame are intractable
+       mainSection.lastName.setText("lastName");
+       Assert.assertNotNull(mainSection.lastName);
+       Assert.assertTrue(mainSection.lastName.isDisplayed());
+       Assert.assertTrue(mainSection.wather.isDisplayed());
+   }
+
+   @Test
+   public void staticElementTest() {
+       Assert.assertTrue(mainSection.position.isDisplayed());
+       Assert.assertTrue(mainSection.passport.isDisplayed());
+   }
+
+   @Test
+   public void parentLocatorTest() {
+       //Use Section (parent) locator as context
+       mainSection.wather.findElement(new By.ByCssSelector(".checkbox"));
+   }
+
+   @Test
+   public void notExtendSectionTest() {
+       //Add tests for PageObjects that not extend Section and placed on some WebPage
+       Assert.assertTrue($(new By.ByCssSelector(".info-panel-body-log")).isDisplayed());
+   }
 ```
 ```csharp        
   [Test]
@@ -1875,15 +1922,6 @@ public class Section : UIElement
       Assert.AreEqual("h3", e.TagName);
   }
 ```
-
-And here are constructor available in C#:
-
-|Constructor  | Description
---- | --- 
-Section(By locator) | Initializes a newly created Section object by the locator of the By class.
-Section() | Initializes a newly created Section object
-
-In C# section does not have its own methods, but it is extends from [UIElement]();
 
 And here are methods available in Java:
 

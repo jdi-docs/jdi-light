@@ -3644,11 +3644,6 @@ In addition if you run test scenarios on JDI Light you will <strong>get logs of 
 <p><strong>Table</strong> – a complex element that consists of header, body (at least one row and one column) and footer. You are able to perform a list of readonly interactions with this element.</p>
 
 <p>Tables are represented by the following classes in Java and C#:</p>
-
-<ul>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.elements.complex.table.Table.java</em></li>
-<li><strong>C#</strong>: <em>JDI.Light.Elements.Complex.Table.cs</em></li>
-</ul>
 <pre class="highlight java tab-java"><code>         <span class="nd">@UI</span><span class="o">(</span><span class="s">"#users-table"</span><span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">Table</span> <span class="n">users</span><span class="o">;</span>
             <span class="nd">@JTable</span><span class="o">(</span>
                 <span class="n">root</span> <span class="o">=</span> <span class="s">"#users-table"</span><span class="o">,</span>
@@ -3809,6 +3804,11 @@ In addition if you run test scenarios on JDI Light you will <strong>get logs of 
                 <span class="p">.</span><span class="nf">Columns</span><span class="p">(</span><span class="n">Is</span><span class="p">.</span><span class="nf">SubsequenceOf</span><span class="p">(</span><span class="k">new</span><span class="p">[]</span> <span class="p">{</span><span class="s">"Name"</span><span class="p">,</span> <span class="s">"City"</span><span class="p">,</span> <span class="s">"Phone"</span><span class="p">,</span> <span class="s">"Email"</span><span class="p">,</span> <span class="s">"Address"</span><span class="p">}));</span>
         <span class="p">}</span>       
 </code></pre>
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.elements.complex.table.Table.java</em></li>
+<li><strong>C#</strong>: <em>JDI.Light.Elements.Complex.Table.cs</em></li>
+</ul>
+
 <p><img src="images/html/table_html.png" alt="Table" /></p>
 
 <p>Here is a list of available methods in Java:</p>
@@ -3858,17 +3858,17 @@ In addition if you run test scenarios on JDI Light you will <strong>get logs of 
 <tr>
 <td><strong>columns(String colName)</strong></td>
 <td>Sets and returns a list of column objects of a table according to column name</td>
-<td>List<Line></td>
+<td>List&lt;Line&gt;</td>
 </tr>
 <tr>
 <td><strong>filterRows(Matcher<String> matcher, Column column)</strong></td>
 <td>Sets and returns a list of filtered rows of a table according to matching column</td>
-<td>List<Line></td>
+<td>List&lt;Line&gt;</td>
 </tr>
 <tr>
 <td><strong>filterRows(Pair<Matcher<String>,Column&gt;... matchers)</strong></td>
 <td>Sets and returns a list of filtered rows of a table according to matching column</td>
-<td>List<Line></td>
+<td>List&lt;Line&gt;</td>
 </tr>
 <tr>
 <td><strong>getValue()</strong></td>
@@ -3923,12 +3923,12 @@ In addition if you run test scenarios on JDI Light you will <strong>get logs of 
 <tr>
 <td><strong>rows()</strong></td>
 <td>Sets and returns a list of rows of a table</td>
-<td>List<Line></td>
+<td>List&lt;Line&gt;</td>
 </tr>
 <tr>
 <td><strong>rows(TableMatcher... matchers)</strong></td>
 <td>Sets and returns a a list of rows of a table according to matchers</td>
-<td>List<Line></td>
+<td>List&lt;Line&gt;</td>
 </tr>
 </tbody></table>
 
@@ -4088,11 +4088,6 @@ In addition if you run test scenarios on JDI Light you will <strong>get logs of 
 able to perform a list of readonly interactions with this element in order to get all data for the specified criteria.</p>
 
 <p>DataTables are represented by the following classes in Java and C#:</p>
-
-<ul>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.elements.complex.table.DataTable.java</em></li>
-<li><strong>C#</strong>:</li>
-</ul>
 <pre class="highlight java tab-java"><code>
          <span class="nd">@UI</span><span class="o">(</span><span class="s">"#users-table"</span><span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">DataTable</span><span class="o">&lt;</span><span class="n">UserRow</span><span class="o">,</span> <span class="n">UserInfo</span><span class="o">&gt;</span> <span class="n">usersData</span><span class="o">;</span>
             <span class="nd">@JTable</span><span class="o">(</span> <span class="n">root</span> <span class="o">=</span> <span class="s">"#users-table"</span><span class="o">,</span>
@@ -4156,6 +4151,11 @@ able to perform a list of readonly interactions with this element in order to ge
                  <span class="n">assertEquals</span><span class="o">(</span><span class="n">line</span><span class="o">.</span><span class="na">email</span><span class="o">.</span><span class="na">getText</span><span class="o">(),</span> <span class="n">GRADY_BROCK</span><span class="o">.</span><span class="na">email</span><span class="o">);</span>
              <span class="o">}</span>      
 </code></pre>
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.elements.complex.table.DataTable.java</em></li>
+<li><strong>C#</strong>:</li>
+</ul>
+
 <p><img src="images/html/dataTable_html.png" alt="DataTable" /></p>
 
 <p>Here is a list of available methods in Java:</p>
@@ -4170,12 +4170,12 @@ able to perform a list of readonly interactions with this element in order to ge
 <tr>
 <td><strong>allData()</strong></td>
 <td>Gets all section rows from the specified table</td>
-<td>List<D></td>
+<td>List&lt;D&gt;</td>
 </tr>
 <tr>
 <td><strong>allLines()</strong></td>
 <td>Gets all object rows from the specified table</td>
-<td>List<L></td>
+<td>List&lt;L&gt;</td>
 </tr>
 <tr>
 <td><strong>data(Enum rowName)</strong></td>
@@ -4215,37 +4215,37 @@ able to perform a list of readonly interactions with this element in order to ge
 <tr>
 <td><strong>datas(JFunc1<D, Boolean> matcher)</strong></td>
 <td>Returns a list of sections of a table according to matchers</td>
-<td>List<D></td>
+<td>List&lt;D&gt;</td>
 </tr>
 <tr>
 <td><strong>datas(JFunc1<D, Boolean> matcher, int amount)</strong></td>
 <td>Returns a list of sections of a table according to matchers</td>
-<td>List<D></td>
+<td>List&lt;D&gt;</td>
 </tr>
 <tr>
 <td><strong>datas(TableMatcher...matchers)</strong></td>
 <td>Returns a list of sections of a table according to matchers</td>
-<td>List<D></td>
+<td>List&lt;D&gt;</td>
 </tr>
 <tr>
 <td><strong>filterData(Matcher<String> matcher, Column column)</strong></td>
 <td>Returns a list of sections of a table according to matching row and column</td>
-<td>List<D></td>
+<td>List&lt;D&gt;</td>
 </tr>
 <tr>
 <td><strong>filterDatas(Pair<Matcher<String>,Column&gt;...matchers)</strong></td>
 <td>Returns a list of sections of a table according to matching column</td>
-<td>List<D></td>
+<td>List&lt;D&gt;</td>
 </tr>
 <tr>
 <td><strong>filterLines(Matcher<String> matcher, Column column)</strong></td>
 <td>Returns a list of objects of a table according to matching row and column</td>
-<td>List<L></td>
+<td>List&lt;L&gt;</td>
 </tr>
 <tr>
 <td><strong>filterLines(Pair<Matcher<String>,Column&gt;...matchers)</strong></td>
 <td>Returns a list of objects of a table according to matching column</td>
-<td>List<L></td>
+<td>List&lt;L&gt;</td>
 </tr>
 <tr>
 <td><strong>getValue()</strong></td>
@@ -4290,12 +4290,12 @@ able to perform a list of readonly interactions with this element in order to ge
 <tr>
 <td><strong>lines(JFunc1<D, Boolean> matcher)</strong></td>
 <td>Returns a list of objects of a table according to matchers</td>
-<td>List<L></td>
+<td>List&lt;L&gt;</td>
 </tr>
 <tr>
 <td><strong>lines(TableMatcher...matchers)</strong></td>
 <td>Returns a list of objects of a table according to matchers</td>
-<td>List<L></td>
+<td>List&lt;L&gt;</td>
 </tr>
 <tr>
 <td><strong>offCache()</strong></td>

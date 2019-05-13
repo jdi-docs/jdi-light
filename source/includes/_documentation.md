@@ -1864,13 +1864,13 @@ Here is the list of some available methods in C# JDI Light:
 **title()**|Returning new StringCheckType object wit checked Title|StringCheckType
 **open(String url)**|Opens url specified for page|void
 **open(Object... params)**|Opens url specified for page with parameters|void
-**checkOpened()**|Check that page opened|void
-**isOpened()**|Check that page opened|boolean
-**shouldBeOpened()**|Check that page opened|void
+**checkOpened()**|Checking that page opened|void
+**isOpened()**|Checking that page opened|boolean
+**shouldBeOpened()**|Checking that page opened|void
 **shouldBeOpened(Object... params)**|Check that page opened with parameters|void
-**openePage(!)(?)(String url)**|Check that page opened|void
-**refresh()**|Reload current page|void
-**reload()(?)**|mean refresh()|void
+**openePage(String url)**|Check that page opened|void
+**refresh()**|Reloading current page|void
+**reload()**|same as **refresh()**|void
 **back()**|Go back to previous page|void
 **forward()**|Go forward to next page|void
 **zoom(double factor)**|Zooming current page|void
@@ -1885,6 +1885,7 @@ Here is the list of some available methods in C# JDI Light:
 **addPage(WebPage page)**|Adding selected page to Map of pages|void
 **getPage(String value)**|Getting page from Map by value|T_extends_WebPage
 **toString()**|Overriding method of Object class|String
+  
 
 more than that, it has nested Class **StringCheckType** with such methods:
 

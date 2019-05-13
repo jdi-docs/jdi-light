@@ -418,9 +418,6 @@
                               <a href="#datetimeselector" class="toc-h2 h3 toc-link" data-title="DateTimeSelector">DateTimeSelector</a>
                             </li>
                             <li>
-                              <a href="#input-type-range" class="toc-h2 h3 toc-link" data-title="Input Type Range">Input Type Range</a>
-                            </li>
-                            <li>
                               <a href="#fileinput" class="toc-h2 h3 toc-link" data-title="FileInput">FileInput</a>
                             </li>
                             <li>
@@ -2277,82 +2274,6 @@ In addition if you run test scenarios on JDI Light you will <strong>get logs of 
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/DateTimeTests.java">Java test example</a></p>
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs">C# test examples</a></p>
-<h3 id='input-type-range'>Input Type Range</h3>
-<p><strong>Input Type Range</strong> – a graphical control element, that allows the user to set the value from the range.</p>
-
-<ul>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.Range</em></li>
-<li><strong>C#</strong>: <em>JDI.Light.Elements.Common.Range</em></li>
-</ul>
-<pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#volume"</span><span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">Range</span> <span class="n">volume</span><span class="o">;</span>
-<span class="c1">// equal to @FindBy(css = "#volume") public static Range volume;</span>
-
-<span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">volumeTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">volume</span><span class="o">.</span><span class="na">setVolume</span><span class="o">(</span><span class="mi">10</span><span class="o">);</span>
-        <span class="n">assertEquals</span><span class="o">(</span><span class="n">volume</span><span class="o">.</span><span class="na">volume</span><span class="o">(),</span> <span class="mi">10</span><span class="o">);</span>
-        <span class="n">assertEquals</span><span class="o">(</span><span class="n">volume</span><span class="o">.</span><span class="na">max</span><span class="o">(),</span> <span class="s">"100"</span><span class="o">);</span>
-        <span class="n">assertEquals</span><span class="o">(</span><span class="n">volume</span><span class="o">.</span><span class="na">min</span><span class="o">(),</span> <span class="s">"10"</span><span class="o">);</span>
-        <span class="n">assertEquals</span><span class="o">(</span><span class="n">volume</span><span class="o">.</span><span class="na">step</span><span class="o">(),</span> <span class="s">"5"</span><span class="o">);</span>
-    <span class="o">}</span>
-</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">SetGetRange</span><span class="p">()</span> 
-<span class="p">{</span>
-    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">SetRange</span><span class="p">(</span><span class="s">"50"</span><span class="p">);</span>
-    <span class="n">MyDateTime</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">();</span>
-<span class="p">}</span>
-</code></pre>
-<p><img src="images/html/rangeHtml.png" alt="InputTypeDateTime" /></p>
-
-<p>Here is the list of available methods:</p>
-
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>setVolume(int volume)</strong></td>
-<td>Sets the value</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>volume()</strong></td>
-<td>Returns the value</td>
-<td>int</td>
-</tr>
-<tr>
-<td><strong>max()</strong></td>
-<td>Returns the max value</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>min()</strong></td>
-<td>Returns the min value</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>step()</strong></td>
-<td>Returns the step value</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>is()</strong></td>
-<td>Returns object for work with assertions</td>
-<td>RangeAssert</td>
-</tr>
-<tr>
-<td><strong>assertThat()</strong></td>
-<td>Returns object for work with assertions</td>
-<td>RangeAssert</td>
-</tr>
-</tbody></table>
-
-<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/RangeTests.java">Java test examples</a></p>
-
-<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/RangeTests.cs">C# test examples</a></p>
 <h3 id='fileinput'>FileInput</h3>
 <p><strong>FileInput</strong> - a grafical control element, that allows the user to upload documents on the web site</p>
 
@@ -3159,23 +3080,12 @@ In addition if you run test scenarios on JDI Light you will <strong>get logs of 
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ProgressTests.java">Java test examples</a></p>
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/ProgressTests.cs">C# test examples</a></p>
-<h3 id='range'>Range</h3>
-<p><strong>Range</strong> - a graphical control element that allows the user to set the value from the range.</p>
-
-<p><img src="images/html/range_html.png" alt="Range" /></p>
-
-<p>Range is represented by the following class:</p>
-
-<p>Java: com.epam.jdi.light.ui.html.common.Range<br>
-C#: JDI.Light.Elements.Common.Range</p>
-<pre class="highlight java tab-java"><code>  <span class="nd">@UI</span><span class="o">(</span><span class="s">"#volume"</span><span class="o">)</span>  <span class="c1">//@FindBy(id = "volume") </span>
-  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Text</span> <span class="n">jdiText</span><span class="o">;</span>
-
+<h3 id='range'>Range</h3><pre class="highlight java tab-java"><code>  <span class="nd">@UI</span><span class="o">(</span><span class="s">"#volume"</span><span class="o">)</span>  <span class="c1">//@FindBy(id = "volume") </span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Range</span> <span class="n">volume</span><span class="o">;</span>
   <span class="nd">@Test</span>
   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">getLabelTextTest</span><span class="o">()</span> <span class="o">{</span>
       <span class="n">assertEquals</span><span class="o">(</span><span class="n">volume</span><span class="o">.</span><span class="na">labelText</span><span class="o">(),</span> <span class="s">"Volume"</span><span class="o">);</span>
   <span class="o">}</span>
-
   <span class="nd">@Test</span>
   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">getValueTest</span><span class="o">()</span> <span class="o">{</span>
       <span class="n">assertEquals</span><span class="o">(</span><span class="n">disabledRange</span><span class="o">.</span><span class="na">volume</span><span class="o">(),</span> <span class="mi">50</span><span class="o">);</span>
@@ -3192,13 +3102,11 @@ C#: JDI.Light.Elements.Common.Range</p>
   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">stepTest</span><span class="o">()</span> <span class="o">{</span>
       <span class="n">assertEquals</span><span class="o">(</span><span class="n">volume</span><span class="o">.</span><span class="na">step</span><span class="o">(),</span> <span class="s">"5"</span><span class="o">);</span>
   <span class="o">}</span>
-
   <span class="nd">@Test</span>
   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setVolumeTest</span><span class="o">()</span> <span class="o">{</span>
       <span class="n">volume</span><span class="o">.</span><span class="na">setVolume</span><span class="o">(</span><span class="mi">10</span><span class="o">);</span>
       <span class="n">assertEquals</span><span class="o">(</span><span class="n">volume</span><span class="o">.</span><span class="na">volume</span><span class="o">(),</span> <span class="mi">10</span><span class="o">);</span>
   <span class="o">}</span>
-
   <span class="nd">@Test</span>
   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">isValidationTest</span><span class="o">()</span> <span class="o">{</span>
       <span class="n">volume</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
@@ -3209,60 +3117,50 @@ C#: JDI.Light.Elements.Common.Range</p>
       <span class="n">volume</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">volume</span><span class="o">(</span><span class="n">lessThanOrEqualTo</span><span class="o">(</span><span class="mi">100</span><span class="o">));</span>
       <span class="n">volume</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">volume</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="mi">90</span><span class="o">));</span>
   <span class="o">}</span>
-
   <span class="nd">@Test</span>
   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">labelTest</span><span class="o">()</span> <span class="o">{</span>
       <span class="n">assertEquals</span><span class="o">(</span><span class="n">volume</span><span class="o">.</span><span class="na">label</span><span class="o">().</span><span class="na">getText</span><span class="o">(),</span> <span class="s">"Volume"</span><span class="o">);</span>
       <span class="n">volume</span><span class="o">.</span><span class="na">label</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"lume"</span><span class="o">));</span>
       <span class="n">volume</span><span class="o">.</span><span class="na">label</span><span class="o">().</span><span class="na">assertThat</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">equalToIgnoringCase</span><span class="o">(</span><span class="s">"volume"</span><span class="o">));</span>
   <span class="o">}</span>
-
   <span class="nd">@Test</span>
   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">assertValidationTest</span><span class="o">()</span> <span class="o">{</span>
       <span class="n">volume</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">volume</span><span class="o">(</span><span class="n">greaterThan</span><span class="o">(</span><span class="mi">0</span><span class="o">));</span>
       <span class="n">volume</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">volume</span><span class="o">(</span><span class="n">lessThan</span><span class="o">(</span><span class="mi">200</span><span class="o">));</span>
       <span class="n">disabledRange</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">volume</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="mi">50</span><span class="o">));</span>
   <span class="o">}</span>
-
   <span class="nd">@Test</span>
   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">baseValidationTest</span><span class="o">()</span> <span class="o">{</span>
       <span class="n">baseValidation</span><span class="o">(</span><span class="n">volume</span><span class="o">);</span>
   <span class="o">}</span>
-
-</code></pre><pre class="highlight csharp tab-csharp"><code>   <span class="p">[</span><span class="nf">FindBy</span><span class="p">(</span><span class="n">Css</span> <span class="p">=</span> <span class="s">"#volume"</span><span class="p">)]</span>
-   <span class="k">public</span> <span class="n">IRange</span> <span class="n">Volume</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-
+</code></pre><pre class="highlight csharp tab-csharp"><code>  <span class="p">[</span><span class="nf">FindBy</span><span class="p">(</span><span class="n">Css</span> <span class="p">=</span> <span class="s">"#volume"</span><span class="p">)]</span>
+  <span class="k">public</span> <span class="n">IRange</span> <span class="n">Volume</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span> 
   <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
   <span class="k">public</span> <span class="k">void</span> <span class="nf">GetValueTest</span><span class="p">()</span>
   <span class="p">{</span>
       <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">DisabledRange</span><span class="p">.</span><span class="nf">Value</span><span class="p">(),</span> <span class="m">50</span><span class="p">);</span>
   <span class="p">}</span>
-
   <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
   <span class="k">public</span> <span class="k">void</span> <span class="nf">MinTest</span><span class="p">()</span>
   <span class="p">{</span>
       <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">Volume</span><span class="p">.</span><span class="nf">Min</span><span class="p">(),</span> <span class="m">10</span><span class="p">);</span>
   <span class="p">}</span>
-
   <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
   <span class="k">public</span> <span class="k">void</span> <span class="nf">MaxTest</span><span class="p">()</span>
   <span class="p">{</span>
       <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">Volume</span><span class="p">.</span><span class="nf">Max</span><span class="p">(),</span> <span class="m">100</span><span class="p">);</span>
   <span class="p">}</span>
-
   <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
   <span class="k">public</span> <span class="k">void</span> <span class="nf">StepTest</span><span class="p">()</span>
   <span class="p">{</span>
       <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">Volume</span><span class="p">.</span><span class="nf">Step</span><span class="p">(),</span> <span class="m">5</span><span class="p">);</span>
   <span class="p">}</span>
-
   <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
   <span class="k">public</span> <span class="k">void</span> <span class="nf">SetRangeTest</span><span class="p">()</span>
   <span class="p">{</span>
       <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">Volume</span><span class="p">.</span><span class="nf">SetValue</span><span class="p">(</span><span class="m">10</span><span class="p">);</span>
       <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">Volume</span><span class="p">.</span><span class="nf">Value</span><span class="p">(),</span> <span class="m">10</span><span class="p">);</span>
   <span class="p">}</span>
-
   <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
   <span class="k">public</span> <span class="k">void</span> <span class="nf">RangeTest</span><span class="p">()</span>
   <span class="p">{</span>
@@ -3270,101 +3168,38 @@ C#: JDI.Light.Elements.Common.Range</p>
       <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">Volume</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">(),</span> <span class="s">"30"</span><span class="p">);</span>
   <span class="p">}</span>
 </code></pre>
-<p>Here is a list of available methods in C#:</p>
+<p><strong>Range</strong> - a graphical control element that allows the user to set the value from the range.</br>
+<img src="images/html/range_html.png" alt="Range" /></br>
+Range is represented by the following class:</br>
+  - <strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.Range</em>
+  - <strong>C#</strong>: <em>JDI.Light.Elements.Common.Range</em>
+</br>
+Here is a list of available methods in C#:</br>
+</br>
+|Method | Description | Return Type
+--- | --- | ---
+<strong>SetValue(string value)</strong> | Sets the value | void
+<strong>SetValue(double value)</strong> | Sets the value | void
+<strong>GetValue()</strong> | Returns the value | String
+<strong>Value()</strong> | Returns the value | Double
+<strong>Min()</strong> | Returns the min value | Double
+<strong>Max()</strong> | Returns the max value| Double
+<strong>Step()</strong> | Returns the step value | Double</p>
 
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>SetValue(string value)</strong></td>
-<td>Sets the value</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>SetValue(double value)</strong></td>
-<td>Sets the value</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>GetValue()</strong></td>
-<td>Returns the value</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>Value()</strong></td>
-<td>Returns the value</td>
-<td>Double</td>
-</tr>
-<tr>
-<td><strong>Min()</strong></td>
-<td>Returns the min value</td>
-<td>Double</td>
-</tr>
-<tr>
-<td><strong>Max()</strong></td>
-<td>Returns the max value</td>
-<td>Double</td>
-</tr>
-<tr>
-<td><strong>Step()</strong></td>
-<td>Returns the step value</td>
-<td>Double</td>
-</tr>
-</tbody></table>
-
-<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/RangeTests.cs">Test examples in C#</a></p>
-
-<p>And here are methods available in Java:</p>
-
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>setVolume(int volume)</strong></td>
-<td>Sets the value</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>volume()</strong></td>
-<td>Returns the value</td>
-<td>int</td>
-</tr>
-<tr>
-<td><strong>max()</strong></td>
-<td>Returns the max value</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>min()</strong></td>
-<td>Returns the min value</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>step()</strong></td>
-<td>Returns the step value</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>is()</strong></td>
-<td>Returns object for work with assertions</td>
-<td>RangeAssert</td>
-</tr>
-<tr>
-<td><strong>assertThat()</strong></td>
-<td>Returns object for work with assertions</td>
-<td>RangeAssert</td>
-</tr>
-</tbody></table>
-
-<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/RangeTests.java">Java test examples</a></p>
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/RangeTests.cs">Test examples in C#</a></br></br>
+And here are methods available in Java:</br>
+</br>
+|Method | Description | Return Type
+--- | --- | ---
+<strong>setVolume(int volume)</strong> | Sets the value | void
+<strong>volume()</strong> | Returns the value | int
+<strong>max()</strong> | Returns the max value | String
+<strong>min()</strong> | Returns the min value | String
+<strong>step()</strong> | Returns the step value | String
+<strong>is()</strong> | Returns object for work with assertions | RangeAssert
+<strong>assertThat()</strong> | Returns object for work with assertions | RangeAssert
+</br>
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/RangeTests.java">Java test examples</a></br></p>
 <h3 id='text'>Text</h3>
 <p><strong>Text</strong> is a combination of letters and textual symbols. When performing testing, the text is used in most operations: when typing text into the login field, when finding a button with some certain text in it, or when checking if actual text matches expected one.
 <img src="images/html/text_html.png" alt="Text" /></p>

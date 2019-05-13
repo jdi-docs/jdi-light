@@ -1265,29 +1265,107 @@ Here is the list of some available methods:
 
 **Table** – a complex element that consists of header, body (at least one row and one column) and footer. You are able to perform a list of readonly interactions with this element.
 
-![Table](../images/html/table_html.png)
-
 Tables are represented by the following classes in Java and C#:
  
   - __Java__: _com.epam.jdi.light.elements.complex.table.Table.java_
   - __C#__: _JDI.Light.Elements.Complex.Table.cs_
   
+  ![Table](../images/html/table_html.png)
+  
 ```java 
+         @UI("#users-table") public static Table users;
+         	@JTable(
+         		root = "#users-table",
+         		row = "//tr[%s]/td",
+         		column = "//tr/td[%s]",
+         		cell = "//tr[{1}]/td[{0}]",
+         		allCells = "td",
+         		headers = "th",
+         		header = {"Name", "Phone", "Email", "City"},
+         	 	rowHeader = "Name",
+         		size = 4
+         	) public static Table usersSetup;
+         
          
          @Test
-             public void tableDataTest() {
-                 assertEquals(users.row(2).asData(UserInfo.class),
-                         GRADY_BROCK);
-             }
-         
-             @Test
-             public void tableEntityTest() {
-                 UserRow user = users.row(2).asLine(UserRow.class);
-                 user.name.click();
-                 validateAlert(containsString("Brock"));
-                 user.city.click();
-                 validateAlert(is("Alcobendas"));
-             }		
+            public void tablePerformanceTest() {
+                tablePerformance(users);
+            }
+            @Test
+            public void jTablePerformanceTest() {
+                tablePerformance(usersSetup);
+            }
+            
+            private void tablePerformance(Table table) {
+                assertEquals(table.size(), 4);
+                assertEquals(table.count(), 400);
+                assertEquals(table.header(), asList("Name", "Phone", "Email", "City"));
+                start();
+                assertEquals(table.row(1).getValue(),
+                        "Burke Tucker;076 1971 1687;et.euismod.et@ut.edu;GozŽe");
+                logTime("Get 1 row");
+        
+                assertEquals(table.row("Burke Tucker").getValue(),
+                        "Burke Tucker;076 1971 1687;et.euismod.et@ut.edu;GozŽe");
+                logTime("Get 'Burke Tucker' row");
+        
+                String zacharyEmail = "ipsum.non.arcu@auctorullamcorper.ca";
+                assertEquals(table.cell(3,4), zacharyEmail);
+                logTime("Get cell(3,4)");
+                assertEquals(table.cell("Email",4), zacharyEmail);
+                logTime("Get cell(Email,4)");
+                assertEquals(table.cell(3,"Zachary Hendrix"), zacharyEmail);
+                logTime("Get cell(3,Zachary Hendrix)");
+                assertEquals(table.cell("Email","Zachary Hendrix"), zacharyEmail);
+                logTime("Get cell(Email,Zachary Hendrix)");
+        
+                assertEquals(table.column(2).getValue().substring(0, 30),
+                        "076 1971 1687;(011307) 16843;0");
+                logTime("Get column(2)");
+        
+                assertEquals(table.column("Phone").getValue().substring(0, 30),
+                        "076 1971 1687;(011307) 16843;0");
+                logTime("Get column(Phone)");
+        
+                String value = table.preview();
+                assertEquals(value.substring(0,194),
+                "Name Phone Email City" +
+                    "Burke Tucker 076 1971 1687 et.euismod.et@ut.edu GozŽe" +
+                    "Grady Brock (011307) 16843 cursus.et@commodo.org Alcobendas" +
+                    "Harding Lloyd 0800 1111 neque.In.ornare@mauris.co.uk Beauvais");
+                logTime("Preview");
+                /*value = table.getValue();
+                assertEquals(value.substring(0,228),
+                    "||X||Name|Phone|Email|City||\r\n" +
+                    "||1||Burke Tucker|076 1971 1687|et.euismod.et@ut.edu|GozŽe||\r\n" +
+                    "||2||Grady Brock|(011307) 16843|cursus.et@commodo.org|Alcobendas||\r\n" +
+                    "||3||Harding Lloyd|0800 1111|neque.In.ornare@mauris.co.uk|Beauvais||");
+                logTime("Get value");*/
+            }
+        
+            @Test
+            public void tableDataTest() {
+                assertEquals(users.row(2).asData(UserInfo.class),
+                        GRADY_BROCK);
+            }
+        
+            @Test
+            public void tableEntityTest() {
+                UserRow user = users.row(2).asLine(UserRow.class);
+                user.name.click();
+                validateAlert(containsString("Brock"));
+                user.city.click();
+                validateAlert(is("Alcobendas"));
+            }
+        
+            private static long timeStart;
+            public static void start() {
+                timeStart = currentTimeMillis();
+            }
+            public static void logTime(String description) {
+                out.println(description + ": " + (currentTimeMillis() - timeStart) + "ms");
+                timeStart = currentTimeMillis();
+            }		
   ```
 
 ```csharp
@@ -1428,6 +1506,126 @@ AssertTable methods in C#:
 
 [C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Composite/TableTests.cs)
 
+### DataTable
+
+**DataTable** – a complex element that consists of header, body (at least one row and one column) and footer. You are 
+able to perform a list of readonly interactions with this element in order to get all data for the specified criteria.
+
+DataTables are represented by the following classes in Java and C#:
+ 
+  - __Java__: _com.epam.jdi.light.elements.complex.table.DataTable.java_
+  - __C#__:
+  
+  ![DataTable](../images/html/dataTable_html.png)
+
+```java 
+         
+         @UI("#users-table") public static DataTable<UserRow, UserInfo> usersData;
+         	@JTable( root = "#users-table",
+         		row = "//tr[%s]/td", column = "//tr/td[%s]",
+         		cell = "//tr[{1}]/td[{0}]", allCells = "td",
+         		headers = "th", header = {"Name", "Phone", "Email", "City"},
+         		rowHeader = "Name", size = 4
+         	)
+         	public static DataTable<UserRow, UserInfo> usersDataSetup;
+         
+         @Test
+             public void dataTableTest() {
+                 dataTableValidation(usersData);
+             }
+             @Test
+             public void jDataTableTest() {
+                 dataTableValidation(usersDataSetup);
+             }
+             private void dataTableValidation(DataTable<UserRow, UserInfo> table) {
+                 assertEquals(table.size(), 4);
+                 assertEquals(table.count(), 400);
+                 assertEquals(table.header(), asList("Name", "Phone", "Email", "City"));
+                 String value = table.preview();
+                 assertEquals(value.substring(0,194),
+                 "Name Phone Email City" +
+                     "Burke Tucker 076 1971 1687 et.euismod.et@ut.edu GozŽe" +
+                     "Grady Brock (011307) 16843 cursus.et@commodo.org Alcobendas" +
+                     "Harding Lloyd 0800 1111 neque.In.ornare@mauris.co.uk Beauvais");
+             }
+             @Test
+             public void filterDataTest() {
+                 assertEquals(usersData.data(2), GRADY_BROCK);
+                 assertEquals(usersData.data("Grady Brock"), GRADY_BROCK);
+                 assertEquals(usersData.data(d -> d.name.contains("Brock")), GRADY_BROCK);
+                 usersData.assertThat().row(d -> d.equals(GRADY_BROCK));
+                 /*
+                 List<UserInfo> filteredData = usersData.datas(d -> d.name.contains("Brock"));
+                 assertEquals(filteredData.size(), 1);
+                 assertEquals(filteredData.get(0), GRADY_BROCK);
+                 */
+             }
+         
+             @Test
+             public void filterLinesTest() {
+                 UserRow line =  usersData.line(2);
+                 validateUserRow(line);
+                 line =  usersData.line("Grady Brock");
+                 validateUserRow(line);
+                 line =  usersData.line(d -> d.name.contains("Brock"));
+                 validateUserRow(line);
+                 /*
+                 List<UserRow> filteredData = usersData.lines(d -> d.name.contains("Brock"));
+                 assertEquals(filteredData.size(), 1);
+                 validateUserRow(filteredData.get(0));
+                 */
+             }
+         
+             private void validateUserRow(UserRow line) {
+                 line.city.click();
+                 validateAlert(is(GRADY_BROCK.city));
+                 assertEquals(line.email.getText(), GRADY_BROCK.email);
+             }		
+  ```
+
+Here is a list of available methods in Java:
+
+| Method | Description | Return Type|
+--- | --- | ---
+**allData()** | Gets all section rows from the specified table | List<D>
+**allLines()** | Gets all object rows from the specified table | List<L>
+**data(Enum rowName)** | Returns a section of a table according to row name | D
+**data(int rowNum)** | Returns a section of a table according to row number | D
+**data(JFunc1<D, Boolean> matcher)** | Returns a section of a table according to matching row | D
+**data(Matcher<String> matcher, Column column)** | Returns a section of a table according to matching row and column | D
+**data(Pair<Matcher<String>,Column>...matchers)** | Returns a section of a table according to matching column | D
+**data(String rowName)** | Returns a section of a table according to row name | D
+**data(TableMatcher...matchers)** | Returns a section of a table according to matchers | D
+**datas(JFunc1<D, Boolean> matcher)** | Returns a list of sections of a table according to matchers | List<D>
+**datas(JFunc1<D, Boolean> matcher, int amount)** | Returns a list of sections of a table according to matchers | List<D>
+**datas(TableMatcher...matchers)** | Returns a list of sections of a table according to matchers | List<D>
+**filterData(Matcher<String> matcher, Column column)** | Returns a list of sections of a table according to matching row and column | List<D>
+**filterDatas(Pair<Matcher<String>,Column>...matchers)** | Returns a list of sections of a table according to matching column | List<D>
+**filterLines(Matcher<String> matcher, Column column)** | Returns a list of objects of a table according to matching row and column | List<L>
+**filterLines(Pair<Matcher<String>,Column>...matchers)** | Returns a list of objects of a table according to matching column | List<L>
+**getValue()** | Returns a string content of values for particular row, where values are separated by "&#124;" | String
+**line(Enum rowName)** | Returns an object of a table according to row name | L
+**line(int rowNum)** | Returns an object of a table according to row number | L
+**line(JFunc1<D, Boolean> matcher)** | Returns an object of a table according to matching row | L
+**line(Matcher<String> matcher, Column column)** | Returns an object of a table according to matching row and column | L
+**line(Pair<Matcher<String>,Column>...matchers)** | Returns an object of a table according to matching column | L
+**line(String rowName)** | Returns an object of a table according to row name | L
+**line(TableMatcher...matchers)** | Returns an object of a table according to matchers | L
+**lines(JFunc1<D, Boolean> matcher)** | Returns a list of objects of a table according to matchers | List<L>
+**lines(TableMatcher...matchers)** | Returns a list of objects of a table according to matchers | List<L>
+**offCache()** | Turns off cache usage | void
+**refresh()** | Clears all data and lines | void
+**setup(Field field)** | Sets up the table using specified fields | void
+
+DataTableAssert methods in Java:
+
+| Method | Description | Return Type|
+--- | --- | ---
+**assertThat()** | Applicable for performing assert actions for tables | DataTableAssert
+**has()** | Applicable for performing assert actions for tables | DataTableAssert
+**is()** | Applicable for performing assert actions for tables | DataTableAssert
+**shouldBe()** | Applicable for performing assert actions for tables | DataTableAssert
+**waitFor()** | Applicable for performing assert actions for tables | DataTableAssert
 ### DropDown
 
 **DropDown** – a graphical control element, that allows the user to choose one value from a list.

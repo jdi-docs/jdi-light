@@ -468,6 +468,9 @@
                               <a href="#table" class="toc-h2 h3 toc-link" data-title="Table">Table</a>
                             </li>
                             <li>
+                              <a href="#datatable" class="toc-h2 h3 toc-link" data-title="DataTable">DataTable</a>
+                            </li>
+                            <li>
                               <a href="#dropdown" class="toc-h2 h3 toc-link" data-title="DropDown">DropDown</a>
                             </li>
                             <li>
@@ -3640,29 +3643,107 @@ In addition if you run test scenarios on JDI Light you will <strong>get logs of 
 <h3 id='table'>Table</h3>
 <p><strong>Table</strong> – a complex element that consists of header, body (at least one row and one column) and footer. You are able to perform a list of readonly interactions with this element.</p>
 
-<p><img src="images/html/table_html.png" alt="Table" /></p>
-
 <p>Tables are represented by the following classes in Java and C#:</p>
 
 <ul>
 <li><strong>Java</strong>: <em>com.epam.jdi.light.elements.complex.table.Table.java</em></li>
 <li><strong>C#</strong>: <em>JDI.Light.Elements.Complex.Table.cs</em></li>
 </ul>
-<pre class="highlight java tab-java"><code>
-         <span class="nd">@Test</span>
-             <span class="kd">public</span> <span class="kt">void</span> <span class="nf">tableDataTest</span><span class="o">()</span> <span class="o">{</span>
-                 <span class="n">assertEquals</span><span class="o">(</span><span class="n">users</span><span class="o">.</span><span class="na">row</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">asData</span><span class="o">(</span><span class="n">UserInfo</span><span class="o">.</span><span class="na">class</span><span class="o">),</span>
-                         <span class="n">GRADY_BROCK</span><span class="o">);</span>
-             <span class="o">}</span>
 
-             <span class="nd">@Test</span>
-             <span class="kd">public</span> <span class="kt">void</span> <span class="nf">tableEntityTest</span><span class="o">()</span> <span class="o">{</span>
-                 <span class="n">UserRow</span> <span class="n">user</span> <span class="o">=</span> <span class="n">users</span><span class="o">.</span><span class="na">row</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">asLine</span><span class="o">(</span><span class="n">UserRow</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
-                 <span class="n">user</span><span class="o">.</span><span class="na">name</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
-                 <span class="n">validateAlert</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"Brock"</span><span class="o">));</span>
-                 <span class="n">user</span><span class="o">.</span><span class="na">city</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
-                 <span class="n">validateAlert</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="s">"Alcobendas"</span><span class="o">));</span>
-             <span class="o">}</span>      
+<p><img src="images/html/table_html.png" alt="Table" /></p>
+<pre class="highlight java tab-java"><code>         <span class="nd">@UI</span><span class="o">(</span><span class="s">"#users-table"</span><span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">Table</span> <span class="n">users</span><span class="o">;</span>
+            <span class="nd">@JTable</span><span class="o">(</span>
+                <span class="n">root</span> <span class="o">=</span> <span class="s">"#users-table"</span><span class="o">,</span>
+                <span class="n">row</span> <span class="o">=</span> <span class="s">"//tr[%s]/td"</span><span class="o">,</span>
+                <span class="n">column</span> <span class="o">=</span> <span class="s">"//tr/td[%s]"</span><span class="o">,</span>
+                <span class="n">cell</span> <span class="o">=</span> <span class="s">"//tr[{1}]/td[{0}]"</span><span class="o">,</span>
+                <span class="n">allCells</span> <span class="o">=</span> <span class="s">"td"</span><span class="o">,</span>
+                <span class="n">headers</span> <span class="o">=</span> <span class="s">"th"</span><span class="o">,</span>
+                <span class="n">header</span> <span class="o">=</span> <span class="o">{</span><span class="s">"Name"</span><span class="o">,</span> <span class="s">"Phone"</span><span class="o">,</span> <span class="s">"Email"</span><span class="o">,</span> <span class="s">"City"</span><span class="o">},</span>
+                <span class="n">rowHeader</span> <span class="o">=</span> <span class="s">"Name"</span><span class="o">,</span>
+                <span class="n">size</span> <span class="o">=</span> <span class="mi">4</span>
+            <span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">Table</span> <span class="n">usersSetup</span><span class="o">;</span>
+
+
+         <span class="nd">@Test</span>
+            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">tablePerformanceTest</span><span class="o">()</span> <span class="o">{</span>
+                <span class="n">tablePerformance</span><span class="o">(</span><span class="n">users</span><span class="o">);</span>
+            <span class="o">}</span>
+            <span class="nd">@Test</span>
+            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">jTablePerformanceTest</span><span class="o">()</span> <span class="o">{</span>
+                <span class="n">tablePerformance</span><span class="o">(</span><span class="n">usersSetup</span><span class="o">);</span>
+            <span class="o">}</span>
+
+            <span class="kd">private</span> <span class="kt">void</span> <span class="nf">tablePerformance</span><span class="o">(</span><span class="n">Table</span> <span class="n">table</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">assertEquals</span><span class="o">(</span><span class="n">table</span><span class="o">.</span><span class="na">size</span><span class="o">(),</span> <span class="mi">4</span><span class="o">);</span>
+                <span class="n">assertEquals</span><span class="o">(</span><span class="n">table</span><span class="o">.</span><span class="na">count</span><span class="o">(),</span> <span class="mi">400</span><span class="o">);</span>
+                <span class="n">assertEquals</span><span class="o">(</span><span class="n">table</span><span class="o">.</span><span class="na">header</span><span class="o">(),</span> <span class="n">asList</span><span class="o">(</span><span class="s">"Name"</span><span class="o">,</span> <span class="s">"Phone"</span><span class="o">,</span> <span class="s">"Email"</span><span class="o">,</span> <span class="s">"City"</span><span class="o">));</span>
+                <span class="n">start</span><span class="o">();</span>
+                <span class="n">assertEquals</span><span class="o">(</span><span class="n">table</span><span class="o">.</span><span class="na">row</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">getValue</span><span class="o">(),</span>
+                        <span class="s">"Burke Tucker;076 1971 1687;et.euismod.et@ut.edu;GozŽe"</span><span class="o">);</span>
+                <span class="n">logTime</span><span class="o">(</span><span class="s">"Get 1 row"</span><span class="o">);</span>
+
+                <span class="n">assertEquals</span><span class="o">(</span><span class="n">table</span><span class="o">.</span><span class="na">row</span><span class="o">(</span><span class="s">"Burke Tucker"</span><span class="o">).</span><span class="na">getValue</span><span class="o">(),</span>
+                        <span class="s">"Burke Tucker;076 1971 1687;et.euismod.et@ut.edu;GozŽe"</span><span class="o">);</span>
+                <span class="n">logTime</span><span class="o">(</span><span class="s">"Get 'Burke Tucker' row"</span><span class="o">);</span>
+
+                <span class="n">String</span> <span class="n">zacharyEmail</span> <span class="o">=</span> <span class="s">"ipsum.non.arcu@auctorullamcorper.ca"</span><span class="o">;</span>
+                <span class="n">assertEquals</span><span class="o">(</span><span class="n">table</span><span class="o">.</span><span class="na">cell</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span><span class="mi">4</span><span class="o">),</span> <span class="n">zacharyEmail</span><span class="o">);</span>
+                <span class="n">logTime</span><span class="o">(</span><span class="s">"Get cell(3,4)"</span><span class="o">);</span>
+                <span class="n">assertEquals</span><span class="o">(</span><span class="n">table</span><span class="o">.</span><span class="na">cell</span><span class="o">(</span><span class="s">"Email"</span><span class="o">,</span><span class="mi">4</span><span class="o">),</span> <span class="n">zacharyEmail</span><span class="o">);</span>
+                <span class="n">logTime</span><span class="o">(</span><span class="s">"Get cell(Email,4)"</span><span class="o">);</span>
+                <span class="n">assertEquals</span><span class="o">(</span><span class="n">table</span><span class="o">.</span><span class="na">cell</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span><span class="s">"Zachary Hendrix"</span><span class="o">),</span> <span class="n">zacharyEmail</span><span class="o">);</span>
+                <span class="n">logTime</span><span class="o">(</span><span class="s">"Get cell(3,Zachary Hendrix)"</span><span class="o">);</span>
+                <span class="n">assertEquals</span><span class="o">(</span><span class="n">table</span><span class="o">.</span><span class="na">cell</span><span class="o">(</span><span class="s">"Email"</span><span class="o">,</span><span class="s">"Zachary Hendrix"</span><span class="o">),</span> <span class="n">zacharyEmail</span><span class="o">);</span>
+                <span class="n">logTime</span><span class="o">(</span><span class="s">"Get cell(Email,Zachary Hendrix)"</span><span class="o">);</span>
+
+                <span class="n">assertEquals</span><span class="o">(</span><span class="n">table</span><span class="o">.</span><span class="na">column</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">getValue</span><span class="o">().</span><span class="na">substring</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">30</span><span class="o">),</span>
+                        <span class="s">"076 1971 1687;(011307) 16843;0"</span><span class="o">);</span>
+                <span class="n">logTime</span><span class="o">(</span><span class="s">"Get column(2)"</span><span class="o">);</span>
+
+                <span class="n">assertEquals</span><span class="o">(</span><span class="n">table</span><span class="o">.</span><span class="na">column</span><span class="o">(</span><span class="s">"Phone"</span><span class="o">).</span><span class="na">getValue</span><span class="o">().</span><span class="na">substring</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">30</span><span class="o">),</span>
+                        <span class="s">"076 1971 1687;(011307) 16843;0"</span><span class="o">);</span>
+                <span class="n">logTime</span><span class="o">(</span><span class="s">"Get column(Phone)"</span><span class="o">);</span>
+
+                <span class="n">String</span> <span class="n">value</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="na">preview</span><span class="o">();</span>
+                <span class="n">assertEquals</span><span class="o">(</span><span class="n">value</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span><span class="mi">194</span><span class="o">),</span>
+                <span class="s">"Name Phone Email City"</span> <span class="o">+</span>
+                    <span class="s">"Burke Tucker 076 1971 1687 et.euismod.et@ut.edu GozŽe"</span> <span class="o">+</span>
+                    <span class="s">"Grady Brock (011307) 16843 cursus.et@commodo.org Alcobendas"</span> <span class="o">+</span>
+                    <span class="s">"Harding Lloyd 0800 1111 neque.In.ornare@mauris.co.uk Beauvais"</span><span class="o">);</span>
+                <span class="n">logTime</span><span class="o">(</span><span class="s">"Preview"</span><span class="o">);</span>
+                <span class="cm">/*value = table.getValue();
+                assertEquals(value.substring(0,228),
+                    "||X||Name|Phone|Email|City||\r\n" +
+                    "||1||Burke Tucker|076 1971 1687|et.euismod.et@ut.edu|GozŽe||\r\n" +
+                    "||2||Grady Brock|(011307) 16843|cursus.et@commodo.org|Alcobendas||\r\n" +
+                    "||3||Harding Lloyd|0800 1111|neque.In.ornare@mauris.co.uk|Beauvais||");
+                logTime("Get value");*/</span>
+            <span class="o">}</span>
+
+            <span class="nd">@Test</span>
+            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">tableDataTest</span><span class="o">()</span> <span class="o">{</span>
+                <span class="n">assertEquals</span><span class="o">(</span><span class="n">users</span><span class="o">.</span><span class="na">row</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">asData</span><span class="o">(</span><span class="n">UserInfo</span><span class="o">.</span><span class="na">class</span><span class="o">),</span>
+                        <span class="n">GRADY_BROCK</span><span class="o">);</span>
+            <span class="o">}</span>
+
+            <span class="nd">@Test</span>
+            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">tableEntityTest</span><span class="o">()</span> <span class="o">{</span>
+                <span class="n">UserRow</span> <span class="n">user</span> <span class="o">=</span> <span class="n">users</span><span class="o">.</span><span class="na">row</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">asLine</span><span class="o">(</span><span class="n">UserRow</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+                <span class="n">user</span><span class="o">.</span><span class="na">name</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+                <span class="n">validateAlert</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"Brock"</span><span class="o">));</span>
+                <span class="n">user</span><span class="o">.</span><span class="na">city</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+                <span class="n">validateAlert</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="s">"Alcobendas"</span><span class="o">));</span>
+            <span class="o">}</span>
+
+            <span class="kd">private</span> <span class="kd">static</span> <span class="kt">long</span> <span class="n">timeStart</span><span class="o">;</span>
+            <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">start</span><span class="o">()</span> <span class="o">{</span>
+                <span class="n">timeStart</span> <span class="o">=</span> <span class="n">currentTimeMillis</span><span class="o">();</span>
+            <span class="o">}</span>
+            <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">logTime</span><span class="o">(</span><span class="n">String</span> <span class="n">description</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">description</span> <span class="o">+</span> <span class="s">": "</span> <span class="o">+</span> <span class="o">(</span><span class="n">currentTimeMillis</span><span class="o">()</span> <span class="o">-</span> <span class="n">timeStart</span><span class="o">)</span> <span class="o">+</span> <span class="s">"ms"</span><span class="o">);</span>
+                <span class="n">timeStart</span> <span class="o">=</span> <span class="n">currentTimeMillis</span><span class="o">();</span>
+            <span class="o">}</span>       
 </code></pre><pre class="highlight csharp tab-csharp"><code>
         <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
         <span class="k">public</span> <span class="k">void</span> <span class="nf">HugeTableSearchByColumnNamesContainValuesTest</span><span class="p">()</span>
@@ -4002,6 +4083,272 @@ In addition if you run test scenarios on JDI Light you will <strong>get logs of 
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-examples/src/test/java/io/github/epam/tests/recommended/TableTests.java">Java test examples</a></p>
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Composite/TableTests.cs">C# test examples</a></p>
+<h3 id='datatable'>DataTable</h3>
+<p><strong>DataTable</strong> – a complex element that consists of header, body (at least one row and one column) and footer. You are 
+able to perform a list of readonly interactions with this element in order to get all data for the specified criteria.</p>
+
+<p>DataTables are represented by the following classes in Java and C#:</p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.elements.complex.table.DataTable.java</em></li>
+<li><strong>C#</strong>:</li>
+</ul>
+
+<p><img src="images/html/dataTable_html.png" alt="DataTable" /></p>
+<pre class="highlight java tab-java"><code>
+         <span class="nd">@UI</span><span class="o">(</span><span class="s">"#users-table"</span><span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">DataTable</span><span class="o">&lt;</span><span class="n">UserRow</span><span class="o">,</span> <span class="n">UserInfo</span><span class="o">&gt;</span> <span class="n">usersData</span><span class="o">;</span>
+            <span class="nd">@JTable</span><span class="o">(</span> <span class="n">root</span> <span class="o">=</span> <span class="s">"#users-table"</span><span class="o">,</span>
+                <span class="n">row</span> <span class="o">=</span> <span class="s">"//tr[%s]/td"</span><span class="o">,</span> <span class="n">column</span> <span class="o">=</span> <span class="s">"//tr/td[%s]"</span><span class="o">,</span>
+                <span class="n">cell</span> <span class="o">=</span> <span class="s">"//tr[{1}]/td[{0}]"</span><span class="o">,</span> <span class="n">allCells</span> <span class="o">=</span> <span class="s">"td"</span><span class="o">,</span>
+                <span class="n">headers</span> <span class="o">=</span> <span class="s">"th"</span><span class="o">,</span> <span class="n">header</span> <span class="o">=</span> <span class="o">{</span><span class="s">"Name"</span><span class="o">,</span> <span class="s">"Phone"</span><span class="o">,</span> <span class="s">"Email"</span><span class="o">,</span> <span class="s">"City"</span><span class="o">},</span>
+                <span class="n">rowHeader</span> <span class="o">=</span> <span class="s">"Name"</span><span class="o">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">4</span>
+            <span class="o">)</span>
+            <span class="kd">public</span> <span class="kd">static</span> <span class="n">DataTable</span><span class="o">&lt;</span><span class="n">UserRow</span><span class="o">,</span> <span class="n">UserInfo</span><span class="o">&gt;</span> <span class="n">usersDataSetup</span><span class="o">;</span>
+
+         <span class="nd">@Test</span>
+             <span class="kd">public</span> <span class="kt">void</span> <span class="nf">dataTableTest</span><span class="o">()</span> <span class="o">{</span>
+                 <span class="n">dataTableValidation</span><span class="o">(</span><span class="n">usersData</span><span class="o">);</span>
+             <span class="o">}</span>
+             <span class="nd">@Test</span>
+             <span class="kd">public</span> <span class="kt">void</span> <span class="nf">jDataTableTest</span><span class="o">()</span> <span class="o">{</span>
+                 <span class="n">dataTableValidation</span><span class="o">(</span><span class="n">usersDataSetup</span><span class="o">);</span>
+             <span class="o">}</span>
+             <span class="kd">private</span> <span class="kt">void</span> <span class="nf">dataTableValidation</span><span class="o">(</span><span class="n">DataTable</span><span class="o">&lt;</span><span class="n">UserRow</span><span class="o">,</span> <span class="n">UserInfo</span><span class="o">&gt;</span> <span class="n">table</span><span class="o">)</span> <span class="o">{</span>
+                 <span class="n">assertEquals</span><span class="o">(</span><span class="n">table</span><span class="o">.</span><span class="na">size</span><span class="o">(),</span> <span class="mi">4</span><span class="o">);</span>
+                 <span class="n">assertEquals</span><span class="o">(</span><span class="n">table</span><span class="o">.</span><span class="na">count</span><span class="o">(),</span> <span class="mi">400</span><span class="o">);</span>
+                 <span class="n">assertEquals</span><span class="o">(</span><span class="n">table</span><span class="o">.</span><span class="na">header</span><span class="o">(),</span> <span class="n">asList</span><span class="o">(</span><span class="s">"Name"</span><span class="o">,</span> <span class="s">"Phone"</span><span class="o">,</span> <span class="s">"Email"</span><span class="o">,</span> <span class="s">"City"</span><span class="o">));</span>
+                 <span class="n">String</span> <span class="n">value</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="na">preview</span><span class="o">();</span>
+                 <span class="n">assertEquals</span><span class="o">(</span><span class="n">value</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span><span class="mi">194</span><span class="o">),</span>
+                 <span class="s">"Name Phone Email City"</span> <span class="o">+</span>
+                     <span class="s">"Burke Tucker 076 1971 1687 et.euismod.et@ut.edu GozŽe"</span> <span class="o">+</span>
+                     <span class="s">"Grady Brock (011307) 16843 cursus.et@commodo.org Alcobendas"</span> <span class="o">+</span>
+                     <span class="s">"Harding Lloyd 0800 1111 neque.In.ornare@mauris.co.uk Beauvais"</span><span class="o">);</span>
+             <span class="o">}</span>
+             <span class="nd">@Test</span>
+             <span class="kd">public</span> <span class="kt">void</span> <span class="nf">filterDataTest</span><span class="o">()</span> <span class="o">{</span>
+                 <span class="n">assertEquals</span><span class="o">(</span><span class="n">usersData</span><span class="o">.</span><span class="na">data</span><span class="o">(</span><span class="mi">2</span><span class="o">),</span> <span class="n">GRADY_BROCK</span><span class="o">);</span>
+                 <span class="n">assertEquals</span><span class="o">(</span><span class="n">usersData</span><span class="o">.</span><span class="na">data</span><span class="o">(</span><span class="s">"Grady Brock"</span><span class="o">),</span> <span class="n">GRADY_BROCK</span><span class="o">);</span>
+                 <span class="n">assertEquals</span><span class="o">(</span><span class="n">usersData</span><span class="o">.</span><span class="na">data</span><span class="o">(</span><span class="n">d</span> <span class="o">-&gt;</span> <span class="n">d</span><span class="o">.</span><span class="na">name</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="s">"Brock"</span><span class="o">)),</span> <span class="n">GRADY_BROCK</span><span class="o">);</span>
+                 <span class="n">usersData</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">row</span><span class="o">(</span><span class="n">d</span> <span class="o">-&gt;</span> <span class="n">d</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">GRADY_BROCK</span><span class="o">));</span>
+                 <span class="cm">/*
+                 List&lt;UserInfo&gt; filteredData = usersData.datas(d -&gt; d.name.contains("Brock"));
+                 assertEquals(filteredData.size(), 1);
+                 assertEquals(filteredData.get(0), GRADY_BROCK);
+                 */</span>
+             <span class="o">}</span>
+
+             <span class="nd">@Test</span>
+             <span class="kd">public</span> <span class="kt">void</span> <span class="nf">filterLinesTest</span><span class="o">()</span> <span class="o">{</span>
+                 <span class="n">UserRow</span> <span class="n">line</span> <span class="o">=</span>  <span class="n">usersData</span><span class="o">.</span><span class="na">line</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+                 <span class="n">validateUserRow</span><span class="o">(</span><span class="n">line</span><span class="o">);</span>
+                 <span class="n">line</span> <span class="o">=</span>  <span class="n">usersData</span><span class="o">.</span><span class="na">line</span><span class="o">(</span><span class="s">"Grady Brock"</span><span class="o">);</span>
+                 <span class="n">validateUserRow</span><span class="o">(</span><span class="n">line</span><span class="o">);</span>
+                 <span class="n">line</span> <span class="o">=</span>  <span class="n">usersData</span><span class="o">.</span><span class="na">line</span><span class="o">(</span><span class="n">d</span> <span class="o">-&gt;</span> <span class="n">d</span><span class="o">.</span><span class="na">name</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="s">"Brock"</span><span class="o">));</span>
+                 <span class="n">validateUserRow</span><span class="o">(</span><span class="n">line</span><span class="o">);</span>
+                 <span class="cm">/*
+                 List&lt;UserRow&gt; filteredData = usersData.lines(d -&gt; d.name.contains("Brock"));
+                 assertEquals(filteredData.size(), 1);
+                 validateUserRow(filteredData.get(0));
+                 */</span>
+             <span class="o">}</span>
+
+             <span class="kd">private</span> <span class="kt">void</span> <span class="nf">validateUserRow</span><span class="o">(</span><span class="n">UserRow</span> <span class="n">line</span><span class="o">)</span> <span class="o">{</span>
+                 <span class="n">line</span><span class="o">.</span><span class="na">city</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+                 <span class="n">validateAlert</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="n">GRADY_BROCK</span><span class="o">.</span><span class="na">city</span><span class="o">));</span>
+                 <span class="n">assertEquals</span><span class="o">(</span><span class="n">line</span><span class="o">.</span><span class="na">email</span><span class="o">.</span><span class="na">getText</span><span class="o">(),</span> <span class="n">GRADY_BROCK</span><span class="o">.</span><span class="na">email</span><span class="o">);</span>
+             <span class="o">}</span>      
+</code></pre>
+<p>Here is a list of available methods in Java:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>allData()</strong></td>
+<td>Gets all section rows from the specified table</td>
+<td>List<D></td>
+</tr>
+<tr>
+<td><strong>allLines()</strong></td>
+<td>Gets all object rows from the specified table</td>
+<td>List<L></td>
+</tr>
+<tr>
+<td><strong>data(Enum rowName)</strong></td>
+<td>Returns a section of a table according to row name</td>
+<td>D</td>
+</tr>
+<tr>
+<td><strong>data(int rowNum)</strong></td>
+<td>Returns a section of a table according to row number</td>
+<td>D</td>
+</tr>
+<tr>
+<td><strong>data(JFunc1<D, Boolean> matcher)</strong></td>
+<td>Returns a section of a table according to matching row</td>
+<td>D</td>
+</tr>
+<tr>
+<td><strong>data(Matcher<String> matcher, Column column)</strong></td>
+<td>Returns a section of a table according to matching row and column</td>
+<td>D</td>
+</tr>
+<tr>
+<td><strong>data(Pair<Matcher<String>,Column&gt;...matchers)</strong></td>
+<td>Returns a section of a table according to matching column</td>
+<td>D</td>
+</tr>
+<tr>
+<td><strong>data(String rowName)</strong></td>
+<td>Returns a section of a table according to row name</td>
+<td>D</td>
+</tr>
+<tr>
+<td><strong>data(TableMatcher...matchers)</strong></td>
+<td>Returns a section of a table according to matchers</td>
+<td>D</td>
+</tr>
+<tr>
+<td><strong>datas(JFunc1<D, Boolean> matcher)</strong></td>
+<td>Returns a list of sections of a table according to matchers</td>
+<td>List<D></td>
+</tr>
+<tr>
+<td><strong>datas(JFunc1<D, Boolean> matcher, int amount)</strong></td>
+<td>Returns a list of sections of a table according to matchers</td>
+<td>List<D></td>
+</tr>
+<tr>
+<td><strong>datas(TableMatcher...matchers)</strong></td>
+<td>Returns a list of sections of a table according to matchers</td>
+<td>List<D></td>
+</tr>
+<tr>
+<td><strong>filterData(Matcher<String> matcher, Column column)</strong></td>
+<td>Returns a list of sections of a table according to matching row and column</td>
+<td>List<D></td>
+</tr>
+<tr>
+<td><strong>filterDatas(Pair<Matcher<String>,Column&gt;...matchers)</strong></td>
+<td>Returns a list of sections of a table according to matching column</td>
+<td>List<D></td>
+</tr>
+<tr>
+<td><strong>filterLines(Matcher<String> matcher, Column column)</strong></td>
+<td>Returns a list of objects of a table according to matching row and column</td>
+<td>List<L></td>
+</tr>
+<tr>
+<td><strong>filterLines(Pair<Matcher<String>,Column&gt;...matchers)</strong></td>
+<td>Returns a list of objects of a table according to matching column</td>
+<td>List<L></td>
+</tr>
+<tr>
+<td><strong>getValue()</strong></td>
+<td>Returns a string content of values for particular row, where values are separated by &quot;&#124;&quot;</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>line(Enum rowName)</strong></td>
+<td>Returns an object of a table according to row name</td>
+<td>L</td>
+</tr>
+<tr>
+<td><strong>line(int rowNum)</strong></td>
+<td>Returns an object of a table according to row number</td>
+<td>L</td>
+</tr>
+<tr>
+<td><strong>line(JFunc1<D, Boolean> matcher)</strong></td>
+<td>Returns an object of a table according to matching row</td>
+<td>L</td>
+</tr>
+<tr>
+<td><strong>line(Matcher<String> matcher, Column column)</strong></td>
+<td>Returns an object of a table according to matching row and column</td>
+<td>L</td>
+</tr>
+<tr>
+<td><strong>line(Pair<Matcher<String>,Column&gt;...matchers)</strong></td>
+<td>Returns an object of a table according to matching column</td>
+<td>L</td>
+</tr>
+<tr>
+<td><strong>line(String rowName)</strong></td>
+<td>Returns an object of a table according to row name</td>
+<td>L</td>
+</tr>
+<tr>
+<td><strong>line(TableMatcher...matchers)</strong></td>
+<td>Returns an object of a table according to matchers</td>
+<td>L</td>
+</tr>
+<tr>
+<td><strong>lines(JFunc1<D, Boolean> matcher)</strong></td>
+<td>Returns a list of objects of a table according to matchers</td>
+<td>List<L></td>
+</tr>
+<tr>
+<td><strong>lines(TableMatcher...matchers)</strong></td>
+<td>Returns a list of objects of a table according to matchers</td>
+<td>List<L></td>
+</tr>
+<tr>
+<td><strong>offCache()</strong></td>
+<td>Turns off cache usage</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>refresh()</strong></td>
+<td>Clears all data and lines</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>setup(Field field)</strong></td>
+<td>Sets up the table using specified fields</td>
+<td>void</td>
+</tr>
+</tbody></table>
+
+<p>DataTableAssert methods in Java:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>assertThat()</strong></td>
+<td>Applicable for performing assert actions for tables</td>
+<td>DataTableAssert</td>
+</tr>
+<tr>
+<td><strong>has()</strong></td>
+<td>Applicable for performing assert actions for tables</td>
+<td>DataTableAssert</td>
+</tr>
+<tr>
+<td><strong>is()</strong></td>
+<td>Applicable for performing assert actions for tables</td>
+<td>DataTableAssert</td>
+</tr>
+<tr>
+<td><strong>shouldBe()</strong></td>
+<td>Applicable for performing assert actions for tables</td>
+<td>DataTableAssert</td>
+</tr>
+<tr>
+<td><strong>waitFor()</strong></td>
+<td>Applicable for performing assert actions for tables</td>
+<td>DataTableAssert</td>
+</tr>
+</tbody></table>
 <h3 id='dropdown'>DropDown</h3>
 <p><strong>DropDown</strong> – a graphical control element, that allows the user to choose one value from a list.</p>
 

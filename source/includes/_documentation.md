@@ -1270,7 +1270,6 @@ Tables are represented by the following classes in Java and C#:
   - __Java__: _com.epam.jdi.light.elements.complex.table.Table.java_
   - __C#__: _JDI.Light.Elements.Complex.Table.cs_
   
-  ![Table](../images/html/table_html.png)
   
 ```java 
          @UI("#users-table") public static Table users;
@@ -1436,6 +1435,8 @@ Tables are represented by the following classes in Java and C#:
                 .Columns(Is.SubsequenceOf(new[] {"Name", "City", "Phone", "Email", "Address"}));
         }		
 ```
+  
+  ![Table](../images/html/table_html.png)
 
 Here is a list of available methods in Java:
 
@@ -1516,8 +1517,6 @@ DataTables are represented by the following classes in Java and C#:
   - __Java__: _com.epam.jdi.light.elements.complex.table.DataTable.java_
   - __C#__:
   
-  ![DataTable](../images/html/dataTable_html.png)
-
 ```java 
          
          @UI("#users-table") public static DataTable<UserRow, UserInfo> usersData;
@@ -1582,6 +1581,8 @@ DataTables are represented by the following classes in Java and C#:
                  assertEquals(line.email.getText(), GRADY_BROCK.email);
              }		
   ```
+  
+  ![DataTable](../images/html/dataTable_html.png)
 
 Here is a list of available methods in Java:
 
@@ -1626,6 +1627,9 @@ DataTableAssert methods in Java:
 **is()** | Applicable for performing assert actions for tables | DataTableAssert
 **shouldBe()** | Applicable for performing assert actions for tables | DataTableAssert
 **waitFor()** | Applicable for performing assert actions for tables | DataTableAssert
+
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-examples/src/test/java/io/github/epam/tests/recommended/DataTableTests.java)
+
 ### DropDown
 
 **DropDown** – a graphical control element, that allows the user to choose one value from a list.

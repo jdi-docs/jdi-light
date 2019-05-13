@@ -1864,15 +1864,15 @@ Here is the list of some available methods in C# JDI Light:
 **title()**|Returning new StringCheckType object wit checked Title|StringCheckType
 **open(String url)**|Opens url specified for page|void
 **open(Object... params)**|Opens url specified for page with parameters|void
-**checkOpened()**|Check that page opened|void(!)(?)
+**checkOpened()**|Check that page opened|void
 **isOpened()**|Check that page opened|boolean
-**shouldBeOpened()**|Check that page opened|void(!)(?)
-**shouldBeOpened(Object... params)**|Check that page opened with parameters|void(!)(?)
-**openePage(!)(?)(String url)**|Check that page opened|void(!)(?)
+**shouldBeOpened()**|Check that page opened|void
+**shouldBeOpened(Object... params)**|Check that page opened with parameters|void
+**openePage(!)(?)(String url)**|Check that page opened|void
 **refresh()**|Reload current page|void
 **reload()(?)**|mean refresh()|void
-**back()**|Go back to previous page|void(!)(?)
-**forward()**|Go forward to next page|void(!)(?)
+**back()**|Go back to previous page|void
+**forward()**|Go forward to next page|void
 **zoom(double factor)**|Zooming current page|void
 **getHtml()**|Getting HTML of current page|String
 **scroll(int x, int y)**|Scrolling to designated position|void

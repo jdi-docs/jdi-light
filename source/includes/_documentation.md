@@ -1435,7 +1435,7 @@ Tables are represented by the following classes in Java and C#:
   - __Java__: _com.epam.jdi.light.elements.complex.table.Table.java_
   - __C#__: _JDI.Light.Elements.Complex.Table.cs_
     
-  ![Table](../images/html/table_html.png)
+  ![Table](../images/html/tableHtml.png)
 
 Here is a list of available methods in Java:
 
@@ -1581,7 +1581,7 @@ DataTables are represented by the following classes in Java and C#:
   - __Java__: _com.epam.jdi.light.elements.complex.table.DataTable.java_
   - __C#__:
     
-  ![DataTable](../images/html/dataTable_html.png)
+  ![DataTable](../images/html/tableHtml.png)
 
 Here is a list of available methods in Java:
 

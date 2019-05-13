@@ -3160,9 +3160,384 @@ In addition if you run test scenarios on JDI Light you will <strong>get logs of 
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/ProgressTests.cs">C# test examples</a></p>
 <h3 id='range'>Range</h3>
-<p>TBD</p>
+<p><strong>Range</strong> - a graphical control element that allows the user to set the value from the range.</p>
+
+<p><img src="images/html/range_html.png" alt="Range" /></p>
+
+<p>Range is represented by the following class:</p>
+
+<p>Java: com.epam.jdi.light.ui.html.common.Range<br>
+C#: JDI.Light.Elements.Common.Range</p>
+<pre class="highlight java tab-java"><code>  <span class="nd">@UI</span><span class="o">(</span><span class="s">"#volume"</span><span class="o">)</span>  <span class="c1">//@FindBy(id = "volume") </span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Text</span> <span class="n">jdiText</span><span class="o">;</span>
+
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">getLabelTextTest</span><span class="o">()</span> <span class="o">{</span>
+      <span class="n">assertEquals</span><span class="o">(</span><span class="n">volume</span><span class="o">.</span><span class="na">labelText</span><span class="o">(),</span> <span class="s">"Volume"</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">getValueTest</span><span class="o">()</span> <span class="o">{</span>
+      <span class="n">assertEquals</span><span class="o">(</span><span class="n">disabledRange</span><span class="o">.</span><span class="na">volume</span><span class="o">(),</span> <span class="mi">50</span><span class="o">);</span>
+  <span class="o">}</span>
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">minTest</span><span class="o">()</span> <span class="o">{</span>
+      <span class="n">assertEquals</span><span class="o">(</span><span class="n">volume</span><span class="o">.</span><span class="na">min</span><span class="o">(),</span> <span class="s">"10"</span><span class="o">);</span>
+  <span class="o">}</span>
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">maxTest</span><span class="o">()</span> <span class="o">{</span>
+      <span class="n">assertEquals</span><span class="o">(</span><span class="n">volume</span><span class="o">.</span><span class="na">max</span><span class="o">(),</span> <span class="s">"100"</span><span class="o">);</span>
+  <span class="o">}</span>
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">stepTest</span><span class="o">()</span> <span class="o">{</span>
+      <span class="n">assertEquals</span><span class="o">(</span><span class="n">volume</span><span class="o">.</span><span class="na">step</span><span class="o">(),</span> <span class="s">"5"</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setVolumeTest</span><span class="o">()</span> <span class="o">{</span>
+      <span class="n">volume</span><span class="o">.</span><span class="na">setVolume</span><span class="o">(</span><span class="mi">10</span><span class="o">);</span>
+      <span class="n">assertEquals</span><span class="o">(</span><span class="n">volume</span><span class="o">.</span><span class="na">volume</span><span class="o">(),</span> <span class="mi">10</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">isValidationTest</span><span class="o">()</span> <span class="o">{</span>
+      <span class="n">volume</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
+      <span class="n">volume</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">minVolume</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="mi">10</span><span class="o">));</span>
+      <span class="n">volume</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">maxVolume</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="mi">100</span><span class="o">));</span>
+      <span class="n">volume</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">step</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="mi">5</span><span class="o">));</span>
+      <span class="n">volume</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">volume</span><span class="o">(</span><span class="n">greaterThanOrEqualTo</span><span class="o">(</span><span class="mi">10</span><span class="o">));</span>
+      <span class="n">volume</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">volume</span><span class="o">(</span><span class="n">lessThanOrEqualTo</span><span class="o">(</span><span class="mi">100</span><span class="o">));</span>
+      <span class="n">volume</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">volume</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="mi">90</span><span class="o">));</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">labelTest</span><span class="o">()</span> <span class="o">{</span>
+      <span class="n">assertEquals</span><span class="o">(</span><span class="n">volume</span><span class="o">.</span><span class="na">label</span><span class="o">().</span><span class="na">getText</span><span class="o">(),</span> <span class="s">"Volume"</span><span class="o">);</span>
+      <span class="n">volume</span><span class="o">.</span><span class="na">label</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"lume"</span><span class="o">));</span>
+      <span class="n">volume</span><span class="o">.</span><span class="na">label</span><span class="o">().</span><span class="na">assertThat</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">equalToIgnoringCase</span><span class="o">(</span><span class="s">"volume"</span><span class="o">));</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">assertValidationTest</span><span class="o">()</span> <span class="o">{</span>
+      <span class="n">volume</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">volume</span><span class="o">(</span><span class="n">greaterThan</span><span class="o">(</span><span class="mi">0</span><span class="o">));</span>
+      <span class="n">volume</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">volume</span><span class="o">(</span><span class="n">lessThan</span><span class="o">(</span><span class="mi">200</span><span class="o">));</span>
+      <span class="n">disabledRange</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">volume</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="mi">50</span><span class="o">));</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">baseValidationTest</span><span class="o">()</span> <span class="o">{</span>
+      <span class="n">baseValidation</span><span class="o">(</span><span class="n">volume</span><span class="o">);</span>
+  <span class="o">}</span>
+
+</code></pre><pre class="highlight csharp tab-csharp"><code>   <span class="p">[</span><span class="nf">FindBy</span><span class="p">(</span><span class="n">Css</span> <span class="p">=</span> <span class="s">"#volume"</span><span class="p">)]</span>
+   <span class="k">public</span> <span class="n">IRange</span> <span class="n">Volume</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+
+  <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+  <span class="k">public</span> <span class="k">void</span> <span class="nf">GetValueTest</span><span class="p">()</span>
+  <span class="p">{</span>
+      <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">DisabledRange</span><span class="p">.</span><span class="nf">Value</span><span class="p">(),</span> <span class="m">50</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+  <span class="k">public</span> <span class="k">void</span> <span class="nf">MinTest</span><span class="p">()</span>
+  <span class="p">{</span>
+      <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">Volume</span><span class="p">.</span><span class="nf">Min</span><span class="p">(),</span> <span class="m">10</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+  <span class="k">public</span> <span class="k">void</span> <span class="nf">MaxTest</span><span class="p">()</span>
+  <span class="p">{</span>
+      <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">Volume</span><span class="p">.</span><span class="nf">Max</span><span class="p">(),</span> <span class="m">100</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+  <span class="k">public</span> <span class="k">void</span> <span class="nf">StepTest</span><span class="p">()</span>
+  <span class="p">{</span>
+      <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">Volume</span><span class="p">.</span><span class="nf">Step</span><span class="p">(),</span> <span class="m">5</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+  <span class="k">public</span> <span class="k">void</span> <span class="nf">SetRangeTest</span><span class="p">()</span>
+  <span class="p">{</span>
+      <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">Volume</span><span class="p">.</span><span class="nf">SetValue</span><span class="p">(</span><span class="m">10</span><span class="p">);</span>
+      <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">Volume</span><span class="p">.</span><span class="nf">Value</span><span class="p">(),</span> <span class="m">10</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+  <span class="k">public</span> <span class="k">void</span> <span class="nf">RangeTest</span><span class="p">()</span>
+  <span class="p">{</span>
+      <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">Volume</span><span class="p">.</span><span class="nf">SetValue</span><span class="p">(</span><span class="s">"30"</span><span class="p">);</span>
+      <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">Volume</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">(),</span> <span class="s">"30"</span><span class="p">);</span>
+  <span class="p">}</span>
+</code></pre>
+<p>Here is a list of available methods in C#:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>SetValue(string value)</strong></td>
+<td>Sets the value</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>SetValue(double value)</strong></td>
+<td>Sets the value</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>GetValue()</strong></td>
+<td>Returns the value</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>Value()</strong></td>
+<td>Returns the value</td>
+<td>Double</td>
+</tr>
+<tr>
+<td><strong>Min()</strong></td>
+<td>Returns the min value</td>
+<td>Double</td>
+</tr>
+<tr>
+<td><strong>Max()</strong></td>
+<td>Returns the max value</td>
+<td>Double</td>
+</tr>
+<tr>
+<td><strong>Step()</strong></td>
+<td>Returns the step value</td>
+<td>Double</td>
+</tr>
+</tbody></table>
+
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/RangeTests.cs">Test examples in C#</a></p>
+
+<p>And here are methods available in Java:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>setVolume(int volume)</strong></td>
+<td>Sets the value</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>volume()</strong></td>
+<td>Returns the value</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>max()</strong></td>
+<td>Returns the max value</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>min()</strong></td>
+<td>Returns the min value</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>step()</strong></td>
+<td>Returns the step value</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>is()</strong></td>
+<td>Returns object for work with assertions</td>
+<td>RangeAssert</td>
+</tr>
+<tr>
+<td><strong>assertThat()</strong></td>
+<td>Returns object for work with assertions</td>
+<td>RangeAssert</td>
+</tr>
+</tbody></table>
+
+<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/RangeTests.java">Java test examples</a></p>
 <h3 id='text'>Text</h3>
-<p>TBD</p>
+<p><strong>Text</strong> is a combination of letters and textual symbols. When performing testing, the text is used in most operations: when typing text into the login field, when finding a button with some certain text in it, or when checking if actual text matches expected one.
+<img src="images/html/text_html.png" alt="Text" /></p>
+
+<p>Text is represented by the following class:</p>
+
+<p>Java: com.epam.jdi.light.ui.html.common.Text<br>
+C#: JDI.Light.Elements.Common.TextElement</p>
+<pre class="highlight java tab-java"><code>  <span class="nd">@UI</span><span class="o">(</span><span class="s">"[ui=jdi-text]"</span><span class="o">)</span> <span class="c1">//@FindBy(css = "[ui=jdi-text]") </span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Text</span> <span class="n">jdiText</span><span class="o">;</span>
+
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">getTextTest</span><span class="o">()</span> <span class="o">{</span>
+      <span class="n">assertEquals</span><span class="o">(</span><span class="n">jdiText</span><span class="o">.</span><span class="na">getText</span><span class="o">(),</span> <span class="n">text</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">getValueTest</span><span class="o">()</span> <span class="o">{</span>
+      <span class="n">assertEquals</span><span class="o">(</span><span class="n">jdiText</span><span class="o">.</span><span class="na">getValue</span><span class="o">(),</span> <span class="n">text</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">isValidationTest</span><span class="o">()</span> <span class="o">{</span>
+      <span class="n">jdiText</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
+      <span class="n">jdiText</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="n">text</span><span class="o">));</span>
+      <span class="n">jdiText</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"Powerful Framework for UI"</span><span class="o">));</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">assertValidationTest</span><span class="o">()</span> <span class="o">{</span>
+      <span class="n">jdiText</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="n">text</span><span class="o">));</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">baseValidationTest</span><span class="o">()</span> <span class="o">{</span>
+      <span class="n">baseValidation</span><span class="o">(</span><span class="n">jdiText</span><span class="o">);</span>
+  <span class="o">}</span>
+
+</code></pre><pre class="highlight csharp tab-csharp"><code>  <span class="p">[</span><span class="nf">FindBy</span><span class="p">(</span><span class="n">Css</span> <span class="p">=</span> <span class="s">".main-txt"</span><span class="p">)]</span>
+  <span class="k">public</span> <span class="n">TextElement</span> <span class="n">Text</span><span class="p">;</span>
+
+  <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+  <span class="k">public</span> <span class="k">void</span> <span class="nf">GetTextTest</span><span class="p">()</span>
+  <span class="p">{</span>
+      <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">AreEquals</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">HomePage</span><span class="p">.</span><span class="n">Text</span><span class="p">.</span><span class="n">Value</span><span class="p">,</span> <span class="n">_expectedText</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+  <span class="k">public</span> <span class="k">void</span> <span class="nf">GetValueTest</span><span class="p">()</span>
+  <span class="p">{</span>
+      <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">AreEquals</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">HomePage</span><span class="p">.</span><span class="n">Text</span><span class="p">.</span><span class="n">Value</span><span class="p">,</span> <span class="n">_expectedText</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+  <span class="k">public</span> <span class="k">void</span> <span class="nf">SetAttributeTest</span><span class="p">()</span>
+  <span class="p">{</span>
+      <span class="kt">var</span> <span class="n">attributeName</span> <span class="p">=</span> <span class="s">"testAttr"</span><span class="p">;</span>
+      <span class="kt">var</span> <span class="k">value</span> <span class="p">=</span> <span class="s">"testValue"</span><span class="p">;</span>
+      <span class="n">TestSite</span><span class="p">.</span><span class="n">HomePage</span><span class="p">.</span><span class="n">Text</span><span class="p">.</span><span class="nf">SetAttribute</span><span class="p">(</span><span class="n">attributeName</span><span class="p">,</span> <span class="k">value</span><span class="p">);</span>
+      <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">AreEquals</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">HomePage</span><span class="p">.</span><span class="n">Text</span><span class="p">.</span><span class="nf">GetAttribute</span><span class="p">(</span><span class="n">attributeName</span><span class="p">),</span> <span class="k">value</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+  <span class="k">public</span> <span class="k">void</span> <span class="nf">WaitMatchTest</span><span class="p">()</span>
+  <span class="p">{</span>
+      <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">AreEquals</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">HomePage</span><span class="p">.</span><span class="n">Text</span><span class="p">.</span><span class="nf">WaitMatchText</span><span class="p">(</span><span class="n">_regEx</span><span class="p">),</span> <span class="n">_expectedText</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+  <span class="k">public</span> <span class="k">void</span> <span class="nf">WaitMatchTextParallelTest</span><span class="p">()</span>
+  <span class="p">{</span>
+      <span class="n">TestSite</span><span class="p">.</span><span class="n">SupportPage</span><span class="p">.</span><span class="nf">Open</span><span class="p">();</span>
+      <span class="kt">var</span> <span class="n">actualResultTask</span> <span class="p">=</span> <span class="n">Task</span><span class="p">.</span><span class="n">Factory</span><span class="p">.</span><span class="nf">StartNew</span><span class="p">(()</span> <span class="p">=&gt;</span>
+      <span class="p">{</span>
+          <span class="n">Thread</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="m">200</span><span class="p">);</span>
+          <span class="k">return</span> <span class="n">TestSite</span><span class="p">.</span><span class="n">HomePage</span><span class="p">.</span><span class="n">Text</span><span class="p">.</span><span class="nf">WaitMatchText</span><span class="p">(</span><span class="n">_regEx</span><span class="p">);</span>
+      <span class="p">});</span>
+      <span class="n">Task</span><span class="p">.</span><span class="n">Factory</span><span class="p">.</span><span class="nf">StartNew</span><span class="p">(()</span> <span class="p">=&gt;</span>
+      <span class="p">{</span>
+          <span class="n">Thread</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="m">100</span><span class="p">);</span>
+          <span class="n">TestSite</span><span class="p">.</span><span class="n">HomePage</span><span class="p">.</span><span class="nf">Open</span><span class="p">();</span>
+      <span class="p">});</span>
+      <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">AreEquals</span><span class="p">(</span><span class="n">actualResultTask</span><span class="p">.</span><span class="n">Result</span><span class="p">,</span> <span class="n">_expectedText</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+  <span class="k">public</span> <span class="k">void</span> <span class="nf">WaitText</span><span class="p">()</span>
+  <span class="p">{</span>
+      <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">AreEquals</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">HomePage</span><span class="p">.</span><span class="n">Text</span><span class="p">.</span><span class="nf">WaitText</span><span class="p">(</span><span class="n">_contains</span><span class="p">),</span> <span class="n">_expectedText</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+  <span class="k">public</span> <span class="k">void</span> <span class="nf">WaitTextParallelTest</span><span class="p">()</span>
+  <span class="p">{</span>
+      <span class="n">TestSite</span><span class="p">.</span><span class="n">SupportPage</span><span class="p">.</span><span class="nf">Open</span><span class="p">();</span>
+      <span class="kt">var</span> <span class="n">actualResultTask</span> <span class="p">=</span> <span class="n">Task</span><span class="p">.</span><span class="n">Factory</span><span class="p">.</span><span class="nf">StartNew</span><span class="p">(()</span> <span class="p">=&gt;</span>
+      <span class="p">{</span>
+          <span class="n">Thread</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="m">200</span><span class="p">);</span>
+          <span class="k">return</span> <span class="n">TestSite</span><span class="p">.</span><span class="n">HomePage</span><span class="p">.</span><span class="n">Text</span><span class="p">.</span><span class="nf">WaitText</span><span class="p">(</span><span class="n">_contains</span><span class="p">);</span>
+      <span class="p">});</span>
+      <span class="n">Task</span><span class="p">.</span><span class="nf">Run</span><span class="p">(()</span> <span class="p">=&gt;</span>
+      <span class="p">{</span>
+          <span class="n">Thread</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="m">100</span><span class="p">);</span>
+          <span class="n">TestSite</span><span class="p">.</span><span class="n">HomePage</span><span class="p">.</span><span class="nf">Open</span><span class="p">();</span>
+      <span class="p">});</span>
+      <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">AreEquals</span><span class="p">(</span><span class="n">actualResultTask</span><span class="p">.</span><span class="n">Result</span><span class="p">,</span> <span class="n">_expectedText</span><span class="p">);</span>
+  <span class="p">}</span>
+</code></pre>
+<p>Here is a list of available methods in C#:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>GetTextAction()</strong></td>
+<td>returns element text if not empty otherwise returns value attribute</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>WaitText(string text)</strong></td>
+<td>return all text which contains text from parameters</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>WaitMatchText(string regEx)</strong></td>
+<td>return all text which contains matcher from parameters</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>GetText()</strong></td>
+<td>returns text</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>GetValue()</strong></td>
+<td>returns text</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/TextTests.cs">Test examples in C#</a></p>
+
+<p>And here are methods available in Java:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>getText()</strong></td>
+<td>Get current value</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>is()</strong></td>
+<td>Various assert actions for Text</td>
+<td>TextAssert</td>
+</tr>
+<tr>
+<td><strong>assertThat()</strong></td>
+<td>Various assert actions for Text</td>
+<td>TextAssert</td>
+</tr>
+</tbody></table>
+
+<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/TextTests.java">Java test examples</a>  </p>
 <h3 id='textfield'>TextField</h3><pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#name"</span><span class="o">)</span> 
 <span class="c1">// same as @FindBy(css = "#name")</span>
 <span class="kd">public</span> <span class="kd">static</span> <span class="n">TextField</span> <span class="n">name</span><span class="o">;</span>

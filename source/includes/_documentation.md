@@ -1939,7 +1939,84 @@ Here is the list of some available methods in C# JDI Light:
 [C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/ComboBoxTests.cs)
 
 ## Composite elements
-TBD
+
+### WebPage
+
+**WebPage** is provided by JDI Light in:
+ 
+  - __Java__: _com.epam.jdi.light.elements.composite_
+
+**WebPage** - is a parent Java class for all JDI Page Object classes. WebPage class extending DriverBase class, implementing PageObject interface and containing a scope of common used methods:
+
+|Method | Description | Return Type
+--- | --- | ---
+**asForm()**|Returning new Form parameterized with local Name|Form<T>
+**getCurrentPage()**|Returning the name of current Page|String
+**setCurrentPage(WebPage page)**|Instantiating the current Page with Name|void
+**WebPage()**|Default constructor for WebPage class|WebPage
+**WebPage(String url)**|Parameterizing with URL constructor for WebPage class|void
+**openUrl(String url)**|Opening WebPage with URL|void
+**getUrl()**|Returning URL of Page|String
+**getTitle()**|Returning Title of Page|String
+**updatePageData(Url urlAnnotation, Title titleAnnotation)**|Setting Page URL and Title|void
+**url()**|Returning new StringCheckType object wit checked URL|StringCheckType
+**title()**|Returning new StringCheckType object wit checked Title|StringCheckType
+**open(String url)**|Opens url specified for page|void
+**open(Object... params)**|Opens url specified for page with parameters|void
+**checkOpened()**|Checking that page opened|void
+**isOpened()**|Checking that page opened|boolean
+**shouldBeOpened()**|Checking that page opened|void
+**shouldBeOpened(Object... params)**|Check that page opened with parameters|void
+**openePage(String url)**|Check that page opened|void
+**refresh()**|Reloading current page|void
+**reload()**|same as **refresh()**|void
+**back()**|Go back to previous page|void
+**forward()**|Go forward to next page|void
+**zoom(double factor)**|Zooming current page|void
+**getHtml()**|Getting HTML of current page|String
+**scroll(int x, int y)**|Scrolling to designated position|void
+**scrollToTop()**|Scrolling to top|void
+**scrollToBottom()**|Scrolling to bottom|void
+**scrollDown(int value)**|Scrolling dowd to designated position|void
+**scrollUp(int value)**|Scrolling up to designated position|void
+**scrollRight(int value)**|Scrolling right to designated position|void
+**scrollLeft(int value)**|Scrolling left to designated position|void
+**addPage(WebPage page)**|Adding selected page to Map of pages|void
+**getPage(String value)**|Getting page from Map by value|T_extends_WebPage
+**toString()**|Overriding method of Object class|String
+  
+
+more than that, it has nested Class **StringCheckType** with such methods:
+
+|Method | Description | Return Type
+--- | --- | ---
+**StringCheckType(Supplier<String> actual, String equals, String what)**|parametrized constructor|StringCheckType
+**check()**|Check that current page url/title equals to expected url/title|boolean
+**match()**|Check that current page url/title matches to expected url/title-matcher|boolean
+**contains()**|Check that current page url/title contains expected url/title-matcher|boolean
+
+```java 
+public class MainPage extends WebPage{}
+MainPage mainPage = new MainPage;
+mainPage.setCurrentPage(WebPage page);
+mainPage.getCurrentPage();
+mainPage.getUrl()
+mainPage.getTitle()
+mainPage.checkOpened()
+mainPage.toString()
+mainPage.StringCheckType().check()
+
+@Test
+public void verifyURL() {
+    mainPage.setCurrentPage(mainPage);
+    assertEquals(mainPage.getUrl(), "www.mainpage.ru");
+}
+@Test
+public void verifyTitle() {
+    mainPage.setCurrentPage(mainPage);
+    assertEquals(mainPage.getTitle(), "Main page");
+}
+```
 
 ## UI Objects
 TBD

@@ -1,6 +1,6 @@
 # Tutorial
 In this tutorial, we’ll look at glance on [JDI Light](https://github.com/jdi-testing/jdi-light), a library that simplifies test automation, makes test run results stable, predictable and easy to maintain.<br/>
-1. Integration<br/>
+1. Quick Start - short instruction how to add JDI Light in your project and basic configurations<br/>
 2. JDI Light at glance<br/>
 3. JDI Light Forms<br/>
 4. UI Elements and optimization<br/>

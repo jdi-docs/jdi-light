@@ -1266,11 +1266,7 @@ Here is the list of some available methods:
 **Table** – a complex element that consists of header, body (at least one row and one column) and footer. You are able to perform a list of readonly interactions with this element.
 
 Tables are represented by the following classes in Java and C#:
- 
-  - __Java__: _com.epam.jdi.light.elements.complex.table.Table.java_
-  - __C#__: _JDI.Light.Elements.Complex.Table.cs_
-  
-  
+
 ```java 
          @UI("#users-table") public static Table users;
          	@JTable(
@@ -1435,7 +1431,10 @@ Tables are represented by the following classes in Java and C#:
                 .Columns(Is.SubsequenceOf(new[] {"Name", "City", "Phone", "Email", "Address"}));
         }		
 ```
-  
+
+  - __Java__: _com.epam.jdi.light.elements.complex.table.Table.java_
+  - __C#__: _JDI.Light.Elements.Complex.Table.cs_
+    
   ![Table](../images/html/table_html.png)
 
 Here is a list of available methods in Java:
@@ -1449,9 +1448,9 @@ Here is a list of available methods in Java:
 **column(Enum colName)** | Sets and returns a column object of a table according to column name | Line
 **column(int colNum)** | Sets and returns a column object of a table according to column number | Line
 **column(String colName)** | Sets and returns a column object of a table according to column name | Line
-**columns(String colName)** | Sets and returns a list of column objects of a table according to column name | List<Line>
-**filterRows(Matcher<String> matcher, Column column)** | Sets and returns a list of filtered rows of a table according to matching column | List<Line>
-**filterRows(Pair<Matcher<String>,Column>... matchers)** | Sets and returns a list of filtered rows of a table according to matching column | List<Line>
+**columns(String colName)** | Sets and returns a list of column objects of a table according to column name | List\<Line>
+**filterRows(Matcher<String> matcher, Column column)** | Sets and returns a list of filtered rows of a table according to matching column | List\<Line>
+**filterRows(Pair<Matcher<String>,Column>... matchers)** | Sets and returns a list of filtered rows of a table according to matching column | List\<Line>
 **getValue()** | Returns a string content of values for particular row, where values are separated by ";" | String
 **isEmpty()** | Asserts whether table is empty | boolean
 **isNotEmpty()** | Asserts whether table is not empty | boolean
@@ -1462,8 +1461,8 @@ Here is a list of available methods in Java:
 **row(Pair<Matcher<String>,Column>... matchers)** | Sets and returns a row object of a table according to matching column | Line
 **row(String rowName)** | Sets and returns a row object of a table according to row name | Line
 **row(TableMatcher... matchers)** | Sets and returns a row object of a table according to matcher | Line
-**rows()** | Sets and returns a list of rows of a table | List<Line>
-**rows(TableMatcher... matchers)** | Sets and returns a a list of rows of a table according to matchers | List<Line>
+**rows()** | Sets and returns a list of rows of a table | List\<Line>
+**rows(TableMatcher... matchers)** | Sets and returns a a list of rows of a table according to matchers | List\<Line>
 
 AssertTable methods in Java:
 
@@ -1513,10 +1512,7 @@ AssertTable methods in C#:
 able to perform a list of readonly interactions with this element in order to get all data for the specified criteria.
 
 DataTables are represented by the following classes in Java and C#:
- 
-  - __Java__: _com.epam.jdi.light.elements.complex.table.DataTable.java_
-  - __C#__:
-  
+
 ```java 
          
          @UI("#users-table") public static DataTable<UserRow, UserInfo> usersData;
@@ -1581,15 +1577,18 @@ DataTables are represented by the following classes in Java and C#:
                  assertEquals(line.email.getText(), GRADY_BROCK.email);
              }		
   ```
-  
+ 
+  - __Java__: _com.epam.jdi.light.elements.complex.table.DataTable.java_
+  - __C#__:
+    
   ![DataTable](../images/html/dataTable_html.png)
 
 Here is a list of available methods in Java:
 
 | Method | Description | Return Type|
 --- | --- | ---
-**allData()** | Gets all section rows from the specified table | List<D>
-**allLines()** | Gets all object rows from the specified table | List<L>
+**allData()** | Gets all section rows from the specified table | List\<D>
+**allLines()** | Gets all object rows from the specified table | List\<L>
 **data(Enum rowName)** | Returns a section of a table according to row name | D
 **data(int rowNum)** | Returns a section of a table according to row number | D
 **data(JFunc1<D, Boolean> matcher)** | Returns a section of a table according to matching row | D
@@ -1597,13 +1596,13 @@ Here is a list of available methods in Java:
 **data(Pair<Matcher<String>,Column>...matchers)** | Returns a section of a table according to matching column | D
 **data(String rowName)** | Returns a section of a table according to row name | D
 **data(TableMatcher...matchers)** | Returns a section of a table according to matchers | D
-**datas(JFunc1<D, Boolean> matcher)** | Returns a list of sections of a table according to matchers | List<D>
-**datas(JFunc1<D, Boolean> matcher, int amount)** | Returns a list of sections of a table according to matchers | List<D>
-**datas(TableMatcher...matchers)** | Returns a list of sections of a table according to matchers | List<D>
-**filterData(Matcher<String> matcher, Column column)** | Returns a list of sections of a table according to matching row and column | List<D>
-**filterDatas(Pair<Matcher<String>,Column>...matchers)** | Returns a list of sections of a table according to matching column | List<D>
-**filterLines(Matcher<String> matcher, Column column)** | Returns a list of objects of a table according to matching row and column | List<L>
-**filterLines(Pair<Matcher<String>,Column>...matchers)** | Returns a list of objects of a table according to matching column | List<L>
+**datas(JFunc1<D, Boolean> matcher)** | Returns a list of sections of a table according to matchers | List\<D>
+**datas(JFunc1<D, Boolean> matcher, int amount)** | Returns a list of sections of a table according to matchers | List\<D>
+**datas(TableMatcher...matchers)** | Returns a list of sections of a table according to matchers | List\<D>
+**filterData(Matcher<String> matcher, Column column)** | Returns a list of sections of a table according to matching row and column | List\<D>
+**filterDatas(Pair<Matcher<String>,Column>...matchers)** | Returns a list of sections of a table according to matching column | List\<D>
+**filterLines(Matcher<String> matcher, Column column)** | Returns a list of objects of a table according to matching row and column | List\<L>
+**filterLines(Pair<Matcher<String>,Column>...matchers)** | Returns a list of objects of a table according to matching column | List\<L>
 **getValue()** | Returns a string content of values for particular row, where values are separated by "&#124;" | String
 **line(Enum rowName)** | Returns an object of a table according to row name | L
 **line(int rowNum)** | Returns an object of a table according to row number | L
@@ -1612,8 +1611,8 @@ Here is a list of available methods in Java:
 **line(Pair<Matcher<String>,Column>...matchers)** | Returns an object of a table according to matching column | L
 **line(String rowName)** | Returns an object of a table according to row name | L
 **line(TableMatcher...matchers)** | Returns an object of a table according to matchers | L
-**lines(JFunc1<D, Boolean> matcher)** | Returns a list of objects of a table according to matchers | List<L>
-**lines(TableMatcher...matchers)** | Returns a list of objects of a table according to matchers | List<L>
+**lines(JFunc1<D, Boolean> matcher)** | Returns a list of objects of a table according to matchers | List\<L>
+**lines(TableMatcher...matchers)** | Returns a list of objects of a table according to matchers | List\<L>
 **offCache()** | Turns off cache usage | void
 **refresh()** | Clears all data and lines | void
 **setup(Field field)** | Sets up the table using specified fields | void

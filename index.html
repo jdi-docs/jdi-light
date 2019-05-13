@@ -3662,7 +3662,7 @@ In addition if you run test scenarios on JDI Light you will <strong>get logs of 
             <span class="kd">public</span> <span class="kt">void</span> <span class="nf">tablePerformanceTest</span><span class="o">()</span> <span class="o">{</span>
                 <span class="n">tablePerformance</span><span class="o">(</span><span class="n">users</span><span class="o">);</span>
             <span class="o">}</span>
-            <span class="nd">@Test</span>
+         <span class="nd">@Test</span>
             <span class="kd">public</span> <span class="kt">void</span> <span class="nf">jTablePerformanceTest</span><span class="o">()</span> <span class="o">{</span>
                 <span class="n">tablePerformance</span><span class="o">(</span><span class="n">usersSetup</span><span class="o">);</span>
             <span class="o">}</span>
@@ -3713,14 +3713,12 @@ In addition if you run test scenarios on JDI Light you will <strong>get logs of 
                     "||3||Harding Lloyd|0800 1111|neque.In.ornare@mauris.co.uk|Beauvais||");
                 logTime("Get value");*/</span>
             <span class="o">}</span>
-
-            <span class="nd">@Test</span>
+         <span class="nd">@Test</span>
             <span class="kd">public</span> <span class="kt">void</span> <span class="nf">tableDataTest</span><span class="o">()</span> <span class="o">{</span>
                 <span class="n">assertEquals</span><span class="o">(</span><span class="n">users</span><span class="o">.</span><span class="na">row</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">asData</span><span class="o">(</span><span class="n">UserInfo</span><span class="o">.</span><span class="na">class</span><span class="o">),</span>
                         <span class="n">GRADY_BROCK</span><span class="o">);</span>
             <span class="o">}</span>
-
-            <span class="nd">@Test</span>
+         <span class="nd">@Test</span>
             <span class="kd">public</span> <span class="kt">void</span> <span class="nf">tableEntityTest</span><span class="o">()</span> <span class="o">{</span>
                 <span class="n">UserRow</span> <span class="n">user</span> <span class="o">=</span> <span class="n">users</span><span class="o">.</span><span class="na">row</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">asLine</span><span class="o">(</span><span class="n">UserRow</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
                 <span class="n">user</span><span class="o">.</span><span class="na">name</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
@@ -3736,7 +3734,43 @@ In addition if you run test scenarios on JDI Light you will <strong>get logs of 
             <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">logTime</span><span class="o">(</span><span class="n">String</span> <span class="n">description</span><span class="o">)</span> <span class="o">{</span>
                 <span class="n">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">description</span> <span class="o">+</span> <span class="s">": "</span> <span class="o">+</span> <span class="o">(</span><span class="n">currentTimeMillis</span><span class="o">()</span> <span class="o">-</span> <span class="n">timeStart</span><span class="o">)</span> <span class="o">+</span> <span class="s">"ms"</span><span class="o">);</span>
                 <span class="n">timeStart</span> <span class="o">=</span> <span class="n">currentTimeMillis</span><span class="o">();</span>
-            <span class="o">}</span>       
+            <span class="o">}</span>   
+         <span class="nd">@Test</span>
+             <span class="kd">public</span> <span class="kt">void</span> <span class="nf">hugeTableSearchTest</span><span class="o">()</span> <span class="o">{</span>
+                 <span class="n">StopWatch</span> <span class="n">timer</span> <span class="o">=</span> <span class="n">StopWatch</span><span class="o">.</span><span class="na">createStarted</span><span class="o">();</span>
+                 <span class="n">Line</span> <span class="n">row</span> <span class="o">=</span> <span class="n">usersTable</span><span class="o">.</span><span class="na">row</span><span class="o">(</span>
+                     <span class="n">containsValue</span><span class="o">(</span><span class="s">"Meyer"</span><span class="o">,</span> <span class="n">inColumn</span><span class="o">(</span><span class="s">"Name"</span><span class="o">)),</span>
+                     <span class="n">containsValue</span><span class="o">(</span><span class="s">"co.uk"</span><span class="o">,</span> <span class="n">inColumn</span><span class="o">(</span><span class="s">"Email"</span><span class="o">)));</span>
+                 <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Huge table search test Time: "</span> <span class="o">+</span> <span class="n">timer</span><span class="o">.</span><span class="na">getTime</span><span class="o">());</span>
+                 <span class="n">Assert</span><span class="o">.</span><span class="na">assertEquals</span><span class="o">(</span><span class="n">row</span><span class="o">.</span><span class="na">getValue</span><span class="o">(),</span>
+                 <span class="s">"Brian Meyer;(016977) 0358;mollis.nec@seddictumeleifend.co.uk;Houston"</span><span class="o">);</span>
+             <span class="o">}</span>
+         <span class="nd">@Test</span>
+             <span class="kd">public</span> <span class="kt">void</span> <span class="nf">hugeTableValidateTest</span><span class="o">()</span> <span class="o">{</span>
+                 <span class="n">StopWatch</span> <span class="n">timer</span> <span class="o">=</span> <span class="n">StopWatch</span><span class="o">.</span><span class="na">createStarted</span><span class="o">();</span>
+                 <span class="n">String</span> <span class="n">actualTable</span> <span class="o">=</span> <span class="n">usersTable</span><span class="o">.</span><span class="na">preview</span><span class="o">();</span>
+                 <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Huge table validate test Time: "</span> <span class="o">+</span> <span class="n">timer</span><span class="o">.</span><span class="na">getTime</span><span class="o">());</span>
+                 <span class="n">Assert</span><span class="o">.</span><span class="na">assertEquals</span><span class="o">(</span><span class="n">actualTable</span><span class="o">,</span> <span class="n">TABLE_SNAPSHOOT</span><span class="o">);</span>
+             <span class="o">}</span>
+         <span class="nd">@Test</span>
+             <span class="kd">public</span> <span class="kt">void</span> <span class="nf">bigDropdownTest</span><span class="o">()</span> <span class="o">{</span>
+                 <span class="n">String</span> <span class="n">name</span> <span class="o">=</span> <span class="s">"Charles Byers"</span><span class="o">;</span>
+                 <span class="n">StopWatch</span> <span class="n">timer</span> <span class="o">=</span> <span class="n">StopWatch</span><span class="o">.</span><span class="na">createStarted</span><span class="o">();</span>
+                 <span class="n">userNames</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">name</span><span class="o">);</span>
+                 <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Big dropdown test Time: "</span> <span class="o">+</span> <span class="n">timer</span><span class="o">.</span><span class="na">getTime</span><span class="o">());</span>
+                 <span class="n">Assert</span><span class="o">.</span><span class="na">assertEquals</span><span class="o">(</span><span class="n">userNames</span><span class="o">.</span><span class="na">selected</span><span class="o">(),</span> <span class="n">name</span><span class="o">);</span>
+             <span class="o">}</span>
+         <span class="nd">@Test</span>
+             <span class="kd">public</span> <span class="kt">void</span> <span class="nf">longTextTest</span><span class="o">()</span> <span class="o">{</span>
+                 <span class="n">String</span> <span class="n">text</span> <span class="o">=</span> <span class="s">"Lorem ipsum dolor sit amet, eos numquam rationibus ad. Ius cu accumsan salutatus, ne pro purto ridens vulputate. Cu eum doctus tritani, munere sanctus complectitur vis id. Paulo vulputate te eos, suas tollit laudem nam id. His esse rebum reprimique ut, te solum atqui homero vim.\\n\\n"</span> <span class="o">+</span>
+                         <span class="s">"Labitur salutatus eos an. Vim ut dicam fuisset. Ex sed animal accommodare, utinam graeci iisque vim id, ea fugit scripta deleniti nec. Eos cu nisl veri meis. Affert audiam copiosae mel ne, fabulas menandri temporibus has et. Sed latine graecis ei, eu fugit soluta intellegam vis, nibh graeci meliore ad duo.\\n\\n"</span> <span class="o">+</span>
+                         <span class="s">"Et quis meis delenit mea, ius ea sumo laboramus vituperatoribus. Te simul luptatum tractatos nam, eam in causae constituam, quod stet ancillae nam ei. Ne his dico veniam legere, id has vidisse euismod sanctus. Vis putant volumus tincidunt et.\\n\\n"</span> <span class="o">+</span>
+                         <span class="s">"Has eirmod consequat ad. Sea illud clita ut, has quando accusata cotidieque an, volutpat iudicabit definitionem ut sea. Pri at atqui molestiae, nibh ullum consulatu vix at. Nec id nisl nonumes epicurei, et vitae possit probatus ius. Fierent delicata argumentum ut quo. Tation tincidunt sed eu, sit in nostrud democritum.\\n\\n"</span> <span class="o">+</span>
+                         <span class="s">"Usu esse utroque sapientem ad. Eam ut consul soleat sapientem, cu dolor consequuntur vis. Erat temporibus mea id, has ex dicam tritani. Pertinacia expetendis consectetuer eos ei, vidit malis periculis est ea, ne nam movet fuisset. Pro id habemus definitiones, in ferri solum reprehendunt mei. Vel eligendi honestatis liberavisse id."</span><span class="o">;</span>
+                 <span class="n">StopWatch</span> <span class="n">timer</span> <span class="o">=</span> <span class="n">StopWatch</span><span class="o">.</span><span class="na">createStarted</span><span class="o">();</span>
+                 <span class="n">textareaPerformance</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="n">text</span> <span class="o">+</span> <span class="s">"\\n"</span><span class="o">+</span> <span class="n">text</span><span class="o">);</span>
+                 <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Long text test Time: "</span> <span class="o">+</span> <span class="n">timer</span><span class="o">.</span><span class="na">getTime</span><span class="o">());</span>
+             <span class="o">}</span>  
 </code></pre><pre class="highlight csharp tab-csharp"><code>
         <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
         <span class="k">public</span> <span class="k">void</span> <span class="nf">HugeTableSearchByColumnNamesContainValuesTest</span><span class="p">()</span>
@@ -4102,7 +4136,7 @@ able to perform a list of readonly interactions with this element in order to ge
              <span class="kd">public</span> <span class="kt">void</span> <span class="nf">dataTableTest</span><span class="o">()</span> <span class="o">{</span>
                  <span class="n">dataTableValidation</span><span class="o">(</span><span class="n">usersData</span><span class="o">);</span>
              <span class="o">}</span>
-             <span class="nd">@Test</span>
+         <span class="nd">@Test</span>
              <span class="kd">public</span> <span class="kt">void</span> <span class="nf">jDataTableTest</span><span class="o">()</span> <span class="o">{</span>
                  <span class="n">dataTableValidation</span><span class="o">(</span><span class="n">usersDataSetup</span><span class="o">);</span>
              <span class="o">}</span>
@@ -4117,7 +4151,7 @@ able to perform a list of readonly interactions with this element in order to ge
                      <span class="s">"Grady Brock (011307) 16843 cursus.et@commodo.org Alcobendas"</span> <span class="o">+</span>
                      <span class="s">"Harding Lloyd 0800 1111 neque.In.ornare@mauris.co.uk Beauvais"</span><span class="o">);</span>
              <span class="o">}</span>
-             <span class="nd">@Test</span>
+         <span class="nd">@Test</span>
              <span class="kd">public</span> <span class="kt">void</span> <span class="nf">filterDataTest</span><span class="o">()</span> <span class="o">{</span>
                  <span class="n">assertEquals</span><span class="o">(</span><span class="n">usersData</span><span class="o">.</span><span class="na">data</span><span class="o">(</span><span class="mi">2</span><span class="o">),</span> <span class="n">GRADY_BROCK</span><span class="o">);</span>
                  <span class="n">assertEquals</span><span class="o">(</span><span class="n">usersData</span><span class="o">.</span><span class="na">data</span><span class="o">(</span><span class="s">"Grady Brock"</span><span class="o">),</span> <span class="n">GRADY_BROCK</span><span class="o">);</span>
@@ -4129,8 +4163,7 @@ able to perform a list of readonly interactions with this element in order to ge
                  assertEquals(filteredData.get(0), GRADY_BROCK);
                  */</span>
              <span class="o">}</span>
-
-             <span class="nd">@Test</span>
+         <span class="nd">@Test</span>
              <span class="kd">public</span> <span class="kt">void</span> <span class="nf">filterLinesTest</span><span class="o">()</span> <span class="o">{</span>
                  <span class="n">UserRow</span> <span class="n">line</span> <span class="o">=</span>  <span class="n">usersData</span><span class="o">.</span><span class="na">line</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
                  <span class="n">validateUserRow</span><span class="o">(</span><span class="n">line</span><span class="o">);</span>
@@ -4150,6 +4183,126 @@ able to perform a list of readonly interactions with this element in order to ge
                  <span class="n">validateAlert</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="n">GRADY_BROCK</span><span class="o">.</span><span class="na">city</span><span class="o">));</span>
                  <span class="n">assertEquals</span><span class="o">(</span><span class="n">line</span><span class="o">.</span><span class="na">email</span><span class="o">.</span><span class="na">getText</span><span class="o">(),</span> <span class="n">GRADY_BROCK</span><span class="o">.</span><span class="na">email</span><span class="o">);</span>
              <span class="o">}</span>      
+         <span class="nd">@Test</span>
+             <span class="kd">public</span> <span class="kt">void</span> <span class="nf">tableParamsTest</span><span class="o">()</span> <span class="o">{</span>
+                     <span class="n">assertEquals</span><span class="o">(</span><span class="n">users</span><span class="o">.</span><span class="na">size</span><span class="o">(),</span> <span class="mi">4</span><span class="o">);</span>
+                     <span class="n">assertEquals</span><span class="o">(</span><span class="n">users</span><span class="o">.</span><span class="na">count</span><span class="o">(),</span> <span class="mi">6</span><span class="o">);</span>
+                     <span class="n">assertEquals</span><span class="o">(</span><span class="n">users</span><span class="o">.</span><span class="na">header</span><span class="o">(),</span> <span class="n">asList</span><span class="o">(</span><span class="s">"Number"</span><span class="o">,</span> <span class="s">"Type"</span><span class="o">,</span> <span class="s">"User"</span><span class="o">,</span> <span class="s">"Description"</span><span class="o">));</span>
+             <span class="o">}</span>    
+         <span class="nd">@Test</span>
+             <span class="kd">public</span> <span class="kt">void</span> <span class="nf">previewTest</span><span class="o">()</span> <span class="o">{</span>
+                     <span class="k">if</span> <span class="o">(</span><span class="n">isFireFox</span><span class="o">())</span> <span class="k">return</span><span class="o">;</span>
+                     <span class="n">String</span> <span class="n">value</span> <span class="o">=</span> <span class="n">users</span><span class="o">.</span><span class="na">preview</span><span class="o">();</span>
+                     <span class="n">assertEquals</span><span class="o">(</span><span class="n">value</span><span class="o">,</span>
+                             <span class="s">"Number Type User Desciption1  Admin User Manager RomanWolverineVip2  Admin User Manager Sergey IvanSpider ManVip3  Admin User Manager VladzimirPunisherVip4  Admin User Manager Helen BennettCaptain Americasome descriptionVip5  Admin User Manager Yoshi TannamuriCyclopesome descriptionVip6  Admin User Manager Giovanni RovelliHulksome descriptionVip"</span><span class="o">);</span>
+             <span class="o">}</span>   
+         <span class="nd">@Test</span>
+             <span class="kd">public</span> <span class="kt">void</span> <span class="nf">valueTest</span><span class="o">()</span> <span class="o">{</span>
+                     <span class="n">String</span> <span class="n">value</span> <span class="o">=</span> <span class="n">users</span><span class="o">.</span><span class="na">getValue</span><span class="o">();</span>
+                     <span class="n">assertEquals</span><span class="o">(</span><span class="n">value</span><span class="o">,</span>
+                     <span class="s">"||X||Number|Type|User|Description||\r\n"</span> <span class="o">+</span>
+                         <span class="s">"||1||1|Admin|Roman|Wolverine:VIP||\r\n"</span> <span class="o">+</span>
+                         <span class="s">"||2||2|User|Sergey Ivan|Spider Man:Dude||\r\n"</span> <span class="o">+</span>
+                         <span class="s">"||3||3|Manager|Vladzimir|Punisher:VIP||\r\n"</span> <span class="o">+</span>
+                         <span class="s">"||4||4|User|Helen Bennett|Captain America\\nsome description:Dude||\r\n"</span> <span class="o">+</span>
+                         <span class="s">"||5||5|User|Yoshi Tannamuri|Cyclope\\nsome description:Dude||\r\n"</span> <span class="o">+</span>
+                         <span class="s">"||6||6|User|Giovanni Rovelli|Hulk\\nsome description:Dude||\r\n"</span><span class="o">);</span>
+             <span class="o">}</span>
+         <span class="nd">@Test</span>
+             <span class="kd">public</span> <span class="kt">void</span> <span class="nf">dataColumnTestIndex</span><span class="o">()</span> <span class="o">{</span>
+                     <span class="n">assertEquals</span><span class="o">(</span><span class="n">users</span><span class="o">.</span><span class="na">data</span><span class="o">(</span><span class="mi">2</span><span class="o">),</span> <span class="n">SPIDER_MAN</span><span class="o">);</span>
+             <span class="o">}</span>
+         <span class="nd">@Test</span>
+             <span class="kd">public</span> <span class="kt">void</span> <span class="nf">dataColumnNameTest</span><span class="o">()</span> <span class="o">{</span>
+                     <span class="n">assertEquals</span><span class="o">(</span><span class="n">usersSetup</span><span class="o">.</span><span class="na">data</span><span class="o">(</span><span class="s">"Sergey Ivan"</span><span class="o">),</span> <span class="n">SPIDER_MAN</span><span class="o">);</span>
+             <span class="o">}</span>
+         <span class="nd">@Test</span>
+             <span class="kd">public</span> <span class="kt">void</span> <span class="nf">dataFilterTest</span><span class="o">()</span> <span class="o">{</span>
+                     <span class="n">assertEquals</span><span class="o">(</span><span class="n">users</span><span class="o">.</span><span class="na">data</span><span class="o">(</span><span class="n">d</span> <span class="o">-&gt;</span> <span class="n">d</span><span class="o">.</span><span class="na">user</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="s">"Ivan"</span><span class="o">)),</span> <span class="n">SPIDER_MAN</span><span class="o">);</span>
+             <span class="o">}</span>
+         <span class="nd">@Test</span>
+             <span class="kd">public</span> <span class="kt">void</span> <span class="nf">allDataFilterTest</span><span class="o">()</span> <span class="o">{</span>
+                     <span class="n">List</span><span class="o">&lt;</span><span class="n">MarvelUserInfo</span><span class="o">&gt;</span> <span class="n">filteredData</span> <span class="o">=</span> <span class="n">users</span><span class="o">.</span><span class="na">datas</span><span class="o">(</span><span class="n">d</span> <span class="o">-&gt;</span> <span class="n">d</span><span class="o">.</span><span class="na">user</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="s">"Ivan"</span><span class="o">));</span>
+                     <span class="n">assertEquals</span><span class="o">(</span><span class="n">filteredData</span><span class="o">.</span><span class="na">size</span><span class="o">(),</span> <span class="mi">1</span><span class="o">);</span>
+                     <span class="n">assertEquals</span><span class="o">(</span><span class="n">filteredData</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">),</span> <span class="n">SPIDER_MAN</span><span class="o">);</span>
+             <span class="o">}</span>
+         <span class="nd">@Test</span>
+             <span class="kd">public</span> <span class="kt">void</span> <span class="nf">commonMatchersTest</span><span class="o">()</span> <span class="o">{</span>
+                     <span class="n">users</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+                     <span class="n">users</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">size</span><span class="o">(</span><span class="mi">6</span><span class="o">);</span>
+                     <span class="n">users</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">size</span><span class="o">(</span><span class="n">greaterThan</span><span class="o">(</span><span class="mi">3</span><span class="o">));</span>
+                     <span class="n">users</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">notEmpty</span><span class="o">().</span><span class="na">size</span><span class="o">(</span><span class="n">lessThanOrEqualTo</span><span class="o">(</span><span class="mi">6</span><span class="o">));</span>
+             <span class="o">}</span>
+         <span class="nd">@Test</span>
+             <span class="kd">public</span> <span class="kt">void</span> <span class="nf">rowMatcherTest</span><span class="o">()</span> <span class="o">{</span>
+                     <span class="n">users</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">row</span><span class="o">(</span><span class="n">d</span> <span class="o">-&gt;</span> <span class="n">d</span><span class="o">.</span><span class="na">user</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="s">"Ivan"</span><span class="o">));</span>
+             <span class="o">}</span>
+         <span class="nd">@Test</span>
+             <span class="kd">public</span> <span class="kt">void</span> <span class="nf">rowsMatcherTest</span><span class="o">()</span> <span class="o">{</span>
+                     <span class="n">users</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">allRows</span><span class="o">(</span><span class="n">d</span> <span class="o">-&gt;</span> <span class="n">d</span><span class="o">.</span><span class="na">user</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">&gt;</span> <span class="mi">4</span><span class="o">);</span>
+             <span class="o">}</span>
+         <span class="nd">@Test</span>
+             <span class="kd">public</span> <span class="kt">void</span> <span class="nf">atLeastMatcherTest</span><span class="o">()</span> <span class="o">{</span>
+                     <span class="n">users</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">atLeast</span><span class="o">(</span><span class="mi">3</span><span class="o">).</span><span class="na">rows</span><span class="o">(</span><span class="n">d</span> <span class="o">-&gt;</span> <span class="n">d</span><span class="o">.</span><span class="na">type</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="s">"User"</span><span class="o">));</span>
+             <span class="o">}</span>
+         <span class="nd">@Test</span>
+             <span class="kd">public</span> <span class="kt">void</span> <span class="nf">exactMatcherTest</span><span class="o">()</span> <span class="o">{</span>
+                     <span class="n">users</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">exact</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">rows</span><span class="o">(</span><span class="n">d</span> <span class="o">-&gt;</span> <span class="n">d</span><span class="o">.</span><span class="na">description</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="s">":VIP"</span><span class="o">));</span>
+             <span class="o">}</span>
+         <span class="nd">@Test</span>
+             <span class="kd">public</span> <span class="kt">void</span> <span class="nf">rowDataMatcherTest</span><span class="o">()</span> <span class="o">{</span>
+                     <span class="n">users</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">row</span><span class="o">(</span><span class="n">SPIDER_MAN</span><span class="o">);</span>
+             <span class="o">}</span>
+         <span class="nd">@Test</span>
+             <span class="kd">public</span> <span class="kt">void</span> <span class="nf">rowDataExactMatcherTest</span><span class="o">()</span> <span class="o">{</span>
+                     <span class="n">users</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">exact</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">rows</span><span class="o">(</span><span class="n">SPIDER_MAN</span><span class="o">);</span>
+             <span class="o">}</span>
+         <span class="nd">@Test</span>
+             <span class="kd">public</span> <span class="kt">void</span> <span class="nf">tableChainTest</span><span class="o">()</span> <span class="o">{</span>
+                     <span class="n">users</span><span class="o">.</span><span class="na">assertThat</span><span class="o">()</span>
+                         <span class="o">.</span><span class="na">displayed</span><span class="o">()</span>
+                         <span class="o">.</span><span class="na">size</span><span class="o">(</span><span class="mi">6</span><span class="o">)</span>
+                         <span class="o">.</span><span class="na">size</span><span class="o">(</span><span class="n">greaterThan</span><span class="o">(</span><span class="mi">3</span><span class="o">))</span>
+                         <span class="o">.</span><span class="na">notEmpty</span><span class="o">()</span>
+                         <span class="o">.</span><span class="na">row</span><span class="o">(</span><span class="n">d</span> <span class="o">-&gt;</span> <span class="n">d</span><span class="o">.</span><span class="na">user</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="s">"Ivan"</span><span class="o">))</span>
+                         <span class="o">.</span><span class="na">allRows</span><span class="o">(</span><span class="n">d</span> <span class="o">-&gt;</span> <span class="n">d</span><span class="o">.</span><span class="na">user</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">&gt;</span> <span class="mi">4</span><span class="o">)</span>
+                         <span class="o">.</span><span class="na">atLeast</span><span class="o">(</span><span class="mi">3</span><span class="o">).</span><span class="na">rows</span><span class="o">(</span><span class="n">d</span> <span class="o">-&gt;</span> <span class="n">d</span><span class="o">.</span><span class="na">type</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="s">"User"</span><span class="o">))</span>
+                         <span class="o">.</span><span class="na">row</span><span class="o">(</span><span class="n">SPIDER_MAN</span><span class="o">)</span>
+                         <span class="o">.</span><span class="na">exact</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">rows</span><span class="o">(</span><span class="n">d</span> <span class="o">-&gt;</span> <span class="n">d</span><span class="o">.</span><span class="na">description</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="s">":VIP"</span><span class="o">))</span>
+                         <span class="o">.</span><span class="na">exact</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">rows</span><span class="o">(</span><span class="n">SPIDER_MAN</span><span class="o">);</span>
+             <span class="o">}</span>  
+         <span class="nd">@Test</span>
+             <span class="kd">public</span> <span class="kt">void</span> <span class="nf">lineByIndexTest</span><span class="o">()</span> <span class="o">{</span>
+                 <span class="n">MarvelUser</span> <span class="n">line</span> <span class="o">=</span> <span class="n">users</span><span class="o">.</span><span class="na">line</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+                 <span class="n">validateUserRow</span><span class="o">(</span><span class="n">line</span><span class="o">);</span>
+             <span class="o">}</span>
+         <span class="nd">@Test</span>
+             <span class="kd">public</span> <span class="kt">void</span> <span class="nf">lineByNameTest</span><span class="o">()</span> <span class="o">{</span>
+                 <span class="n">MarvelUser</span> <span class="n">line</span> <span class="o">=</span> <span class="n">usersSetup</span><span class="o">.</span><span class="na">line</span><span class="o">(</span><span class="s">"Sergey Ivan"</span><span class="o">);</span>
+                 <span class="n">validateUserRow</span><span class="o">(</span><span class="n">line</span><span class="o">);</span>
+             <span class="o">}</span>
+         <span class="nd">@Test</span>
+             <span class="kd">public</span> <span class="kt">void</span> <span class="nf">lineFilterTest</span><span class="o">()</span> <span class="o">{</span>
+                 <span class="n">MarvelUser</span> <span class="n">line</span> <span class="o">=</span> <span class="n">users</span><span class="o">.</span><span class="na">line</span><span class="o">(</span><span class="n">d</span> <span class="o">-&gt;</span> <span class="n">d</span><span class="o">.</span><span class="na">user</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="s">"Ivan"</span><span class="o">));</span>
+                 <span class="n">validateUserRow</span><span class="o">(</span><span class="n">line</span><span class="o">);</span>
+             <span class="o">}</span>
+         <span class="nd">@Test</span>
+             <span class="kd">public</span> <span class="kt">void</span> <span class="nf">linesFilterTest</span><span class="o">()</span> <span class="o">{</span>
+                 <span class="n">List</span><span class="o">&lt;</span><span class="n">MarvelUser</span><span class="o">&gt;</span> <span class="n">filteredData</span> <span class="o">=</span> <span class="n">users</span><span class="o">.</span><span class="na">lines</span><span class="o">(</span><span class="n">d</span> <span class="o">-&gt;</span> <span class="n">d</span><span class="o">.</span><span class="na">user</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="s">"Ivan"</span><span class="o">));</span>
+                 <span class="n">assertEquals</span><span class="o">(</span><span class="n">filteredData</span><span class="o">.</span><span class="na">size</span><span class="o">(),</span> <span class="mi">1</span><span class="o">);</span>
+                 <span class="n">validateUserRow</span><span class="o">(</span><span class="n">filteredData</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">));</span>
+             <span class="o">}</span>
+
+             <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">validateUserRow</span><span class="o">(</span><span class="n">MarvelUser</span> <span class="n">line</span><span class="o">)</span> <span class="o">{</span>
+                 <span class="n">line</span><span class="o">.</span><span class="na">type</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="s">"Admin"</span><span class="o">);</span>
+                 <span class="n">assertEquals</span><span class="o">(</span><span class="n">line</span><span class="o">.</span><span class="na">type</span><span class="o">.</span><span class="na">getValue</span><span class="o">(),</span> <span class="s">"Admin"</span><span class="o">);</span>
+                 <span class="n">line</span><span class="o">.</span><span class="na">type</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="s">"User"</span><span class="o">);</span>
+                 <span class="n">line</span><span class="o">.</span><span class="na">number</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="s">"2"</span><span class="o">));</span>
+             <span class="o">}</span> 
+         <span class="nd">@Test</span>
+             <span class="kd">public</span> <span class="kt">void</span> <span class="nf">baseValidationTest</span><span class="o">()</span> <span class="o">{</span>
+                 <span class="n">baseValidation</span><span class="o">(</span><span class="n">users</span><span class="o">);</span>
+             <span class="o">}</span>
 </code></pre>
 <ul>
 <li><strong>Java</strong>: <em>com.epam.jdi.light.elements.complex.table.DataTable.java</em></li>

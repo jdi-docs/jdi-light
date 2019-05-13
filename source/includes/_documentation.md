@@ -624,6 +624,8 @@ Here is a list of available methods in C#:
 **Height** |get value of height attribute| String
 **Width** | get value of width attribute| String
 **Alt** |get value of alt attribute | String
+**Is()** | method for building assertions | ImageAssert
+**AssertThat()** |method for building assertions  | ImageAssert
 
 [Test examples in Java]
 (https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ImageTests.java)
@@ -680,6 +682,8 @@ Here is a list of available methods in C#:
 **Height** |get value of height attribute| String
 **Width** | get value of width attribute| String
 **Alt** |get value of alt attribute | String
+**Is()** | method for building assertions | ImageAssert
+**AssertThat()** |method for building assertions  | ImageAssert
 
 [Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/ImagesTests.cs)
 

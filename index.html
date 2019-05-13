@@ -3649,8 +3649,6 @@ In addition if you run test scenarios on JDI Light you will <strong>get logs of 
 <li><strong>Java</strong>: <em>com.epam.jdi.light.elements.complex.table.Table.java</em></li>
 <li><strong>C#</strong>: <em>JDI.Light.Elements.Complex.Table.cs</em></li>
 </ul>
-
-<p><img src="images/html/table_html.png" alt="Table" /></p>
 <pre class="highlight java tab-java"><code>         <span class="nd">@UI</span><span class="o">(</span><span class="s">"#users-table"</span><span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">Table</span> <span class="n">users</span><span class="o">;</span>
             <span class="nd">@JTable</span><span class="o">(</span>
                 <span class="n">root</span> <span class="o">=</span> <span class="s">"#users-table"</span><span class="o">,</span>
@@ -3811,6 +3809,8 @@ In addition if you run test scenarios on JDI Light you will <strong>get logs of 
                 <span class="p">.</span><span class="nf">Columns</span><span class="p">(</span><span class="n">Is</span><span class="p">.</span><span class="nf">SubsequenceOf</span><span class="p">(</span><span class="k">new</span><span class="p">[]</span> <span class="p">{</span><span class="s">"Name"</span><span class="p">,</span> <span class="s">"City"</span><span class="p">,</span> <span class="s">"Phone"</span><span class="p">,</span> <span class="s">"Email"</span><span class="p">,</span> <span class="s">"Address"</span><span class="p">}));</span>
         <span class="p">}</span>       
 </code></pre>
+<p><img src="images/html/table_html.png" alt="Table" /></p>
+
 <p>Here is a list of available methods in Java:</p>
 
 <table><thead>
@@ -4093,8 +4093,6 @@ able to perform a list of readonly interactions with this element in order to ge
 <li><strong>Java</strong>: <em>com.epam.jdi.light.elements.complex.table.DataTable.java</em></li>
 <li><strong>C#</strong>:</li>
 </ul>
-
-<p><img src="images/html/dataTable_html.png" alt="DataTable" /></p>
 <pre class="highlight java tab-java"><code>
          <span class="nd">@UI</span><span class="o">(</span><span class="s">"#users-table"</span><span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">DataTable</span><span class="o">&lt;</span><span class="n">UserRow</span><span class="o">,</span> <span class="n">UserInfo</span><span class="o">&gt;</span> <span class="n">usersData</span><span class="o">;</span>
             <span class="nd">@JTable</span><span class="o">(</span> <span class="n">root</span> <span class="o">=</span> <span class="s">"#users-table"</span><span class="o">,</span>
@@ -4158,6 +4156,8 @@ able to perform a list of readonly interactions with this element in order to ge
                  <span class="n">assertEquals</span><span class="o">(</span><span class="n">line</span><span class="o">.</span><span class="na">email</span><span class="o">.</span><span class="na">getText</span><span class="o">(),</span> <span class="n">GRADY_BROCK</span><span class="o">.</span><span class="na">email</span><span class="o">);</span>
              <span class="o">}</span>      
 </code></pre>
+<p><img src="images/html/dataTable_html.png" alt="DataTable" /></p>
+
 <p>Here is a list of available methods in Java:</p>
 
 <table><thead>
@@ -4349,6 +4349,8 @@ able to perform a list of readonly interactions with this element in order to ge
 <td>DataTableAssert</td>
 </tr>
 </tbody></table>
+
+<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-examples/src/test/java/io/github/epam/tests/recommended/DataTableTests.java">Java test examples</a></p>
 <h3 id='dropdown'>DropDown</h3>
 <p><strong>DropDown</strong> – a graphical control element, that allows the user to choose one value from a list.</p>
 

@@ -454,53 +454,6 @@ public void SetPartyTimeTest()
 
 [C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs)
 
-### Input Type Range
-**Input Type Range** – a graphical control element, that allows the user to set the value from the range.
- 
-  - __Java__: _com.epam.jdi.light.ui.html.common.Range_
-  - __C#__: _JDI.Light.Elements.Common.Range_
-  
-  
-```java 
-@UI("#volume") public static Range volume;
-// equal to @FindBy(css = "#volume") public static Range volume;
-
-@Test
-public void volumeTest() {
-        volume.setVolume(10);
-        assertEquals(volume.volume(), 10);
-        assertEquals(volume.max(), "100");
-        assertEquals(volume.min(), "10");
-        assertEquals(volume.step(), "5");
-    }
-```
-```csharp 
-[Test]
-public void SetGetRange() 
-{
-    MyDateTime.SetRange("50");
-    MyDateTime.GetValue();
-}
-```
-
-![InputTypeDateTime](../images/html/rangeHtml.png)
-
-Here is the list of available methods:
-
-|Method | Description | Return Type
---- | --- | ---
-**setVolume(int volume)** | Sets the value | void
-**volume()** | Returns the value | int
-**max()** | Returns the max value | String
-**min()** | Returns the min value | String
-**step()** | Returns the step value | String
-**is()** | Returns object for work with assertions | RangeAssert
-**assertThat()** | Returns object for work with assertions | RangeAssert
-
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/RangeTests.java)
-
-[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/RangeTests.cs)
-
 ### FileInput
 
 **FileInput** - a grafical control element, that allows the user to upload documents on the web site
@@ -950,24 +903,14 @@ Available method in C# JDI Light:
 [C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/ProgressTests.cs)
 
 ### Range
-**Range** - a graphical control element that allows the user to set the value from the range.
-
-![Range](../images/html/range_html.png)
-
-Range is represented by the following class:
-
-Java: com.epam.jdi.light.ui.html.common.Range  
-C#: JDI.Light.Elements.Common.Range
 
 ```java 
   @UI("#volume")  //@FindBy(id = "volume") 
-  public static Text jdiText;
-
+  public static Range volume;
   @Test
   public void getLabelTextTest() {
       assertEquals(volume.labelText(), "Volume");
   }
-
   @Test
   public void getValueTest() {
       assertEquals(disabledRange.volume(), 50);
@@ -984,13 +927,11 @@ C#: JDI.Light.Elements.Common.Range
   public void stepTest() {
       assertEquals(volume.step(), "5");
   }
-
   @Test
   public void setVolumeTest() {
       volume.setVolume(10);
       assertEquals(volume.volume(), 10);
   }
-
   @Test
   public void isValidationTest() {
       volume.is().enabled();
@@ -1001,62 +942,53 @@ C#: JDI.Light.Elements.Common.Range
       volume.is().volume(lessThanOrEqualTo(100));
       volume.is().volume(is(90));
   }
-
   @Test
   public void labelTest() {
       assertEquals(volume.label().getText(), "Volume");
       volume.label().is().text(containsString("lume"));
       volume.label().assertThat().text(equalToIgnoringCase("volume"));
   }
-
   @Test
   public void assertValidationTest() {
       volume.assertThat().volume(greaterThan(0));
       volume.assertThat().volume(lessThan(200));
       disabledRange.assertThat().volume(is(50));
   }
-
   @Test
   public void baseValidationTest() {
       baseValidation(volume);
   }
-  
 ```
+
 ```csharp
-   [FindBy(Css = "#volume")]
-   public IRange Volume { get; set; }
-        
+  [FindBy(Css = "#volume")]
+  public IRange Volume { get; set; } 
   [Test]
   public void GetValueTest()
   {
       Assert.AreEqual(TestSite.Html5Page.DisabledRange.Value(), 50);
   }
-
   [Test]
   public void MinTest()
   {
       Assert.AreEqual(TestSite.Html5Page.Volume.Min(), 10);
   }
-
   [Test]
   public void MaxTest()
   {
       Assert.AreEqual(TestSite.Html5Page.Volume.Max(), 100);
   }
-
   [Test]
   public void StepTest()
   {
       Assert.AreEqual(TestSite.Html5Page.Volume.Step(), 5);
   }
-
   [Test]
   public void SetRangeTest()
   {
       TestSite.Html5Page.Volume.SetValue(10);
       Assert.AreEqual(TestSite.Html5Page.Volume.Value(), 10);
   }
-
   [Test]
   public void RangeTest()
   {
@@ -1064,9 +996,14 @@ C#: JDI.Light.Elements.Common.Range
       Assert.AreEqual(TestSite.Html5Page.Volume.GetValue(), "30");
   }
 ```
-
-Here is a list of available methods in C#:
-
+**Range** - a graphical control element that allows the user to set the value from the range.</br>
+![Range](../images/html/range_html.png)</br>
+Range is represented by the following class:</br>
+  - __Java__: _com.epam.jdi.light.ui.html.common.Range_
+  - __C#__: _JDI.Light.Elements.Common.Range_
+</br>
+Here is a list of available methods in C#:</br>
+</br>
 |Method | Description | Return Type
 --- | --- | ---
 **SetValue(string value)** | Sets the value | void
@@ -1077,10 +1014,9 @@ Here is a list of available methods in C#:
 **Max()** | Returns the max value| Double
 **Step()** | Returns the step value | Double
 
-[Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/RangeTests.cs)
-
-And here are methods available in Java:
-    
+[Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/RangeTests.cs)</br></br>
+And here are methods available in Java:</br>
+</br>
 |Method | Description | Return Type
 --- | --- | ---
 **setVolume(int volume)** | Sets the value | void
@@ -1090,8 +1026,8 @@ And here are methods available in Java:
 **step()** | Returns the step value | String
 **is()** | Returns object for work with assertions | RangeAssert
 **assertThat()** | Returns object for work with assertions | RangeAssert
-
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/RangeTests.java)
+</br>
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/RangeTests.java)</br>
 
 ### Text
 **Text** is a combination of letters and textual symbols. When performing testing, the text is used in most operations: when typing text into the login field, when finding a button with some certain text in it, or when checking if actual text matches expected one.

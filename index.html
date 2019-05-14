@@ -1730,10 +1730,10 @@ In addition if you run test scenarios on JDI Light you will <strong>get logs of 
   <span class="n">In</span> <span class="n">the</span> <span class="n">next</span> <span class="n">test</span> <span class="n">Label</span> <span class="n">is</span> <span class="n">found</span> <span class="n">from</span> <span class="err">'</span><span class="n">name</span><span class="err">'</span> <span class="n">and</span> <span class="err">'</span><span class="n">disabledName</span><span class="err">'</span> <span class="nl">locators:</span>
 
   <span class="nd">@UI</span><span class="o">(</span><span class="s">"#name"</span><span class="o">)</span> <span class="c1">// @FindBy(css = "#name")</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">TextField</span> <span class="n">name</span><span class="o">;</span>
+ <span class="kd">public</span> <span class="kd">static</span> <span class="n">TextField</span> <span class="n">name</span><span class="o">;</span>
 
   <span class="nd">@UI</span><span class="o">(</span><span class="s">"#disabled-name"</span><span class="o">)</span> <span class="c1">// @FindBy(css = "#disabled-name")</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">TextField</span> <span class="n">disabledName</span><span class="o">;</span>
+ <span class="kd">public</span> <span class="kd">static</span> <span class="n">TextField</span> <span class="n">disabledName</span><span class="o">;</span>
 
     <span class="n">By</span> <span class="k">default</span> <span class="n">Label</span> <span class="n">is</span> <span class="n">found</span> <span class="n">by</span> <span class="n">locator</span> <span class="n">By</span><span class="o">.</span><span class="na">cssSelector</span><span class="o">(</span><span class="s">"[for="</span><span class="o">+</span><span class="n">getAttribute</span><span class="o">(</span><span class="s">"id"</span><span class="o">)+</span><span class="s">"]"</span><span class="o">)</span>
 
@@ -1766,11 +1766,11 @@ In addition if you run test scenarios on JDI Light you will <strong>get logs of 
      <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">SurnameTextField</span><span class="p">.</span><span class="nf">Label</span><span class="p">().</span><span class="n">Is</span><span class="p">.</span><span class="nf">Text</span><span class="p">(</span><span class="nf">ContainsString</span><span class="p">(</span><span class="s">"Surname:"</span><span class="p">));</span> 
  <span class="p">}</span>   
 
-    <span class="p">[</span><span class="n">Test</span><span class="p">]</span> 
-  <span class="k">public</span> <span class="k">void</span> <span class="nf">GetLabelTextTest</span><span class="p">()</span> 
-  <span class="p">{</span> 
-      <span class="nf">AreEqual</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">ColorPicker</span><span class="p">.</span><span class="nf">LabelText</span><span class="p">(),</span> <span class="s">"Select a color"</span><span class="p">);</span> 
-  <span class="p">}</span> 
+ <span class="p">[</span><span class="n">Test</span><span class="p">]</span> 
+ <span class="k">public</span> <span class="k">void</span> <span class="nf">GetLabelTextTest</span><span class="p">()</span> 
+ <span class="p">{</span> 
+     <span class="nf">AreEqual</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">ColorPicker</span><span class="p">.</span><span class="nf">LabelText</span><span class="p">(),</span> <span class="s">"Select a color"</span><span class="p">);</span> 
+ <span class="p">}</span> 
 
 </code></pre>
 <p>Available methods in C# JDI Light: </p>

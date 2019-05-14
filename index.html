@@ -442,6 +442,9 @@
                               <a href="#range" class="toc-h2 h3 toc-link" data-title="Range">Range</a>
                             </li>
                             <li>
+                              <a href="#range-2" class="toc-h2 h3 toc-link" data-title="Range">Range</a>
+                            </li>
+                            <li>
                               <a href="#text" class="toc-h2 h3 toc-link" data-title="Text">Text</a>
                             </li>
                             <li>
@@ -3167,39 +3170,128 @@ In addition if you run test scenarios on JDI Light you will <strong>get logs of 
       <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">Volume</span><span class="p">.</span><span class="nf">SetValue</span><span class="p">(</span><span class="s">"30"</span><span class="p">);</span>
       <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">Volume</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">(),</span> <span class="s">"30"</span><span class="p">);</span>
   <span class="p">}</span>
-</code></pre>
-<p><strong>Range</strong> - a graphical control element that allows the user to set the value from the range.</br>
-<img src="images/html/range_html.png" alt="Range" /></br>
-Range is represented by the following class:</br>
-  - <strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.Range</em>
-  - <strong>C#</strong>: <em>JDI.Light.Elements.Common.Range</em>
-</br>
-Here is a list of available methods in C#:</br>
-</br>
-|Method | Description | Return Type
---- | --- | ---
-<strong>SetValue(string value)</strong> | Sets the value | void
-<strong>SetValue(double value)</strong> | Sets the value | void
-<strong>GetValue()</strong> | Returns the value | String
-<strong>Value()</strong> | Returns the value | Double
-<strong>Min()</strong> | Returns the min value | Double
-<strong>Max()</strong> | Returns the max value| Double
-<strong>Step()</strong> | Returns the step value | Double</p>
+</code></pre><h3 id='range-2'>Range</h3>
+<p><strong>Range</strong> - a graphical control element that allows the user to set the value from the range.</br></p>
 
-<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/RangeTests.cs">Test examples in C#</a></br></br>
-And here are methods available in Java:</br>
-</br>
-|Method | Description | Return Type
---- | --- | ---
-<strong>setVolume(int volume)</strong> | Sets the value | void
-<strong>volume()</strong> | Returns the value | int
-<strong>max()</strong> | Returns the max value | String
-<strong>min()</strong> | Returns the min value | String
-<strong>step()</strong> | Returns the step value | String
-<strong>is()</strong> | Returns object for work with assertions | RangeAssert
-<strong>assertThat()</strong> | Returns object for work with assertions | RangeAssert
-</br>
-<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/RangeTests.java">Java test examples</a></br></p>
+<p><img src="images/html/range_html.png" alt="Range" /></br></p>
+
+<p>Range is represented by the following class:</br></p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.Range</em></li>
+<li><strong>C#</strong>: <em>JDI.Light.Elements.Common.Range</em></li>
+</ul>
+
+<p></br>
+Here is a list of available methods in C#:</br>
+</br></p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>SetValue(string value)</strong></td>
+<td>Sets the value</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>SetValue(double value)</strong></td>
+<td>Sets the value</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>GetValue()</strong></td>
+<td>Returns the value</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>Value()</strong></td>
+<td>Returns the value</td>
+<td>Double</td>
+</tr>
+<tr>
+<td><strong>Min()</strong></td>
+<td>Returns the min value</td>
+<td>Double</td>
+</tr>
+<tr>
+<td><strong>Max()</strong></td>
+<td>Returns the max value</td>
+<td>Double</td>
+</tr>
+<tr>
+<td><strong>Step()</strong></td>
+<td>Returns the step value</td>
+<td>Double</td>
+</tr>
+<tr>
+<td><strong>Is()</strong></td>
+<td>Returns object for work with assertions</td>
+<td>RangeAssert</td>
+</tr>
+<tr>
+<td><strong>AssertThat()</strong></td>
+<td>Returns object for work with assertions</td>
+<td>RangeAssert</td>
+</tr>
+</tbody></table>
+
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/RangeTests.cs">Test examples in C#</a></br></br></p>
+
+<p>And here are methods available in Java:</br>
+</br></p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>setVolume(int volume)</strong></td>
+<td>Sets the value</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>volume()</strong></td>
+<td>Returns the value</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>max()</strong></td>
+<td>Returns the max value</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>min()</strong></td>
+<td>Returns the min value</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>step()</strong></td>
+<td>Returns the step value</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>is()</strong></td>
+<td>Returns object for work with assertions</td>
+<td>RangeAssert</td>
+</tr>
+<tr>
+<td><strong>assertThat()</strong></td>
+<td>Returns object for work with assertions</td>
+<td>RangeAssert</td>
+</tr>
+</tbody></table>
+
+<p></br></p>
+
+<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/RangeTests.java">Java test examples</a></br></p>
 <h3 id='text'>Text</h3>
 <p><strong>Text</strong> is a combination of letters and textual symbols. When performing testing, the text is used in most operations: when typing text into the login field, when finding a button with some certain text in it, or when checking if actual text matches expected one.
 <img src="images/html/text_html.png" alt="Text" /></p>

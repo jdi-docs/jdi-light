@@ -14,55 +14,55 @@ Label's implementation is located in the following classes:
    - __Java__: _com.epam.jdi.light.elements.base.BaseUIElement_
    - __C#__: _JDI.Light.Elements.Base.UIElement_
 
-   ```java
+  ```java
    
-    In the next test Label is found from 'name' and 'disabledName' locators:
+  In the next test Label is found from 'name' and 'disabledName' locators:
    
-    @UI("#name") // @FindBy(css = "#name")
+  @UI("#name") // @FindBy(css = "#name")
 	public static TextField name;
 	
-    @UI("#disabled-name") // @FindBy(css = "#disabled-name")
+  @UI("#disabled-name") // @FindBy(css = "#disabled-name")
 	public static TextField disabledName;
 	
 	By default Label is found by locator By.cssSelector("[for="+getAttribute("id")+"]")
    
-    @Test
-    public void labelTest() {
-        assertEquals(name.label().getText(), "Your name:");
-        name.label().is().text(containsString("Your"));
-        disabledName.label().is().text(equalToIgnoringCase("Surname:"));
-    }
+  @Test
+  public void labelTest() {
+      assertEquals(name.label().getText(), "Your name:");
+      name.label().is().text(containsString("Your"));
+      disabledName.label().is().text(equalToIgnoringCase("Surname:"));
+  }
 	
 	@Test
-    public void getLabelTextTest() {
-        assertEquals(colorPicker.labelText(), "Select a color");
-    }
+  public void getLabelTextTest() {
+      assertEquals(colorPicker.labelText(), "Select a color");
+  }
   
-   ```
+ ```
 
-   ```csharp 
+ ```csharp 
   	
-	In the next test Label is found from NameTextField locator:
+ In the next test Label is found from NameTextField locator:
   
-  	[FindBy(Css = "div.main-content #name")]
-    public TextField NameTextField { get; set; }
+ [FindBy(Css = "div.main-content #name")]
+ public TextField NameTextField { get; set; }
 	
-	By default Label is found by locator By.CssSelector($"[for={WebElement.GetAttribute("id")}]")
+ By default Label is found by locator By.CssSelector($"[for={WebElement.GetAttribute("id")}]")
 
-	[Test] 
-	public void LabelTest() 
-    { 
-        Assert.AreEqual(TestSite.Html5Page.NameTextField.Label().GetText(), "Your name:");
-        TestSite.Html5Page.NameTextField.Label().Is.Text(ContainsString("Your"));
-        Assert.AreEqual(TestSite.Html5Page.SurnameTextField.Label().GetText(), "Surname:");
-        TestSite.Html5Page.SurnameTextField.Label().Is.Text(ContainsString("Surname:")); 
-    }	 
+ [Test] 
+ public void LabelTest() 
+ { 
+     Assert.AreEqual(TestSite.Html5Page.NameTextField.Label().GetText(), "Your name:");
+     TestSite.Html5Page.NameTextField.Label().Is.Text(ContainsString("Your"));
+     Assert.AreEqual(TestSite.Html5Page.SurnameTextField.Label().GetText(), "Surname:");
+     TestSite.Html5Page.SurnameTextField.Label().Is.Text(ContainsString("Surname:")); 
+ }	 
 	
 	[Test] 
-    public void GetLabelTextTest() 
-    { 
-        AreEqual(TestSite.Html5Page.ColorPicker.LabelText(), "Select a color"); 
-    } 
+  public void GetLabelTextTest() 
+  { 
+      AreEqual(TestSite.Html5Page.ColorPicker.LabelText(), "Select a color"); 
+  } 
  
   ``` 
  

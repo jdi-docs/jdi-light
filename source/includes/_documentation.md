@@ -788,6 +788,21 @@ public void SelectEnumTest()
      TestSite.SidebarMenu.Select(Navigation.MetalsColors);
      TestSite.MetalsColorsPage.CheckOpened();
 }
+
+[Test]
+public void IsValidationTest()
+{
+     TestSite.SidebarMenu.Select("Elements packs", "HTML 5");
+     TestSite.SidebarMenu.Is.Selected("HTML 5")
+}
+
+[Test]
+public void AssertValidationTest()
+{
+     TestSite.SidebarMenu.Select("Elements packs", "HTML 5");
+     TestSite.SidebarMenu.AssertThat.Selected("HTML 5");
+}
+
 ```
 
 Here is an example with provided HTML code:
@@ -813,9 +828,17 @@ Available method in C# JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**void select(String[])** | Select menu element and subelement | void
-**void select(String)** | Select menu element | void
-**void select(TEnum)** | Select menu element | void
+**void Select(String[])** | Select menu element and subelement | void
+**void Select(String)** | Select menu element | void
+**void Select(TEnum)** | Select menu element | void
+**bool Selected(string option)** | Checks whether a menu option is selected | bool
+
+Available Assert methods in C# JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**Is** | Get select assert | MenuSelectAssert
+**AssertThat** | Get select assert | MenuSelectAssert
 
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/complex/MenuTests.java)
 

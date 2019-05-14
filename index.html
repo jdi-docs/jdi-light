@@ -3343,8 +3343,7 @@ In addition if you run test scenarios on JDI Light you will <strong>get logs of 
 
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/RangeTests.java">Java test examples</a></br></p>
 <h3 id='text'>Text</h3>
-<p><strong>Text</strong> is a combination of letters and textual symbols. When performing testing, the text is used in most operations: when typing text into the login field, when finding a button with some certain text in it, or when checking if actual text matches expected one.
-<img src="images/html/text_html.png" alt="Text" /></p>
+<p><strong>Text</strong> is a combination of letters and textual symbols. When performing testing, the text is used in most operations: when typing text into the login field, when finding a button with some certain text in it, or when checking if actual text matches expected one.</p>
 <pre class="highlight java tab-java"><code>  <span class="nd">@UI</span><span class="o">(</span><span class="s">"[ui=jdi-text]"</span><span class="o">)</span> <span class="c1">//@FindBy(css = "[ui=jdi-text]") </span>
   <span class="kd">public</span> <span class="kd">static</span> <span class="n">Text</span> <span class="n">jdiText</span><span class="o">;</span>
 
@@ -3445,6 +3444,8 @@ In addition if you run test scenarios on JDI Light you will <strong>get logs of 
       <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">AreEquals</span><span class="p">(</span><span class="n">actualResultTask</span><span class="p">.</span><span class="n">Result</span><span class="p">,</span> <span class="n">_expectedText</span><span class="p">);</span>
   <span class="p">}</span>
 </code></pre>
+<p><img src="images/html/text_html.png" alt="Text" /></p>
+
 <p>Text is represented by the following class:</p>
 
 <p>Java: com.epam.jdi.light.ui.html.common.Text<br>

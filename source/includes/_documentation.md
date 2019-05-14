@@ -674,14 +674,26 @@ public void getTextTest() {
     }
 ```
 ```csharp 
+[FindBy(Css = "[ui = github-link]")]
+public ILink GithubLink;
+
 [Test]
-TBD
+public void GetTextTest()
+{
+    Assert.AreEqual(GithubLink.GetText(), Text);
+}
+
+[Test]
+public void GetUrlTest()
+{
+     Assert.AreEqual(GithubLink.Url(), "https://epam.github.io/JDI/html5.html");
+}
 ```
 
 
 ![Link](../images/html/link_html.png)
 
-Here is the list of available methods:
+Here is the list of available methods in Java:
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -694,6 +706,18 @@ Here is the list of available methods:
 **assertThat()** | Returns object for work with assertions | LinkAssert
 
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/LinkTests.java)
+
+Here is the list of available methods in C#:
+
+|Method | Description | Return Type
+--- | --- | ---
+**Click()** |Follow the link | void
+**GetText()** |Returns the link text  | String
+**Ref()** |Returns the reference  | String
+**Url()** |Returns the URL  | URL
+**Alt()** |Returns the alternate text | String
+**Is()** | Returns object for work with assertions | LinkAssert
+**AssertThat()** | Returns object for work with assertions | LinkAssert
 
 [C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/LinkTests.cs)
 

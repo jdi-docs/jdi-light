@@ -1021,7 +1021,6 @@ Available method in C# JDI Light:
   }
 ```
 
-### Range
 **Range** - a graphical control element that allows the user to set the value from the range.</br>
 
 ![Range](../images/html/range_html.png)</br>

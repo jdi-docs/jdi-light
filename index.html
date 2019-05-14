@@ -1727,50 +1727,50 @@ In addition if you run test scenarios on JDI Light you will <strong>get logs of 
 <li><strong>C#</strong>: <em>JDI.Light.Elements.Base.UIElement</em></li>
 </ul>
 <pre class="highlight java tab-java"><code>
-    <span class="n">In</span> <span class="n">the</span> <span class="n">next</span> <span class="n">test</span> <span class="n">Label</span> <span class="n">is</span> <span class="n">found</span> <span class="n">from</span> <span class="err">'</span><span class="n">name</span><span class="err">'</span> <span class="n">and</span> <span class="err">'</span><span class="n">disabledName</span><span class="err">'</span> <span class="nl">locators:</span>
+  <span class="n">In</span> <span class="n">the</span> <span class="n">next</span> <span class="n">test</span> <span class="n">Label</span> <span class="n">is</span> <span class="n">found</span> <span class="n">from</span> <span class="err">'</span><span class="n">name</span><span class="err">'</span> <span class="n">and</span> <span class="err">'</span><span class="n">disabledName</span><span class="err">'</span> <span class="nl">locators:</span>
 
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#name"</span><span class="o">)</span> <span class="c1">// @FindBy(css = "#name")</span>
+  <span class="nd">@UI</span><span class="o">(</span><span class="s">"#name"</span><span class="o">)</span> <span class="c1">// @FindBy(css = "#name")</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">TextField</span> <span class="n">name</span><span class="o">;</span>
 
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#disabled-name"</span><span class="o">)</span> <span class="c1">// @FindBy(css = "#disabled-name")</span>
+  <span class="nd">@UI</span><span class="o">(</span><span class="s">"#disabled-name"</span><span class="o">)</span> <span class="c1">// @FindBy(css = "#disabled-name")</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">TextField</span> <span class="n">disabledName</span><span class="o">;</span>
 
     <span class="n">By</span> <span class="k">default</span> <span class="n">Label</span> <span class="n">is</span> <span class="n">found</span> <span class="n">by</span> <span class="n">locator</span> <span class="n">By</span><span class="o">.</span><span class="na">cssSelector</span><span class="o">(</span><span class="s">"[for="</span><span class="o">+</span><span class="n">getAttribute</span><span class="o">(</span><span class="s">"id"</span><span class="o">)+</span><span class="s">"]"</span><span class="o">)</span>
 
-    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">labelTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">assertEquals</span><span class="o">(</span><span class="n">name</span><span class="o">.</span><span class="na">label</span><span class="o">().</span><span class="na">getText</span><span class="o">(),</span> <span class="s">"Your name:"</span><span class="o">);</span>
-        <span class="n">name</span><span class="o">.</span><span class="na">label</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"Your"</span><span class="o">));</span>
-        <span class="n">disabledName</span><span class="o">.</span><span class="na">label</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">equalToIgnoringCase</span><span class="o">(</span><span class="s">"Surname:"</span><span class="o">));</span>
-    <span class="o">}</span>
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">labelTest</span><span class="o">()</span> <span class="o">{</span>
+      <span class="n">assertEquals</span><span class="o">(</span><span class="n">name</span><span class="o">.</span><span class="na">label</span><span class="o">().</span><span class="na">getText</span><span class="o">(),</span> <span class="s">"Your name:"</span><span class="o">);</span>
+      <span class="n">name</span><span class="o">.</span><span class="na">label</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"Your"</span><span class="o">));</span>
+      <span class="n">disabledName</span><span class="o">.</span><span class="na">label</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">equalToIgnoringCase</span><span class="o">(</span><span class="s">"Surname:"</span><span class="o">));</span>
+  <span class="o">}</span>
 
     <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">getLabelTextTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">assertEquals</span><span class="o">(</span><span class="n">colorPicker</span><span class="o">.</span><span class="na">labelText</span><span class="o">(),</span> <span class="s">"Select a color"</span><span class="o">);</span>
-    <span class="o">}</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">getLabelTextTest</span><span class="o">()</span> <span class="o">{</span>
+      <span class="n">assertEquals</span><span class="o">(</span><span class="n">colorPicker</span><span class="o">.</span><span class="na">labelText</span><span class="o">(),</span> <span class="s">"Select a color"</span><span class="o">);</span>
+  <span class="o">}</span>
 
 </code></pre><pre class="highlight csharp tab-csharp"><code>
-    <span class="n">In</span> <span class="n">the</span> <span class="n">next</span> <span class="n">test</span> <span class="n">Label</span> <span class="k">is</span> <span class="n">found</span> <span class="k">from</span> <span class="n">NameTextField</span> <span class="n">locator</span><span class="p">:</span>
+ <span class="n">In</span> <span class="n">the</span> <span class="n">next</span> <span class="n">test</span> <span class="n">Label</span> <span class="k">is</span> <span class="n">found</span> <span class="k">from</span> <span class="n">NameTextField</span> <span class="n">locator</span><span class="p">:</span>
 
-    <span class="p">[</span><span class="nf">FindBy</span><span class="p">(</span><span class="n">Css</span> <span class="p">=</span> <span class="s">"div.main-content #name"</span><span class="p">)]</span>
-    <span class="k">public</span> <span class="n">TextField</span> <span class="n">NameTextField</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+ <span class="p">[</span><span class="nf">FindBy</span><span class="p">(</span><span class="n">Css</span> <span class="p">=</span> <span class="s">"div.main-content #name"</span><span class="p">)]</span>
+ <span class="k">public</span> <span class="n">TextField</span> <span class="n">NameTextField</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
 
-    <span class="n">By</span> <span class="k">default</span> <span class="n">Label</span> <span class="k">is</span> <span class="n">found</span> <span class="k">by</span> <span class="n">locator</span> <span class="n">By</span><span class="p">.</span><span class="nf">CssSelector</span><span class="p">(</span><span class="err">$</span><span class="s">"[for={WebElement.GetAttribute("</span><span class="n">id</span><span class="s">")}]"</span><span class="p">)</span>
+ <span class="n">By</span> <span class="k">default</span> <span class="n">Label</span> <span class="k">is</span> <span class="n">found</span> <span class="k">by</span> <span class="n">locator</span> <span class="n">By</span><span class="p">.</span><span class="nf">CssSelector</span><span class="p">(</span><span class="err">$</span><span class="s">"[for={WebElement.GetAttribute("</span><span class="n">id</span><span class="s">")}]"</span><span class="p">)</span>
+
+ <span class="p">[</span><span class="n">Test</span><span class="p">]</span> 
+ <span class="k">public</span> <span class="k">void</span> <span class="nf">LabelTest</span><span class="p">()</span> 
+ <span class="p">{</span> 
+     <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">NameTextField</span><span class="p">.</span><span class="nf">Label</span><span class="p">().</span><span class="nf">GetText</span><span class="p">(),</span> <span class="s">"Your name:"</span><span class="p">);</span>
+     <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">NameTextField</span><span class="p">.</span><span class="nf">Label</span><span class="p">().</span><span class="n">Is</span><span class="p">.</span><span class="nf">Text</span><span class="p">(</span><span class="nf">ContainsString</span><span class="p">(</span><span class="s">"Your"</span><span class="p">));</span>
+     <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">SurnameTextField</span><span class="p">.</span><span class="nf">Label</span><span class="p">().</span><span class="nf">GetText</span><span class="p">(),</span> <span class="s">"Surname:"</span><span class="p">);</span>
+     <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">SurnameTextField</span><span class="p">.</span><span class="nf">Label</span><span class="p">().</span><span class="n">Is</span><span class="p">.</span><span class="nf">Text</span><span class="p">(</span><span class="nf">ContainsString</span><span class="p">(</span><span class="s">"Surname:"</span><span class="p">));</span> 
+ <span class="p">}</span>   
 
     <span class="p">[</span><span class="n">Test</span><span class="p">]</span> 
-    <span class="k">public</span> <span class="k">void</span> <span class="nf">LabelTest</span><span class="p">()</span> 
-    <span class="p">{</span> 
-        <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">NameTextField</span><span class="p">.</span><span class="nf">Label</span><span class="p">().</span><span class="nf">GetText</span><span class="p">(),</span> <span class="s">"Your name:"</span><span class="p">);</span>
-        <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">NameTextField</span><span class="p">.</span><span class="nf">Label</span><span class="p">().</span><span class="n">Is</span><span class="p">.</span><span class="nf">Text</span><span class="p">(</span><span class="nf">ContainsString</span><span class="p">(</span><span class="s">"Your"</span><span class="p">));</span>
-        <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">SurnameTextField</span><span class="p">.</span><span class="nf">Label</span><span class="p">().</span><span class="nf">GetText</span><span class="p">(),</span> <span class="s">"Surname:"</span><span class="p">);</span>
-        <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">SurnameTextField</span><span class="p">.</span><span class="nf">Label</span><span class="p">().</span><span class="n">Is</span><span class="p">.</span><span class="nf">Text</span><span class="p">(</span><span class="nf">ContainsString</span><span class="p">(</span><span class="s">"Surname:"</span><span class="p">));</span> 
-    <span class="p">}</span>    
-
-    <span class="p">[</span><span class="n">Test</span><span class="p">]</span> 
-    <span class="k">public</span> <span class="k">void</span> <span class="nf">GetLabelTextTest</span><span class="p">()</span> 
-    <span class="p">{</span> 
-        <span class="nf">AreEqual</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">ColorPicker</span><span class="p">.</span><span class="nf">LabelText</span><span class="p">(),</span> <span class="s">"Select a color"</span><span class="p">);</span> 
-    <span class="p">}</span> 
+  <span class="k">public</span> <span class="k">void</span> <span class="nf">GetLabelTextTest</span><span class="p">()</span> 
+  <span class="p">{</span> 
+      <span class="nf">AreEqual</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">ColorPicker</span><span class="p">.</span><span class="nf">LabelText</span><span class="p">(),</span> <span class="s">"Select a color"</span><span class="p">);</span> 
+  <span class="p">}</span> 
 
 </code></pre>
 <p>Available methods in C# JDI Light: </p>

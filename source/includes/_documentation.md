@@ -996,14 +996,21 @@ Available method in C# JDI Light:
       Assert.AreEqual(TestSite.Html5Page.Volume.GetValue(), "30");
   }
 ```
+
+### Range
 **Range** - a graphical control element that allows the user to set the value from the range.</br>
+
 ![Range](../images/html/range_html.png)</br>
+
 Range is represented by the following class:</br>
+
   - __Java__: _com.epam.jdi.light.ui.html.common.Range_
   - __C#__: _JDI.Light.Elements.Common.Range_
+  
 </br>
 Here is a list of available methods in C#:</br>
 </br>
+
 |Method | Description | Return Type
 --- | --- | ---
 **SetValue(string value)** | Sets the value | void
@@ -1013,10 +1020,14 @@ Here is a list of available methods in C#:</br>
 **Min()** | Returns the min value | Double
 **Max()** | Returns the max value| Double
 **Step()** | Returns the step value | Double
+**Is()** | Returns object for work with assertions | RangeAssert
+**AssertThat()** | Returns object for work with assertions | RangeAssert
 
 [Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/RangeTests.cs)</br></br>
+
 And here are methods available in Java:</br>
 </br>
+
 |Method | Description | Return Type
 --- | --- | ---
 **setVolume(int volume)** | Sets the value | void
@@ -1027,6 +1038,7 @@ And here are methods available in Java:</br>
 **is()** | Returns object for work with assertions | RangeAssert
 **assertThat()** | Returns object for work with assertions | RangeAssert
 </br>
+
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/RangeTests.java)</br>
 
 ### Text

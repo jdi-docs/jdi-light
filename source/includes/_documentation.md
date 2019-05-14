@@ -1030,9 +1030,7 @@ Range is represented by the following class:</br>
   - __Java__: _com.epam.jdi.light.ui.html.common.Range_
   - __C#__: _JDI.Light.Elements.Common.Range_
   
-</br>
-Here is a list of available methods in C#:</br>
-</br>
+Here is a list of available methods in C#:
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -1048,8 +1046,7 @@ Here is a list of available methods in C#:</br>
 
 [Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/RangeTests.cs)</br></br>
 
-And here are methods available in Java:</br>
-</br>
+And here are methods available in Java:
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -1060,7 +1057,6 @@ And here are methods available in Java:</br>
 **step()** | Returns the step value | String
 **is()** | Returns object for work with assertions | RangeAssert
 **assertThat()** | Returns object for work with assertions | RangeAssert
-</br>
 
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/RangeTests.java)</br>
 

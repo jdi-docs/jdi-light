@@ -1062,7 +1062,6 @@ And here are methods available in Java:
 
 ### Text
 **Text** is a combination of letters and textual symbols. When performing testing, the text is used in most operations: when typing text into the login field, when finding a button with some certain text in it, or when checking if actual text matches expected one.
-![Text](../images/html/text_html.png)
 
 ```java 
   @UI("[ui=jdi-text]") //@FindBy(css = "[ui=jdi-text]") 
@@ -1168,6 +1167,8 @@ And here are methods available in Java:
       Jdi.Assert.AreEquals(actualResultTask.Result, _expectedText);
   }
 ```
+
+![Text](../images/html/text_html.png)
 
 Text is represented by the following class:
 

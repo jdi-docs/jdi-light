@@ -1064,11 +1064,6 @@ And here are methods available in Java:
 **Text** is a combination of letters and textual symbols. When performing testing, the text is used in most operations: when typing text into the login field, when finding a button with some certain text in it, or when checking if actual text matches expected one.
 ![Text](../images/html/text_html.png)
 
-Text is represented by the following class:
-
-Java: com.epam.jdi.light.ui.html.common.Text  
-C#: JDI.Light.Elements.Common.TextElement
-
 ```java 
   @UI("[ui=jdi-text]") //@FindBy(css = "[ui=jdi-text]") 
   public static Text jdiText;
@@ -1101,6 +1096,7 @@ C#: JDI.Light.Elements.Common.TextElement
   }
   
 ```
+
 ```csharp
   [FindBy(Css = ".main-txt")]
   public TextElement Text;
@@ -1172,6 +1168,11 @@ C#: JDI.Light.Elements.Common.TextElement
       Jdi.Assert.AreEquals(actualResultTask.Result, _expectedText);
   }
 ```
+
+Text is represented by the following class:
+
+Java: com.epam.jdi.light.ui.html.common.Text  
+C#: JDI.Light.Elements.Common.TextElement
 
 Here is a list of available methods in C#:
 

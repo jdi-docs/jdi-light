@@ -19,10 +19,10 @@ Label's implementation is located in the following classes:
   In the next test Label is found from 'name' and 'disabledName' locators:
    
   @UI("#name") // @FindBy(css = "#name")
-	public static TextField name;
+ public static TextField name;
 	
   @UI("#disabled-name") // @FindBy(css = "#disabled-name")
-	public static TextField disabledName;
+ public static TextField disabledName;
 	
 	By default Label is found by locator By.cssSelector("[for="+getAttribute("id")+"]")
    
@@ -58,11 +58,11 @@ Label's implementation is located in the following classes:
      TestSite.Html5Page.SurnameTextField.Label().Is.Text(ContainsString("Surname:")); 
  }	 
 	
-	[Test] 
-  public void GetLabelTextTest() 
-  { 
-      AreEqual(TestSite.Html5Page.ColorPicker.LabelText(), "Select a color"); 
-  } 
+ [Test] 
+ public void GetLabelTextTest() 
+ { 
+     AreEqual(TestSite.Html5Page.ColorPicker.LabelText(), "Select a color"); 
+ } 
  
   ``` 
  

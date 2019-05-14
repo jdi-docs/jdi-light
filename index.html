@@ -2827,6 +2827,21 @@ In addition if you run test scenarios on JDI Light you will <strong>get logs of 
      <span class="n">TestSite</span><span class="p">.</span><span class="n">SidebarMenu</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="n">Navigation</span><span class="p">.</span><span class="n">MetalsColors</span><span class="p">);</span>
      <span class="n">TestSite</span><span class="p">.</span><span class="n">MetalsColorsPage</span><span class="p">.</span><span class="nf">CheckOpened</span><span class="p">();</span>
 <span class="p">}</span>
+
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">IsValidationTest</span><span class="p">()</span>
+<span class="p">{</span>
+     <span class="n">TestSite</span><span class="p">.</span><span class="n">SidebarMenu</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="s">"Elements packs"</span><span class="p">,</span> <span class="s">"HTML 5"</span><span class="p">);</span>
+     <span class="n">TestSite</span><span class="p">.</span><span class="n">SidebarMenu</span><span class="p">.</span><span class="n">Is</span><span class="p">.</span><span class="nf">Selected</span><span class="p">(</span><span class="s">"HTML 5"</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">AssertValidationTest</span><span class="p">()</span>
+<span class="p">{</span>
+     <span class="n">TestSite</span><span class="p">.</span><span class="n">SidebarMenu</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="s">"Elements packs"</span><span class="p">,</span> <span class="s">"HTML 5"</span><span class="p">);</span>
+     <span class="n">TestSite</span><span class="p">.</span><span class="n">SidebarMenu</span><span class="p">.</span><span class="n">AssertThat</span><span class="p">.</span><span class="nf">Selected</span><span class="p">(</span><span class="s">"HTML 5"</span><span class="p">);</span>
+<span class="p">}</span>
+
 </code></pre>
 <p>Here is an example with provided HTML code:</p>
 
@@ -2903,19 +2918,45 @@ In addition if you run test scenarios on JDI Light you will <strong>get logs of 
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>void select(String[])</strong></td>
+<td><strong>void Select(String[])</strong></td>
 <td>Select menu element and subelement</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>void select(String)</strong></td>
+<td><strong>void Select(String)</strong></td>
 <td>Select menu element</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>void select(TEnum)</strong></td>
+<td><strong>void Select(TEnum)</strong></td>
 <td>Select menu element</td>
 <td>void</td>
+</tr>
+<tr>
+<td><strong>bool Selected(string option)</strong></td>
+<td>Checks whether a menu option is selected</td>
+<td>bool</td>
+</tr>
+</tbody></table>
+
+<p>Available Assert methods in C# JDI Light:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Is</strong></td>
+<td>Get select assert</td>
+<td>MenuSelectAssert</td>
+</tr>
+<tr>
+<td><strong>AssertThat</strong></td>
+<td>Get select assert</td>
+<td>MenuSelectAssert</td>
 </tr>
 </tbody></table>
 

@@ -3997,7 +3997,8 @@ C#: JDI.Light.Elements.Common.TextElement</p>
 <p><strong>Table</strong> – a complex element that consists of header, body (at least one row and one column) and footer. You are able to perform a list of readonly interactions with this element.</p>
 
 <p>Tables are represented by the following classes in Java and C#:</p>
-<pre class="highlight java tab-java"><code>         <span class="nd">@UI</span><span class="o">(</span><span class="s">"#users-table"</span><span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">Table</span> <span class="n">users</span><span class="o">;</span>
+<pre class="highlight java tab-java"><code>         <span class="nd">@UI</span><span class="o">(</span><span class="s">"#users-table"</span><span class="o">)</span> <span class="c1">//@FindBy(id = "users-table")</span>
+         <span class="kd">public</span> <span class="kd">static</span> <span class="n">Table</span> <span class="n">users</span><span class="o">;</span>
             <span class="nd">@JTable</span><span class="o">(</span>
                 <span class="n">root</span> <span class="o">=</span> <span class="s">"#users-table"</span><span class="o">,</span>
                 <span class="n">row</span> <span class="o">=</span> <span class="s">"//tr[%s]/td"</span><span class="o">,</span>
@@ -4476,7 +4477,8 @@ able to perform a list of readonly interactions with this element in order to ge
 
 <p>DataTables are represented by the following classes in Java and C#:</p>
 <pre class="highlight java tab-java"><code>
-         <span class="nd">@UI</span><span class="o">(</span><span class="s">"#users-table"</span><span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">DataTable</span><span class="o">&lt;</span><span class="n">UserRow</span><span class="o">,</span> <span class="n">UserInfo</span><span class="o">&gt;</span> <span class="n">usersData</span><span class="o">;</span>
+         <span class="nd">@UI</span><span class="o">(</span><span class="s">"#users-table"</span><span class="o">)</span> <span class="c1">//@FindBy(id = "users-table")</span>
+         <span class="kd">public</span> <span class="kd">static</span> <span class="n">DataTable</span><span class="o">&lt;</span><span class="n">UserRow</span><span class="o">,</span> <span class="n">UserInfo</span><span class="o">&gt;</span> <span class="n">usersData</span><span class="o">;</span>
             <span class="nd">@JTable</span><span class="o">(</span> <span class="n">root</span> <span class="o">=</span> <span class="s">"#users-table"</span><span class="o">,</span>
                 <span class="n">row</span> <span class="o">=</span> <span class="s">"//tr[%s]/td"</span><span class="o">,</span> <span class="n">column</span> <span class="o">=</span> <span class="s">"//tr/td[%s]"</span><span class="o">,</span>
                 <span class="n">cell</span> <span class="o">=</span> <span class="s">"//tr[{1}]/td[{0}]"</span><span class="o">,</span> <span class="n">allCells</span> <span class="o">=</span> <span class="s">"td"</span><span class="o">,</span>
@@ -4665,6 +4667,8 @@ able to perform a list of readonly interactions with this element in order to ge
 <p><img src="images/html/tableHtml.png" alt="DataTable" /></p>
 
 <p>Here is a list of available methods in Java:</p>
+
+<p>In return types column &quot;D&quot; refers to user data object and &quot;L&quot; refers to table line object.</p>
 
 <table><thead>
 <tr>

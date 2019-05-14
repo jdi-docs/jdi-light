@@ -2657,12 +2657,24 @@ In addition if you run test scenarios on JDI Light you will <strong>get logs of 
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">getTextTest</span><span class="o">()</span> <span class="o">{</span>
         <span class="n">assertEquals</span><span class="o">(</span><span class="n">githubLink</span><span class="o">.</span><span class="na">getText</span><span class="o">(),</span> <span class="n">text</span><span class="o">);</span>
     <span class="o">}</span>
-</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[Test]</span>
-<span class="n">TBD</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[FindBy(Css = "[ui = github-link]</span><span class="s">")]
+</span><span class="k">public</span> <span class="n">ILink</span> <span class="n">GithubLink</span><span class="p">;</span>
+
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">GetTextTest</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">GithubLink</span><span class="p">.</span><span class="nf">GetText</span><span class="p">(),</span> <span class="n">Text</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">GetUrlTest</span><span class="p">()</span>
+<span class="p">{</span>
+     <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">GithubLink</span><span class="p">.</span><span class="nf">Url</span><span class="p">(),</span> <span class="s">"https://epam.github.io/JDI/html5.html"</span><span class="p">);</span>
+<span class="p">}</span>
 </code></pre>
 <p><img src="images/html/link_html.png" alt="Link" /></p>
 
-<p>Here is the list of available methods:</p>
+<p>Here is the list of available methods in Java:</p>
 
 <table><thead>
 <tr>
@@ -2709,6 +2721,52 @@ In addition if you run test scenarios on JDI Light you will <strong>get logs of 
 </tbody></table>
 
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/LinkTests.java">Java test examples</a></p>
+
+<p>Here is the list of available methods in C#:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Click()</strong></td>
+<td>Follow the link</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>GetText()</strong></td>
+<td>Returns the link text</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>Ref()</strong></td>
+<td>Returns the reference</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>Url()</strong></td>
+<td>Returns the URL</td>
+<td>URL</td>
+</tr>
+<tr>
+<td><strong>Alt()</strong></td>
+<td>Returns the alternate text</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>Is()</strong></td>
+<td>Returns object for work with assertions</td>
+<td>LinkAssert</td>
+</tr>
+<tr>
+<td><strong>AssertThat()</strong></td>
+<td>Returns object for work with assertions</td>
+<td>LinkAssert</td>
+</tr>
+</tbody></table>
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/LinkTests.cs">C# test examples</a></p>
 <h3 id='menu'>Menu</h3>

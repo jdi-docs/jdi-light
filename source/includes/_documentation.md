@@ -1510,7 +1510,8 @@ Here is the list of some available methods:
 Tables are represented by the following classes in Java and C#:
 
 ```java 
-         @UI("#users-table") public static Table users;
+         @UI("#users-table") //@FindBy(id = "users-table")
+         public static Table users;
          	@JTable(
          		root = "#users-table",
          		row = "//tr[%s]/td",
@@ -1791,7 +1792,8 @@ DataTables are represented by the following classes in Java and C#:
 
 ```java 
          
-         @UI("#users-table") public static DataTable<UserRow, UserInfo> usersData;
+         @UI("#users-table") //@FindBy(id = "users-table")
+         public static DataTable<UserRow, UserInfo> usersData;
          	@JTable( root = "#users-table",
          		row = "//tr[%s]/td", column = "//tr/td[%s]",
          		cell = "//tr[{1}]/td[{0}]", allCells = "td",
@@ -1979,6 +1981,8 @@ DataTables are represented by the following classes in Java and C#:
   ![DataTable](../images/html/tableHtml.png)
 
 Here is a list of available methods in Java:
+
+In return types column "D" refers to user data object and "L" refers to table line object.
 
 | Method | Description | Return Type|
 --- | --- | ---

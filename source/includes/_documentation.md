@@ -24,7 +24,7 @@ Label's implementation is located in the following classes:
   @UI("#disabled-name") // @FindBy(css = "#disabled-name")
  public static TextField disabledName;
 	
-	By default Label is found by locator By.cssSelector("[for="+getAttribute("id")+"]")
+ By default Label is found by locator By.cssSelector("[for="+getAttribute("id")+"]")
    
   @Test
   public void labelTest() {
@@ -33,7 +33,7 @@ Label's implementation is located in the following classes:
       disabledName.label().is().text(equalToIgnoringCase("Surname:"));
   }
 	
-	@Test
+@Test
   public void getLabelTextTest() {
       assertEquals(colorPicker.labelText(), "Select a color");
   }

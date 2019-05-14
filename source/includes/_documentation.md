@@ -573,10 +573,10 @@ Here is a list of available methods in C#:
 |Method | Description | Return Type
 --- | --- | ---
 **Click()** | click on the image| void
-**Src** | get value of src attribute | String
-**Height** |get value of height attribute| String
-**Width** | get value of width attribute| String
-**Alt** |get value of alt attribute | String
+**Src** | get value of src attribute | string
+**Height** |get value of height attribute| string
+**Width** | get value of width attribute| string
+**Alt** |get value of alt attribute | string
 **Is()** | method for building assertions | ImageAssert
 **AssertThat()** |method for building assertions  | ImageAssert
 
@@ -631,10 +631,10 @@ Here is a list of available methods in C#:
 |Method | Description | Return Type
 --- | --- | ---
 **Click()** | click on the image| void
-**Src** | get value of src attribute | String
-**Height** |get value of height attribute| String
-**Width** | get value of width attribute| String
-**Alt** |get value of alt attribute | String
+**Src** | get value of src attribute | string
+**Height** |get value of height attribute| string
+**Width** | get value of width attribute| string
+**Alt** |get value of alt attribute | string
 **Is()** | method for building assertions | ImageAssert
 **AssertThat()** |method for building assertions  | ImageAssert
 
@@ -712,10 +712,10 @@ Here is the list of available methods in C#:
 |Method | Description | Return Type
 --- | --- | ---
 **Click()** |Follow the link | void
-**GetText()** |Returns the link text  | String
-**Ref()** |Returns the reference  | String
-**Url()** |Returns the URL  | URL
-**Alt()** |Returns the alternate text | String
+**GetText()** |Returns the link text  | string
+**Ref()** |Returns the reference  | string
+**Url()** |Returns the URL  | string
+**Alt()** |Returns the alternate text | string
 **Is()** | Returns object for work with assertions | LinkAssert
 **AssertThat()** | Returns object for work with assertions | LinkAssert
 

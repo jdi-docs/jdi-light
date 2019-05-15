@@ -3517,6 +3517,28 @@ In addition if you run test scenarios on JDI Light you will <strong>get logs of 
       <span class="p">});</span>
       <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">AreEquals</span><span class="p">(</span><span class="n">actualResultTask</span><span class="p">.</span><span class="n">Result</span><span class="p">,</span> <span class="n">_expectedText</span><span class="p">);</span>
   <span class="p">}</span>
+
+   <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+   <span class="k">public</span> <span class="k">void</span> <span class="nf">IsValidationTest</span><span class="p">()</span>
+   <span class="p">{</span>
+        <span class="n">TestSite</span><span class="p">.</span><span class="n">HomePage</span><span class="p">.</span><span class="n">Text</span><span class="p">.</span><span class="n">Is</span><span class="p">.</span><span class="nf">Enabled</span><span class="p">();</span>
+        <span class="n">TestSite</span><span class="p">.</span><span class="n">HomePage</span><span class="p">.</span><span class="n">Text</span><span class="p">.</span><span class="n">Is</span><span class="p">.</span><span class="nf">Text</span><span class="p">(</span><span class="nf">EqualTo</span><span class="p">(</span><span class="n">_expectedText</span><span class="p">));</span>
+        <span class="n">TestSite</span><span class="p">.</span><span class="n">HomePage</span><span class="p">.</span><span class="n">Text</span><span class="p">.</span><span class="n">Is</span><span class="p">.</span><span class="nf">Text</span><span class="p">(</span><span class="nf">ContainsString</span><span class="p">(</span><span class="n">_contains</span><span class="p">));</span>
+   <span class="p">}</span>
+
+   <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+   <span class="k">public</span> <span class="k">void</span> <span class="nf">AssertValidationTest</span><span class="p">()</span>
+   <span class="p">{</span>
+        <span class="n">TestSite</span><span class="p">.</span><span class="n">HomePage</span><span class="p">.</span><span class="n">Text</span><span class="p">.</span><span class="n">AssertThat</span><span class="p">.</span><span class="nf">Text</span><span class="p">(</span><span class="nf">EqualTo</span><span class="p">(</span><span class="n">_expectedText</span><span class="p">));</span>
+   <span class="p">}</span>
+
+   <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+   <span class="k">public</span> <span class="k">void</span> <span class="nf">BaseValidationTest</span><span class="p">()</span>
+   <span class="p">{</span>
+       <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="nf">Open</span><span class="p">();</span>
+       <span class="nf">BaseElementValidation</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">JdiText</span><span class="p">);</span>
+   <span class="p">}</span>
+
 </code></pre>
 <p><img src="images/html/text_html.png" alt="Text" /></p>
 
@@ -3558,6 +3580,16 @@ C#: JDI.Light.Elements.Common.TextElement</p>
 <td><strong>GetValue()</strong></td>
 <td>returns text</td>
 <td>String</td>
+</tr>
+<tr>
+<td><strong>Is</strong></td>
+<td>Gets text assert</td>
+<td>TextAssert</td>
+</tr>
+<tr>
+<td><strong>AssertThat</strong></td>
+<td>Gets text assert</td>
+<td>TextAssert</td>
 </tr>
 </tbody></table>
 

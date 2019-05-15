@@ -1225,6 +1225,28 @@ And here are methods available in Java:
       });
       Jdi.Assert.AreEquals(actualResultTask.Result, _expectedText);
   }
+  
+   [Test]
+   public void IsValidationTest()
+   {
+        TestSite.HomePage.Text.Is.Enabled();
+        TestSite.HomePage.Text.Is.Text(EqualTo(_expectedText));
+        TestSite.HomePage.Text.Is.Text(ContainsString(_contains));
+   }
+
+   [Test]
+   public void AssertValidationTest()
+   {
+        TestSite.HomePage.Text.AssertThat.Text(EqualTo(_expectedText));
+   }
+
+   [Test]
+   public void BaseValidationTest()
+   {
+       TestSite.Html5Page.Open();
+       BaseElementValidation(TestSite.Html5Page.JdiText);
+   }
+  
 ```
 
 ![Text](../images/html/text_html.png)
@@ -1243,6 +1265,8 @@ Here is a list of available methods in C#:
 **WaitMatchText(string regEx)** | return all text which contains matcher from parameters| String
 **GetText()** | returns text| String
 **GetValue()** | returns text| String
+**Is** | Gets text assert | TextAssert
+**AssertThat** | Gets text assert | TextAssert
 
 [Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/TextTests.cs)
 

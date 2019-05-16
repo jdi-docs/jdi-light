@@ -1192,7 +1192,7 @@ And here are methods available in Java:
   [Test]
   public void WaitMatchTest()
   {
-      Jdi.Assert.AreEquals(TestSite.HomePage.Text.WaitMatchText(_regEx), _expectedText);
+      Jdi.Assert.AreEquals(TestSite.HomePage.Text.WaitFor.Text(MatchRegexp(_regEx)).Element.Text, _expectedText);
   }
 
   [Test]
@@ -1202,20 +1202,20 @@ And here are methods available in Java:
       var actualResultTask = Task.Factory.StartNew(() =>
       {
           Thread.Sleep(200);
-          return TestSite.HomePage.Text.WaitMatchText(_regEx);
+          return TestSite.HomePage.Text.WaitFor.Text(MatchRegexp(_regEx));
       });
       Task.Factory.StartNew(() =>
       {
           Thread.Sleep(100);
           TestSite.HomePage.Open();
       });
-      Jdi.Assert.AreEquals(actualResultTask.Result, _expectedText);
+      Jdi.Assert.AreEquals(actualResultTask.Result.Element.Text, _expectedText);
   }
 
   [Test]
   public void WaitText()
   {
-      Jdi.Assert.AreEquals(TestSite.HomePage.Text.WaitText(_contains), _expectedText);
+      Jdi.Assert.AreEquals(TestSite.HomePage.Text.WaitFor.Text(ContainsString(_contains)).Element.Text, _expectedText);
   }
 
   [Test]
@@ -1225,14 +1225,14 @@ And here are methods available in Java:
       var actualResultTask = Task.Factory.StartNew(() =>
       {
           Thread.Sleep(200);
-          return TestSite.HomePage.Text.WaitText(_contains);
+          return TestSite.HomePage.Text.WaitFor.Text(ContainsString(_contains));
       });
       Task.Run(() =>
       {
           Thread.Sleep(100);
           TestSite.HomePage.Open();
       });
-      Jdi.Assert.AreEquals(actualResultTask.Result, _expectedText);
+      Jdi.Assert.AreEquals(actualResultTask.Result.Element.Text, _expectedText);
   }
   
    [Test]
@@ -1269,13 +1269,11 @@ Here is a list of available methods in C#:
 
 |Method | Description | Return Type
 --- | --- | ---
-**GetTextAction()** | returns element text if not empty otherwise returns value attribute| String
-**WaitText(string text)** | return all text which contains text from parameters| String 
-**WaitMatchText(string regEx)** | return all text which contains matcher from parameters| String
 **GetText()** | returns text| String
 **GetValue()** | returns text| String
 **Is** | Gets text assert | TextAssert
 **AssertThat** | Gets text assert | TextAssert
+**WaitFor** | Gets text assert | TextAssert
 
 [Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/TextTests.cs)
 

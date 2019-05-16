@@ -249,7 +249,7 @@ Here is an example with provided HTML code:
 
 ![ColorPicker](../images/html/colorpicker_html.png)
 
-Available methods in Java JDI Light:
+Here is the list of some available methods in Java:
 
 |Methods | Description | Return Type
 --- | --- | ---
@@ -259,6 +259,15 @@ Available methods in Java JDI Light:
 **assertThat()** | Assert acton color | ColorAssert 
 
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ColorPickerTests.java)
+
+Here is the list of some available methods in C#:
+
+|Methods | Description | Return Type
+--- | --- | ---
+**Color()** | Returns color code in  hexadecimal format ("#rrggbb") | string
+**SetColor(String)** | Set color from string hex representation ("#rrggbb") | void
+**Is()** | Assert acton color | ColorAssert
+**AssertThat()** | Assert acton color | ColorAssert 
 
 [Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/ColorPickerTests.cs)
 

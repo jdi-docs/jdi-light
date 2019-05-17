@@ -2364,6 +2364,36 @@ In addition if you run test scenarios on JDI Light you will <strong>get logs of 
 <span class="p">{</span>
     <span class="n">FileInput</span><span class="p">.</span><span class="nf">SelectFile</span><span class="p">(</span><span class="nf">CreateFile</span><span class="p">(</span><span class="n">filename</span><span class="p">));</span>
 <span class="p">}</span>
+
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">DisabledUploadTest</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="nf">Sleep</span><span class="p">(</span><span class="m">2000</span><span class="p">);</span>
+    <span class="k">try</span>
+    <span class="p">{</span>
+         <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">DisabledFileInput</span><span class="p">.</span><span class="nf">SelectFile</span><span class="p">(</span><span class="nf">CreateFile</span><span class="p">(</span><span class="n">_fileName</span><span class="p">));</span>
+    <span class="p">}</span>
+    <span class="k">catch</span> <span class="p">(</span><span class="n">Exception</span> <span class="n">e</span><span class="p">)</span>
+    <span class="p">{</span>
+         <span class="n">Logger</span><span class="p">.</span><span class="nf">Exception</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="nf">Sleep</span><span class="p">(</span><span class="m">2000</span><span class="p">);</span>
+    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">DisabledFileInput</span><span class="p">.</span><span class="n">Is</span><span class="p">.</span><span class="nf">Text</span><span class="p">(</span><span class="nf">EqualTo</span><span class="p">(</span><span class="s">""</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">LabelTest</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="nf">AreEqual</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">FileInput</span><span class="p">.</span><span class="nf">LabelText</span><span class="p">(),</span> <span class="s">"Profile picture:"</span><span class="p">);</span>
+    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">FileInput</span><span class="p">.</span><span class="nf">Label</span><span class="p">().</span><span class="n">Is</span><span class="p">.</span><span class="nf">Text</span><span class="p">(</span><span class="nf">ContainsString</span><span class="p">(</span><span class="s">"picture"</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">BaseValidationTest</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="nf">BaseElementValidation</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">FileInput</span><span class="p">);</span>
+<span class="p">}</span>
+
 </code></pre>
 <p>Here is an example with provided HTML code:</p>
 

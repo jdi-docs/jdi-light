@@ -5244,6 +5244,35 @@ Datalist element contains a set of options with values available for entering.</
 <span class="p">{</span>
     <span class="n">IceCream</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="s">"Coconut"</span><span class="p">);</span>
 <span class="p">}</span>
+
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">LabelTest</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="nf">AreEqual</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">IceCream</span><span class="p">.</span><span class="nf">Label</span><span class="p">().</span><span class="nf">GetText</span><span class="p">(),</span> <span class="s">"Choose your lovely icecream"</span><span class="p">);</span>
+    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">IceCream</span><span class="p">.</span><span class="nf">Label</span><span class="p">().</span><span class="n">Is</span><span class="p">.</span><span class="nf">Text</span><span class="p">(</span><span class="nf">ContainsString</span><span class="p">(</span><span class="s">"lovely icecream"</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">IsValidationTest</span><span class="p">()</span>
+<span class="p">{</span>
+     <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">IceCream</span><span class="p">.</span><span class="n">Is</span><span class="p">.</span><span class="nf">Enabled</span><span class="p">();</span>
+     <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">IceCream</span><span class="p">.</span><span class="n">Is</span><span class="p">.</span><span class="nf">Attr</span><span class="p">(</span><span class="s">"value"</span> <span class="p">,</span><span class="nf">EqualTo</span><span class="p">(</span><span class="n">_text</span><span class="p">));</span>
+     <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">IceCream</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="s">"Vanilla"</span><span class="p">);</span>
+     <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">IceCream</span><span class="p">.</span><span class="n">Is</span><span class="p">.</span><span class="nf">Attr</span><span class="p">(</span><span class="s">"value"</span><span class="p">,</span> <span class="nf">ContainsString</span><span class="p">(</span><span class="s">"Van"</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">AssertValidationTest</span><span class="p">()</span>
+<span class="p">{</span>
+     <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">IceCream</span><span class="p">.</span><span class="n">AssertThat</span><span class="p">.</span><span class="nf">Attr</span><span class="p">(</span><span class="s">"value"</span><span class="p">,</span> <span class="nf">ContainsString</span><span class="p">(</span><span class="n">_text</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">BaseValidationTest</span><span class="p">()</span>
+<span class="p">{</span>
+     <span class="nf">BaseElementValidation</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">IceCream</span><span class="p">);</span>
+<span class="p">}</span>
+
 </code></pre>
 <p>Datalist element type is provided by JDI Light in:</p>
 
@@ -5330,6 +5359,12 @@ Datalist element contains a set of options with values available for entering.</
 <td>string</td>
 </tr>
 </tbody></table>
+
+<p>Available list of assert methods:
+|Method | Description | Return Type
+--- | --- | ---
+<strong>Is</strong> |Gets element&#39;s assert | DataListAssert
+<strong>AssertThat</strong> |Gets element&#39;s assert | DataListAssert</p>
 
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/DataListTests.java">Java test examples</a></p>
 

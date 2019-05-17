@@ -2372,6 +2372,7 @@ Here is the list of some available methods in C# JDI Light:
 **GetSelected()** |Get selected datalist value  | string
 
 Available list of assert methods:
+
 |Method | Description | Return Type
 --- | --- | ---
 **Is** |Gets element's assert | DataListAssert

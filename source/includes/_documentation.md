@@ -519,6 +519,36 @@ public void FileInputTest()
 {
     FileInput.SelectFile(CreateFile(filename));
 }
+
+[Test]
+public void DisabledUploadTest()
+{
+    Sleep(2000);
+    try
+    {
+         TestSite.Html5Page.DisabledFileInput.SelectFile(CreateFile(_fileName));
+    }
+    catch (Exception e)
+    {
+         Logger.Exception(e);
+    }
+    Sleep(2000);
+    TestSite.Html5Page.DisabledFileInput.Is.Text(EqualTo(""));
+}
+
+[Test]
+public void LabelTest()
+{
+    AreEqual(TestSite.Html5Page.FileInput.LabelText(), "Profile picture:");
+    TestSite.Html5Page.FileInput.Label().Is.Text(ContainsString("picture"));
+}
+
+[Test]
+public void BaseValidationTest()
+{
+    BaseElementValidation(TestSite.Html5Page.FileInput);
+}
+
 ```
 
 Here is an example with provided HTML code:

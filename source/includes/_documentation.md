@@ -2300,6 +2300,35 @@ public void ComplexTest()
 {
     IceCream.Select("Coconut");
 }
+
+[Test]
+public void LabelTest()
+{
+    AreEqual(TestSite.Html5Page.IceCream.Label().GetText(), "Choose your lovely icecream");
+    TestSite.Html5Page.IceCream.Label().Is.Text(ContainsString("lovely icecream"));
+}
+
+[Test]
+public void IsValidationTest()
+{
+     TestSite.Html5Page.IceCream.Is.Enabled();
+     TestSite.Html5Page.IceCream.Is.Attr("value" ,EqualTo(_text));
+     TestSite.Html5Page.IceCream.Select("Vanilla");
+     TestSite.Html5Page.IceCream.Is.Attr("value", ContainsString("Van"));
+}
+
+[Test]
+public void AssertValidationTest()
+{
+     TestSite.Html5Page.IceCream.AssertThat.Attr("value", ContainsString(_text));
+}
+
+[Test]
+public void BaseValidationTest()
+{
+     BaseElementValidation(TestSite.Html5Page.IceCream);
+}
+
 ```
 
 Datalist element type is provided by JDI Light in:
@@ -2341,6 +2370,12 @@ Here is the list of some available methods in C# JDI Light:
 **Select(string/int)** |Select datalist by value/index  | void
 **Input(string value)** |Input user's value into datalist  | void
 **GetSelected()** |Get selected datalist value  | string
+
+Available list of assert methods:
+|Method | Description | Return Type
+--- | --- | ---
+**Is** |Gets element's assert | DataListAssert
+**AssertThat** |Gets element's assert | DataListAssert
 
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/DataListTests.java)
 

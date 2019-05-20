@@ -3699,11 +3699,11 @@ C#: JDI.Light.Elements.Common.TextElement</p>
 <li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.TextField</em></li>
 </ul>
 
-<p>Here is a list of available methods in C#:</p>
+<p>Here is a list of available methods and properties in C#:</p>
 
 <table><thead>
 <tr>
-<th>Method</th>
+<th>Method / Property</th>
 <th>Description</th>
 <th>Return Type</th>
 </tr>
@@ -3747,6 +3747,16 @@ C#: JDI.Light.Elements.Common.TextElement</p>
 <td><strong>GetValue()</strong></td>
 <td>returns text from the text field</td>
 <td>String</td>
+</tr>
+<tr>
+<td><strong>Is</strong></td>
+<td>property that returns object for work with assertions</td>
+<td>TextAssert</td>
+</tr>
+<tr>
+<td><strong>AssertThat</strong></td>
+<td>property that returns object for work with assertions</td>
+<td>TextAssert</td>
 </tr>
 </tbody></table>
 
@@ -5642,7 +5652,48 @@ Multi Selector are represented by the following class:</p>
 </code></pre>
 <p><img src="images/html/multiSelectHtml.png" alt="MultiSelector" /></p>
 
-<p>Here is the list of available methods:</p>
+<p>Here is a list of available methods and properties in C#:</p>
+
+<table><thead>
+<tr>
+<th>Method / Property</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Check(string/string[]/int/int[]/Enum[])</strong></td>
+<td>Select multiselector by values</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>Uncheck(string[]/Enum[]/int[])</strong></td>
+<td>Select multiselector by values/indexes</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>Selected()</strong></td>
+<td>Get selected values</td>
+<td>string</td>
+</tr>
+<tr>
+<td><strong>Checked()</strong></td>
+<td>Get selected values</td>
+<td>List&lt;string&gt;</td>
+</tr>
+<tr>
+<td><strong>Is</strong></td>
+<td>Property that returns object for work with assertions</td>
+<td>SelectAssert</td>
+</tr>
+<tr>
+<td><strong>AssertThat</strong></td>
+<td>Property that returns object for work with assertions</td>
+<td>SelectAssert</td>
+</tr>
+</tbody></table>
+
+<p>Here is the list of available methods in Java:</p>
 
 <table><thead>
 <tr>
@@ -5670,6 +5721,16 @@ Multi Selector are represented by the following class:</p>
 <td><strong>checked()</strong></td>
 <td>Get selected values</td>
 <td>List&lt;String&gt;</td>
+</tr>
+<tr>
+<td><strong>is()</strong></td>
+<td>Returns object for work with assertions</td>
+<td>SelectAssert</td>
+</tr>
+<tr>
+<td><strong>assertThat()</strong></td>
+<td>Returns object for work with assertions</td>
+<td>SelectAssert</td>
 </tr>
 </tbody></table>
 

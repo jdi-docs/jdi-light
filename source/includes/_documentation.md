@@ -2750,6 +2750,23 @@ public class LoginFormSmart extends Form<User> {
 on JDISite.java >> public static LoginFormSmart loginFormSmart;
 ```
 
+```java 
+    @Test
+    public void loginWithUserTest() {
+        shouldBeLoggedOut();
+        loginForm.shouldBeOpened();
+        loginForm.login(DEFAULT_USER);
+        homePage.checkOpened();
+    }
+    
+    @Test
+    public void fillContactFormTest() {
+        shouldContactPageBeOpenedAndRefreshed();
+        main.contactForm.fill(DEFAULT_CONTACT);
+        main.contactForm.check(DEFAULT_CONTACT);
+    }   
+```
+
 In Java, Form has a filter property that defines which form elements will be filled/submited or verified/checked. Filter can be set to either **ALL**, **MANDATORY** or **OPTIONAL**. Based on this property, fill/submit and verify/check functions are applied to either all form elements or only mandatory (only optional) form elements. Mandatory form fields should be marked with **@Mandatory** annotation. Optional form fields are the ones without **@Mandatory** annotation. **ALL** is default Form option. To set form filters as **MANDATORY** or **OPTIONAL**, **onlyMandatory()** and **onlyOptional()** methods should be used. They set the corresponding form filter option for a duration of a single action (all form action methods set the form filter option back to **ALL**).
 
 ```java 

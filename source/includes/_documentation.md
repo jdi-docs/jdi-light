@@ -1181,49 +1181,14 @@ And here are methods available in Java:
   }
 
   [Test]
-  public void WaitMatchTest()
+  public void WaitSuspendButtonTextTest()
   {
-      Jdi.Assert.AreEquals(TestSite.HomePage.Text.WaitFor.Text(MatchRegexp(_regEx)).Element.Text, _expectedText);
-  }
-
-  [Test]
-  public void WaitMatchTextParallelTest()
-  {
-      TestSite.SupportPage.Open();
-      var actualResultTask = Task.Factory.StartNew(() =>
-      {
-          Thread.Sleep(200);
-          return TestSite.HomePage.Text.WaitFor.Text(MatchRegexp(_regEx));
-      });
-      Task.Factory.StartNew(() =>
-      {
-          Thread.Sleep(100);
-          TestSite.HomePage.Open();
-      });
-      Jdi.Assert.AreEquals(actualResultTask.Result.Element.Text, _expectedText);
-  }
-
-  [Test]
-  public void WaitText()
-  {
-      Jdi.Assert.AreEquals(TestSite.HomePage.Text.WaitFor.Text(ContainsString(_contains)).Element.Text, _expectedText);
-  }
-
-  [Test]
-  public void WaitTextParallelTest()
-  {
-      TestSite.SupportPage.Open();
-      var actualResultTask = Task.Factory.StartNew(() =>
-      {
-          Thread.Sleep(200);
-          return TestSite.HomePage.Text.WaitFor.Text(ContainsString(_contains));
-      });
-      Task.Run(() =>
-      {
-          Thread.Sleep(100);
-          TestSite.HomePage.Open();
-      });
-      Jdi.Assert.AreEquals(actualResultTask.Result.Element.Text, _expectedText);
+       TestSite.Html5Page.Open();
+       TestSite.Html5Page.GhostButton.Is.Displayed();
+       TestSite.Html5Page.GhostButton.Is.Text(EqualTo("GHOST BUTTON"));
+       Thread.Sleep(3000);
+  	   TestSite.Html5Page.SuspendButton.Is.Displayed();
+       TestSite.Html5Page.SuspendButton.Is.Text(EqualTo("SUSPEND BUTTON"));
   }
   
    [Test]

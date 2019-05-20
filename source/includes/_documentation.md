@@ -1345,9 +1345,9 @@ Text fields are represented by the following classes in Java and C#:
   - __C#__: _JDI.Light.Elements.Common.TextField_
   - __Java__: _com.epam.jdi.light.ui.html.common.TextField_
   
-Here is a list of available methods in C#:
+Here is a list of available methods and properties in C#:
 
-|Method | Description | Return Type
+|Method / Property | Description | Return Type
 --- | --- | ---
 **SendKeys(string value)** | adds text to the field | void
 **SetText(String value)** | sets new text | void
@@ -1357,6 +1357,8 @@ Here is a list of available methods in C#:
 **Placeholder** | returns value of the placeholder attribute | String
 **GetText()** | returns text from the text field  | String
 **GetValue()** | returns text from the text field| String
+**Is** | property that returns object for work with assertions| TextAssert
+**AssertThat** | property that returns object for work with assertions| TextAssert
 
 
 [Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/TextFieldsTests.cs)
@@ -2553,7 +2555,18 @@ public void MultiSelectByIndexes()
 
 ![MultiSelector](../images/html/multiSelectHtml.png)
 
-Here is the list of available methods:
+Here is a list of available methods and properties in C#:
+
+|Method / Property | Description | Return Type
+--- | --- | ---
+**Check(string/string[]/int/int[]/Enum[])** |Select multiselector by values | void
+**Uncheck(string[]/Enum[]/int[])** |Select multiselector by values/indexes  | void
+**Selected()** |Get selected values  | string
+**Checked()** |Get selected values  | List\<string>
+**Is** | Property that returns object for work with assertions| SelectAssert
+**AssertThat** | Property that returns object for work with assertions| SelectAssert
+
+Here is the list of available methods in Java:
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -2561,6 +2574,8 @@ Here is the list of available methods:
 **uncheck(Strings.../TEnum.../int)** |Select multiselector by values/indexes  | void
 **selected()** |Get selected values  | String
 **checked()** |Get selected values  | List\<String>
+**is()** |  Returns object for work with assertions| SelectAssert
+**assertThat()** | Returns object for work with assertions| SelectAssert
 
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/MultiSelectorTests.java)
 

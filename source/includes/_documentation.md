@@ -2700,6 +2700,137 @@ Here is the list of some available methods in C# JDI Light:
 
 ## Composite elements
 
+### Form
+
+**Form** – logical part of a web page that represents HTML form. Form consists of elements based on SetValue interface and buttons with function “submit”.
+
+Form provides functionality to fill, submit and verify/check the form.  
+
+![Form](../images/html/form_html.png)
+
+Form is located in the following classes:
+ 
+  - __Java__: _com.epam.jdi.light.elements.composite.Form_
+  - __C#__: _JDI.Light.Elements.Composite.Form_
+  
+Form is parameterized by an entity that corresponds to the form. For example, a login form can be parameterized by a user entity. Entity should extend DataClass class parameterized by the entity itself. The names of the entity fields should be exactly the same as the names of the form fields. All fields of the entity managed by form should be String.
+
+```java 
+public class User extends DataClass<User> {
+    public String name, password;
+}
+```
+
+JDI Light Java supports three types of forms:
+
+**JDI Light Forms** - typical Forms in JDI with **typified elements**, **@UI** annotations, extending from Form and without **fill/check** methods.
+
+```java 
+public class LoginForm extends Form<User> {
+    @UI("#name") TextField name;
+    @UI("#password") TextField password;
+    @UI("#login-button") Button loginButton;
+}
+on JDISite.java >> public static LoginForm loginForm;
+```
+
+**Smart JDI Forms** - forms that exploit Smart locators functionality of JDI. In Smart Forms there is no need to explicitly define locators for form elements, if such locators can be obtained implicitly from the field names using Smart locators functionality.
+[See more details and exampels for Smart locators in documentation](https://jdi-docs.github.io/jdi-light/?java#smart-locators)
+
+```java 
+public class LoginFormSmart extends Form<User> {
+    TextField name, password;
+    Button loginButton;
+}
+```
+
+**Light Forms** - if a Form consists of only TextFields and Buttons there is no need to define Form UI Object. Such form can be added directly to the related page or to the root Site class.
+
+```java 
+on JDISite.java >> public static LoginFormSmart loginFormSmart;
+```
+
+In Java, Form has a filter property that defines which form elements will be filled/submited or verified/checked. Filter can be set to either **ALL**, **MANDATORY** or **OPTIONAL**. Based on this property, fill/submit and verify/check functions are applied to either all form elements or only mandatory (only optional) form elements. Mandatory form fields should be marked with **@Mandatory** annotation. Optional form fields are the ones without **@Mandatory** annotation. **ALL** is default Form option. To set form filters as **MANDATORY** or **OPTIONAL**, **onlyMandatory()** and **onlyOptional()** methods should be used. They set the corresponding form filter option for a duration of a single action (all form action methods set the form filter option back to **ALL**).
+
+```java 
+    @Test
+    public void onlyMandatoryOptionTest() {
+        shouldContactPageBeOpenedAndRefreshed();
+        main.contactFormCustom.onlyMandatory().fill(DEFAULT_CONTACT);
+        main.contactFormCustom.onlyMandatory().check(DEFAULT_CONTACT);
+    }
+```
+
+In Java, Form has a **FILL_ACTION** and **GET_ACTION** lambdas that define how the Form should be filled and verified. The default behavior defined in the Form class simply exploits **setValue(String value)** method of the SetValue interface and **getValue()** method of the HasValue interface. However these lambdas are redefined in HtmlSettings class in order to customise behavior for a "non-text" form elements such as Checkboxes (the behavior of the custom elements is defined by **@FillValue** and **@VerifyValue** annotations). **FILL_ACTION** and **GET_ACTION** lambdas can also be further modified in order to customise the Form behavior, but it is important to take into account that behavior, defined in the HtmlSettings might be lost. It is customary to reassign these lambdas before all the tests are run, for example in the TestNG's **@beforeSuite** method.
+
+```java 
+    @BeforeSuite(alwaysRun = true)
+    public static void setUp() {
+        logger.setLogLevel(INFO);
+        initElements(StaticSite.class);
+        Form.FILL_ACTION = (field, element, parent, setValue) -> {
+             if (isInterface(field, TextField.class))
+             			((TextField)element).higlight();
+            ((SetValue) element).setValue(setValue);
+        };
+        homePage.open();
+        logger.toLog("Run Tests");
+    }
+```
+
+In Java, if fill/submit and verify/check methods need to be redefined for a specific form, it is possible to override **fillAction()** and **getAction()** for such form.
+
+```java 
+public class LoginForm extends Form<User> {
+    TextField name, password;
+    Button loginButton;
+
+	@Override
+	public void fillAction(Field field, Object element, Object parent, String setValue) {
+		if (isInterface(field, TextField.class))
+			((TextField)element).higlight();
+		super.fillAction(field, element, parent, setValue);
+	}
+}
+```
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**fillAction(Field field, Object element, Object parent, String setValue)** | Defines the specifics of how the form elements will be filled | void
+**getAction(Field field, Object element, Object parent)** | Defines the specifics of how the form elements will be obtained for verification and checks | String
+**onlyMandatory()** | Sets form filter option to **MANDATORY** meaning that only mandatory form elements are filled/submitted or verified/checked for a duration of a single form action | void
+**onlyOptional()** | Sets form filter option to **OPTIONAL** meaning that only optional form elements are filled/submitted or verified/checked for a duration of a single form action | void
+**fill(T entity)** | Fills all elements on the form which implements SetValue interface and can be matched with fields in input entity | void
+**submit()** | Send the form by clicking on "submit" button | void
+**submit(String text)** | Fill first setable field with value and click on Button “submit”. To use this option Form pageObject should have at least one SetValue element and only one IButton Element | void
+**submit(T entity)** | Fill all SetValue elements and click on Button “submit”. To use this option Form pageObject should have only one IButton element | void
+**submit(String text, String buttonName)** | Fill first setable field with value and click on Button “buttonName”. To use this option Form pageObject should have at least one SetValue element. Allowed different buttons to send one form e.g. save/ publish / cancel / search update ... | void
+**submit(T entity, String buttonName)** | Fill all SetValue elements and click on Button specified button e.g. "Publish" or "Save". To use this option Form pageObject should have button names in specific format.e.g. if you call "submit(user, "Publish") then you should have element 'publishButton'. Letters case in button name no matters. | void
+**pressButton(String buttonName)** | Allowed different buttons to send one form e.g. save/ publish / cancel / search update ... | void
+**verify(T entity)** | Verify that form filled correctly. If not returns list of keys where verification fails | List<String>
+**check(T entity)** | Verify that form filled correctly. If not throws error | void
+**login()** | Click on "login" button | void
+**login(T entity)** | Fill all SetValue elements and click on Button “login” or ”loginButton” | void
+**loginAs(T entity)** | Fill all SetValue elements and click on Button “login” or ”loginButton” | void
+**send()** | Send the form by clicking on “send” button | void
+**send(T entity)** | Fill all SetValue elements and click on Button “send” or ”sendButton” | void
+**add(T entity)** | Fill all SetValue elements and click on Button “add” or ”addButton” | void
+**publish(T entity)** | Fill all SetValue elements and click on Button “publish” or ”publishButton” | void
+**save(T entity)** | Fill all SetValue elements and click on Button “save” or ”saveButton” | void
+**update(T entity)** | Fill all SetValue elements and click on Button “update” or ”updateButton” | void
+**cancel(T entity)** | Fill all SetValue elements and click on Button “cancel” or ”cancelButton” | void
+**close(T entity)** | Fill all SetValue elements and click on Button “close” or ”closeButton” | void
+**back(T entity)** | Fill all SetValue elements and click on Button “back” or ”backButton” | void
+**select(T entity)** | Fill all SetValue elements and click on Button “select” or ”selectButton” | void
+**next(T entity)** | Fill all SetValue elements and click on Button “next” or ”nextButton” | void
+**search(T entity)** | Fill all SetValue elements and click on Button “search” or ”searchButton” | void
+
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/composite/FormTests.java)
+
+[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Composite/FormTests.cs)
+
 ### WebPage
 
 **WebPage** is provided by JDI Light in:

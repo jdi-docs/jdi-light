@@ -2802,30 +2802,30 @@ Available methods in Java JDI Light:
 **getAction(Field field, Object element, Object parent)** | Defines the specifics of how the form elements will be obtained for verification and checks | String
 **onlyMandatory()** | Sets form filter option to **MANDATORY** meaning that only mandatory form elements are filled/submitted or verified/checked for a duration of a single form action | void
 **onlyOptional()** | Sets form filter option to **OPTIONAL** meaning that only optional form elements are filled/submitted or verified/checked for a duration of a single form action | void
-**fill(T entity)** | Fills all elements on the form which implements SetValue interface and can be matched with fields in input entity | void
-**submit()** | Send the form by clicking on "submit" button | void
-**submit(String text)** | Fill first setable field with value and click on Button “submit”. To use this option Form pageObject should have at least one SetValue element and only one IButton Element | void
-**submit(T entity)** | Fill all SetValue elements and click on Button “submit”. To use this option Form pageObject should have only one IButton element | void
-**submit(String text, String buttonName)** | Fill first setable field with value and click on Button “buttonName”. To use this option Form pageObject should have at least one SetValue element. Allowed different buttons to send one form e.g. save/ publish / cancel / search update ... | void
-**submit(T entity, String buttonName)** | Fill all SetValue elements and click on Button specified button e.g. "Publish" or "Save". To use this option Form pageObject should have button names in specific format.e.g. if you call "submit(user, "Publish") then you should have element 'publishButton'. Letters case in button name no matters. | void
-**pressButton(String buttonName)** | Allowed different buttons to send one form e.g. save/ publish / cancel / search update ... | void
-**verify(T entity)** | Verify that form filled correctly. If not returns list of keys where verification fails | List<String>
-**check(T entity)** | Verify that form filled correctly. If not throws error | void
-**login()** | Click on "login" button | void
-**login(T entity)** | Fill all SetValue elements and click on Button “login” or ”loginButton” | void
-**loginAs(T entity)** | Fill all SetValue elements and click on Button “login” or ”loginButton” | void
-**send()** | Send the form by clicking on “send” button | void
-**send(T entity)** | Fill all SetValue elements and click on Button “send” or ”sendButton” | void
-**add(T entity)** | Fill all SetValue elements and click on Button “add” or ”addButton” | void
-**publish(T entity)** | Fill all SetValue elements and click on Button “publish” or ”publishButton” | void
-**save(T entity)** | Fill all SetValue elements and click on Button “save” or ”saveButton” | void
-**update(T entity)** | Fill all SetValue elements and click on Button “update” or ”updateButton” | void
-**cancel(T entity)** | Fill all SetValue elements and click on Button “cancel” or ”cancelButton” | void
-**close(T entity)** | Fill all SetValue elements and click on Button “close” or ”closeButton” | void
-**back(T entity)** | Fill all SetValue elements and click on Button “back” or ”backButton” | void
-**select(T entity)** | Fill all SetValue elements and click on Button “select” or ”selectButton” | void
-**next(T entity)** | Fill all SetValue elements and click on Button “next” or ”nextButton” | void
-**search(T entity)** | Fill all SetValue elements and click on Button “search” or ”searchButton” | void
+**fill(T entity)** | Fills all setable elements on the form that can be matched with fields in input entity | void
+**submit()** | Sends the form by clicking on Button "submit" or "submitButton" | void
+**submit(String text)** | Fills first setable form field with value and clicks on Button "submit" or "submitButton"  | void
+**submit(T entity)** | Fills all setable elements and clicks on Button "submit" or "submitButton"  | void
+**submit(String text, String buttonName)** | Fills first setable field with value and clicks on Button “buttonName” or "buttonNamebutton"| void
+**submit(T entity, String buttonName)** | Fills all setable elements and clicks on Button “buttonName” or "buttonNamebutton" | void
+**pressButton(String buttonName)** | Clicks on Button “buttonName” or "buttonNamebutton". Allows different buttons to send one form e.g. save/publish/cancel/search/update/... | void
+**verify(T entity)** | Verifies that form was filled correctly. If not returns list of keys where verification fails | List<String>
+**check(T entity)** | Verifies that form was filled correctly. If not throws exception | void
+**login()** | Clicks on Button "login" or "loginButton"| void
+**login(T entity)** | Fills all setable elements and clicks on Button “login” or ”loginButton” | void
+**loginAs(T entity)** | Fills all setable elements and clicks on Button “login” or ”loginButton” | void
+**send()** | Sends the form by clicking on Button “send” or "sendButton" | void
+**send(T entity)** | Fills all setable elements and clicks on Button “send” or ”sendButton” | void
+**add(T entity)** | Fills all setable elements and clicks on Button “add” or ”addButton” | void
+**publish(T entity)** | Fills all setable elements and clicks on Button “publish” or ”publishButton” | void
+**save(T entity)** | Fills all setable elements and clicks on Button “save” or ”saveButton” | void
+**update(T entity)** | Fills all setable elements and clicks on Button “update” or ”updateButton” | void
+**cancel(T entity)** | Fills all setable elements and clicks on Button “cancel” or ”cancelButton” | void
+**close(T entity)** | Fills all setable elements and clicks on Button “close” or ”closeButton” | void
+**back(T entity)** | Fills all setable elements and clicks on Button “back” or ”backButton” | void
+**select(T entity)** | Fills all setable elements and clicks on Button “select” or ”selectButton” | void
+**next(T entity)** | Fills all setable elements and clicks on Button “next” or ”nextButton” | void
+**search(T entity)** | Fills all setable elements and clicks on Button “search” or ”searchButton” | void
 
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/composite/FormTests.java)
 

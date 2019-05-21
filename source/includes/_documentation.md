@@ -2366,6 +2366,30 @@ public void BaseValidationTest()
      BaseElementValidation(TestSite.Html5Page.IceCream);
 }
 
+[Test]
+public void NegativeSelectTest()
+{
+     Throws<ElementNotSelectableException>(() => TestSite.Html5Page.DisabledDropdownAsDataList.Select("Fancy", false));
+}
+
+[Test]
+public void NegativeSelectEnumTest()
+{
+      Throws<ElementNotSelectableException>(() => TestSite.Html5Page.DisabledDropdownAsDataList.Select(DressCode.Fancy, false));
+}
+
+[Test]
+public void NegativeSelectNumTest()
+{
+      Throws<ElementNotFoundException>(() => TestSite.Html5Page.IceCream.Select(7, false));
+}
+
+[Test]
+public void AssertOptionsValuesTest()
+{
+      IsTrue(TestSite.Html5Page.IceCream.Values().SequenceEqual(_options));
+}
+
 ```
 
 Datalist element type is provided by JDI Light in:

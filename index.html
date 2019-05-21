@@ -5275,6 +5275,10 @@ Datalist element contains a set of options with values available for entering.</
            <span class="n">values</span><span class="p">:</span> <span class="s">"#ice-cream-flavors &gt; option"</span><span class="p">]</span>
 <span class="k">public</span> <span class="n">IDataList</span> <span class="n">IceCream</span><span class="p">;</span>
 
+<span class="p">[</span><span class="nf">JDataList</span><span class="p">(</span><span class="s">"#disabled-dropdown"</span><span class="p">,</span>
+          <span class="s">"#disabled-dropdown &gt; option"</span><span class="p">)]</span>
+        <span class="k">public</span> <span class="n">DataList</span> <span class="n">DisabledDropdownAsDataList</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+
 <span class="na">[Test]</span>
 <span class="k">public</span> <span class="k">void</span> <span class="nf">ComplexTest</span><span class="p">()</span> 
 <span class="p">{</span>

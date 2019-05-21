@@ -5309,6 +5309,30 @@ Datalist element contains a set of options with values available for entering.</
      <span class="nf">BaseElementValidation</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">IceCream</span><span class="p">);</span>
 <span class="p">}</span>
 
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">NegativeSelectTest</span><span class="p">()</span>
+<span class="p">{</span>
+     <span class="n">Throws</span><span class="p">&lt;</span><span class="n">ElementNotSelectableException</span><span class="p">&gt;(()</span> <span class="p">=&gt;</span> <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">DisabledDropdownAsDataList</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="s">"Fancy"</span><span class="p">,</span> <span class="k">false</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">NegativeSelectEnumTest</span><span class="p">()</span>
+<span class="p">{</span>
+      <span class="n">Throws</span><span class="p">&lt;</span><span class="n">ElementNotSelectableException</span><span class="p">&gt;(()</span> <span class="p">=&gt;</span> <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">DisabledDropdownAsDataList</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="n">DressCode</span><span class="p">.</span><span class="n">Fancy</span><span class="p">,</span> <span class="k">false</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">NegativeSelectNumTest</span><span class="p">()</span>
+<span class="p">{</span>
+      <span class="n">Throws</span><span class="p">&lt;</span><span class="n">ElementNotFoundException</span><span class="p">&gt;(()</span> <span class="p">=&gt;</span> <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">IceCream</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="m">7</span><span class="p">,</span> <span class="k">false</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">AssertOptionsValuesTest</span><span class="p">()</span>
+<span class="p">{</span>
+      <span class="nf">IsTrue</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">IceCream</span><span class="p">.</span><span class="nf">Values</span><span class="p">().</span><span class="nf">SequenceEqual</span><span class="p">(</span><span class="n">_options</span><span class="p">));</span>
+<span class="p">}</span>
+
 </code></pre>
 <p>Datalist element type is provided by JDI Light in:</p>
 

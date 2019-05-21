@@ -2332,6 +2332,10 @@ TBD
            values: "#ice-cream-flavors > option"]
 public IDataList IceCream;
 
+[JDataList("#disabled-dropdown",
+          "#disabled-dropdown > option")]
+        public DataList DisabledDropdownAsDataList { get; set; }
+
 [Test]
 public void ComplexTest() 
 {

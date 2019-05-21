@@ -129,7 +129,7 @@ Here is an example with provided HTML code:
 
 ![Button example](../images/html/button_html.png)
 
-Available method in Java JDI Light:
+Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -139,6 +139,15 @@ Available method in Java JDI Light:
 **assertThat()** | Assert action | TextAssert
 
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ButtonTests.java)
+
+Available methods and properties in C# JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+**Click()** | Click the button  | void
+**GetText()** | Get button text | string
+**Is** | Assert action | TextAssert 
+**AssertThat** | Assert action | TextAssert
 
 [C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/ButtonTests.cs)
 

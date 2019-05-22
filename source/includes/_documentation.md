@@ -2445,6 +2445,7 @@ Here is the list of some available methods in C# JDI Light:
 **Has** | Get select assert | SelectAssert
 **IsChecked(string/int)** |Checks whether checkbox is checked | bool
 **IsDisabled(string/int)** | Checks whether checkbox is disabled | bool
+**Selected(string option)** | Checks whether checkbox is selected | bool
 
 
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/ChecklistTests.java)

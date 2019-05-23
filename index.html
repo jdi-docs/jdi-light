@@ -5119,6 +5119,37 @@ This type can be used in cases when dropdown is represented with HTML <em>&lt;se
     <span class="n">DressCode</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="n">Fancy</span><span class="p">);</span>
     <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEquals</span><span class="p">(</span><span class="n">DressCode</span><span class="p">.</span><span class="nf">GetSelected</span><span class="p">(),</span> <span class="s">"Fancy"</span><span class="p">);</span>
 <span class="p">}</span>
+
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">LabelTest</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="nf">AreEqual</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">DressCode</span><span class="p">.</span><span class="nf">Label</span><span class="p">().</span><span class="nf">GetText</span><span class="p">(),</span> <span class="s">"Dress code:"</span><span class="p">);</span>
+    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">DressCode</span><span class="p">.</span><span class="nf">Label</span><span class="p">().</span><span class="n">Is</span><span class="p">.</span><span class="nf">Text</span><span class="p">(</span><span class="nf">ContainsString</span><span class="p">(</span><span class="s">"Dress"</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">IsValidationTest</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">DressCode</span><span class="p">.</span><span class="n">Is</span><span class="p">.</span><span class="nf">Selected</span><span class="p">(</span><span class="s">"Casual"</span><span class="p">);</span>
+    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">DressCode</span><span class="p">.</span><span class="n">Is</span><span class="p">.</span><span class="nf">Selected</span><span class="p">(</span><span class="n">DressCode</span><span class="p">.</span><span class="n">Casual</span><span class="p">);</span>
+    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">DressCode</span><span class="p">.</span><span class="n">Is</span><span class="p">.</span><span class="nf">Values</span><span class="p">(</span><span class="nf">HasItems</span><span class="p">(</span><span class="k">new</span><span class="p">[]</span> <span class="p">{</span> <span class="s">"Pirate"</span> <span class="p">}));</span>
+    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">DressCode</span><span class="p">.</span><span class="n">Is</span><span class="p">.</span><span class="nf">Disabled</span><span class="p">(</span><span class="nf">HasItems</span><span class="p">(</span><span class="k">new</span><span class="p">[]</span> <span class="p">{</span> <span class="s">"Disabled"</span> <span class="p">}));</span>
+    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">DressCode</span><span class="p">.</span><span class="n">Is</span><span class="p">.</span><span class="nf">Enabled</span><span class="p">(</span><span class="nf">HasItems</span><span class="p">(</span><span class="k">new</span><span class="p">[]</span> <span class="p">{</span> <span class="s">"Pirate"</span><span class="p">,</span> <span class="s">"Fancy"</span> <span class="p">}));</span>
+<span class="p">}</span>
+
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">AssertValidationTest</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">DressCode</span><span class="p">.</span><span class="n">AssertThat</span><span class="p">.</span><span class="nf">Values</span><span class="p">(</span>
+    <span class="nf">ContainsInAnyOrder</span><span class="p">(</span><span class="k">new</span><span class="p">[]</span> <span class="p">{</span><span class="s">"Fancy"</span><span class="p">,</span> <span class="s">"Casual"</span><span class="p">,</span> <span class="s">"Disabled"</span><span class="p">,</span> <span class="s">"Pirate"</span><span class="p">}));</span>
+<span class="p">}</span>
+
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">BaseValidationTest</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="nf">BaseElementValidation</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">DressCode</span><span class="p">);</span>
+<span class="p">}</span>
+
 </code></pre>
 <p><img src="images/html/dropdown_html5.png" alt="Dropdown HTML5" /></p>
 
@@ -5140,6 +5171,52 @@ This type can be used in cases when dropdown is represented with HTML <em>&lt;se
 <td><strong>selected()/GetSelected()</strong></td>
 <td>Get selected dropdown value</td>
 <td>string</td>
+</tr>
+</tbody></table>
+
+<p>Available Assert methods in C#:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Selected(string option)</strong></td>
+<td>Checks whether some option is selected</td>
+<td>DropDownAssert</td>
+</tr>
+<tr>
+<td><strong>Selected(Enum option)</strong></td>
+<td>Checks whether some option is selected</td>
+<td>DropDownAssert</td>
+</tr>
+<tr>
+<td><strong>Values(Matcher<IEnumerable<string>&gt; condition)</strong></td>
+<td>Checks that dropdown&#39;s values match some contidion</td>
+<td>DropDownAssert</td>
+</tr>
+<tr>
+<td><strong>Disabled(Matcher<IEnumerable<string>&gt; condition)</strong></td>
+<td>Checks that dropdown&#39;s values are disabled by some condition</td>
+<td>DropDownAssert</td>
+</tr>
+<tr>
+<td><strong>Enabled(Matcher<IEnumerable<string>&gt; condition)</strong></td>
+<td>Checks that dropdown&#39;s values are enabled by some condition</td>
+<td>DropDownAssert</td>
+</tr>
+<tr>
+<td><strong>Is</strong></td>
+<td>Gets dropdown&#39;s assertion</td>
+<td>DropDownAssert</td>
+</tr>
+<tr>
+<td><strong>AssertThat</strong></td>
+<td>Gets dropdown&#39;s assertion</td>
+<td>DropDownAssert</td>
 </tr>
 </tbody></table>
 
@@ -5347,7 +5424,7 @@ Datalist element contains a set of options with values available for entering.</
 
 <p>Have a look at the following example with provided HTML code:</p>
 <pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#ice-cream"</span><span class="o">)</span> <span class="c1">//@FindBy(id = "ice-cream")</span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="n">DataList</span> <span class="n">iceCreamDataList</span><span class="o">;</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">DataList</span> <span class="n">iceCreamDataList</span><span class="o">;</span><span class="n">DropDown</span>
 
 <span class="nd">@Test</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">selectEnumTest</span><span class="o">()</span> <span class="o">{</span>

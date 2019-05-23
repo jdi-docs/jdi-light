@@ -1935,7 +1935,100 @@ In addition if you run test scenarios on JDI Light you will <strong>get logs of 
     <span class="n">acceptConditions</span><span class="o">.</span><span class="na">uncheck</span><span class="o">();</span>
     <span class="n">assertEquals</span><span class="o">(</span><span class="n">acceptConditions</span><span class="o">.</span><span class="na">isSelected</span><span class="o">(),</span> <span class="kc">false</span><span class="o">);</span>
 <span class="o">}</span>
-</code></pre><pre class="highlight csharp tab-csharp"><code><span class="n">TBD</span> 
+</code></pre><pre class="highlight csharp tab-csharp"><code>
+<span class="na">[FindBy(XPath = "//*[@id='elements-checklist']</span><span class="c1">//*[text()='Water']")]</span>
+<span class="na">[IsChecked(typeof(CustomCheck), nameof(CustomCheck.CheckFunc))]</span>
+<span class="k">public</span> <span class="n">CheckBox</span> <span class="n">CbWater</span><span class="p">;</span>
+
+<span class="na">[FindBy(Css = "#accept-conditions")]</span>
+<span class="k">public</span> <span class="n">CheckBox</span> <span class="n">AcceptConditions</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">CheckSingleTest</span><span class="p">()</span>
+<span class="p">{</span>
+     <span class="n">Assert</span><span class="p">.</span><span class="nf">DoesNotThrow</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="n">TestSite</span><span class="p">.</span><span class="n">MetalsColorsPage</span><span class="p">.</span><span class="n">CbWater</span><span class="p">.</span><span class="nf">Check</span><span class="p">(</span><span class="k">true</span><span class="p">));</span>
+     <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">Contains</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">ActionsLog</span><span class="p">.</span><span class="n">Texts</span><span class="p">[</span><span class="m">0</span><span class="p">],</span> <span class="s">"Water: condition changed to true"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">UncheckSingleTest</span><span class="p">()</span>
+<span class="p">{</span>
+     <span class="n">TestSite</span><span class="p">.</span><span class="n">MetalsColorsPage</span><span class="p">.</span><span class="n">CbWater</span><span class="p">.</span><span class="nf">Click</span><span class="p">();</span>
+     <span class="n">TestSite</span><span class="p">.</span><span class="n">MetalsColorsPage</span><span class="p">.</span><span class="n">CbWater</span><span class="p">.</span><span class="nf">Uncheck</span><span class="p">();</span>
+     <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">Contains</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">ActionsLog</span><span class="p">.</span><span class="n">Texts</span><span class="p">[</span><span class="m">0</span><span class="p">],</span> <span class="s">"Water: condition changed to false"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">IsCheckTest</span><span class="p">()</span>
+<span class="p">{</span>
+     <span class="n">Assert</span><span class="p">.</span><span class="nf">IsFalse</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">MetalsColorsPage</span><span class="p">.</span><span class="n">CbWater</span><span class="p">.</span><span class="n">IsChecked</span><span class="p">);</span>
+     <span class="n">TestSite</span><span class="p">.</span><span class="n">MetalsColorsPage</span><span class="p">.</span><span class="n">CbWater</span><span class="p">.</span><span class="nf">Click</span><span class="p">();</span>
+     <span class="n">Assert</span><span class="p">.</span><span class="nf">IsTrue</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">MetalsColorsPage</span><span class="p">.</span><span class="n">CbWater</span><span class="p">.</span><span class="n">IsChecked</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">MultipleUncheckTest</span><span class="p">()</span>
+<span class="p">{</span>
+     <span class="n">TestSite</span><span class="p">.</span><span class="n">MetalsColorsPage</span><span class="p">.</span><span class="n">CbWater</span><span class="p">.</span><span class="nf">Click</span><span class="p">();</span>
+     <span class="n">TestSite</span><span class="p">.</span><span class="n">MetalsColorsPage</span><span class="p">.</span><span class="n">CbWater</span><span class="p">.</span><span class="nf">Uncheck</span><span class="p">();</span>
+     <span class="n">TestSite</span><span class="p">.</span><span class="n">MetalsColorsPage</span><span class="p">.</span><span class="n">CbWater</span><span class="p">.</span><span class="nf">Uncheck</span><span class="p">();</span>
+     <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">Contains</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">ActionsLog</span><span class="p">.</span><span class="n">Texts</span><span class="p">[</span><span class="m">0</span><span class="p">],</span> <span class="s">"Water: condition changed to false"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">ClickTest</span><span class="p">()</span>
+<span class="p">{</span>
+     <span class="n">TestSite</span><span class="p">.</span><span class="n">MetalsColorsPage</span><span class="p">.</span><span class="n">CbWater</span><span class="p">.</span><span class="nf">Click</span><span class="p">();</span>
+     <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">Contains</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">ActionsLog</span><span class="p">.</span><span class="n">Texts</span><span class="p">[</span><span class="m">0</span><span class="p">],</span> <span class="s">"Water: condition changed to true"</span><span class="p">);</span>
+     <span class="n">TestSite</span><span class="p">.</span><span class="n">MetalsColorsPage</span><span class="p">.</span><span class="n">CbWater</span><span class="p">.</span><span class="nf">Click</span><span class="p">();</span>
+     <span class="kt">var</span> <span class="n">texts</span> <span class="p">=</span> <span class="n">TestSite</span><span class="p">.</span><span class="n">ActionsLog</span><span class="p">.</span><span class="n">Texts</span><span class="p">;</span>
+     <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">Contains</span><span class="p">(</span><span class="n">texts</span><span class="p">[</span><span class="m">0</span><span class="p">],</span> <span class="s">"Water: condition changed to false"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="na">[Test]</span>
+<span class="na">[TestCaseSource(typeof(CheckBoxProvider), nameof(CheckBoxProvider.InputData))]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">SetValueTest</span><span class="p">(</span><span class="kt">bool</span> <span class="k">value</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">expected</span><span class="p">)</span>
+<span class="p">{</span>
+     <span class="k">if</span> <span class="p">(!</span><span class="n">expected</span><span class="p">)</span> <span class="n">TestSite</span><span class="p">.</span><span class="n">MetalsColorsPage</span><span class="p">.</span><span class="n">CbWater</span><span class="p">.</span><span class="nf">Click</span><span class="p">();</span>
+     <span class="n">TestSite</span><span class="p">.</span><span class="n">MetalsColorsPage</span><span class="p">.</span><span class="n">CbWater</span><span class="p">.</span><span class="n">Value</span> <span class="p">=</span> <span class="k">value</span><span class="p">;</span>
+     <span class="kt">var</span> <span class="n">resultMsg</span> <span class="p">=</span> <span class="s">"Water: condition changed to "</span> <span class="p">+</span> <span class="n">expected</span><span class="p">.</span><span class="nf">ToString</span><span class="p">().</span><span class="nf">ToLower</span><span class="p">();</span>
+     <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">Contains</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">ActionsLog</span><span class="p">.</span><span class="n">Texts</span><span class="p">[</span><span class="m">0</span><span class="p">],</span> <span class="n">resultMsg</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">IsValidationTest</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="nf">Open</span><span class="p">();</span>
+    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">AcceptConditions</span><span class="p">.</span><span class="n">Is</span><span class="p">.</span><span class="nf">Selected</span><span class="p">();</span>
+    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">AcceptConditions</span><span class="p">.</span><span class="nf">Click</span><span class="p">();</span>
+    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">AcceptConditions</span><span class="p">.</span><span class="n">Is</span><span class="p">.</span><span class="nf">Deselected</span><span class="p">();</span>
+    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">AcceptConditions</span><span class="p">.</span><span class="n">Is</span><span class="p">.</span><span class="nf">Enabled</span><span class="p">();</span>
+    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">AcceptConditions</span><span class="p">.</span><span class="n">Is</span><span class="p">.</span><span class="nf">Displayed</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">LabelTest</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="nf">Open</span><span class="p">();</span>
+    <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="s">"Accept terms and conditions"</span><span class="p">,</span> <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">AcceptConditions</span><span class="p">.</span><span class="nf">Label</span><span class="p">().</span><span class="nf">GetText</span><span class="p">());</span>
+    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">AcceptConditions</span><span class="p">.</span><span class="nf">Label</span><span class="p">().</span><span class="n">Is</span><span class="p">.</span><span class="nf">Text</span><span class="p">(</span><span class="nf">ContainsString</span><span class="p">(</span><span class="s">"terms and conditions"</span><span class="p">));</span>
+    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">AcceptConditions</span><span class="p">.</span><span class="nf">Label</span><span class="p">().</span><span class="n">Is</span><span class="p">.</span><span class="nf">Text</span><span class="p">(</span><span class="nf">EqualTo</span><span class="p">(</span><span class="s">"accept terms and conditions"</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">AssertValidationTest</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="nf">Open</span><span class="p">();</span>
+    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">AcceptConditions</span><span class="p">.</span><span class="n">AssertThat</span><span class="p">.</span><span class="nf">Selected</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">BaseValidationTest</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="nf">Open</span><span class="p">();</span>
+    <span class="nf">BaseElementValidation</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">AcceptConditions</span><span class="p">);</span>
+<span class="p">}</span>
+
 </code></pre>
 <p>Here is an example with provided HTML code:</p>
 
@@ -1996,7 +2089,32 @@ In addition if you run test scenarios on JDI Light you will <strong>get logs of 
 <th>Return Type</th>
 </tr>
 </thead><tbody>
+<tr>
+<td><strong>Check(bool checkEnabled = true)</strong></td>
+<td>Checks a checkbox</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>Uncheck(bool checkEnabled = true)</strong></td>
+<td>Unhecks a checkbox</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>IsChecked</strong></td>
+<td>Determines whether a checkbox is checked</td>
+<td>bool</td>
+</tr>
 </tbody></table>
+
+<p>Available assert methods in C# JDI Light:
+|Method | Description | Return Type
+--- | --- | ---
+<strong>Selected()</strong> | Checks whether a checkbox is selected | CheckBoxAssert
+<strong>Deselected()</strong> | Checks whether a checkbox is deselected | CheckBoxAssert
+<strong>Enabled()</strong> | Checks whether a checkbox is enabled | CheckBoxAssert
+<strong>Displayed()</strong> | Checks whether a checkbox is displayed | CheckBoxAssert
+<strong>Is</strong> | Gets assert for checkbox | CheckBoxAssert
+<strong>AssertThat</strong> | Gets assert for checkbox | CheckBoxAssert</p>
 
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/CheckboxTests.java">Java test examples</a></p>
 

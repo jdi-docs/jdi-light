@@ -299,6 +299,7 @@ Available methods in C# JDI Light:
 **IsChecked** | Determines whether a checkbox is checked | bool
 
 Available assert methods in C# JDI Light:
+
 |Method | Description | Return Type
 --- | --- | ---
 **Selected()** | Checks whether a checkbox is selected | CheckBoxAssert

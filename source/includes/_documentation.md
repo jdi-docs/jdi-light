@@ -2235,6 +2235,37 @@ public void SelectEnumTest()
     DressCode.Select(Fancy);
     Assert.AreEquals(DressCode.GetSelected(), "Fancy");
 }
+
+[Test]
+public void LabelTest()
+{
+    AreEqual(TestSite.Html5Page.DressCode.Label().GetText(), "Dress code:");
+    TestSite.Html5Page.DressCode.Label().Is.Text(ContainsString("Dress"));
+}
+
+[Test]
+public void IsValidationTest()
+{
+    TestSite.Html5Page.DressCode.Is.Selected("Casual");
+    TestSite.Html5Page.DressCode.Is.Selected(DressCode.Casual);
+    TestSite.Html5Page.DressCode.Is.Values(HasItems(new[] { "Pirate" }));
+    TestSite.Html5Page.DressCode.Is.Disabled(HasItems(new[] { "Disabled" }));
+    TestSite.Html5Page.DressCode.Is.Enabled(HasItems(new[] { "Pirate", "Fancy" }));
+}
+
+[Test]
+public void AssertValidationTest()
+{
+    TestSite.Html5Page.DressCode.AssertThat.Values(
+    ContainsInAnyOrder(new[] {"Fancy", "Casual", "Disabled", "Pirate"}));
+}
+
+[Test]
+public void BaseValidationTest()
+{
+    BaseElementValidation(TestSite.Html5Page.DressCode);
+}
+
 ```
 
 ![Dropdown HTML5](../images/html/dropdown_html5.png)
@@ -2245,6 +2276,18 @@ Here is the list of some available methods:
 --- | --- | ---
 **select()/Select(string/int)** |Select dropdown by value/index  | void
 **selected()/GetSelected()** |Get selected dropdown value  | string
+
+Available Assert methods in C#:
+
+|Method | Description | Return Type
+--- | --- | ---
+**Selected(string option)** |Checks whether some option is selected  | DropDownAssert 
+**Selected(Enum option)** |Checks whether some option is selected  | DropDownAssert
+**Values(Matcher<IEnumerable<string>> condition)** |Checks that dropdown's values match some contidion | DropDownAssert
+**Disabled(Matcher<IEnumerable<string>> condition)** |Checks that dropdown's values are disabled by some condition | DropDownAssert
+**Enabled(Matcher<IEnumerable<string>> condition)** |Checks that dropdown's values are enabled by some condition | DropDownAssert
+**Is** |Gets dropdown's assertion | DropDownAssert
+**AssertThat** |Gets dropdown's assertion | DropDownAssert
 
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/DropdownTests.java)
 
@@ -2405,7 +2448,7 @@ Have a look at the following example with provided HTML code:
 
 ```java 
 @UI("#ice-cream") //@FindBy(id = "ice-cream")
-public static DataList iceCreamDataList;
+public static DataList iceCreamDataList;DropDown
 
 @Test
 public void selectEnumTest() {

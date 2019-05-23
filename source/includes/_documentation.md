@@ -178,7 +178,100 @@ public void uncheckTest() {
 }
 ```
 ```csharp
-TBD 
+
+[FindBy(XPath = "//*[@id='elements-checklist']//*[text()='Water']")]
+[IsChecked(typeof(CustomCheck), nameof(CustomCheck.CheckFunc))]
+public CheckBox CbWater;
+
+[FindBy(Css = "#accept-conditions")]
+public CheckBox AcceptConditions { get; set; }
+
+[Test]
+public void CheckSingleTest()
+{
+     Assert.DoesNotThrow(() => TestSite.MetalsColorsPage.CbWater.Check(true));
+     Jdi.Assert.Contains(TestSite.ActionsLog.Texts[0], "Water: condition changed to true");
+}
+
+[Test]
+public void UncheckSingleTest()
+{
+     TestSite.MetalsColorsPage.CbWater.Click();
+     TestSite.MetalsColorsPage.CbWater.Uncheck();
+  	 Jdi.Assert.Contains(TestSite.ActionsLog.Texts[0], "Water: condition changed to false");
+}
+
+[Test]
+public void IsCheckTest()
+{
+     Assert.IsFalse(TestSite.MetalsColorsPage.CbWater.IsChecked);
+     TestSite.MetalsColorsPage.CbWater.Click();
+     Assert.IsTrue(TestSite.MetalsColorsPage.CbWater.IsChecked);
+}
+
+[Test]
+public void MultipleUncheckTest()
+{
+     TestSite.MetalsColorsPage.CbWater.Click();
+     TestSite.MetalsColorsPage.CbWater.Uncheck();
+     TestSite.MetalsColorsPage.CbWater.Uncheck();
+     Jdi.Assert.Contains(TestSite.ActionsLog.Texts[0], "Water: condition changed to false");
+}
+
+[Test]
+public void ClickTest()
+{
+     TestSite.MetalsColorsPage.CbWater.Click();
+     Jdi.Assert.Contains(TestSite.ActionsLog.Texts[0], "Water: condition changed to true");
+     TestSite.MetalsColorsPage.CbWater.Click();
+     var texts = TestSite.ActionsLog.Texts;
+     Jdi.Assert.Contains(texts[0], "Water: condition changed to false");
+}
+
+[Test]
+[TestCaseSource(typeof(CheckBoxProvider), nameof(CheckBoxProvider.InputData))]
+public void SetValueTest(bool value, bool expected)
+{
+     if (!expected) TestSite.MetalsColorsPage.CbWater.Click();
+     TestSite.MetalsColorsPage.CbWater.Value = value;
+     var resultMsg = "Water: condition changed to " + expected.ToString().ToLower();
+     Jdi.Assert.Contains(TestSite.ActionsLog.Texts[0], resultMsg);
+}
+
+[Test]
+public void IsValidationTest()
+{
+    TestSite.Html5Page.Open();
+    TestSite.Html5Page.AcceptConditions.Is.Selected();
+    TestSite.Html5Page.AcceptConditions.Click();
+    TestSite.Html5Page.AcceptConditions.Is.Deselected();
+    TestSite.Html5Page.AcceptConditions.Is.Enabled();
+    TestSite.Html5Page.AcceptConditions.Is.Displayed();
+}
+
+[Test]
+public void LabelTest()
+{
+    TestSite.Html5Page.Open();
+    Assert.AreEqual("Accept terms and conditions", TestSite.Html5Page.AcceptConditions.Label().GetText());
+    TestSite.Html5Page.AcceptConditions.Label().Is.Text(ContainsString("terms and conditions"));
+    TestSite.Html5Page.AcceptConditions.Label().Is.Text(EqualTo("accept terms and conditions"));
+}
+
+[Test]
+public void AssertValidationTest()
+{
+    TestSite.Html5Page.Open();
+    TestSite.Html5Page.AcceptConditions.AssertThat.Selected();
+}
+
+[Test]
+public void BaseValidationTest()
+{
+    TestSite.Html5Page.Open();
+    BaseElementValidation(TestSite.Html5Page.AcceptConditions);
+}
+
 ```
 
 Here is an example with provided HTML code:
@@ -201,6 +294,20 @@ Available methods in C# JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
+**Check(bool checkEnabled = true)** | Checks a checkbox | void
+**Uncheck(bool checkEnabled = true)** | Unhecks a checkbox | void
+**IsChecked** | Determines whether a checkbox is checked | bool
+
+Available assert methods in C# JDI Light:
+|Method | Description | Return Type
+--- | --- | ---
+**Selected()** | Checks whether a checkbox is selected | CheckBoxAssert
+**Deselected()** | Checks whether a checkbox is deselected | CheckBoxAssert
+**Enabled()** | Checks whether a checkbox is enabled | CheckBoxAssert
+**Displayed()** | Checks whether a checkbox is displayed | CheckBoxAssert
+**Is** | Gets assert for checkbox | CheckBoxAssert
+**AssertThat** | Gets assert for checkbox | CheckBoxAssert
+
 
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/CheckboxTests.java)
 

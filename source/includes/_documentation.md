@@ -2986,6 +2986,83 @@ public void verifyTitle() {
 ## UI Objects
 TBD
 
+## Smart Locators
+
+```
+<input type="text" id="name">
+<input type="text" id="last-name">
+<button id="submit-button">
+```
+```csharp
+
+public class UserCard : Form<User>
+{
+    [FindBy(Css = "#name")]
+    TextField Name; 
+    
+    [FindBy(Css = "#last-name")]
+    TextField LastName;
+    
+    [FindBy(Css = "#submit-button")]
+    Button SubmitButton;
+}
+
+If Smart locator rule is id:
+    SmartSearchLocator = "#{0}";
+    
+and convertation rule is hyphen to csharp name:
+    SmartSearchName(string name) => StringExtensions.SplitHyphen(name);
+    
+So you can write:
+
+public class UserCard : Form<User>
+{
+    TextField Name; 
+    TextField LastName;
+    Button SubmitButton;
+}
+
+```
+
+```java
+
+public class UserCard extends Form<User> {
+    @Css("#name") TextField name;
+    
+    @Css("#last-name") TextField lastName; 
+    
+    @Css("#submit-button") Button submitButton; 
+}
+
+If Smart locator rule is id:
+    WebSettings.SMART_SEARCH_LOCATORS = asList("#%s");
+    
+and convertation rule is hyphen to java name:
+    WebSettings.SMART_SEARCH_NAME = StringUtils::splitHyphen;
+
+So you can write:
+
+public class UserCard extends Form<User> {
+    TextField name;
+    TextField lastName;
+    Button submitButton; 
+}
+
+```
+
+
+If you have your developers follow some standard way to mark ui elements or you have an agreement to add special attribute you can even avoid to write locators for elements and make your page objects much more compact.
+
+You can manage how to create locator from field name using.
+
+### Settings interface ISmartLocators contains:
+  
+- **SmartSearch** - method that invoked if you have element has no locator
+
+- **SmartSearchLocator** - locator that can be used to try to find element
+
+- **SmartSearchName** -  method how to create locator name from filed name (this value will be passed as parameter in SmartSearchLocator)
+
 ## JDI Locators
 TBD
 
@@ -3077,6 +3154,84 @@ TBD
 - **domain** – web application root URL (used if we work with one application in tests). Can be also read from the command line like ${domain}
 - **page.load.strategy** - like in <a href="https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/capabilities_exports_PageLoadStrategy.html" target="_blank">Selenium strategies</a> to load the page. Options: normal, eager, none
 - **browser.size** - the size of the tested browser. By default, JDI Light will maximize browser, but we can set exact values.
+
+## SoftAsserts
+
+```java 
+    @Test
+    public void buttonSoftAssertTest() {
+        assertSoft();
+        try {
+            redButton.assertThat().hidden().displayed()
+                .disabled().enabled()
+                .disappear().cssClass(is("uui-button red"))
+                .text(is("Big Red *** Button-Input"))
+                .text(containsString("Red Button"))
+                .attr("type", is("button"))
+                .tag(is("input"))
+
+                .assertResults();
+            Assert.fail("Test should throw asserts");
+        } catch (Throwable tr) {
+            assertThat(tr.getMessage(), is("[java.lang.AssertionError: \n" +
+                "Expected: is \"hidden\"\n" +
+                "     but: was \"displayed\", java.lang.AssertionError: \n" +
+                "Expected: is \"disabled\"\n" +
+                "     but: was \"enabled\", java.lang.AssertionError: \n" +
+                "Expected: is \"disappear\"\n" +
+                "     but: was \"displayed\", java.lang.AssertionError: \n" +
+                "Expected: is \"Big Red *** Button-Input\"\n" +
+                "     but: was \"Big Red Button-Input\"]"));
+        }
+    }
+    @Test
+    public void multipleValidationsTest() {
+        assertSoft();
+        try {
+            redButton.is().hidden().displayed().disabled().enabled();
+            jdiLogo.is().alt(is("Jdi Logo 777"))
+                .src(containsString("jdi-logo.jpg777"))
+                .height(is(100))
+                .width(is(1000));
+
+            SoftAssert.assertResults();
+            Assert.fail("Test should throw asserts");
+        } catch (Throwable tr) {
+            assertThat(tr.getMessage(), is("[java.lang.AssertionError: \n" +
+                "Expected: is \"hidden\"\n" +
+                "     but: was \"displayed\", java.lang.AssertionError: \n" +
+                "Expected: is \"disabled\"\n" +
+                "     but: was \"enabled\", java.lang.AssertionError: \n" +
+                "Expected: is \"Jdi Logo 777\"\n" +
+                "     but: was \"Jdi Logo 2\", java.lang.AssertionError: \n" +
+                "Expected: a string containing \"jdi-logo.jpg777\"\n" +
+                "     but: was \"https://jdi-testing.github.io/jdi-light/images/jdi-logo.jpg\", java.lang.AssertionError: \n" +
+                "Expected: is <1000>\n" +
+                "     but: was <101>]"));
+        }
+    }
+```
+
+**Soft Assert** - assert that collects errors during test is running. They don't throw an exception when an assert fails but save them. 
+
+Here is the list of available methods in SoftAssert class:
+
+|Method | Description | Return Type
+--- | --- | ---
+**setAssertType(String type)** |Set the type of asserts | void
+**assertSoft()** |Set the soft type of asserts | void
+**assertStrict()** |Set the strict type of asserts | void
+**assertResults()** |Output results of asserts | void
+**clearResults()** |Reset results of asserts | void
+
+**Settings:**
+- **test.properties** file - to choose type of assertions, you need to update **assert.type** property - select soft or strict type (#assert.type=soft | strict)
+- to enable or disable SoftAssert in code use **assertSoft()** or **assertStrict()** methods from SoftAssert class
+
+ **Output results** 
+there are two ways how to use **assertResults()** method:
+- As a method in a chain after asserts (example buttonSoftAssertTest)
+- As a separate method if you need to check several elements (example multipleValidationsTest)
 
 ## Driver Settings
 TBD

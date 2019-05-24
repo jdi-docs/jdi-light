@@ -846,6 +846,42 @@ And here are methods available in Java:
 
 [Test examples in Java](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ImageTests.java)
 
+### Icon
+```csharp 
+[FindBy(Css = "#jdi-ico")]
+public IIcon LogoImage;
+
+   [Test]
+   public void GetSrcTest()
+   {
+       Jdi.Assert.AreEquals(JdiLogo.Src, Text);
+   }
+
+   [Test]
+   public void GetAltTest()
+   {
+       Jdi.Assert.AreEquals(JdiLogo.Alt, "");
+   }
+```
+**Icon** – is a simple element type that represents small graphic images (icons).
+
+Icons are represented by the following class in C#:
+ 
+  - __C#__: _JDI.Light.Elements.Common.Icon_
+   
+Here is a list of available methods in C#:
+
+|Method | Description | Return Type
+--- | --- | ---
+**Src** | get value of src attribute | string
+**Height** |get value of height attribute| string
+**Width** | get value of width attribute| string
+**Alt** |get value of alt attribute | string
+**Is()** | method for building assertions | ImageAssert
+**AssertThat()** |method for building assertions  | ImageAssert
+
+[Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/IconTests.cs)
+
 ### Link
 **Link** – a graphical control element, that allows the user to link from one page to other web pages, files, locations within the same page, email addresses, or any other URL.
 

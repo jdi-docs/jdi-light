@@ -427,6 +427,9 @@
                               <a href="#image" class="toc-h2 h3 toc-link" data-title="Image">Image</a>
                             </li>
                             <li>
+                              <a href="#icon-2" class="toc-h2 h3 toc-link" data-title="Icon">Icon</a>
+                            </li>
+                            <li>
                               <a href="#link" class="toc-h2 h3 toc-link" data-title="Link">Link</a>
                             </li>
                             <li>
@@ -2911,6 +2914,71 @@ In addition if you run test scenarios on JDI Light you will <strong>get logs of 
 </tbody></table>
 
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ImageTests.java">Test examples in Java</a></p>
+<h3 id='icon-2'>Icon</h3><pre class="highlight csharp tab-csharp"><code><span class="na">[FindBy(Css = "#jdi-ico")]</span>
+<span class="k">public</span> <span class="n">IIcon</span> <span class="n">LogoImage</span><span class="p">;</span>
+
+   <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+   <span class="k">public</span> <span class="k">void</span> <span class="nf">GetSrcTest</span><span class="p">()</span>
+   <span class="p">{</span>
+       <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">AreEquals</span><span class="p">(</span><span class="n">JdiLogo</span><span class="p">.</span><span class="n">Src</span><span class="p">,</span> <span class="n">Text</span><span class="p">);</span>
+   <span class="p">}</span>
+
+   <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+   <span class="k">public</span> <span class="k">void</span> <span class="nf">GetAltTest</span><span class="p">()</span>
+   <span class="p">{</span>
+       <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">AreEquals</span><span class="p">(</span><span class="n">JdiLogo</span><span class="p">.</span><span class="n">Alt</span><span class="p">,</span> <span class="s">""</span><span class="p">);</span>
+   <span class="p">}</span>
+</code></pre>
+<p><strong>Icon</strong> – is a simple element type that represents small graphic images (icons).</p>
+
+<p>Icons are represented by the following class in C#:</p>
+
+<ul>
+<li><strong>C#</strong>: <em>JDI.Light.Elements.Common.Icon</em></li>
+</ul>
+
+<p>Here is a list of available methods in C#:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Src</strong></td>
+<td>get value of src attribute</td>
+<td>string</td>
+</tr>
+<tr>
+<td><strong>Height</strong></td>
+<td>get value of height attribute</td>
+<td>string</td>
+</tr>
+<tr>
+<td><strong>Width</strong></td>
+<td>get value of width attribute</td>
+<td>string</td>
+</tr>
+<tr>
+<td><strong>Alt</strong></td>
+<td>get value of alt attribute</td>
+<td>string</td>
+</tr>
+<tr>
+<td><strong>Is()</strong></td>
+<td>method for building assertions</td>
+<td>ImageAssert</td>
+</tr>
+<tr>
+<td><strong>AssertThat()</strong></td>
+<td>method for building assertions</td>
+<td>ImageAssert</td>
+</tr>
+</tbody></table>
+
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/IconTests.cs">Test examples in C#</a></p>
 <h3 id='link'>Link</h3>
 <p><strong>Link</strong> – a graphical control element, that allows the user to link from one page to other web pages, files, locations within the same page, email addresses, or any other URL.</p>
 

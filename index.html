@@ -6704,14 +6704,21 @@ Note that you can make static import in order to simplify code Alerts.acceptAler
 </tr>
 </tbody></table>
 
-<p><strong>Settings:</strong>
-- <strong>test.properties</strong> file - to choose type of assertions, you need to update <strong>assert.type</strong> property - select soft or strict type (#assert.type=soft | strict)
-- to enable or disable SoftAssert in code use <strong>assertSoft()</strong> or <strong>assertStrict()</strong> methods from SoftAssert class</p>
+<p><strong>Settings:</strong></p>
 
-<p><strong>Output results</strong> 
-there are two ways how to use <strong>assertResults()</strong> method:
-- As a method in a chain after asserts (example buttonSoftAssertTest)
-- As a separate method if you need to check several elements (example multipleValidationsTest)</p>
+<ul>
+<li><p><strong>test.properties</strong> file - to choose type of assertions, you need to update <strong>assert.type</strong> property - select soft or strict type (#assert.type=soft | strict)</p></li>
+<li><p>to enable or disable SoftAssert in code use <strong>assertSoft()</strong> or <strong>assertStrict()</strong> methods from SoftAssert class</p></li>
+</ul>
+
+<p><strong>Output results</strong> </p>
+
+<p>there are two ways how to use <strong>assertResults()</strong> method:</p>
+
+<ul>
+<li><p>As a method in a chain after asserts (example buttonSoftAssertTest)</p></li>
+<li><p>As a separate method if you need to check several elements (example multipleValidationsTest)</p></li>
+</ul>
 <h2 id='driver-settings'>Driver Settings</h2>
 <p>TBD</p>
 <h2 id='parallel-tests-run'>Parallel tests run</h2>

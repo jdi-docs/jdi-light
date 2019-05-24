@@ -849,18 +849,18 @@ And here are methods available in Java:
 ### Icon
 ```csharp 
 [FindBy(Css = "#jdi-ico")]
-public IIcon LogoImage;
+public IIcon LogoIco;
 
    [Test]
    public void GetSrcTest()
    {
-       Jdi.Assert.AreEquals(JdiLogo.Src, Text);
+       Jdi.Assert.AreEquals(LogoIco.Src, Text);
    }
 
    [Test]
    public void GetAltTest()
    {
-       Jdi.Assert.AreEquals(JdiLogo.Alt, "");
+       Jdi.Assert.AreEquals(LogoIco.Alt, "");
    }
 ```
 **Icon** – is a simple element type that represents small graphic images (icons).

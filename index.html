@@ -502,6 +502,14 @@
                     <a href="#ui-objects" class="toc-h2 toc-link" data-title="UI Objects">UI Objects</a>
                   </li>
                   <li>
+                    <a href="#smart-locators" class="toc-h2 toc-link" data-title="Smart Locators">Smart Locators</a>
+                        <ul class="toc-list-h2">
+                            <li>
+                              <a href="#settings-interface-ismartlocators-contains" class="toc-h2 h3 toc-link" data-title="Settings interface ISmartLocators contains:">Settings interface ISmartLocators contains:</a>
+                            </li>
+                        </ul>
+                  </li>
+                  <li>
                     <a href="#jdi-locators" class="toc-h2 toc-link" data-title="JDI Locators">JDI Locators</a>
                   </li>
                   <li>
@@ -526,6 +534,9 @@
                   </li>
                   <li>
                     <a href="#jdi-settings" class="toc-h2 toc-link" data-title="JDI Settings">JDI Settings</a>
+                  </li>
+                  <li>
+                    <a href="#softasserts" class="toc-h2 toc-link" data-title="SoftAsserts">SoftAsserts</a>
                   </li>
                   <li>
                     <a href="#driver-settings" class="toc-h2 toc-link" data-title="Driver Settings">Driver Settings</a>
@@ -6475,6 +6486,70 @@ Multi Selector are represented by the following class:</p>
 <span class="o">}</span>
 </code></pre><h2 id='ui-objects'>UI Objects</h2>
 <p>TBD</p>
+<h2 id='smart-locators'>Smart Locators</h2><pre class="highlight plaintext"><code>&lt;input type="text" id="name"&gt;
+&lt;input type="text" id="last-name"&gt;
+&lt;button id="submit-button"&gt;
+</code></pre><pre class="highlight csharp tab-csharp"><code>
+<span class="k">public</span> <span class="k">class</span> <span class="nc">UserCard</span> <span class="p">:</span> <span class="n">Form</span><span class="p">&lt;</span><span class="n">User</span><span class="p">&gt;</span>
+<span class="p">{</span>
+    <span class="p">[</span><span class="nf">FindBy</span><span class="p">(</span><span class="n">Css</span> <span class="p">=</span> <span class="s">"#name"</span><span class="p">)]</span>
+    <span class="n">TextField</span> <span class="n">Name</span><span class="p">;</span> 
+
+    <span class="p">[</span><span class="nf">FindBy</span><span class="p">(</span><span class="n">Css</span> <span class="p">=</span> <span class="s">"#last-name"</span><span class="p">)]</span>
+    <span class="n">TextField</span> <span class="n">LastName</span><span class="p">;</span>
+
+    <span class="p">[</span><span class="nf">FindBy</span><span class="p">(</span><span class="n">Css</span> <span class="p">=</span> <span class="s">"#submit-button"</span><span class="p">)]</span>
+    <span class="n">Button</span> <span class="n">SubmitButton</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">If</span> <span class="n">Smart</span> <span class="n">locator</span> <span class="n">rule</span> <span class="k">is</span> <span class="n">id</span><span class="p">:</span>
+    <span class="n">SmartSearchLocator</span> <span class="p">=</span> <span class="s">"#{0}"</span><span class="p">;</span>
+
+<span class="n">and</span> <span class="n">convertation</span> <span class="n">rule</span> <span class="k">is</span> <span class="n">hyphen</span> <span class="n">to</span> <span class="n">csharp</span> <span class="n">name</span><span class="p">:</span>
+    <span class="nf">SmartSearchName</span><span class="p">(</span><span class="kt">string</span> <span class="n">name</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="n">StringExtensions</span><span class="p">.</span><span class="nf">SplitHyphen</span><span class="p">(</span><span class="n">name</span><span class="p">);</span>
+
+<span class="n">So</span> <span class="n">you</span> <span class="n">can</span> <span class="n">write</span><span class="p">:</span>
+
+<span class="k">public</span> <span class="k">class</span> <span class="nc">UserCard</span> <span class="p">:</span> <span class="n">Form</span><span class="p">&lt;</span><span class="n">User</span><span class="p">&gt;</span>
+<span class="p">{</span>
+    <span class="n">TextField</span> <span class="n">Name</span><span class="p">;</span> 
+    <span class="n">TextField</span> <span class="n">LastName</span><span class="p">;</span>
+    <span class="n">Button</span> <span class="n">SubmitButton</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre><pre class="highlight java tab-java"><code>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserCard</span> <span class="kd">extends</span> <span class="n">Form</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="nd">@Css</span><span class="o">(</span><span class="s">"#name"</span><span class="o">)</span> <span class="n">TextField</span> <span class="n">name</span><span class="o">;</span>
+
+    <span class="nd">@Css</span><span class="o">(</span><span class="s">"#last-name"</span><span class="o">)</span> <span class="n">TextField</span> <span class="n">lastName</span><span class="o">;</span> 
+
+    <span class="nd">@Css</span><span class="o">(</span><span class="s">"#submit-button"</span><span class="o">)</span> <span class="n">Button</span> <span class="n">submitButton</span><span class="o">;</span> 
+<span class="o">}</span>
+
+<span class="n">If</span> <span class="n">Smart</span> <span class="n">locator</span> <span class="n">rule</span> <span class="n">is</span> <span class="nl">id:</span>
+    <span class="n">WebSettings</span><span class="o">.</span><span class="na">SMART_SEARCH_LOCATORS</span> <span class="o">=</span> <span class="n">asList</span><span class="o">(</span><span class="s">"#%s"</span><span class="o">);</span>
+
+<span class="n">and</span> <span class="n">convertation</span> <span class="n">rule</span> <span class="n">is</span> <span class="n">hyphen</span> <span class="n">to</span> <span class="n">java</span> <span class="nl">name:</span>
+    <span class="n">WebSettings</span><span class="o">.</span><span class="na">SMART_SEARCH_NAME</span> <span class="o">=</span> <span class="nl">StringUtils:</span><span class="o">:</span><span class="n">splitHyphen</span><span class="o">;</span>
+
+<span class="n">So</span> <span class="n">you</span> <span class="n">can</span> <span class="nl">write:</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserCard</span> <span class="kd">extends</span> <span class="n">Form</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="n">TextField</span> <span class="n">name</span><span class="o">;</span>
+    <span class="n">TextField</span> <span class="n">lastName</span><span class="o">;</span>
+    <span class="n">Button</span> <span class="n">submitButton</span><span class="o">;</span> 
+<span class="o">}</span>
+
+</code></pre>
+<p>If you have your developers follow some standard way to mark ui elements or you have an agreement to add special attribute you can even avoid to write locators for elements and make your page objects much more compact.</p>
+
+<p>You can manage how to create locator from field name using.</p>
+<h3 id='settings-interface-ismartlocators-contains'>Settings interface ISmartLocators contains:</h3>
+<ul>
+<li><p><strong>SmartSearch</strong> - method that invoked if you have element has no locator</p></li>
+<li><p><strong>SmartSearchLocator</strong> - locator that can be used to try to find element</p></li>
+<li><p><strong>SmartSearchName</strong> -  method how to create locator name from filed name (this value will be passed as parameter in SmartSearchLocator)</p></li>
+</ul>
 <h2 id='jdi-locators'>JDI Locators</h2>
 <p>TBD</p>
 <h2 id='windows-tabs-manager'>Windows/Tabs manager</h2>
@@ -6538,6 +6613,105 @@ Note that you can make static import in order to simplify code Alerts.acceptAler
 <li><strong>page.load.strategy</strong> - like in <a href="https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/capabilities_exports_PageLoadStrategy.html" target="_blank">Selenium strategies</a> to load the page. Options: normal, eager, none</li>
 <li><strong>browser.size</strong> - the size of the tested browser. By default, JDI Light will maximize browser, but we can set exact values.</li>
 </ul>
+<h2 id='softasserts'>SoftAsserts</h2><pre class="highlight java tab-java"><code>    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">buttonSoftAssertTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">assertSoft</span><span class="o">();</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="n">redButton</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">hidden</span><span class="o">().</span><span class="na">displayed</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">disabled</span><span class="o">().</span><span class="na">enabled</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">disappear</span><span class="o">().</span><span class="na">cssClass</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="s">"uui-button red"</span><span class="o">))</span>
+                <span class="o">.</span><span class="na">text</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="s">"Big Red *** Button-Input"</span><span class="o">))</span>
+                <span class="o">.</span><span class="na">text</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"Red Button"</span><span class="o">))</span>
+                <span class="o">.</span><span class="na">attr</span><span class="o">(</span><span class="s">"type"</span><span class="o">,</span> <span class="n">is</span><span class="o">(</span><span class="s">"button"</span><span class="o">))</span>
+                <span class="o">.</span><span class="na">tag</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="s">"input"</span><span class="o">))</span>
+
+                <span class="o">.</span><span class="na">assertResults</span><span class="o">();</span>
+            <span class="n">Assert</span><span class="o">.</span><span class="na">fail</span><span class="o">(</span><span class="s">"Test should throw asserts"</span><span class="o">);</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Throwable</span> <span class="n">tr</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">assertThat</span><span class="o">(</span><span class="n">tr</span><span class="o">.</span><span class="na">getMessage</span><span class="o">(),</span> <span class="n">is</span><span class="o">(</span><span class="s">"[java.lang.AssertionError: \n"</span> <span class="o">+</span>
+                <span class="s">"Expected: is \"hidden\"\n"</span> <span class="o">+</span>
+                <span class="s">"     but: was \"displayed\", java.lang.AssertionError: \n"</span> <span class="o">+</span>
+                <span class="s">"Expected: is \"disabled\"\n"</span> <span class="o">+</span>
+                <span class="s">"     but: was \"enabled\", java.lang.AssertionError: \n"</span> <span class="o">+</span>
+                <span class="s">"Expected: is \"disappear\"\n"</span> <span class="o">+</span>
+                <span class="s">"     but: was \"displayed\", java.lang.AssertionError: \n"</span> <span class="o">+</span>
+                <span class="s">"Expected: is \"Big Red *** Button-Input\"\n"</span> <span class="o">+</span>
+                <span class="s">"     but: was \"Big Red Button-Input\"]"</span><span class="o">));</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">multipleValidationsTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">assertSoft</span><span class="o">();</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="n">redButton</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">hidden</span><span class="o">().</span><span class="na">displayed</span><span class="o">().</span><span class="na">disabled</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
+            <span class="n">jdiLogo</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">alt</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="s">"Jdi Logo 777"</span><span class="o">))</span>
+                <span class="o">.</span><span class="na">src</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"jdi-logo.jpg777"</span><span class="o">))</span>
+                <span class="o">.</span><span class="na">height</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="mi">100</span><span class="o">))</span>
+                <span class="o">.</span><span class="na">width</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="mi">1000</span><span class="o">));</span>
+
+            <span class="n">SoftAssert</span><span class="o">.</span><span class="na">assertResults</span><span class="o">();</span>
+            <span class="n">Assert</span><span class="o">.</span><span class="na">fail</span><span class="o">(</span><span class="s">"Test should throw asserts"</span><span class="o">);</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Throwable</span> <span class="n">tr</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">assertThat</span><span class="o">(</span><span class="n">tr</span><span class="o">.</span><span class="na">getMessage</span><span class="o">(),</span> <span class="n">is</span><span class="o">(</span><span class="s">"[java.lang.AssertionError: \n"</span> <span class="o">+</span>
+                <span class="s">"Expected: is \"hidden\"\n"</span> <span class="o">+</span>
+                <span class="s">"     but: was \"displayed\", java.lang.AssertionError: \n"</span> <span class="o">+</span>
+                <span class="s">"Expected: is \"disabled\"\n"</span> <span class="o">+</span>
+                <span class="s">"     but: was \"enabled\", java.lang.AssertionError: \n"</span> <span class="o">+</span>
+                <span class="s">"Expected: is \"Jdi Logo 777\"\n"</span> <span class="o">+</span>
+                <span class="s">"     but: was \"Jdi Logo 2\", java.lang.AssertionError: \n"</span> <span class="o">+</span>
+                <span class="s">"Expected: a string containing \"jdi-logo.jpg777\"\n"</span> <span class="o">+</span>
+                <span class="s">"     but: was \"https://jdi-testing.github.io/jdi-light/images/jdi-logo.jpg\", java.lang.AssertionError: \n"</span> <span class="o">+</span>
+                <span class="s">"Expected: is &lt;1000&gt;\n"</span> <span class="o">+</span>
+                <span class="s">"     but: was &lt;101&gt;]"</span><span class="o">));</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+</code></pre>
+<p><strong>Soft Assert</strong> - assert that collects errors during test is running. They don&#39;t throw an exception when an assert fails but save them. </p>
+
+<p>Here is the list of available methods in SoftAssert class:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>setAssertType(String type)</strong></td>
+<td>Set the type of asserts</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>assertSoft()</strong></td>
+<td>Set the soft type of asserts</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>assertStrict()</strong></td>
+<td>Set the strict type of asserts</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>assertResults()</strong></td>
+<td>Output results of asserts</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>clearResults()</strong></td>
+<td>Reset results of asserts</td>
+<td>void</td>
+</tr>
+</tbody></table>
+
+<p><strong>Settings:</strong>
+- <strong>test.properties</strong> file - to choose type of assertions, you need to update <strong>assert.type</strong> property - select soft or strict type (#assert.type=soft | strict)
+- to enable or disable SoftAssert in code use <strong>assertSoft()</strong> or <strong>assertStrict()</strong> methods from SoftAssert class</p>
+
+<p><strong>Output results</strong> 
+there are two ways how to use <strong>assertResults()</strong> method:
+- As a method in a chain after asserts (example buttonSoftAssertTest)
+- As a separate method if you need to check several elements (example multipleValidationsTest)</p>
 <h2 id='driver-settings'>Driver Settings</h2>
 <p>TBD</p>
 <h2 id='parallel-tests-run'>Parallel tests run</h2>

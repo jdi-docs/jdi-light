@@ -2915,18 +2915,18 @@ In addition if you run test scenarios on JDI Light you will <strong>get logs of 
 
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ImageTests.java">Test examples in Java</a></p>
 <h3 id='icon-2'>Icon</h3><pre class="highlight csharp tab-csharp"><code><span class="na">[FindBy(Css = "#jdi-ico")]</span>
-<span class="k">public</span> <span class="n">IIcon</span> <span class="n">LogoImage</span><span class="p">;</span>
+<span class="k">public</span> <span class="n">IIcon</span> <span class="n">LogoIco</span><span class="p">;</span>
 
    <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
    <span class="k">public</span> <span class="k">void</span> <span class="nf">GetSrcTest</span><span class="p">()</span>
    <span class="p">{</span>
-       <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">AreEquals</span><span class="p">(</span><span class="n">JdiLogo</span><span class="p">.</span><span class="n">Src</span><span class="p">,</span> <span class="n">Text</span><span class="p">);</span>
+       <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">AreEquals</span><span class="p">(</span><span class="n">LogoIco</span><span class="p">.</span><span class="n">Src</span><span class="p">,</span> <span class="n">Text</span><span class="p">);</span>
    <span class="p">}</span>
 
    <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
    <span class="k">public</span> <span class="k">void</span> <span class="nf">GetAltTest</span><span class="p">()</span>
    <span class="p">{</span>
-       <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">AreEquals</span><span class="p">(</span><span class="n">JdiLogo</span><span class="p">.</span><span class="n">Alt</span><span class="p">,</span> <span class="s">""</span><span class="p">);</span>
+       <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">AreEquals</span><span class="p">(</span><span class="n">LogoIco</span><span class="p">.</span><span class="n">Alt</span><span class="p">,</span> <span class="s">""</span><span class="p">);</span>
    <span class="p">}</span>
 </code></pre>
 <p><strong>Icon</strong> – is a simple element type that represents small graphic images (icons).</p>

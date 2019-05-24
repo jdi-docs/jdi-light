@@ -3225,12 +3225,17 @@ Here is the list of available methods in SoftAssert class:
 **clearResults()** |Reset results of asserts | void
 
 **Settings:**
+
 - **test.properties** file - to choose type of assertions, you need to update **assert.type** property - select soft or strict type (#assert.type=soft | strict)
+
 - to enable or disable SoftAssert in code use **assertSoft()** or **assertStrict()** methods from SoftAssert class
 
  **Output results** 
+ 
 there are two ways how to use **assertResults()** method:
+
 - As a method in a chain after asserts (example buttonSoftAssertTest)
+
 - As a separate method if you need to check several elements (example multipleValidationsTest)
 
 ## Driver Settings

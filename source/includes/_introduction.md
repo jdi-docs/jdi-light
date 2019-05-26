@@ -33,17 +33,17 @@ public void loginTest() {
 **So simple!**
 But this is not all, just Run this test in your IDE and what you will get?
 
-1. Detailed log in Console output:
+ 1. Detailed log in Console output:<br/>
 
 **Nice!** Isn't it?
 
-2. Same log in log file (src/test/.logs/) if you would like to see test execution results remotely (require log4j2.xml in src/test/resources)
-3. Nice Allure report of your test execution! (require Allure settings in pom.xml)
+ 2. Same log in log file (src/test/.logs/) if you would like to see test execution results remotely (require log4j2.xml in src/test/resources)<br/>
+ 3. Nice Allure report of your test execution! (require Allure settings in pom.xml)<br/>
 ![Allure Report](../images/intro/allure-report.png)
 ![Allure Log](../images/intro/allure-report-log.png)
 
-Just move allure-results folder in  folder and run maven > Plugins > allure > allure:serve
-![Allure Serve](../images/intro/allure-serve.png)
+Just move allure-results folder in  folder and run maven > Plugins > allure > allure:serve<br/>
+<img src="images/intro/allure-serve.png" alt="Allure Serve" width="300">
 
 ```java 
 @JSite("https://jdi-testing.github.io/jdi-light/")

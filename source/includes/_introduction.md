@@ -43,7 +43,7 @@ But this is not all, just Run this test in your IDE and what you will get?
 ![Allure Log](../images/intro/allure-report-log.png)
 
 Just move allure-results folder in  folder and run maven > Plugins > allure > allure:serve<br/>
-<img src="images/intro/allure-serve.png" alt="Allure Serve" width="300">
+<img src="images/intro/allure-serve.png" alt="Allure Serve" width="300px">
 
 ```java 
 @JSite("https://jdi-testing.github.io/jdi-light/")

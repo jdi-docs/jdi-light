@@ -16,16 +16,16 @@ public void loginTest() {
     homePage.checkOpened();
 }
 ```
-1. Open HomePage (<a href='https://epam.github.io/JDI/index.html' target="_blank">https://epam.github.io/JDI/index.html</a>)
+1. Open HomePage (<a href='https://jdi-testing.github.io/jdi-light/index.html' target="_blank">https://jdi-testing.github.io/jdi-light/index.html</a>)
 2. Click on User Icon (to open login dialog)
 2. Login as some default user
-    - Enter 'epam' in login textfield
-    - Enter '1234' in password textfield
+    - Enter 'Roman' in login textfield
+    - Enter 'Jdi1234' in password textfield
     - Press 'Enter' button
 3. Validate that HomePage is openned
 
 ```
-[22:17.102  STEP] : Open 'Home Page'(url=https://epam.github.io/JDI/index.html)
+[22:17.102  STEP] : Open 'Home Page'(url=>https://jdi-testing.github.io/jdi-light/index.html)
 [22:23.617  STEP] : Click on 'User Icon'
 [22:23.727  STEP] : Login as User(userName:epam; password:1234)
 [22:24.516  STEP] : Check that 'Home Page' is opened (url CONTAINS '/index.html'; title EQUALS 'Home Page')
@@ -46,7 +46,7 @@ Just move allure-results folder in  folder and run maven > Plugins > allure > al
 ![Allure Serve](../images/intro/allure-serve.png)
 
 ```java 
-@JSite("https://epam.github.io/JDI/")
+@JSite("https://jdi-testing.github.io/jdi-light/")
 public class JdiTestSite {
     public static HomePage homePage;
 }
@@ -80,12 +80,12 @@ This is common JDI project structure
 ```java 
 @Test
 public void nonPageObjectTest() {
-    WebPage.openUrl("https://epam.github.io/JDI/index.html");
+    WebPage.openUrl("https://jdi-testing.github.io/jdi-light/index.html");
     $("img#user-icon").click();
-    $("form #name").input("epam");
-    $("form #password").input("1234");
+    $("form #name").input("Roman");
+    $("form #password").input("Jdi1234");
     $("form [type=submit]").click();
-    Assert.assertEquals(WebPage.getUrl(), "https://epam.github.io/JDI/index.html");
+    Assert.assertEquals(WebPage.getUrl(), "https://jdi-testing.github.io/jdi-light/index.html");
 }
 public class LoginForm extends Form<User> {
     TextField userName = $("#name");

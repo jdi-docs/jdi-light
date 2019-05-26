@@ -812,12 +812,17 @@ Just download one the templates from <a href='https://github.com/jdi-templates' 
 <p><a href='https://github.com/jdi-templates/jdi-light-csharp-template' target="_blank">Github link</a> <br/></p>
 <h2 id='how-to-improve-your-selenium-project-with-new-capabilities-in-few-minutes'>How to improve your Selenium project with new capabilities in few minutes</h2><h2 id='logging-and-reporting'>Logging and Reporting</h2><h1 id='tutorial'>Tutorial</h1>
 <p>In this tutorial, we’ll look at glance on <a href="https://github.com/jdi-testing/jdi-light">JDI Light</a>, a library that simplifies test automation, makes test run results stable, predictable and easy to maintain.<br/>
-1. Quick Start - short instruction how to add JDI Light in your project and basic configurations<br/>
+1. Quick Start - short instruction how to add JDI Light in to your project and basic configurations<br/>
 2. JDI Light at glance - few simple test examples with and without Page Objects. Typified UI Elements and logs in JDI Light<br/>
-3. JDI Light Forms<br/>
-4. UI Elements and optimization<br/>
-5. Reduce Amount of code with JDI Light<br/></p>
+3. JDI Light Forms - small complex element example that shows JDI Light basic benefits<br/>
+4. UI Elements and optimization - more complex example that describes in details types of elements in JDI Light and demonstrate its capabilities<br/>
+5. Reduce Amount of code with JDI Light - Good and clear example how JDI Light can reduce amount of code in 3 times vs Selenium. Shows that you can write clear and stable tests with 3 times less effort<br/></p>
 <h2 id='1-integration'>1. Integration</h2>
+<ol>
+<li>Add JDI Light in your projects <br/></li>
+<li>Some brief configurations overview <br/></li>
+</ol>
+
 <p>Let’s start from the beginning and add JDI Light into our test project going through the setup step by step.<br/>
 <em>Note: JDI Light also ships with a <a href="https://github.com/jdi-templates/jdi-light-testng-template">template project</a> that can be used to save us some time for the setup.</em></p>
 <h3 id='maven-dependencies'>Maven Dependencies</h3><pre class="highlight java tab-java"><code><span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span>
@@ -852,7 +857,13 @@ We can change default settings placed in the test.properties file (src/test/reso
 - <strong>browser.size</strong> – the size of the tested browser. By default, JDI Light will maximize browser, but we can set exact values
 <em>Note: you can find more examples in the documentation.</em> <br/>
 <a href="https://github.com/jdi-tutorials/01-jdi-light-intro/blob/master/src/test/resources/test.properties" target="_blank">See examples on Github</a></p>
-<h2 id='2-jdi-light-at-glance'>2. JDI Light at glance</h2><h3 id='let-39-s-start'>Let&#39;s start</h3><pre class="highlight java tab-java"><code><span class="nd">@Test</span>
+<h2 id='2-jdi-light-at-glance'>2. JDI Light at glance</h2>
+<ol>
+<li>Simple Open page test <br/></li>
+<li>No Page Objects test example<br/></li>
+<li>Page Objects test example<br/></li>
+</ol>
+<h3 id='let-39-s-start'>Let&#39;s start</h3><pre class="highlight java tab-java"><code><span class="nd">@Test</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">openJDITestSite</span><span class="o">()</span> <span class="o">{</span>
     <span class="n">openUrl</span><span class="o">(</span><span class="s">"https://jdi-testing.github.io/jdi-light/"</span><span class="o">);</span>
 <span class="o">}</span>

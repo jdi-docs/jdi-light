@@ -594,18 +594,18 @@
 <span class="o">}</span>
 </code></pre>
 <ol>
-<li>Open HomePage (<a href='https://epam.github.io/JDI/index.html' target="_blank">https://epam.github.io/JDI/index.html</a>)</li>
+<li>Open HomePage (<a href='https://jdi-testing.github.io/jdi-light/index.html' target="_blank">https://jdi-testing.github.io/jdi-light/index.html</a>)</li>
 <li>Click on User Icon (to open login dialog)</li>
 <li>Login as some default user
 
 <ul>
-<li>Enter &#39;epam&#39; in login textfield</li>
-<li>Enter &#39;1234&#39; in password textfield</li>
+<li>Enter &#39;Roman&#39; in login textfield</li>
+<li>Enter &#39;Jdi1234&#39; in password textfield</li>
 <li>Press &#39;Enter&#39; button</li>
 </ul></li>
 <li>Validate that HomePage is openned</li>
 </ol>
-<pre class="highlight plaintext"><code>[22:17.102  STEP] : Open 'Home Page'(url=https://epam.github.io/JDI/index.html)
+<pre class="highlight plaintext"><code>[22:17.102  STEP] : Open 'Home Page'(url=&gt;https://jdi-testing.github.io/jdi-light/index.html)
 [22:23.617  STEP] : Click on 'User Icon'
 [22:23.727  STEP] : Login as User(userName:epam; password:1234)
 [22:24.516  STEP] : Check that 'Home Page' is opened (url CONTAINS '/index.html'; title EQUALS 'Home Page')
@@ -628,7 +628,7 @@ But this is not all, just Run this test in your IDE and what you will get?</p>
 
 <p>Just move allure-results folder in  folder and run maven &gt; Plugins &gt; allure &gt; allure:serve
 <img src="images/intro/allure-serve.png" alt="Allure Serve" /></p>
-<pre class="highlight java tab-java"><code><span class="nd">@JSite</span><span class="o">(</span><span class="s">"https://epam.github.io/JDI/"</span><span class="o">)</span>
+<pre class="highlight java tab-java"><code><span class="nd">@JSite</span><span class="o">(</span><span class="s">"https://jdi-testing.github.io/jdi-light/"</span><span class="o">)</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">JdiTestSite</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">HomePage</span> <span class="n">homePage</span><span class="o">;</span>
 <span class="o">}</span>
@@ -661,12 +661,12 @@ But this is not all, just Run this test in your IDE and what you will get?</p>
 <p>This is common JDI project structure</p>
 <pre class="highlight java tab-java"><code><span class="nd">@Test</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">nonPageObjectTest</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">WebPage</span><span class="o">.</span><span class="na">openUrl</span><span class="o">(</span><span class="s">"https://epam.github.io/JDI/index.html"</span><span class="o">);</span>
+    <span class="n">WebPage</span><span class="o">.</span><span class="na">openUrl</span><span class="o">(</span><span class="s">"https://jdi-testing.github.io/jdi-light/index.html"</span><span class="o">);</span>
     <span class="err">$</span><span class="o">(</span><span class="s">"img#user-icon"</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
-    <span class="err">$</span><span class="o">(</span><span class="s">"form #name"</span><span class="o">).</span><span class="na">input</span><span class="o">(</span><span class="s">"epam"</span><span class="o">);</span>
-    <span class="err">$</span><span class="o">(</span><span class="s">"form #password"</span><span class="o">).</span><span class="na">input</span><span class="o">(</span><span class="s">"1234"</span><span class="o">);</span>
+    <span class="err">$</span><span class="o">(</span><span class="s">"form #name"</span><span class="o">).</span><span class="na">input</span><span class="o">(</span><span class="s">"Roman"</span><span class="o">);</span>
+    <span class="err">$</span><span class="o">(</span><span class="s">"form #password"</span><span class="o">).</span><span class="na">input</span><span class="o">(</span><span class="s">"Jdi1234"</span><span class="o">);</span>
     <span class="err">$</span><span class="o">(</span><span class="s">"form [type=submit]"</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
-    <span class="n">Assert</span><span class="o">.</span><span class="na">assertEquals</span><span class="o">(</span><span class="n">WebPage</span><span class="o">.</span><span class="na">getUrl</span><span class="o">(),</span> <span class="s">"https://epam.github.io/JDI/index.html"</span><span class="o">);</span>
+    <span class="n">Assert</span><span class="o">.</span><span class="na">assertEquals</span><span class="o">(</span><span class="n">WebPage</span><span class="o">.</span><span class="na">getUrl</span><span class="o">(),</span> <span class="s">"https://jdi-testing.github.io/jdi-light/index.html"</span><span class="o">);</span>
 <span class="o">}</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">LoginForm</span> <span class="kd">extends</span> <span class="n">Form</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="o">{</span>
     <span class="n">TextField</span> <span class="n">userName</span> <span class="o">=</span> <span class="err">$</span><span class="o">(</span><span class="s">"#name"</span><span class="o">);</span>

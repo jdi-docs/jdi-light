@@ -494,6 +494,9 @@
                     <a href="#composite-elements" class="toc-h2 toc-link" data-title="Composite elements">Composite elements</a>
                         <ul class="toc-list-h2">
                             <li>
+                              <a href="#form" class="toc-h2 h3 toc-link" data-title="Form">Form</a>
+                            </li>
+                            <li>
                               <a href="#webpage" class="toc-h2 h3 toc-link" data-title="WebPage">WebPage</a>
                             </li>
                         </ul>
@@ -6279,7 +6282,249 @@ Multi Selector are represented by the following class:</p>
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/ComboboxTests.java">Java test examples</a></p>
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/ComboBoxTests.cs">C# test examples</a></p>
-<h2 id='composite-elements'>Composite elements</h2><h3 id='webpage'>WebPage</h3>
+<h2 id='composite-elements'>Composite elements</h2><h3 id='form'>Form</h3>
+<p><strong>Form</strong> – logical part of a web page that represents HTML form. Form consists of elements based on SetValue interface and buttons with function “submit”.</p>
+
+<p>Form provides functionality to fill, submit and verify/check the form.  </p>
+
+<p><img src="images/html/form_html.png" alt="Form" /></p>
+
+<p>Form is located in the following classes:</p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.elements.composite.Form</em></li>
+<li><strong>C#</strong>: <em>JDI.Light.Elements.Composite.Form</em></li>
+</ul>
+
+<p>Form is parameterized by an entity that corresponds to the form. For example, a login form can be parameterized by a user entity. Entity should extend DataClass class parameterized by the entity itself. The names of the entity fields should be exactly the same as the names of the form fields. All fields of the entity managed by form should be String.</p>
+<pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">User</span> <span class="kd">extends</span> <span class="n">DataClass</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="n">password</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre>
+<p>JDI Light Java supports three types of forms:</p>
+
+<p><strong>JDI Light Forms</strong> - typical Forms in JDI with <strong>typified elements</strong>, <strong>@UI</strong> annotations, extending from Form and without <strong>fill/check</strong> methods.</p>
+<pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LoginForm</span> <span class="kd">extends</span> <span class="n">Form</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#name"</span><span class="o">)</span> <span class="n">TextField</span> <span class="n">name</span><span class="o">;</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#password"</span><span class="o">)</span> <span class="n">TextField</span> <span class="n">password</span><span class="o">;</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#login-button"</span><span class="o">)</span> <span class="n">Button</span> <span class="n">loginButton</span><span class="o">;</span>
+<span class="o">}</span>
+<span class="n">on</span> <span class="n">JDISite</span><span class="o">.</span><span class="na">java</span> <span class="o">&gt;&gt;</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">LoginForm</span> <span class="n">loginForm</span><span class="o">;</span>
+</code></pre>
+<p><strong>Smart JDI Forms</strong> - forms that exploit Smart locators functionality of JDI. In Smart Forms there is no need to explicitly define locators for form elements, if such locators can be obtained implicitly from the field names using Smart locators functionality.
+<a href="https://jdi-docs.github.io/jdi-light/?java#smart-locators">See more details and exampels for Smart locators in documentation</a></p>
+<pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LoginFormSmart</span> <span class="kd">extends</span> <span class="n">Form</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="n">TextField</span> <span class="n">name</span><span class="o">,</span> <span class="n">password</span><span class="o">;</span>
+    <span class="n">Button</span> <span class="n">loginButton</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre>
+<p><strong>Light Forms</strong> - if a Form consists of only TextFields and Buttons there is no need to define Form UI Object. Such form can be added directly to the related page or to the root Site class.</p>
+<pre class="highlight java tab-java"><code><span class="n">on</span> <span class="n">JDISite</span><span class="o">.</span><span class="na">java</span> <span class="o">&gt;&gt;</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">LoginFormSmart</span> <span class="n">loginFormSmart</span><span class="o">;</span>
+</code></pre><pre class="highlight java tab-java"><code>    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">loginWithUserTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">shouldBeLoggedOut</span><span class="o">();</span>
+        <span class="n">loginForm</span><span class="o">.</span><span class="na">shouldBeOpened</span><span class="o">();</span>
+        <span class="n">loginForm</span><span class="o">.</span><span class="na">login</span><span class="o">(</span><span class="n">DEFAULT_USER</span><span class="o">);</span>
+        <span class="n">homePage</span><span class="o">.</span><span class="na">checkOpened</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">fillContactFormTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">shouldContactPageBeOpenedAndRefreshed</span><span class="o">();</span>
+        <span class="n">main</span><span class="o">.</span><span class="na">contactForm</span><span class="o">.</span><span class="na">fill</span><span class="o">(</span><span class="n">DEFAULT_CONTACT</span><span class="o">);</span>
+        <span class="n">main</span><span class="o">.</span><span class="na">contactForm</span><span class="o">.</span><span class="na">check</span><span class="o">(</span><span class="n">DEFAULT_CONTACT</span><span class="o">);</span>
+    <span class="o">}</span>   
+</code></pre>
+<p>In Java, Form has a filter property that defines which form elements will be filled/submited or verified/checked. Filter can be set to either <strong>ALL</strong>, <strong>MANDATORY</strong> or <strong>OPTIONAL</strong>. Based on this property, fill/submit and verify/check functions are applied to either all form elements or only mandatory (only optional) form elements. Mandatory form fields should be marked with <strong>@Mandatory</strong> annotation. Optional form fields are the ones without <strong>@Mandatory</strong> annotation. <strong>ALL</strong> is default Form option. To set form filters as <strong>MANDATORY</strong> or <strong>OPTIONAL</strong>, <strong>onlyMandatory()</strong> and <strong>onlyOptional()</strong> methods should be used. They set the corresponding form filter option for a duration of a single action (all form action methods set the form filter option back to <strong>ALL</strong>).</p>
+<pre class="highlight java tab-java"><code>    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onlyMandatoryOptionTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">shouldContactPageBeOpenedAndRefreshed</span><span class="o">();</span>
+        <span class="n">main</span><span class="o">.</span><span class="na">contactFormCustom</span><span class="o">.</span><span class="na">onlyMandatory</span><span class="o">().</span><span class="na">fill</span><span class="o">(</span><span class="n">DEFAULT_CONTACT</span><span class="o">);</span>
+        <span class="n">main</span><span class="o">.</span><span class="na">contactFormCustom</span><span class="o">.</span><span class="na">onlyMandatory</span><span class="o">().</span><span class="na">check</span><span class="o">(</span><span class="n">DEFAULT_CONTACT</span><span class="o">);</span>
+    <span class="o">}</span>
+</code></pre>
+<p>In Java, Form has a <strong>FILL_ACTION</strong> and <strong>GET_ACTION</strong> lambdas that define how the Form should be filled and verified. The default behavior defined in the Form class simply exploits <strong>setValue(String value)</strong> method of the SetValue interface and <strong>getValue()</strong> method of the HasValue interface. However these lambdas are redefined in HtmlSettings class in order to customise behavior for a &quot;non-text&quot; form elements such as Checkboxes (the behavior of the custom elements is defined by <strong>@FillValue</strong> and <strong>@VerifyValue</strong> annotations). <strong>FILL_ACTION</strong> and <strong>GET_ACTION</strong> lambdas can also be further modified in order to customise the Form behavior, but it is important to take into account that behavior, defined in the HtmlSettings might be lost. It is customary to reassign these lambdas before all the tests are run, for example in the TestNG&#39;s <strong>@beforeSuite</strong> method.</p>
+<pre class="highlight java tab-java"><code>    <span class="nd">@BeforeSuite</span><span class="o">(</span><span class="n">alwaysRun</span> <span class="o">=</span> <span class="kc">true</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">setUp</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">logger</span><span class="o">.</span><span class="na">setLogLevel</span><span class="o">(</span><span class="n">INFO</span><span class="o">);</span>
+        <span class="n">initElements</span><span class="o">(</span><span class="n">StaticSite</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+        <span class="n">Form</span><span class="o">.</span><span class="na">FILL_ACTION</span> <span class="o">=</span> <span class="o">(</span><span class="n">field</span><span class="o">,</span> <span class="n">element</span><span class="o">,</span> <span class="n">parent</span><span class="o">,</span> <span class="n">setValue</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="o">{</span>
+             <span class="k">if</span> <span class="o">(</span><span class="n">isInterface</span><span class="o">(</span><span class="n">field</span><span class="o">,</span> <span class="n">TextField</span><span class="o">.</span><span class="na">class</span><span class="o">))</span>
+                        <span class="o">((</span><span class="n">TextField</span><span class="o">)</span><span class="n">element</span><span class="o">).</span><span class="na">higlight</span><span class="o">();</span>
+            <span class="o">((</span><span class="n">SetValue</span><span class="o">)</span> <span class="n">element</span><span class="o">).</span><span class="na">setValue</span><span class="o">(</span><span class="n">setValue</span><span class="o">);</span>
+        <span class="o">};</span>
+        <span class="n">homePage</span><span class="o">.</span><span class="na">open</span><span class="o">();</span>
+        <span class="n">logger</span><span class="o">.</span><span class="na">toLog</span><span class="o">(</span><span class="s">"Run Tests"</span><span class="o">);</span>
+    <span class="o">}</span>
+</code></pre>
+<p>In Java, if fill/submit and verify/check methods need to be redefined for a specific form, it is possible to override <strong>fillAction()</strong> and <strong>getAction()</strong> for such form.</p>
+<pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LoginForm</span> <span class="kd">extends</span> <span class="n">Form</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="n">TextField</span> <span class="n">name</span><span class="o">,</span> <span class="n">password</span><span class="o">;</span>
+    <span class="n">Button</span> <span class="n">loginButton</span><span class="o">;</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">fillAction</span><span class="o">(</span><span class="n">Field</span> <span class="n">field</span><span class="o">,</span> <span class="n">Object</span> <span class="n">element</span><span class="o">,</span> <span class="n">Object</span> <span class="n">parent</span><span class="o">,</span> <span class="n">String</span> <span class="n">setValue</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">isInterface</span><span class="o">(</span><span class="n">field</span><span class="o">,</span> <span class="n">TextField</span><span class="o">.</span><span class="na">class</span><span class="o">))</span>
+            <span class="o">((</span><span class="n">TextField</span><span class="o">)</span><span class="n">element</span><span class="o">).</span><span class="na">higlight</span><span class="o">();</span>
+        <span class="kd">super</span><span class="o">.</span><span class="na">fillAction</span><span class="o">(</span><span class="n">field</span><span class="o">,</span> <span class="n">element</span><span class="o">,</span> <span class="n">parent</span><span class="o">,</span> <span class="n">setValue</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+<p>Available methods in Java JDI Light:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>fillAction(Field field, Object element, Object parent, String setValue)</strong></td>
+<td>Defines the specifics of how the form elements will be filled</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>getAction(Field field, Object element, Object parent)</strong></td>
+<td>Defines the specifics of how the form elements will be obtained for verification and checks</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>onlyMandatory()</strong></td>
+<td>Sets form filter option to <strong>MANDATORY</strong> meaning that only mandatory form elements are filled/submitted or verified/checked for a duration of a single form action</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>onlyOptional()</strong></td>
+<td>Sets form filter option to <strong>OPTIONAL</strong> meaning that only optional form elements are filled/submitted or verified/checked for a duration of a single form action</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>fill(T entity)</strong></td>
+<td>Fills all setable elements on the form that can be matched with fields in input entity</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>submit()</strong></td>
+<td>Sends the form by clicking on Button &quot;submit&quot; or &quot;submitButton&quot;</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>submit(String text)</strong></td>
+<td>Fills first setable form field with value and clicks on Button &quot;submit&quot; or &quot;submitButton&quot;</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>submit(T entity)</strong></td>
+<td>Fills all setable elements and clicks on Button &quot;submit&quot; or &quot;submitButton&quot;</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>submit(String text, String buttonName)</strong></td>
+<td>Fills first setable field with value and clicks on Button “buttonName” or &quot;buttonNamebutton&quot;</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>submit(T entity, String buttonName)</strong></td>
+<td>Fills all setable elements and clicks on Button “buttonName” or &quot;buttonNamebutton&quot;</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>pressButton(String buttonName)</strong></td>
+<td>Clicks on Button “buttonName” or &quot;buttonNamebutton&quot;. Allows different buttons to send one form e.g. save/publish/cancel/search/update/...</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>verify(T entity)</strong></td>
+<td>Verifies that form was filled correctly. If not returns list of keys where verification fails</td>
+<td>List<String></td>
+</tr>
+<tr>
+<td><strong>check(T entity)</strong></td>
+<td>Verifies that form was filled correctly. If not throws exception</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>login()</strong></td>
+<td>Clicks on Button &quot;login&quot; or &quot;loginButton&quot;</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>login(T entity)</strong></td>
+<td>Fills all setable elements and clicks on Button “login” or ”loginButton”</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>loginAs(T entity)</strong></td>
+<td>Fills all setable elements and clicks on Button “login” or ”loginButton”</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>send()</strong></td>
+<td>Sends the form by clicking on Button “send” or &quot;sendButton&quot;</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>send(T entity)</strong></td>
+<td>Fills all setable elements and clicks on Button “send” or ”sendButton”</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>add(T entity)</strong></td>
+<td>Fills all setable elements and clicks on Button “add” or ”addButton”</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>publish(T entity)</strong></td>
+<td>Fills all setable elements and clicks on Button “publish” or ”publishButton”</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>save(T entity)</strong></td>
+<td>Fills all setable elements and clicks on Button “save” or ”saveButton”</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>update(T entity)</strong></td>
+<td>Fills all setable elements and clicks on Button “update” or ”updateButton”</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>cancel(T entity)</strong></td>
+<td>Fills all setable elements and clicks on Button “cancel” or ”cancelButton”</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>close(T entity)</strong></td>
+<td>Fills all setable elements and clicks on Button “close” or ”closeButton”</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>back(T entity)</strong></td>
+<td>Fills all setable elements and clicks on Button “back” or ”backButton”</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>select(T entity)</strong></td>
+<td>Fills all setable elements and clicks on Button “select” or ”selectButton”</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>next(T entity)</strong></td>
+<td>Fills all setable elements and clicks on Button “next” or ”nextButton”</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>search(T entity)</strong></td>
+<td>Fills all setable elements and clicks on Button “search” or ”searchButton”</td>
+<td>void</td>
+</tr>
+</tbody></table>
+
+<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/composite/FormTests.java">Java test examples</a></p>
+
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Composite/FormTests.cs">C# test examples</a></p>
+<h3 id='webpage'>WebPage</h3>
 <p><strong>WebPage</strong> is provided by JDI Light in:</p>
 
 <ul>

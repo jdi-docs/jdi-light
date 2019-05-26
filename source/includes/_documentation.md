@@ -2904,6 +2904,61 @@ Here is the list of some available methods in C# JDI Light:
 [C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/ComboBoxTests.cs)
 
 ## Composite elements
+###Section
+
+**Section** - logical part of Web Page that contains other UI Elements
+  
+Section is represented by the following class:   
+
+Java: com.epam.jdi.light.elements.composite.Section  
+public class Section extends JDIBase implements PageObject 
+
+C#: JDI.Light.Elements.Composite.Section  
+public class Section : UIElement
+  
+```java 
+   @UI(".someSectionUI") // @FindBy(css = ".someSectionUI")
+   public static SomeSection someSectionUI;
+   //public class SomeSection extends Section
+
+   @Test
+   public void someSectionWebElementTest() {
+      assertNotNull(someSection.webElementPublic);
+      assertEquals(someSection.webElementPublic.locator.toString(), "id='webElementPublic'");
+      assertEquals(someSection.webElementPublic.parent, someSection);
+      assertEquals(someSection.webElementPublic.name, "Web Element Public");
+   }
+   
+```
+
+```csharp        
+  [Test]
+  public void SectionTest()
+  {
+      var e = TestSite.HomePage.Get<Section>(By.CssSelector(".main-title"));
+      Assert.AreEqual("EPAM FRAMEWORK WISHES…", e.Text);
+      Assert.AreEqual("Section", e.Name);
+      Assert.AreEqual(true, e.Displayed);
+      Assert.AreEqual(true, e.Enabled);
+      Assert.AreEqual(false, e.Hidden);
+      Assert.AreEqual(By.CssSelector(".main-title"), e.Locator);
+      Assert.AreEqual(false, e.Selected);
+      Assert.AreEqual("h3", e.TagName);
+  }
+```
+
+And here are methods available in Java:
+
+|Method | Description | Return Type
+--- | --- | ---
+**shouldBe()** | Returns object for work with assertions | IsAssert
+**waitFor()** | Returns object for work with assertions | IsAssert
+**has()** | Returns object for work with assertions | IsAssert
+**is()** | Returns object for work with assertions | IsAssert
+**assertThat()** | Returns object for work with assertions | IsAssert
+
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/composite/section)  
+[Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Composite/SectionTests.cs)
 
 ### Form
 

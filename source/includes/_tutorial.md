@@ -1,12 +1,15 @@
 # Tutorial
 In this tutorial, we’ll look at glance on [JDI Light](https://github.com/jdi-testing/jdi-light), a library that simplifies test automation, makes test run results stable, predictable and easy to maintain.<br/>
-1. Quick Start - short instruction how to add JDI Light in your project and basic configurations<br/>
+1. Quick Start - short instruction how to add JDI Light in to your project and basic configurations<br/>
 2. JDI Light at glance - few simple test examples with and without Page Objects. Typified UI Elements and logs in JDI Light<br/>
-3. JDI Light Forms<br/>
-4. UI Elements and optimization<br/>
-5. Reduce Amount of code with JDI Light<br/>
+3. JDI Light Forms - small complex element example that shows JDI Light basic benefits<br/>
+4. UI Elements and optimization - more complex example that describes in details types of elements in JDI Light and demonstrate its capabilities<br/>
+5. Reduce Amount of code with JDI Light - Good and clear example how JDI Light can reduce amount of code in 3 times vs Selenium. Shows that you can write clear and stable tests with 3 times less effort<br/>
 
 ## 1. Integration
+1. Add JDI Light in your projects <br/>
+2. Some brief configurations overview <br/>
+
 Let’s start from the beginning and add JDI Light into our test project going through the setup step by step.<br/>
 _Note: JDI Light also ships with a [template project](https://github.com/jdi-templates/jdi-light-testng-template) that can be used to save us some time for the setup._
 ### Maven Dependencies
@@ -48,6 +51,10 @@ _Note: you can find more examples in the documentation._ <br/>
 <a href="https://github.com/jdi-tutorials/01-jdi-light-intro/blob/master/src/test/resources/test.properties" target="_blank">See examples on Github</a>
 
 ## 2. JDI Light at glance
+1. Simple Open page test <br/>
+2. No Page Objects test example<br/>
+3. Page Objects test example<br/>
+
 ### Let's start
 
 ```java

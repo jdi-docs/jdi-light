@@ -969,7 +969,13 @@ Exactly what we do in our test with all the details and without any effort from 
 <br/>
 We can change the log level to <strong>STEP</strong> (just add logger.setLogLevel(STEP) in to the <em>setUp()</em> method) and remove details. This log can wecan share with Customer, Business Analyst or Manual QA and let them know what our Automated tests verify.<br/>
 <a href="https://github.com/jdi-tutorials/01-jdi-light-intro" target="_blank">See PageObject examples in PageObjectExample.java on Github</a></p>
-<h2 id='3-jdi-light-forms'>3. JDI Light Forms</h2><h3 id='standard-login-form'>Standard Login form</h3><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LoginForm</span> <span class="kd">extends</span> <span class="n">Form</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="o">{</span>
+<h2 id='3-jdi-light-forms'>3. JDI Light Forms</h2>
+<ol>
+<li>Simple login test example. DataClass example<br/></li>
+<li>Login Form in Data Driven Test approach<br/></li>
+<li>Page Objects test example<br/></li>
+</ol>
+<h3 id='standard-login-form'>Standard Login form</h3><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LoginForm</span> <span class="kd">extends</span> <span class="n">Form</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="o">{</span>
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"#name"</span><span class="o">)</span> <span class="n">TextField</span> <span class="n">name</span><span class="o">;</span>
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"#password"</span><span class="o">)</span> <span class="n">TextField</span> <span class="n">password</span><span class="o">;</span>
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"#login-button"</span><span class="o">)</span> <span class="n">Button</span> <span class="n">loginButton</span><span class="o">;</span>
@@ -1086,7 +1092,14 @@ If we run this one scenario we will get 3 tests that validate different cases of
 In this way you can easily manage same scenarios with different test data, increase testing coverage, add new data sets or update them without changing tests<br/>
 So simple! <a class="github-button" href="https://github.com/jdi-testing/jdi-light" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star jdi-testing/jdi-light on GitHub">I Like it!</a><br/> 
 <a href="https://github.com/jdi-tutorials/02-jdi-light-forms-elements" target="_blank">See this example in LoginExample.java on Github</a></p>
-<h2 id='4-ui-elements-and-optimization'>4. UI Elements and optimization</h2><h3 id='ui-elements-on-contact-form'>UI Elements on Contact Form</h3>
+<h2 id='4-ui-elements-and-optimization'>4. UI Elements and optimization</h2>
+<ol>
+<li>Main UI Elements types in JDI Light and few examples<br/></li>
+<li>Complex Contact From example<br/></li>
+<li>Check and verify Form methods. Errors in logs<br/></li>
+<li>5 Ways to describe Form from complex Selenium example (17 lines) to 1 line Form<br/></li>
+</ol>
+<h3 id='ui-elements-on-contact-form'>UI Elements on Contact Form</h3>
 <p>We got first look on JDI Light and now let&#39;s look closer to UI Elements. In JDI we have 3 kinds of elements:<br/>
 1. <strong>Common Elements</strong>: Buttons, TextFields, Text, Checkbox etc. Some of them we already use in Login Form. All this elements are simple and can be described by one locator or Selenium element<br/>
 <em>Note: See full list and more details in <a href="https://jdi-docs.github.io/jdi-light/?java#common-elements">Documentation</a></em><br/>
@@ -1330,6 +1343,15 @@ See Example 2 <br/>
 This allow us to write Login Form in our case in 1 line instead of 17!<br/>
 <a class="github-button" href="https://github.com/jdi-testing/jdi-light" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star jdi-testing/jdi-light on GitHub">Nice job man!</a></p>
 <h2 id='5-reduce-amount-of-code-with-jdi-light'>5. Reduce Amount of code with JDI Light</h2>
+<ol>
+<li>Init Driver in Selenium and JDI Light</li>
+<li>Page Objects code</li>
+<li>Compare Login Form code</li>
+<li>Reduce Complex Contact Form Page Object code from 97 lines in Selenium to 8 lines of code in JDI Light</li>
+<li>Test Data in Seleniium and JDI Light</li>
+<li>Discuss example results</li>
+</ol>
+
 <p>Now we know enough about Forms and lets see how we this can help us to write code faster (less code)<br/>
 Let&#39;s try to write a code on Selenium for the same scenario <a href="https://jdi-docs.github.io/jdi-light/?java#contact-form-test-scenario">Fill Contact Form test scenario</a> what we done on JDI Light before<br/>
 - Open Home Page by url<br/>

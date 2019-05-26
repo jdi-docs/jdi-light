@@ -179,6 +179,10 @@ We can change the log level to **STEP** (just add logger.setLogLevel(STEP) in to
 <a href="https://github.com/jdi-tutorials/01-jdi-light-intro" target="_blank">See PageObject examples in PageObjectExample.java on Github</a>
 
 ## 3. JDI Light Forms
+1. Simple login test example. DataClass example<br/>
+2. Login Form in Data Driven Test approach<br/>
+3. Page Objects test example<br/>
+
 ### Standard Login form
 
 ```java
@@ -312,6 +316,11 @@ So simple! <a class="github-button" href="https://github.com/jdi-testing/jdi-lig
 <a href="https://github.com/jdi-tutorials/02-jdi-light-forms-elements" target="_blank">See this example in LoginExample.java on Github</a>
 
 ## 4. UI Elements and optimization
+1. Main UI Elements types in JDI Light and few examples<br/>
+2. Complex Contact From example<br/>
+3. Check and verify Form methods. Errors in logs<br/>
+4. 5 Ways to describe Form from complex Selenium example (17 lines) to 1 line Form<br/>
+
 ### UI Elements on Contact Form
 We got first look on JDI Light and now let's look closer to UI Elements. In JDI we have 3 kinds of elements:<br/>
 1. **Common Elements**: Buttons, TextFields, Text, Checkbox etc. Some of them we already use in Login Form. All this elements are simple and can be described by one locator or Selenium element<br/>
@@ -583,6 +592,13 @@ This allow us to write Login Form in our case in 1 line instead of 17!<br/>
 <a class="github-button" href="https://github.com/jdi-testing/jdi-light" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star jdi-testing/jdi-light on GitHub">Nice job man!</a>
 
 ## 5. Reduce Amount of code with JDI Light
+1. Init Driver in Selenium and JDI Light
+2. Page Objects code
+3. Compare Login Form code
+4. Reduce Complex Contact Form Page Object code from 97 lines in Selenium to 8 lines of code in JDI Light
+5. Test Data in Seleniium and JDI Light
+6. Discuss example results
+
 Now we know enough about Forms and lets see how we this can help us to write code faster (less code)<br/>
 Let's try to write a code on Selenium for the same scenario [Fill Contact Form test scenario](https://jdi-docs.github.io/jdi-light/?java#contact-form-test-scenario) what we done on JDI Light before<br/>
 - Open Home Page by url<br/>

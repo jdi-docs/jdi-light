@@ -614,20 +614,20 @@
 But this is not all, just Run this test in your IDE and what you will get?</p>
 
 <ol>
-<li>Detailed log in Console output:</li>
+<li>Detailed log in Console output:<br/></li>
 </ol>
 
 <p><strong>Nice!</strong> Isn&#39;t it?</p>
 
 <ol>
-<li>Same log in log file (src/test/.logs/) if you would like to see test execution results remotely (require log4j2.xml in src/test/resources)</li>
-<li>Nice Allure report of your test execution! (require Allure settings in pom.xml)
+<li>Same log in log file (src/test/.logs/) if you would like to see test execution results remotely (require log4j2.xml in src/test/resources)<br/></li>
+<li>Nice Allure report of your test execution! (require Allure settings in pom.xml)<br/>
 <img src="images/intro/allure-report.png" alt="Allure Report" />
 <img src="images/intro/allure-report-log.png" alt="Allure Log" /></li>
 </ol>
 
-<p>Just move allure-results folder in  folder and run maven &gt; Plugins &gt; allure &gt; allure:serve
-<img src="images/intro/allure-serve.png" alt="Allure Serve" /></p>
+<p>Just move allure-results folder in  folder and run maven &gt; Plugins &gt; allure &gt; allure:serve<br/>
+<img src="images/intro/allure-serve.png" alt="Allure Serve" width="300"></p>
 <pre class="highlight java tab-java"><code><span class="nd">@JSite</span><span class="o">(</span><span class="s">"https://jdi-testing.github.io/jdi-light/"</span><span class="o">)</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">JdiTestSite</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">HomePage</span> <span class="n">homePage</span><span class="o">;</span>

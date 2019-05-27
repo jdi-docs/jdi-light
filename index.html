@@ -4329,12 +4329,54 @@ C#: JDI.Light.Elements.Common.TextElement</p>
 <span class="k">public</span> <span class="k">void</span> <span class="nf">ClickTest</span><span class="p">()</span> 
 <span class="p">{</span>
         <span class="n">JdiTitle</span><span class="p">.</span><span class="nf">ClickTitle</span><span class="p">();</span>
-<span class="p">}</span>    
+<span class="p">}</span>
+
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">IsValidationTest</span><span class="p">()</span>
+<span class="p">{</span>
+       <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">JdiTitle</span><span class="p">.</span><span class="n">Is</span><span class="p">.</span><span class="nf">Enabled</span><span class="p">();</span>
+       <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">JdiTitle</span><span class="p">.</span><span class="n">Is</span><span class="p">.</span><span class="nf">Text</span><span class="p">(</span><span class="nf">EqualTo</span><span class="p">(</span><span class="n">_text</span><span class="p">));</span>
+       <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">JdiTitle</span><span class="p">.</span><span class="n">Is</span><span class="p">.</span><span class="nf">Text</span><span class="p">(</span><span class="nf">Is</span><span class="p">(</span><span class="n">_text</span><span class="p">));</span>
+       <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">JdiTitle</span><span class="p">.</span><span class="n">Is</span><span class="p">.</span><span class="nf">Text</span><span class="p">(</span><span class="n">EqualToIgnoringCaseMatcher</span><span class="p">.</span><span class="nf">EqualTo</span><span class="p">(</span><span class="s">"jdi TESTING platform"</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">AssertValidationTest</span><span class="p">()</span>
+<span class="p">{</span>
+       <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">JdiTitle</span><span class="p">.</span><span class="n">AssertThat</span><span class="p">.</span><span class="nf">Text</span><span class="p">(</span><span class="nf">EqualTo</span><span class="p">(</span><span class="n">_text</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">BaseValidationTest</span><span class="p">()</span>
+<span class="p">{</span>
+       <span class="nf">BaseElementValidation</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">JdiTitle</span><span class="p">);</span>
+<span class="p">}</span>   
 
 </code></pre>
 <p><img src="images/title.png" alt="Title" /></p>
 
-<p>Here is the list of available methods:</p>
+<p>Here is the list of available methods in C# JDI Light:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Is</strong></td>
+<td>Gets Title&#39;s assert</td>
+<td>TitleAssert</td>
+</tr>
+<tr>
+<td><strong>AssertThat</strong></td>
+<td>Gets Title&#39;s assert</td>
+<td>TitleAssert</td>
+</tr>
+</tbody></table>
+
+<p>Here is the list of available methods in Java JDI Light:</p>
 
 <table><thead>
 <tr>

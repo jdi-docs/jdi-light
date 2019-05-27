@@ -5506,6 +5506,54 @@ This type can be used in cases when dropdown is represented with HTML <em>&lt;se
 <span class="p">{</span>
     <span class="kt">var</span> <span class="n">optionsList</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="p">{</span> <span class="s">"Steam"</span><span class="p">,</span> <span class="s">"Electro"</span> <span class="p">};</span>
     <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">MultiDropdown</span><span class="p">.</span><span class="nf">SelectOptions</span><span class="p">(</span><span class="n">optionsList</span><span class="p">);</span>
+    <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">IsTrue</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">MultiDropdown</span><span class="p">.</span><span class="nf">OptionsAreSelected</span><span class="p">(</span><span class="n">optionsList</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">CheckOptionExists</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">MultiDropdown</span><span class="p">.</span><span class="nf">Expand</span><span class="p">();</span>
+    <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">IsTrue</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">MultiDropdown</span><span class="p">.</span><span class="nf">OptionExists</span><span class="p">(</span><span class="s">"Steam"</span><span class="p">));</span>
+    <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">IsFalse</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">MultiDropdown</span><span class="p">.</span><span class="nf">OptionExists</span><span class="p">(</span><span class="s">"Steam2"</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">CheckOptionIsDisabled</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">MultiDropdown</span><span class="p">.</span><span class="nf">Expand</span><span class="p">();</span>
+    <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">IsFalse</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">MultiDropdown</span><span class="p">.</span><span class="nf">OptionIsEnabled</span><span class="p">(</span><span class="s">"Disabled"</span><span class="p">));</span>
+    <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">IsTrue</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">MultiDropdown</span><span class="p">.</span><span class="nf">OptionIsEnabled</span><span class="p">(</span><span class="s">"Wood"</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">LabelTest</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">AreEquals</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">MultiDropdown</span><span class="p">.</span><span class="nf">Label</span><span class="p">().</span><span class="nf">GetText</span><span class="p">(),</span> <span class="s">"Multi dropdown:"</span><span class="p">);</span>
+    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">MultiDropdown</span><span class="p">.</span><span class="nf">Label</span><span class="p">().</span><span class="n">Is</span><span class="p">.</span><span class="nf">Text</span><span class="p">(</span><span class="nf">ContainsString</span><span class="p">(</span><span class="s">"Multi"</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">IsValidationTest</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">MultiDropdown</span><span class="p">.</span><span class="nf">SelectOptions</span><span class="p">(</span><span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="p">{</span> <span class="s">"Steam"</span> <span class="p">});</span>
+    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">MultiDropdown</span><span class="p">.</span><span class="n">Is</span><span class="p">.</span><span class="nf">Selected</span><span class="p">(</span><span class="s">"Steam"</span><span class="p">);</span>
+    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">MultiDropdown</span><span class="p">.</span><span class="n">Is</span><span class="p">.</span><span class="nf">Selected</span><span class="p">(</span><span class="n">Ages</span><span class="p">.</span><span class="n">Steam</span><span class="p">);</span>
+    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">MultiDropdown</span><span class="p">.</span><span class="n">Is</span><span class="p">.</span><span class="nf">Values</span><span class="p">(</span><span class="nf">HasItems</span><span class="p">(</span> <span class="k">new</span> <span class="p">[]{</span> <span class="s">"Wood"</span> <span class="p">}));</span>
+    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">MultiDropdown</span><span class="p">.</span><span class="n">Is</span><span class="p">.</span><span class="nf">Disabled</span><span class="p">(</span><span class="nf">HasItems</span><span class="p">(</span><span class="k">new</span><span class="p">[]</span> <span class="p">{</span> <span class="s">"Disabled"</span> <span class="p">}));</span>
+    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">MultiDropdown</span><span class="p">.</span><span class="n">Is</span><span class="p">.</span><span class="nf">Enabled</span><span class="p">(</span><span class="nf">HasItems</span><span class="p">(</span> <span class="k">new</span> <span class="p">[]{</span> <span class="s">"Electro"</span><span class="p">,</span> <span class="s">"Metalic"</span> <span class="p">}));</span>
+<span class="p">}</span>
+
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">AssertValidationTest</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">MultiDropdown</span><span class="p">.</span><span class="nf">SelectOptions</span><span class="p">(</span><span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="p">{</span> <span class="s">"Steam"</span> <span class="p">});</span>
+    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">MultiDropdown</span><span class="p">.</span><span class="n">AssertThat</span><span class="p">.</span><span class="nf">Values</span><span class="p">(</span><span class="nf">ContainsInAnyOrder</span><span class="p">(</span> <span class="k">new</span> <span class="p">[]{</span> <span class="s">"Disabled"</span><span class="p">,</span> <span class="s">"Electro"</span><span class="p">,</span> <span class="s">"Metalic"</span><span class="p">,</span> <span class="s">"Wood"</span><span class="p">,</span> <span class="s">"Steam"</span> <span class="p">}));</span>
+<span class="p">}</span>
+
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">BaseValidationTest</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="nf">BaseElementValidation</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">MultiDropdown</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre>
 <p><strong>MultiDropDown</strong> – a graphical control element, that allows the user to choose several values from a list.</p>
@@ -5562,6 +5610,52 @@ This type can be used in cases when dropdown is represented with HTML <em>&lt;se
 <td><strong>Close()</strong></td>
 <td>Close expanded list</td>
 <td>void</td>
+</tr>
+</tbody></table>
+
+<p>Available assert methods in C# JDI Light:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Selected(string option)</strong></td>
+<td>Check whether option is selected</td>
+<td>MultiDropdownAssert</td>
+</tr>
+<tr>
+<td><strong>Selected(Enum option)</strong></td>
+<td>Check whether option is selected</td>
+<td>MultiDropdownAssert</td>
+</tr>
+<tr>
+<td><strong>Values(Matcher<IEnumerable<string>&gt; condition)</strong></td>
+<td>Check whether whether some values exist in MultiDropDown by some matcher</td>
+<td>MultiDropdownAssert</td>
+</tr>
+<tr>
+<td><strong>Disabled(Matcher<IEnumerable<string>&gt; condition)</strong></td>
+<td>Check whether whether some values are disabled in MultiDropDown by some matcher</td>
+<td>MultiDropdownAssert</td>
+</tr>
+<tr>
+<td><strong>Enabled(Matcher<IEnumerable<string>&gt; condition)</strong></td>
+<td>Check whether whether some values are enabled in MultiDropDown by some matcher</td>
+<td>MultiDropdownAssert</td>
+</tr>
+<tr>
+<td><strong>Is</strong></td>
+<td>Gets multiDropDown&#39;s assert</td>
+<td>MultiDropdownAssert</td>
+</tr>
+<tr>
+<td><strong>AssertThat</strong></td>
+<td>Gets multiDropDown&#39;s assert</td>
+<td>MultiDropdownAssert</td>
 </tr>
 </tbody></table>
 

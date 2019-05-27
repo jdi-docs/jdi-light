@@ -2458,6 +2458,54 @@ public void SelectMultipleOptions()
 {
     var optionsList = new List<string> { "Steam", "Electro" };
     TestSite.Html5Page.MultiDropdown.SelectOptions(optionsList);
+    Jdi.Assert.IsTrue(TestSite.Html5Page.MultiDropdown.OptionsAreSelected(optionsList));
+}
+
+[Test]
+public void CheckOptionExists()
+{
+    TestSite.Html5Page.MultiDropdown.Expand();
+    Jdi.Assert.IsTrue(TestSite.Html5Page.MultiDropdown.OptionExists("Steam"));
+    Jdi.Assert.IsFalse(TestSite.Html5Page.MultiDropdown.OptionExists("Steam2"));
+}
+
+[Test]
+public void CheckOptionIsDisabled()
+{
+    TestSite.Html5Page.MultiDropdown.Expand();
+    Jdi.Assert.IsFalse(TestSite.Html5Page.MultiDropdown.OptionIsEnabled("Disabled"));
+	Jdi.Assert.IsTrue(TestSite.Html5Page.MultiDropdown.OptionIsEnabled("Wood"));
+}
+
+[Test]
+public void LabelTest()
+{
+    Jdi.Assert.AreEquals(TestSite.Html5Page.MultiDropdown.Label().GetText(), "Multi dropdown:");
+    TestSite.Html5Page.MultiDropdown.Label().Is.Text(ContainsString("Multi"));
+}
+
+[Test]
+public void IsValidationTest()
+{
+    TestSite.Html5Page.MultiDropdown.SelectOptions(new List<string> { "Steam" });
+    TestSite.Html5Page.MultiDropdown.Is.Selected("Steam");
+    TestSite.Html5Page.MultiDropdown.Is.Selected(Ages.Steam);
+    TestSite.Html5Page.MultiDropdown.Is.Values(HasItems( new []{ "Wood" }));
+    TestSite.Html5Page.MultiDropdown.Is.Disabled(HasItems(new[] { "Disabled" }));
+    TestSite.Html5Page.MultiDropdown.Is.Enabled(HasItems( new []{ "Electro", "Metalic" }));
+}
+
+[Test]
+public void AssertValidationTest()
+{
+    TestSite.Html5Page.MultiDropdown.SelectOptions(new List<string> { "Steam" });
+    TestSite.Html5Page.MultiDropdown.AssertThat.Values(ContainsInAnyOrder( new []{ "Disabled", "Electro", "Metalic", "Wood", "Steam" }));
+}
+
+[Test]
+public void BaseValidationTest()
+{
+    BaseElementValidation(TestSite.Html5Page.MultiDropdown);
 }
 ```
 
@@ -2481,6 +2529,18 @@ Here is the list of some available methods in C# JDI Light:
 **OptionExists(string)** |Check whether option exists in list  | bool
 **Expand()** |Expand list  | void
 **Close()** |Close expanded list  | void
+
+Available assert methods in C# JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**Selected(string option)** |Check whether option is selected  | MultiDropdownAssert
+**Selected(Enum option)** |Check whether option is selected  | MultiDropdownAssert
+**Values(Matcher<IEnumerable<string>> condition)** |Check whether whether some values exist in MultiDropDown by some matcher  | MultiDropdownAssert
+**Disabled(Matcher<IEnumerable<string>> condition)** |Check whether whether some values are disabled in MultiDropDown by some matcher  | MultiDropdownAssert
+**Enabled(Matcher<IEnumerable<string>> condition)** |Check whether whether some values are enabled in MultiDropDown by some matcher  | MultiDropdownAssert
+**Is** |Gets multiDropDown's assert  | MultiDropdownAssert
+**AssertThat** |Gets multiDropDown's assert  | MultiDropdownAssert
 
 The list of available methods for Java JDI Light:
 

@@ -2951,7 +2951,80 @@ public void verifyTitle() {
 TBD
 
 ## JDI Locators
-TBD
+
+JDI provides various locators for detecting elements using css locators and xpath expressions. JDI Light supports Selenium's @FindBy(s) locators as well as providing custom locators such as Selenium-like **@FindBy(s)**, aliases **@Css**/**@XPath** and custom **@ByText** and **@WithText** locators. 
+
+Furthermore JDI Light introduces **@UI** locator that provides additional features for css support.
+
+Apart from locator annotations JDI Light provides support for smart locators. When using this feature there is no need to explicitly provide locators for elements at all. 
+
+### Selenium-like annotations
+
+|Annotation | Description | Example
+--- | --- | ---
+**@FindBy** | This JDI Light locator corresponds to Selenium @FindBy locator. It is used to locate element exploiting one of the predefined strategies. JDI Light supports most of the Selenium strategies: **id**, **name**, **className**, **css**, **tagName**, **linkText**, **partialLinkText**, **xpath**. Added strategies are **text** and **group**. | @FindBy(css = "#passport")
+**@FindBys** | TBD. The JDI Light annotation should correspond exactly to Selenium @FindBys annotation | @FindBys({@FindBy(css = ".main-form"), @FindBy(css = "#accept-conditions")})
+**@FindAll** | TBD. The JDI Light annotation should correspond exactly to Selenium @FindAll annotation | TBD
+
+### JDI Light specific annotations
+
+|Annotation | Description | Example
+--- | --- | ---
+**@Css("expr")** | This locator is an alias to @FindBy(css = "expr")| @Css(".fa-sign-out")
+**@XPath("expr")** | This locator is an alias to @FindBy(xpath = "expr") | @XPath(".//button\[@type='submit'\]")
+**@ByText("text")** | This locator allows detecting element(s) with the given text inside its text nodes. It is equivalent to xpath = ".//*/text()\[normalize-space(.) = 'text'\]/parent::\*" | @ByText("Calculate")
+**@WithText("text")** | This locator allows detecting element with the given text inside its text nodes. It is equivalent to xpath = ".//*/text()\[contains(normalize-space(.), 'text')\]/parent::\*" | @WithText("Calculat")
+**@UI("expr")** | This locator can take either css locator or xpath expression as an argument and locate element accordingly. This locator provides additional features as described below. | @UI("#users-table")
+**@UI("\['text'\]")** | Such notation allows to enrich css locators to detect element(s) with given text inside its text nodes. It is equivalent to xpath = ".//*\[text()='text'\]" | @UI(".user\['Roman'\]") or @UI("\['Accept'\] input") 
+**@UI("\[\*'text'\]")** | Such notation allows to enrich css locators to detect element(s) which contain(s) given text inside its text nodes. It is equivalent to xpath = ".//*\[contains(text(),'text')\]" | @UI(".user\[\*'Roma'\]") or @UI("\[\*'Accept'\] input")
+**@UI("'expr\[n\]")** | Such notation allows to enrich css locators to choose an element at a specific position. It is equivalent to xpath = ".//xpath-expr\[n\]" | @UI("\[type=checkbox\]\[1\]")
+**@UI("expr1 < expr2")** | Such notation allows to enrich css locators to move up the tree. E.g. \[’text’\]**<**\[type=checkbox\] is the same as //\*\[text()=’text’\]/..//*\[@type=‘checkbox’\] | @UI"\[’Ice Cream’\]<\[type=checkbox\]"
+
+### Smart locators
+
+```
+<input type="text" id="name">
+<input type="text" id="last-name">
+<input type="text" id="passport-code">
+<input type="text" id="passport-number">
+<button id="submit-button">
+```
+```java 
+public class UserCard extends Form<User> {
+    @Css("#name") TextField name;
+    @Css("#last-name") TextField lastName;
+    @Css("#passport-code") TextField passportCode;
+    @Css("#passport-number") TextField passportNumber;   
+    @Css("#submit-button") Button submitButton; 
+}
+If Smart locator rule is id
+WebSettings.SMART_SEARCH_LOCATORS = asList("#%s");
+and convertation rule is hyphen to java name
+WebSettings.SMART_SEARCH_NAME = StringUtils::splitHyphen;
+So you can write
+public class UserCard extends Form<User> {
+    TextField name;
+    TextField lastName;
+    TextField passportCode
+    TextField passportNumber;  
+    Button submitButton; 
+}
+or just write all TextFields in one line
+public class UserCard extends Form<User> {
+    TextField name, lastName, passportCode, passportNumber;  
+    Button submitButton; 
+}
+```
+
+If you have your developers follow some standard way to mark ui elements or you have an agreement to add special attribute you can even avoid to write locators for elements and make your page objects much more compact.
+
+You can manage how to create locator from a field name using:
+
+WebSettings.SMART_SEARCH - function that is invoked if you have element that has no locator or just setting a list of used locators using
+
+WebSettings.SMART_SEARCH_LOCATORS - list of locators that can be used to try to find element
+
+WebSettings.SMART_SEARCH_NAME - function how to create locator name from filed name (this value will be passed as %s parameter in SMART_SEARCH_LOCATORS)
 
 ## Windows/Tabs manager
 TBD

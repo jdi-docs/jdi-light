@@ -2950,6 +2950,8 @@ public void ExpandComboBox()
 public void SelectComboBox() 
 {
     MyComboBox.Select("some value");
+	MyComboBox.Is().Selected(Is.EqualTo("some value"));
+	TestSite.Html5Page.IceCreamComboBox.AssertThat().Selected(Is.EqualTo("Strawberry"));	
 }
 [Test]
 public void SelectByIndex() 
@@ -2986,6 +2988,8 @@ Here is the list of some available methods in C# JDI Light:
 **Select(string/int)** |Select datalist by value/index  | void
 **Input(string)** |Input user's value into datalist  | void
 **GetSelected()** |Get selected datalist value  | string
+**is()** |  Returns object for work with assertions| ComboBoxAssert
+**assertThat()** | Returns object for work with assertions| ComboBoxAssert
 
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/ComboboxTests.java)
 

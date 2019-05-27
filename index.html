@@ -6507,44 +6507,15 @@ public class Section : UIElement</p>
 
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/composite/section">Java test examples</a><br>
 <a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Composite/SectionTests.cs">Test examples in C#</a></p>
-<h3 id='form'>Form</h3>
-<p><strong>Form</strong> – logical part of a web page that represents HTML form. Form consists of elements based on SetValue interface and buttons with function “submit”.</p>
-
-<p>Form provides functionality to fill, submit and verify/check the form.  </p>
-
-<p><img src="images/html/form_html.png" alt="Form" /></p>
-
-<p>Form is located in the following classes:</p>
-
-<ul>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.elements.composite.Form</em></li>
-<li><strong>C#</strong>: <em>JDI.Light.Elements.Composite.Form</em></li>
-</ul>
-
-<p>Form is parameterized by an entity that corresponds to the form. For example, a login form can be parameterized by a user entity. Entity should extend DataClass class parameterized by the entity itself. The names of the entity fields should be exactly the same as the names of the form fields. All fields of the entity managed by form should be String.</p>
-<pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">User</span> <span class="kd">extends</span> <span class="n">DataClass</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="o">{</span>
+<h3 id='form'>Form</h3><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">User</span> <span class="kd">extends</span> <span class="n">DataClass</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="n">password</span><span class="o">;</span>
 <span class="o">}</span>
-</code></pre>
-<p>JDI Light Java supports three types of forms:</p>
-
-<p><strong>JDI Light Forms</strong> - typical Forms in JDI with <strong>typified elements</strong>, <strong>@UI</strong> annotations, extending from Form and without <strong>fill/check</strong> methods.</p>
-<pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LoginForm</span> <span class="kd">extends</span> <span class="n">Form</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="o">{</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LoginForm</span> <span class="kd">extends</span> <span class="n">Form</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="o">{</span>
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"#name"</span><span class="o">)</span> <span class="n">TextField</span> <span class="n">name</span><span class="o">;</span>
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"#password"</span><span class="o">)</span> <span class="n">TextField</span> <span class="n">password</span><span class="o">;</span>
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"#login-button"</span><span class="o">)</span> <span class="n">Button</span> <span class="n">loginButton</span><span class="o">;</span>
 <span class="o">}</span>
 <span class="n">on</span> <span class="n">JDISite</span><span class="o">.</span><span class="na">java</span> <span class="o">&gt;&gt;</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">LoginForm</span> <span class="n">loginForm</span><span class="o">;</span>
-</code></pre>
-<p><strong>Smart JDI Forms</strong> - forms that exploit Smart locators functionality of JDI. In Smart Forms there is no need to explicitly define locators for form elements, if such locators can be obtained implicitly from the field names using Smart locators functionality.
-<a href="https://jdi-docs.github.io/jdi-light/?java#smart-locators">See more details and exampels for Smart locators in documentation</a></p>
-<pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LoginFormSmart</span> <span class="kd">extends</span> <span class="n">Form</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="o">{</span>
-    <span class="n">TextField</span> <span class="n">name</span><span class="o">,</span> <span class="n">password</span><span class="o">;</span>
-    <span class="n">Button</span> <span class="n">loginButton</span><span class="o">;</span>
-<span class="o">}</span>
-</code></pre>
-<p><strong>Light Forms</strong> - if a Form consists of only TextFields and Buttons there is no need to define Form UI Object. Such form can be added directly to the related page or to the root Site class.</p>
-<pre class="highlight java tab-java"><code><span class="n">on</span> <span class="n">JDISite</span><span class="o">.</span><span class="na">java</span> <span class="o">&gt;&gt;</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">LoginFormSmart</span> <span class="n">loginFormSmart</span><span class="o">;</span>
 </code></pre><pre class="highlight java tab-java"><code>    <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">loginWithUserTest</span><span class="o">()</span> <span class="o">{</span>
         <span class="n">shouldBeLoggedOut</span><span class="o">();</span>
@@ -6559,6 +6530,35 @@ public class Section : UIElement</p>
         <span class="n">main</span><span class="o">.</span><span class="na">contactForm</span><span class="o">.</span><span class="na">fill</span><span class="o">(</span><span class="n">DEFAULT_CONTACT</span><span class="o">);</span>
         <span class="n">main</span><span class="o">.</span><span class="na">contactForm</span><span class="o">.</span><span class="na">check</span><span class="o">(</span><span class="n">DEFAULT_CONTACT</span><span class="o">);</span>
     <span class="o">}</span>   
+</code></pre>
+<p><strong>Form</strong> – logical part of a web page that represents HTML form. Form consists of elements based on SetValue interface and buttons with function “submit”.</p>
+
+<p>Form provides functionality to fill, submit and verify/check the form.  </p>
+
+<p><img src="images/html/form_html.png" alt="Form" /></p>
+
+<p>Form is located in the following classes:</p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.elements.composite.Form</em></li>
+<li><strong>C#</strong>: <em>JDI.Light.Elements.Composite.Form</em></li>
+</ul>
+
+<p>Form is parameterized by an entity that corresponds to the form. For example, a login form can be parameterized by a user entity. Entity should extend DataClass class parameterized by the entity itself. The names of the entity fields should be exactly the same as the names of the form fields. All fields of the entity managed by form should be String.</p>
+
+<p>JDI Light Java supports three types of forms:</p>
+
+<p><strong>JDI Light Forms</strong> - typical Forms in JDI with <strong>typified elements</strong>, <strong>@UI</strong> annotations, extending from Form and without <strong>fill/check</strong> methods.</p>
+
+<p><strong>Smart JDI Forms</strong> - forms that exploit Smart locators functionality of JDI. In Smart Forms there is no need to explicitly define locators for form elements, if such locators can be obtained implicitly from the field names using Smart locators functionality.
+<a href="https://jdi-docs.github.io/jdi-light/?java#smart-locators">See more details and exampels for Smart locators in documentation</a></p>
+<pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LoginFormSmart</span> <span class="kd">extends</span> <span class="n">Form</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="n">TextField</span> <span class="n">name</span><span class="o">,</span> <span class="n">password</span><span class="o">;</span>
+    <span class="n">Button</span> <span class="n">loginButton</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre>
+<p><strong>Light Forms</strong> - if a Form consists of only TextFields and Buttons there is no need to define Form UI Object. Such form can be added directly to the related page or to the root Site class.</p>
+<pre class="highlight java tab-java"><code><span class="n">on</span> <span class="n">JDISite</span><span class="o">.</span><span class="na">java</span> <span class="o">&gt;&gt;</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">LoginFormSmart</span> <span class="n">loginFormSmart</span><span class="o">;</span>
 </code></pre>
 <p>In Java, Form has a filter property that defines which form elements will be filled/submited or verified/checked. Filter can be set to either <strong>ALL</strong>, <strong>MANDATORY</strong> or <strong>OPTIONAL</strong>. Based on this property, fill/submit and verify/check functions are applied to either all form elements or only mandatory (only optional) form elements. Mandatory form fields should be marked with <strong>@Mandatory</strong> annotation. Optional form fields are the ones without <strong>@Mandatory</strong> annotation. <strong>ALL</strong> is default Form option. To set form filters as <strong>MANDATORY</strong> or <strong>OPTIONAL</strong>, <strong>onlyMandatory()</strong> and <strong>onlyOptional()</strong> methods should be used. They set the corresponding form filter option for a duration of a single action (all form action methods set the form filter option back to <strong>ALL</strong>).</p>
 <pre class="highlight java tab-java"><code>    <span class="nd">@Test</span>

@@ -1667,14 +1667,42 @@ public void GetTextTest()
 public void ClickTest() 
 {
         JdiTitle.ClickTitle();
-}    
+}
+
+[Test]
+public void IsValidationTest()
+{
+       TestSite.Html5Page.JdiTitle.Is.Enabled();
+       TestSite.Html5Page.JdiTitle.Is.Text(EqualTo(_text));
+       TestSite.Html5Page.JdiTitle.Is.Text(Is(_text));
+       TestSite.Html5Page.JdiTitle.Is.Text(EqualToIgnoringCaseMatcher.EqualTo("jdi TESTING platform"));
+}
+
+[Test]
+public void AssertValidationTest()
+{
+       TestSite.Html5Page.JdiTitle.AssertThat.Text(EqualTo(_text));
+}
+
+[Test]
+public void BaseValidationTest()
+{
+       BaseElementValidation(TestSite.Html5Page.JdiTitle);
+}   
     
 ```
 
 
 ![Title](../images/title.png)
 
-Here is the list of available methods:
+Here is the list of available methods in C# JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**Is** |Gets Title's assert | TitleAssert
+**AssertThat** |Gets Title's assert | TitleAssert
+
+Here is the list of available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---

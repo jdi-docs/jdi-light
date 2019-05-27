@@ -3054,29 +3054,11 @@ And here are methods available in Java:
 
 ### Form
 
-**Form** – logical part of a web page that represents HTML form. Form consists of elements based on SetValue interface and buttons with function “submit”.
-
-Form provides functionality to fill, submit and verify/check the form.  
-
-![Form](../images/html/form_html.png)
-
-Form is located in the following classes:
- 
-  - __Java__: _com.epam.jdi.light.elements.composite.Form_
-  - __C#__: _JDI.Light.Elements.Composite.Form_
-  
-Form is parameterized by an entity that corresponds to the form. For example, a login form can be parameterized by a user entity. Entity should extend DataClass class parameterized by the entity itself. The names of the entity fields should be exactly the same as the names of the form fields. All fields of the entity managed by form should be String.
-
 ```java 
 public class User extends DataClass<User> {
     public String name, password;
 }
 ```
-
-JDI Light Java supports three types of forms:
-
-**JDI Light Forms** - typical Forms in JDI with **typified elements**, **@UI** annotations, extending from Form and without **fill/check** methods.
-
 ```java 
 public class LoginForm extends Form<User> {
     @UI("#name") TextField name;
@@ -3085,23 +3067,6 @@ public class LoginForm extends Form<User> {
 }
 on JDISite.java >> public static LoginForm loginForm;
 ```
-
-**Smart JDI Forms** - forms that exploit Smart locators functionality of JDI. In Smart Forms there is no need to explicitly define locators for form elements, if such locators can be obtained implicitly from the field names using Smart locators functionality.
-[See more details and exampels for Smart locators in documentation](https://jdi-docs.github.io/jdi-light/?java#smart-locators)
-
-```java 
-public class LoginFormSmart extends Form<User> {
-    TextField name, password;
-    Button loginButton;
-}
-```
-
-**Light Forms** - if a Form consists of only TextFields and Buttons there is no need to define Form UI Object. Such form can be added directly to the related page or to the root Site class.
-
-```java 
-on JDISite.java >> public static LoginFormSmart loginFormSmart;
-```
-
 ```java 
     @Test
     public void loginWithUserTest() {
@@ -3117,6 +3082,39 @@ on JDISite.java >> public static LoginFormSmart loginFormSmart;
         main.contactForm.fill(DEFAULT_CONTACT);
         main.contactForm.check(DEFAULT_CONTACT);
     }   
+```
+
+**Form** – logical part of a web page that represents HTML form. Form consists of elements based on SetValue interface and buttons with function “submit”.
+
+Form provides functionality to fill, submit and verify/check the form.  
+
+![Form](../images/html/form_html.png)
+
+Form is located in the following classes:
+ 
+  - __Java__: _com.epam.jdi.light.elements.composite.Form_
+  - __C#__: _JDI.Light.Elements.Composite.Form_
+  
+Form is parameterized by an entity that corresponds to the form. For example, a login form can be parameterized by a user entity. Entity should extend DataClass class parameterized by the entity itself. The names of the entity fields should be exactly the same as the names of the form fields. All fields of the entity managed by form should be String.
+
+JDI Light Java supports three types of forms:
+
+**JDI Light Forms** - typical Forms in JDI with **typified elements**, **@UI** annotations, extending from Form and without **fill/check** methods.
+
+**Smart JDI Forms** - forms that exploit Smart locators functionality of JDI. In Smart Forms there is no need to explicitly define locators for form elements, if such locators can be obtained implicitly from the field names using Smart locators functionality.
+[See more details and exampels for Smart locators in documentation](https://jdi-docs.github.io/jdi-light/?java#smart-locators)
+
+```java 
+public class LoginFormSmart extends Form<User> {
+    TextField name, password;
+    Button loginButton;
+}
+```
+
+**Light Forms** - if a Form consists of only TextFields and Buttons there is no need to define Form UI Object. Such form can be added directly to the related page or to the root Site class.
+
+```java 
+on JDISite.java >> public static LoginFormSmart loginFormSmart;
 ```
 
 In Java, Form has a filter property that defines which form elements will be filled/submited or verified/checked. Filter can be set to either **ALL**, **MANDATORY** or **OPTIONAL**. Based on this property, fill/submit and verify/check functions are applied to either all form elements or only mandatory (only optional) form elements. Mandatory form fields should be marked with **@Mandatory** annotation. Optional form fields are the ones without **@Mandatory** annotation. **ALL** is default Form option. To set form filters as **MANDATORY** or **OPTIONAL**, **onlyMandatory()** and **onlyOptional()** methods should be used. They set the corresponding form filter option for a duration of a single action (all form action methods set the form filter option back to **ALL**).

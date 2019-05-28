@@ -4630,8 +4630,11 @@ C#: JDI.Light.Elements.Common.TextElement</p>
                 <span class="nf">ContainsValue</span><span class="p">(</span><span class="s">"Burke"</span><span class="p">,</span> <span class="nf">InColumn</span><span class="p">(</span><span class="m">1</span><span class="p">)),</span>
                 <span class="nf">ContainsValue</span><span class="p">(</span><span class="s">"ut.edu"</span><span class="p">,</span> <span class="nf">InColumn</span><span class="p">(</span><span class="m">3</span><span class="p">)));</span>
             <span class="kt">var</span> <span class="n">row</span> <span class="p">=</span> <span class="n">PerformancePage</span><span class="p">.</span><span class="n">UsersTable</span><span class="p">.</span><span class="nf">Row</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
-            <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="s">"Burke Tucker;076 1971 1687;et.euismod.et@ut.edu;GozŽe"</span><span class="p">,</span>
-                <span class="n">row</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">());</span>
+            <span class="n">PerformancePage</span><span class="p">.</span><span class="n">UsersTable</span><span class="p">.</span><span class="nf">Is</span><span class="p">().</span><span class="nf">HasRowWithValues</span><span class="p">(</span> 
+                <span class="nf">HasValue</span><span class="p">(</span><span class="s">"Brian Meyer"</span><span class="p">,</span> <span class="nf">InColumn</span><span class="p">(</span><span class="s">"Name"</span><span class="p">)),</span> 
+                <span class="nf">HasValue</span><span class="p">(</span><span class="s">"(016977) 0358"</span><span class="p">,</span> <span class="nf">InColumn</span><span class="p">(</span><span class="s">"Phone"</span><span class="p">)),</span>
+                <span class="nf">HasValue</span><span class="p">(</span><span class="s">"mollis.nec@seddictumeleifend.co.uk"</span><span class="p">,</span> <span class="nf">InColumn</span><span class="p">(</span><span class="s">"Email"</span><span class="p">)),</span> 
+                <span class="nf">HasValue</span><span class="p">(</span><span class="s">"Houston"</span><span class="p">,</span> <span class="nf">InColumn</span><span class="p">(</span><span class="s">"City"</span><span class="p">)));</span>
         <span class="p">}</span>
 
         <span class="p">[</span><span class="n">Test</span><span class="p">]</span>

@@ -2347,14 +2347,39 @@ In addition if you run test scenarios on JDI Light you will <strong>get logs of 
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>SetDateTime(string value)</strong></td>
+<td><strong>SetDateTime(string/DateTime value)</strong></td>
 <td>Sets a date or time</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>GetValue()</strong></td>
+<td><strong>GetDateTime()</strong></td>
 <td>Returns the set date or time</td>
+<td>DateTime</td>
+</tr>
+<tr>
+<td><strong>Value()</strong></td>
+<td>Returns value attribute</td>
 <td>string</td>
+</tr>
+<tr>
+<td><strong>Min()</strong></td>
+<td>Gets attribute with name min</td>
+<td>string</td>
+</tr>
+<tr>
+<td><strong>Max()</strong></td>
+<td>Gets attribute with name max</td>
+<td>string</td>
+</tr>
+<tr>
+<td><strong>Is()</strong></td>
+<td>Assert action of DateTimeSelector</td>
+<td>DateTimeSelectorAssert</td>
+</tr>
+<tr>
+<td><strong>AssertThat()</strong></td>
+<td>Assert action of DateTimeSelector</td>
+<td>DateTimeSelectorAssert</td>
 </tr>
 </tbody></table>
 
@@ -2422,9 +2447,8 @@ In addition if you run test scenarios on JDI Light you will <strong>get logs of 
 <span class="k">public</span> <span class="k">void</span> <span class="nf">SetBirthDateTest</span><span class="p">()</span>
 <span class="p">{</span>
     <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">BirthDate</span><span class="p">.</span><span class="n">Format</span> <span class="p">=</span> <span class="s">"yyyy-MM-dd"</span><span class="p">;</span>
-    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">BirthDate</span><span class="p">.</span><span class="nf">SetDateTime</span><span class="p">(</span><span class="n">_dateTime</span><span class="p">);</span>
-    <span class="kt">var</span> <span class="n">setValue</span> <span class="p">=</span> <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">BirthDate</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">();</span>
-    <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">setValue</span><span class="p">,</span> <span class="s">"2019-04-01"</span><span class="p">);</span>
+    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">BirthDate</span><span class="p">.</span><span class="nf">SetDateTime</span><span class="p">(</span><span class="n">_dateTime</span><span class="p">);</span>    
+    <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">BirthDate</span><span class="p">.</span><span class="nf">AssertThat</span><span class="p">().</span><span class="nf">SelectedTime</span><span class="p">(</span><span class="n">Is</span><span class="p">.</span><span class="nf">EqualToIgnoringCase</span><span class="p">(</span><span class="s">"2019-04-01"</span><span class="p">));</span>   
 <span class="p">}</span>
 </code></pre>
 <p><strong>Input Type Date</strong> – a graphical control element, that allows users to set the value of date.</p>

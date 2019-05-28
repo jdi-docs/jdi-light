@@ -1753,6 +1753,8 @@ public void GetSelected()
 {
     var selected = MyRadioButtons.GetSelected();
     Assert.AreEqual(selected, "some value");
+	MyRadioButtons.Is().Selected(Is.EqualTo("some value")); 
+	MyRadioButtons.AssertThat().Selected(Is.EqualTo("some value"));
 }
 ```
 
@@ -1766,6 +1768,8 @@ Here is the list of some available methods:
 --- | --- | ---
 **select(String/int/Enum)/Select(string/int)** |Select radiobutton by value/index  | void
 **selected()/Selected()** |Get selected radiobutton value  | string
+**is()** | returns object for work with assertions  | RadioButtonAssert
+**assertThat()** | returns object for work with assertions  | RadioButtonAssert
 
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/RadioTests.java)
 

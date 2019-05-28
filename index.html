@@ -4435,6 +4435,8 @@ C#: JDI.Light.Elements.Common.TextElement</p>
 <span class="p">{</span>
     <span class="kt">var</span> <span class="n">selected</span> <span class="p">=</span> <span class="n">MyRadioButtons</span><span class="p">.</span><span class="nf">GetSelected</span><span class="p">();</span>
     <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">selected</span><span class="p">,</span> <span class="s">"some value"</span><span class="p">);</span>
+    <span class="n">MyRadioButtons</span><span class="p">.</span><span class="nf">Is</span><span class="p">().</span><span class="nf">Selected</span><span class="p">(</span><span class="n">Is</span><span class="p">.</span><span class="nf">EqualTo</span><span class="p">(</span><span class="s">"some value"</span><span class="p">));</span> 
+    <span class="n">MyRadioButtons</span><span class="p">.</span><span class="nf">AssertThat</span><span class="p">().</span><span class="nf">Selected</span><span class="p">(</span><span class="n">Is</span><span class="p">.</span><span class="nf">EqualTo</span><span class="p">(</span><span class="s">"some value"</span><span class="p">));</span>
 <span class="p">}</span>
 </code></pre>
 <p>Consider an example where each radio button is a particular color, described with given HTML code:</p>
@@ -4459,6 +4461,16 @@ C#: JDI.Light.Elements.Common.TextElement</p>
 <td><strong>selected()/Selected()</strong></td>
 <td>Get selected radiobutton value</td>
 <td>string</td>
+</tr>
+<tr>
+<td><strong>is()</strong></td>
+<td>returns object for work with assertions</td>
+<td>RadioButtonAssert</td>
+</tr>
+<tr>
+<td><strong>assertThat()</strong></td>
+<td>returns object for work with assertions</td>
+<td>RadioButtonAssert</td>
 </tr>
 </tbody></table>
 

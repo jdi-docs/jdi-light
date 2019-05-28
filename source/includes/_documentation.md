@@ -2771,10 +2771,12 @@ public void CheckCheckList()
 }
 
 [Test]
-public void UncheckNumTest()
+public void UncheckTest()
 {
-    genericWeather.Uncheck(1, 3);
-    Jdi.Assert.CollectionEquals(new[] { "Cold", "Sunny" }, genericWeather.Checked());
+    _weather.Check(false, "Rainy day", "Sunny");
+    _weather.Uncheck(false, "Rainy day", "Sunny");
+    _weather.Is.Selected(HasSize(2));
+    _weather.Is.Selected(HasItems(new[] { "Hot option", "Cold" }));
 }
 
 [Test]
@@ -2785,6 +2787,29 @@ public void IsValidationTests()
                 .Disabled(HasItems(new[] {"Disabled"}))                
                 .Size(Is.LessThan(6))
                 .AllDisplayed();
+}
+
+[Test]
+public void UncheckAllTest()
+{
+    _weather.Uncheck(false, "Rainy day", "Sunny");
+    _weather.UncheckAll();
+    _weather.Is.Selected(HasSize(0));
+}
+
+[Test]
+public void CheckAllTest()
+{
+    _weather.CheckAll();
+    _weather.Is.Selected(HasSize(4));
+    _weather.Is.Selected(HasItems(new[] { "Hot option", "Cold", "Rainy day", "Sunny" }));
+}
+
+[Test]
+public void IsDisabledTest()
+{
+    _weather.Select(false, "Disabled");
+    _weather.Is.Selected(HasItems(new [] { "Hot option" } ));
 }
 ```
 
@@ -2826,8 +2851,6 @@ Here is the list of some available methods in C# JDI Light:
 **Is** | Get select assert | SelectAssert
 **AssertThat** | Get select assert | SelectAssert
 **Has** | Get select assert | SelectAssert
-**IsChecked(string/int)** |Checks whether checkbox is checked | bool
-**IsDisabled(string/int)** | Checks whether checkbox is disabled | bool
 **Selected(string option)** | Checks whether checkbox is selected | bool
 
 

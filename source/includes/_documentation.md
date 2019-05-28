@@ -2962,7 +2962,7 @@ Apart from locator annotations JDI Light provides support for smart locators. Wh
 
 |Annotation | Description | Example
 --- | --- | ---
-**@FindBy** | This JDI Light locator corresponds to Selenium @FindBy locator. It is used to locate element exploiting one of the predefined strategies. JDI Light supports most of the Selenium strategies: **id**, **name**, **className**, **css**, **tagName**, **linkText**, **partialLinkText**, **xpath**. Added strategies are **text** and **group**. | @FindBy(css = "#passport")
+**@FindBy** | This JDI Light locator corresponds to Selenium @FindBy locator. It is used to locate element exploiting one of the predefined strategies. JDI Light supports most of the Selenium strategies: **id**, **name**, **className**, **css**, **tagName**, **linkText**, **partialLinkText**, **xpath**. Added strategy is **text**, which allows detecting element(s) with the given text inside its text nodes. The **group** annotation parameter allows to use different **@FindBy** locators for different test groups. | @FindBy(css = "#passport")
 **@FindBys** | TBD. The JDI Light annotation should correspond exactly to Selenium @FindBys annotation | @FindBys({@FindBy(css = ".main-form"), @FindBy(css = "#accept-conditions")})
 **@FindAll** | TBD. The JDI Light annotation should correspond exactly to Selenium @FindAll annotation | TBD
 
@@ -2974,11 +2974,11 @@ Apart from locator annotations JDI Light provides support for smart locators. Wh
 **@XPath("expr")** | This locator is an alias to @FindBy(xpath = "expr") | @XPath(".//button\[@type='submit'\]")
 **@ByText("text")** | This locator allows detecting element(s) with the given text inside its text nodes. It is equivalent to xpath = ".//*/text()\[normalize-space(.) = 'text'\]/parent::\*" | @ByText("Calculate")
 **@WithText("text")** | This locator allows detecting element with the given text inside its text nodes. It is equivalent to xpath = ".//*/text()\[contains(normalize-space(.), 'text')\]/parent::\*" | @WithText("Calculat")
-**@UI("expr")** | This locator can take either css locator or xpath expression as an argument and locate element accordingly. This locator provides additional features as described below. | @UI("#users-table")
-**@UI("\['text'\]")** | Such notation allows to enrich css locators to detect element(s) with given text inside its text nodes. It is equivalent to xpath = ".//*\[text()='text'\]" | @UI(".user\['Roman'\]") or @UI("\['Accept'\] input") 
-**@UI("\[\*'text'\]")** | Such notation allows to enrich css locators to detect element(s) which contain(s) given text inside its text nodes. It is equivalent to xpath = ".//*\[contains(text(),'text')\]" | @UI(".user\[\*'Roma'\]") or @UI("\[\*'Accept'\] input")
+**@UI("expr")** | This locator can take either css locator or xpath expression as an argument and locate element accordingly. This locator provides additional features as described below. Additionally, the **group** annotation parameter allows to use different **@UI** locators for different test groups. | @UI("#users-table")
+**@UI("\['text'\]")** | Such notation allows to enrich css locators to detect element(s) with given text inside its text nodes. It is equivalent to xpath = ".//\*/text()\[normalize-space(.) = 'text'\]/parent::\*" | @UI(".user\['Roman'\]") or @UI("\['Accept'\] input") 
+**@UI("\[\*'text'\]")** | Such notation allows to enrich css locators to detect element(s) which contain(s) given text inside its text nodes. It is equivalent to xpath = ".//\*/text()\[contains(normalize-space(.), 'text')\]/parent::\*" | @UI(".user\[\*'Roma'\]") or @UI("\[\*'Accept'\] input")
 **@UI("'expr\[n\]")** | Such notation allows to enrich css locators to choose an element at a specific position. It is equivalent to xpath = ".//xpath-expr\[n\]" | @UI("\[type=checkbox\]\[1\]")
-**@UI("expr1 < expr2")** | Such notation allows to enrich css locators to move up the tree. E.g. \[’text’\]**<**\[type=checkbox\] is the same as //\*\[text()=’text’\]/..//*\[@type=‘checkbox’\] | @UI"\[’Ice Cream’\]<\[type=checkbox\]"
+**@UI("expr<")** | Such notation allows to enrich css locators by allowing to move up in the DOM to the parent of the element. E.g. \[’text’\]**<**\[type=checkbox\] is the same as //\*\[text()=’text’\]/..//*\[@type=‘checkbox’\] | @UI("\[’Ice Cream’\]<\[type=checkbox\]")
 
 ### Smart locators
 

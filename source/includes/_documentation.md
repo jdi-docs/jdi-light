@@ -409,8 +409,13 @@ Here is the list of some available methods in C#:
 
 |Method | Description | Return Type
 --- | --- | ---
-**SetDateTime(string value)** | Sets a date or time | void
-**GetValue()** | Returns the set date or time | string
+**SetDateTime(string/DateTime value)** | Sets a date or time | void
+**GetDateTime()** | Returns the set date or time | DateTime
+**Value()** | Returns value attribute | string
+**Min()** | Gets attribute with name min | string
+**Max()** | Gets attribute with name max | string
+**Is()** | Assert action of DateTimeSelector | DateTimeSelectorAssert
+**AssertThat()** | Assert action of DateTimeSelector | DateTimeSelectorAssert
 
 And here are some of the methods available in Java:
 
@@ -450,9 +455,8 @@ public IDateTimeSelector BirthDate { get; set; }
 public void SetBirthDateTest()
 {
     TestSite.Html5Page.BirthDate.Format = "yyyy-MM-dd";
-    TestSite.Html5Page.BirthDate.SetDateTime(_dateTime);
-    var setValue = TestSite.Html5Page.BirthDate.GetValue();
-    Assert.AreEqual(setValue, "2019-04-01");
+    TestSite.Html5Page.BirthDate.SetDateTime(_dateTime);    
+    TestSite.Html5Page.BirthDate.AssertThat().SelectedTime(Is.EqualToIgnoringCase("2019-04-01"));	
 }
 ```
 **Input Type Date** – a graphical control element, that allows users to set the value of date.

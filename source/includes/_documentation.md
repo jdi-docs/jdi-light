@@ -1934,8 +1934,11 @@ Tables are represented by the following classes in Java and C#:
                 ContainsValue("Burke", InColumn(1)),
                 ContainsValue("ut.edu", InColumn(3)));
             var row = PerformancePage.UsersTable.Row(1);
-            Assert.AreEqual("Burke Tucker;076 1971 1687;et.euismod.et@ut.edu;GozŽe",
-                row.GetValue());
+            PerformancePage.UsersTable.Is().HasRowWithValues( 
+				HasValue("Brian Meyer", InColumn("Name")), 
+				HasValue("(016977) 0358", InColumn("Phone")),
+                HasValue("mollis.nec@seddictumeleifend.co.uk", InColumn("Email")), 
+				HasValue("Houston", InColumn("City")));
         }
 
         [Test]

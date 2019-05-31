@@ -2851,7 +2851,7 @@ Here is the list of some available methods in C# JDI Light:
 **Values()** | Get checklist values | List\<String>
 **ListEnabled()** | Get enabled checkboxes | List\<String>
 **ListDisabled()** | Get disabled checkboxes | List\<String>
-**GetSize()** | Get checklist size | int
+**Size()** | Get checklist size | int
 **Is** | Get select assert | SelectAssert
 **AssertThat** | Get select assert | SelectAssert
 **Has** | Get select assert | SelectAssert
@@ -3057,7 +3057,8 @@ public class Section : UIElement
    
 ```
 
-```csharp        
+```csharp
+        
   [Test]
   public void SectionTest()
   {

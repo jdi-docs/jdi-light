@@ -6510,6 +6510,20 @@ public class Section : UIElement</p>
    <span class="o">}</span>
 
 </code></pre><pre class="highlight csharp tab-csharp"><code>
+  <span class="p">[</span><span class="nf">FindBy</span><span class="p">(</span><span class="n">Id</span> <span class="p">=</span> <span class="s">"contact-form"</span><span class="p">)]</span>
+  <span class="k">public</span> <span class="n">Contact</span> <span class="n">ContactSection</span><span class="p">;</span>
+
+  <span class="p">[</span><span class="nf">FindBy</span><span class="p">(</span><span class="n">Css</span> <span class="p">=</span> <span class="s">".footer-content"</span><span class="p">)]</span>
+  <span class="k">public</span> <span class="k">static</span> <span class="n">Footer</span> <span class="n">Footer</span><span class="p">;</span>
+
+  <span class="p">[</span><span class="nf">FindBy</span><span class="p">(</span><span class="n">Css</span> <span class="p">=</span> <span class="s">".uui-header"</span><span class="p">)]</span>
+  <span class="k">public</span> <span class="k">static</span> <span class="n">Header</span> <span class="n">Header</span><span class="p">;</span>
+
+  <span class="k">public</span> <span class="n">JdiSearch</span> <span class="n">Search</span><span class="p">;</span>
+
+  <span class="p">[</span><span class="nf">FindBy</span><span class="p">(</span><span class="n">Id</span> <span class="p">=</span> <span class="s">"summary-block"</span><span class="p">)]</span>
+  <span class="k">public</span> <span class="n">Summary</span> <span class="n">SummaryBlock</span><span class="p">;</span>
+
   <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
   <span class="k">public</span> <span class="k">void</span> <span class="nf">SectionTest</span><span class="p">()</span>
   <span class="p">{</span>

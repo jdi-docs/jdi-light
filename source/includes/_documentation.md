@@ -3058,6 +3058,20 @@ public class Section : UIElement
 ```
 
 ```csharp
+
+  [FindBy(Id = "contact-form")]
+  public Contact ContactSection;
+  
+  [FindBy(Css = ".footer-content")]
+  public static Footer Footer;
+  
+  [FindBy(Css = ".uui-header")]
+  public static Header Header;
+  
+  public JdiSearch Search;
+  
+  [FindBy(Id = "summary-block")]
+  public Summary SummaryBlock;
         
   [Test]
   public void SectionTest()

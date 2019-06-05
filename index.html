@@ -517,6 +517,17 @@
                   </li>
                   <li>
                     <a href="#jdi-locators" class="toc-h2 toc-link" data-title="JDI Locators">JDI Locators</a>
+                        <ul class="toc-list-h2">
+                            <li>
+                              <a href="#selenium-like-annotations" class="toc-h2 h3 toc-link" data-title="Selenium-like annotations">Selenium-like annotations</a>
+                            </li>
+                            <li>
+                              <a href="#jdi-light-specific-annotations" class="toc-h2 h3 toc-link" data-title="JDI Light specific annotations">JDI Light specific annotations</a>
+                            </li>
+                            <li>
+                              <a href="#smart-locators-2" class="toc-h2 h3 toc-link" data-title="Smart locators">Smart locators</a>
+                            </li>
+                        </ul>
                   </li>
                   <li>
                     <a href="#windows-tabs-manager" class="toc-h2 toc-link" data-title="Windows/Tabs manager">Windows/Tabs manager</a>
@@ -7186,7 +7197,128 @@ public class Section : UIElement</p>
 <li><p><strong>SmartSearchName</strong> -  method how to create locator name from filed name (this value will be passed as parameter in SmartSearchLocator)</p></li>
 </ul>
 <h2 id='jdi-locators'>JDI Locators</h2>
-<p>TBD</p>
+<p>JDI provides various locators for detecting elements using css locators and xpath expressions. JDI Light supports Selenium&#39;s @FindBy(s) locators as well as providing custom locators such as Selenium-like <strong>@FindBy(s)</strong>, aliases <strong>@Css</strong>/<strong>@XPath</strong> and custom <strong>@ByText</strong> and <strong>@WithText</strong> locators. </p>
+
+<p>Furthermore JDI Light introduces <strong>@UI</strong> locator that provides additional features for css support.</p>
+
+<p>Apart from locator annotations JDI Light provides support for smart locators. When using this feature there is no need to explicitly provide locators for elements at all. </p>
+<h3 id='selenium-like-annotations'>Selenium-like annotations</h3>
+<table><thead>
+<tr>
+<th>Annotation</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>@FindBy</strong></td>
+<td>This JDI Light locator corresponds to Selenium @FindBy locator. It is used to locate element exploiting one of the predefined strategies. JDI Light supports most of the Selenium strategies: <strong>id</strong>, <strong>name</strong>, <strong>className</strong>, <strong>css</strong>, <strong>tagName</strong>, <strong>linkText</strong>, <strong>partialLinkText</strong>, <strong>xpath</strong>. Added strategy is <strong>text</strong>, which allows detecting element(s) with the given text inside its text nodes. The <strong>group</strong> annotation parameter allows to use different <strong>@FindBy</strong> locators for different test groups.</td>
+<td>@FindBy(css = &quot;#passport&quot;)</td>
+</tr>
+<tr>
+<td><strong>@FindBys</strong></td>
+<td>TBD. The JDI Light annotation should correspond exactly to Selenium @FindBys annotation</td>
+<td>@FindBys({@FindBy(css = &quot;.main-form&quot;), @FindBy(css = &quot;#accept-conditions&quot;)})</td>
+</tr>
+<tr>
+<td><strong>@FindAll</strong></td>
+<td>TBD. The JDI Light annotation should correspond exactly to Selenium @FindAll annotation</td>
+<td>TBD</td>
+</tr>
+</tbody></table>
+<h3 id='jdi-light-specific-annotations'>JDI Light specific annotations</h3>
+<table><thead>
+<tr>
+<th>Annotation</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>@Css(&quot;expr&quot;)</strong></td>
+<td>This locator is an alias to @FindBy(css = &quot;expr&quot;)</td>
+<td>@Css(&quot;.fa-sign-out&quot;)</td>
+</tr>
+<tr>
+<td><strong>@XPath(&quot;expr&quot;)</strong></td>
+<td>This locator is an alias to @FindBy(xpath = &quot;expr&quot;)</td>
+<td>@XPath(&quot;.//button[@type=&#39;submit&#39;]&quot;)</td>
+</tr>
+<tr>
+<td><strong>@ByText(&quot;text&quot;)</strong></td>
+<td>This locator allows detecting element(s) with the given text inside its text nodes. It is equivalent to xpath = &quot;.//*/text()[normalize-space(.) = &#39;text&#39;]/parent::*&quot;</td>
+<td>@ByText(&quot;Calculate&quot;)</td>
+</tr>
+<tr>
+<td><strong>@WithText(&quot;text&quot;)</strong></td>
+<td>This locator allows detecting element with the given text inside its text nodes. It is equivalent to xpath = &quot;.//*/text()[contains(normalize-space(.), &#39;text&#39;)]/parent::*&quot;</td>
+<td>@WithText(&quot;Calculat&quot;)</td>
+</tr>
+<tr>
+<td><strong>@UI(&quot;expr&quot;)</strong></td>
+<td>This locator can take either css locator or xpath expression as an argument and locate element accordingly. This locator provides additional features as described below. Additionally, the <strong>group</strong> annotation parameter allows to use different <strong>@UI</strong> locators for different test groups.</td>
+<td>@UI(&quot;#users-table&quot;)</td>
+</tr>
+<tr>
+<td><strong>@UI(&quot;[&#39;text&#39;]&quot;)</strong></td>
+<td>Such notation allows to enrich css locators to detect element(s) with given text inside its text nodes. It is equivalent to xpath = &quot;.//*/text()[normalize-space(.) = &#39;text&#39;]/parent::*&quot;</td>
+<td>@UI(&quot;.user[&#39;Roman&#39;]&quot;) or @UI(&quot;[&#39;Accept&#39;] input&quot;)</td>
+</tr>
+<tr>
+<td><strong>@UI(&quot;[*&#39;text&#39;]&quot;)</strong></td>
+<td>Such notation allows to enrich css locators to detect element(s) which contain(s) given text inside its text nodes. It is equivalent to xpath = &quot;.//*/text()[contains(normalize-space(.), &#39;text&#39;)]/parent::*&quot;</td>
+<td>@UI(&quot;.user[*&#39;Roma&#39;]&quot;) or @UI(&quot;[*&#39;Accept&#39;] input&quot;)</td>
+</tr>
+<tr>
+<td><strong>@UI(&quot;&#39;expr[n]&quot;)</strong></td>
+<td>Such notation allows to enrich css locators to choose an element at a specific position. It is equivalent to xpath = &quot;.//xpath-expr[n]&quot;</td>
+<td>@UI(&quot;[type=checkbox][1]&quot;)</td>
+</tr>
+<tr>
+<td><strong>@UI(&quot;expr&lt;&quot;)</strong></td>
+<td>Such notation allows to enrich css locators by allowing to move up in the DOM to the parent of the element. E.g. [’text’]<strong>&lt;</strong>[type=checkbox] is the same as //*[text()=’text’]/..//*[@type=‘checkbox’]</td>
+<td>@UI(&quot;[’Ice Cream’]&lt;[type=checkbox]&quot;)</td>
+</tr>
+</tbody></table>
+<h3 id='smart-locators-2'>Smart locators</h3><pre class="highlight plaintext"><code>&lt;input type="text" id="name"&gt;
+&lt;input type="text" id="last-name"&gt;
+&lt;input type="text" id="passport-code"&gt;
+&lt;input type="text" id="passport-number"&gt;
+&lt;button id="submit-button"&gt;
+</code></pre><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserCard</span> <span class="kd">extends</span> <span class="n">Form</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="nd">@Css</span><span class="o">(</span><span class="s">"#name"</span><span class="o">)</span> <span class="n">TextField</span> <span class="n">name</span><span class="o">;</span>
+    <span class="nd">@Css</span><span class="o">(</span><span class="s">"#last-name"</span><span class="o">)</span> <span class="n">TextField</span> <span class="n">lastName</span><span class="o">;</span>
+    <span class="nd">@Css</span><span class="o">(</span><span class="s">"#passport-code"</span><span class="o">)</span> <span class="n">TextField</span> <span class="n">passportCode</span><span class="o">;</span>
+    <span class="nd">@Css</span><span class="o">(</span><span class="s">"#passport-number"</span><span class="o">)</span> <span class="n">TextField</span> <span class="n">passportNumber</span><span class="o">;</span>   
+    <span class="nd">@Css</span><span class="o">(</span><span class="s">"#submit-button"</span><span class="o">)</span> <span class="n">Button</span> <span class="n">submitButton</span><span class="o">;</span> 
+<span class="o">}</span>
+<span class="n">If</span> <span class="n">Smart</span> <span class="n">locator</span> <span class="n">rule</span> <span class="n">is</span> <span class="n">id</span>
+<span class="n">WebSettings</span><span class="o">.</span><span class="na">SMART_SEARCH_LOCATORS</span> <span class="o">=</span> <span class="n">asList</span><span class="o">(</span><span class="s">"#%s"</span><span class="o">);</span>
+<span class="n">and</span> <span class="n">convertation</span> <span class="n">rule</span> <span class="n">is</span> <span class="n">hyphen</span> <span class="n">to</span> <span class="n">java</span> <span class="n">name</span>
+<span class="n">WebSettings</span><span class="o">.</span><span class="na">SMART_SEARCH_NAME</span> <span class="o">=</span> <span class="nl">StringUtils:</span><span class="o">:</span><span class="n">splitHyphen</span><span class="o">;</span>
+<span class="n">So</span> <span class="n">you</span> <span class="n">can</span> <span class="n">write</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserCard</span> <span class="kd">extends</span> <span class="n">Form</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="n">TextField</span> <span class="n">name</span><span class="o">;</span>
+    <span class="n">TextField</span> <span class="n">lastName</span><span class="o">;</span>
+    <span class="n">TextField</span> <span class="n">passportCode</span>
+    <span class="n">TextField</span> <span class="n">passportNumber</span><span class="o">;</span>  
+    <span class="n">Button</span> <span class="n">submitButton</span><span class="o">;</span> 
+<span class="o">}</span>
+<span class="n">or</span> <span class="n">just</span> <span class="n">write</span> <span class="n">all</span> <span class="n">TextFields</span> <span class="n">in</span> <span class="n">one</span> <span class="n">line</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserCard</span> <span class="kd">extends</span> <span class="n">Form</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="n">TextField</span> <span class="n">name</span><span class="o">,</span> <span class="n">lastName</span><span class="o">,</span> <span class="n">passportCode</span><span class="o">,</span> <span class="n">passportNumber</span><span class="o">;</span>  
+    <span class="n">Button</span> <span class="n">submitButton</span><span class="o">;</span> 
+<span class="o">}</span>
+</code></pre>
+<p>If you have your developers follow some standard way to mark ui elements or you have an agreement to add special attribute you can even avoid to write locators for elements and make your page objects much more compact.</p>
+
+<p>You can manage how to create locator from a field name using:</p>
+
+<p>WebSettings.SMART_SEARCH - function that is invoked if you have element that has no locator or just setting a list of used locators using</p>
+
+<p>WebSettings.SMART_SEARCH_LOCATORS - list of locators that can be used to try to find element</p>
+
+<p>WebSettings.SMART_SEARCH_NAME - function how to create locator name from filed name (this value will be passed as %s parameter in SMART_SEARCH_LOCATORS)</p>
 <h2 id='windows-tabs-manager'>Windows/Tabs manager</h2>
 <p>TBD</p>
 <h2 id='alerts'>Alerts</h2><pre class="highlight java tab-java"><code><span class="n">alertButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>

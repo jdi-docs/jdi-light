@@ -3312,24 +3312,34 @@ In addition if you run test scenarios on JDI Light you will <strong>get logs of 
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>void Select(String[])</strong></td>
-<td>Select menu element and subelement</td>
+<td><strong>void Select(string[])</strong></td>
+<td>Select menu element and subelements by string values</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>void Select(String)</strong></td>
-<td>Select menu element</td>
+<td><strong>void Select(int[])</strong></td>
+<td>Select menu element and subelements by index</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>void Select(TEnum)</strong></td>
-<td>Select menu element</td>
+<td><strong>void Select(Enum[])</strong></td>
+<td>Select menu element and subelements by getting values of enum</td>
 <td>void</td>
 </tr>
 <tr>
 <td><strong>bool Selected(string option)</strong></td>
 <td>Checks whether a menu option is selected</td>
 <td>bool</td>
+</tr>
+<tr>
+<td><strong>void Values()</strong></td>
+<td>Gets values of all options</td>
+<td>List<string></td>
+</tr>
+<tr>
+<td><strong>HoverAndClick(string[])</strong></td>
+<td>Hovers and clicks menu item and subitems</td>
+<td>void</td>
 </tr>
 </tbody></table>
 

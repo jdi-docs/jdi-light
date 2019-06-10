@@ -1028,8 +1028,8 @@ Available method in C# JDI Light:
 **void Select(int[])** | Select menu element and subelements by index | void
 **void Select(Enum[])** | Select menu element and subelements by getting values of enum | void
 **bool Selected(string option)** | Checks whether a menu option is selected | bool
-**void Values()** | Gets values of all options | List<string>
-**HoverAndClick(string[])** | Hovers and clicks menu item and subitems | void
+**List<string> Values()** | Gets values of all options | List<string>
+**void HoverAndClick(string[])** | Hovers and clicks menu item and subitems | void
 
 Available Assert methods in C# JDI Light:
 

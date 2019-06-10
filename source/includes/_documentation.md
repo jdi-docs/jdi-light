@@ -1027,7 +1027,7 @@ Available method in C# JDI Light:
 **void Select(string[])** | Select menu element and subelements by string values | void
 **void Select(int[])** | Select menu element and subelements by index | void
 **void Select(Enum[])** | Select menu element and subelements by getting values of enum | void
-**bool Selected(string option)** | Checks whether a menu option is selected | bool
+**string Selected()** | Returns selected menu item | string
 **List<string> Values()** | Gets values of all options | List<string>
 **void HoverAndClick(string[])** | Hovers and clicks menu item and subitems | void
 

@@ -1024,10 +1024,12 @@ Available method in C# JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**void Select(String[])** | Select menu element and subelement | void
-**void Select(String)** | Select menu element | void
-**void Select(TEnum)** | Select menu element | void
+**void Select(string[])** | Select menu element and subelements by string values | void
+**void Select(int[])** | Select menu element and subelements by index | void
+**void Select(Enum[])** | Select menu element and subelements by getting values of enum | void
 **bool Selected(string option)** | Checks whether a menu option is selected | bool
+**void Values()** | Gets values of all options | List<string>
+**HoverAndClick(string[])** | Hovers and clicks menu item and subitems | void
 
 Available Assert methods in C# JDI Light:
 

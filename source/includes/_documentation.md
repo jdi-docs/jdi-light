@@ -2048,6 +2048,8 @@ And here are methods available in C#:
 **InColumn(int num)** | Sets an object of some column by particular column's number | Column
 **Row(params TableMatcher[] matchers)** | Sets and returns a row object of a table according to some matchers' params (returns 'null' if there is no such row) | Line
 **Row(int rowNum)** | Sets and returns a row object of a table according to the row's index | Line
+**Cell(int colNum, int rowNum)** | Sets and returns a cell object of a table according to the cell's index | string
+**Column(int colNum)** | Sets and returns a column object of a table according to the column's index | Line
 **GetValue()** | Returns a string content of values for particular row, where values are separated by ";" | string
 
 AssertTable methods in C#:

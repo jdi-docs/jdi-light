@@ -4958,8 +4958,28 @@ C#: JDI.Light.Elements.Common.TextElement</p>
 <td>Line</td>
 </tr>
 <tr>
+<td><strong>Row(string rowName)</strong></td>
+<td>Sets and returns a row object of a table according to the row&#39;s name</td>
+<td>Line</td>
+</tr>
+<tr>
 <td><strong>Cell(int colNum, int rowNum)</strong></td>
-<td>Sets and returns a cell object of a table according to the cell&#39;s index</td>
+<td>Sets and returns a cell object of a table according to the cell&#39;s indexes</td>
+<td>string</td>
+</tr>
+<tr>
+<td><strong>Cell(string colName, int rowNum)</strong></td>
+<td>Sets and returns a cell object of a table according to the cell&#39;s column name and row index</td>
+<td>string</td>
+</tr>
+<tr>
+<td><strong>Cell(int colNum, string rowName)</strong></td>
+<td>Sets and returns a cell object of a table according to the cell&#39;s column index and row name</td>
+<td>string</td>
+</tr>
+<tr>
+<td><strong>Cell(string colName, string rowName)</strong></td>
+<td>Sets and returns a cell object of a table according to the cell&#39;s column name and row name</td>
 <td>string</td>
 </tr>
 <tr>
@@ -4968,8 +4988,18 @@ C#: JDI.Light.Elements.Common.TextElement</p>
 <td>Line</td>
 </tr>
 <tr>
+<td><strong>Column(string colName)</strong></td>
+<td>Sets and returns a column object of a table according to the column&#39;s name</td>
+<td>Line</td>
+</tr>
+<tr>
 <td><strong>GetValue()</strong></td>
 <td>Returns a string content of values for particular row, where values are separated by &quot;;&quot;</td>
+<td>string</td>
+</tr>
+<tr>
+<td><strong>string Preview()</strong></td>
+<td>Returns a string content of the whole table</td>
 <td>string</td>
 </tr>
 </tbody></table>

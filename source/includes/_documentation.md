@@ -2048,9 +2048,15 @@ And here are methods available in C#:
 **InColumn(int num)** | Sets an object of some column by particular column's number | Column
 **Row(params TableMatcher[] matchers)** | Sets and returns a row object of a table according to some matchers' params (returns 'null' if there is no such row) | Line
 **Row(int rowNum)** | Sets and returns a row object of a table according to the row's index | Line
-**Cell(int colNum, int rowNum)** | Sets and returns a cell object of a table according to the cell's index | string
+**Row(string rowName)** | Sets and returns a row object of a table according to the row's name | Line
+**Cell(int colNum, int rowNum)** | Sets and returns a cell object of a table according to the cell's indexes | string
+**Cell(string colName, int rowNum)** | Sets and returns a cell object of a table according to the cell's column name and row index | string
+**Cell(int colNum, string rowName)** | Sets and returns a cell object of a table according to the cell's column index and row name | string
+**Cell(string colName, string rowName)** | Sets and returns a cell object of a table according to the cell's column name and row name | string
 **Column(int colNum)** | Sets and returns a column object of a table according to the column's index | Line
+**Column(string colName)** | Sets and returns a column object of a table according to the column's name | Line
 **GetValue()** | Returns a string content of values for particular row, where values are separated by ";" | string
+**string Preview()** | Returns a string content of the whole table | string
 
 AssertTable methods in C#:
 

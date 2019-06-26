@@ -4742,6 +4742,42 @@ C#: JDI.Light.Elements.Common.TextElement</p>
                 <span class="p">.</span><span class="nf">HasColumn</span><span class="p">(</span><span class="s">"Email"</span><span class="p">)</span>
                 <span class="p">.</span><span class="nf">HasColumns</span><span class="p">(</span><span class="k">new</span><span class="p">[]</span> <span class="p">{</span><span class="s">"Name"</span><span class="p">,</span> <span class="s">"City"</span><span class="p">})</span>
                 <span class="p">.</span><span class="nf">Columns</span><span class="p">(</span><span class="n">Is</span><span class="p">.</span><span class="nf">SubsequenceOf</span><span class="p">(</span><span class="k">new</span><span class="p">[]</span> <span class="p">{</span><span class="s">"Name"</span><span class="p">,</span> <span class="s">"City"</span><span class="p">,</span> <span class="s">"Phone"</span><span class="p">,</span> <span class="s">"Email"</span><span class="p">,</span> <span class="s">"Address"</span><span class="p">}));</span>
+        <span class="p">}</span>
+
+        <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+        <span class="k">public</span> <span class="k">void</span> <span class="nf">TableRowPerformanceTest</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">PerformancePage</span><span class="p">.</span><span class="nf">Open</span><span class="p">();</span>
+            <span class="n">PerformancePage</span><span class="p">.</span><span class="nf">CheckOpened</span><span class="p">();</span>
+            <span class="nf">AreEqual</span><span class="p">(</span><span class="s">"Burke Tucker;076 1971 1687;et.euismod.et@ut.edu;GozŽe"</span><span class="p">,</span> <span class="n">PerformancePage</span><span class="p">.</span><span class="n">UsersTable</span><span class="p">.</span><span class="nf">Row</span><span class="p">(</span><span class="m">1</span><span class="p">).</span><span class="nf">GetValue</span><span class="p">());</span>
+            <span class="nf">AreEqual</span><span class="p">(</span><span class="s">"Burke Tucker;076 1971 1687;et.euismod.et@ut.edu;GozŽe"</span><span class="p">,</span> <span class="n">PerformancePage</span><span class="p">.</span><span class="n">UsersTable</span><span class="p">.</span><span class="nf">Row</span><span class="p">(</span><span class="s">"Burke Tucker"</span><span class="p">).</span><span class="nf">GetValue</span><span class="p">());</span>
+            <span class="nf">AreEqual</span><span class="p">(</span><span class="s">"Burke Tucker;076 1971 1687;et.euismod.et@ut.edu;GozŽe"</span><span class="p">,</span> <span class="n">PerformancePage</span><span class="p">.</span><span class="n">UsersTable</span><span class="p">.</span><span class="nf">Row</span><span class="p">(</span><span class="n">Users</span><span class="p">.</span><span class="n">Name</span><span class="p">).</span><span class="nf">GetValue</span><span class="p">());</span>
+            <span class="kt">var</span> <span class="k">value</span> <span class="p">=</span> <span class="n">PerformancePage</span><span class="p">.</span><span class="n">UsersTable</span><span class="p">.</span><span class="nf">Preview</span><span class="p">();</span>
+            <span class="nf">AreEqual</span><span class="p">(</span><span class="s">"Name Phone Email City"</span> <span class="p">+</span>
+                <span class="s">"Burke Tucker 076 1971 1687 et.euismod.et@ut.edu GozŽe"</span> <span class="p">+</span>
+                <span class="s">"Grady Brock (011307) 16843 cursus.et@commodo.org Alcobendas"</span> <span class="p">+</span>
+                <span class="s">"Harding Lloyd 0800 1111 neque.In.ornare@mauris.co.uk Beauvais"</span><span class="p">,</span> <span class="k">value</span><span class="p">.</span><span class="nf">Substring</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">194</span><span class="p">));</span>
+        <span class="p">}</span>
+
+        <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+        <span class="k">public</span> <span class="k">void</span> <span class="nf">TableCellPerformanceTest</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">PerformancePage</span><span class="p">.</span><span class="nf">Open</span><span class="p">();</span>
+            <span class="n">PerformancePage</span><span class="p">.</span><span class="nf">CheckOpened</span><span class="p">();</span>
+            <span class="nf">AreEqual</span><span class="p">(</span><span class="s">"ipsum.non.arcu@auctorullamcorper.ca"</span><span class="p">,</span> <span class="n">PerformancePage</span><span class="p">.</span><span class="n">UsersTable</span><span class="p">.</span><span class="nf">Cell</span><span class="p">(</span><span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="p">));</span>
+            <span class="nf">AreEqual</span><span class="p">(</span><span class="s">"ipsum.non.arcu@auctorullamcorper.ca"</span><span class="p">,</span> <span class="n">PerformancePage</span><span class="p">.</span><span class="n">UsersTable</span><span class="p">.</span><span class="nf">Cell</span><span class="p">(</span><span class="s">"Email"</span><span class="p">,</span> <span class="m">4</span><span class="p">));</span>
+            <span class="nf">AreEqual</span><span class="p">(</span><span class="s">"ipsum.non.arcu@auctorullamcorper.ca"</span><span class="p">,</span> <span class="n">PerformancePage</span><span class="p">.</span><span class="n">UsersTable</span><span class="p">.</span><span class="nf">Cell</span><span class="p">(</span><span class="m">3</span><span class="p">,</span> <span class="s">"Zachary Hendrix"</span><span class="p">));</span>
+            <span class="nf">AreEqual</span><span class="p">(</span><span class="s">"ipsum.non.arcu@auctorullamcorper.ca"</span><span class="p">,</span> <span class="n">PerformancePage</span><span class="p">.</span><span class="n">UsersTable</span><span class="p">.</span><span class="nf">Cell</span><span class="p">(</span><span class="s">"Email"</span><span class="p">,</span> <span class="s">"Zachary Hendrix"</span><span class="p">));</span>
+        <span class="p">}</span>
+
+        <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
+        <span class="k">public</span> <span class="k">void</span> <span class="nf">TableColumnPerformanceTest</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">PerformancePage</span><span class="p">.</span><span class="nf">Open</span><span class="p">();</span>
+            <span class="n">PerformancePage</span><span class="p">.</span><span class="nf">CheckOpened</span><span class="p">();</span>
+            <span class="nf">AreEqual</span><span class="p">(</span><span class="s">"076 1971 1687;(011307) 16843;0"</span><span class="p">,</span> <span class="n">PerformancePage</span><span class="p">.</span><span class="n">UsersTable</span><span class="p">.</span><span class="nf">Column</span><span class="p">(</span><span class="m">2</span><span class="p">).</span><span class="nf">GetValue</span><span class="p">().</span><span class="nf">Substring</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">30</span><span class="p">));</span>
+            <span class="nf">AreEqual</span><span class="p">(</span><span class="s">"076 1971 1687;(011307) 16843;0"</span><span class="p">,</span> <span class="n">PerformancePage</span><span class="p">.</span><span class="n">UsersTable</span><span class="p">.</span><span class="nf">Column</span><span class="p">(</span><span class="s">"Phone"</span><span class="p">).</span><span class="nf">GetValue</span><span class="p">().</span><span class="nf">Substring</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">30</span><span class="p">));</span>
+            <span class="nf">AreEqual</span><span class="p">(</span><span class="s">"076 1971 1687;(011307) 16843;0"</span><span class="p">,</span> <span class="n">PerformancePage</span><span class="p">.</span><span class="n">UsersTable</span><span class="p">.</span><span class="nf">Column</span><span class="p">(</span><span class="n">Users</span><span class="p">.</span><span class="n">Phone</span><span class="p">).</span><span class="nf">GetValue</span><span class="p">().</span><span class="nf">Substring</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">30</span><span class="p">));</span>
         <span class="p">}</span>       
 </code></pre>
 <ul>
@@ -4796,8 +4832,8 @@ C#: JDI.Light.Elements.Common.TextElement</p>
 <td>Line</td>
 </tr>
 <tr>
-<td><strong>columns(String colName)</strong></td>
-<td>Sets and returns a list of column objects of a table according to column name</td>
+<td><strong>columns()</strong></td>
+<td>Sets and returns a list of column objects of a table</td>
 <td>List&lt;Line&gt;</td>
 </tr>
 <tr>
@@ -4963,6 +4999,41 @@ C#: JDI.Light.Elements.Common.TextElement</p>
 <td>Line</td>
 </tr>
 <tr>
+<td><strong>Row(Enum rowName)</strong></td>
+<td>Sets and returns a row object of a table according to row&#39;s name</td>
+<td>Line</td>
+</tr>
+<tr>
+<td><strong>Row(Matcher<String> matcher, Column column)</strong></td>
+<td>Sets and returns a row object of a table according to matching column</td>
+<td>Line</td>
+</tr>
+<tr>
+<td><strong>Row(params KeyValuePair<Matcher<string>, Column&gt;[] matchers)</strong></td>
+<td>Sets and returns a row object of a table according to matching column</td>
+<td>Line</td>
+</tr>
+<tr>
+<td><strong>RowsAsLines(params TableMatcher[] matchers)</strong></td>
+<td>Sets and returns a a list of rows of a table according to matchers</td>
+<td>List<Line></td>
+</tr>
+<tr>
+<td><strong>RowsAsLines()</strong></td>
+<td>Sets and returns a list of rows of a table</td>
+<td>List<Line></td>
+</tr>
+<tr>
+<td><strong>FilterRows(Matcher<String> matcher, Column column)</strong></td>
+<td>Sets and returns a list of filtered rows of a table according to matching column</td>
+<td>List<Line></td>
+</tr>
+<tr>
+<td><strong>FilterRows(params KeyValuePair<Matcher<string>, Column&gt;[] matchers)</strong></td>
+<td>Sets and returns a list of filtered rows of a table according to matching column</td>
+<td>List<Line></td>
+</tr>
+<tr>
 <td><strong>Cell(int colNum, int rowNum)</strong></td>
 <td>Sets and returns a cell object of a table according to the cell&#39;s indexes</td>
 <td>string</td>
@@ -4991,6 +5062,16 @@ C#: JDI.Light.Elements.Common.TextElement</p>
 <td><strong>Column(string colName)</strong></td>
 <td>Sets and returns a column object of a table according to the column&#39;s name</td>
 <td>Line</td>
+</tr>
+<tr>
+<td><strong>Column(Enum colName)</strong></td>
+<td>Sets and returns a column object of a table according to column name</td>
+<td>Line</td>
+</tr>
+<tr>
+<td><strong>Columns()</strong></td>
+<td>Sets and returns a list of column objects of a table</td>
+<td>List<Line></td>
 </tr>
 <tr>
 <td><strong>GetValue()</strong></td>

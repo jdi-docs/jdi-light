@@ -1991,6 +1991,42 @@ Tables are represented by the following classes in Java and C#:
                 .HasColumn("Email")
                 .HasColumns(new[] {"Name", "City"})
                 .Columns(Is.SubsequenceOf(new[] {"Name", "City", "Phone", "Email", "Address"}));
+        }
+		
+		[Test]
+        public void TableRowPerformanceTest()
+        {
+            PerformancePage.Open();
+            PerformancePage.CheckOpened();
+            AreEqual("Burke Tucker;076 1971 1687;et.euismod.et@ut.edu;GozŽe", PerformancePage.UsersTable.Row(1).GetValue());
+            AreEqual("Burke Tucker;076 1971 1687;et.euismod.et@ut.edu;GozŽe", PerformancePage.UsersTable.Row("Burke Tucker").GetValue());
+            AreEqual("Burke Tucker;076 1971 1687;et.euismod.et@ut.edu;GozŽe", PerformancePage.UsersTable.Row(Users.Name).GetValue());
+            var value = PerformancePage.UsersTable.Preview();
+            AreEqual("Name Phone Email City" +
+                "Burke Tucker 076 1971 1687 et.euismod.et@ut.edu GozŽe" +
+                "Grady Brock (011307) 16843 cursus.et@commodo.org Alcobendas" +
+                "Harding Lloyd 0800 1111 neque.In.ornare@mauris.co.uk Beauvais", value.Substring(0, 194));
+        }
+
+        [Test]
+        public void TableCellPerformanceTest()
+        {
+            PerformancePage.Open();
+            PerformancePage.CheckOpened();
+            AreEqual("ipsum.non.arcu@auctorullamcorper.ca", PerformancePage.UsersTable.Cell(3, 4));
+            AreEqual("ipsum.non.arcu@auctorullamcorper.ca", PerformancePage.UsersTable.Cell("Email", 4));
+            AreEqual("ipsum.non.arcu@auctorullamcorper.ca", PerformancePage.UsersTable.Cell(3, "Zachary Hendrix"));
+            AreEqual("ipsum.non.arcu@auctorullamcorper.ca", PerformancePage.UsersTable.Cell("Email", "Zachary Hendrix"));
+        }
+
+        [Test]
+        public void TableColumnPerformanceTest()
+        {
+            PerformancePage.Open();
+            PerformancePage.CheckOpened();
+            AreEqual("076 1971 1687;(011307) 16843;0", PerformancePage.UsersTable.Column(2).GetValue().Substring(0, 30));
+            AreEqual("076 1971 1687;(011307) 16843;0", PerformancePage.UsersTable.Column("Phone").GetValue().Substring(0, 30));
+            AreEqual("076 1971 1687;(011307) 16843;0", PerformancePage.UsersTable.Column(Users.Phone).GetValue().Substring(0, 30));
         }		
 ```
 
@@ -2010,7 +2046,7 @@ Here is a list of available methods in Java:
 **column(Enum colName)** | Sets and returns a column object of a table according to column name | Line
 **column(int colNum)** | Sets and returns a column object of a table according to column number | Line
 **column(String colName)** | Sets and returns a column object of a table according to column name | Line
-**columns(String colName)** | Sets and returns a list of column objects of a table according to column name | List\<Line>
+**columns()** | Sets and returns a list of column objects of a table | List\<Line>
 **filterRows(Matcher<String> matcher, Column column)** | Sets and returns a list of filtered rows of a table according to matching column | List\<Line>
 **filterRows(Pair<Matcher<String>,Column>... matchers)** | Sets and returns a list of filtered rows of a table according to matching column | List\<Line>
 **getValue()** | Returns a string content of values for particular row, where values are separated by ";" | String
@@ -2049,12 +2085,21 @@ And here are methods available in C#:
 **Row(params TableMatcher[] matchers)** | Sets and returns a row object of a table according to some matchers' params (returns 'null' if there is no such row) | Line
 **Row(int rowNum)** | Sets and returns a row object of a table according to the row's index | Line
 **Row(string rowName)** | Sets and returns a row object of a table according to the row's name | Line
+**Row(Enum rowName)** | Sets and returns a row object of a table according to row's name | Line
+**Row(Matcher<String> matcher, Column column)** | Sets and returns a row object of a table according to matching column | Line
+**Row(params KeyValuePair<Matcher<string>, Column>[] matchers)** | Sets and returns a row object of a table according to matching column | Line
+**RowsAsLines(params TableMatcher[] matchers)** | Sets and returns a a list of rows of a table according to matchers | List<Line>
+**RowsAsLines()** | Sets and returns a list of rows of a table | List<Line>
+**FilterRows(Matcher<String> matcher, Column column)** | Sets and returns a list of filtered rows of a table according to matching column | List<Line>
+**FilterRows(params KeyValuePair<Matcher<string>, Column>[] matchers)** | Sets and returns a list of filtered rows of a table according to matching column | List<Line>
 **Cell(int colNum, int rowNum)** | Sets and returns a cell object of a table according to the cell's indexes | string
 **Cell(string colName, int rowNum)** | Sets and returns a cell object of a table according to the cell's column name and row index | string
 **Cell(int colNum, string rowName)** | Sets and returns a cell object of a table according to the cell's column index and row name | string
 **Cell(string colName, string rowName)** | Sets and returns a cell object of a table according to the cell's column name and row name | string
 **Column(int colNum)** | Sets and returns a column object of a table according to the column's index | Line
 **Column(string colName)** | Sets and returns a column object of a table according to the column's name | Line
+**Column(Enum colName)** | Sets and returns a column object of a table according to column name | Line
+**Columns()** | Sets and returns a list of column objects of a table | List<Line>
 **GetValue()** | Returns a string content of values for particular row, where values are separated by ";" | string
 **string Preview()** | Returns a string content of the whole table | string
 

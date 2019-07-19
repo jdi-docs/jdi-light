@@ -114,11 +114,11 @@ public class UserCard extends Form<User> {
     @Css("#passport-number") TextField passportNumber;   
     @Css("#submit-button") Button submitButton; 
 }
-If Smart locator rule is id
+//If Smart locator rule is id
 WebSettings.SMART_SEARCH_LOCATORS = asList("#%s");
-and convertation rule is hyphen to java name
+//and convertation rule is hyphen to java name
 WebSettings.SMART_SEARCH_NAME = StringUtils::splitHyphen;
-So you can write
+//So you can write
 public class UserCard extends Form<User> {
     TextField name;
     TextField lastName;
@@ -126,7 +126,7 @@ public class UserCard extends Form<User> {
     TextField passportNumber;  
     Button submitButton; 
 }
-or just write all TextFields in one line
+//or just write all TextFields in one line
 public class UserCard extends Form<User> {
     TextField name, lastName, passportCode, passportNumber;  
     Button submitButton; 

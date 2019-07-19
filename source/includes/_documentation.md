@@ -2538,6 +2538,7 @@ Here is the list of some available methods:
 **sendKeys(CharSequence... charSequence)** | Send specific keys | void
 
 Available Assert methods in Java:
+
 |Method | Description | Return Type
 --- | --- | ---
 **is()** | Applicable for performing assert actions for DropDown's | ListAssert<UIElement>
@@ -3582,7 +3583,10 @@ Apart from locator annotations JDI Light provides support for smart locators. Wh
 **@UI("\[\*'text'\]")** | Such notation allows to enrich css locators to detect element(s) which contain(s) given text inside its text nodes. It is equivalent to xpath = ".//\*/text()\[contains(normalize-space(.), 'text')\]/parent::\*" | @UI(".user\[\*'Roma'\]") or @UI("\[\*'Accept'\] input")
 **@UI("'expr\[n\]")** | Such notation allows to enrich css locators to choose an element at a specific position. It is equivalent to xpath = ".//xpath-expr\[n\]" | @UI("\[type=checkbox\]\[1\]")
 **@UI("expr<")** | Such notation allows to enrich css locators by allowing to move up in the DOM to the parent of the element. E.g. \[’text’\]**<**\[type=checkbox\] is the same as //\*\[text()=’text’\]/..//*\[@type=‘checkbox’\] | @UI("\[’Ice Cream’\]<\[type=checkbox\]")
+**@JDropdown** | This locator help to locate dropdown elements and <a href='https://jdi-docs.github.io/jdi-light/?java#dropdown' target="_blank">provide additional features</a> | @JDropdown(root = "div\[ui=combobox\]", value = "input", list = "li", expand = ".caret")
+**@JPagination** | Detect pagination structure and allow help with additional features | @JPagination(root="", next="", prev="", last="", page="")
 
+provide additional features
 ### Smart locators
 
 ```

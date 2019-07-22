@@ -3714,7 +3714,40 @@ Availiable methods in Java
 **inputAndAcceptAlert(String text)** | Input the specified text in the alert and accept it | void
 
 ## Logs
-TBD
+```java
+//setup loglevel before running a test (for example in TestInit)
+logger.setLogLevel(STEP);
+
+@Test
+public void loginTest() {
+    homePage.open();
+    userIcon.click();
+    loginForm.loginAs(DEFAULT_USER);
+    homePage.checkOpened();
+}
+//results in the log
+[22:17.102  STEP] : Open 'Home Page'(url=>https://jdi-testing.github.io/jdi-light/index.html)
+[22:23.617  STEP] : Click on 'User Icon'
+[22:23.727  STEP] : Login as User(userName:epam; password:1234)
+[22:24.516  STEP] : Check that 'Home Page' is opened (url CONTAINS '/index.html'; title EQUALS 'Home Page')
+
+```
+JDI uses log4j library, but provide more levels of logging. (require log4j.xml / log2j2.xml)
+**logger.setLogLevel(STEP);**
+Level _STEP_ can show business-related information in the console output and the same log will be in the file (target/.logs/<logName>.log)
+
+|LogLevel | Description 
+--- | --- 
+**OFF(0)** | No logging
+**FATAL(100)** | Unexpected errors
+**ERROR(200)** | Critical errors
+**WARNING(300)** | Errors due to wrong params
+**STEP(350)** | Business related info (JDI related loglevel)
+**INFO(400)** | Actions Info
+**DEBUG(500)** | Debug info (do not use for production stage)
+**TRACE(600)** | Trace info (do not use for production stage)
+**ALL(MAX_VALUE)** | All log messages (do not use for production stage)
+
 
 ## Reports
 ### Allure

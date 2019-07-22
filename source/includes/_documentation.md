@@ -3584,7 +3584,7 @@ Apart from locator annotations JDI Light provides support for smart locators. Wh
 **@UI("'expr\[n\]")** | Such notation allows to enrich css locators to choose an element at a specific position. It is equivalent to xpath = ".//xpath-expr\[n\]" | @UI("\[type=checkbox\]\[1\]")
 **@UI("expr<")** | Such notation allows to enrich css locators by allowing to move up in the DOM to the parent of the element. E.g. \[’text’\]**<**\[type=checkbox\] is the same as //\*\[text()=’text’\]/..//*\[@type=‘checkbox’\] | @UI("\[’Ice Cream’\]<\[type=checkbox\]")
 **@JDropdown** | This locator help to locate dropdown elements and <a href='https://jdi-docs.github.io/jdi-light/?java#dropdown' target="_blank">provide additional features</a> | @JDropdown(root = "div\[ui=combobox\]", value = "input", list = "li", expand = ".caret")
-**@JPagination** | Detect pagination structure and allow help with additional features | @JPagination(root="", next="", prev="", last="", page="")
+
 
 provide additional features
 ### Smart locators
@@ -3849,7 +3849,23 @@ there are two ways how to use **assertResults()** method:
 - As a separate method if you need to check several elements (example multipleValidationsTest)
 
 ## Driver Settings
-TBD
+We can change default settings placed in the test.properties file (src/test/resources)
+
+|Property name | Description | Examples
+--- | --- | ---
+**driver** | Describe what kind of driver we want to use: chrome, firefox, ie… or we can just place it with ${driver} and read the exact driver name from command line or pom file | driver = ${driver}
+**drivers.version** | By default, JDI Light will download the latest version of the driver for us, but if we need a specific version we can put it here (in this case the framework will find and download exactly this version) | drivers.version = LATEST<br>drivers.version = PRELATEST<br> driver.version = 2.23
+**timeout.wait.element** | Wait for an element on the opened page, by default = 10 seconds | timeout.wait.element = 20
+**timeout.wait.page** | JDI Light automatically defines that new page opened and in this case will use this timeout (usually it is more than for element). By default 30 seconds | timeout.wait.page = 40
+**domain** | web application root URL (used if we work with one application in tests). Can be also read from the command line like ${domain} | domain = https://jdi-testing.github.io/jdi-light/
+**drivers.folder** | Setup folder for drivers | drivers.folder = C:\\Selenium
+**screens.folder** | Setup screenshot folder | screens.folder = C:\\Test-screenshot
+**element.search.strategy** | Can find only one element on a page (single), many elements on a page (multiple). Also, we can define if we want to search only in visible element or not. Consist of 2 params: visibility (visible can use displayed or any),  and type of search. Options: soft (=any, multiple); strict(=visible, single); or combine from visible/displayed/any/all and single/multiple. _Note: visible=displayed, any=all | element.search.strategy = visible, multiple
+**browser.size** | the size . Optionsof the tested browser. By default, JDI Light will maximize browser, but we can set exact values | browser.size = MAXIMIZE<br>browser.size = 1024x762
+**page.load.strategy** | Selenium-like strategies to load the page. Options: normal, eager, none | page.load.strategy = normal
+**page.check.after.open** | Check the page has been open. Availible option: NONE, NEW_PAGE, EVERY_PAGE | page.check.after.open = NONE
+**assert.type** | <a href="https://jdi-docs.github.io/jdi-light/?java#softasserts">Assert type</a>: soft or strict | assert.type = soft
+**driver.remote.url** | <a href="https://jdi-docs.github.io/jdi-light/?java#remote-test-runs">Tests can run on remote web servers<a> | driver.remote.url=http://localhost:4444/wd/hub
 
 ## Parallel tests run
 TBD

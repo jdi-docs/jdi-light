@@ -3600,7 +3600,26 @@ WebSettings.SMART_SEARCH_LOCATORS - list of locators that can be used to try to 
 WebSettings.SMART_SEARCH_NAME - function how to create locator name from filed name (this value will be passed as %s parameter in SMART_SEARCH_LOCATORS)
 
 ## Windows/Tabs manager
-TBD
+```java 
+some examples
+```
+JDI has good support for managing opened windows and browsers tabs
+
+Available methods in java
+
+|Method | Description | Return Type
+--- | --- | ---
+**getWindows()** | Return set of all windows | Set<String>
+**newWindowIsOpened()** | Check the new window is opened | boolean
+**setWindowName(String value)** | Set readable name for current opened windows | void
+**windowsCount()** | Get count of windows | int
+**switchToNewWindow()** | Switch to the new window | void
+**openNewTab()** | Open a new tab | void
+**originalWindow()** | Switch to original window | void
+**switchToWindow(int number)** | Switch to windows with a number. _switchToWindow(2) means switch to the second window_ | void
+**switchToWindow(String value)** | Switch to windows with a name. For setup name for the current window, we should use the **setWindowsName()** method | void
+**closeWindow()** | Close current window | void
+**closeWindow(String value)** | Close window with a specific name. | void
 
 ## Alerts
 ```java 

@@ -3601,15 +3601,28 @@ WebSettings.SMART_SEARCH_NAME - function how to create locator name from filed n
 
 ## Windows/Tabs manager
 ```java 
-some examples
+//example 1
+homePage.shouldBeOpened();
+githubLink.click();
+System.out.println("New window is opened: " + newWindowIsOpened());
+System.out.println("Windows count: " + windowsCount());
+originalWindow(); // open original (first) window
+switchToWindow(2); // open second window
+assertEquals(repoDescription.getText(), DESCRIPTION_TEXT);
+
+//example 2
+homePage.shouldBeOpened();
+openNewTab();
+switchToWindow(2);
+contactFormPage.open();
 ```
-JDI has good support for managing opened windows and browsers tabs
+JDI has good support for managing opened windows and tabs of the browser
 
 Available methods in java
 
 |Method | Description | Return Type
 --- | --- | ---
-**getWindows()** | Return set of all windows | Set<String>
+**getWindows()** | Return list of all windows/tabs | Set<String>
 **newWindowIsOpened()** | Check the new window is opened | boolean
 **setWindowName(String value)** | Set readable name for current opened windows | void
 **windowsCount()** | Get count of windows | int

@@ -7,7 +7,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
   - python
   
 toc_footers:
-  - <a href='#' target="_blank">Facebook</a>
+  - <a href='https://www.facebook.com/groups/jdi.framework/' target="_blank">Facebook</a>
   - <a href='https://github.com/jdi-testing/jdi-light' target="_blank">Java Github</a>
   - <a href='https://github.com/jdi-testing/jdi-light-csharp' target="_blank">C# Github</a>
   - <a href='https://join.skype.com/u2Cel0MWHkAO' target="_blank">Skype EN</a>

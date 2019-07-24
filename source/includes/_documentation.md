@@ -3616,9 +3616,7 @@ openNewTab();
 switchToWindow(2);
 contactFormPage.open();
 ```
-JDI has good support for managing opened windows and tabs of the browser
-
-Available methods in java
+JDI has good support for managing opened windows and tabs of the browser. It can help to create/switch/close windows/tabs in the browser. Let's look at available methods in Java:
 
 |Method | Description | Return Type
 --- | --- | ---

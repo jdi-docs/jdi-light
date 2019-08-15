@@ -568,7 +568,7 @@
           </li>
       </ul>
         <ul class="toc-footer">
-            <li><a href='#' target="_blank">Facebook</a></li>
+            <li><a href='https://www.facebook.com/groups/jdi.framework/' target="_blank">Facebook</a></li>
             <li><a href='https://github.com/jdi-testing/jdi-light' target="_blank">Java Github</a></li>
             <li><a href='https://github.com/jdi-testing/jdi-light-csharp' target="_blank">C# Github</a></li>
             <li><a href='https://join.skype.com/u2Cel0MWHkAO' target="_blank">Skype EN</a></li>
@@ -7472,8 +7472,86 @@ public class Section : UIElement</p>
 <p>WebSettings.SMART_SEARCH_LOCATORS - list of locators that can be used to try to find element</p>
 
 <p>WebSettings.SMART_SEARCH_NAME - function how to create locator name from filed name (this value will be passed as %s parameter in SMART_SEARCH_LOCATORS)</p>
-<h2 id='windows-tabs-manager'>Windows/Tabs manager</h2>
-<p>TBD</p>
+<h2 id='windows-tabs-manager'>Windows/Tabs manager</h2><pre class="highlight java tab-java"><code><span class="c1">//example 1</span>
+<span class="n">homePage</span><span class="o">.</span><span class="na">shouldBeOpened</span><span class="o">();</span>
+<span class="n">githubLink</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"New window is opened: "</span> <span class="o">+</span> <span class="n">newWindowIsOpened</span><span class="o">());</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Windows count: "</span> <span class="o">+</span> <span class="n">windowsCount</span><span class="o">());</span>
+<span class="n">originalWindow</span><span class="o">();</span> <span class="c1">// open original (first) window</span>
+<span class="n">switchToWindow</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span> <span class="c1">// open second window</span>
+<span class="n">assertEquals</span><span class="o">(</span><span class="n">repoDescription</span><span class="o">.</span><span class="na">getText</span><span class="o">(),</span> <span class="n">DESCRIPTION_TEXT</span><span class="o">);</span>
+
+<span class="c1">//example 2</span>
+<span class="n">homePage</span><span class="o">.</span><span class="na">shouldBeOpened</span><span class="o">();</span>
+<span class="n">openNewTab</span><span class="o">();</span>
+<span class="n">switchToWindow</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+<span class="n">contactFormPage</span><span class="o">.</span><span class="na">open</span><span class="o">();</span>
+</code></pre>
+<p>JDI has good support for managing opened windows and tabs of the browser. It can help to create/switch/close windows/tabs in the browser. Let&#39;s look at available methods in Java:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>getWindows()</strong></td>
+<td>Return list of all windows/tabs</td>
+<td>Set<String></td>
+</tr>
+<tr>
+<td><strong>newWindowIsOpened()</strong></td>
+<td>Check the new window is opened</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>setWindowName(String value)</strong></td>
+<td>Set readable name for current opened windows</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>windowsCount()</strong></td>
+<td>Get count of windows</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>switchToNewWindow()</strong></td>
+<td>Switch to the new window</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>openNewTab()</strong></td>
+<td>Open a new tab</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>originalWindow()</strong></td>
+<td>Switch to original window</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>switchToWindow(int number)</strong></td>
+<td>Switch to windows with a number. <em>switchToWindow(2) means switch to the second window</em></td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>switchToWindow(String value)</strong></td>
+<td>Switch to windows with a name. For setup name for the current window, we should use the <strong>setWindowsName()</strong> method</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>closeWindow()</strong></td>
+<td>Close current window</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>closeWindow(String value)</strong></td>
+<td>Close window with a specific name.</td>
+<td>void</td>
+</tr>
+</tbody></table>
 <h2 id='alerts'>Alerts</h2><pre class="highlight java tab-java"><code><span class="n">alertButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
 <span class="n">acceptAlert</span><span class="o">();</span>
 </code></pre><pre class="highlight csharp tab-csharp"><code><span class="n">AlertButton</span><span class="p">.</span><span class="nf">Click</span><span class="p">();</span>

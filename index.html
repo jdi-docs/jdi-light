@@ -709,11 +709,11 @@ But this is not all, just Run this test in your IDE and what you will get?</p>
     <span class="nd">@Css</span><span class="o">(</span><span class="s">"#passport-number"</span><span class="o">)</span> <span class="n">TextField</span> <span class="n">passportNumber</span><span class="o">;</span>   
     <span class="nd">@Css</span><span class="o">(</span><span class="s">"#submit-button"</span><span class="o">)</span> <span class="n">Button</span> <span class="n">submitButton</span><span class="o">;</span> 
 <span class="o">}</span>
-<span class="n">If</span> <span class="n">Smart</span> <span class="n">locator</span> <span class="n">rule</span> <span class="n">is</span> <span class="n">id</span>
+<span class="c1">//If Smart locator rule is id</span>
 <span class="n">WebSettings</span><span class="o">.</span><span class="na">SMART_SEARCH_LOCATORS</span> <span class="o">=</span> <span class="n">asList</span><span class="o">(</span><span class="s">"#%s"</span><span class="o">);</span>
-<span class="n">and</span> <span class="n">convertation</span> <span class="n">rule</span> <span class="n">is</span> <span class="n">hyphen</span> <span class="n">to</span> <span class="n">java</span> <span class="n">name</span>
+<span class="c1">//and convertation rule is hyphen to java name</span>
 <span class="n">WebSettings</span><span class="o">.</span><span class="na">SMART_SEARCH_NAME</span> <span class="o">=</span> <span class="nl">StringUtils:</span><span class="o">:</span><span class="n">splitHyphen</span><span class="o">;</span>
-<span class="n">So</span> <span class="n">you</span> <span class="n">can</span> <span class="n">write</span>
+<span class="c1">//So you can write</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserCard</span> <span class="kd">extends</span> <span class="n">Form</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="o">{</span>
     <span class="n">TextField</span> <span class="n">name</span><span class="o">;</span>
     <span class="n">TextField</span> <span class="n">lastName</span><span class="o">;</span>
@@ -721,7 +721,7 @@ But this is not all, just Run this test in your IDE and what you will get?</p>
     <span class="n">TextField</span> <span class="n">passportNumber</span><span class="o">;</span>  
     <span class="n">Button</span> <span class="n">submitButton</span><span class="o">;</span> 
 <span class="o">}</span>
-<span class="n">or</span> <span class="n">just</span> <span class="n">write</span> <span class="n">all</span> <span class="n">TextFields</span> <span class="n">in</span> <span class="n">one</span> <span class="n">line</span>
+<span class="c1">//or just write all TextFields in one line</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserCard</span> <span class="kd">extends</span> <span class="n">Form</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="o">{</span>
     <span class="n">TextField</span> <span class="n">name</span><span class="o">,</span> <span class="n">lastName</span><span class="o">,</span> <span class="n">passportCode</span><span class="o">,</span> <span class="n">passportNumber</span><span class="o">;</span>  
     <span class="n">Button</span> <span class="n">submitButton</span><span class="o">;</span> 
@@ -1288,7 +1288,7 @@ In our example we change one field <em>acceptConditions</em> to &quot;uncheck&qu
 <p>We get first look on UI Elements in JDI Light and on Forms capabilities and now we can look deeper on Forms initialization and how this can help you to write less code.<br/>
 Let&#39;s start from simple Form - Login.<br/>
 We plan to have lot of tests that starts from point ther <u>user is logged out</u> and <u>Login form is opened</u>, so let&#39;s write @BeforeMethod state for this set of test cases.<br/><br/></p>
-<pre class="highlight java tab-java"><code><span class="n">Example</span> <span class="mi">1</span>
+<pre class="highlight java tab-java"><code><span class="c1">//Example 1</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">SeleniumLoginForm</span> <span class="o">{</span>
     <span class="nd">@FindBy</span><span class="o">(</span><span class="n">id</span> <span class="o">=</span> <span class="s">"name"</span><span class="o">)</span> <span class="kd">public</span> <span class="n">WebElement</span> <span class="n">name</span><span class="o">;</span>
     <span class="nd">@FindBy</span><span class="o">(</span><span class="n">id</span> <span class="o">=</span> <span class="s">"password"</span><span class="o">)</span> <span class="kd">public</span> <span class="n">WebElement</span> <span class="n">password</span><span class="o">;</span>
@@ -1300,7 +1300,7 @@ We plan to have lot of tests that starts from point ther <u>user is logged out</
         <span class="n">loginButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
     <span class="o">}</span>
 <span class="o">}</span>
-<span class="n">Example</span> <span class="mi">2</span>
+<span class="c1">//Example 2</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">SeleniumLoginForm</span> <span class="o">{</span>
     <span class="o">...</span>
     <span class="c1">// 3 lines for Elements</span>
@@ -1316,7 +1316,8 @@ We plan to have lot of tests that starts from point ther <u>user is logged out</
         <span class="n">loginButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
     <span class="o">}</span>
 <span class="o">}</span>
-<span class="n">on</span> <span class="n">JDISite</span><span class="o">.</span><span class="na">java</span> <span class="o">&gt;&gt;</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">SeleniumLoginForm</span> <span class="n">seleniumLoginForm</span><span class="o">;</span>
+<span class="c1">//now we should add the class SeleniumLoginForm on JDISite.java:</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">SeleniumLoginForm</span> <span class="n">seleniumLoginForm</span><span class="o">;</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">SelenideLoginForm</span> <span class="o">{</span>
     <span class="n">UIElement</span> <span class="n">name</span> <span class="o">=</span> <span class="err">$</span><span class="o">(</span><span class="s">"#name"</span><span class="o">),</span> 
@@ -1325,20 +1326,23 @@ We plan to have lot of tests that starts from point ther <u>user is logged out</
     <span class="c1">// + Same 11 rows for methods like in Selenium</span>
     <span class="o">...</span>
 <span class="o">}</span>
-<span class="n">on</span> <span class="n">JDISite</span><span class="o">.</span><span class="na">java</span> <span class="o">&gt;&gt;</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">SelenideLoginForm</span> <span class="n">selenideLoginForm</span><span class="o">;</span>
+<span class="c1">//now we should add the class SelenideLoginForm on JDISite.java:</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">SelenideLoginForm</span> <span class="n">selenideLoginForm</span><span class="o">;</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">LoginForm</span> <span class="kd">extends</span> <span class="n">Form</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="o">{</span>
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"#name"</span><span class="o">)</span> <span class="n">TextField</span> <span class="n">name</span><span class="o">;</span>
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"#password"</span><span class="o">)</span> <span class="n">TextField</span> <span class="n">password</span><span class="o">;</span>
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"#login-button"</span><span class="o">)</span> <span class="n">Button</span> <span class="n">loginButton</span><span class="o">;</span>
 <span class="o">}</span>
-<span class="n">on</span> <span class="n">JDISite</span><span class="o">.</span><span class="na">java</span> <span class="o">&gt;&gt;</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">LoginForm</span> <span class="n">loginForm</span><span class="o">;</span>
+<span class="c1">//now we should add the class LoginForm on JDISite.java:</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">LoginForm</span> <span class="n">loginForm</span><span class="o">;</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">LoginFormSmart</span> <span class="kd">extends</span> <span class="n">Form</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="o">{</span>
     <span class="n">TextField</span> <span class="n">name</span><span class="o">,</span> <span class="n">password</span><span class="o">;</span>
     <span class="n">Button</span> <span class="n">loginButton</span><span class="o">;</span>
 <span class="o">}</span>
-<span class="n">on</span> <span class="n">JDISite</span><span class="o">.</span><span class="na">java</span> <span class="o">&gt;&gt;</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">LoginFormSmart</span> <span class="n">loginFormSmart</span><span class="o">;</span>
+<span class="c1">//now we should add the class LoginFormSmart on JDISite.java:</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">LoginFormSmart</span> <span class="n">loginFormSmart</span><span class="o">;</span>
 </code></pre>
 <p>In JDI Light we have different ways to describe the Form: <br/>
 <strong>Selenium</strong> - typical Page Object with <strong>WebElement</strong>s and <strong>@FindBy</strong> annotations, actions with them and without extending from something. Exactly this code will work in original Selenium project without JDI.<br/>
@@ -1727,13 +1731,13 @@ In addition if you run test scenarios on JDI Light you will <strong>get logs of 
     <span class="n">Button</span> <span class="n">SubmitButton</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="n">If</span> <span class="n">Smart</span> <span class="n">locator</span> <span class="n">rule</span> <span class="k">is</span> <span class="n">id</span><span class="p">:</span>
+<span class="c1">//If Smart locator rule is id:</span>
     <span class="n">SmartSearchLocator</span> <span class="p">=</span> <span class="s">"#{0}"</span><span class="p">;</span>
 
-<span class="n">and</span> <span class="n">convertation</span> <span class="n">rule</span> <span class="k">is</span> <span class="n">hyphen</span> <span class="n">to</span> <span class="n">csharp</span> <span class="n">name</span><span class="p">:</span>
+<span class="c1">//and convertation rule is hyphen to csharp name:</span>
     <span class="nf">SmartSearchName</span><span class="p">(</span><span class="kt">string</span> <span class="n">name</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="n">StringExtensions</span><span class="p">.</span><span class="nf">SplitHyphen</span><span class="p">(</span><span class="n">name</span><span class="p">);</span>
 
-<span class="n">So</span> <span class="n">you</span> <span class="n">can</span> <span class="n">write</span><span class="p">:</span>
+<span class="c1">//So you can write:</span>
 
 <span class="k">public</span> <span class="k">class</span> <span class="nc">UserCard</span> <span class="p">:</span> <span class="n">Form</span><span class="p">&lt;</span><span class="n">User</span><span class="p">&gt;</span>
 <span class="p">{</span>
@@ -1751,14 +1755,13 @@ In addition if you run test scenarios on JDI Light you will <strong>get logs of 
     <span class="nd">@Css</span><span class="o">(</span><span class="s">"#submit-button"</span><span class="o">)</span> <span class="n">Button</span> <span class="n">submitButton</span><span class="o">;</span> 
 <span class="o">}</span>
 
-<span class="n">If</span> <span class="n">Smart</span> <span class="n">locator</span> <span class="n">rule</span> <span class="n">is</span> <span class="nl">id:</span>
+<span class="c1">//If Smart locator rule is id:</span>
     <span class="n">WebSettings</span><span class="o">.</span><span class="na">SMART_SEARCH_LOCATORS</span> <span class="o">=</span> <span class="n">asList</span><span class="o">(</span><span class="s">"#%s"</span><span class="o">);</span>
 
-<span class="n">and</span> <span class="n">convertation</span> <span class="n">rule</span> <span class="n">is</span> <span class="n">hyphen</span> <span class="n">to</span> <span class="n">java</span> <span class="nl">name:</span>
+<span class="c1">//and convertation rule is hyphen to java name:</span>
     <span class="n">WebSettings</span><span class="o">.</span><span class="na">SMART_SEARCH_NAME</span> <span class="o">=</span> <span class="nl">StringUtils:</span><span class="o">:</span><span class="n">splitHyphen</span><span class="o">;</span>
 
-<span class="n">So</span> <span class="n">you</span> <span class="n">can</span> <span class="nl">write:</span>
-
+<span class="c1">//So you can write:</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserCard</span> <span class="kd">extends</span> <span class="n">Form</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="o">{</span>
     <span class="n">TextField</span> <span class="n">name</span><span class="o">;</span>
     <span class="n">TextField</span> <span class="n">lastName</span><span class="o">;</span>
@@ -1793,7 +1796,7 @@ In addition if you run test scenarios on JDI Light you will <strong>get logs of 
 <li><strong>C#</strong>: <em>JDI.Light.Elements.Base.UIElement</em></li>
 </ul>
 <pre class="highlight java tab-java"><code>
-  <span class="n">In</span> <span class="n">the</span> <span class="n">next</span> <span class="n">test</span> <span class="n">Label</span> <span class="n">is</span> <span class="n">found</span> <span class="n">from</span> <span class="err">'</span><span class="n">name</span><span class="err">'</span> <span class="n">and</span> <span class="err">'</span><span class="n">disabledName</span><span class="err">'</span> <span class="nl">locators:</span>
+  <span class="c1">//In the next test Label is found from 'name' and 'disabledName' locators:</span>
 
   <span class="nd">@UI</span><span class="o">(</span><span class="s">"#name"</span><span class="o">)</span> <span class="c1">// @FindBy(css = "#name")</span>
  <span class="kd">public</span> <span class="kd">static</span> <span class="n">TextField</span> <span class="n">name</span><span class="o">;</span>
@@ -1801,7 +1804,8 @@ In addition if you run test scenarios on JDI Light you will <strong>get logs of 
   <span class="nd">@UI</span><span class="o">(</span><span class="s">"#disabled-name"</span><span class="o">)</span> <span class="c1">// @FindBy(css = "#disabled-name")</span>
  <span class="kd">public</span> <span class="kd">static</span> <span class="n">TextField</span> <span class="n">disabledName</span><span class="o">;</span>
 
- <span class="n">By</span> <span class="k">default</span> <span class="n">Label</span> <span class="n">is</span> <span class="n">found</span> <span class="n">by</span> <span class="n">locator</span> <span class="n">By</span><span class="o">.</span><span class="na">cssSelector</span><span class="o">(</span><span class="s">"[for="</span><span class="o">+</span><span class="n">getAttribute</span><span class="o">(</span><span class="s">"id"</span><span class="o">)+</span><span class="s">"]"</span><span class="o">)</span>
+ <span class="c1">//By default Label is found by locator </span>
+ <span class="n">By</span><span class="o">.</span><span class="na">cssSelector</span><span class="o">(</span><span class="s">"[for="</span><span class="o">+</span><span class="n">getAttribute</span><span class="o">(</span><span class="s">"id"</span><span class="o">)+</span><span class="s">"]"</span><span class="o">)</span>
 
   <span class="nd">@Test</span>
   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">labelTest</span><span class="o">()</span> <span class="o">{</span>
@@ -4800,42 +4804,42 @@ C#: JDI.Light.Elements.Common.TextElement</p>
 </thead><tbody>
 <tr>
 <td><strong>cell(int colNum, int rowNum)</strong></td>
-<td>Sets and returns a cell object of a table according to the cell&#39;s index</td>
+<td>Returns a cell object of a table according to the cell&#39;s index</td>
 <td>String</td>
 </tr>
 <tr>
 <td><strong>cell(int colNum, String rowName)</strong></td>
-<td>Sets and returns a cell object of a table according to the cell&#39;s index</td>
+<td>Returns a cell object of a table according to the cell&#39;s index</td>
 <td>String</td>
 </tr>
 <tr>
 <td><strong>cell(String colName, int rowNum)</strong></td>
-<td>Sets and returns a cell object of a table according to the cell&#39;s index</td>
+<td>Returns a cell object of a table according to the cell&#39;s index</td>
 <td>String</td>
 </tr>
 <tr>
 <td><strong>cell(String colName, String rowNum)</strong></td>
-<td>Sets and returns a cell object of a table according to the cell&#39;s index</td>
+<td>Returns a cell object of a table according to the cell&#39;s index</td>
 <td>String</td>
 </tr>
 <tr>
 <td><strong>column(Enum colName)</strong></td>
-<td>Sets and returns a column object of a table according to column name</td>
+<td>Returns a column object of a table according to column name</td>
 <td>Line</td>
 </tr>
 <tr>
 <td><strong>column(int colNum)</strong></td>
-<td>Sets and returns a column object of a table according to column number</td>
+<td>Returns a column object of a table according to column number</td>
 <td>Line</td>
 </tr>
 <tr>
 <td><strong>column(String colName)</strong></td>
-<td>Sets and returns a column object of a table according to column name</td>
+<td>Returns a column object of a table according to column name</td>
 <td>Line</td>
 </tr>
 <tr>
 <td><strong>columns()</strong></td>
-<td>Sets and returns a list of column objects of a table</td>
+<td>Returns a list of column objects of a table</td>
 <td>List&lt;Line&gt;</td>
 </tr>
 <tr>
@@ -4870,81 +4874,104 @@ C#: JDI.Light.Elements.Common.TextElement</p>
 </tr>
 <tr>
 <td><strong>row(Enum rowName)</strong></td>
-<td>Sets and returns a row object of a table according to row name</td>
+<td>Returns a row object of a table according to row name</td>
 <td>Line</td>
 </tr>
 <tr>
 <td><strong>row(int rowNum)</strong></td>
-<td>Sets and returns a row object of a table according to row number</td>
+<td>Returns a row object of a table according to row number</td>
 <td>Line</td>
 </tr>
 <tr>
 <td><strong>row(Matcher<String> matcher, Column column)</strong></td>
-<td>Sets and returns a row object of a table according to matching column</td>
+<td>Returns a row object of a table according to matching column</td>
 <td>Line</td>
 </tr>
 <tr>
 <td><strong>row(Pair<Matcher<String>,Column&gt;... matchers)</strong></td>
-<td>Sets and returns a row object of a table according to matching column</td>
+<td>Returns a row object of a table according to matching column</td>
 <td>Line</td>
 </tr>
 <tr>
 <td><strong>row(String rowName)</strong></td>
-<td>Sets and returns a row object of a table according to row name</td>
+<td>Returns a row object of a table according to row name</td>
 <td>Line</td>
 </tr>
 <tr>
 <td><strong>row(TableMatcher... matchers)</strong></td>
-<td>Sets and returns a row object of a table according to matcher</td>
+<td>Returns a row object of a table according to matcher</td>
 <td>Line</td>
 </tr>
 <tr>
 <td><strong>rows()</strong></td>
-<td>Sets and returns a list of rows of a table</td>
+<td>Returns a list of rows of a table</td>
 <td>List&lt;Line&gt;</td>
 </tr>
 <tr>
 <td><strong>rows(TableMatcher... matchers)</strong></td>
-<td>Sets and returns a a list of rows of a table according to matchers</td>
+<td>Returns a a list of rows of a table according to matchers</td>
 <td>List&lt;Line&gt;</td>
 </tr>
+<tr>
+<td><strong>size()</strong></td>
+<td>Return amount of columns</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>count()</strong></td>
+<td>Return return amount of rows</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>header()</strong></td>
+<td>Return a list of table&#39;s headers</td>
+<td>List<String></td>
+</tr>
+<tr>
+<td><strong>webRow(int rowNum)</strong></td>
+<td>Return all UIElements in the row according to row number</td>
+<td>List<UIElement></td>
+</tr>
+<tr>
+<td><strong>webRow(String rowName)</strong></td>
+<td>Return all UIElements in the row according to row name</td>
+<td>List<UIElement></td>
+</tr>
+<tr>
+<td><strong>webRow(Enum rowName)</strong></td>
+<td>Return all UIElements in the row according to row name</td>
+<td>List<UIElement></td>
+</tr>
+<tr>
+<td><strong>webColumn(int colNum)</strong></td>
+<td>Return all UIElements in the column according to column number</td>
+<td>List<UIElement></td>
+</tr>
+<tr>
+<td><strong>webColumn(String colName)</strong></td>
+<td>Return all UIElements in the column according to column name</td>
+<td>List<UIElement></td>
+</tr>
+<tr>
+<td><strong>webColumn(Enum colName) Return</strong></td>
+<td>All UIElements in the column according to column name</td>
+<td>List<UIElement></td>
+</tr>
+<tr>
+<td><strong>webCell(int colNum, int rowNum)</strong></td>
+<td>Return all UIElements in the column according to cell position</td>
+<td>List<UIElement></td>
+</tr>
 </tbody></table>
 
-<p>AssertTable methods in Java:</p>
-
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>assertThat()</strong></td>
-<td>Applicable for performing assert actions for tables</td>
-<td>TableAssert</td>
-</tr>
-<tr>
-<td><strong>has()</strong></td>
-<td>Applicable for performing assert actions for tables</td>
-<td>TableAssert</td>
-</tr>
-<tr>
-<td><strong>is()</strong></td>
-<td>Applicable for performing assert actions for tables</td>
-<td>TableAssert</td>
-</tr>
-<tr>
-<td><strong>shouldBe()</strong></td>
-<td>Applicable for performing assert actions for tables</td>
-<td>TableAssert</td>
-</tr>
-<tr>
-<td><strong>waitFor()</strong></td>
-<td>Applicable for performing assert actions for tables</td>
-<td>TableAssert</td>
-</tr>
-</tbody></table>
+<p>AssertTable methods in Java:
+| Method | Description | Return Type|
+--- | --- | ---
+<strong>assertThat()</strong> | Applicable for performing assert actions for tables | TableAssert
+<strong>has()</strong> | Applicable for performing assert actions for tables | TableAssert
+<strong>is()</strong> | Applicable for performing assert actions for tables | TableAssert
+<strong>shouldBe()</strong> | Applicable for performing assert actions for tables | TableAssert
+<strong>waitFor()</strong> | Applicable for performing assert actions for tables | TableAssert</p>
 
 <p>And here are methods available in C#:</p>
 
@@ -5341,7 +5368,7 @@ able to perform a list of readonly interactions with this element in order to ge
 
 <p><img src="images/html/tableHtml.png" alt="DataTable" /></p>
 
-<p>Here is a list of available methods in Java:</p>
+<p>Here is a list of available methods in Java (<em>btw DataTable expand Table class - methods from previous table are available too</em>):</p>
 
 <p>In return types column &quot;D&quot; refers to user data object and &quot;L&quot; refers to table line object.</p>
 
@@ -5496,6 +5523,11 @@ able to perform a list of readonly interactions with this element in order to ge
 <td><strong>setup(Field field)</strong></td>
 <td>Sets up the table using specified fields</td>
 <td>void</td>
+</tr>
+<tr>
+<td><strong>getValue()</strong></td>
+<td>Return a table content separated by &quot;\</td>
+<td>&quot;</td>
 </tr>
 </tbody></table>
 
@@ -5675,14 +5707,85 @@ This type can be used in cases when dropdown is represented with HTML <em>&lt;se
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>select()/Select(string/int)</strong></td>
-<td>Select dropdown by value/index</td>
+<td><strong>getValue()/getText()/getSelected()</strong></td>
+<td>Return selected dropdown value</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>selected(String option)</strong></td>
+<td>Check if option has been selected</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isExpanded()</strong></td>
+<td>Show that dropdown element expanded</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isDisplayed()</strong></td>
+<td>Show\wait that dropdown element displayed on the screen</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>expand()</strong></td>
+<td>Expand dropdown list</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>selected()/GetSelected()</strong></td>
-<td>Get selected dropdown value</td>
-<td>string</td>
+<td><strong>close()</strong></td>
+<td>Close expanded before dropdown list</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>size()</strong></td>
+<td>Return amount of elements in the list</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>setup(Field field)</strong></td>
+<td>Setup the dropdown using specified fields</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>sendKeys(CharSequence... charSequence)</strong></td>
+<td>Send specific keys</td>
+<td>void</td>
+</tr>
+</tbody></table>
+
+<p>Available Assert methods in Java:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>is()</strong></td>
+<td>Applicable for performing assert actions for DropDown&#39;s</td>
+<td>ListAssert<UIElement></td>
+</tr>
+<tr>
+<td><strong>assertThat()</strong></td>
+<td>Applicable for performing assert actions for DropDown&#39;s</td>
+<td>ListAssert<UIElement></td>
+</tr>
+<tr>
+<td><strong>has()</strong></td>
+<td>Applicable for performing assert actions for DropDown&#39;s</td>
+<td>ListAssert<UIElement></td>
+</tr>
+<tr>
+<td><strong>waitFor()</strong></td>
+<td>Applicable for performing assert actions for DropDown&#39;s</td>
+<td>ListAssert<UIElement></td>
+</tr>
+<tr>
+<td><strong>shouldBe()</strong></td>
+<td>Applicable for performing assert actions for DropDown&#39;s</td>
+<td>ListAssert<UIElement></td>
 </tr>
 </tbody></table>
 
@@ -5808,7 +5911,7 @@ This type can be used in cases when dropdown is represented with HTML <em>&lt;se
 <p>Multi dropdown elements can be described by the following class:</p>
 
 <ul>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.complex.MultiSelect</em></li>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.complex.MultiDropdown</em></li>
 <li><strong>C#</strong>: <em>JDI.Light.Elements.Composite.MultiDropdown</em></li>
 </ul>
 
@@ -6291,7 +6394,7 @@ Datalist element contains a set of options with values available for entering.</
 <tr>
 <td><strong>selected()</strong></td>
 <td>Get selected checkbox values</td>
-<td><strong>String</strong></td>
+<td>String</td>
 </tr>
 </tbody></table>
 
@@ -6453,9 +6556,24 @@ Multi Selector are represented by the following class:</p>
 <td>Property that returns object for work with assertions</td>
 <td>SelectAssert</td>
 </tr>
+<tr>
+<td><strong>has()</strong></td>
+<td>Returns object for work with assertions</td>
+<td>SelectAssert</td>
+</tr>
+<tr>
+<td><strong>waitFor()</strong></td>
+<td>Returns object for work with assertions</td>
+<td>SelectAssert</td>
+</tr>
+<tr>
+<td><strong>shouldBe()</strong></td>
+<td>Returns object for work with assertions</td>
+<td>SelectAssert</td>
+</tr>
 </tbody></table>
 
-<p>Here is the list of available methods in Java:</p>
+<p>Here is the list of available methods/asserts in Java:</p>
 
 <table><thead>
 <tr>
@@ -7147,7 +7265,7 @@ public class Section : UIElement</p>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>openePage(String url)</strong></td>
+<td><strong>openedPage(String url)</strong></td>
 <td>Check that page opened</td>
 <td>void</td>
 </tr>
@@ -7432,7 +7550,14 @@ public class Section : UIElement</p>
 <td>Such notation allows to enrich css locators by allowing to move up in the DOM to the parent of the element. E.g. [’text’]<strong>&lt;</strong>[type=checkbox] is the same as //*[text()=’text’]/..//*[@type=‘checkbox’]</td>
 <td>@UI(&quot;[’Ice Cream’]&lt;[type=checkbox]&quot;)</td>
 </tr>
+<tr>
+<td><strong>@JDropdown</strong></td>
+<td>This locator help to locate dropdown elements and <a href='https://jdi-docs.github.io/jdi-light/?java#dropdown' target="_blank">provide additional features</a></td>
+<td>@JDropdown(root = &quot;div[ui=combobox]&quot;, value = &quot;input&quot;, list = &quot;li&quot;, expand = &quot;.caret&quot;)</td>
+</tr>
 </tbody></table>
+
+<p>provide additional features</p>
 <h3 id='smart-locators-2'>Smart locators</h3><pre class="highlight plaintext"><code>&lt;input type="text" id="name"&gt;
 &lt;input type="text" id="last-name"&gt;
 &lt;input type="text" id="passport-code"&gt;
@@ -7445,11 +7570,11 @@ public class Section : UIElement</p>
     <span class="nd">@Css</span><span class="o">(</span><span class="s">"#passport-number"</span><span class="o">)</span> <span class="n">TextField</span> <span class="n">passportNumber</span><span class="o">;</span>   
     <span class="nd">@Css</span><span class="o">(</span><span class="s">"#submit-button"</span><span class="o">)</span> <span class="n">Button</span> <span class="n">submitButton</span><span class="o">;</span> 
 <span class="o">}</span>
-<span class="n">If</span> <span class="n">Smart</span> <span class="n">locator</span> <span class="n">rule</span> <span class="n">is</span> <span class="n">id</span>
+<span class="c1">//If Smart locator rule is id</span>
 <span class="n">WebSettings</span><span class="o">.</span><span class="na">SMART_SEARCH_LOCATORS</span> <span class="o">=</span> <span class="n">asList</span><span class="o">(</span><span class="s">"#%s"</span><span class="o">);</span>
-<span class="n">and</span> <span class="n">convertation</span> <span class="n">rule</span> <span class="n">is</span> <span class="n">hyphen</span> <span class="n">to</span> <span class="n">java</span> <span class="n">name</span>
+<span class="c1">//and convertation rule is hyphen to java name</span>
 <span class="n">WebSettings</span><span class="o">.</span><span class="na">SMART_SEARCH_NAME</span> <span class="o">=</span> <span class="nl">StringUtils:</span><span class="o">:</span><span class="n">splitHyphen</span><span class="o">;</span>
-<span class="n">So</span> <span class="n">you</span> <span class="n">can</span> <span class="n">write</span>
+<span class="c1">//So you can write</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserCard</span> <span class="kd">extends</span> <span class="n">Form</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="o">{</span>
     <span class="n">TextField</span> <span class="n">name</span><span class="o">;</span>
     <span class="n">TextField</span> <span class="n">lastName</span><span class="o">;</span>
@@ -7457,7 +7582,7 @@ public class Section : UIElement</p>
     <span class="n">TextField</span> <span class="n">passportNumber</span><span class="o">;</span>  
     <span class="n">Button</span> <span class="n">submitButton</span><span class="o">;</span> 
 <span class="o">}</span>
-<span class="n">or</span> <span class="n">just</span> <span class="n">write</span> <span class="n">all</span> <span class="n">TextFields</span> <span class="n">in</span> <span class="n">one</span> <span class="n">line</span>
+<span class="c1">//or just write all TextFields in one line</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserCard</span> <span class="kd">extends</span> <span class="n">Form</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="o">{</span>
     <span class="n">TextField</span> <span class="n">name</span><span class="o">,</span> <span class="n">lastName</span><span class="o">,</span> <span class="n">passportCode</span><span class="o">,</span> <span class="n">passportNumber</span><span class="o">;</span>  
     <span class="n">Button</span> <span class="n">submitButton</span><span class="o">;</span> 
@@ -7467,11 +7592,11 @@ public class Section : UIElement</p>
 
 <p>You can manage how to create locator from a field name using:</p>
 
-<p>WebSettings.SMART_SEARCH - function that is invoked if you have element that has no locator or just setting a list of used locators using</p>
+<p><strong>WebSettings.SMART_SEARCH</strong> - function that is invoked if you have element that has no locator or just setting a list of used locators using</p>
 
-<p>WebSettings.SMART_SEARCH_LOCATORS - list of locators that can be used to try to find element</p>
+<p><strong>WebSettings.SMART_SEARCH_LOCATORS</strong> - list of locators that can be used to try to find element</p>
 
-<p>WebSettings.SMART_SEARCH_NAME - function how to create locator name from filed name (this value will be passed as %s parameter in SMART_SEARCH_LOCATORS)</p>
+<p><strong>WebSettings.SMART_SEARCH_NAME</strong> - function how to create locator name from filed name (this value will be passed as %s parameter in SMART_SEARCH_LOCATORS)</p>
 <h2 id='windows-tabs-manager'>Windows/Tabs manager</h2><pre class="highlight java tab-java"><code><span class="c1">//example 1</span>
 <span class="n">homePage</span><span class="o">.</span><span class="na">shouldBeOpened</span><span class="o">();</span>
 <span class="n">githubLink</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
@@ -7574,6 +7699,7 @@ Note that you can make static import in order to simplify code Alerts.acceptAler
 <p><img src="images/alert.png" alt="Alert" /></p>
 <pre class="highlight java tab-java"><code><span class="n">alertButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
 <span class="n">String</span> <span class="n">text</span> <span class="o">=</span> <span class="n">getAlertText</span><span class="o">();</span>
+<span class="n">assertEquals</span><span class="o">(</span><span class="n">text</span><span class="o">,</span> <span class="s">"Alert Button"</span><span class="o">);</span>
 <span class="n">acceptAlert</span><span class="o">();</span>
 </code></pre><pre class="highlight csharp tab-csharp"><code><span class="n">AlertButton</span><span class="p">.</span><span class="nf">Click</span><span class="p">();</span>
 <span class="n">String</span> <span class="n">text</span> <span class="p">=</span> <span class="nf">GetAlert</span><span class="p">().</span><span class="nf">GetAlertText</span><span class="p">()</span>
@@ -7595,8 +7721,106 @@ Note that you can make static import in order to simplify code Alerts.acceptAler
 <p>prompt(&#39;Alert&#39;, &#39;Default value&#39;)</p>
 
 <p><img src="images/prompt.png" alt="Prompt dialog" /></p>
-<h2 id='logs'>Logs</h2>
-<p>TBD</p>
+
+<p>Availiable methods in Java</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>acceptAlert()</strong></td>
+<td>Accept alert</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>dismissAlert()</strong></td>
+<td>Dismiss alert</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>getAlertText()</strong></td>
+<td>Get alert text</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>validateAlert(Matcher<String> text)</strong></td>
+<td>Validate alert by matching passed value with alert text</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>inputAndAcceptAlert(String text)</strong></td>
+<td>Input the specified text in the alert and accept it</td>
+<td>void</td>
+</tr>
+</tbody></table>
+<h2 id='logs'>Logs</h2><pre class="highlight java tab-java"><code><span class="c1">//setup loglevel before running a test (for example in TestInit)</span>
+<span class="n">logger</span><span class="o">.</span><span class="na">setLogLevel</span><span class="o">(</span><span class="n">STEP</span><span class="o">);</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">loginTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">homePage</span><span class="o">.</span><span class="na">open</span><span class="o">();</span>
+    <span class="n">userIcon</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+    <span class="n">loginForm</span><span class="o">.</span><span class="na">loginAs</span><span class="o">(</span><span class="n">DEFAULT_USER</span><span class="o">);</span>
+    <span class="n">homePage</span><span class="o">.</span><span class="na">checkOpened</span><span class="o">();</span>
+<span class="o">}</span>
+<span class="c1">//results in the log</span>
+<span class="o">[</span><span class="mi">22</span><span class="o">:</span><span class="mf">17.102</span>  <span class="n">STEP</span><span class="o">]</span> <span class="o">:</span> <span class="n">Open</span> <span class="err">'</span><span class="n">Home</span> <span class="n">Page</span><span class="err">'</span><span class="o">(</span><span class="n">url</span><span class="o">=&gt;</span><span class="nl">https:</span><span class="c1">//jdi-testing.github.io/jdi-light/index.html)</span>
+<span class="o">[</span><span class="mi">22</span><span class="o">:</span><span class="mf">23.617</span>  <span class="n">STEP</span><span class="o">]</span> <span class="o">:</span> <span class="n">Click</span> <span class="n">on</span> <span class="err">'</span><span class="n">User</span> <span class="n">Icon</span><span class="err">'</span>
+<span class="o">[</span><span class="mi">22</span><span class="o">:</span><span class="mf">23.727</span>  <span class="n">STEP</span><span class="o">]</span> <span class="o">:</span> <span class="n">Login</span> <span class="n">as</span> <span class="nf">User</span><span class="o">(</span><span class="nl">userName:</span><span class="n">epam</span><span class="o">;</span> <span class="nl">password:</span><span class="mi">1234</span><span class="o">)</span>
+<span class="o">[</span><span class="mi">22</span><span class="o">:</span><span class="mf">24.516</span>  <span class="n">STEP</span><span class="o">]</span> <span class="o">:</span> <span class="n">Check</span> <span class="n">that</span> <span class="err">'</span><span class="n">Home</span> <span class="n">Page</span><span class="err">'</span> <span class="n">is</span> <span class="nf">opened</span> <span class="o">(</span><span class="n">url</span> <span class="n">CONTAINS</span> <span class="err">'</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="na">html</span><span class="err">'</span><span class="o">;</span> <span class="n">title</span> <span class="n">EQUALS</span> <span class="err">'</span><span class="n">Home</span> <span class="n">Page</span><span class="err">'</span><span class="o">)</span>
+
+</code></pre>
+<p>JDI uses log4j library, but provide more levels of logging. (require log4j.xml / log2j2.xml)
+<strong>logger.setLogLevel(STEP);</strong>
+Level <em>STEP</em> can show business-related information in the console output and the same log will be in the file (target/.logs/<logName>.log)</p>
+
+<table><thead>
+<tr>
+<th>LogLevel</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>OFF(0)</strong></td>
+<td>No logging</td>
+</tr>
+<tr>
+<td><strong>FATAL(100)</strong></td>
+<td>Unexpected errors</td>
+</tr>
+<tr>
+<td><strong>ERROR(200)</strong></td>
+<td>Critical errors</td>
+</tr>
+<tr>
+<td><strong>WARNING(300)</strong></td>
+<td>Errors due to wrong params</td>
+</tr>
+<tr>
+<td><strong>STEP(350)</strong></td>
+<td>Business related info (JDI related loglevel)</td>
+</tr>
+<tr>
+<td><strong>INFO(400)</strong></td>
+<td>Actions Info</td>
+</tr>
+<tr>
+<td><strong>DEBUG(500)</strong></td>
+<td>Debug info (do not use for production stage)</td>
+</tr>
+<tr>
+<td><strong>TRACE(600)</strong></td>
+<td>Trace info (do not use for production stage)</td>
+</tr>
+<tr>
+<td><strong>ALL(MAX_VALUE)</strong></td>
+<td>All log messages (do not use for production stage)</td>
+</tr>
+</tbody></table>
 <h2 id='reports'>Reports</h2><h3 id='allure'>Allure</h3>
 <p>TBD</p>
 <h3 id='report-portal'>Report Portal</h3>
@@ -7718,7 +7942,81 @@ Note that you can make static import in order to simplify code Alerts.acceptAler
 <li><p>As a separate method if you need to check several elements (example multipleValidationsTest)</p></li>
 </ul>
 <h2 id='driver-settings'>Driver Settings</h2>
-<p>TBD</p>
+<p>We can change default settings placed in the test.properties file (src/test/resources)</p>
+
+<table><thead>
+<tr>
+<th>Property name</th>
+<th>Description</th>
+<th>Examples</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>driver</strong></td>
+<td>Describe what kind of driver we want to use: chrome, firefox, ie… or we can just place it with ${driver} and read the exact driver name from command line or pom file</td>
+<td>driver = ${driver}</td>
+</tr>
+<tr>
+<td><strong>drivers.version</strong></td>
+<td>By default, JDI Light will download the latest version of the driver for us, but if we need a specific version we can put it here (in this case the framework will find and download exactly this version)</td>
+<td>drivers.version = LATEST<br>drivers.version = PRELATEST<br> driver.version = 2.23</td>
+</tr>
+<tr>
+<td><strong>timeout.wait.element</strong></td>
+<td>Wait for an element on the opened page, by default = 10 seconds</td>
+<td>timeout.wait.element = 20</td>
+</tr>
+<tr>
+<td><strong>timeout.wait.page</strong></td>
+<td>JDI Light automatically defines that new page opened and in this case will use this timeout (usually it is more than for element). By default 30 seconds</td>
+<td>timeout.wait.page = 40</td>
+</tr>
+<tr>
+<td><strong>domain</strong></td>
+<td>web application root URL (used if we work with one application in tests). Can be also read from the command line like ${domain}</td>
+<td>domain = https://jdi-testing.github.io/jdi-light/</td>
+</tr>
+<tr>
+<td><strong>drivers.folder</strong></td>
+<td>Setup folder for drivers</td>
+<td>drivers.folder = C:\Selenium</td>
+</tr>
+<tr>
+<td><strong>screens.folder</strong></td>
+<td>Setup screenshot folder</td>
+<td>screens.folder = C:\Test-screenshot</td>
+</tr>
+<tr>
+<td><strong>element.search.strategy</strong></td>
+<td>Can find only one element on a page (single), many elements on a page (multiple). Also, we can define if we want to search only in visible element or not. Consist of 2 params: visibility (visible can use displayed or any),  and type of search. Options: soft (=any, multiple); strict(=visible, single); or combine from visible/displayed/any/all and single/multiple. _Note: visible=displayed, any=all</td>
+<td>element.search.strategy = visible, multiple</td>
+</tr>
+<tr>
+<td><strong>browser.size</strong></td>
+<td>the size . Optionsof the tested browser. By default, JDI Light will maximize browser, but we can set exact values</td>
+<td>browser.size = MAXIMIZE<br>browser.size = 1024x762</td>
+</tr>
+<tr>
+<td><strong>page.load.strategy</strong></td>
+<td>Selenium-like strategies to load the page. Options: normal, eager, none</td>
+<td>page.load.strategy = normal</td>
+</tr>
+<tr>
+<td><strong>page.check.after.open</strong></td>
+<td>Check the page has been open. Availible option: NONE, NEW_PAGE, EVERY_PAGE</td>
+<td>page.check.after.open = NONE</td>
+</tr>
+<tr>
+<td><strong>assert.type</strong></td>
+<td><a href="https://jdi-docs.github.io/jdi-light/?java#softasserts">Assert type</a>: soft or strict</td>
+<td>assert.type = soft</td>
+</tr>
+<tr>
+<td><strong>driver.remote.url</strong></td>
+<td><a href="https://jdi-docs.github.io/jdi-light/?java#remote-test-runs">Tests can run on remote web servers<a></td>
+<td>driver.remote.url=http://localhost:4444/wd/hub</td>
+</tr>
+</tbody></table>
 <h2 id='parallel-tests-run'>Parallel tests run</h2>
 <p>TBD</p>
 <h2 id='remote-test-runs'>Remote test runs</h2>

@@ -26,13 +26,13 @@ public class UserCard : Form<User>
     Button SubmitButton;
 }
 
-If Smart locator rule is id:
+//If Smart locator rule is id:
     SmartSearchLocator = "#{0}";
     
-and convertation rule is hyphen to csharp name:
+//and convertation rule is hyphen to csharp name:
     SmartSearchName(string name) => StringExtensions.SplitHyphen(name);
     
-So you can write:
+//So you can write:
 
 public class UserCard : Form<User>
 {
@@ -53,14 +53,13 @@ public class UserCard extends Form<User> {
     @Css("#submit-button") Button submitButton; 
 }
 
-If Smart locator rule is id:
+//If Smart locator rule is id:
     WebSettings.SMART_SEARCH_LOCATORS = asList("#%s");
     
-and convertation rule is hyphen to java name:
+//and convertation rule is hyphen to java name:
     WebSettings.SMART_SEARCH_NAME = StringUtils::splitHyphen;
 
-So you can write:
-
+//So you can write:
 public class UserCard extends Form<User> {
     TextField name;
     TextField lastName;

@@ -515,7 +515,7 @@ Let's start from simple Form - Login.<br/>
 We plan to have lot of tests that starts from point ther <u>user is logged out</u> and <u>Login form is opened</u>, so let's write @BeforeMethod state for this set of test cases.<br/><br/>
 
 ```java
-Example 1
+//Example 1
 public class SeleniumLoginForm {
     @FindBy(id = "name") public WebElement name;
     @FindBy(id = "password") public WebElement password;
@@ -527,7 +527,7 @@ public class SeleniumLoginForm {
         loginButton.click();
     }
 }
-Example 2
+//Example 2
 public class SeleniumLoginForm {
     ...
     // 3 lines for Elements
@@ -543,7 +543,8 @@ public class SeleniumLoginForm {
         loginButton.click();
     }
 }
-on JDISite.java >> public static SeleniumLoginForm seleniumLoginForm;
+//now we should add the class SeleniumLoginForm on JDISite.java:
+public static SeleniumLoginForm seleniumLoginForm;
 
 public class SelenideLoginForm {
     UIElement name = $("#name"), 
@@ -552,20 +553,23 @@ public class SelenideLoginForm {
     // + Same 11 rows for methods like in Selenium
     ...
 }
-on JDISite.java >> public static SelenideLoginForm selenideLoginForm;
+//now we should add the class SelenideLoginForm on JDISite.java:
+public static SelenideLoginForm selenideLoginForm;
 
 public class LoginForm extends Form<User> {
     @UI("#name") TextField name;
     @UI("#password") TextField password;
     @UI("#login-button") Button loginButton;
 }
-on JDISite.java >> public static LoginForm loginForm;
+//now we should add the class LoginForm on JDISite.java:
+public static LoginForm loginForm;
 
 public class LoginFormSmart extends Form<User> {
     TextField name, password;
     Button loginButton;
 }
-on JDISite.java >> public static LoginFormSmart loginFormSmart;
+//now we should add the class LoginFormSmart on JDISite.java:
+public static LoginFormSmart loginFormSmart;
 ```
 In JDI Light we have different ways to describe the Form: <br/>
 **Selenium** - typical Page Object with **WebElement**s and **@FindBy** annotations, actions with them and without extending from something. Exactly this code will work in original Selenium project without JDI.<br/>

@@ -16,7 +16,7 @@ Label's implementation is located in the following classes:
 
   ```java
    
-  In the next test Label is found from 'name' and 'disabledName' locators:
+  //In the next test Label is found from 'name' and 'disabledName' locators:
    
   @UI("#name") // @FindBy(css = "#name")
  public static TextField name;
@@ -24,7 +24,8 @@ Label's implementation is located in the following classes:
   @UI("#disabled-name") // @FindBy(css = "#disabled-name")
  public static TextField disabledName;
 	
- By default Label is found by locator By.cssSelector("[for="+getAttribute("id")+"]")
+ //By default Label is found by locator 
+ By.cssSelector("[for="+getAttribute("id")+"]")
    
   @Test
   public void labelTest() {
@@ -2039,31 +2040,40 @@ Here is a list of available methods in Java:
 
 | Method | Description | Return Type|
 --- | --- | ---
-**cell(int colNum, int rowNum)** | Sets and returns a cell object of a table according to the cell's index | String
-**cell(int colNum, String rowName)** | Sets and returns a cell object of a table according to the cell's index | String
-**cell(String colName, int rowNum)** | Sets and returns a cell object of a table according to the cell's index | String
-**cell(String colName, String rowNum)** | Sets and returns a cell object of a table according to the cell's index | String
-**column(Enum colName)** | Sets and returns a column object of a table according to column name | Line
-**column(int colNum)** | Sets and returns a column object of a table according to column number | Line
-**column(String colName)** | Sets and returns a column object of a table according to column name | Line
-**columns()** | Sets and returns a list of column objects of a table | List\<Line>
+**cell(int colNum, int rowNum)** | Returns a cell object of a table according to the cell's index | String
+**cell(int colNum, String rowName)** | Returns a cell object of a table according to the cell's index | String
+**cell(String colName, int rowNum)** | Returns a cell object of a table according to the cell's index | String
+**cell(String colName, String rowNum)** | Returns a cell object of a table according to the cell's index | String
+**column(Enum colName)** | Returns a column object of a table according to column name | Line
+**column(int colNum)** | Returns a column object of a table according to column number | Line
+**column(String colName)** | Returns a column object of a table according to column name | Line
+**columns()** | Returns a list of column objects of a table | List\<Line>
 **filterRows(Matcher<String> matcher, Column column)** | Sets and returns a list of filtered rows of a table according to matching column | List\<Line>
 **filterRows(Pair<Matcher<String>,Column>... matchers)** | Sets and returns a list of filtered rows of a table according to matching column | List\<Line>
 **getValue()** | Returns a string content of values for particular row, where values are separated by ";" | String
 **isEmpty()** | Asserts whether table is empty | boolean
 **isNotEmpty()** | Asserts whether table is not empty | boolean
 **preview()** | Returns table preview | String
-**row(Enum rowName)** | Sets and returns a row object of a table according to row name | Line
-**row(int rowNum)** | Sets and returns a row object of a table according to row number | Line
-**row(Matcher<String> matcher, Column column)** | Sets and returns a row object of a table according to matching column | Line
-**row(Pair<Matcher<String>,Column>... matchers)** | Sets and returns a row object of a table according to matching column | Line
-**row(String rowName)** | Sets and returns a row object of a table according to row name | Line
-**row(TableMatcher... matchers)** | Sets and returns a row object of a table according to matcher | Line
-**rows()** | Sets and returns a list of rows of a table | List\<Line>
-**rows(TableMatcher... matchers)** | Sets and returns a a list of rows of a table according to matchers | List\<Line>
-
+**row(Enum rowName)** | Returns a row object of a table according to row name | Line
+**row(int rowNum)** | Returns a row object of a table according to row number | Line
+**row(Matcher<String> matcher, Column column)** | Returns a row object of a table according to matching column | Line
+**row(Pair<Matcher<String>,Column>... matchers)** | Returns a row object of a table according to matching column | Line
+**row(String rowName)** | Returns a row object of a table according to row name | Line
+**row(TableMatcher... matchers)** | Returns a row object of a table according to matcher | Line
+**rows()** | Returns a list of rows of a table | List\<Line>
+**rows(TableMatcher... matchers)** | Returns a a list of rows of a table according to matchers | List\<Line>
+**size()** | Return amount of columns | int
+**count()** | Return return amount of rows | int
+**header()** | Return a list of table's headers | List<String>
+**webRow(int rowNum)** | Return all UIElements in the row according to row number | List<UIElement>
+**webRow(String rowName)** | Return all UIElements in the row according to row name | List<UIElement>
+**webRow(Enum rowName)** | Return all UIElements in the row according to row name | List<UIElement>
+**webColumn(int colNum)** | Return all UIElements in the column according to column number | List<UIElement>
+**webColumn(String colName)** | Return all UIElements in the column according to column name | List<UIElement>
+**webColumn(Enum colName) Return** | All UIElements in the column according to column name | List<UIElement>
+**webCell(int colNum, int rowNum)** | Return all UIElements in the column according to cell position | List<UIElement>
+  
 AssertTable methods in Java:
-
 | Method | Description | Return Type|
 --- | --- | ---
 **assertThat()** | Applicable for performing assert actions for tables | TableAssert
@@ -2318,7 +2328,7 @@ DataTables are represented by the following classes in Java and C#:
     
   ![DataTable](../images/html/tableHtml.png)
 
-Here is a list of available methods in Java:
+Here is a list of available methods in Java (_btw DataTable expand Table class - methods from previous table are available too_):
 
 In return types column "D" refers to user data object and "L" refers to table line object.
 
@@ -2353,6 +2363,7 @@ In return types column "D" refers to user data object and "L" refers to table li
 **offCache()** | Turns off cache usage | void
 **refresh()** | Clears all data and lines | void
 **setup(Field field)** | Sets up the table using specified fields | void
+**getValue()** | Return a table content separated by "\|" | String
 
 DataTableAssert methods in Java:
 
@@ -2516,8 +2527,25 @@ Here is the list of some available methods:
 
 |Method | Description | Return Type
 --- | --- | ---
-**select()/Select(string/int)** |Select dropdown by value/index  | void
-**selected()/GetSelected()** |Get selected dropdown value  | string
+**getValue()/getText()/getSelected()** | Return selected dropdown value | String
+**selected(String option)** | Check if option has been selected | boolean
+**isExpanded()** | Show that dropdown element expanded | boolean
+**isDisplayed()** | Show\wait that dropdown element displayed on the screen | boolean
+**expand()** | Expand dropdown list | void
+**close()** | Close expanded before dropdown list | void
+**size()** | Return amount of elements in the list | int
+**setup(Field field)** | Setup the dropdown using specified fields | void
+**sendKeys(CharSequence... charSequence)** | Send specific keys | void
+
+Available Assert methods in Java:
+
+|Method | Description | Return Type
+--- | --- | ---
+**is()** | Applicable for performing assert actions for DropDown's | ListAssert<UIElement>
+**assertThat()** | Applicable for performing assert actions for DropDown's | ListAssert<UIElement>
+**has()** | Applicable for performing assert actions for DropDown's | ListAssert<UIElement>
+**waitFor()** | Applicable for performing assert actions for DropDown's | ListAssert<UIElement>
+**shouldBe()** | Applicable for performing assert actions for DropDown's | ListAssert<UIElement>
 
 Available Assert methods in C#:
 
@@ -2613,7 +2641,7 @@ public void BaseValidationTest()
 
 Multi dropdown elements can be described by the following class:
 
- - __Java__: _com.epam.jdi.light.ui.html.complex.MultiSelect_
+ - __Java__: _com.epam.jdi.light.ui.html.complex.MultiDropdown_
  - __C#__: _JDI.Light.Elements.Composite.MultiDropdown_
 
 Here is the list of some available methods in C# JDI Light:
@@ -2895,7 +2923,7 @@ List of available methods in Java JDI Light:
 **is()** | Get select assert | selectAssert
 **assertThat()** | Get select assert | selectAssert
 **has()** | Get select assert | selectAssert
-**selected()** | Get selected checkbox values | **String**
+**selected()** | Get selected checkbox values | String
 
 Here is the list of some available methods in C# JDI Light:
 
@@ -2965,14 +2993,17 @@ Here is a list of available methods and properties in C#:
 
 |Method / Property | Description | Return Type
 --- | --- | ---
-**Check(string/string[]/int/int[]/Enum[])** |Select multiselector by values | void
-**Uncheck(string[]/Enum[]/int[])** |Select multiselector by values/indexes  | void
-**Selected()** |Get selected values  | string
-**Checked()** |Get selected values  | List\<string>
-**Is** | Property that returns object for work with assertions| SelectAssert
-**AssertThat** | Property that returns object for work with assertions| SelectAssert
+**Check(string/string[]/int/int[]/Enum[])** | Select multiselector by values | void
+**Uncheck(string[]/Enum[]/int[])** | Select multiselector by values/indexes | void
+**Selected()** | Get selected values | string
+**Checked()** | Get selected values  | List\<string>
+**Is** | Property that returns object for work with assertions | SelectAssert
+**AssertThat** | Property that returns object for work with assertions | SelectAssert
+**has()** | Returns object for work with assertions | SelectAssert
+**waitFor()** | Returns object for work with assertions | SelectAssert
+**shouldBe()** | Returns object for work with assertions | SelectAssert
 
-Here is the list of available methods in Java:
+Here is the list of available methods/asserts in Java:
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -3392,7 +3423,7 @@ Available methods in Java JDI Light:
 **isOpened()**|Checking that page opened|boolean
 **shouldBeOpened()**|Checking that page opened|void
 **shouldBeOpened(Object... params)**|Check that page opened with parameters|void
-**openePage(String url)**|Check that page opened|void
+**openedPage(String url)**|Check that page opened|void
 **refresh()**|Reloading current page|void
 **reload()**|same as **refresh()**|void
 **back()**|Go back to previous page|void
@@ -3552,7 +3583,10 @@ Apart from locator annotations JDI Light provides support for smart locators. Wh
 **@UI("\[\*'text'\]")** | Such notation allows to enrich css locators to detect element(s) which contain(s) given text inside its text nodes. It is equivalent to xpath = ".//\*/text()\[contains(normalize-space(.), 'text')\]/parent::\*" | @UI(".user\[\*'Roma'\]") or @UI("\[\*'Accept'\] input")
 **@UI("'expr\[n\]")** | Such notation allows to enrich css locators to choose an element at a specific position. It is equivalent to xpath = ".//xpath-expr\[n\]" | @UI("\[type=checkbox\]\[1\]")
 **@UI("expr<")** | Such notation allows to enrich css locators by allowing to move up in the DOM to the parent of the element. E.g. \[’text’\]**<**\[type=checkbox\] is the same as //\*\[text()=’text’\]/..//*\[@type=‘checkbox’\] | @UI("\[’Ice Cream’\]<\[type=checkbox\]")
+**@JDropdown** | This locator help to locate dropdown elements and <a href='https://jdi-docs.github.io/jdi-light/?java#dropdown' target="_blank">provide additional features</a> | @JDropdown(root = "div\[ui=combobox\]", value = "input", list = "li", expand = ".caret")
 
+
+provide additional features
 ### Smart locators
 
 ```
@@ -3570,11 +3604,11 @@ public class UserCard extends Form<User> {
     @Css("#passport-number") TextField passportNumber;   
     @Css("#submit-button") Button submitButton; 
 }
-If Smart locator rule is id
+//If Smart locator rule is id
 WebSettings.SMART_SEARCH_LOCATORS = asList("#%s");
-and convertation rule is hyphen to java name
+//and convertation rule is hyphen to java name
 WebSettings.SMART_SEARCH_NAME = StringUtils::splitHyphen;
-So you can write
+//So you can write
 public class UserCard extends Form<User> {
     TextField name;
     TextField lastName;
@@ -3582,7 +3616,7 @@ public class UserCard extends Form<User> {
     TextField passportNumber;  
     Button submitButton; 
 }
-or just write all TextFields in one line
+//or just write all TextFields in one line
 public class UserCard extends Form<User> {
     TextField name, lastName, passportCode, passportNumber;  
     Button submitButton; 
@@ -3593,11 +3627,11 @@ If you have your developers follow some standard way to mark ui elements or you 
 
 You can manage how to create locator from a field name using:
 
-WebSettings.SMART_SEARCH - function that is invoked if you have element that has no locator or just setting a list of used locators using
+**WebSettings.SMART_SEARCH** - function that is invoked if you have element that has no locator or just setting a list of used locators using
 
-WebSettings.SMART_SEARCH_LOCATORS - list of locators that can be used to try to find element
+**WebSettings.SMART_SEARCH_LOCATORS** - list of locators that can be used to try to find element
 
-WebSettings.SMART_SEARCH_NAME - function how to create locator name from filed name (this value will be passed as %s parameter in SMART_SEARCH_LOCATORS)
+**WebSettings.SMART_SEARCH_NAME** - function how to create locator name from filed name (this value will be passed as %s parameter in SMART_SEARCH_LOCATORS)
 
 ## Windows/Tabs manager
 ```java 
@@ -3664,6 +3698,7 @@ alert('Alert')
 ```java 
 alertButton.click();
 String text = getAlertText();
+assertEquals(text, "Alert Button");
 acceptAlert();
 ```
 ```csharp 
@@ -3698,9 +3733,51 @@ prompt('Alert', 'Default value')
 
 ![Prompt dialog](../images/prompt.png)
 
+Availiable methods in Java
+
+|Method | Description | Return Type
+--- | --- | ---
+**acceptAlert()** | Accept alert | void
+**dismissAlert()** | Dismiss alert | void
+**getAlertText()** | Get alert text | String
+**validateAlert(Matcher<String> text)** | Validate alert by matching passed value with alert text | void
+**inputAndAcceptAlert(String text)** | Input the specified text in the alert and accept it | void
 
 ## Logs
-TBD
+```java
+//setup loglevel before running a test (for example in TestInit)
+logger.setLogLevel(STEP);
+
+@Test
+public void loginTest() {
+    homePage.open();
+    userIcon.click();
+    loginForm.loginAs(DEFAULT_USER);
+    homePage.checkOpened();
+}
+//results in the log
+[22:17.102  STEP] : Open 'Home Page'(url=>https://jdi-testing.github.io/jdi-light/index.html)
+[22:23.617  STEP] : Click on 'User Icon'
+[22:23.727  STEP] : Login as User(userName:epam; password:1234)
+[22:24.516  STEP] : Check that 'Home Page' is opened (url CONTAINS '/index.html'; title EQUALS 'Home Page')
+
+```
+JDI uses log4j library, but provide more levels of logging. (require log4j.xml / log2j2.xml)
+**logger.setLogLevel(STEP);**
+Level _STEP_ can show business-related information in the console output and the same log will be in the file (target/.logs/<logName>.log)
+
+|LogLevel | Description 
+--- | --- 
+**OFF(0)** | No logging
+**FATAL(100)** | Unexpected errors
+**ERROR(200)** | Critical errors
+**WARNING(300)** | Errors due to wrong params
+**STEP(350)** | Business related info (JDI related loglevel)
+**INFO(400)** | Actions Info
+**DEBUG(500)** | Debug info (do not use for production stage)
+**TRACE(600)** | Trace info (do not use for production stage)
+**ALL(MAX_VALUE)** | All log messages (do not use for production stage)
+
 
 ## Reports
 ### Allure
@@ -3802,7 +3879,23 @@ there are two ways how to use **assertResults()** method:
 - As a separate method if you need to check several elements (example multipleValidationsTest)
 
 ## Driver Settings
-TBD
+We can change default settings placed in the test.properties file (src/test/resources)
+
+|Property name | Description | Examples
+--- | --- | ---
+**driver** | Describe what kind of driver we want to use: chrome, firefox, ie… or we can just place it with ${driver} and read the exact driver name from command line or pom file | driver = ${driver}
+**drivers.version** | By default, JDI Light will download the latest version of the driver for us, but if we need a specific version we can put it here (in this case the framework will find and download exactly this version) | drivers.version = LATEST<br>drivers.version = PRELATEST<br> driver.version = 2.23
+**timeout.wait.element** | Wait for an element on the opened page, by default = 10 seconds | timeout.wait.element = 20
+**timeout.wait.page** | JDI Light automatically defines that new page opened and in this case will use this timeout (usually it is more than for element). By default 30 seconds | timeout.wait.page = 40
+**domain** | web application root URL (used if we work with one application in tests). Can be also read from the command line like ${domain} | domain = https://jdi-testing.github.io/jdi-light/
+**drivers.folder** | Setup folder for drivers | drivers.folder = C:\\Selenium
+**screens.folder** | Setup screenshot folder | screens.folder = C:\\Test-screenshot
+**element.search.strategy** | Can find only one element on a page (single), many elements on a page (multiple). Also, we can define if we want to search only in visible element or not. Consist of 2 params: visibility (visible can use displayed or any),  and type of search. Options: soft (=any, multiple); strict(=visible, single); or combine from visible/displayed/any/all and single/multiple. _Note: visible=displayed, any=all | element.search.strategy = visible, multiple
+**browser.size** | the size . Optionsof the tested browser. By default, JDI Light will maximize browser, but we can set exact values | browser.size = MAXIMIZE<br>browser.size = 1024x762
+**page.load.strategy** | Selenium-like strategies to load the page. Options: normal, eager, none | page.load.strategy = normal
+**page.check.after.open** | Check the page has been open. Availible option: NONE, NEW_PAGE, EVERY_PAGE | page.check.after.open = NONE
+**assert.type** | <a href="https://jdi-docs.github.io/jdi-light/?java#softasserts">Assert type</a>: soft or strict | assert.type = soft
+**driver.remote.url** | <a href="https://jdi-docs.github.io/jdi-light/?java#remote-test-runs">Tests can run on remote web servers<a> | driver.remote.url=http://localhost:4444/wd/hub
 
 ## Parallel tests run
 TBD

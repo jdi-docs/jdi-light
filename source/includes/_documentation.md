@@ -3600,7 +3600,37 @@ WebSettings.SMART_SEARCH_LOCATORS - list of locators that can be used to try to 
 WebSettings.SMART_SEARCH_NAME - function how to create locator name from filed name (this value will be passed as %s parameter in SMART_SEARCH_LOCATORS)
 
 ## Windows/Tabs manager
-TBD
+```java 
+//example 1
+homePage.shouldBeOpened();
+githubLink.click();
+System.out.println("New window is opened: " + newWindowIsOpened());
+System.out.println("Windows count: " + windowsCount());
+originalWindow(); // open original (first) window
+switchToWindow(2); // open second window
+assertEquals(repoDescription.getText(), DESCRIPTION_TEXT);
+
+//example 2
+homePage.shouldBeOpened();
+openNewTab();
+switchToWindow(2);
+contactFormPage.open();
+```
+JDI has good support for managing opened windows and tabs of the browser. It can help to create/switch/close windows/tabs in the browser. Let's look at available methods in Java:
+
+|Method | Description | Return Type
+--- | --- | ---
+**getWindows()** | Return list of all windows/tabs | Set<String>
+**newWindowIsOpened()** | Check the new window is opened | boolean
+**setWindowName(String value)** | Set readable name for current opened windows | void
+**windowsCount()** | Get count of windows | int
+**switchToNewWindow()** | Switch to the new window | void
+**openNewTab()** | Open a new tab | void
+**originalWindow()** | Switch to original window | void
+**switchToWindow(int number)** | Switch to windows with a number. _switchToWindow(2) means switch to the second window_ | void
+**switchToWindow(String value)** | Switch to windows with a name. For setup name for the current window, we should use the **setWindowsName()** method | void
+**closeWindow()** | Close current window | void
+**closeWindow(String value)** | Close window with a specific name. | void
 
 ## Alerts
 ```java 

@@ -7409,25 +7409,42 @@ public class Section : UIElement</p>
     <span class="n">mainPage</span><span class="o">.</span><span class="na">setCurrentPage</span><span class="o">(</span><span class="n">mainPage</span><span class="o">);</span>
     <span class="n">assertEquals</span><span class="o">(</span><span class="n">mainPage</span><span class="o">.</span><span class="na">getTitle</span><span class="o">(),</span> <span class="s">"Main page"</span><span class="o">);</span>
 <span class="o">}</span>
-</code></pre><h2 id='jdi-light-bdd-steps'>JDI Light BDD Steps</h2><h3 id='label-2'>Label</h3>
-<p><strong>When</strong> Click on &quot;JDI Title&quot;<br>
-<strong>When</strong> Double Click on &quot;JDI Title&quot;<br>
-<strong>When</strong> Right Click on &quot;JDI Title&quot;<br>
-<strong>When</strong> Higlight &quot;JDI Title&quot;<br>
-<strong>When</strong> Show &quot;JDI Title&quot;<br>
-<strong>When</strong> Set &quot;JDI Title&quot; attribute &quot;status&quot; with value &quot;marked&quot; <br>
-<strong>When</strong> Make Screenshot for &quot;JDI Title&quot;<br>
-<br>
-<strong>Then</strong> Assert that &quot;JDI Title&quot; text equal to &quot;JDI TESTING PLATFORM&quot; <br>
-<strong>Then</strong> Assert that &quot;JDI Title&quot; text contains &quot;JDI&quot; <br>
-<strong>Then</strong> Assert that &quot;JDI Title&quot; text match to regexp &quot;.* TESTING .<em>&quot; <br>
-**Then</em>* Assert that &quot;JDI Title&quot; is enabled <br>
-<strong>Then</strong> Assert that &quot;JDI Title&quot; is disabled <br>
-<strong>Then</strong> Assert that &quot;JDI Title&quot; is displayed <br>
-<strong>Then</strong> Assert that &quot;JDI Title&quot; disappear <br>
-<strong>Then</strong> Assert that &quot;JDI Title&quot; hidden <br>
-<strong>Then</strong> Assert that &quot;JDI Title&quot; not appear <br>
-<strong>Then</strong> Assert that &quot;JDI Title&quot; not appear during &quot;5&quot; seconds <br></p>
+</code></pre><h2 id='jdi-light-bdd-steps'>JDI Light BDD Steps</h2><h3 id='label-2'>Label</h3><pre class="highlight plaintext"><code>When  Click on "JDI Title"
+When  Double Click on "JDI Title"
+When  Right Click on "JDI Title"
+When  Higlight "JDI Title"
+When  Show "JDI Title"
+When  Set "JDI Title" attribute "status" with value "marked"
+When  Make Screenshot for "JDI Title"
+</code></pre>
+<p><strong>When</strong> Click on &quot;&lt;ELEMENT NAME&gt;&quot; <br>
+<strong>When</strong> Double Click on &quot;&lt;ELEMENT NAME&gt;&quot; <br>
+<strong>When</strong> Right Click on &quot;&lt;ELEMENT NAME&gt;&quot; <br>
+<strong>When</strong> Higlight &quot;&lt;ELEMENT NAME&gt;&quot; <br>
+<strong>When</strong> Show &quot;&lt;ELEMENT NAME&gt;&quot; <br>
+<strong>When</strong> Set &quot;&lt;ELEMENT NAME&gt;&quot; attribute &quot;&lt;ATTRIBUTE NAME&gt;&quot; with value &quot;&lt;ATTRIBUTE VALUE&gt;&quot; <br>
+<strong>When</strong> Make Screenshot for &quot;&lt;ELEMENT NAME&gt;&quot;<br></p>
+<pre class="highlight plaintext"><code>Then  Assert that "JDI Title" text equal to "JDI TESTING PLATFORM"
+Then  Assert that "JDI Title" text contains "JDI"
+Then  Assert that "JDI Title" text match to regexp ".* TESTING .*"
+Then  Assert that "JDI Title" is enabled
+Then  Assert that "JDI Title" is disabled
+Then  Assert that "JDI Title" is displayed
+Then  Assert that "JDI Title" disappear
+Then  Assert that "JDI Title" hidden
+Then  Assert that "JDI Title" not appear
+Then  Assert that "JDI Title" not appear during "5" seconds
+</code></pre>
+<p><strong>Then</strong> Assert that &quot;&lt;ELEMENT NAME&gt;&quot; text equal to &quot;&lt;TEXT&gt;&quot; <br>
+<strong>Then</strong> Assert that &quot;&lt;ELEMENT NAME&gt;&quot; text contains &quot;&lt;TEXT PART&gt;&quot; <br>
+<strong>Then</strong> Assert that &quot;&lt;ELEMENT NAME&gt;&quot; text match to regexp &quot;&lt;REGULAR EXPRESSION&gt;&quot; <br>
+<strong>Then</strong> Assert that &quot;&lt;ELEMENT NAME&gt;&quot; is enabled <br>
+<strong>Then</strong> Assert that &quot;&lt;ELEMENT NAME&gt;&quot; is disabled <br>
+<strong>Then</strong> Assert that &quot;&lt;ELEMENT NAME&gt;&quot; is displayed <br>
+<strong>Then</strong> Assert that &quot;&lt;ELEMENT NAME&gt;&quot; disappear <br>
+<strong>Then</strong> Assert that &quot;&lt;ELEMENT NAME&gt;&quot; hidden <br>
+<strong>Then</strong> Assert that &quot;&lt;ELEMENT NAME&gt;&quot; not appear <br>
+<strong>Then</strong> Assert that &quot;&lt;ELEMENT NAME&gt;&quot; not appear during &quot;&lt;SECONDS&gt;&quot; seconds <br></p>
 <h2 id='ui-objects'>UI Objects</h2>
 <p>TBD</p>
 <h2 id='smart-locators'>Smart Locators</h2><pre class="highlight plaintext"><code>&lt;input type="text" id="name"&gt;

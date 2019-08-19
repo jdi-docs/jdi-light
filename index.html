@@ -505,6 +505,14 @@
                         </ul>
                   </li>
                   <li>
+                    <a href="#jdi-light-bdd-steps" class="toc-h2 toc-link" data-title="JDI Light BDD Steps">JDI Light BDD Steps</a>
+                        <ul class="toc-list-h2">
+                            <li>
+                              <a href="#label-2" class="toc-h2 h3 toc-link" data-title="Label">Label</a>
+                            </li>
+                        </ul>
+                  </li>
+                  <li>
                     <a href="#ui-objects" class="toc-h2 toc-link" data-title="UI Objects">UI Objects</a>
                   </li>
                   <li>
@@ -7401,7 +7409,26 @@ public class Section : UIElement</p>
     <span class="n">mainPage</span><span class="o">.</span><span class="na">setCurrentPage</span><span class="o">(</span><span class="n">mainPage</span><span class="o">);</span>
     <span class="n">assertEquals</span><span class="o">(</span><span class="n">mainPage</span><span class="o">.</span><span class="na">getTitle</span><span class="o">(),</span> <span class="s">"Main page"</span><span class="o">);</span>
 <span class="o">}</span>
-</code></pre><h2 id='ui-objects'>UI Objects</h2>
+</code></pre><h2 id='jdi-light-bdd-steps'>JDI Light BDD Steps</h2><h3 id='label-2'>Label</h3>
+<p><strong>When</strong> Click on &quot;JDI Title&quot;<br>
+<strong>When</strong> Double Click on &quot;JDI Title&quot;<br>
+<strong>When</strong> Right Click on &quot;JDI Title&quot;<br>
+<strong>When</strong> Higlight &quot;JDI Title&quot;<br>
+<strong>When</strong> Show &quot;JDI Title&quot;<br>
+<strong>When</strong> Set &quot;JDI Title&quot; attribute &quot;status&quot; with value &quot;marked&quot; <br>
+<strong>When</strong> Make Screenshot for &quot;JDI Title&quot;<br>
+<br>
+<strong>Then</strong> Assert that &quot;JDI Title&quot; text equal to &quot;JDI TESTING PLATFORM&quot; <br>
+<strong>Then</strong> Assert that &quot;JDI Title&quot; text contains &quot;JDI&quot; <br>
+<strong>Then</strong> Assert that &quot;JDI Title&quot; text match to regexp &quot;.* TESTING .<em>&quot; <br>
+**Then</em>* Assert that &quot;JDI Title&quot; is enabled <br>
+<strong>Then</strong> Assert that &quot;JDI Title&quot; is disabled <br>
+<strong>Then</strong> Assert that &quot;JDI Title&quot; is displayed <br>
+<strong>Then</strong> Assert that &quot;JDI Title&quot; disappear <br>
+<strong>Then</strong> Assert that &quot;JDI Title&quot; hidden <br>
+<strong>Then</strong> Assert that &quot;JDI Title&quot; not appear <br>
+<strong>Then</strong> Assert that &quot;JDI Title&quot; not appear during &quot;5&quot; seconds <br></p>
+<h2 id='ui-objects'>UI Objects</h2>
 <p>TBD</p>
 <h2 id='smart-locators'>Smart Locators</h2><pre class="highlight plaintext"><code>&lt;input type="text" id="name"&gt;
 &lt;input type="text" id="last-name"&gt;

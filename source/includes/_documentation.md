@@ -3902,3 +3902,34 @@ TBD
 
 ## Remote test runs
 TBD
+
+## BDD
+
+### Image
+Samples of steps: <br>
+source of image "name" is "path.jpg" <br>
+image source of "Jdi Logo" contains "jdi-logo.jpg"<br>
+image "name" alt attribute is "alt text"<br>
+image "name" height is 100<br>
+image "name" width is 101<br>
+"name" alt is "alt text"<br>
+click at image "name"<br>
+
+````
+Scenario: Check image alt
+  Given I open "Html5 Page"
+  Then "Jdi Logo" alt is "Jdi Logo 2"
+````
+
+### Alerts
+Samples of steps:<br>
+check Alert text is "text"<br>
+accept Alert<br>
+````
+Scenario: Click at image and accept Alert
+  Given I open "Html5 Page"
+  When click at image "Jdi Logo"
+  Then check Alert text is "JDI Logo"
+  And accept Alert
+  ````
+

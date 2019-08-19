@@ -3474,6 +3474,28 @@ public void verifyTitle() {
 }
 ```
 
+## JDI Light BDD Steps
+
+### Label 
+**When** Click on "JDI Title"<br>
+**When** Double Click on "JDI Title"<br>
+**When** Right Click on "JDI Title"<br>
+**When** Higlight "JDI Title"<br>
+**When** Show "JDI Title"<br>
+**When** Set "JDI Title" attribute "status" with value "marked" <br>
+**When** Make Screenshot for "JDI Title"<br>
+<br>
+**Then** Assert that "JDI Title" text equal to "JDI TESTING PLATFORM" <br>
+**Then** Assert that "JDI Title" text contains "JDI" <br>
+**Then** Assert that "JDI Title" text match to regexp ".* TESTING .*" <br>
+**Then** Assert that "JDI Title" is enabled <br>
+**Then** Assert that "JDI Title" is disabled <br>
+**Then** Assert that "JDI Title" is displayed <br>
+**Then** Assert that "JDI Title" disappear <br>
+**Then** Assert that "JDI Title" hidden <br>
+**Then** Assert that "JDI Title" not appear <br>
+**Then** Assert that "JDI Title" not appear during "5" seconds <br>
+
 ## UI Objects
 TBD
 

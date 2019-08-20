@@ -510,6 +510,12 @@
                             <li>
                               <a href="#label-2" class="toc-h2 h3 toc-link" data-title="Label">Label</a>
                             </li>
+                            <li>
+                              <a href="#image-2" class="toc-h2 h3 toc-link" data-title="Image">Image</a>
+                            </li>
+                            <li>
+                              <a href="#alerts" class="toc-h2 h3 toc-link" data-title="Alerts">Alerts</a>
+                            </li>
                         </ul>
                   </li>
                   <li>
@@ -541,7 +547,7 @@
                     <a href="#windows-tabs-manager" class="toc-h2 toc-link" data-title="Windows/Tabs manager">Windows/Tabs manager</a>
                   </li>
                   <li>
-                    <a href="#alerts" class="toc-h2 toc-link" data-title="Alerts">Alerts</a>
+                    <a href="#alerts-2" class="toc-h2 toc-link" data-title="Alerts">Alerts</a>
                   </li>
                   <li>
                     <a href="#logs" class="toc-h2 toc-link" data-title="Logs">Logs</a>
@@ -7445,7 +7451,28 @@ Then  Assert that "JDI Title" not appear during "5" seconds
 <strong>Then</strong> Assert that &quot;&lt;ELEMENT NAME&gt;&quot; hidden <br>
 <strong>Then</strong> Assert that &quot;&lt;ELEMENT NAME&gt;&quot; not appear <br>
 <strong>Then</strong> Assert that &quot;&lt;ELEMENT NAME&gt;&quot; not appear during &quot;&lt;SECONDS&gt;&quot; seconds <br></p>
-<h2 id='ui-objects'>UI Objects</h2>
+<h3 id='image-2'>Image</h3>
+<p>Samples of steps: <br>
+<em><strong>attributes checks:</strong></em><br>
+<strong>Then</strong> image <em>&quot;&lt;IMAGE NAME&gt;&quot;</em> src equals to <em>&quot;&lt;SOURCE VALUE&gt;&quot;</em><br>
+<strong>Then</strong> image <em>&quot;&lt;IMAGE NAME&gt;&quot;</em> scr contains <em>&quot;&lt;SOURCE VALUE&gt;&quot;</em><br>
+<strong>Then</strong> image <em>&quot;&lt;IMAGE NAME&gt;&quot;</em> height is equal to <em>&quot;&lt;HEIGHT VALUE&gt;</em>&quot;<br>
+<strong>Then</strong> image <em>&quot;&lt;IMAGE NAME&gt;&quot;</em> width is equal to <em>&quot;&lt;WIDTH VALUE&gt;&quot;</em><br>
+<strong>Then</strong> image <em>&quot;&lt;IMAGE NAME&gt;&quot;</em> attribute is equal to <em>&quot;&lt;ALT VALUE&gt;</em>&quot;<br></p>
+<pre class="highlight plaintext"><code>Scenario: Check image source
+  Given I should be login
+  And I open "Html5 Page"
+  Then image "Jdi Logo" src is equals to "https://jdi-testing.github.io/jdi-light/images/jdi-logo.jpg"
+</code></pre><h3 id='alerts'>Alerts</h3>
+<p><em>steps:</em><br>
+<strong>Then</strong> alert text is equal to <em>&quot;&lt;SOURCE VALUE&gt;&quot;</em><br>
+<strong>Then</strong> accept Alert<br></p>
+<pre class="highlight plaintext"><code>Scenario: Click at image and accept Alert
+  Given I open "Html5 Page"
+  When click at "Jdi Logo"
+  Then check Alert text is "JDI Logo"
+  And accept Alert
+</code></pre><h2 id='ui-objects'>UI Objects</h2>
 <p>TBD</p>
 <h2 id='smart-locators'>Smart Locators</h2><pre class="highlight plaintext"><code>&lt;input type="text" id="name"&gt;
 &lt;input type="text" id="last-name"&gt;
@@ -7721,7 +7748,7 @@ Then  Assert that "JDI Title" not appear during "5" seconds
 <td>void</td>
 </tr>
 </tbody></table>
-<h2 id='alerts'>Alerts</h2><pre class="highlight java tab-java"><code><span class="n">alertButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+<h2 id='alerts-2'>Alerts</h2><pre class="highlight java tab-java"><code><span class="n">alertButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
 <span class="n">acceptAlert</span><span class="o">();</span>
 </code></pre><pre class="highlight csharp tab-csharp"><code><span class="n">AlertButton</span><span class="p">.</span><span class="nf">Click</span><span class="p">();</span>
 <span class="nf">GetAlert</span><span class="p">().</span><span class="nf">AcceptAlert</span><span class="p">();</span>

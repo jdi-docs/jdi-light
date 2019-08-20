@@ -3518,6 +3518,35 @@ Then  Assert that "JDI Title" not appear during "5" seconds
 **Then** Assert that "\<ELEMENT NAME\>" not appear <br>
 **Then** Assert that "\<ELEMENT NAME\>" not appear during "\<SECONDS\>" seconds <br>
 
+### Image
+Samples of steps: <br>
+_**attributes checks:**_<br>
+**Then** image _"\<IMAGE NAME\>"_ src equals to _"\<SOURCE VALUE\>"_<br>
+**Then** image _"\<IMAGE NAME\>"_ scr contains _"\<SOURCE VALUE\>"_<br>
+**Then** image _"\<IMAGE NAME\>"_ height is equal to _"\<HEIGHT VALUE\>_"<br>
+**Then** image _"\<IMAGE NAME\>"_ width is equal to _"\<WIDTH VALUE\>"_<br>
+**Then** image _"\<IMAGE NAME\>"_ attribute is equal to _"\<ALT VALUE\>_"<br>
+
+````
+Scenario: Check image source
+  Given I should be login
+  And I open "Html5 Page"
+  Then image "Jdi Logo" src is equals to "https://jdi-testing.github.io/jdi-light/images/jdi-logo.jpg"
+````
+
+### Alerts
+_steps:_<br>
+**Then** alert text is equal to _"\<SOURCE VALUE\>"_<br>
+**Then** accept Alert<br>
+
+````
+Scenario: Click at image and accept Alert
+  Given I open "Html5 Page"
+  When click at "Jdi Logo"
+  Then check Alert text is "JDI Logo"
+  And accept Alert
+  ````
+
 ## UI Objects
 TBD
 
@@ -3946,3 +3975,5 @@ TBD
 
 ## Remote test runs
 TBD
+
+

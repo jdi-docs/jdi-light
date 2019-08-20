@@ -3518,34 +3518,57 @@ Then  Assert that "JDI Title" not appear during "5" seconds
 **Then** Assert that "\<ELEMENT NAME\>" not appear <br>
 **Then** Assert that "\<ELEMENT NAME\>" not appear during "\<SECONDS\>" seconds <br>
 
-### Image
-Samples of steps: <br>
-_**attributes checks:**_<br>
-**Then** image _"\<IMAGE NAME\>"_ src equals to _"\<SOURCE VALUE\>"_<br>
-**Then** image _"\<IMAGE NAME\>"_ scr contains _"\<SOURCE VALUE\>"_<br>
-**Then** image _"\<IMAGE NAME\>"_ height is equal to _"\<HEIGHT VALUE\>_"<br>
-**Then** image _"\<IMAGE NAME\>"_ width is equal to _"\<WIDTH VALUE\>"_<br>
-**Then** image _"\<IMAGE NAME\>"_ attribute is equal to _"\<ALT VALUE\>_"<br>
 
-````
-Scenario: Check image source
-  Given I should be login
-  And I open "Html5 Page"
-  Then image "Jdi Logo" src is equals to "https://jdi-testing.github.io/jdi-light/images/jdi-logo.jpg"
-````
+### Button
 
-### Alerts
-_steps:_<br>
-**Then** alert text is equal to _"\<SOURCE VALUE\>"_<br>
-**Then** accept Alert<br>
+```
+Scenario: Disable button
 
-````
-Scenario: Click at image and accept Alert
-  Given I open "Html5 Page"
-  When click at "Jdi Logo"
-  Then check Alert text is "JDI Logo"
-  And accept Alert
-  ````
+    Given I'm on "Home Page"
+    Then The "Disabled Button" is disabled
+    Then "Disabled" font size equals "14" px
+    Then "Disabled" CSS class equals "uui-button red"
+
+
+Scenario: Click on button
+
+    Given I'm on "Home Page"
+    When Click on "Suspend button"
+    Then "Alert" text equals "Suspend button"
+    When Click on Alert's OK  // ?
+
+
+Scenario: Vanish button
+
+    Given I'm on "Home Page"
+    When I refresh the page
+    Then "Ghost button" disappears
+    And "Ghost button" does not appear
+```
+
+**When** Click on "\<ELEMENT NAME\>" <br>
+**When** Right Click on "\<ELEMENT NAME\>" <br>
+**When** Higlight "\<ELEMENT NAME\>" <br>
+**When** Show "\<ELEMENT NAME\>" <br>
+**When** Set "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" with value "\<ATTRIBUTE VALUE\>" <br>
+**When** Make Screenshot for "\<ELEMENT NAME\>"<br>
+**When** I show "\<ELEMENT NAME\>" 
+
+
+**Then** "\<ELEMENT NAME\>" text equals to "\<TEXT\>" <br>
+**Then** "\<ELEMENT NAME\>" text contains "\<TEXT PART\>" <br>
+**Then** "\<ELEMENT NAME\>" text matches to regexp "\<REGULAR EXPRESSION\>" <br>
+**Then** "\<ELEMENT NAME\>" is enabled <br>
+**Then** "\<ELEMENT NAME\>" is disabled <br>
+**Then** "\<ELEMENT NAME\>" is displayed <br>
+**Then** "\<ELEMENT NAME\>" disappears <br>
+**Then** "\<ELEMENT NAME\>" is hidden <br>
+**Then** "\<ELEMENT NAME\>" does not appear <br>
+**Then** "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
+**Then** "\<ELEMENT NAME\>" value equals to "\<TEXT\>" <br>
+
+
+
 
 ## UI Objects
 TBD
@@ -3975,5 +3998,3 @@ TBD
 
 ## Remote test runs
 TBD
-
-

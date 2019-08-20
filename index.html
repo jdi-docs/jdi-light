@@ -516,6 +516,9 @@
                             <li>
                               <a href="#alerts" class="toc-h2 h3 toc-link" data-title="Alerts">Alerts</a>
                             </li>
+                            <li>
+                              <a href="#file-input" class="toc-h2 h3 toc-link" data-title="File Input">File Input</a>
+                            </li>
                         </ul>
                   </li>
                   <li>
@@ -7472,7 +7475,29 @@ Then  Assert that "JDI Title" not appear during "5" seconds
   When click at "Jdi Logo"
   Then check Alert text is "JDI Logo"
   And accept Alert
-</code></pre><h2 id='ui-objects'>UI Objects</h2>
+</code></pre><h3 id='file-input'>File Input</h3><pre class="highlight plaintext"><code>Examples for actions:
+**When** I upload file "/src/test/resources/general.xml" by "Avatar" file input element
+**When** I try to upload file "/jdi-light-bdd-tests/src/test/resources/general.xml" by "Disabled File Input" file input element
+</code></pre>
+<p>Actions:
+<strong>When</strong> I upload file &quot;&lt;PATH TO FILE&gt;&quot; by &quot;Avatar&quot; file input element
+<strong>When</strong> I try to upload file &quot;&lt;PATH TO FILE&gt;&quot; by &quot;Disabled File Input&quot; file input element</p>
+<pre class="highlight plaintext"><code>Examples for validations:
+**Then** "Avatar" file input element label equals to "Profile picture:"
+**Then** "Avatar" file input element label contains "picture"
+**Then** "Avatar" file input element text equals to "C:\fakepath\general.xml"
+**Then** "Avatar" file input element text contains "general.xml"
+**Then** "Avatar" file input element value equals to "C:\fakepath\general.xml"
+**Then** "Avatar" file input element value contains "general.xml"
+</code></pre>
+<p>Validations:
+<strong>Then</strong> &quot;Avatar&quot; file input element label equals to &quot;&lt;TEXT&gt;&quot;
+<strong>Then</strong> &quot;Avatar&quot; file input element label contains &quot;&lt;TEXT PART&gt;&quot;
+<strong>Then</strong> &quot;Avatar&quot; file input element text equals to &quot;&lt;PATH TO FILE&gt;&quot;
+<strong>Then</strong> &quot;Avatar&quot; file input element text contains &quot;&lt;PART OF PATH TO FILE&gt;&quot;
+<strong>Then</strong> &quot;Avatar&quot; file input element value equals to &quot;&lt;PATH TO FILE&gt;&quot;
+<strong>Then</strong> &quot;Avatar&quot; file input element value contains &quot;&lt;PART OF PATH TO FILE&gt;&quot;</p>
+<h2 id='ui-objects'>UI Objects</h2>
 <p>TBD</p>
 <h2 id='smart-locators'>Smart Locators</h2><pre class="highlight plaintext"><code>&lt;input type="text" id="name"&gt;
 &lt;input type="text" id="last-name"&gt;

@@ -3554,9 +3554,9 @@ Examples for actions:
 When I upload file "/src/test/resources/general.xml" by "Avatar" file input element
 When I try to upload file "/jdi-light-bdd-tests/src/test/resources/general.xml" by "Disabled File Input" file input element
 ```
-Actions:
-**When** I upload file "\<PATH TO FILE\>" by "Avatar" file input element <br>
-**When** I try to upload file "\<PATH TO FILE\>" by "Disabled File Input" file input element <br>
+Actions:<br>
+**When** I upload file "\<PATH TO FILE\>" by "\<ELEMENT NAME\>" file input element<br>
+**When** I try to upload file "\<PATH TO FILE\>" by "\<ELEMENT NAME\>" file input element<br>
 
 ```
 Examples for validations:
@@ -3567,13 +3567,13 @@ Then "Avatar" file input element text contains "general.xml"
 Then "Avatar" file input element value equals to "C:\fakepath\general.xml"
 Then "Avatar" file input element value contains "general.xml"
 ```
-Validations:
-**Then** "Avatar" file input element label equals to "\<TEXT\>" <br>
-**Then** "Avatar" file input element label contains "\<TEXT PART\>" <br>
-**Then** "Avatar" file input element text equals to "\<PATH TO FILE\>" <br>
-**Then** "Avatar" file input element text contains "\<PART OF PATH TO FILE\>" <br>
-**Then** "Avatar" file input element value equals to "\<PATH TO FILE\>" <br>
-**Then** "Avatar" file input element value contains "\<PART OF PATH TO FILE\>" <br>
+Validations:<br>
+**Then** "\<ELEMENT NAME\>" file input element label equals to "\<TEXT\>"<br>
+**Then** "\<ELEMENT NAME\>" file input element label contains "\<TEXT PART\>"<br>
+**Then** "\<ELEMENT NAME\>" file input element text equals to "\<PATH TO FILE\>"<br>
+**Then** "\<ELEMENT NAME\>" file input element text contains "\<PART OF PATH TO FILE\>"<br>
+**Then** "\<ELEMENT NAME\>" file input element value equals to "\<PATH TO FILE\>"<br>
+**Then** "\<ELEMENT NAME\>" file input element value contains "\<PART OF PATH TO FILE\>"<br>
 
 ## UI Objects
 TBD

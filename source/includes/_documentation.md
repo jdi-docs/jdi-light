@@ -3474,6 +3474,50 @@ public void verifyTitle() {
 }
 ```
 
+## JDI Light BDD Steps
+
+### Label 
+
+```
+When  Click on "JDI Title"
+When  Double Click on "JDI Title"
+When  Right Click on "JDI Title"
+When  Higlight "JDI Title"
+When  Show "JDI Title"
+When  Set "JDI Title" attribute "status" with value "marked"
+When  Make Screenshot for "JDI Title"
+```
+**When** Click on "\<ELEMENT NAME\>" <br>
+**When** Double Click on "\<ELEMENT NAME\>" <br>
+**When** Right Click on "\<ELEMENT NAME\>" <br>
+**When** Higlight "\<ELEMENT NAME\>" <br>
+**When** Show "\<ELEMENT NAME\>" <br>
+**When** Set "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" with value "\<ATTRIBUTE VALUE\>" <br>
+**When** Make Screenshot for "\<ELEMENT NAME\>"<br>
+
+```
+Then  Assert that "JDI Title" text equal to "JDI TESTING PLATFORM"
+Then  Assert that "JDI Title" text contains "JDI"
+Then  Assert that "JDI Title" text match to regexp ".* TESTING .*"
+Then  Assert that "JDI Title" is enabled
+Then  Assert that "JDI Title" is disabled
+Then  Assert that "JDI Title" is displayed
+Then  Assert that "JDI Title" disappear
+Then  Assert that "JDI Title" hidden
+Then  Assert that "JDI Title" not appear
+Then  Assert that "JDI Title" not appear during "5" seconds
+```
+**Then** Assert that "\<ELEMENT NAME\>" text equal to "\<TEXT\>" <br>
+**Then** Assert that "\<ELEMENT NAME\>" text contains "\<TEXT PART\>" <br>
+**Then** Assert that "\<ELEMENT NAME\>" text match to regexp "\<REGULAR EXPRESSION\>" <br>
+**Then** Assert that "\<ELEMENT NAME\>" is enabled <br>
+**Then** Assert that "\<ELEMENT NAME\>" is disabled <br>
+**Then** Assert that "\<ELEMENT NAME\>" is displayed <br>
+**Then** Assert that "\<ELEMENT NAME\>" disappear <br>
+**Then** Assert that "\<ELEMENT NAME\>" hidden <br>
+**Then** Assert that "\<ELEMENT NAME\>" not appear <br>
+**Then** Assert that "\<ELEMENT NAME\>" not appear during "\<SECONDS\>" seconds <br>
+
 ## UI Objects
 TBD
 

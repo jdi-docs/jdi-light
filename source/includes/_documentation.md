@@ -3521,6 +3521,7 @@ Then  Assert that "JDI Title" not appear during "5" seconds
 ### File Input
 
 ```
+Examples for actions:
 **When** I upload file "/src/test/resources/general.xml" by "Avatar" file input element
 **When** I try to upload file "/jdi-light-bdd-tests/src/test/resources/general.xml" by "Disabled File Input" file input element
 ```
@@ -3529,6 +3530,7 @@ Actions:
 **When** I try to upload file "\<PATH TO FILE\>" by "Disabled File Input" file input element
 
 ```
+Examples for validations:
 **Then** "Avatar" file input element label equals to "Profile picture:"
 **Then** "Avatar" file input element label contains "picture"
 **Then** "Avatar" file input element text equals to "C:\fakepath\general.xml"

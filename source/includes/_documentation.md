@@ -3518,6 +3518,35 @@ Then  Assert that "JDI Title" not appear during "5" seconds
 **Then** Assert that "\<ELEMENT NAME\>" not appear <br>
 **Then** Assert that "\<ELEMENT NAME\>" not appear during "\<SECONDS\>" seconds <br>
 
+### Image
+Samples of steps: <br>
+__attributes checks:__
+**Then** image "\<IMAGE NAME\>" src equals to "\<SOURCE VALUE\>"<br>
+**Then** image "\<IMAGE NAME\>" scr contains "\<SOURCE VALUE\>"<br>
+**Then** image "\<IMAGE NAME\>" height is equal to "\<HEIGHT VALUE\>"<br>
+**Then** image "\<IMAGE NAME\>" width is equal to "\<WIDTH VALUE\>"<br>
+**Then** image "\<IMAGE NAME\>" attribute is equal to "\<ALT VALUE\>"<br>
+
+````
+Scenario: Check image source
+  Given I should be login
+  And I open "Html5 Page"
+  Then image "Jdi Logo" src is equals to "https://jdi-testing.github.io/jdi-light/images/jdi-logo.jpg"
+````
+
+### Alerts
+Samples of steps:<br>
+**Then** alert text is equal to "\<SOURCE VALUE\>"<br>
+**Then** accept Alert<br>
+
+````
+Scenario: Click at image and accept Alert
+  Given I open "Html5 Page"
+  When click at "Jdi Logo"
+  Then check Alert text is "JDI Logo"
+  And accept Alert
+  ````
+
 ## UI Objects
 TBD
 
@@ -3947,33 +3976,4 @@ TBD
 ## Remote test runs
 TBD
 
-## BDD
-
-### Image
-Samples of steps: <br>
-source of image "name" is "path.jpg" <br>
-image source of "Jdi Logo" contains "jdi-logo.jpg"<br>
-image "name" alt attribute is "alt text"<br>
-image "name" height is 100<br>
-image "name" width is 101<br>
-"name" alt is "alt text"<br>
-click at image "name"<br>
-
-````
-Scenario: Check image alt
-  Given I open "Html5 Page"
-  Then "Jdi Logo" alt is "Jdi Logo 2"
-````
-
-### Alerts
-Samples of steps:<br>
-check Alert text is "text"<br>
-accept Alert<br>
-````
-Scenario: Click at image and accept Alert
-  Given I open "Html5 Page"
-  When click at image "Jdi Logo"
-  Then check Alert text is "JDI Logo"
-  And accept Alert
-  ````
 

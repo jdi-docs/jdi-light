@@ -3520,12 +3520,12 @@ Then  Assert that "JDI Title" not appear during "5" seconds
 
 ### Image
 Samples of steps: <br>
-__attributes checks:__
-**Then** image "\<IMAGE NAME\>" src equals to "\<SOURCE VALUE\>"<br>
-**Then** image "\<IMAGE NAME\>" scr contains "\<SOURCE VALUE\>"<br>
-**Then** image "\<IMAGE NAME\>" height is equal to "\<HEIGHT VALUE\>"<br>
-**Then** image "\<IMAGE NAME\>" width is equal to "\<WIDTH VALUE\>"<br>
-**Then** image "\<IMAGE NAME\>" attribute is equal to "\<ALT VALUE\>"<br>
+_**attributes checks:**_<br>
+**Then** image _"\<IMAGE NAME\>"_ src equals to _"\<SOURCE VALUE\>"_<br>
+**Then** image _"\<IMAGE NAME\>"_ scr contains _"\<SOURCE VALUE\>"_<br>
+**Then** image _"\<IMAGE NAME\>"_ height is equal to _"\<HEIGHT VALUE\>_"<br>
+**Then** image _"\<IMAGE NAME\>"_ width is equal to _"\<WIDTH VALUE\>"_<br>
+**Then** image _"\<IMAGE NAME\>"_ attribute is equal to _"\<ALT VALUE\>_"<br>
 
 ````
 Scenario: Check image source
@@ -3535,8 +3535,8 @@ Scenario: Check image source
 ````
 
 ### Alerts
-Samples of steps:<br>
-**Then** alert text is equal to "\<SOURCE VALUE\>"<br>
+_steps:_<br>
+**Then** alert text is equal to _"\<SOURCE VALUE\>"_<br>
 **Then** accept Alert<br>
 
 ````

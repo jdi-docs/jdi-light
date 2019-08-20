@@ -3539,6 +3539,34 @@ _steps:_<br>
 **Then** alert text is equal to _"\<SOURCE VALUE\>"_<br>
 **Then** accept Alert<br>
 
+### File Input
+
+```
+Examples for actions:
+**When** I upload file "/src/test/resources/general.xml" by "Avatar" file input element
+**When** I try to upload file "/jdi-light-bdd-tests/src/test/resources/general.xml" by "Disabled File Input" file input element
+```
+Actions:
+**When** I upload file "\<PATH TO FILE\>" by "Avatar" file input element
+**When** I try to upload file "\<PATH TO FILE\>" by "Disabled File Input" file input element
+
+```
+Examples for validations:
+**Then** "Avatar" file input element label equals to "Profile picture:"
+**Then** "Avatar" file input element label contains "picture"
+**Then** "Avatar" file input element text equals to "C:\fakepath\general.xml"
+**Then** "Avatar" file input element text contains "general.xml"
+**Then** "Avatar" file input element value equals to "C:\fakepath\general.xml"
+**Then** "Avatar" file input element value contains "general.xml"
+```
+Validations:
+**Then** "Avatar" file input element label equals to "\<TEXT\>"
+**Then** "Avatar" file input element label contains "\<TEXT PART\>"
+**Then** "Avatar" file input element text equals to "\<PATH TO FILE\>"
+**Then** "Avatar" file input element text contains "\<PART OF PATH TO FILE\>"
+**Then** "Avatar" file input element value equals to "\<PATH TO FILE\>"
+**Then** "Avatar" file input element value contains "\<PART OF PATH TO FILE\>"
+
 ````
 Scenario: Click at image and accept Alert
   Given I open "Html5 Page"

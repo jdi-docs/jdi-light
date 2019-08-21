@@ -3585,44 +3585,47 @@ Validations:<br>
 ### DateTimeSelector
 
 ```
-When  Set date "2018-11-13" in "Birth Date"
-When  Higlight "Birth Date"
-When  Show "Birth Date"
-When  Set "Birth Date" attribute "test-jdi" with value "test-value"
+Action example:
+
+When Set date "2018-11-13" in "Birth Date"
 
 ```
 Actions:<br>
-**When** Set date _"\<DATE TEXT\>"_ in "\<ELEMENT NAME\>" <br>
-**When** Higlight _"\<ELEMENT NAME\>"_ <br>
-**When** Show _"\<ELEMENT NAME\>"_ <br>
-**When** Set _"\<ELEMENT NAME\>"_ attribute _"\<ATTRIBUTE NAME\>"_ value _"\<ATTRIBUTE VALUE\>"_ <br>
+
+**When** Set date _"\<TEXT\>"_ in "\<ELEMENT NAME\>" <br>
+
 
 ```
-Then  "Birth Date" value equals to "1985-06-18"
-Then  "Birth Date" value contains "1985"
+Validations example:
+
+Then  "Birth Date" text equals to "1985-06-18"
+Then  "Birth Date" text contains "1985"
 Then  "Birth Date" label text equals to "Birth date"
 Then  "Birth Date" label text contains "Birth"
-Then  "Birth Date" label text ignoring case is "birth date"
 Then  "Birth Date" attribute min equals to "1970-01-01"
 Then  "Birth Date" attribute max equals to "2030-12-31"
-Then  "Birth Date" is enabled
-Then  "Birth Date" is displayed
-Then  "Birth Date" is disabled
-Then  "Birth Date" is hidden
+
+
+Scenario example:
+
+  Scenario: Set date
+    Given I open "Html5 Page"
+    Then "Birth Date" text equals to "1985-06-18"
+    When Set date "2018-11-13" in "Birth Date"
+    Then "Birth Date" text equals to "2018-11-13"
 
 ```
+
 Validations:<br>
-**Then** _"\<ELEMENT NAME\>"_ value equals to _"\<TEXT\>"_ <br>
-**Then** _"\<ELEMENT NAME\>"_ value contains _"\<TEXT PART\>"_ <br>
+
+**Then** _"\<ELEMENT NAME\>"_ text equals to _"\<TEXT\>"_ <br>
+**Then** _"\<ELEMENT NAME\>"_ text contains _"\<TEXT PART\>"_ <br>
 **Then** _"\<ELEMENT NAME\>"_ label text equals to _"\<TEXT\>"_ <br>
 **Then** _"\<ELEMENT NAME\>"_ label text contains _"\<TEXT PART\>"_ <br>
-**Then** _"\<ELEMENT NAME\>"_ label text ignoring case is  _"\<TEXT IN LOWER or UPPERCASE\>"_ <br>
 **Then** _"\<ELEMENT NAME\>"_ attribute min equals to  _"\<MIN ATTRIBUTE VALUE\>"_ <br>
 **Then** _"\<ELEMENT NAME\>"_ attribute max equals to _"\<MAX ATTRIBUTE VALUE\>"_ <br>
-**Then** _"\<ELEMENT NAME\>"_ is enabled <br>
-**Then** _"\<ELEMENT NAME\>"_ is displayed <br>
-**Then** _"\<ELEMENT NAME\>"_ is disabled <br>
-**Then** _"\<ELEMENT NAME\>"_ is hidden <br>
+
+There is link to [Tutorial](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)
 
 ## UI Objects
 TBD

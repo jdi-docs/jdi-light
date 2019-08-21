@@ -3486,6 +3486,7 @@ When  Higlight "JDI Title"
 When  Show "JDI Title"
 When  Set "JDI Title" attribute "status" with value "marked"
 When  Make Screenshot for "JDI Title"
+
 ```
 **When** Click on "\<ELEMENT NAME\>" <br>
 **When** Double Click on "\<ELEMENT NAME\>" <br>
@@ -3506,6 +3507,7 @@ Then  Assert that "JDI Title" disappear
 Then  Assert that "JDI Title" hidden
 Then  Assert that "JDI Title" not appear
 Then  Assert that "JDI Title" not appear during "5" seconds
+
 ```
 **Then** Assert that "\<ELEMENT NAME\>" text equal to "\<TEXT\>" <br>
 **Then** Assert that "\<ELEMENT NAME\>" text contains "\<TEXT PART\>" <br>
@@ -3532,6 +3534,7 @@ Scenario: Check image source
   Given I should be login
   And I open "Html5 Page"
   Then image "Jdi Logo" src is equals to "https://jdi-testing.github.io/jdi-light/images/jdi-logo.jpg"
+  
 ````
 
 ### Alerts
@@ -3545,7 +3548,8 @@ Scenario: Click at image and accept Alert
   When click at "Jdi Logo"
   Then check Alert text is "JDI Logo"
   And accept Alert
-  ````
+  
+ ````
 
 ### File Input
 
@@ -3553,6 +3557,7 @@ Scenario: Click at image and accept Alert
 Examples for actions:
 When I upload file "/src/test/resources/general.xml" by "Avatar" file input element
 When I try to upload file "/jdi-light-bdd-tests/src/test/resources/general.xml" by "Disabled File Input" file input element
+
 ```
 Actions:<br>
 **When** I upload file "\<PATH TO FILE\>" by "\<ELEMENT NAME\>" file input element<br>
@@ -3566,6 +3571,7 @@ Then "Avatar" file input element text equals to "C:\fakepath\general.xml"
 Then "Avatar" file input element text contains "general.xml"
 Then "Avatar" file input element value equals to "C:\fakepath\general.xml"
 Then "Avatar" file input element value contains "general.xml"
+
 ```
 Validations:<br>
 **Then** "\<ELEMENT NAME\>" file input element label equals to "\<TEXT\>"<br>
@@ -3577,11 +3583,13 @@ Validations:<br>
 
 
 ### DateTimeSelector
+
 ```
 When  Set date "2018-11-13" in "Birth Date"
 When  Higlight "Birth Date"
 When  Show "Birth Date"
 When  Set "Birth Date" attribute "test-jdi" with value "test-value"
+
 ```
 Actions:<br>
 **When** Set date _"\<DATE TEXT\>"_ in "\<ELEMENT NAME\>" <br>
@@ -3601,6 +3609,7 @@ Then  "Birth Date" is enabled
 Then  "Birth Date" is displayed
 Then  "Birth Date" is disabled
 Then  "Birth Date" is hidden
+
 ```
 Validations:<br>
 **Then** _"\<ELEMENT NAME\>"_ value equals to _"\<TEXT\>"_ <br>

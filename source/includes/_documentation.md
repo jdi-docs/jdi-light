@@ -849,7 +849,8 @@ And here are methods available in Java:
 **is()** | method for building assertions | ImageAssert
 **assertThat()** |method for building assertions  | ImageAssert
 
-[Test examples in Java](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ImageTests.java)
+[Test examples in Java](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ImageTests.java)<br>
+[BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#image-2)
 
 ### Icon
 ```csharp 
@@ -885,7 +886,8 @@ Here is a list of available methods in C#:
 **Is()** | method for building assertions | ImageAssert
 **AssertThat()** |method for building assertions  | ImageAssert
 
-[Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/IconTests.cs)
+[Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/IconTests.cs)<br>
+[BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#image-2)
 
 ### Link
 **Link** – a graphical control element, that allows the user to link from one page to other web pages, files, locations within the same page, email addresses, or any other URL.
@@ -3519,33 +3521,53 @@ Then  Assert that "JDI Title" not appear during "5" seconds
 **Then** Assert that "\<ELEMENT NAME\>" not appear during "\<SECONDS\>" seconds <br>
 
 ### Image
-Samples of steps: <br>
-_**attributes checks:**_<br>
-**Then** image _"\<IMAGE NAME\>"_ src equals to _"\<SOURCE VALUE\>"_<br>
-**Then** image _"\<IMAGE NAME\>"_ scr contains _"\<SOURCE VALUE\>"_<br>
-**Then** image _"\<IMAGE NAME\>"_ height is equal to _"\<HEIGHT VALUE\>_"<br>
-**Then** image _"\<IMAGE NAME\>"_ width is equal to _"\<WIDTH VALUE\>"_<br>
-**Then** image _"\<IMAGE NAME\>"_ attribute is equal to _"\<ALT VALUE\>_"<br>
 
 ````
-Scenario: Check image source
-  Given I should be login
-  And I open "Html5 Page"
-  Then image "Jdi Logo" src is equals to "https://jdi-testing.github.io/jdi-light/images/jdi-logo.jpg"
+Sample steps:
+  Then "Jdi Logo" attribute "src" equals to "https://jdi-testing.github.io/jdi-light/images/jdi-logo.jpg"
+  Then "Jdi Logo" attribute "alt" equals to "Jdi Logo 2"
+  Then "Jdi Logo" attribute "src" contains "jdi-logo.jpg"
+  Then "Jdi Logo" attribute "height" contains "100"
+  Then "Jdi Logo" attribute "width" contains "101"
+
+Examples:
+  Scenario: Image validation test
+    Given I open "Html5 Page"
+    And Refresh webpage
+    Then "Jdi Logo" attribute "src" contains "jdi-logo.jpg"
+    And "Jdi Logo" attribute "height" contains "100"
+    And "Jdi Logo" attribute "width" contains "101"
 ````
+
+Samples of steps: <br>
+**Then** image "\<IMAGE NAME\>" src equals to "\<SOURCE VALUE\>"<br>
+**Then** image "\<IMAGE NAME\>" scr contains "\<SOURCE VALUE\>"<br>
+**Then** image "\<IMAGE NAME\>" height is equal to "\<HEIGHT VALUE\>"<br>
+**Then** image "\<IMAGE NAME\>" width is equal to "\<WIDTH VALUE\>"<br>
+**Then** image "\<IMAGE NAME\>" attribute is equal to "\<ALT VALUE\>"<br>
+
+[JDI Light in BDD Style](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)
 
 ### Alerts
-_steps:_<br>
-**Then** alert text is equal to _"\<SOURCE VALUE\>"_<br>
-**Then** accept Alert<br>
 
 ````
-Scenario: Click at image and accept Alert
-  Given I open "Html5 Page"
-  When click at "Jdi Logo"
-  Then check Alert text is "JDI Logo"
-  And accept Alert
-  ````
+Sample steps:
+  Then Alert text equals to "JDI Logo"
+  Then Accept alert
+    
+Example:
+  Scenario: Click at image and accept Alert
+    Given I open "Html5 Page"
+    When Click on "Jdi Logo"
+    Then Alert text equals to "JDI Logo"
+    And Accept aler
+````
+
+_steps:_<br>
+**Then** alert text is equal to "\<SOURCE VALUE\>"<br>
+**Then** accept Alert<br>
+
+[JDI Light in BDD Style](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)<br>
 
 ### File Input
 

@@ -850,7 +850,7 @@ And here are methods available in Java:
 **assertThat()** |method for building assertions  | ImageAssert
 
 [Test examples in Java](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ImageTests.java)<br>
-[BDD Steps example] (https://jdi-docs.github.io/jdi-light/?java#image-2)
+[BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#image-2)
 
 ### Icon
 ```csharp 
@@ -887,7 +887,7 @@ Here is a list of available methods in C#:
 **AssertThat()** |method for building assertions  | ImageAssert
 
 [Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/IconTests.cs)<br>
-[BDD Steps example] (https://jdi-docs.github.io/jdi-light/?java#image-2)
+[BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#image-2)
 
 ### Link
 **Link** – a graphical control element, that allows the user to link from one page to other web pages, files, locations within the same page, email addresses, or any other URL.
@@ -3546,7 +3546,7 @@ Samples of steps: <br>
 **Then** image "\<IMAGE NAME\>" width is equal to "\<WIDTH VALUE\>"<br>
 **Then** image "\<IMAGE NAME\>" attribute is equal to "\<ALT VALUE\>"<br>
 
-[JDI Light in BDD Style] (https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)
+[JDI Light in BDD Style](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)
 
 ### Alerts
 
@@ -3567,7 +3567,7 @@ _steps:_<br>
 **Then** alert text is equal to "\<SOURCE VALUE\>"<br>
 **Then** accept Alert<br>
 
-[JDI Light in BDD Style] (https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)<br>
+[JDI Light in BDD Style](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)<br>
 
 ### File Input
 

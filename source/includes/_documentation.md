@@ -850,6 +850,7 @@ And here are methods available in Java:
 **assertThat()** |method for building assertions  | ImageAssert
 
 [Test examples in Java](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ImageTests.java)
+[BDD Steps example] (https://jdi-docs.github.io/jdi-light/?java#image-2)
 
 ### Icon
 ```csharp 
@@ -886,6 +887,7 @@ Here is a list of available methods in C#:
 **AssertThat()** |method for building assertions  | ImageAssert
 
 [Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/IconTests.cs)
+[BDD Steps example] (https://jdi-docs.github.io/jdi-light/?java#image-2)
 
 ### Link
 **Link** – a graphical control element, that allows the user to link from one page to other web pages, files, locations within the same page, email addresses, or any other URL.
@@ -3538,11 +3540,13 @@ Examples:
 ````
 
 Samples of steps: <br>
-**Then** image _"\<IMAGE NAME\>"_ src equals to _"\<SOURCE VALUE\>"_<br>
-**Then** image _"\<IMAGE NAME\>"_ scr contains _"\<SOURCE VALUE\>"_<br>
-**Then** image _"\<IMAGE NAME\>"_ height is equal to _"\<HEIGHT VALUE\>_"<br>
-**Then** image _"\<IMAGE NAME\>"_ width is equal to _"\<WIDTH VALUE\>"_<br>
-**Then** image _"\<IMAGE NAME\>"_ attribute is equal to _"\<ALT VALUE\>_"<br>
+**Then** image "\<IMAGE NAME\>" src equals to "\<SOURCE VALUE\>"<br>
+**Then** image "\<IMAGE NAME\>" scr contains "\<SOURCE VALUE\>"<br>
+**Then** image "\<IMAGE NAME\>" height is equal to "\<HEIGHT VALUE\>"<br>
+**Then** image "\<IMAGE NAME\>" width is equal to "\<WIDTH VALUE\>"<br>
+**Then** image "\<IMAGE NAME\>" attribute is equal to "\<ALT VALUE\>"<br>
+
+[JDI Light in BDD Style] (https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)
 
 ### Alerts
 
@@ -3560,10 +3564,10 @@ Example:
 ````
 
 _steps:_<br>
-**Then** alert text is equal to _"\<SOURCE VALUE\>"_<br>
+**Then** alert text is equal to "\<SOURCE VALUE\>"<br>
 **Then** accept Alert<br>
 
-
+[JDI Light in BDD Style] (https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)
 
 ### File Input
 

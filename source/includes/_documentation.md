@@ -3528,24 +3528,42 @@ _**attributes checks:**_<br>
 **Then** image _"\<IMAGE NAME\>"_ attribute is equal to _"\<ALT VALUE\>_"<br>
 
 ````
-Scenario: Check image source
-  Given I should be login
-  And I open "Html5 Page"
-  Then image "Jdi Logo" src is equals to "https://jdi-testing.github.io/jdi-light/images/jdi-logo.jpg"
+Sample steps:
+  Then "Jdi Logo" attribute "src" equals to "https://jdi-testing.github.io/jdi-light/images/jdi-logo.jpg"
+  Then "Jdi Logo" attribute "alt" equals to "Jdi Logo 2"
+  Then "Jdi Logo" attribute "src" contains "jdi-logo.jpg"
+  Then "Jdi Logo" attribute "height" contains "100"
+  Then "Jdi Logo" attribute "width" contains "101"
+
+Examples:
+  Scenario: Image validation test
+    Given I open "Html5 Page"
+    And Refresh webpage
+    Then "Jdi Logo" attribute "src" contains "jdi-logo.jpg"
+    And "Jdi Logo" attribute "height" contains "100"
+    And "Jdi Logo" attribute "width" contains "101"
 ````
 
 ### Alerts
+
+````
+Sample steps:
+  Then Alert text equals to "JDI Logo"
+  Then Accept alert
+    
+Example:
+  Scenario: Click at image and accept Alert
+    Given I open "Html5 Page"
+    When Click on "Jdi Logo"
+    Then Alert text equals to "JDI Logo"
+    And Accept aler
+````
+
 _steps:_<br>
 **Then** alert text is equal to _"\<SOURCE VALUE\>"_<br>
 **Then** accept Alert<br>
 
-````
-Scenario: Click at image and accept Alert
-  Given I open "Html5 Page"
-  When click at "Jdi Logo"
-  Then check Alert text is "JDI Logo"
-  And accept Alert
-  ````
+
 
 ### File Input
 

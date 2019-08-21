@@ -3519,13 +3519,6 @@ Then  Assert that "JDI Title" not appear during "5" seconds
 **Then** Assert that "\<ELEMENT NAME\>" not appear during "\<SECONDS\>" seconds <br>
 
 ### Image
-Samples of steps: <br>
-_**attributes checks:**_<br>
-**Then** image _"\<IMAGE NAME\>"_ src equals to _"\<SOURCE VALUE\>"_<br>
-**Then** image _"\<IMAGE NAME\>"_ scr contains _"\<SOURCE VALUE\>"_<br>
-**Then** image _"\<IMAGE NAME\>"_ height is equal to _"\<HEIGHT VALUE\>_"<br>
-**Then** image _"\<IMAGE NAME\>"_ width is equal to _"\<WIDTH VALUE\>"_<br>
-**Then** image _"\<IMAGE NAME\>"_ attribute is equal to _"\<ALT VALUE\>_"<br>
 
 ````
 Sample steps:
@@ -3543,6 +3536,13 @@ Examples:
     And "Jdi Logo" attribute "height" contains "100"
     And "Jdi Logo" attribute "width" contains "101"
 ````
+
+Samples of steps: <br>
+**Then** image _"\<IMAGE NAME\>"_ src equals to _"\<SOURCE VALUE\>"_<br>
+**Then** image _"\<IMAGE NAME\>"_ scr contains _"\<SOURCE VALUE\>"_<br>
+**Then** image _"\<IMAGE NAME\>"_ height is equal to _"\<HEIGHT VALUE\>_"<br>
+**Then** image _"\<IMAGE NAME\>"_ width is equal to _"\<WIDTH VALUE\>"_<br>
+**Then** image _"\<IMAGE NAME\>"_ attribute is equal to _"\<ALT VALUE\>_"<br>
 
 ### Alerts
 

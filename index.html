@@ -3029,7 +3029,8 @@ In addition if you run test scenarios on JDI Light you will <strong>get logs of 
 </tr>
 </tbody></table>
 
-<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ImageTests.java">Test examples in Java</a></p>
+<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ImageTests.java">Test examples in Java</a><br>
+<a href="https://jdi-docs.github.io/jdi-light/?java#image-2">BDD Steps example</a></p>
 <h3 id='icon-2'>Icon</h3><pre class="highlight csharp tab-csharp"><code><span class="na">[FindBy(Css = "#jdi-ico")]</span>
 <span class="k">public</span> <span class="n">IIcon</span> <span class="n">LogoIco</span><span class="p">;</span>
 
@@ -3094,7 +3095,8 @@ In addition if you run test scenarios on JDI Light you will <strong>get logs of 
 </tr>
 </tbody></table>
 
-<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/IconTests.cs">Test examples in C#</a></p>
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/IconTests.cs">Test examples in C#</a><br>
+<a href="https://jdi-docs.github.io/jdi-light/?java#image-2">BDD Steps example</a></p>
 <h3 id='link'>Link</h3>
 <p><strong>Link</strong> – a graphical control element, that allows the user to link from one page to other web pages, files, locations within the same page, email addresses, or any other URL.</p>
 
@@ -7462,28 +7464,46 @@ Then  Assert that "JDI Title" not appear during "5" seconds
 <strong>Then</strong> Assert that &quot;&lt;ELEMENT NAME&gt;&quot; hidden <br>
 <strong>Then</strong> Assert that &quot;&lt;ELEMENT NAME&gt;&quot; not appear <br>
 <strong>Then</strong> Assert that &quot;&lt;ELEMENT NAME&gt;&quot; not appear during &quot;&lt;SECONDS&gt;&quot; seconds <br></p>
-<h3 id='image-2'>Image</h3>
+<h3 id='image-2'>Image</h3><pre class="highlight plaintext"><code>Sample steps:
+  Then "Jdi Logo" attribute "src" equals to "https://jdi-testing.github.io/jdi-light/images/jdi-logo.jpg"
+  Then "Jdi Logo" attribute "alt" equals to "Jdi Logo 2"
+  Then "Jdi Logo" attribute "src" contains "jdi-logo.jpg"
+  Then "Jdi Logo" attribute "height" contains "100"
+  Then "Jdi Logo" attribute "width" contains "101"
+
+Examples:
+  Scenario: Image validation test
+    Given I open "Html5 Page"
+    And Refresh webpage
+    Then "Jdi Logo" attribute "src" contains "jdi-logo.jpg"
+    And "Jdi Logo" attribute "height" contains "100"
+    And "Jdi Logo" attribute "width" contains "101"
+</code></pre>
 <p>Samples of steps: <br>
-<em><strong>attributes checks:</strong></em><br>
-<strong>Then</strong> image <em>&quot;&lt;IMAGE NAME&gt;&quot;</em> src equals to <em>&quot;&lt;SOURCE VALUE&gt;&quot;</em><br>
-<strong>Then</strong> image <em>&quot;&lt;IMAGE NAME&gt;&quot;</em> scr contains <em>&quot;&lt;SOURCE VALUE&gt;&quot;</em><br>
-<strong>Then</strong> image <em>&quot;&lt;IMAGE NAME&gt;&quot;</em> height is equal to <em>&quot;&lt;HEIGHT VALUE&gt;</em>&quot;<br>
-<strong>Then</strong> image <em>&quot;&lt;IMAGE NAME&gt;&quot;</em> width is equal to <em>&quot;&lt;WIDTH VALUE&gt;&quot;</em><br>
-<strong>Then</strong> image <em>&quot;&lt;IMAGE NAME&gt;&quot;</em> attribute is equal to <em>&quot;&lt;ALT VALUE&gt;</em>&quot;<br></p>
-<pre class="highlight plaintext"><code>Scenario: Check image source
-  Given I should be login
-  And I open "Html5 Page"
-  Then image "Jdi Logo" src is equals to "https://jdi-testing.github.io/jdi-light/images/jdi-logo.jpg"
-</code></pre><h3 id='alerts'>Alerts</h3>
+<strong>Then</strong> image &quot;&lt;IMAGE NAME&gt;&quot; src equals to &quot;&lt;SOURCE VALUE&gt;&quot;<br>
+<strong>Then</strong> image &quot;&lt;IMAGE NAME&gt;&quot; scr contains &quot;&lt;SOURCE VALUE&gt;&quot;<br>
+<strong>Then</strong> image &quot;&lt;IMAGE NAME&gt;&quot; height is equal to &quot;&lt;HEIGHT VALUE&gt;&quot;<br>
+<strong>Then</strong> image &quot;&lt;IMAGE NAME&gt;&quot; width is equal to &quot;&lt;WIDTH VALUE&gt;&quot;<br>
+<strong>Then</strong> image &quot;&lt;IMAGE NAME&gt;&quot; attribute is equal to &quot;&lt;ALT VALUE&gt;&quot;<br></p>
+
+<p><a href="https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa">JDI Light in BDD Style</a></p>
+<h3 id='alerts'>Alerts</h3><pre class="highlight plaintext"><code>Sample steps:
+  Then Alert text equals to "JDI Logo"
+  Then Accept alert
+
+Example:
+  Scenario: Click at image and accept Alert
+    Given I open "Html5 Page"
+    When Click on "Jdi Logo"
+    Then Alert text equals to "JDI Logo"
+    And Accept aler
+</code></pre>
 <p><em>steps:</em><br>
-<strong>Then</strong> alert text is equal to <em>&quot;&lt;SOURCE VALUE&gt;&quot;</em><br>
+<strong>Then</strong> alert text is equal to &quot;&lt;SOURCE VALUE&gt;&quot;<br>
 <strong>Then</strong> accept Alert<br></p>
-<pre class="highlight plaintext"><code>Scenario: Click at image and accept Alert
-  Given I open "Html5 Page"
-  When click at "Jdi Logo"
-  Then check Alert text is "JDI Logo"
-  And accept Alert
-</code></pre><h3 id='file-input'>File Input</h3><pre class="highlight plaintext"><code>Examples for actions:
+
+<p><a href="https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa">JDI Light in BDD Style</a><br></p>
+<h3 id='file-input'>File Input</h3><pre class="highlight plaintext"><code>Examples for actions:
 When I upload file "/src/test/resources/general.xml" by "Avatar" file input element
 When I try to upload file "/jdi-light-bdd-tests/src/test/resources/general.xml" by "Disabled File Input" file input element
 </code></pre>

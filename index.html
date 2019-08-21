@@ -519,6 +519,9 @@
                             <li>
                               <a href="#file-input" class="toc-h2 h3 toc-link" data-title="File Input">File Input</a>
                             </li>
+                            <li>
+                              <a href="#link-2" class="toc-h2 h3 toc-link" data-title="Link">Link</a>
+                            </li>
                         </ul>
                   </li>
                   <li>
@@ -7497,6 +7500,84 @@ Then "Avatar" file input element value contains "general.xml"
 <strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; file input element text contains &quot;&lt;PART OF PATH TO FILE&gt;&quot;<br>
 <strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; file input element value equals to &quot;&lt;PATH TO FILE&gt;&quot;<br>
 <strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; file input element value contains &quot;&lt;PART OF PATH TO FILE&gt;&quot;<br></p>
+<h3 id='link-2'>Link</h3><pre class="highlight plaintext"><code>Link actions examples:
+
+When Click on "Github Link"
+When Higlight "Github Link"
+When Show "Github Link"
+When Set "Github Link" attribute "alt" with value "Github JDI Link EDITED"
+
+</code></pre>
+<p>Actions: <br></p>
+
+<p><strong>When</strong> Click on &quot;&lt;ELEMENT NAME&gt;&quot; <br>
+<strong>When</strong> Highlight &quot;&lt;ELEMENT NAME&gt;&quot; <br>
+<strong>When</strong> Show &quot;&lt;ELEMENT NAME&gt;&quot; <br>
+<strong>When</strong> Set &quot;&lt;ELEMENT NAME&gt;&quot; attribute &quot;&lt;ATTRIBUTE NAME&gt;&quot; with value &quot;&lt;ATTRIBUTE NAME&gt;&quot; <br></p>
+<pre class="highlight plaintext"><code>Link validations examples:
+
+Then "Github Link" is enabled
+Then "Github Link" is disabled
+Then "Github Link" is displayed
+Then "Github Link" is hidden
+Then "Github Link" is basically valid
+Then "Github Link" URL path equals to "/jdi-testing"
+Then "Github Link" text equals to "Github JDI"
+Then "Github Link" text ignoring case equals to "GIThub jdi"
+Then "Github Link" text contains "JDI"
+Then "Github Link" text match to "[a-zA-Z]{6} JE*DI"
+Then "Github Link" reference equals to "https://github.com/jdi-testing"
+Then "Github Link" reference contains "github"
+Then "Github Link" reference match to "https://github.com/.*"
+Then "Github Link" alternative text equals to "Github JDI Link"
+Then "Github Link" alternative text contains "JDI"
+Then "Github Link" alternative text match to "Git.* JE*DI Link"
+Then "Github Link" attribute "alt" equals to "Github JDI Link"
+Then "Github Link" attribute "href" contains "https://github.com"
+Then "Github Link" attribute "ui" match to "github.link"
+Then "Github Link" is not appear
+Then "Github Link" is not appear during "5" seconds
+
+
+Some scenario examples:
+
+  Scenario: Click link test
+     Given I open "Html5 Page"
+     When Click on "Github Link"
+     Then Current URL is "https://github.com/jdi-testing"
+
+  Scenario: Link alternative text matching to RegExp
+     Given I open "Html5 Page"
+     Then "Github Link" alternative text match to "Git.* JE*DI Link"
+
+(More examples are available in the Tutorial section (the link to the section is on the right))
+
+</code></pre>
+<p>Validations: <br></p>
+
+<p><strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; is enabled <br>
+<strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; is disabled <br>
+<strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; is displayed <br>
+<strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; is hidden <br>
+<strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; is basically valid <br>
+<strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; URL path equals to &quot;&lt;TEXT&gt;&quot; <br>
+<strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; text equals to &quot;&lt;TEXT&gt;&quot; <br>
+<strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; text ignoring case equals to &quot;&lt;TEXT&gt;&quot; <br>
+<strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; text contains &quot;&lt;TEXT&gt;&quot; <br>
+<strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; text matches to &quot;&lt;TEXT&gt;&quot; <br>
+<strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; reference equals to &quot;&lt;REFERENCE VALUE&gt;&quot; <br>
+<strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; reference contains &quot;&lt;REFERENCE VALUE&gt;&quot; <br>
+<strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; reference match to &quot;&lt;REFERENCE VALUE&gt;&quot; <br>
+<strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; alternative text equals to &quot;&lt;ALT VALUE&gt;&quot; <br>
+<strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; alternative text contains &quot;&lt;ALT VALUE&gt;&quot; <br>
+<strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; alternative text match to &quot;&lt;ALT VALUE&gt;&quot; <br>
+<strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; attribute &quot;&lt;ATTRIBUTE NAME&gt;&quot; equals to &quot;&lt;ATTRIBUTE VALUE&gt;&quot; <br>
+<strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; attribute &quot;&lt;ATTRIBUTE NAME&gt;&quot; contains &quot;&lt;ATTRIBUTE VALUE&gt;&quot; <br>
+<strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; attribute &quot;&lt;ATTRIBUTE NAME&gt;&quot; matches to &quot;&lt;ATTRIBUTE VALUE&gt;&quot; <br>
+<strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; is not appear <br>
+<strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; is not appear during &quot;&lt;SECONDS&gt;&quot; seconds <br></p>
+
+<p>(Here is link to <a href="https://jdi-docs.github.io/jdi-light/?java#tutorial"><strong>Tutorial</strong></a>)</p>
 <h2 id='ui-objects'>UI Objects</h2>
 <p>TBD</p>
 <h2 id='smart-locators'>Smart Locators</h2><pre class="highlight plaintext"><code>&lt;input type="text" id="name"&gt;

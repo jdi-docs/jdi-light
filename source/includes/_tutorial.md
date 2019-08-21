@@ -971,6 +971,9 @@ In addition if you run test scenarios on JDI Light you will **get logs of all yo
 _Note: JDI Light removes only waste code and keep all business important parts in place._ <br/><br/>
 **Less amount of code, stable tests and clear logs will reduce maintanance effort of your regression** and **increase respect to your tests** because with JDI Light once written tests will fail only because of real application changes or performance issues and not because of tests instability<br/>
 
+## JDI Light in BDD Style (even for Manual QA)
+TBD
+
 ## Create Custom controls
 TBD
 

@@ -3659,6 +3659,69 @@ Validations: <br>
 **Then** "\<ELEMENT NAME\>" is not appear <br>
 **Then** "\<ELEMENT NAME\>" is not appear during "\<SECONDS\>" seconds <br>
 
+### Checkbox  
+
+```
+Checkbox actions examples:
+
+When Check "Accept Conditions"
+When Uncheck "Accept Conditions"
+When Click on "Accept Conditions"
+
+```
+
+Actions: <br>
+
+**When** Check "\<ELEMENT NAME\>" <br>
+**When** Uncheck "\<ELEMENT NAME\>" <br>
+**When** Click on "\<ELEMENT NAME\>" <br>
+
+```
+Checkbox validations examples:
+
+Then "Accept Conditions" is enabled
+Then "Accept Conditions" is disabled
+Then "Accept Conditions" is displayed
+Then "Accept Conditions" is hidden
+Then "Accept Conditions" is basically valid
+Then "Accept Conditions" label text equals to "Accept terms and conditions"
+Then "Accept Conditions" label text contains "terms and conditions"
+Then "Accept Conditions" label text match to "[a-zA-Z]{6} JE*DI"
+Then "Accept Conditions" is not appear
+Then "Accept Conditions" is not appear during "5" seconds
+
+
+Some scenario examples:
+
+  Scenario: Get label text test
+    Given I open "Html5 Page"
+    When I Check "Accept Conditions"
+    Then "Accept Conditions" label text equals to "Accept terms and conditions"
+    
+  Scenario: Click test
+    Given I open "Html5 Page"
+    When I Check "Accept Conditions"
+    Then "Accept Conditions" is selected
+    When I Click on "Accept Conditions"
+    Then "Accept Conditions" is deselected
+  
+(More examples are available in the Tutorial section (the link to the section is on the right))
+
+```
+
+Validations: <br>
+
+**Then** "\<ELEMENT NAME\>" is enabled <br>
+**Then** "\<ELEMENT NAME\>" is disabled <br>
+**Then** "\<ELEMENT NAME\>" is displayed <br>
+**Then** "\<ELEMENT NAME\>" is hidden <br>
+**Then** "\<ELEMENT NAME\>" is basically valid <br>
+**Then** "\<ELEMENT NAME\>" label text equals to "\<TEXT\>" <br>
+**Then** "\<ELEMENT NAME\>" label text contains "\<TEXT\>" <br>
+**Then** "\<ELEMENT NAME\>" label text match to "\<TEXT\>" <br>
+**Then** "\<ELEMENT NAME\>" is not appear <br>
+**Then** "\<ELEMENT NAME\>" is not appear during "\<SECONDS\>" seconds <br>
+
 (Here is link to [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial))
 
 

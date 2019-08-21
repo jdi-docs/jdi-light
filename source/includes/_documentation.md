@@ -3529,16 +3529,14 @@ When I set "Color Picker" to "#00FF00" color
 ```
 Then "Color Picker" color equals to "#00FF00"
 Then "Color Picker" label text equals to "Select a color"
-Then is validation for "Color Picker" is successful for color "#00FF00"
-Then assertThat for "Color Picker" is successful for color "#00FF00"
+Then "Color Picker" color is "#00FF00"
 Then "Color Picker" is basically valid
 ```
 
 **Then** "ELEMENT NAME" color equals to "EXPECTED COLOR HEX CODE" <br>
 **Then** "ELEMENT NAME" label text equals to "EXPECTED TEXT" <br>
-**Then** is validation for "ELEMENT NAME" is successful for color "COLOR HEX CODE" <br>
-**Then** assertThat for "ELEMENT NAME" is successful for color "COLOR HEX CODE" <br>
-**Then** "ELEMENT NAME" is basically valid
+**Then** "ELEMENT NAME" color is "COLOR HEX CODE" <br>
+**Then** "ELEMENT NAME" is basically valid <br>
 
 ### Image
 Samples of steps: <br>

@@ -3519,33 +3519,35 @@ Then  Assert that "JDI Title" not appear during "5" seconds
 **Then** Assert that "\<ELEMENT NAME\>" not appear during "\<SECONDS\>" seconds <br>
 
 ### Image
-Samples of steps: <br>
-_**attributes checks:**_<br>
-**Then** image _"\<IMAGE NAME\>"_ src equals to _"\<SOURCE VALUE\>"_<br>
-**Then** image _"\<IMAGE NAME\>"_ scr contains _"\<SOURCE VALUE\>"_<br>
-**Then** image _"\<IMAGE NAME\>"_ height is equal to _"\<HEIGHT VALUE\>_"<br>
-**Then** image _"\<IMAGE NAME\>"_ width is equal to _"\<WIDTH VALUE\>"_<br>
-**Then** image _"\<IMAGE NAME\>"_ attribute is equal to _"\<ALT VALUE\>_"<br>
+````
+  Scenario: Image validation test
+    Given I open "Html5 Page"
+    And Refresh webpage
+    Then "Jdi Logo" attribute "src" contains "jdi-logo.jpg"
+    And "Jdi Logo" attribute "height" contains "100"
+    And "Jdi Logo" attribute "width" contains "101"
+````
 
-````
-Scenario: Check image source
-  Given I should be login
-  And I open "Html5 Page"
-  Then image "Jdi Logo" src is equals to "https://jdi-testing.github.io/jdi-light/images/jdi-logo.jpg"
-````
+_steps:_<br>
+**Then** "\<IMAGE NAME\>" attribute "src" equals to "\<SOURCE VALUE\>"
+**Then** "\<IMAGE NAME\>" attribute "src" contains "\<SOURCE VALUE\>"
+**Then** "\<IMAGE NAME\>" attribute "height" equals to "\<HEIGHT VALUE\>"
+**Then** "\<IMAGE NAME\>" attribute "width" equals to "\<WIDTH VALUE\>"
+**Then** "\<IMAGE NAME\>" attribute "alt" equals to "\<ALT VALUE\>"
 
 ### Alerts
-_steps:_<br>
-**Then** alert text is equal to _"\<SOURCE VALUE\>"_<br>
-**Then** accept Alert<br>
 
 ````
-Scenario: Click at image and accept Alert
-  Given I open "Html5 Page"
-  When click at "Jdi Logo"
-  Then check Alert text is "JDI Logo"
-  And accept Alert
-  ````
+  Scenario: Click at image and accept Alert
+    Given I open "Html5 Page"
+    When Click on "Jdi Logo"
+    Then Alert text equals to "JDI Logo"
+    And Accept alert
+````
+
+_steps:_<br>
+**Then** Alert text equals to "\<TEXT\>"<br>
+**Then** Accept alert<br>
 
 ### File Input
 

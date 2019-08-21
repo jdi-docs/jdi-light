@@ -3601,7 +3601,6 @@ Then "Github Link" is enabled
 Then "Github Link" is disabled
 Then "Github Link" is displayed
 Then "Github Link" is hidden
-Then "Github Link" is basically valid
 Then "Github Link" URL path equals to "/jdi-testing"
 Then "Github Link" text equals to "Github JDI"
 Then "Github Link" text ignoring case equals to "GIThub jdi"
@@ -3631,7 +3630,7 @@ Some scenario examples:
      Given I open "Html5 Page"
      Then "Github Link" alternative text match to "Git.* JE*DI Link"
   
-(More examples are available in the Tutorial section (the link to the section is on the right))
+More examples are available in the Tutorial section.
 
 ```
 
@@ -3641,7 +3640,6 @@ Validations: <br>
 **Then** "\<ELEMENT NAME\>" is disabled <br>
 **Then** "\<ELEMENT NAME\>" is displayed <br>
 **Then** "\<ELEMENT NAME\>" is hidden <br>
-**Then** "\<ELEMENT NAME\>" is basically valid <br>
 **Then** "\<ELEMENT NAME\>" URL path equals to "\<TEXT\>" <br>
 **Then** "\<ELEMENT NAME\>" text equals to "\<TEXT\>" <br>
 **Then** "\<ELEMENT NAME\>" text ignoring case equals to "\<TEXT\>" <br>
@@ -3659,7 +3657,7 @@ Validations: <br>
 **Then** "\<ELEMENT NAME\>" is not appear <br>
 **Then** "\<ELEMENT NAME\>" is not appear during "\<SECONDS\>" seconds <br>
 
-(Here is link to [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial))
+Here is link to [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial)
 
 
 

@@ -3519,6 +3519,7 @@ Then  Assert that "JDI Title" not appear during "5" seconds
 **Then** Assert that "\<ELEMENT NAME\>" not appear during "\<SECONDS\>" seconds <br>
 
 ### Image
+
 ````
   Scenario: Image validation test
     Given I open "Html5 Page"

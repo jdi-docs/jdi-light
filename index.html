@@ -525,6 +525,9 @@
                             <li>
                               <a href="#link-2" class="toc-h2 h3 toc-link" data-title="Link">Link</a>
                             </li>
+                            <li>
+                              <a href="#button-2" class="toc-h2 h3 toc-link" data-title="Button">Button</a>
+                            </li>
                         </ul>
                   </li>
                   <li>
@@ -7597,6 +7600,70 @@ More examples are available in the Tutorial section.
 <strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; attribute &quot;&lt;ATTRIBUTE NAME&gt;&quot; matches to &quot;&lt;ATTRIBUTE VALUE&gt;&quot; <br>
 <strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; is not appear <br>
 <strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; is not appear during &quot;&lt;SECONDS&gt;&quot; seconds <br></p>
+
+<p>Here is link to <a href="https://jdi-docs.github.io/jdi-light/?java#tutorial"><strong>Tutorial</strong></a></p>
+<h3 id='button-2'>Button</h3><pre class="highlight plaintext"><code>When Click on "Red Button" 
+When Click with JS on "Red Button"   
+When Focus on "Blue Button" 
+When Right click on "Red Button"    
+When Highlight "Blue Button"    
+When Show "Red Button"  
+When Set "Red Button" attribute "test-jdi" with vlaue "test-value"
+
+Then "Red Button" text equals to "Big Red Button-Input" 
+Then "Red Button" text contains "Red Button"    
+Then "Red Button" text match to ".+"
+Then "Red Button" attribute "test-jdi" equals to "test-value"
+Then "Red Button" attribute "test-jdi" contains "test"
+Then "Red Button" attribute "test-jdi" match to ".{10}" 
+Then "Red Button" is enabled
+Then "Disabled Button" is disabled
+Then "Disabled Button" is displayed
+Then "Ghost Button" is hidden   
+Then "Ghost Button" does not appear 
+Then "Suspend Button" does not appear during "5" seconds
+Then "Red Button" css "font-size" equals to "14px"
+Then "Red Button" attribute "type" equals to "button"
+
+Scenario: Basic for button
+  Given I open "Home Page" page
+   Then "Red Button" is displayed
+    And "Red Button" is enabled
+    And "Red Button" text equals to "Big Red Button-Input"
+    And "Red Button" text contains "Red Button"
+    And "Red Button" css "font-size" equals to "14px"
+    And "Red Button" attribute "type" equals to "button"
+    And "Disabled Button" is disabled
+   When Click on "Blue Button"
+   Then Alert text equals to "Blue button"
+
+</code></pre>
+<p><strong>Actions:</strong> <br></p>
+
+<p><strong>When</strong> <I> Click on &quot;<ELEMENT NAME>&quot; <br>
+<strong>When</strong> <I> Click with JS on &quot;<ELEMENT NAME>&quot;   <br>
+<strong>When</strong> <I> Focus on &quot;<ELEMENT NAME>&quot;  <br>
+<strong>When</strong> <I> Right click on &quot;<ELEMENT NAME>&quot;    <br>
+<strong>When</strong> <I> Highlight &quot;<ELEMENT NAME>&quot; <br>
+<strong>When</strong> <I> Show &quot;<ELEMENT NAME>&quot;  <br>
+<strong>When</strong> <I> Set &quot;<ELEMENT NAME>&quot; attribute &quot;<ATTRIBUTE NAME>&quot; with vlaue &quot;<ATTRIBUTE VALUE>&quot; <br></p>
+
+<p><strong>Validations:</strong> <br></p>
+
+<p><strong>Then</strong> &quot;<ELEMENT NAME>&quot; text equals to &quot;<TEXT>&quot;   <br>
+<strong>Then</strong> &quot;<ELEMENT NAME>&quot; text contains &quot;<TEXT>&quot;    <br>
+<strong>Then</strong> &quot;<ELEMENT NAME>&quot; text match to &quot;<TEXT>&quot;<br>
+<strong>Then</strong> &quot;<ELEMENT NAME>&quot; attribute &quot;<ELEMENT NAME>&quot; equals to &quot;<ATTRIBUTE TEXT>&quot; <br>
+<strong>Then</strong> &quot;<ELEMENT NAME>&quot; attribute &quot;<ELEMENT NAME>&quot; contains &quot;<ATTRIBUTE TEXT>&quot; <br>
+<strong>Then</strong> &quot;<ELEMENT NAME>&quot; attribute &quot;<ELEMENT NAME>&quot; match to &quot;<ATTRIBUTE TEXT>&quot; <br><br>
+<strong>Then</strong> &quot;<ELEMENT NAME>&quot; is enabled <br><br>
+<strong>Then</strong> &quot;<ELEMENT NAME>&quot; is disabled <br><br>
+<strong>Then</strong> &quot;<ELEMENT NAME>&quot; is displayed <br> 
+<strong>Then</strong> &quot;<ELEMENT NAME>&quot; is hidden  <br><br>
+<strong>Then</strong> &quot;<ELEMENT NAME>&quot; is not appear <br><br>
+<strong>Then</strong> &quot;<ELEMENT NAME>&quot; is not appear during &quot;<NUNBER>&quot; seconds <br>
+<strong>Then</strong> &quot;<ELEMENT NAME>&quot; css &quot;<ATTRIBUTE NAME" equals to "<TEXT>&quot; <br>
+<strong>Then</strong> &quot;<ELEMENT NAME>&quot; attribute &quot;ATTRIBUTE NAME&quot; equals to &quot;<TEXT>&quot; <br></p>
 
 <p>Here is link to <a href="https://jdi-docs.github.io/jdi-light/?java#tutorial"><strong>Tutorial</strong></a></p>
 <h2 id='ui-objects'>UI Objects</h2>

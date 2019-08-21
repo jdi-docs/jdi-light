@@ -3575,6 +3575,94 @@ Validations:<br>
 **Then** "\<ELEMENT NAME\>" file input element value equals to "\<PATH TO FILE\>"<br>
 **Then** "\<ELEMENT NAME\>" file input element value contains "\<PART OF PATH TO FILE\>"<br>
 
+### Link 
+
+```
+Link actions examples:
+
+When Click on "Github Link"
+When Higlight "Github Link"
+When Show "Github Link"
+When Set "Github Link" attribute "alt" with value "Github JDI Link EDITED"
+
+```
+
+Actions: <br>
+
+**When** Click on "\<ELEMENT NAME\>" <br>
+**When** Highlight "\<ELEMENT NAME\>" <br>
+**When** Show "\<ELEMENT NAME\>" <br>
+**When** Set "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" with value "\<ATTRIBUTE NAME\>" <br>
+
+```
+Link validations examples:
+
+Then "Github Link" is enabled
+Then "Github Link" is disabled
+Then "Github Link" is displayed
+Then "Github Link" is hidden
+Then "Github Link" is basically valid
+Then "Github Link" URL path equals to "/jdi-testing"
+Then "Github Link" text equals to "Github JDI"
+Then "Github Link" text ignoring case equals to "GIThub jdi"
+Then "Github Link" text contains "JDI"
+Then "Github Link" text match to "[a-zA-Z]{6} JE*DI"
+Then "Github Link" reference equals to "https://github.com/jdi-testing"
+Then "Github Link" reference contains "github"
+Then "Github Link" reference match to "https://github.com/.*"
+Then "Github Link" alternative text equals to "Github JDI Link"
+Then "Github Link" alternative text contains "JDI"
+Then "Github Link" alternative text match to "Git.* JE*DI Link"
+Then "Github Link" attribute "alt" equals to "Github JDI Link"
+Then "Github Link" attribute "href" contains "https://github.com"
+Then "Github Link" attribute "ui" match to "github.link"
+Then "Github Link" is not appear
+Then "Github Link" is not appear during "5" seconds
+
+
+Some scenario examples:
+
+  Scenario: Click link test
+     Given I open "Html5 Page"
+     When Click on "Github Link"
+     Then Current URL is "https://github.com/jdi-testing"
+    
+  Scenario: Link alternative text matching to RegExp
+     Given I open "Html5 Page"
+     Then "Github Link" alternative text match to "Git.* JE*DI Link"
+  
+(More examples are available in the Tutorial section (the link to the section is on the right))
+
+```
+
+Validations: <br>
+
+**Then** "\<ELEMENT NAME\>" is enabled <br>
+**Then** "\<ELEMENT NAME\>" is disabled <br>
+**Then** "\<ELEMENT NAME\>" is displayed <br>
+**Then** "\<ELEMENT NAME\>" is hidden <br>
+**Then** "\<ELEMENT NAME\>" is basically valid <br>
+**Then** "\<ELEMENT NAME\>" URL path equals to "\<TEXT\>" <br>
+**Then** "\<ELEMENT NAME\>" text equals to "\<TEXT\>" <br>
+**Then** "\<ELEMENT NAME\>" text ignoring case equals to "\<TEXT\>" <br>
+**Then** "\<ELEMENT NAME\>" text contains "\<TEXT\>" <br>
+**Then** "\<ELEMENT NAME\>" text matches to "\<TEXT\>" <br>
+**Then** "\<ELEMENT NAME\>" reference equals to "\<REFERENCE VALUE\>" <br>
+**Then** "\<ELEMENT NAME\>" reference contains "\<REFERENCE VALUE\>" <br>
+**Then** "\<ELEMENT NAME\>" reference match to "\<REFERENCE VALUE\>" <br>
+**Then** "\<ELEMENT NAME\>" alternative text equals to "\<ALT VALUE\>" <br>
+**Then** "\<ELEMENT NAME\>" alternative text contains "\<ALT VALUE\>" <br>
+**Then** "\<ELEMENT NAME\>" alternative text match to "\<ALT VALUE\>" <br>
+**Then** "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" equals to "\<ATTRIBUTE VALUE\>" <br>
+**Then** "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" contains "\<ATTRIBUTE VALUE\>" <br>
+**Then** "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" matches to "\<ATTRIBUTE VALUE\>" <br>
+**Then** "\<ELEMENT NAME\>" is not appear <br>
+**Then** "\<ELEMENT NAME\>" is not appear during "\<SECONDS\>" seconds <br>
+
+(Here is link to [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial))
+
+
+
 ## UI Objects
 TBD
 

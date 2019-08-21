@@ -849,7 +849,7 @@ And here are methods available in Java:
 **is()** | method for building assertions | ImageAssert
 **assertThat()** |method for building assertions  | ImageAssert
 
-[Test examples in Java](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ImageTests.java)
+[Test examples in Java](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ImageTests.java)<br>
 [BDD Steps example] (https://jdi-docs.github.io/jdi-light/?java#image-2)
 
 ### Icon
@@ -886,7 +886,7 @@ Here is a list of available methods in C#:
 **Is()** | method for building assertions | ImageAssert
 **AssertThat()** |method for building assertions  | ImageAssert
 
-[Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/IconTests.cs)
+[Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/IconTests.cs)<br>
 [BDD Steps example] (https://jdi-docs.github.io/jdi-light/?java#image-2)
 
 ### Link
@@ -3567,7 +3567,7 @@ _steps:_<br>
 **Then** alert text is equal to "\<SOURCE VALUE\>"<br>
 **Then** accept Alert<br>
 
-[JDI Light in BDD Style] (https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)
+[JDI Light in BDD Style] (https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)<br>
 
 ### File Input
 

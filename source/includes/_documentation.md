@@ -3584,6 +3584,7 @@ When Click on "Github Link"
 When Higlight "Github Link"
 When Show "Github Link"
 When Set "Github Link" attribute "alt" with value "Github JDI Link EDITED"
+
 ```
 
 Actions: <br>
@@ -3631,6 +3632,7 @@ Some scenario examples:
      Then "Github Link" alternative text match to "Git.* JE*DI Link"
   
 (More examples are available in the Tutorial section (the link to the section is on the right))
+
 ```
 
 Validations: <br>
@@ -3658,6 +3660,7 @@ Validations: <br>
 **Then** "\<ELEMENT NAME\>" is not appear during "\<SECONDS\>" seconds <br>
 
 (Here is link to [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial))
+
 
 
 ## UI Objects

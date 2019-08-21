@@ -3679,6 +3679,76 @@ Validations: <br>
 
 Here is link to [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial)
 
+###Button
+
+```
+  When Click on "Red Button" 
+	When Click with JS on "Red Button" 	 
+	When Focus on "Blue Button"	
+	When Right click on "Red Button" 	
+	When Highlight "Blue Button"	
+	When Show "Red Button"	
+	When Set "Red Button" attribute "test-jdi" with vlaue "test-value"
+  
+  Then "Red Button" text equals to "Big Red Button-Input"	
+	Then "Red Button" text contains "Red Button"	
+	Then "Red Button" text match to ".+"
+	Then "Red Button" attribute "test-jdi" equals to "test-value"
+	Then "Red Button" attribute "test-jdi" contains "test"
+	Then "Red Button" attribute "test-jdi" match to ".{10}"	
+	Then "Red Button" is enabled
+	Then "Disabled Button" is disabled
+	Then "Disabled Button" is displayed
+	Then "Ghost Button" is hidden	
+	Then "Ghost Button" does not appear	
+	Then "Suspend Button" does not appear during "<ELEMENT NAME>"
+  Then "Red Button" css "font-size" equals to "14px"
+  Then "Red Button" attribute "type" equals to "button"
+  
+  
+   Scenario: Basic for button
+    Given I open "Home Page" page
+    Then "Red Button" is displayed
+    And "Red Button" is enabled
+    And "Red Button" text equals to "Big Red Button-Input"
+    And "Red Button" text contains "Red Button"
+    And "Red Button" css "font-size" equals to "14px"
+    And "Red Button" attribute "type" equals to "button"
+    And "Disabled Button" is disabled
+    When Click on "Blue Button"
+    Then Alert text equals to "Blue button"
+  
+
+```
+
+**Actions:** <br>
+
+  **When** <I> Click on "<ELEMENT NAME>" 
+	**When** <I> Click with JS on "<ELEMENT NAME>"	 
+	**When** <I> Focus on "<ELEMENT NAME>"	
+	**When** <I> Right click on "<ELEMENT NAME>"	
+	**When** <I> Highlight "<ELEMENT NAME>"	
+	**When** <I> Show "<ELEMENT NAME>"	
+	**When** <I> Set "<ELEMENT NAME>" attribute "<ATTRIBUTE NAME>" with vlaue "<ATTRIBUTE VALUE>"
+  
+ **Validations:** <br>
+  
+	**Then** "<ELEMENT NAME>" text equals to "<TEXT>"	
+	**Then** "<ELEMENT NAME>" text contains "<TEXT>"	
+	**Then** "<ELEMENT NAME>" text match to "<TEXT>"
+	**Then** "<ELEMENT NAME>" attribute "<ELEMENT NAME>" equals to "<ATTRIBUTE TEXT>"
+	**Then** "<ELEMENT NAME>" attribute "<ELEMENT NAME>" contains "<ATTRIBUTE TEXT>"
+	**Then** "<ELEMENT NAME>" attribute "<ELEMENT NAME>" match to "<ATTRIBUTE TEXT>"	
+	**Then** "<ELEMENT NAME>" is enabled
+	**Then** "<ELEMENT NAME>" is disabled
+	**Then** "<ELEMENT NAME>" is displayed
+	**Then** "<ELEMENT NAME>" is hidden	
+	**Then** "<ELEMENT NAME>" is not appear	
+	**Then** "<ELEMENT NAME>" is not appear during "<ELEMENT NAME>"
+  **Then** "<ELEMENT NAME>" css "<ATTRIBUTE NAME" equals to "<CSS VALUE>"
+  **Then** "<ELEMENT NAME>" attribute "ATTRIBUTE NAME" equals to "<VALUE>"
+  
+  Here is link to [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial)
 
 
 ## UI Objects

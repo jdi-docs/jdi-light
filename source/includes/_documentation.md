@@ -3603,7 +3603,6 @@ Then "Github Link" is displayed
 Then "Github Link" is hidden
 Then "Github Link" URL path equals to "/jdi-testing"
 Then "Github Link" text equals to "Github JDI"
-Then "Github Link" text ignoring case equals to "GIThub jdi"
 Then "Github Link" text contains "JDI"
 Then "Github Link" text match to "[a-zA-Z]{6} JE*DI"
 Then "Github Link" reference equals to "https://github.com/jdi-testing"
@@ -3642,7 +3641,6 @@ Validations: <br>
 **Then** "\<ELEMENT NAME\>" is hidden <br>
 **Then** "\<ELEMENT NAME\>" URL path equals to "\<TEXT\>" <br>
 **Then** "\<ELEMENT NAME\>" text equals to "\<TEXT\>" <br>
-**Then** "\<ELEMENT NAME\>" text ignoring case equals to "\<TEXT\>" <br>
 **Then** "\<ELEMENT NAME\>" text contains "\<TEXT\>" <br>
 **Then** "\<ELEMENT NAME\>" text matches to "\<TEXT\>" <br>
 **Then** "\<ELEMENT NAME\>" reference equals to "\<REFERENCE VALUE\>" <br>

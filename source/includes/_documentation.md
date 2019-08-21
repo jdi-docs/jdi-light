@@ -849,7 +849,8 @@ And here are methods available in Java:
 **is()** | method for building assertions | ImageAssert
 **assertThat()** |method for building assertions  | ImageAssert
 
-[Test examples in Java](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ImageTests.java)
+[Test examples in Java](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ImageTests.java)<br>
+[BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#image-2)
 
 ### Icon
 ```csharp 
@@ -885,7 +886,8 @@ Here is a list of available methods in C#:
 **Is()** | method for building assertions | ImageAssert
 **AssertThat()** |method for building assertions  | ImageAssert
 
-[Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/IconTests.cs)
+[Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/IconTests.cs)<br>
+[BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#image-2)
 
 ### Link
 **Link** – a graphical control element, that allows the user to link from one page to other web pages, files, locations within the same page, email addresses, or any other URL.
@@ -3521,35 +3523,56 @@ Then  Assert that "JDI Title" not appear during "5" seconds
 **Then** Assert that "\<ELEMENT NAME\>" not appear during "\<SECONDS\>" seconds <br>
 
 ### Image
-Samples of steps: <br>
-_**attributes checks:**_<br>
-**Then** image _"\<IMAGE NAME\>"_ src equals to _"\<SOURCE VALUE\>"_<br>
-**Then** image _"\<IMAGE NAME\>"_ scr contains _"\<SOURCE VALUE\>"_<br>
-**Then** image _"\<IMAGE NAME\>"_ height is equal to _"\<HEIGHT VALUE\>_"<br>
-**Then** image _"\<IMAGE NAME\>"_ width is equal to _"\<WIDTH VALUE\>"_<br>
-**Then** image _"\<IMAGE NAME\>"_ attribute is equal to _"\<ALT VALUE\>_"<br>
 
 ````
-Scenario: Check image source
-  Given I should be login
-  And I open "Html5 Page"
-  Then image "Jdi Logo" src is equals to "https://jdi-testing.github.io/jdi-light/images/jdi-logo.jpg"
-  
+Sample steps:
+  Then "Jdi Logo" attribute "src" equals to "https://jdi-testing.github.io/jdi-light/images/jdi-logo.jpg"
+  Then "Jdi Logo" attribute "alt" equals to "Jdi Logo 2"
+  Then "Jdi Logo" attribute "src" contains "jdi-logo.jpg"
+  Then "Jdi Logo" attribute "height" contains "100"
+  Then "Jdi Logo" attribute "width" contains "101"
+
+Examples:
+  Scenario: Image validation test
+    Given I open "Html5 Page"
+    And Refresh webpage
+    Then "Jdi Logo" attribute "src" contains "jdi-logo.jpg"
+    And "Jdi Logo" attribute "height" contains "100"
+    And "Jdi Logo" attribute "width" contains "101"
+
 ````
+
+Samples of steps: <br>
+**Then** image "\<IMAGE NAME\>" src equals to "\<SOURCE VALUE\>"<br>
+**Then** image "\<IMAGE NAME\>" scr contains "\<SOURCE VALUE\>"<br>
+**Then** image "\<IMAGE NAME\>" height is equal to "\<HEIGHT VALUE\>"<br>
+**Then** image "\<IMAGE NAME\>" width is equal to "\<WIDTH VALUE\>"<br>
+**Then** image "\<IMAGE NAME\>" attribute is equal to "\<ALT VALUE\>"<br>
+
+[JDI Light in BDD Style](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)
 
 ### Alerts
-_steps:_<br>
-**Then** alert text is equal to _"\<SOURCE VALUE\>"_<br>
-**Then** accept Alert<br>
 
 ````
-Scenario: Click at image and accept Alert
-  Given I open "Html5 Page"
-  When click at "Jdi Logo"
-  Then check Alert text is "JDI Logo"
-  And accept Alert
-  
- ````
+Sample steps:
+  Then Alert text equals to "JDI Logo"
+  Then Accept alert
+    
+Example:
+  Scenario: Click at image and accept Alert
+    Given I open "Html5 Page"
+    When Click on "Jdi Logo"
+    Then Alert text equals to "JDI Logo"
+    And Accept aler
+````
+
+_steps:_<br>
+**Then** alert text is equal to "\<SOURCE VALUE\>"<br>
+**Then** accept Alert<br>
+
+
+[JDI Light in BDD Style](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)<br>
+
 
 ### File Input
 
@@ -3580,6 +3603,89 @@ Validations:<br>
 **Then** "\<ELEMENT NAME\>" file input element text contains "\<PART OF PATH TO FILE\>"<br>
 **Then** "\<ELEMENT NAME\>" file input element value equals to "\<PATH TO FILE\>"<br>
 **Then** "\<ELEMENT NAME\>" file input element value contains "\<PART OF PATH TO FILE\>"<br>
+
+
+### Link 
+
+```
+Link actions examples:
+
+When Click on "Github Link"
+When Higlight "Github Link"
+When Show "Github Link"
+When Set "Github Link" attribute "alt" with value "Github JDI Link EDITED"
+
+```
+
+Actions: <br>
+
+**When** Click on "\<ELEMENT NAME\>" <br>
+**When** Highlight "\<ELEMENT NAME\>" <br>
+**When** Show "\<ELEMENT NAME\>" <br>
+**When** Set "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" with value "\<ATTRIBUTE NAME\>" <br>
+
+```
+Link validations examples:
+
+Then "Github Link" is enabled
+Then "Github Link" is disabled
+Then "Github Link" is displayed
+Then "Github Link" is hidden
+Then "Github Link" URL path equals to "/jdi-testing"
+Then "Github Link" text equals to "Github JDI"
+Then "Github Link" text contains "JDI"
+Then "Github Link" text match to "[a-zA-Z]{6} JE*DI"
+Then "Github Link" reference equals to "https://github.com/jdi-testing"
+Then "Github Link" reference contains "github"
+Then "Github Link" reference match to "https://github.com/.*"
+Then "Github Link" alternative text equals to "Github JDI Link"
+Then "Github Link" alternative text contains "JDI"
+Then "Github Link" alternative text match to "Git.* JE*DI Link"
+Then "Github Link" attribute "alt" equals to "Github JDI Link"
+Then "Github Link" attribute "href" contains "https://github.com"
+Then "Github Link" attribute "ui" match to "github.link"
+Then "Github Link" is not appear
+Then "Github Link" is not appear during "5" seconds
+
+
+Some scenario examples:
+
+  Scenario: Click link test
+     Given I open "Html5 Page"
+     When Click on "Github Link"
+     Then Current URL is "https://github.com/jdi-testing"
+    
+  Scenario: Link alternative text matching to RegExp
+     Given I open "Html5 Page"
+     Then "Github Link" alternative text match to "Git.* JE*DI Link"
+  
+More examples are available in the Tutorial section.
+
+```
+
+Validations: <br>
+
+**Then** "\<ELEMENT NAME\>" is enabled <br>
+**Then** "\<ELEMENT NAME\>" is disabled <br>
+**Then** "\<ELEMENT NAME\>" is displayed <br>
+**Then** "\<ELEMENT NAME\>" is hidden <br>
+**Then** "\<ELEMENT NAME\>" URL path equals to "\<TEXT\>" <br>
+**Then** "\<ELEMENT NAME\>" text equals to "\<TEXT\>" <br>
+**Then** "\<ELEMENT NAME\>" text contains "\<TEXT\>" <br>
+**Then** "\<ELEMENT NAME\>" text matches to "\<TEXT\>" <br>
+**Then** "\<ELEMENT NAME\>" reference equals to "\<REFERENCE VALUE\>" <br>
+**Then** "\<ELEMENT NAME\>" reference contains "\<REFERENCE VALUE\>" <br>
+**Then** "\<ELEMENT NAME\>" reference match to "\<REFERENCE VALUE\>" <br>
+**Then** "\<ELEMENT NAME\>" alternative text equals to "\<ALT VALUE\>" <br>
+**Then** "\<ELEMENT NAME\>" alternative text contains "\<ALT VALUE\>" <br>
+**Then** "\<ELEMENT NAME\>" alternative text match to "\<ALT VALUE\>" <br>
+**Then** "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" equals to "\<ATTRIBUTE VALUE\>" <br>
+**Then** "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" contains "\<ATTRIBUTE VALUE\>" <br>
+**Then** "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" matches to "\<ATTRIBUTE VALUE\>" <br>
+**Then** "\<ELEMENT NAME\>" is not appear <br>
+**Then** "\<ELEMENT NAME\>" is not appear during "\<SECONDS\>" seconds <br>
+
+Here is link to [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial)
 
 
 ### DateTimeSelector
@@ -3626,6 +3732,7 @@ Validations:<br>
 **Then** _"\<ELEMENT NAME\>"_ attribute max equals to _"\<MAX ATTRIBUTE VALUE\>"_ <br>
 
 There is link to [Tutorial](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)
+
 
 ## UI Objects
 TBD

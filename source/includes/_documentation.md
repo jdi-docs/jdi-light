@@ -711,7 +711,7 @@ Available assert methods in C# JDI Light:
 
 [C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/FileInputTests.cs)
 
-[BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#file-input)
+[BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#fileinput-2)
 
 ### Icon
 ```java 

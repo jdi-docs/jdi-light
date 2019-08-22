@@ -3572,7 +3572,7 @@ _steps:_<br>
 ### File Input
 
 ```
-Examples for actions:
+Actions examples:
 When I upload file "/src/test/resources/general.xml" by "Avatar" file input element
 When I try to upload file "/jdi-light-bdd-tests/src/test/resources/general.xml" by "Disabled File Input" file input element
 ```
@@ -3581,7 +3581,7 @@ Actions:<br>
 **When** I try to upload file "\<PATH TO FILE\>" by "\<ELEMENT NAME\>" file input element<br>
 
 ```
-Examples for validations:
+Validations examples:
 Then "Avatar" file input element label equals to "Profile picture:"
 Then "Avatar" file input element label contains "picture"
 Then "Avatar" file input element text equals to "C:\fakepath\general.xml"
@@ -3590,6 +3590,7 @@ Then "Avatar" attribute "id" equals to "avatar"
 Then "Avatar" is basically valid
 Then "Disabled File Input" is disabled
 
+Scenario example:
   Scenario: Upload file by enabled file input element
     Given I open "Html5 Page"
     When I upload file "/src/test/resources/general.xml" by "Avatar" file input element

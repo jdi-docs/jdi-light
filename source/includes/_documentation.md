@@ -3803,15 +3803,15 @@ Scenario: Basic for button
   
 **Then** "\<ELEMENT NAME\>" text equals to "\<TEXT\>"	<br>
 **Then** "\<ELEMENT NAME\>" text contains "\<TEXT\>"	<br>
-**Then** "\<ELEMENT NAME\>" text match to "<TEXT\>" <br>
+**Then** "\<ELEMENT NAME\>" text match to "\<TEXT\>" <br>
 **Then** "\<ELEMENT NAME\>" attribute "\<ELEMENT NAME\>" equals to "\<ATTRIBUTE TEXT\>" <br>
 **Then** "\<ELEMENT NAME\>" attribute "\<ELEMENT NAME\>" contains "\<ATTRIBUTE TEXT\>" <br>
-**Then** "\<ELEMENT NAME\>" attribute "\<ELEMENT NAME\>" match to "\<ATTRIBUTE TEXT\>" <br>	
-**Then** "\<ELEMENT NAME\>" is enabled <br>	
-**Then** "\<ELEMENT NAME\>" is disabled
-**Then** "\<ELEMENT NAME\>" is displayed
-**Then** "\<ELEMENT NAME\>" is hidden		
-**Then** "\<ELEMENT NAME\>" is not appear	
+**Then** "\<ELEMENT NAME\>" attribute "\<ELEMENT NAME\>" match to "\<ATTRIBUTE TEXT\>" <br>
+**Then** "\<ELEMENT NAME\>" is enabled <br>
+**Then** "\<ELEMENT NAME\>" is disabled <br>
+**Then** "\<ELEMENT NAME\>" is displayed <br>
+**Then** "\<ELEMENT NAME\>" is hidden <br>
+**Then** "\<ELEMENT NAME\>" is not appear <br>
 **Then** "\<ELEMENT NAME\>" is not appear during "\<NUMBER\>" seconds <br>
 **Then** "\<ELEMENT NAME\>" css "\<ATTRIBUTE NAME\>" equals to "\<TEXT\>" <br>
 **Then** "\<ELEMENT NAME\>" attribute "ATTRIBUTE NAME" equals to "\<TEXT\>" <br>

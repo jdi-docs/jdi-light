@@ -838,7 +838,9 @@ Here is a list of available methods in C#:
 **Is()** | method for building assertions | ImageAssert
 **AssertThat()** |method for building assertions  | ImageAssert
 
-[Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/ImagesTests.cs)
+[Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/ImagesTests.cs) <br>
+[BDD test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-bdd-tests/src/test/resources/features/image.feature)  <br>
+[BDD Steps documentation](https://jdi-docs.github.io/jdi-light/?java#image-2) <br>
 
 And here are methods available in Java:
 
@@ -853,7 +855,9 @@ And here are methods available in Java:
 **assertThat()** |method for building assertions  | ImageAssert
 
 [Test examples in Java](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ImageTests.java)<br>
-[BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#image-2)
+[BDD test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-bdd-tests/src/test/resources/features/image.feature) <br>
+[BDD Steps documentation](https://jdi-docs.github.io/jdi-light/?java#image-2)<br>
+
 
 ### Icon
 ```csharp 
@@ -1181,6 +1185,9 @@ Available method in Java JDI Light:
 **is()** |Various assert actions for Progress bar  | ProgressAssert
 **assertThat()** |Various assert actions for Progress bar | ProgressAssert 
 
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ProgressTests.java) <br>
+[BDD test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-bdd-tests/src/test/resources/features/ProgressBar.feature)<br>
+
 
 Available method in C# JDI Light:
 
@@ -1191,9 +1198,8 @@ Available method in C# JDI Light:
 **Is()** |Various assert actions for Progress bar  | ProgressAssert
 **AssertThat()** |Various assert actions for Progress bar | ProgressAssert 
 
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ProgressTests.java)
-
-[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/ProgressTests.cs)
+[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/ProgressTests.cs)<br>
+[BDD test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-bdd-tests/src/test/resources/features/ProgressBar.feature)<br>
 
 ### Range
 
@@ -3567,14 +3573,14 @@ Examples:
 
 ````
 
-Samples of steps: <br>
+Validations: <br>
 **Then** image "\<IMAGE NAME\>" src equals to "\<SOURCE VALUE\>"<br>
 **Then** image "\<IMAGE NAME\>" scr contains "\<SOURCE VALUE\>"<br>
 **Then** image "\<IMAGE NAME\>" height is equal to "\<HEIGHT VALUE\>"<br>
 **Then** image "\<IMAGE NAME\>" width is equal to "\<WIDTH VALUE\>"<br>
 **Then** image "\<IMAGE NAME\>" attribute is equal to "\<ALT VALUE\>"<br>
 
-[JDI Light in BDD Style](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)
+[More information in the tutorial](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)
 
 ### Alert
 
@@ -3738,7 +3744,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 [**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/link.feature) for Link<br>
 
 
-###Button
+### Button
 
 ```
 When Click on "Red Button" 
@@ -3801,7 +3807,7 @@ Scenario: Basic for button
 **Then** "<ELEMENT NAME>" is displayed <br>	
 **Then** "<ELEMENT NAME>" is hidden	 <br>	
 **Then** "<ELEMENT NAME>" is not appear	<br>	
-**Then** "<ELEMENT NAME>" is not appear during "<NUNBER>" seconds <br>
+**Then** "<ELEMENT NAME>" is not appear during "<NUMBER>" seconds <br>
 **Then** "<ELEMENT NAME>" css "<ATTRIBUTE NAME" equals to "<TEXT>" <br>
 **Then** "<ELEMENT NAME>" attribute "ATTRIBUTE NAME" equals to "<TEXT>" <br>
   
@@ -3909,6 +3915,35 @@ Validations: <br>
 **Then** "\<ELEMENT NAME\>" is not appear during "\<SECONDS\>" seconds <br>
 
 There is link to [Tutorial](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)
+
+### Progress Bar
+  
+```
+Scenario: progress bar validation
+  Given I open "Html5 Page" page
+  Then "Progress" attribute "max" equals to "100"
+  And "Progress" progress volume greater or equal to 10
+  And "Progress" progress volume less or equal to 100
+  And "Progress" attribute "value" equals to "70"
+  And "Progress" is enabled
+```
+
+**Validations:** <br>
+**Then** "<ELEMENT NAME>" attribute "<ATTRIBUTE NAME>" equals to "<ATTRIBUTE VALUE>" <br>	
+**Then** "<ELEMENT NAME>" attribute "<ATTRIBUTE NAME>" equals to "<ATTRIBUTE VALUE>" <br>	
+**Then** "<ELEMENT NAME>" attribute "<ATTRIBUTE NAME>" match to "<ATTRIBUTE VALUE>" <br>	
+**Then** "<ELEMENT NAME>" progress volume greater or equal to <VALUE> <br>	
+**Then** "<ELEMENT NAME>" progress volume less or equal to <VALUE> <br>	
+**Then** "<ELEMENT NAME>" label text equals to "<LABEL_TEXT>" <br>	
+**Then** "<ELEMENT NAME>" label text contains "<TEXT>" <br>	
+**Then** "<ELEMENT NAME>" is enabled <br>	
+**Then** "<ELEMENT NAME>" is disabled <br>	
+**Then** "<ELEMENT NAME>" is displayed <br>	
+**Then** "<ELEMENT NAME>" is hidden	 <br>	
+**Then** "<ELEMENT NAME>" is not appear	<br>	
+**Then** "<ELEMENT NAME>" is not appear during "<NUMBER>" seconds <br>
+
+[More information in the tutorial](https://jdi-docs.github.io/jdi-light/?java#tutorial) <br>	
 
 
 ## UI Objects

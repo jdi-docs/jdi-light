@@ -151,6 +151,7 @@ Available methods and properties in C# JDI Light:
 **AssertThat** | Assert action | TextAssert
 
 [C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/ButtonTests.cs)
+[BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#button-2)
 
 ### Checkbox
 **Checkbox** – Element allows you to select single value for submission.
@@ -3744,6 +3745,12 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 [**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/link.feature) for Link<br>
 
 
+
+
+
+
+
+
 ### Button
 
 ```
@@ -3781,7 +3788,6 @@ Scenario: Basic for button
     And "Disabled Button" is disabled
    When Click on "Blue Button"
    Then Alert text equals to "Blue button"
-  
 ```
 
 **Actions:** <br>
@@ -3798,7 +3804,7 @@ Scenario: Basic for button
   
 **Then** "<ELEMENT NAME>" text equals to "<TEXT>"	<br>
 **Then** "<ELEMENT NAME>" text contains "<TEXT>"	<br>
-**Then** "<ELEMENT NAME>" text match to "<TEXT>"<br>
+**Then** "<ELEMENT NAME>" text match to "<TEXT>" <br>
 **Then** "<ELEMENT NAME>" attribute "<ELEMENT NAME>" equals to "<ATTRIBUTE TEXT>" <br>
 **Then** "<ELEMENT NAME>" attribute "<ELEMENT NAME>" contains "<ATTRIBUTE TEXT>" <br>
 **Then** "<ELEMENT NAME>" attribute "<ELEMENT NAME>" match to "<ATTRIBUTE TEXT>" <br>	
@@ -3811,7 +3817,8 @@ Scenario: Basic for button
 **Then** "<ELEMENT NAME>" css "<ATTRIBUTE NAME" equals to "<TEXT>" <br>
 **Then** "<ELEMENT NAME>" attribute "ATTRIBUTE NAME" equals to "<TEXT>" <br>
   
-  Here is link to [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial)
+More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial)<br>
+[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/button.feature) for Link<br>
   
   
   

@@ -1463,6 +1463,7 @@ And here are methods available in Java:
 **assertThat()** |Various assert actions for Text| TextAssert 
 
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/TextTests.java)  
+[BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#text-2)
 
 ### TextField
 ```java 
@@ -3824,7 +3825,7 @@ Scenario: Basic for button
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa)<br>
 [**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/button.feature) for Link<br>
 
-<br><br><br><br>
+<br><br><br><br><br><br>
 ### DateTimeSelector
 
 ```
@@ -3835,6 +3836,7 @@ When Set date "2018-11-13" in "Birth Date"
 DateTimeSelector validations example:
 Then  "Birth Date" text equals to "1985-06-18"
 Then  "Birth Date" text contains "1985"
+Then  "Birth Date" is enabled
 Then  "Birth Date" label text equals to "Birth date"
 Then  "Birth Date" label text contains "Birth"
 Then  "Birth Date" attribute min equals to "1970-01-01"
@@ -3856,6 +3858,7 @@ Validations:<br>
 
 **Then** "\<ELEMENT NAME\>" text equals to "\<TEXT\>" <br>
 **Then** "\<ELEMENT NAME\>" text contains "\<TEXT PART\>" <br>
+**Then** "\<ELEMENT NAME\>" is enabled <br>
 **Then** "\<ELEMENT NAME\>" label text equals to "\<TEXT\>" <br>
 **Then** "\<ELEMENT NAME\>" label text contains "\<TEXT PART\>"_ <br>
 **Then** "\<ELEMENT NAME\>" attribute min equals to "\<MIN ATTRIBUTE VALUE\>"<br>
@@ -3868,7 +3871,7 @@ There are BDD examples for Input Type Date derivatives:<br>
 [BDD test example for Input Type Week](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Week.feature)<br>
 [BDD test example for Input Type Month](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Month.feature)<br>
 [BDD test example for Input Type Time](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Time.feature)<br>
-[BDD test example for Input Type DateTime-Local](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/DateTime.feature)<br>
+[BDD test example for Input Type DateTime-Local](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/DateTime.feature)<br><br>
 
 
 
@@ -3969,6 +3972,31 @@ Scenario: progress bar validation
 **Then** "<ELEMENT NAME>" is not appear during "<NUMBER>" seconds <br>
 
 [More information in the tutorial](https://jdi-docs.github.io/jdi-light/?java#tutorial) <br>	
+
+### Text
+
+```
+
+Text validations example:
+Then "Jdi Text" text equals to "Powerful Framework for UI Tests Automation. Suitable for any UI project: Web(Html5, Angular, React...), Mobile(Android IOs), Desktop(Win app) etc."
+Then "Jdi Text" text contains "Powerful Framework for UI"
+Then "Jdi Text" is enabled
+
+BDD example:
+Scenario: Text validation test
+    Given I open "Html5 Page"
+    Then "Jdi Text" is enabled
+    Then "Jdi Text" text contains "Powerful Framework for UI"
+
+```
+Validations:<br>
+
+**Then** "\<ELEMENT NAME\>" text equals to "\<TEXT\>" <br>
+**Then** "\<ELEMENT NAME\>" text contains "\<TEXT PART\>" <br>
+**Then** "\<ELEMENT NAME\>" is enabled <br>
+
+[More information in the tutorial](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)
+[BDD test example for Input Type Date](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Date.feature)<br><br>
 
 
 ## UI Objects

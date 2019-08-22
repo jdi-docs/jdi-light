@@ -943,7 +943,7 @@ Here is the list of available methods in Java:
 **is()** | Returns object for work with assertions | LinkAssert
 **assertThat()** | Returns object for work with assertions | LinkAssert
 
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/LinkTests.java)
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/LinkTests.java)<br>
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#link-2)
 
 Here is the list of available methods in C#:
@@ -958,7 +958,7 @@ Here is the list of available methods in C#:
 **Is()** | Returns object for work with assertions | LinkAssert
 **AssertThat()** | Returns object for work with assertions | LinkAssert
 
-[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/LinkTests.cs)
+[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/LinkTests.cs)<br>
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#link-2)
 
 ### Menu
@@ -3734,7 +3734,9 @@ Validations: <br>
 **Then** "\<ELEMENT NAME\>" is not appear <br>
 **Then** "\<ELEMENT NAME\>" is not appear during "\<SECONDS\>" seconds <br>
 
-Here is link to [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial)
+More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial)<br>
+[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/link.feature) for Link<br>
+
 
 ###Button
 

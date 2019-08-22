@@ -3871,18 +3871,24 @@ Validations:<br>
 There is link to [Tutorial](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)
 
 ### Checkbox  
+
 ```
 Checkbox actions examples:
 When Check "Accept Conditions"
 When Uncheck "Accept Conditions"
 When Click on "Accept Conditions"
+
 ```
+
 Actions: <br>
+
 **When** Check "\<ELEMENT NAME\>" <br>
 **When** Uncheck "\<ELEMENT NAME\>" <br>
 **When** Click on "\<ELEMENT NAME\>" <br>
+
 ```
 Checkbox validations examples:
+
 Then "Accept Conditions" is enabled
 Then "Accept Conditions" is disabled
 Then "Accept Conditions" is displayed
@@ -3893,7 +3899,10 @@ Then "Accept Conditions" label text contains "terms and conditions"
 Then "Accept Conditions" label text match to "[a-zA-Z]{6} JE*DI"
 Then "Accept Conditions" is not appear
 Then "Accept Conditions" is not appear during "5" seconds
+
+
 Some scenario examples:
+
   Scenario: Get label text test
     Given I open "Html5 Page"
     When I Check "Accept Conditions"
@@ -3906,9 +3915,12 @@ Some scenario examples:
     When I Click on "Accept Conditions"
     Then "Accept Conditions" is deselected
   
-(More examples are available in the Tutorial section (the link to the section is on the right))
+(More examples are available in the Tutorial section.
+
 ```
+
 Validations: <br>
+
 **Then** "\<ELEMENT NAME\>" is enabled <br>
 **Then** "\<ELEMENT NAME\>" is disabled <br>
 **Then** "\<ELEMENT NAME\>" is displayed <br>
@@ -3920,7 +3932,8 @@ Validations: <br>
 **Then** "\<ELEMENT NAME\>" is not appear <br>
 **Then** "\<ELEMENT NAME\>" is not appear during "\<SECONDS\>" seconds <br>
 
-There is link to [Tutorial](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)
+More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial)<br>
+[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/checkbox.feature) for Link<br>
 
 ### Progress Bar
   

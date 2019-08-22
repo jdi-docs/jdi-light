@@ -430,6 +430,8 @@ And here are some of the methods available in Java:
 **is()** | Assertion | DateTimeAssert
 **assertThat()** | Assertion | DateTimeAssert
 
+[BDD Steps example](https://jdi-docs.github.io/jdi-light/#datetimeselector-2)
+
 __In the following sections there are examples of different implementations of such fields.__
 
 __Input Type Date__
@@ -3787,6 +3789,7 @@ Scenario: Basic for button
     And "Disabled Button" is disabled
    When Click on "Blue Button"
    Then Alert text equals to "Blue button"
+   
 ```
 
 **Actions:** <br>
@@ -3814,7 +3817,7 @@ Scenario: Basic for button
 **Then** "\<ELEMENT NAME\>" is not appear <br>
 **Then** "\<ELEMENT NAME\>" is not appear during "\<NUMBER\>" seconds <br>
 **Then** "\<ELEMENT NAME\>" css "\<ATTRIBUTE NAME\>" equals to "\<TEXT\>" <br>
-**Then** "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" equals to "\<TEXT\>" <br>
+**Then** "\<ELEMENT NAME\>" attribute "ATTRIBUTE NAME" equals to "\<TEXT\>" <br>
   
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa)<br>
 [**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/button.feature) for Link<br>
@@ -3826,21 +3829,15 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
   
   
 
+
+
 ### DateTimeSelector
 
 ```
-Action example:
-
+DateTimeSelector action example:
 When Set date "2018-11-13" in "Birth Date"
 
-```
-Actions:<br>
-
-**When** Set date _"\<TEXT\>"_ in "\<ELEMENT NAME\>" <br>
-
-```
-Validations example:
-
+DateTimeSelector validations example:
 Then  "Birth Date" text equals to "1985-06-18"
 Then  "Birth Date" text contains "1985"
 Then  "Birth Date" label text equals to "Birth date"
@@ -3848,16 +3845,17 @@ Then  "Birth Date" label text contains "Birth"
 Then  "Birth Date" attribute min equals to "1970-01-01"
 Then  "Birth Date" attribute max equals to "2030-12-31"
 
-
-Scenario example:
-
-  Scenario: Set date
+BDD example:
+Scenario: Set date
     Given I open "Html5 Page"
     Then "Birth Date" text equals to "1985-06-18"
     When Set date "2018-11-13" in "Birth Date"
     Then "Birth Date" text equals to "2018-11-13"
 
 ```
+Actions:<br>
+
+**When** Set date _"\<TEXT\>"_ in "\<ELEMENT NAME\>" <br>
 
 Validations:<br>
 
@@ -3868,7 +3866,23 @@ Validations:<br>
 **Then** _"\<ELEMENT NAME\>"_ attribute min equals to  _"\<MIN ATTRIBUTE VALUE\>"_ <br>
 **Then** _"\<ELEMENT NAME\>"_ attribute max equals to _"\<MAX ATTRIBUTE VALUE\>"_ <br>
 
-There is link to [Tutorial](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)
+More information in the tutorial(https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)
+
+There are BDD examples for Input Type Date derivatives:
+BDD test example for Input Type Date(https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Date.feature)
+BDD test example for Input Type Week(https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Week.feature)
+BDD test example for Input Type Month(https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Month.feature)
+BDD test example for Input Type Time(https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Time.feature)
+BDD test example for Input Type DateTime-Local(https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/DateTime.feature)
+
+
+
+
+
+
+
+
+
 
 ### Checkbox  
 ```

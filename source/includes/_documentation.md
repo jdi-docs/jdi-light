@@ -3524,6 +3524,26 @@ Then  Assert that "JDI Title" not appear during "5" seconds
 **Then** Assert that "\<ELEMENT NAME\>" not appear <br>
 **Then** Assert that "\<ELEMENT NAME\>" not appear during "\<SECONDS\>" seconds <br>
 
+### ColorPicker
+
+```
+When I set "Color Picker" to "#00FF00" color
+```
+
+**When** I set "ELEMENT NAME" to "COLOR HEX CODE"
+
+```
+Then "Color Picker" color equals to "#00FF00"
+Then "Color Picker" label text equals to "Select a color"
+Then "Color Picker" color is "#00FF00"
+Then "Color Picker" is basically valid
+```
+
+**Then** "ELEMENT NAME" color equals to "EXPECTED COLOR HEX CODE" <br>
+**Then** "ELEMENT NAME" label text equals to "EXPECTED TEXT" <br>
+**Then** "ELEMENT NAME" color is "COLOR HEX CODE" <br>
+**Then** "ELEMENT NAME" is basically valid <br>
+
 ### Image
 
 ````

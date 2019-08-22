@@ -711,6 +711,8 @@ Available assert methods in C# JDI Light:
 
 [C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/FileInputTests.cs)
 
+[BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#file-input)
+
 ### Icon
 ```java 
 @UI("#jdi-logo") 
@@ -728,7 +730,8 @@ public static Icon jdiLogo;
 ```
 ```csharp 
 [FindBy(Css = "#jdi-logo")]
-public IIcon LogoImage;
+public IIcon Logo
+;
 
    [Test]
    public void GetSourceTest()
@@ -3613,20 +3616,14 @@ Validations: <br>
 [JDI Light in BDD Style](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)<br>
 
 
-### File Input
+### FileInput
 
 ```
-Actions examples:
-When I upload file "/src/test/resources/general.xml" by "Avatar" file input element
-When I try to upload file "/jdi-light-bdd-tests/src/test/resources/general.xml" by "Disabled File Input" file input element
+FileInput actions examples:
+When I upload file "/resources/general.xml" by "Avatar" file input element
+When I try to upload file "/resources/general.xml" by "Disabled File Input" file input element
 
-```
-Actions:<br>
-**When** I upload file "\<PATH TO FILE\>" by "\<ELEMENT NAME\>" file input element<br>
-**When** I try to upload file "\<PATH TO FILE\>" by "\<ELEMENT NAME\>" file input element<br>
-
-```
-Validations examples:
+FileInput validations examples:
 Then "Avatar" file input element label equals to "Profile picture:"
 Then "Avatar" file input element label contains "picture"
 Then "Avatar" file input element text equals to "C:\fakepath\general.xml"
@@ -3638,10 +3635,14 @@ Then "Disabled File Input" is disabled
 Scenario example:
   Scenario: Upload file by enabled file input element
     Given I open "Html5 Page"
-    When I upload file "/src/test/resources/general.xml" by "Avatar" file input element
+    When I upload file "/resources/general.xml" by "Avatar" file input element
     Then "Avatar" text contains "general.xml"
-
 ```
+
+Actions:<br>
+**When** I upload file "\<PATH TO FILE\>" by "\<ELEMENT NAME\>" file input element<br>
+**When** I try to upload file "\<PATH TO FILE\>" by "\<ELEMENT NAME\>" file input element<br>
+
 Validations:<br>
 **Then** "\<ELEMENT NAME\>" file input element label equals to "\<TEXT\>"<br>
 **Then** "\<ELEMENT NAME\>" file input element label contains "\<TEXT PART\>"<br>
@@ -3651,8 +3652,7 @@ Validations:<br>
 **Then** "\<ELEMENT NAME\>" is disabled<br>
 **Then** "\<ELEMENT NAME\>" is basically valid<br>
 
-Here is link to [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)
-
+[JDI Light in BDD Style](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)
 
 ### Link 
 

@@ -150,7 +150,7 @@ Available methods and properties in C# JDI Light:
 **Is** | Assert action | TextAssert 
 **AssertThat** | Assert action | TextAssert
 
-[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/ButtonTests.cs)
+[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/ButtonTests.cs) <br>
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#button-2)
 
 ### Checkbox
@@ -3745,6 +3745,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 [**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/link.feature) for Link<br>
 
 
+
 ### Button
 
 ```
@@ -3807,12 +3808,12 @@ Scenario: Basic for button
 **Then** "\<ELEMENT NAME\>" attribute "\<ELEMENT NAME\>" contains "\<ATTRIBUTE TEXT\>" <br>
 **Then** "\<ELEMENT NAME\>" attribute "\<ELEMENT NAME\>" match to "\<ATTRIBUTE TEXT\>" <br>	
 **Then** "\<ELEMENT NAME\>" is enabled <br>	
-**Then** "\<ELEMENT NAME\>" is disabled <br>	
-**Then** "\<ELEMENT NAME\>" is displayed <br>	
-**Then** "\<ELEMENT NAME\>" is hidden	 <br>	
-**Then** "\<ELEMENT NAME\>" is not appear	<br>	
+**Then** "\<ELEMENT NAME\>" is disabled
+**Then** "\<ELEMENT NAME\>" is displayed
+**Then** "\<ELEMENT NAME\>" is hidden		
+**Then** "\<ELEMENT NAME\>" is not appear	
 **Then** "\<ELEMENT NAME\>" is not appear during "\<NUMBER\>" seconds <br>
-**Then** "\<ELEMENT NAME\>" css "<ATTRIBUTE NAME" equals to "\<TEXT\>" <br>
+**Then** "\<ELEMENT NAME\>" css "\<ATTRIBUTE NAME\>" equals to "\<TEXT\>" <br>
 **Then** "\<ELEMENT NAME\>" attribute "ATTRIBUTE NAME" equals to "\<TEXT\>" <br>
   
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa)<br>

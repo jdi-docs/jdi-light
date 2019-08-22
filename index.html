@@ -534,6 +534,9 @@
                             <li>
                               <a href="#datetimeselector-2" class="toc-h2 h3 toc-link" data-title="DateTimeSelector">DateTimeSelector</a>
                             </li>
+                            <li>
+                              <a href="#checkbox-2" class="toc-h2 h3 toc-link" data-title="Checkbox">Checkbox</a>
+                            </li>
                         </ul>
                   </li>
                   <li>
@@ -7750,6 +7753,55 @@ Scenario example:
 <strong>Then</strong> <em>&quot;&lt;ELEMENT NAME&gt;&quot;</em> label text contains <em>&quot;&lt;TEXT PART&gt;&quot;</em> <br>
 <strong>Then</strong> <em>&quot;&lt;ELEMENT NAME&gt;&quot;</em> attribute min equals to  <em>&quot;&lt;MIN ATTRIBUTE VALUE&gt;&quot;</em> <br>
 <strong>Then</strong> <em>&quot;&lt;ELEMENT NAME&gt;&quot;</em> attribute max equals to <em>&quot;&lt;MAX ATTRIBUTE VALUE&gt;&quot;</em> <br></p>
+
+<p>There is link to <a href="https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa">Tutorial</a></p>
+<h3 id='checkbox-2'>Checkbox</h3><pre class="highlight plaintext"><code>Checkbox actions examples:
+When Check "Accept Conditions"
+When Uncheck "Accept Conditions"
+When Click on "Accept Conditions"
+</code></pre>
+<p>Actions: <br>
+<strong>When</strong> Check &quot;&lt;ELEMENT NAME&gt;&quot; <br>
+<strong>When</strong> Uncheck &quot;&lt;ELEMENT NAME&gt;&quot; <br>
+<strong>When</strong> Click on &quot;&lt;ELEMENT NAME&gt;&quot; <br>
+```
+Checkbox validations examples:
+Then &quot;Accept Conditions&quot; is enabled
+Then &quot;Accept Conditions&quot; is disabled
+Then &quot;Accept Conditions&quot; is displayed
+Then &quot;Accept Conditions&quot; is hidden
+Then &quot;Accept Conditions&quot; is basically valid
+Then &quot;Accept Conditions&quot; label text equals to &quot;Accept terms and conditions&quot;
+Then &quot;Accept Conditions&quot; label text contains &quot;terms and conditions&quot;
+Then &quot;Accept Conditions&quot; label text match to &quot;[a-zA-Z]{6} JE*DI&quot;
+Then &quot;Accept Conditions&quot; is not appear
+Then &quot;Accept Conditions&quot; is not appear during &quot;5&quot; seconds
+Some scenario examples:
+  Scenario: Get label text test
+    Given I open &quot;Html5 Page&quot;
+    When I Check &quot;Accept Conditions&quot;
+    Then &quot;Accept Conditions&quot; label text equals to &quot;Accept terms and conditions&quot;</p>
+
+<p>Scenario: Click test
+    Given I open &quot;Html5 Page&quot;
+    When I Check &quot;Accept Conditions&quot;
+    Then &quot;Accept Conditions&quot; is selected
+    When I Click on &quot;Accept Conditions&quot;
+    Then &quot;Accept Conditions&quot; is deselected</p>
+
+<p>(More examples are available in the Tutorial section (the link to the section is on the right))
+```
+Validations: <br>
+<strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; is enabled <br>
+<strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; is disabled <br>
+<strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; is displayed <br>
+<strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; is hidden <br>
+<strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; is basically valid <br>
+<strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; label text equals to &quot;&lt;TEXT&gt;&quot; <br>
+<strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; label text contains &quot;&lt;TEXT&gt;&quot; <br>
+<strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; label text match to &quot;&lt;TEXT&gt;&quot; <br>
+<strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; is not appear <br>
+<strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; is not appear during &quot;&lt;SECONDS&gt;&quot; seconds <br></p>
 
 <p>There is link to <a href="https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa">Tutorial</a></p>
 <h2 id='ui-objects'>UI Objects</h2>

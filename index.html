@@ -7775,40 +7775,44 @@ Scenario example:
 When Check "Accept Conditions"
 When Uncheck "Accept Conditions"
 When Click on "Accept Conditions"
+
 </code></pre>
-<p>Actions: <br>
-<strong>When</strong> Check &quot;&lt;ELEMENT NAME&gt;&quot; <br>
+<p>Actions: <br></p>
+
+<p><strong>When</strong> Check &quot;&lt;ELEMENT NAME&gt;&quot; <br>
 <strong>When</strong> Uncheck &quot;&lt;ELEMENT NAME&gt;&quot; <br>
-<strong>When</strong> Click on &quot;&lt;ELEMENT NAME&gt;&quot; <br>
-```
-Checkbox validations examples:
-Then &quot;Accept Conditions&quot; is enabled
-Then &quot;Accept Conditions&quot; is disabled
-Then &quot;Accept Conditions&quot; is displayed
-Then &quot;Accept Conditions&quot; is hidden
-Then &quot;Accept Conditions&quot; is basically valid
-Then &quot;Accept Conditions&quot; label text equals to &quot;Accept terms and conditions&quot;
-Then &quot;Accept Conditions&quot; label text contains &quot;terms and conditions&quot;
-Then &quot;Accept Conditions&quot; label text match to &quot;[a-zA-Z]{6} JE*DI&quot;
-Then &quot;Accept Conditions&quot; is not appear
-Then &quot;Accept Conditions&quot; is not appear during &quot;5&quot; seconds
+<strong>When</strong> Click on &quot;&lt;ELEMENT NAME&gt;&quot; <br></p>
+<pre class="highlight plaintext"><code>Checkbox validations examples:
+
+Then "Accept Conditions" is enabled
+Then "Accept Conditions" is disabled
+Then "Accept Conditions" is displayed
+Then "Accept Conditions" is hidden
+Then "Accept Conditions" is basically valid
+Then "Accept Conditions" label text equals to "Accept terms and conditions"
+Then "Accept Conditions" label text contains "terms and conditions"
+Then "Accept Conditions" label text match to "[a-zA-Z]{6} JE*DI"
+Then "Accept Conditions" is not appear
+Then "Accept Conditions" is not appear during "5" seconds
+
+
 Some scenario examples:
   Scenario: Get label text test
-    Given I open &quot;Html5 Page&quot;
-    When I Check &quot;Accept Conditions&quot;
-    Then &quot;Accept Conditions&quot; label text equals to &quot;Accept terms and conditions&quot;</p>
+    Given I open "Html5 Page"
+    When I Check "Accept Conditions"
+    Then "Accept Conditions" label text equals to "Accept terms and conditions"
 
-<p>Scenario: Click test
-    Given I open &quot;Html5 Page&quot;
-    When I Check &quot;Accept Conditions&quot;
-    Then &quot;Accept Conditions&quot; is selected
-    When I Click on &quot;Accept Conditions&quot;
-    Then &quot;Accept Conditions&quot; is deselected</p>
+  Scenario: Click test
+    Given I open "Html5 Page"
+    When I Check "Accept Conditions"
+    Then "Accept Conditions" is selected
+    When I Click on "Accept Conditions"
+    Then "Accept Conditions" is deselected
 
-<p>(More examples are available in the Tutorial section (the link to the section is on the right))
-```
-Validations: <br>
-<strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; is enabled <br>
+</code></pre>
+<p>Validations: <br></p>
+
+<p><strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; is enabled <br>
 <strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; is disabled <br>
 <strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; is displayed <br>
 <strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; is hidden <br>
@@ -7819,7 +7823,8 @@ Validations: <br>
 <strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; is not appear <br>
 <strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; is not appear during &quot;&lt;SECONDS&gt;&quot; seconds <br></p>
 
-<p>There is link to <a href="https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa">Tutorial</a></p>
+<p>More information in the <a href="https://jdi-docs.github.io/jdi-light/?java#tutorial"><strong>Tutorial</strong></a><br>
+<a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/checkbox.feature"><strong>Cucumber tests</strong></a> for Link<br></p>
 <h3 id='progress-bar'>Progress Bar</h3><pre class="highlight plaintext"><code>Scenario: progress bar validation
   Given I open "Html5 Page" page
   Then "Progress" attribute "max" equals to "100"

@@ -941,6 +941,7 @@ Here is the list of available methods in Java:
 **assertThat()** | Returns object for work with assertions | LinkAssert
 
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/LinkTests.java)
+[BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#link-2)
 
 Here is the list of available methods in C#:
 
@@ -955,6 +956,7 @@ Here is the list of available methods in C#:
 **AssertThat()** | Returns object for work with assertions | LinkAssert
 
 [C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/LinkTests.cs)
+[BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#link-2)
 
 ### Menu
 
@@ -3605,7 +3607,7 @@ Validations:<br>
 **Then** "\<ELEMENT NAME\>" is disabled<br>
 **Then** "\<ELEMENT NAME\>" is basically valid<br>
 
-Here is link to [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial)
+Here is link to [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)
 
 ### Link 
 

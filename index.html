@@ -514,6 +514,9 @@
                               <a href="#label-2" class="toc-h2 h3 toc-link" data-title="Label">Label</a>
                             </li>
                             <li>
+                              <a href="#colorpicker-2" class="toc-h2 h3 toc-link" data-title="ColorPicker">ColorPicker</a>
+                            </li>
+                            <li>
                               <a href="#image-2" class="toc-h2 h3 toc-link" data-title="Image">Image</a>
                             </li>
                             <li>
@@ -7474,6 +7477,18 @@ Then  Assert that "JDI Title" not appear during "5" seconds
 <strong>Then</strong> Assert that &quot;&lt;ELEMENT NAME&gt;&quot; hidden <br>
 <strong>Then</strong> Assert that &quot;&lt;ELEMENT NAME&gt;&quot; not appear <br>
 <strong>Then</strong> Assert that &quot;&lt;ELEMENT NAME&gt;&quot; not appear during &quot;&lt;SECONDS&gt;&quot; seconds <br></p>
+<h3 id='colorpicker-2'>ColorPicker</h3><pre class="highlight plaintext"><code>When I set "Color Picker" to "#00FF00" color
+</code></pre>
+<p><strong>When</strong> I set &quot;ELEMENT NAME&quot; to &quot;COLOR HEX CODE&quot;</p>
+<pre class="highlight plaintext"><code>Then "Color Picker" color equals to "#00FF00"
+Then "Color Picker" label text equals to "Select a color"
+Then "Color Picker" color is "#00FF00"
+Then "Color Picker" is basically valid
+</code></pre>
+<p><strong>Then</strong> &quot;ELEMENT NAME&quot; color equals to &quot;EXPECTED COLOR HEX CODE&quot; <br>
+<strong>Then</strong> &quot;ELEMENT NAME&quot; label text equals to &quot;EXPECTED TEXT&quot; <br>
+<strong>Then</strong> &quot;ELEMENT NAME&quot; color is &quot;COLOR HEX CODE&quot; <br>
+<strong>Then</strong> &quot;ELEMENT NAME&quot; is basically valid <br></p>
 <h3 id='image-2'>Image</h3><pre class="highlight plaintext"><code>Sample steps:
   Then "Jdi Logo" attribute "src" equals to "https://jdi-testing.github.io/jdi-light/images/jdi-logo.jpg"
   Then "Jdi Logo" attribute "alt" equals to "Jdi Logo 2"

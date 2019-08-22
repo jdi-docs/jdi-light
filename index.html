@@ -517,9 +517,6 @@
                               <a href="#image-2" class="toc-h2 h3 toc-link" data-title="Image">Image</a>
                             </li>
                             <li>
-                              <a href="#alerts" class="toc-h2 h3 toc-link" data-title="Alerts">Alerts</a>
-                            </li>
-                            <li>
                               <a href="#file-input" class="toc-h2 h3 toc-link" data-title="File Input">File Input</a>
                             </li>
                             <li>
@@ -562,7 +559,7 @@
                     <a href="#windows-tabs-manager" class="toc-h2 toc-link" data-title="Windows/Tabs manager">Windows/Tabs manager</a>
                   </li>
                   <li>
-                    <a href="#alerts-2" class="toc-h2 toc-link" data-title="Alerts">Alerts</a>
+                    <a href="#alerts" class="toc-h2 toc-link" data-title="Alerts">Alerts</a>
                   </li>
                   <li>
                     <a href="#logs" class="toc-h2 toc-link" data-title="Logs">Logs</a>
@@ -7498,20 +7495,28 @@ Examples:
 <strong>Then</strong> image &quot;&lt;IMAGE NAME&gt;&quot; attribute is equal to &quot;&lt;ALT VALUE&gt;&quot;<br></p>
 
 <p><a href="https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa">JDI Light in BDD Style</a></p>
-<h3 id='alerts'>Alerts</h3><pre class="highlight plaintext"><code>Sample steps:
-  Then Alert text equals to "JDI Logo"
-  Then Accept alert
+
+<p>Actions: <br></p>
+
+<p><strong>When</strong> Accept alert<br>
+<strong>When</strong> Dismiss alert<br></p>
+<pre class="highlight plaintext"><code>Alert validation examples:
+  Then Alert text equals to "Red Button"
+  Then Alert text contains "Red B"
+  Then Alert text match to "\w{3} \d{6}"
 
 Example:
-  Scenario: Click at image and accept Alert
-    Given I open "Html5 Page"
-    When Click on "Jdi Logo"
-    Then Alert text equals to "JDI Logo"
-    And Accept aler
+Scenario: alert text contains
+    Given I open "Html5 page"
+    When Click on "Red Button"
+    Then Alert text contains "Red B"
+
 </code></pre>
-<p><em>steps:</em><br>
-<strong>Then</strong> alert text is equal to &quot;&lt;SOURCE VALUE&gt;&quot;<br>
-<strong>Then</strong> accept Alert<br></p>
+<p>Validations: <br></p>
+
+<p><strong>Then</strong> Alert text equals to &quot;&lt;ALERT TEXT&gt;&quot;<br>
+<strong>Then</strong> Alert text contains &quot;&lt;ALERT TEXT&gt;&quot;<br>
+<strong>Then</strong> Alert text match to &quot;&lt;ALERT TEXT&gt;&quot;<br></p>
 
 <p><a href="https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa">JDI Light in BDD Style</a><br></p>
 <h3 id='file-input'>File Input</h3><pre class="highlight plaintext"><code>Actions examples:
@@ -7999,7 +8004,7 @@ Scenario example:
 <td>void</td>
 </tr>
 </tbody></table>
-<h2 id='alerts-2'>Alerts</h2><pre class="highlight java tab-java"><code><span class="n">alertButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+<h2 id='alerts'>Alerts</h2><pre class="highlight java tab-java"><code><span class="n">alertButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
 <span class="n">acceptAlert</span><span class="o">();</span>
 </code></pre><pre class="highlight csharp tab-csharp"><code><span class="n">AlertButton</span><span class="p">.</span><span class="nf">Click</span><span class="p">();</span>
 <span class="nf">GetAlert</span><span class="p">().</span><span class="nf">AcceptAlert</span><span class="p">();</span>

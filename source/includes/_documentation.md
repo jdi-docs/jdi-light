@@ -3664,7 +3664,8 @@ Validations:<br>
 **Then** "\<ELEMENT NAME\>" is disabled<br>
 **Then** "\<ELEMENT NAME\>" is basically valid<br>
 
-[More information in the tutorial](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)
+More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial)<br>
+[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/FileInput.feature)<br>
 
 ### Link 
 

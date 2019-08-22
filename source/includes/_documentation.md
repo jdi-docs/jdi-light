@@ -3548,24 +3548,30 @@ Samples of steps: <br>
 
 [JDI Light in BDD Style](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)
 
-### Alerts
+Actions: <br>
+
+**When** Accept alert<br>
+**When** Dismiss alert<br>
 
 ````
-Sample steps:
-  Then Alert text equals to "JDI Logo"
-  Then Accept alert
+Alert validation examples:
+  Then Alert text equals to "Red Button"
+  Then Alert text contains "Red B"
+  Then Alert text match to "\w{3} \d{6}"
     
 Example:
-  Scenario: Click at image and accept Alert
-    Given I open "Html5 Page"
-    When Click on "Jdi Logo"
-    Then Alert text equals to "JDI Logo"
-    And Accept aler
+Scenario: alert text contains
+    Given I open "Html5 page"
+    When Click on "Red Button"
+    Then Alert text contains "Red B"
+    
 ````
 
-_steps:_<br>
-**Then** alert text is equal to "\<SOURCE VALUE\>"<br>
-**Then** accept Alert<br>
+Validations: <br>
+
+**Then** Alert text equals to "\<ALERT TEXT\>"<br>
+**Then** Alert text contains "\<ALERT TEXT\>"<br>
+**Then** Alert text match to "\<ALERT TEXT\>"<br>
 
 [JDI Light in BDD Style](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)<br>
 

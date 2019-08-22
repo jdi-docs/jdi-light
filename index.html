@@ -2019,7 +2019,8 @@ In addition if you run test scenarios on JDI Light you will <strong>get logs of 
 </tr>
 </tbody></table>
 
-<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/ButtonTests.cs">C# test examples</a></p>
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/ButtonTests.cs">C# test examples</a>
+<a href="https://jdi-docs.github.io/jdi-light/?java#button-2">BDD Steps example</a></p>
 <h3 id='checkbox'>Checkbox</h3>
 <p><strong>Checkbox</strong> – Element allows you to select single value for submission.</p>
 
@@ -7699,7 +7700,6 @@ Scenario: Basic for button
     And "Disabled Button" is disabled
    When Click on "Blue Button"
    Then Alert text equals to "Blue button"
-
 </code></pre>
 <p><strong>Actions:</strong> <br></p>
 
@@ -7715,7 +7715,7 @@ Scenario: Basic for button
 
 <p><strong>Then</strong> &quot;<ELEMENT NAME>&quot; text equals to &quot;<TEXT>&quot;   <br>
 <strong>Then</strong> &quot;<ELEMENT NAME>&quot; text contains &quot;<TEXT>&quot;    <br>
-<strong>Then</strong> &quot;<ELEMENT NAME>&quot; text match to &quot;<TEXT>&quot;<br>
+<strong>Then</strong> &quot;<ELEMENT NAME>&quot; text match to &quot;<TEXT>&quot; <br>
 <strong>Then</strong> &quot;<ELEMENT NAME>&quot; attribute &quot;<ELEMENT NAME>&quot; equals to &quot;<ATTRIBUTE TEXT>&quot; <br>
 <strong>Then</strong> &quot;<ELEMENT NAME>&quot; attribute &quot;<ELEMENT NAME>&quot; contains &quot;<ATTRIBUTE TEXT>&quot; <br>
 <strong>Then</strong> &quot;<ELEMENT NAME>&quot; attribute &quot;<ELEMENT NAME>&quot; match to &quot;<ATTRIBUTE TEXT>&quot; <br><br>
@@ -7728,7 +7728,8 @@ Scenario: Basic for button
 <strong>Then</strong> &quot;<ELEMENT NAME>&quot; css &quot;<ATTRIBUTE NAME" equals to "<TEXT>&quot; <br>
 <strong>Then</strong> &quot;<ELEMENT NAME>&quot; attribute &quot;ATTRIBUTE NAME&quot; equals to &quot;<TEXT>&quot; <br></p>
 
-<p>Here is link to <a href="https://jdi-docs.github.io/jdi-light/?java#tutorial"><strong>Tutorial</strong></a></p>
+<p>More information in the <a href="https://jdi-docs.github.io/jdi-light/?java#tutorial"><strong>Tutorial</strong></a><br>
+<a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/button.feature"><strong>Cucumber tests</strong></a> for Link<br></p>
 <h3 id='datetimeselector-2'>DateTimeSelector</h3><pre class="highlight plaintext"><code>Action example:
 
 When Set date "2018-11-13" in "Birth Date"

@@ -3825,11 +3825,10 @@ Scenario: Basic for button
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa)<br>
 [**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/button.feature) for Link<br>
 
-<br><br><br><br><br><br>
+<br><br><br><br>
 ### DateTimeSelector
 
 ```
-
 DateTimeSelector action example:
 When Set date "2018-11-13" in "Birth Date"
 
@@ -3976,7 +3975,6 @@ Scenario: progress bar validation
 ### Text
 
 ```
-
 Text validations example:
 Then "Jdi Text" text equals to "Powerful Framework for UI Tests Automation. Suitable for any UI project: Web(Html5, Angular, React...), Mobile(Android IOs), Desktop(Win app) etc."
 Then "Jdi Text" text contains "Powerful Framework for UI"
@@ -3995,8 +3993,8 @@ Validations:<br>
 **Then** "\<ELEMENT NAME\>" text contains "\<TEXT PART\>" <br>
 **Then** "\<ELEMENT NAME\>" is enabled <br>
 
-[More information in the tutorial](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)
-[BDD test example for Input Type Date](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Date.feature)<br><br>
+[More information in the tutorial](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)<br>
+[BDD test example](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Text.feature)<br><br>
 
 
 ## UI Objects

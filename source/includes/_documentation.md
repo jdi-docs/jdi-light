@@ -835,9 +835,9 @@ Here is a list of available methods in C#:
 **Is()** | method for building assertions | ImageAssert
 **AssertThat()** |method for building assertions  | ImageAssert
 
-[Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/ImagesTests.cs)<br>
-[BDD test examples]https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-bdd-tests/src/test/resources/features/ProgressBar.feature) <br>
-[BDD Steps documentation](https://jdi-docs.github.io/jdi-light/?java#image-2)<br>
+[Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/ImagesTests.cs) <br>
+[BDD test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-bdd-tests/src/test/resources/features/image.feature)  <br>
+[BDD Steps documentation](https://jdi-docs.github.io/jdi-light/?java#image-2) <br>
 
 And here are methods available in Java:
 
@@ -852,7 +852,7 @@ And here are methods available in Java:
 **assertThat()** |method for building assertions  | ImageAssert
 
 [Test examples in Java](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ImageTests.java)<br>
-[BDD test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-bdd-tests/src/test/resources/features/ProgressBar.feature) <br>
+[BDD test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-bdd-tests/src/test/resources/features/image.feature) <br>
 [BDD Steps documentation](https://jdi-docs.github.io/jdi-light/?java#image-2)<br>
 
 
@@ -1182,8 +1182,8 @@ Available method in Java JDI Light:
 **is()** |Various assert actions for Progress bar  | ProgressAssert
 **assertThat()** |Various assert actions for Progress bar | ProgressAssert 
 
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ProgressTests.java)<br>
-[BDD test examples]https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-bdd-tests/src/test/resources/features/ProgressBar.feature)<br>
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ProgressTests.java) <br>
+[BDD test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-bdd-tests/src/test/resources/features/ProgressBar.feature)<br>
 
 
 Available method in C# JDI Light:
@@ -1196,7 +1196,7 @@ Available method in C# JDI Light:
 **AssertThat()** |Various assert actions for Progress bar | ProgressAssert 
 
 [C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/ProgressTests.cs)<br>
-[BDD test examples]https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-bdd-tests/src/test/resources/features/ProgressBar.feature)<br>
+[BDD test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-bdd-tests/src/test/resources/features/ProgressBar.feature)<br>
 
 ### Range
 
@@ -3697,7 +3697,7 @@ Validations: <br>
 
 Here is link to [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial)
 
-###Button
+### Button
 
 ```
 When Click on "Red Button" 
@@ -3766,7 +3766,7 @@ Scenario: Basic for button
   
   Here is link to [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial)
 
-###Progress Bar
+### Progress Bar
   
 ```
 Scenario: progress bar validation

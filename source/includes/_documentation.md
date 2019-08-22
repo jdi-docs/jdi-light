@@ -3586,16 +3586,25 @@ Then "Avatar" file input element label equals to "Profile picture:"
 Then "Avatar" file input element label contains "picture"
 Then "Avatar" file input element text equals to "C:\fakepath\general.xml"
 Then "Avatar" file input element text contains "general.xml"
-Then "Avatar" file input element value equals to "C:\fakepath\general.xml"
-Then "Avatar" file input element value contains "general.xml"
+Then "Avatar" attribute "id" equals to "avatar"
+Then "Avatar" is basically valid
+Then "Disabled File Input" is disabled
+
+  Scenario: Upload file by enabled file input element
+    Given I open "Html5 Page"
+    When I upload file "/src/test/resources/general.xml" by "Avatar" file input element
+    Then "Avatar" text contains "general.xml"
 ```
 Validations:<br>
 **Then** "\<ELEMENT NAME\>" file input element label equals to "\<TEXT\>"<br>
 **Then** "\<ELEMENT NAME\>" file input element label contains "\<TEXT PART\>"<br>
 **Then** "\<ELEMENT NAME\>" file input element text equals to "\<PATH TO FILE\>"<br>
 **Then** "\<ELEMENT NAME\>" file input element text contains "\<PART OF PATH TO FILE\>"<br>
-**Then** "\<ELEMENT NAME\>" file input element value equals to "\<PATH TO FILE\>"<br>
-**Then** "\<ELEMENT NAME\>" file input element value contains "\<PART OF PATH TO FILE\>"<br>
+**Then** "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" equals to "ATTRIBUTE VALUE\>"<br>
+**Then** "\<ELEMENT NAME\>" is disabled<br>
+**Then** "\<ELEMENT NAME\>" is basically valid<br>
+
+Here is link to [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial)
 
 ### Link 
 

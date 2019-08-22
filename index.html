@@ -540,6 +540,9 @@
                             <li>
                               <a href="#progress-bar" class="toc-h2 h3 toc-link" data-title="Progress Bar">Progress Bar</a>
                             </li>
+                            <li>
+                              <a href="#text-2" class="toc-h2 h3 toc-link" data-title="Text">Text</a>
+                            </li>
                         </ul>
                   </li>
                   <li>
@@ -4063,7 +4066,8 @@ C#: JDI.Light.Elements.Common.TextElement</p>
 </tr>
 </tbody></table>
 
-<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/TextTests.java">Java test examples</a>  </p>
+<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/TextTests.java">Java test examples</a><br>
+<a href="https://jdi-docs.github.io/jdi-light/?java#text-2">BDD Steps example</a></p>
 <h3 id='textfield'>TextField</h3><pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#name"</span><span class="o">)</span> 
 <span class="c1">// same as @FindBy(css = "#name")</span>
 <span class="kd">public</span> <span class="kd">static</span> <span class="n">TextField</span> <span class="n">name</span><span class="o">;</span>
@@ -7740,7 +7744,7 @@ Scenario: Basic for button
 <p>More information in the <a href="https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa"><strong>Tutorial</strong></a><br>
 <a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/button.feature"><strong>Cucumber tests</strong></a> for Link<br></p>
 
-<p><br><br><br><br></p>
+<p><br><br><br><br><br><br></p>
 <h3 id='datetimeselector-2'>DateTimeSelector</h3><pre class="highlight plaintext"><code>
 DateTimeSelector action example:
 When Set date "2018-11-13" in "Birth Date"
@@ -7748,6 +7752,7 @@ When Set date "2018-11-13" in "Birth Date"
 DateTimeSelector validations example:
 Then  "Birth Date" text equals to "1985-06-18"
 Then  "Birth Date" text contains "1985"
+Then  "Birth Date" is enabled
 Then  "Birth Date" label text equals to "Birth date"
 Then  "Birth Date" label text contains "Birth"
 Then  "Birth Date" attribute min equals to "1970-01-01"
@@ -7769,6 +7774,7 @@ Scenario: Set date
 
 <p><strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; text equals to &quot;&lt;TEXT&gt;&quot; <br>
 <strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; text contains &quot;&lt;TEXT PART&gt;&quot; <br>
+<strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; is enabled <br>
 <strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; label text equals to &quot;&lt;TEXT&gt;&quot; <br>
 <strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; label text contains &quot;&lt;TEXT PART&gt;&quot;_ <br>
 <strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; attribute min equals to &quot;&lt;MIN ATTRIBUTE VALUE&gt;&quot;<br>
@@ -7781,7 +7787,7 @@ Scenario: Set date
 <a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Week.feature">BDD test example for Input Type Week</a><br>
 <a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Month.feature">BDD test example for Input Type Month</a><br>
 <a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Time.feature">BDD test example for Input Type Time</a><br>
-<a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/DateTime.feature">BDD test example for Input Type DateTime-Local</a><br></p>
+<a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/DateTime.feature">BDD test example for Input Type DateTime-Local</a><br><br></p>
 <h3 id='checkbox-2'>Checkbox</h3><pre class="highlight plaintext"><code>Checkbox actions examples:
 When Check "Accept Conditions"
 When Uncheck "Accept Conditions"
@@ -7860,6 +7866,27 @@ Some scenario examples:
 <strong>Then</strong> &quot;<ELEMENT NAME>&quot; is not appear during &quot;<NUMBER>&quot; seconds <br></p>
 
 <p><a href="https://jdi-docs.github.io/jdi-light/?java#tutorial">More information in the tutorial</a> <br>    </p>
+<h3 id='text-2'>Text</h3><pre class="highlight plaintext"><code>
+Text validations example:
+Then "Jdi Text" text equals to "Powerful Framework for UI Tests Automation. Suitable for any UI project: Web(Html5, Angular, React...), Mobile(Android IOs), Desktop(Win app) etc."
+Then "Jdi Text" text contains "Powerful Framework for UI"
+Then "Jdi Text" is enabled
+
+BDD example:
+Scenario: Text validation test
+    Given I open "Html5 Page"
+    Then "Jdi Text" is enabled
+    Then "Jdi Text" text contains "Powerful Framework for UI"
+
+</code></pre>
+<p>Validations:<br></p>
+
+<p><strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; text equals to &quot;&lt;TEXT&gt;&quot; <br>
+<strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; text contains &quot;&lt;TEXT PART&gt;&quot; <br>
+<strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; is enabled <br></p>
+
+<p><a href="https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa">More information in the tutorial</a>
+<a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Date.feature">BDD test example for Input Type Date</a><br><br></p>
 <h2 id='ui-objects'>UI Objects</h2>
 <p>TBD</p>
 <h2 id='smart-locators'>Smart Locators</h2><pre class="highlight plaintext"><code>&lt;input type="text" id="name"&gt;

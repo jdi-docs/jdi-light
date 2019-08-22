@@ -537,6 +537,9 @@
                             <li>
                               <a href="#checkbox-2" class="toc-h2 h3 toc-link" data-title="Checkbox">Checkbox</a>
                             </li>
+                            <li>
+                              <a href="#progress-bar" class="toc-h2 h3 toc-link" data-title="Progress Bar">Progress Bar</a>
+                            </li>
                         </ul>
                   </li>
                   <li>
@@ -2996,7 +2999,9 @@ In addition if you run test scenarios on JDI Light you will <strong>get logs of 
 </tr>
 </tbody></table>
 
-<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/ImagesTests.cs">Test examples in C#</a></p>
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/ImagesTests.cs">Test examples in C#</a> <br>
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-bdd-tests/src/test/resources/features/image.feature">BDD test examples</a>  <br>
+<a href="https://jdi-docs.github.io/jdi-light/?java#image-2">BDD Steps documentation</a> <br></p>
 
 <p>And here are methods available in Java:</p>
 
@@ -3045,7 +3050,8 @@ In addition if you run test scenarios on JDI Light you will <strong>get logs of 
 </tbody></table>
 
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ImageTests.java">Test examples in Java</a><br>
-<a href="https://jdi-docs.github.io/jdi-light/?java#image-2">BDD Steps example</a></p>
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-bdd-tests/src/test/resources/features/image.feature">BDD test examples</a> <br>
+<a href="https://jdi-docs.github.io/jdi-light/?java#image-2">BDD Steps documentation</a><br></p>
 <h3 id='icon-2'>Icon</h3><pre class="highlight csharp tab-csharp"><code><span class="na">[FindBy(Css = "#jdi-ico")]</span>
 <span class="k">public</span> <span class="n">IIcon</span> <span class="n">LogoIco</span><span class="p">;</span>
 
@@ -3652,6 +3658,9 @@ In addition if you run test scenarios on JDI Light you will <strong>get logs of 
 </tr>
 </tbody></table>
 
+<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ProgressTests.java">Java test examples</a> <br>
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-bdd-tests/src/test/resources/features/ProgressBar.feature">BDD test examples</a><br></p>
+
 <p>Available method in C# JDI Light:</p>
 
 <table><thead>
@@ -3683,9 +3692,8 @@ In addition if you run test scenarios on JDI Light you will <strong>get logs of 
 </tr>
 </tbody></table>
 
-<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ProgressTests.java">Java test examples</a></p>
-
-<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/ProgressTests.cs">C# test examples</a></p>
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/ProgressTests.cs">C# test examples</a><br>
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-bdd-tests/src/test/resources/features/ProgressBar.feature">BDD test examples</a><br></p>
 <h3 id='range'>Range</h3><pre class="highlight java tab-java"><code>  <span class="nd">@UI</span><span class="o">(</span><span class="s">"#volume"</span><span class="o">)</span>  <span class="c1">//@FindBy(id = "volume") </span>
   <span class="kd">public</span> <span class="kd">static</span> <span class="n">Range</span> <span class="n">volume</span><span class="o">;</span>
   <span class="nd">@Test</span>
@@ -7511,14 +7519,14 @@ Examples:
     And "Jdi Logo" attribute "width" contains "101"
 
 </code></pre>
-<p>Samples of steps: <br>
+<p>Validations: <br>
 <strong>Then</strong> image &quot;&lt;IMAGE NAME&gt;&quot; src equals to &quot;&lt;SOURCE VALUE&gt;&quot;<br>
 <strong>Then</strong> image &quot;&lt;IMAGE NAME&gt;&quot; scr contains &quot;&lt;SOURCE VALUE&gt;&quot;<br>
 <strong>Then</strong> image &quot;&lt;IMAGE NAME&gt;&quot; height is equal to &quot;&lt;HEIGHT VALUE&gt;&quot;<br>
 <strong>Then</strong> image &quot;&lt;IMAGE NAME&gt;&quot; width is equal to &quot;&lt;WIDTH VALUE&gt;&quot;<br>
 <strong>Then</strong> image &quot;&lt;IMAGE NAME&gt;&quot; attribute is equal to &quot;&lt;ALT VALUE&gt;&quot;<br></p>
 
-<p><a href="https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa">JDI Light in BDD Style</a></p>
+<p><a href="https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa">More information in the tutorial</a></p>
 <h3 id='alert'>Alert</h3><pre class="highlight plaintext"><code>
 Alert action examples:
   When Accept alert
@@ -7716,7 +7724,7 @@ Scenario: Basic for button
 <strong>Then</strong> &quot;<ELEMENT NAME>&quot; is displayed <br> 
 <strong>Then</strong> &quot;<ELEMENT NAME>&quot; is hidden  <br><br>
 <strong>Then</strong> &quot;<ELEMENT NAME>&quot; is not appear <br><br>
-<strong>Then</strong> &quot;<ELEMENT NAME>&quot; is not appear during &quot;<NUNBER>&quot; seconds <br>
+<strong>Then</strong> &quot;<ELEMENT NAME>&quot; is not appear during &quot;<NUMBER>&quot; seconds <br>
 <strong>Then</strong> &quot;<ELEMENT NAME>&quot; css &quot;<ATTRIBUTE NAME" equals to "<TEXT>&quot; <br>
 <strong>Then</strong> &quot;<ELEMENT NAME>&quot; attribute &quot;ATTRIBUTE NAME&quot; equals to &quot;<TEXT>&quot; <br></p>
 
@@ -7807,6 +7815,30 @@ Validations: <br>
 <strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; is not appear during &quot;&lt;SECONDS&gt;&quot; seconds <br></p>
 
 <p>There is link to <a href="https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa">Tutorial</a></p>
+<h3 id='progress-bar'>Progress Bar</h3><pre class="highlight plaintext"><code>Scenario: progress bar validation
+  Given I open "Html5 Page" page
+  Then "Progress" attribute "max" equals to "100"
+  And "Progress" progress volume greater or equal to 10
+  And "Progress" progress volume less or equal to 100
+  And "Progress" attribute "value" equals to "70"
+  And "Progress" is enabled
+</code></pre>
+<p><strong>Validations:</strong> <br>
+<strong>Then</strong> &quot;<ELEMENT NAME>&quot; attribute &quot;<ATTRIBUTE NAME>&quot; equals to &quot;<ATTRIBUTE VALUE>&quot; <br><br>
+<strong>Then</strong> &quot;<ELEMENT NAME>&quot; attribute &quot;<ATTRIBUTE NAME>&quot; equals to &quot;<ATTRIBUTE VALUE>&quot; <br><br>
+<strong>Then</strong> &quot;<ELEMENT NAME>&quot; attribute &quot;<ATTRIBUTE NAME>&quot; match to &quot;<ATTRIBUTE VALUE>&quot; <br><br>
+<strong>Then</strong> &quot;<ELEMENT NAME>&quot; progress volume greater or equal to <VALUE> <br><br>
+<strong>Then</strong> &quot;<ELEMENT NAME>&quot; progress volume less or equal to <VALUE> <br> 
+<strong>Then</strong> &quot;<ELEMENT NAME>&quot; label text equals to &quot;<LABEL_TEXT>&quot; <br><br>
+<strong>Then</strong> &quot;<ELEMENT NAME>&quot; label text contains &quot;<TEXT>&quot; <br> 
+<strong>Then</strong> &quot;<ELEMENT NAME>&quot; is enabled <br><br>
+<strong>Then</strong> &quot;<ELEMENT NAME>&quot; is disabled <br><br>
+<strong>Then</strong> &quot;<ELEMENT NAME>&quot; is displayed <br> 
+<strong>Then</strong> &quot;<ELEMENT NAME>&quot; is hidden  <br><br>
+<strong>Then</strong> &quot;<ELEMENT NAME>&quot; is not appear <br><br>
+<strong>Then</strong> &quot;<ELEMENT NAME>&quot; is not appear during &quot;<NUMBER>&quot; seconds <br></p>
+
+<p><a href="https://jdi-docs.github.io/jdi-light/?java#tutorial">More information in the tutorial</a> <br>    </p>
 <h2 id='ui-objects'>UI Objects</h2>
 <p>TBD</p>
 <h2 id='smart-locators'>Smart Locators</h2><pre class="highlight plaintext"><code>&lt;input type="text" id="name"&gt;

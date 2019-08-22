@@ -3745,15 +3745,11 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 [**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/link.feature) for Link<br>
 
 
-
-
-
-
-
-
 ### Button
 
 ```
+Button actions examples:
+
 When Click on "Red Button" 
 When Click with JS on "Red Button" 	 
 When Focus on "Blue Button"	
@@ -3761,6 +3757,8 @@ When Right click on "Red Button"
 When Highlight "Blue Button"	
 When Show "Red Button"	
 When Set "Red Button" attribute "test-jdi" with vlaue "test-value"
+
+Button validations examples:
   
 Then "Red Button" text equals to "Big Red Button-Input"	
 Then "Red Button" text contains "Red Button"	
@@ -3792,30 +3790,30 @@ Scenario: Basic for button
 
 **Actions:** <br>
 
-**When** <I> Click on "<ELEMENT NAME>" <br>
-**When** <I> Click with JS on "<ELEMENT NAME>"	 <br>
-**When** <I> Focus on "<ELEMENT NAME>"	<br>
-**When** <I> Right click on "<ELEMENT NAME>"	<br>
-**When** <I> Highlight "<ELEMENT NAME>"	<br>
-**When** <I> Show "<ELEMENT NAME>"	<br>
-**When** <I> Set "<ELEMENT NAME>" attribute "<ATTRIBUTE NAME>" with vlaue "<ATTRIBUTE VALUE>" <br>
+**When** \<I\> Click on "\<ELEMENT NAME\>" <br>
+**When** \<I\> Click with JS on "\<ELEMENT NAME\>"	 <br>
+**When** \<I\> Focus on "\<ELEMENT NAME\>"	<br>
+**When** \<I\> Right click on "\<ELEMENT NAME\>"	<br>
+**When** \<I\> Highlight "\<ELEMENT NAME\>"	<br>
+**When** \<I\> Show "\<ELEMENT NAME\>"	<br>
+**When** \<I\> Set "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" with vlaue "\<ATTRIBUTE VALUE\>" <br>
   
  **Validations:** <br>
   
-**Then** "<ELEMENT NAME>" text equals to "<TEXT>"	<br>
-**Then** "<ELEMENT NAME>" text contains "<TEXT>"	<br>
-**Then** "<ELEMENT NAME>" text match to "<TEXT>" <br>
-**Then** "<ELEMENT NAME>" attribute "<ELEMENT NAME>" equals to "<ATTRIBUTE TEXT>" <br>
-**Then** "<ELEMENT NAME>" attribute "<ELEMENT NAME>" contains "<ATTRIBUTE TEXT>" <br>
-**Then** "<ELEMENT NAME>" attribute "<ELEMENT NAME>" match to "<ATTRIBUTE TEXT>" <br>	
-**Then** "<ELEMENT NAME>" is enabled <br>	
-**Then** "<ELEMENT NAME>" is disabled <br>	
-**Then** "<ELEMENT NAME>" is displayed <br>	
-**Then** "<ELEMENT NAME>" is hidden	 <br>	
-**Then** "<ELEMENT NAME>" is not appear	<br>	
-**Then** "<ELEMENT NAME>" is not appear during "<NUMBER>" seconds <br>
-**Then** "<ELEMENT NAME>" css "<ATTRIBUTE NAME" equals to "<TEXT>" <br>
-**Then** "<ELEMENT NAME>" attribute "ATTRIBUTE NAME" equals to "<TEXT>" <br>
+**Then** "\<ELEMENT NAME\>" text equals to "\<TEXT\>"	<br>
+**Then** "\<ELEMENT NAME\>" text contains "\<TEXT\>"	<br>
+**Then** "\<ELEMENT NAME\>" text match to "<TEXT\>" <br>
+**Then** "\<ELEMENT NAME\>" attribute "\<ELEMENT NAME\>" equals to "\<ATTRIBUTE TEXT\>" <br>
+**Then** "\<ELEMENT NAME\>" attribute "\<ELEMENT NAME\>" contains "\<ATTRIBUTE TEXT\>" <br>
+**Then** "\<ELEMENT NAME\>" attribute "\<ELEMENT NAME\>" match to "\<ATTRIBUTE TEXT\>" <br>	
+**Then** "\<ELEMENT NAME\>" is enabled <br>	
+**Then** "\<ELEMENT NAME\>" is disabled <br>	
+**Then** "\<ELEMENT NAME\>" is displayed <br>	
+**Then** "\<ELEMENT NAME\>" is hidden	 <br>	
+**Then** "\<ELEMENT NAME\>" is not appear	<br>	
+**Then** "\<ELEMENT NAME\>" is not appear during "\<NUMBER\>" seconds <br>
+**Then** "\<ELEMENT NAME\>" css "<ATTRIBUTE NAME" equals to "\<TEXT\>" <br>
+**Then** "\<ELEMENT NAME\>" attribute "ATTRIBUTE NAME" equals to "\<TEXT\>" <br>
   
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial)<br>
 [**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/button.feature) for Link<br>

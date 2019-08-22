@@ -941,6 +941,7 @@ Here is the list of available methods in Java:
 **assertThat()** | Returns object for work with assertions | LinkAssert
 
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/LinkTests.java)
+[BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#link-2)
 
 Here is the list of available methods in C#:
 
@@ -955,6 +956,7 @@ Here is the list of available methods in C#:
 **AssertThat()** | Returns object for work with assertions | LinkAssert
 
 [C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/LinkTests.cs)
+[BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#link-2)
 
 ### Menu
 
@@ -3577,7 +3579,7 @@ _steps:_<br>
 ### File Input
 
 ```
-Examples for actions:
+Actions examples:
 When I upload file "/src/test/resources/general.xml" by "Avatar" file input element
 When I try to upload file "/jdi-light-bdd-tests/src/test/resources/general.xml" by "Disabled File Input" file input element
 
@@ -3587,13 +3589,20 @@ Actions:<br>
 **When** I try to upload file "\<PATH TO FILE\>" by "\<ELEMENT NAME\>" file input element<br>
 
 ```
-Examples for validations:
+Validations examples:
 Then "Avatar" file input element label equals to "Profile picture:"
 Then "Avatar" file input element label contains "picture"
 Then "Avatar" file input element text equals to "C:\fakepath\general.xml"
 Then "Avatar" file input element text contains "general.xml"
-Then "Avatar" file input element value equals to "C:\fakepath\general.xml"
-Then "Avatar" file input element value contains "general.xml"
+Then "Avatar" attribute "id" equals to "avatar"
+Then "Avatar" is basically valid
+Then "Disabled File Input" is disabled
+
+Scenario example:
+  Scenario: Upload file by enabled file input element
+    Given I open "Html5 Page"
+    When I upload file "/src/test/resources/general.xml" by "Avatar" file input element
+    Then "Avatar" text contains "general.xml"
 
 ```
 Validations:<br>
@@ -3601,8 +3610,11 @@ Validations:<br>
 **Then** "\<ELEMENT NAME\>" file input element label contains "\<TEXT PART\>"<br>
 **Then** "\<ELEMENT NAME\>" file input element text equals to "\<PATH TO FILE\>"<br>
 **Then** "\<ELEMENT NAME\>" file input element text contains "\<PART OF PATH TO FILE\>"<br>
-**Then** "\<ELEMENT NAME\>" file input element value equals to "\<PATH TO FILE\>"<br>
-**Then** "\<ELEMENT NAME\>" file input element value contains "\<PART OF PATH TO FILE\>"<br>
+**Then** "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" equals to "ATTRIBUTE VALUE\>"<br>
+**Then** "\<ELEMENT NAME\>" is disabled<br>
+**Then** "\<ELEMENT NAME\>" is basically valid<br>
+
+Here is link to [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)
 
 
 ### Link 
@@ -3687,6 +3699,74 @@ Validations: <br>
 
 Here is link to [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial)
 
+###Button
+
+```
+When Click on "Red Button" 
+When Click with JS on "Red Button" 	 
+When Focus on "Blue Button"	
+When Right click on "Red Button" 	
+When Highlight "Blue Button"	
+When Show "Red Button"	
+When Set "Red Button" attribute "test-jdi" with vlaue "test-value"
+  
+Then "Red Button" text equals to "Big Red Button-Input"	
+Then "Red Button" text contains "Red Button"	
+Then "Red Button" text match to ".+"
+Then "Red Button" attribute "test-jdi" equals to "test-value"
+Then "Red Button" attribute "test-jdi" contains "test"
+Then "Red Button" attribute "test-jdi" match to ".{10}"	
+Then "Red Button" is enabled
+Then "Disabled Button" is disabled
+Then "Disabled Button" is displayed
+Then "Ghost Button" is hidden	
+Then "Ghost Button" does not appear	
+Then "Suspend Button" does not appear during "5" seconds
+Then "Red Button" css "font-size" equals to "14px"
+Then "Red Button" attribute "type" equals to "button"
+  
+Scenario: Basic for button
+  Given I open "Home Page" page
+   Then "Red Button" is displayed
+    And "Red Button" is enabled
+    And "Red Button" text equals to "Big Red Button-Input"
+    And "Red Button" text contains "Red Button"
+    And "Red Button" css "font-size" equals to "14px"
+    And "Red Button" attribute "type" equals to "button"
+    And "Disabled Button" is disabled
+   When Click on "Blue Button"
+   Then Alert text equals to "Blue button"
+  
+```
+
+**Actions:** <br>
+
+**When** <I> Click on "<ELEMENT NAME>" <br>
+**When** <I> Click with JS on "<ELEMENT NAME>"	 <br>
+**When** <I> Focus on "<ELEMENT NAME>"	<br>
+**When** <I> Right click on "<ELEMENT NAME>"	<br>
+**When** <I> Highlight "<ELEMENT NAME>"	<br>
+**When** <I> Show "<ELEMENT NAME>"	<br>
+**When** <I> Set "<ELEMENT NAME>" attribute "<ATTRIBUTE NAME>" with vlaue "<ATTRIBUTE VALUE>" <br>
+  
+ **Validations:** <br>
+  
+**Then** "<ELEMENT NAME>" text equals to "<TEXT>"	<br>
+**Then** "<ELEMENT NAME>" text contains "<TEXT>"	<br>
+**Then** "<ELEMENT NAME>" text match to "<TEXT>"<br>
+**Then** "<ELEMENT NAME>" attribute "<ELEMENT NAME>" equals to "<ATTRIBUTE TEXT>" <br>
+**Then** "<ELEMENT NAME>" attribute "<ELEMENT NAME>" contains "<ATTRIBUTE TEXT>" <br>
+**Then** "<ELEMENT NAME>" attribute "<ELEMENT NAME>" match to "<ATTRIBUTE TEXT>" <br>	
+**Then** "<ELEMENT NAME>" is enabled <br>	
+**Then** "<ELEMENT NAME>" is disabled <br>	
+**Then** "<ELEMENT NAME>" is displayed <br>	
+**Then** "<ELEMENT NAME>" is hidden	 <br>	
+**Then** "<ELEMENT NAME>" is not appear	<br>	
+**Then** "<ELEMENT NAME>" is not appear during "<NUNBER>" seconds <br>
+**Then** "<ELEMENT NAME>" css "<ATTRIBUTE NAME" equals to "<TEXT>" <br>
+**Then** "<ELEMENT NAME>" attribute "ATTRIBUTE NAME" equals to "<TEXT>" <br>
+  
+  Here is link to [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial)
 
 ### DateTimeSelector
 

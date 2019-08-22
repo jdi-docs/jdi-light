@@ -3854,12 +3854,12 @@ Actions:<br>
 
 Validations:<br>
 
-**Then** "\<ELEMENT NAME\>" text equals to _"\<TEXT\>"_ <br>
-**Then** "\<ELEMENT NAME\>" text contains _"\<TEXT PART\>"_ <br>
-**Then** "\<ELEMENT NAME\>" label text equals to _"\<TEXT\>"_ <br>
-**Then** "\<ELEMENT NAME\>" label text contains _"\<TEXT PART\>"_ <br>
-**Then** "\<ELEMENT NAME\>" attribute min equals to  _"\<MIN ATTRIBUTE VALUE\>"_ <br>
-**Then** "\<ELEMENT NAME\>" attribute max equals to _"\<MAX ATTRIBUTE VALUE\>"_ <br>
+**Then** "\<ELEMENT NAME\>" text equals to "\<TEXT\>" <br>
+**Then** "\<ELEMENT NAME\>" text contains "\<TEXT PART\>" <br>
+**Then** "\<ELEMENT NAME\>" label text equals to "\<TEXT\>" <br>
+**Then** "\<ELEMENT NAME\>" label text contains "\<TEXT PART\>"_ <br>
+**Then** "\<ELEMENT NAME\>" attribute min equals to "\<MIN ATTRIBUTE VALUE\>"<br>
+**Then** "\<ELEMENT NAME\>" attribute max equals to "\<MAX ATTRIBUTE VALUE\>"<br>
 
 [More information in the tutorial](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)
 

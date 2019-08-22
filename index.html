@@ -528,6 +528,9 @@
                             <li>
                               <a href="#button-2" class="toc-h2 h3 toc-link" data-title="Button">Button</a>
                             </li>
+                            <li>
+                              <a href="#datetimeselector-2" class="toc-h2 h3 toc-link" data-title="DateTimeSelector">DateTimeSelector</a>
+                            </li>
                         </ul>
                   </li>
                   <li>
@@ -7440,6 +7443,7 @@ When  Higlight "JDI Title"
 When  Show "JDI Title"
 When  Set "JDI Title" attribute "status" with value "marked"
 When  Make Screenshot for "JDI Title"
+
 </code></pre>
 <p><strong>When</strong> Click on &quot;&lt;ELEMENT NAME&gt;&quot; <br>
 <strong>When</strong> Double Click on &quot;&lt;ELEMENT NAME&gt;&quot; <br>
@@ -7458,6 +7462,7 @@ Then  Assert that "JDI Title" disappear
 Then  Assert that "JDI Title" hidden
 Then  Assert that "JDI Title" not appear
 Then  Assert that "JDI Title" not appear during "5" seconds
+
 </code></pre>
 <p><strong>Then</strong> Assert that &quot;&lt;ELEMENT NAME&gt;&quot; text equal to &quot;&lt;TEXT&gt;&quot; <br>
 <strong>Then</strong> Assert that &quot;&lt;ELEMENT NAME&gt;&quot; text contains &quot;&lt;TEXT PART&gt;&quot; <br>
@@ -7483,6 +7488,7 @@ Examples:
     Then "Jdi Logo" attribute "src" contains "jdi-logo.jpg"
     And "Jdi Logo" attribute "height" contains "100"
     And "Jdi Logo" attribute "width" contains "101"
+
 </code></pre>
 <p>Samples of steps: <br>
 <strong>Then</strong> image &quot;&lt;IMAGE NAME&gt;&quot; src equals to &quot;&lt;SOURCE VALUE&gt;&quot;<br>
@@ -7511,6 +7517,7 @@ Example:
 <h3 id='file-input'>File Input</h3><pre class="highlight plaintext"><code>Actions examples:
 When I upload file "/src/test/resources/general.xml" by "Avatar" file input element
 When I try to upload file "/jdi-light-bdd-tests/src/test/resources/general.xml" by "Disabled File Input" file input element
+
 </code></pre>
 <p>Actions:<br>
 <strong>When</strong> I upload file &quot;&lt;PATH TO FILE&gt;&quot; by &quot;&lt;ELEMENT NAME&gt;&quot; file input element<br>
@@ -7529,6 +7536,7 @@ Scenario example:
     Given I open "Html5 Page"
     When I upload file "/src/test/resources/general.xml" by "Avatar" file input element
     Then "Avatar" text contains "general.xml"
+
 </code></pre>
 <p>Validations:<br>
 <strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; file input element label equals to &quot;&lt;TEXT&gt;&quot;<br>
@@ -7678,6 +7686,43 @@ Scenario: Basic for button
 <strong>Then</strong> &quot;<ELEMENT NAME>&quot; attribute &quot;ATTRIBUTE NAME&quot; equals to &quot;<TEXT>&quot; <br></p>
 
 <p>Here is link to <a href="https://jdi-docs.github.io/jdi-light/?java#tutorial"><strong>Tutorial</strong></a></p>
+<h3 id='datetimeselector-2'>DateTimeSelector</h3><pre class="highlight plaintext"><code>Action example:
+
+When Set date "2018-11-13" in "Birth Date"
+
+</code></pre>
+<p>Actions:<br></p>
+
+<p><strong>When</strong> Set date <em>&quot;&lt;TEXT&gt;&quot;</em> in &quot;&lt;ELEMENT NAME&gt;&quot; <br></p>
+<pre class="highlight plaintext"><code>Validations example:
+
+Then  "Birth Date" text equals to "1985-06-18"
+Then  "Birth Date" text contains "1985"
+Then  "Birth Date" label text equals to "Birth date"
+Then  "Birth Date" label text contains "Birth"
+Then  "Birth Date" attribute min equals to "1970-01-01"
+Then  "Birth Date" attribute max equals to "2030-12-31"
+
+
+Scenario example:
+
+  Scenario: Set date
+    Given I open "Html5 Page"
+    Then "Birth Date" text equals to "1985-06-18"
+    When Set date "2018-11-13" in "Birth Date"
+    Then "Birth Date" text equals to "2018-11-13"
+
+</code></pre>
+<p>Validations:<br></p>
+
+<p><strong>Then</strong> <em>&quot;&lt;ELEMENT NAME&gt;&quot;</em> text equals to <em>&quot;&lt;TEXT&gt;&quot;</em> <br>
+<strong>Then</strong> <em>&quot;&lt;ELEMENT NAME&gt;&quot;</em> text contains <em>&quot;&lt;TEXT PART&gt;&quot;</em> <br>
+<strong>Then</strong> <em>&quot;&lt;ELEMENT NAME&gt;&quot;</em> label text equals to <em>&quot;&lt;TEXT&gt;&quot;</em> <br>
+<strong>Then</strong> <em>&quot;&lt;ELEMENT NAME&gt;&quot;</em> label text contains <em>&quot;&lt;TEXT PART&gt;&quot;</em> <br>
+<strong>Then</strong> <em>&quot;&lt;ELEMENT NAME&gt;&quot;</em> attribute min equals to  <em>&quot;&lt;MIN ATTRIBUTE VALUE&gt;&quot;</em> <br>
+<strong>Then</strong> <em>&quot;&lt;ELEMENT NAME&gt;&quot;</em> attribute max equals to <em>&quot;&lt;MAX ATTRIBUTE VALUE&gt;&quot;</em> <br></p>
+
+<p>There is link to <a href="https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa">Tutorial</a></p>
 <h2 id='ui-objects'>UI Objects</h2>
 <p>TBD</p>
 <h2 id='smart-locators'>Smart Locators</h2><pre class="highlight plaintext"><code>&lt;input type="text" id="name"&gt;

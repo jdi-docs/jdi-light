@@ -7518,16 +7518,25 @@ Then "Avatar" file input element label equals to "Profile picture:"
 Then "Avatar" file input element label contains "picture"
 Then "Avatar" file input element text equals to "C:\fakepath\general.xml"
 Then "Avatar" file input element text contains "general.xml"
-Then "Avatar" file input element value equals to "C:\fakepath\general.xml"
-Then "Avatar" file input element value contains "general.xml"
+Then "Avatar" attribute "id" equals to "avatar"
+Then "Avatar" is basically valid
+Then "Disabled File Input" is disabled
+
+  Scenario: Upload file by enabled file input element
+    Given I open "Html5 Page"
+    When I upload file "/src/test/resources/general.xml" by "Avatar" file input element
+    Then "Avatar" text contains "general.xml"
 </code></pre>
 <p>Validations:<br>
 <strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; file input element label equals to &quot;&lt;TEXT&gt;&quot;<br>
 <strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; file input element label contains &quot;&lt;TEXT PART&gt;&quot;<br>
 <strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; file input element text equals to &quot;&lt;PATH TO FILE&gt;&quot;<br>
 <strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; file input element text contains &quot;&lt;PART OF PATH TO FILE&gt;&quot;<br>
-<strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; file input element value equals to &quot;&lt;PATH TO FILE&gt;&quot;<br>
-<strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; file input element value contains &quot;&lt;PART OF PATH TO FILE&gt;&quot;<br></p>
+<strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; attribute &quot;&lt;ATTRIBUTE NAME&gt;&quot; equals to &quot;ATTRIBUTE VALUE&gt;&quot;<br>
+<strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; is disabled<br>
+<strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; is basically valid<br></p>
+
+<p>Here is link to <a href="https://jdi-docs.github.io/jdi-light/?java#tutorial"><strong>Tutorial</strong></a></p>
 <h3 id='link-2'>Link</h3><pre class="highlight plaintext"><code>Link actions examples:
 
 When Click on "Github Link"

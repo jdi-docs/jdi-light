@@ -3553,6 +3553,17 @@ Samples of steps: <br>
 
 [JDI Light in BDD Style](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)
 
+### Alert
+
+````
+
+Alert action examples:
+  When Accept alert
+  When Dismiss alert
+   
+    
+````
+
 Actions: <br>
 
 **When** Accept alert<br>

@@ -316,6 +316,8 @@ Available assert methods in C# JDI Light:
 
 [C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/CheckBoxTests.cs)
 
+[BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#checkbox-2)
+
 ### ColorPicker
 **ColorPicker** – Elements of this type provide a user interface element that lets a user specify a color, either by using a visual color picker interface or by entering the color into a text field in "#rrggbb" hexadecimal format. Only simple colors (with no alpha channel) are allowed. The values are compatible with CSS.
 

@@ -3866,14 +3866,14 @@ Validations:<br>
 **Then** _"\<ELEMENT NAME\>"_ attribute min equals to  _"\<MIN ATTRIBUTE VALUE\>"_ <br>
 **Then** _"\<ELEMENT NAME\>"_ attribute max equals to _"\<MAX ATTRIBUTE VALUE\>"_ <br>
 
-More information in the tutorial(https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)
+[More information in the tutorial](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)
 
-There are BDD examples for Input Type Date derivatives:
-BDD test example for Input Type Date(https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Date.feature)
-BDD test example for Input Type Week(https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Week.feature)
-BDD test example for Input Type Month(https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Month.feature)
-BDD test example for Input Type Time(https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Time.feature)
-BDD test example for Input Type DateTime-Local(https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/DateTime.feature)
+There are BDD examples for Input Type Date derivatives:<br>
+[BDD test example for Input Type Date](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Date.feature)<br>
+[BDD test example for Input Type Week](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Week.feature)<br>
+[BDD test example for Input Type Month](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Month.feature)<br>
+[BDD test example for Input Type Time](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Time.feature)<br>
+[BDD test example for Input Type DateTime-Local](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/DateTime.feature)<br>
 
 
 

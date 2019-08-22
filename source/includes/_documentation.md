@@ -3773,6 +3773,13 @@ Scenario: Basic for button
 **Then** "<ELEMENT NAME>" attribute "ATTRIBUTE NAME" equals to "<TEXT>" <br>
   
   Here is link to [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial)
+  
+  
+  
+  
+  
+  
+  
 
 ### DateTimeSelector
 
@@ -3785,7 +3792,6 @@ When Set date "2018-11-13" in "Birth Date"
 Actions:<br>
 
 **When** Set date _"\<TEXT\>"_ in "\<ELEMENT NAME\>" <br>
-
 
 ```
 Validations example:

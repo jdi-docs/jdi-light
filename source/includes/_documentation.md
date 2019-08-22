@@ -3823,16 +3823,8 @@ Scenario: Basic for button
   
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa)<br>
 [**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/button.feature) for Link<br>
-  
-  
-  
-  
-  
-  
-  
 
-
-
+<br><br><br><br>
 ### DateTimeSelector
 
 ```
@@ -3858,16 +3850,16 @@ Scenario: Set date
 ```
 Actions:<br>
 
-**When** Set date _"\<TEXT\>"_ in "\<ELEMENT NAME\>" <br>
+**When** Set date "\<TEXT\>" in "\<ELEMENT NAME\>" <br>
 
 Validations:<br>
 
-**Then** _"\<ELEMENT NAME\>"_ text equals to _"\<TEXT\>"_ <br>
-**Then** _"\<ELEMENT NAME\>"_ text contains _"\<TEXT PART\>"_ <br>
-**Then** _"\<ELEMENT NAME\>"_ label text equals to _"\<TEXT\>"_ <br>
-**Then** _"\<ELEMENT NAME\>"_ label text contains _"\<TEXT PART\>"_ <br>
-**Then** _"\<ELEMENT NAME\>"_ attribute min equals to  _"\<MIN ATTRIBUTE VALUE\>"_ <br>
-**Then** _"\<ELEMENT NAME\>"_ attribute max equals to _"\<MAX ATTRIBUTE VALUE\>"_ <br>
+**Then** "\<ELEMENT NAME\>" text equals to _"\<TEXT\>"_ <br>
+**Then** "\<ELEMENT NAME\>" text contains _"\<TEXT PART\>"_ <br>
+**Then** "\<ELEMENT NAME\>" label text equals to _"\<TEXT\>"_ <br>
+**Then** "\<ELEMENT NAME\>" label text contains _"\<TEXT PART\>"_ <br>
+**Then** "\<ELEMENT NAME\>" attribute min equals to  _"\<MIN ATTRIBUTE VALUE\>"_ <br>
+**Then** "\<ELEMENT NAME\>" attribute max equals to _"\<MAX ATTRIBUTE VALUE\>"_ <br>
 
 [More information in the tutorial](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)
 

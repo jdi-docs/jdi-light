@@ -3814,7 +3814,7 @@ Scenario: Basic for button
 **Then** "\<ELEMENT NAME\>" is not appear <br>
 **Then** "\<ELEMENT NAME\>" is not appear during "\<NUMBER\>" seconds <br>
 **Then** "\<ELEMENT NAME\>" css "\<ATTRIBUTE NAME\>" equals to "\<TEXT\>" <br>
-**Then** "\<ELEMENT NAME\>" attribute "ATTRIBUTE NAME" equals to "\<TEXT\>" <br>
+**Then** "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" equals to "\<TEXT\>" <br>
   
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa)<br>
 [**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/button.feature) for Link<br>

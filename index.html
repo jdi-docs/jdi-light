@@ -2482,6 +2482,8 @@ In addition if you run test scenarios on JDI Light you will <strong>get logs of 
 </tr>
 </tbody></table>
 
+<p><a href="https://jdi-docs.github.io/jdi-light/#datetimeselector-2">BDD Steps example</a></p>
+
 <p><strong>In the following sections there are examples of different implementations of such fields.</strong></p>
 
 <p><strong>Input Type Date</strong></p>
@@ -7704,6 +7706,7 @@ Scenario: Basic for button
     And "Disabled Button" is disabled
    When Click on "Blue Button"
    Then Alert text equals to "Blue button"
+
 </code></pre>
 <p><strong>Actions:</strong> <br></p>
 
@@ -7730,20 +7733,14 @@ Scenario: Basic for button
 <strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; is not appear <br>
 <strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; is not appear during &quot;&lt;NUMBER&gt;&quot; seconds <br>
 <strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; css &quot;&lt;ATTRIBUTE NAME&gt;&quot; equals to &quot;&lt;TEXT&gt;&quot; <br>
-<strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; attribute &quot;&lt;ATTRIBUTE NAME&gt;&quot; equals to &quot;&lt;TEXT&gt;&quot; <br></p>
+<strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; attribute &quot;ATTRIBUTE NAME&quot; equals to &quot;&lt;TEXT&gt;&quot; <br></p>
 
 <p>More information in the <a href="https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa"><strong>Tutorial</strong></a><br>
 <a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/button.feature"><strong>Cucumber tests</strong></a> for Link<br></p>
-<h3 id='datetimeselector-2'>DateTimeSelector</h3><pre class="highlight plaintext"><code>Action example:
-
+<h3 id='datetimeselector-2'>DateTimeSelector</h3><pre class="highlight plaintext"><code>DateTimeSelector action example:
 When Set date "2018-11-13" in "Birth Date"
 
-</code></pre>
-<p>Actions:<br></p>
-
-<p><strong>When</strong> Set date <em>&quot;&lt;TEXT&gt;&quot;</em> in &quot;&lt;ELEMENT NAME&gt;&quot; <br></p>
-<pre class="highlight plaintext"><code>Validations example:
-
+DateTimeSelector validations example:
 Then  "Birth Date" text equals to "1985-06-18"
 Then  "Birth Date" text contains "1985"
 Then  "Birth Date" label text equals to "Birth date"
@@ -7751,16 +7748,18 @@ Then  "Birth Date" label text contains "Birth"
 Then  "Birth Date" attribute min equals to "1970-01-01"
 Then  "Birth Date" attribute max equals to "2030-12-31"
 
-
-Scenario example:
-
-  Scenario: Set date
+BDD example:
+Scenario: Set date
     Given I open "Html5 Page"
     Then "Birth Date" text equals to "1985-06-18"
     When Set date "2018-11-13" in "Birth Date"
     Then "Birth Date" text equals to "2018-11-13"
 
 </code></pre>
+<p>Actions:<br></p>
+
+<p><strong>When</strong> Set date <em>&quot;&lt;TEXT&gt;&quot;</em> in &quot;&lt;ELEMENT NAME&gt;&quot; <br></p>
+
 <p>Validations:<br></p>
 
 <p><strong>Then</strong> <em>&quot;&lt;ELEMENT NAME&gt;&quot;</em> text equals to <em>&quot;&lt;TEXT&gt;&quot;</em> <br>
@@ -7770,7 +7769,14 @@ Scenario example:
 <strong>Then</strong> <em>&quot;&lt;ELEMENT NAME&gt;&quot;</em> attribute min equals to  <em>&quot;&lt;MIN ATTRIBUTE VALUE&gt;&quot;</em> <br>
 <strong>Then</strong> <em>&quot;&lt;ELEMENT NAME&gt;&quot;</em> attribute max equals to <em>&quot;&lt;MAX ATTRIBUTE VALUE&gt;&quot;</em> <br></p>
 
-<p>There is link to <a href="https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa">Tutorial</a></p>
+<p>More information in the tutorial(https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)</p>
+
+<p>There are BDD examples for Input Type Date derivatives:
+BDD test example for Input Type Date(https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Date.feature)
+BDD test example for Input Type Week(https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Week.feature)
+BDD test example for Input Type Month(https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Month.feature)
+BDD test example for Input Type Time(https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Time.feature)
+BDD test example for Input Type DateTime-Local(https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/DateTime.feature)</p>
 <h3 id='checkbox-2'>Checkbox</h3><pre class="highlight plaintext"><code>Checkbox actions examples:
 When Check "Accept Conditions"
 When Uncheck "Accept Conditions"

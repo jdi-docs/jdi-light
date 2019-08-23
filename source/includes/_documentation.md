@@ -3640,7 +3640,8 @@ Validations: <br>
 **Then** Alert text match to "\<ALERT TEXT\>"<br>
 
 
-[JDI Light in BDD Style](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)<br>
+More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa)<br>
+[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Alert.feature) for Alert<br>
 
 <br>
 <br>

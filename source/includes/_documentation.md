@@ -3139,6 +3139,8 @@ Here is the list of some available methods in C# JDI Light:
 
 [C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/ComboBoxTests.cs)
 
+[BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#combobox-2)
+
 ## Composite elements
 ###Section
 
@@ -4027,6 +4029,43 @@ Validations:<br>
 
 [More information in the tutorial](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)<br>
 [Cucumber tests for Text](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Text.feature)<br><br>
+
+
+### ComboBox
+
+```
+ComboBox actions examples:
+When Select "Coconut" field from "Ice Cream"
+When Select value 5 in "Ice Cream"
+
+ComboBox validations examples:
+Then the "Ice Cream" is enabled
+Then the "Ice Cream" selected value is "Coconut"
+Then the "Ice Cream" text equals to "Coconut"
+Then the "Ice Cream" label text equals to "Choose your lovely icecream"
+Then the "Ice Cream" label text contains "lovely icecream"
+
+Scenario example:
+Scenario: Select combobox value test
+    Given I open "Html5 Page"
+    When Select "Chocolate" field from "Ice Cream"
+    Then the "Ice Cream" selected value is "Chocolate"
+```
+
+Actions:<br>
+**When** Select "\<VALUE\>" field from "\<ELEMENT NAME\>"<br>
+**When** Select value "\<INDEX NUMBER\>" in "\<ELEMENT NAME\>"<br>
+
+Validations:<br>
+**Then** the "\<ELEMENT NAME\>" is enabled<br>
+**Then** the "\<ELEMENT NAME\>" selected value is "\<VALUE\>"<br>
+**Then** the "\<ELEMENT NAME\>" text equals to "\<TEXT\>"<br>
+**Then** the "\<ELEMENT NAME\>" label text equals to "\<LABEL TEXT\>"<br>
+**Then** the "\<ELEMENT NAME\>" label text contains "\<LABEL TEXT\>"<br>
+
+More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial)<br>
+[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/ComboBox.feature) for ComboBox<br><br>
+
 
 ### NumberSelector
 

@@ -2346,7 +2346,8 @@ In addition if you run test scenarios on JDI Light you will <strong>get logs of 
 </tr>
 </tbody></table>
 
-<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ColorPickerTests.java">Java test examples</a></p>
+<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ColorPickerTests.java">Java test examples</a>
+<a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/colorPicker.feature">Cucumber test examples</a><br></p>
 
 <p>Here is the list of some available methods in C#:</p>
 
@@ -7502,16 +7503,32 @@ Then  Assert that "JDI Title" not appear during "5" seconds
 <strong>Then</strong> Assert that &quot;&lt;ELEMENT NAME&gt;&quot; not appear during &quot;&lt;SECONDS&gt;&quot; seconds <br></p>
 <h3 id='colorpicker-2'>ColorPicker</h3><pre class="highlight plaintext"><code>When I set "Color Picker" to "#00FF00" color
 </code></pre>
+<p>Actions: <br></p>
+
 <p><strong>When</strong> I set &quot;ELEMENT NAME&quot; to &quot;COLOR HEX CODE&quot;</p>
 <pre class="highlight plaintext"><code>Then "Color Picker" color equals to "#00FF00"
 Then "Color Picker" label text equals to "Select a color"
 Then "Color Picker" color is "#00FF00"
 Then "Color Picker" is basically valid
+
+Example:
+
+  Scenario: Color picker set color test
+    Given I open "Html5 Page"
+    When I set "Color Picker" to "#ffd7a6" color
+    Then "Color Picker" color equals to "#ffd7a6"
 </code></pre>
+<p>Validations: <br></p>
+
 <p><strong>Then</strong> &quot;ELEMENT NAME&quot; color equals to &quot;EXPECTED COLOR HEX CODE&quot; <br>
 <strong>Then</strong> &quot;ELEMENT NAME&quot; label text equals to &quot;EXPECTED TEXT&quot; <br>
 <strong>Then</strong> &quot;ELEMENT NAME&quot; color is &quot;COLOR HEX CODE&quot; <br>
 <strong>Then</strong> &quot;ELEMENT NAME&quot; is basically valid <br></p>
+
+<p>More information in the <a href="https://jdi-docs.github.io/jdi-light/?java#tutorial"><strong>Tutorial</strong></a><br>
+<a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/colorPicker.feature"><strong>Cucumber tests</strong></a> for ColorPicker<br></p>
+
+<p><br><br><br><br><br><br><br><br><br><br><br></p>
 <h3 id='image-2'>Image</h3><pre class="highlight plaintext"><code>Sample steps:
   Then "Jdi Logo" attribute "src" equals to "https://jdi-testing.github.io/jdi-light/images/jdi-logo.jpg"
   Then "Jdi Logo" attribute "alt" equals to "Jdi Logo 2"

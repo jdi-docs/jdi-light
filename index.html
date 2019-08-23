@@ -543,6 +543,9 @@
                             <li>
                               <a href="#text-2" class="toc-h2 h3 toc-link" data-title="Text">Text</a>
                             </li>
+                            <li>
+                              <a href="#numberselector-2" class="toc-h2 h3 toc-link" data-title="NumberSelector">NumberSelector</a>
+                            </li>
                         </ul>
                   </li>
                   <li>
@@ -7915,6 +7918,95 @@ Scenario: Text validation test
 
 <p><a href="https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa">More information in the tutorial</a><br>
 <a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Text.feature">BDD test example</a><br><br></p>
+<h3 id='numberselector-2'>NumberSelector</h3><pre class="highlight plaintext"><code>
+NumberSelector action examples:
+  When Set text "2.1" in "Height"   
+  When Focus on "Height"  
+  When Input "2.1" in "Height"
+  When Highlight "Height"
+  When Show "Height"    
+  When Set "Height" attribute "test-jdi" with vlaue "test"
+
+
+</code></pre>
+<p>Actions: <br>
+<strong>When</strong> <I> Focus on &quot;<NUMBER SELECTOR>&quot;<br>
+<strong>When</strong> <I> Set text &quot;<TEXT>&quot; in &quot;<ELEMENT NAME>&quot;<br>
+<strong>When</strong> <I> Input &quot;<TEXT>&quot; in &quot;<ELEMENT NAME>&quot; <br>
+<strong>When</strong> <I> Highlight &quot;<ELEMENT NAME>&quot; <br>
+<strong>When</strong> <I> Show &quot;<NUMBER SELECTOR>&quot;<br><br>
+<strong>When</strong> <I> Set &quot;<NUMBER SELECTOR>&quot;attribute &quot;<ATTRIBUTE NAME>&quot; with vlaue &quot;<ATTRIBUTE VALUE>&quot; <br></p>
+<pre class="highlight plaintext"><code>
+NumberSelctor validation examples:
+  Then the "Height" label text equals to "Height (metres):"
+  Then the "Height" label text contains "(metres):"
+  Then the "Height" label text label text matches to "\w{15}"
+  Then the "Height" placeholder equals to "20 cm increments. Range [0.3,2.5]"
+  Then the "Height" placeholder contains "20 cm"
+  Then the "Height" placeholder  matches to "\d{2}"
+  Then the "Height" text equals to "2.1"
+  Then the "Height" text contains "2.1" 
+  Then the "Height" text matches to "\d{5}\w{4}"
+  Then the "Height" attribute "jdi-test" equals to "jdi test"
+  Then the "Height" attribute "jdi-test" contains "jdi"
+  Then the "Height" attribute "jdi-test" matches to "\w{3} \w{4}"
+  Then the "Height" number selector min is "0.3"
+  Then the "Height" number selector max is "2.5"
+  Then the "Height" number selector step is "0.2"
+  Then the "Height" number selector value is greater or equal to "0.3"
+  Then the "Height" number selector value less or equal to "2.5"
+  Then the "Height" number selector value is greater than "0.0"
+  Then the "Height" number selector value less than "3.0"
+  Then the "Height" does not appear
+  Then the "Height" does not appear during "5" seconds
+
+Example:
+Scenario: Validation 
+    Given I open "Html5 Page"
+    Then the "Height" number selector min is "0.3"
+    And the "Height" number selector max is "2.5"
+    And the "Height" number selector step is "0.2"
+    And the "Height" placeholder contains "20 cm increments"
+    And the "Height" number selector value is greater or equal to "0.3"
+    And the "Height" number selector value less or equal to "2.5"
+    And the "Height" text equals to "2.1"
+
+
+</code></pre>
+<p>Validations: <br>
+<strong>Then</strong> the &quot;<NUMBER SELECTOR>&quot; label text equals to &quot;<LABEL TEXT>&quot; <br>
+<strong>Then</strong> the &quot;<NUMBER SELECTOR>&quot; label text contains &quot;<LABEL TEXT>&quot; <br>
+<strong>Then</strong> the &quot;<NUMBER SELECTOR>&quot; label text matches to &quot;<LABEL TEXT>&quot; <br>
+<strong>Then</strong> the &quot;<NUMBER SELECTOR>&quot; placeholder equals to &quot;<PLACEHOLDER TEXT>&quot; <br>
+<strong>Then</strong> the &quot;<NUMBER SELECTOR>&quot; placeholder contains &quot;<PLACEHOLDER TEXT>&quot;   <br>
+<strong>Then</strong> the &quot;<NUMBER SELECTOR>&quot; placeholder matches to &quot;<PLACEHOLDER TEXT>&quot; <br>
+<strong>Then</strong> the &quot;<NUMBER SELECTOR>&quot; text equals to &quot;<TEXT>&quot;     <br>
+<strong>Then</strong> the &quot;<NUMBER SELECTOR>&quot; text contains &quot;<TEXT>&quot;  <br>
+<strong>Then</strong> the &quot;<NUMBER SELECTOR>&quot; text matches to &quot;<TEXT>&quot; <br>
+<strong>Then</strong> the &quot;<NUMBER SELECTOR>&quot; attribute &quot;<ELEMENT NAME>&quot; equals to &quot;<ATTRIBUTE TEXT>&quot; <br>
+<strong>Then</strong> the &quot;<NUMBER SELECTOR>&quot; attribute &quot;<ELEMENT NAME>&quot; contains &quot;<ATTRIBUTE TEXT>&quot; <br>
+<strong>Then</strong> the &quot;<NUMBER SELECTOR>&quot; attribute &quot;<ELEMENT NAME>&quot; matches to &quot;<ATTRIBUTE TEXT>&quot;    <br>
+<strong>Then</strong> the &quot;<NUMBER SELECTOR>&quot; number selector min is &quot;<VALUE>&quot; <br>
+<strong>Then</strong> the &quot;<NUMBER SELECTOR>&quot; number selector max is &quot;<VALUE>&quot; <br>
+<strong>Then</strong> the &quot;<NUMBER SELECTOR>&quot; number selector step is &quot;<VALUE>&quot; <br>
+<strong>Then</strong> the &quot;<NUMBER SELECTOR>&quot; number selector value is greater or equal to &quot;<VALUE>&quot; <br>
+<strong>Then</strong> the &quot;<NUMBER SELECTOR>&quot; number selector value less or equal to &quot;<VALUE>&quot; <br>
+<strong>Then</strong> the &quot;<NUMBER SELECTOR>&quot; number selector value is greater than &quot;<VALUE>&quot; <br>
+<strong>Then</strong> the &quot;<NUMBER SELECTOR>&quot; number selector value less than &quot;<VALUE>&quot; <br>
+<strong>Then</strong> the &quot;<NUMBER SELECTOR>&quot; does not appear <br>
+<strong>Then</strong> the &quot;<NUMBER SELECTOR>&quot; does not appear during &quot;<TIME>&quot; seconds <br></p>
+
+<p>More information in the <a href="https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa"><strong>Tutorial</strong></a><br>
+<a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/NumberSelector.feature"><strong>Cucumber tests</strong></a> for NumberSelector<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br></p>
 <h2 id='ui-objects'>UI Objects</h2>
 <p>TBD</p>
 <h2 id='smart-locators'>Smart Locators</h2><pre class="highlight plaintext"><code>&lt;input type="text" id="name"&gt;
@@ -8271,6 +8363,8 @@ Note that you can make static import in order to simplify code Alerts.acceptAler
 <td>void</td>
 </tr>
 </tbody></table>
+
+<p><a href="https://jdi-docs.github.io/jdi-light/?java#alert">BDD Steps example</a></p>
 <h2 id='logs'>Logs</h2><pre class="highlight java tab-java"><code><span class="c1">//setup loglevel before running a test (for example in TestInit)</span>
 <span class="n">logger</span><span class="o">.</span><span class="na">setLogLevel</span><span class="o">(</span><span class="n">STEP</span><span class="o">);</span>
 

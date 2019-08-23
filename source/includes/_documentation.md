@@ -3506,7 +3506,6 @@ When  Higlight "JDI Title"
 When  Show "JDI Title"
 When  Set "JDI Title" attribute "status" with value "marked"
 When  Make Screenshot for "JDI Title"
-
 ```
 **When** Click on "\<ELEMENT NAME\>" <br>
 **When** Double Click on "\<ELEMENT NAME\>" <br>
@@ -3517,28 +3516,28 @@ When  Make Screenshot for "JDI Title"
 **When** Make Screenshot for "\<ELEMENT NAME\>"<br>
 
 ```
-Then  Assert that "JDI Title" text equal to "JDI TESTING PLATFORM"
-Then  Assert that "JDI Title" text contains "JDI"
-Then  Assert that "JDI Title" text match to regexp ".* TESTING .*"
-Then  Assert that "JDI Title" is enabled
-Then  Assert that "JDI Title" is disabled
-Then  Assert that "JDI Title" is displayed
-Then  Assert that "JDI Title" disappear
-Then  Assert that "JDI Title" hidden
-Then  Assert that "JDI Title" not appear
-Then  Assert that "JDI Title" not appear during "5" seconds
+Then  the "JDI Title" text equal to "JDI TESTING PLATFORM"
+Then  the "JDI Title" text contains "JDI"
+Then  the "JDI Title" text match to regexp ".* TESTING .*"
+Then  the "JDI Title" is enabled
+Then  the "JDI Title" is disabled
+Then  the "JDI Title" is displayed
+Then  the "JDI Title" disappear
+Then  the "JDI Title" is hidden
+Then  the "JDI Title" does not appear
+Then  the "JDI Title" does not appear during "5" seconds
 
 ```
-**Then** Assert that "\<ELEMENT NAME\>" text equal to "\<TEXT\>" <br>
-**Then** Assert that "\<ELEMENT NAME\>" text contains "\<TEXT PART\>" <br>
-**Then** Assert that "\<ELEMENT NAME\>" text match to regexp "\<REGULAR EXPRESSION\>" <br>
-**Then** Assert that "\<ELEMENT NAME\>" is enabled <br>
-**Then** Assert that "\<ELEMENT NAME\>" is disabled <br>
-**Then** Assert that "\<ELEMENT NAME\>" is displayed <br>
-**Then** Assert that "\<ELEMENT NAME\>" disappear <br>
-**Then** Assert that "\<ELEMENT NAME\>" hidden <br>
-**Then** Assert that "\<ELEMENT NAME\>" not appear <br>
-**Then** Assert that "\<ELEMENT NAME\>" not appear during "\<SECONDS\>" seconds <br>
+**Then** the "\<ELEMENT NAME\>" text equal to "\<TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" text contains "\<TEXT PART\>" <br>
+**Then** the "\<ELEMENT NAME\>" text matches to regexp "\<REGULAR EXPRESSION\>" <br>
+**Then** the "\<ELEMENT NAME\>" is enabled <br>
+**Then** the "\<ELEMENT NAME\>" is disabled <br>
+**Then** the "\<ELEMENT NAME\>" is displayed <br>
+**Then** the "\<ELEMENT NAME\>" disappear <br>
+**Then** the "\<ELEMENT NAME\>" is hidden <br>
+**Then** the "\<ELEMENT NAME\>" does not appear <br>
+**Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
 
 ### ColorPicker
 

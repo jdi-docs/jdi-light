@@ -3932,7 +3932,6 @@ Then "Accept Conditions" is enabled
 Then "Accept Conditions" is disabled
 Then "Accept Conditions" is displayed
 Then "Accept Conditions" is hidden
-Then "Accept Conditions" is basically valid
 Then "Accept Conditions" label text equals to "Accept terms and conditions"
 Then "Accept Conditions" label text contains "terms and conditions"
 Then "Accept Conditions" label text match to "[a-zA-Z]{6} JE*DI"
@@ -3961,7 +3960,6 @@ Validations: <br>
 **Then** "\<ELEMENT NAME\>" is disabled <br>
 **Then** "\<ELEMENT NAME\>" is displayed <br>
 **Then** "\<ELEMENT NAME\>" is hidden <br>
-**Then** "\<ELEMENT NAME\>" is basically valid <br>
 **Then** "\<ELEMENT NAME\>" label text equals to "\<TEXT\>" <br>
 **Then** "\<ELEMENT NAME\>" label text contains "\<TEXT\>" <br>
 **Then** "\<ELEMENT NAME\>" label text match to "\<TEXT\>" <br>

@@ -3554,24 +3554,25 @@ Actions: <br>
 **When** I set "ELEMENT NAME" to "COLOR HEX CODE"
 
 ```
-Then "Color Picker" color equals to "#00FF00"
-Then "Color Picker" label text equals to "Select a color"
-Then "Color Picker" color is "#00FF00"
-Then "Color Picker" is basically valid
+Then the "Color Picker" color equals to "#00FF00"
+Then the "Color Picker" label text equals to "Select a color"
+Then the "Color Picker" color is "#00FF00"
+Then the "Color Picker" is basically valid
 
 Example:
 
   Scenario: Color picker set color test
     Given I open "Html5 Page"
     When I set "Color Picker" to "#ffd7a6" color
-    Then "Color Picker" color equals to "#ffd7a6"
+    Then the "Color Picker" color equals to "#ffd7a6"
+    
 ```
 Validations: <br>
 
-**Then** "ELEMENT NAME" color equals to "EXPECTED COLOR HEX CODE" <br>
-**Then** "ELEMENT NAME" label text equals to "EXPECTED TEXT" <br>
-**Then** "ELEMENT NAME" color is "COLOR HEX CODE" <br>
-**Then** "ELEMENT NAME" is basically valid <br>
+**Then** the "ELEMENT NAME" color equals to "EXPECTED COLOR HEX CODE" <br>
+**Then** the "ELEMENT NAME" label text equals to "EXPECTED TEXT" <br>
+**Then** the "ELEMENT NAME" color is "COLOR HEX CODE" <br>
+**Then** the "ELEMENT NAME" is basically valid <br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial)<br><br>
 [**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/colorPicker.feature) for ColorPicker<br>
@@ -3582,19 +3583,19 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 
 ````
 Sample steps:
-  Then "Jdi Logo" attribute "src" equals to "https://jdi-testing.github.io/jdi-light/images/jdi-logo.jpg"
-  Then "Jdi Logo" attribute "alt" equals to "Jdi Logo 2"
-  Then "Jdi Logo" attribute "src" contains "jdi-logo.jpg"
-  Then "Jdi Logo" attribute "height" contains "100"
-  Then "Jdi Logo" attribute "width" contains "101"
+  Then the "Jdi Logo" attribute "src" equals to "https://jdi-testing.github.io/jdi-light/images/jdi-logo.jpg"
+  Then the "Jdi Logo" attribute "alt" equals to "Jdi Logo 2"
+  Then the "Jdi Logo" attribute "src" contains "jdi-logo.jpg"
+  Then the "Jdi Logo" attribute "height" contains "100"
+  Then the "Jdi Logo" attribute "width" contains "101"
 
 Examples:
   Scenario: Image validation test
     Given I open "Html5 Page"
     And Refresh webpage
-    Then "Jdi Logo" attribute "src" contains "jdi-logo.jpg"
-    And "Jdi Logo" attribute "height" contains "100"
-    And "Jdi Logo" attribute "width" contains "101"
+    Then the "Jdi Logo" attribute "src" contains "jdi-logo.jpg"
+    And the "Jdi Logo" attribute "height" contains "100"
+    And the "Jdi Logo" attribute "width" contains "101"
 
 ````
 
@@ -3666,19 +3667,19 @@ When I upload file "/res/general.xml" by "Avatar" file input element
 When I try to upload file "/res/general.xml" by "Disabled File Input" file input element
 
 FileInput validations examples:
-Then "Avatar" file input element label equals to "Profile picture:"
-Then "Avatar" file input element label contains "picture"
-Then "Avatar" file input element text equals to "C:\fakepath\general.xml"
-Then "Avatar" file input element text contains "general.xml"
-Then "Avatar" attribute "id" equals to "avatar"
-Then "Avatar" is basically valid
+Then the "Avatar" file input element label equals to "Profile picture:"
+Then the "Avatar" file input element label contains "picture"
+Then the "Avatar" file input element text equals to "C:\fakepath\general.xml"
+Then the "Avatar" file input element text contains "general.xml"
+Then the "Avatar" attribute "id" equals to "avatar"
+Then the "Avatar" is basically valid
 Then "Disabled File Input" is disabled
 
 Scenario example:
   Scenario: Upload file by enabled file input element
     Given I open "Html5 Page"
     When I upload file "/res/general.xml" by "Avatar" file input element
-    Then "Avatar" text contains "general.xml"
+    Then the "Avatar" text contains "general.xml"
 ```
 
 Actions:<br>
@@ -3686,13 +3687,13 @@ Actions:<br>
 **When** I try to upload file "\<PATH TO FILE\>" by "\<ELEMENT NAME\>" file input element<br>
 
 Validations:<br>
-**Then** "\<ELEMENT NAME\>" file input element label equals to "\<TEXT\>"<br>
-**Then** "\<ELEMENT NAME\>" file input element label contains "\<TEXT PART\>"<br>
-**Then** "\<ELEMENT NAME\>" file input element text equals to "\<PATH TO FILE\>"<br>
-**Then** "\<ELEMENT NAME\>" file input element text contains "\<PART OF PATH TO FILE\>"<br>
-**Then** "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" equals to "ATTRIBUTE VALUE\>"<br>
-**Then** "\<ELEMENT NAME\>" is disabled<br>
-**Then** "\<ELEMENT NAME\>" is basically valid<br>
+**Then** the "\<ELEMENT NAME\>" file input element label equals to "\<TEXT\>"<br>
+**Then** the "\<ELEMENT NAME\>" file input element label contains "\<TEXT PART\>"<br>
+**Then** the "\<ELEMENT NAME\>" file input element text equals to "\<PATH TO FILE\>"<br>
+**Then** the "\<ELEMENT NAME\>" file input element text contains "\<PART OF PATH TO FILE\>"<br>
+**Then** the"\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" equals to "ATTRIBUTE VALUE\>"<br>
+**Then** the"\<ELEMENT NAME\>" is disabled<br>
+**Then** the"\<ELEMENT NAME\>" is basically valid<br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial)<br>
 [**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/FileInput.feature) for FileInput<br>
@@ -3719,25 +3720,25 @@ Actions: <br>
 ```
 Link validations examples:
 
-Then "Github Link" is enabled
-Then "Github Link" is disabled
-Then "Github Link" is displayed
-Then "Github Link" is hidden
-Then "Github Link" URL path equals to "/jdi-testing"
-Then "Github Link" text equals to "Github JDI"
-Then "Github Link" text contains "JDI"
-Then "Github Link" text match to "[a-zA-Z]{6} JE*DI"
-Then "Github Link" reference equals to "https://github.com/jdi-testing"
-Then "Github Link" reference contains "github"
-Then "Github Link" reference match to "https://github.com/.*"
-Then "Github Link" alternative text equals to "Github JDI Link"
-Then "Github Link" alternative text contains "JDI"
-Then "Github Link" alternative text match to "Git.* JE*DI Link"
-Then "Github Link" attribute "alt" equals to "Github JDI Link"
-Then "Github Link" attribute "href" contains "https://github.com"
-Then "Github Link" attribute "ui" match to "github.link"
-Then "Github Link" is not appear
-Then "Github Link" is not appear during "5" seconds
+Then the "Github Link" is enabled
+Then the "Github Link" is disabled
+Then the "Github Link" is displayed
+Then the "Github Link" is hidden
+Then the "Github Link" URL path equals to "/jdi-testing"
+Then the "Github Link" text equals to "Github JDI"
+Then the "Github Link" text contains "JDI"
+Then the "Github Link" text match to "[a-zA-Z]{6} JE*DI"
+Then the "Github Link" reference equals to "https://github.com/jdi-testing"
+Then the "Github Link" reference contains "github"
+Then the "Github Link" reference match to "https://github.com/.*"
+Then the "Github Link" alternative text equals to "Github JDI Link"
+Then the "Github Link" alternative text contains "JDI"
+Then the "Github Link" alternative text match to "Git.* JE*DI Link"
+Then the "Github Link" attribute "alt" equals to "Github JDI Link"
+Then the "Github Link" attribute "href" contains "https://github.com"
+Then the "Github Link" attribute "ui" match to "github.link"
+Then the "Github Link" is not appear
+Then the "Github Link" is not appear during "5" seconds
 
 
 Some scenario examples:
@@ -3749,7 +3750,7 @@ Some scenario examples:
     
   Scenario: Link alternative text matching to RegExp
      Given I open "Html5 Page"
-     Then "Github Link" alternative text match to "Git.* JE*DI Link"
+     Then the "Github Link" alternative text match to "Git.* JE*DI Link"
   
 More examples are available in the Tutorial section.
 
@@ -3757,25 +3758,25 @@ More examples are available in the Tutorial section.
 
 Validations: <br>
 
-**Then** "\<ELEMENT NAME\>" is enabled <br>
-**Then** "\<ELEMENT NAME\>" is disabled <br>
-**Then** "\<ELEMENT NAME\>" is displayed <br>
-**Then** "\<ELEMENT NAME\>" is hidden <br>
-**Then** "\<ELEMENT NAME\>" URL path equals to "\<TEXT\>" <br>
-**Then** "\<ELEMENT NAME\>" text equals to "\<TEXT\>" <br>
-**Then** "\<ELEMENT NAME\>" text contains "\<TEXT\>" <br>
-**Then** "\<ELEMENT NAME\>" text matches to "\<TEXT\>" <br>
-**Then** "\<ELEMENT NAME\>" reference equals to "\<REFERENCE VALUE\>" <br>
-**Then** "\<ELEMENT NAME\>" reference contains "\<REFERENCE VALUE\>" <br>
-**Then** "\<ELEMENT NAME\>" reference match to "\<REFERENCE VALUE\>" <br>
-**Then** "\<ELEMENT NAME\>" alternative text equals to "\<ALT VALUE\>" <br>
-**Then** "\<ELEMENT NAME\>" alternative text contains "\<ALT VALUE\>" <br>
-**Then** "\<ELEMENT NAME\>" alternative text match to "\<ALT VALUE\>" <br>
-**Then** "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" equals to "\<ATTRIBUTE VALUE\>" <br>
-**Then** "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" contains "\<ATTRIBUTE VALUE\>" <br>
-**Then** "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" matches to "\<ATTRIBUTE VALUE\>" <br>
-**Then** "\<ELEMENT NAME\>" is not appear <br>
-**Then** "\<ELEMENT NAME\>" is not appear during "\<SECONDS\>" seconds <br>
+**Then** the "\<ELEMENT NAME\>" is enabled <br>
+**Then** the "\<ELEMENT NAME\>" is disabled <br>
+**Then** the "\<ELEMENT NAME\>" is displayed <br>
+**Then** the "\<ELEMENT NAME\>" is hidden <br>
+**Then** the "\<ELEMENT NAME\>" URL path equals to "\<TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" text equals to "\<TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" text contains "\<TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" text matches to "\<TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" reference equals to "\<REFERENCE VALUE\>" <br>
+**Then** the "\<ELEMENT NAME\>" reference contains "\<REFERENCE VALUE\>" <br>
+**Then** the "\<ELEMENT NAME\>" reference match to "\<REFERENCE VALUE\>" <br>
+**Then** the "\<ELEMENT NAME\>" alternative text equals to "\<ALT VALUE\>" <br>
+**Then** the "\<ELEMENT NAME\>" alternative text contains "\<ALT VALUE\>" <br>
+**Then** the "\<ELEMENT NAME\>" alternative text match to "\<ALT VALUE\>" <br>
+**Then** the "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" equals to "\<ATTRIBUTE VALUE\>" <br>
+**Then** the "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" contains "\<ATTRIBUTE VALUE\>" <br>
+**Then** the "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" matches to "\<ATTRIBUTE VALUE\>" <br>
+**Then** the "\<ELEMENT NAME\>" is not appear <br>
+**Then** the "\<ELEMENT NAME\>" is not appear during "\<SECONDS\>" seconds <br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial)<br>
 [**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/link.feature) for Link<br>
@@ -3869,20 +3870,20 @@ DateTimeSelector action example:
 When Set date "2018-11-13" in "Birth Date"
 
 DateTimeSelector validations example:
-Then  "Birth Date" text equals to "1985-06-18"
-Then  "Birth Date" text contains "1985"
-Then  "Birth Date" is enabled
-Then  "Birth Date" label text equals to "Birth date"
-Then  "Birth Date" label text contains "Birth"
-Then  "Birth Date" attribute min equals to "1970-01-01"
-Then  "Birth Date" attribute max equals to "2030-12-31"
+Then the "Birth Date" text equals to "1985-06-18"
+Then the "Birth Date" text contains "1985"
+Then the "Birth Date" is enabled
+Then the "Birth Date" label text equals to "Birth date"
+Then the "Birth Date" label text contains "Birth"
+Then "Birth Date" attribute min equals to "1970-01-01"
+Then "Birth Date" attribute max equals to "2030-12-31"
 
 BDD example:
 Scenario: Set date
     Given I open "Html5 Page"
-    Then "Birth Date" text equals to "1985-06-18"
+    Then the "Birth Date" text equals to "1985-06-18"
     When Set date "2018-11-13" in "Birth Date"
-    Then "Birth Date" text equals to "2018-11-13"
+    Then the "Birth Date" text equals to "2018-11-13"
 
 ```
 Actions:<br>
@@ -3891,22 +3892,22 @@ Actions:<br>
 
 Validations:<br>
 
-**Then** "\<ELEMENT NAME\>" text equals to "\<TEXT\>" <br>
-**Then** "\<ELEMENT NAME\>" text contains "\<TEXT PART\>" <br>
-**Then** "\<ELEMENT NAME\>" is enabled <br>
-**Then** "\<ELEMENT NAME\>" label text equals to "\<TEXT\>" <br>
-**Then** "\<ELEMENT NAME\>" label text contains "\<TEXT PART\>"_ <br>
-**Then** "\<ELEMENT NAME\>" attribute min equals to "\<MIN ATTRIBUTE VALUE\>"<br>
-**Then** "\<ELEMENT NAME\>" attribute max equals to "\<MAX ATTRIBUTE VALUE\>"<br>
+**Then** the "\<ELEMENT NAME\>" text equals to "\<TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" text contains "\<TEXT PART\>" <br>
+**Then** the "\<ELEMENT NAME\>" is enabled <br>
+**Then** the "\<ELEMENT NAME\>" label text equals to "\<TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" label text contains "\<TEXT PART\>"_ <br>
+**Then** the "\<ELEMENT NAME\>" attribute min equals to "\<MIN ATTRIBUTE VALUE\>"<br>
+**Then** the "\<ELEMENT NAME\>" attribute max equals to "\<MAX ATTRIBUTE VALUE\>"<br>
 
 [More information in the tutorial](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)
 
-There are BDD examples for Input Type Date derivatives:<br>
-[BDD test example for Input Type Date](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Date.feature)<br>
-[BDD test example for Input Type Week](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Week.feature)<br>
-[BDD test example for Input Type Month](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Month.feature)<br>
-[BDD test example for Input Type Time](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Time.feature)<br>
-[BDD test example for Input Type DateTime-Local](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/DateTime.feature)<br><br>
+There are BDD test examples for Input Type Date derivatives:<br>
+[Input Type Date](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Date.feature),
+[Input Type Week](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Week.feature),
+[Input Type Month](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Month.feature),
+[Input Type Time](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Time.feature),
+[DateTime-Local](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/DateTime.feature)<br><br>
 
 
 
@@ -3935,43 +3936,43 @@ Actions: <br>
 ```
 Checkbox validations examples:
 
-Then "Accept Conditions" is enabled
-Then "Accept Conditions" is disabled
-Then "Accept Conditions" is displayed
-Then "Accept Conditions" is hidden
-Then "Accept Conditions" label text equals to "Accept terms and conditions"
-Then "Accept Conditions" label text contains "terms and conditions"
-Then "Accept Conditions" label text match to "[a-zA-Z]{6} JE*DI"
-Then "Accept Conditions" is not appear
-Then "Accept Conditions" is not appear during "5" seconds
+Then the "Accept Conditions" is enabled
+Then the "Accept Conditions" is disabled
+Then the "Accept Conditions" is displayed
+Then the "Accept Conditions" is hidden
+Then the "Accept Conditions" label text equals to "Accept terms and conditions"
+Then the "Accept Conditions" label text contains "terms and conditions"
+Then the "Accept Conditions" label text match to "[a-zA-Z]{6} JE*DI"
+Then the "Accept Conditions" is not appear
+Then the "Accept Conditions" is not appear during "5" seconds
 
 
 Some scenario examples:
   Scenario: Get label text test
     Given I open "Html5 Page"
     When I Check "Accept Conditions"
-    Then "Accept Conditions" label text equals to "Accept terms and conditions"
+    Then the "Accept Conditions" label text equals to "Accept terms and conditions"
     
   Scenario: Click test
     Given I open "Html5 Page"
     When I Check "Accept Conditions"
     Then "Accept Conditions" is selected
     When I Click on "Accept Conditions"
-    Then "Accept Conditions" is deselected
+    Then the "Accept Conditions" is deselected
   
 ```
 
 Validations: <br>
 
-**Then** "\<ELEMENT NAME\>" is enabled <br>
-**Then** "\<ELEMENT NAME\>" is disabled <br>
-**Then** "\<ELEMENT NAME\>" is displayed <br>
-**Then** "\<ELEMENT NAME\>" is hidden <br>
-**Then** "\<ELEMENT NAME\>" label text equals to "\<TEXT\>" <br>
-**Then** "\<ELEMENT NAME\>" label text contains "\<TEXT\>" <br>
-**Then** "\<ELEMENT NAME\>" label text match to "\<TEXT\>" <br>
-**Then** "\<ELEMENT NAME\>" is not appear <br>
-**Then** "\<ELEMENT NAME\>" is not appear during "\<SECONDS\>" seconds <br>
+**Then** the "\<ELEMENT NAME\>" is enabled <br>
+**Then** the "\<ELEMENT NAME\>" is disabled <br>
+**Then** the "\<ELEMENT NAME\>" is displayed <br>
+**Then** the "\<ELEMENT NAME\>" is hidden <br>
+**Then** the "\<ELEMENT NAME\>" label text equals to "\<TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" label text contains "\<TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" label text match to "\<TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" is not appear <br>
+**Then** the "\<ELEMENT NAME\>" is not appear during "\<SECONDS\>" seconds <br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa)<br>
 [**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/checkbox.feature) for Checkbox<br>
@@ -3982,27 +3983,27 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 ```
 Scenario: progress bar validation
   Given I open "Html5 Page" page
-  Then "Progress" attribute "max" equals to "100"
-  And "Progress" progress volume greater or equal to 10
-  And "Progress" progress volume less or equal to 100
-  And "Progress" attribute "value" equals to "70"
-  And "Progress" is enabled
+  Then the "Progress" attribute "max" equals to "100"
+  And the "Progress" progress volume greater or equal to 10
+  And the "Progress" progress volume less or equal to 100
+  And the "Progress" attribute "value" equals to "70"
+  And the "Progress" is enabled
 ```
 
 **Validations:** <br>
-**Then** "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" equals to "\<ATTRIBUTE VALUE\>" <br>	
-**Then** "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" equals to "\<ATTRIBUTE VALUE\>" <br>	
-**Then** "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" match to "\<ATTRIBUTE VALUE\>" <br>	
-**Then** "\<ELEMENT NAME\>" progress volume greater or equal to \<VALUE\> <br>	
-**Then** "\<ELEMENT NAME\>" progress volume less or equal to \<VALUE\> <br>	
-**Then** "\<ELEMENT NAME\>" label text equals to "\<LABEL_TEXT\>" <br>	
-**Then** "\<ELEMENT NAME\>" label text contains "\<TEXT\>" <br>	
-**Then** "\<ELEMENT NAME\>" is enabled <br>	
-**Then** "\<ELEMENT NAME\>" is disabled <br>	
-**Then** "\<ELEMENT NAME\>" is displayed <br>	
-**Then** "\<ELEMENT NAME\>" is hidden	 <br>	
-**Then** "\<ELEMENT NAME\>" is not appear	<br>	
-**Then** "\<ELEMENT NAME\>" is not appear during "\<NUMBER\>" seconds <br>
+**Then** the "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" equals to "\<ATTRIBUTE VALUE\>" <br>	
+**Then** the "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" equals to "\<ATTRIBUTE VALUE\>" <br>	
+**Then** the "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" match to "\<ATTRIBUTE VALUE\>" <br>	
+**Then** the "\<ELEMENT NAME\>" progress volume greater or equal to \<VALUE\> <br>	
+**Then** the "\<ELEMENT NAME\>" progress volume less or equal to \<VALUE\> <br>	
+**Then** the "\<ELEMENT NAME\>" label text equals to "\<LABEL_TEXT\>" <br>	
+**Then** the "\<ELEMENT NAME\>" label text contains "\<TEXT\>" <br>	
+**Then** the "\<ELEMENT NAME\>" is enabled <br>	
+**Then** the "\<ELEMENT NAME\>" is disabled <br>	
+**Then** the "\<ELEMENT NAME\>" is displayed <br>	
+**Then** the "\<ELEMENT NAME\>" is hidden	 <br>	
+**Then** the "\<ELEMENT NAME\>" is not appear	<br>	
+**Then** the "\<ELEMENT NAME\>" is not appear during "\<NUMBER\>" seconds <br>
 
 [More information in the tutorial](https://jdi-docs.github.io/jdi-light/?java#tutorial) <br>	
 
@@ -4010,22 +4011,22 @@ Scenario: progress bar validation
 
 ```
 Text validations example:
-Then "Jdi Text" text equals to "Powerful Framework for UI Tests Automation. Suitable for any UI project: Web(Html5, Angular, React...), Mobile(Android IOs), Desktop(Win app) etc."
-Then "Jdi Text" text contains "Powerful Framework for UI"
-Then "Jdi Text" is enabled
+Then the "Jdi Text" text equals to "Powerful Framework for UI Tests Automation. Suitable for any UI project: Web(Html5, Angular, React...), Mobile(Android IOs), Desktop(Win app) etc."
+Then the "Jdi Text" text contains "Powerful Framework for UI"
+Then the "Jdi Text" is enabled
 
 BDD example:
 Scenario: Text validation test
     Given I open "Html5 Page"
-    Then "Jdi Text" is enabled
-    Then "Jdi Text" text contains "Powerful Framework for UI"
+    Then the "Jdi Text" is enabled
+    Then the "Jdi Text" text contains "Powerful Framework for UI"
 
 ```
 Validations:<br>
 
-**Then** "\<ELEMENT NAME\>" text equals to "\<TEXT\>" <br>
-**Then** "\<ELEMENT NAME\>" text contains "\<TEXT PART\>" <br>
-**Then** "\<ELEMENT NAME\>" is enabled <br>
+**Then** the "\<ELEMENT NAME\>" text equals to "\<TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" text contains "\<TEXT PART\>" <br>
+**Then** the "\<ELEMENT NAME\>" is enabled <br>
 
 [More information in the tutorial](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)<br>
 [BDD test example](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Text.feature)<br><br>

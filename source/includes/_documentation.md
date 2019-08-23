@@ -3522,6 +3522,7 @@ Then  the "JDI Title" does not appear during "5" seconds
 
 ```
 Actions: <br>
+
 **When** Click on "\<ELEMENT NAME\>" <br>
 **When** Double Click on "\<ELEMENT NAME\>" <br>
 **When** Right Click on "\<ELEMENT NAME\>" <br>
@@ -3531,6 +3532,7 @@ Actions: <br>
 **When** Make Screenshot for "\<ELEMENT NAME\>"<br>
 
 Validations: <br>
+
 **Then** the "\<ELEMENT NAME\>" text equal to "\<TEXT\>" <br>
 **Then** the "\<ELEMENT NAME\>" text contains "\<TEXT PART\>" <br>
 **Then** the "\<ELEMENT NAME\>" text matches to regexp "\<REGULAR EXPRESSION\>" <br>
@@ -3607,7 +3609,7 @@ Validations: <br>
 **Then** image "\<IMAGE NAME\>" width is equal to "\<WIDTH VALUE\>"<br>
 **Then** image "\<IMAGE NAME\>" attribute is equal to "\<ALT VALUE\>"<br>
 
-[More information in the tutorial](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)
+[More information in the tutorial](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)<br>
 [Cucumber tests for Image](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/image.feature) <br>
 
 <br><br><br><br><br>
@@ -3970,7 +3972,7 @@ Validations: <br>
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa)<br>
 [**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/checkbox.feature) for Checkbox<br>
 
-
+<br><br><br><br><br><br>
 ### Progress Bar
   
 ```

@@ -7560,19 +7560,15 @@ Examples:
 <strong>Then</strong> image &quot;&lt;IMAGE NAME&gt;&quot; width is equal to &quot;&lt;WIDTH VALUE&gt;&quot;<br>
 <strong>Then</strong> image &quot;&lt;IMAGE NAME&gt;&quot; attribute is equal to &quot;&lt;ALT VALUE&gt;&quot;<br></p>
 
-<p><a href="https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa">More information in the tutorial</a></p>
-<h3 id='alert'>Alert</h3><pre class="highlight plaintext"><code>
-Alert action examples:
+<p><a href="https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa">More information in the tutorial</a>
+<a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/image.feature">Cucumber tests for Image</a> <br></p>
+
+<p><br><br><br><br><br></p>
+<h3 id='alert'>Alert</h3><pre class="highlight plaintext"><code>Alert action examples:
   When Accept alert
   When Dismiss alert
 
-
-</code></pre>
-<p>Actions: <br></p>
-
-<p><strong>When</strong> Accept alert<br>
-<strong>When</strong> Dismiss alert<br></p>
-<pre class="highlight plaintext"><code>Alert validation examples:
+Alert validation examples:
   Then Alert text equals to "Red Button"
   Then Alert text contains "Red B"
   Then Alert text match to "\w{3} \d{6}"
@@ -7581,9 +7577,14 @@ Example:
 Scenario: alert text contains
     Given I open "Html5 page"
     When Click on "Red Button"
-    Then Alert text contains "Red B"
+    Then Alert text contains "Red B"   
 
 </code></pre>
+<p>Actions: <br></p>
+
+<p><strong>When</strong> Accept alert<br>
+<strong>When</strong> Dismiss alert<br></p>
+
 <p>Validations: <br></p>
 
 <p><strong>Then</strong> Alert text equals to &quot;&lt;ALERT TEXT&gt;&quot;<br>
@@ -7810,7 +7811,7 @@ Scenario: Set date
 </code></pre>
 <p>Actions:<br></p>
 
-<p><strong>When</strong> Set date &quot;&lt;TEXT&gt;&quot; in &quot;&lt;ELEMENT NAME&gt;&quot; <br></p>
+<p><strong>When</strong> &lt;I&gt; Set date &quot;&lt;TEXT&gt;&quot; in &quot;&lt;ELEMENT NAME&gt;&quot; <br></p>
 
 <p>Validations:<br></p>
 
@@ -7925,7 +7926,7 @@ Scenario: Text validation test
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is enabled <br></p>
 
 <p><a href="https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa">More information in the tutorial</a><br>
-<a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Text.feature">BDD test example</a><br><br></p>
+<a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Text.feature">Cucumber tests for Text</a><br><br></p>
 <h3 id='numberselector-2'>NumberSelector</h3><pre class="highlight plaintext"><code>
 NumberSelector action examples:
   When Set text "2.1" in "Height"   
@@ -7941,7 +7942,7 @@ NumberSelector action examples:
 <strong>When</strong> &lt;I&gt; Focus on &quot;&lt;NUMBER SELECTOR&gt;&quot;<br>
 <strong>When</strong> &lt;I&gt; Set text &quot;&lt;TEXT&gt;&quot; in &quot;&lt;ELEMENT NAME&gt;&quot;<br>
 <strong>When</strong> &lt;I&gt; Input &quot;&lt;TEXT&gt;&quot; in &quot;&lt;ELEMENT NAME&gt;&quot;   <br>
-<strong>When</strong> &lt;I&gt; Highlight &quot;&lt;ELEMENT NAME&gt;&quot; <br>
+<strong>When</strong> &lt;I&gt; Highlight &quot;&lt;ELEMENT NAME&gt;&quot;<br>
 <strong>When</strong> &lt;I&gt; Show &quot;&lt;NUMBER SELECTOR&gt;&quot;<br><br>
 <strong>When</strong> &lt;I&gt; Set &quot;&lt;NUMBER SELECTOR&gt;&quot; attribute &quot;&lt;ATTRIBUTE NAME&gt;&quot; with vlaue &quot;&lt;ATTRIBUTE VALUE&gt;&quot; <br></p>
 <pre class="highlight plaintext"><code>

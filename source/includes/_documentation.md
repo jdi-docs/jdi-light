@@ -2968,6 +2968,8 @@ Here is the list of some available methods in C# JDI Light:
 
 [C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Complex/CheckListTests.cs)
 
+[BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#checklist-2)
+
 ### MultiSelector
 **MultiSelector** – a graphical control element, that allows the user to do multiple choice.
 Multi Selector are represented by the following class:
@@ -3997,6 +3999,89 @@ Validations:<br>
 [More information in the tutorial](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)<br>
 [BDD test example](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Text.feature)<br><br>
 
+
+
+
+
+
+### CheckList
+
+```
+CheckList actions examples:
+
+When I check element "Hot option" in "Weather" checklist
+When I select element "Disabled" in "Weather" checklist
+When I check elements in "Weather" checklist:
+     | Hot option |
+When I select elements in "Weather" checklist via numbers:
+     | 4 |
+When I check in "Weather" checklist elements via enum:
+     | Rainy |
+When I check all elements in "Weather" checklist
+When I uncheck all elements in "Weather" checklist
+When I uncheck in "Weather" checklist elements:
+     | Rainy day |
+When I select nothing in "Weather" checklist and should be exception
+
+```
+Actions: <br>
+
+ **When**  \<I\> check elements in "\<ELEMENT NAME\>" checklist:  <br>
+ **When**  \<I\> uncheck in "\<ELEMENT NAME\>" checklist elements:  <br>
+ **When**  \<I\> select in "\<ELEMENT NAME\>" checklist elements:  <br>
+ **When**  \<I\> check in "\<ELEMENT NAME\>" checklist elements via numbers: <br> 
+ **When**  \<I\> select in "\<ELEMENT NAME\>" checklist elements via numbers: <br>
+ **When**  \<I\> uncheck in "\<ELEMENT NAME\>" checklist elements via numbers: <br>
+ **When**  \<I\> check in "\<ELEMENT NAME\>" checklist elements via enum:  <br>
+ **When**  \<I\> select in "\<ELEMENT NAME\>" checklist via enum:  <br> 
+ **When**  \<I\> uncheck in "\<ELEMENT NAME\>" checklist via enum:  <br> 
+ **When**  \<I\> check all elements in "\<ELEMENT NAME\>" checklist  <br>
+ **When**  \<I\> uncheck all elements in "\<ELEMENT NAME\>" checklist  <br>
+ **When**  \<I\> check element "\<ELEMENT NAME\>" in "\<ELEMENT NAME\>" checklist <br>
+ **When**  \<I\> select element "\<ELEMENT NAME\>" in "\<ELEMENT NAME\>" checklist <br>
+ **When**  \<I\> select nothing in "\<ELEMENT NAME\>" checklist and should be exception <br> 
+ 
+ ```
+CheckList validation examples:
+
+Then In "Weather" checklist checked element is "Cold"
+Then The "Weather" checklist text is "Hot option"
+Then Count of selected elements in "Weather" checklist is "2"
+ Then In the "Weather" checklist checked elements are:
+
+Scenario examples:
+  Scenario: Uncheck element via number test
+    When I check all elements in "Weather" checklist
+    And I uncheck in "Weather" checklist elements via numbers:
+      | 1 |
+      | 4 |
+    Then In the "Weather" checklist checked elements are:
+      | Cold      |
+      | Rainy day |
+
+  Scenario: Uncheck elements test
+    When I check elements in "Weather" checklist:
+      | Rainy day |
+      | Sunny     |
+    And I uncheck in "Weather" checklist elements:
+      | Rainy day |
+      | Sunny     |
+    Then Count of selected elements in "Weather" checklist is 
+```
+Validations: <br>
+
+**Then** In "\<ELEMENT NAME\>" checklist checked element is "\<ELEMENT NAME\>" <br>
+**Then** Count of selected elements in "\<ELEMENT NAME\>" checklist is "\<ELEMENT NAME\>" <br>
+**Then** In the "\<ELEMENT NAME\>" checklist checked element are: <br>
+**Then** The "\<ELEMENT NAME\>" checklist text is "\<ELEMENT NAME\>" <br>
+
+More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#checklist)<br>
+[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/CheckList.feature) for CheckList<br>
+
+
+ 
+
+ 
 
 ## UI Objects
 TBD

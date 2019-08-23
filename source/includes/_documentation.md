@@ -380,6 +380,7 @@ Here is the list of some available methods in Java:
 **assertThat()** | Assert acton color | ColorAssert 
 
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ColorPickerTests.java)
+[Cucumber test examples](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/colorPicker.feature)<br>
 
 Here is the list of some available methods in C#:
 
@@ -3544,6 +3545,7 @@ Then  Assert that "JDI Title" not appear during "5" seconds
 ```
 When I set "Color Picker" to "#00FF00" color
 ```
+Actions: <br>
 
 **When** I set "ELEMENT NAME" to "COLOR HEX CODE"
 
@@ -3552,12 +3554,25 @@ Then "Color Picker" color equals to "#00FF00"
 Then "Color Picker" label text equals to "Select a color"
 Then "Color Picker" color is "#00FF00"
 Then "Color Picker" is basically valid
+
+Example:
+
+  Scenario: Color picker set color test
+    Given I open "Html5 Page"
+    When I set "Color Picker" to "#ffd7a6" color
+    Then "Color Picker" color equals to "#ffd7a6"
 ```
+Validations: <br>
 
 **Then** "ELEMENT NAME" color equals to "EXPECTED COLOR HEX CODE" <br>
 **Then** "ELEMENT NAME" label text equals to "EXPECTED TEXT" <br>
 **Then** "ELEMENT NAME" color is "COLOR HEX CODE" <br>
 **Then** "ELEMENT NAME" is basically valid <br>
+
+More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial)<br>
+[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/colorPicker.feature) for ColorPicker<br>
+
+<br><br><br><br><br><br><br><br><br><br><br>
 
 ### Image
 

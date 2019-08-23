@@ -3781,7 +3781,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 [**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/link.feature) for Link<br>
 
 
-<br><br><br><br><br><br><br><br>
+<br><br><br>
 ### Button
 
 ```
@@ -3797,36 +3797,40 @@ When Set "Red Button" attribute "test-jdi" with vlaue "test-value"
 
 Button validations examples:
   
-Then "Red Button" text equals to "Big Red Button-Input"	
-Then "Red Button" text contains "Red Button"	
-Then "Red Button" text matches to ".+"
-Then "Red Button" attribute "test-jdi" equals to "test-value"
-Then "Red Button" attribute "test-jdi" contains "test"
-Then "Red Button" attribute "test-jdi" matches to ".{10}"	
-Then "Red Button" is enabled
-Then "Disabled Button" is disabled
-Then "Disabled Button" is displayed
-Then "Ghost Button" is hidden	
-Then "Ghost Button" does not appear	
-Then "Suspend Button" does not appear during "5" seconds
-Then "Red Button" css "font-size" equals to "14px"
-Then "Red Button" attribute "type" equals to "button"
+Then the "Red Button" text equals to "Big Red Button-Input"	
+Then the "Red Button" text contains "Red Button"	
+Then the "Red Button" text matches to ".+"
+Then the "Red Button" attribute "test-jdi" equals to "test-value"
+Then the "Red Button" attribute "test-jdi" contains "test"
+Then the "Red Button" attribute "test-jdi" matches to ".{10}"	
+Then the "Red Button" is enabled
+Then the "Disabled Button" is disabled
+Then the "Disabled Button" is displayed
+Then the "Ghost Button" is hidden	
+Then the "Ghost Button" disappears
+Then the "Ghost Button" does not appear	
+Then the "Suspend Button" does not appear during "5" seconds
+Then the "Red Button" css "font-size" equals to "14px"
+Then the "Red Button" attribute "type" equals to "button"
   
+
+
+
 Scenario: Basic for button
   Given I open "Home Page" page
-   Then "Red Button" is displayed
-    And "Red Button" is enabled
-    And "Red Button" text equals to "Big Red Button-Input"
-    And "Red Button" text contains "Red Button"
-    And "Red Button" css "font-size" equals to "14px"
-    And "Red Button" attribute "type" equals to "button"
-    And "Disabled Button" is disabled
+   Then the "Red Button" is displayed
+    And the "Red Button" is enabled
+    And the "Red Button" text equals to "Big Red Button-Input"
+    And the "Red Button" text contains "Red Button"
+    And the "Red Button" css "font-size" equals to "14px"
+    And the "Red Button" attribute "type" equals to "button"
+    And the "Disabled Button" is disabled
    When Click on "Blue Button"
-   Then Alert text equals to "Blue button"
+   Then the Alert text equals to "Blue button"
    
 ```
 
-**Actions:** <br>
+ Actions: <br>
 
 **When** \<I\> Click on "\<ELEMENT NAME\>" <br>
 **When** \<I\> Click with JS on "\<ELEMENT NAME\>"	 <br>
@@ -3834,27 +3838,28 @@ Scenario: Basic for button
 **When** \<I\> Right click on "\<ELEMENT NAME\>"	<br>
 **When** \<I\> Highlight "\<ELEMENT NAME\>"	<br>
 **When** \<I\> Show "\<ELEMENT NAME\>"	<br>
-**When** \<I\> Set "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" with vlaue "\<ATTRIBUTE VALUE\>" <br>
+**When** \<I\> Set "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" with value "\<ATTRIBUTE VALUE\>" <br>
   
- **Validations:** <br>
+ Validations: <br>
   
-**Then** "\<ELEMENT NAME\>" text equals to "\<TEXT\>"	<br>
-**Then** "\<ELEMENT NAME\>" text contains "\<TEXT\>"	<br>
-**Then** "\<ELEMENT NAME\>" text matches to "\<TEXT\>" <br>
-**Then** "\<ELEMENT NAME\>" attribute "\<ELEMENT NAME\>" equals to "\<ATTRIBUTE TEXT\>" <br>
-**Then** "\<ELEMENT NAME\>" attribute "\<ELEMENT NAME\>" contains "\<ATTRIBUTE TEXT\>" <br>
-**Then** "\<ELEMENT NAME\>" attribute "\<ELEMENT NAME\>" matches to "\<ATTRIBUTE TEXT\>" <br>
-**Then** "\<ELEMENT NAME\>" is enabled <br>
-**Then** "\<ELEMENT NAME\>" is disabled <br>
-**Then** "\<ELEMENT NAME\>" is displayed <br>
-**Then** "\<ELEMENT NAME\>" is hidden <br>
-**Then** "\<ELEMENT NAME\>" does not appear <br>
-**Then** "\<ELEMENT NAME\>" does not appear during "\<NUMBER\>" seconds <br>
-**Then** "\<ELEMENT NAME\>" css "\<ATTRIBUTE NAME\>" equals to "\<TEXT\>" <br>
-**Then** "\<ELEMENT NAME\>" attribute "ATTRIBUTE NAME" equals to "\<TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" text equals to "\<TEXT\>"	<br>
+**Then** the "\<ELEMENT NAME\>" text contains "\<TEXT\>"	<br>
+**Then** the "\<ELEMENT NAME\>" text matches to "\<TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" attribute "\<ELEMENT NAME\>" equals to "\<ATTRIBUTE TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" attribute "\<ELEMENT NAME\>" contains "\<ATTRIBUTE TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" attribute "\<ELEMENT NAME\>" matches to "\<ATTRIBUTE TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" is enabled <br>
+**Then** the "\<ELEMENT NAME\>" is disabled <br>
+**Then** the "\<ELEMENT NAME\>" is displayed <br>
+**Then** the "\<ELEMENT NAME\>" is hidden <br>
+**Then** the "\<ELEMENT NAME\>" disappears <br>
+**Then** the "\<ELEMENT NAME\>" does not appear <br>
+**Then** the "\<ELEMENT NAME\>" does not appear during "\<TIME\>" seconds <br>
+**Then** the "\<ELEMENT NAME\>" css "\<ATTRIBUTE NAME\>" equals to "\<TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" attribute "ATTRIBUTE NAME" equals to "\<TEXT\>" <br>
   
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa)<br>
-[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/button.feature) for Link<br>
+[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/button.feature) for Button<br>
 
 
 ### DateTimeSelector

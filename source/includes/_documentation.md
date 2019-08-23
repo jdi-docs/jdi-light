@@ -3761,7 +3761,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 [**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/link.feature) for Link<br>
 
 
-<br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br>
 ### Button
 
 ```
@@ -3779,10 +3779,10 @@ Button validations examples:
   
 Then "Red Button" text equals to "Big Red Button-Input"	
 Then "Red Button" text contains "Red Button"	
-Then "Red Button" text match to ".+"
+Then "Red Button" text matches to ".+"
 Then "Red Button" attribute "test-jdi" equals to "test-value"
 Then "Red Button" attribute "test-jdi" contains "test"
-Then "Red Button" attribute "test-jdi" match to ".{10}"	
+Then "Red Button" attribute "test-jdi" matches to ".{10}"	
 Then "Red Button" is enabled
 Then "Disabled Button" is disabled
 Then "Disabled Button" is displayed
@@ -3820,23 +3820,23 @@ Scenario: Basic for button
   
 **Then** "\<ELEMENT NAME\>" text equals to "\<TEXT\>"	<br>
 **Then** "\<ELEMENT NAME\>" text contains "\<TEXT\>"	<br>
-**Then** "\<ELEMENT NAME\>" text match to "\<TEXT\>" <br>
+**Then** "\<ELEMENT NAME\>" text matches to "\<TEXT\>" <br>
 **Then** "\<ELEMENT NAME\>" attribute "\<ELEMENT NAME\>" equals to "\<ATTRIBUTE TEXT\>" <br>
 **Then** "\<ELEMENT NAME\>" attribute "\<ELEMENT NAME\>" contains "\<ATTRIBUTE TEXT\>" <br>
-**Then** "\<ELEMENT NAME\>" attribute "\<ELEMENT NAME\>" match to "\<ATTRIBUTE TEXT\>" <br>
+**Then** "\<ELEMENT NAME\>" attribute "\<ELEMENT NAME\>" matches to "\<ATTRIBUTE TEXT\>" <br>
 **Then** "\<ELEMENT NAME\>" is enabled <br>
 **Then** "\<ELEMENT NAME\>" is disabled <br>
 **Then** "\<ELEMENT NAME\>" is displayed <br>
 **Then** "\<ELEMENT NAME\>" is hidden <br>
-**Then** "\<ELEMENT NAME\>" is not appear <br>
-**Then** "\<ELEMENT NAME\>" is not appear during "\<NUMBER\>" seconds <br>
+**Then** "\<ELEMENT NAME\>" does not appear <br>
+**Then** "\<ELEMENT NAME\>" does not appear during "\<NUMBER\>" seconds <br>
 **Then** "\<ELEMENT NAME\>" css "\<ATTRIBUTE NAME\>" equals to "\<TEXT\>" <br>
 **Then** "\<ELEMENT NAME\>" attribute "ATTRIBUTE NAME" equals to "\<TEXT\>" <br>
   
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa)<br>
 [**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/button.feature) for Link<br>
 
-<br><br><br><br>
+
 ### DateTimeSelector
 
 ```

@@ -7470,7 +7470,6 @@ When  Higlight "JDI Title"
 When  Show "JDI Title"
 When  Set "JDI Title" attribute "status" with value "marked"
 When  Make Screenshot for "JDI Title"
-
 </code></pre>
 <p><strong>When</strong> Click on &quot;&lt;ELEMENT NAME&gt;&quot; <br>
 <strong>When</strong> Double Click on &quot;&lt;ELEMENT NAME&gt;&quot; <br>
@@ -7479,28 +7478,28 @@ When  Make Screenshot for "JDI Title"
 <strong>When</strong> Show &quot;&lt;ELEMENT NAME&gt;&quot; <br>
 <strong>When</strong> Set &quot;&lt;ELEMENT NAME&gt;&quot; attribute &quot;&lt;ATTRIBUTE NAME&gt;&quot; with value &quot;&lt;ATTRIBUTE VALUE&gt;&quot; <br>
 <strong>When</strong> Make Screenshot for &quot;&lt;ELEMENT NAME&gt;&quot;<br></p>
-<pre class="highlight plaintext"><code>Then  Assert that "JDI Title" text equal to "JDI TESTING PLATFORM"
-Then  Assert that "JDI Title" text contains "JDI"
-Then  Assert that "JDI Title" text match to regexp ".* TESTING .*"
-Then  Assert that "JDI Title" is enabled
-Then  Assert that "JDI Title" is disabled
-Then  Assert that "JDI Title" is displayed
-Then  Assert that "JDI Title" disappear
-Then  Assert that "JDI Title" hidden
-Then  Assert that "JDI Title" not appear
-Then  Assert that "JDI Title" not appear during "5" seconds
+<pre class="highlight plaintext"><code>Then  the "JDI Title" text equal to "JDI TESTING PLATFORM"
+Then  the "JDI Title" text contains "JDI"
+Then  the "JDI Title" text match to regexp ".* TESTING .*"
+Then  the "JDI Title" is enabled
+Then  the "JDI Title" is disabled
+Then  the "JDI Title" is displayed
+Then  the "JDI Title" disappear
+Then  the "JDI Title" is hidden
+Then  the "JDI Title" does not appear
+Then  the "JDI Title" does not appear during "5" seconds
 
 </code></pre>
-<p><strong>Then</strong> Assert that &quot;&lt;ELEMENT NAME&gt;&quot; text equal to &quot;&lt;TEXT&gt;&quot; <br>
-<strong>Then</strong> Assert that &quot;&lt;ELEMENT NAME&gt;&quot; text contains &quot;&lt;TEXT PART&gt;&quot; <br>
-<strong>Then</strong> Assert that &quot;&lt;ELEMENT NAME&gt;&quot; text match to regexp &quot;&lt;REGULAR EXPRESSION&gt;&quot; <br>
-<strong>Then</strong> Assert that &quot;&lt;ELEMENT NAME&gt;&quot; is enabled <br>
-<strong>Then</strong> Assert that &quot;&lt;ELEMENT NAME&gt;&quot; is disabled <br>
-<strong>Then</strong> Assert that &quot;&lt;ELEMENT NAME&gt;&quot; is displayed <br>
-<strong>Then</strong> Assert that &quot;&lt;ELEMENT NAME&gt;&quot; disappear <br>
-<strong>Then</strong> Assert that &quot;&lt;ELEMENT NAME&gt;&quot; hidden <br>
-<strong>Then</strong> Assert that &quot;&lt;ELEMENT NAME&gt;&quot; not appear <br>
-<strong>Then</strong> Assert that &quot;&lt;ELEMENT NAME&gt;&quot; not appear during &quot;&lt;SECONDS&gt;&quot; seconds <br></p>
+<p><strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; text equal to &quot;&lt;TEXT&gt;&quot; <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; text contains &quot;&lt;TEXT PART&gt;&quot; <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; text matches to regexp &quot;&lt;REGULAR EXPRESSION&gt;&quot; <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is enabled <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is disabled <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is displayed <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; disappear <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is hidden <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; does not appear <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; does not appear during &quot;&lt;SECONDS&gt;&quot; seconds <br></p>
 <h3 id='colorpicker-2'>ColorPicker</h3><pre class="highlight plaintext"><code>When I set "Color Picker" to "#00FF00" color
 </code></pre>
 <p>Actions: <br></p>

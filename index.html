@@ -7687,7 +7687,7 @@ More examples are available in the Tutorial section.
 <p>More information in the <a href="https://jdi-docs.github.io/jdi-light/?java#tutorial"><strong>Tutorial</strong></a><br>
 <a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/link.feature"><strong>Cucumber tests</strong></a> for Link<br></p>
 
-<p><br><br><br><br><br><br></p>
+<p><br><br><br><br><br><br><br><br></p>
 <h3 id='button-2'>Button</h3><pre class="highlight plaintext"><code>Button actions examples:
 
 When Click on "Red Button" 
@@ -7702,10 +7702,10 @@ Button validations examples:
 
 Then "Red Button" text equals to "Big Red Button-Input" 
 Then "Red Button" text contains "Red Button"    
-Then "Red Button" text match to ".+"
+Then "Red Button" text matches to ".+"
 Then "Red Button" attribute "test-jdi" equals to "test-value"
 Then "Red Button" attribute "test-jdi" contains "test"
-Then "Red Button" attribute "test-jdi" match to ".{10}" 
+Then "Red Button" attribute "test-jdi" matches to ".{10}"   
 Then "Red Button" is enabled
 Then "Disabled Button" is disabled
 Then "Disabled Button" is displayed
@@ -7742,23 +7742,21 @@ Scenario: Basic for button
 
 <p><strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; text equals to &quot;&lt;TEXT&gt;&quot;   <br>
 <strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; text contains &quot;&lt;TEXT&gt;&quot;    <br>
-<strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; text match to &quot;&lt;TEXT&gt;&quot; <br>
+<strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; text matches to &quot;&lt;TEXT&gt;&quot; <br>
 <strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; attribute &quot;&lt;ELEMENT NAME&gt;&quot; equals to &quot;&lt;ATTRIBUTE TEXT&gt;&quot; <br>
 <strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; attribute &quot;&lt;ELEMENT NAME&gt;&quot; contains &quot;&lt;ATTRIBUTE TEXT&gt;&quot; <br>
-<strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; attribute &quot;&lt;ELEMENT NAME&gt;&quot; match to &quot;&lt;ATTRIBUTE TEXT&gt;&quot; <br>
+<strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; attribute &quot;&lt;ELEMENT NAME&gt;&quot; matches to &quot;&lt;ATTRIBUTE TEXT&gt;&quot; <br>
 <strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; is enabled <br>
 <strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; is disabled <br>
 <strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; is displayed <br>
 <strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; is hidden <br>
-<strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; is not appear <br>
-<strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; is not appear during &quot;&lt;NUMBER&gt;&quot; seconds <br>
+<strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; does not appear <br>
+<strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; does not appear during &quot;&lt;NUMBER&gt;&quot; seconds <br>
 <strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; css &quot;&lt;ATTRIBUTE NAME&gt;&quot; equals to &quot;&lt;TEXT&gt;&quot; <br>
 <strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; attribute &quot;ATTRIBUTE NAME&quot; equals to &quot;&lt;TEXT&gt;&quot; <br></p>
 
 <p>More information in the <a href="https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa"><strong>Tutorial</strong></a><br>
 <a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/button.feature"><strong>Cucumber tests</strong></a> for Link<br></p>
-
-<p><br><br><br><br></p>
 <h3 id='datetimeselector-2'>DateTimeSelector</h3><pre class="highlight plaintext"><code>DateTimeSelector action example:
 When Set date "2018-11-13" in "Birth Date"
 

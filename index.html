@@ -2350,7 +2350,7 @@ In addition if you run test scenarios on JDI Light you will <strong>get logs of 
 </tbody></table>
 
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ColorPickerTests.java">Java test examples</a><br>
-<a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/colorPicker.feature">Cucumber test examples</a><br></p>
+<a href="https://jdi-docs.github.io/jdi-light/?java#colorpicker-2">BDD Steps example</a><br></p>
 
 <p>Here is the list of some available methods in C#:</p>
 
@@ -3012,8 +3012,7 @@ In addition if you run test scenarios on JDI Light you will <strong>get logs of 
 </tbody></table>
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/ImagesTests.cs">Test examples in C#</a> <br>
-<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-bdd-tests/src/test/resources/features/image.feature">BDD test examples</a>  <br>
-<a href="https://jdi-docs.github.io/jdi-light/?java#image-2">BDD Steps documentation</a> <br></p>
+<a href="https://jdi-docs.github.io/jdi-light/?java#image-2">BDD Steps example</a> <br></p>
 
 <p>And here are methods available in Java:</p>
 
@@ -3062,8 +3061,7 @@ In addition if you run test scenarios on JDI Light you will <strong>get logs of 
 </tbody></table>
 
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ImageTests.java">Test examples in Java</a><br>
-<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-bdd-tests/src/test/resources/features/image.feature">BDD test examples</a> <br>
-<a href="https://jdi-docs.github.io/jdi-light/?java#image-2">BDD Steps documentation</a><br></p>
+<a href="https://jdi-docs.github.io/jdi-light/?java#image-2">BDD Steps example</a><br></p>
 <h3 id='icon-2'>Icon</h3><pre class="highlight csharp tab-csharp"><code><span class="na">[FindBy(Css = "#jdi-ico")]</span>
 <span class="k">public</span> <span class="n">IIcon</span> <span class="n">LogoIco</span><span class="p">;</span>
 
@@ -3673,7 +3671,7 @@ In addition if you run test scenarios on JDI Light you will <strong>get logs of 
 </tbody></table>
 
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ProgressTests.java">Java test examples</a> <br>
-<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-bdd-tests/src/test/resources/features/ProgressBar.feature">BDD test examples</a><br></p>
+<a href="https://jdi-docs.github.io/jdi-light/?java#progress-bar">BDD Steps example</a> <br></p>
 
 <p>Available method in C# JDI Light:</p>
 
@@ -3707,7 +3705,7 @@ In addition if you run test scenarios on JDI Light you will <strong>get logs of 
 </tbody></table>
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/ProgressTests.cs">C# test examples</a><br>
-<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-bdd-tests/src/test/resources/features/ProgressBar.feature">BDD test examples</a><br></p>
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-bdd-tests/src/test/resources/features/ProgressBar.feature">BDD Steps example</a><br></p>
 <h3 id='range'>Range</h3><pre class="highlight java tab-java"><code>  <span class="nd">@UI</span><span class="o">(</span><span class="s">"#volume"</span><span class="o">)</span>  <span class="c1">//@FindBy(id = "volume") </span>
   <span class="kd">public</span> <span class="kd">static</span> <span class="n">Range</span> <span class="n">volume</span><span class="o">;</span>
   <span class="nd">@Test</span>
@@ -7468,22 +7466,17 @@ public class Section : UIElement</p>
     <span class="n">mainPage</span><span class="o">.</span><span class="na">setCurrentPage</span><span class="o">(</span><span class="n">mainPage</span><span class="o">);</span>
     <span class="n">assertEquals</span><span class="o">(</span><span class="n">mainPage</span><span class="o">.</span><span class="na">getTitle</span><span class="o">(),</span> <span class="s">"Main page"</span><span class="o">);</span>
 <span class="o">}</span>
-</code></pre><h2 id='jdi-light-bdd-steps'>JDI Light BDD Steps</h2><h3 id='label-2'>Label</h3><pre class="highlight plaintext"><code>When  Click on "JDI Title"
+</code></pre><h2 id='jdi-light-bdd-steps'>JDI Light BDD Steps</h2><h3 id='label-2'>Label</h3><pre class="highlight plaintext"><code>Label action examples:
+When  Click on "JDI Title"
 When  Double Click on "JDI Title"
 When  Right Click on "JDI Title"
 When  Higlight "JDI Title"
 When  Show "JDI Title"
 When  Set "JDI Title" attribute "status" with value "marked"
 When  Make Screenshot for "JDI Title"
-</code></pre>
-<p><strong>When</strong> Click on &quot;&lt;ELEMENT NAME&gt;&quot; <br>
-<strong>When</strong> Double Click on &quot;&lt;ELEMENT NAME&gt;&quot; <br>
-<strong>When</strong> Right Click on &quot;&lt;ELEMENT NAME&gt;&quot; <br>
-<strong>When</strong> Higlight &quot;&lt;ELEMENT NAME&gt;&quot; <br>
-<strong>When</strong> Show &quot;&lt;ELEMENT NAME&gt;&quot; <br>
-<strong>When</strong> Set &quot;&lt;ELEMENT NAME&gt;&quot; attribute &quot;&lt;ATTRIBUTE NAME&gt;&quot; with value &quot;&lt;ATTRIBUTE VALUE&gt;&quot; <br>
-<strong>When</strong> Make Screenshot for &quot;&lt;ELEMENT NAME&gt;&quot;<br></p>
-<pre class="highlight plaintext"><code>Then  the "JDI Title" text equal to "JDI TESTING PLATFORM"
+
+Label validation examples:
+Then  the "JDI Title" text equal to "JDI TESTING PLATFORM"
 Then  the "JDI Title" text contains "JDI"
 Then  the "JDI Title" text match to regexp ".* TESTING .*"
 Then  the "JDI Title" is enabled
@@ -7495,7 +7488,17 @@ Then  the "JDI Title" does not appear
 Then  the "JDI Title" does not appear during "5" seconds
 
 </code></pre>
-<p><strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; text equal to &quot;&lt;TEXT&gt;&quot; <br>
+<p>Actions: <br>
+<strong>When</strong> Click on &quot;&lt;ELEMENT NAME&gt;&quot; <br>
+<strong>When</strong> Double Click on &quot;&lt;ELEMENT NAME&gt;&quot; <br>
+<strong>When</strong> Right Click on &quot;&lt;ELEMENT NAME&gt;&quot; <br>
+<strong>When</strong> Higlight &quot;&lt;ELEMENT NAME&gt;&quot; <br>
+<strong>When</strong> Show &quot;&lt;ELEMENT NAME&gt;&quot; <br>
+<strong>When</strong> Set &quot;&lt;ELEMENT NAME&gt;&quot; attribute &quot;&lt;ATTRIBUTE NAME&gt;&quot; with value &quot;&lt;ATTRIBUTE VALUE&gt;&quot; <br>
+<strong>When</strong> Make Screenshot for &quot;&lt;ELEMENT NAME&gt;&quot;<br></p>
+
+<p>Validations: <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; text equal to &quot;&lt;TEXT&gt;&quot; <br>
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; text contains &quot;&lt;TEXT PART&gt;&quot; <br>
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; text matches to regexp &quot;&lt;REGULAR EXPRESSION&gt;&quot; <br>
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is enabled <br>
@@ -7506,26 +7509,28 @@ Then  the "JDI Title" does not appear during "5" seconds
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; does not appear <br>
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; does not appear during &quot;&lt;SECONDS&gt;&quot; seconds <br></p>
 
-<p>More information in the <a href="https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa"><strong>Tutorial</strong></a><br>
-<a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Alert.feature"><strong>Cucumber tests</strong></a> for Alert<br></p>
-<h3 id='colorpicker-2'>ColorPicker</h3><pre class="highlight plaintext"><code>When I set "Color Picker" to "#00FF00" color
-</code></pre>
-<p>Actions: <br></p>
+<p><a href="https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa">More information in the Tutorial</a><br>
+<a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Label.feature">Cucumber tests for Label</a><br></p>
+<h3 id='colorpicker-2'>ColorPicker</h3><pre class="highlight plaintext"><code>ColorPicker action example:
+When I set "Color Picker" to "#00FF00" color
 
-<p><strong>When</strong> I set &quot;ELEMENT NAME&quot; to &quot;COLOR HEX CODE&quot;</p>
-<pre class="highlight plaintext"><code>Then the "Color Picker" color equals to "#00FF00"
+ColorPicker validation examples:
+Then the "Color Picker" color equals to "#00FF00"
 Then the "Color Picker" label text equals to "Select a color"
 Then the "Color Picker" color is "#00FF00"
 Then the "Color Picker" is basically valid
 
 Example:
-
   Scenario: Color picker set color test
     Given I open "Html5 Page"
     When I set "Color Picker" to "#ffd7a6" color
     Then the "Color Picker" color equals to "#ffd7a6"
 
 </code></pre>
+<p>Actions: <br></p>
+
+<p><strong>When</strong> I set &quot;ELEMENT NAME&quot; to &quot;COLOR HEX CODE&quot;</p>
+
 <p>Validations: <br></p>
 
 <p><strong>Then</strong> the &quot;ELEMENT NAME&quot; color equals to &quot;EXPECTED COLOR HEX CODE&quot; <br>
@@ -7744,8 +7749,6 @@ Then the "Red Button" css "font-size" equals to "14px"
 Then the "Red Button" attribute "type" equals to "button"
 
 
-
-
 Scenario: Basic for button
   Given I open "Home Page" page
    Then the "Red Button" is displayed
@@ -7836,14 +7839,7 @@ When Check "Accept Conditions"
 When Uncheck "Accept Conditions"
 When Click on "Accept Conditions"
 
-</code></pre>
-<p>Actions: <br></p>
-
-<p><strong>When</strong> Check &quot;&lt;ELEMENT NAME&gt;&quot; <br>
-<strong>When</strong> Uncheck &quot;&lt;ELEMENT NAME&gt;&quot; <br>
-<strong>When</strong> Click on &quot;&lt;ELEMENT NAME&gt;&quot; <br></p>
-<pre class="highlight plaintext"><code>Checkbox validations examples:
-
+Checkbox validations examples:
 Then the "Accept Conditions" is enabled
 Then the "Accept Conditions" is disabled
 Then the "Accept Conditions" is displayed
@@ -7869,6 +7865,12 @@ Some scenario examples:
     Then the "Accept Conditions" is deselected
 
 </code></pre>
+<p>Actions: <br></p>
+
+<p><strong>When</strong> Check &quot;&lt;ELEMENT NAME&gt;&quot; <br>
+<strong>When</strong> Uncheck &quot;&lt;ELEMENT NAME&gt;&quot; <br>
+<strong>When</strong> Click on &quot;&lt;ELEMENT NAME&gt;&quot; <br></p>
+
 <p>Validations: <br></p>
 
 <p><strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is enabled <br>
@@ -7890,6 +7892,7 @@ Some scenario examples:
   And the "Progress" progress volume less or equal to 100
   And the "Progress" attribute "value" equals to "70"
   And the "Progress" is enabled
+
 </code></pre>
 <p><strong>Validations:</strong> <br>
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; attribute &quot;&lt;ATTRIBUTE NAME&gt;&quot; equals to &quot;&lt;ATTRIBUTE VALUE&gt;&quot; <br> 
@@ -7906,7 +7909,8 @@ Some scenario examples:
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is not appear   <br><br>
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is not appear during &quot;&lt;NUMBER&gt;&quot; seconds <br></p>
 
-<p><a href="https://jdi-docs.github.io/jdi-light/?java#tutorial">More information in the tutorial</a> <br>    </p>
+<p><a href="https://jdi-docs.github.io/jdi-light/?java#tutorial">More information in the tutorial</a> <br><br>
+<a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/ProgressBar.feature">Cucumber tests for Progress Bar</a><br><br></p>
 <h3 id='text-2'>Text</h3><pre class="highlight plaintext"><code>Text validations example:
 Then the "Jdi Text" text equals to "Powerful Framework for UI Tests Automation. Suitable for any UI project: Web(Html5, Angular, React...), Mobile(Android IOs), Desktop(Win app) etc."
 Then the "Jdi Text" text contains "Powerful Framework for UI"

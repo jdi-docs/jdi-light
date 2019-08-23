@@ -1128,6 +1128,8 @@ Here is the list of available methods in C#:
 [Test examples in C#]
 (https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/NumberSelectorTests.cs)
 
+[BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#numberselector-2)<br>
+
 ### ProgressBar
 **Progress Bar** - Element for displaying an indicator showing the completion progress of a task
 

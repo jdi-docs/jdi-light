@@ -3982,19 +3982,19 @@ Scenario: progress bar validation
 ```
 
 **Validations:** <br>
-**Then** "<ELEMENT NAME>" attribute "<ATTRIBUTE NAME>" equals to "<ATTRIBUTE VALUE>" <br>	
-**Then** "<ELEMENT NAME>" attribute "<ATTRIBUTE NAME>" equals to "<ATTRIBUTE VALUE>" <br>	
-**Then** "<ELEMENT NAME>" attribute "<ATTRIBUTE NAME>" match to "<ATTRIBUTE VALUE>" <br>	
-**Then** "<ELEMENT NAME>" progress volume greater or equal to <VALUE> <br>	
-**Then** "<ELEMENT NAME>" progress volume less or equal to <VALUE> <br>	
-**Then** "<ELEMENT NAME>" label text equals to "<LABEL_TEXT>" <br>	
-**Then** "<ELEMENT NAME>" label text contains "<TEXT>" <br>	
-**Then** "<ELEMENT NAME>" is enabled <br>	
-**Then** "<ELEMENT NAME>" is disabled <br>	
-**Then** "<ELEMENT NAME>" is displayed <br>	
-**Then** "<ELEMENT NAME>" is hidden	 <br>	
-**Then** "<ELEMENT NAME>" is not appear	<br>	
-**Then** "<ELEMENT NAME>" is not appear during "<NUMBER>" seconds <br>
+**Then** "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" equals to "\<ATTRIBUTE VALUE\>" <br>	
+**Then** "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" equals to "\<ATTRIBUTE VALUE\>" <br>	
+**Then** "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" match to "\<ATTRIBUTE VALUE\>" <br>	
+**Then** "\<ELEMENT NAME\>" progress volume greater or equal to \<VALUE\> <br>	
+**Then** "\<ELEMENT NAME\>" progress volume less or equal to \<VALUE\> <br>	
+**Then** "\<ELEMENT NAME\>" label text equals to "\<LABEL_TEXT\>" <br>	
+**Then** "\<ELEMENT NAME\>" label text contains "\<TEXT\>" <br>	
+**Then** "\<ELEMENT NAME\>" is enabled <br>	
+**Then** "\<ELEMENT NAME\>" is disabled <br>	
+**Then** "\<ELEMENT NAME\>" is displayed <br>	
+**Then** "\<ELEMENT NAME\>" is hidden	 <br>	
+**Then** "\<ELEMENT NAME\>" is not appear	<br>	
+**Then** "\<ELEMENT NAME\>" is not appear during "\<NUMBER\>" seconds <br>
 
 [More information in the tutorial](https://jdi-docs.github.io/jdi-light/?java#tutorial) <br>	
 

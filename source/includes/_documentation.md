@@ -4048,7 +4048,7 @@ NumberSelector action examples:
 Actions: <br>
 **When** \<I\> Focus on "\<NUMBER SELECTOR\>"<br>
 **When** \<I\> Set text "\<TEXT\>" in "\<ELEMENT NAME\>"<br>
-**When** \<I\> Input "\<TEXT>\" in "\<ELEMENT NAME\>"	<br>
+**When** \<I\> Input "\<TEXT\>" in "\<ELEMENT NAME\>"	<br>
 **When** \<I\> Highlight "\<ELEMENT NAME\>"	<br>
 **When** \<I\> Show "\<NUMBER SELECTOR\>"<br>	
 **When** \<I\> Set "\<NUMBER SELECTOR\>" attribute "\<ATTRIBUTE NAME\>" with vlaue "\<ATTRIBUTE VALUE\>" <br>
@@ -4056,7 +4056,7 @@ Actions: <br>
 
 ````
 
-NumberSelctor validation examples:
+NumberSelector validation examples:
   Then the "Height" label text equals to "Height (metres):"
   Then the "Height" label text contains "(metres):"
   Then the "Height" label text label text matches to "\w{15}"

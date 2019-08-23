@@ -3632,8 +3632,8 @@ Validations: <br>
 
 ```
 FileInput actions examples:
-When I upload file "/resources/general.xml" by "Avatar" file input element
-When I try to upload file "/resources/general.xml" by "Disabled File Input" file input element
+When I upload file "/res/general.xml" by "Avatar" file input element
+When I try to upload file "/res/general.xml" by "Disabled File Input" file input element
 
 FileInput validations examples:
 Then "Avatar" file input element label equals to "Profile picture:"
@@ -3647,7 +3647,7 @@ Then "Disabled File Input" is disabled
 Scenario example:
   Scenario: Upload file by enabled file input element
     Given I open "Html5 Page"
-    When I upload file "/resources/general.xml" by "Avatar" file input element
+    When I upload file "/res/general.xml" by "Avatar" file input element
     Then "Avatar" text contains "general.xml"
 ```
 

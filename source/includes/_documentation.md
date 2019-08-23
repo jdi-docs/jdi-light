@@ -4023,6 +4023,104 @@ Validations:<br>
 [More information in the tutorial](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)<br>
 [BDD test example](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Text.feature)<br><br>
 
+### NumberSelector
+
+````
+
+NumberSelector action examples:
+  When Set text "2.1" in "Height"	
+  When Focus on "Height"  
+  When Input "2.1" in "Height"
+  When Highlight "Height"
+  When Show "Height"	
+  When Set "Height" attribute "test-jdi" with vlaue "test"
+    
+    
+````
+
+Actions: <br>
+**When** <I> Focus on "<NUMBER SELECTOR>"<br>
+**When** <I> Set text "<TEXT>" in "<ELEMENT NAME>"<br>
+**When** <I> Input "<TEXT>" in "<ELEMENT NAME>"	<br>
+**When** <I> Highlight "<ELEMENT NAME>"	<br>
+**When** <I> Show "<NUMBER SELECTOR>"<br>	
+**When** <I> Set "<NUMBER SELECTOR>"attribute "<ATTRIBUTE NAME>" with vlaue "<ATTRIBUTE VALUE>" <br>
+
+
+````
+
+NumberSelctor validation examples:
+  Then the "Height" label text equals to "Height (metres):"
+  Then the "Height" label text contains "(metres):"
+  Then the "Height" label text label text matches to "\w{15}"
+  Then the "Height" placeholder equals to "20 cm increments. Range [0.3,2.5]"
+  Then the "Height" placeholder contains "20 cm"
+  Then the "Height" placeholder  matches to "\d{2}"
+  Then the "Height" text equals to "2.1"
+  Then the "Height" text contains "2.1"	
+  Then the "Height" text matches to "\d{5}\w{4}"
+  Then the "Height" attribute "jdi-test" equals to "jdi test"
+  Then the "Height" attribute "jdi-test" contains "jdi"
+  Then the "Height" attribute "jdi-test" matches to "\w{3} \w{4}"
+  Then the "Height" number selector min is "0.3"
+  Then the "Height" number selector max is "2.5"
+  Then the "Height" number selector step is "0.2"
+  Then the "Height" number selector value is greater or equal to "0.3"
+  Then the "Height" number selector value less or equal to "2.5"
+  Then the "Height" number selector value is greater than "0.0"
+  Then the "Height" number selector value less than "3.0"
+  Then the "Height" does not appear
+  Then the "Height" does not appear during "5" seconds
+    
+Example:
+Scenario: Validation 
+    Given I open "Html5 Page"
+    Then the "Height" number selector min is "0.3"
+    And the "Height" number selector max is "2.5"
+    And the "Height" number selector step is "0.2"
+    And the "Height" placeholder contains "20 cm increments"
+    And the "Height" number selector value is greater or equal to "0.3"
+    And the "Height" number selector value less or equal to "2.5"
+    And the "Height" text equals to "2.1"
+    
+    
+````
+
+Validations: <br>
+**Then** the "<NUMBER SELECTOR>" label text equals to "<LABEL TEXT>" <br>
+**Then** the "<NUMBER SELECTOR>" label text contains "<LABEL TEXT>" <br>
+**Then** the "<NUMBER SELECTOR>" label text matches to "<LABEL TEXT>" <br>
+**Then** the "<NUMBER SELECTOR>" placeholder equals to "<PLACEHOLDER TEXT>" <br>
+**Then** the "<NUMBER SELECTOR>" placeholder contains "<PLACEHOLDER TEXT>"	 <br>
+**Then** the "<NUMBER SELECTOR>" placeholder matches to "<PLACEHOLDER TEXT>" <br>
+**Then** the "<NUMBER SELECTOR>" text equals to "<TEXT>"	 <br>
+**Then** the "<NUMBER SELECTOR>" text contains "<TEXT>"	 <br>
+**Then** the "<NUMBER SELECTOR>" text matches to "<TEXT>" <br>
+**Then** the "<NUMBER SELECTOR>" attribute "<ELEMENT NAME>" equals to "<ATTRIBUTE TEXT>" <br>
+**Then** the "<NUMBER SELECTOR>" attribute "<ELEMENT NAME>" contains "<ATTRIBUTE TEXT>" <br>
+**Then** the "<NUMBER SELECTOR>" attribute "<ELEMENT NAME>" matches to "<ATTRIBUTE TEXT>"	 <br>
+**Then** the "<NUMBER SELECTOR>" number selector min is "<VALUE>" <br>
+**Then** the "<NUMBER SELECTOR>" number selector max is "<VALUE>" <br>
+**Then** the "<NUMBER SELECTOR>" number selector step is "<VALUE>" <br>
+**Then** the "<NUMBER SELECTOR>" number selector value is greater or equal to "<VALUE>" <br>
+**Then** the "<NUMBER SELECTOR>" number selector value less or equal to "<VALUE>" <br>
+**Then** the "<NUMBER SELECTOR>" number selector value is greater than "<VALUE>" <br>
+**Then** the "<NUMBER SELECTOR>" number selector value less than "<VALUE>" <br>
+**Then** the "<NUMBER SELECTOR>" does not appear <br>
+**Then** the "<NUMBER SELECTOR>" does not appear during "<TIME>" seconds <br>
+
+More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa)<br>
+[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/NumberSelector.feature) for NumberSelector<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 
 ## UI Objects
 TBD
@@ -4292,6 +4390,8 @@ Availiable methods in Java
 **getAlertText()** | Get alert text | String
 **validateAlert(Matcher<String> text)** | Validate alert by matching passed value with alert text | void
 **inputAndAcceptAlert(String text)** | Input the specified text in the alert and accept it | void
+
+[BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#alert)
 
 ## Logs
 ```java

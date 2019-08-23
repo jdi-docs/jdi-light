@@ -3607,24 +3607,16 @@ Validations: <br>
 **Then** image "\<IMAGE NAME\>" attribute is equal to "\<ALT VALUE\>"<br>
 
 [More information in the tutorial](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)
+[Cucumber tests for Image](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/image.feature) <br>
 
+<br><br><br><br><br>
 ### Alert
 
 ````
-
 Alert action examples:
   When Accept alert
   When Dismiss alert
-   
-    
-````
 
-Actions: <br>
-
-**When** Accept alert<br>
-**When** Dismiss alert<br>
-
-````
 Alert validation examples:
   Then Alert text equals to "Red Button"
   Then Alert text contains "Red B"
@@ -3634,9 +3626,14 @@ Example:
 Scenario: alert text contains
     Given I open "Html5 page"
     When Click on "Red Button"
-    Then Alert text contains "Red B"
+    Then Alert text contains "Red B"   
     
 ````
+
+Actions: <br>
+
+**When** Accept alert<br>
+**When** Dismiss alert<br>
 
 Validations: <br>
 
@@ -3888,7 +3885,7 @@ Scenario: Set date
 ```
 Actions:<br>
 
-**When** Set date "\<TEXT\>" in "\<ELEMENT NAME\>" <br>
+**When** \<I\> Set date "\<TEXT\>" in "\<ELEMENT NAME\>" <br>
 
 Validations:<br>
 
@@ -4029,7 +4026,7 @@ Validations:<br>
 **Then** the "\<ELEMENT NAME\>" is enabled <br>
 
 [More information in the tutorial](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)<br>
-[BDD test example](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Text.feature)<br><br>
+[Cucumber tests for Text](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Text.feature)<br><br>
 
 ### NumberSelector
 
@@ -4050,7 +4047,7 @@ Actions: <br>
 **When** \<I\> Focus on "\<NUMBER SELECTOR\>"<br>
 **When** \<I\> Set text "\<TEXT\>" in "\<ELEMENT NAME\>"<br>
 **When** \<I\> Input "\<TEXT\>" in "\<ELEMENT NAME\>"	<br>
-**When** \<I\> Highlight "\<ELEMENT NAME\>"	<br>
+**When** \<I\> Highlight "\<ELEMENT NAME\>"<br>
 **When** \<I\> Show "\<NUMBER SELECTOR\>"<br>	
 **When** \<I\> Set "\<NUMBER SELECTOR\>" attribute "\<ATTRIBUTE NAME\>" with vlaue "\<ATTRIBUTE VALUE\>" <br>
 

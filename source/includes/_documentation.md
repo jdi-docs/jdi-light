@@ -3539,6 +3539,9 @@ Then  the "JDI Title" does not appear during "5" seconds
 **Then** the "\<ELEMENT NAME\>" does not appear <br>
 **Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
 
+More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa)<br>
+[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Alert.feature) for Alert<br>
+
 ### ColorPicker
 
 ```

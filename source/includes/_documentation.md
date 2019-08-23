@@ -4039,12 +4039,12 @@ NumberSelector action examples:
 ````
 
 Actions: <br>
-**When** Focus on \"<NUMBER SELECTOR>\"<br>
-**When** Set text \"<TEXT>\" in \"<ELEMENT NAME>\"<br>
-**When** Input \"<TEXT>\" in \"<ELEMENT NAME>\"	<br>
-**When** Highlight \"<ELEMENT NAME>\"	<br>
-**When** Show \"<NUMBER SELECTOR>\"<br>	
-**When** Set \"<NUMBER SELECTOR>\" attribute \"<ATTRIBUTE NAME>\" with vlaue \"<ATTRIBUTE VALUE>\" <br>
+**When** \<I\> Focus on "\<NUMBER SELECTOR\>"<br>
+**When** \<I\> Set text "\<TEXT\>" in "\<ELEMENT NAME\>"<br>
+**When** \<I\> Input "\<TEXT>\" in "\<ELEMENT NAME\>"	<br>
+**When** \<I\> Highlight "\<ELEMENT NAME\>"	<br>
+**When** \<I\> Show "\<NUMBER SELECTOR\>"<br>	
+**When** \<I\> Set "\<NUMBER SELECTOR\>" attribute "\<ATTRIBUTE NAME\>" with vlaue "\<ATTRIBUTE VALUE\>" <br>
 
 
 ````
@@ -4087,27 +4087,27 @@ Scenario: Validation
 ````
 
 Validations: <br>
-**Then** the \"<NUMBER SELECTOR>\" label text equals to \"<LABEL TEXT>\" <br>
-**Then** the \"<NUMBER SELECTOR>\" label text contains \"<LABEL TEXT>\" <br>
-**Then** the \"<NUMBER SELECTOR>\" label text matches to \"<LABEL TEXT>\" <br>
-**Then** the \"<NUMBER SELECTOR>\" placeholder equals to \"<PLACEHOLDER TEXT>\" <br>
-**Then** the \"<NUMBER SELECTOR>\" placeholder contains \"<PLACEHOLDER TEXT>\"	 <br>
-**Then** the \"<NUMBER SELECTOR>\" placeholder matches to \"<PLACEHOLDER TEXT>\" <br>
-**Then** the \"<NUMBER SELECTOR>\" text equals to \"<TEXT>\"	 <br>
-**Then** the \"<NUMBER SELECTOR>\" text contains \"<TEXT>\"	 <br>
-**Then** the \"<NUMBER SELECTOR>\" text matches to \"<TEXT>\" <br>
-**Then** the \"<NUMBER SELECTOR>\" attribute \"<ELEMENT NAME>\" equals to \"<ATTRIBUTE TEXT>\" <br>
-**Then** the \"<NUMBER SELECTOR>\" attribute \"<ELEMENT NAME>\" contains \"<ATTRIBUTE TEXT>\" <br>
-**Then** the \"<NUMBER SELECTOR>\" attribute \"<ELEMENT NAME>\" matches to \"<ATTRIBUTE TEXT>\"	 <br>
-**Then** the \"<NUMBER SELECTOR>\" number selector min is \"<VALUE>\" <br>
-**Then** the \"<NUMBER SELECTOR>\" number selector max is \"<VALUE>\" <br>
-**Then** the \"<NUMBER SELECTOR>\" number selector step is \"<VALUE>\" <br>
-**Then** the \"<NUMBER SELECTOR>\" number selector value is greater or equal to \"<VALUE>\" <br>
-**Then** the \"<NUMBER SELECTOR>\" number selector value less or equal to \"<VALUE>\" <br>
-**Then** the \"<NUMBER SELECTOR>\" number selector value is greater than \"<VALUE>\" <br>
-**Then** the \"<NUMBER SELECTOR>\" number selector value less than \"<VALUE>\" <br>
-**Then** the \"<NUMBER SELECTOR>\" does not appear <br>
-**Then** the \"<NUMBER SELECTOR>\" does not appear during \"<TIME>\" seconds <br>
+**Then** the "\<NUMBER SELECTOR\>" label text equals to "\<LABEL TEXT\>" <br>
+**Then** the "\<NUMBER SELECTOR\>" label text contains "\<LABEL TEXT\>" <br>
+**Then** the "\<NUMBER SELECTOR\>" label text matches to "\<LABEL TEXT\>" <br>
+**Then** the "\<NUMBER SELECTOR\>" placeholder equals to "\<PLACEHOLDER TEXT\>" <br>
+**Then** the "\<NUMBER SELECTOR\>" placeholder contains "\<PLACEHOLDER TEXT\>"	 <br>
+**Then** the "\<NUMBER SELECTOR\>" placeholder matches to "\<PLACEHOLDER TEXT\>" <br>
+**Then** the "\<NUMBER SELECTOR\>" text equals to "\<TEXT\>"	 <br>
+**Then** the "\<NUMBER SELECTOR\>" text contains "\<TEXT\>"	 <br>
+**Then** the "\<NUMBER SELECTOR\>" text matches to "\<TEXT\>" <br>
+**Then** the "\<NUMBER SELECTOR\>" attribute "\<ELEMENT NAME\>" equals to "\<ATTRIBUTE TEXT\>" <br>
+**Then** the "\<NUMBER SELECTOR\>" attribute "\<ELEMENT NAME\>" contains "\<ATTRIBUTE TEXT\>" <br>
+**Then** the "\<NUMBER SELECTOR\>" attribute "\<ELEMENT NAME\>" matches to "\<ATTRIBUTE TEXT\>"	 <br>
+**Then** the "\<NUMBER SELECTOR\>" number selector min is "\<VALUE\>" <br>
+**Then** the "\<NUMBER SELECTOR\>" number selector max is "\<VALUE\>" <br>
+**Then** the "\<NUMBER SELECTOR\>" number selector step is "\<VALUE\>" <br>
+**Then** the "\<NUMBER SELECTOR\>" number selector value is greater or equal to "\<VALUE\>" <br>
+**Then** the "\<NUMBER SELECTOR\>" number selector value less or equal to "\<VALUE\>" <br>
+**Then** the "\<NUMBER SELECTOR\>" number selector value is greater than "\<VALUE\>" <br>
+**Then** the "\<NUMBER SELECTOR\>" number selector value less than "\<VALUE\>" <br>
+**Then** the "\<NUMBER SELECTOR\>" does not appear <br>
+**Then** the "\<NUMBER SELECTOR\>" does not appear during "\<TIME\>" seconds <br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa)<br>
 [**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/NumberSelector.feature) for NumberSelector<br>

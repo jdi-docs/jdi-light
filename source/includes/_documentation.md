@@ -380,7 +380,7 @@ Here is the list of some available methods in Java:
 **assertThat()** | Assert acton color | ColorAssert 
 
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ColorPickerTests.java)<br>
-[Cucumber test examples](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/colorPicker.feature)<br>
+[BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#colorpicker-2)<br>
 
 Here is the list of some available methods in C#:
 
@@ -845,8 +845,7 @@ Here is a list of available methods in C#:
 **AssertThat()** |method for building assertions  | ImageAssert
 
 [Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/ImagesTests.cs) <br>
-[BDD test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-bdd-tests/src/test/resources/features/image.feature)  <br>
-[BDD Steps documentation](https://jdi-docs.github.io/jdi-light/?java#image-2) <br>
+[BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#image-2) <br>
 
 And here are methods available in Java:
 
@@ -861,8 +860,7 @@ And here are methods available in Java:
 **assertThat()** |method for building assertions  | ImageAssert
 
 [Test examples in Java](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ImageTests.java)<br>
-[BDD test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-bdd-tests/src/test/resources/features/image.feature) <br>
-[BDD Steps documentation](https://jdi-docs.github.io/jdi-light/?java#image-2)<br>
+[BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#image-2)<br>
 
 
 ### Icon
@@ -1194,7 +1192,7 @@ Available method in Java JDI Light:
 **assertThat()** |Various assert actions for Progress bar | ProgressAssert 
 
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ProgressTests.java) <br>
-[BDD test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-bdd-tests/src/test/resources/features/ProgressBar.feature)<br>
+[BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#progress-bar) <br>
 
 
 Available method in C# JDI Light:
@@ -1207,7 +1205,7 @@ Available method in C# JDI Light:
 **AssertThat()** |Various assert actions for Progress bar | ProgressAssert 
 
 [C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/ProgressTests.cs)<br>
-[BDD test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-bdd-tests/src/test/resources/features/ProgressBar.feature)<br>
+[BDD Steps example](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-bdd-tests/src/test/resources/features/ProgressBar.feature)<br>
 
 ### Range
 
@@ -3501,6 +3499,7 @@ public void verifyTitle() {
 ### Label 
 
 ```
+Label action examples:
 When  Click on "JDI Title"
 When  Double Click on "JDI Title"
 When  Right Click on "JDI Title"
@@ -3508,16 +3507,8 @@ When  Higlight "JDI Title"
 When  Show "JDI Title"
 When  Set "JDI Title" attribute "status" with value "marked"
 When  Make Screenshot for "JDI Title"
-```
-**When** Click on "\<ELEMENT NAME\>" <br>
-**When** Double Click on "\<ELEMENT NAME\>" <br>
-**When** Right Click on "\<ELEMENT NAME\>" <br>
-**When** Higlight "\<ELEMENT NAME\>" <br>
-**When** Show "\<ELEMENT NAME\>" <br>
-**When** Set "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" with value "\<ATTRIBUTE VALUE\>" <br>
-**When** Make Screenshot for "\<ELEMENT NAME\>"<br>
 
-```
+Label validation examples:
 Then  the "JDI Title" text equal to "JDI TESTING PLATFORM"
 Then  the "JDI Title" text contains "JDI"
 Then  the "JDI Title" text match to regexp ".* TESTING .*"
@@ -3530,6 +3521,16 @@ Then  the "JDI Title" does not appear
 Then  the "JDI Title" does not appear during "5" seconds
 
 ```
+Actions: <br>
+**When** Click on "\<ELEMENT NAME\>" <br>
+**When** Double Click on "\<ELEMENT NAME\>" <br>
+**When** Right Click on "\<ELEMENT NAME\>" <br>
+**When** Higlight "\<ELEMENT NAME\>" <br>
+**When** Show "\<ELEMENT NAME\>" <br>
+**When** Set "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" with value "\<ATTRIBUTE VALUE\>" <br>
+**When** Make Screenshot for "\<ELEMENT NAME\>"<br>
+
+Validations: <br>
 **Then** the "\<ELEMENT NAME\>" text equal to "\<TEXT\>" <br>
 **Then** the "\<ELEMENT NAME\>" text contains "\<TEXT PART\>" <br>
 **Then** the "\<ELEMENT NAME\>" text matches to regexp "\<REGULAR EXPRESSION\>" <br>
@@ -3541,32 +3542,32 @@ Then  the "JDI Title" does not appear during "5" seconds
 **Then** the "\<ELEMENT NAME\>" does not appear <br>
 **Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
 
-More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa)<br>
-[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Alert.feature) for Alert<br>
+[More information in the Tutorial](https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa)<br>
+[Cucumber tests for Label](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Label.feature)<br>
 
 ### ColorPicker
 
 ```
+ColorPicker action example:
 When I set "Color Picker" to "#00FF00" color
-```
-Actions: <br>
 
-**When** I set "ELEMENT NAME" to "COLOR HEX CODE"
-
-```
+ColorPicker validation examples:
 Then the "Color Picker" color equals to "#00FF00"
 Then the "Color Picker" label text equals to "Select a color"
 Then the "Color Picker" color is "#00FF00"
 Then the "Color Picker" is basically valid
 
 Example:
-
   Scenario: Color picker set color test
     Given I open "Html5 Page"
     When I set "Color Picker" to "#ffd7a6" color
     Then the "Color Picker" color equals to "#ffd7a6"
     
 ```
+Actions: <br>
+
+**When** I set "ELEMENT NAME" to "COLOR HEX CODE"
+
 Validations: <br>
 
 **Then** the "ELEMENT NAME" color equals to "EXPECTED COLOR HEX CODE" <br>
@@ -3810,8 +3811,6 @@ Then the "Ghost Button" does not appear
 Then the "Suspend Button" does not appear during "5" seconds
 Then the "Red Button" css "font-size" equals to "14px"
 Then the "Red Button" attribute "type" equals to "button"
-  
-
 
 
 Scenario: Basic for button
@@ -3923,16 +3922,7 @@ When Check "Accept Conditions"
 When Uncheck "Accept Conditions"
 When Click on "Accept Conditions"
 
-```
-Actions: <br>
-
-**When** Check "\<ELEMENT NAME\>" <br>
-**When** Uncheck "\<ELEMENT NAME\>" <br>
-**When** Click on "\<ELEMENT NAME\>" <br>
-
-```
 Checkbox validations examples:
-
 Then the "Accept Conditions" is enabled
 Then the "Accept Conditions" is disabled
 Then the "Accept Conditions" is displayed
@@ -3956,8 +3946,14 @@ Some scenario examples:
     Then "Accept Conditions" is selected
     When I Click on "Accept Conditions"
     Then the "Accept Conditions" is deselected
-  
+
 ```
+Actions: <br>
+
+**When** Check "\<ELEMENT NAME\>" <br>
+**When** Uncheck "\<ELEMENT NAME\>" <br>
+**When** Click on "\<ELEMENT NAME\>" <br>
+
 
 Validations: <br>
 
@@ -3985,6 +3981,7 @@ Scenario: progress bar validation
   And the "Progress" progress volume less or equal to 100
   And the "Progress" attribute "value" equals to "70"
   And the "Progress" is enabled
+  
 ```
 
 **Validations:** <br>
@@ -4003,6 +4000,7 @@ Scenario: progress bar validation
 **Then** the "\<ELEMENT NAME\>" is not appear during "\<NUMBER\>" seconds <br>
 
 [More information in the tutorial](https://jdi-docs.github.io/jdi-light/?java#tutorial) <br>	
+[Cucumber tests for Progress Bar](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/ProgressBar.feature)<br><br>
 
 ### Text
 

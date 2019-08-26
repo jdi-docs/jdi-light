@@ -4126,6 +4126,68 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 <br>
 <br>
 
+### Range
+  
+```
+Range action examples:
+  When install "Volume" value to 5
+```
+
+**Actions:** <br>
+**When** install "\<ELEMENT NAME\>" value to "\<VALUE\>"  <br>
+
+```
+Range validation examples:
+  Then the "Volume" attribute "min" equals to "10"
+  Then the "Volume" range volume greater or equal to 10
+  Then the "Volume" range volume less or equal to 100
+  Then the "Volume" label text equals to "Volume"
+  Then the "Volume" label text contains "lume"
+  Then the "Volume" is enabled
+  Then the "Volume" is disabled
+  Then the "Volume" is displayed
+  Then the "Volume" is hidden
+  Then the "Volume" is not appear
+  Then the "Volume" is not appear during "5" second
+
+Example
+Scenario: Validation Volume element test
+  Then the "Volume" is enabled
+  And the "Volume" attribute "min" equals to "10"
+  And the "Volume" attribute "max" equals to "100"
+  And the "Volume" attribute "step" equals to "5"
+  And the "Volume" range volume greater or equal to 10
+  And the "Volume" range volume less or equal to 100
+  And the "Volume" attribute "value" equals to "90"
+  
+```
+
+**Validations:** <br>
+**Then** the "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" equals to "\<ATTRIBUTE VALUE\>" <br>
+**Then** the "\<ELEMENT NAME\>" range volume greater or equal to \<VALUE\> <br>
+**Then** the "\<ELEMENT NAME\>" range volume less or equal to \<VALUE\> <br>
+**Then** the "\<ELEMENT NAME\>" label text equals to "\<LABEL_TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" label text contains "\<TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" is enabled <br>
+**Then** the "\<ELEMENT NAME\>" is disabled <br>
+**Then** the "\<ELEMENT NAME\>" is displayed <br>
+**Then** the "\<ELEMENT NAME\>" is hidden	 <br>
+**Then** the "\<ELEMENT NAME\>" is not appear	<br>
+**Then** the "\<ELEMENT NAME\>" is not appear during "\<NUMBER\>" seconds <br>
+
+[More information in the tutorial](https://jdi-docs.github.io/jdi-light/?java#tutorial) <br>
+[Cucumber tests for Progress Bar](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/ProgressBar.feature)<br><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 
 ## UI Objects
 TBD

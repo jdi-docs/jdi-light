@@ -546,6 +546,9 @@
                             <li>
                               <a href="#numberselector-2" class="toc-h2 h3 toc-link" data-title="NumberSelector">NumberSelector</a>
                             </li>
+                            <li>
+                              <a href="#range-2" class="toc-h2 h3 toc-link" data-title="Range">Range</a>
+                            </li>
                         </ul>
                   </li>
                   <li>
@@ -7889,7 +7892,20 @@ Some scenario examples:
 <a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/checkbox.feature"><strong>Cucumber tests</strong></a> for Checkbox<br></p>
 
 <p><br><br><br><br><br><br></p>
-<h3 id='progress-bar'>Progress Bar</h3><pre class="highlight plaintext"><code>Scenario: progress bar validation
+<h3 id='progress-bar'>Progress Bar</h3><pre class="highlight plaintext"><code>Progress Bar validations example:
+Then the "Progress" attribute "max" equals to "110"
+Then the "Progress" progress volume greater or equal to 10
+Then the "Progress" progress volume less or equal to 110
+Then the "Progress" label text equals to "Progress"
+Then the "Progress" label text contains "ress"
+Then the "Progress" is enabled
+Then the "Progress" is disabled
+Then the "Progress" is displayed
+Then the "Progress" is hidden
+Then the "Progress" is not appear
+Then the "Progress" is not appear during "5" seconds &lt;br&gt;
+
+Scenario: progress bar validation
   Given I open "Html5 Page" page
   Then the "Progress" attribute "max" equals to "100"
   And the "Progress" progress volume greater or equal to 10
@@ -7899,22 +7915,21 @@ Some scenario examples:
 
 </code></pre>
 <p><strong>Validations:</strong> <br>
-<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; attribute &quot;&lt;ATTRIBUTE NAME&gt;&quot; equals to &quot;&lt;ATTRIBUTE VALUE&gt;&quot; <br> 
-<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; attribute &quot;&lt;ATTRIBUTE NAME&gt;&quot; equals to &quot;&lt;ATTRIBUTE VALUE&gt;&quot; <br> 
-<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; attribute &quot;&lt;ATTRIBUTE NAME&gt;&quot; match to &quot;&lt;ATTRIBUTE VALUE&gt;&quot; <br><br>
-<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; progress volume greater or equal to &lt;VALUE&gt; <br><br>
-<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; progress volume less or equal to &lt;VALUE&gt; <br> 
-<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; label text equals to &quot;&lt;LABEL_TEXT&gt;&quot; <br><br>
-<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; label text contains &quot;&lt;TEXT&gt;&quot; <br> 
-<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is enabled <br> 
-<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is disabled <br><br>
-<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is displayed <br><br>
-<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is hidden    <br><br>
-<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is not appear   <br><br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; attribute &quot;&lt;ATTRIBUTE NAME&gt;&quot; equals to &quot;&lt;ATTRIBUTE VALUE&gt;&quot; <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; progress volume greater or equal to &lt;VALUE&gt; <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; progress volume less or equal to &lt;VALUE&gt; <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; label text equals to &quot;&lt;LABEL_TEXT&gt;&quot; <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; label text contains &quot;&lt;TEXT&gt;&quot; <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is enabled <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is disabled <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is displayed <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is hidden    <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is not appear   <br>
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is not appear during &quot;&lt;NUMBER&gt;&quot; seconds <br></p>
 
 <p><a href="https://jdi-docs.github.io/jdi-light/?java#tutorial">More information in the tutorial</a> <br><br>
-<a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/ProgressBar.feature">Cucumber tests for Progress Bar</a><br><br></p>
+<a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/ProgressBar.feature">Cucumber tests for Progress Bar</a><br>
+<br><br><br><br><br><br><br><br></p>
 <h3 id='text-2'>Text</h3><pre class="highlight plaintext"><code>Text validations example:
 Then the "Jdi Text" text equals to "Powerful Framework for UI Tests Automation. Suitable for any UI project: Web(Html5, Angular, React...), Mobile(Android IOs), Desktop(Win app) etc."
 Then the "Jdi Text" text contains "Powerful Framework for UI"
@@ -8015,6 +8030,60 @@ Scenario: Validation
 
 <p>More information in the <a href="https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa"><strong>Tutorial</strong></a><br>
 <a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/NumberSelector.feature"><strong>Cucumber tests</strong></a> for NumberSelector<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br></p>
+<h3 id='range-2'>Range</h3><pre class="highlight plaintext"><code>Range action examples:
+  When install "Volume" value to 5
+</code></pre>
+<p><strong>Actions:</strong> <br>
+<strong>When</strong> install &quot;&lt;ELEMENT NAME&gt;&quot; value to &quot;&lt;VALUE&gt;&quot;  <br></p>
+<pre class="highlight plaintext"><code>Range validation examples:
+  Then the "Volume" attribute "min" equals to "10"
+  Then the "Volume" range volume greater or equal to 10
+  Then the "Volume" range volume less or equal to 100
+  Then the "Volume" label text equals to "Volume"
+  Then the "Volume" label text contains "lume"
+  Then the "Volume" is enabled
+  Then the "Volume" is disabled
+  Then the "Volume" is displayed
+  Then the "Volume" is hidden
+  Then the "Volume" is not appear
+  Then the "Volume" is not appear during "5" second
+
+Example
+Scenario: Validation Volume element test
+  Then the "Volume" is enabled
+  And the "Volume" attribute "min" equals to "10"
+  And the "Volume" attribute "max" equals to "100"
+  And the "Volume" attribute "step" equals to "5"
+  And the "Volume" range volume greater or equal to 10
+  And the "Volume" range volume less or equal to 100
+  And the "Volume" attribute "value" equals to "90"
+
+</code></pre>
+<p><strong>Validations:</strong> <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; attribute &quot;&lt;ATTRIBUTE NAME&gt;&quot; equals to &quot;&lt;ATTRIBUTE VALUE&gt;&quot; <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; range volume greater or equal to &lt;VALUE&gt; <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; range volume less or equal to &lt;VALUE&gt; <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; label text equals to &quot;&lt;LABEL_TEXT&gt;&quot; <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; label text contains &quot;&lt;TEXT&gt;&quot; <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is enabled <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is disabled <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is displayed <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is hidden    <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is not appear   <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is not appear during &quot;&lt;NUMBER&gt;&quot; seconds <br></p>
+
+<p><a href="https://jdi-docs.github.io/jdi-light/?java#tutorial">More information in the tutorial</a> <br>
+<a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/ProgressBar.feature">Cucumber tests for Progress Bar</a><br><br>
+<br>
 <br>
 <br>
 <br>

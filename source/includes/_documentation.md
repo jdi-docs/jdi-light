@@ -4050,14 +4050,24 @@ Validations:<br>
 ```
 ComboBox actions examples:
 When Select "Coconut" field from "Ice Cream"
-When Select value 5 in "Ice Cream"
+When Select index 5 in "Ice Cream"
+When I Clear "Ice Cream"
+When I Input "New text" in "Ice Cream"
+When I Send keys "Test" to "Ice Cream"
+When I Focus on "Ice Cream"
 
 ComboBox validations examples:
 Then the "Ice Cream" is enabled
 Then the "Ice Cream" selected value is "Coconut"
 Then the "Ice Cream" text equals to "Coconut"
+Then the "Ice Cream" text contains "Van"
+Then the "Ice Cream" text matches to "(.*)nut"
 Then the "Ice Cream" label text equals to "Choose your lovely icecream"
 Then the "Ice Cream" label text contains "lovely icecream"
+Then the "Ice Cream" label text matches to "(.*)icecream"
+Then the "Ice Cream" placeholder equals to "Ice cream"
+Then the "Ice Cream" placeholder contains "cream"
+Then the "Ice Cream" placeholder matches to "(.*)cream"
 
 Scenario example:
 Scenario: Select combobox value test
@@ -4069,13 +4079,23 @@ Scenario: Select combobox value test
 Actions:<br>
 **When** Select "\<VALUE\>" field from "\<ELEMENT NAME\>"<br>
 **When** Select value "\<INDEX NUMBER\>" in "\<ELEMENT NAME\>"<br>
+**When** \<I\> Clear "\<ELEMENT NAME\>"<br>
+**When** \<I\> Input "\<TEXT\>" in "\<ELEMENT NAME\>"<br>
+**When** \<I\> Send keys "\<TEXT\>" to "\<ELEMENT NAME\>"<br>
+**When** \<I\> Focus on "\<ELEMENT NAME\>"<br>
 
 Validations:<br>
 **Then** the "\<ELEMENT NAME\>" is enabled<br>
 **Then** the "\<ELEMENT NAME\>" selected value is "\<VALUE\>"<br>
 **Then** the "\<ELEMENT NAME\>" text equals to "\<TEXT\>"<br>
+**Then** the "\<ELEMENT NAME\>" text contains "\<TEXT\>"<br>
+**Then** the "\<ELEMENT NAME\>" text matches to "\<REGEX\>"<br>
 **Then** the "\<ELEMENT NAME\>" label text equals to "\<LABEL TEXT\>"<br>
 **Then** the "\<ELEMENT NAME\>" label text contains "\<LABEL TEXT\>"<br>
+**Then** the "\<ELEMENT NAME\>" label text matches to "\<LABEL TEXT\>"<br>
+**Then** the "\<ELEMENT NAME\>" placeholder equals to "\<PLACEHOLDER_TEXT\>"<br>
+**Then** the "\<ELEMENT NAME\>" placeholder contains "\<PLACEHOLDER_TEXT\>"<br>
+**Then** the "\<ELEMENT NAME\>" placeholder matches to "\<REGEX\>"<br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial)<br>
 [**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/ComboBox.feature) for ComboBox<br><br>
@@ -4187,9 +4207,9 @@ Range action examples:
 ```
 
 **Actions:** <br>
-**When** <I> set "\<ELEMENT NAME\>" value to "\<VALUE\>"  <br>
-
+**When** \<I\> set "\<ELEMENT NAME\>" value to "\<VALUE\>"  <br>
 ```
+
 Range validation  <I>examples:
   Then the "Volume" attribute "min" equals to "10"
   Then the "Volume" range volume greater or equal to 10
@@ -4211,8 +4231,7 @@ Scenario: Validation Volume element test
   And the "Volume" attribute "step" equals to "5"
   And the "Volume" range volume greater or equal to 10
   And the "Volume" range volume less or equal to 100
-  And the "Volume" attribute "value" equals to "90"
-  
+  And the "Volume" attribute "value" equals to "90" 
 ```
 
 **Validations:** <br>

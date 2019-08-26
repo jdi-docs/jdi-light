@@ -3515,7 +3515,7 @@ When  Make Screenshot for "JDI Title"
 Label validation examples:
 Then  the "JDI Title" text equal to "JDI TESTING PLATFORM"
 Then  the "JDI Title" text contains "JDI"
-Then  the "JDI Title" text match to regexp ".* TESTING .*"
+Then  the "JDI Title" text matches to regexp ".* TESTING .*"
 Then  the "JDI Title" is enabled
 Then  the "JDI Title" is disabled
 Then  the "JDI Title" is displayed
@@ -3731,16 +3731,16 @@ Then the "Github Link" is hidden
 Then the "Github Link" URL path equals to "/jdi-testing"
 Then the "Github Link" text equals to "Github JDI"
 Then the "Github Link" text contains "JDI"
-Then the "Github Link" text match to "[a-zA-Z]{6} JE*DI"
+Then the "Github Link" text matches to "[a-zA-Z]{6} JE*DI"
 Then the "Github Link" reference equals to "https://github.com/jdi-testing"
 Then the "Github Link" reference contains "github"
 Then the "Github Link" reference matches to "https://github.com/.*"
 Then the "Github Link" alternative text equals to "Github JDI Link"
 Then the "Github Link" alternative text contains "JDI"
-Then the "Github Link" alternative text match to "Git.* JE*DI Link"
+Then the "Github Link" alternative text matches to "Git.* JE*DI Link"
 Then the "Github Link" attribute "alt" equals to "Github JDI Link"
 Then the "Github Link" attribute "href" contains "https://github.com"
-Then the "Github Link" attribute "ui" match to "github.link"
+Then the "Github Link" attribute "ui" matches to "github.link"
 Then the "Github Link" does not appear
 Then the "Github Link" does not appear during "5" seconds
 

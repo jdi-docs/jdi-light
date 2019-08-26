@@ -7962,14 +7962,24 @@ Scenario: Text validation test
 <a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Text.feature">Cucumber tests for Text</a><br><br></p>
 <h3 id='combobox-2'>ComboBox</h3><pre class="highlight plaintext"><code>ComboBox actions examples:
 When Select "Coconut" field from "Ice Cream"
-When Select value 5 in "Ice Cream"
+When Select index 5 in "Ice Cream"
+When I Clear "Ice Cream"
+When I Input "New text" in "Ice Cream"
+When I Send keys "Test" to "Ice Cream"
+When I Focus on "Ice Cream"
 
 ComboBox validations examples:
 Then the "Ice Cream" is enabled
 Then the "Ice Cream" selected value is "Coconut"
 Then the "Ice Cream" text equals to "Coconut"
+Then the "Ice Cream" text contains "Van"
+Then the "Ice Cream" text matches to "(.*)nut"
 Then the "Ice Cream" label text equals to "Choose your lovely icecream"
 Then the "Ice Cream" label text contains "lovely icecream"
+Then the "Ice Cream" label text matches to "(.*)icecream"
+Then the "Ice Cream" placeholder equals to "Ice cream"
+Then the "Ice Cream" placeholder contains "cream"
+Then the "Ice Cream" placeholder matches to "(.*)cream"
 
 Scenario example:
 Scenario: Select combobox value test
@@ -7979,14 +7989,24 @@ Scenario: Select combobox value test
 </code></pre>
 <p>Actions:<br>
 <strong>When</strong> Select &quot;&lt;VALUE&gt;&quot; field from &quot;&lt;ELEMENT NAME&gt;&quot;<br>
-<strong>When</strong> Select value &quot;&lt;INDEX NUMBER&gt;&quot; in &quot;&lt;ELEMENT NAME&gt;&quot;<br></p>
+<strong>When</strong> Select value &quot;&lt;INDEX NUMBER&gt;&quot; in &quot;&lt;ELEMENT NAME&gt;&quot;<br>
+<strong>When</strong> &lt;I&gt; Clear &quot;&lt;ELEMENT NAME&gt;&quot;<br>
+<strong>When</strong> &lt;I&gt; Input &quot;&lt;TEXT&gt;&quot; in &quot;&lt;ELEMENT NAME&gt;&quot;<br>
+<strong>When</strong> &lt;I&gt; Send keys &quot;&lt;TEXT&gt;&quot; to &quot;&lt;ELEMENT NAME&gt;&quot;<br>
+<strong>When</strong> &lt;I&gt; Focus on &quot;&lt;ELEMENT NAME&gt;&quot;<br></p>
 
 <p>Validations:<br>
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is enabled<br>
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; selected value is &quot;&lt;VALUE&gt;&quot;<br>
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; text equals to &quot;&lt;TEXT&gt;&quot;<br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; text contains &quot;&lt;TEXT&gt;&quot;<br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; text matches to &quot;&lt;REGEX&gt;&quot;<br>
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; label text equals to &quot;&lt;LABEL TEXT&gt;&quot;<br>
-<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; label text contains &quot;&lt;LABEL TEXT&gt;&quot;<br></p>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; label text contains &quot;&lt;LABEL TEXT&gt;&quot;<br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; label text matches to &quot;&lt;LABEL TEXT&gt;&quot;<br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; placeholder equals to &quot;&lt;PLACEHOLDER_TEXT&gt;&quot;<br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; placeholder contains &quot;&lt;PLACEHOLDER_TEXT&gt;&quot;<br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; placeholder matches to &quot;&lt;REGEX&gt;&quot;<br></p>
 
 <p>More information in the <a href="https://jdi-docs.github.io/jdi-light/?java#tutorial"><strong>Tutorial</strong></a><br>
 <a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/ComboBox.feature"><strong>Cucumber tests</strong></a> for ComboBox<br><br></p>
@@ -8083,31 +8103,33 @@ Scenario: Validation
   When install "Volume" value to 5
 </code></pre>
 <p><strong>Actions:</strong> <br>
-<strong>When</strong> <I> set &quot;&lt;ELEMENT NAME&gt;&quot; value to &quot;&lt;VALUE&gt;&quot;  <br></p>
-<pre class="highlight plaintext"><code>Range validation  &lt;I&gt;examples:
-  Then the "Volume" attribute "min" equals to "10"
-  Then the "Volume" range volume greater or equal to 10
-  Then the "Volume" range volume less or equal to 100
-  Then the "Volume" label text equals to "Volume"
-  Then the "Volume" label text contains "lume"
-  Then the "Volume" is enabled
-  Then the "Volume" is disabled
-  Then the "Volume" is displayed
-  Then the "Volume" is hidden
-  Then the "Volume" does not appear
-  Then the "Volume" does not appear during "5" second
+<strong>When</strong> &lt;I&gt; set &quot;&lt;ELEMENT NAME&gt;&quot; value to &quot;&lt;VALUE&gt;&quot;  <br>
+```</p>
 
-Example
+<p>Range validation  <I>examples:
+  Then the &quot;Volume&quot; attribute &quot;min&quot; equals to &quot;10&quot;
+  Then the &quot;Volume&quot; range volume greater or equal to 10
+  Then the &quot;Volume&quot; range volume less or equal to 100
+  Then the &quot;Volume&quot; label text equals to &quot;Volume&quot;
+  Then the &quot;Volume&quot; label text contains &quot;lume&quot;
+  Then the &quot;Volume&quot; is enabled
+  Then the &quot;Volume&quot; is disabled
+  Then the &quot;Volume&quot; is displayed
+  Then the &quot;Volume&quot; is hidden
+  Then the &quot;Volume&quot; does not appear
+  Then the &quot;Volume&quot; does not appear during &quot;5&quot; second</p>
+
+<p>Example
 Scenario: Validation Volume element test
-  Then the "Volume" is enabled
-  And the "Volume" attribute "min" equals to "10"
-  And the "Volume" attribute "max" equals to "100"
-  And the "Volume" attribute "step" equals to "5"
-  And the "Volume" range volume greater or equal to 10
-  And the "Volume" range volume less or equal to 100
-  And the "Volume" attribute "value" equals to "90"
+  Then the &quot;Volume&quot; is enabled
+  And the &quot;Volume&quot; attribute &quot;min&quot; equals to &quot;10&quot;
+  And the &quot;Volume&quot; attribute &quot;max&quot; equals to &quot;100&quot;
+  And the &quot;Volume&quot; attribute &quot;step&quot; equals to &quot;5&quot;
+  And the &quot;Volume&quot; range volume greater or equal to 10
+  And the &quot;Volume&quot; range volume less or equal to 100
+  And the &quot;Volume&quot; attribute &quot;value&quot; equals to &quot;90&quot; 
+```</p>
 
-</code></pre>
 <p><strong>Validations:</strong> <br>
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; attribute &quot;&lt;ATTRIBUTE NAME&gt;&quot; equals to &quot;&lt;ATTRIBUTE VALUE&gt;&quot; <br>
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; range volume greater or equal to &lt;VALUE&gt; <br>

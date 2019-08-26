@@ -3976,6 +3976,19 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 ### Progress Bar
   
 ```
+Progress Bar validations example:
+Then the "Progress" attribute "max" equals to "110"
+Then the "Progress" progress volume greater or equal to 10
+Then the "Progress" progress volume less or equal to 110
+Then the "Progress" label text equals to "Progress"
+Then the "Progress" label text contains "ress"
+Then the "Progress" is enabled
+Then the "Progress" is disabled
+Then the "Progress" is displayed
+Then the "Progress" is hidden
+Then the "Progress" is not appear
+Then the "Progress" is not appear during "5" seconds <br>
+
 Scenario: progress bar validation
   Given I open "Html5 Page" page
   Then the "Progress" attribute "max" equals to "100"
@@ -3987,22 +4000,21 @@ Scenario: progress bar validation
 ```
 
 **Validations:** <br>
-**Then** the "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" equals to "\<ATTRIBUTE VALUE\>" <br>	
-**Then** the "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" equals to "\<ATTRIBUTE VALUE\>" <br>	
-**Then** the "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" match to "\<ATTRIBUTE VALUE\>" <br>	
-**Then** the "\<ELEMENT NAME\>" progress volume greater or equal to \<VALUE\> <br>	
-**Then** the "\<ELEMENT NAME\>" progress volume less or equal to \<VALUE\> <br>	
-**Then** the "\<ELEMENT NAME\>" label text equals to "\<LABEL_TEXT\>" <br>	
-**Then** the "\<ELEMENT NAME\>" label text contains "\<TEXT\>" <br>	
-**Then** the "\<ELEMENT NAME\>" is enabled <br>	
-**Then** the "\<ELEMENT NAME\>" is disabled <br>	
-**Then** the "\<ELEMENT NAME\>" is displayed <br>	
-**Then** the "\<ELEMENT NAME\>" is hidden	 <br>	
-**Then** the "\<ELEMENT NAME\>" is not appear	<br>	
+**Then** the "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" equals to "\<ATTRIBUTE VALUE\>" <br>
+**Then** the "\<ELEMENT NAME\>" progress volume greater or equal to \<VALUE\> <br>
+**Then** the "\<ELEMENT NAME\>" progress volume less or equal to \<VALUE\> <br>
+**Then** the "\<ELEMENT NAME\>" label text equals to "\<LABEL_TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" label text contains "\<TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" is enabled <br>
+**Then** the "\<ELEMENT NAME\>" is disabled <br>
+**Then** the "\<ELEMENT NAME\>" is displayed <br>
+**Then** the "\<ELEMENT NAME\>" is hidden	 <br>
+**Then** the "\<ELEMENT NAME\>" is not appear	<br>
 **Then** the "\<ELEMENT NAME\>" is not appear during "\<NUMBER\>" seconds <br>
 
 [More information in the tutorial](https://jdi-docs.github.io/jdi-light/?java#tutorial) <br>	
-[Cucumber tests for Progress Bar](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/ProgressBar.feature)<br><br>
+[Cucumber tests for Progress Bar](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/ProgressBar.feature)<br>
+<br><br><br><br><br><br><br><br>
 
 ### Text
 

@@ -4012,7 +4012,7 @@ Scenario: progress bar validation
 **Then** the "\<ELEMENT NAME\>" is not appear	<br>
 **Then** the "\<ELEMENT NAME\>" is not appear during "\<NUMBER\>" seconds <br>
 
-[More information in the tutorial](https://jdi-docs.github.io/jdi-light/?java#tutorial) <br>	
+[More information in the tutorial](https://jdi-docs.github.io/jdi-light/?java#tutorial) <br>
 [Cucumber tests for Progress Bar](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/ProgressBar.feature)<br>
 <br><br><br><br><br><br><br><br>
 
@@ -4188,17 +4188,8 @@ Scenario: Validation Volume element test
 **Then** the "\<ELEMENT NAME\>" is not appear during "\<NUMBER\>" seconds <br>
 
 [More information in the tutorial](https://jdi-docs.github.io/jdi-light/?java#tutorial) <br>
-[Cucumber tests for Progress Bar](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/ProgressBar.feature)<br><br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+[Cucumber tests for Range](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Range.feature)<br>
+<br><br><br><br>
 
 
 ## UI Objects

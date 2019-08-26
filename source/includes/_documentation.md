@@ -4207,7 +4207,7 @@ Range action examples:
 ```
 
 **Actions:** <br>
-**When** <I> set "\<ELEMENT NAME\>" value to "\<VALUE\>"  <br>
+**When** \<I\> set "\<ELEMENT NAME\>" value to "\<VALUE\>"  <br>
 ```
 
 Range validation  <I>examples:

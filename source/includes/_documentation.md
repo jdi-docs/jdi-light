@@ -3627,7 +3627,7 @@ Alert action examples:
 Alert validation examples:
   Then Alert text equals to "Red Button"
   Then Alert text contains "Red B"
-  Then Alert text match to "\w{3} \d{6}"
+  Then Alert text matches to "\w{3} \d{6}"
     
 Example:
 Scenario: alert text contains
@@ -3646,7 +3646,7 @@ Validations: <br>
 
 **Then** Alert text equals to "\<ALERT TEXT\>"<br>
 **Then** Alert text contains "\<ALERT TEXT\>"<br>
-**Then** Alert text match to "\<ALERT TEXT\>"<br>
+**Then** Alert text matches to "\<ALERT TEXT\>"<br>
 
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa)<br>
@@ -3734,15 +3734,15 @@ Then the "Github Link" text contains "JDI"
 Then the "Github Link" text match to "[a-zA-Z]{6} JE*DI"
 Then the "Github Link" reference equals to "https://github.com/jdi-testing"
 Then the "Github Link" reference contains "github"
-Then the "Github Link" reference match to "https://github.com/.*"
+Then the "Github Link" reference matches to "https://github.com/.*"
 Then the "Github Link" alternative text equals to "Github JDI Link"
 Then the "Github Link" alternative text contains "JDI"
 Then the "Github Link" alternative text match to "Git.* JE*DI Link"
 Then the "Github Link" attribute "alt" equals to "Github JDI Link"
 Then the "Github Link" attribute "href" contains "https://github.com"
 Then the "Github Link" attribute "ui" match to "github.link"
-Then the "Github Link" is not appear
-Then the "Github Link" is not appear during "5" seconds
+Then the "Github Link" does not appear
+Then the "Github Link" does not appear during "5" seconds
 
 
 Some scenario examples:
@@ -3754,7 +3754,7 @@ Some scenario examples:
     
   Scenario: Link alternative text matching to RegExp
      Given I open "Html5 Page"
-     Then the "Github Link" alternative text match to "Git.* JE*DI Link"
+     Then the "Github Link" alternative text matches to "Git.* JE*DI Link"
   
 More examples are available in the Tutorial section.
 
@@ -3775,12 +3775,12 @@ Validations: <br>
 **Then** the "\<ELEMENT NAME\>" reference match to "\<REFERENCE VALUE\>" <br>
 **Then** the "\<ELEMENT NAME\>" alternative text equals to "\<ALT VALUE\>" <br>
 **Then** the "\<ELEMENT NAME\>" alternative text contains "\<ALT VALUE\>" <br>
-**Then** the "\<ELEMENT NAME\>" alternative text match to "\<ALT VALUE\>" <br>
+**Then** the "\<ELEMENT NAME\>" alternative text matches to "\<ALT VALUE\>" <br>
 **Then** the "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" equals to "\<ATTRIBUTE VALUE\>" <br>
 **Then** the "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" contains "\<ATTRIBUTE VALUE\>" <br>
 **Then** the "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" matches to "\<ATTRIBUTE VALUE\>" <br>
-**Then** the "\<ELEMENT NAME\>" is not appear <br>
-**Then** the "\<ELEMENT NAME\>" is not appear during "\<SECONDS\>" seconds <br>
+**Then** the "\<ELEMENT NAME\>" does not appear <br>
+**Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)<br>
 [**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/link.feature) for Link<br>
@@ -3935,9 +3935,9 @@ Then the "Accept Conditions" is displayed
 Then the "Accept Conditions" is hidden
 Then the "Accept Conditions" label text equals to "Accept terms and conditions"
 Then the "Accept Conditions" label text contains "terms and conditions"
-Then the "Accept Conditions" label text match to "[a-zA-Z]{6} JE*DI"
-Then the "Accept Conditions" is not appear
-Then the "Accept Conditions" is not appear during "5" seconds
+Then the "Accept Conditions" label text matches to "[a-zA-Z]{6} JE*DI"
+Then the "Accept Conditions" does not appear
+Then the "Accept Conditions" does not appear during "5" seconds
 
 
 Some scenario examples:
@@ -3969,9 +3969,9 @@ Validations: <br>
 **Then** the "\<ELEMENT NAME\>" is hidden <br>
 **Then** the "\<ELEMENT NAME\>" label text equals to "\<TEXT\>" <br>
 **Then** the "\<ELEMENT NAME\>" label text contains "\<TEXT\>" <br>
-**Then** the "\<ELEMENT NAME\>" label text match to "\<TEXT\>" <br>
-**Then** the "\<ELEMENT NAME\>" is not appear <br>
-**Then** the "\<ELEMENT NAME\>" is not appear during "\<SECONDS\>" seconds <br>
+**Then** the "\<ELEMENT NAME\>" label text matches to "\<TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" does not appear <br>
+**Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa)<br>
 [**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/checkbox.feature) for Checkbox<br>
@@ -3990,8 +3990,8 @@ Then the "Progress" is enabled
 Then the "Progress" is disabled
 Then the "Progress" is displayed
 Then the "Progress" is hidden
-Then the "Progress" is not appear
-Then the "Progress" is not appear during "5" seconds <br>
+Then the "Progress" does not appear
+Then the "Progress" does not appear during "5" seconds <br>
 
 Scenario: progress bar validation
   Given I open "Html5 Page" page
@@ -4013,8 +4013,8 @@ Scenario: progress bar validation
 **Then** the "\<ELEMENT NAME\>" is disabled <br>
 **Then** the "\<ELEMENT NAME\>" is displayed <br>
 **Then** the "\<ELEMENT NAME\>" is hidden	 <br>
-**Then** the "\<ELEMENT NAME\>" is not appear	<br>
-**Then** the "\<ELEMENT NAME\>" is not appear during "\<NUMBER\>" seconds <br>
+**Then** the "\<ELEMENT NAME\>" does not appear	<br>
+**Then** the "\<ELEMENT NAME\>" does not appear during "\<NUMBER\>" seconds <br>
 
 [More information in the tutorial](https://jdi-docs.github.io/jdi-light/?java#tutorial) <br>
 [Cucumber tests for Progress Bar](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/ProgressBar.feature)<br>
@@ -4200,8 +4200,8 @@ Range validation examples:
   Then the "Volume" is disabled
   Then the "Volume" is displayed
   Then the "Volume" is hidden
-  Then the "Volume" is not appear
-  Then the "Volume" is not appear during "5" second
+  Then the "Volume" does not appear
+  Then the "Volume" does not appear during "5" second
 
 Example
 Scenario: Validation Volume element test
@@ -4225,8 +4225,8 @@ Scenario: Validation Volume element test
 **Then** the "\<ELEMENT NAME\>" is disabled <br>
 **Then** the "\<ELEMENT NAME\>" is displayed <br>
 **Then** the "\<ELEMENT NAME\>" is hidden	 <br>
-**Then** the "\<ELEMENT NAME\>" is not appear	<br>
-**Then** the "\<ELEMENT NAME\>" is not appear during "\<NUMBER\>" seconds <br>
+**Then** the "\<ELEMENT NAME\>" does not appear	<br>
+**Then** the "\<ELEMENT NAME\>" does not appear during "\<NUMBER\>" seconds <br>
 
 [More information in the tutorial](https://jdi-docs.github.io/jdi-light/?java#tutorial) <br>
 [Cucumber tests for Range](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Range.feature)<br>

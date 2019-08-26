@@ -4188,8 +4188,8 @@ Range action examples:
 
 **Actions:** <br>
 **When** <I> set "\<ELEMENT NAME\>" value to "\<VALUE\>"  <br>
-
 ```
+
 Range validation  <I>examples:
   Then the "Volume" attribute "min" equals to "10"
   Then the "Volume" range volume greater or equal to 10
@@ -4211,8 +4211,7 @@ Scenario: Validation Volume element test
   And the "Volume" attribute "step" equals to "5"
   And the "Volume" range volume greater or equal to 10
   And the "Volume" range volume less or equal to 100
-  And the "Volume" attribute "value" equals to "90"
-  
+  And the "Volume" attribute "value" equals to "90" 
 ```
 
 **Validations:** <br>

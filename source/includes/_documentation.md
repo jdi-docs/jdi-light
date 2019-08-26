@@ -3607,11 +3607,11 @@ Examples:
 ````
 
 Validations: <br>
-**Then** image "\<IMAGE NAME\>" src equals to "\<SOURCE VALUE\>"<br>
-**Then** image "\<IMAGE NAME\>" scr contains "\<SOURCE VALUE\>"<br>
-**Then** image "\<IMAGE NAME\>" height is equal to "\<HEIGHT VALUE\>"<br>
-**Then** image "\<IMAGE NAME\>" width is equal to "\<WIDTH VALUE\>"<br>
-**Then** image "\<IMAGE NAME\>" attribute is equal to "\<ALT VALUE\>"<br>
+**Then** the image "\<IMAGE NAME\>" src equals to "\<SOURCE VALUE\>"<br>
+**Then** the image "\<IMAGE NAME\>" scr contains "\<SOURCE VALUE\>"<br>
+**Then** the image "\<IMAGE NAME\>" height is equal to "\<HEIGHT VALUE\>"<br>
+**Then** the image "\<IMAGE NAME\>" width is equal to "\<WIDTH VALUE\>"<br>
+**Then** the image "\<IMAGE NAME\>" attribute is equal to "\<ALT VALUE\>"<br>
 
 [More information in the tutorial](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)<br>
 [Cucumber tests for Image](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/image.feature) <br>
@@ -3625,15 +3625,15 @@ Alert action examples:
   When Dismiss alert
 
 Alert validation examples:
-  Then Alert text equals to "Red Button"
-  Then Alert text contains "Red B"
-  Then Alert text matches to "\w{3} \d{6}"
+  Then the Alert text equals to "Red Button"
+  Then the Alert text contains "Red B"
+  Then the Alert text matches to "\w{3} \d{6}"
     
 Example:
 Scenario: alert text contains
     Given I open "Html5 page"
     When Click on "Red Button"
-    Then Alert text contains "Red B"   
+    Then the Alert text contains "Red B"   
     
 ````
 
@@ -3644,9 +3644,9 @@ Actions: <br>
 
 Validations: <br>
 
-**Then** Alert text equals to "\<ALERT TEXT\>"<br>
-**Then** Alert text contains "\<ALERT TEXT\>"<br>
-**Then** Alert text matches to "\<ALERT TEXT\>"<br>
+**Then** the Alert text equals to "\<ALERT TEXT\>"<br>
+**Then** the Alert text contains "\<ALERT TEXT\>"<br>
+**Then** the Alert text matches to "\<ALERT TEXT\>"<br>
 
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa)<br>
@@ -3695,9 +3695,9 @@ Validations:<br>
 **Then** the "\<ELEMENT NAME\>" file input element label contains "\<TEXT PART\>"<br>
 **Then** the "\<ELEMENT NAME\>" file input element text equals to "\<PATH TO FILE\>"<br>
 **Then** the "\<ELEMENT NAME\>" file input element text contains "\<PART OF PATH TO FILE\>"<br>
-**Then** the"\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" equals to "ATTRIBUTE VALUE\>"<br>
-**Then** the"\<ELEMENT NAME\>" is disabled<br>
-**Then** the"\<ELEMENT NAME\>" is basically valid<br>
+**Then** the "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" equals to "ATTRIBUTE VALUE\>"<br>
+**Then** the "\<ELEMENT NAME\>" is disabled<br>
+**Then** the "\<ELEMENT NAME\>" is basically valid<br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial)<br>
 [**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/FileInput.feature) for FileInput<br>

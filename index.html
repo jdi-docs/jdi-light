@@ -7571,11 +7571,11 @@ Examples:
 
 </code></pre>
 <p>Validations: <br>
-<strong>Then</strong> image &quot;&lt;IMAGE NAME&gt;&quot; src equals to &quot;&lt;SOURCE VALUE&gt;&quot;<br>
-<strong>Then</strong> image &quot;&lt;IMAGE NAME&gt;&quot; scr contains &quot;&lt;SOURCE VALUE&gt;&quot;<br>
-<strong>Then</strong> image &quot;&lt;IMAGE NAME&gt;&quot; height is equal to &quot;&lt;HEIGHT VALUE&gt;&quot;<br>
-<strong>Then</strong> image &quot;&lt;IMAGE NAME&gt;&quot; width is equal to &quot;&lt;WIDTH VALUE&gt;&quot;<br>
-<strong>Then</strong> image &quot;&lt;IMAGE NAME&gt;&quot; attribute is equal to &quot;&lt;ALT VALUE&gt;&quot;<br></p>
+<strong>Then</strong> the image &quot;&lt;IMAGE NAME&gt;&quot; src equals to &quot;&lt;SOURCE VALUE&gt;&quot;<br>
+<strong>Then</strong> the image &quot;&lt;IMAGE NAME&gt;&quot; scr contains &quot;&lt;SOURCE VALUE&gt;&quot;<br>
+<strong>Then</strong> the image &quot;&lt;IMAGE NAME&gt;&quot; height is equal to &quot;&lt;HEIGHT VALUE&gt;&quot;<br>
+<strong>Then</strong> the image &quot;&lt;IMAGE NAME&gt;&quot; width is equal to &quot;&lt;WIDTH VALUE&gt;&quot;<br>
+<strong>Then</strong> the image &quot;&lt;IMAGE NAME&gt;&quot; attribute is equal to &quot;&lt;ALT VALUE&gt;&quot;<br></p>
 
 <p><a href="https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa">More information in the tutorial</a><br>
 <a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/image.feature">Cucumber tests for Image</a> <br></p>
@@ -7586,15 +7586,15 @@ Examples:
   When Dismiss alert
 
 Alert validation examples:
-  Then Alert text equals to "Red Button"
-  Then Alert text contains "Red B"
-  Then Alert text matches to "\w{3} \d{6}"
+  Then the Alert text equals to "Red Button"
+  Then the Alert text contains "Red B"
+  Then the Alert text matches to "\w{3} \d{6}"
 
 Example:
 Scenario: alert text contains
     Given I open "Html5 page"
     When Click on "Red Button"
-    Then Alert text contains "Red B"   
+    Then the Alert text contains "Red B"   
 
 </code></pre>
 <p>Actions: <br></p>
@@ -7604,9 +7604,9 @@ Scenario: alert text contains
 
 <p>Validations: <br></p>
 
-<p><strong>Then</strong> Alert text equals to &quot;&lt;ALERT TEXT&gt;&quot;<br>
-<strong>Then</strong> Alert text contains &quot;&lt;ALERT TEXT&gt;&quot;<br>
-<strong>Then</strong> Alert text matches to &quot;&lt;ALERT TEXT&gt;&quot;<br></p>
+<p><strong>Then</strong> the Alert text equals to &quot;&lt;ALERT TEXT&gt;&quot;<br>
+<strong>Then</strong> the Alert text contains &quot;&lt;ALERT TEXT&gt;&quot;<br>
+<strong>Then</strong> the Alert text matches to &quot;&lt;ALERT TEXT&gt;&quot;<br></p>
 
 <p>More information in the <a href="https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa"><strong>Tutorial</strong></a><br>
 <a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Alert.feature"><strong>Cucumber tests</strong></a> for Alert<br></p>
@@ -7649,9 +7649,9 @@ Scenario example:
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; file input element label contains &quot;&lt;TEXT PART&gt;&quot;<br>
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; file input element text equals to &quot;&lt;PATH TO FILE&gt;&quot;<br>
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; file input element text contains &quot;&lt;PART OF PATH TO FILE&gt;&quot;<br>
-<strong>Then</strong> the&quot;&lt;ELEMENT NAME&gt;&quot; attribute &quot;&lt;ATTRIBUTE NAME&gt;&quot; equals to &quot;ATTRIBUTE VALUE&gt;&quot;<br>
-<strong>Then</strong> the&quot;&lt;ELEMENT NAME&gt;&quot; is disabled<br>
-<strong>Then</strong> the&quot;&lt;ELEMENT NAME&gt;&quot; is basically valid<br></p>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; attribute &quot;&lt;ATTRIBUTE NAME&gt;&quot; equals to &quot;ATTRIBUTE VALUE&gt;&quot;<br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is disabled<br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is basically valid<br></p>
 
 <p>More information in the <a href="https://jdi-docs.github.io/jdi-light/?java#tutorial"><strong>Tutorial</strong></a><br>
 <a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/FileInput.feature"><strong>Cucumber tests</strong></a> for FileInput<br></p>

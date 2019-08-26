@@ -544,6 +544,9 @@
                               <a href="#text-2" class="toc-h2 h3 toc-link" data-title="Text">Text</a>
                             </li>
                             <li>
+                              <a href="#combobox-2" class="toc-h2 h3 toc-link" data-title="ComboBox">ComboBox</a>
+                            </li>
+                            <li>
                               <a href="#numberselector-2" class="toc-h2 h3 toc-link" data-title="NumberSelector">NumberSelector</a>
                             </li>
                             <li>
@@ -6837,6 +6840,8 @@ Multi Selector are represented by the following class:</p>
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/ComboboxTests.java">Java test examples</a></p>
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/ComboBoxTests.cs">C# test examples</a></p>
+
+<p><a href="https://jdi-docs.github.io/jdi-light/?java#combobox-2">BDD Steps example</a></p>
 <h2 id='composite-elements'>Composite elements</h2><h3 id='section'>Section</h3>
 <p><strong>Section</strong> - logical part of Web Page that contains other UI Elements</p>
 
@@ -7950,6 +7955,36 @@ Scenario: Text validation test
 
 <p><a href="https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa">More information in the tutorial</a><br>
 <a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Text.feature">Cucumber tests for Text</a><br><br></p>
+<h3 id='combobox-2'>ComboBox</h3><pre class="highlight plaintext"><code>ComboBox actions examples:
+When Select "Coconut" field from "Ice Cream"
+When Select value 5 in "Ice Cream"
+
+ComboBox validations examples:
+Then the "Ice Cream" is enabled
+Then the "Ice Cream" selected value is "Coconut"
+Then the "Ice Cream" text equals to "Coconut"
+Then the "Ice Cream" label text equals to "Choose your lovely icecream"
+Then the "Ice Cream" label text contains "lovely icecream"
+
+Scenario example:
+Scenario: Select combobox value test
+    Given I open "Html5 Page"
+    When Select "Chocolate" field from "Ice Cream"
+    Then the "Ice Cream" selected value is "Chocolate"
+</code></pre>
+<p>Actions:<br>
+<strong>When</strong> Select &quot;&lt;VALUE&gt;&quot; field from &quot;&lt;ELEMENT NAME&gt;&quot;<br>
+<strong>When</strong> Select value &quot;&lt;INDEX NUMBER&gt;&quot; in &quot;&lt;ELEMENT NAME&gt;&quot;<br></p>
+
+<p>Validations:<br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is enabled<br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; selected value is &quot;&lt;VALUE&gt;&quot;<br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; text equals to &quot;&lt;TEXT&gt;&quot;<br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; label text equals to &quot;&lt;LABEL TEXT&gt;&quot;<br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; label text contains &quot;&lt;LABEL TEXT&gt;&quot;<br></p>
+
+<p>More information in the <a href="https://jdi-docs.github.io/jdi-light/?java#tutorial"><strong>Tutorial</strong></a><br>
+<a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/ComboBox.feature"><strong>Cucumber tests</strong></a> for ComboBox<br><br></p>
 <h3 id='numberselector-2'>NumberSelector</h3><pre class="highlight plaintext"><code>
 NumberSelector action examples:
   When Set text "2.1" in "Height"   

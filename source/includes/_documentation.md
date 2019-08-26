@@ -1325,7 +1325,8 @@ Here is a list of available methods in C#:
 **Is()** | Returns object for work with assertions | RangeAssert
 **AssertThat()** | Returns object for work with assertions | RangeAssert
 
-[Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/RangeTests.cs)</br></br>
+[Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/RangeTests.cs)</br>
+[BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#range-2) <br>
 
 And here are methods available in Java:
 
@@ -1340,6 +1341,7 @@ And here are methods available in Java:
 **assertThat()** | Returns object for work with assertions | RangeAssert
 
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/RangeTests.java)</br>
+[BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#range-2) <br>
 
 ### Text
 **Text** is a combination of letters and textual symbols. When performing testing, the text is used in most operations: when typing text into the login field, when finding a button with some certain text in it, or when checking if actual text matches expected one.
@@ -4014,7 +4016,7 @@ Scenario: progress bar validation
 **Then** the "\<ELEMENT NAME\>" is not appear	<br>
 **Then** the "\<ELEMENT NAME\>" is not appear during "\<NUMBER\>" seconds <br>
 
-[More information in the tutorial](https://jdi-docs.github.io/jdi-light/?java#tutorial) <br>	
+[More information in the tutorial](https://jdi-docs.github.io/jdi-light/?java#tutorial) <br>
 [Cucumber tests for Progress Bar](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/ProgressBar.feature)<br>
 <br><br><br><br><br><br><br><br>
 
@@ -4227,17 +4229,8 @@ Scenario: Validation Volume element test
 **Then** the "\<ELEMENT NAME\>" is not appear during "\<NUMBER\>" seconds <br>
 
 [More information in the tutorial](https://jdi-docs.github.io/jdi-light/?java#tutorial) <br>
-[Cucumber tests for Progress Bar](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/ProgressBar.feature)<br><br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+[Cucumber tests for Range](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Range.feature)<br>
+<br><br><br><br>
 
 
 ## UI Objects

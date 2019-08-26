@@ -4010,36 +4010,32 @@ Validations:<br>
 CheckList actions examples:
 
 When I check element "Hot option" in "Weather" checklist
-When I select element "Disabled" in "Weather" checklist
+When I Select "Cold;Hot option" fields from "Weather"
 When I check elements in "Weather" checklist:
      | Hot option |
-When I select elements in "Weather" checklist via numbers:
-     | 4 |
-When I check in "Weather" checklist elements via enum:
-     | Rainy |
+When I select in "Weather" checklist elements by numbers:
+     | 1 |
+     | 2 |
 When I check all elements in "Weather" checklist
 When I uncheck all elements in "Weather" checklist
-When I uncheck in "Weather" checklist elements:
+When I check elements in "Weather" checklist:
      | Rainy day |
-When I select nothing in "Weather" checklist and should be exception
-
+     | Sunny     |
 ```
 Actions: <br>
 
+ **When**  \<I\> check element "\<ELEMENT NAME\>" in "\<ELEMENT NAME\>" checklist <br>
  **When**  \<I\> check elements in "\<ELEMENT NAME\>" checklist:  <br>
+ **When**  \<I\> uncheck element "\<ELEMENT NAME\>" in "\<ELEMENT NAME\>" checklist <br>
  **When**  \<I\> uncheck in "\<ELEMENT NAME\>" checklist elements:  <br>
- **When**  \<I\> select in "\<ELEMENT NAME\>" checklist elements:  <br>
- **When**  \<I\> check in "\<ELEMENT NAME\>" checklist elements via numbers: <br> 
- **When**  \<I\> select in "\<ELEMENT NAME\>" checklist elements via numbers: <br>
- **When**  \<I\> uncheck in "\<ELEMENT NAME\>" checklist elements via numbers: <br>
- **When**  \<I\> check in "\<ELEMENT NAME\>" checklist elements via enum:  <br>
- **When**  \<I\> select in "\<ELEMENT NAME\>" checklist via enum:  <br> 
- **When**  \<I\> uncheck in "\<ELEMENT NAME\>" checklist via enum:  <br> 
+ **When**  \<I\> uncheck in "\<ELEMENT NAME\>" checklist elements by numbers: <br>
+ **When**  \<I\> uncheck in "\<ELEMENT NAME\>" checklist element by numbers "\<NUMBER\>": <br> 
+ **When**  \<I\> check in "\<ELEMENT NAME\>" checklist element by numbers "\<NUMBER\>": <br> 
+ **When**  \<I\> check in "\<ELEMENT NAME\>" checklist elements by numbers: <br> 
+ **When**  \<I\> select in "\<ELEMENT NAME\>" checklist elements by numbers: <br>
+ **When**  \<I\> select in "\<ELEMENT NAME\>" checklist element by numbers "\<NUMBER\>": <br>
  **When**  \<I\> check all elements in "\<ELEMENT NAME\>" checklist  <br>
  **When**  \<I\> uncheck all elements in "\<ELEMENT NAME\>" checklist  <br>
- **When**  \<I\> check element "\<ELEMENT NAME\>" in "\<ELEMENT NAME\>" checklist <br>
- **When**  \<I\> select element "\<ELEMENT NAME\>" in "\<ELEMENT NAME\>" checklist <br>
- **When**  \<I\> select nothing in "\<ELEMENT NAME\>" checklist and should be exception <br> 
  
  ```
 CheckList validation examples:
@@ -4049,24 +4045,13 @@ Then The "Weather" checklist text is "Hot option"
 Then Count of selected elements in "Weather" checklist is "2"
  Then In the "Weather" checklist checked elements are:
 
-Scenario examples:
-  Scenario: Uncheck element via number test
-    When I check all elements in "Weather" checklist
-    And I uncheck in "Weather" checklist elements via numbers:
+Scenario: Check element via numbers test
+  When I check in "Weather" checklist elements by numbers:
       | 1 |
       | 4 |
-    Then In the "Weather" checklist checked elements are:
-      | Cold      |
-      | Rainy day |
-
-  Scenario: Uncheck elements test
-    When I check elements in "Weather" checklist:
-      | Rainy day |
-      | Sunny     |
-    And I uncheck in "Weather" checklist elements:
-      | Rainy day |
-      | Sunny     |
-    Then Count of selected elements in "Weather" checklist is 
+  Then In the "Weather" checklist checked elements are:
+      | Hot option |
+      | Sunny      |
 ```
 Validations: <br>
 

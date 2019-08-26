@@ -4187,10 +4187,10 @@ Range action examples:
 ```
 
 **Actions:** <br>
-**When** install "\<ELEMENT NAME\>" value to "\<VALUE\>"  <br>
+**When** <I> set "\<ELEMENT NAME\>" value to "\<VALUE\>"  <br>
 
 ```
-Range validation examples:
+Range validation  <I>examples:
   Then the "Volume" attribute "min" equals to "10"
   Then the "Volume" range volume greater or equal to 10
   Then the "Volume" range volume less or equal to 100

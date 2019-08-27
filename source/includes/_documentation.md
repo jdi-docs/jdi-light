@@ -391,7 +391,8 @@ Here is the list of some available methods in C#:
 **Is()** | Assert acton color | ColorAssert
 **AssertThat()** | Assert acton color | ColorAssert 
 
-[Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/ColorPickerTests.cs)
+[Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/ColorPickerTests.cs)<br>
+[BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#colorpicker-2)<br>
 
 ### DateTimeSelector
 
@@ -1549,7 +1550,8 @@ Here is a list of available methods and properties in C#:
 **AssertThat** | property that returns object for work with assertions| TextAssert
 
 
-[Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/TextFieldsTests.cs)
+[Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/TextFieldsTests.cs)<br>
+[BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#textfield-2)<br>
 
 And here are methods available in Java:
 
@@ -1565,6 +1567,7 @@ And here are methods available in Java:
 **getValue()** | returns text from the text field| String
 
 [Test examples in Java](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/TextFieldTests.java)
+[BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#textfield-2)<br>
 
 ### TextArea
 ```java 
@@ -4444,6 +4447,47 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi
 
 
 
+
+### TextField
+
+```
+TextField action example:
+
+When I Send keys "Lorem" to "Name"
+When I Set text "Lorem" in "Name"
+When I Clear "Name"
+When I Input "Lorem" in "Name"
+
+TextField validation examples:
+
+Then the "Name" placeholder equals to "Input name"
+Then the "Name" text equals to "Lorem"
+Then the "Name" text is "Lorem"
+
+Example:
+  Scenario: sendKeys test
+    Given I open "Html5 Page"
+    When I Send keys "Lorem" to "Name"
+    Then the "Name" text equals to "Lorem"
+    
+```
+Actions: <br>
+
+**When** I Send keys "TEXT" to "ELEMENT NAME"
+**When** I Set text "TEXT" to "ELEMENT NAME"
+**When** I clear "ELEMENT NAME"
+**When** I Input "TEXT" to "ELEMENT NAME"
+
+Validations: <br>
+
+**Then** the "ELEMENT NAME" placeholder equals to "PLACEHOLDER TEXT" <br>
+**Then** the "ELEMENT NAME" text equals to "TEXT" <br>
+**Then** the "ELEMENT NAME" text is "VALUE" <br>
+
+More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial)<br><br>
+[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/TextField.feature) for TextField<br>
+
+<br><br><br><br><br><br><br><br><br><br><br>
 
 
 ### CheckList

@@ -4200,14 +4200,16 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 <br>
 
 ### Range
-  
+
 ```
 Range action examples:
   When install "Volume" value to 5
+  
 ```
 
 **Actions:** <br>
 **When** \<I\> set "\<ELEMENT NAME\>" value to "\<VALUE\>"  <br>
+
 ```
 
 Range validation  <I>examples:
@@ -4232,6 +4234,7 @@ Scenario: Validation Volume element test
   And the "Volume" range volume greater or equal to 10
   And the "Volume" range volume less or equal to 100
   And the "Volume" attribute "value" equals to "90" 
+  
 ```
 
 **Validations:** <br>

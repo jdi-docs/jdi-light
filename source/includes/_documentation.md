@@ -4364,6 +4364,64 @@ Validations: <br>
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)<br>
 [**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/textarea.feature) for TextArea<br>
 
+### Menu 
+
+```
+Menu actions examples:
+
+When I Select "Contact form" in "Left Menu" menu
+When I Select "Service;Dates" items in "Left Menu" menu
+When I Show "Contact form" in "Left Menu" menu
+
+```
+
+Actions: <br>
+
+**When** I Select "\<VALUE\>" in "\<NAME\>" menu <br>
+**When** I Select "\<VALUE1:VALUE2\>" items in "\<NAME\>" menu <br>
+**When** I Show "\<VALUE\>" in "\<NAME\>" menu <br>
+
+```
+Menu validations examples:
+
+Then the "Left Menu" is enabled
+Then the "Left Menu" is disabled
+Then the "Left Menu" is displayed
+Then the "Left Menu" is hidden
+Then the "Left Menu" does not appear
+Then the "Left Menu" does not appear during "5" seconds
+Then the "Contact form" in "Left Menu" menu is selected
+Then the "Contact form" in "Left Menu" menu is deselected
+
+  Scenario: Select items test
+    Given I open "Html5 Page"
+    When I Check "Accept Conditions"
+    When I Select "Service;Dates" items in "Left Menu" menu
+    Then the "Dates Page" page is opened
+
+  Scenario: Is validation test
+    Given I open "Html5 Page"
+    When I Check "Accept Conditions"
+    Then the "HTML 5" in "Left Menu" menu is selected
+  
+More examples are available in the Tutorial section.
+
+```
+
+Validations: <br>
+
+**Then** the "\<ELEMENT NAME\>" is enabled <br>
+**Then** the "\<ELEMENT NAME\>" is disabled <br>
+**Then** the "\<ELEMENT NAME\>" is displayed <br>
+**Then** the "\<ELEMENT NAME\>" is hidden <br>
+**Then** the "\<ELEMENT NAME\>" does not appear <br>
+**Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
+**Then** the "\<VALUE\>" in "\<ELEMENT NAME\>" menu is selected <br>
+**Then** the "\<VALUE\>" in "\<ELEMENT NAME\>" menu is deselected <br>
+
+More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)<br>
+[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Menu.feature) for Menu<br>
+
 ## UI Objects
 TBD
 

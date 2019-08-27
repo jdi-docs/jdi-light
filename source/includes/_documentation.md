@@ -2975,6 +2975,8 @@ Here is the list of some available methods in C# JDI Light:
 
 [C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Complex/CheckListTests.cs)
 
+[BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#checklist-2)
+
 ### MultiSelector
 **MultiSelector** – a graphical control element, that allows the user to do multiple choice.
 Multi Selector are represented by the following class:
@@ -4432,6 +4434,88 @@ Validations: <br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)<br>
 [**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Menu.feature) for Menu<br>
+
+
+
+
+
+### CheckList
+
+```
+CheckList actions examples:
+
+When I check element "Hot option" in "Weather" checklist
+When I Select "Cold;Hot option" fields from "Weather"
+When I check elements in "Weather" checklist:
+     | Hot option |
+When I select in "Weather" checklist elements by numbers:
+     | 1 |
+     | 2 |
+When I check all elements in "Weather" checklist
+When I uncheck all elements in "Weather" checklist
+When I check elements in "Weather" checklist:
+     | Rainy day |
+     | Sunny     |
+When I Select "Cold;Hot option" fields from "Weather"
+
+
+```
+Actions: <br>
+
+ **When**  \<I\> check element "\<ELEMENT NAME\>" in "\<ELEMENT NAME\>" checklist <br>
+ **When**  \<I\> check elements in "\<ELEMENT NAME\>" checklist:  <br>
+ **When**  \<I\> uncheck element "\<ELEMENT NAME\>" in "\<ELEMENT NAME\>" checklist <br>
+ **When**  \<I\> uncheck in "\<ELEMENT NAME\>" checklist elements:  <br>
+ **When**  \<I\> uncheck in "\<ELEMENT NAME\>" checklist elements by numbers: <br>
+ **When**  \<I\> uncheck in "\<ELEMENT NAME\>" checklist element by numbers "\<NUMBER\>": <br> 
+ **When**  \<I\> check in "\<ELEMENT NAME\>" checklist element by numbers "\<NUMBER\>": <br> 
+ **When**  \<I\> check in "\<ELEMENT NAME\>" checklist elements by numbers: <br> 
+ **When**  \<I\> select in "\<ELEMENT NAME\>" checklist elements by numbers: <br>
+ **When**  \<I\> select in "\<ELEMENT NAME\>" checklist element by numbers "\<NUMBER\>": <br>
+ **When**  \<I\> check all elements in "\<ELEMENT NAME\>" checklist  <br>
+ **When**  \<I\> uncheck all elements in "\<ELEMENT NAME\>" checklist  <br> 
+ 
+ 
+```
+CheckList validation examples:
+
+Then In "Weather" checklist checked element is "Cold"
+Then The "Weather" checklist text is "Hot option"
+Then Count of selected elements in "Weather" checklist is "2"
+Then In the "Weather" checklist checked elements are:
+
+Scenario: Check element via numbers test
+  When I check in "Weather" checklist elements by numbers:
+      | 1 |
+      | 4 |
+  Then In the "Weather" checklist checked elements are:
+      | Hot option |
+      | Sunny      |
+
+
+
+```
+Validations: <br>
+
+**Then** In "\<ELEMENT NAME\>" checklist checked element is "\<ELEMENT NAME\>" <br>
+**Then** Count of selected elements in "\<ELEMENT NAME\>" checklist is "\<COUNT\>" <br>
+**Then** In the "\<ELEMENT NAME\>" checklist checked element are: <br>
+**Then** The "\<ELEMENT NAME\>" checklist text is "\<ELEMENT NAME\>" <br>
+**Then** "\<ELEMENT NAME\>" is enabled <br>
+**Then** "\<ELEMENT NAME\>" is disabled <br>
+**Then** "\<ELEMENT NAME\>" is displayed <br>
+**Then** "\<ELEMENT NAME\>" is hidden	 <br>
+**Then** "\<ELEMENT NAME\>" is not appear	<br>
+**Then** "\<ELEMENT NAME\>" is not appear during "\<NUMBER\>" seconds <br>
+
+
+More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#checklist)<br>
+[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/CheckList.feature) for CheckList<br>
+
+
+ 
+
+ 
 
 ## UI Objects
 TBD

@@ -558,6 +558,9 @@
                             <li>
                               <a href="#menu-2" class="toc-h2 h3 toc-link" data-title="Menu">Menu</a>
                             </li>
+                            <li>
+                              <a href="#checklist-2" class="toc-h2 h3 toc-link" data-title="CheckList">CheckList</a>
+                            </li>
                         </ul>
                   </li>
                   <li>
@@ -6565,6 +6568,8 @@ Datalist element contains a set of options with values available for entering.</
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/ChecklistTests.java">Java test examples</a></p>
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Complex/CheckListTests.cs">C# test examples</a></p>
+
+<p><a href="https://jdi-docs.github.io/jdi-light/?java#checklist-2">BDD Steps example</a></p>
 <h3 id='multiselector'>MultiSelector</h3>
 <p><strong>MultiSelector</strong> – a graphical control element, that allows the user to do multiple choice.
 Multi Selector are represented by the following class:</p>
@@ -8312,6 +8317,71 @@ More examples are available in the Tutorial section.
 
 <p>More information in the <a href="https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa"><strong>Tutorial</strong></a><br>
 <a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Menu.feature"><strong>Cucumber tests</strong></a> for Menu<br></p>
+<h3 id='checklist-2'>CheckList</h3><pre class="highlight plaintext"><code>CheckList actions examples:
+
+When I check element "Hot option" in "Weather" checklist
+When I Select "Cold;Hot option" fields from "Weather"
+When I check elements in "Weather" checklist:
+     | Hot option |
+When I select in "Weather" checklist elements by numbers:
+     | 1 |
+     | 2 |
+When I check all elements in "Weather" checklist
+When I uncheck all elements in "Weather" checklist
+When I check elements in "Weather" checklist:
+     | Rainy day |
+     | Sunny     |
+When I Select "Cold;Hot option" fields from "Weather"
+
+
+</code></pre>
+<p>Actions: <br></p>
+
+<p><strong>When</strong>  &lt;I&gt; check element &quot;&lt;ELEMENT NAME&gt;&quot; in &quot;&lt;ELEMENT NAME&gt;&quot; checklist <br>
+ <strong>When</strong>  &lt;I&gt; check elements in &quot;&lt;ELEMENT NAME&gt;&quot; checklist:  <br>
+ <strong>When</strong>  &lt;I&gt; uncheck element &quot;&lt;ELEMENT NAME&gt;&quot; in &quot;&lt;ELEMENT NAME&gt;&quot; checklist <br>
+ <strong>When</strong>  &lt;I&gt; uncheck in &quot;&lt;ELEMENT NAME&gt;&quot; checklist elements:  <br>
+ <strong>When</strong>  &lt;I&gt; uncheck in &quot;&lt;ELEMENT NAME&gt;&quot; checklist elements by numbers: <br>
+ <strong>When</strong>  &lt;I&gt; uncheck in &quot;&lt;ELEMENT NAME&gt;&quot; checklist element by numbers &quot;&lt;NUMBER&gt;&quot;: <br> 
+ <strong>When</strong>  &lt;I&gt; check in &quot;&lt;ELEMENT NAME&gt;&quot; checklist element by numbers &quot;&lt;NUMBER&gt;&quot;: <br> 
+ <strong>When</strong>  &lt;I&gt; check in &quot;&lt;ELEMENT NAME&gt;&quot; checklist elements by numbers: <br> 
+ <strong>When</strong>  &lt;I&gt; select in &quot;&lt;ELEMENT NAME&gt;&quot; checklist elements by numbers: <br>
+ <strong>When</strong>  &lt;I&gt; select in &quot;&lt;ELEMENT NAME&gt;&quot; checklist element by numbers &quot;&lt;NUMBER&gt;&quot;: <br>
+ <strong>When</strong>  &lt;I&gt; check all elements in &quot;&lt;ELEMENT NAME&gt;&quot; checklist  <br>
+ <strong>When</strong>  &lt;I&gt; uncheck all elements in &quot;&lt;ELEMENT NAME&gt;&quot; checklist  <br> </p>
+<pre class="highlight plaintext"><code>CheckList validation examples:
+
+Then In "Weather" checklist checked element is "Cold"
+Then The "Weather" checklist text is "Hot option"
+Then Count of selected elements in "Weather" checklist is "2"
+Then In the "Weather" checklist checked elements are:
+
+Scenario: Check element via numbers test
+  When I check in "Weather" checklist elements by numbers:
+      | 1 |
+      | 4 |
+  Then In the "Weather" checklist checked elements are:
+      | Hot option |
+      | Sunny      |
+
+
+
+</code></pre>
+<p>Validations: <br></p>
+
+<p><strong>Then</strong> In &quot;&lt;ELEMENT NAME&gt;&quot; checklist checked element is &quot;&lt;ELEMENT NAME&gt;&quot; <br>
+<strong>Then</strong> Count of selected elements in &quot;&lt;ELEMENT NAME&gt;&quot; checklist is &quot;&lt;COUNT&gt;&quot; <br>
+<strong>Then</strong> In the &quot;&lt;ELEMENT NAME&gt;&quot; checklist checked element are: <br>
+<strong>Then</strong> The &quot;&lt;ELEMENT NAME&gt;&quot; checklist text is &quot;&lt;ELEMENT NAME&gt;&quot; <br>
+<strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; is enabled <br>
+<strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; is disabled <br>
+<strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; is displayed <br>
+<strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; is hidden    <br>
+<strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; is not appear   <br>
+<strong>Then</strong> &quot;&lt;ELEMENT NAME&gt;&quot; is not appear during &quot;&lt;NUMBER&gt;&quot; seconds <br></p>
+
+<p>More information in the <a href="https://jdi-docs.github.io/jdi-light/?java#checklist"><strong>Tutorial</strong></a><br>
+<a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/CheckList.feature"><strong>Cucumber tests</strong></a> for CheckList<br></p>
 <h2 id='ui-objects'>UI Objects</h2>
 <p>TBD</p>
 <h2 id='smart-locators'>Smart Locators</h2><pre class="highlight plaintext"><code>&lt;input type="text" id="name"&gt;

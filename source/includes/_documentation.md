@@ -4444,7 +4444,7 @@ Validations: <br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)<br>
 [**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Menu.feature) for Menu<br>
-
+<br><br><br><br><br><br><br><br><br><br>
 
 
 
@@ -4473,10 +4473,10 @@ Example:
 ```
 Actions: <br>
 
-**When** I Send keys "TEXT" to "ELEMENT NAME"
-**When** I Set text "TEXT" to "ELEMENT NAME"
-**When** I clear "ELEMENT NAME"
-**When** I Input "TEXT" to "ELEMENT NAME"
+**When** I Send keys "TEXT" to "ELEMENT NAME"<br>
+**When** I Set text "TEXT" to "ELEMENT NAME"<br>
+**When** I clear "ELEMENT NAME"<br>
+**When** I Input "TEXT" to "ELEMENT NAME"<br>
 
 Validations: <br>
 

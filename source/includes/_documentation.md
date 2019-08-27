@@ -1648,7 +1648,7 @@ Here is a list of available methods in C#:
 **AssertThat()** | returns object for work with assertions  | TextAreaAssert
  
   [Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/TextAreaTests.cs) <br>
-  [BDD Steps example](https://jdi-docs.github.io/jdi-light/textarea-2) <br>
+  [BDD Steps example](https://jdi-docs.github.io/jdi-light/#textarea-2) <br>
   
   And here are methods available in Java:
   
@@ -1666,7 +1666,7 @@ Here is a list of available methods in C#:
 **assertThat()** | returns object for work with assertions  | TextAreaAssert
 
   [Test examples in Java](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/TextAreaTests.java) <br>
-  [BDD Steps example](https://jdi-docs.github.io/jdi-light/textarea-2) <br>
+  [BDD Steps example](https://jdi-docs.github.io/jdi-light/#textarea-2) <br>
 
 ### Title
 **Title** – a graphical control element, that is the title of the document, which is displayed in the title bar of the browser or tab page.
@@ -4292,16 +4292,16 @@ When I Input in the "Text Area" lines
 
 Actions: <br>
 
-**When** <I> Send keys "\<KEYS\>" to "\<ELEMENT NAME\>" <br>
-**When** <I> Clear "\<ELEMENT NAME\>" <br>
-**When** <I> Input "\<TEXT\>" in "\<ELEMENT NAME\>" <br>
-**When** <I> Focus on "\<ELEMENT NAME\>" <br>
-**When** <I> Set text "\<TEXT\>" in "\<ELEMENT NAME\>" <br>
-**When** <I> Highlight "\<ELEMENT NAME\>" <br>
-**When** <I> Show "\<ELEMENT NAME\>" <br>
-**When** <I> Set "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" with vlaue "\<ATTRIBUTE VALUE\>" element <br>
-**When** <I> Input in the "\<ELEMENT NAME\>" line "\<TEXT\>" <br>
-**When** <I> Input in the "\<ELEMENT NAME\>" lines "\<GHERKIN DATA TABLE\>" <br>
+**When** \<I\> Send keys "\<KEYS\>" to "\<ELEMENT NAME\>" <br>
+**When** \<I\> Clear "\<ELEMENT NAME\>" <br>
+**When** \<I\> Input "\<TEXT\>" in "\<ELEMENT NAME\>" <br>
+**When** \<I\> Focus on "\<ELEMENT NAME\>" <br>
+**When** \<I\> Set text "\<TEXT\>" in "\<ELEMENT NAME\>" <br>
+**When** \<I\> Highlight "\<ELEMENT NAME\>" <br>
+**When** \<I\> Show "\<ELEMENT NAME\>" <br>
+**When** \<I\> Set "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" with vlaue "\<ATTRIBUTE VALUE\>" element <br>
+**When** \<I\> Input in the "\<ELEMENT NAME\>" line "\<TEXT\>" <br>
+**When** \<I\> Input in the "\<ELEMENT NAME\>" lines "\<GHERKIN DATA TABLE\>" <br>
 
 ```
 TextArea validations examples:
@@ -4376,7 +4376,9 @@ Validations: <br>
 **Then** Lines in the "\<ELEMENT NAME\>" are equal <br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)<br>
-[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/textarea.feature) for TextArea<br>
+[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/textarea.feature) for TextArea <br>
+
+
 <br>
 <br>
 <br>

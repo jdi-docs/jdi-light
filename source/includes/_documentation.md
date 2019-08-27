@@ -1062,6 +1062,8 @@ Available Assert methods in C# JDI Light:
 
 [C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Composite/MenuTests.cs)
 
+[BDD Steps example](https://jdi-docs.github.io/jdi-light/#menu-2)
+
 ### NumberSelector
 **NumberSelector** – a graphical control element, that allows the user to let the user enter a number.
 

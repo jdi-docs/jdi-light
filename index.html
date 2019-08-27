@@ -555,6 +555,9 @@
                             <li>
                               <a href="#textarea-2" class="toc-h2 h3 toc-link" data-title="TextArea">TextArea</a>
                             </li>
+                            <li>
+                              <a href="#menu-2" class="toc-h2 h3 toc-link" data-title="Menu">Menu</a>
+                            </li>
                         </ul>
                   </li>
                   <li>
@@ -8248,6 +8251,56 @@ More examples are available in the Tutorial section.
 
 <p>More information in the <a href="https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa"><strong>Tutorial</strong></a><br>
 <a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/textarea.feature"><strong>Cucumber tests</strong></a> for TextArea<br></p>
+<h3 id='menu-2'>Menu</h3><pre class="highlight plaintext"><code>Menu actions examples:
+
+When I Select "Contact form" in "Left Menu" menu
+When I Select "Service;Dates" items in "Left Menu" menu
+When I Show "Contact form" in "Left Menu" menu
+
+</code></pre>
+<p>Actions: <br></p>
+
+<p><strong>When</strong> I Select &quot;&lt;VALUE&gt;&quot; in &quot;&lt;ELEMENT NAME&gt;&quot; menu <br>
+<strong>When</strong> I Select &quot;&lt;VALUE1:VALUE2&gt;&quot; items in &quot;&lt;ELEMENT NAME&gt;&quot; menu <br>
+<strong>When</strong> I Show &quot;&lt;VALUE&gt;&quot; in &quot;&lt;ELEMENT NAME&gt;&quot; menu <br></p>
+<pre class="highlight plaintext"><code>Menu validations examples:
+
+Then the "Left Menu" is enabled
+Then the "Left Menu" is disabled
+Then the "Left Menu" is displayed
+Then the "Left Menu" is hidden
+Then the "Left Menu" does not appear
+Then the "Left Menu" does not appear during "5" seconds
+Then the "Contact form" in "Left Menu" menu is selected
+Then the "Contact form" in "Left Menu" menu is deselected
+
+  Scenario: Select items test
+    Given I open "Html5 Page"
+    When I Check "Accept Conditions"
+    When I Select "Service;Dates" items in "Left Menu" menu
+    Then the "Dates Page" page is opened
+
+  Scenario: Is validation test
+    Given I open "Html5 Page"
+    When I Check "Accept Conditions"
+    Then the "HTML 5" in "Left Menu" menu is selected
+
+More examples are available in the Tutorial section.
+
+</code></pre>
+<p>Validations: <br></p>
+
+<p><strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is enabled <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is disabled <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is displayed <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is hidden <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; does not appear <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; does not appear during &quot;&lt;SECONDS&gt;&quot; seconds <br>
+<strong>Then</strong> the &quot;&lt;VALUE&gt;&quot; in &quot;&lt;ELEMENT NAME&gt;&quot; menu is selected <br>
+<strong>Then</strong> the &quot;&lt;VALUE&gt;&quot; in &quot;&lt;ELEMENT NAME&gt;&quot; menu is deselected <br></p>
+
+<p>More information in the <a href="https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa"><strong>Tutorial</strong></a><br>
+<a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Menu.feature"><strong>Cucumber tests</strong></a> for Menu<br></p>
 <h2 id='ui-objects'>UI Objects</h2>
 <p>TBD</p>
 <h2 id='smart-locators'>Smart Locators</h2><pre class="highlight plaintext"><code>&lt;input type="text" id="name"&gt;

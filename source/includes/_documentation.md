@@ -140,6 +140,8 @@ Available methods in Java JDI Light:
 **assertThat()** | Assert action | TextAssert
 
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ButtonTests.java)
+<br>
+[BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#button-2)
 
 Available methods and properties in C# JDI Light:
 

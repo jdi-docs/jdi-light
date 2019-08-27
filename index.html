@@ -8101,35 +8101,35 @@ Scenario: Validation
 <br></p>
 <h3 id='range-2'>Range</h3><pre class="highlight plaintext"><code>Range action examples:
   When install "Volume" value to 5
+
 </code></pre>
 <p><strong>Actions:</strong> <br>
-<strong>When</strong> &lt;I&gt; set &quot;&lt;ELEMENT NAME&gt;&quot; value to &quot;&lt;VALUE&gt;&quot;  <br>
-```</p>
+<strong>When</strong> &lt;I&gt; set &quot;&lt;ELEMENT NAME&gt;&quot; value to &quot;&lt;VALUE&gt;&quot;  <br></p>
+<pre class="highlight plaintext"><code>
+Range validation  &lt;I&gt;examples:
+  Then the "Volume" attribute "min" equals to "10"
+  Then the "Volume" range volume greater or equal to 10
+  Then the "Volume" range volume less or equal to 100
+  Then the "Volume" label text equals to "Volume"
+  Then the "Volume" label text contains "lume"
+  Then the "Volume" is enabled
+  Then the "Volume" is disabled
+  Then the "Volume" is displayed
+  Then the "Volume" is hidden
+  Then the "Volume" does not appear
+  Then the "Volume" does not appear during "5" second
 
-<p>Range validation  <I>examples:
-  Then the &quot;Volume&quot; attribute &quot;min&quot; equals to &quot;10&quot;
-  Then the &quot;Volume&quot; range volume greater or equal to 10
-  Then the &quot;Volume&quot; range volume less or equal to 100
-  Then the &quot;Volume&quot; label text equals to &quot;Volume&quot;
-  Then the &quot;Volume&quot; label text contains &quot;lume&quot;
-  Then the &quot;Volume&quot; is enabled
-  Then the &quot;Volume&quot; is disabled
-  Then the &quot;Volume&quot; is displayed
-  Then the &quot;Volume&quot; is hidden
-  Then the &quot;Volume&quot; does not appear
-  Then the &quot;Volume&quot; does not appear during &quot;5&quot; second</p>
-
-<p>Example
+Example
 Scenario: Validation Volume element test
-  Then the &quot;Volume&quot; is enabled
-  And the &quot;Volume&quot; attribute &quot;min&quot; equals to &quot;10&quot;
-  And the &quot;Volume&quot; attribute &quot;max&quot; equals to &quot;100&quot;
-  And the &quot;Volume&quot; attribute &quot;step&quot; equals to &quot;5&quot;
-  And the &quot;Volume&quot; range volume greater or equal to 10
-  And the &quot;Volume&quot; range volume less or equal to 100
-  And the &quot;Volume&quot; attribute &quot;value&quot; equals to &quot;90&quot; 
-```</p>
+  Then the "Volume" is enabled
+  And the "Volume" attribute "min" equals to "10"
+  And the "Volume" attribute "max" equals to "100"
+  And the "Volume" attribute "step" equals to "5"
+  And the "Volume" range volume greater or equal to 10
+  And the "Volume" range volume less or equal to 100
+  And the "Volume" attribute "value" equals to "90" 
 
+</code></pre>
 <p><strong>Validations:</strong> <br>
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; attribute &quot;&lt;ATTRIBUTE NAME&gt;&quot; equals to &quot;&lt;ATTRIBUTE VALUE&gt;&quot; <br>
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; range volume greater or equal to &lt;VALUE&gt; <br>

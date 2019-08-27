@@ -3616,9 +3616,8 @@ Examples:
 ````
 
 Validations: <br>
-**Then** the image "\<IMAGE NAME\>" src equals to "\<SOURCE VALUE\>"<br>
-**Then** the image "\<IMAGE NAME\>" scr contains "\<SOURCE VALUE\>"<br>
-**Then** the "\<IMAGE NAME\>" attribute "\<ATTRIBUTE NAME\>" equals to "\<ATTRIBUTE VALUE\>"
+**Then** the "\<IMAGE NAME\>" attribute "\<ATTRIBUTE NAME\>" equals to "\<TEXT\>"<br>
+**Then** the "\<IMAGE NAME\>" attribute "\<ATTRIBUTE NAME\>" contains "\<TEXT\>"
 
 [More information in the tutorial](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)<br>
 [Cucumber tests for Image](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/image.feature) <br>

@@ -4021,6 +4021,9 @@ When I uncheck all elements in "Weather" checklist
 When I check elements in "Weather" checklist:
      | Rainy day |
      | Sunny     |
+When I Select "Cold;Hot option" fields from "Weather"
+
+
 ```
 Actions: <br>
 
@@ -4035,15 +4038,16 @@ Actions: <br>
  **When**  \<I\> select in "\<ELEMENT NAME\>" checklist elements by numbers: <br>
  **When**  \<I\> select in "\<ELEMENT NAME\>" checklist element by numbers "\<NUMBER\>": <br>
  **When**  \<I\> check all elements in "\<ELEMENT NAME\>" checklist  <br>
- **When**  \<I\> uncheck all elements in "\<ELEMENT NAME\>" checklist  <br>
+ **When**  \<I\> uncheck all elements in "\<ELEMENT NAME\>" checklist  <br> 
  
- ```
+ 
+```
 CheckList validation examples:
 
 Then In "Weather" checklist checked element is "Cold"
 Then The "Weather" checklist text is "Hot option"
 Then Count of selected elements in "Weather" checklist is "2"
- Then In the "Weather" checklist checked elements are:
+Then In the "Weather" checklist checked elements are:
 
 Scenario: Check element via numbers test
   When I check in "Weather" checklist elements by numbers:
@@ -4052,13 +4056,23 @@ Scenario: Check element via numbers test
   Then In the "Weather" checklist checked elements are:
       | Hot option |
       | Sunny      |
+
+
+
 ```
 Validations: <br>
 
 **Then** In "\<ELEMENT NAME\>" checklist checked element is "\<ELEMENT NAME\>" <br>
-**Then** Count of selected elements in "\<ELEMENT NAME\>" checklist is "\<ELEMENT NAME\>" <br>
+**Then** Count of selected elements in "\<ELEMENT NAME\>" checklist is "\<COUNT\>" <br>
 **Then** In the "\<ELEMENT NAME\>" checklist checked element are: <br>
 **Then** The "\<ELEMENT NAME\>" checklist text is "\<ELEMENT NAME\>" <br>
+**Then** "\<ELEMENT NAME\>" is enabled <br>
+**Then** "\<ELEMENT NAME\>" is disabled <br>
+**Then** "\<ELEMENT NAME\>" is displayed <br>
+**Then** "\<ELEMENT NAME\>" is hidden	 <br>
+**Then** "\<ELEMENT NAME\>" is not appear	<br>
+**Then** "\<ELEMENT NAME\>" is not appear during "\<NUMBER\>" seconds <br>
+
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#checklist)<br>
 [**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/CheckList.feature) for CheckList<br>

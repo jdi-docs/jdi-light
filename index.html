@@ -3218,7 +3218,7 @@ In addition if you run test scenarios on JDI Light you will <strong>get logs of 
 </tbody></table>
 
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/LinkTests.java">Java test examples</a><br>
-<a href="https://jdi-docs.github.io/jdi-light/?java#link-2">BDD Steps example</a></p>
+<a href="https://jdi-docs.github.io/jdi-light/#link-2">BDD Steps example</a></p>
 
 <p>Here is the list of available methods in C#:</p>
 
@@ -3267,7 +3267,7 @@ In addition if you run test scenarios on JDI Light you will <strong>get logs of 
 </tbody></table>
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/LinkTests.cs">C# test examples</a><br>
-<a href="https://jdi-docs.github.io/jdi-light/?java#link-2">BDD Steps example</a></p>
+<a href="https://jdi-docs.github.io/jdi-light/#link-2">BDD Steps example</a></p>
 <h3 id='menu'>Menu</h3>
 <p><strong>Menu</strong> - a list of links, which leads to different pages or sections of website</p>
 
@@ -4376,7 +4376,8 @@ C#: JDI.Light.Elements.Common.TextElement</p>
 </tr>
 </tbody></table>
 
-<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/TextAreaTests.cs">Test examples in C#</a></p>
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/TextAreaTests.cs">Test examples in C#</a> <br>
+  <a href="https://jdi-docs.github.io/jdi-light/textarea-2">BDD Steps example</a> <br></p>
 
 <p>And here are methods available in Java:</p>
 
@@ -4439,7 +4440,8 @@ C#: JDI.Light.Elements.Common.TextElement</p>
 </tr>
 </tbody></table>
 
-<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/TextAreaTests.java">Test examples in Java</a></p>
+<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/TextAreaTests.java">Test examples in Java</a> <br>
+  <a href="https://jdi-docs.github.io/jdi-light/textarea-2">BDD Steps example</a> <br></p>
 <h3 id='title'>Title</h3>
 <p><strong>Title</strong> – a graphical control element, that is the title of the document, which is displayed in the title bar of the browser or tab page.</p>
 
@@ -8150,13 +8152,13 @@ Scenario: Validation Volume element test
 
 When I Send keys "sent keys" to "Text Area"
 When Clear "Text Area"
-When I Input "text to input" in "Text Area"   
+When I Input "text to input" in "Text Area"
 When Focus on "Text Area"
 When I Set text "text to set" in "Text Area"
-When Highlight "Text Area"  
-When Show "Text Area"   
+When Highlight "Text Area"
+When Show "Text Area"
 When Set "Text Area" attribute "minlength" with value "1" element
-When I Input in the "Text Area" line "only one line of text" 
+When I Input in the "Text Area" line "only one line of text"
 When I Input in the "Text Area" lines
 | line1 |
 | line 2 |
@@ -8169,8 +8171,8 @@ When I Input in the "Text Area" lines
 <strong>When</strong> <I> Input &quot;&lt;TEXT&gt;&quot; in &quot;&lt;ELEMENT NAME&gt;&quot; <br>
 <strong>When</strong> <I> Focus on &quot;&lt;ELEMENT NAME&gt;&quot; <br>
 <strong>When</strong> <I> Set text &quot;&lt;TEXT&gt;&quot; in &quot;&lt;ELEMENT NAME&gt;&quot; <br>
-<strong>When</strong> <I> Highlight &quot;&lt;ELEMENT NAME&gt;&quot; <br><br>
-<strong>When</strong> <I> Show &quot;&lt;ELEMENT NAME&gt;&quot; <br><br>
+<strong>When</strong> <I> Highlight &quot;&lt;ELEMENT NAME&gt;&quot; <br>
+<strong>When</strong> <I> Show &quot;&lt;ELEMENT NAME&gt;&quot; <br>
 <strong>When</strong> <I> Set &quot;&lt;ELEMENT NAME&gt;&quot; attribute &quot;&lt;ATTRIBUTE NAME&gt;&quot; with vlaue &quot;&lt;ATTRIBUTE VALUE&gt;&quot; element <br>
 <strong>When</strong> <I> Input in the &quot;&lt;ELEMENT NAME&gt;&quot; line &quot;&lt;TEXT&gt;&quot; <br>
 <strong>When</strong> <I> Input in the &quot;&lt;ELEMENT NAME&gt;&quot; lines &quot;&lt;GHERKIN DATA TABLE&gt;&quot; <br></p>
@@ -8180,23 +8182,23 @@ Then the "Text Area" label text equals to "Text example:"
 Then the "Text Area" label text contains "Text"
 Then the "Text Area" label text match to "Text example."
 Then the "Text Area" placeholder equals to "Input huge text"
-Then the "Text Area" placeholder contains "huge text"   
+Then the "Text Area" placeholder contains "huge text"
 Then the "Text Area" placeholder match to "I.*"
-Then the "Text Area" text equals to "some text" 
-Then the "Text Area" text contains "some"   
+Then the "Text Area" text equals to "some text"
+Then the "Text Area" text contains "some"
 Then the "Text Area" text match to ".*"
 Then the "Text Area" attribute "id" equals to "text-area"
 Then the "Text Area" attribute "id" contains "area"
-Then the "Text Area" attribute "id" match to "text-?area"   
+Then the "Text Area" attribute "id" match to "text-?area"
 Then the "Text Area" is enabled
 Then the "Text Area" is disabled
 Then the "Text Area" is displayed
-Then the "Text Area" is hidden  
-Then the "Text Area" does not appear    
+Then the "Text Area" is hidden
+Then the "Text Area" does not appear
 Then the "Text Area" does not appear during "5" seconds
 Then The "Text Area" rows count equals 3
 Then The "Text Area" columns count equals 33
-Then The "Text Area" minimal length equals 10 
+Then The "Text Area" minimal length equals 10
 Then The "Text Area" maximal length equals 200
 Then Lines in the "Text Area" are equal
 | line1 |
@@ -8224,25 +8226,25 @@ More examples are available in the Tutorial section.
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; label text contains &quot;&lt;LABEL TEXT&gt;&quot; <br>
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; label text match to &quot;&lt;LABEL TEXT&gt;&quot; <br>
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; placeholder equals to &quot;&lt;PLACEHOLDER TEXT&gt;&quot; <br>
-<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; placeholder contains &quot;&lt;PLACEHOLDER TEXT&gt;&quot; <br><br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; placeholder contains &quot;&lt;PLACEHOLDER TEXT&gt;&quot; <br>
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; placeholder match to &quot;&lt;PLACEHOLDER TEXT&gt;&quot; <br>
-<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; text equals to &quot;&lt;TEXT&gt;&quot; <br><br>
-<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; text contains &quot;&lt;TEXT&gt;&quot; <br><br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; text equals to &quot;&lt;TEXT&gt;&quot; <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; text contains &quot;&lt;TEXT&gt;&quot; <br>
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; text match to &quot;&lt;TEXT&gt;&quot; <br>
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; attribute &quot;&lt;ELEMENT NAME&gt;&quot; equals to &quot;&lt;ATTRIBUTE TEXT&gt;&quot; <br>
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; attribute &quot;&lt;ELEMENT NAME&gt;&quot; contains &quot;&lt;ATTRIBUTE TEXT&gt;&quot; <br>
-<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; attribute &quot;&lt;ELEMENT NAME&gt;&quot; match to &quot;&lt;ATTRIBUTE TEXT&gt;&quot; <br> 
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; attribute &quot;&lt;ELEMENT NAME&gt;&quot; match to &quot;&lt;ATTRIBUTE TEXT&gt;&quot; <br>
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is enabled <br>
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is disabled <br>
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is displayed <br>
-<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is hidden <br><br>
-<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; does not appear <br><br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is hidden <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; does not appear <br>
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; does not appear during &quot;&lt;SECONDS&gt;&quot; seconds <br>
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; rows count equals <br>
-<strong>Then</strong> The &quot;&lt;ELEMENT NAME&gt;&quot; columns count equals <br> 
-<strong>Then</strong> The &quot;&lt;ELEMENT NAME&gt;&quot; minimal length equals <br><br>
-<strong>Then</strong> The &quot;&lt;ELEMENT NAME&gt;&quot; maximal length equals <br> 
-<strong>Then</strong> Lines in the &quot;&lt;ELEMENT NAME&gt;&quot; are equal <br> </p>
+<strong>Then</strong> The &quot;&lt;ELEMENT NAME&gt;&quot; columns count equals <br>
+<strong>Then</strong> The &quot;&lt;ELEMENT NAME&gt;&quot; minimal length equals <br>
+<strong>Then</strong> The &quot;&lt;ELEMENT NAME&gt;&quot; maximal length equals <br>
+<strong>Then</strong> Lines in the &quot;&lt;ELEMENT NAME&gt;&quot; are equal <br></p>
 
 <p>More information in the <a href="https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa"><strong>Tutorial</strong></a><br>
 <a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/textarea.feature"><strong>Cucumber tests</strong></a> for TextArea<br></p>

@@ -4031,6 +4031,10 @@ Text validations example:
 Then the "Jdi Text" text equals to "Powerful Framework for UI Tests Automation. Suitable for any UI project: Web(Html5, Angular, React...), Mobile(Android IOs), Desktop(Win app) etc."
 Then the "Jdi Text" text contains "Powerful Framework for UI"
 Then the "Jdi Text" is enabled
+Then the "Jdi Text" text matches to ".+"
+Then the "Jdi Text" css "font-size" equals to "14px"
+Then the "Jdi Text" css "font-family" contains "Source Sans Pro"
+Then the "Jdi Text" css "font-family" matches to "(.*)sans-serif"
 
 BDD example:
 Scenario: Text validation test
@@ -4042,8 +4046,13 @@ Scenario: Text validation test
 Validations:<br>
 
 **Then** the "\<ELEMENT NAME\>" text equals to "\<TEXT\>" <br>
-**Then** the "\<ELEMENT NAME\>" text contains "\<TEXT PART\>" <br>
+**Then** the "\<ELEMENT NAME\>" text contains "\<TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" text matches to "\<TEXT\>" <br>
 **Then** the "\<ELEMENT NAME\>" is enabled <br>
+**Then** the "\<ELEMENT NAME\>" is displayed <br>
+**Then** the "\<ELEMENT NAME\>" css "\<ATTRIBUTE NAME\>" equals to "\<TEXT\>"<br>
+**Then** the "\<ELEMENT NAME\>" css "\<ATTRIBUTE NAME\>" contains "\<TEXT\>"<br>
+**Then** the "\<ELEMENT NAME\>" css "\<ATTRIBUTE NAME\>" matches to "\<TEXT\>"<br>
 
 [More information in the tutorial](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)<br>
 [Cucumber tests for Text](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Text.feature)<br><br>

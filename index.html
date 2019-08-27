@@ -559,6 +559,9 @@
                               <a href="#menu-2" class="toc-h2 h3 toc-link" data-title="Menu">Menu</a>
                             </li>
                             <li>
+                              <a href="#textfield-2" class="toc-h2 h3 toc-link" data-title="TextField">TextField</a>
+                            </li>
+                            <li>
                               <a href="#checklist-2" class="toc-h2 h3 toc-link" data-title="CheckList">CheckList</a>
                             </li>
                         </ul>
@@ -2398,7 +2401,8 @@ In addition if you run test scenarios on JDI Light you will <strong>get logs of 
 </tr>
 </tbody></table>
 
-<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/ColorPickerTests.cs">Test examples in C#</a></p>
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/ColorPickerTests.cs">Test examples in C#</a><br>
+<a href="https://jdi-docs.github.io/jdi-light/?java#colorpicker-2">BDD Steps example</a><br></p>
 <h3 id='datetimeselector'>DateTimeSelector</h3>
 <p><strong>DateTimeSelector</strong> is used for Input Type Date and its derivatives and allows users to set the value of date and/or time.</p>
 
@@ -4213,7 +4217,8 @@ C#: JDI.Light.Elements.Common.TextElement</p>
 </tr>
 </tbody></table>
 
-<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/TextFieldsTests.cs">Test examples in C#</a></p>
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/TextFieldsTests.cs">Test examples in C#</a><br>
+<a href="https://jdi-docs.github.io/jdi-light/?java#textfield-2">BDD Steps example</a><br></p>
 
 <p>And here are methods available in Java:</p>
 
@@ -4266,7 +4271,8 @@ C#: JDI.Light.Elements.Common.TextElement</p>
 </tr>
 </tbody></table>
 
-<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/TextFieldTests.java">Test examples in Java</a></p>
+<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/TextFieldTests.java">Test examples in Java</a>
+<a href="https://jdi-docs.github.io/jdi-light/?java#textfield-2">BDD Steps example</a><br></p>
 <h3 id='textarea'>TextArea</h3><pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#text-area"</span><span class="o">)</span> 
 <span class="c1">// same as FindBy(css = "#text-area")</span>
 <span class="kd">public</span> <span class="kd">static</span> <span class="n">TextArea</span> <span class="n">textArea</span><span class="o">;</span>
@@ -8324,6 +8330,43 @@ More examples are available in the Tutorial section.
 
 <p>More information in the <a href="https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa"><strong>Tutorial</strong></a><br>
 <a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Menu.feature"><strong>Cucumber tests</strong></a> for Menu<br></p>
+<h3 id='textfield-2'>TextField</h3><pre class="highlight plaintext"><code>TextField action example:
+
+When I Send keys "Lorem" to "Name"
+When I Set text "Lorem" in "Name"
+When I Clear "Name"
+When I Input "Lorem" in "Name"
+
+TextField validation examples:
+
+Then the "Name" placeholder equals to "Input name"
+Then the "Name" text equals to "Lorem"
+Then the "Name" text is "Lorem"
+
+Example:
+  Scenario: sendKeys test
+    Given I open "Html5 Page"
+    When I Send keys "Lorem" to "Name"
+    Then the "Name" text equals to "Lorem"
+
+</code></pre>
+<p>Actions: <br></p>
+
+<p><strong>When</strong> I Send keys &quot;TEXT&quot; to &quot;ELEMENT NAME&quot;
+<strong>When</strong> I Set text &quot;TEXT&quot; to &quot;ELEMENT NAME&quot;
+<strong>When</strong> I clear &quot;ELEMENT NAME&quot;
+<strong>When</strong> I Input &quot;TEXT&quot; to &quot;ELEMENT NAME&quot;</p>
+
+<p>Validations: <br></p>
+
+<p><strong>Then</strong> the &quot;ELEMENT NAME&quot; placeholder equals to &quot;PLACEHOLDER TEXT&quot; <br>
+<strong>Then</strong> the &quot;ELEMENT NAME&quot; text equals to &quot;TEXT&quot; <br>
+<strong>Then</strong> the &quot;ELEMENT NAME&quot; text is &quot;VALUE&quot; <br></p>
+
+<p>More information in the <a href="https://jdi-docs.github.io/jdi-light/?java#tutorial"><strong>Tutorial</strong></a><br><br>
+<a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/TextField.feature"><strong>Cucumber tests</strong></a> for TextField<br></p>
+
+<p><br><br><br><br><br><br><br><br><br><br><br></p>
 <h3 id='checklist-2'>CheckList</h3><pre class="highlight plaintext"><code>CheckList actions examples:
 
 When I check element "Hot option" in "Weather" checklist

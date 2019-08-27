@@ -952,7 +952,7 @@ Here is the list of available methods in Java:
 **assertThat()** | Returns object for work with assertions | LinkAssert
 
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/LinkTests.java)<br>
-[BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#link-2)
+[BDD Steps example](https://jdi-docs.github.io/jdi-light/#link-2)
 
 Here is the list of available methods in C#:
 
@@ -967,7 +967,7 @@ Here is the list of available methods in C#:
 **AssertThat()** | Returns object for work with assertions | LinkAssert
 
 [C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/LinkTests.cs)<br>
-[BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#link-2)
+[BDD Steps example](https://jdi-docs.github.io/jdi-light/#link-2)
 
 ### Menu
 
@@ -1642,7 +1642,8 @@ Here is a list of available methods in C#:
 **Is()** | returns object for work with assertions  | TextAreaAssert
 **AssertThat()** | returns object for work with assertions  | TextAreaAssert
  
-  [Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/TextAreaTests.cs)
+  [Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/TextAreaTests.cs) <br>
+  [BDD Steps example](https://jdi-docs.github.io/jdi-light/textarea-2) <br>
   
   And here are methods available in Java:
   
@@ -1659,7 +1660,8 @@ Here is a list of available methods in C#:
 **is()** | returns object for work with assertions  | TextAreaAssert
 **assertThat()** | returns object for work with assertions  | TextAreaAssert
 
-  [Test examples in Java](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/TextAreaTests.java)
+  [Test examples in Java](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/TextAreaTests.java) <br>
+  [BDD Steps example](https://jdi-docs.github.io/jdi-light/textarea-2) <br>
 
 ### Title
 **Title** – a graphical control element, that is the title of the document, which is displayed in the title bar of the browser or tab page.
@@ -4258,13 +4260,13 @@ TextArea actions examples:
 
 When I Send keys "sent keys" to "Text Area"
 When Clear "Text Area"
-When I Input "text to input" in "Text Area"	  
+When I Input "text to input" in "Text Area"
 When Focus on "Text Area"
 When I Set text "text to set" in "Text Area"
-When Highlight "Text Area"	
-When Show "Text Area"	
+When Highlight "Text Area"
+When Show "Text Area"
 When Set "Text Area" attribute "minlength" with value "1" element
-When I Input in the "Text Area" line "only one line of text" 
+When I Input in the "Text Area" line "only one line of text"
 When I Input in the "Text Area" lines
 | line1 |
 | line 2 |
@@ -4278,8 +4280,8 @@ Actions: <br>
 **When** <I> Input "\<TEXT\>" in "\<ELEMENT NAME\>" <br>
 **When** <I> Focus on "\<ELEMENT NAME\>" <br>
 **When** <I> Set text "\<TEXT\>" in "\<ELEMENT NAME\>" <br>
-**When** <I> Highlight "\<ELEMENT NAME\>" <br>	
-**When** <I> Show "\<ELEMENT NAME\>" <br>	
+**When** <I> Highlight "\<ELEMENT NAME\>" <br>
+**When** <I> Show "\<ELEMENT NAME\>" <br>
 **When** <I> Set "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" with vlaue "\<ATTRIBUTE VALUE\>" element <br>
 **When** <I> Input in the "\<ELEMENT NAME\>" line "\<TEXT\>" <br>
 **When** <I> Input in the "\<ELEMENT NAME\>" lines "\<GHERKIN DATA TABLE\>" <br>
@@ -4291,23 +4293,23 @@ Then the "Text Area" label text equals to "Text example:"
 Then the "Text Area" label text contains "Text"
 Then the "Text Area" label text match to "Text example."
 Then the "Text Area" placeholder equals to "Input huge text"
-Then the "Text Area" placeholder contains "huge text"	
+Then the "Text Area" placeholder contains "huge text"
 Then the "Text Area" placeholder match to "I.*"
-Then the "Text Area" text equals to "some text"	
-Then the "Text Area" text contains "some"	
+Then the "Text Area" text equals to "some text"
+Then the "Text Area" text contains "some"
 Then the "Text Area" text match to ".*"
 Then the "Text Area" attribute "id" equals to "text-area"
 Then the "Text Area" attribute "id" contains "area"
-Then the "Text Area" attribute "id" match to "text-?area"	
+Then the "Text Area" attribute "id" match to "text-?area"
 Then the "Text Area" is enabled
 Then the "Text Area" is disabled
 Then the "Text Area" is displayed
-Then the "Text Area" is hidden	
-Then the "Text Area" does not appear	
+Then the "Text Area" is hidden
+Then the "Text Area" does not appear
 Then the "Text Area" does not appear during "5" seconds
 Then The "Text Area" rows count equals 3
 Then The "Text Area" columns count equals 33
-Then The "Text Area" minimal length equals 10 
+Then The "Text Area" minimal length equals 10
 Then The "Text Area" maximal length equals 200
 Then Lines in the "Text Area" are equal
 | line1 |
@@ -4336,25 +4338,25 @@ Validations: <br>
 **Then** the "\<ELEMENT NAME\>" label text contains "\<LABEL TEXT\>" <br>
 **Then** the "\<ELEMENT NAME\>" label text match to "\<LABEL TEXT\>" <br>
 **Then** the "\<ELEMENT NAME\>" placeholder equals to "\<PLACEHOLDER TEXT\>" <br>
-**Then** the "\<ELEMENT NAME\>" placeholder contains "\<PLACEHOLDER TEXT\>" <br>	
+**Then** the "\<ELEMENT NAME\>" placeholder contains "\<PLACEHOLDER TEXT\>" <br>
 **Then** the "\<ELEMENT NAME\>" placeholder match to "\<PLACEHOLDER TEXT\>" <br>
-**Then** the "\<ELEMENT NAME\>" text equals to "\<TEXT\>" <br>	
-**Then** the "\<ELEMENT NAME\>" text contains "\<TEXT\>" <br>	
+**Then** the "\<ELEMENT NAME\>" text equals to "\<TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" text contains "\<TEXT\>" <br>
 **Then** the "\<ELEMENT NAME\>" text match to "\<TEXT\>" <br>
 **Then** the "\<ELEMENT NAME\>" attribute "\<ELEMENT NAME\>" equals to "\<ATTRIBUTE TEXT\>" <br>
 **Then** the "\<ELEMENT NAME\>" attribute "\<ELEMENT NAME\>" contains "\<ATTRIBUTE TEXT\>" <br>
-**Then** the "\<ELEMENT NAME\>" attribute "\<ELEMENT NAME\>" match to "\<ATTRIBUTE TEXT\>" <br>	
+**Then** the "\<ELEMENT NAME\>" attribute "\<ELEMENT NAME\>" match to "\<ATTRIBUTE TEXT\>" <br>
 **Then** the "\<ELEMENT NAME\>" is enabled <br>
 **Then** the "\<ELEMENT NAME\>" is disabled <br>
 **Then** the "\<ELEMENT NAME\>" is displayed <br>
-**Then** the "\<ELEMENT NAME\>" is hidden <br>	
-**Then** the "\<ELEMENT NAME\>" does not appear <br>	
+**Then** the "\<ELEMENT NAME\>" is hidden <br>
+**Then** the "\<ELEMENT NAME\>" does not appear <br>
 **Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
 **Then** the "\<ELEMENT NAME\>" rows count equals <br>
-**Then** The "\<ELEMENT NAME\>" columns count equals <br> 
-**Then** The "\<ELEMENT NAME\>" minimal length equals <br>  
-**Then** The "\<ELEMENT NAME\>" maximal length equals <br> 
-**Then** Lines in the "\<ELEMENT NAME\>" are equal <br> 
+**Then** The "\<ELEMENT NAME\>" columns count equals <br>
+**Then** The "\<ELEMENT NAME\>" minimal length equals <br>
+**Then** The "\<ELEMENT NAME\>" maximal length equals <br>
+**Then** Lines in the "\<ELEMENT NAME\>" are equal <br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)<br>
 [**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/textarea.feature) for TextArea<br>

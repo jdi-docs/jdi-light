@@ -3515,15 +3515,20 @@ public void verifyTitle() {
 
 ```
 Label action examples:
-When Click on "JDI Title"
-When Double Click on "JDI Title"
-When Right Click on "JDI Title"
-When Higlight "JDI Title"
-When Show "JDI Title"
-When Set "JDI Title" attribute "status" with value "marked"
-When Make Screenshot for "JDI Title"
+
+When I click on "JDI Title"
+When I double click on "JDI Title"
+When I right click on "JDI Title"
+When I higlight "JDI Title"
+When I show "JDI Title"
+When I set "JDI Title" attribute "status" with value "marked"
+When I make Screenshot for "JDI Title"
+
+
+
 
 Label validation examples:
+
 Then the "JDI Title" text equal to "JDI TESTING PLATFORM"
 Then the "JDI Title" text contains "JDI"
 Then the "JDI Title" text matches to regexp ".* TESTING .*"
@@ -3535,17 +3540,23 @@ Then the "JDI Title" is hidden
 Then the "JDI Title" does not appear
 Then the "JDI Title" does not appear during "5" seconds
 
+
+Example:
+
+ Scenario: Text equals
+    Given I open "Html5 Page"
+    Then the "Jdi Title" text equals to "JDI TESTING PLATFORM"
 ```
 Actions: <br>
 
-**When** Click on "\<ELEMENT NAME\>" <br>
-**When** Double Click on "\<ELEMENT NAME\>" <br>
-**When** Right Click on "\<ELEMENT NAME\>" <br>
-**When** Higlight "\<ELEMENT NAME\>" <br>
-**When** Show "\<ELEMENT NAME\>" <br>
-**When** Set "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" with value "\<ATTRIBUTE VALUE\>" <br>
-**When** Make Screenshot for "\<ELEMENT NAME\>"<br>
-
+**When** \<I\> click on "\<ELEMENT NAME\>" <br>
+**When** \<I\> double click on "\<ELEMENT NAME\>" <br>
+**When** \<I\> right click on "\<ELEMENT NAME\>" <br>
+**When** \<I\> highlight "\<ELEMENT NAME\>" <br>
+**When** \<I\> show "\<ELEMENT NAME\>" <br>
+**When** \<I\> set "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" with value "\<ATTRIBUTE VALUE\>" <br>
+**When** \<I\> make Screenshot for "\<ELEMENT NAME\>"<br>
+<br>
 Validations: <br>
 
 **Then** the "\<ELEMENT NAME\>" text equal to "\<TEXT\>" <br>
@@ -3559,58 +3570,86 @@ Validations: <br>
 **Then** the "\<ELEMENT NAME\>" does not appear <br>
 **Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
 
-[More information in the Tutorial](https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa)<br>
-[Cucumber tests for Label](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Label.feature)<br>
+More information in the [Tutorial](https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa)<br>
+[Cucumber tests](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Label.feature) for Label<br>
+<br><br><br><br>
 
 ### ColorPicker
 
 ```
 ColorPicker action example:
+
 When I set "Color Picker" to "#00FF00" color
 
+
 ColorPicker validation examples:
+
 Then the "Color Picker" color equals to "#00FF00"
 Then the "Color Picker" label text equals to "Select a color"
 Then the "Color Picker" color is "#00FF00"
-Then the "Color Picker" is basically valid
+Then the "Color Picker" is enabled 
+Then the "Color Picker" is disabled 
+Then the "Color Picker" is displayed 
+Then the "Color Picker" disappear 
+Then the "Color Picker" is hidden 
+Then the "Color Picker" does not appear 
+Then the "Color Picker" does not appear during "5" seconds 
+
 
 Example:
+
   Scenario: Color picker set color test
     Given I open "Html5 Page"
     When I set "Color Picker" to "#ffd7a6" color
     Then the "Color Picker" color equals to "#ffd7a6"
     
 ```
+
 Actions: <br>
 
-**When** I set "ELEMENT NAME" to "COLOR HEX CODE"
-
+**When** \<I\> set "\<ELEMENT NAME\>" to "COLOR HEX CODE"<br>
+<br><br>
 Validations: <br>
 
-**Then** the "ELEMENT NAME" color equals to "EXPECTED COLOR HEX CODE" <br>
-**Then** the "ELEMENT NAME" label text equals to "EXPECTED TEXT" <br>
-**Then** the "ELEMENT NAME" color is "COLOR HEX CODE" <br>
-**Then** the "ELEMENT NAME" is basically valid <br>
+**Then** the "\<ELEMENT NAME\>" color equals to "EXPECTED COLOR HEX CODE" <br>
+**Then** the "\<ELEMENT NAME\>" label text equals to "EXPECTED TEXT" <br>
+**Then** the "\<ELEMENT NAME\>" color is "COLOR HEX CODE" <br>
+**Then** the "\<ELEMENT NAME\>" is enabled <br>
+**Then** the "\<ELEMENT NAME\>" is disabled <br>
+**Then** the "\<ELEMENT NAME\>" is displayed <br>
+**Then** the "\<ELEMENT NAME\>" disappear <br>
+**Then** the "\<ELEMENT NAME\>" is hidden <br>
+**Then** the "\<ELEMENT NAME\>" does not appear <br>
+**Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
 
-More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial)<br><br>
-[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/colorPicker.feature) for ColorPicker<br>
+More information in the [Tutorial](https://jdi-docs.github.io/jdi-light/?java#tutorial)<br>
+[Cucumber tests](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/colorPicker.feature) for ColorPicker<br>
 
-<br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br>
 
 ### Image
 
 ````
-Sample steps:
+Image validation examples:
+
   Then the "Jdi Logo" attribute "src" equals to "https://jdi-testing.github.io/jdi-light/images/jdi-logo.jpg"
   Then the "Jdi Logo" attribute "alt" equals to "Jdi Logo 2"
   Then the "Jdi Logo" attribute "src" contains "jdi-logo.jpg"
   Then the "Jdi Logo" attribute "height" contains "100"
   Then the "Jdi Logo" attribute "width" contains "101"
+  Then the "Jdi Logo" is enabled 
+  Then the "Jdi Logo" is disabled 
+  Then the "Jdi Logo" is displayed 
+  Then the "Jdi Logo" disappear
+  Then the "Jdi Logo" is hidden 
+  Then the "Jdi Logo" does not appear 
+  Then the "Jdi Logo" does not appear during "5" seconds 
 
-Examples:
+Example:
+
   Scenario: Image validation test
     Given I open "Html5 Page"
-    And Refresh webpage
+    And refresh webpage
     Then the "Jdi Logo" attribute "src" contains "jdi-logo.jpg"
     And the "Jdi Logo" attribute "height" contains "100"
     And the "Jdi Logo" attribute "width" contains "101"
@@ -3618,38 +3657,49 @@ Examples:
 ````
 
 Validations: <br>
-**Then** the "\<IMAGE NAME\>" attribute "\<ATTRIBUTE NAME\>" equals to "\<TEXT\>"<br>
-**Then** the "\<IMAGE NAME\>" attribute "\<ATTRIBUTE NAME\>" contains "\<TEXT\>"
+**Then** the "\<IMAGE NAME\>" attribute "\<ATTRIBUTE NAME\>" equals to "\<TEXT\>" <br>
+**Then** the "\<IMAGE NAME\>" attribute "\<ATTRIBUTE NAME\>" contains "\<TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" is enabled <br>
+**Then** the "\<ELEMENT NAME\>" is disabled <br>
+**Then** the "\<ELEMENT NAME\>" is displayed <br>
+**Then** the "\<ELEMENT NAME\>" disappear <br>
+**Then** the "\<ELEMENT NAME\>" is hidden <br>
+**Then** the "\<ELEMENT NAME\>" does not appear <br>
+**Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
 
-[More information in the tutorial](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)<br>
-[Cucumber tests for Image](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/image.feature) <br>
+More information in the [Tutorial](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)<br>
+[Cucumber tests](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/image.feature) for Image <br>
 
-<br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 ### Alert
 
 ````
 Alert action examples:
-  When Accept alert
-  When Dismiss alert
+
+  When I accept alert
+  When I dismiss alert
+
 
 Alert validation examples:
+
   Then the Alert text equals to "Red Button"
   Then the Alert text contains "Red B"
   Then the Alert text matches to "\w{3} \d{6}"
     
 Example:
-Scenario: alert text contains
-    Given I open "Html5 page"
-    When Click on "Red Button"
+
+  Scenario: Alert text contains
+    Given open "Html5 page"
+    When click on "Red Button"
     Then the Alert text contains "Red B"   
     
 ````
-
+<br>
 Actions: <br>
 
-**When** Accept alert<br>
-**When** Dismiss alert<br>
-
+**When** \<I\> accept alert<br>
+**When** \<I\> dismiss alert<br>
+<br>
 Validations: <br>
 
 **Then** the Alert text equals to "\<ALERT TEXT\>"<br>
@@ -3657,8 +3707,8 @@ Validations: <br>
 **Then** the Alert text matches to "\<ALERT TEXT\>"<br>
 
 
-More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa)<br>
-[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Alert.feature) for Alert<br>
+More information in the [Tutorial](https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa)<br>
+[Cucumber tests](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Alert.feature) for Alert<br>
 
 <br>
 <br>
@@ -3674,20 +3724,35 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 ### FileInput
 
 ```
-FileInput actions examples:
-When I upload file "/res/general.xml" by "Avatar" file input element
-When I try to upload file "/res/general.xml" by "Disabled File Input" file input element
+FileInput action examples:
 
-FileInput validations examples:
+When I upload file "/res/general.xml" by "Avatar" file input element
+When I try to upload file "/res/general.xml" by "File Input" file input element
+
+
+FileInput validation examples:
+
 Then the "Avatar" file input element label equals to "Profile picture:"
 Then the "Avatar" file input element label contains "picture"
 Then the "Avatar" file input element text equals to "C:\fakepath\general.xml"
 Then the "Avatar" file input element text contains "general.xml"
 Then the "Avatar" attribute "id" equals to "avatar"
-Then the "Avatar" is basically valid
-Then "Disabled File Input" is disabled
+Then "File Input" is enabled
+Then "File Input" is disabled
+Then "File Input" is displayed
+Then "File Input" disapear
+Then "File Input" is hidden
+Then "File Input" does not appear
+Then "File Input" is does not appear during "5" seconds 
 
-Scenario example:
+
+
+
+
+
+
+Example:
+
   Scenario: Upload file by enabled file input element
     Given I open "Html5 Page"
     When I upload file "/res/general.xml" by "Avatar" file input element
@@ -3695,8 +3760,8 @@ Scenario example:
 ```
 
 Actions:<br>
-**When** I upload file "\<PATH TO FILE\>" by "\<ELEMENT NAME\>" file input element<br>
-**When** I try to upload file "\<PATH TO FILE\>" by "\<ELEMENT NAME\>" file input element<br>
+**When** \<I\> upload file "\<PATH TO FILE\>" by "\<ELEMENT NAME\>" file input element<br>
+**When** \<I\> try to upload file "\<PATH TO FILE\>" by "\<ELEMENT NAME\>" file input element<br>
 
 Validations:<br>
 **Then** the "\<ELEMENT NAME\>" file input element label equals to "\<TEXT\>"<br>
@@ -3704,11 +3769,23 @@ Validations:<br>
 **Then** the "\<ELEMENT NAME\>" file input element text equals to "\<PATH TO FILE\>"<br>
 **Then** the "\<ELEMENT NAME\>" file input element text contains "\<PART OF PATH TO FILE\>"<br>
 **Then** the "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" equals to "ATTRIBUTE VALUE\>"<br>
-**Then** the "\<ELEMENT NAME\>" is disabled<br>
-**Then** the "\<ELEMENT NAME\>" is basically valid<br>
+**Then** the "\<ELEMENT NAME\>" is enabled <br>
+**Then** the "\<ELEMENT NAME\>" is disabled <br>
+**Then** the "\<ELEMENT NAME\>" is displayed <br>
+**Then** the "\<ELEMENT NAME\>" disappear <br>
+**Then** the "\<ELEMENT NAME\>" is hidden <br>
+**Then** the "\<ELEMENT NAME\>" does not appear <br>
+**Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
 
+<<<<<<< HEAD
+More information in the [Tutorial](https://jdi-docs.github.io/jdi-light/?java#tutorial)<br>
+[Cucumber tests](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/FileInput.feature) for FileInput<br>
+
+<br><br><br><br><br><br><br><br>
+=======
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial)<br>
 [**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/FileInput.feature) for FileInput<br><br>
+>>>>>>> origin/master
 
 ### Link 
 

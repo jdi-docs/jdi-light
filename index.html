@@ -7674,21 +7674,21 @@ Scenario example:
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is basically valid<br></p>
 
 <p>More information in the <a href="https://jdi-docs.github.io/jdi-light/?java#tutorial"><strong>Tutorial</strong></a><br>
-<a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/FileInput.feature"><strong>Cucumber tests</strong></a> for FileInput<br></p>
-<h3 id='link-2'>Link</h3><pre class="highlight plaintext"><code>Link actions examples:
+<a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/FileInput.feature"><strong>Cucumber tests</strong></a> for FileInput<br><br></p>
+<h3 id='link-2'>Link</h3><pre class="highlight plaintext"><code>Link action examples:
 
-When Click on "Github Link"
-When Higlight "Github Link"
-When Show "Github Link"
-When Set "Github Link" attribute "alt" with value "Github JDI Link EDITED"
+When &lt; I &gt; click on "Github Link"
+When &lt; I &gt; higlight "Github Link"
+When &lt; I &gt; show "Github Link"
+When &lt; I &gt; set "Github Link" attribute "alt" with value "Github JDI Link EDITED"
 
 </code></pre>
 <p>Actions: <br></p>
 
-<p><strong>When</strong> Click on &quot;&lt;ELEMENT NAME&gt;&quot; <br>
-<strong>When</strong> Highlight &quot;&lt;ELEMENT NAME&gt;&quot; <br>
-<strong>When</strong> Show &quot;&lt;ELEMENT NAME&gt;&quot; <br>
-<strong>When</strong> Set &quot;&lt;ELEMENT NAME&gt;&quot; attribute &quot;&lt;ATTRIBUTE NAME&gt;&quot; with value &quot;&lt;ATTRIBUTE NAME&gt;&quot; <br></p>
+<p><strong>When</strong> click on &quot;&lt;ELEMENT NAME&gt;&quot; <br>
+<strong>When</strong> highlight &quot;&lt;ELEMENT NAME&gt;&quot; <br>
+<strong>When</strong> show &quot;&lt;ELEMENT NAME&gt;&quot; <br>
+<strong>When</strong> set &quot;&lt;ELEMENT NAME&gt;&quot; attribute &quot;&lt;ATTRIBUTE NAME&gt;&quot; with value &quot;&lt;ATTRIBUTE NAME&gt;&quot; <br><br><br><br></p>
 <pre class="highlight plaintext"><code>Link validations examples:
 
 Then the "Github Link" is enabled
@@ -7712,7 +7712,7 @@ Then the "Github Link" does not appear
 Then the "Github Link" does not appear during "5" seconds
 
 
-Some scenario examples:
+Scenario examples for Link:
 
   Scenario: Click link test
      Given I open "Html5 Page"
@@ -7723,7 +7723,6 @@ Some scenario examples:
      Given I open "Html5 Page"
      Then the "Github Link" alternative text matches to "Git.* JE*DI Link"
 
-More examples are available in the Tutorial section.
 
 </code></pre>
 <p>Validations: <br></p>
@@ -7754,13 +7753,13 @@ More examples are available in the Tutorial section.
 <p><br><br><br></p>
 <h3 id='button-2'>Button</h3><pre class="highlight plaintext"><code>Button actions examples:
 
-When Click on "Red Button" 
-When Click with JS on "Red Button"   
-When Focus on "Blue Button" 
-When Right click on "Red Button"    
-When Highlight "Blue Button"    
-When Show "Red Button"  
-When Set "Red Button" attribute "test-jdi" with vlaue "test-value"
+When &lt; I &gt; Click on "Red Button" 
+When &lt; I &gt; Click with JS on "Red Button"     
+When &lt; I &gt; Focus on "Blue Button"   
+When &lt; I &gt; Right click on "Red Button"  
+When &lt; I &gt; Highlight "Blue Button"  
+When &lt; I &gt; Show "Red Button"    
+When &lt; I &gt; Set "Red Button" attribute "test-jdi" with vlaue "test-value"
 
 Button validations examples:
 
@@ -7825,9 +7824,11 @@ Scenario: Basic for button
 <p>More information in the <a href="https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa"><strong>Tutorial</strong></a><br>
 <a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/button.feature"><strong>Cucumber tests</strong></a> for Button<br></p>
 <h3 id='datetimeselector-2'>DateTimeSelector</h3><pre class="highlight plaintext"><code>DateTimeSelector action example:
+
 When Set date "2018-11-13" in "Birth Date"
 
 DateTimeSelector validations example:
+
 Then the "Birth Date" text equals to "1985-06-18"
 Then the "Birth Date" text contains "1985"
 Then the "Birth Date" is enabled

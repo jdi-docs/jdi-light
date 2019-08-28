@@ -525,46 +525,51 @@
                             <li>
                               <a href="#fileinput-2" class="toc-h2 h3 toc-link" data-title="FileInput">FileInput</a>
                             </li>
-                            <li>
-                              <a href="#link-2" class="toc-h2 h3 toc-link" data-title="Link">Link</a>
-                            </li>
-                            <li>
-                              <a href="#button-2" class="toc-h2 h3 toc-link" data-title="Button">Button</a>
-                            </li>
-                            <li>
-                              <a href="#datetimeselector-2" class="toc-h2 h3 toc-link" data-title="DateTimeSelector">DateTimeSelector</a>
-                            </li>
-                            <li>
-                              <a href="#checkbox-2" class="toc-h2 h3 toc-link" data-title="Checkbox">Checkbox</a>
-                            </li>
-                            <li>
-                              <a href="#progress-bar" class="toc-h2 h3 toc-link" data-title="Progress Bar">Progress Bar</a>
-                            </li>
-                            <li>
-                              <a href="#text-2" class="toc-h2 h3 toc-link" data-title="Text">Text</a>
-                            </li>
-                            <li>
-                              <a href="#combobox-2" class="toc-h2 h3 toc-link" data-title="ComboBox">ComboBox</a>
-                            </li>
-                            <li>
-                              <a href="#numberselector-2" class="toc-h2 h3 toc-link" data-title="NumberSelector">NumberSelector</a>
-                            </li>
-                            <li>
-                              <a href="#range-2" class="toc-h2 h3 toc-link" data-title="Range">Range</a>
-                            </li>
-                            <li>
-                              <a href="#textarea-2" class="toc-h2 h3 toc-link" data-title="TextArea">TextArea</a>
-                            </li>
-                            <li>
-                              <a href="#menu-2" class="toc-h2 h3 toc-link" data-title="Menu">Menu</a>
-                            </li>
-                            <li>
-                              <a href="#textfield-2" class="toc-h2 h3 toc-link" data-title="TextField">TextField</a>
-                            </li>
-                            <li>
-                              <a href="#checklist-2" class="toc-h2 h3 toc-link" data-title="CheckList">CheckList</a>
-                            </li>
                         </ul>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#4251203584" class="toc-h1 toc-link" data-title=""><br><br><br><br><br><br><br><br></a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#link-2" class="toc-h2 toc-link" data-title="Link">Link</a>
+                  </li>
+                  <li>
+                    <a href="#button-2" class="toc-h2 toc-link" data-title="Button">Button</a>
+                  </li>
+                  <li>
+                    <a href="#datetimeselector-2" class="toc-h2 toc-link" data-title="DateTimeSelector">DateTimeSelector</a>
+                  </li>
+                  <li>
+                    <a href="#checkbox-2" class="toc-h2 toc-link" data-title="Checkbox">Checkbox</a>
+                  </li>
+                  <li>
+                    <a href="#progress-bar" class="toc-h2 toc-link" data-title="Progress Bar">Progress Bar</a>
+                  </li>
+                  <li>
+                    <a href="#text-2" class="toc-h2 toc-link" data-title="Text">Text</a>
+                  </li>
+                  <li>
+                    <a href="#combobox-2" class="toc-h2 toc-link" data-title="ComboBox">ComboBox</a>
+                  </li>
+                  <li>
+                    <a href="#numberselector-2" class="toc-h2 toc-link" data-title="NumberSelector">NumberSelector</a>
+                  </li>
+                  <li>
+                    <a href="#range-2" class="toc-h2 toc-link" data-title="Range">Range</a>
+                  </li>
+                  <li>
+                    <a href="#textarea-2" class="toc-h2 toc-link" data-title="TextArea">TextArea</a>
+                  </li>
+                  <li>
+                    <a href="#menu-2" class="toc-h2 toc-link" data-title="Menu">Menu</a>
+                  </li>
+                  <li>
+                    <a href="#textfield-2" class="toc-h2 toc-link" data-title="TextField">TextField</a>
+                  </li>
+                  <li>
+                    <a href="#checklist-2" class="toc-h2 toc-link" data-title="CheckList">CheckList</a>
                   </li>
                   <li>
                     <a href="#ui-objects" class="toc-h2 toc-link" data-title="UI Objects">UI Objects</a>
@@ -7500,15 +7505,20 @@ public class Section : UIElement</p>
     <span class="n">assertEquals</span><span class="o">(</span><span class="n">mainPage</span><span class="o">.</span><span class="na">getTitle</span><span class="o">(),</span> <span class="s">"Main page"</span><span class="o">);</span>
 <span class="o">}</span>
 </code></pre><h2 id='jdi-light-bdd-steps'>JDI Light BDD Steps</h2><h3 id='label-2'>Label</h3><pre class="highlight plaintext"><code>Label action examples:
-When Click on "JDI Title"
-When Double Click on "JDI Title"
-When Right Click on "JDI Title"
-When Higlight "JDI Title"
-When Show "JDI Title"
-When Set "JDI Title" attribute "status" with value "marked"
-When Make Screenshot for "JDI Title"
+
+When I click on "JDI Title"
+When I double click on "JDI Title"
+When I right click on "JDI Title"
+When I higlight "JDI Title"
+When I show "JDI Title"
+When I set "JDI Title" attribute "status" with value "marked"
+When I make Screenshot for "JDI Title"
+
+
+
 
 Label validation examples:
+
 Then the "JDI Title" text equal to "JDI TESTING PLATFORM"
 Then the "JDI Title" text contains "JDI"
 Then the "JDI Title" text matches to regexp ".* TESTING .*"
@@ -7520,18 +7530,24 @@ Then the "JDI Title" is hidden
 Then the "JDI Title" does not appear
 Then the "JDI Title" does not appear during "5" seconds
 
+
+Example:
+
+ Scenario: Text equals
+    Given I open "Html5 Page"
+    Then the "Jdi Title" text equals to "JDI TESTING PLATFORM"
 </code></pre>
 <p>Actions: <br></p>
 
-<p><strong>When</strong> Click on &quot;&lt;ELEMENT NAME&gt;&quot; <br>
-<strong>When</strong> Double Click on &quot;&lt;ELEMENT NAME&gt;&quot; <br>
-<strong>When</strong> Right Click on &quot;&lt;ELEMENT NAME&gt;&quot; <br>
-<strong>When</strong> Higlight &quot;&lt;ELEMENT NAME&gt;&quot; <br>
-<strong>When</strong> Show &quot;&lt;ELEMENT NAME&gt;&quot; <br>
-<strong>When</strong> Set &quot;&lt;ELEMENT NAME&gt;&quot; attribute &quot;&lt;ATTRIBUTE NAME&gt;&quot; with value &quot;&lt;ATTRIBUTE VALUE&gt;&quot; <br>
-<strong>When</strong> Make Screenshot for &quot;&lt;ELEMENT NAME&gt;&quot;<br></p>
-
-<p>Validations: <br></p>
+<p><strong>When</strong> &lt;I&gt; click on &quot;&lt;ELEMENT NAME&gt;&quot; <br>
+<strong>When</strong> &lt;I&gt; double click on &quot;&lt;ELEMENT NAME&gt;&quot; <br>
+<strong>When</strong> &lt;I&gt; right click on &quot;&lt;ELEMENT NAME&gt;&quot; <br>
+<strong>When</strong> &lt;I&gt; highlight &quot;&lt;ELEMENT NAME&gt;&quot; <br>
+<strong>When</strong> &lt;I&gt; show &quot;&lt;ELEMENT NAME&gt;&quot; <br>
+<strong>When</strong> &lt;I&gt; set &quot;&lt;ELEMENT NAME&gt;&quot; attribute &quot;&lt;ATTRIBUTE NAME&gt;&quot; with value &quot;&lt;ATTRIBUTE VALUE&gt;&quot; <br>
+<strong>When</strong> &lt;I&gt; make Screenshot for &quot;&lt;ELEMENT NAME&gt;&quot;<br>
+<br>
+Validations: <br></p>
 
 <p><strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; text equal to &quot;&lt;TEXT&gt;&quot; <br>
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; text contains &quot;&lt;TEXT PART&gt;&quot; <br>
@@ -7544,18 +7560,30 @@ Then the "JDI Title" does not appear during "5" seconds
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; does not appear <br>
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; does not appear during &quot;&lt;SECONDS&gt;&quot; seconds <br></p>
 
-<p><a href="https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa">More information in the Tutorial</a><br>
-<a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Label.feature">Cucumber tests for Label</a><br></p>
+<p>More information in the <a href="https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa">Tutorial</a><br>
+<a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Label.feature">Cucumber tests</a> for Label<br>
+<br><br><br><br></p>
 <h3 id='colorpicker-2'>ColorPicker</h3><pre class="highlight plaintext"><code>ColorPicker action example:
+
 When I set "Color Picker" to "#00FF00" color
 
+
 ColorPicker validation examples:
+
 Then the "Color Picker" color equals to "#00FF00"
 Then the "Color Picker" label text equals to "Select a color"
 Then the "Color Picker" color is "#00FF00"
-Then the "Color Picker" is basically valid
+Then the "Color Picker" is enabled 
+Then the "Color Picker" is disabled 
+Then the "Color Picker" is displayed 
+Then the "Color Picker" disappear 
+Then the "Color Picker" is hidden 
+Then the "Color Picker" does not appear 
+Then the "Color Picker" does not appear during "5" seconds 
+
 
 Example:
+
   Scenario: Color picker set color test
     Given I open "Html5 Page"
     When I set "Color Picker" to "#ffd7a6" color
@@ -7564,72 +7592,99 @@ Example:
 </code></pre>
 <p>Actions: <br></p>
 
-<p><strong>When</strong> I set &quot;ELEMENT NAME&quot; to &quot;COLOR HEX CODE&quot;</p>
+<p><strong>When</strong> &lt;I&gt; set &quot;&lt;ELEMENT NAME&gt;&quot; to &quot;COLOR HEX CODE&quot;<br>
+<br><br>
+Validations: <br></p>
 
-<p>Validations: <br></p>
+<p><strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; color equals to &quot;EXPECTED COLOR HEX CODE&quot; <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; label text equals to &quot;EXPECTED TEXT&quot; <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; color is &quot;COLOR HEX CODE&quot; <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is enabled <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is disabled <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is displayed <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; disappear <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is hidden <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; does not appear <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; does not appear during &quot;&lt;SECONDS&gt;&quot; seconds <br></p>
 
-<p><strong>Then</strong> the &quot;ELEMENT NAME&quot; color equals to &quot;EXPECTED COLOR HEX CODE&quot; <br>
-<strong>Then</strong> the &quot;ELEMENT NAME&quot; label text equals to &quot;EXPECTED TEXT&quot; <br>
-<strong>Then</strong> the &quot;ELEMENT NAME&quot; color is &quot;COLOR HEX CODE&quot; <br>
-<strong>Then</strong> the &quot;ELEMENT NAME&quot; is basically valid <br></p>
+<p>More information in the <a href="https://jdi-docs.github.io/jdi-light/?java#tutorial">Tutorial</a><br>
+<a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/colorPicker.feature">Cucumber tests</a> for ColorPicker<br></p>
 
-<p>More information in the <a href="https://jdi-docs.github.io/jdi-light/?java#tutorial"><strong>Tutorial</strong></a><br><br>
-<a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/colorPicker.feature"><strong>Cucumber tests</strong></a> for ColorPicker<br></p>
+<p><br><br><br><br><br><br></p>
+<h3 id='image-2'>Image</h3><pre class="highlight plaintext"><code>Image validation examples:
 
-<p><br><br><br><br><br><br><br><br><br><br><br></p>
-<h3 id='image-2'>Image</h3><pre class="highlight plaintext"><code>Sample steps:
   Then the "Jdi Logo" attribute "src" equals to "https://jdi-testing.github.io/jdi-light/images/jdi-logo.jpg"
   Then the "Jdi Logo" attribute "alt" equals to "Jdi Logo 2"
   Then the "Jdi Logo" attribute "src" contains "jdi-logo.jpg"
   Then the "Jdi Logo" attribute "height" contains "100"
   Then the "Jdi Logo" attribute "width" contains "101"
+  Then the "Jdi Logo" is enabled 
+  Then the "Jdi Logo" is disabled 
+  Then the "Jdi Logo" is displayed 
+  Then the "Jdi Logo" disappear
+  Then the "Jdi Logo" is hidden 
+  Then the "Jdi Logo" does not appear 
+  Then the "Jdi Logo" does not appear during "5" seconds 
 
-Examples:
+Example:
+
   Scenario: Image validation test
     Given I open "Html5 Page"
-    And Refresh webpage
+    And refresh webpage
     Then the "Jdi Logo" attribute "src" contains "jdi-logo.jpg"
     And the "Jdi Logo" attribute "height" contains "100"
     And the "Jdi Logo" attribute "width" contains "101"
 
 </code></pre>
 <p>Validations: <br>
-<strong>Then</strong> the &quot;&lt;IMAGE NAME&gt;&quot; attribute &quot;&lt;ATTRIBUTE NAME&gt;&quot; equals to &quot;&lt;TEXT&gt;&quot;<br>
-<strong>Then</strong> the &quot;&lt;IMAGE NAME&gt;&quot; attribute &quot;&lt;ATTRIBUTE NAME&gt;&quot; contains &quot;&lt;TEXT&gt;&quot;</p>
+<strong>Then</strong> the &quot;&lt;IMAGE NAME&gt;&quot; attribute &quot;&lt;ATTRIBUTE NAME&gt;&quot; equals to &quot;&lt;TEXT&gt;&quot; <br>
+<strong>Then</strong> the &quot;&lt;IMAGE NAME&gt;&quot; attribute &quot;&lt;ATTRIBUTE NAME&gt;&quot; contains &quot;&lt;TEXT&gt;&quot; <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is enabled <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is disabled <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is displayed <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; disappear <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is hidden <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; does not appear <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; does not appear during &quot;&lt;SECONDS&gt;&quot; seconds <br></p>
 
-<p><a href="https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa">More information in the tutorial</a><br>
-<a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/image.feature">Cucumber tests for Image</a> <br></p>
+<p>More information in the <a href="https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa">Tutorial</a><br>
+<a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/image.feature">Cucumber tests</a> for Image <br></p>
 
-<p><br><br><br><br><br></p>
+<p><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
 <h3 id='alert'>Alert</h3><pre class="highlight plaintext"><code>Alert action examples:
-  When Accept alert
-  When Dismiss alert
+
+  When I accept alert
+  When I dismiss alert
+
 
 Alert validation examples:
+
   Then the Alert text equals to "Red Button"
   Then the Alert text contains "Red B"
   Then the Alert text matches to "\w{3} \d{6}"
 
 Example:
-Scenario: alert text contains
-    Given I open "Html5 page"
-    When Click on "Red Button"
+
+  Scenario: Alert text contains
+    Given open "Html5 page"
+    When click on "Red Button"
     Then the Alert text contains "Red B"   
 
 </code></pre>
-<p>Actions: <br></p>
+<p><br>
+Actions: <br></p>
 
-<p><strong>When</strong> Accept alert<br>
-<strong>When</strong> Dismiss alert<br></p>
-
-<p>Validations: <br></p>
+<p><strong>When</strong> &lt;I&gt; accept alert<br>
+<strong>When</strong> &lt;I&gt; dismiss alert<br>
+<br>
+Validations: <br></p>
 
 <p><strong>Then</strong> the Alert text equals to &quot;&lt;ALERT TEXT&gt;&quot;<br>
 <strong>Then</strong> the Alert text contains &quot;&lt;ALERT TEXT&gt;&quot;<br>
 <strong>Then</strong> the Alert text matches to &quot;&lt;ALERT TEXT&gt;&quot;<br></p>
 
-<p>More information in the <a href="https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa"><strong>Tutorial</strong></a><br>
-<a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Alert.feature"><strong>Cucumber tests</strong></a> for Alert<br></p>
+<p>More information in the <a href="https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa">Tutorial</a><br>
+<a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Alert.feature">Cucumber tests</a> for Alert<br></p>
 
 <p><br>
 <br>
@@ -7641,28 +7696,43 @@ Scenario: alert text contains
 <br>
 <br>
 <br></p>
-<h3 id='fileinput-2'>FileInput</h3><pre class="highlight plaintext"><code>FileInput actions examples:
-When I upload file "/res/general.xml" by "Avatar" file input element
-When I try to upload file "/res/general.xml" by "Disabled File Input" file input element
+<h3 id='fileinput-2'>FileInput</h3><pre class="highlight plaintext"><code>FileInput action examples:
 
-FileInput validations examples:
+When I upload file "/res/general.xml" by "Avatar" file input element
+When I try to upload file "/res/general.xml" by "File Input" file input element
+
+
+FileInput validation examples:
+
 Then the "Avatar" file input element label equals to "Profile picture:"
 Then the "Avatar" file input element label contains "picture"
 Then the "Avatar" file input element text equals to "C:\fakepath\general.xml"
 Then the "Avatar" file input element text contains "general.xml"
 Then the "Avatar" attribute "id" equals to "avatar"
-Then the "Avatar" is basically valid
-Then "Disabled File Input" is disabled
+Then "File Input" is enabled
+Then "File Input" is disabled
+Then "File Input" is displayed
+Then "File Input" disapear
+Then "File Input" is hidden
+Then "File Input" does not appear
+Then "File Input" is does not appear during "5" seconds 
 
-Scenario example:
+
+
+
+
+
+
+Example:
+
   Scenario: Upload file by enabled file input element
     Given I open "Html5 Page"
     When I upload file "/res/general.xml" by "Avatar" file input element
     Then the "Avatar" text contains "general.xml"
 </code></pre>
 <p>Actions:<br>
-<strong>When</strong> I upload file &quot;&lt;PATH TO FILE&gt;&quot; by &quot;&lt;ELEMENT NAME&gt;&quot; file input element<br>
-<strong>When</strong> I try to upload file &quot;&lt;PATH TO FILE&gt;&quot; by &quot;&lt;ELEMENT NAME&gt;&quot; file input element<br></p>
+<strong>When</strong> &lt;I&gt; upload file &quot;&lt;PATH TO FILE&gt;&quot; by &quot;&lt;ELEMENT NAME&gt;&quot; file input element<br>
+<strong>When</strong> &lt;I&gt; try to upload file &quot;&lt;PATH TO FILE&gt;&quot; by &quot;&lt;ELEMENT NAME&gt;&quot; file input element<br></p>
 
 <p>Validations:<br>
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; file input element label equals to &quot;&lt;TEXT&gt;&quot;<br>
@@ -7670,11 +7740,36 @@ Scenario example:
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; file input element text equals to &quot;&lt;PATH TO FILE&gt;&quot;<br>
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; file input element text contains &quot;&lt;PART OF PATH TO FILE&gt;&quot;<br>
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; attribute &quot;&lt;ATTRIBUTE NAME&gt;&quot; equals to &quot;ATTRIBUTE VALUE&gt;&quot;<br>
-<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is disabled<br>
-<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is basically valid<br></p>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is enabled <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is disabled <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is displayed <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; disappear <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is hidden <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; does not appear <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; does not appear during &quot;&lt;SECONDS&gt;&quot; seconds <br></p>
 
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+More information in the <a href="https://jdi-docs.github.io/jdi-light/?java#tutorial">Tutorial</a><br>
+<a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/FileInput.feature">Cucumber tests</a> for FileInput<br></p>
+<h1 id='4251203584'><br><br><br><br><br><br><br><br></h1>
 <p>More information in the <a href="https://jdi-docs.github.io/jdi-light/?java#tutorial"><strong>Tutorial</strong></a><br>
 <a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/FileInput.feature"><strong>Cucumber tests</strong></a> for FileInput<br><br></p>
+
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>origin/master</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
 <h3 id='link-2'>Link</h3><pre class="highlight plaintext"><code>Link action examples:
 
 When &lt; I &gt; click on "Github Link"

@@ -3708,26 +3708,26 @@ Validations:<br>
 **Then** the "\<ELEMENT NAME\>" is basically valid<br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial)<br>
-[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/FileInput.feature) for FileInput<br>
+[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/FileInput.feature) for FileInput<br><br>
 
 ### Link 
 
 ```
-Link actions examples:
+Link action examples:
 
-When Click on "Github Link"
-When Higlight "Github Link"
-When Show "Github Link"
-When Set "Github Link" attribute "alt" with value "Github JDI Link EDITED"
+When < I > click on "Github Link"
+When < I > higlight "Github Link"
+When < I > show "Github Link"
+When < I > set "Github Link" attribute "alt" with value "Github JDI Link EDITED"
 
 ```
 
 Actions: <br>
 
-**When** Click on "\<ELEMENT NAME\>" <br>
-**When** Highlight "\<ELEMENT NAME\>" <br>
-**When** Show "\<ELEMENT NAME\>" <br>
-**When** Set "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" with value "\<ATTRIBUTE NAME\>" <br>
+**When** click on "\<ELEMENT NAME\>" <br>
+**When** highlight "\<ELEMENT NAME\>" <br>
+**When** show "\<ELEMENT NAME\>" <br>
+**When** set "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" with value "\<ATTRIBUTE NAME\>" <br><br><br><br>
 
 ```
 Link validations examples:
@@ -3753,7 +3753,7 @@ Then the "Github Link" does not appear
 Then the "Github Link" does not appear during "5" seconds
 
 
-Some scenario examples:
+Scenario examples for Link:
 
   Scenario: Click link test
      Given I open "Html5 Page"
@@ -3764,7 +3764,6 @@ Some scenario examples:
      Given I open "Html5 Page"
      Then the "Github Link" alternative text matches to "Git.* JE*DI Link"
   
-More examples are available in the Tutorial section.
 
 ```
 
@@ -3800,13 +3799,13 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi
 ```
 Button actions examples:
 
-When Click on "Red Button" 
-When Click with JS on "Red Button" 	 
-When Focus on "Blue Button"	
-When Right click on "Red Button" 	
-When Highlight "Blue Button"	
-When Show "Red Button"	
-When Set "Red Button" attribute "test-jdi" with vlaue "test-value"
+When < I > Click on "Red Button" 
+When < I > Click with JS on "Red Button" 	 
+When < I > Focus on "Blue Button"	
+When < I > Right click on "Red Button" 	
+When < I > Highlight "Blue Button"	
+When < I > Show "Red Button"	
+When < I > Set "Red Button" attribute "test-jdi" with vlaue "test-value"
 
 Button validations examples:
   
@@ -3877,9 +3876,11 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 
 ```
 DateTimeSelector action example:
+
 When Set date "2018-11-13" in "Birth Date"
 
 DateTimeSelector validations example:
+
 Then the "Birth Date" text equals to "1985-06-18"
 Then the "Birth Date" text contains "1985"
 Then the "Birth Date" is enabled

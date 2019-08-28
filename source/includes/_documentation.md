@@ -1568,7 +1568,7 @@ And here are methods available in Java:
 **getText()** | returns text from the text field  | String
 **getValue()** | returns text from the text field| String
 
-[Test examples in Java](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/TextFieldTests.java)
+[Test examples in Java](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/TextFieldTests.java)<br>
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#textfield-2)<br>
 
 ### TextArea

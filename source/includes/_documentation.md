@@ -3675,10 +3675,12 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 
 ```
 FileInput actions examples:
+
 When I upload file "/res/general.xml" by "Avatar" file input element
 When I try to upload file "/res/general.xml" by "Disabled File Input" file input element
 
 FileInput validations examples:
+
 Then the "Avatar" file input element label equals to "Profile picture:"
 Then the "Avatar" file input element label contains "picture"
 Then the "Avatar" file input element text equals to "C:\fakepath\general.xml"
@@ -3687,7 +3689,7 @@ Then the "Avatar" attribute "id" equals to "avatar"
 Then the "Avatar" is basically valid
 Then "Disabled File Input" is disabled
 
-Scenario example:
+Scenario example for FileInput:
   Scenario: Upload file by enabled file input element
     Given I open "Html5 Page"
     When I upload file "/res/general.xml" by "Avatar" file input element
@@ -3708,26 +3710,26 @@ Validations:<br>
 **Then** the "\<ELEMENT NAME\>" is basically valid<br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial)<br>
-[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/FileInput.feature) for FileInput<br><br>
+[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/FileInput.feature) for FileInput<br><br><br>
 
 ### Link 
 
 ```
 Link action examples:
 
-When < I > click on "Github Link"
-When < I > higlight "Github Link"
-When < I > show "Github Link"
-When < I > set "Github Link" attribute "alt" with value "Github JDI Link EDITED"
+When I click on "Github Link"
+When I higlight "Github Link"
+When I show "Github Link"
+When I set "Github Link" attribute "alt" with value "Github JDI Link EDITED"
 
 ```
 
 Actions: <br>
 
-**When** click on "\<ELEMENT NAME\>" <br>
-**When** highlight "\<ELEMENT NAME\>" <br>
-**When** show "\<ELEMENT NAME\>" <br>
-**When** set "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" with value "\<ATTRIBUTE NAME\>" <br><br><br><br>
+**When** < I > click on "\<ELEMENT NAME\>" <br>
+**When** < I > highlight "\<ELEMENT NAME\>" <br>
+**When** < I > show "\<ELEMENT NAME\>" <br>
+**When** < I > set "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" with value "\<ATTRIBUTE NAME\>" <br><br><br><br>
 
 ```
 Link validations examples:
@@ -3757,8 +3759,8 @@ Scenario examples for Link:
 
   Scenario: Click link test
      Given I open "Html5 Page"
-     When Click on "Github Link"
-     Then Current URL is "https://github.com/jdi-testing"
+     When click on "Github Link"
+     Then the current URL is "https://github.com/jdi-testing"
     
   Scenario: Link alternative text matching to RegExp
      Given I open "Html5 Page"
@@ -3790,7 +3792,7 @@ Validations: <br>
 **Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)<br>
-[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/link.feature) for Link<br>
+[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/link.feature) for Link<br><br>
 
 
 <br><br><br>
@@ -3799,13 +3801,15 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi
 ```
 Button actions examples:
 
-When < I > Click on "Red Button" 
-When < I > Click with JS on "Red Button" 	 
-When < I > Focus on "Blue Button"	
-When < I > Right click on "Red Button" 	
-When < I > Highlight "Blue Button"	
-When < I > Show "Red Button"	
-When < I > Set "Red Button" attribute "test-jdi" with vlaue "test-value"
+When I click on "Red Button" 
+When I click with JS on "Red Button" 	 
+When I focus on "Blue Button"	
+When I right click on "Red Button" 	
+When I highlight "Blue Button"	
+When I show "Red Button"	
+When I set "Red Button" attribute "test-jdi" with vlaue "test-value"
+
+
 
 Button validations examples:
   
@@ -3826,7 +3830,7 @@ Then the "Red Button" css "font-size" equals to "14px"
 Then the "Red Button" attribute "type" equals to "button"
 
 
-Scenario: Basic for button
+Scenario example for Button:
   Given I open "Home Page" page
    Then the "Red Button" is displayed
     And the "Red Button" is enabled
@@ -3835,20 +3839,20 @@ Scenario: Basic for button
     And the "Red Button" css "font-size" equals to "14px"
     And the "Red Button" attribute "type" equals to "button"
     And the "Disabled Button" is disabled
-   When Click on "Blue Button"
+   When click on "Blue Button"
    Then the Alert text equals to "Blue button"
    
 ```
 
  Actions: <br>
 
-**When** \<I\> Click on "\<ELEMENT NAME\>" <br>
-**When** \<I\> Click with JS on "\<ELEMENT NAME\>"	 <br>
-**When** \<I\> Focus on "\<ELEMENT NAME\>"	<br>
-**When** \<I\> Right click on "\<ELEMENT NAME\>"	<br>
-**When** \<I\> Highlight "\<ELEMENT NAME\>"	<br>
-**When** \<I\> Show "\<ELEMENT NAME\>"	<br>
-**When** \<I\> Set "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" with value "\<ATTRIBUTE VALUE\>" <br>
+**When** \<I\> click on "\<ELEMENT NAME\>" <br>
+**When** \<I\> click with JS on "\<ELEMENT NAME\>"	 <br>
+**When** \<I\> focus on "\<ELEMENT NAME\>"	<br>
+**When** \<I\> right click on "\<ELEMENT NAME\>"	<br>
+**When** \<I\> highlight "\<ELEMENT NAME\>"	<br>
+**When** \<I\> show "\<ELEMENT NAME\>"	<br>
+**When** \<I\> set "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" with value "\<ATTRIBUTE VALUE\>" <br>
   
  Validations: <br>
   
@@ -3877,9 +3881,9 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 ```
 DateTimeSelector action example:
 
-When Set date "2018-11-13" in "Birth Date"
+When I set date "2018-11-13" in "Birth Date"
 
-DateTimeSelector validations example:
+DateTimeSelector validation example:
 
 Then the "Birth Date" text equals to "1985-06-18"
 Then the "Birth Date" text contains "1985"
@@ -3889,17 +3893,17 @@ Then the "Birth Date" label text contains "Birth"
 Then the "Birth Date" attribute min equals to "1970-01-01"
 Then the "Birth Date" attribute max equals to "2030-12-31"
 
-BDD example:
-Scenario: Set date
+Scenario example for DateTimeSelector:
+
     Given I open "Html5 Page"
     Then the "Birth Date" text equals to "1985-06-18"
-    When Set date "2018-11-13" in "Birth Date"
+    When set date "2018-11-13" in "Birth Date"
     Then the "Birth Date" text equals to "2018-11-13"
 
 ```
 Actions:<br>
 
-**When** \<I\> Set date "\<TEXT\>" in "\<ELEMENT NAME\>" <br>
+**When** \<I\> set date "\<TEXT\>" in "\<ELEMENT NAME\>" <br>
 
 Validations:<br>
 
@@ -3911,8 +3915,7 @@ Validations:<br>
 **Then** the "\<ELEMENT NAME\>" attribute min equals to "\<MIN ATTRIBUTE VALUE\>"<br>
 **Then** the "\<ELEMENT NAME\>" attribute max equals to "\<MAX ATTRIBUTE VALUE\>"<br>
 
-[More information in the tutorial](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)
-
+More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)<br>
 There are BDD test examples for Input Type Date derivatives:<br>
 [Input Type Date](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Date.feature),
 [Input Type Week](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Week.feature),
@@ -3933,11 +3936,13 @@ There are BDD test examples for Input Type Date derivatives:<br>
 
 ```
 Checkbox actions examples:
-When Check "Accept Conditions"
-When Uncheck "Accept Conditions"
-When Click on "Accept Conditions"
+
+When check "Accept Conditions"
+When uncheck "Accept Conditions"
+When click on "Accept Conditions"
 
 Checkbox validations examples:
+
 Then the "Accept Conditions" is enabled
 Then the "Accept Conditions" is disabled
 Then the "Accept Conditions" is displayed
@@ -3949,25 +3954,25 @@ Then the "Accept Conditions" does not appear
 Then the "Accept Conditions" does not appear during "5" seconds
 
 
-Some scenario examples:
+Scenario examples for Checkbox:
   Scenario: Get label text test
     Given I open "Html5 Page"
-    When I Check "Accept Conditions"
+    When I check "Accept Conditions"
     Then the "Accept Conditions" label text equals to "Accept terms and conditions"
     
   Scenario: Click test
     Given I open "Html5 Page"
-    When I Check "Accept Conditions"
+    When I check "Accept Conditions"
     Then "Accept Conditions" is selected
-    When I Click on "Accept Conditions"
+    When I click on "Accept Conditions"
     Then the "Accept Conditions" is deselected
 
 ```
 Actions: <br>
 
-**When** Check "\<ELEMENT NAME\>" <br>
-**When** Uncheck "\<ELEMENT NAME\>" <br>
-**When** Click on "\<ELEMENT NAME\>" <br>
+**When** < I > check "\<ELEMENT NAME\>" <br>
+**When** < I > uncheck "\<ELEMENT NAME\>" <br>
+**When** < I > click on "\<ELEMENT NAME\>" <br>
 
 
 Validations: <br>
@@ -3990,6 +3995,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
   
 ```
 Progress Bar validations example:
+
 Then the "Progress" attribute "max" equals to "110"
 Then the "Progress" progress volume greater or equal to 10
 Then the "Progress" progress volume less or equal to 110
@@ -4000,15 +4006,17 @@ Then the "Progress" is disabled
 Then the "Progress" is displayed
 Then the "Progress" is hidden
 Then the "Progress" does not appear
-Then the "Progress" does not appear during "5" seconds <br>
+Then the "Progress" does not appear during "5" seconds
 
-Scenario: progress bar validation
-  Given I open "Html5 Page" page
-  Then the "Progress" attribute "max" equals to "100"
-  And the "Progress" progress volume greater or equal to 10
-  And the "Progress" progress volume less or equal to 100
-  And the "Progress" attribute "value" equals to "70"
-  And the "Progress" is enabled
+Scenario example for Progress Bar:
+
+  Scenario: progress bar validation
+    Given I open "Html5 Page" page
+    Then the "Progress" attribute "max" equals to "100"
+    And the "Progress" progress volume greater or equal to 10
+    And the "Progress" progress volume less or equal to 100
+    And the "Progress" attribute "value" equals to "70"
+    And the "Progress" is enabled
   
 ```
 
@@ -4025,8 +4033,8 @@ Scenario: progress bar validation
 **Then** the "\<ELEMENT NAME\>" does not appear	<br>
 **Then** the "\<ELEMENT NAME\>" does not appear during "\<NUMBER\>" seconds <br>
 
-[More information in the tutorial](https://jdi-docs.github.io/jdi-light/?java#tutorial) <br>
-[Cucumber tests for Progress Bar](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/ProgressBar.feature)<br>
+More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial) <br>
+[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/ProgressBar.feature) for Progress Bar<br>
 <br><br><br><br><br><br><br><br>
 
 ### Text

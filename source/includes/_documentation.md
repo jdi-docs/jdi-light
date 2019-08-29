@@ -3541,7 +3541,7 @@ Then the "JDI Title" does not appear
 Then the "JDI Title" does not appear during "5" seconds
 
 
-Example:
+Scenario example for Label:
 
  Scenario: Text equals
     Given I open "Html5 Page"
@@ -3596,7 +3596,7 @@ Then the "Color Picker" does not appear
 Then the "Color Picker" does not appear during "5" seconds 
 
 
-Example:
+Scenario example for ColorPicker:
 
   Scenario: Color picker set color test
     Given I open "Html5 Page"
@@ -3645,7 +3645,7 @@ Image validation examples:
   Then the "Jdi Logo" does not appear 
   Then the "Jdi Logo" does not appear during "5" seconds 
 
-Example:
+Scenario example for Image:
 
   Scenario: Image validation test
     Given I open "Html5 Page"
@@ -3686,7 +3686,7 @@ Alert validation examples:
   Then the Alert text contains "Red B"
   Then the Alert text matches to "\w{3} \d{6}"
     
-Example:
+Scenario example for Alert:
 
   Scenario: Alert text contains
     Given open "Html5 page"
@@ -3751,7 +3751,7 @@ Then "File Input" is does not appear during "5" seconds
 
 
 
-Example:
+Scenario example for FileInput:
 
   Scenario: Upload file by enabled file input element
     Given I open "Html5 Page"
@@ -3777,15 +3777,11 @@ Validations:<br>
 **Then** the "\<ELEMENT NAME\>" does not appear <br>
 **Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
 
-<<<<<<< HEAD
+
 More information in the [Tutorial](https://jdi-docs.github.io/jdi-light/?java#tutorial)<br>
 [Cucumber tests](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/FileInput.feature) for FileInput<br>
 
-<br><br><br><br><br><br><br><br>
-=======
-More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial)<br>
-[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/FileInput.feature) for FileInput<br><br>
->>>>>>> origin/master
+<br><br><br><br><br><br>
 
 ### Link 
 

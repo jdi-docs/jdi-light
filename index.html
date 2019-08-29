@@ -8512,6 +8512,74 @@ Scenario: Check element via numbers test
 
 <p>More information in the <a href="https://jdi-docs.github.io/jdi-light/?java#checklist"><strong>Tutorial</strong></a><br>
 <a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/CheckList.feature"><strong>Cucumber tests</strong></a> for CheckList<br></p>
+
+<p>### Table </p>
+<pre class="highlight plaintext"><code>Table validations examples:
+
+Then the "Users Table" is enabled
+Then the "Users Table" is disabled
+Then the "Users Table" is displayed
+Then the "Users Table" is hidden
+Then the "Users Table" does not appear
+Then the "Users Table" does not appear during "5" seconds
+Then the "Users Table" table columns count equals "4"
+Then the "Users Table" table rows count equals "6"
+Then the "Users Table" table header has items:
+Then the "Users Table" table preview equals values:
+Then the "Users Table" table has size "6"
+Then the "Users Table" table has size greater than "3"
+Then the "Users Table" table has size less or equal to "6"
+Then the "Users Table" table is not empty
+Then the "Users Table" table has row that contains value "Ivan" in column "User"
+Then the "Users Table" table all rows contain value "Vip" in column "Description"
+Then the "Users Table" table has no rows which contain value "Vip" in column "Description"
+Then the "Users Table" table has at least "3" rows which contain value " " in column "User"
+Then the "Users Table" table has exact "2" rows which contain value "R" in column "User"
+Then the "Users Table" table has exact "1" rows which have value "Roman" in column "User"
+
+  Scenario: Get label text test
+    Given I open "Users Page"
+    Then the "Users Table" table columns count equals "4"
+    And the "Users Table" table rows count equals "6"
+    And the "Users Table" table header has items:
+      | Number      |
+      | Type        |
+      | User        |
+      | Description |
+
+  Scenario: Common matchers test
+    Given I open "Users Page"
+    Then the "Users Table" table has size "6"
+    And the "Users Table" table has size greater than "3"
+    And the "Users Table" table has size less or equal to "6"
+    And the "Users Table" table is not empty
+
+</code></pre>
+<p>Validations: <br></p>
+
+<p><strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is enabled <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is disabled <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is displayed <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is hidden <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; does not appear <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; does not appear during &quot;&lt;SECONDS&gt;&quot; seconds <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; table columns count equals &quot;&lt;COUNT&gt;&quot; <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; table rows count equals &quot;&lt;COUNT&gt;&quot; <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; table header has items: <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; table preview equals values: <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; table has size &quot;&lt;SIZE&gt;&quot; <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; table has size greater than &quot;&lt;SIZE&gt;&quot; <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; table has size less or equal to &quot;&lt;SIZE&gt;&quot; <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; table is not empty <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; table has row that contains value &quot;&lt;VALUE&gt;&quot; in column &quot;&lt;COLUMN&gt;&quot; <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; table all rows contain value &quot;&lt;VALUE&gt;&quot; in column &quot;&lt;COLUMN&gt;&quot; <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; table has no rows which contain value &quot;&lt;VALUE&gt;&quot; in column &quot;&lt;COLUMN&gt;&quot; <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; table has at least &quot;&lt;COUNT&gt;&quot; rows which contain value &quot;&lt;VALUE&gt;&quot; in column &quot;&lt;COLUMN&gt;&quot; <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; table has exact &quot;&lt;COUNT&gt;&quot; rows which contain value &quot;&lt;VALUE&gt;&quot; in column &quot;&lt;COLUMN&gt;&quot; <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; table has exact &quot;&lt;COUNT&gt;&quot; rows which have value &quot;&lt;VALUE&gt;&quot; in column &quot;&lt;COLUMN&gt;&quot; <br></p>
+
+<p>More information in the <a href="https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa"><strong>Tutorial</strong></a><br>
+<a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Table.feature"><strong>Cucumber tests</strong></a> for Table<br></p>
 <h2 id='ui-objects'>UI Objects</h2>
 <p>TBD</p>
 <h2 id='smart-locators'>Smart Locators</h2><pre class="highlight plaintext"><code>&lt;input type="text" id="name"&gt;

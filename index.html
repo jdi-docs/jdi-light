@@ -7756,11 +7756,11 @@ When I set "Github Link" attribute "alt" with value "Github JDI Link EDITED"
 </code></pre>
 <p>Actions: <br></p>
 
-<p><strong>When</strong> &lt; I &gt; click on &quot;&lt;ELEMENT NAME&gt;&quot; <br>
-<strong>When</strong> &lt; I &gt; highlight &quot;&lt;ELEMENT NAME&gt;&quot; <br>
-<strong>When</strong> &lt; I &gt; show &quot;&lt;ELEMENT NAME&gt;&quot; <br>
-<strong>When</strong> &lt; I &gt; set &quot;&lt;ELEMENT NAME&gt;&quot; attribute &quot;&lt;ATTRIBUTE NAME&gt;&quot; with value &quot;&lt;ATTRIBUTE NAME&gt;&quot; <br><br><br><br></p>
-<pre class="highlight plaintext"><code>Link validations examples:
+<p><strong>When</strong> &lt;I&gt; click on &quot;&lt;ELEMENT NAME&gt;&quot; <br>
+<strong>When</strong> &lt;I&gt; highlight &quot;&lt;ELEMENT NAME&gt;&quot; <br>
+<strong>When</strong> &lt;I&gt; show &quot;&lt;ELEMENT NAME&gt;&quot; <br>
+<strong>When</strong> &lt;I&gt; set &quot;&lt;ELEMENT NAME&gt;&quot; attribute &quot;&lt;ATTRIBUTE NAME&gt;&quot; with value &quot;&lt;ATTRIBUTE NAME&gt;&quot; <br><br><br><br></p>
+<pre class="highlight plaintext"><code>Link validation examples:
 
 Then the "Github Link" is enabled
 Then the "Github Link" is disabled
@@ -7781,7 +7781,6 @@ Then the "Github Link" attribute "href" contains "https://github.com"
 Then the "Github Link" attribute "ui" matches to "github.link"
 Then the "Github Link" does not appear
 Then the "Github Link" does not appear during "5" seconds
-
 
 Scenario examples for Link:
 
@@ -7822,17 +7821,17 @@ Scenario examples for Link:
 <a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/link.feature"><strong>Cucumber tests</strong></a> for Link<br></p>
 
 <p><br><br><br></p>
-<h3 id='button-2'>Button</h3><pre class="highlight plaintext"><code>Button actions examples:
+<h3 id='button-2'>Button</h3><pre class="highlight plaintext"><code>Button action examples:
 
-When &lt; I &gt; click on "Red Button" 
-When &lt; I &gt; click with JS on "Red Button"     
-When &lt; I &gt; focus on "Blue Button"   
-When &lt; I &gt; right click on "Red Button"  
-When &lt; I &gt; highlight "Blue Button"  
-When &lt; I &gt; show "Red Button"    
-When &lt; I &gt; set "Red Button" attribute "test-jdi" with vlaue "test-value"
+When I click on "Red Button" 
+When I click with JS on "Red Button"     
+When I focus on "Blue Button"   
+When I right click on "Red Button"  
+When I highlight "Blue Button"  
+When I show "Red Button"    
+When I set "Red Button" attribute "test-jdi" with vlaue "test-value"
 
-Button validations examples:
+Button validation examples:
 
 Then the "Red Button" text equals to "Big Red Button-Input" 
 Then the "Red Button" text contains "Red Button"    
@@ -7895,11 +7894,13 @@ Scenario example for Button:
 
 <p>More information in the <a href="https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa"><strong>Tutorial</strong></a><br>
 <a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/button.feature"><strong>Cucumber tests</strong></a> for Button<br></p>
+
+<p><br></p>
 <h3 id='datetimeselector-2'>DateTimeSelector</h3><pre class="highlight plaintext"><code>DateTimeSelector action example:
 
-When set date "2018-11-13" in "Birth Date"
+When I set date "2018-11-13" in "Birth Date"
 
-DateTimeSelector validations example:
+DateTimeSelector validation example:
 
 Then the "Birth Date" text equals to "1985-06-18"
 Then the "Birth Date" text contains "1985"
@@ -7937,16 +7938,16 @@ Scenario example for DateTimeSelector:
 <p>There are BDD test examples for Input Type Date derivatives:<br>
 <a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Date.feature">Input Type Date</a>,
 <a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Week.feature">Input Type Week</a>,
-<a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Month.feature">Input Type Month</a>,
+<a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Month.feature">Input Type Month</a>,<br>
 <a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Time.feature">Input Type Time</a>,
 <a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/DateTime.feature">DateTime-Local</a><br><br></p>
-<h3 id='checkbox-2'>Checkbox</h3><pre class="highlight plaintext"><code>Checkbox actions examples:
+<h3 id='checkbox-2'>Checkbox</h3><pre class="highlight plaintext"><code>Checkbox action examples:
 
 When check "Accept Conditions"
 When uncheck "Accept Conditions"
 When click on "Accept Conditions"
 
-Checkbox validations examples:
+Checkbox validation examples:
 
 Then the "Accept Conditions" is enabled
 Then the "Accept Conditions" is disabled
@@ -7976,9 +7977,9 @@ Scenario examples for Checkbox:
 </code></pre>
 <p>Actions: <br></p>
 
-<p><strong>When</strong> &lt; I &gt; check &quot;&lt;ELEMENT NAME&gt;&quot; <br>
-<strong>When</strong> &lt; I &gt; uncheck &quot;&lt;ELEMENT NAME&gt;&quot; <br>
-<strong>When</strong> &lt; I &gt; click on &quot;&lt;ELEMENT NAME&gt;&quot; <br></p>
+<p><strong>When</strong> &lt;I&gt; check &quot;&lt;ELEMENT NAME&gt;&quot; <br>
+<strong>When</strong> &lt;I&gt; uncheck &quot;&lt;ELEMENT NAME&gt;&quot; <br>
+<strong>When</strong> &lt;I&gt; click on &quot;&lt;ELEMENT NAME&gt;&quot; <br></p>
 
 <p>Validations: <br></p>
 
@@ -7995,8 +7996,8 @@ Scenario examples for Checkbox:
 <p>More information in the <a href="https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa"><strong>Tutorial</strong></a><br>
 <a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/checkbox.feature"><strong>Cucumber tests</strong></a> for Checkbox<br></p>
 
-<p><br><br><br><br><br><br></p>
-<h3 id='progress-bar'>Progress Bar</h3><pre class="highlight plaintext"><code>Progress Bar validations example:
+<p><br><br><br><br><br><br><br><br></p>
+<h3 id='progress-bar'>Progress Bar</h3><pre class="highlight plaintext"><code>Progress Bar validation example:
 
 Then the "Progress" attribute "max" equals to "110"
 Then the "Progress" progress volume greater or equal to 10

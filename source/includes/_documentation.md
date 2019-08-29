@@ -3797,13 +3797,13 @@ When I set "Github Link" attribute "alt" with value "Github JDI Link EDITED"
 
 Actions: <br>
 
-**When** < I > click on "\<ELEMENT NAME\>" <br>
-**When** < I > highlight "\<ELEMENT NAME\>" <br>
-**When** < I > show "\<ELEMENT NAME\>" <br>
-**When** < I > set "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" with value "\<ATTRIBUTE NAME\>" <br><br><br><br>
+**When** \<I\> click on "\<ELEMENT NAME\>" <br>
+**When** \<I\> highlight "\<ELEMENT NAME\>" <br>
+**When** \<I\> show "\<ELEMENT NAME\>" <br>
+**When** \<I\> set "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" with value "\<ATTRIBUTE NAME\>" <br><br><br><br>
 
 ```
-Link validations examples:
+Link validation examples:
 
 Then the "Github Link" is enabled
 Then the "Github Link" is disabled
@@ -3824,7 +3824,6 @@ Then the "Github Link" attribute "href" contains "https://github.com"
 Then the "Github Link" attribute "ui" matches to "github.link"
 Then the "Github Link" does not appear
 Then the "Github Link" does not appear during "5" seconds
-
 
 Scenario examples for Link:
 
@@ -3870,17 +3869,17 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi
 ### Button
 
 ```
-Button actions examples:
+Button action examples:
 
-When < I > click on "Red Button" 
-When < I > click with JS on "Red Button" 	 
-When < I > focus on "Blue Button"	
-When < I > right click on "Red Button" 	
-When < I > highlight "Blue Button"	
-When < I > show "Red Button"	
-When < I > set "Red Button" attribute "test-jdi" with vlaue "test-value"
+When I click on "Red Button" 
+When I click with JS on "Red Button" 	 
+When I focus on "Blue Button"	
+When I right click on "Red Button" 	
+When I highlight "Blue Button"	
+When I show "Red Button"	
+When I set "Red Button" attribute "test-jdi" with vlaue "test-value"
 
-Button validations examples:
+Button validation examples:
   
 Then the "Red Button" text equals to "Big Red Button-Input"	
 Then the "Red Button" text contains "Red Button"	
@@ -3945,15 +3944,15 @@ Scenario example for Button:
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa)<br>
 [**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/button.feature) for Button<br>
 
-
+<br>
 ### DateTimeSelector
 
 ```
 DateTimeSelector action example:
 
-When set date "2018-11-13" in "Birth Date"
+When I set date "2018-11-13" in "Birth Date"
 
-DateTimeSelector validations example:
+DateTimeSelector validation example:
 
 Then the "Birth Date" text equals to "1985-06-18"
 Then the "Birth Date" text contains "1985"
@@ -3991,7 +3990,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi
 There are BDD test examples for Input Type Date derivatives:<br>
 [Input Type Date](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Date.feature),
 [Input Type Week](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Week.feature),
-[Input Type Month](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Month.feature),
+[Input Type Month](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Month.feature),<br>
 [Input Type Time](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Time.feature),
 [DateTime-Local](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/DateTime.feature)<br><br>
 
@@ -4007,13 +4006,13 @@ There are BDD test examples for Input Type Date derivatives:<br>
 ### Checkbox  
 
 ```
-Checkbox actions examples:
+Checkbox action examples:
 
 When check "Accept Conditions"
 When uncheck "Accept Conditions"
 When click on "Accept Conditions"
 
-Checkbox validations examples:
+Checkbox validation examples:
 
 Then the "Accept Conditions" is enabled
 Then the "Accept Conditions" is disabled
@@ -4043,9 +4042,9 @@ Scenario examples for Checkbox:
 ```
 Actions: <br>
 
-**When** < I > check "\<ELEMENT NAME\>" <br>
-**When** < I > uncheck "\<ELEMENT NAME\>" <br>
-**When** < I > click on "\<ELEMENT NAME\>" <br>
+**When** \<I\> check "\<ELEMENT NAME\>" <br>
+**When** \<I\> uncheck "\<ELEMENT NAME\>" <br>
+**When** \<I\> click on "\<ELEMENT NAME\>" <br>
 
 
 Validations: <br>
@@ -4063,11 +4062,11 @@ Validations: <br>
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa)<br>
 [**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/checkbox.feature) for Checkbox<br>
 
-<br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br>
 ### Progress Bar
   
 ```
-Progress Bar validations example:
+Progress Bar validation example:
 
 Then the "Progress" attribute "max" equals to "110"
 Then the "Progress" progress volume greater or equal to 10

@@ -865,44 +865,6 @@ And here are methods available in Java:
 [Test examples in Java](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ImageTests.java)<br>
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#image-2)<br>
 
-
-### Icon
-```csharp 
-[FindBy(Css = "#jdi-ico")]
-public IIcon LogoIco;
-
-   [Test]
-   public void GetSrcTest()
-   {
-       Jdi.Assert.AreEquals(LogoIco.Src, Text);
-   }
-
-   [Test]
-   public void GetAltTest()
-   {
-       Jdi.Assert.AreEquals(LogoIco.Alt, "");
-   }
-```
-**Icon** – is a simple element type that represents small graphic images (icons).
-
-Icons are represented by the following class in C#:
- 
-  - __C#__: _JDI.Light.Elements.Common.Icon_
-   
-Here is a list of available methods in C#:
-
-|Method | Description | Return Type
---- | --- | ---
-**Src** | get value of src attribute | string
-**Height** |get value of height attribute| string
-**Width** | get value of width attribute| string
-**Alt** |get value of alt attribute | string
-**Is()** | method for building assertions | ImageAssert
-**AssertThat()** |method for building assertions  | ImageAssert
-
-[Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/IconTests.cs)<br>
-[BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#image-2)
-
 ### Link
 **Link** – a graphical control element, that allows the user to link from one page to other web pages, files, locations within the same page, email addresses, or any other URL.
 
@@ -3861,7 +3823,7 @@ Validations: <br>
 **Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)<br>
-[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/link.feature) for Link<br>
+[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Link.feature) for Link<br>
 
 
 <br><br><br>
@@ -3941,7 +3903,7 @@ Scenario example for Button:
 **Then** the "\<ELEMENT NAME\>" attribute "ATTRIBUTE NAME" equals to "\<TEXT\>" <br>
   
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa)<br>
-[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/button.feature) for Button<br>
+[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Button.feature) for Button<br>
 
 <br>
 ### DateTimeSelector
@@ -4059,7 +4021,7 @@ Validations: <br>
 **Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa)<br>
-[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/checkbox.feature) for Checkbox<br>
+[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Checkbox.feature) for Checkbox<br>
 
 <br><br><br><br><br><br><br><br>
 ### Progress Bar

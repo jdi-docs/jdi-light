@@ -4470,6 +4470,9 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi
 <br>
 <br>
 <br>
+<br>
+<br>
+<br>
 
 ### Menu 
 
@@ -4485,7 +4488,7 @@ When I Show "Contact form" in "Left Menu" menu
 Actions: <br>
 
 **When** I Select "\<VALUE\>" in "\<ELEMENT NAME\>" menu <br>
-**When** I Select "\<VALUE1:VALUE2\>" items in "\<ELEMENT NAME\>" menu <br>
+**When** I Select items in "\<ELEMENT NAME\>" menu: <br>
 **When** I Show "\<VALUE\>" in "\<ELEMENT NAME\>" menu <br>
 
 ```
@@ -4503,7 +4506,9 @@ Then the "Contact form" in "Left Menu" menu is deselected
   Scenario: Select items test
     Given I open "Html5 Page"
     When I Check "Accept Conditions"
-    When I Select "Service;Dates" items in "Left Menu" menu
+    And I select items in "Left Menu" menu:
+      | Service |
+      | Dates   |
     Then the "Dates Page" page is opened
 
   Scenario: Is validation test

@@ -3526,7 +3526,6 @@ When I make Screenshot for "JDI Title"
 
 
 
-
 Label validation examples:
 
 Then the "JDI Title" text equal to "JDI TESTING PLATFORM"

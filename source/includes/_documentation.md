@@ -4666,8 +4666,10 @@ Validations: <br>
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#checklist)<br>
 [**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/CheckList.feature) for CheckList<br>
 
+<br><br><br><br><br><br><br><br><br><br><br>
 
- ### Table 
+
+### Table
 
 ```
 Table validations examples:

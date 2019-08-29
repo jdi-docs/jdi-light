@@ -430,9 +430,6 @@
                               <a href="#image" class="toc-h2 h3 toc-link" data-title="Image">Image</a>
                             </li>
                             <li>
-                              <a href="#icon-2" class="toc-h2 h3 toc-link" data-title="Icon">Icon</a>
-                            </li>
-                            <li>
                               <a href="#link" class="toc-h2 h3 toc-link" data-title="Link">Link</a>
                             </li>
                             <li>
@@ -3083,72 +3080,6 @@ In addition if you run test scenarios on JDI Light you will <strong>get logs of 
 
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ImageTests.java">Test examples in Java</a><br>
 <a href="https://jdi-docs.github.io/jdi-light/?java#image-2">BDD Steps example</a><br></p>
-<h3 id='icon-2'>Icon</h3><pre class="highlight csharp tab-csharp"><code><span class="na">[FindBy(Css = "#jdi-ico")]</span>
-<span class="k">public</span> <span class="n">IIcon</span> <span class="n">LogoIco</span><span class="p">;</span>
-
-   <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
-   <span class="k">public</span> <span class="k">void</span> <span class="nf">GetSrcTest</span><span class="p">()</span>
-   <span class="p">{</span>
-       <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">AreEquals</span><span class="p">(</span><span class="n">LogoIco</span><span class="p">.</span><span class="n">Src</span><span class="p">,</span> <span class="n">Text</span><span class="p">);</span>
-   <span class="p">}</span>
-
-   <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
-   <span class="k">public</span> <span class="k">void</span> <span class="nf">GetAltTest</span><span class="p">()</span>
-   <span class="p">{</span>
-       <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">AreEquals</span><span class="p">(</span><span class="n">LogoIco</span><span class="p">.</span><span class="n">Alt</span><span class="p">,</span> <span class="s">""</span><span class="p">);</span>
-   <span class="p">}</span>
-</code></pre>
-<p><strong>Icon</strong> – is a simple element type that represents small graphic images (icons).</p>
-
-<p>Icons are represented by the following class in C#:</p>
-
-<ul>
-<li><strong>C#</strong>: <em>JDI.Light.Elements.Common.Icon</em></li>
-</ul>
-
-<p>Here is a list of available methods in C#:</p>
-
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>Src</strong></td>
-<td>get value of src attribute</td>
-<td>string</td>
-</tr>
-<tr>
-<td><strong>Height</strong></td>
-<td>get value of height attribute</td>
-<td>string</td>
-</tr>
-<tr>
-<td><strong>Width</strong></td>
-<td>get value of width attribute</td>
-<td>string</td>
-</tr>
-<tr>
-<td><strong>Alt</strong></td>
-<td>get value of alt attribute</td>
-<td>string</td>
-</tr>
-<tr>
-<td><strong>Is()</strong></td>
-<td>method for building assertions</td>
-<td>ImageAssert</td>
-</tr>
-<tr>
-<td><strong>AssertThat()</strong></td>
-<td>method for building assertions</td>
-<td>ImageAssert</td>
-</tr>
-</tbody></table>
-
-<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/IconTests.cs">Test examples in C#</a><br>
-<a href="https://jdi-docs.github.io/jdi-light/?java#image-2">BDD Steps example</a></p>
 <h3 id='link'>Link</h3>
 <p><strong>Link</strong> – a graphical control element, that allows the user to link from one page to other web pages, files, locations within the same page, email addresses, or any other URL.</p>
 
@@ -7818,7 +7749,7 @@ Scenario examples for Link:
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; does not appear during &quot;&lt;SECONDS&gt;&quot; seconds <br></p>
 
 <p>More information in the <a href="https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa"><strong>Tutorial</strong></a><br>
-<a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/link.feature"><strong>Cucumber tests</strong></a> for Link<br></p>
+<a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Link.feature"><strong>Cucumber tests</strong></a> for Link<br></p>
 
 <p><br><br><br></p>
 <h3 id='button-2'>Button</h3><pre class="highlight plaintext"><code>Button action examples:
@@ -7893,7 +7824,7 @@ Scenario example for Button:
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; attribute &quot;ATTRIBUTE NAME&quot; equals to &quot;&lt;TEXT&gt;&quot; <br></p>
 
 <p>More information in the <a href="https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa"><strong>Tutorial</strong></a><br>
-<a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/button.feature"><strong>Cucumber tests</strong></a> for Button<br></p>
+<a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Button.feature"><strong>Cucumber tests</strong></a> for Button<br></p>
 
 <p><br></p>
 <h3 id='datetimeselector-2'>DateTimeSelector</h3><pre class="highlight plaintext"><code>DateTimeSelector action example:
@@ -7994,7 +7925,7 @@ Scenario examples for Checkbox:
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; does not appear during &quot;&lt;SECONDS&gt;&quot; seconds <br></p>
 
 <p>More information in the <a href="https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa"><strong>Tutorial</strong></a><br>
-<a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/checkbox.feature"><strong>Cucumber tests</strong></a> for Checkbox<br></p>
+<a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Checkbox.feature"><strong>Cucumber tests</strong></a> for Checkbox<br></p>
 
 <p><br><br><br><br><br><br><br><br></p>
 <h3 id='progress-bar'>Progress Bar</h3><pre class="highlight plaintext"><code>Progress Bar validation examples:

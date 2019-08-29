@@ -4376,105 +4376,104 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 ```
 TextArea actions examples:
 
-When I Send keys "sent keys" to "Text Area"
-When Clear "Text Area"
-When I Input "text to input" in "Text Area"
-When Focus on "Text Area"
-When I Set text "text to set" in "Text Area"
-When Highlight "Text Area"
-When Show "Text Area"
-When Set "Text Area" attribute "minlength" with value "1" element
-When I Input in the "Text Area" line "only one line of text"
-When I Input in the "Text Area" lines
+When I send keys "sent keys" to "Text Area"
+When clear "Text Area"
+When I input "text to input" in "Text Area"
+When focus on "Text Area"
+When I set text "text to set" in "Text Area"
+When highlight "Text Area"
+When show "Text Area"
+When set "Text Area" attribute "minlength" with value "1" element
+When I input in the "Text Area" line "only one line of text"
+When I input in the "Text Area" lines
 | line1 |
 | line 2 |
 
-```
-
-Actions: <br>
-
-**When** \<I\> Send keys "\<KEYS\>" to "\<ELEMENT NAME\>" <br>
-**When** \<I\> Clear "\<ELEMENT NAME\>" <br>
-**When** \<I\> Input "\<TEXT\>" in "\<ELEMENT NAME\>" <br>
-**When** \<I\> Focus on "\<ELEMENT NAME\>" <br>
-**When** \<I\> Set text "\<TEXT\>" in "\<ELEMENT NAME\>" <br>
-**When** \<I\> Highlight "\<ELEMENT NAME\>" <br>
-**When** \<I\> Show "\<ELEMENT NAME\>" <br>
-**When** \<I\> Set "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" with vlaue "\<ATTRIBUTE VALUE\>" element <br>
-**When** \<I\> Input in the "\<ELEMENT NAME\>" line "\<TEXT\>" <br>
-**When** \<I\> Input in the "\<ELEMENT NAME\>" lines "\<GHERKIN DATA TABLE\>" <br>
-
-```
 TextArea validations examples:
 
 Then the "Text Area" label text equals to "Text example:"
 Then the "Text Area" label text contains "Text"
-Then the "Text Area" label text match to "Text example."
+Then the "Text Area" label text matches to "Text example."
 Then the "Text Area" placeholder equals to "Input huge text"
 Then the "Text Area" placeholder contains "huge text"
-Then the "Text Area" placeholder match to "I.*"
+Then the "Text Area" placeholder matches to "I.*"
 Then the "Text Area" text equals to "some text"
 Then the "Text Area" text contains "some"
-Then the "Text Area" text match to ".*"
+Then the "Text Area" text matches to ".*"
 Then the "Text Area" attribute "id" equals to "text-area"
 Then the "Text Area" attribute "id" contains "area"
-Then the "Text Area" attribute "id" match to "text-?area"
+Then the "Text Area" attribute "id" matches to "text-?area"
 Then the "Text Area" is enabled
 Then the "Text Area" is disabled
 Then the "Text Area" is displayed
 Then the "Text Area" is hidden
 Then the "Text Area" does not appear
 Then the "Text Area" does not appear during "5" seconds
-Then The "Text Area" rows count equals 3
-Then The "Text Area" columns count equals 33
-Then The "Text Area" minimal length equals 10
-Then The "Text Area" maximal length equals 200
-Then Lines in the "Text Area" are equal
+Then the "Text Area" rows count equals 3
+Then the "Text Area" columns count equals 33
+Then the "Text Area" minimal length equals 10
+Then the "Text Area" maximal length equals 200
+Then the lines in the "Text Area" are equal
 | line1 |
-| line 2 |
+| line2 |
 
-
-Some scenario examples:
+Scenario example for TextArea:
 
   Scenario: Add new line test
     Given I open "Html5 Page"
-    When I Clear "Text Area"
-    When I Input in the "Text Area" line "line1"
-    And I Input in the "Text Area" line "line2"
-    Then Lines in the "Text Area" are equal
+    When I clear "Text Area"
+    When I input in the "Text Area" line "line1"
+    And I input in the "Text Area" line "line2"
+    Then the lines in the "Text Area" are equal
       |       |
       | line1 |
       | line2 |
-  
-More examples are available in the Tutorial section.
+
+
+
 
 ```
+
+Actions: <br>
+
+**When** \<I\> send keys "\<KEYS\>" to "\<ELEMENT NAME\>" <br>
+**When** \<I\> clear "\<ELEMENT NAME\>" <br>
+**When** \<I\> input "\<TEXT\>" in "\<ELEMENT NAME\>" <br>
+**When** \<I\> focus on "\<ELEMENT NAME\>" <br>
+**When** \<I\> set text "\<TEXT\>" in "\<ELEMENT NAME\>" <br>
+**When** \<I\> highlight "\<ELEMENT NAME\>" <br>
+**When** \<I\> show "\<ELEMENT NAME\>" <br>
+**When** \<I\> set "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" with value "\<ATTRIBUTE VALUE\>" element <br>
+**When** \<I\> input in the "\<ELEMENT NAME\>" line "\<TEXT\>" <br>
+**When** \<I\> input in the "\<ELEMENT NAME\>" lines <br>
+&nbsp;&nbsp;&nbsp;&nbsp;|\<GHERKIN DATA TABLE\>| <br>
 
 Validations: <br>
 
 **Then** the "\<ELEMENT NAME\>" label text equals to "\<LABEL TEXT\>" <br>
 **Then** the "\<ELEMENT NAME\>" label text contains "\<LABEL TEXT\>" <br>
-**Then** the "\<ELEMENT NAME\>" label text match to "\<LABEL TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" label text matches to "\<LABEL TEXT\>" <br>
 **Then** the "\<ELEMENT NAME\>" placeholder equals to "\<PLACEHOLDER TEXT\>" <br>
 **Then** the "\<ELEMENT NAME\>" placeholder contains "\<PLACEHOLDER TEXT\>" <br>
-**Then** the "\<ELEMENT NAME\>" placeholder match to "\<PLACEHOLDER TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" placeholder matches to "\<PLACEHOLDER TEXT\>" <br>
 **Then** the "\<ELEMENT NAME\>" text equals to "\<TEXT\>" <br>
 **Then** the "\<ELEMENT NAME\>" text contains "\<TEXT\>" <br>
-**Then** the "\<ELEMENT NAME\>" text match to "\<TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" text matches to "\<TEXT\>" <br>
 **Then** the "\<ELEMENT NAME\>" attribute "\<ELEMENT NAME\>" equals to "\<ATTRIBUTE TEXT\>" <br>
 **Then** the "\<ELEMENT NAME\>" attribute "\<ELEMENT NAME\>" contains "\<ATTRIBUTE TEXT\>" <br>
-**Then** the "\<ELEMENT NAME\>" attribute "\<ELEMENT NAME\>" match to "\<ATTRIBUTE TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" attribute "\<ELEMENT NAME\>" matches to "\<ATTRIBUTE TEXT\>" <br>
 **Then** the "\<ELEMENT NAME\>" is enabled <br>
 **Then** the "\<ELEMENT NAME\>" is disabled <br>
 **Then** the "\<ELEMENT NAME\>" is displayed <br>
 **Then** the "\<ELEMENT NAME\>" is hidden <br>
 **Then** the "\<ELEMENT NAME\>" does not appear <br>
 **Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
-**Then** the "\<ELEMENT NAME\>" rows count equals <br>
-**Then** The "\<ELEMENT NAME\>" columns count equals <br>
-**Then** The "\<ELEMENT NAME\>" minimal length equals <br>
-**Then** The "\<ELEMENT NAME\>" maximal length equals <br>
-**Then** Lines in the "\<ELEMENT NAME\>" are equal <br>
+**Then** the "\<ELEMENT NAME\>" rows count equals "\<TEXT\>"<br>
+**Then** the "\<ELEMENT NAME\>" columns count equals "\<TEXT\>"<br>
+**Then** the "\<ELEMENT NAME\>" minimal length equals "\<TEXT\>"<br>
+**Then** the "\<ELEMENT NAME\>" maximal length equals "\<TEXT\>"<br>
+**Then** the lines in the "\<ELEMENT NAME\>" are equal <br> 
+&nbsp;&nbsp;&nbsp;&nbsp;|\<GHERKIN DATA TABLE\>|<br> 
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)<br>
 [**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/TextArea.feature) for TextArea <br>
@@ -4495,19 +4494,10 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi
 ```
 Menu actions examples:
 
-When I Select "Contact form" in "Left Menu" menu
-When I Select "Service;Dates" items in "Left Menu" menu
-When I Show "Contact form" in "Left Menu" menu
+When I select "Contact form" in "Left Menu" menu
+When I select "Service;Dates" items in "Left Menu" menu
+When I show "Contact form" in "Left Menu" menu
 
-```
-
-Actions: <br>
-
-**When** I Select "\<VALUE\>" in "\<ELEMENT NAME\>" menu <br>
-**When** I Select "\<VALUE1:VALUE2\>" items in "\<ELEMENT NAME\>" menu <br>
-**When** I Show "\<VALUE\>" in "\<ELEMENT NAME\>" menu <br>
-
-```
 Menu validations examples:
 
 Then the "Left Menu" is enabled
@@ -4519,20 +4509,30 @@ Then the "Left Menu" does not appear during "5" seconds
 Then the "Contact form" in "Left Menu" menu is selected
 Then the "Contact form" in "Left Menu" menu is deselected
 
+Scenario examples for Menu:
+
   Scenario: Select items test
     Given I open "Html5 Page"
-    When I Check "Accept Conditions"
-    When I Select "Service;Dates" items in "Left Menu" menu
+    When I check "Accept Conditions"
+    When select items in "Left Menu" menu:
+     | Service |
+     | Dates   |
     Then the "Dates Page" page is opened
 
   Scenario: Is validation test
     Given I open "Html5 Page"
-    When I Check "Accept Conditions"
+    When I check "Accept Conditions"
     Then the "HTML 5" in "Left Menu" menu is selected
-  
-More examples are available in the Tutorial section.
 
 ```
+
+Actions: <br>
+
+**When** \<I\> select "\<VALUE\>" in "\<ELEMENT NAME\>" menu <br>
+**When** \<I\> select items in "\<ELEMENT NAME\>" menu:<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;|\<GHERKIN DATA TABLE\>|<br>
+**When** \<I\> show "\<VALUE\>" in "\<ELEMENT NAME\>" menu <br>
+
 
 Validations: <br>
 
@@ -4547,19 +4547,25 @@ Validations: <br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)<br>
 [**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Menu.feature) for Menu<br>
-<br><br><br><br><br><br><br><br><br><br>
-
-
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 ### TextField
-
 ```
 TextField action example:
 
-When I Send keys "Lorem" to "Name"
-When I Set text "Lorem" in "Name"
-When I Clear "Name"
-When I Input "Lorem" in "Name"
+When I send keys "Lorem" to "Name"
+When I set text "Lorem" in "Name"
+When I clear "Name"
+When I input "Lorem" in "Name"
 
 TextField validation examples:
 
@@ -4567,19 +4573,20 @@ Then the "Name" placeholder equals to "Input name"
 Then the "Name" text equals to "Lorem"
 Then the "Name" text is "Lorem"
 
-Example:
+Scenario examples for TextField:
+
   Scenario: sendKeys test
     Given I open "Html5 Page"
-    When I Send keys "Lorem" to "Name"
+    When I send keys "Lorem" to "Name"
     Then the "Name" text equals to "Lorem"
     
 ```
 Actions: <br>
 
-**When** I Send keys "TEXT" to "ELEMENT NAME"<br>
-**When** I Set text "TEXT" to "ELEMENT NAME"<br>
-**When** I clear "ELEMENT NAME"<br>
-**When** I Input "TEXT" to "ELEMENT NAME"<br>
+**When** \<I\> send keys "\<TEXT\>" to "\<ELEMENT NAME\>"<br>
+**When** \<I\> set text "\<TEXT\>" to "\<ELEMENT NAME\>"<br>
+**When** \<I\> clear "\<ELEMENT NAME\>"<br>
+**When** \<I\> input "\<TEXT\>" to "\<ELEMENT NAME\>"<br>
 
 Validations: <br>
 
@@ -4587,7 +4594,7 @@ Validations: <br>
 **Then** the "ELEMENT NAME" text equals to "TEXT" <br>
 **Then** the "ELEMENT NAME" text is "VALUE" <br>
 
-More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial)<br><br>
+More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial)<br>
 [**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/TextField.feature) for TextField<br>
 
 <br><br><br><br><br><br><br><br><br><br><br>
@@ -4599,7 +4606,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 CheckList actions examples:
 
 When I check element "Hot option" in "Weather" checklist
-When I Select "Cold;Hot option" fields from "Weather"
+When I select "Cold;Hot option" fields from "Weather"
 When I check elements in "Weather" checklist:
      | Hot option |
 When I select in "Weather" checklist elements by numbers:
@@ -4610,57 +4617,59 @@ When I uncheck all elements in "Weather" checklist
 When I check elements in "Weather" checklist:
      | Rainy day |
      | Sunny     |
-When I Select "Cold;Hot option" fields from "Weather"
+When I select "Cold;Hot option" fields from "Weather"
 
+CheckList validation examples:
+
+Then in the "Weather" checklist checked element is "Cold"
+Then the "Weather" checklist text is "Hot option"
+Then count of selected elements in "Weather" checklist is "2"
+Then in the "Weather" checklist checked elements are:
+
+Scenario example for CheckList:
+
+Scenario: Check element via numbers test
+  When I check in "Weather" checklist elements by numbers:
+      | 1 |
+      | 4 |
+  Then in the "Weather" checklist checked elements are:
+      | Hot option |
+      | Sunny      |
 
 ```
 Actions: <br>
 
  **When**  \<I\> check element "\<ELEMENT NAME\>" in "\<ELEMENT NAME\>" checklist <br>
  **When**  \<I\> check elements in "\<ELEMENT NAME\>" checklist:  <br>
+     &nbsp;&nbsp;&nbsp;&nbsp;|\<GHERKIN DATA TABLE\>| <br>
  **When**  \<I\> uncheck element "\<ELEMENT NAME\>" in "\<ELEMENT NAME\>" checklist <br>
  **When**  \<I\> uncheck in "\<ELEMENT NAME\>" checklist elements:  <br>
+     &nbsp;&nbsp;&nbsp;&nbsp;|\<GHERKIN DATA TABLE\>| <br>
  **When**  \<I\> uncheck in "\<ELEMENT NAME\>" checklist elements by numbers: <br>
- **When**  \<I\> uncheck in "\<ELEMENT NAME\>" checklist element by numbers "\<NUMBER\>": <br> 
- **When**  \<I\> check in "\<ELEMENT NAME\>" checklist element by numbers "\<NUMBER\>": <br> 
+   &nbsp;&nbsp;&nbsp;&nbsp;|\<GHERKIN DATA TABLE\>| <br>
+ **When**  \<I\> uncheck in "\<ELEMENT NAME\>" checklist element by numbers "\<NUMBER\>"<br> 
+ **When**  \<I\> check in "\<ELEMENT NAME\>" checklist element by numbers "\<NUMBER\>"<br>
  **When**  \<I\> check in "\<ELEMENT NAME\>" checklist elements by numbers: <br> 
+     &nbsp;&nbsp;&nbsp;&nbsp;|\<GHERKIN DATA TABLE\>| <br>
  **When**  \<I\> select in "\<ELEMENT NAME\>" checklist elements by numbers: <br>
- **When**  \<I\> select in "\<ELEMENT NAME\>" checklist element by numbers "\<NUMBER\>": <br>
+     &nbsp;&nbsp;&nbsp;&nbsp;|\<GHERKIN DATA TABLE\>| <br>
+ **When**  \<I\> select in "\<ELEMENT NAME\>" checklist element by numbers "\<NUMBER\>"<br>
  **When**  \<I\> check all elements in "\<ELEMENT NAME\>" checklist  <br>
  **When**  \<I\> uncheck all elements in "\<ELEMENT NAME\>" checklist  <br> 
  
- 
-```
-CheckList validation examples:
-
-Then In "Weather" checklist checked element is "Cold"
-Then The "Weather" checklist text is "Hot option"
-Then Count of selected elements in "Weather" checklist is "2"
-Then In the "Weather" checklist checked elements are:
-
-Scenario: Check element via numbers test
-  When I check in "Weather" checklist elements by numbers:
-      | 1 |
-      | 4 |
-  Then In the "Weather" checklist checked elements are:
-      | Hot option |
-      | Sunny      |
-
-
-
-```
 Validations: <br>
 
-**Then** In "\<ELEMENT NAME\>" checklist checked element is "\<ELEMENT NAME\>" <br>
+**Then** in the "\<ELEMENT NAME\>" checklist checked element is "\<ELEMENT NAME\>" <br>
 **Then** Count of selected elements in "\<ELEMENT NAME\>" checklist is "\<COUNT\>" <br>
-**Then** In the "\<ELEMENT NAME\>" checklist checked element are: <br>
-**Then** The "\<ELEMENT NAME\>" checklist text is "\<ELEMENT NAME\>" <br>
-**Then** "\<ELEMENT NAME\>" is enabled <br>
-**Then** "\<ELEMENT NAME\>" is disabled <br>
-**Then** "\<ELEMENT NAME\>" is displayed <br>
-**Then** "\<ELEMENT NAME\>" is hidden	 <br>
-**Then** "\<ELEMENT NAME\>" is not appear	<br>
-**Then** "\<ELEMENT NAME\>" is not appear during "\<NUMBER\>" seconds <br>
+**Then** in the "\<ELEMENT NAME\>" checklist checked element are: <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;|\<GHERKIN DATA TABLE\>|<br>
+**Then** the "\<ELEMENT NAME\>" checklist text is "\<ELEMENT NAME\>" <br>
+**Then** the "\<ELEMENT NAME\>" is enabled <br>
+**Then** the "\<ELEMENT NAME\>" is disabled <br>
+**Then** the "\<ELEMENT NAME\>" is displayed <br>
+**Then** the "\<ELEMENT NAME\>" is hidden	 <br>
+**Then** the "\<ELEMENT NAME\>" does not appear	<br>
+**Then** the "\<ELEMENT NAME\>" does not appear during "\<NUMBER\>" seconds <br>
 
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#checklist)<br>

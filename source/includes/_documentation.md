@@ -4515,8 +4515,6 @@ Then the "Contact form" in "Left Menu" menu is deselected
     Given I open "Html5 Page"
     When I Check "Accept Conditions"
     Then the "HTML 5" in "Left Menu" menu is selected
-  
-More examples are available in the Tutorial section.
 
 ```
 

@@ -3520,22 +3520,21 @@ When I click on "JDI Title"
 When I double click on "JDI Title"
 When I right click on "JDI Title"
 When I higlight "JDI Title"
-When I show "JDI Title"
-When I set "JDI Title" attribute "status" with value "marked"
-When I make Screenshot for "JDI Title"
-
+When show "JDI Title"
+When set "JDI Title" attribute "status" with value "marked"
+When make Screenshot for "JDI Title"
 
 
 
 Label validation examples:
 
-Then the "JDI Title" text equal to "JDI TESTING PLATFORM"
+Then the "JDI Title" text equals to "JDI TESTING PLATFORM"
 Then the "JDI Title" text contains "JDI"
 Then the "JDI Title" text matches to regexp ".* TESTING .*"
 Then the "JDI Title" is enabled
 Then the "JDI Title" is disabled
 Then the "JDI Title" is displayed
-Then the "JDI Title" disappear
+Then the "JDI Title" disappears
 Then the "JDI Title" is hidden
 Then the "JDI Title" does not appear
 Then the "JDI Title" does not appear during "5" seconds
@@ -3559,19 +3558,19 @@ Actions: <br>
 <br>
 Validations: <br>
 
-**Then** the "\<ELEMENT NAME\>" text equal to "\<TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" text equals to "\<TEXT\>" <br>
 **Then** the "\<ELEMENT NAME\>" text contains "\<TEXT PART\>" <br>
 **Then** the "\<ELEMENT NAME\>" text matches to regexp "\<REGULAR EXPRESSION\>" <br>
 **Then** the "\<ELEMENT NAME\>" is enabled <br>
 **Then** the "\<ELEMENT NAME\>" is disabled <br>
 **Then** the "\<ELEMENT NAME\>" is displayed <br>
-**Then** the "\<ELEMENT NAME\>" disappear <br>
+**Then** the "\<ELEMENT NAME\>" disappears <br>
 **Then** the "\<ELEMENT NAME\>" is hidden <br>
 **Then** the "\<ELEMENT NAME\>" does not appear <br>
 **Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
 
-More information in the [Tutorial](https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa)<br>
-[Cucumber tests](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Label.feature) for Label<br>
+More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa)<br>
+[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Label.feature) for Label<br>
 <br><br><br><br>
 
 ### ColorPicker
@@ -3590,7 +3589,7 @@ Then the "Color Picker" color is "#00FF00"
 Then the "Color Picker" is enabled 
 Then the "Color Picker" is disabled 
 Then the "Color Picker" is displayed 
-Then the "Color Picker" disappear 
+Then the "Color Picker" disappears 
 Then the "Color Picker" is hidden 
 Then the "Color Picker" does not appear 
 Then the "Color Picker" does not appear during "5" seconds 
@@ -3617,13 +3616,13 @@ Validations: <br>
 **Then** the "\<ELEMENT NAME\>" is enabled <br>
 **Then** the "\<ELEMENT NAME\>" is disabled <br>
 **Then** the "\<ELEMENT NAME\>" is displayed <br>
-**Then** the "\<ELEMENT NAME\>" disappear <br>
+**Then** the "\<ELEMENT NAME\>" disappears <br>
 **Then** the "\<ELEMENT NAME\>" is hidden <br>
 **Then** the "\<ELEMENT NAME\>" does not appear <br>
 **Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
 
-More information in the [Tutorial](https://jdi-docs.github.io/jdi-light/?java#tutorial)<br>
-[Cucumber tests](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/colorPicker.feature) for ColorPicker<br>
+More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial)<br>
+[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/colorPicker.feature) for ColorPicker<br>
 
 <br><br><br><br><br><br>
 
@@ -3640,7 +3639,7 @@ Image validation examples:
   Then the "Jdi Logo" is enabled 
   Then the "Jdi Logo" is disabled 
   Then the "Jdi Logo" is displayed 
-  Then the "Jdi Logo" disappear
+  Then the "Jdi Logo" disappears
   Then the "Jdi Logo" is hidden 
   Then the "Jdi Logo" does not appear 
   Then the "Jdi Logo" does not appear during "5" seconds 
@@ -3662,13 +3661,13 @@ Validations: <br>
 **Then** the "\<ELEMENT NAME\>" is enabled <br>
 **Then** the "\<ELEMENT NAME\>" is disabled <br>
 **Then** the "\<ELEMENT NAME\>" is displayed <br>
-**Then** the "\<ELEMENT NAME\>" disappear <br>
+**Then** the "\<ELEMENT NAME\>" disappears <br>
 **Then** the "\<ELEMENT NAME\>" is hidden <br>
 **Then** the "\<ELEMENT NAME\>" does not appear <br>
 **Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
 
-More information in the [Tutorial](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)<br>
-[Cucumber tests](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/image.feature) for Image <br>
+More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)<br>
+[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/image.feature) for Image <br>
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 ### Alert
@@ -3677,7 +3676,7 @@ More information in the [Tutorial](https://jdi-docs.github.io/jdi-light/#jdi-lig
 Alert action examples:
 
   When I accept alert
-  When I dismiss alert
+  When dismiss alert
 
 
 Alert validation examples:
@@ -3707,8 +3706,8 @@ Validations: <br>
 **Then** the Alert text matches to "\<ALERT TEXT\>"<br>
 
 
-More information in the [Tutorial](https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa)<br>
-[Cucumber tests](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Alert.feature) for Alert<br>
+More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa)<br>
+[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Alert.feature) for Alert<br>
 
 <br>
 <br>
@@ -3727,7 +3726,7 @@ More information in the [Tutorial](https://jdi-docs.github.io/jdi-light/?java#jd
 FileInput action examples:
 
 When I upload file "/res/general.xml" by "Avatar" file input element
-When I try to upload file "/res/general.xml" by "File Input" file input element
+When try to upload file "/res/general.xml" by "File Input" file input element
 
 
 FileInput validation examples:
@@ -3740,7 +3739,7 @@ Then the "Avatar" attribute "id" equals to "avatar"
 Then "File Input" is enabled
 Then "File Input" is disabled
 Then "File Input" is displayed
-Then "File Input" disapear
+Then "File Input" disapears
 Then "File Input" is hidden
 Then "File Input" does not appear
 Then "File Input" is does not appear during "5" seconds 
@@ -3772,14 +3771,14 @@ Validations:<br>
 **Then** the "\<ELEMENT NAME\>" is enabled <br>
 **Then** the "\<ELEMENT NAME\>" is disabled <br>
 **Then** the "\<ELEMENT NAME\>" is displayed <br>
-**Then** the "\<ELEMENT NAME\>" disappear <br>
+**Then** the "\<ELEMENT NAME\>" disappears <br>
 **Then** the "\<ELEMENT NAME\>" is hidden <br>
 **Then** the "\<ELEMENT NAME\>" does not appear <br>
 **Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
 
 
-More information in the [Tutorial](https://jdi-docs.github.io/jdi-light/?java#tutorial)<br>
-[Cucumber tests](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/FileInput.feature) for FileInput<br>
+More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial)<br>
+[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/FileInput.feature) for FileInput<br>
 
 <br><br><br><br><br><br>
 

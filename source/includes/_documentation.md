@@ -3584,7 +3584,7 @@ Validations: <br>
 **Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial)<br>
-[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/colorPicker.feature) for ColorPicker<br>
+[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/ColorPicker.feature) for ColorPicker<br>
 
 <br><br><br><br><br><br>
 
@@ -3629,7 +3629,7 @@ Validations: <br>
 **Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)<br>
-[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/image.feature) for Image <br>
+[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Image.feature) for Image <br>
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 ### Alert
@@ -4167,8 +4167,8 @@ Scenario example:
 
 Actions:<br>
 <br>
-**When** select "\<VALUE\>" field from "\<ELEMENT NAME\>"<br>
-**When** select value "\<INDEX NUMBER\>" in "\<ELEMENT NAME\>"<br>
+**When** \<I\> select "\<VALUE\>" field from "\<ELEMENT NAME\>"<br>
+**When** \<I\> select value "\<INDEX NUMBER\>" in "\<ELEMENT NAME\>"<br>
 **When** \<I\> clear "\<ELEMENT NAME\>"<br>
 **When** \<I\> input "\<TEXT\>" in "\<ELEMENT NAME\>"<br>
 **When** \<I\> send keys "\<TEXT\>" to "\<ELEMENT NAME\>"<br>
@@ -4360,7 +4360,7 @@ Validations: <br>
 **Then** the "\<ELEMENT NAME\>" does not appear during "\<NUMBER\>" seconds <br>
 <br>
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial) <br>
-[**Cucumber**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Range.feature) tests for Range<br>
+[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Range.feature) for Range<br>
 <br>
 <br>
 <br>
@@ -4475,7 +4475,7 @@ Validations: <br>
 **Then** Lines in the "\<ELEMENT NAME\>" are equal <br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)<br>
-[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/textarea.feature) for TextArea <br>
+[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/TextArea.feature) for TextArea <br>
 
 
 <br>

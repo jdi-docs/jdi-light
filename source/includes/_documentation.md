@@ -4065,7 +4065,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 ### Progress Bar
   
 ```
-Progress Bar validation example:
+Progress Bar validation examples:
 
 Then the "Progress" attribute "max" equals to "110"
 Then the "Progress" progress volume greater or equal to 10
@@ -4111,7 +4111,8 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 ### Text
 
 ```
-Text validations example:
+Text validation examples:
+
 Then the "Jdi Text" text equals to "Powerful Framework for UI Tests Automation. Suitable for any UI project: Web(Html5, Angular, React...), Mobile(Android IOs), Desktop(Win app) etc."
 Then the "Jdi Text" text contains "Powerful Framework for UI"
 Then the "Jdi Text" is enabled
@@ -4119,12 +4120,22 @@ Then the "Jdi Text" text matches to ".+"
 Then the "Jdi Text" css "font-size" equals to "14px"
 Then the "Jdi Text" css "font-family" contains "Source Sans Pro"
 Then the "Jdi Text" css "font-family" matches to "(.*)sans-serif"
+Then the "Jdi Text" is enabled
+Then the "Jdi Text" is disabled
+Then the "Jdi Text" is displayed
+Then the "Jdi Text" disappears
+Then the "Jdi Text" is hidden
+Then the "Jdi Text" does not appear
+Then the "Jdi Text" does not appear during "5" seconds
 
-BDD example:
-Scenario: Text validation test
-    Given I open "Html5 Page"
-    Then the "Jdi Text" is enabled
-    Then the "Jdi Text" text contains "Powerful Framework for UI"
+
+
+Scenario example for Text:
+
+    Scenario: Text validation test
+        Given I open "Html5 Page"
+        Then the "Jdi Text" is enabled
+        Then the "Jdi Text" text contains "Powerful Framework for UI"
 
 ```
 Validations:<br>
@@ -4132,28 +4143,36 @@ Validations:<br>
 **Then** the "\<ELEMENT NAME\>" text equals to "\<TEXT\>" <br>
 **Then** the "\<ELEMENT NAME\>" text contains "\<TEXT\>" <br>
 **Then** the "\<ELEMENT NAME\>" text matches to "\<TEXT\>" <br>
-**Then** the "\<ELEMENT NAME\>" is enabled <br>
-**Then** the "\<ELEMENT NAME\>" is displayed <br>
 **Then** the "\<ELEMENT NAME\>" css "\<ATTRIBUTE NAME\>" equals to "\<TEXT\>"<br>
 **Then** the "\<ELEMENT NAME\>" css "\<ATTRIBUTE NAME\>" contains "\<TEXT\>"<br>
 **Then** the "\<ELEMENT NAME\>" css "\<ATTRIBUTE NAME\>" matches to "\<TEXT\>"<br>
+**Then** the "\<ELEMENT NAME\>" is enabled <br>
+**Then** the "\<ELEMENT NAME\>" is disabled <br>
+**Then** the "\<ELEMENT NAME\>" is displayed <br>
+**Then** the "\<ELEMENT NAME\>" disappears <br>
+**Then** the "\<ELEMENT NAME\>" is hidden	 <br>
+**Then** the "\<ELEMENT NAME\>" does not appear	<br>
+**Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
 
-[More information in the tutorial](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)<br>
-[Cucumber tests for Text](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Text.feature)<br><br>
-
+More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)<br>
+[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Text.feature) for Text<br><br>
+<br><br><br><br><br><br><br><br>
 
 ### ComboBox
 
 ```
-ComboBox actions examples:
-When Select "Coconut" field from "Ice Cream"
-When Select index 5 in "Ice Cream"
-When I Clear "Ice Cream"
-When I Input "New text" in "Ice Cream"
-When I Send keys "Test" to "Ice Cream"
-When I Focus on "Ice Cream"
+ComboBox action examples:
 
-ComboBox validations examples:
+When select "Coconut" field from "Ice Cream"
+When select index 5 in "Ice Cream"
+When I clear "Ice Cream"
+When I input "New text" in "Ice Cream"
+When send keys "Test" to "Ice Cream"
+When focus on "Ice Cream"
+
+
+ComboBox validation examples:
+
 Then the "Ice Cream" is enabled
 Then the "Ice Cream" selected value is "Coconut"
 Then the "Ice Cream" text equals to "Coconut"
@@ -4165,23 +4184,36 @@ Then the "Ice Cream" label text matches to "(.*)icecream"
 Then the "Ice Cream" placeholder equals to "Ice cream"
 Then the "Ice Cream" placeholder contains "cream"
 Then the "Ice Cream" placeholder matches to "(.*)cream"
+Then the "Ice Cream" is disabled
+Then the "Ice Cream" is displayed
+Then the "Ice Cream" disappears
+Then the "Ice Cream" is hidden
+Then the "Ice Cream" does not appear
+Then the "Ice Cream" does not appear during "5" seconds
+
+
+
+
 
 Scenario example:
-Scenario: Select combobox value test
-    Given I open "Html5 Page"
-    When Select "Chocolate" field from "Ice Cream"
-    Then the "Ice Cream" selected value is "Chocolate"
+
+    Scenario: Select combobox value test
+        Given I open "Html5 Page"
+        When select "Chocolate" field from "Ice Cream"
+        Then the "Ice Cream" selected value is "Chocolate"
 ```
 
 Actions:<br>
-**When** Select "\<VALUE\>" field from "\<ELEMENT NAME\>"<br>
-**When** Select value "\<INDEX NUMBER\>" in "\<ELEMENT NAME\>"<br>
-**When** \<I\> Clear "\<ELEMENT NAME\>"<br>
-**When** \<I\> Input "\<TEXT\>" in "\<ELEMENT NAME\>"<br>
-**When** \<I\> Send keys "\<TEXT\>" to "\<ELEMENT NAME\>"<br>
-**When** \<I\> Focus on "\<ELEMENT NAME\>"<br>
-
+<br>
+**When** select "\<VALUE\>" field from "\<ELEMENT NAME\>"<br>
+**When** select value "\<INDEX NUMBER\>" in "\<ELEMENT NAME\>"<br>
+**When** \<I\> clear "\<ELEMENT NAME\>"<br>
+**When** \<I\> input "\<TEXT\>" in "\<ELEMENT NAME\>"<br>
+**When** \<I\> send keys "\<TEXT\>" to "\<ELEMENT NAME\>"<br>
+**When** \<I\> focus on "\<ELEMENT NAME\>"<br>
+<br>
 Validations:<br>
+<br>
 **Then** the "\<ELEMENT NAME\>" is enabled<br>
 **Then** the "\<ELEMENT NAME\>" selected value is "\<VALUE\>"<br>
 **Then** the "\<ELEMENT NAME\>" text equals to "\<TEXT\>"<br>
@@ -4193,38 +4225,35 @@ Validations:<br>
 **Then** the "\<ELEMENT NAME\>" placeholder equals to "\<PLACEHOLDER_TEXT\>"<br>
 **Then** the "\<ELEMENT NAME\>" placeholder contains "\<PLACEHOLDER_TEXT\>"<br>
 **Then** the "\<ELEMENT NAME\>" placeholder matches to "\<REGEX\>"<br>
+**Then** the "\<ELEMENT NAME\>" is disabled <br>
+**Then** the "\<ELEMENT NAME\>" is displayed <br>
+**Then** the "\<ELEMENT NAME\>" disappears <br>
+**Then** the "\<ELEMENT NAME\>" is hidden	 <br>
+**Then** the "\<ELEMENT NAME\>" does not appear	<br>
+**Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial)<br>
 [**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/ComboBox.feature) for ComboBox<br><br>
-
+<br><br><br><br><br><br><br><br>
 
 ### NumberSelector
 
 ````
 
 NumberSelector action examples:
-  When Set text "2.1" in "Height"	
-  When Focus on "Height"  
-  When Input "2.1" in "Height"
-  When Highlight "Height"
-  When Show "Height"	
-  When Set "Height" attribute "test-jdi" with vlaue "test"
-    
-    
-````
 
-Actions: <br>
-**When** \<I\> Focus on "\<NUMBER SELECTOR\>"<br>
-**When** \<I\> Set text "\<TEXT\>" in "\<ELEMENT NAME\>"<br>
-**When** \<I\> Input "\<TEXT\>" in "\<ELEMENT NAME\>"	<br>
-**When** \<I\> Highlight "\<ELEMENT NAME\>"<br>
-**When** \<I\> Show "\<NUMBER SELECTOR\>"<br>	
-**When** \<I\> Set "\<NUMBER SELECTOR\>" attribute "\<ATTRIBUTE NAME\>" with vlaue "\<ATTRIBUTE VALUE\>" <br>
+  When I set text "2.1" in "Height"	
+  When I focus on "Height"  
+  When I input "2.1" in "Height"
+  When highlight "Height"
+  When show "Height"	
+  When set "Height" attribute "test-jdi" with vlaue "test"
 
 
-````
+
 
 NumberSelector validation examples:
+
   Then the "Height" label text equals to "Height (metres):"
   Then the "Height" label text contains "(metres):"
   Then the "Height" label text label text matches to "\w{15}"
@@ -4246,22 +4275,41 @@ NumberSelector validation examples:
   Then the "Height" number selector value less than "3.0"
   Then the "Height" does not appear
   Then the "Height" does not appear during "5" seconds
-    
-Example:
-Scenario: Validation 
-    Given I open "Html5 Page"
-    Then the "Height" number selector min is "0.3"
-    And the "Height" number selector max is "2.5"
-    And the "Height" number selector step is "0.2"
-    And the "Height" placeholder contains "20 cm increments"
-    And the "Height" number selector value is greater or equal to "0.3"
-    And the "Height" number selector value less or equal to "2.5"
-    And the "Height" text equals to "2.1"
-    
+ 
+
+
+
+
+   
+
+
+
+Scenario example for NumberSelector:
+
+    Scenario: Validation 
+        Given I open "Html5 Page"
+        Then the "Height" number selector min is "0.3"
+        And the "Height" number selector max is "2.5"
+        And the "Height" number selector step is "0.2"
+        And the "Height" placeholder contains "20 cm increments"
+        And the "Height" number selector value is greater or equal to "0.3"
+        And the "Height" number selector value less or equal to "2.5"
+        And the "Height" text equals to "2.1"  
     
 ````
 
+Actions: <br>
+<br>
+**When** \<I\> Focus on "\<NUMBER SELECTOR\>"<br>
+**When** \<I\> Set text "\<TEXT\>" in "\<ELEMENT NAME\>"<br>
+**When** \<I\> Input "\<TEXT\>" in "\<ELEMENT NAME\>"	<br>
+**When** \<I\> Highlight "\<ELEMENT NAME\>"<br>
+**When** \<I\> Show "\<NUMBER SELECTOR\>"<br>
+**When** \<I\> Set "\<NUMBER SELECTOR\>" attribute "\<ATTRIBUTE NAME\>" with value "\<ATTRIBUTE VALUE\>" <br>
+<br>
+<br>
 Validations: <br>
+<br>
 **Then** the "\<NUMBER SELECTOR\>" label text equals to "\<LABEL TEXT\>" <br>
 **Then** the "\<NUMBER SELECTOR\>" label text contains "\<LABEL TEXT\>" <br>
 **Then** the "\<NUMBER SELECTOR\>" label text matches to "\<LABEL TEXT\>" <br>
@@ -4293,23 +4341,17 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 <br>
 <br>
 <br>
-<br>
-<br>
 
 ### Range
 
 ```
 Range action examples:
-  When install "Volume" value to 5
-  
-```
 
-**Actions:** <br>
-**When** \<I\> set "\<ELEMENT NAME\>" value to "\<VALUE\>"  <br>
+  When I install "Volume" value to 5
 
-```
 
-Range validation  <I>examples:
+Range validation examples:
+
   Then the "Volume" attribute "min" equals to "10"
   Then the "Volume" range volume greater or equal to 10
   Then the "Volume" range volume less or equal to 100
@@ -4322,19 +4364,27 @@ Range validation  <I>examples:
   Then the "Volume" does not appear
   Then the "Volume" does not appear during "5" second
 
-Example
-Scenario: Validation Volume element test
-  Then the "Volume" is enabled
-  And the "Volume" attribute "min" equals to "10"
-  And the "Volume" attribute "max" equals to "100"
-  And the "Volume" attribute "step" equals to "5"
-  And the "Volume" range volume greater or equal to 10
-  And the "Volume" range volume less or equal to 100
-  And the "Volume" attribute "value" equals to "90" 
+
+Scenario example for Range:
+
+    Scenario: Validation Volume element test
+        Then the "Volume" is enabled
+        And the "Volume" attribute "min" equals to "10"
+        And the "Volume" attribute "max" equals to "100"
+        And the "Volume" attribute "step" equals to "5"
+        And the "Volume" range volume greater or equal to 10
+        And the "Volume" range volume less or equal to 100
+        And the "Volume" attribute "value" equals to "90" 
+  
   
 ```
 
-**Validations:** <br>
+Actions: <br>
+<br>
+**When** \<I\> set "\<ELEMENT NAME\>" value to "\<VALUE\>"  <br>
+<br>
+Validations: <br>
+<br>
 **Then** the "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" equals to "\<ATTRIBUTE VALUE\>" <br>
 **Then** the "\<ELEMENT NAME\>" range volume greater or equal to \<VALUE\> <br>
 **Then** the "\<ELEMENT NAME\>" range volume less or equal to \<VALUE\> <br>
@@ -4346,10 +4396,16 @@ Scenario: Validation Volume element test
 **Then** the "\<ELEMENT NAME\>" is hidden	 <br>
 **Then** the "\<ELEMENT NAME\>" does not appear	<br>
 **Then** the "\<ELEMENT NAME\>" does not appear during "\<NUMBER\>" seconds <br>
-
-[More information in the tutorial](https://jdi-docs.github.io/jdi-light/?java#tutorial) <br>
-[Cucumber tests for Range](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Range.feature)<br>
-<br><br><br><br>
+<br>
+More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial) <br>
+[**Cucumber**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Range.feature) tests for Range<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ### TextArea 
 

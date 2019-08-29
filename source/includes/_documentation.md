@@ -4653,6 +4653,59 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 [**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/CheckList.feature) for CheckList<br>
 
 
+### Multiselector
+
+```
+CheckList actions examples:
+
+When I select "Ages" with value "Steam"
+
+
+```
+Actions: <br>
+
+ **When**  \<I\> select "\<ELEMENT NAME\>" with value "\<ELEMENT NAME\>" <br>
+
+ 
+ 
+```
+CheckList validation examples:
+
+Then In "Weather" checklist checked element is "Cold"
+Then The "Weather" checklist text is "Hot option"
+Then Count of selected elements in "Weather" checklist is "2"
+Then In the "Weather" checklist checked elements are:
+
+Scenario: Check element via numbers test
+  When I check in "Weather" checklist elements by numbers:
+      | 1 |
+      | 4 |
+  Then In the "Weather" checklist checked elements are:
+      | Hot option |
+      | Sunny      |
+
+
+
+```
+Validations: <br>
+
+**Then** In "\<ELEMENT NAME\>" checklist checked element is "\<ELEMENT NAME\>" <br>
+**Then** Count of selected elements in "\<ELEMENT NAME\>" checklist is "\<COUNT\>" <br>
+**Then** In the "\<ELEMENT NAME\>" checklist checked element are: <br>
+**Then** The "\<ELEMENT NAME\>" checklist text is "\<ELEMENT NAME\>" <br>
+**Then** "\<ELEMENT NAME\>" is enabled <br>
+**Then** "\<ELEMENT NAME\>" is disabled <br>
+**Then** "\<ELEMENT NAME\>" is displayed <br>
+**Then** "\<ELEMENT NAME\>" is hidden	 <br>
+**Then** "\<ELEMENT NAME\>" is not appear	<br>
+**Then** "\<ELEMENT NAME\>" is not appear during "\<NUMBER\>" seconds <br>
+
+
+More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#checklist)<br>
+[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/CheckList.feature) for CheckList<br>
+
+
+
  
 
  

@@ -7772,18 +7772,18 @@ More information in the <a href="https://jdi-docs.github.io/jdi-light/?java#tuto
 </blockquote>
 <h3 id='link-2'>Link</h3><pre class="highlight plaintext"><code>Link action examples:
 
-When &lt; I &gt; click on "Github Link"
-When &lt; I &gt; higlight "Github Link"
-When &lt; I &gt; show "Github Link"
-When &lt; I &gt; set "Github Link" attribute "alt" with value "Github JDI Link EDITED"
+When I click on "Github Link"
+When I higlight "Github Link"
+When I show "Github Link"
+When I set "Github Link" attribute "alt" with value "Github JDI Link EDITED"
 
 </code></pre>
 <p>Actions: <br></p>
 
-<p><strong>When</strong> click on &quot;&lt;ELEMENT NAME&gt;&quot; <br>
-<strong>When</strong> highlight &quot;&lt;ELEMENT NAME&gt;&quot; <br>
-<strong>When</strong> show &quot;&lt;ELEMENT NAME&gt;&quot; <br>
-<strong>When</strong> set &quot;&lt;ELEMENT NAME&gt;&quot; attribute &quot;&lt;ATTRIBUTE NAME&gt;&quot; with value &quot;&lt;ATTRIBUTE NAME&gt;&quot; <br><br><br><br></p>
+<p><strong>When</strong> &lt; I &gt; click on &quot;&lt;ELEMENT NAME&gt;&quot; <br>
+<strong>When</strong> &lt; I &gt; highlight &quot;&lt;ELEMENT NAME&gt;&quot; <br>
+<strong>When</strong> &lt; I &gt; show &quot;&lt;ELEMENT NAME&gt;&quot; <br>
+<strong>When</strong> &lt; I &gt; set &quot;&lt;ELEMENT NAME&gt;&quot; attribute &quot;&lt;ATTRIBUTE NAME&gt;&quot; with value &quot;&lt;ATTRIBUTE NAME&gt;&quot; <br><br><br><br></p>
 <pre class="highlight plaintext"><code>Link validations examples:
 
 Then the "Github Link" is enabled
@@ -7811,8 +7811,8 @@ Scenario examples for Link:
 
   Scenario: Click link test
      Given I open "Html5 Page"
-     When Click on "Github Link"
-     Then Current URL is "https://github.com/jdi-testing"
+     When click on "Github Link"
+     Then the current URL is "https://github.com/jdi-testing"
 
   Scenario: Link alternative text matching to RegExp
      Given I open "Html5 Page"
@@ -7848,13 +7848,13 @@ Scenario examples for Link:
 <p><br><br><br></p>
 <h3 id='button-2'>Button</h3><pre class="highlight plaintext"><code>Button actions examples:
 
-When &lt; I &gt; Click on "Red Button" 
-When &lt; I &gt; Click with JS on "Red Button"     
-When &lt; I &gt; Focus on "Blue Button"   
-When &lt; I &gt; Right click on "Red Button"  
-When &lt; I &gt; Highlight "Blue Button"  
-When &lt; I &gt; Show "Red Button"    
-When &lt; I &gt; Set "Red Button" attribute "test-jdi" with vlaue "test-value"
+When &lt; I &gt; click on "Red Button" 
+When &lt; I &gt; click with JS on "Red Button"     
+When &lt; I &gt; focus on "Blue Button"   
+When &lt; I &gt; right click on "Red Button"  
+When &lt; I &gt; highlight "Blue Button"  
+When &lt; I &gt; show "Red Button"    
+When &lt; I &gt; set "Red Button" attribute "test-jdi" with vlaue "test-value"
 
 Button validations examples:
 
@@ -7875,7 +7875,8 @@ Then the "Red Button" css "font-size" equals to "14px"
 Then the "Red Button" attribute "type" equals to "button"
 
 
-Scenario: Basic for button
+Scenario example for Button:
+
   Given I open "Home Page" page
    Then the "Red Button" is displayed
     And the "Red Button" is enabled
@@ -7884,19 +7885,19 @@ Scenario: Basic for button
     And the "Red Button" css "font-size" equals to "14px"
     And the "Red Button" attribute "type" equals to "button"
     And the "Disabled Button" is disabled
-   When Click on "Blue Button"
-   Then the Alert text equals to "Blue button"
+   When click on "Blue Button"
+   Then the alert text equals to "Blue button"
 
 </code></pre>
 <p>Actions: <br></p>
 
-<p><strong>When</strong> &lt;I&gt; Click on &quot;&lt;ELEMENT NAME&gt;&quot; <br>
-<strong>When</strong> &lt;I&gt; Click with JS on &quot;&lt;ELEMENT NAME&gt;&quot;   <br>
-<strong>When</strong> &lt;I&gt; Focus on &quot;&lt;ELEMENT NAME&gt;&quot;  <br>
-<strong>When</strong> &lt;I&gt; Right click on &quot;&lt;ELEMENT NAME&gt;&quot;    <br>
-<strong>When</strong> &lt;I&gt; Highlight &quot;&lt;ELEMENT NAME&gt;&quot; <br>
-<strong>When</strong> &lt;I&gt; Show &quot;&lt;ELEMENT NAME&gt;&quot;  <br>
-<strong>When</strong> &lt;I&gt; Set &quot;&lt;ELEMENT NAME&gt;&quot; attribute &quot;&lt;ATTRIBUTE NAME&gt;&quot; with value &quot;&lt;ATTRIBUTE VALUE&gt;&quot; <br></p>
+<p><strong>When</strong> &lt;I&gt; click on &quot;&lt;ELEMENT NAME&gt;&quot; <br>
+<strong>When</strong> &lt;I&gt; click with JS on &quot;&lt;ELEMENT NAME&gt;&quot;   <br>
+<strong>When</strong> &lt;I&gt; focus on &quot;&lt;ELEMENT NAME&gt;&quot;  <br>
+<strong>When</strong> &lt;I&gt; right click on &quot;&lt;ELEMENT NAME&gt;&quot;    <br>
+<strong>When</strong> &lt;I&gt; highlight &quot;&lt;ELEMENT NAME&gt;&quot; <br>
+<strong>When</strong> &lt;I&gt; show &quot;&lt;ELEMENT NAME&gt;&quot;  <br>
+<strong>When</strong> &lt;I&gt; set &quot;&lt;ELEMENT NAME&gt;&quot; attribute &quot;&lt;ATTRIBUTE NAME&gt;&quot; with value &quot;&lt;ATTRIBUTE VALUE&gt;&quot; <br></p>
 
 <p>Validations: <br></p>
 
@@ -7920,7 +7921,7 @@ Scenario: Basic for button
 <a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/button.feature"><strong>Cucumber tests</strong></a> for Button<br></p>
 <h3 id='datetimeselector-2'>DateTimeSelector</h3><pre class="highlight plaintext"><code>DateTimeSelector action example:
 
-When Set date "2018-11-13" in "Birth Date"
+When set date "2018-11-13" in "Birth Date"
 
 DateTimeSelector validations example:
 
@@ -7932,8 +7933,9 @@ Then the "Birth Date" label text contains "Birth"
 Then the "Birth Date" attribute min equals to "1970-01-01"
 Then the "Birth Date" attribute max equals to "2030-12-31"
 
-BDD example:
-Scenario: Set date
+Scenario example for DateTimeSelector:
+
+  Scenario: Set date
     Given I open "Html5 Page"
     Then the "Birth Date" text equals to "1985-06-18"
     When Set date "2018-11-13" in "Birth Date"
@@ -7942,7 +7944,7 @@ Scenario: Set date
 </code></pre>
 <p>Actions:<br></p>
 
-<p><strong>When</strong> &lt;I&gt; Set date &quot;&lt;TEXT&gt;&quot; in &quot;&lt;ELEMENT NAME&gt;&quot; <br></p>
+<p><strong>When</strong> &lt;I&gt; set date &quot;&lt;TEXT&gt;&quot; in &quot;&lt;ELEMENT NAME&gt;&quot; <br></p>
 
 <p>Validations:<br></p>
 
@@ -7954,7 +7956,7 @@ Scenario: Set date
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; attribute min equals to &quot;&lt;MIN ATTRIBUTE VALUE&gt;&quot;<br>
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; attribute max equals to &quot;&lt;MAX ATTRIBUTE VALUE&gt;&quot;<br></p>
 
-<p><a href="https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa">More information in the tutorial</a></p>
+<p>More information in the <a href="https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa"><strong>Tutorial</strong></a><br></p>
 
 <p>There are BDD test examples for Input Type Date derivatives:<br>
 <a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Date.feature">Input Type Date</a>,
@@ -7963,11 +7965,13 @@ Scenario: Set date
 <a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Time.feature">Input Type Time</a>,
 <a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/DateTime.feature">DateTime-Local</a><br><br></p>
 <h3 id='checkbox-2'>Checkbox</h3><pre class="highlight plaintext"><code>Checkbox actions examples:
-When Check "Accept Conditions"
-When Uncheck "Accept Conditions"
-When Click on "Accept Conditions"
+
+When check "Accept Conditions"
+When uncheck "Accept Conditions"
+When click on "Accept Conditions"
 
 Checkbox validations examples:
+
 Then the "Accept Conditions" is enabled
 Then the "Accept Conditions" is disabled
 Then the "Accept Conditions" is displayed
@@ -7979,25 +7983,26 @@ Then the "Accept Conditions" does not appear
 Then the "Accept Conditions" does not appear during "5" seconds
 
 
-Some scenario examples:
+Scenario examples for Checkbox:
+
   Scenario: Get label text test
     Given I open "Html5 Page"
-    When I Check "Accept Conditions"
+    When I check "Accept Conditions"
     Then the "Accept Conditions" label text equals to "Accept terms and conditions"
 
   Scenario: Click test
     Given I open "Html5 Page"
-    When I Check "Accept Conditions"
+    When I check "Accept Conditions"
     Then "Accept Conditions" is selected
-    When I Click on "Accept Conditions"
+    When I click on "Accept Conditions"
     Then the "Accept Conditions" is deselected
 
 </code></pre>
 <p>Actions: <br></p>
 
-<p><strong>When</strong> Check &quot;&lt;ELEMENT NAME&gt;&quot; <br>
-<strong>When</strong> Uncheck &quot;&lt;ELEMENT NAME&gt;&quot; <br>
-<strong>When</strong> Click on &quot;&lt;ELEMENT NAME&gt;&quot; <br></p>
+<p><strong>When</strong> &lt; I &gt; check &quot;&lt;ELEMENT NAME&gt;&quot; <br>
+<strong>When</strong> &lt; I &gt; uncheck &quot;&lt;ELEMENT NAME&gt;&quot; <br>
+<strong>When</strong> &lt; I &gt; click on &quot;&lt;ELEMENT NAME&gt;&quot; <br></p>
 
 <p>Validations: <br></p>
 
@@ -8016,6 +8021,7 @@ Some scenario examples:
 
 <p><br><br><br><br><br><br></p>
 <h3 id='progress-bar'>Progress Bar</h3><pre class="highlight plaintext"><code>Progress Bar validations example:
+
 Then the "Progress" attribute "max" equals to "110"
 Then the "Progress" progress volume greater or equal to 10
 Then the "Progress" progress volume less or equal to 110
@@ -8028,13 +8034,15 @@ Then the "Progress" is hidden
 Then the "Progress" does not appear
 Then the "Progress" does not appear during "5" seconds &lt;br&gt;
 
-Scenario: progress bar validation
-  Given I open "Html5 Page" page
-  Then the "Progress" attribute "max" equals to "100"
-  And the "Progress" progress volume greater or equal to 10
-  And the "Progress" progress volume less or equal to 100
-  And the "Progress" attribute "value" equals to "70"
-  And the "Progress" is enabled
+Scenario example for Progress Bar:
+
+  Scenario: progress bar validation
+    Given I open "Html5 Page" page
+    Then the "Progress" attribute "max" equals to "100"
+    And the "Progress" progress volume greater or equal to 10
+    And the "Progress" progress volume less or equal to 100
+    And the "Progress" attribute "value" equals to "70"
+    And the "Progress" is enabled
 
 </code></pre>
 <p><strong>Validations:</strong> <br>
@@ -8050,8 +8058,8 @@ Scenario: progress bar validation
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; does not appear <br>
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; does not appear during &quot;&lt;NUMBER&gt;&quot; seconds <br></p>
 
-<p><a href="https://jdi-docs.github.io/jdi-light/?java#tutorial">More information in the tutorial</a> <br>
-<a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/ProgressBar.feature">Cucumber tests for Progress Bar</a><br>
+<p>More information in the <a href="https://jdi-docs.github.io/jdi-light/?java#tutorial"><strong>Tutorial</strong></a> <br>
+<a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/ProgressBar.feature"><strong>Cucumber tests</strong></a> for Progress Bar<br>
 <br><br><br><br><br><br><br><br></p>
 <h3 id='text-2'>Text</h3><pre class="highlight plaintext"><code>Text validations example:
 Then the "Jdi Text" text equals to "Powerful Framework for UI Tests Automation. Suitable for any UI project: Web(Html5, Angular, React...), Mobile(Android IOs), Desktop(Win app) etc."

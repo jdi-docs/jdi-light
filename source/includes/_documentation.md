@@ -2124,6 +2124,8 @@ AssertTable methods in C#:
 
 [C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Composite/TableTests.cs)
 
+[BDD Steps example](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-bdd-tests/src/test/resources/features/Table.feature)<br>
+
 ### DataTable
 
 **DataTable** – a complex element that consists of header, body (at least one row and one column) and footer. You are 

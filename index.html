@@ -525,51 +525,46 @@
                             <li>
                               <a href="#fileinput-2" class="toc-h2 h3 toc-link" data-title="FileInput">FileInput</a>
                             </li>
+                            <li>
+                              <a href="#link-2" class="toc-h2 h3 toc-link" data-title="Link">Link</a>
+                            </li>
+                            <li>
+                              <a href="#button-2" class="toc-h2 h3 toc-link" data-title="Button">Button</a>
+                            </li>
+                            <li>
+                              <a href="#datetimeselector-2" class="toc-h2 h3 toc-link" data-title="DateTimeSelector">DateTimeSelector</a>
+                            </li>
+                            <li>
+                              <a href="#checkbox-2" class="toc-h2 h3 toc-link" data-title="Checkbox">Checkbox</a>
+                            </li>
+                            <li>
+                              <a href="#progress-bar" class="toc-h2 h3 toc-link" data-title="Progress Bar">Progress Bar</a>
+                            </li>
+                            <li>
+                              <a href="#text-2" class="toc-h2 h3 toc-link" data-title="Text">Text</a>
+                            </li>
+                            <li>
+                              <a href="#combobox-2" class="toc-h2 h3 toc-link" data-title="ComboBox">ComboBox</a>
+                            </li>
+                            <li>
+                              <a href="#numberselector-2" class="toc-h2 h3 toc-link" data-title="NumberSelector">NumberSelector</a>
+                            </li>
+                            <li>
+                              <a href="#range-2" class="toc-h2 h3 toc-link" data-title="Range">Range</a>
+                            </li>
+                            <li>
+                              <a href="#textarea-2" class="toc-h2 h3 toc-link" data-title="TextArea">TextArea</a>
+                            </li>
+                            <li>
+                              <a href="#menu-2" class="toc-h2 h3 toc-link" data-title="Menu">Menu</a>
+                            </li>
+                            <li>
+                              <a href="#textfield-2" class="toc-h2 h3 toc-link" data-title="TextField">TextField</a>
+                            </li>
+                            <li>
+                              <a href="#checklist-2" class="toc-h2 h3 toc-link" data-title="CheckList">CheckList</a>
+                            </li>
                         </ul>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#4251203584" class="toc-h1 toc-link" data-title=""><br><br><br><br><br><br><br><br></a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#link-2" class="toc-h2 toc-link" data-title="Link">Link</a>
-                  </li>
-                  <li>
-                    <a href="#button-2" class="toc-h2 toc-link" data-title="Button">Button</a>
-                  </li>
-                  <li>
-                    <a href="#datetimeselector-2" class="toc-h2 toc-link" data-title="DateTimeSelector">DateTimeSelector</a>
-                  </li>
-                  <li>
-                    <a href="#checkbox-2" class="toc-h2 toc-link" data-title="Checkbox">Checkbox</a>
-                  </li>
-                  <li>
-                    <a href="#progress-bar" class="toc-h2 toc-link" data-title="Progress Bar">Progress Bar</a>
-                  </li>
-                  <li>
-                    <a href="#text-2" class="toc-h2 toc-link" data-title="Text">Text</a>
-                  </li>
-                  <li>
-                    <a href="#combobox-2" class="toc-h2 toc-link" data-title="ComboBox">ComboBox</a>
-                  </li>
-                  <li>
-                    <a href="#numberselector-2" class="toc-h2 toc-link" data-title="NumberSelector">NumberSelector</a>
-                  </li>
-                  <li>
-                    <a href="#range-2" class="toc-h2 toc-link" data-title="Range">Range</a>
-                  </li>
-                  <li>
-                    <a href="#textarea-2" class="toc-h2 toc-link" data-title="TextArea">TextArea</a>
-                  </li>
-                  <li>
-                    <a href="#menu-2" class="toc-h2 toc-link" data-title="Menu">Menu</a>
-                  </li>
-                  <li>
-                    <a href="#textfield-2" class="toc-h2 toc-link" data-title="TextField">TextField</a>
-                  </li>
-                  <li>
-                    <a href="#checklist-2" class="toc-h2 toc-link" data-title="CheckList">CheckList</a>
                   </li>
                   <li>
                     <a href="#ui-objects" class="toc-h2 toc-link" data-title="UI Objects">UI Objects</a>
@@ -7531,7 +7526,7 @@ Then the "JDI Title" does not appear
 Then the "JDI Title" does not appear during "5" seconds
 
 
-Example:
+Scenario example for Label:
 
  Scenario: Text equals
     Given I open "Html5 Page"
@@ -7582,7 +7577,7 @@ Then the "Color Picker" does not appear
 Then the "Color Picker" does not appear during "5" seconds 
 
 
-Example:
+Scenario example for ColorPicker:
 
   Scenario: Color picker set color test
     Given I open "Html5 Page"
@@ -7626,7 +7621,7 @@ Validations: <br></p>
   Then the "Jdi Logo" does not appear 
   Then the "Jdi Logo" does not appear during "5" seconds 
 
-Example:
+Scenario example for Image:
 
   Scenario: Image validation test
     Given I open "Html5 Page"
@@ -7663,7 +7658,7 @@ Alert validation examples:
   Then the Alert text contains "Red B"
   Then the Alert text matches to "\w{3} \d{6}"
 
-Example:
+Scenario example for Alert:
 
   Scenario: Alert text contains
     Given open "Html5 page"
@@ -7723,7 +7718,7 @@ Then "File Input" is does not appear during "5" seconds
 
 
 
-Example:
+Scenario example for FileInput:
 
   Scenario: Upload file by enabled file input element
     Given I open "Html5 Page"
@@ -7748,28 +7743,10 @@ Example:
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; does not appear <br>
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; does not appear during &quot;&lt;SECONDS&gt;&quot; seconds <br></p>
 
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-More information in the <a href="https://jdi-docs.github.io/jdi-light/?java#tutorial">Tutorial</a><br>
+<p>More information in the <a href="https://jdi-docs.github.io/jdi-light/?java#tutorial">Tutorial</a><br>
 <a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/FileInput.feature">Cucumber tests</a> for FileInput<br></p>
-<h1 id='4251203584'><br><br><br><br><br><br><br><br></h1>
-<p>More information in the <a href="https://jdi-docs.github.io/jdi-light/?java#tutorial"><strong>Tutorial</strong></a><br>
-<a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/FileInput.feature"><strong>Cucumber tests</strong></a> for FileInput<br><br></p>
 
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>origin/master</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
+<p><br><br><br><br><br><br></p>
 <h3 id='link-2'>Link</h3><pre class="highlight plaintext"><code>Link action examples:
 
 When I click on "Github Link"

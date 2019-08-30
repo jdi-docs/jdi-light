@@ -559,6 +559,9 @@
                               <a href="#textfield-2" class="toc-h2 h3 toc-link" data-title="TextField">TextField</a>
                             </li>
                             <li>
+                              <a href="#multiselector-2" class="toc-h2 h3 toc-link" data-title="Multiselector">Multiselector</a>
+                            </li>
+                            <li>
                               <a href="#checklist-2" class="toc-h2 h3 toc-link" data-title="CheckList">CheckList</a>
                             </li>
                             <li>
@@ -8474,6 +8477,54 @@ Scenario examples for TextField:
 <a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/TextField.feature"><strong>Cucumber tests</strong></a> for TextField<br></p>
 
 <p><br><br><br><br><br><br><br><br><br><br><br></p>
+<h3 id='multiselector-2'>Multiselector</h3><pre class="highlight plaintext"><code>Multiselector actions examples:
+
+When I select "Ages" with value "Steam"
+When I select 1, 5 numbers in "Ages" multiselector
+
+Scenario: Select value in multiselector
+  Given I open "Html5 Page"
+  When I select "Ages" with value "Steam"
+  Then I check the "Ages" multiselector text is equals to "Steam"
+
+</code></pre>
+<p>Actions: <br></p>
+
+<p><strong>When</strong>  &lt;I&gt; select &quot;&lt;ELEMENT NAME&gt;&quot; with value &quot;&lt;ELEMENT NAME&gt;&quot; <br>
+ <strong>When</strong>  &lt;I&gt; select &quot;&lt;ELEMENT NAME&gt;&quot; numbers in &quot;&lt;ELEMENT NAME&gt;&quot; multiselector <br></p>
+<pre class="highlight plaintext"><code>Multiselector validation examples:
+
+Then I check the "Steam" value is selected in "Ages" multiselector
+Then I check the "Ages" multiselector contains "Wood" value
+Then I check the "Ages" multiselector in disabled state has "Disabled" item
+Then I check the "Ages" multiselector in enabled state has not "Disabled" item
+Then I check the "Ages" multiselector in enabled state contains next values:
+      | Electro | Metalic |
+Then I check the "Ages" multiselector text is equals to "Steam"
+Then I check the "Ages" multiselector contains next values:
+    | Electro | Steam| Metalic | Disabled | Wood |
+
+Scenario: Multiselector validation
+  Given I open "Html5 Page"
+  Then I check the "Steam" value is selected in "Ages" multiselector
+  And I check the "Ages" multiselector contains "Wood" value
+  And I check the "Ages" multiselector in disabled state has "Disabled" item
+  And I check the "Ages" multiselector in enabled state has not "Disabled" item
+  And I check the "Ages" multiselector in enabled contains next values:
+  | Electro | Metalic |
+
+</code></pre>
+<p>Validations: <br></p>
+
+<p><strong>Then</strong> I check the &quot;&lt;ELEMENT NAME&gt;&quot; value is selected in &quot;&lt;ELEMENT NAME&gt;&quot; multiselector <br>
+<strong>Then</strong> I check the &quot;&lt;ELEMENT NAME&gt;&quot; multiselector contains &quot;&lt;ELEMENT NAME&gt;&quot; value <br>
+<strong>Then</strong> I check the &quot;&lt;ELEMENT NAME&gt;&quot; multiselector in enabled state has not &quot;&lt;ELEMENT NAME&gt;&quot; item <br>
+<strong>Then</strong> I check the &quot;&lt;ELEMENT NAME&gt;&quot; multiselector in enabled state contains next values: <br>
+<strong>Then</strong> I check the &quot;&lt;ELEMENT NAME&gt;&quot; multiselector text is equals to &quot;&lt;ELEMENT NAME&gt;&quot; <br>
+<strong>Then</strong> I check the &quot;&lt;ELEMENT NAME&gt;&quot; multiselector contains next values: <br></p>
+
+<p>More information in the <a href="https://jdi-docs.github.io/jdi-light/?java#checklist"><strong>Tutorial</strong></a><br>
+<a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/CheckList.feature"><strong>Cucumber tests</strong></a> for CheckList<br></p>
 <h3 id='checklist-2'>CheckList</h3><pre class="highlight plaintext"><code>CheckList actions examples:
 
 When I check element "Hot option" in "Weather" checklist

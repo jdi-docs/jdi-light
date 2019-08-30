@@ -453,9 +453,6 @@
                             <li>
                               <a href="#textarea" class="toc-h2 h3 toc-link" data-title="TextArea">TextArea</a>
                             </li>
-                            <li>
-                              <a href="#title" class="toc-h2 h3 toc-link" data-title="Title">Title</a>
-                            </li>
                         </ul>
                   </li>
                   <li>
@@ -4404,113 +4401,6 @@ C#: JDI.Light.Elements.Common.TextElement</p>
 
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/TextAreaTests.java">Test examples in Java</a> <br>
   <a href="https://jdi-docs.github.io/jdi-light/#textarea-2">BDD Steps example</a> <br></p>
-<h3 id='title'>Title</h3>
-<p><strong>Title</strong> – a graphical control element, that is the title of the document, which is displayed in the title bar of the browser or tab page.</p>
-
-<p>Title is represented by the following class:</p>
-
-<ul>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.Title</em></li>
-<li><strong>C#</strong>: <em>JDI.Light.Elements.Common.Title</em></li>
-</ul>
-<pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"[ui=jdi-title]"</span><span class="o">)</span> 
-<span class="c1">// equal to @FindBy(css = "[ui=jdi-title]") </span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="n">Title</span> <span class="n">jdiTitle</span><span class="o">;</span>
-
-<span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">getTextTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">assertEquals</span><span class="o">(</span><span class="n">jdiTitle</span><span class="o">.</span><span class="na">getText</span><span class="o">(),</span> <span class="s">"Title text"</span><span class="o">);</span>
-<span class="o">}</span>
-
-<span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">clickTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">jdiTitle</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
-<span class="o">}</span>    
-
-</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[FindBy(Css = "[ui=jdi-title]</span><span class="s">")]
-</span><span class="k">public</span> <span class="n">Title</span> <span class="n">JdiTitle</span><span class="p">;</span>
-
-<span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">GetTextTest</span><span class="p">()</span> 
-<span class="p">{</span>
-        <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">JdiTitle</span><span class="p">.</span><span class="nf">GetText</span><span class="p">(),</span> <span class="s">"Title text"</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">ClickTest</span><span class="p">()</span> 
-<span class="p">{</span>
-        <span class="n">JdiTitle</span><span class="p">.</span><span class="nf">ClickTitle</span><span class="p">();</span>
-<span class="p">}</span>
-
-<span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">IsValidationTest</span><span class="p">()</span>
-<span class="p">{</span>
-       <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">JdiTitle</span><span class="p">.</span><span class="n">Is</span><span class="p">.</span><span class="nf">Enabled</span><span class="p">();</span>
-       <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">JdiTitle</span><span class="p">.</span><span class="n">Is</span><span class="p">.</span><span class="nf">Text</span><span class="p">(</span><span class="nf">EqualTo</span><span class="p">(</span><span class="n">_text</span><span class="p">));</span>
-       <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">JdiTitle</span><span class="p">.</span><span class="n">Is</span><span class="p">.</span><span class="nf">Text</span><span class="p">(</span><span class="nf">Is</span><span class="p">(</span><span class="n">_text</span><span class="p">));</span>
-       <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">JdiTitle</span><span class="p">.</span><span class="n">Is</span><span class="p">.</span><span class="nf">Text</span><span class="p">(</span><span class="n">EqualToIgnoringCaseMatcher</span><span class="p">.</span><span class="nf">EqualTo</span><span class="p">(</span><span class="s">"jdi TESTING platform"</span><span class="p">));</span>
-<span class="p">}</span>
-
-<span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">AssertValidationTest</span><span class="p">()</span>
-<span class="p">{</span>
-       <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">JdiTitle</span><span class="p">.</span><span class="n">AssertThat</span><span class="p">.</span><span class="nf">Text</span><span class="p">(</span><span class="nf">EqualTo</span><span class="p">(</span><span class="n">_text</span><span class="p">));</span>
-<span class="p">}</span>
-
-<span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">BaseValidationTest</span><span class="p">()</span>
-<span class="p">{</span>
-       <span class="nf">BaseElementValidation</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">JdiTitle</span><span class="p">);</span>
-<span class="p">}</span>   
-
-</code></pre>
-<p><img src="images/title.png" alt="Title" /></p>
-
-<p>Here is the list of available methods in C# JDI Light:</p>
-
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>Is</strong></td>
-<td>Gets Title&#39;s assert</td>
-<td>TitleAssert</td>
-</tr>
-<tr>
-<td><strong>AssertThat</strong></td>
-<td>Gets Title&#39;s assert</td>
-<td>TitleAssert</td>
-</tr>
-</tbody></table>
-
-<p>Here is the list of available methods in Java JDI Light:</p>
-
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>click()</strong></td>
-<td>Click the title</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>getText()</strong></td>
-<td>Returns the title text</td>
-<td>String</td>
-</tr>
-</tbody></table>
-
-<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/TitleTests.java">Java test examples</a></p>
-
-<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/TitleTests.cs">C# test examples</a></p>
 <h2 id='complex-elements'>Complex elements</h2><h3 id='radiobuttons'>RadioButtons</h3>
 <p><strong>RadioButtons</strong> – interface element that allows user to select one option from a predefined group.</p>
 

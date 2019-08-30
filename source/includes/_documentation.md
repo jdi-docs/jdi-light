@@ -4080,10 +4080,10 @@ Validations:<br>
 
 **Then** the "\<ELEMENT NAME\>" text equals to "\<TEXT\>" <br>
 **Then** the "\<ELEMENT NAME\>" text contains "\<TEXT\>" <br>
-**Then** the "\<ELEMENT NAME\>" text matches to "\<TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" text matches to "\<REGEXP\>" <br>
 **Then** the "\<ELEMENT NAME\>" css "\<ATTRIBUTE NAME\>" equals to "\<TEXT\>"<br>
 **Then** the "\<ELEMENT NAME\>" css "\<ATTRIBUTE NAME\>" contains "\<TEXT\>"<br>
-**Then** the "\<ELEMENT NAME\>" css "\<ATTRIBUTE NAME\>" matches to "\<TEXT\>"<br>
+**Then** the "\<ELEMENT NAME\>" css "\<ATTRIBUTE NAME\>" matches to "\<REGEXP\>"<br>
 **Then** the "\<ELEMENT NAME\>" is enabled <br>
 **Then** the "\<ELEMENT NAME\>" is disabled <br>
 **Then** the "\<ELEMENT NAME\>" is displayed <br>
@@ -4156,13 +4156,13 @@ Validations:<br>
 **Then** the "\<ELEMENT NAME\>" selected value is "\<VALUE\>"<br>
 **Then** the "\<ELEMENT NAME\>" text equals to "\<TEXT\>"<br>
 **Then** the "\<ELEMENT NAME\>" text contains "\<TEXT\>"<br>
-**Then** the "\<ELEMENT NAME\>" text matches to "\<REGEX\>"<br>
-**Then** the "\<ELEMENT NAME\>" label text equals to "\<LABEL TEXT\>"<br>
-**Then** the "\<ELEMENT NAME\>" label text contains "\<LABEL TEXT\>"<br>
-**Then** the "\<ELEMENT NAME\>" label text matches to "\<LABEL TEXT\>"<br>
-**Then** the "\<ELEMENT NAME\>" placeholder equals to "\<PLACEHOLDER_TEXT\>"<br>
-**Then** the "\<ELEMENT NAME\>" placeholder contains "\<PLACEHOLDER_TEXT\>"<br>
-**Then** the "\<ELEMENT NAME\>" placeholder matches to "\<REGEX\>"<br>
+**Then** the "\<ELEMENT NAME\>" text matches to "\<REGEXP\>"<br>
+**Then** the "\<ELEMENT NAME\>" label text equals to "\<TEXT\>"<br>
+**Then** the "\<ELEMENT NAME\>" label text contains "\<TEXT\>"<br>
+**Then** the "\<ELEMENT NAME\>" label text matches to "\<REGEXP\>"<br>
+**Then** the "\<ELEMENT NAME\>" placeholder equals to "\<TEXT\>"<br>
+**Then** the "\<ELEMENT NAME\>" placeholder contains "\<TEXT\>"<br>
+**Then** the "\<ELEMENT NAME\>" placeholder matches to "\<REGEXP\>"<br>
 **Then** the "\<ELEMENT NAME\>" is disabled <br>
 **Then** the "\<ELEMENT NAME\>" is displayed <br>
 **Then** the "\<ELEMENT NAME\>" disappears <br>
@@ -4238,37 +4238,37 @@ Scenario example for NumberSelector:
 
 Actions: <br>
 <br>
-**When** \<I\> Focus on "\<NUMBER SELECTOR\>"<br>
+**When** \<I\> Focus on "\<ELEMENT NAME\>"<br>
 **When** \<I\> Set text "\<TEXT\>" in "\<ELEMENT NAME\>"<br>
 **When** \<I\> Input "\<TEXT\>" in "\<ELEMENT NAME\>"	<br>
 **When** \<I\> Highlight "\<ELEMENT NAME\>"<br>
-**When** \<I\> Show "\<NUMBER SELECTOR\>"<br>
-**When** \<I\> Set "\<NUMBER SELECTOR\>" attribute "\<ATTRIBUTE NAME\>" with value "\<ATTRIBUTE VALUE\>" <br>
+**When** \<I\> Show "\<ELEMENT NAME\>"<br>
+**When** \<I\> Set "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" with value "\<ATTRIBUTE VALUE\>" <br>
 <br>
 <br>
 Validations: <br>
 <br>
-**Then** the "\<NUMBER SELECTOR\>" label text equals to "\<LABEL TEXT\>" <br>
-**Then** the "\<NUMBER SELECTOR\>" label text contains "\<LABEL TEXT\>" <br>
-**Then** the "\<NUMBER SELECTOR\>" label text matches to "\<LABEL TEXT\>" <br>
-**Then** the "\<NUMBER SELECTOR\>" placeholder equals to "\<PLACEHOLDER TEXT\>" <br>
-**Then** the "\<NUMBER SELECTOR\>" placeholder contains "\<PLACEHOLDER TEXT\>"	 <br>
-**Then** the "\<NUMBER SELECTOR\>" placeholder matches to "\<PLACEHOLDER TEXT\>" <br>
-**Then** the "\<NUMBER SELECTOR\>" text equals to "\<TEXT\>"	 <br>
-**Then** the "\<NUMBER SELECTOR\>" text contains "\<TEXT\>"	 <br>
-**Then** the "\<NUMBER SELECTOR\>" text matches to "\<TEXT\>" <br>
-**Then** the "\<NUMBER SELECTOR\>" attribute "\<ELEMENT NAME\>" equals to "\<ATTRIBUTE TEXT\>" <br>
-**Then** the "\<NUMBER SELECTOR\>" attribute "\<ELEMENT NAME\>" contains "\<ATTRIBUTE TEXT\>" <br>
-**Then** the "\<NUMBER SELECTOR\>" attribute "\<ELEMENT NAME\>" matches to "\<ATTRIBUTE TEXT\>"	 <br>
-**Then** the "\<NUMBER SELECTOR\>" number selector min is "\<VALUE\>" <br>
-**Then** the "\<NUMBER SELECTOR\>" number selector max is "\<VALUE\>" <br>
-**Then** the "\<NUMBER SELECTOR\>" number selector step is "\<VALUE\>" <br>
-**Then** the "\<NUMBER SELECTOR\>" number selector value is greater or equal to "\<VALUE\>" <br>
-**Then** the "\<NUMBER SELECTOR\>" number selector value less or equal to "\<VALUE\>" <br>
-**Then** the "\<NUMBER SELECTOR\>" number selector value is greater than "\<VALUE\>" <br>
-**Then** the "\<NUMBER SELECTOR\>" number selector value less than "\<VALUE\>" <br>
-**Then** the "\<NUMBER SELECTOR\>" does not appear <br>
-**Then** the "\<NUMBER SELECTOR\>" does not appear during "\<TIME\>" seconds <br>
+**Then** the "\<ELEMENT NAME\>" label text equals to "\<TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" label text contains "\<TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" label text matches to "\<REGEXP\>" <br>
+**Then** the "\<ELEMENT NAME\>" placeholder equals to "\<TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" placeholder contains "\<TEXT\>"	 <br>
+**Then** the "\<ELEMENT NAME\>" placeholder matches to "\<REGEXP\>" <br>
+**Then** the "\<ELEMENT NAME> text equals to "\<TEXT\>"	 <br>
+**Then** the "\<ELEMENT NAME\>" text contains "\<TEXT\>"	 <br>
+**Then** the "\<ELEMENT NAME\>" text matches to "\<REGEXP\>" <br>
+**Then** the "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" equals to "\<TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" contains "\<TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" matches to "\<REGEXP\>"	 <br>
+**Then** the "\<ELEMENT NAME\>" number selector min is "\<VALUE\>" <br>
+**Then** the "\<ELEMENT NAME\>" number selector max is "\<VALUE\>" <br>
+**Then** the "\<ELEMENT NAME\>" number selector step is "\<VALUE\>" <br>
+**Then** the "\<ELEMENT NAME\>" number selector value is greater or equal to "\<VALUE\>" <br>
+**Then** the "\<ELEMENT NAME\>" number selector value less or equal to "\<VALUE\>" <br>
+**Then** the "\<ELEMENT NAME\>" number selector value is greater than "\<VALUE\>" <br>
+**Then** the "\<ELEMENT NAME\>" number selector value less than "\<VALUE\>" <br>
+**Then** the "\<ELEMENT NAME\>" does not appear <br>
+**Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa)<br>
 [**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/NumberSelector.feature) for NumberSelector<br>
@@ -4323,17 +4323,17 @@ Actions: <br>
 <br>
 Validations: <br>
 <br>
-**Then** the "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" equals to "\<ATTRIBUTE VALUE\>" <br>
-**Then** the "\<ELEMENT NAME\>" range volume greater or equal to \<VALUE\> <br>
+**Then** the "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" equals to "\<TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" range volume greater or equal to "\<VALUE\>" <br>
 **Then** the "\<ELEMENT NAME\>" range volume less or equal to \<VALUE\> <br>
-**Then** the "\<ELEMENT NAME\>" label text equals to "\<LABEL_TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" label text equals to "\<TEXT\>" <br>
 **Then** the "\<ELEMENT NAME\>" label text contains "\<TEXT\>" <br>
 **Then** the "\<ELEMENT NAME\>" is enabled <br>
 **Then** the "\<ELEMENT NAME\>" is disabled <br>
 **Then** the "\<ELEMENT NAME\>" is displayed <br>
 **Then** the "\<ELEMENT NAME\>" is hidden	 <br>
 **Then** the "\<ELEMENT NAME\>" does not appear	<br>
-**Then** the "\<ELEMENT NAME\>" does not appear during "\<NUMBER\>" seconds <br>
+**Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
 <br>
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial) <br>
 [**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Range.feature) for Range<br>

@@ -514,6 +514,9 @@
                               <a href="#image-2" class="toc-h2 h3 toc-link" data-title="Image">Image</a>
                             </li>
                             <li>
+                              <a href="#icon-2" class="toc-h2 h3 toc-link" data-title="Icon">Icon</a>
+                            </li>
+                            <li>
                               <a href="#alert" class="toc-h2 h3 toc-link" data-title="Alert">Alert</a>
                             </li>
                             <li>
@@ -7446,6 +7449,48 @@ Scenario example for Image:
 
 </code></pre>
 <p>Validations: <br>
+<strong>Then</strong> the &quot;&lt;IMAGE NAME&gt;&quot; attribute &quot;&lt;ATTRIBUTE NAME&gt;&quot; equals to &quot;&lt;TEXT&gt;&quot; <br>
+<strong>Then</strong> the &quot;&lt;IMAGE NAME&gt;&quot; attribute &quot;&lt;ATTRIBUTE NAME&gt;&quot; contains &quot;&lt;TEXT&gt;&quot; <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is enabled <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is disabled <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is displayed <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; disappears <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is hidden <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; does not appear <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; does not appear during &quot;&lt;SECONDS&gt;&quot; seconds <br></p>
+
+<p>More information in the <a href="https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa"><strong>Tutorial</strong></a><br>
+<a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Image.feature"><strong>Cucumber tests</strong></a> for Image <br></p>
+
+<p><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
+<h3 id='icon-2'>Icon</h3><pre class="highlight plaintext"><code>Image validation examples:
+
+  Then the "Jdi Logo" attribute "src" equals to "https://jdi-testing.github.io/jdi-light/images/jdi-logo.jpg"
+  Then the "Jdi Logo" attribute "alt" equals to "Jdi Logo 2"
+  Then the "Jdi Logo" attribute "src" contains "jdi-logo.jpg"
+  Then the "Jdi Logo" attribute "height" contains "100"
+  Then the "Jdi Logo" attribute "width" contains "101"
+  Then the "Jdi Logo" is enabled 
+  Then the "Jdi Logo" is disabled 
+  Then the "Jdi Logo" is displayed 
+  Then the "Jdi Logo" disappears
+  Then the "Jdi Logo" is hidden 
+  Then the "Jdi Logo" does not appear 
+  Then the "Jdi Logo" does not appear during "5" seconds 
+
+Scenario example for Image:
+
+  Scenario: Image validation test
+    Given I open "Html5 Page"
+    And refresh webpage
+    Then the "Jdi Logo" attribute "src" contains "jdi-logo.jpg"
+    And the "Jdi Logo" attribute "height" contains "100"
+    And the "Jdi Logo" attribute "width" contains "101"
+
+</code></pre>
+<p>Note: this element is an alias for Image<br>
+<br>
+Validations: <br>
 <strong>Then</strong> the &quot;&lt;IMAGE NAME&gt;&quot; attribute &quot;&lt;ATTRIBUTE NAME&gt;&quot; equals to &quot;&lt;TEXT&gt;&quot; <br>
 <strong>Then</strong> the &quot;&lt;IMAGE NAME&gt;&quot; attribute &quot;&lt;ATTRIBUTE NAME&gt;&quot; contains &quot;&lt;TEXT&gt;&quot; <br>
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is enabled <br>

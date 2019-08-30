@@ -4055,7 +4055,8 @@ Scenario example for Progress Bar:
   
 ```
 
-**Validations:** <br>
+Validations: <br>
+
 **Then** the "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" equals to "\<ATTRIBUTE VALUE\>" <br>
 **Then** the "\<ELEMENT NAME\>" progress volume greater or equal to \<VALUE\> <br>
 **Then** the "\<ELEMENT NAME\>" progress volume less or equal to \<VALUE\> <br>

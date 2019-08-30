@@ -4764,7 +4764,9 @@ Validations: <br>
 **Then** the "\<ELEMENT NAME\>" table columns count equals "\<COUNT\>" <br>
 **Then** the "\<ELEMENT NAME\>" table rows count equals "\<COUNT\>" <br>
 **Then** the "\<ELEMENT NAME\>" table header has items: <br>
+     &nbsp;&nbsp;&nbsp;&nbsp;|\<GHERKIN DATA TABLE\>| <br>
 **Then** the "\<ELEMENT NAME\>" table preview equals values: <br>
+     &nbsp;&nbsp;&nbsp;&nbsp;|\<GHERKIN DATA TABLE\>| <br>
 **Then** the "\<ELEMENT NAME\>" table has size "\<SIZE\>" <br>
 **Then** the "\<ELEMENT NAME\>" table has size greater than "\<SIZE\>" <br>
 **Then** the "\<ELEMENT NAME\>" table has size less or equal to "\<SIZE\>" <br>

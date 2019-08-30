@@ -3403,7 +3403,7 @@ Label validation examples:
 
 Then the "JDI Title" text equals to "JDI TESTING PLATFORM"
 Then the "JDI Title" text contains "JDI"
-Then the "JDI Title" text matches to regexp ".* TESTING .*"
+Then the "JDI Title" text matches to ".* TESTING .*"
 
 Scenario example for Label:
 
@@ -3418,8 +3418,8 @@ Actions: <br>
 Validations: <br>
 
 **Then** the "\<ELEMENT NAME\>" text equals to "\<TEXT\>" <br>
-**Then** the "\<ELEMENT NAME\>" text contains "\<TEXT PART\>" <br>
-**Then** the "\<ELEMENT NAME\>" text matches to regexp "\<REGULAR EXPRESSION\>" <br>
+**Then** the "\<ELEMENT NAME\>" text contains "\<TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" text matches to "\<REGEXP\>" <br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa)<br>
 [**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Label.feature) for Label<br>
@@ -3462,9 +3462,9 @@ Actions: <br>
 <br><br>
 Validations: <br>
 
-**Then** the "\<ELEMENT NAME\>" color equals to "EXPECTED COLOR HEX CODE" <br>
-**Then** the "\<ELEMENT NAME\>" label text equals to "EXPECTED TEXT" <br>
-**Then** the "\<ELEMENT NAME\>" color is "COLOR HEX CODE" <br>
+**Then** the "\<ELEMENT NAME\>" color equals to "\<COLOR HEX CODE>" <br>
+**Then** the "\<ELEMENT NAME\>" label text equals to "\<TEXT>" <br>
+**Then** the "\<ELEMENT NAME\>" color is "\<COLOR HEX CODE>" <br>
 **Then** the "\<ELEMENT NAME\>" is enabled <br>
 **Then** the "\<ELEMENT NAME\>" is disabled <br>
 **Then** the "\<ELEMENT NAME\>" is displayed <br>
@@ -3599,9 +3599,9 @@ Actions: <br>
 <br>
 Validations: <br>
 
-**Then** the Alert text equals to "\<ALERT TEXT\>"<br>
-**Then** the Alert text contains "\<ALERT TEXT\>"<br>
-**Then** the Alert text matches to "\<ALERT TEXT\>"<br>
+**Then** the Alert text equals to "\<TEXT\>"<br>
+**Then** the Alert text contains "\<TEXT\>"<br>
+**Then** the Alert text matches to "\<REGEXP\>"<br>
 
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa)<br>
@@ -3662,10 +3662,10 @@ Actions:<br>
 
 Validations:<br>
 **Then** the "\<ELEMENT NAME\>" file input element label equals to "\<TEXT\>"<br>
-**Then** the "\<ELEMENT NAME\>" file input element label contains "\<TEXT PART\>"<br>
-**Then** the "\<ELEMENT NAME\>" file input element text equals to "\<PATH TO FILE\>"<br>
-**Then** the "\<ELEMENT NAME\>" file input element text contains "\<PART OF PATH TO FILE\>"<br>
-**Then** the "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" equals to "ATTRIBUTE VALUE\>"<br>
+**Then** the "\<ELEMENT NAME\>" file input element label contains "\<TEXT\>"<br>
+**Then** the "\<ELEMENT NAME\>" file input element text equals to "\<TEXT\>"<br>
+**Then** the "\<ELEMENT NAME\>" file input element text contains "\<TEXT\>"<br>
+**Then** the "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" equals to "\<TEXT\>"<br>
 **Then** the "\<ELEMENT NAME\>" is enabled <br>
 **Then** the "\<ELEMENT NAME\>" is disabled <br>
 **Then** the "\<ELEMENT NAME\>" is displayed <br>

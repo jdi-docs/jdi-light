@@ -562,6 +562,9 @@
                               <a href="#multiselector-2" class="toc-h2 h3 toc-link" data-title="Multiselector">Multiselector</a>
                             </li>
                             <li>
+                              <a href="#multidropdown-2" class="toc-h2 h3 toc-link" data-title="MultiDropDown">MultiDropDown</a>
+                            </li>
+                            <li>
                               <a href="#checklist-2" class="toc-h2 h3 toc-link" data-title="CheckList">CheckList</a>
                             </li>
                             <li>
@@ -6076,7 +6079,8 @@ This type can be used in cases when dropdown is represented with HTML <em>&lt;se
 
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/MultiDropdownTests.java">Java test examples</a></p>
 
-<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Composite/MultiDropdownTests.cs">C# test examples</a></p>
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Composite/MultiDropdownTests.cs">C# test examples</a><br>
+<a href="https://jdi-docs.github.io/jdi-light/?java#multidropdown-2">BDD Steps example</a><br></p>
 <h3 id='datalist'>DataList</h3>
 <p><strong>DataList</strong> – a graphical control element, that allows the user to choose one value from a list or enter it by himself.
 Datalist element contains a set of options with values available for entering.</p>
@@ -8422,8 +8426,14 @@ TextField validation examples:
 Then the "Name" placeholder equals to "Input name"
 Then the "Name" text equals to "Lorem"
 Then the "Name" text is "Lorem"
+Then the "Name" is enabled
+Then the "Name" is disabled
+Then the "Name" is displayed 
+Then the "Name" is hidden 
+Then the "Name" text does not appear 
+Then the "Name" text does not appear during 5 seconds
 
-Scenario examples for TextField:
+Scenario example for TextField:
 
   Scenario: sendKeys test
     Given I open "Html5 Page"
@@ -8442,7 +8452,13 @@ Scenario examples for TextField:
 
 <p><strong>Then</strong> the &quot;ELEMENT NAME&quot; placeholder equals to &quot;PLACEHOLDER TEXT&quot; <br>
 <strong>Then</strong> the &quot;ELEMENT NAME&quot; text equals to &quot;TEXT&quot; <br>
-<strong>Then</strong> the &quot;ELEMENT NAME&quot; text is &quot;VALUE&quot; <br></p>
+<strong>Then</strong> the &quot;ELEMENT NAME&quot; text is &quot;VALUE&quot; <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is enabled <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is disabled <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is displayed <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is hidden <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; does not appear <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; does not appear during &quot;&lt;SECONDS&gt;&quot; seconds <br></p>
 
 <p>More information in the <a href="https://jdi-docs.github.io/jdi-light/?java#tutorial"><strong>Tutorial</strong></a><br>
 <a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/TextField.feature"><strong>Cucumber tests</strong></a> for TextField<br></p>
@@ -8496,10 +8512,28 @@ Scenario: Multiselector validation
 
 <p>More information in the <a href="https://jdi-docs.github.io/jdi-light/?java#checklist"><strong>Tutorial</strong></a><br>
 <a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/CheckList.feature"><strong>Cucumber tests</strong></a> for CheckList<br></p>
+
+<p><br><br><br><br><br><br><br><br><br><br><br></p>
+<h3 id='multidropdown-2'>MultiDropDown</h3><pre class="highlight plaintext"><code>Scenario example for MultiDropDown
+
+Scenario: Check  values test
+    When I check in the "Multi Dropdown" values:
+      | Electro | Metalic |
+    Then the "Multi Dropdown" selected values:
+      | Electro | Metalic |
+
+</code></pre>
+<p>BDD steps for MultiDropDown are implemented by <a href="https://jdi-docs.github.io/jdi-light/?java#multiselector-2">MultiSelector BDD Steps</a><br></p>
+
+<p>More information in the <a href="https://jdi-docs.github.io/jdi-light/?java#tutorial"><strong>Tutorial</strong></a><br>
+<a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/MultiDropDown.feature"><strong>Cucumber tests</strong></a> for MultiDropDown<br><br>
+<br><br><br><br><br></p>
 <h3 id='checklist-2'>CheckList</h3><pre class="highlight plaintext"><code>CheckList actions examples:
 
 When I check element "Hot option" in "Weather" checklist
-When I select "Cold;Hot option" fields from "Weather"
+When I select fields from "Weather" checklist:
+     | Cold       | 
+     | Hot option |
 When I check elements in "Weather" checklist:
      | Hot option |
 When I select in "Weather" checklist elements by numbers:
@@ -8510,7 +8544,7 @@ When I uncheck all elements in "Weather" checklist
 When I check elements in "Weather" checklist:
      | Rainy day |
      | Sunny     |
-When I select "Cold;Hot option" fields from "Weather"
+
 
 CheckList validation examples:
 
@@ -8533,6 +8567,8 @@ Scenario: Check element via numbers test
 <p>Actions: <br></p>
 
 <p><strong>When</strong>  &lt;I&gt; check element &quot;&lt;ELEMENT NAME&gt;&quot; in &quot;&lt;ELEMENT NAME&gt;&quot; checklist <br>
+  <strong>When</strong>  &lt;I&gt; select fields from &quot;&lt;ELEMENT NAME&gt;&quot; checklist:  <br>
+      &nbsp;&nbsp;&nbsp;&nbsp;|&lt;GHERKIN DATA TABLE&gt;| <br>
  <strong>When</strong>  &lt;I&gt; check elements in &quot;&lt;ELEMENT NAME&gt;&quot; checklist:  <br>
      &nbsp;&nbsp;&nbsp;&nbsp;|&lt;GHERKIN DATA TABLE&gt;| <br>
  <strong>When</strong>  &lt;I&gt; uncheck element &quot;&lt;ELEMENT NAME&gt;&quot; in &quot;&lt;ELEMENT NAME&gt;&quot; checklist <br>

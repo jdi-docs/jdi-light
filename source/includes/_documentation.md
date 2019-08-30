@@ -3395,6 +3395,8 @@ Available methods in Java JDI Light:
 
 [C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Composite/FormTests.cs)
 
+[BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#form-2)
+
 ### WebPage
 
 **WebPage** is provided by JDI Light in:
@@ -4750,7 +4752,89 @@ Validations: <br>
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)<br>
 [**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Table.feature) for Table<br>
 
+### FORM
+
+```
+Form actions examples:
+
+When fill form "Contact Form" with data:
+    |name|Roman|
+    |lastName|Iovlev|
+    |position|ChiefQA|
+    |passportNumber|654321|
+    |passportSeria|1234|
+    |description|JDI - awesome UI automation tool|
+    |acceptConditions|true|
+    |gender|Female|
+    |religion|Other|
+When I submit form "Contact Form"
+
+Form validation examples:
+
+Then the form "Contact Form" data equals to:
+    |name|Roman|
+    |lastName|Iovlev|
+    |position|ChiefQA|
+    |passportNumber|654321|
+    |passportSeria|1234|
+    |description|JDI - awesome UI automation tool|
+    |acceptConditions|true|
+    |gender|Female|
+    |religion|Other|
+Then the form "Contact Form" is displayed
+Then the form "Contact Form" is hidden
+Then the form "Contact Form" does not appear
+Then the form "Contact Form" does not appear during 7
+Then the form "Contact Form" disappear
+
+Form scenario example:
+
+  Scenario: fillContactForm
+    Given I open "Contact Form Page"
+    When fill form "Contact Form" with data:
+    |name|Roman|
+    |lastName|Iovlev|
+    |position|ChiefQA|
+    |passportNumber|654321|
+    |passportSeria|1234|
+    |description|JDI - awesome UI automation tool|
+    |acceptConditions|true|
+    |gender|Female|
+    |religion|Other|
+    And I submit form "Contact Form"
+    Then the form "Contact Form" data equals to:
+    |name|Roman|
+    |lastName|Iovlev|
+    |position|ChiefQA|
+    |passportNumber|654321|
+    |passportSeria|1234|
+    |description|JDI - awesome UI automation tool|
+    |acceptConditions|true|
+    |gender|Female|
+    |religion|Other|
+
+```
+Actions: <br>
+
+ **When** \<I\> fill form \<FORM NAME\> with data:<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;|\<GHERKIN DATA TABLE\>| <br>
+ **When** \<I\> submit form \<FORM NAME\><br>
  
+Validations: <br>
+
+ **Then** the form <FORM NAME> data equals to: <br>
+     &nbsp;&nbsp;&nbsp;&nbsp;|\<GHERKIN DATA TABLE\>|<br>
+ **Then** the form \<FORM NAME\> is displayed<br>
+ **Then** the form \<FORM NAME\> is hidden<br>
+ **Then** the form \<FORM NAME\> does not appear<br>
+ **Then** the form \<FORM NAME\> does not appear during \<SECONDS\><br>
+ **Then** the form \<FORM NAME\> disappear<br>
+
+
+More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#form)<br>
+[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Form.feature) for Form<br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 ## UI Objects
 TBD

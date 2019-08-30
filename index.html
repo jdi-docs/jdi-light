@@ -564,6 +564,9 @@
                             <li>
                               <a href="#table-2" class="toc-h2 h3 toc-link" data-title="Table">Table</a>
                             </li>
+                            <li>
+                              <a href="#form-2" class="toc-h2 h3 toc-link" data-title="FORM">FORM</a>
+                            </li>
                         </ul>
                   </li>
                   <li>
@@ -7197,6 +7200,8 @@ public class Section : UIElement</p>
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/composite/FormTests.java">Java test examples</a></p>
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Composite/FormTests.cs">C# test examples</a></p>
+
+<p><a href="https://jdi-docs.github.io/jdi-light/?java#form-2">BDD Steps example</a></p>
 <h3 id='webpage'>WebPage</h3>
 <p><strong>WebPage</strong> is provided by JDI Light in:</p>
 
@@ -8607,6 +8612,85 @@ Then the "Users Table" table has exact "1" rows which have value "Roman" in colu
 
 <p>More information in the <a href="https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa"><strong>Tutorial</strong></a><br>
 <a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Table.feature"><strong>Cucumber tests</strong></a> for Table<br></p>
+<h3 id='form-2'>FORM</h3><pre class="highlight plaintext"><code>Form actions examples:
+
+When fill form "Contact Form" with data:
+    |name|Roman|
+    |lastName|Iovlev|
+    |position|ChiefQA|
+    |passportNumber|654321|
+    |passportSeria|1234|
+    |description|JDI - awesome UI automation tool|
+    |acceptConditions|true|
+    |gender|Female|
+    |religion|Other|
+When I submit form "Contact Form"
+
+Form validation examples:
+
+Then the form "Contact Form" data equals to:
+    |name|Roman|
+    |lastName|Iovlev|
+    |position|ChiefQA|
+    |passportNumber|654321|
+    |passportSeria|1234|
+    |description|JDI - awesome UI automation tool|
+    |acceptConditions|true|
+    |gender|Female|
+    |religion|Other|
+Then the form "Contact Form" is displayed
+Then the form "Contact Form" is hidden
+Then the form "Contact Form" does not appear
+Then the form "Contact Form" does not appear during 7
+Then the form "Contact Form" disappear
+
+Form scenario example:
+
+  Scenario: fillContactForm
+    Given I open "Contact Form Page"
+    When fill form "Contact Form" with data:
+    |name|Roman|
+    |lastName|Iovlev|
+    |position|ChiefQA|
+    |passportNumber|654321|
+    |passportSeria|1234|
+    |description|JDI - awesome UI automation tool|
+    |acceptConditions|true|
+    |gender|Female|
+    |religion|Other|
+    And I submit form "Contact Form"
+    Then the form "Contact Form" data equals to:
+    |name|Roman|
+    |lastName|Iovlev|
+    |position|ChiefQA|
+    |passportNumber|654321|
+    |passportSeria|1234|
+    |description|JDI - awesome UI automation tool|
+    |acceptConditions|true|
+    |gender|Female|
+    |religion|Other|
+
+</code></pre>
+<p>Actions: <br></p>
+
+<p><strong>When</strong> &lt;I&gt; fill form &lt;FORM NAME&gt; with data:<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;|&lt;GHERKIN DATA TABLE&gt;| <br>
+ <strong>When</strong> &lt;I&gt; submit form &lt;FORM NAME&gt;<br></p>
+
+<p>Validations: <br></p>
+
+<p><strong>Then</strong> the form <FORM NAME> data equals to: <br>
+     &nbsp;&nbsp;&nbsp;&nbsp;|&lt;GHERKIN DATA TABLE&gt;|<br>
+ <strong>Then</strong> the form &lt;FORM NAME&gt; is displayed<br>
+ <strong>Then</strong> the form &lt;FORM NAME&gt; is hidden<br>
+ <strong>Then</strong> the form &lt;FORM NAME&gt; does not appear<br>
+ <strong>Then</strong> the form &lt;FORM NAME&gt; does not appear during &lt;SECONDS&gt;<br>
+ <strong>Then</strong> the form &lt;FORM NAME&gt; disappear<br></p>
+
+<p>More information in the <a href="https://jdi-docs.github.io/jdi-light/?java#form"><strong>Tutorial</strong></a><br>
+<a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Form.feature"><strong>Cucumber tests</strong></a> for Form<br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
 <h2 id='ui-objects'>UI Objects</h2>
 <p>TBD</p>
 <h2 id='smart-locators'>Smart Locators</h2><pre class="highlight plaintext"><code>&lt;input type="text" id="name"&gt;

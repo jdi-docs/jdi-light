@@ -7485,7 +7485,7 @@ Label validation examples:
 
 Then the "JDI Title" text equals to "JDI TESTING PLATFORM"
 Then the "JDI Title" text contains "JDI"
-Then the "JDI Title" text matches to regexp ".* TESTING .*"
+Then the "JDI Title" text matches to ".* TESTING .*"
 
 Scenario example for Label:
 
@@ -7500,8 +7500,8 @@ Scenario example for Label:
 Validations: <br></p>
 
 <p><strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; text equals to &quot;&lt;TEXT&gt;&quot; <br>
-<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; text contains &quot;&lt;TEXT PART&gt;&quot; <br>
-<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; text matches to regexp &quot;&lt;REGULAR EXPRESSION&gt;&quot; <br></p>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; text contains &quot;&lt;TEXT&gt;&quot; <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; text matches to &quot;&lt;REGEXP&gt;&quot; <br></p>
 
 <p>More information in the <a href="https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa"><strong>Tutorial</strong></a><br>
 <a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Label.feature"><strong>Cucumber tests</strong></a> for Label<br>
@@ -7539,9 +7539,9 @@ Scenario example for ColorPicker:
 <br><br>
 Validations: <br></p>
 
-<p><strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; color equals to &quot;EXPECTED COLOR HEX CODE&quot; <br>
-<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; label text equals to &quot;EXPECTED TEXT&quot; <br>
-<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; color is &quot;COLOR HEX CODE&quot; <br>
+<p><strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; color equals to &quot;&lt;COLOR HEX CODE&gt;&quot; <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; label text equals to &quot;&lt;TEXT&gt;&quot; <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; color is &quot;&lt;COLOR HEX CODE&gt;&quot; <br>
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is enabled <br>
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is disabled <br>
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is displayed <br>
@@ -7664,9 +7664,9 @@ Actions: <br></p>
 <br>
 Validations: <br></p>
 
-<p><strong>Then</strong> the Alert text equals to &quot;&lt;ALERT TEXT&gt;&quot;<br>
-<strong>Then</strong> the Alert text contains &quot;&lt;ALERT TEXT&gt;&quot;<br>
-<strong>Then</strong> the Alert text matches to &quot;&lt;ALERT TEXT&gt;&quot;<br></p>
+<p><strong>Then</strong> the Alert text equals to &quot;&lt;TEXT&gt;&quot;<br>
+<strong>Then</strong> the Alert text contains &quot;&lt;TEXT&gt;&quot;<br>
+<strong>Then</strong> the Alert text matches to &quot;&lt;REGEXP&gt;&quot;<br></p>
 
 <p>More information in the <a href="https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa"><strong>Tutorial</strong></a><br>
 <a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Alert.feature"><strong>Cucumber tests</strong></a> for Alert<br></p>
@@ -7721,10 +7721,10 @@ Scenario example for FileInput:
 
 <p>Validations:<br>
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; file input element label equals to &quot;&lt;TEXT&gt;&quot;<br>
-<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; file input element label contains &quot;&lt;TEXT PART&gt;&quot;<br>
-<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; file input element text equals to &quot;&lt;PATH TO FILE&gt;&quot;<br>
-<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; file input element text contains &quot;&lt;PART OF PATH TO FILE&gt;&quot;<br>
-<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; attribute &quot;&lt;ATTRIBUTE NAME&gt;&quot; equals to &quot;ATTRIBUTE VALUE&gt;&quot;<br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; file input element label contains &quot;&lt;TEXT&gt;&quot;<br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; file input element text equals to &quot;&lt;TEXT&gt;&quot;<br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; file input element text contains &quot;&lt;TEXT&gt;&quot;<br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; attribute &quot;&lt;ATTRIBUTE NAME&gt;&quot; equals to &quot;&lt;TEXT&gt;&quot;<br>
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is enabled <br>
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is disabled <br>
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is displayed <br>

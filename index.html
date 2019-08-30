@@ -571,6 +571,9 @@
                               <a href="#table-2" class="toc-h2 h3 toc-link" data-title="Table">Table</a>
                             </li>
                             <li>
+                              <a href="#datatable-2" class="toc-h2 h3 toc-link" data-title="DataTable">DataTable</a>
+                            </li>
+                            <li>
                               <a href="#form-2" class="toc-h2 h3 toc-link" data-title="Form">Form</a>
                             </li>
                         </ul>
@@ -8605,6 +8608,79 @@ Scenario: Check element via numbers test
 
 <p><br><br><br><br><br><br><br><br><br><br><br></p>
 <h3 id='table-2'>Table</h3><pre class="highlight plaintext"><code>Table validation examples:
+
+Then the "Users Table" is enabled
+Then the "Users Table" is disabled
+Then the "Users Table" is displayed
+Then the "Users Table" is hidden
+Then the "Users Table" does not appear
+Then the "Users Table" does not appear during "5" seconds
+Then the "Users Table" table columns count equals "4"
+Then the "Users Table" table rows count equals "6"
+Then the "Users Table" table header has items:
+Then the "Users Table" table preview equals values:
+Then the "Users Table" table has size "6"
+Then the "Users Table" table has size greater than "3"
+Then the "Users Table" table has size less or equal to "6"
+Then the "Users Table" table is not empty
+Then the "Users Table" table has row that contains value "Ivan" in column "User"
+Then the "Users Table" table all rows contain value "Vip" in column "Description"
+Then the "Users Table" table has no rows which contain value "Vip" in column "Description"
+Then the "Users Table" table has at least "3" rows which contain value " " in column "User"
+Then the "Users Table" table has exact "2" rows which contain value "R" in column "User"
+Then the "Users Table" table has exact "1" rows which have value "Roman" in column "User"
+
+Scenario examples for Table:
+
+  Scenario: Get label text test
+    Given I open "Users Page"
+    Then the "Users Table" table columns count equals "4"
+    And the "Users Table" table rows count equals "6"
+    And the "Users Table" table header has items:
+      | Number      |
+      | Type        |
+      | User        |
+      | Description |
+
+  Scenario: Common matchers test
+    Given I open "Users Page"
+    Then the "Users Table" table has size "6"
+    And the "Users Table" table has size greater than "3"
+    And the "Users Table" table has size less or equal to "6"
+    And the "Users Table" table is not empty
+
+</code></pre>
+<p>Validations: <br></p>
+
+<p><strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is enabled <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is disabled <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is displayed <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is hidden <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; does not appear <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; does not appear during &quot;&lt;SECONDS&gt;&quot; seconds <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; table columns count equals &quot;&lt;COUNT&gt;&quot; <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; table rows count equals &quot;&lt;COUNT&gt;&quot; <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; table header has items: <br>
+     &nbsp;&nbsp;&nbsp;&nbsp;|&lt;GHERKIN DATA TABLE&gt;| <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; table preview equals values: <br>
+     &nbsp;&nbsp;&nbsp;&nbsp;|&lt;GHERKIN DATA TABLE&gt;| <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; table has size &quot;&lt;SIZE&gt;&quot; <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; table has size greater than &quot;&lt;SIZE&gt;&quot; <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; table has size less or equal to &quot;&lt;SIZE&gt;&quot; <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; table is not empty <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; table has row that contains value &quot;&lt;TEXT&gt;&quot; in column &quot;&lt;COLUMN&gt;&quot; <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; table all rows contain value &quot;&lt;TEXT&gt;&quot; in column &quot;&lt;COLUMN&gt;&quot; <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; table has no rows which contain value &quot;&lt;TEXT&gt;&quot; in column &quot;&lt;COLUMN&gt;&quot; <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; table has at least &quot;&lt;COUNT&gt;&quot; rows which contain value &quot;&lt;TEXT&gt;&quot; in column &quot;&lt;COLUMN&gt;&quot; <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; table has exact &quot;&lt;COUNT&gt;&quot; rows which contain value &quot;&lt;TEXT&gt;&quot; in column &quot;&lt;COLUMN&gt;&quot; <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; table has exact &quot;&lt;COUNT&gt;&quot; rows which have value &quot;&lt;TEXT&gt;&quot; in column &quot;&lt;COLUMN&gt;&quot; <br></p>
+
+<p>More information in the <a href="https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa"><strong>Tutorial</strong></a><br>
+<a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Table.feature"><strong>Cucumber tests</strong></a> for Table<br>
+<br><br><br><br><br><br><br><br><br><br><br></p>
+<h3 id='datatable-2'>DataTable</h3>
+<p>Note: this element is an alias for Table</p>
+<pre class="highlight plaintext"><code>Table validation examples:
 
 Then the "Users Table" is enabled
 Then the "Users Table" is disabled

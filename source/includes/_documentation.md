@@ -4741,11 +4741,10 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 
 <br><br><br><br><br><br><br><br><br><br><br>
 
-
 ### Table
 
 ```
-Table validations examples:
+Table validation examples:
 
 Then the "Users Table" is enabled
 Then the "Users Table" is disabled
@@ -4767,6 +4766,8 @@ Then the "Users Table" table has no rows which contain value "Vip" in column "De
 Then the "Users Table" table has at least "3" rows which contain value " " in column "User"
 Then the "Users Table" table has exact "2" rows which contain value "R" in column "User"
 Then the "Users Table" table has exact "1" rows which have value "Roman" in column "User"
+
+Scenario examples for Table:
 
   Scenario: Get label text test
     Given I open "Users Page"
@@ -4813,7 +4814,8 @@ Validations: <br>
 **Then** the "\<ELEMENT NAME\>" table has exact "\<COUNT\>" rows which have value "\<TEXT\>" in column "\<COLUMN\>" <br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)<br>
-[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Table.feature) for Table<br><br><br><br>
+[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Table.feature) for Table<br>
+<br><br><br><br><br><br><br><br><br><br><br>
 
 ### Form
 

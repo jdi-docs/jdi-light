@@ -541,6 +541,9 @@
                               <a href="#combobox-2" class="toc-h2 h3 toc-link" data-title="ComboBox">ComboBox</a>
                             </li>
                             <li>
+                              <a href="#datalist-2" class="toc-h2 h3 toc-link" data-title="DataList">DataList</a>
+                            </li>
+                            <li>
                               <a href="#numberselector-2" class="toc-h2 h3 toc-link" data-title="NumberSelector">NumberSelector</a>
                             </li>
                             <li>
@@ -7937,6 +7940,76 @@ Scenario example:
         Given I open "Html5 Page"
         When select "Chocolate" field from "Ice Cream"
         Then the "Ice Cream" selected value is "Chocolate"
+</code></pre>
+<p>Actions:<br>
+<br>
+<strong>When</strong> &lt;I&gt; select &quot;&lt;VALUE&gt;&quot; field from &quot;&lt;ELEMENT NAME&gt;&quot;<br>
+<strong>When</strong> &lt;I&gt; select value &quot;&lt;INDEX NUMBER&gt;&quot; in &quot;&lt;ELEMENT NAME&gt;&quot;<br>
+<strong>When</strong> &lt;I&gt; clear &quot;&lt;ELEMENT NAME&gt;&quot;<br>
+<strong>When</strong> &lt;I&gt; input &quot;&lt;TEXT&gt;&quot; in &quot;&lt;ELEMENT NAME&gt;&quot;<br>
+<strong>When</strong> &lt;I&gt; send keys &quot;&lt;TEXT&gt;&quot; to &quot;&lt;ELEMENT NAME&gt;&quot;<br>
+<strong>When</strong> &lt;I&gt; focus on &quot;&lt;ELEMENT NAME&gt;&quot;<br>
+<br>
+Validations:<br>
+<br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is enabled<br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; selected value is &quot;&lt;VALUE&gt;&quot;<br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; text equals to &quot;&lt;TEXT&gt;&quot;<br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; text contains &quot;&lt;TEXT&gt;&quot;<br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; text matches to &quot;&lt;REGEXP&gt;&quot;<br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; label text equals to &quot;&lt;TEXT&gt;&quot;<br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; label text contains &quot;&lt;TEXT&gt;&quot;<br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; label text matches to &quot;&lt;REGEXP&gt;&quot;<br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; placeholder equals to &quot;&lt;TEXT&gt;&quot;<br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; placeholder contains &quot;&lt;TEXT&gt;&quot;<br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; placeholder matches to &quot;&lt;REGEXP&gt;&quot;<br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is disabled <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is displayed <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; disappears <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is hidden    <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; does not appear <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; does not appear during &quot;&lt;SECONDS&gt;&quot; seconds <br></p>
+
+<p>More information in the <a href="https://jdi-docs.github.io/jdi-light/?java#tutorial"><strong>Tutorial</strong></a><br>
+<a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/ComboBox.feature"><strong>Cucumber tests</strong></a> for ComboBox<br><br>
+<br><br><br><br><br><br><br><br></p>
+<h3 id='datalist-2'>DataList</h3>
+<p>Note: this element is an alias for ComboBox</p>
+<pre class="highlight plaintext"><code>ComboBox action examples:
+
+When select "Coconut" field from "Ice Cream"
+When select index 5 in "Ice Cream"
+When I clear "Ice Cream"
+When I input "New text" in "Ice Cream"
+When send keys "Test" to "Ice Cream"
+When focus on "Ice Cream"
+
+
+ComboBox validation examples:
+
+Then the "Ice Cream" is enabled
+Then the "Ice Cream" selected value is "Coconut"
+Then the "Ice Cream" text equals to "Coconut"
+Then the "Ice Cream" text contains "Van"
+Then the "Ice Cream" text matches to "(.*)nut"
+Then the "Ice Cream" label text equals to "Choose your lovely icecream"
+Then the "Ice Cream" label text contains "lovely icecream"
+Then the "Ice Cream" label text matches to "(.*)icecream"
+Then the "Ice Cream" placeholder equals to "Ice cream"
+Then the "Ice Cream" placeholder contains "cream"
+Then the "Ice Cream" placeholder matches to "(.*)cream"
+Then the "Ice Cream" is disabled
+Then the "Ice Cream" is displayed
+Then the "Ice Cream" disappears
+Then the "Ice Cream" is hidden
+Then the "Ice Cream" does not appear
+Then the "Ice Cream" does not appear during "5" seconds
+
+
+
+
+
+
 </code></pre>
 <p>Actions:<br>
 <br>

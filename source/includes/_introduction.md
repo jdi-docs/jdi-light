@@ -1,9 +1,9 @@
 # Introduction
 ## Simple JDI examples
 ### Create simple Login test
-For the beginning I would like to show you how tipycal problems can be solved with JDI. Let's start from Login, most of the tests starts from this you need to login on site.
+First of all, I would like to show you how typical problems can be solved with JDI. Let's start with Login since most tests start with signing in.
 
-Java code example can be found by <a href='https://github.com/jdi-examples/jdi-introduction' target="_blank">link</a>
+You can find a Java code example <a href='https://github.com/jdi-examples/jdi-introduction' target="_blank">here</a>
 
 **Test Scenario**
 
@@ -22,7 +22,7 @@ public void loginTest() {
     - Enter 'Roman' in login textfield
     - Enter 'Jdi1234' in password textfield
     - Press 'Enter' button
-3. Validate that HomePage is openned
+3. Validate that HomePage is opened
 
 ```
 [22:17.102  STEP] : Open 'Home Page'(url=>https://jdi-testing.github.io/jdi-light/index.html)
@@ -30,19 +30,19 @@ public void loginTest() {
 [22:23.727  STEP] : Login as User(userName:epam; password:1234)
 [22:24.516  STEP] : Check that 'Home Page' is opened (url CONTAINS '/index.html'; title EQUALS 'Home Page')
 ```
-**So simple!**
-But this is not all, just Run this test in your IDE and what you will get?
+**So simple!**<br/>
+But this is not all. Try to run this test in your IDE and see what you get...
 
- 1. Detailed log in Console output:<br/>
+ - A detailed log in the Console output:<br/>
 
-**Nice!** Isn't it?
+**Nice**, isn't it?
 
- 2. Same log in log file (src/test/.logs/) if you would like to see test execution results remotely (require log4j2.xml in src/test/resources)<br/>
- 3. Nice Allure report of your test execution! (require Allure settings in pom.xml)<br/>
+ - The same log in the log file (<i>src/test/.logs/</i>) in case you'd like to see the test execution results remotely <i>(requires <b>log4j2.xml</b> file in src/test/resources)</i><br/>
+ - A nice Allure report of your test execution! (<i>requires Allure settings in <b>pom.xml</b></i>)<br/>
 ![Allure Report](../images/intro/allure-report.png)
 ![Allure Log](../images/intro/allure-report-log.png)
 
-Just move allure-results folder in  folder and run maven > Plugins > allure > allure:serve<br/>
+Just move the <i>allure-results</i> folder to your folder and run Maven > Plugins > Allure > allure:serve<br/>
 <img src="images/intro/allure-serve.png" alt="Allure Serve" width="300px">
 
 ```java 
@@ -68,14 +68,14 @@ public class LoginForm extends Form<User> {
 }
 ```
 ### UI PageObjects
-So now let's look on PageObjects we have in JDI. In example above for "Login test" we have following PageObjects:
-* Site - entity for your application. Collects all the Pages of your application, that can be init in one command
+Now let's have a look at PageObjects in JDI. For example, for "Login test" above we used the following PageObjects:
+* **Site** - your application entity. It contains all the Pages of your application and can be initiated with one command.
 
-* HomePage - Pages collects elements: common, complex and composite. Pages already have meta information about Url and Title and you can execute common actions with this Pages like: open, checkOpenned, get Url/Titile, zoom, scroll, work with cookies etc.
-* LoginForm - Forms and Sections are logical parts of pages, they can include other sections or just elements. Forms also have additional actions like fill, submit, check etc.
-* UI elements (Typified elements) like Button, TextField, Checkbox, Icon etc. - are simple elements that represents real elements on UI
+* **HomePage** - Pages contain elements: <i>common, complex</i> and <i>composite</i>. Pages also contain meta information about Url and Title and you can execute common actions with them, e.g.: <i>open, checkOpened, get Url/Titile, zoom, scroll, work with cookies</i> etc.
+* **LoginForm** - Forms and Sections are logical parts of pages, they can include other sections or just elements. Forms also have additional actions like <i>fill, submit, check</i> etc.
+* **UI elements** (typified elements), e.g. <i>Button, TextField, Checkbox, Icon etc.</i>, are simple elements representing real UI ones.
 
-This is common JDI project structure
+Below is a common JDI project structure
 
 ```java 
 @Test
@@ -94,9 +94,9 @@ public class LoginForm extends Form<User> {
 }
 ```
 ### Short term non Page Objects style
-If you need to check somethhing fast and won't write Page Objects you can use simple like "JQuery/Selenide" style without any additional code
+If you need a quick test (i.e. you don't need Page Objects), you can simply use "JQuery/Selenide" style without any additional code.
 
-You also can init your Page Objects directly with elements if don't like annotations
+You can also initialize your Page Objects directly with elements if you don't like annotations.
 <br/><br/><br/><br/><br/><br/><br/>
 ### Smart Test locators
 ```
@@ -114,7 +114,7 @@ public class UserCard extends Form<User> {
     @Css("#passport-number") TextField passportNumber;   
     @Css("#submit-button") Button submitButton; 
 }
-//If Smart locator rule is id
+//If the smart locator rule is id
 WebSettings.SMART_SEARCH_LOCATORS = asList("#%s");
 //and convertation rule is hyphen to java name
 WebSettings.SMART_SEARCH_NAME = StringUtils::splitHyphen;
@@ -132,15 +132,15 @@ public class UserCard extends Form<User> {
     Button submitButton; 
 }
 ```
-If you have your developers follow some standard way to mark ui elements or you have an agreement to add special attribute you can even avoid to write locators for elements and make your page objects much more compact.
+If your developers are following some standard way of marking UI elements or you have an agreement to add some special attributes, you can even avoid writing locators for elements and make your page objects much more compact.
 
-You can manage how to create locator from field name using 
+You can manage the locator creation from field name using: 
 
-**WebSettings.SMART_SEARCH** - Function that invoked if you have element has no locator or just setting a list of used locators using
+**WebSettings.SMART_SEARCH** - function invoked if your element has no locator or just setting a list of used locators
 
-**WebSettings.SMART_SEARCH_LOCATORS** - list of locators that can be used to try to find element
+**WebSettings.SMART_SEARCH_LOCATORS** - a list of locators which can be used to try to find element
 
-**WebSettings.SMART_SEARCH_NAME** - function how to create locator name from filed name (this value will be passed as %s parameter in SMART_SEARCH_LOCATORS)
+**WebSettings.SMART_SEARCH_NAME** - function how to create locator name from field name (this value will be passed as a <i>%s</i> parameter to SMART_SEARCH_LOCATORS)
 
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
@@ -182,20 +182,20 @@ public void tableChainTest() {
 ```
 ### Asserts/Matchers integrated with elements
 
-JDI has really flexible set of matchers integrated in elements
+JDI has a really flexible set of matchers integrated into it.
 
-- To access elements matchers you can use methods:<br/>
+- To access elements matchers, you can use the following methods:<br/>
 is()<br/>
 assertThat()<br/>
 has()<br/>
 waitFor()<br/>
 shouldBe()<br/>
-All of them works in the same way and difference in they name just for tests readability <br/>
-- JDI matchers powered by most popular in Java world matcher library [Hamcrest](http://hamcrest.org/JavaHamcrest/)<br/>
-And of course you can chain this matchers for multiple conditions validation<br/>
-- And with JDi no more waits or flaky tests with errors <br/>
+They all work similarly. The only difference is the name, which is just for readability <br/>
+- JDI matchers are powered by [Hamcrest](http://hamcrest.org/JavaHamcrest/), the most popular matcher library in the Java world. <br/>
+And of course, you can chain these matchers for validating multiple conditions.<br/>
+- With JDI you will no more have to wait or execute sloppy tests.<br/>
 JDI matchers handle most kinds of this problems and will pass when you expect this and fail if this is an real erorr <br/>
-**Really useful, do you agree?**
+**Really useful, don't you agree?**
 <br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 ### Custom elements

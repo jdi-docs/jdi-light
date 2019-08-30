@@ -4817,6 +4817,84 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi
 [**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Table.feature) for Table<br>
 <br><br><br><br><br><br><br><br><br><br><br>
 
+### DataTable
+
+Note: this element is an alias for Table
+
+```
+Table validation examples:
+
+Then the "Users Table" is enabled
+Then the "Users Table" is disabled
+Then the "Users Table" is displayed
+Then the "Users Table" is hidden
+Then the "Users Table" does not appear
+Then the "Users Table" does not appear during "5" seconds
+Then the "Users Table" table columns count equals "4"
+Then the "Users Table" table rows count equals "6"
+Then the "Users Table" table header has items:
+Then the "Users Table" table preview equals values:
+Then the "Users Table" table has size "6"
+Then the "Users Table" table has size greater than "3"
+Then the "Users Table" table has size less or equal to "6"
+Then the "Users Table" table is not empty
+Then the "Users Table" table has row that contains value "Ivan" in column "User"
+Then the "Users Table" table all rows contain value "Vip" in column "Description"
+Then the "Users Table" table has no rows which contain value "Vip" in column "Description"
+Then the "Users Table" table has at least "3" rows which contain value " " in column "User"
+Then the "Users Table" table has exact "2" rows which contain value "R" in column "User"
+Then the "Users Table" table has exact "1" rows which have value "Roman" in column "User"
+
+Scenario examples for Table:
+
+  Scenario: Get label text test
+    Given I open "Users Page"
+    Then the "Users Table" table columns count equals "4"
+    And the "Users Table" table rows count equals "6"
+    And the "Users Table" table header has items:
+      | Number      |
+      | Type        |
+      | User        |
+      | Description |
+
+  Scenario: Common matchers test
+    Given I open "Users Page"
+    Then the "Users Table" table has size "6"
+    And the "Users Table" table has size greater than "3"
+    And the "Users Table" table has size less or equal to "6"
+    And the "Users Table" table is not empty
+
+```
+
+Validations: <br>
+
+**Then** the "\<ELEMENT NAME\>" is enabled <br>
+**Then** the "\<ELEMENT NAME\>" is disabled <br>
+**Then** the "\<ELEMENT NAME\>" is displayed <br>
+**Then** the "\<ELEMENT NAME\>" is hidden <br>
+**Then** the "\<ELEMENT NAME\>" does not appear <br>
+**Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
+**Then** the "\<ELEMENT NAME\>" table columns count equals "\<COUNT\>" <br>
+**Then** the "\<ELEMENT NAME\>" table rows count equals "\<COUNT\>" <br>
+**Then** the "\<ELEMENT NAME\>" table header has items: <br>
+     &nbsp;&nbsp;&nbsp;&nbsp;|\<GHERKIN DATA TABLE\>| <br>
+**Then** the "\<ELEMENT NAME\>" table preview equals values: <br>
+     &nbsp;&nbsp;&nbsp;&nbsp;|\<GHERKIN DATA TABLE\>| <br>
+**Then** the "\<ELEMENT NAME\>" table has size "\<SIZE\>" <br>
+**Then** the "\<ELEMENT NAME\>" table has size greater than "\<SIZE\>" <br>
+**Then** the "\<ELEMENT NAME\>" table has size less or equal to "\<SIZE\>" <br>
+**Then** the "\<ELEMENT NAME\>" table is not empty <br>
+**Then** the "\<ELEMENT NAME\>" table has row that contains value "\<TEXT\>" in column "\<COLUMN\>" <br>
+**Then** the "\<ELEMENT NAME\>" table all rows contain value "\<TEXT\>" in column "\<COLUMN\>" <br>
+**Then** the "\<ELEMENT NAME\>" table has no rows which contain value "\<TEXT\>" in column "\<COLUMN\>" <br>
+**Then** the "\<ELEMENT NAME\>" table has at least "\<COUNT\>" rows which contain value "\<TEXT\>" in column "\<COLUMN\>" <br>
+**Then** the "\<ELEMENT NAME\>" table has exact "\<COUNT\>" rows which contain value "\<TEXT\>" in column "\<COLUMN\>" <br>
+**Then** the "\<ELEMENT NAME\>" table has exact "\<COUNT\>" rows which have value "\<TEXT\>" in column "\<COLUMN\>" <br>
+
+More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)<br>
+[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Table.feature) for Table<br>
+<br><br><br><br><br><br><br><br><br><br><br>
+
 ### Form
 
 ```

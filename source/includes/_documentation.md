@@ -4089,6 +4089,81 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 [**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/ComboBox.feature) for ComboBox<br><br>
 <br><br><br><br><br><br><br><br>
 
+### DataList
+
+Note: this element is an alias for ComboBox
+
+```
+ComboBox action examples:
+
+When select "Coconut" field from "Ice Cream"
+When select index 5 in "Ice Cream"
+When I clear "Ice Cream"
+When I input "New text" in "Ice Cream"
+When send keys "Test" to "Ice Cream"
+When focus on "Ice Cream"
+
+
+ComboBox validation examples:
+
+Then the "Ice Cream" is enabled
+Then the "Ice Cream" selected value is "Coconut"
+Then the "Ice Cream" text equals to "Coconut"
+Then the "Ice Cream" text contains "Van"
+Then the "Ice Cream" text matches to "(.*)nut"
+Then the "Ice Cream" label text equals to "Choose your lovely icecream"
+Then the "Ice Cream" label text contains "lovely icecream"
+Then the "Ice Cream" label text matches to "(.*)icecream"
+Then the "Ice Cream" placeholder equals to "Ice cream"
+Then the "Ice Cream" placeholder contains "cream"
+Then the "Ice Cream" placeholder matches to "(.*)cream"
+Then the "Ice Cream" is disabled
+Then the "Ice Cream" is displayed
+Then the "Ice Cream" disappears
+Then the "Ice Cream" is hidden
+Then the "Ice Cream" does not appear
+Then the "Ice Cream" does not appear during "5" seconds
+
+
+
+
+
+
+```
+
+Actions:<br>
+<br>
+**When** \<I\> select "\<VALUE\>" field from "\<ELEMENT NAME\>"<br>
+**When** \<I\> select value "\<INDEX NUMBER\>" in "\<ELEMENT NAME\>"<br>
+**When** \<I\> clear "\<ELEMENT NAME\>"<br>
+**When** \<I\> input "\<TEXT\>" in "\<ELEMENT NAME\>"<br>
+**When** \<I\> send keys "\<TEXT\>" to "\<ELEMENT NAME\>"<br>
+**When** \<I\> focus on "\<ELEMENT NAME\>"<br>
+<br>
+Validations:<br>
+<br>
+**Then** the "\<ELEMENT NAME\>" is enabled<br>
+**Then** the "\<ELEMENT NAME\>" selected value is "\<VALUE\>"<br>
+**Then** the "\<ELEMENT NAME\>" text equals to "\<TEXT\>"<br>
+**Then** the "\<ELEMENT NAME\>" text contains "\<TEXT\>"<br>
+**Then** the "\<ELEMENT NAME\>" text matches to "\<REGEXP\>"<br>
+**Then** the "\<ELEMENT NAME\>" label text equals to "\<TEXT\>"<br>
+**Then** the "\<ELEMENT NAME\>" label text contains "\<TEXT\>"<br>
+**Then** the "\<ELEMENT NAME\>" label text matches to "\<REGEXP\>"<br>
+**Then** the "\<ELEMENT NAME\>" placeholder equals to "\<TEXT\>"<br>
+**Then** the "\<ELEMENT NAME\>" placeholder contains "\<TEXT\>"<br>
+**Then** the "\<ELEMENT NAME\>" placeholder matches to "\<REGEXP\>"<br>
+**Then** the "\<ELEMENT NAME\>" is disabled <br>
+**Then** the "\<ELEMENT NAME\>" is displayed <br>
+**Then** the "\<ELEMENT NAME\>" disappears <br>
+**Then** the "\<ELEMENT NAME\>" is hidden	 <br>
+**Then** the "\<ELEMENT NAME\>" does not appear	<br>
+**Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
+
+More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial)<br>
+[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/ComboBox.feature) for ComboBox<br><br>
+<br><br><br><br><br><br><br><br>
+
 ### NumberSelector
 
 ````

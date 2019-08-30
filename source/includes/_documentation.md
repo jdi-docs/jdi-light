@@ -2674,8 +2674,8 @@ The list of available methods for Java JDI Light:
 
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/MultiDropdownTests.java)
 
-[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Composite/MultiDropdownTests.cs)
-
+[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Composite/MultiDropdownTests.cs)<br>
+[BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#multidropdown-2)<br>
 ### DataList
 
 **DataList** – a graphical control element, that allows the user to choose one value from a list or enter it by himself.
@@ -4546,8 +4546,14 @@ TextField validation examples:
 Then the "Name" placeholder equals to "Input name"
 Then the "Name" text equals to "Lorem"
 Then the "Name" text is "Lorem"
+Then the "Name" is enabled
+Then the "Name" is disabled
+Then the "Name" is displayed 
+Then the "Name" is hidden 
+Then the "Name" text does not appear 
+Then the "Name" text does not appear during 5 seconds
 
-Scenario examples for TextField:
+Scenario example for TextField:
 
   Scenario: sendKeys test
     Given I open "Html5 Page"
@@ -4567,6 +4573,12 @@ Validations: <br>
 **Then** the "ELEMENT NAME" placeholder equals to "PLACEHOLDER TEXT" <br>
 **Then** the "ELEMENT NAME" text equals to "TEXT" <br>
 **Then** the "ELEMENT NAME" text is "VALUE" <br>
+**Then** the "\<ELEMENT NAME\>" is enabled <br>
+**Then** the "\<ELEMENT NAME\>" is disabled <br>
+**Then** the "\<ELEMENT NAME\>" is displayed <br>
+**Then** the "\<ELEMENT NAME\>" is hidden <br>
+**Then** the "\<ELEMENT NAME\>" does not appear <br>
+**Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial)<br>
 [**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/TextField.feature) for TextField<br>
@@ -4630,13 +4642,33 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 [**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/CheckList.feature) for CheckList<br>
 
 
+<br><br><br><br><br><br><br><br><br><br><br>
+### MultiDropDown
+
+```
+Scenario example for MultiDropDown
+    
+Scenario: Check  values test
+    When I check in the "Multi Dropdown" values:
+      | Electro | Metalic |
+    Then the "Multi Dropdown" selected values:
+      | Electro | Metalic |
+
+```
+BDD steps for MultiDropDown are implemented by [MultiSelector BDD Steps](https://jdi-docs.github.io/jdi-light/?java#multiselector-2)<br>
+
+More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial)<br>
+[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/MultiDropDown.feature) for MultiDropDown<br><br>
+<br><br><br><br><br>
 ### CheckList
 
 ```
 CheckList actions examples:
 
 When I check element "Hot option" in "Weather" checklist
-When I select "Cold;Hot option" fields from "Weather"
+When I select fields from "Weather" checklist:
+     | Cold       | 
+     | Hot option |
 When I check elements in "Weather" checklist:
      | Hot option |
 When I select in "Weather" checklist elements by numbers:
@@ -4647,7 +4679,7 @@ When I uncheck all elements in "Weather" checklist
 When I check elements in "Weather" checklist:
      | Rainy day |
      | Sunny     |
-When I select "Cold;Hot option" fields from "Weather"
+
 
 CheckList validation examples:
 
@@ -4670,6 +4702,8 @@ Scenario: Check element via numbers test
 Actions: <br>
 
  **When**  \<I\> check element "\<ELEMENT NAME\>" in "\<ELEMENT NAME\>" checklist <br>
+  **When**  \<I\> select fields from "\<ELEMENT NAME\>" checklist:  <br>
+      &nbsp;&nbsp;&nbsp;&nbsp;|\<GHERKIN DATA TABLE\>| <br>
  **When**  \<I\> check elements in "\<ELEMENT NAME\>" checklist:  <br>
      &nbsp;&nbsp;&nbsp;&nbsp;|\<GHERKIN DATA TABLE\>| <br>
  **When**  \<I\> uncheck element "\<ELEMENT NAME\>" in "\<ELEMENT NAME\>" checklist <br>

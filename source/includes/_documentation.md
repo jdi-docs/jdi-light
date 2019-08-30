@@ -4831,7 +4831,7 @@ Validations: <br>
  **Then** the form \<FORM NAME\> disappear<br>
 
 
-More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#form)<br>
+More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa)<br>
 [**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Form.feature) for Form<br>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>

@@ -2,7 +2,7 @@
 ## Extended Selenium features
 TBD
 
-## Common elements
+## Html5 Common elements
 
 ### Label 
  **Label** – Elements' caption for a big number of JDI common elements 
@@ -940,7 +940,8 @@ Here is the list of available methods in C#:
 
 Menu element is located in JDI Light in:
 
-  - __Java__: _com.epam.jdi.light.ui.html.complex.Menu_
+  - __Java__: _com.epam.jdi.light.ui.html. element
+  .Menu_
   - __C#__: _JDI.Light.Elements.Composite.Menu_
 
 ```java 
@@ -1633,7 +1634,7 @@ Here is a list of available methods in C#:
   [BDD Steps example](https://jdi-docs.github.io/jdi-light/#textarea-2) <br>
 
 
-## Complex elements
+## Html5 Complex elements
 ### RadioButtons
 
 **RadioButtons** – interface element that allows user to select one option from a predefined group.
@@ -3033,7 +3034,7 @@ Here is the list of some available methods in C# JDI Light:
 
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#combobox-2)
 
-## Composite elements
+## Html5 Composite elements
 ###Section
 
 **Section** - logical part of Web Page that contains other UI Elements
@@ -3389,6 +3390,89 @@ public void verifyTitle() {
     assertEquals(mainPage.getTitle(), "Main page");
 }
 ```
+
+## Bootstrap Common elements
+
+### Button
+**Button** – Element that represents a clickable button
+
+![Button](../images/bootstrap/button.png)
+
+Button is located in the following classes:
+ 
+  - __Java__: _com.epam.jdi.light.ui.html.common.Button_
+  - __C#__: _JDI.Light.Elements.Common.Button_
+
+```java 
+@UI("[value*='Red Button']") // @FindBy(css = "[value*='Red Button']")
+public static Button redButton;
+
+@Test
+public void clickTest() {
+    redButton.click();
+    assertEquals(getAlertText(), "Red button");
+    acceptAlert();
+}
+
+@Test
+public void getTextTest() {
+    assertEquals(redButton.getText(), "Big Red Button-Input");
+}
+```
+```csharp
+
+[FindBy(Css = ".red")]
+public Button RedButton;
+
+[Test]
+public void ClickTest() 
+{
+    RedButton.Click();
+    Assert.AreEqual(GetAlert().GetAlertText(), "Red button");
+    GetAlert().AcceptAlert();
+}
+
+[Test]
+public void GetTextTest() 
+{
+    Assert.AreEqual(RedButton.GetText(), "Big Red Button-Input");
+}
+
+```
+
+Here is an example with provided HTML code:
+
+![Button example](../images/bootstrap/button-html.png)
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**click()** | Click the button  | void
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ButtonTests.java)
+<br>
+[BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#button-2)
+
+Available methods and properties in C# JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+**Click()** | Click the button  | void
+**GetText()** | Get button text | string
+**Is** | Assert action | TextAssert 
+**AssertThat** | Assert action | TextAssert
+
+[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/ButtonTests.cs) <br>
+[BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#button-2)
+
+
+## Bootstrap Complex elements
+
+## Bootstrap Composite elements
 
 ## JDI Light BDD Steps
 

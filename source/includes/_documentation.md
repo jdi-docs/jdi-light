@@ -793,7 +793,7 @@ Here is a list of available methods in C#:
 (https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ImageTests.java)<br>
 [Test examples in C#]
 (https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/ImagesTests.cs)<br>
-[BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#image-2)
+[BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#icon-2)
 
 ### Image
 ```java 
@@ -2040,7 +2040,7 @@ AssertTable methods in C#:
 
 [C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Composite/TableTests.cs)
 
-[BDD Steps example](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-bdd-tests/src/test/resources/features/Table.feature)<br>
+[BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#table-2)<br>
 
 ### DataTable
 
@@ -3542,7 +3542,7 @@ Scenario example for ColorPicker:
 
 Actions: <br>
 
-**When** \<I\> set "\<ELEMENT NAME\>" to "COLOR HEX CODE"<br>
+**When** \<I\> set "\<ELEMENT NAME\>" to "\<COLOR HEX CODE\>"<br>
 <br><br>
 Validations: <br>
 

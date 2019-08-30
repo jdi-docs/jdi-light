@@ -4771,12 +4771,12 @@ Validations: <br>
 **Then** the "\<ELEMENT NAME\>" table has size greater than "\<SIZE\>" <br>
 **Then** the "\<ELEMENT NAME\>" table has size less or equal to "\<SIZE\>" <br>
 **Then** the "\<ELEMENT NAME\>" table is not empty <br>
-**Then** the "\<ELEMENT NAME\>" table has row that contains value "\<VALUE\>" in column "\<COLUMN\>" <br>
-**Then** the "\<ELEMENT NAME\>" table all rows contain value "\<VALUE\>" in column "\<COLUMN\>" <br>
-**Then** the "\<ELEMENT NAME\>" table has no rows which contain value "\<VALUE\>" in column "\<COLUMN\>" <br>
-**Then** the "\<ELEMENT NAME\>" table has at least "\<COUNT\>" rows which contain value "\<VALUE\>" in column "\<COLUMN\>" <br>
-**Then** the "\<ELEMENT NAME\>" table has exact "\<COUNT\>" rows which contain value "\<VALUE\>" in column "\<COLUMN\>" <br>
-**Then** the "\<ELEMENT NAME\>" table has exact "\<COUNT\>" rows which have value "\<VALUE\>" in column "\<COLUMN\>" <br>
+**Then** the "\<ELEMENT NAME\>" table has row that contains value "\<TEXT\>" in column "\<COLUMN\>" <br>
+**Then** the "\<ELEMENT NAME\>" table all rows contain value "\<TEXT\>" in column "\<COLUMN\>" <br>
+**Then** the "\<ELEMENT NAME\>" table has no rows which contain value "\<TEXT\>" in column "\<COLUMN\>" <br>
+**Then** the "\<ELEMENT NAME\>" table has at least "\<COUNT\>" rows which contain value "\<TEXT\>" in column "\<COLUMN\>" <br>
+**Then** the "\<ELEMENT NAME\>" table has exact "\<COUNT\>" rows which contain value "\<TEXT\>" in column "\<COLUMN\>" <br>
+**Then** the "\<ELEMENT NAME\>" table has exact "\<COUNT\>" rows which have value "\<TEXT\>" in column "\<COLUMN\>" <br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)<br>
 [**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Table.feature) for Table<br><br><br><br>

@@ -4750,9 +4750,9 @@ Validations: <br>
 **Then** the "\<ELEMENT NAME\>" table has exact "\<COUNT\>" rows which have value "\<VALUE\>" in column "\<COLUMN\>" <br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)<br>
-[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Table.feature) for Table<br>
+[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Table.feature) for Table<br><br><br><br>
 
-### FORM
+### Form
 
 ```
 Form actions examples:
@@ -4822,7 +4822,7 @@ Actions: <br>
  
 Validations: <br>
 
- **Then** the form <FORM NAME> data equals to: <br>
+ **Then** the form \<FORM NAME\> data equals to: <br>
      &nbsp;&nbsp;&nbsp;&nbsp;|\<GHERKIN DATA TABLE\>|<br>
  **Then** the form \<FORM NAME\> is displayed<br>
  **Then** the form \<FORM NAME\> is hidden<br>

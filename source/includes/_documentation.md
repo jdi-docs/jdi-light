@@ -3522,6 +3522,52 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi
 [**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Image.feature) for Image <br>
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+### Icon
+
+````
+Image validation examples:
+
+  Then the "Jdi Logo" attribute "src" equals to "https://jdi-testing.github.io/jdi-light/images/jdi-logo.jpg"
+  Then the "Jdi Logo" attribute "alt" equals to "Jdi Logo 2"
+  Then the "Jdi Logo" attribute "src" contains "jdi-logo.jpg"
+  Then the "Jdi Logo" attribute "height" contains "100"
+  Then the "Jdi Logo" attribute "width" contains "101"
+  Then the "Jdi Logo" is enabled 
+  Then the "Jdi Logo" is disabled 
+  Then the "Jdi Logo" is displayed 
+  Then the "Jdi Logo" disappears
+  Then the "Jdi Logo" is hidden 
+  Then the "Jdi Logo" does not appear 
+  Then the "Jdi Logo" does not appear during "5" seconds 
+
+Scenario example for Image:
+
+  Scenario: Image validation test
+    Given I open "Html5 Page"
+    And refresh webpage
+    Then the "Jdi Logo" attribute "src" contains "jdi-logo.jpg"
+    And the "Jdi Logo" attribute "height" contains "100"
+    And the "Jdi Logo" attribute "width" contains "101"
+
+````
+Note: this element is an alias for Image<br>
+<br>
+Validations: <br>
+**Then** the "\<IMAGE NAME\>" attribute "\<ATTRIBUTE NAME\>" equals to "\<TEXT\>" <br>
+**Then** the "\<IMAGE NAME\>" attribute "\<ATTRIBUTE NAME\>" contains "\<TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" is enabled <br>
+**Then** the "\<ELEMENT NAME\>" is disabled <br>
+**Then** the "\<ELEMENT NAME\>" is displayed <br>
+**Then** the "\<ELEMENT NAME\>" disappears <br>
+**Then** the "\<ELEMENT NAME\>" is hidden <br>
+**Then** the "\<ELEMENT NAME\>" does not appear <br>
+**Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
+
+More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)<br>
+[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Image.feature) for Image <br>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 ### Alert
 
 ````

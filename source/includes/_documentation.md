@@ -76,7 +76,7 @@ Label's implementation is located in the following classes:
  
 [C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/TextFieldsTests.cs) 
 
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/TextFieldTests.java) 
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/LabelTests.java) 
 
 
 ### Button
@@ -3483,28 +3483,12 @@ public void verifyTitle() {
 Label action examples:
 
 When I click on "JDI Title"
-When I double click on "JDI Title"
-When I right click on "JDI Title"
-When I higlight "JDI Title"
-When show "JDI Title"
-When set "JDI Title" attribute "status" with value "marked"
-When make Screenshot for "JDI Title"
-
-
 
 Label validation examples:
 
 Then the "JDI Title" text equals to "JDI TESTING PLATFORM"
 Then the "JDI Title" text contains "JDI"
 Then the "JDI Title" text matches to regexp ".* TESTING .*"
-Then the "JDI Title" is enabled
-Then the "JDI Title" is disabled
-Then the "JDI Title" is displayed
-Then the "JDI Title" disappears
-Then the "JDI Title" is hidden
-Then the "JDI Title" does not appear
-Then the "JDI Title" does not appear during "5" seconds
-
 
 Scenario example for Label:
 
@@ -3515,25 +3499,12 @@ Scenario example for Label:
 Actions: <br>
 
 **When** \<I\> click on "\<ELEMENT NAME\>" <br>
-**When** \<I\> double click on "\<ELEMENT NAME\>" <br>
-**When** \<I\> right click on "\<ELEMENT NAME\>" <br>
-**When** \<I\> highlight "\<ELEMENT NAME\>" <br>
-**When** \<I\> show "\<ELEMENT NAME\>" <br>
-**When** \<I\> set "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" with value "\<ATTRIBUTE VALUE\>" <br>
-**When** \<I\> make Screenshot for "\<ELEMENT NAME\>"<br>
 <br>
 Validations: <br>
 
 **Then** the "\<ELEMENT NAME\>" text equals to "\<TEXT\>" <br>
 **Then** the "\<ELEMENT NAME\>" text contains "\<TEXT PART\>" <br>
 **Then** the "\<ELEMENT NAME\>" text matches to regexp "\<REGULAR EXPRESSION\>" <br>
-**Then** the "\<ELEMENT NAME\>" is enabled <br>
-**Then** the "\<ELEMENT NAME\>" is disabled <br>
-**Then** the "\<ELEMENT NAME\>" is displayed <br>
-**Then** the "\<ELEMENT NAME\>" disappears <br>
-**Then** the "\<ELEMENT NAME\>" is hidden <br>
-**Then** the "\<ELEMENT NAME\>" does not appear <br>
-**Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa)<br>
 [**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Label.feature) for Label<br>

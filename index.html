@@ -7372,7 +7372,7 @@ public class Section : UIElement</p>
 <li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.Button</em></li>
 <li><strong>C#</strong>: <em>JDI.Light.Elements.Common.Button</em></li>
 </ul>
-<pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"[value*='Red Button']"</span><span class="o">)</span> <span class="c1">// @FindBy(css = "[value*='Red Button']")</span>
+<pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"//*[text()='Red button']"</span><span class="o">)</span> <span class="c1">// @FindBy(css = "//*[text()='Red button']")</span>
 <span class="kd">public</span> <span class="kd">static</span> <span class="n">Button</span> <span class="n">redButton</span><span class="o">;</span>
 
 <span class="nd">@Test</span>
@@ -7384,11 +7384,11 @@ public class Section : UIElement</p>
 
 <span class="nd">@Test</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">getTextTest</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">assertEquals</span><span class="o">(</span><span class="n">redButton</span><span class="o">.</span><span class="na">getText</span><span class="o">(),</span> <span class="s">"Big Red Button-Input"</span><span class="o">);</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="n">redButton</span><span class="o">.</span><span class="na">getText</span><span class="o">(),</span> <span class="s">"Red button"</span><span class="o">);</span>
 <span class="o">}</span>
 </code></pre><pre class="highlight csharp tab-csharp"><code>
-<span class="na">[FindBy(Css = ".red")]</span>
-<span class="k">public</span> <span class="n">Button</span> <span class="n">RedButton</span><span class="p">;</span>
+<span class="na">[FindBy(Css = "//*[text()='Red button']</span><span class="s">")]
+</span><span class="k">public</span> <span class="n">Button</span> <span class="n">RedButton</span><span class="p">;</span>
 
 <span class="na">[Test]</span>
 <span class="k">public</span> <span class="k">void</span> <span class="nf">ClickTest</span><span class="p">()</span> 
@@ -7401,7 +7401,7 @@ public class Section : UIElement</p>
 <span class="na">[Test]</span>
 <span class="k">public</span> <span class="k">void</span> <span class="nf">GetTextTest</span><span class="p">()</span> 
 <span class="p">{</span>
-    <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">RedButton</span><span class="p">.</span><span class="nf">GetText</span><span class="p">(),</span> <span class="s">"Big Red Button-Input"</span><span class="p">);</span>
+    <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">RedButton</span><span class="p">.</span><span class="nf">GetText</span><span class="p">(),</span> <span class="s">"Red button"</span><span class="p">);</span>
 <span class="p">}</span>
 
 </code></pre>

@@ -3829,16 +3829,16 @@ Validations: <br>
 **Then** the "\<ELEMENT NAME\>" URL path equals to "\<TEXT\>" <br>
 **Then** the "\<ELEMENT NAME\>" text equals to "\<TEXT\>" <br>
 **Then** the "\<ELEMENT NAME\>" text contains "\<TEXT\>" <br>
-**Then** the "\<ELEMENT NAME\>" text matches to "\<TEXT\>" <br>
-**Then** the "\<ELEMENT NAME\>" reference equals to "\<REFERENCE VALUE\>" <br>
-**Then** the "\<ELEMENT NAME\>" reference contains "\<REFERENCE VALUE\>" <br>
-**Then** the "\<ELEMENT NAME\>" reference match to "\<REFERENCE VALUE\>" <br>
-**Then** the "\<ELEMENT NAME\>" alternative text equals to "\<ALT VALUE\>" <br>
-**Then** the "\<ELEMENT NAME\>" alternative text contains "\<ALT VALUE\>" <br>
-**Then** the "\<ELEMENT NAME\>" alternative text matches to "\<ALT VALUE\>" <br>
-**Then** the "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" equals to "\<ATTRIBUTE VALUE\>" <br>
-**Then** the "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" contains "\<ATTRIBUTE VALUE\>" <br>
-**Then** the "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" matches to "\<ATTRIBUTE VALUE\>" <br>
+**Then** the "\<ELEMENT NAME\>" text matches to "\<REGEXP\>" <br>
+**Then** the "\<ELEMENT NAME\>" reference equals to "\<TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" reference contains "\<TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" reference match to "\<REGEXP\>" <br>
+**Then** the "\<ELEMENT NAME\>" alternative text equals to "\<TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" alternative text contains "\<TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" alternative text matches to "\<REGEXP\>" <br>
+**Then** the "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" equals to "\<TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" contains "\<TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" matches to "\<REGEXP\>" <br>
 **Then** the "\<ELEMENT NAME\>" does not appear <br>
 **Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
 
@@ -3908,10 +3908,10 @@ Scenario example for Button:
   
 **Then** the "\<ELEMENT NAME\>" text equals to "\<TEXT\>"	<br>
 **Then** the "\<ELEMENT NAME\>" text contains "\<TEXT\>"	<br>
-**Then** the "\<ELEMENT NAME\>" text matches to "\<TEXT\>" <br>
-**Then** the "\<ELEMENT NAME\>" attribute "\<ELEMENT NAME\>" equals to "\<ATTRIBUTE TEXT\>" <br>
-**Then** the "\<ELEMENT NAME\>" attribute "\<ELEMENT NAME\>" contains "\<ATTRIBUTE TEXT\>" <br>
-**Then** the "\<ELEMENT NAME\>" attribute "\<ELEMENT NAME\>" matches to "\<ATTRIBUTE TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" text matches to "\<REGEXP\>" <br>
+**Then** the "\<ELEMENT NAME\>" attribute "\<ELEMENT NAME\>" equals to "\<TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" attribute "\<ELEMENT NAME\>" contains "\<TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" attribute "\<ELEMENT NAME\>" matches to "\<REGEXP\>" <br>
 **Then** the "\<ELEMENT NAME\>" is enabled <br>
 **Then** the "\<ELEMENT NAME\>" is disabled <br>
 **Then** the "\<ELEMENT NAME\>" is displayed <br>
@@ -3920,7 +3920,7 @@ Scenario example for Button:
 **Then** the "\<ELEMENT NAME\>" does not appear <br>
 **Then** the "\<ELEMENT NAME\>" does not appear during "\<TIME\>" seconds <br>
 **Then** the "\<ELEMENT NAME\>" css "\<ATTRIBUTE NAME\>" equals to "\<TEXT\>" <br>
-**Then** the "\<ELEMENT NAME\>" attribute "ATTRIBUTE NAME" equals to "\<TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" equals to "\<TEXT\>" <br>
   
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa)<br>
 [**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Button.feature) for Button<br>
@@ -3959,12 +3959,12 @@ Actions:<br>
 Validations:<br>
 
 **Then** the "\<ELEMENT NAME\>" text equals to "\<TEXT\>" <br>
-**Then** the "\<ELEMENT NAME\>" text contains "\<TEXT PART\>" <br>
+**Then** the "\<ELEMENT NAME\>" text contains "\<TEXT\>" <br>
 **Then** the "\<ELEMENT NAME\>" is enabled <br>
 **Then** the "\<ELEMENT NAME\>" label text equals to "\<TEXT\>" <br>
-**Then** the "\<ELEMENT NAME\>" label text contains "\<TEXT PART\>"_ <br>
-**Then** the "\<ELEMENT NAME\>" attribute min equals to "\<MIN ATTRIBUTE VALUE\>"<br>
-**Then** the "\<ELEMENT NAME\>" attribute max equals to "\<MAX ATTRIBUTE VALUE\>"<br>
+**Then** the "\<ELEMENT NAME\>" label text contains "\<TEXT\>"_ <br>
+**Then** the "\<ELEMENT NAME\>" attribute min equals to "\<TEXT\>"<br>
+**Then** the "\<ELEMENT NAME\>" attribute max equals to "\<TEXT\>"<br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)<br>
 
@@ -4036,7 +4036,7 @@ Validations: <br>
 **Then** the "\<ELEMENT NAME\>" is hidden <br>
 **Then** the "\<ELEMENT NAME\>" label text equals to "\<TEXT\>" <br>
 **Then** the "\<ELEMENT NAME\>" label text contains "\<TEXT\>" <br>
-**Then** the "\<ELEMENT NAME\>" label text matches to "\<TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" label text matches to "\<REGEXP\>" <br>
 **Then** the "\<ELEMENT NAME\>" does not appear <br>
 **Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
 
@@ -4075,10 +4075,10 @@ Scenario example for Progress Bar:
 
 Validations: <br>
 
-**Then** the "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" equals to "\<ATTRIBUTE VALUE\>" <br>
-**Then** the "\<ELEMENT NAME\>" progress volume greater or equal to \<VALUE\> <br>
-**Then** the "\<ELEMENT NAME\>" progress volume less or equal to \<VALUE\> <br>
-**Then** the "\<ELEMENT NAME\>" label text equals to "\<LABEL_TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" equals to "\<TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" progress volume greater or equal to "\<TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" progress volume less or equal to "\<TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" label text equals to "\<TEXT\>" <br>
 **Then** the "\<ELEMENT NAME\>" label text contains "\<TEXT\>" <br>
 **Then** the "\<ELEMENT NAME\>" is enabled <br>
 **Then** the "\<ELEMENT NAME\>" is disabled <br>

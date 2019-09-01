@@ -1,17 +1,18 @@
 # Tutorial
-In this tutorial, we’ll look at glance on [JDI Light](https://github.com/jdi-testing/jdi-light), a library that simplifies test automation, makes test run results stable, predictable and easy to maintain.<br/>
-1. Quick Start - short instruction how to add JDI Light in to your project and basic configurations<br/>
-2. JDI Light at glance - few simple test examples with and without Page Objects. Typified UI Elements and logs in JDI Light<br/>
-3. JDI Light Forms - small complex element example that shows JDI Light basic benefits<br/>
-4. UI Elements and optimization - more complex example that describes in details types of elements in JDI Light and demonstrate its capabilities<br/>
-5. Reduce Amount of code with JDI Light - Good and clear example how JDI Light can reduce amount of code in 3 times vs Selenium. Shows that you can write clear and stable tests with 3 times less effort<br/>
+In this tutorial we’ll take a glance at [JDI Light](https://github.com/jdi-testing/jdi-light), a library that simplifies test automation, makes test run results stable, predictable and easy to maintain.<br/>
+1. Quick Start - a short instruction on how to add JDI Light to your project and perform its basic configuration.<br/>
+2. JDI Light at a glance - a few simple test examples with and without Page Objects. Typified UI Elements and logs in JDI Light.<br/>
+3. JDI Light Forms - a small complex element example that shows JDI Light basic benefits.<br/>
+4. UI Elements and optimization - a more complex example elaborating on types of elements in JDI Light and demonstrating their capabilities.<br/>
+5. Reduce the amount of code with JDI Light - a concise example of how JDI Light can decrease the amount of code three-fold compared to Selenium.
+Shows that you can write clear and stable tests with 3 times less effort.<br/>
 
 ## 1. Integration
-1. Add JDI Light in your projects <br/>
-2. Some brief configurations overview <br/>
+1. Adding JDI Light to your projects <br/>
+2. A brief configuration overview <br/>
 
-Let’s start from the beginning and add JDI Light into our test project going through the setup step by step.<br/>
-_Note: JDI Light also ships with a [template project](https://github.com/jdi-templates/jdi-light-testng-template) that can be used to save us some time for the setup._
+Let’s start from the beginning by adding JDI Light to our test project and going through the setup step by step.<br/>
+_Note: JDI Light ships with a [template project](https://github.com/jdi-templates/jdi-light-testng-template) that can be used to save us some time for the setup._
 ### Maven Dependencies
 
 ```java 
@@ -21,7 +22,7 @@ _Note: JDI Light also ships with a [template project](https://github.com/jdi-tem
     <version>RELEASE</version>
 </dependency>
 ```
-First, we need to add JDI Light in dependency in our pom.xml file: <br/>
+First, we need to add JDI Light to the dependency section of our pom.xml file: <br/>
 _The latest version can be found in the [Maven Central Repository](https://search.maven.org/classic/#search%7Cga%7C1%7Cjdi-light)_<br/>
 <br/><br/>
 ### Configuration

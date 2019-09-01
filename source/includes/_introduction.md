@@ -27,7 +27,7 @@ public void loginTest() {
 ```
 [22:17.102  STEP] : Open 'Home Page'(url=>https://jdi-testing.github.io/jdi-light/index.html)
 [22:23.617  STEP] : Click on 'User Icon'
-[22:23.727  STEP] : Login as User(userName:epam; password:1234)
+[22:23.727  STEP] : Login as User (userName:epam; password:1234)
 [22:24.516  STEP] : Check that 'Home Page' is opened (url CONTAINS '/index.html'; title EQUALS 'Home Page')
 ```
 **So simple!**<br/>

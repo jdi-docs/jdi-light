@@ -8726,8 +8726,27 @@ Scenario: Multiselector validation
 <p>More information in the <a href="https://jdi-docs.github.io/jdi-light/?java#checklist"><strong>Tutorial</strong></a><br>
 <a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/CheckList.feature"><strong>Cucumber tests</strong></a> for CheckList<br></p>
 
-<p><br><br><br><br><br><br><br><br><br><br><br></p>
-<h3 id='multidropdown-2'>MultiDropDown</h3><pre class="highlight plaintext"><code>Scenario example for MultiDropDown
+<p><br><br><br><br><br></p>
+<h3 id='multidropdown-2'>MultiDropDown</h3>
+<p>Note: this element is an alias for MultiSelector</p>
+<pre class="highlight plaintext"><code>Multiselector actions examples:
+
+When I select "Ages" with value "Steam"
+When I select 1, 5 numbers in "Ages" multiselector
+
+Multiselector validation examples:
+
+Then I check the "Steam" value is selected in "Ages" multiselector
+Then I check the "Ages" multiselector contains "Wood" value
+Then I check the "Ages" multiselector in disabled state has "Disabled" item
+Then I check the "Ages" multiselector in enabled state has not "Disabled" item
+Then I check the "Ages" multiselector in enabled state contains next values:
+      | Electro | Metalic |
+Then I check the "Ages" multiselector text is equals to "Steam"
+Then I check the "Ages" multiselector contains next values:
+    | Electro | Steam| Metalic | Disabled | Wood |
+
+Scenario example for MultiDropDown
 
 Scenario: Check  values test
     When I check in the "Multi Dropdown" values:
@@ -8736,7 +8755,19 @@ Scenario: Check  values test
       | Electro | Metalic |
 
 </code></pre>
-<p>BDD steps for MultiDropDown are implemented by <a href="https://jdi-docs.github.io/jdi-light/?java#multiselector-2">MultiSelector BDD Steps</a><br></p>
+<p>Actions: <br></p>
+
+<p><strong>When</strong>  &lt;I&gt; select &quot;&lt;ELEMENT NAME&gt;&quot; with value &quot;&lt;ELEMENT NAME&gt;&quot; <br>
+ <strong>When</strong>  &lt;I&gt; select &quot;&lt;ELEMENT NAME&gt;&quot; numbers in &quot;&lt;ELEMENT NAME&gt;&quot; multiselector <br></p>
+
+<p>Validations: <br></p>
+
+<p><strong>Then</strong> I check the &quot;&lt;ELEMENT NAME&gt;&quot; value is selected in &quot;&lt;ELEMENT NAME&gt;&quot; multiselector <br>
+ <strong>Then</strong> I check the &quot;&lt;ELEMENT NAME&gt;&quot; multiselector contains &quot;&lt;ELEMENT NAME&gt;&quot; value <br>
+ <strong>Then</strong> I check the &quot;&lt;ELEMENT NAME&gt;&quot; multiselector in enabled state has not &quot;&lt;ELEMENT NAME&gt;&quot; item <br>
+ <strong>Then</strong> I check the &quot;&lt;ELEMENT NAME&gt;&quot; multiselector in enabled state contains next values: <br>
+ <strong>Then</strong> I check the &quot;&lt;ELEMENT NAME&gt;&quot; multiselector text is equals to &quot;&lt;ELEMENT NAME&gt;&quot; <br>
+ <strong>Then</strong> I check the &quot;&lt;ELEMENT NAME&gt;&quot; multiselector contains next values: <br></p>
 
 <p>More information in the <a href="https://jdi-docs.github.io/jdi-light/?java#tutorial"><strong>Tutorial</strong></a><br>
 <a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/MultiDropDown.feature"><strong>Cucumber tests</strong></a> for MultiDropDown<br><br>

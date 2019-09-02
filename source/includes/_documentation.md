@@ -5213,6 +5213,7 @@ Scenario example for Radiobuttons:
 
 ```
 Actions: <br><br>
+
 **When** \<I\> select "TEXT" field from "\<ELEMENT NAME\>" <br>
 **When** \<I\> select the radio button with "\<INDEX\>" index from "\<ELEMENT NAME\>" <br>
 **When** \<I\> highlight "\<ELEMENT NAME\>"	<br>

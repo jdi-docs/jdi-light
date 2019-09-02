@@ -3660,8 +3660,8 @@ Scenario example for Image:
 ````
 
 Validations: <br>
-**Then** the "\<IMAGE NAME\>" attribute "\<ATTRIBUTE NAME\>" equals to "\<TEXT\>" <br>
-**Then** the "\<IMAGE NAME\>" attribute "\<ATTRIBUTE NAME\>" contains "\<TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" equals to "\<TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" contains "\<TEXT\>" <br>
 **Then** the "\<ELEMENT NAME\>" is enabled <br>
 **Then** the "\<ELEMENT NAME\>" is disabled <br>
 **Then** the "\<ELEMENT NAME\>" is displayed <br>
@@ -3706,8 +3706,8 @@ Scenario example for Image:
 Note: this element is an alias for Image<br>
 <br>
 Validations: <br>
-**Then** the "\<IMAGE NAME\>" attribute "\<ATTRIBUTE NAME\>" equals to "\<TEXT\>" <br>
-**Then** the "\<IMAGE NAME\>" attribute "\<ATTRIBUTE NAME\>" contains "\<TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" equals to "\<TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" contains "\<TEXT\>" <br>
 **Then** the "\<ELEMENT NAME\>" is enabled <br>
 **Then** the "\<ELEMENT NAME\>" is disabled <br>
 **Then** the "\<ELEMENT NAME\>" is displayed <br>

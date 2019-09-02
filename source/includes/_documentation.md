@@ -4227,7 +4227,7 @@ When focus on "Ice Cream"
 ComboBox validation examples:
 
 Then the "Ice Cream" is enabled
-Then the "Ice Cream" selected value is "Coconut"
+Then the "Ice Cream" combobox selected value is "Coconut"
 Then the "Ice Cream" text equals to "Coconut"
 Then the "Ice Cream" text contains "Van"
 Then the "Ice Cream" text matches to "(.*)nut"
@@ -4253,7 +4253,7 @@ Scenario example:
     Scenario: Select combobox value test
         Given I open "Html5 Page"
         When select "Chocolate" field from "Ice Cream"
-        Then the "Ice Cream" selected value is "Chocolate"
+        Then the "Ice Cream" combobox selected value is "Chocolate"
 ```
 
 Actions:<br>
@@ -4268,7 +4268,7 @@ Actions:<br>
 Validations:<br>
 <br>
 **Then** the "\<ELEMENT NAME\>" is enabled<br>
-**Then** the "\<ELEMENT NAME\>" selected value is "\<VALUE\>"<br>
+**Then** the "\<ELEMENT NAME\>" combobox selected value is "\<VALUE\>"<br>
 **Then** the "\<ELEMENT NAME\>" text equals to "\<TEXT\>"<br>
 **Then** the "\<ELEMENT NAME\>" text contains "\<TEXT\>"<br>
 **Then** the "\<ELEMENT NAME\>" text matches to "\<REGEXP\>"<br>
@@ -4294,7 +4294,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 Note: this element is an alias for ComboBox
 
 ```
-ComboBox action examples:
+Datalist action examples:
 
 When select "Coconut" field from "Ice Cream"
 When select index 5 in "Ice Cream"
@@ -4304,10 +4304,10 @@ When send keys "Test" to "Ice Cream"
 When focus on "Ice Cream"
 
 
-ComboBox validation examples:
+Datalist validation examples:
 
 Then the "Ice Cream" is enabled
-Then the "Ice Cream" selected value is "Coconut"
+Then the "Ice Cream" datalist selected value is "Coconut"
 Then the "Ice Cream" text equals to "Coconut"
 Then the "Ice Cream" text contains "Van"
 Then the "Ice Cream" text matches to "(.*)nut"
@@ -4343,7 +4343,7 @@ Actions:<br>
 Validations:<br>
 <br>
 **Then** the "\<ELEMENT NAME\>" is enabled<br>
-**Then** the "\<ELEMENT NAME\>" selected value is "\<VALUE\>"<br>
+**Then** the "\<ELEMENT NAME\>" datalist selected value is "\<VALUE\>"<br>
 **Then** the "\<ELEMENT NAME\>" text equals to "\<TEXT\>"<br>
 **Then** the "\<ELEMENT NAME\>" text contains "\<TEXT\>"<br>
 **Then** the "\<ELEMENT NAME\>" text matches to "\<REGEXP\>"<br>
@@ -4361,7 +4361,7 @@ Validations:<br>
 **Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial)<br>
-[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/ComboBox.feature) for ComboBox<br><br>
+[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/DataList.feature) for DataList<br><br>
 <br><br><br><br><br><br><br><br>
 
 ### NumberSelector

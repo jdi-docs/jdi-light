@@ -8512,32 +8512,32 @@ Scenario example for TextArea:
 </code></pre>
 <p>Actions: <br></p>
 
-<p><strong>When</strong> &lt;I&gt; send keys &quot;&lt;KEYS&gt;&quot; to &quot;&lt;ELEMENT NAME&gt;&quot; <br>
+<p><strong>When</strong> &lt;I&gt; send keys &quot;&lt;TEXT&gt;&quot; to &quot;&lt;ELEMENT NAME&gt;&quot; <br>
 <strong>When</strong> &lt;I&gt; clear &quot;&lt;ELEMENT NAME&gt;&quot; <br>
 <strong>When</strong> &lt;I&gt; input &quot;&lt;TEXT&gt;&quot; in &quot;&lt;ELEMENT NAME&gt;&quot; <br>
 <strong>When</strong> &lt;I&gt; focus on &quot;&lt;ELEMENT NAME&gt;&quot; <br>
 <strong>When</strong> &lt;I&gt; set text &quot;&lt;TEXT&gt;&quot; in &quot;&lt;ELEMENT NAME&gt;&quot; <br>
 <strong>When</strong> &lt;I&gt; highlight &quot;&lt;ELEMENT NAME&gt;&quot; <br>
 <strong>When</strong> &lt;I&gt; show &quot;&lt;ELEMENT NAME&gt;&quot; <br>
-<strong>When</strong> &lt;I&gt; set &quot;&lt;ELEMENT NAME&gt;&quot; attribute &quot;&lt;ATTRIBUTE NAME&gt;&quot; with value &quot;&lt;ATTRIBUTE VALUE&gt;&quot; element <br>
+<strong>When</strong> &lt;I&gt; set &quot;&lt;ELEMENT NAME&gt;&quot; attribute &quot;&lt;ATTRIBUTE NAME&gt;&quot; with value &quot;&lt;TEXT&gt;&quot; element <br>
 <strong>When</strong> &lt;I&gt; input in the &quot;&lt;ELEMENT NAME&gt;&quot; line &quot;&lt;TEXT&gt;&quot; <br>
 <strong>When</strong> &lt;I&gt; input in the &quot;&lt;ELEMENT NAME&gt;&quot; lines <br>
 &nbsp;&nbsp;&nbsp;&nbsp;|&lt;GHERKIN DATA TABLE&gt;| <br></p>
 
 <p>Validations: <br></p>
 
-<p><strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; label text equals to &quot;&lt;LABEL TEXT&gt;&quot; <br>
-<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; label text contains &quot;&lt;LABEL TEXT&gt;&quot; <br>
-<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; label text matches to &quot;&lt;LABEL TEXT&gt;&quot; <br>
-<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; placeholder equals to &quot;&lt;PLACEHOLDER TEXT&gt;&quot; <br>
-<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; placeholder contains &quot;&lt;PLACEHOLDER TEXT&gt;&quot; <br>
-<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; placeholder matches to &quot;&lt;PLACEHOLDER TEXT&gt;&quot; <br>
+<p><strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; label text equals to &quot;&lt;TEXT&gt;&quot; <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; label text contains &quot;&lt;TEXT&gt;&quot; <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; label text matches to &quot;&lt;REGEXP&gt;&quot; <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; placeholder equals to &quot;&lt;TEXT&gt;&quot; <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; placeholder contains &quot;&lt;TEXT&gt;&quot; <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; placeholder matches to &quot;&lt;REGEXP&gt;&quot; <br>
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; text equals to &quot;&lt;TEXT&gt;&quot; <br>
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; text contains &quot;&lt;TEXT&gt;&quot; <br>
-<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; text matches to &quot;&lt;TEXT&gt;&quot; <br>
-<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; attribute &quot;&lt;ELEMENT NAME&gt;&quot; equals to &quot;&lt;ATTRIBUTE TEXT&gt;&quot; <br>
-<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; attribute &quot;&lt;ELEMENT NAME&gt;&quot; contains &quot;&lt;ATTRIBUTE TEXT&gt;&quot; <br>
-<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; attribute &quot;&lt;ELEMENT NAME&gt;&quot; matches to &quot;&lt;ATTRIBUTE TEXT&gt;&quot; <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; text matches to &quot;&lt;REGEXP&gt;&quot; <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; attribute &quot;&lt;ATTRIBUTE NAME&gt;&quot; equals to &quot;&lt;TEXT&gt;&quot; <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; attribute &quot;\ATTRIBUTE NAME&gt;&quot; contains &quot;&lt;TEXT&gt;&quot; <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; attribute &quot;&lt;ATTRIBUTE NAME&gt;&quot; matches to &quot;&lt;REGEXP&gt;&quot; <br>
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is enabled <br>
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is disabled <br>
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is displayed <br>
@@ -8663,9 +8663,9 @@ Scenario example for TextField:
 
 <p>Validations: <br></p>
 
-<p><strong>Then</strong> the &quot;ELEMENT NAME&quot; placeholder equals to &quot;PLACEHOLDER TEXT&quot; <br>
-<strong>Then</strong> the &quot;ELEMENT NAME&quot; text equals to &quot;TEXT&quot; <br>
-<strong>Then</strong> the &quot;ELEMENT NAME&quot; text is &quot;VALUE&quot; <br>
+<p><strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; placeholder equals to &quot;&lt;TEXT&gt;&quot; <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; text equals to &quot;&lt;TEXT&gt;&quot; <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; text is &quot;&lt;TEXT&gt;&quot; <br>
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is enabled <br>
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is disabled <br>
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is displayed <br>
@@ -8765,6 +8765,8 @@ Then in the "Weather" checklist checked element is "Cold"
 Then the "Weather" checklist text is "Hot option"
 Then count of selected elements in "Weather" checklist is "2"
 Then in the "Weather" checklist checked elements are:
+     | Hot option |
+     | Sunny      |
 
 Scenario example for CheckList:
 
@@ -8779,12 +8781,12 @@ Scenario: Check element via numbers test
 </code></pre>
 <p>Actions: <br></p>
 
-<p><strong>When</strong>  &lt;I&gt; check element &quot;&lt;ELEMENT NAME&gt;&quot; in &quot;&lt;ELEMENT NAME&gt;&quot; checklist <br>
-  <strong>When</strong>  &lt;I&gt; select fields from &quot;&lt;ELEMENT NAME&gt;&quot; checklist:  <br>
+<p><strong>When</strong>  &lt;I&gt; check element &quot;&lt;VALUE&gt;&quot; in &quot;&lt;ELEMENT NAME&gt;&quot; checklist <br>
+ <strong>When</strong>  &lt;I&gt; select fields from &quot;&lt;ELEMENT NAME&gt;&quot; checklist:  <br>
       &nbsp;&nbsp;&nbsp;&nbsp;|&lt;GHERKIN DATA TABLE&gt;| <br>
  <strong>When</strong>  &lt;I&gt; check elements in &quot;&lt;ELEMENT NAME&gt;&quot; checklist:  <br>
      &nbsp;&nbsp;&nbsp;&nbsp;|&lt;GHERKIN DATA TABLE&gt;| <br>
- <strong>When</strong>  &lt;I&gt; uncheck element &quot;&lt;ELEMENT NAME&gt;&quot; in &quot;&lt;ELEMENT NAME&gt;&quot; checklist <br>
+ <strong>When</strong>  &lt;I&gt; uncheck element &quot;&lt;VALUE&gt;&quot; in &quot;&lt;ELEMENT NAME&gt;&quot; checklist <br>
  <strong>When</strong>  &lt;I&gt; uncheck in &quot;&lt;ELEMENT NAME&gt;&quot; checklist elements:  <br>
      &nbsp;&nbsp;&nbsp;&nbsp;|&lt;GHERKIN DATA TABLE&gt;| <br>
  <strong>When</strong>  &lt;I&gt; uncheck in &quot;&lt;ELEMENT NAME&gt;&quot; checklist elements by numbers: <br>
@@ -8801,8 +8803,8 @@ Scenario: Check element via numbers test
 
 <p>Validations: <br></p>
 
-<p><strong>Then</strong> in the &quot;&lt;ELEMENT NAME&gt;&quot; checklist checked element is &quot;&lt;ELEMENT NAME&gt;&quot; <br>
-<strong>Then</strong> Count of selected elements in &quot;&lt;ELEMENT NAME&gt;&quot; checklist is &quot;&lt;COUNT&gt;&quot; <br>
+<p><strong>Then</strong> in the &quot;&lt;ELEMENT NAME&gt;&quot; checklist checked element is &quot;&lt;VALUE&gt;&quot; <br>
+<strong>Then</strong> count of selected elements in &quot;&lt;ELEMENT NAME&gt;&quot; checklist is &quot;&lt;COUNT&gt;&quot; <br>
 <strong>Then</strong> in the &quot;&lt;ELEMENT NAME&gt;&quot; checklist checked element are: <br>
     &nbsp;&nbsp;&nbsp;&nbsp;|&lt;GHERKIN DATA TABLE&gt;|<br>
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; checklist text is &quot;&lt;ELEMENT NAME&gt;&quot; <br>
@@ -8811,7 +8813,7 @@ Scenario: Check element via numbers test
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is displayed <br>
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is hidden    <br>
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; does not appear <br>
-<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; does not appear during &quot;&lt;NUMBER&gt;&quot; seconds <br></p>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; does not appear during &quot;&lt;SECONDS&gt;&quot; seconds <br></p>
 
 <p>More information in the <a href="https://jdi-docs.github.io/jdi-light/?java#checklist"><strong>Tutorial</strong></a><br>
 <a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/CheckList.feature"><strong>Cucumber tests</strong></a> for CheckList<br></p>

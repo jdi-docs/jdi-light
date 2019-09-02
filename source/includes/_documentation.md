@@ -74,7 +74,7 @@ Label's implementation is located in the following classes:
 **Label()** | Creates label for element using the element's Id | Label 
 **LabelText()** | Gets the text of a label | string 
  
-[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/TextFieldsTests.cs) 
+[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/LabelsTests.cs) 
 
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/LabelTests.java) 
 
@@ -1695,7 +1695,8 @@ Here is the list of some available methods:
 
 [C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Complex/RadioButtonsTests.cs)
 
-[BDD Steps example](https://jdi-docs.github.io/jdi-light/#radiobuttons-2)
+[BDD Steps example](https://jdi-docs.github.io/jdi-light/#radiobuttons-2) <br>
+
 ### Table
 
 **Table** – a complex element that consists of header, body (at least one row and one column) and footer. You are able to perform a list of readonly interactions with this element.
@@ -2287,7 +2288,9 @@ DataTableAssert methods in Java:
 **shouldBe()** | Applicable for performing assert actions for tables | DataTableAssert
 **waitFor()** | Applicable for performing assert actions for tables | DataTableAssert
 
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-examples/src/test/java/io/github/epam/tests/recommended/DataTableTests.java)
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-examples/src/test/java/io/github/epam/tests/recommended/DataTableTests.java)<br>
+
+[BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#datatable-2)
 
 ### DropDown
 
@@ -2592,6 +2595,7 @@ The list of available methods for Java JDI Light:
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/MultiDropdownTests.java)
 
 [C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Composite/MultiDropdownTests.cs)<br>
+
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#multidropdown-2)<br>
 ### DataList
 
@@ -2731,6 +2735,8 @@ Available list of assert methods:
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/DataListTests.java)
 
 [C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DataListTests.cs)
+
+[BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#datalist-2)
 
 ### CheckList
 **CheckList** – a graphical control element representing a set of checkboxes, each of which allows the user to control a two-state parameter (enabled or disabled).
@@ -3489,6 +3495,13 @@ Label validation examples:
 Then the "JDI Title" text equals to "JDI TESTING PLATFORM"
 Then the "JDI Title" text contains "JDI"
 Then the "JDI Title" text matches to ".* TESTING .*"
+Then the "JDI Title" is enabled 
+Then the "JDI Title" is disabled 
+Then the "JDI Title" is displayed 
+Then the "JDI Title" disappears 
+Then the "JDI Title" is hidden 
+Then the "JDI Title" does not appear 
+Then the "JDI Title" does not appear during "5" seconds 
 
 Scenario example for Label:
 
@@ -3505,6 +3518,13 @@ Validations: <br>
 **Then** the "\<ELEMENT NAME\>" text equals to "\<TEXT\>" <br>
 **Then** the "\<ELEMENT NAME\>" text contains "\<TEXT\>" <br>
 **Then** the "\<ELEMENT NAME\>" text matches to "\<REGEXP\>" <br>
+**Then** the "\<ELEMENT NAME\>" is enabled <br>
+**Then** the "\<ELEMENT NAME\>" is disabled <br>
+**Then** the "\<ELEMENT NAME\>" is displayed <br>
+**Then** the "\<ELEMENT NAME\>" disappears <br>
+**Then** the "\<ELEMENT NAME\>" is hidden <br>
+**Then** the "\<ELEMENT NAME\>" does not appear <br>
+**Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa)<br>
 [**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Label.feature) for Label<br>
@@ -3563,6 +3583,55 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 
 <br><br><br><br><br><br>
 
+### DropDown
+
+```
+DropDown action example:
+
+When I Select "Pirate" field from "Drop Down"
+
+
+DropDown validation examples:
+
+Then the "Pirate" in "Drop Down" is selected
+Then the "Drop Down" is enabled 
+Then the "Drop Down" is disabled 
+Then the "Drop Down" is displayed 
+Then the "Drop Down" disappears 
+Then the "Drop Down" is hidden 
+Then the "Drop Down" does not appear 
+Then the "Drop Down" does not appear during "5" seconds 
+
+
+Scenario example for DropDown:
+
+  Scenario: Selected Test
+    Given I open "Html5 Page"
+    When I Select "Pirate" field from "Dress Code"
+    Then the "Pirate" in "Dress Code" is selected
+    
+```
+
+Actions: <br>
+
+**When** \<I\> select "\<TEXT\>" field from "\<ELEMENT NAME\>"<br>
+<br><br>
+Validations: <br>
+
+**Then** the "\<TEXT\>" in "\<ELEMENT NAME>" is selected <br>
+**Then** the "\<ELEMENT NAME\>" is enabled <br>
+**Then** the "\<ELEMENT NAME\>" is disabled <br>
+**Then** the "\<ELEMENT NAME\>" is displayed <br>
+**Then** the "\<ELEMENT NAME\>" disappears <br>
+**Then** the "\<ELEMENT NAME\>" is hidden <br>
+**Then** the "\<ELEMENT NAME\>" does not appear <br>
+**Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
+
+More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial)<br>
+[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/DropDown.feature) for DropDown<br>
+
+<br><br><br><br><br>
+
 ### Image
 
 ````
@@ -3593,8 +3662,8 @@ Scenario example for Image:
 ````
 
 Validations: <br>
-**Then** the "\<IMAGE NAME\>" attribute "\<ATTRIBUTE NAME\>" equals to "\<TEXT\>" <br>
-**Then** the "\<IMAGE NAME\>" attribute "\<ATTRIBUTE NAME\>" contains "\<TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" equals to "\<TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" contains "\<TEXT\>" <br>
 **Then** the "\<ELEMENT NAME\>" is enabled <br>
 **Then** the "\<ELEMENT NAME\>" is disabled <br>
 **Then** the "\<ELEMENT NAME\>" is displayed <br>
@@ -3639,8 +3708,8 @@ Scenario example for Image:
 Note: this element is an alias for Image<br>
 <br>
 Validations: <br>
-**Then** the "\<IMAGE NAME\>" attribute "\<ATTRIBUTE NAME\>" equals to "\<TEXT\>" <br>
-**Then** the "\<IMAGE NAME\>" attribute "\<ATTRIBUTE NAME\>" contains "\<TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" equals to "\<TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" contains "\<TEXT\>" <br>
 **Then** the "\<ELEMENT NAME\>" is enabled <br>
 **Then** the "\<ELEMENT NAME\>" is disabled <br>
 **Then** the "\<ELEMENT NAME\>" is displayed <br>
@@ -5107,42 +5176,38 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 ```
 Radiobuttons actions examples:
 
-When I select "Blue" field from "Colors"
-When select the radio button with "1" index from "Colors" 
-When I highlight "Colors"	
-When set "Colors" attribute "test-jdi" with value "test-value" 
-
-
-
+**When** I select "Blue" field from "Colors"
+**When** select the radio button with "1" index from "Colors" 
+**When** I highlight "Colors"	
+**When** set "Colors" attribute "test-jdi" with value "test-value" 
 
 Radiobuttons validation examples:
 
-Then the "Colors" text equals to "Blue"	
-Then the "Colors" text contains "Blue"	
-Then the "Colors" text matches to "\w{15}" 
-Then the "Colors" is enabled 
-Then the "Colors" is disabled 
-Then the "Colors" is displayed 
-Then the "Colors" is hidden 
-Then the "Colors" disappears 
-Then the "Colors" does not appear 
-Then the "Colors" does not appear during "2" seconds 
-Then the "Colors" css "type" equals to "radio" 
-Then the "Colors" consists of next values 
-Then the "Colors" contains "Blue" radio button 
-Then the "Colors" contains "Yellow" disabled radio button 
-Then the "Colors" does not contain "Yellow" enabled radio button 
-Then the "Colors" contains next enabled values: 
+**Then** the "Colors" text equals to "Blue"	
+**Then** the "Colors" text contains "Blue"	
+**Then** the "Colors" text matches to "\w{15}" 
+**Then** the "Colors" is enabled 
+**Then** the "Colors" is disabled 
+**Then** the "Colors" is displayed 
+**Then** the "Colors" is hidden 
+**Then** the "Colors" disappears 
+**Then** the "Colors" does not appear 
+**Then** the "Colors" does not appear during "2" seconds 
+**Then** the "Colors" css "type" equals to "radio" 
+**Then** the "Colors" consists of next values 
+**Then** the "Colors" contains "Blue" radio button 
+**Then** the "Colors" contains "Yellow" disabled radio button 
+**Then** the "Colors" does not contain "Yellow" enabled radio button 
+**Then** the "Colors" contains next enabled values: 
 	| Red | Green | Blue | Yellow |
 
 Scenario example for Radiobuttons:
 
  Given I open "Html5 Page" page
- Then the "Colors" is displayed 
- And the "Colors" consists of next values:
+ Then the "Html5 Page.Colors" consists of next values:
       | Red | Green | Blue | Yellow |
- When I Select "Blue" field from "Colors"
- Then the "Colors" text equals to "Blue"
+ When I Select "Blue" field from "Html5 Page.Colors"
+ Then the "Html5 Page.Colors" text equals to "Blue"
 
 
 
@@ -5163,7 +5228,7 @@ Validations: <br><br>
 **Then** the "\<ELEMENT NAME\>" is hidden <br>
 **Then** the "\<ELEMENT NAME\>" disappears <br>
 **Then** the "\<ELEMENT NAME\>" does not appear <br>
-**Then** the "\<ELEMENT NAME\>" does not appear during "\<TIME\>" seconds <br>
+**Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
 **Then** the "\<ELEMENT NAME\>" css "\<ATTRIBUTE NAME\>" equals to "\<TEXT\>" <br>
 **Then** the "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" equals to "\<TEXT\>" <br>
 **Then** the "\<ELEMENT NAME\>" consists of next values <br>

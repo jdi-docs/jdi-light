@@ -1695,6 +1695,7 @@ Here is the list of some available methods:
 
 [C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Complex/RadioButtonsTests.cs)
 
+[BDD Steps example](https://jdi-docs.github.io/jdi-light/#radiobuttons-2)
 ### Table
 
 **Table** – a complex element that consists of header, body (at least one row and one column) and footer. You are able to perform a list of readonly interactions with this element.
@@ -5106,38 +5107,42 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 ```
 Radiobuttons actions examples:
 
-**When** I select "Blue" field from "Colors"
-**When** select the radio button with "1" index from "Colors" 
-**When** I highlight "Colors"	
-**When** set "Colors" attribute "test-jdi" with value "test-value" 
+When I select "Blue" field from "Colors"
+When select the radio button with "1" index from "Colors" 
+When I highlight "Colors"	
+When set "Colors" attribute "test-jdi" with value "test-value" 
+
+
+
 
 Radiobuttons validation examples:
 
-**Then** the "Colors" text equals to "Blue"	
-**Then** the "Colors" text contains "Blue"	
-**Then** the "Colors" text matches to "\w{15}" 
-**Then** the "Colors" is enabled 
-**Then** the "Colors" is disabled 
-**Then** the "Colors" is displayed 
-**Then** the "Colors" is hidden 
-**Then** the "Colors" disappears 
-**Then** the "Colors" does not appear 
-**Then** the "Colors" does not appear during "2" seconds 
-**Then** the "Colors" css "type" equals to "radio" 
-**Then** the "Colors" consists of next values 
-**Then** the "Colors" contains "Blue" radio button 
-**Then** the "Colors" contains "Yellow" disabled radio button 
-**Then** the "Colors" does not contain "Yellow" enabled radio button 
-**Then** the "Colors" contains next enabled values: 
+Then the "Colors" text equals to "Blue"	
+Then the "Colors" text contains "Blue"	
+Then the "Colors" text matches to "\w{15}" 
+Then the "Colors" is enabled 
+Then the "Colors" is disabled 
+Then the "Colors" is displayed 
+Then the "Colors" is hidden 
+Then the "Colors" disappears 
+Then the "Colors" does not appear 
+Then the "Colors" does not appear during "2" seconds 
+Then the "Colors" css "type" equals to "radio" 
+Then the "Colors" consists of next values 
+Then the "Colors" contains "Blue" radio button 
+Then the "Colors" contains "Yellow" disabled radio button 
+Then the "Colors" does not contain "Yellow" enabled radio button 
+Then the "Colors" contains next enabled values: 
 	| Red | Green | Blue | Yellow |
 
 Scenario example for Radiobuttons:
 
  Given I open "Html5 Page" page
- Then the "Html5 Page.Colors" consists of next values:
+ Then the "Colors" is displayed 
+ And the "Colors" consists of next values:
       | Red | Green | Blue | Yellow |
- When I Select "Blue" field from "Html5 Page.Colors"
- Then the "Html5 Page.Colors" text equals to "Blue"
+ When I Select "Blue" field from "Colors"
+ Then the "Colors" text equals to "Blue"
 
 
 

@@ -8850,12 +8850,18 @@ Scenario: Check element via numbers test
 <a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/CheckList.feature"><strong>Cucumber tests</strong></a> for CheckList<br></p>
 
 <p><br><br><br><br><br><br><br><br><br><br><br></p>
-<h3 id='table-2'>Table</h3><pre class="highlight plaintext"><code>Table validation examples:
+<h3 id='table-2'>Table</h3><pre class="highlight plaintext"><code>Table actions examples:
+
+When I click the cell in row "2" in column "2" of the table "Simple Table"
+
+Table validation examples:
 
 Then the "Users Table" is enabled
 Then the "Users Table" is disabled
 Then the "Users Table" is displayed
 Then the "Users Table" is hidden
+Then the cell in row "1" in column "3" of the table "Simple Table" is selected
+Then the cell in row "1" in column "3" of the table "Simple Table" is deselected
 Then the "Users Table" does not appear
 Then the "Users Table" does not appear during "5" seconds
 Then the "Users Table" table columns count equals "4"
@@ -8893,12 +8899,18 @@ Scenario examples for Table:
     And the "Users Table" table is not empty
 
 </code></pre>
+<p>Actions: <br></p>
+
+<p><strong>When</strong> &lt;I&gt; click the cell in row &lt;ROW NUMBER&gt; in column &lt;COLUMN NUMBER&gt; of the table &lt;ELEMENT&gt;<br></p>
+
 <p>Validations: <br></p>
 
 <p><strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is enabled <br>
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is disabled <br>
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is displayed <br>
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is hidden <br>
+<strong>Then</strong> the cell in row &lt;ROW NUMBER&gt; in column &lt;COLUMN NUMBER&gt; of the table &lt;ELEMENT&gt; is selected <br>
+<strong>Then</strong> the cell in row &lt;ROW NUMBER&gt; in column &lt;COLUMN NUMBER&gt; of the table &lt;ELEMENT&gt; is deselected <br>
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; does not appear <br>
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; does not appear during &quot;&lt;SECONDS&gt;&quot; seconds <br>
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; table columns count equals &quot;&lt;COUNT&gt;&quot; <br>

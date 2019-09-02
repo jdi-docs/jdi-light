@@ -4967,6 +4967,10 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 <br><br><br><br><br><br><br><br><br><br><br>
 
 ### Table
+```
+Table actions examples:
+
+When I click the cell in row "2" in column "2" of the table "Simple Table"
 
 ```
 Table validation examples:
@@ -4976,6 +4980,8 @@ Then the "Users Table" is disabled
 Then the "Users Table" is displayed
 Then the "Users Table" is hidden
 Then the "Users Table" does not appear
+Then the "Users Table" is selected
+Then the "Users Table" is deselected
 Then the "Users Table" does not appear during "5" seconds
 Then the "Users Table" table columns count equals "4"
 Then the "Users Table" table rows count equals "6"
@@ -5012,6 +5018,9 @@ Scenario examples for Table:
     And the "Users Table" table is not empty
 
 ```
+Actions: <br>
+
+ **When** \<I\> click the cell in row \<ROW NUMBER\> in column \<COLUMN NUMBER\> of the table \<ELEMENT\><br>
 
 Validations: <br>
 
@@ -5019,6 +5028,8 @@ Validations: <br>
 **Then** the "\<ELEMENT NAME\>" is disabled <br>
 **Then** the "\<ELEMENT NAME\>" is displayed <br>
 **Then** the "\<ELEMENT NAME\>" is hidden <br>
+**Then** the "\<ELEMENT NAME\>" is selected <br>
+**Then** the "\<ELEMENT NAME\>" is deselected <br>
 **Then** the "\<ELEMENT NAME\>" does not appear <br>
 **Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
 **Then** the "\<ELEMENT NAME\>" table columns count equals "\<COUNT\>" <br>

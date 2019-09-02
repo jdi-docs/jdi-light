@@ -4969,12 +4969,18 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 ### Table
 
 ```
+Table actions examples:
+
+When I click the cell in row "2" in column "2" of the table "Simple Table"
+
 Table validation examples:
 
 Then the "Users Table" is enabled
 Then the "Users Table" is disabled
 Then the "Users Table" is displayed
 Then the "Users Table" is hidden
+Then the cell in row "1" in column "3" of the table "Simple Table" is selected
+Then the cell in row "1" in column "3" of the table "Simple Table" is deselected
 Then the "Users Table" does not appear
 Then the "Users Table" does not appear during "5" seconds
 Then the "Users Table" table columns count equals "4"
@@ -5012,13 +5018,18 @@ Scenario examples for Table:
     And the "Users Table" table is not empty
 
 ```
+Actions: <br>
 
+ **When** \<I\> click the cell in row \<ROW NUMBER\> in column \<COLUMN NUMBER\> of the table \<ELEMENT\><br>
+ 
 Validations: <br>
 
 **Then** the "\<ELEMENT NAME\>" is enabled <br>
 **Then** the "\<ELEMENT NAME\>" is disabled <br>
 **Then** the "\<ELEMENT NAME\>" is displayed <br>
 **Then** the "\<ELEMENT NAME\>" is hidden <br>
+**Then** the cell in row \<ROW NUMBER\> in column \<COLUMN NUMBER\> of the table \<ELEMENT\> is selected <br>
+**Then** the cell in row \<ROW NUMBER\> in column \<COLUMN NUMBER\> of the table \<ELEMENT\> is deselected <br>
 **Then** the "\<ELEMENT NAME\>" does not appear <br>
 **Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
 **Then** the "\<ELEMENT NAME\>" table columns count equals "\<COUNT\>" <br>

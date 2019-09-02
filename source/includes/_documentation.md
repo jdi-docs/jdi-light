@@ -4600,32 +4600,32 @@ Scenario example for TextArea:
 
 Actions: <br>
 
-**When** \<I\> send keys "\<KEYS\>" to "\<ELEMENT NAME\>" <br>
+**When** \<I\> send keys "\<TEXT\>" to "\<ELEMENT NAME\>" <br>
 **When** \<I\> clear "\<ELEMENT NAME\>" <br>
 **When** \<I\> input "\<TEXT\>" in "\<ELEMENT NAME\>" <br>
 **When** \<I\> focus on "\<ELEMENT NAME\>" <br>
 **When** \<I\> set text "\<TEXT\>" in "\<ELEMENT NAME\>" <br>
 **When** \<I\> highlight "\<ELEMENT NAME\>" <br>
 **When** \<I\> show "\<ELEMENT NAME\>" <br>
-**When** \<I\> set "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" with value "\<ATTRIBUTE VALUE\>" element <br>
+**When** \<I\> set "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" with value "\<TEXT\>" element <br>
 **When** \<I\> input in the "\<ELEMENT NAME\>" line "\<TEXT\>" <br>
 **When** \<I\> input in the "\<ELEMENT NAME\>" lines <br>
 &nbsp;&nbsp;&nbsp;&nbsp;|\<GHERKIN DATA TABLE\>| <br>
 
 Validations: <br>
 
-**Then** the "\<ELEMENT NAME\>" label text equals to "\<LABEL TEXT\>" <br>
-**Then** the "\<ELEMENT NAME\>" label text contains "\<LABEL TEXT\>" <br>
-**Then** the "\<ELEMENT NAME\>" label text matches to "\<LABEL TEXT\>" <br>
-**Then** the "\<ELEMENT NAME\>" placeholder equals to "\<PLACEHOLDER TEXT\>" <br>
-**Then** the "\<ELEMENT NAME\>" placeholder contains "\<PLACEHOLDER TEXT\>" <br>
-**Then** the "\<ELEMENT NAME\>" placeholder matches to "\<PLACEHOLDER TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" label text equals to "\<TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" label text contains "\<TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" label text matches to "\<REGEXP\>" <br>
+**Then** the "\<ELEMENT NAME\>" placeholder equals to "\<TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" placeholder contains "\<TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" placeholder matches to "\<REGEXP\>" <br>
 **Then** the "\<ELEMENT NAME\>" text equals to "\<TEXT\>" <br>
 **Then** the "\<ELEMENT NAME\>" text contains "\<TEXT\>" <br>
-**Then** the "\<ELEMENT NAME\>" text matches to "\<TEXT\>" <br>
-**Then** the "\<ELEMENT NAME\>" attribute "\<ELEMENT NAME\>" equals to "\<ATTRIBUTE TEXT\>" <br>
-**Then** the "\<ELEMENT NAME\>" attribute "\<ELEMENT NAME\>" contains "\<ATTRIBUTE TEXT\>" <br>
-**Then** the "\<ELEMENT NAME\>" attribute "\<ELEMENT NAME\>" matches to "\<ATTRIBUTE TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" text matches to "\<REGEXP\>" <br>
+**Then** the "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" equals to "\<TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" attribute "\ATTRIBUTE NAME\>" contains "\<TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" matches to "\<REGEXP\>" <br>
 **Then** the "\<ELEMENT NAME\>" is enabled <br>
 **Then** the "\<ELEMENT NAME\>" is disabled <br>
 **Then** the "\<ELEMENT NAME\>" is displayed <br>
@@ -4760,9 +4760,9 @@ Actions: <br>
 
 Validations: <br>
 
-**Then** the "ELEMENT NAME" placeholder equals to "PLACEHOLDER TEXT" <br>
-**Then** the "ELEMENT NAME" text equals to "TEXT" <br>
-**Then** the "ELEMENT NAME" text is "VALUE" <br>
+**Then** the "\<ELEMENT NAME\>" placeholder equals to "\<TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" text equals to "\<TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" text is "\<TEXT\>" <br>
 **Then** the "\<ELEMENT NAME\>" is enabled <br>
 **Then** the "\<ELEMENT NAME\>" is disabled <br>
 **Then** the "\<ELEMENT NAME\>" is displayed <br>
@@ -4877,6 +4877,8 @@ Then in the "Weather" checklist checked element is "Cold"
 Then the "Weather" checklist text is "Hot option"
 Then count of selected elements in "Weather" checklist is "2"
 Then in the "Weather" checklist checked elements are:
+     | Hot option |
+     | Sunny      |
 
 Scenario example for CheckList:
 
@@ -4891,12 +4893,12 @@ Scenario: Check element via numbers test
 ```
 Actions: <br>
 
- **When**  \<I\> check element "\<ELEMENT NAME\>" in "\<ELEMENT NAME\>" checklist <br>
-  **When**  \<I\> select fields from "\<ELEMENT NAME\>" checklist:  <br>
+ **When**  \<I\> check element "\<VALUE\>" in "\<ELEMENT NAME\>" checklist <br>
+ **When**  \<I\> select fields from "\<ELEMENT NAME\>" checklist:  <br>
       &nbsp;&nbsp;&nbsp;&nbsp;|\<GHERKIN DATA TABLE\>| <br>
  **When**  \<I\> check elements in "\<ELEMENT NAME\>" checklist:  <br>
      &nbsp;&nbsp;&nbsp;&nbsp;|\<GHERKIN DATA TABLE\>| <br>
- **When**  \<I\> uncheck element "\<ELEMENT NAME\>" in "\<ELEMENT NAME\>" checklist <br>
+ **When**  \<I\> uncheck element "\<VALUE\>" in "\<ELEMENT NAME\>" checklist <br>
  **When**  \<I\> uncheck in "\<ELEMENT NAME\>" checklist elements:  <br>
      &nbsp;&nbsp;&nbsp;&nbsp;|\<GHERKIN DATA TABLE\>| <br>
  **When**  \<I\> uncheck in "\<ELEMENT NAME\>" checklist elements by numbers: <br>
@@ -4913,8 +4915,8 @@ Actions: <br>
  
 Validations: <br>
 
-**Then** in the "\<ELEMENT NAME\>" checklist checked element is "\<ELEMENT NAME\>" <br>
-**Then** Count of selected elements in "\<ELEMENT NAME\>" checklist is "\<COUNT\>" <br>
+**Then** in the "\<ELEMENT NAME\>" checklist checked element is "\<VALUE\>" <br>
+**Then** count of selected elements in "\<ELEMENT NAME\>" checklist is "\<COUNT\>" <br>
 **Then** in the "\<ELEMENT NAME\>" checklist checked element are: <br>
     &nbsp;&nbsp;&nbsp;&nbsp;|\<GHERKIN DATA TABLE\>|<br>
 **Then** the "\<ELEMENT NAME\>" checklist text is "\<ELEMENT NAME\>" <br>
@@ -4923,7 +4925,7 @@ Validations: <br>
 **Then** the "\<ELEMENT NAME\>" is displayed <br>
 **Then** the "\<ELEMENT NAME\>" is hidden	 <br>
 **Then** the "\<ELEMENT NAME\>" does not appear	<br>
-**Then** the "\<ELEMENT NAME\>" does not appear during "\<NUMBER\>" seconds <br>
+**Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
 
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#checklist)<br>

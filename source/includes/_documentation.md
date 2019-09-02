@@ -74,7 +74,7 @@ Label's implementation is located in the following classes:
 **Label()** | Creates label for element using the element's Id | Label 
 **LabelText()** | Gets the text of a label | string 
  
-[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/TextFieldsTests.cs) 
+[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/LabelsTests.cs) 
 
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/LabelTests.java) 
 
@@ -3488,6 +3488,13 @@ Label validation examples:
 Then the "JDI Title" text equals to "JDI TESTING PLATFORM"
 Then the "JDI Title" text contains "JDI"
 Then the "JDI Title" text matches to ".* TESTING .*"
+Then the "JDI Title" is enabled 
+Then the "JDI Title" is disabled 
+Then the "JDI Title" is displayed 
+Then the "JDI Title" disappears 
+Then the "JDI Title" is hidden 
+Then the "JDI Title" does not appear 
+Then the "JDI Title" does not appear during "5" seconds 
 
 Scenario example for Label:
 
@@ -3504,6 +3511,13 @@ Validations: <br>
 **Then** the "\<ELEMENT NAME\>" text equals to "\<TEXT\>" <br>
 **Then** the "\<ELEMENT NAME\>" text contains "\<TEXT\>" <br>
 **Then** the "\<ELEMENT NAME\>" text matches to "\<REGEXP\>" <br>
+**Then** the "\<ELEMENT NAME\>" is enabled <br>
+**Then** the "\<ELEMENT NAME\>" is disabled <br>
+**Then** the "\<ELEMENT NAME\>" is displayed <br>
+**Then** the "\<ELEMENT NAME\>" disappears <br>
+**Then** the "\<ELEMENT NAME\>" is hidden <br>
+**Then** the "\<ELEMENT NAME\>" does not appear <br>
+**Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa)<br>
 [**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Label.feature) for Label<br>
@@ -3561,6 +3575,55 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 [**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/ColorPicker.feature) for ColorPicker<br>
 
 <br><br><br><br><br><br>
+
+### DropDown
+
+```
+DropDown action example:
+
+When I Select "Pirate" field from "Drop Down"
+
+
+DropDown validation examples:
+
+Then the "Pirate" in "Drop Down" is selected
+Then the "Drop Down" is enabled 
+Then the "Drop Down" is disabled 
+Then the "Drop Down" is displayed 
+Then the "Drop Down" disappears 
+Then the "Drop Down" is hidden 
+Then the "Drop Down" does not appear 
+Then the "Drop Down" does not appear during "5" seconds 
+
+
+Scenario example for DropDown:
+
+  Scenario: Selected Test
+    Given I open "Html5 Page"
+    When I Select "Pirate" field from "Dress Code"
+    Then the "Pirate" in "Dress Code" is selected
+    
+```
+
+Actions: <br>
+
+**When** \<I\> select "\<TEXT\>" field from "\<ELEMENT NAME\>"<br>
+<br><br>
+Validations: <br>
+
+**Then** the "\<TEXT\>" in "\<ELEMENT NAME>" is selected <br>
+**Then** the "\<ELEMENT NAME\>" is enabled <br>
+**Then** the "\<ELEMENT NAME\>" is disabled <br>
+**Then** the "\<ELEMENT NAME\>" is displayed <br>
+**Then** the "\<ELEMENT NAME\>" disappears <br>
+**Then** the "\<ELEMENT NAME\>" is hidden <br>
+**Then** the "\<ELEMENT NAME\>" does not appear <br>
+**Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
+
+More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial)<br>
+[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/DropDown.feature) for DropDown<br>
+
+<br><br><br><br><br>
 
 ### Image
 

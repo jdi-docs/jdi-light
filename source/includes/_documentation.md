@@ -5176,29 +5176,29 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 ```
 Radiobuttons actions examples:
 
-**When** I select "Blue" field from "Colors"
-**When** select the radio button with "1" index from "Colors" 
-**When** I highlight "Colors"	
-**When** set "Colors" attribute "test-jdi" with value "test-value" 
+When I select "Blue" field from "Colors"
+When select the radio button with "1" index from "Colors" 
+When I highlight "Colors"	
+When set "Colors" attribute "test-jdi" with value "test-value" 
 
 Radiobuttons validation examples:
 
-**Then** the "Colors" text equals to "Blue"	
-**Then** the "Colors" text contains "Blue"	
-**Then** the "Colors" text matches to "\w{15}" 
-**Then** the "Colors" is enabled 
-**Then** the "Colors" is disabled 
-**Then** the "Colors" is displayed 
-**Then** the "Colors" is hidden 
-**Then** the "Colors" disappears 
-**Then** the "Colors" does not appear 
-**Then** the "Colors" does not appear during "2" seconds 
-**Then** the "Colors" css "type" equals to "radio" 
-**Then** the "Colors" consists of next values 
-**Then** the "Colors" contains "Blue" radio button 
-**Then** the "Colors" contains "Yellow" disabled radio button 
-**Then** the "Colors" does not contain "Yellow" enabled radio button 
-**Then** the "Colors" contains next enabled values: 
+Then the "Colors" text equals to "Blue"	
+Then the "Colors" text contains "Blue"	
+Then the "Colors" text matches to "\w{15}" 
+Then the "Colors" is enabled 
+Then the "Colors" is disabled 
+Then the "Colors" is displayed 
+Then the "Colors" is hidden 
+Then the "Colors" disappears 
+Then the "Colors" does not appear 
+Then the "Colors" does not appear during "2" seconds 
+Then the "Colors" css "type" equals to "radio" 
+Then the "Colors" consists of next values 
+Then the "Colors" contains "Blue" radio button 
+Then the "Colors" contains "Yellow" disabled radio button 
+Then the "Colors" does not contain "Yellow" enabled radio button 
+Then the "Colors" contains next enabled values: 
 	| Red | Green | Blue | Yellow |
 
 Scenario example for Radiobuttons:
@@ -5213,29 +5213,29 @@ Scenario example for Radiobuttons:
 
 ```
 Actions: <br><br>
-When \<I\> select "TEXT" field from "\<ELEMENT NAME\>" <br>
-When \<I\> select the radio button with "\<INDEX\>" index from "\<ELEMENT NAME\>" <br>
-When \<I\> highlight "\<ELEMENT NAME\>"	<br>
-When \<I\> set "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" with value "\<ATTRIBUTE VALUE\>" <br>
+**When** \<I\> select "TEXT" field from "\<ELEMENT NAME\>" <br>
+**When** \<I\> select the radio button with "\<INDEX\>" index from "\<ELEMENT NAME\>" <br>
+**When** \<I\> highlight "\<ELEMENT NAME\>"	<br>
+**When** \<I\> set "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" with value "\<ATTRIBUTE VALUE\>" <br>
  
 Validations: <br><br>
-Then the "\<ELEMENT NAME\>" text equals to "\<TEXT\>"	<br>
-Then the "\<ELEMENT NAME\>" text contains "\<TEXT\>"	<br>
-Then the "\<ELEMENT NAME\>" text matches to "\<REGEXP\>" <br>
-Then the "\<ELEMENT NAME\>" is enabled <br>
-Then the "\<ELEMENT NAME\>" is disabled <br>
-Then the "\<ELEMENT NAME\>" is displayed <br>
-Then the "\<ELEMENT NAME\>" is hidden <br>
-Then the "\<ELEMENT NAME\>" disappears <br>
-Then the "\<ELEMENT NAME\>" does not appear <br>
-Then the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
-Then the "\<ELEMENT NAME\>" css "\<ATTRIBUTE NAME\>" equals to "\<TEXT\>" <br>
-Then the "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" equals to "\<TEXT\>" <br>
-Then the "\<ELEMENT NAME\>" consists of next values <br>
-Then the "\<ELEMENT NAME\>" contains "\<TEXT\>" radio button <br>
-Then the "\<ELEMENT NAME\>" contains "\<TEXT\>" disabled radio button <br>
-Then the "\<ELEMENT NAME\>" does not contain "\<TEXT\>" enabled radio button <br>
-Then the "\<ELEMENT NAME\>" contains next enabled values: <br>
+**Then** the "\<ELEMENT NAME\>" text equals to "\<TEXT\>"	<br>
+**Then** the "\<ELEMENT NAME\>" text contains "\<TEXT\>"	<br>
+**Then** the "\<ELEMENT NAME\>" text matches to "\<REGEXP\>" <br>
+**Then** the "\<ELEMENT NAME\>" is enabled <br>
+**Then** the "\<ELEMENT NAME\>" is disabled <br>
+**Then** the "\<ELEMENT NAME\>" is displayed <br>
+**Then** the "\<ELEMENT NAME\>" is hidden <br>
+**Then** the "\<ELEMENT NAME\>" disappears <br>
+**Then** the "\<ELEMENT NAME\>" does not appear <br>
+**Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
+**Then** the "\<ELEMENT NAME\>" css "\<ATTRIBUTE NAME\>" equals to "\<TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" equals to "\<TEXT\>" <br>
+**Then** the "\<ELEMENT NAME\>" consists of next values <br>
+**Then** the "\<ELEMENT NAME\>" contains "\<TEXT\>" radio button <br>
+**Then** the "\<ELEMENT NAME\>" contains "\<TEXT\>" disabled radio button <br>
+**Then** the "\<ELEMENT NAME\>" does not contain "\<TEXT\>" enabled radio button <br>
+**Then** the "\<ELEMENT NAME\>" contains next enabled values: <br>
     |"\<RADIO_3\>" | "\<RADIO_2\>" | "\<RADIO_3\>" |
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)<br>

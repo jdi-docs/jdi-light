@@ -9044,29 +9044,29 @@ Form scenario example:
 <p><br></p>
 <h3 id='radiobuttons-2'>Radiobuttons</h3><pre class="highlight plaintext"><code>Radiobuttons actions examples:
 
-**When** I select "Blue" field from "Colors"
-**When** select the radio button with "1" index from "Colors" 
-**When** I highlight "Colors"   
-**When** set "Colors" attribute "test-jdi" with value "test-value" 
+When I select "Blue" field from "Colors"
+When select the radio button with "1" index from "Colors" 
+When I highlight "Colors"   
+When set "Colors" attribute "test-jdi" with value "test-value" 
 
 Radiobuttons validation examples:
 
-**Then** the "Colors" text equals to "Blue" 
-**Then** the "Colors" text contains "Blue"  
-**Then** the "Colors" text matches to "\w{15}" 
-**Then** the "Colors" is enabled 
-**Then** the "Colors" is disabled 
-**Then** the "Colors" is displayed 
-**Then** the "Colors" is hidden 
-**Then** the "Colors" disappears 
-**Then** the "Colors" does not appear 
-**Then** the "Colors" does not appear during "2" seconds 
-**Then** the "Colors" css "type" equals to "radio" 
-**Then** the "Colors" consists of next values 
-**Then** the "Colors" contains "Blue" radio button 
-**Then** the "Colors" contains "Yellow" disabled radio button 
-**Then** the "Colors" does not contain "Yellow" enabled radio button 
-**Then** the "Colors" contains next enabled values: 
+Then the "Colors" text equals to "Blue" 
+Then the "Colors" text contains "Blue"  
+Then the "Colors" text matches to "\w{15}" 
+Then the "Colors" is enabled 
+Then the "Colors" is disabled 
+Then the "Colors" is displayed 
+Then the "Colors" is hidden 
+Then the "Colors" disappears 
+Then the "Colors" does not appear 
+Then the "Colors" does not appear during "2" seconds 
+Then the "Colors" css "type" equals to "radio" 
+Then the "Colors" consists of next values 
+Then the "Colors" contains "Blue" radio button 
+Then the "Colors" contains "Yellow" disabled radio button 
+Then the "Colors" does not contain "Yellow" enabled radio button 
+Then the "Colors" contains next enabled values: 
     | Red | Green | Blue | Yellow |
 
 Scenario example for Radiobuttons:
@@ -9080,30 +9080,31 @@ Scenario example for Radiobuttons:
 
 
 </code></pre>
-<p>Actions: <br><br>
-When &lt;I&gt; select &quot;&lt;TEXT&gt;&quot; field from &quot;&lt;ELEMENT NAME&gt;&quot; <br>
-When &lt;I&gt; select the radio button with &quot;&lt;INDEX&gt;&quot; index from &quot;&lt;ELEMENT NAME&gt;&quot; <br>
-When &lt;I&gt; highlight &quot;&lt;ELEMENT NAME&gt;&quot; <br>
-When &lt;I&gt; set &quot;&lt;ELEMENT NAME&gt;&quot; attribute &quot;&lt;ATTRIBUTE NAME&gt;&quot; with value &quot;&lt;ATTRIBUTE VALUE&gt;&quot; <br></p>
+<p>Actions: <br><br></p>
+
+<p><strong>When</strong> &lt;I&gt; select &quot;TEXT&quot; field from &quot;&lt;ELEMENT NAME&gt;&quot; <br>
+<strong>When</strong> &lt;I&gt; select the radio button with &quot;&lt;INDEX&gt;&quot; index from &quot;&lt;ELEMENT NAME&gt;&quot; <br>
+<strong>When</strong> &lt;I&gt; highlight &quot;&lt;ELEMENT NAME&gt;&quot; <br>
+<strong>When</strong> &lt;I&gt; set &quot;&lt;ELEMENT NAME&gt;&quot; attribute &quot;&lt;ATTRIBUTE NAME&gt;&quot; with value &quot;&lt;ATTRIBUTE VALUE&gt;&quot; <br></p>
 
 <p>Validations: <br><br>
-Then the &quot;&lt;ELEMENT NAME&gt;&quot; text equals to &quot;&lt;TEXT&gt;&quot;   <br>
-Then the &quot;&lt;ELEMENT NAME&gt;&quot; text contains &quot;&lt;TEXT&gt;&quot;    <br>
-Then the &quot;&lt;ELEMENT NAME&gt;&quot; text matches to &quot;&lt;REGEXP&gt;&quot; <br>
-Then the &quot;&lt;ELEMENT NAME&gt;&quot; is enabled <br>
-Then the &quot;&lt;ELEMENT NAME&gt;&quot; is disabled <br>
-Then the &quot;&lt;ELEMENT NAME&gt;&quot; is displayed <br>
-Then the &quot;&lt;ELEMENT NAME&gt;&quot; is hidden <br>
-Then the &quot;&lt;ELEMENT NAME&gt;&quot; disappears <br>
-Then the &quot;&lt;ELEMENT NAME&gt;&quot; does not appear <br>
-Then the &quot;&lt;ELEMENT NAME&gt;&quot; does not appear during &quot;&lt;SECONDS&gt;&quot; seconds <br>
-Then the &quot;&lt;ELEMENT NAME&gt;&quot; css &quot;&lt;ATTRIBUTE NAME&gt;&quot; equals to &quot;&lt;TEXT&gt;&quot; <br>
-Then the &quot;&lt;ELEMENT NAME&gt;&quot; attribute &quot;&lt;ATTRIBUTE NAME&gt;&quot; equals to &quot;&lt;TEXT&gt;&quot; <br>
-Then the &quot;&lt;ELEMENT NAME&gt;&quot; consists of next values <br>
-Then the &quot;&lt;ELEMENT NAME&gt;&quot; contains &quot;&lt;TEXT&gt;&quot; radio button <br>
-Then the &quot;&lt;ELEMENT NAME&gt;&quot; contains &quot;&lt;TEXT&gt;&quot; disabled radio button <br>
-Then the &quot;&lt;ELEMENT NAME&gt;&quot; does not contain &quot;&lt;TEXT&gt;&quot; enabled radio button <br>
-Then the &quot;&lt;ELEMENT NAME&gt;&quot; contains next enabled values: <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; text equals to &quot;&lt;TEXT&gt;&quot;   <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; text contains &quot;&lt;TEXT&gt;&quot;    <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; text matches to &quot;&lt;REGEXP&gt;&quot; <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is enabled <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is disabled <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is displayed <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; is hidden <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; disappears <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; does not appear <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; does not appear during &quot;&lt;SECONDS&gt;&quot; seconds <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; css &quot;&lt;ATTRIBUTE NAME&gt;&quot; equals to &quot;&lt;TEXT&gt;&quot; <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; attribute &quot;&lt;ATTRIBUTE NAME&gt;&quot; equals to &quot;&lt;TEXT&gt;&quot; <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; consists of next values <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; contains &quot;&lt;TEXT&gt;&quot; radio button <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; contains &quot;&lt;TEXT&gt;&quot; disabled radio button <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; does not contain &quot;&lt;TEXT&gt;&quot; enabled radio button <br>
+<strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; contains next enabled values: <br>
     |&quot;&lt;RADIO_3&gt;&quot; | &quot;&lt;RADIO_2&gt;&quot; | &quot;&lt;RADIO_3&gt;&quot; |</p>
 
 <p>More information in the <a href="https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa"><strong>Tutorial</strong></a><br>

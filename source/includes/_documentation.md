@@ -4832,10 +4832,29 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 [**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/CheckList.feature) for CheckList<br>
 
 
-<br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br>
 ### MultiDropDown
 
+Note: this element is an alias for MultiSelector
+
 ```
+Multiselector actions examples:
+
+When I select "Ages" with value "Steam"
+When I select 1, 5 numbers in "Ages" multiselector
+
+Multiselector validation examples:
+
+Then I check the "Steam" value is selected in "Ages" multiselector
+Then I check the "Ages" multiselector contains "Wood" value
+Then I check the "Ages" multiselector in disabled state has "Disabled" item
+Then I check the "Ages" multiselector in enabled state has not "Disabled" item
+Then I check the "Ages" multiselector in enabled state contains next values:
+      | Electro | Metalic |
+Then I check the "Ages" multiselector text is equals to "Steam"
+Then I check the "Ages" multiselector contains next values:
+    | Electro | Steam| Metalic | Disabled | Wood |
+
 Scenario example for MultiDropDown
     
 Scenario: Check  values test
@@ -4845,7 +4864,21 @@ Scenario: Check  values test
       | Electro | Metalic |
 
 ```
-BDD steps for MultiDropDown are implemented by [MultiSelector BDD Steps](https://jdi-docs.github.io/jdi-light/?java#multiselector-2)<br>
+Actions: <br>
+
+ **When**  \<I\> select "\<ELEMENT NAME\>" with value "\<ELEMENT NAME\>" <br>
+ **When**  \<I\> select "\<ELEMENT NAME\>" numbers in "\<ELEMENT NAME\>" multiselector <br>
+ 
+ Validations: <br>
+ 
+ **Then** I check the "\<ELEMENT NAME\>" value is selected in "\<ELEMENT NAME\>" multiselector <br>
+ **Then** I check the "\<ELEMENT NAME\>" multiselector contains "\<ELEMENT NAME\>" value <br>
+ **Then** I check the "\<ELEMENT NAME\>" multiselector in enabled state has not "\<ELEMENT NAME\>" item <br>
+ **Then** I check the "\<ELEMENT NAME\>" multiselector in enabled state contains next values: <br>
+ **Then** I check the "\<ELEMENT NAME\>" multiselector text is equals to "\<ELEMENT NAME\>" <br>
+ **Then** I check the "\<ELEMENT NAME\>" multiselector contains next values: <br>
+
+
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial)<br>
 [**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/MultiDropDown.feature) for MultiDropDown<br><br>

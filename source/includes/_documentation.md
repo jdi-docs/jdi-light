@@ -1695,6 +1695,8 @@ Here is the list of some available methods:
 
 [C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Complex/RadioButtonsTests.cs)
 
+[BDD Steps example](https://jdi-docs.github.io/jdi-light/#radiobuttons-2) <br>
+
 ### Table
 
 **Table** – a complex element that consists of header, body (at least one row and one column) and footer. You are able to perform a list of readonly interactions with this element.
@@ -5226,7 +5228,7 @@ Validations: <br><br>
 **Then** the "\<ELEMENT NAME\>" is hidden <br>
 **Then** the "\<ELEMENT NAME\>" disappears <br>
 **Then** the "\<ELEMENT NAME\>" does not appear <br>
-**Then** the "\<ELEMENT NAME\>" does not appear during "\<TIME\>" seconds <br>
+**Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
 **Then** the "\<ELEMENT NAME\>" css "\<ATTRIBUTE NAME\>" equals to "\<TEXT\>" <br>
 **Then** the "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" equals to "\<TEXT\>" <br>
 **Then** the "\<ELEMENT NAME\>" consists of next values <br>

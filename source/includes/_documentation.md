@@ -3478,7 +3478,23 @@ Available methods and properties in C# JDI Light:
 **AssertThat** | Assert action | TextAssert
 
 [C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/ButtonTests.cs) <br>
-[BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#button-3)
+[BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#button-3)<br>
+<br><br>
+
+### Alert
+**Alert** – Element that provides contextual feedback messages for typical user actions with the handful of available and flexible alert messages.
+
+![Alert](../images/bootstrap/alert.png)
+
+Alert is located in the following classes:
+ 
+  - __Java__: _com.epam.jdi.light.ui.html.common.Button_
+  - __C#__: _JDI.Light.Elements.Common.Button_
+  
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Alert example](../images/bootstrap/alert-html.png)
+<br><br>
 
 
 ## Bootstrap Complex elements

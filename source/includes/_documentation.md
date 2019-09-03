@@ -3645,9 +3645,9 @@ And here are methods available in Java:
 
 **2) Badge** - Element which used as part of buttons to provide a counter. Unless the context is clear (as with the “Notifications” example, where it is understood that the “4” is the number of notifications), consider including additional context with a visually hidden piece of additional text.<br>
 
-   ![Badge](../images/bootstrap/badge_link.png)<br>
+   ![Badge](../images/bootstrap/badge_button.png)<br>
    Here is an example with provided Bootstrap v4.3 code:  
-   ![Badge example](../images/bootstrap/badge_link_code.png)
+   ![Badge example](../images/bootstrap/badge_button_code.png)
    Button is located in the following classes: <br>
     - __Java__: _com.epam.jdi.light.ui.html.common.Button_<br>
     - __C#__: _JDI.Light.Elements.Common.Button_

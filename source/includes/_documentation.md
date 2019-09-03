@@ -408,12 +408,12 @@ The list of supported elements:
  - Input Type Time
  - Input Type DateTime-Local
 
-There are the following classes represent this type of elements:
+There following classes represent this type of element:
 
  - __C#__: _JDI.Light.Elements.Common.DateTimeSelector_
  - __Java__: _com.epam.jdi.light.ui.html.common.DateTimeSelector_
 
-Here is the list of some available methods in C#:
+Here is the list of some methods available in C#:
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -422,8 +422,8 @@ Here is the list of some available methods in C#:
 **Value()** | Returns value attribute | string
 **Min()** | Gets attribute with name min | string
 **Max()** | Gets attribute with name max | string
-**Is()** | Assert action of DateTimeSelector | DateTimeSelectorAssert
-**AssertThat()** | Assert action of DateTimeSelector | DateTimeSelectorAssert
+**Is()** | Asserts action of DateTimeSelector | DateTimeSelectorAssert
+**AssertThat()** | Asserts action of DateTimeSelector | DateTimeSelectorAssert
 
 And here are some of the methods available in Java:
 
@@ -469,7 +469,7 @@ public void SetBirthDateTest()
     TestSite.Html5Page.BirthDate.AssertThat().SelectedTime(Is.EqualToIgnoringCase("2019-04-01"));	
 }
 ```
-**Input Type Date** – a graphical control element, that allows users to set the value of date.
+**Input Type Date** – a graphical control element that allows user to set value for date.
 
 ![InputTypeDate](../images/html/inputTypeDate_html.png)
 
@@ -511,7 +511,7 @@ public void AutumnDateTimeTest()
     Assert.AreEqual(setValue, "2019-W13");
 }
 ```
-**Input Type Week** – a graphical control element, that allows users to set the value of week and year.
+**Input Type Week** – a graphical control element that allows user to set values for week and year.
 
 ![InputTypeWeek](../images/html/inputTypeWeek_html.png)
 
@@ -550,7 +550,7 @@ public void SetMonthTest()
     Assert.AreEqual(setValue, "2019-04");
 }
 ```
-**Input Type Month** – a graphical control element, that allows users to set the value of month and year.
+**Input Type Month** – a graphical control element that allows user to set values for month and year.
 
 ![InputTypeMonth](../images/html/inputTypeMonth_html.png)
 
@@ -589,7 +589,7 @@ public void SetTimeTest()
     Assert.AreEqual(setValue, "15:00");
 }
 ```
-**Input Type Time** – a graphical control element, that allows the user to set the value of time.
+**Input Type Time** – a graphical control element that allows user to set time.
 
 ![InputTypeTime](../images/html/inputTypeTime_html.png)
 
@@ -622,7 +622,7 @@ public void SetPartyTimeTest()
     Assert.AreEqual(setValue, _dateTime);
 }
 ```
-**Input Type DateTime-Local** – a graphical control element, that allows the user to set the value of time and date.
+**Input Type DateTime-Local** – a graphical control element that allows user to set time and date.
 
 ![InputTypeDateTime](../images/html/inputDateTimeLocal_html.png)
 
@@ -632,7 +632,7 @@ public void SetPartyTimeTest()
 
 ### FileInput
 
-**FileInput** - a grafical control element, that allows the user to upload documents on the web site
+**FileInput** - a graphical control element that allows user to upload documents to web site
 
 ![FileInput](../images/fileinput.png)
 
@@ -691,7 +691,7 @@ public void BaseValidationTest()
 
 ```
 
-Here is an example with provided HTML code:
+Here is an example with HTML code provided:
 
 ![FileInput example](../images/html/fileinput_html.png)
 
@@ -712,7 +712,7 @@ Available assert methods in C# JDI Light:
 |Method | Description | Return Type
 --- | --- | ---
 **IsDownloaded()** |Checks whether a file is downloaded  | FileAssert
-**Text(Matcher<string> value)** | Checks whether an occurence of a text is contained in a text file | FileAssert
+**Text(Matcher<string> value)** | Checks whether an occurrence of a text is contained within a text file | FileAssert
 **HasSize(Matcher<long> size)** | Checks that a file has a particular size according to the matcher | FileAssert
 **CleanupDownloads()** | Cleans the directory | void
 
@@ -765,7 +765,7 @@ Icons are represented by the following classes:
 
 
  
-Icon in JDI is a descendant of Image. It inherits all Image's methods and serves as its wrapper. Here are Java methods for Icon inherited from Image interface:
+Icon in JDI is a descendant of Image. It inherits all Image's methods and serves as its wrapper. Here are Java methods for Icon, inherited from Image interface:
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -866,7 +866,7 @@ And here are methods available in Java:
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#image-2)<br>
 
 ### Link
-**Link** – a graphical control element, that allows the user to link from one page to other web pages, files, locations within the same page, email addresses, or any other URL.
+**Link** – a graphical control element that allows the user to link from one page to other web pages, files, locations within the same page, email addresses, or any other URL.
 
 Link are represented by the following class:
  

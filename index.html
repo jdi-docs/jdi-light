@@ -9098,10 +9098,12 @@ When fill form "Contact Form" with data:
     |acceptConditions|true|
     |gender|Female|
     |religion|Other|
-When fill form "Contact Form" with "Roman Contacts"
 When I submit form "Contact Form"
-When send form "Contact Form" with "Roman Contacts"
 When I save form
+
+JSON data file examples:
+When fill form "Contact Form" with "Roman Contacts"
+When send form "Contact Form" with "Roman Contacts"
 
 Form validation examples:
 
@@ -9115,12 +9117,14 @@ Then the form "Contact Form" data equals to:
     |acceptConditions|true|
     |gender|Female|
     |religion|Other|
-Then the form "Contact Form" data equals to "Roman Contacts"
 Then the form "Contact Form" is displayed
 Then the form "Contact Form" is hidden
 Then the form "Contact Form" does not appear
 Then the form "Contact Form" does not appear during 7
 Then the form "Contact Form" disappear
+
+JSON data file examples:
+Then the form "Contact Form" data equals to "Roman Contacts"
 
 Form scenario example:
 
@@ -9174,12 +9178,12 @@ Form scenario example:
 
 <p>It&#39;s also possible to use JSON data files:<br>
  <strong>Then</strong> the form &lt;ELEMENT NAME&gt; data equals to &lt;JSON DATA FILE NAME&gt;<br>
- [JSON data file example](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/jsonData/Roman%20Contacts.json</p>
+ <a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/jsonData/Roman%20Contacts.json">JSON data file example</a></p>
 
 <p>More information in the <a href="https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa"><strong>Tutorial</strong></a><br>
 <a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Form.feature"><strong>Cucumber tests</strong></a> for Form<br>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br></p>
+<br><br><br><br><br><br><br><br><br><br><br><br></p>
 
 <p><br></p>
 <h3 id='radiobuttons-2'>Radiobuttons</h3><pre class="highlight plaintext"><code>Radiobuttons actions examples:

@@ -818,17 +818,17 @@ public void check(ContactInfo contact) {
     //  20 lines to validate contact
 }
 ```
-**Selenium:** (65(37) loc)<br/> 
+**Selenium:** (65(37) lines of code)<br/> 
 For our needs we should write two methods: submit and check<br/>
-As for Login Form in order to manage different Test Data via Contact Form we should check values for null. For only one case for example just Fill all fields we can avoid check for null and save some lines of code.<br/>
-In flexible approach we need 43+22=65 lines of code<br/>
-We can improve this code by using common method to clean and sendKeys for abstract WebElement - this will reduce code to 55.<br/>
-If we remove null validations, this will make our methods less common but will save additional 18 lines and reduce code to 37 lines for Form methods<br/>
+As for the Login Form, in order to manage different Test Data via Contact Form we should check values for null. For only one case we can avoid this check (for example, just fill all fields with null and save a few lines of code).<br/>
+Using a flexible approach, we need 43 + 22 = 65 lines of code.<br/>
+We can improve this code by using a common method to clean and sendKeys for an abstract WebElement - this will reduce our code to 55 lines.<br/>
+If we remove null validations, it will make our methods less common but will save additional 18 lines and reduce the code to 37 lines for Form methods.<br/>
 <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/sections/ContactForm.java" target="_blank">Selenium Contact Form code (97)</a><br/>
 <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/sections/ShortContactForm.java" target="_blank">Short Selenium Contact Form code (69)</a><br/><br/><br/><br/><br/><br/><br/>
 
-**JDI Light** (0 loc)<br/> 
-In JDI Light we don't need methods for this typical actions. Standard Form actions are flexible and allow to operate with any kind of data.<br/>
+**JDI Light** (0 lines of code)<br/> 
+In JDI Light we don't need methods for these typical actions. Standard Form actions are flexible and allow to operate with any kind of data.<br/>
 <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-reduce-code/blob/master/src/main/java/jdisite/sections/ContactForm.java" target="_blank">JDI Light Contact Form code (8)</a><br/>
 
 ### 5. Test Data ###
@@ -836,7 +836,7 @@ In JDI Light we don't need methods for this typical actions. Standard Form actio
 ```java
 public class User {
     public String name, password;
-    // + 3 lines constructior
+    // + 3 lines constructor
     // + 8 lines set methods
     // + 16 lines to Override equals, hashCode and toString
 }
@@ -844,7 +844,7 @@ public class ContactInfo {
     public String name, lastName, position, gender, religion, weather, description;
     public int passportNumber, passportSeria;
     public boolean passport, acceptConditions;
-    // + 16 lines constructior
+    // + 16 lines constructor
     // + 44 lines set methods
     // + 30 lines to Override equals, hashCode and toString
 }
@@ -859,12 +859,12 @@ public static ContactInfo FULL_CONTACT = new ContactInfo(
     4321, 123456, true, false
 );
 ```
-**Selenium:** (134 loc)<br/> 
-For simple User entity with two fields it we should have at least one Constructor but it will be good to Override equals(), hashCode() and toString() method in order to have ability to log entity and compare actual and expected by its data.<br/>
-Additionally if we would like to have ability to setup different data we should create set methods for each field.<br/>
-You can generate all this methods using "Generate" option in IntelliJIdea (press Right-Click in data class and select "Generate")<br/>
-Minimum we need at least 7 lines of code but for reusable entity we should write 31 lines of code.<br/>
-Same situation for ContactInfo and for any Data entity in standard approach. For ContactInfo full declaration is more important because we plan to manipulate with more fields and it will take more lines of code<br/>
+**Selenium:** (134 lines of code)<br/> 
+For a simple User entity with two fields we should have at least one Constructor, but it would be nice to Override equals(), hashCode() and toString() methods in order to have the ability to log entity and compare the actual and expected results by their data.<br/>
+Additionally, if we want to have the ability to setup different data, we should create set methods for each field.<br/>
+You can generate all of these methods using "Generate" option in IntelliJ IDEA (Right-Click the data class and select "Generate").<br/>
+We need at least 7 lines of code, but for a reusable entity we should write 31 lines of code.<br/>
+The same holds true for ContactInfo and for any Data entity in standard approach. For ContactInfo the full declaration is more important because we plan to manipulate with more fields and it will take more lines of code.<br/>
 After that manipulations we can create clear TestData<br/>
 <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/entities/User.java" target="_blank">User data</a><br/>
 <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/entities/ContactInfo.java" target="_blank">ContactInfo data</a><br/>
@@ -896,15 +896,15 @@ public static ContactInfo FULL_CONTACT = new ContactInfo().set(c -> {
     c.passport = true; c.description = "JDI - awesome UI automation tool"; }
 );
 ```
-**JDI Light** (22 loc)<br/> 
-To create Test Data in JDI Light we can use DataClass that allow us to setup different test data, compare it and print and in the same time keep its clearness.<br/>
-No Constructors, no methods Overrides but all functions are in place with **DataClass**<br/>
+**JDI Light** (22 lines of code)<br/> 
+To create Test Data in JDI Light, we can use DataClass. It allows us to create different test data, compare, print it and at the same time preserve its clearness.<br/>
+No constructors, no method overriding and with all functions in place with **DataClass**.<br/>
 <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-reduce-code/blob/master/src/main/java/jdisite/entities/User.java" target="_blank">User data</a><br/>
 <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-reduce-code/blob/master/src/main/java/jdisite/entities/ContactInfo.java" target="_blank">ContactInfo data</a><br/>
 <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-reduce-code/blob/master/src/test/java/com/jdi/test/data/DefaultDataProvider.java" target="_blank">Test Data</a><br/>
 <br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
-### 6. Conclusions ###
+### 6. Conclusion ###
 
 ```java
 // Selenium Init
@@ -958,18 +958,19 @@ public void simpleContactFormTest() {
     contactForm.check(SIMPLE_CONTACT);
 }
 ```
-As result we have Test scenarios that looks pretty much the same in Selenium and JDI Light but amount of code and time that we need to write this code are different. <br/>
-You can find clear projects code in "result" branch of <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/tree/result" target="_blank">Selenium</a> and <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-reduce-code/tree/result" target="_blank">JDI Light</a> example repositories.<br/>
+As a result, we have Test scenarios that look pretty much the same in Selenium and JDI Light, but the amount of code and time spent writing the code is significantly different.<br/>
+You can find the complete project code in the _"result"_ branch of <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/tree/result" target="_blank">Selenium</a> and <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-reduce-code/tree/result" target="_blank">JDI Light</a> example repositories.<br/>
+
 Statistical results:<br/>
 <img src="images/tutorial/selenium-results.png" alt="Selenium Statistic" width="400"><br/>
 <img src="images/tutorial/jdi-light-results.png" alt="JDI Light Statistic" width="400"><br/>
-In our example we write **3 times less amount of code with JDI Light**. <br/>
-This means that if this test scenario regular Test Automation engineer will write on **Selenium** in about **1 working day** on **JDI Light** this work will take only **2-3 hours**. **Or** he can **automate 3 times more test cases** in the same period of time.<br/>
-_Note: You can try to automate this test scenario by yourself from scratch without clues and check how much time this will take from you_<br/><br/>
-But JDI Light not only saves your time. Less amount of code will **increase code clearness**.<br/>
-In addition if you run test scenarios on JDI Light you will **get logs of all your actions** in readable format. If you would like to have same level of logs in Selenium you need to write additional 30-50 lines of code for this example and keep to spent 5-10% of your effort on logs.<br/>
-_Note: JDI Light removes only waste code and keep all business important parts in place._ <br/><br/>
-**Less amount of code, stable tests and clear logs will reduce maintanance effort of your regression** and **increase respect to your tests** because with JDI Light once written tests will fail only because of real application changes or performance issues and not because of tests instability<br/>
+In our example, we wrote **3 times less amount of code with JDI Light**. <br/>
+This means that if a regular Test Automation engineer writes these tests using **Selenium**, it will take him about **1 working day**, while using **JDI Light** this work will only take him **2-3 hours**. **Or** he can **automate 3 times more test cases** in the same period of time.<br/>
+_Note: You can try to automate this test scenario by yourself from scratch without clues and check how much time this will take you personally_<br/><br/>
+But JDI Light does not only save your time. Less amount of code **increases code clearness**.<br/>
+In addition, if you run test scenarios on JDI Light, you will **get logs of all your actions** in a readable format. If you would like to have the same level of logs in Selenium, you need to write additional 30-50 lines of code for this example and spend 5-10% of your effort on logs.<br/>
+_Note: JDI Light removes only waste code and keeps all the important business parts in place._ <br/><br/>
+**Less amount of code, stable tests and clear logs will reduce maintanance efforts during regressive testing** and **increase respect to your tests**, because with JDI Light, once tests are written, they will only fail in case of real application changes or performance issues, but not because of test instability.<br/>
 
 ## JDI Light in BDD Style (even for Manual QA)
 TBD
@@ -977,7 +978,7 @@ TBD
 ## Create Custom controls
 TBD
 
-## JDI settings at glance
+## JDI settings at a glance
 TBD
 
 ## Test Framework structure

@@ -5209,10 +5209,12 @@ When fill form "Contact Form" with data:
     |acceptConditions|true|
     |gender|Female|
     |religion|Other|
-When fill form "Contact Form" with "Roman Contacts"
 When I submit form "Contact Form"
-When send form "Contact Form" with "Roman Contacts"
 When I save form
+
+JSON data file examples:
+When fill form "Contact Form" with "Roman Contacts"
+When send form "Contact Form" with "Roman Contacts"
 
 Form validation examples:
 
@@ -5226,12 +5228,14 @@ Then the form "Contact Form" data equals to:
     |acceptConditions|true|
     |gender|Female|
     |religion|Other|
-Then the form "Contact Form" data equals to "Roman Contacts"
 Then the form "Contact Form" is displayed
 Then the form "Contact Form" is hidden
 Then the form "Contact Form" does not appear
 Then the form "Contact Form" does not appear during 7
 Then the form "Contact Form" disappear
+
+JSON data file examples:
+Then the form "Contact Form" data equals to "Roman Contacts"
 
 Form scenario example:
 
@@ -5285,13 +5289,13 @@ Validations: <br>
  
  It's also possible to use JSON data files:<br>
  **Then** the form \<ELEMENT NAME\> data equals to \<JSON DATA FILE NAME\><br>
- [JSON data file example](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/jsonData/Roman%20Contacts.json
+ [JSON data file example](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/jsonData/Roman%20Contacts.json)
 
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa)<br>
 [**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Form.feature) for Form<br>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br>
 
 
 <br>

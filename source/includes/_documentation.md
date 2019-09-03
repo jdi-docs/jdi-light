@@ -3499,6 +3499,22 @@ Here is an example with provided Bootstrap v4.3 code:
 
 ## Bootstrap Complex elements
 
+### Dropdown
+**Dropdown** – a graphical control element, that allows the user to choose one value from a list.
+
+![Alert](../images/bootstrap/dropdown.png)
+
+Dropdown is located in the following classes:
+ 
+  - __Java__: _com.epam.jdi.light.ui.bootstrap.complex.Dropdown
+  - __C#__: _JDI.Light.Elements.Complex.Dropdown
+  
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Alert example](../images/bootstrap/dropdown-html.png)
+<br><br>
+
+
 ## Bootstrap Composite elements
 
 ## JDI Light BDD Steps

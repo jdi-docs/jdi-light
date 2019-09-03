@@ -3660,8 +3660,8 @@ Available methods in Java JDI Light:
 **getName()** | return inscription of collapse's item  | String
 **getShowed()** |  return name of collapse's item that content is showed  |  String
 **for Group only** |  |   
-**getNames()** | return list of items inscription  |  List<String>
-**getTexts()** | return list of items text content | List<String>
+**getNames()** | return list of items inscription  |  List\<String\>
+**getTexts()** | return list of items text content | List\<String\>
 
 ## Bootstrap Complex elements
 

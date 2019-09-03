@@ -4,7 +4,7 @@
 This section is about working with file input.
 </aside>
 
-**File input** –  control for uploading files on web application.
+**File input** –  a control for uploading files to a web application.
 
 Here is the list of available methods:
 

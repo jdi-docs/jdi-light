@@ -3481,6 +3481,29 @@ Available methods and properties in C# JDI Light:
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#button-3)<br>
 <br><br>
 
+### Button group
+**Button group** – Element that groups a series of buttons together on a single line with the button group, and super-power them with JavaScript.
+
+![Button group](../images/bootstrap/button_group.png)
+
+Button group is located in the following classes:
+ 
+  - __Java__: _??????_
+  - __C#__: _???????_
+  
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Button group example](../images/bootstrap/button_group-html.png)
+
+Available methods in Java JDI Light:
+
+??????METHODS?????
+
+Available methods and properties in C# JDI Light:
+
+??????METHODS?????
+<br><br>
+
 ### Alert
 **Alert** – Element that provides contextual feedback messages for typical user actions with the handful of available and flexible alert messages.
 
@@ -3488,12 +3511,20 @@ Available methods and properties in C# JDI Light:
 
 Alert is located in the following classes:
  
-  - __Java__: _com.epam.jdi.light.ui.html.common.Button_
-  - __C#__: _JDI.Light.Elements.Common.Button_
+  - __Java__: _?????_
+  - __C#__: _?????_
   
 Here is an example with provided Bootstrap v4.3 code:
   
 ![Alert example](../images/bootstrap/alert-html.png)
+
+Available methods in Java JDI Light:
+
+??????METHODS?????
+
+Available methods and properties in C# JDI Light:
+
+??????METHODS?????
 <br><br>
 
 

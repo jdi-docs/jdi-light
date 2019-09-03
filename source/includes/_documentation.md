@@ -5146,7 +5146,10 @@ When fill form "Contact Form" with data:
     |acceptConditions|true|
     |gender|Female|
     |religion|Other|
+When fill form "Contact Form" with "Roman Contacts"
 When I submit form "Contact Form"
+When send form "Contact Form" with "Roman Contacts"
+When I save form
 
 Form validation examples:
 
@@ -5160,6 +5163,7 @@ Then the form "Contact Form" data equals to:
     |acceptConditions|true|
     |gender|Female|
     |religion|Other|
+Then the form "Contact Form" data equals to "Roman Contacts"
 Then the form "Contact Form" is displayed
 Then the form "Contact Form" is hidden
 Then the form "Contact Form" does not appear
@@ -5195,19 +5199,24 @@ Form scenario example:
 ```
 Actions: <br>
 
- **When** \<I\> fill form \<FORM NAME\> with data:<br>
+ **When** \<I\> fill form \<ELEMENT NAME\> with data:<br>
      &nbsp;&nbsp;&nbsp;&nbsp;|\<GHERKIN DATA TABLE\>| <br>
- **When** \<I\> submit form \<FORM NAME\><br>
+ **When** \<I\> fill form \<ELEMENT NAME\> with \<JSON DATA FILE NAME\><br>
+ **When** \<I\> \<submit|login as|send|add|publich|save|update|cancel|close|back|select|next|search\> form \<ELEMENT NAME\> with data:<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;|\<GHERKIN DATA TABLE\>| <br>
+ **When** \<I\> \<submit|login as|send|add|publich|save|update|cancel|close|back|select|next|search\> form<br>
+ **When** \<I\> \<submit|login as|send|add|publich|save|update|cancel|close|back|select|next|search\> form \<ELEMENT NAME\> with \<JSON DATA FILE NAME\><br>
  
 Validations: <br>
 
- **Then** the form \<FORM NAME\> data equals to: <br>
+ **Then** the form \<ELEMENT NAME\> data equals to: <br>
      &nbsp;&nbsp;&nbsp;&nbsp;|\<GHERKIN DATA TABLE\>|<br>
- **Then** the form \<FORM NAME\> is displayed<br>
- **Then** the form \<FORM NAME\> is hidden<br>
- **Then** the form \<FORM NAME\> does not appear<br>
- **Then** the form \<FORM NAME\> does not appear during \<SECONDS\><br>
- **Then** the form \<FORM NAME\> disappear<br>
+ **Then** the form \<ELEMENT NAME\> data equals to \<JSON DATA FILE NAME\><br>
+ **Then** the form \<ELEMENT NAME\> is displayed<br>
+ **Then** the form \<ELEMENT NAME\> is hidden<br>
+ **Then** the form \<ELEMENT NAME\> does not appear<br>
+ **Then** the form \<ELEMENT NAME\> does not appear during \<SECONDS\><br>
+ **Then** the form \<ELEMENT NAME\> disappear<br>
 
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa)<br>

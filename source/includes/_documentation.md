@@ -5202,10 +5202,10 @@ Actions: <br>
  **When** \<I\> fill form \<ELEMENT NAME\> with data:<br>
      &nbsp;&nbsp;&nbsp;&nbsp;|\<GHERKIN DATA TABLE\>| <br>
  **When** \<I\> fill form \<ELEMENT NAME\> with \<JSON DATA FILE NAME\><br>
- **When** \<I\> \<submit|login as|send|add|publich|save|update|cancel|close|back|select|next|search\> form \<ELEMENT NAME\> with data:<br>
+ **When** \<I\> [submit|login as|send|add|publich|save|update|cancel|close|back|select|next|search] form \<ELEMENT NAME\> with data:<br>
  &nbsp;&nbsp;&nbsp;&nbsp;|\<GHERKIN DATA TABLE\>| <br>
- **When** \<I\> \<submit|login as|send|add|publich|save|update|cancel|close|back|select|next|search\> form<br>
- **When** \<I\> \<submit|login as|send|add|publich|save|update|cancel|close|back|select|next|search\> form \<ELEMENT NAME\> with \<JSON DATA FILE NAME\><br>
+ **When** \<I\> [submit|login as|send|add|publich|save|update|cancel|close|back|select|next|search] form<br>
+ **When** \<I\> [submit|login as|send|add|publich|save|update|cancel|close|back|select|next|search] form \<ELEMENT NAME\> with \<JSON DATA FILE NAME\><br>
  
 Validations: <br>
 

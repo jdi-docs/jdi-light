@@ -76,7 +76,9 @@ Label's implementation is located in the following classes:
  
 [C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/LabelsTests.cs) 
 
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/LabelTests.java) 
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/LabelTests.java)
+
+[BDD Steps examples](https://jdi-docs.github.io/jdi-light/?java#label-2)
 
 
 ### Button
@@ -2477,6 +2479,8 @@ Available Assert methods in C#:
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/DropdownTests.java)
 
 [C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DropDownTests.cs)
+
+[BDD test examples](https://jdi-docs.github.io/jdi-light/?java#dropdown-2)
 
 ### MultiDropDown
 

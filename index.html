@@ -453,10 +453,13 @@
                             <li>
                               <a href="#textarea" class="toc-h2 h3 toc-link" data-title="TextArea">TextArea</a>
                             </li>
+                            <li>
+                              <a href="#title" class="toc-h2 h3 toc-link" data-title="Title">Title</a>
+                            </li>
                         </ul>
                   </li>
                   <li>
-                    <a href="#html5-complex-elements" class="toc-h2 toc-link" data-title="Html5 Complex elements">Html5 Complex elements</a>
+                    <a href="#complex-elements" class="toc-h2 toc-link" data-title="Complex elements">Complex elements</a>
                         <ul class="toc-list-h2">
                             <li>
                               <a href="#radiobuttons" class="toc-h2 h3 toc-link" data-title="RadioButtons">RadioButtons</a>
@@ -689,22 +692,22 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='jdi-light-framework'>JDI Light Framework</h1>
-<p>JDI Light – is powerfull Test Automation Framework that helps to makes your tests fast, sustainable and provide obvious and predictable test run result</p>
+<p>JDI Light is a powerful Test Automation Framework that helps to make your tests fast, sustainable and provides obvious and predictable test run results.</p>
 
-<p><font color="red">!!! ATTENTION: Work properly only on <strong>JDK 8</strong>. With <strong>JDK 12</strong> or later can be some problems</font></p>
+<p><font color="red">!!! ATTENTION: Only works properly with <strong>JDK 8</strong>. There may be some problems when using <strong>JDK 12</strong> or later.</font></p>
 
 <p>JDI Light powered by Selenium and has simple integration with Selenium based projects
 <img src="images/intro/allure-report.png" alt="Allure Report" />
 <img src="images/intro/allure-report-log.png" alt="Allure Log" /></p>
 <h1 id='highlights'>Highlights</h1>
 <ul>
-<li>Has simple integration with any Selenium based project that allows to increase projects stability, add user actions logs and enrich standard WebElements capabilities with new features in minutes (TBD add Guide)</li>
-<li>Extends Page Objects pattern with powerful UI Elements: Buttons, TextFields, Forms, Tables etc ( TBD add good links to examples)</li>
-<li>Write stable and predictable tests that fail only because of changing business logic or layout. No more waits, thread sleep and other flaky staff</li>
-<li>Increase your tests execution speed in general and especially for complex cases like search in big tables, dropdowns with hundreds elements or enter text with thousand lines</li>
-<li>Get detailed logs and good reports of all user actions with no effort</li>
-<li>All UI elements has assertions/matchers that powered by Hamcrest and wait expected condition during timeout</li>
-<li>Easy integration with all modern Automation tools: CI (Jenkins, TC etc.), Logging (Log4j or any other slf4j based logs), Reporting (Allure or Report Portal); Browser/Devices farms (Selenium Grid, Browser Stack, Selenoid etc.), Test Runners (TestNG, JUnit) etc.</li>
+<li>Has simple integration with any Selenium based project, which allows to increase overall project stability, add user action logs and enrich standard WebElement capabilities with new features in just minutes (TBD add Guide)</li>
+<li>Extends the Page Objects pattern with powerful UI Elements: Buttons, TextFields, Forms, Tables etc... ( TBD add good links to examples)</li>
+<li>Enables you to write stable and predictable tests that fail only because of business logic or layout changes. No more waits, thread sleeps and other flaky stuff.</li>
+<li>Increase your overall test execution speed, especially for complex cases, like searching big tables, dropdowns with hundreds elements or entering text comprised of thousands of lines.</li>
+<li>Get detailed logs and well-readable reports of all user actions with no additional effort.</li>
+<li>All UI elements have assertions/matchers powered by Hamcrest and a wait with expected condition during timeout.</li>
+<li>Easy integration with all modern Automation tools: CI (Jenkins, TC etc.), Logging (Log4j or any other slf4j based logs), Reporting (Allure or Report Portal); Browser/Device farms (Selenium Grid, Browser Stack, Selenoid etc.), Test Runners (TestNG, JUnit) etc.</li>
 </ul>
 <h1 id='introduction'>Introduction</h1><h2 id='simple-jdi-examples'>Simple JDI examples</h2><h3 id='create-a-simple-login-test'>Create a simple Login test</h3>
 <p>First of all, let&#39;s see how JDI solves typical problems. Let&#39;s start with Login, since most tests start with signing in.</p>
@@ -3134,7 +3137,7 @@ In addition, if you run test scenarios on JDI Light, you will <strong>get logs o
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ImageTests.java">Test examples in Java</a><br>
 <a href="https://jdi-docs.github.io/jdi-light/?java#image-2">BDD Steps example</a><br></p>
 <h3 id='link'>Link</h3>
-<p><strong>Link</strong> – a graphical control element that allows the user to link from one page to other web pages, files, locations within the same page, email addresses, or any other URL.</p>
+<p><strong>Link</strong> – a graphical control element that allows user to link from one page to other web pages, files, locations within the same page, email addresses, or any other URL.</p>
 
 <p>Link are represented by the following class:</p>
 
@@ -4308,7 +4311,7 @@ C#: JDI.Light.Elements.Common.TextElement</p>
       <span class="n">Assert</span><span class="p">.</span><span class="nf">CollectionEquals</span><span class="p">(</span><span class="n">TextArea</span><span class="p">.</span><span class="nf">GetLines</span><span class="p">(),</span> <span class="k">new</span><span class="p">[]</span> <span class="p">{</span> <span class="s">"line1"</span><span class="p">,</span> <span class="s">"line2"</span><span class="p">,</span> <span class="s">"line3"</span> <span class="p">});</span>
    <span class="p">}</span>
 </code></pre>
-<p><strong>TextArea</strong> – is a simple element type that allows users to fill in text areas (that may contain a few lines). </p>
+<p><strong>TextArea</strong> – is a simple element type that allows users to fill in text areas (they may contain a few lines). </p>
 
 <p><img src="images/html/textArea_html.png" alt="InputTypeTextArea" /></p>
 
@@ -4362,7 +4365,7 @@ C#: JDI.Light.Elements.Common.TextElement</p>
 </tr>
 <tr>
 <td><strong>AddNewLine(string line)</strong></td>
-<td>add line to the already existing</td>
+<td>add line to the already existing ones</td>
 <td>void</td>
 </tr>
 <tr>
@@ -4443,8 +4446,115 @@ C#: JDI.Light.Elements.Common.TextElement</p>
 
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/TextAreaTests.java">Test examples in Java</a> <br>
   <a href="https://jdi-docs.github.io/jdi-light/#textarea-2">BDD Steps example</a> <br></p>
-<h2 id='html5-complex-elements'>Html5 Complex elements</h2><h3 id='radiobuttons'>RadioButtons</h3>
-<p><strong>RadioButtons</strong> – interface element that allows user to select one option from a predefined group.</p>
+<h3 id='title'>Title</h3>
+<p><strong>Title</strong> – a graphical control element representing document title, which is displayed in the title bar of the browser or tab page.</p>
+
+<p>Title is represented by the following class:</p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.Title</em></li>
+<li><strong>C#</strong>: <em>JDI.Light.Elements.Common.Title</em></li>
+</ul>
+<pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"[ui=jdi-title]"</span><span class="o">)</span> 
+<span class="c1">// equal to @FindBy(css = "[ui=jdi-title]") </span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">Title</span> <span class="n">jdiTitle</span><span class="o">;</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">getTextTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">jdiTitle</span><span class="o">.</span><span class="na">getText</span><span class="o">(),</span> <span class="s">"Title text"</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">clickTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">jdiTitle</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+<span class="o">}</span>    
+
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="na">[FindBy(Css = "[ui=jdi-title]</span><span class="s">")]
+</span><span class="k">public</span> <span class="n">Title</span> <span class="n">JdiTitle</span><span class="p">;</span>
+
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">GetTextTest</span><span class="p">()</span> 
+<span class="p">{</span>
+        <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">JdiTitle</span><span class="p">.</span><span class="nf">GetText</span><span class="p">(),</span> <span class="s">"Title text"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">ClickTest</span><span class="p">()</span> 
+<span class="p">{</span>
+        <span class="n">JdiTitle</span><span class="p">.</span><span class="nf">ClickTitle</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">IsValidationTest</span><span class="p">()</span>
+<span class="p">{</span>
+       <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">JdiTitle</span><span class="p">.</span><span class="n">Is</span><span class="p">.</span><span class="nf">Enabled</span><span class="p">();</span>
+       <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">JdiTitle</span><span class="p">.</span><span class="n">Is</span><span class="p">.</span><span class="nf">Text</span><span class="p">(</span><span class="nf">EqualTo</span><span class="p">(</span><span class="n">_text</span><span class="p">));</span>
+       <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">JdiTitle</span><span class="p">.</span><span class="n">Is</span><span class="p">.</span><span class="nf">Text</span><span class="p">(</span><span class="nf">Is</span><span class="p">(</span><span class="n">_text</span><span class="p">));</span>
+       <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">JdiTitle</span><span class="p">.</span><span class="n">Is</span><span class="p">.</span><span class="nf">Text</span><span class="p">(</span><span class="n">EqualToIgnoringCaseMatcher</span><span class="p">.</span><span class="nf">EqualTo</span><span class="p">(</span><span class="s">"jdi TESTING platform"</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">AssertValidationTest</span><span class="p">()</span>
+<span class="p">{</span>
+       <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">JdiTitle</span><span class="p">.</span><span class="n">AssertThat</span><span class="p">.</span><span class="nf">Text</span><span class="p">(</span><span class="nf">EqualTo</span><span class="p">(</span><span class="n">_text</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="na">[Test]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">BaseValidationTest</span><span class="p">()</span>
+<span class="p">{</span>
+       <span class="nf">BaseElementValidation</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">JdiTitle</span><span class="p">);</span>
+<span class="p">}</span>   
+
+</code></pre>
+<p><img src="images/title.png" alt="Title" /></p>
+
+<p>Here is the list of methods available in C# JDI Light:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Is</strong></td>
+<td>Gets Title&#39;s assert</td>
+<td>TitleAssert</td>
+</tr>
+<tr>
+<td><strong>AssertThat</strong></td>
+<td>Gets Title&#39;s assert</td>
+<td>TitleAssert</td>
+</tr>
+</tbody></table>
+
+<p>Here is the list of available methods in Java JDI Light:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>click()</strong></td>
+<td>Click title</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>getText()</strong></td>
+<td>Returns title text</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+<p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/TitleTests.java">Java test examples</a></p>
+
+<p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/TitleTests.cs">C# test examples</a></p>
+<h2 id='complex-elements'>Complex elements</h2><h3 id='radiobuttons'>RadioButtons</h3>
+<p><strong>RadioButtons</strong> – interface element that allows user to select a single option from a predefined group.</p>
 
 <p>Radio buttons are represented by the following class:</p>
 
@@ -4507,12 +4617,12 @@ C#: JDI.Light.Elements.Common.TextElement</p>
 </tr>
 <tr>
 <td><strong>is()</strong></td>
-<td>returns object for work with assertions</td>
+<td>Returns object for work with assertions</td>
 <td>RadioButtonAssert</td>
 </tr>
 <tr>
 <td><strong>assertThat()</strong></td>
-<td>returns object for work with assertions</td>
+<td>Returns object for work with assertions</td>
 <td>RadioButtonAssert</td>
 </tr>
 </tbody></table>
@@ -4523,7 +4633,7 @@ C#: JDI.Light.Elements.Common.TextElement</p>
 
 <p><a href="https://jdi-docs.github.io/jdi-light/#radiobuttons-2">BDD Steps example</a> <br></p>
 <h3 id='table'>Table</h3>
-<p><strong>Table</strong> – a complex element that consists of header, body (at least one row and one column) and footer. You are able to perform a list of readonly interactions with this element.</p>
+<p><strong>Table</strong> – a complex element that consists of a header, a body (at least one row and one column) and a footer. You are able to perform a list of readonly interactions with this element.</p>
 
 <p>Tables are represented by the following classes in Java and C#:</p>
 <pre class="highlight java tab-java"><code>         <span class="nd">@UI</span><span class="o">(</span><span class="s">"#users-table"</span><span class="o">)</span> <span class="c1">//@FindBy(id = "users-table")</span>
@@ -4778,22 +4888,22 @@ C#: JDI.Light.Elements.Common.TextElement</p>
 </thead><tbody>
 <tr>
 <td><strong>cell(int colNum, int rowNum)</strong></td>
-<td>Returns a cell object of a table according to the cell&#39;s index</td>
+<td>Returns a cell object of a table according to the cell index</td>
 <td>String</td>
 </tr>
 <tr>
 <td><strong>cell(int colNum, String rowName)</strong></td>
-<td>Returns a cell object of a table according to the cell&#39;s index</td>
+<td>Returns a cell object of a table according to the cell index</td>
 <td>String</td>
 </tr>
 <tr>
 <td><strong>cell(String colName, int rowNum)</strong></td>
-<td>Returns a cell object of a table according to the cell&#39;s index</td>
+<td>Returns a cell object of a table according to the cell index</td>
 <td>String</td>
 </tr>
 <tr>
 <td><strong>cell(String colName, String rowNum)</strong></td>
-<td>Returns a cell object of a table according to the cell&#39;s index</td>
+<td>Returns a cell object of a table according to the cell index</td>
 <td>String</td>
 </tr>
 <tr>
@@ -4828,17 +4938,17 @@ C#: JDI.Light.Elements.Common.TextElement</p>
 </tr>
 <tr>
 <td><strong>getValue()</strong></td>
-<td>Returns a string content of values for particular row, where values are separated by &quot;;&quot;</td>
+<td>Returns a string content of values for a particular row, where values are separated by &quot;;&quot;</td>
 <td>String</td>
 </tr>
 <tr>
 <td><strong>isEmpty()</strong></td>
-<td>Asserts whether table is empty</td>
+<td>Asserts whether a table is empty</td>
 <td>boolean</td>
 </tr>
 <tr>
 <td><strong>isNotEmpty()</strong></td>
-<td>Asserts whether table is not empty</td>
+<td>Asserts whether a table is not empty</td>
 <td>boolean</td>
 </tr>
 <tr>
@@ -4883,57 +4993,57 @@ C#: JDI.Light.Elements.Common.TextElement</p>
 </tr>
 <tr>
 <td><strong>rows(TableMatcher... matchers)</strong></td>
-<td>Returns a a list of rows of a table according to matchers</td>
+<td>Returns a list of rows of a table according to matchers</td>
 <td>List&lt;Line&gt;</td>
 </tr>
 <tr>
 <td><strong>size()</strong></td>
-<td>Return amount of columns</td>
+<td>Returns amount of columns</td>
 <td>int</td>
 </tr>
 <tr>
 <td><strong>count()</strong></td>
-<td>Return return amount of rows</td>
+<td>Returns amount of rows</td>
 <td>int</td>
 </tr>
 <tr>
 <td><strong>header()</strong></td>
-<td>Return a list of table&#39;s headers</td>
+<td>Returns a list of table&#39;s headers</td>
 <td>List<String></td>
 </tr>
 <tr>
 <td><strong>webRow(int rowNum)</strong></td>
-<td>Return all UIElements in the row according to row number</td>
+<td>Returns all UIElements in the row according to row number</td>
 <td>List<UIElement></td>
 </tr>
 <tr>
 <td><strong>webRow(String rowName)</strong></td>
-<td>Return all UIElements in the row according to row name</td>
+<td>Returns all UIElements in the row according to row name</td>
 <td>List<UIElement></td>
 </tr>
 <tr>
 <td><strong>webRow(Enum rowName)</strong></td>
-<td>Return all UIElements in the row according to row name</td>
+<td>Returns all UIElements in the row according to row name</td>
 <td>List<UIElement></td>
 </tr>
 <tr>
 <td><strong>webColumn(int colNum)</strong></td>
-<td>Return all UIElements in the column according to column number</td>
+<td>Returns all UIElements in the column according to column number</td>
 <td>List<UIElement></td>
 </tr>
 <tr>
 <td><strong>webColumn(String colName)</strong></td>
-<td>Return all UIElements in the column according to column name</td>
+<td>Returns all UIElements in the column according to column name</td>
 <td>List<UIElement></td>
 </tr>
 <tr>
-<td><strong>webColumn(Enum colName) Return</strong></td>
-<td>All UIElements in the column according to column name</td>
+<td><strong>webColumn(Enum colName)</strong></td>
+<td>Returns all UIElements in the column according to column name</td>
 <td>List<UIElement></td>
 </tr>
 <tr>
 <td><strong>webCell(int colNum, int rowNum)</strong></td>
-<td>Return all UIElements in the column according to cell position</td>
+<td>Returns all UIElements in the column according to cell position</td>
 <td>List<UIElement></td>
 </tr>
 </tbody></table>
@@ -4968,42 +5078,42 @@ C#: JDI.Light.Elements.Common.TextElement</p>
 </tr>
 <tr>
 <td><strong>ContainsValue(string value, Column column)</strong></td>
-<td>Sets an object finding by some value occurance in particular column</td>
+<td>Looks for an object by some value occurrence in a particular column</td>
 <td>TableMatcher</td>
 </tr>
 <tr>
 <td><strong>HasValue(string value, Column column)</strong></td>
-<td>Sets an object finding by some full value in particular column</td>
+<td>Looks for an object (exact match) in a particular column</td>
 <td>TableMatcher</td>
 </tr>
 <tr>
 <td><strong>InColumn(string value)</strong></td>
-<td>Sets an object of some column by particular value</td>
+<td>Sets an object of some column to a particular value</td>
 <td>Column</td>
 </tr>
 <tr>
 <td><strong>InColumn(int num)</strong></td>
-<td>Sets an object of some column by particular column&#39;s number</td>
+<td>Sets an object of some column to a particular column number</td>
 <td>Column</td>
 </tr>
 <tr>
 <td><strong>Row(params TableMatcher[] matchers)</strong></td>
-<td>Sets and returns a row object of a table according to some matchers&#39; params (returns &#39;null&#39; if there is no such row)</td>
+<td>Sets and returns a row object from a table according to some matcher params (returns &#39;null&#39; if there is no such row)</td>
 <td>Line</td>
 </tr>
 <tr>
 <td><strong>Row(int rowNum)</strong></td>
-<td>Sets and returns a row object of a table according to the row&#39;s index</td>
+<td>Sets and returns a row object of a table according to the row index</td>
 <td>Line</td>
 </tr>
 <tr>
 <td><strong>Row(string rowName)</strong></td>
-<td>Sets and returns a row object of a table according to the row&#39;s name</td>
+<td>Sets and returns a row object of a table according to the row name</td>
 <td>Line</td>
 </tr>
 <tr>
 <td><strong>Row(Enum rowName)</strong></td>
-<td>Sets and returns a row object of a table according to row&#39;s name</td>
+<td>Sets and returns a row object of a table according to row name</td>
 <td>Line</td>
 </tr>
 <tr>
@@ -5018,7 +5128,7 @@ C#: JDI.Light.Elements.Common.TextElement</p>
 </tr>
 <tr>
 <td><strong>RowsAsLines(params TableMatcher[] matchers)</strong></td>
-<td>Sets and returns a a list of rows of a table according to matchers</td>
+<td>Sets and returns a list of rows of a table according to matchers</td>
 <td>List<Line></td>
 </tr>
 <tr>
@@ -5038,7 +5148,7 @@ C#: JDI.Light.Elements.Common.TextElement</p>
 </tr>
 <tr>
 <td><strong>Cell(int colNum, int rowNum)</strong></td>
-<td>Sets and returns a cell object of a table according to the cell&#39;s indexes</td>
+<td>Sets and returns a cell object of a table according to the cell&#39;s indices</td>
 <td>string</td>
 </tr>
 <tr>
@@ -5078,7 +5188,7 @@ C#: JDI.Light.Elements.Common.TextElement</p>
 </tr>
 <tr>
 <td><strong>GetValue()</strong></td>
-<td>Returns a string content of values for particular row, where values are separated by &quot;;&quot;</td>
+<td>Returns a string content of values for a particular row, where values are separated by &quot;;&quot;</td>
 <td>string</td>
 </tr>
 <tr>
@@ -5109,17 +5219,17 @@ C#: JDI.Light.Elements.Common.TextElement</p>
 </tr>
 <tr>
 <td><strong>Size(Matcher<int> condition)</strong></td>
-<td>Asserts whether table size satisfy some matcher</td>
+<td>Asserts whether table size satisfies some matcher condition</td>
 <td>TableAssert</td>
 </tr>
 <tr>
 <td><strong>Size(int expectedSize)</strong></td>
-<td>Asserts whether table has particular size</td>
+<td>Asserts whether table has a particular size</td>
 <td>TableAssert</td>
 </tr>
 <tr>
 <td><strong>HasColumn(string column)</strong></td>
-<td>Asserts whether table has particular header</td>
+<td>Asserts whether table has a particular header</td>
 <td>TableAssert</td>
 </tr>
 <tr>
@@ -5129,7 +5239,7 @@ C#: JDI.Light.Elements.Common.TextElement</p>
 </tr>
 <tr>
 <td><strong>Columns(Matcher<IEnumerable<string>&gt; condition)</strong></td>
-<td>Asserts whether headers satisfy some matcher</td>
+<td>Asserts whether headers satisfy some matcher condition</td>
 <td>TableAssert</td>
 </tr>
 <tr>
@@ -5150,8 +5260,8 @@ C#: JDI.Light.Elements.Common.TextElement</p>
 
 <p><a href="https://jdi-docs.github.io/jdi-light/?java#table-2">BDD Steps example</a><br></p>
 <h3 id='datatable'>DataTable</h3>
-<p><strong>DataTable</strong> – a complex element that consists of header, body (at least one row and one column) and footer. You are 
-able to perform a list of readonly interactions with this element in order to get all data for the specified criteria.</p>
+<p><strong>DataTable</strong> – a complex element that consists of header, a body (at least one row and one column) and a footer. You are 
+able to perform a list of readonly interactions with this element in order to get all data based on specified criteria.</p>
 
 <p>DataTables are represented by the following classes in Java and C#:</p>
 <pre class="highlight java tab-java"><code>
@@ -5346,7 +5456,7 @@ able to perform a list of readonly interactions with this element in order to ge
 
 <p>Here is a list of available methods in Java (<em>btw DataTable expand Table class - methods from previous table are available too</em>):</p>
 
-<p>In return types column &quot;D&quot; refers to user data object and &quot;L&quot; refers to table line object.</p>
+<p>In return types column <em>&quot;D&quot;</em> refers to the user data object and <em>&quot;L&quot;</em> refers to the table line object.</p>
 
 <table><thead>
 <tr>
@@ -5437,7 +5547,7 @@ able to perform a list of readonly interactions with this element in order to ge
 </tr>
 <tr>
 <td><strong>getValue()</strong></td>
-<td>Returns a string content of values for particular row, where values are separated by &quot;&#124;&quot;</td>
+<td>Returns string content of values for particular row, where values are separated by &quot;&#124;&quot;</td>
 <td>String</td>
 </tr>
 <tr>
@@ -5502,8 +5612,8 @@ able to perform a list of readonly interactions with this element in order to ge
 </tr>
 <tr>
 <td><strong>getValue()</strong></td>
-<td>Return a table content separated by &quot;\</td>
-<td>&quot;</td>
+<td>Returns table content separated by &quot;&#124;&quot;</td>
+<td>String</td>
 </tr>
 </tbody></table>
 
@@ -5547,22 +5657,22 @@ able to perform a list of readonly interactions with this element in order to ge
 
 <p><a href="https://jdi-docs.github.io/jdi-light/?java#datatable-2">BDD Steps example</a></p>
 <h3 id='dropdown'>DropDown</h3>
-<p><strong>DropDown</strong> – a graphical control element, that allows the user to choose one value from a list.</p>
+<p><strong>DropDown</strong> – a graphical control element that allows user to choose a single value from a list.</p>
 
 <p><img src="images/dropdown.png" alt="DropDown" /></p>
 
-<p>JDI Light has support for dropdown elements with its own type. There are several ways of dropdown usage in JDI Light, serving different needs.</p>
+<p>JDI Light has support for dropdown elements with their own type. There are several ways of dropdown usage in JDI Light, each serving different needs.</p>
 
 <p><strong>JDI Dropdown annotation</strong></p>
 
-<p>For better use JDI Light provides a <strong><em>@JDropdown</em></strong> annotation to locate dropdown elements. This annotation consists of the following elements:</p>
+<p>For better use, JDI Light provides a <strong><em>@JDropdown</em></strong> annotation to locate dropdown elements. This annotation consists of the following elements:</p>
 
 <ul>
 <li><strong><em>root()</em></strong> - value of this element points to the root locator of dropdown element</li>
-<li><strong><em>value()</em></strong> - locator of selected by default option in dropdown list</li>
+<li><strong><em>value()</em></strong> - locator of option selected by default in dropdown list</li>
 <li><strong><em>list()</em></strong> - locator representing list options</li>
 <li><strong><em>expand()</em></strong> - locator for expanding the dropdown list</li>
-<li><strong><em>how()</em></strong> - type of locators with which elements will be identified. By default this is css</li>
+<li><strong><em>how()</em></strong> - type of locators with which elements will be identified. By default it is css</li>
 </ul>
 <pre class="highlight java tab-java"><code><span class="nd">@JDropdown</span><span class="o">(</span><span class="n">root</span> <span class="o">=</span> <span class="s">"div[ui=dropdown]"</span><span class="o">,</span>
            <span class="n">value</span> <span class="o">=</span> <span class="s">".filter-option"</span><span class="o">,</span>
@@ -5616,14 +5726,14 @@ able to perform a list of readonly interactions with this element in order to ge
 </code></pre>
 <p>JDI Light provides a <strong>Droplist</strong> class which can be used for dropdown representation as a type of web element.</p>
 
-<p>Locator simple annotations from <em>com.epam.jdi.light.elements.pageobjects.annotations.simple</em> can be used together with dropdown elements.</p>
+<p>Simple locator annotations from <em>com.epam.jdi.light.elements.pageobjects.annotations.simple</em> can be used together with dropdown elements.</p>
 
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-examples/src/test/java/io/github/epam/tests/epam/ComplexElementsTests.java">Java test examples</a></p>
 
-<p>For HTML5 elements Dropdown lists are also supported in JDI light. There is a <strong>Dropdown</strong> class which is more like a special case of Droplist.
+<p>Dropdown lists in JDI light also support HTML5 elements. There is a <strong>Dropdown</strong> class which is more like a special case of Droplist.
 This type can be used in cases when dropdown is represented with HTML <em>&lt;select&gt;</em> tag.</p>
 
-<p>Consider an example of HTML5 dropdown with a given HTML code:</p>
+<p>Consider an example of HTML5 dropdown with the given HTML code:</p>
 <pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#dress-code"</span><span class="o">)</span> <span class="c1">//@FindBy(id = "dress-code")</span>
 <span class="kd">public</span> <span class="n">Dropdown</span> <span class="n">dressCode</span><span class="o">;</span>
 
@@ -5675,7 +5785,7 @@ This type can be used in cases when dropdown is represented with HTML <em>&lt;se
 </code></pre>
 <p><img src="images/html/dropdown_html5.png" alt="Dropdown HTML5" /></p>
 
-<p>Here is the list of some available methods:</p>
+<p>Here is a list of some available methods:</p>
 
 <table><thead>
 <tr>
@@ -5742,27 +5852,27 @@ This type can be used in cases when dropdown is represented with HTML <em>&lt;se
 </thead><tbody>
 <tr>
 <td><strong>is()</strong></td>
-<td>Applicable for performing assert actions for DropDown&#39;s</td>
+<td>Applicable for performing assert actions for DropDown</td>
 <td>ListAssert<UIElement></td>
 </tr>
 <tr>
 <td><strong>assertThat()</strong></td>
-<td>Applicable for performing assert actions for DropDown&#39;s</td>
+<td>Applicable for performing assert actions for DropDown</td>
 <td>ListAssert<UIElement></td>
 </tr>
 <tr>
 <td><strong>has()</strong></td>
-<td>Applicable for performing assert actions for DropDown&#39;s</td>
+<td>Applicable for performing assert actions for DropDown</td>
 <td>ListAssert<UIElement></td>
 </tr>
 <tr>
 <td><strong>waitFor()</strong></td>
-<td>Applicable for performing assert actions for DropDown&#39;s</td>
+<td>Applicable for performing assert actions for DropDown</td>
 <td>ListAssert<UIElement></td>
 </tr>
 <tr>
 <td><strong>shouldBe()</strong></td>
-<td>Applicable for performing assert actions for DropDown&#39;s</td>
+<td>Applicable for performing assert actions for DropDown</td>
 <td>ListAssert<UIElement></td>
 </tr>
 </tbody></table>
@@ -5788,27 +5898,27 @@ This type can be used in cases when dropdown is represented with HTML <em>&lt;se
 </tr>
 <tr>
 <td><strong>Values(Matcher<IEnumerable<string>&gt; condition)</strong></td>
-<td>Checks that dropdown&#39;s values match some contidion</td>
+<td>Checks that dropdown values match some condition</td>
 <td>DropDownAssert</td>
 </tr>
 <tr>
 <td><strong>Disabled(Matcher<IEnumerable<string>&gt; condition)</strong></td>
-<td>Checks that dropdown&#39;s values are disabled by some condition</td>
+<td>Checks that dropdown values are disabled by some condition</td>
 <td>DropDownAssert</td>
 </tr>
 <tr>
 <td><strong>Enabled(Matcher<IEnumerable<string>&gt; condition)</strong></td>
-<td>Checks that dropdown&#39;s values are enabled by some condition</td>
+<td>Checks that dropdown values are enabled by some condition</td>
 <td>DropDownAssert</td>
 </tr>
 <tr>
 <td><strong>Is</strong></td>
-<td>Gets dropdown&#39;s assertion</td>
+<td>Gets dropdown assertion</td>
 <td>DropDownAssert</td>
 </tr>
 <tr>
 <td><strong>AssertThat</strong></td>
-<td>Gets dropdown&#39;s assertion</td>
+<td>Gets dropdown assertion</td>
 <td>DropDownAssert</td>
 </tr>
 </tbody></table>
@@ -5884,18 +5994,18 @@ This type can be used in cases when dropdown is represented with HTML <em>&lt;se
     <span class="nf">BaseElementValidation</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">MultiDropdown</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre>
-<p><strong>MultiDropDown</strong> – a graphical control element, that allows the user to choose several values from a list.</p>
+<p><strong>MultiDropDown</strong> – a graphical control element that allows user to choose several values from a list.</p>
 
 <p><img src="images/multidropdown.png" alt="DropDown" /></p>
 
-<p>Multi dropdown elements can be described by the following class:</p>
+<p>MultiDropDown elements can be described by the following class:</p>
 
 <ul>
 <li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.complex.MultiDropdown</em></li>
 <li><strong>C#</strong>: <em>JDI.Light.Elements.Composite.MultiDropdown</em></li>
 </ul>
 
-<p>Here is the list of some available methods in C# JDI Light:</p>
+<p>Here is the list of some methods available for C# in JDI Light:</p>
 
 <table><thead>
 <tr>
@@ -5941,7 +6051,7 @@ This type can be used in cases when dropdown is represented with HTML <em>&lt;se
 </tr>
 </tbody></table>
 
-<p>Available assert methods in C# JDI Light:</p>
+<p>Available assertion methods in C# for JDI Light:</p>
 
 <table><thead>
 <tr>
@@ -5962,32 +6072,32 @@ This type can be used in cases when dropdown is represented with HTML <em>&lt;se
 </tr>
 <tr>
 <td><strong>Values(Matcher<IEnumerable<string>&gt; condition)</strong></td>
-<td>Check whether whether some values exist in MultiDropDown by some matcher</td>
+<td>Check whether some values exist in MultiDropDown by some matcher</td>
 <td>MultiDropdownAssert</td>
 </tr>
 <tr>
 <td><strong>Disabled(Matcher<IEnumerable<string>&gt; condition)</strong></td>
-<td>Check whether whether some values are disabled in MultiDropDown by some matcher</td>
+<td>Check whether some values are disabled in MultiDropDown by some matcher</td>
 <td>MultiDropdownAssert</td>
 </tr>
 <tr>
 <td><strong>Enabled(Matcher<IEnumerable<string>&gt; condition)</strong></td>
-<td>Check whether whether some values are enabled in MultiDropDown by some matcher</td>
+<td>Check whether some values are enabled in MultiDropDown by some matcher</td>
 <td>MultiDropdownAssert</td>
 </tr>
 <tr>
 <td><strong>Is</strong></td>
-<td>Gets multiDropDown&#39;s assert</td>
+<td>Gets multiDropDown assert</td>
 <td>MultiDropdownAssert</td>
 </tr>
 <tr>
 <td><strong>AssertThat</strong></td>
-<td>Gets multiDropDown&#39;s assert</td>
+<td>Gets multiDropDown assert</td>
 <td>MultiDropdownAssert</td>
 </tr>
 </tbody></table>
 
-<p>The list of available methods for Java JDI Light:</p>
+<p>The list of methods available for Java in JDI Light:</p>
 
 <table><thead>
 <tr>
@@ -6003,7 +6113,7 @@ This type can be used in cases when dropdown is represented with HTML <em>&lt;se
 </tr>
 <tr>
 <td><strong>uncheck(String.../Enum.../int...)</strong></td>
-<td>Unselect values in multi dropdown</td>
+<td>Deselect values in multi dropdown</td>
 <td>void</td>
 </tr>
 <tr>
@@ -6024,19 +6134,19 @@ This type can be used in cases when dropdown is represented with HTML <em>&lt;se
 
 <p><a href="https://jdi-docs.github.io/jdi-light/?java#multidropdown-2">BDD Steps example</a><br></p>
 <h3 id='datalist'>DataList</h3>
-<p><strong>DataList</strong> – a graphical control element, that allows the user to choose one value from a list or enter it by himself.
-Datalist element contains a set of options with values available for entering.</p>
+<p><strong>DataList</strong> – a graphical control element that allows user to choose one value from a list or enter it by himself.
+DataList element contains a set of options with values available as inputs.</p>
 
 <p><img src="images/icecreamdatalist.png" alt="DataList" /></p>
 
 <p><strong>JDI DataList annotation</strong></p>
 
-<p>For better use JDI Light provides a <strong><em>@JDataList</em></strong> annotation to locate datalist elements. This annotation consists of the following elements:</p>
+<p>For better use JDI Light provides a <strong><em>@JDataList</em></strong> annotation to locate DataList elements. This annotation consists of the following elements:</p>
 
 <ul>
-<li><strong><em>root</em></strong> - value of this element points to the root locator of dropdown element</li>
+<li><strong><em>root</em></strong> - value of this element points to the root locator of the dropdown element</li>
 <li><strong><em>values</em></strong> - options locator in dropdown list</li>
-<li><strong><em>how</em></strong> - type of locators with which elements will be identified. By default this is css</li>
+<li><strong><em>how</em></strong> - type of locators with which elements will be identified. By default it is set as css</li>
 </ul>
 <pre class="highlight java tab-java"><code><span class="n">TBD</span>
 </code></pre><pre class="highlight csharp tab-csharp"><code><span class="p">[</span><span class="nf">JDataList</span><span class="p">(</span><span class="n">root</span><span class="p">:</span> <span class="s">"#ice-cream"</span><span class="p">,</span> 
@@ -6106,14 +6216,14 @@ Datalist element contains a set of options with values available for entering.</
 <span class="p">}</span>
 
 </code></pre>
-<p>Datalist element type is provided by JDI Light in:</p>
+<p>DataList element type is provided by JDI Light in:</p>
 
 <ul>
 <li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.complex.DataList</em></li>
 <li><strong>C#</strong>: <em>JDI.Light.Elements.Common.DataList</em></li>
 </ul>
 
-<p>Have a look at the following example with provided HTML code:</p>
+<p>Have a look at the following example with HTML code provided:</p>
 <pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#ice-cream"</span><span class="o">)</span> <span class="c1">//@FindBy(id = "ice-cream")</span>
 <span class="kd">public</span> <span class="kd">static</span> <span class="n">DataList</span> <span class="n">iceCreamDataList</span><span class="o">;</span><span class="n">DropDown</span>
 
@@ -6125,7 +6235,7 @@ Datalist element contains a set of options with values available for entering.</
 </code></pre>
 <p><img src="images/html/datalist_html.png" alt="Datalist example" /></p>
 
-<p>The list of available methods in Java JDI Light:</p>
+<p>The list of methods available for Java in JDI Light:</p>
 
 <table><thead>
 <tr>
@@ -6146,22 +6256,22 @@ Datalist element contains a set of options with values available for entering.</
 </tr>
 <tr>
 <td><strong>values()</strong></td>
-<td>Get all option values from datalist</td>
+<td>Get all option values from DataList</td>
 <td>List&lt;String&gt;</td>
 </tr>
 <tr>
 <td><strong>listEnabled()</strong></td>
-<td>Return list of values of enabled options</td>
+<td>Return a list of values of enabled options</td>
 <td>List&lt;String&gt;</td>
 </tr>
 <tr>
 <td><strong>listDisabled()</strong></td>
-<td>Return list of values of disabled options</td>
+<td>Return a list of values of disabled options</td>
 <td>List&lt;String&gt;</td>
 </tr>
 </tbody></table>
 
-<p>Here is the list of some available methods in C# JDI Light:</p>
+<p>The list of some methods available for C# in JDI Light:</p>
 
 <table><thead>
 <tr>
@@ -6182,17 +6292,17 @@ Datalist element contains a set of options with values available for entering.</
 </tr>
 <tr>
 <td><strong>Input(string value)</strong></td>
-<td>Input user&#39;s value into datalist</td>
+<td>Input user&#39;s value into DataList</td>
 <td>void</td>
 </tr>
 <tr>
 <td><strong>GetSelected()</strong></td>
-<td>Get selected datalist value</td>
+<td>Get selected DataList value</td>
 <td>string</td>
 </tr>
 </tbody></table>
 
-<p>Available list of assert methods:</p>
+<p>The list of available assert methods:</p>
 
 <table><thead>
 <tr>
@@ -6219,7 +6329,7 @@ Datalist element contains a set of options with values available for entering.</
 
 <p><a href="https://jdi-docs.github.io/jdi-light/?java#datalist-2">BDD Steps example</a></p>
 <h3 id='checklist'>CheckList</h3>
-<p><strong>CheckList</strong> – a graphical control element representing a set of checkboxes, each of which allows the user to control a two-state parameter (enabled or disabled).</p>
+<p><strong>CheckList</strong> – a graphical control element representing a set of checkboxes, each of which allows user to control a two-state parameter (enabled or disabled).</p>
 
 <p>Checklist element type is available in the following packages:</p>
 
@@ -6228,7 +6338,7 @@ Datalist element contains a set of options with values available for entering.</
 <li><strong>C</strong>#: JDI.Light.Elements.Complex.CheckList </li>
 </ul>
 
-<p>See an example with a given HTML code describing checklist element.</p>
+<p>See an example with HTML code describing checklist element.</p>
 <pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"[name=checks-group]"</span><span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">Checklist</span> <span class="n">weather</span><span class="o">;</span>
 <span class="kd">public</span> <span class="kd">static</span> <span class="n">Checklist</span> <span class="n">weatherNoLocator</span><span class="o">;</span>
 
@@ -6327,12 +6437,12 @@ Datalist element contains a set of options with values available for entering.</
 </tr>
 <tr>
 <td><strong>uncheckAll()</strong></td>
-<td>Uncheck all checkboxes from checklist</td>
+<td>Uncheck all checkboxes in checklist</td>
 <td>void</td>
 </tr>
 <tr>
 <td><strong>checkAll()</strong></td>
-<td>Check all checkboxes from checklist</td>
+<td>Check all checkboxes in checklist</td>
 <td>void</td>
 </tr>
 <tr>
@@ -6382,7 +6492,7 @@ Datalist element contains a set of options with values available for entering.</
 </tr>
 </tbody></table>
 
-<p>Here is the list of some available methods in C# JDI Light:</p>
+<p>Here is the list of some methods available for C# in JDI Light:</p>
 
 <table><thead>
 <tr>
@@ -6458,7 +6568,7 @@ Datalist element contains a set of options with values available for entering.</
 </tr>
 <tr>
 <td><strong>Selected(string option)</strong></td>
-<td>Checks whether checkbox is selected</td>
+<td>Checks whether a checkbox is selected</td>
 <td>bool</td>
 </tr>
 </tbody></table>
@@ -6469,8 +6579,8 @@ Datalist element contains a set of options with values available for entering.</
 
 <p><a href="https://jdi-docs.github.io/jdi-light/?java#checklist-2">BDD Steps example</a></p>
 <h3 id='multiselector'>MultiSelector</h3>
-<p><strong>MultiSelector</strong> – a graphical control element, that allows the user to do multiple choice.
-Multi Selector are represented by the following class:</p>
+<p><strong>MultiSelector</strong> – a graphical control element that allows user to make a multiple choice.
+MultiSelector is represented by the following class:</p>
 
 <ul>
 <li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.complex.MultiSelector</em></li>
@@ -6575,7 +6685,7 @@ Multi Selector are represented by the following class:</p>
 </tr>
 <tr>
 <td><strong>uncheck(Strings.../TEnum.../int)</strong></td>
-<td>Select multiselector by values/indexes</td>
+<td>Select multiselector by values/indices</td>
 <td>void</td>
 </tr>
 <tr>
@@ -6604,8 +6714,8 @@ Multi Selector are represented by the following class:</p>
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/MultiSelectorTests.cs">C# test examples</a></p>
 <h3 id='combobox'>ComboBox</h3>
-<p><strong>ComboBox</strong> – a graphical control element, that allows the user to choose one
- value from a list or enter it by himself (is inherited from the <a href="#datalist">Datalist</a>)</p>
+<p><strong>ComboBox</strong> – a graphical control element that allows user to choose a single 
+value from a list or enter it by himself (is inherited from the <a href="#datalist">Datalist</a>)</p>
 
 <p><img src="images/icecreamdatalist.png" alt="ComboBox" /></p>
 
@@ -6671,11 +6781,11 @@ Multi Selector are represented by the following class:</p>
     <span class="n">SubmitButton</span><span class="p">.</span><span class="nf">Click</span><span class="p">();</span>
 <span class="p">}</span>
 </code></pre>
-<p>Have a look at the following example with provided HTML code:  </p>
+<p>Have a look at the following example with HTML code provided:</p>
 
 <p><img src="images/html/datalist_html.png" alt="Combobox example" /></p>
 
-<p>The list of available methods in Java JDI Light:</p>
+<p>The list of methods available for Java in JDI Light:</p>
 
 <table><thead>
 <tr>
@@ -6686,7 +6796,7 @@ Multi Selector are represented by the following class:</p>
 </thead><tbody>
 <tr>
 <td><strong>select(String/Enum/int)</strong></td>
-<td>Select datalist option by value or index</td>
+<td>Select combobox option by value or index</td>
 <td>void</td>
 </tr>
 <tr>
@@ -6696,7 +6806,7 @@ Multi Selector are represented by the following class:</p>
 </tr>
 <tr>
 <td><strong>values()</strong></td>
-<td>Get all option values from datalist</td>
+<td>Get all option values from combobox</td>
 <td>List&lt;String&gt;</td>
 </tr>
 <tr>
@@ -6711,7 +6821,7 @@ Multi Selector are represented by the following class:</p>
 </tr>
 </tbody></table>
 
-<p>Here is the list of some available methods in C# JDI Light:</p>
+<p>Here is the list of some methods available for C# in JDI Light:</p>
 
 <table><thead>
 <tr>
@@ -6727,17 +6837,17 @@ Multi Selector are represented by the following class:</p>
 </tr>
 <tr>
 <td><strong>Select(string/int)</strong></td>
-<td>Select datalist by value/index</td>
+<td>Select combobox by value/index</td>
 <td>void</td>
 </tr>
 <tr>
 <td><strong>Input(string)</strong></td>
-<td>Input user&#39;s value into datalist</td>
+<td>Input user&#39;s value into combobox</td>
 <td>void</td>
 </tr>
 <tr>
 <td><strong>GetSelected()</strong></td>
-<td>Get selected datalist value</td>
+<td>Get selected combobox value</td>
 <td>string</td>
 </tr>
 <tr>
@@ -6760,7 +6870,7 @@ Multi Selector are represented by the following class:</p>
 <h2 id='html5-composite-elements'>Html5 Composite elements</h2><h3 id='section'>Section</h3>
 <p><strong>Section</strong> - logical part of Web Page that contains other UI Elements</p>
 
-<p>Section is represented by the following class:   </p>
+<p>Section is represented by the following class:</p>
 
 <p>Java: com.epam.jdi.light.elements.composite.Section<br>
 public class Section extends JDIBase implements PageObject </p>
@@ -6931,9 +7041,10 @@ public class Section : UIElement</p>
     <span class="n">main</span><span class="o">.</span><span class="na">contactForm</span><span class="o">.</span><span class="na">check</span><span class="o">(</span><span class="n">DEFAULT_CONTACT</span><span class="o">);</span>
 <span class="o">}</span>   
 </code></pre>
-<p><strong>Form</strong> – logical part of a web page that represents HTML form. Form consists of elements based on SetValue interface and buttons with function “submit”.</p>
+<p><strong>Form</strong> – logical part of a web page that represents an HTML form. 
+Form consists of elements based on <em>SetValue</em> interface and buttons with <strong>submit</strong> function.</p>
 
-<p>Form provides functionality to fill, submit and verify/check the form.  </p>
+<p>Form provides the <em>fill, submit and verify/check</em> functionality.  </p>
 
 <p><img src="images/html/form_html.png" alt="Form" /></p>
 
@@ -6944,7 +7055,8 @@ public class Section : UIElement</p>
 <li><strong>C#</strong>: <em>JDI.Light.Elements.Composite.Form</em></li>
 </ul>
 
-<p>Form is parameterized by an entity that corresponds to the form. For example, a login form can be parameterized by a user entity. Entity should extend DataClass class parameterized by the entity itself. The names of the entity fields should be exactly the same as the names of the form fields. All fields of the entity managed by form should be String.</p>
+<p>Form is parameterized by an entity that corresponds to the form. For example, a login form can be parameterized by a user entity. The entity should extend DataClass class (parameterized by the entity itself). 
+The names of the entity fields should be exactly the same as the names of the form fields. All fields of the entity managed by the form should be Strings.</p>
 
 <p>JDI Light Java supports three types of forms:</p>
 
@@ -6956,11 +7068,11 @@ public class Section : UIElement</p>
 
 <span class="n">on</span> <span class="n">JDISite</span><span class="o">.</span><span class="na">java</span> <span class="o">&gt;&gt;</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">LoginFormSmart</span> <span class="n">loginFormSmart</span><span class="o">;</span>
 </code></pre>
-<p><strong>Smart JDI Forms</strong> - forms that exploit Smart locators functionality of JDI. In Smart Forms there is no need to explicitly define locators for form elements, if such locators can be obtained implicitly from the field names using Smart locators functionality.
+<p><strong>Smart JDI Forms</strong> - forms utilizing the <em>Smart locator</em> functionality of JDI. In Smart Forms there is no need to explicitly define locators for form elements if such locators can be obtained implicitly from field names using Smart locator functionality.
 <a href="https://jdi-docs.github.io/jdi-light/?java#smart-locators">See more details and exampels for Smart locators in documentation</a></p>
 <pre class="highlight java tab-java"><code><span class="n">on</span> <span class="n">JDISite</span><span class="o">.</span><span class="na">java</span> <span class="o">&gt;&gt;</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">Form</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">lightLoginForm</span><span class="o">;</span>
 </code></pre>
-<p><strong>Light Forms</strong> - if a Form consists of only TextFields and Buttons there is no need to define Form UI Object. Such form can be added directly to the related page or to the root Site class.</p>
+<p><strong>Light Forms</strong> - if a Form consists of only TextFields and Buttons, there is no need to define a Form UI Object. Such form can be added directly to the related page or to the root Site class.</p>
 <pre class="highlight java tab-java"><code><span class="nd">@Test</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onlyMandatoryOptionTest</span><span class="o">()</span> <span class="o">{</span>
     <span class="n">shouldContactPageBeOpenedAndRefreshed</span><span class="o">();</span>
@@ -6968,7 +7080,7 @@ public class Section : UIElement</p>
     <span class="n">main</span><span class="o">.</span><span class="na">contactFormCustom</span><span class="o">.</span><span class="na">onlyMandatory</span><span class="o">().</span><span class="na">check</span><span class="o">(</span><span class="n">DEFAULT_CONTACT</span><span class="o">);</span>
 <span class="o">}</span>
 </code></pre>
-<p>In Java, Form has a filter property that defines which form elements will be filled/submited or verified/checked. Filter can be set to either <strong>ALL</strong>, <strong>MANDATORY</strong> or <strong>OPTIONAL</strong>. Based on this property, fill/submit and verify/check functions are applied to either all form elements or only mandatory (only optional) form elements. Mandatory form fields should be marked with <strong>@Mandatory</strong> annotation. Optional form fields are the ones without <strong>@Mandatory</strong> annotation. <strong>ALL</strong> is default Form option. To set form filters as <strong>MANDATORY</strong> or <strong>OPTIONAL</strong>, <strong>onlyMandatory()</strong> and <strong>onlyOptional()</strong> methods should be used. They set the corresponding form filter option for a duration of a single action (all form action methods set the form filter option back to <strong>ALL</strong>).</p>
+<p>In Java, Form has a filter property that defines which form elements will be filled/submited or verified/checked. Filter can be set to either <strong>ALL</strong>, <strong>MANDATORY</strong> or <strong>OPTIONAL</strong>. Based on this property, fill/submit and verify/check functions are applied to either all form elements or only mandatory (only optional) form elements. Mandatory form fields should be marked with <strong>@Mandatory</strong> annotation. Optional form fields are the ones without <strong>@Mandatory</strong> annotation. <strong>ALL</strong> is the default Form option. To set form filters as <strong>MANDATORY</strong> or <strong>OPTIONAL</strong>, <strong>onlyMandatory()</strong> and <strong>onlyOptional()</strong> methods should be used. They set the corresponding form filter option for a duration of a single action (all form action methods set the form filter option back to <strong>ALL</strong>).</p>
 <pre class="highlight java tab-java"><code><span class="nd">@BeforeSuite</span><span class="o">(</span><span class="n">alwaysRun</span> <span class="o">=</span> <span class="kc">true</span><span class="o">)</span>
 <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">setUp</span><span class="o">()</span> <span class="o">{</span>
     <span class="n">logger</span><span class="o">.</span><span class="na">setLogLevel</span><span class="o">(</span><span class="n">INFO</span><span class="o">);</span>
@@ -6982,7 +7094,9 @@ public class Section : UIElement</p>
     <span class="n">logger</span><span class="o">.</span><span class="na">toLog</span><span class="o">(</span><span class="s">"Run Tests"</span><span class="o">);</span>
 <span class="o">}</span>
 </code></pre>
-<p>In Java, Form has a <strong>FILL_ACTION</strong> and <strong>GET_ACTION</strong> lambdas that define how the Form should be filled and verified. The default behavior defined in the Form class simply exploits <strong>setValue(String value)</strong> method of the SetValue interface and <strong>getValue()</strong> method of the HasValue interface. However these lambdas are redefined in HtmlSettings class in order to customise behavior for a &quot;non-text&quot; form elements such as Checkboxes (the behavior of the custom elements is defined by <strong>@FillValue</strong> and <strong>@VerifyValue</strong> annotations). <strong>FILL_ACTION</strong> and <strong>GET_ACTION</strong> lambdas can also be further modified in order to customise the Form behavior, but it is important to take into account that behavior, defined in the HtmlSettings might be lost. It is customary to reassign these lambdas before all the tests are run, for example in the TestNG&#39;s <strong>@beforeSuite</strong> method.</p>
+<p>In Java, Form has a <strong>FILL_ACTION</strong> and <strong>GET_ACTION</strong> lambdas. 
+These define how the Form should be filled and verified. The default behavior defined in the Form class simply utilizes <strong>setValue(String value)</strong> method of the SetValue interface and <strong>getValue()</strong> method of the HasValue interface. However, these lambdas are redefined in the <em>HtmlSettings</em> class in order to customise behavior for &quot;non-text&quot; form elements such as Checkboxes (the behavior of custom elements is defined by <strong>@FillValue</strong> and <strong>@VerifyValue</strong> annotations). <strong>FILL_ACTION</strong> and <strong>GET_ACTION</strong> lambdas can also be further modified in order to customize Form behavior, but it is important to take into account that behavior defined in the HtmlSettings might be lost. 
+It is customary to reassign these lambdas before all the tests are run, for example in TestNG&#39;s <strong>@BeforeSuite</strong> method.</p>
 <pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LoginForm</span> <span class="kd">extends</span> <span class="n">Form</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="o">{</span>
     <span class="n">TextField</span> <span class="n">name</span><span class="o">,</span> <span class="n">password</span><span class="o">;</span>
     <span class="n">Button</span> <span class="n">loginButton</span><span class="o">;</span>
@@ -6997,7 +7111,7 @@ public class Section : UIElement</p>
 </code></pre>
 <p>In Java, if fill/submit and verify/check methods need to be redefined for a specific form, it is possible to override <strong>fillAction()</strong> and <strong>getAction()</strong> for such form.</p>
 
-<p>Available methods in Java JDI Light:</p>
+<p>Methods available for Java in JDI Light:</p>
 
 <table><thead>
 <tr>
@@ -7008,142 +7122,142 @@ public class Section : UIElement</p>
 </thead><tbody>
 <tr>
 <td><strong>fillAction(Field field, Object element, Object parent, String setValue)</strong></td>
-<td>Defines the specifics of how the form elements will be filled</td>
+<td>Defines the specifics of how form elements will be filled</td>
 <td>void</td>
 </tr>
 <tr>
 <td><strong>getAction(Field field, Object element, Object parent)</strong></td>
-<td>Defines the specifics of how the form elements will be obtained for verification and checks</td>
+<td>Defines the specifics of how form elements will be obtained for verification and checks</td>
 <td>String</td>
 </tr>
 <tr>
 <td><strong>onlyMandatory()</strong></td>
-<td>Sets form filter option to <strong>MANDATORY</strong> meaning that only mandatory form elements are filled/submitted or verified/checked for a duration of a single form action</td>
+<td>Sets form filter option to <strong>MANDATORY</strong>, meaning that only mandatory form elements are filled/submitted or verified/checked for the duration of a single form action</td>
 <td>void</td>
 </tr>
 <tr>
 <td><strong>onlyOptional()</strong></td>
-<td>Sets form filter option to <strong>OPTIONAL</strong> meaning that only optional form elements are filled/submitted or verified/checked for a duration of a single form action</td>
+<td>Sets form filter option to <strong>OPTIONAL</strong>, meaning that only optional form elements are filled/submitted or verified/checked for the duration of a single form action</td>
 <td>void</td>
 </tr>
 <tr>
 <td><strong>fill(T entity)</strong></td>
-<td>Fills all setable elements on the form that can be matched with fields in input entity</td>
+<td>Fills all settable elements of the form that can be matched with fields of the input entity</td>
 <td>void</td>
 </tr>
 <tr>
 <td><strong>submit()</strong></td>
-<td>Sends the form by clicking on Button &quot;submit&quot; or &quot;submitButton&quot;</td>
+<td>Sends the form by clicking &quot;submit&quot; Button or &quot;submitButton&quot;</td>
 <td>void</td>
 </tr>
 <tr>
 <td><strong>submit(String text)</strong></td>
-<td>Fills first setable form field with value and clicks on Button &quot;submit&quot; or &quot;submitButton&quot;</td>
+<td>Fills first settable form field with value and clicks &quot;submit&quot; Button or &quot;submitButton&quot;</td>
 <td>void</td>
 </tr>
 <tr>
 <td><strong>submit(T entity)</strong></td>
-<td>Fills all setable elements and clicks on Button &quot;submit&quot; or &quot;submitButton&quot;</td>
+<td>Fills all settable elements and clicks &quot;submit&quot; Button or &quot;submitButton&quot;</td>
 <td>void</td>
 </tr>
 <tr>
 <td><strong>submit(String text, String buttonName)</strong></td>
-<td>Fills first setable field with value and clicks on Button “buttonName” or &quot;buttonNamebutton&quot;</td>
+<td>Fills first settable field with value and clicks “buttonName” Button or &quot;buttonNamebutton&quot;</td>
 <td>void</td>
 </tr>
 <tr>
 <td><strong>submit(T entity, String buttonName)</strong></td>
-<td>Fills all setable elements and clicks on Button “buttonName” or &quot;buttonNamebutton&quot;</td>
+<td>Fills all settable elements and clicks “buttonName” Button or &quot;buttonNamebutton&quot;</td>
 <td>void</td>
 </tr>
 <tr>
 <td><strong>pressButton(String buttonName)</strong></td>
-<td>Clicks on Button “buttonName” or &quot;buttonNamebutton&quot;. Allows different buttons to send one form e.g. save/publish/cancel/search/update/...</td>
+<td>Clicks “buttonName” Button or &quot;buttonNamebutton&quot;. Allows different buttons to send one form, e.g. save/publish/cancel/search/update/...</td>
 <td>void</td>
 </tr>
 <tr>
 <td><strong>verify(T entity)</strong></td>
-<td>Verifies that form was filled correctly. If not returns list of keys where verification fails</td>
+<td>Verifies that form has been filled correctly. If not, returns a list of keys where verification has failed</td>
 <td>List<String></td>
 </tr>
 <tr>
 <td><strong>check(T entity)</strong></td>
-<td>Verifies that form was filled correctly. If not throws exception</td>
+<td>Verifies that form has been filled correctly. If not, throws an exception</td>
 <td>void</td>
 </tr>
 <tr>
 <td><strong>login()</strong></td>
-<td>Clicks on Button &quot;login&quot; or &quot;loginButton&quot;</td>
+<td>Clicks &quot;login&quot; Button or &quot;loginButton&quot;</td>
 <td>void</td>
 </tr>
 <tr>
 <td><strong>login(T entity)</strong></td>
-<td>Fills all setable elements and clicks on Button “login” or ”loginButton”</td>
+<td>Fills all settable elements and clicks “login” Button or ”loginButton”</td>
 <td>void</td>
 </tr>
 <tr>
 <td><strong>loginAs(T entity)</strong></td>
-<td>Fills all setable elements and clicks on Button “login” or ”loginButton”</td>
+<td>Fills all settable elements and clicks “login” Button or ”loginButton”</td>
 <td>void</td>
 </tr>
 <tr>
 <td><strong>send()</strong></td>
-<td>Sends the form by clicking on Button “send” or &quot;sendButton&quot;</td>
+<td>Sends the form by clicking “send” Button or &quot;sendButton&quot;</td>
 <td>void</td>
 </tr>
 <tr>
 <td><strong>send(T entity)</strong></td>
-<td>Fills all setable elements and clicks on Button “send” or ”sendButton”</td>
+<td>Fills all settable elements and clicks “send” Button or ”sendButton”</td>
 <td>void</td>
 </tr>
 <tr>
 <td><strong>add(T entity)</strong></td>
-<td>Fills all setable elements and clicks on Button “add” or ”addButton”</td>
+<td>Fills all settable elements and clicks “add” Button or ”addButton”</td>
 <td>void</td>
 </tr>
 <tr>
 <td><strong>publish(T entity)</strong></td>
-<td>Fills all setable elements and clicks on Button “publish” or ”publishButton”</td>
+<td>Fills all settable elements and clicks “publish” Button or ”publishButton”</td>
 <td>void</td>
 </tr>
 <tr>
 <td><strong>save(T entity)</strong></td>
-<td>Fills all setable elements and clicks on Button “save” or ”saveButton”</td>
+<td>Fills all settable elements and clicks “save” Button or ”saveButton”</td>
 <td>void</td>
 </tr>
 <tr>
 <td><strong>update(T entity)</strong></td>
-<td>Fills all setable elements and clicks on Button “update” or ”updateButton”</td>
+<td>Fills all settable elements and clicks “update” Button or ”updateButton”</td>
 <td>void</td>
 </tr>
 <tr>
 <td><strong>cancel(T entity)</strong></td>
-<td>Fills all setable elements and clicks on Button “cancel” or ”cancelButton”</td>
+<td>Fills all settable elements and clicks “cancel” Button or ”cancelButton”</td>
 <td>void</td>
 </tr>
 <tr>
 <td><strong>close(T entity)</strong></td>
-<td>Fills all setable elements and clicks on Button “close” or ”closeButton”</td>
+<td>Fills all settable elements and clicks “close” Button or ”closeButton”</td>
 <td>void</td>
 </tr>
 <tr>
 <td><strong>back(T entity)</strong></td>
-<td>Fills all setable elements and clicks on Button “back” or ”backButton”</td>
+<td>Fills all settable elements and clicks “back” Button or ”backButton”</td>
 <td>void</td>
 </tr>
 <tr>
 <td><strong>select(T entity)</strong></td>
-<td>Fills all setable elements and clicks on Button “select” or ”selectButton”</td>
+<td>Fills all settable elements and clicks “select” Button or ”selectButton”</td>
 <td>void</td>
 </tr>
 <tr>
 <td><strong>next(T entity)</strong></td>
-<td>Fills all setable elements and clicks on Button “next” or ”nextButton”</td>
+<td>Fills all settable elements and clicks “next” Button or ”nextButton”</td>
 <td>void</td>
 </tr>
 <tr>
 <td><strong>search(T entity)</strong></td>
-<td>Fills all setable elements and clicks on Button “search” or ”searchButton”</td>
+<td>Fills all settable elements and clicks “search” Button or ”searchButton”</td>
 <td>void</td>
 </tr>
 </tbody></table>
@@ -7160,7 +7274,7 @@ public class Section : UIElement</p>
 <li><strong>Java</strong>: <em>com.epam.jdi.light.elements.composite</em></li>
 </ul>
 
-<p><strong>WebPage</strong> - is a parent Java class for all JDI Page Object classes. WebPage class extending DriverBase class, implementing PageObject interface and containing a scope of common used methods:</p>
+<p><strong>WebPage</strong> - a parent Java class for all JDI Page Object classes. WebPage class extends <em>DriverBase</em> class, implements PageObject interface and contains a number of commonly used methods:</p>
 
 <table><thead>
 <tr>
@@ -7171,17 +7285,17 @@ public class Section : UIElement</p>
 </thead><tbody>
 <tr>
 <td><strong>asForm()</strong></td>
-<td>Returning new Form parameterized with local Name</td>
+<td>Returns new Form parameterized with local Name</td>
 <td>Form<T></td>
 </tr>
 <tr>
 <td><strong>getCurrentPage()</strong></td>
-<td>Returning the name of current Page</td>
+<td>Returns the name of current Page</td>
 <td>String</td>
 </tr>
 <tr>
 <td><strong>setCurrentPage(WebPage page)</strong></td>
-<td>Instantiating the current Page with Name</td>
+<td>Instantiates the current Page with Name</td>
 <td>void</td>
 </tr>
 <tr>
@@ -7191,7 +7305,7 @@ public class Section : UIElement</p>
 </tr>
 <tr>
 <td><strong>WebPage(String url)</strong></td>
-<td>Parameterizing with URL constructor for WebPage class</td>
+<td>Parameterized URL constructor for WebPage class</td>
 <td>void</td>
 </tr>
 <tr>
@@ -7201,27 +7315,27 @@ public class Section : UIElement</p>
 </tr>
 <tr>
 <td><strong>getUrl()</strong></td>
-<td>Returning URL of Page</td>
+<td>Returns URL of Page</td>
 <td>String</td>
 </tr>
 <tr>
 <td><strong>getTitle()</strong></td>
-<td>Returning Title of Page</td>
+<td>Returns Page Title</td>
 <td>String</td>
 </tr>
 <tr>
 <td><strong>updatePageData(Url urlAnnotation, Title titleAnnotation)</strong></td>
-<td>Setting Page URL and Title</td>
+<td>Setting Page URL and</td>
 <td>void</td>
 </tr>
 <tr>
 <td><strong>url()</strong></td>
-<td>Returning new StringCheckType object wit checked URL</td>
+<td>Returns new StringCheckType object with checked URL</td>
 <td>StringCheckType</td>
 </tr>
 <tr>
 <td><strong>title()</strong></td>
-<td>Returning new StringCheckType object wit checked Title</td>
+<td>Returns new StringCheckType object with checked Title</td>
 <td>StringCheckType</td>
 </tr>
 <tr>
@@ -7236,37 +7350,37 @@ public class Section : UIElement</p>
 </tr>
 <tr>
 <td><strong>checkOpened()</strong></td>
-<td>Checking that page opened</td>
+<td>Checks that page has opened</td>
 <td>void</td>
 </tr>
 <tr>
 <td><strong>isOpened()</strong></td>
-<td>Checking that page opened</td>
+<td>Checks that page has opened</td>
 <td>boolean</td>
 </tr>
 <tr>
 <td><strong>shouldBeOpened()</strong></td>
-<td>Checking that page opened</td>
+<td>Checks that page has opened</td>
 <td>void</td>
 </tr>
 <tr>
 <td><strong>shouldBeOpened(Object... params)</strong></td>
-<td>Check that page opened with parameters</td>
+<td>Checks that page has opened with parameters</td>
 <td>void</td>
 </tr>
 <tr>
 <td><strong>openedPage(String url)</strong></td>
-<td>Check that page opened</td>
+<td>Checks that page has opened</td>
 <td>void</td>
 </tr>
 <tr>
 <td><strong>refresh()</strong></td>
-<td>Reloading current page</td>
+<td>Reloads current page</td>
 <td>void</td>
 </tr>
 <tr>
 <td><strong>reload()</strong></td>
-<td>same as <strong>refresh()</strong></td>
+<td>Same as <strong>refresh()</strong></td>
 <td>void</td>
 </tr>
 <tr>
@@ -7281,67 +7395,67 @@ public class Section : UIElement</p>
 </tr>
 <tr>
 <td><strong>zoom(double factor)</strong></td>
-<td>Zooming current page</td>
+<td>Zooms current page</td>
 <td>void</td>
 </tr>
 <tr>
 <td><strong>getHtml()</strong></td>
-<td>Getting HTML of current page</td>
+<td>Gets HTML of current page</td>
 <td>String</td>
 </tr>
 <tr>
 <td><strong>scroll(int x, int y)</strong></td>
-<td>Scrolling to designated position</td>
+<td>Scrolls to designated position</td>
 <td>void</td>
 </tr>
 <tr>
 <td><strong>scrollToTop()</strong></td>
-<td>Scrolling to top</td>
+<td>Scrolls to top</td>
 <td>void</td>
 </tr>
 <tr>
 <td><strong>scrollToBottom()</strong></td>
-<td>Scrolling to bottom</td>
+<td>Scrolls to bottom</td>
 <td>void</td>
 </tr>
 <tr>
 <td><strong>scrollDown(int value)</strong></td>
-<td>Scrolling dowd to designated position</td>
+<td>Scrolls down to designated position</td>
 <td>void</td>
 </tr>
 <tr>
 <td><strong>scrollUp(int value)</strong></td>
-<td>Scrolling up to designated position</td>
+<td>Scrolls up to designated position</td>
 <td>void</td>
 </tr>
 <tr>
 <td><strong>scrollRight(int value)</strong></td>
-<td>Scrolling right to designated position</td>
+<td>Scrolls right to designated position</td>
 <td>void</td>
 </tr>
 <tr>
 <td><strong>scrollLeft(int value)</strong></td>
-<td>Scrolling left to designated position</td>
+<td>Scrolls left to designated position</td>
 <td>void</td>
 </tr>
 <tr>
 <td><strong>addPage(WebPage page)</strong></td>
-<td>Adding selected page to Map of pages</td>
+<td>Adds selected page to the Map of pages</td>
 <td>void</td>
 </tr>
 <tr>
 <td><strong>getPage(String value)</strong></td>
-<td>Getting page from Map by value</td>
+<td>Gets page from Map by value</td>
 <td>T_extends_WebPage</td>
 </tr>
 <tr>
 <td><strong>toString()</strong></td>
-<td>Overriding method of Object class</td>
+<td>Overrides the Object class toString() method</td>
 <td>String</td>
 </tr>
 </tbody></table>
 
-<p>more than that, it has nested Class <strong>StringCheckType</strong> with such methods:</p>
+<p>More than that, it has a nested <strong>StringCheckType</strong> class with the following methods:</p>
 
 <table><thead>
 <tr>
@@ -7352,22 +7466,22 @@ public class Section : UIElement</p>
 </thead><tbody>
 <tr>
 <td><strong>StringCheckType(Supplier<String> actual, String equals, String what)</strong></td>
-<td>parametrized constructor</td>
+<td>A parameterized constructor</td>
 <td>StringCheckType</td>
 </tr>
 <tr>
 <td><strong>check()</strong></td>
-<td>Check that current page url/title equals to expected url/title</td>
+<td>Checks that current page url/title equals to expected url/title</td>
 <td>boolean</td>
 </tr>
 <tr>
 <td><strong>match()</strong></td>
-<td>Check that current page url/title matches to expected url/title-matcher</td>
+<td>Checks that current page url/title matches to expected url/title-matcher</td>
 <td>boolean</td>
 </tr>
 <tr>
 <td><strong>contains()</strong></td>
-<td>Check that current page url/title contains expected url/title-matcher</td>
+<td>Checks that current page url/title contains expected url/title-matcher</td>
 <td>boolean</td>
 </tr>
 </tbody></table>
@@ -9298,7 +9412,7 @@ Scenario example for Radiobuttons:
 <span class="n">If</span> <span class="n">Smart</span> <span class="n">locator</span> <span class="n">rule</span> <span class="n">is</span> <span class="nl">id:</span>
     <span class="n">WebSettings</span><span class="o">.</span><span class="na">SMART_SEARCH_LOCATORS</span> <span class="o">=</span> <span class="n">asList</span><span class="o">(</span><span class="s">"#%s"</span><span class="o">);</span>
 
-<span class="n">and</span> <span class="n">convertation</span> <span class="n">rule</span> <span class="n">is</span> <span class="n">hyphen</span> <span class="n">to</span> <span class="n">java</span> <span class="nl">name:</span>
+<span class="n">and</span> <span class="n">conversion</span> <span class="n">rule</span> <span class="n">is</span> <span class="err">'</span><span class="n">hyphen</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">java</span><span class="o">-</span><span class="n">name</span><span class="err">'</span><span class="o">:</span>
     <span class="n">WebSettings</span><span class="o">.</span><span class="na">SMART_SEARCH_NAME</span> <span class="o">=</span> <span class="nl">StringUtils:</span><span class="o">:</span><span class="n">splitHyphen</span><span class="o">;</span>
 
 <span class="n">So</span> <span class="n">you</span> <span class="n">can</span> <span class="nl">write:</span>
@@ -9310,21 +9424,22 @@ Scenario example for Radiobuttons:
 <span class="o">}</span>
 
 </code></pre>
-<p>If you have your developers follow some standard way to mark ui elements or you have an agreement to add special attribute you can even avoid to write locators for elements and make your page objects much more compact.</p>
+<p>If your developers are following some standard way of marking UI elements or you have an agreement to add special attributes, you can even avoid writing locators for elements and make your page objects much more compact.</p>
 
-<p>You can manage how to create locator from field name using.</p>
+<p>You can manage locator creation from field name using:</p>
 <h3 id='settings-interface-ismartlocators-contains'>Settings interface ISmartLocators contains:</h3>
 <ul>
-<li><p><strong>SmartSearch</strong> - method that invoked if you have element has no locator</p></li>
+<li><p><strong>SmartSearch</strong> - method invoked if your element has no locator</p></li>
 <li><p><strong>SmartSearchLocator</strong> - locator that can be used to try to find element</p></li>
-<li><p><strong>SmartSearchName</strong> -  method how to create locator name from filed name (this value will be passed as parameter in SmartSearchLocator)</p></li>
+<li><p><strong>SmartSearchName</strong> -  method that creates locator name from field name (this value will be passed as a parameter to SmartSearchLocator)</p></li>
 </ul>
 <h2 id='jdi-locators'>JDI Locators</h2>
-<p>JDI provides various locators for detecting elements using css locators and xpath expressions. JDI Light supports Selenium&#39;s @FindBy(s) locators as well as providing custom locators such as Selenium-like <strong>@FindBy(s)</strong>, aliases <strong>@Css</strong>/<strong>@XPath</strong> and custom <strong>@ByText</strong> and <strong>@WithText</strong> locators. </p>
+<p>JDI provides various ways for detecting elements (including using Css locators and Xpath expressions). 
+JDI Light supports Selenium @FindBy(s) locators, while also providing custom locators such as Selenium-like <strong>@FindBy(s)</strong>, aliases <strong>@Css</strong>/<strong>@XPath</strong> and custom <strong>@ByText</strong> and <strong>@WithText</strong> locators. </p>
 
-<p>Furthermore JDI Light introduces <strong>@UI</strong> locator that provides additional features for css support.</p>
+<p>Furthermore, JDI Light introduces the <strong>@UI</strong> locator, which provides additional features for css support.</p>
 
-<p>Apart from locator annotations JDI Light provides support for smart locators. When using this feature there is no need to explicitly provide locators for elements at all. </p>
+<p>Apart from locator annotations JDI Light provides support for smart locators. When using this feature, there is no need to explicitly provide locators for elements at all. </p>
 <h3 id='selenium-like-annotations'>Selenium-like annotations</h3>
 <table><thead>
 <tr>
@@ -9335,7 +9450,7 @@ Scenario example for Radiobuttons:
 </thead><tbody>
 <tr>
 <td><strong>@FindBy</strong></td>
-<td>This JDI Light locator corresponds to Selenium @FindBy locator. It is used to locate element exploiting one of the predefined strategies. JDI Light supports most of the Selenium strategies: <strong>id</strong>, <strong>name</strong>, <strong>className</strong>, <strong>css</strong>, <strong>tagName</strong>, <strong>linkText</strong>, <strong>partialLinkText</strong>, <strong>xpath</strong>. Added strategy is <strong>text</strong>, which allows detecting element(s) with the given text inside its text nodes. The <strong>group</strong> annotation parameter allows to use different <strong>@FindBy</strong> locators for different test groups.</td>
+<td>This JDI Light locator corresponds to Selenium @FindBy locator. It is used to locate an element using one of the predefined strategies. JDI Light supports most of the Selenium strategies: <strong>id</strong>, <strong>name</strong>, <strong>className</strong>, <strong>css</strong>, <strong>tagName</strong>, <strong>linkText</strong>, <strong>partialLinkText</strong>, <strong>xpath</strong>. Added strategy is <strong>text</strong>, which allows detecting element(s) with the given text inside its text nodes. The <strong>group</strong> annotation parameter allows to use different <strong>@FindBy</strong> locators for different test groups.</td>
 <td>@FindBy(css = &quot;#passport&quot;)</td>
 </tr>
 <tr>
@@ -9359,12 +9474,12 @@ Scenario example for Radiobuttons:
 </thead><tbody>
 <tr>
 <td><strong>@Css(&quot;expr&quot;)</strong></td>
-<td>This locator is an alias to @FindBy(css = &quot;expr&quot;)</td>
+<td>This locator is an alias for @FindBy(css = &quot;expr&quot;)</td>
 <td>@Css(&quot;.fa-sign-out&quot;)</td>
 </tr>
 <tr>
 <td><strong>@XPath(&quot;expr&quot;)</strong></td>
-<td>This locator is an alias to @FindBy(xpath = &quot;expr&quot;)</td>
+<td>This locator is an alias for @FindBy(xpath = &quot;expr&quot;)</td>
 <td>@XPath(&quot;.//button[@type=&#39;submit&#39;]&quot;)</td>
 </tr>
 <tr>
@@ -9379,37 +9494,35 @@ Scenario example for Radiobuttons:
 </tr>
 <tr>
 <td><strong>@UI(&quot;expr&quot;)</strong></td>
-<td>This locator can take either css locator or xpath expression as an argument and locate element accordingly. This locator provides additional features as described below. Additionally, the <strong>group</strong> annotation parameter allows to use different <strong>@UI</strong> locators for different test groups.</td>
+<td>This locator accepts either a css locator or an xpath expression as an argument and locates element accordingly. It provides additional features as described below. Additionally, the <strong>group</strong> annotation parameter allows to use different <strong>@UI</strong> locators for different test groups.</td>
 <td>@UI(&quot;#users-table&quot;)</td>
 </tr>
 <tr>
 <td><strong>@UI(&quot;[&#39;text&#39;]&quot;)</strong></td>
-<td>Such notation allows to enrich css locators to detect element(s) with given text inside its text nodes. It is equivalent to xpath = &quot;.//*/text()[normalize-space(.) = &#39;text&#39;]/parent::*&quot;</td>
+<td>Such notation allows to enhance css locators to detect element(s) with given text inside its text nodes. It is equivalent to xpath = &quot;.//*/text()[normalize-space(.) = &#39;text&#39;]/parent::*&quot;</td>
 <td>@UI(&quot;.user[&#39;Roman&#39;]&quot;) or @UI(&quot;[&#39;Accept&#39;] input&quot;)</td>
 </tr>
 <tr>
 <td><strong>@UI(&quot;[*&#39;text&#39;]&quot;)</strong></td>
-<td>Such notation allows to enrich css locators to detect element(s) which contain(s) given text inside its text nodes. It is equivalent to xpath = &quot;.//*/text()[contains(normalize-space(.), &#39;text&#39;)]/parent::*&quot;</td>
+<td>Such notation allows to enhance css locators to detect element(s) which contain(s) given text inside its text nodes. It is equivalent to xpath = &quot;.//*/text()[contains(normalize-space(.), &#39;text&#39;)]/parent::*&quot;</td>
 <td>@UI(&quot;.user[*&#39;Roma&#39;]&quot;) or @UI(&quot;[*&#39;Accept&#39;] input&quot;)</td>
 </tr>
 <tr>
 <td><strong>@UI(&quot;&#39;expr[n]&quot;)</strong></td>
-<td>Such notation allows to enrich css locators to choose an element at a specific position. It is equivalent to xpath = &quot;.//xpath-expr[n]&quot;</td>
+<td>Such notation allows to enhance css locators to choose an element at a specific position. It is equivalent to xpath = &quot;.//xpath-expr[n]&quot;</td>
 <td>@UI(&quot;[type=checkbox][1]&quot;)</td>
 </tr>
 <tr>
 <td><strong>@UI(&quot;expr&lt;&quot;)</strong></td>
-<td>Such notation allows to enrich css locators by allowing to move up in the DOM to the parent of the element. E.g. [’text’]<strong>&lt;</strong>[type=checkbox] is the same as //*[text()=’text’]/..//*[@type=‘checkbox’]</td>
+<td>Such notation allows to enhance css locators by allowing to move up the DOM to the parent of the element. E.g. [’text’]<strong>&lt;</strong>[type=checkbox] is the same as //*[text()=’text’]/..//*[@type=‘checkbox’]</td>
 <td>@UI(&quot;[’Ice Cream’]&lt;[type=checkbox]&quot;)</td>
 </tr>
 <tr>
 <td><strong>@JDropdown</strong></td>
-<td>This locator help to locate dropdown elements and <a href='https://jdi-docs.github.io/jdi-light/?java#dropdown' target="_blank">provide additional features</a></td>
+<td>This locator helps locate dropdown elements and <a href='https://jdi-docs.github.io/jdi-light/?java#dropdown' target="_blank">provides additional features</a></td>
 <td>@JDropdown(root = &quot;div[ui=combobox]&quot;, value = &quot;input&quot;, list = &quot;li&quot;, expand = &quot;.caret&quot;)</td>
 </tr>
 </tbody></table>
-
-<p>provide additional features</p>
 <h3 id='smart-locators-2'>Smart locators</h3><pre class="highlight plaintext"><code>&lt;input type="text" id="name"&gt;
 &lt;input type="text" id="last-name"&gt;
 &lt;input type="text" id="passport-code"&gt;
@@ -9440,15 +9553,15 @@ Scenario example for Radiobuttons:
     <span class="n">Button</span> <span class="n">submitButton</span><span class="o">;</span> 
 <span class="o">}</span>
 </code></pre>
-<p>If you have your developers follow some standard way to mark ui elements or you have an agreement to add special attribute you can even avoid to write locators for elements and make your page objects much more compact.</p>
+<p>If your developers are following some standard way of marking UI elements or you have an agreement to add some special attributes, you can even avoid writing locators for elements and make your page objects much more compact.</p>
 
-<p>You can manage how to create locator from a field name using:</p>
+<p>You can manage locator creation from field name using:</p>
 
-<p><strong>WebSettings.SMART_SEARCH</strong> - function that is invoked if you have element that has no locator or just setting a list of used locators using</p>
+<p><strong>WebSettings.SMART_SEARCH</strong> - function invoked if your element has no locator or just setting a list of used locators.</p>
 
-<p><strong>WebSettings.SMART_SEARCH_LOCATORS</strong> - list of locators that can be used to try to find element</p>
+<p><strong>WebSettings.SMART_SEARCH_LOCATORS</strong> - list of locators which can be used to try to find element.</p>
 
-<p><strong>WebSettings.SMART_SEARCH_NAME</strong> - function how to create locator name from filed name (this value will be passed as %s parameter in SMART_SEARCH_LOCATORS)</p>
+<p><strong>WebSettings.SMART_SEARCH_NAME</strong> - function that creates locator name from field name (this value will be passed as a <i>%s</i> parameter to SMART_SEARCH_LOCATORS).</p>
 <h2 id='windows-tabs-manager'>Windows/Tabs manager</h2><pre class="highlight java tab-java"><code><span class="c1">//example 1</span>
 <span class="n">homePage</span><span class="o">.</span><span class="na">shouldBeOpened</span><span class="o">();</span>
 <span class="n">githubLink</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
@@ -9464,7 +9577,7 @@ Scenario example for Radiobuttons:
 <span class="n">switchToWindow</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
 <span class="n">contactFormPage</span><span class="o">.</span><span class="na">open</span><span class="o">();</span>
 </code></pre>
-<p>JDI has good support for managing opened windows and tabs of the browser. It can help to create/switch/close windows/tabs in the browser. Let&#39;s look at available methods in Java:</p>
+<p>JDI has good support for managing opened windows and tabs of the browser. It can help create/switch/close windows/tabs in the browser. Let&#39;s look at methods available in Java:</p>
 
 <table><thead>
 <tr>
@@ -9475,7 +9588,7 @@ Scenario example for Radiobuttons:
 </thead><tbody>
 <tr>
 <td><strong>getWindows()</strong></td>
-<td>Return list of all windows/tabs</td>
+<td>Returns a list of all windows/tabs</td>
 <td>Set<String></td>
 </tr>
 <tr>
@@ -9490,12 +9603,12 @@ Scenario example for Radiobuttons:
 </tr>
 <tr>
 <td><strong>windowsCount()</strong></td>
-<td>Get count of windows</td>
+<td>Get window count</td>
 <td>int</td>
 </tr>
 <tr>
 <td><strong>switchToNewWindow()</strong></td>
-<td>Switch to the new window</td>
+<td>Switch to a new window</td>
 <td>void</td>
 </tr>
 <tr>
@@ -9505,17 +9618,17 @@ Scenario example for Radiobuttons:
 </tr>
 <tr>
 <td><strong>originalWindow()</strong></td>
-<td>Switch to original window</td>
+<td>Switch to the original window</td>
 <td>void</td>
 </tr>
 <tr>
 <td><strong>switchToWindow(int number)</strong></td>
-<td>Switch to windows with a number. <em>switchToWindow(2) means switch to the second window</em></td>
+<td>Switch to window with a number. <em>switchToWindow(2) means switch to the second window</em></td>
 <td>void</td>
 </tr>
 <tr>
 <td><strong>switchToWindow(String value)</strong></td>
-<td>Switch to windows with a name. For setup name for the current window, we should use the <strong>setWindowsName()</strong> method</td>
+<td>Switch to windows with names. To set name for the current window, we should use the <strong>setWindowName()</strong> method</td>
 <td>void</td>
 </tr>
 <tr>
@@ -9538,13 +9651,13 @@ Scenario example for Radiobuttons:
 </code></pre><pre class="highlight csharp tab-csharp"><code><span class="n">AlertButton</span><span class="p">.</span><span class="nf">Click</span><span class="p">();</span>
 <span class="nf">GetAlert</span><span class="p">().</span><span class="nf">DismissAlert</span><span class="p">();</span>
 </code></pre>
-<p><strong>Alert</strong> –  a window with a message that displays on the screen and pauses the execution of the script until the user performs an action</p>
+<p><strong>Alert</strong> –  a window with a message that displays on the screen and pauses the execution of the script until user performs an action</p>
 
 <aside class="notice">
-Note that you can make static import in order to simplify code Alerts.acceptAlert() > acceptAlert()
+Note that you can make a static import (Alerts.acceptAlert() > acceptAlert()) in order to simplify your code.
 </aside>
 
-<p>Handle Window alerts/confirm/prompt dialogs desribed on <a href='https://developer.mozilla.org/en-US/docs/Web/API/Window' target="_blank">MDN</a></p>
+<p>Handle Window alerts/confirm/prompt dialogs described on <a href='https://developer.mozilla.org/en-US/docs/Web/API/Window' target="_blank">MDN</a></p>
 
 <p>alert(&#39;Alert&#39;)</p>
 
@@ -9574,7 +9687,7 @@ Note that you can make static import in order to simplify code Alerts.acceptAler
 
 <p><img src="images/prompt.png" alt="Prompt dialog" /></p>
 
-<p>Availiable methods in Java</p>
+<p>Available methods in Java</p>
 
 <table><thead>
 <tr>
@@ -9600,7 +9713,7 @@ Note that you can make static import in order to simplify code Alerts.acceptAler
 </tr>
 <tr>
 <td><strong>validateAlert(Matcher<String> text)</strong></td>
-<td>Validate alert by matching passed value with alert text</td>
+<td>Validate alert by matching passed value with the alert text</td>
 <td>void</td>
 </tr>
 <tr>
@@ -9628,9 +9741,9 @@ Note that you can make static import in order to simplify code Alerts.acceptAler
 <span class="o">[</span><span class="mi">22</span><span class="o">:</span><span class="mf">24.516</span>  <span class="n">STEP</span><span class="o">]</span> <span class="o">:</span> <span class="n">Check</span> <span class="n">that</span> <span class="err">'</span><span class="n">Home</span> <span class="n">Page</span><span class="err">'</span> <span class="n">is</span> <span class="nf">opened</span> <span class="o">(</span><span class="n">url</span> <span class="n">CONTAINS</span> <span class="err">'</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="na">html</span><span class="err">'</span><span class="o">;</span> <span class="n">title</span> <span class="n">EQUALS</span> <span class="err">'</span><span class="n">Home</span> <span class="n">Page</span><span class="err">'</span><span class="o">)</span>
 
 </code></pre>
-<p>JDI uses log4j library, but provide more levels of logging. (require log4j.xml / log2j2.xml)
+<p>JDI uses the <em>log4j library</em>, but provides more levels of logging. (require log4j.xml / log2j2.xml)
 <strong>logger.setLogLevel(STEP);</strong>
-Level <em>STEP</em> can show business-related information in the console output and the same log will be in the file (target/.logs/<logName>.log)</p>
+Level <em>STEP</em> can show business-related information in the console output, and you will find the same log in the <strong><em>target/.logs/<logName>.log</em></strong> file.</p>
 
 <table><thead>
 <tr>
@@ -9681,12 +9794,12 @@ Level <em>STEP</em> can show business-related information in the console output 
 <p>TBD</p>
 <h2 id='jdi-settings'>JDI Settings</h2>
 <ul>
-<li><strong>driver</strong> -  we can set up where we would like to run our tests. Some typical options: chrome, firefox, ie... or we can just place it with ${driver} and read the exact driver name from command line</li>
-<li><strong>drivers.version</strong> - by default JDI Light will download the latest version of drive for us but if we need a specific version we can put it here (in this case the framework will find and download exactly this version)</li>
-<li><strong>timeout.wait.element</strong> – timeout in seconds to wait for an element on the opened page. Default 10 seconds.</li>
-<li><strong>timeout.wait.page</strong> - JDI Light automatically define that new page opened and in this case will use this timeout (usually it is more than for element). By default 30 seconds.</li>
-<li><strong>domain</strong> – web application root URL (used if we work with one application in tests). Can be also read from the command line like ${domain}</li>
-<li><strong>page.load.strategy</strong> - like in <a href="https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/capabilities_exports_PageLoadStrategy.html" target="_blank">Selenium strategies</a> to load the page. Options: normal, eager, none</li>
+<li><strong>driver</strong> -  we can set up where we would like to run our tests. Some common options are: <i>chrome</i>, <i>firefox</i>, <i>ie</i>… or we can just replace it with <em>${driver}</em> and read the exact driver name from command line<br/></li>
+<li><strong>drivers.version</strong> - by default JDI Light will download the latest version of a driver for us, but if we need a specific version we can put it here (in this case the framework will find and download exactly the version specified)</li>
+<li><strong>timeout.wait.element</strong> – timeout in seconds to wait for an element on the opened page. The default is 10 seconds.</li>
+<li><strong>timeout.wait.page</strong> - JDI Light automatically defines that new page has opened, and in this case it will use this timeout (usually it is more than enough for an element). By default, it&#39;s 30 seconds.</li>
+<li><strong>domain</strong> – web application root URL (used if we work with one application in tests). Can be also read from the command line, e.g. <em>${domain}</em></li>
+<li><strong>page.load.strategy</strong> - like in <a href="https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/capabilities_exports_PageLoadStrategy.html" target="_blank">Selenium strategies</a> to load the page. Options: <em>normal, eager, none</em></li>
 <li><strong>browser.size</strong> - the size of the tested browser. By default, JDI Light will maximize browser, but we can set exact values.</li>
 </ul>
 <h2 id='softasserts'>SoftAsserts</h2><pre class="highlight java tab-java"><code>    <span class="nd">@Test</span>
@@ -9742,9 +9855,9 @@ Level <em>STEP</em> can show business-related information in the console output 
         <span class="o">}</span>
     <span class="o">}</span>
 </code></pre>
-<p><strong>Soft Assert</strong> - assert that collects errors during test is running. They don&#39;t throw an exception when an assert fails but save them. </p>
+<p><strong>Soft Assert</strong> - assert that collects errors during test run. It doesn&#39;t throw exceptions when asserts fail but instead saves them. </p>
 
-<p>Here is the list of available methods in SoftAssert class:</p>
+<p>Here is the list of available SoftAssert class methods:</p>
 
 <table><thead>
 <tr>
@@ -9770,12 +9883,12 @@ Level <em>STEP</em> can show business-related information in the console output 
 </tr>
 <tr>
 <td><strong>assertResults()</strong></td>
-<td>Output results of asserts</td>
+<td>Outputs assert results</td>
 <td>void</td>
 </tr>
 <tr>
 <td><strong>clearResults()</strong></td>
-<td>Reset results of asserts</td>
+<td>Resets assert results</td>
 <td>void</td>
 </tr>
 </tbody></table>
@@ -9783,17 +9896,17 @@ Level <em>STEP</em> can show business-related information in the console output 
 <p><strong>Settings:</strong></p>
 
 <ul>
-<li><p><strong>test.properties</strong> file - to choose type of assertions, you need to update <strong>assert.type</strong> property - select soft or strict type (#assert.type=soft | strict)</p></li>
-<li><p>to enable or disable SoftAssert in code use <strong>assertSoft()</strong> or <strong>assertStrict()</strong> methods from SoftAssert class</p></li>
+<li><p><strong>test.properties</strong> file - to choose the type of assertions, you need to update the <strong>assert.type</strong> property - select <strong>soft</strong> or <strong>strict</strong> type (<em>#assert.type=soft | strict</em>)</p></li>
+<li><p>to enable or disable SoftAssert in code, use <strong>assertSoft()</strong> or <strong>assertStrict()</strong> methods from SoftAssert class</p></li>
 </ul>
 
 <p><strong>Output results</strong> </p>
 
-<p>there are two ways how to use <strong>assertResults()</strong> method:</p>
+<p>There are two ways to use <strong>assertResults()</strong> method:</p>
 
 <ul>
-<li><p>As a method in a chain after asserts (example buttonSoftAssertTest)</p></li>
-<li><p>As a separate method if you need to check several elements (example multipleValidationsTest)</p></li>
+<li><p>As a method in a chain after asserts (e.g. <em>buttonSoftAssertTest</em>)</p></li>
+<li><p>As a separate method if you need to check several elements (e.g. <em>multipleValidationsTest</em>)</p></li>
 </ul>
 <h2 id='driver-settings'>Driver Settings</h2>
 <p>We can change default settings placed in the test.properties file (src/test/resources)</p>
@@ -9807,12 +9920,12 @@ Level <em>STEP</em> can show business-related information in the console output 
 </thead><tbody>
 <tr>
 <td><strong>driver</strong></td>
-<td>Describe what kind of driver we want to use: chrome, firefox, ie… or we can just place it with ${driver} and read the exact driver name from command line or pom file</td>
+<td>Describe what kind of driver we want to use: chrome, firefox, ie… or we can just replace it with ${driver} and read the exact driver name from command line or pom file</td>
 <td>driver = ${driver}</td>
 </tr>
 <tr>
 <td><strong>drivers.version</strong></td>
-<td>By default, JDI Light will download the latest version of the driver for us, but if we need a specific version we can put it here (in this case the framework will find and download exactly this version)</td>
+<td>By default, JDI Light will download the latest version of the driver for us, but if we need a specific version we can put it here (in this case the framework will find and download exactly the version specified)</td>
 <td>drivers.version = LATEST<br>drivers.version = PRELATEST<br> driver.version = 2.23</td>
 </tr>
 <tr>
@@ -9822,42 +9935,42 @@ Level <em>STEP</em> can show business-related information in the console output 
 </tr>
 <tr>
 <td><strong>timeout.wait.page</strong></td>
-<td>JDI Light automatically defines that new page opened and in this case will use this timeout (usually it is more than for element). By default 30 seconds</td>
+<td>JDI Light automatically defines that new page is opened and in this case will use this timeout (usually it is more than enough for an element). By default, it&#39;s 30 seconds</td>
 <td>timeout.wait.page = 40</td>
 </tr>
 <tr>
 <td><strong>domain</strong></td>
-<td>web application root URL (used if we work with one application in tests). Can be also read from the command line like ${domain}</td>
+<td>Web application root URL (used if we&#39;re working with one application in tests). Can be also read from the command line, e.g. <em>${domain}</em></td>
 <td>domain = https://jdi-testing.github.io/jdi-light/</td>
 </tr>
 <tr>
 <td><strong>drivers.folder</strong></td>
-<td>Setup folder for drivers</td>
+<td>Set up the driver folder</td>
 <td>drivers.folder = C:\Selenium</td>
 </tr>
 <tr>
 <td><strong>screens.folder</strong></td>
-<td>Setup screenshot folder</td>
+<td>Set up the screenshot folder</td>
 <td>screens.folder = C:\Test-screenshot</td>
 </tr>
 <tr>
 <td><strong>element.search.strategy</strong></td>
-<td>Can find only one element on a page (single), many elements on a page (multiple). Also, we can define if we want to search only in visible element or not. Consist of 2 params: visibility (visible can use displayed or any),  and type of search. Options: soft (=any, multiple); strict(=visible, single); or combine from visible/displayed/any/all and single/multiple. _Note: visible=displayed, any=all</td>
+<td>Can find only one element on a page (<em>single</em>), many elements on a page (<em>multiple</em>). Also, we can define whether we want to search through visible elements only or not. Consists of 2 params: visibility (<em>visible</em> can use <em>displayed</em> or <em>any</em>), and the type of search. Options: <em>soft (=any, multiple)</em>; <em>strict(=visible, single)</em>; or <em>combined from visible/displayed/any/all and single/multiple</em>. Note: <em>visible=displayed</em>, <em>any=all</em></td>
 <td>element.search.strategy = visible, multiple</td>
 </tr>
 <tr>
 <td><strong>browser.size</strong></td>
-<td>the size . Optionsof the tested browser. By default, JDI Light will maximize browser, but we can set exact values</td>
+<td>the size of the tested browser. By default, JDI Light will maximize the browser, but we can set exact values</td>
 <td>browser.size = MAXIMIZE<br>browser.size = 1024x762</td>
 </tr>
 <tr>
 <td><strong>page.load.strategy</strong></td>
-<td>Selenium-like strategies to load the page. Options: normal, eager, none</td>
+<td>Selenium-like strategies to load the page. Options: <em>normal, eager, none</em></td>
 <td>page.load.strategy = normal</td>
 </tr>
 <tr>
 <td><strong>page.check.after.open</strong></td>
-<td>Check the page has been open. Availible option: NONE, NEW_PAGE, EVERY_PAGE</td>
+<td>Check the page has been opened. Available options: <em>NONE, NEW_PAGE, EVERY_PAGE</em></td>
 <td>page.check.after.open = NONE</td>
 </tr>
 <tr>

@@ -4795,7 +4795,6 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 <br>
 
 ### Multiselector
-
 ```
 Multiselector actions examples:
 

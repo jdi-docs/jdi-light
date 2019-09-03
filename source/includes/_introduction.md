@@ -1,7 +1,7 @@
 # Introduction
 ## Simple JDI examples
 ### Create a simple Login test
-First of all, let's see how JDI solves typical problems. Let's start with Login since most tests start with signing in.
+First of all, let's see how JDI solves typical problems. Let's start with Login, since most tests start with signing in.
 
 You can find a Java code example <a href='https://github.com/jdi-examples/jdi-introduction' target="_blank">here</a>
 
@@ -137,7 +137,7 @@ public class UserCard extends Form<User> {
 ```
 If your developers are following some standard way of marking UI elements or you have an agreement to add some special attributes, you can even avoid writing locators for elements and make your page objects much more compact.
 
-You can manage the locator creation from field name using: 
+You can manage locator creation from field name using:
 
 **WebSettings.SMART_SEARCH** - function invoked if your element has no locator or just setting a list of used locators.
 

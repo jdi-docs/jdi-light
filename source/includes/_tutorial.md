@@ -966,7 +966,7 @@ Statistical results:<br/>
 <img src="images/tutorial/jdi-light-results.png" alt="JDI Light Statistic" width="400"><br/>
 In our example, we wrote **3 times less amount of code with JDI Light**. <br/>
 This means that if a regular Test Automation engineer writes these tests using **Selenium**, it will take him about **1 working day**, while using **JDI Light** this work will only take him **2-3 hours**. **Or** he can **automate 3 times more test cases** in the same period of time.<br/>
-_Note: You can try to automate this test scenario by yourself from scratch without clues and check how much time this will take you personally_<br/><br/>
+_Note: You can try to automate this test scenario by yourself from scratch without clues and check how much time this will take you personally._<br/><br/>
 But JDI Light does not only save your time. Less amount of code **increases code clearness**.<br/>
 In addition, if you run test scenarios on JDI Light, you will **get logs of all your actions** in a readable format. If you would like to have the same level of logs in Selenium, you need to write additional 30-50 lines of code for this example and spend 5-10% of your effort on logs.<br/>
 _Note: JDI Light removes only waste code and keeps all the important business parts in place._ <br/><br/>

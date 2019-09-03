@@ -3730,7 +3730,7 @@ Available methods in Java JDI Light:
 
 ###Collapse
 
-The collapse is used to show and hide content.Buttons or anchors are used as triggers that are mapped to specific elements you toggle. 
+The collapse is used to show and hide content. Buttons or anchors are used as triggers that are mapped to specific elements you toggle. 
 
 ![Collapse example](../images/bootstrap/collapse.png)
 

@@ -5233,28 +5233,34 @@ Actions: <br>
 
  **When** \<I\> fill form \<ELEMENT NAME\> with data:<br>
      &nbsp;&nbsp;&nbsp;&nbsp;|\<GHERKIN DATA TABLE\>| <br>
- **When** \<I\> fill form \<ELEMENT NAME\> with \<JSON DATA FILE NAME\><br>
  **When** \<I\> [submit|login as|send|add|publich|save|update|cancel|close|back|select|next|search] form \<ELEMENT NAME\> with data:<br>
  &nbsp;&nbsp;&nbsp;&nbsp;|\<GHERKIN DATA TABLE\>| <br>
  **When** \<I\> [submit|login as|send|add|publich|save|update|cancel|close|back|select|next|search] form<br>
+ 
+ It's also possible to use JSON data files:
+ **When** \<I\> fill form \<ELEMENT NAME\> with \<JSON DATA FILE NAME\><br>
  **When** \<I\> [submit|login as|send|add|publich|save|update|cancel|close|back|select|next|search] form \<ELEMENT NAME\> with \<JSON DATA FILE NAME\><br>
+ [JSON data file example](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/jsonData/Roman%20Contacts.json)
  
 Validations: <br>
 
  **Then** the form \<ELEMENT NAME\> data equals to: <br>
      &nbsp;&nbsp;&nbsp;&nbsp;|\<GHERKIN DATA TABLE\>|<br>
- **Then** the form \<ELEMENT NAME\> data equals to \<JSON DATA FILE NAME\><br>
  **Then** the form \<ELEMENT NAME\> is displayed<br>
  **Then** the form \<ELEMENT NAME\> is hidden<br>
  **Then** the form \<ELEMENT NAME\> does not appear<br>
  **Then** the form \<ELEMENT NAME\> does not appear during \<SECONDS\><br>
  **Then** the form \<ELEMENT NAME\> disappear<br>
+ 
+ It's also possible to use JSON data files:
+ **Then** the form \<ELEMENT NAME\> data equals to \<JSON DATA FILE NAME\><br>
+ [JSON data file example](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/jsonData/Roman%20Contacts.json
 
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa)<br>
 [**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Form.feature) for Form<br>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br>
 
 
 <br>

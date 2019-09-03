@@ -29,7 +29,7 @@ public class UserCard : Form<User>
 //If Smart locator rule is id:
     SmartSearchLocator = "#{0}";
     
-//and convertation rule is hyphen to csharp name:
+//and the conversion rule is 'hyphen-to-csharp-name':
     SmartSearchName(string name) => StringExtensions.SplitHyphen(name);
     
 //So you can write:
@@ -56,7 +56,7 @@ public class UserCard extends Form<User> {
 //If Smart locator rule is id:
     WebSettings.SMART_SEARCH_LOCATORS = asList("#%s");
     
-//and convertation rule is hyphen to java name:
+//and the conversion rule is 'hyphen-to-java-name':
     WebSettings.SMART_SEARCH_NAME = StringUtils::splitHyphen;
 
 //So you can write:
@@ -69,17 +69,17 @@ public class UserCard extends Form<User> {
 ```
 
 
-If you have your developers follow some standard way to mark ui elements or you have an agreement to add special attribute you can even avoid to write locators for elements and make your page objects much more compact.
+If you have your developers following some standard way of marking UI elements or you have an agreement to add special attributes, you can even avoid writing locators for elements, thus making your page objects much more compact.
 
-You can manage how to create locator from field name using.
+You can manage locator creation from field name using:
 
 ### Settings interface ISmartLocators contains:
   
-- **SmartSearch** - method that invoked if you have element has no locator
+- **SmartSearch** - method invoked if you have an element with no locator
 
-- **SmartSearchLocator** - locator that can be used to try to find element
+- **SmartSearchLocator** - locator that can be used to try to find an element
 
-- **SmartSearchName** -  method how to create locator name from filed name (this value will be passed as parameter in SmartSearchLocator)
+- **SmartSearchName** -  method to create locator name from field name (this value will be passed as parameter to SmartSearchLocator)
 
 
 

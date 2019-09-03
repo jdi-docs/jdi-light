@@ -9018,7 +9018,10 @@ When fill form "Contact Form" with data:
     |acceptConditions|true|
     |gender|Female|
     |religion|Other|
+When fill form "Contact Form" with "Roman Contacts"
 When I submit form "Contact Form"
+When send form "Contact Form" with "Roman Contacts"
+When I save form
 
 Form validation examples:
 
@@ -9032,6 +9035,7 @@ Then the form "Contact Form" data equals to:
     |acceptConditions|true|
     |gender|Female|
     |religion|Other|
+Then the form "Contact Form" data equals to "Roman Contacts"
 Then the form "Contact Form" is displayed
 Then the form "Contact Form" is hidden
 Then the form "Contact Form" does not appear
@@ -9067,19 +9071,24 @@ Form scenario example:
 </code></pre>
 <p>Actions: <br></p>
 
-<p><strong>When</strong> &lt;I&gt; fill form &lt;FORM NAME&gt; with data:<br>
+<p><strong>When</strong> &lt;I&gt; fill form &lt;ELEMENT NAME&gt; with data:<br>
      &nbsp;&nbsp;&nbsp;&nbsp;|&lt;GHERKIN DATA TABLE&gt;| <br>
- <strong>When</strong> &lt;I&gt; submit form &lt;FORM NAME&gt;<br></p>
+ <strong>When</strong> &lt;I&gt; fill form &lt;ELEMENT NAME&gt; with &lt;JSON DATA FILE NAME&gt;<br>
+ <strong>When</strong> &lt;I&gt; &lt;submit|login as|send|add|publich|save|update|cancel|close|back|select|next|search&gt; form &lt;ELEMENT NAME&gt; with data:<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;|&lt;GHERKIN DATA TABLE&gt;| <br>
+ <strong>When</strong> &lt;I&gt; &lt;submit|login as|send|add|publich|save|update|cancel|close|back|select|next|search&gt; form<br>
+ <strong>When</strong> &lt;I&gt; &lt;submit|login as|send|add|publich|save|update|cancel|close|back|select|next|search&gt; form &lt;ELEMENT NAME&gt; with &lt;JSON DATA FILE NAME&gt;<br></p>
 
 <p>Validations: <br></p>
 
-<p><strong>Then</strong> the form &lt;FORM NAME&gt; data equals to: <br>
+<p><strong>Then</strong> the form &lt;ELEMENT NAME&gt; data equals to: <br>
      &nbsp;&nbsp;&nbsp;&nbsp;|&lt;GHERKIN DATA TABLE&gt;|<br>
- <strong>Then</strong> the form &lt;FORM NAME&gt; is displayed<br>
- <strong>Then</strong> the form &lt;FORM NAME&gt; is hidden<br>
- <strong>Then</strong> the form &lt;FORM NAME&gt; does not appear<br>
- <strong>Then</strong> the form &lt;FORM NAME&gt; does not appear during &lt;SECONDS&gt;<br>
- <strong>Then</strong> the form &lt;FORM NAME&gt; disappear<br></p>
+ <strong>Then</strong> the form &lt;ELEMENT NAME&gt; data equals to &lt;JSON DATA FILE NAME&gt;<br>
+ <strong>Then</strong> the form &lt;ELEMENT NAME&gt; is displayed<br>
+ <strong>Then</strong> the form &lt;ELEMENT NAME&gt; is hidden<br>
+ <strong>Then</strong> the form &lt;ELEMENT NAME&gt; does not appear<br>
+ <strong>Then</strong> the form &lt;ELEMENT NAME&gt; does not appear during &lt;SECONDS&gt;<br>
+ <strong>Then</strong> the form &lt;ELEMENT NAME&gt; disappear<br></p>
 
 <p>More information in the <a href="https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa"><strong>Tutorial</strong></a><br>
 <a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Form.feature"><strong>Cucumber tests</strong></a> for Form<br>

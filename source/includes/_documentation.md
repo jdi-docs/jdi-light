@@ -868,7 +868,7 @@ And here are methods available in Java:
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#image-2)<br>
 
 ### Link
-**Link** – a graphical control element that allows the user to link from one page to other web pages, files, locations within the same page, email addresses, or any other URL.
+**Link** – a graphical control element that allows user to link from one page to other web pages, files, locations within the same page, email addresses, or any other URL.
 
 Link are represented by the following class:
  
@@ -1431,7 +1431,7 @@ And here are methods available in Java:
     
 |Method | Description | Return Type
 --- | --- | ---
-**getText()** |Get current value  | String
+**getText()** |Get current value | String
 **is()** |Various assert actions for Text| TextAssert
 **assertThat()** |Various assert actions for Text| TextAssert 
 
@@ -1589,7 +1589,7 @@ public ITextArea TextArea;
    }
 ```
 
-**TextArea** – is a simple element type that allows users to fill in text areas (that may contain a few lines). 
+**TextArea** – is a simple element type that allows users to fill in text areas (they may contain a few lines). 
 
 ![InputTypeTextArea](../images/html/textArea_html.png)
 
@@ -1610,7 +1610,7 @@ Here is a list of available methods in C#:
 **Cols()** | returns value of cols attribute | int
 **Minlength()** | returns value of minlength attribute | int
 **Maxlength()** | returns value of maxlength attribute | int
-**AddNewLine(string line)** | add line to the already existing  | void
+**AddNewLine(string line)** | add line to the already existing ones | void
 **Is()** | returns object for work with assertions  | TextAreaAssert
 **AssertThat()** | returns object for work with assertions  | TextAreaAssert
  
@@ -1635,11 +1635,96 @@ Here is a list of available methods in C#:
   [Test examples in Java](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/TextAreaTests.java) <br>
   [BDD Steps example](https://jdi-docs.github.io/jdi-light/#textarea-2) <br>
 
+### Title
+**Title** – a graphical control element representing document title, which is displayed in the title bar of the browser or tab page.
 
-## Html5 Complex elements
+Title is represented by the following class:
+ 
+  - __Java__: _com.epam.jdi.light.ui.html.common.Title_
+  - __C#__: _JDI.Light.Elements.Common.Title_
+  
+  
+```java 
+@UI("[ui=jdi-title]") 
+// equal to @FindBy(css = "[ui=jdi-title]") 
+public static Title jdiTitle;
+
+@Test
+public void getTextTest() {
+        assertEquals(jdiTitle.getText(), "Title text");
+}
+
+@Test
+public void clickTest() {
+        jdiTitle.click();
+}    
+    
+```
+```csharp 
+[FindBy(Css = "[ui=jdi-title]")]
+public Title JdiTitle;
+
+[Test]
+public void GetTextTest() 
+{
+        Assert.AreEqual(JdiTitle.GetText(), "Title text");
+}
+
+[Test]
+public void ClickTest() 
+{
+        JdiTitle.ClickTitle();
+}
+
+[Test]
+public void IsValidationTest()
+{
+       TestSite.Html5Page.JdiTitle.Is.Enabled();
+       TestSite.Html5Page.JdiTitle.Is.Text(EqualTo(_text));
+       TestSite.Html5Page.JdiTitle.Is.Text(Is(_text));
+       TestSite.Html5Page.JdiTitle.Is.Text(EqualToIgnoringCaseMatcher.EqualTo("jdi TESTING platform"));
+}
+
+[Test]
+public void AssertValidationTest()
+{
+       TestSite.Html5Page.JdiTitle.AssertThat.Text(EqualTo(_text));
+}
+
+[Test]
+public void BaseValidationTest()
+{
+       BaseElementValidation(TestSite.Html5Page.JdiTitle);
+}   
+    
+```
+
+
+![Title](../images/title.png)
+
+Here is the list of methods available in C# JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**Is** |Gets Title's assert | TitleAssert
+**AssertThat** |Gets Title's assert | TitleAssert
+
+Here is the list of available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**click()** |Click title | void
+**getText()** |Returns title text  | String
+
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/TitleTests.java)
+
+[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/TitleTests.cs)
+
+
+## Complex elements
 ### RadioButtons
 
-**RadioButtons** – interface element that allows user to select one option from a predefined group.
+**RadioButtons** – interface element that allows user to select a single option from a predefined group.
 
 Radio buttons are represented by the following class:
  
@@ -1688,10 +1773,10 @@ Here is the list of some available methods:
 
 |Method | Description | Return Type
 --- | --- | ---
-**select(String/int/Enum)/Select(string/int)** |Select radiobutton by value/index  | void
-**selected()/Selected()** |Get selected radiobutton value  | string
-**is()** | returns object for work with assertions  | RadioButtonAssert
-**assertThat()** | returns object for work with assertions  | RadioButtonAssert
+**select(String/int/Enum)/Select(string/int)** | Select radiobutton by value/index  | void
+**selected()/Selected()** | Get selected radiobutton value | string
+**is()** | Returns object for work with assertions | RadioButtonAssert
+**assertThat()** | Returns object for work with assertions | RadioButtonAssert
 
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/RadioTests.java)
 
@@ -1701,7 +1786,7 @@ Here is the list of some available methods:
 
 ### Table
 
-**Table** – a complex element that consists of header, body (at least one row and one column) and footer. You are able to perform a list of readonly interactions with this element.
+**Table** – a complex element that consists of a header, a body (at least one row and one column) and a footer. You are able to perform a list of readonly interactions with this element.
 
 Tables are represented by the following classes in Java and C#:
 
@@ -1953,19 +2038,19 @@ Here is a list of available methods in Java:
 
 | Method | Description | Return Type|
 --- | --- | ---
-**cell(int colNum, int rowNum)** | Returns a cell object of a table according to the cell's index | String
-**cell(int colNum, String rowName)** | Returns a cell object of a table according to the cell's index | String
-**cell(String colName, int rowNum)** | Returns a cell object of a table according to the cell's index | String
-**cell(String colName, String rowNum)** | Returns a cell object of a table according to the cell's index | String
+**cell(int colNum, int rowNum)** | Returns a cell object of a table according to the cell index | String
+**cell(int colNum, String rowName)** | Returns a cell object of a table according to the cell index | String
+**cell(String colName, int rowNum)** | Returns a cell object of a table according to the cell index | String
+**cell(String colName, String rowNum)** | Returns a cell object of a table according to the cell index | String
 **column(Enum colName)** | Returns a column object of a table according to column name | Line
 **column(int colNum)** | Returns a column object of a table according to column number | Line
 **column(String colName)** | Returns a column object of a table according to column name | Line
 **columns()** | Returns a list of column objects of a table | List\<Line>
 **filterRows(Matcher<String> matcher, Column column)** | Sets and returns a list of filtered rows of a table according to matching column | List\<Line>
 **filterRows(Pair<Matcher<String>,Column>... matchers)** | Sets and returns a list of filtered rows of a table according to matching column | List\<Line>
-**getValue()** | Returns a string content of values for particular row, where values are separated by ";" | String
-**isEmpty()** | Asserts whether table is empty | boolean
-**isNotEmpty()** | Asserts whether table is not empty | boolean
+**getValue()** | Returns a string content of values for a particular row, where values are separated by ";" | String
+**isEmpty()** | Asserts whether a table is empty | boolean
+**isNotEmpty()** | Asserts whether a table is not empty | boolean
 **preview()** | Returns table preview | String
 **row(Enum rowName)** | Returns a row object of a table according to row name | Line
 **row(int rowNum)** | Returns a row object of a table according to row number | Line
@@ -1974,17 +2059,17 @@ Here is a list of available methods in Java:
 **row(String rowName)** | Returns a row object of a table according to row name | Line
 **row(TableMatcher... matchers)** | Returns a row object of a table according to matcher | Line
 **rows()** | Returns a list of rows of a table | List\<Line>
-**rows(TableMatcher... matchers)** | Returns a a list of rows of a table according to matchers | List\<Line>
-**size()** | Return amount of columns | int
-**count()** | Return return amount of rows | int
-**header()** | Return a list of table's headers | List<String>
-**webRow(int rowNum)** | Return all UIElements in the row according to row number | List<UIElement>
-**webRow(String rowName)** | Return all UIElements in the row according to row name | List<UIElement>
-**webRow(Enum rowName)** | Return all UIElements in the row according to row name | List<UIElement>
-**webColumn(int colNum)** | Return all UIElements in the column according to column number | List<UIElement>
-**webColumn(String colName)** | Return all UIElements in the column according to column name | List<UIElement>
-**webColumn(Enum colName) Return** | All UIElements in the column according to column name | List<UIElement>
-**webCell(int colNum, int rowNum)** | Return all UIElements in the column according to cell position | List<UIElement>
+**rows(TableMatcher... matchers)** | Returns a list of rows of a table according to matchers | List\<Line>
+**size()** | Returns amount of columns | int
+**count()** | Returns amount of rows | int
+**header()** | Returns a list of table's headers | List<String>
+**webRow(int rowNum)** | Returns all UIElements in the row according to row number | List<UIElement>
+**webRow(String rowName)** | Returns all UIElements in the row according to row name | List<UIElement>
+**webRow(Enum rowName)** | Returns all UIElements in the row according to row name | List<UIElement>
+**webColumn(int colNum)** | Returns all UIElements in the column according to column number | List<UIElement>
+**webColumn(String colName)** | Returns all UIElements in the column according to column name | List<UIElement>
+**webColumn(Enum colName)** | Returns all UIElements in the column according to column name | List<UIElement>
+**webCell(int colNum, int rowNum)** | Returns all UIElements in the column according to cell position | List<UIElement>
   
 AssertTable methods in Java:
 | Method | Description | Return Type|
@@ -2001,21 +2086,21 @@ And here are methods available in C#:
 --- | --- | ---
 **AssertThat()** | Applicable for performing assert actions for tables | TableAssert
 **Is()** | Applicable for performing assert actions for tables | TableAssert
-**ContainsValue(string value, Column column)** | Sets an object finding by some value occurance in particular column | TableMatcher 
-**HasValue(string value, Column column)** | Sets an object finding by some full value in particular column | TableMatcher
-**InColumn(string value)** | Sets an object of some column by particular value | Column
-**InColumn(int num)** | Sets an object of some column by particular column's number | Column
-**Row(params TableMatcher[] matchers)** | Sets and returns a row object of a table according to some matchers' params (returns 'null' if there is no such row) | Line
-**Row(int rowNum)** | Sets and returns a row object of a table according to the row's index | Line
-**Row(string rowName)** | Sets and returns a row object of a table according to the row's name | Line
-**Row(Enum rowName)** | Sets and returns a row object of a table according to row's name | Line
+**ContainsValue(string value, Column column)** | Looks for an object by some value occurrence in a particular column | TableMatcher 
+**HasValue(string value, Column column)** | Looks for an object (exact match) in a particular column | TableMatcher
+**InColumn(string value)** | Sets an object of some column to a particular value | Column
+**InColumn(int num)** | Sets an object of some column to a particular column number | Column
+**Row(params TableMatcher[] matchers)** | Sets and returns a row object from a table according to some matcher params (returns 'null' if there is no such row) | Line
+**Row(int rowNum)** | Sets and returns a row object of a table according to the row index | Line
+**Row(string rowName)** | Sets and returns a row object of a table according to the row name | Line
+**Row(Enum rowName)** | Sets and returns a row object of a table according to row name | Line
 **Row(Matcher<String> matcher, Column column)** | Sets and returns a row object of a table according to matching column | Line
 **Row(params KeyValuePair<Matcher<string>, Column>[] matchers)** | Sets and returns a row object of a table according to matching column | Line
-**RowsAsLines(params TableMatcher[] matchers)** | Sets and returns a a list of rows of a table according to matchers | List<Line>
+**RowsAsLines(params TableMatcher[] matchers)** | Sets and returns a list of rows of a table according to matchers | List<Line>
 **RowsAsLines()** | Sets and returns a list of rows of a table | List<Line>
 **FilterRows(Matcher<String> matcher, Column column)** | Sets and returns a list of filtered rows of a table according to matching column | List<Line>
 **FilterRows(params KeyValuePair<Matcher<string>, Column>[] matchers)** | Sets and returns a list of filtered rows of a table according to matching column | List<Line>
-**Cell(int colNum, int rowNum)** | Sets and returns a cell object of a table according to the cell's indexes | string
+**Cell(int colNum, int rowNum)** | Sets and returns a cell object of a table according to the cell's indices | string
 **Cell(string colName, int rowNum)** | Sets and returns a cell object of a table according to the cell's column name and row index | string
 **Cell(int colNum, string rowName)** | Sets and returns a cell object of a table according to the cell's column index and row name | string
 **Cell(string colName, string rowName)** | Sets and returns a cell object of a table according to the cell's column name and row name | string
@@ -2023,7 +2108,7 @@ And here are methods available in C#:
 **Column(string colName)** | Sets and returns a column object of a table according to the column's name | Line
 **Column(Enum colName)** | Sets and returns a column object of a table according to column name | Line
 **Columns()** | Sets and returns a list of column objects of a table | List<Line>
-**GetValue()** | Returns a string content of values for particular row, where values are separated by ";" | string
+**GetValue()** | Returns a string content of values for a particular row, where values are separated by ";" | string
 **string Preview()** | Returns a string content of the whole table | string
 
 AssertTable methods in C#:
@@ -2032,11 +2117,11 @@ AssertTable methods in C#:
 --- | --- | ---
 **Empty()** | Asserts whether table is empty | TableAssert
 **NotEmpty()** | Asserts whether table is not empty | TableAssert
-**Size(Matcher<int> condition)** | Asserts whether table size satisfy some matcher | TableAssert
-**Size(int expectedSize)** | Asserts whether table has particular size | TableAssert
-**HasColumn(string column)** | Asserts whether table has particular header | TableAssert
+**Size(Matcher<int> condition)** | Asserts whether table size satisfies some matcher condition | TableAssert
+**Size(int expectedSize)** | Asserts whether table has a particular size | TableAssert
+**HasColumn(string column)** | Asserts whether table has a particular header | TableAssert
 **HasColumns(IEnumerable<string> columns)** | Asserts whether table has particular headers | TableAssert
-**Columns(Matcher<IEnumerable<string>> condition)** | Asserts whether headers satisfy some matcher | TableAssert
+**Columns(Matcher<IEnumerable<string>> condition)** | Asserts whether headers satisfy some matcher condition | TableAssert
 **RowsWithValues(int count, params TableMatcher[] matchers)** | Asserts whether rows with particular matchers exist in a table multiple times | TableAssert
 **HasRowWithValues(params TableMatcher[] matchers)** | Asserts whether a row with particular matchers exists in a table | TableAssert
 
@@ -2048,8 +2133,8 @@ AssertTable methods in C#:
 
 ### DataTable
 
-**DataTable** – a complex element that consists of header, body (at least one row and one column) and footer. You are 
-able to perform a list of readonly interactions with this element in order to get all data for the specified criteria.
+**DataTable** – a complex element that consists of header, a body (at least one row and one column) and a footer. You are 
+able to perform a list of readonly interactions with this element in order to get all data based on specified criteria.
 
 DataTables are represented by the following classes in Java and C#:
 
@@ -2245,7 +2330,7 @@ DataTables are represented by the following classes in Java and C#:
 
 Here is a list of available methods in Java (_btw DataTable expand Table class - methods from previous table are available too_):
 
-In return types column "D" refers to user data object and "L" refers to table line object.
+In return types column _"D"_ refers to the user data object and _"L"_ refers to the table line object.
 
 | Method | Description | Return Type|
 --- | --- | ---
@@ -2265,7 +2350,7 @@ In return types column "D" refers to user data object and "L" refers to table li
 **filterDatas(Pair<Matcher<String>,Column>...matchers)** | Returns a list of sections of a table according to matching column | List\<D>
 **filterLines(Matcher<String> matcher, Column column)** | Returns a list of objects of a table according to matching row and column | List\<L>
 **filterLines(Pair<Matcher<String>,Column>...matchers)** | Returns a list of objects of a table according to matching column | List\<L>
-**getValue()** | Returns a string content of values for particular row, where values are separated by "&#124;" | String
+**getValue()** | Returns string content of values for particular row, where values are separated by "&#124;" | String
 **line(Enum rowName)** | Returns an object of a table according to row name | L
 **line(int rowNum)** | Returns an object of a table according to row number | L
 **line(JFunc1<D, Boolean> matcher)** | Returns an object of a table according to matching row | L
@@ -2278,7 +2363,7 @@ In return types column "D" refers to user data object and "L" refers to table li
 **offCache()** | Turns off cache usage | void
 **refresh()** | Clears all data and lines | void
 **setup(Field field)** | Sets up the table using specified fields | void
-**getValue()** | Return a table content separated by "\|" | String
+**getValue()** | Returns table content separated by "&#124;" | String
 
 DataTableAssert methods in Java:
 
@@ -2296,21 +2381,21 @@ DataTableAssert methods in Java:
 
 ### DropDown
 
-**DropDown** – a graphical control element, that allows the user to choose one value from a list.
+**DropDown** – a graphical control element that allows user to choose a single value from a list.
 
 ![DropDown](../images/dropdown.png)
 
-JDI Light has support for dropdown elements with its own type. There are several ways of dropdown usage in JDI Light, serving different needs.
+JDI Light has support for dropdown elements with their own type. There are several ways of dropdown usage in JDI Light, each serving different needs.
 
 __JDI Dropdown annotation__
 
-For better use JDI Light provides a __*@JDropdown*__ annotation to locate dropdown elements. This annotation consists of the following elements:
+For better use, JDI Light provides a __*@JDropdown*__ annotation to locate dropdown elements. This annotation consists of the following elements:
 
  - __*root()*__ - value of this element points to the root locator of dropdown element
- - __*value()*__ - locator of selected by default option in dropdown list
+ - __*value()*__ - locator of option selected by default in dropdown list
  - __*list()*__ - locator representing list options
  - __*expand()*__ - locator for expanding the dropdown list
- - __*how()*__ - type of locators with which elements will be identified. By default this is css
+ - __*how()*__ - type of locators with which elements will be identified. By default it is css
  
 ```java 
 @JDropdown(root = "div[ui=dropdown]",
@@ -2375,14 +2460,14 @@ public void ColorsTest()
 
 JDI Light provides a __Droplist__ class which can be used for dropdown representation as a type of web element.
 
-Locator simple annotations from *com.epam.jdi.light.elements.pageobjects.annotations.simple* can be used together with dropdown elements.
+Simple locator annotations from *com.epam.jdi.light.elements.pageobjects.annotations.simple* can be used together with dropdown elements.
 
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-examples/src/test/java/io/github/epam/tests/epam/ComplexElementsTests.java)
 
-For HTML5 elements Dropdown lists are also supported in JDI light. There is a __Dropdown__ class which is more like a special case of Droplist.
+Dropdown lists in JDI light also support HTML5 elements. There is a __Dropdown__ class which is more like a special case of Droplist.
 This type can be used in cases when dropdown is represented with HTML _\<select>_ tag.
 
-Consider an example of HTML5 dropdown with a given HTML code:
+Consider an example of HTML5 dropdown with the given HTML code:
 
 ```java 
 @UI("#dress-code") //@FindBy(id = "dress-code")
@@ -2440,7 +2525,7 @@ public void BaseValidationTest()
 
 ![Dropdown HTML5](../images/html/dropdown_html5.png)
 
-Here is the list of some available methods:
+Here is a list of some available methods:
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -2458,11 +2543,11 @@ Available Assert methods in Java:
 
 |Method | Description | Return Type
 --- | --- | ---
-**is()** | Applicable for performing assert actions for DropDown's | ListAssert<UIElement>
-**assertThat()** | Applicable for performing assert actions for DropDown's | ListAssert<UIElement>
-**has()** | Applicable for performing assert actions for DropDown's | ListAssert<UIElement>
-**waitFor()** | Applicable for performing assert actions for DropDown's | ListAssert<UIElement>
-**shouldBe()** | Applicable for performing assert actions for DropDown's | ListAssert<UIElement>
+**is()** | Applicable for performing assert actions for DropDown | ListAssert<UIElement>
+**assertThat()** | Applicable for performing assert actions for DropDown | ListAssert<UIElement>
+**has()** | Applicable for performing assert actions for DropDown | ListAssert<UIElement>
+**waitFor()** | Applicable for performing assert actions for DropDown | ListAssert<UIElement>
+**shouldBe()** | Applicable for performing assert actions for DropDown | ListAssert<UIElement>
 
 Available Assert methods in C#:
 
@@ -2470,11 +2555,11 @@ Available Assert methods in C#:
 --- | --- | ---
 **Selected(string option)** |Checks whether some option is selected  | DropDownAssert 
 **Selected(Enum option)** |Checks whether some option is selected  | DropDownAssert
-**Values(Matcher<IEnumerable<string>> condition)** |Checks that dropdown's values match some contidion | DropDownAssert
-**Disabled(Matcher<IEnumerable<string>> condition)** |Checks that dropdown's values are disabled by some condition | DropDownAssert
-**Enabled(Matcher<IEnumerable<string>> condition)** |Checks that dropdown's values are enabled by some condition | DropDownAssert
-**Is** |Gets dropdown's assertion | DropDownAssert
-**AssertThat** |Gets dropdown's assertion | DropDownAssert
+**Values(Matcher<IEnumerable<string>> condition)** |Checks that dropdown values match some condition | DropDownAssert
+**Disabled(Matcher<IEnumerable<string>> condition)** |Checks that dropdown values are disabled by some condition | DropDownAssert
+**Enabled(Matcher<IEnumerable<string>> condition)** |Checks that dropdown values are enabled by some condition | DropDownAssert
+**Is** |Gets dropdown assertion | DropDownAssert
+**AssertThat** |Gets dropdown assertion | DropDownAssert
 
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/DropdownTests.java)
 
@@ -2554,16 +2639,16 @@ public void BaseValidationTest()
 }
 ```
 
-**MultiDropDown** – a graphical control element, that allows the user to choose several values from a list.
+**MultiDropDown** – a graphical control element that allows user to choose several values from a list.
 
 ![DropDown](../images/multidropdown.png)
 
-Multi dropdown elements can be described by the following class:
+MultiDropDown elements can be described by the following class:
 
  - __Java__: _com.epam.jdi.light.ui.html.complex.MultiDropdown_
  - __C#__: _JDI.Light.Elements.Composite.MultiDropdown_
 
-Here is the list of some available methods in C# JDI Light:
+Here is the list of some methods available for C# in JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -2575,24 +2660,24 @@ Here is the list of some available methods in C# JDI Light:
 **Expand()** |Expand list  | void
 **Close()** |Close expanded list  | void
 
-Available assert methods in C# JDI Light:
+Available assertion methods in C# for JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
 **Selected(string option)** |Check whether option is selected  | MultiDropdownAssert
 **Selected(Enum option)** |Check whether option is selected  | MultiDropdownAssert
-**Values(Matcher<IEnumerable<string>> condition)** |Check whether whether some values exist in MultiDropDown by some matcher  | MultiDropdownAssert
-**Disabled(Matcher<IEnumerable<string>> condition)** |Check whether whether some values are disabled in MultiDropDown by some matcher  | MultiDropdownAssert
-**Enabled(Matcher<IEnumerable<string>> condition)** |Check whether whether some values are enabled in MultiDropDown by some matcher  | MultiDropdownAssert
-**Is** |Gets multiDropDown's assert  | MultiDropdownAssert
-**AssertThat** |Gets multiDropDown's assert  | MultiDropdownAssert
+**Values(Matcher<IEnumerable<string>> condition)** |Check whether some values exist in MultiDropDown by some matcher  | MultiDropdownAssert
+**Disabled(Matcher<IEnumerable<string>> condition)** |Check whether some values are disabled in MultiDropDown by some matcher  | MultiDropdownAssert
+**Enabled(Matcher<IEnumerable<string>> condition)** |Check whether some values are enabled in MultiDropDown by some matcher  | MultiDropdownAssert
+**Is** |Gets multiDropDown assert  | MultiDropdownAssert
+**AssertThat** |Gets multiDropDown assert  | MultiDropdownAssert
 
-The list of available methods for Java JDI Light:
+The list of methods available for Java in JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
 **check(String/String.../Enum.../int...)** |Select values in multi dropdown | void
-**uncheck(String.../Enum.../int...)** | Unselect values in multi dropdown | void
+**uncheck(String.../Enum.../int...)** | Deselect values in multi dropdown | void
 **selected()** | Get selected value by default | String
 **checked()** | Get selected values | List\<String>
 
@@ -2603,18 +2688,18 @@ The list of available methods for Java JDI Light:
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#multidropdown-2)<br>
 ### DataList
 
-**DataList** – a graphical control element, that allows the user to choose one value from a list or enter it by himself.
-Datalist element contains a set of options with values available for entering.
+**DataList** – a graphical control element that allows user to choose one value from a list or enter it by himself.
+DataList element contains a set of options with values available as inputs.
 
 ![DataList](../images/icecreamdatalist.png)
 
 __JDI DataList annotation__
 
-For better use JDI Light provides a __*@JDataList*__ annotation to locate datalist elements. This annotation consists of the following elements:
+For better use JDI Light provides a __*@JDataList*__ annotation to locate DataList elements. This annotation consists of the following elements:
 
- - __*root*__ - value of this element points to the root locator of dropdown element
+ - __*root*__ - value of this element points to the root locator of the dropdown element
  - __*values*__ - options locator in dropdown list
- - __*how*__ - type of locators with which elements will be identified. By default this is css
+ - __*how*__ - type of locators with which elements will be identified. By default it is set as css
  
 ```java 
 TBD
@@ -2689,12 +2774,12 @@ public void AssertOptionsValuesTest()
 
 ```
 
-Datalist element type is provided by JDI Light in:
+DataList element type is provided by JDI Light in:
 
  - __Java__: _com.epam.jdi.light.ui.html.complex.DataList_
  - __C#__: _JDI.Light.Elements.Common.DataList_
  
-Have a look at the following example with provided HTML code:
+Have a look at the following example with HTML code provided:
 
 ```java 
 @UI("#ice-cream") //@FindBy(id = "ice-cream")
@@ -2710,26 +2795,26 @@ public void selectEnumTest() {
 
 ![Datalist example](../images/html/datalist_html.png)
 
-The list of available methods in Java JDI Light:
+The list of methods available for Java in JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
 **select(String/Enum/int)** |Select datalist option by value or index | void
 **selected()** |Get selected option value | String
-**values()** |Get all option values from datalist | List\<String>
-**listEnabled()** |Return list of values of enabled options | List\<String>
-**listDisabled()** |Return list of values of disabled options | List\<String>
+**values()** |Get all option values from DataList | List\<String>
+**listEnabled()** |Return a list of values of enabled options | List\<String>
+**listDisabled()** |Return a list of values of disabled options | List\<String>
 
-Here is the list of some available methods in C# JDI Light:
+The list of some methods available for C# in JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
 **Expand()** |Expands the list of possible values | void
 **Select(string/int)** |Select datalist by value/index  | void
-**Input(string value)** |Input user's value into datalist  | void
-**GetSelected()** |Get selected datalist value  | string
+**Input(string value)** |Input user's value into DataList  | void
+**GetSelected()** |Get selected DataList value  | string
 
-Available list of assert methods:
+The list of available assert methods:
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -2743,14 +2828,14 @@ Available list of assert methods:
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#datalist-2)
 
 ### CheckList
-**CheckList** – a graphical control element representing a set of checkboxes, each of which allows the user to control a two-state parameter (enabled or disabled).
+**CheckList** – a graphical control element representing a set of checkboxes, each of which allows user to control a two-state parameter (enabled or disabled).
 
 Checklist element type is available in the following packages:
  
  - __Java__: com.epam.jdi.light.ui.html.complex.Checklist
  - __C__#: JDI.Light.Elements.Complex.CheckList 
 
-See an example with a given HTML code describing checklist element.
+See an example with HTML code describing checklist element.
 
 ```java 
 @UI("[name=checks-group]") public static Checklist weather;
@@ -2835,8 +2920,8 @@ List of available methods in Java JDI Light:
 **check(String.../Enum/int...)** | Check checkboxes | void
 **uncheck(String.../Enum/int...)** | Unselect checkboxes | void
 **select(String.../Enum/int...)** | Select checkboxes | void
-**uncheckAll()** | Uncheck all checkboxes from checklist | void
-**checkAll()** | Check all checkboxes from checklist | void
+**uncheckAll()** | Uncheck all checkboxes in checklist | void
+**checkAll()** | Check all checkboxes in checklist | void
 **checked()** | Get selected checkbox values | List\<String>
 **values()** | Get checklist values | List\<String>
 **listEnabled()** | Get enabled checkboxes | List\<String>
@@ -2847,7 +2932,7 @@ List of available methods in Java JDI Light:
 **has()** | Get select assert | selectAssert
 **selected()** | Get selected checkbox values | String
 
-Here is the list of some available methods in C# JDI Light:
+Here is the list of some methods available for C# in JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -2864,7 +2949,7 @@ Here is the list of some available methods in C# JDI Light:
 **Is** | Get select assert | SelectAssert
 **AssertThat** | Get select assert | SelectAssert
 **Has** | Get select assert | SelectAssert
-**Selected(string option)** | Checks whether checkbox is selected | bool
+**Selected(string option)** | Checks whether a checkbox is selected | bool
 
 
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/ChecklistTests.java)
@@ -2874,8 +2959,8 @@ Here is the list of some available methods in C# JDI Light:
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#checklist-2)
 
 ### MultiSelector
-**MultiSelector** – a graphical control element, that allows the user to do multiple choice.
-Multi Selector are represented by the following class:
+**MultiSelector** – a graphical control element that allows user to make a multiple choice.
+MultiSelector is represented by the following class:
  
   - __Java__: _com.epam.jdi.light.ui.html.complex.MultiSelector_
   - __C#__: _JDI.Light.Elements.Common.MultiSelector_
@@ -2932,7 +3017,7 @@ Here is the list of available methods/asserts in Java:
 |Method | Description | Return Type
 --- | --- | ---
 **check(String/Strings.../TEnum...)** |Select multiselector by values | void
-**uncheck(Strings.../TEnum.../int)** |Select multiselector by values/indexes  | void
+**uncheck(Strings.../TEnum.../int)** |Select multiselector by values/indices  | void
 **selected()** |Get selected values  | String
 **checked()** |Get selected values  | List\<String>
 **is()** |  Returns object for work with assertions| SelectAssert
@@ -2944,8 +3029,8 @@ Here is the list of available methods/asserts in Java:
 
 ### ComboBox
 
-**ComboBox** – a graphical control element, that allows the user to choose one
- value from a list or enter it by himself (is inherited from the [Datalist](#datalist))
+**ComboBox** – a graphical control element that allows user to choose a single 
+value from a list or enter it by himself (is inherited from the [Datalist](#datalist))
 
 ![ComboBox](../images/icecreamdatalist.png)
 
@@ -3014,28 +3099,28 @@ public void FillComboBox()
 }
 ```
 
-Have a look at the following example with provided HTML code:  
+Have a look at the following example with HTML code provided:
 
 ![Combobox example](../images/html/datalist_html.png)
 
-The list of available methods in Java JDI Light:
+The list of methods available for Java in JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**select(String/Enum/int)** |Select datalist option by value or index | void
+**select(String/Enum/int)** |Select combobox option by value or index | void
 **selected()** |Get selected option value | String
-**values()** |Get all option values from datalist | List\<String>
+**values()** |Get all option values from combobox | List\<String>
 **listEnabled()** |Return list of values of enabled options | List\<String>
 **listDisabled()** |Return list of values of disabled options | List\<String>
 
-Here is the list of some available methods in C# JDI Light:
+Here is the list of some methods available for C# in JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
 **Expand()** |Expands the list of possible values | void
-**Select(string/int)** |Select datalist by value/index  | void
-**Input(string)** |Input user's value into datalist  | void
-**GetSelected()** |Get selected datalist value  | string
+**Select(string/int)** |Select combobox by value/index  | void
+**Input(string)** |Input user's value into combobox  | void
+**GetSelected()** |Get selected combobox value  | string
 **is()** |  Returns object for work with assertions| ComboBoxAssert
 **assertThat()** | Returns object for work with assertions| ComboBoxAssert
 
@@ -3050,7 +3135,7 @@ Here is the list of some available methods in C# JDI Light:
 
 **Section** - logical part of Web Page that contains other UI Elements
   
-Section is represented by the following class:   
+Section is represented by the following class:
 
 Java: com.epam.jdi.light.elements.composite.Section  
 public class Section extends JDIBase implements PageObject 
@@ -3206,9 +3291,10 @@ public void fillContactFormTest() {
 }   
 ```
 
-**Form** – logical part of a web page that represents HTML form. Form consists of elements based on SetValue interface and buttons with function “submit”.
+**Form** – logical part of a web page that represents an HTML form. 
+Form consists of elements based on _SetValue_ interface and buttons with **submit** function.
 
-Form provides functionality to fill, submit and verify/check the form.  
+Form provides the _fill, submit and verify/check_ functionality.  
 
 ![Form](../images/html/form_html.png)
 
@@ -3217,7 +3303,8 @@ Form is located in the following classes:
   - __Java__: _com.epam.jdi.light.elements.composite.Form_
   - __C#__: _JDI.Light.Elements.Composite.Form_
   
-Form is parameterized by an entity that corresponds to the form. For example, a login form can be parameterized by a user entity. Entity should extend DataClass class parameterized by the entity itself. The names of the entity fields should be exactly the same as the names of the form fields. All fields of the entity managed by form should be String.
+Form is parameterized by an entity that corresponds to the form. For example, a login form can be parameterized by a user entity. The entity should extend DataClass class (parameterized by the entity itself). 
+The names of the entity fields should be exactly the same as the names of the form fields. All fields of the entity managed by the form should be Strings.
 
 JDI Light Java supports three types of forms:
 
@@ -3232,14 +3319,14 @@ public class LoginFormSmart extends Form<User> {
 on JDISite.java >> public static LoginFormSmart loginFormSmart;
 ```
 
-**Smart JDI Forms** - forms that exploit Smart locators functionality of JDI. In Smart Forms there is no need to explicitly define locators for form elements, if such locators can be obtained implicitly from the field names using Smart locators functionality.
+**Smart JDI Forms** - forms utilizing the _Smart locator_ functionality of JDI. In Smart Forms there is no need to explicitly define locators for form elements if such locators can be obtained implicitly from field names using Smart locator functionality.
 [See more details and exampels for Smart locators in documentation](https://jdi-docs.github.io/jdi-light/?java#smart-locators)
 
 ```java
 on JDISite.java >> public static Form<User> lightLoginForm;
 ```
 
-**Light Forms** - if a Form consists of only TextFields and Buttons there is no need to define Form UI Object. Such form can be added directly to the related page or to the root Site class.
+**Light Forms** - if a Form consists of only TextFields and Buttons, there is no need to define a Form UI Object. Such form can be added directly to the related page or to the root Site class.
 
 ```java 
 @Test
@@ -3250,7 +3337,7 @@ public void onlyMandatoryOptionTest() {
 }
 ```
 
-In Java, Form has a filter property that defines which form elements will be filled/submited or verified/checked. Filter can be set to either **ALL**, **MANDATORY** or **OPTIONAL**. Based on this property, fill/submit and verify/check functions are applied to either all form elements or only mandatory (only optional) form elements. Mandatory form fields should be marked with **@Mandatory** annotation. Optional form fields are the ones without **@Mandatory** annotation. **ALL** is default Form option. To set form filters as **MANDATORY** or **OPTIONAL**, **onlyMandatory()** and **onlyOptional()** methods should be used. They set the corresponding form filter option for a duration of a single action (all form action methods set the form filter option back to **ALL**).
+In Java, Form has a filter property that defines which form elements will be filled/submited or verified/checked. Filter can be set to either **ALL**, **MANDATORY** or **OPTIONAL**. Based on this property, fill/submit and verify/check functions are applied to either all form elements or only mandatory (only optional) form elements. Mandatory form fields should be marked with **@Mandatory** annotation. Optional form fields are the ones without **@Mandatory** annotation. **ALL** is the default Form option. To set form filters as **MANDATORY** or **OPTIONAL**, **onlyMandatory()** and **onlyOptional()** methods should be used. They set the corresponding form filter option for a duration of a single action (all form action methods set the form filter option back to **ALL**).
 
 ```java 
 @BeforeSuite(alwaysRun = true)
@@ -3267,7 +3354,9 @@ public static void setUp() {
 }
 ```
 
-In Java, Form has a **FILL_ACTION** and **GET_ACTION** lambdas that define how the Form should be filled and verified. The default behavior defined in the Form class simply exploits **setValue(String value)** method of the SetValue interface and **getValue()** method of the HasValue interface. However these lambdas are redefined in HtmlSettings class in order to customise behavior for a "non-text" form elements such as Checkboxes (the behavior of the custom elements is defined by **@FillValue** and **@VerifyValue** annotations). **FILL_ACTION** and **GET_ACTION** lambdas can also be further modified in order to customise the Form behavior, but it is important to take into account that behavior, defined in the HtmlSettings might be lost. It is customary to reassign these lambdas before all the tests are run, for example in the TestNG's **@beforeSuite** method.
+In Java, Form has a **FILL_ACTION** and **GET_ACTION** lambdas. 
+These define how the Form should be filled and verified. The default behavior defined in the Form class simply utilizes **setValue(String value)** method of the SetValue interface and **getValue()** method of the HasValue interface. However, these lambdas are redefined in the _HtmlSettings_ class in order to customise behavior for "non-text" form elements such as Checkboxes (the behavior of custom elements is defined by **@FillValue** and **@VerifyValue** annotations). **FILL_ACTION** and **GET_ACTION** lambdas can also be further modified in order to customize Form behavior, but it is important to take into account that behavior defined in the HtmlSettings might be lost. 
+It is customary to reassign these lambdas before all the tests are run, for example in TestNG's **@BeforeSuite** method.
 
 ```java 
 public class LoginForm extends Form<User> {
@@ -3285,38 +3374,38 @@ public class LoginForm extends Form<User> {
 
 In Java, if fill/submit and verify/check methods need to be redefined for a specific form, it is possible to override **fillAction()** and **getAction()** for such form.
 
-Available methods in Java JDI Light:
+Methods available for Java in JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**fillAction(Field field, Object element, Object parent, String setValue)** | Defines the specifics of how the form elements will be filled | void
-**getAction(Field field, Object element, Object parent)** | Defines the specifics of how the form elements will be obtained for verification and checks | String
-**onlyMandatory()** | Sets form filter option to **MANDATORY** meaning that only mandatory form elements are filled/submitted or verified/checked for a duration of a single form action | void
-**onlyOptional()** | Sets form filter option to **OPTIONAL** meaning that only optional form elements are filled/submitted or verified/checked for a duration of a single form action | void
-**fill(T entity)** | Fills all setable elements on the form that can be matched with fields in input entity | void
-**submit()** | Sends the form by clicking on Button "submit" or "submitButton" | void
-**submit(String text)** | Fills first setable form field with value and clicks on Button "submit" or "submitButton"  | void
-**submit(T entity)** | Fills all setable elements and clicks on Button "submit" or "submitButton"  | void
-**submit(String text, String buttonName)** | Fills first setable field with value and clicks on Button “buttonName” or "buttonNamebutton"| void
-**submit(T entity, String buttonName)** | Fills all setable elements and clicks on Button “buttonName” or "buttonNamebutton" | void
-**pressButton(String buttonName)** | Clicks on Button “buttonName” or "buttonNamebutton". Allows different buttons to send one form e.g. save/publish/cancel/search/update/... | void
-**verify(T entity)** | Verifies that form was filled correctly. If not returns list of keys where verification fails | List<String>
-**check(T entity)** | Verifies that form was filled correctly. If not throws exception | void
-**login()** | Clicks on Button "login" or "loginButton"| void
-**login(T entity)** | Fills all setable elements and clicks on Button “login” or ”loginButton” | void
-**loginAs(T entity)** | Fills all setable elements and clicks on Button “login” or ”loginButton” | void
-**send()** | Sends the form by clicking on Button “send” or "sendButton" | void
-**send(T entity)** | Fills all setable elements and clicks on Button “send” or ”sendButton” | void
-**add(T entity)** | Fills all setable elements and clicks on Button “add” or ”addButton” | void
-**publish(T entity)** | Fills all setable elements and clicks on Button “publish” or ”publishButton” | void
-**save(T entity)** | Fills all setable elements and clicks on Button “save” or ”saveButton” | void
-**update(T entity)** | Fills all setable elements and clicks on Button “update” or ”updateButton” | void
-**cancel(T entity)** | Fills all setable elements and clicks on Button “cancel” or ”cancelButton” | void
-**close(T entity)** | Fills all setable elements and clicks on Button “close” or ”closeButton” | void
-**back(T entity)** | Fills all setable elements and clicks on Button “back” or ”backButton” | void
-**select(T entity)** | Fills all setable elements and clicks on Button “select” or ”selectButton” | void
-**next(T entity)** | Fills all setable elements and clicks on Button “next” or ”nextButton” | void
-**search(T entity)** | Fills all setable elements and clicks on Button “search” or ”searchButton” | void
+**fillAction(Field field, Object element, Object parent, String setValue)** | Defines the specifics of how form elements will be filled | void
+**getAction(Field field, Object element, Object parent)** | Defines the specifics of how form elements will be obtained for verification and checks | String
+**onlyMandatory()** | Sets form filter option to **MANDATORY**, meaning that only mandatory form elements are filled/submitted or verified/checked for the duration of a single form action | void
+**onlyOptional()** | Sets form filter option to **OPTIONAL**, meaning that only optional form elements are filled/submitted or verified/checked for the duration of a single form action | void
+**fill(T entity)** | Fills all settable elements of the form that can be matched with fields of the input entity | void
+**submit()** | Sends the form by clicking "submit" Button or "submitButton" | void
+**submit(String text)** | Fills first settable form field with value and clicks "submit" Button or "submitButton"  | void
+**submit(T entity)** | Fills all settable elements and clicks "submit" Button or "submitButton"  | void
+**submit(String text, String buttonName)** | Fills first settable field with value and clicks “buttonName” Button or "buttonNamebutton"| void
+**submit(T entity, String buttonName)** | Fills all settable elements and clicks “buttonName” Button or "buttonNamebutton" | void
+**pressButton(String buttonName)** | Clicks “buttonName” Button or "buttonNamebutton". Allows different buttons to send one form, e.g. save/publish/cancel/search/update/... | void
+**verify(T entity)** | Verifies that form has been filled correctly. If not, returns a list of keys where verification has failed | List<String>
+**check(T entity)** | Verifies that form has been filled correctly. If not, throws an exception | void
+**login()** | Clicks "login" Button or "loginButton"| void
+**login(T entity)** | Fills all settable elements and clicks “login” Button or ”loginButton” | void
+**loginAs(T entity)** | Fills all settable elements and clicks “login” Button or ”loginButton” | void
+**send()** | Sends the form by clicking “send” Button or "sendButton" | void
+**send(T entity)** | Fills all settable elements and clicks “send” Button or ”sendButton” | void
+**add(T entity)** | Fills all settable elements and clicks “add” Button or ”addButton” | void
+**publish(T entity)** | Fills all settable elements and clicks “publish” Button or ”publishButton” | void
+**save(T entity)** | Fills all settable elements and clicks “save” Button or ”saveButton” | void
+**update(T entity)** | Fills all settable elements and clicks “update” Button or ”updateButton” | void
+**cancel(T entity)** | Fills all settable elements and clicks “cancel” Button or ”cancelButton” | void
+**close(T entity)** | Fills all settable elements and clicks “close” Button or ”closeButton” | void
+**back(T entity)** | Fills all settable elements and clicks “back” Button or ”backButton” | void
+**select(T entity)** | Fills all settable elements and clicks “select” Button or ”selectButton” | void
+**next(T entity)** | Fills all settable elements and clicks “next” Button or ”nextButton” | void
+**search(T entity)** | Fills all settable elements and clicks “search” Button or ”searchButton” | void
 
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/composite/FormTests.java)
 
@@ -3330,54 +3419,54 @@ Available methods in Java JDI Light:
  
   - __Java__: _com.epam.jdi.light.elements.composite_
 
-**WebPage** - is a parent Java class for all JDI Page Object classes. WebPage class extending DriverBase class, implementing PageObject interface and containing a scope of common used methods:
+**WebPage** - a parent Java class for all JDI Page Object classes. WebPage class extends _DriverBase_ class, implements PageObject interface and contains a number of commonly used methods:
 
 |Method | Description | Return Type
 --- | --- | ---
-**asForm()**|Returning new Form parameterized with local Name|Form<T>
-**getCurrentPage()**|Returning the name of current Page|String
-**setCurrentPage(WebPage page)**|Instantiating the current Page with Name|void
+**asForm()**|Returns new Form parameterized with local Name|Form<T>
+**getCurrentPage()**|Returns the name of current Page|String
+**setCurrentPage(WebPage page)**|Instantiates the current Page with Name|void
 **WebPage()**|Default constructor for WebPage class|WebPage
-**WebPage(String url)**|Parameterizing with URL constructor for WebPage class|void
+**WebPage(String url)**|Parameterized URL constructor for WebPage class|void
 **openUrl(String url)**|Opening WebPage with URL|void
-**getUrl()**|Returning URL of Page|String
-**getTitle()**|Returning Title of Page|String
-**updatePageData(Url urlAnnotation, Title titleAnnotation)**|Setting Page URL and Title|void
-**url()**|Returning new StringCheckType object wit checked URL|StringCheckType
-**title()**|Returning new StringCheckType object wit checked Title|StringCheckType
+**getUrl()**|Returns URL of Page|String
+**getTitle()**|Returns Page Title|String
+**updatePageData(Url urlAnnotation, Title titleAnnotation)**|Setting Page URL and     |void
+**url()**|Returns new StringCheckType object with checked URL|StringCheckType
+**title()**|Returns new StringCheckType object with checked Title|StringCheckType
 **open(String url)**|Opens url specified for page|void
 **open(Object... params)**|Opens url specified for page with parameters|void
-**checkOpened()**|Checking that page opened|void
-**isOpened()**|Checking that page opened|boolean
-**shouldBeOpened()**|Checking that page opened|void
-**shouldBeOpened(Object... params)**|Check that page opened with parameters|void
-**openedPage(String url)**|Check that page opened|void
-**refresh()**|Reloading current page|void
-**reload()**|same as **refresh()**|void
+**checkOpened()**|Checks that page has opened|void
+**isOpened()**|Checks that page has opened|boolean
+**shouldBeOpened()**|Checks that page has opened|void
+**shouldBeOpened(Object... params)**|Checks that page has opened with parameters|void
+**openedPage(String url)**|Checks that page has opened|void
+**refresh()**|Reloads current page|void
+**reload()**|Same as **refresh()**|void
 **back()**|Go back to previous page|void
 **forward()**|Go forward to next page|void
-**zoom(double factor)**|Zooming current page|void
-**getHtml()**|Getting HTML of current page|String
-**scroll(int x, int y)**|Scrolling to designated position|void
-**scrollToTop()**|Scrolling to top|void
-**scrollToBottom()**|Scrolling to bottom|void
-**scrollDown(int value)**|Scrolling dowd to designated position|void
-**scrollUp(int value)**|Scrolling up to designated position|void
-**scrollRight(int value)**|Scrolling right to designated position|void
-**scrollLeft(int value)**|Scrolling left to designated position|void
-**addPage(WebPage page)**|Adding selected page to Map of pages|void
-**getPage(String value)**|Getting page from Map by value|T_extends_WebPage
-**toString()**|Overriding method of Object class|String
+**zoom(double factor)**|Zooms current page|void
+**getHtml()**|Gets HTML of current page|String
+**scroll(int x, int y)**|Scrolls to designated position|void
+**scrollToTop()**|Scrolls to top|void
+**scrollToBottom()**|Scrolls to bottom|void
+**scrollDown(int value)**|Scrolls down to designated position|void
+**scrollUp(int value)**|Scrolls up to designated position|void
+**scrollRight(int value)**|Scrolls right to designated position|void
+**scrollLeft(int value)**|Scrolls left to designated position|void
+**addPage(WebPage page)**|Adds selected page to the Map of pages|void
+**getPage(String value)**|Gets page from Map by value|T_extends_WebPage
+**toString()**|Overrides the Object class toString() method|String
   
 
-more than that, it has nested Class **StringCheckType** with such methods:
+More than that, it has a nested **StringCheckType** class with the following methods:
 
 |Method | Description | Return Type
 --- | --- | ---
-**StringCheckType(Supplier<String> actual, String equals, String what)**|parametrized constructor|StringCheckType
-**check()**|Check that current page url/title equals to expected url/title|boolean
-**match()**|Check that current page url/title matches to expected url/title-matcher|boolean
-**contains()**|Check that current page url/title contains expected url/title-matcher|boolean
+**StringCheckType(Supplier<String> actual, String equals, String what)**|A parameterized constructor|StringCheckType
+**check()**|Checks that current page url/title equals to expected url/title|boolean
+**match()**|Checks that current page url/title matches to expected url/title-matcher|boolean
+**contains()**|Checks that current page url/title contains expected url/title-matcher|boolean
 
 ```java 
 public class MainPage extends WebPage{}
@@ -5428,7 +5517,7 @@ public class UserCard extends Form<User> {
 If Smart locator rule is id:
     WebSettings.SMART_SEARCH_LOCATORS = asList("#%s");
     
-and convertation rule is hyphen to java name:
+and conversion rule is 'hyphen-to-java-name':
     WebSettings.SMART_SEARCH_NAME = StringUtils::splitHyphen;
 
 So you can write:
@@ -5442,31 +5531,32 @@ public class UserCard extends Form<User> {
 ```
 
 
-If you have your developers follow some standard way to mark ui elements or you have an agreement to add special attribute you can even avoid to write locators for elements and make your page objects much more compact.
+If your developers are following some standard way of marking UI elements or you have an agreement to add special attributes, you can even avoid writing locators for elements and make your page objects much more compact.
 
-You can manage how to create locator from field name using.
+You can manage locator creation from field name using:
 
 ### Settings interface ISmartLocators contains:
   
-- **SmartSearch** - method that invoked if you have element has no locator
+- **SmartSearch** - method invoked if your element has no locator
 
 - **SmartSearchLocator** - locator that can be used to try to find element
 
-- **SmartSearchName** -  method how to create locator name from filed name (this value will be passed as parameter in SmartSearchLocator)
+- **SmartSearchName** -  method that creates locator name from field name (this value will be passed as a parameter to SmartSearchLocator)
 
 ## JDI Locators
 
-JDI provides various locators for detecting elements using css locators and xpath expressions. JDI Light supports Selenium's @FindBy(s) locators as well as providing custom locators such as Selenium-like **@FindBy(s)**, aliases **@Css**/**@XPath** and custom **@ByText** and **@WithText** locators. 
+JDI provides various ways for detecting elements (including using Css locators and Xpath expressions). 
+JDI Light supports Selenium @FindBy(s) locators, while also providing custom locators such as Selenium-like **@FindBy(s)**, aliases **@Css**/**@XPath** and custom **@ByText** and **@WithText** locators. 
 
-Furthermore JDI Light introduces **@UI** locator that provides additional features for css support.
+Furthermore, JDI Light introduces the **@UI** locator, which provides additional features for css support.
 
-Apart from locator annotations JDI Light provides support for smart locators. When using this feature there is no need to explicitly provide locators for elements at all. 
+Apart from locator annotations JDI Light provides support for smart locators. When using this feature, there is no need to explicitly provide locators for elements at all. 
 
 ### Selenium-like annotations
 
 |Annotation | Description | Example
 --- | --- | ---
-**@FindBy** | This JDI Light locator corresponds to Selenium @FindBy locator. It is used to locate element exploiting one of the predefined strategies. JDI Light supports most of the Selenium strategies: **id**, **name**, **className**, **css**, **tagName**, **linkText**, **partialLinkText**, **xpath**. Added strategy is **text**, which allows detecting element(s) with the given text inside its text nodes. The **group** annotation parameter allows to use different **@FindBy** locators for different test groups. | @FindBy(css = "#passport")
+**@FindBy** | This JDI Light locator corresponds to Selenium @FindBy locator. It is used to locate an element using one of the predefined strategies. JDI Light supports most of the Selenium strategies: **id**, **name**, **className**, **css**, **tagName**, **linkText**, **partialLinkText**, **xpath**. Added strategy is **text**, which allows detecting element(s) with the given text inside its text nodes. The **group** annotation parameter allows to use different **@FindBy** locators for different test groups. | @FindBy(css = "#passport")
 **@FindBys** | TBD. The JDI Light annotation should correspond exactly to Selenium @FindBys annotation | @FindBys({@FindBy(css = ".main-form"), @FindBy(css = "#accept-conditions")})
 **@FindAll** | TBD. The JDI Light annotation should correspond exactly to Selenium @FindAll annotation | TBD
 
@@ -5474,19 +5564,18 @@ Apart from locator annotations JDI Light provides support for smart locators. Wh
 
 |Annotation | Description | Example
 --- | --- | ---
-**@Css("expr")** | This locator is an alias to @FindBy(css = "expr")| @Css(".fa-sign-out")
-**@XPath("expr")** | This locator is an alias to @FindBy(xpath = "expr") | @XPath(".//button\[@type='submit'\]")
+**@Css("expr")** | This locator is an alias for @FindBy(css = "expr")| @Css(".fa-sign-out")
+**@XPath("expr")** | This locator is an alias for @FindBy(xpath = "expr") | @XPath(".//button\[@type='submit'\]")
 **@ByText("text")** | This locator allows detecting element(s) with the given text inside its text nodes. It is equivalent to xpath = ".//*/text()\[normalize-space(.) = 'text'\]/parent::\*" | @ByText("Calculate")
 **@WithText("text")** | This locator allows detecting element with the given text inside its text nodes. It is equivalent to xpath = ".//*/text()\[contains(normalize-space(.), 'text')\]/parent::\*" | @WithText("Calculat")
-**@UI("expr")** | This locator can take either css locator or xpath expression as an argument and locate element accordingly. This locator provides additional features as described below. Additionally, the **group** annotation parameter allows to use different **@UI** locators for different test groups. | @UI("#users-table")
-**@UI("\['text'\]")** | Such notation allows to enrich css locators to detect element(s) with given text inside its text nodes. It is equivalent to xpath = ".//\*/text()\[normalize-space(.) = 'text'\]/parent::\*" | @UI(".user\['Roman'\]") or @UI("\['Accept'\] input") 
-**@UI("\[\*'text'\]")** | Such notation allows to enrich css locators to detect element(s) which contain(s) given text inside its text nodes. It is equivalent to xpath = ".//\*/text()\[contains(normalize-space(.), 'text')\]/parent::\*" | @UI(".user\[\*'Roma'\]") or @UI("\[\*'Accept'\] input")
-**@UI("'expr\[n\]")** | Such notation allows to enrich css locators to choose an element at a specific position. It is equivalent to xpath = ".//xpath-expr\[n\]" | @UI("\[type=checkbox\]\[1\]")
-**@UI("expr<")** | Such notation allows to enrich css locators by allowing to move up in the DOM to the parent of the element. E.g. \[’text’\]**<**\[type=checkbox\] is the same as //\*\[text()=’text’\]/..//*\[@type=‘checkbox’\] | @UI("\[’Ice Cream’\]<\[type=checkbox\]")
-**@JDropdown** | This locator help to locate dropdown elements and <a href='https://jdi-docs.github.io/jdi-light/?java#dropdown' target="_blank">provide additional features</a> | @JDropdown(root = "div\[ui=combobox\]", value = "input", list = "li", expand = ".caret")
+**@UI("expr")** | This locator accepts either a css locator or an xpath expression as an argument and locates element accordingly. It provides additional features as described below. Additionally, the **group** annotation parameter allows to use different **@UI** locators for different test groups. | @UI("#users-table")
+**@UI("\['text'\]")** | Such notation allows to enhance css locators to detect element(s) with given text inside its text nodes. It is equivalent to xpath = ".//\*/text()\[normalize-space(.) = 'text'\]/parent::\*" | @UI(".user\['Roman'\]") or @UI("\['Accept'\] input") 
+**@UI("\[\*'text'\]")** | Such notation allows to enhance css locators to detect element(s) which contain(s) given text inside its text nodes. It is equivalent to xpath = ".//\*/text()\[contains(normalize-space(.), 'text')\]/parent::\*" | @UI(".user\[\*'Roma'\]") or @UI("\[\*'Accept'\] input")
+**@UI("'expr\[n\]")** | Such notation allows to enhance css locators to choose an element at a specific position. It is equivalent to xpath = ".//xpath-expr\[n\]" | @UI("\[type=checkbox\]\[1\]")
+**@UI("expr<")** | Such notation allows to enhance css locators by allowing to move up the DOM to the parent of the element. E.g. \[’text’\]**<**\[type=checkbox\] is the same as //\*\[text()=’text’\]/..//*\[@type=‘checkbox’\] | @UI("\[’Ice Cream’\]<\[type=checkbox\]")
+**@JDropdown** | This locator helps locate dropdown elements and <a href='https://jdi-docs.github.io/jdi-light/?java#dropdown' target="_blank">provides additional features</a> | @JDropdown(root = "div\[ui=combobox\]", value = "input", list = "li", expand = ".caret")
 
 
-provide additional features
 ### Smart locators
 
 ```
@@ -5523,15 +5612,15 @@ public class UserCard extends Form<User> {
 }
 ```
 
-If you have your developers follow some standard way to mark ui elements or you have an agreement to add special attribute you can even avoid to write locators for elements and make your page objects much more compact.
+If your developers are following some standard way of marking UI elements or you have an agreement to add some special attributes, you can even avoid writing locators for elements and make your page objects much more compact.
 
-You can manage how to create locator from a field name using:
+You can manage locator creation from field name using:
 
-**WebSettings.SMART_SEARCH** - function that is invoked if you have element that has no locator or just setting a list of used locators using
+**WebSettings.SMART_SEARCH** - function invoked if your element has no locator or just setting a list of used locators.
 
-**WebSettings.SMART_SEARCH_LOCATORS** - list of locators that can be used to try to find element
+**WebSettings.SMART_SEARCH_LOCATORS** - list of locators which can be used to try to find element.
 
-**WebSettings.SMART_SEARCH_NAME** - function how to create locator name from filed name (this value will be passed as %s parameter in SMART_SEARCH_LOCATORS)
+**WebSettings.SMART_SEARCH_NAME** - function that creates locator name from field name (this value will be passed as a <i>%s</i> parameter to SMART_SEARCH_LOCATORS).
 
 ## Windows/Tabs manager
 ```java 
@@ -5550,19 +5639,19 @@ openNewTab();
 switchToWindow(2);
 contactFormPage.open();
 ```
-JDI has good support for managing opened windows and tabs of the browser. It can help to create/switch/close windows/tabs in the browser. Let's look at available methods in Java:
+JDI has good support for managing opened windows and tabs of the browser. It can help create/switch/close windows/tabs in the browser. Let's look at methods available in Java:
 
 |Method | Description | Return Type
 --- | --- | ---
-**getWindows()** | Return list of all windows/tabs | Set<String>
+**getWindows()** | Returns a list of all windows/tabs | Set<String>
 **newWindowIsOpened()** | Check the new window is opened | boolean
 **setWindowName(String value)** | Set readable name for current opened windows | void
-**windowsCount()** | Get count of windows | int
-**switchToNewWindow()** | Switch to the new window | void
+**windowsCount()** | Get window count | int
+**switchToNewWindow()** | Switch to a new window | void
 **openNewTab()** | Open a new tab | void
-**originalWindow()** | Switch to original window | void
-**switchToWindow(int number)** | Switch to windows with a number. _switchToWindow(2) means switch to the second window_ | void
-**switchToWindow(String value)** | Switch to windows with a name. For setup name for the current window, we should use the **setWindowsName()** method | void
+**originalWindow()** | Switch to the original window | void
+**switchToWindow(int number)** | Switch to window with a number. _switchToWindow(2) means switch to the second window_ | void
+**switchToWindow(String value)** | Switch to windows with names. To set name for the current window, we should use the **setWindowName()** method | void
 **closeWindow()** | Close current window | void
 **closeWindow(String value)** | Close window with a specific name. | void
 
@@ -5583,13 +5672,13 @@ dismissAlert();
 AlertButton.Click();
 GetAlert().DismissAlert();
 ```
-**Alert** –  a window with a message that displays on the screen and pauses the execution of the script until the user performs an action
+**Alert** –  a window with a message that displays on the screen and pauses the execution of the script until user performs an action
 
 <aside class="notice">
-Note that you can make static import in order to simplify code Alerts.acceptAlert() > acceptAlert()
+Note that you can make a static import (Alerts.acceptAlert() > acceptAlert()) in order to simplify your code.
 </aside>
 
-Handle Window alerts/confirm/prompt dialogs desribed on <a href='https://developer.mozilla.org/en-US/docs/Web/API/Window' target="_blank">MDN</a>
+Handle Window alerts/confirm/prompt dialogs described on <a href='https://developer.mozilla.org/en-US/docs/Web/API/Window' target="_blank">MDN</a>
 
 alert('Alert')
 
@@ -5633,14 +5722,14 @@ prompt('Alert', 'Default value')
 
 ![Prompt dialog](../images/prompt.png)
 
-Availiable methods in Java
+Available methods in Java
 
 |Method | Description | Return Type
 --- | --- | ---
 **acceptAlert()** | Accept alert | void
 **dismissAlert()** | Dismiss alert | void
 **getAlertText()** | Get alert text | String
-**validateAlert(Matcher<String> text)** | Validate alert by matching passed value with alert text | void
+**validateAlert(Matcher<String> text)** | Validate alert by matching passed value with the alert text | void
 **inputAndAcceptAlert(String text)** | Input the specified text in the alert and accept it | void
 
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#alert)
@@ -5664,9 +5753,9 @@ public void loginTest() {
 [22:24.516  STEP] : Check that 'Home Page' is opened (url CONTAINS '/index.html'; title EQUALS 'Home Page')
 
 ```
-JDI uses log4j library, but provide more levels of logging. (require log4j.xml / log2j2.xml)
+JDI uses the _log4j library_, but provides more levels of logging. (require log4j.xml / log2j2.xml)
 **logger.setLogLevel(STEP);**
-Level _STEP_ can show business-related information in the console output and the same log will be in the file (target/.logs/<logName>.log)
+Level _STEP_ can show business-related information in the console output, and you will find the same log in the **_target/.logs/<logName>.log_** file.
 
 |LogLevel | Description 
 --- | --- 
@@ -5689,12 +5778,12 @@ TBD
 TBD
 
 ## JDI Settings
-- **driver** -  we can set up where we would like to run our tests. Some typical options: chrome, firefox, ie... or we can just place it with ${driver} and read the exact driver name from command line
-- **drivers.version** - by default JDI Light will download the latest version of drive for us but if we need a specific version we can put it here (in this case the framework will find and download exactly this version)
-- **timeout.wait.element** – timeout in seconds to wait for an element on the opened page. Default 10 seconds.
-- **timeout.wait.page** - JDI Light automatically define that new page opened and in this case will use this timeout (usually it is more than for element). By default 30 seconds.
-- **domain** – web application root URL (used if we work with one application in tests). Can be also read from the command line like ${domain}
-- **page.load.strategy** - like in <a href="https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/capabilities_exports_PageLoadStrategy.html" target="_blank">Selenium strategies</a> to load the page. Options: normal, eager, none
+- **driver** -  we can set up where we would like to run our tests. Some common options are: <i>chrome</i>, <i>firefox</i>, <i>ie</i>… or we can just replace it with _${driver}_ and read the exact driver name from command line<br/>
+- **drivers.version** - by default JDI Light will download the latest version of a driver for us, but if we need a specific version we can put it here (in this case the framework will find and download exactly the version specified)
+- **timeout.wait.element** – timeout in seconds to wait for an element on the opened page. The default is 10 seconds.
+- **timeout.wait.page** - JDI Light automatically defines that new page has opened, and in this case it will use this timeout (usually it is more than enough for an element). By default, it's 30 seconds.
+- **domain** – web application root URL (used if we work with one application in tests). Can be also read from the command line, e.g. _${domain}_
+- **page.load.strategy** - like in <a href="https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/capabilities_exports_PageLoadStrategy.html" target="_blank">Selenium strategies</a> to load the page. Options: _normal, eager, none_
 - **browser.size** - the size of the tested browser. By default, JDI Light will maximize browser, but we can set exact values.
 
 ## SoftAsserts
@@ -5754,48 +5843,48 @@ TBD
     }
 ```
 
-**Soft Assert** - assert that collects errors during test is running. They don't throw an exception when an assert fails but save them. 
+**Soft Assert** - assert that collects errors during test run. It doesn't throw exceptions when asserts fail but instead saves them. 
 
-Here is the list of available methods in SoftAssert class:
+Here is the list of available SoftAssert class methods:
 
 |Method | Description | Return Type
 --- | --- | ---
 **setAssertType(String type)** |Set the type of asserts | void
 **assertSoft()** |Set the soft type of asserts | void
 **assertStrict()** |Set the strict type of asserts | void
-**assertResults()** |Output results of asserts | void
-**clearResults()** |Reset results of asserts | void
+**assertResults()** |Outputs assert results | void
+**clearResults()** |Resets assert results | void
 
 **Settings:**
 
-- **test.properties** file - to choose type of assertions, you need to update **assert.type** property - select soft or strict type (#assert.type=soft | strict)
+- **test.properties** file - to choose the type of assertions, you need to update the **assert.type** property - select **soft** or **strict** type (_#assert.type=soft | strict_)
 
-- to enable or disable SoftAssert in code use **assertSoft()** or **assertStrict()** methods from SoftAssert class
+- to enable or disable SoftAssert in code, use **assertSoft()** or **assertStrict()** methods from SoftAssert class
 
  **Output results** 
  
-there are two ways how to use **assertResults()** method:
+There are two ways to use **assertResults()** method:
 
-- As a method in a chain after asserts (example buttonSoftAssertTest)
+- As a method in a chain after asserts (e.g. _buttonSoftAssertTest_)
 
-- As a separate method if you need to check several elements (example multipleValidationsTest)
+- As a separate method if you need to check several elements (e.g. _multipleValidationsTest_)
 
 ## Driver Settings
 We can change default settings placed in the test.properties file (src/test/resources)
 
 |Property name | Description | Examples
 --- | --- | ---
-**driver** | Describe what kind of driver we want to use: chrome, firefox, ie… or we can just place it with ${driver} and read the exact driver name from command line or pom file | driver = ${driver}
-**drivers.version** | By default, JDI Light will download the latest version of the driver for us, but if we need a specific version we can put it here (in this case the framework will find and download exactly this version) | drivers.version = LATEST<br>drivers.version = PRELATEST<br> driver.version = 2.23
+**driver** | Describe what kind of driver we want to use: chrome, firefox, ie… or we can just replace it with ${driver} and read the exact driver name from command line or pom file | driver = ${driver}
+**drivers.version** | By default, JDI Light will download the latest version of the driver for us, but if we need a specific version we can put it here (in this case the framework will find and download exactly the version specified) | drivers.version = LATEST<br>drivers.version = PRELATEST<br> driver.version = 2.23
 **timeout.wait.element** | Wait for an element on the opened page, by default = 10 seconds | timeout.wait.element = 20
-**timeout.wait.page** | JDI Light automatically defines that new page opened and in this case will use this timeout (usually it is more than for element). By default 30 seconds | timeout.wait.page = 40
-**domain** | web application root URL (used if we work with one application in tests). Can be also read from the command line like ${domain} | domain = https://jdi-testing.github.io/jdi-light/
-**drivers.folder** | Setup folder for drivers | drivers.folder = C:\\Selenium
-**screens.folder** | Setup screenshot folder | screens.folder = C:\\Test-screenshot
-**element.search.strategy** | Can find only one element on a page (single), many elements on a page (multiple). Also, we can define if we want to search only in visible element or not. Consist of 2 params: visibility (visible can use displayed or any),  and type of search. Options: soft (=any, multiple); strict(=visible, single); or combine from visible/displayed/any/all and single/multiple. _Note: visible=displayed, any=all | element.search.strategy = visible, multiple
-**browser.size** | the size . Optionsof the tested browser. By default, JDI Light will maximize browser, but we can set exact values | browser.size = MAXIMIZE<br>browser.size = 1024x762
-**page.load.strategy** | Selenium-like strategies to load the page. Options: normal, eager, none | page.load.strategy = normal
-**page.check.after.open** | Check the page has been open. Availible option: NONE, NEW_PAGE, EVERY_PAGE | page.check.after.open = NONE
+**timeout.wait.page** | JDI Light automatically defines that new page is opened and in this case will use this timeout (usually it is more than enough for an element). By default, it's 30 seconds | timeout.wait.page = 40
+**domain** | Web application root URL (used if we're working with one application in tests). Can be also read from the command line, e.g. _${domain}_ | domain = https://jdi-testing.github.io/jdi-light/
+**drivers.folder** | Set up the driver folder | drivers.folder = C:\\Selenium
+**screens.folder** | Set up the screenshot folder | screens.folder = C:\\Test-screenshot
+**element.search.strategy** | Can find only one element on a page (_single_), many elements on a page (_multiple_). Also, we can define whether we want to search through visible elements only or not. Consists of 2 params: visibility (_visible_ can use _displayed_ or _any_), and the type of search. Options: _soft (=any, multiple)_; _strict(=visible, single)_; or _combined from visible/displayed/any/all and single/multiple_. Note: _visible=displayed_, _any=all_ | element.search.strategy = visible, multiple
+**browser.size** | the size of the tested browser. By default, JDI Light will maximize the browser, but we can set exact values | browser.size = MAXIMIZE<br>browser.size = 1024x762
+**page.load.strategy** | Selenium-like strategies to load the page. Options: _normal, eager, none_ | page.load.strategy = normal
+**page.check.after.open** | Check the page has been opened. Available options: _NONE, NEW_PAGE, EVERY_PAGE_ | page.check.after.open = NONE
 **assert.type** | <a href="https://jdi-docs.github.io/jdi-light/?java#softasserts">Assert type</a>: soft or strict | assert.type = soft
 **driver.remote.url** | <a href="https://jdi-docs.github.io/jdi-light/?java#remote-test-runs">Tests can run on remote web servers<a> | driver.remote.url=http://localhost:4444/wd/hub
 

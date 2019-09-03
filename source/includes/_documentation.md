@@ -3615,6 +3615,94 @@ Available methods and properties in C# JDI Light:
 
 ??????METHODS?????
 <br><br>
+###Badge
+**1) Badge** - Element that scale to match the size of the immediate parent element by using relative font sizing and em units.<br>
+
+   ![Badge](../images/bootstrap/badge_heading.png)<br>
+   Here is an example with provided Bootstrap v4.3 code:  
+   ![Badge example](../images/bootstrap/badge_heading_code.png)
+   Text is located in the following classes: <br>
+  - __Java__: _com.epam.jdi.light.ui.html.common.Text_<br>
+  - __C#__: _JDI.Light.Elements.Common.TextElement_<br>
+
+Here is a list of available methods in C#:
+
+|Method | Description | Return Type
+--- | --- | ---
+**GetText()** | returns text| String
+**GetValue()** | returns text| String
+**Is** | Gets text assert | TextAssert
+**AssertThat** | Gets text assert | TextAssert
+**WaitFor** | Gets text assert | TextAssert
+
+And here are methods available in Java:
+    
+|Method | Description | Return Type
+--- | --- | ---
+**getText()** |Get current value | String
+**is()** |Various assert actions for Text| TextAssert
+**assertThat()** |Various assert actions for Text| TextAssert 
+
+**2) Badge** - Element which used as part of buttons to provide a counter. Unless the context is clear (as with the “Notifications” example, where it is understood that the “4” is the number of notifications), consider including additional context with a visually hidden piece of additional text.<br>
+
+   ![Badge](../images/bootstrap/badge_button.png)<br>
+   Here is an example with provided Bootstrap v4.3 code:  
+   ![Badge example](../images/bootstrap/badge_button_code.png)
+   Button is located in the following classes: <br>
+    - __Java__: _com.epam.jdi.light.ui.html.common.Button_<br>
+    - __C#__: _JDI.Light.Elements.Common.Button_
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**click()** | Click the button  | void
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+
+Available methods and properties in C# JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+**Click()** | Click the button  | void
+**GetText()** | Get button text | string
+**Is** | Assert action | TextAssert 
+**AssertThat** | Assert action | TextAssert
+
+**3) Badge** - .badge-* classes on an link element quickly provide actionable badges with hover and focus states.<br>
+   ![Badge](../images/bootstrap/badge_link.png)<br>
+   Here is an example with provided Bootstrap v4.3 code:  
+   ![Badge example](../images/bootstrap/badge_link_code.png)
+   Link is located in the following classes: <br>
+     - __Java__: _com.epam.jdi.light.ui.html.common.Link_
+      - __C#__: _JDI.Light.Elements.Common.Link_
+
+Here is the list of available methods in Java:
+
+|Method | Description | Return Type
+--- | --- | ---
+**click()** |Follow the link | void
+**getText()** |Returns the link text  | String
+**ref()** |Returns the reference  | String
+**url()** |Returns the URL  | URL
+**alt()** |Returns the alternate text | String
+**is()** | Returns object for work with assertions | LinkAssert
+**assertThat()** | Returns object for work with assertions | LinkAssert
+
+Here is the list of available methods in C#:
+
+|Method | Description | Return Type
+--- | --- | ---
+**Click()** |Follow the link | void
+**GetText()** |Returns the link text  | string
+**Ref()** |Returns the reference  | string
+**Url()** |Returns the URL  | string
+**Alt()** |Returns the alternate text | string
+**Is()** | Returns object for work with assertions | LinkAssert
+**AssertThat()** | Returns object for work with assertions | LinkAssert
+
+<br><br>
 
 ### Breadcrumb
 

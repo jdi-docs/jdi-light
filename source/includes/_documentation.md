@@ -5268,7 +5268,7 @@ Actions: <br>
  &nbsp;&nbsp;&nbsp;&nbsp;|\<GHERKIN DATA TABLE\>| <br>
  **When** \<I\> [submit|login as|send|add|publich|save|update|cancel|close|back|select|next|search] form<br>
  
- It's also possible to use JSON data files:
+ It's also possible to use JSON data files:<br>
  **When** \<I\> fill form \<ELEMENT NAME\> with \<JSON DATA FILE NAME\><br>
  **When** \<I\> [submit|login as|send|add|publich|save|update|cancel|close|back|select|next|search] form \<ELEMENT NAME\> with \<JSON DATA FILE NAME\><br>
  [JSON data file example](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/jsonData/Roman%20Contacts.json)
@@ -5283,7 +5283,7 @@ Validations: <br>
  **Then** the form \<ELEMENT NAME\> does not appear during \<SECONDS\><br>
  **Then** the form \<ELEMENT NAME\> disappear<br>
  
- It's also possible to use JSON data files:
+ It's also possible to use JSON data files:<br>
  **Then** the form \<ELEMENT NAME\> data equals to \<JSON DATA FILE NAME\><br>
  [JSON data file example](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/jsonData/Roman%20Contacts.json
 

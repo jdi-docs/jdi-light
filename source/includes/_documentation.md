@@ -3577,8 +3577,8 @@ Available methods and properties in C# JDI Light:
 
 Button group is located in the following classes:
  
-  - __Java__: _??????_
-  - __C#__: _???????_
+  - __Java__: _com.epam.jdi.light.ui.html.common.Button_
+  - __C#__: _JDI.Light.Elements.Common.Button_
   
 Here is an example with provided Bootstrap v4.3 code:
   
@@ -3586,11 +3586,22 @@ Here is an example with provided Bootstrap v4.3 code:
 
 Available methods in Java JDI Light:
 
-??????METHODS?????
+|Method | Description | Return Type
+--- | --- | ---
+ |  |
+ | | 
+|  | 
+ | | 
+
 
 Available methods and properties in C# JDI Light:
 
-??????METHODS?????
+|Method/Property | Description | Return Type
+--- | --- | ---
+ | | 
+ | | 
+ |  |
+ | | 
 <br><br>
 
 ### Alert
@@ -3598,22 +3609,20 @@ Available methods and properties in C# JDI Light:
 
 ![Alert](../images/bootstrap/alert.png)
 
-Alert is located in the following classes:
- 
-  - __Java__: _?????_
-  - __C#__: _?????_
-  
 Here is an example with provided Bootstrap v4.3 code:
   
 ![Alert example](../images/bootstrap/alert-html.png)
 
 Available methods in Java JDI Light:
 
-??????METHODS?????
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
 
-Available methods and properties in C# JDI Light:
-
-??????METHODS?????
 <br><br>
 ###Badge
 **1) Badge** - Element that scale to match the size of the immediate parent element by using relative font sizing and em units.<br>
@@ -3718,14 +3727,11 @@ Available methods in Java JDI Light:
 
 |Method/Property | Description | Return Type
 --- | --- | ---
-**click(int index)** | click on item of breadcrumb with target index  | void
-**click(String nameItem)** | click on item of breadcrumb with target name  | void
-**getValues()** | return all pairs: URL and index  | 
-**getValue(int index)** | return URL of breadcrumb's item with target index  | String
-**getTexts()** |  return all pairs: name and index  | 
-**getText(int index)** | return name of breadcrumb's item with target index   | String
-**getText(int index)** | return name of breadcrumb's item with target index  | String
-**getCurrentPageName()** | return name of breadcrumb's item with aria-current="page"  | String
+**** | TBD  | 
+**** |  |  
+**** |  | 
+**** |  | 
+**** |  | 
 
 
 ###Collapse
@@ -3742,14 +3748,12 @@ Available methods in Java JDI Light:
 
 |Method/Property | Description | Return Type
 --- | --- | ---
-**click(String nameItem)** |  click on item of collapse with target name | void
-**getText(String nameItem)** | return text content of collapse's item with target name  |  String
-**getURL(String nameItem)** | return URL of collapse's link item with target name  | String
-**getName()** | return inscription of collapse's item  | String
-**getShowed()** |  return name of collapse's item that content is showed  |  String
-**for Group only** |  |   
-**getNames()** | return list of items inscription  |  List\<String\>
-**getTexts()** | return list of items text content | List\<String\>
+**** | TBD  | 
+**** |  |  
+**** |  | 
+**** |  | 
+**** |  |  
+
 
 
 ###Carousel
@@ -3767,6 +3771,10 @@ TBD
 Available methods and properties in C# JDI Light:
 
 TBD
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Carousel HTML example](../images/bootstrap/carousel-html.png)
 
 
 ## Bootstrap Complex elements
@@ -5089,6 +5097,8 @@ Validations: <br>
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial)<br>
 [**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/TextField.feature) for TextField<br>
 <br>
+<br>
+<br>
 
 ### Multiselector
 ```
@@ -5144,18 +5154,29 @@ Validations: <br>
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#checklist)<br>
 [**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/CheckList.feature) for CheckList<br>
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ### MultiDropDown
 
 Note: this element is an alias for MultiSelector
 
 ```
-Multiselector actions examples:
+MultiDropDown actions examples:
 
 When I select "Ages" with value "Steam"
 When I select 1, 5 numbers in "Ages" multiselector
 
-Multiselector validation examples:
+MultiDropDown validation examples:
 
 Then I check the "Steam" value is selected in "Ages" multiselector
 Then I check the "Ages" multiselector contains "Wood" value

@@ -5097,6 +5097,8 @@ Validations: <br>
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial)<br>
 [**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/TextField.feature) for TextField<br>
 <br>
+<br>
+<br>
 
 ### Multiselector
 ```
@@ -5158,18 +5160,23 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 <br>
 <br>
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ### MultiDropDown
 
 Note: this element is an alias for MultiSelector
 
 ```
-Multiselector actions examples:
+MultiDropDown actions examples:
 
 When I select "Ages" with value "Steam"
 When I select 1, 5 numbers in "Ages" multiselector
 
-Multiselector validation examples:
+MultiDropDown validation examples:
 
 Then I check the "Steam" value is selected in "Ages" multiselector
 Then I check the "Ages" multiselector contains "Wood" value

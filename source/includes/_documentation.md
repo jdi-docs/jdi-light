@@ -3500,19 +3500,19 @@ Available methods in Java JDI Light:
 |Method | Description | Return Type
 --- | --- | ---
  |  |
- | | 
-|  | 
- | | 
+ |  | 
+ |  | 
+ |  | 
 
 
 Available methods and properties in C# JDI Light:
 
 |Method/Property | Description | Return Type
 --- | --- | ---
- | | 
- | | 
+ |  | 
+ |  | 
  |  |
- | | 
+ |  | 
 <br><br>
 
 ### Alert
@@ -3536,6 +3536,35 @@ Available methods in Java JDI Light:
 
 <br><br>
 
+### List group
+**List group** – a flexible and powerful component for displaying a series of content. Modify and extend them to support just about any content within.
+
+![List group](../images/bootstrap/list_group.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![List group example](../images/bootstrap/list_group-html.png)
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ 
+
+Available methods and properties in C# JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  |
+ |  | 
+<br><br>
 
 ## Bootstrap Complex elements
 

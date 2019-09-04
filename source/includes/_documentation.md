@@ -3730,6 +3730,30 @@ Available methods in Java JDI Light:
 **** |  | 
 **** |  | 
 
+###Navs
+
+Nav - navigation component
+
+![Navs example](../images/bootstrap/navs.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Navs HTML example](../images/bootstrap/navs-html.png)
+
+Available methods in Java JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+**** | TBD  | 
+**** |  |  
+**** |  | 
+**** |  | 
+**** |  |  
+
+
+
+
+
 
 ###Jumbotron
 

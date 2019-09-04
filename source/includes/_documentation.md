@@ -3768,6 +3768,10 @@ Available methods and properties in C# JDI Light:
 
 TBD
 
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Carousel HTML example](../images/bootstrap/carousel-html.png)
+
 
 ## Bootstrap Complex elements
 

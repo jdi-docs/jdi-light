@@ -3727,14 +3727,11 @@ Available methods in Java JDI Light:
 
 |Method/Property | Description | Return Type
 --- | --- | ---
-**click(int index)** | click on item of breadcrumb with target index  | void
-**click(String nameItem)** | click on item of breadcrumb with target name  | void
-**getValues()** | return all pairs: URL and index  | 
-**getValue(int index)** | return URL of breadcrumb's item with target index  | String
-**getTexts()** |  return all pairs: name and index  | 
-**getText(int index)** | return name of breadcrumb's item with target index   | String
-**getText(int index)** | return name of breadcrumb's item with target index  | String
-**getCurrentPageName()** | return name of breadcrumb's item with aria-current="page"  | String
+**** | TBD  | 
+**** |  |  
+**** |  | 
+**** |  | 
+**** |  | 
 
 
 ###Collapse
@@ -3751,14 +3748,12 @@ Available methods in Java JDI Light:
 
 |Method/Property | Description | Return Type
 --- | --- | ---
-**click(String nameItem)** |  click on item of collapse with target name | void
-**getText(String nameItem)** | return text content of collapse's item with target name  |  String
-**getURL(String nameItem)** | return URL of collapse's link item with target name  | String
-**getName()** | return inscription of collapse's item  | String
-**getShowed()** |  return name of collapse's item that content is showed  |  String
-**for Group only** |  |   
-**getNames()** | return list of items inscription  |  List\<String\>
-**getTexts()** | return list of items text content | List\<String\>
+**** | TBD  | 
+**** |  |  
+**** |  | 
+**** |  | 
+**** |  |  
+
 
 
 ###Carousel

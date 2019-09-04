@@ -3499,20 +3499,20 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**click()** | Click the button  | void
-**getText()** | Get button text | String
-**is()** | Assert action | TextAssert 
-**assertThat()** | Assert action | TextAssert
+ |  |
+ | | 
+|  | 
+ | | 
 
 
 Available methods and properties in C# JDI Light:
 
 |Method/Property | Description | Return Type
 --- | --- | ---
-**Click()** | Click the button  | void
-**GetText()** | Get button text | string
-**Is** | Assert action | TextAssert 
-**AssertThat** | Assert action | TextAssert
+ | | 
+ | | 
+ |  |
+ | | 
 <br><br>
 
 ### Alert
@@ -3528,11 +3528,11 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**acceptAlert()** | Accept alert | void
-**dismissAlert()** | Dismiss alert | void
-**getAlertText()** | Get alert text | String
-**validateAlert(Matcher<String> text)** | Validate alert by matching passed value with alert text | void
-**inputAndAcceptAlert(String text)** | Input the specified text in the alert and accept it | void
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
 
 <br><br>
 

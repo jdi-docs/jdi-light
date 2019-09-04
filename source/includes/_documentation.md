@@ -3997,7 +3997,7 @@ Validations: <br>
 **Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)<br>
-[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Image.feature) for Image <br>
+<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Image.feature" target="_blank">Cucumber tests</a> for Image <br>
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
@@ -4043,7 +4043,7 @@ Validations: <br>
 **Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)<br>
-[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Image.feature) for Image <br>
+<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Image.feature" target="_blank">Cucumber tests</a> for Image <br>
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 ### Alert
@@ -4083,7 +4083,7 @@ Validations: <br>
 
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa)<br>
-[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Alert.feature) for Alert<br>
+<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Alert.feature" target="_blank">Cucumber tests</a> for Alert<br>
 
 <br>
 <br>
@@ -4154,7 +4154,7 @@ Validations:<br>
 
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial)<br>
-[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/FileInput.feature) for FileInput<br>
+<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/FileInput.feature" target="_blank">Cucumber tests</a> for FileInput<br>
 
 <br><br><br><br><br><br>
 
@@ -4237,7 +4237,7 @@ Validations: <br>
 **Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)<br>
-[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Link.feature) for Link<br>
+<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Link.feature" target="_blank">Cucumber tests</a> for Link<br>
 
 
 <br><br><br>
@@ -4317,7 +4317,7 @@ Scenario example for Button:
 **Then** the "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" equals to "\<TEXT\>" <br>
   
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa)<br>
-[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Button.feature) for Button<br>
+<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Button.feature" target="_blank">Cucumber tests</a>) for Button<br>
 
 <br>
 ### DateTimeSelector
@@ -4435,7 +4435,7 @@ Validations: <br>
 **Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa)<br>
-[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Checkbox.feature) for Checkbox<br>
+<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Checkbox.feature" target="_blank">Cucumber tests</a> for Checkbox<br>
 
 <br><br><br><br><br><br><br><br>
 ### Progress Bar
@@ -4482,7 +4482,7 @@ Validations: <br>
 **Then** the "\<ELEMENT NAME\>" does not appear during "\<NUMBER\>" seconds <br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial) <br>
-[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/ProgressBar.feature) for Progress Bar<br>
+<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/ProgressBar.feature" target="_blank">Cucumber tests</a> for Progress Bar<br>
 <br><br><br><br><br><br><br><br>
 
 ### Text
@@ -4532,7 +4532,7 @@ Validations:<br>
 **Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)<br>
-[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Text.feature) for Text<br><br>
+<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Text.feature" target="_blank">Cucumber tests</a> for Text<br><br>
 <br><br><br><br><br><br><br><br>
 
 ### ComboBox
@@ -4610,7 +4610,7 @@ Validations:<br>
 **Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial)<br>
-[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/ComboBox.feature) for ComboBox<br><br>
+<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/ComboBox.feature" target="_blank">Cucumber tests</a> for ComboBox<br><br>
 <br><br><br><br><br><br><br><br>
 
 ### DataList
@@ -4685,7 +4685,7 @@ Validations:<br>
 **Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial)<br>
-[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/DataList.feature) for DataList<br><br>
+<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/DataList.feature" target="_blank">Cucumber tests</a> for DataList<br><br>
 <br><br><br><br><br><br><br><br>
 
 ### NumberSelector
@@ -4785,7 +4785,7 @@ Validations: <br>
 **Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa)<br>
-[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/NumberSelector.feature) for NumberSelector<br>
+<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/NumberSelector.feature" target="_blank">Cucumber tests</a> for NumberSelector<br>
 <br>
 <br>
 <br>
@@ -4850,7 +4850,7 @@ Validations: <br>
 **Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
 <br>
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial) <br>
-[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Range.feature) for Range<br>
+<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Range.feature" target="_blank">Cucumber tests</a> for Range<br>
 <br>
 <br>
 <br>
@@ -4964,7 +4964,7 @@ Validations: <br>
 &nbsp;&nbsp;&nbsp;&nbsp;|\<GHERKIN DATA TABLE\>|<br> 
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)<br>
-[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/TextArea.feature) for TextArea <br>
+<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/TextArea.feature" target="_blank">Cucumber tests</a> for TextArea <br>
 
 
 <br>
@@ -5034,7 +5034,7 @@ Validations: <br>
 **Then** the "\<VALUE\>" in "\<ELEMENT NAME\>" menu is deselected <br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)<br>
-[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Menu.feature) for Menu<br>
+<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Menu.feature" target="_blank">Cucumber tests</a> for Menu<br>
 <br>
 <br>
 <br>
@@ -5095,7 +5095,7 @@ Validations: <br>
 **Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial)<br>
-[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/TextField.feature) for TextField<br>
+<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/TextField.feature" target="_blank">Cucumber tests</a> for TextField<br>
 <br>
 <br>
 <br>
@@ -5104,62 +5104,61 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 ```
 Multiselector actions examples:
 
-When I select "Ages" with value "Steam"
-When I select 1, 5 numbers in "Ages" multiselector
-
-Scenario: Select value in multiselector
-  Given I open "Html5 Page"
-  When I select "Ages" with value "Steam"
-  Then I check the "Ages" multiselector text is equals to "Steam"
+ When I check in the "Multi Dropdown" values:
+      | Electro | Metalic |
+ When I check in the "Multi Dropdown" values by number:
+      | 1 | 5 |
+ When I check value "Steam" in the "Multi Dropdown"
 
 ```
 Actions: <br>
 
- **When**  \<I\> select "\<ELEMENT NAME\>" with value "\<ELEMENT NAME\>" <br>
- **When**  \<I\> select "\<ELEMENT NAME\>" numbers in "\<ELEMENT NAME\>" multiselector <br>
+ **When** \<I\> check in the  \<ELEMENT NAME\>  values:<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;|\<GHERKIN DATA TABLE\>|<br>
+ **When** \<I\> check in the  \<ELEMENT NAME\>  values by number:<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;|\<GHERKIN DATA TABLE\>|<br>
+ **When** \<I\> check value  \<ELEMENT NAME\>  in the  \<ELEMENT NAME\> <br>
 
 ```
 Multiselector validation examples:
 
-Then I check the "Steam" value is selected in "Ages" multiselector
-Then I check the "Ages" multiselector contains "Wood" value
-Then I check the "Ages" multiselector in disabled state has "Disabled" item
-Then I check the "Ages" multiselector in enabled state has not "Disabled" item
-Then I check the "Ages" multiselector in enabled state contains next values:
+ Then the "Multi Dropdown" selected values:
+      | Electro | Wood |
+ Then the "Multi Dropdown" selected value is "Steam"
+ Then the "Multi Dropdown" values has item "Wood"
+ Then the "Multi Dropdown" has disabled item "Disabled"
+ Then the "Multi Dropdown" has no enabled item "Disabled"
+ Then the "Multi Dropdown" has enabled items:
       | Electro | Metalic |
-Then I check the "Ages" multiselector text is equals to "Steam"
-Then I check the "Ages" multiselector contains next values:
-    | Electro | Steam| Metalic | Disabled | Wood |
+ Then the "Multi Dropdown" contains items:
+      | Disabled | Wood | Steam | Electro | Metalic |
     
 Scenario: Multiselector validation
-  Given I open "Html5 Page"
-  Then I check the "Steam" value is selected in "Ages" multiselector
-  And I check the "Ages" multiselector contains "Wood" value
-  And I check the "Ages" multiselector in disabled state has "Disabled" item
-  And I check the "Ages" multiselector in enabled state has not "Disabled" item
-  And I check the "Ages" multiselector in enabled contains next values:
-  | Electro | Metalic |
+    Given I open "Html5 Page"
+    Then the "Ages" selected value is "Steam"
+    And the "Ages" values has item "Wood"
+    And  the "Ages" has disabled item "Disabled"
+    And the "Ages" has no enabled item "Disabled"
+    And the "Ages" has enabled items:
+      | Electro | Metalic |
 
 ```
 Validations: <br>
 
-**Then** I check the "\<ELEMENT NAME\>" value is selected in "\<ELEMENT NAME\>" multiselector <br>
-**Then** I check the "\<ELEMENT NAME\>" multiselector contains "\<ELEMENT NAME\>" value <br>
-**Then** I check the "\<ELEMENT NAME\>" multiselector in enabled state has not "\<ELEMENT NAME\>" item <br>
-**Then** I check the "\<ELEMENT NAME\>" multiselector in enabled state contains next values: <br>
-**Then** I check the "\<ELEMENT NAME\>" multiselector text is equals to "\<ELEMENT NAME\>" <br>
-**Then** I check the "\<ELEMENT NAME\>" multiselector contains next values: <br>
+ **Then** the \<ELEMENT NAME\> selected values:<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;|\<GHERKIN DATA TABLE\>|<br>
+ **Then** the \<ELEMENT NAME\> selected value is \<VALUE\> <br>
+ **Then** the \<ELEMENT NAME\> values has item \<VALUE\> <br>
+ **Then** the \<ELEMENT NAME\> has disabled item \<VALUE\> <br>
+ **Then** the \<ELEMENT NAME\> has no enabled item \<VALUE\> <br>
+ **Then** the \<ELEMENT NAME\> has enabled items:<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;|\<GHERKIN DATA TABLE\>|<br>
+ **Then** the \<ELEMENT NAME\> contains items:<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;|\<GHERKIN DATA TABLE\>|<br>
 
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#checklist)<br>
-[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/CheckList.feature) for CheckList<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/MultiDropDown.feature" target="_blank">Cucumber tests</a> for CheckList<br>
 <br>
 <br>
 <br>
@@ -5168,54 +5167,72 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 
 ### MultiDropDown
 
-Note: this element is an alias for MultiSelector
+<p style="color:#FFA500">Note: this element is an alias for MultiSelector</p>
 
 ```
 MultiDropDown actions examples:
 
-When I select "Ages" with value "Steam"
-When I select 1, 5 numbers in "Ages" multiselector
-
-MultiDropDown validation examples:
-
-Then I check the "Steam" value is selected in "Ages" multiselector
-Then I check the "Ages" multiselector contains "Wood" value
-Then I check the "Ages" multiselector in disabled state has "Disabled" item
-Then I check the "Ages" multiselector in enabled state has not "Disabled" item
-Then I check the "Ages" multiselector in enabled state contains next values:
+ When I check in the "Multi Dropdown" values:
       | Electro | Metalic |
-Then I check the "Ages" multiselector text is equals to "Steam"
-Then I check the "Ages" multiselector contains next values:
-    | Electro | Steam| Metalic | Disabled | Wood |
-
-Scenario example for MultiDropDown
-    
-Scenario: Check  values test
-    When I check in the "Multi Dropdown" values:
-      | Electro | Metalic |
-    Then the "Multi Dropdown" selected values:
-      | Electro | Metalic |
+ When I check in the "Multi Dropdown" values by number:
+      | 1 | 5 |
+ When I check value "Steam" in the "Multi Dropdown"
 
 ```
 Actions: <br>
 
- **When**  \<I\> select "\<ELEMENT NAME\>" with value "\<ELEMENT NAME\>" <br>
- **When**  \<I\> select "\<ELEMENT NAME\>" numbers in "\<ELEMENT NAME\>" multiselector <br>
- 
- Validations: <br>
- 
- **Then** I check the "\<ELEMENT NAME\>" value is selected in "\<ELEMENT NAME\>" multiselector <br>
- **Then** I check the "\<ELEMENT NAME\>" multiselector contains "\<ELEMENT NAME\>" value <br>
- **Then** I check the "\<ELEMENT NAME\>" multiselector in enabled state has not "\<ELEMENT NAME\>" item <br>
- **Then** I check the "\<ELEMENT NAME\>" multiselector in enabled state contains next values: <br>
- **Then** I check the "\<ELEMENT NAME\>" multiselector text is equals to "\<ELEMENT NAME\>" <br>
- **Then** I check the "\<ELEMENT NAME\>" multiselector contains next values: <br>
+ **When** \<I\> check in the  \<ELEMENT NAME\>  values:<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;|\<GHERKIN DATA TABLE\>|<br>
+ **When** \<I\> check in the  \<ELEMENT NAME\>  values by number:<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;|\<GHERKIN DATA TABLE\>|<br>
+ **When** \<I\> check value  \<ELEMENT NAME\>  in the  \<ELEMENT NAME\> <br>
+
+```
+MultiDropDown validation examples:
+
+ Then the "Multi Dropdown" selected values:
+      | Electro | Wood |
+ Then the "Multi Dropdown" selected value is "Steam"
+ Then the "Multi Dropdown" values has item "Wood"
+ Then the "Multi Dropdown" has disabled item "Disabled"
+ Then the "Multi Dropdown" has no enabled item "Disabled"
+ Then the "Multi Dropdown" has enabled items:
+      | Electro | Metalic |
+ Then the "Multi Dropdown" contains items:
+      | Disabled | Wood | Steam | Electro | Metalic |
+    
+Scenario: MultiDropDown validation
+    Given I open "Html5 Page"
+    Then the "Ages" selected value is "Steam"
+    And the "Ages" values has item "Wood"
+    And  the "Ages" has disabled item "Disabled"
+    And the "Ages" has no enabled item "Disabled"
+    And the "Ages" has enabled items:
+      | Electro | Metalic |
+
+```
+Validations: <br>
+
+ **Then** the \<ELEMENT NAME\> selected values:<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;|\<GHERKIN DATA TABLE\>|<br>
+ **Then** the \<ELEMENT NAME\> selected value is \<VALUE\> <br>
+ **Then** the \<ELEMENT NAME\> values has item \<VALUE\> <br>
+ **Then** the \<ELEMENT NAME\> has disabled item \<VALUE\> <br>
+ **Then** the \<ELEMENT NAME\> has no enabled item \<VALUE\> <br>
+ **Then** the \<ELEMENT NAME\> has enabled items:<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;|\<GHERKIN DATA TABLE\>|<br>
+ **Then** the \<ELEMENT NAME\> contains items:<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;|\<GHERKIN DATA TABLE\>|<br>
 
 
+More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#checklist)<br>
+<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/MultiDropDown.feature" target="_blank">Cucumber tests</a> for CheckList<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
-More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial)<br>
-[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/MultiDropDown.feature) for MultiDropDown<br><br>
-<br><br><br><br><br>
 ### CheckList
 
 ```
@@ -5295,7 +5312,7 @@ Validations: <br>
 
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#checklist)<br>
-[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/CheckList.feature) for CheckList<br>
+<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/CheckList.feature" target="_blank">Cucumber tests</a> for CheckList<br>
 
 <br><br><br><br><br><br><br><br><br><br><br>
 
@@ -5383,7 +5400,7 @@ Validations: <br>
 **Then** the "\<ELEMENT NAME\>" table has exact "\<COUNT\>" rows which have value "\<TEXT\>" in column "\<COLUMN\>" <br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)<br>
-[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Table.feature) for Table<br>
+<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Table.feature" target="_blank">Cucumber tests</a> for Table<br>
 <br><br><br><br><br><br><br><br><br><br><br>
 
 ### DataTable
@@ -5461,7 +5478,7 @@ Validations: <br>
 **Then** the "\<ELEMENT NAME\>" table has exact "\<COUNT\>" rows which have value "\<TEXT\>" in column "\<COLUMN\>" <br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)<br>
-[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Table.feature) for Table<br>
+<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Table.feature" target="_blank">Cucumber tests</a> for Table<br>
 <br><br><br><br><br><br><br><br><br><br><br>
 
 ### Form
@@ -5563,7 +5580,7 @@ Validations: <br>
 
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa)<br>
-[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Form.feature) for Form<br>
+<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Form.feature" target="_blank">Cucumber tests</a> for Form<br>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <br><br><br><br><br><br><br><br><br><br><br><br>
 
@@ -5638,7 +5655,7 @@ Validations: <br><br>
     |"\<RADIO_3\>" | "\<RADIO_2\>" | "\<RADIO_3\>" |
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)<br>
-[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Radio.feature) for Radiobuttons<br>
+<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Radio.feature" target="_blank">Cucumber tests</a> for Radiobuttons<br>
 <br><br><br><br><br><br><br><br><br><br><br><br>
 
 ### WebPage
@@ -5704,7 +5721,7 @@ Validations: <br>
 **Then** the page is zoomed <br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial)<br>
-[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/WebPage.feature) for WebPage<br>
+<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/WebPage.feature" target="_blank">Cucumber tests</a> for WebPage<br>
 <br>
 
 

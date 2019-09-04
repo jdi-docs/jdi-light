@@ -3751,21 +3751,47 @@ Available methods in Java JDI Light:
 **getNames()** | return list of items inscription  |  List\<String\>
 **getTexts()** | return list of items text content | List\<String\>
 
+
+###Carousel
+**Carousel** - a slideshow component for cycling through elements—images or slides of text—like a carousel.
+
+Carousel is located in the following classes:
+ 
+  - __Java__: TBD
+  - __C#__: TBD
+
+Available methods in Java JDI Light:
+
+TBD
+
+Available methods and properties in C# JDI Light:
+
+TBD
+
+
 ## Bootstrap Complex elements
 
 ### Dropdown
 **Dropdown** – a graphical control element, that allows the user to choose one value from a list.
 
-![Alert](../images/bootstrap/dropdown.png)
+![Dropdown example](../images/bootstrap/dropdown.png)
 
 Dropdown is located in the following classes:
  
-  - __Java__: _com.epam.jdi.light.ui.bootstrap.complex.Dropdown
-  - __C#__: _JDI.Light.Elements.Complex.Dropdown
+  - __Java__: TBD
+  - __C#__: TBD
   
 Here is an example with provided Bootstrap v4.3 code:
   
-![Alert example](../images/bootstrap/dropdown-html.png)
+![Dropdown HTML example](../images/bootstrap/dropdown-html.png)
+
+Available methods in Java JDI Light:
+
+TBD
+
+Available methods and properties in C# JDI Light:
+
+TBD
 <br><br>
 
 

@@ -605,7 +605,7 @@
                               <a href="#textfield-2" class="toc-h2 h3 toc-link" data-title="TextField">TextField</a>
                             </li>
                             <li>
-                              <a href="#multiselector-2" class="toc-h2 h3 toc-link" data-title="Multiselector">Multiselector</a>
+                              <a href="#multiselector-2" class="toc-h2 h3 toc-link" data-title="MultiSelector">MultiSelector</a>
                             </li>
                             <li>
                               <a href="#multidropdown-2" class="toc-h2 h3 toc-link" data-title="MultiDropDown">MultiDropDown</a>
@@ -6728,6 +6728,8 @@ MultiSelector is represented by the following class:</p>
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/MultiSelectorTests.java">Java test examples</a></p>
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/MultiSelectorTests.cs">C# test examples</a></p>
+
+<p><a href="https://jdi-docs.github.io/jdi-light/?java#multidropdown-2">BDD Steps example</a><br></p>
 <h3 id='combobox'>ComboBox</h3>
 <p><strong>ComboBox</strong> – a graphical control element that allows user to choose a single 
 value from a list or enter it by himself (is inherited from the <a href="#datalist">Datalist</a>)</p>
@@ -9297,7 +9299,7 @@ Scenario example for TextField:
 <br>
 <br>
 <br></p>
-<h3 id='multiselector-2'>Multiselector</h3><pre class="highlight plaintext"><code>Multiselector actions examples:
+<h3 id='multiselector-2'>MultiSelector</h3><pre class="highlight plaintext"><code>MultiSelector actions examples:
 
  When I check in the "Multi Dropdown" values:
       | Electro | Metalic |
@@ -9313,7 +9315,7 @@ Scenario example for TextField:
  <strong>When</strong> &lt;I&gt; check in the  &lt;ELEMENT NAME&gt;  values by number:<br>
   &nbsp;&nbsp;&nbsp;&nbsp;|&lt;GHERKIN DATA TABLE&gt;|<br>
  <strong>When</strong> &lt;I&gt; check value  &lt;ELEMENT NAME&gt;  in the  &lt;ELEMENT NAME&gt; <br></p>
-<pre class="highlight plaintext"><code>Multiselector validation examples:
+<pre class="highlight plaintext"><code>MultiSelector validation examples:
 
  Then the "Multi Dropdown" selected values:
       | Electro | Wood |
@@ -9326,7 +9328,7 @@ Scenario example for TextField:
  Then the "Multi Dropdown" contains items:
       | Disabled | Wood | Steam | Electro | Metalic |
 
-Scenario: Multiselector validation
+Scenario: MultiSelector validation
     Given I open "Html5 Page"
     Then the "Ages" selected value is "Steam"
     And the "Ages" values has item "Wood"
@@ -9351,6 +9353,7 @@ Scenario: Multiselector validation
 
 <p>More information in the <a href="https://jdi-docs.github.io/jdi-light/?java#checklist"><strong>Tutorial</strong></a><br>
 <a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/MultiDropDown.feature" target="_blank">Cucumber tests</a> for CheckList<br>
+<br>
 <br>
 <br>
 <br>

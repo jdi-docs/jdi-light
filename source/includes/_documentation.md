@@ -3027,6 +3027,8 @@ Here is the list of available methods/asserts in Java:
 
 [C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/MultiSelectorTests.cs)
 
+[BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#multidropdown-2)<br>
+
 ### ComboBox
 
 **ComboBox** – a graphical control element that allows user to choose a single 
@@ -5095,9 +5097,9 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 <br>
 <br>
 
-### Multiselector
+### MultiSelector
 ```
-Multiselector actions examples:
+MultiSelector actions examples:
 
  When I check in the "Multi Dropdown" values:
       | Electro | Metalic |
@@ -5115,7 +5117,7 @@ Actions: <br>
  **When** \<I\> check value  \<ELEMENT NAME\>  in the  \<ELEMENT NAME\> <br>
 
 ```
-Multiselector validation examples:
+MultiSelector validation examples:
 
  Then the "Multi Dropdown" selected values:
       | Electro | Wood |
@@ -5128,7 +5130,7 @@ Multiselector validation examples:
  Then the "Multi Dropdown" contains items:
       | Disabled | Wood | Steam | Electro | Metalic |
     
-Scenario: Multiselector validation
+Scenario: MultiSelector validation
     Given I open "Html5 Page"
     Then the "Ages" selected value is "Steam"
     And the "Ages" values has item "Wood"
@@ -5154,6 +5156,7 @@ Validations: <br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#checklist)<br>
 <a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/MultiDropDown.feature" target="_blank">Cucumber tests</a> for CheckList<br>
+<br>
 <br>
 <br>
 <br>

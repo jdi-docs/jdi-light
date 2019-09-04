@@ -3577,8 +3577,8 @@ Available methods and properties in C# JDI Light:
 
 Button group is located in the following classes:
  
-  - __Java__: _??????_
-  - __C#__: _???????_
+  - __Java__: _com.epam.jdi.light.ui.html.common.Button_
+  - __C#__: _JDI.Light.Elements.Common.Button_
   
 Here is an example with provided Bootstrap v4.3 code:
   
@@ -3586,11 +3586,22 @@ Here is an example with provided Bootstrap v4.3 code:
 
 Available methods in Java JDI Light:
 
-??????METHODS?????
+|Method | Description | Return Type
+--- | --- | ---
+**click()** | Click the button  | void
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+
 
 Available methods and properties in C# JDI Light:
 
-??????METHODS?????
+|Method/Property | Description | Return Type
+--- | --- | ---
+**Click()** | Click the button  | void
+**GetText()** | Get button text | string
+**Is** | Assert action | TextAssert 
+**AssertThat** | Assert action | TextAssert
 <br><br>
 
 ### Alert
@@ -3598,22 +3609,20 @@ Available methods and properties in C# JDI Light:
 
 ![Alert](../images/bootstrap/alert.png)
 
-Alert is located in the following classes:
- 
-  - __Java__: _?????_
-  - __C#__: _?????_
-  
 Here is an example with provided Bootstrap v4.3 code:
   
 ![Alert example](../images/bootstrap/alert-html.png)
 
 Available methods in Java JDI Light:
 
-??????METHODS?????
+|Method | Description | Return Type
+--- | --- | ---
+**acceptAlert()** | Accept alert | void
+**dismissAlert()** | Dismiss alert | void
+**getAlertText()** | Get alert text | String
+**validateAlert(Matcher<String> text)** | Validate alert by matching passed value with alert text | void
+**inputAndAcceptAlert(String text)** | Input the specified text in the alert and accept it | void
 
-Available methods and properties in C# JDI Light:
-
-??????METHODS?????
 <br><br>
 ###Badge
 **1) Badge** - Element that scale to match the size of the immediate parent element by using relative font sizing and em units.<br>

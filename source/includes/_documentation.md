@@ -5618,9 +5618,120 @@ Validations: <br><br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)<br>
 [**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Radio.feature) for Radiobuttons<br>
+<br><br><br><br><br><br><br><br><br><br><br><br>
 
+### WebPage
+```
+WebPage action examples:
 
+When I scroll to the bottom of the page
+When I scroll to the top of the page
+When I scroll "30" px down
+When I scroll "20" px up
+When I scroll "10" px right
+When I scroll "5" px left
+When I zoom in
+When I go back
+When I go forward
+When I refresh webpage
 
+WebPage validation examples:
+
+Then the current page title is "Home Page"
+Then current page url is "https://jdi-testing.github.io/jdi-light/contacts.html"
+Then the bottom of the page is reached
+Then the top of the page is reached
+Then the page is scrolled "30" px down
+Then the page is scrolled "20" px up
+Then the page is scrolled "10" px right
+Then the page is scrolled "5" px left
+Then the page is zoomed
+
+Scenario examples for WebPage:
+
+  Background:
+    Given I should be logged in
+    And I open "Contact Form Page"
+
+  Scenario: check page title and URL
+    When I open "Contact Form Page"
+    Then the current page title is "Contact Form"
+    And current page url is "https://jdi-testing.github.io/jdi-light/contacts.html"
+
+  Scenario: scroll to bottom test
+    When I scroll to the bottom of the page
+    Then the bottom of the page is reached
+
+  Scenario: scroll to top test
+    When I scroll to the top of the page
+    Then the top of the page is reached
+
+  Scenario: scroll down test
+    When I scroll "30" px down
+    Then the page is scrolled "30" px down
+
+  Scenario: scroll up test
+    When I scroll "20" px up
+    Then the page is scrolled "20" px up
+
+  Scenario: scroll right test
+    When I scroll "10" px right
+    Then the page is scrolled "10" px right
+
+  Scenario: scroll left test
+    When I scroll "5" px left
+    Then the page is scrolled "5" px left
+
+  Scenario: zoom test
+    When I zoom in
+    Then the page is zoomed
+
+  Scenario: go back test
+    When I go back
+    Then the current page title is "Home Page"
+
+  Scenario: go forward test
+    When I go forward
+    Then the current page title is "Contact Form"
+
+  Scenario: page refresh test
+    When I refresh webpage
+    Then the current page title is "Contact Form"
+    
+```
+Background:
+
+**Given** \<I\> should be logged in<br>
+**And** I open "\<PAGE NAME\>"
+
+Actions: <br>
+
+**When** \<I\> scroll to the bottom of the page<br>
+**When** \<I\> scroll to the top of the page<br>
+**When** \<I\> scroll "\<NUMBER OF PIXELS\>" down<br>
+**When** \<I\> scroll "\<NUMBER OF PIXELS\>" up<br>
+**When** \<I\> scroll "\<NUMBER OF PIXELS\>" right<br>
+**When** \<I\> scroll "\<NUMBER OF PIXELS\>" left<br>
+**When** \<I\> zoom in<br>
+**When** \<I\> go back<br>
+**When** \<I\> go forward<br>
+**When** \<I\> refresh webpage<br>
+
+Validations: <br>
+
+**Then** the current page title is "\<TEXT\>" <br>
+**Then** current page url is "\<URL\>" <br>
+**Then** the bottom of the page is reached <br>
+**Then** the top of the page is reached <br>
+**Then** the page is scrolled "\<NUMBER OF PIXELS\>" px down <br>
+**Then** the page is scrolled "\<NUMBER OF PIXELS\>" px up <br>
+**Then** the page is scrolled "\<NUMBER OF PIXELS\>" px right <br>
+**Then** the page is scrolled "\<NUMBER OF PIXELS\>" px left <br>
+**Then** the page is zoomed <br>
+
+More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial)<br>
+[**Cucumber tests**](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/WebPage.feature) for WebPage<br>
+<br>
 
 
 ## UI Objects

@@ -5559,7 +5559,7 @@ Validations: <br>
  
  It's also possible to use JSON data files:<br>
  **Then** the form \<ELEMENT NAME\> data equals to \<JSON DATA FILE NAME\><br>
- [JSON data file example](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/jsonData/Roman%20Contacts.json)
+ <a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/jsonData/Roman%20Contacts.json" target="_blank">JSON data file example</a>
 
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa)<br>

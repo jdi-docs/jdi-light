@@ -3742,7 +3742,7 @@ A jumbotron is a lightweight, flexible component that can optionally extend the 
 
 Here is an example with provided Bootstrap v4.3 code:
   
-![Jumbotron HTML example](../images/bootstrap/jumbotron.png)
+![Jumbotron HTML example](../images/bootstrap/jumbotron-html.png)
 
 Available methods in Java JDI Light:
 

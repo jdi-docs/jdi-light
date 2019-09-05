@@ -3878,6 +3878,45 @@ TBD
 
 
 ## Bootstrap Composite elements
+### Forms
+**Forms** – logical part of a web page that represents an HTML form.
+Form can consists of:
+<ul>
+<li>Textual form controls(inputs, selects, and textareas)</li>
+<li>File inputs</li>
+<li>Range inputs</li>
+<li>Checkboxes and Radiobuttons</li>
+<li>Help text</li>
+<li>Fieldsets(which can disable all the controls within)</li>
+</ul>
+
+![List group](../images/bootstrap/bootstrap_form.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![List group example](../images/bootstrap/bootstrap_form_code.png)
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ 
+
+Available methods and properties in C# JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  |
+ |  | 
+<br><br>
+
 
 ## JDI Light BDD Steps
 

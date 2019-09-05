@@ -3907,6 +3907,19 @@ Here is an example with provided Bootstrap v4.3 code:
 
 ![Split button HTML example](../images/bootstrap/dropdown-split-html.png)
 
+####Sizing
+Button dropdowns work with buttons of all sizes, including default and split dropdown buttons.
+
+![Sizing example](../images/bootstrap/dropdown-sizing.png)
+
+Here is an example of Large button code:
+
+![Large button HTML example](../images/bootstrap/dropdown-large-html.png)
+
+Here is an example of Small button code:
+
+![Small button HTML example](../images/bootstrap/dropdown-small-html.png)
+
 
 ## Bootstrap Composite elements
 ### Forms

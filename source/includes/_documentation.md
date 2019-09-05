@@ -3874,6 +3874,90 @@ Available methods and properties in C# JDI Light:
  |  | 
 <br><br>
 
+### MEDIA OBJECT
+**Media object** helps build complex and repetitive components where some media is positioned alongside content that doesn’t wrap around said media.
+
+![Media object sample](../images/bootstrap/media-object-sample.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Media object example](../images/bootstrap/media-object-sample-html.png)
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ 
+
+Available methods and properties in C# JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  |
+ |  | 
+<br><br>
+
+![Media object nesting](../images/bootstrap/media-object-nesting.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Media object nesting example](../images/bootstrap/media-object-nesting-html.png)
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ 
+
+Available methods and properties in C# JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  |
+ |  | 
+<br><br>
+
+![Media object list](../images/bootstrap/media-object-list.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Media object list example](../images/bootstrap/media-object-list-html.png)
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ 
+
+Available methods and properties in C# JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  |
+ |  | 
+<br><br>
+
 ## Bootstrap Complex elements
 
 ### Dropdown

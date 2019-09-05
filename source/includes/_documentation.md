@@ -3878,7 +3878,15 @@ TBD
 Available methods and properties in C# JDI Light:
 
 TBD
-<br><br>
+<br>
+####Split button
+Similarly, create split button dropdowns with virtually the same markup as single button dropdowns, but with the addition of .dropdown-toggle-split for proper spacing around the dropdown caret.
+
+![Split button example](../images/bootstrap/dropdown-split.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Split button HTML example](../images/bootstrap/dropdown-split-html.png)
 
 
 ## Bootstrap Composite elements

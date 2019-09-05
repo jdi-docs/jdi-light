@@ -3756,6 +3756,25 @@ Available methods in Java JDI Light:
 
 
 
+###Pagination
+
+Pagination is functionality for navigating through pages.
+
+![Pagination example](../images/bootstrap/pagination.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Pagination HTML example](../images/bootstrap/pagination-html.png)
+
+Available methods in Java JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+**** | TBD  | 
+**** |  |  
+**** |  | 
+**** |  | 
+**** |  |  
 
 
 

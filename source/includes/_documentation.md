@@ -3921,6 +3921,37 @@ Available methods and properties in C# JDI Light:
  |  | 
 <br><br>
 
+### Scrollspy
+**Scrollspy** – automatically update Bootstrap navigation or list group components based on scroll position to indicate which link is currently active in the viewport.
+<br>
+
+![Scrollspy](../images/bootstrap/scrollspy.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Scrollspy](../images/bootstrap/scrollspy_html.png)
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ 
+
+Available methods and properties in C# JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  |
+ |  | 
+<br><br>
+
 
 ## JDI Light BDD Steps
 

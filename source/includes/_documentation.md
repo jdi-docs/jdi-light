@@ -3629,7 +3629,61 @@ Available methods in Java JDI Light:
  |  | 
  |  | 
 
-<br><br>
+<br>
+
+### Wrapping (Input group)
+**Wrapping** – Input groups wrap by default via flex-wrap: wrap in order to accommodate custom form field validation within an input group. You may disable this with .flex-nowrap.
+
+![Wrapping](../images/bootstrap/wrapping.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Wrapping example](../images/bootstrap/wrapping_code.png)
+
+And here are methods available in Java:
+    
+|Method | Description | Return Type
+--- | --- | ---
+**getText()** |Get current value | String
+**isDisplayed()** |Show\wait that input field element displayed on the screen| Boolean
+**sendKeys()** |Set specific keys to input field|
+
+### Sizing (Input group)
+**Sizing** – Add the relative form sizing classes to the .input-group itself and contents within will automatically resize—no need for repeating the form control size classes on each element.
+
+**Sizing on the individual input group elements isn’t supported.**
+![Sizing](../images/bootstrap/sizing.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Sizing example](../images/bootstrap/sizing_code.png)
+
+And here are methods available in Java:
+    
+|Method | Description | Return Type
+--- | --- | ---
+**getText()** |Get current value | String
+**isDisplayed()** |Show\wait that input field element displayed on the screen| Boolean
+**sendKeys()** |Set specific keys to input field|
+
+### Checkboxes and radios (Input group)
+**Checkboxes and radios** – Place any checkbox or radio option within an input group’s addon instead of text.
+
+![Checkboxes and radios](../images/bootstrap/checkboxes_radios.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Checkboxes and radios example](../images/bootstrap/checkboxes_radios_code.png)
+
+And here are methods available in Java:
+    
+|Method | Description | Return Type
+--- | --- | ---
+**getText()** |Get current value | String
+**isDisplayed()** |Show\wait that input field element displayed on the screen| Boolean
+**sendKeys()** |Set specific keys to input field|
+**isSelected()** |Check if option has been selected| Boolean
+
 ###Badge
 **1) Badge** - Element that scale to match the size of the immediate parent element by using relative font sizing and em units.<br>
 

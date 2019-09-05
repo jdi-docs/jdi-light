@@ -3666,6 +3666,24 @@ And here are methods available in Java:
 **isDisplayed()** |Show\wait that input field element displayed on the screen| Boolean
 **sendKeys()** |Set specific keys to input field|
 
+### Checkboxes and radios (Input group)
+**Checkboxes and radios** – Place any checkbox or radio option within an input group’s addon instead of text.
+
+![Checkboxes and radios](../images/bootstrap/checkboxes_radios.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Checkboxes and radios example](../images/bootstrap/checkboxes_radios_code.png)
+
+And here are methods available in Java:
+    
+|Method | Description | Return Type
+--- | --- | ---
+**getText()** |Get current value | String
+**isDisplayed()** |Show\wait that input field element displayed on the screen| Boolean
+**sendKeys()** |Set specific keys to input field|
+**isSelected()** |Check if option has been selected| Boolean
+
 ###Badge
 **1) Badge** - Element that scale to match the size of the immediate parent element by using relative font sizing and em units.<br>
 

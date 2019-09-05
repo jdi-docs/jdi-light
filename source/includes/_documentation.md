@@ -3872,10 +3872,12 @@ Available methods and properties in C# JDI Light:
  |  | 
  |  |
  |  | 
-<br><br>
+<br>
 
-### MEDIA OBJECT
-**Media object** helps build complex and repetitive components where some media is positioned alongside content that doesn’t wrap around said media.
+### Media object
+Media object helps build complex and repetitive components where some media is positioned alongside content that doesn’t wrap around said media.
+
+**Media object sample**
 
 ![Media object sample](../images/bootstrap/media-object-sample.png)
 
@@ -3893,7 +3895,6 @@ Available methods in Java JDI Light:
  |  | 
  |  | 
  
-
 Available methods and properties in C# JDI Light:
 
 |Method/Property | Description | Return Type
@@ -3902,7 +3903,9 @@ Available methods and properties in C# JDI Light:
  |  | 
  |  |
  |  | 
-<br><br>
+<br>
+
+**Media object nesting**
 
 ![Media object nesting](../images/bootstrap/media-object-nesting.png)
 
@@ -3920,7 +3923,6 @@ Available methods in Java JDI Light:
  |  | 
  |  | 
  
-
 Available methods and properties in C# JDI Light:
 
 |Method/Property | Description | Return Type
@@ -3929,7 +3931,9 @@ Available methods and properties in C# JDI Light:
  |  | 
  |  |
  |  | 
-<br><br>
+<br>
+
+**Media object list**
 
 ![Media object list](../images/bootstrap/media-object-list.png)
 
@@ -3947,7 +3951,6 @@ Available methods in Java JDI Light:
  |  | 
  |  | 
  
-
 Available methods and properties in C# JDI Light:
 
 |Method/Property | Description | Return Type
@@ -3956,7 +3959,7 @@ Available methods and properties in C# JDI Light:
  |  | 
  |  |
  |  | 
-<br><br>
+<br>
 
 ## Bootstrap Complex elements
 

@@ -3417,6 +3417,29 @@ Methods available for Java in JDI Light:
 
 ### WebPage
 
+```java 
+public class MainPage extends WebPage{}
+MainPage mainPage = new MainPage;
+mainPage.setCurrentPage(WebPage page);
+mainPage.getCurrentPage();
+mainPage.getUrl()
+mainPage.getTitle()
+mainPage.checkOpened()
+mainPage.toString()
+mainPage.StringCheckType().check()
+
+@Test
+public void verifyURL() {
+    mainPage.setCurrentPage(mainPage);
+    assertEquals(mainPage.getUrl(), "www.mainpage.ru");
+}
+@Test
+public void verifyTitle() {
+    mainPage.setCurrentPage(mainPage);
+    assertEquals(mainPage.getTitle(), "Main page");
+}
+```
+
 **WebPage** is provided by JDI Light in:
  
   - __Java__: _com.epam.jdi.light.elements.composite_
@@ -3470,28 +3493,9 @@ More than that, it has a nested **StringCheckType** class with the following met
 **match()**|Checks that current page url/title matches to expected url/title-matcher|boolean
 **contains()**|Checks that current page url/title contains expected url/title-matcher|boolean
 
-```java 
-public class MainPage extends WebPage{}
-MainPage mainPage = new MainPage;
-mainPage.setCurrentPage(WebPage page);
-mainPage.getCurrentPage();
-mainPage.getUrl()
-mainPage.getTitle()
-mainPage.checkOpened()
-mainPage.toString()
-mainPage.StringCheckType().check()
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/composite/webpage/ActionsWebPageTests.java)
 
-@Test
-public void verifyURL() {
-    mainPage.setCurrentPage(mainPage);
-    assertEquals(mainPage.getUrl(), "www.mainpage.ru");
-}
-@Test
-public void verifyTitle() {
-    mainPage.setCurrentPage(mainPage);
-    assertEquals(mainPage.getTitle(), "Main page");
-}
-```
+[BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#webpage-2)
 
 ## Bootstrap Common elements
 

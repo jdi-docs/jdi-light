@@ -3629,7 +3629,61 @@ Available methods in Java JDI Light:
  |  | 
  |  | 
 
-<br><br>
+<br>
+
+### Wrapping (Input group)
+**Wrapping** – Input groups wrap by default via flex-wrap: wrap in order to accommodate custom form field validation within an input group. You may disable this with .flex-nowrap.
+
+![Wrapping](../images/bootstrap/wrapping.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Wrapping example](../images/bootstrap/wrapping_code.png)
+
+And here are methods available in Java:
+    
+|Method | Description | Return Type
+--- | --- | ---
+**getText()** |Get current value | String
+**isDisplayed()** |Show\wait that input field element displayed on the screen| Boolean
+**sendKeys()** |Set specific keys to input field|
+
+### Sizing (Input group)
+**Sizing** – Add the relative form sizing classes to the .input-group itself and contents within will automatically resize—no need for repeating the form control size classes on each element.
+
+**Sizing on the individual input group elements isn’t supported.**
+![Sizing](../images/bootstrap/sizing.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Sizing example](../images/bootstrap/sizing_code.png)
+
+And here are methods available in Java:
+    
+|Method | Description | Return Type
+--- | --- | ---
+**getText()** |Get current value | String
+**isDisplayed()** |Show\wait that input field element displayed on the screen| Boolean
+**sendKeys()** |Set specific keys to input field|
+
+### Checkboxes and radios (Input group)
+**Checkboxes and radios** – Place any checkbox or radio option within an input group’s addon instead of text.
+
+![Checkboxes and radios](../images/bootstrap/checkboxes_radios.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Checkboxes and radios example](../images/bootstrap/checkboxes_radios_code.png)
+
+And here are methods available in Java:
+    
+|Method | Description | Return Type
+--- | --- | ---
+**getText()** |Get current value | String
+**isDisplayed()** |Show\wait that input field element displayed on the screen| Boolean
+**sendKeys()** |Set specific keys to input field|
+**isSelected()** |Check if option has been selected| Boolean
+
 ###Badge
 **1) Badge** - Element that scale to match the size of the immediate parent element by using relative font sizing and em units.<br>
 
@@ -3756,6 +3810,25 @@ Available methods in Java JDI Light:
 
 
 
+###Pagination
+
+Pagination is functionality for navigating through pages.
+
+![Pagination example](../images/bootstrap/pagination.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Pagination HTML example](../images/bootstrap/pagination-html.png)
+
+Available methods in Java JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+**** | TBD  | 
+**** |  |  
+**** |  | 
+**** |  | 
+**** |  |  
 
 
 
@@ -3853,7 +3926,94 @@ Available methods and properties in C# JDI Light:
  |  | 
  |  |
  |  | 
-<br><br>
+<br>
+
+### Media object
+Media object helps build complex and repetitive components where some media is positioned alongside content that doesn’t wrap around said media.
+
+**Media object sample**
+
+![Media object sample](../images/bootstrap/media-object-sample.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Media object example](../images/bootstrap/media-object-sample-html.png)
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ 
+Available methods and properties in C# JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  |
+ |  | 
+<br>
+
+**Media object nesting**
+
+![Media object nesting](../images/bootstrap/media-object-nesting.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Media object nesting example](../images/bootstrap/media-object-nesting-html.png)
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ 
+Available methods and properties in C# JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  |
+ |  | 
+<br>
+
+**Media object list**
+
+![Media object list](../images/bootstrap/media-object-list.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Media object list example](../images/bootstrap/media-object-list-html.png)
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ 
+Available methods and properties in C# JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  |
+ |  | 
+<br>
 
 ## Bootstrap Complex elements
 
@@ -3878,7 +4038,28 @@ TBD
 Available methods and properties in C# JDI Light:
 
 TBD
-<br><br>
+<br>
+#### Split button
+Similarly, create split button dropdowns with virtually the same markup as single button dropdowns, but with the addition of .dropdown-toggle-split for proper spacing around the dropdown caret.
+
+![Split button example](../images/bootstrap/dropdown-split.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Split button HTML example](../images/bootstrap/dropdown-split-html.png)
+
+#### Sizing
+Button dropdowns work with buttons of all sizes, including default and split dropdown buttons.
+
+![Sizing example](../images/bootstrap/dropdown-sizing.png)
+
+Here is an example of Large button code:
+
+![Large button HTML example](../images/bootstrap/dropdown-large-html.png)
+
+Here is an example of Small button code:
+
+![Small button HTML example](../images/bootstrap/dropdown-small-html.png)
 
 
 ## Bootstrap Composite elements
@@ -3899,6 +4080,37 @@ Form can consists of:
 Here is an example with provided Bootstrap v4.3 code:
   
 ![List group example](../images/bootstrap/bootstrap_form_code.png)
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ 
+
+Available methods and properties in C# JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  |
+ |  | 
+<br><br>
+
+### Scrollspy
+**Scrollspy** – automatically update Bootstrap navigation or list group components based on scroll position to indicate which link is currently active in the viewport.
+<br>
+
+![Scrollspy](../images/bootstrap/scrollspy.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Scrollspy](../images/bootstrap/scrollspy_html.png)
 
 Available methods in Java JDI Light:
 

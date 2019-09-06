@@ -4017,6 +4017,98 @@ Available methods and properties in C# JDI Light:
  |  | 
 <br>
 
+### Card
+A card is a flexible and extensible content container. 
+It includes options for headers and footers, a wide variety of content, contextual background colors, and powerful display options.
+
+**Simple Card**
+
+![Simple Card Example](../images/bootstrap/simplecard.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Simple Card Example Code](../images/bootstrap/simplecard-html.png)
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ 
+Available methods and properties in C# JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  |
+ |  | 
+<br>
+
+**Card Body**
+
+The building block of a card is the _.card-body_.
+
+![Card Body Example](../images/bootstrap/cardbody.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Card Body Code](../images/bootstrap/cardbody-html.png)
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ 
+Available methods and properties in C# JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  |
+ |  | 
+<br>
+
+**Card with Subtitles and Links**
+
+Card titles are used by adding _.card-title_ to a _<h*>_ tag.<br/>In the same way, links are added and placed next to each other by adding _.card-link_ to an _<a>_ tag.<br/>Subtitles are used by adding a _.card-subtitle_ to a _<h*>_ tag.
+
+&nbsp;![Card with Subtitles and Links Example](../images/bootstrap/cardsubslinks.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Card with Subtitles and Links Code](../images/bootstrap/cardsubslinks-html.png)
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ 
+Available methods and properties in C# JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  |
+ |  | 
+<br>
+
 ## Bootstrap Complex elements
 
 ### Dropdown

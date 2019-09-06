@@ -3443,6 +3443,8 @@ public void verifyTitle() {
 **WebPage** is provided by JDI Light in:
  
   - __Java__: _com.epam.jdi.light.elements.composite_
+  
+![WebPage](../images/html/webpage.png)
 
 **WebPage** - a parent Java class for all JDI Page Object classes. WebPage class extends _DriverBase_ class, implements PageObject interface and contains a number of commonly used methods:
 

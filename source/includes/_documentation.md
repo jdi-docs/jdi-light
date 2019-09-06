@@ -3816,11 +3816,38 @@ Available methods in Java JDI Light:
 
 Pagination is functionality for navigating through pages.
 
+**Pagination with active state**
+
 ![Pagination example](../images/bootstrap/pagination.png)
 
 Here is an example with provided Bootstrap v4.3 code:
   
 ![Pagination HTML example](../images/bootstrap/pagination-html.png)
+
+**Pagination with icons**
+
+![Pagination example](../images/bootstrap/pagination-icons.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Pagination HTML example](../images/bootstrap/pagination-icons-html.png)
+
+**Pagination with disabled item**
+
+![Pagination example](../images/bootstrap/pagination-disabled.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Pagination HTML example](../images/bootstrap/pagination-disabled-html.png)
+
+**Pagination with previous and next items**
+
+![Pagination example](../images/bootstrap/pagination-prev-next.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Pagination HTML example](../images/bootstrap/pagination-prev-next-html.png)
+
 
 Available methods in Java JDI Light:
 
@@ -4016,6 +4043,62 @@ Available methods and properties in C# JDI Light:
  |  |
  |  | 
 <br>
+
+
+###Card
+
+Bootstrap’s cards provide a flexible and extensible content container with multiple variants and options.
+
+####Card groups
+
+Use card groups to render cards as a single, attached element with equal width and height columns.
+
+![Card_groups example](../images/bootstrap/card-groups.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Card_groups HTML example](../images/bootstrap/card-groups-html.png)
+
+**Card groups with footer**
+
+![Card_groups example](../images/bootstrap/card-groups-with-footer.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Card_groups HTML example](../images/bootstrap/card-groups-with-footer-html.png)
+
+
+####Card decks
+
+Use card decks for a set of equal width and height cards that aren’t attached to one another.
+
+![Card_groups example](../images/bootstrap/card-decks.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Card_groups HTML example](../images/bootstrap/card-decks-html.png)
+
+**Card groups with footer**
+
+![Card_groups example](../images/bootstrap/card-decks-with-footer.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Card_groups HTML example](../images/bootstrap/card-decks-with-footer-html.png)
+
+
+Available methods in Java JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+**** | TBD  | 
+**** |  |  
+**** |  | 
+**** |  | 
+**** |  |  
+
+
+
 
 ## Bootstrap Complex elements
 

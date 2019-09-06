@@ -3897,9 +3897,48 @@ Here is an example of Large button code:
 
 ![Large button HTML example](../images/bootstrap/dropdown-large-html.png)
 
+Here is an example of Large split button code:
+
+![Large split button HTML example](../images/bootstrap/dropdown-large-split-html.png)
+
 Here is an example of Small button code:
 
 ![Small button HTML example](../images/bootstrap/dropdown-small-html.png)
+
+Here is an example of Small spit button:
+
+![Small split button HTML example](../images/bootstrap/dropdown-small-split-html.png)
+
+####Directions
+Trigger dropdown menus above elements by adding .dropup to the parent element.<br>
+Trigger dropdown menus at the right of the elements by adding .dropright to the parent element.<br>
+Trigger dropdown menus at the left of the elements by adding .dropleft to the parent element.
+
+![Directions example](../images/bootstrap/dropdown-directions-example.png)
+
+Here is an example of Dropup code:
+
+![Dropup HTML example](../images/bootstrap/dropdown-directions-dropup-html.png)
+
+Here is an example of Dropup split code:
+
+![Dropup HTML example](../images/bootstrap/dropdown-directions-dropup-split-html.png)
+
+Here is an example of Dropright code:
+
+![Dropright HTML example](../images/bootstrap/dropdown-directions-dropright-html.png)
+
+Here is an example of Dropright split code:
+
+![Dropright split HTML example](../images/bootstrap/dropdown-directions-dropright-split-html.png)
+
+Here is an example of Dropleft code:
+
+![Dropleft HTML example](../images/bootstrap/dropdown-directions-dropleft-html.png)
+
+Here is an example of Dropleft split code:
+
+![Dropleft split HTML example](../images/bootstrap/dropdown-directions-dropleft-split-html.png)
 
 
 ## Bootstrap Composite elements

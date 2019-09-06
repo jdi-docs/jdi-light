@@ -4063,14 +4063,6 @@ Here is an example of Large split button code:
 
 ![Large split button HTML example](../images/bootstrap/dropdown-large-split-html.png)
 
-Here is an example of Small button code:
-
-![Small button HTML example](../images/bootstrap/dropdown-small-html.png)
-
-Here is an example of Small spit button:
-
-![Small split button HTML example](../images/bootstrap/dropdown-small-split-html.png)
-
 ####Directions
 Trigger dropdown menus above elements by adding .dropup to the parent element.<br>
 Trigger dropdown menus at the right of the elements by adding .dropright to the parent element.<br>

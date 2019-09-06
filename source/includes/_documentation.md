@@ -4146,11 +4146,11 @@ Available methods and properties in C# JDI Light:
 ### Scrollspy
 **Scrollspy** – automatically update Bootstrap navigation or list group components based on scroll position to indicate which link is currently active in the viewport.
 <br>
-1. Scrollspy in navbar 
+1. Scrollspy in navbar <br>
 ![Scrollspy](../images/bootstrap/scroll_spy1.png)<br>
-2. Scrollspy with nested nav 
+2. Scrollspy with nested nav <br> 
 ![Scrollspy](../images/bootstrap/scroll_spy2.png)<br>
-3. Scrollspy with list-group
+3. Scrollspy with list-group <br>
 ![Scrollspy](../images/bootstrap/scroll_spy3.png)
 
 Here is an examples with provided Bootstrap v4.3 code:

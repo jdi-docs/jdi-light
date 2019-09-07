@@ -4049,6 +4049,33 @@ Available methods and properties in C# JDI Light:
 
 Bootstrap’s cards provide a flexible and extensible content container with multiple variants and options.
 
+**Simple Card**
+
+![Simple Card Example](../images/bootstrap/simplecard.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Simple Card Example Code](../images/bootstrap/simplecard-html.png)
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ 
+Available methods and properties in C# JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  |
+ |  | 
+
 ####Card groups
 
 Use card groups to render cards as a single, attached element with equal width and height columns.

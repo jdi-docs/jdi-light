@@ -4075,6 +4075,36 @@ Available methods and properties in C# JDI Light:
  |  | 
  |  |
  |  | 
+ <br>
+ 
+**Card Body**
+
+The building block of a card is the _.card-body_. Use it whenever you need a padded section within a card.
+
+![Card Body Example](../images/bootstrap/cardbody.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Card Body Example Code](../images/bootstrap/cardbody-html.png)
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ 
+Available methods and properties in C# JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  |
+ |  | 
 
 ####Card groups
 

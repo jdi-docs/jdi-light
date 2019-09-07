@@ -4081,15 +4081,12 @@ Available methods and properties in C# JDI Light:
 
 **Card with Subtitles and Links**
 
-Card titles are used by adding _.card-title_ to a _<h*>_ tag.<br/>In the same way, links are added and placed next to each other by adding _.card-link_ to an _<a>_ tag.<br/>Subtitles are used by adding a _.card-subtitle_ to a _<h*>_ tag.
-
-&nbsp;![Card with Subtitles and Links Example](../images/bootstrap/cardsubslinks.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-
-![Card with Subtitles and Links Code](../images/bootstrap/cardsubslinks-html.png)
-
-Available methods in Java JDI Light:
+Card titles are used by adding _.card-title_ to a _<h*>_ tag.<br/>In the same way, links are added and placed next to each other by adding _.card-link_ to an _<a>_ tag.<br/>Subtitles are used by adding a _.card-subtitle_ to a _<h*>_ tag.<br/><br/>
+![Card with Subtitles and Links Example](../images/bootstrap/cardsubslinks.png)<br/><br/>
+Here is an example with provided Bootstrap v4.3 code:<br/><br/>
+![Card with Subtitles and Links Code](../images/bootstrap/cardsubslinks-html.png)<br/><br/>
+Available methods in Java JDI Light:<br>
+<div style="margin-left: 28px;">
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -4098,7 +4095,7 @@ Available methods in Java JDI Light:
  |  | 
  |  | 
  |  | 
- 
+
 Available methods and properties in C# JDI Light:
 
 |Method/Property | Description | Return Type
@@ -4106,7 +4103,9 @@ Available methods and properties in C# JDI Light:
  |  | 
  |  | 
  |  |
- |  | 
+ |  |
+ 
+</div> 
 <br>
 
 ## Bootstrap Complex elements

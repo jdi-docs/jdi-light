@@ -4167,6 +4167,36 @@ Available methods and properties in C# JDI Light:
  |  |
  |  |
  <br>
+ 
+**Kitchen Sink**
+
+Mix and match multiple content types to create the card you need, all wrapped in a fixed-width card.
+
+![Kitchen Sink Example](../images/bootstrap/kitchensink.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Kitchen Sink Example Code](../images/bootstrap/kitchensink-html.png)
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ 
+Available methods and properties in C# JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  |
+ |  |
+ <br>
 
 ####Card groups
 

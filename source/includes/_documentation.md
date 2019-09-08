@@ -4137,6 +4137,36 @@ Available methods and properties in C# JDI Light:
  |  |
  |  |
  <br>
+ 
+**List Groups**
+
+Create lists of content in a card with a flush list group.
+
+![List Groups Example](../images/bootstrap/listgroups.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![List Groups Example Code](../images/bootstrap/listgroups-html.png)
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ 
+Available methods and properties in C# JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  |
+ |  |
+ <br>
 
 ####Card groups
 

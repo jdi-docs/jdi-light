@@ -4044,7 +4044,6 @@ Available methods and properties in C# JDI Light:
  |  | 
 <br>
 
-
 ###Card
 
 Bootstrap’s cards provide a flexible and extensible content container with multiple variants and options.
@@ -4104,7 +4103,40 @@ Available methods and properties in C# JDI Light:
  |  | 
  |  | 
  |  |
+ |  |
+ <br>
+
+**Card with Subtitles and Links**
+
+Card titles are used by adding _.card-title_ to a ``<h*>`` tag. In the same way, links are added and placed next to each other by adding _.card-link_ to an ``<a>`` tag.
+
+Subtitles are used by adding a _.card-subtitle_ to a ``<h*>`` tag. If the _.card-title_ and the _.card-subtitle_ items are placed in a _.card-body_ item, the card title and subtitle are aligned nicely.
+
+![Card Body Example](../images/bootstrap/cardsubslinks.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Card Body Example Code](../images/bootstrap/cardsubslinks-html.png)
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
  |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ 
+Available methods and properties in C# JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  |
+ |  |
+ <br>
 
 ####Card groups
 

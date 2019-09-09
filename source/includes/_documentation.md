@@ -4384,6 +4384,37 @@ Available methods and properties in C# JDI Light:
  |  |
  |  |
  <br>
+ 
+ **Card Image Overlays**
+
+Turn an image into a card background and overlay your card’s text. 
+Depending on the image, you may or may not need additional styles or utilities.
+
+![Card Image Overlays Example](../images/bootstrap/cardimageoverlays.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Card Image Overlays Example Code](../images/bootstrap/cardimageoverlays-html.png)
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ 
+Available methods and properties in C# JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  |
+ |  |
+ <br>
 
 ####Card groups
 

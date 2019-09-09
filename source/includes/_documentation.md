@@ -3999,6 +3999,26 @@ Here is an example of right-aligned but left aligned when large screen code:
 
 ![Left-aligned-when-large-screen-example](../images/bootstrap/dropdown-alignment-large-left-html.png)
 
+####Menu content
+**Headers**<br>
+Add a header to label sections of actions in any dropdown menu.
+
+![Headers example](../images/bootstrap/dropdown-menu-content-headers.png)
+
+Here is an example of menu items code:
+
+![Headers HTML example](../images/bootstrap/dropdown-menu-content-headers-html.png)
+
+**Dividers**<br>
+Separate groups of related menu items with a divider.
+
+![Dividers example](../images/bootstrap/dropdown-menu-content-dividers.png)
+
+Here is an example of menu items code:
+
+![Dividers HTML example](../images/bootstrap/dropdown-menu-content-dividers-html.png)
+
+
 
 ## Bootstrap Composite elements
 ### Forms

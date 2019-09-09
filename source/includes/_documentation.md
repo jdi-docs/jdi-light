@@ -4290,6 +4290,37 @@ Available methods and properties in C# JDI Light:
  |  |
  |  |
  <br>
+ 
+**Card Image Caps**
+
+Similar to headers and footers, cards can include 
+top and bottom “image caps” — images at the top or bottom of a card.
+
+![Card Image Caps Example](../images/bootstrap/cardimagecaps.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Card Image Caps Example Code](../images/bootstrap/cardimagecaps-html.png)
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ 
+Available methods and properties in C# JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  |
+ |  |
+ <br>
 
 ####Card groups
 

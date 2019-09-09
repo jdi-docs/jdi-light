@@ -3950,6 +3950,25 @@ Here is an example of non-interactive dropdown items code:
 
 ![Menu items HTML example](../images/bootstrap/dropdown-non-interactive-items-html.png)
 
+**Active**<br>
+Add .active to items in the dropdown to style them as active.
+
+![Active example](../images/bootstrap/dropdown-menu-items-active.png)
+
+Here is a code example of items in the dropdown which are styled as active:
+
+![Active HTML example](../images/bootstrap/dropdown-menu-items-active-html.png)
+
+**Disabled**<br>
+Add .disabled to items in the dropdown to style them as disabled.
+
+![Disabled example](../images/bootstrap/dropdown-menu-items-disabled.png)
+
+Here is a code example of items in the dropdown which are styled as active:
+
+![Disabled HTML example](../images/bootstrap/dropdown-menu-items-disabled-html.png)
+
+
 ####Menu alignment
 By default, a dropdown menu is automatically positioned 100% from the top and along the left side of its parent. Add .dropdown-menu-right to a .dropdown-menu to right align the dropdown menu.
 

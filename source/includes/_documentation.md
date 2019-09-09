@@ -4197,6 +4197,36 @@ Available methods and properties in C# JDI Light:
  |  |
  |  |
  <br>
+ 
+**Card with Header and Footer**
+
+Add an optional header and/or footer within a card.
+
+![Card with Header and Footer Example](../images/bootstrap/cardheaderfooter.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Card with Header and Footer Code](../images/bootstrap/cardheaderfooter-html.png)
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ 
+Available methods and properties in C# JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  |
+ |  |
+ <br>
 
 ####Card groups
 

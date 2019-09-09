@@ -4236,7 +4236,40 @@ You can quickly change the text alignment of any card — in its entirety or spe
 
 Here is an example with provided Bootstrap v4.3 code:
 
-![Card Text Alignment Code](../images/bootstrap/cardtextalignment-html.png)
+![Card Text Alignment Example Code](../images/bootstrap/cardtextalignment-html.png)
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ 
+Available methods and properties in C# JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  |
+ |  |
+ <br>
+ 
+**Card Navigation**
+
+Add some navigation to a card’s header (or block) with Bootstrap’s
+ <a href="https://getbootstrap.com/docs/4.3/components/navs/" target="_blank">
+ nav components
+ </a>.
+
+![Card Navigation Example](../images/bootstrap/cardnav.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Card Navigation Example Code](../images/bootstrap/cardnav-html.png)
 
 Available methods in Java JDI Light:
 

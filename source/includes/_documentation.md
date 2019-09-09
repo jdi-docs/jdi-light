@@ -4492,7 +4492,7 @@ Add a header to label sections of actions in any dropdown menu.
 
 ![Headers example](../images/bootstrap/dropdown-menu-content-headers.png)
 
-Here is an example of menu items code:
+Here is an example headers in the menu items:
 
 ![Headers HTML example](../images/bootstrap/dropdown-menu-content-headers-html.png)
 
@@ -4501,10 +4501,27 @@ Separate groups of related menu items with a divider.
 
 ![Dividers example](../images/bootstrap/dropdown-menu-content-dividers.png)
 
-Here is an example of menu items code:
+Here is an example dividers in the menu items:
 
 ![Dividers HTML example](../images/bootstrap/dropdown-menu-content-dividers-html.png)
 
+**Text**<br>
+Place any freeform text within a dropdown menu with text and use spacing utilities. Note that you’ll likely need additional sizing styles to constrain the menu width.
+
+![Text example](../images/bootstrap/dropdown-menu-content-text.png)
+
+Here is an example text in the menu items:
+
+![Text HTML example](../images/bootstrap/dropdown-menu-content-text-html.png)
+
+**Forms**<br>
+Put a form within a dropdown menu, or make it into a dropdown menu, and use margin or padding utilities to give it the negative space you require.
+
+![Form example](../images/bootstrap/dropdown-menu-content-form.png)
+
+Here is an example form in the menu items:
+
+![Form HTML example](../images/bootstrap/dropdown-menu-content-form-html.png)
 
 
 ## Bootstrap Composite elements

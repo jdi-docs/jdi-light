@@ -4356,6 +4356,54 @@ Here is an example of Dropleft split code:
 
 ![Dropleft split HTML example](../images/bootstrap/dropdown-directions-dropleft-split-html.png)
 
+####Menu items
+Historically dropdown menu contents had to be links, but that’s no longer the case with v4. 
+Now you can optionally use ``<button>`` elements in your dropdowns instead of just ``<a>``s.
+
+![Menu items example](../images/bootstrap/dropdown-menu-items.png)
+
+Here is an example of Menu items code:
+
+![Menu items HTML example](../images/bootstrap/dropdown-menu-items-html.png)
+
+You can also create non-interactive dropdown items with .dropdown-item-text. Feel free to style further with custom CSS or text utilities.
+
+![Non-interactive items example](../images/bootstrap/dropdown-non-interactive-items.png)
+
+Here is an example of non-interactive dropdown items code:
+
+![Menu items HTML example](../images/bootstrap/dropdown-non-interactive-items-html.png)
+
+####Menu alignment
+By default, a dropdown menu is automatically positioned 100% from the top and along the left side of its parent. Add .dropdown-menu-right to a .dropdown-menu to right align the dropdown menu.
+
+Here is an example of right-aligned menu:
+
+![Right-aligned-example](../images/bootstrap/dropdown-alignment-right.png)
+
+Here is an example of right-aligned menu code:
+
+![Right-aligned-example](../images/bootstrap/dropdown-alignment-right-html.png)
+
+**Responsive alignment**<br>
+If you want to use responsive alignment, disable dynamic positioning by adding the data-display="static" attribute and use the responsive variation classes.
+
+To align right the dropdown menu with the given breakpoint or larger, add .dropdown-menu{-sm|-md|-lg|-xl}-right.
+
+Here is an example of left-aligned but right aligned when large screen:
+
+![Right-aligned-when-large-screen-example](../images/bootstrap/dropdown-alignment-large-right.png)
+
+Here is an example of left-aligned but right aligned when large screen code:
+
+![Right-aligned-when-large-screen-example](../images/bootstrap/dropdown-alignment-large-right-html.png)
+
+To align left the dropdown menu with the given breakpoint or larger, add .dropdown-menu-right and .dropdown-menu{-sm|-md|-lg|-xl}-left.
+
+Here is an example of right-aligned but left aligned when large screen code:
+
+![Left-aligned-when-large-screen-example](../images/bootstrap/dropdown-alignment-large-left-html.png)
+
 
 ## Bootstrap Composite elements
 ### Forms

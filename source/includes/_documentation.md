@@ -4227,6 +4227,36 @@ Available methods and properties in C# JDI Light:
  |  |
  |  |
  <br>
+ 
+**Card Text Alignment**
+
+You can quickly change the text alignment of any card — in its entirety or specific parts — with Bootstrap's <a href="https://getbootstrap.com/docs/4.3/utilities/text/#text-alignment" target="_blank">text align classes</a>.
+
+![Card Text Alignment Example](../images/bootstrap/cardtextalignment.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Card Text Alignment Code](../images/bootstrap/cardtextalignment-html.png)
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ 
+Available methods and properties in C# JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  |
+ |  |
+ <br>
 
 ####Card groups
 

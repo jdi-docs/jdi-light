@@ -4243,23 +4243,23 @@ Available methods and properties in C# JDI Light:
   
   Available methods in Java JDI Light:
   
-  |Method | Description | Return Type
-  --- | --- | ---
-   |  | 
-   |  | 
-   |  | 
-   |  | 
-   |  | 
+ |Method/Property | Description | Return Type
+ --- | --- | ---
+ **** | TBD  | 
+ **** |  |  
+ **** |  | 
+ **** |  | 
+ **** |  |  
    
   Available methods and properties in C# JDI Light:
   
   |Method/Property | Description | Return Type
   --- | --- | ---
-   |  | 
-   |  | 
-   |  |
-   |  |
-   <br>
+  **** | TBD  | 
+  **** |  |  
+  **** |  | 
+  **** |  | 
+  **** |  |  
   
  **Card custom CSS**
    

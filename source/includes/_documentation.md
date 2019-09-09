@@ -4228,6 +4228,69 @@ Available methods and properties in C# JDI Light:
  |  |
  <br>
  
+ 
+ 
+ 
+ **Card utilities**
+  
+  Use  handful of available sizing utilities to quickly set a card’s width.
+  
+  ![Card utilities Example](../images/bootstrap/card_utilities.png)
+  
+  Here is an example with provided Bootstrap v4.3 code:
+  
+  ![Card utilities Example Code](../images/bootstrap/card_utilities_html.png)
+  
+  Available methods in Java JDI Light:
+  
+  |Method | Description | Return Type
+  --- | --- | ---
+   |  | 
+   |  | 
+   |  | 
+   |  | 
+   |  | 
+   
+  Available methods and properties in C# JDI Light:
+  
+  |Method/Property | Description | Return Type
+  --- | --- | ---
+   |  | 
+   |  | 
+   |  |
+   |  |
+   <br>
+  
+ **Card custom CSS**
+   
+   Use custom CSS in your stylesheets or as inline styles to set a width.
+   
+   ![Card custom CSS Example](../images/bootstrap/card_custom_CSS.png)
+   
+   Here is an example with provided Bootstrap v4.3 code:
+   
+   ![Card custom CSS Example Code](../images/bootstrap/card_custom_CSS_html.png)
+   
+   Available methods in Java JDI Light:
+   
+   |Method | Description | Return Type
+   --- | --- | ---
+    |  | 
+    |  | 
+    |  | 
+    |  | 
+    |  | 
+    
+   Available methods and properties in C# JDI Light:
+   
+   |Method/Property | Description | Return Type
+   --- | --- | ---
+    |  | 
+    |  | 
+    |  |
+    |  |
+    <br>
+ 
 **Card Text Alignment**
 
 You can quickly change the text alignment of any card — in its entirety or specific parts — with Bootstrap's <a href="https://getbootstrap.com/docs/4.3/utilities/text/#text-alignment" target="_blank">text align classes</a>.

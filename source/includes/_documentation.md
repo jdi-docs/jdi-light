@@ -4240,27 +4240,27 @@ Available methods and properties in C# JDI Light:
   Here is an example with provided Bootstrap v4.3 code:
   
   ![Card utilities Example Code](../images/bootstrap/card_utilities_html.png)
-  
-  Available methods in Java JDI Light:
-  
- |Method/Property | Description | Return Type
- --- | --- | ---
- **** | TBD  | 
- **** |  |  
- **** |  | 
- **** |  | 
- **** |  |  
-   
-  Available methods and properties in C# JDI Light:
-  
-  |Method/Property | Description | Return Type
-  --- | --- | ---
-  **** | TBD  | 
-  **** |  |  
-  **** |  | 
-  **** |  | 
-  **** |  |  
-  
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ 
+Available methods and properties in C# JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  |
+ |  |
+ <br>
+ 
  **Card custom CSS**
    
    Use custom CSS in your stylesheets or as inline styles to set a width.
@@ -4271,25 +4271,26 @@ Available methods and properties in C# JDI Light:
    
    ![Card custom CSS Example Code](../images/bootstrap/card_custom_CSS_html.png)
    
-  Available methods in Java JDI Light:
-  
-  |Method | Description | Return Type
-  --- | --- | ---
-   |  | 
-   |  | 
-   |  | 
-   |  | 
-   |  | 
-   
-  Available methods and properties in C# JDI Light:
-  
-  |Method/Property | Description | Return Type
-  --- | --- | ---
-   |  | 
-   |  | 
-   |  |
-   |  |
-   <br>
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ 
+Available methods and properties in C# JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  |
+ |  |
+ 
+ <br>
  
 **Card Text Alignment**
 

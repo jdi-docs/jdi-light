@@ -3923,6 +3923,65 @@ Available methods in Java JDI Light:
 **** |  |  
 
 
+###Progress
+
+Progress is custom progress bar featuring support for stacked bars, animated backgrounds, and text labels.
+
+![Progress example](../images/bootstrap/progress.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Progress HTML example](../images/bootstrap/progress-html.png)
+
+**With label**
+
+![Progress label example](../images/bootstrap/progress-label.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Progress label HTML example](../images/bootstrap/progress-label-html.png)
+
+
+**With backgrounds**
+
+![Progress backgroundsexample](../images/bootstrap/progress-backgrounds.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Progress backgrounds HTML example](../images/bootstrap/progress-backgrounds-html.png)
+
+**With multiple bars**
+
+![Progress multiple sexample](../images/bootstrap/progress-multiple.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Progress multiple HTML example](../images/bootstrap/progress-multiple-html.png)
+
+**With striped design**
+
+![Progress striped example](../images/bootstrap/progress-striped.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Progress striped HTML example](../images/bootstrap/progress-striped-html.png)
+
+**With animated design**
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Progress animated HTML example](../images/bootstrap/progress-animated-html.png)
+
+Available methods in Java JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+**** | TBD  | 
+**** |  |  
+**** |  | 
+**** |  | 
+**** |  |  
+
 
 ###Jumbotron
 

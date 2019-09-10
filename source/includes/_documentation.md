@@ -4906,11 +4906,11 @@ Here are the examples with provided Bootstrap v4.3 code:
 
 **Spinner Floats**
 
-![Spinner Float Right Example](../images/bootstrap/spinner-float-right.png)
+![Spinner Float Right Example](../images/bootstrap/spinnerfloat.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
-![Spinner Float Right HTML Example](../images/bootstrap/spinner-float-right-html.png)
+![Spinner Float Right HTML Example](../images/bootstrap/spinnerfloat-html.png)
 
 **Spinner Text Align**
 

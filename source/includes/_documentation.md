@@ -3748,6 +3748,25 @@ And here are methods available in Java:
  |  | 
  |  | 
  |  | 
+ 
+### Buttons with dropdowns (Input group)
+**Buttons with dropdowns** – Multiple buttons have no detailed information on Bootstrap website
+
+![Buttons with dropdowns](../images/bootstrap/buttons_with_dropdowns.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Buttons with dropdowns example](../images/bootstrap/buttons_with_dropdowns_code.png)
+
+And here are methods available in Java:
+    
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  |  
 
 ###Badge
 **1) Badge** - Element that scale to match the size of the immediate parent element by using relative font sizing and em units.<br>

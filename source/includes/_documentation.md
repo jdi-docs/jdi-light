@@ -5191,7 +5191,7 @@ Navbar brand as heading <br>
 
 Adding images to the .navbar-brand will likely always require custom styles or utilities to properly size. Here are some examples to demonstrate.<br>
 
-![Brand](../images/bootstrap/navbar-brand-image.png)
+![Brand](../images/bootstrap/navbar-brand-image.png)<br>
 ![Brand](../images/bootstrap/navbar-brand-image-and-link.png)
 
 Here is an examples with provided Bootstrap v4.3 code:
@@ -5201,7 +5201,7 @@ Navbar brand as a link <br>
 Navbar brand as heading <br> 
 ![Brand](../images/bootstrap/navbar-brand-heading-html.png)<br>
 Navbar brand as image <br>
-![Brand](../images/bootstrap/navbar-brand-image-html.png)
+![Brand](../images/bootstrap/navbar-brand-image-html.png)<br>
 Navbar brand as image and link <br> 
 ![Brand](../images/bootstrap/navbar-brand-image-and-link-html.png)
 

@@ -4874,6 +4874,76 @@ Available methods and properties in C# JDI Light:
  |  |
  <br>
  
+ 
+**Spinner Alignment**
+
+Spinners in Bootstrap are built with ``rem``s, ``currentColor``, and ``display: inline-flex``. 
+This means they can easily be resized, recolored, and quickly aligned.
+
+**Spinner Margin**
+
+Use margin utilities like ``.m-5`` for easy spacing.
+
+![Spinner Margin Example](../images/bootstrap/spinnermargin.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Spinner Margin HTML Example](../images/bootstrap/spinnermargin-html.png)
+
+**Spinner Placement**
+
+Use <a href="https://getbootstrap.com/docs/4.3/utilities/flex/" target="_blank">flexbox utilities</a>,
+<a href="https://getbootstrap.com/docs/4.3/utilities/float/" target="_blank">float utilities</a>, or <a href="https://getbootstrap.com/docs/4.3/content/typography/">text alignment</a> utilities
+to place spinners exactly where you need them in any situation.
+
+**Flex**
+
+![Spinner Flex Center Example](../images/bootstrap/spinner-flex-center.png)
+
+![Spinner Flex Center HTML Example](../images/bootstrap/spinner-flex-right.png)
+
+Here are the examples with provided Bootstrap v4.3 code:
+
+![Spinner Flex Right Example](../images/bootstrap/spinner-flex-center-html.png)
+
+![Spinner Flex Right HTML Example](../images/bootstrap/spinner-flex-right-html.png)
+
+**Spinner Floats**
+
+![Spinner Float Right Example](../images/bootstrap/spinner-float-right.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Spinner Float Right HTML Example](../images/bootstrap/spinner-float-right-html.png)
+
+**Spinner Text Align**
+
+![Spinner Text Align Center Example](../images/bootstrap/spinner-text-align.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Spinner Text Align Center HTML Example](../images/bootstrap/spinner-text-align-html.png)
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ 
+Available methods and properties in C# JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  |
+ |  |
+ <br>
+ 
 ####Card groups
 
 Use card groups to render cards as a single, attached element with equal width and height columns.

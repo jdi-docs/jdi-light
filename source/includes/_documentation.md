@@ -3821,9 +3821,44 @@ Available methods and properties in C# JDI Light:
 
 TBD
 
+**Slides only**<br>
+Here’s a carousel with slides only. Note the presence of the .d-block and .w-100 on carousel images to prevent browser default image alignment.
+
+![Carousel slides only example](../images/bootstrap/carousel-slides-only.png)
+
 Here is an example with provided Bootstrap v4.3 code:
   
-![Carousel HTML example](../images/bootstrap/carousel-html.png)
+![Carousel slides only HTML example](../images/bootstrap/carousel-slides-only-html.png)
+
+**With controls**<br>
+Adding in the previous and next controls:
+
+![Carousel with controls example](../images/bootstrap/carousel-with-controls.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Carousel with controls HTML example](../images/bootstrap/carousel-with-controls-html.png)
+
+**With indicators**<br>
+You can also add the indicators to the carousel, alongside the controls, too.
+
+![Carousel with indicators example](../images/bootstrap/carousel-with-indicators.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Carousel with indicators HTML example](../images/bootstrap/carousel-with-indicators-html.png)
+
+**With captions**<br>
+Add captions to your slides easily with the .carousel-caption element within any .carousel-item.
+They can be easily hidden on smaller viewports, as shown below, with optional display utilities.
+We hide them initially with .d-none and bring them back on medium-sized devices with .d-md-block.
+
+![Carousel with captions example](../images/bootstrap/carousel-with-captions.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Carousel with captions HTML example](../images/bootstrap/carousel-with-captions-html.png)
+
 
 ### List group
 **List group** – a flexible and powerful component for displaying a series of content. Modify and extend them to support just about any content within.
@@ -3964,7 +3999,7 @@ Add .disabled to items in the dropdown to style them as disabled.
 
 ![Disabled example](../images/bootstrap/dropdown-menu-items-disabled.png)
 
-Here is a code example of items in the dropdown which are styled as active:
+Here is a code example of items in the dropdown which are styled as disabled:
 
 ![Disabled HTML example](../images/bootstrap/dropdown-menu-items-disabled-html.png)
 
@@ -4005,7 +4040,7 @@ Add a header to label sections of actions in any dropdown menu.
 
 ![Headers example](../images/bootstrap/dropdown-menu-content-headers.png)
 
-Here is an example headers in the menu items:
+Here is an example headers code in the menu items:
 
 ![Headers HTML example](../images/bootstrap/dropdown-menu-content-headers-html.png)
 
@@ -4014,7 +4049,7 @@ Separate groups of related menu items with a divider.
 
 ![Dividers example](../images/bootstrap/dropdown-menu-content-dividers.png)
 
-Here is an example dividers in the menu items:
+Here is an example dividers code in the menu items:
 
 ![Dividers HTML example](../images/bootstrap/dropdown-menu-content-dividers-html.png)
 
@@ -4023,7 +4058,7 @@ Place any freeform text within a dropdown menu with text and use spacing utiliti
 
 ![Text example](../images/bootstrap/dropdown-menu-content-text.png)
 
-Here is an example text in the menu items:
+Here is an example text code in the menu items:
 
 ![Text HTML example](../images/bootstrap/dropdown-menu-content-text-html.png)
 
@@ -4032,7 +4067,7 @@ Put a form within a dropdown menu, or make it into a dropdown menu, and use marg
 
 ![Form example](../images/bootstrap/dropdown-menu-content-form.png)
 
-Here is an example form in the menu items:
+Here is an example form code in the menu items:
 
 ![Form HTML example](../images/bootstrap/dropdown-menu-content-form-html.png)
 
@@ -4919,8 +4954,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 
 ### DataList
 
-Note: this element is an alias for ComboBox
-
+<p style="color:#FFA500">Note: this element is an alias for ComboBox</p>
 ```
 Datalist action examples:
 

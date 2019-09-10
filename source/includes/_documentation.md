@@ -3693,7 +3693,7 @@ And here are methods available in Java:
  |  | 
  
 ### Multiple inputs (Input group)
-**Multiple inputs** – While multiple <input>s are supported visually, validation styles are only available for input groups with a single <input>.
+**Multiple inputs** – While multiple inputs are supported visually, validation styles are only available for input groups with a single input.
 
 ![Multiple inputs](../images/bootstrap/multiple_inputs.png)
 

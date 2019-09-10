@@ -3859,6 +3859,20 @@ Here is an example with provided Bootstrap v4.3 code:
   
 ![Carousel with captions HTML example](../images/bootstrap/carousel-with-captions-html.png)
 
+**Crossfade**<br>
+Add .carousel-fade to your carousel to animate slides with a fade transition instead of a slide.
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Carousel crossfade HTML example](../images/bootstrap/carousel-crossfade-html.png)
+
+**Individual .carousel-item interval**<br>
+Add data-interval="" to a .carousel-item to change the amount of time to delay between automatically cycling to the next item.
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Carousel example interval HTML example](../images/bootstrap/carousel-example-interval-html.png)
+
 
 ### List group
 **List group** – a flexible and powerful component for displaying a series of content. Modify and extend them to support just about any content within.

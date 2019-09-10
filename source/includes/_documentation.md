@@ -4426,7 +4426,7 @@ Note that you can put .text-{color} classes on the parent .card or a subset of t
 
 Here is an example with provided Bootstrap v4.3 code:
 
-![Card Image Overlays Example Code](../images/bootstrap/cardborders-html.png)
+![Card Borders Example Code](../images/bootstrap/cardborders-html.png)
 
 Available methods in Java JDI Light:
 

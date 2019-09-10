@@ -3754,9 +3754,32 @@ Available methods in Java JDI Light:
 **** |  | 
 **** |  |  
 
+###Navbar
 
+####Color schemes
 
+Theming the navbar has never been easier thanks to the combination of theming classes and background-color utilities.
+Choose from .navbar-light for use with light background colors, or .navbar-dark for dark background colors. Then, customize with .bg-* utilities.
 
+![Color schemes example](../images/bootstrap/navbar-color-schemes.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Color schemes HTML example](../images/bootstrap/navbar-color-schemes-html.png)
+
+####Containers
+Although it’s not required, you can wrap a navbar in a .container to center it on a page or add one within to only center the contents of a fixed or static top navbar.
+
+![Containers schemes example](../images/bootstrap/navbar-containers.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Containers HTML example](../images/bootstrap/navbar-containers-html.png)
+
+When the container is within your navbar, its horizontal padding is removed at breakpoints lower than your specified .navbar-expand{-sm|-md|-lg|-xl} class.
+This ensures we’re not doubling up on padding unnecessarily on lower viewports when your navbar is collapsed.
+ 
+![Containers HTML example](../images/bootstrap/navbar-containers2-html.png)
 
 
 ###Jumbotron

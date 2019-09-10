@@ -3646,9 +3646,12 @@ And here are methods available in Java:
     
 |Method | Description | Return Type
 --- | --- | ---
-**getText()** |Get current value | String
-**isDisplayed()** |Show\wait that input field element displayed on the screen| Boolean
-**sendKeys()** |Set specific keys to input field|
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+
 
 ### Sizing (Input group)
 **Sizing** – Add the relative form sizing classes to the .input-group itself and contents within will automatically resize—no need for repeating the form control size classes on each element.
@@ -3664,9 +3667,11 @@ And here are methods available in Java:
     
 |Method | Description | Return Type
 --- | --- | ---
-**getText()** |Get current value | String
-**isDisplayed()** |Show\wait that input field element displayed on the screen| Boolean
-**sendKeys()** |Set specific keys to input field|
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
 
 ### Checkboxes and radios (Input group)
 **Checkboxes and radios** – Place any checkbox or radio option within an input group’s addon instead of text.
@@ -3681,10 +3686,68 @@ And here are methods available in Java:
     
 |Method | Description | Return Type
 --- | --- | ---
-**getText()** |Get current value | String
-**isDisplayed()** |Show\wait that input field element displayed on the screen| Boolean
-**sendKeys()** |Set specific keys to input field|
-**isSelected()** |Check if option has been selected| Boolean
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ 
+### Multiple inputs (Input group)
+**Multiple inputs** – While multiple inputs are supported visually, validation styles are only available for input groups with a single input.
+
+![Multiple inputs](../images/bootstrap/multiple_inputs.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Multiple inputs example](../images/bootstrap/multiple_inputs_code.png)
+
+And here are methods available in Java:
+    
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  |  
+ 
+### Multiple addons (Input group)
+**Multiple addons** – Multiple add-ons are supported and can be mixed with checkbox and radio input versions.
+
+![Multiple addons](../images/bootstrap/multiple_addons.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Multiple addons example](../images/bootstrap/multiple_addons_code.png)
+
+And here are methods available in Java:
+    
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  |  
+ 
+### Button addons (Input group)
+**Button addons** – Multiple buttons have no detailed information on Bootstrap website
+
+![Button addons](../images/bootstrap/button_addons.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Button addons example](../images/bootstrap/button_addons_code.png)
+
+And here are methods available in Java:
+    
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
 
 ###Badge
 **1) Badge** - Element that scale to match the size of the immediate parent element by using relative font sizing and em units.<br>
@@ -3923,9 +3986,58 @@ Available methods and properties in C# JDI Light:
 
 TBD
 
+**Slides only**<br>
+Here’s a carousel with slides only. Note the presence of the .d-block and .w-100 on carousel images to prevent browser default image alignment.
+
+![Carousel slides only example](../images/bootstrap/carousel-slides-only.png)
+
 Here is an example with provided Bootstrap v4.3 code:
   
-![Carousel HTML example](../images/bootstrap/carousel-html.png)
+![Carousel slides only HTML example](../images/bootstrap/carousel-slides-only-html.png)
+
+**With controls**<br>
+Adding in the previous and next controls:
+
+![Carousel with controls example](../images/bootstrap/carousel-with-controls.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Carousel with controls HTML example](../images/bootstrap/carousel-with-controls-html.png)
+
+**With indicators**<br>
+You can also add the indicators to the carousel, alongside the controls, too.
+
+![Carousel with indicators example](../images/bootstrap/carousel-with-indicators.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Carousel with indicators HTML example](../images/bootstrap/carousel-with-indicators-html.png)
+
+**With captions**<br>
+Add captions to your slides easily with the .carousel-caption element within any .carousel-item.
+They can be easily hidden on smaller viewports, as shown below, with optional display utilities.
+We hide them initially with .d-none and bring them back on medium-sized devices with .d-md-block.
+
+![Carousel with captions example](../images/bootstrap/carousel-with-captions.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Carousel with captions HTML example](../images/bootstrap/carousel-with-captions-html.png)
+
+**Crossfade**<br>
+Add .carousel-fade to your carousel to animate slides with a fade transition instead of a slide.
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Carousel crossfade HTML example](../images/bootstrap/carousel-crossfade-html.png)
+
+**Individual .carousel-item interval**<br>
+Add data-interval="" to a .carousel-item to change the amount of time to delay between automatically cycling to the next item.
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Carousel example interval HTML example](../images/bootstrap/carousel-example-interval-html.png)
+
 
 ### List group
 **List group** – a flexible and powerful component for displaying a series of content. Modify and extend them to support just about any content within.
@@ -4228,6 +4340,70 @@ Available methods and properties in C# JDI Light:
  |  |
  <br>
  
+ 
+ 
+ 
+ **Card utilities**
+  
+  Use  handful of available sizing utilities to quickly set a card’s width.
+  
+  ![Card utilities Example](../images/bootstrap/card_utilities.png)
+  
+  Here is an example with provided Bootstrap v4.3 code:
+  
+  ![Card utilities Example Code](../images/bootstrap/card_utilities_html.png)
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ 
+Available methods and properties in C# JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  |
+ |  |
+ <br>
+ 
+ **Card custom CSS**
+   
+   Use custom CSS in your stylesheets or as inline styles to set a width.
+   
+   ![Card custom CSS Example](../images/bootstrap/card_custom_CSS.png)
+   
+   Here is an example with provided Bootstrap v4.3 code:
+   
+   ![Card custom CSS Example Code](../images/bootstrap/card_custom_CSS_html.png)
+   
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ 
+Available methods and properties in C# JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  |
+ |  |
+ 
+ <br>
+ 
 **Card Text Alignment**
 
 You can quickly change the text alignment of any card — in its entirety or specific parts — with Bootstrap's <a href="https://getbootstrap.com/docs/4.3/utilities/text/#text-alignment" target="_blank">text align classes</a>.
@@ -4321,7 +4497,69 @@ Available methods and properties in C# JDI Light:
  |  |
  |  |
  <br>
+ 
+ **Card Image Overlays**
 
+Turn an image into a card background and overlay your card’s text. 
+Depending on the image, you may or may not need additional styles or utilities.
+
+![Card Image Overlays Example](../images/bootstrap/cardimageoverlays.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Card Image Overlays Example Code](../images/bootstrap/cardimageoverlays-html.png)
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ 
+Available methods and properties in C# JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  |
+ |  |
+ <br>
+
+ **Card Border**
+
+Use border utilities to change just the border-color of a card. 
+Note that you can put .text-{color} classes on the parent .card or a subset of the card’s contents as shown below.
+
+![Card Borders Example](../images/bootstrap/cardborders.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Card Borders Example Code](../images/bootstrap/cardborders-html.png)
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ 
+Available methods and properties in C# JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  |
+ |  |
+ <br>
+ 
 ####Card groups
 
 Use card groups to render cards as a single, attached element with equal width and height columns.
@@ -4368,27 +4606,66 @@ Available methods in Java JDI Light:
 **** |  |  
 **** |  | 
 **** |  | 
-**** |  |
+**** |  |  
+
+### Tooltip
+**Tooltip** – is a hint that used in conjuction with a pointer.
+
+![Tooltip top](../images/bootstrap/tooltip_top.png)
+
+![Tooltip bottom](../images/bootstrap/tooltip_bottom.png)
+
+![Tooltip left](../images/bootstrap/tooltip_left.png)
+
+![Tooltip right](../images/bootstrap/tooltip_right.png)
+
+![Tooltip with title](../images/bootstrap/tooltip_with_html.png)
+
+![Tooltip disabled](../images/bootstrap/tooltip_disabled.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Tooltip example](../images/bootstrap/popover-html.png)
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ 
+
+Available methods and properties in C# JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  |
+ |  | 
 <br>
 
-###Spinners
+### Popover
+**Popover** – is a pop-up box that appears when the user clicks on an element. The popover can contain header and a lot of content.
 
-Bootstrap “spinners” can be used to show the loading state in your projects. 
-They’re built only with HTML and CSS, meaning you don’t need any JavaScript to create them. 
-You will, however, need some custom JavaScript to toggle their visibility. 
-Their appearance, alignment, and sizing can be easily customized with Bootstrap utility classes.
+![Popover with title](../images/bootstrap/popover_title.png)
 
-For accessibility purposes, each loader includes ``role="status"`` and a nested ``<span class="sr-only">Loading...</span>``.
+![Popover top](../images/bootstrap/popover_top.png)
 
-**Border Spinner**
+![Popover bottom](../images/bootstrap/popover_bottom.png)
 
-Use the border spinners for a lightweight loading indicator.
+![Popover left](../images/bootstrap/popover_left.png)
 
-![Border Spinner Example](../images/bootstrap/borderspinner.png)
+![Popover right](../images/bootstrap/popover_right.png)
+
+![Popover disabled](../images/bootstrap/popover_disabled.png)
 
 Here is an example with provided Bootstrap v4.3 code:
   
-![Border Spinner HTML Example](../images/bootstrap/borderspinner-html.png)
+![Popover example](../images/bootstrap/popover-html.png)
 
 Available methods in Java JDI Light:
 
@@ -4400,6 +4677,7 @@ Available methods in Java JDI Light:
  |  | 
  |  | 
  
+
 Available methods and properties in C# JDI Light:
 
 |Method/Property | Description | Return Type
@@ -4407,44 +4685,9 @@ Available methods and properties in C# JDI Light:
  |  | 
  |  | 
  |  |
- |  |
- <br>
- 
-**Colored Spinners**
-
-The border spinner uses currentColor for its border-color, 
-meaning you can customize the color 
-with <a href="https://getbootstrap.com/docs/4.3/utilities/colors/" target="_blank">text color utilities</a>. 
-You can use any of Bootstrap text color utilities on the standard spinner.
-
->Each border spinner specifies a transparent border for at least one side, 
->so ``.border-{color}`` utilities would override that.
-
-![Colored Spinners Example](../images/bootstrap/coloredspinners.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-  
-![Colored Spinners HTML Example](../images/bootstrap/coloredspinners-html.png)
-
-Available methods in Java JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
  |  | 
- |  | 
- |  | 
- |  | 
- |  | 
- 
-Available methods and properties in C# JDI Light:
+<br>
 
-|Method/Property | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  |
- |  |
- <br>
 
 ## Bootstrap Complex elements
 
@@ -4555,7 +4798,7 @@ Add .disabled to items in the dropdown to style them as disabled.
 
 ![Disabled example](../images/bootstrap/dropdown-menu-items-disabled.png)
 
-Here is a code example of items in the dropdown which are styled as active:
+Here is a code example of items in the dropdown which are styled as disabled:
 
 ![Disabled HTML example](../images/bootstrap/dropdown-menu-items-disabled-html.png)
 
@@ -4596,7 +4839,7 @@ Add a header to label sections of actions in any dropdown menu.
 
 ![Headers example](../images/bootstrap/dropdown-menu-content-headers.png)
 
-Here is an example headers in the menu items:
+Here is an example headers code in the menu items:
 
 ![Headers HTML example](../images/bootstrap/dropdown-menu-content-headers-html.png)
 
@@ -4605,7 +4848,7 @@ Separate groups of related menu items with a divider.
 
 ![Dividers example](../images/bootstrap/dropdown-menu-content-dividers.png)
 
-Here is an example dividers in the menu items:
+Here is an example dividers code in the menu items:
 
 ![Dividers HTML example](../images/bootstrap/dropdown-menu-content-dividers-html.png)
 
@@ -4614,7 +4857,7 @@ Place any freeform text within a dropdown menu with text and use spacing utiliti
 
 ![Text example](../images/bootstrap/dropdown-menu-content-text.png)
 
-Here is an example text in the menu items:
+Here is an example text code in the menu items:
 
 ![Text HTML example](../images/bootstrap/dropdown-menu-content-text-html.png)
 
@@ -4623,7 +4866,7 @@ Put a form within a dropdown menu, or make it into a dropdown menu, and use marg
 
 ![Form example](../images/bootstrap/dropdown-menu-content-form.png)
 
-Here is an example form in the menu items:
+Here is an example form code in the menu items:
 
 ![Form HTML example](../images/bootstrap/dropdown-menu-content-form-html.png)
 
@@ -4707,6 +4950,7 @@ Available methods and properties in C# JDI Light:
  |  |
  |  | 
 <br><br>
+
 
 ## JDI Light BDD Steps
 
@@ -5518,8 +5762,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 
 ### DataList
 
-Note: this element is an alias for ComboBox
-
+<p style="color:#FFA500">Note: this element is an alias for ComboBox</p>
 ```
 Datalist action examples:
 

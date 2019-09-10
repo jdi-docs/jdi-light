@@ -4560,6 +4560,38 @@ Available methods and properties in C# JDI Light:
  |  |
  <br>
  
+###Spinners
+ 
+**Border Spinner**
+
+Use the border spinners for a lightweight loading indicator.
+
+![Border Spinner Example](../images/bootstrap/borderspinner.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Border Spinner Example Code](../images/bootstrap/borderspinner-html.png)
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ 
+Available methods and properties in C# JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  |
+ |  |
+ <br>
+ 
 ####Card groups
 
 Use card groups to render cards as a single, attached element with equal width and height columns.

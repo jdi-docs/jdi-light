@@ -3875,6 +3875,109 @@ Available methods in Java JDI Light:
 
 ###Navbar
 
+####Supported content
+
+Navbars come with built-in support for a handful of sub-components. 
+
+Choose from the following as needed:
+
+    .navbar-brand for your company, product, or project name.
+    
+    .navbar-nav for a full-height and lightweight navigation (including support for dropdowns).
+    
+    .navbar-toggler for use with our collapse plugin and other navigation toggling behaviors.
+    
+    .form-inline for any form controls and actions.
+    
+    .navbar-text for adding vertically centered strings of text.
+    
+    .collapse.navbar-collapse for grouping and hiding navbar contents by a parent breakpoint.
+
+Here’s an example of all the sub-components included in a responsive light-themed navbar that automatically collapses at the lg (large) breakpoint.
+<br>
+1. Navbar with content <br>
+![Supported content](../images/bootstrap/navbar-supported-content-normal.png)<br>
+2. Collapsed navbar <br> 
+![Supported content](../images/bootstrap/navbar-supported-content-collapsed.png)<br>
+3. Uncollapsed navbar <br>
+![Supported content](../images/bootstrap/navbar-supported-content-uncollapsed.png)
+
+Here is an examples with provided Bootstrap v4.3 code:
+
+1. Navbar with content  
+![Supported content](../images/bootstrap/navbar-supported-content-normal-html.png)<br>
+2. Collapsed navbar <br> 
+![Supported content](../images/bootstrap/navbar-supported-content-collapsed-html.png)<br>
+3. Uncollapsed navbar <br>
+![Supported content](../images/bootstrap/navbar-supported-content-uncollapsed-html.png)
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ 
+
+Available methods and properties in C# JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  |
+ |  | 
+<br><br>
+
+####Brand
+
+The .navbar-brand can be applied to most elements, but an anchor works best as some elements might require utility classes or custom styles.
+<br>
+
+Navbar brand as a link <br>
+![Brand](../images/bootstrap/navbar-brand-link.png)<br>
+Navbar brand as heading <br> 
+![Brand](../images/bootstrap/navbar-brand-heading.png)<br>
+
+Adding images to the .navbar-brand will likely always require custom styles or utilities to properly size. Here are some examples to demonstrate.<br>
+
+![Brand](../images/bootstrap/navbar-brand-image.png)<br>
+![Brand](../images/bootstrap/navbar-brand-image-and-link.png)
+
+Here is an examples with provided Bootstrap v4.3 code:
+
+Navbar brand as a link <br>
+![Brand](../images/bootstrap/navbar-brand-link-html.png)<br>
+Navbar brand as heading <br> 
+![Brand](../images/bootstrap/navbar-brand-heading-html.png)<br>
+Navbar brand as image <br>
+![Brand](../images/bootstrap/navbar-brand-image-html.png)<br>
+Navbar brand as image and link <br> 
+![Brand](../images/bootstrap/navbar-brand-image-and-link-html.png)
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ 
+
+Available methods and properties in C# JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  |
+ |  | 
+<br><br>
 
 ####Nav
 
@@ -5273,111 +5376,6 @@ Form can consists of:
 Here is an example with provided Bootstrap v4.3 code:
   
 ![List group example](../images/bootstrap/bootstrap_form_code.png)
-
-Available methods in Java JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  | 
- 
-
-Available methods and properties in C# JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  |
- |  | 
-<br><br>
-
-### Navbar
-**Supported content**
-
-Navbars come with built-in support for a handful of sub-components. 
-
-Choose from the following as needed:
-
-    .navbar-brand for your company, product, or project name.
-    
-    .navbar-nav for a full-height and lightweight navigation (including support for dropdowns).
-    
-    .navbar-toggler for use with our collapse plugin and other navigation toggling behaviors.
-    
-    .form-inline for any form controls and actions.
-    
-    .navbar-text for adding vertically centered strings of text.
-    
-    .collapse.navbar-collapse for grouping and hiding navbar contents by a parent breakpoint.
-
-Here’s an example of all the sub-components included in a responsive light-themed navbar that automatically collapses at the lg (large) breakpoint.
-<br>
-1. Navbar with content <br>
-![Supported content](../images/bootstrap/navbar-supported-content-normal.png)<br>
-2. Collapsed navbar <br> 
-![Supported content](../images/bootstrap/navbar-supported-content-collapsed.png)<br>
-3. Uncollapsed navbar <br>
-![Supported content](../images/bootstrap/navbar-supported-content-uncollapsed.png)
-
-Here is an examples with provided Bootstrap v4.3 code:
-
-1. Navbar with content  
-![Supported content](../images/bootstrap/navbar-supported-content-normal-html.png)<br>
-2. Collapsed navbar <br> 
-![Supported content](../images/bootstrap/navbar-supported-content-collapsed-html.png)<br>
-3. Uncollapsed navbar <br>
-![Supported content](../images/bootstrap/navbar-supported-content-uncollapsed-html.png)
-
-Available methods in Java JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  | 
- 
-
-Available methods and properties in C# JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  |
- |  | 
-<br><br>
-
-**Brand**
-
-The .navbar-brand can be applied to most elements, but an anchor works best as some elements might require utility classes or custom styles.
-<br>
-
-Navbar brand as a link <br>
-![Brand](../images/bootstrap/navbar-brand-link.png)<br>
-Navbar brand as heading <br> 
-![Brand](../images/bootstrap/navbar-brand-heading.png)<br>
-
-Adding images to the .navbar-brand will likely always require custom styles or utilities to properly size. Here are some examples to demonstrate.<br>
-
-![Brand](../images/bootstrap/navbar-brand-image.png)<br>
-![Brand](../images/bootstrap/navbar-brand-image-and-link.png)
-
-Here is an examples with provided Bootstrap v4.3 code:
-
-Navbar brand as a link <br>
-![Brand](../images/bootstrap/navbar-brand-link-html.png)<br>
-Navbar brand as heading <br> 
-![Brand](../images/bootstrap/navbar-brand-heading-html.png)<br>
-Navbar brand as image <br>
-![Brand](../images/bootstrap/navbar-brand-image-html.png)<br>
-Navbar brand as image and link <br> 
-![Brand](../images/bootstrap/navbar-brand-image-and-link-html.png)
 
 Available methods in Java JDI Light:
 

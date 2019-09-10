@@ -3875,6 +3875,23 @@ Available methods in Java JDI Light:
 
 ###Navbar
 
+
+####Nav
+
+![Color Nav example](../images/bootstrap/nav.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Color Nav HTML example](../images/bootstrap/nav-html.png)
+
+**With dropdown**
+
+![Color Nav example](../images/bootstrap/nav-dropdown.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Color Nav HTML example](../images/bootstrap/nav-dropdown-html.png)
+
 ####Color schemes
 
 Theming the navbar has never been easier thanks to the combination of theming classes and background-color utilities.

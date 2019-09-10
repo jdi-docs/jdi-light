@@ -4496,7 +4496,85 @@ Available methods in Java JDI Light:
 **** |  | 
 **** |  |  
 
+### Tooltip
+**Tooltip** – is a hint that used in conjuction with a pointer.
 
+![Tooltip top](../images/bootstrap/tooltip_top.png)
+
+![Tooltip bottom](../images/bootstrap/tooltip_bottom.png)
+
+![Tooltip left](../images/bootstrap/tooltip_left.png)
+
+![Tooltip right](../images/bootstrap/tooltip_right.png)
+
+![Tooltip with title](../images/bootstrap/tooltip_with_html.png)
+
+![Tooltip disabled](../images/bootstrap/tooltip_disabled.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Tooltip example](../images/bootstrap/popover-html.png)
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ 
+
+Available methods and properties in C# JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  |
+ |  | 
+<br>
+
+### Popover
+**Popover** – is a pop-up box that appears when the user clicks on an element. The popover can contain header and a lot of content.
+
+![Popover with title](../images/bootstrap/popover_title.png)
+
+![Popover top](../images/bootstrap/popover_top.png)
+
+![Popover bottom](../images/bootstrap/popover_bottom.png)
+
+![Popover left](../images/bootstrap/popover_left.png)
+
+![Popover right](../images/bootstrap/popover_right.png)
+
+![Popover disabled](../images/bootstrap/popover_disabled.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Popover example](../images/bootstrap/popover-html.png)
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ 
+
+Available methods and properties in C# JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  |
+ |  | 
+<br>
 
 
 ## Bootstrap Complex elements

@@ -4572,24 +4572,26 @@ Available methods and properties in C# JDI Light:
   
   ![Card Mixins Utilities Example Code](../images/bootstrap/card-mixins-utilities-html.png)
   
-  Available methods in Java JDI Light:
-  
-  |Method | Description | Return Type
-  --- | --- | ---
-   |  | 
-   |  | 
-   |  | 
-   |  | 
-   |  | 
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ 
+Available methods and properties in C# JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  |
+ |  |
+ <br>
    
-  Available methods and properties in C# JDI Light:
-  
-  |Method/Property | Description | Return Type
-  --- | --- | ---
-   |  | 
-   |  | 
-   |  |
-   |  |
    <br>  **Card Columns**
  
 Card columns can also be extended and customized with some additional code. 
@@ -4601,25 +4603,25 @@ For example .card-columns class to generate a set of responsive tiers for changi
  
  ![Card Columns Example Code](../images/bootstrap/card-columns-html.png)
  
- Available methods in Java JDI Light:
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
  
- |Method | Description | Return Type
- --- | --- | ---
-  |  | 
-  |  | 
-  |  | 
-  |  | 
-  |  | 
-  
- Available methods and properties in C# JDI Light:
- 
- |Method/Property | Description | Return Type
- --- | --- | ---
-  |  | 
-  |  | 
-  |  |
-  |  |
-  <br>
+Available methods and properties in C# JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  |
+ |  |
+ <br>
    
 ###Spinners
  

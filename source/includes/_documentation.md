@@ -5179,6 +5179,53 @@ Available methods and properties in C# JDI Light:
  |  | 
 <br><br>
 
+**Brand**
+
+The .navbar-brand can be applied to most elements, but an anchor works best as some elements might require utility classes or custom styles.
+<br>
+
+Navbar brand as a link <br>
+![Brand](../images/bootstrap/navbar-brand-link.png)<br>
+Navbar brand as heading <br> 
+![Brand](../images/bootstrap/navbar-brand-heading.png)<br>
+
+Adding images to the .navbar-brand will likely always require custom styles or utilities to properly size. Here are some examples to demonstrate.<br>
+
+![Brand](../images/bootstrap/navbar-brand-image.png)
+![Brand](../images/bootstrap/navbar-brand-image-and-link.png)
+
+Here is an examples with provided Bootstrap v4.3 code:
+
+Navbar brand as a link <br>
+![Brand](../images/bootstrap/navbar-brand-link-html.png)<br>
+Navbar brand as heading <br> 
+![Brand](../images/bootstrap/navbar-brand-heading-html.png)<br>
+Navbar brand as image <br>
+![Brand](../images/bootstrap/navbar-brand-image-html.png)
+Navbar brand as image and link <br> 
+![Brand](../images/bootstrap/navbar-brand-image-and-link-html.png)
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ 
+
+Available methods and properties in C# JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  |
+ |  | 
+<br><br>
+
 ### Scrollspy
 **Scrollspy** – automatically update Bootstrap navigation or list group components based on scroll position to indicate which link is currently active in the viewport.
 <br>

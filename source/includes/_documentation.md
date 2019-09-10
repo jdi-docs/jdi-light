@@ -3750,13 +3750,32 @@ And here are methods available in Java:
  |  | 
  
 ### Buttons with dropdowns (Input group)
-**Buttons with dropdowns** – Multiple buttons have no detailed information on Bootstrap website
+**Buttons with dropdowns** – Buttons with dropdowns have no detailed information on Bootstrap website
 
 ![Buttons with dropdowns](../images/bootstrap/buttons_with_dropdowns.png)
 
 Here is an example with provided Bootstrap v4.3 code:
   
 ![Buttons with dropdowns example](../images/bootstrap/buttons_with_dropdowns_code.png)
+
+And here are methods available in Java:
+    
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  |  
+ 
+### Segmented buttons (Input group)
+**Segmented buttons** – Segmented buttons have no detailed information on Bootstrap website
+
+![Segmented buttons](../images/bootstrap/segmented_buttons.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Segmented buttons example](../images/bootstrap/segmented_buttons_code.png)
 
 And here are methods available in Java:
     

@@ -4417,6 +4417,37 @@ Available methods and properties in C# JDI Light:
  |  |
  <br>
 
+ **Card Border**
+
+Use border utilities to change just the border-color of a card. 
+Note that you can put .text-{color} classes on the parent .card or a subset of the card’s contents as shown below.
+
+![Card Borders Example](../images/bootstrap/cardborders.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Card Image Overlays Example Code](../images/bootstrap/cardborders-html.png)
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ 
+Available methods and properties in C# JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  |
+ |  |
+ <br>
+ 
 ####Card groups
 
 Use card groups to render cards as a single, attached element with equal width and height columns.

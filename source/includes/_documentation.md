@@ -3646,9 +3646,12 @@ And here are methods available in Java:
     
 |Method | Description | Return Type
 --- | --- | ---
-**getText()** |Get current value | String
-**isDisplayed()** |Show\wait that input field element displayed on the screen| Boolean
-**sendKeys()** |Set specific keys to input field|
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+
 
 ### Sizing (Input group)
 **Sizing** – Add the relative form sizing classes to the .input-group itself and contents within will automatically resize—no need for repeating the form control size classes on each element.
@@ -3664,9 +3667,11 @@ And here are methods available in Java:
     
 |Method | Description | Return Type
 --- | --- | ---
-**getText()** |Get current value | String
-**isDisplayed()** |Show\wait that input field element displayed on the screen| Boolean
-**sendKeys()** |Set specific keys to input field|
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
 
 ### Checkboxes and radios (Input group)
 **Checkboxes and radios** – Place any checkbox or radio option within an input group’s addon instead of text.
@@ -3681,10 +3686,68 @@ And here are methods available in Java:
     
 |Method | Description | Return Type
 --- | --- | ---
-**getText()** |Get current value | String
-**isDisplayed()** |Show\wait that input field element displayed on the screen| Boolean
-**sendKeys()** |Set specific keys to input field|
-**isSelected()** |Check if option has been selected| Boolean
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ 
+### Multiple inputs (Input group)
+**Multiple inputs** – While multiple <input>s are supported visually, validation styles are only available for input groups with a single <input>.
+
+![Multiple inputs](../images/bootstrap/multiple_inputs.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Multiple inputs example](../images/bootstrap/multiple_inputs_code.png)
+
+And here are methods available in Java:
+    
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  |  
+ 
+### Multiple addons (Input group)
+**Multiple addons** – Multiple add-ons are supported and can be mixed with checkbox and radio input versions.
+
+![Multiple addons](../images/bootstrap/multiple_addons.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Multiple addons example](../images/bootstrap/multiple_addons_code.png)
+
+And here are methods available in Java:
+    
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  |  
+ 
+### Button addons (Input group)
+**Button addons** – Multiple buttons have no detailed information on Bootstrap website
+
+![Button addons](../images/bootstrap/button_addons.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Button addons example](../images/bootstrap/button_addons_code.png)
+
+And here are methods available in Java:
+    
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
 
 ###Badge
 **1) Badge** - Element that scale to match the size of the immediate parent element by using relative font sizing and em units.<br>

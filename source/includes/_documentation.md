@@ -4560,6 +4560,67 @@ Available methods and properties in C# JDI Light:
  |  |
  <br>
  
+  
+  **Card Mixins Utilities**
+  
+  You can also change the borders on the card header and footer as needed, and even remove their background-color
+  with .bg-transparent.
+  
+  ![Card Mixins Utilities Example](../images/bootstrap/card-mixins-utilities.png)
+  
+  Here is an example with provided Bootstrap v4.3 code:
+  
+  ![Card Mixins Utilities Example Code](../images/bootstrap/card-mixins-utilities-html.png)
+  
+  Available methods in Java JDI Light:
+  
+  |Method | Description | Return Type
+  --- | --- | ---
+   |  | 
+   |  | 
+   |  | 
+   |  | 
+   |  | 
+   
+  Available methods and properties in C# JDI Light:
+  
+  |Method/Property | Description | Return Type
+  --- | --- | ---
+   |  | 
+   |  | 
+   |  |
+   |  |
+   <br>  **Card Columns**
+ 
+Card columns can also be extended and customized with some additional code. 
+For example .card-columns class to generate a set of responsive tiers for changing the number of columns.
+ 
+ ![Card Columns Example](../images/bootstrap/card-columns.png)
+ 
+ Here is an example with provided Bootstrap v4.3 code:
+ 
+ ![Card Columns Example Code](../images/bootstrap/card-columns-html.png)
+ 
+ Available methods in Java JDI Light:
+ 
+ |Method | Description | Return Type
+ --- | --- | ---
+  |  | 
+  |  | 
+  |  | 
+  |  | 
+  |  | 
+  
+ Available methods and properties in C# JDI Light:
+ 
+ |Method/Property | Description | Return Type
+ --- | --- | ---
+  |  | 
+  |  | 
+  |  |
+  |  |
+  <br>
+   
 ###Spinners
  
 **Border Spinner**

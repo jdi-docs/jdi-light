@@ -4841,6 +4841,75 @@ Available methods and properties in C# JDI Light:
  |  |
  <br>
  
+ **Colored Spinners**
+ 
+ The border spinner uses currentColor for its border-color, 
+ meaning you can customize the color with <a href="https://getbootstrap.com/docs/4.3/utilities/colors/" target="_blank">text color utilities</a>. 
+ You can use any of our text color utilities on the standard spinner.
+ 
+ >You can also use ``border-color`` utilities. 
+ >Each border spinner specifies a ``transparent`` border for at least one side,
+ > so ``.border-{color}`` utilities would override that.
+ 
+ ![Colored Spinners Example](../images/bootstrap/coloredspinners.png)
+ 
+ Here is an example with provided Bootstrap v4.3 code:
+ 
+ ![Colored Spinners Example Code](../images/bootstrap/coloredspinners-html.png)
+ 
+ Available methods in Java JDI Light:
+ 
+ |Method | Description | Return Type
+ --- | --- | ---
+  |  | 
+  |  | 
+  |  | 
+  |  | 
+  |  | 
+  
+ Available methods and properties in C# JDI Light:
+ 
+ |Method/Property | Description | Return Type
+ --- | --- | ---
+  |  | 
+  |  | 
+  |  |
+  |  |
+  <br>
+  
+**Growing Spinners**
+
+If you don’t fancy a border spinner, switch to the grow spinner.
+
+Once again, this spinner is built with currentColor, so you can easily change its appearance with <a href="https://getbootstrap.com/docs/4.3/utilities/colors/" target="_blank">text color utilities</a>. 
+Below it is in blue, along with the supported variants.
+
+![Growing Spinners Example](../images/bootstrap/growingspinners.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Growing Spinners Example Code](../images/bootstrap/growingspinners-html.png)
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ 
+Available methods and properties in C# JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  |
+ |  |
+ <br>
+ 
 ####Card groups
 
 Use card groups to render cards as a single, attached element with equal width and height columns.

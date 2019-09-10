@@ -7654,6 +7654,8 @@ TBD
 - **domain** – web application root URL (used if we work with one application in tests). Can be also read from the command line, e.g. _${domain}_
 - **page.load.strategy** - like in <a href="https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/capabilities_exports_PageLoadStrategy.html" target="_blank">Selenium strategies</a> to load the page. Options: _normal, eager, none_
 - **browser.size** - the size of the tested browser. By default, JDI Light will maximize browser, but we can set exact values.
+- **screenshot.strategy** - defines screenshoting strategy. If it set to "on fail" value, then when test fails, web element last processed will be highlighted and page screenshot will be taken, saved and added to Allure report as well, if possible. Options: _on fail, off_
+- **html.code.logging** - defines a strategy for writting html-code of the web element last processed before test failure to log. If it set to "on fail" value, then web element's html-code will be logged (and added to Allure report as well) when test fails, if possible. Options: _on fail, off_
 
 ## SoftAsserts
 

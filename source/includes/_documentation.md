@@ -4528,6 +4528,36 @@ Available methods and properties in C# JDI Light:
  |  |
  |  |
  <br>
+ 
+  **Card Background And Color**
+
+Use text and background utilities to change the appearance of a card.
+
+![Card Background And Color Example](../images/bootstrap/cardbackgroundandcolor.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Card Background And Color Code](../images/bootstrap/cardbackgroundandcolor-html.png)
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ 
+Available methods and properties in C# JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  |
+ |  |
+ <br>
 
  **Card Border**
 

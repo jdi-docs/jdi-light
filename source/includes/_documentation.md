@@ -4561,6 +4561,13 @@ Available methods and properties in C# JDI Light:
  <br>
  
 ###Spinners
+
+Bootstrap “spinners” can be used to show the loading state in your projects. 
+They’re built only with HTML and CSS, meaning you don’t need any JavaScript to create them. 
+You will, however, need some custom JavaScript to toggle their visibility. 
+Their appearance, alignment, and sizing can be easily customized with Bootstrap utility classes.
+
+For accessibility purposes, each loader in the examples below includes ``role="status"`` and a nested ``<span class="sr-only">Loading...</span>``.
  
 **Border Spinner**
 
@@ -4571,6 +4578,38 @@ Use the border spinners for a lightweight loading indicator.
 Here is an example with provided Bootstrap v4.3 code:
 
 ![Border Spinner Example Code](../images/bootstrap/borderspinner-html.png)
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ 
+Available methods and properties in C# JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  |
+ |  |
+ <br>
+ 
+**Colored Spinners**
+
+The border spinner uses currentColor for its border-color, 
+meaning you can customize the color with <a href="https://getbootstrap.com/docs/4.3/utilities/colors/" target="_blank">text color utilities</a>. 
+You can use any of our text color utilities on the standard spinner.
+
+![Colored Spinners Example](../images/bootstrap/coloredspinners.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Colored Spinners Example Code](../images/bootstrap/coloredspinners-html.png)
 
 Available methods in Java JDI Light:
 

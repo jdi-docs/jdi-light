@@ -3873,7 +3873,172 @@ Available methods in Java JDI Light:
 **** |  | 
 **** |  |  
 
+###Navbar
 
+####Supported content
+
+Navbars come with built-in support for a handful of sub-components. 
+
+Choose from the following as needed:
+
+    .navbar-brand for your company, product, or project name.
+    
+    .navbar-nav for a full-height and lightweight navigation (including support for dropdowns).
+    
+    .navbar-toggler for use with our collapse plugin and other navigation toggling behaviors.
+    
+    .form-inline for any form controls and actions.
+    
+    .navbar-text for adding vertically centered strings of text.
+    
+    .collapse.navbar-collapse for grouping and hiding navbar contents by a parent breakpoint.
+
+Here’s an example of all the sub-components included in a responsive light-themed navbar that automatically collapses at the lg (large) breakpoint.
+<br>
+1. Navbar with content <br>
+![Supported content](../images/bootstrap/navbar-supported-content-normal.png)<br>
+2. Collapsed navbar <br> 
+![Supported content](../images/bootstrap/navbar-supported-content-collapsed.png)<br>
+3. Uncollapsed navbar <br>
+![Supported content](../images/bootstrap/navbar-supported-content-uncollapsed.png)
+
+Here is an examples with provided Bootstrap v4.3 code:
+
+1. Navbar with content  
+![Supported content](../images/bootstrap/navbar-supported-content-normal-html.png)<br>
+2. Collapsed navbar <br> 
+![Supported content](../images/bootstrap/navbar-supported-content-collapsed-html.png)<br>
+3. Uncollapsed navbar <br>
+![Supported content](../images/bootstrap/navbar-supported-content-uncollapsed-html.png)
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ 
+
+Available methods and properties in C# JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  |
+ |  | 
+<br><br>
+
+####Brand
+
+The .navbar-brand can be applied to most elements, but an anchor works best as some elements might require utility classes or custom styles.
+<br>
+
+Navbar brand as a link <br>
+![Brand](../images/bootstrap/navbar-brand-link.png)<br>
+Navbar brand as heading <br> 
+![Brand](../images/bootstrap/navbar-brand-heading.png)<br>
+
+Adding images to the .navbar-brand will likely always require custom styles or utilities to properly size. Here are some examples to demonstrate.<br>
+
+![Brand](../images/bootstrap/navbar-brand-image.png)<br>
+![Brand](../images/bootstrap/navbar-brand-image-and-link.png)
+
+Here is an examples with provided Bootstrap v4.3 code:
+
+Navbar brand as a link <br>
+![Brand](../images/bootstrap/navbar-brand-link-html.png)<br>
+Navbar brand as heading <br> 
+![Brand](../images/bootstrap/navbar-brand-heading-html.png)<br>
+Navbar brand as image <br>
+![Brand](../images/bootstrap/navbar-brand-image-html.png)<br>
+Navbar brand as image and link <br> 
+![Brand](../images/bootstrap/navbar-brand-image-and-link-html.png)
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ 
+
+Available methods and properties in C# JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  |
+ |  | 
+<br><br>
+
+####Nav
+
+![Color Nav example](../images/bootstrap/nav.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Color Nav HTML example](../images/bootstrap/nav-html.png)
+
+**With dropdown**
+
+![Color Nav example](../images/bootstrap/nav-dropdown.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Color Nav HTML example](../images/bootstrap/nav-dropdown-html.png)
+
+####Color schemes
+
+Theming the navbar has never been easier thanks to the combination of theming classes and background-color utilities.
+Choose from .navbar-light for use with light background colors, or .navbar-dark for dark background colors. Then, customize with .bg-* utilities.
+
+![Color schemes example](../images/bootstrap/navbar-color-schemes.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Color schemes HTML example](../images/bootstrap/navbar-color-schemes-html.png)
+
+####Containers
+Although it’s not required, you can wrap a navbar in a .container to center it on a page or add one within to only center the contents of a fixed or static top navbar.
+
+![Containers schemes example](../images/bootstrap/navbar-containers.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Containers HTML example](../images/bootstrap/navbar-containers-html.png)
+
+When the container is within your navbar, its horizontal padding is removed at breakpoints lower than your specified .navbar-expand{-sm|-md|-lg|-xl} class.
+This ensures we’re not doubling up on padding unnecessarily on lower viewports when your navbar is collapsed.
+ 
+![Containers HTML example](../images/bootstrap/navbar-containers2-html.png)
+
+####Placement
+Use our position utilities to place navbars in non-static positions. Choose from fixed to the top, fixed to the bottom, or stickied to the top (scrolls with the page until it reaches the top, then stays there). Fixed navbars use position: fixed, meaning they’re pulled from the normal flow of the DOM and may require custom CSS (e.g., padding-top on the <body>) to prevent overlap with other elements.
+
+Also note that .sticky-top uses position: sticky, which isn’t fully supported in every browser.
+
+![Containers schemes example](../images/bootstrap/navbar-placement.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Containers HTML example](../images/bootstrap/navbar-placement-html.png)
+
+####External content
+Plugin to trigger hidden content elsewhere on the page.
+
+![Color Nav example](../images/bootstrap/navbar-external.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Color Nav HTML example](../images/bootstrap/navbar-external-html.png)
 
 ###Pagination
 
@@ -3922,6 +4087,65 @@ Available methods in Java JDI Light:
 **** |  | 
 **** |  |  
 
+
+###Progress
+
+Progress is custom progress bar featuring support for stacked bars, animated backgrounds, and text labels.
+
+![Progress example](../images/bootstrap/progress.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Progress HTML example](../images/bootstrap/progress-html.png)
+
+**With label**
+
+![Progress label example](../images/bootstrap/progress-label.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Progress label HTML example](../images/bootstrap/progress-label-html.png)
+
+
+**With backgrounds**
+
+![Progress backgroundsexample](../images/bootstrap/progress-backgrounds.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Progress backgrounds HTML example](../images/bootstrap/progress-backgrounds-html.png)
+
+**With multiple bars**
+
+![Progress multiple sexample](../images/bootstrap/progress-multiple.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Progress multiple HTML example](../images/bootstrap/progress-multiple-html.png)
+
+**With striped design**
+
+![Progress striped example](../images/bootstrap/progress-striped.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Progress striped HTML example](../images/bootstrap/progress-striped-html.png)
+
+**With animated design**
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Progress animated HTML example](../images/bootstrap/progress-animated-html.png)
+
+Available methods in Java JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+**** | TBD  | 
+**** |  |  
+**** |  | 
+**** |  | 
+**** |  |  
 
 
 ###Jumbotron
@@ -4023,6 +4247,20 @@ We hide them initially with .d-none and bring them back on medium-sized devices 
 Here is an example with provided Bootstrap v4.3 code:
   
 ![Carousel with captions HTML example](../images/bootstrap/carousel-with-captions-html.png)
+
+**Crossfade**<br>
+Add .carousel-fade to your carousel to animate slides with a fade transition instead of a slide.
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Carousel crossfade HTML example](../images/bootstrap/carousel-crossfade-html.png)
+
+**Individual .carousel-item interval**<br>
+Add data-interval="" to a .carousel-item to change the amount of time to delay between automatically cycling to the next item.
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Carousel example interval HTML example](../images/bootstrap/carousel-example-interval-html.png)
 
 
 ### List group
@@ -4514,6 +4752,36 @@ Available methods and properties in C# JDI Light:
  |  |
  |  |
  <br>
+ 
+  **Card Background And Color**
+
+Use text and background utilities to change the appearance of a card.
+
+![Card Background And Color Example](../images/bootstrap/cardbackgroundandcolor.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Card Background And Color Code](../images/bootstrap/cardbackgroundandcolor-html.png)
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ 
+Available methods and properties in C# JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  |
+ |  |
+ <br>
 
  **Card Border**
 
@@ -4526,6 +4794,69 @@ Here is an example with provided Bootstrap v4.3 code:
 
 ![Card Borders Example Code](../images/bootstrap/cardborders-html.png)
 
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ 
+Available methods and properties in C# JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  |
+ |  |
+ <br>
+ 
+  
+  **Card Mixins Utilities**
+  
+  You can also change the borders on the card header and footer as needed, and even remove their background-color
+  with .bg-transparent.
+  
+  ![Card Mixins Utilities Example](../images/bootstrap/card-mixins-utilities.png)
+  
+  Here is an example with provided Bootstrap v4.3 code:
+  
+  ![Card Mixins Utilities Example Code](../images/bootstrap/card-mixins-utilities-html.png)
+  
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ 
+Available methods and properties in C# JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  |
+ |  |
+ <br>
+   
+   <br>  **Card Columns**
+ 
+Card columns can also be extended and customized with some additional code. 
+For example .card-columns class to generate a set of responsive tiers for changing the number of columns.
+ 
+ ![Card Columns Example](../images/bootstrap/card-columns.png)
+ 
+ Here is an example with provided Bootstrap v4.3 code:
+ 
+ ![Card Columns Example Code](../images/bootstrap/card-columns-html.png)
+ 
 Available methods in Java JDI Light:
 
 |Method | Description | Return Type
@@ -4593,6 +4924,162 @@ Available methods in Java JDI Light:
 **** |  | 
 **** |  | 
 **** |  |  
+<br>
+
+###Spinners
+
+Bootstrap “spinners” can be used to show the loading state in your projects. 
+They’re built only with HTML and CSS, meaning you don’t need any JavaScript to create them. 
+You will, however, need some custom JavaScript to toggle their visibility. 
+Their appearance, alignment, and sizing can be easily customized with Bootstrap utility classes.
+
+For accessibility purposes, each loader in the examples below includes ``role="status"`` and a nested ``<span class="sr-only">Loading...</span>``.
+
+
+**Border Spinner**
+
+Use the border spinners for a lightweight loading indicator.
+
+![Border Spinner Example](../images/bootstrap/borderspinner.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Border Spinner HTML Example](../images/bootstrap/borderspinner-html.png)
+
+
+**Colored Spinners**
+ 
+The border spinner uses currentColor for its border-color, 
+meaning you can customize the color with <a href="https://getbootstrap.com/docs/4.3/utilities/colors/" target="_blank">text color utilities</a>. 
+You can use any of our text color utilities on the standard spinner.
+
+![Colored Spinners Example](../images/bootstrap/coloredspinners.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Colored Spinners HTML Example](../images/bootstrap/coloredspinners-html.png)
+
+
+**Growing Spinners**
+
+If you don’t fancy a border spinner, switch to the grow spinner.
+
+Once again, this spinner is built with currentColor, so you can easily change its appearance with <a href="https://getbootstrap.com/docs/4.3/utilities/colors/" target="_blank">text color utilities</a>. 
+Below it is in blue, along with the supported variants.
+
+![Growing Spinners Example](../images/bootstrap/growingspinners.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Growing Spinners HTML Example](../images/bootstrap/growingspinners-html.png)
+
+
+**Spinner Alignment**
+
+Spinners in Bootstrap are built with ``rem``s, ``currentColor``, and ``display: inline-flex``. 
+This means they can easily be resized, recolored, and quickly aligned.
+
+
+**Spinner Margin**
+
+Use margin utilities like ``.m-5`` for easy spacing.
+
+![Spinner Margin Example](../images/bootstrap/spinnermargin.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Spinner Margin HTML Example](../images/bootstrap/spinnermargin-html.png)
+
+
+**Spinner Placement**
+
+Use <a href="https://getbootstrap.com/docs/4.3/utilities/flex/" target="_blank">flexbox utilities</a>,
+<a href="https://getbootstrap.com/docs/4.3/utilities/float/" target="_blank">float utilities</a>, or <a href="https://getbootstrap.com/docs/4.3/content/typography/">text alignment</a> utilities
+to place spinners exactly where you need them in any situation.
+
+
+**Spinner Flex**
+
+![Spinner Flex Center Example](../images/bootstrap/spinner-flex-center.png)
+
+![Spinner Flex Center HTML Example](../images/bootstrap/spinner-flex-right.png)
+
+Here are the examples with provided Bootstrap v4.3 code:
+
+![Spinner Flex Right Example](../images/bootstrap/spinner-flex-center-html.png)
+
+![Spinner Flex Right HTML Example](../images/bootstrap/spinner-flex-right-html.png)
+
+
+**Spinner Floats**
+
+![Spinner Float Right Example](../images/bootstrap/spinnerfloat.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Spinner Float Right HTML Example](../images/bootstrap/spinnerfloat-html.png)
+
+
+**Spinner Text Align**
+
+![Spinner Text Align Center Example](../images/bootstrap/spinner-text-align.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Spinner Text Align Center HTML Example](../images/bootstrap/spinner-text-align-html.png)
+
+
+**Spinner Size**
+
+Add ``.spinner-border-sm`` and ``.spinner-grow-sm`` to make a smaller spinner 
+that can quickly be used within other components.
+
+![Spinner Size Native Example](../images/bootstrap/spinner-size-native.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Spinner Size Native HTML Example](../images/bootstrap/spinner-size-native-html.png)
+
+
+Or, use custom CSS or inline styles to change the dimensions as needed.
+
+![Spinner Size CSS Example](../images/bootstrap/spinner-size-css.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Spinner Size CSS HTML Example](../images/bootstrap/spinner-size-css-html.png)
+
+
+**Spinner Buttons**
+
+Use spinners within buttons to indicate an action is currently processing or taking place. 
+You may also swap the text out of the spinner element and utilize button text as needed.
+
+![Spinner Buttons Example](../images/bootstrap/spinnerbuttons.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Spinner Buttons HTML Example](../images/bootstrap/spinnerbuttons-html.png)
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ 
+Available methods and properties in C# JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  |
+ |  |
+ <br>
 
 ### Tooltip
 **Tooltip** – is a hint that used in conjuction with a pointer.
@@ -7225,6 +7712,8 @@ TBD
 - **domain** – web application root URL (used if we work with one application in tests). Can be also read from the command line, e.g. _${domain}_
 - **page.load.strategy** - like in <a href="https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/capabilities_exports_PageLoadStrategy.html" target="_blank">Selenium strategies</a> to load the page. Options: _normal, eager, none_
 - **browser.size** - the size of the tested browser. By default, JDI Light will maximize browser, but we can set exact values.
+- **screenshot.strategy** - defines screenshoting strategy. If it set to "on fail" value, then when test fails, web element last processed will be highlighted and page screenshot will be taken, saved and added to Allure report as well, if possible. Options: _on fail, off_
+- **html.code.logging** - defines a strategy for writting html-code of the web element last processed before test failure to log. If it set to "on fail" value, then web element's html-code will be logged (and added to Allure report as well) when test fails, if possible. Options: _on fail, off_
 
 ## SoftAsserts
 

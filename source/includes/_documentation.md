@@ -4924,7 +4924,7 @@ Available methods in Java JDI Light:
 **** |  | 
 **** |  | 
 **** |  |  
-
+<br>
 
 ###Spinners
 
@@ -4934,7 +4934,8 @@ You will, however, need some custom JavaScript to toggle their visibility.
 Their appearance, alignment, and sizing can be easily customized with Bootstrap utility classes.
 
 For accessibility purposes, each loader in the examples below includes ``role="status"`` and a nested ``<span class="sr-only">Loading...</span>``.
- 
+
+
 **Border Spinner**
 
 Use the border spinners for a lightweight loading indicator.
@@ -4943,7 +4944,8 @@ Use the border spinners for a lightweight loading indicator.
 
 Here is an example with provided Bootstrap v4.3 code:
 
-![Border Spinner Example Code](../images/bootstrap/borderspinner-html.png)
+![Border Spinner HTML Example](../images/bootstrap/borderspinner-html.png)
+
 
 **Colored Spinners**
  
@@ -4955,7 +4957,8 @@ You can use any of our text color utilities on the standard spinner.
 
 Here is an example with provided Bootstrap v4.3 code:
 
-![Colored Spinners Example Code](../images/bootstrap/coloredspinners-html.png)
+![Colored Spinners HTML Example](../images/bootstrap/coloredspinners-html.png)
+
 
 **Growing Spinners**
 
@@ -4968,12 +4971,14 @@ Below it is in blue, along with the supported variants.
 
 Here is an example with provided Bootstrap v4.3 code:
 
-![Growing Spinners Example Code](../images/bootstrap/growingspinners-html.png)
+![Growing Spinners HTML Example](../images/bootstrap/growingspinners-html.png)
+
 
 **Spinner Alignment**
 
 Spinners in Bootstrap are built with ``rem``s, ``currentColor``, and ``display: inline-flex``. 
 This means they can easily be resized, recolored, and quickly aligned.
+
 
 **Spinner Margin**
 
@@ -4985,13 +4990,15 @@ Here is an example with provided Bootstrap v4.3 code:
 
 ![Spinner Margin HTML Example](../images/bootstrap/spinnermargin-html.png)
 
+
 **Spinner Placement**
 
 Use <a href="https://getbootstrap.com/docs/4.3/utilities/flex/" target="_blank">flexbox utilities</a>,
 <a href="https://getbootstrap.com/docs/4.3/utilities/float/" target="_blank">float utilities</a>, or <a href="https://getbootstrap.com/docs/4.3/content/typography/">text alignment</a> utilities
 to place spinners exactly where you need them in any situation.
 
-**Flex**
+
+**Spinner Flex**
 
 ![Spinner Flex Center Example](../images/bootstrap/spinner-flex-center.png)
 
@@ -5003,6 +5010,7 @@ Here are the examples with provided Bootstrap v4.3 code:
 
 ![Spinner Flex Right HTML Example](../images/bootstrap/spinner-flex-right-html.png)
 
+
 **Spinner Floats**
 
 ![Spinner Float Right Example](../images/bootstrap/spinnerfloat.png)
@@ -5011,6 +5019,7 @@ Here is an example with provided Bootstrap v4.3 code:
 
 ![Spinner Float Right HTML Example](../images/bootstrap/spinnerfloat-html.png)
 
+
 **Spinner Text Align**
 
 ![Spinner Text Align Center Example](../images/bootstrap/spinner-text-align.png)
@@ -5018,6 +5027,7 @@ Here is an example with provided Bootstrap v4.3 code:
 Here is an example with provided Bootstrap v4.3 code:
 
 ![Spinner Text Align Center HTML Example](../images/bootstrap/spinner-text-align-html.png)
+
 
 **Spinner Size**
 
@@ -5038,6 +5048,18 @@ Or, use custom CSS or inline styles to change the dimensions as needed.
 Here is an example with provided Bootstrap v4.3 code:
 
 ![Spinner Size CSS HTML Example](../images/bootstrap/spinner-size-css-html.png)
+
+
+**Spinner Buttons**
+
+Use spinners within buttons to indicate an action is currently processing or taking place. 
+You may also swap the text out of the spinner element and utilize button text as needed.
+
+![Spinner Buttons Example](../images/bootstrap/spinnerbuttons.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Spinner Buttons HTML Example](../images/bootstrap/spinnerbuttons-html.png)
 
 Available methods in Java JDI Light:
 

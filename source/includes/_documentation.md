@@ -5698,18 +5698,12 @@ Available methods and properties in C# JDI Light:
 <br>
 1. Scrollspy in navbar <br>
 ![Scrollspy](../images/bootstrap/scroll_spy1.png)<br>
+![Scrollspy](../images/bootstrap/scroll_spy1_html.png)<br>
 2. Scrollspy with nested nav <br> 
 ![Scrollspy](../images/bootstrap/scroll_spy2.png)<br>
-3. Scrollspy with list-group <br>
-![Scrollspy](../images/bootstrap/scroll_spy3.png)
-
-Here is an examples with provided Bootstrap v4.3 code:
-
-1. Scrollspy in navbar  
-![Scrollspy](../images/bootstrap/scroll_spy1_html.png)<br>
-2. Scrollspy with nested nav 
 ![Scrollspy](../images/bootstrap/scroll_spy2_html.png)<br>
-3. Scrollspy with list-group
+3. Scrollspy with list-group <br>
+![Scrollspy](../images/bootstrap/scroll_spy3.png)<br>
 ![Scrollspy](../images/bootstrap/scroll_spy3_html.png)
 
 Available methods in Java JDI Light:

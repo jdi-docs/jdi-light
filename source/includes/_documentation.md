@@ -4071,7 +4071,7 @@ Here is an example with provided Bootstrap v4.3 code:
   
 ![Color Nav HTML example](../images/bootstrap/nav-dropdown-html.png)
 
-####OLI_Forms
+####Forms
 
 Place various form controls and components within a navbar with .form-inline.
 
@@ -4116,7 +4116,7 @@ Available methods and properties in C# JDI Light:
  |  | 
 <br><br>
 
-####OLI_Text
+####Text
 
 Navbars may contain bits of text with the help of .navbar-text. 
 This class adjusts vertical alignment and horizontal spacing for strings of text.

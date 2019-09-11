@@ -4710,7 +4710,38 @@ Available methods and properties in C# JDI Light:
  <br>
  
  
+ **Card with Grid Markup**
  
+ Using the grid, wrap cards in columns and rows as needed.
+ 
+ ![Card with Header and Footer Example](../images/bootstrap/card_grid.png)
+ 
+ Here is an example with provided Bootstrap v4.3 code:
+ 
+ ![Card with Header and Footer Code](../images/bootstrap/card_grid_html.png)
+ 
+ Available methods in Java JDI Light:
+ 
+ |Method | Description | Return Type
+ --- | --- | ---
+  |  | 
+  |  | 
+  |  | 
+  |  | 
+  |  | 
+  
+ Available methods and properties in C# JDI Light:
+ 
+ |Method/Property | Description | Return Type
+ --- | --- | ---
+  |  | 
+  |  | 
+  |  |
+  |  |
+  <br>
+ 
+ 
+
  
  **Card utilities**
   

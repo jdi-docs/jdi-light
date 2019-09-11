@@ -4876,7 +4876,56 @@ Available methods and properties in C# JDI Light:
  |  |
  |  |
  <br>
-   
+ 
+####Card groups
+
+Use card groups to render cards as a single, attached element with equal width and height columns.
+
+![Card_groups example](../images/bootstrap/card-groups.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Card_groups HTML example](../images/bootstrap/card-groups-html.png)
+
+**Card groups with footer**
+
+![Card_groups example](../images/bootstrap/card-groups-with-footer.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Card_groups HTML example](../images/bootstrap/card-groups-with-footer-html.png)
+
+
+####Card decks
+
+Use card decks for a set of equal width and height cards that aren’t attached to one another.
+
+![Card_groups example](../images/bootstrap/card-decks.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Card_groups HTML example](../images/bootstrap/card-decks-html.png)
+
+**Card groups with footer**
+
+![Card_groups example](../images/bootstrap/card-decks-with-footer.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Card_groups HTML example](../images/bootstrap/card-decks-with-footer-html.png)
+
+
+Available methods in Java JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+**** | TBD  | 
+**** |  |  
+**** |  | 
+**** |  | 
+**** |  |  
+
+
 ###Spinners
 
 Bootstrap “spinners” can be used to show the loading state in your projects. 
@@ -4928,26 +4977,6 @@ Here is an example with provided Bootstrap v4.3 code:
 
 ![Colored Spinners Example Code](../images/bootstrap/coloredspinners-html.png)
 
-Available methods in Java JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  | 
- 
-Available methods and properties in C# JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  |
- |  |
- <br>
-
 **Growing Spinners**
 
 If you don’t fancy a border spinner, switch to the grow spinner.
@@ -4961,27 +4990,6 @@ Here is an example with provided Bootstrap v4.3 code:
 
 ![Growing Spinners Example Code](../images/bootstrap/growingspinners-html.png)
 
-Available methods in Java JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  | 
- 
-Available methods and properties in C# JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  |
- |  |
- <br>
- 
- 
 **Spinner Alignment**
 
 Spinners in Bootstrap are built with ``rem``s, ``currentColor``, and ``display: inline-flex``. 
@@ -5031,27 +5039,6 @@ Here is an example with provided Bootstrap v4.3 code:
 
 ![Spinner Text Align Center HTML Example](../images/bootstrap/spinner-text-align-html.png)
 
-Available methods in Java JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  | 
- 
-Available methods and properties in C# JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  |
- |  |
- <br>
- 
-
 **Spinner Size**
 
 Add ``.spinner-border-sm`` and ``.spinner-grow-sm`` to make a smaller spinner 
@@ -5071,54 +5058,26 @@ Or, use custom CSS or inline styles to change the dimensions as needed.
 Here is an example with provided Bootstrap v4.3 code:
 
 ![Spinner Size CSS HTML Example](../images/bootstrap/spinner-size-css-html.png)
- 
-####Card groups
-
-Use card groups to render cards as a single, attached element with equal width and height columns.
-
-![Card_groups example](../images/bootstrap/card-groups.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-  
-![Card_groups HTML example](../images/bootstrap/card-groups-html.png)
-
-**Card groups with footer**
-
-![Card_groups example](../images/bootstrap/card-groups-with-footer.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-  
-![Card_groups HTML example](../images/bootstrap/card-groups-with-footer-html.png)
-
-
-####Card decks
-
-Use card decks for a set of equal width and height cards that aren’t attached to one another.
-
-![Card_groups example](../images/bootstrap/card-decks.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-  
-![Card_groups HTML example](../images/bootstrap/card-decks-html.png)
-
-**Card groups with footer**
-
-![Card_groups example](../images/bootstrap/card-decks-with-footer.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-  
-![Card_groups HTML example](../images/bootstrap/card-decks-with-footer-html.png)
-
 
 Available methods in Java JDI Light:
 
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ 
+Available methods and properties in C# JDI Light:
+
 |Method/Property | Description | Return Type
 --- | --- | ---
-**** | TBD  | 
-**** |  |  
-**** |  | 
-**** |  | 
-**** |  |  
+ |  | 
+ |  | 
+ |  |
+ |  |
+ <br>
 
 ### Tooltip
 **Tooltip** – is a hint that used in conjuction with a pointer.

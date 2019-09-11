@@ -4083,11 +4083,15 @@ Here is an example with provided Bootstrap v4.3 code:
   
 ![Forms HTML example](../images/bootstrap/navbar-forms1-html.png)
 
+Immediate children elements in .navbar use flex layout and will default to justify-content: between.
+
 ![Forms example](../images/bootstrap/navbar-forms2.png)
 
 Here is an example with provided Bootstrap v4.3 code:
   
 ![Forms HTML example](../images/bootstrap/navbar-forms2-html.png)
+
+Input groups work, too:
 
 ![Forms example](../images/bootstrap/navbar-forms3.png)
 
@@ -4128,6 +4132,8 @@ This class adjusts vertical alignment and horizontal spacing for strings of text
 Here is an example with provided Bootstrap v4.3 code:
   
 ![Text HTML example](../images/bootstrap/navbar-text1-html.png)
+
+Mix and match with other components and utilities as needed.
 
 ![Text example](../images/bootstrap/navbar-text2.png)
 

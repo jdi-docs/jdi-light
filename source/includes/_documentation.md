@@ -4743,6 +4743,87 @@ Here is an example form in the menu items:
 
 ![Form HTML example](../images/bootstrap/dropdown-menu-content-form-html.png)
 
+### Toast
+Toasts are lightweight notifications designed to mimic the push notifications.
+<br>
+Options for toasts:
+<br />
+ - _Animation<br/>_
+ - _Autohide <br/>_
+ - _Delay <br/>_
+ <br/>
+Events for toasts:
+<br>
+  - _show.bs.toast	This event fires immediately when the show instance method is called.<br/>_
+  - _shown.bs.toast	This event is fired when the toast has been made visible to the user<br/>_
+  - _hide.bs.toast	This event is fired immediately when the hide instance method has been called.<br/>_
+  - _hidden.bs.toast	This event is fired when the toast has finished being hidden from the user<br/>_
+**Placement**
+<br>
+Place toasts with custom CSS as you need them. The top right is often used for notifications, as is the top middle.
+<br />
+
+
+![Toast example](../images/bootstrap/toast.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Toast HTML example](../images/bootstrap/toast_html.png)
+
+**Stacking**<br />
+When you have multiple toasts, we default to vertically stacking them in a readable manner
+
+![Toast stack example](../images/bootstrap/stack_of_toast.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Toast stack HTML example](../images/bootstrap/stack_of_toasts_html.png)
+
+
+Example with top right align:
+
+![Toast top right example](../images/bootstrap/toast_align.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Toast top right  HTML example](../images/bootstrap/toast_align_html.png)
+
+Example with top right align stack of toasts:
+
+![Toast top right stack example](../images/bootstrap/stack_top_html.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Toast top right stack HTML example](../images/bootstrap/stack_top_align_html.png)
+
+Example with center align stack of toasts:
+
+![Toast top right stack example](../images/bootstrap/toast_center.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Toast top right stack HTML example](../images/bootstrap/toast_center_html.png)
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  |  
+
+Available methods and properties in C# JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  |
+ |  | 
+<br><br>
+
 
 ## Bootstrap Composite elements
 ### Forms

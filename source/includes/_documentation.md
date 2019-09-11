@@ -4945,26 +4945,6 @@ Here is an example with provided Bootstrap v4.3 code:
 
 ![Border Spinner Example Code](../images/bootstrap/borderspinner-html.png)
 
-Available methods in Java JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  | 
- 
-Available methods and properties in C# JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  |
- |  |
- <br>
-
 **Colored Spinners**
  
 The border spinner uses currentColor for its border-color, 

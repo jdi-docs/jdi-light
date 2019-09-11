@@ -5459,13 +5459,13 @@ Available methods and properties in C# JDI Light:
 
 Here are examples of the modals with provided Bootstrap v4.3 code:
 
-Simple Modal with elements example
+*Example:* Simple Modal with elements
 
 ![Modal composite](../images/bootstrap/modal_composite.png)
 
 ![Modal composite](../images/bootstrap/modal-html.png)
 
-Modal scrollable example
+*Example:* Modal scrollable
 
 ![Modal long scrollable](../images/bootstrap/modal_scrollable1.png)
 
@@ -5473,7 +5473,7 @@ Modal scrollable example
 
 ![Modal scrollable example](../images/bootstrap/modal_scrollable-html.png)
 
-Modal centered example
+*Example:* Modal centered
 
 ![Modal centered](../images/bootstrap/modal_centered.png)
 

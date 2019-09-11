@@ -4197,6 +4197,68 @@ Also note that .sticky-top uses position: sticky, which isn’t fully supported 
 Here is an example with provided Bootstrap v4.3 code:
   
 ![Containers HTML example](../images/bootstrap/navbar-placement-html.png)
+<br>
+
+####Responsive behaviors
+
+Navbars can utilize ``.navbar-toggler``, ``.navbar-collapse``, and ``.navbar-expand{-sm|-md|-lg|-xl}`` classes to change when their content collapses behind a button. 
+In combination with other utilities, you can easily choose when to show or hide particular elements.
+
+For navbars that never collapse, add the ``.navbar-expand`` class on the navbar. 
+For navbars that always collapse, don’t add any ``.navbar-expand`` class.
+
+####Navbar Toggler
+
+Navbar togglers are left-aligned by default, but should they follow a sibling element like a ``.navbar-brand``, they’ll automatically be aligned to the far right. 
+Reversing your markup will reverse the placement of the toggler. 
+Below are examples of different toggle styles.
+
+**1. With no ``.navbar-brand`` shown in lowest breakpoint**
+
+``FullScreen``
+![No .navbar-brand full screen example](../images/bootstrap/nobrand-lg.png)
+
+``Collapsed``
+![No .navbar-brand collapsed example](../images/bootstrap/nobrand-collapsed.png)
+
+``Expanded``
+![No .navbar-brand expanded example](../images/bootstrap/nobrand-expanded.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![No .navbar-brand HTML example](../images/bootstrap/nobrand-html.png)
+
+**2. With a brand name shown on the left and toggler on the right**
+
+``FullScreen``
+![Toggler Right FullScreen example](../images/bootstrap/toggler-right-lg.png)
+
+``Collapsed``
+![Toggler Right Collapsed example](../images/bootstrap/toggler-right-collapsed.png)
+
+``Expanded``
+![Toggler Right Expanded example](../images/bootstrap/toggler-right-expanded.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Toggler Right HTML example](../images/bootstrap/toggler-right-html.png)
+
+**3. With a toggler on the left and brand name on the right**
+
+``FullScreen``
+![Toggler Left FullScreen example](../images/bootstrap/toggler-left-lg.png)
+
+``Collapsed``
+![Toggler Left Collapsed example](../images/bootstrap/toggler-left-collapsed.png)
+
+``Expanded``
+![Toggler Left Expanded example](../images/bootstrap/toggler-left-expanded.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Toggler Left HTML example](../images/bootstrap/toggler-left-html.png)
+
+<br>
 
 ####External content
 Plugin to trigger hidden content elsewhere on the page.

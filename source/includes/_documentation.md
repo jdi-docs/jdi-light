@@ -4926,6 +4926,36 @@ Available methods in Java JDI Light:
 **** |  |  
 <br>
 
+####Card Horizontal
+
+Using a combination of grid and utility classes, cards can be made horizontal in a mobile-friendly and responsive way.
+
+![Card horizontal example](../images/bootstrap/card_horizontal.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Card horizontal example](../images/bootstrap/card_horizontal-html.png)
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ 
+Available methods and properties in C# JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  |
+ |  |
+ <br>
+
 ###Spinners
 
 Bootstrap “spinners” can be used to show the loading state in your projects. 

@@ -5457,16 +5457,10 @@ Available methods and properties in C# JDI Light:
 ### Dropdown
 **Dropdown** – a graphical control element, that allows the user to choose one value from a list.
 
-![Dropdown example](../images/bootstrap/dropdown.png)
-
 Dropdown is located in the following classes:
  
   - __Java__: TBD
   - __C#__: TBD
-  
-Here is an example with provided Bootstrap v4.3 code:
-  
-![Dropdown HTML example](../images/bootstrap/dropdown-html.png)
 
 Available methods in Java JDI Light:
 
@@ -5475,7 +5469,22 @@ TBD
 Available methods and properties in C# JDI Light:
 
 TBD
-<br>
+
+
+####Single button
+Any single .btn can be turned into a dropdown toggle with some markup changes. Here’s how you can put them to work with either `<button>` elements:
+
+![Dropdown example](../images/bootstrap/dropdown.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Dropdown HTML example](../images/bootstrap/dropdown-html.png)
+
+And with `<a>` elements:
+
+![Dropdown link HTML example](../images/bootstrap/dropdown-link-html.png)
+
+
 #### Split button
 Similarly, create split button dropdowns with virtually the same markup as single button dropdowns, but with the addition of .dropdown-toggle-split for proper spacing around the dropdown caret.
 

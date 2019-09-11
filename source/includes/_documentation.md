@@ -4107,6 +4107,14 @@ Here is an example with provided Bootstrap v4.3 code:
   
 ![Containers HTML example](../images/bootstrap/navbar-placement-html.png)
 
+####External content
+Plugin to trigger hidden content elsewhere on the page.
+
+![Color Nav example](../images/bootstrap/navbar-external.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Color Nav HTML example](../images/bootstrap/navbar-external-html.png)
 
 ###Pagination
 
@@ -4944,180 +4952,6 @@ Available methods and properties in C# JDI Light:
  |  |
  |  |
  <br>
-   
-###Spinners
-
-Bootstrap “spinners” can be used to show the loading state in your projects. 
-They’re built only with HTML and CSS, meaning you don’t need any JavaScript to create them. 
-You will, however, need some custom JavaScript to toggle their visibility. 
-Their appearance, alignment, and sizing can be easily customized with Bootstrap utility classes.
-
-For accessibility purposes, each loader in the examples below includes ``role="status"`` and a nested ``<span class="sr-only">Loading...</span>``.
- 
-**Border Spinner**
-
-Use the border spinners for a lightweight loading indicator.
-
-![Border Spinner Example](../images/bootstrap/borderspinner.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-
-![Border Spinner Example Code](../images/bootstrap/borderspinner-html.png)
-
-Available methods in Java JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  | 
- 
-Available methods and properties in C# JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  |
- |  |
- <br>
-
-**Colored Spinners**
- 
-The border spinner uses currentColor for its border-color, 
-meaning you can customize the color with <a href="https://getbootstrap.com/docs/4.3/utilities/colors/" target="_blank">text color utilities</a>. 
-You can use any of our text color utilities on the standard spinner.
-
-![Colored Spinners Example](../images/bootstrap/coloredspinners.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-
-![Colored Spinners Example Code](../images/bootstrap/coloredspinners-html.png)
-
-Available methods in Java JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  | 
- 
-Available methods and properties in C# JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  |
- |  |
- <br>
-
-**Growing Spinners**
-
-If you don’t fancy a border spinner, switch to the grow spinner.
-
-Once again, this spinner is built with currentColor, so you can easily change its appearance with <a href="https://getbootstrap.com/docs/4.3/utilities/colors/" target="_blank">text color utilities</a>. 
-Below it is in blue, along with the supported variants.
-
-![Growing Spinners Example](../images/bootstrap/growingspinners.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-
-![Growing Spinners Example Code](../images/bootstrap/growingspinners-html.png)
-
-Available methods in Java JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  | 
- 
-Available methods and properties in C# JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  |
- |  |
- <br>
- 
- 
-**Spinner Alignment**
-
-Spinners in Bootstrap are built with ``rem``s, ``currentColor``, and ``display: inline-flex``. 
-This means they can easily be resized, recolored, and quickly aligned.
-
-**Spinner Margin**
-
-Use margin utilities like ``.m-5`` for easy spacing.
-
-![Spinner Margin Example](../images/bootstrap/spinnermargin.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-
-![Spinner Margin HTML Example](../images/bootstrap/spinnermargin-html.png)
-
-**Spinner Placement**
-
-Use <a href="https://getbootstrap.com/docs/4.3/utilities/flex/" target="_blank">flexbox utilities</a>,
-<a href="https://getbootstrap.com/docs/4.3/utilities/float/" target="_blank">float utilities</a>, or <a href="https://getbootstrap.com/docs/4.3/content/typography/">text alignment</a> utilities
-to place spinners exactly where you need them in any situation.
-
-**Flex**
-
-![Spinner Flex Center Example](../images/bootstrap/spinner-flex-center.png)
-
-![Spinner Flex Center HTML Example](../images/bootstrap/spinner-flex-right.png)
-
-Here are the examples with provided Bootstrap v4.3 code:
-
-![Spinner Flex Right Example](../images/bootstrap/spinner-flex-center-html.png)
-
-![Spinner Flex Right HTML Example](../images/bootstrap/spinner-flex-right-html.png)
-
-**Spinner Floats**
-
-![Spinner Float Right Example](../images/bootstrap/spinnerfloat.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-
-![Spinner Float Right HTML Example](../images/bootstrap/spinnerfloat-html.png)
-
-**Spinner Text Align**
-
-![Spinner Text Align Center Example](../images/bootstrap/spinner-text-align.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-
-![Spinner Text Align Center HTML Example](../images/bootstrap/spinner-text-align-html.png)
-
-Available methods in Java JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  | 
- 
-Available methods and properties in C# JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  |
- |  |
- <br>
  
 ####Card groups
 
@@ -5166,6 +5000,162 @@ Available methods in Java JDI Light:
 **** |  | 
 **** |  | 
 **** |  |  
+<br>
+
+###Spinners
+
+Bootstrap “spinners” can be used to show the loading state in your projects. 
+They’re built only with HTML and CSS, meaning you don’t need any JavaScript to create them. 
+You will, however, need some custom JavaScript to toggle their visibility. 
+Their appearance, alignment, and sizing can be easily customized with Bootstrap utility classes.
+
+For accessibility purposes, each loader in the examples below includes ``role="status"`` and a nested ``<span class="sr-only">Loading...</span>``.
+
+
+**Border Spinner**
+
+Use the border spinners for a lightweight loading indicator.
+
+![Border Spinner Example](../images/bootstrap/borderspinner.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Border Spinner HTML Example](../images/bootstrap/borderspinner-html.png)
+
+
+**Colored Spinners**
+ 
+The border spinner uses currentColor for its border-color, 
+meaning you can customize the color with <a href="https://getbootstrap.com/docs/4.3/utilities/colors/" target="_blank">text color utilities</a>. 
+You can use any of our text color utilities on the standard spinner.
+
+![Colored Spinners Example](../images/bootstrap/coloredspinners.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Colored Spinners HTML Example](../images/bootstrap/coloredspinners-html.png)
+
+
+**Growing Spinners**
+
+If you don’t fancy a border spinner, switch to the grow spinner.
+
+Once again, this spinner is built with currentColor, so you can easily change its appearance with <a href="https://getbootstrap.com/docs/4.3/utilities/colors/" target="_blank">text color utilities</a>. 
+Below it is in blue, along with the supported variants.
+
+![Growing Spinners Example](../images/bootstrap/growingspinners.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Growing Spinners HTML Example](../images/bootstrap/growingspinners-html.png)
+
+
+**Spinner Alignment**
+
+Spinners in Bootstrap are built with ``rem``s, ``currentColor``, and ``display: inline-flex``. 
+This means they can easily be resized, recolored, and quickly aligned.
+
+
+**Spinner Margin**
+
+Use margin utilities like ``.m-5`` for easy spacing.
+
+![Spinner Margin Example](../images/bootstrap/spinnermargin.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Spinner Margin HTML Example](../images/bootstrap/spinnermargin-html.png)
+
+
+**Spinner Placement**
+
+Use <a href="https://getbootstrap.com/docs/4.3/utilities/flex/" target="_blank">flexbox utilities</a>,
+<a href="https://getbootstrap.com/docs/4.3/utilities/float/" target="_blank">float utilities</a>, or <a href="https://getbootstrap.com/docs/4.3/content/typography/">text alignment</a> utilities
+to place spinners exactly where you need them in any situation.
+
+
+**Spinner Flex**
+
+![Spinner Flex Center Example](../images/bootstrap/spinner-flex-center.png)
+
+![Spinner Flex Center HTML Example](../images/bootstrap/spinner-flex-right.png)
+
+Here are the examples with provided Bootstrap v4.3 code:
+
+![Spinner Flex Right Example](../images/bootstrap/spinner-flex-center-html.png)
+
+![Spinner Flex Right HTML Example](../images/bootstrap/spinner-flex-right-html.png)
+
+
+**Spinner Floats**
+
+![Spinner Float Right Example](../images/bootstrap/spinnerfloat.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Spinner Float Right HTML Example](../images/bootstrap/spinnerfloat-html.png)
+
+
+**Spinner Text Align**
+
+![Spinner Text Align Center Example](../images/bootstrap/spinner-text-align.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Spinner Text Align Center HTML Example](../images/bootstrap/spinner-text-align-html.png)
+
+
+**Spinner Size**
+
+Add ``.spinner-border-sm`` and ``.spinner-grow-sm`` to make a smaller spinner 
+that can quickly be used within other components.
+
+![Spinner Size Native Example](../images/bootstrap/spinner-size-native.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Spinner Size Native HTML Example](../images/bootstrap/spinner-size-native-html.png)
+
+
+Or, use custom CSS or inline styles to change the dimensions as needed.
+
+![Spinner Size CSS Example](../images/bootstrap/spinner-size-css.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Spinner Size CSS HTML Example](../images/bootstrap/spinner-size-css-html.png)
+
+
+**Spinner Buttons**
+
+Use spinners within buttons to indicate an action is currently processing or taking place. 
+You may also swap the text out of the spinner element and utilize button text as needed.
+
+![Spinner Buttons Example](../images/bootstrap/spinnerbuttons.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Spinner Buttons HTML Example](../images/bootstrap/spinnerbuttons-html.png)
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ 
+Available methods and properties in C# JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  |
+ |  |
+ <br>
 
 ### Tooltip
 **Tooltip** – is a hint that used in conjuction with a pointer.

@@ -5567,7 +5567,7 @@ Here is an example form code in the menu items:
 
 ### Toast
 Toasts are lightweight notifications designed to mimic the push notifications.
-<br><br />
+<br />
 __Options for toasts:__
 <br />
  - _Animation<br/>_
@@ -5576,16 +5576,11 @@ __Options for toasts:__
  <br/>
 __Events for toasts:__
 <br>
-  - _show.bs.toast_	this event fires immediately when the show instance method is called.<br/>
-  - _shown.bs.toast_	this event is fired when the toast has been made visible to the user<br/>
-  - _hide.bs.toast_	this event is fired immediately when the hide instance method has been called.<br/>
-  - _hidden.bs.toast_	this event is fired when the toast has finished being hidden from the user<br/>
+  - _show.bs.toast_ - this event fires immediately when the show instance method is called.<br/>
+  - _shown.bs.toast_ - this event is fired when the toast has been made visible to the user<br/>
+  - _hide.bs.toast_ - this event is fired immediately when the hide instance method has been called.<br/>
+  - _hidden.bs.toast_ - this event is fired when the toast has finished being hidden from the user<br/>
  <br /> 
-**Placement**
-<br>
-Place toasts with custom CSS as you need them. The top right is often used for notifications, as is the top middle.
-<br />
-
 
 ![Toast example](../images/bootstrap/toast.png)
 
@@ -5602,7 +5597,11 @@ Here is an example with provided Bootstrap v4.3 code:
   
 ![Toast stack HTML example](../images/bootstrap/stack_of_toasts_html.png)
 
-
+<br >
+**Placement**
+<br>
+Place toasts with custom CSS as you need them. The top right is often used for notifications, as is the top middle.
+<br /><br />
 Example with top right align:
 
 ![Toast top right example](../images/bootstrap/toast_align.png)

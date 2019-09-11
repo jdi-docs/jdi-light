@@ -5503,21 +5503,25 @@ Available methods and properties in C# JDI Light:
 ### Modal
 **Modal** – is a dialog box/popup window that is displayed on page.
 
+Here are examples of the modals with provided Bootstrap v4.3 code:
+
+Simple Modal with elements example
+
 ![Modal composite](../images/bootstrap/modal_composite.png)
+
+![Modal composite](../images/bootstrap/modal-html.png)
+
+Modal scrollable example
 
 ![Modal long scrollable](../images/bootstrap/modal_scrollable1.png)
 
 ![Modal scrollable](../images/bootstrap/modal_scrollable2.png)
 
-![Modal centered](../images/bootstrap/modal_centered.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-
-Modal scrollable example
-
 ![Modal scrollable example](../images/bootstrap/modal_scrollable-html.png)
 
 Modal centered example
+
+![Modal centered](../images/bootstrap/modal_centered.png)
 
 ![Modal centered example](../images/bootstrap/modal_centered-html.png)
 

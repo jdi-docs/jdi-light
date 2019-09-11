@@ -3748,6 +3748,82 @@ And here are methods available in Java:
  |  | 
  |  | 
  |  | 
+ 
+### Buttons with dropdowns (Input group)
+**Buttons with dropdowns** – Buttons with dropdowns have no detailed information on Bootstrap website
+
+![Buttons with dropdowns](../images/bootstrap/buttons_with_dropdowns.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Buttons with dropdowns example](../images/bootstrap/buttons_with_dropdowns_code.png)
+
+And here are methods available in Java:
+    
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  |  
+ 
+### Segmented buttons (Input group)
+**Segmented buttons** – Segmented buttons have no detailed information on Bootstrap website
+
+![Segmented buttons](../images/bootstrap/segmented_buttons.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Segmented buttons example](../images/bootstrap/segmented_buttons_code.png)
+
+And here are methods available in Java:
+    
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  |  
+ 
+### Custom select (Input group)
+**Custom select** – Input groups include support for custom selects and custom file inputs. Browser default versions of these are not supported.
+
+![Custom select](../images/bootstrap/custom_select.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Custom select example](../images/bootstrap/custom_select_code.png)
+
+And here are methods available in Java:
+    
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  |  
+ 
+### Custom file input (Input group)
+**Custom file input** – Input groups include support for custom selects and custom file inputs. Browser default versions of these are not supported.
+
+![Custom file input](../images/bootstrap/custom_file_input.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Custom file input example](../images/bootstrap/custom_file_input_code.png)
+
+And here are methods available in Java:
+    
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  |  
 
 ###Badge
 **1) Badge** - Element that scale to match the size of the immediate parent element by using relative font sizing and em units.<br>

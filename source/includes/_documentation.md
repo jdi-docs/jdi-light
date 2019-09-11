@@ -4071,6 +4071,91 @@ Here is an example with provided Bootstrap v4.3 code:
   
 ![Color Nav HTML example](../images/bootstrap/nav-dropdown-html.png)
 
+####OLI_Forms
+
+Place various form controls and components within a navbar with .form-inline.
+
+<br>
+
+![Forms example](../images/bootstrap/navbar-forms1.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Forms HTML example](../images/bootstrap/navbar-forms1-html.png)
+
+![Forms example](../images/bootstrap/navbar-forms2.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Forms HTML example](../images/bootstrap/navbar-forms2-html.png)
+
+![Forms example](../images/bootstrap/navbar-forms3.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Forms HTML example](../images/bootstrap/navbar-forms3-html.png)
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ 
+
+Available methods and properties in C# JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  |
+ |  | 
+<br><br>
+
+####OLI_Text
+
+Navbars may contain bits of text with the help of .navbar-text. 
+This class adjusts vertical alignment and horizontal spacing for strings of text.
+
+<br>
+
+![Text example](../images/bootstrap/navbar-text1.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Text HTML example](../images/bootstrap/navbar-text1-html.png)
+
+![Text example](../images/bootstrap/navbar-text2.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Text HTML example](../images/bootstrap/navbar-text2-html.png)
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ 
+
+Available methods and properties in C# JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  |
+ |  | 
+<br><br>
+
 ####Color schemes
 
 Theming the navbar has never been easier thanks to the combination of theming classes and background-color utilities.
@@ -4115,91 +4200,6 @@ Plugin to trigger hidden content elsewhere on the page.
 Here is an example with provided Bootstrap v4.3 code:
   
 ![Color Nav HTML example](../images/bootstrap/navbar-external-html.png)
-
-####Forms
-
-Place various form controls and components within a navbar with .form-inline.
-
-<br>
-
-![Forms example](../images/bootstrap/navbar-forms1.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-  
-![Forms HTML example](../images/bootstrap/navbar-forms1-html.png)
-
-![Forms example](../images/bootstrap/navbar-forms2.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-  
-![Forms HTML example](../images/bootstrap/navbar-forms2-html.png)
-
-![Forms example](../images/bootstrap/navbar3-forms.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-  
-![Forms HTML example](../images/bootstrap/navbar-forms3-html.png)
-
-Available methods in Java JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  | 
- 
-
-Available methods and properties in C# JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  |
- |  | 
-<br><br>
-
-####Text
-
-Navbars may contain bits of text with the help of .navbar-text. 
-This class adjusts vertical alignment and horizontal spacing for strings of text.
-
-<br>
-
-![Text example](../images/bootstrap/navbar-text1.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-  
-![Text HTML example](../images/bootstrap/navbar-text1-html.png)
-
-![Text example](../images/bootstrap/navbar-text2.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-  
-![Text HTML example](../images/bootstrap/navbar-text2-html.png)
-
-Available methods in Java JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  | 
- 
-
-Available methods and properties in C# JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  |
- |  | 
-<br><br>
 
 ###Pagination
 

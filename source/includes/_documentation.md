@@ -4122,12 +4122,23 @@ Place various form controls and components within a navbar with .form-inline.
 
 <br>
 
-![Forms example](../images/bootstrap/nav-forms.png)
+![Forms example](../images/bootstrap/navbar-forms1.png)
 
 Here is an example with provided Bootstrap v4.3 code:
   
-![Forms HTML example](../images/bootstrap/nav-forms-html.png)
+![Forms HTML example](../images/bootstrap/navbar-forms1-html.png)
 
+![Forms example](../images/bootstrap/navbar-forms2.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Forms HTML example](../images/bootstrap/navbar-forms2-html.png)
+
+![Forms example](../images/bootstrap/navbar3-forms.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Forms HTML example](../images/bootstrap/navbar-forms3-html.png)
 
 Available methods in Java JDI Light:
 
@@ -4157,12 +4168,17 @@ This class adjusts vertical alignment and horizontal spacing for strings of text
 
 <br>
 
-![Text example](../images/bootstrap/nav-text.png)
+![Text example](../images/bootstrap/navbar-text1.png)
 
 Here is an example with provided Bootstrap v4.3 code:
   
-![Text HTML example](../images/bootstrap/nav-text-html.png)
+![Text HTML example](../images/bootstrap/navbar-text1-html.png)
 
+![Text example](../images/bootstrap/navbar-text2.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Text HTML example](../images/bootstrap/navbar-text2-html.png)
 
 Available methods in Java JDI Light:
 

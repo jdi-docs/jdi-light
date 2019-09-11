@@ -4116,6 +4116,75 @@ Here is an example with provided Bootstrap v4.3 code:
   
 ![Color Nav HTML example](../images/bootstrap/navbar-external-html.png)
 
+####Forms
+
+Place various form controls and components within a navbar with .form-inline.
+
+<br>
+
+![Forms example](../images/bootstrap/nav-forms.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Forms HTML example](../images/bootstrap/nav-forms-html.png)
+
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ 
+
+Available methods and properties in C# JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  |
+ |  | 
+<br><br>
+
+####Text
+
+Navbars may contain bits of text with the help of .navbar-text. 
+This class adjusts vertical alignment and horizontal spacing for strings of text.
+
+<br>
+
+![Text example](../images/bootstrap/nav-text.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Text HTML example](../images/bootstrap/nav-text-html.png)
+
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ 
+
+Available methods and properties in C# JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  |
+ |  | 
+<br><br>
+
 ###Pagination
 
 Pagination is functionality for navigating through pages.

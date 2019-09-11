@@ -4031,6 +4031,14 @@ Here is an example with provided Bootstrap v4.3 code:
   
 ![Containers HTML example](../images/bootstrap/navbar-placement-html.png)
 
+####External content
+Plugin to trigger hidden content elsewhere on the page.
+
+![Color Nav example](../images/bootstrap/navbar-external.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Color Nav HTML example](../images/bootstrap/navbar-external-html.png)
 
 ###Pagination
 

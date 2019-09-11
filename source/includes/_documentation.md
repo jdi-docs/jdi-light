@@ -5051,6 +5051,27 @@ Available methods and properties in C# JDI Light:
  |  |
  <br>
  
+
+**Spinner Size**
+
+Add ``.spinner-border-sm`` and ``.spinner-grow-sm`` to make a smaller spinner 
+that can quickly be used within other components.
+
+![Spinner Size Native Example](../images/bootstrap/spinner-size-native.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Spinner Size Native HTML Example](../images/bootstrap/spinner-size-native-html.png)
+
+
+Or, use custom CSS or inline styles to change the dimensions as needed.
+
+![Spinner Size CSS Example](../images/bootstrap/spinner-size-css.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Spinner Size CSS HTML Example](../images/bootstrap/spinner-size-css-html.png)
+ 
 ####Card groups
 
 Use card groups to render cards as a single, attached element with equal width and height columns.

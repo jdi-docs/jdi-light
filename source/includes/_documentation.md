@@ -3973,19 +3973,15 @@ Here’s an example of all the sub-components included in a responsive light-the
 <br>
 1. Navbar with content <br>
 ![Supported content](../images/bootstrap/navbar-supported-content-normal.png)<br>
-2. Collapsed navbar <br> 
-![Supported content](../images/bootstrap/navbar-supported-content-collapsed.png)<br>
-3. Uncollapsed navbar <br>
-![Supported content](../images/bootstrap/navbar-supported-content-uncollapsed.png)
-
-Here is an examples with provided Bootstrap v4.3 code:
-
-1. Navbar with content  
 ![Supported content](../images/bootstrap/navbar-supported-content-normal-html.png)<br>
 2. Collapsed navbar <br> 
+![Supported content](../images/bootstrap/navbar-supported-content-collapsed.png)<br>
 ![Supported content](../images/bootstrap/navbar-supported-content-collapsed-html.png)<br>
 3. Uncollapsed navbar <br>
+![Supported content](../images/bootstrap/navbar-supported-content-uncollapsed.png)
 ![Supported content](../images/bootstrap/navbar-supported-content-uncollapsed-html.png)
+
+Here is an examples with provided Bootstrap v4.3 code:
 
 Available methods in Java JDI Light:
 
@@ -4015,23 +4011,22 @@ The .navbar-brand can be applied to most elements, but an anchor works best as s
 
 Navbar brand as a link <br>
 ![Brand](../images/bootstrap/navbar-brand-link.png)<br>
+<br>
+![Brand](../images/bootstrap/navbar-brand-link-html.png)<br>
+<br>
 Navbar brand as heading <br> 
 ![Brand](../images/bootstrap/navbar-brand-heading.png)<br>
+<br>
+![Brand](../images/bootstrap/navbar-brand-heading-html.png)<br>
 
 Adding images to the .navbar-brand will likely always require custom styles or utilities to properly size. Here are some examples to demonstrate.<br>
 
 ![Brand](../images/bootstrap/navbar-brand-image.png)<br>
-![Brand](../images/bootstrap/navbar-brand-image-and-link.png)
-
-Here is an examples with provided Bootstrap v4.3 code:
-
-Navbar brand as a link <br>
-![Brand](../images/bootstrap/navbar-brand-link-html.png)<br>
-Navbar brand as heading <br> 
-![Brand](../images/bootstrap/navbar-brand-heading-html.png)<br>
-Navbar brand as image <br>
+<br>
 ![Brand](../images/bootstrap/navbar-brand-image-html.png)<br>
-Navbar brand as image and link <br> 
+<br>
+![Brand](../images/bootstrap/navbar-brand-image-and-link.png)<br>
+<br>
 ![Brand](../images/bootstrap/navbar-brand-image-and-link-html.png)
 
 Available methods in Java JDI Light:

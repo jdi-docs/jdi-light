@@ -4788,7 +4788,6 @@ Available methods and properties in C# JDI Light:
  |  |
  <br>
  
- 
  **Card with Grid Markup**
  
  Using the grid, wrap cards in columns and rows as needed.
@@ -4818,9 +4817,6 @@ Available methods and properties in C# JDI Light:
   |  |
   |  |
   <br>
- 
- 
-
  
  **Card utilities**
   

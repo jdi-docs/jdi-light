@@ -3633,197 +3633,6 @@ Available methods in Java JDI Light:
 
 <br>
 
-### Wrapping (Input group)
-**Wrapping** – Input groups wrap by default via flex-wrap: wrap in order to accommodate custom form field validation within an input group. You may disable this with .flex-nowrap.
-
-![Wrapping](../images/bootstrap/wrapping.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-  
-![Wrapping example](../images/bootstrap/wrapping_code.png)
-
-And here are methods available in Java:
-    
-|Method | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  | 
-
-
-### Sizing (Input group)
-**Sizing** – Add the relative form sizing classes to the .input-group itself and contents within will automatically resize—no need for repeating the form control size classes on each element.
-
-**Sizing on the individual input group elements isn’t supported.**
-![Sizing](../images/bootstrap/sizing.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-  
-![Sizing example](../images/bootstrap/sizing_code.png)
-
-And here are methods available in Java:
-    
-|Method | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  | 
-
-### Checkboxes and radios (Input group)
-**Checkboxes and radios** – Place any checkbox or radio option within an input group’s addon instead of text.
-
-![Checkboxes and radios](../images/bootstrap/checkboxes_radios.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-  
-![Checkboxes and radios example](../images/bootstrap/checkboxes_radios_code.png)
-
-And here are methods available in Java:
-    
-|Method | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  | 
- 
-### Multiple inputs (Input group)
-**Multiple inputs** – While multiple inputs are supported visually, validation styles are only available for input groups with a single input.
-
-![Multiple inputs](../images/bootstrap/multiple_inputs.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-  
-![Multiple inputs example](../images/bootstrap/multiple_inputs_code.png)
-
-And here are methods available in Java:
-    
-|Method | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  |  
- 
-### Multiple addons (Input group)
-**Multiple addons** – Multiple add-ons are supported and can be mixed with checkbox and radio input versions.
-
-![Multiple addons](../images/bootstrap/multiple_addons.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-  
-![Multiple addons example](../images/bootstrap/multiple_addons_code.png)
-
-And here are methods available in Java:
-    
-|Method | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  |  
- 
-### Button addons (Input group)
-**Button addons** – Multiple buttons have no detailed information on Bootstrap website
-
-![Button addons](../images/bootstrap/button_addons.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-  
-![Button addons example](../images/bootstrap/button_addons_code.png)
-
-And here are methods available in Java:
-    
-|Method | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  | 
- 
-### Buttons with dropdowns (Input group)
-**Buttons with dropdowns** – Buttons with dropdowns have no detailed information on Bootstrap website
-
-![Buttons with dropdowns](../images/bootstrap/buttons_with_dropdowns.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-  
-![Buttons with dropdowns example](../images/bootstrap/buttons_with_dropdowns_code.png)
-
-And here are methods available in Java:
-    
-|Method | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  |  
- 
-### Segmented buttons (Input group)
-**Segmented buttons** – Segmented buttons have no detailed information on Bootstrap website
-
-![Segmented buttons](../images/bootstrap/segmented_buttons.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-  
-![Segmented buttons example](../images/bootstrap/segmented_buttons_code.png)
-
-And here are methods available in Java:
-    
-|Method | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  |  
- 
-### Custom select (Input group)
-**Custom select** – Input groups include support for custom selects and custom file inputs. Browser default versions of these are not supported.
-
-![Custom select](../images/bootstrap/custom_select.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-  
-![Custom select example](../images/bootstrap/custom_select_code.png)
-
-And here are methods available in Java:
-    
-|Method | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  |  
- 
-### Custom file input (Input group)
-**Custom file input** – Input groups include support for custom selects and custom file inputs. Browser default versions of these are not supported.
-
-![Custom file input](../images/bootstrap/custom_file_input.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-  
-![Custom file input example](../images/bootstrap/custom_file_input_code.png)
-
-And here are methods available in Java:
-    
-|Method | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  |  
 
 ###Badge
 **1) Badge** - Element that scale to match the size of the immediate parent element by using relative font sizing and em units.<br>
@@ -5834,6 +5643,216 @@ Available methods and properties in C# JDI Light:
  |  |
  |  | 
 <br>
+### Wrapping (Input group)
+```java 
+   @Css("#input-group-username") public static InputGroupInputWithText inputGroupUsername;
+
+   public class InputGroupInputWithText extends Section {
+       @Css(".input-group-text") public Text text;
+       @Css(".form-control") public TextField input;
+   }
+
+   @Test
+   public void setTextSymbolsTest() {
+       inputGroupUsername.input.setText(symbols);
+       assertEquals(inputGroupUsername.input.getText(), symbols);
+   }
+
+    @Test
+    public void assertValidationTextTest() {
+        inputGroupUsername.text.assertThat().text(is(addon_text));
+    }  
+```
+**Wrapping** – Input groups wrap by default via flex-wrap: wrap in order to accommodate custom form field validation within an input group. You may disable this with .flex-nowrap.
+
+![Wrapping](../images/bootstrap/wrapping.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Wrapping example](../images/bootstrap/wrapping_code.png)
+
+Input group are represented by Section class in Java:
+ 
+  - _com.epam.jdi.light.elements.composite.Section_
+  
+Inner elements of input group can be represented by following classes:
+
+  - _com.epam.jdi.light.ui.html.common.Text_
+  - _com.epam.jdi.light.ui.html.common.TextField_
+
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/inputGroup)
+
+### Sizing (Input group)
+**Sizing** – Add the relative form sizing classes to the .input-group itself and contents within will automatically resize—no need for repeating the form control size classes on each element.
+
+**Sizing on the individual input group elements isn’t supported.**
+![Sizing](../images/bootstrap/sizing.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Sizing example](../images/bootstrap/sizing_code.png)
+
+And here are methods available in Java:
+    
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+
+### Checkboxes and radios (Input group)
+**Checkboxes and radios** – Place any checkbox or radio option within an input group’s addon instead of text.
+
+![Checkboxes and radios](../images/bootstrap/checkboxes_radios.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Checkboxes and radios example](../images/bootstrap/checkboxes_radios_code.png)
+
+And here are methods available in Java:
+    
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ 
+### Multiple inputs (Input group)
+**Multiple inputs** – While multiple inputs are supported visually, validation styles are only available for input groups with a single input.
+
+![Multiple inputs](../images/bootstrap/multiple_inputs.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Multiple inputs example](../images/bootstrap/multiple_inputs_code.png)
+
+And here are methods available in Java:
+    
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  |  
+ 
+### Multiple addons (Input group)
+**Multiple addons** – Multiple add-ons are supported and can be mixed with checkbox and radio input versions.
+
+![Multiple addons](../images/bootstrap/multiple_addons.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Multiple addons example](../images/bootstrap/multiple_addons_code.png)
+
+And here are methods available in Java:
+    
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  |  
+ 
+### Button addons (Input group)
+**Button addons** – Multiple buttons have no detailed information on Bootstrap website
+
+![Button addons](../images/bootstrap/button_addons.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Button addons example](../images/bootstrap/button_addons_code.png)
+
+And here are methods available in Java:
+    
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ 
+### Buttons with dropdowns (Input group)
+**Buttons with dropdowns** – Buttons with dropdowns have no detailed information on Bootstrap website
+
+![Buttons with dropdowns](../images/bootstrap/buttons_with_dropdowns.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Buttons with dropdowns example](../images/bootstrap/buttons_with_dropdowns_code.png)
+
+And here are methods available in Java:
+    
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  |  
+ 
+### Segmented buttons (Input group)
+**Segmented buttons** – Segmented buttons have no detailed information on Bootstrap website
+
+![Segmented buttons](../images/bootstrap/segmented_buttons.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Segmented buttons example](../images/bootstrap/segmented_buttons_code.png)
+
+And here are methods available in Java:
+    
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  |  
+ 
+### Custom select (Input group)
+**Custom select** – Input groups include support for custom selects and custom file inputs. Browser default versions of these are not supported.
+
+![Custom select](../images/bootstrap/custom_select.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Custom select example](../images/bootstrap/custom_select_code.png)
+
+And here are methods available in Java:
+    
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  |  
+ 
+### Custom file input (Input group)
+**Custom file input** – Input groups include support for custom selects and custom file inputs. Browser default versions of these are not supported.
+
+![Custom file input](../images/bootstrap/custom_file_input.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Custom file input example](../images/bootstrap/custom_file_input_code.png)
+
+And here are methods available in Java:
+    
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  |  
 
 ## JDI Light BDD Steps
 

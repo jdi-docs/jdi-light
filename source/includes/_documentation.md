@@ -5853,6 +5853,46 @@ And here are methods available in Java:
  |  | 
  |  | 
  |  |  
+ 
+ ### Jumbotron
+
+```java 
+   @Css("#jumbotron") public static Jumbotron jumbotron;
+
+   public class Jumbotron extends Section implements IsJumbotron {
+       @Css(".display-4") public Text title;
+       @Css(".lead") public Text description;
+       @Css(".btn") public Button learnMoreBtn;
+   }
+
+    @Test
+    public void getTextTest() {
+        assertEquals(jumbotron.getText(), mJumbotronWithButton);
+    }
+
+    @Test
+    public void baseValidationTest() {
+        baseValidation(jumbotron);
+    }  
+```
+**Jumbotron** – Lightweight, flexible component for showcasing hero unit style content.
+
+![Jumbotron](../images/bootstrap/jumbotron.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Wrapping example](../images/bootstrap/jumbotron_html.png)
+
+Jumbotron is represented by Section class in Java:
+ 
+  - _com.epam.jdi.light.elements.composite.Section_
+  
+Inner elements of jumbotron can be represented by the following classes:
+
+  - _com.epam.jdi.light.ui.html.common.Text_
+  - _com.epam.jdi.light.ui.html.common.Button_
+
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/jumbotron)
 
 ## JDI Light BDD Steps
 

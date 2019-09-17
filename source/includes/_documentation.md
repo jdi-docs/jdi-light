@@ -5853,8 +5853,8 @@ And here are methods available in Java:
  |  | 
  |  | 
  |  |  
- <br>
- ### Jumbotron
+<br>
+### Jumbotron
 ```java 
    @Css("#jumbotron") public static Jumbotron jumbotron;
 

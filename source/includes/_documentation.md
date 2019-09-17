@@ -5855,7 +5855,6 @@ And here are methods available in Java:
  |  |  
  
  ### Jumbotron
-
 ```java 
    @Css("#jumbotron") public static Jumbotron jumbotron;
 

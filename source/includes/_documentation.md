@@ -5713,6 +5713,57 @@ Available methods and properties in C# JDI Light:
  |  |
  |  | 
 <br>
+### Basic example (Input group)
+
+**Input with several addons**
+
+![Input with several addons](../images/bootstrap/input-twospans.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Input with several addons example](../images/bootstrap/input-twospans-html.png)
+
+**Input with textarea** 
+
+![Input group with textarea](../images/bootstrap/input-textarea.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Input group with textarea example](../images/bootstrap/input-textarea-html.png)
+
+Input group are represented by Section class in Java:
+ 
+  - _com.epam.jdi.light.elements.composite.Section_
+  
+Inner elements of input group can be represented by following classes:
+
+  - _com.epam.jdi.light.ui.html.common.Text_
+  - _com.epam.jdi.light.ui.html.common.TextField_
+  - _com.epam.jdi.light.ui.html.common.TextArea_
+
+[Bootstrap test example ](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/inputGroup)
+
+### Sizing (Input group)
+**Sizing** – Add the relative form sizing classes to the .input-group itself and contents within will automatically resize—no need for repeating the form control size classes on each element.
+
+**Sizing on the individual input group elements isn’t supported.**
+![Sizing](../images/bootstrap/sizing.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Sizing example](../images/bootstrap/sizing_code.png)
+
+And here are methods available in Java:
+    
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+
+
 ### Wrapping (Input group)
 ```java 
    @Css("#input-group-username") public static InputGroupInputWithText inputGroupUsername;

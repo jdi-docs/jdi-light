@@ -3653,11 +3653,11 @@ Available methods and properties in C# JDI Light:
 ### Alert
 **Alert** – Element that provides contextual feedback messages for typical user actions with the handful of available and flexible alert messages.
 
-![Alert](../images/bootstrap/alert.png)
+![Alert](../images/bootstrap/alert-dismissible.png)
 
 Here is an example with provided Bootstrap v4.3 code:
   
-![Alert example](../images/bootstrap/alert-html.png)
+![Alert example](../images/bootstrap/alert-example-html.png)
 
 Available methods in Java JDI Light:
 

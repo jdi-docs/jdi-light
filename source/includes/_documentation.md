@@ -3758,6 +3758,38 @@ Available methods and properties in C# JDI Light::
 
 ### Breadcrumb
 
+```java 
+@Css("#breadcrumb") public static Breadcrumb breadcrumb;
+
+public class Breadcrumb extends UIBaseElement<UIAssert> implements IList<UIElement>, HasUIList, IClickable {
+    @Css(".breadcrumb-item a") public WebList ancestorList;
+    @Css(".breadcrumb-item.active") public UIElement currentItem;
+}
+
+@Test
+public void getValueTest() {
+     List<String> ancestorValues = 
+     breadcrumb.ancestorList.stream().map(UIElement::getValue).collect(Collectors.toList());
+    
+     assertThat(breadcrumb.currentItem.getValue(), is("Bootstrap"));
+     assertThat(ancestorValues, is(Arrays.asList(new String[]{"Home", "HTML 5"})));
+}
+
+@Test
+public void clickByNameTest() {
+     breadcrumb.ancestorList.get("Home").click();
+    
+     ArrayList<String> tabs = new ArrayList<>(WebDriverFactory.getDriver().getWindowHandles());
+     WebDriver driver = WebDriverFactory.getDriver();
+     driver.switchTo().window(tabs.get(1));
+     
+     assertEquals("Home Page", WebPage.getTitle());
+     
+     driver.close();
+     driver.switchTo().window(tabs.get(0));
+}
+```
+
 A breadcrumb is a control element  used for navigational on web pages
 
 ![Breadcrumb example](../images/bootstrap/breadcrumb.png)

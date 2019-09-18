@@ -3733,19 +3733,19 @@ public void getValueTest() {
      List<String> ancestorValues = 
      breadcrumb.ancestorList.stream().map(UIElement::getValue).collect(Collectors.toList());
     
-     assertThat(breadcrumb.currentItem.getValue(), is(BOOTSTRAP));
-     assertThat(ancestorValues, is(ANCESTOR_VALUES));
+     assertThat(breadcrumb.currentItem.getValue(), is("Bootstrap"));
+     assertThat(ancestorValues, is(Arrays.asList(new String[]{"Home", "HTML 5"})));
 }
 
 @Test
 public void clickByNameTest() {
-     breadcrumb.ancestorList.get(HOME).click();
+     breadcrumb.ancestorList.get("Home").click();
     
      ArrayList<String> tabs = new ArrayList<>(WebDriverFactory.getDriver().getWindowHandles());
      WebDriver driver = WebDriverFactory.getDriver();
      driver.switchTo().window(tabs.get(1));
      
-     assertTrue(WebPage.getTitle().contains(HOME));
+     assertEquals("Home Page", WebPage.getTitle());
      
      driver.close();
      driver.switchTo().window(tabs.get(0));

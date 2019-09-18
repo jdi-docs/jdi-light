@@ -3720,6 +3720,38 @@ Available methods and properties in C# JDI Light::
 
 ### Breadcrumb
 
+```java 
+@Css("#breadcrumb") public static Breadcrumb breadcrumb;
+
+public class Breadcrumb extends UIBaseElement<UIAssert> implements IList<UIElement>, HasUIList, IClickable {
+    @Css(".breadcrumb-item a") public WebList ancestorList;
+    @Css(".breadcrumb-item.active") public UIElement currentItem;
+}
+
+@Test
+public void getValueTest() {
+     List<String> ancestorValues = 
+     breadcrumb.ancestorList.stream().map(UIElement::getValue).collect(Collectors.toList());
+    
+     assertThat(breadcrumb.currentItem.getValue(), is(BOOTSTRAP));
+     assertThat(ancestorValues, is(ANCESTOR_VALUES));
+}
+
+@Test
+public void clickByNameTest() {
+     breadcrumb.ancestorList.get(HOME).click();
+    
+     ArrayList<String> tabs = new ArrayList<>(WebDriverFactory.getDriver().getWindowHandles());
+     WebDriver driver = WebDriverFactory.getDriver();
+     driver.switchTo().window(tabs.get(1));
+     
+     assertTrue(WebPage.getTitle().contains(HOME));
+     
+     driver.close();
+     driver.switchTo().window(tabs.get(0));
+}
+```
+
 A breadcrumb is a control element  used for navigational on web pages
 
 ![Breadcrumb example](../images/bootstrap/breadcrumb.png)
@@ -3727,37 +3759,6 @@ A breadcrumb is a control element  used for navigational on web pages
 Here is an example with provided Bootstrap v4.3 code:
   
 ![Breadcrumb HTML example](../images/bootstrap/breadcrumb-html.png)
-
-```java 
-@Css("#breadcrumb") public static Breadcrumb breadcrumb;
-
-public class Breadcrumb extends UIBaseElement<UIAssert> implements IList<UIElement>, HasUIList, IClickable {
-    @Css(".breadcrumb-item a") public WebList ancestorList;
-    @Css(".breadcrumb-item.active") public UIElement currentItem;
-
-
-@Test
-public void clickByNameTest() {
-     breadcrumb.ancestorList.get(HOME).click();
-
-     ArrayList<String> tabs = new ArrayList<>(WebDriverFactory.getDriver().getWindowHandles());
-     WebDriver driver = WebDriverFactory.getDriver();
-     driver.switchTo().window(tabs.get(1));
-
-     assertTrue(WebPage.getTitle().contains(HOME));
-
-     driver.close();
-     driver.switchTo().window(tabs.get(0));
-}
-
-    @Test
-    public void getValueTest() {
-        List<String> ancestorValues = breadcrumb.ancestorList.stream().map(UIElement::getValue).collect(Collectors.toList());
-
-        assertThat(breadcrumb.currentItem.getValue(), is(BOOTSTRAP));
-        assertThat(ancestorValues, is(ANCESTOR_VALUES));
-    }
-```
 
 Available methods in Java JDI Light:
 

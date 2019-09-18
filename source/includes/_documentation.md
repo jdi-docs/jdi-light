@@ -3657,7 +3657,7 @@ Available methods and properties in C# JDI Light:
 
 Here is an example with provided Bootstrap v4.3 code:
   
-![Alert example](../images/bootstrap/alert-example-html.png)
+![Alert example](../images/bootstrap/alert-html-example.png)
 
 Available methods in Java JDI Light:
 

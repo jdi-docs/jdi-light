@@ -3728,6 +3728,29 @@ Here is an example with provided Bootstrap v4.3 code:
   
 ![Breadcrumb HTML example](../images/bootstrap/breadcrumb-html.png)
 
+```java 
+@Css("#breadcrumb") public static Breadcrumb breadcrumb;
+
+@Test
+public void clickByNameTest() {
+     breadcrumb.ancestorList.get(HOME).click();
+
+     ArrayList<String> tabs = new ArrayList<>(WebDriverFactory.getDriver().getWindowHandles());
+     WebDriver driver = WebDriverFactory.getDriver();
+     driver.switchTo().window(tabs.get(1));
+
+     assertTrue(WebPage.getTitle().contains(HOME));
+
+     driver.close();
+     driver.switchTo().window(tabs.get(0));
+}
+
+@Test
+public void getTextTest() {
+     assertThat(breadcrumb.currentItem.getText(), is(BOOTSTRAP));
+}
+```
+
 Available methods in Java JDI Light:
 
 |Method/Property | Description | Return Type

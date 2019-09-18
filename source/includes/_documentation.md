@@ -3576,6 +3576,44 @@ Available methods and properties in C# JDI Light:
 
 [C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/ButtonTests.cs) <br>
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#button-3)<br>
+
+**Disabled Button** – Element that represents a Not clickable button
+
+![Disabled button](../images/bootstrap/disabled_button.png)
+
+Button is located in the following classes:
+ 
+  - __Java__: _com.epam.jdi.light.ui.html.common.Button_
+  - __C#__: _JDI.Light.Elements.Common.Button_
+  
+```java 
+@UI("//*[text()='Disabled button']") // @FindBy(css = "//*[text()='Disabled button']")
+public static Button disabledButton;
+
+@Test
+public void disableButtonTest() {
+    try { disabledButton.click();
+          fail("Disabled button should not work, but work");
+        } catch (Exception ex) {
+            assertThat(safeException(ex),
+                containsString("Can't perform click. Element is disabled"));
+        }
+     }
+
+@Test
+public void getTextTest() {
+    assertEquals(disabledButton.getText(), "Disabled button");
+}
+```  
+Here is an example with provided HTML code:
+
+![Disabled button example](../images/bootstrap/disabled_button_code.png)
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+**GetText()** | Get button text | string
+**Is** | Assert action | TextAssert 
+**AssertThat** | Assert action | TextAssert
 <br><br>
 
 ### Button group

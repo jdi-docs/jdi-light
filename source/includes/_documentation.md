@@ -3731,6 +3731,11 @@ Here is an example with provided Bootstrap v4.3 code:
 ```java 
 @Css("#breadcrumb") public static Breadcrumb breadcrumb;
 
+public class Breadcrumb extends UIBaseElement<UIAssert> implements IList<UIElement>, HasUIList, IClickable {
+    @Css(".breadcrumb-item a") public WebList ancestorList;
+    @Css(".breadcrumb-item.active") public UIElement currentItem;
+
+
 @Test
 public void clickByNameTest() {
      breadcrumb.ancestorList.get(HOME).click();
@@ -3745,10 +3750,13 @@ public void clickByNameTest() {
      driver.switchTo().window(tabs.get(0));
 }
 
-@Test
-public void getTextTest() {
-     assertThat(breadcrumb.currentItem.getText(), is(BOOTSTRAP));
-}
+    @Test
+    public void getValueTest() {
+        List<String> ancestorValues = breadcrumb.ancestorList.stream().map(UIElement::getValue).collect(Collectors.toList());
+
+        assertThat(breadcrumb.currentItem.getValue(), is(BOOTSTRAP));
+        assertThat(ancestorValues, is(ANCESTOR_VALUES));
+    }
 ```
 
 Available methods in Java JDI Light:

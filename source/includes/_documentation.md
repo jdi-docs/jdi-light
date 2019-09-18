@@ -5937,7 +5937,7 @@ And here are methods available in Java:
 
 Here is an example with provided Bootstrap v4.3 code:
   
-![Buttons with dropdowns example](../images/bootstrap/buttons_with_dropdowns_code.png)
+![Buttons with dropdowns example](../images/bootstrap/buttons-with-dropdowns-html.png)
 
 And here are methods available in Java:
     

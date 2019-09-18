@@ -5950,7 +5950,7 @@ And here are methods available in Java:
 
 Here is an example with provided Bootstrap v4.3 code:
   
-![Jumbotron example](../images/bootstrap/jumbotron_html.png)
+![Jumbotron example](../images/bootstrap/jumbotron-html.png)
 
 Jumbotron is represented by Section class in Java:
  

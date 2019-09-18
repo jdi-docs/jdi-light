@@ -3608,6 +3608,12 @@ public void getTextTest() {
 Here is an example with provided HTML code:
 
 ![Disabled button example](../images/bootstrap/disabled_button_code.png)
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+**GetText()** | Get button text | string
+**Is** | Assert action | TextAssert 
+**AssertThat** | Assert action | TextAssert
 <br><br>
 
 ### Button group

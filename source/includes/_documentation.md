@@ -6008,7 +6008,42 @@ And here are methods available in Java:
 <br>
 ### Jumbotron
 ```java 
-   @Css("#jumbotron") public static Jumbotron jumbotron;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   @Css("#jumbotron") // @FindBy(css = "#jumbotron")
+   public static Jumbotron jumbotron;
 
    public class Jumbotron extends Section implements IsJumbotron {
        @Css(".display-4") public Text title;
@@ -6026,7 +6061,7 @@ And here are methods available in Java:
         baseValidation(jumbotron);
     }  
 ```
-**Jumbotron** – Lightweight, flexible component for showcasing hero unit style content.
+**[Jumbotron](https://getbootstrap.com/docs/4.0/components/jumbotron/)** – Lightweight, flexible component for showcasing hero unit style content.
 
 ![Jumbotron](../images/bootstrap/jumbotron.png)
 
@@ -6036,12 +6071,19 @@ Here is an example with provided Bootstrap v4.3 code:
 
 Jumbotron is represented by Section class in Java:
  
-  - _com.epam.jdi.light.elements.composite.Section_
+  [Section](https://jdi-docs.github.io/jdi-light/#section)
   
 Inner elements of jumbotron can be represented by the following classes:
 
-  - _com.epam.jdi.light.ui.html.common.Text_
-  - _com.epam.jdi.light.ui.html.common.Button_
+  [Text](https://jdi-docs.github.io/jdi-light/#text)
+  
+  [Button](https://jdi-docs.github.io/jdi-light/#button)
+  
+  [Label](https://jdi-docs.github.io/jdi-light/#label)
+  
+  [Link](https://jdi-docs.github.io/jdi-light/#link)
+  
+  [See more elements](https://jdi-docs.github.io/jdi-light/#html5-common-elements)
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/jumbotron)
 

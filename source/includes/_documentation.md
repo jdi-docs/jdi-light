@@ -3509,7 +3509,6 @@ More than that, it has a nested **StringCheckType** class with the following met
 Button is located in the following classes:
  
   - __Java__: _com.epam.jdi.light.ui.html.common.Button_
-  - __C#__: _JDI.Light.Elements.Common.Button_
 
 ```java 
 @UI("//*[text()='Red button']") // @FindBy(css = "//*[text()='Red button']")
@@ -3527,26 +3526,6 @@ public void getTextTest() {
     assertEquals(redButton.getText(), "Red button");
 }
 ```
-```csharp
-
-[FindBy(Css = "//*[text()='Red button']")]
-public Button RedButton;
-
-[Test]
-public void ClickTest() 
-{
-    RedButton.Click();
-    Assert.AreEqual(GetAlert().GetAlertText(), "Red button");
-    GetAlert().AcceptAlert();
-}
-
-[Test]
-public void GetTextTest() 
-{
-    Assert.AreEqual(RedButton.GetText(), "Red button");
-}
-
-```
 
 Here is an example with provided HTML code:
 
@@ -3560,31 +3539,14 @@ Available methods in Java JDI Light:
 **getText()** | Get button text | String
 **is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
-
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ButtonTests.java)
 <br>
-[BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#button-3)
-
-Available methods and properties in C# JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
-**Click()** | Click the button  | void
-**GetText()** | Get button text | string
-**Is** | Assert action | TextAssert 
-**AssertThat** | Assert action | TextAssert
-
-[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/ButtonTests.cs) <br>
-[BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#button-3)<br>
 
 **Disabled Button** – Element that represents a Not clickable button
-
 ![Disabled button](../images/bootstrap/disabled_button.png)
 
 Button is located in the following classes:
- 
+
   - __Java__: _com.epam.jdi.light.ui.html.common.Button_
-  - __C#__: _JDI.Light.Elements.Common.Button_
   
 ```java 
 @UI("//*[text()='Disabled button']") // @FindBy(css = "//*[text()='Disabled button']")
@@ -3611,9 +3573,10 @@ Here is an example with provided HTML code:
 
 |Method/Property | Description | Return Type
 --- | --- | ---
-**GetText()** | Get button text | string
-**Is** | Assert action | TextAssert 
-**AssertThat** | Assert action | TextAssert
+**click()** | Click the button  | void
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
 <br><br>
 
 ### Button group

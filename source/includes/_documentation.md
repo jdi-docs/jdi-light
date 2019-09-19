@@ -3811,7 +3811,7 @@ public class Breadcrumb extends UIBaseElement<UIAssert> implements IList<UIEleme
 public void getValueTest() {
     List<String> itemsValues = breadcrumb.itemns.stream().map(UIElement::getValue).collect(Collectors.toList());
 
-    breadcrumb.itemns.has().size(ITEMS_VALUES.size());
+    breadcrumb.itemns.has().size(3);
     assertThat(itemsValues, is(Arrays.asList(new String[]{"Home", "HTML 5", "Bootstrap"})));
 }
 
@@ -3837,14 +3837,15 @@ Available methods in Java JDI Light:
 click() | Click the item  | void
 getText() |Get item text  |  String
 getValue() |Get item value  |  String
-get(String option)|Get item by Text|UIElement 
-get(int index)|Get item by Text| UIElement
+get(String option)|Get item by text|UIElement 
+get(int index)|Get item by index| UIElement
 is()	 |  Assert action	| UIAssert
 assertThat()	 |  Assert action	| UIAssert
 
-Breadcrumb has been implemented as WebList.
+In this java test case example Breadcrumb has been implemented as WebList.
 
 WebList is located in the following classes:
+
 Java: com.epam.jdi.light.elements.complex.WebList
 
 ###Navs

@@ -5931,6 +5931,41 @@ And here are methods available in Java:
  |  | 
  
 ### Buttons with dropdowns (Input group)
+
+```java
+@Css("#button-with-dropdown") public static ButtonWithDropdown buttonWithDropdown;
+// @FindBy(css = "#button-with-dropdown") public static ButtonWithDropdown buttonWithDropdown;
+
+@Css("input") public TextField textInputArea;
+@Css("button") public Button dropdownButton;
+@JDropdown(expand = ".input-group-prepend",
+        value = ".dropdown-toggle",
+        list = ".dropdown-item")
+public Dropdown dropdownMenu;
+
+@Test
+public void dropdownMenuTests() {
+    buttonWithDropdown.dropdownMenu.expand();
+    buttonWithDropdown.dropdownMenu.is().size(4);
+    buttonWithDropdown.dropdownMenu.list().get(0).is().text(action);
+}
+
+@Test
+public void textInputAreaTests() {
+    buttonWithDropdown.textInputArea.sendKeys(testText);
+    buttonWithDropdown.textInputArea.is().text(testText);
+    buttonWithDropdown.textInputArea.clear();
+    buttonWithDropdown.textInputArea.is().text("");
+}
+
+@Test
+public void dropdownButtonTests() {
+    buttonWithDropdown.dropdownButton.is().displayed();
+    buttonWithDropdown.dropdownButton.is().enabled();
+    buttonWithDropdown.dropdownButton.is().text(dropdownButton);
+}
+```
+
 **Buttons with dropdowns** – Buttons with dropdowns have no detailed information on Bootstrap website
 
 ![Buttons with dropdowns](../images/bootstrap/buttons_with_dropdowns.png)

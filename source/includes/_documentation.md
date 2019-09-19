@@ -3826,38 +3826,40 @@ Available methods and properties in C# JDI Light::
 ### Breadcrumb
 
 ```java 
+
+
+
+
+
+
+
+
+
+
+// @FindBy(css = "#breadcrumb")
 @Css("#breadcrumb") public static Breadcrumb breadcrumb;
 
-public class Breadcrumb extends UIBaseElement<UIAssert> implements IList<UIElement>, HasUIList, IClickable {
-    @Css(".breadcrumb-item a") public WebList ancestorList;
-    @Css(".breadcrumb-item.active") public UIElement currentItem;
+public class Breadcrumb extends UIBaseElement<UIAssert> implements IList<UIElement>, HasUIList, IClickable{
+    // @FindBy(css = ".breadcrumb-item")
+    @Css(".breadcrumb-item") public WebList itemns;
 }
 
 @Test
 public void getValueTest() {
-     List<String> ancestorValues = 
-     breadcrumb.ancestorList.stream().map(UIElement::getValue).collect(Collectors.toList());
-    
-     assertThat(breadcrumb.currentItem.getValue(), is("Bootstrap"));
-     assertThat(ancestorValues, is(Arrays.asList(new String[]{"Home", "HTML 5"})));
+    List<String> itemsValues = breadcrumb.itemns.stream().map(UIElement::getValue).collect(Collectors.toList());
+
+    breadcrumb.itemns.has().size(ITEMS_VALUES.size());
+    assertThat(itemsValues, is(Arrays.asList(new String[]{"Home", "HTML 5", "Bootstrap"})));
 }
 
 @Test
-public void clickByNameTest() {
-     breadcrumb.ancestorList.get("Home").click();
-    
-     ArrayList<String> tabs = new ArrayList<>(WebDriverFactory.getDriver().getWindowHandles());
-     WebDriver driver = WebDriverFactory.getDriver();
-     driver.switchTo().window(tabs.get(1));
-     
-     assertEquals("Home Page", WebPage.getTitle());
-     
-     driver.close();
-     driver.switchTo().window(tabs.get(0));
+public void getCurrectItem() {
+     breadcrumb.getCurrectItem().has().value("Bootstrap");
+     breadcrumb.getCurrectItem().has().value(WebPage.getTitle());
 }
 ```
 
-A breadcrumb is a control element  used for navigational on web pages
+A [breadcrumb](https://getbootstrap.com/docs/4.3/components/breadcrumb/) is a control element  used for navigational on web pages
 
 ![Breadcrumb example](../images/bootstrap/breadcrumb.png)
 
@@ -3869,11 +3871,18 @@ Available methods in Java JDI Light:
 
 |Method/Property | Description | Return Type
 --- | --- | ---
-**** | TBD  | 
-**** |  |  
-**** |  | 
-**** |  | 
-**** |  | 
+click() | Click the item  | void
+getText() |Get item text  |  String
+getValue() |Get item value  |  String
+get(String option)|Get item by Text|UIElement 
+get(int index)|Get item by Text| UIElement
+is()	 |  Assert action	| UIAssert
+assertThat()	 |  Assert action	| UIAssert
+
+Breadcrumb has been implemented as WebList.
+
+WebList is located in the following classes:
+Java: com.epam.jdi.light.elements.complex.WebList
 
 ###Navs
 

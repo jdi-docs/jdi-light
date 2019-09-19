@@ -6237,6 +6237,49 @@ Inner elements of card can be represented by the following classes:
        @Css(".display-4") public Text title;
        @Css(".lead") public Text description;
        @Css(".btn") public Button learnMoreBtn;
+### Jumbotron
+```java 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   @Css("#jumbotron") // @FindBy(css = "#jumbotron")
+   public static Jumbotron jumbotron;
+
+   public class Jumbotron extends Section implements IsJumbotron {
+       @Css(".display-4") public Text title;
+       @Css(".lead") public Text description;
+       @Css(".btn") public Button learnMoreBtn;
    }
 
     @Test

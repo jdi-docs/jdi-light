@@ -6015,6 +6015,7 @@ public Dropdown dropdownMenu;
 @Test
 public void dropdownMenuTests() {
     buttonWithDropdown.dropdownMenu.expand();
+    buttonWithDropdown.dropdownMenu.is().expanded();
     buttonWithDropdown.dropdownMenu.is().size(4);
     buttonWithDropdown.dropdownMenu.list().get(0).is().text(action);
 }

@@ -6075,6 +6075,89 @@ And here are methods available in Java:
  |  | 
  |  |  
 <br>
+
+###Card
+ ```java 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @Css("#card-example")  //FindBy(css = "#card-example")
+    public static CardExample cardExample;
+    
+    public class CardExample extends Section {
+        @Css(".card-title") public Text title;
+        @Css(".card-text") public Text text;
+        @Css(".btn") public Button button;
+        @Css(".card-img-top") public Image image;
+    }    
+
+    @Test
+    public void getTitleTextTest() {
+        cardExample.title.is().text(is(titleText));
+    }
+    
+    @Test
+    public void clickTest() {
+        cardExample.button.click();
+        Alerts.validateAlert(is(alertText));
+    }
+```
+ 
+Bootstrap’s **[cards](https://getbootstrap.com/docs/4.3/components/card/)** provide a flexible and extensible content container with multiple variants and options.
+
+**Card Example**
+
+![Simple Card Example](../images/bootstrap/simplecard.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Simple Card Example Code](../images/bootstrap/simplecard-html.png)
+
+Card is represented by Section class in Java:
+
+[Section](https://jdi-docs.github.io/jdi-light/#section)
+
+Inner elements of card can be represented by the following classes:
+
+[Text](https://jdi-docs.github.io/jdi-light/#text)<br>
+[Button](https://jdi-docs.github.io/jdi-light/#button)<br>
+[Link](https://jdi-docs.github.io/jdi-light/#link)
+
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card)
+<br>
+<br>
 ### Jumbotron
 ```java 
 

@@ -3589,6 +3589,35 @@ Button group is located in the following classes:
   - __Java__: _com.epam.jdi.light.ui.html.common.Button_
   - __C#__: _JDI.Light.Elements.Common.Button_
   
+  ```java 
+  
+  @Css("#button-group1") //FindBy(css = "#button-group1")
+  public static DefaultButtonGroup defaultButtonGroup;
+  
+  @Test
+  public void clickTest() {
+      defaultButtonGroup.redButton.click();
+      validateAlert(is("Red Button"));
+  }
+  
+  @Test
+  public void getTextTest() {
+      assertEquals(defaultButtonGroup.redButton.getText(), "Red Button");
+      assertEquals(defaultButtonGroup.greenButton.getText(), "Green Button");
+  }
+  
+  @Test
+  public void selectTest() {
+      defaultButtonGroup.dropdownButton.select(optionToOpenNewTab);
+      assertEquals(windowsCount(), 2);
+  }
+      
+  @Test
+  public void valuesTest() {
+      assertEquals(defaultButtonGroup.dropdownButton.values(), expectedValues);
+  }
+  
+  ```
 Here is an example with provided Bootstrap v4.3 code:
   
 ![Button group example](../images/bootstrap/button_group-html.png)
@@ -3597,11 +3626,17 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
- |  |
- |  | 
- |  | 
- |  | 
+**click()** | Click the button | void
+**doubleClick()** | Double Click on button | void
+**rightClick()** | Right Click the button | void
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**select(String option)** | Select option by text| void
+**select(int option)** | Select option by index | void
+**values()** | Get list of all available values | List<String>
 
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/ButtonGroupTest.java)
 
 Available methods and properties in C# JDI Light:
 
@@ -3614,13 +3649,45 @@ Available methods and properties in C# JDI Light:
 <br><br>
 
 ### Alert
+```java
+@Css("#simple-alert") public static Alert simpleAlert;
+@Css("#dismissible-alert") public static Alert dismissibleAlert;
+
+@Test
+public void simpleAlertExistingTest() {
+    simpleAlert.is().displayed();
+    simpleAlert.is().enabled();
+    dismissibleAlert.is().displayed();
+    dismissibleAlert.is().enabled();
+}
+
+@Test
+public void simpleAlertLinkClickableTest() {
+    simpleAlert.click();
+    switchToNewWindow();
+    assertEquals(getTitle(), pageTitle);
+    closeWindow();
+}
+
+@Test
+public void dismissibleAlertButtonIsValidationTest() {
+    dismissibleAlert.dismissButton().is().displayed()
+            .enabled();
+}
+
+@Test (priority = 1)
+public void dismissibleAlertButtonClickTest() {
+    dismissibleAlert.dismissButton().click();
+    dismissibleAlert.is().hidden();
+}
+```
 **Alert** – Element that provides contextual feedback messages for typical user actions with the handful of available and flexible alert messages.
 
-![Alert](../images/bootstrap/alert.png)
+![Alert](../images/bootstrap/alert-dismissible.png)
 
 Here is an example with provided Bootstrap v4.3 code:
   
-![Alert example](../images/bootstrap/alert-html.png)
+![Alert example](../images/bootstrap/alert-html-example.png)
 
 Available methods in Java JDI Light:
 
@@ -4212,30 +4279,6 @@ Available methods in Java JDI Light:
 **** |  | 
 **** |  | 
 **** |  |  
-
-
-###Jumbotron
-
-A jumbotron is a lightweight, flexible component that can optionally extend the entire viewport to showcase key moments.
-
-![Jumbotron example](../images/bootstrap/jumbotron.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-  
-![Jumbotron HTML example](../images/bootstrap/jumbotron-html.png)
-
-Available methods in Java JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
-**** | TBD  | 
-**** |  |  
-**** |  | 
-**** |  | 
-**** |  |  
-
-
-
 
 
 ###Collapse
@@ -5676,6 +5719,57 @@ Available methods and properties in C# JDI Light:
  |  |
  |  | 
 <br>
+### Basic example (Input group)
+
+**Input with several addons**
+
+![Input with several addons](../images/bootstrap/input-twospans.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Input with several addons example](../images/bootstrap/input-twospans-html.png)
+
+**Input with textarea** 
+
+![Input group with textarea](../images/bootstrap/input-textarea.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Input group with textarea example](../images/bootstrap/input-textarea-html.png)
+
+Input group are represented by Section class in Java:
+ 
+  - _com.epam.jdi.light.elements.composite.Section_
+  
+Inner elements of input group can be represented by following classes:
+
+  - _com.epam.jdi.light.ui.html.common.Text_
+  - _com.epam.jdi.light.ui.html.common.TextField_
+  - _com.epam.jdi.light.ui.html.common.TextArea_
+
+[Bootstrap test example ](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/inputGroup)
+
+### Sizing (Input group)
+**Sizing** – Add the relative form sizing classes to the .input-group itself and contents within will automatically resize—no need for repeating the form control size classes on each element.
+
+**Sizing on the individual input group elements isn’t supported.**
+![Sizing](../images/bootstrap/sizing.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Sizing example](../images/bootstrap/sizing_code.png)
+
+And here are methods available in Java:
+    
+|Method | Description | Return Type
+--- | --- | ---
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+ |  | 
+
+
 ### Wrapping (Input group)
 ```java 
    @Css("#input-group-username") public static InputGroupInputWithText inputGroupUsername;
@@ -5713,7 +5807,7 @@ Inner elements of input group can be represented by following classes:
   - _com.epam.jdi.light.ui.html.common.Text_
   - _com.epam.jdi.light.ui.html.common.TextField_
 
-[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/inputGroup)
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/inputGroup/InputGroupInputWithTextTests)
 
 ### Sizing (Input group)
 **Sizing** – Add the relative form sizing classes to the .input-group itself and contents within will automatically resize—no need for repeating the form control size classes on each element.
@@ -5736,23 +5830,51 @@ And here are methods available in Java:
  |  | 
 
 ### Checkboxes and radios (Input group)
-**Checkboxes and radios** – Place any checkbox or radio option within an input group’s addon instead of text.
 
-![Checkboxes and radios](../images/bootstrap/checkboxes_radios.png)
+Checkboxes and radios – Place any checkbox or radio option within an input group’s addon instead of text.
+
+__Example with radio__
+
+```java 
+  @UI("#input-group-radio") public static InputGroupInputWithRadio inputGroupRadio;// @FindBy(css = "#input-group-radio")
+
+  public class InputGroupInputWithRadio extends Section{
+      @Css("[type=\"radio\"]") public RadioButtons radio;
+      @Css(".form-control") public TextField input;
+  }
+  
+  @Test
+  public void getSizeRadioButtons() {
+      inputGroupRadio.radio.is().size(1);
+  }
+
+   @Test
+   public void inputTest() {
+       inputGroupRadio.input.input(new_text);
+       inputGroupRadio.input.assertThat().text(is(new_text));
+   }
+
+ 
+```
+
+![radio](../images/bootstrap/input-group-radio.png)
 
 Here is an example with provided Bootstrap v4.3 code:
   
-![Checkboxes and radios example](../images/bootstrap/checkboxes_radios_code.png)
+![radio example](../images/bootstrap/input-group-radio-html.png)
 
-And here are methods available in Java:
-    
-|Method | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  | 
+[Bootstrap test example with radio](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/inputGroup/InputGroupRadioTests)<br />
+<br /><br /><br /><br />
+__Example with checkbox__
+
+![Checkbox](../images/bootstrap/input-group-checkbox.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Checkboxes example](../images/bootstrap/input-group-checkbox-html.png)
+
+[Bootstrap test example with checkbox](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/inputGroup/InputGroupCheckboxesTests)
+<br /><br /><br /><br /><br />
  
 ### Multiple inputs (Input group)
 **Multiple inputs** – While multiple inputs are supported visually, validation styles are only available for input groups with a single input.
@@ -5812,13 +5934,51 @@ And here are methods available in Java:
  |  | 
  
 ### Buttons with dropdowns (Input group)
+
+```java
+@Css("#button-with-dropdown") public static ButtonWithDropdown buttonWithDropdown;
+// @FindBy(css = "#button-with-dropdown") public static ButtonWithDropdown buttonWithDropdown;
+
+public class ButtonWithDropdown extends Section {
+@Css("input") public TextField textInputArea;
+@Css("button") public Button dropdownButton;
+@JDropdown(expand = ".input-group-prepend",
+        value = ".dropdown-toggle",
+        list = ".dropdown-item")
+public Dropdown dropdownMenu;
+}
+
+@Test
+public void dropdownMenuTests() {
+    buttonWithDropdown.dropdownMenu.expand();
+    buttonWithDropdown.dropdownMenu.is().expanded();
+    buttonWithDropdown.dropdownMenu.is().size(4);
+    buttonWithDropdown.dropdownMenu.list().get(0).is().text(action);
+}
+
+@Test
+public void textInputAreaTests() {
+    buttonWithDropdown.textInputArea.sendKeys(testText);
+    buttonWithDropdown.textInputArea.is().text(testText);
+    buttonWithDropdown.textInputArea.clear();
+    buttonWithDropdown.textInputArea.is().text("");
+}
+
+@Test
+public void dropdownButtonTests() {
+    buttonWithDropdown.dropdownButton.is().displayed();
+    buttonWithDropdown.dropdownButton.is().enabled();
+    buttonWithDropdown.dropdownButton.is().text(dropdownButton);
+}
+```
+
 **Buttons with dropdowns** – Buttons with dropdowns have no detailed information on Bootstrap website
 
 ![Buttons with dropdowns](../images/bootstrap/buttons_with_dropdowns.png)
 
 Here is an example with provided Bootstrap v4.3 code:
   
-![Buttons with dropdowns example](../images/bootstrap/buttons_with_dropdowns_code.png)
+![Buttons with dropdowns example](../images/bootstrap/buttons-with-dropdowns-html.png)
 
 And here are methods available in Java:
     
@@ -5887,9 +6047,127 @@ And here are methods available in Java:
  |  | 
  |  |  
 <br>
+
+###Card
+ ```java 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @Css("#card-example")  //FindBy(css = "#card-example")
+    public static CardExample cardExample;
+    
+    public class CardExample extends Section {
+        @Css(".card-title") public Text title;
+        @Css(".card-text") public Text text;
+        @Css(".btn") public Button button;
+        @Css(".card-img-top") public Image image;
+    }    
+
+    @Test
+    public void getTitleTextTest() {
+        cardExample.title.is().text(is(titleText));
+    }
+    
+    @Test
+    public void clickTest() {
+        cardExample.button.click();
+        Alerts.validateAlert(is(alertText));
+    }
+```
+ 
+Bootstrap’s **[cards](https://getbootstrap.com/docs/4.3/components/card/)** provide a flexible and extensible content container with multiple variants and options.
+
+**Card Example**
+
+![Simple Card Example](../images/bootstrap/simplecard.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Simple Card Example Code](../images/bootstrap/simplecard-html.png)
+
+Card is represented by Section class in Java:
+
+[Section](https://jdi-docs.github.io/jdi-light/#section)
+
+Inner elements of card can be represented by the following classes:
+
+[Text](https://jdi-docs.github.io/jdi-light/#text)<br>
+[Button](https://jdi-docs.github.io/jdi-light/#button)<br>
+[Link](https://jdi-docs.github.io/jdi-light/#link)
+
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card)
+<br>
+<br>
 ### Jumbotron
 ```java 
-   @Css("#jumbotron") public static Jumbotron jumbotron;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   @Css("#jumbotron") // @FindBy(css = "#jumbotron")
+   public static Jumbotron jumbotron;
 
    public class Jumbotron extends Section implements IsJumbotron {
        @Css(".display-4") public Text title;
@@ -5903,26 +6181,39 @@ And here are methods available in Java:
     }
 
     @Test
-    public void baseValidationTest() {
-        baseValidation(jumbotron);
-    }  
+    public void clickTest() {
+        jumbotron.learnMoreBtn.click();
+        ArrayList<String> tabs = new ArrayList<>(WebDriverFactory.getDriver().getWindowHandles());
+        WebDriver driver = WebDriverFactory.getDriver();
+        driver.switchTo().window(tabs.get(1));
+        assertEquals(getUrl(), mJumbotronUrl);
+        driver.close();
+        driver.switchTo().window(tabs.get(0));
+    } 
 ```
-**Jumbotron** – Lightweight, flexible component for showcasing hero unit style content.
+<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.0/components/jumbotron" target="_blank">Jumbotron</a> – Lightweight, flexible component for showcasing hero
 
 ![Jumbotron](../images/bootstrap/jumbotron.png)
 
 Here is an example with provided Bootstrap v4.3 code:
   
-![Jumbotron example](../images/bootstrap/jumbotron_html.png)
+![Jumbotron example](../images/bootstrap/jumbotron-html.png)
 
 Jumbotron is represented by Section class in Java:
  
-  - _com.epam.jdi.light.elements.composite.Section_
+  [Section](https://jdi-docs.github.io/jdi-light/#section)
   
 Inner elements of jumbotron can be represented by the following classes:
 
-  - _com.epam.jdi.light.ui.html.common.Text_
-  - _com.epam.jdi.light.ui.html.common.Button_
+  [Text](https://jdi-docs.github.io/jdi-light/#text)
+  
+  [Button](https://jdi-docs.github.io/jdi-light/#button)
+  
+  [Label](https://jdi-docs.github.io/jdi-light/#label)
+  
+  [Link](https://jdi-docs.github.io/jdi-light/#link)
+  
+  [See more elements](https://jdi-docs.github.io/jdi-light/#html5-common-elements)
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/jumbotron)
 

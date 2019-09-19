@@ -3626,6 +3626,35 @@ Button group is located in the following classes:
   - __Java__: _com.epam.jdi.light.ui.html.common.Button_
   - __C#__: _JDI.Light.Elements.Common.Button_
   
+  ```java 
+  
+  @Css("#button-group1") //FindBy(css = "#button-group1")
+  public static DefaultButtonGroup defaultButtonGroup;
+  
+  @Test
+  public void clickTest() {
+      defaultButtonGroup.redButton.click();
+      validateAlert(is("Red Button"));
+  }
+  
+  @Test
+  public void getTextTest() {
+      assertEquals(defaultButtonGroup.redButton.getText(), "Red Button");
+      assertEquals(defaultButtonGroup.greenButton.getText(), "Green Button");
+  }
+  
+  @Test
+  public void selectTest() {
+      defaultButtonGroup.dropdownButton.select(optionToOpenNewTab);
+      assertEquals(windowsCount(), 2);
+  }
+      
+  @Test
+  public void valuesTest() {
+      assertEquals(defaultButtonGroup.dropdownButton.values(), expectedValues);
+  }
+  
+  ```
 Here is an example with provided Bootstrap v4.3 code:
   
 ![Button group example](../images/bootstrap/button_group-html.png)
@@ -3634,11 +3663,17 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
- |  |
- |  | 
- |  | 
- |  | 
+**click()** | Click the button | void
+**doubleClick()** | Double Click on button | void
+**rightClick()** | Right Click the button | void
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**select(String option)** | Select option by text| void
+**select(int option)** | Select option by index | void
+**values()** | Get list of all available values | List<String>
 
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/ButtonGroupTest.java)
 
 Available methods and properties in C# JDI Light:
 

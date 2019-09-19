@@ -5867,52 +5867,49 @@ And here are methods available in Java:
  |  | 
 
 ### Checkboxes and radios (Input group)
+
+Checkboxes and radios – Place any checkbox or radio option within an input group’s addon instead of text.
+
+__Example with radio__
+
 ```java 
-  @Css("#input-group-checkbox") public static InputGroupInputWithCheckBox inputGroupCheckBox;
-  @Css("#input-group-radio") public static InputGroupInputWithRadio inputGroupRadio;
+  @UI("#input-group-radio") public static InputGroupInputWithRadio inputGroupRadio;// @FindBy(css = "#input-group-radio")
 
   public class InputGroupInputWithRadio extends Section{
       @Css("[type=\"radio\"]") public RadioButtons radio;
       @Css(".form-control") public TextField input;
   }
   
-  public class InputGroupInputWithCheckBox extends Section{
-      @Css("[type=\"checkbox\"]") public Checkbox checkbox;
-      @Css(".form-control") public TextField input;
-  } 
-  
   @Test
   public void getSizeRadioButtons() {
       inputGroupRadio.radio.is().size(1);
   }
 
-  @Test
-  public void getValueTest() {
-      assertEquals(inputGroupRadio.input.getValue(), text);
-  }
-  
- @Test
-  public void checkCheckboxTest() {
-      inputGroupCheckBox.checkbox.check();
-      assertEquals(inputGroupCheckBox.checkbox.isSelected(), true);
-  }
-  
-  @Test
-  public void getValueTest() {
-      assertEquals(inputGroupCheckBox.input.getValue(), text);
-  }
+   @Test
+   public void inputTest() {
+       inputGroupRadio.input.input(new_text);
+       inputGroupRadio.input.assertThat().text(is(new_text));
+   }
 
  
 ```
-**Checkboxes and radios** – Place any checkbox or radio option within an input group’s addon instead of text.
 
-![Checkboxes and radios](../images/bootstrap/checkboxes_radios.png)
+![radio](../images/bootstrap/input-group-radio.png)
 
 Here is an example with provided Bootstrap v4.3 code:
   
-![Checkboxes and radios example](../images/bootstrap/checkboxes_radios_code.png)
+![radio example](../images/bootstrap/input-group-radio-html.png)
 
 [Bootstrap test example with radio](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/inputGroup/InputGroupRadioTests)<br />
+<br /><br /><br /><br />
+__Example with checkbox__
+
+![Checkbox](../images/bootstrap/input-group-checkbox.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Checkboxes example](../images/bootstrap/input-group-checkbox-html.png)
+
 [Bootstrap test example with checkbox](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/inputGroup/InputGroupCheckboxesTests)
 <br /><br /><br /><br /><br />
  

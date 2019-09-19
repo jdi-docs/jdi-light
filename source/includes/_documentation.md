@@ -6245,11 +6245,17 @@ Inner elements of card can be represented by the following classes:
     }
 
     @Test
-    public void baseValidationTest() {
-        baseValidation(jumbotron);
-    }  
+    public void clickTest() {
+        jumbotron.learnMoreBtn.click();
+        ArrayList<String> tabs = new ArrayList<>(WebDriverFactory.getDriver().getWindowHandles());
+        WebDriver driver = WebDriverFactory.getDriver();
+        driver.switchTo().window(tabs.get(1));
+        assertEquals(getUrl(), mJumbotronUrl);
+        driver.close();
+        driver.switchTo().window(tabs.get(0));
+    } 
 ```
-**[Jumbotron](https://getbootstrap.com/docs/4.0/components/jumbotron/)** – Lightweight, flexible component for showcasing hero unit style content.
+<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.0/components/jumbotron" target="_blank">Jumbotron</a>
 
 ![Jumbotron](../images/bootstrap/jumbotron.png)
 

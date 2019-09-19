@@ -4318,30 +4318,6 @@ Available methods in Java JDI Light:
 **** |  |  
 
 
-###Jumbotron
-
-A jumbotron is a lightweight, flexible component that can optionally extend the entire viewport to showcase key moments.
-
-![Jumbotron example](../images/bootstrap/jumbotron.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-  
-![Jumbotron HTML example](../images/bootstrap/jumbotron-html.png)
-
-Available methods in Java JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
-**** | TBD  | 
-**** |  |  
-**** |  | 
-**** |  | 
-**** |  |  
-
-
-
-
-
 ###Collapse
 
 The collapse is used to show and hide content. Buttons or anchors are used as triggers that are mapped to specific elements you toggle. 

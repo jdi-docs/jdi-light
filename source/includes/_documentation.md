@@ -3651,6 +3651,38 @@ Available methods and properties in C# JDI Light:
 <br><br>
 
 ### Alert
+```java
+@Css("#simple-alert") public static Alert simpleAlert;
+@Css("#dismissible-alert") public static Alert dismissibleAlert;
+
+@Test
+public void simpleAlertExistingTest() {
+    simpleAlert.is().displayed();
+    simpleAlert.is().enabled();
+    dismissibleAlert.is().displayed();
+    dismissibleAlert.is().enabled();
+}
+
+@Test
+public void simpleAlertLinkClickableTest() {
+    simpleAlert.click();
+    switchToNewWindow();
+    assertEquals(getTitle(), pageTitle);
+    closeWindow();
+}
+
+@Test
+public void dismissibleAlertButtonIsValidationTest() {
+    dismissibleAlert.dismissButton().is().displayed()
+            .enabled();
+}
+
+@Test (priority = 1)
+public void dismissibleAlertButtonClickTest() {
+    dismissibleAlert.dismissButton().click();
+    dismissibleAlert.is().hidden();
+}
+```
 **Alert** – Element that provides contextual feedback messages for typical user actions with the handful of available and flexible alert messages.
 
 ![Alert](../images/bootstrap/alert-dismissible.png)

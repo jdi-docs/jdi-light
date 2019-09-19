@@ -5936,12 +5936,14 @@ And here are methods available in Java:
 @Css("#button-with-dropdown") public static ButtonWithDropdown buttonWithDropdown;
 // @FindBy(css = "#button-with-dropdown") public static ButtonWithDropdown buttonWithDropdown;
 
+public class ButtonWithDropdown extends Section {
 @Css("input") public TextField textInputArea;
 @Css("button") public Button dropdownButton;
 @JDropdown(expand = ".input-group-prepend",
         value = ".dropdown-toggle",
         list = ".dropdown-item")
 public Dropdown dropdownMenu;
+}
 
 @Test
 public void dropdownMenuTests() {

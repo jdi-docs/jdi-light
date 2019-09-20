@@ -3674,6 +3674,8 @@ Here is an example with provided Bootstrap v4.3 code:
 ```java
 @Css("#simple-alert") public static Alert simpleAlert;
 @Css("#dismissible-alert") public static Alert dismissibleAlert;
+// @FindBy(css = "#simple-alert") public static Alert simpleAlert;
+// @FindBy(css = "#dismissible-alert") public static Alert dismissibleAlert;
 
 @Test
 public void simpleAlertExistingTest() {
@@ -6199,13 +6201,107 @@ And here are methods available in Java:
  |  |  
  
 ### Custom select (Input group)
-**Custom select** – Input groups include support for custom selects and custom file inputs. Browser default versions of these are not supported.
+**Custom select** – Input groups include support for custom selects and text field. Browser default versions of these are not supported.
+
+```java
+@UI("#custom-select-01") public static CustomSelect customSelect;
+// @FindBy(css = "#custom-select-01") public static CustomSelect customSelect;
+
+public class CustomSelect extends Section {
+    @UI(".input-group-prepend") public Text optionText;
+    @UI("#inputGroupSelect01") public Selector selector;
+}
+
+@Test
+   public void isValidationOptionsSectionTests() {
+       customSelect.optionText.is().text(optionText);
+}
+
+@Test
+public void selectorByIndexTests() {
+    customSelect.selector.is().selected(selectChoose);
+    customSelect.selector.select(2);
+    customSelect.selector.is().selected(selectOne);
+    customSelect.selector.select(1);
+    customSelect.selector.is().selected(selectChoose);
+}
+
+@Test(priority = 1)
+public void selectorByValueTests() {
+    customSelect.selector.select(selectOne);
+    customSelect.selector.is().selected(selectOne);
+    customSelect.selector.select(selectTwo);
+    customSelect.selector.is().selected(selectTwo);
+}
+
+@Test
+public void selectorIsValidationTests() {
+    customSelect.selector.is().displayed()
+            .enabled();
+    customSelect.selector.is().size(4);
+}
+```
 
 ![Custom select](../images/bootstrap/custom_select.png)
 
 Here is an example with provided Bootstrap v4.3 code:
   
 ![Custom select example](../images/bootstrap/custom_select_code.png)
+
+
+**Custom select with button** – Input groups include support for custom selects and button. Browser default versions of these are not supported.
+
+```java
+@UI("#custom-select-button-01") public static CustomSelectWithButton customSelectWithButton;
+// @FindBy(css = "#custom-select-button-01") public static CustomSelect customSelect;
+
+public class CustomSelectWithButton extends Section {
+    @UI("#inputGroupSelect03") public Selector selector;
+    @UI("button") public Button button;
+}
+
+@Test
+public void buttonTests() {
+    customSelectWithButton.button.is().displayed();
+    customSelectWithButton.button.is().enabled();
+    customSelectWithButton.button.is().text(buttonText);
+    customSelectWithButton.button.hover();
+    customSelectWithButton.button.click();
+    validateAlert(is(buttonClickAlert));
+}
+
+@Test
+public void selectorByIndexTests() {
+    customSelectWithButton.selector.is().selected(selectChoose);
+    customSelectWithButton.selector.select(2);
+    customSelectWithButton.selector.is().selected(selectOne);
+    customSelectWithButton.selector.select(3);
+    customSelectWithButton.selector.is().selected(selectTwo);
+}
+
+@Test(priority = 1)
+public void selectorByValueTests() {
+    customSelectWithButton.selector.select(selectTwo);
+    customSelectWithButton.selector.is().selected(selectTwo);
+    customSelectWithButton.selector.select(selectThree);
+    customSelectWithButton.selector.is().selected(selectThree);
+}
+
+@Test
+public void selectorIsValidationTests() {
+    customSelectWithButton.selector.is().displayed()
+            .enabled();
+    customSelectWithButton.selector.is().size(4);
+}
+```
+
+![Custom select with button](../images/bootstrap/custom-select-with-button.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Custom select with button example](../images/bootstrap/custom-select-with-button-html.png)
+
+
 
 And here are methods available in Java:
     

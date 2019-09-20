@@ -4291,28 +4291,6 @@ Available methods in Java JDI Light:
 **** |  |  
 
 
-###Collapse
-
-The collapse is used to show and hide content. Buttons or anchors are used as triggers that are mapped to specific elements you toggle. 
-
-![Collapse example](../images/bootstrap/collapse.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-  
-![Collapse HTML example](../images/bootstrap/collapse-html.png)
-
-Available methods in Java JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
-**** | TBD  | 
-**** |  |  
-**** |  | 
-**** |  | 
-**** |  |  
-
-
-
 ###Carousel
 **Carousel** - a slideshow component for cycling through elements—images or slides of text—like a carousel.
 
@@ -5339,6 +5317,75 @@ Available methods and properties in C# JDI Light:
 
 
 ## Bootstrap Complex elements
+
+###Collapse
+
+```java 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @JDropdown(expand = "#bs-group-toggle-one",
+                value = "#bs-group-one",
+                list = "#bs-group-one-body")
+        public static Collapse collapseGroupOne;   
+
+    @Test
+        public void collapseGroupOneTest() {
+            collapseGroupOne.highlight();
+            collapseGroupOne.toggle();
+    
+            collapseGroupOne.is().expanded();
+            collapseGroupOne.value().is().text(groupOneText);
+    
+            collapseGroupOne.toggle();
+            collapseGroupOne.is().collapsed();
+        }
+```
+
+The collapse is used to show and hide content. 
+Buttons or anchors are used as triggers that are mapped to specific elements you toggle.
+You can declare a Collapse on your Page Object with a ``@JDropdown`` annotation. 
+
+![Collapse example](../images/bootstrap/collapse.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Collapse HTML example](../images/bootstrap/collapse-html.png)
+
+
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/complex/CollapseTests.java)
 
 ### Dropdown
 **Dropdown** – a graphical control element, that allows the user to choose one value from a list.

@@ -5846,33 +5846,65 @@ Available methods and properties in C# JDI Light:
  |  |
  |  | 
 <br>
+
 ### Basic example (Input group)
+**<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/input-group/#basic-example" target="_blank">Input group</a>** – Place one add-on or button on either side of an input. You may also place one on both sides of an input.
+<br />
 
-**Input with several addons**
+**1.Input group example - Input + left span**
 
-![Input with several addons](../images/bootstrap/input-twospans.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-  
-![Input with several addons example](../images/bootstrap/input-twospans-html.png)
-
-**Input with textarea** 
-
-![Input group with textarea](../images/bootstrap/input-textarea.png)
+<img src="../images/bootstrap/input-group-base-example1.png" alt="Input group example1" height="50%" width="50%">
 
 Here is an example with provided Bootstrap v4.3 code:
-  
-![Input group with textarea example](../images/bootstrap/input-textarea-html.png)
+
+<img src="../images/bootstrap/input-group-base-example1-html.png" alt="Input group example1 html"> 
+
+**2.Input group example - Input + right span** 
+
+<img src="../images/bootstrap/input-group-base-example2.png" alt="Input group example1" height="50%" width="50%">
+
+Here is an example with provided Bootstrap v4.3 code:
+
+ <img src="../images/bootstrap/input-group-base-example2-html.png" alt="Input group example2 html">  
+
+**3.Input group example - Input + label + left span**
+
+<img src="../images/bootstrap/input-group-base-example3.png" alt="Input group example1" height="50%" width="50%">
+
+Here is an example with provided Bootstrap v4.3 code:
+
+<img src="../images/bootstrap/input-group-base-example3-html.png" alt="Input group example3 html"> 
+
+**4.Input group example - Input + left and right span**
+
+<img src="../images/bootstrap/input-group-base-example4.png" alt="Input group example4" height="50%" width="50%">
+
+Here is an example with provided Bootstrap v4.3 code:
+
+<img src="../images/bootstrap/input-group-base-example4-html.png" alt="Input group example4 html"> 
+
+**5.Input group example - Input + textarea**
+
+<img src="../images/bootstrap/input-group-base-example5.png" alt="Input group example5" height="50%" width="50%">
+
+Here is an example with provided Bootstrap v4.3 code:
+
+<img src="../images/bootstrap/input-group-base-example5-html.png" alt="Input group example5 html"> 
 
 Input group are represented by Section class in Java:
  
-  - _com.epam.jdi.light.elements.composite.Section_
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
   
 Inner elements of input group can be represented by following classes:
 
-  - _com.epam.jdi.light.ui.html.common.Text_
-  - _com.epam.jdi.light.ui.html.common.TextField_
-  - _com.epam.jdi.light.ui.html.common.TextArea_
+  [Text](https://jdi-docs.github.io/jdi-light/#text)
+  
+  [TextField](https://jdi-docs.github.io/jdi-light/#textfield)
+  
+  [TextArea](https://jdi-docs.github.io/jdi-light/#textarea)
+ 
+  
+  [See more elements](https://jdi-docs.github.io/jdi-light/#html5-common-elements)
 
 [Bootstrap test example ](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/inputGroup)
 

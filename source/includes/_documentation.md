@@ -5292,6 +5292,14 @@ Available methods and properties in C# JDI Light:
 
 
 
+
+
+
+
+
+
+
+
     @JDropdown(expand = "#bs-group-toggle-one",
                 value = "#bs-group-one",
                 list = "#bs-group-one-body")
@@ -5316,12 +5324,12 @@ The <a style="font-weight: bold;" href="https://getbootstrap.com/docs/4.3/compon
 Buttons or anchors are used as triggers that are mapped to specific elements you toggle.
 
 ``Collapse`` extends JDI Light's ``DropdownExpand``, thus inheriting its methods.<br>
-You can use a ``@JDropdown`` annotation to declare a Collapse within your Page Object. 
+You can use a ``@JDropdown`` annotation to declare a Collapse within your Page Object.
 
 ![Collapse example](../images/bootstrap/collapse.png)
 
 Here is an example with provided Bootstrap v4.3 code:
-  
+
 ![Collapse HTML example](../images/bootstrap/collapse-html.png)
 
 Available methods in Java JDI Light:

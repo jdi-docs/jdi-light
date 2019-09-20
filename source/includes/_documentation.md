@@ -3542,11 +3542,12 @@ Available methods in Java JDI Light:
 <br>
 
 **Disabled Button** – Element that represents a Not clickable button
+
 ![Disabled button](../images/bootstrap/disabled_button.png)
 
 Button is located in the following classes:
 
-  - __Java__: _com.epam.jdi.light.ui.html.common.Button_
+- __Java__: _com.epam.jdi.light.ui.html.common.Button_
   
 ```java 
 @UI("//*[text()='Disabled button']") // @FindBy(css = "//*[text()='Disabled button']")

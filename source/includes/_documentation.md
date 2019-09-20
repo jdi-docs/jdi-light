@@ -6130,6 +6130,7 @@ And here are methods available in Java:
  
 ### Segmented buttons (Input group)
 **Segmented buttons** – Segmented buttons have no detailed information on Bootstrap website
+
 ```java
 @UI("#segmented-button") public static SegmentedButton segmentedButton;
 // @FindBy(css = "#segmented-button") public static SegmentedButton segmentedButton;
@@ -6173,6 +6174,7 @@ public void actionButtonTests() {
     validateAlert(is(actionButtonClickAlert));
 }
 ```
+
 ![Segmented buttons](../images/bootstrap/segmented_buttons.png)
 
 Here is an example with provided Bootstrap v4.3 code:

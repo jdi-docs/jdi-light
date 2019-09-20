@@ -5316,7 +5316,7 @@ The <a style="font-weight: bold;" href="https://getbootstrap.com/docs/4.3/compon
 Buttons or anchors are used as triggers that are mapped to specific elements you toggle.
 
 ``Collapse`` extends JDI Light's ``DropdownExpand``, thus inheriting its methods.<br>
-You can use a ``@JDropdown`` annotation to declare a Collapse on your Page Object. 
+You can use a ``@JDropdown`` annotation to declare a Collapse within your Page Object. 
 
 ![Collapse example](../images/bootstrap/collapse.png)
 

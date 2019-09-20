@@ -5907,7 +5907,7 @@ And here are methods available in Java:
 
 ### Checkboxes and radios (Input group)
 
-Checkboxes and radios – Place any checkbox or radio option within an input group’s addon instead of text.
+<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.0/components/input-group/#checkboxes-and-radios" target="_blank">Checkboxes and radios</a> – Place any checkbox or radio option within an input group’s addon instead of text.
 
 __Example with radio__
 
@@ -5939,8 +5939,37 @@ Here is an example with provided Bootstrap v4.3 code:
   
 ![radio example](../images/bootstrap/input-group-radio-html.png)
 
-[Bootstrap test example with radio](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/inputGroup/InputGroupRadioTests)<br />
-<br /><br /><br /><br />
+This input group example is represented by the following classes in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)    
+  [RadioButtons](https://jdi-docs.github.io/jdi-light/#radiobuttons)   
+   
+  <a  href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/inputGroup/InputGroupRadioTests.java" target="_blank">Bootstrap test example with radio</a>
+
+<br />
+
+```java 
+ @UI("#input-group-checkbox") public static InputGroupInputWithCheckBox inputGroupCheckBox;// @FindBy(css = "#input-group-checkbox")
+
+ public class InputGroupInputWithCheckBox extends Section{
+     @Css("[type=\"checkbox\"]") public Checkbox checkbox;
+     @Css(".form-control") public TextField input;
+ }
+  
+ @Test
+ public void checkCheckboxTest() {
+     inputGroupCheckBox.checkbox.check();
+     inputGroupCheckBox.checkbox.isSelected();
+ }
+
+   @Test
+   public void inputTest() {
+       inputGroupRadio.input.input(new_text);
+       inputGroupRadio.input.assertThat().text(is(new_text));
+   }
+
+ 
+```
 __Example with checkbox__
 
 ![Checkbox](../images/bootstrap/input-group-checkbox.png)
@@ -5949,7 +5978,13 @@ Here is an example with provided Bootstrap v4.3 code:
   
 ![Checkboxes example](../images/bootstrap/input-group-checkbox-html.png)
 
-[Bootstrap test example with checkbox](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/inputGroup/InputGroupCheckboxesTests)
+This input group example is represented by the following classes in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)   
+  [CheckBox](https://jdi-docs.github.io/jdi-light/#checkbox)
+
+  <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/inputGroup/InputGroupCheckboxesTests.java" target="_blank">Bootstrap test example with checkbox</a>
+
 <br /><br /><br /><br /><br />
  
 ### Multiple inputs (Input group)

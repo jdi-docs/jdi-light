@@ -5310,12 +5310,12 @@ Available methods and properties in C# JDI Light:
     @Test
         public void collapseGroupOneTest() {
             collapseGroupOne.highlight();
-            collapseGroupOne.toggle();
+            collapseGroupOne.expand();
     
             collapseGroupOne.is().expanded();
             collapseGroupOne.value().is().text(groupOneText);
     
-            collapseGroupOne.toggle();
+            collapseGroupOne.collapse();
             collapseGroupOne.is().collapsed();
         }
 ```
@@ -5336,7 +5336,8 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**toggle()** | Toggles collapse  | void
+**expand()** | Expands element  | void
+**collapse()** | Collapses element  | void
 **expanded()** | Checks whether collapse is expanded | UISelectAssert
 **collapsed()** | Checks whether collapse is collapsed | UISelectAssert 
 **value()** | Returns collapse ``value()`` property | UIElement

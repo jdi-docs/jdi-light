@@ -5364,7 +5364,10 @@ Available methods and properties in C# JDI Light:
 ```
 
 The <a style="font-weight: bold;" href="https://getbootstrap.com/docs/4.3/components/collapse/" target="_blank">collapse</a> is used to show and hide content. 
-Buttons or anchors are used as triggers that are mapped to specific elements you toggle. 
+Buttons or anchors are used as triggers that are mapped to specific elements you toggle.
+
+``Collapse`` extends JDI Light's ``DropdownExpand``, thus inheriting its methods.<br>
+You can use a ``@JDropdown`` annotation to declare a Collapse on your Page Object. 
 
 ![Collapse example](../images/bootstrap/collapse.png)
 
@@ -5372,7 +5375,15 @@ Here is an example with provided Bootstrap v4.3 code:
   
 ![Collapse HTML example](../images/bootstrap/collapse-html.png)
 
-You can use a ``@JDropdown`` annotation to declare a Collapse on your Page Object.
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**toggle()** | Toggles collapse  | void
+**expanded()** | Checks whether collapse is expanded | UISelectAssert
+**collapsed()** | Checks whether collapse is collapsed | UISelectAssert 
+**value()** | Returns collapse ``value()`` property | UIElement
+**list()** | Returns collapse ``list()`` property | UIElement
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/complex/CollapseTests.java)
 

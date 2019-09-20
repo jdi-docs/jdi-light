@@ -4308,103 +4308,6 @@ Available methods in Java JDI Light:
 **** |  | 
 **** |  |  
 
-
-###Carousel
-<a style="font-weight:bold" href="https://https://getbootstrap.com/docs/4.3/components/carousel/" target="_blank">Carousel</a> - a slideshow component for cycling through elements—images or slides of text—like a carousel.<br>
-
-**Slides only**<br>
-Here’s a carousel with slides only. Note the presence of the .d-block and .w-100 on carousel images to prevent browser default image alignment.
-
-![Carousel slides only example](../images/bootstrap/carousel-slides-only.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-  
-![Carousel slides only HTML example](../images/bootstrap/carousel-slides-only-html.png)
-
-**With controls**<br>
-Adding in the previous and next controls:
-
-![Carousel with controls example](../images/bootstrap/carousel-with-controls.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-  
-![Carousel with controls HTML example](../images/bootstrap/carousel-with-controls-html.png)
-
-**With indicators**<br>
-You can also add the indicators to the carousel, alongside the controls, too.
-
-![Carousel with indicators example](../images/bootstrap/carousel-with-indicators.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-  
-![Carousel with indicators HTML example](../images/bootstrap/carousel-with-indicators-html.png)
-
-**With captions**<br>
-Add captions to your slides easily with the .carousel-caption element within any .carousel-item.
-They can be easily hidden on smaller viewports, as shown below, with optional display utilities.
-We hide them initially with .d-none and bring them back on medium-sized devices with .d-md-block.
-
-![Carousel with captions example](../images/bootstrap/carousel-with-captions.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-  
-![Carousel with captions HTML example](../images/bootstrap/carousel-with-captions-html.png)
-
-**Crossfade**<br>
-Add .carousel-fade to your carousel to animate slides with a fade transition instead of a slide.
-
-Here is an example with provided Bootstrap v4.3 code:
-  
-![Carousel crossfade HTML example](../images/bootstrap/carousel-crossfade-html.png)
-
-**Individual .carousel-item interval**<br>
-Add data-interval="" to a .carousel-item to change the amount of time to delay between automatically cycling to the next item.
-
-Here is an example with provided Bootstrap v4.3 code:
-  
-![Carousel example interval HTML example](../images/bootstrap/carousel-example-interval-html.png)
-
-Carousel is located in the following classes:
- 
-  - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.complex.Carousel_
-  
-  
-```java 
-@UI("#carousel-example-controls") // @FindBy(css = "#carousel-example-controls")
-public static Carousel carouselWithControls;
-
-@Test
-public void prevTest() {
-	carouselWithControls.prev();	
-	carouselWithControls.is().text(firstSlideText);
-	
-	carouselWithControls.next();	
-	carouselWithControls.is().text(secondSlideText);
-}
-
-@Test
-public void getTextTest() {
-    assertEquals(carouselWithControls.getText(), thirdSlideText);
-}
-```
-
-Available methods in Java JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
-getText() | Get carousel text  | String 
-select(int i) | Select slide by index  | void  
-assertThat() | Assert action | TextAssert
-next() | Move to the next slide | void
-prev() | Move to the previous slide | void
-currentSlide() | Return current slide | UIElement
-indicators() | Return list of carousel indicators | WebList
-interval() | Return current slide interval | int
-is() | Assert action | TextAssert
-assertThat() | Assert action | TextAssert
-
-
-
 ### List group
 **List group** – a flexible and powerful component for displaying a series of content. Modify and extend them to support just about any content within.
 
@@ -5440,6 +5343,110 @@ TBD
 Available methods and properties in C# JDI Light:
 
 TBD
+
+
+###Carousel
+<a style="font-weight:bold" href="https://https://getbootstrap.com/docs/4.3/components/carousel/" target="_blank">Carousel</a> - a slideshow component for cycling through elements—images or slides of text—like a carousel.<br>
+
+**Slides only**<br>
+Here’s a carousel with slides only. Note the presence of the .d-block and .w-100 on carousel images to prevent browser default image alignment.
+
+![Carousel slides only example](../images/bootstrap/carousel-slides-only.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Carousel slides only HTML example](../images/bootstrap/carousel-slides-only-html.png)
+
+**With controls**<br>
+Adding in the previous and next controls:
+
+![Carousel with controls example](../images/bootstrap/carousel-with-controls.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Carousel with controls HTML example](../images/bootstrap/carousel-with-controls-html.png)
+
+**With indicators**<br>
+You can also add the indicators to the carousel, alongside the controls, too.
+
+![Carousel with indicators example](../images/bootstrap/carousel-with-indicators.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Carousel with indicators HTML example](../images/bootstrap/carousel-with-indicators-html.png)
+
+**With captions**<br>
+Add captions to your slides easily with the .carousel-caption element within any .carousel-item.
+They can be easily hidden on smaller viewports, as shown below, with optional display utilities.
+We hide them initially with .d-none and bring them back on medium-sized devices with .d-md-block.
+
+![Carousel with captions example](../images/bootstrap/carousel-with-captions.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Carousel with captions HTML example](../images/bootstrap/carousel-with-captions-html.png)
+
+**Crossfade**<br>
+Add .carousel-fade to your carousel to animate slides with a fade transition instead of a slide.
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Carousel crossfade HTML example](../images/bootstrap/carousel-crossfade-html.png)
+
+**Individual .carousel-item interval**<br>
+Add data-interval="" to a .carousel-item to change the amount of time to delay between automatically cycling to the next item.
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Carousel example interval HTML example](../images/bootstrap/carousel-example-interval-html.png)
+
+Carousel is located in the following classes:
+ 
+  - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.complex.Carousel_
+  
+  
+```java 
+@UI("#carousel-example-controls") // @FindBy(css = "#carousel-example-controls")
+public static Carousel carouselWithControls;
+
+@Test
+public void prevTest() {
+	carouselWithControls.prev();	
+	carouselWithControls.is().text(firstSlideText);
+	
+	carouselWithControls.next();	
+	carouselWithControls.is().text(secondSlideText);
+}
+
+@Test
+public void getTextTest() {
+    assertEquals(carouselWithControls.getText(), thirdSlideText);
+}
+
+
+
+
+
+
+
+```
+
+Available methods in Java JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+getText() | Get carousel text  | String 
+select(int i) | Select slide by index  | void  
+assertThat() | Assert action | TextAssert
+next() | Move to the next slide | void
+prev() | Move to the previous slide | void
+currentSlide() | Return current slide | UIElement
+indicators() | Return list of carousel indicators | WebList
+interval() | Return current slide interval | int
+is() | Assert action | TextAssert
+assertThat() | Assert action | TextAssert
+
+
 
 
 ####Single button

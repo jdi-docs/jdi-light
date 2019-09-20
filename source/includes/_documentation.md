@@ -6640,7 +6640,7 @@ etc. <br>
 
 Elements **Red button** and **Name** are described in ***html5page.json***.
 
-### Smart locators
+### BDD Smart locators
 
 ```
 

@@ -4364,19 +4364,6 @@ Available methods in Java JDI Light:
 ###Carousel
 **Carousel** - a slideshow component for cycling through elements—images or slides of text—like a carousel.
 
-Carousel is located in the following classes:
- 
-  - __Java__: TBD
-  - __C#__: TBD
-
-Available methods in Java JDI Light:
-
-TBD
-
-Available methods and properties in C# JDI Light:
-
-TBD
-
 **Slides only**<br>
 Here’s a carousel with slides only. Note the presence of the .d-block and .w-100 on carousel images to prevent browser default image alignment.
 
@@ -4428,6 +4415,26 @@ Add data-interval="" to a .carousel-item to change the amount of time to delay b
 Here is an example with provided Bootstrap v4.3 code:
   
 ![Carousel example interval HTML example](../images/bootstrap/carousel-example-interval-html.png)
+
+Carousel is located in the following classes:
+ 
+  - __Java__: TBD
+
+Available methods in Java JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+getText() | Get carousel text  | String 
+select(int i) | Select slide by index  | void  
+assertThat() | Assert action | TextAssert
+next() | Move to the next slide | void
+prev() | Move to the previous slide | void
+currentSlide() | Return current slide | UIElement
+indicators() | Return list of carousel indicators | WebList
+interval() | Return current slide interval | long
+is() | Assert action | TextAssert
+assertThat() | Assert action | TextAssert
+
 
 
 ### List group

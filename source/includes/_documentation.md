@@ -3542,11 +3542,12 @@ Available methods in Java JDI Light:
 <br>
 
 **Disabled Button** – Element that represents a Not clickable button
+
 ![Disabled button](../images/bootstrap/disabled_button.png)
 
 Button is located in the following classes:
 
-  - __Java__: _com.epam.jdi.light.ui.html.common.Button_
+- __Java__: _com.epam.jdi.light.ui.html.common.Button_
   
 ```java 
 @UI("//*[text()='Disabled button']") // @FindBy(css = "//*[text()='Disabled button']")
@@ -3656,6 +3657,14 @@ Available methods and properties in C# JDI Light:
 Here is an example with provided Bootstrap v4.3 code:
 
 ![Button toolbar example](../images/bootstrap/button_toolbar-html.png)
+
+It is possible to mix input groups with button groups in your toolbars.
+
+![Button toolbar_mixed](../images/bootstrap/button_toolbar_mixed.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Button toolbar_mixed example](../images/bootstrap/button_toolbar_mixed-html.png)
 
 ### Alert
 ```java
@@ -5296,7 +5305,10 @@ Available methods and properties in C# JDI Light:
 ```
 
 The <a style="font-weight: bold;" href="https://getbootstrap.com/docs/4.3/components/collapse/" target="_blank">collapse</a> is used to show and hide content. 
-Buttons or anchors are used as triggers that are mapped to specific elements you toggle. 
+Buttons or anchors are used as triggers that are mapped to specific elements you toggle.
+
+``Collapse`` extends JDI Light's ``DropdownExpand``, thus inheriting its methods.<br>
+You can use a ``@JDropdown`` annotation to declare a Collapse on your Page Object. 
 
 ![Collapse example](../images/bootstrap/collapse.png)
 
@@ -5304,7 +5316,15 @@ Here is an example with provided Bootstrap v4.3 code:
   
 ![Collapse HTML example](../images/bootstrap/collapse-html.png)
 
-You can use a ``@JDropdown`` annotation to declare a Collapse on your Page Object.
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**toggle()** | Toggles collapse  | void
+**expanded()** | Checks whether collapse is expanded | UISelectAssert
+**collapsed()** | Checks whether collapse is collapsed | UISelectAssert 
+**value()** | Returns collapse ``value()`` property | UIElement
+**list()** | Returns collapse ``list()`` property | UIElement
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/complex/CollapseTests.java)
 
@@ -5913,7 +5933,7 @@ And here are methods available in Java:
 
 ### Checkboxes and radios (Input group)
 
-Checkboxes and radios – Place any checkbox or radio option within an input group’s addon instead of text.
+<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.0/components/input-group/#checkboxes-and-radios" target="_blank">Checkboxes and radios</a> – Place any checkbox or radio option within an input group’s addon instead of text.
 
 __Example with radio__
 
@@ -5945,8 +5965,37 @@ Here is an example with provided Bootstrap v4.3 code:
   
 ![radio example](../images/bootstrap/input-group-radio-html.png)
 
-[Bootstrap test example with radio](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/inputGroup/InputGroupRadioTests)<br />
-<br /><br /><br /><br />
+This input group example is represented by the following classes in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)    
+  [RadioButtons](https://jdi-docs.github.io/jdi-light/#radiobuttons)   
+   
+  <a  href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/inputGroup/InputGroupRadioTests.java" target="_blank">Bootstrap test example with radio</a>
+
+<br />
+
+```java 
+ @UI("#input-group-checkbox") public static InputGroupInputWithCheckBox inputGroupCheckBox;// @FindBy(css = "#input-group-checkbox")
+
+ public class InputGroupInputWithCheckBox extends Section{
+     @Css("[type=\"checkbox\"]") public Checkbox checkbox;
+     @Css(".form-control") public TextField input;
+ }
+  
+ @Test
+ public void checkCheckboxTest() {
+     inputGroupCheckBox.checkbox.check();
+     inputGroupCheckBox.checkbox.isSelected();
+ }
+
+   @Test
+   public void inputTest() {
+       inputGroupRadio.input.input(new_text);
+       inputGroupRadio.input.assertThat().text(is(new_text));
+   }
+
+ 
+```
 __Example with checkbox__
 
 ![Checkbox](../images/bootstrap/input-group-checkbox.png)
@@ -5955,7 +6004,13 @@ Here is an example with provided Bootstrap v4.3 code:
   
 ![Checkboxes example](../images/bootstrap/input-group-checkbox-html.png)
 
-[Bootstrap test example with checkbox](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/inputGroup/InputGroupCheckboxesTests)
+This input group example is represented by the following classes in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)   
+  [CheckBox](https://jdi-docs.github.io/jdi-light/#checkbox)
+
+  <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/inputGroup/InputGroupCheckboxesTests.java" target="_blank">Bootstrap test example with checkbox</a>
+
 <br /><br /><br /><br /><br />
  
 ### Multiple inputs (Input group)
@@ -6074,7 +6129,7 @@ And here are methods available in Java:
  
 ### Segmented buttons (Input group)
 **Segmented buttons** – Segmented buttons have no detailed information on Bootstrap website
-```java 
+```java
 @UI("#segmented-button") public static SegmentedButton segmentedButton;
 // @FindBy(css = "#segmented-button") public static SegmentedButton segmentedButton;
 

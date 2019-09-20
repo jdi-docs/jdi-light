@@ -3648,6 +3648,15 @@ Available methods and properties in C# JDI Light:
  |  | 
 <br><br>
 
+### Button toolbar
+**Button toolbar** – Combine sets of button groups into button toolbars for more complex components. Use utility classes as needed to space out groups, buttons, and more.
+
+![Button toolbar](../images/bootstrap/button_toolbar.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Button toolbar example](../images/bootstrap/button_toolbar-html.png)
+
 ### Alert
 ```java
 @Css("#simple-alert") public static Alert simpleAlert;
@@ -5363,20 +5372,12 @@ Available methods and properties in C# JDI Light:
 
 
 
-
-
-
-
-
-
-
-
-
-
     @JDropdown(expand = "#bs-group-toggle-one",
                 value = "#bs-group-one",
                 list = "#bs-group-one-body")
-        public static Collapse collapseGroupOne;   
+        public static Collapse collapseGroupOne;
+
+   String groupOneText = "You probably haven't heard of them accusamus labore sustainable VHS.";
 
     @Test
         public void collapseGroupOneTest() {
@@ -6067,7 +6068,6 @@ And here are methods available in Java:
 ### Segmented buttons (Input group)
 **Segmented buttons** – Segmented buttons have no detailed information on Bootstrap website
 ```java 
-
 @UI("#segmented-button") public static SegmentedButton segmentedButton;
 // @FindBy(css = "#segmented-button") public static SegmentedButton segmentedButton;
 

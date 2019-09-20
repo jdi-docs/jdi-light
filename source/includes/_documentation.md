@@ -5297,7 +5297,7 @@ Available methods and properties in C# JDI Light:
                 list = "#bs-group-one-body")
         public static Collapse collapseGroupOne;
 
-   String groupOneText = "You probably haven't heard of them accusamus labore sustainable VHS.";
+    String groupOneText = "You probably haven't heard of them accusamus labore sustainable VHS.";
 
     @Test
         public void collapseGroupOneTest() {

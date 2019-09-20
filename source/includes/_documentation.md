@@ -6251,7 +6251,7 @@ public void selectorIsValidationTests() {
 
 Here is an example with provided Bootstrap v4.3 code:
   
-![Custom select example](../images/bootstrap/custom_select_code.png)
+![Custom select example](../images/bootstrap/custom-select-code.png)
 
 
 **Custom select with button** – Input groups include support for custom selects and button. Browser default versions of these are not supported.

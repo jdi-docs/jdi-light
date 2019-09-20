@@ -3509,7 +3509,6 @@ More than that, it has a nested **StringCheckType** class with the following met
 Button is located in the following classes:
  
   - __Java__: _com.epam.jdi.light.ui.html.common.Button_
-  - __C#__: _JDI.Light.Elements.Common.Button_
 
 ```java 
 @UI("//*[text()='Red button']") // @FindBy(css = "//*[text()='Red button']")
@@ -3527,26 +3526,6 @@ public void getTextTest() {
     assertEquals(redButton.getText(), "Red button");
 }
 ```
-```csharp
-
-[FindBy(Css = "//*[text()='Red button']")]
-public Button RedButton;
-
-[Test]
-public void ClickTest() 
-{
-    RedButton.Click();
-    Assert.AreEqual(GetAlert().GetAlertText(), "Red button");
-    GetAlert().AcceptAlert();
-}
-
-[Test]
-public void GetTextTest() 
-{
-    Assert.AreEqual(RedButton.GetText(), "Red button");
-}
-
-```
 
 Here is an example with provided HTML code:
 
@@ -3560,31 +3539,14 @@ Available methods in Java JDI Light:
 **getText()** | Get button text | String
 **is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
-
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ButtonTests.java)
 <br>
-[BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#button-3)
-
-Available methods and properties in C# JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
-**Click()** | Click the button  | void
-**GetText()** | Get button text | string
-**Is** | Assert action | TextAssert 
-**AssertThat** | Assert action | TextAssert
-
-[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/ButtonTests.cs) <br>
-[BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#button-3)<br>
 
 **Disabled Button** – Element that represents a Not clickable button
-
 ![Disabled button](../images/bootstrap/disabled_button.png)
 
 Button is located in the following classes:
- 
+
   - __Java__: _com.epam.jdi.light.ui.html.common.Button_
-  - __C#__: _JDI.Light.Elements.Common.Button_
   
 ```java 
 @UI("//*[text()='Disabled button']") // @FindBy(css = "//*[text()='Disabled button']")
@@ -3611,9 +3573,10 @@ Here is an example with provided HTML code:
 
 |Method/Property | Description | Return Type
 --- | --- | ---
-**GetText()** | Get button text | string
-**Is** | Assert action | TextAssert 
-**AssertThat** | Assert action | TextAssert
+**click()** | Click the button  | void
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
 <br><br>
 
 ### Button group
@@ -3826,38 +3789,40 @@ Available methods and properties in C# JDI Light::
 ### Breadcrumb
 
 ```java 
+
+
+
+
+
+
+
+
+
+
+// @FindBy(css = "#breadcrumb")
 @Css("#breadcrumb") public static Breadcrumb breadcrumb;
 
-public class Breadcrumb extends UIBaseElement<UIAssert> implements IList<UIElement>, HasUIList, IClickable {
-    @Css(".breadcrumb-item a") public WebList ancestorList;
-    @Css(".breadcrumb-item.active") public UIElement currentItem;
+public class Breadcrumb extends UIBaseElement<UIAssert> implements IList<UIElement>, HasUIList, IClickable{
+    // @FindBy(css = ".breadcrumb-item")
+    @Css(".breadcrumb-item") public WebList itemns;
 }
 
 @Test
 public void getValueTest() {
-     List<String> ancestorValues = 
-     breadcrumb.ancestorList.stream().map(UIElement::getValue).collect(Collectors.toList());
-    
-     assertThat(breadcrumb.currentItem.getValue(), is("Bootstrap"));
-     assertThat(ancestorValues, is(Arrays.asList(new String[]{"Home", "HTML 5"})));
+    List<String> itemsValues = breadcrumb.itemns.stream().map(UIElement::getValue).collect(Collectors.toList());
+
+    breadcrumb.itemns.has().size(3);
+    assertThat(itemsValues, is(Arrays.asList(new String[]{"Home", "HTML 5", "Bootstrap"})));
 }
 
 @Test
-public void clickByNameTest() {
-     breadcrumb.ancestorList.get("Home").click();
-    
-     ArrayList<String> tabs = new ArrayList<>(WebDriverFactory.getDriver().getWindowHandles());
-     WebDriver driver = WebDriverFactory.getDriver();
-     driver.switchTo().window(tabs.get(1));
-     
-     assertEquals("Home Page", WebPage.getTitle());
-     
-     driver.close();
-     driver.switchTo().window(tabs.get(0));
+public void getCurrectItem() {
+     breadcrumb.getCurrectItem().has().value("Bootstrap");
+     breadcrumb.getCurrectItem().has().value(WebPage.getTitle());
 }
 ```
 
-A breadcrumb is a control element  used for navigational on web pages
+A [breadcrumb](https://getbootstrap.com/docs/4.3/components/breadcrumb/) is a control element  used for navigational on web pages
 
 ![Breadcrumb example](../images/bootstrap/breadcrumb.png)
 
@@ -3869,11 +3834,19 @@ Available methods in Java JDI Light:
 
 |Method/Property | Description | Return Type
 --- | --- | ---
-**** | TBD  | 
-**** |  |  
-**** |  | 
-**** |  | 
-**** |  | 
+click() | Click the item  | void
+getText() |Get item text  |  String
+getValue() |Get item value  |  String
+get(String option)|Get item by text|UIElement 
+get(int index)|Get item by index| UIElement
+is()	 |  Assert action	| UIAssert
+assertThat()	 |  Assert action	| UIAssert
+
+In this java test case example Breadcrumb has been implemented as WebList.
+
+WebList is located in the following classes:
+
+Java: com.epam.jdi.light.elements.complex.WebList
 
 ###Navs
 
@@ -6057,12 +6030,55 @@ And here are methods available in Java:
  
 ### Segmented buttons (Input group)
 **Segmented buttons** – Segmented buttons have no detailed information on Bootstrap website
+```java 
 
+@UI("#segmented-button") public static SegmentedButton segmentedButton;
+// @FindBy(css = "#segmented-button") public static SegmentedButton segmentedButton;
+
+public class SegmentedButton extends Section {
+    @UI("#Segmented-action-button") public Button actionButton;
+    @UI("input") public TextField textInputArea;
+    @JDropdown(expand = ".dropdown-toggle",
+            value = ".sr-only",
+            list = ".dropdown-item")
+    public Dropdown dropdownMenu;
+}
+
+@Test
+public void textInputAreaTests() {
+    segmentedButton.textInputArea.is()
+            .displayed()
+            .enabled();
+    segmentedButton.textInputArea.sendKeys(testText);
+    segmentedButton.textInputArea.is().text(testText);
+    segmentedButton.textInputArea.clear();
+    segmentedButton.textInputArea.is().text("");
+}
+
+@Test
+public void dropdownMenuTests() {
+    segmentedButton.dropdownMenu.expand();
+    segmentedButton.dropdownMenu.is().expanded();
+    segmentedButton.dropdownMenu.is().size(4);
+    segmentedButton.dropdownMenu.list().get(0).is().text(action);
+    segmentedButton.dropdownMenu.select(action);
+    newWindowTitleCheck();
+}
+
+@Test
+public void actionButtonTests() {
+    segmentedButton.actionButton.is().displayed();
+    segmentedButton.actionButton.is().enabled();
+    segmentedButton.actionButton.is().text(action);
+    segmentedButton.actionButton.click();
+    validateAlert(is(actionButtonClickAlert));
+}
+```
 ![Segmented buttons](../images/bootstrap/segmented_buttons.png)
 
 Here is an example with provided Bootstrap v4.3 code:
   
-![Segmented buttons example](../images/bootstrap/segmented_buttons_code.png)
+![Segmented buttons example](../images/bootstrap/segmented-button-html.png)
 
 And here are methods available in Java:
     

@@ -3670,6 +3670,17 @@ Here is an example with provided Bootstrap v4.3 code:
 
 ![Button toolbar_mixed example](../images/bootstrap/button_toolbar_mixed-html.png)
 
+### Button Group Sizing
+
+Instead of applying button sizing classes to every button in a group, 
+just add ``.btn-group-*`` to each ``.btn-group``, including each one when nesting multiple groups.
+
+![Button Group Sizing Example](../images/bootstrap/bgroup-sizing.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Button Group Sizing HTML Example](../images/bootstrap/bgroup-sizing-html.png)
+
 ### Alert
 ```java
 @Css("#simple-alert") public static Alert simpleAlert;

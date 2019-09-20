@@ -3834,26 +3834,27 @@ Available methods and properties in C# JDI Light::
 
 
 
-// @FindBy(css = "#breadcrumb")
-@Css("#breadcrumb") public static Breadcrumb breadcrumb;
+    // @FindBy(css = "#breadcrumb")
+@UI("#breadcrumb") public static Breadcrumb breadcrumb;
 
-public class Breadcrumb extends UIBaseElement<UIAssert> implements IList<UIElement>, HasUIList, IClickable{
+public class Breadcrumb extends UIBaseElement<UIAssert>{
     // @FindBy(css = ".breadcrumb-item")
     @Css(".breadcrumb-item") public WebList itemns;
 }
 
-@Test
-public void getValueTest() {
-    List<String> itemsValues = breadcrumb.itemns.stream().map(UIElement::getValue).collect(Collectors.toList());
 
+@Test
+public void getTextTest() {
     breadcrumb.itemns.has().size(3);
-    assertThat(itemsValues, is(Arrays.asList(new String[]{"Home", "HTML 5", "Bootstrap"})));
+    breadcrumb.itemns.assertThat().values(TEXT, hasItems(new String[]{"Home", "HTML 5", "Bootstrap"}));
 }
-
+    
 @Test
-public void getCurrectItem() {
-     breadcrumb.getCurrectItem().has().value("Bootstrap");
-     breadcrumb.getCurrectItem().has().value(WebPage.getTitle());
+ public void getCurrectItemTest() {
+    breadcrumb.itemns.last().has().value("Bootstrap");
+    beadcrumb.itemns.last().has().text("Bootstrap");
+    breadcrumb.itemns.last().has().text(WebPage.getTitle());
+    breadcrumb.itemns.last().has().value(WebPage.getTitle());
 }
 ```
 
@@ -3874,6 +3875,8 @@ getText() |Get item text  |  String
 getValue() |Get item value  |  String
 get(String option)|Get item by text|UIElement 
 get(int index)|Get item by index| UIElement
+last()|Get last (current) item |UIElement
+first()|Get first item |UIElement
 is()	 |  Assert action	| UIAssert
 assertThat()	 |  Assert action	| UIAssert
 

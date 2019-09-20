@@ -3504,11 +3504,13 @@ More than that, it has a nested **StringCheckType** class with the following met
 ### Button
 **Button** – Element that represents a clickable button
 
+[Bootstrap page documentation](https://getbootstrap.com/docs/4.3/components/buttons/)
+
 ![Button](../images/bootstrap/button.png)
 
 Button is located in the following classes:
  
-  - __Java__: _com.epam.jdi.light.ui.html.common.Button_
+  - __Java__: _com.epam.jdi.light.ui.bootstrap.common.Button_
 
 ```java 
 @UI("//*[text()='Red button']") // @FindBy(css = "//*[text()='Red button']")
@@ -3543,11 +3545,13 @@ Available methods in Java JDI Light:
 
 **Disabled Button** – Element that represents a Not clickable button
 
+[Bootstrap page documentation](https://getbootstrap.com/docs/4.3/components/buttons/)
+
 ![Disabled button](../images/bootstrap/disabled_button.png)
 
 Button is located in the following classes:
 
-- __Java__: _com.epam.jdi.light.ui.html.common.Button_
+- __Java__: _com.epam.jdi.light.ui.bootstrap.common.Button_
   
 ```java 
 @UI("//*[text()='Disabled button']") // @FindBy(css = "//*[text()='Disabled button']")

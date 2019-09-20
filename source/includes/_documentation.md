@@ -3650,9 +3650,11 @@ Available methods and properties in C# JDI Light:
 
 ### Button toolbar
 **Button toolbar** – Combine sets of button groups into button toolbars for more complex components. Use utility classes as needed to space out groups, buttons, and more.
+
 ![Button toolbar](../images/bootstrap/button_toolbar.png)
 
 Here is an example with provided Bootstrap v4.3 code:
+
 ![Button toolbar example](../images/bootstrap/button_toolbar-html.png)
 
 ### Alert

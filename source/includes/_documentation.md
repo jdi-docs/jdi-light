@@ -4298,28 +4298,6 @@ Available methods in Java JDI Light:
 **** |  |  
 
 
-###Collapse
-
-The collapse is used to show and hide content. Buttons or anchors are used as triggers that are mapped to specific elements you toggle. 
-
-![Collapse example](../images/bootstrap/collapse.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-  
-![Collapse HTML example](../images/bootstrap/collapse-html.png)
-
-Available methods in Java JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
-**** | TBD  | 
-**** |  |  
-**** |  | 
-**** |  | 
-**** |  |  
-
-
-
 ###Carousel
 **Carousel** - a slideshow component for cycling through elements—images or slides of text—like a carousel.
 
@@ -5347,6 +5325,65 @@ Available methods and properties in C# JDI Light:
 
 ## Bootstrap Complex elements
 
+###Collapse
+
+```java 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @JDropdown(expand = "#bs-group-toggle-one",
+                value = "#bs-group-one",
+                list = "#bs-group-one-body")
+        public static Collapse collapseGroupOne;   
+
+    @Test
+        public void collapseGroupOneTest() {
+            collapseGroupOne.highlight();
+            collapseGroupOne.toggle();
+    
+            collapseGroupOne.is().expanded();
+            collapseGroupOne.value().is().text(groupOneText);
+    
+            collapseGroupOne.toggle();
+            collapseGroupOne.is().collapsed();
+        }
+```
+
+The <a style="font-weight: bold;" href="https://getbootstrap.com/docs/4.3/components/collapse/" target="_blank">collapse</a> is used to show and hide content. 
+Buttons or anchors are used as triggers that are mapped to specific elements you toggle. 
+
+![Collapse example](../images/bootstrap/collapse.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Collapse HTML example](../images/bootstrap/collapse-html.png)
+
+You can use a ``@JDropdown`` annotation to declare a Collapse on your Page Object.
+
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/complex/CollapseTests.java)
+
 ### Dropdown
 **Dropdown** – a graphical control element, that allows the user to choose one value from a list.
 
@@ -6009,12 +6046,55 @@ And here are methods available in Java:
  
 ### Segmented buttons (Input group)
 **Segmented buttons** – Segmented buttons have no detailed information on Bootstrap website
+```java 
 
+@UI("#segmented-button") public static SegmentedButton segmentedButton;
+// @FindBy(css = "#segmented-button") public static SegmentedButton segmentedButton;
+
+public class SegmentedButton extends Section {
+    @UI("#Segmented-action-button") public Button actionButton;
+    @UI("input") public TextField textInputArea;
+    @JDropdown(expand = ".dropdown-toggle",
+            value = ".sr-only",
+            list = ".dropdown-item")
+    public Dropdown dropdownMenu;
+}
+
+@Test
+public void textInputAreaTests() {
+    segmentedButton.textInputArea.is()
+            .displayed()
+            .enabled();
+    segmentedButton.textInputArea.sendKeys(testText);
+    segmentedButton.textInputArea.is().text(testText);
+    segmentedButton.textInputArea.clear();
+    segmentedButton.textInputArea.is().text("");
+}
+
+@Test
+public void dropdownMenuTests() {
+    segmentedButton.dropdownMenu.expand();
+    segmentedButton.dropdownMenu.is().expanded();
+    segmentedButton.dropdownMenu.is().size(4);
+    segmentedButton.dropdownMenu.list().get(0).is().text(action);
+    segmentedButton.dropdownMenu.select(action);
+    newWindowTitleCheck();
+}
+
+@Test
+public void actionButtonTests() {
+    segmentedButton.actionButton.is().displayed();
+    segmentedButton.actionButton.is().enabled();
+    segmentedButton.actionButton.is().text(action);
+    segmentedButton.actionButton.click();
+    validateAlert(is(actionButtonClickAlert));
+}
+```
 ![Segmented buttons](../images/bootstrap/segmented_buttons.png)
 
 Here is an example with provided Bootstrap v4.3 code:
   
-![Segmented buttons example](../images/bootstrap/segmented_buttons_code.png)
+![Segmented buttons example](../images/bootstrap/segmented-button-html.png)
 
 And here are methods available in Java:
     
@@ -6124,7 +6204,7 @@ And here are methods available in Java:
     }
 ```
  
-Bootstrap’s **[cards](https://getbootstrap.com/docs/4.3/components/card/)** provide a flexible and extensible content container with multiple variants and options.
+Bootstrap’s <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/card/">cards</a> provide a flexible and extensible content container with multiple variants and options.
 
 **Card Example**
 

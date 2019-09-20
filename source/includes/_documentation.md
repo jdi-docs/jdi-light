@@ -6002,12 +6002,55 @@ And here are methods available in Java:
  
 ### Segmented buttons (Input group)
 **Segmented buttons** – Segmented buttons have no detailed information on Bootstrap website
+```java 
 
+@UI("#segmented-button") public static SegmentedButton segmentedButton;
+// @FindBy(css = "#segmented-button") public static SegmentedButton segmentedButton;
+
+public class SegmentedButton extends Section {
+    @UI("#Segmented-action-button") public Button actionButton;
+    @UI("input") public TextField textInputArea;
+    @JDropdown(expand = ".dropdown-toggle",
+            value = ".sr-only",
+            list = ".dropdown-item")
+    public Dropdown dropdownMenu;
+}
+
+@Test
+public void textInputAreaTests() {
+    segmentedButton.textInputArea.is()
+            .displayed()
+            .enabled();
+    segmentedButton.textInputArea.sendKeys(testText);
+    segmentedButton.textInputArea.is().text(testText);
+    segmentedButton.textInputArea.clear();
+    segmentedButton.textInputArea.is().text("");
+}
+
+@Test
+public void dropdownMenuTests() {
+    segmentedButton.dropdownMenu.expand();
+    segmentedButton.dropdownMenu.is().expanded();
+    segmentedButton.dropdownMenu.is().size(4);
+    segmentedButton.dropdownMenu.list().get(0).is().text(action);
+    segmentedButton.dropdownMenu.select(action);
+    newWindowTitleCheck();
+}
+
+@Test
+public void actionButtonTests() {
+    segmentedButton.actionButton.is().displayed();
+    segmentedButton.actionButton.is().enabled();
+    segmentedButton.actionButton.is().text(action);
+    segmentedButton.actionButton.click();
+    validateAlert(is(actionButtonClickAlert));
+}
+```
 ![Segmented buttons](../images/bootstrap/segmented_buttons.png)
 
 Here is an example with provided Bootstrap v4.3 code:
   
-![Segmented buttons example](../images/bootstrap/segmented_buttons_code.png)
+![Segmented buttons example](../images/bootstrap/segmented-button-html.png)
 
 And here are methods available in Java:
     

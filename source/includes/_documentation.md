@@ -3504,11 +3504,13 @@ More than that, it has a nested **StringCheckType** class with the following met
 ### Button
 **Button** – Element that represents a clickable button
 
+[Bootstrap page documentation](https://getbootstrap.com/docs/4.3/components/buttons/)
+
 ![Button](../images/bootstrap/button.png)
 
 Button is located in the following classes:
  
-  - __Java__: _com.epam.jdi.light.ui.html.common.Button_
+  - __Java__: _com.epam.jdi.light.ui.bootstrap.common.Button_
 
 ```java 
 @UI("//*[text()='Red button']") // @FindBy(css = "//*[text()='Red button']")
@@ -3542,11 +3544,14 @@ Available methods in Java JDI Light:
 <br>
 
 **Disabled Button** – Element that represents a Not clickable button
+
+[Bootstrap page documentation](https://getbootstrap.com/docs/4.3/components/buttons/)
+
 ![Disabled button](../images/bootstrap/disabled_button.png)
 
 Button is located in the following classes:
 
-  - __Java__: _com.epam.jdi.light.ui.html.common.Button_
+- __Java__: _com.epam.jdi.light.ui.bootstrap.common.Button_
   
 ```java 
 @UI("//*[text()='Disabled button']") // @FindBy(css = "//*[text()='Disabled button']")
@@ -3647,6 +3652,23 @@ Available methods and properties in C# JDI Light:
  |  |
  |  | 
 <br><br>
+
+### Button toolbar
+**Button toolbar** – Combine sets of button groups into button toolbars for more complex components. Use utility classes as needed to space out groups, buttons, and more.
+
+![Button toolbar](../images/bootstrap/button_toolbar.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Button toolbar example](../images/bootstrap/button_toolbar-html.png)
+
+It is possible to mix input groups with button groups in your toolbars.
+
+![Button toolbar_mixed](../images/bootstrap/button_toolbar_mixed.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Button toolbar_mixed example](../images/bootstrap/button_toolbar_mixed-html.png)
 
 ### Alert
 ```java
@@ -4289,98 +4311,6 @@ Available methods in Java JDI Light:
 **** |  | 
 **** |  | 
 **** |  |  
-
-
-###Collapse
-
-The collapse is used to show and hide content. Buttons or anchors are used as triggers that are mapped to specific elements you toggle. 
-
-![Collapse example](../images/bootstrap/collapse.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-  
-![Collapse HTML example](../images/bootstrap/collapse-html.png)
-
-Available methods in Java JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
-**** | TBD  | 
-**** |  |  
-**** |  | 
-**** |  | 
-**** |  |  
-
-
-
-###Carousel
-**Carousel** - a slideshow component for cycling through elements—images or slides of text—like a carousel.
-
-Carousel is located in the following classes:
- 
-  - __Java__: TBD
-  - __C#__: TBD
-
-Available methods in Java JDI Light:
-
-TBD
-
-Available methods and properties in C# JDI Light:
-
-TBD
-
-**Slides only**<br>
-Here’s a carousel with slides only. Note the presence of the .d-block and .w-100 on carousel images to prevent browser default image alignment.
-
-![Carousel slides only example](../images/bootstrap/carousel-slides-only.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-  
-![Carousel slides only HTML example](../images/bootstrap/carousel-slides-only-html.png)
-
-**With controls**<br>
-Adding in the previous and next controls:
-
-![Carousel with controls example](../images/bootstrap/carousel-with-controls.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-  
-![Carousel with controls HTML example](../images/bootstrap/carousel-with-controls-html.png)
-
-**With indicators**<br>
-You can also add the indicators to the carousel, alongside the controls, too.
-
-![Carousel with indicators example](../images/bootstrap/carousel-with-indicators.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-  
-![Carousel with indicators HTML example](../images/bootstrap/carousel-with-indicators-html.png)
-
-**With captions**<br>
-Add captions to your slides easily with the .carousel-caption element within any .carousel-item.
-They can be easily hidden on smaller viewports, as shown below, with optional display utilities.
-We hide them initially with .d-none and bring them back on medium-sized devices with .d-md-block.
-
-![Carousel with captions example](../images/bootstrap/carousel-with-captions.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-  
-![Carousel with captions HTML example](../images/bootstrap/carousel-with-captions-html.png)
-
-**Crossfade**<br>
-Add .carousel-fade to your carousel to animate slides with a fade transition instead of a slide.
-
-Here is an example with provided Bootstrap v4.3 code:
-  
-![Carousel crossfade HTML example](../images/bootstrap/carousel-crossfade-html.png)
-
-**Individual .carousel-item interval**<br>
-Add data-interval="" to a .carousel-item to change the amount of time to delay between automatically cycling to the next item.
-
-Here is an example with provided Bootstrap v4.3 code:
-  
-![Carousel example interval HTML example](../images/bootstrap/carousel-example-interval-html.png)
-
 
 ### List group
 **List group** – a flexible and powerful component for displaying a series of content. Modify and extend them to support just about any content within.
@@ -5340,6 +5270,72 @@ Available methods and properties in C# JDI Light:
 
 ## Bootstrap Complex elements
 
+###Collapse
+
+```java 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @JDropdown(expand = "#bs-group-toggle-one",
+                value = "#bs-group-one",
+                list = "#bs-group-one-body")
+        public static Collapse collapseGroupOne;
+
+   String groupOneText = "You probably haven't heard of them accusamus labore sustainable VHS.";
+
+    @Test
+        public void collapseGroupOneTest() {
+            collapseGroupOne.highlight();
+            collapseGroupOne.toggle();
+    
+            collapseGroupOne.is().expanded();
+            collapseGroupOne.value().is().text(groupOneText);
+    
+            collapseGroupOne.toggle();
+            collapseGroupOne.is().collapsed();
+        }
+```
+
+The <a style="font-weight: bold;" href="https://getbootstrap.com/docs/4.3/components/collapse/" target="_blank">collapse</a> is used to show and hide content. 
+Buttons or anchors are used as triggers that are mapped to specific elements you toggle.
+
+``Collapse`` extends JDI Light's ``DropdownExpand``, thus inheriting its methods.<br>
+You can use a ``@JDropdown`` annotation to declare a Collapse within your Page Object. 
+
+![Collapse example](../images/bootstrap/collapse.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Collapse HTML example](../images/bootstrap/collapse-html.png)
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**toggle()** | Toggles collapse  | void
+**expanded()** | Checks whether collapse is expanded | UISelectAssert
+**collapsed()** | Checks whether collapse is collapsed | UISelectAssert 
+**value()** | Returns collapse ``value()`` property | UIElement
+**list()** | Returns collapse ``list()`` property | UIElement
+
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/complex/CollapseTests.java)
+
 ### Dropdown
 **Dropdown** – a graphical control element, that allows the user to choose one value from a list.
 
@@ -5355,6 +5351,110 @@ TBD
 Available methods and properties in C# JDI Light:
 
 TBD
+
+
+###Carousel
+<a style="font-weight:bold" href="https://https://getbootstrap.com/docs/4.3/components/carousel/" target="_blank">Carousel</a> - a slideshow component for cycling through elements—images or slides of text—like a carousel.<br>
+
+**Slides only**<br>
+Here’s a carousel with slides only. Note the presence of the .d-block and .w-100 on carousel images to prevent browser default image alignment.
+
+![Carousel slides only example](../images/bootstrap/carousel-slides-only.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Carousel slides only HTML example](../images/bootstrap/carousel-slides-only-html.png)
+
+**With controls**<br>
+Adding in the previous and next controls:
+
+![Carousel with controls example](../images/bootstrap/carousel-with-controls.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Carousel with controls HTML example](../images/bootstrap/carousel-with-controls-html.png)
+
+**With indicators**<br>
+You can also add the indicators to the carousel, alongside the controls, too.
+
+![Carousel with indicators example](../images/bootstrap/carousel-with-indicators.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Carousel with indicators HTML example](../images/bootstrap/carousel-with-indicators-html.png)
+
+**With captions**<br>
+Add captions to your slides easily with the .carousel-caption element within any .carousel-item.
+They can be easily hidden on smaller viewports, as shown below, with optional display utilities.
+We hide them initially with .d-none and bring them back on medium-sized devices with .d-md-block.
+
+![Carousel with captions example](../images/bootstrap/carousel-with-captions.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Carousel with captions HTML example](../images/bootstrap/carousel-with-captions-html.png)
+
+**Crossfade**<br>
+Add .carousel-fade to your carousel to animate slides with a fade transition instead of a slide.
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Carousel crossfade HTML example](../images/bootstrap/carousel-crossfade-html.png)
+
+**Individual .carousel-item interval**<br>
+Add data-interval="" to a .carousel-item to change the amount of time to delay between automatically cycling to the next item.
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Carousel example interval HTML example](../images/bootstrap/carousel-example-interval-html.png)
+
+Carousel is located in the following classes:
+ 
+  - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.complex.Carousel_
+  
+  
+```java 
+@UI("#carousel-example-controls") // @FindBy(css = "#carousel-example-controls")
+public static Carousel carouselWithControls;
+
+@Test
+public void prevTest() {
+	carouselWithControls.prev();	
+	carouselWithControls.is().text(firstSlideText);
+	
+	carouselWithControls.next();	
+	carouselWithControls.is().text(secondSlideText);
+}
+
+@Test
+public void getTextTest() {
+    assertEquals(carouselWithControls.getText(), thirdSlideText);
+}
+
+
+
+
+
+
+
+```
+
+Available methods in Java JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+getText() | Get carousel text  | String 
+select(int i) | Select slide by index  | void  
+assertThat() | Assert action | TextAssert
+next() | Move to the next slide | void
+prev() | Move to the previous slide | void
+currentSlide() | Return current slide | UIElement
+indicators() | Return list of carousel indicators | WebList
+interval() | Return current slide interval | int
+is() | Assert action | TextAssert
+assertThat() | Assert action | TextAssert
+
+
 
 
 ####Single button
@@ -6033,8 +6133,8 @@ And here are methods available in Java:
  
 ### Segmented buttons (Input group)
 **Segmented buttons** – Segmented buttons have no detailed information on Bootstrap website
-```java 
 
+```java
 @UI("#segmented-button") public static SegmentedButton segmentedButton;
 // @FindBy(css = "#segmented-button") public static SegmentedButton segmentedButton;
 
@@ -6077,6 +6177,7 @@ public void actionButtonTests() {
     validateAlert(is(actionButtonClickAlert));
 }
 ```
+
 ![Segmented buttons](../images/bootstrap/segmented_buttons.png)
 
 Here is an example with provided Bootstrap v4.3 code:
@@ -6191,7 +6292,7 @@ And here are methods available in Java:
     }
 ```
  
-Bootstrap’s **[cards](https://getbootstrap.com/docs/4.3/components/card/)** provide a flexible and extensible content container with multiple variants and options.
+Bootstrap’s <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/card/">cards</a> provide a flexible and extensible content container with multiple variants and options.
 
 **Card Example**
 

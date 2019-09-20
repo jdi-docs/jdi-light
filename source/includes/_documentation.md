@@ -5346,16 +5346,6 @@ Available methods and properties in C# JDI Light:
 
 
 
-
-
-
-
-
-
-
-
-
-
     @JDropdown(expand = "#bs-group-toggle-one",
                 value = "#bs-group-one",
                 list = "#bs-group-one-body")
@@ -5374,9 +5364,8 @@ Available methods and properties in C# JDI Light:
         }
 ```
 
-The collapse is used to show and hide content. 
-Buttons or anchors are used as triggers that are mapped to specific elements you toggle.
-You can declare a Collapse on your Page Object with a ``@JDropdown`` annotation. 
+The <a style="font-weight: bold;" href="https://getbootstrap.com/docs/4.3/components/collapse/" target="_blank">collapse</a> is used to show and hide content. 
+Buttons or anchors are used as triggers that are mapped to specific elements you toggle. 
 
 ![Collapse example](../images/bootstrap/collapse.png)
 
@@ -5384,6 +5373,7 @@ Here is an example with provided Bootstrap v4.3 code:
   
 ![Collapse HTML example](../images/bootstrap/collapse-html.png)
 
+You can use a ``@JDropdown`` annotation to declare a Collapse on your Page Object.
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/complex/CollapseTests.java)
 
@@ -6207,7 +6197,7 @@ And here are methods available in Java:
     }
 ```
  
-Bootstrap’s **[cards](https://getbootstrap.com/docs/4.3/components/card/)** provide a flexible and extensible content container with multiple variants and options.
+Bootstrap’s <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/card/">cards</a> provide a flexible and extensible content container with multiple variants and options.
 
 **Card Example**
 

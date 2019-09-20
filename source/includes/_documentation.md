@@ -4292,7 +4292,7 @@ Available methods in Java JDI Light:
 
 
 ###Carousel
-**Carousel** - a slideshow component for cycling through elements—images or slides of text—like a carousel.
+<a style="font-weight:bold" href="https://https://getbootstrap.com/docs/4.3/components/carousel/" target="_blank">Carousel</a> - a slideshow component for cycling through elements—images or slides of text—like a carousel.<br>
 
 **Slides only**<br>
 Here’s a carousel with slides only. Note the presence of the .d-block and .w-100 on carousel images to prevent browser default image alignment.
@@ -4348,7 +4348,27 @@ Here is an example with provided Bootstrap v4.3 code:
 
 Carousel is located in the following classes:
  
-  - __Java__: TBD
+  - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.complex.Carousel_
+  
+  
+```java 
+@UI("#carousel-example-controls") // @FindBy(css = "#carousel-example-controls")
+public static Carousel carouselWithControls;
+
+@Test
+public void prevTest() {
+	carouselWithControls.prev();	
+	carouselWithControls.is().text(firstSlideText);
+	
+	carouselWithControls.next();	
+	carouselWithControls.is().text(secondSlideText);
+}
+
+@Test
+public void getTextTest() {
+    assertEquals(carouselWithControls.getText(), thirdSlideText);
+}
+```
 
 Available methods in Java JDI Light:
 
@@ -4361,7 +4381,7 @@ next() | Move to the next slide | void
 prev() | Move to the previous slide | void
 currentSlide() | Return current slide | UIElement
 indicators() | Return list of carousel indicators | WebList
-interval() | Return current slide interval | long
+interval() | Return current slide interval | int
 is() | Assert action | TextAssert
 assertThat() | Assert action | TextAssert
 

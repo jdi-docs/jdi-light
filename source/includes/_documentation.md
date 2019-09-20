@@ -5343,20 +5343,12 @@ Available methods and properties in C# JDI Light:
 
 
 
-
-
-
-
-
-
-
-
-
-
     @JDropdown(expand = "#bs-group-toggle-one",
                 value = "#bs-group-one",
                 list = "#bs-group-one-body")
-        public static Collapse collapseGroupOne;   
+        public static Collapse collapseGroupOne;
+
+   String groupOneText = "You probably haven't heard of them accusamus labore sustainable VHS.";
 
     @Test
         public void collapseGroupOneTest() {

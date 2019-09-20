@@ -4359,7 +4359,127 @@ Available methods and properties in C# JDI Light:
 <br>
 
 ### Media object
-Media object helps build complex and repetitive components where some media is positioned alongside content that doesn’t wrap around said media.
+
+```java 
+public class MediaObject extends Section {
+}
+```
+
+<a href="https://getbootstrap.com/docs/4.3/components/media-object" target=a_blank> Media object</a> helps build complex and repetitive components where some media is positioned alongside content that doesn’t wrap around said media.
+
+```java 
+@UI("#media-object-sample") public static MediaObjectSample mediaObjectSample; // @FindBy(css = "#media-object-sample")
+
+public class MediaObjectSample extends MediaObject {
+@UI("img") public Image imageOfMediaObject;
+@Title
+@UI("h5") public Text headingOfMediaObject;
+@UI(".media-body") public Text bodyOfMediaObject;
+}
+
+@Test
+public void isValidationTestSample() {
+mediaObjectSample.is().displayed();
+mediaObjectSample.is().enabled();
+mediaObjectSample.bodyOfMediaObject.is().text(is(bodyTextOfMediaObjectSample));
+mediaObjectSample.bodyOfMediaObject.is().text(containsString("American comic books"));
+mediaObjectSample.bodyOfMediaObject.assertThat().displayed()
+          .core()
+          .cssClass("media-body");
+}
+
+
+
+@UI("#media-object-nesting") public static MediaObjectNesting mediaObjectNesting; // @FindBy(css = "#media-object-nesting")
+
+public class MediaObjectNesting extends MediaObject {
+@UI("img") public Image imageOfMediaObject;
+@Title
+@UI("h5") public Text headingOfMediaObject;
+@UI(".media-body") public Text bodyOfMediaObject;
+@UI("div.media div.media") public MediaObjectSample  nestingMediaObject;
+}
+
+@Test
+public void isValidationTestNesting() {
+mediaObjectNesting.is().displayed();
+mediaObjectNesting.is().enabled();
+mediaObjectNesting.nestingMediaObject.bodyOfMediaObject.is().text(is(bodyTextOfMediaObjectNesting));
+mediaObjectNesting.nestingMediaObject.bodyOfMediaObject.is().text(containsString("vel eu leo"));
+mediaObjectNesting.nestingMediaObject.bodyOfMediaObject.assertThat().displayed()
+     .and().text(is(bodyTextOfMediaObjectNesting))
+     .core()
+     .cssClass("media-body");
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@UI("#media-object-list") public static JList<MediaObjectSample> mediaObjectList; // @FindBy(css = "#media-object-list")
+
+@Test
+public void isValidationTestListMediaObject() {
+mediaObjectList.is().displayed();
+mediaObjectList.is().enabled();
+mediaObjectList.get(1).headingOfMediaObject.is().text(is(listOfHeading.get(1)));
+mediaObjectList.get(1).bodyOfMediaObject.is().text(containsString("Stark requires"));
+mediaObjectList.assertThat().displayed()
+      .core()
+      .css("font-size", is("14px"));
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+```
 
 **Media object sample**
 
@@ -4369,25 +4489,7 @@ Here is an example with provided Bootstrap v4.3 code:
   
 ![Media object example](../images/bootstrap/media-object-sample-html.png)
 
-Available methods in Java JDI Light:
 
-|Method | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  | 
- 
-Available methods and properties in C# JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  |
- |  | 
-<br>
 
 **Media object nesting**
 
@@ -4397,27 +4499,9 @@ Here is an example with provided Bootstrap v4.3 code:
   
 ![Media object nesting example](../images/bootstrap/media-object-nesting-html.png)
 
-Available methods in Java JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  | 
- 
-Available methods and properties in C# JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  |
- |  | 
-<br>
 
 **Media object list**
+
 
 ![Media object list](../images/bootstrap/media-object-list.png)
 
@@ -4425,25 +4509,24 @@ Here is an example with provided Bootstrap v4.3 code:
   
 ![Media object list example](../images/bootstrap/media-object-list-html.png)
 
-Available methods in Java JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  | 
+Media object is represented by Section class in Java:
  
-Available methods and properties in C# JDI Light:
+[Section](https://jdi-docs.github.io/jdi-light/#section)
+  
+Inner elements of media object can be represented by the following classes:
 
-|Method/Property | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  |
- |  | 
-<br>
+[Text](https://jdi-docs.github.io/jdi-light/#text)
+  
+[Label](https://jdi-docs.github.io/jdi-light/#label)
+  
+[Link](https://jdi-docs.github.io/jdi-light/#link)
+  
+[Image](https://jdi-docs.github.io/jdi-light/#Image)
+  
+[See more elements](https://jdi-docs.github.io/jdi-light/#html5-common-elements)
+
+<a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/mediaObject/MediaObjectTests.java" target=a_blank> Bootstrap test examples </a>
+
 
 ###Card
 

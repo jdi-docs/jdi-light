@@ -5892,7 +5892,7 @@ And here are methods available in Java:
  
    @Test
    public void checkNoWrapping() {
-       inputGroupNowrap.hasClass("flex-nowrap");
+       assertTrue(inputGroupNowrap.hasClass("flex-nowrap"));
        inputGroupNowrap.assertThat().core().css("flex-wrap", "nowrap");
    } 
 ```
@@ -5906,17 +5906,20 @@ Here is an example with provided Bootstrap v4.3 code:
   
 ![Wrapping example](../images/bootstrap/wrapping_code.png)
 
-Wrapping property can be check by using foloowing class:
+Wrapping property can be checked by using following class:
  
   - _com.epam.jdi.light.elements.common.UIElement_
   
-<a  href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/inputGroup/InputGroupWrapping" target="_blank">Bootstrap test example wrapping</a>
+<a  href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/inputGroup/InputGroupWrapping.java" target="_blank">Bootstrap test example wrapping</a>
 
 ### Sizing (Input group)
+
 **Sizing** – Add the relative form sizing classes to the .input-group itself and contents within will automatically resize—no need for repeating the form control size classes on each element.
 
 **Sizing on the individual input group elements isn’t supported.**
 ![Sizing](../images/bootstrap/sizing.png)
+
+
 
 Here is an example with provided Bootstrap v4.3 code:
   

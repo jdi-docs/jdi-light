@@ -5853,43 +5853,43 @@ Available methods and properties in C# JDI Light:
 
 **1.Input group example - Input + left span**
 
-<img src="../images/bootstrap/input-group-base-example1.png" alt="Input group example1" height="50%" width="50%">
+<img src="images/bootstrap/input-group-base-example1.png" alt="Input group example1" height="50%" width="50%">
 
 Here is an example with provided Bootstrap v4.3 code:
 
-<img src="../images/bootstrap/input-group-base-example1-html.png" alt="Input group example1 html"> 
+<img src="images/bootstrap/input-group-base-example1-html.png" alt="Input group example1 html"> 
 
 **2.Input group example - Input + right span** 
 
-<img src="../images/bootstrap/input-group-base-example2.png" alt="Input group example1" height="50%" width="50%">
+<img src="images/bootstrap/input-group-base-example2.png" alt="Input group example1" height="50%" width="50%">
 
 Here is an example with provided Bootstrap v4.3 code:
 
- <img src="../images/bootstrap/input-group-base-example2-html.png" alt="Input group example2 html">  
+ <img src="images/bootstrap/input-group-base-example2-html.png" alt="Input group example2 html">  
 
 **3.Input group example - Input + label + left span**
 
-<img src="../images/bootstrap/input-group-base-example3.png" alt="Input group example1" height="50%" width="50%">
+<img src="images/bootstrap/input-group-base-example3.png" alt="Input group example1" height="50%" width="50%">
 
 Here is an example with provided Bootstrap v4.3 code:
 
-<img src="../images/bootstrap/input-group-base-example3-html.png" alt="Input group example3 html"> 
+<img src="images/bootstrap/input-group-base-example3-html.png" alt="Input group example3 html"> 
 
 **4.Input group example - Input + left and right span**
 
-<img src="../images/bootstrap/input-group-base-example4.png" alt="Input group example4" height="50%" width="50%">
+<img src="images/bootstrap/input-group-base-example4.png" alt="Input group example4" height="50%" width="50%">
 
 Here is an example with provided Bootstrap v4.3 code:
 
-<img src="../images/bootstrap/input-group-base-example4-html.png" alt="Input group example4 html"> 
+<img src="images/bootstrap/input-group-base-example4-html.png" alt="Input group example4 html"> 
 
 **5.Input group example - Input + textarea**
 
-<img src="../images/bootstrap/input-group-base-example5.png" alt="Input group example5" height="50%" width="50%">
+<img src="images/bootstrap/input-group-base-example5.png" alt="Input group example5" height="50%" width="50%">
 
 Here is an example with provided Bootstrap v4.3 code:
 
-<img src="../images/bootstrap/input-group-base-example5-html.png" alt="Input group example5 html"> 
+<img src="images/bootstrap/input-group-base-example5-html.png" alt="Input group example5 html"> 
 
 Input group are represented by Section class in Java:
  

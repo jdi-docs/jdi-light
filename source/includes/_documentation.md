@@ -5809,25 +5809,23 @@ And here are methods available in Java:
 
 ### Wrapping (Input group)
 ```java 
-   @Css("#input-group-username") public static InputGroupInputWithText inputGroupUsername;
-
-   public class InputGroupInputWithText extends Section {
-       @Css(".input-group-text") public Text text;
-       @Css(".form-control") public TextField input;
-   }
+   public static UIElement inputGroupWrap,inputGroupNowrap;//@FindBy(css = "#input-group-wrap")
 
    @Test
-   public void setTextSymbolsTest() {
-       inputGroupUsername.input.setText(symbols);
-       assertEquals(inputGroupUsername.input.getText(), symbols);
+   public void checkWrapping() {
+       assertFalse(inputGroupWrap.hasClass("flex-nowrap"));
+       inputGroupWrap.assertThat().core().css("flex-wrap", "wrap");
    }
-
-    @Test
-    public void assertValidationTextTest() {
-        inputGroupUsername.text.assertThat().text(is(addon_text));
-    }  
+ 
+   @Test
+   public void checkNoWrapping() {
+       inputGroupNowrap.hasClass("flex-nowrap");
+       inputGroupNowrap.assertThat().core().css("flex-wrap", "nowrap");
+   } 
 ```
-**Wrapping** – Input groups wrap by default via flex-wrap: wrap in order to accommodate custom form field validation within an input group. You may disable this with .flex-nowrap.
+
+ 
+**<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/input-group/#wrapping" target="_blank">Wrapping</a>** – Input groups wrap by default via flex-wrap: wrap in order to accommodate custom form field validation within an input group. You may disable this with .flex-nowrap.
 
 ![Wrapping](../images/bootstrap/wrapping.png)
 
@@ -5835,16 +5833,11 @@ Here is an example with provided Bootstrap v4.3 code:
   
 ![Wrapping example](../images/bootstrap/wrapping_code.png)
 
-Input group are represented by Section class in Java:
+Wrapping property can be check by using foloowing class:
  
-  - _com.epam.jdi.light.elements.composite.Section_
+  - _com.epam.jdi.light.elements.common.UIElement_
   
-Inner elements of input group can be represented by following classes:
-
-  - _com.epam.jdi.light.ui.html.common.Text_
-  - _com.epam.jdi.light.ui.html.common.TextField_
-
-[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/inputGroup/InputGroupInputWithTextTests)
+<a  href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/inputGroup/InputGroupWrapping" target="_blank">Bootstrap test example wrapping</a>
 
 ### Sizing (Input group)
 **Sizing** – Add the relative form sizing classes to the .input-group itself and contents within will automatically resize—no need for repeating the form control size classes on each element.
@@ -5868,7 +5861,7 @@ And here are methods available in Java:
 
 ### Checkboxes and radios (Input group)
 
-<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.0/components/input-group/#checkboxes-and-radios" target="_blank">Checkboxes and radios</a> – Place any checkbox or radio option within an input group’s addon instead of text.
+<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/input-group/#checkboxes-and-radios" target="_blank">Checkboxes and radios</a> – Place any checkbox or radio option within an input group’s addon instead of text.
 
 __Example with radio__
 

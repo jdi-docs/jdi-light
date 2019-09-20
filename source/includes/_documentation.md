@@ -6575,6 +6575,73 @@ Inner elements of jumbotron can be represented by the following classes:
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/jumbotron)
 
+## Json/smart locators, json pages
+
+### Json-based locators
+
+```
+
+html5page.json for json-based locators:
+
+{
+  "Red Button": "[value*='Red Button']",
+  "Name": "#name"
+}
+```
+Features have locators taken from simple file-based PageObjects instead of an element name:
+
+**When** I click on **"Red button"** element <br>
+**When** I send keys "simple 1234" to **"Name"** element <br>
+**Then** the **"Name"** element's text matches to "\w{6} \d{4}" <br>
+etc. <br>
+
+Elements **Red button** and **Name** are described in ***html5page.json***.
+
+### Smart locators
+
+```
+
+html5page.json for smart locators:
+
+{
+  "Red Button": "[value*='Red Button']"
+}
+```
+
+Features have locators taken from simple file-based PageObjects instead of an element name:
+
+**When** I click on **"Red button"** element <br>
+**When** I send keys "simple 1234" to **"Name"** element <br>
+**Then** the **"Name"** element's text matches to "\w{6} \d{4}" <br>
+etc. <br>
+
+Element **Red button** is described in **html5page.json**. <br>
+And **Name** element is automatically searched by the smart locator **#name**. <br>
+
+### Json-based pages
+
+```
+
+pages.json:
+
+{
+"Home Page": "/",
+"Bootstrap Page": "/bootstrap.html"
+}
+```
+
+Pages can be opened by name without page objects. <br>
+Instead of this: <br>
+
+**And** I open page by url "https://jdi-testing.github.io/jdi-light/bootstrap.html" <br>
+
+Use this: <br>
+
+**Given** I open "Bootstrap Page" <br>
+
+Pages are defined via **pages.json**. <br>
+Note: domain is read from test.properties automatically <br>
+
 ## JDI Light BDD Steps
 
 ### Label 

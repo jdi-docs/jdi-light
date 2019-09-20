@@ -3674,6 +3674,8 @@ Here is an example with provided Bootstrap v4.3 code:
 ```java
 @Css("#simple-alert") public static Alert simpleAlert;
 @Css("#dismissible-alert") public static Alert dismissibleAlert;
+// @FindBy(css = "#simple-alert") public static Alert simpleAlert;
+// @FindBy(css = "#dismissible-alert") public static Alert dismissibleAlert;
 
 @Test
 public void simpleAlertExistingTest() {

@@ -3653,8 +3653,9 @@ Available methods and properties in C# JDI Light:
  |  | 
 <br><br>
 
-### Button toolbar
-**Button toolbar** – Combine sets of button groups into button toolbars for more complex components. Use utility classes as needed to space out groups, buttons, and more.
+**Button toolbar**
+
+Combine sets of button groups into button toolbars for more complex components. Use utility classes as needed to space out groups, buttons, and more.
 
 ![Button toolbar](../images/bootstrap/button_toolbar.png)
 
@@ -3670,7 +3671,7 @@ Here is an example with provided Bootstrap v4.3 code:
 
 ![Button toolbar_mixed example](../images/bootstrap/button_toolbar_mixed-html.png)
 
-### Button Group Sizing
+**Button Group Sizing**
 
 Instead of applying button sizing classes to every button in a group, 
 just add ``.btn-group-*`` to each ``.btn-group``, including each one when nesting multiple groups.
@@ -3681,7 +3682,7 @@ Here is an example with provided Bootstrap v4.3 code:
 
 ![Button Group Sizing HTML Example](../images/bootstrap/bgroup-sizing-html.png)
 
-### Button Group Nesting
+**Button Group Nesting**
 
 Place a ``.btn-group`` within another ``.btn-group`` when you want dropdown menus mixed with a series of buttons.
 
@@ -3690,6 +3691,16 @@ Place a ``.btn-group`` within another ``.btn-group`` when you want dropdown menu
 Here is an example with provided Bootstrap v4.3 code:
 
 ![Button Group Nesting HTML Example](../images/bootstrap/bgroup-nesting-html.png)
+
+**Button Group Vertical Variation**
+
+Make a set of buttons appear vertically stacked rather than horizontally.
+
+![Button Group Nesting Example](../images/bootstrap/bgroup-vertical-variation.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Button Group Nesting HTML Example](../images/bootstrap/bgroup-vertical-variation-html.png)
 
 ### Alert
 ```java

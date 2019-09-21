@@ -3681,6 +3681,16 @@ Here is an example with provided Bootstrap v4.3 code:
 
 ![Button Group Sizing HTML Example](../images/bootstrap/bgroup-sizing-html.png)
 
+### Button Group Nesting
+
+Place a ``.btn-group`` within another ``.btn-group`` when you want dropdown menus mixed with a series of buttons.
+
+![Button Group Nesting Example](../images/bootstrap/bgroup-nesting.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Button Group Nesting HTML Example](../images/bootstrap/bgroup-nesting-html.png)
+
 ### Alert
 ```java
 @Css("#simple-alert") public static Alert simpleAlert;

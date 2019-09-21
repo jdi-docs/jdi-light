@@ -6792,6 +6792,14 @@ Use this: <br>
 Pages are defined via **pages.json**. <br>
 Note: domain is read from test.properties automatically <br>
 
+### Non page object implementation for basic steps
+You are able to use parameter locator instead of an element name in you features: <br>
+
+**When** I click on **"[value*='Red Button']"** element <br>
+**When** I send keys "simple 1234" to **"#name"** element <br>
+**Then** the **"#name"** element's text matches to "\w{6} \d{4}" <br>
+etc.
+
 ## JDI Light BDD Steps
 
 ### Label 

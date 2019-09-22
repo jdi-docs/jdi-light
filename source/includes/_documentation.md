@@ -3585,6 +3585,7 @@ Here is an example with provided HTML code:
 <br><br>
 
 ### Button group
+
 **Button group** – Element that groups a series of buttons together on a single line with the button group, and super-power them with JavaScript.
 
 ![Button group](../images/bootstrap/button_group.png)
@@ -3651,7 +3652,7 @@ Available methods and properties in C# JDI Light:
  |  | 
  |  |
  |  | 
-<br><br>
+<br>
 
 **Button toolbar**
 
@@ -3670,6 +3671,7 @@ It is possible to mix input groups with button groups in your toolbars.
 Here is an example with provided Bootstrap v4.3 code:
 
 ![Button toolbar_mixed example](../images/bootstrap/button_toolbar_mixed-html.png)
+<br>
 
 **Button Group Sizing**
 
@@ -3681,6 +3683,7 @@ just add ``.btn-group-*`` to each ``.btn-group``, including each one when nestin
 Here is an example with provided Bootstrap v4.3 code:
 
 ![Button Group Sizing HTML Example](../images/bootstrap/bgroup-sizing-html.png)
+<br>
 
 **Button Group Nesting**
 
@@ -3691,6 +3694,7 @@ Place a ``.btn-group`` within another ``.btn-group`` when you want dropdown menu
 Here is an example with provided Bootstrap v4.3 code:
 
 ![Button Group Nesting HTML Example](../images/bootstrap/bgroup-nesting-html.png)
+<br>
 
 **Button Group Vertical Variation**
 
@@ -3701,6 +3705,7 @@ Make a set of buttons appear vertically stacked rather than horizontally.
 Here is an example with provided Bootstrap v4.3 code:
 
 ![Button Group Nesting HTML Example](../images/bootstrap/bgroup-vertical-variation-html.png)
+<br>
 
 ### Alert
 ```java

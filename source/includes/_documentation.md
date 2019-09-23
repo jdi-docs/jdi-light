@@ -3904,6 +3904,26 @@ Available methods in Java JDI Light:
 
 
 ###Badge
+Badge is located in the following class: <br>
+- __Java__: _com.epam.jdi.light.ui.bootstrap.common.Badge_
+
+[Bootstrap page documentation](https://getbootstrap.com/docs/4.3/components/badge/) <br>
+
+```java 
+@UI("#badge-secondary") // @FindBy(css = "#badge-secondary")
+
+    @Test
+    public void getTextTest() {
+        assertEquals(badgeSecondary.getText(), badgeSecondaryText);
+        assertEquals(badgeSecondary.getValue(), badgeSecondaryText);
+    }
+
+    @Test
+    public void simpleVisibilityTest() {
+        assertTrue(badgeSecondary.isDisplayed());
+    }
+```
+
 **1) Badge** - Element that scale to match the size of the immediate parent element by using relative font sizing and em units.<br>
 
    ![Badge](../images/bootstrap/badge_heading.png)<br>
@@ -3917,19 +3937,20 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-  |    | 
-  |    | 
-  |    | 
-  |    |
-
-Available methods and properties in C# JDI Light::
-    
-|Method | Description | Return Type
---- | --- | ---
-  |    | 
-  |    | 
-  |    | 
-  |    |
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+  
+  ```java 
+  @UI("#btn-primary") // @FindBy(css = "#btn-primary")
+  
+    @Test
+    public void badgeTest() {
+        assertTrue(buttonPrimary.badge().isDisplayed());
+        assertEquals(buttonPrimary.badgeText(), "9");
+        assertEquals(buttonPrimary.badgeValue(), "9");
+    }
+  ```
 
 **2) Badge** - Element which used as part of buttons to provide a counter. Unless the context is clear (as with the “Notifications” example, where it is understood that the “4” is the number of notifications), consider including additional context with a visually hidden piece of additional text.<br>
 
@@ -3944,19 +3965,24 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-  |    | 
-  |    | 
-  |    | 
-  |    |
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
 
-Available methods and properties in C# JDI Light::
+```java 
+@UI("#badge-success") // @FindBy(css = "#badge-success")
+
+        @Test
+        public void getTextTest() {
+            assertEquals(badgeSuccess.getText(), badgeSuccessText);
+            assertEquals(badgeSuccess.getValue(), badgeSuccessText);
+        }
     
-|Method | Description | Return Type
---- | --- | ---
-  |    | 
-  |    | 
-  |    | 
-  |    |
+        @Test
+        public void simpleVisibilityTest() {
+            assertTrue(badgeSuccess.isDisplayed());
+        }
+```
 
 **3) Badge** - .badge-* classes on an link element quickly provide actionable badges with hover and focus states.<br>
    ![Badge](../images/bootstrap/badge_link.png)<br>
@@ -3970,19 +3996,9 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-  |    | 
-  |    | 
-  |    | 
-  |    |
-
-Available methods and properties in C# JDI Light::
-    
-|Method | Description | Return Type
---- | --- | ---
-  |    | 
-  |    | 
-  |    | 
-  |    |
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
 
 
 <br><br>

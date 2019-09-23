@@ -6915,12 +6915,14 @@ Inner elements of jumbotron can be represented by the following classes:
 
 ```
 
-html5page.json for json-based locators:
+html5page.json for json-based locators (contains css locators):
 
 {
   "Red Button": "[value*='Red Button']",
   "Name": "#name"
 }
+
+The [attribute*="value"] selector is used here to select elements whose attribute value contains a specified value
 ```
 Features have locators taken from simple file-based PageObjects instead of an element name:
 
@@ -6929,7 +6931,8 @@ Features have locators taken from simple file-based PageObjects instead of an el
 **Then** the **"Name"** element's text matches to "\w{6} \d{4}" <br>
 etc. <br>
 
-Elements **Red button** and **Name** are described in ***html5page.json***.
+Elements **Red button** and **Name** are described in ***html5page.json***. <br>
+Example [feature](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-bdd-no-po-tests/src/test/resources/features/TestsWithProperties.feature)
 
 ### BDD Smart locators
 
@@ -6951,6 +6954,8 @@ etc. <br>
 
 Element **Red button** is described in **html5page.json**. <br>
 And **Name** element is automatically searched by the smart locator **#name**. <br>
+Example [feature](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-bdd-no-po-tests/src/test/resources/features/TestsWithName.feature) <br>
+For this feature you should remove **"Name": "#name"** from html5page.json to be sure how smart locator works.
 
 ### Json-based pages
 
@@ -6974,7 +6979,8 @@ Use this: <br>
 **Given** I open "Bootstrap Page" <br>
 
 Pages are defined via **pages.json**. <br>
-Note: domain is read from test.properties automatically <br>
+Note: domain is read from test.properties automatically. <br>
+Example [feature](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-bdd-no-po-tests/src/test/resources/features/JsonBasedPage.feature)
 
 ### Non page object implementation for basic steps
 You are able to use parameter locator instead of an element name in you features: <br>
@@ -6982,7 +6988,8 @@ You are able to use parameter locator instead of an element name in you features
 **When** I click on **"[value*='Red Button']"** element <br>
 **When** I send keys "simple 1234" to **"#name"** element <br>
 **Then** the **"#name"** element's text matches to "\w{6} \d{4}" <br>
-etc.
+etc. <br>
+Example [feature](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-bdd-no-po-tests/src/test/resources/features/TestsWithLocators.feature)
 
 ## JDI Light BDD Steps
 

@@ -6623,14 +6623,14 @@ And here are methods available in Java:
 
 
 
-@Css("#card-example")  //FindBy(css = "#card-example")
+@UI("#card-example")  //FindBy(css = "#card-example")
 public static CardExample cardExample;
 
 public class CardExample extends Section {
-    @Css(".card-title") public Text title;
-    @Css(".card-text") public Text text;
-    @Css(".btn") public Button button;
-    @Css(".card-img-top") public Image image;
+    @UI(".card-title") public Text title;
+    @UI(".card-text") public Text text;
+    @UI(".btn") public Button button;
+    @UI(".card-img-top") public Image image;
 }    
 
 @Test
@@ -6665,7 +6665,7 @@ Inner elements of Card Example represented by the following classes:
 [Button](https://jdi-docs.github.io/jdi-light/#button)<br>
 [Image](https://jdi-docs.github.io/jdi-light/#image)
 
-[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card)
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardExampleTests.java)
 <br>
 
 ####Card with Subtitles and Links
@@ -6696,34 +6696,35 @@ Inner elements of Card Example represented by the following classes:
 
 
 
-@Css("#card-subtitle-link") //FindBy(css = "#card-subtitle-link")
+@UI("#card-subtitle-link") //FindBy(css = "#card-subtitle-link")
 public static CardWithSubtitlesAndLinks cardWithSubtitlesAndLinks;
 
 public class CardWithSubtitlesAndLinks extends Section {
-    @Css(".card-title") public Text title;
-    @Css(".card-subtitle") public Text subtitle;
-    @Css(".card-text") public Text mainText;
-    @Css("#bs-card-2-link1") public Link link1;
-    @Css("#bs-card-2-link2") public Link link2;
+    @UI(".card-title") public Text title;
+    @UI(".card-subtitle") public Text subtitle;
+    @UI(".card-text") public Text mainText;
+    @UI("#bs-card-2-link1") public Link link1;
+    @UI("#bs-card-2-link2") public Link link2;
 }
-@Test
-    public void getLink1TextTest() {
-        assertEquals(cardWithSubtitlesAndLinks.link1.getText(), link1Text);
-    }
 
 @Test
-    public void clickLink1Test() {
-        cardWithSubtitlesAndLinks.link1.click();
-        ArrayList<String> tabs = new ArrayList<>(WebDriverFactory.getDriver().getWindowHandles());
-        WebDriver driver = WebDriverFactory.getDriver();
-        driver.switchTo().window(tabs.get(1));
-        assertEquals(getUrl() , link1Ref);
-        driver.close();
-        driver.switchTo().window(tabs.get(0));
-    }
+public void getLink1TextTest() {
+    assertEquals(cardWithSubtitlesAndLinks.link1.getText(), link1Text);
+}
+
+@Test
+public void clickLink1Test() {
+    cardWithSubtitlesAndLinks.link1.click();
+    ArrayList<String> tabs = new ArrayList<>(WebDriverFactory.getDriver().getWindowHandles());
+    WebDriver driver = WebDriverFactory.getDriver();
+    driver.switchTo().window(tabs.get(1));
+    assertEquals(getUrl() , link1Ref);
+    driver.close();
+    driver.switchTo().window(tabs.get(0));
+}
 ```
 
-Card titles are used by adding _.card-title_ to a ``<h*>`` tag. In the same way, links are added and placed next to each other by adding _.card-link_ to an ``<a>`` tag.
+<a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/card/#titles-text-and-links">Card titles</a> are used by adding _.card-title_ to a ``<h*>`` tag. In the same way, links are added and placed next to each other by adding _.card-link_ to an ``<a>`` tag.
 
 Subtitles are used by adding a _.card-subtitle_ to a ``<h*>`` tag. If the _.card-title_ and the _.card-subtitle_ items are placed in a _.card-body_ item, the card title and subtitle are aligned nicely.
 
@@ -6733,14 +6734,53 @@ Here is an example with provided Bootstrap v4.3 code:
 
 ![Card Body Example Code](../images/bootstrap/cardsubslinks-html.png)
 
-Inner elements of Card with Subtitles and Links represented by the following classes:
-
+Inner elements of Card with Subtitles and Links represented by the following classes:<br>
 [Text](https://jdi-docs.github.io/jdi-light/#text)<br>
-[Link](https://jdi-docs.github.io/jdi-light/#link)<br>
+[Link](https://jdi-docs.github.io/jdi-light/#link)
 
-[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card)
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardWithSubtitlesAndLinksTests.java)
 
-<br><br><br><br><br>
+<br><br><br><br><br><br>
+
+####Card Body
+```java 
+
+
+
+
+
+
+
+
+
+
+@UI("#card-body") //FindBy(css = "#card-body")
+public static CardBody cardBody;
+
+public class CardBody extends Section {
+    @UI(".card-body") public Text text;
+}
+
+@Test
+public void getBodyTextTest() {
+    assertEquals(cardBody.text.getText(), text);
+}
+```
+
+The building block of a card is the _.<a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/card/#body">card-body</a>_. Use it whenever you need a padded section within a card.
+
+![Card Body Example](../images/bootstrap/cardbody.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Card Body Example Code](../images/bootstrap/cardbody-html.png)
+
+Inner elements of Card Body represented by the following classes:
+[Text](https://jdi-docs.github.io/jdi-light/#text)
+
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardBodyTests.java)
+ <br>
+ 
 ### Jumbotron
 ```java 
 

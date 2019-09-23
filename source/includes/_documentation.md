@@ -3750,12 +3750,8 @@ public void dropdownMenuTests() {
     buttonGroupNesting.dropdownMenu.is().expanded();
     buttonGroupNesting.dropdownMenu.is().size(2);
     buttonGroupNesting.dropdownMenu.list().get(0).is().text(dropdownMenuLinkOne);
-    buttonGroupNesting.dropdownMenu.list().get(1).is().text(dropdownMenuLinkTwo);
-    buttonGroupNesting.dropdownMenu.highlight();
     buttonGroupNesting.dropdownMenu.select(dropdownMenuLinkOne);
     newWindowTitleCheck(linkOnePageTitle);
-    buttonGroupNesting.dropdownMenu.select(dropdownMenuLinkTwo);
-    newWindowTitleCheck(linkTwoPageTitle);
 }
 ```
 
@@ -3793,6 +3789,16 @@ public void buttonOneTests() {
             .css("font-size", "16px");
     buttonGroupVerticalVariation.buttonOne.click();
     validateAlert(is(buttonOneClickAlert));
+
+@Test
+public void dropdownMenuTests() {
+    buttonGroupVerticalVariation.dropdownMenu.expand();
+    buttonGroupVerticalVariation.dropdownMenu.is().expanded();
+    buttonGroupVerticalVariation.dropdownMenu.is().size(2);
+    buttonGroupVerticalVariation.dropdownMenu.list().get(1).is().text(dropdownMenuLinkTwo);
+    buttonGroupVerticalVariation.dropdownMenu.select(dropdownMenuLinkTwo);
+    newWindowTitleCheck(linkTwoPageTitle);
+}
 }
 ```
 

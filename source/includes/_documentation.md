@@ -3694,7 +3694,6 @@ Here is an example with provided Bootstrap v4.3 code:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-![Button toolbar example](../images/bootstrap/button_toolbar-html.png)
 ```java
 @UI(".btn-toolbar") public static ButtonToolbar buttonToolbar;
 // @FindBy(css = ".btn-toolbar") public static ButtonToolbar buttonToolbar;
@@ -3720,13 +3719,15 @@ public class ButtonToolbar extends Section {
 }
 ```
 
+![Button toolbar example](../images/bootstrap/button_toolbar-html.png)
+
+
 It is possible to mix input groups with button groups in your toolbars.
 
 ![Button toolbar_mixed](../images/bootstrap/button_toolbar_mixed.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
-![Button toolbar_mixed example](../images/bootstrap/button_toolbar_mixed-html.png)
 ```java
     @Test
     public void inputFieldInButtonToolbarTest() {
@@ -3737,6 +3738,8 @@ Here is an example with provided Bootstrap v4.3 code:
         assertEquals(buttonToolbar.inputAreaInToolbar.getValue(), textForTestingInputField);
     }
 ```
+
+![Button toolbar_mixed example](../images/bootstrap/button_toolbar_mixed-html.png)
 <br>
 
 **Button Group Sizing**

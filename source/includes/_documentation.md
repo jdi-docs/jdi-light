@@ -6063,7 +6063,8 @@ Available methods and properties in C# JDI Light:
  |  | 
 <br>
 
-### Basic example (Input group)
+### Input group
+#### Basic Example
 **<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/input-group/#basic-example" target="_blank">Input group</a>** – Place one add-on or button on either side of an input. You may also place one on both sides of an input.
 <br />
 
@@ -6124,7 +6125,7 @@ Inner elements of input group can be represented by following classes:
 
 [Bootstrap test example ](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/inputGroup)
 
-### Sizing (Input group)
+#### Sizing
 **Sizing** – Add the relative form sizing classes to the .input-group itself and contents within will automatically resize—no need for repeating the form control size classes on each element.
 
 **Sizing on the individual input group elements isn’t supported.**
@@ -6145,7 +6146,7 @@ And here are methods available in Java:
  |  | 
 
 
-### Wrapping (Input group)
+#### Wrapping
 ```java 
    public static UIElement inputGroupWrap,inputGroupNowrap;//@FindBy(css = "#input-group-wrap")
 
@@ -6177,7 +6178,7 @@ Wrapping property can be checked by using following class:
   
 <a  href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/inputGroup/InputGroupWrapping.java" target="_blank">Bootstrap test example wrapping</a>
 
-### Sizing (Input group)
+#### Sizing
 
 **Sizing** – Add the relative form sizing classes to the .input-group itself and contents within will automatically resize—no need for repeating the form control size classes on each element.
 
@@ -6200,7 +6201,7 @@ And here are methods available in Java:
  |  | 
  |  | 
 
-### Checkboxes and radios (Input group)
+#### Checkboxes and radios
 
 <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/input-group/#checkboxes-and-radios" target="_blank">Checkboxes and radios</a> – Place any checkbox or radio option within an input group’s addon instead of text.
 
@@ -6282,7 +6283,7 @@ This input group example is represented by the following classes in Java:
 
 <br /><br /><br /><br /><br />
  
-### Multiple inputs (Input group)
+#### Multiple inputs 
 **Multiple inputs** – While multiple inputs are supported visually, validation styles are only available for input groups with a single input.
 
 ![Multiple inputs](../images/bootstrap/multiple_inputs.png)
@@ -6301,7 +6302,7 @@ And here are methods available in Java:
  |  | 
  |  |  
  
-### Multiple addons (Input group)
+#### Multiple addons 
 **Multiple addons** – Multiple add-ons are supported and can be mixed with checkbox and radio input versions.
 
 ![Multiple addons](../images/bootstrap/multiple_addons.png)
@@ -6320,7 +6321,7 @@ And here are methods available in Java:
  |  | 
  |  |  
  
-### Button addons (Input group)
+#### Button addons 
 **Button addons** – Multiple buttons have no detailed information on Bootstrap website
 
 ![Button addons](../images/bootstrap/button_addons.png)
@@ -6339,7 +6340,7 @@ And here are methods available in Java:
  |  | 
  |  | 
  
-### Buttons with dropdowns (Input group)
+#### Buttons with dropdowns 
 
 ```java
 @Css("#button-with-dropdown") public static ButtonWithDropdown buttonWithDropdown;
@@ -6396,7 +6397,7 @@ And here are methods available in Java:
  |  | 
  |  |  
  
-### Segmented buttons (Input group)
+#### Segmented buttons
 **Segmented buttons** – Segmented buttons have no detailed information on Bootstrap website
 
 ```java
@@ -6459,7 +6460,7 @@ And here are methods available in Java:
  |  | 
  |  |  
  
-### Custom select (Input group)
+#### Custom select 
 **Custom select** – Input groups include support for custom selects and text field. Browser default versions of these are not supported.
 
 ```java
@@ -6572,7 +6573,7 @@ And here are methods available in Java:
  |  | 
  |  |  
  
-### Custom file input (Input group)
+#### Custom file input 
 **Custom file input** – Input groups include support for custom selects and custom file inputs. Browser default versions of these are not supported.
 
 ![Custom file input](../images/bootstrap/custom_file_input.png)

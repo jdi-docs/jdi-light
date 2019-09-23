@@ -6934,7 +6934,7 @@ Features have locators taken from simple file-based PageObjects instead of an el
 etc. <br>
 
 Elements **Red button** and **Name** are defined via **[html5page.json](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-bdd-no-po-tests/src/test/resources/json/page/objects/html5page.json)**.<br>
-Note that you may call this json file as you wish but it should be located in **json.page.objects** package.<br>
+Note that you may give this json file any name you want but it should be located in **json.page.objects** package.<br>
 Example [feature](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-bdd-no-po-tests/src/test/resources/features/TestsWithProperties.feature)
 
 ### BDD Smart locators

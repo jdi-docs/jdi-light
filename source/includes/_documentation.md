@@ -3684,7 +3684,7 @@ public void leftButtonTests() {
 Here is an example with provided Bootstrap v4.3 code:
 
 ![Button Group Nesting HTML Example](../images/bootstrap/bgroup-basic-example-html.png)
-<br><br><br><br><br>
+<br><br><br><br><br><br><br>
 
 **Button toolbar**
 <br>

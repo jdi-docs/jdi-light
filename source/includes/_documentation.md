@@ -6931,7 +6931,8 @@ Features have locators taken from simple file-based PageObjects instead of an el
 **Then** the **"Name"** element's text matches to "\w{6} \d{4}" <br>
 etc. <br>
 
-Elements **Red button** and **Name** are described in ***html5page.json***. <br>
+Elements **Red button** and **Name** are defined via **[html5page.json](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-bdd-no-po-tests/src/test/resources/json/page/objects/html5page.json)**.<br>
+Note that you may call this json file as you wish but it should be located in **json.page.objects** package.<br>
 Example [feature](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-bdd-no-po-tests/src/test/resources/features/TestsWithProperties.feature)
 
 ### BDD Smart locators
@@ -6978,7 +6979,7 @@ Use this: <br>
 
 **Given** I open "Bootstrap Page" <br>
 
-Pages are defined via **pages.json**. <br>
+Pages are defined via **[pages.json](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-bdd-no-po-tests/src/test/resources/json/page/objects/pages.json)**. <br>
 Note: domain is read from test.properties automatically. <br>
 Example [feature](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-bdd-no-po-tests/src/test/resources/features/JsonBasedPage.feature)
 

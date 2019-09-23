@@ -3687,14 +3687,38 @@ Here is an example with provided Bootstrap v4.3 code:
 <br>
 
 **Button toolbar**
-
-Combine sets of button groups into button toolbars for more complex components. Use utility classes as needed to space out groups, buttons, and more.
+<br>
+<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.0/components/button-group/#button-toolbar" target="_blank">Button toolbar</a> - combine sets of button groups into button toolbars for more complex components. Use utility classes as needed to space out groups, buttons, and more.
 
 ![Button toolbar](../images/bootstrap/button_toolbar.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
 ![Button toolbar example](../images/bootstrap/button_toolbar-html.png)
+```java
+@UI(".btn-toolbar") public static ButtonToolbar buttonToolbar;
+// @FindBy(css = ".btn-toolbar") public static ButtonToolbar buttonToolbar;
+
+public class ButtonToolbar extends Section {
+    @UI("button") public WebList buttonsInToolbar;
+    @UI("input") public TextField inputAreaInToolbar;
+
+    @Test
+    public void buttonsInButtonToolbarTest() {
+        buttonToolbar.buttonsInToolbar.forEach(button -> {
+            button.is().displayed();
+            button.is().enabled();
+            button.assertThat().css("background-color", backgroundColorBeforeHovering);
+            button.core().hover();
+            button.assertThat().css("background-color", backgroundColorAfterHovering);
+            button.assertThat().css("border-color", borderColorBeforeClicking);
+            button.click();
+            validateAlert(containsString("button is clicked"));
+            button.assertThat().css("border-color", borderColorAfterClicking);
+        });
+    }
+}
+```
 
 It is possible to mix input groups with button groups in your toolbars.
 
@@ -3703,6 +3727,16 @@ It is possible to mix input groups with button groups in your toolbars.
 Here is an example with provided Bootstrap v4.3 code:
 
 ![Button toolbar_mixed example](../images/bootstrap/button_toolbar_mixed-html.png)
+```java
+    @Test
+    public void inputFieldInButtonToolbarTest() {
+        buttonToolbar.inputAreaInToolbar.is().displayed();
+        buttonToolbar.inputAreaInToolbar.is().enabled();
+        buttonToolbar.inputAreaInToolbar.is().core().attr("placeholder", placeholderForInputField);
+        buttonToolbar.inputAreaInToolbar.setValue(textForTestingInputField);
+        assertEquals(buttonToolbar.inputAreaInToolbar.getValue(), textForTestingInputField);
+    }
+```
 <br>
 
 **Button Group Sizing**

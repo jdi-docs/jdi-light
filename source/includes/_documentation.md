@@ -3654,6 +3654,38 @@ Available methods and properties in C# JDI Light:
  |  | 
 <br>
 
+**Button Group Basic Example**
+
+```java
+@UI("#basic-example") public static ButtonGroupBasicExample buttonGroupBasicExample;
+// @FindBy(css = "#basic-example") public static ButtonGroupBasicExample buttonGroupBasicExample;
+
+public class ButtonGroupBasicExample extends Section {
+    @UI("//button[text()='Left']") public Button leftButton;
+    @UI("//button[text()='Middle']") public Button middleButton;
+    @UI("//button[text()='Right']") public Button rightButton;
+}
+
+@Test
+public void leftButtonTests() {
+    buttonGroupBasicExample.leftButton.is()
+            .displayed()
+            .enabled()
+            .core()
+            .hasClass("btn btn-secondary")
+            .css("font-size", "16px");
+    buttonGroupBasicExample.leftButton.click();
+    validateAlert(is(leftButtonClickAlert));
+}
+```
+
+![Button Group Basic Example HTML](../images/bootstrap/bgroup-basic-example-screen.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Button Group Nesting HTML Example](../images/bootstrap/bgroup-basic-example-html.png)
+<br>
+
 **Button toolbar**
 
 Combine sets of button groups into button toolbars for more complex components. Use utility classes as needed to space out groups, buttons, and more.
@@ -3687,6 +3719,46 @@ Here is an example with provided Bootstrap v4.3 code:
 
 **Button Group Nesting**
 
+```java
+@UI("#button-group-nesting") public static ButtonGroupNesting buttonGroupNesting;
+// @FindBy(css = "#button-group-nesting") public static ButtonGroupNesting buttonGroupNesting;
+
+public class ButtonGroupNesting extends Section {
+    @UI("//button[text()='1']") public Button one;
+    @UI("//button[text()='2']") public Button two;
+    @JDropdown(expand = ".btn-group",
+            value = ".dropdown-menu",
+            list = ".dropdown-item")
+    public Dropdown dropdownMenu;
+}
+
+@Test
+ public void buttonOneTests() {
+     buttonGroupNesting.one.is()
+             .displayed()
+             .enabled()
+             .core()
+             .hasClass("btn btn-secondary")
+             .css("font-size", "16px");
+     buttonGroupNesting.one.click();
+     validateAlert(is(buttonOneClickAlert));
+}
+
+@Test
+public void dropdownMenuTests() {
+    buttonGroupNesting.dropdownMenu.expand();
+    buttonGroupNesting.dropdownMenu.is().expanded();
+    buttonGroupNesting.dropdownMenu.is().size(2);
+    buttonGroupNesting.dropdownMenu.list().get(0).is().text(dropdownMenuLinkOne);
+    buttonGroupNesting.dropdownMenu.list().get(1).is().text(dropdownMenuLinkTwo);
+    buttonGroupNesting.dropdownMenu.highlight();
+    buttonGroupNesting.dropdownMenu.select(dropdownMenuLinkOne);
+    newWindowTitleCheck(linkOnePageTitle);
+    buttonGroupNesting.dropdownMenu.select(dropdownMenuLinkTwo);
+    newWindowTitleCheck(linkTwoPageTitle);
+}
+```
+
 Place a ``.btn-group`` within another ``.btn-group`` when you want dropdown menus mixed with a series of buttons.
 
 ![Button Group Nesting Example](../images/bootstrap/bgroup-nesting.png)
@@ -3697,6 +3769,32 @@ Here is an example with provided Bootstrap v4.3 code:
 <br>
 
 **Button Group Vertical Variation**
+
+```java
+@UI("#vertical-variation") public static  ButtonGroupVerticalVariation buttonGroupVerticalVariation;
+// @FindBy(css = "#vertical-variation") public static  ButtonGroupVerticalVariation buttonGroupVerticalVariation;
+
+public class ButtonGroupVerticalVariation extends Section {
+    @UI("//button[text()='Button one']") public Button buttonOne;
+    @UI("//button[text()='Button two']") public Button buttonTwo;
+    @JDropdown(expand = ".btn-group",
+            value = ".dropdown-menu",
+            list = ".dropdown-item")
+    public Dropdown dropdownMenu;
+}
+
+@Test
+public void buttonOneTests() {
+    buttonGroupVerticalVariation.buttonOne.is()
+            .displayed()
+            .enabled()
+            .core()
+            .hasClass("btn btn-secondary")
+            .css("font-size", "16px");
+    buttonGroupVerticalVariation.buttonOne.click();
+    validateAlert(is(buttonOneClickAlert));
+}
+```
 
 Make a set of buttons appear vertically stacked rather than horizontally.
 

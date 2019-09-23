@@ -3684,7 +3684,7 @@ public void leftButtonTests() {
 Here is an example with provided Bootstrap v4.3 code:
 
 ![Button Group Nesting HTML Example](../images/bootstrap/bgroup-basic-example-html.png)
-<br>
+<br><br><br><br><br>
 
 **Button toolbar**
 <br>
@@ -3737,8 +3737,7 @@ Here is an example with provided Bootstrap v4.3 code:
         buttonToolbar.inputAreaInToolbar.setValue(textForTestingInputField);
         assertEquals(buttonToolbar.inputAreaInToolbar.getValue(), textForTestingInputField);
     }
-```
-
+``` 
 ![Button toolbar_mixed example](../images/bootstrap/button_toolbar_mixed-html.png)
 <br>
 

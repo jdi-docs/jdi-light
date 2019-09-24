@@ -4076,7 +4076,10 @@ Available methods in Java JDI Light:
 **assertThat()** | Assert action | TextAssert
 **displayed()** | Check that element is displayed | TextAssert
 
+<br>
 
+[Bootstrap badge test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/BadgeTests.java) <br>
+[Bootstrap badge in button tests examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/ButtonTests.java)
 <br><br>
 
 ### Breadcrumb

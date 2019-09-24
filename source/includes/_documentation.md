@@ -3656,6 +3656,12 @@ Available methods and properties in C# JDI Light:
 
 **Button Group Basic Example**
 
+**[Button Group Basic Example](https://getbootstrap.com/docs/4.3/components/button-group/#basic-example)** - wrapping a series of buttons with .btn in .btn-group.
+
+![Button Group Basic Example HTML](../images/bootstrap/bgroup-basic-example-screen.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
 ```java
 @UI("#basic-example") public static ButtonGroupBasicExample buttonGroupBasicExample;
 // @FindBy(css = "#basic-example") public static ButtonGroupBasicExample buttonGroupBasicExample;
@@ -3679,12 +3685,10 @@ public void leftButtonTests() {
 }
 ```
 
-![Button Group Basic Example HTML](../images/bootstrap/bgroup-basic-example-screen.png)
+<br>
 
-Here is an example with provided Bootstrap v4.3 code:
-
-![Button Group Nesting HTML Example](../images/bootstrap/bgroup-basic-example-html.png)
-<br><br><br><br><br><br><br>
+![Button Group Basic Example Example](../images/bootstrap/bgroup-basic-example-html.png)
+<br><br><br><br><br><br><br><br><br><br><br><br>
 
 **Button toolbar**
 <br>
@@ -3755,6 +3759,12 @@ Here is an example with provided Bootstrap v4.3 code:
 
 **Button Group Nesting**
 
+**[Button Group Nesting](https://getbootstrap.com/docs/4.3/components/button-group/#nesting)** - placing a ``.btn-group`` within another ``.btn-group`` when you want dropdown menus mixed with a series of buttons.
+
+![Button Group Nesting Example](../images/bootstrap/bgroup-nesting.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
 ```java
 @UI("#button-group-nesting") public static ButtonGroupNesting buttonGroupNesting;
 // @FindBy(css = "#button-group-nesting") public static ButtonGroupNesting buttonGroupNesting;
@@ -3791,16 +3801,18 @@ public void dropdownMenuTests() {
 }
 ```
 
-Place a ``.btn-group`` within another ``.btn-group`` when you want dropdown menus mixed with a series of buttons.
-
-![Button Group Nesting Example](../images/bootstrap/bgroup-nesting.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-
-![Button Group Nesting HTML Example](../images/bootstrap/bgroup-nesting-html.png)
 <br>
 
+![Button Group Nesting HTML Example](../images/bootstrap/bgroup-nesting-html.png)
+<br><br><br><br><br><br><br><br><br>
+
 **Button Group Vertical Variation**
+
+**[Button Group Vertical Variation](https://getbootstrap.com/docs/4.3/components/button-group/#vertical-variation)** - making a set of buttons appear vertically stacked rather than horizontally.
+
+![Button Group Nesting Example](../images/bootstrap/bgroup-vertical-variation.png)
+
+Here is an example with provided Bootstrap v4.3 code:
 
 ```java
 @UI("#vertical-variation") public static  ButtonGroupVerticalVariation buttonGroupVerticalVariation;
@@ -3835,19 +3847,21 @@ public void dropdownMenuTests() {
     buttonGroupVerticalVariation.dropdownMenu.select(dropdownMenuLinkTwo);
     newWindowTitleCheck(linkTwoPageTitle);
 }
-}
 ```
 
-Make a set of buttons appear vertically stacked rather than horizontally.
+<br>
 
-![Button Group Nesting Example](../images/bootstrap/bgroup-vertical-variation.png)
+![Button Group Vertical Variation Example](../images/bootstrap/bgroup-vertical-variation-html.png)
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+### Alert
+
+**[Alert](https://getbootstrap.com/docs/4.3/components/alerts/)** – Element that provides contextual feedback messages for typical user actions with the handful of available and flexible alert messages.
+
+![Alert](../images/bootstrap/alert-dismissible.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
-![Button Group Nesting HTML Example](../images/bootstrap/bgroup-vertical-variation-html.png)
-<br>
-
-### Alert
 ```java
 @Css("#simple-alert") public static Alert simpleAlert;
 @Css("#dismissible-alert") public static Alert dismissibleAlert;
@@ -3882,11 +3896,8 @@ public void dismissibleAlertButtonClickTest() {
     dismissibleAlert.is().hidden();
 }
 ```
-**Alert** – Element that provides contextual feedback messages for typical user actions with the handful of available and flexible alert messages.
-
-![Alert](../images/bootstrap/alert-dismissible.png)
-
-Here is an example with provided Bootstrap v4.3 code:
+  
+<br>
   
 ![Alert example](../images/bootstrap/alert-html-example.png)
 
@@ -3900,7 +3911,7 @@ Available methods in Java JDI Light:
  |  | 
  |  | 
 
-<br>
+<br><br><br><br><br>
 
 
 ###Badge
@@ -6457,7 +6468,7 @@ public void dropdownButtonTests() {
 }
 ```
 
-**Buttons with dropdowns** – Buttons with dropdowns have no detailed information on Bootstrap website
+**[Buttons with dropdowns](https://getbootstrap.com/docs/4.3/components/input-group/#buttons-with-dropdowns)** – Buttons with dropdowns have no detailed information on Bootstrap website
 
 ![Buttons with dropdowns](../images/bootstrap/buttons_with_dropdowns.png)
 
@@ -6476,7 +6487,7 @@ And here are methods available in Java:
  |  |  
  
 #### Segmented buttons
-**Segmented buttons** – Segmented buttons have no detailed information on Bootstrap website
+**[Segmented buttons](https://getbootstrap.com/docs/4.3/components/input-group/#segmented-buttons)** – Segmented buttons have no detailed information on Bootstrap website
 
 ```java
 @UI("#segmented-button") public static SegmentedButton segmentedButton;
@@ -6539,7 +6550,7 @@ And here are methods available in Java:
  |  |  
  
 #### Custom select 
-**Custom select** – Input groups include support for custom selects and text field. Browser default versions of these are not supported.
+**[Custom select](https://getbootstrap.com/docs/4.3/components/input-group/#custom-select)** – Input groups include support for custom selects and text field. Browser default versions of these are not supported.
 
 ```java
 @UI("#custom-select-01") public static CustomSelect customSelect;
@@ -6587,7 +6598,7 @@ Here is an example with provided Bootstrap v4.3 code:
 ![Custom select example](../images/bootstrap/custom-select-code.png)
 
 
-**Custom select with button** – Input groups include support for custom selects and button. Browser default versions of these are not supported.
+**[Custom select with button](https://getbootstrap.com/docs/4.3/components/input-group/#custom-select)** – Input groups include support for custom selects and button. Browser default versions of these are not supported.
 
 ```java
 @UI("#custom-select-button-01") public static CustomSelectWithButton customSelectWithButton;

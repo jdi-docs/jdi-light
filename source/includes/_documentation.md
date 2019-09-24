@@ -6997,6 +6997,67 @@ Inner elements of Card Body represented by the following classes:
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardBodyTests.java)
  <br>
  
+####Card using custom CSS
+```java 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@UI("#card-custom-css-1") //FindBy(css = "#card-custom-css-1")
+public static CardWithCustomCss13Rem cardWithCustomCss13Rem;
+
+public class CardWithCustomCss13Rem extends Section {
+    @UI(".card-title") public Text title;
+    @UI(".card-text") public Text text;
+    @UI(".btn") public Button button;
+}
+
+@Test
+public void getTextTest() {
+    assertEquals(cardWithCustomCss13Rem.text.getText(), text);
+}
+
+@Test
+public void isValidationTest() {
+    cardWithCustomCss13Rem.is().displayed()
+            .core()
+            .css("width", is("208px"))
+            .css("margin-bottom", is("10px"));
+}
+```
+Use <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.0/components/card/#using-custom-css">custom CSS</a> custom CSS in your stylesheets or as inline styles to set a width.
+
+![Card custom CSS Example](../images/bootstrap/card_custom_CSS.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Card custom CSS Example Code](../images/bootstrap/card_custom_CSS_html.png)
+
+Inner elements of Card using custom CSS represented by the following classes:<br>
+[Text](https://jdi-docs.github.io/jdi-light/#text)<br>
+[Button](https://jdi-docs.github.io/jdi-light/#button)
+
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardWithCustomCss13RemTests.java)
+ 
 ### Jumbotron
 ```java 
 

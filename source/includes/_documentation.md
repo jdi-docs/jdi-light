@@ -3752,9 +3752,42 @@ just add ``.btn-group-*`` to each ``.btn-group``, including each one when nestin
 
 ![Button Group Sizing Example](../images/bootstrap/bgroup-sizing.png)
 
+```java 
+@UI("#btn-lg-group") public static ButtonGroupSizing largeBtnGroup;
+
+@UI("//button[contains(text(), 'Left')]")
+public Button leftBtn;
+@UI("//button[contains(text(), 'Middle')]")
+public Button midBtn;
+@UI("//button[contains(text(), 'Right')]")
+public Button rightBtn;
+
+@Test
+public void clickTest() {
+    largeBtnGroup.highlight();
+    largeBtnGroup.leftBtn.click();
+    validateAlert(is(lgLeftBtnAlertText));
+    largeBtnGroup.midBtn.click();
+    validateAlert(is(lgMidBtnAlertText));
+    largeBtnGroup.rightBtn.click();
+    validateAlert(is(lgRightBtnAlertText));
+
+    smallBtnGroup.highlight();
+    smallBtnGroup.leftBtn.click();
+    validateAlert(is(smLeftBtnAlertText));
+    smallBtnGroup.midBtn.click();
+    validateAlert(is(smMidBtnAlertText));
+    smallBtnGroup.rightBtn.click();
+    validateAlert(is(smRightBtnAlertText));
+}
+``` 
+
 Here is an example with provided Bootstrap v4.3 code:
 
 ![Button Group Sizing HTML Example](../images/bootstrap/bgroup-sizing-html.png)
+
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/buttonGroup/SizingTests.java" target="_blank">Bootstrap test examples</a>
+
 <br>
 
 **Button Group Nesting**

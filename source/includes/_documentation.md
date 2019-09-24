@@ -3852,7 +3852,7 @@ public void dropdownMenuTests() {
 <br>
 
 ![Button Group Vertical Variation Example](../images/bootstrap/bgroup-vertical-variation-html.png)
-<br>
+<br><br><br><br><br><br><br><br><br><br><br><br>
 
 ### Alert
 ```java

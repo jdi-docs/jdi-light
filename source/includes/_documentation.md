@@ -3657,6 +3657,11 @@ Available methods and properties in C# JDI Light:
 **Button Group Basic Example**
 
 **[Button Group Basic Example](https://getbootstrap.com/docs/4.3/components/button-group/#basic-example)** - wrapping a series of buttons with .btn in .btn-group.
+
+![Button Group Basic Example HTML](../images/bootstrap/bgroup-basic-example-screen.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
 ```java
 @UI("#basic-example") public static ButtonGroupBasicExample buttonGroupBasicExample;
 // @FindBy(css = "#basic-example") public static ButtonGroupBasicExample buttonGroupBasicExample;
@@ -3680,11 +3685,7 @@ public void leftButtonTests() {
 }
 ```
 
-![Button Group Basic Example HTML](../images/bootstrap/bgroup-basic-example-screen.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-
-![Button Group Nesting HTML Example](../images/bootstrap/bgroup-basic-example-html.png)
+![Button Group Basic Example Example](../images/bootstrap/bgroup-basic-example-html.png)
 <br><br><br><br><br><br><br>
 
 **Button toolbar**
@@ -3694,6 +3695,7 @@ Here is an example with provided Bootstrap v4.3 code:
 ![Button toolbar](../images/bootstrap/button_toolbar.png)
 
 Here is an example with provided Bootstrap v4.3 code:
+<br><br><br><br><br><br>
 
 ```java
 @UI(".btn-toolbar") public static ButtonToolbar buttonToolbar;

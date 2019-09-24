@@ -4045,9 +4045,6 @@ Available methods in Java JDI Light:
    ![Badge](../images/bootstrap/badge_link.png)<br>
    Here is an example with provided Bootstrap v4.3 code:  
    ![Badge example](../images/bootstrap/badge_link_code.png)
-   Badge is located in the following classes: <br>
-  - __Java__: _***_<br>
-  - __C#__: _***_<br>
 
 Available methods in Java JDI Light:
 

@@ -3661,6 +3661,7 @@ Available methods and properties in C# JDI Light:
 ![Button Group Basic Example HTML](../images/bootstrap/bgroup-basic-example-screen.png)
 
 Here is an example with provided Bootstrap v4.3 code:
+<br>
 
 ```java
 @UI("#basic-example") public static ButtonGroupBasicExample buttonGroupBasicExample;
@@ -3762,6 +3763,7 @@ Here is an example with provided Bootstrap v4.3 code:
 ![Button Group Nesting Example](../images/bootstrap/bgroup-nesting.png)
 
 Here is an example with provided Bootstrap v4.3 code:
+<br>
 
 ```java
 @UI("#button-group-nesting") public static ButtonGroupNesting buttonGroupNesting;
@@ -3799,8 +3801,9 @@ public void dropdownMenuTests() {
 }
 ```
 
+
 ![Button Group Nesting HTML Example](../images/bootstrap/bgroup-nesting-html.png)
-<br>
+<br><br><br><br><br><br><br><br>
 
 **Button Group Vertical Variation**
 

@@ -6352,11 +6352,24 @@ Inner elements of input group can be represented by following classes:
 
 #### Sizing
 <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/input-group/#sizing" target="_blank">Sizing</a> – Add the relative form sizing classes to the .input-group itself and contents within will automatically resize—no need for repeating the form control size classes on each element.
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ```java 
     @UI("#input-group-default") public static InputGroupSizing inputGroupDefaultSizing;
     @UI("#input-group-small") public static InputGroupSizing inputGroupSmallSizing;
     @UI("#input-group-large") public static InputGroupSizing inputGroupLargeSizing;
+    //@FindBy(css = "#input-group-default")
+    //@FindBy(css = "#input-group-small")
+    //@FindBy(css = "#input-group-large")
 
     @Test
     public void getTextFromSizingTest() {

@@ -3586,7 +3586,7 @@ Here is an example with provided HTML code:
 
 ### Button group
 
-**<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/button-group/" target="_blank">Button group</a> – Element that groups a series of buttons together on a single line with the button group, and super-power them with JavaScript.
+**<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/button-group/" target="_blank">Button group</a>** – Element that groups a series of buttons together on a single line with the button group, and super-power them with JavaScript.
 
 Button group is located in the following packages:
  

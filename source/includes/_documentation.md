@@ -6165,7 +6165,7 @@ Here is an example with provided Bootstrap v4.3 code:
   }
 
 ``` 
-<br /><br /><br />
+<br /><br />
 **4.Input group example - Input + left and right span**
 
 <img src="images/bootstrap/input-group-base-example4.png" alt="Input group example4" height="50%" width="50%">
@@ -6191,7 +6191,7 @@ Here is an example with provided Bootstrap v4.3 code:
 
 ```
 
-<br /><br /><br />
+<br /><br /><br /><br/><br />
 **5.Input group example - Input + textarea**
 
 <img src="images/bootstrap/input-group-base-example5.png" alt="Input group example5" height="50%" width="50%">
@@ -6205,15 +6205,16 @@ Input group are represented by Section class in Java:
   [Section](https://jdi-docs.github.io/jdi-light/#section)  
   
 Inner elements of input group can be represented by following classes:
-
-  [Text](https://jdi-docs.github.io/jdi-light/#text)
+ <ul>
+  <li> [Text](https://jdi-docs.github.io/jdi-light/#text) </li>
   
-  [TextField](https://jdi-docs.github.io/jdi-light/#textfield)
+  <li> [TextField](https://jdi-docs.github.io/jdi-light/#textfield) </li> 
   
-  [TextArea](https://jdi-docs.github.io/jdi-light/#textarea)
+  <li> [TextArea](https://jdi-docs.github.io/jdi-light/#textarea) </li>
  
   
-  [See more elements](https://jdi-docs.github.io/jdi-light/#html5-common-elements)
+ <li>  [See more elements](https://jdi-docs.github.io/jdi-light/#html5-common-elements) </li> 
+ </ul>
 
 [Bootstrap test example ](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/inputGroup)
 

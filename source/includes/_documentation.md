@@ -6178,7 +6178,31 @@ Inner elements of input group can be represented by following classes:
 [Bootstrap test example ](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/inputGroup)
 
 #### Sizing
-**Sizing** – Add the relative form sizing classes to the .input-group itself and contents within will automatically resize—no need for repeating the form control size classes on each element.
+<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/input-group/#sizing" target="_blank">Sizing</a> – Add the relative form sizing classes to the .input-group itself and contents within will automatically resize—no need for repeating the form control size classes on each element.
+
+```java 
+    @UI("#input-group-default") public static InputGroupSizing inputGroupDefaultSizing;
+    @UI("#input-group-small") public static InputGroupSizing inputGroupSmallSizing;
+    @UI("#input-group-large") public static InputGroupSizing inputGroupLargeSizing;
+
+    @Test
+    public void getTextFromSizingTest() {
+        assertEquals(inputGroupDefaultSizing.input.getText(), text);
+        assertEquals(inputGroupSmallSizing.input.getText(), text);
+        assertEquals(inputGroupLargeSizing.input.getText(), text);
+    }
+
+    @Test
+    public void clearSizingTest() {
+        inputGroupDefaultSizing.input.clear();
+        assertEquals(inputGroupDefaultSizing.input.getText(), "");
+        inputGroupSmallSizing.input.clear();
+        assertEquals(inputGroupDefaultSizing.input.getText(), "");
+        inputGroupLargeSizing.input.clear();
+        assertEquals(inputGroupDefaultSizing.input.getText(), "");
+    }
+```
+
 
 **Sizing on the individual input group elements isn’t supported.**
 ![Sizing](../images/bootstrap/sizing.png)
@@ -6189,13 +6213,15 @@ Here is an example with provided Bootstrap v4.3 code:
 
 And here are methods available in Java:
     
-|Method | Description | Return Type
+|Method / Property | Description | Return Type
 --- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  | 
+**setText(String value)** | adds text to the field | void
+**clear()** | clears the text field | void
+**focus()** | places cursor within the text field | void
+**getText()** | returns text from the text field  | String
+**getValue()** | returns text from the text field| String
+**is()** | property that returns object for work with assertions| TextAssert
+**assertThat()** | property that returns object for work with assertions| TextAssert
 
 
 #### Wrapping

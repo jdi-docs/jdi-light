@@ -3747,14 +3747,64 @@ Here is an example with provided Bootstrap v4.3 code:
 
 **Button Group Sizing**
 
-Instead of applying button sizing classes to every button in a group, 
+Instead of applying <a style="font-weight: bold;" href="https://getbootstrap.com/docs/4.0/components/button-group/#sizing" target="_blank">button sizing</a> classes to every button in a group, 
 just add ``.btn-group-*`` to each ``.btn-group``, including each one when nesting multiple groups.
 
 ![Button Group Sizing Example](../images/bootstrap/bgroup-sizing.png)
 
+```java 
+@UI("#btn-lg-group") public static ButtonGroupSizing largeBtnGroup;
+
+@UI("//button[contains(text(), 'Left')]")
+public Button leftBtn;
+@UI("//button[contains(text(), 'Middle')]")
+public Button midBtn;
+@UI("//button[contains(text(), 'Right')]")
+public Button rightBtn;
+
+String leftBtnText = "Left";
+
+@Test
+public void isValidationTest() {
+    largeBtnGroup.highlight();
+    largeBtnGroup.is().displayed();
+    largeBtnGroup.is().enabled();
+    largeBtnGroup.leftBtn.is().text(is(leftBtnText));
+    largeBtnGroup.leftBtn.is().text(containsString("Le"));
+    assertThat(largeBtnGroup.leftBtn.core().css("font-size"), is("20px"));
+    largeBtnGroup.leftBtn.assertThat().displayed()
+            .and().text(is(leftBtnText))
+            .core()
+            .css("font-size", is("20px"))
+            .cssClass("btn btn-secondary")
+            .attr("type", "button")
+            .tag(is("button"));
+}
+``` 
+
 Here is an example with provided Bootstrap v4.3 code:
 
 ![Button Group Sizing HTML Example](../images/bootstrap/bgroup-sizing-html.png)
+
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/buttonGroup/SizingTests.java" target="_blank">Bootstrap test examples</a>
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**getText()** | Get button text | String
+**getValue()** | Get button value | String
+**click()** | Click button | void
+**doubleClick()** | Double-click button | void
+**rightClick()** | Right-click button | void
+**displayed()** | Check that element is displayed | TextAssert
+**css()** | Get button css value | String
+**cssClass()** | Assert button css class | IsAssert
+**attr()** | Assert button attribute | IsAssert
+**tag()** | Assert button tag | IsAssert
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+
 <br>
 
 **Button Group Nesting**
@@ -3940,9 +3990,6 @@ Badge is located in the following class: <br>
    ![Badge](../images/bootstrap/badge_heading.png)<br>
    Here is an example with provided Bootstrap v4.3 code:  
    ![Badge example](../images/bootstrap/badge_heading_code.png)
-   Badge is located in the following classes: <br>
-  - __Java__: _***_<br>
-  - __C#__: _***_<br>
 
 Available methods in Java JDI Light:
 
@@ -3968,9 +4015,6 @@ Available methods in Java JDI Light:
    ![Badge](../images/bootstrap/badge_button.png)<br>
    Here is an example with provided Bootstrap v4.3 code:  
    ![Badge example](../images/bootstrap/badge_button_code.png)
-   Badge is located in the following classes: <br>
-  - __Java__: _***_<br>
-  - __C#__: _***_<br>
 
 Available methods in Java JDI Light:
 
@@ -4998,33 +5042,58 @@ Available methods and properties in C# JDI Light:
  
 **Card Text Alignment**
 
-You can quickly change the text alignment of any card — in its entirety or specific parts — with Bootstrap's <a href="https://getbootstrap.com/docs/4.3/utilities/text/#text-alignment" target="_blank">text align classes</a>.
+You can quickly change the text alignment of any card — in its entirety or specific parts — with Bootstrap's <a style="font-weight: bold;" href="https://getbootstrap.com/docs/4.3/utilities/text/#text-alignment" target="_blank">text align classes</a>.
 
 ![Card Text Alignment Example](../images/bootstrap/cardtextalignment.png)
+
+```java 
+@UI("#card-text-left")
+public static CardTextAlignment cardLeftTextAlignment;
+@UI("#card-text-center")
+public static CardTextAlignment cardCenterTextAlignment;
+@UI("#card-text-right")
+public static CardTextAlignment cardRightTextAlignment;
+
+String alertText = "Button Clicked!";
+
+@Test
+public void clickTest() {
+    cardLeftTextAlignment.highlight();
+    cardLeftTextAlignment.cardButton.click();
+    validateAlert(is(alertText));
+
+    cardCenterTextAlignment.highlight();
+    cardCenterTextAlignment.cardButton.click();
+    validateAlert(is(alertText));
+
+    cardRightTextAlignment.highlight();
+    cardRightTextAlignment.cardButton.click();
+    validateAlert(is(alertText));
+}
+```
 
 Here is an example with provided Bootstrap v4.3 code:
 
 ![Card Text Alignment Example Code](../images/bootstrap/cardtextalignment-html.png)
 
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardTextAlignmentTests.java" target="_blank">Bootstrap test examples</a>
+
 Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  | 
- 
-Available methods and properties in C# JDI Light:
+**getText()** | Get button text | String
+**getValue()** | Get button value | String
+**click()** | Click button | void
+**displayed()** | Check that element is displayed | TextAssert
+**css()** | Get button css value | String
+**cssClass()** | Assert button css class | IsAssert
+**attr()** | Assert button attribute | IsAssert
+**tag()** | Assert button tag | IsAssert
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
 
-|Method/Property | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  |
- |  |
- <br>
+<br>
  
 **Card Navigation**
 
@@ -6131,30 +6200,104 @@ Available methods and properties in C# JDI Light:
 **<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/input-group/#basic-example" target="_blank">Input group</a>** – Place one add-on or button on either side of an input. You may also place one on both sides of an input.
 <br />
 
+```java 
+
+   @UI("#input-group-basic-example1") public static InputGroupInputWithText inputGroupBasicExample1;//@FindBy(css = "#input-group-basic-example1")
+
+   public class InputGroupInputWithText extends Section{
+       @UI(".input-group-text") public Text text;
+       @UI(".form-control") public TextField input;
+   }
+
+   @Test(priority = 1)
+   public void setTextTestExample1() {
+        inputGroupBasicExample1.input.setText(textExample1);
+        inputGroupBasicExample1.input.is().text(is(textExample1));
+   }
+
+```
 **1.Input group example - Input + left span**
 
 <img src="images/bootstrap/input-group-base-example1.png" alt="Input group example1" height="50%" width="50%">
 
 Here is an example with provided Bootstrap v4.3 code:
 
+
+
 <img src="images/bootstrap/input-group-base-example1-html.png" alt="Input group example1 html"> 
 
+```java 
+
+   @UI("#input-group-basic-example2") public static InputGroupInputWithText inputGroupBasicExample2;//@FindBy(css = "#input-group-basic-example2")
+
+   public class InputGroupInputWithText extends Section{
+       @UI(".input-group-text") public Text text;
+       @UI(".form-control") public TextField input;
+   }
+
+    @Test(priority = 4)
+    public void checkAddonConsistTextTestExample2() {
+       inputGroupBasicExample2.text.is().text(containsString(partOfAddonExample2));
+    }
+
+```
+<br /><br /><br /><br /><br /><br />
 **2.Input group example - Input + right span** 
 
 <img src="images/bootstrap/input-group-base-example2.png" alt="Input group example1" height="50%" width="50%">
 
 Here is an example with provided Bootstrap v4.3 code:
 
+
+
  <img src="images/bootstrap/input-group-base-example2-html.png" alt="Input group example2 html">  
 
+```java 
+
+   @UI("#input-group-basic-example3") public static InputGroupInputWithLabelAndText inputGroupBasicExample3;//@FindBy(css = "#input-group-basic-example3")
+
+   public class InputGroupInputWithLabelAndText extends Section{
+       @UI(".input-group-text") public Text text;
+       @UI("#basic-url") public TextField input;
+   }
+
+   @Test(priority = 6)
+   public void checkLabelExample3() {
+       assertEquals(inputGroupBasicExample3.input.core().label().getText(), labelExample3);
+   }
+
+```
+<br /><br /><br /><br />
 **3.Input group example - Input + label + left span**
 
 <img src="images/bootstrap/input-group-base-example3.png" alt="Input group example1" height="50%" width="50%">
 
+
 Here is an example with provided Bootstrap v4.3 code:
 
-<img src="images/bootstrap/input-group-base-example3-html.png" alt="Input group example3 html"> 
+<img src="images/bootstrap/input-group-base-example3-html.png" alt="Input group example3 html">
 
+
+```java 
+
+  @UI("#input-group-basic-example4") public static InputGroupInputWithTwoText inputGroupBasicExample4;//@FindBy(css = "#input-group-basic-example4")
+
+  public class InputGroupInputWithTwoText extends Section{
+      @UI(".input-group-prepend .input-group-text") public Text text_pretend;
+      @UI(".input-group-append .input-group-text") public Text text_append;
+      @UI(".form-control") public TextField input;
+  }
+
+  @Test(priority = 7)
+  public void checkAddonsExample4() {
+      inputGroupBasicExample4.text_append.is().enabled();
+      inputGroupBasicExample4.text_append.is().text(is(addonAppendExample4));
+      inputGroupBasicExample4.text_pretend.is().enabled();
+      inputGroupBasicExample4.text_pretend.is().text(is(addonPretendExample4));
+  }
+
+``` 
+<br /><br />
 **4.Input group example - Input + left and right span**
 
 <img src="images/bootstrap/input-group-base-example4.png" alt="Input group example4" height="50%" width="50%">
@@ -6163,6 +6306,24 @@ Here is an example with provided Bootstrap v4.3 code:
 
 <img src="images/bootstrap/input-group-base-example4-html.png" alt="Input group example4 html"> 
 
+```java 
+
+  @UI("#input-group-basic-example5") public static InputGroupTextareaWithText inputGroupBasicExample5;//@FindBy(css = "#input-group-basic-example5")
+
+  public class InputGroupTextareaWithText extends Section{
+      @UI(".input-group-text") public Text text;
+      @UI(".form-control") public TextArea area;
+  }
+
+  @Test(priority = 9)
+  public void getLinesTestExample5() {
+      inputGroupBasicExample5.area.setLines(linesTextArea);
+      assertEquals(inputGroupBasicExample5.area.getLines(), asList(linesTextArea));
+  }
+
+```
+
+<br /><br /><br /><br/><br />
 **5.Input group example - Input + textarea**
 
 <img src="images/bootstrap/input-group-base-example5.png" alt="Input group example5" height="50%" width="50%">
@@ -6176,15 +6337,16 @@ Input group are represented by Section class in Java:
   [Section](https://jdi-docs.github.io/jdi-light/#section)  
   
 Inner elements of input group can be represented by following classes:
-
-  [Text](https://jdi-docs.github.io/jdi-light/#text)
+ <ul>
+  <li> [Text](https://jdi-docs.github.io/jdi-light/#text) </li>
   
-  [TextField](https://jdi-docs.github.io/jdi-light/#textfield)
+  <li> [TextField](https://jdi-docs.github.io/jdi-light/#textfield) </li> 
   
-  [TextArea](https://jdi-docs.github.io/jdi-light/#textarea)
+  <li> [TextArea](https://jdi-docs.github.io/jdi-light/#textarea) </li>
  
   
-  [See more elements](https://jdi-docs.github.io/jdi-light/#html5-common-elements)
+ <li>  [See more elements](https://jdi-docs.github.io/jdi-light/#html5-common-elements) </li> 
+ </ul>
 
 [Bootstrap test example ](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/inputGroup)
 
@@ -6889,6 +7051,67 @@ Inner elements of Card Body represented by the following classes:
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardBodyTests.java)
  <br>
+ 
+####Card using custom CSS
+```java 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@UI("#card-custom-css-1") //FindBy(css = "#card-custom-css-1")
+public static CardWithCustomCss13Rem cardWithCustomCss13Rem;
+
+public class CardWithCustomCss13Rem extends Section {
+    @UI(".card-title") public Text title;
+    @UI(".card-text") public Text text;
+    @UI(".btn") public Button button;
+}
+
+@Test
+public void getTextTest() {
+    assertEquals(cardWithCustomCss13Rem.text.getText(), text);
+}
+
+@Test
+public void isValidationTest() {
+    cardWithCustomCss13Rem.is().displayed()
+            .core()
+            .css("width", is("208px"))
+            .css("margin-bottom", is("10px"));
+}
+```
+Use <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.0/components/card/#using-custom-css">custom CSS</a> custom CSS in your stylesheets or as inline styles to set a width.
+
+![Card custom CSS Example](../images/bootstrap/card_custom_CSS.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Card custom CSS Example Code](../images/bootstrap/card_custom_CSS_html.png)
+
+Inner elements of Card using custom CSS represented by the following classes:<br>
+[Text](https://jdi-docs.github.io/jdi-light/#text)<br>
+[Button](https://jdi-docs.github.io/jdi-light/#button)
+
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardWithCustomCss13RemTests.java)
  
 ### Jumbotron
 ```java 

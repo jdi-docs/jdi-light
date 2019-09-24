@@ -3685,8 +3685,6 @@ public void leftButtonTests() {
 }
 ```
 
-<br>
-
 ![Button Group Basic Example Example](../images/bootstrap/bgroup-basic-example-html.png)
 <br><br><br><br><br><br><br><br><br><br><br><br>
 
@@ -3759,6 +3757,12 @@ Here is an example with provided Bootstrap v4.3 code:
 
 **Button Group Nesting**
 
+**[Button Group Nesting](https://getbootstrap.com/docs/4.3/components/button-group/#nesting)** - placing a ``.btn-group`` within another ``.btn-group`` when you want dropdown menus mixed with a series of buttons.
+
+![Button Group Nesting Example](../images/bootstrap/bgroup-nesting.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
 ```java
 @UI("#button-group-nesting") public static ButtonGroupNesting buttonGroupNesting;
 // @FindBy(css = "#button-group-nesting") public static ButtonGroupNesting buttonGroupNesting;
@@ -3794,12 +3798,6 @@ public void dropdownMenuTests() {
     newWindowTitleCheck(linkOnePageTitle);
 }
 ```
-
-**[Button Group Nesting](https://getbootstrap.com/docs/4.3/components/button-group/#nesting)** - placing a ``.btn-group`` within another ``.btn-group`` when you want dropdown menus mixed with a series of buttons.
-
-![Button Group Nesting Example](../images/bootstrap/bgroup-nesting.png)
-
-Here is an example with provided Bootstrap v4.3 code:
 
 ![Button Group Nesting HTML Example](../images/bootstrap/bgroup-nesting-html.png)
 <br>

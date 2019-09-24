@@ -3993,7 +3993,7 @@ Badge is located in the following class: <br>
     }
 ```
 
-**1) Badge** - Element that scale to match the size of the immediate parent element by using relative font sizing and em units.<br>
+**1) <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/badge/" target="_blank">Badge</a>** - Element that scale to match the size of the immediate parent element by using relative font sizing and em units.<br>
 
    ![Badge](../images/bootstrap/badge_heading.png)<br>
    Here is an example with provided Bootstrap v4.3 code:  
@@ -4026,7 +4026,7 @@ Available methods in Java JDI Light:
     }
   ```
 
-**2) Badge** - Element which used as part of buttons to provide a counter. Unless the context is clear (as with the “Notifications” example, where it is understood that the “4” is the number of notifications), consider including additional context with a visually hidden piece of additional text.<br>
+**2) <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/badge/" target="_blank">Badge</a>** - Element which used as part of buttons to provide a counter. Unless the context is clear (as with the “Notifications” example, where it is understood that the “4” is the number of notifications), consider including additional context with a visually hidden piece of additional text.<br>
 
    ![Badge](../images/bootstrap/badge_button.png)<br>
    Here is an example with provided Bootstrap v4.3 code:  
@@ -4062,7 +4062,7 @@ Available methods in Java JDI Light:
         }
 ```
 
-**3) Badge** - .badge-* classes on an link element quickly provide actionable badges with hover and focus states.<br>
+**3) <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/badge/#links" target="_blank">Badge</a>** - .badge-* classes on an link element quickly provide actionable badges with hover and focus states.<br>
    ![Badge](../images/bootstrap/badge_link.png)<br>
    Here is an example with provided Bootstrap v4.3 code:  
    ![Badge example](../images/bootstrap/badge_link_code.png)

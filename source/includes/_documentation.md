@@ -3788,6 +3788,23 @@ Here is an example with provided Bootstrap v4.3 code:
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/buttonGroup/SizingTests.java" target="_blank">Bootstrap test examples</a>
 
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**getText()** | Get button text | String
+**getValue()** | Get button value | String
+**click()** | Click button | void
+**doubleClick()** | Double-click button | void
+**rightClick()** | Right-click button | void
+**displayed()** | Right-click button | TextAssert
+**css()** | Get button css value | String
+**cssClass()** | Assert button css class | IsAssert
+**attr()** | Assert button attribute | IsAssert
+**tag()** | Assert button tag | IsAssert
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+
 <br>
 
 **Button Group Nesting**

@@ -7315,15 +7315,15 @@ Jumbotron is represented by Section class in Java:
   
 Inner elements of jumbotron can be represented by the following classes:
 
-  [Text](https://jdi-docs.github.io/jdi-light/#text)
+  - [Text](https://jdi-docs.github.io/jdi-light/#text)
   
-  [Button](https://jdi-docs.github.io/jdi-light/#button)
+  - [Button](https://jdi-docs.github.io/jdi-light/#button)
   
-  [Label](https://jdi-docs.github.io/jdi-light/#label)
+  - [Label](https://jdi-docs.github.io/jdi-light/#label)
   
-  [Link](https://jdi-docs.github.io/jdi-light/#link)
+  - [Link](https://jdi-docs.github.io/jdi-light/#link)
   
-  [See more elements](https://jdi-docs.github.io/jdi-light/#html5-common-elements)
+[See more elements](https://jdi-docs.github.io/jdi-light/#html5-common-elements)
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/jumbotron)
 

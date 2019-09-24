@@ -3797,7 +3797,7 @@ Available methods in Java JDI Light:
 **click()** | Click button | void
 **doubleClick()** | Double-click button | void
 **rightClick()** | Right-click button | void
-**displayed()** | Right-click button | TextAssert
+**displayed()** | Check that element is displayed | TextAssert
 **css()** | Get button css value | String
 **cssClass()** | Assert button css class | IsAssert
 **attr()** | Assert button attribute | IsAssert
@@ -5077,6 +5077,22 @@ Here is an example with provided Bootstrap v4.3 code:
 ![Card Text Alignment Example Code](../images/bootstrap/cardtextalignment-html.png)
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardTextAlignmentTests.java" target="_blank">Bootstrap test examples</a>
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**getText()** | Get button text | String
+**getValue()** | Get button value | String
+**click()** | Click button | void
+**displayed()** | Check that element is displayed | TextAssert
+**css()** | Get button css value | String
+**cssClass()** | Assert button css class | IsAssert
+**attr()** | Assert button attribute | IsAssert
+**tag()** | Assert button tag | IsAssert
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+
 <br>
  
 **Card Navigation**

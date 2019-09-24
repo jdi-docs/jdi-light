@@ -3998,6 +3998,7 @@ Available methods in Java JDI Light:
 **getText()** | Get button text | String
 **is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
+**displayed()** | Check that element is displayed | TextAssert
   
   ```java 
   @UI("#btn-primary") // @FindBy(css = "#btn-primary")
@@ -4023,6 +4024,7 @@ Available methods in Java JDI Light:
 **getText()** | Get button text | String
 **is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
+**displayed()** | Check that element is displayed | TextAssert
 
 ```java 
 @UI("#badge-success") // @FindBy(css = "#badge-success")
@@ -4054,6 +4056,7 @@ Available methods in Java JDI Light:
 **getText()** | Get button text | String
 **is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
+**displayed()** | Check that element is displayed | TextAssert
 
 
 <br><br>

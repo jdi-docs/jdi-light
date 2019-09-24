@@ -3685,8 +3685,10 @@ public void leftButtonTests() {
 }
 ```
 
+<br>
+
 ![Button Group Basic Example Example](../images/bootstrap/bgroup-basic-example-html.png)
-<br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br>
 
 **Button toolbar**
 <br>
@@ -3695,7 +3697,6 @@ public void leftButtonTests() {
 ![Button toolbar](../images/bootstrap/button_toolbar.png)
 
 Here is an example with provided Bootstrap v4.3 code:
-<br><br><br><br><br><br>
 
 ```java
 @UI(".btn-toolbar") public static ButtonToolbar buttonToolbar;

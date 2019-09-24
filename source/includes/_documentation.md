@@ -5321,6 +5321,60 @@ Use card groups to render cards as a single, attached element with equal width a
 ![Card_groups example](../images/bootstrap/card-groups.png)
 
 Here is an example with provided Bootstrap v4.3 code:
+```java 
+   @UI(".card-group:nth-of-type(1)") public static CardGroup cardGroupWithoutFooter;
+   //@FindBy(css='.card-group:nth-of-type(1)')
+
+    public class Card extends Section {
+    @UI(".card-title") public Text title;
+    @UI(".card-text:nth-of-type(1)") public Text mainText;
+    @UI(".card-text .text-muted") public Text mutedText;
+    @UI(".card-img-top") public Image image;
+    @UI(".card-footer small") public Text footerText;
+    }
+
+    public class CardGroup extends Card {
+    @UI(".card:nth-of-type(1)") public Card card1;
+    }
+
+    @Test
+    public void getSrcTest() {
+        assertEquals(cardGroupWithoutFooter.card1.image.src(), card1ImageSrc);
+        assertEquals(cardGroupWithoutFooter.card2.image.src(), card2ImageSrc);
+        assertEquals(cardGroupWithFooter.card1.image.src(), card1ImageSrc);
+        assertEquals(cardGroupWithFooter.card2.image.src(), card2ImageSrc);
+    }
+
+    @Test
+    public void getAltTest() {
+        assertEquals(cardGroupWithoutFooter.card1.image.alt(), card1ImageAlt);
+        assertEquals(cardGroupWithoutFooter.card2.image.alt(), card2ImageAlt);
+        assertEquals(cardGroupWithFooter.card1.image.alt(), card1ImageAlt);
+        assertEquals(cardGroupWithFooter.card2.image.alt(), card2ImageAlt);
+    }
+
+    @Test
+    public void getTitleTextTest() {
+        assertEquals(cardGroupWithoutFooter.card1.title.getText(), card1Title);
+        assertEquals(cardGroupWithoutFooter.card2.title.getText(), card2Title);
+        assertEquals(cardGroupWithFooter.card1.title.getText(), card1Title);
+        assertEquals(cardGroupWithFooter.card2.title.getText(), card2Title);
+    }
+
+    @Test
+    public void getMainTextTest() {
+        assertEquals(cardGroupWithoutFooter.card1.mainText.getText(), card1MainText);
+        assertEquals(cardGroupWithoutFooter.card2.mainText.getText(), card2MainText);
+        assertEquals(cardGroupWithFooter.card1.mainText.getText(), card1MainText);
+        assertEquals(cardGroupWithFooter.card2.mainText.getText(), card2MainText);
+    }
+
+    @Test
+    public void getMutedTextTest() {
+        assertEquals(cardGroupWithoutFooter.card1.mutedText.getText(), card1HeroName);
+        assertEquals(cardGroupWithoutFooter.card2.mutedText.getText(), card2HeroName);
+    }
+```
   
 ![Card_groups HTML example](../images/bootstrap/card-groups-html.png)
 
@@ -5329,9 +5383,74 @@ Here is an example with provided Bootstrap v4.3 code:
 ![Card_groups example](../images/bootstrap/card-groups-with-footer.png)
 
 Here is an example with provided Bootstrap v4.3 code:
+```java 
+   @UI(".card-group:nth-of-type(2)") public static CardGroup cardGroupWithFooter;
+   //@FindBy(css='.card-group:nth-of-type(2)')
+
+    public class Card extends Section {
+    @UI(".card-title") public Text title;
+    @UI(".card-text:nth-of-type(1)") public Text mainText;
+    @UI(".card-text .text-muted") public Text mutedText;
+    @UI(".card-img-top") public Image image;
+    @UI(".card-footer small") public Text footerText;
+    }
+
+    public class CardGroup extends Card {
+    @UI(".card:nth-of-type(2)") public Card card2;
+    }
+
+    @Test
+    public void getSrcTest() {
+        assertEquals(cardGroupWithoutFooter.card1.image.src(), card1ImageSrc);
+        assertEquals(cardGroupWithoutFooter.card2.image.src(), card2ImageSrc);
+        assertEquals(cardGroupWithFooter.card1.image.src(), card1ImageSrc);
+        assertEquals(cardGroupWithFooter.card2.image.src(), card2ImageSrc);
+    }
+
+    @Test
+    public void getAltTest() {
+        assertEquals(cardGroupWithoutFooter.card1.image.alt(), card1ImageAlt);
+        assertEquals(cardGroupWithoutFooter.card2.image.alt(), card2ImageAlt);
+        assertEquals(cardGroupWithFooter.card1.image.alt(), card1ImageAlt);
+        assertEquals(cardGroupWithFooter.card2.image.alt(), card2ImageAlt);
+    }
+
+    @Test
+    public void getTitleTextTest() {
+        assertEquals(cardGroupWithoutFooter.card1.title.getText(), card1Title);
+        assertEquals(cardGroupWithoutFooter.card2.title.getText(), card2Title);
+        assertEquals(cardGroupWithFooter.card1.title.getText(), card1Title);
+        assertEquals(cardGroupWithFooter.card2.title.getText(), card2Title);
+    }
+
+    @Test
+    public void getMainTextTest() {
+        assertEquals(cardGroupWithoutFooter.card1.mainText.getText(), card1MainText);
+        assertEquals(cardGroupWithoutFooter.card2.mainText.getText(), card2MainText);
+        assertEquals(cardGroupWithFooter.card1.mainText.getText(), card1MainText);
+        assertEquals(cardGroupWithFooter.card2.mainText.getText(), card2MainText);
+    }
+
+    @Test
+    public void getFooterTextTest() {
+        assertEquals(cardGroupWithFooter.card1.footerText.getText(), card1HeroName);
+        assertEquals(cardGroupWithFooter.card2.footerText.getText(), card2HeroName);
+    }
+```
   
 ![Card_groups HTML example](../images/bootstrap/card-groups-with-footer-html.png)
 
+Card groups are represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)
+  
+Inner elements of Card groups can be represented by the following classes:
+
+  [Text](https://jdi-docs.github.io/jdi-light/#text)
+  
+  [Image](https://jdi-docs.github.io/jdi-light/#image)
+
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardGroupsTests)
 
 ####Card decks
 

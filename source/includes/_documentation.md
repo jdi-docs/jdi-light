@@ -4763,9 +4763,9 @@ Inner elements of media object can be represented by the following classes:
 <ul>
     <li> [Text](https://jdi-docs.github.io/jdi-light/#text) </li>
     <li> [Label](https://jdi-docs.github.io/jdi-light/#label) </li>
-    <li>[Link](https://jdi-docs.github.io/jdi-light/#link)  </li>
-    <li>[Image](https://jdi-docs.github.io/jdi-light/#image)  </li>
-    <li>[See more elements](https://jdi-docs.github.io/jdi-light/#html5-common-elements)</li>
+    <li> [Link](https://jdi-docs.github.io/jdi-light/#link)  </li>
+    <li> [Image](https://jdi-docs.github.io/jdi-light/#image)  </li>
+    <li> [See more elements](https://jdi-docs.github.io/jdi-light/#html5-common-elements) </li>
 </ul>
      
    <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/mediaObject/MediaObjectTests.java" target=a_blank> Bootstrap test examples </a>
@@ -4925,9 +4925,55 @@ Available methods and properties in C# JDI Light:
  |  |
  <br>
  
-**Card with Header and Footer**
+####**Card with Header and Footer**
 
-Add an optional header and/or footer within a card.
+Add an optional<a href="https://getbootstrap.com/docs/4.3/components/card/#header-and-footer" target="a_blank"> header and/or footer </a>within a card.
+
+```java 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+public class CardWithHeaderAndFooter extends Card {
+    @Title
+    @UI(".card-title") public Text title;
+    @UI(".card-body p") public Text paragraph;
+    @UI("button") public Button button;
+    @UI(".card-header")public Text header;
+    @UI("//*[contains(@class, 'footer')]") public Text footer;
+}
+
+@UI("#card-with-header-and-footer") public static CardWithHeaderAndFooter cardWithHeaderAndFooter; //FindBy(id = "card-with-header-and-footer")
+
+
+
+@Test
+    public void getFooterTextCardWithHeaderAndFooterTest() {
+        cardWithHeaderAndFooter.footer.is().text(textFooterCardWithHeaderAndFooter);
+    }
+
+ @Test
+    public void getHeaderTextCardWithHeaderAndFooterTest() {
+        cardWithHeaderAndFooter.header.is().text(textHeaderCardWithHeaderAndFooter);
+    }
+
+```
 
 ![Card with Header and Footer Example](../images/bootstrap/cardheaderfooter.png)
 
@@ -4935,26 +4981,21 @@ Here is an example with provided Bootstrap v4.3 code:
 
 ![Card with Header and Footer Code](../images/bootstrap/cardheaderfooter-html.png)
 
-Available methods in Java JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  | 
+Card is represented by Section class in Java:
  
-Available methods and properties in C# JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  |
- |  |
+[Section](https://jdi-docs.github.io/jdi-light/#section)
+  
+Inner elements of card can be represented by the following classes:
+<ul>
+    <li> [Text](https://jdi-docs.github.io/jdi-light/#text) </li>
+    <li> [Label](https://jdi-docs.github.io/jdi-light/#label) </li>
+    <li> [Button](https://jdi-docs.github.io/jdi-light/#button)  </li>
+    <li> [See more elements](https://jdi-docs.github.io/jdi-light/#html5-common-elements)</li>
+</ul>
+     
+   <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/Card/CardWithHeaderAndFooterTests.java" target=a_blank> Bootstrap test examples </a>
  <br>
- 
+
  **Card with Grid Markup**
  
  Using the grid, wrap cards in columns and rows as needed.

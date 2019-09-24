@@ -5321,8 +5321,8 @@ Use <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/componen
 ![Card_groups example](../images/bootstrap/card-groups.png)
 
 Here is an example with provided Bootstrap v4.3 code:
-<br>
-```java 
+
+```java
    @UI(".card-group:nth-of-type(1)") public static CardGroup cardGroupWithoutFooter;
    //@FindBy(css='.card-group:nth-of-type(1)')
 
@@ -5376,7 +5376,6 @@ Here is an example with provided Bootstrap v4.3 code:
         assertEquals(cardGroupWithoutFooter.card2.mutedText.getText(), card2HeroName);
     }
 ```
-<br>
 
 ![Card_groups HTML example](../images/bootstrap/card-groups-html.png)
 
@@ -5385,8 +5384,8 @@ Here is an example with provided Bootstrap v4.3 code:
 ![Card_groups example](../images/bootstrap/card-groups-with-footer.png)
 
 Here is an example with provided Bootstrap v4.3 code:
-<br>
-```java 
+
+```java
    @UI(".card-group:nth-of-type(2)") public static CardGroup cardGroupWithFooter;
    //@FindBy(css='.card-group:nth-of-type(2)')
 
@@ -5440,7 +5439,6 @@ Here is an example with provided Bootstrap v4.3 code:
         assertEquals(cardGroupWithFooter.card2.footerText.getText(), card2HeroName);
     }
 ```
-<br>
 
 ![Card_groups HTML example](../images/bootstrap/card-groups-with-footer-html.png)
 

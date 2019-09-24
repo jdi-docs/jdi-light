@@ -3654,7 +3654,7 @@ Available methods and properties in C# JDI Light:
  |  | 
 <br>
 
-**Button toolbar**
+####Button toolbar
 
 Combine sets of button groups into button toolbars for more complex components. Use utility classes as needed to space out groups, buttons, and more.
 
@@ -3673,19 +3673,44 @@ Here is an example with provided Bootstrap v4.3 code:
 ![Button toolbar_mixed example](../images/bootstrap/button_toolbar_mixed-html.png)
 <br>
 
-**Button Group Sizing**
+####Button Group Sizing
 
 Instead of applying button sizing classes to every button in a group, 
 just add ``.btn-group-*`` to each ``.btn-group``, including each one when nesting multiple groups.
 
 ![Button Group Sizing Example](../images/bootstrap/bgroup-sizing.png)
 
+  ```java 
+  
+  @UI("#btn-lg-group") public static ButtonGroupSizing largeBtnGroup;
+  
+  @Test
+      public void isValidationTest() {
+          largeBtnGroup.highlight();
+          largeBtnGroup.is().displayed();
+          largeBtnGroup.is().enabled();
+          largeBtnGroup.leftBtn.is().text(is(leftBtnText));
+          largeBtnGroup.leftBtn.is().text(containsString("Le"));
+          assertThat(largeBtnGroup.leftBtn.core().css("font-size"), is("20px"));
+          largeBtnGroup.leftBtn.assertThat().displayed()
+                  .and().text(is(leftBtnText))
+                  .core()
+                  .css("font-size", is("20px"))
+                  .cssClass("btn btn-secondary")
+                  .attr("type", "button")
+                  .tag(is("button"));
+      }
+  
+  ```
+
 Here is an example with provided Bootstrap v4.3 code:
 
 ![Button Group Sizing HTML Example](../images/bootstrap/bgroup-sizing-html.png)
+
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/buttonGroup/SizingTests.java" target="_blank">Bootstrap test examples</a>
 <br>
 
-**Button Group Nesting**
+####Button Group Nesting
 
 Place a ``.btn-group`` within another ``.btn-group`` when you want dropdown menus mixed with a series of buttons.
 
@@ -3696,7 +3721,7 @@ Here is an example with provided Bootstrap v4.3 code:
 ![Button Group Nesting HTML Example](../images/bootstrap/bgroup-nesting-html.png)
 <br>
 
-**Button Group Vertical Variation**
+####Button Group Vertical Variation
 
 Make a set of buttons appear vertically stacked rather than horizontally.
 

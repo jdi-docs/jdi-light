@@ -3712,7 +3712,7 @@ Here is an example with provided Bootstrap v4.3 code:
 
 **Button Group Sizing**
 
-Instead of applying <a href="https://getbootstrap.com/docs/4.0/components/button-group/#sizing" target="_blank">button sizing</a> classes to every button in a group, 
+Instead of applying <a style="font-weight: bold;" href="https://getbootstrap.com/docs/4.0/components/button-group/#sizing" target="_blank">button sizing</a> classes to every button in a group, 
 just add ``.btn-group-*`` to each ``.btn-group``, including each one when nesting multiple groups.
 
 ![Button Group Sizing Example](../images/bootstrap/bgroup-sizing.png)
@@ -3727,23 +3727,23 @@ public Button midBtn;
 @UI("//button[contains(text(), 'Right')]")
 public Button rightBtn;
 
-@Test
-public void clickTest() {
-    largeBtnGroup.highlight();
-    largeBtnGroup.leftBtn.click();
-    validateAlert(is(lgLeftBtnAlertText));
-    largeBtnGroup.midBtn.click();
-    validateAlert(is(lgMidBtnAlertText));
-    largeBtnGroup.rightBtn.click();
-    validateAlert(is(lgRightBtnAlertText));
+String leftBtnText = "Left";
 
-    smallBtnGroup.highlight();
-    smallBtnGroup.leftBtn.click();
-    validateAlert(is(smLeftBtnAlertText));
-    smallBtnGroup.midBtn.click();
-    validateAlert(is(smMidBtnAlertText));
-    smallBtnGroup.rightBtn.click();
-    validateAlert(is(smRightBtnAlertText));
+@Test
+public void isValidationTest() {
+    largeBtnGroup.highlight();
+    largeBtnGroup.is().displayed();
+    largeBtnGroup.is().enabled();
+    largeBtnGroup.leftBtn.is().text(is(leftBtnText));
+    largeBtnGroup.leftBtn.is().text(containsString("Le"));
+    assertThat(largeBtnGroup.leftBtn.core().css("font-size"), is("20px"));
+    largeBtnGroup.leftBtn.assertThat().displayed()
+            .and().text(is(leftBtnText))
+            .core()
+            .css("font-size", is("20px"))
+            .cssClass("btn btn-secondary")
+            .attr("type", "button")
+            .tag(is("button"));
 }
 ``` 
 
@@ -3752,6 +3752,23 @@ Here is an example with provided Bootstrap v4.3 code:
 ![Button Group Sizing HTML Example](../images/bootstrap/bgroup-sizing-html.png)
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/buttonGroup/SizingTests.java" target="_blank">Bootstrap test examples</a>
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**getText()** | Get button text | String
+**getValue()** | Get button value | String
+**click()** | Click button | void
+**doubleClick()** | Double-click button | void
+**rightClick()** | Right-click button | void
+**displayed()** | Check that element is displayed | TextAssert
+**css()** | Get button css value | String
+**cssClass()** | Assert button css class | IsAssert
+**attr()** | Assert button attribute | IsAssert
+**tag()** | Assert button tag | IsAssert
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
 
 <br>
 
@@ -3919,6 +3936,14 @@ Badge is located in the following class: <br>
 [Bootstrap page documentation](https://getbootstrap.com/docs/4.3/components/badge/) <br>
 
 ```java 
+
+
+
+
+
+
+
+
 @UI("#badge-secondary") // @FindBy(css = "#badge-secondary")
 
     @Test
@@ -3933,7 +3958,7 @@ Badge is located in the following class: <br>
     }
 ```
 
-**1) Badge** - Element that scale to match the size of the immediate parent element by using relative font sizing and em units.<br>
+**1) <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/badge/" target="_blank">Badge</a>** - Element that scale to match the size of the immediate parent element by using relative font sizing and em units.<br>
 
    ![Badge](../images/bootstrap/badge_heading.png)<br>
    Here is an example with provided Bootstrap v4.3 code:  
@@ -3946,8 +3971,16 @@ Available methods in Java JDI Light:
 **getText()** | Get button text | String
 **is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
+**displayed()** | Check that element is displayed | TextAssert
   
   ```java 
+  
+
+
+
+
+
+
   @UI("#btn-primary") // @FindBy(css = "#btn-primary")
   
     @Test
@@ -3958,7 +3991,7 @@ Available methods in Java JDI Light:
     }
   ```
 
-**2) Badge** - Element which used as part of buttons to provide a counter. Unless the context is clear (as with the “Notifications” example, where it is understood that the “4” is the number of notifications), consider including additional context with a visually hidden piece of additional text.<br>
+**2) <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/badge/" target="_blank">Badge</a>** - Element which used as part of buttons to provide a counter. Unless the context is clear (as with the “Notifications” example, where it is understood that the “4” is the number of notifications), consider including additional context with a visually hidden piece of additional text.<br>
 
    ![Badge](../images/bootstrap/badge_button.png)<br>
    Here is an example with provided Bootstrap v4.3 code:  
@@ -3971,8 +4004,15 @@ Available methods in Java JDI Light:
 **getText()** | Get button text | String
 **is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
+**displayed()** | Check that element is displayed | TextAssert
 
 ```java 
+
+
+
+
+
+
 @UI("#badge-success") // @FindBy(css = "#badge-success")
 
         @Test
@@ -3987,13 +4027,10 @@ Available methods in Java JDI Light:
         }
 ```
 
-**3) Badge** - .badge-* classes on an link element quickly provide actionable badges with hover and focus states.<br>
+**3) <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/badge/#links" target="_blank">Badge</a>** - .badge-* classes on an link element quickly provide actionable badges with hover and focus states.<br>
    ![Badge](../images/bootstrap/badge_link.png)<br>
    Here is an example with provided Bootstrap v4.3 code:  
    ![Badge example](../images/bootstrap/badge_link_code.png)
-   Badge is located in the following classes: <br>
-  - __Java__: _***_<br>
-  - __C#__: _***_<br>
 
 Available methods in Java JDI Light:
 
@@ -4002,8 +4039,12 @@ Available methods in Java JDI Light:
 **getText()** | Get button text | String
 **is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
+**displayed()** | Check that element is displayed | TextAssert
 
+<br>
 
+[Bootstrap badge test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/BadgeTests.java) <br>
+[Bootstrap badge in button tests examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/ButtonTests.java)
 <br><br>
 
 ### Breadcrumb
@@ -4575,6 +4616,12 @@ mediaObjectSample.bodyOfMediaObject.assertThat().displayed()
 
 
 
+
+
+
+
+
+
 @UI("#media-object-nesting") public static MediaObjectNesting mediaObjectNesting; // @FindBy(css = "#media-object-nesting")
 
 public class MediaObjectNesting extends MediaObject {
@@ -4612,6 +4659,12 @@ mediaObjectNesting.nestingMediaObject.bodyOfMediaObject.assertThat().displayed()
 
 
 
+
+
+
+
+
+
 @UI("#media-object-list") public static JList<MediaObjectSample> mediaObjectList; // @FindBy(css = "#media-object-list")
 
 @Test
@@ -4624,33 +4677,6 @@ mediaObjectList.assertThat().displayed()
       .core()
       .css("font-size", is("14px"));
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -4699,18 +4725,15 @@ Media object is represented by Section class in Java:
 [Section](https://jdi-docs.github.io/jdi-light/#section)
   
 Inner elements of media object can be represented by the following classes:
-
-[Text](https://jdi-docs.github.io/jdi-light/#text)
-  
-[Label](https://jdi-docs.github.io/jdi-light/#label)
-  
-[Link](https://jdi-docs.github.io/jdi-light/#link)
-  
-[Image](https://jdi-docs.github.io/jdi-light/#Image)
-  
-[See more elements](https://jdi-docs.github.io/jdi-light/#html5-common-elements)
-
-<a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/mediaObject/MediaObjectTests.java" target=a_blank> Bootstrap test examples </a>
+<ul>
+    <li> [Text](https://jdi-docs.github.io/jdi-light/#text) </li>
+    <li> [Label](https://jdi-docs.github.io/jdi-light/#label) </li>
+    <li>[Link](https://jdi-docs.github.io/jdi-light/#link)  </li>
+    <li>[Image](https://jdi-docs.github.io/jdi-light/#image)  </li>
+    <li>[See more elements](https://jdi-docs.github.io/jdi-light/#html5-common-elements)</li>
+</ul>
+     
+   <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/mediaObject/MediaObjectTests.java" target=a_blank> Bootstrap test examples </a>
 
 
 ###Card
@@ -4990,33 +5013,58 @@ Available methods and properties in C# JDI Light:
  
 **Card Text Alignment**
 
-You can quickly change the text alignment of any card — in its entirety or specific parts — with Bootstrap's <a href="https://getbootstrap.com/docs/4.3/utilities/text/#text-alignment" target="_blank">text align classes</a>.
+You can quickly change the text alignment of any card — in its entirety or specific parts — with Bootstrap's <a style="font-weight: bold;" href="https://getbootstrap.com/docs/4.3/utilities/text/#text-alignment" target="_blank">text align classes</a>.
 
 ![Card Text Alignment Example](../images/bootstrap/cardtextalignment.png)
+
+```java 
+@UI("#card-text-left")
+public static CardTextAlignment cardLeftTextAlignment;
+@UI("#card-text-center")
+public static CardTextAlignment cardCenterTextAlignment;
+@UI("#card-text-right")
+public static CardTextAlignment cardRightTextAlignment;
+
+String alertText = "Button Clicked!";
+
+@Test
+public void clickTest() {
+    cardLeftTextAlignment.highlight();
+    cardLeftTextAlignment.cardButton.click();
+    validateAlert(is(alertText));
+
+    cardCenterTextAlignment.highlight();
+    cardCenterTextAlignment.cardButton.click();
+    validateAlert(is(alertText));
+
+    cardRightTextAlignment.highlight();
+    cardRightTextAlignment.cardButton.click();
+    validateAlert(is(alertText));
+}
+```
 
 Here is an example with provided Bootstrap v4.3 code:
 
 ![Card Text Alignment Example Code](../images/bootstrap/cardtextalignment-html.png)
 
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardTextAlignmentTests.java" target="_blank">Bootstrap test examples</a>
+
 Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  | 
- 
-Available methods and properties in C# JDI Light:
+**getText()** | Get button text | String
+**getValue()** | Get button value | String
+**click()** | Click button | void
+**displayed()** | Check that element is displayed | TextAssert
+**css()** | Get button css value | String
+**cssClass()** | Assert button css class | IsAssert
+**attr()** | Assert button attribute | IsAssert
+**tag()** | Assert button tag | IsAssert
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
 
-|Method/Property | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  |
- |  |
- <br>
+<br>
  
 **Card Navigation**
 
@@ -5239,12 +5287,67 @@ Available methods and properties in C# JDI Light:
  
 ####Card groups
 
-Use card groups to render cards as a single, attached element with equal width and height columns.
+Use <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/card/#card-groups" target="_blank">card groups</a> to render cards as a single, attached element with equal width and height columns.
 
 ![Card_groups example](../images/bootstrap/card-groups.png)
 
 Here is an example with provided Bootstrap v4.3 code:
-  
+
+```java
+   @UI(".card-group:nth-of-type(1)") public static CardGroup cardGroupWithoutFooter;
+   //@FindBy(css='.card-group:nth-of-type(1)')
+
+    public class Card extends Section {
+    @UI(".card-title") public Text title;
+    @UI(".card-text:nth-of-type(1)") public Text mainText;
+    @UI(".card-text .text-muted") public Text mutedText;
+    @UI(".card-img-top") public Image image;
+    @UI(".card-footer small") public Text footerText;
+    }
+
+    public class CardGroup extends Card {
+    @UI(".card:nth-of-type(1)") public Card card1;
+    }
+
+    @Test
+    public void getSrcTest() {
+        assertEquals(cardGroupWithoutFooter.card1.image.src(), card1ImageSrc);
+        assertEquals(cardGroupWithoutFooter.card2.image.src(), card2ImageSrc);
+        assertEquals(cardGroupWithFooter.card1.image.src(), card1ImageSrc);
+        assertEquals(cardGroupWithFooter.card2.image.src(), card2ImageSrc);
+    }
+
+    @Test
+    public void getAltTest() {
+        assertEquals(cardGroupWithoutFooter.card1.image.alt(), card1ImageAlt);
+        assertEquals(cardGroupWithoutFooter.card2.image.alt(), card2ImageAlt);
+        assertEquals(cardGroupWithFooter.card1.image.alt(), card1ImageAlt);
+        assertEquals(cardGroupWithFooter.card2.image.alt(), card2ImageAlt);
+    }
+
+    @Test
+    public void getTitleTextTest() {
+        assertEquals(cardGroupWithoutFooter.card1.title.getText(), card1Title);
+        assertEquals(cardGroupWithoutFooter.card2.title.getText(), card2Title);
+        assertEquals(cardGroupWithFooter.card1.title.getText(), card1Title);
+        assertEquals(cardGroupWithFooter.card2.title.getText(), card2Title);
+    }
+
+    @Test
+    public void getMainTextTest() {
+        assertEquals(cardGroupWithoutFooter.card1.mainText.getText(), card1MainText);
+        assertEquals(cardGroupWithoutFooter.card2.mainText.getText(), card2MainText);
+        assertEquals(cardGroupWithFooter.card1.mainText.getText(), card1MainText);
+        assertEquals(cardGroupWithFooter.card2.mainText.getText(), card2MainText);
+    }
+
+    @Test
+    public void getMutedTextTest() {
+        assertEquals(cardGroupWithoutFooter.card1.mutedText.getText(), card1HeroName);
+        assertEquals(cardGroupWithoutFooter.card2.mutedText.getText(), card2HeroName);
+    }
+```
+
 ![Card_groups HTML example](../images/bootstrap/card-groups-html.png)
 
 **Card groups with footer**
@@ -5252,9 +5355,75 @@ Here is an example with provided Bootstrap v4.3 code:
 ![Card_groups example](../images/bootstrap/card-groups-with-footer.png)
 
 Here is an example with provided Bootstrap v4.3 code:
-  
+
+```java
+   @UI(".card-group:nth-of-type(2)") public static CardGroup cardGroupWithFooter;
+   //@FindBy(css='.card-group:nth-of-type(2)')
+
+    public class Card extends Section {
+    @UI(".card-title") public Text title;
+    @UI(".card-text:nth-of-type(1)") public Text mainText;
+    @UI(".card-text .text-muted") public Text mutedText;
+    @UI(".card-img-top") public Image image;
+    @UI(".card-footer small") public Text footerText;
+    }
+
+    public class CardGroup extends Card {
+    @UI(".card:nth-of-type(2)") public Card card2;
+    }
+
+    @Test
+    public void getSrcTest() {
+        assertEquals(cardGroupWithoutFooter.card1.image.src(), card1ImageSrc);
+        assertEquals(cardGroupWithoutFooter.card2.image.src(), card2ImageSrc);
+        assertEquals(cardGroupWithFooter.card1.image.src(), card1ImageSrc);
+        assertEquals(cardGroupWithFooter.card2.image.src(), card2ImageSrc);
+    }
+
+    @Test
+    public void getAltTest() {
+        assertEquals(cardGroupWithoutFooter.card1.image.alt(), card1ImageAlt);
+        assertEquals(cardGroupWithoutFooter.card2.image.alt(), card2ImageAlt);
+        assertEquals(cardGroupWithFooter.card1.image.alt(), card1ImageAlt);
+        assertEquals(cardGroupWithFooter.card2.image.alt(), card2ImageAlt);
+    }
+
+    @Test
+    public void getTitleTextTest() {
+        assertEquals(cardGroupWithoutFooter.card1.title.getText(), card1Title);
+        assertEquals(cardGroupWithoutFooter.card2.title.getText(), card2Title);
+        assertEquals(cardGroupWithFooter.card1.title.getText(), card1Title);
+        assertEquals(cardGroupWithFooter.card2.title.getText(), card2Title);
+    }
+
+    @Test
+    public void getMainTextTest() {
+        assertEquals(cardGroupWithoutFooter.card1.mainText.getText(), card1MainText);
+        assertEquals(cardGroupWithoutFooter.card2.mainText.getText(), card2MainText);
+        assertEquals(cardGroupWithFooter.card1.mainText.getText(), card1MainText);
+        assertEquals(cardGroupWithFooter.card2.mainText.getText(), card2MainText);
+    }
+
+    @Test
+    public void getFooterTextTest() {
+        assertEquals(cardGroupWithFooter.card1.footerText.getText(), card1HeroName);
+        assertEquals(cardGroupWithFooter.card2.footerText.getText(), card2HeroName);
+    }
+```
+
 ![Card_groups HTML example](../images/bootstrap/card-groups-with-footer-html.png)
 
+Card groups are represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)
+  
+Inner elements of Card groups can be represented by the following classes:
+
+  [Text](https://jdi-docs.github.io/jdi-light/#text)
+  
+  [Image](https://jdi-docs.github.io/jdi-light/#image)
+
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardGroupsTests)
 
 ####Card decks
 
@@ -6275,11 +6444,24 @@ Inner elements of input group can be represented by following classes:
 
 #### Sizing
 <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/input-group/#sizing" target="_blank">Sizing</a> – Add the relative form sizing classes to the .input-group itself and contents within will automatically resize—no need for repeating the form control size classes on each element.
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ```java 
     @UI("#input-group-default") public static InputGroupSizing inputGroupDefaultSizing;
     @UI("#input-group-small") public static InputGroupSizing inputGroupSmallSizing;
     @UI("#input-group-large") public static InputGroupSizing inputGroupLargeSizing;
+    //@FindBy(css = "#input-group-default")
+    //@FindBy(css = "#input-group-small")
+    //@FindBy(css = "#input-group-large")
 
     @Test
     public void getTextFromSizingTest() {
@@ -7098,15 +7280,15 @@ Jumbotron is represented by Section class in Java:
   
 Inner elements of jumbotron can be represented by the following classes:
 
-  [Text](https://jdi-docs.github.io/jdi-light/#text)
+  - [Text](https://jdi-docs.github.io/jdi-light/#text)
   
-  [Button](https://jdi-docs.github.io/jdi-light/#button)
+  - [Button](https://jdi-docs.github.io/jdi-light/#button)
   
-  [Label](https://jdi-docs.github.io/jdi-light/#label)
+  - [Label](https://jdi-docs.github.io/jdi-light/#label)
   
-  [Link](https://jdi-docs.github.io/jdi-light/#link)
+  - [Link](https://jdi-docs.github.io/jdi-light/#link)
   
-  [See more elements](https://jdi-docs.github.io/jdi-light/#html5-common-elements)
+[See more elements](https://jdi-docs.github.io/jdi-light/#html5-common-elements)
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/jumbotron)
 

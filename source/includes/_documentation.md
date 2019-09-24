@@ -3694,7 +3694,7 @@ Here is an example with provided Bootstrap v4.3 code:
 ![Button toolbar](../images/bootstrap/button_toolbar.png)
 
 Here is an example with provided Bootstrap v4.3 code:
-
+<br><br><br><br><br><br>
 ```java
 @UI(".btn-toolbar") public static ButtonToolbar buttonToolbar;
 // @FindBy(css = ".btn-toolbar") public static ButtonToolbar buttonToolbar;

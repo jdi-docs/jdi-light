@@ -3971,6 +3971,14 @@ Badge is located in the following class: <br>
 [Bootstrap page documentation](https://getbootstrap.com/docs/4.3/components/badge/) <br>
 
 ```java 
+
+
+
+
+
+
+
+
 @UI("#badge-secondary") // @FindBy(css = "#badge-secondary")
 
     @Test
@@ -4001,6 +4009,13 @@ Available methods in Java JDI Light:
 **displayed()** | Check that element is displayed | TextAssert
   
   ```java 
+  
+
+
+
+
+
+
   @UI("#btn-primary") // @FindBy(css = "#btn-primary")
   
     @Test
@@ -4027,6 +4042,12 @@ Available methods in Java JDI Light:
 **displayed()** | Check that element is displayed | TextAssert
 
 ```java 
+
+
+
+
+
+
 @UI("#badge-success") // @FindBy(css = "#badge-success")
 
         @Test

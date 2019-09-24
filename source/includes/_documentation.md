@@ -3661,7 +3661,6 @@ Available methods and properties in C# JDI Light:
 ![Button Group Basic Example HTML](../images/bootstrap/bgroup-basic-example-screen.png)
 
 Here is an example with provided Bootstrap v4.3 code:
-<br>
 
 ```java
 @UI("#basic-example") public static ButtonGroupBasicExample buttonGroupBasicExample;
@@ -3685,6 +3684,8 @@ public void leftButtonTests() {
     validateAlert(is(leftButtonClickAlert));
 }
 ```
+
+<br>
 
 ![Button Group Basic Example Example](../images/bootstrap/bgroup-basic-example-html.png)
 <br><br><br><br><br><br><br><br><br><br><br><br>
@@ -3763,7 +3764,6 @@ Here is an example with provided Bootstrap v4.3 code:
 ![Button Group Nesting Example](../images/bootstrap/bgroup-nesting.png)
 
 Here is an example with provided Bootstrap v4.3 code:
-<br>
 
 ```java
 @UI("#button-group-nesting") public static ButtonGroupNesting buttonGroupNesting;
@@ -3801,11 +3801,18 @@ public void dropdownMenuTests() {
 }
 ```
 
+<br>
 
 ![Button Group Nesting HTML Example](../images/bootstrap/bgroup-nesting-html.png)
-<br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br>
 
 **Button Group Vertical Variation**
+
+**[Button Group Vertical Variation](https://getbootstrap.com/docs/4.3/components/button-group/#vertical-variation)** - making a set of buttons appear vertically stacked rather than horizontally.
+
+![Button Group Nesting Example](../images/bootstrap/bgroup-vertical-variation.png)
+
+Here is an example with provided Bootstrap v4.3 code:
 
 ```java
 @UI("#vertical-variation") public static  ButtonGroupVerticalVariation buttonGroupVerticalVariation;
@@ -3840,16 +3847,11 @@ public void dropdownMenuTests() {
     buttonGroupVerticalVariation.dropdownMenu.select(dropdownMenuLinkTwo);
     newWindowTitleCheck(linkTwoPageTitle);
 }
-}
 ```
 
-**[Button Group Vertical Variation](https://getbootstrap.com/docs/4.3/components/button-group/#vertical-variation)** - making a set of buttons appear vertically stacked rather than horizontally.
+<br>
 
-![Button Group Nesting Example](../images/bootstrap/bgroup-vertical-variation.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-
-![Button Group Nesting HTML Example](../images/bootstrap/bgroup-vertical-variation-html.png)
+![Button Group Vertical Variation Example](../images/bootstrap/bgroup-vertical-variation-html.png)
 <br>
 
 ### Alert

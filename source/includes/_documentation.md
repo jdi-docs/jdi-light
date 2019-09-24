@@ -6131,30 +6131,104 @@ Available methods and properties in C# JDI Light:
 **<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/input-group/#basic-example" target="_blank">Input group</a>** – Place one add-on or button on either side of an input. You may also place one on both sides of an input.
 <br />
 
+```java 
+
+   @UI("#input-group-basic-example1") public static InputGroupInputWithText inputGroupBasicExample1;//@FindBy(css = "#input-group-basic-example1")
+
+   public class InputGroupInputWithText extends Section{
+       @UI(".input-group-text") public Text text;
+       @UI(".form-control") public TextField input;
+   }
+
+   @Test(priority = 1)
+   public void setTextTestExample1() {
+        inputGroupBasicExample1.input.setText(textExample1);
+        inputGroupBasicExample1.input.is().text(is(textExample1));
+   }
+
+```
 **1.Input group example - Input + left span**
 
 <img src="images/bootstrap/input-group-base-example1.png" alt="Input group example1" height="50%" width="50%">
 
 Here is an example with provided Bootstrap v4.3 code:
 
+
+
 <img src="images/bootstrap/input-group-base-example1-html.png" alt="Input group example1 html"> 
 
+```java 
+
+   @UI("#input-group-basic-example2") public static InputGroupInputWithText inputGroupBasicExample2;//@FindBy(css = "#input-group-basic-example2")
+
+   public class InputGroupInputWithText extends Section{
+       @UI(".input-group-text") public Text text;
+       @UI(".form-control") public TextField input;
+   }
+
+    @Test(priority = 4)
+    public void checkAddonConsistTextTestExample2() {
+       inputGroupBasicExample2.text.is().text(containsString(partOfAddonExample2));
+    }
+
+```
+<br /><br /><br /><br /><br /><br />
 **2.Input group example - Input + right span** 
 
 <img src="images/bootstrap/input-group-base-example2.png" alt="Input group example1" height="50%" width="50%">
 
 Here is an example with provided Bootstrap v4.3 code:
 
+
+
  <img src="images/bootstrap/input-group-base-example2-html.png" alt="Input group example2 html">  
 
+```java 
+
+   @UI("#input-group-basic-example3") public static InputGroupInputWithLabelAndText inputGroupBasicExample3;//@FindBy(css = "#input-group-basic-example3")
+
+   public class InputGroupInputWithLabelAndText extends Section{
+       @UI(".input-group-text") public Text text;
+       @UI("#basic-url") public TextField input;
+   }
+
+   @Test(priority = 6)
+   public void checkLabelExample3() {
+       assertEquals(inputGroupBasicExample3.input.core().label().getText(), labelExample3);
+   }
+
+```
+<br /><br /><br /><br />
 **3.Input group example - Input + label + left span**
 
 <img src="images/bootstrap/input-group-base-example3.png" alt="Input group example1" height="50%" width="50%">
 
+
 Here is an example with provided Bootstrap v4.3 code:
 
-<img src="images/bootstrap/input-group-base-example3-html.png" alt="Input group example3 html"> 
+<img src="images/bootstrap/input-group-base-example3-html.png" alt="Input group example3 html">
 
+
+```java 
+
+  @UI("#input-group-basic-example4") public static InputGroupInputWithTwoText inputGroupBasicExample4;//@FindBy(css = "#input-group-basic-example4")
+
+  public class InputGroupInputWithTwoText extends Section{
+      @UI(".input-group-prepend .input-group-text") public Text text_pretend;
+      @UI(".input-group-append .input-group-text") public Text text_append;
+      @UI(".form-control") public TextField input;
+  }
+
+  @Test(priority = 7)
+  public void checkAddonsExample4() {
+      inputGroupBasicExample4.text_append.is().enabled();
+      inputGroupBasicExample4.text_append.is().text(is(addonAppendExample4));
+      inputGroupBasicExample4.text_pretend.is().enabled();
+      inputGroupBasicExample4.text_pretend.is().text(is(addonPretendExample4));
+  }
+
+``` 
+<br /><br /><br />
 **4.Input group example - Input + left and right span**
 
 <img src="images/bootstrap/input-group-base-example4.png" alt="Input group example4" height="50%" width="50%">
@@ -6163,6 +6237,24 @@ Here is an example with provided Bootstrap v4.3 code:
 
 <img src="images/bootstrap/input-group-base-example4-html.png" alt="Input group example4 html"> 
 
+```java 
+
+  @UI("#input-group-basic-example5") public static InputGroupTextareaWithText inputGroupBasicExample5;//@FindBy(css = "#input-group-basic-example5")
+
+  public class InputGroupTextareaWithText extends Section{
+      @UI(".input-group-text") public Text text;
+      @UI(".form-control") public TextArea area;
+  }
+
+  @Test(priority = 9)
+  public void getLinesTestExample5() {
+      inputGroupBasicExample5.area.setLines(linesTextArea);
+      assertEquals(inputGroupBasicExample5.area.getLines(), asList(linesTextArea));
+  }
+
+```
+
+<br /><br /><br />
 **5.Input group example - Input + textarea**
 
 <img src="images/bootstrap/input-group-base-example5.png" alt="Input group example5" height="50%" width="50%">

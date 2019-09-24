@@ -4648,6 +4648,12 @@ mediaObjectSample.bodyOfMediaObject.assertThat().displayed()
 
 
 
+
+
+
+
+
+
 @UI("#media-object-nesting") public static MediaObjectNesting mediaObjectNesting; // @FindBy(css = "#media-object-nesting")
 
 public class MediaObjectNesting extends MediaObject {
@@ -4685,6 +4691,12 @@ mediaObjectNesting.nestingMediaObject.bodyOfMediaObject.assertThat().displayed()
 
 
 
+
+
+
+
+
+
 @UI("#media-object-list") public static JList<MediaObjectSample> mediaObjectList; // @FindBy(css = "#media-object-list")
 
 @Test
@@ -4697,33 +4709,6 @@ mediaObjectList.assertThat().displayed()
       .core()
       .css("font-size", is("14px"));
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -4772,18 +4757,15 @@ Media object is represented by Section class in Java:
 [Section](https://jdi-docs.github.io/jdi-light/#section)
   
 Inner elements of media object can be represented by the following classes:
-
-[Text](https://jdi-docs.github.io/jdi-light/#text)
-  
-[Label](https://jdi-docs.github.io/jdi-light/#label)
-  
-[Link](https://jdi-docs.github.io/jdi-light/#link)
-  
-[Image](https://jdi-docs.github.io/jdi-light/#Image)
-  
-[See more elements](https://jdi-docs.github.io/jdi-light/#html5-common-elements)
-
-<a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/mediaObject/MediaObjectTests.java" target=a_blank> Bootstrap test examples </a>
+<ul>
+    <li> [Text](https://jdi-docs.github.io/jdi-light/#text) </li>
+    <li> [Label](https://jdi-docs.github.io/jdi-light/#label) </li>
+    <li>[Link](https://jdi-docs.github.io/jdi-light/#link)  </li>
+    <li>[Image](https://jdi-docs.github.io/jdi-light/#image)  </li>
+    <li>[See more elements](https://jdi-docs.github.io/jdi-light/#html5-common-elements)</li>
+</ul>
+     
+   <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/mediaObject/MediaObjectTests.java" target=a_blank> Bootstrap test examples </a>
 
 
 ###Card

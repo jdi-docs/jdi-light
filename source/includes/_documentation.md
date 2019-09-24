@@ -3747,7 +3747,7 @@ Here is an example with provided Bootstrap v4.3 code:
 
 **Button Group Sizing**
 
-Instead of applying <a href="https://getbootstrap.com/docs/4.0/components/button-group/#sizing" target="_blank">button sizing</a> classes to every button in a group, 
+Instead of applying <a style="font-weight: bold;" href="https://getbootstrap.com/docs/4.0/components/button-group/#sizing" target="_blank">button sizing</a> classes to every button in a group, 
 just add ``.btn-group-*`` to each ``.btn-group``, including each one when nesting multiple groups.
 
 ![Button Group Sizing Example](../images/bootstrap/bgroup-sizing.png)
@@ -5029,29 +5029,38 @@ You can quickly change the text alignment of any card — in its entirety or spe
 
 ![Card Text Alignment Example](../images/bootstrap/cardtextalignment.png)
 
+```java 
+@UI("#card-text-left")
+public static CardTextAlignment cardLeftTextAlignment;
+@UI("#card-text-center")
+public static CardTextAlignment cardCenterTextAlignment;
+@UI("#card-text-right")
+public static CardTextAlignment cardRightTextAlignment;
+
+String alertText = "Button Clicked!";
+
+@Test
+public void clickTest() {
+    cardLeftTextAlignment.highlight();
+    cardLeftTextAlignment.cardButton.click();
+    validateAlert(is(alertText));
+
+    cardCenterTextAlignment.highlight();
+    cardCenterTextAlignment.cardButton.click();
+    validateAlert(is(alertText));
+
+    cardRightTextAlignment.highlight();
+    cardRightTextAlignment.cardButton.click();
+    validateAlert(is(alertText));
+}
+```
+
 Here is an example with provided Bootstrap v4.3 code:
 
 ![Card Text Alignment Example Code](../images/bootstrap/cardtextalignment-html.png)
 
-Available methods in Java JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  | 
- 
-Available methods and properties in C# JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  |
- |  |
- <br>
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardTextAlignmentTests.java" target="_blank">Bootstrap test examples</a>
+<br>
  
 **Card Navigation**
 

@@ -5377,6 +5377,7 @@ Here is an example with provided Bootstrap v4.3 code:
     }
 ```
 <br>
+
 ![Card_groups HTML example](../images/bootstrap/card-groups-html.png)
 
 **Card groups with footer**
@@ -5440,6 +5441,7 @@ Here is an example with provided Bootstrap v4.3 code:
     }
 ```
 <br>
+
 ![Card_groups HTML example](../images/bootstrap/card-groups-with-footer-html.png)
 
 Card groups are represented by Section class in Java:

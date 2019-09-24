@@ -3545,7 +3545,7 @@ Available methods in Java JDI Light:
 
 **Disabled Button** – Element that represents a Not clickable button
 
-[Bootstrap page documentation](https://getbootstrap.com/docs/4.3/components/buttons/)
+<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/buttons/" target="_blank">Button</a> – Bootstrap includes several predefined button styles, each serving its own semantic purpose, with a few extras thrown in for more control.
 
 ![Disabled button](../images/bootstrap/disabled_button.png)
 

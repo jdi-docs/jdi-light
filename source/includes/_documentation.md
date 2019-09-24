@@ -3762,23 +3762,23 @@ public Button midBtn;
 @UI("//button[contains(text(), 'Right')]")
 public Button rightBtn;
 
-@Test
-public void clickTest() {
-    largeBtnGroup.highlight();
-    largeBtnGroup.leftBtn.click();
-    validateAlert(is(lgLeftBtnAlertText));
-    largeBtnGroup.midBtn.click();
-    validateAlert(is(lgMidBtnAlertText));
-    largeBtnGroup.rightBtn.click();
-    validateAlert(is(lgRightBtnAlertText));
+String leftBtnText = "Left";
 
-    smallBtnGroup.highlight();
-    smallBtnGroup.leftBtn.click();
-    validateAlert(is(smLeftBtnAlertText));
-    smallBtnGroup.midBtn.click();
-    validateAlert(is(smMidBtnAlertText));
-    smallBtnGroup.rightBtn.click();
-    validateAlert(is(smRightBtnAlertText));
+@Test
+public void isValidationTest() {
+    largeBtnGroup.highlight();
+    largeBtnGroup.is().displayed();
+    largeBtnGroup.is().enabled();
+    largeBtnGroup.leftBtn.is().text(is(leftBtnText));
+    largeBtnGroup.leftBtn.is().text(containsString("Le"));
+    assertThat(largeBtnGroup.leftBtn.core().css("font-size"), is("20px"));
+    largeBtnGroup.leftBtn.assertThat().displayed()
+            .and().text(is(leftBtnText))
+            .core()
+            .css("font-size", is("20px"))
+            .cssClass("btn btn-secondary")
+            .attr("type", "button")
+            .tag(is("button"));
 }
 ``` 
 

@@ -3586,47 +3586,12 @@ Here is an example with provided HTML code:
 
 ### Button group
 
-**Button group** – Element that groups a series of buttons together on a single line with the button group, and super-power them with JavaScript.
+**<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/button-group/" target="_blank">Button group</a> – Element that groups a series of buttons together on a single line with the button group, and super-power them with JavaScript.
 
-![Button group](../images/bootstrap/button_group.png)
-
-Button group is located in the following classes:
+Button group is located in the following packages:
  
-  - __Java__: _com.epam.jdi.light.ui.html.common.Button_
-  - __C#__: _JDI.Light.Elements.Common.Button_
-  
-  ```java 
-  
-  @Css("#button-group1") //FindBy(css = "#button-group1")
-  public static DefaultButtonGroup defaultButtonGroup;
-  
-  @Test
-  public void clickTest() {
-      defaultButtonGroup.redButton.click();
-      validateAlert(is("Red Button"));
-  }
-  
-  @Test
-  public void getTextTest() {
-      assertEquals(defaultButtonGroup.redButton.getText(), "Red Button");
-      assertEquals(defaultButtonGroup.greenButton.getText(), "Green Button");
-  }
-  
-  @Test
-  public void selectTest() {
-      defaultButtonGroup.dropdownButton.select(optionToOpenNewTab);
-      assertEquals(windowsCount(), 2);
-  }
-      
-  @Test
-  public void valuesTest() {
-      assertEquals(defaultButtonGroup.dropdownButton.values(), expectedValues);
-  }
-  
-  ```
-Here is an example with provided Bootstrap v4.3 code:
-  
-![Button group example](../images/bootstrap/button_group-html.png)
+  - __Java__: _io.github.epam.bootstrap.tests.composite.section.buttonGroup_
+  - __C#__:
 
 Available methods in Java JDI Light:
 

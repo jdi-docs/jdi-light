@@ -3852,9 +3852,16 @@ public void dropdownMenuTests() {
 <br>
 
 ![Button Group Vertical Variation Example](../images/bootstrap/bgroup-vertical-variation-html.png)
-<br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 ### Alert
+
+**[Alert](https://getbootstrap.com/docs/4.3/components/alerts/)** – Element that provides contextual feedback messages for typical user actions with the handful of available and flexible alert messages.
+
+![Alert](../images/bootstrap/alert-dismissible.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
 ```java
 @Css("#simple-alert") public static Alert simpleAlert;
 @Css("#dismissible-alert") public static Alert dismissibleAlert;
@@ -3889,11 +3896,8 @@ public void dismissibleAlertButtonClickTest() {
     dismissibleAlert.is().hidden();
 }
 ```
-**[Alert](https://getbootstrap.com/docs/4.3/components/alerts/)** – Element that provides contextual feedback messages for typical user actions with the handful of available and flexible alert messages.
-
-![Alert](../images/bootstrap/alert-dismissible.png)
-
-Here is an example with provided Bootstrap v4.3 code:
+  
+<br>
   
 ![Alert example](../images/bootstrap/alert-html-example.png)
 
@@ -3907,7 +3911,7 @@ Available methods in Java JDI Light:
  |  | 
  |  | 
 
-<br>
+<br><br><br><br><br>
 
 
 ###Badge

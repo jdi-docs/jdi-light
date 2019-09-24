@@ -3747,7 +3747,7 @@ Here is an example with provided Bootstrap v4.3 code:
 
 **Button Group Sizing**
 
-Instead of applying button sizing classes to every button in a group, 
+Instead of applying <a href="https://getbootstrap.com/docs/4.0/components/button-group/#sizing" target="_blank">button sizing</a> classes to every button in a group, 
 just add ``.btn-group-*`` to each ``.btn-group``, including each one when nesting multiple groups.
 
 ![Button Group Sizing Example](../images/bootstrap/bgroup-sizing.png)

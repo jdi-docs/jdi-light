@@ -7357,6 +7357,9 @@ etc. <br>
 
 Elements **Red button** and **Name** are defined via **[html5page.json](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-bdd-no-po-tests/src/test/resources/json/page/objects/html5page.json)**.<br>
 Note that you may give this json file any name you want but it should be located in **json.page.objects** package.<br>
+You may also create as many json files as you want in this package.<br>
+Byt keep in mind that all the elements are collected from these files and kept in global hash map. <br>
+So you need to create only unique elements in all these files. <br>
 Example [feature](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-bdd-no-po-tests/src/test/resources/features/TestsWithProperties.feature)
 
 ### BDD Smart locators

@@ -3718,7 +3718,8 @@ just add ``.btn-group-*`` to each ``.btn-group``, including each one when nestin
 ![Button Group Sizing Example](../images/bootstrap/bgroup-sizing.png)
 
 ```java 
-@UI("#btn-lg-group") public static ButtonGroupSizing largeBtnGroup;
+@UI("#btn-lg-group") // @FindBy(id = "btn-lg-group")
+public static ButtonGroupSizing largeBtnGroup;
 
 @UI("//button[contains(text(), 'Left')]")
 public Button leftBtn;
@@ -5117,7 +5118,8 @@ Add some navigation to a card’s header (or block) with Bootstrap’s
 ![Card Navigation Example](../images/bootstrap/cardnav.png)
 
 ```java 
-@UI("#card-navigation") public static CardNavigation cardNavigation;
+@UI("#card-navigation") // @FindBy(id = "card-navigation")
+public static CardNavigation cardNavigation;
 
 @UI(".nav")
 public Menu nav;

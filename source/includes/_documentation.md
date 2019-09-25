@@ -5211,6 +5211,7 @@ Inner elements of Card Navigation can be represented by the following classes:
 Available methods in Java JDI Light:
 
 |Method | Description | Return Type
+--- | --- | ---
 **getText()** | Get element text | String
 **getValue()** | Get element value | String
 **click()** | Click element | void

@@ -5098,34 +5098,120 @@ Available methods in Java JDI Light:
 **Card Navigation**
 
 Add some navigation to a card’s header (or block) with Bootstrap’s
- <a href="https://getbootstrap.com/docs/4.3/components/navs/" target="_blank">
+ <a style="font-weight: bold;" href="https://getbootstrap.com/docs/4.3/components/navs/" target="_blank">
  nav components
  </a>.
 
 ![Card Navigation Example](../images/bootstrap/cardnav.png)
 
+```java 
+@UI("#card-navigation") public static CardNavigation cardNavigation;
+
+@UI(".nav")
+public Menu nav;
+
+@UI("#activeLink")
+public Link activeLink;
+@UI("#jdiLink")
+public Link jdiLink;
+@UI("#disabledLink")
+public Link disabledLink;
+
+@Title
+@UI("h5")
+public Text title;
+
+@UI(".card-text")
+public Text subtitle;
+
+@UI("button")
+public Button button;
+
+String titleText = "SPECIAL TITLE TREATMENT";
+String subtitleText = "With supporting text below as a natural lead-in to additional content.";
+String buttonText = "Click Me!";
+String activeLinkText = "Active";
+String jdiLinkText = "JDI";
+String disabledLinkText = "Disabled";
+String activeLinkRef = "javascript: void()";
+String jdiLinkRef = "https://github.com/jdi-testing/jdi-light";
+String disabledLinkRef = "javascript: void()";
+String activeLinkAlert = "Active Tab Clicked!";
+
+@Test
+public void isValidationTest() {
+    cardNavigation.highlight();
+
+    cardNavigation.title.is().text(titleText);
+    cardNavigation.title.is().displayed();
+
+    cardNavigation.subtitle.is().text(subtitleText);
+    cardNavigation.subtitle.is().displayed();
+
+    cardNavigation.activeLink.is().displayed();
+    cardNavigation.activeLink.is().enabled();
+
+    cardNavigation.jdiLink.is().displayed();
+    cardNavigation.jdiLink.is().enabled();
+
+    cardNavigation.disabledLink.is().displayed();
+    cardNavigation.disabledLink.is().disabled();
+
+    cardNavigation.activeLink.assertThat().text(is(activeLinkText));
+    cardNavigation.jdiLink.assertThat().text(is(jdiLinkText));
+    cardNavigation.disabledLink.assertThat().text(is(disabledLinkText));
+
+    cardNavigation.activeLink.is().ref(activeLinkRef);
+    cardNavigation.jdiLink.is().ref(jdiLinkRef);
+    cardNavigation.disabledLink.is().ref(disabledLinkRef);
+
+    cardNavigation.button.is().text(is(buttonText));
+    cardNavigation.button.is().text(containsString("Click"));
+    assertThat(cardNavigation.button.core().css("font-size"), is("16px"));
+    cardNavigation.button.assertThat().displayed()
+            .and()
+            .core()
+            .cssClass("btn btn-primary")
+            .attr("onclick", "alert('Button Clicked!');")
+            .tag(is("button"));
+}
+```
+
 Here is an example with provided Bootstrap v4.3 code:
 
 ![Card Navigation Example Code](../images/bootstrap/cardnav-html.png)
 
+Card Navigation is represented by Section class in Java:
+
++ [Section](https://jdi-docs.github.io/jdi-light/#section)
+
+Inner elements of jumbotron can be represented by the following classes:
+
++ [Text](https://jdi-docs.github.io/jdi-light/#text)  
++ [Button](https://jdi-docs.github.io/jdi-light/#button)
++ [Link](https://jdi-docs.github.io/jdi-light/#link)
++ [Menu](https://jdi-docs.github.io/jdi-light/#menu)
+
+<a href="javascript: void()">Bootstrap test examples</a>
+
 Available methods in Java JDI Light:
 
 |Method | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  | 
- 
-Available methods and properties in C# JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  |
- |  |
+**getText()** | Get element text | String
+**getValue()** | Get element value | String
+**click()** | Click element | void
+**displayed()** | Check that element is displayed | TextAssert
+**enabled()** | Check that element is enabled | UIAssert
+**disabled()** | Check that element is disabled | UIAssert
+**url()** | Get element URL | URL
+**ref()** | Get link ref attribute value | String
+**getPath()** | Get element's URL path part | String
+**css()** | Get button css value | String
+**cssClass()** | Assert element css class | IsAssert
+**attr()** | Assert element attribute | IsAssert
+**tag()** | Assert element tag | IsAssert
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
  <br>
  
 **Card Image Caps**

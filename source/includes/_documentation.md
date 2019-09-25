@@ -6789,7 +6789,7 @@ And here are methods available in Java:
  |  |  
  
 #### Multiple addons 
-**Multiple addons** – Multiple add-ons are supported and can be mixed with checkbox and radio input versions.
+<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/input-group/#multiple-addons" target="_blank">Multiple addons</a> are supported and can be mixed with checkbox and radio input versions.
 
 ![Multiple addons](../images/bootstrap/multiple_addons.png)
 
@@ -6797,16 +6797,79 @@ Here is an example with provided Bootstrap v4.3 code:
   
 ![Multiple addons example](../images/bootstrap/multiple_addons_code.png)
 
-And here are methods available in Java:
-    
-|Method | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  |  
+```java 
  
+
+
+ @UI("#multiple-addons-1")  public static InputGroupMultipleAddonsUpper multipleAddonUpper; //@FindBy(css = "#multiple-addons-1")
+ @UI("#multiple-addons-2")  public static InputGroupMultipleAddonsLower multipleAddonLower; //@FindBy(css = "#multiple-addons-2")
+ 
+ public class InputGroupMultipleAddonsUpper extends Section {
+     @UI("#left-sign") public Label firstLabel; //@FindBy(css = "#left-sign")
+     @UI("#left-nil") public Label secondLabel; //@FindBy(css = "#left-nil")
+     @UI(".form-control") public TextField textField; //@FindBy(css = ".form-control")
+ }
+
+ public class InputGroupMultipleAddonsLower extends Section {
+     @UI("#right-sign") public Label firstLabel;
+     @UI("#right-nil") public Label secondLabel;
+     @UI(".form-control") public TextField textField;
+ }
+
+ @Test(dataProvider = "InputGroupMultipleAddonsLabels")
+ public void assertTextFromValueTest(Label multipleAddonsLabel, String labelValue) {
+    multipleAddonsLabel.is().text(labelValue);
+ }
+ 
+ @Test(dataProvider = "InputGroupMultipleAddonsLabels")
+ public void isValidationTest(Label multipleAddonsLabel, String labelValue) {
+     multipleAddonsLabel.is()
+        .displayed()
+        .core()
+        .hasClass("input-group-text")
+        .text(labelValue);
+ }
+ 
+ @Test(dataProvider = "InputGroupMultipleAddonsTextFields")
+ public void inputTest(TextField textField) {
+     textField.input(text);
+     textField.assertThat().text(is(text));
+ }
+ 
+ @Test(dataProvider = "InputGroupMultipleAddonsTextFields")
+ public void textFieldTests(TextField textField) {
+     textField.setText(text);
+     textField.is().text(text);
+     textField.is().text(containsString(partOfText));
+     textField.clear();
+     textField.is().text(emptyText);
+ }
+ 
+ @Test(dataProvider = "InputGroupMultipleAddonsTextFields")
+ public void isValidationTest(TextField textField) {
+     textField.is()
+         .displayed()
+         .enabled()
+         .core()
+         .hasClass("form-control")
+         .text(is(emptyText));
+ }
+ 
+```
+
+Multiple input is represented by Section class in Java:
+ 
+   [Section](https://jdi-docs.github.io/jdi-light/#section)
+  
+Inner elements of multiple input can be represented by the following classes:
+
+  [TextField](https://jdi-docs.github.io/jdi-light/#textfield)
+  
+  [Label](https://jdi-docs.github.io/jdi-light/#label)
+
+<a href="" target="_blank">Bootstrap test example with multiple addons</a>
+ 
+ <br /><br /><br /><br /><br /> 
 #### Button addons 
 **Button addons** – Multiple buttons have no detailed information on Bootstrap website
 

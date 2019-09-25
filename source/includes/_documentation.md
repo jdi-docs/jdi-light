@@ -7151,9 +7151,9 @@ Card is represented by Section class in Java:
 
 Inner elements of Card Example represented by the following classes:
 
-[Text](https://jdi-docs.github.io/jdi-light/#text)<br>
-[Button](https://jdi-docs.github.io/jdi-light/#button)<br>
-[Image](https://jdi-docs.github.io/jdi-light/#image)
+- [Text](https://jdi-docs.github.io/jdi-light/#text)<br>
+- [Button](https://jdi-docs.github.io/jdi-light/#button)<br>
+- [Image](https://jdi-docs.github.io/jdi-light/#image)
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardExampleTests.java)
 <br>
@@ -7225,8 +7225,8 @@ Here is an example with provided Bootstrap v4.3 code:
 ![Card Body Example Code](../images/bootstrap/cardsubslinks-html.png)
 
 Inner elements of Card with Subtitles and Links represented by the following classes:<br>
-[Text](https://jdi-docs.github.io/jdi-light/#text)<br>
-[Link](https://jdi-docs.github.io/jdi-light/#link)
+- [Text](https://jdi-docs.github.io/jdi-light/#text)<br>
+- [Link](https://jdi-docs.github.io/jdi-light/#link)
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardWithSubtitlesAndLinksTests.java)
 
@@ -7327,11 +7327,86 @@ Here is an example with provided Bootstrap v4.3 code:
 ![Card custom CSS Example Code](../images/bootstrap/card_custom_CSS_html.png)
 
 Inner elements of Card using custom CSS represented by the following classes:<br>
-[Text](https://jdi-docs.github.io/jdi-light/#text)<br>
-[Button](https://jdi-docs.github.io/jdi-light/#button)
+- [Text](https://jdi-docs.github.io/jdi-light/#text)<br>
+- [Button](https://jdi-docs.github.io/jdi-light/#button)
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardWithCustomCss13RemTests.java)
+
+####Card Horizontal
+```java 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@UI("#card-horizontal") //FindBy(css = "#card-horizontal")
+public static CardHorizontal cardHorizontal;
+
+public class CardHorizontal extends Section {
+    @UI(".card-title") public Text title;
+    @UI("//p[contains(text(), 'fictional character')]") public Text mainText;
+    @UI(".text-muted") public Text smallText;
+    @UI(".card-img") public Image image;
+    @UI(".col-md-4") public UIElement colMd4;
+    @UI(".col-md-8") public UIElement colMd8;
+}
+
+@Test
+public void getSrcTest() {
+    assertEquals(cardHorizontal.image.src(), imageSrc);
+}
+
+@Test
+public void isValidationTest() {
+    cardHorizontal.title.is().text(is(titleText));
+    cardHorizontal.mainText.is().text(is(mainText));
+    cardHorizontal.smallText.is().displayed()
+            .and().text(is(smallText))
+            .core()
+            .css("font-size", is("11.2px"))
+            .tag(is("small"));
+```
+
+Using a combination of grid and utility classes, cards can be made <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/card/#horizontal">horizontal</a> in a mobile-friendly and responsive way.
+
+![Card horizontal example](../images/bootstrap/card_horizontal.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Card horizontal example](../images/bootstrap/card_horizontal-html.png)
  
+ Inner elements of Card using custom CSS represented by the following classes:<br>
+ - [Text](https://jdi-docs.github.io/jdi-light/#text)<br>
+ - [Image](https://jdi-docs.github.io/jdi-light/#image)
+ 
+ [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardHorizontalTests.java)
+ 
+<br><br><br><br><br>
 ### Jumbotron
 ```java 
 

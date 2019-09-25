@@ -5197,7 +5197,7 @@ Card Navigation is represented by Section class in Java:
 
 + [Section](https://jdi-docs.github.io/jdi-light/#section)
 
-Inner elements of jumbotron can be represented by the following classes:
+Inner elements of Card Navigation can be represented by the following classes:
 
 + [Text](https://jdi-docs.github.io/jdi-light/#text)  
 + [Button](https://jdi-docs.github.io/jdi-light/#button)

@@ -6678,28 +6678,6 @@ Wrapping property can be checked by using following class:
   
 <a  href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/inputGroup/InputGroupWrapping.java" target="_blank">Bootstrap test example wrapping</a>
 
-#### Sizing
-
-**Sizing** – Add the relative form sizing classes to the .input-group itself and contents within will automatically resize—no need for repeating the form control size classes on each element.
-
-**Sizing on the individual input group elements isn’t supported.**
-![Sizing](../images/bootstrap/sizing.png)
-
-
-
-Here is an example with provided Bootstrap v4.3 code:
-  
-![Sizing example](../images/bootstrap/sizing_code.png)
-
-And here are methods available in Java:
-    
-|Method | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  | 
 
 #### Checkboxes and radios
 
@@ -6803,24 +6781,78 @@ And here are methods available in Java:
  |  |  
  
 #### Multiple addons 
-**Multiple addons** – Multiple add-ons are supported and can be mixed with checkbox and radio input versions.
+<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/input-group/#multiple-addons" target="_blank">Multiple addons</a> are supported and can be mixed with checkbox and radio input versions.
 
 ![Multiple addons](../images/bootstrap/multiple_addons.png)
 
+```java 
+ @UI("#multiple-addons-1")  public static InputGroupMultipleAddonsUpper multipleAddonUpper; //@FindBy(css = "#multiple-addons-1")
+ @UI("#multiple-addons-2")  public static InputGroupMultipleAddonsLower multipleAddonLower; //@FindBy(css = "#multiple-addons-2")
+ 
+ public class InputGroupMultipleAddonsUpper extends Section {
+     @UI("#left-sign") public Label firstLabel; //@FindBy(css = "#left-sign")
+     @UI("#left-nil") public Label secondLabel; //@FindBy(css = "#left-nil")
+     @UI(".form-control") public TextField textField; //@FindBy(css = ".form-control")
+ }
+
+ @Test(dataProvider = "InputGroupMultipleAddonsLabels")
+ public void assertTextFromValueTest(Label multipleAddonsLabel, String labelValue) {
+    multipleAddonsLabel.is().text(labelValue);
+ }
+ 
+ @Test(dataProvider = "InputGroupMultipleAddonsLabels")
+ public void isValidationTest(Label multipleAddonsLabel, String labelValue) {
+     multipleAddonsLabel.is()
+        .displayed()
+        .core()
+        .hasClass("input-group-text")
+        .text(labelValue);
+ }
+ 
+ @Test(dataProvider = "InputGroupMultipleAddonsTextFields")
+ public void inputTest(TextField textField) {
+     textField.input(text);
+     textField.assertThat().text(is(text));
+ }
+ 
+ @Test(dataProvider = "InputGroupMultipleAddonsTextFields")
+ public void textFieldTests(TextField textField) {
+     textField.setText(text);
+     textField.is().text(text);
+     textField.is().text(containsString(partOfText));
+     textField.clear();
+     textField.is().text(emptyText);
+ }
+```
 Here is an example with provided Bootstrap v4.3 code:
   
 ![Multiple addons example](../images/bootstrap/multiple_addons_code.png)
 
-And here are methods available in Java:
-    
-|Method | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  |  
+
+Multiple input is represented by Section class in Java:
  
+   [Section](https://jdi-docs.github.io/jdi-light/#section)
+  
+Inner elements of multiple input can be represented by the following classes:
+
+  [TextField](https://jdi-docs.github.io/jdi-light/#textfield)
+  
+  [Label](https://jdi-docs.github.io/jdi-light/#label)
+
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/inputGroup/InputGroupMultipleAddonsTests.java" target="_blank">Bootstrap test example with multiple addons</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> <br /> 
 #### Button addons 
 **Button addons** – Multiple buttons have no detailed information on Bootstrap website
 

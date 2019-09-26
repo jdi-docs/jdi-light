@@ -7417,13 +7417,75 @@ Here is an example with provided Bootstrap v4.3 code:
   
 ![Card horizontal example](../images/bootstrap/card_horizontal-html.png)
  
- Inner elements of Card using custom CSS represented by the following classes:<br>
+ Inner elements of Card Horizontal represented by the following classes:<br>
  - [Text](https://jdi-docs.github.io/jdi-light/#text)<br>
  - [Image](https://jdi-docs.github.io/jdi-light/#image)
  
  [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardHorizontalTests.java)
  
 <br><br><br><br><br>
+
+####Card Mixins Utilities
+```java 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@UI("#card-mixins-utilities")  //FindBy(css = "#card-mixins-utilities")         
+public static CardMixinsUtilities cardMixinsUtilities;
+
+public class CardMixinsUtilities extends Section {
+    @UI(".card-header") public Text header;
+    @UI(".card-footer") public Text footer;
+    @Title
+    @UI(".card-title") public Text title;
+    @UI(".card-text") public Text text;
+}
+
+@Test
+public void getHeaderTextTest() {
+    assertEquals(cardMixinsUtilities.header.getText(), header);
+}
+
+@Test
+public void isValidationTest() {
+    cardMixinsUtilities.is().displayed()
+            .and().core().css("border-color", "rgb(40, 167, 69)");
+}
+```
+  
+You can also <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/card/#mixins-utilities">change</a> the borders on the card header and footer as needed, and even remove their background-color
+with .bg-transparent.
+
+![Card Mixins Utilities Example](../images/bootstrap/card-mixins-utilities.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Card Mixins Utilities Example Code](../images/bootstrap/card-mixins-utilities-html.png)
+
+Inner elements of Card Mixing Utilities represented by the following classes:
+[Text](https://jdi-docs.github.io/jdi-light/#text)
+<br><br><br><br><br><br><br><br>
+
 ### Jumbotron
 ```java 
 

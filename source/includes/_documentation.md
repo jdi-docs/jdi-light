@@ -3709,6 +3709,14 @@ Here is an example with provided Bootstrap v4.3 code:
 ``` 
 ![Button toolbar_mixed example](../images/bootstrap/button_toolbar_mixed-html.png)
 <br>
+Inner elements of Card Example represented by the following classes:
+<ul>
+    <li> [Text](https://jdi-docs.github.io/jdi-light/#text) </li>
+    <li> [Button](https://jdi-docs.github.io/jdi-light/#button)</li>>
+<br>
+
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/buttonGroup/ButtonToolbarTests.java)
+
 
 **Button Group Sizing**
 
@@ -5544,16 +5552,17 @@ Here is an example with provided Bootstrap v4.3 code:
 ![Card_groups HTML example](../images/bootstrap/card-groups-with-footer-html.png)
 
 Card groups are represented by Section class in Java:
- 
-  [Section](https://jdi-docs.github.io/jdi-light/#section)
-  
+ <ul>
+ <li>[Section](https://jdi-docs.github.io/jdi-light/#section)</li>>
+ </ul>
+
 Inner elements of Card groups can be represented by the following classes:
-
-  [Text](https://jdi-docs.github.io/jdi-light/#text)
+<ul>
+<li>[Text](https://jdi-docs.github.io/jdi-light/#text)</li>>
+<li>[Image](https://jdi-docs.github.io/jdi-light/#image)</li>>
+</ul>
   
-  [Image](https://jdi-docs.github.io/jdi-light/#image)
-
-[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardGroupsTests)
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardGroupsTests.java)
 
 ####Card decks
 

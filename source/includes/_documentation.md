@@ -6664,28 +6664,6 @@ Wrapping property can be checked by using following class:
   
 <a  href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/inputGroup/InputGroupWrapping.java" target="_blank">Bootstrap test example wrapping</a>
 
-#### Sizing
-
-**Sizing** – Add the relative form sizing classes to the .input-group itself and contents within will automatically resize—no need for repeating the form control size classes on each element.
-
-**Sizing on the individual input group elements isn’t supported.**
-![Sizing](../images/bootstrap/sizing.png)
-
-
-
-Here is an example with provided Bootstrap v4.3 code:
-  
-![Sizing example](../images/bootstrap/sizing_code.png)
-
-And here are methods available in Java:
-    
-|Method | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  | 
 
 #### Checkboxes and radios
 
@@ -6793,14 +6771,7 @@ And here are methods available in Java:
 
 ![Multiple addons](../images/bootstrap/multiple_addons.png)
 
-Here is an example with provided Bootstrap v4.3 code:
-  
-![Multiple addons example](../images/bootstrap/multiple_addons_code.png)
-
 ```java 
- 
-
-
  @UI("#multiple-addons-1")  public static InputGroupMultipleAddonsUpper multipleAddonUpper; //@FindBy(css = "#multiple-addons-1")
  @UI("#multiple-addons-2")  public static InputGroupMultipleAddonsLower multipleAddonLower; //@FindBy(css = "#multiple-addons-2")
  
@@ -6808,12 +6779,6 @@ Here is an example with provided Bootstrap v4.3 code:
      @UI("#left-sign") public Label firstLabel; //@FindBy(css = "#left-sign")
      @UI("#left-nil") public Label secondLabel; //@FindBy(css = "#left-nil")
      @UI(".form-control") public TextField textField; //@FindBy(css = ".form-control")
- }
-
- public class InputGroupMultipleAddonsLower extends Section {
-     @UI("#right-sign") public Label firstLabel;
-     @UI("#right-nil") public Label secondLabel;
-     @UI(".form-control") public TextField textField;
  }
 
  @Test(dataProvider = "InputGroupMultipleAddonsLabels")
@@ -6844,18 +6809,11 @@ Here is an example with provided Bootstrap v4.3 code:
      textField.clear();
      textField.is().text(emptyText);
  }
- 
- @Test(dataProvider = "InputGroupMultipleAddonsTextFields")
- public void isValidationTest(TextField textField) {
-     textField.is()
-         .displayed()
-         .enabled()
-         .core()
-         .hasClass("form-control")
-         .text(is(emptyText));
- }
- 
 ```
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Multiple addons example](../images/bootstrap/multiple_addons_code.png)
+
 
 Multiple input is represented by Section class in Java:
  
@@ -6867,9 +6825,20 @@ Inner elements of multiple input can be represented by the following classes:
   
   [Label](https://jdi-docs.github.io/jdi-light/#label)
 
-<a href="" target="_blank">Bootstrap test example with multiple addons</a>
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/inputGroup/InputGroupMultipleAddonsTests.java" target="_blank">Bootstrap test example with multiple addons</a>
  
- <br /><br /><br /><br /><br /> 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> <br /> 
 #### Button addons 
 **Button addons** – Multiple buttons have no detailed information on Bootstrap website
 

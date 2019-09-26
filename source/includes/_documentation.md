@@ -5941,7 +5941,7 @@ TBD
 
 
 ###Carousel
-<a style="font-weight:bold" href="https://https://getbootstrap.com/docs/4.3/components/carousel/" target="_blank">Carousel</a> - a slideshow component for cycling through elements—images or slides of text—like a carousel.<br>
+<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/carousel/" target="_blank">Carousel</a> - a slideshow component for cycling through elements—images or slides of text—like a carousel.<br>
 
 **Slides only**<br>
 Here’s a carousel with slides only. Note the presence of the .d-block and .w-100 on carousel images to prevent browser default image alignment.
@@ -6038,8 +6038,11 @@ prev() | Move to the previous slide | void
 currentSlide() | Return current slide | UIElement
 indicators() | Return list of carousel indicators | WebList
 interval() | Return current slide interval | int
+isDisplayed() | Check that carousel is displayed | boolean
 is() | Assert action | TextAssert
 assertThat() | Assert action | TextAssert
+
+<a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/complex/CarouselTests.java" target="_blank">Bootstrap test examples</a>
 
 
 

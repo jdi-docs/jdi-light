@@ -4088,8 +4088,6 @@ public void getTextTest() {
  public void getCurrectItemTest() {
     breadcrumb.itemns.last().has().value("Bootstrap");
     breadcrumb.itemns.last().has().text("Bootstrap");
-    breadcrumb.itemns.last().has().text(WebPage.getTitle());
-    breadcrumb.itemns.last().has().value(WebPage.getTitle());
 }
 ```
 

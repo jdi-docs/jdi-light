@@ -7115,9 +7115,28 @@ And here are methods available in Java:
 **expand()** | expand dropdown menu | void
 **expanded()** | check that dropdown is expanded | TextAssert
  
+ <br>
+Input group are represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+  
+Inner elements of input group can be represented by following classes:
+ <ul>
+  <li> [Text](https://jdi-docs.github.io/jdi-light/#text) </li>
+  
+  <li> [TextField](https://jdi-docs.github.io/jdi-light/#textfield) </li> 
+  
+  <li> [TextArea](https://jdi-docs.github.io/jdi-light/#textarea) </li>
+  
+  <li> [Dropdown](https://jdi-docs.github.io/jdi-light/#dropdown-2) </li>
+ 
+ <li>  [See more elements](https://jdi-docs.github.io/jdi-light/#html5-common-elements) </li> 
+ </ul>
+ <br>
+
    
 [Buttons with dropdowns test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/inputGroup/InputGroupButtonWithDropdownTests.java) <br>
-
+<br>
  
 #### Segmented buttons
 **[Segmented buttons](https://getbootstrap.com/docs/4.3/components/input-group/#segmented-buttons)** – Segmented buttons have no detailed information on Bootstrap website
@@ -7190,6 +7209,24 @@ And here are methods available in Java:
 **expand()** | expand dropdown menu | void
 **expanded()** | check that dropdown is expanded | TextAssert
 
+ <br>
+Input group are represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+  
+Inner elements of input group can be represented by following classes:
+ <ul>
+  <li> [Text](https://jdi-docs.github.io/jdi-light/#text) </li>
+  
+  <li> [TextField](https://jdi-docs.github.io/jdi-light/#textfield) </li> 
+  
+  <li> [TextArea](https://jdi-docs.github.io/jdi-light/#textarea) </li>
+  
+  <li> [Dropdown](https://jdi-docs.github.io/jdi-light/#dropdown-2) </li>
+ 
+ <li>  [See more elements](https://jdi-docs.github.io/jdi-light/#html5-common-elements) </li> 
+ </ul>
+ <br>
  
   
 [Segmented buttons test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/inputGroup/InputGroupSegmentedButtonTests.java) <br>
@@ -7316,6 +7353,19 @@ And here are methods available in Java:
 **displayed()** | check item is displayed | TextAssert
 **enabled()** | check item is enabled | TextAssert
  
+ 
+  <br>
+ Input group are represented by Section class in Java:
+  
+   [Section](https://jdi-docs.github.io/jdi-light/#section)  
+   
+ Inner elements of input group can be represented by following classes:
+  <ul>
+   <li> [Text](https://jdi-docs.github.io/jdi-light/#text) </li>
+  
+  <li>  [See more elements](https://jdi-docs.github.io/jdi-light/#html5-common-elements) </li> 
+  </ul>
+  <br>
  
 [Custom select test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/inputGroup/InputGroupCustomSelect.java) <br>
 [Custom select with button test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/inputGroup/InputGroupCustomSelectWithButton.java)

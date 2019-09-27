@@ -6962,6 +6962,12 @@ And here are methods available in Java:
  
 #### Buttons with dropdowns 
 
+**[Buttons with dropdowns](https://getbootstrap.com/docs/4.3/components/input-group/#buttons-with-dropdowns)** – Buttons with dropdowns have no detailed information on Bootstrap website
+
+![Buttons with dropdowns](../images/bootstrap/buttons_with_dropdowns.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
 ```java
 @Css("#button-with-dropdown") public static ButtonWithDropdown buttonWithDropdown;
 // @FindBy(css = "#button-with-dropdown") public static ButtonWithDropdown buttonWithDropdown;
@@ -6998,12 +7004,6 @@ public void dropdownButtonTests() {
     buttonWithDropdown.dropdownButton.is().text(dropdownButton);
 }
 ```
-
-**[Buttons with dropdowns](https://getbootstrap.com/docs/4.3/components/input-group/#buttons-with-dropdowns)** – Buttons with dropdowns have no detailed information on Bootstrap website
-
-![Buttons with dropdowns](../images/bootstrap/buttons_with_dropdowns.png)
-
-Here is an example with provided Bootstrap v4.3 code:
   
 ![Buttons with dropdowns example](../images/bootstrap/buttons-with-dropdowns-html.png)
 
@@ -7051,6 +7051,10 @@ Inner elements of input group can be represented by following classes:
 #### Segmented buttons
 **[Segmented buttons](https://getbootstrap.com/docs/4.3/components/input-group/#segmented-buttons)** – Segmented buttons have no detailed information on Bootstrap website
 
+![Segmented buttons](../images/bootstrap/segmented_buttons.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
 ```java
 @UI("#segmented-button") public static SegmentedButton segmentedButton;
 // @FindBy(css = "#segmented-button") public static SegmentedButton segmentedButton;
@@ -7094,10 +7098,6 @@ public void actionButtonTests() {
     validateAlert(is(actionButtonClickAlert));
 }
 ```
-
-![Segmented buttons](../images/bootstrap/segmented_buttons.png)
-
-Here is an example with provided Bootstrap v4.3 code:
   
 ![Segmented buttons example](../images/bootstrap/segmented-button-html.png)
 
@@ -7145,6 +7145,10 @@ Inner elements of input group can be represented by following classes:
 #### Custom select 
 **[Custom select](https://getbootstrap.com/docs/4.3/components/input-group/#custom-select)** – Input groups include support for custom selects and text field. Browser default versions of these are not supported.
 
+![Custom select](../images/bootstrap/custom_select.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
 ```java
 @UI("#custom-select-01") public static CustomSelect customSelect;
 // @FindBy(css = "#custom-select-01") public static CustomSelect customSelect;
@@ -7183,15 +7187,15 @@ public void selectorIsValidationTests() {
     customSelect.selector.is().size(4);
 }
 ```
-
-![Custom select](../images/bootstrap/custom_select.png)
-
-Here is an example with provided Bootstrap v4.3 code:
   
 ![Custom select example](../images/bootstrap/custom-select-code.png)
 
 
 **[Custom select with button](https://getbootstrap.com/docs/4.3/components/input-group/#custom-select)** – Input groups include support for custom selects and button. Browser default versions of these are not supported.
+
+![Custom select with button](../images/bootstrap/custom-select-with-button.png)
+
+Here is an example with provided Bootstrap v4.3 code:
 
 ```java
 @UI("#custom-select-button-01") public static CustomSelectWithButton customSelectWithButton;
@@ -7236,10 +7240,6 @@ public void selectorIsValidationTests() {
     customSelectWithButton.selector.is().size(4);
 }
 ```
-
-![Custom select with button](../images/bootstrap/custom-select-with-button.png)
-
-Here is an example with provided Bootstrap v4.3 code:
   
 ![Custom select with button example](../images/bootstrap/custom-select-with-button-html.png)
 

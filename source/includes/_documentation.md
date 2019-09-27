@@ -6817,13 +6817,13 @@ Here is an example with provided Bootstrap v4.3 code:
 
 Multiple input is represented by Section class in Java:
  
-   [Section](https://jdi-docs.github.io/jdi-light/#section)
+  + [Section](https://jdi-docs.github.io/jdi-light/#section)
   
 Inner elements of multiple input can be represented by the following classes:
 
-  [TextField](https://jdi-docs.github.io/jdi-light/#textfield)
+ + [TextField](https://jdi-docs.github.io/jdi-light/#textfield)
   
-  [Label](https://jdi-docs.github.io/jdi-light/#label)
+ + [Label](https://jdi-docs.github.io/jdi-light/#label)
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/inputGroup/InputGroupMultipleAddonsTests.java" target="_blank">Bootstrap test example with multiple addons</a>
  

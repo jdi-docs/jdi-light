@@ -7408,6 +7408,13 @@ And here are methods available in Java:
          customFileInputAppend.label.is().value("general.xml");
      }
             
+            
+            
+            
+            
+            
+            
+            
     @UI("#custom-file-input-button-01") public static CustomFileInputWithButton customFileInputWithButtonPrepend;
     @UI("#custom-file-input-button-02") public static CustomFileInputWithButton customFileInputWithButtonAppend;    
     
@@ -7440,6 +7447,7 @@ And here are methods available in Java:
 [Custom file input](https://getbootstrap.com/docs/4.3/components/input-group/#custom-file-input) – Input groups include support for custom selects and custom file inputs. Browser default versions of these are not supported.
 
 Custom file input example
+
 ![Custom file input](../images/bootstrap/custom_file_input.png)
 
 Here is an example with provided Bootstrap v4.3 code:
@@ -7447,6 +7455,7 @@ Here is an example with provided Bootstrap v4.3 code:
 ![Custom file input example](../images/bootstrap/custom_file_input_code.png)
 
 Custom file input with button example
+
  ![Custom file input with button](../images/bootstrap/custom_file_input_with_button.png)
  
  Here is an example with provided Bootstrap v4.3 code:
@@ -7454,13 +7463,17 @@ Custom file input with button example
  ![Custom file input with button example](../images/bootstrap/custom_file_input_with_button_code.png)
 
  And here are methods available in Java:
-     
- |Method | Description | Return Type
- --- | --- | ---
- is()| check condition	 | UIAssert
- click()|  click on element | void
- hover()| hover on element| void
- setValue() | upload file  | void
+
+|Method | Description | Return Type
+--- | --- | ---
+**is()** | property that returns object for work with assertions | UIAssert
+**assertThat()** | property that returns object for work with assertions | UIAssert
+**click()** | click on element | void
+**hover()** | hover on element | void
+**setValue(String value)** | set file path to input | void
+**upload(String value)** | set file path to input | void
+**getValue()** | returns text of input field | String
+**text()** | returns text of input field | String
  
 <br>
 

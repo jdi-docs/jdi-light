@@ -3879,6 +3879,8 @@ public void dropdownMenuTests() {
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 ### Alert
+Alert is located in the following class: <br>
+- __Java__: _com.epam.jdi.light.ui.bootstrap.common.Alert_
 
 **[Alert](https://getbootstrap.com/docs/4.3/components/alerts/)** – Element that provides contextual feedback messages for typical user actions with the handful of available and flexible alert messages.
 
@@ -3929,12 +3931,16 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  | 
+**getText()** | Get alert text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**displayed()** | Check that element is displayed | TextAssert
+**hidden()** | Check that element is hidden | TextAssert
+**click()** | Click to hide assert | Action
 
+<br>
+
+[Alert test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/AlertTests.java)
 <br><br><br><br><br>
 
 
@@ -5902,7 +5908,7 @@ Available methods and properties in C# JDI Light:
             collapseGroupOne.is().expanded();
             collapseGroupOne.value().is().text(groupOneText);
     
-            collapseGroupOne.collapse();
+            collapseGroupOne.collapse();alert
             collapseGroupOne.is().collapsed();
         }
 ```
@@ -6921,11 +6927,23 @@ And here are methods available in Java:
     
 |Method | Description | Return Type
 --- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  |  
+**setText(String value)** | adds text to the field | void
+**sendKeys(String value)** | adds text to the field | void
+**clear()** | clears the text field | void
+**focus()** | places cursor within the text field | void
+**getText()** | returns text from the text field  | String
+**getValue()** | returns text from the text field| String
+**is()** | property that returns object for work with assertions| TextAssert
+**assertThat()** | property that returns object for work with assertions| TextAssert
+**click()** | click on button | void
+**displayed()** | check item is displayed | TextAssert
+**enabled()** | check item is enabled | TextAssert
+**expand()** | expand dropdown menu | void
+**expanded()** | check that dropdown is expanded | TextAssert
+ 
+   
+[Buttons with dropdowns test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/inputGroup/InputGroupButtonWithDropdownTests.java) <br>
+
  
 #### Segmented buttons
 **[Segmented buttons](https://getbootstrap.com/docs/4.3/components/input-group/#segmented-buttons)** – Segmented buttons have no detailed information on Bootstrap website
@@ -6984,11 +7002,24 @@ And here are methods available in Java:
     
 |Method | Description | Return Type
 --- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  |  
+**setText(String value)** | adds text to the field | void
+**sendKeys(String value)** | adds text to the field | void
+**clear()** | clears the text field | void
+**focus()** | places cursor within the text field | void
+**getText()** | returns text from the text field  | String
+**getValue()** | returns text from the text field| String
+**is()** | property that returns object for work with assertions| TextAssert
+**assertThat()** | property that returns object for work with assertions| TextAssert
+**click()** | click on button | void
+**displayed()** | check item is displayed | TextAssert
+**enabled()** | check item is enabled | TextAssert
+**expand()** | expand dropdown menu | void
+**expanded()** | check that dropdown is expanded | TextAssert
+
+ 
+  
+[Segmented buttons test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/inputGroup/InputGroupSegmentedButtonTests.java) <br>
+
  
 #### Custom select 
 **[Custom select](https://getbootstrap.com/docs/4.3/components/input-group/#custom-select)** – Input groups include support for custom selects and text field. Browser default versions of these are not supported.
@@ -7097,11 +7128,23 @@ And here are methods available in Java:
     
 |Method | Description | Return Type
 --- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  |  
+**setText(String value)** | adds text to the field | void
+**sendKeys(String value)** | adds text to the field | void
+**clear()** | clears the text field | void
+**focus()** | places cursor within the text field | void
+**getText()** | returns text from the text field  | String
+**getValue()** | returns text from the text field| String
+**is()** | property that returns object for work with assertions| TextAssert
+**assertThat()** | property that returns object for work with assertions| TextAssert
+**select(int value)** | choose item by index | void
+**selected** | returns text from the selected item | TextAssert
+**click()** | click on button | void
+**displayed()** | check item is displayed | TextAssert
+**enabled()** | check item is enabled | TextAssert
+ 
+ 
+[Custom select test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/inputGroup/InputGroupCustomSelect.java) <br>
+[Custom select with button test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/inputGroup/InputGroupCustomSelectWithButton.java)
  
 #### Custom file input 
 **Custom file input** – Input groups include support for custom selects and custom file inputs. Browser default versions of these are not supported.

@@ -5268,7 +5268,7 @@ Inner elements of Card Navigation can be represented by the following classes:
 + [Link](https://jdi-docs.github.io/jdi-light/#link)
 + [Menu](https://jdi-docs.github.io/jdi-light/#menu)
 
-<a href="javascript: void()">Bootstrap test examples</a>
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardNavigationTests.java" target="_blank">Bootstrap test examples</a>
 
 Available methods in Java JDI Light:
 

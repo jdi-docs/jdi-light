@@ -3653,8 +3653,22 @@ public void leftButtonTests() {
 <br>
 
 ![Button Group Basic Example Example](../images/bootstrap/bgroup-basic-example-html.png)
-<br><br><br><br><br><br><br><br><br><br><br><br>
 
+<br>
+
+|Method | Description | Return Type
+--- | --- | ---
+**click()** | Click the button | void
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**displayed()** | Check that element is displayed | TextAssert
+**enabled()** | Check that element is enabled | TextAssert
+<br>
+
+[Button Group Basic Example Tests Example](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/buttonGroup/BasicExampleTests.java)
+
+<br>
 **Button toolbar**
 <br>
 <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.0/components/button-group/#button-toolbar" target="_blank">Button toolbar</a> - combine sets of button groups into button toolbars for more complex components. Use utility classes as needed to space out groups, buttons, and more.
@@ -3828,7 +3842,25 @@ public void dropdownMenuTests() {
 <br>
 
 ![Button Group Nesting HTML Example](../images/bootstrap/bgroup-nesting-html.png)
-<br><br><br><br><br><br><br><br><br>
+<br>
+
+|Method | Description | Return Type
+--- | --- | ---
+**click()** | Click the button | void
+**getText()** | Get button text | String
+**getValue()** | Get button value | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**displayed()** | Check that element is displayed | TextAssert
+**enabled()** | Check that element is enabled | TextAssert
+**expand()** | Dropdown expand | void
+**expanded()** | Check that dropdown is expanded | TextAssert
+**assertThat()** | Assert action | TextAssert
+<br>
+
+[Button Group Nesting Tests Example](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/buttonGroup/NestingTests.java)
+<br>
+
 
 **Button Group Vertical Variation**
 
@@ -3876,7 +3908,25 @@ public void dropdownMenuTests() {
 <br>
 
 ![Button Group Vertical Variation Example](../images/bootstrap/bgroup-vertical-variation-html.png)
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br>
+
+|Method | Description | Return Type
+--- | --- | ---
+**click()** | Click the button | void
+**getText()** | Get button text | String
+**getValue()** | Get button value | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**displayed()** | Check that element is displayed | TextAssert
+**enabled()** | Check that element is enabled | TextAssert
+**expand()** | Dropdown expand | void
+**expanded()** | Check that dropdown is expanded | TextAssert
+**assertThat()** | Assert action | TextAssert
+<br>
+
+[Button Group Vertical Variation Tests Example](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/buttonGroup/VerticalVariationTests.java)
+<br><br>
+
 
 ### Alert
 Alert is located in the following class: <br>
@@ -3936,12 +3986,12 @@ Available methods in Java JDI Light:
 **assertThat()** | Assert action | TextAssert
 **displayed()** | Check that element is displayed | TextAssert
 **hidden()** | Check that element is hidden | TextAssert
-**click()** | Click to hide assert | Action
+**click()** | Click to hide alert | Action
 
 <br>
 
 [Alert test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/AlertTests.java)
-<br><br><br><br><br>
+
 
 
 ###Badge

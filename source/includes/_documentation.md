@@ -7371,24 +7371,104 @@ And here are methods available in Java:
 [Custom select with button test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/inputGroup/InputGroupCustomSelectWithButton.java)
  
 #### Custom file input 
-**Custom file input** – Input groups include support for custom selects and custom file inputs. Browser default versions of these are not supported.
 
+ ```java 
+ 
+ 
+ 
+ 
+    @UI("#custom-file-input-01") public static CustomFileInput customFileInputPrepend;
+    @UI("#custom-file-input-02") public static CustomFileInput customFileInputAppend;
+    
+    public class CustomFileInput extends Section {     
+        @UI(".input-group-text") public Label upload;     //@FindBy(css = ".input-group-text")
+        @UI(".custom-file-input") public FileInput input; //@FindBy(css = ".custom-file-input")
+        @UI(".custom-file-label") public Label label;     //@FindBy(css = ".custom-file-label")
+    }
+    
+     @Test
+     public void labelTextTests() {
+         customFileInputPrepend.upload.is().text("Upload");
+         customFileInputPrepend.upload.is().value("Upload");
+    
+         customFileInputAppend.upload.is().text("Upload");
+         customFileInputAppend.upload.is().value("Upload");
+     }
+        
+    @Test
+    public void uploadTest() {
+         customFileInputPrepend.click();
+         customFileInputPrepend.input.setValue(mergePath(PROJECT_PATH,/src/test/resources/general.xml"));
+         customFileInputAppend.click();
+         customFileInputAppend.input.setValue(mergePath(PROJECT_PATH,/src/test/resources/general.xml"));
+        
+         customFileInputPrepend.label.is().text("general.xml");
+         customFileInputPrepend.label.is().value("general.xml");
+         customFileInputAppend.label.is().text("general.xml");
+         customFileInputAppend.label.is().value("general.xml");
+     }
+            
+    @UI("#custom-file-input-button-01") public static CustomFileInputWithButton customFileInputWithButtonPrepend;
+    @UI("#custom-file-input-button-02") public static CustomFileInputWithButton customFileInputWithButtonAppend;    
+    
+    public class CustomFileInputWithButton extends Section {      
+        @UI(".btn.btn-outline-secondary") public Button button; //@FindBy (css = ".btn.btn-outline-secondary")
+        @UI(".custom-file-input") public FileInput input;       //@FindBy (css = ".custom-file-input")
+        @UI(".custom-file-label") public Label label;           //@FindBy (css = ".custom-file-label")
+    }
+    
+     @Test
+     public void inputTextTests() {
+         customFileInputWithButtonPrepend.label.is().text("Choose file");
+         customFileInputWithButtonPrepend.label.is().value("Choose file");
+ 
+         customFileInputWithButtonAppend.label.is().text("Choose file");
+         customFileInputWithButtonAppend.label.is().value("Choose file");
+     }   
+       
+       @Test
+       public void buttonAppendClickTests() {
+           customFileInputWithButtonAppend.button.hover();
+           customFileInputWithButtonAppend.button.is().displayed();
+           customFileInputWithButtonAppend.button.is().enabled();
+           customFileInputWithButtonAppend.button.click();
+           validateAlert(is("Button clicked, thank you!"));
+       }         
+       
+```
+ 
+[Custom file input](https://getbootstrap.com/docs/4.3/components/input-group/#custom-file-input) – Input groups include support for custom selects and custom file inputs. Browser default versions of these are not supported.
+
+Custom file input example
 ![Custom file input](../images/bootstrap/custom_file_input.png)
 
 Here is an example with provided Bootstrap v4.3 code:
   
 ![Custom file input example](../images/bootstrap/custom_file_input_code.png)
 
-And here are methods available in Java:
-    
-|Method | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  |  
+Custom file input with button example
+ ![Custom file input with button](../images/bootstrap/custom_file_input_with_button.png)
+ 
+ Here is an example with provided Bootstrap v4.3 code:
+   
+ ![Custom file input with button example](../images/bootstrap/custom_file_input_with_button_code.png)
+
+ And here are methods available in Java:
+     
+ |Method | Description | Return Type
+ --- | --- | ---
+ is()| check condition	 | UIAssert
+ click()|  click on element | void
+ hover()| hover on element| void
+ setValue() | upload file  | void
+ 
 <br>
+
+The Custom file input is defined as a section and uses additional web elements: Button, FileInput and Label.
+They are located in the following Java classes:
+- com.epam.jdi.light.ui.html.common.Button
+- com.epam.jdi.light.elements.common;
+- com.epam.jdi.light.ui.bootstrap.elements.common;
 
 ###Card
  ```java 

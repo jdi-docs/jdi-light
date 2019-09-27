@@ -5622,13 +5622,103 @@ Inner elements of Card groups can be represented by the following classes:
 
 ####Card decks
 
-Use card decks for a set of equal width and height cards that aren’t attached to one another.
+Use <a style="font-weight: bold;" href="https://getbootstrap.com/docs/4.3/components/card/#card-decks" target="_blank">card decks</a> for a set of equal width and height cards that aren’t attached to one another.
 
-![Card_groups example](../images/bootstrap/card-decks.png)
+![Card_decks example](../images/bootstrap/card-decks.png)
+
+```java 
+// @FindBy(css = ".card-deck:nth-of-type(1)")
+@UI(".card-deck:nth-of-type(1)")
+public static CardDeck cardDeckWithoutFooter;
+// @FindBy(css = ".card-deck:nth-of-type(2)")
+@UI(".card-deck:nth-of-type(2)")
+public static CardDeck cardDeckWithFooter;
+
+// @FindBy(css = ".card:nth-of-type(1)")
+@UI(".card:nth-of-type(1)")
+public CardWithinCardGroup card1;
+// @FindBy(css = ".card:nth-of-type(2)")
+@UI(".card:nth-of-type(2)")
+public CardWithinCardGroup card2;
+
+// @FindBy(css = ".card-title")
+@UI(".card-title") public Text title;
+// @FindBy(css = ".card-text:nth-of-type(1)")
+@UI(".card-text:nth-of-type(1)") public Text mainText;
+// @FindBy(css = ".card-text .text-muted")
+@UI(".card-text .text-muted") public Text mutedText;
+// @FindBy(css = ".card-img-top")
+@UI(".card-img-top") public Image image;
+// @FindBy(css = ".card-footer small")
+@UI(".card-footer small") public Text footerText;
+
+private String card1Title = "SPIDER MAN";
+private String card2Title = "HULK";
+private String card1ImageSrc = "https://jdi-testing.github.io/jdi-light/images/spider-man.jpg";
+private String card2ImageSrc = "https://jdi-testing.github.io/jdi-light/images/hulk.jpg";
+private String card1ImageAlt = "spider-man";
+private String card2ImageAlt = "hulk";
+private String card1MainText = "Spider-Man is a fictional superhero created by writer-editor Stan Lee and writer-artist Steve Ditko.";
+private String card2MainText = "The Hulk is a fictional superhero appearing in publications by the American publisher Marvel Comics.";
+private String card1HeroName = "Peter Parker";
+private String card2HeroName = "Bruce Banner";
+
+@Test
+public void isValidationTest() {
+    cardDeckWithoutFooter.highlight();
+    cardDeckWithoutFooter.card1.title.is().text(card1Title);
+    cardDeckWithoutFooter.card2.title.is().text(card2Title);
+    cardDeckWithoutFooter.card1.image.is().src(card1ImageSrc);
+    cardDeckWithoutFooter.card2.image.is().src(card2ImageSrc);
+    cardDeckWithoutFooter.card1.image.is().alt(card1ImageAlt);
+    cardDeckWithoutFooter.card2.image.is().alt(card2ImageAlt);
+    cardDeckWithoutFooter.card1.mainText.is().text(card1MainText);
+    cardDeckWithoutFooter.card2.mainText.is().text(card2MainText);
+    cardDeckWithoutFooter.card1.mutedText.is().text(card1HeroName);
+    cardDeckWithoutFooter.card2.mutedText.is().text(card2HeroName);
+
+    cardDeckWithFooter.highlight();
+    cardDeckWithFooter.card1.title.is().text(card1Title);
+    cardDeckWithFooter.card2.title.is().text(card2Title);
+    cardDeckWithFooter.card1.image.is().src(card1ImageSrc);
+    cardDeckWithFooter.card2.image.is().src(card2ImageSrc);
+    cardDeckWithFooter.card1.image.is().alt(card1ImageAlt);
+    cardDeckWithFooter.card2.image.is().alt(card2ImageAlt);
+    cardDeckWithFooter.card1.mainText.is().text(card1MainText);
+    cardDeckWithFooter.card2.mainText.is().text(card2MainText);
+    cardDeckWithFooter.card1.footerText.is().text(card1HeroName);
+    cardDeckWithFooter.card2.footerText.is().text(card2HeroName);
+}
+```
 
 Here is an example with provided Bootstrap v4.3 code:
   
-![Card_groups HTML example](../images/bootstrap/card-decks-html.png)
+![Card_decks HTML example](../images/bootstrap/card-decks-html.png)
+
+Card Decks are represented by Section class in Java:
+
++ [Section](https://jdi-docs.github.io/jdi-light/#section)
+
+Inner elements of Card Decks can be represented by the following classes:
+
++ [Text](https://jdi-docs.github.io/jdi-light/#text)  
++ [Image](https://jdi-docs.github.io/jdi-light/#image)
+
+<a href="javascript: void()">Bootstrap test examples</a>
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**getText()** | Get element text | String
+**displayed()** | Check that element is displayed | TextAssert
+**css()** | Get element css value | String
+**attr()** | Assert element attribute | IsAssert
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**src()** | Get image source path | String
+**alt()** | Get image alt() value | String
+ <br>
 
 **Card groups with footer**
 

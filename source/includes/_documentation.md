@@ -7059,12 +7059,12 @@ And here are methods available in Java:
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java
-@Css("#button-with-dropdown") public static ButtonWithDropdown buttonWithDropdown;
+@UI("#button-with-dropdown") public static ButtonWithDropdown buttonWithDropdown;
 // @FindBy(css = "#button-with-dropdown") public static ButtonWithDropdown buttonWithDropdown;
 
 public class ButtonWithDropdown extends Section {
-@Css("input") public TextField textInputArea;
-@Css("button") public Button dropdownButton;
+@UI("input") public TextField textInputArea;
+@UI("button") public Button dropdownButton;
 @JDropdown(expand = ".input-group-prepend",
         value = ".dropdown-toggle",
         list = ".dropdown-item")
@@ -7280,7 +7280,7 @@ public void selectorIsValidationTests() {
   
 ![Custom select example](../images/bootstrap/custom-select-code.png)
 
-
+<br><br><br><br><br><br><br><br><br><br>
 **[Custom select with button](https://getbootstrap.com/docs/4.3/components/input-group/#custom-select)** – Input groups include support for custom selects and button. Browser default versions of these are not supported.
 
 ![Custom select with button](../images/bootstrap/custom-select-with-button.png)

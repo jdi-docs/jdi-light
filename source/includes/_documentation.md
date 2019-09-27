@@ -3666,6 +3666,17 @@ public void leftButtonTests() {
 **enabled()** | Check that element is enabled | TextAssert
 <br>
 
+Button group is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+
+Inner elements represented by the following classes:
+<ul>
+    <li> [Button](https://jdi-docs.github.io/jdi-light/#button)</li>
+</ul>
+<br>
+
+
 [Button Group Basic Example Tests Example](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/buttonGroup/BasicExampleTests.java)
 
 <br>
@@ -3723,11 +3734,6 @@ Here is an example with provided Bootstrap v4.3 code:
 ``` 
 ![Button toolbar_mixed example](../images/bootstrap/button_toolbar_mixed-html.png)
 <br>
-Inner elements of Card Example represented by the following classes:
-<ul>
-    <li> [Text](https://jdi-docs.github.io/jdi-light/#text) </li>
-    <li> [Button](https://jdi-docs.github.io/jdi-light/#button)</li>
-</ul>
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/buttonGroup/ButtonToolbarTests.java)
 
@@ -3858,8 +3864,19 @@ public void dropdownMenuTests() {
 **assertThat()** | Assert action | TextAssert
 <br>
 
+Button group is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+
+Inner elements represented by the following classes:
+<ul>
+    <li> [Text](https://jdi-docs.github.io/jdi-light/#text) </li>
+    <li> [Button](https://jdi-docs.github.io/jdi-light/#button)</li>
+    <li> [Dropdown](https://jdi-docs.github.io/jdi-light/#dropdown-2)</li>
+</ul>
+
 [Button Group Nesting Tests Example](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/buttonGroup/NestingTests.java)
-<br>
+<br><br>
 
 
 **Button Group Vertical Variation**
@@ -3922,6 +3939,18 @@ public void dropdownMenuTests() {
 **expand()** | Dropdown expand | void
 **expanded()** | Check that dropdown is expanded | TextAssert
 **assertThat()** | Assert action | TextAssert
+<br>
+
+Button group is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+
+Inner elements represented by the following classes:
+<ul>
+    <li> [Text](https://jdi-docs.github.io/jdi-light/#text) </li>
+    <li> [Button](https://jdi-docs.github.io/jdi-light/#button)</li>
+    <li> [Dropdown](https://jdi-docs.github.io/jdi-light/#dropdown-2)</li>
+</ul>
 <br>
 
 [Button Group Vertical Variation Tests Example](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/buttonGroup/VerticalVariationTests.java)
@@ -3990,6 +4019,11 @@ Available methods in Java JDI Light:
 
 <br>
 
+Inner elements represented by the following classes:
+<ul>
+    <li> [Text](https://jdi-docs.github.io/jdi-light/#text) </li>
+</ul>
+<br>
 [Alert test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/AlertTests.java)
 
 

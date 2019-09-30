@@ -5661,12 +5661,12 @@ For example .card-columns class to generate a set of responsive tiers for changi
  
  ![Card Columns Example Code](../images/bootstrap/card-columns-html.png)
  
- Card sections are represented by Section class in Java:
+ Card columns are represented by Section class in Java:
   <ul>
   <li>[Section](https://jdi-docs.github.io/jdi-light/#section)</li>
   </ul>
  
- Inner elements of Card groups can be represented by the following classes:
+ Inner elements of Card columns can be represented by the following classes:
  <ul>
  <li>[Text](https://jdi-docs.github.io/jdi-light/#text)</li>
  <li>[Image](https://jdi-docs.github.io/jdi-light/#image)</li>

@@ -5483,21 +5483,31 @@ Available methods and properties in C# JDI Light:
 
 public class CardWithHeaderAndFooter extends Card {
     @Title
-    @UI(".card-title") public Text title; //@FindBy(css = ".card-title"")
-    @UI(".card-body p") public Text paragraph;
-    @UI("button") public Button button;
-    @UI(".card-header")public Text header;
+    @UI(".card-title") public Text title; //@FindBy(css = ".card-title") public Text title
+    @UI(".card-body p") public Text paragraph;//@FindBy(css = ".card-body p") public Text paragraph
+    @UI("button") public Button button;//@FindBy(css = "button") public Button button
+    @UI(".card-header")public Text header;//@FindBy(css = ".card-header") public Text header
+    //@FindBy(css = "[class^="footer"]") public Text footer
     @UI("//*[contains(@class, 'footer')]") public Text footer;
 }
 
-@UI("#card-with-header-and-footer") public static CardWithHeaderAndFooter cardWithHeaderAndFooter;//@FindBy(css = "#card-with-header-and-footer")
+//@FindBy(css = "#card-with-header-and-footer") public static CardWithHeaderAndFooter cardWithHeaderAndFooter;
+@UI("#card-with-header-and-footer") public static CardWithHeaderAndFooter cardWithHeaderAndFooter;
+//@FindBy(css = "#card-bright-blue") public static CardWithHeaderAndFooter cardBrightBlue;
 @UI("#card-bright-blue") public static CardWithHeaderAndFooter cardBrightBlue;
+//@FindBy(css = "#card-grey") public static CardWithHeaderAndFooter cardGrey;
 @UI("#card-grey") public static CardWithHeaderAndFooter cardGrey;
+//@FindBy(css = "#card-green") public static CardWithHeaderAndFooter cardGreen;
 @UI("#card-green") public static CardWithHeaderAndFooter cardGreen;
+//@FindBy(css = "#card-red") public static CardWithHeaderAndFooter cardRed;
 @UI("#card-red") public static CardWithHeaderAndFooter cardRed;
+//@FindBy(css = "#card-yellow") public static CardWithHeaderAndFooter cardYellow;
 @UI("#card-yellow") public static CardWithHeaderAndFooter cardYellow;
+//@FindBy(css = "#card-blue") public static CardWithHeaderAndFooter cardBlue;
 @UI("#card-blue") public static CardWithHeaderAndFooter cardBlue;
+//@FindBy(css = "#card-light") public static CardWithHeaderAndFooter cardLight;
 @UI("#card-light") public static CardWithHeaderAndFooter cardLight;
+//@FindBy(css = "#card-dark") public static CardWithHeaderAndFooter cardDark;
 @UI("#card-dark") public static CardWithHeaderAndFooter cardDark;
 
 @DataProvider(name = "cardColors")
@@ -5552,7 +5562,7 @@ Inner elements of Card Navigation can be represented by the following classes:
 + [Menu](https://jdi-docs.github.io/jdi-light/#menu)
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardBackgroundAndColorTests.java" target="_blank">Bootstrap test examples</a>
- <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+ <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
  **Card Border**
 

@@ -3593,7 +3593,6 @@ Radio button is located in the following classes:
  
   - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.common.RadioButton_
   
-[Bootstrap page documentation](https://getbootstrap.com/docs/4.3/components/buttons/)
 
 ![Radio button example](../images/bootstrap/radio-button.png)
 
@@ -3643,8 +3642,6 @@ public void radioButtonByLabelTests() {
 ![Radio button example html](../images/bootstrap/radio-button-html.png)
 
 
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/RadioButtonTests.java)
-<br>
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -3655,6 +3652,15 @@ public void radioButtonByLabelTests() {
 **select()** | Select button | void
 **selected()** | Radio button is selected | TextAssert
 **get()** | Select button by index | action
+
+<br>
+
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/RadioButtonTests.java)
+<br>
+
+Button group is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
 
 <br>
 
@@ -6591,6 +6597,398 @@ Available methods and properties in C# JDI Light:
  |  | 
  |  |
  |  | 
+<br>
+
+### List group
+
+***[List groups](https://getbootstrap.com/docs/4.3/components/list-group/)*** are a flexible and powerful component for displaying a series of content. Modify and extend them to support just about any content within.
+
+
+#### Basic Example
+
+***[List group basic example](https://getbootstrap.com/docs/4.3/components/list-group/#basic-example)*** - an unordered list with list items and the proper classes.
+
+List Group is located in the following classes:
+ 
+  - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.complex.ListGroup_
+  
+
+![List group basic example](../images/bootstrap/list-group-basic.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java
+
+}
+```
+
+![List group basic example html](../images/bootstrap/list-group-basic-html.png)
+
+
+
+|Method | Description | Return Type
+--- | --- | ---
+**click()** | Click the button | void
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**select()** | Select button | void
+**selected()** | Radio button is selected | TextAssert
+**get()** | Select button by index | action
+
+<br>
+
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/listGroup/BasicExampleTests.java)
+<br>
+
+Button group is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+
+<br>
+
+#### Active Items
+
+***[List group active Items](https://getbootstrap.com/docs/4.3/components/list-group/#active-items)***
+
+List Group is located in the following classes:
+ 
+  - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.complex.ListGroup_
+  
+
+![List group basic example](../images/bootstrap/list-group-active.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java
+
+}
+```
+
+![List group active items example html](../images/bootstrap/list-group-active-html.png)
+
+
+
+|Method | Description | Return Type
+--- | --- | ---
+**click()** | Click the button | void
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**select()** | Select button | void
+**selected()** | Radio button is selected | TextAssert
+**get()** | Select button by index | action
+
+<br>
+
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/listGroup/ActiveItemsTests.java)
+<br>
+
+Button group is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+
+<br>
+
+#### Disabled Items
+
+***[List group disabled Items](https://getbootstrap.com/docs/4.3/components/list-group/#disabled-items)***
+
+List Group is located in the following classes:
+ 
+  - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.complex.ListGroup_
+  
+
+![List group disabled items example](../images/bootstrap/list-group-disabled.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java
+
+}
+```
+
+![List group disabled items html](../images/bootstrap/list-group-disabled-html.png)
+
+
+
+|Method | Description | Return Type
+--- | --- | ---
+**click()** | Click the button | void
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**select()** | Select button | void
+**selected()** | Radio button is selected | TextAssert
+**get()** | Select button by index | action
+
+<br>
+
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/listGroup/DisabledItemsTests.java)
+<br>
+
+Button group is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+
+<br>
+
+#### Links
+
+***[List group links and buttons](https://getbootstrap.com/docs/4.3/components/list-group/#links-and-buttons)***
+
+List Group is located in the following classes:
+ 
+  - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.complex.ListGroup_
+  
+
+![List group links example](../images/bootstrap/list-group-links.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java
+
+}
+```
+
+![List group links html](../images/bootstrap/list-group-links-html.png)
+
+
+
+|Method | Description | Return Type
+--- | --- | ---
+**click()** | Click the button | void
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**select()** | Select button | void
+**selected()** | Radio button is selected | TextAssert
+**get()** | Select button by index | action
+
+<br>
+
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/listGroup/LinksTests.java)
+<br>
+
+Button group is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+
+<br>
+
+#### Buttons
+
+***[List group links and buttons](https://getbootstrap.com/docs/4.3/components/list-group/#links-and-buttons)***
+
+List Group is located in the following classes:
+ 
+  - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.complex.ListGroup_
+  
+
+![List group buttons example](../images/bootstrap/list-group-buttons.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java
+
+}
+```
+
+![List group buttons html](../images/bootstrap/list-group-buttons-html.png)
+
+
+
+|Method | Description | Return Type
+--- | --- | ---
+**click()** | Click the button | void
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**select()** | Select button | void
+**selected()** | Radio button is selected | TextAssert
+**get()** | Select button by index | action
+
+<br>
+
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/listGroup/Buttons.java)
+<br>
+
+Button group is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+
+<br>
+
+#### Flush
+
+***[List group flush](https://getbootstrap.com/docs/4.3/components/list-group/#flush)***
+
+List Group is located in the following classes:
+ 
+  - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.complex.ListGroup_
+  
+
+![List group flush example](../images/bootstrap/list-group-flush.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java
+
+}
+```
+
+![List group flush html](../images/bootstrap/list-group-flush-html.png)
+
+
+
+|Method | Description | Return Type
+--- | --- | ---
+**click()** | Click the button | void
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**select()** | Select button | void
+**selected()** | Radio button is selected | TextAssert
+**get()** | Select button by index | action
+
+<br>
+
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/listGroup/FlushTests.java)
+<br>
+
+Button group is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+
+<br>
+
+#### Horizontal
+
+***[List group horizontal](https://getbootstrap.com/docs/4.3/components/list-group/#horizontal)***
+
+List Group is located in the following classes:
+ 
+  - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.complex.ListGroup_
+  
+
+![List group horizontal example](../images/bootstrap/list-group-horizontal.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java
+
+}
+```
+
+![List group horizontal html](../images/bootstrap/list-group-horizontal-html.png)
+
+
+
+|Method | Description | Return Type
+--- | --- | ---
+**click()** | Click the button | void
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**select()** | Select button | void
+**selected()** | Radio button is selected | TextAssert
+**get()** | Select button by index | action
+
+<br>
+
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/listGroup/Horizontal.java)
+<br>
+
+Button group is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+
+<br>
+
+#### With Badges
+
+***[List group with badges](https://getbootstrap.com/docs/4.3/components/list-group/#with-badges)***
+
+List Group is located in the following classes:
+ 
+  - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.complex.ListGroup_
+  
+
+![List group with badges example](../images/bootstrap/list-group-badges.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java
+
+}
+```
+
+![List group with badges html](../images/bootstrap/list-group-badges-html.png)
+
+
+
+|Method | Description | Return Type
+--- | --- | ---
+**click()** | Click the button | void
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**select()** | Select button | void
+**selected()** | Radio button is selected | TextAssert
+**get()** | Select button by index | action
+
+<br>
+
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/listGroup/WithBadgesTests.java)
+<br>
+
+Button group is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+
+<br>
+
+#### Custom Content
+
+***[List group custom content](https://getbootstrap.com/docs/4.3/components/list-group/#custom-content)***
+
+List Group is located in the following classes:
+ 
+  - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.complex.ListGroup_
+  
+
+![List group custom content example](../images/bootstrap/list-group-custom.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java
+
+}
+```
+
+![List group custom content html](../images/bootstrap/list-group-custom-html.png)
+
+
+
+|Method | Description | Return Type
+--- | --- | ---
+**click()** | Click the button | void
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**select()** | Select button | void
+**selected()** | Radio button is selected | TextAssert
+**get()** | Select button by index | action
+
+<br>
+
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/listGroup/CustomContentTests.java)
+<br>
+
+Button group is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+
 <br>
 
 ### Input group

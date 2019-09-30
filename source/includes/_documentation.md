@@ -7194,7 +7194,7 @@ Here is an example with provided Bootstrap v4.3 code:
 @UI("#pagination-overview") public static PaginationOverview paginationOverview;
 
 public class PaginationOverview extends Section {
-    @UI("li") public Pagination paginationItems;
+    @UI("li") public Pagination paginationItems; // @FindBy(css = "li") public Pagination paginationItems;
 }
 
 @Test

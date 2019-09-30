@@ -8712,8 +8712,8 @@ Here is an example with provided Bootstrap v4.3 code:
 ![Card Body Example Code](../images/bootstrap/cardsubslinks-html.png)
 
 Inner elements of Card with Subtitles and Links represented by the following classes:<br>
-- [Text](https://jdi-docs.github.io/jdi-light/#text)<br>
-- [Link](https://jdi-docs.github.io/jdi-light/#link)
++ [Text](https://jdi-docs.github.io/jdi-light/#text)<br>
++ [Link](https://jdi-docs.github.io/jdi-light/#link)
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardWithSubtitlesAndLinksTests.java)
 
@@ -8878,8 +8878,8 @@ Here is an example with provided Bootstrap v4.3 code:
 ![Card custom CSS Example Code](../images/bootstrap/card_custom_CSS_html.png)
 
 Inner elements of Card using custom CSS represented by the following classes:<br>
-- [Text](https://jdi-docs.github.io/jdi-light/#text)<br>
-- [Button](https://jdi-docs.github.io/jdi-light/#button)
++ [Text](https://jdi-docs.github.io/jdi-light/#text)<br>
++ [Button](https://jdi-docs.github.io/jdi-light/#button)
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardWithCustomCss13RemTests.java)
 
@@ -8950,8 +8950,8 @@ Here is an example with provided Bootstrap v4.3 code:
 ![Card horizontal example](../images/bootstrap/card_horizontal-html.png)
  
  Inner elements of Card Horizontal represented by the following classes:<br>
- - [Text](https://jdi-docs.github.io/jdi-light/#text)<br>
- - [Image](https://jdi-docs.github.io/jdi-light/#image)
+ + [Text](https://jdi-docs.github.io/jdi-light/#text)<br>
+ + [Image](https://jdi-docs.github.io/jdi-light/#image)
  
  [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardHorizontalTests.java)
  
@@ -9019,6 +9019,133 @@ Inner elements of Card Mixing Utilities represented by the following classes:
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardMixinsUtilitiesTests.java)
 <br><br><br><br><br><br><br><br>
+
+####Card Border
+```java 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@UI("#card-border-primary") //FindBy(css = "#card-border-primatry")
+public static CardBorder cardBorderPrimary;
+
+public class CardBorder extends Section {
+    @UI(".card-header") public Text border;
+    @Title
+    @UI(".card-title") public Text title;
+    @UI(".card-text") public Text body;
+
+@Test(dataProvider = "cardBorderColor")
+public void getBorderColorTest(CardBorder cardBorder, String color) {
+    cardBorder.is().core().css("border-bottom-color", is(color));
+    cardBorder.is().core().css("border-left-color", is(color));
+    cardBorder.is().core().css("border-right-color", is(color));
+    cardBorder.is().core().css("border-top-color", is(color));
+}
+
+@Test(dataProvider = "cardBorderHeaderText")
+public void getHeaderTextTest(CardBorder cardBorder, String headerText) {
+    assertEquals(cardBorder.border.getText(), headerText);
+}
+```
+Use <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/card/#border">border</a> utilities to change just the border-color of a card. 
+Note that you can put .text-{color} classes on the parent .card or a subset of the card’s contents as shown below.
+
+![Card Borders Example](../images/bootstrap/cardborders.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Card Borders Example Code](../images/bootstrap/cardborders-html.png)
+
+Inner elements of Card Border represented by the following classes:
+[Text](https://jdi-docs.github.io/jdi-light/#text)
+
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardBorderTests.java)
 
 ### Jumbotron
 ```java 

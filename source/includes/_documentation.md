@@ -5069,11 +5069,13 @@ Available methods and properties in C# JDI Light:
  |  |
  <br>
  
-####**Card with Header and Footer**
+####Card with Header and Footer
 
 Add an optional<a href="https://getbootstrap.com/docs/4.3/components/card/#header-and-footer" target="a_blank"> header and/or footer </a>within a card.
 
 ```java 
+
+
 
 
 
@@ -5103,7 +5105,8 @@ public class CardWithHeaderAndFooter extends Card {
     @UI("//*[contains(@class, 'footer')]") public Text footer;
 }
 
-@UI("#card-with-header-and-footer") public static CardWithHeaderAndFooter cardWithHeaderAndFooter; //FindBy(id = "card-with-header-and-footer")
+//FindBy(id = "card-with-header-and-footer")
+@UI("#card-with-header-and-footer") public static CardWithHeaderAndFooter cardWithHeaderAndFooter;
 
 
 
@@ -5140,35 +5143,103 @@ Inner elements of card can be represented by the following classes:
    <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/Card/CardWithHeaderAndFooterTests.java" target=a_blank> Bootstrap test examples </a>
  <br>
 
- **Card with Grid Markup**
+####Card with Grid Markup
  
- Using the grid, wrap cards in columns and rows as needed.
+ Using the <a href="https://getbootstrap.com/docs/4.3/components/card/#using-grid-markup" target="a_blank">grid, wrap cards in columns  and rows</a> as needed.
  
+ 
+```java 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+public class CardWithGridMarkup extends Card {
+    @Title
+    @UI(".card-title") public Text title; //@FindVBy(css = ".card-title")
+
+    @UI(".card-body p") public Text paragraph; //@FindVBy(css = ".card-body p")
+
+    @UI("button") public Button button; //@FindVBy(css = "button")
+
+    //@FindVBy(css = ".row .col-sm-6")
+    @UI(".row .col-sm-6") public JList<CardWithHeaderAndFooter> listCard; 
+}
+
+//@FindBy(id = "card-with-grid-markup")
+@UI("#card-with-grid-markup") public static CardWithGridMarkup cardWithGridMarkup;
+
+
+
+@Test
+public void getTitleTextCardWithGridMarkup11Test() {
+        cardWithGridMarkup.listCard.get(0).title.is().text(textTitleCardWithGridMarkup11);
+}
+
+@Test
+public void getButtonTextCardWithGridMarkup22Test() {
+        cardWithGridMarkup.listCard.get(3).button.is().text(textButtonCardWithGridMarkup22);
+        cardWithGridMarkup.listCard.get(3).button.click();
+        validateAlert(is(textAlert));
+        cardWithGridMarkup.listCard.get(3).button.is()
+                .enabled()
+                .displayed();
+}
+
+
+
+
+
+
+
+
+```
+
  ![Card with Header and Footer Example](../images/bootstrap/card_grid.png)
  
  Here is an example with provided Bootstrap v4.3 code:
  
  ![Card with Header and Footer Code](../images/bootstrap/card_grid_html.png)
  
- Available methods in Java JDI Light:
+Card is represented by Section class in Java:
  
- |Method | Description | Return Type
- --- | --- | ---
-  |  | 
-  |  | 
-  |  | 
-  |  | 
-  |  | 
+[Section](https://jdi-docs.github.io/jdi-light/#section)
   
- Available methods and properties in C# JDI Light:
- 
- |Method/Property | Description | Return Type
- --- | --- | ---
-  |  | 
-  |  | 
-  |  |
-  |  |
-  <br>
+Inner elements of card can be represented by the following classes:
+<ul>
+    <li> [Text](https://jdi-docs.github.io/jdi-light/#text) </li>
+    <li> [Label](https://jdi-docs.github.io/jdi-light/#label) </li>
+    <li> [Button](https://jdi-docs.github.io/jdi-light/#button)  </li>
+    <li> [See more elements](https://jdi-docs.github.io/jdi-light/#html5-common-elements) </li>
+</ul>
+     
+   <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/Card/CardWithGridMarkupTests.java" target=a_blank> Bootstrap test examples </a>
+ <br>
+
  
  **Card utilities**
   

@@ -5469,33 +5469,88 @@ Available methods and properties in C# JDI Light:
  
   **Card Background And Color**
 
-Use text and background utilities to change the appearance of a card.
+<a href="https://getbootstrap.com/docs/4.3/components/card/#background-and-color" target="a_blank"> Card Background And Color</a> - use text and background utilities to change the appearance of a card.
+
+
+
+
 
 ![Card Background And Color Example](../images/bootstrap/cardbackgroundandcolor.png)
 
+```java 
+
+public class CardWithHeaderAndFooter extends Card {
+    @Title
+    @UI(".card-title") public Text title; //@FindBy(css = ".card-title"")
+    @UI(".card-body p") public Text paragraph;
+    @UI("button") public Button button;
+    @UI(".card-header")public Text header;
+    @UI("//*[contains(@class, 'footer')]") public Text footer;
+}
+
+@UI("#card-with-header-and-footer") public static CardWithHeaderAndFooter cardWithHeaderAndFooter;//@FindBy(css = "#card-with-header-and-footer")
+@UI("#card-bright-blue") public static CardWithHeaderAndFooter cardBrightBlue;
+@UI("#card-grey") public static CardWithHeaderAndFooter cardGrey;
+@UI("#card-green") public static CardWithHeaderAndFooter cardGreen;
+@UI("#card-red") public static CardWithHeaderAndFooter cardRed;
+@UI("#card-yellow") public static CardWithHeaderAndFooter cardYellow;
+@UI("#card-blue") public static CardWithHeaderAndFooter cardBlue;
+@UI("#card-light") public static CardWithHeaderAndFooter cardLight;
+@UI("#card-dark") public static CardWithHeaderAndFooter cardDark;
+
+@DataProvider(name = "cardColors")
+public static Object[][] cardColors() {
+    return new Object[][]{
+            {cardBrightBlue, "bg-primary", "rgba(0, 123, 255, 1)"},
+            {cardGrey, "bg-secondary", "rgba(108, 117, 125, 1)"},
+            {cardGreen, "bg-success", "rgba(40, 167, 69, 1)"},
+            {cardRed, "bg-danger", "rgba(220, 53, 69, 1)"},
+            {cardYellow, "bg-warning", "rgba(255, 193, 7, 1)"},
+            {cardBlue, "bg-info", "rgba(23, 162, 184, 1)"},
+            {cardLight, "bg-light", "rgba(248, 249, 250, 1)"},
+            {cardDark, "bg-dark", "rgba(52, 58, 64, 1)"},
+    };
+}
+
+@Test(dataProvider = "cardColors")
+public void checkColorCardsTest(CardWithHeaderAndFooter card, String cssClass, String color) {
+    card.is()
+            .core()
+            .hasClass(cssClass)
+            .css("background-color", is(color));
+
+    card.header.is()
+            .displayed().and()
+            .core().css("background-color", is("rgba(0, 0, 0, 0.03)"));
+
+    card.paragraph.is()
+            .displayed().and()
+            .core().css("background-color", is("rgba(0, 0, 0, 0)"));
+
+}
+
+```
+
+
 Here is an example with provided Bootstrap v4.3 code:
+
+
 
 ![Card Background And Color Code](../images/bootstrap/cardbackgroundandcolor-html.png)
 
-Available methods in Java JDI Light:
+Card Navigation is represented by Section class in Java:
 
-|Method | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  | 
- 
-Available methods and properties in C# JDI Light:
++ [Section](https://jdi-docs.github.io/jdi-light/#section)
 
-|Method/Property | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  |
- |  |
- <br>
+Inner elements of Card Navigation can be represented by the following classes:
+
++ [Text](https://jdi-docs.github.io/jdi-light/#text)  
++ [Button](https://jdi-docs.github.io/jdi-light/#button)
++ [Link](https://jdi-docs.github.io/jdi-light/#link)
++ [Menu](https://jdi-docs.github.io/jdi-light/#menu)
+
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardBackgroundAndColorTests.java" target="_blank">Bootstrap test examples</a>
+ <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
  **Card Border**
 
@@ -6708,7 +6763,23 @@ List Group is located in the following classes:
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java
+@UI("#list-group-basic-example") public static ListGroupBasicExample listGroupBasicExample;
+// @FindBy(css = "#list-group-basic-example") public static ListGroupBasicExample listGroupBasicExample;
 
+public class ListGroupBasicExample extends Section {
+    @UI("li") public ListGroup listGroup;
+}
+
+public void listGroupIsValidationTest() {
+    listGroupBasicExample.listGroup.is()
+            .size(5);
+}
+
+@Test(dataProvider = "listData")
+public void listGroupTests(int num, String text) {
+    listGroupBasicExample.listGroup.get(num).is()
+            .text(is(text))
+            .css("font-size", is("14px"));
 }
 ```
 
@@ -6718,12 +6789,9 @@ Here is an example with provided Bootstrap v4.3 code:
 
 |Method | Description | Return Type
 --- | --- | ---
-**click()** | Click the button | void
 **getText()** | Get button text | String
 **is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
-**select()** | Select button | void
-**selected()** | Radio button is selected | TextAssert
 **get()** | Select button by index | action
 
 <br>
@@ -6746,12 +6814,36 @@ List Group is located in the following classes:
   - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.complex.ListGroup_
   
 
-![List group basic example](../images/bootstrap/list-group-active.png)
+![List group active items example](../images/bootstrap/list-group-active.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java
+@UI("#list-group-active-items") public static ListGroupActiveItems listGroupActiveItems;
+// @FindBy(css = "#list-group-active-items") public static ListGroupActiveItems listGroupActiveItems;)
 
+public class ListGroupActiveItems extends Section {
+    @UI("li") public ListGroup listGroup;
+}
+
+@Test(dataProvider = "listData")
+public void listGroupTextTests(int num, String text) {
+    listGroupActiveItems.listGroup.get(num).is()
+            .text(text)
+            .css("font-size", is("14px"));
+}
+
+@Test
+public void isValidationTests() {
+    listGroupActiveItems.listGroup.is()
+            .size(5);
+    listGroupActiveItems.is()
+            .displayed()
+            .enabled()
+            .core()
+            .hasClass("list-group");
+    listGroupActiveItems.listGroup.get(1).is()
+            .hasClass(listClass + " active");
 }
 ```
 
@@ -6761,12 +6853,9 @@ Here is an example with provided Bootstrap v4.3 code:
 
 |Method | Description | Return Type
 --- | --- | ---
-**click()** | Click the button | void
 **getText()** | Get button text | String
 **is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
-**select()** | Select button | void
-**selected()** | Radio button is selected | TextAssert
 **get()** | Select button by index | action
 
 <br>
@@ -6794,7 +6883,32 @@ List Group is located in the following classes:
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java
+@UI("#disabled-items") public static ListGroupDisabledItems listGroupDisabledItems;
+// @FindBy(css = "#disabled-items") public static ListGroupDisabledItems listGroupDisabledItems;
 
+public class ListGroupDisabledItems extends Section {
+    @UI("li") public ListGroup listGroup;
+}
+
+@Test
+public void isValidationTests() {
+    listGroupDisabledItems.listGroup.is()
+            .size(5);
+    listGroupDisabledItems.is()
+            .displayed()
+            .enabled()
+            .core()
+            .hasClass("list-group");
+    listGroupDisabledItems.listGroup.get(1).is()
+            .hasClass(listClass + " disabled")
+            .attr("aria-disabled", "true");
+}
+
+@Test(dataProvider = "listData")
+public void listGroupTextTests(int num, String text) {
+    listGroupDisabledItems.listGroup.get(num).is()
+            .text(text)
+            .css("font-size", is("14px"));
 }
 ```
 
@@ -6804,12 +6918,9 @@ Here is an example with provided Bootstrap v4.3 code:
 
 |Method | Description | Return Type
 --- | --- | ---
-**click()** | Click the button | void
 **getText()** | Get button text | String
 **is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
-**select()** | Select button | void
-**selected()** | Radio button is selected | TextAssert
 **get()** | Select button by index | action
 
 <br>
@@ -6837,7 +6948,35 @@ List Group is located in the following classes:
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java
+@UI("#list-group-links") public static ListGroupLinks listGroupLinks;
+// @FindBy(css = "#list-group-links") public static ListGroupLinks listGroupLinks;
 
+public class ListGroupLinks extends Section {
+    @UI("a") public ListGroup listGroup;
+}
+
+@Test(dataProvider = "clickValidate")
+public void linkClickableTests(int index, String pageTitle) {
+    listGroupLinks.listGroup.get(index).highlight();
+    listGroupLinks.listGroup.get(index).click();
+    newWindowTitleCheck(pageTitle);
+    listGroupLinks.listGroup.get(index).unhighlight();
+}
+
+@Test
+public void isValidationTests() {
+    listGroupLinks.listGroup.is()
+            .size(5);
+    listGroupLinks.is()
+            .displayed()
+            .enabled()
+            .core()
+            .hasClass("list-group");
+    listGroupLinks.listGroup.get(1).is()
+            .hasClass(listClass + " active");
+    listGroupLinks.listGroup.get(5).is()
+            .hasClass(listClass + " disabled");
+    assertFalse(listGroupLinks.listGroup.get(5).isClickable());
 }
 ```
 
@@ -6851,8 +6990,6 @@ Here is an example with provided Bootstrap v4.3 code:
 **getText()** | Get button text | String
 **is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
-**select()** | Select button | void
-**selected()** | Radio button is selected | TextAssert
 **get()** | Select button by index | action
 
 <br>
@@ -6880,7 +7017,34 @@ List Group is located in the following classes:
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java
+@UI("#list-group-buttons") public static ListGroupButtons listGroupButtons;
+// @FindBy(css = "#list-group-buttons") public static ListGroupButtons listGroupButtons;
 
+public class ListGroupButtons extends Section {
+    @UI("button") public ListGroup listGroup;
+}
+
+@Test
+public void isValidationTests() {
+    listGroupButtons.listGroup.is()
+            .size(5);
+    listGroupButtons.is()
+            .displayed()
+            .enabled()
+            .core()
+            .hasClass("list-group");
+    listGroupButtons.listGroup.get(1).is()
+            .hasClass(listClass + " active");
+    listGroupButtons.listGroup.get(5).is()
+            .disabled();
+}
+
+@Test(dataProvider = "clickValidate")
+public void buttonClickableTests(int index, String text) {
+    listGroupButtons.listGroup.get(index).highlight();
+    listGroupButtons.listGroup.get(index).click();
+    validateAlert(is(text));
+    listGroupButtons.listGroup.get(index).unhighlight();
 }
 ```
 
@@ -6894,8 +7058,6 @@ Here is an example with provided Bootstrap v4.3 code:
 **getText()** | Get button text | String
 **is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
-**select()** | Select button | void
-**selected()** | Radio button is selected | TextAssert
 **get()** | Select button by index | action
 
 <br>
@@ -6923,7 +7085,28 @@ List Group is located in the following classes:
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java
+@UI("#list-group-flush") public static ListGroupFlush listGroupFlush;
+// @FindBy(css = "#list-group-flush") public static ListGroupFlush listGroupFlush;
 
+public class ListGroupFlush extends Section {
+    @UI("li") public ListGroup listGroup;
+}
+
+@Test(dataProvider = "listData")
+public void listGroupTests(int num, String text) {
+    listGroupFlush.listGroup.get(num).is()
+            .text(text)
+            .css("font-size", is("14px"));
+}
+
+@Test
+public void initTests() {
+    listGroupFlush.listGroup.is().size(5);
+    listGroupFlush.is()
+            .displayed()
+            .enabled()
+            .core()
+            .hasClass("list-group list-group-flush");
 }
 ```
 
@@ -6933,12 +7116,9 @@ Here is an example with provided Bootstrap v4.3 code:
 
 |Method | Description | Return Type
 --- | --- | ---
-**click()** | Click the button | void
 **getText()** | Get button text | String
 **is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
-**select()** | Select button | void
-**selected()** | Radio button is selected | TextAssert
 **get()** | Select button by index | action
 
 <br>
@@ -6966,7 +7146,24 @@ List Group is located in the following classes:
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java
+@UI("#list-group-horizontal") public static ListGroupHorizontal listGroupHorizontal;
+// @FindBy(css = "#list-group-horizontal") public static ListGroupHorizontal listGroupHorizontal;
 
+public class ListGroupHorizontal extends Section {
+    @UI("li") public ListGroup listGroup;
+}
+
+@Test
+public void initTests() {
+    listGroupHorizontal.listGroup.is()
+            .size(3);
+}
+
+@Test(dataProvider = "listData")
+public void listGroupTests(int num, String text) {
+    listGroupHorizontal.listGroup.get(num).is()
+            .text(text)
+            .css("font-size", is("14px"));
 }
 ```
 
@@ -6976,12 +7173,9 @@ Here is an example with provided Bootstrap v4.3 code:
 
 |Method | Description | Return Type
 --- | --- | ---
-**click()** | Click the button | void
 **getText()** | Get button text | String
 **is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
-**select()** | Select button | void
-**selected()** | Radio button is selected | TextAssert
 **get()** | Select button by index | action
 
 <br>
@@ -7009,7 +7203,28 @@ List Group is located in the following classes:
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java
+@UI("#list-group-with-badges") public static ListGroupWithBadges listGroupWithBadges;
+// @FindBy(css = "#list-group-with-badges") public static ListGroupWithBadges listGroupWithBadges;
 
+public class ListGroupWithBadges extends Section {
+    @UI("li") public ListGroup listGroup;
+    @UI("li span") public ListGroup badge;
+}
+
+@Test
+public void initTests() {
+    listGroupWithBadges.listGroup.is()
+            .size(3);
+    listGroupWithBadges.badge.is()
+            .size(3);
+}
+
+@Test(dataProvider = "listData")
+public void listGroupTests(int num, String text) {
+    listGroupWithBadges.listGroup.get(num).is()
+            .text(containsString(text))
+            .css("font-size", is("14px"))
+            .hasClass("list-group-item d-flex justify-content-between align-items-center");
 }
 ```
 
@@ -7019,12 +7234,9 @@ Here is an example with provided Bootstrap v4.3 code:
 
 |Method | Description | Return Type
 --- | --- | ---
-**click()** | Click the button | void
 **getText()** | Get button text | String
 **is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
-**select()** | Select button | void
-**selected()** | Radio button is selected | TextAssert
 **get()** | Select button by index | action
 
 <br>
@@ -7052,7 +7264,32 @@ List Group is located in the following classes:
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java
+@UI("#list-group-custom-content") public static ListGroupCustomContent listGroupCustomContent;
+// @FindBy(css = "#list-group-custom-content") public static ListGroupCustomContent listGroupCustomContent;
 
+public class ListGroupCustomContent extends Section {
+    @UI("a") public ListGroup listGroup;
+    @UI("a div h5") public ListGroup header;
+    @UI("a div small") public ListGroup dateText;
+    @UI("a p") public ListGroup mainText;
+    @UI("small.footer") public ListGroup footer;
+    @UI("a div") public ListGroup container;
+}
+
+@Test
+ public void isValidationTests() {
+     listGroupCustomContent.listGroup.is()
+             .size(3);
+     listGroupCustomContent.container.is()
+             .size(3);
+}
+
+@Test(dataProvider = "clickValidate")
+public void linkClickableTests(int index, String pageTitle) {
+    listGroupCustomContent.listGroup.get(index).highlight();
+    listGroupCustomContent.listGroup.get(index).click();
+    newWindowTitleCheck(pageTitle);
+    listGroupCustomContent.listGroup.get(index).unhighlight();
 }
 ```
 

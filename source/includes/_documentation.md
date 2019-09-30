@@ -4239,7 +4239,7 @@ Available methods in Java JDI Light:
 
 
 
-    // @FindBy(css = "#breadcrumb")
+// @FindBy(css = "#breadcrumb")
 @UI("#breadcrumb") public static Breadcrumb breadcrumb;
 
 public class Breadcrumb extends UIBaseElement<UIAssert>{
@@ -4273,15 +4273,15 @@ Available methods in Java JDI Light:
 
 |Method/Property | Description | Return Type
 --- | --- | ---
-click() | Click the item  | void
-getText() |Get item text  |  String
-getValue() |Get item value  |  String
-get(String option)|Get item by text|UIElement 
-get(int index)|Get item by index| UIElement
-last()|Get last (current) item |UIElement
-first()|Get first item |UIElement
-is()	 |  Assert action	| UIAssert
-assertThat()	 |  Assert action	| UIAssert
+**click()** | Click the item  | void
+**getText()** |Get item text  |  String
+**getValue()** |Get item value  |  String
+**get(String option)**|Get item by text|UIElement 
+**get(int index)**|Get item by index| UIElement
+**last()**|Get last (current) item |UIElement
+**first()**|Get first item |UIElement
+**is()**	 |  Assert action	| UIAssert
+**assertThat()**	 |  Assert action	| UIAssert
 
 In this java test case example Breadcrumb has been implemented as WebList.
 
@@ -4289,6 +4289,8 @@ WebList is located in the following classes:
 
 Java: com.epam.jdi.light.elements.complex.WebList
 
+[Breadcrumb Tests Example](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/BreadcrumbTests.java)
+<br><br>
 ###Navs
 
 Nav - navigation component

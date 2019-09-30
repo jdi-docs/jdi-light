@@ -3584,6 +3584,80 @@ Here is an example with provided HTML code:
 **assertThat()** | Assert action | TextAssert
 <br><br>
 
+
+
+### Radio button
+**[Radio button](https://getbootstrap.com/docs/4.3/components/forms/#default-stacked)** – Element that can be represented with one or more clickable buttons aiming to choose only one button of the group.
+
+Radio button is located in the following classes:
+ 
+  - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.common.RadioButton_
+  
+[Bootstrap page documentation](https://getbootstrap.com/docs/4.3/components/buttons/)
+
+![Radio button example](../images/bootstrap/radio-button.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java
+@UI("#radio-buttons") public static RadioButtonGroup radioButtonGroup;
+//@FindBy(css = "#radio-buttons") public static RadioButtonGroup radioButtonGroup;
+
+public class RadioButtonGroup extends Section {
+    @UI("#exampleRadios1") public RadioButton radio1;
+    @UI("#exampleRadios2" )public RadioButton radio2;
+    @UI("#exampleRadios3") public RadioButton radio3;
+    @UI("input[type='radio']") public RadioButton radioButton;
+    @UI("label[for='exampleRadios1']") public Label radio1Label;
+    @UI("label[for='exampleRadios2']") public Label radio2Label;
+    @UI("label[for='exampleRadios3']") public Label radio3Label;
+}
+
+@Test
+public void baseInitTest() {
+    radioButtonGroup.radioButton.is()
+            .size(3);
+    radioButtonGroup.radio1.is()
+            .selected();
+    radioButtonGroup.radio2.is()
+            .deselected();
+    radioButtonGroup.radioButton.get(3).is()
+            .deselected();
+    radioButtonGroup.radioButton.get(3).is()
+            .disabled();
+}
+
+@Test
+public void radioButtonByLabelTests() {
+    radioButtonGroup.radio2Label.click();
+    radioButtonGroup.radioButton.get(2).is()
+            .selected();
+    radioButtonGroup.radioButton.is()
+            .text(is(value2));
+    radioButtonGroup.radio1.select();
+    radioButtonGroup.radio1.is()
+            .selected();
+}
+```
+
+![Radio button example html](../images/bootstrap/radio-button-html.png)
+
+
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/RadioButtonTests.java)
+<br>
+
+|Method | Description | Return Type
+--- | --- | ---
+**click()** | Click the button | void
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**select()** | Select button | void
+**selected()** | Radio button is selected | TextAssert
+**get()** | Select button by index | action
+
+<br>
+
 ### Button group
 
 **<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/button-group/" target="_blank">Button group</a>** – Element that groups a series of buttons together on a single line with the button group, and super-power them with JavaScript.

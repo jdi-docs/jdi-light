@@ -7320,7 +7320,40 @@ List Group is located in the following classes:
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java
+// @FindBy(css = "#pagination-overview") public static PaginationOverview paginationOverview;
+@UI("#pagination-overview") public static PaginationOverview paginationOverview;
 
+public class PaginationOverview extends Section {
+    @UI("li") public Pagination paginationItems;
+}
+
+@Test
+ public void isValidationTests() {
+     paginationOverview.paginationItems.is()
+             .size(5);
+     paginationOverview.is()
+             .core()
+             .hasClass("pagination");
+ }
+
+ @Test(dataProvider = "listData")
+ public void linkTextTests(int index, String linkText) {
+     paginationOverview.paginationItems.get(index).is()
+             .displayed()
+             .enabled()
+             .css("font-size", is("14px"))
+             .hasClass("page-item")
+             .text(is(linkText));
+ }
+
+ @Test(dataProvider = "listPageTitles")
+ public void linkClickableTests(int index, String pageTitle) {
+     paginationOverview.paginationItems.get(index).hover();
+     paginationOverview.paginationItems.get(index).highlight();
+     paginationOverview.paginationItems.get(index).click();
+     newWindowTitleCheck(pageTitle);
+     paginationOverview.paginationItems.get(index).unhighlight();
+ }
 ```
 
 ![Pagination overview html](../images/bootstrap/pagination-overview-html.png)
@@ -7329,13 +7362,14 @@ Here is an example with provided Bootstrap v4.3 code:
 
 |Method | Description | Return Type
 --- | --- | ---
-**click()** | Click the button | void
+**click()** | Click the element | void
+**hover()** | Hover on the element | void
+**highlight()** | Highlight element | void
+**unhighlight()** | Unhighlight element | void
 **getText()** | Get button text | String
 **is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
-**select()** | Select button | void
-**selected()** | Radio button is selected | TextAssert
-**get()** | Select button by index | action
+**get()** | Select button by index | UIElement
 
 <br>
 
@@ -7362,7 +7396,30 @@ List Group is located in the following classes:
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java
+// @FindBy(css = "#pagination-icons") public static PaginationIcons paginationIcons;
+@UI("#pagination-icons") public static PaginationIcons paginationIcons;
 
+public class PaginationIcons extends Section {
+    @UI("li") public Pagination paginationItems; // @FindBy(css = "li") public Pagination paginationItems;
+}
+
+@Test
+public void isValidationTests() {
+    paginationIcons.paginationItems.is()
+            .size(5);
+    paginationIcons.is()
+            .core()
+            .hasClass("pagination");
+}
+
+@Test(dataProvider = "listPageTitles")
+public void linkClickableTests(int index, String pageTitle) {
+    paginationIcons.paginationItems.get(index).hover();
+    paginationIcons.paginationItems.get(index).highlight();
+    paginationIcons.paginationItems.get(index).click();
+    newWindowTitleCheck(pageTitle);
+    paginationIcons.paginationItems.get(index).unhighlight();
+}
 ```
 
 ![Pagination working with icons html](../images/bootstrap/pagination-with-icons-html.png)
@@ -7371,13 +7428,14 @@ Here is an example with provided Bootstrap v4.3 code:
 
 |Method | Description | Return Type
 --- | --- | ---
-**click()** | Click the button | void
+**click()** | Click the element | void
+**hover()** | Hover on the element | void
+**highlight()** | Highlight element | void
+**unhighlight()** | Unhighlight element | void
 **getText()** | Get button text | String
 **is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
-**select()** | Select button | void
-**selected()** | Radio button is selected | TextAssert
-**get()** | Select button by index | action
+**get()** | Select button by index | UIElement
 
 <br>
 
@@ -7404,7 +7462,36 @@ List Group is located in the following classes:
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java
+// @FindBy(css = "#pagination-states") public static PaginationStates paginationStates;
+@UI("#pagination-states") public static PaginationStates paginationStates;
 
+public class PaginationStates extends Section {
+    @UI("li") public Pagination paginationItems; // @FindBy(css = "li") public Pagination paginationItems;
+}
+
+@Test
+public void isValidationTests() {
+    paginationStates.paginationItems.is()
+            .size(5);
+    paginationStates.is()
+            .core()
+            .hasClass("pagination");
+    paginationStates.paginationItems.get(1).is()
+            .core()
+            .hasClass("disabled");
+    paginationStates.paginationItems.get(3).is()
+            .core()
+            .hasClass("active");
+}
+
+@Test(dataProvider = "listPageTitles")
+public void linkClickableTests(int index, String pageTitle) {
+    paginationStates.paginationItems.get(index).hover();
+    paginationStates.paginationItems.get(index).highlight();
+    paginationStates.paginationItems.get(index).click();
+    newWindowTitleCheck(pageTitle);
+    paginationStates.paginationItems.get(index).unhighlight();
+}
 ```
 
 ![Pagination disabled and active states html](../images/bootstrap/pagination-dis-and-active-html.png)
@@ -7413,13 +7500,14 @@ Here is an example with provided Bootstrap v4.3 code:
 
 |Method | Description | Return Type
 --- | --- | ---
-**click()** | Click the button | void
+**click()** | Click the element | void
+**hover()** | Hover on the element | void
+**highlight()** | Highlight element | void
+**unhighlight()** | Unhighlight element | void
 **getText()** | Get button text | String
 **is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
-**select()** | Select button | void
-**selected()** | Radio button is selected | TextAssert
-**get()** | Select button by index | action
+**get()** | Select button by index | UIElement
 
 <br>
 
@@ -7446,7 +7534,44 @@ List Group is located in the following classes:
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java
+// @FindBy(css = "#pagination-big") public static PaginationSizeBig paginationSizeBig;
+// @FindBy(css = "#pagination-small") public static PaginationSizeSmall paginationSizeSmall;
+@UI("#pagination-big") public static PaginationSizeBig paginationSizeBig;
+@UI("#pagination-small") public static PaginationSizeSmall paginationSizeSmall;
 
+public class PaginationSizeBig extends Section {
+    @UI("li") public Pagination paginationItems; // @FindBy(css = "li") public Pagination paginationItems;
+    @UI(".page-link") public Pagination paginationItemsText; // @FindBy(css = ".page-link") public Pagination paginationItemsText;
+}
+
+public class PaginationSizeSmall extends Section {
+    @UI("li") public Pagination paginationItems; // @FindBy(css = "li") public Pagination paginationItems;
+    @UI(".page-link") public Pagination paginationItemsText; // @FindBy(css = ".page-link") public Pagination paginationItemsText;
+}
+
+@Test
+public void isValidationTests() {
+    paginationSizeBig.paginationItems.is()
+            .size(3);
+    paginationSizeBig.is()
+            .core()
+            .hasClass("pagination pagination-lg");
+    paginationSizeSmall.paginationItems.is()
+            .size(3);
+    paginationSizeSmall.is()
+            .core()
+            .hasClass("pagination pagination-sm");
+}
+
+@Test(dataProvider = "listData")
+public void linkTextTests(int index, String linkText) {
+    paginationSizeBig.paginationItemsText.get(index).is()
+            .core()
+            .css("font-size", is("20px"));
+    paginationSizeSmall.paginationItemsText.get(index).is()
+            .core()
+            .css("font-size", is("14px"));
+}
 ```
 
 ![Pagination sizing html](../images/bootstrap/pagination-sizing-html.png)
@@ -7455,13 +7580,14 @@ Here is an example with provided Bootstrap v4.3 code:
 
 |Method | Description | Return Type
 --- | --- | ---
-**click()** | Click the button | void
+**click()** | Click the element | void
+**hover()** | Hover on the element | void
+**highlight()** | Highlight element | void
+**unhighlight()** | Unhighlight element | void
 **getText()** | Get button text | String
 **is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
-**select()** | Select button | void
-**selected()** | Radio button is selected | TextAssert
-**get()** | Select button by index | action
+**get()** | Select button by index | UIElement
 
 <br>
 
@@ -7476,34 +7602,75 @@ Button group is represented by Section class in Java:
 
 #### Alignment
 
-***[Pagination sizing](https://getbootstrap.com/docs/4.3/components/pagination/#alignment)***
+***[Pagination alignment](https://getbootstrap.com/docs/4.3/components/pagination/#alignment)***
 
 List Group is located in the following classes:
  
   - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.complex.Pagination_
   
 
-![Pagination sizing example](../images/bootstrap/pagination-alignment-example.png)
+![Pagination alignment example](../images/bootstrap/pagination-alignment-example.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java
+// @FindBy(css = "#pagination-center") public static PaginationAlignCenter paginationAlignCenter;
+// @FindBy(css = "#pagination-end") public static PaginationAlignEnd paginationAlignEnd; 
+@UI("#pagination-center") public static PaginationAlignCenter paginationAlignCenter;
+@UI("#pagination-end") public static PaginationAlignEnd paginationAlignEnd;
 
+public class PaginationAlignCenter extends Section {
+    @UI("li") public Pagination paginationItems; // @FindBy(css = "li") public Pagination paginationItems;
+}
+
+public class PaginationAlignEnd extends Section {
+    @UI("li") public Pagination paginationItems; // @FindBy(css = "li") public Pagination paginationItems;
+}
+
+@Test
+public void isValidationTests() {
+    paginationAlignCenter.paginationItems.is()
+            .size(5);
+    paginationAlignCenter.is()
+            .core()
+            .hasClass("pagination justify-content-center");
+    paginationAlignCenter.paginationItems.get(1).is()
+            .core()
+            .hasClass("disabled");
+    paginationAlignEnd.paginationItems.is()
+            .size(5);
+    paginationAlignEnd.is()
+            .core()
+            .hasClass("pagination justify-content-end");
+    paginationAlignEnd.paginationItems.get(1).is()
+            .core()
+            .hasClass("disabled");
+}
+
+@Test(dataProvider = "listPageTitles")
+public void linkClickableCenterTests(int index, String pageTitle) {
+    paginationAlignCenter.paginationItems.get(index).hover();
+    paginationAlignCenter.paginationItems.get(index).highlight();
+    paginationAlignCenter.paginationItems.get(index).click();
+    newWindowTitleCheck(pageTitle);
+    paginationAlignCenter.paginationItems.get(index).unhighlight();
+}
 ```
 
-![Pagination sizing html](../images/bootstrap/pagination-alignment-html.png)
+![Pagination alignment html](../images/bootstrap/pagination-alignment-html.png)
 
 
 
 |Method | Description | Return Type
 --- | --- | ---
-**click()** | Click the button | void
+**click()** | Click the element | void
+**hover()** | Hover on the element | void
+**highlight()** | Highlight element | void
+**unhighlight()** | Unhighlight element | void
 **getText()** | Get button text | String
 **is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
-**select()** | Select button | void
-**selected()** | Radio button is selected | TextAssert
-**get()** | Select button by index | action
+**get()** | Select button by index | UIElement
 
 <br>
 

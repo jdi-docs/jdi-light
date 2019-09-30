@@ -8711,7 +8711,8 @@ Here is an example with provided Bootstrap v4.3 code:
 
 ![Card Body Example Code](../images/bootstrap/cardsubslinks-html.png)
 
-Inner elements of Card with Subtitles and Links represented by the following classes:<br>
+Inner elements of Card with Subtitles and Links represented by the following classes:
+
 + [Text](https://jdi-docs.github.io/jdi-light/#text)<br>
 + [Link](https://jdi-docs.github.io/jdi-light/#link)
 
@@ -8878,6 +8879,7 @@ Here is an example with provided Bootstrap v4.3 code:
 ![Card custom CSS Example Code](../images/bootstrap/card_custom_CSS_html.png)
 
 Inner elements of Card using custom CSS represented by the following classes:<br>
+
 + [Text](https://jdi-docs.github.io/jdi-light/#text)<br>
 + [Button](https://jdi-docs.github.io/jdi-light/#button)
 
@@ -8950,6 +8952,7 @@ Here is an example with provided Bootstrap v4.3 code:
 ![Card horizontal example](../images/bootstrap/card_horizontal-html.png)
  
  Inner elements of Card Horizontal represented by the following classes:<br>
+ 
  + [Text](https://jdi-docs.github.io/jdi-light/#text)<br>
  + [Image](https://jdi-docs.github.io/jdi-light/#image)
  

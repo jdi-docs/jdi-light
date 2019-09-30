@@ -4644,7 +4644,7 @@ Here is an example with provided Bootstrap v4.3 code:
 
 Here is an example with provided Bootstrap v4.3 code:
   
-![Pagination HTML example](../images/bootstrap/pagination-icons-html.png)
+![Pagination HTML example](../images/bootstrap/pagination-with-icons-html.png)
 
 **Pagination with disabled item**
 
@@ -7302,6 +7302,220 @@ Button group is represented by Section class in Java:
   [Section](https://jdi-docs.github.io/jdi-light/#section)  
 
 <br>
+
+
+### Pagination
+
+#### Overview
+
+***[Pagination overview](https://getbootstrap.com/docs/4.3/components/pagination/#overview)***
+
+List Group is located in the following classes:
+ 
+  - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.complex.Pagination_
+  
+
+![Pagination overview example](../images/bootstrap/pagination-overview-example.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java
+
+```
+
+![Pagination overview html](../images/bootstrap/pagination-overview-html.png)
+
+
+
+|Method | Description | Return Type
+--- | --- | ---
+**click()** | Click the button | void
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**select()** | Select button | void
+**selected()** | Radio button is selected | TextAssert
+**get()** | Select button by index | action
+
+<br>
+
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/pagination/OverviewTests.java)
+<br>
+
+Button group is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+
+<br>
+
+#### Working with icons
+
+***[Pagination working with icons](https://getbootstrap.com/docs/4.3/components/pagination/#working-with-icons)***
+
+List Group is located in the following classes:
+ 
+  - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.complex.Pagination_
+  
+
+![Pagination working with icons example](../images/bootstrap/pagination-icons-example.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java
+
+```
+
+![Pagination working with icons html](../images/bootstrap/pagination-with-icons-html.png)
+
+
+
+|Method | Description | Return Type
+--- | --- | ---
+**click()** | Click the button | void
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**select()** | Select button | void
+**selected()** | Radio button is selected | TextAssert
+**get()** | Select button by index | action
+
+<br>
+
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/pagination/IconsTests.java)
+<br>
+
+Button group is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+
+<br>
+
+#### Disabled and active states
+
+***[Pagination disabled and active states](https://getbootstrap.com/docs/4.3/components/pagination/#disabled-and-active-states)***
+
+List Group is located in the following classes:
+ 
+  - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.complex.Pagination_
+  
+
+![Pagination disabled and active states example](../images/bootstrap/pagination-dis-and-active-example.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java
+
+```
+
+![Pagination disabled and active states html](../images/bootstrap/pagination-dis-and-active-html.png)
+
+
+
+|Method | Description | Return Type
+--- | --- | ---
+**click()** | Click the button | void
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**select()** | Select button | void
+**selected()** | Radio button is selected | TextAssert
+**get()** | Select button by index | action
+
+<br>
+
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/pagination/StatesTests.java)
+<br>
+
+Button group is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+
+<br>
+
+#### Sizing
+
+***[Pagination sizing](https://getbootstrap.com/docs/4.3/components/pagination/#sizing)***
+
+List Group is located in the following classes:
+ 
+  - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.complex.Pagination_
+  
+
+![Pagination sizing example](../images/bootstrap/pagination-sizing-example.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java
+
+```
+
+![Pagination sizing html](../images/bootstrap/pagination-sizing-html.png)
+
+
+
+|Method | Description | Return Type
+--- | --- | ---
+**click()** | Click the button | void
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**select()** | Select button | void
+**selected()** | Radio button is selected | TextAssert
+**get()** | Select button by index | action
+
+<br>
+
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/pagination/SizingTests.java)
+<br>
+
+Button group is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+
+<br>
+
+#### Alignment
+
+***[Pagination sizing](https://getbootstrap.com/docs/4.3/components/pagination/#alignment)***
+
+List Group is located in the following classes:
+ 
+  - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.complex.Pagination_
+  
+
+![Pagination sizing example](../images/bootstrap/pagination-alignment-example.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java
+
+```
+
+![Pagination sizing html](../images/bootstrap/pagination-alignment-html.png)
+
+
+
+|Method | Description | Return Type
+--- | --- | ---
+**click()** | Click the button | void
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**select()** | Select button | void
+**selected()** | Radio button is selected | TextAssert
+**get()** | Select button by index | action
+
+<br>
+
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/pagination/AlignTests.java)
+<br>
+
+Button group is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+
+<br>
+
 
 ### Input group
 #### Basic Example

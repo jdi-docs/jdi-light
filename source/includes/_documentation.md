@@ -5297,24 +5297,24 @@ Add some navigation to a card’s header (or block) with Bootstrap’s
 @UI("#card-navigation") // @FindBy(id = "card-navigation")
 public static CardNavigation cardNavigation;
 
-@UI(".nav")
+@UI(".nav") // @FindBy(css = ".nav")
 public Menu nav;
 
-@UI("#activeLink")
+@UI("#activeLink") // @FindBy(id = "activeLink")
 public Link activeLink;
-@UI("#jdiLink")
+@UI("#jdiLink") // @FindBy(id = "jdiLink")
 public Link jdiLink;
-@UI("#disabledLink")
+@UI("#disabledLink") // @FindBy(id = "disabledLink")
 public Link disabledLink;
 
 @Title
-@UI("h5")
+@UI("h5") // @FindBy(tagName = "h5")
 public Text title;
 
-@UI(".card-text")
+@UI(".card-text") // @FindBy(css = ".card-text")
 public Text subtitle;
 
-@UI("button")
+@UI("button") // @FindBy(tagName = "button")
 public Button button;
 
 String titleText = "SPECIAL TITLE TREATMENT";

@@ -8353,6 +8353,70 @@ Inner elements of Card with Subtitles and Links represented by the following cla
 
 <br><br><br><br><br><br>
 
+####Card Images
+```java 
+@UI("#card-image") //FindBy(css = "#card-image")
+public static CardImage cardImage;
+
+@Test
+public void availabilityTest() {
+    cardImage.image.is()
+            .displayed()
+            .enabled();
+}
+
+@Test
+public void getSrcTest() {
+    assertEquals(cardImage.image.src(), SRC_ATTR_EXPECTED);
+}
+
+@Test
+public void getAltTest() {
+    assertEquals(cardImage.image.alt(), ALT_ATTR_EXPECTED);
+}
+
+@Test
+public void isValidationTest() {
+    cardImage.image.is().src(is(SRC_ATTR_EXPECTED));
+    cardImage.image.is().alt(is(ALT_ATTR_EXPECTED));
+    cardImage.image.assertThat().width(is(WIDTH));
+    cardImage.image.assertThat().height(is(HEIGHT));
+}
+
+@Test
+public void baseValidationTest() {
+     baseValidation(cardImage.image);
+     baseValidation(cardImage.text);
+}
+
+@Test
+public void imageClassTest() {
+     cardImage.image.is().core().hasClass(IMAGE_TOP_CLASS);
+     cardImage.image.assertThat().core().hasClass(IMAGE_TOP_CLASS);
+}
+```
+
+<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/card/#images" target="_blank">Card Images</a> are used with .card-img-top to place an image to the top of the card. With .card-text, text can be added to the card. Text within .card-text can also be styled with the standard HTML tags.
+
+![Card Image Example](../images/bootstrap/card-image.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Card Image Example Code](../images/bootstrap/card-image-html.png)
+ And here are methods available in Java:
+
+|Method | Description | Return Type
+--- | --- | ---
+**src()** | get attribute src | String
+**alt()** | get attribute alt | String
+**hasClass(String className)** | check that expected className is presented | IsAssert
+**is()** | property that returns object for work with assertions| TextAssert
+**assertThat()** | property that returns object for work with assertions| TextAssert
+**displayed()** | check item is displayed | TextAssert
+**enabled()** | check item is enabled | TextAssert
+ 
+[Card Image test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardImageTests.java)
+
 ####Card Body
 ```java 
 

@@ -7858,8 +7858,6 @@ public class CardHorizontal extends Section {
     @UI("//p[contains(text(), 'fictional character')]") public Text mainText;
     @UI(".text-muted") public Text smallText;
     @UI(".card-img") public Image image;
-    @UI(".col-md-4") public UIElement colMd4;
-    @UI(".col-md-8") public UIElement colMd8;
 }
 
 @Test
@@ -7892,7 +7890,7 @@ Here is an example with provided Bootstrap v4.3 code:
  
  [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardHorizontalTests.java)
  
-<br><br><br><br><br>
+<br><br><br>
 
 ####Card Mixins Utilities
 ```java 
@@ -7953,6 +7951,8 @@ Here is an example with provided Bootstrap v4.3 code:
 
 Inner elements of Card Mixing Utilities represented by the following classes:
 [Text](https://jdi-docs.github.io/jdi-light/#text)
+
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardMixinsUtilitiesTests.java)
 <br><br><br><br><br><br><br><br>
 
 ### Jumbotron

@@ -5635,6 +5635,7 @@ For example .card-columns class to generate a set of responsive tiers for changi
  ![Card Columns Example](../images/bootstrap/card-columns.png)
  
  Here is an example with provided Bootstrap v4.3 code:
+ 
  ```java
     @UI(".card-columns") public static CardColumns cardColumns; //@FindBy(css='.card-columns')
  

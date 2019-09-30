@@ -1721,7 +1721,7 @@ Here is the list of available methods in Java JDI Light:
 [C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/TitleTests.cs)
 
 
-## Complex elements
+## HTML5 Complex elements
 ### RadioButtons
 
 **RadioButtons** – interface element that allows user to select a single option from a predefined group.

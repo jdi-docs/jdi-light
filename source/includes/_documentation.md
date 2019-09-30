@@ -5469,33 +5469,88 @@ Available methods and properties in C# JDI Light:
  
   **Card Background And Color**
 
-Use text and background utilities to change the appearance of a card.
+<a href="https://getbootstrap.com/docs/4.3/components/card/#background-and-color" target="a_blank"> Card Background And Color</a> - use text and background utilities to change the appearance of a card.
+
+
+
+
 
 ![Card Background And Color Example](../images/bootstrap/cardbackgroundandcolor.png)
 
+```java 
+
+public class CardWithHeaderAndFooter extends Card {
+    @Title
+    @UI(".card-title") public Text title; //@FindBy(css = ".card-title"")
+    @UI(".card-body p") public Text paragraph;
+    @UI("button") public Button button;
+    @UI(".card-header")public Text header;
+    @UI("//*[contains(@class, 'footer')]") public Text footer;
+}
+
+@UI("#card-with-header-and-footer") public static CardWithHeaderAndFooter cardWithHeaderAndFooter;//@FindBy(css = "#card-with-header-and-footer")
+@UI("#card-bright-blue") public static CardWithHeaderAndFooter cardBrightBlue;
+@UI("#card-grey") public static CardWithHeaderAndFooter cardGrey;
+@UI("#card-green") public static CardWithHeaderAndFooter cardGreen;
+@UI("#card-red") public static CardWithHeaderAndFooter cardRed;
+@UI("#card-yellow") public static CardWithHeaderAndFooter cardYellow;
+@UI("#card-blue") public static CardWithHeaderAndFooter cardBlue;
+@UI("#card-light") public static CardWithHeaderAndFooter cardLight;
+@UI("#card-dark") public static CardWithHeaderAndFooter cardDark;
+
+@DataProvider(name = "cardColors")
+public static Object[][] cardColors() {
+    return new Object[][]{
+            {cardBrightBlue, "bg-primary", "rgba(0, 123, 255, 1)"},
+            {cardGrey, "bg-secondary", "rgba(108, 117, 125, 1)"},
+            {cardGreen, "bg-success", "rgba(40, 167, 69, 1)"},
+            {cardRed, "bg-danger", "rgba(220, 53, 69, 1)"},
+            {cardYellow, "bg-warning", "rgba(255, 193, 7, 1)"},
+            {cardBlue, "bg-info", "rgba(23, 162, 184, 1)"},
+            {cardLight, "bg-light", "rgba(248, 249, 250, 1)"},
+            {cardDark, "bg-dark", "rgba(52, 58, 64, 1)"},
+    };
+}
+
+@Test(dataProvider = "cardColors")
+public void checkColorCardsTest(CardWithHeaderAndFooter card, String cssClass, String color) {
+    card.is()
+            .core()
+            .hasClass(cssClass)
+            .css("background-color", is(color));
+
+    card.header.is()
+            .displayed().and()
+            .core().css("background-color", is("rgba(0, 0, 0, 0.03)"));
+
+    card.paragraph.is()
+            .displayed().and()
+            .core().css("background-color", is("rgba(0, 0, 0, 0)"));
+
+}
+
+```
+
+
 Here is an example with provided Bootstrap v4.3 code:
+
+
 
 ![Card Background And Color Code](../images/bootstrap/cardbackgroundandcolor-html.png)
 
-Available methods in Java JDI Light:
+Card Navigation is represented by Section class in Java:
 
-|Method | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  | 
- 
-Available methods and properties in C# JDI Light:
++ [Section](https://jdi-docs.github.io/jdi-light/#section)
 
-|Method/Property | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  |
- |  |
- <br>
+Inner elements of Card Navigation can be represented by the following classes:
+
++ [Text](https://jdi-docs.github.io/jdi-light/#text)  
++ [Button](https://jdi-docs.github.io/jdi-light/#button)
++ [Link](https://jdi-docs.github.io/jdi-light/#link)
++ [Menu](https://jdi-docs.github.io/jdi-light/#menu)
+
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardBackgroundAndColorTests.java" target="_blank">Bootstrap test examples</a>
+ <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
  **Card Border**
 

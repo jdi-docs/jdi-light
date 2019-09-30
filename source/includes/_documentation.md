@@ -5628,35 +5628,51 @@ Available methods and properties in C# JDI Light:
  <br>
    
    <br>  **Card Columns**
- 
-Card columns can also be extended and customized with some additional code. 
+
+<a href="https://getbootstrap.com/docs/4.3/components/card/#card-columns" target="a_blank">Card columns </a>can also be extended and customized with some additional code. 
 For example .card-columns class to generate a set of responsive tiers for changing the number of columns.
  
  ![Card Columns Example](../images/bootstrap/card-columns.png)
  
  Here is an example with provided Bootstrap v4.3 code:
+ ```java
+    @UI(".card-columns") public static CardColumns cardColumns; //@FindBy(css='.card-columns')
+ 
+    public class CardColumns extends CardWithinCardColumns {
+
+    @UI(".card:nth-of-type(1)") public CardWithinCardColumns topLeftCard;
+    @UI(".card:nth-of-type(2)") public CardWithinCardColumns bottomLeftCard;
+    @UI(".card:nth-of-type(3)") public CardWithinCardColumns topRightCard;
+    @UI(".card:nth-of-type(4)") public CardWithinCardColumns middleRightCard;
+    @UI(".card:nth-of-type(5)") public CardWithinCardColumns bottomRightCard;
+    }
+ 
+    @Test
+    public void checkElementsPositionTest() {
+        assertTrue(cardColumns.topLeftCard.core().getLocation().x < cardColumns.topRightCard.core().getLocation().x);
+        assertTrue(cardColumns.topLeftCard.core().getLocation().y < cardColumns.bottomLeftCard.core().getLocation().y);
+        assertTrue(cardColumns.topRightCard.core().getLocation().y < cardColumns.middleRightCard.core().getLocation().y);
+        assertTrue(cardColumns.middleRightCard.core().getLocation().y < cardColumns.bottomRightCard.core().getLocation().y);
+        assertTrue(cardColumns.bottomLeftCard.core().getLocation().x < cardColumns.bottomRightCard.core().getLocation().x);
+        assertTrue(cardColumns.bottomLeftCard.core().getLocation().x < cardColumns.middleRightCard.core().getLocation().x);
+    }
+ ```
  
  ![Card Columns Example Code](../images/bootstrap/card-columns-html.png)
  
-Available methods in Java JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  | 
+ Card sections are represented by Section class in Java:
+  <ul>
+  <li>[Section](https://jdi-docs.github.io/jdi-light/#section)</li>
+  </ul>
  
-Available methods and properties in C# JDI Light:
+ Inner elements of Card groups can be represented by the following classes:
+ <ul>
+ <li>[Text](https://jdi-docs.github.io/jdi-light/#text)</li>
+ <li>[Image](https://jdi-docs.github.io/jdi-light/#image)</li>
+ </ul>
+   
+ [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardColumnsTests.java)
 
-|Method/Property | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  |
- |  |
- <br>
  
 ####Card groups
 
@@ -5696,28 +5712,6 @@ Here is an example with provided Bootstrap v4.3 code:
         assertEquals(cardGroupWithoutFooter.card2.image.alt(), card2ImageAlt);
         assertEquals(cardGroupWithFooter.card1.image.alt(), card1ImageAlt);
         assertEquals(cardGroupWithFooter.card2.image.alt(), card2ImageAlt);
-    }
-
-    @Test
-    public void getTitleTextTest() {
-        assertEquals(cardGroupWithoutFooter.card1.title.getText(), card1Title);
-        assertEquals(cardGroupWithoutFooter.card2.title.getText(), card2Title);
-        assertEquals(cardGroupWithFooter.card1.title.getText(), card1Title);
-        assertEquals(cardGroupWithFooter.card2.title.getText(), card2Title);
-    }
-
-    @Test
-    public void getMainTextTest() {
-        assertEquals(cardGroupWithoutFooter.card1.mainText.getText(), card1MainText);
-        assertEquals(cardGroupWithoutFooter.card2.mainText.getText(), card2MainText);
-        assertEquals(cardGroupWithFooter.card1.mainText.getText(), card1MainText);
-        assertEquals(cardGroupWithFooter.card2.mainText.getText(), card2MainText);
-    }
-
-    @Test
-    public void getMutedTextTest() {
-        assertEquals(cardGroupWithoutFooter.card1.mutedText.getText(), card1HeroName);
-        assertEquals(cardGroupWithoutFooter.card2.mutedText.getText(), card2HeroName);
     }
 ```
 
@@ -5759,28 +5753,6 @@ Here is an example with provided Bootstrap v4.3 code:
         assertEquals(cardGroupWithoutFooter.card2.image.alt(), card2ImageAlt);
         assertEquals(cardGroupWithFooter.card1.image.alt(), card1ImageAlt);
         assertEquals(cardGroupWithFooter.card2.image.alt(), card2ImageAlt);
-    }
-
-    @Test
-    public void getTitleTextTest() {
-        assertEquals(cardGroupWithoutFooter.card1.title.getText(), card1Title);
-        assertEquals(cardGroupWithoutFooter.card2.title.getText(), card2Title);
-        assertEquals(cardGroupWithFooter.card1.title.getText(), card1Title);
-        assertEquals(cardGroupWithFooter.card2.title.getText(), card2Title);
-    }
-
-    @Test
-    public void getMainTextTest() {
-        assertEquals(cardGroupWithoutFooter.card1.mainText.getText(), card1MainText);
-        assertEquals(cardGroupWithoutFooter.card2.mainText.getText(), card2MainText);
-        assertEquals(cardGroupWithFooter.card1.mainText.getText(), card1MainText);
-        assertEquals(cardGroupWithFooter.card2.mainText.getText(), card2MainText);
-    }
-
-    @Test
-    public void getFooterTextTest() {
-        assertEquals(cardGroupWithFooter.card1.footerText.getText(), card1HeroName);
-        assertEquals(cardGroupWithFooter.card2.footerText.getText(), card2HeroName);
     }
 ```
 

@@ -4979,6 +4979,53 @@ Available methods and properties in C# JDI Light:
  |  |
  |  |
  <br>
+ 
+**Card list groups** 
+
+<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.0/components/jumbotron" target="_blank">Card list groups</a> – Create lists of content in a card with a flush list group.
+
+```java 
+
+public class CardListGroups extends Section {
+
+    @UI(".card-header") public Label cardHeader; //@FindBy(".card-header"))
+    @UI(".list-group-item") public WebList listGroups; //@FindBy(".list-group-item")
+    
+    @Test
+    public void checkCardListHeaderTest() {
+        cardListGroups.cardHeader.assertThat().text(cardHeaderText);
+    }
+    
+    @Test
+    public void checkCardListCellsQuantity() {
+        assertEquals(cardListGroups.listGroups.size(), cardListGroupsSize);
+    }
+    
+    @Test
+    public void checkCardListGroupsValues() {
+        int checkedValues = 0;
+        for (WebElement s : cardListGroups.listGroups) {
+            if (cardListGroupsValues.contains(s.getText())) {
+                checkedValues++;
+            }
+        }
+        assertEquals(cardListGroupsValues.size(), checkedValues);
+    }
+}
+
+```
+
+![Card list groups](../images/bootstrap/card_list_groups.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Card Body Example Code](../images/bootstrap/card_list_groups_code.png)
+
+|Method | Description | Return Type
+--- | --- | ---
+ getText()| Returns text of list cell  | String
+ size()| Returns cells quantity of list groups   | int 
+ 
 
  
 **Kitchen Sink**

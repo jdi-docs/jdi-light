@@ -8237,66 +8237,57 @@ Inner elements of multiple input can be represented by the following classes:
 
 ```java 
 
-public class ButtonAddons extends Section {
-// Button addons locators
-    @Css("#button-addon1")
-    public Button button1;
-    @XPath("//*[@aria-describedby='button-addon1']")
-    public TextField input1;
-//
-    @XPath("//*[@aria-describedby='button-addon2']")
-    public TextField input2;
-    @Css("#button-addon2")
-    public Button button2;
-//
-    @Css("#button-addon3 > button")
-    public ListGroup anyButtons;
-    @XPath("//*[@aria-describedby='button-addon3']")
-    public TextField input3;
-//
-    @XPath("//*[@aria-describedby='button-addon4']")
-    public TextField input4;
-    @Css("#button-addon4 > button")
-    public ListGroup nextButtons;
-}
-
 // Button addons
     @UI("#input-group-button-addon1") public static ButtonAddons inputGroupButtonAddons1;
     @UI("#input-group-button-addon2") public static ButtonAddons inputGroupButtonAddons2;
     @UI("#input-group-button-addon3") public static ButtonAddons inputGroupButtonAddons3;
     @UI("#input-group-button-addon4") public static ButtonAddons inputGroupButtonAddons4;
+//    @FindBy(css = "#input-group-button-addon4") public static ButtonAddons inputGroupButtonAddons4;
+
+public class ButtonAddons extends Section {
+// Button addons locators
+    @UI("button")
+    public Button button;
+    @UI("input")
+    public TextField input;
+
+    @UI("button")
+    public ListGroup listButtons;
+    @UI("input")
+    public TextField inputField;
+}
 
 // Button addons tests
     @Test
     public void checkButtonAddon1Test() {
-        inputGroupButtonAddons1.input1.input(text);
-        inputGroupButtonAddons1.button1.click();
-        inputGroupButtonAddons1.input1.assertThat().text(text);
+        inputGroupButtonAddons1.input.input(text);
+        inputGroupButtonAddons1.button.click();
+        inputGroupButtonAddons1.input.assertThat().text(text);
     }
 
     @Test
     public void checkButtonAddon2Test() {
-        inputGroupButtonAddons2.input2.input(text);
-        inputGroupButtonAddons2.button2.click();
-        inputGroupButtonAddons2.input2.input(placeholder_text);
-        inputGroupButtonAddons2.input2.assertThat().text(placeholder_text);
+        inputGroupButtonAddons2.input.input(text);
+        inputGroupButtonAddons2.button.click();
+        inputGroupButtonAddons2.input.input(placeholder_text);
+        inputGroupButtonAddons2.input.assertThat().text(placeholder_text);
     }
 
     @Test
     public void checkButtonAddon3Test() {
-        inputGroupButtonAddons3.input3.input(text);
-        inputGroupButtonAddons3.anyButtons.get(1).click();
-        inputGroupButtonAddons3.anyButtons.get(2).click();
-        inputGroupButtonAddons3.input3.assertThat().text(text);
+        inputGroupButtonAddons3.inputField.input(text);
+        inputGroupButtonAddons3.listButtons.get(1).click();
+        inputGroupButtonAddons3.listButtons.get(2).click();
+        inputGroupButtonAddons3.inputField.assertThat().text(text);
     }
 
     @Test
     public void checkButtonAddon4Test() {
-        inputGroupButtonAddons4.input4.input(text);
-        inputGroupButtonAddons4.nextButtons.get(1).click();
-        inputGroupButtonAddons4.input4.input(placeholder_text);
-        inputGroupButtonAddons4.nextButtons.get(2).click();
-        inputGroupButtonAddons4.input4.assertThat().text(placeholder_text);
+        inputGroupButtonAddons4.inputField.input(text);
+        inputGroupButtonAddons4.listButtons.get(1).click();
+        inputGroupButtonAddons4.inputField.input(placeholder_text);
+        inputGroupButtonAddons4.listButtons.get(2).click();
+        inputGroupButtonAddons4.inputField.assertThat().text(placeholder_text);
     }
 
 ```

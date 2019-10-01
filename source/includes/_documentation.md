@@ -6059,22 +6059,6 @@ public Spinner successSpinner;
 @UI(".text-danger")
 public Spinner dangerSpinner;
 
-// @FindBy(css = ".text-warning")
-@UI(".text-warning")
-public Spinner warningSpinner;
-
-// @FindBy(css = ".text-info")
-@UI(".text-info")
-public Spinner infoSpinner;
-
-// @FindBy(css = ".text-light")
-@UI(".text-light")
-public Spinner lightSpinner;
-
-// @FindBy(css = ".text-dark")
-@UI(".text-dark")
-public Spinner darkSpinner;
-
 private static final String spinnerGrowClass = "spinner-grow";
 
 @DataProvider
@@ -6083,11 +6067,7 @@ public Object[][] spinnerData() {
             {growingSpinners.primarySpinner},
             {growingSpinners.secondarySpinner},
             {growingSpinners.successSpinner},
-            {growingSpinners.dangerSpinner},
-            {growingSpinners.warningSpinner},
-            {growingSpinners.infoSpinner},
-            {growingSpinners.lightSpinner},
-            {growingSpinners.darkSpinner}
+            {growingSpinners.dangerSpinner}
     };
 }
 

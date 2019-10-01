@@ -4732,35 +4732,6 @@ Available methods in Java JDI Light:
 **** |  | 
 **** |  | 
 **** |  |  
-
-### List group
-**List group** – a flexible and powerful component for displaying a series of content. Modify and extend them to support just about any content within.
-
-![List group](../images/bootstrap/list_group.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-  
-![List group example](../images/bootstrap/list_group-html.png)
-
-Available methods in Java JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  | 
- 
-
-Available methods and properties in C# JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  |
- |  | 
 <br>
 
 ### Media object
@@ -5008,36 +4979,7 @@ Available methods and properties in C# JDI Light:
  |  |
  |  |
  <br>
- 
-**List Groups**
 
-Create lists of content in a card with a flush list group.
-
-![List Groups Example](../images/bootstrap/listgroups.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-
-![List Groups Example Code](../images/bootstrap/listgroups-html.png)
-
-Available methods in Java JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  | 
- 
-Available methods and properties in C# JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  |
- |  |
- <br>
  
 **Kitchen Sink**
 
@@ -6855,6 +6797,278 @@ Available methods and properties in C# JDI Light:
  |  |
  |  | 
 <br>
+
+### Navs
+
+***[Navs](https://getbootstrap.com/docs/4.3/components/navs/)*** - Different types of combination of navigation components.
+
+#### Base
+**[Base nav](https://getbootstrap.com/docs/4.3/components/navs/#base-nav)** 
+
+![Nav base example](../images/bootstrap/nav-base.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java
+
+```
+
+![Nav base example html](../images/bootstrap/nav-base-li-html.png)
+
+![Nav base example html](../images/bootstrap/nav-base-a-html.png)
+
+
+
+|Method | Description | Return Type
+--- | --- | ---
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**get()** | Select button by index | action
+
+<br>
+
+[Java test examples]()<br>
+
+Nav group is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+
+<br>
+
+#### Horizontal alignment
+**[Nav horizontal alignmen](https://getbootstrap.com/docs/4.3/components/navs/#horizontal-alignment)** 
+
+![Nav horizontal alignmen example](../images/bootstrap/nav-align-center.png)
+
+![Nav horizontal alignmen example](../images/bootstrap/nav-align-right.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java
+
+```
+
+![Nav horizontal alignmen example html](../images/bootstrap/nav-align-center-html.png)
+
+![Nav horizontal alignmen example html](../images/bootstrap/nav-align-right-html.png)
+
+
+
+|Method | Description | Return Type
+--- | --- | ---
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**get()** | Select button by index | action
+
+<br>
+
+[Java test examples]()<br>
+
+Nav group is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+
+<br>
+
+#### Vertical alignment
+**[Nav vertical alignmen](https://getbootstrap.com/docs/4.3/components/navs/#vertical)** 
+
+![Nav vertical alignmen example](../images/bootstrap/nav-vertical.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java
+
+```
+
+![Nav vertical alignmen example html](../images/bootstrap/nav-vertical-li-html.png)
+
+![Nav vertical alignmen example html](../images/bootstrap/nav-vertical-a-html.png)
+
+
+
+|Method | Description | Return Type
+--- | --- | ---
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**get()** | Select button by index | action
+
+<br>
+
+[Java test examples]()<br>
+
+Nav group is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+
+<br>
+
+#### Tabs
+**[Nav tabs](https://getbootstrap.com/docs/4.3/components/navs/#tabs)** 
+
+![Nav tabs example](../images/bootstrap/nav-tabs.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java
+
+```
+
+![Nav tabs example html](../images/bootstrap/nav-tabs-html.png)
+
+
+
+|Method | Description | Return Type
+--- | --- | ---
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**get()** | Select button by index | action
+
+<br>
+
+[Java test examples]()<br>
+
+Nav group is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+
+<br>
+
+#### Pills
+**[Nav pills](https://getbootstrap.com/docs/4.3/components/navs/#pills)** 
+
+![Nav pills example](../images/bootstrap/nav-pills.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java
+
+```
+
+![Nav pills example html](../images/bootstrap/nav-pills-html.png)
+
+
+
+|Method | Description | Return Type
+--- | --- | ---
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**get()** | Select button by index | action
+
+<br>
+
+[Java test examples]()<br>
+
+Nav group is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+
+<br>
+
+#### Fill and justify
+**[Nav fill and justify](https://getbootstrap.com/docs/4.3/components/navs/#fill-and-justify)** 
+
+![Nav fill and justify example](../images/bootstrap/nav-fill-and-justify.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java
+
+```
+
+![Nav fill and justify example html](../images/bootstrap/nav-fill-and-justify-html.png)
+
+
+
+|Method | Description | Return Type
+--- | --- | ---
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**get()** | Select button by index | action
+
+<br>
+
+[Java test examples]()<br>
+
+Nav group is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+
+<br>
+
+#### Tabs with dropdowns
+**[Nav tabs with dropdowns](https://getbootstrap.com/docs/4.3/components/navs/#tabs-with-dropdowns)** 
+
+![Nav tabs with dropdowns example](../images/bootstrap/nav-tabs-with-dropdowns.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java
+
+```
+
+![Nav tabs with dropdowns example html](../images/bootstrap/nav-tabs-with-dropdown-html.png)
+
+
+
+|Method | Description | Return Type
+--- | --- | ---
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**get()** | Select button by index | action
+
+<br>
+
+[Java test examples]()<br>
+
+Nav group is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+
+<br>
+
+
+#### Pills with dropdowns
+**[Nav pills with dropdowns](https://getbootstrap.com/docs/4.3/components/navs/#pills-with-dropdowns)** 
+
+![Nav pills with dropdowns example](../images/bootstrap/nav-pills-with-dropdowns.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java
+
+```
+
+![Nav pills with dropdowns example html](../images/bootstrap/nav-pills-with-dropdown-html.png)
+
+
+
+|Method | Description | Return Type
+--- | --- | ---
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**get()** | Select button by index | action
+
+<br>
+
+[Java test examples]()<br>
+
+Nav group is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+
+<br>
+
+
+
 
 ### List group
 

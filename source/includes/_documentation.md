@@ -6810,7 +6810,43 @@ Available methods and properties in C# JDI Light:
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java
+// @FindBy(css = "#nav-base-li") public static NavsBaseLi navsBaseLi;
+@UI("#nav-base-li") public static NavsBaseLi navsBaseLi;
 
+public class NavsBaseLi extends Section {
+    @UI("li") public ListGroup navItem; // @FindBy(css = "li") public ListGroup navItem;
+    @UI("li a") public ListGroup navItemLink; // @FindBy(css = "li a")  public ListGroup navItemLink;
+}
+
+@Test(dataProvider = "clickValidate")
+public void linkClickableLiTests(int index, String pageTitle) {
+    navsBaseLi.navItem.get(index).highlight();
+    navsBaseLi.navItem.get(index).click();
+    newWindowTitleCheck(pageTitle);
+    navsBaseLi.navItem.get(index).unhighlight();
+}
+
+@Test(dataProvider = "listData")
+public void itemsIsValidationTests(int index, String linkText) {
+    navsBaseLi.navItemLink.get(index).is()
+            .core()
+            .hasClass("nav-link")
+            .text(is(linkText));
+}
+
+@Test
+public void isValidationTests() {
+    navsBaseLi.navItem.is()
+            .size(4);
+    navsBaseLi.navItemLink.get(1)
+            .is()
+            .core()
+            .hasClass("active");
+    navsBaseLi.navItemLink.get(4)
+            .is()
+            .core()
+            .hasClass("disabled");
+}
 ```
 
 ![Nav base example html](../images/bootstrap/nav-base-li-html.png)
@@ -6824,7 +6860,10 @@ Here is an example with provided Bootstrap v4.3 code:
 **getText()** | Get button text | String
 **is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
-**get()** | Select button by index | action
+**get()** | Select button by index | UIElement
+**click()** | Get button text | void
+**highlight()** | Get button text | void
+**unhighlight()** | Get button text | void
 
 <br>
 
@@ -6846,7 +6885,45 @@ Nav group is represented by Section class in Java:
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java
+// @FindBy(css = "#nav-center") public static NavsAlignmentCenter navsAlignmentCenter;
+@UI("#nav-center") public static NavsAlignmentCenter navsAlignmentCenter;
 
+public class NavsAlignmentCenter extends Section {
+    @UI("li") public ListGroup navItem; // @FindBy(css = "li") public ListGroup navItem;
+    @UI("li a") public ListGroup navItemLink; // @FindBy(css = "li a")  public ListGroup navItemLink;
+}
+
+@Test
+public void isValidationTests() {
+    navsAlignmentCenter.navItem.is()
+            .size(4);
+    navsAlignmentCenter.is()
+            .displayed()
+            .enabled()
+            .core()
+            .hasClass("nav justify-content-center");
+    navsAlignmentCenter.navItemLink.get(1)
+            .is()
+            .core()
+            .hasClass("active");
+}
+
+@Test(dataProvider = "listData")
+public void itemsIsValidationTests(int index, String linkText) {
+    navsAlignmentCenter.navItem.get(index)
+            .is()
+            .core()
+            .hasClass("nav-item")
+            .text(is(linkText));
+}
+
+@Test(dataProvider = "clickValidate")
+public void linkClickableLiTests(int index, String pageTitle) {
+    navsAlignmentCenter.navItem.get(index).highlight();
+    navsAlignmentCenter.navItem.get(index).click();
+    newWindowTitleCheck(pageTitle);
+    navsAlignmentCenter.navItem.get(index).unhighlight();
+}
 ```
 
 ![Nav horizontal alignmen example html](../images/bootstrap/nav-align-center-html.png)
@@ -6860,7 +6937,10 @@ Here is an example with provided Bootstrap v4.3 code:
 **getText()** | Get button text | String
 **is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
-**get()** | Select button by index | action
+**get()** | Select button by index | UIElement
+**click()** | Get button text | void
+**highlight()** | Get button text | void
+**unhighlight()** | Get button text | void
 
 <br>
 
@@ -6880,7 +6960,40 @@ Nav group is represented by Section class in Java:
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java
+// @FindBy(css = "#nav-vert-li") public static NavsVerticalLi navsVerticalLi;
+@UI("#nav-vert-li") public static NavsVerticalLi navsVerticalLi;
 
+public class NavsVerticalLi extends Section {
+    @UI("li") public ListGroup navItem; // @FindBy(css = "li") public ListGroup navItem;
+    @UI("li a") public ListGroup navItemLink; // @FindBy(css = "li a")  public ListGroup navItemLink;
+}
+
+@Test
+public void isValidationTests() {
+    navsVerticalLi.navItem.is()
+            .size(4);
+    navsVerticalLi.is()
+            .displayed()
+            .enabled()
+            .core()
+            .hasClass("nav flex-column");
+    navsVerticalLi.navItemLink.get(1)
+            .is()
+            .core()
+            .hasClass("active");
+    navsVerticalLi.navItemLink.get(4)
+            .is()
+            .core()
+            .hasClass("disabled");
+}
+
+@Test(dataProvider = "clickValidate")
+public void linkClickableLiTests(int index, String pageTitle) {
+    navsVerticalLi.navItem.get(index).highlight();
+    navsVerticalLi.navItem.get(index).click();
+    newWindowTitleCheck(pageTitle);
+    navsVerticalLi.navItem.get(index).unhighlight();
+}
 ```
 
 ![Nav vertical alignmen example html](../images/bootstrap/nav-vertical-li-html.png)
@@ -6894,7 +7007,10 @@ Here is an example with provided Bootstrap v4.3 code:
 **getText()** | Get button text | String
 **is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
-**get()** | Select button by index | action
+**get()** | Select button by index | UIElement
+**click()** | Get button text | void
+**highlight()** | Get button text | void
+**unhighlight()** | Get button text | void
 
 <br>
 
@@ -6914,7 +7030,40 @@ Nav group is represented by Section class in Java:
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java
+// @FindBy(css = "#nav-tabs") public static NavsTabs navsTabs;
+@UI("#nav-tabs") public static NavsTabs navsTabs;
 
+public class NavsTabs extends Section {
+    @UI("li") public ListGroup navItem; // @FindBy(css = "li") public ListGroup navItem;
+    @UI("li a") public ListGroup navItemLink; // @FindBy(css = "li a")  public ListGroup navItemLink;
+}
+
+@Test
+public void isValidationTests() {
+    navsTabs.navItem.is()
+            .size(4);
+    navsTabs.is()
+            .displayed()
+            .enabled()
+            .core()
+            .hasClass("nav nav-tabs");
+    navsTabs.navItemLink.get(1)
+            .is()
+            .core()
+            .hasClass("active");
+    navsTabs.navItemLink.get(4)
+            .is()
+            .core()
+            .hasClass("disabled");
+}
+
+@Test(dataProvider = "clickValidate")
+public void linkClickableLiTests(int index, String pageTitle) {
+    navsTabs.navItem.get(index).highlight();
+    navsTabs.navItem.get(index).click();
+    newWindowTitleCheck(pageTitle);
+    navsTabs.navItem.get(index).unhighlight();
+}
 ```
 
 ![Nav tabs example html](../images/bootstrap/nav-tabs-html.png)
@@ -6926,7 +7075,10 @@ Here is an example with provided Bootstrap v4.3 code:
 **getText()** | Get button text | String
 **is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
-**get()** | Select button by index | action
+**get()** | Select button by index | UIElement
+**click()** | Get button text | void
+**highlight()** | Get button text | void
+**unhighlight()** | Get button text | void
 
 <br>
 
@@ -6946,7 +7098,35 @@ Nav group is represented by Section class in Java:
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java
+// @FindBy(css = "#nav-pills") public static NavsPills navsPills;
+@UI("#nav-pills") public static NavsPills navsPills;
 
+public class NavsPills extends Section {
+    @UI("li") public ListGroup navItem; // @FindBy(css = "li") public ListGroup navItem;
+    @UI("li a") public ListGroup navItemLink; // @FindBy(css = "li a")  public ListGroup navItemLink;
+}
+
+@Test(dataProvider = "listData")
+public void itemsIsValidationTests(int index, String linkText) {
+    navsPills.navItem.get(index)
+            .is()
+            .core()
+            .hasClass("nav-item")
+            .text(is(linkText));
+    navsPills.navItemLink.get(index)
+            .is()
+            .core()
+            .hasClass("nav-link")
+            .text(is(linkText));
+}
+
+@Test(dataProvider = "clickValidate")
+public void linkClickableLiTests(int index, String pageTitle) {
+    navsPills.navItem.get(index).highlight();
+    navsPills.navItem.get(index).click();
+    newWindowTitleCheck(pageTitle);
+    navsPills.navItem.get(index).unhighlight();
+}
 ```
 
 ![Nav pills example html](../images/bootstrap/nav-pills-html.png)
@@ -6958,7 +7138,10 @@ Here is an example with provided Bootstrap v4.3 code:
 **getText()** | Get button text | String
 **is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
-**get()** | Select button by index | action
+**get()** | Select button by index | UIElement
+**click()** | Get button text | void
+**highlight()** | Get button text | void
+**unhighlight()** | Get button text | void
 
 <br>
 
@@ -6978,7 +7161,35 @@ Nav group is represented by Section class in Java:
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java
+// @FindBy(css = "#nav-justify") public static NavsJustify navsJustify;
+@UI("#nav-justify") public static NavsJustify navsJustify;
 
+public class NavsJustify extends Section {
+    @UI("li") public ListGroup navItem; // @FindBy(css = "li") public ListGroup navItem;
+    @UI("li a") public ListGroup navItemLink; // @FindBy(css = "li a")  public ListGroup navItemLink;
+}
+
+@Test(dataProvider = "listData")
+public void itemsIsValidationTests(int index, String linkText) {
+    navsJustify.navItem.get(index)
+            .is()
+            .core()
+            .hasClass("nav-item")
+            .text(is(linkText));
+    navsJustify.navItemLink.get(index)
+            .is()
+            .core()
+            .hasClass("nav-link")
+            .text(is(linkText));
+}
+
+@Test(dataProvider = "clickValidate")
+public void linkClickableLiTests(int index, String pageTitle) {
+    navsJustify.navItem.get(index).highlight();
+    navsJustify.navItem.get(index).click();
+    newWindowTitleCheck(pageTitle);
+    navsJustify.navItem.get(index).unhighlight();
+}
 ```
 
 ![Nav fill and justify example html](../images/bootstrap/nav-fill-and-justify-html.png)
@@ -6990,7 +7201,10 @@ Here is an example with provided Bootstrap v4.3 code:
 **getText()** | Get button text | String
 **is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
-**get()** | Select button by index | action
+**get()** | Select button by index | UIElement
+**click()** | Get button text | void
+**highlight()** | Get button text | void
+**unhighlight()** | Get button text | void
 
 <br>
 
@@ -7010,7 +7224,55 @@ Nav group is represented by Section class in Java:
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java
+// @FindBy(css = "#nav-with-dropdown") public static NavsTabsWithDropdown navsTabsWithDropdown;
+@UI("#nav-with-dropdown") public static NavsTabsWithDropdown navsTabsWithDropdown;
 
+public class NavsTabsWithDropdown extends Section {
+    @UI("li") public ListGroup navItem; // @FindBy(css = "li") public ListGroup navItem;
+    @UI("a.nav-link") public ListGroup navItemLink; // @FindBy(css = "a.nav-link") public ListGroup navItemLink;
+    @JDropdown(expand = ".dropdown-toggle",
+            value = ".dropdown-toggle",
+            list = ".dropdown-item")
+    public Dropdown dropdownMenu;
+}
+
+@Test
+public void isValidationTests() {
+    navsTabsWithDropdown.navItem.is()
+            .size(4);
+    navsTabsWithDropdown.is()
+            .displayed()
+            .enabled()
+            .core()
+            .hasClass("nav nav-tabs");
+    navsTabsWithDropdown.navItemLink.get(1)
+            .is()
+            .core()
+            .hasClass("active");
+    navsTabsWithDropdown.navItemLink.get(4)
+            .is()
+            .core()
+            .hasClass("disabled");
+}
+
+@Test
+public void dropdownIsValidationTests() {
+    navsTabsWithDropdown.dropdownMenu.expand();
+    navsTabsWithDropdown.dropdownMenu
+            .is()
+            .displayed()
+            .expanded()
+            .enabled()
+            .size(4);
+    navsTabsWithDropdown.dropdownMenu
+            .is()
+            .core()
+            .attr("data-toggle", "dropdown")
+            .attr("aria-haspopup", "true")
+            .attr("aria-expanded", "true")
+            .attr("role", "button")
+            .tag("a");
+}
 ```
 
 ![Nav tabs with dropdowns example html](../images/bootstrap/nav-tabs-with-dropdown-html.png)
@@ -7022,7 +7284,12 @@ Here is an example with provided Bootstrap v4.3 code:
 **getText()** | Get button text | String
 **is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
-**get()** | Select button by index | action
+**get()** | Select button by index | UIElement
+**click()** | Get button text | void
+**highlight()** | Get button text | void
+**unhighlight()** | Get button text | void
+**expand()** | Get button text | void
+**expanded()** | Get button text | TextAssert
 
 <br>
 
@@ -7043,7 +7310,45 @@ Nav group is represented by Section class in Java:
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java
+// @FindBy(css = "#nav-pills-drop") public static NavsPillsWithDropdown navsPillsWithDropdown;
+@UI("#nav-pills-drop") public static NavsPillsWithDropdown navsPillsWithDropdown;
 
+public class NavsPillsWithDropdown extends Section {
+    @UI("li") public ListGroup navItem; // @FindBy(css = "li") public ListGroup navItem;
+    @UI("a.nav-link") public ListGroup navItemLink; // @FindBy(css = "a.nav-link") public ListGroup navItemLink;
+    @JDropdown(expand = ".dropdown-toggle",
+            value = ".dropdown-toggle",
+            list = ".dropdown-item")
+    public Dropdown dropdownMenu;
+}
+
+@Test
+public void dropdownIsValidationTests() {
+    navsPillsWithDropdown.dropdownMenu.expand();
+    navsPillsWithDropdown.dropdownMenu
+            .is()
+            .expanded()
+            .size(4)
+            .core()
+            .attr("data-toggle", "dropdown")
+            .attr("aria-haspopup", "true")
+            .attr("aria-expanded", "true")
+            .attr("role", "button")
+            .tag("a");
+    navsPillsWithDropdown.dropdownMenu.expand();
+}
+
+@Test
+public void dropdownClickableTests() {
+    navsPillsWithDropdown.dropdownMenu.select(linkDrop1);
+    newWindowTitleCheck(pageTitle1);
+    navsPillsWithDropdown.dropdownMenu.select(linkDrop2);
+    newWindowTitleCheck(pageTitle2);
+    navsPillsWithDropdown.dropdownMenu.select(linkDrop3);
+    newWindowTitleCheck(pageTitle3);
+    navsPillsWithDropdown.dropdownMenu.select(linkDrop4);
+    newWindowTitleCheck(pageTitle4);
+}
 ```
 
 ![Nav pills with dropdowns example html](../images/bootstrap/nav-pills-with-dropdown-html.png)
@@ -7055,7 +7360,12 @@ Here is an example with provided Bootstrap v4.3 code:
 **getText()** | Get button text | String
 **is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
-**get()** | Select button by index | action
+**get()** | Select button by index | UIElement
+**click()** | Get button text | void
+**highlight()** | Get button text | void
+**unhighlight()** | Get button text | void
+**expand()** | Get button text | void
+**expanded()** | Get button text | TextAssertn
 
 <br>
 

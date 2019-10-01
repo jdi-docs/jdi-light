@@ -6031,17 +6031,93 @@ Here is an example with provided Bootstrap v4.3 code:
 
 **Growing Spinners**
 
-If you don’t fancy a border spinner, switch to the grow spinner.
+If you don’t fancy a border spinner, switch to the <a style="font-weight: bold;" href="https://getbootstrap.com/docs/4.3/components/spinners/#growing-spinner" target="_blank">grow spinner</a>.
 
 Once again, this spinner is built with currentColor, so you can easily change its appearance with <a href="https://getbootstrap.com/docs/4.3/utilities/colors/" target="_blank">text color utilities</a>. 
 Below it is in blue, along with the supported variants.
 
 ![Growing Spinners Example](../images/bootstrap/growingspinners.png)
 
+```java 
+
+// @FindBy(id = "growing-spinners")
+@UI("#growing-spinners") public static GrowingSpinners growingSpinners;
+
+// @FindBy(css = ".text-primary")
+@UI(".text-primary")
+public Spinner primarySpinner;
+
+// @FindBy(css = ".text-secondary")
+@UI(".text-secondary")
+public Spinner secondarySpinner;
+
+// @FindBy(css = ".text-success")
+@UI(".text-success")
+public Spinner successSpinner;
+
+// @FindBy(css = ".text-danger")
+@UI(".text-danger")
+public Spinner dangerSpinner;
+
+// @FindBy(css = ".text-warning")
+@UI(".text-warning")
+public Spinner warningSpinner;
+
+// @FindBy(css = ".text-info")
+@UI(".text-info")
+public Spinner infoSpinner;
+
+// @FindBy(css = ".text-light")
+@UI(".text-light")
+public Spinner lightSpinner;
+
+// @FindBy(css = ".text-dark")
+@UI(".text-dark")
+public Spinner darkSpinner;
+
+private static final String spinnerGrowClass = "spinner-grow";
+
+@DataProvider
+public Object[][] spinnerData() {
+    return new Object[][] {
+            {growingSpinners.primarySpinner},
+            {growingSpinners.secondarySpinner},
+            {growingSpinners.successSpinner},
+            {growingSpinners.dangerSpinner},
+            {growingSpinners.warningSpinner},
+            {growingSpinners.infoSpinner},
+            {growingSpinners.lightSpinner},
+            {growingSpinners.darkSpinner}
+    };
+}
+
+@Test(dataProvider = "spinnerData")
+public void spinnerHasGrowClassTest(Spinner spinner) {
+    spinner.highlight();
+    spinner.is().core().hasClass(spinnerGrowClass);
+}
+
+@Test(dataProvider = "spinnerData")
+public void isValidationTest(Spinner spinner) {
+    spinner.highlight();
+    spinner.is().displayed().and().enabled();
+}
+```
+
 Here is an example with provided Bootstrap v4.3 code:
 
 ![Growing Spinners HTML Example](../images/bootstrap/growingspinners-html.png)
 
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**is()** | Asserts element  | UIAssert
+**displayed()** | Asserts element is displayed  | UIAssert
+**enabled()** | Asserts element is enabled | UIAssert
+**hasClass()** | Match passed value with element class | UISelectAssert 
+
+<a href="javascript: void();">Bootstrap Test Examples</a>
 
 **Spinner Alignment**
 

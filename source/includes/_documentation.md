@@ -8237,27 +8237,6 @@ Inner elements of multiple input can be represented by the following classes:
 
 ```java 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 public class ButtonAddons extends Section {
 // Button addons locators
     @Css("#button-addon1")

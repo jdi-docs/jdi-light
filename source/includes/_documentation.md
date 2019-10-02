@@ -6077,6 +6077,10 @@ Here is an example with provided Bootstrap v4.3 code:
 
 ![Growing Spinners HTML Example](../images/bootstrap/growingspinners-html.png)
 
+Spinner is represented by Section class in Java:
+ 
++ [Section](https://jdi-docs.github.io/jdi-light/#section)
+
 Available methods in Java JDI Light:
 
 |Method | Description | Return Type
@@ -6150,10 +6154,63 @@ that can quickly be used within other components.
 
 ![Spinner Size Native Example](../images/bootstrap/spinner-size-native.png)
 
+```java 
+
+// @FindBy(id = "spinner-size")
+@UI("#spinner-size") public static SpinnerSize spinnerSize;
+
+// @FindBy(css = ".spinner-border-sm")
+@UI(".spinner-border-sm")
+public Spinner smallSpinner;
+
+// @FindBy(css = ".spinner-grow-sm")
+@UI(".spinner-grow-sm")
+public Spinner smallGrowingSpinner;
+
+// @FindBy(id = "spinBorder")
+@UI("#spinBorder")
+public Spinner spinner;
+
+// @FindBy(id = "spinGrow")
+@UI("#spinGrow")
+public Spinner growingSpinner;
+
+private static final String smallSpinnerClass = "spinner-border-sm";
+private static final String smallGrowingSpinnerClass = "spinner-grow-sm";
+private static final String spinnerStyleValue = "width: 3rem; height: 3rem;";
+
+@DataProvider
+public Object[][] spinnerData() {
+    return new Object[][] {
+            {spinnerSize.smallSpinner},
+            {spinnerSize.smallGrowingSpinner},
+            {spinnerSize.spinner},
+            {spinnerSize.growingSpinner}
+    };
+}
+
+@Test(dataProvider = "spinnerData")
+public void isValidationTest(Spinner spinner) {
+    spinner.highlight();
+    spinner.is().enabled().and().displayed();
+}
+
+@Test
+public void spinnerClassTest() {
+    spinnerSize.smallSpinner.is().core().hasClass(smallSpinnerClass);
+    spinnerSize.smallGrowingSpinner.is().core().hasClass(smallGrowingSpinnerClass);
+}
+
+@Test
+public void spinnerStylingTest() {
+    spinnerSize.spinner.is().core().attr("style", spinnerStyleValue);
+    spinnerSize.growingSpinner.is().core().attr("style", spinnerStyleValue);
+}
+```
+
 Here is an example with provided Bootstrap v4.3 code:
 
 ![Spinner Size Native HTML Example](../images/bootstrap/spinner-size-native-html.png)
-
 
 Or, use custom CSS or inline styles to change the dimensions as needed.
 
@@ -6163,6 +6220,21 @@ Here is an example with provided Bootstrap v4.3 code:
 
 ![Spinner Size CSS HTML Example](../images/bootstrap/spinner-size-css-html.png)
 
+Spinner is represented by Section class in Java:
+ 
++ [Section](https://jdi-docs.github.io/jdi-light/#section)
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**is()** | Asserts element  | UIAssert
+**displayed()** | Asserts element is displayed  | UIAssert
+**enabled()** | Asserts element is enabled | UIAssert
+**hasClass()** | Match passed value with element class | UISelectAssert
+**attr()** | Match passed value with element attribute | IsAssert
+
+<a href="javascript: void();">Bootstrap test examples</a>
 
 **Spinner Buttons**
 

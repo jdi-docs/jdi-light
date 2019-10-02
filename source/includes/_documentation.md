@@ -6268,7 +6268,7 @@ Available methods and properties in C# JDI Light:
  <br>
 
 ### Tooltip
-**Tooltip** – is a hint that used in conjuction with a pointer.
+<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/tooltips/" target="_blank">Tooltip</a> is a hint that used in conjuction with a pointer.
 
 ![Tooltip top](../images/bootstrap/tooltip_top.png)
 
@@ -6282,29 +6282,57 @@ Available methods and properties in C# JDI Light:
 
 ![Tooltip disabled](../images/bootstrap/tooltip_disabled.png)
 
+```java 
+
+@UI("#tooltipOnTop") public static Tooltip tooltipOnTopButton; //@FindBy(css = "#tooltipOnTop")
+@UI("#tooltipOnLeft") public static Tooltip tooltipOnLeftButton; //@FindBy(css = "#tooltipOnLeft")
+
+@Test(dataProvider = "Tooltips")
+public void getTooltipTextTests(Tooltip tooltip, String tooltipText) {
+    assertEquals(tooltip.getTooltipText(), tooltipText);
+}
+
+@Test(dataProvider = "TooltipsPlacements")
+public void tooltipPlacementTests(Tooltip tooltip, String placement) {
+    assertEquals(tooltip.getTooltipPlacement(), placement);
+}
+
+@Test(dataProvider = "Tooltips")
+public void tooltipIsVisibleByHoverTests(Tooltip tooltip, String __)
+    tooltip.core().hover();
+    tooltip.assertThat().isVisible();
+}
+
+@Test(dataProvider = "Tooltips")
+public void tooltipIsInvisibleTests(Tooltip tooltip, String __) {
+    tooltip.is().hidden();
+}
+
+@Test
+public void tooltipWithHtmlTest() {
+    assertTrue(tooltipWithHTML.isTooltipWithHTML());
+}
+```
+
 Here is an example with provided Bootstrap v4.3 code:
   
 ![Tooltip example](../images/bootstrap/popover-html.png)
 
 Available methods in Java JDI Light:
 
-|Method | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  | 
- 
-
-Available methods and properties in C# JDI Light:
-
 |Method/Property | Description | Return Type
 --- | --- | ---
- |  | 
- |  | 
- |  |
- |  | 
+click() | Click the item  | void
+getText() |Get item text  |  String
+getValue() |Get item value  |  String
+getTooltipText() |Get tooltip text |String 
+getTooltipPlacement() |Get tooltip placement| String
+isTooltipWithHTML() |Check that tooltip contains html text |boolean
+is()	 |  Assert action	| UIAssert
+assertThat()	 |  Assert action	| UIpAssert
+
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/TooltipTests.java" target="_blank">Bootstrap test example with tooltips</a>
+ 
 <br>
 
 ### Popover

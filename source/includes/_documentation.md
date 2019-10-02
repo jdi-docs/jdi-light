@@ -6005,18 +6005,71 @@ Here is an example with provided Bootstrap v4.3 code:
 ![Border Spinner HTML Example](../images/bootstrap/borderspinner-html.png)
 
 
-**Colored Spinners**
+### Colored Spinners
  
+<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/spinners/#colors" target="_blank">Colored spinners</a>.
 The border spinner uses currentColor for its border-color, 
 meaning you can customize the color with <a href="https://getbootstrap.com/docs/4.3/utilities/colors/" target="_blank">text color utilities</a>. 
 You can use any of our text color utilities on the standard spinner.
 
-![Colored Spinners Example](../images/bootstrap/coloredspinners.png)
+```java 
 
+
+
+
+
+
+ // @FindBy(id = "spinner-text-primary")
+ @UI("#spinner-text-primary") public static ColorSpinner spinnerWithTextPrimary; 
+ // @FindBy(css = "#spinner-text-light")
+ @UI("#spinner-text-light") public static ColorSpinner spinnerWithTextLight; 
+
+ @Test(dataProvider = "Color Spinners")
+ public void assertColorTests(ColorSpinner colorSpinner, String color) {
+    colorSpinner.is().color(color);
+ }
+
+ @Test(dataProvider = "Color Spinners")
+ public void assertSpinnerColorTests(ColorSpinner colorSpinner, String color) {
+    colorSpinner.is()
+        .core()
+        .cssClass(containsString(color));
+ }
+
+ @Test(dataProvider = "Color Spinners")
+ public void assertColorByHasClassTests(ColorSpinner colorSpinner, String color) {
+    colorSpinner.core().hasClass("spinner-border" + color);
+ }
+
+ @Test(dataProvider = "Color Spinners")
+ public void isValidationTest(ColorSpinner colorSpinner, String __) {
+    colorSpinner.is()
+        .displayed()
+        .core()
+        .css("font-size", is("14px"))
+        .cssClass(containsString("spinner-border"))
+        .attr("role", "status");
+ }
+```
+
+![Colored Spinners Example](../images/bootstrap/coloredspinners.png)
 Here is an example with provided Bootstrap v4.3 code:
 
 ![Colored Spinners HTML Example](../images/bootstrap/coloredspinners-html.png)
 
+
+
+Available methods in Java JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+getColor() |Get item color | String
+is()	 |  Assert action	| UIAssert
+assertThat()	 |  Assert action	| UIpAssert
+
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/ColorSpinnersTests.java" target="_blank">Bootstrap test example with colored spinners</a>
+
+<br>
 
 **Growing Spinners**
 

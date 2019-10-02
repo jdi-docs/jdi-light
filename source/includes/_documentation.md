@@ -8989,7 +8989,27 @@ And here are methods available in Java:
 **enabled()** | check item is enabled | TextAssert
 **expand()** | expand dropdown menu | void
 **expanded()** | check that dropdown is expanded | TextAssert
+  
+ <br>
+Input group are represented by Section class in Java:
  
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+  
+Inner elements of input group can be represented by following classes:
+ <ul>
+  <li> [Text](https://jdi-docs.github.io/jdi-light/#text) </li>
+  
+  <li> [TextField](https://jdi-docs.github.io/jdi-light/#textfield) </li> 
+  
+  <li> [TextArea](https://jdi-docs.github.io/jdi-light/#textarea) </li>
+  
+  <li> [Button](https://jdi-docs.github.io/jdi-light/#button-2) </li>
+ 
+ <li>  [See more elements](https://jdi-docs.github.io/jdi-light/#html5-common-elements) </li> 
+ </ul>
+ <br>
+
+
 #### Buttons with dropdowns 
 
 **[Buttons with dropdowns](https://getbootstrap.com/docs/4.3/components/input-group/#buttons-with-dropdowns)** – Buttons with dropdowns have no detailed information on Bootstrap website

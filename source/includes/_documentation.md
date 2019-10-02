@@ -4676,7 +4676,13 @@ Available methods in Java JDI Light:
 
 ###Progress
 
-Progress is custom progress bar featuring support for stacked bars, animated backgrounds, and text labels.
+```java 
+public class Progress extends UIBaseElement<UIAssert> {
+}
+```
+
+<a href="https://getbootstrap.com/docs/4.3/components/progress" target="a_blank">Progress</a> is custom progress bar featuring support for stacked bars, animated backgrounds, and text labels.
+
 
 ![Progress example](../images/bootstrap/progress.png)
 
@@ -4686,12 +4692,42 @@ Here is an example with provided Bootstrap v4.3 code:
 
 **With label**
 
+```java 
+
+//@FindBy(css = "#progress-with-labels")
+@UI("#progress-with-labels") public static Progress progressWithLabels; 
+
+
+@Test
+    public void getDefaultPercentTest() {
+         assertThat(progressWithLabels.core().getText(), is(defaultPercent));
+    }
+ 
+@Test
+    public void getPercentTest() {
+         progressWithLabels.core().is().text(defaultPercent);
+         minus.click();
+         progressWithLabels.core().is().text("20%");
+         for (int i = 0; i < 10; i++) {
+             minus.click();
+         }
+         progressWithLabels.core().is().text(minPercent);
+         plus.click();
+         progressWithLabels.core().is().text("5%");
+         for (int i = 0; i < 30; i++) {
+             plus.click();
+         }
+         progressWithLabels.core().is().text(maxPercent);
+    }
+```
+
 ![Progress label example](../images/bootstrap/progress-label.png)
 
 Here is an example with provided Bootstrap v4.3 code:
   
 ![Progress label HTML example](../images/bootstrap/progress-label-html.png)
 
+<br><br><br><br><br><br><br><br><br><br>
 
 **With backgrounds**
 

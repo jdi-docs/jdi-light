@@ -5697,7 +5697,7 @@ For example .card-columns class to generate a set of responsive tiers for changi
  Here is an example with provided Bootstrap v4.3 code:
  
  ```java
-    @UI(".card-columns") public static CardColumns cardColumns; //@FindBy(css='.card-columns')
+    @UI(".card-columns") public static CardColumns cardColumns; //@FindBy(css='.card-columns') public static CardColumns cardColumns
  
     public class CardColumns extends CardWithinCardColumns {
 
@@ -5714,7 +5714,7 @@ For example .card-columns class to generate a set of responsive tiers for changi
         assertTrue(cardColumns.topLeftCard.core().getLocation().y < cardColumns.bottomLeftCard.core().getLocation().y);
         assertTrue(cardColumns.topRightCard.core().getLocation().y < cardColumns.middleRightCard.core().getLocation().y);
         assertTrue(cardColumns.middleRightCard.core().getLocation().y < cardColumns.bottomRightCard.core().getLocation().y);
-        assertTrue(cardColumns.bottomLeftCard.core().getLocation().x < cardColumns.bottomRightCard.core().getLocation().x);
+        assertTrue(cardColumns.bottomLeftCard.core().getreLocation().x < cardColumns.bottomRightCard.core().getLocation().x);
         assertTrue(cardColumns.bottomLeftCard.core().getLocation().x < cardColumns.middleRightCard.core().getLocation().x);
     }
  ```

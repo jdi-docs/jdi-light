@@ -6147,7 +6147,7 @@ Here is an example with provided Bootstrap v4.3 code:
 ![Spinner Text Align Center HTML Example](../images/bootstrap/spinner-text-align-html.png)
 
 
-**Spinner Size**
+**<a href="https://getbootstrap.com/docs/4.3/components/spinners/#size" target="_blank">Spinner Size</a>**
 
 Add ``.spinner-border-sm`` and ``.spinner-grow-sm`` to make a smaller spinner 
 that can quickly be used within other components.

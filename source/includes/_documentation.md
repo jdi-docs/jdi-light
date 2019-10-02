@@ -8828,11 +8828,20 @@ And here are methods available in Java:
     
 |Method | Description | Return Type
 --- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  | 
+**setText(String value)** | adds text to the field | void
+**sendKeys(String value)** | adds text to the field | void
+**input(String value)** | adds text to the field | void
+**clear()** | clears the text field | void
+**focus()** | places cursor within the text field | void
+**getText()** | returns text from the text field  | String
+**getValue()** | returns text from the text field| String
+**is()** | property that returns object for work with assertions| TextAssert
+**assertThat()** | property that returns object for work with assertions| TextAssert
+**click()** | click on button | void
+**displayed()** | check item is displayed | TextAssert
+**enabled()** | check item is enabled | TextAssert
+**expand()** | expand dropdown menu | void
+**expanded()** | check that dropdown is expanded | TextAssert
  
 #### Buttons with dropdowns 
 

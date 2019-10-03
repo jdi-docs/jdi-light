@@ -4675,14 +4675,28 @@ Available methods in Java JDI Light:
 
 
 ###Progress
+```java 
 
-Progress is custom progress bar featuring support for stacked bars, animated backgrounds, and text labels.
+
+@Test(dataProvider = "progressWidth")
+    public void getWidthTest(Progress progress, String width) {
+        progress.is().width(width);
+    }
+
+@Test(dataProvider = "progressColor")
+public void getColorTest(Progress progress, String color) {
+    progress.is().color(color);
+}
+```
+<a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/progress/">Progress</a> is custom progress bar featuring support for stacked bars, animated backgrounds, and text labels.
 
 ![Progress example](../images/bootstrap/progress.png)
 
 Here is an example with provided Bootstrap v4.3 code:
   
 ![Progress HTML example](../images/bootstrap/progress-html.png)
+
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/progress/ProgressBaseTests.java)
 
 **With label**
 

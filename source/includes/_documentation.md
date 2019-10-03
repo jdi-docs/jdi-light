@@ -4741,6 +4741,11 @@ Here is an example with provided Bootstrap v4.3 code:
   
 ![Progress label HTML example](../images/bootstrap/progress-label-html.png)
 
+
+   <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/ProgressWithLabelsTests.java" target=a_blank> Bootstrap test examples </a>
+
+
+
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 **With backgrounds**

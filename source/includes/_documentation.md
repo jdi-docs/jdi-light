@@ -6000,8 +6000,6 @@ For accessibility purposes, each loader in the examples below includes ``role="s
 
 ![Border Spinner Example](../images/bootstrap/borderspinner.png)
 
-Here is an example with provided Bootstrap v4.3 code:
-
 ```java 
 
 // @FindBy(id = "button-show-spinner-border")
@@ -6021,6 +6019,8 @@ public void checkSpinnerAppearAndThenDisappear() {
 }
 
 ```
+
+Here is an example with provided Bootstrap v4.3 code:
 
 ![Border Spinner HTML Example](../images/bootstrap/borderspinner-html.png)
 

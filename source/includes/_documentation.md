@@ -5996,13 +5996,47 @@ For accessibility purposes, each loader in the examples below includes ``role="s
 
 **Border Spinner**
 
-Use the border spinners for a lightweight loading indicator.
+<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/spinners/#border-spinner" target="_blank">Border Spinner</a> - use the border spinners for a lightweight loading indicator.
 
 ![Border Spinner Example](../images/bootstrap/borderspinner.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
+```java 
+
+// @FindBy(id = "button-show-spinner-border")
+@UI("#button-show-spinner-border") public static Button buttonSpinnerBorder; 
+// @FindBy(css = "#spinner-border")
+@UI("#spinner-border") public static Spinner spinnerBorder; 
+
+@Test()
+public void checkSpinnerClass() {
+  spinnerBorder.assertThat().core().hasClass("spinner-border");
+}
+
+@Test(priority = 1)
+public void checkSpinnerAppearAndThenDisappear() {
+  buttonSpinnerBorder.click();
+  spinnerBorder.disappearAfter(4);
+}
+
+```
+
 ![Border Spinner HTML Example](../images/bootstrap/borderspinner-html.png)
+
+Border Spinner are represented by the following class:
+ 
+  - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.common.Spinner_
+  
+Available methods in Java JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+disappearAfter(int sec)|Wait when spinner dissapear | Spinner
+is()	 |  Assert action	| UIAssert
+assertThat()	 |  Assert action	| UIpAssert  
+
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/spinner/SpinnerBorderTests.java)
 
 
 ### Colored Spinners

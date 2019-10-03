@@ -4697,7 +4697,6 @@ Here is an example with provided Bootstrap v4.3 code:
 //@FindBy(css = "#progress-with-labels")
 @UI("#progress-with-labels") public static Progress progressWithLabels; 
 
-
 @Test
     public void getDefaultPercentTest() {
          assertThat(progressWithLabels.core().getText(), is(defaultPercent));
@@ -4719,6 +4718,7 @@ Here is an example with provided Bootstrap v4.3 code:
          }
          progressWithLabels.core().is().text(maxPercent);
     }
+
 ```
 
 ![Progress label example](../images/bootstrap/progress-label.png)
@@ -4727,7 +4727,7 @@ Here is an example with provided Bootstrap v4.3 code:
   
 ![Progress label HTML example](../images/bootstrap/progress-label-html.png)
 
-<br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 **With backgrounds**
 

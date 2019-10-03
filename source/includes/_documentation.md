@@ -4675,13 +4675,25 @@ Available methods in Java JDI Light:
 
 
 ###Progress
-
 ```java 
+
+
 public class Progress extends UIBaseElement<UIAssert> {
 }
-```
 
-<a href="https://getbootstrap.com/docs/4.3/components/progress" target="a_blank">Progress</a> is custom progress bar featuring support for stacked bars, animated backgrounds, and text labels.
+@Test(dataProvider = "progressWidth")
+    public void getWidthTest(Progress progress, String width) {
+        progress.is().width(width);
+    }
+
+
+
+@Test(dataProvider = "progressColor")
+public void getColorTest(Progress progress, String color) {
+    progress.is().color(color);
+}
+```
+<a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/progress/">Progress</a> is custom progress bar featuring support for stacked bars, animated backgrounds, and text labels.
 
 
 ![Progress example](../images/bootstrap/progress.png)
@@ -4689,6 +4701,8 @@ public class Progress extends UIBaseElement<UIAssert> {
 Here is an example with provided Bootstrap v4.3 code:
   
 ![Progress HTML example](../images/bootstrap/progress-html.png)
+
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/progress/ProgressBaseTests.java)
 
 **With label**
 
@@ -6037,27 +6051,114 @@ For accessibility purposes, each loader in the examples below includes ``role="s
 
 **Border Spinner**
 
-Use the border spinners for a lightweight loading indicator.
+<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/spinners/#border-spinner" target="_blank">Border Spinner</a> - use the border spinners for a lightweight loading indicator.
 
 ![Border Spinner Example](../images/bootstrap/borderspinner.png)
+
+```java 
+
+// @FindBy(id = "button-show-spinner-border")
+@UI("#button-show-spinner-border") public static Button buttonSpinnerBorder; 
+// @FindBy(css = "#spinner-border")
+@UI("#spinner-border") public static Spinner spinnerBorder; 
+
+@Test()
+public void checkSpinnerClass() {
+  spinnerBorder.assertThat().core().hasClass("spinner-border");
+}
+
+@Test(priority = 1)
+public void checkSpinnerAppearAndThenDisappear() {
+  buttonSpinnerBorder.click();
+  spinnerBorder.disappearAfter(4);
+}
+
+```
 
 Here is an example with provided Bootstrap v4.3 code:
 
 ![Border Spinner HTML Example](../images/bootstrap/borderspinner-html.png)
 
-
-**Colored Spinners**
+Border Spinner are represented by the following class:
  
+  - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.common.Spinner_
+  
+Available methods in Java JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+disappearAfter(int sec)|Wait when spinner dissapear | Spinner
+is()	 |  Assert action	| UIAssert
+assertThat()	 |  Assert action	| UIAssert  
+
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/spinner/SpinnerBorderTests.java)
+
+
+### Colored Spinners
+ 
+<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/spinners/#colors" target="_blank">Colored spinners</a>.
 The border spinner uses currentColor for its border-color, 
 meaning you can customize the color with <a href="https://getbootstrap.com/docs/4.3/utilities/colors/" target="_blank">text color utilities</a>. 
 You can use any of our text color utilities on the standard spinner.
 
-![Colored Spinners Example](../images/bootstrap/coloredspinners.png)
+```java 
 
+
+
+
+
+
+ // @FindBy(id = "spinner-text-primary")
+ @UI("#spinner-text-primary") public static ColorSpinner spinnerWithTextPrimary; 
+ // @FindBy(css = "#spinner-text-light")
+ @UI("#spinner-text-light") public static ColorSpinner spinnerWithTextLight; 
+
+ @Test(dataProvider = "Color Spinners")
+ public void assertColorTests(ColorSpinner colorSpinner, String color) {
+    colorSpinner.is().color(color);
+ }
+
+ @Test(dataProvider = "Color Spinners")
+ public void assertSpinnerColorTests(ColorSpinner colorSpinner, String color) {
+    colorSpinner.is()
+        .core()
+        .cssClass(containsString(color));
+ }
+
+ @Test(dataProvider = "Color Spinners")
+ public void assertColorByHasClassTests(ColorSpinner colorSpinner, String color) {
+    colorSpinner.core().hasClass("spinner-border" + color);
+ }
+
+ @Test(dataProvider = "Color Spinners")
+ public void isValidationTest(ColorSpinner colorSpinner, String __) {
+    colorSpinner.is()
+        .displayed()
+        .core()
+        .css("font-size", is("14px"))
+        .cssClass(containsString("spinner-border"))
+        .attr("role", "status");
+ }
+```
+
+![Colored Spinners Example](../images/bootstrap/coloredspinners.png)
 Here is an example with provided Bootstrap v4.3 code:
 
 ![Colored Spinners HTML Example](../images/bootstrap/coloredspinners-html.png)
 
+
+
+Available methods in Java JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+getColor() |Get item color | String
+is()	 |  Assert action	| UIAssert
+assertThat()	 |  Assert action	| UIAssert
+
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/ColorSpinnersTests.java" target="_blank">Bootstrap test example with colored spinners</a>
+
+<br>
 
 **Growing Spinners**
 

@@ -5696,7 +5696,7 @@ Available methods in Java JDI Light:
 --- | --- | ---
 getColor() |Get item color | String
 is()	 |  Assert action	| UIAssert
-assertThat()	 |  Assert action	| UIpAssert
+assertThat()	 |  Assert action	| UIAssert
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/ColorSpinnersTests.java" target="_blank">Bootstrap test example with colored spinners</a>
 

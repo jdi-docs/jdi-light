@@ -8959,9 +8959,60 @@ This input group example is represented by the following classes in Java:
 <br /><br /><br /><br /><br />
  
 #### Multiple inputs 
-**Multiple inputs** – While multiple inputs are supported visually, validation styles are only available for input groups with a single input.
+<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/input-group/" target="_blank">Multiple inputs<a> – While multiple inputs are supported visually, validation styles are only available for input groups with a single input.
 
 ![Multiple inputs](../images/bootstrap/multiple_inputs.png)
+
+```java
+    //FindBy(css = "#multiple-inputs"")
+    @UI("#multiple-inputs") public static MultipleInputs multipleInputs;
+
+    @Test
+    public void getTextTest() {
+        int index = 1;
+
+        String name = multipleInputs.getText(index);
+        assertEquals(name, inputData.get(index));
+
+        String surname = multipleInputs.getText("#mi-i-2");
+        assertEquals(surname, inputData.get(2));
+
+        String text = multipleInputs.getText();
+        assertEquals(text, inputData.get(1));
+    }
+
+    @Test
+    public void getTextAllTest() {
+        assertEquals(multipleInputs.getAllTexts(), inputDataList);
+    }
+
+    @Test
+    public void setValueTest() {
+        multipleInputs.clearAll();
+
+        String value = inputData.get(1);
+        multipleInputs.setValue(value);
+        multipleInputs.is().text(value, 1);
+
+        int index = 2;
+        String name = inputData.get(index);
+        multipleInputs.setValue(name, index);
+        multipleInputs.is().text(name, index);
+
+        String locator = "#mi-i-2";
+        String surname = inputData.get(2);
+        multipleInputs.clear(locator);
+        multipleInputs.setValue(surname, locator);
+        multipleInputs.is().text(surname, locator);
+    }
+
+    @Test
+    public void setAllValuesTest() {
+        multipleInputs.clearAll();
+        multipleInputs.setAllValues(inputDataList);
+        multipleInputs.is().texts(inputDataList);
+    }
+```
 
 Here is an example with provided Bootstrap v4.3 code:
   
@@ -8971,11 +9022,40 @@ And here are methods available in Java:
     
 |Method | Description | Return Type
 --- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  |  
+ **getValue()**| Return value for first input within element | String
+ **getValue(String locator)**| Return value for input within element with *locator* | String
+ **getValue(int index)**| Return value for input within element with *index* | String
+ **getAllValue()**| Return values for all inputs within element | List\<String>
+ **getText()**| Return text for first input within element | String
+ **getText(String locator)**| Return text for input within element with *locator* | String
+ **getText(int index)**| Return text for input within element with *index* | String
+ **getAllText()**| Return texts for all inputs within element | List\<String>
+ **setValue(String value)**| Set value for first input within element | void
+ **setValue(String value, String locator)**| Set value for input within element with *locator* | void
+ **setValue(String value, int index)**| Set value for input within element with *index* | void
+ **setAllValue(List\<String> values)**| Set values for all inputs within element | void 
+ **sendKeys(String value)**| Send text to first input within element | void
+ **sendKeys(String value, String locator)**| Send text to input within element with *locator* | void
+ **sendKeys(String value, int index)**| Send text to input within element with *index* | void
+ **sendKeysAll(List\<String> values)**| Send texts to all inputs within element | void
+ **clear()**| Clear first input within element | void
+ **clear(String locator)**| Clear input within element with *locator* | void
+ **clear(int index)**| Clear input within element with *index* | void
+ **clearAll()**| Clear all inputs within element | void
+ **focus()**| Focus on first input within element | void
+ **focus(String locator)**| Focus on input within element with *locator* | void
+ **focus(int index)**| Focus on input within element with *index* | void
+ **placeholder()**| Return placeholder from first input within element | String
+ **placeholder(String locator)**| Return placeholder from input within element with *locator* | String
+ **placeholder(int index)**| Return placeholder from input within element with *index* | String
+ **placeholderAll()**| Return placeholders for all inputs within element | List\<String>
+ **input(String value)**| Set text for first input within element | void
+ **input(String value, String locator)**| Set text for input within element with *locator* | void
+ **input(String value, int index)**| Set text for input within element with *index* | void
+ **inputAll()**| Set texts for all inputs within element | void
+ **is()**| Property that returns object for work with assertions | MultipleInputsAssert
+ **assertThat()**| Property that returns object for work with assertions | MultipleInputsAssert
+ 
  
 #### Multiple addons 
 <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/input-group/#multiple-addons" target="_blank">Multiple addons</a> are supported and can be mixed with checkbox and radio input versions.

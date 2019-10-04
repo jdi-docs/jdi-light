@@ -8964,54 +8964,54 @@ This input group example is represented by the following classes in Java:
 ![Multiple inputs](../images/bootstrap/multiple_inputs.png)
 
 ```java
-    //FindBy(css = "#multiple-inputs"")
-    @UI("#multiple-inputs") public static MultipleInputs multipleInputs;
+//FindBy(css = "#multiple-inputs"")
+@UI("#multiple-inputs") public static MultipleInputs multipleInputs;
 
-    @Test
-    public void getTextTest() {
-        int index = 1;
+@Test
+public void getTextTest() {
+     int index = 1;
 
-        String name = multipleInputs.getText(index);
-        assertEquals(name, inputData.get(index));
+     String name = multipleInputs.getText(index);
+     assertEquals(name, inputData.get(index));
 
-        String surname = multipleInputs.getText("#mi-i-2");
-        assertEquals(surname, inputData.get(2));
+     String surname = multipleInputs.getText("#mi-i-2");
+     assertEquals(surname, inputData.get(2));
 
-        String text = multipleInputs.getText();
-        assertEquals(text, inputData.get(1));
-    }
+     String text = multipleInputs.getText();
+     assertEquals(text, inputData.get(1));
+}
 
-    @Test
-    public void getTextAllTest() {
-        assertEquals(multipleInputs.getAllTexts(), inputDataList);
-    }
+@Test
+public void getTextAllTest() {
+    assertEquals(multipleInputs.getAllTexts(), inputDataList);
+}
 
-    @Test
-    public void setValueTest() {
-        multipleInputs.clearAll();
+@Test
+public void setValueTest() {
+    multipleInputs.clearAll();
 
-        String value = inputData.get(1);
-        multipleInputs.setValue(value);
-        multipleInputs.is().text(value, 1);
+    String value = inputData.get(1);
+    multipleInputs.setValue(value);
+    multipleInputs.is().text(value, 1);
 
-        int index = 2;
-        String name = inputData.get(index);
-        multipleInputs.setValue(name, index);
-        multipleInputs.is().text(name, index);
+    int index = 2;
+    String name = inputData.get(index);
+    multipleInputs.setValue(name, index);
+    multipleInputs.is().text(name, index);
 
-        String locator = "#mi-i-2";
-        String surname = inputData.get(2);
-        multipleInputs.clear(locator);
-        multipleInputs.setValue(surname, locator);
-        multipleInputs.is().text(surname, locator);
-    }
+    String locator = "#mi-i-2";
+    String surname = inputData.get(2);
+    multipleInputs.clear(locator);
+    multipleInputs.setValue(surname, locator);
+    multipleInputs.is().text(surname, locator);
+}
 
-    @Test
-    public void setAllValuesTest() {
-        multipleInputs.clearAll();
-        multipleInputs.setAllValues(inputDataList);
-        multipleInputs.is().texts(inputDataList);
-    }
+@Test
+public void setAllValuesTest() {
+    multipleInputs.clearAll();
+    multipleInputs.setAllValues(inputDataList);
+    multipleInputs.is().texts(inputDataList);
+}
 ```
 
 Here is an example with provided Bootstrap v4.3 code:

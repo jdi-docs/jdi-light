@@ -9464,6 +9464,10 @@ Inner elements of multiple input can be represented by the following classes:
  
   + [Input group - Button Addons](https://getbootstrap.com/docs/4.3/components/input-group/#button-addons)
 
+![Button addons](../images/bootstrap/button_addons.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
 
 ```java 
 
@@ -9500,9 +9504,6 @@ public class ButtonAddons extends Section {
 
 ```
 
-![Button addons](../images/bootstrap/button_addons.png)
-
-Here is an example with provided Bootstrap v4.3 code:
   
 ![Button addons example](../images/bootstrap/button_addons_code.png)
 

@@ -8759,50 +8759,33 @@ Inner elements of multiple input can be represented by the following classes:
  <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> <br /> 
 #### Button addons 
 
+**Button addons** – Multiple buttons have no detailed information on Bootstrap website
+ 
+  + [Input group - Button Addons](https://getbootstrap.com/docs/4.3/components/input-group/#button-addons)
+
+
 ```java 
 
-// Button addons
-    @UI("#input-group-button-addon1") public static ButtonAddons inputGroupButtonAddons1;
-    @UI("#input-group-button-addon2") public static ButtonAddons inputGroupButtonAddons2;
-    @UI("#input-group-button-addon3") public static ButtonAddons inputGroupButtonAddons3;
-    @UI("#input-group-button-addon4") public static ButtonAddons inputGroupButtonAddons4;
-//    @FindBy(css = "#input-group-button-addon4") public static ButtonAddons inputGroupButtonAddons4;
+//@FindBy(css = "#input-group-button-addon4") public static ButtonAddons inputGroupButtonAddons4;
+@UI("#input-group-button-addon1") public static ButtonAddons inputGroupButtonAddons1;
+@UI("#input-group-button-addon2") public static ButtonAddons inputGroupButtonAddons2;
+@UI("#input-group-button-addon3") public static ButtonAddons inputGroupButtonAddons3;
+@UI("#input-group-button-addon4") public static ButtonAddons inputGroupButtonAddons4;
 
 public class ButtonAddons extends Section {
-// Button addons locators
-    @UI("button")
-    public Button button;
-    @UI("input")
-    public TextField input;
-
-    @UI("button")
-    public ListGroup listButtons;
-    @UI("input")
-    public TextField inputField;
+    @UI("button") public Button button;
+    @UI("input") public TextField input;
+    @UI("button") public ListGroup listButtons;
+    @UI("input") public TextField inputField;
 }
 
 // Button addons tests
-    @Test
-    public void checkButtonAddon1Test() {
-        inputGroupButtonAddons1.input.input(text);
-        inputGroupButtonAddons1.button.click();
-        inputGroupButtonAddons1.input.assertThat().text(text);
-    }
-
     @Test
     public void checkButtonAddon2Test() {
         inputGroupButtonAddons2.input.input(text);
         inputGroupButtonAddons2.button.click();
         inputGroupButtonAddons2.input.input(placeholder_text);
         inputGroupButtonAddons2.input.assertThat().text(placeholder_text);
-    }
-
-    @Test
-    public void checkButtonAddon3Test() {
-        inputGroupButtonAddons3.inputField.input(text);
-        inputGroupButtonAddons3.listButtons.get(1).click();
-        inputGroupButtonAddons3.listButtons.get(2).click();
-        inputGroupButtonAddons3.inputField.assertThat().text(text);
     }
 
     @Test
@@ -8815,8 +8798,6 @@ public class ButtonAddons extends Section {
     }
 
 ```
-
-**Button addons** – Multiple buttons have no detailed information on Bootstrap website
 
 ![Button addons](../images/bootstrap/button_addons.png)
 

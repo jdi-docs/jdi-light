@@ -4678,19 +4678,25 @@ Available methods in Java JDI Light:
 ```java 
 
 
-public class Progress extends UIBaseElement<UIAssert> {
-}
+
+
+
+
+
+
+
+//FindBy(id = "#progress-bar-base-width-25 .progress-bar"
+@UI("#progress-bar-base-width-25 .progress-bar")  
+public static Progress progressBaseWidth25;
 
 @Test(dataProvider = "progressWidth")
-    public void getWidthTest(Progress progress, String width) {
-        progress.is().width(width);
-    }
-
-
+public void getWidthTest(Progress progress, String width) {
+    progress.is().ariaValue(width);
+}
 
 @Test(dataProvider = "progressColor")
 public void getColorTest(Progress progress, String color) {
-    progress.is().color(color);
+   progress.is().color(color);
 }
 ```
 <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/progress/">Progress</a> is custom progress bar featuring support for stacked bars, animated backgrounds, and text labels.
@@ -4703,7 +4709,7 @@ Here is an example with provided Bootstrap v4.3 code:
 ![Progress HTML example](../images/bootstrap/progress-html.png)
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/progress/ProgressBaseTests.java)
-
+<br><br>
 **With label**
 
 ```java 
@@ -4782,11 +4788,9 @@ Available methods in Java JDI Light:
 
 |Method/Property | Description | Return Type
 --- | --- | ---
-**** | TBD  | 
-**** |  |  
-**** |  | 
-**** |  | 
-**** |  |  
+**getAriaValue()** | Get aria value of the bar | String
+**getColor()** | Get color of the bar  | String
+**is()** | Various assert actions for Progress | ProgressAssert  
 <br>
 
 ### Media object

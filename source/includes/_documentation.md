@@ -9460,9 +9460,8 @@ Inner elements of multiple input can be represented by the following classes:
  <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> <br /> 
 #### Button addons 
 
-**Button addons** – Multiple buttons have no detailed information on Bootstrap website
- 
-  + [Input group - Button Addons](https://getbootstrap.com/docs/4.3/components/input-group/#button-addons)
+**[Button addons](https://getbootstrap.com/docs/4.3/components/input-group/#button-addons)** – Multiple buttons have no detailed information on Bootstrap website
+
 
 ![Button addons](../images/bootstrap/button_addons.png)
 

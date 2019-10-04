@@ -8959,7 +8959,7 @@ This input group example is represented by the following classes in Java:
 <br /><br /><br /><br /><br />
  
 #### Multiple inputs 
-<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/input-group/" target="_blank">Multiple inputs<a> – While multiple inputs are supported visually, validation styles are only available for input groups with a single input.
+<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/input-group/" target="_blank">Multiple inputs</a> – While multiple inputs are supported visually, validation styles are only available for input groups with a single input.
 
 ![Multiple inputs](../images/bootstrap/multiple_inputs.png)
 

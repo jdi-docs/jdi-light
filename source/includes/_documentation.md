@@ -3586,7 +3586,166 @@ Here is an example with provided HTML code:
 
 
 
-### Radio button
+### Checkboxes and radios
+
+**[Checkbox default](https://getbootstrap.com/docs/4.3/components/forms/#default-stacked)** 
+
+Checkbox is located in the following classes:
+ 
+  - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.common.Checkbox_
+  
+
+![Checkbox default example](../images/bootstrap/checkbox-default.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java
+// @FindBy(css = "body") public static CheckboxesDefault checkboxesDefault;
+@UI("body") public static CheckboxesDefault checkboxesDefault;
+
+public class CheckboxesDefault extends Section {
+    @UI("#defaultCheck1") public Checkbox checkboxOne; // @FindBy(css = "#defaultCheck1") public Checkbox checkboxOne;
+    @UI("#defaultCheck2") public Checkbox checkboxTwo; // @FindBy(css = "#defaultCheck2") public Checkbox checkboxTwo;
+}
+
+@Test
+public void isValidationTests() {
+    checkboxesDefault.checkboxOne
+            .is()
+            .displayed()
+            .enabled()
+            .core()
+            .attr("type", "checkbox")
+            .hasClass("form-check-input")
+            .tag(is("input"));
+    checkboxesDefault.checkboxOne.label()
+            .is()
+            .displayed()
+            .enabled()
+            .core()
+            .hasClass("form-check-label")
+            .text(is("Default checkbox"))
+            .tag(is("label"));
+}
+
+@Test
+public void clickableTests() {
+    checkboxesDefault.checkboxOne.check();
+    checkboxesDefault.checkboxOne.is().selected();
+    checkboxesDefault.checkboxOne.uncheck();
+    checkboxesDefault.checkboxOne.is().deselected();
+}
+```
+
+![Checkbox default example html](../images/bootstrap/checkbox-default-html.png)
+
+
+
+|Method | Description | Return Type
+--- | --- | ---
+**click()** | Click the button | void
+**check()** | Select the button | void
+**uncheck()** | Deselect the button | void
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**select()** | Select button | void
+**selected()** | Radio button is selected | TextAssert
+**get()** | Select button by index | action
+
+<br>
+
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/CheckboxesDefaultTests.java)
+<br>
+
+Button group is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+
+<br>
+
+**[Checkbox default inline](https://getbootstrap.com/docs/4.3/components/forms/#inline)** 
+
+Checkbox is located in the following classes:
+ 
+  - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.common.Checkbox_
+  
+
+![Checkbox default inline example](../images/bootstrap/checkbox-default-inline.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java
+// @FindBy(css = "body") public static CheckboxesDefaultInline checkboxesDefaultInline;
+@UI("body") public static CheckboxesDefaultInline checkboxesDefaultInline;
+
+public class CheckboxesDefaultInline {
+    @UI("#inlineCheckbox1") public Checkbox checkboxOne; // @FindBy(css = "#inlineCheckbox1") public Checkbox checkboxOne;
+    @UI("#inlineCheckbox2") public Checkbox checkboxTwo; // @FindBy(css = "#inlineCheckbox2") public Checkbox checkboxTwo;
+    @UI("#inlineCheckbox3") public Checkbox checkboxThree; // @FindBy(css = "#inlineCheckbox3") public Checkbox checkboxThree;
+}
+
+@Test
+public void isValidationTests() {
+    checkboxesDefaultInline.checkboxOne
+            .is()
+            .displayed()
+            .enabled()
+            .core()
+            .attr("type", "checkbox")
+            .hasClass("form-check-input");
+    checkboxesDefaultInline.checkboxOne.label()
+            .is()
+            .displayed()
+            .enabled()
+            .core()
+            .hasClass("form-check-label")
+            .text(is("1"));
+
+@Test
+public void clickableTests() {
+    checkboxesDefaultInline.checkboxOne.check();
+    checkboxesDefaultInline.checkboxOne
+            .is()
+            .selected();
+    checkboxesDefaultInline.checkboxOne.uncheck();
+    checkboxesDefaultInline.checkboxOne
+            .is()
+            .deselected();
+    checkboxesDefaultInline.checkboxOne.label().click();
+    checkboxesDefaultInline.checkboxOne
+            .is()
+            .selected();
+}
+```
+
+![Checkbox default inline example html](../images/bootstrap/checkbox-default-inline-html.png)
+
+
+
+|Method | Description | Return Type
+--- | --- | ---
+**click()** | Click the button | void
+**check()** | Select the button | void
+**uncheck()** | Deselect the button | void
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**select()** | Select button | void
+**selected()** | Radio button is selected | TextAssert
+**get()** | Select button by index | action
+
+<br>
+
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/CheckboxesDefaultInlineTests.java)
+<br>
+
+Button group is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+
+<br>
+
 **[Radio button](https://getbootstrap.com/docs/4.3/components/forms/#default-stacked)** – Element that can be represented with one or more clickable buttons aiming to choose only one button of the group.
 
 Radio button is located in the following classes:
@@ -3599,17 +3758,17 @@ Radio button is located in the following classes:
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java
-@UI("#radio-buttons") public static RadioButtonGroup radioButtonGroup;
 //@FindBy(css = "#radio-buttons") public static RadioButtonGroup radioButtonGroup;
+@UI("#radio-buttons") public static RadioButtonGroup radioButtonGroup;
 
 public class RadioButtonGroup extends Section {
-    @UI("#exampleRadios1") public RadioButton radio1;
-    @UI("#exampleRadios2" )public RadioButton radio2;
-    @UI("#exampleRadios3") public RadioButton radio3;
-    @UI("input[type='radio']") public RadioButton radioButton;
-    @UI("label[for='exampleRadios1']") public Label radio1Label;
-    @UI("label[for='exampleRadios2']") public Label radio2Label;
-    @UI("label[for='exampleRadios3']") public Label radio3Label;
+    @UI("#exampleRadios1") public RadioButton radio1; //@FindBy(css = "#exampleRadios1") public RadioButton radio1;
+    @UI("#exampleRadios2" )public RadioButton radio2; //@FindBy(css = "#exampleRadios2" )public RadioButton radio2;
+    @UI("#exampleRadios3") public RadioButton radio3; //@FindBy(css = "#exampleRadios3") public RadioButton radio3;
+    @UI("input[type='radio']") public RadioButton radioButton; //@FindBy(css = "input[type='radio']") public RadioButton radioButton;
+    @UI("label[for='exampleRadios1']") public Label radio1Label; //@FindBy(css = "label[for='exampleRadios1']") public Label radio1Label;
+    @UI("label[for='exampleRadios2']") public Label radio2Label; //@FindBy(css = "label[for='exampleRadios2']") public Label radio2Label;
+    @UI("label[for='exampleRadios3']") public Label radio3Label; //@FindBy(css = "label[for='exampleRadios3']") public Label radio3Label;
 }
 
 @Test
@@ -3656,6 +3815,161 @@ public void radioButtonByLabelTests() {
 <br>
 
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/RadioButtonTests.java)
+<br>
+
+Button group is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+
+<br>
+
+
+**[Radio button inline inline](https://getbootstrap.com/docs/4.3/components/forms/#inline)** 
+
+Checkbox is located in the following classes:
+ 
+  - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.common.RadioButton_
+  
+
+![Radio button inline example](../images/bootstrap/radio-default-inline.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java
+//@FindBy(css = "body") public static RadioButtonsDefaultInline radioButtonsDefaultInline;
+@UI("body") public static RadioButtonsDefaultInline radioButtonsDefaultInline;
+
+public class RadioButtonsDefaultInline extends Section {
+    @UI("input[name='inlineRadioOptions']") public RadioButton radioButton; //@FindBy(css = "input[name='inlineRadioOptions']") public RadioButton radioButton;
+    @UI("#inlineRadio1") public RadioButton radio1; //@FindBy(css = "#inlineRadio1") public RadioButton radio1;
+    @UI("#inlineRadio2") public RadioButton radio2; //@FindBy(css = "#inlineRadio2") public RadioButton radio2;
+    @UI("#inlineRadio3") public RadioButton radio3; //@FindBy(css = "#inlineRadio3") public RadioButton radio3;
+    @UI("label[for='inlineRadio1']") public Label radio1Label; //@FindBy(css = "label[for='inlineRadio1']") public Label radio1Label;
+    @UI("label[for='inlineRadio2']") public Label radio2Label; //@FindBy(css = "label[for='inlineRadio2']") public Label radio2Label;
+    @UI("label[for='inlineRadio3']") public Label radio3Label; //@FindBy(css = "label[for='inlineRadio3']") public Label radio3Label;
+}
+
+@Test
+ public void baseInitTest() {
+     radioButtonsDefaultInline.radioButton
+             .is()
+             .size(3);
+     radioButtonsDefaultInline.radio1Label
+             .is()
+             .core()
+             .hasClass("form-check-label")
+             .text(is(label1));
+}
+
+@Test
+public void radioButtonByIndexTests() {
+    radioButtonsDefaultInline.radioButton.select(2);
+    radioButtonsDefaultInline.radioButton.get(2)
+            .is()
+            .selected();
+    radioButtonsDefaultInline.radioButton.get(1)
+            .is()
+            .deselected();
+    radioButtonsDefaultInline.radio1Label.click();
+    radioButtonsDefaultInline.radioButton.get(1)
+            .is()
+            .selected();
+}
+```
+
+![Radio button inline example html](../images/bootstrap/radio-default-inline-html.png)
+
+
+
+|Method | Description | Return Type
+--- | --- | ---
+**click()** | Click the button | void
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**select()** | Select button | void
+**selected()** | Radio button is selected | TextAssert
+**get()** | Select button by index | action
+
+<br>
+
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/RadioButtonsDefaultInlineTests.java)
+<br>
+
+Button group is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+
+<br>
+
+**[Checkbox custom](https://getbootstrap.com/docs/4.3/components/forms/#checkboxes)** 
+
+Checkbox is located in the following classes:
+ 
+  - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.common.Checkbox_
+  
+
+![Checkbox custom example](../images/bootstrap/checkbox-custom.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java
+// @FindBy(css = "body") public static CheckboxesCustom checkboxesCustom;
+@UI("body") public static CheckboxesCustom checkboxesCustom;
+
+public class CheckboxesCustom extends Section {
+    @UI("#customCheck1-div") public Checkbox checkboxContainer; // @FindBy(css = "#customCheck1-div") public Checkbox checkboxContainer;
+    @UI("#customCheck1") public Checkbox checkbox; // @FindBy(css = "#customCheck1") public Checkbox checkbox;
+}
+
+@Test
+public void isValidationTests() {
+    checkboxesCustom.checkbox
+            .is()
+            .disappear()
+            .enabled()
+            .core()
+            .attr("type", "checkbox")
+            .hasClass("custom-control-input")
+            .tag(is("input"));
+    checkboxesCustom.checkbox.label()
+            .is()
+            .displayed()
+            .enabled()
+            .core()
+            .hasClass("custom-control-label")
+            .text(is("Check this custom checkbox"))
+            .tag(is("label"));
+}
+
+@Test
+public void clickableTests() {
+    checkboxesCustom.checkboxContainer.check();
+    checkboxesCustom.checkbox.is().selected();
+    checkboxesCustom.checkbox.label().click();
+    checkboxesCustom.checkbox.is().deselected();
+}
+```
+
+![Checkbox custom example html](../images/bootstrap/checkbox-custom-html.png)
+
+
+
+|Method | Description | Return Type
+--- | --- | ---
+**click()** | Click the button | void
+**check()** | Select the button | void
+**uncheck()** | Deselect the button | void
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**select()** | Select button | void
+**selected()** | Radio button is selected | TextAssert
+**get()** | Select button by index | action
+
+<br>
+
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/CheckboxesCustomTests.java)
 <br>
 
 Button group is represented by Section class in Java:

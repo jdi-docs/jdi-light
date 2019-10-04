@@ -4709,7 +4709,15 @@ Here is an example with provided Bootstrap v4.3 code:
 ![Progress HTML example](../images/bootstrap/progress-html.png)
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/progress/ProgressBaseTests.java)
-<br><br>
+
+Available methods in Java JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+**getAriaValue()** | Get aria value of the bar | String
+**getColor()** | Get color of the bar  | String
+**is()** | Various assert actions for Progress | ProgressAssert 
+
 **With label**
 
 ```java 
@@ -4750,9 +4758,15 @@ Here is an example with provided Bootstrap v4.3 code:
 
    <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/ProgressWithLabelsTests.java" target=a_blank> Bootstrap test examples </a>
 
+Available methods in Java JDI Light:
 
+|Method/Property | Description | Return Type
+--- | --- | ---
+**getAriaValue()** | Get aria value of the bar | String
+**getColor()** | Get color of the bar  | String
+**is()** | Various assert actions for Progress | ProgressAssert 
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br>
 
 **With backgrounds**
 

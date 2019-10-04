@@ -8768,7 +8768,6 @@ Here is an example with provided Bootstrap v4.3 code:
 
 
 ```java 
-
 //@FindBy(css = "#input-group-button-addon4") public static ButtonAddons inputGroupButtonAddons4;
 @UI("#input-group-button-addon1") public static ButtonAddons inputGroupButtonAddons1;
 @UI("#input-group-button-addon2") public static ButtonAddons inputGroupButtonAddons2;
@@ -8782,24 +8781,22 @@ public class ButtonAddons extends Section {
     @UI("input") public TextField inputField;
 }
 
-// Button addons tests
-    @Test
-    public void checkButtonAddon2Test() {
-        inputGroupButtonAddons2.input.input(text);
-        inputGroupButtonAddons2.button.click();
-        inputGroupButtonAddons2.input.input(placeholder_text);
-        inputGroupButtonAddons2.input.assertThat().text(placeholder_text);
-    }
+@Test
+public void checkButtonAddon2Test() {
+    inputGroupButtonAddons2.input.input(text);
+    inputGroupButtonAddons2.button.click();
+    inputGroupButtonAddons2.input.input(placeholder_text);
+    inputGroupButtonAddons2.input.assertThat().text(placeholder_text);
+}
 
-    @Test
-    public void checkButtonAddon4Test() {
-        inputGroupButtonAddons4.inputField.input(text);
-        inputGroupButtonAddons4.listButtons.get(1).click();
-        inputGroupButtonAddons4.inputField.input(placeholder_text);
-        inputGroupButtonAddons4.listButtons.get(2).click();
-        inputGroupButtonAddons4.inputField.assertThat().text(placeholder_text);
-    }
-
+@Test
+public void checkButtonAddon4Test() {
+    inputGroupButtonAddons4.inputField.input(text);
+    inputGroupButtonAddons4.listButtons.get(1).click();
+    inputGroupButtonAddons4.inputField.input(placeholder_text);
+    inputGroupButtonAddons4.listButtons.get(2).click();
+    inputGroupButtonAddons4.inputField.assertThat().text(placeholder_text);
+}
 ```
 
   

@@ -5084,9 +5084,46 @@ Available methods in Java JDI Light:
 
 **With backgrounds**
 
+```java 
+
+//@FindBy(css = "#progress-background-green")
+@UI("#progress-backgrounds-green") public static Progress progressBackgroundGreen;
+//@FindBy(css = "#progress-background-blue")
+@UI("#progress-backgrounds-blue") public static Progress progressBackgroundBlue;
+//@FindBy(css = "#progress-background-yellow")
+@UI("#progress-backgrounds-yellow") public static Progress progressBackgroundYellow;
+//@FindBy(css = "#progress-background-red")
+@UI("#progress-backgrounds-red") public static Progress progressBackgroundRed;
+
+@DataProvider(name = "progressBackgroundsWithAttributes")
+    public static Object[][] progressBackgroundsWithAttributes() {
+        return new Object[][]{
+                {progressBackgroundGreen, 25, "rgba(40, 167, 69, 1)"},
+                {progressBackgroundBlue, 50, "rgba(23, 162, 184, 1)"},
+                {progressBackgroundYellow, 75, "rgba(255, 193, 7, 1)"},
+                {progressBackgroundRed, 100, "rgba(220, 53, 69, 1)"}
+        };
+    }
+
+@Test(dataProvider = "progressBackgroundsWithAttributes")
+    public void isValidationTest(ICoreElement progressBackground, int widthNumber, String color) {
+        progressBackground.core().is()
+                .tag(is("div"))
+                .attr("role", "progressbar")
+                .attr("style", String.format("width: %s%%;", widthNumber))
+                .attr("aria-valuenow", widthNumber + "")
+                .attr("aria-valuemin", "0")
+                .attr("aria-valuemax", "100")
+                .css("background-color", color);
+    }
+
+```
+
 ![Progress backgroundsexample](../images/bootstrap/progress-backgrounds.png)
 
 Here is an example with provided Bootstrap v4.3 code:
+
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/ProgressBackgroundTests.java" target=a_blank> Bootstrap test examples </a>
   
 ![Progress backgrounds HTML example](../images/bootstrap/progress-backgrounds-html.png)
 

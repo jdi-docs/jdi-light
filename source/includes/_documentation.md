@@ -6005,7 +6005,7 @@ Available methods in Java JDI Light:
 **alt()** | Get image alt() value | String
 <br>
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardDeckTests.java" target="_blank">Bootstrap test examples</a>
-<br><br><br>
+<br><br>
 
 **Card groups with footer**
 

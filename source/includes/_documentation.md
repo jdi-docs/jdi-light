@@ -5410,6 +5410,20 @@ Available methods and properties in C# JDI Light:
 
 ```java 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 public class CardListGroups extends Section {
 
     @UI(".card-header") public Label cardHeader; //@FindBy(".card-header"))

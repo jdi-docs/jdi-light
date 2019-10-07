@@ -7511,6 +7511,23 @@ __Events for toasts:__
  
  ```java 
  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  @UI("#toastRightTop") public static Toast toastWithTopAlign; //@FindBy("#toastRightTop")
  @UI("#simpleToast") public static Toast simpleToast; //@FindBy("#simpleToast")
  @UI("#firstMultipleToast") public static Toast firstStackToast; //@FindBy("#firstMultipleToast")

@@ -5206,6 +5206,7 @@ Here is an example with provided Bootstrap v4.3 code:
   
 ![Progress multiple HTML example](../images/bootstrap/progress-multiple-html.png)
 
+<br><br><br><br><br><br>
 **With striped design**
 
 ```java 
@@ -5219,7 +5220,6 @@ Here is an example with provided Bootstrap v4.3 code:
         @UI(".progress-bar")
         public Progress progress;
     }
-
 
     @DataProvider
     public static Object[][] progressData() {

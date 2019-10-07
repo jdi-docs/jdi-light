@@ -7570,7 +7570,7 @@ public void clickableTests() {
 
 [Java test examples]()<br>
 
-Nav group is represented by Section class in Java:
+Popover group is represented by Section class in Java:
  
   [Section](https://jdi-docs.github.io/jdi-light/#section)  
 
@@ -7707,7 +7707,7 @@ Here is an example with provided Bootstrap v4.3 code:
 
 [Java test examples]()<br>
 
-Nav group is represented by Section class in Java:
+Popover group is represented by Section class in Java:
  
   [Section](https://jdi-docs.github.io/jdi-light/#section)  
 
@@ -7808,7 +7808,7 @@ public void clickableTests() {
 
 [Java test examples]()<br>
 
-Nav group is represented by Section class in Java:
+Popover group is represented by Section class in Java:
  
   [Section](https://jdi-docs.github.io/jdi-light/#section)  
 
@@ -7822,10 +7822,10 @@ Inner elements of input group can be represented by following classes:
   
   <li> [MediaObject](https://jdi-docs.github.io/jdi-light/#media-object) </li>
  </ul>
+
+
  
- 
- 
- #### Disabled elements popover
+#### Disabled elements popover
  
  **[Disabled elements popover](https://getbootstrap.com/docs/4.3/components/popovers/#disabled-elements)** 
  
@@ -7892,10 +7892,10 @@ Inner elements of input group can be represented by following classes:
  
  ![Disabled elements popover example container html](../images/bootstrap/popover-disabled-html-div.png)
  
- <br>
- 
- |Method | Description | Return Type
- --- | --- | ---
+
+
+|Method | Description | Return Type
+--- | --- | ---
  **getText()** | Get button text | String
  **enabled()** | assert is enabled | TextAssert
  **disabled()** | assert is disabled | TextAssert
@@ -7906,12 +7906,12 @@ Inner elements of input group can be represented by following classes:
  **click()** | Get button text | void
  **highlight()** | Get button text | void
  **unhighlight()** | Get button text | void
- 
- <br>
+
+<br>
  
  [Java test examples]()<br>
  
- Nav group is represented by Section class in Java:
+ Popover group is represented by Section class in Java:
   
    [Section](https://jdi-docs.github.io/jdi-light/#section)  
  

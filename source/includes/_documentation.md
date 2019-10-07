@@ -6712,7 +6712,7 @@ public Spinner growingSpinner;
 
 private static final String smallSpinnerClass = "spinner-border-sm";
 private static final String smallGrowingSpinnerClass = "spinner-grow-sm";
-private static final String spinnerStyleValue = "width: 3rem; height: 3rem;";
+private static final String spinnerStyleValue = "width: 3rem; height: 3rem; border: 3px dashed red;";
 
 @DataProvider
 public Object[][] spinnerData() {

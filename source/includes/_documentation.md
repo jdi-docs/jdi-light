@@ -6665,10 +6665,79 @@ Use margin utilities like ``.m-5`` for easy spacing.
 
 ![Spinner Margin Example](../images/bootstrap/spinnermargin.png)
 
+```java 
+
+// @FindBy(id = "spinner-alignment")
+@UI("#spinner-alignment") public static SpinnerAlignment spinnerAlignment;
+
+// @FindBy(xpath = "//div[@class='border mb-3 p-3']")
+@UI("//div[@class='border mb-3 p-3']")
+public Spinner spinnerLeft;
+
+// @FindBy(xpath = "//div[@class='d-flex justify-content-center border mb-3 p-3']")
+@UI("//div[@class='d-flex justify-content-center border mb-3 p-3']")
+public Spinner flexJustifySpinner;
+
+// @FindBy(xpath = "//div[@class='d-flex align-items-center border mb-3 p-3']")
+@UI("//div[@class='d-flex align-items-center border mb-3 p-3']")
+public Spinner flexAlignCenterSpinner;
+
+// @FindBy(xpath = "//div[@class='clearfix border mb-3 p-3']")
+@UI("//div[@class='clearfix border mb-3 p-3']")
+public Spinner clearfixSpinner;
+
+// @FindBy(xpath = "//div[@class='text-center mb-3 border p-3']")
+@UI("//div[@class='text-center mb-3 border p-3']")
+public Spinner textCenterSpinner;
+
+private static final String spinnerBorderStyle = "spinner-border";
+private static final String spinnerMarginStyle = "mb-3";
+private static final String spinnerJustifyContentStyle = "justify-content-center";
+private static final String spinnerAlignCenterStyle = "align-items-center";
+private static final String spinnerClearfixStyle = "clearfix";
+private static final String spinnerTextCenterStyle = "text-center";
+
+@DataProvider
+public Object[][] spinnerStyleData() {
+    return new Object[][] {
+            {spinnerAlignment.spinnerLeft, spinnerMarginStyle},
+            {spinnerAlignment.flexJustifySpinner, spinnerJustifyContentStyle},
+            {spinnerAlignment.flexAlignCenterSpinner, spinnerAlignCenterStyle},
+            {spinnerAlignment.clearfixSpinner, spinnerClearfixStyle},
+            {spinnerAlignment.textCenterSpinner, spinnerTextCenterStyle},
+    };
+}
+
+@DataProvider
+public Object[][] spinnerData() {
+    return new Object[][] {
+            {spinnerAlignment.spinnerLeft},
+            {spinnerAlignment.flexJustifySpinner},
+            {spinnerAlignment.flexAlignCenterSpinner},
+            {spinnerAlignment.clearfixSpinner},
+            {spinnerAlignment.textCenterSpinner},
+    };
+}
+
+@Test(dataProvider = "spinnerData")
+public void isValidationTest(Spinner spinner) {
+    spinner.childs().get(0).highlight();
+    spinner
+            .is()
+            .enabled()
+            .and()
+            .displayed();
+}
+
+@Test(dataProvider = "spinnerStyleData")
+public void spinnerAlignmentStyleTest(Spinner spinner, String style) {
+    spinner.is().core().hasClass(style);
+}
+```
+
 Here is an example with provided Bootstrap v4.3 code:
 
 ![Spinner Margin HTML Example](../images/bootstrap/spinnermargin-html.png)
-
 
 **Spinner Placement**
 
@@ -6707,6 +6776,21 @@ Here is an example with provided Bootstrap v4.3 code:
 
 ![Spinner Text Align Center HTML Example](../images/bootstrap/spinner-text-align-html.png)
 
+Spinner is represented by Section class in Java:
+ 
++ [Section](https://jdi-docs.github.io/jdi-light/#section)
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**is()** | Asserts element  | UIAssert
+**displayed()** | Asserts element is displayed  | UIAssert
+**enabled()** | Asserts element is enabled | UIAssert
+**hasClass()** | Match passed value with element class | UISelectAssert
+**attr()** | Match passed value with element attribute | IsAssert
+
+<a href="javascript: void();">Bootstrap Test Examples</a>
 
 ### Spinner Size
 

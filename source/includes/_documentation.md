@@ -4728,19 +4728,87 @@ Available methods and properties in C# JDI Light:
 
 ####Nav
 
+```java
+
+public class Navbar extends Section {
+    //FindBy(xpath = "//*[contains(@class, 'nav-item')]")
+    @UI("//*[contains(@class, 'nav-item')]") public WebList navbarLinks;
+    //FindBy(css = ".navbar-brand")
+    @UI(".navbar-brand") public Link navbarBrand;
+    //FindBy(css = "button.navbar-toggler")
+    @UI("button.navbar-toggler") public Button togglerButton;
+    //FindBy(xpath = "//*[contains(@class, 'nav-link dropdown-toggle')]")
+    @UI("//*[contains(@class, 'nav-link dropdown-toggle')]") public Dropdown navbarDropdown;
+}
+
+ @UI("#navbar-nav-with-disabled") public static Navbar navbarNavWithDisabled;
+
+ @Test
+    public void isDisabledItem() {
+        navbarNavWithDisabled.navbarLinks.get(3).is().disabled();
+    }
+ 
+ 
+ 
+   
+
+ @UI("#navbar-nav-with-dropdown") public static Navbar navbarNavWithDropdown;
+
+ @Test
+    public void clickNavbarNavWithDropdownLinksTest() throws RuntimeException {
+        for (int i = 1; i < navbarNavWithDropdown.navbarLinks.size(); i++) {
+            navbarNavWithDropdown.navbarLinks.get(i).is().text(containsString(textLinksnavbarNavWithDropdown.get(i)));
+            try {
+                navbarNavWithDropdown.navbarLinks.get(i).click();
+                if (navbarNavWithDropdown.navbarLinks.get(i).getAttribute("class").equals("nav-item dropdown show")) {
+                    break;
+                }
+                assertThat(windowsCount(), is(2));
+                switchToWindow(2);
+                assertThat(getUrl(), is(urlLinksnavbarNavWithDropdown.get(i)));
+                closeWindow();
+            } catch (RuntimeException e) {
+                assertThat(e.getMessage(), containsString("is not clickable in any parts"));
+                break;
+            }
+        }
+    }
+
+
+
+
+```
+
+<a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/navbar/#nav">Navbar</a> navigation links require the use of toggle classes for proper responsive styling.
+
 ![Color Nav example](../images/bootstrap/nav.png)
 
 Here is an example with provided Bootstrap v4.3 code:
   
 ![Color Nav HTML example](../images/bootstrap/nav-html.png)
 
-**With dropdown**
+With dropdown
 
 ![Color Nav example](../images/bootstrap/nav-dropdown.png)
 
 Here is an example with provided Bootstrap v4.3 code:
   
 ![Color Nav HTML example](../images/bootstrap/nav-dropdown-html.png)
+
+Media object is represented by Section class in Java:
+ 
+[Section](https://jdi-docs.github.io/jdi-light/#section)
+
+Inner elements of media object can be represented by the following classes:
+<ul>
+    <li> [Link](https://jdi-docs.github.io/jdi-light/#link)  </li>
+    <li> [Button](https://jdi-docs.github.io/jdi-light/#button)  </li>
+    <li> [DropDown](https://jdi-docs.github.io/jdi-light/#dropdown)  </li>
+    <li> [See more elements](https://jdi-docs.github.io/jdi-light/#html5-common-elements) </li>
+</ul>
+
+<a style="font-weight: bold;" target="_blank" href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navbar/NavbarNavsTests.java">Bootstrap test examples</a>
+
 
 ####Forms
 
@@ -5022,7 +5090,7 @@ Here is an example with provided Bootstrap v4.3 code:
   
 ![Progress HTML example](../images/bootstrap/progress-html.png)
 
-[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/progress/ProgressBaseTests.java)
+
 
 Available methods in Java JDI Light:
 
@@ -5031,6 +5099,9 @@ Available methods in Java JDI Light:
 **getAriaValue()** | Get aria value of the bar | String
 **getColor()** | Get color of the bar  | String
 **is()** | Various assert actions for Progress | ProgressAssert 
+**assertThat()** | Assert action | UIAssert 
+
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/progress/ProgressBaseTests.java)
 
 **With label**
 
@@ -5069,9 +5140,6 @@ Here is an example with provided Bootstrap v4.3 code:
   
 ![Progress label HTML example](../images/bootstrap/progress-label-html.png)
 
-
-   <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/ProgressWithLabelsTests.java" target=a_blank> Bootstrap test examples </a>
-
 Available methods in Java JDI Light:
 
 |Method/Property | Description | Return Type
@@ -5079,6 +5147,9 @@ Available methods in Java JDI Light:
 **getAriaValue()** | Get aria value of the bar | String
 **getColor()** | Get color of the bar  | String
 **is()** | Various assert actions for Progress | ProgressAssert 
+**assertThat()** | Assert action | UIAssert 
+
+<a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/ProgressWithLabelsTests.java" target=a_blank> Bootstrap test examples </a>
 
 <br><br><br><br><br><br>
 
@@ -6944,36 +7015,68 @@ Available methods in Java JDI Light:
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/spinner/SpinnerSizeTests.java" target="_blank">Bootstrap Test Examples</a>
 
-**Spinner Buttons**
+####Spinner Buttons
 
-Use spinners within buttons to indicate an action is currently processing or taking place. 
+Use <a href="https://getbootstrap.com/docs/4.3/components/spinners/#buttons" target="_blank">spinners within buttons</a> to indicate an action is currently processing or taking place. 
 You may also swap the text out of the spinner element and utilize button text as needed.
 
 ![Spinner Buttons Example](../images/bootstrap/spinnerbuttons.png)
+
+```java 
+
+public class ButtonWithSpinner extends Button implements PageObject {
+    // @FindBy(css = "[class*='spinner']")
+    public @UI("[class*='spinner']") Spinner spinner;
+    // @FindBy(css = "[class*='spinner'] + span")
+    public @UI("[class*='spinner'] + span")  TextField span;
+}
+
+// @FindBy(id = "#button-with-spinner-and-text")
+@UI("#button-with-spinner-and-text") public static ButtonWithSpinner buttonWithSpinnerAndText;
+
+private final String spinnerClass = "spinner-border";
+
+@Test()
+public void checkButtonText() {
+    assertTrue(buttonWithSpinnerAndText.isDisplayed());
+    buttonWithSpinnerAndText.assertThat().text(is(buttonText));
+}
+
+@Test()
+public void checkSpinnerInButtonWithText() {
+    buttonWithSpinnerAndText.spinner.is().core().hasClass(spinnerClass);
+    buttonWithSpinnerAndText.spinner
+        .is()
+        .displayed()
+        .and()
+        .enabled();
+}
+
+```
 
 Here is an example with provided Bootstrap v4.3 code:
 
 ![Spinner Buttons HTML Example](../images/bootstrap/spinnerbuttons-html.png)
 
-Available methods in Java JDI Light:
+Spinner is represented by ButtonWithSpinner class in Java:
+ 
++ com.epam.jdi.light.ui.bootstrap.elements.complex.ButtonWithSpinner
+
+Available methods in Java JDI Light for ButtonWithSpinner:
 
 |Method | Description | Return Type
 --- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  | 
- 
-Available methods and properties in C# JDI Light:
+**click()** | Click the button  | void
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
 
-|Method/Property | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  |
- |  |
- <br>
+Inner elements of are represented by following classes:
+
+ + [Text](https://jdi-docs.github.io/jdi-light/#text)
+ + [Spinner](https://jdi-docs.github.io/jdi-light/#spinners)
+
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/spinner/SpinnerButtonsTests.java" target="_blank">Bootstrap Test Examples</a>
 
 ### Tooltip
 <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/tooltips/" target="_blank">Tooltip</a> is a hint that used in conjuction with a pointer.
@@ -7452,7 +7555,7 @@ Here is an example form code in the menu items:
 ![Form HTML example](../images/bootstrap/dropdown-menu-content-form-html.png)
 
 ### Toast
-Toasts are lightweight notifications designed to mimic the push notifications.
+<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/toasts/" target="_blank">Toast</a> - Toasts are lightweight notifications designed to mimic the push notifications.
 <br />
 __Options for toasts:__
 <br />
@@ -7467,6 +7570,57 @@ __Events for toasts:__
   - _hide.bs.toast_ - this event is fired immediately when the hide instance method has been called.<br/>
   - _hidden.bs.toast_ - this event is fired when the toast has finished being hidden from the user<br/>
  <br /> 
+ 
+ ```java 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ @UI("#toastRightTop") public static Toast toastWithTopAlign; //@FindBy("#toastRightTop")
+ @UI("#simpleToast") public static Toast simpleToast; //@FindBy("#simpleToast")
+ @UI("#firstMultipleToast") public static Toast firstStackToast; //@FindBy("#firstMultipleToast")
+ @UI("#secondMultipleToast") public static Toast secondStackToast; //@FindBy("#secondMultipleToast")
+ @UI("#firstStackToast") public static Toast firstTopAlignStackToast; //@FindBy("#firstStackToast")
+ @UI("#secondStackToast") public static Toast secondTopAlignStackToast; //@FindBy("#secondStackToast")
+ @UI("#toastCenterTop") public static Toast toastWithCenterAlign; //@FindBy("#toastCenterTop")
+ 
+ @Test
+ public void simpleToastValidationTest() {
+     simpleToastButton.click();
+     simpleToast.is().displayed();
+     simpleToast.headerText.is().text(toastHeaderText);
+     simpleToast.body.is().text(toastBodyText);
+ }
+
+ @Test
+ public void toastWithTopAlignValidationTest() {
+     toastWithTopAlignButton.click();
+     toastWithTopAlign.is().displayed();
+     toastWithTopAlign.headerText.is().text(toastHeaderText);
+     toastWithTopAlign.body.is().text(toastBodyText);
+     toastWithTopAlign.closeButton.click();
+     toastWithTopAlign.base().waitSec(1);
+     toastWithTopAlign.is().hidden();
+   }
+ 
+ ``` 
+ 
+[Toast test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/)
+ 
 
 ![Toast example](../images/bootstrap/toast.png)
 
@@ -7516,20 +7670,12 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  |  
-
-Available methods and properties in C# JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  |
- |  | 
+**getText()** |	Get toast text |	String
+**is()** |	Assert action |	TextAssert
+**assertThat()** |	Assert action |	TextAssert
+**isDisplayed()** | Show\wait that toast element displayed on the screen | Boolean
+**close()** |	Close toast |	void
+ 
 <br><br>
 
 

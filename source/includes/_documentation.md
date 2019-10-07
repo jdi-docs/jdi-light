@@ -6626,7 +6626,7 @@ Available methods in Java JDI Light:
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/spinner/GrowingSpinnersTests.java" target="_blank">Bootstrap Test Examples</a>
 
-**Spinner Alignment**
+### Spinner Alignment
 
 Spinners in Bootstrap are built with ``rem``s, ``currentColor``, and ``display: inline-flex``. 
 This means they can easily be resized, recolored, and quickly aligned.

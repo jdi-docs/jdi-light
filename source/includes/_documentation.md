@@ -7255,7 +7255,7 @@ Here is an example form code in the menu items:
 ![Form HTML example](../images/bootstrap/dropdown-menu-content-form-html.png)
 
 ### Toast
-Toasts are lightweight notifications designed to mimic the push notifications.
+<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/toasts/" target="_blank">Toast</a> - Toasts are lightweight notifications designed to mimic the push notifications.
 <br />
 __Options for toasts:__
 <br />
@@ -7270,6 +7270,37 @@ __Events for toasts:__
   - _hide.bs.toast_ - this event is fired immediately when the hide instance method has been called.<br/>
   - _hidden.bs.toast_ - this event is fired when the toast has finished being hidden from the user<br/>
  <br /> 
+ 
+ ```java 
+ 
+ @UI("#toastRightTop") public static Toast toastWithTopAlign; //@FindBy("#toastRightTop")
+ @UI("#simpleToast") public static Toast simpleToast; //@FindBy("#simpleToast")
+ @UI("#firstMultipleToast") public static Toast firstStackToast; //@FindBy("#firstMultipleToast")
+ @UI("#secondMultipleToast") public static Toast secondStackToast; //@FindBy("#secondMultipleToast")
+ @UI("#firstStackToast") public static Toast firstTopAlignStackToast; //@FindBy("#firstStackToast")
+ @UI("#secondStackToast") public static Toast secondTopAlignStackToast; //@FindBy("#secondStackToast")
+ @UI("#toastCenterTop") public static Toast toastWithCenterAlign; //@FindBy("#toastCenterTop")
+ 
+ @Test
+ public void simpleToastValidationTest() {
+     simpleToastButton.click();
+     simpleToast.is().displayed();
+     simpleToast.headerText.is().text(toastHeaderText);
+     simpleToast.body.is().text(toastBodyText);
+ }
+
+ @Test
+ public void toastWithTopAlignValidationTest() {
+     toastWithTopAlignButton.click();
+     toastWithTopAlign.is().displayed();
+     toastWithTopAlign.headerText.is().text(toastHeaderText);
+     toastWithTopAlign.body.is().text(toastBodyText);
+     toastWithTopAlign.closeButton.click();
+     toastWithTopAlign.base().waitSec(1);
+     toastWithTopAlign.is().hidden();
+   }
+ 
+ ``` 
 
 ![Toast example](../images/bootstrap/toast.png)
 

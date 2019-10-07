@@ -6603,7 +6603,11 @@ public void spinnerHasGrowClassTest(Spinner spinner) {
 @Test(dataProvider = "spinnerData")
 public void isValidationTest(Spinner spinner) {
     spinner.highlight();
-    spinner.is().displayed().and().enabled();
+    spinner
+            .is()
+            .displayed()
+            .and()
+            .enabled();
 }
 ```
 

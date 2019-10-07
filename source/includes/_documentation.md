@@ -5137,7 +5137,69 @@ Here is an example with provided Bootstrap v4.3 code:
 
 **With striped design**
 
+```java 
+
+    public class BootstrapPage extends WebPage {
+    @UI("#striped-base .progress") public static JList<ProgressSection> progressSections;
+    }
+
+    public class ProgressSection extends Section {
+        //@FindBy(css = ".progress-bar")
+        @UI(".progress-bar")
+        public Progress progress;
+    }
+
+
+    @DataProvider
+    public static Object[][] progressData() {
+        return new Object[][]{
+                {"striped_ordinary", "10", "rgba(0, 123, 255, 1)", "0", "100", "progress-bar-striped"},
+                {"striped_success", "25", "rgba(40, 167, 69, 1)", "0", "100", "progress-bar-striped"},
+                {"striped_info", "50", "rgba(23, 162, 184, 1)", "0", "100", "progress-bar-striped"},
+                {"striped_warning", "75", "rgba(255, 193, 7, 1)", "0", "100", "progress-bar-striped"},
+                {"striped_danger", "100", "rgba(220, 53, 69, 1)", "0", "100", "progress-bar-striped"}
+        };
+    }
+
+    @Test(dataProvider = "progressData")
+    public void checkProgressData(String progressId, String value, String color,
+                                  String min, String max, String classStriped) {
+
+        progressSections.stream().filter(progressSection ->
+                progressSection.progress.attr("id").equals(progressId)).forEach(
+                progressSection -> {
+                    assertThat(progressSection.progress.core().attr("class"), containsString(classStriped));
+                    progressSection.progress.is().ariaValue(value)
+                                                 .color(color)
+                                                 .minValue(min)
+                                                 .maxValue(max);
+                });
+    }
+
+    @Test
+    public void baseValidationTest() {
+        progressSections.forEach(
+                progressSection ->
+                        baseValidation(progressSection.progress));
+
+    }
+```
+
 ![Progress striped example](../images/bootstrap/progress-striped.png)
+
+  <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/listprogressbars/ProgressBarsListTests.java" target=a_blank> Bootstrap test examples </a>
+
+
+Available methods in Java JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+**getAriaValue()** | Get aria value of the bar | String
+**getColor()** | Get color of the bar  | String
+**getMaxValue()** | Get max value of the bar | String
+**getMinValue()** | Get max value of the bar | String
+**is()** | Various assert actions for Progress | ProgressAssert 
+
 
 Here is an example with provided Bootstrap v4.3 code:
   

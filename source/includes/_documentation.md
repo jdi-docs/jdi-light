@@ -6552,7 +6552,7 @@ assertThat()	 |  Assert action	| UIAssert
 
 <br>
 
-**Growing Spinners**
+####Growing Spinners
 
 If you don’t fancy a border spinner, switch to the <a style="font-weight: bold;" href="https://getbootstrap.com/docs/4.3/components/spinners/#growing-spinner" target="_blank">grow spinner</a>.
 
@@ -6681,7 +6681,7 @@ Here is an example with provided Bootstrap v4.3 code:
 ![Spinner Text Align Center HTML Example](../images/bootstrap/spinner-text-align-html.png)
 
 
-**<a href="https://getbootstrap.com/docs/4.3/components/spinners/#size" target="_blank">Spinner Size</a>**
+####<a href="https://getbootstrap.com/docs/4.3/components/spinners/#size" target="_blank">Spinner Size</a>
 
 Add ``.spinner-border-sm`` and ``.spinner-grow-sm`` to make a smaller spinner 
 that can quickly be used within other components.

@@ -5468,11 +5468,14 @@ Here is an example with provided Bootstrap v4.3 code:
 
 ![Card Body Example Code](../images/bootstrap/card_list_groups_code.png)
 
+[Card list groups test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card)
+
 |Method | Description | Return Type
 --- | --- | ---
  getText()| Returns text of list cell  | String
  size()| Returns cells quantity of list groups   | int 
- 
+ is() |	Assert action |	TextAssert
+ assertThat() |	Assert action |	TextAssert
 
  
 **Kitchen Sink**

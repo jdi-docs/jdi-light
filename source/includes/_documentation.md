@@ -6882,36 +6882,68 @@ Available methods in Java JDI Light:
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/spinner/SpinnerSizeTests.java" target="_blank">Bootstrap Test Examples</a>
 
-**Spinner Buttons**
+####Spinner Buttons
 
-Use spinners within buttons to indicate an action is currently processing or taking place. 
+Use <a href="https://getbootstrap.com/docs/4.3/components/spinners/#buttons" target="_blank">spinners within buttons</a> to indicate an action is currently processing or taking place. 
 You may also swap the text out of the spinner element and utilize button text as needed.
 
 ![Spinner Buttons Example](../images/bootstrap/spinnerbuttons.png)
+
+```java 
+
+public class ButtonWithSpinner extends Button implements PageObject {
+    // @FindBy(css = "[class*='spinner']")
+    public @UI("[class*='spinner']") Spinner spinner;
+    // @FindBy(css = "[class*='spinner'] + span")
+    public @UI("[class*='spinner'] + span")  TextField span;
+}
+
+// @FindBy(id = "#button-with-spinner-and-text")
+@UI("#button-with-spinner-and-text") public static ButtonWithSpinner buttonWithSpinnerAndText;
+
+private final String spinnerClass = "spinner-border";
+
+@Test()
+public void checkButtonText() {
+    assertTrue(buttonWithSpinnerAndText.isDisplayed());
+    buttonWithSpinnerAndText.assertThat().text(is(buttonText));
+}
+
+@Test()
+public void checkSpinnerInButtonWithText() {
+    buttonWithSpinnerAndText.spinner.is().core().hasClass(spinnerClass);
+    buttonWithSpinnerAndText.spinner
+        .is()
+        .displayed()
+        .and()
+        .enabled();
+}
+
+```
 
 Here is an example with provided Bootstrap v4.3 code:
 
 ![Spinner Buttons HTML Example](../images/bootstrap/spinnerbuttons-html.png)
 
-Available methods in Java JDI Light:
+Spinner is represented by ButtonWithSpinner class in Java:
+ 
++ com.epam.jdi.light.ui.bootstrap.elements.complex.ButtonWithSpinner
+
+Available methods in Java JDI Light for ButtonWithSpinner:
 
 |Method | Description | Return Type
 --- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  | 
- 
-Available methods and properties in C# JDI Light:
+**click()** | Click the button  | void
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
 
-|Method/Property | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  |
- |  |
- <br>
+Inner elements of are represented by following classes:
+
+ + [Text](https://jdi-docs.github.io/jdi-light/#text)
+ + [Spinner](https://jdi-docs.github.io/jdi-light/#spinners)
+
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/spinner/SpinnerButtonsTests.java" target="_blank">Bootstrap Test Examples</a>
 
 ### Tooltip
 <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/tooltips/" target="_blank">Tooltip</a> is a hint that used in conjuction with a pointer.

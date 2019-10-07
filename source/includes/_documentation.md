@@ -7592,38 +7592,6 @@ Popover top
 
 ![Four directions popover top example](../images/bootstrap/popover-top.png)
 
-![Four directions popover top example html](../images/bootstrap/popover-top-html.png)
-
-![Four directions popover top container example html](../images/bootstrap/popover-top-html-div.png)
-<br><br>
-
-Popover right
-
-![Four directions popover right example](../images/bootstrap/popover-right.png)
-
-![Four directions popover right example html](../images/bootstrap/popover-right-html.png)
-
-![Four directions popover right container example html](../images/bootstrap/popover-right-html-div.png)
-<br><br>
-
-Popover bottom
-
-![Four directions popover bottom example](../images/bootstrap/popover-bottom.png)
-
-![Four directions popover bottom example html](../images/bootstrap/popover-bottom-html.png)
-
-![Four directions popover bottom container example html](../images/bootstrap/popover-bottom-html-div.png)
-<br><br>
-
-Popover left
-
-![Four directions popover left example](../images/bootstrap/popover-left.png)
-
-![Four directions popover left example html](../images/bootstrap/popover-left-html.png)
-
-![Four directions popover left container example html](../images/bootstrap/popover-left-html-div.png)
-<br><br>
-
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java
@@ -7680,6 +7648,44 @@ public void clickableTests() {
     assertFalse(popover.container.isDisplayed());
 }
 ```
+
+![Four directions popover top example html](../images/bootstrap/popover-top-html.png)
+
+![Four directions popover top container example html](../images/bootstrap/popover-top-html-div.png)
+<br><br>
+
+Popover right
+
+![Four directions popover right example](../images/bootstrap/popover-right.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Four directions popover right example html](../images/bootstrap/popover-right-html.png)
+
+![Four directions popover right container example html](../images/bootstrap/popover-right-html-div.png)
+<br><br>
+
+Popover bottom
+
+![Four directions popover bottom example](../images/bootstrap/popover-bottom.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Four directions popover bottom example html](../images/bootstrap/popover-bottom-html.png)
+
+![Four directions popover bottom container example html](../images/bootstrap/popover-bottom-html-div.png)
+<br><br>
+
+Popover left
+
+![Four directions popover left example](../images/bootstrap/popover-left.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Four directions popover left example html](../images/bootstrap/popover-left-html.png)
+
+![Four directions popover left container example html](../images/bootstrap/popover-left-html-div.png)
+<br><br>
 
 
 
@@ -7816,7 +7822,10 @@ Inner elements of input group can be represented by following classes:
   <li> [MediaObject](https://jdi-docs.github.io/jdi-light/#media-object) </li>
  </ul>
  
+ 
+ 
  #### Disabled elements popover
+ 
  **[Disabled elements popover](https://getbootstrap.com/docs/4.3/components/popovers/#disabled-elements)** 
  
  ![Disabled elements popover example](../images/bootstrap/popover-disabled.png)
@@ -7882,7 +7891,7 @@ Inner elements of input group can be represented by following classes:
  
  ![Disabled elements popover example container html](../images/bootstrap/popover-disabled-html-div.png)
  
- 
+ <br>
  
  |Method | Description | Return Type
  --- | --- | ---

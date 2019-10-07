@@ -5145,6 +5145,24 @@ Here is an example with provided Bootstrap v4.3 code:
 
 **With animated design**
 
+```java 
+
+
+
+//FindBy(css = "#progress-animated")
+@UI("#progress-animated") public static Progress progressAnimated;
+
+@Test
+public void isValidationTest() {
+    progressAnimated.is()
+            .animated("progress-bar-stripes")
+            .color("rgba(0, 123, 255, 1)")
+            .ariaValue("75");
+}
+```
+The striped gradient can also be <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/progress/#animated-stripes">animated</a>.
+Add .progress-bar-animated to .progress-bar to animate the stripes right to left via CSS3 animations.
+
 Here is an example with provided Bootstrap v4.3 code:
   
 ![Progress animated HTML example](../images/bootstrap/progress-animated-html.png)
@@ -5156,6 +5174,8 @@ Available methods in Java JDI Light:
 **getAriaValue()** | Get aria value of the bar | String
 **getColor()** | Get color of the bar  | String
 **is()** | Various assert actions for Progress | ProgressAssert  
+
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/progress/ProgressAnimatedStripesTests.java)
 <br>
 
 ### Media object
@@ -5410,6 +5430,29 @@ Available methods and properties in C# JDI Light:
 
 ```java 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 public class CardListGroups extends Section {
 
     @UI(".card-header") public Label cardHeader; //@FindBy(".card-header"))
@@ -5445,11 +5488,14 @@ Here is an example with provided Bootstrap v4.3 code:
 
 ![Card Body Example Code](../images/bootstrap/card_list_groups_code.png)
 
+[Card list groups test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card)
+
 |Method | Description | Return Type
 --- | --- | ---
  getText()| Returns text of list cell  | String
  size()| Returns cells quantity of list groups   | int 
- 
+ is() |	Assert action |	TextAssert
+ assertThat() |	Assert action |	TextAssert
 
  
 **Kitchen Sink**
@@ -6529,7 +6575,7 @@ assertThat()	 |  Assert action	| UIAssert
 
 <br>
 
-**Growing Spinners**
+### Growing Spinners
 
 If you don’t fancy a border spinner, switch to the <a style="font-weight: bold;" href="https://getbootstrap.com/docs/4.3/components/spinners/#growing-spinner" target="_blank">grow spinner</a>.
 
@@ -6580,7 +6626,11 @@ public void spinnerHasGrowClassTest(Spinner spinner) {
 @Test(dataProvider = "spinnerData")
 public void isValidationTest(Spinner spinner) {
     spinner.highlight();
-    spinner.is().displayed().and().enabled();
+    spinner
+            .is()
+            .displayed()
+            .and()
+            .enabled();
 }
 ```
 
@@ -6601,9 +6651,9 @@ Available methods in Java JDI Light:
 **enabled()** | Asserts element is enabled | UIAssert
 **hasClass()** | Match passed value with element class | UISelectAssert 
 
-<a href="javascript: void();">Bootstrap Test Examples</a>
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/spinner/GrowingSpinnersTests.java" target="_blank">Bootstrap Test Examples</a>
 
-**Spinner Alignment**
+### Spinner Alignment
 
 Spinners in Bootstrap are built with ``rem``s, ``currentColor``, and ``display: inline-flex``. 
 This means they can easily be resized, recolored, and quickly aligned.
@@ -6615,10 +6665,79 @@ Use margin utilities like ``.m-5`` for easy spacing.
 
 ![Spinner Margin Example](../images/bootstrap/spinnermargin.png)
 
+```java 
+
+// @FindBy(id = "spinner-alignment")
+@UI("#spinner-alignment") public static SpinnerAlignment spinnerAlignment;
+
+// @FindBy(xpath = "//div[@class='border mb-3 p-3']")
+@UI("//div[@class='border mb-3 p-3']")
+public Spinner spinnerLeft;
+
+// @FindBy(xpath = "//div[@class='d-flex justify-content-center border mb-3 p-3']")
+@UI("//div[@class='d-flex justify-content-center border mb-3 p-3']")
+public Spinner flexJustifySpinner;
+
+// @FindBy(xpath = "//div[@class='d-flex align-items-center border mb-3 p-3']")
+@UI("//div[@class='d-flex align-items-center border mb-3 p-3']")
+public Spinner flexAlignCenterSpinner;
+
+// @FindBy(xpath = "//div[@class='clearfix border mb-3 p-3']")
+@UI("//div[@class='clearfix border mb-3 p-3']")
+public Spinner clearfixSpinner;
+
+// @FindBy(xpath = "//div[@class='text-center mb-3 border p-3']")
+@UI("//div[@class='text-center mb-3 border p-3']")
+public Spinner textCenterSpinner;
+
+private static final String spinnerBorderStyle = "spinner-border";
+private static final String spinnerMarginStyle = "mb-3";
+private static final String spinnerJustifyContentStyle = "justify-content-center";
+private static final String spinnerAlignCenterStyle = "align-items-center";
+private static final String spinnerClearfixStyle = "clearfix";
+private static final String spinnerTextCenterStyle = "text-center";
+
+@DataProvider
+public Object[][] spinnerStyleData() {
+    return new Object[][] {
+            {spinnerAlignment.spinnerLeft, spinnerMarginStyle},
+            {spinnerAlignment.flexJustifySpinner, spinnerJustifyContentStyle},
+            {spinnerAlignment.flexAlignCenterSpinner, spinnerAlignCenterStyle},
+            {spinnerAlignment.clearfixSpinner, spinnerClearfixStyle},
+            {spinnerAlignment.textCenterSpinner, spinnerTextCenterStyle},
+    };
+}
+
+@DataProvider
+public Object[][] spinnerData() {
+    return new Object[][] {
+            {spinnerAlignment.spinnerLeft},
+            {spinnerAlignment.flexJustifySpinner},
+            {spinnerAlignment.flexAlignCenterSpinner},
+            {spinnerAlignment.clearfixSpinner},
+            {spinnerAlignment.textCenterSpinner},
+    };
+}
+
+@Test(dataProvider = "spinnerData")
+public void isValidationTest(Spinner spinner) {
+    spinner.childs().get(0).highlight();
+    spinner
+            .is()
+            .enabled()
+            .and()
+            .displayed();
+}
+
+@Test(dataProvider = "spinnerStyleData")
+public void spinnerAlignmentStyleTest(Spinner spinner, String style) {
+    spinner.is().core().hasClass(style);
+}
+```
+
 Here is an example with provided Bootstrap v4.3 code:
 
 ![Spinner Margin HTML Example](../images/bootstrap/spinnermargin-html.png)
-
 
 **Spinner Placement**
 
@@ -6657,10 +6776,26 @@ Here is an example with provided Bootstrap v4.3 code:
 
 ![Spinner Text Align Center HTML Example](../images/bootstrap/spinner-text-align-html.png)
 
+Spinner is represented by Section class in Java:
+ 
++ [Section](https://jdi-docs.github.io/jdi-light/#section)
 
-**<a href="https://getbootstrap.com/docs/4.3/components/spinners/#size" target="_blank">Spinner Size</a>**
+Available methods in Java JDI Light:
 
-Add ``.spinner-border-sm`` and ``.spinner-grow-sm`` to make a smaller spinner 
+|Method | Description | Return Type
+--- | --- | ---
+**is()** | Asserts element  | UIAssert
+**displayed()** | Asserts element is displayed  | UIAssert
+**enabled()** | Asserts element is enabled | UIAssert
+**hasClass()** | Match passed value with element class | UISelectAssert
+**attr()** | Match passed value with element attribute | IsAssert
+
+<a href="javascript: void();">Bootstrap Test Examples</a>
+
+### Spinner Size
+
+Add ``.spinner-border-sm`` and ``.spinner-grow-sm`` 
+to make a <a href="https://getbootstrap.com/docs/4.3/components/spinners/#size" target="_blank">smaller spinner</a> 
 that can quickly be used within other components.
 
 ![Spinner Size Native Example](../images/bootstrap/spinner-size-native.png)
@@ -6688,7 +6823,7 @@ public Spinner growingSpinner;
 
 private static final String smallSpinnerClass = "spinner-border-sm";
 private static final String smallGrowingSpinnerClass = "spinner-grow-sm";
-private static final String spinnerStyleValue = "width: 3rem; height: 3rem;";
+private static final String spinnerStyleValue = "width: 3rem; height: 3rem; border: 3px dashed red;";
 
 @DataProvider
 public Object[][] spinnerData() {
@@ -6745,38 +6880,70 @@ Available methods in Java JDI Light:
 **hasClass()** | Match passed value with element class | UISelectAssert
 **attr()** | Match passed value with element attribute | IsAssert
 
-<a href="javascript: void();">Bootstrap test examples</a>
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/spinner/SpinnerSizeTests.java" target="_blank">Bootstrap Test Examples</a>
 
-**Spinner Buttons**
+####Spinner Buttons
 
-Use spinners within buttons to indicate an action is currently processing or taking place. 
+Use <a href="https://getbootstrap.com/docs/4.3/components/spinners/#buttons" target="_blank">spinners within buttons</a> to indicate an action is currently processing or taking place. 
 You may also swap the text out of the spinner element and utilize button text as needed.
 
 ![Spinner Buttons Example](../images/bootstrap/spinnerbuttons.png)
+
+```java 
+
+public class ButtonWithSpinner extends Button implements PageObject {
+    // @FindBy(css = "[class*='spinner']")
+    public @UI("[class*='spinner']") Spinner spinner;
+    // @FindBy(css = "[class*='spinner'] + span")
+    public @UI("[class*='spinner'] + span")  TextField span;
+}
+
+// @FindBy(id = "#button-with-spinner-and-text")
+@UI("#button-with-spinner-and-text") public static ButtonWithSpinner buttonWithSpinnerAndText;
+
+private final String spinnerClass = "spinner-border";
+
+@Test()
+public void checkButtonText() {
+    assertTrue(buttonWithSpinnerAndText.isDisplayed());
+    buttonWithSpinnerAndText.assertThat().text(is(buttonText));
+}
+
+@Test()
+public void checkSpinnerInButtonWithText() {
+    buttonWithSpinnerAndText.spinner.is().core().hasClass(spinnerClass);
+    buttonWithSpinnerAndText.spinner
+        .is()
+        .displayed()
+        .and()
+        .enabled();
+}
+
+```
 
 Here is an example with provided Bootstrap v4.3 code:
 
 ![Spinner Buttons HTML Example](../images/bootstrap/spinnerbuttons-html.png)
 
-Available methods in Java JDI Light:
+Spinner is represented by ButtonWithSpinner class in Java:
+ 
++ com.epam.jdi.light.ui.bootstrap.elements.complex.ButtonWithSpinner
+
+Available methods in Java JDI Light for ButtonWithSpinner:
 
 |Method | Description | Return Type
 --- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  | 
- 
-Available methods and properties in C# JDI Light:
+**click()** | Click the button  | void
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
 
-|Method/Property | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  |
- |  |
- <br>
+Inner elements of are represented by following classes:
+
+ + [Text](https://jdi-docs.github.io/jdi-light/#text)
+ + [Spinner](https://jdi-docs.github.io/jdi-light/#spinners)
+
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/spinner/SpinnerButtonsTests.java" target="_blank">Bootstrap Test Examples</a>
 
 ### Tooltip
 <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/tooltips/" target="_blank">Tooltip</a> is a hint that used in conjuction with a pointer.
@@ -7487,6 +7654,452 @@ Available methods and properties in C# JDI Light:
  |  | 
 <br>
 
+
+### Popovers
+
+***[Popovers](https://getbootstrap.com/docs/4.3/components/popovers/)***
+
+#### Example
+**[Popover example](https://getbootstrap.com/docs/4.3/components/popovers/#example)** 
+
+![Popover example](../images/bootstrap/popover-title.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java
+@UI("body") public static Popover popover; // @FindBy(css = "body") public static Popover popover;
+
+@Test
+public void isValidationTests() {
+    popover.getPopover(locator);
+    popover.popoverButton.is()
+            .displayed()
+            .enabled()
+            .core()
+            .attr("data-toggle", "popover")
+            .attr("data-content", popoverBody)
+            .attr("data-original-title", popoverHeader)
+            .text(is(buttonText));
+    popover.container
+            .is()
+            .enabled()
+            .core()
+            .hasClass("popover fade bs-popover-right show")
+            .attr("role", "tooltip")
+            .attr("x-placement", "right");
+    popover.body
+            .is()
+            .enabled()
+            .core()
+            .hasClass("popover-body")
+            .text(is(popoverBody));
+    popover.header
+            .is()
+            .core()
+            .hasClass("popover-header")
+            .text(is(popoverHeader.toUpperCase()));
+    popover.popoverButton.click();
+}
+
+@Test()
+public void clickableTests() {
+    popover.getPopover(locator);
+    popover.popoverButton.click();
+    popover.popoverButton
+            .is()
+            .core()
+            .attr("aria-describedby", containsString("popover"));
+    popover.container
+            .is()
+            .enabled();
+    popover.container.click();
+    popover.popoverButton
+            .is()
+            .core()
+            .attr("aria-describedby", "");
+    assertFalse(popover.container.isDisplayed());
+}
+```
+
+![Popover example html](../images/bootstrap/popover-title-html.png)
+
+![Popover example html container](../images/bootstrap/popover-title-html-div.png)
+
+
+
+|Method | Description | Return Type
+--- | --- | ---
+ **getText()** | Get button text | String
+ **enabled()** | assert is enabled | TextAssert
+ **disabled()** | assert is disabled | TextAssert
+ **displayed()** | assert is displayed | TextAssert
+ **is()** | Assert action | TextAssert 
+ **assertThat()** | Assert action | TextAssert
+ **get()** | Select button by index | UIElement
+ **click()** | Get button text | void
+ **highlight()** | Get button text | void
+ **unhighlight()** | Get button text | void
+
+<br>
+
+[Java test examples]()<br>
+
+Popover group is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+
+<br>
+
+Inner elements of input group can be represented by following classes:
+ <ul>
+  <li> [Text](https://jdi-docs.github.io/jdi-light/#text) </li>
+  
+  <li> [Button](https://jdi-docs.github.io/jdi-light/#button-2) </li> 
+  
+  <li> [MediaObject](https://jdi-docs.github.io/jdi-light/#media-object) </li>
+ </ul>
+ 
+
+#### Four directions popovers
+**[Four directions popovers](https://getbootstrap.com/docs/4.3/components/popovers/#four-directions)** 
+
+Popover top
+
+![Four directions popover top example](../images/bootstrap/popover-top.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java
+@UI("body") public static Popover popover; // @FindBy(css = "body") public static Popover popover;
+
+@Test
+public void isValidationTests() {
+    popover.getPopover(locator);
+    popover.popoverButton.is()
+            .displayed()
+            .enabled()
+            .core()
+            .attr("data-toggle", "popover")
+            .attr("data-content", popoverBody)
+            .attr("data-original-title", popoverHeader)
+            .text(is(buttonText));
+    popover.container
+            .is()
+            .enabled()
+            .core()
+            .hasClass("popover fade bs-popover-right show")
+            .attr("role", "tooltip")
+            .attr("x-placement", "right");
+    popover.body
+            .is()
+            .enabled()
+            .core()
+            .hasClass("popover-body")
+            .text(is(popoverBody));
+    popover.header
+            .is()
+            .core()
+            .hasClass("popover-header")
+            .text(is(popoverHeader.toUpperCase()));
+    popover.popoverButton.click();
+}
+
+@Test()
+public void clickableTests() {
+    popover.getPopover(locator);
+    popover.popoverButton.click();
+    popover.popoverButton
+            .is()
+            .core()
+            .attr("aria-describedby", containsString("popover"));
+    popover.container
+            .is()
+            .enabled();
+    popover.container.click();
+    popover.popoverButton
+            .is()
+            .core()
+            .attr("aria-describedby", "");
+    assertFalse(popover.container.isDisplayed());
+}
+```
+
+![Four directions popover top example html](../images/bootstrap/popover-top-html.png)
+
+![Four directions popover top container example html](../images/bootstrap/popover-top-html-div.png)
+<br><br>
+
+Popover right
+
+![Four directions popover right example](../images/bootstrap/popover-right.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Four directions popover right example html](../images/bootstrap/popover-right-html.png)
+
+![Four directions popover right container example html](../images/bootstrap/popover-right-html-div.png)
+<br><br>
+
+Popover bottom
+
+![Four directions popover bottom example](../images/bootstrap/popover-bottom.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Four directions popover bottom example html](../images/bootstrap/popover-bottom-html.png)
+
+![Four directions popover bottom container example html](../images/bootstrap/popover-bottom-html-div.png)
+<br><br>
+
+Popover left
+
+![Four directions popover left example](../images/bootstrap/popover-left.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Four directions popover left example html](../images/bootstrap/popover-left-html.png)
+
+![Four directions popover left container example html](../images/bootstrap/popover-left-html-div.png)
+<br><br>
+
+
+
+|Method | Description | Return Type
+--- | --- | ---
+ **getText()** | Get button text | String
+ **enabled()** | assert is enabled | TextAssert
+ **disabled()** | assert is disabled | TextAssert
+ **displayed()** | assert is displayed | TextAssert
+ **is()** | Assert action | TextAssert 
+ **assertThat()** | Assert action | TextAssert
+ **get()** | Select button by index | UIElement
+ **click()** | Get button text | void
+ **highlight()** | Get button text | void
+ **unhighlight()** | Get button text | void
+
+<br>
+
+[Java test examples]()<br>
+
+Popover group is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+
+<br>
+
+Inner elements of input group can be represented by following classes:
+ <ul>
+  <li> [Text](https://jdi-docs.github.io/jdi-light/#text) </li>
+  
+  <li> [Button](https://jdi-docs.github.io/jdi-light/#button-2) </li> 
+  
+  <li> [MediaObject](https://jdi-docs.github.io/jdi-light/#media-object) </li>
+ </ul>
+
+
+#### Dismissible
+**[Dismissible popover](https://getbootstrap.com/docs/4.3/components/popovers/#dismiss-on-next-click)** 
+
+![Dismissible popover example](../images/bootstrap/popover-dismissible.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java
+@UI("body") public static Popover popover; // @FindBy(css = "body") public static Popover popover;
+
+@Test
+public void isValidationTests() {
+    popover.getPopover(locator);
+    popover.popoverButton.is()
+            .displayed()
+            .enabled()
+            .core()
+            .attr("data-toggle", "popover")
+            .attr("data-content", popoverBody)
+            .attr("data-original-title", popoverHeader)
+            .text(is(buttonText));
+    popover.container
+            .is()
+            .enabled()
+            .core()
+            .hasClass("popover fade bs-popover-right show")
+            .attr("role", "tooltip")
+            .attr("x-placement", "right");
+    popover.body
+            .is()
+            .enabled()
+            .core()
+            .hasClass("popover-body")
+            .text(is(popoverBody));
+    popover.header
+            .is()
+            .core()
+            .hasClass("popover-header")
+            .text(is(popoverHeader.toUpperCase()));
+    popover.popoverButton.click();
+}
+
+@Test()
+public void clickableTests() {
+    popover.getPopover(locator);
+    popover.popoverButton.click();
+    popover.popoverButton
+            .is()
+            .core()
+            .attr("aria-describedby", containsString("popover"));
+    popover.container
+            .is()
+            .enabled();
+    popover.container.click();
+    popover.popoverButton
+            .is()
+            .core()
+            .attr("aria-describedby", "");
+    assertFalse(popover.container.isDisplayed());
+}
+```
+
+![Dismissible popover example html](../images/bootstrap/popover-dismissible-html.png)
+
+![Dismissible popover example container html](../images/bootstrap/popover-dismissible-html-div.png)
+
+
+
+|Method | Description | Return Type
+--- | --- | ---
+ **getText()** | Get button text | String
+ **enabled()** | assert is enabled | TextAssert
+ **disabled()** | assert is disabled | TextAssert
+ **displayed()** | assert is displayed | TextAssert
+ **is()** | Assert action | TextAssert 
+ **assertThat()** | Assert action | TextAssert
+ **get()** | Select button by index | UIElement
+ **click()** | Get button text | void
+ **highlight()** | Get button text | void
+ **unhighlight()** | Get button text | void
+
+<br>
+
+[Java test examples]()<br>
+
+Popover group is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+
+<br>
+
+Inner elements of input group can be represented by following classes:
+ <ul>
+  <li> [Text](https://jdi-docs.github.io/jdi-light/#text) </li>
+  
+  <li> [Button](https://jdi-docs.github.io/jdi-light/#button-2) </li> 
+  
+  <li> [MediaObject](https://jdi-docs.github.io/jdi-light/#media-object) </li>
+ </ul>
+
+
+ 
+#### Disabled elements popover
+ 
+ **[Disabled elements popover](https://getbootstrap.com/docs/4.3/components/popovers/#disabled-elements)** 
+ 
+ ![Disabled elements popover example](../images/bootstrap/popover-disabled.png)
+ 
+ Here is an example with provided Bootstrap v4.3 code:
+ 
+ ```java
+ @UI("body") public static Popover popover; // @FindBy(css = "body") public static Popover popover;
+ 
+ @Test
+ public void isValidationTests() {
+     popover.getPopover(locator);
+     popover.popoverButton.is()
+             .displayed()
+             .enabled()
+             .core()
+             .attr("data-toggle", "popover")
+             .attr("data-content", popoverBody)
+             .attr("data-original-title", popoverHeader)
+             .text(is(buttonText));
+     popover.container
+             .is()
+             .enabled()
+             .core()
+             .hasClass("popover fade bs-popover-right show")
+             .attr("role", "tooltip")
+             .attr("x-placement", "right");
+     popover.body
+             .is()
+             .enabled()
+             .core()
+             .hasClass("popover-body")
+             .text(is(popoverBody));
+     popover.header
+             .is()
+             .core()
+             .hasClass("popover-header")
+             .text(is(popoverHeader.toUpperCase()));
+     popover.popoverButton.click();
+ }
+ 
+ @Test()
+ public void clickableTests() {
+     popover.getPopover(locator);
+     popover.popoverButton.click();
+     popover.popoverButton
+             .is()
+             .core()
+             .attr("aria-describedby", containsString("popover"));
+     popover.container
+             .is()
+             .enabled();
+     popover.container.click();
+     popover.popoverButton
+             .is()
+             .core()
+             .attr("aria-describedby", "");
+     assertFalse(popover.container.isDisplayed());
+ }
+ ```
+ 
+ ![Disabled elements popover example html](../images/bootstrap/popover-disabled-html.png)
+ 
+ ![Disabled elements popover example container html](../images/bootstrap/popover-disabled-html-div.png)
+ 
+
+
+|Method | Description | Return Type
+--- | --- | ---
+ **getText()** | Get button text | String
+ **enabled()** | assert is enabled | TextAssert
+ **disabled()** | assert is disabled | TextAssert
+ **displayed()** | assert is displayed | TextAssert
+ **is()** | Assert action | TextAssert 
+ **assertThat()** | Assert action | TextAssert
+ **get()** | Select button by index | UIElement
+ **click()** | Get button text | void
+ **highlight()** | Get button text | void
+ **unhighlight()** | Get button text | void
+
+<br>
+ 
+ [Java test examples]()<br>
+ 
+ Popover group is represented by Section class in Java:
+  
+   [Section](https://jdi-docs.github.io/jdi-light/#section)  
+ 
+ <br>
+ 
+ Inner elements of input group can be represented by following classes:
+  <ul>
+   <li> [Text](https://jdi-docs.github.io/jdi-light/#text) </li>
+   
+   <li> [Button](https://jdi-docs.github.io/jdi-light/#button-2) </li> 
+   
+   <li> [MediaObject](https://jdi-docs.github.io/jdi-light/#media-object) </li>
+  </ul>
+
 ### Navs
 
 ***[Navs](https://getbootstrap.com/docs/4.3/components/navs/)*** - Different types of combination of navigation components.
@@ -7556,7 +8169,7 @@ public void isValidationTests() {
 
 <br>
 
-[Java test examples]()<br>
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navs/BaseTests.java)<br>
 
 Nav group is represented by Section class in Java:
  
@@ -7633,7 +8246,7 @@ public void linkClickableLiTests(int index, String pageTitle) {
 
 <br>
 
-[Java test examples]()<br>
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navs/AlignmentTests.java)<br>
 
 Nav group is represented by Section class in Java:
  
@@ -7703,7 +8316,7 @@ public void linkClickableLiTests(int index, String pageTitle) {
 
 <br>
 
-[Java test examples]()<br>
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navs/VerticalTests.java)<br>
 
 Nav group is represented by Section class in Java:
  
@@ -7771,7 +8384,7 @@ public void linkClickableLiTests(int index, String pageTitle) {
 
 <br>
 
-[Java test examples]()<br>
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navs/TabsTests.java)<br>
 
 Nav group is represented by Section class in Java:
  
@@ -7834,7 +8447,7 @@ public void linkClickableLiTests(int index, String pageTitle) {
 
 <br>
 
-[Java test examples]()<br>
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navs/PillsTests.java)<br>
 
 Nav group is represented by Section class in Java:
  
@@ -7897,7 +8510,7 @@ public void linkClickableLiTests(int index, String pageTitle) {
 
 <br>
 
-[Java test examples]()<br>
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navs/FillAndJustifyTests.java)<br>
 
 Nav group is represented by Section class in Java:
  
@@ -7982,7 +8595,7 @@ public void dropdownIsValidationTests() {
 
 <br>
 
-[Java test examples]()<br>
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navs/TabsWithDropdownTests.java)<br>
 
 Nav group is represented by Section class in Java:
  
@@ -8058,7 +8671,7 @@ public void dropdownClickableTests() {
 
 <br>
 
-[Java test examples]()<br>
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navs/PillsWithDropdownTests.java)<br>
 
 Nav group is represented by Section class in Java:
  

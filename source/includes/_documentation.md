@@ -5145,6 +5145,24 @@ Here is an example with provided Bootstrap v4.3 code:
 
 **With animated design**
 
+```java 
+
+
+
+//FindBy(css = "#progress-animated")
+@UI("#progress-animated") public static Progress progressAnimated;
+
+@Test
+public void isValidationTest() {
+    progressAnimated.is()
+            .animated("progress-bar-stripes")
+            .color("rgba(0, 123, 255, 1)")
+            .ariaValue("75");
+}
+```
+The striped gradient can also be <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/progress/#animated-stripes">animated</a>.
+Add .progress-bar-animated to .progress-bar to animate the stripes right to left via CSS3 animations.
+
 Here is an example with provided Bootstrap v4.3 code:
   
 ![Progress animated HTML example](../images/bootstrap/progress-animated-html.png)
@@ -5156,6 +5174,8 @@ Available methods in Java JDI Light:
 **getAriaValue()** | Get aria value of the bar | String
 **getColor()** | Get color of the bar  | String
 **is()** | Various assert actions for Progress | ProgressAssert  
+
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/progress/ProgressAnimatedStripesTests.java)
 <br>
 
 ### Media object

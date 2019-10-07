@@ -4728,19 +4728,87 @@ Available methods and properties in C# JDI Light:
 
 ####Nav
 
+```java
+
+public class Navbar extends Section {
+    //FindBy(xpath = "//*[contains(@class, 'nav-item')]")
+    @UI("//*[contains(@class, 'nav-item')]") public WebList navbarLinks;
+    //FindBy(css = ".navbar-brand")
+    @UI(".navbar-brand") public Link navbarBrand;
+    //FindBy(css = "button.navbar-toggler")
+    @UI("button.navbar-toggler") public Button togglerButton;
+    //FindBy(xpath = "//*[contains(@class, 'nav-link dropdown-toggle')]")
+    @UI("//*[contains(@class, 'nav-link dropdown-toggle')]") public Dropdown navbarDropdown;
+}
+
+ @UI("#navbar-nav-with-disabled") public static Navbar navbarNavWithDisabled;
+
+ @Test
+    public void isDisabledItem() {
+        navbarNavWithDisabled.navbarLinks.get(3).is().disabled();
+    }
+ 
+ 
+ 
+   
+
+ @UI("#navbar-nav-with-dropdown") public static Navbar navbarNavWithDropdown;
+
+ @Test
+    public void clickNavbarNavWithDropdownLinksTest() throws RuntimeException {
+        for (int i = 1; i < navbarNavWithDropdown.navbarLinks.size(); i++) {
+            navbarNavWithDropdown.navbarLinks.get(i).is().text(containsString(textLinksnavbarNavWithDropdown.get(i)));
+            try {
+                navbarNavWithDropdown.navbarLinks.get(i).click();
+                if (navbarNavWithDropdown.navbarLinks.get(i).getAttribute("class").equals("nav-item dropdown show")) {
+                    break;
+                }
+                assertThat(windowsCount(), is(2));
+                switchToWindow(2);
+                assertThat(getUrl(), is(urlLinksnavbarNavWithDropdown.get(i)));
+                closeWindow();
+            } catch (RuntimeException e) {
+                assertThat(e.getMessage(), containsString("is not clickable in any parts"));
+                break;
+            }
+        }
+    }
+
+
+
+
+```
+
+<a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/navbar/#nav">Navbar</a> navigation links require the use of toggle classes for proper responsive styling.
+
 ![Color Nav example](../images/bootstrap/nav.png)
 
 Here is an example with provided Bootstrap v4.3 code:
   
 ![Color Nav HTML example](../images/bootstrap/nav-html.png)
 
-**With dropdown**
+With dropdown
 
 ![Color Nav example](../images/bootstrap/nav-dropdown.png)
 
 Here is an example with provided Bootstrap v4.3 code:
   
 ![Color Nav HTML example](../images/bootstrap/nav-dropdown-html.png)
+
+Media object is represented by Section class in Java:
+ 
+[Section](https://jdi-docs.github.io/jdi-light/#section)
+
+Inner elements of media object can be represented by the following classes:
+<ul>
+    <li> [Link](https://jdi-docs.github.io/jdi-light/#link)  </li>
+    <li> [Button](https://jdi-docs.github.io/jdi-light/#button)  </li>
+    <li> [DropDown](https://jdi-docs.github.io/jdi-light/#dropdown)  </li>
+    <li> [See more elements](https://jdi-docs.github.io/jdi-light/#html5-common-elements) </li>
+</ul>
+
+<a style="font-weight: bold;" target="_blank" href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navbar/NavbarNavsTests.java">Bootstrap test examples</a>
+
 
 ####Forms
 
@@ -5022,7 +5090,7 @@ Here is an example with provided Bootstrap v4.3 code:
   
 ![Progress HTML example](../images/bootstrap/progress-html.png)
 
-[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/progress/ProgressBaseTests.java)
+
 
 Available methods in Java JDI Light:
 
@@ -5031,6 +5099,9 @@ Available methods in Java JDI Light:
 **getAriaValue()** | Get aria value of the bar | String
 **getColor()** | Get color of the bar  | String
 **is()** | Various assert actions for Progress | ProgressAssert 
+**assertThat()** | Assert action | UIAssert 
+
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/progress/ProgressBaseTests.java)
 
 **With label**
 
@@ -5069,9 +5140,6 @@ Here is an example with provided Bootstrap v4.3 code:
   
 ![Progress label HTML example](../images/bootstrap/progress-label-html.png)
 
-
-   <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/ProgressWithLabelsTests.java" target=a_blank> Bootstrap test examples </a>
-
 Available methods in Java JDI Light:
 
 |Method/Property | Description | Return Type
@@ -5079,6 +5147,9 @@ Available methods in Java JDI Light:
 **getAriaValue()** | Get aria value of the bar | String
 **getColor()** | Get color of the bar  | String
 **is()** | Various assert actions for Progress | ProgressAssert 
+**assertThat()** | Assert action | UIAssert 
+
+<a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/ProgressWithLabelsTests.java" target=a_blank> Bootstrap test examples </a>
 
 <br><br><br><br><br><br>
 

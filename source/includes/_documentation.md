@@ -7994,7 +7994,7 @@ public void isValidationTests() {
 
 <br>
 
-[Java test examples]()<br>
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navs/BaseTests.java)<br>
 
 Nav group is represented by Section class in Java:
  
@@ -8071,7 +8071,7 @@ public void linkClickableLiTests(int index, String pageTitle) {
 
 <br>
 
-[Java test examples]()<br>
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navs/AlignmentTests.java)<br>
 
 Nav group is represented by Section class in Java:
  
@@ -8141,7 +8141,7 @@ public void linkClickableLiTests(int index, String pageTitle) {
 
 <br>
 
-[Java test examples]()<br>
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navs/VerticalTests.java)<br>
 
 Nav group is represented by Section class in Java:
  
@@ -8209,7 +8209,7 @@ public void linkClickableLiTests(int index, String pageTitle) {
 
 <br>
 
-[Java test examples]()<br>
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navs/TabsTests.java)<br>
 
 Nav group is represented by Section class in Java:
  
@@ -8272,7 +8272,7 @@ public void linkClickableLiTests(int index, String pageTitle) {
 
 <br>
 
-[Java test examples]()<br>
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navs/PillsTests.java)<br>
 
 Nav group is represented by Section class in Java:
  
@@ -8335,7 +8335,7 @@ public void linkClickableLiTests(int index, String pageTitle) {
 
 <br>
 
-[Java test examples]()<br>
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navs/FillAndJustifyTests.java)<br>
 
 Nav group is represented by Section class in Java:
  
@@ -8420,7 +8420,7 @@ public void dropdownIsValidationTests() {
 
 <br>
 
-[Java test examples]()<br>
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navs/TabsWithDropdownTests.java)<br>
 
 Nav group is represented by Section class in Java:
  
@@ -8496,7 +8496,7 @@ public void dropdownClickableTests() {
 
 <br>
 
-[Java test examples]()<br>
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navs/PillsWithDropdownTests.java)<br>
 
 Nav group is represented by Section class in Java:
  

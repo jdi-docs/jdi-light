@@ -7479,6 +7479,443 @@ Available methods and properties in C# JDI Light:
  |  | 
 <br>
 
+
+### Popovers
+
+***[Popovers](https://getbootstrap.com/docs/4.3/components/popovers/)***
+
+#### Example
+**[Popover example](https://getbootstrap.com/docs/4.3/components/popovers/#example)** 
+
+![Popover example](../images/bootstrap/popover-title.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java
+@UI("body") public static Popover popover; // @FindBy(css = "body") public static Popover popover;
+
+@Test
+public void isValidationTests() {
+    popover.getPopover(locator);
+    popover.popoverButton.is()
+            .displayed()
+            .enabled()
+            .core()
+            .attr("data-toggle", "popover")
+            .attr("data-content", popoverBody)
+            .attr("data-original-title", popoverHeader)
+            .text(is(buttonText));
+    popover.container
+            .is()
+            .enabled()
+            .core()
+            .hasClass("popover fade bs-popover-right show")
+            .attr("role", "tooltip")
+            .attr("x-placement", "right");
+    popover.body
+            .is()
+            .enabled()
+            .core()
+            .hasClass("popover-body")
+            .text(is(popoverBody));
+    popover.header
+            .is()
+            .core()
+            .hasClass("popover-header")
+            .text(is(popoverHeader.toUpperCase()));
+    popover.popoverButton.click();
+}
+
+@Test()
+public void clickableTests() {
+    popover.getPopover(locator);
+    popover.popoverButton.click();
+    popover.popoverButton
+            .is()
+            .core()
+            .attr("aria-describedby", containsString("popover"));
+    popover.container
+            .is()
+            .enabled();
+    popover.container.click();
+    popover.popoverButton
+            .is()
+            .core()
+            .attr("aria-describedby", "");
+    assertFalse(popover.container.isDisplayed());
+}
+```
+
+![Popover example html](../images/bootstrap/popover-title-html.png)
+
+![Popover example html container](../images/bootstrap/popover-title-html-div.png)
+
+
+
+|Method | Description | Return Type
+--- | --- | ---
+ **getText()** | Get button text | String
+ **enabled()** | assert is enabled | TextAssert
+ **disabled()** | assert is disabled | TextAssert
+ **displayed()** | assert is displayed | TextAssert
+ **is()** | Assert action | TextAssert 
+ **assertThat()** | Assert action | TextAssert
+ **get()** | Select button by index | UIElement
+ **click()** | Get button text | void
+ **highlight()** | Get button text | void
+ **unhighlight()** | Get button text | void
+
+<br>
+
+[Java test examples]()<br>
+
+Nav group is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+
+<br>
+
+Inner elements of input group can be represented by following classes:
+ <ul>
+  <li> [Text](https://jdi-docs.github.io/jdi-light/#text) </li>
+  
+  <li> [Button](https://jdi-docs.github.io/jdi-light/#button-2) </li> 
+  
+  <li> [MediaObject](https://jdi-docs.github.io/jdi-light/#media-object) </li>
+ </ul>
+ 
+
+#### Four directions popovers
+**[Four directions popovers](https://getbootstrap.com/docs/4.3/components/popovers/#four-directions)** 
+
+Popover top
+
+![Four directions popover top example](../images/bootstrap/popover-top.png)
+
+![Four directions popover top example html](../images/bootstrap/popover-top-html.png)
+
+![Four directions popover top container example html](../images/bootstrap/popover-top-html-div.png)
+<br><br>
+
+Popover right
+
+![Four directions popover right example](../images/bootstrap/popover-right.png)
+
+![Four directions popover right example html](../images/bootstrap/popover-right-html.png)
+
+![Four directions popover right container example html](../images/bootstrap/popover-right-html-div.png)
+<br><br>
+
+Popover bottom
+
+![Four directions popover bottom example](../images/bootstrap/popover-bottom.png)
+
+![Four directions popover bottom example html](../images/bootstrap/popover-bottom-html.png)
+
+![Four directions popover bottom container example html](../images/bootstrap/popover-bottom-html-div.png)
+<br><br>
+
+Popover left
+
+![Four directions popover left example](../images/bootstrap/popover-left.png)
+
+![Four directions popover left example html](../images/bootstrap/popover-left-html.png)
+
+![Four directions popover left container example html](../images/bootstrap/popover-left-html-div.png)
+<br><br>
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java
+@UI("body") public static Popover popover; // @FindBy(css = "body") public static Popover popover;
+
+@Test
+public void isValidationTests() {
+    popover.getPopover(locator);
+    popover.popoverButton.is()
+            .displayed()
+            .enabled()
+            .core()
+            .attr("data-toggle", "popover")
+            .attr("data-content", popoverBody)
+            .attr("data-original-title", popoverHeader)
+            .text(is(buttonText));
+    popover.container
+            .is()
+            .enabled()
+            .core()
+            .hasClass("popover fade bs-popover-right show")
+            .attr("role", "tooltip")
+            .attr("x-placement", "right");
+    popover.body
+            .is()
+            .enabled()
+            .core()
+            .hasClass("popover-body")
+            .text(is(popoverBody));
+    popover.header
+            .is()
+            .core()
+            .hasClass("popover-header")
+            .text(is(popoverHeader.toUpperCase()));
+    popover.popoverButton.click();
+}
+
+@Test()
+public void clickableTests() {
+    popover.getPopover(locator);
+    popover.popoverButton.click();
+    popover.popoverButton
+            .is()
+            .core()
+            .attr("aria-describedby", containsString("popover"));
+    popover.container
+            .is()
+            .enabled();
+    popover.container.click();
+    popover.popoverButton
+            .is()
+            .core()
+            .attr("aria-describedby", "");
+    assertFalse(popover.container.isDisplayed());
+}
+```
+
+
+
+|Method | Description | Return Type
+--- | --- | ---
+ **getText()** | Get button text | String
+ **enabled()** | assert is enabled | TextAssert
+ **disabled()** | assert is disabled | TextAssert
+ **displayed()** | assert is displayed | TextAssert
+ **is()** | Assert action | TextAssert 
+ **assertThat()** | Assert action | TextAssert
+ **get()** | Select button by index | UIElement
+ **click()** | Get button text | void
+ **highlight()** | Get button text | void
+ **unhighlight()** | Get button text | void
+
+<br>
+
+[Java test examples]()<br>
+
+Nav group is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+
+<br>
+
+Inner elements of input group can be represented by following classes:
+ <ul>
+  <li> [Text](https://jdi-docs.github.io/jdi-light/#text) </li>
+  
+  <li> [Button](https://jdi-docs.github.io/jdi-light/#button-2) </li> 
+  
+  <li> [MediaObject](https://jdi-docs.github.io/jdi-light/#media-object) </li>
+ </ul>
+
+
+#### Dismissible
+**[Dismissible popover](https://getbootstrap.com/docs/4.3/components/popovers/#dismiss-on-next-click)** 
+
+![Dismissible popover example](../images/bootstrap/popover-dismissible.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java
+@UI("body") public static Popover popover; // @FindBy(css = "body") public static Popover popover;
+
+@Test
+public void isValidationTests() {
+    popover.getPopover(locator);
+    popover.popoverButton.is()
+            .displayed()
+            .enabled()
+            .core()
+            .attr("data-toggle", "popover")
+            .attr("data-content", popoverBody)
+            .attr("data-original-title", popoverHeader)
+            .text(is(buttonText));
+    popover.container
+            .is()
+            .enabled()
+            .core()
+            .hasClass("popover fade bs-popover-right show")
+            .attr("role", "tooltip")
+            .attr("x-placement", "right");
+    popover.body
+            .is()
+            .enabled()
+            .core()
+            .hasClass("popover-body")
+            .text(is(popoverBody));
+    popover.header
+            .is()
+            .core()
+            .hasClass("popover-header")
+            .text(is(popoverHeader.toUpperCase()));
+    popover.popoverButton.click();
+}
+
+@Test()
+public void clickableTests() {
+    popover.getPopover(locator);
+    popover.popoverButton.click();
+    popover.popoverButton
+            .is()
+            .core()
+            .attr("aria-describedby", containsString("popover"));
+    popover.container
+            .is()
+            .enabled();
+    popover.container.click();
+    popover.popoverButton
+            .is()
+            .core()
+            .attr("aria-describedby", "");
+    assertFalse(popover.container.isDisplayed());
+}
+```
+
+![Dismissible popover example html](../images/bootstrap/popover-dismissible-html.png)
+
+![Dismissible popover example container html](../images/bootstrap/popover-dismissible-html-div.png)
+
+
+
+|Method | Description | Return Type
+--- | --- | ---
+ **getText()** | Get button text | String
+ **enabled()** | assert is enabled | TextAssert
+ **disabled()** | assert is disabled | TextAssert
+ **displayed()** | assert is displayed | TextAssert
+ **is()** | Assert action | TextAssert 
+ **assertThat()** | Assert action | TextAssert
+ **get()** | Select button by index | UIElement
+ **click()** | Get button text | void
+ **highlight()** | Get button text | void
+ **unhighlight()** | Get button text | void
+
+<br>
+
+[Java test examples]()<br>
+
+Nav group is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+
+<br>
+
+Inner elements of input group can be represented by following classes:
+ <ul>
+  <li> [Text](https://jdi-docs.github.io/jdi-light/#text) </li>
+  
+  <li> [Button](https://jdi-docs.github.io/jdi-light/#button-2) </li> 
+  
+  <li> [MediaObject](https://jdi-docs.github.io/jdi-light/#media-object) </li>
+ </ul>
+ 
+ #### Disabled elements popover
+ **[Disabled elements popover](https://getbootstrap.com/docs/4.3/components/popovers/#disabled-elements)** 
+ 
+ ![Disabled elements popover example](../images/bootstrap/popover-disabled.png)
+ 
+ Here is an example with provided Bootstrap v4.3 code:
+ 
+ ```java
+ @UI("body") public static Popover popover; // @FindBy(css = "body") public static Popover popover;
+ 
+ @Test
+ public void isValidationTests() {
+     popover.getPopover(locator);
+     popover.popoverButton.is()
+             .displayed()
+             .enabled()
+             .core()
+             .attr("data-toggle", "popover")
+             .attr("data-content", popoverBody)
+             .attr("data-original-title", popoverHeader)
+             .text(is(buttonText));
+     popover.container
+             .is()
+             .enabled()
+             .core()
+             .hasClass("popover fade bs-popover-right show")
+             .attr("role", "tooltip")
+             .attr("x-placement", "right");
+     popover.body
+             .is()
+             .enabled()
+             .core()
+             .hasClass("popover-body")
+             .text(is(popoverBody));
+     popover.header
+             .is()
+             .core()
+             .hasClass("popover-header")
+             .text(is(popoverHeader.toUpperCase()));
+     popover.popoverButton.click();
+ }
+ 
+ @Test()
+ public void clickableTests() {
+     popover.getPopover(locator);
+     popover.popoverButton.click();
+     popover.popoverButton
+             .is()
+             .core()
+             .attr("aria-describedby", containsString("popover"));
+     popover.container
+             .is()
+             .enabled();
+     popover.container.click();
+     popover.popoverButton
+             .is()
+             .core()
+             .attr("aria-describedby", "");
+     assertFalse(popover.container.isDisplayed());
+ }
+ ```
+ 
+ ![Disabled elements popover example html](../images/bootstrap/popover-disabled-html.png)
+ 
+ ![Disabled elements popover example container html](../images/bootstrap/popover-disabled-html-div.png)
+ 
+ 
+ 
+ |Method | Description | Return Type
+ --- | --- | ---
+ **getText()** | Get button text | String
+ **enabled()** | assert is enabled | TextAssert
+ **disabled()** | assert is disabled | TextAssert
+ **displayed()** | assert is displayed | TextAssert
+ **is()** | Assert action | TextAssert 
+ **assertThat()** | Assert action | TextAssert
+ **get()** | Select button by index | UIElement
+ **click()** | Get button text | void
+ **highlight()** | Get button text | void
+ **unhighlight()** | Get button text | void
+ 
+ <br>
+ 
+ [Java test examples]()<br>
+ 
+ Nav group is represented by Section class in Java:
+  
+   [Section](https://jdi-docs.github.io/jdi-light/#section)  
+ 
+ <br>
+ 
+ Inner elements of input group can be represented by following classes:
+  <ul>
+   <li> [Text](https://jdi-docs.github.io/jdi-light/#text) </li>
+   
+   <li> [Button](https://jdi-docs.github.io/jdi-light/#button-2) </li> 
+   
+   <li> [MediaObject](https://jdi-docs.github.io/jdi-light/#media-object) </li>
+  </ul>
+
 ### Navs
 
 ***[Navs](https://getbootstrap.com/docs/4.3/components/navs/)*** - Different types of combination of navigation components.

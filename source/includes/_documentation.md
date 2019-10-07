@@ -7468,6 +7468,9 @@ __Events for toasts:__
    }
  
  ``` 
+ 
+[Toast test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/)
+ 
 
 ![Toast example](../images/bootstrap/toast.png)
 
@@ -7517,20 +7520,12 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  |  
-
-Available methods and properties in C# JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  |
- |  | 
+**getText()** |	Get toast text |	String
+**is()** |	Assert action |	TextAssert
+**assertThat()** |	Assert action |	TextAssert
+**isDisplayed()** | Show\wait that toast element displayed on the screen | Boolean
+**close()** |	Close toast |	void
+ 
 <br><br>
 
 

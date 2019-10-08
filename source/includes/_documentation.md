@@ -3916,7 +3916,52 @@ Checkbox and Radio button are located in the following classes:
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java
+// @FindBy(css = "body") public static CheckboxesAndRadiosWithoutLabels checkboxesAndRadiosWithoutLabels);
+@UI("body") public static CheckboxesAndRadiosWithoutLabels checkboxesAndRadiosWithoutLabels;
 
+public class CheckboxesAndRadiosWithoutLabels extends Section {
+    @UI("#blankCheckbox") public Checkbox checkbox; // @FindBy(css = "#blankCheckbox") public Checkbox checkbox;
+    @UI("#blankRadio1") public RadioButton radioButton; // @FindBy(css = "#blankRadio1") public RadioButton radioButton;
+}
+
+@Test
+public void isValidationTests() {
+    checkboxesAndRadiosWithoutLabels.checkbox
+            .is()
+            .displayed()
+            .enabled()
+            .core()
+            .attr("type", "checkbox")
+            .attr("aria-label", "...");
+    checkboxesAndRadiosWithoutLabels.radioButton
+            .is()
+            .displayed()
+            .enabled()
+            .core()
+            .value("option1")
+            .attr("type", "radio")
+            .attr("aria-label", "...");
+}
+
+@Test
+public void checkboxClickableTests() {
+    checkboxesAndRadiosWithoutLabels.checkbox.check();
+    checkboxesAndRadiosWithoutLabels.checkbox
+            .is()
+            .selected();
+    checkboxesAndRadiosWithoutLabels.checkbox.uncheck();
+    checkboxesAndRadiosWithoutLabels.checkbox
+            .is()
+            .deselected();
+}
+
+@Test
+public void radioButtonTests() {
+    checkboxesAndRadiosWithoutLabels.radioButton.select();
+    checkboxesAndRadiosWithoutLabels.radioButton
+            .is()
+            .selected();
+}
 ```
 
 ![Radio button and checkbox without labels example html](../images/bootstrap/default-without-labels-html.png)
@@ -3927,10 +3972,12 @@ Here is an example with provided Bootstrap v4.3 code:
 --- | --- | ---
 **click()** | Click the button | void
 **check()** | Click the button | void
+**checked()** | Click the button | TextAssert
 **is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
 **select()** | Select button | void
 **selected()** | Radio button is selected | TextAssert
+**deselected()** | Radio button is selected | TextAssert
 **get()** | Select button by index | action
 
 <br>
@@ -4032,7 +4079,43 @@ Radio button is located in the following classes:
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java
+// @FindBy(css = "#custom-radio-con") public static RadioButtonsCustom radioButtonCustom;
+@UI("#custom-radio-con") public static RadioButtonsCustom radioButtonCustom;
 
+public class RadioButtonsCustom extends Section {
+    @UI("#customRadio1") public RadioButton radio1; // @FindBy(css = "#customRadio1") public RadioButton radio1;
+    @UI("#customRadio2") public RadioButton radio2; // @FindBy(css = "#customRadio2") public RadioButton radio2;
+    @UI(".custom-radio") public RadioButton radioButton; // @FindBy(css = ".custom-radio") public RadioButton radioButton;
+    @UI("label[for='customRadio1']") public Label radio1Label; // @FindBy(css = "label[for='customRadio1']") public Label radio1Label;
+    @UI("label[for='customRadio2']") public Label radio2Label; // @FindBy(css = "label[for='customRadio2']") public Label radio2Label;
+}
+
+@Test
+public void baseInitTest() {
+    radioButtonCustom.radioButton.is()
+            .size(2);
+    radioButtonCustom.radio1.is()
+            .deselected();
+    radioButtonCustom.radio2.is()
+            .deselected();
+    radioButtonCustom.radio1Label.is()
+            .text(is(label1));
+    radioButtonCustom.radio2Label.is()
+            .text(is(label2));
+}
+
+@Test
+public void radioOneIsValidationTests() {
+    radioButtonCustom.radio1
+            .is()
+            .hidden()
+            .enabled()
+            .core()
+            .attr("type", "radio")
+            .attr("name", "customRadio")
+            .hasClass("custom-control-input")
+            .tag(is("input"));
+}
 ```
 
 ![Radio button custom example html](../images/bootstrap/custom-radio-html.png)
@@ -4075,7 +4158,42 @@ Radio button is located in the following classes:
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java
+// @FindBy(css = "body") public static RadioButtonsCustomInline radioButtonsCustomInline;
+@UI("body") public static RadioButtonsCustomInline radioButtonsCustomInline;
 
+public class RadioButtonsCustomInline extends Section {
+    @UI("#customRadioInline1") public RadioButton radio1; // @FindBy(css = "#customRadioInline1") public RadioButton radio1;
+    @UI("#customRadioInline2") public RadioButton radio2; // @FindBy(css = "#customRadioInline2") public RadioButton radio2;
+    @UI(".custom-control-inline") public RadioButton radioButton; // @FindBy(css = ".custom-control-inline") public RadioButton radioButton;
+    @UI("label[for='customRadioInline1']") public Label radio1Label; // @FindBy(css = "label[for='customRadioInline1']") public Label radio1Label;
+    @UI("label[for='customRadioInline2']") public Label radio2Label; // @FindBy(css = "label[for='customRadioInline2']") public Label radio2Label;
+}
+
+@Test
+public void radioButtonByIndexTests() {
+    radioButtonsCustomInline.radioButton.select(2);
+    radioButtonsCustomInline.radio2.is()
+            .selected();
+    radioButtonsCustomInline.radio1.is()
+            .deselected();
+    radioButtonsCustomInline.radioButton.select(1);
+    radioButtonsCustomInline.radio1.is()
+            .selected();
+    radioButtonsCustomInline.radio2.is()
+            .deselected();
+}
+
+@Test
+public void radioOneIsValidationTests() {
+    radioButtonsCustomInline.radio1.is()
+            .hidden()
+            .enabled()
+            .core()
+            .attr("type", "radio")
+            .attr("name", "customRadioInline1")
+            .hasClass("custom-control-input")
+            .tag(is("input"));
+}
 ```
 
 ![Radio button custom inline example html](../images/bootstrap/custom-radio-inline-html.png)
@@ -4119,7 +4237,38 @@ __Java__:
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java
+// @FindBy(css = "body") public static CheckboxAndRadioButtonCustomDisabled checkboxAndRadioButtonCustomDisabled;
+@UI("body") public static CheckboxAndRadioButtonCustomDisabled checkboxAndRadioButtonCustomDisabled;
 
+public class CheckboxAndRadioButtonCustomDisabled extends Section {
+    @UI("#customCheckDisabled1-div") public Checkbox checkboxContainer; // @FindBy(css = "#customCheckDisabled1-div") public Checkbox checkboxContainer;
+    @UI("#customCheckDisabled1") public Checkbox checkbox; // @FindBy(css = "#customCheckDisabled1") public Checkbox checkbox;
+    @UI("#customRadioDisabled2-div") public RadioButton radioButtonContainer; // @FindBy(css = "#customRadioDisabled2-div") public RadioButton radioButtonContainer;
+    @UI("#customRadioDisabled2") public RadioButton radioButton; // @FindBy(css = "#customRadioDisabled2") public RadioButton radioButton;
+    @UI("label[for='customRadioDisabled2']") public Label radio1Label; // @FindBy(css = "label[for='customRadioDisabled2']") public Label radio1Label;
+}
+
+@Test
+public void radioButtonIsValidationTests() {
+    checkboxAndRadioButtonCustomDisabled.radioButton.is()
+            .hidden()
+            .disabled()
+            .core()
+            .attr("type", "radio")
+            .attr("name", "radioDisabled")
+            .hasClass("custom-control-input")
+            .tag(Matchers.is("input"));
+}
+
+@Test
+public void baseInitTest() {
+    checkboxAndRadioButtonCustomDisabled.radioButtonContainer.is()
+            .size(1);
+    checkboxAndRadioButtonCustomDisabled.radioButton.is()
+            .deselected();
+    checkboxAndRadioButtonCustomDisabled.radio1Label.is()
+            .text(is(label1));
+}
 ```
 
 ![Custom disabled example html](../images/bootstrap/custom-disabled-html.png)
@@ -4161,7 +4310,49 @@ Radio button is located in the following classes:
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java
+@UI("body") public static Switches switches; // @FindBy(css = "body") public static Switches switches;
 
+public class Switches extends Section {
+    @UI("#customSwitch1") public Checkbox checkbox; // @FindBy(css = "#customSwitch1") public Checkbox checkbox;
+    @UI("#customSwitch1-div") public Checkbox checkboxContainer; // @FindBy(css = "#customSwitch1-div") public Checkbox checkboxContainer;
+    @UI("#customSwitch2") public Checkbox checkboxDisabled; // @FindBy(css = "#customSwitch2") public Checkbox checkboxDisabled;
+    @UI("#customSwitch2-div") public Checkbox checkboxDisabledContainer; // @FindBy(css = "#customSwitch2-div") public Checkbox checkboxDisabledContainer;
+}
+
+@Test
+public void isValidationTests() {
+    switches.checkbox
+            .is()
+            .hidden()
+            .enabled()
+            .core()
+            .attr("type", "checkbox")
+            .hasClass("custom-control-input")
+            .tag(is("input"));
+    switches.checkbox.label()
+            .is()
+            .displayed()
+            .enabled()
+            .core()
+            .hasClass("custom-control-label")
+            .text(is("Toggle this switch element"))
+            .tag(is("label"));
+    switches.checkboxContainer
+            .is()
+            .displayed()
+            .enabled()
+            .core()
+            .hasClass("custom-control custom-switch")
+            .tag(is("div"));
+}
+
+@Test
+public void clickableTests() {
+    switches.checkboxContainer.check();
+    switches.checkbox.is().selected();
+    switches.checkboxContainer.check();
+    switches.checkbox.is().deselected();
+}
 ```
 
 ![Switches custom example html](../images/bootstrap/switches-html.png)

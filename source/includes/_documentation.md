@@ -5209,6 +5209,7 @@ Available methods in Java JDI Light:
 **is()** | Various assert actions for Progress | ProgressAssert 
 **assertThat()** | Assert action | UIAssert 
 
+<br><br><br><br><br><br>
 
 **With multiple bars**
 

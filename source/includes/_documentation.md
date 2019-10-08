@@ -14,7 +14,7 @@ Label's implementation is located in the following classes:
    - __Java__: _com.epam.jdi.light.elements.base.BaseUIElement_
    - __C#__: _JDI.Light.Elements.Base.UIElement_
 
-  ```java
+```java 
    
   //In the next test Label is found from 'name' and 'disabledName' locators:
    
@@ -3324,7 +3324,7 @@ on JDISite.java >> public static LoginFormSmart loginFormSmart;
 **Smart JDI Forms** - forms utilizing the _Smart locator_ functionality of JDI. In Smart Forms there is no need to explicitly define locators for form elements if such locators can be obtained implicitly from field names using Smart locator functionality.
 [See more details and exampels for Smart locators in documentation](https://jdi-docs.github.io/jdi-light/?java#smart-locators)
 
-```java
+```java 
 on JDISite.java >> public static Form<User> lightLoginForm;
 ```
 
@@ -3599,7 +3599,7 @@ Checkbox is located in the following classes:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 // @FindBy(css = "body") public static CheckboxesDefault checkboxesDefault;
 @UI("body") public static CheckboxesDefault checkboxesDefault;
 
@@ -3675,7 +3675,7 @@ Checkbox is located in the following classes:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 // @FindBy(css = "body") public static CheckboxesDefaultInline checkboxesDefaultInline;
 @UI("body") public static CheckboxesDefaultInline checkboxesDefaultInline;
 
@@ -3757,7 +3757,7 @@ Radio button is located in the following classes:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 //@FindBy(css = "#radio-buttons") public static RadioButtonGroup radioButtonGroup;
 @UI("#radio-buttons") public static RadioButtonGroup radioButtonGroup;
 
@@ -3835,7 +3835,7 @@ Radio button is located in the following classes:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 //@FindBy(css = "body") public static RadioButtonsDefaultInline radioButtonsDefaultInline;
 @UI("body") public static RadioButtonsDefaultInline radioButtonsDefaultInline;
 
@@ -3915,7 +3915,7 @@ Checkbox and Radio button are located in the following classes:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 // @FindBy(css = "body") public static CheckboxesAndRadiosWithoutLabels checkboxesAndRadiosWithoutLabels);
 @UI("body") public static CheckboxesAndRadiosWithoutLabels checkboxesAndRadiosWithoutLabels;
 
@@ -4002,7 +4002,7 @@ Checkbox is located in the following classes:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 // @FindBy(css = "body") public static CheckboxesCustom checkboxesCustom;
 @UI("body") public static CheckboxesCustom checkboxesCustom;
 
@@ -4078,7 +4078,7 @@ Radio button is located in the following classes:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 // @FindBy(css = "#custom-radio-con") public static RadioButtonsCustom radioButtonCustom;
 @UI("#custom-radio-con") public static RadioButtonsCustom radioButtonCustom;
 
@@ -4157,7 +4157,7 @@ Radio button is located in the following classes:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 // @FindBy(css = "body") public static RadioButtonsCustomInline radioButtonsCustomInline;
 @UI("body") public static RadioButtonsCustomInline radioButtonsCustomInline;
 
@@ -4236,7 +4236,7 @@ __Java__:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 // @FindBy(css = "body") public static CheckboxAndRadioButtonCustomDisabled checkboxAndRadioButtonCustomDisabled;
 @UI("body") public static CheckboxAndRadioButtonCustomDisabled checkboxAndRadioButtonCustomDisabled;
 
@@ -4309,7 +4309,7 @@ Radio button is located in the following classes:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 @UI("body") public static Switches switches; // @FindBy(css = "body") public static Switches switches;
 
 public class Switches extends Section {
@@ -4425,7 +4425,7 @@ Available methods and properties in C# JDI Light:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 @UI("#basic-example") public static ButtonGroupBasicExample buttonGroupBasicExample;
 // @FindBy(css = "#basic-example") public static ButtonGroupBasicExample buttonGroupBasicExample;
 
@@ -4486,7 +4486,7 @@ Inner elements represented by the following classes:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 @UI(".btn-toolbar") public static ButtonToolbar buttonToolbar;
 // @FindBy(css = ".btn-toolbar") public static ButtonToolbar buttonToolbar;
 
@@ -4520,7 +4520,7 @@ It is possible to mix input groups with button groups in your toolbars.
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
     @Test
     public void inputFieldInButtonToolbarTest() {
         buttonToolbar.inputAreaInToolbar.is().displayed();
@@ -4607,7 +4607,7 @@ Available methods in Java JDI Light:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 @UI("#button-group-nesting") public static ButtonGroupNesting buttonGroupNesting;
 // @FindBy(css = "#button-group-nesting") public static ButtonGroupNesting buttonGroupNesting;
 
@@ -4685,7 +4685,7 @@ Inner elements represented by the following classes:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 @UI("#vertical-variation") public static  ButtonGroupVerticalVariation buttonGroupVerticalVariation;
 // @FindBy(css = "#vertical-variation") public static  ButtonGroupVerticalVariation buttonGroupVerticalVariation;
 
@@ -4765,7 +4765,7 @@ Alert is located in the following class: <br>
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 @Css("#simple-alert") public static Alert simpleAlert;
 @Css("#dismissible-alert") public static Alert dismissibleAlert;
 // @FindBy(css = "#simple-alert") public static Alert simpleAlert;
@@ -5132,7 +5132,7 @@ Available methods and properties in C# JDI Light:
 
 ####Nav
 
-```java
+```java 
 
 public class Navbar extends Section {
     //FindBy(xpath = "//*[contains(@class, 'nav-item')]")
@@ -6767,7 +6767,7 @@ For example .card-columns class to generate a set of responsive tiers for changi
  
  Here is an example with provided Bootstrap v4.3 code:
  
- ```java
+```java 
     @UI(".card-columns") public static CardColumns cardColumns; //@FindBy(css='.card-columns') public static CardColumns cardColumns
  
     public class CardColumns extends CardWithinCardColumns {
@@ -6814,7 +6814,7 @@ Use <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/componen
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
    @UI(".card-group:nth-of-type(1)") public static CardGroup cardGroupWithoutFooter;
    //@FindBy(css='.card-group:nth-of-type(1)')
 
@@ -6855,7 +6855,7 @@ Here is an example with provided Bootstrap v4.3 code:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
    @UI(".card-group:nth-of-type(2)") public static CardGroup cardGroupWithFooter;
    //@FindBy(css='.card-group:nth-of-type(2)')
 
@@ -8279,7 +8279,7 @@ Available methods and properties in C# JDI Light:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 @UI("body") public static Popover popover; // @FindBy(css = "body") public static Popover popover;
 
 @Test
@@ -8382,7 +8382,7 @@ Popover top
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 @UI("body") public static Popover popover; // @FindBy(css = "body") public static Popover popover;
 
 @Test
@@ -8517,7 +8517,7 @@ Inner elements of input group can be represented by following classes:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 @UI("body") public static Popover popover; // @FindBy(css = "body") public static Popover popover;
 
 @Test
@@ -8620,7 +8620,7 @@ Inner elements of input group can be represented by following classes:
  
  Here is an example with provided Bootstrap v4.3 code:
  
- ```java
+ ```java 
  @UI("body") public static Popover popover; // @FindBy(css = "body") public static Popover popover;
  
  @Test
@@ -8724,7 +8724,7 @@ Inner elements of input group can be represented by following classes:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 // @FindBy(css = "#nav-base-li") public static NavsBaseLi navsBaseLi;
 @UI("#nav-base-li") public static NavsBaseLi navsBaseLi;
 
@@ -8799,7 +8799,7 @@ Nav group is represented by Section class in Java:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 // @FindBy(css = "#nav-center") public static NavsAlignmentCenter navsAlignmentCenter;
 @UI("#nav-center") public static NavsAlignmentCenter navsAlignmentCenter;
 
@@ -8874,7 +8874,7 @@ Nav group is represented by Section class in Java:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 // @FindBy(css = "#nav-vert-li") public static NavsVerticalLi navsVerticalLi;
 @UI("#nav-vert-li") public static NavsVerticalLi navsVerticalLi;
 
@@ -8944,7 +8944,7 @@ Nav group is represented by Section class in Java:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 // @FindBy(css = "#nav-tabs") public static NavsTabs navsTabs;
 @UI("#nav-tabs") public static NavsTabs navsTabs;
 
@@ -9012,7 +9012,7 @@ Nav group is represented by Section class in Java:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 // @FindBy(css = "#nav-pills") public static NavsPills navsPills;
 @UI("#nav-pills") public static NavsPills navsPills;
 
@@ -9075,7 +9075,7 @@ Nav group is represented by Section class in Java:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 // @FindBy(css = "#nav-justify") public static NavsJustify navsJustify;
 @UI("#nav-justify") public static NavsJustify navsJustify;
 
@@ -9138,7 +9138,7 @@ Nav group is represented by Section class in Java:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 // @FindBy(css = "#nav-with-dropdown") public static NavsTabsWithDropdown navsTabsWithDropdown;
 @UI("#nav-with-dropdown") public static NavsTabsWithDropdown navsTabsWithDropdown;
 
@@ -9224,7 +9224,7 @@ Nav group is represented by Section class in Java:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 // @FindBy(css = "#nav-pills-drop") public static NavsPillsWithDropdown navsPillsWithDropdown;
 @UI("#nav-pills-drop") public static NavsPillsWithDropdown navsPillsWithDropdown;
 
@@ -9313,7 +9313,7 @@ List Group is located in the following classes:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 @UI("#list-group-basic-example") public static ListGroupBasicExample listGroupBasicExample;
 // @FindBy(css = "#list-group-basic-example") public static ListGroupBasicExample listGroupBasicExample;
 
@@ -9369,7 +9369,7 @@ List Group is located in the following classes:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 @UI("#list-group-active-items") public static ListGroupActiveItems listGroupActiveItems;
 // @FindBy(css = "#list-group-active-items") public static ListGroupActiveItems listGroupActiveItems;)
 
@@ -9433,7 +9433,7 @@ List Group is located in the following classes:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 @UI("#disabled-items") public static ListGroupDisabledItems listGroupDisabledItems;
 // @FindBy(css = "#disabled-items") public static ListGroupDisabledItems listGroupDisabledItems;
 
@@ -9498,7 +9498,7 @@ List Group is located in the following classes:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 @UI("#list-group-links") public static ListGroupLinks listGroupLinks;
 // @FindBy(css = "#list-group-links") public static ListGroupLinks listGroupLinks;
 
@@ -9567,7 +9567,7 @@ List Group is located in the following classes:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 @UI("#list-group-buttons") public static ListGroupButtons listGroupButtons;
 // @FindBy(css = "#list-group-buttons") public static ListGroupButtons listGroupButtons;
 
@@ -9635,7 +9635,7 @@ List Group is located in the following classes:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 @UI("#list-group-flush") public static ListGroupFlush listGroupFlush;
 // @FindBy(css = "#list-group-flush") public static ListGroupFlush listGroupFlush;
 
@@ -9696,7 +9696,7 @@ List Group is located in the following classes:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 @UI("#list-group-horizontal") public static ListGroupHorizontal listGroupHorizontal;
 // @FindBy(css = "#list-group-horizontal") public static ListGroupHorizontal listGroupHorizontal;
 
@@ -9753,7 +9753,7 @@ List Group is located in the following classes:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 @UI("#list-group-with-badges") public static ListGroupWithBadges listGroupWithBadges;
 // @FindBy(css = "#list-group-with-badges") public static ListGroupWithBadges listGroupWithBadges;
 
@@ -9814,7 +9814,7 @@ List Group is located in the following classes:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 @UI("#list-group-custom-content") public static ListGroupCustomContent listGroupCustomContent;
 // @FindBy(css = "#list-group-custom-content") public static ListGroupCustomContent listGroupCustomContent;
 
@@ -9885,7 +9885,7 @@ List Group is located in the following classes:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 // @FindBy(css = "#pagination-overview") public static PaginationOverview paginationOverview;
 @UI("#pagination-overview") public static PaginationOverview paginationOverview;
 
@@ -9961,7 +9961,7 @@ List Group is located in the following classes:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 // @FindBy(css = "#pagination-icons") public static PaginationIcons paginationIcons;
 @UI("#pagination-icons") public static PaginationIcons paginationIcons;
 
@@ -10027,7 +10027,7 @@ List Group is located in the following classes:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 // @FindBy(css = "#pagination-states") public static PaginationStates paginationStates;
 @UI("#pagination-states") public static PaginationStates paginationStates;
 
@@ -10099,7 +10099,7 @@ List Group is located in the following classes:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 // @FindBy(css = "#pagination-big") public static PaginationSizeBig paginationSizeBig;
 // @FindBy(css = "#pagination-small") public static PaginationSizeSmall paginationSizeSmall;
 @UI("#pagination-big") public static PaginationSizeBig paginationSizeBig;
@@ -10179,7 +10179,7 @@ List Group is located in the following classes:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 // @FindBy(css = "#pagination-center") public static PaginationAlignCenter paginationAlignCenter;
 // @FindBy(css = "#pagination-end") public static PaginationAlignEnd paginationAlignEnd; 
 @UI("#pagination-center") public static PaginationAlignCenter paginationAlignCenter;
@@ -10585,7 +10585,7 @@ This input group example is represented by the following classes in Java:
 
 ![Multiple inputs](../images/bootstrap/multiple_inputs.png)
 
-```java
+```java 
 //FindBy(css = "#multiple-inputs"")
 @UI("#multiple-inputs") public static MultipleInputs multipleInputs;
 
@@ -10847,7 +10847,7 @@ Inner elements of input group can be represented by following classes:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 @UI("#button-with-dropdown") public static ButtonWithDropdown buttonWithDropdown;
 // @FindBy(css = "#button-with-dropdown") public static ButtonWithDropdown buttonWithDropdown;
 
@@ -10934,7 +10934,7 @@ Inner elements of input group can be represented by following classes:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 @UI("#segmented-button") public static SegmentedButton segmentedButton;
 // @FindBy(css = "#segmented-button") public static SegmentedButton segmentedButton;
 
@@ -11028,7 +11028,7 @@ Inner elements of input group can be represented by following classes:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 @UI("#custom-select-01") public static CustomSelect customSelect;
 // @FindBy(css = "#custom-select-01") public static CustomSelect customSelect;
 
@@ -11076,7 +11076,7 @@ public void selectorIsValidationTests() {
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 @UI("#custom-select-button-01") public static CustomSelectWithButton customSelectWithButton;
 // @FindBy(css = "#custom-select-button-01") public static CustomSelect customSelect;
 

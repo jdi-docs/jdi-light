@@ -5155,6 +5155,16 @@ Available methods in Java JDI Light:
 
 **With backgrounds**
 
+Use <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/progress/#backgrounds">background</a> utility classes to change the appearance of individual progress bars.
+
+![Progress backgroundsexample](../images/bootstrap/progress-backgrounds.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/ProgressBackgroundTests.java" target=a_blank> Bootstrap test examples </a>
+  
+![Progress backgrounds HTML example](../images/bootstrap/progress-backgrounds-html.png)
+
 ```java 
 
 //@FindBy(css = "#progress-background-green")
@@ -5189,14 +5199,6 @@ Available methods in Java JDI Light:
     }
 
 ```
-
-![Progress backgroundsexample](../images/bootstrap/progress-backgrounds.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-
-<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/ProgressBackgroundTests.java" target=a_blank> Bootstrap test examples </a>
-  
-![Progress backgrounds HTML example](../images/bootstrap/progress-backgrounds-html.png)
 
 **With multiple bars**
 

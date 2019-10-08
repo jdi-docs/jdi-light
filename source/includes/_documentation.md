@@ -5490,13 +5490,13 @@ Here is an example with provided Bootstrap v4.3 code:
 Available methods in Java JDI Light:
 
 |Method/Property | Description | Return Type
---- | --- | ---
-**assertThat()** | Assert action | UIAssert 
+--- | --- | --- 
 **getAriaValue()** | Get aria value of the bar | String
 **getColor()** | Get color of the bar  | String
 **getMaxValue()** | Get max value of the bar | String
 **getMinValue()** | Get max value of the bar | String
-**is()** | Various assert actions for Progress | ProgressAssert 
+**is()** | Various assert actions for Progress | ProgressAssert
+**assertThat()** | Assert action | ProgressAssert
 
 
 Here is an example with provided Bootstrap v4.3 code:

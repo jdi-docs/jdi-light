@@ -5613,17 +5613,67 @@ Available methods in Java JDI Light:
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/ProgressBackgroundTests.java" target=a_blank> Bootstrap test examples </a>
 
-<br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br>
 
 **With multiple bars**
 
-![Progress multiple sexample](../images/bootstrap/progress-multiple.png)
+Include <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/progress/#multiple-bars">multiple progress bars</a>  in a progress component if you need.
+
+![Progress multiple example](../images/bootstrap/progress-multiple.png)
 
 Here is an example with provided Bootstrap v4.3 code:
+
+```java 
+
+//@FindBy(id = "progress-multiple-bars")
+@UI("#progress-multiple-bars") public static ProgressMultipleBars progressMultipleBars;
+
+//@FindBy(id = "progress-multiple-ordinary")
+@UI("#progress-multiple-ordinary")
+public Progress multipleOrdinary;
+
+//@FindBy(id = "progress-multiple-success")
+@UI("#progress-multiple-success")
+public Progress multipleSuccess;
+
+//@FindBy(id = "progress-multiple-info")
+@UI("#progress-multiple-info")
+public Progress multipleInfo;
+
+@DataProvider
+public Object[][] progressMultipleBarsData() {
+    return new Object[][]{
+        {progressMultipleBars.multipleOrdinary},
+        {progressMultipleBars.multipleSuccess},
+        {progressMultipleBars.multipleInfo}
+    };
+}
+
+@Test(dataProvider = "progressMultipleBarsData")
+public void isValidationTest(Progress progress) {
+    progress.is().enabled().and().displayed();
+    progress.assertThat()
+        .core()
+        .hasClass("progress-bar")
+        .attr("role", "progressbar");
+}
+
+```
   
 ![Progress multiple HTML example](../images/bootstrap/progress-multiple-html.png)
 
-<br><br><br><br><br><br>
+Available methods in Java JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+**getAriaValue()** | Get aria value of the bar | String
+**getColor()** | Get color of the bar  | String
+**is()** | Various assert actions for Progress | ProgressAssert 
+**assertThat()** | Assert action | UIAssert 
+
+<a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/ProgressMultipleBarsTests.java" target=a_blank> Bootstrap test examples </a>
+
+<br><br><br><br><br><br><br><br><br>
 
 **With striped design**
 

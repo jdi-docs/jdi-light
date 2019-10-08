@@ -5160,8 +5160,6 @@ Use <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com
 ![Progress backgroundsexample](../images/bootstrap/progress-backgrounds.png)
 
 Here is an example with provided Bootstrap v4.3 code:
-
-<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/ProgressBackgroundTests.java" target=a_blank> Bootstrap test examples </a>
   
   ```java 
 
@@ -5200,6 +5198,8 @@ Here is an example with provided Bootstrap v4.3 code:
   
 ![Progress backgrounds HTML example](../images/bootstrap/progress-backgrounds-html.png)
 
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/ProgressBackgroundTests.java" target=a_blank> Bootstrap test examples </a>
+
 Available methods in Java JDI Light:
 
 |Method/Property | Description | Return Type
@@ -5219,7 +5219,8 @@ Here is an example with provided Bootstrap v4.3 code:
   
 ![Progress multiple HTML example](../images/bootstrap/progress-multiple-html.png)
 
-<br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br>
+
 **With striped design**
 
 ```java 

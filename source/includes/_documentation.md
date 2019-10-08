@@ -5163,9 +5163,7 @@ Here is an example with provided Bootstrap v4.3 code:
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/ProgressBackgroundTests.java" target=a_blank> Bootstrap test examples </a>
   
-![Progress backgrounds HTML example](../images/bootstrap/progress-backgrounds-html.png)
-
-```java 
+  ```java 
 
 //@FindBy(css = "#progress-background-green")
 @UI("#progress-backgrounds-green") public static Progress progressBackgroundGreen;
@@ -5199,6 +5197,18 @@ Here is an example with provided Bootstrap v4.3 code:
     }
 
 ```
+  
+![Progress backgrounds HTML example](../images/bootstrap/progress-backgrounds-html.png)
+
+Available methods in Java JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+**getAriaValue()** | Get aria value of the bar | String
+**getColor()** | Get color of the bar  | String
+**is()** | Various assert actions for Progress | ProgressAssert 
+**assertThat()** | Assert action | UIAssert 
+
 
 **With multiple bars**
 

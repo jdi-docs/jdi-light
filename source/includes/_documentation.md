@@ -8046,6 +8046,77 @@ __Events for toasts:__
  
  
  
+  
+   
+ 
+ 
+ 
+ 
+ 
+ 
+
+ @UI("#simpleToast") public static Toast simpleToast; //@FindBy("#simpleToast")
+
+ @Test
+ public void simpleToastValidationTest() {
+     simpleToastButton.click();
+     simpleToast.is().displayed();
+     simpleToast.headerText.is().text(toastHeaderText);
+     simpleToast.body.is().text(toastBodyText);
+ }
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ @UI("#translucentToast") public static Toast translucentToast; //@FindBy("#translucentToast")
+ 
+ @Test
+ public void translucentToastValidationTest() {
+     translucentToastButton.click();
+     translucentToast.is().displayed();
+     translucentToast.headerText.is().text(toastHeaderText);
+     translucentToast.body.is().text(toastBodyText);
+ }
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ @UI("#firstMultipleToast") public static Toast firstStackToast; //@FindBy("#firstMultipleToast")
+ @UI("#secondMultipleToast") public static Toast secondStackToast; //@FindBy("#secondMultipleToast")
+ 
+ @Test
+ public void stackOfToastsValidationTest() {
+     stackOfToastsButton.click();
+     firstStackToast.is().displayed();
+     secondStackToast.is().displayed();
+     firstStackToast.headerText.is().text(toastHeaderText);
+     firstStackToast.body.is().text(stackToastBodyText);
+     secondStackToast.headerText.is().text(toastHeaderText);
+     secondStackToast.body.is().text(secondStackToastBodyText);
+     }
  
  
  
@@ -8059,21 +8130,7 @@ __Events for toasts:__
  
  
  @UI("#toastRightTop") public static Toast toastWithTopAlign; //@FindBy("#toastRightTop")
- @UI("#simpleToast") public static Toast simpleToast; //@FindBy("#simpleToast")
- @UI("#firstMultipleToast") public static Toast firstStackToast; //@FindBy("#firstMultipleToast")
- @UI("#secondMultipleToast") public static Toast secondStackToast; //@FindBy("#secondMultipleToast")
- @UI("#firstStackToast") public static Toast firstTopAlignStackToast; //@FindBy("#firstStackToast")
- @UI("#secondStackToast") public static Toast secondTopAlignStackToast; //@FindBy("#secondStackToast")
- @UI("#toastCenterTop") public static Toast toastWithCenterAlign; //@FindBy("#toastCenterTop")
  
- @Test
- public void simpleToastValidationTest() {
-     simpleToastButton.click();
-     simpleToast.is().displayed();
-     simpleToast.headerText.is().text(toastHeaderText);
-     simpleToast.body.is().text(toastBodyText);
- }
-
  @Test
  public void toastWithTopAlignValidationTest() {
      toastWithTopAlignButton.click();
@@ -8083,18 +8140,76 @@ __Events for toasts:__
      toastWithTopAlign.closeButton.click();
      toastWithTopAlign.base().waitSec(1);
      toastWithTopAlign.is().hidden();
-   }
+ }
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ @UI("#firstStackToast") public static Toast firstTopAlignStackToast; //@FindBy("#firstStackToast")
+ @UI("#secondStackToast") public static Toast secondTopAlignStackToast; //@FindBy("#secondStackToast")
+ 
+ @Test
+  public void stackOfTopAlignToastsValidationTest() {
+      stackOfToastsWithTopAlignButton.click();
+      firstTopAlignStackToast.headerText.is().text(toastHeaderText);
+      firstTopAlignStackToast.body.is().text(stackToastBodyText);
+      secondTopAlignStackToast.headerText.is().text(toastHeaderText);
+      secondTopAlignStackToast.body.is().text(secondStackToastBodyText);
+      firstTopAlignStackToast.is().displayed();
+      secondTopAlignStackToast.is().displayed();
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  @UI("#toastCenterTop") public static Toast toastWithCenterAlign; //@FindBy("#toastCenterTop")
+  @UI("#toastRightTop") public static Toast toastWithTopAlign; //@FindBy("#toastRightTop")
+  
+  @Test
+  public void toastWithCenterAlignValidationTest() {
+      toastWithCenterAlignButton.click();
+      toastWithCenterAlign.is().displayed();
+      toastWithCenterAlign.headerText.is().text(toastHeaderText);
+      toastWithCenterAlign.body.is().text(toastBodyText);
+      toastWithCenterAlign.closeButton.click();
+      toastWithCenterAlign.base().waitSec(1);
+      toastWithCenterAlign.is().hidden();
+  }
  
  ``` 
- 
-[Toast test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/)
- 
 
-![Toast example](../images/bootstrap/toast.png)
+
+![Simple toast example](../images/bootstrap/toast.png)
 
 Here is an example with provided Bootstrap v4.3 code:
   
 ![Toast HTML example](../images/bootstrap/toast_html.png)
+
+<br>
+
+![Translucent toast example](../images/bootstrap/toast_center.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Toast HTML example](../images/bootstrap/translucent_toast_code.png)
 
 **Stacking**<br />
 When you have multiple toasts, we default to vertically stacking them in a readable manner
@@ -8143,8 +8258,10 @@ Available methods in Java JDI Light:
 **assertThat()** |	Assert action |	TextAssert
 **isDisplayed()** | Show\wait that toast element displayed on the screen | Boolean
 **close()** |	Close toast |	void
+
+[Toast test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/)
  
-<br><br>
+<br>
 
 
 ## Bootstrap Composite elements

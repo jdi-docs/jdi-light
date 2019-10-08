@@ -5466,7 +5466,7 @@ Here is an example with provided Bootstrap v4.3 code:
         progressSections.stream().filter(progressSection ->
                 progressSection.progress.attr("id").equals(progressId)).forEach(
                 progressSection -> {
-                    assertThat(progressSection.progress.core().attr("class"), containsString(classStriped));
+                    progressSection.progress.core().hasClass(classStriped)
                     progressSection.progress.is().ariaValue(value)
                                                  .color(color)
                                                  .minValue(min)
@@ -5479,7 +5479,6 @@ Here is an example with provided Bootstrap v4.3 code:
         progressSections.forEach(
                 progressSection ->
                         baseValidation(progressSection.progress));
-
     }
 ```
 
@@ -5492,6 +5491,7 @@ Available methods in Java JDI Light:
 
 |Method/Property | Description | Return Type
 --- | --- | ---
+**assertThat()** | Assert action | UIAssert 
 **getAriaValue()** | Get aria value of the bar | String
 **getColor()** | Get color of the bar  | String
 **getMaxValue()** | Get max value of the bar | String

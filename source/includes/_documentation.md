@@ -5422,7 +5422,61 @@ Here is an example with provided Bootstrap v4.3 code:
 <br>
 
 ####External content
-Plugin to trigger hidden content elsewhere on the page.
+```java 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//FindBy(css = "#navbar-external-content")
+@UI("#navbar-external-content")  
+public static NavbarExternalContent navbarExternalContent;
+
+ @Test
+public void expandingTest() {
+    navbarExternalContent.toggler.expander().is().core().attr(ariaExpanded, "false");
+    navbarExternalContent.toggler.expand();
+    navbarExternalContent.toggler.expander().is().core().attr(ariaExpanded, "true");
+    navbarExternalContent.toggler.collapse();
+    navbarExternalContent.toggler.expander().is().core().attr(ariaExpanded, "false");
+}
+
+@Test
+public void getTextTest() {
+    navbarExternalContent.toggler.expand();
+    navbarExternalContent.toggler.value().childs().get(1).is()
+            .displayed()
+            .text(text);
+    navbarExternalContent.toggler.value().childs().get(2).is()
+            .displayed()
+            .text(mutedText);
+    navbarExternalContent.toggler.collapse();
+}
+```
+<a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/navbar/#external-content">Plugin</a> to trigger hidden content elsewhere on the page.
 
 ![Color Nav example](../images/bootstrap/navbar-external.png)
 
@@ -5430,6 +5484,8 @@ Here is an example with provided Bootstrap v4.3 code:
   
 ![Color Nav HTML example](../images/bootstrap/navbar-external-html.png)
 
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section//ProgressBackgroundTests.java" target=a_blank> Bootstrap test examples </a>
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
 ###Pagination
 
 Pagination is functionality for navigating through pages.
@@ -5489,7 +5545,7 @@ Available methods in Java JDI Light:
 
 
 
-//FindBy(id = "#progress-bar-base-width-25 .progress-bar"
+//FindBy(css = "#progress-bar-base-width-25 .progress-bar"
 @UI("#progress-bar-base-width-25 .progress-bar")  
 public static Progress progressBaseWidth25;
 

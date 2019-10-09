@@ -5695,13 +5695,6 @@ Available methods in Java JDI Light:
 
 **With striped design**
 
-
-<a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/progress/#striped>Striped multiple bars</a>
-
-![Progress striped example](../images/bootstrap/progress-striped.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-  
 ```java 
 
     public class BootstrapPage extends WebPage {
@@ -5730,7 +5723,14 @@ Here is an example with provided Bootstrap v4.3 code:
     }
 ```
 
-![Progress striped HTML example](../images/bootstrap/progress-multiple-html.png)
+Striped<a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/progress/#striped>Striped multiple bars</a>
+
+![Progress striped example](../images/bootstrap/progress-striped.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+
+![Progress striped HTML example](../images/bootstrap/progress-striped-html.png)
 
 Available methods in Java JDI Light:
 
@@ -5744,7 +5744,7 @@ Available methods in Java JDI Light:
 **assertThat()** | Assert action | ProgressAssert  
 
 
-<a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/listprogressbars/ProgressBarsListTests.java" target=a_blank> Bootstrap test examples </a>
+![Bootstrap test examples]<a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/listprogressbars/ProgressBarsListTests.java" target=a_blank> Bootstrap test examples </a>
 
 <br><br><br><br><br><br><br>  
 

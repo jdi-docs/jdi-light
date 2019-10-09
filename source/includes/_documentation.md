@@ -8148,6 +8148,9 @@ __Events for toasts:__
  
  
  
+ 
+ 
+ 
  @UI("#firstMultipleToast") public static Toast firstStackToast; //@FindBy("#firstMultipleToast")
  @UI("#secondMultipleToast") public static Toast secondStackToast; //@FindBy("#secondMultipleToast")
  
@@ -8162,6 +8165,8 @@ __Events for toasts:__
      secondStackToast.body.is().text(secondStackToastBodyText);
      }
  
+ 
+  
  
  
  
@@ -8200,15 +8205,7 @@ __Events for toasts:__
  }
  
  
- 
- 
- 
- 
- 
- 
- 
- 
- 
+  
  
  
  
@@ -8257,10 +8254,7 @@ __Events for toasts:__
   
   
   
-  
-  
-  
-  
+
   @UI("#toastCenterTop") public static Toast toastWithCenterAlign; //@FindBy("#toastCenterTop")
   @UI("#toastRightTop") public static Toast toastWithTopAlign; //@FindBy("#toastRightTop")
   
@@ -8286,6 +8280,8 @@ Here is an example with provided Bootstrap v4.3 code:
 
 <br>
 
+**Translucent**
+<br>
 ![Translucent toast example](../images/bootstrap/toast_center.png)
 
 Here is an example with provided Bootstrap v4.3 code:

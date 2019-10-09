@@ -8432,9 +8432,8 @@ Available methods and properties in C# JDI Light:
 <br>
 1. [Scrollspy in navbar] (https://getbootstrap.com/docs/4.3/components/scrollspy/#example-in-navbar) 
 <br>
-
+<br>
 ```java 
-
     @UI("#navbar-example2") public static NavbarWithDropdown navbarWithDropdown;
     @UI("#navbar-example2~div") public static ScrollspyNav scrollspyInNavbar;
     
@@ -8459,7 +8458,7 @@ public class ScrollspyNav extends Section {
     @Test
     public void navbarLinkClickableTests() {
         navbarWithDropdown.navbarLink.click();
-        newWindowTitleCheck(pageTitle);
+        newWindowTitleCheck("Scrollspy · Bootstrap");
     }
 
     @Test
@@ -8478,15 +8477,6 @@ public class ScrollspyNav extends Section {
                 .enabled()
                 .attr("role", "separator");
     }
-
-
-
-
-
-
-
-
-
 
 
 
@@ -8529,12 +8519,8 @@ public class ScrollspyNav extends Section {
         scrollspyWithNestedNav.header.is().size(7);
     }
     
-    
-    
-    
-    
-    
-    
+ 
+     
      @UI("#list-example>a") public static ListGroup listGroupForScrollspy;
      @UI("#list-example~div") public static ScrollspyNav scrollspyWithListGroup;   
     
@@ -8575,12 +8561,14 @@ public class ScrollspyNav extends Section {
 
 ![Scrollspy](../images/bootstrap/scroll_spy1.png)<br>
 ![Scrollspy](../images/bootstrap/scroll_spy1_html.png)<br>
+<br>
 
 2. [Scrollspy with nested nav] (https://getbootstrap.com/docs/4.3/components/scrollspy/#example-with-nested-nav)
 <br> 
 
 ![Scrollspy](../images/bootstrap/scroll_spy2.png)<br>
 ![Scrollspy](../images/bootstrap/scroll_spy2_html.png)<br>
+<br>
 
 3. [Scrollspy with list-group] (https://getbootstrap.com/docs/4.3/components/scrollspy/#example-with-list-group)
 <br>

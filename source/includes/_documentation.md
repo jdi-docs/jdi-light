@@ -8487,6 +8487,25 @@ public class ScrollspyNav extends Section {
     }
 
 
+    
+ 
+     
+
+
+
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
 
 
     @UI("#navbar-example3") public static NestedNav nestedNav;
@@ -8527,25 +8546,6 @@ public class ScrollspyNav extends Section {
         scrollspyWithNestedNav.mainText.is().size(7);
         scrollspyWithNestedNav.header.is().size(7);
     }
-    
- 
-     
-
-
-
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
      
      
      

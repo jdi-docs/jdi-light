@@ -8429,9 +8429,8 @@ Available methods and properties in C# JDI Light:
 
 ### Scrollspy
 **[Scrollspy](https://getbootstrap.com/docs/4.3/components/scrollspy/#example-in-navbar)** – automatically update Bootstrap navigation or list group components based on scroll position to indicate which link is currently active in the viewport.
-<br>
-1. [Scrollspy in navbar] (https://getbootstrap.com/docs/4.3/components/scrollspy/#example-in-navbar) 
-<br>
+<br><br>
+- [Scrollspy in navbar] (https://getbootstrap.com/docs/4.3/components/scrollspy/#example-in-navbar) 
 <br>
 
 ```java 
@@ -8481,6 +8480,10 @@ public class ScrollspyNav extends Section {
 
 
 
+
+
+
+
     @UI("#navbar-example3") public static NestedNav nestedNav;
     @UI("#navbar-example3~div") public static ScrollspyNav scrollspyWithNestedNav;
       
@@ -8521,6 +8524,25 @@ public class ScrollspyNav extends Section {
     }
     
  
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
      
      @UI("#list-example>a") public static ListGroup listGroupForScrollspy;
      @UI("#list-example~div") public static ScrollspyNav scrollspyWithListGroup;   
@@ -8564,14 +8586,14 @@ public class ScrollspyNav extends Section {
 ![Scrollspy](../images/bootstrap/scroll_spy1_html.png)<br>
 <br>
 
-2. [Scrollspy with nested nav] (https://getbootstrap.com/docs/4.3/components/scrollspy/#example-with-nested-nav)
+- [Scrollspy with nested nav] (https://getbootstrap.com/docs/4.3/components/scrollspy/#example-with-nested-nav)
 <br> 
 
 ![Scrollspy](../images/bootstrap/scroll_spy2.png)<br>
 ![Scrollspy](../images/bootstrap/scroll_spy2_html.png)<br>
 <br>
 
-3. [Scrollspy with list-group] (https://getbootstrap.com/docs/4.3/components/scrollspy/#example-with-list-group)
+- [Scrollspy with list-group] (https://getbootstrap.com/docs/4.3/components/scrollspy/#example-with-list-group)
 <br>
 
 ![Scrollspy](../images/bootstrap/scroll_spy3.png)<br>

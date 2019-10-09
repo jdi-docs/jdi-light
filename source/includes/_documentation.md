@@ -8558,6 +8558,21 @@ public class ScrollspyNav extends Section {
      
      
      
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+   
+     
+     
+     
      @UI("#list-example>a") public static ListGroup listGroupForScrollspy;
      @UI("#list-example~div") public static ScrollspyNav scrollspyWithListGroup;   
     

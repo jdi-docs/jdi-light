@@ -8430,15 +8430,161 @@ Available methods and properties in C# JDI Light:
 ### Scrollspy
 **[Scrollspy](https://getbootstrap.com/docs/4.3/components/scrollspy/#example-in-navbar)** – automatically update Bootstrap navigation or list group components based on scroll position to indicate which link is currently active in the viewport.
 <br>
-1. [Scrollspy in navbar] (https://getbootstrap.com/docs/4.3/components/scrollspy/#example-in-navbar) <br>
+1. [Scrollspy in navbar] (https://getbootstrap.com/docs/4.3/components/scrollspy/#example-in-navbar) 
+<br>
+
+```java 
+
+    @UI("#navbar-example2") public static NavbarWithDropdown navbarWithDropdown;
+    @UI("#navbar-example2~div") public static ScrollspyNav scrollspyInNavbar;
+    
+public class NavbarWithDropdown extends Section {
+    @UI("ul>li") // @FindBy(css = "ul>li")
+    public ListGroup navGroup;
+    @UI("ul>li>a") // @FindBy(css ="ul>li>a")
+    public ListGroup navItemLink;
+    @JDropdown(expand = ".dropdown-toggle",
+            value = ".dropdown-toggle",
+            list = ".dropdown-item")
+    public Dropdown dropdownMenu;
+    @UI(".navbar-brand") // @FindBy(css = ".navbar-brand")
+    public Link navbarLink;
+}
+    
+public class ScrollspyNav extends Section {
+    @UI(".//h4 | .//h5") public ListGroup header;//@FindBy(xpath = ".//h4 | .//h5")
+    @UI("p") public ListGroup mainText;          // @FindBy(css = "p")
+}
+
+    @Test
+    public void navbarLinkClickableTests() {
+        navbarWithDropdown.navbarLink.click();
+        newWindowTitleCheck(pageTitle);
+    }
+
+    @Test
+    public void isValidationTests() {
+        navbarWithDropdown.navItemLink.is().size(3);
+        navbarWithDropdown.navGroup.is().size(3);
+        scrollspyInNavbar.mainText.is().size(5);
+        scrollspyInNavbar.header.is().size(5);
+        
+        navbarWithDropdown.dropdownMenu.expand();
+        navbarWithDropdown.dropdownMenu.is().size(3);
+
+        navbarWithDropdown.find(By.className("dropdown-divider")).is()
+                .core()
+                .displayed()
+                .enabled()
+                .attr("role", "separator");
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    @UI("#navbar-example3") public static NestedNav nestedNav;
+    @UI("#navbar-example3~div") public static ScrollspyNav scrollspyWithNestedNav;
+      
+public class NestedNav extends Section {
+    @UI("nav") public ListGroup navGroup;             // @FindBy(css = "nav")
+    @UI("nav nav a") public ListGroup navItemLink;        // @FindBy(css = "nav nav a")
+    @UI(".navbar-brand") public Link navbarLink; // @FindBy(css = ".navbar-brand")
+}
+
+public class ScrollspyNav extends Section {
+    @UI(".//h4 | .//h5") public ListGroup header;//@FindBy(xpath = ".//h4 | .//h5")
+    @UI("p") public ListGroup mainText;          // @FindBy(css = "p")
+}
+
+    @Test
+    public void highlightFocusedItemsTests() {
+        nestedNav.navItemLink.get(7).click();
+
+        nestedNav.navItemLink.get(7).is()
+                .core()
+                .displayed()
+                .enabled()
+                .cssClass("nav-link ml-3 my-1 active");
+
+        nestedNav.navItemLink.get(5).is()
+                .core()
+                .displayed()
+                .enabled()
+                .cssClass("nav-link active");
+    }
+
+    @Test
+    public void isValidationTests() {
+        nestedNav.navItemLink.is().size(7);
+        nestedNav.navGroup.is().size(3);
+        scrollspyWithNestedNav.mainText.is().size(7);
+        scrollspyWithNestedNav.header.is().size(7);
+    }
+    
+    
+    
+    
+    
+    
+    
+     @UI("#list-example>a") public static ListGroup listGroupForScrollspy;
+     @UI("#list-example~div") public static ScrollspyNav scrollspyWithListGroup;   
+    
+ public class ScrollspyNav extends Section {
+     @UI(".//h4 | .//h5") public ListGroup header;//@FindBy(xpath = ".//h4 | .//h5")
+     @UI("p") public ListGroup mainText;          // @FindBy(css = "p")
+ }
+   
+        @Test(dataProvider = "itemsCheck")
+        public void paragraphClickableTests(int index) {
+            scrollspyWithListGroup.mainText.get(index).highlight();
+            scrollspyWithListGroup.mainText.get(index).show();
+    
+           if (listGroupForScrollspy.get(index).core().hasClass("list-group-item list-group-item-action") &&
+                   index < scrollspyWithListGroup.header.size())
+               scrollspyWithListGroup.header.get(index+1).show();
+    
+            listGroupForScrollspy.get(index)
+                    .is()
+                    .core()
+                    .displayed()
+                    .enabled()
+                    .cssClass("list-group-item list-group-item-action active")
+                    .css("background-color", "rgba(0, 123, 255, 1)")//#007bff Color Hex
+                    .css("border-color", "rgb(0, 123, 255)");//#007bff Color Hex
+    
+            listGroupForScrollspy.get(index).unhighlight();
+        }
+
+        @Test
+        public void isValidationTests() {
+            scrollspyWithListGroup.header.is().size(4);
+            scrollspyWithListGroup.mainText.is().size(4);
+            listGroupForScrollspy.is().size(4);
+        }
+    
+```
+
 ![Scrollspy](../images/bootstrap/scroll_spy1.png)<br>
 ![Scrollspy](../images/bootstrap/scroll_spy1_html.png)<br>
 
-2. [Scrollspy with nested nav] (https://getbootstrap.com/docs/4.3/components/scrollspy/#example-with-nested-nav)<br> 
+2. [Scrollspy with nested nav] (https://getbootstrap.com/docs/4.3/components/scrollspy/#example-with-nested-nav)
+<br> 
+
 ![Scrollspy](../images/bootstrap/scroll_spy2.png)<br>
 ![Scrollspy](../images/bootstrap/scroll_spy2_html.png)<br>
 
-3. [Scrollspy with list-group] (https://getbootstrap.com/docs/4.3/components/scrollspy/#example-with-list-group)<br>
+3. [Scrollspy with list-group] (https://getbootstrap.com/docs/4.3/components/scrollspy/#example-with-list-group)
+<br>
+
 ![Scrollspy](../images/bootstrap/scroll_spy3.png)<br>
 ![Scrollspy](../images/bootstrap/scroll_spy3_html.png)
 
@@ -8446,22 +8592,27 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-  |  | 
- |  | 
- |  | 
- |  | 
- |  | 
- 
+**getText()**|Get text	  | String
+**getValue()**| Get value | String
+**is()**		|  Assert action	| TextAssert
+**assertThat()**	|  Assert action	| TextAssert
+**get(int)**	| Select element by index	 | UIElement
+**get(String)**	| Select element by text	 | UIElement
+**list()**| Get list of dropdown | WebList
+**size()**| Get WebList size| int
+**click()**	| Click element | void
+**expand()**| Expand dropdown|void  
+**show ()**| Scroll to element| void
 
 In these java test cases examples next classes have been used:
 
  - Java: com.epam.jdi.light.elements.composite.Section
 
-- Java: com.epam.jdi.light.elements.complex.ListGroup
+ - Java: com.epam.jdi.light.elements.complex.ListGroup
 
-- Java: com.epam.jdi.light.ui.bootstrap.elements.common.Link
+ - Java: com.epam.jdi.light.ui.bootstrap.elements.common.Link
 
-- Java: com.epam.jdi.light.elements.complex.dropdown.Dropdown
+ - Java: com.epam.jdi.light.elements.complex.dropdown.Dropdown
 
 [Scrollspy in navbar Tests Example](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/scrollspy/ScrollspyInNavbarTests.java)
 

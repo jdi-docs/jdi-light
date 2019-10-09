@@ -5695,12 +5695,13 @@ Available methods in Java JDI Light:
 
 **With striped design**
 
+
 <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/progress/#striped>Striped multiple bars</a>
 
 ![Progress striped example](../images/bootstrap/progress-striped.png)
 
 Here is an example with provided Bootstrap v4.3 code:
-
+  
 ```java 
 
     public class BootstrapPage extends WebPage {
@@ -5729,7 +5730,7 @@ Here is an example with provided Bootstrap v4.3 code:
     }
 ```
 
-![Progress striped HTML example](../images/bootstrap/progress-striped-html.png)
+![Progress striped HTML example](../images/bootstrap/progress-multiple-html.png)
 
 Available methods in Java JDI Light:
 

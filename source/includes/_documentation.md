@@ -8428,15 +8428,17 @@ Available methods and properties in C# JDI Light:
 <br><br>
 
 ### Scrollspy
-**Scrollspy** – automatically update Bootstrap navigation or list group components based on scroll position to indicate which link is currently active in the viewport.
+**[Scrollspy](https://getbootstrap.com/docs/4.3/components/scrollspy/#example-in-navbar)** – automatically update Bootstrap navigation or list group components based on scroll position to indicate which link is currently active in the viewport.
 <br>
-1. Scrollspy in navbar <br>
+1. [Scrollspy in navbar] (https://getbootstrap.com/docs/4.3/components/scrollspy/#example-in-navbar) <br>
 ![Scrollspy](../images/bootstrap/scroll_spy1.png)<br>
 ![Scrollspy](../images/bootstrap/scroll_spy1_html.png)<br>
-2. Scrollspy with nested nav <br> 
+
+2. [Scrollspy with nested nav] (https://getbootstrap.com/docs/4.3/components/scrollspy/#example-with-nested-nav)<br> 
 ![Scrollspy](../images/bootstrap/scroll_spy2.png)<br>
 ![Scrollspy](../images/bootstrap/scroll_spy2_html.png)<br>
-3. Scrollspy with list-group <br>
+
+3. [Scrollspy with list-group] (https://getbootstrap.com/docs/4.3/components/scrollspy/#example-with-list-group)<br>
 ![Scrollspy](../images/bootstrap/scroll_spy3.png)<br>
 ![Scrollspy](../images/bootstrap/scroll_spy3_html.png)
 
@@ -8444,21 +8446,29 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
- |  | 
+  |  | 
  |  | 
  |  | 
  |  | 
  |  | 
  
 
-Available methods and properties in C# JDI Light:
+In these java test cases examples next classes have been used:
 
-|Method/Property | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  |
- |  | 
+ - Java: com.epam.jdi.light.elements.composite.Section
+
+- Java: com.epam.jdi.light.elements.complex.ListGroup
+
+- Java: com.epam.jdi.light.ui.bootstrap.elements.common.Link
+
+- Java: com.epam.jdi.light.elements.complex.dropdown.Dropdown
+
+[Scrollspy in navbar Tests Example](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/scrollspy/ScrollspyInNavbarTests.java)
+
+[Scrollspy with nested nav Tests Example](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/scrollspy/ScrollspyWithNestedNavTests.java)
+
+[Scrollspy with list-group Tests Example](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/scrollspy/ScrollspyWithListGroupTests.java)
+
 <br><br>
 
 ### Modal

@@ -5422,7 +5422,61 @@ Here is an example with provided Bootstrap v4.3 code:
 <br>
 
 ####External content
-Plugin to trigger hidden content elsewhere on the page.
+```java 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//FindBy(css = "#navbar-external-content")
+@UI("#navbar-external-content")  
+public static NavbarExternalContent navbarExternalContent;
+
+ @Test
+public void expandingTest() {
+    navbarExternalContent.toggler.expander().is().core().attr(ariaExpanded, "false");
+    navbarExternalContent.toggler.expand();
+    navbarExternalContent.toggler.expander().is().core().attr(ariaExpanded, "true");
+    navbarExternalContent.toggler.collapse();
+    navbarExternalContent.toggler.expander().is().core().attr(ariaExpanded, "false");
+}
+
+@Test
+public void getTextTest() {
+    navbarExternalContent.toggler.expand();
+    navbarExternalContent.toggler.value().childs().get(1).is()
+            .displayed()
+            .text(text);
+    navbarExternalContent.toggler.value().childs().get(2).is()
+            .displayed()
+            .text(mutedText);
+    navbarExternalContent.toggler.collapse();
+}
+```
+<a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/navbar/#external-content">Plugin</a> to trigger hidden content elsewhere on the page.
 
 ![Color Nav example](../images/bootstrap/navbar-external.png)
 
@@ -5430,6 +5484,8 @@ Here is an example with provided Bootstrap v4.3 code:
   
 ![Color Nav HTML example](../images/bootstrap/navbar-external-html.png)
 
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section//ProgressBackgroundTests.java" target=a_blank> Bootstrap test examples </a>
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
 ###Pagination
 
 Pagination is functionality for navigating through pages.
@@ -5489,7 +5545,7 @@ Available methods in Java JDI Light:
 
 
 
-//FindBy(id = "#progress-bar-base-width-25 .progress-bar"
+//FindBy(css = "#progress-bar-base-width-25 .progress-bar"
 @UI("#progress-bar-base-width-25 .progress-bar")  
 public static Progress progressBaseWidth25;
 
@@ -5691,9 +5747,15 @@ Available methods in Java JDI Light:
 
 <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/ProgressMultipleBarsTests.java" target=a_blank> Bootstrap test examples </a>
 
-<br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br>
 
 **With striped design**
+
+<a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/progress/#striped">Striped progress bars</a>
+
+![Progress striped example](../images/bootstrap/progress-striped.png)
+
+Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
 
@@ -5707,17 +5769,6 @@ Available methods in Java JDI Light:
         public Progress progress;
     }
 
-    @DataProvider
-    public static Object[][] progressData() {
-        return new Object[][]{
-                {"striped_ordinary", "10", "rgba(0, 123, 255, 1)", "0", "100", "progress-bar-striped"},
-                {"striped_success", "25", "rgba(40, 167, 69, 1)", "0", "100", "progress-bar-striped"},
-                {"striped_info", "50", "rgba(23, 162, 184, 1)", "0", "100", "progress-bar-striped"},
-                {"striped_warning", "75", "rgba(255, 193, 7, 1)", "0", "100", "progress-bar-striped"},
-                {"striped_danger", "100", "rgba(220, 53, 69, 1)", "0", "100", "progress-bar-striped"}
-        };
-    }
-
     @Test(dataProvider = "progressData")
     public void checkProgressData(String progressId, String value, String color,
                                   String min, String max, String classStriped) {
@@ -5725,7 +5776,7 @@ Available methods in Java JDI Light:
         progressSections.stream().filter(progressSection ->
                 progressSection.progress.attr("id").equals(progressId)).forEach(
                 progressSection -> {
-                    progressSection.progress.core().hasClass(classStriped);
+                    progressSection.progress.is().core().hasClass(classStriped);
                     progressSection.progress.is().ariaValue(value)
                                                  .color(color)
                                                  .minValue(min)
@@ -5733,34 +5784,25 @@ Available methods in Java JDI Light:
                 });
     }
 
-    @Test
-    public void baseValidationTest() {
-        progressSections.forEach(
-                progressSection ->
-                        baseValidation(progressSection.progress));
-    }
 ```
 
-![Progress striped example](../images/bootstrap/progress-striped.png)
-
-  <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/listprogressbars/ProgressBarsListTests.java" target=a_blank> Bootstrap test examples </a>
-
+![Progress striped HTML example](../images/bootstrap/progress-striped-html.png)
 
 Available methods in Java JDI Light:
 
 |Method/Property | Description | Return Type
---- | --- | --- 
+--- | --- | ---
 **getAriaValue()** | Get aria value of the bar | String
 **getColor()** | Get color of the bar  | String
-**getMaxValue()** | Get max value of the bar | String
-**getMinValue()** | Get max value of the bar | String
-**is()** | Various assert actions for Progress | ProgressAssert
-**assertThat()** | Assert action | ProgressAssert
+**getMaxValue()** | Get max value of the bar  | String
+**getMinValue()** | Get min value of the bar  | String
+**is()** | Various assert actions for Progress | ProgressAssert 
+**assertThat()** | Assert action | ProgressAssert  
 
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/listprogressbars/ProgressBarsListTests.java)
 
-Here is an example with provided Bootstrap v4.3 code:
-  
-![Progress striped HTML example](../images/bootstrap/progress-striped-html.png)
+<br><br><br><br><br><br><br>  
+
 
 **With animated design**
 

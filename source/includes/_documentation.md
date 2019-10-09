@@ -5699,34 +5699,6 @@ Available methods in Java JDI Light:
 
 ![Progress striped example](../images/bootstrap/progress-striped.png)
 
-```java 
-
-    public class BootstrapPage extends WebPage {
-    @UI("#striped-base .progress") public static JList<ProgressSection> progressSections;
-    }
-
-    public class ProgressSection extends Section {
-        //@FindBy(css = ".progress-bar")
-        @UI(".progress-bar")
-        public Progress progress;
-    }
-
-    @Test(dataProvider = "progressData")
-    public void checkProgressData(String progressId, String value, String color,
-                                  String min, String max, String classStriped) {
-
-        progressSections.stream().filter(progressSection ->
-                progressSection.progress.attr("id").equals(progressId)).forEach(
-                progressSection -> {
-                    progressSection.progress.is().core().hasClass(classStriped);
-                    progressSection.progress.is().ariaValue(value)
-                                                 .color(color)
-                                                 .minValue(min)
-                                                 .maxValue(max);
-                });
-    }
-```
-
 Here is an example with provided Bootstrap v4.3 code:
 
 ![Progress striped HTML example](../images/bootstrap/progress-striped-html.png)
@@ -5741,7 +5713,6 @@ Available methods in Java JDI Light:
 **getMinValue()** | Get min value of the bar  | String
 **is()** | Various assert actions for Progress | ProgressAssert 
 **assertThat()** | Assert action | ProgressAssert  
-
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/listprogressbars/ProgressBarsListTests.java)
 

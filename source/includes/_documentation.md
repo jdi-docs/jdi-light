@@ -8313,6 +8313,8 @@ __Events for toasts:__
  
  ``` 
 
+<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/toasts/#basic" target="_blank">**Simple Toast**</a>
+<br />
 
 ![Simple toast example](../images/bootstrap/toast.png)
 
@@ -8322,15 +8324,17 @@ Here is an example with provided Bootstrap v4.3 code:
 
 <br>
 
-**Translucent**
-<br>
+<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/toasts/#translucent" target="_blank">**Translucent Toast**</a>
+
+
 ![Translucent toast example](../images/bootstrap/toast_center.png)
 
 Here is an example with provided Bootstrap v4.3 code:
   
 ![Toast HTML example](../images/bootstrap/translucent_toast_code.png)
 
-**Stacking**<br />
+<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/toasts/#stacking" target="_blank">**Stacking**</a>
+
 When you have multiple toasts, we default to vertically stacking them in a readable manner
 
 ![Toast stack example](../images/bootstrap/stack_of_toast.png)
@@ -8339,9 +8343,9 @@ Here is an example with provided Bootstrap v4.3 code:
   
 ![Toast stack HTML example](../images/bootstrap/stack_of_toasts_html.png)
 
-<br >
-**Placement**
-<br>
+
+<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/toasts/#stacking" target="_blank">**Placement**</a>
+
 Place toasts with custom CSS as you need them. The top right is often used for notifications, as is the top middle.
 <br /><br />
 Example with top right align:

@@ -8199,10 +8199,6 @@ __Events for toasts:__
  
  
  
- 
- 
- 
- 
  @UI("#firstMultipleToast") public static Toast firstStackToast; //@FindBy(id="firstMultipleToast")
  @UI("#secondMultipleToast") public static Toast secondStackToast; //@FindBy(id="secondMultipleToast")
  
@@ -8242,11 +8238,6 @@ __Events for toasts:__
  
  
  
- 
- 
- 
- 
- 
  @UI("#toastRightTop") public static Toast toastWithTopAlign; //@FindBy(id="toastRightTop")
  
  @Test
@@ -8259,19 +8250,16 @@ __Events for toasts:__
      toastWithTopAlign.base().waitSec(1);
      toastWithTopAlign.is().hidden();
  }
- 
- 
-  
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+
+
+
+
+
+
+
+
+
+
  
  
  
@@ -8296,11 +8284,6 @@ __Events for toasts:__
       firstTopAlignStackToast.is().displayed();
       secondTopAlignStackToast.is().displayed();
   }
-  
-  
-  
-  
-  
   
   
   

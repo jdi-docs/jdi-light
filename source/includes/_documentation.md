@@ -5213,14 +5213,38 @@ Inner elements of media object can be represented by the following classes:
 
 <a style="font-weight: bold;" target="_blank" href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navbar/NavbarNavsTests.java">Bootstrap test examples</a>
 
-
+<br>
 ####Forms
 
-Place various form controls and components within a navbar with .form-inline.
-
-<br>
+Place various form controls and components within a <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/navbar/#forms" target="_blank">navbar</a> with .form-inline.
 
 ![Forms example](../images/bootstrap/navbar-forms1.png)
+
+```java 
+
+//FindBy(id = "#navbar-form-2")
+@UI("#navbar-form-2")
+public static NavbarForm navbarFormWithText;
+//FindBy(id = "#navbar-form-3")
+@UI("#navbar-form-3")
+public static NavbarWithInputGroupForm navbarFormWithInputGroup;
+
+@Test
+public void checkSetValueInputGroup() {
+    navbarFormWithInputGroup.inputGroup.input.setValue(inputText);
+    navbarFormWithInputGroup.inputGroup.input.assertThat().text(is(inputText));
+}
+
+@Test
+public void checkFormElements() {
+    UIElement input = navbarFormWithText.form.core().find((By.tagName("input")));
+    UIElement button = navbarFormWithText.form.core().find((By.tagName("button")));
+    input.shouldBe().enabled();
+    button.shouldBe().enabled().text(is(buttonText));
+    navbarFormWithText.form.click();
+}
+
+```
 
 Here is an example with provided Bootstrap v4.3 code:
   
@@ -5242,25 +5266,19 @@ Here is an example with provided Bootstrap v4.3 code:
   
 ![Forms HTML example](../images/bootstrap/navbar-forms3-html.png)
 
-Available methods in Java JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  | 
+Media object is represented by Section class in Java:
  
+[Section](https://jdi-docs.github.io/jdi-light/#section)
 
-Available methods and properties in C# JDI Light:
+Inner elements of media object can be represented by the following classes:
 
-|Method/Property | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  |
- |  | 
+  + [Form](https://jdi-docs.github.io/jdi-light/#form)     
+  + [TextField](https://jdi-docs.github.io/jdi-light/#textfield)    
+  + [Button](https://jdi-docs.github.io/jdi-light/#button)      
+  + [Link](https://jdi-docs.github.io/jdi-light/#link)      
+  + [See more elements](https://jdi-docs.github.io/jdi-light/#html5-common-elements) 
+
+<a style="font-weight: bold;" target="_blank" href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navbar/NavbarFormsTests.java">Bootstrap test examples</a>
 <br><br>
 
 ####Text

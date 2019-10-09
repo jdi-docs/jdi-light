@@ -5691,9 +5691,12 @@ Available methods in Java JDI Light:
 
 <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/ProgressMultipleBarsTests.java" target=a_blank> Bootstrap test examples </a>
 
-<br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 **With striped design**
+<a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/progress/#striped>Striped multiple bars</a>
+
+![Progress striped example](../images/bootstrap/progress-striped.png)
 
 ```java 
 
@@ -5705,17 +5708,6 @@ Available methods in Java JDI Light:
         //@FindBy(css = ".progress-bar")
         @UI(".progress-bar")
         public Progress progress;
-    }
-
-    @DataProvider
-    public static Object[][] progressData() {
-        return new Object[][]{
-                {"striped_ordinary", "10", "rgba(0, 123, 255, 1)", "0", "100", "progress-bar-striped"},
-                {"striped_success", "25", "rgba(40, 167, 69, 1)", "0", "100", "progress-bar-striped"},
-                {"striped_info", "50", "rgba(23, 162, 184, 1)", "0", "100", "progress-bar-striped"},
-                {"striped_warning", "75", "rgba(255, 193, 7, 1)", "0", "100", "progress-bar-striped"},
-                {"striped_danger", "100", "rgba(220, 53, 69, 1)", "0", "100", "progress-bar-striped"}
-        };
     }
 
     @Test(dataProvider = "progressData")
@@ -5732,35 +5724,27 @@ Available methods in Java JDI Light:
                                                  .maxValue(max);
                 });
     }
-
-    @Test
-    public void baseValidationTest() {
-        progressSections.forEach(
-                progressSection ->
-                        baseValidation(progressSection.progress));
-    }
 ```
+Here is an example with provided Bootstrap v4.3 code:
 
-![Progress striped example](../images/bootstrap/progress-striped.png)
-
-  <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/listprogressbars/ProgressBarsListTests.java" target=a_blank> Bootstrap test examples </a>
-
+![Progress striped HTML example](../images/bootstrap/progress-striped-html.png)
 
 Available methods in Java JDI Light:
 
 |Method/Property | Description | Return Type
---- | --- | --- 
+--- | --- | ---
 **getAriaValue()** | Get aria value of the bar | String
 **getColor()** | Get color of the bar  | String
-**getMaxValue()** | Get max value of the bar | String
-**getMinValue()** | Get max value of the bar | String
-**is()** | Various assert actions for Progress | ProgressAssert
-**assertThat()** | Assert action | ProgressAssert
+**getMaxValue()** | Get max value of the bar  | String
+**getMinValue()** | Get min value of the bar  | String
+**is()** | Various assert actions for Progress | ProgressAssert 
+**assertThat()** | Assert action | ProgressAssert  
 
 
-Here is an example with provided Bootstrap v4.3 code:
+<a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/listprogressbars/ProgressBarsListTests.java" target=a_blank> Bootstrap test examples </a>
+
   
-![Progress striped HTML example](../images/bootstrap/progress-striped-html.png)
+
 
 **With animated design**
 

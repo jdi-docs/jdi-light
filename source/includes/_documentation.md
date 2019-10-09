@@ -5283,7 +5283,7 @@ Inner elements of media object can be represented by the following classes:
 
 ####Text
 
-Navbars may contain bits of text with the help of .navbar-text. 
+**[Navbar-text](https://getbootstrap.com/docs/4.3/components/navbar/#text)** – Navbars may contain bits of text with the help of .navbar-text. 
 This class adjusts vertical alignment and horizontal spacing for strings of text.
 
 <br>
@@ -5344,12 +5344,13 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  | 
- 
+**click()** | Click the button | void
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**get()** | Select button by index | action
+
+<br><br> 
 
 Available methods and properties in C# JDI Light:
 

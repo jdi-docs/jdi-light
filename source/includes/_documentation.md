@@ -8072,6 +8072,10 @@ __Events for toasts:__
  
  
  
+ 
+ 
+ 
+ 
 
  @UI("#simpleToast") public static Toast simpleToast; //@FindBy("#simpleToast")
 
@@ -8097,6 +8101,19 @@ __Events for toasts:__
  
  
  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+ 
  @UI("#translucentToast") public static Toast translucentToast; //@FindBy("#translucentToast")
  
  @Test
@@ -8117,6 +8134,15 @@ __Events for toasts:__
  
  
  
+
+
+
+
+
+
+
+
+
  
  
  
@@ -8135,6 +8161,19 @@ __Events for toasts:__
      secondStackToast.headerText.is().text(toastHeaderText);
      secondStackToast.body.is().text(secondStackToastBodyText);
      }
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  
  
  
@@ -8171,6 +8210,21 @@ __Events for toasts:__
  
  
  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  @UI("#firstStackToast") public static Toast firstTopAlignStackToast; //@FindBy("#firstStackToast")
  @UI("#secondStackToast") public static Toast secondTopAlignStackToast; //@FindBy("#secondStackToast")
  
@@ -8184,6 +8238,15 @@ __Events for toasts:__
       firstTopAlignStackToast.is().displayed();
       secondTopAlignStackToast.is().displayed();
   }
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   
   

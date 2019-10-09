@@ -5725,7 +5725,7 @@ Available methods in Java JDI Light:
         progressSections.stream().filter(progressSection ->
                 progressSection.progress.attr("id").equals(progressId)).forEach(
                 progressSection -> {
-                    progressSection.progress.core().hasClass(classStriped);
+                    progressSection.progress.is().core().hasClass(classStriped);
                     progressSection.progress.is().ariaValue(value)
                                                  .color(color)
                                                  .minValue(min)

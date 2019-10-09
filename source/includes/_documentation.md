@@ -5755,6 +5755,35 @@ Available methods in Java JDI Light:
 
 Here is an example with provided Bootstrap v4.3 code:
 
+```java 
+
+    public class BootstrapPage extends WebPage {
+    @UI("#striped-base .progress") public static JList<ProgressSection> progressSections;
+    }
+
+    public class ProgressSection extends Section {
+        //@FindBy(css = ".progress-bar")
+        @UI(".progress-bar")
+        public Progress progress;
+    }
+
+    @Test(dataProvider = "progressData")
+    public void checkProgressData(String progressId, String value, String color,
+                                  String min, String max, String classStriped) {
+
+        progressSections.stream().filter(progressSection ->
+                progressSection.progress.attr("id").equals(progressId)).forEach(
+                progressSection -> {
+                    progressSection.progress.is().core().hasClass(classStriped);
+                    progressSection.progress.is().ariaValue(value)
+                                                 .color(color)
+                                                 .minValue(min)
+                                                 .maxValue(max);
+                });
+    }
+
+```
+
 ![Progress striped HTML example](../images/bootstrap/progress-striped-html.png)
 
 Available methods in Java JDI Light:

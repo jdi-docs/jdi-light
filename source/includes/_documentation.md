@@ -5291,6 +5291,22 @@ This class adjusts vertical alignment and horizontal spacing for strings of text
 ![Text example](../images/bootstrap/navbar-text1.png)
 
 Here is an example with provided Bootstrap v4.3 code:
+
+```java 
+//@FindBy(xpath = "//h4[.='Navbar - Text']/../..") public static NavbarText navbarText;
+@UI("//h4[.='Navbar - Text']/../..") public static NavbarText navbarText;
+
+public class NavbarText extends Section {
+    @UI("nav:nth-child(1)") public Text simpleText;
+    @UI("nav.navbar.navbar-expand-lg.navbar-light.bg-light") public NavbarTextLinks complexNavbar;
+}
+
+@Test
+public void verifySimpleNavbarTextTest() {
+    Assert.assertEquals(inlineElement,navbarText.simpleText.getText());
+}
+```
+
   
 ![Text HTML example](../images/bootstrap/navbar-text1-html.png)
 
@@ -5299,6 +5315,28 @@ Mix and match with other components and utilities as needed.
 ![Text example](../images/bootstrap/navbar-text2.png)
 
 Here is an example with provided Bootstrap v4.3 code:
+
+```java 
+public class NavbarTextLinks extends Section {
+    @UI(".navbar-brand") public Link brand;
+    @UI("ul li") public ListGroup listPages;
+    @UI(".navbar-text") public Text simpleText;
+}
+
+@Test
+public void verifyComplexNavbarHomeTest() {
+    Assert.assertEquals(linkName1,navbarText.complexNavbar.listPages.get(1).getText());
+    navbarText.complexNavbar.listPages.get(1).click();
+    newWindowTitleCheck(page1);
+    Assert.assertEquals(linkName2,navbarText.complexNavbar.listPages.get(2).getText());
+    navbarText.complexNavbar.listPages.get(2).click();
+    newWindowTitleCheck(page2);
+    Assert.assertEquals(linkName3,navbarText.complexNavbar.listPages.get(3).getText());
+    navbarText.complexNavbar.listPages.get(3).click();
+    newWindowTitleCheck(page3);
+    }
+```
+
   
 ![Text HTML example](../images/bootstrap/navbar-text2-html.png)
 

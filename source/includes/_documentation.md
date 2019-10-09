@@ -8506,9 +8506,6 @@ public class ScrollspyNav extends Section {
 
 
 
-
-
-
     @UI("#navbar-example3") public static NestedNav nestedNav;
     @UI("#navbar-example3~div") public static ScrollspyNav scrollspyWithNestedNav;
       
@@ -8549,6 +8546,15 @@ public class ScrollspyNav extends Section {
     }
     
  
+     
+
+
+
+     
+     
+     
+     
+     
      
      
      

@@ -8119,7 +8119,9 @@ __Events for toasts:__
  
  
 
- @UI("#simpleToast") public static Toast simpleToast; //@FindBy("#simpleToast")
+ 
+ 
+ @UI("#simpleToast") public static Toast simpleToast; //@FindBy(id="simpleToast")
 
  @Test
  public void simpleToastValidationTest() {
@@ -8155,8 +8157,10 @@ __Events for toasts:__
  
 
 
+
+
  
- @UI("#translucentToast") public static Toast translucentToast; //@FindBy("#translucentToast")
+ @UI("#translucentToast") public static Toast translucentToast; //@FindBy(id="translucentToast")
  
  @Test
  public void translucentToastValidationTest() {
@@ -8193,8 +8197,14 @@ __Events for toasts:__
  
  
  
- @UI("#firstMultipleToast") public static Toast firstStackToast; //@FindBy("#firstMultipleToast")
- @UI("#secondMultipleToast") public static Toast secondStackToast; //@FindBy("#secondMultipleToast")
+ 
+ 
+ 
+ 
+ 
+ 
+ @UI("#firstMultipleToast") public static Toast firstStackToast; //@FindBy(id="firstMultipleToast")
+ @UI("#secondMultipleToast") public static Toast secondStackToast; //@FindBy(id="secondMultipleToast")
  
  @Test
  public void stackOfToastsValidationTest() {
@@ -8233,7 +8243,11 @@ __Events for toasts:__
  
  
  
- @UI("#toastRightTop") public static Toast toastWithTopAlign; //@FindBy("#toastRightTop")
+ 
+ 
+ 
+ 
+ @UI("#toastRightTop") public static Toast toastWithTopAlign; //@FindBy(id="toastRightTop")
  
  @Test
  public void toastWithTopAlignValidationTest() {
@@ -8264,8 +8278,13 @@ __Events for toasts:__
  
  
  
- @UI("#firstStackToast") public static Toast firstTopAlignStackToast; //@FindBy("#firstStackToast")
- @UI("#secondStackToast") public static Toast secondTopAlignStackToast; //@FindBy("#secondStackToast")
+ 
+ 
+ 
+ 
+ 
+ @UI("#firstStackToast") public static Toast firstTopAlignStackToast; //@FindBy(id="firstStackToast")
+ @UI("#secondStackToast") public static Toast secondTopAlignStackToast; //@FindBy(id="secondStackToast")
  
  @Test
   public void stackOfTopAlignToastsValidationTest() {
@@ -8296,9 +8315,15 @@ __Events for toasts:__
   
   
   
+  
+  
+  
+  
+  
+  
 
-  @UI("#toastCenterTop") public static Toast toastWithCenterAlign; //@FindBy("#toastCenterTop")
-  @UI("#toastRightTop") public static Toast toastWithTopAlign; //@FindBy("#toastRightTop")
+  @UI("#toastCenterTop") public static Toast toastWithCenterAlign; //@FindBy(id="toastCenterTop")
+  @UI("#toastRightTop") public static Toast toastWithTopAlign; //@FindBy(id="toastRightTop")
   
   @Test
   public void toastWithCenterAlignValidationTest() {

@@ -8433,6 +8433,7 @@ Available methods and properties in C# JDI Light:
 1. [Scrollspy in navbar] (https://getbootstrap.com/docs/4.3/components/scrollspy/#example-in-navbar) 
 <br>
 <br>
+
 ```java 
     @UI("#navbar-example2") public static NavbarWithDropdown navbarWithDropdown;
     @UI("#navbar-example2~div") public static ScrollspyNav scrollspyInNavbar;

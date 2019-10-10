@@ -5049,7 +5049,8 @@ Choose from the following as needed:
     
     .collapse.navbar-collapse for grouping and hiding navbar contents by a parent breakpoint.
 
-Here’s an example of all the sub-components included in a responsive light-themed navbar that automatically collapses at the lg (large) breakpoint.
+Here are the examples of all the sub-components included in a responsive light-themed navbar 
+that automatically collapses at the lg (large) breakpoint. Bootstrap v4.3 code is provided below each example.
 <br>
 1. Navbar with content <br>
 ![Supported content](../images/bootstrap/navbar-supported-content-normal.png)<br>
@@ -5061,27 +5062,93 @@ Here’s an example of all the sub-components included in a responsive light-the
 ![Supported content](../images/bootstrap/navbar-supported-content-uncollapsed.png)
 ![Supported content](../images/bootstrap/navbar-supported-content-uncollapsed-html.png)
 
-Here is an examples with provided Bootstrap v4.3 code:
+```java 
+// @FindBy(id = "navbar-supported-content")
+@UI("#navbar-supported-content")
+public static NavbarSupportedContent navbarSupportedContent;
+
+// @FindBy(css = ".navbar-brand")
+@UI(".navbar-brand")
+public Link brand;
+
+// @FindBy(tagName = "button[data-toggle=collapse]")
+@UI("button[data-toggle=collapse]")
+public Button navExpand;
+
+// @FindBy(tagName = "input")
+@UI("input")
+public TextField searchField;
+
+// @FindBy(css = ".btn-outline-success")
+@UI(".btn-outline-success")
+public Button searchButton;
+
+@JDropdown(root = ".navbar-nav",
+        list = "a")
+public Collapse nav;
+
+@JDropdown(root = ".dropdown",
+        expand = "#navbarDropdown",
+        list = "a")
+public Collapse dropdown;
+
+private static final String activeLinkText = "Active link";
+private static final String jdiLinkText = "JDI Light";
+private static final String dropdownLinkText = "Dropdown";
+private static final String dropdownAction = "Action";
+private static final String dropdownAnotherAction = "Another action";
+private static final String dropdownSmthElse = "Something else here";
+private static final String disabledLinkText = "Disabled link";
+
+@DataProvider
+public Object[][] collapseLinkTextData() {
+    return new Object[][] {
+            {activeLinkText},
+            {jdiLinkText},
+            {dropdownLinkText},
+            {dropdownAction},
+            {dropdownAnotherAction},
+            {dropdownSmthElse},
+            {disabledLinkText}
+    };
+}
+
+@Test(dataProvider = "collapseLinkTextData")
+public void collapseLinkTextTest(String linkText) {
+    Dimension dimension = new Dimension(900, 600);
+    WebDriverFactory.getDriver().manage().window().setSize(dimension);
+
+    navbarSupportedContent.navExpand.show();
+    navbarSupportedContent.navExpand.click();
+
+    navbarSupportedContent.nav.is().expanded();
+
+    assertTrue(navbarSupportedContent.nav.list().values().contains(linkText));
+}
+```
+
+Navbar is represented by Section class in Java:
+ 
++ [Section](https://jdi-docs.github.io/jdi-light/#section)
 
 Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  | 
- 
+**is()** | Asserts element  | UIAssert
+**displayed()** | Asserts element is displayed  | UIAssert 
+**hasClass()** | Checks whether element has class  | boolean 
+**click()** | Click on element  | void  
+**list()** | Return a list of dropdown elements  | WebList 
+**text()** | Check whether a text matches a pattern  | IsAssert 
+**attr()** | Check whether an element has attribute of specified name and with given value  | IsAssert 
+**toggle()** | Toggle collapse  | void 
+**select()** | Select a dropdown element  | void 
+**expanded()** | Check whether a dropdown is expanded  | void 
+**setValue()** | Set a value for input group  | void 
+**getValue()** | Get value from input group  | String 
 
-Available methods and properties in C# JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  |
- |  | 
+<a href="javascript: void();">Bootstrap Test Examples</a> 
 <br><br>
 
 ####Brand

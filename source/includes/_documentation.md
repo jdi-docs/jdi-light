@@ -5131,6 +5131,16 @@ Navbar is represented by Section class in Java:
  
 + [Section](https://jdi-docs.github.io/jdi-light/#section)
 
+Inner elements of jumbotron can be represented by the following classes:
+
+  - [TextField](https://jdi-docs.github.io/jdi-light/#textfield)
+  
+  - [Button](https://jdi-docs.github.io/jdi-light/#button)
+  
+  - [Link](https://jdi-docs.github.io/jdi-light/#link)
+  
+  - [Collapse](https://jdi-docs.github.io/jdi-light/#collapse)
+
 Available methods in Java JDI Light:
 
 |Method | Description | Return Type

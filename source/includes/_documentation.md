@@ -5452,8 +5452,7 @@ Here is an example with provided Bootstrap v4.3 code:
 
 
 //FindBy(css = "#navbar-external-content")
-@UI("#navbar-external-content")  
-public static NavbarExternalContent navbarExternalContent;
+@UI("#navbar-external-content") public static NavbarExternalContent navbarExternalContent;
 
  @Test
 public void expandingTest() {
@@ -5494,7 +5493,7 @@ Here is an example with provided Bootstrap v4.3 code:
 ![Color Nav HTML example](../images/bootstrap/navbar-external-html.png)
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navbar/ExternalContentTests.java" target=a_blank> Bootstrap test examples </a>
-<br><br>
+<br><br><br>
 ###Pagination
 
 Pagination is functionality for navigating through pages.

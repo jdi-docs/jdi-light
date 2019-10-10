@@ -5303,7 +5303,9 @@ public class NavbarText extends Section {
 
 @Test
 public void verifySimpleNavbarTextTest() {
-    Assert.assertEquals(inlineElement,navbarText.simpleText.getText());
+    navbarText.simpleText
+        .is()
+        .text(is(inlineElement));
 }
 ```
 
@@ -5325,16 +5327,22 @@ public class NavbarTextLinks extends Section {
 
 @Test
 public void verifyComplexNavbarHomeTest() {
-    Assert.assertEquals(linkName1,navbarText.complexNavbar.listPages.get(1).getText());
+    navbarText.complexNavbar.listPages.get(1)
+        .is()
+        .text(is(linkName1));
     navbarText.complexNavbar.listPages.get(1).click();
     newWindowTitleCheck(page1);
-    Assert.assertEquals(linkName2,navbarText.complexNavbar.listPages.get(2).getText());
+    navbarText.complexNavbar.listPages.get(2)
+        .is()
+        .text(is(linkName2));
     navbarText.complexNavbar.listPages.get(2).click();
     newWindowTitleCheck(page2);
-    Assert.assertEquals(linkName3,navbarText.complexNavbar.listPages.get(3).getText());
+    navbarText.complexNavbar.listPages.get(3)
+        .is()
+        .text(is(linkName3));
     navbarText.complexNavbar.listPages.get(3).click();
     newWindowTitleCheck(page3);
-    }
+}
 ```
 
   

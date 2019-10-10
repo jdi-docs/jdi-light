@@ -5480,12 +5480,21 @@ public void getTextTest() {
 
 ![Color Nav example](../images/bootstrap/navbar-external.png)
 
+Navbar - Sizing is represented by Section class in Java:
+ 
+[Section](https://jdi-docs.github.io/jdi-light/#section)
+
+Inner elements of Navbar - Sizing can be represented by the following classes:
+
+  + [Collapse](https://jdi-docs.github.io/jdi-light/#collapse)     
+  + [Text](https://jdi-docs.github.io/jdi-light/#text)       
+
 Here is an example with provided Bootstrap v4.3 code:
   
 ![Color Nav HTML example](../images/bootstrap/navbar-external-html.png)
 
-<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section//ProgressBackgroundTests.java" target=a_blank> Bootstrap test examples </a>
-<br><br><br><br><br><br><br><br><br><br><br><br><br>
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navbar/ExternalContentTests.java" target=a_blank> Bootstrap test examples </a>
+<br><br>
 ###Pagination
 
 Pagination is functionality for navigating through pages.
@@ -5849,6 +5858,7 @@ Available methods in Java JDI Light:
 **getAriaValue()** | Get aria value of the bar | String
 **getColor()** | Get color of the bar  | String
 **is()** | Various assert actions for Progress | ProgressAssert  
+**assertThat()** | Assert action | ProgressAssert
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/progress/ProgressAnimatedStripesTests.java)
 <br>

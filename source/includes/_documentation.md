@@ -5372,7 +5372,7 @@ Available methods and properties in C# JDI Light:
 
 ####Color schemes
 
-Theming the navbar has never been easier thanks to the combination of theming classes and background-color utilities.
+Theming the navbar has never been easier thanks to the combination of <a href="https://getbootstrap.com/docs/4.3/components/navbar/#color-schemes">theming classes and background-color utilities</a>.
 Choose from .navbar-light for use with light background colors, or .navbar-dark for dark background colors. Then, customize with .bg-* utilities.
 
 ![Color schemes example](../images/bootstrap/navbar-color-schemes.png)

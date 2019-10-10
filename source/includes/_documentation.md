@@ -5148,8 +5148,7 @@ Available methods in Java JDI Light:
 **is()** | Asserts element  | UIAssert
 **displayed()** | Asserts element is displayed  | UIAssert 
 **hasClass()** | Checks whether element has class  | boolean 
-**click()** | Click on element  | void  
-**list()** | Return a list of dropdown elements  | WebList 
+**click()** | Click on element  | void   
 **text()** | Check whether a text matches a pattern  | IsAssert 
 **attr()** | Check whether an element has attribute of specified name and with given value  | IsAssert 
 **toggle()** | Toggle collapse  | void 

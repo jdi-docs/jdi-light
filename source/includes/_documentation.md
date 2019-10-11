@@ -5156,38 +5156,86 @@ Available methods in Java JDI Light:
 
 ####Brand
 
+```java 
+
+@UI("#navbar-base-for-brand") public static NavbarSection navbarSection;
+
+public class BootstrapPage extends WebPage {
+@UI("#navbar-base-for-brand") public static NavbarSection navbarSection;
+}
+
+public class NavbarSection extends Section {
+    //@FindBy(css = ".navbar-brand")
+    @UI(".navbar-brand")
+    public JList<NavbarBrand> navbarBrandJList;
+}
+
+@Test(dataProvider = "navbarBrandData")
+    public void checkNavbarText(String navbarId, String navbarText) {
+        navbarBrandList.stream().filter(navbarBrand ->
+                navbarBrand.attr("id").equals(navbarId)).forEach(nbb -> {
+            nbb.highlight();
+            nbb.is().core()
+                    .text(navbarText);
+            nbb.unhighlight();
+        });
+    }
+
+    @Test
+    public void checkNavbarClickImage() {
+        navbarBrandList.stream()
+                .filter(nbb -> nbb.isLink() && nbb.childs().size() > 0)
+                .map(nbbWithIm -> nbbWithIm.childs().get(0))
+                .forEach(imgFromNavbar -> {
+                    imgFromNavbar.highlight("blue");
+                    imgFromNavbar.is().attr("src", containsString(imgPath))
+                            .tag("img");
+                    imgFromNavbar.unhighlight();
+
+                    imgFromNavbar.click();
+
+                    WebDriver driver = WebDriverFactory.getDriver();
+                    ArrayList<String> tabs = new ArrayList<>(
+                              WebDriverFactory.getDriver().getWindowHandles()
+                    );
+                    driver.switchTo().window(tabs.get(tabs.size() - 1));
+                    assertEquals(getUrl(), navbarUrl);
+                    driver.close();
+                    driver.switchTo().window(tabs.get(tabs.size() - 2));
+                });
+    }
+
+```
+
 The .navbar-brand can be applied to most elements, but an anchor works best as some elements might require utility classes or custom styles.
 <br>
 
 Navbar brand as a link <br>
 ![Brand](../images/bootstrap/navbar-brand-link.png)<br>
 <br>
-![Brand](../images/bootstrap/navbar-brand-link-html.png)<br>
-<br>
 Navbar brand as heading <br> 
 ![Brand](../images/bootstrap/navbar-brand-heading.png)<br>
 <br>
-![Brand](../images/bootstrap/navbar-brand-heading-html.png)<br>
 
 Adding images to the .navbar-brand will likely always require custom styles or utilities to properly size. Here are some examples to demonstrate.<br>
 
 ![Brand](../images/bootstrap/navbar-brand-image.png)<br>
 <br>
-![Brand](../images/bootstrap/navbar-brand-image-html.png)<br>
-<br>
 ![Brand](../images/bootstrap/navbar-brand-image-and-link.png)<br>
 <br>
-![Brand](../images/bootstrap/navbar-brand-image-and-link-html.png)
+
+![Brand](../images/bootstrap/navbar-brand-all.png)
 
 Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  | 
+**isNavbarBrand()** | Check it is navbar-brand class | boolean
+**isLink()** | Check it is link | boolean
+**getRef()** | Get link | String
+**getText()** | Get button text | String
+**is()** | Assert action | UIAssert 
+**assertThat()** | Assert action | UIAssert
  
 
 Available methods and properties in C# JDI Light:

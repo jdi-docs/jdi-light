@@ -5684,7 +5684,55 @@ Available methods in Java JDI Light:
 
 <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/ProgressWithLabelsTests.java" target=a_blank> Bootstrap test examples </a>
 
-<br><br><br><br><br><br>
+<br><br>
+
+**With height**
+
+We only set a <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/progress/#height">height</a>
+ value on the .progress, so if you change that value the inner .progress-bar will automatically resize accordingly.
+
+![Progress height example](../images/bootstrap/progress_height.PNG)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java 
+//@FindBy(css = "#progress-height .progress")
+@UI("#progress-height .progress")
+public static JList<ProgressSection> progressHeightSections;
+
+ @Test
+    public void heightOfSectionShouldBeValid() {
+        for (ProgressSection section : progressHeightSections) {
+            int actualHeight = section.core().getSize().getHeight();
+            int expectedHeight = section.getProgressSectionHeightValueInPx();
+            assertEquals(actualHeight, expectedHeight);
+        }
+    }
+
+    @Test
+    public void heightOfBarShouldBeValid() {
+        for (ProgressSection section : progressHeightSections) {
+            int expectedBarHeight = section.getProgressSectionHeightValueInPx();
+            section.progress.is().height(expectedBarHeight);
+        }
+    }
+
+```
+  
+![Progress label HTML example](../images/bootstrap/progress_height_DOM.PNG)
+
+Available methods in Java JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+**getAriaValue()** | Get aria value of the bar | String
+**getColor()** | Get color of the bar  | String
+**is()** | Various assert actions for Progress | ProgressAssert 
+**assertThat()** | Assert action | UIAssert 
+
+<a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/progress/ProgressHeightTests.java" target=a_blank> Bootstrap test examples </a>
+
+<br><br>
 
 **With backgrounds**
 

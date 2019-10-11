@@ -5156,6 +5156,22 @@ Available methods in Java JDI Light:
 
 ####Brand
 
+[Bootstrap page documentation](https://getbootstrap.com/docs/4.3/components/navbar/#brand)
+
+The .navbar-brand can be applied to most elements, but an anchor works best as some elements might require utility classes or custom styles.
+<br>
+
+Navbar brand as a link <br>
+![Brand](../images/bootstrap/navbar-brand-link.png)<br>
+Navbar brand as heading <br> 
+![Brand](../images/bootstrap/navbar-brand-heading.png)<br>
+<br>
+
+Adding images to the .navbar-brand will likely always require custom styles or utilities to properly size. Here are some examples to demonstrate.<br>
+
+![Brand](../images/bootstrap/navbar-brand-image.png)<br>
+![Brand](../images/bootstrap/navbar-brand-image-and-link.png)<br>
+
 ```java 
 public class BootstrapPage extends WebPage {
 @UI("#navbar-base-for-brand") public static NavbarSection navbarSection;
@@ -5203,27 +5219,7 @@ public class NavbarSection extends Section {
     }
 ```
 
-[Bootstrap page documentation](https://getbootstrap.com/docs/4.3/components/navbar/#brand)
-
-The .navbar-brand can be applied to most elements, but an anchor works best as some elements might require utility classes or custom styles.
-<br>
-
-Navbar brand as a link <br>
-![Brand](../images/bootstrap/navbar-brand-link.png)<br>
-<br>
-Navbar brand as heading <br> 
-![Brand](../images/bootstrap/navbar-brand-heading.png)<br>
-<br>
-
-Adding images to the .navbar-brand will likely always require custom styles or utilities to properly size. Here are some examples to demonstrate.<br>
-
-![Brand](../images/bootstrap/navbar-brand-image.png)<br>
-<br>
-![Brand](../images/bootstrap/navbar-brand-image-and-link.png)<br>
-<br>
-
 ![Brand](../images/bootstrap/navbar-brand-all-html.png)
-<br>
 
 Available methods in Java JDI Light:
 

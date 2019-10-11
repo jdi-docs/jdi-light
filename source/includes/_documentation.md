@@ -5048,14 +5048,6 @@ Here’s an example of all the sub-components included in a responsive light-the
 that automatically collapses at the lg (large) breakpoint.
 <br>
 
-1. Navbar with content <br>
-![Supported content](../images/bootstrap/navbar-supported-content-normal.png)<br>
-2. Collapsed navbar <br> 
-![Supported content](../images/bootstrap/navbar-supported-content-collapsed.png)<br>
-3. Expanded navbar <br>
-![Supported content](../images/bootstrap/navbar-supported-content-uncollapsed.png)
-![Supported content](../images/bootstrap/navbar-supported-content-uncollapsed-html.png)
-
 ```java 
 // @FindBy(id = "navbar-supported-content")
 @UI("#navbar-supported-content")
@@ -5120,6 +5112,14 @@ public void collapseLinkTextTest(String linkText) {
     assertTrue(navbarSupportedContent.nav.list().values().contains(linkText));
 }
 ```
+
+1. Navbar with content <br>
+![Supported content](../images/bootstrap/navbar-supported-content-normal.png)<br>
+2. Collapsed navbar <br> 
+![Supported content](../images/bootstrap/navbar-supported-content-collapsed.png)<br>
+3. Expanded navbar <br>
+![Supported content](../images/bootstrap/navbar-supported-content-uncollapsed.png)
+![Supported content](../images/bootstrap/navbar-supported-content-uncollapsed-html.png)
 
 Navbar is represented by Section class in Java:
  

@@ -5108,8 +5108,7 @@ public Object[][] collapseLinkTextData() {
 
 @Test(dataProvider = "collapseLinkTextData")
 public void collapseLinkTextTest(String linkText) {
-    Dimension dimension = new Dimension(900, 600);
-    WebDriverFactory.getDriver().manage().window().setSize(dimension);
+    WindowsManager.resizeWindow(900, 600);
 
     navbarSupportedContent.navExpand.show();
     navbarSupportedContent.navExpand.click();

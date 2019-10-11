@@ -5452,45 +5452,45 @@ Here is an example with provided Bootstrap v4.3 code:
 ```java 
 public class NavbarColorScheme extends Navbar {
 
+    //@FindBy(className = "navbar-brand")
     @UI(".navbar-brand")
     public Link navbarLink;
 
+    //@FindBy(linkText = "Home\n(current)")
     @ByText("Home")
     public Link homeLink;
 
+    //@FindBy(linkText = "Contact form")
     @ByText("Contact form")
     public Link contactFormLink;
 
+    //@FindBy(linkText = "Metals & Colors")
     @ByText("Metals & Colors")
     public Link metalsAndColorsLink;
 
-    @UI("form input")
-    public TextField searchFormInput;
-
+    //@FindBy(xpath = "//form/button")
     @UI("form button")
     public Button searchButton;
 }
 
-@DataProvider(name = "navbarColorSchemesWithColors")
-public static Object[][] navbarColorSchemesWithColors() {
-    return new Object[][]{
-            {navbarDarkColorScheme, "rgba(52, 58, 64, 1)", "rgba(255, 255, 255, 1)", "rgba(255, 255, 255, 0.5)", "(23, 162, 184"},
-            {navbarBlueColorScheme, "rgba(0, 123, 255, 1)", "rgba(255, 255, 255, 1)", "rgba(255, 255, 255, 0.5)", "(248, 249, 250"},
-            {navbarLightColorScheme, "rgba(227, 242, 253, 1)", "rgba(0, 0, 0, 0.9)", "rgba(0, 0, 0, 0.5)", "(0, 123, 255"}
-    };
-}
-
 @Test(dataProvider = "navbarColorSchemesWithColors")
-public void colorSchemeAccordanceTest(NavbarColorScheme navbarColorScheme, String backgroundColor, String navbarAndHomeColor, String contactAndMetalsColor, String searchColor) {
+public void colorSchemeAccordanceTest(NavbarColorScheme navbarColorScheme, String backgroundColor, 
+String navbarAndHomeColor, String contactAndMetalsColor, String searchColor) {
     navbarColorScheme.core().is()
             .css("background-color", backgroundColor);
     checkColorOfElement(navbarColorScheme.navbarLink, navbarAndHomeColor);
     checkColorOfElement(navbarColorScheme.homeLink, navbarAndHomeColor);
     checkColorOfElement(navbarColorScheme.contactFormLink, contactAndMetalsColor);
     checkColorOfElement(navbarColorScheme.metalsAndColorsLink, contactAndMetalsColor);
-    checkColorOfElement(navbarColorScheme.searchButton, String.format("rgba%s, 1)", searchColor));
+    checkColorOfElement(navbarColorScheme.searchButton, 
+String.format("rgba%s, 1)", searchColor));
     navbarColorScheme.searchButton.core().is()
             .css("border-color", String.format("rgb%s)", searchColor));
+}
+
+private void checkColorOfElement(ICoreElement elem, String color) {
+    elem.core().is()
+            .css("color", color);
 }
 ```
   
@@ -5504,11 +5504,10 @@ Available methods in Java JDI Light:
 **getText()** | Get button text | String
 **is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
-**get()** | Select button by index | action
-
-<br><br> 
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navbar/NavbarColorSchemeTests.java">Bootstrap test examples</a>
+
+<br><br> 
 
 ####Containers
 Although it’s not required, you can wrap a navbar in a .container to center it on a page or add one within to only center the contents of a fixed or static top navbar.

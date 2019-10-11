@@ -8540,32 +8540,107 @@ Form can consists of:
 <li>Fieldsets(which can disable all the controls within)</li>
 </ul>
 
-![List group](../images/bootstrap/bootstrap_form.png)
+
+**[Form custom style](https://getbootstrap.com/docs/4.3/components/forms/#custom-styles)**
+
+![Form custom style Example](../images/bootstrap/form-custom-styles.png)
 
 Here is an example with provided Bootstrap v4.3 code:
-  
-![List group example](../images/bootstrap/bootstrap_form_code.png)
 
-Available methods in Java JDI Light:
+```java 
+// @FindBy(css = "#validation-submit-form") public static FormCustomStyles formCustomStyles;
+@UI("#validation-submit-form") public static FormCustomStyles formCustomStyles;
+
+public class FormCustomStyles extends Form<FormContacts> {
+    @UI("#validationCustom01") public TextField name; // @FindBy(css = "#validationCustom01") public TextField name;
+    @UI("#validationCustom02") public TextField lastName; // @FindBy(css = "#validationCustom02") public TextField lastName;
+    @UI("#validationCustomUsername") public TextField userName; // @FindBy(css = "#validationCustomUsername") public TextField userName;
+    @UI("#validationCustom03") public TextField city; // @FindBy(css = "#validationCustom03") public TextField city;
+    @UI("#validationCustom04") public TextField state; // @FindBy(css = "#validationCustom04") public TextField state;
+    @UI("#validationCustom05") public TextField zip; // @FindBy(css = "#validationCustom05") public TextField zip;
+
+    @UI("#invalidCheck") public Checkbox accept; // @FindBy(css = "#invalidCheck") public Checkbox accept;
+
+    @UI("button") public Button submit; // @FindBy(css = "button") public Button submit;
+}
+
+@Test(dataProvider = "listData")
+public void isValidationTests(TextField element, String label, String value) {
+    element
+            .is()
+            .displayed()
+            .enabled()
+            .core()
+            .value(value)
+            .hasClass("form-control")
+            .attr("type", "text")
+            .attr("placeholder", label)
+            .tag(is("input"));
+    element.label()
+            .is()
+            .displayed()
+            .enabled()
+            .core()
+            .text(is(label));
+}
+
+@Test
+public void checkboxTests() {
+    formCustomStyles.accept.check();
+    formCustomStyles.accept.is().selected();
+    formCustomStyles.accept.uncheck();
+    formCustomStyles.accept.is().deselected();
+}
+
+@Test
+public void fillTest() {
+    formCustomStyles.fill(DEFAULT_CONTACT);
+    formCustomStyles.check(DEFAULT_CONTACT);
+    checkContactFormSubmitted();
+}
+
+@Test
+public void submitEntityToContactFormTest() {
+    formCustomStyles.submit(DEFAULT_CONTACT);
+    formCustomStyles.check(DEFAULT_CHECK);
+}
+```
+
+<br>
+
+![Form custom style Example](../images/bootstrap/form-custom-styles-html1.png)
+![Form custom style Example](../images/bootstrap/form-custom-styles-html2.png)
+![Form custom style Example](../images/bootstrap/form-custom-styles-html3.png)
+
+
+<br>
 
 |Method | Description | Return Type
 --- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  | 
+**click()** | Click the button | void
+**getText()** | Get button text | String
+**getValue()** | Get button value | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**displayed()** | Check that element is displayed | TextAssert
+**enabled()** | Check that element is enabled | TextAssert
+**check()** | Check checkbox | void
+**selected()** | Check that checkbox is selected | TextAssert
+**deselected()** | Check that checkbox is not selected | TextAssert
+**assertThat()** | Assert action | TextAssert
+<br>
+
+Form group is represented by Section class in Java:
  
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
 
-Available methods and properties in C# JDI Light:
+Inner elements represented by the following classes:
+<ul>
+    <li> [TextField](https://jdi-docs.github.io/jdi-light/#text) </li>
+    <li> [Checkbox](https://jdi-docs.github.io/jdi-light/#textfield)</li>
+</ul>
 
-|Method/Property | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  |
- |  | 
-<br><br>
+<br>
 
 ### Scrollspy
 **[Scrollspy](https://getbootstrap.com/docs/4.3/components/scrollspy/#example-in-navbar)** – automatically update Bootstrap navigation or list group components based on scroll position to indicate which link is currently active in the viewport.

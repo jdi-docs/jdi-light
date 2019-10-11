@@ -5037,28 +5037,22 @@ Navbars come with built-in support for a handful of sub-components.
 
 Choose from the following as needed:
 
-    .navbar-brand for your company, product, or project name.
-    
-    .navbar-nav for a full-height and lightweight navigation (including support for dropdowns).
-    
-    .navbar-toggler for use with our collapse plugin and other navigation toggling behaviors.
-    
-    .form-inline for any form controls and actions.
-    
-    .navbar-text for adding vertically centered strings of text.
-    
-    .collapse.navbar-collapse for grouping and hiding navbar contents by a parent breakpoint.
++ ``.navbar-brand`` for your company, product, or project name.
++ ``.navbar-nav`` for a full-height and lightweight navigation (including support for dropdowns).
++ ``.navbar-toggler`` for use with our collapse plugin and other navigation toggling behaviors.
++ ``.form-inline`` for any form controls and actions.
++ ``.navbar-text`` for adding vertically centered strings of text.
++ ``.collapse.navbar-collapse`` for grouping and hiding navbar contents by a parent breakpoint.
 
-Here are the examples of all the sub-components included in a responsive light-themed navbar 
-that automatically collapses at the lg (large) breakpoint. Bootstrap v4.3 code is provided below each example.
+Here’s an example of all the sub-components included in a responsive light-themed navbar 
+that automatically collapses at the lg (large) breakpoint.
 <br>
+
 1. Navbar with content <br>
 ![Supported content](../images/bootstrap/navbar-supported-content-normal.png)<br>
-![Supported content](../images/bootstrap/navbar-supported-content-normal-html.png)<br>
 2. Collapsed navbar <br> 
 ![Supported content](../images/bootstrap/navbar-supported-content-collapsed.png)<br>
-![Supported content](../images/bootstrap/navbar-supported-content-collapsed-html.png)<br>
-3. Uncollapsed navbar <br>
+3. Expanded navbar <br>
 ![Supported content](../images/bootstrap/navbar-supported-content-uncollapsed.png)
 ![Supported content](../images/bootstrap/navbar-supported-content-uncollapsed-html.png)
 
@@ -5454,8 +5448,67 @@ Choose from .navbar-light for use with light background colors, or .navbar-dark 
 ![Color schemes example](../images/bootstrap/navbar-color-schemes.png)
 
 Here is an example with provided Bootstrap v4.3 code:
+
+```java 
+public class NavbarColorScheme extends Navbar {
+
+    @UI(".navbar-brand")
+    public Link navbarLink;
+
+    @ByText("Home")
+    public Link homeLink;
+
+    @ByText("Contact form")
+    public Link contactFormLink;
+
+    @ByText("Metals & Colors")
+    public Link metalsAndColorsLink;
+
+    @UI("form input")
+    public TextField searchFormInput;
+
+    @UI("form button")
+    public Button searchButton;
+}
+
+@DataProvider(name = "navbarColorSchemesWithColors")
+public static Object[][] navbarColorSchemesWithColors() {
+    return new Object[][]{
+            {navbarDarkColorScheme, "rgba(52, 58, 64, 1)", "rgba(255, 255, 255, 1)", "rgba(255, 255, 255, 0.5)", "(23, 162, 184"},
+            {navbarBlueColorScheme, "rgba(0, 123, 255, 1)", "rgba(255, 255, 255, 1)", "rgba(255, 255, 255, 0.5)", "(248, 249, 250"},
+            {navbarLightColorScheme, "rgba(227, 242, 253, 1)", "rgba(0, 0, 0, 0.9)", "rgba(0, 0, 0, 0.5)", "(0, 123, 255"}
+    };
+}
+
+@Test(dataProvider = "navbarColorSchemesWithColors")
+public void colorSchemeAccordanceTest(NavbarColorScheme navbarColorScheme, String backgroundColor, String navbarAndHomeColor, String contactAndMetalsColor, String searchColor) {
+    navbarColorScheme.core().is()
+            .css("background-color", backgroundColor);
+    checkColorOfElement(navbarColorScheme.navbarLink, navbarAndHomeColor);
+    checkColorOfElement(navbarColorScheme.homeLink, navbarAndHomeColor);
+    checkColorOfElement(navbarColorScheme.contactFormLink, contactAndMetalsColor);
+    checkColorOfElement(navbarColorScheme.metalsAndColorsLink, contactAndMetalsColor);
+    checkColorOfElement(navbarColorScheme.searchButton, String.format("rgba%s, 1)", searchColor));
+    navbarColorScheme.searchButton.core().is()
+            .css("border-color", String.format("rgb%s)", searchColor));
+}
+```
   
 ![Color schemes HTML example](../images/bootstrap/navbar-color-schemes-html.png)
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**click()** | Click the button | void
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**get()** | Select button by index | action
+
+<br><br> 
+
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navbar/NavbarColorSchemeTests.java">Bootstrap test examples</a>
 
 ####Containers
 Although it’s not required, you can wrap a navbar in a .container to center it on a page or add one within to only center the contents of a fixed or static top navbar.

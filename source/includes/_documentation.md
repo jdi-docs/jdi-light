@@ -5031,9 +5031,9 @@ Available methods in Java JDI Light:
 
 ###Navbar
 
-####Supported content
+#### Supported content
 
-Navbars come with built-in support for a handful of sub-components. 
+Navbars come with built-in <a style="font-weight: bold;" href="https://getbootstrap.com/docs/4.3/components/navbar/#supported-content" target="_blank">support</a> for a handful of sub-components. 
 
 Choose from the following as needed:
 

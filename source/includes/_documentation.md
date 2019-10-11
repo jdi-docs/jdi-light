@@ -5550,13 +5550,11 @@ Available methods in Java JDI Light:
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navbar/NavbarColorSchemeTests.java">Bootstrap test examples</a>
 
-<br><br> 
-
+<br><br>
 
 ####Containers
 
 ```java
-
 public class Navbar extends Section {
     //@FindBy(xpath = "//*[contains(@class, 'nav-item')]")
     @UI("//*[contains(@class, 'nav-item')]") public WebList navbarLinks;
@@ -5566,8 +5564,10 @@ public class Navbar extends Section {
     //@FindBy(xpath = "//*[contains(@class, 'nav-link dropdown-toggle')]")
     @UI("//*[contains(@class, 'nav-link dropdown-toggle')]") public Dropdown navbarDropdown;
 }
+
 //@FindBy(id = "navbar-containers-centred")
 @UI("#navbar-containers-centred") public static Navbar navbarCentredContainer;
+
 @Test
   public void getNameNavbarContainerBrandTest() {
      navbarCentredContainer.navbarBrand.is().text(textNavbarCentredContainer);
@@ -5578,9 +5578,9 @@ public class Navbar extends Section {
 
 
 
-
 //@FindBy(id = "navbar-containers-expanded")
 @UI("#navbar-containers-expanded") public static Navbar navbarExpandedContainer;
+
 @Test
   public void clickNavbarCentredContainerLinksTest() {
      navbarCentredContainer.navbarBrand.click();
@@ -5589,11 +5589,6 @@ public class Navbar extends Section {
      assertThat(getUrl(), is(url));
      WindowsManager.closeWindow();
     }
-
-
-
-
-
 
 
 

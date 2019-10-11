@@ -5312,16 +5312,16 @@ Here is an example with provided Bootstrap v4.3 code:
   
 ![Color Nav HTML example](../images/bootstrap/nav-dropdown-html.png)
 
-Media object is represented by Section class in Java:
+Nav is represented by Section class in Java:
  
 [Section](https://jdi-docs.github.io/jdi-light/#section)
 
 Inner elements of media object can be represented by the following classes:
 <ul>
     <li> [Link](https://jdi-docs.github.io/jdi-light/#link)  </li>
-    <li> [Button](https://jdi-docs.github.io/jdi-light/#button)  </li>
-    <li> [DropDown](https://jdi-docs.github.io/jdi-light/#dropdown)  </li>
-    <li> [See more elements](https://jdi-docs.github.io/jdi-light/#html5-common-elements) </li>
+    <li> [Collapse](https://jdi-docs.github.io/jdi-light/#collapse)  </li>
+    <li> [DropDown](https://jdi-docs.github.io/jdi-light/#dropdown-2)  </li>
+    <li> [See more elements](https://jdi-docs.github.io/jdi-light/#bootstrap-common-elements) </li>
 </ul>
 
 <a style="font-weight: bold;" target="_blank" href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navbar/NavbarNavsTests.java">Bootstrap test examples</a>
@@ -5552,8 +5552,58 @@ Available methods in Java JDI Light:
 
 <br><br> 
 
+
 ####Containers
-Although it’s not required, you can wrap a navbar in a .container to center it on a page or add one within to only center the contents of a fixed or static top navbar.
+
+```java
+
+public class Navbar extends Section {
+    //@FindBy(xpath = "//*[contains(@class, 'nav-item')]")
+    @UI("//*[contains(@class, 'nav-item')]") public WebList navbarLinks;
+    @UI(".navbar-brand") public Link navbarBrand; //@FindBy(css = ".navbar-brand")
+    @JDropdown(expand = ".navbar-toggler-icon", value = ".navbar-nav", list = "a")
+    public Collapse collapseButton;
+    //@FindBy(xpath = "//*[contains(@class, 'nav-link dropdown-toggle')]")
+    @UI("//*[contains(@class, 'nav-link dropdown-toggle')]") public Dropdown navbarDropdown;
+}
+//@FindBy(id = "navbar-containers-centred")
+@UI("#navbar-containers-centred") public static Navbar navbarCentredContainer;
+@Test
+  public void getNameNavbarContainerBrandTest() {
+     navbarCentredContainer.navbarBrand.is().text(textNavbarCentredContainer);
+  }
+
+
+
+
+
+
+
+//@FindBy(id = "navbar-containers-expanded")
+@UI("#navbar-containers-expanded") public static Navbar navbarExpandedContainer;
+@Test
+  public void clickNavbarCentredContainerLinksTest() {
+     navbarCentredContainer.navbarBrand.click();
+     assertThat(WindowsManager.windowsCount(), is(2));
+     WindowsManager.switchToWindow(2);
+     assertThat(getUrl(), is(url));
+     WindowsManager.closeWindow();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+```
+
+Although it’s not required, you can <a href = "https://getbootstrap.com/docs/4.3/components/navbar/#containers" target = "a_blank"> wrap a navbar in a .container </a> to center it on a page or add one within to only center the contents of a fixed or static top navbar.
 
 ![Containers schemes example](../images/bootstrap/navbar-containers.png)
 
@@ -5565,6 +5615,20 @@ When the container is within your navbar, its horizontal padding is removed at b
 This ensures we’re not doubling up on padding unnecessarily on lower viewports when your navbar is collapsed.
  
 ![Containers HTML example](../images/bootstrap/navbar-containers2-html.png)
+
+Container is represented by Section class in Java:
+ 
+<a href = "https://github.com/jdi-testing/jdi-light/blob/master/jdi-light/src/main/java/com/epam/jdi/light/elements/composite/Section.java" target = "a_blank"> Section.java </a>
+
+Inner elements of media object can be represented by the following classes:
+<ul>
+    <li> [Collapse](https://jdi-docs.github.io/jdi-light/#collapse)  </li>
+    <li> [DropDown](https://jdi-docs.github.io/jdi-light/#dropdown-2)  </li>
+    <li> [See more elements](https://jdi-docs.github.io/jdi-light/#bootstrap-common-elements) </li>
+</ul>
+
+<a style="font-weight: bold;" target="_blank" href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/NavbarContainersTest.java">Bootstrap test examples</a>
+
 
 ####Placement
 Use our position utilities to place navbars in non-static positions. Choose from fixed to the top, fixed to the bottom, or stickied to the top (scrolls with the page until it reaches the top, then stays there). Fixed navbars use position: fixed, meaning they’re pulled from the normal flow of the DOM and may require custom CSS (e.g., padding-top on the <body>) to prevent overlap with other elements.

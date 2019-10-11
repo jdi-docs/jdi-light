@@ -8575,7 +8575,7 @@ Available methods and properties in C# JDI Light:
 
 ```java 
     @UI("#navbar-example2") public static NavbarWithDropdown navbarWithDropdown;
-    @UI("#navbar-example2~div") public static ScrollspyNav scrollspyInNavbar;
+    @UI("#navbar-example2~div") public static ScrollSpyNav scrollSpyInNavbar;
     
 public class NavbarWithDropdown extends Section {
     @UI("ul>li") // @FindBy(css = "ul>li")
@@ -8589,25 +8589,34 @@ public class NavbarWithDropdown extends Section {
     @UI(".navbar-brand") // @FindBy(css = ".navbar-brand")
     public Link navbarLink;
 }
-    
-public class ScrollspyNav extends Section {
+  
+public class ScrollSpyNav extends Section {
     @UI(".//h4 | .//h5") public ListGroup header;//@FindBy(xpath = ".//h4 | .//h5")
     @UI("p") public ListGroup mainText;          // @FindBy(css = "p")
+
+    public void scrollParagraph(ListGroup listGroup, int index, String className){
+        mainText.get(index).show();
+
+        if (!listGroup.get(index).core().hasClass(className) &&
+                index < header.size()) {
+            header.get(index + 1).show();
+        }
+    }
 }
 
     @Test
     public void navbarLinkClickableTests() {
         navbarWithDropdown.navbarLink.click();
-        newWindowTitleCheck("Scrollspy · Bootstrap");
+        newWindowTitleCheck(pageTitle);
     }
 
     @Test
     public void isValidationTests() {
+        navbarWithDropdown.navItemLink.get(3).is().text(dropdown);
+        navbarWithDropdown.navItemLink.get(3).is().value(dropdown);
         navbarWithDropdown.navItemLink.is().size(3);
         navbarWithDropdown.navGroup.is().size(3);
-        scrollspyInNavbar.mainText.is().size(5);
-        scrollspyInNavbar.header.is().size(5);
-        
+
         navbarWithDropdown.dropdownMenu.expand();
         navbarWithDropdown.dropdownMenu.is().size(3);
 
@@ -8641,42 +8650,45 @@ public class ScrollspyNav extends Section {
 
 
     @UI("#navbar-example3") public static NestedNav nestedNav;
-    @UI("#navbar-example3~div") public static ScrollspyNav scrollspyWithNestedNav;
+    @UI("#navbar-example3~div") public static ScrollSpyNav scrollSpyWithNestedNav;
       
 public class NestedNav extends Section {
-    @UI("nav") public ListGroup navGroup;             // @FindBy(css = "nav")
-    @UI("nav nav a") public ListGroup navItemLink;        // @FindBy(css = "nav nav a")
-    @UI(".navbar-brand") public Link navbarLink; // @FindBy(css = ".navbar-brand")
+    @UI("nav") public ListGroup navGroup;          // @FindBy(css = "nav")
+    @UI("nav nav a") public ListGroup navItemLink; // @FindBy(css = "nav nav a")
+    @UI(".navbar-brand") public Link navbarLink;   // @FindBy(css = ".navbar-brand")
 }
 
-public class ScrollspyNav extends Section {
+public class ScrollSpyNav extends Section {
     @UI(".//h4 | .//h5") public ListGroup header;//@FindBy(xpath = ".//h4 | .//h5")
     @UI("p") public ListGroup mainText;          // @FindBy(css = "p")
+
+    public void scrollParagraph(ListGroup listGroup, int index, String className){
+        mainText.get(index).show();
+
+        if (!listGroup.get(index).core().hasClass(className) &&
+                index < header.size()) {
+            header.get(index + 1).show();
+        }
+    }
 }
 
-    @Test
-    public void highlightFocusedItemsTests() {
-        nestedNav.navItemLink.get(7).click();
+    @Test(dataProvider = "itemsCheck")
+    public void paragraphClickableTests(int index) {
+        scrollSpyWithNestedNav.mainText.get(index).highlight();
 
-        nestedNav.navItemLink.get(7).is()
-                .core()
-                .displayed()
-                .enabled()
-                .cssClass("nav-link ml-3 my-1 active");
+        scrollSpyWithNestedNav.scrollParagraph(nestedNav.navItemLink, index, CLASS_NAME_ACTIVE);
 
-        nestedNav.navItemLink.get(5).is()
-                .core()
-                .displayed()
-                .enabled()
-                .cssClass("nav-link active");
+        assertTrue(nestedNav.navItemLink.get(index).hasClass(CLASS_NAME_ACTIVE));
+        nestedNav.navItemLink.get(index).unhighlight();
     }
+
 
     @Test
     public void isValidationTests() {
         nestedNav.navItemLink.is().size(7);
         nestedNav.navGroup.is().size(3);
-        scrollspyWithNestedNav.mainText.is().size(7);
-        scrollspyWithNestedNav.header.is().size(7);
+        scrollSpyWithNestedNav.mainText.is().size(7);
+        scrollSpyWithNestedNav.header.is().size(7);
     }
      
      
@@ -8705,41 +8717,47 @@ public class ScrollspyNav extends Section {
      
      
      
-     @UI("#list-example>a") public static ListGroup listGroupForScrollspy;
-     @UI("#list-example~div") public static ScrollspyNav scrollspyWithListGroup;   
+    @UI("#list-example>a") public static ListGroup listGroupForScrollSpy;
+    @UI("#list-example~div") public static ScrollSpyNav scrollSpyWithListGroup;
     
- public class ScrollspyNav extends Section {
-     @UI(".//h4 | .//h5") public ListGroup header;//@FindBy(xpath = ".//h4 | .//h5")
-     @UI("p") public ListGroup mainText;          // @FindBy(css = "p")
- }
-   
-        @Test(dataProvider = "itemsCheck")
-        public void paragraphClickableTests(int index) {
-            scrollspyWithListGroup.mainText.get(index).highlight();
-            scrollspyWithListGroup.mainText.get(index).show();
-    
-           if (listGroupForScrollspy.get(index).core().hasClass("list-group-item list-group-item-action") &&
-                   index < scrollspyWithListGroup.header.size())
-               scrollspyWithListGroup.header.get(index+1).show();
-    
-            listGroupForScrollspy.get(index)
-                    .is()
-                    .core()
-                    .displayed()
-                    .enabled()
-                    .cssClass("list-group-item list-group-item-action active")
-                    .css("background-color", "rgba(0, 123, 255, 1)")//#007bff Color Hex
-                    .css("border-color", "rgb(0, 123, 255)");//#007bff Color Hex
-    
-            listGroupForScrollspy.get(index).unhighlight();
-        }
+public class ScrollSpyNav extends Section {
+    @UI(".//h4 | .//h5") public ListGroup header;//@FindBy(xpath = ".//h4 | .//h5")
+    @UI("p") public ListGroup mainText;          // @FindBy(css = "p")
 
-        @Test
-        public void isValidationTests() {
-            scrollspyWithListGroup.header.is().size(4);
-            scrollspyWithListGroup.mainText.is().size(4);
-            listGroupForScrollspy.is().size(4);
+    public void scrollParagraph(ListGroup listGroup, int index, String className){
+        mainText.get(index).show();
+
+        if (!listGroup.get(index).core().hasClass(className) &&
+                index < header.size()) {
+            header.get(index + 1).show();
         }
+    }
+}
+   
+    @Test(dataProvider = "itemsCheck")
+    public void paragraphClickableTests(int index) {
+        scrollSpyWithListGroup.mainText.get(index).highlight();
+
+        scrollSpyWithListGroup.scrollParagraph(listGroupForScrollSpy, index, CLASS_NAME_ACTIVE);
+
+        listGroupForScrollSpy.get(index)
+                .is()
+                .core()
+                .displayed()
+                .enabled()
+                .cssClass(CLASS_NAME_LIST_GROUP_ITEM_LIST_GROUP_ITEM_ACTION_ACTIVE)
+                .css(CSS_NAME_BACKGROUND_COLOR, "rgba(0, 123, 255, 1)")//#007bff Color Hex
+                .css(CSS_NAME_BORDER_COLOR, "rgb(0, 123, 255)");//#007bff Color Hex
+
+        listGroupForScrollSpy.get(index).unhighlight();
+    }
+
+    @Test
+    public void isValidationTests() {
+        scrollSpyWithListGroup.header.is().size(4);
+        scrollSpyWithListGroup.mainText.is().size(4);
+        listGroupForScrollSpy.is().size(4);
+    }
     
 ```
 

@@ -5157,7 +5157,6 @@ Available methods in Java JDI Light:
 ####Brand
 
 ```java 
-
 public class BootstrapPage extends WebPage {
 @UI("#navbar-base-for-brand") public static NavbarSection navbarSection;
 }
@@ -5202,8 +5201,6 @@ public class NavbarSection extends Section {
                     driver.switchTo().window(tabs.get(tabs.size() - 2));
                 });
     }
-
-
 ```
 
 [Bootstrap page documentation](https://getbootstrap.com/docs/4.3/components/navbar/#brand)

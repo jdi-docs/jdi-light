@@ -5156,9 +5156,27 @@ Available methods in Java JDI Light:
 
 ####Brand
 
-```java 
+[Bootstrap page documentation](https://getbootstrap.com/docs/4.3/components/navbar/#brand)
 
-@UI("#navbar-base-for-brand") public static NavbarSection navbarSection;
+The .navbar-brand can be applied to most elements, but an anchor works best as some elements might require utility classes or custom styles.
+<br>
+
+Navbar brand as a link <br>
+![Brand](../images/bootstrap/navbar-brand-link.png)<br>
+<br>
+Navbar brand as heading <br> 
+![Brand](../images/bootstrap/navbar-brand-heading.png)<br>
+<br>
+
+Adding images to the .navbar-brand will likely always require custom styles or utilities to properly size. Here are some examples to demonstrate.<br>
+
+![Brand](../images/bootstrap/navbar-brand-image.png)<br>
+<br>
+![Brand](../images/bootstrap/navbar-brand-image-and-link.png)<br>
+<br>
+
+
+```java 
 
 public class BootstrapPage extends WebPage {
 @UI("#navbar-base-for-brand") public static NavbarSection navbarSection;
@@ -5207,24 +5225,7 @@ public class NavbarSection extends Section {
 
 ```
 
-The .navbar-brand can be applied to most elements, but an anchor works best as some elements might require utility classes or custom styles.
-<br>
-
-Navbar brand as a link <br>
-![Brand](../images/bootstrap/navbar-brand-link.png)<br>
-<br>
-Navbar brand as heading <br> 
-![Brand](../images/bootstrap/navbar-brand-heading.png)<br>
-<br>
-
-Adding images to the .navbar-brand will likely always require custom styles or utilities to properly size. Here are some examples to demonstrate.<br>
-
-![Brand](../images/bootstrap/navbar-brand-image.png)<br>
-<br>
-![Brand](../images/bootstrap/navbar-brand-image-and-link.png)<br>
-<br>
-
-![Brand](../images/bootstrap/navbar-brand-all.png)
+![Brand](../images/bootstrap/navbar-brand-all-html.png)
 
 Available methods in Java JDI Light:
 
@@ -5237,16 +5238,7 @@ Available methods in Java JDI Light:
 **is()** | Assert action | UIAssert 
 **assertThat()** | Assert action | UIAssert
  
-
-Available methods and properties in C# JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  |
- |  | 
-<br><br>
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navbarbrand/NavbarBrandTests.java)
 
 ####Nav
 

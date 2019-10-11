@@ -12249,11 +12249,12 @@ public void vectorInternalElementsTest() {
 
 <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/card/#image-overlays" target="_blank">Card Image Overlays</a> turn an image into a card background and overlay your card’s text. Depending on the image, you may or may not need additional styles or utilities..
 
-![Card Image Example](../images/bootstrap/card-image.png)
+![Card Image Example](../images/bootstrap/card-image-overlays.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
-![Card Image Example Code](../images/bootstrap/card-image-overlays.png)
+![Card Image Example Code](../images/bootstrap/card-image-overlays-html.png)
+
  And here are methods available in Java:
 
 |Method | Description | Return Type

@@ -5474,10 +5474,10 @@ public class NavbarColorScheme extends Navbar {
 }
 
 @Test(dataProvider = "navbarColorSchemesWithColors")
-public void colorSchemeAccordanceTest(NavbarColorScheme navbarColorScheme, String backgroundColor, 
+public void colorSchemeAccordanceTest(NavbarColorScheme navbarColorScheme, String bgColor, 
 String navbarAndHomeColor, String contactAndMetalsColor, String searchColor) {
     navbarColorScheme.core().is()
-            .css("background-color", backgroundColor);
+            .css("background-color", bgColor);
     checkColorOfElement(navbarColorScheme.navbarLink, navbarAndHomeColor);
     checkColorOfElement(navbarColorScheme.homeLink, navbarAndHomeColor);
     checkColorOfElement(navbarColorScheme.contactFormLink, contactAndMetalsColor);

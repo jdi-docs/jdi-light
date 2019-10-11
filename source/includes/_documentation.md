@@ -5037,28 +5037,22 @@ Navbars come with built-in support for a handful of sub-components.
 
 Choose from the following as needed:
 
-    .navbar-brand for your company, product, or project name.
-    
-    .navbar-nav for a full-height and lightweight navigation (including support for dropdowns).
-    
-    .navbar-toggler for use with our collapse plugin and other navigation toggling behaviors.
-    
-    .form-inline for any form controls and actions.
-    
-    .navbar-text for adding vertically centered strings of text.
-    
-    .collapse.navbar-collapse for grouping and hiding navbar contents by a parent breakpoint.
++ ``.navbar-brand`` for your company, product, or project name.
++ ``.navbar-nav`` for a full-height and lightweight navigation (including support for dropdowns).
++ ``.navbar-toggler`` for use with our collapse plugin and other navigation toggling behaviors.
++ ``.form-inline`` for any form controls and actions.
++ ``.navbar-text`` for adding vertically centered strings of text.
++ ``.collapse.navbar-collapse`` for grouping and hiding navbar contents by a parent breakpoint.
 
-Here are the examples of all the sub-components included in a responsive light-themed navbar 
-that automatically collapses at the lg (large) breakpoint. Bootstrap v4.3 code is provided below each example.
+Here’s an example of all the sub-components included in a responsive light-themed navbar 
+that automatically collapses at the lg (large) breakpoint.
 <br>
+
 1. Navbar with content <br>
 ![Supported content](../images/bootstrap/navbar-supported-content-normal.png)<br>
-![Supported content](../images/bootstrap/navbar-supported-content-normal-html.png)<br>
 2. Collapsed navbar <br> 
 ![Supported content](../images/bootstrap/navbar-supported-content-collapsed.png)<br>
-![Supported content](../images/bootstrap/navbar-supported-content-collapsed-html.png)<br>
-3. Uncollapsed navbar <br>
+3. Expanded navbar <br>
 ![Supported content](../images/bootstrap/navbar-supported-content-uncollapsed.png)
 ![Supported content](../images/bootstrap/navbar-supported-content-uncollapsed-html.png)
 

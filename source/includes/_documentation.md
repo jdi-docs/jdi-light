@@ -14,7 +14,7 @@ Label's implementation is located in the following classes:
    - __Java__: _com.epam.jdi.light.elements.base.BaseUIElement_
    - __C#__: _JDI.Light.Elements.Base.UIElement_
 
-  ```java
+```java 
    
   //In the next test Label is found from 'name' and 'disabledName' locators:
    
@@ -3324,7 +3324,7 @@ on JDISite.java >> public static LoginFormSmart loginFormSmart;
 **Smart JDI Forms** - forms utilizing the _Smart locator_ functionality of JDI. In Smart Forms there is no need to explicitly define locators for form elements if such locators can be obtained implicitly from field names using Smart locator functionality.
 [See more details and exampels for Smart locators in documentation](https://jdi-docs.github.io/jdi-light/?java#smart-locators)
 
-```java
+```java 
 on JDISite.java >> public static Form<User> lightLoginForm;
 ```
 
@@ -3599,7 +3599,7 @@ Checkbox is located in the following classes:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 // @FindBy(css = "body") public static CheckboxesDefault checkboxesDefault;
 @UI("body") public static CheckboxesDefault checkboxesDefault;
 
@@ -3675,7 +3675,7 @@ Checkbox is located in the following classes:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 // @FindBy(css = "body") public static CheckboxesDefaultInline checkboxesDefaultInline;
 @UI("body") public static CheckboxesDefaultInline checkboxesDefaultInline;
 
@@ -3757,7 +3757,7 @@ Radio button is located in the following classes:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 //@FindBy(css = "#radio-buttons") public static RadioButtonGroup radioButtonGroup;
 @UI("#radio-buttons") public static RadioButtonGroup radioButtonGroup;
 
@@ -3824,9 +3824,9 @@ Button group is represented by Section class in Java:
 <br>
 
 
-**[Radio button inline inline](https://getbootstrap.com/docs/4.3/components/forms/#inline)** 
+**[Radio button inline](https://getbootstrap.com/docs/4.3/components/forms/#inline)** 
 
-Checkbox is located in the following classes:
+Radio button is located in the following classes:
  
   - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.common.RadioButton_
   
@@ -3835,7 +3835,7 @@ Checkbox is located in the following classes:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 //@FindBy(css = "body") public static RadioButtonsDefaultInline radioButtonsDefaultInline;
 @UI("body") public static RadioButtonsDefaultInline radioButtonsDefaultInline;
 
@@ -3902,6 +3902,95 @@ Button group is represented by Section class in Java:
 
 <br>
 
+
+**[Radio button and checkbox without labels](https://getbootstrap.com/docs/4.3/components/forms/#without-labels)** 
+
+Checkbox and Radio button are located in the following classes:
+ 
+  - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.common.RadioButton_
+  - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.common.Checkbox_
+  
+
+![Radio button and checkbox without labels example](../images/bootstrap/default-without-labels.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java 
+// @FindBy(css = "body") public static CheckboxesAndRadiosWithoutLabels checkboxesAndRadiosWithoutLabels);
+@UI("body") public static CheckboxesAndRadiosWithoutLabels checkboxesAndRadiosWithoutLabels;
+
+public class CheckboxesAndRadiosWithoutLabels extends Section {
+    @UI("#blankCheckbox") public Checkbox checkbox; // @FindBy(css = "#blankCheckbox") public Checkbox checkbox;
+    @UI("#blankRadio1") public RadioButton radioButton; // @FindBy(css = "#blankRadio1") public RadioButton radioButton;
+}
+
+@Test
+public void isValidationTests() {
+    checkboxesAndRadiosWithoutLabels.checkbox
+            .is()
+            .displayed()
+            .enabled()
+            .core()
+            .attr("type", "checkbox")
+            .attr("aria-label", "...");
+    checkboxesAndRadiosWithoutLabels.radioButton
+            .is()
+            .displayed()
+            .enabled()
+            .core()
+            .value("option1")
+            .attr("type", "radio")
+            .attr("aria-label", "...");
+}
+
+@Test
+public void checkboxClickableTests() {
+    checkboxesAndRadiosWithoutLabels.checkbox.check();
+    checkboxesAndRadiosWithoutLabels.checkbox
+            .is()
+            .selected();
+    checkboxesAndRadiosWithoutLabels.checkbox.uncheck();
+    checkboxesAndRadiosWithoutLabels.checkbox
+            .is()
+            .deselected();
+}
+
+@Test
+public void radioButtonTests() {
+    checkboxesAndRadiosWithoutLabels.radioButton.select();
+    checkboxesAndRadiosWithoutLabels.radioButton
+            .is()
+            .selected();
+}
+```
+
+![Radio button and checkbox without labels example html](../images/bootstrap/default-without-labels-html.png)
+
+
+
+|Method | Description | Return Type
+--- | --- | ---
+**click()** | Click the button | void
+**check()** | Click the button | void
+**checked()** | Click the button | TextAssert
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**select()** | Select button | void
+**selected()** | Radio button is selected | TextAssert
+**deselected()** | Radio button is selected | TextAssert
+**get()** | Select button by index | action
+
+<br>
+
+[Java test examples]()
+<br>
+
+Button group is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+
+<br>
+
 **[Checkbox custom](https://getbootstrap.com/docs/4.3/components/forms/#checkboxes)** 
 
 Checkbox is located in the following classes:
@@ -3913,7 +4002,7 @@ Checkbox is located in the following classes:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 // @FindBy(css = "body") public static CheckboxesCustom checkboxesCustom;
 @UI("body") public static CheckboxesCustom checkboxesCustom;
 
@@ -3978,6 +4067,321 @@ Button group is represented by Section class in Java:
 
 <br>
 
+**[Radio button custom](https://getbootstrap.com/docs/4.3/components/forms/#radios)** 
+
+Radio button is located in the following classes:
+ 
+  - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.common.RadioButton_
+  
+
+![Radio button custom example](../images/bootstrap/custom-radio.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java 
+// @FindBy(css = "#custom-radio-con") public static RadioButtonsCustom radioButtonCustom;
+@UI("#custom-radio-con") public static RadioButtonsCustom radioButtonCustom;
+
+public class RadioButtonsCustom extends Section {
+    @UI("#customRadio1") public RadioButton radio1; // @FindBy(css = "#customRadio1") public RadioButton radio1;
+    @UI("#customRadio2") public RadioButton radio2; // @FindBy(css = "#customRadio2") public RadioButton radio2;
+    @UI(".custom-radio") public RadioButton radioButton; // @FindBy(css = ".custom-radio") public RadioButton radioButton;
+    @UI("label[for='customRadio1']") public Label radio1Label; // @FindBy(css = "label[for='customRadio1']") public Label radio1Label;
+    @UI("label[for='customRadio2']") public Label radio2Label; // @FindBy(css = "label[for='customRadio2']") public Label radio2Label;
+}
+
+@Test
+public void baseInitTest() {
+    radioButtonCustom.radioButton.is()
+            .size(2);
+    radioButtonCustom.radio1.is()
+            .deselected();
+    radioButtonCustom.radio2.is()
+            .deselected();
+    radioButtonCustom.radio1Label.is()
+            .text(is(label1));
+    radioButtonCustom.radio2Label.is()
+            .text(is(label2));
+}
+
+@Test
+public void radioOneIsValidationTests() {
+    radioButtonCustom.radio1
+            .is()
+            .hidden()
+            .enabled()
+            .core()
+            .attr("type", "radio")
+            .attr("name", "customRadio")
+            .hasClass("custom-control-input")
+            .tag(is("input"));
+}
+```
+
+![Radio button custom example html](../images/bootstrap/custom-radio-html.png)
+
+
+
+|Method | Description | Return Type
+--- | --- | ---
+**click()** | Click the button | void
+**check()** | Select the button | void
+**uncheck()** | Deselect the button | void
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**select()** | Select button | void
+**selected()** | Radio button is selected | TextAssert
+**get()** | Select button by index | action
+
+<br>
+
+[Java test examples]()
+<br>
+
+Button group is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+
+<br>
+
+
+**[Radio button custom inline](https://getbootstrap.com/docs/4.3/components/forms/#inline-1)** 
+
+Radio button is located in the following classes:
+ 
+  - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.common.RadioButton_
+  
+
+![Radio button custom inline example](../images/bootstrap/custom-radio-inline.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java 
+// @FindBy(css = "body") public static RadioButtonsCustomInline radioButtonsCustomInline;
+@UI("body") public static RadioButtonsCustomInline radioButtonsCustomInline;
+
+public class RadioButtonsCustomInline extends Section {
+    @UI("#customRadioInline1") public RadioButton radio1; // @FindBy(css = "#customRadioInline1") public RadioButton radio1;
+    @UI("#customRadioInline2") public RadioButton radio2; // @FindBy(css = "#customRadioInline2") public RadioButton radio2;
+    @UI(".custom-control-inline") public RadioButton radioButton; // @FindBy(css = ".custom-control-inline") public RadioButton radioButton;
+    @UI("label[for='customRadioInline1']") public Label radio1Label; // @FindBy(css = "label[for='customRadioInline1']") public Label radio1Label;
+    @UI("label[for='customRadioInline2']") public Label radio2Label; // @FindBy(css = "label[for='customRadioInline2']") public Label radio2Label;
+}
+
+@Test
+public void radioButtonByIndexTests() {
+    radioButtonsCustomInline.radioButton.select(2);
+    radioButtonsCustomInline.radio2.is()
+            .selected();
+    radioButtonsCustomInline.radio1.is()
+            .deselected();
+    radioButtonsCustomInline.radioButton.select(1);
+    radioButtonsCustomInline.radio1.is()
+            .selected();
+    radioButtonsCustomInline.radio2.is()
+            .deselected();
+}
+
+@Test
+public void radioOneIsValidationTests() {
+    radioButtonsCustomInline.radio1.is()
+            .hidden()
+            .enabled()
+            .core()
+            .attr("type", "radio")
+            .attr("name", "customRadioInline1")
+            .hasClass("custom-control-input")
+            .tag(is("input"));
+}
+```
+
+![Radio button custom inline example html](../images/bootstrap/custom-radio-inline-html.png)
+
+
+
+|Method | Description | Return Type
+--- | --- | ---
+**click()** | Click the button | void
+**check()** | Select the button | void
+**uncheck()** | Deselect the button | void
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**select()** | Select button | void
+**selected()** | Radio button is selected | TextAssert
+**get()** | Select button by index | action
+
+<br>
+
+[Java test examples]()
+<br>
+
+Button group is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+
+<br>
+
+**[Custom disabled](https://getbootstrap.com/docs/4.3/components/forms/#inline-1)** 
+
+Checkbox and Radio button is located in the following classes:
+
+__Java__:
+  - com.epam.jdi.light.ui.bootstrap.elements.common.RadioButton_
+  - com.epam.jdi.light.ui.bootstrap.elements.common.Checkbox_
+  
+
+![Custom disabled example](../images/bootstrap/custom-disabled.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java 
+// @FindBy(css = "body") public static CheckboxAndRadioButtonCustomDisabled checkboxAndRadioButtonCustomDisabled;
+@UI("body") public static CheckboxAndRadioButtonCustomDisabled checkboxAndRadioButtonCustomDisabled;
+
+public class CheckboxAndRadioButtonCustomDisabled extends Section {
+    @UI("#customCheckDisabled1-div") public Checkbox checkboxContainer; // @FindBy(css = "#customCheckDisabled1-div") public Checkbox checkboxContainer;
+    @UI("#customCheckDisabled1") public Checkbox checkbox; // @FindBy(css = "#customCheckDisabled1") public Checkbox checkbox;
+    @UI("#customRadioDisabled2-div") public RadioButton radioButtonContainer; // @FindBy(css = "#customRadioDisabled2-div") public RadioButton radioButtonContainer;
+    @UI("#customRadioDisabled2") public RadioButton radioButton; // @FindBy(css = "#customRadioDisabled2") public RadioButton radioButton;
+    @UI("label[for='customRadioDisabled2']") public Label radio1Label; // @FindBy(css = "label[for='customRadioDisabled2']") public Label radio1Label;
+}
+
+@Test
+public void radioButtonIsValidationTests() {
+    checkboxAndRadioButtonCustomDisabled.radioButton.is()
+            .hidden()
+            .disabled()
+            .core()
+            .attr("type", "radio")
+            .attr("name", "radioDisabled")
+            .hasClass("custom-control-input")
+            .tag(Matchers.is("input"));
+}
+
+@Test
+public void baseInitTest() {
+    checkboxAndRadioButtonCustomDisabled.radioButtonContainer.is()
+            .size(1);
+    checkboxAndRadioButtonCustomDisabled.radioButton.is()
+            .deselected();
+    checkboxAndRadioButtonCustomDisabled.radio1Label.is()
+            .text(is(label1));
+}
+```
+
+![Custom disabled example html](../images/bootstrap/custom-disabled-html.png)
+
+
+
+|Method | Description | Return Type
+--- | --- | ---
+**click()** | Click the button | void
+**check()** | Select the button | void
+**uncheck()** | Deselect the button | void
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**select()** | Select button | void
+**selected()** | Radio button is selected | TextAssert
+**get()** | Select button by index | action
+
+<br>
+
+[Java test examples]()
+<br>
+
+Button group is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+
+<br>
+
+**[Switches custom](https://getbootstrap.com/docs/4.3/components/forms/#inline-1)** 
+
+Radio button is located in the following classes:
+ 
+  - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.common.RadioButton_
+  
+
+![Switches custom example](../images/bootstrap/switches.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java 
+@UI("body") public static Switches switches; // @FindBy(css = "body") public static Switches switches;
+
+public class Switches extends Section {
+    @UI("#customSwitch1") public Checkbox checkbox; // @FindBy(css = "#customSwitch1") public Checkbox checkbox;
+    @UI("#customSwitch1-div") public Checkbox checkboxContainer; // @FindBy(css = "#customSwitch1-div") public Checkbox checkboxContainer;
+    @UI("#customSwitch2") public Checkbox checkboxDisabled; // @FindBy(css = "#customSwitch2") public Checkbox checkboxDisabled;
+    @UI("#customSwitch2-div") public Checkbox checkboxDisabledContainer; // @FindBy(css = "#customSwitch2-div") public Checkbox checkboxDisabledContainer;
+}
+
+@Test
+public void isValidationTests() {
+    switches.checkbox
+            .is()
+            .hidden()
+            .enabled()
+            .core()
+            .attr("type", "checkbox")
+            .hasClass("custom-control-input")
+            .tag(is("input"));
+    switches.checkbox.label()
+            .is()
+            .displayed()
+            .enabled()
+            .core()
+            .hasClass("custom-control-label")
+            .text(is("Toggle this switch element"))
+            .tag(is("label"));
+    switches.checkboxContainer
+            .is()
+            .displayed()
+            .enabled()
+            .core()
+            .hasClass("custom-control custom-switch")
+            .tag(is("div"));
+}
+
+@Test
+public void clickableTests() {
+    switches.checkboxContainer.check();
+    switches.checkbox.is().selected();
+    switches.checkboxContainer.check();
+    switches.checkbox.is().deselected();
+}
+```
+
+![Switches custom example html](../images/bootstrap/switches-html.png)
+
+
+
+|Method | Description | Return Type
+--- | --- | ---
+**click()** | Click the button | void
+**check()** | Select the button | void
+**uncheck()** | Deselect the button | void
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**select()** | Select button | void
+**selected()** | Radio button is selected | TextAssert
+**get()** | Select button by index | action
+
+<br>
+
+[Java test examples]()
+<br>
+
+Button group is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+
+<br>
+
 ### Button group
 
 **<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/button-group/" target="_blank">Button group</a>** – Element that groups a series of buttons together on a single line with the button group, and super-power them with JavaScript.
@@ -4021,7 +4425,7 @@ Available methods and properties in C# JDI Light:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 @UI("#basic-example") public static ButtonGroupBasicExample buttonGroupBasicExample;
 // @FindBy(css = "#basic-example") public static ButtonGroupBasicExample buttonGroupBasicExample;
 
@@ -4082,7 +4486,7 @@ Inner elements represented by the following classes:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 @UI(".btn-toolbar") public static ButtonToolbar buttonToolbar;
 // @FindBy(css = ".btn-toolbar") public static ButtonToolbar buttonToolbar;
 
@@ -4116,7 +4520,7 @@ It is possible to mix input groups with button groups in your toolbars.
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
     @Test
     public void inputFieldInButtonToolbarTest() {
         buttonToolbar.inputAreaInToolbar.is().displayed();
@@ -4203,7 +4607,7 @@ Available methods in Java JDI Light:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 @UI("#button-group-nesting") public static ButtonGroupNesting buttonGroupNesting;
 // @FindBy(css = "#button-group-nesting") public static ButtonGroupNesting buttonGroupNesting;
 
@@ -4281,7 +4685,7 @@ Inner elements represented by the following classes:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 @UI("#vertical-variation") public static  ButtonGroupVerticalVariation buttonGroupVerticalVariation;
 // @FindBy(css = "#vertical-variation") public static  ButtonGroupVerticalVariation buttonGroupVerticalVariation;
 
@@ -4361,7 +4765,7 @@ Alert is located in the following class: <br>
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 @Css("#simple-alert") public static Alert simpleAlert;
 @Css("#dismissible-alert") public static Alert dismissibleAlert;
 // @FindBy(css = "#simple-alert") public static Alert simpleAlert;
@@ -4627,60 +5031,182 @@ Available methods in Java JDI Light:
 
 ###Navbar
 
-####Supported content
+#### Supported content
 
-Navbars come with built-in support for a handful of sub-components. 
+Navbars come with built-in <a style="font-weight: bold;" href="https://getbootstrap.com/docs/4.3/components/navbar/#supported-content" target="_blank">support</a> for a handful of sub-components. 
 
 Choose from the following as needed:
 
-    .navbar-brand for your company, product, or project name.
-    
-    .navbar-nav for a full-height and lightweight navigation (including support for dropdowns).
-    
-    .navbar-toggler for use with our collapse plugin and other navigation toggling behaviors.
-    
-    .form-inline for any form controls and actions.
-    
-    .navbar-text for adding vertically centered strings of text.
-    
-    .collapse.navbar-collapse for grouping and hiding navbar contents by a parent breakpoint.
++ ``.navbar-brand`` for your company, product, or project name.
++ ``.navbar-nav`` for a full-height and lightweight navigation (including support for dropdowns).
++ ``.navbar-toggler`` for use with our collapse plugin and other navigation toggling behaviors.
++ ``.form-inline`` for any form controls and actions.
++ ``.navbar-text`` for adding vertically centered strings of text.
++ ``.collapse.navbar-collapse`` for grouping and hiding navbar contents by a parent breakpoint.
 
-Here’s an example of all the sub-components included in a responsive light-themed navbar that automatically collapses at the lg (large) breakpoint.
+Here’s an example of all the sub-components included in a responsive light-themed navbar 
+that automatically collapses at the lg (large) breakpoint.
 <br>
+
 1. Navbar with content <br>
 ![Supported content](../images/bootstrap/navbar-supported-content-normal.png)<br>
-![Supported content](../images/bootstrap/navbar-supported-content-normal-html.png)<br>
 2. Collapsed navbar <br> 
 ![Supported content](../images/bootstrap/navbar-supported-content-collapsed.png)<br>
-![Supported content](../images/bootstrap/navbar-supported-content-collapsed-html.png)<br>
-3. Uncollapsed navbar <br>
+3. Expanded navbar <br>
 ![Supported content](../images/bootstrap/navbar-supported-content-uncollapsed.png)
+
+```java 
+// @FindBy(id = "navbar-supported-content")
+@UI("#navbar-supported-content")
+public static NavbarSupportedContent navbarSupportedContent;
+
+// @FindBy(css = ".navbar-brand")
+@UI(".navbar-brand")
+public Link brand;
+
+// @FindBy(tagName = "button[data-toggle=collapse]")
+@UI("button[data-toggle=collapse]")
+public Button navExpand;
+
+// @FindBy(tagName = "input")
+@UI("input")
+public TextField searchField;
+
+// @FindBy(css = ".btn-outline-success")
+@UI(".btn-outline-success")
+public Button searchButton;
+
+@JDropdown(root = ".navbar-nav",
+        list = "a")
+public Collapse nav;
+
+@JDropdown(root = ".dropdown",
+        expand = "#navbarDropdown",
+        list = "a")
+public Collapse dropdown;
+
+private static final String activeLinkText = "Active link";
+private static final String jdiLinkText = "JDI Light";
+private static final String dropdownLinkText = "Dropdown";
+private static final String dropdownAction = "Action";
+private static final String dropdownAnotherAction = "Another action";
+private static final String dropdownSmthElse = "Something else here";
+private static final String disabledLinkText = "Disabled link";
+
+@DataProvider
+public Object[][] collapseLinkTextData() {
+    return new Object[][] {
+            {activeLinkText},
+            {jdiLinkText},
+            {dropdownLinkText},
+            {dropdownAction},
+            {dropdownAnotherAction},
+            {dropdownSmthElse},
+            {disabledLinkText}
+    };
+}
+
+@Test(dataProvider = "collapseLinkTextData")
+public void collapseLinkTextTest(String linkText) {
+    WindowsManager.resizeWindow(900, 600);
+
+    navbarSupportedContent.navExpand.show();
+    navbarSupportedContent.navExpand.click();
+
+    navbarSupportedContent.nav.is().expanded();
+
+    assertTrue(navbarSupportedContent.nav.list().values().contains(linkText));
+}
+```
+
 ![Supported content](../images/bootstrap/navbar-supported-content-uncollapsed-html.png)
 
-Here is an examples with provided Bootstrap v4.3 code:
+Navbar is represented by Section class in Java:
+ 
++ [Section](https://jdi-docs.github.io/jdi-light/#section)
+
+Inner elements of jumbotron can be represented by the following classes:
+
+  - [TextField](https://jdi-docs.github.io/jdi-light/#textfield)
+  
+  - [Button](https://jdi-docs.github.io/jdi-light/#button)
+  
+  - [Link](https://jdi-docs.github.io/jdi-light/#link)
+  
+  - [Collapse](https://jdi-docs.github.io/jdi-light/#collapse)
 
 Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  | 
- 
+**is()** | Asserts element  | UIAssert
+**displayed()** | Asserts element is displayed  | UIAssert 
+**hasClass()** | Checks whether element has class  | boolean 
+**click()** | Click on element  | void   
+**text()** | Check whether a text matches a pattern  | IsAssert 
+**attr()** | Check whether an element has attribute of specified name and with given value  | IsAssert 
+**toggle()** | Toggle collapse  | void 
+**select()** | Select a dropdown element  | void 
+**expanded()** | Check whether a dropdown is expanded  | void 
+**setValue()** | Set a value for input group  | void 
+**getValue()** | Get value from input group  | String 
 
-Available methods and properties in C# JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  |
- |  | 
+<a href="javascript: void();">Bootstrap Test Examples</a> 
 <br><br>
 
 ####Brand
+
+```java 
+
+public class BootstrapPage extends WebPage {
+@UI("#navbar-base-for-brand") public static NavbarSection navbarSection;
+}
+
+public class NavbarSection extends Section {
+    //@FindBy(css = ".navbar-brand")
+    @UI(".navbar-brand")
+    public JList<NavbarBrand> navbarBrandJList;
+}
+
+@Test(dataProvider = "navbarBrandData")
+    public void checkNavbarText(String navbarId, String navbarText) {
+        navbarBrandList.stream().filter(navbarBrand ->
+                navbarBrand.attr("id").equals(navbarId)).forEach(nbb -> {
+            nbb.highlight();
+            nbb.is().core()
+                    .text(navbarText);
+            nbb.unhighlight();
+        });
+    }
+
+    @Test
+    public void checkNavbarClickImage() {
+        navbarBrandList.stream()
+                .filter(nbb -> nbb.isLink() && nbb.childs().size() > 0)
+                .map(nbbWithIm -> nbbWithIm.childs().get(0))
+                .forEach(imgFromNavbar -> {
+                    imgFromNavbar.highlight("blue");
+                    imgFromNavbar.is().attr("src", containsString(imgPath))
+                            .tag("img");
+                    imgFromNavbar.unhighlight();
+
+                    imgFromNavbar.click();
+
+                    WebDriver driver = WebDriverFactory.getDriver();
+                    ArrayList<String> tabs = new ArrayList<>(
+                              WebDriverFactory.getDriver().getWindowHandles()
+                    );
+                    driver.switchTo().window(tabs.get(tabs.size() - 1));
+                    assertEquals(getUrl(), navbarUrl);
+                    driver.close();
+                    driver.switchTo().window(tabs.get(tabs.size() - 2));
+                });
+    }
+
+
+```
+
+[Bootstrap page documentation](https://getbootstrap.com/docs/4.3/components/navbar/#brand)
 
 The .navbar-brand can be applied to most elements, but an anchor works best as some elements might require utility classes or custom styles.
 <br>
@@ -4688,47 +5214,38 @@ The .navbar-brand can be applied to most elements, but an anchor works best as s
 Navbar brand as a link <br>
 ![Brand](../images/bootstrap/navbar-brand-link.png)<br>
 <br>
-![Brand](../images/bootstrap/navbar-brand-link-html.png)<br>
-<br>
 Navbar brand as heading <br> 
 ![Brand](../images/bootstrap/navbar-brand-heading.png)<br>
 <br>
-![Brand](../images/bootstrap/navbar-brand-heading-html.png)<br>
 
 Adding images to the .navbar-brand will likely always require custom styles or utilities to properly size. Here are some examples to demonstrate.<br>
 
 ![Brand](../images/bootstrap/navbar-brand-image.png)<br>
 <br>
-![Brand](../images/bootstrap/navbar-brand-image-html.png)<br>
-<br>
 ![Brand](../images/bootstrap/navbar-brand-image-and-link.png)<br>
 <br>
-![Brand](../images/bootstrap/navbar-brand-image-and-link-html.png)
+
+![Brand](../images/bootstrap/navbar-brand-all-html.png)
+<br>
 
 Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  | 
+**isNavbarBrand()** | Check it is navbar-brand class | boolean
+**isLink()** | Check it is link | boolean
+**getRef()** | Get link | String
+**getText()** | Get button text | String
+**is()** | Assert action | UIAssert 
+**assertThat()** | Assert action | UIAssert
  
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navbarbrand/NavbarBrandTests.java)
 
-Available methods and properties in C# JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  |
- |  | 
-<br><br>
+<br><br><br><br><br><br><br><br>
 
 ####Nav
 
-```java
+```java 
 
 public class Navbar extends Section {
     //FindBy(xpath = "//*[contains(@class, 'nav-item')]")
@@ -4809,14 +5326,38 @@ Inner elements of media object can be represented by the following classes:
 
 <a style="font-weight: bold;" target="_blank" href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navbar/NavbarNavsTests.java">Bootstrap test examples</a>
 
-
+<br>
 ####Forms
 
-Place various form controls and components within a navbar with .form-inline.
-
-<br>
+Place various form controls and components within a <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/navbar/#forms" target="_blank">navbar</a> with .form-inline.
 
 ![Forms example](../images/bootstrap/navbar-forms1.png)
+
+```java 
+
+//FindBy(id = "#navbar-form-2")
+@UI("#navbar-form-2")
+public static NavbarForm navbarFormWithText;
+//FindBy(id = "#navbar-form-3")
+@UI("#navbar-form-3")
+public static NavbarWithInputGroupForm navbarFormWithInputGroup;
+
+@Test
+public void checkSetValueInputGroup() {
+    navbarFormWithInputGroup.inputGroup.input.setValue(inputText);
+    navbarFormWithInputGroup.inputGroup.input.assertThat().text(is(inputText));
+}
+
+@Test
+public void checkFormElements() {
+    UIElement input = navbarFormWithText.form.core().find((By.tagName("input")));
+    UIElement button = navbarFormWithText.form.core().find((By.tagName("button")));
+    input.shouldBe().enabled();
+    button.shouldBe().enabled().text(is(buttonText));
+    navbarFormWithText.form.click();
+}
+
+```
 
 Here is an example with provided Bootstrap v4.3 code:
   
@@ -4838,30 +5379,24 @@ Here is an example with provided Bootstrap v4.3 code:
   
 ![Forms HTML example](../images/bootstrap/navbar-forms3-html.png)
 
-Available methods in Java JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  | 
+Media object is represented by Section class in Java:
  
+[Section](https://jdi-docs.github.io/jdi-light/#section)
 
-Available methods and properties in C# JDI Light:
+Inner elements of media object can be represented by the following classes:
 
-|Method/Property | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  |
- |  | 
+  + [Form](https://jdi-docs.github.io/jdi-light/#form)     
+  + [TextField](https://jdi-docs.github.io/jdi-light/#textfield)    
+  + [Button](https://jdi-docs.github.io/jdi-light/#button)      
+  + [Link](https://jdi-docs.github.io/jdi-light/#link)      
+  + [See more elements](https://jdi-docs.github.io/jdi-light/#html5-common-elements) 
+
+<a style="font-weight: bold;" target="_blank" href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navbar/NavbarFormsTests.java">Bootstrap test examples</a>
 <br><br>
 
 ####Text
 
-Navbars may contain bits of text with the help of .navbar-text. 
+**[Navbar-text](https://getbootstrap.com/docs/4.3/components/navbar/#text)** – Navbars may contain bits of text with the help of .navbar-text. 
 This class adjusts vertical alignment and horizontal spacing for strings of text.
 
 <br>
@@ -4869,6 +5404,24 @@ This class adjusts vertical alignment and horizontal spacing for strings of text
 ![Text example](../images/bootstrap/navbar-text1.png)
 
 Here is an example with provided Bootstrap v4.3 code:
+
+```java 
+//@FindBy(xpath = "//h4[.='Navbar - Text']/../..") public static NavbarText navbarText;
+@UI("//h4[.='Navbar - Text']/../..") public static NavbarText navbarText;
+
+public class NavbarText extends Section {
+    @UI("nav:nth-child(1)") public Text simpleText;
+    @UI("nav.navbar.navbar-expand-lg.navbar-light.bg-light") public NavbarTextLinks complexNavbar;
+}
+
+@Test
+public void verifySimpleNavbarTextTest() {
+    navbarText.simpleText
+        .is()
+        .text(is(inlineElement));
+}
+```
+
   
 ![Text HTML example](../images/bootstrap/navbar-text1-html.png)
 
@@ -4877,6 +5430,34 @@ Mix and match with other components and utilities as needed.
 ![Text example](../images/bootstrap/navbar-text2.png)
 
 Here is an example with provided Bootstrap v4.3 code:
+
+```java 
+public class NavbarTextLinks extends Section {
+    @UI(".navbar-brand") public Link brand;
+    @UI("ul li") public ListGroup listPages;
+    @UI(".navbar-text") public Text simpleText;
+}
+
+@Test
+public void verifyComplexNavbarHomeTest() {
+    navbarText.complexNavbar.listPages.get(1)
+        .is()
+        .text(is(linkName1));
+    navbarText.complexNavbar.listPages.get(1).click();
+    newWindowTitleCheck(page1);
+    navbarText.complexNavbar.listPages.get(2)
+        .is()
+        .text(is(linkName2));
+    navbarText.complexNavbar.listPages.get(2).click();
+    newWindowTitleCheck(page2);
+    navbarText.complexNavbar.listPages.get(3)
+        .is()
+        .text(is(linkName3));
+    navbarText.complexNavbar.listPages.get(3).click();
+    newWindowTitleCheck(page3);
+}
+```
+
   
 ![Text HTML example](../images/bootstrap/navbar-text2-html.png)
 
@@ -4884,12 +5465,13 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  | 
- 
+**click()** | Click the button | void
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**get()** | Select button by index | action
+
+<br><br> 
 
 Available methods and properties in C# JDI Light:
 
@@ -4903,16 +5485,73 @@ Available methods and properties in C# JDI Light:
 
 ####Color schemes
 
-Theming the navbar has never been easier thanks to the combination of theming classes and background-color utilities.
+Theming the navbar has never been easier thanks to the combination of <a href="https://getbootstrap.com/docs/4.3/components/navbar/#color-schemes">theming classes and background-color utilities</a>.
 Choose from .navbar-light for use with light background colors, or .navbar-dark for dark background colors. Then, customize with .bg-* utilities.
 
 ![Color schemes example](../images/bootstrap/navbar-color-schemes.png)
 
 Here is an example with provided Bootstrap v4.3 code:
+
+```java 
+public class NavbarColorScheme extends Navbar {
+
+    //@FindBy(className = "navbar-brand")
+    @UI(".navbar-brand")
+    public Link navbarLink;
+
+    //@FindBy(linkText = "Home\n(current)")
+    @ByText("Home")
+    public Link homeLink;
+
+    //@FindBy(linkText = "Contact form")
+    @ByText("Contact form")
+    public Link contactFormLink;
+
+    //@FindBy(linkText = "Metals & Colors")
+    @ByText("Metals & Colors")
+    public Link metalsAndColorsLink;
+
+    //@FindBy(xpath = "//form/button")
+    @UI("form button")
+    public Button searchButton;
+}
+
+@Test(dataProvider = "navbarColorSchemesWithColors")
+public void colorSchemeAccordanceTest(NavbarColorScheme navbarColorScheme, String bgColor, 
+String navbarAndHomeColor, String contactAndMetalsColor, String searchColor) {
+    navbarColorScheme.core().is()
+            .css("background-color", bgColor);
+    checkColorOfElement(navbarColorScheme.navbarLink, navbarAndHomeColor);
+    checkColorOfElement(navbarColorScheme.homeLink, navbarAndHomeColor);
+    checkColorOfElement(navbarColorScheme.contactFormLink, contactAndMetalsColor);
+    checkColorOfElement(navbarColorScheme.metalsAndColorsLink, contactAndMetalsColor);
+    checkColorOfElement(navbarColorScheme.searchButton, 
+String.format("rgba%s, 1)", searchColor));
+    navbarColorScheme.searchButton.core().is()
+            .css("border-color", String.format("rgb%s)", searchColor));
+}
+
+private void checkColorOfElement(ICoreElement elem, String color) {
+    elem.core().is()
+            .css("color", color);
+}
+```
   
 ![Color schemes HTML example](../images/bootstrap/navbar-color-schemes-html.png)
 
-</br></br></br></br></br></br></br></br>
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**click()** | Click the button | void
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navbar/NavbarColorSchemeTests.java">Bootstrap test examples</a>
+
+<br><br> 
+
 
 ####Containers
 
@@ -5065,14 +5704,78 @@ Here is an example with provided Bootstrap v4.3 code:
 <br>
 
 ####External content
-Plugin to trigger hidden content elsewhere on the page.
+```java 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//FindBy(css = "#navbar-external-content")
+@UI("#navbar-external-content") public static NavbarExternalContent navbarExternalContent;
+
+ @Test
+public void expandingTest() {
+    navbarExternalContent.toggler.expander().is().core().attr(ariaExpanded, "false");
+    navbarExternalContent.toggler.expand();
+    navbarExternalContent.toggler.expander().is().core().attr(ariaExpanded, "true");
+    navbarExternalContent.toggler.collapse();
+    navbarExternalContent.toggler.expander().is().core().attr(ariaExpanded, "false");
+}
+
+@Test
+public void getTextTest() {
+    navbarExternalContent.toggler.expand();
+    navbarExternalContent.toggler.value().childs().get(1).is()
+            .displayed()
+            .text(text);
+    navbarExternalContent.toggler.value().childs().get(2).is()
+            .displayed()
+            .text(mutedText);
+    navbarExternalContent.toggler.collapse();
+}
+```
+<a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/navbar/#external-content">Plugin</a> to trigger hidden content elsewhere on the page.
 
 ![Color Nav example](../images/bootstrap/navbar-external.png)
+
+Navbar - Sizing is represented by Section class in Java:
+ 
+[Section](https://jdi-docs.github.io/jdi-light/#section)
+
+Inner elements of Navbar - Sizing can be represented by the following classes:
+
+  + [Collapse](https://jdi-docs.github.io/jdi-light/#collapse)     
+  + [Text](https://jdi-docs.github.io/jdi-light/#text)       
 
 Here is an example with provided Bootstrap v4.3 code:
   
 ![Color Nav HTML example](../images/bootstrap/navbar-external-html.png)
 
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navbar/ExternalContentTests.java" target=a_blank> Bootstrap test examples </a>
+<br><br><br>
 ###Pagination
 
 Pagination is functionality for navigating through pages.
@@ -5132,7 +5835,7 @@ Available methods in Java JDI Light:
 
 
 
-//FindBy(id = "#progress-bar-base-width-25 .progress-bar"
+//FindBy(css = "#progress-bar-base-width-25 .progress-bar"
 @UI("#progress-bar-base-width-25 .progress-bar")  
 public static Progress progressBaseWidth25;
 
@@ -5220,7 +5923,13 @@ Available methods in Java JDI Light:
 
 **With backgrounds**
 
-```java 
+Use <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/progress/#backgrounds">background</a> utility classes to change the appearance of individual progress bars.
+
+![Progress backgroundsexample](../images/bootstrap/progress-backgrounds.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+  ```java 
 
 //@FindBy(css = "#progress-background-green")
 @UI("#progress-backgrounds-green") public static Progress progressBackgroundGreen;
@@ -5254,30 +5963,136 @@ Available methods in Java JDI Light:
     }
 
 ```
-
-![Progress backgroundsexample](../images/bootstrap/progress-backgrounds.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-
-<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/ProgressBackgroundTests.java" target=a_blank> Bootstrap test examples </a>
   
 ![Progress backgrounds HTML example](../images/bootstrap/progress-backgrounds-html.png)
 
+Available methods in Java JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+**getAriaValue()** | Get aria value of the bar | String
+**getColor()** | Get color of the bar  | String
+**is()** | Various assert actions for Progress | ProgressAssert 
+**assertThat()** | Assert action | UIAssert 
+
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/ProgressBackgroundTests.java" target=a_blank> Bootstrap test examples </a>
+
+<br><br><br><br><br><br><br>
+
 **With multiple bars**
 
-![Progress multiple sexample](../images/bootstrap/progress-multiple.png)
+Include <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/progress/#multiple-bars">multiple progress bars</a>  in a progress component if you need.
+
+![Progress multiple example](../images/bootstrap/progress-multiple.png)
 
 Here is an example with provided Bootstrap v4.3 code:
+
+```java 
+
+//@FindBy(id = "progress-multiple-bars")
+@UI("#progress-multiple-bars") public static ProgressMultipleBars progressMultipleBars;
+
+//@FindBy(id = "progress-multiple-ordinary")
+@UI("#progress-multiple-ordinary")
+public Progress multipleOrdinary;
+
+//@FindBy(id = "progress-multiple-success")
+@UI("#progress-multiple-success")
+public Progress multipleSuccess;
+
+//@FindBy(id = "progress-multiple-info")
+@UI("#progress-multiple-info")
+public Progress multipleInfo;
+
+@DataProvider
+public Object[][] progressMultipleBarsData() {
+    return new Object[][]{
+        {progressMultipleBars.multipleOrdinary},
+        {progressMultipleBars.multipleSuccess},
+        {progressMultipleBars.multipleInfo}
+    };
+}
+
+@Test(dataProvider = "progressMultipleBarsData")
+public void isValidationTest(Progress progress) {
+    progress.is().enabled().and().displayed();
+    progress.assertThat()
+        .core()
+        .hasClass("progress-bar")
+        .attr("role", "progressbar");
+}
+
+```
   
 ![Progress multiple HTML example](../images/bootstrap/progress-multiple-html.png)
 
+Available methods in Java JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+**getAriaValue()** | Get aria value of the bar | String
+**getColor()** | Get color of the bar  | String
+**is()** | Various assert actions for Progress | ProgressAssert 
+**assertThat()** | Assert action | UIAssert 
+
+<a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/ProgressMultipleBarsTests.java" target=a_blank> Bootstrap test examples </a>
+
+<br><br><br><br><br><br><br><br><br><br>
+
 **With striped design**
+
+<a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/progress/#striped">Striped progress bars</a>
 
 ![Progress striped example](../images/bootstrap/progress-striped.png)
 
 Here is an example with provided Bootstrap v4.3 code:
-  
+
+```java 
+
+    public class BootstrapPage extends WebPage {
+    @UI("#striped-base .progress") public static JList<ProgressSection> progressSections;
+    }
+
+    public class ProgressSection extends Section {
+        //@FindBy(css = ".progress-bar")
+        @UI(".progress-bar")
+        public Progress progress;
+    }
+
+    @Test(dataProvider = "progressData")
+    public void checkProgressData(String progressId, String value, String color,
+                                  String min, String max, String classStriped) {
+
+        progressSections.stream().filter(progressSection ->
+                progressSection.progress.attr("id").equals(progressId)).forEach(
+                progressSection -> {
+                    progressSection.progress.is().core().hasClass(classStriped);
+                    progressSection.progress.is().ariaValue(value)
+                                                 .color(color)
+                                                 .minValue(min)
+                                                 .maxValue(max);
+                });
+    }
+
+```
+
 ![Progress striped HTML example](../images/bootstrap/progress-striped-html.png)
+
+Available methods in Java JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+**getAriaValue()** | Get aria value of the bar | String
+**getColor()** | Get color of the bar  | String
+**getMaxValue()** | Get max value of the bar  | String
+**getMinValue()** | Get min value of the bar  | String
+**is()** | Various assert actions for Progress | ProgressAssert 
+**assertThat()** | Assert action | ProgressAssert  
+
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/listprogressbars/ProgressBarsListTests.java)
+
+<br><br><br><br><br><br><br>  
+
 
 **With animated design**
 
@@ -5310,6 +6125,7 @@ Available methods in Java JDI Light:
 **getAriaValue()** | Get aria value of the bar | String
 **getColor()** | Get color of the bar  | String
 **is()** | Various assert actions for Progress | ProgressAssert  
+**assertThat()** | Assert action | ProgressAssert
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/progress/ProgressAnimatedStripesTests.java)
 <br>
@@ -6302,7 +7118,7 @@ For example .card-columns class to generate a set of responsive tiers for changi
  
  Here is an example with provided Bootstrap v4.3 code:
  
- ```java
+```java 
     @UI(".card-columns") public static CardColumns cardColumns; //@FindBy(css='.card-columns') public static CardColumns cardColumns
  
     public class CardColumns extends CardWithinCardColumns {
@@ -6349,7 +7165,7 @@ Use <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/componen
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
    @UI(".card-group:nth-of-type(1)") public static CardGroup cardGroupWithoutFooter;
    //@FindBy(css='.card-group:nth-of-type(1)')
 
@@ -6390,7 +7206,7 @@ Here is an example with provided Bootstrap v4.3 code:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
    @UI(".card-group:nth-of-type(2)") public static CardGroup cardGroupWithFooter;
    //@FindBy(css='.card-group:nth-of-type(2)')
 
@@ -7018,36 +7834,68 @@ Available methods in Java JDI Light:
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/spinner/SpinnerSizeTests.java" target="_blank">Bootstrap Test Examples</a>
 
-**Spinner Buttons**
+####Spinner Buttons
 
-Use spinners within buttons to indicate an action is currently processing or taking place. 
+Use <a href="https://getbootstrap.com/docs/4.3/components/spinners/#buttons" target="_blank">spinners within buttons</a> to indicate an action is currently processing or taking place. 
 You may also swap the text out of the spinner element and utilize button text as needed.
 
 ![Spinner Buttons Example](../images/bootstrap/spinnerbuttons.png)
+
+```java 
+
+public class ButtonWithSpinner extends Button implements PageObject {
+    // @FindBy(css = "[class*='spinner']")
+    public @UI("[class*='spinner']") Spinner spinner;
+    // @FindBy(css = "[class*='spinner'] + span")
+    public @UI("[class*='spinner'] + span")  TextField span;
+}
+
+// @FindBy(id = "#button-with-spinner-and-text")
+@UI("#button-with-spinner-and-text") public static ButtonWithSpinner buttonWithSpinnerAndText;
+
+private final String spinnerClass = "spinner-border";
+
+@Test()
+public void checkButtonText() {
+    assertTrue(buttonWithSpinnerAndText.isDisplayed());
+    buttonWithSpinnerAndText.assertThat().text(is(buttonText));
+}
+
+@Test()
+public void checkSpinnerInButtonWithText() {
+    buttonWithSpinnerAndText.spinner.is().core().hasClass(spinnerClass);
+    buttonWithSpinnerAndText.spinner
+        .is()
+        .displayed()
+        .and()
+        .enabled();
+}
+
+```
 
 Here is an example with provided Bootstrap v4.3 code:
 
 ![Spinner Buttons HTML Example](../images/bootstrap/spinnerbuttons-html.png)
 
-Available methods in Java JDI Light:
+Spinner is represented by ButtonWithSpinner class in Java:
+ 
++ com.epam.jdi.light.ui.bootstrap.elements.complex.ButtonWithSpinner
+
+Available methods in Java JDI Light for ButtonWithSpinner:
 
 |Method | Description | Return Type
 --- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  | 
- 
-Available methods and properties in C# JDI Light:
+**click()** | Click the button  | void
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
 
-|Method/Property | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  |
- |  |
- <br>
+Inner elements of are represented by following classes:
+
+ + [Text](https://jdi-docs.github.io/jdi-light/#text)
+ + [Spinner](https://jdi-docs.github.io/jdi-light/#spinners)
+
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/spinner/SpinnerButtonsTests.java" target="_blank">Bootstrap Test Examples</a>
 
 ### Tooltip
 <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/tooltips/" target="_blank">Tooltip</a> is a hint that used in conjuction with a pointer.
@@ -7526,7 +8374,7 @@ Here is an example form code in the menu items:
 ![Form HTML example](../images/bootstrap/dropdown-menu-content-form-html.png)
 
 ### Toast
-Toasts are lightweight notifications designed to mimic the push notifications.
+<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/toasts/" target="_blank">Toast</a> - Toasts are lightweight notifications designed to mimic the push notifications.
 <br />
 __Options for toasts:__
 <br />
@@ -7541,14 +8389,251 @@ __Events for toasts:__
   - _hide.bs.toast_ - this event is fired immediately when the hide instance method has been called.<br/>
   - _hidden.bs.toast_ - this event is fired when the toast has finished being hidden from the user<br/>
  <br /> 
+ 
+ ```java 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 
-![Toast example](../images/bootstrap/toast.png)
+ 
+ 
+ @UI("#simpleToast") public static Toast simpleToast; //@FindBy(id="simpleToast")
+
+ @Test
+ public void simpleToastValidationTest() {
+     simpleToastButton.click();
+     simpleToast.is().displayed();
+     simpleToast.headerText.is().text(toastHeaderText);
+     simpleToast.body.is().text(toastBodyText);
+ }
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+ 
+ @UI("#translucentToast") public static Toast translucentToast; //@FindBy(id="translucentToast")
+ 
+ @Test
+ public void translucentToastValidationTest() {
+     translucentToastButton.click();
+     translucentToast.is().displayed();
+     translucentToast.headerText.is().text(toastHeaderText);
+     translucentToast.body.is().text(toastBodyText);
+ }
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ @UI("#firstMultipleToast") public static Toast firstStackToast; //@FindBy(id="firstMultipleToast")
+ @UI("#secondMultipleToast") public static Toast secondStackToast; //@FindBy(id="secondMultipleToast")
+ 
+ @Test
+ public void stackOfToastsValidationTest() {
+     stackOfToastsButton.click();
+     firstStackToast.is().displayed();
+     secondStackToast.is().displayed();
+     firstStackToast.headerText.is().text(toastHeaderText);
+     firstStackToast.body.is().text(stackToastBodyText);
+     secondStackToast.headerText.is().text(toastHeaderText);
+     secondStackToast.body.is().text(secondStackToastBodyText);
+     }
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ @UI("#toastRightTop") public static Toast toastWithTopAlign; //@FindBy(id="toastRightTop")
+ 
+ @Test
+ public void toastWithTopAlignValidationTest() {
+     toastWithTopAlignButton.click();
+     toastWithTopAlign.is().displayed();
+     toastWithTopAlign.headerText.is().text(toastHeaderText);
+     toastWithTopAlign.body.is().text(toastBodyText);
+     toastWithTopAlign.closeButton.click();
+     toastWithTopAlign.base().waitSec(1);
+     toastWithTopAlign.is().hidden();
+ }
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ @UI("#firstStackToast") public static Toast firstTopAlignStackToast; //@FindBy(id="firstStackToast")
+ @UI("#secondStackToast") public static Toast secondTopAlignStackToast; //@FindBy(id="secondStackToast")
+ 
+ @Test
+  public void stackOfTopAlignToastsValidationTest() {
+      stackOfToastsWithTopAlignButton.click();
+      firstTopAlignStackToast.headerText.is().text(toastHeaderText);
+      firstTopAlignStackToast.body.is().text(stackToastBodyText);
+      secondTopAlignStackToast.headerText.is().text(toastHeaderText);
+      secondTopAlignStackToast.body.is().text(secondStackToastBodyText);
+      firstTopAlignStackToast.is().displayed();
+      secondTopAlignStackToast.is().displayed();
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  @UI("#toastCenterTop") public static Toast toastWithCenterAlign; //@FindBy(id="toastCenterTop")
+  @UI("#toastRightTop") public static Toast toastWithTopAlign; //@FindBy(id="toastRightTop")
+  
+  @Test
+  public void toastWithCenterAlignValidationTest() {
+      toastWithCenterAlignButton.click();
+      toastWithCenterAlign.is().displayed();
+      toastWithCenterAlign.headerText.is().text(toastHeaderText);
+      toastWithCenterAlign.body.is().text(toastBodyText);
+      toastWithCenterAlign.closeButton.click();
+      toastWithCenterAlign.base().waitSec(1);
+      toastWithCenterAlign.is().hidden();
+  }
+ 
+ ``` 
+
+<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/toasts/#basic" target="_blank">**Simple Toast**</a>
+<br />
+
+![Simple toast example](../images/bootstrap/toast.png)
 
 Here is an example with provided Bootstrap v4.3 code:
   
 ![Toast HTML example](../images/bootstrap/toast_html.png)
 
-**Stacking**<br />
+<br>
+
+<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/toasts/#translucent" target="_blank">**Translucent Toast**</a>
+
+
+![Translucent toast example](../images/bootstrap/toast_center.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Toast HTML example](../images/bootstrap/translucent_toast_code.png)
+
+<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/toasts/#stacking" target="_blank">**Stacking**</a>
+
 When you have multiple toasts, we default to vertically stacking them in a readable manner
 
 ![Toast stack example](../images/bootstrap/stack_of_toast.png)
@@ -7557,9 +8642,9 @@ Here is an example with provided Bootstrap v4.3 code:
   
 ![Toast stack HTML example](../images/bootstrap/stack_of_toasts_html.png)
 
-<br >
-**Placement**
-<br>
+
+<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/toasts/#stacking" target="_blank">**Placement**</a>
+
 Place toasts with custom CSS as you need them. The top right is often used for notifications, as is the top middle.
 <br /><br />
 Example with top right align:
@@ -7590,21 +8675,15 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  |  
+**getText()** |	Get toast text |	String
+**is()** |	Assert action |	TextAssert
+**assertThat()** |	Assert action |	TextAssert
+**isDisplayed()** | Show\wait that toast element displayed on the screen | Boolean
+**close()** |	Close toast |	void
 
-Available methods and properties in C# JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  |
- |  | 
-<br><br>
+[Toast test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/)
+ 
+<br>
 
 
 ## Bootstrap Composite elements
@@ -7620,43 +8699,302 @@ Form can consists of:
 <li>Fieldsets(which can disable all the controls within)</li>
 </ul>
 
-![List group](../images/bootstrap/bootstrap_form.png)
+
+**[Form custom style](https://getbootstrap.com/docs/4.3/components/forms/#custom-styles)**
+
+![Form custom style Example](../images/bootstrap/form-custom-styles.png)
 
 Here is an example with provided Bootstrap v4.3 code:
-  
-![List group example](../images/bootstrap/bootstrap_form_code.png)
 
-Available methods in Java JDI Light:
+```java 
+// @FindBy(css = "#validation-submit-form") public static FormCustomStyles formCustomStyles;
+@UI("#validation-submit-form") public static FormCustomStyles formCustomStyles;
+
+public class FormCustomStyles extends Form<FormContacts> {
+    @UI("#validationCustom01") public TextField name; // @FindBy(css = "#validationCustom01") public TextField name;
+    @UI("#validationCustom02") public TextField lastName; // @FindBy(css = "#validationCustom02") public TextField lastName;
+    @UI("#validationCustomUsername") public TextField userName; // @FindBy(css = "#validationCustomUsername") public TextField userName;
+    @UI("#validationCustom03") public TextField city; // @FindBy(css = "#validationCustom03") public TextField city;
+    @UI("#validationCustom04") public TextField state; // @FindBy(css = "#validationCustom04") public TextField state;
+    @UI("#validationCustom05") public TextField zip; // @FindBy(css = "#validationCustom05") public TextField zip;
+
+    @UI("#invalidCheck") public Checkbox accept; // @FindBy(css = "#invalidCheck") public Checkbox accept;
+
+    @UI("button") public Button submit; // @FindBy(css = "button") public Button submit;
+}
+
+@Test(dataProvider = "listData")
+public void isValidationTests(TextField element, String label, String value) {
+    element
+            .is()
+            .displayed()
+            .enabled()
+            .core()
+            .value(value)
+            .hasClass("form-control")
+            .attr("type", "text")
+            .attr("placeholder", label)
+            .tag(is("input"));
+    element.label()
+            .is()
+            .displayed()
+            .enabled()
+            .core()
+            .text(is(label));
+}
+
+@Test
+public void checkboxTests() {
+    formCustomStyles.accept.check();
+    formCustomStyles.accept.is().selected();
+    formCustomStyles.accept.uncheck();
+    formCustomStyles.accept.is().deselected();
+}
+
+@Test
+public void fillTest() {
+    formCustomStyles.fill(DEFAULT_CONTACT);
+    formCustomStyles.check(DEFAULT_CONTACT);
+    checkContactFormSubmitted();
+}
+
+@Test
+public void submitEntityToContactFormTest() {
+    formCustomStyles.submit(DEFAULT_CONTACT);
+    formCustomStyles.check(DEFAULT_CHECK);
+}
+```
+
+<br>
+
+![Form custom style Example](../images/bootstrap/form-custom-styles-html1.png)
+![Form custom style Example](../images/bootstrap/form-custom-styles-html2.png)
+![Form custom style Example](../images/bootstrap/form-custom-styles-html3.png)
+
+
+<br>
 
 |Method | Description | Return Type
 --- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  | 
+**click()** | Click the button | void
+**getText()** | Get button text | String
+**getValue()** | Get button value | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**displayed()** | Check that element is displayed | TextAssert
+**enabled()** | Check that element is enabled | TextAssert
+**check()** | Check checkbox | void
+**selected()** | Check that checkbox is selected | TextAssert
+**deselected()** | Check that checkbox is not selected | TextAssert
+**assertThat()** | Assert action | TextAssert
+<br>
+
+Form group is represented by Section class in Java:
  
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
 
-Available methods and properties in C# JDI Light:
+Inner elements represented by the following classes:
+<ul>
+    <li> [TextField](https://jdi-docs.github.io/jdi-light/#text) </li>
+    <li> [Checkbox](https://jdi-docs.github.io/jdi-light/#textfield)</li>
+</ul>
 
-|Method/Property | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  |
- |  | 
-<br><br>
+<br>
 
 ### Scrollspy
-**Scrollspy** – automatically update Bootstrap navigation or list group components based on scroll position to indicate which link is currently active in the viewport.
+**[Scrollspy](https://getbootstrap.com/docs/4.3/components/scrollspy/#example-in-navbar)** – automatically update Bootstrap navigation or list group components based on scroll position to indicate which link is currently active in the viewport.
+<br><br>
+- [Scrollspy in navbar] (https://getbootstrap.com/docs/4.3/components/scrollspy/#example-in-navbar) 
 <br>
-1. Scrollspy in navbar <br>
+
+```java 
+    @UI("#navbar-example2") public static NavbarWithDropdown navbarWithDropdown;
+    @UI("#navbar-example2~div") public static ScrollSpyNav scrollSpyInNavbar;
+    
+public class NavbarWithDropdown extends Section {
+    @UI("ul>li") // @FindBy(css = "ul>li")
+    public ListGroup navGroup;
+    @UI("ul>li>a") // @FindBy(css ="ul>li>a")
+    public ListGroup navItemLink;
+    @JDropdown(expand = ".dropdown-toggle",
+            value = ".dropdown-toggle",
+            list = ".dropdown-item")
+    public Dropdown dropdownMenu;
+    @UI(".navbar-brand") // @FindBy(css = ".navbar-brand")
+    public Link navbarLink;
+}
+  
+public class ScrollSpyNav extends Section {
+    @UI(".//h4 | .//h5") public ListGroup header;//@FindBy(xpath = ".//h4 | .//h5")
+    @UI("p") public ListGroup mainText;          // @FindBy(css = "p")
+
+    public void scrollParagraph(ListGroup listGroup, int index, String className){
+        mainText.get(index).show();
+
+        if (!listGroup.get(index).core().hasClass(className) &&
+                index < header.size()) {
+            header.get(index + 1).show();
+        }
+    }
+}
+
+    @Test
+    public void navbarLinkClickableTests() {
+        navbarWithDropdown.navbarLink.click();
+        newWindowTitleCheck(pageTitle);
+    }
+
+    @Test
+    public void isValidationTests() {
+        navbarWithDropdown.navItemLink.get(3).is().text(dropdown);
+        navbarWithDropdown.navItemLink.get(3).is().value(dropdown);
+        navbarWithDropdown.navItemLink.is().size(3);
+        navbarWithDropdown.navGroup.is().size(3);
+
+        navbarWithDropdown.dropdownMenu.expand();
+        navbarWithDropdown.dropdownMenu.is().size(3);
+
+        navbarWithDropdown.find(By.className("dropdown-divider")).is()
+                .core()
+                .displayed()
+                .enabled()
+                .attr("role", "separator");
+    }
+
+
+    
+ 
+     
+
+
+
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+
+
+    @UI("#navbar-example3") public static NestedNav nestedNav;
+    @UI("#navbar-example3~div") public static ScrollSpyNav scrollSpyWithNestedNav;
+      
+public class NestedNav extends Section {
+    @UI("nav") public ListGroup navGroup;          // @FindBy(css = "nav")
+    @UI("nav nav a") public ListGroup navItemLink; // @FindBy(css = "nav nav a")
+    @UI(".navbar-brand") public Link navbarLink;   // @FindBy(css = ".navbar-brand")
+}
+
+public class ScrollSpyNav extends Section {
+    @UI(".//h4 | .//h5") public ListGroup header;//@FindBy(xpath = ".//h4 | .//h5")
+    @UI("p") public ListGroup mainText;          // @FindBy(css = "p")
+
+    public void scrollParagraph(ListGroup listGroup, int index, String className){
+        mainText.get(index).show();
+
+        if (!listGroup.get(index).core().hasClass(className) &&
+                index < header.size()) {
+            header.get(index + 1).show();
+        }
+    }
+}
+
+    @Test(dataProvider = "itemsCheck")
+    public void paragraphClickableTests(int index) {
+        scrollSpyWithNestedNav.mainText.get(index).highlight();
+
+        scrollSpyWithNestedNav.scrollParagraph(nestedNav.navItemLink, index, CLASS_NAME_ACTIVE);
+
+        assertTrue(nestedNav.navItemLink.get(index).hasClass(CLASS_NAME_ACTIVE));
+        nestedNav.navItemLink.get(index).unhighlight();
+    }
+
+
+    @Test
+    public void isValidationTests() {
+        nestedNav.navItemLink.is().size(7);
+        nestedNav.navGroup.is().size(3);
+        scrollSpyWithNestedNav.mainText.is().size(7);
+        scrollSpyWithNestedNav.header.is().size(7);
+    }
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+    
+    @UI("#list-example>a") public static ListGroup listGroupForScrollSpy;
+    @UI("#list-example~div") public static ScrollSpyNav scrollSpyWithListGroup;
+    
+public class ScrollSpyNav extends Section {
+    @UI(".//h4 | .//h5") public ListGroup header;//@FindBy(xpath = ".//h4 | .//h5")
+    @UI("p") public ListGroup mainText;          // @FindBy(css = "p")
+
+    public void scrollParagraph(ListGroup listGroup, int index, String className){
+        mainText.get(index).show();
+
+        if (!listGroup.get(index).core().hasClass(className) &&
+                index < header.size()) {
+            header.get(index + 1).show();
+        }
+    }
+}
+   
+    @Test(dataProvider = "itemsCheck")
+    public void paragraphClickableTests(int index) {
+        scrollSpyWithListGroup.mainText.get(index).highlight();
+
+        scrollSpyWithListGroup.scrollParagraph(listGroupForScrollSpy, index, CLASS_NAME_ACTIVE);
+
+        listGroupForScrollSpy.get(index)
+                .is()
+                .core()
+                .displayed()
+                .enabled()
+                .cssClass(CLASS_NAME_LIST_GROUP_ITEM_LIST_GROUP_ITEM_ACTION_ACTIVE)
+                .css(CSS_NAME_BACKGROUND_COLOR, "rgba(0, 123, 255, 1)")//#007bff Color Hex
+                .css(CSS_NAME_BORDER_COLOR, "rgb(0, 123, 255)");//#007bff Color Hex
+
+        listGroupForScrollSpy.get(index).unhighlight();
+    }
+
+    @Test
+    public void isValidationTests() {
+        scrollSpyWithListGroup.header.is().size(4);
+        scrollSpyWithListGroup.mainText.is().size(4);
+        listGroupForScrollSpy.is().size(4);
+    }
+    
+```
+
 ![Scrollspy](../images/bootstrap/scroll_spy1.png)<br>
 ![Scrollspy](../images/bootstrap/scroll_spy1_html.png)<br>
-2. Scrollspy with nested nav <br> 
+<br>
+
+- [Scrollspy with nested nav] (https://getbootstrap.com/docs/4.3/components/scrollspy/#example-with-nested-nav)
+<br> 
+
 ![Scrollspy](../images/bootstrap/scroll_spy2.png)<br>
 ![Scrollspy](../images/bootstrap/scroll_spy2_html.png)<br>
-3. Scrollspy with list-group <br>
+<br>
+
+- [Scrollspy with list-group] (https://getbootstrap.com/docs/4.3/components/scrollspy/#example-with-list-group)
+<br>
+
 ![Scrollspy](../images/bootstrap/scroll_spy3.png)<br>
 ![Scrollspy](../images/bootstrap/scroll_spy3_html.png)
 
@@ -7664,21 +9002,34 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  | 
- 
+**getText()**|Get text	  | String
+**getValue()**| Get value | String
+**is()**		|  Assert action	| TextAssert
+**assertThat()**	|  Assert action	| TextAssert
+**get(int)**	| Select element by index	 | UIElement
+**get(String)**	| Select element by text	 | UIElement
+**list()**| Get list of dropdown | WebList
+**size()**| Get WebList size| int
+**click()**	| Click element | void
+**expand()**| Expand dropdown|void  
+**show ()**| Scroll to element| void
 
-Available methods and properties in C# JDI Light:
+In these java test cases examples next classes have been used:
 
-|Method/Property | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  |
- |  | 
+ - Java: com.epam.jdi.light.elements.composite.Section
+
+ - Java: com.epam.jdi.light.elements.complex.ListGroup
+
+ - Java: com.epam.jdi.light.ui.bootstrap.elements.common.Link
+
+ - Java: com.epam.jdi.light.elements.complex.dropdown.Dropdown
+
+[Scrollspy in navbar Tests Example](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/scrollspy/ScrollspyInNavbarTests.java)
+
+[Scrollspy with nested nav Tests Example](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/scrollspy/ScrollspyWithNestedNavTests.java)
+
+[Scrollspy with list-group Tests Example](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/scrollspy/ScrollspyWithListGroupTests.java)
+
 <br><br>
 
 ### Modal
@@ -7739,7 +9090,7 @@ Available methods and properties in C# JDI Light:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 @UI("body") public static Popover popover; // @FindBy(css = "body") public static Popover popover;
 
 @Test
@@ -7815,7 +9166,7 @@ public void clickableTests() {
 
 <br>
 
-[Java test examples]()<br>
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/popover/PopoverTests.java)<br>
 
 Popover group is represented by Section class in Java:
  
@@ -7842,7 +9193,7 @@ Popover top
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 @UI("body") public static Popover popover; // @FindBy(css = "body") public static Popover popover;
 
 @Test
@@ -7952,7 +9303,7 @@ Here is an example with provided Bootstrap v4.3 code:
 
 <br>
 
-[Java test examples]()<br>
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/popover/PopoverTests.java)<br>
 
 Popover group is represented by Section class in Java:
  
@@ -7977,7 +9328,7 @@ Inner elements of input group can be represented by following classes:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 @UI("body") public static Popover popover; // @FindBy(css = "body") public static Popover popover;
 
 @Test
@@ -8053,7 +9404,7 @@ public void clickableTests() {
 
 <br>
 
-[Java test examples]()<br>
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/popover/PopoverTests.java)<br>
 
 Popover group is represented by Section class in Java:
  
@@ -8080,7 +9431,7 @@ Inner elements of input group can be represented by following classes:
  
  Here is an example with provided Bootstrap v4.3 code:
  
- ```java
+ ```java 
  @UI("body") public static Popover popover; // @FindBy(css = "body") public static Popover popover;
  
  @Test
@@ -8156,7 +9507,7 @@ Inner elements of input group can be represented by following classes:
 
 <br>
  
- [Java test examples]()<br>
+ [Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/popover/PopoverTests.java)<br>
  
  Popover group is represented by Section class in Java:
   
@@ -8184,7 +9535,7 @@ Inner elements of input group can be represented by following classes:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 // @FindBy(css = "#nav-base-li") public static NavsBaseLi navsBaseLi;
 @UI("#nav-base-li") public static NavsBaseLi navsBaseLi;
 
@@ -8259,7 +9610,7 @@ Nav group is represented by Section class in Java:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 // @FindBy(css = "#nav-center") public static NavsAlignmentCenter navsAlignmentCenter;
 @UI("#nav-center") public static NavsAlignmentCenter navsAlignmentCenter;
 
@@ -8334,7 +9685,7 @@ Nav group is represented by Section class in Java:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 // @FindBy(css = "#nav-vert-li") public static NavsVerticalLi navsVerticalLi;
 @UI("#nav-vert-li") public static NavsVerticalLi navsVerticalLi;
 
@@ -8404,7 +9755,7 @@ Nav group is represented by Section class in Java:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 // @FindBy(css = "#nav-tabs") public static NavsTabs navsTabs;
 @UI("#nav-tabs") public static NavsTabs navsTabs;
 
@@ -8472,7 +9823,7 @@ Nav group is represented by Section class in Java:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 // @FindBy(css = "#nav-pills") public static NavsPills navsPills;
 @UI("#nav-pills") public static NavsPills navsPills;
 
@@ -8535,7 +9886,7 @@ Nav group is represented by Section class in Java:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 // @FindBy(css = "#nav-justify") public static NavsJustify navsJustify;
 @UI("#nav-justify") public static NavsJustify navsJustify;
 
@@ -8598,7 +9949,7 @@ Nav group is represented by Section class in Java:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 // @FindBy(css = "#nav-with-dropdown") public static NavsTabsWithDropdown navsTabsWithDropdown;
 @UI("#nav-with-dropdown") public static NavsTabsWithDropdown navsTabsWithDropdown;
 
@@ -8684,7 +10035,7 @@ Nav group is represented by Section class in Java:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 // @FindBy(css = "#nav-pills-drop") public static NavsPillsWithDropdown navsPillsWithDropdown;
 @UI("#nav-pills-drop") public static NavsPillsWithDropdown navsPillsWithDropdown;
 
@@ -8773,7 +10124,7 @@ List Group is located in the following classes:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 @UI("#list-group-basic-example") public static ListGroupBasicExample listGroupBasicExample;
 // @FindBy(css = "#list-group-basic-example") public static ListGroupBasicExample listGroupBasicExample;
 
@@ -8829,7 +10180,7 @@ List Group is located in the following classes:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 @UI("#list-group-active-items") public static ListGroupActiveItems listGroupActiveItems;
 // @FindBy(css = "#list-group-active-items") public static ListGroupActiveItems listGroupActiveItems;)
 
@@ -8893,7 +10244,7 @@ List Group is located in the following classes:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 @UI("#disabled-items") public static ListGroupDisabledItems listGroupDisabledItems;
 // @FindBy(css = "#disabled-items") public static ListGroupDisabledItems listGroupDisabledItems;
 
@@ -8958,7 +10309,7 @@ List Group is located in the following classes:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 @UI("#list-group-links") public static ListGroupLinks listGroupLinks;
 // @FindBy(css = "#list-group-links") public static ListGroupLinks listGroupLinks;
 
@@ -9027,7 +10378,7 @@ List Group is located in the following classes:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 @UI("#list-group-buttons") public static ListGroupButtons listGroupButtons;
 // @FindBy(css = "#list-group-buttons") public static ListGroupButtons listGroupButtons;
 
@@ -9095,7 +10446,7 @@ List Group is located in the following classes:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 @UI("#list-group-flush") public static ListGroupFlush listGroupFlush;
 // @FindBy(css = "#list-group-flush") public static ListGroupFlush listGroupFlush;
 
@@ -9156,7 +10507,7 @@ List Group is located in the following classes:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 @UI("#list-group-horizontal") public static ListGroupHorizontal listGroupHorizontal;
 // @FindBy(css = "#list-group-horizontal") public static ListGroupHorizontal listGroupHorizontal;
 
@@ -9213,7 +10564,7 @@ List Group is located in the following classes:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 @UI("#list-group-with-badges") public static ListGroupWithBadges listGroupWithBadges;
 // @FindBy(css = "#list-group-with-badges") public static ListGroupWithBadges listGroupWithBadges;
 
@@ -9274,7 +10625,7 @@ List Group is located in the following classes:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 @UI("#list-group-custom-content") public static ListGroupCustomContent listGroupCustomContent;
 // @FindBy(css = "#list-group-custom-content") public static ListGroupCustomContent listGroupCustomContent;
 
@@ -9345,7 +10696,7 @@ List Group is located in the following classes:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 // @FindBy(css = "#pagination-overview") public static PaginationOverview paginationOverview;
 @UI("#pagination-overview") public static PaginationOverview paginationOverview;
 
@@ -9421,7 +10772,7 @@ List Group is located in the following classes:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 // @FindBy(css = "#pagination-icons") public static PaginationIcons paginationIcons;
 @UI("#pagination-icons") public static PaginationIcons paginationIcons;
 
@@ -9487,7 +10838,7 @@ List Group is located in the following classes:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 // @FindBy(css = "#pagination-states") public static PaginationStates paginationStates;
 @UI("#pagination-states") public static PaginationStates paginationStates;
 
@@ -9559,7 +10910,7 @@ List Group is located in the following classes:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 // @FindBy(css = "#pagination-big") public static PaginationSizeBig paginationSizeBig;
 // @FindBy(css = "#pagination-small") public static PaginationSizeSmall paginationSizeSmall;
 @UI("#pagination-big") public static PaginationSizeBig paginationSizeBig;
@@ -9639,7 +10990,7 @@ List Group is located in the following classes:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 // @FindBy(css = "#pagination-center") public static PaginationAlignCenter paginationAlignCenter;
 // @FindBy(css = "#pagination-end") public static PaginationAlignEnd paginationAlignEnd; 
 @UI("#pagination-center") public static PaginationAlignCenter paginationAlignCenter;
@@ -10045,7 +11396,7 @@ This input group example is represented by the following classes in Java:
 
 ![Multiple inputs](../images/bootstrap/multiple_inputs.png)
 
-```java
+```java 
 //FindBy(css = "#multiple-inputs"")
 @UI("#multiple-inputs") public static MultipleInputs multipleInputs;
 
@@ -10223,7 +11574,6 @@ Here is an example with provided Bootstrap v4.3 code:
 
 
 ```java 
-
 //@FindBy(css = "#input-group-button-addon4") public static ButtonAddons inputGroupButtonAddons4;
 @UI("#input-group-button-addon1") public static ButtonAddons inputGroupButtonAddons1;
 @UI("#input-group-button-addon2") public static ButtonAddons inputGroupButtonAddons2;
@@ -10237,24 +11587,22 @@ public class ButtonAddons extends Section {
     @UI("input") public TextField inputField;
 }
 
-// Button addons tests
-    @Test
-    public void checkButtonAddon2Test() {
-        inputGroupButtonAddons2.input.input(text);
-        inputGroupButtonAddons2.button.click();
-        inputGroupButtonAddons2.input.input(placeholder_text);
-        inputGroupButtonAddons2.input.assertThat().text(placeholder_text);
-    }
+@Test
+public void checkButtonAddon2Test() {
+    inputGroupButtonAddons2.input.input(text);
+    inputGroupButtonAddons2.button.click();
+    inputGroupButtonAddons2.input.input(placeholder_text);
+    inputGroupButtonAddons2.input.assertThat().text(placeholder_text);
+}
 
-    @Test
-    public void checkButtonAddon4Test() {
-        inputGroupButtonAddons4.inputField.input(text);
-        inputGroupButtonAddons4.listButtons.get(1).click();
-        inputGroupButtonAddons4.inputField.input(placeholder_text);
-        inputGroupButtonAddons4.listButtons.get(2).click();
-        inputGroupButtonAddons4.inputField.assertThat().text(placeholder_text);
-    }
-
+@Test
+public void checkButtonAddon4Test() {
+    inputGroupButtonAddons4.inputField.input(text);
+    inputGroupButtonAddons4.listButtons.get(1).click();
+    inputGroupButtonAddons4.inputField.input(placeholder_text);
+    inputGroupButtonAddons4.listButtons.get(2).click();
+    inputGroupButtonAddons4.inputField.assertThat().text(placeholder_text);
+}
 ```
 
   
@@ -10298,6 +11646,8 @@ Inner elements of input group can be represented by following classes:
  </ul>
  <br>
 
+<a  href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/inputGroup/InputGroupButtonAddonsTests.java" target="_blank">Button Addons test example</a>
+
 
 #### Buttons with dropdowns 
 
@@ -10307,7 +11657,7 @@ Inner elements of input group can be represented by following classes:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 @UI("#button-with-dropdown") public static ButtonWithDropdown buttonWithDropdown;
 // @FindBy(css = "#button-with-dropdown") public static ButtonWithDropdown buttonWithDropdown;
 
@@ -10394,7 +11744,7 @@ Inner elements of input group can be represented by following classes:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 @UI("#segmented-button") public static SegmentedButton segmentedButton;
 // @FindBy(css = "#segmented-button") public static SegmentedButton segmentedButton;
 
@@ -10488,7 +11838,7 @@ Inner elements of input group can be represented by following classes:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 @UI("#custom-select-01") public static CustomSelect customSelect;
 // @FindBy(css = "#custom-select-01") public static CustomSelect customSelect;
 
@@ -10536,7 +11886,7 @@ public void selectorIsValidationTests() {
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 @UI("#custom-select-button-01") public static CustomSelectWithButton customSelectWithButton;
 // @FindBy(css = "#custom-select-button-01") public static CustomSelect customSelect;
 
@@ -10957,6 +12307,91 @@ Here is an example with provided Bootstrap v4.3 code:
 **enabled()** | check item is enabled | TextAssert
  
 [Card Image test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardImageTests.java)
+
+####Card Image Overlays
+```java
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@UI("#card-svg") //FindBy(css = "#card-svg")
+public VectorImage vectorImage;
+@UI("#card-overlay-section") //FindBy(css = "#card-overlay-section")
+public OverlaySection overlaySection;
+
+@Test
+public void availabilityTest() {
+    cardImageOverlays.overlaySection.title.is()
+            .displayed()
+            .enabled();
+    cardImageOverlays.overlaySection.title.is()
+            .displayed()
+            .enabled();
+}
+
+@Test
+public void isValidationTest() {
+    cardImageOverlays.overlaySection.title.is().text(is(TITLE));
+    cardImageOverlays.vectorImage.assertThat().height(is(HEIGHT));
+    cardImageOverlays.vectorImage.assertThat().width(is(WIDTH));
+}
+
+@Test
+public void baseValidationTest() {
+     baseValidation(cardImage.image);
+     baseValidation(cardImage.text);
+}
+
+@Test
+public void classTest() {
+    cardImageOverlays.overlaySection.is().core().hasClass(OVERLAY_CLASS);
+    cardImageOverlays.overlaySection.assertThat().core().hasClass(OVERLAY_CLASS);
+    cardImageOverlays.vectorImage.is().core().hasClass(IMAGE_TOP_CLASS);
+    cardImageOverlays.vectorImage.assertThat().core().hasClass(IMAGE_TOP_CLASS);
+}
+
+@Test
+public void vectorInternalElementsTest() {
+     assertEquals(cardImageOverlays.vectorImage.getText(VECTOR_TEXT_TAG), VECTOR_TEXT);
+     assertEquals(cardImageOverlays.vectorImage.getAttribute(VECTOR_TEXT_TAG, VECTOR_TEXT_ATTR), VECTOR_TEXT_VALUE);
+}
+```
+
+<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/card/#image-overlays" target="_blank">Card Image Overlays</a> turn an image into a card background and overlay your card’s text. Depending on the image, you may or may not need additional styles or utilities..
+
+![Card Image Example](../images/bootstrap/card-image-overlays.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Card Image Example Code](../images/bootstrap/card-image-overlays-html.png)
+
+ And here are methods available in Java:
+
+|Method | Description | Return Type
+--- | --- | ---
+**hasClass(String className)** | check that expected className is presented | IsAssert
+**is()** | property that returns object for work with assertions| TextAssert
+**assertThat()** | property that returns object for work with assertions| TextAssert
+**displayed()** | check item is displayed | TextAssert
+**enabled()** | check item is enabled | TextAssert
+**getText(String tagName)** | get text of an element inside vector image by tag | String
+**getAttribute(String tagName, String attr)** | get attribute of an element inside vector image by tag | String
+ 
+[Card Image Overlays test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardImageOverlaysTest.java)
 
 ####Card Body
 ```java 

@@ -12202,6 +12202,72 @@ Here is an example with provided Bootstrap v4.3 code:
  
 [Card Image test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardImageTests.java)
 
+####Card Image Overlays
+```java
+@UI("#card-svg") //FindBy(css = "#card-svg")
+public VectorImage vectorImage;
+@UI("#card-overlay-section") //FindBy(css = "#card-overlay-section")
+public OverlaySection overlaySection;
+
+@Test
+public void availabilityTest() {
+    cardImageOverlays.overlaySection.title.is()
+            .displayed()
+            .enabled();
+    cardImageOverlays.overlaySection.title.is()
+            .displayed()
+            .enabled();
+}
+
+@Test
+public void isValidationTest() {
+    cardImageOverlays.overlaySection.title.is().text(is(TITLE));
+    cardImageOverlays.vectorImage.assertThat().height(is(HEIGHT));
+    cardImageOverlays.vectorImage.assertThat().width(is(WIDTH));
+}
+
+@Test
+public void baseValidationTest() {
+     baseValidation(cardImage.image);
+     baseValidation(cardImage.text);
+}
+
+@Test
+public void classTest() {
+    cardImageOverlays.overlaySection.is().core().hasClass(OVERLAY_CLASS);
+    cardImageOverlays.overlaySection.assertThat().core().hasClass(OVERLAY_CLASS);
+    cardImageOverlays.vectorImage.is().core().hasClass(IMAGE_TOP_CLASS);
+    cardImageOverlays.vectorImage.assertThat().core().hasClass(IMAGE_TOP_CLASS);
+}
+
+@Test
+public void vectorInternalElementsTest() {
+     assertEquals(cardImageOverlays.vectorImage.getText(VECTOR_TEXT_TAG), VECTOR_TEXT);
+     assertEquals(cardImageOverlays.vectorImage.getAttribute(VECTOR_TEXT_TAG, VECTOR_TEXT_ATTR), VECTOR_TEXT_VALUE);
+}
+```
+
+<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/card/#image-overlays" target="_blank">Card Image Overlays</a> turn an image into a card background and overlay your card’s text. Depending on the image, you may or may not need additional styles or utilities..
+
+![Card Image Example](../images/bootstrap/card-image.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Card Image Example Code](../images/bootstrap/card-image-overlays.png)
+ And here are methods available in Java:
+
+|Method | Description | Return Type
+--- | --- | ---
+**hasClass(String className)** | check that expected className is presented | IsAssert
+**is()** | property that returns object for work with assertions| TextAssert
+**assertThat()** | property that returns object for work with assertions| TextAssert
+**displayed()** | check item is displayed | TextAssert
+**enabled()** | check item is enabled | TextAssert
+**getText(String tagName)** | get text of an element inside vector image by tag | String
+**getAttribute(String tagName, String attr)** | get attribute of an element inside vector image by tag | String
+ 
+[Card Image Overlays test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardImageOverlaysTest.java)
+
 ####Card Body
 ```java 
 

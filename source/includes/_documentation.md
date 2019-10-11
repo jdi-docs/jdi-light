@@ -5234,7 +5234,7 @@ Available methods in Java JDI Light:
  
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navbarbrand/NavbarBrandTests.java)
 
-<br><br><br><br><br><br><br><br>
+<br><br><br><br>
 
 ####Nav
 

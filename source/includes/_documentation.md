@@ -5725,8 +5725,6 @@ Available methods in Java JDI Light:
 
 |Method/Property | Description | Return Type
 --- | --- | ---
-**getAriaValue()** | Get aria value of the bar | String
-**getColor()** | Get color of the bar  | String
 **is()** | Various assert actions for Progress | ProgressAssert 
 **assertThat()** | Assert action | UIAssert 
 

@@ -6671,16 +6671,7 @@ public void getButtonTextCardWithGridMarkup22Test() {
  ![Card with Header and Footer Example](../images/bootstrap/card_grid.png)
  
  Here is an example with provided Bootstrap v4.3 code:
- 
- ```java 
-@Test(dataProvider = "cardUtilitiesElementsWithWidth")
-    public void cardValidationTest(CardUtilities cardUtilitiesElem, int widthInPercent, String widthInPixels) {
-        cardUtilitiesElem.core().is()
-                .hasClass(String.format("card w-%d", widthInPercent))
-                .css("width", widthInPixels)
-                .css("background-color", whiteColor);
-    }
- ```
+
  
  ![Card with Header and Footer Code](../images/bootstrap/card_grid_html.png)
  
@@ -6708,6 +6699,16 @@ Inner elements of card can be represented by the following classes:
   ![Card utilities Example](../images/bootstrap/card_utilities.png)
   
   Here is an example with provided Bootstrap v4.3 code:
+  
+   ```java 
+  @Test(dataProvider = "cardUtilitiesElementsWithWidth")
+      public void cardValidationTest(CardUtilities cardUtilitiesElem, int widthInPercent, String widthInPixels) {
+          cardUtilitiesElem.core().is()
+                  .hasClass(String.format("card w-%d", widthInPercent))
+                  .css("width", widthInPixels)
+                  .css("background-color", whiteColor);
+      }
+   ```
   
   ![Card utilities Example Code](../images/bootstrap/card_utilities_html.png)
 

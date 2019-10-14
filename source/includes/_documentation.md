@@ -5723,10 +5723,10 @@ Here is an example with provided Bootstrap v4.3 code:
 
 
 
-//FindBy(css = "#navbar-external-content")
-@UI("#navbar-external-content") public static NavbarExternalContent navbarExternalContent;
+@UI("#navbar-external-content") //FindBy(css = "#navbar-external-content")
+public static NavbarExternalContent navbarExternalContent;
 
- @Test
+@Test
 public void expandingTest() {
     navbarExternalContent.toggler.expander().is().core().attr(ariaExpanded, "false");
     navbarExternalContent.toggler.expand();
@@ -5749,23 +5749,34 @@ public void getTextTest() {
 ```
 <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/navbar/#external-content">Plugin</a> to trigger hidden content elsewhere on the page.
 
-![Color Nav example](../images/bootstrap/navbar-external.png)
-
-Navbar - Sizing is represented by Section class in Java:
- 
-[Section](https://jdi-docs.github.io/jdi-light/#section)
-
-Inner elements of Navbar - Sizing can be represented by the following classes:
-
-  + [Collapse](https://jdi-docs.github.io/jdi-light/#collapse)     
-  + [Text](https://jdi-docs.github.io/jdi-light/#text)       
+![External_content example](../images/bootstrap/navbar-external.png)
 
 Here is an example with provided Bootstrap v4.3 code:
   
-![Color Nav HTML example](../images/bootstrap/navbar-external-html.png)
+![External_content HTML example](../images/bootstrap/navbar-external-html.png)
+
+Navbar - External content is represented by Section class in Java:
+ 
+[Section](https://jdi-docs.github.io/jdi-light/#section)
+
+Inner elements of Navbar - External content can be represented by the following classes:
+
+  + [Collapse](https://jdi-docs.github.io/jdi-light/#collapse)   
+    
+  + [Text](https://jdi-docs.github.io/jdi-light/#text)       
+
+Available methods in Java JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+**expand()** | Expands element  | void
+**collapse()** | Collapses element  | void
+**getText()** | Get current value | String 
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navbar/ExternalContentTests.java" target=a_blank> Bootstrap test examples </a>
-<br><br><br>
+<br>
 ###Pagination
 
 Pagination is functionality for navigating through pages.
@@ -8840,6 +8851,65 @@ Inner elements represented by the following classes:
 <br>
 
 ####Sizing
+```java 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@UI("#forms-sizing")  //@FindBy(css = "#forms-sizing")
+public static FormsSizing formsSizing;
+
+@UI("#form-sizing-lg")  //@FindBy(css = "#form-sizing-lg")
+public TextField largeTextField;
+
+@UI("#form-sizing-select-lg")  //@FindBy(css = "#form-sizing-select-lg")
+public DropdownSelect largeSelect;
+
+
+@Test
+public void sendKeysTest() {
+    formsSizing.largeTextField.sendKeys("Test");
+    assertEquals(formsSizing.largeTextField.getText(), text+"Test");
+}
+
+@Test
+public void selectOptionTest() {
+    formsSizing.largeSelect.select("Large select");
+    assertEquals(formsSizing.largeSelect.getValue(), "Large select");
+}
+
+@Test
+public void isValidationTest() {
+    formsSizing.largeTextField.is().enabled().text(is(text));
+    formsSizing.largeSelect.is().displayed().selected("Large select");
+}
+```
 <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.0/components/jumbotron" target="_blank">Set</a> heights using classes like .form-control-lg and .form-control-sm.
 
 ![Forms_sizing](../images/bootstrap/forms-sizing.png)
@@ -8848,15 +8918,23 @@ Here is an example with provided Bootstrap v4.3 code:
 
 ![Forms_sizing_example](../images/bootstrap/forms-sizing-html.png)
 
-Forms - Sizing is represented by Section class in Java:
- 
-  [Section](https://jdi-docs.github.io/jdi-light/#section)
+Forms - Sizing is represented by [Section](https://jdi-docs.github.io/jdi-light/#section) class in Java:
 
 Inner elements of Forms - Sizing are represented by the following classes:
 
 + [TextField](https://jdi-docs.github.io/jdi-light/#textfield)
 
-+ [DataList](https://jdi-docs.github.io/jdi-light/#datalist)
++ [DropdownSelect](https://jdi-docs.github.io/jdi-light/)
+
+|Method / Property | Description | Return Type
+--- | --- | ---
+**SendKeys(string value)** | adds text to the field | void
+**SetText(String value)** | sets new text | void
+**GetText()** | returns text from the text field  | String
+**GetValue()** | returns text from the text field| String
+**select(string/int)** | Select data by value/index| void
+**Is** | Assert action | TextAssert
+**AssertThat** | Assert action | TextAssert
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/forms/FormsSizingTests.java)
 

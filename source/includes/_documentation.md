@@ -8839,6 +8839,27 @@ Inner elements represented by the following classes:
 
 <br>
 
+####Sizing
+<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.0/components/jumbotron" target="_blank">Set</a> heights using classes like .form-control-lg and .form-control-sm.
+
+![Forms_sizing](../images/bootstrap/forms-sizing.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Forms_sizing_example](../images/bootstrap/forms-sizing-html.png)
+
+Forms - Sizing is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)
+
+Inner elements of Forms - Sizing are represented by the following classes:
+
++ [TextField](https://jdi-docs.github.io/jdi-light/#textfield)
+
++ [DataList](https://jdi-docs.github.io/jdi-light/#datalist)
+
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/forms/FormsSizingTests.java)
+
 ### Scrollspy
 **[Scrollspy](https://getbootstrap.com/docs/4.3/components/scrollspy/#example-in-navbar)** – automatically update Bootstrap navigation or list group components based on scroll position to indicate which link is currently active in the viewport.
 <br><br>

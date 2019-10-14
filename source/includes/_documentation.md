@@ -9106,9 +9106,101 @@ In these java test cases examples next classes have been used:
 <br><br>
 
 ### Modal
-**Modal** – is a dialog box/popup window that is displayed on page.
+**Modal** is a dialog box/popup window that is displayed on page.
 
-Here are examples of the modals with provided Bootstrap v4.3 code:
+#### Vertically Centered Modal
+
+Add ``.modal-dialog-centered`` to ``.modal-dialog`` to <a style="font-weight: bold;" href="https://getbootstrap.com/docs/4.3/components/modal/#vertically-centered" target="_blank">vertically center</a> the modal.
+
+![Modal Vertically Centered](../images/bootstrap/modal-vertically-centered.png)
+
+```java 
+
+// @FindBy(id = "modal-vertically-centered")
+@UI("#modal-vertically-centered")
+public static ModalVerticallyCentered modalVerticallyCentered;
+
+// @FindBy(css = ".button:nth-of-type(1)")
+@UI("button:nth-of-type(1)")
+public Button modalCenterTrigger;
+
+// @FindBy(css = ".button:nth-of-type(2)")
+@UI("button:nth-of-type(2)")
+public Button modalCenterScrollableTrigger;
+
+// @FindBy(id = "modal-vertical-content-1")
+@UI("#modal-vertical-content-1")
+public Modal modal1;
+
+// @FindBy(id = "modal-vertical-content-2")
+@UI("#modal-vertical-content-2")
+public Modal modal2;
+
+// @FindBy(id = "//*[@id='modal-vertical-content-1']//button[contains(., 'Close')]")
+@UI("//*[@id='modal-vertical-content-1']//button[contains(., 'Close')]")
+public Button dismissModal1Close;
+
+// @FindBy(id = "//*[@id='modal-vertical-content-2']//button[contains(., 'Close')]")
+@UI("//*[@id='modal-vertical-content-2']//button[contains(., 'Close')]")
+public Button dismissModal2Close;
+
+@DataProvider
+public Object[][] modalBasicData() {
+    return new Object[][]{
+            {
+                    modalVerticallyCentered.modalCenterTrigger,
+                    modalVerticallyCentered.dismissModal1Close,
+                    modalVerticallyCentered.modal1,
+                    "modal-vertical-content-1"
+            },
+
+            {
+                    modalVerticallyCentered.modalCenterScrollableTrigger,
+                    modalVerticallyCentered.dismissModal2Close,
+                    modalVerticallyCentered.modal2,
+                    "modal-vertical-content-2"
+            }
+    };
+}
+
+@Test(dataProvider = "modalBasicData")
+public void modalBasicFunctionalityTest(Button showButton,
+                                        Button dismissButton,
+                                        Modal modal,
+                                        String modalId) {
+    WebDriverWait wait = new WebDriverWait(WebDriverFactory.getDriver(), 5);
+
+    showButton.show();
+    showButton.click();
+
+    wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(modalId)));
+
+    modal.is().displayed();
+
+    dismissButton.show();
+    dismissButton.click();
+
+    modal.is().hidden();
+}
+```
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Modal Vertically Centered HTML](../images/bootstrap/modal-vertically-centered-html.png)
+
+Modal is represented by Section class in Java:
+ 
++ [Section](https://jdi-docs.github.io/jdi-light/#section)
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**is()** | Asserts element  | UIAssert
+**displayed()** | Asserts element is displayed  | UIAssert
+**hidden()** | Asserts element is hidden | UIAssert 
+
+<a href="javascript: void();" target="_blank">Bootstrap Test Examples</a>
 
 *Example:* Simple Modal with elements
 

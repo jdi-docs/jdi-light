@@ -6672,6 +6672,16 @@ public void getButtonTextCardWithGridMarkup22Test() {
  
  Here is an example with provided Bootstrap v4.3 code:
  
+ ```java 
+@Test(dataProvider = "cardUtilitiesElementsWithWidth")
+    public void cardValidationTest(CardUtilities cardUtilitiesElem, int widthInPercent, String widthInPixels) {
+        cardUtilitiesElem.core().is()
+                .hasClass(String.format("card w-%d", widthInPercent))
+                .css("width", widthInPixels)
+                .css("background-color", whiteColor);
+    }
+ ```
+ 
  ![Card with Header and Footer Code](../images/bootstrap/card_grid_html.png)
  
 Card is represented by Section class in Java:
@@ -6689,10 +6699,11 @@ Inner elements of card can be represented by the following classes:
    <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/Card/CardWithGridMarkupTests.java" target=a_blank> Bootstrap test examples </a>
  <br>
 
+ <br><br>
  
  **Card utilities**
   
-  Use  handful of available sizing utilities to quickly set a card’s width.
+  Use  handful of available <a href="https://getbootstrap.com/docs/4.3/components/card/#using-utilities">sizing utilities</a> to quickly set a card’s width.
   
   ![Card utilities Example](../images/bootstrap/card_utilities.png)
   
@@ -6718,7 +6729,10 @@ Available methods and properties in C# JDI Light:
  |  | 
  |  |
  |  |
- <br>
+ 
+ <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardUtilitiesTests.java"> Bootstrap test examples </a>
+ 
+ <br><br>
  
  **Card custom CSS**
    

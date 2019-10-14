@@ -8839,6 +8839,135 @@ Inner elements represented by the following classes:
 
 <br>
 
+
+**[Form browser defaults](https://getbootstrap.com/docs/4.3/components/forms/#browser-defaults)**
+
+![Form browser defaults Example](../images/bootstrap/form-browser-defaults.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java 
+
+```
+
+<br>
+
+![Form browser defaults Example](../images/bootstrap/form-browser-defaults-html1.png)
+![Form browser defaults Example](../images/bootstrap/form-browser-defaults-html2.png)
+
+
+<br>
+
+|Method | Description | Return Type
+--- | --- | ---
+**click()** | Click the button | void
+**getText()** | Get button text | String
+**getValue()** | Get button value | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**displayed()** | Check that element is displayed | TextAssert
+**enabled()** | Check that element is enabled | TextAssert
+**assertThat()** | Assert action | TextAssert
+<br>
+
+Form group is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+
+Inner elements represented by the following classes:
+<ul>
+    <li> [TextField](https://jdi-docs.github.io/jdi-light/#text) </li>
+    <li> [Text](https://jdi-docs.github.io/jdi-light/#text) </li>
+</ul>
+
+<br>
+
+
+**[Form server side](https://getbootstrap.com/docs/4.3/components/forms/#server-side)**
+
+![Form server side Example](../images/bootstrap/form-server-side.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java 
+
+```
+
+<br>
+
+![Form server side Example](../images/bootstrap/form-server-side-html1.png)
+![Form server side Example](../images/bootstrap/form-server-side-html2.png)
+![Form server side Example](../images/bootstrap/form-server-side-html3.png)
+
+
+<br>
+
+|Method | Description | Return Type
+--- | --- | ---
+**click()** | Click the button | void
+**getText()** | Get button text | String
+**getValue()** | Get button value | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**displayed()** | Check that element is displayed | TextAssert
+**enabled()** | Check that element is enabled | TextAssert
+**assertThat()** | Assert action | TextAssert
+<br>
+
+Form group is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+
+Inner elements represented by the following classes:
+<ul>
+    <li> [TextField](https://jdi-docs.github.io/jdi-light/#text) </li>
+    <li> [Text](https://jdi-docs.github.io/jdi-light/#text) </li>
+</ul>
+
+<br>
+
+**[Form tooltips](https://getbootstrap.com/docs/4.3/components/forms/#tooltips)**
+
+![Form tooltips Example](../images/bootstrap/form-tooltip.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java 
+
+```
+
+<br>
+
+![Form tooltips Example](../images/bootstrap/form-tooltip-html1-1.png)
+![Form tooltips Example](../images/bootstrap/form-tooltip-html1-2.png)
+
+
+<br>
+
+|Method | Description | Return Type
+--- | --- | ---
+**click()** | Click the button | void
+**getText()** | Get button text | String
+**getValue()** | Get button value | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**displayed()** | Check that element is displayed | TextAssert
+**enabled()** | Check that element is enabled | TextAssert
+**assertThat()** | Assert action | TextAssert
+<br>
+
+Form group is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+
+Inner elements represented by the following classes:
+<ul>
+    <li> [TextField](https://jdi-docs.github.io/jdi-light/#text) </li>
+    <li> [Text](https://jdi-docs.github.io/jdi-light/#text) </li>
+</ul>
+
+<br>
+
 ####Sizing
 <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.0/components/jumbotron" target="_blank">Set</a> heights using classes like .form-control-lg and .form-control-sm.
 

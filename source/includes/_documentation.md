@@ -5466,6 +5466,8 @@ Available methods in Java JDI Light:
 
 <br><br> 
 
+<a  href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navbar/NavbarTextTests.java" target="_blank">Navbar-text test example</a>
+
 Available methods and properties in C# JDI Light:
 
 |Method/Property | Description | Return Type

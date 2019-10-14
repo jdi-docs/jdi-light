@@ -5694,35 +5694,14 @@ Here is an example with provided Bootstrap v4.3 code:
 <br>
 
 ####External content
+
+<a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/navbar/#external-content">Plugin</a> to trigger hidden content elsewhere on the page.
+
+![External_content example](../images/bootstrap/navbar-external.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
 ```java 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @UI("#navbar-external-content") //FindBy(css = "#navbar-external-content")
 public static NavbarExternalContent navbarExternalContent;
 
@@ -5746,13 +5725,8 @@ public void getTextTest() {
             .text(mutedText);
     navbarExternalContent.toggler.collapse();
 }
+
 ```
-<a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/navbar/#external-content">Plugin</a> to trigger hidden content elsewhere on the page.
-
-![External_content example](../images/bootstrap/navbar-external.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-  
 ![External_content HTML example](../images/bootstrap/navbar-external-html.png)
 
 Navbar - External content is represented by Section class in Java:
@@ -8866,37 +8840,13 @@ Inner elements represented by the following classes:
 <br>
 
 ####Sizing
+<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.0/components/jumbotron" target="_blank">Set</a> heights using classes like .form-control-lg and .form-control-sm.
+
+![Forms_sizing](../images/bootstrap/forms-sizing.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
 ```java 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @UI("#forms-sizing")  //@FindBy(css = "#forms-sizing")
 public static FormsSizing formsSizing;
 
@@ -8924,12 +8874,8 @@ public void isValidationTest() {
     formsSizing.largeTextField.is().enabled().text(is(text));
     formsSizing.largeSelect.is().displayed().selected("Large select");
 }
+
 ```
-<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.0/components/jumbotron" target="_blank">Set</a> heights using classes like .form-control-lg and .form-control-sm.
-
-![Forms_sizing](../images/bootstrap/forms-sizing.png)
-
-Here is an example with provided Bootstrap v4.3 code:
 
 ![Forms_sizing_example](../images/bootstrap/forms-sizing-html.png)
 

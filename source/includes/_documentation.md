@@ -5151,7 +5151,7 @@ Available methods in Java JDI Light:
 **setValue()** | Set a value for input group  | void 
 **getValue()** | Get value from input group  | String 
 
-<a href="javascript: void();">Bootstrap Test Examples</a> 
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navbar/NavbarSupportedContentTests.java" target="_blank">Bootstrap Test Examples</a> 
 <br><br>
 
 ####Brand

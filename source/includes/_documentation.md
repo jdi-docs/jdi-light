@@ -6677,7 +6677,8 @@ Inner elements of card can be represented by the following classes:
   public static CardUtilities cardWidth75;
 
   @Test(dataProvider = "cardUtilitiesElementsWithWidth")
-      public void cardValidationTest(CardUtilities cardUtilitiesElem, int widthInPercent, String widthInPixels) {
+      public void cardValidationTest(CardUtilities cardUtilitiesElem, 
+int widthInPercent, String widthInPixels) {
           cardUtilitiesElem.core().is()
                   .hasClass(String.format("card w-%d", widthInPercent))
                   .css("width", widthInPixels)

@@ -6696,6 +6696,10 @@ Inner elements of card can be represented by the following classes:
   Here is an example with provided Bootstrap v4.3 code:
   
    ```java 
+    //@FindBy(className = ".w-75")
+      @UI(".w-75")  
+      public static CardUtilities cardWidth75;
+
   @Test(dataProvider = "cardUtilitiesElementsWithWidth")
       public void cardValidationTest(CardUtilities cardUtilitiesElem, int widthInPercent, String widthInPixels) {
           cardUtilitiesElem.core().is()

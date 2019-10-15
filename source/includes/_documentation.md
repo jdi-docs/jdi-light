@@ -9202,6 +9202,64 @@ Inner elements of Forms - Sizing are represented by the following classes:
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/forms/FormsSizingTests.java)
 
+<br><br>
+**Readonly plain text**
+
+If you want to have input readonly elements in your form styled as 
+<a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/forms/#readonly-plain-text">plain text</a>,
+ use the <b>.form-control-plaintext</b> class to remove the default form field styling and preserve the correct margin and padding.
+Compare items with plaintext mark (upper) and without it (lower):
+
+![Forms_readonly_plain_text_example](../images/bootstrap/readonly_plain_text.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java 
+//@FindBy(css = "#readonlyPlainText1")
+@UI("#readonlyPlainText1")
+public static ReadonlyPlainText readonlyPlainText1;
+
+@Test
+public void isValidationTest() {
+    readonlyPlainText1.hasClass("form-control-plaintext");
+    readonlyPlainText1.attr("readonly");
+    assertEquals(readonlyPlainText1.attr("type"), "text");
+
+@Test
+public void getTextTest() {
+    assertEquals(readonlyPlainText1.getText(), "email@example.com");
+}
+
+@Test
+public void getValueTest() {
+    assertEquals(readonlyPlainText1.getValue(), "email@example.com");
+}
+
+@Test
+public void labelTest() {
+    assertEquals(readonlyPlainText1.labelText(), "Email");
+    readonlyPlainText1.label().is().text(containsString("Email"));
+}
+```
+![Forms_readonly_plain_text_HTML_example](../images/bootstrap/readonly_plain_text_DOM.png)
+
+
+Available methods in Java JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+**is()** | Various assert actions for Progress | ProgressAssert 
+**assertThat()** | Assert action | TextAssert
+**getValue()** | Get item value | String
+**hasClass()** | Match passed value with element class | ICoreElement
+**attr()** | Match passed value with element attribute | ICoreElement
+**label()** | Get label associated with an item | Label
+**labelText** | Get text of a label associated with an item | String
+
+<a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/mposite.section.form.ReadonlyPlainTextTests.java" target=a_blank> Bootstrap test examples </a>
+
+<br><br>
+
 ### Scrollspy
 **[Scrollspy](https://getbootstrap.com/docs/4.3/components/scrollspy/#example-in-navbar)** – automatically update Bootstrap navigation or list group components based on scroll position to indicate which link is currently active in the viewport.
 <br><br>

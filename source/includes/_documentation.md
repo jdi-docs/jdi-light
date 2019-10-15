@@ -1,4 +1,4 @@
-# Documentation
+# Documentation.
 ## Extended Selenium features
 TBD
 

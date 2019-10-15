@@ -5079,30 +5079,6 @@ private static final String dropdownAnotherAction = "Another action";
 private static final String dropdownSmthElse = "Something else here";
 private static final String disabledLinkText = "Disabled link";
 
-
-
-@DataProvider
-public Object[][] collapseLinkTextData() {
-    return new Object[][] {
-            {activeLinkText},
-            {jdiLinkText},
-            {dropdownLinkText},
-            {dropdownAction},
-            {dropdownAnotherAction},
-            {dropdownSmthElse},
-            {disabledLinkText}
-    };
-}
-
-@DataProvider
-public Object[][] navbarLinkData() {
-    return new Object[][]{
-            {activeLinkText, activeLinkText, bootstrapNavPageUrl},
-            {jdiLinkText, jdiLinkText, jdiPageUrl},
-            {disabledLinkText, disabledLinkText, jdiBootstrapPageUrl}
-    };
-}
-
 @Test(dataProvider = "navbarLinkData")
 public void navLinkContentsTest(String elementName,
                                 String elementText,

@@ -5058,33 +5058,19 @@ that automatically collapses at the lg (large) breakpoint.
 ```java 
 // @FindBy(id = "navbar-supported-content")
 @UI("#navbar-supported-content")
-public static NavbarSupportedContent navbarSupportedContent;
-
-// @FindBy(css = ".navbar-brand")
-@UI(".navbar-brand")
-public Link brand;
+public static NavbarSupportedContent navbarSupportedContent
 
 // @FindBy(tagName = "button[data-toggle=collapse]")
 @UI("button[data-toggle=collapse]")
 public Button navExpand;
 
-// @FindBy(tagName = "input")
-@UI("input")
-public TextField searchField;
-
-// @FindBy(css = ".btn-outline-success")
-@UI(".btn-outline-success")
-public Button searchButton;
-
 @JDropdown(root = ".navbar-nav",
         list = "a")
 public Collapse nav;
 
-@JDropdown(root = ".dropdown",
-        expand = "#navbarDropdown",
-        list = "a")
-public Collapse dropdown;
-
+private static final String bootstrapNavPageUrl = "https://getbootstrap.com/docs/4.3/components/navbar/#nav";
+private static final String jdiPageUrl = "https://github.com/jdi-testing/jdi-light/";
+private static final String jdiBootstrapPageUrl = "https://jdi-testing.github.io/jdi-light/bootstrap.html#";
 private static final String activeLinkText = "Active link";
 private static final String jdiLinkText = "JDI Light";
 private static final String dropdownLinkText = "Dropdown";
@@ -5092,6 +5078,8 @@ private static final String dropdownAction = "Action";
 private static final String dropdownAnotherAction = "Another action";
 private static final String dropdownSmthElse = "Something else here";
 private static final String disabledLinkText = "Disabled link";
+
+
 
 @DataProvider
 public Object[][] collapseLinkTextData() {
@@ -5104,6 +5092,27 @@ public Object[][] collapseLinkTextData() {
             {dropdownSmthElse},
             {disabledLinkText}
     };
+}
+
+@DataProvider
+public Object[][] navbarLinkData() {
+    return new Object[][]{
+            {activeLinkText, activeLinkText, bootstrapNavPageUrl},
+            {jdiLinkText, jdiLinkText, jdiPageUrl},
+            {disabledLinkText, disabledLinkText, jdiBootstrapPageUrl}
+    };
+}
+
+@Test(dataProvider = "navbarLinkData")
+public void navLinkContentsTest(String elementName,
+                                String elementText,
+                                String elementUrl) {
+    navbarSupportedContent.nav.show();
+    navbarSupportedContent.nav.list().get(elementName)
+            .is()
+            .text(elementText)
+            .and()
+            .attr("href", elementUrl);
 }
 
 @Test(dataProvider = "collapseLinkTextData")

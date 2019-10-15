@@ -3982,7 +3982,7 @@ public void radioButtonTests() {
 
 <br>
 
-[Java test examples]()
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/CheckboxesAndRadiosWithoutLabelsTests.java)
 <br>
 
 Button group is represented by Section class in Java:
@@ -4136,7 +4136,7 @@ public void radioOneIsValidationTests() {
 
 <br>
 
-[Java test examples]()
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/RadioButtonCustomTests.java)
 <br>
 
 Button group is represented by Section class in Java:
@@ -4214,7 +4214,7 @@ public void radioOneIsValidationTests() {
 
 <br>
 
-[Java test examples]()
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/RadioButtonsCustomInlineTests.java)
 <br>
 
 Button group is represented by Section class in Java:
@@ -4289,7 +4289,7 @@ public void baseInitTest() {
 
 <br>
 
-[Java test examples]()
+[Java test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/CheckboxAndRadioButtonCustomDisabledTests.java)
 <br>
 
 Button group is represented by Section class in Java:
@@ -4373,7 +4373,7 @@ public void clickableTests() {
 
 <br>
 
-[Java test examples]()
+[Java test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/SwitchesTests.java)
 <br>
 
 Button group is represented by Section class in Java:
@@ -8750,12 +8750,18 @@ Here is an example with provided Bootstrap v4.3 code:
 @UI("#validation-submit-form") public static FormCustomStyles formCustomStyles;
 
 public class FormCustomStyles extends Form<FormContacts> {
-    @UI("#validationCustom01") public TextField name; // @FindBy(css = "#validationCustom01") public TextField name;
-    @UI("#validationCustom02") public TextField lastName; // @FindBy(css = "#validationCustom02") public TextField lastName;
-    @UI("#validationCustomUsername") public TextField userName; // @FindBy(css = "#validationCustomUsername") public TextField userName;
-    @UI("#validationCustom03") public TextField city; // @FindBy(css = "#validationCustom03") public TextField city;
-    @UI("#validationCustom04") public TextField state; // @FindBy(css = "#validationCustom04") public TextField state;
-    @UI("#validationCustom05") public TextField zip; // @FindBy(css = "#validationCustom05") public TextField zip;
+    // @FindBy(css = "#validationCustom01") public TextField name;
+    // @FindBy(css = "#validationCustom02") public TextField lastName;
+    // @FindBy(css = "#validationCustomUsername") public TextField userName;
+    // @FindBy(css = "#validationCustom03") public TextField city;
+    // @FindBy(css = "#validationCustom04") public TextField state;
+    // @FindBy(css = "#validationCustom05") public TextField zip;
+    @UI("#validationCustom01") public TextField name;
+    @UI("#validationCustom02") public TextField lastName;
+    @UI("#validationCustomUsername") public TextField userName;
+    @UI("#validationCustom03") public TextField city;
+    @UI("#validationCustom04") public TextField state;
+    @UI("#validationCustom05") public TextField zip;
 
     @UI("#invalidCheck") public Checkbox accept; // @FindBy(css = "#invalidCheck") public Checkbox accept;
 
@@ -8828,6 +8834,11 @@ public void submitEntityToContactFormTest() {
 **assertThat()** | Assert action | TextAssert
 <br>
 
+
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/FormCustomStyleTests.java)
+
+<br>
+
 Form group is represented by Section class in Java:
  
   [Section](https://jdi-docs.github.io/jdi-light/#section)  
@@ -8839,7 +8850,7 @@ Inner elements represented by the following classes:
 </ul>
 
 <br>
-
+<br>
 
 **[Form browser defaults](https://getbootstrap.com/docs/4.3/components/forms/#browser-defaults)**
 
@@ -8848,7 +8859,62 @@ Inner elements represented by the following classes:
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
+// @FindBy(css = "#form-browser-defaults") public static FormBrowserDefaults formBrowserDefaults;
+@UI("#form-browser-defaults") public static FormBrowserDefaults formBrowserDefaults;
 
+public class FormBrowserDefaults extends Form<FormContacts> {
+// @FindBy(css = "#validationDefault01") public TextField name;
+// @FindBy(css = "#validationDefault02") public TextField lastName;
+// @FindBy(css = "#validationDefaultUsername") public TextField userName;
+// @FindBy(css = "#validationDefault03") public TextField city;
+// @FindBy(css = "#validationDefault04") public TextField state;
+// @FindBy(css = "#validationDefault05") public TextField zip;
+// @FindBy(css = "#invalidCheck2") public Checkbox accept;
+// @FindBy(css = "button") public Button submit;
+    @UI("#validationDefault01") public TextField name;
+    @UI("#validationDefault02") public TextField lastName;
+    @UI("#validationDefaultUsername") public TextField userName;
+    @UI("#validationDefault03") public TextField city;
+    @UI("#validationDefault04") public TextField state;
+    @UI("#validationDefault05") public TextField zip;
+    @UI("#invalidCheck2") public Checkbox accept;
+    @UI("button") public Button submit;
+}
+
+@Test
+public void checkboxTests() {
+    formBrowserDefaults.accept.check();
+    formBrowserDefaults.accept.is().selected();
+    formBrowserDefaults.accept.uncheck();
+    formBrowserDefaults.accept.is().deselected();
+}
+
+@Test
+public void fillTest() {
+    formBrowserDefaults.fill(DEFAULT_CONTACT);
+    formBrowserDefaults.check(DEFAULT_CONTACT);
+    checkContactFormSubmitted();
+}
+
+@Test(dataProvider = "listData")
+public void isValidationTests(TextField element, String label, String value) {
+    element
+            .is()
+            .displayed()
+            .enabled()
+            .core()
+            .value(value)
+            .hasClass("form-control")
+            .attr("type", "text")
+            .attr("placeholder", label)
+            .tag(is("input"));
+    element.label()
+            .is()
+            .displayed()
+            .enabled()
+            .core()
+            .text(is(label));
+}
 ```
 
 <br>
@@ -8891,7 +8957,62 @@ Inner elements represented by the following classes:
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
+// @FindBy(css = "#form-server-side") public static FormServerSide formServerSide;
+@UI("#form-server-side") public static FormServerSide formServerSide;
 
+public class FormServerSide extends Form<FormContacts> {
+    // @FindBy(css = "#validationServer01") public TextField name;
+    // @FindBy(css = "#validationServer02") public TextField lastName
+    // @FindBy(css = "#validationServerUsername") public TextField userName;
+    // @FindBy(css = "#validationServer03") public TextField city;
+    // @FindBy(css = "#validationServer04") public TextField state;
+    // @FindBy(css = "#validationServer05") public TextField zip;
+    // @FindBy(css = "#invalidCheck3") public Checkbox accept;
+    // @FindBy(css = "button") public Button submit;
+    @UI("#validationServer01") public TextField name;
+    @UI("#validationServer02") public TextField lastName;
+    @UI("#validationServerUsername") public TextField userName;
+    @UI("#validationServer03") public TextField city;
+    @UI("#validationServer04") public TextField state;
+    @UI("#validationServer05") public TextField zip;
+    @UI("#invalidCheck3") public Checkbox accept;
+    @UI("button") public Button submit;
+}
+
+@Test(dataProvider = "listData")
+public void isValidationTests(TextField element, String label, String value) {
+    element
+            .is()
+            .displayed()
+            .enabled()
+            .core()
+            .value(value)
+            .hasClass("form-control")
+            .attr("type", "text")
+            .attr("placeholder", label)
+            .tag(is("input"));
+    element.label()
+            .is()
+            .displayed()
+            .enabled()
+            .core()
+            .text(is(label));
+}
+
+@Test
+public void checkboxTests() {
+    formServerSide.accept.check();
+    formServerSide.accept.is().selected();
+    formServerSide.accept.uncheck();
+    formServerSide.accept.is().deselected();
+}
+
+@Test
+public void fillTest() {
+    formServerSide.fill(DEFAULT_CONTACT);
+    formServerSide.check(DEFAULT_CONTACT);
+    checkContactFormSubmitted();
+}
 ```
 
 <br>
@@ -8934,7 +9055,59 @@ Inner elements represented by the following classes:
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
+// @FindBy(css = "#form-tooltip") public static FormTooptip formTooptip;
+@UI("#form-tooltip") public static FormTooptip formTooptip;
 
+public class FormTooptip extends Form<FormContacts> {
+    // @FindBy(css = "#validationTooltip01") public TextField name;
+    // @FindBy(css = "#validationTooltip02") public TextField lastName;
+    // @FindBy(css = "#validationTooltipUsername") public TextField userName;
+    // @FindBy(css = "#validationTooltip03") public TextField city;
+    // @FindBy(css = "#validationTooltip04") public TextField state;
+    // @FindBy(css = "#validationTooltip05") public TextField zip;
+    // @FindBy(css = "button") public Button submit;
+    @UI("#validationTooltip01") public TextField name;
+    @UI("#validationTooltip02") public TextField lastName;
+    @UI("#validationTooltipUsername") public TextField userName;
+    @UI("#validationTooltip03") public TextField city;
+    @UI("#validationTooltip04") public TextField state;
+    @UI("#validationTooltip05") public TextField zip;
+    @UI("button") public Button submit;
+}
+
+@Test(dataProvider = "listData")
+public void isValidationTests(TextField element, String label, String value) {
+    element
+            .is()
+            .displayed()
+            .enabled()
+            .core()
+            .value(value)
+            .hasClass("form-control")
+            .attr("type", "text")
+            .attr("placeholder", label)
+            .tag(is("input"));
+    element.label()
+            .is()
+            .displayed()
+            .enabled()
+            .core()
+            .text(is(label));
+}
+
+@Test
+public void fillTest() {
+    formTooptip.fill(DEFAULT_CONTACT);
+    formTooptip.check(DEFAULT_CONTACT);
+    checkContactFormSubmitted();
+}
+
+@Test
+public void sendMethodTest() {
+    formTooptip.fill(DEFAULT_CONTACT);
+    formTooptip.send();
+    formTooptip.check(DEFAULT_CHECK);
+}
 ```
 
 <br>

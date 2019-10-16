@@ -9576,6 +9576,12 @@ Available methods and properties in C# JDI Light:
 
 **Modal using grid**
 
+<a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/modal/#using-the-grid">Modal using grid</a>
+
+![Modal using grid example](../images/bootstrap/modal-grid.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
 ```java 
 public class GridModalBody extends Section {
 //FindBy(css = ".row")
@@ -9632,12 +9638,6 @@ public void checkCloseByEscapeButton() {
      gridModalSection.getGridModalWindow().is().disappear();
     }
 ```
-
-<a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/modal/#using-the-grid">Modal using grid</a>
-
-![Modal using grid example](../images/bootstrap/modal-grid.png)
-
-Here is an example with provided Bootstrap v4.3 code:
 
 ![Modal using grid HTML example](../images/bootstrap/modal-grid-html.png)
 

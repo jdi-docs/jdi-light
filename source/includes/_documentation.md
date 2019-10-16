@@ -8841,6 +8841,10 @@ public TextField largeTextField;
 @UI("#form-sizing-select-lg")  //@FindBy(css = "#form-sizing-select-lg")
 public DropdownSelect largeSelect;
 
+private String text = "TextField";
+private String placeholderLarge = ".form-control-lg";
+private String placeholderDefault = "Default input";
+private String placeholderSmall = ".form-control-sm";
 
 @Test
 public void sendKeysTest() {
@@ -8856,8 +8860,15 @@ public void selectOptionTest() {
 
 @Test
 public void isValidationTest() {
-    formsSizing.largeTextField.is().enabled().text(is(text));
-    formsSizing.largeSelect.is().displayed().selected("Large select");
+    formsSizing.largeTextField.is()
+                    .enabled()
+                    .text(is(text));
+    formsSizing.largeSelect.is()
+                    .displayed()
+                    .selected("Large option");
+    formsSizing.largeTextField.is()
+                    .enabled()
+                    .placeholder(placeholderLarge);
 }
 
 ```
@@ -8870,7 +8881,7 @@ Inner elements of Forms - Sizing are represented by the following classes:
 
 + [TextField](https://jdi-docs.github.io/jdi-light/#textfield)
 
-+ [DropdownSelect](https://jdi-docs.github.io/jdi-light/)
++ DropdownSelect    TBD 
 
 |Method / Property | Description | Return Type
 --- | --- | ---

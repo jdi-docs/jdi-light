@@ -9640,11 +9640,11 @@ public JList<GridRow> getAllRows() {
 }
 
 public GridRow getGridRow(int rowN) {
-        return allGridRows.get(rowN);
+   return allGridRows.get(rowN);
 }
 
 public GridCell getCellInRow(int rowN, int cellN) {
-        return getGridRow(rowN).getCell(cellN);
+    return getGridRow(rowN).getCell(cellN);
 }
 
 public String getTextFromCellInRow(int rowN, int cellN) {
@@ -9655,26 +9655,26 @@ public String getTextFromCellInRow(int rowN, int cellN) {
 @Test(dataProvider = "gridData")
 public void checkTextInCell(int rowN, int cellN, String textExpected, String max_width) {
 GridCell cell = gridModalSection.getGridModalWindow().getBody()
-        .getCellInRow(rowN, cellN);
-        cell.highlight("blue");
-        cell.is().core()
-                 .text(textExpected)
-                 .and()
-                 .css("max-width", startsWith(max_width));
-        cell.unhighlight();
+    .getCellInRow(rowN, cellN);
+    cell.highlight("blue");
+    cell.is().core()
+             .text(textExpected)
+             .and()
+             .css("max-width", startsWith(max_width));
+    cell.unhighlight();
     }
 
 @Test
 public void checkCloseXModalButton() {
-        gridModalSection.getGridModalWindow().getBtnCloseX().highlight("red");
-        gridModalSection.getGridModalWindow().clickBtnCloseX();
-        gridModalSection.getGridModalWindow().is().disappear();
+     gridModalSection.getGridModalWindow().getBtnCloseX().highlight("red");
+     gridModalSection.getGridModalWindow().clickBtnCloseX();
+     gridModalSection.getGridModalWindow().is().disappear();
     }
 
-    @Test
-    public void checkCloseByEscapeButton() {
-        gridModalSection.getGridModalWindow().core().sendKeys(Keys.ESCAPE);
-        gridModalSection.getGridModalWindow().is().disappear();
+@Test
+public void checkCloseByEscapeButton() {
+     gridModalSection.getGridModalWindow().core().sendKeys(Keys.ESCAPE);
+     gridModalSection.getGridModalWindow().is().disappear();
     }
 ```
 

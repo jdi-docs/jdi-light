@@ -9221,9 +9221,9 @@ public static ReadonlyPlainText readonlyPlainText1;
 
 @Test
 public void isValidationTest() {
-    readonlyPlainText1.hasClass("form-control-plaintext");
-    readonlyPlainText1.attr("readonly");
-    assertEquals(readonlyPlainText1.attr("type"), "text");
+    readonlyPlainText1.is().core().hasClass("form-control-plaintext");
+    readonlyPlainText1.hasAttribute("readonly");
+    readonlyPlainText1.is().core().attr("type", "text");
 
 @Test
 public void getTextTest() {
@@ -9231,14 +9231,18 @@ public void getTextTest() {
 }
 
 @Test
-public void getValueTest() {
-    assertEquals(readonlyPlainText1.getValue(), "email@example.com");
+public void textValidationTest() {
+    readonlyPlainText1.is().text("email@example.com");
+}
+
+@Test
+public void valueValidationTest() {
+    readonlyPlainText1.is().value("email@example.com");
 }
 
 @Test
 public void labelTest() {
-    assertEquals(readonlyPlainText1.labelText(), "Email");
-    readonlyPlainText1.label().is().text(containsString("Email"));
+    readonlyPlainText1.label().is().text("Email");
 }
 ```
 ![Forms_readonly_plain_text_HTML_example](../images/bootstrap/readonly_plain_text_DOM.png)
@@ -9254,7 +9258,7 @@ Available methods in Java JDI Light:
 **hasClass()** | Match passed value with element class | ICoreElement
 **attr()** | Match passed value with element attribute | ICoreElement
 **label()** | Get label associated with an item | Label
-**labelText** | Get text of a label associated with an item | String
+**labelText()** | Get text of a label associated with an item | String
 
 <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/mposite.section.form.ReadonlyPlainTextTests.java" target=a_blank> Bootstrap test examples </a>
 

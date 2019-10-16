@@ -327,6 +327,7 @@ Available assert methods in C# JDI Light:
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#checkbox-2)
 
 ### ColorPicker
+
 ```java 
 @UI("#color-picker") // @FindBy(id = "color-picker")
 public static ColorPicker colorPicker;
@@ -563,7 +564,7 @@ public void SetMonthTest()
 
 ![InputTypeMonth](../images/html/inputTypeMonth_html.png)
 
-[Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs)
+<a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/DateTimeTests.cs" target="_blank">Test examples in C#</a>
 
 [Test examples in Java](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/MonthTests.java)
 

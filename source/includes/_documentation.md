@@ -9653,9 +9653,9 @@ public String getTextFromCellInRow(int rowN, int cellN) {
 }
 
 @Test(dataProvider = "gridData")
-    public void checkTextInCell(int rowN, int cellN, String textExpected, String max_width) {
-        GridCell cell = gridModalSection.getGridModalWindow().getBody()
-                .getCellInRow(rowN, cellN);
+public void checkTextInCell(int rowN, int cellN, String textExpected, String max_width) {
+GridCell cell = gridModalSection.getGridModalWindow().getBody()
+        .getCellInRow(rowN, cellN);
         cell.highlight("blue");
         cell.is().core().text(textExpected)
                 .and()
@@ -9663,8 +9663,8 @@ public String getTextFromCellInRow(int rowN, int cellN) {
         cell.unhighlight();
     }
 
-    @Test
-    public void checkCloseXModalButton() {
+@Test
+public void checkCloseXModalButton() {
         gridModalSection.getGridModalWindow().getBtnCloseX().highlight("red");
         gridModalSection.getGridModalWindow().clickBtnCloseX();
         gridModalSection.getGridModalWindow().is().disappear();

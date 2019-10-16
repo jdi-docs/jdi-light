@@ -9226,18 +9226,8 @@ public void isValidationTest() {
     readonlyPlainText1.is().core().attr("type", "text");
 
 @Test
-public void getTextTest() {
-    assertEquals(readonlyPlainText1.getText(), "email@example.com");
-}
-
-@Test
 public void textValidationTest() {
     readonlyPlainText1.is().text("email@example.com");
-}
-
-@Test
-public void valueValidationTest() {
-    readonlyPlainText1.is().value("email@example.com");
 }
 
 @Test

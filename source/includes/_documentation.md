@@ -9619,6 +9619,86 @@ Available methods and properties in C# JDI Light:
  |  | 
 <br>
 
+**Modal using grid**
+
+```java 
+public class GridModalBody extends Section {
+//FindBy(css = ".row")
+@UI(".row")
+private JList<GridRow> allGridRows;
+
+//FindBy(css = '[class*='col']')
+@UI("[class*='col']")
+private JList<GridCell> allGridCells;
+
+public JList<GridCell> getAllCells() {
+   return allGridCells;
+}
+
+public JList<GridRow> getAllRows() {
+   return allGridRows;
+}
+
+public GridRow getGridRow(int rowN) {
+        return allGridRows.get(rowN);
+}
+
+public GridCell getCellInRow(int rowN, int cellN) {
+        return getGridRow(rowN).getCell(cellN);
+}
+
+public String getTextFromCellInRow(int rowN, int cellN) {
+        return getCellInRow(rowN, cellN).getText();
+    }
+}
+
+@Test(dataProvider = "gridData")
+public void checkTextInCell(int rowN, int cellN, String textExpected, String max_width) {
+GridCell cell = gridModalSection.getGridModalWindow().getBody()
+        .getCellInRow(rowN, cellN);
+        cell.highlight("blue");
+        cell.is().core()
+                 .text(textExpected)
+                 .and()
+                 .css("max-width", startsWith(max_width));
+        cell.unhighlight();
+    }
+
+@Test
+public void checkCloseXModalButton() {
+        gridModalSection.getGridModalWindow().getBtnCloseX().highlight("red");
+        gridModalSection.getGridModalWindow().clickBtnCloseX();
+        gridModalSection.getGridModalWindow().is().disappear();
+    }
+
+    @Test
+    public void checkCloseByEscapeButton() {
+        gridModalSection.getGridModalWindow().core().sendKeys(Keys.ESCAPE);
+        gridModalSection.getGridModalWindow().is().disappear();
+    }
+```
+
+<a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/modal/#using-the-grid">Modal using grid</a>
+
+![Modal using grid example](../images/bootstrap/modal-grid.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Modal using grid HTML example](../images/bootstrap/modal-grid-html.png)
+
+Available methods in Java JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+**getCellInRow(int rowN, int cellN)** | Get cellN from rowN | GridCell
+**getGridRow(int rowN)** | Get rowN  | GridRow
+**clickBtnCloseX()** | Close Modal Window  | void
+**clickBtnClose()** | Close Modal Window  | void
+**getTitle()** | Get Modal Window Title | Text 
+
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/modal/GridModalTests.java)
+
+<br><br><br><br><br><br><br>  
 
 ### Popovers
 

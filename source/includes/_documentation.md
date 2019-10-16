@@ -7771,7 +7771,7 @@ Available methods in Java JDI Light:
 **hasClass()** | Match passed value with element class | UISelectAssert
 **attr()** | Match passed value with element attribute | IsAssert
 
-<a href="javascript: void();">Bootstrap Test Examples</a>
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/spinner/SpinnerAlignmentTests.java" target="_blank">Bootstrap Test Examples</a>
 
 ### Spinner Size
 

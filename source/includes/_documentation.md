@@ -6692,11 +6692,10 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  | 
+ css()| Get element's css value | int 
+ hasClass()| Assert class  | String
+ is() |	Assert action |	TextAssert
+ assertThat() |	Assert action |	TextAssert
  
 Available methods and properties in C# JDI Light:
 

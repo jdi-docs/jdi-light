@@ -5234,44 +5234,36 @@ public class Navbar extends Section {
     @UI("//*[contains(@class, 'nav-item')]") public WebList navbarLinks;
     //FindBy(css = ".navbar-brand")
     @UI(".navbar-brand") public Link navbarBrand;
-    //FindBy(css = "button.navbar-toggler")
-    @UI("button.navbar-toggler") public Button togglerButton;
-    //FindBy(xpath = "//*[contains(@class, 'nav-link dropdown-toggle')]")
+    @JDropdown(expand = ".navbar-toggler-icon", value = ".navbar-nav", list = "a")
+    public Collapse collapseButton;    //FindBy(xpath = "//*[contains(@class, 'nav-link dropdown-toggle')]")
     @UI("//*[contains(@class, 'nav-link dropdown-toggle')]") public Dropdown navbarDropdown;
 }
 
- @UI("#navbar-nav-with-disabled") public static Navbar navbarNavWithDisabled;
 
- @Test
-    public void isDisabledItem() {
-        navbarNavWithDisabled.navbarLinks.get(3).is().disabled();
-    }
+
+@UI("#navbar-nav-with-disabled") public static Navbar navbarNavWithDisabled;
+
+@Test
+   public void isDisabledItemNavWithDisabled(){
+       navbarNavWithDisabled.navbarLinks.get(4).is().disabled();
+   }
  
  
  
    
 
- @UI("#navbar-nav-with-dropdown") public static Navbar navbarNavWithDropdown;
+@UI("#navbar-nav-with-dropdown") public static Navbar navbarNavWithDropdown;
 
- @Test
-    public void clickNavbarNavWithDropdownLinksTest() throws RuntimeException {
-        for (int i = 1; i < navbarNavWithDropdown.navbarLinks.size(); i++) {
-            navbarNavWithDropdown.navbarLinks.get(i).is().text(containsString(textLinksnavbarNavWithDropdown.get(i)));
-            try {
-                navbarNavWithDropdown.navbarLinks.get(i).click();
-                if (navbarNavWithDropdown.navbarLinks.get(i).getAttribute("class").equals("nav-item dropdown show")) {
-                    break;
-                }
-                assertThat(windowsCount(), is(2));
-                switchToWindow(2);
-                assertThat(getUrl(), is(urlLinksnavbarNavWithDropdown.get(i)));
-                closeWindow();
-            } catch (RuntimeException e) {
-                assertThat(e.getMessage(), containsString("is not clickable in any parts"));
-                break;
-            }
-        }
-    }
+@Test(dataProvider = "linkNavbarWithDropdownTest")
+     public void clickNavbarNavWithDropdownLinksTest(int i, String text, String url) {
+         UIElement link = navbarNavWithDropdown.navbarLinks.get(i);
+         link.is().text(text);
+         link.click();
+         assertThat(WindowsManager.windowsCount(), is(2));
+         WindowsManager.switchToWindow(2);
+         assertThat(getUrl(), is(url));
+         WindowsManager.closeWindow();
+     }
 
 
 

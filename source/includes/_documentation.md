@@ -9240,6 +9240,8 @@ Form group is represented by Form class in Java:
 
 Inner elements represented by the following Java classes:
 
+<br>
+
 - TextField: com.epam.jdi.light.ui.bootstrap.elements.common.TextField
 
 - Label: com.epam.jdi.light.elements.common.Label
@@ -9251,7 +9253,6 @@ Inner elements represented by the following Java classes:
 [Forms Overview Tests Example](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/FormOverviewTests.java)
 
 <br>
-
 
 ####Sizing
 <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.0/components/jumbotron" target="_blank">Set</a> heights using classes like .form-control-lg and .form-control-sm.

@@ -5,6 +5,7 @@ TBD
 ## HTML5 Common elements
 
 ### Label 
+
 ```java 
    
   //In the next test Label is found from 'name' and 'disabledName' locators:
@@ -75,7 +76,7 @@ Label's implementation is located in the following classes:
 **Label()** | Creates label for element using the element's Id | Label 
 **LabelText()** | Gets the text of a label | string 
 
-<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/LabelTests.java" target="_blank">C# test examples</a> 
+<a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/LabelsTests.cs" target="_blank">C# test examples</a> 
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/LabelTests.java" target="_blank">Java test examples</a> 
 

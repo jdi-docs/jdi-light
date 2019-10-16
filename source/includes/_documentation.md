@@ -9657,9 +9657,10 @@ public void checkTextInCell(int rowN, int cellN, String textExpected, String max
 GridCell cell = gridModalSection.getGridModalWindow().getBody()
         .getCellInRow(rowN, cellN);
         cell.highlight("blue");
-        cell.is().core().text(textExpected)
-                .and()
-                .css("max-width", startsWith(max_width));
+        cell.is().core()
+                 .text(textExpected)
+                 .and()
+                 .css("max-width", startsWith(max_width));
         cell.unhighlight();
     }
 

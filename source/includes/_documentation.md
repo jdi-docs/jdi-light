@@ -2,18 +2,9 @@
 ## Extended Selenium features
 TBD
 
-## Html5 Common elements
+## HTML5 Common elements
 
 ### Label 
- **Label** – Elements' caption for a big number of JDI common elements 
- 
-![Label](../images/colorpicker.png) 
-
-Label's implementation is located in the following classes: 
-
-   - __Java__: _com.epam.jdi.light.elements.base.BaseUIElement_
-   - __C#__: _JDI.Light.Elements.Base.UIElement_
-
 ```java 
    
   //In the next test Label is found from 'name' and 'disabledName' locators:
@@ -65,7 +56,17 @@ Label's implementation is located in the following classes:
      AreEqual(TestSite.Html5Page.ColorPicker.LabelText(), "Select a color"); 
  } 
  
-  ``` 
+  ```
+ **Label** – Elements' caption for a big number of JDI common elements. 
+ 
+![Label](../images/colorpicker.png) 
+
+Label's implementation is located in the following classes: 
+
+   - __Java__: _com.epam.jdi.light.elements.base.BaseUIElement_
+   - __C#__: _JDI.Light.Elements.Base.UIElement_
+
+ 
  
  Available methods in C# JDI Light: 
 
@@ -73,24 +74,15 @@ Label's implementation is located in the following classes:
 --- | --- | --- 
 **Label()** | Creates label for element using the element's Id | Label 
 **LabelText()** | Gets the text of a label | string 
- 
-[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/LabelsTests.cs) 
 
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/LabelTests.java)
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/LabelTests.java" target="_blank">C# test examples</a> 
+
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/LabelTests.java" target="_blank">Java test examples</a> 
 
 [BDD Steps examples](https://jdi-docs.github.io/jdi-light/?java#label-2)
 
 
 ### Button
-**Button** – Element that represents a clickable button
-
-![Button](../images/button.png)
-
-Button is located in the following classes:
- 
-  - __Java__: _com.epam.jdi.light.ui.html.common.Button_
-  - __C#__: _JDI.Light.Elements.Common.Button_
-
 ```java 
 @UI("[value*='Red Button']") // @FindBy(css = "[value*='Red Button']")
 public static Button redButton;
@@ -127,6 +119,15 @@ public void GetTextTest()
 }
 
 ```
+**Button** – Element that represents a clickable button.
+
+![Button](../images/button.png)
+
+Button is located in the following classes:
+ 
+  - __Java__: _com.epam.jdi.light.ui.html.common.Button_
+  - __C#__: _JDI.Light.Elements.Common.Button_
+
 
 Here is an example with provided HTML code:
 
@@ -141,7 +142,7 @@ Available methods in Java JDI Light:
 **is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
 
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ButtonTests.java)
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/ButtonTests.java" target="_blank">Java test examples</a>
 <br>
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#button-3)
 
@@ -154,19 +155,11 @@ Available methods and properties in C# JDI Light:
 **Is** | Assert action | TextAssert 
 **AssertThat** | Assert action | TextAssert
 
-[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/ButtonTests.cs) <br>
+<a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/ButtonTests.cs" target="_blank">C# test examples</a>
+<br>
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#button-3)
 
 ### Checkbox
-**Checkbox** – Element allows you to select single value for submission.
-
-![Checkbox](../images/checkbox.png)
-
-Checkbox is located in the following classes:
- 
-  - __Java__: _com.epam.jdi.light.ui.html.common.Checkbox*_
-  - __C#__: _JDI.Light.Elements.Common.CheckBox*_
-
 ```java 
 @UI("#accept-conditions") // @FindBy(id = "accept-conditions")
 public static Checkbox acceptConditions;
@@ -279,6 +272,15 @@ public void BaseValidationTest()
 }
 
 ```
+**Checkbox** – Element allows you to select single value for submission.
+
+![Checkbox](../images/checkbox.png)
+
+Checkbox is located in the following classes:
+ 
+  - __Java__: _com.epam.jdi.light.ui.html.common.Checkbox*_
+  - __C#__: _JDI.Light.Elements.Common.CheckBox*_
+
 
 Here is an example with provided HTML code:
 
@@ -315,22 +317,13 @@ Available assert methods in C# JDI Light:
 **Is** | Gets assert for checkbox | CheckBoxAssert
 **AssertThat** | Gets assert for checkbox | CheckBoxAssert
 
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/CheckboxTests.java" target="_blank">Java test examples</a>
 
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/CheckboxTests.java)
-
-[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/CheckBoxTests.cs)
+<a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/CheckBoxTests.cs" target="_blank">C# test examples</a>
 
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#checkbox-2)
 
 ### ColorPicker
-**ColorPicker** – Elements of this type provide a user interface element that lets a user specify a color, either by using a visual color picker interface or by entering the color into a text field in "#rrggbb" hexadecimal format. Only simple colors (with no alpha channel) are allowed. The values are compatible with CSS.
-
-![ColorPicker](../images/colorpicker.png)
-
-Colorpicker is located in the following classes:
-
-  - __Java__: _com.epam.jdi.light.ui.html.common.ColorPicker*_
-
 ```java 
 @UI("#color-picker") // @FindBy(id = "color-picker")
 public static ColorPicker colorPicker;
@@ -369,6 +362,14 @@ public void SetColorTest()
 }
  
 ```
+**ColorPicker** – Elements of this type provide a user interface element that lets a user specify a color, either by using a visual color picker interface or by entering the color into a text field in "#rrggbb" hexadecimal format. Only simple colors (with no alpha channel) are allowed. The values are compatible with CSS.
+
+![ColorPicker](../images/colorpicker.png)
+
+Colorpicker is located in the following classes:
+
+  - __Java__: _com.epam.jdi.light.ui.html.common.ColorPicker*_
+
 
 Here is an example with provided HTML code:
 
@@ -383,7 +384,8 @@ Here is the list of some available methods in Java:
 **is()** | Assert acton color | ColorAssert
 **assertThat()** | Assert acton color | ColorAssert 
 
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ColorPickerTests.java)<br>
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/ColorPickerTests.java" target="_blank">Java test examples</a>
+<br>
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#colorpicker-2)<br>
 
 Here is the list of some available methods in C#:
@@ -395,12 +397,13 @@ Here is the list of some available methods in C#:
 **Is()** | Assert acton color | ColorAssert
 **AssertThat()** | Assert acton color | ColorAssert 
 
-[Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/ColorPickerTests.cs)<br>
+<a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/ColorPickerTests.cs" target="_blank">Test examples in C#</a>
+<br>
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#colorpicker-2)<br>
 
 ### DateTimeSelector
 
-**DateTimeSelector** is used for Input Type Date and its derivatives and allows users to set the value of date and/or time.
+**DateTimeSelector** - Is used for Input Type Date and its derivatives and allows users to set the value of date and/or time.
 
 The list of supported elements:
 
@@ -471,13 +474,13 @@ public void SetBirthDateTest()
     TestSite.Html5Page.BirthDate.AssertThat().SelectedTime(Is.EqualToIgnoringCase("2019-04-01"));	
 }
 ```
-**Input Type Date** – a graphical control element that allows user to set value for date.
+**Input Type Date** – A graphical control element that allows user to set value for date.
 
 ![InputTypeDate](../images/html/inputTypeDate_html.png)
 
-[Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs)
+<a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/DateTimeTests.cs" target="_blank">Test examples in C#</a>
 
-[Test examples in Java](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/DateTests.java)
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/DateTests.java" target="_blank">Test examples in Java</a>
 
 __Input Type Week__
 
@@ -513,13 +516,14 @@ public void AutumnDateTimeTest()
     Assert.AreEqual(setValue, "2019-W13");
 }
 ```
-**Input Type Week** – a graphical control element that allows user to set values for week and year.
+**Input Type Week** – A graphical control element that allows user to set values for week and year.
 
 ![InputTypeWeek](../images/html/inputTypeWeek_html.png)
 
-[Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs)
+<a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/DateTimeTests.cs" target="_blank">Test examples in C#</a>
 
-[Test examples in Java](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/WeekTests.java)
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/WeekTests.java" target="_blank">Test examples in Java</a>
+
 
 __Input Type Month__
 

@@ -6457,7 +6457,71 @@ Here is an example with provided Bootstrap v4.3 code:
  
 **Kitchen Sink**
 
-Mix and match multiple content types to create the card you need, all wrapped in a fixed-width card.
+```java 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   @UI("#card-kitchen-sink") public static CardKitchenSink cardKitchenSink; 
+   // @FindBy(css = "#card-kitchen-sink") public static CardKitchenSink cardKitchenSink; 
+
+    public class CardKitchenSink extends Section {
+        @UI(".card-img-top") public Image image;
+        @UI(".card-title") public Text title;
+        @UI(".card-text") public Text text;
+        @UI(".card-body") public WebList body;
+        @UI(".list-group") public WebList list;
+    }
+
+    @Test
+    public void itemsTest() {
+        assertEquals(cardKitchenSink.list.size(), 3);
+        cardKitchenSink.list.get(1).is().text(is(item0Text));
+        cardKitchenSink.list.get(2).is().text(is(item1Text));
+        cardKitchenSink.list.get(3).is().text(is(item2Text));
+        cardKitchenSink.list.get(1).is().text(containsString(item0Text));
+        cardKitchenSink.list.get(2).is().text(containsString(item1Text));
+        cardKitchenSink.list.get(3).is().text(containsString(item2Text));
+    }
+
+    @Test
+    public void isValidationTest() {
+        cardKitchenSink.image.is().src(is(imgSrc));
+        cardKitchenSink.image.is().alt(is(imgAlt));
+        cardKitchenSink.image.unhighlight();
+        cardKitchenSink.image.assertThat().width(is(86));
+        cardKitchenSink.image.assertThat().height(is(137));
+        cardKitchenSink.title.is().text(is(titleText));
+        cardKitchenSink.title.is().text(containsString(titleText));
+        cardKitchenSink.text.is().text(is(cardText));
+        cardKitchenSink.text.is().text(containsString(cardText));
+    }
+```
+<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/card/#kitchen-sink" target="_blank">Kitchen sink</a> – Mix and match multiple content types to create the card you need, or throw everything in there. Shown below are image styles, blocks, text styles, and a list group—all wrapped in a fixed-width card.
 
 ![Kitchen Sink Example](../images/bootstrap/kitchensink.png)
 
@@ -6469,21 +6533,28 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  | 
- 
-Available methods and properties in C# JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  |
- |  |
+ getText()| Returns text of kitchen sink  | String
+ is() |	Assert action |	TextAssert
+ assertThat() |	Assert action |	TextAssert
  <br>
+ 
+ Kitchen sink is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)
+  
+Inner elements of kitchen sink can be represented by the following classes:
+
+  - [Text](https://jdi-docs.github.io/jdi-light/#text)
+  
+  - [Image](https://jdi-docs.github.io/jdi-light/#image)
+  
+  - [Title](https://jdi-docs.github.io/jdi-light/#title)
+  
+  - [Link](https://jdi-docs.github.io/jdi-light/#link)
+  
+[See more elements](https://jdi-docs.github.io/jdi-light/#html5-common-elements)
+
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardKitchenSinkTests.java)
  
 ####Card with Header and Footer
 

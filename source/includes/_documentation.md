@@ -9078,6 +9078,115 @@ Inner elements represented by the following classes:
 
 <br>
 
+
+**[Forms Overview](https://getbootstrap.com/docs/4.3/components/forms/#overview)**
+
+![Forms Overview Example](../images/bootstrap/form-overview.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java 
+
+    @UI("#forms-overview")                    //@FindBy(css = "#forms-overview")
+    public static FormOverview formOverview;
+
+public class FormOverview extends Form<FormSignUp> {
+
+    @UI(".//*[@for='exampleInputEmail1']")    //@FindBy(xpath = ".//*[@for='exampleInputEmail1']")
+    public Label emailLabel;
+    @UI("#exampleInputEmail1")                //@FindBy(css = "#exampleInputEmail1")
+    public TextField email;
+    @UI("#emailHelp")                         //@FindBy(css = "#emailHelp")
+    public Label help;
+
+    @UI(".//*[@for='exampleInputPassword1']") //@FindBy(xpath = ".//*[@for='exampleInputPassword1']")
+    public Label passwordLabel;
+    @UI("#exampleInputPassword1")             //@FindBy(css = "#exampleInputPassword1")
+    public TextField password;
+
+    @UI(".//*[@for='exampleCheck1']")         //@FindBy(xpath = ".//*[@for='exampleCheck1']")
+    public Label acceptLabel;
+    @UI("#exampleCheck1")                     //@FindBy(css = "#exampleCheck1")
+    public Checkbox accept;
+
+    @UI("button")                             //@FindBy(xpath = ".//button")
+    public Button submit;
+}
+
+public class FormSignUp extends DataClass<FormSignUp>{
+    public String email;
+    public String password;
+    public Boolean accept;
+}
+
+
+    public static FormSignUp DEFAULT_CREDENTIALS = defaultUser();
+
+    @Test
+    public void checkboxTests() {
+        formOverview.accept.check();
+        formOverview.accept.is().selected();
+        formOverview.accept.uncheck();
+        formOverview.accept.is().deselected();
+    }
+
+    @Test
+    public void fillTest() {
+        formOverview.fill(DEFAULT_CREDENTIALS);
+        formOverview.check(DEFAULT_CREDENTIALS);
+        checkContactFormSubmitted();
+    }
+    
+    private static FormSignUp defaultUser() {
+        return new FormSignUp().set(c -> {
+            c.email = "email@example.com";
+            c.password = "password123";
+            c.accept = true;
+        });
+    }
+    
+```
+
+<br>
+
+![Forms Overview Example](../images/bootstrap/form-overview-html.png)
+
+
+<br>
+
+|Method | Description | Return Type
+--- | --- | ---
+**click()** | Click the button | void
+**getText()** | Get button text | String
+**getValue()** | Get button value | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**displayed()** | Check that element is displayed | TextAssert
+**enabled()** | Check that element is enabled | TextAssert
+**assertThat()** | Assert action | TextAssert
+<br>
+
+Form group is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+
+Inner elements represented by the following Java classes:
+
+- TextField: com.epam.jdi.light.ui.bootstrap.elements.common.TextField
+
+- Label: om.epam.jdi.light.elements.common.Label
+
+- Checkbox:com.epam.jdi.light.ui.bootstrap.elements.common.Checkbox
+
+- Button: com.epam.jdi.light.ui.bootstrap.elements.common.Button
+
+
+![Forms Overview Tests Example](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/FormOverviewTests.java)
+
+
+<br>
+
+
 ####Sizing
 <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.0/components/jumbotron" target="_blank">Set</a> heights using classes like .form-control-lg and .form-control-sm.
 

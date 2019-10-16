@@ -77,7 +77,7 @@ Label's implementation is located in the following classes:
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/LabelTests.java" target="_blank">C# test examples</a> 
 
-<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/LabelTests.java" target="_blank">Java test examples</a> 
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/LabelTests.java" target="_blank">Java test examples</a> 
 
 [BDD Steps examples](https://jdi-docs.github.io/jdi-light/?java#label-2)
 

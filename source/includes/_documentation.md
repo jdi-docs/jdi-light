@@ -7637,7 +7637,7 @@ Available methods in Java JDI Light:
 ### Spinner Alignment
 
 Spinners in Bootstrap are built with ``rem``s, ``currentColor``, and ``display: inline-flex``. 
-This means they can easily be resized, recolored, and quickly aligned.
+This means they can easily be resized, recolored, and <a style="font-weight: bold;" href="https://getbootstrap.com/docs/4.3/components/spinners/#alignment" target="_blank">quickly aligned</a>.
 
 
 **Spinner Margin**

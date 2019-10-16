@@ -9119,9 +9119,6 @@ public class FormSignUp extends DataClass<FormSignUp>{
     public Boolean accept;
 }
 
-
-    public static FormSignUp DEFAULT_CREDENTIALS = defaultUser();
-
     @Test
     public void checkboxTests() {
         formOverview.accept.check();
@@ -9132,8 +9129,8 @@ public class FormSignUp extends DataClass<FormSignUp>{
 
     @Test
     public void fillTest() {
-        formOverview.fill(DEFAULT_CREDENTIALS);
-        formOverview.check(DEFAULT_CREDENTIALS);
+        formOverview.fill(defaultUser());
+        formOverview.check(defaultUser());
         checkContactFormSubmitted();
     }
     
@@ -9166,23 +9163,21 @@ public class FormSignUp extends DataClass<FormSignUp>{
 **assertThat()** | Assert action | TextAssert
 <br>
 
-Form group is represented by Section class in Java:
+Form group is represented by Form class in Java:
  
-  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+- com.epam.jdi.light.elements.composite.Form
 
 Inner elements represented by the following Java classes:
 
 - TextField: com.epam.jdi.light.ui.bootstrap.elements.common.TextField
 
-- Label: om.epam.jdi.light.elements.common.Label
+- Label: com.epam.jdi.light.elements.common.Label
 
 - Checkbox:com.epam.jdi.light.ui.bootstrap.elements.common.Checkbox
 
 - Button: com.epam.jdi.light.ui.bootstrap.elements.common.Button
 
-
-![Forms Overview Tests Example](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/FormOverviewTests.java)
-
+[Forms Overview Tests Example](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/FormOverviewTests.java)
 
 <br>
 

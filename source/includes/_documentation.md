@@ -7674,7 +7674,7 @@ Here is an example with provided Bootstrap v4.3 code:
 **Spinner Placement**
 
 Use <a href="https://getbootstrap.com/docs/4.3/utilities/flex/" target="_blank">flexbox utilities</a>,
-<a href="https://getbootstrap.com/docs/4.3/utilities/float/" target="_blank">float utilities</a>, or <a href="https://getbootstrap.com/docs/4.3/content/typography/">text alignment</a> utilities
+<a href="https://getbootstrap.com/docs/4.3/utilities/float/" target="_blank">float utilities</a>, or <a href="https://getbootstrap.com/docs/4.3/content/typography/" target="_blank">text alignment</a> utilities
 to place spinners exactly where you need them in any situation.
 
 

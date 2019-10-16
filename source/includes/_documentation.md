@@ -5223,7 +5223,7 @@ Available methods in Java JDI Light:
  
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navbarbrand/NavbarBrandTests.java)
 
-<br><br><br><br>
+<br><br><br><br><br><br><br><br>
 
 ####Nav
 
@@ -5239,18 +5239,17 @@ public class Navbar extends Section {
     @UI("//*[contains(@class, 'nav-link dropdown-toggle')]") public Dropdown navbarDropdown;
 }
 
-
-
 @UI("#navbar-nav-with-disabled") public static Navbar navbarNavWithDisabled;
 
 @Test
    public void isDisabledItemNavWithDisabled(){
-       navbarNavWithDisabled.navbarLinks.get(4).is().disabled();
+         navbarNavWithDisabled.navbarLinks.get(4).is().disabled();
    }
- 
- 
- 
    
+
+
+
+
 
 @UI("#navbar-nav-with-dropdown") public static Navbar navbarNavWithDropdown;
 
@@ -5264,7 +5263,6 @@ public class Navbar extends Section {
          assertThat(getUrl(), is(url));
          WindowsManager.closeWindow();
      }
-
 
 
 

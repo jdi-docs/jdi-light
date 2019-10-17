@@ -5247,7 +5247,8 @@ public class Navbar extends Section {
     //FindBy(css = ".navbar-brand")
     @UI(".navbar-brand") public Link navbarBrand;
     @JDropdown(expand = ".navbar-toggler-icon", value = ".navbar-nav", list = "a")
-    public Collapse collapseButton;    //FindBy(xpath = "//*[contains(@class, 'nav-link dropdown-toggle')]")
+    public Collapse collapseButton;   
+    //FindBy(xpath = "//*[contains(@class, 'nav-link dropdown-toggle')]")
     @UI("//*[contains(@class, 'nav-link dropdown-toggle')]") public Dropdown navbarDropdown;
 }
 
@@ -5266,15 +5267,15 @@ public class Navbar extends Section {
 @UI("#navbar-nav-with-dropdown") public static Navbar navbarNavWithDropdown;
 
 @Test(dataProvider = "linkNavbarWithDropdownTest")
-     public void clickNavbarNavWithDropdownLinksTest(int i, String text, String url) {
-         UIElement link = navbarNavWithDropdown.navbarLinks.get(i);
-         link.is().text(text);
-         link.click();
-         assertThat(WindowsManager.windowsCount(), is(2));
-         WindowsManager.switchToWindow(2);
-         assertThat(getUrl(), is(url));
-         WindowsManager.closeWindow();
-     }
+  public void clickNavbarNavWithDropdownLinksTest(int i, String text, String url) {
+     UIElement link = navbarNavWithDropdown.navbarLinks.get(i);
+     link.is().text(text);
+     link.click();
+     assertThat(WindowsManager.windowsCount(), is(2));
+     WindowsManager.switchToWindow(2);
+     assertThat(getUrl(), is(url));
+     WindowsManager.closeWindow();
+  }
 
 
 
@@ -5307,6 +5308,13 @@ Inner elements of media object can be represented by the following classes:
     <li> [DropDown](https://jdi-docs.github.io/jdi-light/#dropdown-2)  </li>
     <li> [See more elements](https://jdi-docs.github.io/jdi-light/#bootstrap-common-elements) </li>
 </ul>
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**click()** | Click the item| void
+**is()** | Assert action | TextAssert 
 
 <a style="font-weight: bold;" target="_blank" href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navbar/NavbarNavsTests.java">Bootstrap test examples</a>
 

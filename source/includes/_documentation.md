@@ -9385,6 +9385,7 @@ using .form-control-range.
 ![Forms_range_input_example](../images/bootstrap/range_input.png)
 
 Here is an example with provided Bootstrap v4.3 code:
+
 ```java 
 //@FindBy(css = "#formControlRange")
 @UI("#formControlRange")

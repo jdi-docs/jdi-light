@@ -5896,7 +5896,6 @@ Available methods in Java JDI Light:
 
 <br><br>
 
-####progress height
 **With height**
 
 We only set a <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/progress/#height">height</a>
@@ -9382,7 +9381,6 @@ Available methods in Java JDI Light:
 
 <br><br>
 ####Readonly plain text
-**Readonly plain text**
 
 If you want to have input readonly elements in your form styled as 
 <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/forms/#readonly-plain-text">plain text</a>,
@@ -9434,7 +9432,6 @@ Available methods in Java JDI Light:
 <br><br>
 
 ####Range input
-**Range input**
 
 Set horizontally scrollable <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/forms/#range-inputs">range inputs</a>
 using .form-control-range.

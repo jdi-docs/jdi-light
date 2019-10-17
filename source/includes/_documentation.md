@@ -6010,18 +6010,19 @@ Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
 
-//@FindBy(id = "progress-multiple-bars")
-@UI("#progress-multiple-bars") public static ProgressMultipleBars progressMultipleBars;
+// @FindBy(id = "progress-multiple-bars")
+@UI("#progress-multiple-bars")
+public static ProgressMultipleBars progressMultipleBars;
 
-//@FindBy(id = "progress-multiple-ordinary")
+// @FindBy(id = "progress-multiple-ordinary")
 @UI("#progress-multiple-ordinary")
 public Progress multipleOrdinary;
 
-//@FindBy(id = "progress-multiple-success")
+// @FindBy(id = "progress-multiple-success")
 @UI("#progress-multiple-success")
 public Progress multipleSuccess;
 
-//@FindBy(id = "progress-multiple-info")
+// @FindBy(id = "progress-multiple-info")
 @UI("#progress-multiple-info")
 public Progress multipleInfo;
 
@@ -6056,7 +6057,7 @@ Available methods in Java JDI Light:
 **is()** | Various assert actions for Progress | ProgressAssert 
 **assertThat()** | Assert action | UIAssert 
 
-<a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/ProgressMultipleBarsTests.java" target=a_blank> Bootstrap test examples </a>
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/ProgressMultipleBarsTests.java)
 
 <br><br><br><br><br><br><br><br><br><br>
 
@@ -9711,7 +9712,7 @@ In these java test cases examples next classes have been used:
 
 #### Scrolling Long Content Modal
 
-When modals become too long for the user’s viewport or device, <a style="font-weight: bold;" href="https://getbootstrap.com/docs/4.3/components/modal/#scrolling-long-content" target="_blank">they scroll</a> independent of the page itself. Try the demo below to see what we mean.
+When modals become too long for the user’s viewport or device, <a style="font-weight: bold;" href="https://getbootstrap.com/docs/4.3/components/modal/#scrolling-long-content" target="_blank">they scroll</a> independent of the page itself.
 
 ![Modal long scrollable](../images/bootstrap/modal_scrollable1.png)
 
@@ -9766,6 +9767,17 @@ Here is an example with provided Bootstrap v4.3 code:
 
 ![Modal scrollable example](../images/bootstrap/modal_scrollable-html2.png)
 
+Modal is represented by Section class in Java:
+ 
++ [Section](https://jdi-docs.github.io/jdi-light/#section)
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**is()** | Asserts element  | UIAssert
+
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/modal/ModalScrollingLongContentTests.java)
 
 #### Vertically Centered Modal
 
@@ -9866,33 +9878,6 @@ Available methods in Java JDI Light:
 ![Modal composite](../images/bootstrap/modal_composite.png)
 
 ![Modal composite](../images/bootstrap/modal-html.png)
-
-*Example:* Modal centered
-
-![Modal centered](../images/bootstrap/modal_centered.png)
-
-![Modal centered example](../images/bootstrap/modal_centered-html.png)
-
-Available methods in Java JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  | 
- 
-
-Available methods and properties in C# JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  |
- |  | 
-<br>
 
 **Modal using grid**
 

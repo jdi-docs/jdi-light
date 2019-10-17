@@ -8141,28 +8141,6 @@ Available methods and properties in C# JDI Light:
 
 TBD
 
-<a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#examples">**Examples**</a>
-
-Wrap the dropdown’s toggle (your button or link) and the dropdown menu within .dropdown, or another element that declares position: relative;. Dropdowns can be triggered from <a> or <button> elements to better fit your potential needs.
-
-<a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#sizing">**Sizing**</a>
-
-Button dropdowns work with buttons of all sizes, including default and split dropdown buttons.
-
-<a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#directions">**Directions**</a>
-
-Trigger dropdown menus above elements by adding .dropup to the parent element.
-
-<a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#menu-items">**Menu items**</a>
-
-Historically dropdown menu contents had to be links, but that’s no longer the case with v4. Now you can optionally use <button> elements in your dropdowns instead of just <a>s.
-
-<a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#menu-alignment">**Menu alignment**</a>
-
-By default, a dropdown menu is automatically positioned 100% from the top and along the left side of its parent. Add .dropdown-menu-right to a .dropdown-menu to right align the dropdown menu.
-
-<a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#menu-content">**Menu content**</a>
-
 
 <br><br><br>
 

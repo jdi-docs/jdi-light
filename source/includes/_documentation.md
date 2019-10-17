@@ -9832,6 +9832,68 @@ Available methods in Java JDI Light:
 
 <br><br><br><br><br><br><br>  
 
+**Varying modal content**
+
+Have a bunch of buttons that all trigger the same modal with slightly different contents? Use event.relatedTarget and HTML data-* attributes (possibly via jQuery) to <a href="https://getbootstrap.com/docs/4.3/components/modal/#varying-modal-content">vary the contents</a> of the modal depending on which button was clicked.
+
+![Varying modal content example](../images/bootstrap/modal-varying-content.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java 
+    public class Modal extends Section {
+    
+        @UI(".modal-header .modal-title")
+        public Text title;
+    }
+
+    public class ModalVaryingContent extends Modal {
+    
+        @UI(".modal-header .close")
+        public Button closeX;
+    }
+
+    @Test(dataProvider = "modalVaryingContentButtonsWithRecipients")
+    public void modalButtonsTest(Button modalButton, String recipient) {
+        checkButton(modalButton, String.format("Open modal for @%s", recipient), whiteColor, blueColorBackground, blueColorBorder);
+    }
+
+    @Test(dataProvider = "modalVaryingContentButtonsWithRecipients")
+    public void headerValidationTest(Button modalButton, String recipient) {
+        modalButton.click();
+        modalVaryingContentWindow.is().displayed();
+        modalVaryingContentWindow.title.core().is()
+                .text(String.format("NEW MESSAGE TO @%s", recipient.toUpperCase()));
+        modalVaryingContentWindow.closeX.click();
+        modalVaryingContentWindow.is().hidden();
+    }
+
+    private void checkButton(Button button, String text, String color, String backgroundColor, String borderColor) {
+        button.is().core()
+                .text(text)
+                .tag("button")
+                .css("color", color)
+                .css("background-color", backgroundColor)
+                .css("border-color", borderColor);
+    }
+```
+
+![Varying modal content HTML example](../images/bootstrap/modal-varying-content-html.png)
+
+Available methods in Java JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+**getCellInRow(int rowN, int cellN)** | Get cellN from rowN | GridCell
+**getGridRow(int rowN)** | Get rowN  | GridRow
+**clickBtnCloseX()** | Close Modal Window  | void
+**clickBtnClose()** | Close Modal Window  | void
+**getTitle()** | Get Modal Window Title | Text 
+
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/modal/ModalVaryingContentTests.java)
+
+<br><br><br><br><br><br><br>
+
 ### Popovers
 
 ***[Popovers](https://getbootstrap.com/docs/4.3/components/popovers/)***

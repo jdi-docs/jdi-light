@@ -6904,17 +6904,6 @@ public Text subtitle;
 @UI("button") // @FindBy(tagName = "button")
 public Button button;
 
-String titleText = "SPECIAL TITLE TREATMENT";
-String subtitleText = "With supporting text below as a natural lead-in to additional content.";
-String buttonText = "Click Me!";
-String activeLinkText = "Active";
-String jdiLinkText = "JDI";
-String disabledLinkText = "Disabled";
-String activeLinkRef = "javascript: void()";
-String jdiLinkRef = "https://github.com/jdi-testing/jdi-light";
-String disabledLinkRef = "javascript: void()";
-String activeLinkAlert = "Active Tab Clicked!";
-
 @Test
 public void isValidationTest() {
     cardNavigation.highlight();
@@ -6960,16 +6949,14 @@ Here is an example with provided Bootstrap v4.3 code:
 
 Card Navigation is represented by Section class in Java:
 
-+ [Section](https://jdi-docs.github.io/jdi-light/#section)
++ Section #BS
 
 Inner elements of Card Navigation can be represented by the following classes:
 
-+ [Text](https://jdi-docs.github.io/jdi-light/#text)  
-+ [Button](https://jdi-docs.github.io/jdi-light/#button)
-+ [Link](https://jdi-docs.github.io/jdi-light/#link)
-+ [Menu](https://jdi-docs.github.io/jdi-light/#menu)
-
-<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardNavigationTests.java" target="_blank">Bootstrap test examples</a>
++ Text #BS
++ Button #BS
++ Link #BS
++ Menu #BS
 
 Available methods in Java JDI Light:
 
@@ -6987,7 +6974,9 @@ Available methods in Java JDI Light:
 **attr()** | Assert element attribute | IsAssert
 **tag()** | Assert element tag | IsAssert
 **is()** | Assert action | TextAssert
- <br>
+
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardNavigationTests.java" target="_blank">Bootstrap test examples</a>
+<br>
  
 **Card Image Caps**
 

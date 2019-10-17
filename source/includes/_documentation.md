@@ -9939,7 +9939,7 @@ GridCell cell = gridModalSection.getGridModalWindow().getBody()
 @Test
 public void checkCloseXModalButton() {
      gridModalSection.getGridModalWindow().getBtnCloseX().highlight("red");
-     gridModalSection.getGridModalWindow().clickBtnCloseX();
+     gridModalSection.getGridModalWindow().close();
      gridModalSection.getGridModalWindow().is().disappear();
     }
 
@@ -9958,9 +9958,11 @@ Available methods in Java JDI Light:
 --- | --- | ---
 **getCellInRow(int rowN, int cellN)** | Get cellN from rowN | GridCell
 **getGridRow(int rowN)** | Get rowN  | GridRow
-**clickBtnCloseX()** | Close Modal Window  | void
+**close()** | Close Modal Window using X control | void
 **clickBtnClose()** | Close Modal Window  | void
-**getTitle()** | Get Modal Window Title | Text 
+**getTitle()** | Get Modal Window Title | Text
+**displayed()** | Asserts element is displayed  | UIAssert
+**disappear()** | Asserts element is not displayed | UIAssert 
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/modal/GridModalTests.java)
 

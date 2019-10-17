@@ -5174,32 +5174,35 @@ Adding images to the .navbar-brand will likely always require custom styles or u
 ![Brand](../images/bootstrap/navbar-brand-image-and-link.png)<br>
 
 ```java 
-public class BootstrapPage extends WebPage {
-@UI("#navbar-base-for-brand") public static NavbarSection navbarSection;
-}
+    public class BootstrapPage extends WebPage {
+    @UI("#navbar-base-for-brand") public static NavbarSection navbarSection;
+    }
 
-public class NavbarSection extends Section {
-    //@FindBy(css = ".navbar-brand")
+    //FindBy(css = ".navbar-brand")
     @UI(".navbar-brand")
-    public JList<NavbarBrand> navbarBrandJList;
-}
+    public JList<NavbarBrand> allNavbarBrands;
 
-@Test(dataProvider = "navbarBrandData")
+    //FindBy(css = "#brand-as-image,#brand-as-image-and-link")
+    @UI("#brand-as-image,#brand-as-image-and-link")
+    public JList<NavbarBrand> navbarBrandWithImage;
+
+    @Test(dataProvider = "navbarBrandData")
     public void checkNavbarText(String navbarId, String navbarText) {
-        navbarBrandList.stream().filter(navbarBrand ->
-                navbarBrand.attr("id").equals(navbarId)).forEach(nbb -> {
-            nbb.highlight();
-            nbb.is().core()
-                    .text(navbarText);
-            nbb.unhighlight();
-        });
+        for (int i = 1; i < navbarSection.allNavbarBrands.size() + 1; i++) {
+            NavbarBrand nbb = navbarSection.allNavbarBrands.get(i);
+            if (nbb.attr("id").equals(navbarId)) {
+                nbb.highlight();
+                nbb.is().core().text(navbarText);
+                nbb.unhighlight();
+            }
+        }
     }
 
     @Test
     public void checkNavbarClickImage() {
-        navbarBrandList.stream()
+        navbarSection.navbarBrandWithImage.stream()
                 .filter(nbb -> nbb.isLink() && nbb.childs().size() > 0)
-                .map(nbbWithIm -> nbbWithIm.childs().get(0))
+                .map(nbbWithIm -> nbbWithIm.childs().get(1))
                 .forEach(imgFromNavbar -> {
                     imgFromNavbar.highlight("blue");
                     imgFromNavbar.is().attr("src", containsString(imgPath))
@@ -5207,11 +5210,9 @@ public class NavbarSection extends Section {
                     imgFromNavbar.unhighlight();
 
                     imgFromNavbar.click();
-
                     WebDriver driver = WebDriverFactory.getDriver();
-                    ArrayList<String> tabs = new ArrayList<>(
-                              WebDriverFactory.getDriver().getWindowHandles()
-                    );
+                    ArrayList<String> tabs = new ArrayList<>(WebDriverFactory.getDriver()
+                            .getWindowHandles());
                     driver.switchTo().window(tabs.get(tabs.size() - 1));
                     assertEquals(getUrl(), navbarUrl);
                     driver.close();

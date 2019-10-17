@@ -6531,11 +6531,11 @@ Here is an example with provided Bootstrap v4.3 code:
 ```
 <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/card/#kitchen-sink" target="_blank">Kitchen sink</a> – Mix and match multiple content types to create the card you need, or throw everything in there. Shown below are image styles, blocks, text styles, and a list group—all wrapped in a fixed-width card.
 
-![Kitchen Sink Example](../images/bootstrap/kitchensink.png)
+![Kitchen Sink Example](../images/bootstrap/card-kitchen-sink.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
-![Kitchen Sink Example Code](../images/bootstrap/kitchensink-html.png)
+![Kitchen Sink Example Code](../images/bootstrap/card-kitchen-sink-html.png)
 
 Available methods in Java JDI Light:
 

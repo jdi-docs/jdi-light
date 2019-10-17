@@ -566,7 +566,7 @@ public void SetMonthTest()
 
 <a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/DateTimeTests.cs" target="_blank">Test examples in C#</a>
 
-[Test examples in Java](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/MonthTests.java)
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/MonthTests.java" target="_blank">Test examples in Java</a>
 
 __Input Type Time__
 
@@ -599,13 +599,13 @@ public void SetTimeTest()
     Assert.AreEqual(setValue, "15:00");
 }
 ```
-**Input Type Time** – a graphical control element that allows user to set time.
+**Input Type Time** – A graphical control element that allows user to set time.
 
 ![InputTypeTime](../images/html/inputTypeTime_html.png)
 
-[Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs)
+<a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/DateTimeTests.cs" target="_blank">Test examples in C#</a>
 
-[Test examples in Java](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/TimeTests.java)
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/TimeTests.java" target="_blank">Test examples in Java</a>
 
 __Input Type DateTime-Local__
 
@@ -632,24 +632,16 @@ public void SetPartyTimeTest()
     Assert.AreEqual(setValue, _dateTime);
 }
 ```
-**Input Type DateTime-Local** – a graphical control element that allows user to set time and date.
+**Input Type DateTime-Local** – A graphical control element that allows user to set time and date.
 
 ![InputTypeDateTime](../images/html/inputDateTimeLocal_html.png)
 
-[Java test example](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/DateTimeTests.java)
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/DateTimeTests.java" target="_blank">Test examples in Java</a>
 
-[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DateTimeTests.cs)
+<a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/DateTimeTests.cs" target="_blank">Test examples in C#</a>
+
 
 ### FileInput
-
-**FileInput** - a graphical control element that allows user to upload documents to web site
-
-![FileInput](../images/fileinput.png)
-
-FileInput element is located in JDI Light in:
-
-  - __Java__: _com.epam.jdi.light.ui.html.common.FileInput_
-  - __C#__: _JDI.Light.Elements.Composite.FileInput_
 
 ```java 
 @UI("#avatar") // @FindBy(id = "avatar")
@@ -701,6 +693,16 @@ public void BaseValidationTest()
 
 ```
 
+**FileInput** - A graphical control element that allows user to upload documents to web site.
+
+![FileInput](../images/fileinput.png)
+
+FileInput element is located in JDI Light in:
+
+  - __Java__: _com.epam.jdi.light.ui.html.common.FileInput_
+  - __C#__: _JDI.Light.Elements.Composite.FileInput_
+
+
 Here is an example with HTML code provided:
 
 ![FileInput example](../images/html/fileinput_html.png)
@@ -726,13 +728,14 @@ Available assert methods in C# JDI Light:
 **HasSize(Matcher<long> size)** | Checks that a file has a particular size according to the matcher | FileAssert
 **CleanupDownloads()** | Cleans the directory | void
 
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/FileUploadTests.java)
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/FileUploadTests.java">Test examples in Java</a>
 
-[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/FileInputTests.cs)
+<a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/FileInputTests.cs">Test examples in C#</a>
 
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#fileinput-2)
 
 ### Icon
+
 ```java 
 @UI("#jdi-logo") 
 // same as FindBy(css = "#jdi-logo")
@@ -764,7 +767,7 @@ public IIcon Logo
      Jdi.Assert.AreEquals(LogoImage.GetAlt(), Alt);
    }
 ```
-**Icon** – is a simple element type that represents icons and graphic images.
+**Icon** – Is a simple element type that represents icons and graphic images.
 
 ![Icon](../images/html/image_html.png)
 
@@ -799,13 +802,14 @@ Here is a list of available methods in C#:
 **Is()** | method for building assertions | ImageAssert
 **AssertThat()** |method for building assertions  | ImageAssert
 
-[Test examples in Java]
-(https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ImageTests.java)<br>
-[Test examples in C#]
-(https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/ImagesTests.cs)<br>
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/ImageTests.java" target="_blank">Test examples in Java</a><br>
+
+<a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/ImagesTests.cs" target="_blank">Test examples in C#</a><br>
+
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#icon-2)
 
 ### Image
+
 ```java 
 @UI("#jdi-logo") 
 // same as FindBy(css = "#jdi-logo")
@@ -836,7 +840,7 @@ public IImage LogoImage;
      Jdi.Assert.AreEquals(LogoImage.GetAlt(), Alt);
    }
 ```
-**Image** – is a simple element type that represents graphic images.
+**Image** – Is a simple element type that represents graphic images.
 
 ![Image](../images/html/image_html.png)
 
@@ -857,7 +861,7 @@ Here is a list of available methods in C#:
 **Is()** | method for building assertions | ImageAssert
 **AssertThat()** |method for building assertions  | ImageAssert
 
-[Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/ImagesTests.cs) <br>
+<a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/ImagesTests.cs" target="_blank">Test examples in C#</a><br>
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#image-2) <br>
 
 And here are methods available in Java:
@@ -872,18 +876,11 @@ And here are methods available in Java:
 **is()** | method for building assertions | ImageAssert
 **assertThat()** |method for building assertions  | ImageAssert
 
-[Test examples in Java](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ImageTests.java)<br>
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/ImageTests.java" target="_blank">Test examples in Java</a><br>
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#image-2)<br>
 
 ### Link
-**Link** – a graphical control element that allows user to link from one page to other web pages, files, locations within the same page, email addresses, or any other URL.
 
-Link are represented by the following class:
- 
-  - __Java__: _com.epam.jdi.light.ui.html.common.Link_
-  - __C#__: _JDI.Light.Elements.Common.Link_
-  
-  
 ```java 
 @UI("[ui=github-link]") 
 // equal to @FindBy(css = "[ui=github-link]") 
@@ -911,6 +908,13 @@ public void GetUrlTest()
 }
 ```
 
+**Link** – A graphical control element that allows user to link from one page to other web pages, files, locations within the same page, email addresses, or any other URL.
+
+Link are represented by the following class:
+ 
+  - __Java__: _com.epam.jdi.light.ui.html.common.Link_
+  - __C#__: _JDI.Light.Elements.Common.Link_
+  
 
 ![Link](../images/html/link_html.png)
 
@@ -926,7 +930,7 @@ Here is the list of available methods in Java:
 **is()** | Returns object for work with assertions | LinkAssert
 **assertThat()** | Returns object for work with assertions | LinkAssert
 
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/LinkTests.java)<br>
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/LinkTests.java" target="_blank">Test examples in Java</a><br>
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/#link-2)
 
 Here is the list of available methods in C#:
@@ -941,18 +945,11 @@ Here is the list of available methods in C#:
 **Is()** | Returns object for work with assertions | LinkAssert
 **AssertThat()** | Returns object for work with assertions | LinkAssert
 
-[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/LinkTests.cs)<br>
+<a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/LinkTests.cs" target="_blank">Test examples in C#</a>
+<br>
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/#link-2)
 
 ### Menu
-
-**Menu** - a list of links, which leads to different pages or sections of website
-
-Menu element is located in JDI Light in:
-
-  - __Java__: _com.epam.jdi.light.ui.html. element
-  .Menu_
-  - __C#__: _JDI.Light.Elements.Composite.Menu_
 
 ```java 
 @UI(".sidebar-menu span<[*'%s']<<") 
@@ -992,6 +989,15 @@ public void AssertValidationTest()
 }
 
 ```
+
+**Menu** - A list of links, which leads to different pages or sections of website
+
+Menu element is located in JDI Light in:
+
+  - __Java__: _com.epam.jdi.light.ui.html. element
+  .Menu_
+  - __C#__: _JDI.Light.Elements.Composite.Menu_
+
 
 Here is an example with provided HTML code:
 
@@ -1033,6 +1039,8 @@ Available Assert methods in C# JDI Light:
 --- | --- | ---
 **Is** | Get select assert | MenuSelectAssert
 **AssertThat** | Get select assert | MenuSelectAssert
+
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/DateTimeTests.java" target="_blank">Test examples in Java</a>
 
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/complex/MenuTests.java)
 

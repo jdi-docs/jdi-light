@@ -5880,6 +5880,7 @@ Available methods in Java JDI Light:
 
 <br><br>
 
+####progress height
 **With height**
 
 We only set a <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/progress/#height">height</a>
@@ -9326,6 +9327,7 @@ Inner elements of Forms - Sizing are represented by the following classes:
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/forms/FormsSizingTests.java)
 
 <br><br>
+####Readonly plain text
 **Readonly plain text**
 
 If you want to have input readonly elements in your form styled as 
@@ -9377,6 +9379,7 @@ Available methods in Java JDI Light:
 
 <br><br>
 
+####Range input
 **Range input**
 
 Set horizontally scrollable <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/forms/#range-inputs">range inputs</a>

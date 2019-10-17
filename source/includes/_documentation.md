@@ -6866,7 +6866,7 @@ Available methods in Java JDI Light:
 **Card Navigation**
 
 Add some navigation to a card’s header (or block) with Bootstrap’s
- <a style="font-weight: bold;" href="https://getbootstrap.com/docs/4.3/components/navs/" target="_blank">
+ <a style="font-weight: bold;" href="https://getbootstrap.com/docs/4.3/components/card/#navigation" target="_blank">
  nav components
  </a>.
 
@@ -6973,15 +6973,12 @@ Available methods in Java JDI Light:
 **displayed()** | Check that element is displayed | TextAssert
 **enabled()** | Check that element is enabled | UIAssert
 **disabled()** | Check that element is disabled | UIAssert
-**url()** | Get element URL | URL
 **ref()** | Get link ref attribute value | String
-**getPath()** | Get element's URL path part | String
 **css()** | Get button css value | String
 **cssClass()** | Assert element css class | IsAssert
 **attr()** | Assert element attribute | IsAssert
 **tag()** | Assert element tag | IsAssert
-**is()** | Assert action | TextAssert 
-**assertThat()** | Assert action | TextAssert
+**is()** | Assert action | TextAssert
  <br>
  
 **Card Image Caps**

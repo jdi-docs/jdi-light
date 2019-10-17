@@ -6884,9 +6884,6 @@ Add some navigation to a card’s header (or block) with Bootstrap’s
 @UI("#card-navigation") // @FindBy(id = "card-navigation")
 public static CardNavigation cardNavigation;
 
-@UI(".nav") // @FindBy(css = ".nav")
-public Menu nav;
-
 @UI("#activeLink") // @FindBy(id = "activeLink")
 public Link activeLink;
 @UI("#jdiLink") // @FindBy(id = "jdiLink")
@@ -6894,7 +6891,6 @@ public Link jdiLink;
 @UI("#disabledLink") // @FindBy(id = "disabledLink")
 public Link disabledLink;
 
-@Title
 @UI("h5") // @FindBy(tagName = "h5")
 public Text title;
 

@@ -6753,7 +6753,7 @@ Inner elements of card can be represented by the following classes:
 
   @Test(dataProvider = "cardUtilitiesElementsWithWidth")
       public void cardValidationTest(CardUtilities cardUtilitiesElem, 
-int widthInPercent, String widthInPixels) {
+      int widthInPercent, String widthInPixels) {
           cardUtilitiesElem.core().is()
                   .hasClass(String.format("card w-%d", widthInPercent))
                   .css("width", widthInPixels)
@@ -9870,32 +9870,33 @@ Available methods in Java JDI Light:
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/modal/GridModalTests.java)
 
-<br><br><br><br><br><br><br>  
+<br><br><br><br><br><br><br><br><br><br><br>
 
 **Varying modal content**
 
 Have a bunch of buttons that all trigger the same modal with slightly different contents? Use event.relatedTarget and HTML data-* attributes (possibly via jQuery) to <a href="https://getbootstrap.com/docs/4.3/components/modal/#varying-modal-content">vary the contents</a> of the modal depending on which button was clicked.
 
-![Varying modal content example](../images/bootstrap/modal-varying-content.png)
+![Varying modal content example](../images/bootstrap/modal-varying-content.PNG)
 
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
     public class Modal extends Section {
-    
+        //@FindBy(xpath = "div/h5[@class='modal-title']")
         @UI(".modal-header .modal-title")
         public Text title;
     }
 
     public class ModalVaryingContent extends Modal {
-    
+        //@FindBy(xpath = "div/button[@class='close']")
         @UI(".modal-header .close")
         public Button closeX;
     }
 
     @Test(dataProvider = "modalVaryingContentButtonsWithRecipients")
     public void modalButtonsTest(Button modalButton, String recipient) {
-        checkButton(modalButton, String.format("Open modal for @%s", recipient), whiteColor, blueColorBackground, blueColorBorder);
+        checkButton(modalButton, String.format("Open modal for @%s", recipient), 
+        whiteColor, blueColorBackground, blueColorBorder);
     }
 
     @Test(dataProvider = "modalVaryingContentButtonsWithRecipients")
@@ -9908,7 +9909,8 @@ Here is an example with provided Bootstrap v4.3 code:
         modalVaryingContentWindow.is().hidden();
     }
 
-    private void checkButton(Button button, String text, String color, String backgroundColor, String borderColor) {
+    private void checkButton(Button button, String text, String color, 
+    String backgroundColor, String borderColor) {
         button.is().core()
                 .text(text)
                 .tag("button")
@@ -9918,7 +9920,7 @@ Here is an example with provided Bootstrap v4.3 code:
     }
 ```
 
-![Varying modal content HTML example](../images/bootstrap/modal-varying-content-html.png)
+![Varying modal content HTML example](../images/bootstrap/modal-varying-content-html.PNG)
 
 Available methods in Java JDI Light:
 

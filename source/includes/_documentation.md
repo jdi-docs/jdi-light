@@ -5549,7 +5549,7 @@ Available methods in Java JDI Light:
 
 ####Containers
 
-```java
+```java 
 public class Navbar extends Section {
     //@FindBy(xpath = "//*[contains(@class, 'nav-item')]")
     @UI("//*[contains(@class, 'nav-item')]") public WebList navbarLinks;
@@ -9709,6 +9709,64 @@ In these java test cases examples next classes have been used:
 ### Modal
 **Modal** is a dialog box/popup window that is displayed on page.
 
+#### Scrolling Long Content Modal
+
+When modals become too long for the user’s viewport or device, <a style="font-weight: bold;" href="https://getbootstrap.com/docs/4.3/components/modal/#scrolling-long-content" target="_blank">they scroll</a> independent of the page itself. Try the demo below to see what we mean.
+
+![Modal long scrollable](../images/bootstrap/modal_scrollable1.png)
+
+```java 
+
+// @FindBy(id = "modal-scroll-long")
+@UI("#modal-scroll-long")
+public static SectionModalLongScrolling sectionModalLongScrolling;
+
+// @FindBy(id = "exampleModalLong")
+@UI("#exampleModalLong")
+public ModalWithButtons modalLong;
+
+// @FindBy(id = "exampleModalScrollable")
+@UI("#exampleModalScrollable")
+public ModalWithButtons modalScrollable;
+
+// @FindBy(css = "#modal-scroll-long div:nth-child(2) button")
+@UI("div:nth-child(2) button")
+public Button buttonLongScroll;
+
+// @FindBy(css = "#modal-scroll-long div:nth-child(4) button")
+@UI("div:nth-child(4) button")
+public Button buttonLongScrollable;
+
+@DataProvider
+public Object[][] listData() {
+    return new Object[][]{
+        {sectionModalLongScrolling.buttonLongScroll, sectionModalLongScrolling.modalLong},
+        {sectionModalLongScrolling.buttonLongScrollable, sectionModalLongScrolling.modalScrollable}
+    };
+}
+
+@Test(dataProvider = "listData")
+public void bottomButtonsTest(Button showModal, ModalWithButtons modal) {
+    showModal.click();
+    modal.is().displayed();
+    modal.bottomSave();
+    modal.bottomClose();
+    modal.is().disappear();
+}
+
+```
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Modal scrollable example](../images/bootstrap/modal_scrollable-html1.png)
+
+![Modal scrollable](../images/bootstrap/modal_scrollable2.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Modal scrollable example](../images/bootstrap/modal_scrollable-html2.png)
+
+
 #### Vertically Centered Modal
 
 Add ``.modal-dialog-centered`` to ``.modal-dialog`` to <a style="font-weight: bold;" href="https://getbootstrap.com/docs/4.3/components/modal/#vertically-centered" target="_blank">vertically center</a> the modal.
@@ -9808,14 +9866,6 @@ Available methods in Java JDI Light:
 ![Modal composite](../images/bootstrap/modal_composite.png)
 
 ![Modal composite](../images/bootstrap/modal-html.png)
-
-*Example:* Modal scrollable
-
-![Modal long scrollable](../images/bootstrap/modal_scrollable1.png)
-
-![Modal scrollable](../images/bootstrap/modal_scrollable2.png)
-
-![Modal scrollable example](../images/bootstrap/modal_scrollable-html.png)
 
 *Example:* Modal centered
 
@@ -13218,7 +13268,7 @@ Here is an example with provided Bootstrap v4.3 code:
 [Card Image test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardImageTests.java)
 
 ####Card Image Overlays
-```java
+```java 
 
 
 

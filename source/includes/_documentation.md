@@ -9345,7 +9345,7 @@ public static ReadonlyPlainText readonlyPlainText1;
 @Test
 public void isValidationTest() {
     readonlyPlainText1.is().core().hasClass("form-control-plaintext");
-    readonlyPlainText1.hasAttribute("readonly");
+    assertTrue(readonlyPlainText1.hasAttribute("readonly"));
     readonlyPlainText1.is().core().attr("type", "text");
 
 @Test
@@ -9376,6 +9376,49 @@ Available methods in Java JDI Light:
 <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/mposite.section.form.ReadonlyPlainTextTests.java" target=a_blank> Bootstrap test examples </a>
 
 <br><br>
+
+**Range input**
+
+Set horizontally scrollable <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/forms/#range-inputs">range inputs</a>
+using .form-control-range.
+
+![Forms_range_input_example](../images/bootstrap/range_input.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+```java 
+//@FindBy(css = "#formControlRange")
+@UI("#formControlRange")
+public static RangeInput rangeInput;
+
+ @Test
+ public void itemHasProperClass() {
+    rangeInput.is().core().hasClass("form-control-range");
+ }
+
+ @Test
+ public void itemHasProperType() {
+    rangeInput.is().core().attr("type", "range");
+ }
+
+ @Test
+ public void labelValidationTest() {
+    rangeInput.label().is().text("Example Range input");
+ }
+```
+![Forms_range_input_HTML_example](../images/bootstrap/range_input_html.png)
+
+Available methods in Java JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+**is()** | Various assert actions for Progress | UIAssert 
+**assertThat()** | Assert action | UIAssert
+**hasClass()** | Match passed value with element class | boolean
+**attr()** | Match passed value with element attribute | String
+**label()** | Get label associated with an item | Label
+**labelText()** | Get text of a label associated with an item | String
+
+<a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/mposite.section.form.RangeInputTests.java" target=a_blank> Bootstrap test examples </a>
 
 ### Scrollspy
 **[Scrollspy](https://getbootstrap.com/docs/4.3/components/scrollspy/#example-in-navbar)** – automatically update Bootstrap navigation or list group components based on scroll position to indicate which link is currently active in the viewport.

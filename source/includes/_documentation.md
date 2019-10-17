@@ -6556,7 +6556,6 @@ Available methods in Java JDI Light:
  **isDisplayed()** |	Returns true if kitchen sink is displayed, false if not |	boolean
  **assertThat()** |	Assert action |	UIAssert
  **shouldBe()** | Applicable for performing assert actions for kitchen sink | UIAssert
- **waitFor()** | Applicable for performing assert actions for kitchen sink | UIAssert
  <br>
  
  Kitchen sink is represented by Section class in Java:

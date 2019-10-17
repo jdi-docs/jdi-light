@@ -9256,7 +9256,7 @@ Inner elements represented by the following Java classes:
 <br>
 
 ####Sizing
-<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.0/components/jumbotron" target="_blank">Set</a> heights using classes like .form-control-lg and .form-control-sm.
+<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.0/components/forms/#sizing" target="_blank">Set</a> heights using classes like .form-control-lg and .form-control-sm.
 
 ![Forms_sizing](../images/bootstrap/forms-sizing.png)
 

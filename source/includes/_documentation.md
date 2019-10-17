@@ -9926,11 +9926,12 @@ Available methods in Java JDI Light:
 
 |Method/Property | Description | Return Type
 --- | --- | ---
-**getCellInRow(int rowN, int cellN)** | Get cellN from rowN | GridCell
-**getGridRow(int rowN)** | Get rowN  | GridRow
-**clickBtnCloseX()** | Close Modal Window  | void
-**clickBtnClose()** | Close Modal Window  | void
+**is()** | Assert action | TextAssert
+**assertThat()** | Assert action  | TextAssert
+**click()** | Click button  | void
+**displayed()** | Assert is displayed  | void
 **getTitle()** | Get Modal Window Title | Text 
+**getText()** | Get text value of the element | String
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/modal/ModalVaryingContentTests.java)
 

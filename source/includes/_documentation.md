@@ -9357,13 +9357,17 @@ public void check() {
 
 Available methods in Java JDI Light:
 
-|Method/Property | Description | Return Type
+|Method / Property | Description | Return Type
 --- | --- | ---
-**is()** | Various assert actions for Progress | ProgressAssert 
-**assertThat()** | Assert action | TextAssert
-**getValue()** | Get item value | String
-**hasClass()** | Match passed value with element class | ICoreElement
-**attr()** | Match passed value with element attribute | ICoreElement
+**SendKeys(string value)** | adds text to the field | void
+**SetText(String value)** | sets new text | void
+**Input(string text)** | sets new text  | void
+**Focus()** | places cursor within the text field | void
+**Placeholder** | returns value of the placeholder attribute | String
+**GetText()** | returns text from the text field  | String
+**GetValue()** | returns text from the text field| String
+**Is** | property that returns object for work with assertions| TextAssert
+**AssertThat** | property that returns object for work with assertions| TextAssert
 
 
 <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite.section.form.FormReadOnlyTests.java" target=a_blank> Bootstrap test examples </a>

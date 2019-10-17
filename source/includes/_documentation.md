@@ -9372,8 +9372,8 @@ Available methods in Java JDI Light:
 **Placeholder** | returns value of the placeholder attribute | String
 **GetText()** | returns text from the text field  | String
 **GetValue()** | returns text from the text field| String
-**Is** | property that returns object for work with assertions| TextAssert
-**AssertThat** | property that returns object for work with assertions| TextAssert
+**Is()** | property that returns object for work with assertions| TextAssert
+**AssertThat()** | property that returns object for work with assertions| TextAssert
 
 
 <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite.section.form.FormReadOnlyTests.java" target=a_blank> Bootstrap test examples </a>

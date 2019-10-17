@@ -990,7 +990,7 @@ public void AssertValidationTest()
 
 ```
 
-**Menu** - A list of links, which leads to different pages or sections of website
+**Menu** - A list of links, which leads to different pages or sections of website.
 
 Menu element is located in JDI Light in:
 
@@ -1040,16 +1040,15 @@ Available Assert methods in C# JDI Light:
 **Is** | Get select assert | MenuSelectAssert
 **AssertThat** | Get select assert | MenuSelectAssert
 
-<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/DateTimeTests.java" target="_blank">Test examples in Java</a>
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/MenuTests.java" target="_blank">Test examples in Java</a>
 
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/complex/MenuTests.java)
-
-[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Composite/MenuTests.cs)
+<a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Composite/MenuTests.cs" target="_blank">Test examples in C#</a>
 
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/#menu-2)
 
 ### NumberSelector
-**NumberSelector** – a graphical control element, that allows the user to let the user enter a number.
+
+**NumberSelector** – A graphical control element, that allows the user to let the user enter a number.
 
 NumberSelector are represented by the following class:
  
@@ -1107,15 +1106,15 @@ Here is the list of available methods in C#:
 **Is()** | Returns object for work with assertions | NumberAssert
 **AssertThat()** | Returns object for work with assertions | NumberAssert
 
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/NumberSelectorTests.java)
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/NumberSelectorTests.java" target="_blank">Test examples in Java</a>
 
-[Test examples in C#]
-(https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/NumberSelectorTests.cs)
+<a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/NumberSelectorTests.cs" target="_blank">Test examples in C#</a>
 
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#numberselector-2)<br>
 
 ### ProgressBar
-**Progress Bar** - Element for displaying an indicator showing the completion progress of a task
+
+**Progress Bar** - Element for displaying an indicator showing the completion progress of a task.
 
 ![ProgressBar](../images/progressbar.png)
 
@@ -1177,7 +1176,7 @@ Available method in Java JDI Light:
 **is()** |Various assert actions for Progress bar  | ProgressAssert
 **assertThat()** |Various assert actions for Progress bar | ProgressAssert 
 
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/ProgressTests.java) <br>
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/ProgressTests.java" target="_blank">Test examples in Java</a><br>
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#progress-bar) <br>
 
 
@@ -1190,7 +1189,7 @@ Available method in C# JDI Light:
 **Is()** |Various assert actions for Progress bar  | ProgressAssert
 **AssertThat()** |Various assert actions for Progress bar | ProgressAssert 
 
-[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/ProgressTests.cs)<br>
+<a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/ProgressTests.cs" target="_blank">Test examples in C#</a><br>
 [BDD Steps example](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-bdd-tests/src/test/resources/features/ProgressBar.feature)<br>
 
 ### Range
@@ -1288,7 +1287,7 @@ Available method in C# JDI Light:
   }
 ```
 
-**Range** - a graphical control element that allows the user to set the value from the range.</br>
+**Range** - A graphical control element that allows the user to set the value from the range.</br>
 
 ![Range](../images/html/range_html.png)</br>
 
@@ -1311,7 +1310,7 @@ Here is a list of available methods in C#:
 **Is()** | Returns object for work with assertions | RangeAssert
 **AssertThat()** | Returns object for work with assertions | RangeAssert
 
-[Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/RangeTests.cs)</br>
+<a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/RangeTests.cs" target="_blank">Test examples in C#</a></br>
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#range-2) <br>
 
 And here are methods available in Java:
@@ -1326,11 +1325,11 @@ And here are methods available in Java:
 **is()** | Returns object for work with assertions | RangeAssert
 **assertThat()** | Returns object for work with assertions | RangeAssert
 
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/RangeTests.java)</br>
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/RangeTests.java" target="_blank">Test examples in Java</a></br>
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#range-2) <br>
 
 ### Text
-**Text** is a combination of letters and textual symbols. When performing testing, the text is used in most operations: when typing text into the login field, when finding a button with some certain text in it, or when checking if actual text matches expected one.
+**Text** - Is a combination of letters and textual symbols. When performing testing, the text is used in most operations: when typing text into the login field, when finding a button with some certain text in it, or when checking if actual text matches expected one.
 
 ```java 
   @UI("[ui=jdi-text]") //@FindBy(css = "[ui=jdi-text]") 
@@ -1441,7 +1440,7 @@ Here is a list of available methods in C#:
 **AssertThat** | Gets text assert | TextAssert
 **WaitFor** | Gets text assert | TextAssert
 
-[Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/TextTests.cs)
+<a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/TextTests.cs" target="_blank">Test examples in C#</a>
 
 And here are methods available in Java:
     
@@ -1451,7 +1450,8 @@ And here are methods available in Java:
 **is()** |Various assert actions for Text| TextAssert
 **assertThat()** |Various assert actions for Text| TextAssert 
 
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/TextTests.java)  
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/TextTests.java" target="_blank">Test examples in Java</a>
+
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#text-2)
 
 ### TextField

@@ -6508,12 +6508,12 @@ Here is an example with provided Bootstrap v4.3 code:
     @Test
     public void itemsTest() {
         assertEquals(cardKitchenSink.list.size(), 3);
-        cardKitchenSink.list.get(1).is().text(is(item0Text));
-        cardKitchenSink.list.get(2).is().text(is(item1Text));
-        cardKitchenSink.list.get(3).is().text(is(item2Text));
-        cardKitchenSink.list.get(1).is().text(containsString(item0Text));
-        cardKitchenSink.list.get(2).is().text(containsString(item1Text));
-        cardKitchenSink.list.get(3).is().text(containsString(item2Text));
+        cardKitchenSink.list.get(1).is().text(is(item1Text));
+        cardKitchenSink.list.get(2).is().text(is(item2Text));
+        cardKitchenSink.list.get(3).is().text(is(item3Text));
+        cardKitchenSink.list.get(1).is().text(containsString(item1Text));
+        cardKitchenSink.list.get(2).is().text(containsString(item2Text));
+        cardKitchenSink.list.get(3).is().text(containsString(item3Text));
     }
 
     @Test

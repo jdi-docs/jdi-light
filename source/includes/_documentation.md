@@ -10491,7 +10491,7 @@ Available methods in Java JDI Light:
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/modal/ModalVaryingContentTests.java)
 
-
+<br><br>
 
 **Embedding YouTube videos**
 
@@ -10501,43 +10501,7 @@ Embedding YouTube videos in modals requires additional JavaScript not in Bootstr
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
-public class EmbeddedVideoModal extends Modal {
-    @Frame(xpath = "//iframe")
-    private EmbeddedVideoModalFrame videoModalFrameInModal;
-
-    public EmbeddedVideoModalFrame getVideoModalFrame() {
-        return this.videoModalFrameInModal;
-    }
-}
-
-public class EmbeddedVideoModalFrame extends Section {
-    @UI(".ytp-title-link")
-    private Link title;
-
-    @UI(".ytp-progress-bar")
-    private UIElement progressBar;
-
-    @UI(".ytp-large-play-button")
-    private Button playButton;
-
-    @UI("video.video-stream")
-    private UIElement video;
-
-    public Link getVideoTitle() {
-        return title;
-    }
-    public UIElement getProgressBar() {
-        return progressBar;
-    }
-    public Button getPlayButton() {
-        return playButton;
-    }
-    public UIElement getVideo() {
-        return video;
-    }
-}
-    
+```java  
 @UI("#modal-youtube button.btn-primary")
 public static Button modalEmbeddedVideoButton;
 @UI("#youTubeModalLabel")
@@ -10566,7 +10530,6 @@ public void playVideoTest() {
         .attr("aria-valuenow", Matchers.matchesPattern("[1-9]{1}[0-9]*"));
     embeddedVideoModal.close();
 }
-
 ```
 
 ![Embedding YouTube video example](../images/bootstrap/modal-youtube-html.png)

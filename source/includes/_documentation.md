@@ -9265,6 +9265,172 @@ Inner elements represented by the following classes:
 
 <br>
 
+
+**[Form disabled](https://getbootstrap.com/docs/4.3/components/forms/#disabled-forms)**
+
+![Form disabled Example](../images/bootstrap/form-disabled.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java 
+@FindBy(css = "#form-disabled") public static FormDisabled formDisabled;
+@UI("#form-disabled") public static FormDisabled formDisabled;
+
+public class FormDisabled extends Section {
+    @FindBy(css = "fieldset") public MediaObject formContainer;
+    @FindBy(css = "#disabledTextInput") public TextField textField;
+    @FindBy(css = "#disabledSelect") public Selector selector;
+    @FindBy(css = "#disabledFieldsetCheck") public Checkbox checkbox;
+    @FindBy(css = "button") public Button submit;
+    @UI("fieldset") public MediaObject formContainer;
+    @UI("#disabledTextInput") public TextField textField;
+    @UI("#disabledSelect") public Selector selector;
+    @UI("#disabledFieldsetCheck") public Checkbox checkbox;
+    @UI("button") public Button submit;
+}
+
+@Test
+public void isValidationTests() {
+    formDisabled.formContainer
+            .is()
+            .displayed()
+            .disabled();
+    formDisabled.textField
+            .is()
+            .displayed()
+            .disabled()
+            .core()
+            .hasClass("form-control")
+            .attr("placeholder", "Disabled input")
+            .tag(is("input"));
+    formDisabled.textField.label()
+            .is()
+            .displayed()
+            .enabled()
+            .core()
+            .text(is("Disabled input"));
+}
+```
+
+<br>
+
+![Form disabled Example](../images/bootstrap/form-disabled-html.png)
+
+
+<br>
+
+|Method | Description | Return Type
+--- | --- | ---
+**click()** | Click the button | void
+**getText()** | Get button text | String
+**getValue()** | Get button value | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**displayed()** | Check that element is displayed | TextAssert
+**enabled()** | Check that element is enabled | TextAssert
+**assertThat()** | Assert action | TextAssert
+**check()** | Assert action | TextAssert
+**selected()** | Assert action | TextAssert
+**deselected()** | Assert action | TextAssert
+<br>
+
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/FormDisabledTests.java)
+
+<br>
+
+Form group is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+
+Inner elements represented by the following classes:
+<ul>
+    <li> [TextField](https://jdi-docs.github.io/jdi-light/#text) </li>
+    <li> [Button](https://jdi-docs.github.io/jdi-light/#button-2) </li>
+    <li> [Checkbox](https://jdi-docs.github.io/jdi-light/#checkboxes-and-radios) </li>
+</ul>
+
+<br>
+
+**[Form help text](https://getbootstrap.com/docs/4.3/components/forms/#help-text)**
+
+![Form help text Example](../images/bootstrap/form-help-text.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java 
+@FindBy(css = 
+@UI("#form-help-text") public static FormHelpText formHelpText;
+
+public class FormHelpText extends Section {
+    @FindBy(css = "#inputPassword5") public TextField passwordOne;
+    @FindBy(css = "#inputPassword6") public TextField passwordTwo;
+    @FindBy(css = "//input[@id='inputPassword5']/../small") public Text passwordOneHelpText;
+    @FindBy(css = "//input[@id='inputPassword6']/../small") public Text passwordTwoHelpText;
+    @UI("#inputPassword5") public TextField passwordOne;
+    @UI("#inputPassword6") public TextField passwordTwo;
+    @UI("//input[@id='inputPassword5']/../small") public Text passwordOneHelpText;
+    @UI("//input[@id='inputPassword6']/../small") public Text passwordTwoHelpText;
+}
+
+@Test
+public void helpTextTests() {
+    formHelpText.passwordOneHelpText
+            .is()
+            .displayed()
+            .enabled()
+            .core()
+            .hasClass("form-text")
+            .hasClass("text-muted")
+            .text(is(passwordOneHelpText))
+            .tag(is("small"));
+    formHelpText.passwordTwoHelpText
+            .is()
+            .displayed()
+            .enabled()
+            .core()
+            .hasClass("text-muted")
+            .text(is(passwordTwoHelpText))
+            .tag(is("small"));
+}
+```
+
+<br>
+
+![Form help text Example](../images/bootstrap/form-help-text-html.png)
+
+
+<br>
+
+|Method | Description | Return Type
+--- | --- | ---
+**click()** | Click the button | void
+**getText()** | Get button text | String
+**getValue()** | Get button value | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**displayed()** | Check that element is displayed | TextAssert
+**enabled()** | Check that element is enabled | TextAssert
+**assertThat()** | Assert action | TextAssert
+**check()** | Assert action | TextAssert
+**selected()** | Assert action | TextAssert
+**deselected()** | Assert action | TextAssert
+<br>
+
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/FormHelpText.java)
+
+<br>
+
+Form group is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+
+Inner elements represented by the following classes:
+<ul>
+    <li> [TextField](https://jdi-docs.github.io/jdi-light/#text) </li>
+</ul>
+
+<br>
+
 **[Forms Overview](https://getbootstrap.com/docs/4.3/components/forms/#overview)**
 
 ![Forms Overview Example](../images/bootstrap/form-overview.png)

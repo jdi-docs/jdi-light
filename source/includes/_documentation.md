@@ -10491,6 +10491,97 @@ Available methods in Java JDI Light:
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/modal/ModalVaryingContentTests.java)
 
+
+
+**Embedding YouTube videos**
+
+Embedding YouTube videos in modals requires additional JavaScript not in Bootstrap to automatically stop playback and more. See <a href="https://stackoverflow.com/questions/18622508/bootstrap-3-and-youtube-in-modal">this helpful Stack Overflow post</a> for more information.
+
+![Embedding YouTube video example](../images/bootstrap/modal-youtube.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java
+public class EmbeddedVideoModal extends Modal {
+    @Frame(xpath = "//iframe")
+    private EmbeddedVideoModalFrame videoModalFrameInModal;
+
+    public EmbeddedVideoModalFrame getVideoModalFrame() {
+        return this.videoModalFrameInModal;
+    }
+}
+
+public class EmbeddedVideoModalFrame extends Section {
+    @UI(".ytp-title-link")
+    private Link title;
+
+    @UI(".ytp-progress-bar")
+    private UIElement progressBar;
+
+    @UI(".ytp-large-play-button")
+    private Button playButton;
+
+    @UI("video.video-stream")
+    private UIElement video;
+
+    public Link getVideoTitle() {
+        return title;
+    }
+    public UIElement getProgressBar() {
+        return progressBar;
+    }
+    public Button getPlayButton() {
+        return playButton;
+    }
+    public UIElement getVideo() {
+        return video;
+    }
+}
+    
+@UI("#modal-youtube button.btn-primary")
+public static Button modalEmbeddedVideoButton;
+@UI("#youTubeModalLabel")
+public static EmbeddedVideoModal embeddedVideoModal;
+
+private final static String VIDEO_TITLE = "Forget about Selenium. May the JDI Light force be with you";
+private final static String VIDEO_URL = "https://www.youtube.com/watch?v=lw4g9ItC7Sc";
+
+@Test
+public void videoTitleTest() {
+    modalEmbeddedVideoButton.click();
+    embeddedVideoModal.getVideoModalFrame().getVideoTitle().is()
+        .displayed()
+        .enabled()
+        .ref(VIDEO_URL)
+        .text(VIDEO_TITLE);
+    embeddedVideoModal.close();
+}
+
+@Test
+public void playVideoTest() {
+    modalEmbeddedVideoButton.click();
+    embeddedVideoModal.getVideoModalFrame().getPlayButton().click();
+    embeddedVideoModal.getVideoModalFrame().getProgressBar().assertThat()
+        .displayed()
+        .attr("aria-valuenow", Matchers.matchesPattern("[1-9]{1}[0-9]*"));
+    embeddedVideoModal.close();
+}
+
+```
+
+![Embedding YouTube video example](../images/bootstrap/modal-youtube-html.png)
+
+Available methods in Java JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+**close()** | Close Modal Window using X control | void
+**displayed()** | Asserts element is displayed  | UIAssert
+**disappear()** | Asserts element is not displayed | UIAssert
+**waitFor()** | Assert action | UIAssert 
+
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/modal/ModalEmbeddingVideoTests.java)
+
 <br><br><br><br><br><br><br>
 
 ### Popovers

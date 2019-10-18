@@ -10068,49 +10068,6 @@ Add ``.modal-dialog-centered`` to ``.modal-dialog`` to <a style="font-weight: bo
 @UI("#modal-vertically-centered")
 public static ModalVerticallyCentered modalVerticallyCentered;
 
-// @FindBy(css = ".button:nth-of-type(1)")
-@UI("button:nth-of-type(1)")
-public Button modalCenterTrigger;
-
-// @FindBy(css = ".button:nth-of-type(2)")
-@UI("button:nth-of-type(2)")
-public Button modalCenterScrollableTrigger;
-
-// @FindBy(id = "modal-vertical-content-1")
-@UI("#modal-vertical-content-1")
-public Modal modal1;
-
-// @FindBy(id = "modal-vertical-content-2")
-@UI("#modal-vertical-content-2")
-public Modal modal2;
-
-// @FindBy(id = "//*[@id='modal-vertical-content-1']//button[contains(., 'Close')]")
-@UI("//*[@id='modal-vertical-content-1']//button[contains(., 'Close')]")
-public Button dismissModal1Close;
-
-// @FindBy(id = "//*[@id='modal-vertical-content-2']//button[contains(., 'Close')]")
-@UI("//*[@id='modal-vertical-content-2']//button[contains(., 'Close')]")
-public Button dismissModal2Close;
-
-@DataProvider
-public Object[][] modalBasicData() {
-    return new Object[][]{
-            {
-                    modalVerticallyCentered.modalCenterTrigger,
-                    modalVerticallyCentered.dismissModal1Close,
-                    modalVerticallyCentered.modal1,
-                    "modal-vertical-content-1"
-            },
-
-            {
-                    modalVerticallyCentered.modalCenterScrollableTrigger,
-                    modalVerticallyCentered.dismissModal2Close,
-                    modalVerticallyCentered.modal2,
-                    "modal-vertical-content-2"
-            }
-    };
-}
-
 @Test(dataProvider = "modalBasicData")
 public void modalBasicFunctionalityTest(Button showButton,
                                         Button dismissButton,
@@ -10138,7 +10095,7 @@ Here is an example with provided Bootstrap v4.3 code:
 
 Modal is represented by Section class in Java:
  
-+ [Section](https://jdi-docs.github.io/jdi-light/#section)
++ Section #BS
 
 Available methods in Java JDI Light:
 
@@ -10148,7 +10105,7 @@ Available methods in Java JDI Light:
 **displayed()** | Asserts element is displayed  | UIAssert
 **hidden()** | Asserts element is hidden | UIAssert 
 
-<a href="javascript: void();" target="_blank">Bootstrap Test Examples</a>
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/modal/ModalVerticallyCenteredTests.java" target="_blank">Bootstrap Test Examples</a>
 
 *Example:* Simple Modal with elements
 

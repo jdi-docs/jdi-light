@@ -8242,11 +8242,14 @@ By default, a dropdown menu is automatically positioned 100% from the top and al
 
   - __<a href = "https://getbootstrap.com/docs/4.3/components/dropdowns/#responsive-alignment">Responsive alignment</a>__
 
-If you want to use responsive alignment, disable dynamic positioning by adding the ``data-display="static"`` attribute and use the responsive variation classes.
+If you want to use responsive alignment, disable dynamic positioning by adding the 
+``data-display="static"`` attribute and use the responsive variation classes.
 
-To align **right** the dropdown menu with the given breakpoint or larger, add ``.dropdown-menu{-sm|-md|-lg|-xl}-right``.
+To align **right** the dropdown menu with the given breakpoint or larger, add 
+``.dropdown-menu{-sm|-md|-lg|-xl}-right``.
 
-To align **left** the dropdown menu with the given breakpoint or larger, add ``.dropdown-menu-right`` and ``.dropdown-menu{-sm|-md|-lg|-xl}-left``.
+To align **left** the dropdown menu with the given breakpoint or larger, add 
+``.dropdown-menu-right`` and ``.dropdown-menu{-sm|-md|-lg|-xl}-left``.
 
 <br>
 
@@ -8262,7 +8265,7 @@ Separate groups of related menu items with a divider.
 
   - __<a href = "https://getbootstrap.com/docs/4.3/components/dropdowns/#text">Text</a>__
 
-Place any freeform text within a dropdown menu with text and use <a href="https://getbootstrap.com/docs/4.3/utilities/spacing/">spacing</a> utilities. Note that you’ll likely need additional sizing styles to constrain the menu width.
+Place any freeform text within a dropdown menu with text and use <a href="https://getbootstrap.com/docs/4.3/utilities/spacing/">spacing utilities</a>. Note that you’ll likely need additional sizing styles to constrain the menu width.
 
   - __<a href = "https://getbootstrap.com/docs/4.3/components/dropdowns/#forms">Forms</a>__
 

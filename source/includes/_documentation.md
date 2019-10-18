@@ -8143,6 +8143,17 @@ Available methods and properties in C# JDI Light:
 
 TBD
 
+**Examples**
+
+Wrap the dropdown’s toggle (your button or link) and the dropdown menu within .dropdown, or another element that declares position: relative;. Dropdowns can be triggered from <a> or <button> elements to better fit your potential needs.
+
+<br>
+
+**Single button**
+
+Any single .btn can be turned into a dropdown toggle with <a href = "https://getbootstrap.com/docs/4.3/components/dropdowns/#single-button">some markup changes</a>. Here’s how you can put them to work with either <button> elements:
+
+
 
 <br><br><br>
 

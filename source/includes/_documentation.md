@@ -8143,17 +8143,19 @@ Available methods and properties in C# JDI Light:
 
 TBD
 
+<br>
+
 <a href = "https://getbootstrap.com/docs/4.3/components/dropdowns/#examples">**Examples**</a>
 
 Wrap the dropdown’s toggle (your button or link) and the dropdown menu within ``.dropdown``, or another element that declares ``position: relative;``. Dropdowns can be triggered from ``<a>`` or ``<button>`` elements to better fit your potential needs.
-
-<br>
 
   - __<a href = "https://getbootstrap.com/docs/4.3/components/dropdowns/#single-button">Single button</a>__
 
 Any single ``.btn`` can be turned into a dropdown toggle with some markup changes. Here’s how you can put them to work with either ``<button>`` elements:
 
 ![Single button dropdown example](../images/bootstrap/dropdown-single-button.png)
+
+Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
 @UI(".dropdown-toggle") public Button dropdownToggle; //@FindBy(css = ".dropdown-toggle")
@@ -8178,8 +8180,6 @@ public void simpleDropdownIsValidationTest() {
             .tag(is("button"));
 }
 ```
-
-Here is an example with provided Bootstrap v4.3 code:
   
 ![Single button dropdown HTML example](../images/bootstrap/dropdown-single-button-html.png)
 
@@ -8187,20 +8187,36 @@ Available methods in Java JDI Light:
 
 |Method/Property | Description | Return Type
 --- | --- | ---
-click() | Click the item  | void
-getText() |Get item text  |  String
-getValue() |Get item value  |  String
-getTooltipText() |Get tooltip text |String 
-getTooltipPlacement() |Get tooltip placement| String
-isTooltipWithHTML() |Check that tooltip contains html text |boolean
-is()	 |  Assert action	| UIAssert
-assertThat()	 |  Assert action	| UIpAssert
 
-<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/TooltipTests.java" target="_blank">Bootstrap test example with tooltips</a>
+Bootstrap test examples
  
+  - __<a href = "https://getbootstrap.com/docs/4.3/components/dropdowns/#split-button">Split button</a>__
 
+Similarly, create split button dropdowns with virtually the same markup as single button dropdowns, but with the addition of ``.dropdown-toggle-split`` for proper spacing around the dropdown caret.
 
+We use this extra class to reduce the horizontal ``padding`` on either side of the caret by 25% and remove the ``margin-left`` that’s added for regular button dropdowns. Those extra changes keep the caret centered in the split button and provide a more appropriately sized hit area next to the main button.
 
+<br>
+
+<a href = "https://getbootstrap.com/docs/4.3/components/dropdowns/#sizing">**Sizing**</a>
+
+Button dropdowns work with buttons of all sizes, including default and split dropdown buttons.
+
+<br>
+
+<a href = "https://getbootstrap.com/docs/4.3/components/dropdowns/#directions">**Directions**</a>
+
+  - __<a href = "https://getbootstrap.com/docs/4.3/components/dropdowns/#dropup">Dropup</a>__
+
+Trigger dropdown menus above elements by adding ``.dropup`` to the parent element.
+
+  - __<a href = "https://getbootstrap.com/docs/4.3/components/dropdowns/#dropright">Dropright</a>__
+
+Trigger dropdown menus at the right of the elements by adding ``.dropright`` to the parent element.
+
+  - __<a href = "https://getbootstrap.com/docs/4.3/components/dropdowns/#dropleft">Dropleft</a>__
+
+Trigger dropdown menus at the left of the elements by adding ``.dropleft`` to the parent element.
 
 <br><br><br>
 

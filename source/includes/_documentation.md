@@ -8218,6 +8218,56 @@ Trigger dropdown menus at the right of the elements by adding ``.dropright`` to 
 
 Trigger dropdown menus at the left of the elements by adding ``.dropleft`` to the parent element.
 
+<br>
+
+<a href = "https://getbootstrap.com/docs/4.3/components/dropdowns/#menu-items">**Menu items**</a>
+
+Historically dropdown menu contents had to be links, but that’s no longer the case with v4. Now you can optionally use ``<button>`` elements in your dropdowns instead of just ``<a>``s.
+
+You can also create non-interactive dropdown items with ``.dropdown-item-text``. Feel free to style further with custom CSS or text utilities.
+
+  - __<a href = "https://getbootstrap.com/docs/4.3/components/dropdowns/#active">Active</a>__
+
+Add ``.active`` to items in the dropdown to **style them as active**.
+
+  - __<a href = "https://getbootstrap.com/docs/4.3/components/dropdowns/#disabled">Disabled</a>__
+
+Add ``.disabled`` to items in the dropdown to **style them as disabled**.
+
+<br>
+
+<a href = "https://getbootstrap.com/docs/4.3/components/dropdowns/#menu-alignment">**Menu alignment**</a>
+
+By default, a dropdown menu is automatically positioned 100% from the top and along the left side of its parent. Add ``.dropdown-menu-right`` to a ``.dropdown-menu`` to right align the dropdown menu.
+
+  - __<a href = "https://getbootstrap.com/docs/4.3/components/dropdowns/#responsive-alignment">Responsive alignment</a>__
+
+If you want to use responsive alignment, disable dynamic positioning by adding the ``data-display="static"`` attribute and use the responsive variation classes.
+
+To align **right** the dropdown menu with the given breakpoint or larger, add ``.dropdown-menu{-sm|-md|-lg|-xl}-right``.
+
+To align **left** the dropdown menu with the given breakpoint or larger, add ``.dropdown-menu-right`` and ``.dropdown-menu{-sm|-md|-lg|-xl}-left``.
+
+<br>
+
+<a href = "https://getbootstrap.com/docs/4.3/components/dropdowns/#menu-content">**Menu content**</a>
+
+  - __<a href = "https://getbootstrap.com/docs/4.3/components/dropdowns/#headers">Headers</a>__
+
+Add a header to label sections of actions in any dropdown menu.
+
+  - __<a href = "https://getbootstrap.com/docs/4.3/components/dropdowns/#dividers">Dividers</a>__
+
+Separate groups of related menu items with a divider.
+
+  - __<a href = "https://getbootstrap.com/docs/4.3/components/dropdowns/#text">Text</a>__
+
+Place any freeform text within a dropdown menu with text and use <a href="https://getbootstrap.com/docs/4.3/utilities/spacing/">spacing</a> utilities. Note that you’ll likely need additional sizing styles to constrain the menu width.
+
+  - __<a href = "https://getbootstrap.com/docs/4.3/components/dropdowns/#forms">Forms</a>__
+
+Put a form within a dropdown menu, or make it into a dropdown menu, and use <a href="https://getbootstrap.com/docs/4.3/utilities/spacing/">margin or padding utilities</a> to give it the negative space you require.
+
 <br><br><br>
 
 

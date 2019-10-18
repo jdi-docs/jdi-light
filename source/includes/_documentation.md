@@ -8862,6 +8862,7 @@ Inner elements represented by the following classes:
 <ul>
     <li> [TextField](https://jdi-docs.github.io/jdi-light/#text) </li>
     <li> [Checkbox](https://jdi-docs.github.io/jdi-light/#textfield)</li>
+    <li> [Button](https://jdi-docs.github.io/jdi-light/#button-2) </li>
 </ul>
 
 <br>
@@ -8952,6 +8953,10 @@ public void isValidationTests(TextField element, String label, String value) {
 **assertThat()** | Assert action | TextAssert
 <br>
 
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/FormBrowserDefaultsTests.java)
+
+<br>
+
 Form group is represented by Section class in Java:
  
   [Section](https://jdi-docs.github.io/jdi-light/#section)  
@@ -8960,9 +8965,11 @@ Inner elements represented by the following classes:
 <ul>
     <li> [TextField](https://jdi-docs.github.io/jdi-light/#text) </li>
     <li> [Text](https://jdi-docs.github.io/jdi-light/#text) </li>
+    <li> [Button](https://jdi-docs.github.io/jdi-light/#button-2) </li>
 </ul>
 
 <br>
+
 
 
 **[Form server side](https://getbootstrap.com/docs/4.3/components/forms/#server-side)**
@@ -9051,6 +9058,10 @@ public void fillTest() {
 **assertThat()** | Assert action | TextAssert
 <br>
 
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/FormServerSideTests.java)
+
+<br>
+
 Form group is represented by Section class in Java:
  
   [Section](https://jdi-docs.github.io/jdi-light/#section)  
@@ -9059,6 +9070,7 @@ Inner elements represented by the following classes:
 <ul>
     <li> [TextField](https://jdi-docs.github.io/jdi-light/#text) </li>
     <li> [Text](https://jdi-docs.github.io/jdi-light/#text) </li>
+    <li> [Button](https://jdi-docs.github.io/jdi-light/#button-2) </li>
 </ul>
 
 <br>
@@ -9145,6 +9157,10 @@ public void sendMethodTest() {
 **assertThat()** | Assert action | TextAssert
 <br>
 
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/FormTooltipTests.java)
+
+<br>
+
 Form group is represented by Section class in Java:
  
   [Section](https://jdi-docs.github.io/jdi-light/#section)  
@@ -9153,10 +9169,101 @@ Inner elements represented by the following classes:
 <ul>
     <li> [TextField](https://jdi-docs.github.io/jdi-light/#text) </li>
     <li> [Text](https://jdi-docs.github.io/jdi-light/#text) </li>
+    <li> [Button](https://jdi-docs.github.io/jdi-light/#button-2) </li>
 </ul>
 
 <br>
 
+
+**[Form horizontal](https://getbootstrap.com/docs/4.3/components/forms/#horizontal-form)**
+
+![Form horizontal Example](../images/bootstrap/form-horizontal.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java 
+// FindBy(css = "#form-horizontal") public static FormHorizontal formHorizontal;
+@UI("#form-horizontal") public static FormHorizontal formHorizontal;
+
+public class FormHorizontal extends Form<FormContacts> {
+    // FindBy(css = "#inputEmail3") public TextField email;
+    // FindBy(css = "#inputPassword3") public TextField password;
+    // FindBy(css = "input[name='gridRadios']") public RadioButton radio;
+    // FindBy(css = "#gridCheck1") public Checkbox accept;
+    // FindBy(css = "button") public Button submit;
+    @UI("#inputEmail3") public TextField email;
+    @UI("#inputPassword3") public TextField password;
+    @UI("input[name='gridRadios']") public RadioButton radio;
+    @UI("#gridCheck1") public Checkbox accept;
+    @UI("button") public Button submit;
+}
+
+@Test
+public void formTest() {
+    formHorizontal.fill(HORIZONTAL_FORM_CONTACT);
+    formHorizontal.check(HORIZONTAL_FORM_CONTACT);
+    checkSubmitClicked();
+    formHorizontal.check(HORIZONTAL_FORM_DEFAULT);
+}
+
+@Test
+public void directFillingTest() {
+    formHorizontal.email.sendKeys(email);
+    formHorizontal.check(BLANK_CONTACT.set(c -> c.email = email));
+    formHorizontal.password.sendKeys(password);
+    formHorizontal.check(BLANK_CONTACT.set(c -> c.password = password));
+    formHorizontal.radio.select(2);
+    formHorizontal.check(BLANK_CONTACT.set(c -> c.radio = radio));
+    formHorizontal.accept.setValue(accept);
+    formHorizontal.check(BLANK_CONTACT.set(c -> c.accept = accept));
+    checkSubmitClicked();
+    validateAlert(is("Form submitted successfully"));
+    formHorizontal.check(HORIZONTAL_FORM_DEFAULT);
+    clearBlankContact();
+}
+```
+
+<br>
+
+![Form horizontal Example](../images/bootstrap/form-horizontal-html1.png)
+![Form horizontal Example](../images/bootstrap/form-horizontal-html2.png)
+
+
+<br>
+
+|Method | Description | Return Type
+--- | --- | ---
+**click()** | Click the button | void
+**getText()** | Get button text | String
+**getValue()** | Get button value | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**displayed()** | Check that element is displayed | TextAssert
+**enabled()** | Check that element is enabled | TextAssert
+**assertThat()** | Assert action | TextAssert
+**check()** | Assert action | TextAssert
+**select()** | Assert action | TextAssert
+**selected()** | Assert action | TextAssert
+**deselected()** | Assert action | TextAssert
+<br>
+
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/FormHorizontalTests.java)
+
+<br>
+
+Form group is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+
+Inner elements represented by the following classes:
+<ul>
+    <li> [TextField](https://jdi-docs.github.io/jdi-light/#text) </li>
+    <li> [Button](https://jdi-docs.github.io/jdi-light/#button-2) </li>
+    <li> [Checkbox](https://jdi-docs.github.io/jdi-light/#checkboxes-and-radios) </li>
+    <li> [RadioButton](https://jdi-docs.github.io/jdi-light/#checkboxes-and-radios) </li>
+</ul>
+
+<br>
 
 **[Forms Overview](https://getbootstrap.com/docs/4.3/components/forms/#overview)**
 
@@ -9242,21 +9349,19 @@ public class FormSignUp extends DataClass<FormSignUp>{
 **assertThat()** | Assert action | TextAssert
 <br>
 
-Form group is represented by Form class in Java:
+
+Form group is represented by Section class in Java:
  
-- com.epam.jdi.light.elements.composite.Form
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
 
-Inner elements represented by the following Java classes:
+Inner elements represented by the following classes:
+<ul>
+    <li> [TextField](https://jdi-docs.github.io/jdi-light/#text) </li>
+    <li> [Button](https://jdi-docs.github.io/jdi-light/#button-2) </li>
+    <li> [Checkbox](https://jdi-docs.github.io/jdi-light/#checkboxes-and-radios) </li>
+    <li> [RadioButton](https://jdi-docs.github.io/jdi-light/#checkboxes-and-radios) </li>
+</ul>
 
-<br>
-
-- TextField: com.epam.jdi.light.ui.bootstrap.elements.common.TextField
-
-- Label: com.epam.jdi.light.elements.common.Label
-
-- Checkbox:com.epam.jdi.light.ui.bootstrap.elements.common.Checkbox
-
-- Button: com.epam.jdi.light.ui.bootstrap.elements.common.Button
 
 [Forms Overview Tests Example](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/FormOverviewTests.java)
 

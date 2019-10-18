@@ -8145,13 +8145,60 @@ TBD
 
 <a href = "https://getbootstrap.com/docs/4.3/components/dropdowns/#examples">**Examples**</a>
 
-Wrap the dropdown’s toggle (your button or link) and the dropdown menu within .dropdown, or another element that declares position: relative;. Dropdowns can be triggered from ``<a>`` or ``<button>`` elements to better fit your potential needs.
+Wrap the dropdown’s toggle (your button or link) and the dropdown menu within ``.dropdown``, or another element that declares ``position: relative;``. Dropdowns can be triggered from ``<a>`` or ``<button>`` elements to better fit your potential needs.
 
 <br>
 
-<a href = "https://getbootstrap.com/docs/4.3/components/dropdowns/#single-button">**Single button**</a>
+  - __<a href = "https://getbootstrap.com/docs/4.3/components/dropdowns/#single-button">Single button</a>__
 
-Any single .btn can be turned into a dropdown toggle with some markup changes. Here’s how you can put them to work with either ``<button>`` elements:
+Any single ``.btn`` can be turned into a dropdown toggle with some markup changes. Here’s how you can put them to work with either ``<button>`` elements:
+
+![Single button dropdown example](../images/bootstrap/dropdown-single-button.png)
+
+```java 
+@UI(".dropdown-toggle") public Button dropdownToggle; //@FindBy(css = ".dropdown-toggle")
+@UI(".dropdown-menu") public UIElement dropdownMenu; //@FindBy(css = ".dropdown-menu")
+
+@Test
+public void simpleDropdownIsValidationTest() {
+    simpleDropdown.is()
+            .core()
+            .cssClass("dropdown")
+            .tag(is("div"));
+    simpleDropdown.dropdownMenu.is()
+            .core()
+            .cssClass("dropdown-menu")
+            .tag(is("div"));
+    simpleDropdown.dropdownToggle.is()
+            .core()
+            .hasClass("btn")
+            .hasClass("btn-primary")
+            .hasClass("dropdown-toggle")
+            .attr("data-toggle", "dropdown")
+            .tag(is("button"));
+}
+```
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Single button dropdown HTML example](../images/bootstrap/dropdown-single-button-html.png)
+
+Available methods in Java JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+click() | Click the item  | void
+getText() |Get item text  |  String
+getValue() |Get item value  |  String
+getTooltipText() |Get tooltip text |String 
+getTooltipPlacement() |Get tooltip placement| String
+isTooltipWithHTML() |Check that tooltip contains html text |boolean
+is()	 |  Assert action	| UIAssert
+assertThat()	 |  Assert action	| UIpAssert
+
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/TooltipTests.java" target="_blank">Bootstrap test example with tooltips</a>
+ 
+
 
 
 

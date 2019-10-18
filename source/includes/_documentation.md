@@ -8753,6 +8753,35 @@ Form can consists of:
 <li>Fieldsets(which can disable all the controls within)</li>
 </ul>
 
+#### Form controls
+
+Textual <a style="font-weight: bold;" href="https://getbootstrap.com/docs/4.3/components/forms/#form-controls" target="_blank">form controls</a>—like ``<input>``s, ``<select>``s, and ``<textarea>``s—are styled with the <b>``.form-control``</b> class. Included are styles for general appearance, focus state, sizing, and more.
+
+![Form controls](../images/bootstrap/form-controls.png)
+
+```java 
+
+// @FindBy
+
+```
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Form controls example](../images/bootstrap/form-controls-html.png)
+
+Modal is represented by Section class in Java:
+ 
++ [Section](https://jdi-docs.github.io/jdi-light/#section)
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**is()** | Asserts element  | UIAssert
+
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/modal/ModalScrollingLongContentTests.java)
+
+#### Form custom style
 
 **[Form custom style](https://getbootstrap.com/docs/4.3/components/forms/#custom-styles)**
 

@@ -10140,6 +10140,85 @@ In these java test cases examples next classes have been used:
 ### Modal
 **Modal** is a dialog box/popup window that is displayed on page.
 
+####Modal Live demo
+Toggle a working <a style="font-weight: bold;" href="https://getbootstrap.com/docs/4.3/components/modal/#live-demo" target="_blank">modal demo</a> 
+modal demo by clicking the button below. It will slide down and fade in from the top of the page.
+
+![Modal_Live_demo](../images/bootstrap/modal-live-demo.png)
+
+```java 
+//FindBy(css = "#modal-live-demo .bd-example .btn")
+@UI("#modal-live-demo .bd-example .btn") 
+public static Button modalLiveDemoLaunchButton;
+
+//FindBy(css = "#exampleModalLive")
+@UI("#exampleModalLive") 
+public static ModalLiveDemo modalLiveDemo;
+
+//FindBy(css = "#modal-live-demo")
+@UI(".modal-body") 
+public Text body;
+
+//FindBy(css = "//div[@class='modal-footer']//button[1]")
+@UI("//div[@class='modal-footer']//button[1]") 
+public Button closeButton;
+
+//FindBy(css = "//div[@class='modal-footer']//button[2]")
+@UI("//div[@class='modal-footer']//button[2]") 
+public Button saveButton;
+
+//FindBy(css = ".modal-header .close")
+@UI(".modal-header .close") 
+public Button closeX;
+
+@Test
+public void modalContentTextTest() {
+    modalLiveDemoLaunchButton.is().text(is(launchButtonText));
+    modalLiveDemoLaunchButton.click();
+    modalLiveDemo.title.is().text(is(titleText));
+    modalLiveDemo.body.is().text(is(bodyText));
+    modalLiveDemo.saveButton.is().text(is(saveButtonText));
+    modalLiveDemo.closeButton.is().text(is(closeButtonText));
+    modalLiveDemo.close();
+}
+
+@Test
+public void saveAndCloseButtonsTest() {
+    modalLiveDemoLaunchButton.click();
+    modalLiveDemo.is().displayed();
+    modalLiveDemo.saveButton.click();
+    modalLiveDemo.is().displayed();
+    modalLiveDemo.closeButton.click();
+    modalLiveDemo.is().hidden();
+}
+
+```
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Modal Live_demo HTML](../images/bootstrap/modal-live-demo-html.png)
+
+Modal is represented by Section class in Java:
+ 
++ [Section](https://jdi-docs.github.io/jdi-light/#section)
+
+Inner elements of Modal- Live demo are represented by the following classes:
+
++ [Text](https://jdi-docs.github.io/jdi-light/#text)
+  
++ [Button](https://jdi-docs.github.io/jdi-light/#button)
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**close()** | Close modal | void
+**click()** | Click the button | void
+**getText()** | Returns text | String
+**is()** | Asserts element  | UIAssert
+
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/modal/ModalLiveDemoTests.java)
+
 #### Scrolling Long Content Modal
 
 When modals become too long for the user’s viewport or device, <a style="font-weight: bold;" href="https://getbootstrap.com/docs/4.3/components/modal/#scrolling-long-content" target="_blank">they scroll</a> independent of the page itself.

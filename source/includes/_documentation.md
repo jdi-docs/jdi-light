@@ -8242,14 +8242,11 @@ By default, a dropdown menu is automatically positioned 100% from the top and al
 
   - __<a href = "https://getbootstrap.com/docs/4.3/components/dropdowns/#responsive-alignment">Responsive alignment</a>__
 
-If you want to use responsive alignment, disable dynamic positioning by adding the 
-``data-display="static"`` attribute and use the responsive variation classes.
+If you want to use responsive alignment, disable dynamic positioning by adding the <br> ``data-display="static"`` attribute and use the responsive variation classes.
 
-To align **right** the dropdown menu with the given breakpoint or larger, add 
-``.dropdown-menu{-sm|-md|-lg|-xl}-right``.
+To align **right** the dropdown menu with the given breakpoint or larger, add <br> ``.dropdown-menu{-sm|-md|-lg|-xl}-right``.
 
-To align **left** the dropdown menu with the given breakpoint or larger, add 
-``.dropdown-menu-right`` and ``.dropdown-menu{-sm|-md|-lg|-xl}-left``.
+To align **left** the dropdown menu with the given breakpoint or larger, add <br> ``.dropdown-menu-right`` and ``.dropdown-menu{-sm|-md|-lg|-xl}-left``.
 
 <br>
 

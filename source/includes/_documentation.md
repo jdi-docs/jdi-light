@@ -10181,6 +10181,13 @@ public static Button modalLiveDemoLaunchButton;
 @UI("#exampleModalLive") 
 public static ModalLiveDemo modalLiveDemo;
 
+public class ModalLiveDemo extends Modal {
+    @UI(".modal-body") public Text body;
+    @UI("//div[@class='modal-footer']//button[1]") public Button closeButton;
+    @UI("//div[@class='modal-footer']//button[2]") public Button saveButton;
+    @UI(".modal-header .close") public Button closeX;
+}
+
 @Test
 public void modalContentTextTest() {
     modalLiveDemoLaunchButton.is().text(is(launchButtonText));

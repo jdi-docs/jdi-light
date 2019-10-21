@@ -10141,8 +10141,7 @@ In these java test cases examples next classes have been used:
 **Modal** is a dialog box/popup window that is displayed on page.
 
 ####Modal Live demo
-Toggle a working <a style="font-weight: bold;" href="https://getbootstrap.com/docs/4.3/components/modal/#live-demo" target="_blank">modal demo</a> 
-modal demo by clicking the button below. It will slide down and fade in from the top of the page.
+Toggle a working <a style="font-weight: bold;" href="https://getbootstrap.com/docs/4.3/components/modal/#live-demo" target="_blank">modal demo</a> by clicking the button below. It will slide down and fade in from the top of the page.
 
 ![Modal_Live_demo](../images/bootstrap/modal-live-demo.png)
 
@@ -10154,22 +10153,6 @@ public static Button modalLiveDemoLaunchButton;
 //FindBy(css = "#exampleModalLive")
 @UI("#exampleModalLive") 
 public static ModalLiveDemo modalLiveDemo;
-
-//FindBy(css = "#modal-live-demo")
-@UI(".modal-body") 
-public Text body;
-
-//FindBy(css = "//div[@class='modal-footer']//button[1]")
-@UI("//div[@class='modal-footer']//button[1]") 
-public Button closeButton;
-
-//FindBy(css = "//div[@class='modal-footer']//button[2]")
-@UI("//div[@class='modal-footer']//button[2]") 
-public Button saveButton;
-
-//FindBy(css = ".modal-header .close")
-@UI(".modal-header .close") 
-public Button closeX;
 
 @Test
 public void modalContentTextTest() {
@@ -10202,10 +10185,9 @@ Modal is represented by Section class in Java:
  
 + [Section](https://jdi-docs.github.io/jdi-light/#section)
 
-Inner elements of Modal- Live demo are represented by the following classes:
+Inner elements of Modal - Live demo are represented by the following classes:
 
 + [Text](https://jdi-docs.github.io/jdi-light/#text)
-  
 + [Button](https://jdi-docs.github.io/jdi-light/#button)
 
 Available methods in Java JDI Light:

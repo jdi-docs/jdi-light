@@ -1508,7 +1508,7 @@ public ITextField NameField;
             Jdi.Assert.AreEquals(TestSite.ContactFormPage.NameField.Value, "");
         }
 ```
-**TextField** – is a simple element type that allows users to fill in text fields.
+**TextField** – Is a simple element type that allows users to fill in text fields.
 
 ![InputTypeTextField](../images/html/textField_html.png)
 
@@ -1533,7 +1533,7 @@ Here is a list of available methods and properties in C#:
 **AssertThat** | property that returns object for work with assertions| TextAssert
 
 
-[Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/TextFieldsTests.cs)<br>
+<a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/TextFieldsTests.cs" target="_blank">Test examples in C#</a><br>
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#textfield-2)<br>
 
 And here are methods available in Java:
@@ -1549,7 +1549,7 @@ And here are methods available in Java:
 **getText()** | returns text from the text field  | String
 **getValue()** | returns text from the text field| String
 
-[Test examples in Java](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/TextFieldTests.java)<br>
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/TextFieldTests.java" target="_blank">Test examples in Java</a><br>
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#textfield-2)<br>
 
 ### TextArea
@@ -1605,7 +1605,7 @@ public ITextArea TextArea;
    }
 ```
 
-**TextArea** – is a simple element type that allows users to fill in text areas (they may contain a few lines). 
+**TextArea** – Is a simple element type that allows users to fill in text areas (they may contain a few lines). 
 
 ![InputTypeTextArea](../images/html/textArea_html.png)
 
@@ -1630,7 +1630,7 @@ Here is a list of available methods in C#:
 **Is()** | returns object for work with assertions  | TextAreaAssert
 **AssertThat()** | returns object for work with assertions  | TextAreaAssert
  
-  [Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/TextAreaTests.cs) <br>
+  <a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/TextAreaTests.cs" target="_blank">Test examples in C#</a><br>
   [BDD Steps example](https://jdi-docs.github.io/jdi-light/#textarea-2) <br>
   
   And here are methods available in Java:
@@ -1648,11 +1648,11 @@ Here is a list of available methods in C#:
 **is()** | returns object for work with assertions  | TextAreaAssert
 **assertThat()** | returns object for work with assertions  | TextAreaAssert
 
-  [Test examples in Java](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/TextAreaTests.java) <br>
+  <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/TextAreaTests.java" target="_blank">Test examples in Java</a><br>
   [BDD Steps example](https://jdi-docs.github.io/jdi-light/#textarea-2) <br>
 
 ### Title
-**Title** – a graphical control element representing document title, which is displayed in the title bar of the browser or tab page.
+**Title** – A graphical control element representing document title, which is displayed in the title bar of the browser or tab page.
 
 Title is represented by the following class:
  
@@ -1732,9 +1732,9 @@ Here is the list of available methods in Java JDI Light:
 **click()** |Click title | void
 **getText()** |Returns title text  | String
 
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/simple/TitleTests.java)
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/LabelTests.java" target="_blank">Test examples in Java</a>
 
-[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/TitleTests.cs)
+<a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/TitleTests.cs" target="_blank">Test examples in C#</a>
 
 
 ## HTML5 Complex elements

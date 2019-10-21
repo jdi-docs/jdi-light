@@ -5180,16 +5180,16 @@ Adding images to the .navbar-brand will likely always require custom styles or u
 
     //FindBy(css = ".navbar-brand")
     @UI(".navbar-brand")
-    public JList<NavbarBrand> allNavbarBrands;
+    public JList<UIElement> allNavbarBrands;
 
     //FindBy(css = "#brand-as-image,#brand-as-image-and-link")
     @UI("#brand-as-image,#brand-as-image-and-link")
-    public JList<NavbarBrand> navbarBrandWithImage;
+    public JList<UIElement> navbarBrandWithImage;
 
     @Test(dataProvider = "navbarBrandData")
     public void checkNavbarText(String navbarId, String navbarText) {
         for (int i = 1; i < navbarSection.allNavbarBrands.size() + 1; i++) {
-            NavbarBrand nbb = navbarSection.allNavbarBrands.get(i);
+            UIElement nbb = navbarSection.allNavbarBrands.get(i);
             if (nbb.attr("id").equals(navbarId)) {
                 nbb.highlight();
                 nbb.is().core().text(navbarText);
@@ -5201,7 +5201,7 @@ Adding images to the .navbar-brand will likely always require custom styles or u
     @Test
     public void checkNavbarClickImage() {
         navbarSection.navbarBrandWithImage.stream()
-                .filter(nbb -> nbb.isLink() && nbb.childs().size() > 0)
+                .filter(nbb -> nbb.hasAttribute("href") && nbb.childs().size() > 0)
                 .map(nbbWithIm -> nbbWithIm.childs().get(1))
                 .forEach(imgFromNavbar -> {
                     imgFromNavbar.highlight("blue");
@@ -5227,10 +5227,6 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**isNavbarBrand()** | Check it is navbar-brand class | boolean
-**isLink()** | Check it is link | boolean
-**getRef()** | Get link | String
-**getText()** | Get button text | String
 **is()** | Assert action | UIAssert 
 **assertThat()** | Assert action | UIAssert
  

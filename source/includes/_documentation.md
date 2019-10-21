@@ -13638,42 +13638,14 @@ They are located in the following Java classes:
 
 
 ###Card
- ```java 
 
+Bootstrap’s <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/card/">cards</a> provide a flexible and extensible content container with multiple variants and options.
 
+**Card Example**
 
+![Simple Card Example](../images/bootstrap/simplecard.png)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+```java 
 @UI("#card-example")  //FindBy(css = "#card-example")
 public static CardExample cardExample;
 
@@ -13695,13 +13667,6 @@ public void clickTest() {
     Alerts.validateAlert(is(alertText));
 }
 ```
- 
-Bootstrap’s <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/card/">cards</a> provide a flexible and extensible content container with multiple variants and options.
-
-**Card Example**
-
-![Simple Card Example](../images/bootstrap/simplecard.png)
-
 Here is an example with provided Bootstrap v4.3 code:
 
 ![Simple Card Example Code](../images/bootstrap/simplecard-html.png)
@@ -13717,36 +13682,46 @@ Inner elements of Card Example represented by the following classes:
 - [Image](https://jdi-docs.github.io/jdi-light/#image)
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardExampleTests.java)
-<br>
+<br><br>
+
+####Card Body
+
+The building block of a card is the _.<a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/card/#body">card-body</a>_. Use it whenever you need a padded section within a card.
+
+![Card Body Example](../images/bootstrap/cardbody.png)
+
+```java 
+@UI("#card-body") //FindBy(css = "#card-body")
+public static CardBody cardBody;
+
+public class CardBody extends Section {
+    @UI(".card-body") public Text text;
+}
+
+@Test
+public void getBodyTextTest() {
+    assertEquals(cardBody.text.getText(), text);
+}
+```
+Here is an example with provided Bootstrap v4.3 code:
+
+![Card Body Example Code](../images/bootstrap/cardbody-html.png)
+
+Inner elements of Card Body represented by the following classes:
+[Text](https://jdi-docs.github.io/jdi-light/#text)
+
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardBodyTests.java)
+ <br><br>
 
 ####Card with Subtitles and Links
+
+<a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/card/#titles-text-and-links">Card titles</a> are used by adding _.card-title_ to a ``<h*>`` tag. In the same way, links are added and placed next to each other by adding _.card-link_ to an ``<a>`` tag.
+
+Subtitles are used by adding a _.card-subtitle_ to a ``<h*>`` tag. If the _.card-title_ and the _.card-subtitle_ items are placed in a _.card-body_ item, the card title and subtitle are aligned nicely.
+
+![Card subtitles_links_Example](../images/bootstrap/cardsubslinks.png)
+
  ```java 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @UI("#card-subtitle-link") //FindBy(css = "#card-subtitle-link")
 public static CardWithSubtitlesAndLinks cardWithSubtitlesAndLinks;
 
@@ -13774,16 +13749,9 @@ public void clickLink1Test() {
     driver.switchTo().window(tabs.get(0));
 }
 ```
-
-<a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/card/#titles-text-and-links">Card titles</a> are used by adding _.card-title_ to a ``<h*>`` tag. In the same way, links are added and placed next to each other by adding _.card-link_ to an ``<a>`` tag.
-
-Subtitles are used by adding a _.card-subtitle_ to a ``<h*>`` tag. If the _.card-title_ and the _.card-subtitle_ items are placed in a _.card-body_ item, the card title and subtitle are aligned nicely.
-
-![Card Body Example](../images/bootstrap/cardsubslinks.png)
-
 Here is an example with provided Bootstrap v4.3 code:
 
-![Card Body Example Code](../images/bootstrap/cardsubslinks-html.png)
+![Card subtitles_links Example Code](../images/bootstrap/cardsubslinks-html.png)
 
 Inner elements of Card with Subtitles and Links represented by the following classes:
 
@@ -13792,7 +13760,7 @@ Inner elements of Card with Subtitles and Links represented by the following cla
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardWithSubtitlesAndLinksTests.java)
 
-<br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br>
 
 ####Card Images
 ```java 
@@ -13943,70 +13911,14 @@ Here is an example with provided Bootstrap v4.3 code:
  
 [Card Image Overlays test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardImageOverlaysTest.java)
 
-####Card Body
-```java 
-
-
-
-
-
-
-
-
-
-
-@UI("#card-body") //FindBy(css = "#card-body")
-public static CardBody cardBody;
-
-public class CardBody extends Section {
-    @UI(".card-body") public Text text;
-}
-
-@Test
-public void getBodyTextTest() {
-    assertEquals(cardBody.text.getText(), text);
-}
-```
-
-The building block of a card is the _.<a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/card/#body">card-body</a>_. Use it whenever you need a padded section within a card.
-
-![Card Body Example](../images/bootstrap/cardbody.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-
-![Card Body Example Code](../images/bootstrap/cardbody-html.png)
-
-Inner elements of Card Body represented by the following classes:
-[Text](https://jdi-docs.github.io/jdi-light/#text)
-
-[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardBodyTests.java)
- <br>
  
 ####Card using custom CSS
+
+Use <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.0/components/card/#using-custom-css">custom CSS</a> custom CSS in your stylesheets or as inline styles to set a width.
+
+![Card custom CSS Example](../images/bootstrap/card_custom_CSS.png)
+
 ```java 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @UI("#card-custom-css-1") //FindBy(css = "#card-custom-css-1")
 public static CardWithCustomCss13Rem cardWithCustomCss13Rem;
 
@@ -14029,10 +13941,6 @@ public void isValidationTest() {
             .css("margin-bottom", is("10px"));
 }
 ```
-Use <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.0/components/card/#using-custom-css">custom CSS</a> custom CSS in your stylesheets or as inline styles to set a width.
-
-![Card custom CSS Example](../images/bootstrap/card_custom_CSS.png)
-
 Here is an example with provided Bootstrap v4.3 code:
 
 ![Card custom CSS Example Code](../images/bootstrap/card_custom_CSS_html.png)
@@ -14044,38 +13952,14 @@ Inner elements of Card using custom CSS represented by the following classes:<br
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardWithCustomCss13RemTests.java)
 
+
 ####Card Horizontal
+
+Using a combination of grid and utility classes, cards can be made <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/card/#horizontal">horizontal</a> in a mobile-friendly and responsive way.
+
+![Card horizontal example](../images/bootstrap/card_horizontal.png)
+
 ```java 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @UI("#card-horizontal") //FindBy(css = "#card-horizontal")
 public static CardHorizontal cardHorizontal;
 
@@ -14101,11 +13985,6 @@ public void isValidationTest() {
             .css("font-size", is("11.2px"))
             .tag(is("small"));
 ```
-
-Using a combination of grid and utility classes, cards can be made <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/card/#horizontal">horizontal</a> in a mobile-friendly and responsive way.
-
-![Card horizontal example](../images/bootstrap/card_horizontal.png)
-
 Here is an example with provided Bootstrap v4.3 code:
   
 ![Card horizontal example](../images/bootstrap/card_horizontal-html.png)
@@ -14120,30 +13999,13 @@ Here is an example with provided Bootstrap v4.3 code:
 <br><br><br>
 
 ####Card Mixins Utilities
+  
+You can also <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/card/#mixins-utilities">change</a> the borders on the card header and footer as needed, and even remove their background-color
+with .bg-transparent.
+
+![Card Mixins Utilities Example](../images/bootstrap/card-mixins-utilities.png)
+
 ```java 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @UI("#card-mixins-utilities")  //FindBy(css = "#card-mixins-utilities")         
 public static CardMixinsUtilities cardMixinsUtilities;
 
@@ -14166,12 +14028,6 @@ public void isValidationTest() {
             .and().core().css("border-color", "rgb(40, 167, 69)");
 }
 ```
-  
-You can also <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/card/#mixins-utilities">change</a> the borders on the card header and footer as needed, and even remove their background-color
-with .bg-transparent.
-
-![Card Mixins Utilities Example](../images/bootstrap/card-mixins-utilities.png)
-
 Here is an example with provided Bootstrap v4.3 code:
 
 ![Card Mixins Utilities Example Code](../images/bootstrap/card-mixins-utilities-html.png)
@@ -14183,96 +14039,13 @@ Inner elements of Card Mixing Utilities represented by the following classes:
 <br><br><br><br><br><br><br><br>
 
 ####Card Border
+
+Use <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/card/#border">border</a> utilities to change just the border-color of a card. 
+Note that you can put .text-{color} classes on the parent .card or a subset of the card’s contents as shown below.
+
+![Card Borders Example](../images/bootstrap/cardborders.png)
+
 ```java 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @UI("#card-border-primary") //FindBy(css = "#card-border-primatry")
 public static CardBorder cardBorderPrimary;
 
@@ -14295,11 +14068,6 @@ public void getHeaderTextTest(CardBorder cardBorder, String headerText) {
     assertEquals(cardBorder.border.getText(), headerText);
 }
 ```
-Use <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/card/#border">border</a> utilities to change just the border-color of a card. 
-Note that you can put .text-{color} classes on the parent .card or a subset of the card’s contents as shown below.
-
-![Card Borders Example](../images/bootstrap/cardborders.png)
-
 Here is an example with provided Bootstrap v4.3 code:
 
 ![Card Borders Example Code](../images/bootstrap/cardborders-html.png)

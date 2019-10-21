@@ -10531,8 +10531,6 @@ These sizes kick in at certain breakpoints to avoid horizontal scrollbars on nar
 
 ![Modal Optional Sizes Example](../images/bootstrap/modal-optional-sizes-sm.png)
 
-Here is an example with provided Bootstrap v4.3 code:
-
 ```java  
 // @FindBy(id = "modal-optional-sizes")
 @UI("#modal-optional-sizes")

@@ -6994,6 +6994,43 @@ top and bottom “image caps” — images at the top or bottom of a card.
 
 ![Card Image Caps Example](../images/bootstrap/cardimagecaps.png)
 
+```java
+    @UI("#card-image-caps-1") //@FindBy(id = card-image-caps-1)
+    public static CardImageCaps cardImageOnTop;
+
+    @Test
+    public void getSrcTest() {
+        assertEquals(cardImageOnTop.image.src(), topCardData.getSrcAttr());
+        assertEquals(cardImageOnBottom.image.src(), bottomCardData.getSrcAttr());
+    }
+
+    @Test
+    public void getAltTest() {
+        assertEquals(cardImageOnTop.image.alt(), topCardData.getAltAttr());
+        assertEquals(cardImageOnBottom.image.alt(), bottomCardData.getAltAttr());
+    }
+
+    @Test
+    public void isValidationTest() {
+        cardImageOnTop.text.is().text(is(topCardData.getText()));
+        cardImageOnTop.image.is().src(is(topCardData.getSrcAttr()));
+        cardImageOnTop.image.is().alt(is(topCardData.getAltAttr()));
+        cardImageOnTop.image.unhighlight();
+        cardImageOnTop.image.assertThat().width(is(topCardData.getWidth()));
+        cardImageOnTop.image.assertThat().height(is(topCardData.getHeight()));
+
+        cardImageOnBottom.text.is().text(is(bottomCardData.getText()));
+        cardImageOnBottom.image.is().src(is(bottomCardData.getSrcAttr()));
+        cardImageOnBottom.image.is().alt(is(bottomCardData.getAltAttr()));
+        cardImageOnBottom.image.unhighlight();
+        cardImageOnBottom.image.assertThat().width(is(bottomCardData.getWidth()));
+        cardImageOnBottom.image.assertThat().height(is(bottomCardData.getHeight()));
+
+        cardImageOnTop.is().imageOnTop();
+        cardImageOnBottom.is().imageBelow();
+    }
+```
+
 Here is an example with provided Bootstrap v4.3 code:
 
 ![Card Image Caps Example Code](../images/bootstrap/cardimagecaps-html.png)
@@ -7002,21 +7039,15 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  | 
- 
-Available methods and properties in C# JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  |
- |  |
+ **getText()**| Returns text of card  | String
+ **getName()**| Returns name of card  | String
+ **is()** |	Assert action |	UIAssert
+ **isDisplayed()** |	Returns true if card is displayed, false if not |	boolean
+ **assertThat()** |	Assert action |	UIAssert
  <br>
+ 
+  <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardImageCapsTest.java" target="_blank">Bootstrap test example with card image caps</a>
+
  
  **Card Image Overlays**
 
@@ -13002,6 +13033,8 @@ And here are methods available in Java:
  **inputAll()**| Set texts for all inputs within element | void
  **is()**| Property that returns object for work with assertions | MultipleInputsAssert
  **assertThat()**| Property that returns object for work with assertions | MultipleInputsAssert
+ 
+ <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/complex/MultipleInputsTests.java" target="_blank">Bootstrap test example with multiple inputs</a>
  
  
 #### Multiple addons 

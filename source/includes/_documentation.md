@@ -6503,9 +6503,8 @@ Here is an example with provided Bootstrap v4.3 code:
 
 
 
-
+// @FindBy(css = "#card-kitchen-sink") public static CardKitchenSink cardKitchenSink;
    @UI("#card-kitchen-sink") public static CardKitchenSink cardKitchenSink; 
-   // @FindBy(css = "#card-kitchen-sink") public static CardKitchenSink cardKitchenSink; 
 
     public class CardKitchenSink extends Section {
         @UI(".card-img-top") public Image image;
@@ -6556,26 +6555,27 @@ Available methods in Java JDI Light:
  **is()** |	Assert action |	UIAssert
  **isDisplayed()** |	Returns true if kitchen sink is displayed, false if not |	boolean
  **assertThat()** |	Assert action |	UIAssert
- **shouldBe()** | Applicable for performing assert actions for kitchen sink | UIAssert
+ **src()** |	Assert image src |	ImageAssert
+ **alt()** |	Assert alt image attribute |	ImageAssert
+ **width()** |	Assert image width |	ImageAssert
+ **height()** |	Assert image height |	ImageAssert
  <br>
  
  Kitchen sink is represented by Section class in Java:
  
-  [Section](https://jdi-docs.github.io/jdi-light/#section)
+  + Section #BS
   
 Inner elements of kitchen sink can be represented by the following classes:
 
-  - [Text](https://jdi-docs.github.io/jdi-light/#text)
+  + Text #BS
   
-  - [Image](https://jdi-docs.github.io/jdi-light/#image)
+  + Image #BS
   
-  - [Title](https://jdi-docs.github.io/jdi-light/#title)
+  + Title #BS
   
-  - [Link](https://jdi-docs.github.io/jdi-light/#link)
-  
-[See more elements](https://jdi-docs.github.io/jdi-light/#html5-common-elements)
+  + Link #BS
 
-[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardKitchenSinkTests.java)
+<a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardKitchenSinkTests.java" target="_blank">Bootstrap Test Examples</a>
  
 ####Card with Header and Footer
 

@@ -10560,7 +10560,7 @@ Available methods in Java JDI Light:
 Modals have three <a style="font-weight: bold;" href="https://getbootstrap.com/docs/4.3/components/modal/#optional-sizes" target="_blank">optional sizes</a>, available via modifier classes to be placed on a ``.modal-dialog``. 
 These sizes kick in at certain breakpoints to avoid horizontal scrollbars on narrower viewports.
 
-![Modal Optional Sizes Example](../images/bootstrap/modal-optional-sizes-sm.png)
+![Modal Optional Sizes Example](../images/bootstrap/modal-optional-sizes.jpg)
 
 ```java  
 // @FindBy(id = "modal-optional-sizes")

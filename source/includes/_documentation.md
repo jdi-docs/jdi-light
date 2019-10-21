@@ -10389,6 +10389,75 @@ Available methods in Java JDI Light:
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/modal/ModalVerticallyCenteredTests.java" target="_blank">Bootstrap Test Examples</a>
 
+#### Modal - Tooltips and popovers
+
+**Modal - Tooltips and popovers**
+
+Tooltips and popovers can be placed within modals as needed. When modals are closed, any tooltips and popovers within are also automatically dismissed.
+
+
+![Modal - Tooltips and popovers](../images/bootstrap/modal-tooltips-and-popovers.png)
+
+```java 
+
+@UI("//h4[.='Modal - Tooltips and popovers']/../..")
+public static ModalTooltipsAndPopovers modalTooltipsAndPopovers;
+
+public class ModalTooltipsAndPopovers extends Section {
+    @UI("//button") public Button demoModalButton;
+    public ModalTooltipsAndPopoversDialog modalDlg;
+}
+
+public class ModalTooltipsAndPopoversDialog extends Modal {
+    @UI(".modal-body")
+    public ModalTooltipsAndPopoversBody body;
+    @UI("//div[@class='modal-footer']//button[1]")
+    public Button closeButton;
+    @UI("//div[@class='modal-footer']//button[2]")
+    public Button saveButton;
+}
+
+public class ModalTooltipsAndPopoversBody extends Section {
+    @UI("h5:nth-child(1)") public Text title1;
+    @UI("p:nth-child(2) > a") public Button buttonTriggers;
+    @UI("h5:nth-child(4)") public Text title2;
+    @UI("p:nth-child(5) > a:nth-child(1)") public Link thisLink;
+    @UI("p:nth-child(5) > a:nth-child(2)") public Link thatLink;
+}
+
+@Test
+public void verifyOpenModalDialogTooltips() {
+    modalTooltipsAndPopovers.demoModalButton.click();
+    modalTooltipsAndPopovers.modalDlg.title.is().text(is(TITLE));
+    modalTooltipsAndPopovers.modalDlg.body.title1.is().text(is(BODY_TITLE1));
+    modalTooltipsAndPopovers.modalDlg.body.title2.is().text(is(BODY_TITLE2));
+    modalTooltipsAndPopovers.modalDlg.body.thisLink.is().text(is(THIS_LINK));
+    modalTooltipsAndPopovers.modalDlg.body.thatLink.is().text(is(THAT_LINK));
+    modalTooltipsAndPopovers.modalDlg.saveButton.is().text(is(SAVE_BUTTON));
+    modalTooltipsAndPopovers.modalDlg.closeButton.is().text(is(CLOSE_BUTTON));
+    modalTooltipsAndPopovers.modalDlg.closeButton.click();
+}
+
+```
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Modal Tooltips and Popovers HTML](../images/bootstrap/modal-tooltips-and-popovers-html.png)
+
+Modal is represented by Section class in Java:
+ 
++ Section #BS
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**is()** | Asserts element  | UIAssert
+**displayed()** | Asserts element is displayed  | UIAssert
+**hidden()** | Asserts element is hidden | UIAssert 
+**close()** | Close modal | void 
+
+
 **Modal using grid**
 
 <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/modal/#using-the-grid">Modal using grid</a>

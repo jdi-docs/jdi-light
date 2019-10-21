@@ -10336,14 +10336,9 @@ Available methods in Java JDI Light:
 **is()** | Asserts element  | UIAssert
 **displayed()** | Asserts element is displayed  | UIAssert
 **hidden()** | Asserts element is hidden | UIAssert 
+**close()** | Close modal | void 
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/modal/ModalVerticallyCenteredTests.java" target="_blank">Bootstrap Test Examples</a>
-
-*Example:* Simple Modal with elements
-
-![Modal composite](../images/bootstrap/modal_composite.png)
-
-![Modal composite](../images/bootstrap/modal-html.png)
 
 **Modal using grid**
 
@@ -10545,7 +10540,80 @@ Available methods in Java JDI Light:
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/modal/ModalEmbeddingVideoTests.java)
 
-<br><br><br><br><br><br><br>
+<br><br>
+
+**Optional Sizes**
+
+Modals have three <a style="font-weight: bold;" href="https://getbootstrap.com/docs/4.3/components/modal/#optional-sizes" target="_blank">optional sizes</a>, available via modifier classes to be placed on a ``.modal-dialog``. 
+These sizes kick in at certain breakpoints to avoid horizontal scrollbars on narrower viewports.
+
+![Modal Optional Sizes Example](../images/bootstrap/modal-optional-sizes-sm.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java  
+// @FindBy(id = "modal-optional-sizes")
+@UI("#modal-optional-sizes")
+public static ModalOptionalSizes modalOptionalSizes;
+
+// @FindBy(css = "button:nth-of-type(1)")
+@UI("button:nth-of-type(1)")
+public Button xlButton;
+
+// @FindBy(css = "button:nth-of-type(2)")
+@UI("button:nth-of-type(2)")
+public Button lgButton;
+
+// @FindBy(css = "button:nth-of-type(3)")
+@UI("button:nth-of-type(3)")
+public Button smButton;
+
+@Test(dataProvider = "modalCssData")
+public void modalCssTest(Button button, Modal modal, String modalCss) {
+    button.show();
+    button.click();
+
+    modal.is().displayed();
+
+    modal.childs().get(1).core().is().hasClass(modalCss);
+
+    modal.close();
+}
+
+@Test(dataProvider = "modalSizeData")
+public void modalSizeTest(Button button,
+                          Modal modal,
+                          int modalWidth) {
+    button.show();
+    button.click();
+
+    modal.is().displayed();
+
+    assertThat(modal.childs().get(2).core().getRect().width, equalTo(modalWidth));
+
+    modal.close();
+}
+```
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Modal Optional Sizes HTML Example](../images/bootstrap/modal-optional-sizes-html.png)
+
+Modal is represented by Section class in Java:
+ 
++ Section #BS
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**is()** | Asserts element  | UIAssert
+**displayed()** | Asserts element is displayed  | UIAssert
+**hidden()** | Asserts element is hidden | UIAssert 
+**hasClass()** | Matches passed value with the element class | IsAssert 
+**close()** | Close modal | void 
+
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/modal/ModalOptionalSizesTests.java" target="_blank">Bootstrap Test Examples</a>
 
 ### Popovers
 

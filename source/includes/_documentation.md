@@ -8214,14 +8214,47 @@ Available methods in Java JDI Light:
 
 |Method/Property | Description | Return Type
 --- | --- | ---
+**is()** | Assert action | UIAssert
+**cssClass()** | Assert element css class | IsAssert
+**tag()** | Assert element tag | IsAssert
+**hasClass()** | Match passed value with element class| boolean
+**attr()** | Assert element's attribute | IsAssert
 
 Bootstrap test examples
+
+<br><br>
  
   - __<a href = "https://getbootstrap.com/docs/4.3/components/dropdowns/#split-button">Split button</a>__
 
 Similarly, create split button dropdowns with virtually the same markup as single button dropdowns, but with the addition of ``.dropdown-toggle-split`` for proper spacing around the dropdown caret.
 
 We use this extra class to reduce the horizontal ``padding`` on either side of the caret by 25% and remove the ``margin-left`` that’s added for regular button dropdowns. Those extra changes keep the caret centered in the split button and provide a more appropriately sized hit area next to the main button.
+
+![Split button dropdown example](../images/bootstrap/dropdown-split-button.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java 
+@UI(".dropdown-toggle") public Button dropdownToggle; //@FindBy(css = ".dropdown-toggle")
+
+@Test
+public void splitDropdownIsValidationTest() {
+    splitDropdown.dropdownToggle.is()
+            .core()
+            .hasClass("dropdown-toggle-split");
+}
+```
+  
+![Split button dropdown HTML example](../images/bootstrap/dropdown-split-button-html.png)
+
+Available methods in Java JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+**is()** | Assert action | UIAssert
+**hasClass()** | Match passed value with element class| boolean
+
+Bootstrap test examples
 
 <br>
 

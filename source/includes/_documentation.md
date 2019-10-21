@@ -8222,7 +8222,7 @@ Available methods in Java JDI Light:
 
 Bootstrap test examples
 
-<br><br>
+<br>
  
   - __<a href = "https://getbootstrap.com/docs/4.3/components/dropdowns/#split-button">Split button</a>__
 

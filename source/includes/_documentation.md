@@ -10409,16 +10409,18 @@ Tooltips and popovers can be placed within modals as needed. When modals are clo
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
-
+//@Findby(xpath="//h4[.='Modal - Tooltips and popovers']/../..")
 @UI("//h4[.='Modal - Tooltips and popovers']/../..")
 public static ModalTooltipsAndPopovers modalTooltipsAndPopovers;
 
 public class ModalTooltipsAndPopovers extends Section {
+//@Findby(xpath="//button")
     @UI("//button") public Button demoModalButton;
     public ModalTooltipsAndPopoversDialog modalDlg;
 }
 
 public class ModalTooltipsAndPopoversDialog extends Modal {
+//@Findby(css=".modal-body")
     @UI(".modal-body")
     public ModalTooltipsAndPopoversBody body;
     @UI("//div[@class='modal-footer']//button[1]")
@@ -10428,6 +10430,7 @@ public class ModalTooltipsAndPopoversDialog extends Modal {
 }
 
 public class ModalTooltipsAndPopoversBody extends Section {
+//@Findby(css="h5:nth-child(1)")
     @UI("h5:nth-child(1)") public Text title1;
     @UI("p:nth-child(2) > a") public Button buttonTriggers;
     @UI("h5:nth-child(4)") public Text title2;

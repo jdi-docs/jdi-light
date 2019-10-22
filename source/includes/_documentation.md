@@ -8343,8 +8343,6 @@ Here is an example with provided Bootstrap v4.3 code:
     }
 ```
 
-<br>
-
 ![Form grid Example](../images/bootstrap/form-grid-html.png)
 
 |Method | Description | Return Type

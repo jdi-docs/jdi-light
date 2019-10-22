@@ -8886,6 +8886,143 @@ Available methods in Java JDI Light:
 
 <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/mposite.section.form.RangeInputTests.java" target=a_blank> Bootstrap test examples </a>
 
+####Forms - Select menu
+
+```java
+public class SelectMenu extends Form implements ISelector {
+    //FindBy(css = "option")
+    @UI("option") public WebList optionsSelectMenu;
+    //FindBy(css = "option[selected]")
+    @UI("option[selected]") public UIElement selectedOptionsSelectMenu;
+    @Override
+    public WebList list() { return optionsSelectMenu; }
+}
+
+//FindBy(id = "forms-select-menu")
+@UI("#forms-select-menu")
+public static SelectMenu formsSelectMenu;
+
+@Test
+public void getSelectedOptionFormsSelectMenuTest() {
+  formsSelectMenu.selectedOptionsSelectMenu.is().text("Open this select menu");
+}
+
+//FindBy(id = "forms-select-menu-large")
+@UI("#forms-select-menu-large")
+public static SelectMenu formsSelectMenuLarge;
+ 
+@Test(dataProvider = "optionFormSelectMenuTest")
+public void getTextFormsSelectMenuTest(int i, String optionText, String value) {
+  formsSelectMenuLarge.optionsSelectMenu.get(i).is().text(optionText);
+  formsSelectMenuLarge.optionsSelectMenu.get(i).assertThat().attr("value", value);
+}
+
+
+
+
+//FindBy(id = "forms-select-menu-small")
+@UI("#forms-select-menu-small")
+public static SelectMenu formsSelectMenuSmall;
+
+
+
+
+
+
+
+
+//FindBy(id = "forms-select-menu-multiple")
+@UI("#forms-select-menu-multiple")
+public static SelectMenu formsSelectMenuMultiple;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//FindBy(id = "forms-select-menu-size")
+@UI("#forms-select-menu-size")
+public static SelectMenu formsSelectMenuSize;
+
+
+
+
+
+@Test
+public void selectOptionFormsSelectMenuTest() {
+  formsSelectMenuSize.optionsSelectMenu.get(4).click();
+  assertEquals(formsSelectMenuSize.getValue(), "Three");
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+```
+
+You can use custom <a href = "https://getbootstrap.com/docs/4.3/components/forms/#select-menu" target = "a_blank">select menus</a>.
+
+Select menu is located in the following classes:
+
+  - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.common.SelectMenu*_
+  
+
+![Select menu](../images/bootstrap/form-select-menu.png)
+Here is an example with provided Bootstrap v4.3 code:
+![Select menu](../images/bootstrap/form-select-menu-html.png)
+
+**Large select menu**
+![Select menu](../images/bootstrap/form-select-menu-large.png)
+Here is an example with provided Bootstrap v4.3 code:
+![Select menu](../images/bootstrap/form-select-menu-large-html.png)
+
+**Small select menu**
+![Select menu](../images/bootstrap/form-select-menu-small.png)
+Here is an example with provided Bootstrap v4.3 code:
+![Select menu](../images/bootstrap/form-select-menu-small-html.png)
+
+**Select menu multiple**
+![Select menu](../images/bootstrap/form-select-menu-multiple.png)
+Here is an example with provided Bootstrap v4.3 code:
+![Select menu](../images/bootstrap/form-select-menu-multiple-html.png)
+
+**Select menu size**
+![Select menu](../images/bootstrap/form-select-menu-size.png)
+Here is an example with provided Bootstrap v4.3 code:
+![Select menu](../images/bootstrap/form-select-menu-size-html.png)
+
+ Available methods in Java JDI Light:
+<br>
+
+|Method | Description | Return Type
+--- | --- | ---
+**click()** | Click the button | void
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+<br>
+
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/FormsSelectMenuTests.java" target=a_blank> Bootstrap test examples </a>
+
+  
 ### Scrollspy
 **[Scrollspy](https://getbootstrap.com/docs/4.3/components/scrollspy/#example-in-navbar)** – automatically update Bootstrap navigation or list group components based on scroll position to indicate which link is currently active in the viewport.
 <br><br>

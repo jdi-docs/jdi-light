@@ -7443,9 +7443,9 @@ public void rightAllignedDropdownIsValidationTest() {
 ![Right-aligned-example](../images/bootstrap/dropdown-alignment-right-html.png)
 
 <a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#responsive-alignment">**Responsive alignment**</a><br>
-If you want to use responsive alignment, disable dynamic positioning by adding the ``data-display="static"`` attribute and use the responsive variation classes.
+If you want to use responsive alignment, disable dynamic positioning by adding the<br> ``data-display="static"`` attribute and use the responsive variation classes.
 
-To align **right** the dropdown menu with the given breakpoint or larger, add ``.dropdown-menu{-sm|-md|-lg|-xl}-right``.
+To align **right** the dropdown menu with the given breakpoint or larger, add<br> ``.dropdown-menu{-sm|-md|-lg|-xl}-right``.
 
 Here is an example of left-aligned but right aligned when large screen:
 
@@ -7455,7 +7455,7 @@ Here is an example of left-aligned but right aligned when large screen code:
 
 ![Right-aligned-when-large-screen-example](../images/bootstrap/dropdown-alignment-large-right-html.png)
 
-To align **left** the dropdown menu with the given breakpoint or larger, add ``.dropdown-menu-right`` and ``.dropdown-menu{-sm|-md|-lg|-xl}-left``.
+To align **left** the dropdown menu with the given breakpoint or larger, add<br> ``.dropdown-menu-right`` and ``.dropdown-menu{-sm|-md|-lg|-xl}-left``.
 
 Here is an example of right-aligned but left aligned when large screen code:
 

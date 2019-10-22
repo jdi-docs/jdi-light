@@ -7039,7 +7039,7 @@ Dropdown is located in the following classes:
   - __Java__: TBD
   - __C#__: TBD
 
-####Single button
+#### <a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#single-button">Single button</a>
 Any single ``.btn`` can be turned into a dropdown toggle with some markup changes. Here’s how you can put them to work with either `<button>` elements:
 
 ![Dropdown example](../images/bootstrap/dropdown.png)
@@ -7122,7 +7122,7 @@ Available methods in Java JDI Light:
 
 <br>
 
-#### Split button
+#### <a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#split-button">Split button</a>
 Similarly, create split button dropdowns with virtually the same markup as single button dropdowns, but with the addition of ``.dropdown-toggle-split`` for proper spacing around the dropdown caret.
 
 ![Split button example](../images/bootstrap/dropdown-split.png)
@@ -7156,7 +7156,7 @@ Available methods in Java JDI Light:
 
 <br>
 
-#### Sizing
+#### <a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#sizing">Sizing</a>
 Button dropdowns work with buttons of all sizes, including default and split dropdown buttons.
 
 ![Sizing example](../images/bootstrap/dropdown-sizing.png)
@@ -7218,10 +7218,10 @@ Available methods in Java JDI Light:
 
 <br>
 
-####Directions
-Trigger dropdown menus above elements by adding .dropup to the parent element.<br>
-Trigger dropdown menus at the right of the elements by adding .dropright to the parent element.<br>
-Trigger dropdown menus at the left of the elements by adding .dropleft to the parent element.
+#### <a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#directions">Directions</a>
+Trigger dropdown menus <a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#dropup">above</a> elements by adding ``.dropup`` to the parent element.<br>
+Trigger dropdown menus <a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#dropright">at the right</a> of the elements by adding ``.dropright`` to the parent element.<br>
+Trigger dropdown menus <a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#dropleft">at the left</a> of the elements by adding ``.dropleft`` to the parent element.
 
 ![Directions example](../images/bootstrap/dropdown-directions-example.png)
 
@@ -7379,7 +7379,7 @@ Available methods in Java JDI Light:
 
 <br>
 
-####Menu items
+#### <a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#menu-items">Menu items</a>
 Historically dropdown menu contents had to be links, but that’s no longer the case with v4. 
 Now you can optionally use ``<button>`` elements in your dropdowns instead of just ``<a>``s.
 
@@ -7389,7 +7389,7 @@ Here is an example of Menu items code:
 
 ![Menu items HTML example](../images/bootstrap/dropdown-menu-items-html.png)
 
-You can also create non-interactive dropdown items with .dropdown-item-text. Feel free to style further with custom CSS or text utilities.
+You can also create non-interactive dropdown items with ``.dropdown-item-text``. Feel free to style further with custom CSS or text utilities.
 
 ![Non-interactive items example](../images/bootstrap/dropdown-non-interactive-items.png)
 
@@ -7397,8 +7397,8 @@ Here is an example of non-interactive dropdown items code:
 
 ![Menu items HTML example](../images/bootstrap/dropdown-non-interactive-items-html.png)
 
-**Active**<br>
-Add .active to items in the dropdown to style them as active.
+<a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#active">**Active**</a><br>
+Add ``.active`` to items in the dropdown to style them as active.
 
 ![Active example](../images/bootstrap/dropdown-menu-items-active.png)
 
@@ -7406,8 +7406,8 @@ Here is a code example of items in the dropdown which are styled as active:
 
 ![Active HTML example](../images/bootstrap/dropdown-menu-items-active-html.png)
 
-**Disabled**<br>
-Add .disabled to items in the dropdown to style them as disabled.
+<a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#disabled">**Disabled**</a><br>
+Add ``.disabled`` to items in the dropdown to style them as disabled.
 
 ![Disabled example](../images/bootstrap/dropdown-menu-items-disabled.png)
 
@@ -7417,8 +7417,8 @@ Here is a code example of items in the dropdown which are styled as disabled:
 
 <br>
 
-####Menu alignment
-By default, a dropdown menu is automatically positioned 100% from the top and along the left side of its parent. Add .dropdown-menu-right to a .dropdown-menu to right align the dropdown menu.
+#### <a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#menu-alignment">Menu alignment</a>
+By default, a dropdown menu is automatically positioned 100% from the top and along the left side of its parent. Add ``.dropdown-menu-right`` to a ``.dropdown-menu`` to right align the dropdown menu.
 
 Here is an example of right-aligned menu:
 
@@ -7426,12 +7426,26 @@ Here is an example of right-aligned menu:
 
 Here is an example of right-aligned menu code:
 
+```java 
+public class Dropdown extends UIBaseElement<UIAssert> implements IsButton {
+    //@FindBy(css = ".dropdown-menu")
+    @UI(".dropdown-menu") public UIElement dropdownMenu;
+}
+
+@Test
+public void rightAllignedDropdownIsValidationTest() {
+    rightAllignedDropdown.dropdownMenu.is()
+            .core()
+            .hasClass("dropdown-menu-right");
+}
+```
+
 ![Right-aligned-example](../images/bootstrap/dropdown-alignment-right-html.png)
 
-**Responsive alignment**<br>
-If you want to use responsive alignment, disable dynamic positioning by adding the data-display="static" attribute and use the responsive variation classes.
+<a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#responsive-alignment">**Responsive alignment**</a><br>
+If you want to use responsive alignment, disable dynamic positioning by adding the ``data-display="static"`` attribute and use the responsive variation classes.
 
-To align right the dropdown menu with the given breakpoint or larger, add .dropdown-menu{-sm|-md|-lg|-xl}-right.
+To align **right** the dropdown menu with the given breakpoint or larger, add ``.dropdown-menu{-sm|-md|-lg|-xl}-right``.
 
 Here is an example of left-aligned but right aligned when large screen:
 
@@ -7441,18 +7455,45 @@ Here is an example of left-aligned but right aligned when large screen code:
 
 ![Right-aligned-when-large-screen-example](../images/bootstrap/dropdown-alignment-large-right-html.png)
 
-To align left the dropdown menu with the given breakpoint or larger, add .dropdown-menu-right and .dropdown-menu{-sm|-md|-lg|-xl}-left.
+To align **left** the dropdown menu with the given breakpoint or larger, add ``.dropdown-menu-right`` and ``.dropdown-menu{-sm|-md|-lg|-xl}-left``.
 
 Here is an example of right-aligned but left aligned when large screen code:
 
+```java 
+public class Dropdown extends UIBaseElement<UIAssert> implements IsButton {
+    //@FindBy(css = ".dropdown-menu")
+    @UI(".dropdown-menu") public UIElement dropdownMenu;
+}
+
+@Test
+public void leftAllignedDropdownIsValidationTest() {
+    leftAllignedDropdown.dropdownMenu.is()
+            .core()
+            .hasClass("dropdown-menu-lg-left")
+            .css(RIGHT, is("auto"))
+            .css(LEFT, is("0px"));
+}
+```
+
 ![Left-aligned-when-large-screen-example](../images/bootstrap/dropdown-alignment-large-left-html.png)
+
+Available methods in Java JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+**is()** | Assert action | UIAssert
+**cssClass()** | Assert element css class | IsAssert
+**css()** | Assert element css attribute | IsAssert
+**tag()** | Assert element tag | IsAssert
+**hasClass()** | Match passed value with element class| boolean
+**attr()** | Assert element's attribute | IsAssert
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/DrowdownTests.java">Bootstrap test examples</a>
 
 <br>
 
-####Menu content
-**Headers**<br>
+#### <a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#menu-content">Menu content</a>
+<a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#headers">**Headers**</a><br>
 Add a header to label sections of actions in any dropdown menu.
 
 ![Headers example](../images/bootstrap/dropdown-menu-content-headers.png)
@@ -7461,7 +7502,7 @@ Here is an example headers code in the menu items:
 
 ![Headers HTML example](../images/bootstrap/dropdown-menu-content-headers-html.png)
 
-**Dividers**<br>
+<a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#dividers">**Dividers**</a><br>
 Separate groups of related menu items with a divider.
 
 ![Dividers example](../images/bootstrap/dropdown-menu-content-dividers.png)
@@ -7470,8 +7511,8 @@ Here is an example dividers code in the menu items:
 
 ![Dividers HTML example](../images/bootstrap/dropdown-menu-content-dividers-html.png)
 
-**Text**<br>
-Place any freeform text within a dropdown menu with text and use spacing utilities. Note that you’ll likely need additional sizing styles to constrain the menu width.
+<a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#text">**Text**</a><br>
+Place any freeform text within a dropdown menu with text and use <a href="https://getbootstrap.com/docs/4.3/utilities/spacing/">spacing utilities</a>. Note that you’ll likely need additional sizing styles to constrain the menu width.
 
 ![Text example](../images/bootstrap/dropdown-menu-content-text.png)
 
@@ -7479,14 +7520,16 @@ Here is an example text code in the menu items:
 
 ![Text HTML example](../images/bootstrap/dropdown-menu-content-text-html.png)
 
-**Forms**<br>
-Put a form within a dropdown menu, or make it into a dropdown menu, and use margin or padding utilities to give it the negative space you require.
+<a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#forms">**Forms**</a><br>
+Put a form within a dropdown menu, or make it into a dropdown menu, and use <a href="https://getbootstrap.com/docs/4.3/utilities/spacing/">margin or padding utilities</a> to give it the negative space you require.
 
 ![Form example](../images/bootstrap/dropdown-menu-content-form.png)
 
 Here is an example form code in the menu items:
 
 ![Form HTML example](../images/bootstrap/dropdown-menu-content-form-html.png)
+
+<br><br>
 
 ### Toast
 <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/toasts/" target="_blank">Toast</a> - Toasts are lightweight notifications designed to mimic the push notifications.

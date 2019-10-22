@@ -13961,10 +13961,6 @@ Here is an example with provided Bootstrap v4.3 code:
 
 
 
-
-
-
-
 public class CardListGroups extends Section {
 
     @UI(".card-header") public Label cardHeader; //@FindBy(".card-header"))
@@ -14009,7 +14005,7 @@ Here is an example with provided Bootstrap v4.3 code:
  is() |	Assert action |	TextAssert
  assertThat() |	Assert action |	TextAssert
 
-<br><br><br>
+
 
 ####Kitchen Sink
  
@@ -14374,7 +14370,7 @@ Inner elements of Card using custom CSS represented by the following classes:<br
 + [Button](https://jdi-docs.github.io/jdi-light/#button)
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardWithCustomCss13RemTests.java)
-
+<br><br>
 
 ####Card Text Alignment
 
@@ -14593,7 +14589,7 @@ Available methods in Java JDI Light:
  <br>
  
   <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardImageCapsTest.java" target="_blank">Bootstrap test example with card image caps</a>
-
+<br><br><br><br>
  
 ####Card Image Overlays
 ```java 
@@ -15000,7 +14996,7 @@ Inner elements of Card groups can be represented by the following classes:
   
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardGroupsTests.java)
 
-<br><br><br><br><br><br>
+<br><br>
 
 ####Card decks
 
@@ -15102,7 +15098,7 @@ Available methods in Java JDI Light:
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardDeckTests.java" target="_blank">Bootstrap test examples</a>
 <br><br>
 
-**Card groups with footer**
+**Card decks with footer**
 
 ![Card_groups example](../images/bootstrap/card-decks-with-footer.png)
 

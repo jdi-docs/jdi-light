@@ -8220,7 +8220,7 @@ Available methods in Java JDI Light:
 **hasClass()** | Match passed value with element class| boolean
 **attr()** | Assert element's attribute | IsAssert
 
-Bootstrap test examples
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/DrowdownTests.java">Bootstrap test examples</a>
 
 <br>
  
@@ -8254,7 +8254,7 @@ Available methods in Java JDI Light:
 **is()** | Assert action | UIAssert
 **hasClass()** | Match passed value with element class| boolean
 
-Bootstrap test examples
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/DrowdownTests.java">Bootstrap test examples</a>
 
 <br>
 

@@ -1740,7 +1740,7 @@ Here is the list of available methods in Java JDI Light:
 ## HTML5 Complex elements
 ### RadioButtons
 
-**RadioButtons** – interface element that allows user to select a single option from a predefined group.
+**RadioButtons** – Interface element that allows user to select a single option from a predefined group.
 
 Radio buttons are represented by the following class:
  
@@ -1794,15 +1794,15 @@ Here is the list of some available methods:
 **is()** | Returns object for work with assertions | RadioButtonAssert
 **assertThat()** | Returns object for work with assertions | RadioButtonAssert
 
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/RadioTests.java)
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/RadioTests.java" target="_blank">Test examples in Java</a>
 
-[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Complex/RadioButtonsTests.cs)
+<a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Complex/RadioButtonsTests.cs" target="_blank">Test examples in C#</a>
 
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/#radiobuttons-2) <br>
 
 ### Table
 
-**Table** – a complex element that consists of a header, a body (at least one row and one column) and a footer. You are able to perform a list of readonly interactions with this element.
+**Table** – A complex element that consists of a header, a body (at least one row and one column) and a footer. You are able to perform a list of readonly interactions with this element.
 
 Tables are represented by the following classes in Java and C#:
 
@@ -2141,15 +2141,15 @@ AssertTable methods in C#:
 **RowsWithValues(int count, params TableMatcher[] matchers)** | Asserts whether rows with particular matchers exist in a table multiple times | TableAssert
 **HasRowWithValues(params TableMatcher[] matchers)** | Asserts whether a row with particular matchers exists in a table | TableAssert
 
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-examples/src/test/java/io/github/epam/tests/recommended/TableTests.java)
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-examples/src/test/java/io/github/epam/tests/recommended/TableTests.java" target="_blank">Test examples in Java</a>
 
-[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Composite/TableTests.cs)
+<a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Composite/TableTests.cs" target="_blank">Test examples in C#</a>
 
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#table-2)<br>
 
 ### DataTable
 
-**DataTable** – a complex element that consists of header, a body (at least one row and one column) and a footer. You are 
+**DataTable** – A complex element that consists of header, a body (at least one row and one column) and a footer. You are 
 able to perform a list of readonly interactions with this element in order to get all data based on specified criteria.
 
 DataTables are represented by the following classes in Java and C#:
@@ -2391,13 +2391,13 @@ DataTableAssert methods in Java:
 **shouldBe()** | Applicable for performing assert actions for tables | DataTableAssert
 **waitFor()** | Applicable for performing assert actions for tables | DataTableAssert
 
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-examples/src/test/java/io/github/epam/tests/recommended/DataTableTests.java)<br>
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/RangeTests.java" target="_blank">Test examples in Java</a><br>
 
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#datatable-2)
 
 ### DropDown
 
-**DropDown** – a graphical control element that allows user to choose a single value from a list.
+**DropDown** – A graphical control element that allows user to choose a single value from a list.
 
 ![DropDown](../images/dropdown.png)
 
@@ -2478,7 +2478,7 @@ JDI Light provides a __Droplist__ class which can be used for dropdown represent
 
 Simple locator annotations from *com.epam.jdi.light.elements.pageobjects.annotations.simple* can be used together with dropdown elements.
 
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-examples/src/test/java/io/github/epam/tests/epam/ComplexElementsTests.java)
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-examples/src/test/java/io/github/epam/tests/epam/ComplexElementsTests.java" target="_blank">Test examples in Java</a>
 
 Dropdown lists in JDI light also support HTML5 elements. There is a __Dropdown__ class which is more like a special case of Droplist.
 This type can be used in cases when dropdown is represented with HTML _\<select>_ tag.
@@ -2577,9 +2577,9 @@ Available Assert methods in C#:
 **Is** |Gets dropdown assertion | DropDownAssert
 **AssertThat** |Gets dropdown assertion | DropDownAssert
 
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/DropdownTests.java)
+<a href="https://github.com/jdi-testing/jdi-light/tree/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/dropdown" target="_blank">Test examples in Java</a>
 
-[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DropDownTests.cs)
+<a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DropDownTests.cs" target="_blank">Test examples in C#</a>
 
 [BDD test examples](https://jdi-docs.github.io/jdi-light/?java#dropdown-2)
 
@@ -2655,7 +2655,7 @@ public void BaseValidationTest()
 }
 ```
 
-**MultiDropDown** – a graphical control element that allows user to choose several values from a list.
+**MultiDropDown** – A graphical control element that allows user to choose several values from a list.
 
 ![DropDown](../images/multidropdown.png)
 
@@ -2697,14 +2697,14 @@ The list of methods available for Java in JDI Light:
 **selected()** | Get selected value by default | String
 **checked()** | Get selected values | List\<String>
 
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/MultiDropdownTests.java)
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/MultiDropdownTests.java" target="_blank">Test examples in Java</a>
 
-[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Composite/MultiDropdownTests.cs)<br>
+<a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Composite/MultiDropdownTests.cs" target="_blank">Test examples in C#</a><br>
 
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#multidropdown-2)<br>
 ### DataList
 
-**DataList** – a graphical control element that allows user to choose one value from a list or enter it by himself.
+**DataList** – A graphical control element that allows user to choose one value from a list or enter it by himself.
 DataList element contains a set of options with values available as inputs.
 
 ![DataList](../images/icecreamdatalist.png)
@@ -2837,14 +2837,14 @@ The list of available assert methods:
 **Is** |Gets element's assert | DataListAssert
 **AssertThat** |Gets element's assert | DataListAssert
 
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/DataListTests.java)
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/combobox/DataListTests.java" target="_blank">Test examples in Java</a>
 
-[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DataListTests.cs)
+<a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DataListTests.cs" target="_blank">Test examples in C#</a>
 
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#datalist-2)
 
 ### CheckList
-**CheckList** – a graphical control element representing a set of checkboxes, each of which allows user to control a two-state parameter (enabled or disabled).
+**CheckList** – A graphical control element representing a set of checkboxes, each of which allows user to control a two-state parameter (enabled or disabled).
 
 Checklist element type is available in the following packages:
  
@@ -2967,15 +2967,14 @@ Here is the list of some methods available for C# in JDI Light:
 **Has** | Get select assert | SelectAssert
 **Selected(string option)** | Checks whether a checkbox is selected | bool
 
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/ChecklistTests.java" target="_blank">Test examples in Java</a>
 
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/ChecklistTests.java)
-
-[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Complex/CheckListTests.cs)
+<a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Complex/CheckListTests.cs" target="_blank">Test examples in C#</a>
 
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#checklist-2)
 
 ### MultiSelector
-**MultiSelector** – a graphical control element that allows user to make a multiple choice.
+**MultiSelector** – A graphical control element that allows user to make a multiple choice.
 MultiSelector is represented by the following class:
  
   - __Java__: _com.epam.jdi.light.ui.html.complex.MultiSelector_
@@ -3039,15 +3038,15 @@ Here is the list of available methods/asserts in Java:
 **is()** |  Returns object for work with assertions| SelectAssert
 **assertThat()** | Returns object for work with assertions| SelectAssert
 
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/MultiSelectorTests.java)
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/MultiSelectorTests.java" target="_blank">Test examples in Java</a>
 
-[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/MultiSelectorTests.cs)
+<a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/MultiSelectorTests.cs" target="_blank">Test examples in C#</a>
 
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#multidropdown-2)<br>
 
 ### ComboBox
 
-**ComboBox** – a graphical control element that allows user to choose a single 
+**ComboBox** – A graphical control element that allows user to choose a single 
 value from a list or enter it by himself (is inherited from the [Datalist](#datalist))
 
 ![ComboBox](../images/icecreamdatalist.png)
@@ -3142,16 +3141,16 @@ Here is the list of some methods available for C# in JDI Light:
 **is()** |  Returns object for work with assertions| ComboBoxAssert
 **assertThat()** | Returns object for work with assertions| ComboBoxAssert
 
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/ComboboxTests.java)
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/combobox/IsComboboxTests.java" target="_blank">Test examples in Java</a>
 
-[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/ComboBoxTests.cs)
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/ComboboxTests.java" target="_blank">Test examples in C#</a>
 
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#combobox-2)
 
-## Html5 Composite elements
+## HTML5 Composite elements
 ###Section
 
-**Section** - logical part of Web Page that contains other UI Elements
+**Section** - Logical part of Web Page that contains other UI Elements
   
 Section is represented by the following class:
 
@@ -3273,8 +3272,10 @@ And here are methods available in Java:
 **is()** | Returns object for work with assertions | IsAssert
 **assertThat()** | Returns object for work with assertions | IsAssert
 
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/composite/section)  
-[Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Composite/SectionTests.cs)
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/composite/section" target="_blank">Test examples in Java</a>
+
+<a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Composite/SectionTests.cs" target="_blank">Test examples in C#</a>
+
 
 ### Form
 
@@ -3309,7 +3310,7 @@ public void fillContactFormTest() {
 }   
 ```
 
-**Form** – logical part of a web page that represents an HTML form. 
+**Form** – Logical part of a web page that represents an HTML form. 
 Form consists of elements based on _SetValue_ interface and buttons with **submit** function.
 
 Form provides the _fill, submit and verify/check_ functionality.  
@@ -3337,7 +3338,7 @@ public class LoginFormSmart extends Form<User> {
 on JDISite.java >> public static LoginFormSmart loginFormSmart;
 ```
 
-**Smart JDI Forms** - forms utilizing the _Smart locator_ functionality of JDI. In Smart Forms there is no need to explicitly define locators for form elements if such locators can be obtained implicitly from field names using Smart locator functionality.
+**Smart JDI Forms** - Forms utilizing the _Smart locator_ functionality of JDI. In Smart Forms there is no need to explicitly define locators for form elements if such locators can be obtained implicitly from field names using Smart locator functionality.
 [See more details and exampels for Smart locators in documentation](https://jdi-docs.github.io/jdi-light/?java#smart-locators)
 
 ```java 
@@ -3425,9 +3426,9 @@ Methods available for Java in JDI Light:
 **next(T entity)** | Fills all settable elements and clicks “next” Button or ”nextButton” | void
 **search(T entity)** | Fills all settable elements and clicks “search” Button or ”searchButton” | void
 
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/composite/FormTests.java)
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/composite/FormTests.java" target="_blank">Test examples in Java</a>
 
-[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Composite/FormTests.cs)
+<a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Composite/FormTests.cs" target="_blank">Test examples in C#</a>
 
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#form-2)
 
@@ -3462,7 +3463,7 @@ public void verifyTitle() {
   
 ![WebPage](../images/html/webpage.png)
 
-**WebPage** - a parent Java class for all JDI Page Object classes. WebPage class extends _DriverBase_ class, implements PageObject interface and contains a number of commonly used methods:
+**WebPage** - A parent Java class for all JDI Page Object classes. WebPage class extends _DriverBase_ class, implements PageObject interface and contains a number of commonly used methods:
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -3511,7 +3512,7 @@ More than that, it has a nested **StringCheckType** class with the following met
 **match()**|Checks that current page url/title matches to expected url/title-matcher|boolean
 **contains()**|Checks that current page url/title contains expected url/title-matcher|boolean
 
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/composite/webpage/ActionsWebPageTests.java)
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/composite/webpage/ActionsWebPageTests.java" target="_blank">Test examples in Java</a>
 
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#webpage-2)
 

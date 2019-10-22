@@ -1740,7 +1740,7 @@ Here is the list of available methods in Java JDI Light:
 ## HTML5 Complex elements
 ### RadioButtons
 
-**RadioButtons** – interface element that allows user to select a single option from a predefined group.
+**RadioButtons** – Interface element that allows user to select a single option from a predefined group.
 
 Radio buttons are represented by the following class:
  
@@ -1794,15 +1794,15 @@ Here is the list of some available methods:
 **is()** | Returns object for work with assertions | RadioButtonAssert
 **assertThat()** | Returns object for work with assertions | RadioButtonAssert
 
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/RadioTests.java)
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/RadioTests.java" target="_blank">Test examples in Java</a>
 
-[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Complex/RadioButtonsTests.cs)
+<a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Complex/RadioButtonsTests.cs" target="_blank">Test examples in C#</a>
 
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/#radiobuttons-2) <br>
 
 ### Table
 
-**Table** – a complex element that consists of a header, a body (at least one row and one column) and a footer. You are able to perform a list of readonly interactions with this element.
+**Table** – A complex element that consists of a header, a body (at least one row and one column) and a footer. You are able to perform a list of readonly interactions with this element.
 
 Tables are represented by the following classes in Java and C#:
 
@@ -2141,15 +2141,15 @@ AssertTable methods in C#:
 **RowsWithValues(int count, params TableMatcher[] matchers)** | Asserts whether rows with particular matchers exist in a table multiple times | TableAssert
 **HasRowWithValues(params TableMatcher[] matchers)** | Asserts whether a row with particular matchers exists in a table | TableAssert
 
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-examples/src/test/java/io/github/epam/tests/recommended/TableTests.java)
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-examples/src/test/java/io/github/epam/tests/recommended/TableTests.java" target="_blank">Test examples in Java</a>
 
-[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Composite/TableTests.cs)
+<a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Composite/TableTests.cs" target="_blank">Test examples in C#</a>
 
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#table-2)<br>
 
 ### DataTable
 
-**DataTable** – a complex element that consists of header, a body (at least one row and one column) and a footer. You are 
+**DataTable** – A complex element that consists of header, a body (at least one row and one column) and a footer. You are 
 able to perform a list of readonly interactions with this element in order to get all data based on specified criteria.
 
 DataTables are represented by the following classes in Java and C#:
@@ -2391,13 +2391,13 @@ DataTableAssert methods in Java:
 **shouldBe()** | Applicable for performing assert actions for tables | DataTableAssert
 **waitFor()** | Applicable for performing assert actions for tables | DataTableAssert
 
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-examples/src/test/java/io/github/epam/tests/recommended/DataTableTests.java)<br>
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/RangeTests.java" target="_blank">Test examples in Java</a><br>
 
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#datatable-2)
 
 ### DropDown
 
-**DropDown** – a graphical control element that allows user to choose a single value from a list.
+**DropDown** – A graphical control element that allows user to choose a single value from a list.
 
 ![DropDown](../images/dropdown.png)
 
@@ -2478,7 +2478,7 @@ JDI Light provides a __Droplist__ class which can be used for dropdown represent
 
 Simple locator annotations from *com.epam.jdi.light.elements.pageobjects.annotations.simple* can be used together with dropdown elements.
 
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-examples/src/test/java/io/github/epam/tests/epam/ComplexElementsTests.java)
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-examples/src/test/java/io/github/epam/tests/epam/ComplexElementsTests.java" target="_blank">Test examples in Java</a>
 
 Dropdown lists in JDI light also support HTML5 elements. There is a __Dropdown__ class which is more like a special case of Droplist.
 This type can be used in cases when dropdown is represented with HTML _\<select>_ tag.
@@ -2577,9 +2577,9 @@ Available Assert methods in C#:
 **Is** |Gets dropdown assertion | DropDownAssert
 **AssertThat** |Gets dropdown assertion | DropDownAssert
 
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/DropdownTests.java)
+<a href="https://github.com/jdi-testing/jdi-light/tree/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/dropdown" target="_blank">Test examples in Java</a>
 
-[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DropDownTests.cs)
+<a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DropDownTests.cs" target="_blank">Test examples in C#</a>
 
 [BDD test examples](https://jdi-docs.github.io/jdi-light/?java#dropdown-2)
 
@@ -2655,7 +2655,7 @@ public void BaseValidationTest()
 }
 ```
 
-**MultiDropDown** – a graphical control element that allows user to choose several values from a list.
+**MultiDropDown** – A graphical control element that allows user to choose several values from a list.
 
 ![DropDown](../images/multidropdown.png)
 
@@ -2697,14 +2697,14 @@ The list of methods available for Java in JDI Light:
 **selected()** | Get selected value by default | String
 **checked()** | Get selected values | List\<String>
 
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/MultiDropdownTests.java)
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/MultiDropdownTests.java" target="_blank">Test examples in Java</a>
 
-[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Composite/MultiDropdownTests.cs)<br>
+<a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Composite/MultiDropdownTests.cs" target="_blank">Test examples in C#</a><br>
 
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#multidropdown-2)<br>
 ### DataList
 
-**DataList** – a graphical control element that allows user to choose one value from a list or enter it by himself.
+**DataList** – A graphical control element that allows user to choose one value from a list or enter it by himself.
 DataList element contains a set of options with values available as inputs.
 
 ![DataList](../images/icecreamdatalist.png)
@@ -2837,14 +2837,14 @@ The list of available assert methods:
 **Is** |Gets element's assert | DataListAssert
 **AssertThat** |Gets element's assert | DataListAssert
 
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/DataListTests.java)
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/combobox/DataListTests.java" target="_blank">Test examples in Java</a>
 
-[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DataListTests.cs)
+<a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DataListTests.cs" target="_blank">Test examples in C#</a>
 
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#datalist-2)
 
 ### CheckList
-**CheckList** – a graphical control element representing a set of checkboxes, each of which allows user to control a two-state parameter (enabled or disabled).
+**CheckList** – A graphical control element representing a set of checkboxes, each of which allows user to control a two-state parameter (enabled or disabled).
 
 Checklist element type is available in the following packages:
  
@@ -2967,15 +2967,14 @@ Here is the list of some methods available for C# in JDI Light:
 **Has** | Get select assert | SelectAssert
 **Selected(string option)** | Checks whether a checkbox is selected | bool
 
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/ChecklistTests.java" target="_blank">Test examples in Java</a>
 
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/ChecklistTests.java)
-
-[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Complex/CheckListTests.cs)
+<a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Complex/CheckListTests.cs" target="_blank">Test examples in C#</a>
 
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#checklist-2)
 
 ### MultiSelector
-**MultiSelector** – a graphical control element that allows user to make a multiple choice.
+**MultiSelector** – A graphical control element that allows user to make a multiple choice.
 MultiSelector is represented by the following class:
  
   - __Java__: _com.epam.jdi.light.ui.html.complex.MultiSelector_
@@ -3039,15 +3038,15 @@ Here is the list of available methods/asserts in Java:
 **is()** |  Returns object for work with assertions| SelectAssert
 **assertThat()** | Returns object for work with assertions| SelectAssert
 
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/MultiSelectorTests.java)
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/MultiSelectorTests.java" target="_blank">Test examples in Java</a>
 
-[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/MultiSelectorTests.cs)
+<a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/MultiSelectorTests.cs" target="_blank">Test examples in C#</a>
 
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#multidropdown-2)<br>
 
 ### ComboBox
 
-**ComboBox** – a graphical control element that allows user to choose a single 
+**ComboBox** – A graphical control element that allows user to choose a single 
 value from a list or enter it by himself (is inherited from the [Datalist](#datalist))
 
 ![ComboBox](../images/icecreamdatalist.png)
@@ -3142,16 +3141,16 @@ Here is the list of some methods available for C# in JDI Light:
 **is()** |  Returns object for work with assertions| ComboBoxAssert
 **assertThat()** | Returns object for work with assertions| ComboBoxAssert
 
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/ComboboxTests.java)
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/combobox/IsComboboxTests.java" target="_blank">Test examples in Java</a>
 
-[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/ComboBoxTests.cs)
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/ComboboxTests.java" target="_blank">Test examples in C#</a>
 
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#combobox-2)
 
-## Html5 Composite elements
+## HTML5 Composite elements
 ###Section
 
-**Section** - logical part of Web Page that contains other UI Elements
+**Section** - Logical part of Web Page that contains other UI Elements
   
 Section is represented by the following class:
 
@@ -3273,8 +3272,10 @@ And here are methods available in Java:
 **is()** | Returns object for work with assertions | IsAssert
 **assertThat()** | Returns object for work with assertions | IsAssert
 
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/composite/section)  
-[Test examples in C#](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Composite/SectionTests.cs)
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/composite/section" target="_blank">Test examples in Java</a>
+
+<a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Composite/SectionTests.cs" target="_blank">Test examples in C#</a>
+
 
 ### Form
 
@@ -3309,7 +3310,7 @@ public void fillContactFormTest() {
 }   
 ```
 
-**Form** – logical part of a web page that represents an HTML form. 
+**Form** – Logical part of a web page that represents an HTML form. 
 Form consists of elements based on _SetValue_ interface and buttons with **submit** function.
 
 Form provides the _fill, submit and verify/check_ functionality.  
@@ -3337,7 +3338,7 @@ public class LoginFormSmart extends Form<User> {
 on JDISite.java >> public static LoginFormSmart loginFormSmart;
 ```
 
-**Smart JDI Forms** - forms utilizing the _Smart locator_ functionality of JDI. In Smart Forms there is no need to explicitly define locators for form elements if such locators can be obtained implicitly from field names using Smart locator functionality.
+**Smart JDI Forms** - Forms utilizing the _Smart locator_ functionality of JDI. In Smart Forms there is no need to explicitly define locators for form elements if such locators can be obtained implicitly from field names using Smart locator functionality.
 [See more details and exampels for Smart locators in documentation](https://jdi-docs.github.io/jdi-light/?java#smart-locators)
 
 ```java 
@@ -3425,9 +3426,9 @@ Methods available for Java in JDI Light:
 **next(T entity)** | Fills all settable elements and clicks “next” Button or ”nextButton” | void
 **search(T entity)** | Fills all settable elements and clicks “search” Button or ”searchButton” | void
 
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/composite/FormTests.java)
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/composite/FormTests.java" target="_blank">Test examples in Java</a>
 
-[C# test examples](https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Composite/FormTests.cs)
+<a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Composite/FormTests.cs" target="_blank">Test examples in C#</a>
 
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#form-2)
 
@@ -3462,7 +3463,7 @@ public void verifyTitle() {
   
 ![WebPage](../images/html/webpage.png)
 
-**WebPage** - a parent Java class for all JDI Page Object classes. WebPage class extends _DriverBase_ class, implements PageObject interface and contains a number of commonly used methods:
+**WebPage** - A parent Java class for all JDI Page Object classes. WebPage class extends _DriverBase_ class, implements PageObject interface and contains a number of commonly used methods:
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -3511,7 +3512,7 @@ More than that, it has a nested **StringCheckType** class with the following met
 **match()**|Checks that current page url/title matches to expected url/title-matcher|boolean
 **contains()**|Checks that current page url/title contains expected url/title-matcher|boolean
 
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/composite/webpage/ActionsWebPageTests.java)
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/composite/webpage/ActionsWebPageTests.java" target="_blank">Test examples in Java</a>
 
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#webpage-2)
 
@@ -6301,1236 +6302,6 @@ Inner elements of media object can be represented by the following classes:
    <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/mediaObject/MediaObjectTests.java" target=a_blank> Bootstrap test examples </a>
 
 
-###Card
-
-Bootstrap’s cards provide a flexible and extensible content container with multiple variants and options.
-
-**Simple Card**
-
-![Simple Card Example](../images/bootstrap/simplecard.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-
-![Simple Card Example Code](../images/bootstrap/simplecard-html.png)
-
-Available methods in Java JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  | 
- 
-Available methods and properties in C# JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  |
- |  | 
- <br>
- 
-**Card Body**
-
-The building block of a card is the _.card-body_. Use it whenever you need a padded section within a card.
-
-![Card Body Example](../images/bootstrap/cardbody.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-
-![Card Body Example Code](../images/bootstrap/cardbody-html.png)
-
-Available methods in Java JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  | 
- 
-Available methods and properties in C# JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  |
- |  |
- <br>
-
-**Card with Subtitles and Links**
-
-Card titles are used by adding _.card-title_ to a ``<h*>`` tag. In the same way, links are added and placed next to each other by adding _.card-link_ to an ``<a>`` tag.
-
-Subtitles are used by adding a _.card-subtitle_ to a ``<h*>`` tag. If the _.card-title_ and the _.card-subtitle_ items are placed in a _.card-body_ item, the card title and subtitle are aligned nicely.
-
-![Card Body Example](../images/bootstrap/cardsubslinks.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-
-![Card Body Example Code](../images/bootstrap/cardsubslinks-html.png)
-
-Available methods in Java JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  | 
- 
-Available methods and properties in C# JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  |
- |  |
- <br>
- 
-**Card list groups** 
-
-<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.0/components/jumbotron" target="_blank">Card list groups</a> – Create lists of content in a card with a flush list group.
-
-```java 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-public class CardListGroups extends Section {
-
-    @UI(".card-header") public Label cardHeader; //@FindBy(".card-header"))
-    @UI(".list-group-item") public WebList listGroups; //@FindBy(".list-group-item")
-    
-    @Test
-    public void checkCardListHeaderTest() {
-        cardListGroups.cardHeader.assertThat().text(cardHeaderText);
-    }
-    
-    @Test
-    public void checkCardListCellsQuantity() {
-        assertEquals(cardListGroups.listGroups.size(), cardListGroupsSize);
-    }
-    
-    @Test
-    public void checkCardListGroupsValues() {
-        int checkedValues = 0;
-        for (WebElement s : cardListGroups.listGroups) {
-            if (cardListGroupsValues.contains(s.getText())) {
-                checkedValues++;
-            }
-        }
-        assertEquals(cardListGroupsValues.size(), checkedValues);
-    }
-}
-
-```
-
-![Card list groups](../images/bootstrap/card_list_groups.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-
-![Card Body Example Code](../images/bootstrap/card_list_groups_code.png)
-
-[Card list groups test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card)
-
-|Method | Description | Return Type
---- | --- | ---
- getText()| Returns text of list cell  | String
- size()| Returns cells quantity of list groups   | int 
- is() |	Assert action |	TextAssert
- assertThat() |	Assert action |	TextAssert
-
- 
-**Kitchen Sink**
-
-```java 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// @FindBy(css = "#card-kitchen-sink") public static CardKitchenSink cardKitchenSink;
-   @UI("#card-kitchen-sink") public static CardKitchenSink cardKitchenSink; 
-
-    public class CardKitchenSink extends Section {
-        @UI(".card-img-top") public Image image;
-        @UI(".card-title") public Text title;
-        @UI(".card-text") public Text text;
-        @UI(".card-body") public WebList body;
-        @UI(".list-group") public WebList list;
-    }
-
-    @Test
-    public void itemsTest() {
-        assertEquals(cardKitchenSink.list.size(), 3);
-        cardKitchenSink.list.get(1).is().text(is(item1Text));
-        cardKitchenSink.list.get(2).is().text(is(item2Text));
-        cardKitchenSink.list.get(3).is().text(is(item3Text));
-        cardKitchenSink.list.get(1).is().text(containsString(item1Text));
-        cardKitchenSink.list.get(2).is().text(containsString(item2Text));
-        cardKitchenSink.list.get(3).is().text(containsString(item3Text));
-    }
-
-    @Test
-    public void isValidationTest() {
-        cardKitchenSink.image.is().src(is(imgSrc));
-        cardKitchenSink.image.is().alt(is(imgAlt));
-        cardKitchenSink.image.unhighlight();
-        cardKitchenSink.image.assertThat().width(is(86));
-        cardKitchenSink.image.assertThat().height(is(137));
-        cardKitchenSink.title.is().text(is(titleText));
-        cardKitchenSink.title.is().text(containsString(titleText));
-        cardKitchenSink.text.is().text(is(cardText));
-        cardKitchenSink.text.is().text(containsString(cardText));
-    }
-```
-<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/card/#kitchen-sink" target="_blank">Kitchen sink</a> – Mix and match multiple content types to create the card you need, or throw everything in there. Shown below are image styles, blocks, text styles, and a list group—all wrapped in a fixed-width card.
-
-![Kitchen Sink Example](../images/bootstrap/card-kitchen-sink.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-
-![Kitchen Sink Example Code](../images/bootstrap/card-kitchen-sink-html.png)
-
-Available methods in Java JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
- **getText()**| Returns text of kitchen sink  | String
- **getName()**| Returns name of kitchen sink  | String
- **is()** |	Assert action |	UIAssert
- **isDisplayed()** |	Returns true if kitchen sink is displayed, false if not |	boolean
- **assertThat()** |	Assert action |	UIAssert
- **src()** |	Assert image src |	ImageAssert
- **alt()** |	Assert alt image attribute |	ImageAssert
- **width()** |	Assert image width |	ImageAssert
- **height()** |	Assert image height |	ImageAssert
- <br>
- 
- Kitchen sink is represented by Section class in Java:
- 
-  + Section #BS
-  
-Inner elements of kitchen sink can be represented by the following classes:
-
-  + Text #BS
-  
-  + Image #BS
-  
-  + Title #BS
-  
-  + Link #BS
-
-<a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardKitchenSinkTests.java" target="_blank">Bootstrap Test Examples</a>
- 
-####Card with Header and Footer
-
-Add an optional<a href="https://getbootstrap.com/docs/4.3/components/card/#header-and-footer" target="a_blank"> header and/or footer </a>within a card.
-
-```java 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-public class CardWithHeaderAndFooter extends Card {
-    @Title
-    @UI(".card-title") public Text title;
-    @UI(".card-body p") public Text paragraph;
-    @UI("button") public Button button;
-    @UI(".card-header")public Text header;
-    @UI("//*[contains(@class, 'footer')]") public Text footer;
-}
-
-//FindBy(id = "card-with-header-and-footer")
-@UI("#card-with-header-and-footer") public static CardWithHeaderAndFooter cardWithHeaderAndFooter;
-
-
-
-@Test
-    public void getFooterTextCardWithHeaderAndFooterTest() {
-        cardWithHeaderAndFooter.footer.is().text(textFooterCardWithHeaderAndFooter);
-    }
-
- @Test
-    public void getHeaderTextCardWithHeaderAndFooterTest() {
-        cardWithHeaderAndFooter.header.is().text(textHeaderCardWithHeaderAndFooter);
-    }
-
-```
-
-![Card with Header and Footer Example](../images/bootstrap/cardheaderfooter.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-
-![Card with Header and Footer Code](../images/bootstrap/cardheaderfooter-html.png)
-
-Card is represented by Section class in Java:
- 
-[Section](https://jdi-docs.github.io/jdi-light/#section)
-  
-Inner elements of card can be represented by the following classes:
-<ul>
-    <li> [Text](https://jdi-docs.github.io/jdi-light/#text) </li>
-    <li> [Label](https://jdi-docs.github.io/jdi-light/#label) </li>
-    <li> [Button](https://jdi-docs.github.io/jdi-light/#button)  </li>
-    <li> [See more elements](https://jdi-docs.github.io/jdi-light/#html5-common-elements)</li>
-</ul>
-     
-   <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/Card/CardWithHeaderAndFooterTests.java" target=a_blank> Bootstrap test examples </a>
- <br>
-
-####Card with Grid Markup
- 
- Using the <a href="https://getbootstrap.com/docs/4.3/components/card/#using-grid-markup" target="a_blank">grid, wrap cards in columns  and rows</a> as needed.
- 
- 
-```java 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-public class CardWithGridMarkup extends Card {
-    @Title
-    @UI(".card-title") public Text title; //@FindVBy(css = ".card-title")
-
-    @UI(".card-body p") public Text paragraph; //@FindVBy(css = ".card-body p")
-
-    @UI("button") public Button button; //@FindVBy(css = "button")
-
-    //@FindVBy(css = ".row .col-sm-6")
-    @UI(".row .col-sm-6") public JList<CardWithHeaderAndFooter> listCard; 
-}
-
-//@FindBy(id = "card-with-grid-markup")
-@UI("#card-with-grid-markup") public static CardWithGridMarkup cardWithGridMarkup;
-
-
-
-@Test
-public void getTitleTextCardWithGridMarkup11Test() {
-        cardWithGridMarkup.listCard.get(0).title.is().text(textTitleCardWithGridMarkup11);
-}
-
-@Test
-public void getButtonTextCardWithGridMarkup22Test() {
-        cardWithGridMarkup.listCard.get(3).button.is().text(textButtonCardWithGridMarkup22);
-        cardWithGridMarkup.listCard.get(3).button.click();
-        validateAlert(is(textAlert));
-        cardWithGridMarkup.listCard.get(3).button.is()
-                .enabled()
-                .displayed();
-}
-
-
-
-
-
-
-
-
-```
-
- ![Card with Header and Footer Example](../images/bootstrap/card_grid.png)
- 
- Here is an example with provided Bootstrap v4.3 code:
-
- 
- ![Card with Header and Footer Code](../images/bootstrap/card_grid_html.png)
- 
-Card is represented by Section class in Java:
- 
-[Section](https://jdi-docs.github.io/jdi-light/#section)
-  
-Inner elements of card can be represented by the following classes:
-<ul>
-    <li> [Text](https://jdi-docs.github.io/jdi-light/#text) </li>
-    <li> [Label](https://jdi-docs.github.io/jdi-light/#label) </li>
-    <li> [Button](https://jdi-docs.github.io/jdi-light/#button)  </li>
-    <li> [See more elements](https://jdi-docs.github.io/jdi-light/#html5-common-elements) </li>
-</ul>
-     
-   <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/Card/CardWithGridMarkupTests.java" target=a_blank> Bootstrap test examples </a>
- <br>
-
- <br><br>
- 
- **Card utilities**
-  
-  Use  handful of available <a href="https://getbootstrap.com/docs/4.3/components/card/#using-utilities">sizing utilities</a> to quickly set a card’s width.
-  
-  ![Card utilities Example](../images/bootstrap/card_utilities.png)
-  
-  Here is an example with provided Bootstrap v4.3 code:
-  
-   ```java 
-  //@FindBy(className = ".w-75")
-  @UI(".w-75")  
-  public static CardUtilities cardWidth75;
-
-  @Test(dataProvider = "cardUtilitiesElementsWithWidth")
-      public void cardValidationTest(CardUtilities cardUtilitiesElem, 
-      int widthInPercent, String widthInPixels) {
-          cardUtilitiesElem.core().is()
-                  .hasClass(String.format("card w-%d", widthInPercent))
-                  .css("width", widthInPixels)
-                  .css("background-color", whiteColor);
-      }
-   ```
-  
-  ![Card utilities Example Code](../images/bootstrap/card_utilities_html.png)
-
-Available methods in Java JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
- css()| Get element's css value | int 
- hasClass()| Assert class  | String
- is() |	Assert action |	TextAssert
- assertThat() |	Assert action |	TextAssert
- 
-Available methods and properties in C# JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  |
- |  |
- 
- <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardUtilitiesTests.java"> Bootstrap test examples </a>
- 
- <br><br>
- 
- **Card custom CSS**
-   
-   Use custom CSS in your stylesheets or as inline styles to set a width.
-   
-   ![Card custom CSS Example](../images/bootstrap/card_custom_CSS.png)
-   
-   Here is an example with provided Bootstrap v4.3 code:
-   
-   ![Card custom CSS Example Code](../images/bootstrap/card_custom_CSS_html.png)
-   
-Available methods in Java JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  | 
- 
-Available methods and properties in C# JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  |
- |  |
- 
- <br>
- 
-**Card Text Alignment**
-
-You can quickly change the text alignment of any card — in its entirety or specific parts — with Bootstrap's <a style="font-weight: bold;" href="https://getbootstrap.com/docs/4.3/utilities/text/#text-alignment" target="_blank">text align classes</a>.
-
-![Card Text Alignment Example](../images/bootstrap/cardtextalignment.png)
-
-```java 
-@UI("#card-text-left")
-public static CardTextAlignment cardLeftTextAlignment;
-@UI("#card-text-center")
-public static CardTextAlignment cardCenterTextAlignment;
-@UI("#card-text-right")
-public static CardTextAlignment cardRightTextAlignment;
-
-String alertText = "Button Clicked!";
-
-@Test
-public void clickTest() {
-    cardLeftTextAlignment.highlight();
-    cardLeftTextAlignment.cardButton.click();
-    validateAlert(is(alertText));
-
-    cardCenterTextAlignment.highlight();
-    cardCenterTextAlignment.cardButton.click();
-    validateAlert(is(alertText));
-
-    cardRightTextAlignment.highlight();
-    cardRightTextAlignment.cardButton.click();
-    validateAlert(is(alertText));
-}
-```
-
-Here is an example with provided Bootstrap v4.3 code:
-
-![Card Text Alignment Example Code](../images/bootstrap/cardtextalignment-html.png)
-
-<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardTextAlignmentTests.java" target="_blank">Bootstrap test examples</a>
-
-Available methods in Java JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
-**getText()** | Get button text | String
-**getValue()** | Get button value | String
-**click()** | Click button | void
-**displayed()** | Check that element is displayed | TextAssert
-**css()** | Get button css value | String
-**cssClass()** | Assert button css class | IsAssert
-**attr()** | Assert button attribute | IsAssert
-**tag()** | Assert button tag | IsAssert
-**is()** | Assert action | TextAssert 
-**assertThat()** | Assert action | TextAssert
-
-<br>
- 
-**Card Navigation**
-
-Add some navigation to a card’s header (or block) with Bootstrap’s
- <a style="font-weight: bold;" href="https://getbootstrap.com/docs/4.3/components/card/#navigation" target="_blank">
- nav components
- </a>.
-
-![Card Navigation Example](../images/bootstrap/cardnav.png)
-
-```java 
-@UI("#card-navigation") // @FindBy(id = "card-navigation")
-public static CardNavigation cardNavigation;
-
-@UI("#activeLink") // @FindBy(id = "activeLink")
-public Link activeLink;
-@UI("#jdiLink") // @FindBy(id = "jdiLink")
-public Link jdiLink;
-@UI("#disabledLink") // @FindBy(id = "disabledLink")
-public Link disabledLink;
-
-@UI("h5") // @FindBy(tagName = "h5")
-public Text title;
-
-@UI(".card-text") // @FindBy(css = ".card-text")
-public Text subtitle;
-
-@UI("button") // @FindBy(tagName = "button")
-public Button button;
-
-@Test
-public void isValidationTest() {
-    cardNavigation.highlight();
-
-    cardNavigation.title.is().text(titleText);
-    cardNavigation.title.is().displayed();
-
-    cardNavigation.subtitle.is().text(subtitleText);
-    cardNavigation.subtitle.is().displayed();
-
-    cardNavigation.activeLink.is().displayed();
-    cardNavigation.activeLink.is().enabled();
-
-    cardNavigation.jdiLink.is().displayed();
-    cardNavigation.jdiLink.is().enabled();
-
-    cardNavigation.disabledLink.is().displayed();
-    cardNavigation.disabledLink.is().disabled();
-
-    cardNavigation.activeLink.assertThat().text(is(activeLinkText));
-    cardNavigation.jdiLink.assertThat().text(is(jdiLinkText));
-    cardNavigation.disabledLink.assertThat().text(is(disabledLinkText));
-
-    cardNavigation.activeLink.is().ref(activeLinkRef);
-    cardNavigation.jdiLink.is().ref(jdiLinkRef);
-    cardNavigation.disabledLink.is().ref(disabledLinkRef);
-
-    cardNavigation.button.is().text(is(buttonText));
-    cardNavigation.button.is().text(containsString("Click"));
-    assertThat(cardNavigation.button.core().css("font-size"), is("16px"));
-    cardNavigation.button.assertThat().displayed()
-            .and()
-            .core()
-            .cssClass("btn btn-primary")
-            .attr("onclick", "alert('Button Clicked!');")
-            .tag(is("button"));
-}
-```
-
-Here is an example with provided Bootstrap v4.3 code:
-
-![Card Navigation Example Code](../images/bootstrap/cardnav-html.png)
-
-Card Navigation is represented by Section class in Java:
-
-+ Section #BS
-
-Inner elements of Card Navigation can be represented by the following classes:
-
-+ Text #BS
-+ Button #BS
-+ Link #BS
-+ Menu #BS
-
-Available methods in Java JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
-**getText()** | Get element text | String
-**getValue()** | Get element value | String
-**click()** | Click element | void
-**displayed()** | Check that element is displayed | TextAssert
-**enabled()** | Check that element is enabled | UIAssert
-**disabled()** | Check that element is disabled | UIAssert
-**ref()** | Get link ref attribute value | String
-**css()** | Get button css value | String
-**cssClass()** | Assert element css class | IsAssert
-**attr()** | Assert element attribute | IsAssert
-**tag()** | Assert element tag | IsAssert
-**is()** | Assert action | TextAssert
-
-<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardNavigationTests.java" target="_blank">Bootstrap test examples</a>
-<br>
- 
-**Card Image Caps**
-
-Similar to headers and footers, cards can include 
-top and bottom “image caps” — images at the top or bottom of a card.
-
-![Card Image Caps Example](../images/bootstrap/cardimagecaps.png)
-
-```java 
-    @UI("#card-image-caps-1") //@FindBy(id = card-image-caps-1)
-    public static CardImageCaps cardImageOnTop;
-
-    @Test
-    public void getSrcTest() {
-        assertEquals(cardImageOnTop.image.src(), topCardData.getSrcAttr());
-        assertEquals(cardImageOnBottom.image.src(), bottomCardData.getSrcAttr());
-    }
-
-    @Test
-    public void getAltTest() {
-        assertEquals(cardImageOnTop.image.alt(), topCardData.getAltAttr());
-        assertEquals(cardImageOnBottom.image.alt(), bottomCardData.getAltAttr());
-    }
-
-    @Test
-    public void isValidationTest() {
-        cardImageOnTop.text.is().text(is(topCardData.getText()));
-        cardImageOnTop.image.is().src(is(topCardData.getSrcAttr()));
-        cardImageOnTop.image.is().alt(is(topCardData.getAltAttr()));
-        cardImageOnTop.image.unhighlight();
-        cardImageOnTop.image.assertThat().width(is(topCardData.getWidth()));
-        cardImageOnTop.image.assertThat().height(is(topCardData.getHeight()));
-
-        cardImageOnBottom.text.is().text(is(bottomCardData.getText()));
-        cardImageOnBottom.image.is().src(is(bottomCardData.getSrcAttr()));
-        cardImageOnBottom.image.is().alt(is(bottomCardData.getAltAttr()));
-        cardImageOnBottom.image.unhighlight();
-        cardImageOnBottom.image.assertThat().width(is(bottomCardData.getWidth()));
-        cardImageOnBottom.image.assertThat().height(is(bottomCardData.getHeight()));
-
-        cardImageOnTop.is().imageOnTop();
-        cardImageOnBottom.is().imageBelow();
-    }
-```
-
-Here is an example with provided Bootstrap v4.3 code:
-
-![Card Image Caps Example Code](../images/bootstrap/cardimagecaps-html.png)
-
-Available methods in Java JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
- **getText()**| Returns text of card  | String
- **getName()**| Returns name of card  | String
- **is()** |	Assert action |	UIAssert
- **isDisplayed()** |	Returns true if card is displayed, false if not |	boolean
- **assertThat()** |	Assert action |	UIAssert
- <br>
- 
-  <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardImageCapsTest.java" target="_blank">Bootstrap test example with card image caps</a>
-
- 
- **Card Image Overlays**
-
-Turn an image into a card background and overlay your card’s text. 
-Depending on the image, you may or may not need additional styles or utilities.
-
-![Card Image Overlays Example](../images/bootstrap/cardimageoverlays.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-
-![Card Image Overlays Example Code](../images/bootstrap/cardimageoverlays-html.png)
-
-Available methods in Java JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  | 
- 
-Available methods and properties in C# JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  |
- |  |
- <br>
- 
-  **Card Background And Color**
-
-<a href="https://getbootstrap.com/docs/4.3/components/card/#background-and-color" target="a_blank"> Card Background And Color</a> - use text and background utilities to change the appearance of a card.
-
-
-
-
-
-![Card Background And Color Example](../images/bootstrap/cardbackgroundandcolor.png)
-
-```java 
-
-public class CardWithHeaderAndFooter extends Card {
-    @Title
-    @UI(".card-title") public Text title; //@FindBy(css = ".card-title") public Text title
-    @UI(".card-body p") public Text paragraph;//@FindBy(css = ".card-body p") public Text paragraph
-    @UI("button") public Button button;//@FindBy(css = "button") public Button button
-    @UI(".card-header")public Text header;//@FindBy(css = ".card-header") public Text header
-    //@FindBy(css = "[class^="footer"]") public Text footer
-    @UI("//*[contains(@class, 'footer')]") public Text footer;
-}
-
-//@FindBy(css = "#card-with-header-and-footer") public static CardWithHeaderAndFooter cardWithHeaderAndFooter;
-@UI("#card-with-header-and-footer") public static CardWithHeaderAndFooter cardWithHeaderAndFooter;
-//@FindBy(css = "#card-bright-blue") public static CardWithHeaderAndFooter cardBrightBlue;
-@UI("#card-bright-blue") public static CardWithHeaderAndFooter cardBrightBlue;
-//@FindBy(css = "#card-grey") public static CardWithHeaderAndFooter cardGrey;
-@UI("#card-grey") public static CardWithHeaderAndFooter cardGrey;
-//@FindBy(css = "#card-green") public static CardWithHeaderAndFooter cardGreen;
-@UI("#card-green") public static CardWithHeaderAndFooter cardGreen;
-//@FindBy(css = "#card-red") public static CardWithHeaderAndFooter cardRed;
-@UI("#card-red") public static CardWithHeaderAndFooter cardRed;
-//@FindBy(css = "#card-yellow") public static CardWithHeaderAndFooter cardYellow;
-@UI("#card-yellow") public static CardWithHeaderAndFooter cardYellow;
-//@FindBy(css = "#card-blue") public static CardWithHeaderAndFooter cardBlue;
-@UI("#card-blue") public static CardWithHeaderAndFooter cardBlue;
-//@FindBy(css = "#card-light") public static CardWithHeaderAndFooter cardLight;
-@UI("#card-light") public static CardWithHeaderAndFooter cardLight;
-//@FindBy(css = "#card-dark") public static CardWithHeaderAndFooter cardDark;
-@UI("#card-dark") public static CardWithHeaderAndFooter cardDark;
-
-@DataProvider(name = "cardColors")
-public static Object[][] cardColors() {
-    return new Object[][]{
-            {cardBrightBlue, "bg-primary", "rgba(0, 123, 255, 1)"},
-            {cardGrey, "bg-secondary", "rgba(108, 117, 125, 1)"},
-            {cardGreen, "bg-success", "rgba(40, 167, 69, 1)"},
-            {cardRed, "bg-danger", "rgba(220, 53, 69, 1)"},
-            {cardYellow, "bg-warning", "rgba(255, 193, 7, 1)"},
-            {cardBlue, "bg-info", "rgba(23, 162, 184, 1)"},
-            {cardLight, "bg-light", "rgba(248, 249, 250, 1)"},
-            {cardDark, "bg-dark", "rgba(52, 58, 64, 1)"},
-    };
-}
-
-@Test(dataProvider = "cardColors")
-public void checkColorCardsTest(CardWithHeaderAndFooter card, String cssClass, String color) {
-    card.is()
-            .core()
-            .hasClass(cssClass)
-            .css("background-color", is(color));
-
-    card.header.is()
-            .displayed().and()
-            .core().css("background-color", is("rgba(0, 0, 0, 0.03)"));
-
-    card.paragraph.is()
-            .displayed().and()
-            .core().css("background-color", is("rgba(0, 0, 0, 0)"));
-
-}
-
-```
-
-
-Here is an example with provided Bootstrap v4.3 code:
-
-
-
-![Card Background And Color Code](../images/bootstrap/cardbackgroundandcolor-html.png)
-
-Card Navigation is represented by Section class in Java:
-
-+ [Section](https://jdi-docs.github.io/jdi-light/#section)
-
-Inner elements of Card Navigation can be represented by the following classes:
-
-+ [Text](https://jdi-docs.github.io/jdi-light/#text)  
-+ [Button](https://jdi-docs.github.io/jdi-light/#button)
-+ [Link](https://jdi-docs.github.io/jdi-light/#link)
-+ [Menu](https://jdi-docs.github.io/jdi-light/#menu)
-
-<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardBackgroundAndColorTests.java" target="_blank">Bootstrap test examples</a>
- <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
- **Card Border**
-
-Use border utilities to change just the border-color of a card. 
-Note that you can put .text-{color} classes on the parent .card or a subset of the card’s contents as shown below.
-
-![Card Borders Example](../images/bootstrap/cardborders.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-
-![Card Borders Example Code](../images/bootstrap/cardborders-html.png)
-
-Available methods in Java JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  | 
- 
-Available methods and properties in C# JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  |
- |  |
- <br>
- 
-  
-  **Card Mixins Utilities**
-  
-  You can also change the borders on the card header and footer as needed, and even remove their background-color
-  with .bg-transparent.
-  
-  ![Card Mixins Utilities Example](../images/bootstrap/card-mixins-utilities.png)
-  
-  Here is an example with provided Bootstrap v4.3 code:
-  
-  ![Card Mixins Utilities Example Code](../images/bootstrap/card-mixins-utilities-html.png)
-  
-Available methods in Java JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  | 
- 
-Available methods and properties in C# JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  |
- |  |
- <br>
-   
-   <br>  **Card Columns**
-
-<a href="https://getbootstrap.com/docs/4.3/components/card/#card-columns" target="a_blank">Card columns </a>can also be extended and customized with some additional code. 
-For example .card-columns class to generate a set of responsive tiers for changing the number of columns.
- 
- ![Card Columns Example](../images/bootstrap/card-columns.png)
- 
- Here is an example with provided Bootstrap v4.3 code:
- 
-```java 
-    @UI(".card-columns") public static CardColumns cardColumns; //@FindBy(css='.card-columns') public static CardColumns cardColumns
- 
-    public class CardColumns extends CardWithinCardColumns {
-
-    @UI(".card:nth-of-type(1)") public CardWithinCardColumns topLeftCard;
-    @UI(".card:nth-of-type(2)") public CardWithinCardColumns bottomLeftCard;
-    @UI(".card:nth-of-type(3)") public CardWithinCardColumns topRightCard;
-    @UI(".card:nth-of-type(4)") public CardWithinCardColumns middleRightCard;
-    @UI(".card:nth-of-type(5)") public CardWithinCardColumns bottomRightCard;
-    }
- 
-    @Test
-    public void checkElementsPositionTest() {
-        assertTrue(cardColumns.topLeftCard.core().getLocation().x < cardColumns.topRightCard.core().getLocation().x);
-        assertTrue(cardColumns.topLeftCard.core().getLocation().y < cardColumns.bottomLeftCard.core().getLocation().y);
-        assertTrue(cardColumns.topRightCard.core().getLocation().y < cardColumns.middleRightCard.core().getLocation().y);
-        assertTrue(cardColumns.middleRightCard.core().getLocation().y < cardColumns.bottomRightCard.core().getLocation().y);
-        assertTrue(cardColumns.bottomLeftCard.core().getreLocation().x < cardColumns.bottomRightCard.core().getLocation().x);
-        assertTrue(cardColumns.bottomLeftCard.core().getLocation().x < cardColumns.middleRightCard.core().getLocation().x);
-    }
- ```
- 
- ![Card Columns Example Code](../images/bootstrap/card-columns-html.png)
- 
- Card columns are represented by Section class in Java:
-  <ul>
-  <li>[Section](https://jdi-docs.github.io/jdi-light/#section)</li>
-  </ul>
- 
- Inner elements of Card columns can be represented by the following classes:
- <ul>
- <li>[Text](https://jdi-docs.github.io/jdi-light/#text)</li>
- <li>[Image](https://jdi-docs.github.io/jdi-light/#image)</li>
- </ul>
-   
- [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardColumnsTests.java)
-
- 
-####Card groups
-
-Use <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/card/#card-groups" target="_blank">card groups</a> to render cards as a single, attached element with equal width and height columns.
-
-![Card_groups example](../images/bootstrap/card-groups.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-
-```java 
-   @UI(".card-group:nth-of-type(1)") public static CardGroup cardGroupWithoutFooter;
-   //@FindBy(css='.card-group:nth-of-type(1)')
-
-    public class Card extends Section {
-    @UI(".card-title") public Text title;
-    @UI(".card-text:nth-of-type(1)") public Text mainText;
-    @UI(".card-text .text-muted") public Text mutedText;
-    @UI(".card-img-top") public Image image;
-    @UI(".card-footer small") public Text footerText;
-    }
-
-    public class CardGroup extends Card {
-    @UI(".card:nth-of-type(1)") public Card card1;
-    }
-
-    @Test
-    public void getSrcTest() {
-        assertEquals(cardGroupWithoutFooter.card1.image.src(), card1ImageSrc);
-        assertEquals(cardGroupWithoutFooter.card2.image.src(), card2ImageSrc);
-        assertEquals(cardGroupWithFooter.card1.image.src(), card1ImageSrc);
-        assertEquals(cardGroupWithFooter.card2.image.src(), card2ImageSrc);
-    }
-
-    @Test
-    public void getAltTest() {
-        assertEquals(cardGroupWithoutFooter.card1.image.alt(), card1ImageAlt);
-        assertEquals(cardGroupWithoutFooter.card2.image.alt(), card2ImageAlt);
-        assertEquals(cardGroupWithFooter.card1.image.alt(), card1ImageAlt);
-        assertEquals(cardGroupWithFooter.card2.image.alt(), card2ImageAlt);
-    }
-```
-
-![Card_groups HTML example](../images/bootstrap/card-groups-html.png)
-
-**Card groups with footer**
-
-![Card_groups example](../images/bootstrap/card-groups-with-footer.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-
-```java 
-   @UI(".card-group:nth-of-type(2)") public static CardGroup cardGroupWithFooter;
-   //@FindBy(css='.card-group:nth-of-type(2)')
-
-    public class Card extends Section {
-    @UI(".card-title") public Text title;
-    @UI(".card-text:nth-of-type(1)") public Text mainText;
-    @UI(".card-text .text-muted") public Text mutedText;
-    @UI(".card-img-top") public Image image;
-    @UI(".card-footer small") public Text footerText;
-    }
-
-    public class CardGroup extends Card {
-    @UI(".card:nth-of-type(2)") public Card card2;
-    }
-
-    @Test
-    public void getSrcTest() {
-        assertEquals(cardGroupWithoutFooter.card1.image.src(), card1ImageSrc);
-        assertEquals(cardGroupWithoutFooter.card2.image.src(), card2ImageSrc);
-        assertEquals(cardGroupWithFooter.card1.image.src(), card1ImageSrc);
-        assertEquals(cardGroupWithFooter.card2.image.src(), card2ImageSrc);
-    }
-
-    @Test
-    public void getAltTest() {
-        assertEquals(cardGroupWithoutFooter.card1.image.alt(), card1ImageAlt);
-        assertEquals(cardGroupWithoutFooter.card2.image.alt(), card2ImageAlt);
-        assertEquals(cardGroupWithFooter.card1.image.alt(), card1ImageAlt);
-        assertEquals(cardGroupWithFooter.card2.image.alt(), card2ImageAlt);
-    }
-```
-
-![Card_groups HTML example](../images/bootstrap/card-groups-with-footer-html.png)
-
-Card groups are represented by Section class in Java:
- <ul>
- <li>[Section](https://jdi-docs.github.io/jdi-light/#section)</li>
- </ul>
-
-Inner elements of Card groups can be represented by the following classes:
-<ul>
-<li>[Text](https://jdi-docs.github.io/jdi-light/#text)</li>
-<li>[Image](https://jdi-docs.github.io/jdi-light/#image)</li>
-</ul>
-  
-[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardGroupsTests.java)
-
-<br><br><br><br><br><br>
-
-####Card decks
-
-Use <a style="font-weight: bold;" href="https://getbootstrap.com/docs/4.3/components/card/#card-decks" target="_blank">card decks</a> for a set of equal width and height cards that aren’t attached to one another.
-
-![Card_decks example](../images/bootstrap/card-decks.png)
-
-```java 
-// @FindBy(css = ".card-deck:nth-of-type(1)")
-@UI(".card-deck:nth-of-type(1)")
-public static CardDeck cardDeckWithoutFooter;
-// @FindBy(css = ".card-deck:nth-of-type(2)")
-@UI(".card-deck:nth-of-type(2)")
-public static CardDeck cardDeckWithFooter;
-
-// @FindBy(css = ".card:nth-of-type(1)")
-@UI(".card:nth-of-type(1)")
-public CardWithinCardGroup card1;
-// @FindBy(css = ".card:nth-of-type(2)")
-@UI(".card:nth-of-type(2)")
-public CardWithinCardGroup card2;
-
-// @FindBy(css = ".card-title")
-@UI(".card-title") public Text title;
-// @FindBy(css = ".card-text:nth-of-type(1)")
-@UI(".card-text:nth-of-type(1)") public Text mainText;
-// @FindBy(css = ".card-text .text-muted")
-@UI(".card-text .text-muted") public Text mutedText;
-// @FindBy(css = ".card-img-top")
-@UI(".card-img-top") public Image image;
-// @FindBy(css = ".card-footer small")
-@UI(".card-footer small") public Text footerText;
-
-private String card1Title = "SPIDER MAN";
-private String card2Title = "HULK";
-private String card1ImageSrc = "https://jdi-testing.github.io/jdi-light/images/spider-man.jpg";
-private String card2ImageSrc = "https://jdi-testing.github.io/jdi-light/images/hulk.jpg";
-private String card1ImageAlt = "spider-man";
-private String card2ImageAlt = "hulk";
-private String card1MainText = "Spider-Man is a fictional superhero created by writer-editor Stan Lee and writer-artist Steve Ditko.";
-private String card2MainText = "The Hulk is a fictional superhero appearing in publications by the American publisher Marvel Comics.";
-private String card1HeroName = "Peter Parker";
-private String card2HeroName = "Bruce Banner";
-
-@Test
-public void isValidationTest() {
-    cardDeckWithoutFooter.highlight();
-    cardDeckWithoutFooter.card1.title.is().text(card1Title);
-    cardDeckWithoutFooter.card2.title.is().text(card2Title);
-    cardDeckWithoutFooter.card1.image.is().src(card1ImageSrc);
-    cardDeckWithoutFooter.card2.image.is().src(card2ImageSrc);
-    cardDeckWithoutFooter.card1.image.is().alt(card1ImageAlt);
-    cardDeckWithoutFooter.card2.image.is().alt(card2ImageAlt);
-    cardDeckWithoutFooter.card1.mainText.is().text(card1MainText);
-    cardDeckWithoutFooter.card2.mainText.is().text(card2MainText);
-    cardDeckWithoutFooter.card1.mutedText.is().text(card1HeroName);
-    cardDeckWithoutFooter.card2.mutedText.is().text(card2HeroName);
-
-    cardDeckWithFooter.highlight();
-    cardDeckWithFooter.card1.title.is().text(card1Title);
-    cardDeckWithFooter.card2.title.is().text(card2Title);
-    cardDeckWithFooter.card1.image.is().src(card1ImageSrc);
-    cardDeckWithFooter.card2.image.is().src(card2ImageSrc);
-    cardDeckWithFooter.card1.image.is().alt(card1ImageAlt);
-    cardDeckWithFooter.card2.image.is().alt(card2ImageAlt);
-    cardDeckWithFooter.card1.mainText.is().text(card1MainText);
-    cardDeckWithFooter.card2.mainText.is().text(card2MainText);
-    cardDeckWithFooter.card1.footerText.is().text(card1HeroName);
-    cardDeckWithFooter.card2.footerText.is().text(card2HeroName);
-}
-```
-
-Here is an example with provided Bootstrap v4.3 code:
-  
-![Card_decks HTML example](../images/bootstrap/card-decks-html.png)
-
-Card Decks are represented by Section class in Java:
-
-+ [Section](https://jdi-docs.github.io/jdi-light/#section)
-
-Inner elements of Card Decks can be represented by the following classes:
-
-+ [Text](https://jdi-docs.github.io/jdi-light/#text)  
-+ [Image](https://jdi-docs.github.io/jdi-light/#image)
-
-Available methods in Java JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
-**getText()** | Get element text | String
-**displayed()** | Check that element is displayed | TextAssert
-**css()** | Get element css value | String
-**attr()** | Assert element attribute | IsAssert
-**is()** | Assert action | TextAssert 
-**assertThat()** | Assert action | TextAssert
-**src()** | Get image source path | String
-**alt()** | Get image alt() value | String
-<br>
-<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardDeckTests.java" target="_blank">Bootstrap test examples</a>
-<br><br>
-
-**Card groups with footer**
-
-![Card_groups example](../images/bootstrap/card-decks-with-footer.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-  
-![Card_groups HTML example](../images/bootstrap/card-decks-with-footer-html.png)
-
-
-Available methods in Java JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
-**** | TBD  | 
-**** |  |  
-**** |  | 
-**** |  | 
-**** |  |  
-<br>
-
-####Card Horizontal
-
-Using a combination of grid and utility classes, cards can be made horizontal in a mobile-friendly and responsive way.
-
-![Card horizontal example](../images/bootstrap/card_horizontal.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-  
-![Card horizontal example](../images/bootstrap/card_horizontal-html.png)
-
-Available methods in Java JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  | 
- 
-Available methods and properties in C# JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  |
- |  |
- <br>
-
 ###Spinners
 
 Bootstrap “spinners” can be used to show the loading state in your projects. 
@@ -8154,185 +6925,6 @@ Available methods in Java JDI Light:
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/complex/CollapseTests.java)
 
-### Dropdown
-<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/dropdowns/" target="_blank">Dropdown</a> – a graphical control element, that allows the user to choose one value from a list.
-
-Dropdown is located in the following classes:
- 
-  - __Java__: TBD
-  - __C#__: TBD
-
-Available methods in Java JDI Light:
-
-TBD
-
-Available methods and properties in C# JDI Light:
-
-TBD
-
-<br>
-
-<a href = "https://getbootstrap.com/docs/4.3/components/dropdowns/#examples">**Examples**</a>
-
-Wrap the dropdown’s toggle (your button or link) and the dropdown menu within ``.dropdown``, or another element that declares ``position: relative;``. Dropdowns can be triggered from ``<a>`` or ``<button>`` elements to better fit your potential needs.
-
-  - __<a href = "https://getbootstrap.com/docs/4.3/components/dropdowns/#single-button">Single button</a>__
-
-Any single ``.btn`` can be turned into a dropdown toggle with some markup changes. Here’s how you can put them to work with either ``<button>`` elements:
-
-![Single button dropdown example](../images/bootstrap/dropdown-single-button.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-
-```java 
-@UI(".dropdown-toggle") public Button dropdownToggle; //@FindBy(css = ".dropdown-toggle")
-@UI(".dropdown-menu") public UIElement dropdownMenu; //@FindBy(css = ".dropdown-menu")
-
-@Test
-public void simpleDropdownIsValidationTest() {
-    simpleDropdown.is()
-            .core()
-            .cssClass("dropdown")
-            .tag(is("div"));
-    simpleDropdown.dropdownMenu.is()
-            .core()
-            .cssClass("dropdown-menu")
-            .tag(is("div"));
-    simpleDropdown.dropdownToggle.is()
-            .core()
-            .hasClass("btn")
-            .hasClass("btn-primary")
-            .hasClass("dropdown-toggle")
-            .attr("data-toggle", "dropdown")
-            .tag(is("button"));
-}
-```
-  
-![Single button dropdown HTML example](../images/bootstrap/dropdown-single-button-html.png)
-
-Available methods in Java JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
-**is()** | Assert action | UIAssert
-**cssClass()** | Assert element css class | IsAssert
-**tag()** | Assert element tag | IsAssert
-**hasClass()** | Match passed value with element class| boolean
-**attr()** | Assert element's attribute | IsAssert
-
-Bootstrap test examples
-
-<br>
- 
-  - __<a href = "https://getbootstrap.com/docs/4.3/components/dropdowns/#split-button">Split button</a>__
-
-Similarly, create split button dropdowns with virtually the same markup as single button dropdowns, but with the addition of ``.dropdown-toggle-split`` for proper spacing around the dropdown caret.
-
-We use this extra class to reduce the horizontal ``padding`` on either side of the caret by 25% and remove the ``margin-left`` that’s added for regular button dropdowns. Those extra changes keep the caret centered in the split button and provide a more appropriately sized hit area next to the main button.
-
-![Split button dropdown example](../images/bootstrap/dropdown-split-button.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-
-```java 
-@UI(".dropdown-toggle") public Button dropdownToggle; //@FindBy(css = ".dropdown-toggle")
-
-@Test
-public void splitDropdownIsValidationTest() {
-    splitDropdown.dropdownToggle.is()
-            .core()
-            .hasClass("dropdown-toggle-split");
-}
-```
-  
-![Split button dropdown HTML example](../images/bootstrap/dropdown-split-button-html.png)
-
-Available methods in Java JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
-**is()** | Assert action | UIAssert
-**hasClass()** | Match passed value with element class| boolean
-
-Bootstrap test examples
-
-<br>
-
-<a href = "https://getbootstrap.com/docs/4.3/components/dropdowns/#sizing">**Sizing**</a>
-
-Button dropdowns work with buttons of all sizes, including default and split dropdown buttons.
-
-<br>
-
-<a href = "https://getbootstrap.com/docs/4.3/components/dropdowns/#directions">**Directions**</a>
-
-  - __<a href = "https://getbootstrap.com/docs/4.3/components/dropdowns/#dropup">Dropup</a>__
-
-Trigger dropdown menus above elements by adding ``.dropup`` to the parent element.
-
-  - __<a href = "https://getbootstrap.com/docs/4.3/components/dropdowns/#dropright">Dropright</a>__
-
-Trigger dropdown menus at the right of the elements by adding ``.dropright`` to the parent element.
-
-  - __<a href = "https://getbootstrap.com/docs/4.3/components/dropdowns/#dropleft">Dropleft</a>__
-
-Trigger dropdown menus at the left of the elements by adding ``.dropleft`` to the parent element.
-
-<br>
-
-<a href = "https://getbootstrap.com/docs/4.3/components/dropdowns/#menu-items">**Menu items**</a>
-
-Historically dropdown menu contents had to be links, but that’s no longer the case with v4. Now you can optionally use ``<button>`` elements in your dropdowns instead of just ``<a>``s.
-
-You can also create non-interactive dropdown items with ``.dropdown-item-text``. Feel free to style further with custom CSS or text utilities.
-
-  - __<a href = "https://getbootstrap.com/docs/4.3/components/dropdowns/#active">Active</a>__
-
-Add ``.active`` to items in the dropdown to **style them as active**.
-
-  - __<a href = "https://getbootstrap.com/docs/4.3/components/dropdowns/#disabled">Disabled</a>__
-
-Add ``.disabled`` to items in the dropdown to **style them as disabled**.
-
-<br>
-
-<a href = "https://getbootstrap.com/docs/4.3/components/dropdowns/#menu-alignment">**Menu alignment**</a>
-
-By default, a dropdown menu is automatically positioned 100% from the top and along the left side of its parent. Add ``.dropdown-menu-right`` to a ``.dropdown-menu`` to right align the dropdown menu.
-
-  - __<a href = "https://getbootstrap.com/docs/4.3/components/dropdowns/#responsive-alignment">Responsive alignment</a>__
-
-If you want to use responsive alignment, disable dynamic positioning by adding the <br> ``data-display="static"`` attribute and use the responsive variation classes.
-
-To align **right** the dropdown menu with the given breakpoint or larger, add <br> ``.dropdown-menu{-sm|-md|-lg|-xl}-right``.
-
-To align **left** the dropdown menu with the given breakpoint or larger, add <br> ``.dropdown-menu-right`` and ``.dropdown-menu{-sm|-md|-lg|-xl}-left``.
-
-<br>
-
-<a href = "https://getbootstrap.com/docs/4.3/components/dropdowns/#menu-content">**Menu content**</a>
-
-  - __<a href = "https://getbootstrap.com/docs/4.3/components/dropdowns/#headers">Headers</a>__
-
-Add a header to label sections of actions in any dropdown menu.
-
-  - __<a href = "https://getbootstrap.com/docs/4.3/components/dropdowns/#dividers">Dividers</a>__
-
-Separate groups of related menu items with a divider.
-
-  - __<a href = "https://getbootstrap.com/docs/4.3/components/dropdowns/#text">Text</a>__
-
-Place any freeform text within a dropdown menu with text and use <a href="https://getbootstrap.com/docs/4.3/utilities/spacing/">spacing utilities</a>. Note that you’ll likely need additional sizing styles to constrain the menu width.
-
-  - __<a href = "https://getbootstrap.com/docs/4.3/components/dropdowns/#forms">Forms</a>__
-
-Put a form within a dropdown menu, or make it into a dropdown menu, and use <a href="https://getbootstrap.com/docs/4.3/utilities/spacing/">margin or padding utilities</a> to give it the negative space you require.
-
-<br><br><br>
-
-
-
-
 ###Carousel
 <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/carousel/" target="_blank">Carousel</a> - a slideshow component for cycling through elements—images or slides of text—like a carousel.<br>
 
@@ -8437,77 +7029,357 @@ assertThat() | Assert action | TextAssert
 
 <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/complex/CarouselTests.java" target="_blank">Bootstrap test examples</a>
 
+<br>
 
+### Dropdown
+<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/dropdowns/" target="_blank">Dropdown</a> – a graphical control element, that allows the user to choose one value from a list.
 
+Dropdown is located in the following classes:
+ 
+  - __Java__: TBD
+  - __C#__: TBD
 
-####Single button
-Any single .btn can be turned into a dropdown toggle with some markup changes. Here’s how you can put them to work with either `<button>` elements:
+#### <a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#single-button">Single button</a>
+Any single ``.btn`` can be turned into a dropdown toggle with some markup changes. Here’s how you can put them to work with either `<button>` elements:
 
 ![Dropdown example](../images/bootstrap/dropdown.png)
 
 Here is an example with provided Bootstrap v4.3 code:
+
+```java 
+public class Dropdown extends UIBaseElement<UIAssert> implements IsButton {
+    //@FindBy(css = ".dropdown-toggle")
+    @UI(".dropdown-toggle") public Button dropdownToggle;
+    //@FindBy(css = ".dropdown-menu")
+    @UI(".dropdown-menu") public UIElement dropdownMenu;
+}
+
+@Test
+public void simpleDropdownIsValidationTest() {
+    simpleDropdown.is()
+            .core()
+            .cssClass("dropdown")
+            .tag(is("div"));
+    simpleDropdown.dropdownMenu.is()
+            .core()
+            .cssClass("dropdown-menu")
+            .tag(is("div"));
+    simpleDropdown.dropdownToggle.is()
+            .core()
+            .hasClass("btn")
+            .hasClass("btn-primary")
+            .hasClass("dropdown-toggle")
+            .attr("data-toggle", "dropdown")
+            .tag(is("button"));
+}
+```
   
 ![Dropdown HTML example](../images/bootstrap/dropdown-html.png)
 
+<br><br><br><br><br>
+
 And with `<a>` elements:
+
+```java 
+public class Dropdown extends UIBaseElement<UIAssert> implements IsButton {
+    //@FindBy(css = ".dropdown-toggle")
+    @UI(".dropdown-toggle") public Button dropdownToggle;
+}
+
+@Test
+public void simpleDropdownIsValidationTest() {
+    simpleDropdown.is()
+            .core()
+            .cssClass("dropdown")
+            .tag(is("div"));
+    simpleDropdown.dropdownMenu.is()
+            .core()
+            .cssClass("dropdown-menu")
+            .tag(is("div"));
+    simpleDropdown.dropdownToggle.is()
+            .core()
+            .hasClass("btn")
+            .hasClass("btn-primary")
+            .hasClass("dropdown-toggle")
+            .attr("data-toggle", "dropdown")
+            .tag(is("button"));
+}
+```
 
 ![Dropdown link HTML example](../images/bootstrap/dropdown-link-html.png)
 
+Available methods in Java JDI Light:
 
-#### Split button
-Similarly, create split button dropdowns with virtually the same markup as single button dropdowns, but with the addition of .dropdown-toggle-split for proper spacing around the dropdown caret.
+|Method/Property | Description | Return Type
+--- | --- | ---
+**is()** | Assert action | UIAssert
+**cssClass()** | Assert element css class | IsAssert
+**tag()** | Assert element tag | IsAssert
+**hasClass()** | Match passed value with element class| boolean
+**attr()** | Assert element's attribute | IsAssert
+
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/DrowdownTests.java">Bootstrap test examples</a>
+
+<br>
+
+#### <a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#split-button">Split button</a>
+Similarly, create split button dropdowns with virtually the same markup as single button dropdowns, but with the addition of ``.dropdown-toggle-split`` for proper spacing around the dropdown caret.
 
 ![Split button example](../images/bootstrap/dropdown-split.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
+```java 
+public class Dropdown extends UIBaseElement<UIAssert> implements IsButton {
+    //@FindBy(css = ".dropdown-toggle")
+    @UI(".dropdown-toggle") public Button dropdownToggle;
+}
+
+@Test
+public void splitDropdownIsValidationTest() {
+    splitDropdown.dropdownToggle.is()
+            .core()
+            .hasClass("dropdown-toggle-split");
+}
+```
+
 ![Split button HTML example](../images/bootstrap/dropdown-split-html.png)
 
-#### Sizing
+Available methods in Java JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+**is()** | Assert action | UIAssert
+**hasClass()** | Match passed value with element class| boolean
+
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/DrowdownTests.java">Bootstrap test examples</a>
+
+<br>
+
+#### <a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#sizing">Sizing</a>
 Button dropdowns work with buttons of all sizes, including default and split dropdown buttons.
 
 ![Sizing example](../images/bootstrap/dropdown-sizing.png)
 
 Here is an example of Large button code:
 
+```java 
+public class Dropdown extends UIBaseElement<UIAssert> implements IsButton {
+    //@FindBy(css = ".dropdown-toggle")
+    @UI(".dropdown-toggle") public Button dropdownToggle;
+}
+
+@Test
+public void largeDropdownIsValidationTest() {
+    largeDropdown.dropdownToggle.is()
+            .core()
+            .hasClass("btn-lg")
+            .css(PADDING, is("8px 16px"))
+            .css(FONTSIZE, is("20px"))
+            .css(LINEHEIGHT, is("30px"))
+            .css(BORDERRADIUS, is("4.8px"));
+}
+```
+
 ![Large button HTML example](../images/bootstrap/dropdown-large-html.png)
 
 Here is an example of Large split button code:
 
+```java 
+public class Dropdown extends UIBaseElement<UIAssert> implements IsButton {
+    //@FindBy(css = ".dropdown-toggle")
+    @UI(".dropdown-toggle") public Button dropdownToggle;
+}
+
+@Test
+public void largeSplitDropdownIsValidationTest() {
+    largeSplitDropdown.dropdownToggle.is()
+            .core()
+            .hasClass("btn-lg")
+            .hasClass("dropdown-toggle-split")
+            .css(PADDING, is("8px 12px"))
+            .css(FONTSIZE, is("20px"))
+            .css(LINEHEIGHT, is("30px"))
+            .css(BORDERRADIUS, is("0px 4.8px 4.8px 0px"));
+}
+```
+
 ![Large split button HTML example](../images/bootstrap/dropdown-large-split-html.png)
 
-####Directions
-Trigger dropdown menus above elements by adding .dropup to the parent element.<br>
-Trigger dropdown menus at the right of the elements by adding .dropright to the parent element.<br>
-Trigger dropdown menus at the left of the elements by adding .dropleft to the parent element.
+Available methods in Java JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+**is()** | Assert action | UIAssert
+**css()** | Assert element css attribute | IsAssert
+**hasClass()** | Match passed value with element class| boolean
+
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/DrowdownTests.java">Bootstrap test examples</a>
+
+<br>
+
+#### <a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#directions">Directions</a>
+Trigger dropdown menus <a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#dropup">above</a> elements by adding ``.dropup`` to the parent element.<br>
+Trigger dropdown menus <a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#dropright">at the right</a> of the elements by adding ``.dropright`` to the parent element.<br>
+Trigger dropdown menus <a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#dropleft">at the left</a> of the elements by adding ``.dropleft`` to the parent element.
 
 ![Directions example](../images/bootstrap/dropdown-directions-example.png)
 
 Here is an example of Dropup code:
 
+```java 
+public class Dropdown extends UIBaseElement<UIAssert> implements IsButton {
+    //@FindBy(css = ".dropdown-menu")
+    @UI(".dropdown-menu") public UIElement dropdownMenu;
+}
+
+@Test
+public void dropUpDropdownIsValidationTest() {
+    dropUpDropdown.is()
+            .core()
+            .hasClass("dropup");
+    dropUpDropdown.dropdownMenu.is()
+            .core()
+            .css(TOP, is("auto"))
+            .css(BOTTOM, is("100%"));
+}
+```
+
 ![Dropup HTML example](../images/bootstrap/dropdown-directions-dropup-html.png)
+
+<br>
 
 Here is an example of Dropup split code:
 
+```java 
+public class Dropdown extends UIBaseElement<UIAssert> implements IsButton {
+    //@FindBy(css = ".dropdown-menu")
+    @UI(".dropdown-menu") public UIElement dropdownMenu;
+}
+
+@Test
+public void dropUpSplitDropdownIsValidationTest() {
+    dropUpSplitDropdown.is()
+            .core()
+            .hasClass("dropup");
+    dropUpSplitDropdown.dropdownMenu.is()
+            .core()
+            .css(TOP, is("auto"))
+            .css(BOTTOM, is("100%"));
+}
+```
+
 ![Dropup HTML example](../images/bootstrap/dropdown-directions-dropup-split-html.png)
+
+<br>
 
 Here is an example of Dropright code:
 
+```java 
+public class Dropdown extends UIBaseElement<UIAssert> implements IsButton {
+    //@FindBy(css = ".dropdown-menu")
+    @UI(".dropdown-menu") public UIElement dropdownMenu;
+}
+
+@Test
+public void dropRightDropdownIsValidationTest() {
+    dropRightDropdown.is()
+            .core()
+            .hasClass("dropright");
+    dropRightDropdown.dropdownMenu.is()
+            .core()
+            .css(RIGHT, is("auto"))
+            .css(LEFT, is("100%"));
+}
+```
+
 ![Dropright HTML example](../images/bootstrap/dropdown-directions-dropright-html.png)
+
+<br>
 
 Here is an example of Dropright split code:
 
+```java 
+public class Dropdown extends UIBaseElement<UIAssert> implements IsButton {
+    //@FindBy(css = ".dropdown-menu")
+    @UI(".dropdown-menu") public UIElement dropdownMenu;
+}
+
+@Test
+public void dropRightSplitDropdownIsValidationTest() {
+    dropRightSplitDropdown.is()
+            .core()
+            .hasClass("dropright");
+    dropRightSplitDropdown.dropdownMenu.is()
+            .core()
+            .css(RIGHT, is("auto"))
+            .css(LEFT, is("100%"));
+    }
+```
+
 ![Dropright split HTML example](../images/bootstrap/dropdown-directions-dropright-split-html.png)
+
+<br>
 
 Here is an example of Dropleft code:
 
+```java 
+public class Dropdown extends UIBaseElement<UIAssert> implements IsButton {
+    //@FindBy(css = ".dropdown-menu")
+    @UI(".dropdown-menu") public UIElement dropdownMenu;
+}
+
+@Test
+public void dropLeftDropdownIsValidationTest() {
+    dropLeftDropdown.is()
+            .core()
+            .hasClass("dropleft");
+    dropLeftDropdown.dropdownMenu.is()
+            .core()
+            .css(LEFT, is("auto"))
+            .css(RIGHT, is("100%"));
+}
+```
+
 ![Dropleft HTML example](../images/bootstrap/dropdown-directions-dropleft-html.png)
+
+<br>
 
 Here is an example of Dropleft split code:
 
+```java 
+public class Dropdown extends UIBaseElement<UIAssert> implements IsButton {
+    //@FindBy(css = ".dropdown-menu")
+    @UI(".dropdown-menu") public UIElement dropdownMenu;
+}
+
+@Test
+public void dropLeftSplitDropdownIsValidationTest() {
+    dropLeftSplitDropdown.dropdownMenu.is()
+            .core()
+            .css(LEFT, is("auto"))
+            .css(RIGHT, is("100%"));
+}
+```
+
 ![Dropleft split HTML example](../images/bootstrap/dropdown-directions-dropleft-split-html.png)
 
-####Menu items
+Available methods in Java JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+**is()** | Assert action | UIAssert
+**cssClass()** | Assert element css class | IsAssert
+**css()** | Assert element css attribute | IsAssert
+**tag()** | Assert element tag | IsAssert
+**hasClass()** | Match passed value with element class| boolean
+**attr()** | Assert element's attribute | IsAssert
+
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/DrowdownTests.java">Bootstrap test examples</a>
+
+<br>
+
+#### <a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#menu-items">Menu items</a>
 Historically dropdown menu contents had to be links, but that’s no longer the case with v4. 
 Now you can optionally use ``<button>`` elements in your dropdowns instead of just ``<a>``s.
 
@@ -8517,7 +7389,7 @@ Here is an example of Menu items code:
 
 ![Menu items HTML example](../images/bootstrap/dropdown-menu-items-html.png)
 
-You can also create non-interactive dropdown items with .dropdown-item-text. Feel free to style further with custom CSS or text utilities.
+You can also create non-interactive dropdown items with ``.dropdown-item-text``. Feel free to style further with custom CSS or text utilities.
 
 ![Non-interactive items example](../images/bootstrap/dropdown-non-interactive-items.png)
 
@@ -8525,8 +7397,8 @@ Here is an example of non-interactive dropdown items code:
 
 ![Menu items HTML example](../images/bootstrap/dropdown-non-interactive-items-html.png)
 
-**Active**<br>
-Add .active to items in the dropdown to style them as active.
+<a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#active">**Active**</a><br>
+Add ``.active`` to items in the dropdown to style them as active.
 
 ![Active example](../images/bootstrap/dropdown-menu-items-active.png)
 
@@ -8534,8 +7406,8 @@ Here is a code example of items in the dropdown which are styled as active:
 
 ![Active HTML example](../images/bootstrap/dropdown-menu-items-active-html.png)
 
-**Disabled**<br>
-Add .disabled to items in the dropdown to style them as disabled.
+<a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#disabled">**Disabled**</a><br>
+Add ``.disabled`` to items in the dropdown to style them as disabled.
 
 ![Disabled example](../images/bootstrap/dropdown-menu-items-disabled.png)
 
@@ -8543,9 +7415,10 @@ Here is a code example of items in the dropdown which are styled as disabled:
 
 ![Disabled HTML example](../images/bootstrap/dropdown-menu-items-disabled-html.png)
 
+<br>
 
-####Menu alignment
-By default, a dropdown menu is automatically positioned 100% from the top and along the left side of its parent. Add .dropdown-menu-right to a .dropdown-menu to right align the dropdown menu.
+#### <a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#menu-alignment">Menu alignment</a>
+By default, a dropdown menu is automatically positioned 100% from the top and along the left side of its parent. Add ``.dropdown-menu-right`` to a ``.dropdown-menu`` to right align the dropdown menu.
 
 Here is an example of right-aligned menu:
 
@@ -8553,12 +7426,26 @@ Here is an example of right-aligned menu:
 
 Here is an example of right-aligned menu code:
 
+```java 
+public class Dropdown extends UIBaseElement<UIAssert> implements IsButton {
+    //@FindBy(css = ".dropdown-menu")
+    @UI(".dropdown-menu") public UIElement dropdownMenu;
+}
+
+@Test
+public void rightAllignedDropdownIsValidationTest() {
+    rightAllignedDropdown.dropdownMenu.is()
+            .core()
+            .hasClass("dropdown-menu-right");
+}
+```
+
 ![Right-aligned-example](../images/bootstrap/dropdown-alignment-right-html.png)
 
-**Responsive alignment**<br>
-If you want to use responsive alignment, disable dynamic positioning by adding the data-display="static" attribute and use the responsive variation classes.
+<a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#responsive-alignment">**Responsive alignment**</a><br>
+If you want to use responsive alignment, disable dynamic positioning by adding the<br> ``data-display="static"`` attribute and use the responsive variation classes.
 
-To align right the dropdown menu with the given breakpoint or larger, add .dropdown-menu{-sm|-md|-lg|-xl}-right.
+To align **right** the dropdown menu with the given breakpoint or larger, add<br> ``.dropdown-menu{-sm|-md|-lg|-xl}-right``.
 
 Here is an example of left-aligned but right aligned when large screen:
 
@@ -8568,14 +7455,45 @@ Here is an example of left-aligned but right aligned when large screen code:
 
 ![Right-aligned-when-large-screen-example](../images/bootstrap/dropdown-alignment-large-right-html.png)
 
-To align left the dropdown menu with the given breakpoint or larger, add .dropdown-menu-right and .dropdown-menu{-sm|-md|-lg|-xl}-left.
+To align **left** the dropdown menu with the given breakpoint or larger, add<br> ``.dropdown-menu-right`` and ``.dropdown-menu{-sm|-md|-lg|-xl}-left``.
 
 Here is an example of right-aligned but left aligned when large screen code:
 
+```java 
+public class Dropdown extends UIBaseElement<UIAssert> implements IsButton {
+    //@FindBy(css = ".dropdown-menu")
+    @UI(".dropdown-menu") public UIElement dropdownMenu;
+}
+
+@Test
+public void leftAllignedDropdownIsValidationTest() {
+    leftAllignedDropdown.dropdownMenu.is()
+            .core()
+            .hasClass("dropdown-menu-lg-left")
+            .css(RIGHT, is("auto"))
+            .css(LEFT, is("0px"));
+}
+```
+
 ![Left-aligned-when-large-screen-example](../images/bootstrap/dropdown-alignment-large-left-html.png)
 
-####Menu content
-**Headers**<br>
+Available methods in Java JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+**is()** | Assert action | UIAssert
+**cssClass()** | Assert element css class | IsAssert
+**css()** | Assert element css attribute | IsAssert
+**tag()** | Assert element tag | IsAssert
+**hasClass()** | Match passed value with element class| boolean
+**attr()** | Assert element's attribute | IsAssert
+
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/DrowdownTests.java">Bootstrap test examples</a>
+
+<br>
+
+#### <a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#menu-content">Menu content</a>
+<a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#headers">**Headers**</a><br>
 Add a header to label sections of actions in any dropdown menu.
 
 ![Headers example](../images/bootstrap/dropdown-menu-content-headers.png)
@@ -8584,7 +7502,7 @@ Here is an example headers code in the menu items:
 
 ![Headers HTML example](../images/bootstrap/dropdown-menu-content-headers-html.png)
 
-**Dividers**<br>
+<a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#dividers">**Dividers**</a><br>
 Separate groups of related menu items with a divider.
 
 ![Dividers example](../images/bootstrap/dropdown-menu-content-dividers.png)
@@ -8593,8 +7511,8 @@ Here is an example dividers code in the menu items:
 
 ![Dividers HTML example](../images/bootstrap/dropdown-menu-content-dividers-html.png)
 
-**Text**<br>
-Place any freeform text within a dropdown menu with text and use spacing utilities. Note that you’ll likely need additional sizing styles to constrain the menu width.
+<a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#text">**Text**</a><br>
+Place any freeform text within a dropdown menu with text and use <a href="https://getbootstrap.com/docs/4.3/utilities/spacing/">spacing utilities</a>. Note that you’ll likely need additional sizing styles to constrain the menu width.
 
 ![Text example](../images/bootstrap/dropdown-menu-content-text.png)
 
@@ -8602,14 +7520,16 @@ Here is an example text code in the menu items:
 
 ![Text HTML example](../images/bootstrap/dropdown-menu-content-text-html.png)
 
-**Forms**<br>
-Put a form within a dropdown menu, or make it into a dropdown menu, and use margin or padding utilities to give it the negative space you require.
+<a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#forms">**Forms**</a><br>
+Put a form within a dropdown menu, or make it into a dropdown menu, and use <a href="https://getbootstrap.com/docs/4.3/utilities/spacing/">margin or padding utilities</a> to give it the negative space you require.
 
 ![Form example](../images/bootstrap/dropdown-menu-content-form.png)
 
 Here is an example form code in the menu items:
 
 ![Form HTML example](../images/bootstrap/dropdown-menu-content-form-html.png)
+
+<br><br>
 
 ### Toast
 <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/toasts/" target="_blank">Toast</a> - Toasts are lightweight notifications designed to mimic the push notifications.
@@ -10017,6 +8937,143 @@ Available methods in Java JDI Light:
 
 <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/mposite.section.form.RangeInputTests.java" target=a_blank> Bootstrap test examples </a>
 
+####Forms - Select menu
+
+```java
+public class SelectMenu extends Form implements ISelector {
+    //FindBy(css = "option")
+    @UI("option") public WebList optionsSelectMenu;
+    //FindBy(css = "option[selected]")
+    @UI("option[selected]") public UIElement selectedOptionsSelectMenu;
+    @Override
+    public WebList list() { return optionsSelectMenu; }
+}
+
+//FindBy(id = "forms-select-menu")
+@UI("#forms-select-menu")
+public static SelectMenu formsSelectMenu;
+
+@Test
+public void getSelectedOptionFormsSelectMenuTest() {
+  formsSelectMenu.selectedOptionsSelectMenu.is().text("Open this select menu");
+}
+
+//FindBy(id = "forms-select-menu-large")
+@UI("#forms-select-menu-large")
+public static SelectMenu formsSelectMenuLarge;
+ 
+@Test(dataProvider = "optionFormSelectMenuTest")
+public void getTextFormsSelectMenuTest(int i, String optionText, String value) {
+  formsSelectMenuLarge.optionsSelectMenu.get(i).is().text(optionText);
+  formsSelectMenuLarge.optionsSelectMenu.get(i).assertThat().attr("value", value);
+}
+
+
+
+
+//FindBy(id = "forms-select-menu-small")
+@UI("#forms-select-menu-small")
+public static SelectMenu formsSelectMenuSmall;
+
+
+
+
+
+
+
+
+//FindBy(id = "forms-select-menu-multiple")
+@UI("#forms-select-menu-multiple")
+public static SelectMenu formsSelectMenuMultiple;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//FindBy(id = "forms-select-menu-size")
+@UI("#forms-select-menu-size")
+public static SelectMenu formsSelectMenuSize;
+
+
+
+
+
+@Test
+public void selectOptionFormsSelectMenuTest() {
+  formsSelectMenuSize.optionsSelectMenu.get(4).click();
+  assertEquals(formsSelectMenuSize.getValue(), "Three");
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+```
+
+You can use custom <a href = "https://getbootstrap.com/docs/4.3/components/forms/#select-menu" target = "a_blank">select menus</a>.
+
+Select menu is located in the following classes:
+
+  - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.common.SelectMenu*_
+  
+
+![Select menu](../images/bootstrap/form-select-menu.png)
+Here is an example with provided Bootstrap v4.3 code:
+![Select menu](../images/bootstrap/form-select-menu-html.png)
+
+**Large select menu**
+![Select menu](../images/bootstrap/form-select-menu-large.png)
+Here is an example with provided Bootstrap v4.3 code:
+![Select menu](../images/bootstrap/form-select-menu-large-html.png)
+
+**Small select menu**
+![Select menu](../images/bootstrap/form-select-menu-small.png)
+Here is an example with provided Bootstrap v4.3 code:
+![Select menu](../images/bootstrap/form-select-menu-small-html.png)
+
+**Select menu multiple**
+![Select menu](../images/bootstrap/form-select-menu-multiple.png)
+Here is an example with provided Bootstrap v4.3 code:
+![Select menu](../images/bootstrap/form-select-menu-multiple-html.png)
+
+**Select menu size**
+![Select menu](../images/bootstrap/form-select-menu-size.png)
+Here is an example with provided Bootstrap v4.3 code:
+![Select menu](../images/bootstrap/form-select-menu-size-html.png)
+
+ Available methods in Java JDI Light:
+<br>
+
+|Method | Description | Return Type
+--- | --- | ---
+**click()** | Click the button | void
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+<br>
+
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/FormsSelectMenuTests.java" target=a_blank> Bootstrap test examples </a>
+
+  
 ### Scrollspy
 **[Scrollspy](https://getbootstrap.com/docs/4.3/components/scrollspy/#example-in-navbar)** – automatically update Bootstrap navigation or list group components based on scroll position to indicate which link is currently active in the viewport.
 <br><br>
@@ -10449,17 +9506,21 @@ Tooltips and popovers can be placed within modals as needed. When modals are clo
 
 ![Modal - Tooltips and popovers](../images/bootstrap/modal-tooltips-and-popovers.png)
 
-```java 
+Here is an example with provided Bootstrap v4.3 code:
 
+```java 
+//@Findby(xpath="//h4[.='Modal - Tooltips and popovers']/../..")
 @UI("//h4[.='Modal - Tooltips and popovers']/../..")
 public static ModalTooltipsAndPopovers modalTooltipsAndPopovers;
 
 public class ModalTooltipsAndPopovers extends Section {
+//@Findby(xpath="//button")
     @UI("//button") public Button demoModalButton;
     public ModalTooltipsAndPopoversDialog modalDlg;
 }
 
 public class ModalTooltipsAndPopoversDialog extends Modal {
+//@Findby(css=".modal-body")
     @UI(".modal-body")
     public ModalTooltipsAndPopoversBody body;
     @UI("//div[@class='modal-footer']//button[1]")
@@ -10469,6 +9530,7 @@ public class ModalTooltipsAndPopoversDialog extends Modal {
 }
 
 public class ModalTooltipsAndPopoversBody extends Section {
+//@Findby(css="h5:nth-child(1)")
     @UI("h5:nth-child(1)") public Text title1;
     @UI("p:nth-child(2) > a") public Button buttonTriggers;
     @UI("h5:nth-child(4)") public Text title2;
@@ -10491,8 +9553,6 @@ public void verifyOpenModalDialogTooltips() {
 
 ```
 
-Here is an example with provided Bootstrap v4.3 code:
-
 ![Modal Tooltips and Popovers HTML](../images/bootstrap/modal-tooltips-and-popovers-html.png)
 
 Modal is represented by Section class in Java:
@@ -10508,6 +9568,10 @@ Available methods in Java JDI Light:
 **hidden()** | Asserts element is hidden | UIAssert 
 **close()** | Close modal | void 
 
+
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/modal/ModalTooltipsAndPopoversTests.java" target="_blank">Bootstrap Test Examples</a>
+
+<br><br>
 
 **Modal using grid**
 
@@ -13834,8 +12898,20 @@ Inner elements of Card Example represented by the following classes:
 - [Button](https://jdi-docs.github.io/jdi-light/#button)<br>
 - [Image](https://jdi-docs.github.io/jdi-light/#image)
 
+Available methods in Java JDI Light:
+ 
+|Method | Description | Return Type
+--- | --- | ---
+ **getText()**| Returns text  | String
+ **is()** |	Assert action |	UIAssert
+ **assertThat()** |	Assert action |	UIAssert
+ **src()** |	Assert image src |	ImageAssert
+ **alt()** |	Assert alt image attribute |	ImageAssert
+ **width()** |	Assert image width |	ImageAssert
+ **height()** |	Assert image height |	ImageAssert
+
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardExampleTests.java)
-<br><br>
+<br>
 
 ####Card Body
 
@@ -13862,6 +12938,14 @@ Here is an example with provided Bootstrap v4.3 code:
 
 Inner elements of Card Body represented by the following classes:
 [Text](https://jdi-docs.github.io/jdi-light/#text)
+
+Available methods in Java JDI Light:
+ 
+|Method | Description | Return Type
+--- | --- | ---
+ **getText()**| Returns text  | String
+ **is()** |	Assert action |	UIAssert
+ **assertThat()** |	Assert action |	UIAssert
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardBodyTests.java)
  <br><br>
@@ -13911,9 +12995,19 @@ Inner elements of Card with Subtitles and Links represented by the following cla
 + [Text](https://jdi-docs.github.io/jdi-light/#text)<br>
 + [Link](https://jdi-docs.github.io/jdi-light/#link)
 
+Available methods in Java JDI Light:
+ 
+|Method | Description | Return Type
+--- | --- | ---
+ **getText()**| Returns text  | String
+ **is()** |	Assert action |	UIAssert
+ **assertThat()** |	Assert action |	UIAssert
+ **ref()** |	Returns the reference |	String
+ **url()** |	Returns the URL |	URL
+
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardWithSubtitlesAndLinksTests.java)
 
-<br><br><br><br><br><br><br><br>
+
 
 ####Card Images
 ```java 
@@ -14004,11 +13098,6 @@ Here is an example with provided Bootstrap v4.3 code:
 
 
 
-
-
-
-
-
 public class CardListGroups extends Section {
 
     @UI(".card-header") public Label cardHeader; //@FindBy(".card-header"))
@@ -14053,7 +13142,7 @@ Here is an example with provided Bootstrap v4.3 code:
  is() |	Assert action |	TextAssert
  assertThat() |	Assert action |	TextAssert
 
-<br><br><br>
+<br><br>
 
 ####Kitchen Sink
  
@@ -14230,6 +13319,15 @@ Inner elements of card can be represented by the following classes:
     <li> [Button](https://jdi-docs.github.io/jdi-light/#button)  </li>
     <li> [See more elements](https://jdi-docs.github.io/jdi-light/#html5-common-elements)</li>
 </ul>
+
+Available methods in Java JDI Light:
+ 
+|Method | Description | Return Type
+--- | --- | ---
+ **click()** |	Click the button |	void
+ **is()** |	Assert action |	UIAssert
+ **text()** |	Assert text |	TextAssert
+ **assertThat()** |	Assert action |	UIAssert
       
    <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/Card/CardWithHeaderAndFooterTests.java" target=a_blank> Bootstrap test examples </a>
 <br>
@@ -14328,6 +13426,15 @@ Inner elements of card can be represented by the following classes:
     <li> [Button](https://jdi-docs.github.io/jdi-light/#button)  </li>
     <li> [See more elements](https://jdi-docs.github.io/jdi-light/#html5-common-elements) </li>
 </ul>
+
+Available methods in Java JDI Light:
+ 
+|Method | Description | Return Type
+--- | --- | ---
+ **click()** |	Click the button |	void
+ **is()** |	Assert action |	UIAssert
+ **text()** |	Assert text |	TextAssert
+ **assertThat()** |	Assert action |	UIAssert
      
    <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/Card/CardWithGridMarkupTests.java" target=a_blank> Bootstrap test examples </a>
  <br>
@@ -14366,15 +13473,6 @@ Available methods in Java JDI Light:
  hasClass()| Assert class  | String
  is() |	Assert action |	TextAssert
  assertThat() |	Assert action |	TextAssert
- 
-Available methods and properties in C# JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  |
- |  |
  
  <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardUtilitiesTests.java"> Bootstrap test examples </a>
  
@@ -14416,9 +13514,21 @@ Inner elements of Card using custom CSS represented by the following classes:<br
 
 + [Text](https://jdi-docs.github.io/jdi-light/#text)<br>
 + [Button](https://jdi-docs.github.io/jdi-light/#button)
++ [Link](https://jdi-docs.github.io/jdi-light/#link)
+
+Available methods in Java JDI Light:
+ 
+|Method | Description | Return Type
+--- | --- | ---
+ **click()** |	Click the button |	void
+ **is()** |	Assert action |	UIAssert
+ **text()** |	Assert text |	TextAssert
+ **ref()** |	Returns the reference |	String
+ **url()** |	Returns the URL |	URL
+ **assertThat()** |	Assert action |	UIAssert
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardWithCustomCss13RemTests.java)
-
+<br><br>
 
 ####Card Text Alignment
 
@@ -14472,6 +13582,7 @@ Available methods in Java JDI Light:
 **tag()** | Assert button tag | IsAssert
 **is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
+
 
 
 ####Card Navigation
@@ -14577,6 +13688,7 @@ Available methods in Java JDI Light:
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardNavigationTests.java" target="_blank">Bootstrap test examples</a>
 <br>
  
+ 
 ####Card Image Caps
 
 Similar to headers and footers, cards can include 
@@ -14637,7 +13749,7 @@ Available methods in Java JDI Light:
  <br>
  
   <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardImageCapsTest.java" target="_blank">Bootstrap test example with card image caps</a>
-
+<br><br><br><br><br>
  
 ####Card Image Overlays
 ```java 
@@ -14723,7 +13835,7 @@ Here is an example with provided Bootstrap v4.3 code:
 **getAttribute(String tagName, String attr)** | get attribute of an element inside vector image by tag | String
  
 [Card Image Overlays test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardImageOverlaysTest.java)
-
+<br>
  
 
 ####Card Horizontal
@@ -14767,9 +13879,21 @@ Here is an example with provided Bootstrap v4.3 code:
  + [Text](https://jdi-docs.github.io/jdi-light/#text)<br>
  + [Image](https://jdi-docs.github.io/jdi-light/#image)
  
+ Available methods in Java JDI Light:
+ 
+|Method | Description | Return Type
+--- | --- | ---
+**getText()**| Returns text  | String
+**is()** |	Assert action |	UIAssert
+**assertThat()** |	Assert action |	UIAssert
+**src()** |	Assert image src |	ImageAssert
+**alt()** |	Assert alt image attribute |	ImageAssert
+**width()** |	Assert image width |	ImageAssert
+**height()** |	Assert image height |	ImageAssert
+  
  [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardHorizontalTests.java)
  
-<br><br><br>
+<br>
 
 ####Card Background And Color
 
@@ -14863,8 +13987,17 @@ Inner elements of Card Navigation can be represented by the following classes:
 + [Link](https://jdi-docs.github.io/jdi-light/#link)
 + [Menu](https://jdi-docs.github.io/jdi-light/#menu)
 
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**is()** |	Assert action |	UIAssert
+**displayed()** | Check that element is displayed | TextAssert
+**css()** | Get element css value | String
+**assertThat()** |	Assert action |	UIAssert
+
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardBackgroundAndColorTests.java" target="_blank">Bootstrap test examples</a>
- <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+ <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
 ####Card Border
@@ -14903,6 +14036,15 @@ Here is an example with provided Bootstrap v4.3 code:
 
 Inner elements of Card Border represented by the following classes:
 [Text](https://jdi-docs.github.io/jdi-light/#text)
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**is()** |	Assert action |	UIAssert
+**text()** | Assert text | TextAssert
+**css()** | Get element css value | String
+**assertThat()** |	Assert action |	UIAssert
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardBorderTests.java)
 
@@ -14944,8 +14086,17 @@ Here is an example with provided Bootstrap v4.3 code:
 Inner elements of Card Mixing Utilities represented by the following classes:
 [Text](https://jdi-docs.github.io/jdi-light/#text)
 
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**is()** |	Assert action |	UIAssert
+**text()** | Assert text | TextAssert
+**css()** | Get element css value | String
+**assertThat()** |	Assert action |	UIAssert
+
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardMixinsUtilitiesTests.java)
-<br><br><br><br><br><br><br><br>
+<br><br>
 
 ####Card groups
 
@@ -15044,7 +14195,7 @@ Inner elements of Card groups can be represented by the following classes:
   
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardGroupsTests.java)
 
-<br><br><br><br><br><br>
+<br><br>
 
 ####Card decks
 
@@ -15130,6 +14281,15 @@ Inner elements of Card Decks can be represented by the following classes:
 + [Text](https://jdi-docs.github.io/jdi-light/#text)  
 + [Image](https://jdi-docs.github.io/jdi-light/#image)
 
+
+**Card decks with footer**
+
+![Card_groups example](../images/bootstrap/card-decks-with-footer.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Card_groups HTML example](../images/bootstrap/card-decks-with-footer-html.png)
+
 Available methods in Java JDI Light:
 
 |Method | Description | Return Type
@@ -15144,27 +14304,6 @@ Available methods in Java JDI Light:
 **alt()** | Get image alt() value | String
 <br>
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardDeckTests.java" target="_blank">Bootstrap test examples</a>
-<br><br>
-
-**Card groups with footer**
-
-![Card_groups example](../images/bootstrap/card-decks-with-footer.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-  
-![Card_groups HTML example](../images/bootstrap/card-decks-with-footer-html.png)
-
-
-Available methods in Java JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
-**** | TBD  | 
-**** |  |  
-**** |  | 
-**** |  | 
-**** |  |  
-<br>
 
 ####Card Columns
 
@@ -15210,6 +14349,18 @@ Inner elements of Card columns can be represented by the following classes:
 <li>[Text](https://jdi-docs.github.io/jdi-light/#text)</li>
 <li>[Image](https://jdi-docs.github.io/jdi-light/#image)</li>
 </ul>
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**getText()**| Returns text  | String
+**is()** |	Assert action |	UIAssert
+**assertThat()** |	Assert action |	UIAssert
+**src()** |	Assert image src |	ImageAssert
+**alt()** |	Assert alt image attribute |	ImageAssert
+**width()** |	Assert image width |	ImageAssert
+**height()** |	Assert image height |	ImageAssert
    
  [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardColumnsTests.java)
 

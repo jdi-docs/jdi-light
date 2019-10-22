@@ -6925,217 +6925,6 @@ Available methods in Java JDI Light:
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/complex/CollapseTests.java)
 
-### Dropdown
-<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/dropdowns/" target="_blank">Dropdown</a> – a graphical control element, that allows the user to choose one value from a list.
-
-Dropdown is located in the following classes:
- 
-  - __Java__: TBD
-  - __C#__: TBD
-
-<a href = "https://getbootstrap.com/docs/4.3/components/dropdowns/#examples">**Examples**</a>
-
-Wrap the dropdown’s toggle (your button or link) and the dropdown menu within ``.dropdown``, or another element that declares ``position: relative;``. Dropdowns can be triggered from ``<a>`` or ``<button>`` elements to better fit your potential needs.
-
-  - __<a href = "https://getbootstrap.com/docs/4.3/components/dropdowns/#single-button">Single button</a>__
-
-Any single ``.btn`` can be turned into a dropdown toggle with some markup changes. Here’s how you can put them to work with either ``<button>`` elements:
-
-![Single button dropdown example](../images/bootstrap/dropdown-single-button.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-
-```java 
-public class Dropdown extends UIBaseElement<UIAssert> implements IsButton {
-    //@FindBy(css = ".dropdown-toggle")
-    @UI(".dropdown-toggle") public Button dropdownToggle;
-    //@FindBy(css = ".dropdown-menu")
-    @UI(".dropdown-menu") public UIElement dropdownMenu;
-}
-
-@Test
-public void simpleDropdownIsValidationTest() {
-    simpleDropdown.is()
-            .core()
-            .cssClass("dropdown")
-            .tag(is("div"));
-    simpleDropdown.dropdownMenu.is()
-            .core()
-            .cssClass("dropdown-menu")
-            .tag(is("div"));
-    simpleDropdown.dropdownToggle.is()
-            .core()
-            .hasClass("btn")
-            .hasClass("btn-primary")
-            .hasClass("dropdown-toggle")
-            .attr("data-toggle", "dropdown")
-            .tag(is("button"));
-}
-```
-  
-![Single button dropdown HTML example](../images/bootstrap/dropdown-single-button-html.png)
-
-Available methods in Java JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
-**is()** | Assert action | UIAssert
-**cssClass()** | Assert element css class | IsAssert
-**tag()** | Assert element tag | IsAssert
-**hasClass()** | Match passed value with element class| boolean
-**attr()** | Assert element's attribute | IsAssert
-
-<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/DrowdownTests.java">Bootstrap test examples</a>
-
-<br>
- 
-  - __<a href = "https://getbootstrap.com/docs/4.3/components/dropdowns/#split-button">Split button</a>__
-
-Similarly, create split button dropdowns with virtually the same markup as single button dropdowns, but with the addition of ``.dropdown-toggle-split`` for proper spacing around the dropdown caret.
-
-We use this extra class to reduce the horizontal ``padding`` on either side of the caret by 25% and remove the ``margin-left`` that’s added for regular button dropdowns. Those extra changes keep the caret centered in the split button and provide a more appropriately sized hit area next to the main button.
-
-![Split button dropdown example](../images/bootstrap/dropdown-split-button.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-
-```java 
-public class Dropdown extends UIBaseElement<UIAssert> implements IsButton {
-    //@FindBy(css = ".dropdown-toggle")
-    @UI(".dropdown-toggle") public Button dropdownToggle;
-}
-
-@Test
-public void splitDropdownIsValidationTest() {
-    splitDropdown.dropdownToggle.is()
-            .core()
-            .hasClass("dropdown-toggle-split");
-}
-```
-  
-![Split button dropdown HTML example](../images/bootstrap/dropdown-split-button-html.png)
-
-Available methods in Java JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
-**is()** | Assert action | UIAssert
-**hasClass()** | Match passed value with element class| boolean
-
-<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/DrowdownTests.java">Bootstrap test examples</a>
-
-<br>
-
-<a href = "https://getbootstrap.com/docs/4.3/components/dropdowns/#sizing">**Sizing**</a>
-
-Button dropdowns work with buttons of all sizes, including default and split dropdown buttons.
-
-![Large button dropdown example](../images/bootstrap/dropdown-sizing-large.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-
-```java 
-public class Dropdown extends UIBaseElement<UIAssert> implements IsButton {
-    //@FindBy(css = ".dropdown-toggle")
-    @UI(".dropdown-toggle") public Button dropdownToggle;
-}
-
-@Test
-public void largeDropdownIsValidationTest() {
-    largeDropdown.dropdownToggle.is()
-            .core()
-            .hasClass("btn-lg")
-            .css(PADDING, is("8px 16px"))
-            .css(FONTSIZE, is("20px"))
-            .css(LINEHEIGHT, is("30px"))
-            .css(BORDERRADIUS, is("4.8px"));
-}
-```
-  
-![Large button dropdown HTML example](../images/bootstrap/dropdown-sizing-html.png)
-
-Available methods in Java JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
-**is()** | Assert action | UIAssert
-**css()** | Assert element css attribute | IsAssert
-**hasClass()** | Match passed value with element class| boolean
-
-<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/DrowdownTests.java">Bootstrap test examples</a>
-
-
-<br>
-
-<a href = "https://getbootstrap.com/docs/4.3/components/dropdowns/#directions">**Directions**</a>
-
-  - __<a href = "https://getbootstrap.com/docs/4.3/components/dropdowns/#dropup">Dropup</a>__
-
-Trigger dropdown menus above elements by adding ``.dropup`` to the parent element.
-
-  - __<a href = "https://getbootstrap.com/docs/4.3/components/dropdowns/#dropright">Dropright</a>__
-
-Trigger dropdown menus at the right of the elements by adding ``.dropright`` to the parent element.
-
-  - __<a href = "https://getbootstrap.com/docs/4.3/components/dropdowns/#dropleft">Dropleft</a>__
-
-Trigger dropdown menus at the left of the elements by adding ``.dropleft`` to the parent element.
-
-<br>
-
-<a href = "https://getbootstrap.com/docs/4.3/components/dropdowns/#menu-items">**Menu items**</a>
-
-Historically dropdown menu contents had to be links, but that’s no longer the case with v4. Now you can optionally use ``<button>`` elements in your dropdowns instead of just ``<a>``s.
-
-You can also create non-interactive dropdown items with ``.dropdown-item-text``. Feel free to style further with custom CSS or text utilities.
-
-  - __<a href = "https://getbootstrap.com/docs/4.3/components/dropdowns/#active">Active</a>__
-
-Add ``.active`` to items in the dropdown to **style them as active**.
-
-  - __<a href = "https://getbootstrap.com/docs/4.3/components/dropdowns/#disabled">Disabled</a>__
-
-Add ``.disabled`` to items in the dropdown to **style them as disabled**.
-
-<br>
-
-<a href = "https://getbootstrap.com/docs/4.3/components/dropdowns/#menu-alignment">**Menu alignment**</a>
-
-By default, a dropdown menu is automatically positioned 100% from the top and along the left side of its parent. Add ``.dropdown-menu-right`` to a ``.dropdown-menu`` to right align the dropdown menu.
-
-  - __<a href = "https://getbootstrap.com/docs/4.3/components/dropdowns/#responsive-alignment">Responsive alignment</a>__
-
-If you want to use responsive alignment, disable dynamic positioning by adding the <br> ``data-display="static"`` attribute and use the responsive variation classes.
-
-To align **right** the dropdown menu with the given breakpoint or larger, add <br> ``.dropdown-menu{-sm|-md|-lg|-xl}-right``.
-
-To align **left** the dropdown menu with the given breakpoint or larger, add <br> ``.dropdown-menu-right`` and ``.dropdown-menu{-sm|-md|-lg|-xl}-left``.
-
-<br>
-
-<a href = "https://getbootstrap.com/docs/4.3/components/dropdowns/#menu-content">**Menu content**</a>
-
-  - __<a href = "https://getbootstrap.com/docs/4.3/components/dropdowns/#headers">Headers</a>__
-
-Add a header to label sections of actions in any dropdown menu.
-
-  - __<a href = "https://getbootstrap.com/docs/4.3/components/dropdowns/#dividers">Dividers</a>__
-
-Separate groups of related menu items with a divider.
-
-  - __<a href = "https://getbootstrap.com/docs/4.3/components/dropdowns/#text">Text</a>__
-
-Place any freeform text within a dropdown menu with text and use <a href="https://getbootstrap.com/docs/4.3/utilities/spacing/">spacing utilities</a>. Note that you’ll likely need additional sizing styles to constrain the menu width.
-
-  - __<a href = "https://getbootstrap.com/docs/4.3/components/dropdowns/#forms">Forms</a>__
-
-Put a form within a dropdown menu, or make it into a dropdown menu, and use <a href="https://getbootstrap.com/docs/4.3/utilities/spacing/">margin or padding utilities</a> to give it the negative space you require.
-
-<br><br><br>
-
-
-
-
 ###Carousel
 <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/carousel/" target="_blank">Carousel</a> - a slideshow component for cycling through elements—images or slides of text—like a carousel.<br>
 
@@ -7240,11 +7029,18 @@ assertThat() | Assert action | TextAssert
 
 <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/complex/CarouselTests.java" target="_blank">Bootstrap test examples</a>
 
+<br>
 
+### Dropdown
+<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/dropdowns/" target="_blank">Dropdown</a> – a graphical control element, that allows the user to choose one value from a list.
 
+Dropdown is located in the following classes:
+ 
+  - __Java__: TBD
+  - __C#__: TBD
 
 ####Single button
-Any single .btn can be turned into a dropdown toggle with some markup changes. Here’s how you can put them to work with either `<button>` elements:
+Any single ``.btn`` can be turned into a dropdown toggle with some markup changes. Here’s how you can put them to work with either `<button>` elements:
 
 ![Dropdown example](../images/bootstrap/dropdown.png)
 
@@ -7280,6 +7076,8 @@ public void simpleDropdownIsValidationTest() {
   
 ![Dropdown HTML example](../images/bootstrap/dropdown-html.png)
 
+<br><br><br>
+
 And with `<a>` elements:
 
 ```java 
@@ -7310,10 +7108,22 @@ public void simpleDropdownIsValidationTest() {
 
 ![Dropdown link HTML example](../images/bootstrap/dropdown-link-html.png)
 
+Available methods in Java JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+**is()** | Assert action | UIAssert
+**cssClass()** | Assert element css class | IsAssert
+**tag()** | Assert element tag | IsAssert
+**hasClass()** | Match passed value with element class| boolean
+**attr()** | Assert element's attribute | IsAssert
+
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/DrowdownTests.java">Bootstrap test examples</a>
 
+<br>
+
 #### Split button
-Similarly, create split button dropdowns with virtually the same markup as single button dropdowns, but with the addition of .dropdown-toggle-split for proper spacing around the dropdown caret.
+Similarly, create split button dropdowns with virtually the same markup as single button dropdowns, but with the addition of ``.dropdown-toggle-split`` for proper spacing around the dropdown caret.
 
 ![Split button example](../images/bootstrap/dropdown-split.png)
 
@@ -7335,7 +7145,16 @@ public void splitDropdownIsValidationTest() {
 
 ![Split button HTML example](../images/bootstrap/dropdown-split-html.png)
 
+Available methods in Java JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+**is()** | Assert action | UIAssert
+**hasClass()** | Match passed value with element class| boolean
+
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/DrowdownTests.java">Bootstrap test examples</a>
+
+<br>
 
 #### Sizing
 Button dropdowns work with buttons of all sizes, including default and split dropdown buttons.
@@ -7387,7 +7206,17 @@ public void largeSplitDropdownIsValidationTest() {
 
 ![Large split button HTML example](../images/bootstrap/dropdown-large-split-html.png)
 
+Available methods in Java JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+**is()** | Assert action | UIAssert
+**css()** | Assert element css attribute | IsAssert
+**hasClass()** | Match passed value with element class| boolean
+
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/DrowdownTests.java">Bootstrap test examples</a>
+
+<br>
 
 ####Directions
 Trigger dropdown menus above elements by adding .dropup to the parent element.<br>
@@ -7398,29 +7227,136 @@ Trigger dropdown menus at the left of the elements by adding .dropleft to the pa
 
 Here is an example of Dropup code:
 
+```java 
+public class Dropdown extends UIBaseElement<UIAssert> implements IsButton {
+    //@FindBy(css = ".dropdown-menu")
+    @UI(".dropdown-menu") public UIElement dropdownMenu;
+}
+
+@Test
+public void dropUpDropdownIsValidationTest() {
+    dropUpDropdown.is()
+            .core()
+            .hasClass("dropup");
+    dropUpDropdown.dropdownMenu.is()
+            .core()
+            .css(TOP, is("auto"))
+            .css(BOTTOM, is("100%"));
+}
+```
+
 ![Dropup HTML example](../images/bootstrap/dropdown-directions-dropup-html.png)
 
 Here is an example of Dropup split code:
+
+```java 
+public class Dropdown extends UIBaseElement<UIAssert> implements IsButton {
+    //@FindBy(css = ".dropdown-menu")
+    @UI(".dropdown-menu") public UIElement dropdownMenu;
+}
+
+@Test
+public void dropUpSplitDropdownIsValidationTest() {
+    dropUpSplitDropdown.is()
+            .core()
+            .hasClass("dropup");
+    dropUpSplitDropdown.dropdownMenu.is()
+            .core()
+            .css(TOP, is("auto"))
+            .css(BOTTOM, is("100%"));
+}
+```
 
 ![Dropup HTML example](../images/bootstrap/dropdown-directions-dropup-split-html.png)
 
 Here is an example of Dropright code:
 
+```java 
+public class Dropdown extends UIBaseElement<UIAssert> implements IsButton {
+    //@FindBy(css = ".dropdown-menu")
+    @UI(".dropdown-menu") public UIElement dropdownMenu;
+}
+
+@Test
+public void dropRightDropdownIsValidationTest() {
+    dropRightDropdown.is()
+            .core()
+            .hasClass("dropright");
+    dropRightDropdown.dropdownMenu.is()
+            .core()
+            .css(RIGHT, is("auto"))
+            .css(LEFT, is("100%"));
+}
+```
+
 ![Dropright HTML example](../images/bootstrap/dropdown-directions-dropright-html.png)
 
 Here is an example of Dropright split code:
+
+```java 
+public class Dropdown extends UIBaseElement<UIAssert> implements IsButton {
+    //@FindBy(css = ".dropdown-menu")
+    @UI(".dropdown-menu") public UIElement dropdownMenu;
+}
+
+@Test
+public void dropRightSplitDropdownIsValidationTest() {
+    dropRightSplitDropdown.is()
+            .core()
+            .hasClass("dropright");
+    dropRightSplitDropdown.dropdownMenu.is()
+            .core()
+            .css(RIGHT, is("auto"))
+            .css(LEFT, is("100%"));
+    }
+```
 
 ![Dropright split HTML example](../images/bootstrap/dropdown-directions-dropright-split-html.png)
 
 Here is an example of Dropleft code:
 
+```java 
+public class Dropdown extends UIBaseElement<UIAssert> implements IsButton {
+    //@FindBy(css = ".dropdown-menu")
+    @UI(".dropdown-menu") public UIElement dropdownMenu;
+}
+
+@Test
+public void dropLeftDropdownIsValidationTest() {
+    dropLeftDropdown.is()
+            .core()
+            .hasClass("dropleft");
+    dropLeftDropdown.dropdownMenu.is()
+            .core()
+            .css(LEFT, is("auto"))
+            .css(RIGHT, is("100%"));
+}
+```
+
 ![Dropleft HTML example](../images/bootstrap/dropdown-directions-dropleft-html.png)
 
 Here is an example of Dropleft split code:
 
+```java 
+public class Dropdown extends UIBaseElement<UIAssert> implements IsButton {
+    //@FindBy(css = ".dropdown-menu")
+    @UI(".dropdown-menu") public UIElement dropdownMenu;
+}
+
+@Test
+public void dropLeftSplitDropdownIsValidationTest() {
+    dropLeftSplitDropdown.dropdownMenu.is()
+            .core()
+            .css(LEFT, is("auto"))
+            .css(RIGHT, is("100%"));
+}
+```
+
 ![Dropleft split HTML example](../images/bootstrap/dropdown-directions-dropleft-split-html.png)
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/DrowdownTests.java">Bootstrap test examples</a>
+
+<br>
 
 ####Menu items
 Historically dropdown menu contents had to be links, but that’s no longer the case with v4. 
@@ -7458,6 +7394,7 @@ Here is a code example of items in the dropdown which are styled as disabled:
 
 ![Disabled HTML example](../images/bootstrap/dropdown-menu-items-disabled-html.png)
 
+<br>
 
 ####Menu alignment
 By default, a dropdown menu is automatically positioned 100% from the top and along the left side of its parent. Add .dropdown-menu-right to a .dropdown-menu to right align the dropdown menu.
@@ -7490,6 +7427,8 @@ Here is an example of right-aligned but left aligned when large screen code:
 ![Left-aligned-when-large-screen-example](../images/bootstrap/dropdown-alignment-large-left-html.png)
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/DrowdownTests.java">Bootstrap test examples</a>
+
+<br>
 
 ####Menu content
 **Headers**<br>

@@ -10398,6 +10398,8 @@ Tooltips and popovers can be placed within modals as needed. When modals are clo
 
 ![Modal - Tooltips and popovers](../images/bootstrap/modal-tooltips-and-popovers.png)
 
+Here is an example with provided Bootstrap v4.3 code:
+
 ```java 
 
 @UI("//h4[.='Modal - Tooltips and popovers']/../..")
@@ -10440,8 +10442,6 @@ public void verifyOpenModalDialogTooltips() {
 
 ```
 
-Here is an example with provided Bootstrap v4.3 code:
-
 ![Modal Tooltips and Popovers HTML](../images/bootstrap/modal-tooltips-and-popovers-html.png)
 
 Modal is represented by Section class in Java:
@@ -10459,7 +10459,7 @@ Available methods in Java JDI Light:
 
 <br><br> 
 
-[Modal - Tooltips and Popovers example](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/modal/ModalTooltipsAndPopoversTests.java) <br>
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/modal/ModalTooltipsAndPopoversTests.java) <br>
 <br>
 
 **Modal using grid**

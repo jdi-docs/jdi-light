@@ -12667,8 +12667,20 @@ Inner elements of Card Example represented by the following classes:
 - [Button](https://jdi-docs.github.io/jdi-light/#button)<br>
 - [Image](https://jdi-docs.github.io/jdi-light/#image)
 
+Available methods in Java JDI Light:
+ 
+|Method | Description | Return Type
+--- | --- | ---
+ **getText()**| Returns text  | String
+ **is()** |	Assert action |	UIAssert
+ **assertThat()** |	Assert action |	UIAssert
+ **src()** |	Assert image src |	ImageAssert
+ **alt()** |	Assert alt image attribute |	ImageAssert
+ **width()** |	Assert image width |	ImageAssert
+ **height()** |	Assert image height |	ImageAssert
+
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardExampleTests.java)
-<br><br>
+<br>
 
 ####Card Body
 
@@ -12695,6 +12707,14 @@ Here is an example with provided Bootstrap v4.3 code:
 
 Inner elements of Card Body represented by the following classes:
 [Text](https://jdi-docs.github.io/jdi-light/#text)
+
+Available methods in Java JDI Light:
+ 
+|Method | Description | Return Type
+--- | --- | ---
+ **getText()**| Returns text  | String
+ **is()** |	Assert action |	UIAssert
+ **assertThat()** |	Assert action |	UIAssert
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardBodyTests.java)
  <br><br>
@@ -12744,9 +12764,19 @@ Inner elements of Card with Subtitles and Links represented by the following cla
 + [Text](https://jdi-docs.github.io/jdi-light/#text)<br>
 + [Link](https://jdi-docs.github.io/jdi-light/#link)
 
+Available methods in Java JDI Light:
+ 
+|Method | Description | Return Type
+--- | --- | ---
+ **getText()**| Returns text  | String
+ **is()** |	Assert action |	UIAssert
+ **assertThat()** |	Assert action |	UIAssert
+ **ref()** |	Returns the reference |	String
+ **url()** |	Returns the URL |	URL
+
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardWithSubtitlesAndLinksTests.java)
 
-<br><br><br><br><br><br><br><br>
+
 
 ####Card Images
 ```java 
@@ -12837,7 +12867,6 @@ Here is an example with provided Bootstrap v4.3 code:
 
 
 
-
 public class CardListGroups extends Section {
 
     @UI(".card-header") public Label cardHeader; //@FindBy(".card-header"))
@@ -12882,7 +12911,7 @@ Here is an example with provided Bootstrap v4.3 code:
  is() |	Assert action |	TextAssert
  assertThat() |	Assert action |	TextAssert
 
-
+<br><br>
 
 ####Kitchen Sink
  
@@ -13059,6 +13088,15 @@ Inner elements of card can be represented by the following classes:
     <li> [Button](https://jdi-docs.github.io/jdi-light/#button)  </li>
     <li> [See more elements](https://jdi-docs.github.io/jdi-light/#html5-common-elements)</li>
 </ul>
+
+Available methods in Java JDI Light:
+ 
+|Method | Description | Return Type
+--- | --- | ---
+ **click()** |	Click the button |	void
+ **is()** |	Assert action |	UIAssert
+ **text()** |	Assert text |	TextAssert
+ **assertThat()** |	Assert action |	UIAssert
       
    <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/Card/CardWithHeaderAndFooterTests.java" target=a_blank> Bootstrap test examples </a>
 <br>
@@ -13157,6 +13195,15 @@ Inner elements of card can be represented by the following classes:
     <li> [Button](https://jdi-docs.github.io/jdi-light/#button)  </li>
     <li> [See more elements](https://jdi-docs.github.io/jdi-light/#html5-common-elements) </li>
 </ul>
+
+Available methods in Java JDI Light:
+ 
+|Method | Description | Return Type
+--- | --- | ---
+ **click()** |	Click the button |	void
+ **is()** |	Assert action |	UIAssert
+ **text()** |	Assert text |	TextAssert
+ **assertThat()** |	Assert action |	UIAssert
      
    <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/Card/CardWithGridMarkupTests.java" target=a_blank> Bootstrap test examples </a>
  <br>
@@ -13195,15 +13242,6 @@ Available methods in Java JDI Light:
  hasClass()| Assert class  | String
  is() |	Assert action |	TextAssert
  assertThat() |	Assert action |	TextAssert
- 
-Available methods and properties in C# JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  |
- |  |
  
  <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardUtilitiesTests.java"> Bootstrap test examples </a>
  
@@ -13245,6 +13283,18 @@ Inner elements of Card using custom CSS represented by the following classes:<br
 
 + [Text](https://jdi-docs.github.io/jdi-light/#text)<br>
 + [Button](https://jdi-docs.github.io/jdi-light/#button)
++ [Link](https://jdi-docs.github.io/jdi-light/#link)
+
+Available methods in Java JDI Light:
+ 
+|Method | Description | Return Type
+--- | --- | ---
+ **click()** |	Click the button |	void
+ **is()** |	Assert action |	UIAssert
+ **text()** |	Assert text |	TextAssert
+ **ref()** |	Returns the reference |	String
+ **url()** |	Returns the URL |	URL
+ **assertThat()** |	Assert action |	UIAssert
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardWithCustomCss13RemTests.java)
 <br><br>
@@ -13301,6 +13351,7 @@ Available methods in Java JDI Light:
 **tag()** | Assert button tag | IsAssert
 **is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
+
 
 
 ####Card Navigation
@@ -13406,6 +13457,7 @@ Available methods in Java JDI Light:
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardNavigationTests.java" target="_blank">Bootstrap test examples</a>
 <br>
  
+ 
 ####Card Image Caps
 
 Similar to headers and footers, cards can include 
@@ -13466,7 +13518,7 @@ Available methods in Java JDI Light:
  <br>
  
   <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardImageCapsTest.java" target="_blank">Bootstrap test example with card image caps</a>
-<br><br><br><br>
+<br><br><br><br><br>
  
 ####Card Image Overlays
 ```java 
@@ -13552,7 +13604,7 @@ Here is an example with provided Bootstrap v4.3 code:
 **getAttribute(String tagName, String attr)** | get attribute of an element inside vector image by tag | String
  
 [Card Image Overlays test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardImageOverlaysTest.java)
-
+<br>
  
 
 ####Card Horizontal
@@ -13596,9 +13648,21 @@ Here is an example with provided Bootstrap v4.3 code:
  + [Text](https://jdi-docs.github.io/jdi-light/#text)<br>
  + [Image](https://jdi-docs.github.io/jdi-light/#image)
  
+ Available methods in Java JDI Light:
+ 
+|Method | Description | Return Type
+--- | --- | ---
+**getText()**| Returns text  | String
+**is()** |	Assert action |	UIAssert
+**assertThat()** |	Assert action |	UIAssert
+**src()** |	Assert image src |	ImageAssert
+**alt()** |	Assert alt image attribute |	ImageAssert
+**width()** |	Assert image width |	ImageAssert
+**height()** |	Assert image height |	ImageAssert
+  
  [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardHorizontalTests.java)
  
-<br><br><br>
+<br>
 
 ####Card Background And Color
 
@@ -13692,8 +13756,17 @@ Inner elements of Card Navigation can be represented by the following classes:
 + [Link](https://jdi-docs.github.io/jdi-light/#link)
 + [Menu](https://jdi-docs.github.io/jdi-light/#menu)
 
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**is()** |	Assert action |	UIAssert
+**displayed()** | Check that element is displayed | TextAssert
+**css()** | Get element css value | String
+**assertThat()** |	Assert action |	UIAssert
+
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardBackgroundAndColorTests.java" target="_blank">Bootstrap test examples</a>
- <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+ <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
 ####Card Border
@@ -13732,6 +13805,15 @@ Here is an example with provided Bootstrap v4.3 code:
 
 Inner elements of Card Border represented by the following classes:
 [Text](https://jdi-docs.github.io/jdi-light/#text)
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**is()** |	Assert action |	UIAssert
+**text()** | Assert text | TextAssert
+**css()** | Get element css value | String
+**assertThat()** |	Assert action |	UIAssert
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardBorderTests.java)
 
@@ -13773,8 +13855,17 @@ Here is an example with provided Bootstrap v4.3 code:
 Inner elements of Card Mixing Utilities represented by the following classes:
 [Text](https://jdi-docs.github.io/jdi-light/#text)
 
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**is()** |	Assert action |	UIAssert
+**text()** | Assert text | TextAssert
+**css()** | Get element css value | String
+**assertThat()** |	Assert action |	UIAssert
+
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardMixinsUtilitiesTests.java)
-<br><br><br><br><br><br><br><br>
+<br><br>
 
 ####Card groups
 
@@ -13959,6 +14050,15 @@ Inner elements of Card Decks can be represented by the following classes:
 + [Text](https://jdi-docs.github.io/jdi-light/#text)  
 + [Image](https://jdi-docs.github.io/jdi-light/#image)
 
+
+**Card decks with footer**
+
+![Card_groups example](../images/bootstrap/card-decks-with-footer.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Card_groups HTML example](../images/bootstrap/card-decks-with-footer-html.png)
+
 Available methods in Java JDI Light:
 
 |Method | Description | Return Type
@@ -13973,27 +14073,6 @@ Available methods in Java JDI Light:
 **alt()** | Get image alt() value | String
 <br>
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardDeckTests.java" target="_blank">Bootstrap test examples</a>
-<br><br>
-
-**Card decks with footer**
-
-![Card_groups example](../images/bootstrap/card-decks-with-footer.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-  
-![Card_groups HTML example](../images/bootstrap/card-decks-with-footer-html.png)
-
-
-Available methods in Java JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
-**** | TBD  | 
-**** |  |  
-**** |  | 
-**** |  | 
-**** |  |  
-<br>
 
 ####Card Columns
 
@@ -14039,6 +14118,18 @@ Inner elements of Card columns can be represented by the following classes:
 <li>[Text](https://jdi-docs.github.io/jdi-light/#text)</li>
 <li>[Image](https://jdi-docs.github.io/jdi-light/#image)</li>
 </ul>
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**getText()**| Returns text  | String
+**is()** |	Assert action |	UIAssert
+**assertThat()** |	Assert action |	UIAssert
+**src()** |	Assert image src |	ImageAssert
+**alt()** |	Assert alt image attribute |	ImageAssert
+**width()** |	Assert image width |	ImageAssert
+**height()** |	Assert image height |	ImageAssert
    
  [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardColumnsTests.java)
 

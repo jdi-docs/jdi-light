@@ -7076,7 +7076,7 @@ public void simpleDropdownIsValidationTest() {
   
 ![Dropdown HTML example](../images/bootstrap/dropdown-html.png)
 
-<br><br><br>
+<br><br><br><br><br>
 
 And with `<a>` elements:
 
@@ -7247,6 +7247,8 @@ public void dropUpDropdownIsValidationTest() {
 
 ![Dropup HTML example](../images/bootstrap/dropdown-directions-dropup-html.png)
 
+<br>
+
 Here is an example of Dropup split code:
 
 ```java 
@@ -7268,6 +7270,8 @@ public void dropUpSplitDropdownIsValidationTest() {
 ```
 
 ![Dropup HTML example](../images/bootstrap/dropdown-directions-dropup-split-html.png)
+
+<br>
 
 Here is an example of Dropright code:
 
@@ -7291,6 +7295,8 @@ public void dropRightDropdownIsValidationTest() {
 
 ![Dropright HTML example](../images/bootstrap/dropdown-directions-dropright-html.png)
 
+<br>
+
 Here is an example of Dropright split code:
 
 ```java 
@@ -7312,6 +7318,8 @@ public void dropRightSplitDropdownIsValidationTest() {
 ```
 
 ![Dropright split HTML example](../images/bootstrap/dropdown-directions-dropright-split-html.png)
+
+<br>
 
 Here is an example of Dropleft code:
 
@@ -7335,6 +7343,8 @@ public void dropLeftDropdownIsValidationTest() {
 
 ![Dropleft HTML example](../images/bootstrap/dropdown-directions-dropleft-html.png)
 
+<br>
+
 Here is an example of Dropleft split code:
 
 ```java 
@@ -7353,6 +7363,17 @@ public void dropLeftSplitDropdownIsValidationTest() {
 ```
 
 ![Dropleft split HTML example](../images/bootstrap/dropdown-directions-dropleft-split-html.png)
+
+Available methods in Java JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+**is()** | Assert action | UIAssert
+**cssClass()** | Assert element css class | IsAssert
+**css()** | Assert element css attribute | IsAssert
+**tag()** | Assert element tag | IsAssert
+**hasClass()** | Match passed value with element class| boolean
+**attr()** | Assert element's attribute | IsAssert
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/DrowdownTests.java">Bootstrap test examples</a>
 

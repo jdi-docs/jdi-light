@@ -8185,8 +8185,12 @@ Any single ``.btn`` can be turned into a dropdown toggle with some markup change
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
-@UI(".dropdown-toggle") public Button dropdownToggle; //@FindBy(css = ".dropdown-toggle")
-@UI(".dropdown-menu") public UIElement dropdownMenu; //@FindBy(css = ".dropdown-menu")
+public class Dropdown extends UIBaseElement<UIAssert> implements IsButton {
+    //@FindBy(css = ".dropdown-toggle")
+    @UI(".dropdown-toggle") public Button dropdownToggle;
+    //@FindBy(css = ".dropdown-menu")
+    @UI(".dropdown-menu") public UIElement dropdownMenu;
+}
 
 @Test
 public void simpleDropdownIsValidationTest() {
@@ -8235,7 +8239,10 @@ We use this extra class to reduce the horizontal ``padding`` on either side of t
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
-@UI(".dropdown-toggle") public Button dropdownToggle; //@FindBy(css = ".dropdown-toggle")
+public class Dropdown extends UIBaseElement<UIAssert> implements IsButton {
+    //@FindBy(css = ".dropdown-toggle")
+    @UI(".dropdown-toggle") public Button dropdownToggle;
+}
 
 @Test
 public void splitDropdownIsValidationTest() {

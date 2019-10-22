@@ -8307,6 +8307,57 @@ Inner elements represented by the following classes:
 
 <br>
 
+**[Form grid](https://getbootstrap.com/docs/4.3/components/forms/#form-grid)**
+
+![Form grid Example](../images/bootstrap/form-grid.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java 
+    //FindBy(css = "#first_name")
+    @UI("#first_name")
+    public TextField name;
+    //FindBy(css = "#last_name")
+    @UI("#last_name")
+    public TextField lastName;
+
+
+    @Test(dataProvider = "personalData")
+    public void fillTest(String firstName, String lastName) {
+        FormContacts formContacts = new FormContacts();
+        formGrid.fill(formContacts.set(c -> {
+            c.name = firstName;
+            c.lastName = lastName;
+        }));
+        formGrid.check(formContacts);
+        checkContactFormSubmitted();
+    }
+
+    private void checkContactFormSubmitted() {
+        formGrid.submit();
+        validateAlert(is("Form filled and submitted successfully"));
+        formGrid.check(new FormContacts().set(c -> {
+            c.name = "";
+            c.lastName = "";
+        }));
+    }
+```
+
+<br>
+
+![Form grid Example](../images/bootstrap/form-grid-html.png)
+
+|Method | Description | Return Type
+--- | --- | ---
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**displayed()** | Check that element is displayed | TextAssert
+**enabled()** | Check that element is enabled | TextAssert
+**assertThat()** | Assert action | TextAssert
+
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/FormGridTests.java)
+
+<br>
 
 **[Form horizontal](https://getbootstrap.com/docs/4.3/components/forms/#horizontal-form)**
 

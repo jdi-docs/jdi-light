@@ -7481,13 +7481,13 @@ Available methods in Java JDI Light:
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardDeckTests.java" target="_blank">Bootstrap test examples</a>
 <br><br>
 
-**Card groups with footer**
+**Card decks with footer**
 
-![Card_groups example](../images/bootstrap/card-decks-with-footer.png)
+![Card decks with footer example](../images/bootstrap/card-decks-with-footer.png)
 
 Here is an example with provided Bootstrap v4.3 code:
   
-![Card_groups HTML example](../images/bootstrap/card-decks-with-footer-html.png)
+![Card decks with footer HTML example](../images/bootstrap/card-decks-with-footer-html.png)
 
 
 Available methods in Java JDI Light:

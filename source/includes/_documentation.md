@@ -8306,6 +8306,49 @@ Inner elements represented by the following classes:
 </ul>
 
 <br>
+<br>
+
+#####Form row
+<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/forms/#form-row" target="_blank">Form row</a>
+
+![Form row Example](../images/bootstrap/form-row.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java 
+    //FindBy(css = ".form-row")
+    @UI(".form-row")
+    public UIElement row;
+    //FindBy(css = ".form-row > .col")
+    @UI(".form-row > .col")
+    public WebList cols;
+
+    @Test
+    public void checkStructureRow() {
+        formRow.row.assertThat().hasClass("form-row");
+        formRow.row.is().enabled().displayed();
+        formRow.row.childs().foreach(e -> e.is()
+                .displayed()
+                .enabled());
+        formRow.cols.childs().foreach(e -> e.is()
+                .tag("input")
+        );
+    }
+```
+
+![Form row Example](../images/bootstrap/form-row-html.png)
+
+|Method | Description | Return Type
+--- | --- | ---
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**displayed()** | Check that element is displayed | TextAssert
+**enabled()** | Check that element is enabled | TextAssert
+**assertThat()** | Assert action | TextAssert
+
+<a  href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/FormGridTests.java" target="_blank">Bootstrap test examples</a>
+
+<br>
 
 **[Form grid](https://getbootstrap.com/docs/4.3/components/forms/#form-grid)**
 
@@ -8355,7 +8398,7 @@ Here is an example with provided Bootstrap v4.3 code:
 
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/FormGridTests.java)
 
-<br>
+<br><br>
 
 **[Form horizontal](https://getbootstrap.com/docs/4.3/components/forms/#horizontal-form)**
 

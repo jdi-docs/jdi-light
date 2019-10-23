@@ -9007,11 +9007,14 @@ public static SelectMenu formsSelectMenuSize;
 
 
 
+
 @Test
 public void selectOptionFormsSelectMenuTest() {
   formsSelectMenuSize.optionsSelectMenu.get(4).click();
   assertEquals(formsSelectMenuSize.getValue(), "Three");
 }
+
+
 
 
 
@@ -9035,29 +9038,29 @@ Select menu is located in the following classes:
   - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.common.SelectMenu*_
   
 
-![Select menu](../images/bootstrap/form-select-menu.png)
+![Select menu](../images/bootstrap/form-select-menu.png) <br>
 Here is an example with provided Bootstrap v4.3 code:
-![Select menu](../images/bootstrap/form-select-menu-html.png)
+![Select menu](../images/bootstrap/form-select-menu-html.png) <br>
 
 **Large select menu**
-![Select menu](../images/bootstrap/form-select-menu-large.png)
+![Select menu](../images/bootstrap/form-select-menu-large.png) <br>
 Here is an example with provided Bootstrap v4.3 code:
-![Select menu](../images/bootstrap/form-select-menu-large-html.png)
+![Select menu](../images/bootstrap/form-select-menu-large-html.png) <br>
 
 **Small select menu**
-![Select menu](../images/bootstrap/form-select-menu-small.png)
+![Select menu](../images/bootstrap/form-select-menu-small.png) <br>
 Here is an example with provided Bootstrap v4.3 code:
-![Select menu](../images/bootstrap/form-select-menu-small-html.png)
+![Select menu](../images/bootstrap/form-select-menu-small-html.png) <br>
 
 **Select menu multiple**
-![Select menu](../images/bootstrap/form-select-menu-multiple.png)
+![Select menu](../images/bootstrap/form-select-menu-multiple.png) <br>
 Here is an example with provided Bootstrap v4.3 code:
-![Select menu](../images/bootstrap/form-select-menu-multiple-html.png)
+![Select menu](../images/bootstrap/form-select-menu-multiple-html.png) <br>
 
 **Select menu size**
-![Select menu](../images/bootstrap/form-select-menu-size.png)
+![Select menu](../images/bootstrap/form-select-menu-size.png) <br>
 Here is an example with provided Bootstrap v4.3 code:
-![Select menu](../images/bootstrap/form-select-menu-size-html.png)
+![Select menu](../images/bootstrap/form-select-menu-size-html.png) <br>
 
  Available methods in Java JDI Light:
 <br>

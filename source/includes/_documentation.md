@@ -7083,7 +7083,7 @@ public void toggleTest() {
   
 ![Dropdown HTML example](../images/bootstrap/dropdown-html.png)
 
-<br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br>
 
 And with `<a>` elements:
 

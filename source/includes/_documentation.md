@@ -7036,7 +7036,7 @@ assertThat() | Assert action | TextAssert
 
 Dropdown is located in the following classes:
  
-  - __Java__: TBD
+  - __Java__: <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap/src/main/java/com/epam/jdi/light/ui/bootstrap/elements/common/Dropdown.java">Dropdown</a>
   - __C#__: TBD
 
 #### <a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#single-button">Single button</a>
@@ -7047,30 +7047,37 @@ Any single ``.btn`` can be turned into a dropdown toggle with some markup change
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
-public class Dropdown extends UIBaseElement<UIAssert> implements IsButton {
-    //@FindBy(css = ".dropdown-toggle")
-    @UI(".dropdown-toggle") public Button dropdownToggle;
-    //@FindBy(css = ".dropdown-menu")
-    @UI(".dropdown-menu") public UIElement dropdownMenu;
+//@FindBy(id = "simpleDropdown")
+@UI("#simpleDropdown")
+public static Dropdown simpleDropdown;
+
+@Test
+public void getTextTest() {
+    assertThat(simpleDropdown.getText(), is(DROPDOWN));
 }
 
 @Test
-public void simpleDropdownIsValidationTest() {
-    simpleDropdown.is()
-            .core()
-            .cssClass("dropdown")
-            .tag(is("div"));
-    simpleDropdown.dropdownMenu.is()
-            .core()
-            .cssClass("dropdown-menu")
-            .tag(is("div"));
-    simpleDropdown.dropdownToggle.is()
-            .core()
-            .hasClass("btn")
-            .hasClass("btn-primary")
-            .hasClass("dropdown-toggle")
-            .attr("data-toggle", "dropdown")
-            .tag(is("button"));
+public void getValueTest() {
+    assertThat(simpleDropdown.getValue(), is(DROPDOWN));
+}
+
+@Test
+public void itemsTest() {
+    assertThat(simpleDropdown.items.getValue(), is(ITEMS_VALUES));
+}
+
+@Test
+public void clickTest() {
+    simpleDropdown.click();
+    simpleDropdown.items.is().displayed();
+    assertThat(simpleDropdown.items.isDisplayed(), is(Boolean.TRUE));
+}
+
+@Test
+public void toggleTest() {
+    simpleDropdown.dropdownToggle.click();
+    simpleDropdown.items.is().displayed();
+    assertThat(simpleDropdown.items.isDisplayed(), is(Boolean.TRUE));
 }
 ```
   
@@ -7081,28 +7088,15 @@ public void simpleDropdownIsValidationTest() {
 And with `<a>` elements:
 
 ```java 
-public class Dropdown extends UIBaseElement<UIAssert> implements IsButton {
-    //@FindBy(css = ".dropdown-toggle")
-    @UI(".dropdown-toggle") public Button dropdownToggle;
-}
+//@FindBy(id = "linkDropdown")
+@UI("#linkDropdown")
+public static Dropdown linkDropdown;
 
 @Test
-public void simpleDropdownIsValidationTest() {
-    simpleDropdown.is()
+public void linkDropdownIsValidationTest() {
+    linkDropdown.dropdownToggle.is()
             .core()
-            .cssClass("dropdown")
-            .tag(is("div"));
-    simpleDropdown.dropdownMenu.is()
-            .core()
-            .cssClass("dropdown-menu")
-            .tag(is("div"));
-    simpleDropdown.dropdownToggle.is()
-            .core()
-            .hasClass("btn")
-            .hasClass("btn-primary")
-            .hasClass("dropdown-toggle")
-            .attr("data-toggle", "dropdown")
-            .tag(is("button"));
+            .tag(is("a"));
 }
 ```
 
@@ -7130,10 +7124,9 @@ Similarly, create split button dropdowns with virtually the same markup as singl
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
-public class Dropdown extends UIBaseElement<UIAssert> implements IsButton {
-    //@FindBy(css = ".dropdown-toggle")
-    @UI(".dropdown-toggle") public Button dropdownToggle;
-}
+//@FindBy(id = "splitDropdown")
+@UI("#splitDropdown")
+public static Dropdown splitDropdown;
 
 @Test
 public void splitDropdownIsValidationTest() {
@@ -7164,10 +7157,9 @@ Button dropdowns work with buttons of all sizes, including default and split dro
 Here is an example of Large button code:
 
 ```java 
-public class Dropdown extends UIBaseElement<UIAssert> implements IsButton {
-    //@FindBy(css = ".dropdown-toggle")
-    @UI(".dropdown-toggle") public Button dropdownToggle;
-}
+//@FindBy(id = "largeDropdown")
+@UI("#largeDropdown")
+public static Dropdown largeDropdown;
 
 @Test
 public void largeDropdownIsValidationTest() {
@@ -7186,10 +7178,9 @@ public void largeDropdownIsValidationTest() {
 Here is an example of Large split button code:
 
 ```java 
-public class Dropdown extends UIBaseElement<UIAssert> implements IsButton {
-    //@FindBy(css = ".dropdown-toggle")
-    @UI(".dropdown-toggle") public Button dropdownToggle;
-}
+//@FindBy(id = "largeSplitDropdown")
+@UI("#largeSplitDropdown")
+public static Dropdown largeSplitDropdown;
 
 @Test
 public void largeSplitDropdownIsValidationTest() {
@@ -7228,10 +7219,9 @@ Trigger dropdown menus <a href="https://getbootstrap.com/docs/4.3/components/dro
 Here is an example of Dropup code:
 
 ```java 
-public class Dropdown extends UIBaseElement<UIAssert> implements IsButton {
-    //@FindBy(css = ".dropdown-menu")
-    @UI(".dropdown-menu") public UIElement dropdownMenu;
-}
+//@FindBy(id = "dropUpDropdown")
+@UI("#dropUpDropdown")
+public static Dropdown dropUpDropdown;
 
 @Test
 public void dropUpDropdownIsValidationTest() {
@@ -7252,10 +7242,9 @@ public void dropUpDropdownIsValidationTest() {
 Here is an example of Dropup split code:
 
 ```java 
-public class Dropdown extends UIBaseElement<UIAssert> implements IsButton {
-    //@FindBy(css = ".dropdown-menu")
-    @UI(".dropdown-menu") public UIElement dropdownMenu;
-}
+//@FindBy(id = "dropUpSplitDropdown")
+@UI("#dropUpSplitDropdown")
+public static Dropdown dropUpSplitDropdown;
 
 @Test
 public void dropUpSplitDropdownIsValidationTest() {
@@ -7276,10 +7265,9 @@ public void dropUpSplitDropdownIsValidationTest() {
 Here is an example of Dropright code:
 
 ```java 
-public class Dropdown extends UIBaseElement<UIAssert> implements IsButton {
-    //@FindBy(css = ".dropdown-menu")
-    @UI(".dropdown-menu") public UIElement dropdownMenu;
-}
+//@FindBy(id = "dropRightDropdown")
+@UI("#dropRightDropdown")
+public static Dropdown dropRightDropdown;
 
 @Test
 public void dropRightDropdownIsValidationTest() {
@@ -7300,10 +7288,9 @@ public void dropRightDropdownIsValidationTest() {
 Here is an example of Dropright split code:
 
 ```java 
-public class Dropdown extends UIBaseElement<UIAssert> implements IsButton {
-    //@FindBy(css = ".dropdown-menu")
-    @UI(".dropdown-menu") public UIElement dropdownMenu;
-}
+//@FindBy(id = "dropRightSplitDropdown")
+@UI("#dropRightSplitDropdown")
+public static Dropdown dropRightSplitDropdown;
 
 @Test
 public void dropRightSplitDropdownIsValidationTest() {
@@ -7324,10 +7311,9 @@ public void dropRightSplitDropdownIsValidationTest() {
 Here is an example of Dropleft code:
 
 ```java 
-public class Dropdown extends UIBaseElement<UIAssert> implements IsButton {
-    //@FindBy(css = ".dropdown-menu")
-    @UI(".dropdown-menu") public UIElement dropdownMenu;
-}
+//@FindBy(id = "dropLeftDropdown")
+@UI("#dropLeftDropdown")
+public static Dropdown dropLeftDropdown;
 
 @Test
 public void dropLeftDropdownIsValidationTest() {
@@ -7348,10 +7334,9 @@ public void dropLeftDropdownIsValidationTest() {
 Here is an example of Dropleft split code:
 
 ```java 
-public class Dropdown extends UIBaseElement<UIAssert> implements IsButton {
-    //@FindBy(css = ".dropdown-menu")
-    @UI(".dropdown-menu") public UIElement dropdownMenu;
-}
+//@FindBy(id = "dropLeftSplitDropdown")
+@UI("#dropLeftSplitDropdown")
+public static Dropdown dropLeftSplitDropdown;
 
 @Test
 public void dropLeftSplitDropdownIsValidationTest() {
@@ -7427,10 +7412,9 @@ Here is an example of right-aligned menu:
 Here is an example of right-aligned menu code:
 
 ```java 
-public class Dropdown extends UIBaseElement<UIAssert> implements IsButton {
-    //@FindBy(css = ".dropdown-menu")
-    @UI(".dropdown-menu") public UIElement dropdownMenu;
-}
+//@FindBy(id = "rightAllignedDropdown")
+@UI("#rightAllignedDropdown")
+public static Dropdown rightAllignedDropdown;
 
 @Test
 public void rightAllignedDropdownIsValidationTest() {
@@ -7460,10 +7444,9 @@ To align **left** the dropdown menu with the given breakpoint or larger, add<br>
 Here is an example of right-aligned but left aligned when large screen code:
 
 ```java 
-public class Dropdown extends UIBaseElement<UIAssert> implements IsButton {
-    //@FindBy(css = ".dropdown-menu")
-    @UI(".dropdown-menu") public UIElement dropdownMenu;
-}
+//@FindBy(id = "leftAllignedDropdown")
+@UI("#leftAllignedDropdown")
+public static Dropdown leftAllignedDropdown;
 
 @Test
 public void leftAllignedDropdownIsValidationTest() {

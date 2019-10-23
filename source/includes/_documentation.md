@@ -7083,7 +7083,7 @@ public void toggleTest() {
   
 ![Dropdown HTML example](../images/bootstrap/dropdown-html.png)
 
-<br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br>
 
 And with `<a>` elements:
 
@@ -7106,11 +7106,14 @@ Available methods in Java JDI Light:
 
 |Method/Property | Description | Return Type
 --- | --- | ---
+**assertThat** | Assert action | TextAssert
 **is()** | Assert action | UIAssert
 **cssClass()** | Assert element css class | IsAssert
 **tag()** | Assert element tag | IsAssert
 **hasClass()** | Match passed value with element class| boolean
 **attr()** | Assert element's attribute | IsAssert
+**getValue()** | Get dropdown value | String
+**getText()** | Get dropdown text | String
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/DrowdownTests.java">Bootstrap test examples</a>
 
@@ -7142,8 +7145,14 @@ Available methods in Java JDI Light:
 
 |Method/Property | Description | Return Type
 --- | --- | ---
+**assertThat** | Assert action | TextAssert
 **is()** | Assert action | UIAssert
+**cssClass()** | Assert element css class | IsAssert
+**tag()** | Assert element tag | IsAssert
 **hasClass()** | Match passed value with element class| boolean
+**attr()** | Assert element's attribute | IsAssert
+**getValue()** | Get dropdown value | String
+**getText()** | Get dropdown text | String
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/DrowdownTests.java">Bootstrap test examples</a>
 
@@ -7201,9 +7210,14 @@ Available methods in Java JDI Light:
 
 |Method/Property | Description | Return Type
 --- | --- | ---
+**assertThat** | Assert action | TextAssert
 **is()** | Assert action | UIAssert
-**css()** | Assert element css attribute | IsAssert
+**cssClass()** | Assert element css class | IsAssert
+**tag()** | Assert element tag | IsAssert
 **hasClass()** | Match passed value with element class| boolean
+**attr()** | Assert element's attribute | IsAssert
+**getValue()** | Get dropdown value | String
+**getText()** | Get dropdown text | String
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/DrowdownTests.java">Bootstrap test examples</a>
 
@@ -7353,12 +7367,14 @@ Available methods in Java JDI Light:
 
 |Method/Property | Description | Return Type
 --- | --- | ---
+**assertThat** | Assert action | TextAssert
 **is()** | Assert action | UIAssert
 **cssClass()** | Assert element css class | IsAssert
-**css()** | Assert element css attribute | IsAssert
 **tag()** | Assert element tag | IsAssert
 **hasClass()** | Match passed value with element class| boolean
 **attr()** | Assert element's attribute | IsAssert
+**getValue()** | Get dropdown value | String
+**getText()** | Get dropdown text | String
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/DrowdownTests.java">Bootstrap test examples</a>
 
@@ -7464,12 +7480,14 @@ Available methods in Java JDI Light:
 
 |Method/Property | Description | Return Type
 --- | --- | ---
+**assertThat** | Assert action | TextAssert
 **is()** | Assert action | UIAssert
 **cssClass()** | Assert element css class | IsAssert
-**css()** | Assert element css attribute | IsAssert
 **tag()** | Assert element tag | IsAssert
 **hasClass()** | Match passed value with element class| boolean
 **attr()** | Assert element's attribute | IsAssert
+**getValue()** | Get dropdown value | String
+**getText()** | Get dropdown text | String
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/DrowdownTests.java">Bootstrap test examples</a>
 

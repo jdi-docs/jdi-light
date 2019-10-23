@@ -9633,9 +9633,10 @@ public class ModalTooltipsAndPopoversDialog extends Modal {
 public class ModalTooltipsAndPopoversBody extends Section {
 //@Findby(css="h5:nth-child(1)")
     @UI("h5:nth-child(1)") public Text title1;
-    @UI("p:nth-child(2) > a") public Button buttonTriggers;
+    public Popover popover;
     @UI("h5:nth-child(4)") public Text title2;
     @UI("p:nth-child(5) > a:nth-child(1)") public Link thisLink;
+    public Tooltip tooltipOnLink;
     @UI("p:nth-child(5) > a:nth-child(2)") public Link thatLink;
 }
 

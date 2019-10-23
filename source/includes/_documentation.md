@@ -8933,7 +8933,7 @@ Available methods in Java JDI Light:
 **label()** | Get label associated with an item | Label
 **labelText()** | Get text of a label associated with an item | String
 
-<a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/mposite.section.form.RangeInputTests.java" target=a_blank> Bootstrap test examples </a>
+<a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/RangeInputTests.java" target=a_blank> Bootstrap test examples </a>
 
 ####Forms - Select menu
 
@@ -9071,6 +9071,62 @@ Here is an example with provided Bootstrap v4.3 code:
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/FormsSelectMenuTests.java" target=a_blank> Bootstrap test examples </a>
 
+####Forms - Range
+
+Create custom <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/forms/#range">range</a>
+ controls (`<input type="range">`) with .custom-range. The track (the background) and thumb (the value) are both styled to appear the same across browsers. 
+Range inputs have implicit values for min and max: 0 and 100, respectively. You may specify new values for those using the min and max attributes.
+  
+ ![Range_example](../images/bootstrap/range.png)
+ 
+ Here is an example with provided Bootstrap v4.3 code:
+ 
+```java 
+//@FindBy(css = "#customRange3")
+@UI("#customRange3")
+public static Range range;
+
+@Test
+public void labelTest() {\
+    range.label().is().text(labelText);
+ }
+
+@Test
+public void validateThumbMinMaxAndStepValuesTest() {
+    range.is().thumbValue(2.5);
+    range.is().minValue(0);
+    range.is().maxValue(5);
+    range.is().step(0.5);
+}
+ 
+@Test
+public void setThumbValueTest() {
+    range3.setThumbValue(5);
+    range3.is().thumbValue(5);
+}
+```
+![Range_example](../images/bootstrap/range_html.png)
+
+Available methods in Java JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+**is()** | Various assert actions for Progress | RangeAssert 
+**assertThat()** | Assert action | UIAssert
+**label()** | Get label associated with an item | Label
+**labelText()** | Get text of a label associated with an item | String
+**thumbValue()** | Get thumb value | double
+**getValue()** | Get thumb value as String | String
+**min()** | Get minimal limit of range | double
+**max()** | Get maximal limit of range | double
+**step()** | Get incremental step of range | double
+**setThumbValue()** | Set thumb value with a "double" parameter | void
+**setValue()** | Set thumb value with a String parameter | void
+
+
+<a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/RangeTests.java" target=a_blank> Bootstrap test examples </a>
+
+<br><br>
   
 ### Scrollspy
 **[Scrollspy](https://getbootstrap.com/docs/4.3/components/scrollspy/#example-in-navbar)** – automatically update Bootstrap navigation or list group components based on scroll position to indicate which link is currently active in the viewport.

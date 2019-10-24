@@ -7106,7 +7106,7 @@ Available methods in Java JDI Light:
 
 |Method/Property | Description | Return Type
 --- | --- | ---
-**assertThat** | Assert action | TextAssert
+**assertThat()** | Assert action | TextAssert
 **is()** | Assert action | UIAssert
 **cssClass()** | Assert element css class | IsAssert
 **tag()** | Assert element tag | IsAssert
@@ -7145,7 +7145,7 @@ Available methods in Java JDI Light:
 
 |Method/Property | Description | Return Type
 --- | --- | ---
-**assertThat** | Assert action | TextAssert
+**assertThat()** | Assert action | TextAssert
 **is()** | Assert action | UIAssert
 **cssClass()** | Assert element css class | IsAssert
 **tag()** | Assert element tag | IsAssert
@@ -7210,7 +7210,7 @@ Available methods in Java JDI Light:
 
 |Method/Property | Description | Return Type
 --- | --- | ---
-**assertThat** | Assert action | TextAssert
+**assertThat()** | Assert action | TextAssert
 **is()** | Assert action | UIAssert
 **cssClass()** | Assert element css class | IsAssert
 **tag()** | Assert element tag | IsAssert
@@ -7367,7 +7367,7 @@ Available methods in Java JDI Light:
 
 |Method/Property | Description | Return Type
 --- | --- | ---
-**assertThat** | Assert action | TextAssert
+**assertThat()** | Assert action | TextAssert
 **is()** | Assert action | UIAssert
 **cssClass()** | Assert element css class | IsAssert
 **tag()** | Assert element tag | IsAssert
@@ -7480,7 +7480,7 @@ Available methods in Java JDI Light:
 
 |Method/Property | Description | Return Type
 --- | --- | ---
-**assertThat** | Assert action | TextAssert
+**assertThat()** | Assert action | TextAssert
 **is()** | Assert action | UIAssert
 **cssClass()** | Assert element css class | IsAssert
 **tag()** | Assert element tag | IsAssert

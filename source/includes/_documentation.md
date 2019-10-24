@@ -8323,6 +8323,14 @@ Here is an example with provided Bootstrap v4.3 code:
     //FindBy(css = ".form-row > .col")
     @UI(".form-row > .col")
     public WebList cols;
+   
+    @Test
+    public void setTextTest() {
+        formRow.firstName.setValue(textFirstName);
+        formRow.firstName.assertThat().text(is(textFirstName));
+        formRow.lastName.setValue(textLastName);
+        formRow.lastName.assertThat().text(is(textLastName));
+    }
 
     @Test
     public void checkStructureRow() {
@@ -8349,7 +8357,7 @@ Here is an example with provided Bootstrap v4.3 code:
 
 <a  href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/FormGridTests.java" target="_blank">Bootstrap test examples</a>
 
-<br>
+<br><br><br><br>
 
 **[Form grid](https://getbootstrap.com/docs/4.3/components/forms/#form-grid)**
 

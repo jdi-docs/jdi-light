@@ -8317,13 +8317,10 @@ Inner elements represented by the following classes:
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
-    //FindBy(css = ".form-row")
-    @UI(".form-row")
-    public UIElement row;
-    //FindBy(css = ".form-row > .col")
-    @UI(".form-row > .col")
-    public WebList cols;
-   
+    //FindBy(css = "#form-row")
+    @UI("#form-row")
+    public static FormRow formRow;
+
     @Test
     public void setTextTest() {
         formRow.firstName.setValue(textFirstName);

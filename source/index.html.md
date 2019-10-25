@@ -4,8 +4,7 @@ title: API Reference
 language_tabs: # must be one of https://git.io/vQNgJ
   - java
   - csharp
-  - python
-  
+  - python  
   
 toc_footers:
   - <a href='https://www.facebook.com/groups/jdi.framework/' target="_blank">Facebook</a>

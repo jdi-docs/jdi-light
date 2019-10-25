@@ -9949,7 +9949,7 @@ public void modalSizeTest(Button button,
 
 Here is an example with provided Bootstrap v4.3 code:
 
-// Here
+![Modal Optional Sizes HTML Example](../images/bootstrap/modal-optional-sizes-html.png)
 
 Modal is represented by Section class in Java:
  

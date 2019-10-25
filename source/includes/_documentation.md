@@ -8344,6 +8344,20 @@ Here is an example with provided Bootstrap v4.3 code:
 
 ![Form row Example](../images/bootstrap/form-row-html.png)
 
+```html 
+<form id="form-row">
+  <div class="form-row">
+    <div class="col">
+      <input type="text" class="form-control" placeholder="First name"> hfjkwefjkewfwefhwejhfhjkwefwef
+    </div>
+    <div class="col">
+      <input type="text" class="form-control" placeholder="Last name">
+    </div>
+  </div>
+</form>
+```
+<br />
+
 |Method | Description | Return Type
 --- | --- | ---
 **is()** | Assert action | TextAssert 

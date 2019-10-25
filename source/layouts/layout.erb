@@ -42,6 +42,22 @@ under the License.
       <%= javascript_include_tag  "all_nosearch" %>
     <% end %>
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <style>
+        .content pre.html {
+            background-color: white;
+            float: none;
+            clear: none;
+            margin-left: 28px;
+            margin-right: 53%;
+            width: auto;
+            padding: 0.3em;
+            overflow: hidden;
+        }
+        .content .html code, .content pre.html{font-size: 10px; }
+        pre.html .s { color: #d44950; }
+        pre.html .na { color: #4f9fcf; }
+        pre.html .nt { color: #2f6f9f; }
+    </style>
   </head>
 
   <body class="<%= page_classes %>" data-languages="<%=h language_tabs.map{ |lang| lang.is_a?(Hash) ? lang.keys.first : lang }.to_json %>">

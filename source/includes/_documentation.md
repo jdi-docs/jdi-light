@@ -5307,10 +5307,24 @@ Adding images to the ```.navbar-brand``` will likely always require custom style
     
         @Test(dataProvider = "navbarBrands")
         public void checkNavbarText(UIElement uiBaseElement, String navbarText) {
-                    uiBaseElement.highlight();
-                    uiBaseElement.is().core().text(navbarText);
-                    uiBaseElement.unhighlight();
+             uiBaseElement.highlight();
+             uiBaseElement.is().core().text(navbarText);
+             uiBaseElement.unhighlight();
         }
+
+        @Test(dataProvider = "navbarBrandsWithImage")
+        public void checkNavbarImage(UIElement brandWithImage) {
+            UIElement imgFromNavbar = brandWithImage.childs().get(1);
+            imgFromNavbar.highlight("blue");
+            imgFromNavbar.is().core().tag("img").attr("src", containsString(imgPath));
+            imgFromNavbar.unhighlight();
+            imgFromNavbar.click();
+            int winNumber = WindowsManager.windowsCount();
+            WindowsManager.switchToWindow(winNumber);
+            assertThat(getUrl(), is(navbarUrl));
+            WindowsManager.closeWindow();
+            WindowsManager.switchToWindow(winNumber - 1);
+    }
 ```
 
 ```html 
@@ -8523,7 +8537,20 @@ Here is an example with provided Bootstrap v4.3 code:
     }
 ```
 
-![Form grid Example](../images/bootstrap/form-grid-html.png)
+```html 
+<form id="form-grid-base">
+    <div class="row">
+        <div class="col">
+            <input type="text" id="first_name" class="form-control" placeholder="First name">
+        </div>
+        <div class="col">
+            <input type="text" id="last_name" class="form-control" placeholder="Last name" onkeypress="if (event.keyCode==13){
+                   document.getElementById('form-grid-base').submit();
+                   alert('Form filled and submitted successfully');}">
+        </div>
+    </div>
+</form>
+``` 
 
 |Method | Description | Return Type
 --- | --- | ---

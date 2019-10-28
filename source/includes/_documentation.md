@@ -3519,9 +3519,9 @@ More than that, it has a nested **StringCheckType** class with the following met
 ## Bootstrap Common elements
 
 ### Button
-**Button** – Element that represents a clickable button
+Bootstrap includes several predefined button styles, each serving its own semantic purpose, with a few extras thrown in for more control.
 
-[Bootstrap page documentation](https://getbootstrap.com/docs/4.3/components/buttons/)
+**[Button](https://getbootstrap.com/docs/4.3/components/buttons/)** – Element that represents a clickable button
 
 ![Button](../images/bootstrap/button.png)
 
@@ -3560,9 +3560,7 @@ Available methods in Java JDI Light:
 **assertThat()** | Assert action | TextAssert
 <br>
 
-**Disabled Button** – Element that represents a Not clickable button
-
-<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/buttons/" target="_blank">Button</a> – Bootstrap includes several predefined button styles, each serving its own semantic purpose, with a few extras thrown in for more control.
+**[Disabled Button](https://getbootstrap.com/docs/4.3/components/buttons/)** – Element that represents a Not clickable button
 
 ![Disabled button](../images/bootstrap/disabled_button.png)
 
@@ -3605,7 +3603,7 @@ Here is an example with provided HTML code:
 
 ### Checkboxes and radios
 
-**[Checkbox default](https://getbootstrap.com/docs/4.3/components/forms/#default-stacked)** 
+#### [Checkbox default](https://getbootstrap.com/docs/4.3/components/forms/#default-stacked)
 
 Checkbox is located in the following classes:
  
@@ -3681,7 +3679,7 @@ Button group is represented by Section class in Java:
 
 <br>
 
-**[Checkbox default inline](https://getbootstrap.com/docs/4.3/components/forms/#inline)** 
+#### [Checkbox default inline](https://getbootstrap.com/docs/4.3/components/forms/#inline)
 
 Checkbox is located in the following classes:
  
@@ -3763,7 +3761,8 @@ Button group is represented by Section class in Java:
 
 <br>
 
-**[Radio button](https://getbootstrap.com/docs/4.3/components/forms/#default-stacked)** – Element that can be represented with one or more clickable buttons aiming to choose only one button of the group.
+#### [Radio button](https://getbootstrap.com/docs/4.3/components/forms/#default-stacked)
+Element that can be represented with one or more clickable buttons aiming to choose only one button of the group.
 
 Radio button is located in the following classes:
  
@@ -3840,8 +3839,7 @@ Button group is represented by Section class in Java:
 
 <br>
 
-
-**[Radio button inline](https://getbootstrap.com/docs/4.3/components/forms/#inline)** 
+#### [Radio button inline](https://getbootstrap.com/docs/4.3/components/forms/#inline)
 
 Radio button is located in the following classes:
  
@@ -3919,8 +3917,7 @@ Button group is represented by Section class in Java:
 
 <br>
 
-
-**[Radio button and checkbox without labels](https://getbootstrap.com/docs/4.3/components/forms/#without-labels)** 
+#### [Radio button and checkbox without labels](https://getbootstrap.com/docs/4.3/components/forms/#without-labels) 
 
 Checkbox and Radio button are located in the following classes:
  
@@ -4008,7 +4005,7 @@ Button group is represented by Section class in Java:
 
 <br>
 
-**[Checkbox custom](https://getbootstrap.com/docs/4.3/components/forms/#checkboxes)** 
+#### [Checkbox custom](https://getbootstrap.com/docs/4.3/components/forms/#checkboxes)
 
 Checkbox is located in the following classes:
  
@@ -4084,7 +4081,7 @@ Button group is represented by Section class in Java:
 
 <br>
 
-**[Radio button custom](https://getbootstrap.com/docs/4.3/components/forms/#radios)** 
+#### [Radio button custom](https://getbootstrap.com/docs/4.3/components/forms/#radios)
 
 Radio button is located in the following classes:
  
@@ -4162,8 +4159,7 @@ Button group is represented by Section class in Java:
 
 <br>
 
-
-**[Radio button custom inline](https://getbootstrap.com/docs/4.3/components/forms/#inline-1)** 
+#### [Radio button custom inline](https://getbootstrap.com/docs/4.3/components/forms/#inline-1)
 
 Radio button is located in the following classes:
  
@@ -4240,7 +4236,7 @@ Button group is represented by Section class in Java:
 
 <br>
 
-**[Custom disabled](https://getbootstrap.com/docs/4.3/components/forms/#inline-1)** 
+#### [Custom disabled](https://getbootstrap.com/docs/4.3/components/forms/#inline-1)
 
 Checkbox and Radio button is located in the following classes:
 
@@ -4315,7 +4311,7 @@ Button group is represented by Section class in Java:
 
 <br>
 
-**[Switches custom](https://getbootstrap.com/docs/4.3/components/forms/#inline-1)** 
+#### [Switches custom](https://getbootstrap.com/docs/4.3/components/forms/#inline-1)
 
 Radio button is located in the following classes:
  
@@ -4401,7 +4397,7 @@ Button group is represented by Section class in Java:
 
 ### Button group
 
-**<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/button-group/" target="_blank">Button group</a>** – Element that groups a series of buttons together on a single line with the button group, and super-power them with JavaScript.
+[Button group](https://getbootstrap.com/docs/4.3/components/button-group/) – Element that groups a series of buttons together on a single line with the button group, and super-power them with JavaScript.
 
 Button group is located in the following packages:
  
@@ -4434,9 +4430,8 @@ Available methods and properties in C# JDI Light:
  |  | 
 <br>
 
-**Button Group Basic Example**
-
-**[Button Group Basic Example](https://getbootstrap.com/docs/4.3/components/button-group/#basic-example)** - wrapping a series of buttons with .btn in .btn-group.
+#### [Button Group Basic Example](https://getbootstrap.com/docs/4.3/components/button-group/#basic-example)
+Wrap a series of buttons with .btn in .btn-group.
 
 ![Button Group Basic Example HTML](../images/bootstrap/bgroup-basic-example-screen.png)
 
@@ -4495,9 +4490,9 @@ Inner elements represented by the following classes:
 [Button Group Basic Example Tests Example](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/buttonGroup/BasicExampleTests.java)
 
 <br>
-**Button toolbar**
-<br>
-<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.0/components/button-group/#button-toolbar" target="_blank">Button toolbar</a> - combine sets of button groups into button toolbars for more complex components. Use utility classes as needed to space out groups, buttons, and more.
+
+#### [Button toolbar](https://getbootstrap.com/docs/4.0/components/button-group/#button-toolbar)
+Combine sets of button groups into button toolbars for more complex components. Use utility classes as needed to space out groups, buttons, and more.
 
 ![Button toolbar](../images/bootstrap/button_toolbar.png)
 
@@ -4552,10 +4547,9 @@ Here is an example with provided Bootstrap v4.3 code:
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/buttonGroup/ButtonToolbarTests.java)
 
+#### [Button Group Sizing](https://getbootstrap.com/docs/4.0/components/button-group/#sizing)
 
-**Button Group Sizing**
-
-Instead of applying <a style="font-weight: bold;" href="https://getbootstrap.com/docs/4.0/components/button-group/#sizing" target="_blank">button sizing</a> classes to every button in a group, 
+Instead of applying button sizing classes to every button in a group, 
 just add ``.btn-group-*`` to each ``.btn-group``, including each one when nesting multiple groups.
 
 ![Button Group Sizing Example](../images/bootstrap/bgroup-sizing.png)
@@ -4616,9 +4610,8 @@ Available methods in Java JDI Light:
 
 <br>
 
-**Button Group Nesting**
-
-**[Button Group Nesting](https://getbootstrap.com/docs/4.3/components/button-group/#nesting)** - placing a ``.btn-group`` within another ``.btn-group`` when you want dropdown menus mixed with a series of buttons.
+#### [Button Group Nesting](https://getbootstrap.com/docs/4.3/components/button-group/#nesting)
+Place a ``.btn-group`` within another ``.btn-group`` when you want dropdown menus mixed with a series of buttons.
 
 ![Button Group Nesting Example](../images/bootstrap/bgroup-nesting.png)
 
@@ -4693,10 +4686,8 @@ Inner elements represented by the following classes:
 [Button Group Nesting Tests Example](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/buttonGroup/NestingTests.java)
 <br><br>
 
-
-**Button Group Vertical Variation**
-
-**[Button Group Vertical Variation](https://getbootstrap.com/docs/4.3/components/button-group/#vertical-variation)** - making a set of buttons appear vertically stacked rather than horizontally.
+#### [Button Group Vertical Variation](https://getbootstrap.com/docs/4.3/components/button-group/#vertical-variation)
+Make a set of buttons appear vertically stacked rather than horizontally.
 
 ![Button Group Nesting Example](../images/bootstrap/bgroup-vertical-variation.png)
 
@@ -4771,7 +4762,6 @@ Inner elements represented by the following classes:
 [Button Group Vertical Variation Tests Example](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/buttonGroup/VerticalVariationTests.java)
 <br><br>
 
-
 ### Alert
 Alert is located in the following class: <br>
 - __Java__: _com.epam.jdi.light.ui.bootstrap.common.Alert_
@@ -4838,12 +4828,10 @@ Inner elements represented by the following classes:
 <ul>
     <li> [Text](https://jdi-docs.github.io/jdi-light/#text) </li>
 </ul>
-<br>
+
 [Alert test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/AlertTests.java)
 
-
-
-###Badge
+### Badge
 Badge is located in the following class: <br>
 - __Java__: _com.epam.jdi.light.ui.bootstrap.common.Badge_
 
@@ -5026,7 +5014,8 @@ Java: com.epam.jdi.light.elements.complex.WebList
 
 [Breadcrumb Tests Example](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/BreadcrumbTests.java)
 <br><br>
-###Navs
+
+### Navs
 
 Nav - navigation component
 
@@ -5046,11 +5035,10 @@ Available methods in Java JDI Light:
 **** |  | 
 **** |  |  
 
-###Navbar
+### Navbar
 
-#### Supported content
-
-Navbars come with built-in <a style="font-weight: bold;" href="https://getbootstrap.com/docs/4.3/components/navbar/#supported-content" target="_blank">support</a> for a handful of sub-components. 
+#### [Supported content](https://getbootstrap.com/docs/4.3/components/navbar/#supported-content)
+Navbars come with built-in support for a handful of sub-components. 
 
 Choose from the following as needed:
 
@@ -5125,7 +5113,7 @@ public void collapseLinkTextTest(String linkText) {
 
 Navbar is represented by Section class in Java:
  
-+ [Section](https://jdi-docs.github.io/jdi-light/#section)
+  [Section](https://jdi-docs.github.io/jdi-light/#section)
 
 Inner elements of jumbotron can be represented by the following classes:
 
@@ -5156,11 +5144,8 @@ Available methods in Java JDI Light:
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navbar/NavbarSupportedContentTests.java" target="_blank">Bootstrap Test Examples</a> 
 <br><br>
 
-####Brand
-
-[Bootstrap page documentation](https://getbootstrap.com/docs/4.3/components/navbar/#brand)
-
-The .navbar-brand can be applied to most elements, but an anchor works best as some elements might require utility classes or custom styles.
+#### [Brand](https://getbootstrap.com/docs/4.3/components/navbar/#brand)
+The ``.navbar-brand`` can be applied to most elements, but an anchor works best as some elements might require utility classes or custom styles.
 <br>
 
 Navbar brand as a link <br>
@@ -5169,7 +5154,7 @@ Navbar brand as heading <br>
 ![Brand](../images/bootstrap/navbar-brand-heading.png)<br>
 <br>
 
-Adding images to the .navbar-brand will likely always require custom styles or utilities to properly size. Here are some examples to demonstrate.<br>
+Adding images to the ```.navbar-brand``` will likely always require custom styles or utilities to properly size. Here are some examples to demonstrate.<br>
 
 ![Brand](../images/bootstrap/navbar-brand-image.png)<br>
 ![Brand](../images/bootstrap/navbar-brand-image-and-link.png)<br>
@@ -5235,7 +5220,8 @@ Available methods in Java JDI Light:
 
 <br><br><br><br><br><br><br><br>
 
-####Nav
+#### [Nav](https://getbootstrap.com/docs/4.3/components/navbar/#nav)
+Navbar navigation links build on our ``.nav`` options with their own modifier class and require the use of toggler classes for proper responsive styling.
 
 ```java 
 
@@ -5279,8 +5265,6 @@ public class Navbar extends Section {
 
 ```
 
-<a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/navbar/#nav">Navbar</a> navigation links require the use of toggle classes for proper responsive styling.
-
 ![Color Nav example](../images/bootstrap/nav.png)
 
 Here is an example with provided Bootstrap v4.3 code:
@@ -5297,7 +5281,7 @@ Here is an example with provided Bootstrap v4.3 code:
 
 Nav is represented by Section class in Java:
  
-[Section](https://jdi-docs.github.io/jdi-light/#section)
+  [Section](https://jdi-docs.github.io/jdi-light/#section)
 
 Inner elements of media object can be represented by the following classes:
 <ul>
@@ -5317,9 +5301,10 @@ Available methods in Java JDI Light:
 <a style="font-weight: bold;" target="_blank" href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navbar/NavbarNavsTests.java">Bootstrap test examples</a>
 
 <br>
-####Forms
 
-Place various form controls and components within a <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/navbar/#forms" target="_blank">navbar</a> with .form-inline.
+#### [Forms](https://getbootstrap.com/docs/4.3/components/navbar/#forms)
+
+Place various form controls and components within a navbar with ``.form-inline``.
 
 ![Forms example](../images/bootstrap/navbar-forms1.png)
 
@@ -5371,7 +5356,7 @@ Here is an example with provided Bootstrap v4.3 code:
 
 Media object is represented by Section class in Java:
  
-[Section](https://jdi-docs.github.io/jdi-light/#section)
+  [Section](https://jdi-docs.github.io/jdi-light/#section)
 
 Inner elements of media object can be represented by the following classes:
 
@@ -5384,9 +5369,8 @@ Inner elements of media object can be represented by the following classes:
 <a style="font-weight: bold;" target="_blank" href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navbar/NavbarFormsTests.java">Bootstrap test examples</a>
 <br><br>
 
-####Text
-
-**[Navbar-text](https://getbootstrap.com/docs/4.3/components/navbar/#text)** – Navbars may contain bits of text with the help of .navbar-text. 
+#### [Text](https://getbootstrap.com/docs/4.3/components/navbar/#text)
+Navbars may contain bits of text with the help of ``.navbar-text``. 
 This class adjusts vertical alignment and horizontal spacing for strings of text.
 
 <br>
@@ -5476,10 +5460,10 @@ Available methods and properties in C# JDI Light:
  |  | 
 <br><br>
 
-####Color schemes
+#### [Color schemes](https://getbootstrap.com/docs/4.3/components/navbar/#color-schemes)
 
-Theming the navbar has never been easier thanks to the combination of <a href="https://getbootstrap.com/docs/4.3/components/navbar/#color-schemes">theming classes and background-color utilities</a>.
-Choose from .navbar-light for use with light background colors, or .navbar-dark for dark background colors. Then, customize with .bg-* utilities.
+Theming the navbar has never been easier thanks to the combination of theming classes and ``background-color`` utilities
+Choose from ``.navbar-light`` for use with light background colors, or ``.navbar-dark`` for dark background colors. Then, customize with ``.bg-*`` utilities.
 
 ![Color schemes example](../images/bootstrap/navbar-color-schemes.png)
 
@@ -5545,7 +5529,8 @@ Available methods in Java JDI Light:
 
 <br><br>
 
-####Containers
+#### [Containers](https://getbootstrap.com/docs/4.3/components/navbar/#containers)
+Although it’s not required, you can wrap a navbar in a ``.container`` to center it on a page or add one within to only center the contents of a fixed or static top navbar.
 
 ```java 
 public class Navbar extends Section {
@@ -5591,22 +5576,20 @@ public class Navbar extends Section {
 
 ```
 
-Although it’s not required, you can <a href = "https://getbootstrap.com/docs/4.3/components/navbar/#containers" target = "a_blank"> wrap a navbar in a .container </a> to center it on a page or add one within to only center the contents of a fixed or static top navbar.
-
 ![Containers schemes example](../images/bootstrap/navbar-containers.png)
 
 Here is an example with provided Bootstrap v4.3 code:
   
 ![Containers HTML example](../images/bootstrap/navbar-containers-html.png)
 
-When the container is within your navbar, its horizontal padding is removed at breakpoints lower than your specified .navbar-expand{-sm|-md|-lg|-xl} class.
+When the container is within your navbar, its horizontal padding is removed at breakpoints lower than your specified ``.navbar-expand{-sm|-md|-lg|-xl}`` class.
 This ensures we’re not doubling up on padding unnecessarily on lower viewports when your navbar is collapsed.
  
 ![Containers HTML example](../images/bootstrap/navbar-containers2-html.png)
 
 Container is represented by Section class in Java:
  
-<a href = "https://github.com/jdi-testing/jdi-light/blob/master/jdi-light/src/main/java/com/epam/jdi/light/elements/composite/Section.java" target = "a_blank"> Section.java </a>
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
 
 Inner elements of media object can be represented by the following classes:
 <ul>
@@ -5615,13 +5598,12 @@ Inner elements of media object can be represented by the following classes:
     <li> [See more elements](https://jdi-docs.github.io/jdi-light/#bootstrap-common-elements) </li>
 </ul>
 
-<a style="font-weight: bold;" target="_blank" href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/NavbarContainersTest.java">Bootstrap test examples</a>
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/NavbarContainersTest.java)
 
+#### [Placement](https://getbootstrap.com/docs/4.3/components/navbar/#placement)
+Use our position utilities to place navbars in non-static positions. Choose from fixed to the top, fixed to the bottom, or stickied to the top (scrolls with the page until it reaches the top, then stays there). Fixed navbars use position: fixed, meaning they’re pulled from the normal flow of the DOM and may require custom CSS (e.g., ``padding-top`` on the ``<body>``) to prevent overlap with other elements.
 
-####Placement
-Use our position utilities to place navbars in non-static positions. Choose from fixed to the top, fixed to the bottom, or stickied to the top (scrolls with the page until it reaches the top, then stays there). Fixed navbars use position: fixed, meaning they’re pulled from the normal flow of the DOM and may require custom CSS (e.g., padding-top on the <body>) to prevent overlap with other elements.
-
-Also note that .sticky-top uses position: sticky, which isn’t fully supported in every browser.
+Also note that ``.sticky-top`` uses position: sticky, which isn’t fully supported in every browser.
 
 ![Containers schemes example](../images/bootstrap/navbar-placement.png)
 
@@ -5630,7 +5612,7 @@ Here is an example with provided Bootstrap v4.3 code:
 ![Containers HTML example](../images/bootstrap/navbar-placement-html.png)
 <br>
 
-####Responsive behaviors
+#### [Responsive behaviors](https://getbootstrap.com/docs/4.3/components/navbar/#responsive-behaviors)
 
 Navbars can utilize ``.navbar-toggler``, ``.navbar-collapse``, and ``.navbar-expand{-sm|-md|-lg|-xl}`` classes to change when their content collapses behind a button. 
 In combination with other utilities, you can easily choose when to show or hide particular elements.
@@ -5638,7 +5620,7 @@ In combination with other utilities, you can easily choose when to show or hide 
 For navbars that never collapse, add the ``.navbar-expand`` class on the navbar. 
 For navbars that always collapse, don’t add any ``.navbar-expand`` class.
 
-####Navbar Toggler
+##### [Navbar Toggler](https://getbootstrap.com/docs/4.3/components/navbar/#toggler)
 
 Navbar togglers are left-aligned by default, but should they follow a sibling element like a ``.navbar-brand``, they’ll automatically be aligned to the far right. 
 Reversing your markup will reverse the placement of the toggler. 
@@ -5691,9 +5673,8 @@ Here is an example with provided Bootstrap v4.3 code:
 
 <br>
 
-####External content
-
-<a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/navbar/#external-content">Plugin</a> to trigger hidden content elsewhere on the page.
+##### [External content](https://getbootstrap.com/docs/4.3/components/navbar/#external-content)
+Plugin to trigger hidden content elsewhere on the page.
 
 ![External_content example](../images/bootstrap/navbar-external.png)
 
@@ -5729,7 +5710,7 @@ public void getTextTest() {
 
 Navbar - External content is represented by Section class in Java:
  
-[Section](https://jdi-docs.github.io/jdi-light/#section)
+  [Section](https://jdi-docs.github.io/jdi-light/#section)
 
 Inner elements of Navbar - External content can be represented by the following classes:
 
@@ -5749,7 +5730,8 @@ Available methods in Java JDI Light:
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navbar/ExternalContentTests.java" target=a_blank> Bootstrap test examples </a>
 <br>
-###Pagination
+
+### Pagination
 
 Pagination is functionality for navigating through pages.
 
@@ -6027,9 +6009,9 @@ public Progress multipleInfo;
 @DataProvider
 public Object[][] progressMultipleBarsData() {
     return new Object[][]{
-        {progressMultipleBars.multipleOrdinary},
-        {progressMultipleBars.multipleSuccess},
-        {progressMultipleBars.multipleInfo}
+            {progressMultipleBars.multipleOrdinary},
+            {progressMultipleBars.multipleSuccess},
+            {progressMultipleBars.multipleInfo}
     };
 }
 
@@ -6037,9 +6019,9 @@ public Object[][] progressMultipleBarsData() {
 public void isValidationTest(Progress progress) {
     progress.is().enabled().and().displayed();
     progress.assertThat()
-        .core()
-        .hasClass("progress-bar")
-        .attr("role", "progressbar");
+            .core()
+            .hasClass("progress-bar")
+            .attr("role", "progressbar");
 }
 
 ```
@@ -6288,7 +6270,7 @@ Here is an example with provided Bootstrap v4.3 code:
 
 Media object is represented by Section class in Java:
  
-[Section](https://jdi-docs.github.io/jdi-light/#section)
+  [Section](https://jdi-docs.github.io/jdi-light/#section)
   
 Inner elements of media object can be represented by the following classes:
 <ul>
@@ -6488,7 +6470,7 @@ Here is an example with provided Bootstrap v4.3 code:
 
 Spinner is represented by Section class in Java:
  
-+ [Section](https://jdi-docs.github.io/jdi-light/#section)
+  [Section](https://jdi-docs.github.io/jdi-light/#section)
 
 Available methods in Java JDI Light:
 
@@ -6577,7 +6559,7 @@ Here is an example with provided Bootstrap v4.3 code:
 
 Spinner is represented by Section class in Java:
  
-+ [Section](https://jdi-docs.github.io/jdi-light/#section)
+  [Section](https://jdi-docs.github.io/jdi-light/#section)
 
 Available methods in Java JDI Light:
 
@@ -6667,7 +6649,7 @@ Here is an example with provided Bootstrap v4.3 code:
 
 Spinner is represented by Section class in Java:
  
-+ [Section](https://jdi-docs.github.io/jdi-light/#section)
+  [Section](https://jdi-docs.github.io/jdi-light/#section)
 
 Available methods in Java JDI Light:
 
@@ -7874,9 +7856,9 @@ Here is an example with provided Bootstrap v4.3 code:
 
 ![Form controls example](../images/bootstrap/form-controls-html.png)
 
-Modal is represented by Section class in Java:
+Form is represented by Section class in Java:
  
-+ [Section](https://jdi-docs.github.io/jdi-light/#section)
+  [Section](https://jdi-docs.github.io/jdi-light/#section)
 
 Available methods in Java JDI Light:
 
@@ -8354,7 +8336,7 @@ Here is an example with provided Bootstrap v4.3 code:
   </div>
 </form>
 ```
-<br />
+<br>
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -8364,7 +8346,7 @@ Here is an example with provided Bootstrap v4.3 code:
 **enabled()** | Check that element is enabled | TextAssert
 **assertThat()** | Assert action | TextAssert
 
-<a  href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/FormGridTests.java" target="_blank">Bootstrap test examples</a>
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/FormGridTests.java" target="_blank">Bootstrap test examples</a>
 
 <br><br><br><br>
 
@@ -8418,7 +8400,7 @@ Here is an example with provided Bootstrap v4.3 code:
 
 <br><br>
 
-**[Form horizontal](https://getbootstrap.com/docs/4.3/components/forms/#horizontal-form)**
+#### [Form horizontal](https://getbootstrap.com/docs/4.3/components/forms/#horizontal-form)
 
 ![Form horizontal Example](../images/bootstrap/form-horizontal.png)
 
@@ -8496,7 +8478,7 @@ public void directFillingTest() {
 
 Form group is represented by Section class in Java:
  
-  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+  [Section](https://jdi-docs.github.io/jdi-light/#section)
 
 Inner elements represented by the following classes:
 <ul>
@@ -8508,8 +8490,139 @@ Inner elements represented by the following classes:
 
 <br>
 
+##### [Horizontal form label sizing](https://getbootstrap.com/docs/4.3/components/forms/#horizontal-form-label-sizing)
+Be sure to use ``.col-form-label-sm`` or ``.col-form-label-lg`` to your ``<label>``s or ``<legend>``s to correctly follow the size of ``.form-control-lg`` and ``.form-control-sm``.
 
-**[Form disabled](https://getbootstrap.com/docs/4.3/components/forms/#disabled-forms)**
+![Horizontal form label sizing](../images/bootstrap/form-horizontal-sizing.png)
+
+```java 
+
+// @FindBy(id = "form-horizontal-label-size")
+@UI("#form-horizontal-label-size")
+public static FormHorizontalLabelSizing formHorizontalLabelSizing;
+
+// @FindBy(id = "colFormLabelSm")
+@UI("#colFormLabelSm")
+public TextField smallText;
+
+// @FindBy(id = "colFormLabel")
+@UI("#colFormLabel")
+public TextField commonText;
+
+// @FindBy(id = "colFormLabelLg")
+@UI("#colFormLabelLg")
+public TextField largeText;
+
+@DataProvider
+    public Object[][] listData() {
+        return new Object[][]{
+                {formHorizontalLabelSizing.smallText, "form-control-sm", "col-form-label-sm"},
+                {formHorizontalLabelSizing.commonText, "form-control", "col-form-label"},
+                {formHorizontalLabelSizing.largeText, "form-control-lg", "col-form-label-lg"}
+    };
+}
+
+@Test(dataProvider = "listData")
+    public void isValidationTests(TextField textField, String formClass, String labelClass) {
+        textField.is()
+                .displayed()
+                .enabled()
+                .core()
+                .hasClass(formClass)
+                .attr("type", "email")
+                .attr("placeholder", labelClass)
+                .tag(is("input"));
+
+        textField.label().is()
+                .displayed()
+                .enabled()
+                .core()
+                .hasClass(labelClass)
+                .value("Email");
+}
+
+```
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Horizontal label sizing example](../images/bootstrap/form-horizontal-sizing-html.png)
+
+Form is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**is()** | Asserts element  | UIAssert
+
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/FormHorizontalLabelSizingTests.java)
+
+#### [Column sizing](https://getbootstrap.com/docs/4.3/components/forms/#column-sizing)
+Bootstrap grid system allows you to place any number of ``.cols`` within a ``.row`` or ``.form-row``. They’ll split the available width equally between them. You may also pick a subset of your columns to take up more or less space, while the remaining ``.cols`` equally split the rest, with specific column classes like ``.col-7``.
+
+![Column sizing](../images/bootstrap/form-column-sizing.png)
+
+```java 
+
+// @FindBy(id = "form-column-size")
+@UI("#form-column-size")
+public static FormColumnSizing formColumnSizing;
+
+// @FindBy(id = "form-column-size-city")
+@UI("#form-column-size-city")
+public TextField cityName;
+
+// @FindBy(id = "form-column-size-state")
+@UI("#form-column-size-state")
+public TextField stateName;
+
+// @FindBy(id = "form-column-size-zip")
+@UI("#form-column-size-zip")
+public TextField zipCode;
+
+@DataProvider
+public Object[][] listData() {
+    return new Object[][]{
+            {formColumnSizing.cityName, "City"},
+            {formColumnSizing.stateName, "State"},
+            {formColumnSizing.zipCode, "Zip"}
+    };
+}
+
+@Test(dataProvider = "listData")
+public void isValidationTests(TextField textField, String placeholder) {
+    textField.is()
+            .displayed()
+            .enabled()
+            .core()
+            .hasClass("form-control")
+            .attr("type", "text")
+            .attr("placeholder", placeholder)
+            .tag(is("input"));
+}
+
+```
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Column sizing example](../images/bootstrap/form-column-sizing-html.png)
+
+Form is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**is()** | Asserts element  | UIAssert
+
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/FormColumnSizingTests.java)
+
+#### [Form disabled](https://getbootstrap.com/docs/4.3/components/forms/#disabled-forms)
+Add the ``disabled`` boolean attribute on an input to prevent user interactions and make it appear lighter.
 
 ![Form disabled Example](../images/bootstrap/form-disabled.png)
 
@@ -8827,7 +8940,9 @@ public void isValidationTest() {
 
 ![Forms_sizing_example](../images/bootstrap/forms-sizing-html.png)
 
-Forms - Sizing is represented by [Section](https://jdi-docs.github.io/jdi-light/#section) class in Java:
+Form group is represented by Section class in Java:
+
+  [Section](https://jdi-docs.github.io/jdi-light/#section)
 
 Inner elements of Forms - Sizing are represented by the following classes:
 
@@ -8996,9 +9111,9 @@ Available methods in Java JDI Light:
 
 <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/RangeInputTests.java" target=a_blank> Bootstrap test examples </a>
 
-####Forms - Select menu
+####Select menu
 
-```java
+```java 
 public class SelectMenu extends Form implements ISelector {
     //FindBy(css = "option")
     @UI("option") public WebList optionsSelectMenu;
@@ -9135,7 +9250,7 @@ Here is an example with provided Bootstrap v4.3 code:
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/FormsSelectMenuTests.java" target=a_blank> Bootstrap test examples </a>
 
-####Forms - Range
+####Range
 
 Create custom <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/forms/#range">range</a>
  controls (`<input type="range">`) with .custom-range. The track (the background) and thumb (the value) are both styled to appear the same across browsers. 
@@ -9426,7 +9541,7 @@ In these java test cases examples next classes have been used:
 ### Modal
 **Modal** is a dialog box/popup window that is displayed on page.
 
-####Modal Live demo
+#### Modal Live demo
 Toggle a working <a style="font-weight: bold;" href="https://getbootstrap.com/docs/4.3/components/modal/#live-demo" target="_blank">modal demo</a> by clicking the button below. It will slide down and fade in from the top of the page.
 
 ![Modal_Live_demo](../images/bootstrap/modal-live-demo.png)
@@ -9476,7 +9591,7 @@ Here is an example with provided Bootstrap v4.3 code:
 
 Modal is represented by Section class in Java:
  
-+ [Section](https://jdi-docs.github.io/jdi-light/#section)
+  [Section](https://jdi-docs.github.io/jdi-light/#section)
 
 Inner elements of Modal - Live demo are represented by the following classes:
 
@@ -9494,9 +9609,9 @@ Available methods in Java JDI Light:
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/modal/ModalLiveDemoTests.java)
 
-#### Scrolling Long Content Modal
+#### [Scrolling Long Content Modal](https://getbootstrap.com/docs/4.3/components/modal/#scrolling-long-content)
 
-When modals become too long for the user’s viewport or device, <a style="font-weight: bold;" href="https://getbootstrap.com/docs/4.3/components/modal/#scrolling-long-content" target="_blank">they scroll</a> independent of the page itself.
+When modals become too long for the user’s viewport or device, they scroll independent of the page itself.
 
 ![Modal long scrollable](../images/bootstrap/modal_scrollable1.png)
 
@@ -9525,8 +9640,8 @@ public Button buttonLongScrollable;
 @DataProvider
 public Object[][] listData() {
     return new Object[][]{
-        {sectionModalLongScrolling.buttonLongScroll, sectionModalLongScrolling.modalLong},
-        {sectionModalLongScrolling.buttonLongScrollable, sectionModalLongScrolling.modalScrollable}
+            {sectionModalLongScrolling.buttonLongScroll, sectionModalLongScrolling.modalLong},
+            {sectionModalLongScrolling.buttonLongScrollable, sectionModalLongScrolling.modalScrollable}
     };
 }
 
@@ -9553,7 +9668,7 @@ Here is an example with provided Bootstrap v4.3 code:
 
 Modal is represented by Section class in Java:
  
-+ [Section](https://jdi-docs.github.io/jdi-light/#section)
+  [Section](https://jdi-docs.github.io/jdi-light/#section)
 
 Available methods in Java JDI Light:
 
@@ -9563,9 +9678,9 @@ Available methods in Java JDI Light:
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/modal/ModalScrollingLongContentTests.java)
 
-#### Vertically Centered Modal
+#### [Vertically Centered Modal](https://getbootstrap.com/docs/4.3/components/modal/#vertically-centered)
 
-Add ``.modal-dialog-centered`` to ``.modal-dialog`` to <a style="font-weight: bold;" href="https://getbootstrap.com/docs/4.3/components/modal/#vertically-centered" target="_blank">vertically center</a> the modal.
+Add ``.modal-dialog-centered`` to ``.modal-dialog`` to vertically center the modal.
 
 ![Modal Vertically Centered](../images/bootstrap/modal-vertically-centered.png)
 
@@ -10395,20 +10510,18 @@ Inner elements of input group can be represented by following classes:
  
  [Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/popover/PopoverTests.java)<br>
  
- Popover group is represented by Section class in Java:
+Popover group is represented by Section class in Java:
   
-   [Section](https://jdi-docs.github.io/jdi-light/#section)  
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
  
- <br>
+<br>
  
- Inner elements of input group can be represented by following classes:
-  <ul>
-   <li> [Text](https://jdi-docs.github.io/jdi-light/#text) </li>
-   
-   <li> [Button](https://jdi-docs.github.io/jdi-light/#button-2) </li> 
-   
-   <li> [MediaObject](https://jdi-docs.github.io/jdi-light/#media-object) </li>
-  </ul>
+Inner elements of input group can be represented by following classes:
+<ul>
+    <li> [Text](https://jdi-docs.github.io/jdi-light/#text) </li>
+    <li> [Button](https://jdi-docs.github.io/jdi-light/#button-2) </li> 
+    <li> [MediaObject](https://jdi-docs.github.io/jdi-light/#media-object) </li>
+</ul>
 
 ### Navs
 
@@ -12229,8 +12342,8 @@ Here is an example with provided Bootstrap v4.3 code:
 
 This input group example is represented by the following classes in Java:
  
-  [Section](https://jdi-docs.github.io/jdi-light/#section)    
-  [RadioButtons](https://jdi-docs.github.io/jdi-light/#radiobuttons)   
++ [Section](https://jdi-docs.github.io/jdi-light/#section)    
++ [RadioButtons](https://jdi-docs.github.io/jdi-light/#radiobuttons)   
    
   <a  href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/inputGroup/InputGroupRadioTests.java" target="_blank">Bootstrap test example with radio</a>
 
@@ -12268,8 +12381,8 @@ Here is an example with provided Bootstrap v4.3 code:
 
 This input group example is represented by the following classes in Java:
  
-  [Section](https://jdi-docs.github.io/jdi-light/#section)   
-  [CheckBox](https://jdi-docs.github.io/jdi-light/#checkbox)
++ [Section](https://jdi-docs.github.io/jdi-light/#section)   
++ [CheckBox](https://jdi-docs.github.io/jdi-light/#checkbox)
 
   <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/inputGroup/InputGroupCheckboxesTests.java" target="_blank">Bootstrap test example with checkbox</a>
 
@@ -12427,12 +12540,11 @@ Here is an example with provided Bootstrap v4.3 code:
 
 Multiple input is represented by Section class in Java:
  
-  + [Section](https://jdi-docs.github.io/jdi-light/#section)
+  [Section](https://jdi-docs.github.io/jdi-light/#section)
   
 Inner elements of multiple input can be represented by the following classes:
 
  + [TextField](https://jdi-docs.github.io/jdi-light/#textfield)
-  
  + [Label](https://jdi-docs.github.io/jdi-light/#label)
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/inputGroup/InputGroupMultipleAddonsTests.java" target="_blank">Bootstrap test example with multiple addons</a>

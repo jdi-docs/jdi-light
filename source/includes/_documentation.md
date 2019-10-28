@@ -3562,7 +3562,7 @@ Available methods in Java JDI Light:
 
 **Disabled Button** – Element that represents a Not clickable button
 
-<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/buttons/" target="_blank">Button</a> – Bootstrap includes several predefined button styles, each serving its own semantic purpose, with a few extras thrown in for more control.
+[Button](https://getbootstrap.com/docs/4.3/components/buttons/) – Bootstrap includes several predefined button styles, each serving its own semantic purpose, with a few extras thrown in for more control.
 
 ![Disabled button](../images/bootstrap/disabled_button.png)
 
@@ -3605,7 +3605,7 @@ Here is an example with provided HTML code:
 
 ### Checkboxes and radios
 
-**[Checkbox default](https://getbootstrap.com/docs/4.3/components/forms/#default-stacked)** 
+#### [Checkbox default](https://getbootstrap.com/docs/4.3/components/forms/#default-stacked)
 
 Checkbox is located in the following classes:
  
@@ -3681,7 +3681,7 @@ Button group is represented by Section class in Java:
 
 <br>
 
-**[Checkbox default inline](https://getbootstrap.com/docs/4.3/components/forms/#inline)** 
+#### [Checkbox default inline](https://getbootstrap.com/docs/4.3/components/forms/#inline)
 
 Checkbox is located in the following classes:
  
@@ -3763,7 +3763,8 @@ Button group is represented by Section class in Java:
 
 <br>
 
-**[Radio button](https://getbootstrap.com/docs/4.3/components/forms/#default-stacked)** – Element that can be represented with one or more clickable buttons aiming to choose only one button of the group.
+#### [Radio button](https://getbootstrap.com/docs/4.3/components/forms/#default-stacked)
+Element that can be represented with one or more clickable buttons aiming to choose only one button of the group.
 
 Radio button is located in the following classes:
  
@@ -3840,8 +3841,7 @@ Button group is represented by Section class in Java:
 
 <br>
 
-
-**[Radio button inline](https://getbootstrap.com/docs/4.3/components/forms/#inline)** 
+#### [Radio button inline](https://getbootstrap.com/docs/4.3/components/forms/#inline)
 
 Radio button is located in the following classes:
  
@@ -3919,8 +3919,7 @@ Button group is represented by Section class in Java:
 
 <br>
 
-
-**[Radio button and checkbox without labels](https://getbootstrap.com/docs/4.3/components/forms/#without-labels)** 
+#### [Radio button and checkbox without labels](https://getbootstrap.com/docs/4.3/components/forms/#without-labels) 
 
 Checkbox and Radio button are located in the following classes:
  
@@ -4008,7 +4007,7 @@ Button group is represented by Section class in Java:
 
 <br>
 
-**[Checkbox custom](https://getbootstrap.com/docs/4.3/components/forms/#checkboxes)** 
+#### [Checkbox custom](https://getbootstrap.com/docs/4.3/components/forms/#checkboxes)
 
 Checkbox is located in the following classes:
  
@@ -4084,7 +4083,7 @@ Button group is represented by Section class in Java:
 
 <br>
 
-**[Radio button custom](https://getbootstrap.com/docs/4.3/components/forms/#radios)** 
+#### [Radio button custom](https://getbootstrap.com/docs/4.3/components/forms/#radios)
 
 Radio button is located in the following classes:
  
@@ -4162,8 +4161,7 @@ Button group is represented by Section class in Java:
 
 <br>
 
-
-**[Radio button custom inline](https://getbootstrap.com/docs/4.3/components/forms/#inline-1)** 
+#### [Radio button custom inline](https://getbootstrap.com/docs/4.3/components/forms/#inline-1)
 
 Radio button is located in the following classes:
  
@@ -4240,7 +4238,7 @@ Button group is represented by Section class in Java:
 
 <br>
 
-**[Custom disabled](https://getbootstrap.com/docs/4.3/components/forms/#inline-1)** 
+#### [Custom disabled](https://getbootstrap.com/docs/4.3/components/forms/#inline-1)
 
 Checkbox and Radio button is located in the following classes:
 
@@ -4315,7 +4313,7 @@ Button group is represented by Section class in Java:
 
 <br>
 
-**[Switches custom](https://getbootstrap.com/docs/4.3/components/forms/#inline-1)** 
+#### [Switches custom](https://getbootstrap.com/docs/4.3/components/forms/#inline-1)
 
 Radio button is located in the following classes:
  
@@ -4401,7 +4399,7 @@ Button group is represented by Section class in Java:
 
 ### Button group
 
-**<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/button-group/" target="_blank">Button group</a>** – Element that groups a series of buttons together on a single line with the button group, and super-power them with JavaScript.
+[Button group](https://getbootstrap.com/docs/4.3/components/button-group/) – Element that groups a series of buttons together on a single line with the button group, and super-power them with JavaScript.
 
 Button group is located in the following packages:
  
@@ -4434,9 +4432,8 @@ Available methods and properties in C# JDI Light:
  |  | 
 <br>
 
-**Button Group Basic Example**
-
-**[Button Group Basic Example](https://getbootstrap.com/docs/4.3/components/button-group/#basic-example)** - wrapping a series of buttons with .btn in .btn-group.
+#### [Button Group Basic Example](https://getbootstrap.com/docs/4.3/components/button-group/#basic-example)
+Wrap a series of buttons with .btn in .btn-group.
 
 ![Button Group Basic Example HTML](../images/bootstrap/bgroup-basic-example-screen.png)
 
@@ -4495,9 +4492,9 @@ Inner elements represented by the following classes:
 [Button Group Basic Example Tests Example](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/buttonGroup/BasicExampleTests.java)
 
 <br>
-**Button toolbar**
-<br>
-<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.0/components/button-group/#button-toolbar" target="_blank">Button toolbar</a> - combine sets of button groups into button toolbars for more complex components. Use utility classes as needed to space out groups, buttons, and more.
+
+#### [Button toolbar](https://getbootstrap.com/docs/4.0/components/button-group/#button-toolbar)
+Combine sets of button groups into button toolbars for more complex components. Use utility classes as needed to space out groups, buttons, and more.
 
 ![Button toolbar](../images/bootstrap/button_toolbar.png)
 
@@ -4552,10 +4549,9 @@ Here is an example with provided Bootstrap v4.3 code:
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/buttonGroup/ButtonToolbarTests.java)
 
+#### [Button Group Sizing](https://getbootstrap.com/docs/4.0/components/button-group/#sizing)
 
-**Button Group Sizing**
-
-Instead of applying <a style="font-weight: bold;" href="https://getbootstrap.com/docs/4.0/components/button-group/#sizing" target="_blank">button sizing</a> classes to every button in a group, 
+Instead of applying button sizing classes to every button in a group, 
 just add ``.btn-group-*`` to each ``.btn-group``, including each one when nesting multiple groups.
 
 ![Button Group Sizing Example](../images/bootstrap/bgroup-sizing.png)
@@ -4616,9 +4612,8 @@ Available methods in Java JDI Light:
 
 <br>
 
-**Button Group Nesting**
-
-**[Button Group Nesting](https://getbootstrap.com/docs/4.3/components/button-group/#nesting)** - placing a ``.btn-group`` within another ``.btn-group`` when you want dropdown menus mixed with a series of buttons.
+#### [Button Group Nesting](https://getbootstrap.com/docs/4.3/components/button-group/#nesting)
+Place a ``.btn-group`` within another ``.btn-group`` when you want dropdown menus mixed with a series of buttons.
 
 ![Button Group Nesting Example](../images/bootstrap/bgroup-nesting.png)
 
@@ -4693,10 +4688,8 @@ Inner elements represented by the following classes:
 [Button Group Nesting Tests Example](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/buttonGroup/NestingTests.java)
 <br><br>
 
-
-**Button Group Vertical Variation**
-
-**[Button Group Vertical Variation](https://getbootstrap.com/docs/4.3/components/button-group/#vertical-variation)** - making a set of buttons appear vertically stacked rather than horizontally.
+#### [Button Group Vertical Variation](https://getbootstrap.com/docs/4.3/components/button-group/#vertical-variation)
+Make a set of buttons appear vertically stacked rather than horizontally.
 
 ![Button Group Nesting Example](../images/bootstrap/bgroup-vertical-variation.png)
 
@@ -9501,7 +9494,7 @@ Available methods in Java JDI Light:
 
 #### [Scrolling Long Content Modal](https://getbootstrap.com/docs/4.3/components/modal/#scrolling-long-content)
 
-When modals become too long for the user’s viewport or device, independent of the page itself.
+When modals become too long for the user’s viewport or device, they scroll independent of the page itself.
 
 ![Modal long scrollable](../images/bootstrap/modal_scrollable1.png)
 
@@ -9568,9 +9561,9 @@ Available methods in Java JDI Light:
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/modal/ModalScrollingLongContentTests.java)
 
-#### Vertically Centered Modal
+#### [Vertically Centered Modal](https://getbootstrap.com/docs/4.3/components/modal/#vertically-centered)
 
-Add ``.modal-dialog-centered`` to ``.modal-dialog`` to <a style="font-weight: bold;" href="https://getbootstrap.com/docs/4.3/components/modal/#vertically-centered" target="_blank">vertically center</a> the modal.
+Add ``.modal-dialog-centered`` to ``.modal-dialog`` to vertically center the modal.
 
 ![Modal Vertically Centered](../images/bootstrap/modal-vertically-centered.png)
 

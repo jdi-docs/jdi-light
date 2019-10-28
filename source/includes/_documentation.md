@@ -6025,8 +6025,14 @@ public void isValidationTest(Progress progress) {
 }
 
 ```
-  
-![Progress multiple HTML example](../images/bootstrap/progress-multiple-html.png)
+
+```html 
+<div class="progress">
+  <div class="progress-bar" role="progressbar" style="width: 15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+  <div class="progress-bar bg-success" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+  <div class="progress-bar bg-info" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+```
 
 Available methods in Java JDI Light:
 
@@ -8495,6 +8501,8 @@ Be sure to use ``.col-form-label-sm`` or ``.col-form-label-lg`` to your ``<label
 
 ![Horizontal form label sizing](../images/bootstrap/form-horizontal-sizing.png)
 
+Here is an example with provided Bootstrap v4.3 code:
+
 ```java 
 
 // @FindBy(id = "form-horizontal-label-size")
@@ -8543,9 +8551,28 @@ public TextField largeText;
 
 ```
 
-Here is an example with provided Bootstrap v4.3 code:
-
-![Horizontal label sizing example](../images/bootstrap/form-horizontal-sizing-html.png)
+```html 
+<form>
+  <div class="form-group row">
+    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Email</label>
+    <div class="col-sm-10">
+      <input type="email" class="form-control form-control-sm" id="colFormLabelSm" placeholder="col-form-label-sm">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="colFormLabel" class="col-sm-2 col-form-label">Email</label>
+    <div class="col-sm-10">
+      <input type="email" class="form-control" id="colFormLabel" placeholder="col-form-label">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Email</label>
+    <div class="col-sm-10">
+      <input type="email" class="form-control form-control-lg" id="colFormLabelLg" placeholder="col-form-label-lg">
+    </div>
+  </div>
+</form>
+```
 
 Form is represented by Section class in Java:
  
@@ -8563,6 +8590,8 @@ Available methods in Java JDI Light:
 Bootstrap grid system allows you to place any number of ``.cols`` within a ``.row`` or ``.form-row``. They’ll split the available width equally between them. You may also pick a subset of your columns to take up more or less space, while the remaining ``.cols`` equally split the rest, with specific column classes like ``.col-7``.
 
 ![Column sizing](../images/bootstrap/form-column-sizing.png)
+
+Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
 
@@ -8605,9 +8634,21 @@ public void isValidationTests(TextField textField, String placeholder) {
 
 ```
 
-Here is an example with provided Bootstrap v4.3 code:
-
-![Column sizing example](../images/bootstrap/form-column-sizing-html.png)
+```html 
+<form>
+  <div class="form-row">
+    <div class="col-7">
+      <input type="text" class="form-control" placeholder="City">
+    </div>
+    <div class="col">
+      <input type="text" class="form-control" placeholder="State">
+    </div>
+    <div class="col">
+      <input type="text" class="form-control" placeholder="Zip">
+    </div>
+  </div>
+</form>
+```
 
 Form is represented by Section class in Java:
  
@@ -9615,6 +9656,8 @@ When modals become too long for the user’s viewport or device, they scroll ind
 
 ![Modal long scrollable](../images/bootstrap/modal_scrollable1.png)
 
+Here is an example with provided Bootstrap v4.3 code:
+
 ```java 
 
 // @FindBy(id = "modal-scroll-long")
@@ -9656,15 +9699,65 @@ public void bottomButtonsTest(Button showModal, ModalWithButtons modal) {
 
 ```
 
-Here is an example with provided Bootstrap v4.3 code:
+```html 
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+  Launch demo modal
+</button>
 
-![Modal scrollable example](../images/bootstrap/modal_scrollable-html1.png)
+<!-- Modal -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+```
 
 ![Modal scrollable](../images/bootstrap/modal_scrollable2.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
-![Modal scrollable example](../images/bootstrap/modal_scrollable-html2.png)
+```html 
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalScrollableTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+```
 
 Modal is represented by Section class in Java:
  

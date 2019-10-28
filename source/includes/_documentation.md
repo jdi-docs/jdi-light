@@ -3519,9 +3519,9 @@ More than that, it has a nested **StringCheckType** class with the following met
 ## Bootstrap Common elements
 
 ### Button
-**Button** – Element that represents a clickable button
+Bootstrap includes several predefined button styles, each serving its own semantic purpose, with a few extras thrown in for more control.
 
-[Bootstrap page documentation](https://getbootstrap.com/docs/4.3/components/buttons/)
+**[Button](https://getbootstrap.com/docs/4.3/components/buttons/)** – Element that represents a clickable button
 
 ![Button](../images/bootstrap/button.png)
 
@@ -3560,9 +3560,7 @@ Available methods in Java JDI Light:
 **assertThat()** | Assert action | TextAssert
 <br>
 
-**Disabled Button** – Element that represents a Not clickable button
-
-[Button](https://getbootstrap.com/docs/4.3/components/buttons/) – Bootstrap includes several predefined button styles, each serving its own semantic purpose, with a few extras thrown in for more control.
+**[Disabled Button](https://getbootstrap.com/docs/4.3/components/buttons/)** – Element that represents a Not clickable button
 
 ![Disabled button](../images/bootstrap/disabled_button.png)
 
@@ -8349,7 +8347,7 @@ Here is an example with provided Bootstrap v4.3 code:
   </div>
 </form>
 ```
-<br />
+<br>
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -8359,7 +8357,7 @@ Here is an example with provided Bootstrap v4.3 code:
 **enabled()** | Check that element is enabled | TextAssert
 **assertThat()** | Assert action | TextAssert
 
-<a  href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/FormGridTests.java" target="_blank">Bootstrap test examples</a>
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/FormGridTests.java" target="_blank">Bootstrap test examples</a>
 
 <br><br><br><br>
 

@@ -5307,10 +5307,24 @@ Adding images to the ```.navbar-brand``` will likely always require custom style
     
         @Test(dataProvider = "navbarBrands")
         public void checkNavbarText(UIElement uiBaseElement, String navbarText) {
-                    uiBaseElement.highlight();
-                    uiBaseElement.is().core().text(navbarText);
-                    uiBaseElement.unhighlight();
+             uiBaseElement.highlight();
+             uiBaseElement.is().core().text(navbarText);
+             uiBaseElement.unhighlight();
         }
+
+        @Test(dataProvider = "navbarBrandsWithImage")
+        public void checkNavbarImage(UIElement brandWithImage) {
+            UIElement imgFromNavbar = brandWithImage.childs().get(1);
+            imgFromNavbar.highlight("blue");
+            imgFromNavbar.is().core().tag("img").attr("src", containsString(imgPath));
+            imgFromNavbar.unhighlight();
+            imgFromNavbar.click();
+            int winNumber = WindowsManager.windowsCount();
+            WindowsManager.switchToWindow(winNumber);
+            assertThat(getUrl(), is(navbarUrl));
+            WindowsManager.closeWindow();
+            WindowsManager.switchToWindow(winNumber - 1);
+    }
 ```
 
 ```html 

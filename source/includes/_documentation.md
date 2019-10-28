@@ -673,6 +673,7 @@ public void SetPartyTimeTest()
 **Input Type DateTime-Local** – A graphical control element that allows user to set time and date.
 
 ![InputTypeDateTime](../images/html/inputDateTimeLocal_html.png)
+
 ```html
 <label for="party-time">Date/time:</label>
 <input type="datetime-local" id="party-time" value="2018-06-12T19:30" min="2018-05-07T00:00" max="2018-06-14T00:00">
@@ -748,6 +749,7 @@ FileInput element is located in JDI Light in:
 Here is an example with HTML code provided:
 
 ![FileInput example](../images/html/fileinput_html.png)
+
 ```html
 <input type="file" id="avatar" accept="image/png, image/jpeg">
 ```
@@ -815,6 +817,7 @@ public IIcon Logo
 **Icon** – Is a simple element type that represents icons and graphic images.
 
 ![Icon](../images/html/image_html.png)
+
 ```html
 <label for="jdi-logo">JDI Logo:</label>
 <img src="/jdi-light/images/jdi-logo.jpg" id="jdi-logo" alt="Jdi Logo 2" width="101" height="100" onclick="alert('JDI Logo');">
@@ -892,6 +895,7 @@ public IImage LogoImage;
 **Image** – Is a simple element type that represents graphic images.
 
 ![Image](../images/html/image_html.png)
+
 ```html
 <label for="jdi-logo">JDI Logo:</label>
 <img src="/jdi-light/images/jdi-logo.jpg" id="jdi-logo" alt="Jdi Logo 2" width="101" height="100" onclick="alert('JDI Logo');">
@@ -970,6 +974,7 @@ Link are represented by the following class:
   
 
 ![Link](../images/html/link_html.png)
+
 ```html
 <a ui="github-link" href="https://github.com/jdi-testing" alt="Github JDI Link">Github JDI</a>
 ```
@@ -1058,6 +1063,7 @@ Menu element is located in JDI Light in:
 Here is an example with provided HTML code:
 
 <!-- ![Menu example](../images/html/menu.png) -->
+
 ```html
 <ul class="sidebar-menu">
     <li ui="label" index="1">

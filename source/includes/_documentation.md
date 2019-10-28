@@ -5582,14 +5582,14 @@ Here is an example with provided Bootstrap v4.3 code:
   
 ![Containers HTML example](../images/bootstrap/navbar-containers-html.png)
 
-When the container is within your navbar, its horizontal padding is removed at breakpoints lower than your specified .navbar-expand{-sm|-md|-lg|-xl} class.
+When the container is within your navbar, its horizontal padding is removed at breakpoints lower than your specified ``.navbar-expand{-sm|-md|-lg|-xl}`` class.
 This ensures we’re not doubling up on padding unnecessarily on lower viewports when your navbar is collapsed.
  
 ![Containers HTML example](../images/bootstrap/navbar-containers2-html.png)
 
 Container is represented by Section class in Java:
  
-<a href = "https://github.com/jdi-testing/jdi-light/blob/master/jdi-light/src/main/java/com/epam/jdi/light/elements/composite/Section.java" target = "a_blank"> Section.java </a>
+[Section](https://jdi-docs.github.io/jdi-light/#section)  
 
 Inner elements of media object can be represented by the following classes:
 <ul>
@@ -5598,12 +5598,12 @@ Inner elements of media object can be represented by the following classes:
     <li> [See more elements](https://jdi-docs.github.io/jdi-light/#bootstrap-common-elements) </li>
 </ul>
 
-<a style="font-weight: bold;" target="_blank" href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/NavbarContainersTest.java">Bootstrap test examples</a>
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/NavbarContainersTest.java)
 
 #### [Placement](https://getbootstrap.com/docs/4.3/components/navbar/#placement)
-Use our position utilities to place navbars in non-static positions. Choose from fixed to the top, fixed to the bottom, or stickied to the top (scrolls with the page until it reaches the top, then stays there). Fixed navbars use position: fixed, meaning they’re pulled from the normal flow of the DOM and may require custom CSS (e.g., padding-top on the <body>) to prevent overlap with other elements.
+Use our position utilities to place navbars in non-static positions. Choose from fixed to the top, fixed to the bottom, or stickied to the top (scrolls with the page until it reaches the top, then stays there). Fixed navbars use position: fixed, meaning they’re pulled from the normal flow of the DOM and may require custom CSS (e.g., ``padding-top`` on the ``<body>``) to prevent overlap with other elements.
 
-Also note that .sticky-top uses position: sticky, which isn’t fully supported in every browser.
+Also note that ``.sticky-top`` uses position: sticky, which isn’t fully supported in every browser.
 
 ![Containers schemes example](../images/bootstrap/navbar-placement.png)
 
@@ -5674,8 +5674,7 @@ Here is an example with provided Bootstrap v4.3 code:
 <br>
 
 ##### [External content](https://getbootstrap.com/docs/4.3/components/navbar/#external-content)
-
-<a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/navbar/#external-content">Plugin</a> to trigger hidden content elsewhere on the page.
+Plugin to trigger hidden content elsewhere on the page.
 
 ![External_content example](../images/bootstrap/navbar-external.png)
 
@@ -8481,7 +8480,7 @@ public void directFillingTest() {
 
 Form group is represented by Section class in Java:
  
-  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+[Section](https://jdi-docs.github.io/jdi-light/#section)
 
 Inner elements represented by the following classes:
 <ul>

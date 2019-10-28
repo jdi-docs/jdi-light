@@ -6009,9 +6009,9 @@ public Progress multipleInfo;
 @DataProvider
 public Object[][] progressMultipleBarsData() {
     return new Object[][]{
-        {progressMultipleBars.multipleOrdinary},
-        {progressMultipleBars.multipleSuccess},
-        {progressMultipleBars.multipleInfo}
+            {progressMultipleBars.multipleOrdinary},
+            {progressMultipleBars.multipleSuccess},
+            {progressMultipleBars.multipleInfo}
     };
 }
 
@@ -6019,9 +6019,9 @@ public Object[][] progressMultipleBarsData() {
 public void isValidationTest(Progress progress) {
     progress.is().enabled().and().displayed();
     progress.assertThat()
-        .core()
-        .hasClass("progress-bar")
-        .attr("role", "progressbar");
+            .core()
+            .hasClass("progress-bar")
+            .attr("role", "progressbar");
 }
 
 ```
@@ -8493,17 +8493,59 @@ Inner elements represented by the following classes:
 ##### [Horizontal form label sizing](https://getbootstrap.com/docs/4.3/components/forms/#horizontal-form-label-sizing)
 Be sure to use ``.col-form-label-sm`` or ``.col-form-label-lg`` to your ``<label>``s or ``<legend>``s to correctly follow the size of ``.form-control-lg`` and ``.form-control-sm``.
 
-![Horizontal form label sizing](../images/bootstrap/modal_scrollable1.png.bak)
+![Horizontal form label sizing](../images/bootstrap/form-horizontal-sizing.png)
 
 ```java 
 
+// @FindBy(id = "form-horizontal-label-size")
+@UI("#form-horizontal-label-size")
+public static FormHorizontalLabelSizing formHorizontalLabelSizing;
 
+// @FindBy(id = "colFormLabelSm")
+@UI("#colFormLabelSm")
+public TextField smallText;
+
+// @FindBy(id = "colFormLabel")
+@UI("#colFormLabel")
+public TextField commonText;
+
+// @FindBy(id = "colFormLabelLg")
+@UI("#colFormLabelLg")
+public TextField largeText;
+
+@DataProvider
+    public Object[][] listData() {
+        return new Object[][]{
+                {formHorizontalLabelSizing.smallText, "form-control-sm", "col-form-label-sm"},
+                {formHorizontalLabelSizing.commonText, "form-control", "col-form-label"},
+                {formHorizontalLabelSizing.largeText, "form-control-lg", "col-form-label-lg"}
+    };
+}
+
+@Test(dataProvider = "listData")
+    public void isValidationTests(TextField textField, String formClass, String labelClass) {
+        textField.is()
+                .displayed()
+                .enabled()
+                .core()
+                .hasClass(formClass)
+                .attr("type", "email")
+                .attr("placeholder", labelClass)
+                .tag(is("input"));
+
+        textField.label().is()
+                .displayed()
+                .enabled()
+                .core()
+                .hasClass(labelClass)
+                .value("Email");
+}
 
 ```
 
 Here is an example with provided Bootstrap v4.3 code:
 
-![Horizontal label sizing example](../images/bootstrap/modal_scrollable-html1.png.bak)
+![Horizontal label sizing example](../images/bootstrap/form-horizontal-sizing-html.png)
 
 Form is represented by Section class in Java:
  
@@ -8520,17 +8562,52 @@ Available methods in Java JDI Light:
 #### [Column sizing](https://getbootstrap.com/docs/4.3/components/forms/#column-sizing)
 Bootstrap grid system allows you to place any number of ``.cols`` within a ``.row`` or ``.form-row``. They’ll split the available width equally between them. You may also pick a subset of your columns to take up more or less space, while the remaining ``.cols`` equally split the rest, with specific column classes like ``.col-7``.
 
-![Column sizing](../images/bootstrap/modal_scrollable1.png.bak)
+![Column sizing](../images/bootstrap/form-column-sizing.png)
 
 ```java 
 
+// @FindBy(id = "form-column-size")
+@UI("#form-column-size")
+public static FormColumnSizing formColumnSizing;
 
+// @FindBy(id = "form-column-size-city")
+@UI("#form-column-size-city")
+public TextField cityName;
+
+// @FindBy(id = "form-column-size-state")
+@UI("#form-column-size-state")
+public TextField stateName;
+
+// @FindBy(id = "form-column-size-zip")
+@UI("#form-column-size-zip")
+public TextField zipCode;
+
+@DataProvider
+public Object[][] listData() {
+    return new Object[][]{
+            {formColumnSizing.cityName, "City"},
+            {formColumnSizing.stateName, "State"},
+            {formColumnSizing.zipCode, "Zip"}
+    };
+}
+
+@Test(dataProvider = "listData")
+public void isValidationTests(TextField textField, String placeholder) {
+    textField.is()
+            .displayed()
+            .enabled()
+            .core()
+            .hasClass("form-control")
+            .attr("type", "text")
+            .attr("placeholder", placeholder)
+            .tag(is("input"));
+}
 
 ```
 
 Here is an example with provided Bootstrap v4.3 code:
 
-![Column sizing example](../images/bootstrap/modal_scrollable-html1.png.bak)
+![Column sizing example](../images/bootstrap/form-column-sizing-html.png)
 
 Form is represented by Section class in Java:
  
@@ -9563,8 +9640,8 @@ public Button buttonLongScrollable;
 @DataProvider
 public Object[][] listData() {
     return new Object[][]{
-        {sectionModalLongScrolling.buttonLongScroll, sectionModalLongScrolling.modalLong},
-        {sectionModalLongScrolling.buttonLongScrollable, sectionModalLongScrolling.modalScrollable}
+            {sectionModalLongScrolling.buttonLongScroll, sectionModalLongScrolling.modalLong},
+            {sectionModalLongScrolling.buttonLongScrollable, sectionModalLongScrolling.modalScrollable}
     };
 }
 

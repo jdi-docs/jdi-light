@@ -5160,54 +5160,70 @@ Adding images to the ```.navbar-brand``` will likely always require custom style
 ![Brand](../images/bootstrap/navbar-brand-image-and-link.png)<br>
 
 ```java 
-    public class BootstrapPage extends WebPage {
-    @UI("#navbar-base-for-brand") public static NavbarSection navbarSection;
-    }
+       //FindBy(css = "#brand-heading")
+        @UI("#brand-heading")
+        public UIElement navbarBrandHeading; 
+  
+        //FindBy(css = "#brand-link")
+        @UI("#brand-link")
+        public UIElement navbarBrandLink;
+    
+        //FindBy(css = "#brand-as-image")
+        @UI("#brand-as-image")
+        public UIElement navbarBrandAsImage;
+    
+        //FindBy(css = "#brand-as-image-and-link")
+        @UI("#brand-as-image-and-link")
+        public UIElement navbarBrandAsImageAndLink;
 
-    //FindBy(css = ".navbar-brand")
-    @UI(".navbar-brand")
-    public JList<UIElement> allNavbarBrands;
-
-    //FindBy(css = "#brand-as-image,#brand-as-image-and-link")
-    @UI("#brand-as-image,#brand-as-image-and-link")
-    public JList<UIElement> navbarBrandWithImage;
-
-    @Test(dataProvider = "navbarBrandData")
-    public void checkNavbarText(String navbarId, String navbarText) {
-        for (int i = 1; i < navbarSection.allNavbarBrands.size() + 1; i++) {
-            UIElement nbb = navbarSection.allNavbarBrands.get(i);
-            if (nbb.attr("id").equals(navbarId)) {
-                nbb.highlight();
-                nbb.is().core().text(navbarText);
-                nbb.unhighlight();
-            }
+        @Test (dataProvider = "navbarBrandsWithLink")
+        public void  checkNavbarLink(UIElement brandAsLink) {
+            brandAsLink.is().core().hasAttr("href");
+            brandAsLink.highlight("blue");
+            brandAsLink.unhighlight();
+            brandAsLink.click();
+            int winNumber = WindowsManager.windowsCount();
+            WindowsManager.switchToWindow(winNumber);
+            assertThat(getUrl(), is(navbarUrl));
+            WindowsManager.closeWindow();
+            WindowsManager.switchToWindow(winNumber - 1);
+         }
+    
+        @Test(dataProvider = "navbarBrands")
+        public void checkNavbarText(UIElement uiBaseElement, String navbarText) {
+                    uiBaseElement.highlight();
+                    uiBaseElement.is().core().text(navbarText);
+                    uiBaseElement.unhighlight();
         }
-    }
-
-    @Test
-    public void checkNavbarClickImage() {
-        navbarSection.navbarBrandWithImage.stream()
-                .filter(nbb -> nbb.hasAttribute("href") && nbb.childs().size() > 0)
-                .map(nbbWithIm -> nbbWithIm.childs().get(1))
-                .forEach(imgFromNavbar -> {
-                    imgFromNavbar.highlight("blue");
-                    imgFromNavbar.is().attr("src", containsString(imgPath))
-                            .tag("img");
-                    imgFromNavbar.unhighlight();
-
-                    imgFromNavbar.click();
-                    WebDriver driver = WebDriverFactory.getDriver();
-                    ArrayList<String> tabs = new ArrayList<>(WebDriverFactory.getDriver()
-                            .getWindowHandles());
-                    driver.switchTo().window(tabs.get(tabs.size() - 1));
-                    assertEquals(getUrl(), navbarUrl);
-                    driver.close();
-                    driver.switchTo().window(tabs.get(tabs.size() - 2));
-                });
-    }
 ```
 
-![Brand](../images/bootstrap/navbar-brand-all-html.png)
+```html 
+
+<div id="navbar-base-for-brand">
+     <p>Navbar - Brand as link</p>
+     <nav class="navbar navbar-light bg-light">
+         <a class="navbar-brand" id="brand-link" href="https://getbootstrap.com/docs/4.3/components/navbar/#nav" target="_blank">Brand link</a>
+     </nav>
+     <br>
+     <p>Navbar - Brand as heading</p>
+     <nav class="navbar navbar-light bg-light">
+         <span class="navbar-brand mb-0 h1" id="brand-heading">Brand heading</span>
+     </nav>
+     <br>
+     <p>Navbar - Brand as image</p>
+     <nav class="navbar navbar-light bg-light">
+         <a class="navbar-brand" id="brand-as-image" href="https://getbootstrap.com/docs/4.3/components/navbar/#nav" target="_blank">
+             <img src="images/wolverin.jpg" width="20" height="30" alt="">
+         </a>
+     </nav>
+     <br>
+     <p>Navbar - Brand as image and link</p>
+     <nav class="navbar navbar-light bg-light mb-3">
+         <a class="navbar-brand" id="brand-as-image-and-link" href="https://getbootstrap.com/docs/4.3/components/navbar/#nav" target="_blank">
+             <img src="images/wolverin.jpg" width="20" height="30" class="d-inline-block align-top" alt="">Brand link</a>
+     </nav>
+</div>
+``` 
 
 Available methods in Java JDI Light:
 
@@ -5215,6 +5231,7 @@ Available methods in Java JDI Light:
 --- | --- | ---
 **is()** | Assert action | UIAssert 
 **assertThat()** | Assert action | UIAssert
+**hasAttr()** | Assert action | UIAssert
  
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navbar/NavbarBrandTests.java)
 
@@ -8398,7 +8415,7 @@ Here is an example with provided Bootstrap v4.3 code:
 **assertThat()** | Assert action | TextAssert
 **displayed()** | Check that element is displayed | TextAssert
 **enabled()** | Check that element is enabled | TextAssert
-**assertThat()** | Assert action | TextAssert
+
 
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/FormGridTests.java)
 

@@ -5989,7 +5989,6 @@ Include <a style="font-weight: bold;" target="_blank" href="https://getbootstrap
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
-
 // @FindBy(id = "progress-multiple-bars")
 @UI("#progress-multiple-bars")
 public static ProgressMultipleBars progressMultipleBars;
@@ -6023,7 +6022,6 @@ public void isValidationTest(Progress progress) {
             .hasClass("progress-bar")
             .attr("role", "progressbar");
 }
-
 ```
 
 ```html 
@@ -8504,7 +8502,6 @@ Be sure to use ``.col-form-label-sm`` or ``.col-form-label-lg`` to your ``<label
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
-
 // @FindBy(id = "form-horizontal-label-size")
 @UI("#form-horizontal-label-size")
 public static FormHorizontalLabelSizing formHorizontalLabelSizing;
@@ -8548,7 +8545,6 @@ public TextField largeText;
                 .hasClass(labelClass)
                 .value("Email");
 }
-
 ```
 
 ```html 
@@ -8576,15 +8572,21 @@ public TextField largeText;
 
 Form is represented by Section class in Java:
  
-  [Section](https://jdi-docs.github.io/jdi-light/#section)
++ Section #BS
 
 Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**is()** | Asserts element  | UIAssert
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**displayed()** | Check that element is displayed | TextAssert
+**enabled()** | Check that element is enabled | TextAssert
+**assertThat()** | Assert action | TextAssert
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/FormHorizontalLabelSizingTests.java)
+
+<br><br>
 
 #### [Column sizing](https://getbootstrap.com/docs/4.3/components/forms/#column-sizing)
 Bootstrap grid system allows you to place any number of ``.cols`` within a ``.row`` or ``.form-row``. They’ll split the available width equally between them. You may also pick a subset of your columns to take up more or less space, while the remaining ``.cols`` equally split the rest, with specific column classes like ``.col-7``.
@@ -8594,7 +8596,6 @@ Bootstrap grid system allows you to place any number of ``.cols`` within a ``.ro
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
-
 // @FindBy(id = "form-column-size")
 @UI("#form-column-size")
 public static FormColumnSizing formColumnSizing;
@@ -8631,7 +8632,6 @@ public void isValidationTests(TextField textField, String placeholder) {
             .attr("placeholder", placeholder)
             .tag(is("input"));
 }
-
 ```
 
 ```html 
@@ -8652,15 +8652,21 @@ public void isValidationTests(TextField textField, String placeholder) {
 
 Form is represented by Section class in Java:
  
-  [Section](https://jdi-docs.github.io/jdi-light/#section)
++ Section #BS
 
 Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**is()** | Asserts element  | UIAssert
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**displayed()** | Check that element is displayed | TextAssert
+**enabled()** | Check that element is enabled | TextAssert
+**assertThat()** | Assert action | TextAssert
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/FormColumnSizingTests.java)
+
+<br><br>
 
 #### [Form disabled](https://getbootstrap.com/docs/4.3/components/forms/#disabled-forms)
 Add the ``disabled`` boolean attribute on an input to prevent user interactions and make it appear lighter.
@@ -9632,7 +9638,7 @@ Here is an example with provided Bootstrap v4.3 code:
 
 Modal is represented by Section class in Java:
  
-  [Section](https://jdi-docs.github.io/jdi-light/#section)
++ Section #BS
 
 Inner elements of Modal - Live demo are represented by the following classes:
 
@@ -9659,7 +9665,6 @@ When modals become too long for the user’s viewport or device, they scroll ind
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
-
 // @FindBy(id = "modal-scroll-long")
 @UI("#modal-scroll-long")
 public static SectionModalLongScrolling sectionModalLongScrolling;
@@ -9696,7 +9701,6 @@ public void bottomButtonsTest(Button showModal, ModalWithButtons modal) {
     modal.bottomClose();
     modal.is().disappear();
 }
-
 ```
 
 ```html 
@@ -9761,13 +9765,16 @@ Here is an example with provided Bootstrap v4.3 code:
 
 Modal is represented by Section class in Java:
  
-  [Section](https://jdi-docs.github.io/jdi-light/#section)
++ Section #BS
 
 Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
 **is()** | Asserts element  | UIAssert
+**displayed()** | Asserts element is displayed  | UIAssert
+**hidden()** | Asserts element is hidden | UIAssert
+**close()** | Close modal | void
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/modal/ModalScrollingLongContentTests.java)
 

@@ -544,6 +544,13 @@ public void AutumnDateTimeTest()
 
 ![InputTypeWeek](../images/html/inputTypeWeek_html.png)
 
+```html
+<label for="autumn-week">Autumn</label>
+<input type="week" id="autumn-week" value="2018-W40"
+ min="2018-W35" max="2018-W48" required="">
+```
+
+
 <a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/DateTimeTests.cs" target="_blank">Test examples in C#</a>
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/WeekTests.java" target="_blank">Test examples in Java</a>
@@ -584,6 +591,12 @@ public void SetMonthTest()
 
 ![InputTypeMonth](../images/html/inputTypeMonth_html.png)
 
+```html
+<label for="month-date">Month of Holidays</label>
+<input type="month" id="month-date" min="2015-03"
+ max="2020-12" value="2018-05">
+```
+
 <a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/DateTimeTests.cs" target="_blank">Test examples in C#</a>
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/MonthTests.java" target="_blank">Test examples in Java</a>
@@ -623,6 +636,11 @@ public void SetTimeTest()
 
 ![InputTypeTime](../images/html/inputTypeTime_html.png)
 
+```html
+<label for="booking-time">Booking Time:</label>
+<input type="time" id="booking-time" value="11:00" min="9:00" max="18:00">
+```
+
 <a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/DateTimeTests.cs" target="_blank">Test examples in C#</a>
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/TimeTests.java" target="_blank">Test examples in Java</a>
@@ -655,6 +673,10 @@ public void SetPartyTimeTest()
 **Input Type DateTime-Local** – A graphical control element that allows user to set time and date.
 
 ![InputTypeDateTime](../images/html/inputDateTimeLocal_html.png)
+```html
+<label for="party-time">Date/time:</label>
+<input type="datetime-local" id="party-time" value="2018-06-12T19:30" min="2018-05-07T00:00" max="2018-06-14T00:00">
+```
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/DateTimeTests.java" target="_blank">Test examples in Java</a>
 
@@ -726,6 +748,9 @@ FileInput element is located in JDI Light in:
 Here is an example with HTML code provided:
 
 ![FileInput example](../images/html/fileinput_html.png)
+```html
+<input type="file" id="avatar" accept="image/png, image/jpeg">
+```
 
 Available method in Java JDI Light:
 
@@ -790,6 +815,10 @@ public IIcon Logo
 **Icon** – Is a simple element type that represents icons and graphic images.
 
 ![Icon](../images/html/image_html.png)
+```html
+<label for="jdi-logo">JDI Logo:</label>
+<img src="/jdi-light/images/jdi-logo.jpg" id="jdi-logo" alt="Jdi Logo 2" width="101" height="100" onclick="alert('JDI Logo');">
+```
 
 Icons are represented by the following classes:
  
@@ -863,6 +892,10 @@ public IImage LogoImage;
 **Image** – Is a simple element type that represents graphic images.
 
 ![Image](../images/html/image_html.png)
+```html
+<label for="jdi-logo">JDI Logo:</label>
+<img src="/jdi-light/images/jdi-logo.jpg" id="jdi-logo" alt="Jdi Logo 2" width="101" height="100" onclick="alert('JDI Logo');">
+```
 
 Images are represented by the following classes in Java and C#:
  
@@ -937,6 +970,9 @@ Link are represented by the following class:
   
 
 ![Link](../images/html/link_html.png)
+```html
+<a ui="github-link" href="https://github.com/jdi-testing" alt="Github JDI Link">Github JDI</a>
+```
 
 Here is the list of available methods in Java:
 
@@ -1021,7 +1057,61 @@ Menu element is located in JDI Light in:
 
 Here is an example with provided HTML code:
 
-![Menu example](../images/html/menu.png)
+<!-- ![Menu example](../images/html/menu.png) -->
+```html
+<ul class="sidebar-menu">
+    <li ui="label" index="1">
+        <a href="index.html"> <span>Home</span>  </a>
+    </li>           
+    <li ui="label" index="2">
+        <a href="contacts.html"> <span>Contact form</span> </a> 
+     </li>            
+    <li class="menu-title" index="3">                
+        <a ui="label"> 
+            <span>Service</span>
+            <div class="fa fa-caret-down arrow"></div>                
+        </a>                
+        <ul class="sub hide-menu">                    
+            <li ui="label" index="1">
+                <a href="support.html">
+                    <p><span>Support</span></p>
+                </a>
+            </li>                    
+            <li ui="label" index="2"><a href="dates.html"><span>Dates</span></a>
+            </li>                    
+            <li ui="label" index="3"><a href="complex-table.html"> <span>Complex Table </span></a>
+            </li>                    
+            <li ui="label" index="4"><a href="simple-table.html"> <span>Simple Table</span></a>
+            </li>                    
+            <li ui="label" index="5"><a href="search.html"> <span>Search</span> </a>
+            </li>                    
+            <li ui="label" index="6"><a href="user-table.html"> <span>User Table</span></a>
+            </li>                    
+            <li ui="label" index="7"><a href="table-pages.html"> <span>Table with pages</span></a>
+            </li>                    
+            <li ui="label" index="8"><a href="different-elements.html"> <span>Different elements</span> </a>
+            </li>                    
+            <li ui="label" index="9"><a href="performance.html"><span>Performance</span></a>
+            </li>                
+        </ul>            
+    </li>            
+    <li ui="label" index="4"><a href="metals-colors.html">  <span>Metals &amp; Colors</span></a>       
+    </li>            
+    <li class="menu-title active" index="5">
+        <a ui="label">
+          <span>Elements packs</span>
+          <div class="fa fa-caret-down arrow"></div>                
+        </a>                
+        <ul class="sub">                    
+            <li ui="label" index="1" class="active"><a href="html5.html"><span>HTML 5</span></a></li>                    
+            <li ui="label" index="2"><a href="bootstrap.html"><span>Bootstrap</span>  </a></li>					          
+            <li ui="label" index="3"><a href="bootstrap_form.html">	<span>Bootstrap form</span></a></li>					          
+            <li ui="label" index="4"><a href="react-ant.html"> <span>React Ant</span></a></li>               
+         </ul>            
+    </li>        
+</ul>
+```
+
 
 Available method in Java JDI Light:
 

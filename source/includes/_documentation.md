@@ -4762,7 +4762,6 @@ Inner elements represented by the following classes:
 [Button Group Vertical Variation Tests Example](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/buttonGroup/VerticalVariationTests.java)
 <br><br>
 
-
 ### Alert
 Alert is located in the following class: <br>
 - __Java__: _com.epam.jdi.light.ui.bootstrap.common.Alert_
@@ -4829,12 +4828,10 @@ Inner elements represented by the following classes:
 <ul>
     <li> [Text](https://jdi-docs.github.io/jdi-light/#text) </li>
 </ul>
-<br>
+
 [Alert test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/AlertTests.java)
 
-
-
-###Badge
+### Badge
 Badge is located in the following class: <br>
 - __Java__: _com.epam.jdi.light.ui.bootstrap.common.Badge_
 
@@ -5017,7 +5014,8 @@ Java: com.epam.jdi.light.elements.complex.WebList
 
 [Breadcrumb Tests Example](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/BreadcrumbTests.java)
 <br><br>
-###Navs
+
+### Navs
 
 Nav - navigation component
 
@@ -5037,11 +5035,10 @@ Available methods in Java JDI Light:
 **** |  | 
 **** |  |  
 
-###Navbar
+### Navbar
 
-#### Supported content
-
-Navbars come with built-in <a style="font-weight: bold;" href="https://getbootstrap.com/docs/4.3/components/navbar/#supported-content" target="_blank">support</a> for a handful of sub-components. 
+#### [Supported content](https://getbootstrap.com/docs/4.3/components/navbar/#supported-content)
+Navbars come with built-in support for a handful of sub-components. 
 
 Choose from the following as needed:
 
@@ -5147,11 +5144,8 @@ Available methods in Java JDI Light:
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navbar/NavbarSupportedContentTests.java" target="_blank">Bootstrap Test Examples</a> 
 <br><br>
 
-####Brand
-
-[Bootstrap page documentation](https://getbootstrap.com/docs/4.3/components/navbar/#brand)
-
-The .navbar-brand can be applied to most elements, but an anchor works best as some elements might require utility classes or custom styles.
+#### [Brand](https://getbootstrap.com/docs/4.3/components/navbar/#brand)
+The ``.navbar-brand`` can be applied to most elements, but an anchor works best as some elements might require utility classes or custom styles.
 <br>
 
 Navbar brand as a link <br>
@@ -5160,7 +5154,7 @@ Navbar brand as heading <br>
 ![Brand](../images/bootstrap/navbar-brand-heading.png)<br>
 <br>
 
-Adding images to the .navbar-brand will likely always require custom styles or utilities to properly size. Here are some examples to demonstrate.<br>
+Adding images to the ```.navbar-brand``` will likely always require custom styles or utilities to properly size. Here are some examples to demonstrate.<br>
 
 ![Brand](../images/bootstrap/navbar-brand-image.png)<br>
 ![Brand](../images/bootstrap/navbar-brand-image-and-link.png)<br>
@@ -5226,7 +5220,8 @@ Available methods in Java JDI Light:
 
 <br><br><br><br><br><br><br><br>
 
-####Nav
+#### [Nav](https://getbootstrap.com/docs/4.3/components/navbar/#nav)
+Navbar navigation links build on our ``.nav`` options with their own modifier class and require the use of toggler classes for proper responsive styling.
 
 ```java 
 
@@ -5270,8 +5265,6 @@ public class Navbar extends Section {
 
 ```
 
-<a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/navbar/#nav">Navbar</a> navigation links require the use of toggle classes for proper responsive styling.
-
 ![Color Nav example](../images/bootstrap/nav.png)
 
 Here is an example with provided Bootstrap v4.3 code:
@@ -5308,9 +5301,10 @@ Available methods in Java JDI Light:
 <a style="font-weight: bold;" target="_blank" href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navbar/NavbarNavsTests.java">Bootstrap test examples</a>
 
 <br>
-####Forms
 
-Place various form controls and components within a <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/navbar/#forms" target="_blank">navbar</a> with .form-inline.
+#### [Forms](https://getbootstrap.com/docs/4.3/components/navbar/#forms)
+
+Place various form controls and components within a navbar with ``.form-inline``.
 
 ![Forms example](../images/bootstrap/navbar-forms1.png)
 
@@ -5375,9 +5369,8 @@ Inner elements of media object can be represented by the following classes:
 <a style="font-weight: bold;" target="_blank" href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navbar/NavbarFormsTests.java">Bootstrap test examples</a>
 <br><br>
 
-####Text
-
-**[Navbar-text](https://getbootstrap.com/docs/4.3/components/navbar/#text)** – Navbars may contain bits of text with the help of .navbar-text. 
+#### [Text](https://getbootstrap.com/docs/4.3/components/navbar/#text)
+Navbars may contain bits of text with the help of ``.navbar-text``. 
 This class adjusts vertical alignment and horizontal spacing for strings of text.
 
 <br>
@@ -5467,10 +5460,10 @@ Available methods and properties in C# JDI Light:
  |  | 
 <br><br>
 
-####Color schemes
+#### [Color schemes](https://getbootstrap.com/docs/4.3/components/navbar/#color-schemes)
 
-Theming the navbar has never been easier thanks to the combination of <a href="https://getbootstrap.com/docs/4.3/components/navbar/#color-schemes">theming classes and background-color utilities</a>.
-Choose from .navbar-light for use with light background colors, or .navbar-dark for dark background colors. Then, customize with .bg-* utilities.
+Theming the navbar has never been easier thanks to the combination of theming classes and ``background-color`` utilities
+Choose from ``.navbar-light`` for use with light background colors, or ``.navbar-dark`` for dark background colors. Then, customize with ``.bg-*`` utilities.
 
 ![Color schemes example](../images/bootstrap/navbar-color-schemes.png)
 
@@ -5536,7 +5529,8 @@ Available methods in Java JDI Light:
 
 <br><br>
 
-####Containers
+#### [Containers](https://getbootstrap.com/docs/4.3/components/navbar/#containers)
+Although it’s not required, you can wrap a navbar in a ``.container`` to center it on a page or add one within to only center the contents of a fixed or static top navbar.
 
 ```java 
 public class Navbar extends Section {
@@ -5582,8 +5576,6 @@ public class Navbar extends Section {
 
 ```
 
-Although it’s not required, you can <a href = "https://getbootstrap.com/docs/4.3/components/navbar/#containers" target = "a_blank"> wrap a navbar in a .container </a> to center it on a page or add one within to only center the contents of a fixed or static top navbar.
-
 ![Containers schemes example](../images/bootstrap/navbar-containers.png)
 
 Here is an example with provided Bootstrap v4.3 code:
@@ -5608,8 +5600,7 @@ Inner elements of media object can be represented by the following classes:
 
 <a style="font-weight: bold;" target="_blank" href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/NavbarContainersTest.java">Bootstrap test examples</a>
 
-
-####Placement
+#### [Placement](https://getbootstrap.com/docs/4.3/components/navbar/#placement)
 Use our position utilities to place navbars in non-static positions. Choose from fixed to the top, fixed to the bottom, or stickied to the top (scrolls with the page until it reaches the top, then stays there). Fixed navbars use position: fixed, meaning they’re pulled from the normal flow of the DOM and may require custom CSS (e.g., padding-top on the <body>) to prevent overlap with other elements.
 
 Also note that .sticky-top uses position: sticky, which isn’t fully supported in every browser.
@@ -5621,7 +5612,7 @@ Here is an example with provided Bootstrap v4.3 code:
 ![Containers HTML example](../images/bootstrap/navbar-placement-html.png)
 <br>
 
-####Responsive behaviors
+#### [Responsive behaviors](https://getbootstrap.com/docs/4.3/components/navbar/#responsive-behaviors)
 
 Navbars can utilize ``.navbar-toggler``, ``.navbar-collapse``, and ``.navbar-expand{-sm|-md|-lg|-xl}`` classes to change when their content collapses behind a button. 
 In combination with other utilities, you can easily choose when to show or hide particular elements.
@@ -5629,7 +5620,7 @@ In combination with other utilities, you can easily choose when to show or hide 
 For navbars that never collapse, add the ``.navbar-expand`` class on the navbar. 
 For navbars that always collapse, don’t add any ``.navbar-expand`` class.
 
-####Navbar Toggler
+##### [Navbar Toggler](https://getbootstrap.com/docs/4.3/components/navbar/#toggler)
 
 Navbar togglers are left-aligned by default, but should they follow a sibling element like a ``.navbar-brand``, they’ll automatically be aligned to the far right. 
 Reversing your markup will reverse the placement of the toggler. 
@@ -5682,7 +5673,7 @@ Here is an example with provided Bootstrap v4.3 code:
 
 <br>
 
-####External content
+##### [External content](https://getbootstrap.com/docs/4.3/components/navbar/#external-content)
 
 <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/navbar/#external-content">Plugin</a> to trigger hidden content elsewhere on the page.
 
@@ -5740,7 +5731,8 @@ Available methods in Java JDI Light:
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navbar/ExternalContentTests.java" target=a_blank> Bootstrap test examples </a>
 <br>
-###Pagination
+
+### Pagination
 
 Pagination is functionality for navigating through pages.
 

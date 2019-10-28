@@ -133,7 +133,12 @@ Button is located in the following classes:
 
 Here is an example with provided HTML code:
 
-![Button example](../images/html/button_html.png)
+<!-- ![Button example](../images/html/button_html.png) -->
+
+```html
+<input type="button" value="Big Red Button-Input" 
+class="uui-button red" onclick="alert('Red button');">
+```
 
 Available methods in Java JDI Light:
 
@@ -287,7 +292,12 @@ Checkbox is located in the following classes:
 
 Here is an example with provided HTML code:
 
-![Checkbox example](../images/html/checkbox_html.png)
+<!-- ![Checkbox example](../images/html/checkbox_html.png) -->
+
+```html
+<input type="checkbox" id="accept-conditions" checked="">
+<label for="accept-conditions">Accept terms and conditions</label>
+```
 
 Available methods in Java JDI Light:
 
@@ -377,7 +387,12 @@ Colorpicker is located in the following classes:
 
 Here is an example with provided HTML code:
 
-![ColorPicker](../images/html/colorpicker_html.png)
+<!-- ![ColorPicker](../images/html/colorpicker_html.png) -->
+
+```html
+<input type="color" value="#3fd7a6" id="color-picker">
+<label for="color-picker">Select a color</label>
+```
 
 Here is the list of some available methods in Java:
 
@@ -481,6 +496,11 @@ public void SetBirthDateTest()
 **Input Type Date** – A graphical control element that allows user to set value for date.
 
 ![InputTypeDate](../images/html/inputTypeDate_html.png)
+
+```html
+<label for="birth-date">Birth date</label>
+<input type="date" id="birth-date" value="1985-06-18" min="1970-01-01" max="2030-12-31">
+```
 
 <a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/DateTimeTests.cs" target="_blank">Test examples in C#</a>
 

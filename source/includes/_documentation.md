@@ -8510,8 +8510,11 @@ Inner elements represented by the following classes:
 
 <br>
 
+#### [Horizontal form label sizing](https://getbootstrap.com/docs/4.3/components/forms/#horizontal-form-label-sizing)
+Be sure to use ``.col-form-label-sm`` or ``.col-form-label-lg`` to your ``<label>``s or ``<legend>``s to correctly follow the size of ``.form-control-lg`` and ``.form-control-sm``.
 
-**[Form disabled](https://getbootstrap.com/docs/4.3/components/forms/#disabled-forms)**
+#### [Form disabled](https://getbootstrap.com/docs/4.3/components/forms/#disabled-forms)
+Add the ``disabled`` boolean attribute on an input to prevent user interactions and make it appear lighter.
 
 ![Form disabled Example](../images/bootstrap/form-disabled.png)
 
@@ -8998,9 +9001,9 @@ Available methods in Java JDI Light:
 
 <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/RangeInputTests.java" target=a_blank> Bootstrap test examples </a>
 
-####Forms - Select menu
+####Select menu
 
-```java
+```java 
 public class SelectMenu extends Form implements ISelector {
     //FindBy(css = "option")
     @UI("option") public WebList optionsSelectMenu;
@@ -9137,7 +9140,7 @@ Here is an example with provided Bootstrap v4.3 code:
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/FormsSelectMenuTests.java" target=a_blank> Bootstrap test examples </a>
 
-####Forms - Range
+####Range
 
 Create custom <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/forms/#range">range</a>
  controls (`<input type="range">`) with .custom-range. The track (the background) and thumb (the value) are both styled to appear the same across browsers. 
@@ -9428,7 +9431,7 @@ In these java test cases examples next classes have been used:
 ### Modal
 **Modal** is a dialog box/popup window that is displayed on page.
 
-####Modal Live demo
+#### Modal Live demo
 Toggle a working <a style="font-weight: bold;" href="https://getbootstrap.com/docs/4.3/components/modal/#live-demo" target="_blank">modal demo</a> by clicking the button below. It will slide down and fade in from the top of the page.
 
 ![Modal_Live_demo](../images/bootstrap/modal-live-demo.png)
@@ -9496,9 +9499,9 @@ Available methods in Java JDI Light:
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/modal/ModalLiveDemoTests.java)
 
-#### Scrolling Long Content Modal
+#### [Scrolling Long Content Modal](https://getbootstrap.com/docs/4.3/components/modal/#scrolling-long-content)
 
-When modals become too long for the user’s viewport or device, <a style="font-weight: bold;" href="https://getbootstrap.com/docs/4.3/components/modal/#scrolling-long-content" target="_blank">they scroll</a> independent of the page itself.
+When modals become too long for the user’s viewport or device, independent of the page itself.
 
 ![Modal long scrollable](../images/bootstrap/modal_scrollable1.png)
 

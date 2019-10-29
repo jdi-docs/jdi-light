@@ -7602,9 +7602,19 @@ public void textItemTest() {
 </div>
 ```
 
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**expand()** | Expand dropdown| void
+**collapse()** | Collapse dropdown| void
+**select(String item)** | Click at dropdown item | void
+**list()** | Get dropdown items | WebList
+**assertThat()** | Get dropdown assert | DropdownAssert
+
+
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/complex/dropdown/DropdownMenuItemsTest.java">Bootstrap test examples</a>
 
-<br/><br/><br/><br/><br/>
 
 <a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#active">**Active**</a><br>
 Add ``.active`` to items in the dropdown to style them as active.

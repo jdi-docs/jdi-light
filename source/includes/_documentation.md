@@ -3245,6 +3245,23 @@ public void IsDisabledTest()
 
 ![Checklist Example](../images/html/checklist_html.png)
 
+```html
+<input type="checkbox" id="hot" name="checks-group" checked="">
+<label for="hot">Hot option</label> <br>
+
+<input type="checkbox" id="cold" name="checks-group">
+<label for="cold">Cold</label> <br>
+
+<input type="checkbox" id="rainy" name="checks-group">
+<label for="rainy">Rainy day</label> <br>
+
+<input type="checkbox" id="sunny-day" name="checks-group">
+<label for="sunny-day">Sunny</label> <br>
+
+<input type="checkbox" id="disabled-ch" name="checks-group" disabled="">
+<label for="disabled-ch">Disabled</label>
+```
+
 List of available methods in Java JDI Light:
 
 |Method | Description | Return Type
@@ -3328,6 +3345,16 @@ public void MultiSelectByIndexes()
 
 
 ![MultiSelector](../images/html/multiSelectHtml.png)
+
+```html
+<select id="ages" multiple="" size="4">
+    <option value="electro">Electro</option>
+    <option value="steam" selected="">Steam</option>
+    <option value="metalic">Metalic</option>
+    <option value="dis" disabled="">Disabled</option>
+    <option value="wood">Wood</option>
+</select>
+```
 
 Here is a list of available methods and properties in C#:
 
@@ -3434,7 +3461,19 @@ public void FillComboBox()
 
 Have a look at the following example with HTML code provided:
 
-![Combobox example](../images/html/datalist_html.png)
+<!-- ![Combobox example](../images/html/datalist_html.png) -->
+
+```html
+<input list="ice-cream-flavors" id="ice-cream" placeholder="Ice cream">
+
+<datalist id="ice-cream-flavors">
+    <option value="Chocolate"></option>
+    <option value="Coconut"></option>
+    <option value="Mint"></option>
+    <option value="Strawberry"></option>
+    <option value="Vanilla"></option>
+</datalist>
+```
 
 The list of methods available for Java in JDI Light:
 
@@ -3632,6 +3671,22 @@ Form consists of elements based on _SetValue_ interface and buttons with **submi
 Form provides the _fill, submit and verify/check_ functionality.  
 
 ![Form](../images/html/form_html.png)
+
+```html
+<form class="form-horizontal login" id="login-form">
+    <div class="form-horizontal-pad">
+        <div class="form-group form-group10"><label for="name" class="col-sm-3">Login</label>
+            <div class="col-sm-9"><input id="name" type="text" class="uui-form-element"></div>
+        </div>
+        <div class="form-group form-group10"><label for="password" class="col-sm-3">Password</label>
+            <div class="col-sm-9"><input id="password" type="password" class="uui-form-element"></div>
+        </div>
+        <span class="login-txt hidden">* Login Faild</span>
+    </div>
+    <button type="submit" class="uui-button dark-blue btn-login" id="login-button">
+        <i class="fa fa-sign-in"></i><span>Enter</span></button>
+</form>
+```
 
 Form is located in the following classes:
  

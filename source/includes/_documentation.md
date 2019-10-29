@@ -1196,6 +1196,12 @@ public void GetNumberTest()
 
 ![NumberSelector](../images/html/numberSelector_html.png)
 
+```html
+<label for="height">Height (metres):</label>
+<input type="number" id="height" min="0.3" max="2.5" step="0.2"
+ placeholder="20 cm increments. Range [0.3,2.5]">
+```
+
 Here is the list of available methods in Java:
 
 |Method | Description | Return Type
@@ -1281,7 +1287,12 @@ public void MaxTest()
 
 Here is an example with provided HTML code:
 
-![ProgressBar example](../images/html/progressbar_html.png)
+<!-- ![ProgressBar example](../images/html/progressbar_html.png) -->
+
+```html
+<label for="progress">File progress</label>
+<progress id="progress" max="100" value="70"></progress>
+```
 
 Available method in Java JDI Light:
 
@@ -1406,6 +1417,33 @@ Available method in C# JDI Light:
 **Range** - A graphical control element that allows the user to set the value from the range.</br>
 
 ![Range](../images/html/range_html.png)</br>
+
+```html
+<label for="volume">Volume</label>
+<input type="text" disabled="" id="volume-value"> <br>
+    <span>10</span>
+    <input type="range" id="volume" min="10" max="100" value="90" step="5"
+           class="range" list="volume-list"
+           oninput="showVal(this.value)" onchange="showVal(this.value)">
+    <span>100</span>
+    
+    <datalist id="volume-list">
+        <option value="0">
+        </option>
+        <option value="20">
+        </option>
+        <option value="40">
+        </option>
+        <option value="60">
+        </option>
+        <option value="80">
+        </option>
+        <option value="100">
+        </option>
+    </datalist> <br> <br>
+
+<input type="range" disabled="">
+```
 
 Range is represented by the following class:</br>
 
@@ -1628,6 +1666,13 @@ public ITextField NameField;
 
 ![InputTypeTextField](../images/html/textField_html.png)
 
+```html
+<label for="name">Your name:</label>
+<input type="text" id="name" placeholder="Input name">
+<label for="disabled-name">Surname:</label>
+<input type="text" id="disabled-name" placeholder="Iovlev" disabled="">
+```
+
 Text fields are represented by the following classes in Java and C#:
  
   - __C#__: _JDI.Light.Elements.Common.TextField_
@@ -1724,6 +1769,16 @@ public ITextArea TextArea;
 **TextArea** – Is a simple element type that allows users to fill in text areas (they may contain a few lines). 
 
 ![InputTypeTextArea](../images/html/textArea_html.png)
+
+```html
+<label for="text-area">Text example:</label>
+<textarea id="text-area" rows="3" cols="33" maxlength="200" minlength="10"
+          required="" wrap="hard" placeholder="Input huge text">Textarea with sizing
+          and wrap attribute (try values of hard, soft, and off to see how it affects wrapping).
+          The maximum number of characters is constrained to 200 by the maxlength attribute.
+</textarea> <br>
+<textarea disabled="" placeholder="Disabled area"></textarea>
+```
 
 Text areas are represented by the following classes in Java and C#:
  
@@ -1834,6 +1889,10 @@ public void BaseValidationTest()
 
 ![Title](../images/title.png)
 
+```html
+<h1 ui="jdi-title" onclick="alert('JDI Title');">JDI Testing platform</h1>
+```
+
 Here is the list of methods available in C# JDI Light:
 
 |Method | Description | Return Type
@@ -1900,6 +1959,20 @@ public void GetSelected()
 Consider an example where each radio button is a particular color, described with given HTML code:
 
 ![RadioButton](../images/html/radio_html.png)
+
+```html
+<input type="radio" id="red" name="colors">
+<label for="red">Red</label> <br>
+
+<input type="radio" id="green" name="colors" checked="">
+<label for="green">Green</label> <br>
+
+<input type="radio" id="blue" name="colors">
+<label for="blue">Blue</label> <br>
+
+<input type="radio" id="yellow" name="colors" disabled="">
+<label for="yellow">Yellow</label>
+```
 
 Here is the list of some available methods:
 
@@ -2165,6 +2238,37 @@ Tables are represented by the following classes in Java and C#:
   - __C#__: _JDI.Light.Elements.Complex.Table.cs_
     
   ![Table](../images/html/tableHtml.png)
+
+```html
+<table class="uui-table stripe tbl-without-header table-td-click" ui="table" id="users-table">
+    <tbody>
+        <tr>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>City</th>
+        </tr>
+        <tr>
+            <td>Burke Tucker</td>
+            <td>076 1971 1687</td>
+            <td>et.euismod.et@ut.edu</td>
+            <td>GozŽe</td>
+        </tr>
+        <tr>
+            <td>Grady Brock</td>
+            <td>(011307) 16843</td>
+            <td>cursus.et@commodo.org</td>
+            <td>Alcobendas</td>
+        </tr>
+        <tr>
+            <td>Harding Lloyd</td>
+            <td>0800 1111</td>
+            <td>neque.In.ornare@mauris.co.uk</td>
+            <td>Beauvais</td>
+        </tr>
+    </tbody>
+</table>
+```
 
 Here is a list of available methods in Java:
 
@@ -2460,6 +2564,37 @@ DataTables are represented by the following classes in Java and C#:
     
   ![DataTable](../images/html/tableHtml.png)
 
+```html
+<table class="uui-table stripe tbl-without-header table-td-click" ui="table" id="users-table">
+    <tbody>
+        <tr>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>City</th>
+        </tr>
+        <tr>
+            <td>Burke Tucker</td>
+            <td>076 1971 1687</td>
+            <td>et.euismod.et@ut.edu</td>
+            <td>GozŽe</td>
+        </tr>
+        <tr>
+            <td>Grady Brock</td>
+            <td>(011307) 16843</td>
+            <td>cursus.et@commodo.org</td>
+            <td>Alcobendas</td>
+        </tr>
+        <tr>
+            <td>Harding Lloyd</td>
+            <td>0800 1111</td>
+            <td>neque.In.ornare@mauris.co.uk</td>
+            <td>Beauvais</td>
+        </tr>
+    </tbody>
+</table>
+```
+
 Here is a list of available methods in Java (_btw DataTable expand Table class - methods from previous table are available too_):
 
 In return types column _"D"_ refers to the user data object and _"L"_ refers to the table line object.
@@ -2562,6 +2697,18 @@ Suppose we have 'Colors' dropdown, which looks like this in HTML code:
 
 ![Dropdown HTML](../images/html/dropdown_html.png) 
 
+```html
+<div class="form-group colors" ui="dropdown" id="colors">
+    <select class="selectpicker uui-form-element" style="display: none;">
+        <option>Colors</option>
+        <option>Red</option>
+        <option>Green</option>
+        <option>Blue</option>
+        <option>Yellow</option>
+    </select><div class="btn-group bootstrap-select uui-form-element"><button type="button" class="btn dropdown-toggle selectpicker btn-default" data-toggle="dropdown" title="Colors"><span class="filter-option pull-left" value="">Colors</span>&nbsp;<span class="caret"></span></button><div class="dropdown-menu open" style="max-height: 933px; overflow: hidden; min-height: 90px;"><ul class="dropdown-menu inner selectpicker" role="menu" style="max-height: 921px; overflow-y: auto; min-height: 78px;"><li rel="0" class="selected"><a tabindex="0" class="" style=""><span class="text">Colors</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="1"><a tabindex="0" class="" style=""><span class="text">Red</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="2"><a tabindex="0" class="" style=""><span class="text">Green</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="3"><a tabindex="0" class="" style=""><span class="text">Blue</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="4"><a tabindex="0" class="" style=""><span class="text">Yellow</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li></ul></div></div>
+</div>
+```
+
 __Dropdown representation__
 
 ```java 
@@ -2656,6 +2803,15 @@ public void BaseValidationTest()
 ```
 
 ![Dropdown HTML5](../images/html/dropdown_html5.png)
+
+```html
+<select id="dress-code">
+    <option value="fancy">Fancy</option>
+    <option value="casual" selected="">Casual</option>
+    <option value="disabled" disabled="">Disabled</option>
+    <option value="pirate">Pirate</option>
+</select>
+```
 
 Here is a list of some available methods:
 
@@ -2774,6 +2930,37 @@ public void BaseValidationTest()
 **MultiDropDown** – A graphical control element that allows user to choose several values from a list.
 
 ![DropDown](../images/multidropdown.png)
+
+```html
+<span class="multiselect-native-select">
+    <select id="multi-dropdown" multiple="multiple">
+         <option value="electro">Electro</option>
+         <option value="steam" selected="">Steam</option>
+         <option value="metalic">Metalic</option>
+         <option value="dis" disabled="">Disabled</option>
+         <option value="wood">Wood</option>
+    </select>
+    <div class="btn-group">
+        <button type="button" class="multiselect dropdown-toggle btn btn-default"
+                data-toggle="dropdown" title="Steam">
+            <span class="multiselect-selected-text">Steam</span>
+            <b class="caret"></b>
+        </button>
+        <ul class="multiselect-container dropdown-menu">
+            <li><a tabindex="0"><label class="checkbox" title="Electro"><input
+                    type="checkbox" value="electro"> Electro</label></a></li>
+            <li class="active"><a tabindex="0"><label class="checkbox" title="Steam">
+                <input type="checkbox" value="steam"> Steam</label></a></li>
+            <li><a tabindex="0"><label class="checkbox" title="Metalic">
+                <input type="checkbox" value="metalic"> Metalic</label></a></li>
+            <li class="disabled"><a tabindex="-1"><label class="checkbox" title="Disabled">
+                <input type="checkbox" value="dis" disabled=""> Disabled</label></a></li>
+            <li><a tabindex="0"><label class="checkbox" title="Wood">
+                <input type="checkbox" value="wood"> Wood</label></a></li>
+        </ul>
+    </div>
+</span>
+```
 
 MultiDropDown elements can be described by the following class:
 
@@ -2926,6 +3113,19 @@ public void selectEnumTest() {
 
 
 ![Datalist example](../images/html/datalist_html.png)
+
+```html
+<label for="ice-cream">Choose your lovely icecream</label>
+<input list="ice-cream-flavors" id="ice-cream" placeholder="Ice cream">
+
+<datalist id="ice-cream-flavors">
+    <option value="Chocolate"></option>
+    <option value="Coconut"></option>
+    <option value="Mint"></option>
+    <option value="Strawberry"></option>
+    <option value="Vanilla"></option>
+</datalist>
+```
 
 The list of methods available for Java in JDI Light:
 

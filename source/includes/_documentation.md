@@ -7602,9 +7602,9 @@ public void textItemTest() {
 </div>
 ```
 
-<br/><br/><br/><br/><br/>
-
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/complex/dropdown/DropdownMenuItemsTest.java">Bootstrap test examples</a>
+
+<br/><br/><br/><br/><br/>
 
 <a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#active">**Active**</a><br>
 Add ``.active`` to items in the dropdown to style them as active.

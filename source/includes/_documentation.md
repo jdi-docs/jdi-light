@@ -7165,11 +7165,11 @@ assertThat() | Assert action | TextAssert
 <br>
 
 ### Dropdown
-<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/dropdowns/" target="_blank">Dropdown</a> – a graphical control element, that allows the user to choose one value from a list.
+<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/dropdowns/" target="_blank">Dropdowns</a> are toggleable, contextual overlays for displaying lists of links and more. 
 
 Dropdown is located in the following classes:
  
-  - __Java__: <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap/src/main/java/com/epam/jdi/light/ui/bootstrap/elements/common/Dropdown.java">Dropdown</a>
+  - __Java__: <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap/src/main/java/com/epam/jdi/light/ui/bootstrap/elements/complex/Dropdown.java">Dropdown</a>
   - __C#__: TBD
 
 #### <a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#single-button">Single button</a>
@@ -7185,32 +7185,33 @@ Here is an example with provided Bootstrap v4.3 code:
 public static Dropdown simpleDropdown;
 
 @Test
-public void getTextTest() {
-    assertThat(simpleDropdown.getText(), is(DROPDOWN));
-}
-
-@Test
-public void getValueTest() {
-    assertThat(simpleDropdown.getValue(), is(DROPDOWN));
+public void textTest() {
+	simpleDropdown.assertThat()
+		.core()
+		.text(DROPDOWN);
+	assertThat(simpleDropdown.core().getText(), is(DROPDOWN));
 }
 
 @Test
 public void itemsTest() {
-    assertThat(simpleDropdown.items.getValue(), is(ITEMS_VALUES));
+	simpleDropdown.expand();
+	simpleDropdown.assertThat()
+		.itemValues(is(Arrays.asList(ITEMS_ARR)))
+		.hasItems(FIRSTITEM)
+		.hasItems(SECONDITEM)
+		.hasItems(LASTITEM)
+		.hasItems(FIRSTITEM, LASTITEM);
+	assertThat(simpleDropdown.itemValues(), is(Arrays.asList(ITEMS_ARR)));
 }
 
 @Test
 public void clickTest() {
-    simpleDropdown.click();
-    simpleDropdown.items.is().displayed();
-    assertThat(simpleDropdown.items.isDisplayed(), is(Boolean.TRUE));
-}
-
-@Test
-public void toggleTest() {
-    simpleDropdown.dropdownToggle.click();
-    simpleDropdown.items.is().displayed();
-    assertThat(simpleDropdown.items.isDisplayed(), is(Boolean.TRUE));
+	simpleDropdown.expand();
+	simpleDropdown.is()
+		.expanded();
+	simpleDropdown.collapse();
+	simpleDropdown.is()
+		.collapsed();
 }
 ```
   
@@ -7227,9 +7228,9 @@ public static Dropdown linkDropdown;
 
 @Test
 public void linkDropdownIsValidationTest() {
-    linkDropdown.dropdownToggle.is()
-            .core()
-            .tag(is("a"));
+    linkDropdown.expander().is()
+        .core()
+        .tag(is("a"));
 }
 ```
 
@@ -7266,9 +7267,9 @@ public static Dropdown splitDropdown;
 
 @Test
 public void splitDropdownIsValidationTest() {
-    splitDropdown.dropdownToggle.is()
-            .core()
-            .hasClass("dropdown-toggle-split");
+    splitDropdown.expander().is()
+    .core()
+    .hasClass("dropdown-toggle-split");
 }
 ```
 
@@ -7305,13 +7306,13 @@ public static Dropdown largeDropdown;
 
 @Test
 public void largeDropdownIsValidationTest() {
-    largeDropdown.dropdownToggle.is()
-            .core()
-            .hasClass("btn-lg")
-            .css(PADDING, is("8px 16px"))
-            .css(FONTSIZE, is("20px"))
-            .css(LINEHEIGHT, is("30px"))
-            .css(BORDERRADIUS, is("4.8px"));
+    largeDropdown.expander().is()
+        .core()
+        .hasClass("btn-lg")
+        .css(PADDING, is("8px 16px"))
+        .css(FONTSIZE, is("20px"))
+        .css(LINEHEIGHT, is("30px"))
+        .css(BORDERRADIUS, is("4.8px"));
 }
 ```
 
@@ -7326,14 +7327,14 @@ public static Dropdown largeSplitDropdown;
 
 @Test
 public void largeSplitDropdownIsValidationTest() {
-    largeSplitDropdown.dropdownToggle.is()
-            .core()
-            .hasClass("btn-lg")
-            .hasClass("dropdown-toggle-split")
-            .css(PADDING, is("8px 12px"))
-            .css(FONTSIZE, is("20px"))
-            .css(LINEHEIGHT, is("30px"))
-            .css(BORDERRADIUS, is("0px 4.8px 4.8px 0px"));
+    largeSplitDropdown.expander().is()
+        .core()
+        .hasClass("btn-lg")
+        .hasClass("dropdown-toggle-split")
+        .css(PADDING, is("8px 12px"))
+        .css(FONTSIZE, is("20px"))
+        .css(LINEHEIGHT, is("30px"))
+        .css(BORDERRADIUS, is("0px 4.8px 4.8px 0px"));
 }
 ```
 
@@ -7373,12 +7374,12 @@ public static Dropdown dropUpDropdown;
 @Test
 public void dropUpDropdownIsValidationTest() {
     dropUpDropdown.is()
-            .core()
-            .hasClass("dropup");
-    dropUpDropdown.dropdownMenu.is()
-            .core()
-            .css(TOP, is("auto"))
-            .css(BOTTOM, is("100%"));
+        .core()
+        .hasClass("dropup");
+    dropUpDropdown.menu().is()
+        .core()
+        .css(TOP, is("auto"))
+        .css(BOTTOM, is("100%"));
 }
 ```
 
@@ -7396,13 +7397,13 @@ public static Dropdown dropUpSplitDropdown;
 @Test
 public void dropUpSplitDropdownIsValidationTest() {
     dropUpSplitDropdown.is()
-            .core()
-            .hasClass("dropup");
-    dropUpSplitDropdown.dropdownMenu.is()
-            .core()
-            .css(TOP, is("auto"))
-            .css(BOTTOM, is("100%"));
-}
+        .core()
+        .hasClass("dropup");
+    dropUpSplitDropdown.menu().is()
+        .core()
+        .css(TOP, is("auto"))
+        .css(BOTTOM, is("100%"));
+    }
 ```
 
 ![Dropup HTML example](../images/bootstrap/dropdown-directions-dropup-split-html.png)
@@ -7419,12 +7420,12 @@ public static Dropdown dropRightDropdown;
 @Test
 public void dropRightDropdownIsValidationTest() {
     dropRightDropdown.is()
-            .core()
-            .hasClass("dropright");
-    dropRightDropdown.dropdownMenu.is()
-            .core()
-            .css(RIGHT, is("auto"))
-            .css(LEFT, is("100%"));
+        .core()
+        .hasClass("dropright");
+    dropRightDropdown.menu().is()
+        .core()
+        .css(RIGHT, is("auto"))
+        .css(LEFT, is("100%"));
 }
 ```
 
@@ -7442,12 +7443,12 @@ public static Dropdown dropRightSplitDropdown;
 @Test
 public void dropRightSplitDropdownIsValidationTest() {
     dropRightSplitDropdown.is()
-            .core()
-            .hasClass("dropright");
-    dropRightSplitDropdown.dropdownMenu.is()
-            .core()
-            .css(RIGHT, is("auto"))
-            .css(LEFT, is("100%"));
+        .core()
+        .hasClass("dropright");
+    dropRightSplitDropdown.menu().is()
+        .core()
+        .css(RIGHT, is("auto"))
+        .css(LEFT, is("100%"));
     }
 ```
 
@@ -7465,13 +7466,13 @@ public static Dropdown dropLeftDropdown;
 @Test
 public void dropLeftDropdownIsValidationTest() {
     dropLeftDropdown.is()
-            .core()
-            .hasClass("dropleft");
-    dropLeftDropdown.dropdownMenu.is()
-            .core()
-            .css(LEFT, is("auto"))
-            .css(RIGHT, is("100%"));
-}
+        .core()
+        .hasClass("dropleft");
+    dropLeftDropdown.menu().is()
+        .core()
+        .css(LEFT, is("auto"))
+        .css(RIGHT, is("100%"));
+    }
 ```
 
 ![Dropleft HTML example](../images/bootstrap/dropdown-directions-dropleft-html.png)
@@ -7487,10 +7488,10 @@ public static Dropdown dropLeftSplitDropdown;
 
 @Test
 public void dropLeftSplitDropdownIsValidationTest() {
-    dropLeftSplitDropdown.dropdownMenu.is()
-            .core()
-            .css(LEFT, is("auto"))
-            .css(RIGHT, is("100%"));
+    dropLeftSplitDropdown.menu().is()
+        .core()
+        .css(LEFT, is("auto"))
+        .css(RIGHT, is("100%"));
 }
 ```
 
@@ -7609,9 +7610,25 @@ Available methods in Java JDI Light:
 **expand()** | Expand dropdown| void
 **collapse()** | Collapse dropdown| void
 **select(String item)** | Click at dropdown item | void
+**collapse()** | Collapse dropdown| void
+**isExpanded()** | Return if dropdown expanded| boolean
+**isCollapsed()** | Return if dropdown expanded| boolean
+**itemValues()** | Get items text values| List<String>
+**hasItems(String... item)** | Return if dropdown contains all items| boolean
+**expander()** | Get dropdown expander | Button
+**menu()** | Get dropdown menu | UIElement
 **list()** | Get dropdown items | WebList
 **assertThat()** | Get dropdown assert | DropdownAssert
 
+Available asserts in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**expanded()** | Check if expanded| DropdownAssert
+**collapsed()** | Check if collapsed| DropdownAssert
+**itemValues(Matcher<Iterable<String>> condition)** | Asserts whether items match condition | DropdownAssert
+**itemValues(String... values)** | Asserts whether dropdown are exactly match arguments  | DropdownAssert
+**hasItems(String... values)** | Asserts whether dropdown has all items from arguments | DropdownAssert
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/complex/dropdown/DropdownMenuItemsTest.java">Bootstrap test examples</a>
 
@@ -7652,9 +7669,9 @@ public static Dropdown rightAllignedDropdown;
 
 @Test
 public void rightAllignedDropdownIsValidationTest() {
-    rightAllignedDropdown.dropdownMenu.is()
-            .core()
-            .hasClass("dropdown-menu-right");
+    rightAllignedDropdown.menu().is()
+        .core()
+        .hasClass("dropdown-menu-right");
 }
 ```
 
@@ -7684,11 +7701,11 @@ public static Dropdown leftAllignedDropdown;
 
 @Test
 public void leftAllignedDropdownIsValidationTest() {
-    leftAllignedDropdown.dropdownMenu.is()
-            .core()
-            .hasClass("dropdown-menu-lg-left")
-            .css(RIGHT, is("auto"))
-            .css(LEFT, is("0px"));
+    leftAllignedDropdown.menu().is()
+        .core()
+        .hasClass("dropdown-menu-lg-left")
+        .css(RIGHT, is("auto"))
+        .css(LEFT, is("0px"));
 }
 ```
 

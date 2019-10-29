@@ -7521,7 +7521,47 @@ Now you can optionally use ``<button>`` elements in your dropdowns instead of ju
 
 Here is an example of Menu items code:
 
-![Menu items HTML example](../images/bootstrap/dropdown-menu-items-html.png)
+```java 
+//@FindBy(css = "#dropdown-menu-items")
+@UI("#dropdown-menu-items")
+public static Dropdown dropdownMenuItems;
+
+@DataProvider(name = "actionsDataProvider")
+public Object[][] actionsDataProvider() {
+    return new Object[][]{
+        {"Action", "Action"},
+        {"Another action", "Another action"},
+        {"Something else here", "One more action"}
+    };
+}
+
+@Test(dataProvider = "actionsDataProvider")
+public void menuItemsActionsTest(String itemText, String alertText) {
+    dropdownMenuItems.expand();
+    dropdownMenuItems.select(itemText);
+    Alerts.validateAlert(Matchers.is(alertText));
+    dropdownMenuItems.collapse();
+}
+```
+
+```html 
+<div class="dropdown" id="dropdown-menu-items">
+    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-bottom: 5px;">
+        Menu items
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+        <button class="dropdown-item" type="button" onclick="alert('Action');">
+            Action
+        </button>
+        <button class="dropdown-item" type="button" onclick="alert('Another action');">
+            Another action
+        </button>
+        <button class="dropdown-item" type="button" onclick="alert('One more action');">
+            Something else here
+        </button>
+    </div>
+</div>
+```
 
 You can also create non-interactive dropdown items with ``.dropdown-item-text``. Feel free to style further with custom CSS or text utilities.
 
@@ -7529,7 +7569,42 @@ You can also create non-interactive dropdown items with ``.dropdown-item-text``.
 
 Here is an example of non-interactive dropdown items code:
 
-![Menu items HTML example](../images/bootstrap/dropdown-non-interactive-items-html.png)
+```java 
+//@FindBy(css = "dropdown-menu-text-item")
+@UI("#dropdown-menu-text-item")
+public static Dropdown dropdownMenuTextItem;
+
+@Test(expectedExceptions = RuntimeException.class,
+        expectedExceptionsMessageRegExp = ".*Expected: an array containing \"href\".*")
+public void textItemTest() {
+    dropdownMenuTextItem.expand();
+    UIElement textItem = dropdownMenuTextItem.list().get("Dropdown item text");
+    textItem.waitFor().enabled();
+    textItem.assertThat()
+        .tag("span");
+
+    textItem.waitSec(1);
+    textItem.assertThat()
+        .hasAttr("href");
+}
+```
+
+```html 
+<div class="dropdown" id="dropdown-menu-text-item">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-bottom: 5px;">
+        Menu items with non-interactive
+    </button>
+    <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 37px, 0px); top: 0px; left: 0px; will-change: transform;">
+        <span class="dropdown-item-text">Dropdown item text</span>
+        <a class="dropdown-item" href="https://getbootstrap.com/docs/4.3/components/dropdowns/" target="_blank">Action</a>
+        <a class="dropdown-item" href="https://getbootstrap.com/docs/4.3/getting-started/introduction/" target="_blank">Another action</a>
+    </div>
+</div>
+```
+
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/complex/dropdown/DropdownMenuItemsTest.java">Bootstrap test examples</a>
+
+<br/><br/><br/><br/><br/>
 
 <a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#active">**Active**</a><br>
 Add ``.active`` to items in the dropdown to style them as active.

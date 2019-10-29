@@ -7738,7 +7738,59 @@ Here is an example form code in the menu items:
 
 ![Form HTML example](../images/bootstrap/dropdown-menu-content-form-html.png)
 
-<br><br>
+<br>
+
+<a target="_blank" href="https://getbootstrap.com/docs/4.3/components/dropdowns/#dropdown-options">**Dropdown Options**</a><br>
+Use ``data-offset`` or ``data-reference`` to change the location of the dropdown.
+
+![Dropdown Options Example](../images/bootstrap/dropdown-options.png)
+
+```java 
+//@FindBy(id = "offsetDropdown")
+@UI("#offsetDropdown")
+public static Dropdown offsetDropdown;
+
+//@FindBy(id = "referenceDropdown")
+@UI("#referenceDropdown")
+public static Dropdown referenceDropdown;
+
+@Test(dataProvider = "dropdownData")
+public void expandCollapseTest(Dropdown dropdown) {
+    dropdown.expand();
+    dropdown.is().expanded();
+    dropdown.collapse();
+    dropdown.is().collapsed();
+}
+
+@Test
+public void optionsCssTest() {
+    offsetDropdown.expand();
+    assertThat(offsetDropdown.core().childs().get(1).getAttribute(DATA_OFFSET), is(DATA_OFFSET_VALUE));
+    offsetDropdown.collapse();
+
+    referenceDropdown.expand();
+    assertThat(referenceDropdown.core().childs().get(2).getAttribute(DATA_REFERENCE), is(DATA_REFERENCE_VALUE));
+    referenceDropdown.collapse();
+}
+```
+
+Here is an example with Bootstrap v4.3 code:
+
+![Dropdown Options HTML example](../images/bootstrap/dropdown-options-html.png)
+
+Available methods in Java JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+**assertThat()** | Assert action | TextAssert
+**is()** | Assert action | UIAssert
+**getAttribute()** | Get attribute value | String
+**expand()** | Expand dropdown | void
+**collapse()** | Collapse dropdown | void
+**expanded()** | Assert that dropdown is expanded | DropdownAssert
+**collapsed()** | Assert that dropdown is collapsed | DropdownAssert
+
+<a href="javascript: void();" target="_blank">Bootstrap Test Examples</a>
 
 ### Toast
 <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/toasts/" target="_blank">Toast</a> - Toasts are lightweight notifications designed to mimic the push notifications.

@@ -5297,12 +5297,12 @@ Adding images to the ```.navbar-brand``` will likely always require custom style
             brandAsLink.is().core().hasAttr("href");
             brandAsLink.highlight("blue");
             brandAsLink.unhighlight();
-            brandAsLink.click();
             int winNumber = WindowsManager.windowsCount();
-            WindowsManager.switchToWindow(winNumber);
+            brandAsLink.click();           
+            WindowsManager.switchToWindow(winNumber + 1);
             assertThat(getUrl(), is(navbarUrl));
             WindowsManager.closeWindow();
-            WindowsManager.switchToWindow(winNumber - 1);
+            WindowsManager.switchToWindow(winNumber);
          }
     
         @Test(dataProvider = "navbarBrands")
@@ -5318,12 +5318,12 @@ Adding images to the ```.navbar-brand``` will likely always require custom style
             imgFromNavbar.highlight("blue");
             imgFromNavbar.is().core().tag("img").attr("src", containsString(imgPath));
             imgFromNavbar.unhighlight();
-            imgFromNavbar.click();
             int winNumber = WindowsManager.windowsCount();
-            WindowsManager.switchToWindow(winNumber);
+            imgFromNavbar.click();          
+            WindowsManager.switchToWindow(winNumber + 1);
             assertThat(getUrl(), is(navbarUrl));
             WindowsManager.closeWindow();
-            WindowsManager.switchToWindow(winNumber - 1);
+            WindowsManager.switchToWindow(winNumber);
     }
 ```
 

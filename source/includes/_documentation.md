@@ -7520,6 +7520,28 @@ Now you can optionally use ``<button>`` elements in your dropdowns instead of ju
 ![Menu items example](../images/bootstrap/dropdown-menu-items.png)
 
 Here is an example of Menu items code:
+```java 
+//@FindBy(css = "#dropdown-menu-items")
+@UI("#dropdown-menu-items")
+public static Dropdown dropdownMenuItems;
+
+@DataProvider(name = "actionsDataProvider")
+public Object[][] actionsDataProvider() {
+    return new Object[][]{
+        {"Action", "Action"},
+        {"Another action", "Another action"},
+        {"Something else here", "One more action"}
+    };
+}
+
+@Test(dataProvider = "actionsDataProvider")
+public void menuItemsActionsTest(String itemText, String alertText) {
+    dropdownMenuItems.expand();
+    dropdownMenuItems.select(itemText);
+    Alerts.validateAlert(Matchers.is(alertText));
+    dropdownMenuItems.collapse();
+}
+```
 
 ![Menu items HTML example](../images/bootstrap/dropdown-menu-items-html.png)
 
@@ -7529,7 +7551,29 @@ You can also create non-interactive dropdown items with ``.dropdown-item-text``.
 
 Here is an example of non-interactive dropdown items code:
 
+```java 
+//@FindBy(css = "dropdown-menu-text-item")
+@UI("#dropdown-menu-text-item")
+public static Dropdown dropdownMenuTextItem;
+
+@Test(expectedExceptions = RuntimeException.class,
+        expectedExceptionsMessageRegExp = ".*Expected: an array containing \"href\".*")
+public void textItemTest() {
+    dropdownMenuTextItem.expand();
+    UIElement textItem = dropdownMenuTextItem.list().get("Dropdown item text");
+    textItem.waitFor().enabled();
+    textItem.assertThat()
+        .tag("span");
+
+    textItem.waitSec(1);
+    textItem.assertThat()
+        .hasAttr("href");
+}
+```
+
 ![Menu items HTML example](../images/bootstrap/dropdown-non-interactive-items-html.png)
+
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/complex/dropdown/DropdownMenuItemsTest.java">Bootstrap test examples</a>
 
 <a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#active">**Active**</a><br>
 Add ``.active`` to items in the dropdown to style them as active.

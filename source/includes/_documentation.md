@@ -3978,7 +3978,7 @@ Here is an example with provided HTML code:
 
 Checkbox is located in the following classes:
  
-  - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.complex.Checkbox_
+  - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.common.Checkbox_
   
 
 ![Checkbox default example](../images/bootstrap/checkbox-default.png)
@@ -4033,6 +4033,7 @@ public void clickableTests() {
 **check()** | Set to checked | void
 **uncheck()** | Set to unchecked | void
 **isSelected()** | Verify value | boolean 
+**isEnabled()** | Verify state | boolean
 **assertThat()** | Assert action checkbox | CheckboxAssert
 **is()** | Assert action checkbox | CheckboxAssert
 
@@ -4063,9 +4064,9 @@ Here is an example with provided Bootstrap v4.3 code:
 @UI("body") public static CheckboxesDefaultInline checkboxesDefaultInline;
 
 public class CheckboxesDefaultInline {
-    @UI("#inlineCheckbox1") public Checkbox checkboxOne; // @FindBy(css = "#inlineCheckbox1") public Checkbox checkboxOne;
-    @UI("#inlineCheckbox2") public Checkbox checkboxTwo; // @FindBy(css = "#inlineCheckbox2") public Checkbox checkboxTwo;
-    @UI("#inlineCheckbox3") public Checkbox checkboxThree; // @FindBy(css = "#inlineCheckbox3") public Checkbox checkboxThree;
+    @UI("//input[@id='inlineCheckbox1']/..") public Checkbox checkboxOne; // @FindBy(css = "#inlineCheckbox1") public Checkbox checkboxOne;
+    @UI("//input[@id='inlineCheckbox2']/..") public Checkbox checkboxTwo; // @FindBy(css = "#inlineCheckbox2") public Checkbox checkboxTwo;
+    @UI("//input[@id='inlineCheckbox3']/..") public Checkbox checkboxThree; // @FindBy(css = "#inlineCheckbox3") public Checkbox checkboxThree;
 }
 
 @Test
@@ -4075,8 +4076,7 @@ public void isValidationTests() {
             .displayed()
             .enabled()
             .core()
-            .attr("type", "checkbox")
-            .hasClass("form-check-input");
+            .hasClass("form-check form-check-inline");
     checkboxesDefaultInline.checkboxOne.label()
             .is()
             .displayed()
@@ -4108,19 +4108,18 @@ public void clickableTests() {
 
 |Method | Description | Return Type
 --- | --- | ---
-**click()** | Click the button | void
-**check()** | Select the button | void
-**uncheck()** | Deselect the button | void
-**getText()** | Get button text | String
-**is()** | Assert action | TextAssert 
-**assertThat()** | Assert action | TextAssert
-**select()** | Select button | void
-**selected()** | Radio button is selected | TextAssert
-**get()** | Select button by index | action
+**click()** | Click the checkbox | void
+**check(String)** | Set to checked on "true" (case insensitive) or unchecked otherwise | void
+**check()** | Set to checked | void
+**uncheck()** | Set to unchecked | void
+**isSelected()** | Verify value | boolean 
+**isEnabled()** | Verify state | boolean
+**assertThat()** | Assert action checkbox | CheckboxAssert
+**is()** | Assert action checkbox | CheckboxAssert
 
 <br>
 
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/CheckboxesDefaultInlineTests.java)
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/CheckboxesDefaultInlineTests.java)
 <br>
 
 Button group is represented by Section class in Java:
@@ -4302,7 +4301,7 @@ Here is an example with provided Bootstrap v4.3 code:
 @UI("body") public static CheckboxesAndRadiosWithoutLabels checkboxesAndRadiosWithoutLabels;
 
 public class CheckboxesAndRadiosWithoutLabels extends Section {
-    @UI("#blankCheckbox") public Checkbox checkbox; // @FindBy(css = "#blankCheckbox") public Checkbox checkbox;
+    @UI("//input[@id='blankCheckbox']/..") public Checkbox checkbox; // @FindBy(css = "#blankCheckbox") public Checkbox checkbox;
     @UI("#blankRadio1") public RadioButton radioButton; // @FindBy(css = "#blankRadio1") public RadioButton radioButton;
 }
 
@@ -4313,8 +4312,8 @@ public void isValidationTests() {
             .displayed()
             .enabled()
             .core()
-            .attr("type", "checkbox")
-            .attr("aria-label", "...");
+            .hasClass("form-check")
+            .tag(is("div"));
     checkboxesAndRadiosWithoutLabels.radioButton
             .is()
             .displayed()
@@ -4352,15 +4351,10 @@ public void radioButtonTests() {
 
 |Method | Description | Return Type
 --- | --- | ---
-**click()** | Click the button | void
-**check()** | Click the button | void
-**checked()** | Click the button | TextAssert
+**click()** | Click the element | void
+**check()** | Click the element | void
 **is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
-**select()** | Select button | void
-**selected()** | Radio button is selected | TextAssert
-**deselected()** | Radio button is selected | TextAssert
-**get()** | Select button by index | action
 
 <br>
 
@@ -4389,20 +4383,18 @@ Here is an example with provided Bootstrap v4.3 code:
 @UI("body") public static CheckboxesCustom checkboxesCustom;
 
 public class CheckboxesCustom extends Section {
-    @UI("#customCheck1-div") public Checkbox checkboxContainer; // @FindBy(css = "#customCheck1-div") public Checkbox checkboxContainer;
-    @UI("#customCheck1") public Checkbox checkbox; // @FindBy(css = "#customCheck1") public Checkbox checkbox;
+    @UI("#customCheck1-div") public Checkbox checkbox; // @FindBy(css = "#customCheck1-div") public Checkbox checkbox;
 }
 
 @Test
 public void isValidationTests() {
     checkboxesCustom.checkbox
             .is()
-            .disappear()
+            .displayed()
             .enabled()
             .core()
-            .attr("type", "checkbox")
-            .hasClass("custom-control-input")
-            .tag(is("input"));
+            .hasClass("custom-control custom-checkbox")
+            .tag(is("div"));
     checkboxesCustom.checkbox.label()
             .is()
             .displayed()
@@ -4415,9 +4407,9 @@ public void isValidationTests() {
 
 @Test
 public void clickableTests() {
-    checkboxesCustom.checkboxContainer.check();
+    checkboxesCustom.checkbox.check();
     checkboxesCustom.checkbox.is().selected();
-    checkboxesCustom.checkbox.label().click();
+    checkboxesCustom.checkbox.click();
     checkboxesCustom.checkbox.is().deselected();
 }
 ```
@@ -4428,15 +4420,14 @@ public void clickableTests() {
 
 |Method | Description | Return Type
 --- | --- | ---
-**click()** | Click the button | void
-**check()** | Select the button | void
-**uncheck()** | Deselect the button | void
-**getText()** | Get button text | String
-**is()** | Assert action | TextAssert 
-**assertThat()** | Assert action | TextAssert
-**select()** | Select button | void
-**selected()** | Radio button is selected | TextAssert
-**get()** | Select button by index | action
+**click()** | Click the checkbox | void
+**check(String)** | Set to checked on "true" (case insensitive) or unchecked otherwise | void
+**check()** | Set to checked | void
+**uncheck()** | Set to unchecked | void
+**isSelected()** | Verify value | boolean 
+**isEnabled()** | Verify state | boolean
+**assertThat()** | Assert action checkbox | CheckboxAssert
+**is()** | Assert action checkbox | CheckboxAssert
 
 <br>
 
@@ -4622,8 +4613,7 @@ Here is an example with provided Bootstrap v4.3 code:
 @UI("body") public static CheckboxAndRadioButtonCustomDisabled checkboxAndRadioButtonCustomDisabled;
 
 public class CheckboxAndRadioButtonCustomDisabled extends Section {
-    @UI("#customCheckDisabled1-div") public Checkbox checkboxContainer; // @FindBy(css = "#customCheckDisabled1-div") public Checkbox checkboxContainer;
-    @UI("#customCheckDisabled1") public Checkbox checkbox; // @FindBy(css = "#customCheckDisabled1") public Checkbox checkbox;
+    @UI("#customCheckDisabled1-div") public Checkbox checkbox; // @FindBy(css = "#customCheckDisabled1-div") public Checkbox checkbox;
     @UI("#customRadioDisabled2-div") public RadioButton radioButtonContainer; // @FindBy(css = "#customRadioDisabled2-div") public RadioButton radioButtonContainer;
     @UI("#customRadioDisabled2") public RadioButton radioButton; // @FindBy(css = "#customRadioDisabled2") public RadioButton radioButton;
     @UI("label[for='customRadioDisabled2']") public Label radio1Label; // @FindBy(css = "label[for='customRadioDisabled2']") public Label radio1Label;
@@ -4658,15 +4648,10 @@ public void baseInitTest() {
 
 |Method | Description | Return Type
 --- | --- | ---
-**click()** | Click the button | void
-**check()** | Select the button | void
-**uncheck()** | Deselect the button | void
-**getText()** | Get button text | String
+**click()** | Click the element | void
+**check()** | Click the element | void
 **is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
-**select()** | Select button | void
-**selected()** | Radio button is selected | TextAssert
-**get()** | Select button by index | action
 
 <br>
 

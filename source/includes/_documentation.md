@@ -4064,9 +4064,9 @@ Here is an example with provided Bootstrap v4.3 code:
 @UI("body") public static CheckboxesDefaultInline checkboxesDefaultInline;
 
 public class CheckboxesDefaultInline {
-    @UI("//input[@id='inlineCheckbox1']/..") public Checkbox checkboxOne; // @FindBy(css = "#inlineCheckbox1") public Checkbox checkboxOne;
-    @UI("//input[@id='inlineCheckbox2']/..") public Checkbox checkboxTwo; // @FindBy(css = "#inlineCheckbox2") public Checkbox checkboxTwo;
-    @UI("//input[@id='inlineCheckbox3']/..") public Checkbox checkboxThree; // @FindBy(css = "#inlineCheckbox3") public Checkbox checkboxThree;
+    @UI("//input[@id='inlineCheckbox1']/..") public Checkbox checkboxOne; // @FindBy(xpath = "//input[@id='inlineCheckbox1']/..") public Checkbox checkboxOne;
+    @UI("//input[@id='inlineCheckbox2']/..") public Checkbox checkboxTwo; // @FindBy(xpath = "//input[@id='inlineCheckbox2']/..") public Checkbox checkboxTwo;
+    @UI("//input[@id='inlineCheckbox3']/..") public Checkbox checkboxThree; // @FindBy(xpath = "//input[@id='inlineCheckbox3']/..") public Checkbox checkboxThree;
 }
 
 @Test
@@ -4301,7 +4301,7 @@ Here is an example with provided Bootstrap v4.3 code:
 @UI("body") public static CheckboxesAndRadiosWithoutLabels checkboxesAndRadiosWithoutLabels;
 
 public class CheckboxesAndRadiosWithoutLabels extends Section {
-    @UI("//input[@id='blankCheckbox']/..") public Checkbox checkbox; // @FindBy(css = "#blankCheckbox") public Checkbox checkbox;
+    @UI("//input[@id='blankCheckbox']/..") public Checkbox checkbox; // @FindBy(xpath = "//input[@id='blankCheckbox']/..") public Checkbox checkbox;
     @UI("#blankRadio1") public RadioButton radioButton; // @FindBy(css = "#blankRadio1") public RadioButton radioButton;
 }
 

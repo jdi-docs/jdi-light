@@ -4365,8 +4365,7 @@ Button group is represented by Section class in Java:
  
   [Section](https://jdi-docs.github.io/jdi-light/#section)  
 
-<br>
-
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 #### [Checkbox custom](https://getbootstrap.com/docs/4.3/components/forms/#checkboxes)
 
 Checkbox is located in the following classes:
@@ -4431,7 +4430,7 @@ public void clickableTests() {
 
 <br>
 
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/CheckboxesCustomTests.java)
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/CustomCheckboxTests.java)
 <br>
 
 Button group is represented by Section class in Java:
@@ -4666,9 +4665,9 @@ Button group is represented by Section class in Java:
 
 #### [Switches custom](https://getbootstrap.com/docs/4.3/components/forms/#inline-1)
 
-Radio button is located in the following classes:
+Checkbox is located in the following classes:
  
-  - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.common.RadioButton_
+  - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.common.Checkbox_
   
 
 ![Switches custom example](../images/bootstrap/switches.png)
@@ -4679,22 +4678,19 @@ Here is an example with provided Bootstrap v4.3 code:
 @UI("body") public static Switches switches; // @FindBy(css = "body") public static Switches switches;
 
 public class Switches extends Section {
-    @UI("#customSwitch1") public Checkbox checkbox; // @FindBy(css = "#customSwitch1") public Checkbox checkbox;
-    @UI("#customSwitch1-div") public Checkbox checkboxContainer; // @FindBy(css = "#customSwitch1-div") public Checkbox checkboxContainer;
-    @UI("#customSwitch2") public Checkbox checkboxDisabled; // @FindBy(css = "#customSwitch2") public Checkbox checkboxDisabled;
-    @UI("#customSwitch2-div") public Checkbox checkboxDisabledContainer; // @FindBy(css = "#customSwitch2-div") public Checkbox checkboxDisabledContainer;
+    @UI("#customSwitch1-div") public Checkbox checkbox; // @FindBy(css = "#customSwitch1-div") public Checkbox checkbox;
+    @UI("#customSwitch2-div") public Checkbox checkboxDisabled; // @FindBy(css = "#customSwitch2-div") public Checkbox checkboxDisabled;
 }
 
 @Test
 public void isValidationTests() {
     switches.checkbox
             .is()
-            .hidden()
+            .displayed()
             .enabled()
             .core()
-            .attr("type", "checkbox")
-            .hasClass("custom-control-input")
-            .tag(is("input"));
+            .hasClass("custom-control custom-switch")
+            .tag(is("div"));
     switches.checkbox.label()
             .is()
             .displayed()
@@ -4703,20 +4699,13 @@ public void isValidationTests() {
             .hasClass("custom-control-label")
             .text(is("Toggle this switch element"))
             .tag(is("label"));
-    switches.checkboxContainer
-            .is()
-            .displayed()
-            .enabled()
-            .core()
-            .hasClass("custom-control custom-switch")
-            .tag(is("div"));
 }
 
 @Test
 public void clickableTests() {
-    switches.checkboxContainer.check();
+    switches.checkbox.check();
     switches.checkbox.is().selected();
-    switches.checkboxContainer.check();
+    switches.checkbox.check();
     switches.checkbox.is().deselected();
 }
 ```
@@ -4727,15 +4716,14 @@ public void clickableTests() {
 
 |Method | Description | Return Type
 --- | --- | ---
-**click()** | Click the button | void
-**check()** | Select the button | void
-**uncheck()** | Deselect the button | void
-**getText()** | Get button text | String
-**is()** | Assert action | TextAssert 
-**assertThat()** | Assert action | TextAssert
-**select()** | Select button | void
-**selected()** | Radio button is selected | TextAssert
-**get()** | Select button by index | action
+**click()** | Click the checkbox | void
+**check(String)** | Set to checked on "true" (case insensitive) or unchecked otherwise | void
+**check()** | Set to checked | void
+**uncheck()** | Set to unchecked | void
+**isSelected()** | Verify value | boolean 
+**isEnabled()** | Verify state | boolean
+**assertThat()** | Assert action checkbox | CheckboxAssert
+**is()** | Assert action checkbox | CheckboxAssert
 
 <br>
 

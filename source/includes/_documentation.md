@@ -7895,7 +7895,66 @@ Add ``.active`` to items in the dropdown to style them as active.
 
 Here is a code example of items in the dropdown which are styled as active:
 
-![Active HTML example](../images/bootstrap/dropdown-menu-items-active-html.png)
+```java 
+//@FindBy(css = "#dropdown-menu-items-active")
+@UI("#dropdown-menu-items-active")
+public static Dropdown dropdownMenuItemsActive;
+
+@Test(dataProvider = "dropdownMenu")
+public void dropdownMenuTest(String itemText, String itemHref) {
+    dropdownMenuItemsActive.expand();
+    int currWindowNum = WindowsManager.windowsCount();
+    dropdownMenuItemsActive.select(itemText);
+    WindowsManager.switchToWindow(currWindowNum + 1);
+    String Url = WebPage.getUrl();
+    assertEquals(Url, itemHref);
+    WindowsManager.closeWindow();
+    WindowsManager.switchToWindow(currWindowNum);
+    dropdownMenuItemsActive.collapse();
+    }
+
+@Test
+public void isActiveTest() {
+    dropdownMenuItemsActive.expand();
+    dropdownMenuItemsActive.is().active(2);
+    dropdownMenuItemsActive.collapse();
+}
+```
+
+```html 
+<div class="dropdown" id="dropdown-menu-items-active">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-bottom: 5px;">
+        Menu items with active
+    </button>
+    <div class="dropdown-menu">
+        <a class="dropdown-item" href="https://getbootstrap.com/docs/4.3/components/dropdowns/#active" target="_blank">Action</a>
+        <a class="dropdown-item active" href="https://getbootstrap.com/docs/4.3/components/dropdowns/" target="_blank">Another action</a>
+        <a class="dropdown-item" href="https://getbootstrap.com/docs/4.3/getting-started/introduction/" target="_blank">Something else here</a>
+    </div>
+</div>
+```
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**expand()** | Expand dropdown| void
+**collapse()** | Collapse dropdown| void
+**select(String item)** | Click at dropdown item | void
+**collapse()** | Collapse dropdown| void
+**isExpanded()** | Return if dropdown expanded| boolean
+**isCollapsed()** | Return if dropdown expanded| boolean
+**expander()** | Get dropdown expander | Button
+
+Available asserts in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**expanded()** | Check if expanded| DropdownAssert
+**collapsed()** | Check if collapsed| DropdownAssert
+**active(int itemIndex)** | Check if item in dropdown menu is active | DropdownAssert
+
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/complex/dropdown/DropdownActiveTests.java">Bootstrap test examples</a>
 
 <a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#disabled">**Disabled**</a><br>
 Add ``.disabled`` to items in the dropdown to style them as disabled.

@@ -7904,7 +7904,50 @@ Add ``.disabled`` to items in the dropdown to style them as disabled.
 
 Here is a code example of items in the dropdown which are styled as disabled:
 
-![Disabled HTML example](../images/bootstrap/dropdown-menu-items-disabled-html.png)
+```java 
+//@FindBy(css = "#dropdown-menu-disabled-item")
+@UI("#dropdown-menu-disabled-item")
+public static Dropdown dropdownMenuDisabledItem;
+
+private final String DISABLED_ITEM_TEXT = "Disabled link";
+private final String DISABLED_ITEM_HREF = "https://getbootstrap.com/docs/4.3/components/dropdowns/";
+
+@Test
+public void itemTest() {
+    dropdownMenuDisabledItem.expand();
+    dropdownMenuDisabledItem.list()
+        .get(DISABLED_ITEM_TEXT)
+        .assertThat()
+        .tag("a")
+        .attr("href", DISABLED_ITEM_HREF)
+        .disabled();
+    dropdownMenuDisabledItem.collapse();
+}
+```
+
+```html 
+<div class="dropdown" id="dropdown-menu-disabled-item">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-bottom: 5px;">
+        Menu items with disabled
+    </button>
+    <div class="dropdown-menu">
+        <a class="dropdown-item" href="https://getbootstrap.com/docs/4.3/components/dropdowns/" target="_blank">Regular link</a>
+        <a class="dropdown-item disabled" href="https://getbootstrap.com/docs/4.3/components/dropdowns/" target="_blank">Disabled
+            link</a>
+        <a class="dropdown-item" href="https://getbootstrap.com/docs/4.3/getting-started/introduction/" target="_blank">Another link</a>
+    </div>
+</div>
+```
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**expand()** | Expand dropdown| void
+**collapse()** | Collapse dropdown| void
+**list()** | Get dropdown items | WebList
+
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/complex/dropdown/DisabledMenuItemTest.java">Bootstrap test examples</a>
 
 <br>
 

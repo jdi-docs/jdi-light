@@ -3978,7 +3978,7 @@ Here is an example with provided HTML code:
 
 Checkbox is located in the following classes:
  
-  - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.common.Checkbox_
+  - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.complex.Checkbox_
   
 
 ![Checkbox default example](../images/bootstrap/checkbox-default.png)
@@ -3990,8 +3990,8 @@ Here is an example with provided Bootstrap v4.3 code:
 @UI("body") public static CheckboxesDefault checkboxesDefault;
 
 public class CheckboxesDefault extends Section {
-    @UI("#defaultCheck1") public Checkbox checkboxOne; // @FindBy(css = "#defaultCheck1") public Checkbox checkboxOne;
-    @UI("#defaultCheck2") public Checkbox checkboxTwo; // @FindBy(css = "#defaultCheck2") public Checkbox checkboxTwo;
+    @UI("#check1") public Checkbox checkboxOne; // @FindBy(css = "#check1") public Checkbox checkboxOne;
+    @UI("#check1") public Checkbox checkboxTwo; // @FindBy(css = "#check2") public Checkbox checkboxTwo;
 }
 
 @Test
@@ -4001,9 +4001,8 @@ public void isValidationTests() {
             .displayed()
             .enabled()
             .core()
-            .attr("type", "checkbox")
-            .hasClass("form-check-input")
-            .tag(is("input"));
+            .hasClass("form-check")
+            .tag(is("div"));
     checkboxesDefault.checkboxOne.label()
             .is()
             .displayed()
@@ -4029,19 +4028,17 @@ public void clickableTests() {
 
 |Method | Description | Return Type
 --- | --- | ---
-**click()** | Click the button | void
-**check()** | Select the button | void
-**uncheck()** | Deselect the button | void
-**getText()** | Get button text | String
-**is()** | Assert action | TextAssert 
-**assertThat()** | Assert action | TextAssert
-**select()** | Select button | void
-**selected()** | Radio button is selected | TextAssert
-**get()** | Select button by index | action
+**click()** | Click the checkbox | void
+**check(String)** | Set to checked on "true" (case insensitive) or unchecked otherwise | void
+**check()** | Set to checked | void
+**uncheck()** | Set to unchecked | void
+**isSelected()** | Verify value | boolean 
+**assertThat()** | Assert action checkbox | CheckboxAssert
+**is()** | Assert action checkbox | CheckboxAssert
 
 <br>
 
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/CheckboxesDefaultTests.java)
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/CheckboxesDefaultTests.java)
 <br>
 
 Button group is represented by Section class in Java:

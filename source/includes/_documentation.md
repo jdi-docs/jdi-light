@@ -589,7 +589,7 @@ public void SetMonthTest()
 ```
 **Input Type Month** – a graphical control element that allows user to set values for month and year.
 
-![InputTypeMonth](../images/html/inputTypeMonth_html.png)
+![InputTypeMonth](../images/html/inputTypeMonth_html2.png)
 
 ```html
 <label for="month-date">Month of Holidays</label>
@@ -672,7 +672,7 @@ public void SetPartyTimeTest()
 ```
 **Input Type DateTime-Local** – A graphical control element that allows user to set time and date.
 
-![InputTypeDateTime](../images/html/inputDateTimeLocal_html.png)
+![InputTypeDateTime](../images/html/inputDateTimeLocal_html2.png)
 
 ```html
 <label for="party-time">Date/time:</label>
@@ -1059,6 +1059,7 @@ Menu element is located in JDI Light in:
   .Menu_
   - __C#__: _JDI.Light.Elements.Composite.Menu_
 
+![Menu example](../images/html/menu2.png) 
 
 Here is an example with provided HTML code:
 
@@ -1194,7 +1195,7 @@ public void GetNumberTest()
 ```
 
 
-![NumberSelector](../images/html/numberSelector_html.png)
+![NumberSelector](../images/html/numberSelector_html2.png)
 
 ```html
 <label for="height">Height (metres):</label>
@@ -1416,7 +1417,7 @@ Available method in C# JDI Light:
 
 **Range** - A graphical control element that allows the user to set the value from the range.</br>
 
-![Range](../images/html/range_html.png)</br>
+![Range](../images/html/range_html2.png)</br>
 
 ```html
 <label for="volume">Volume</label>
@@ -1577,7 +1578,12 @@ And here are methods available in Java:
   
 ```
 
-![Text](../images/html/text_html.png)
+![Text](../images/html/text_html2.png)
+
+```html
+<p ui="jdi-text">Powerful Framework for UI Tests Automation. Suitable for any UI project: 
+Web(Html5, Angular, React...), Mobile(Android IOs), Desktop(Win app) etc.</p>
+```
 
 Text is represented by the following class:
 
@@ -1664,7 +1670,7 @@ public ITextField NameField;
 ```
 **TextField** – Is a simple element type that allows users to fill in text fields.
 
-![InputTypeTextField](../images/html/textField_html.png)
+![InputTypeTextField](../images/html/textField_html2.png)
 
 ```html
 <label for="name">Your name:</label>
@@ -1768,7 +1774,7 @@ public ITextArea TextArea;
 
 **TextArea** – Is a simple element type that allows users to fill in text areas (they may contain a few lines). 
 
-![InputTypeTextArea](../images/html/textArea_html.png)
+![InputTypeTextArea](../images/html/textArea_html2.png)
 
 ```html
 <label for="text-area">Text example:</label>
@@ -1887,7 +1893,7 @@ public void BaseValidationTest()
 ```
 
 
-![Title](../images/title.png)
+![Title](../images/html/title2.png)
 
 ```html
 <h1 ui="jdi-title" onclick="alert('JDI Title');">JDI Testing platform</h1>
@@ -3243,7 +3249,7 @@ public void IsDisabledTest()
 }
 ```
 
-![Checklist Example](../images/html/checklist_html.png)
+![Checklist Example](../images/html/checklist_html2.png)
 
 ```html
 <input type="checkbox" id="hot" name="checks-group" checked="">

@@ -3748,7 +3748,6 @@ public void clickableTests() {
 **selected()** | Radio button is selected | TextAssert
 **get()** | Select button by index | action
 
-
 <br>
 
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/CheckboxesDefaultInlineTests.java)

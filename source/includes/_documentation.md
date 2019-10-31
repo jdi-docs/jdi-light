@@ -3898,7 +3898,7 @@ More than that, it has a nested **StringCheckType** class with the following met
 ### Button
 Bootstrap includes several predefined button styles, each serving its own semantic purpose, with a few extras thrown in for more control.
 
-**[Button] <a href="https://getbootstrap.com/docs/4.3/components/buttons/" target="_blank">Test examples in Java</a>** – Element that represents a clickable button.
+**<a href="https://getbootstrap.com/docs/4.3/components/buttons/" target="_blank">Button</a>** – Element that represents a clickable button.
 
 ![Button](../images/bootstrap/button.png)
 
@@ -3937,7 +3937,7 @@ Available methods in Java JDI Light:
 **assertThat()** | Assert action | TextAssert
 <br>
 
-**[Disabled Button](https://getbootstrap.com/docs/4.3/components/buttons/)** – Element that represents a Not clickable button
+**[Disabled Button] <a href="https://getbootstrap.com/docs/4.3/components/buttons/" target="_blank">Disabled Button</a>** – Element that represents a Not clickable button.
 
 ![Disabled button](../images/bootstrap/disabled_button.png)
 
@@ -3980,7 +3980,7 @@ Here is an example with provided HTML code:
 
 ### Checkboxes and radios
 
-#### [Checkbox default](https://getbootstrap.com/docs/4.3/components/forms/#default-stacked)
+#### [Checkbox default] <a href="https://getbootstrap.com/docs/4.3/components/buttons/" target="_blank">Checkbox default</a>
 
 Checkbox is located in the following classes:
  
@@ -4045,8 +4045,7 @@ public void clickableTests() {
 
 <br>
 
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/CheckboxesDefaultTests.java)
-<br>
+[Java test examples] <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/CheckboxesDefaultTests.java" target="_blank">Test examples in Java</a><br>
 
 Button group is represented by Section class in Java:
  
@@ -4054,7 +4053,7 @@ Button group is represented by Section class in Java:
 
 <br>
 
-#### [Checkbox default inline](https://getbootstrap.com/docs/4.3/components/forms/#inline)
+#### [Checkbox default inline] <a href="https://getbootstrap.com/docs/4.3/components/forms/#inline" target="_blank">Checkbox default inline</a>
 
 Checkbox is located in the following classes:
  

@@ -17862,4 +17862,32 @@ TBD
 ## Remote test runs
 TBD
 
+Add before suite
+
+```java 
+public class TestsInit extends TestNGBase {
+
+    public String hubUrl;
+    public RemoteWebDriver driver;
+
+    @BeforeSuite (alwaysRun = true)
+    public void setUpSuite() throws IOException {
+        hubUrl = "http://localhost:4444/wd/hub";
+
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setBrowserName("chrome");
+        capabilities.setVersion("64.0");
+        capabilities.setCapability("enableVNC", true);
+        capabilities.setCapability("enableVideo", false);
+        driver = new RemoteWebDriver(URI.create(hubUrl).toURL(), capabilities);
+        driver.manage().window().maximize();
+
+        WebSettings.initFromProperties();
+        WebSettings.useDriver(()-> driver);
+        WebSite.init(SEDSite.class);
+    }
+}
+    
+```
+
 

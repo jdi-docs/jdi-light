@@ -495,7 +495,7 @@ public void SetBirthDateTest()
 ```
 **Input Type Date** – A graphical control element that allows user to set value for date.
 
-![InputTypeDate](../images/html/inputTypeDate_html.png)
+![InputTypeDate](../images/html/inputTypeDate_html2.png)
 
 ```html
 <label for="birth-date">Birth date</label>
@@ -542,7 +542,7 @@ public void AutumnDateTimeTest()
 ```
 **Input Type Week** – A graphical control element that allows user to set values for week and year.
 
-![InputTypeWeek](../images/html/inputTypeWeek_html.png)
+![InputTypeWeek](../images/html/inputTypeWeek_html2.png)
 
 ```html
 <label for="autumn-week">Autumn</label>
@@ -634,7 +634,7 @@ public void SetTimeTest()
 ```
 **Input Type Time** – A graphical control element that allows user to set time.
 
-![InputTypeTime](../images/html/inputTypeTime_html.png)
+![InputTypeTime](../images/html/inputTypeTime_html2.png)
 
 ```html
 <label for="booking-time">Booking Time:</label>
@@ -973,7 +973,7 @@ Link are represented by the following class:
   - __C#__: _JDI.Light.Elements.Common.Link_
   
 
-![Link](../images/html/link_html.png)
+![Link](../images/html/link_html2.png)
 
 ```html
 <a ui="github-link" href="https://github.com/jdi-testing" alt="Github JDI Link">Github JDI</a>
@@ -1964,7 +1964,7 @@ public void GetSelected()
 
 Consider an example where each radio button is a particular color, described with given HTML code:
 
-![RadioButton](../images/html/radio_html.png)
+![RadioButton](../images/html/radio_html2.png)
 
 ```html
 <input type="radio" id="red" name="colors">
@@ -2808,7 +2808,7 @@ public void BaseValidationTest()
 
 ```
 
-![Dropdown HTML5](../images/html/dropdown_html5.png)
+![Dropdown HTML5](../images/html/dropdown_html52.png)
 
 ```html
 <select id="dress-code">

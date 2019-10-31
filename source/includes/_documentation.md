@@ -3937,7 +3937,7 @@ Available methods in Java JDI Light:
 **assertThat()** | Assert action | TextAssert
 <br>
 
-**[Disabled Button] <a href="https://getbootstrap.com/docs/4.3/components/buttons/" target="_blank">Disabled Button</a>** – Element that represents a Not clickable button.
+**<a href="https://getbootstrap.com/docs/4.3/components/buttons/" target="_blank">Disabled Button</a>** – Element that represents a Not clickable button.
 
 ![Disabled button](../images/bootstrap/disabled_button.png)
 
@@ -3980,7 +3980,7 @@ Here is an example with provided HTML code:
 
 ### Checkboxes and radios
 
-#### [Checkbox default] <a href="https://getbootstrap.com/docs/4.3/components/buttons/" target="_blank">Checkbox default</a>
+#### <a href="https://getbootstrap.com/docs/4.3/components/buttons/" target="_blank">Checkbox default</a>
 
 Checkbox is located in the following classes:
  
@@ -4045,7 +4045,7 @@ public void clickableTests() {
 
 <br>
 
-[Java test examples] <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/CheckboxesDefaultTests.java" target="_blank">Test examples in Java</a><br>
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/CheckboxesDefaultTests.java" target="_blank">Test examples in Java</a><br>
 
 Button group is represented by Section class in Java:
  
@@ -4053,7 +4053,7 @@ Button group is represented by Section class in Java:
 
 <br>
 
-#### [Checkbox default inline] <a href="https://getbootstrap.com/docs/4.3/components/forms/#inline" target="_blank">Checkbox default inline</a>
+#### <a href="https://getbootstrap.com/docs/4.3/components/forms/#inline" target="_blank">Checkbox default inline</a>
 
 Checkbox is located in the following classes:
  
@@ -4124,7 +4124,7 @@ public void clickableTests() {
 
 <br>
 
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/CheckboxesDefaultInlineTests.java)
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/CheckboxesDefaultInlineTests.java" target="_blank">Test examples in Java</a>
 <br>
 
 Button group is represented by Section class in Java:
@@ -4133,7 +4133,7 @@ Button group is represented by Section class in Java:
 
 <br>
 
-#### [Radio button](https://getbootstrap.com/docs/4.3/components/forms/#default-stacked)
+#### <a href="https://getbootstrap.com/docs/4.3/components/forms/#default-stacked" target="_blank">Radio button</a>
 Element that can be represented with one or more clickable buttons aiming to choose only one button of the group.
 
 Radio button is located in the following classes:
@@ -4202,7 +4202,7 @@ public void radioButtonByLabelTests() {
 
 <br>
 
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/RadioButtonTests.java)
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/RadioTests.java" target="_blank">Test examples in Java</a>
 <br>
 
 Button group is represented by Section class in Java:
@@ -4211,7 +4211,7 @@ Button group is represented by Section class in Java:
 
 <br>
 
-#### [Radio button inline](https://getbootstrap.com/docs/4.3/components/forms/#inline)
+#### <a href="https://getbootstrap.com/docs/4.3/components/forms/#inline" target="_blank">Radio button inline</a>
 
 Radio button is located in the following classes:
  
@@ -4280,7 +4280,7 @@ public void radioButtonByIndexTests() {
 
 <br>
 
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/RadioButtonsDefaultInlineTests.java)
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/RadioTests.java" target="_blank">Test examples in Java</a>
 <br>
 
 Button group is represented by Section class in Java:
@@ -4289,7 +4289,7 @@ Button group is represented by Section class in Java:
 
 <br>
 
-#### [Radio button and checkbox without labels](https://getbootstrap.com/docs/4.3/components/forms/#without-labels) 
+#### <a href="https://getbootstrap.com/docs/4.3/components/forms/#without-labels" target="_blank">Radio button and checkbox without labels</a>
 
 Checkbox and Radio button are located in the following classes:
  
@@ -4362,8 +4362,7 @@ public void radioButtonTests() {
 **assertThat()** | Assert action | TextAssert
 
 <br>
-
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/CheckboxesAndRadiosWithoutLabelsTests.java)
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/CheckboxesAndRadiosWithoutLabelsTests.java" target="_blank">Test examples in Java</a>
 <br>
 
 Button group is represented by Section class in Java:
@@ -4371,8 +4370,7 @@ Button group is represented by Section class in Java:
   [Section](https://jdi-docs.github.io/jdi-light/#section)  
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-#### [Checkbox custom](https://getbootstrap.com/docs/4.3/components/forms/#checkboxes)
-
+#### <a href="https://getbootstrap.com/docs/4.3/components/forms/#checkboxes" target="_blank">Checkbox custom</a>
 Checkbox is located in the following classes:
  
   - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.common.Checkbox_
@@ -4434,8 +4432,7 @@ public void clickableTests() {
 **is()** | Assert action checkbox | CheckboxAssert
 
 <br>
-
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/CustomCheckboxTests.java)
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/CustomCheckboxTests.java" target="_blank">Test examples in Java</a>
 <br>
 
 Button group is represented by Section class in Java:
@@ -4444,7 +4441,7 @@ Button group is represented by Section class in Java:
 
 <br>
 
-#### [Radio button custom](https://getbootstrap.com/docs/4.3/components/forms/#radios)
+#### <a href="https://getbootstrap.com/docs/4.3/components/forms/#radios" target="_blank">Radio button custom</a>
 
 Radio button is located in the following classes:
  
@@ -4512,8 +4509,7 @@ public void radioOneIsValidationTests() {
 **get()** | Select button by index | action
 
 <br>
-
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/RadioButtonCustomTests.java)
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/RadioButtonCustomTests.java" target="_blank">Test examples in Java</a>
 <br>
 
 Button group is represented by Section class in Java:
@@ -4522,7 +4518,7 @@ Button group is represented by Section class in Java:
 
 <br>
 
-#### [Radio button custom inline](https://getbootstrap.com/docs/4.3/components/forms/#inline-1)
+#### <a href="https://getbootstrap.com/docs/4.3/components/forms/#inline-1" target="_blank">Radio button custom inline</a>
 
 Radio button is located in the following classes:
  
@@ -4589,8 +4585,7 @@ public void radioOneIsValidationTests() {
 **get()** | Select button by index | action
 
 <br>
-
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/RadioButtonsCustomInlineTests.java)
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/RadioButtonsCustomInlineTests.java" target="_blank">Test examples in Java</a>
 <br>
 
 Button group is represented by Section class in Java:
@@ -4599,7 +4594,7 @@ Button group is represented by Section class in Java:
 
 <br>
 
-#### [Custom disabled](https://getbootstrap.com/docs/4.3/components/forms/#inline-1)
+#### <a href="https://getbootstrap.com/docs/4.3/components/forms/#inline-1" target="_blank">Custom disabled</a>
 
 Checkbox and Radio button is located in the following classes:
 
@@ -4658,8 +4653,7 @@ public void baseInitTest() {
 **assertThat()** | Assert action | TextAssert
 
 <br>
-
-[Java test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/CheckboxAndRadioButtonCustomDisabledTests.java)
+<a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/CheckboxAndRadioButtonCustomDisabledTests.java" target="_blank">Test examples in Java</a>
 <br>
 
 Button group is represented by Section class in Java:

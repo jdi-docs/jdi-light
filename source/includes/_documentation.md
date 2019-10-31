@@ -4084,7 +4084,7 @@ public void isValidationTests() {
             .core()
             .hasClass("form-check-label")
             .text(is("1"));
-
+}
 @Test
 public void clickableTests() {
     checkboxesDefaultInline.checkboxOne.check();

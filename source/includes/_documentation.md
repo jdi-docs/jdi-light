@@ -748,7 +748,7 @@ FileInput element is located in JDI Light in:
 
 Here is an example with HTML code provided:
 
-![FileInput example](../images/html/fileinput_html.png)
+<!-- ![FileInput example](../images/html/fileinput_html.png) -->
 
 ```html
 <input type="file" id="avatar" accept="image/png, image/jpeg">
@@ -816,7 +816,7 @@ public IIcon Logo
 ```
 **Icon** – Is a simple element type that represents icons and graphic images.
 
-![Icon](../images/html/image_html.png)
+![Icon](../images/html/image_html2.png)
 
 ```html
 <label for="jdi-logo">JDI Logo:</label>
@@ -894,7 +894,7 @@ public IImage LogoImage;
 ```
 **Image** – Is a simple element type that represents graphic images.
 
-![Image](../images/html/image_html.png)
+![Image](../images/html/image_html2.png)
 
 ```html
 <label for="jdi-logo">JDI Logo:</label>
@@ -2243,7 +2243,7 @@ Tables are represented by the following classes in Java and C#:
   - __Java__: _com.epam.jdi.light.elements.complex.table.Table.java_
   - __C#__: _JDI.Light.Elements.Complex.Table.cs_
     
-  ![Table](../images/html/tableHtml.png)
+  ![Table](../images/html/tableHtml2.png)
 
 ```html
 <table class="uui-table stripe tbl-without-header table-td-click" ui="table" id="users-table">
@@ -2568,7 +2568,7 @@ DataTables are represented by the following classes in Java and C#:
   - __Java__: _com.epam.jdi.light.elements.complex.table.DataTable.java_
   - __C#__:
     
-  ![DataTable](../images/html/tableHtml.png)
+  ![DataTable](../images/html/tableHtml2.png)
 
 ```html
 <table class="uui-table stripe tbl-without-header table-td-click" ui="table" id="users-table">
@@ -2701,7 +2701,7 @@ public void ComplexTest()
 
 Suppose we have 'Colors' dropdown, which looks like this in HTML code:
 
-![Dropdown HTML](../images/html/dropdown_html.png) 
+<!-- ![Dropdown HTML](../images/html/dropdown_html.png) -->
 
 ```html
 <div class="form-group colors" ui="dropdown" id="colors">
@@ -3118,7 +3118,7 @@ public void selectEnumTest() {
 ```
 
 
-![Datalist example](../images/html/datalist_html.png)
+<!-- ![Datalist example](../images/html/datalist_html.png) -->
 
 ```html
 <label for="ice-cream">Choose your lovely icecream</label>
@@ -3350,7 +3350,7 @@ public void MultiSelectByIndexes()
 ```
 
 
-![MultiSelector](../images/html/multiSelectHtml.png)
+![MultiSelector](../images/html/multiSelectHtml2.png)
 
 ```html
 <select id="ages" multiple="" size="4">
@@ -3676,7 +3676,7 @@ Form consists of elements based on _SetValue_ interface and buttons with **submi
 
 Form provides the _fill, submit and verify/check_ functionality.  
 
-![Form](../images/html/form_html.png)
+![Form](../images/html/form_html2.png)
 
 ```html
 <form class="form-horizontal login" id="login-form">

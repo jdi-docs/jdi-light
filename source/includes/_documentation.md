@@ -4662,7 +4662,7 @@ Button group is represented by Section class in Java:
 
 <br>
 
-#### [Switches custom](https://getbootstrap.com/docs/4.3/components/forms/#inline-1)
+#### <a href="https://getbootstrap.com/docs/4.3/components/forms/#inline-1" target="_blank">Switches custom</a>
 
 Checkbox is located in the following classes:
  
@@ -4725,8 +4725,7 @@ public void clickableTests() {
 **is()** | Assert action checkbox | CheckboxAssert
 
 <br>
-
-[Java test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/SwitchesTests.java)
+<a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/SwitchesTests.java" target="_blank">Test examples in Java</a>
 <br>
 
 Button group is represented by Section class in Java:
@@ -4737,7 +4736,7 @@ Button group is represented by Section class in Java:
 
 ### Button group
 
-[Button group](https://getbootstrap.com/docs/4.3/components/button-group/) – Element that groups a series of buttons together on a single line with the button group, and super-power them with JavaScript.
+<a href="https://getbootstrap.com/docs/4.3/components/button-group/" target="_blank">Button group</a> – Element that groups a series of buttons together on a single line with the button group, and super-power them with JavaScript.
 
 Button group is located in the following packages:
  
@@ -4758,7 +4757,8 @@ Available methods in Java JDI Light:
 **select(int option)** | Select option by index | void
 **values()** | Get list of all available values | List<String>
 
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/ButtonGroupTest.java)
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/ButtonTests.java" target="_blank">Test examples in Java</a>
+
 
 Available methods and properties in C# JDI Light:
 
@@ -4770,7 +4770,7 @@ Available methods and properties in C# JDI Light:
  |  | 
 <br>
 
-#### [Button Group Basic Example](https://getbootstrap.com/docs/4.3/components/button-group/#basic-example)
+#### <a href="https://getbootstrap.com/docs/4.3/components/button-group/#basic-example" target="_blank">Button Group Basic Example</a> 
 Wrap a series of buttons with .btn in .btn-group.
 
 ![Button Group Basic Example HTML](../images/bootstrap/bgroup-basic-example-screen.png)
@@ -4826,12 +4826,11 @@ Inner elements represented by the following classes:
 </ul>
 <br>
 
-
-[Button Group Basic Example Tests Example](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/buttonGroup/BasicExampleTests.java)
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/buttonGroup/BasicExampleTests.java" target="_blank">Button Group Basic Example Tests Example</a>
 
 <br>
 
-#### [Button toolbar](https://getbootstrap.com/docs/4.0/components/button-group/#button-toolbar)
+#### <a href="https://getbootstrap.com/docs/4.0/components/button-group/#button-toolbar" target="_blank">Button toolbar</a>
 Combine sets of button groups into button toolbars for more complex components. Use utility classes as needed to space out groups, buttons, and more.
 
 ![Button toolbar](../images/bootstrap/button_toolbar.png)
@@ -4885,9 +4884,10 @@ Here is an example with provided Bootstrap v4.3 code:
 ![Button toolbar_mixed example](../images/bootstrap/button_toolbar_mixed-html.png)
 <br>
 
-[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/buttonGroup/ButtonToolbarTests.java)
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/buttonGroup/ButtonToolbarTests.java" target="_blank">Bootstrap test examples</a>
 
-#### [Button Group Sizing](https://getbootstrap.com/docs/4.0/components/button-group/#sizing)
+
+#### <a href="https://getbootstrap.com/docs/4.0/components/button-group/#sizing" target="_blank">Button Group Sizing</a>
 
 Instead of applying button sizing classes to every button in a group, 
 just add ``.btn-group-*`` to each ``.btn-group``, including each one when nesting multiple groups.
@@ -4950,7 +4950,7 @@ Available methods in Java JDI Light:
 
 <br>
 
-#### [Button Group Nesting](https://getbootstrap.com/docs/4.3/components/button-group/#nesting)
+#### <a href="https://getbootstrap.com/docs/4.3/components/button-group/#nesting" target="_blank">Button Group Nesting</a>
 Place a ``.btn-group`` within another ``.btn-group`` when you want dropdown menus mixed with a series of buttons.
 
 ![Button Group Nesting Example](../images/bootstrap/bgroup-nesting.png)
@@ -5023,10 +5023,11 @@ Inner elements represented by the following classes:
     <li> [Dropdown](https://jdi-docs.github.io/jdi-light/#dropdown-2)</li>
 </ul>
 
-[Button Group Nesting Tests Example](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/buttonGroup/NestingTests.java)
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/buttonGroup/NestingTests.java" target="_blank">Button Group Nesting Tests Example</a>
+
 <br><br>
 
-#### [Button Group Vertical Variation](https://getbootstrap.com/docs/4.3/components/button-group/#vertical-variation)
+#### <a href="https://getbootstrap.com/docs/4.3/components/button-group/#vertical-variation" target="_blank">Button Group Vertical Variation</a>
 Make a set of buttons appear vertically stacked rather than horizontally.
 
 ![Button Group Nesting Example](../images/bootstrap/bgroup-vertical-variation.png)
@@ -5099,14 +5100,14 @@ Inner elements represented by the following classes:
 </ul>
 <br>
 
-[Button Group Vertical Variation Tests Example](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/buttonGroup/VerticalVariationTests.java)
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/buttonGroup/VerticalVariationTests.java" target="_blank">Button Group Vertical Variation Tests Example</a>
 <br><br>
 
 ### Alert
 Alert is located in the following class: <br>
 - __Java__: _com.epam.jdi.light.ui.bootstrap.common.Alert_
 
-**[Alert](https://getbootstrap.com/docs/4.3/components/alerts/)** – Element that provides contextual feedback messages for typical user actions with the handful of available and flexible alert messages.
+**<a href="https://getbootstrap.com/docs/4.3/components/alerts/" target="_blank">Alert</a>** – Element that provides contextual feedback messages for typical user actions with the handful of available and flexible alert messages.
 
 ![Alert](../images/bootstrap/alert-dismissible.png)
 
@@ -5169,7 +5170,7 @@ Inner elements represented by the following classes:
     <li> [Text](https://jdi-docs.github.io/jdi-light/#text) </li>
 </ul>
 
-[Alert test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/AlertTests.java)
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/AlertTests.java" target="_blank">Alert test examples</a>
 
 ### Badge
 Badge is located in the following class: <br>
@@ -5284,9 +5285,8 @@ Available methods in Java JDI Light:
 **displayed()** | Check that element is displayed | TextAssert
 
 <br>
-
-[Bootstrap badge test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/BadgeTests.java) <br>
-[Bootstrap badge in button tests examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/ButtonTests.java)
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/BadgeTests.java" target="_blank">Bootstrap badge test examples</a><br>
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/ButtonTests.java" target="_blank">Bootstrap badge in button tests examples</a>
 <br><br>
 
 ### Breadcrumb
@@ -5324,7 +5324,8 @@ public void getTextTest() {
 }
 ```
 
-A [breadcrumb](https://getbootstrap.com/docs/4.3/components/breadcrumb/) is a control element  used for navigational on web pages
+<a href="https://getbootstrap.com/docs/4.3/components/breadcrumb/" target="_blank">breadcrumb</a>
+A <a href="https://getbootstrap.com/docs/4.3/components/breadcrumb/" target="_blank">breadcrumb</a> is a control element  used for navigational on web pages
 
 ![Breadcrumb example](../images/bootstrap/breadcrumb.png)
 
@@ -5352,12 +5353,13 @@ WebList is located in the following classes:
 
 Java: com.epam.jdi.light.elements.complex.WebList
 
-[Breadcrumb Tests Example](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/BreadcrumbTests.java)
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/BreadcrumbTests.java" target="_blank">Breadcrumb Tests Example</a>
+
 <br><br>
 
 ### Navs
 
-Nav - navigation component
+Nav - Navigation component.
 
 ![Navs example](../images/bootstrap/navs.png)
 
@@ -5377,7 +5379,7 @@ Available methods in Java JDI Light:
 
 ### Navbar
 
-#### [Supported content](https://getbootstrap.com/docs/4.3/components/navbar/#supported-content)
+#### <a href="https://getbootstrap.com/docs/4.3/components/navbar/#supported-content" target="_blank">Supported content</a>
 Navbars come with built-in support for a handful of sub-components. 
 
 Choose from the following as needed:
@@ -5481,10 +5483,10 @@ Available methods in Java JDI Light:
 **setValue()** | Set a value for input group  | void 
 **getValue()** | Get value from input group  | String 
 
-<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navbar/NavbarSupportedContentTests.java" target="_blank">Bootstrap Test Examples</a> 
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navbar/NavbarSupportedContentTests.java" target="_blank">Bootstrap Test Examples</a>
 <br><br>
 
-#### [Brand](https://getbootstrap.com/docs/4.3/components/navbar/#brand)
+#### <a href="https://getbootstrap.com/docs/4.3/components/navbar/#brand" target="_blank">Brand</a>
 The ``.navbar-brand`` can be applied to most elements, but an anchor works best as some elements might require utility classes or custom styles.
 <br>
 
@@ -5586,8 +5588,8 @@ Available methods in Java JDI Light:
 **is()** | Assert action | UIAssert 
 **assertThat()** | Assert action | UIAssert
 **hasAttr()** | Assert action | UIAssert
- 
-[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navbar/NavbarBrandTests.java)
+
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navbar/NavbarBrandTests.java" target="_blank">Bootstrap test examples</a>
 
 <br><br><br><br><br><br><br><br>
 

@@ -7882,7 +7882,7 @@ public void dropdownMenuTest(String itemText, String itemHref) {
     WindowsManager.closeWindow();
     WindowsManager.switchToWindow(currWindowNum);
     dropdownMenuItemsActive.collapse();
-    }
+}
 
 @Test
 public void isActiveTest() {

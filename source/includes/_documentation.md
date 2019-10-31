@@ -17858,8 +17858,17 @@ We can change default settings placed in the test.properties file (src/test/reso
 **assert.type** | <a href="https://jdi-docs.github.io/jdi-light/?java#softasserts">Assert type</a>: soft or strict | assert.type = soft
 **driver.remote.url** | <a href="https://jdi-docs.github.io/jdi-light/?java#remote-test-runs">Tests can run on remote web servers<a> | driver.remote.url=http://localhost:4444/wd/hub
 
+```java 
+       useDriver(() -> FF_INFO.getDriver() );
+    
+```
+
 ## Parallel tests run
 TBD
+
+```java 
+    
+```
 
 ## Remote test runs
 TBD
@@ -17884,9 +17893,8 @@ public class TestsInit extends TestNGBase {
         driver = new RemoteWebDriver(URI.create(hubUrl).toURL(), capabilities);
         driver.manage().window().maximize();
 
-        WebSettings.initFromProperties();
+        WebSettings.init();
         WebSettings.useDriver(()-> driver);
-        WebSite.init(SEDSite.class);
     }
 }
     

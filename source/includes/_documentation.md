@@ -3150,7 +3150,7 @@ Here is the list of some methods available for C# in JDI Light:
 ## HTML5 Composite elements
 ###Section
 
-**Section** - Logical part of Web Page that contains other UI Elements
+**Section** - Logical part of Web Page that contains other UI Elements.
   
 Section is represented by the following class:
 
@@ -3519,9 +3519,9 @@ More than that, it has a nested **StringCheckType** class with the following met
 ## Bootstrap Common elements
 
 ### Button
-**Button** – Element that represents a clickable button
+**Button** – Element that represents a clickable button.
 
-[Bootstrap page documentation](https://getbootstrap.com/docs/4.3/components/buttons/)
+[Bootstrap page documentation] <a href="https://getbootstrap.com/docs/4.3/components/buttons/" target="_blank">Button</a>
 
 ![Button](../images/bootstrap/button.png)
 
@@ -3560,7 +3560,7 @@ Available methods in Java JDI Light:
 **assertThat()** | Assert action | TextAssert
 <br>
 
-**Disabled Button** – Element that represents a Not clickable button
+**Disabled Button** – Element that represents a Not clickable button.
 
 <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/buttons/" target="_blank">Button</a> – Bootstrap includes several predefined button styles, each serving its own semantic purpose, with a few extras thrown in for more control.
 
@@ -3605,7 +3605,7 @@ Here is an example with provided HTML code:
 
 ### Checkboxes and radios
 
-**[Checkbox default](https://getbootstrap.com/docs/4.3/components/forms/#default-stacked)** 
+**[Checkbox default] <a href="https://getbootstrap.com/docs/4.3/components/forms/#default-stacked" target="_blank">Button</a>** 
 
 Checkbox is located in the following classes:
  

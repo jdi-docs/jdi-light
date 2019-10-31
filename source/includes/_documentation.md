@@ -17882,9 +17882,8 @@ public class TestsInit extends TestNGBase {
         driver = new RemoteWebDriver(URI.create(hubUrl).toURL(), capabilities);
         driver.manage().window().maximize();
 
-        WebSettings.initFromProperties();
+        WebSettings.init();
         WebSettings.useDriver(()-> driver);
-        WebSite.init(SEDSite.class);
     }
 }
     

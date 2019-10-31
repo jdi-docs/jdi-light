@@ -3898,7 +3898,7 @@ More than that, it has a nested **StringCheckType** class with the following met
 ### Button
 Bootstrap includes several predefined button styles, each serving its own semantic purpose, with a few extras thrown in for more control.
 
-**[Button](https://getbootstrap.com/docs/4.3/components/buttons/)** – Element that represents a clickable button
+**[Button] <a href="https://getbootstrap.com/docs/4.3/components/buttons/" target="_blank">Test examples in Java</a>** – Element that represents a clickable button.
 
 ![Button](../images/bootstrap/button.png)
 

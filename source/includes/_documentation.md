@@ -3925,7 +3925,13 @@ public void getTextTest() {
 
 Here is an example with provided HTML code:
 
-![Button example](../images/bootstrap/button-html.png)
+<!-- ![Button example](../images/bootstrap/button-html.png) -->
+
+```html
+<button type="button" id="red-button" class="btn btn-danger" 
+onclick="alert('Red button');" ondblclick="alert('Double Click');" 
+oncontextmenu="alert('Right Click');">Red button</button>
+```
 
 Available methods in Java JDI Light:
 
@@ -3966,7 +3972,12 @@ public void getTextTest() {
 ```  
 Here is an example with provided HTML code:
 
-![Disabled button example](../images/bootstrap/disabled_button_code.png)
+<!-- ![Disabled button example](../images/bootstrap/disabled_button_code.png) -->
+
+```html
+<button type="button" id="double-button" class="btn btn-info" 
+ondblclick="alert('Double Click');">Double button </button>
+```
 
 |Method/Property | Description | Return Type
 --- | --- | ---
@@ -3987,9 +3998,34 @@ Checkbox is located in the following classes:
   - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.common.Checkbox_
   
 
-![Checkbox default example](../images/bootstrap/checkbox-default.png)
+<!-- ![Checkbox default example](../images/bootstrap/checkbox-default.png) -->
 
 Here is an example with provided Bootstrap v4.3 code:
+
+```html
+<div class="btn-group-vertical mb-3" id="radio-buttons" role="group">
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1"
+               checked="">
+        <label class="form-check-label" for="exampleRadios1">
+            Default radio
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+        <label class="form-check-label" for="exampleRadios2">
+            Second default radio
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3"
+               disabled="">
+        <label class="form-check-label" for="exampleRadios3">
+            Disabled radio
+        </label>
+    </div>
+</div>
+```
 
 ```java 
 // @FindBy(css = "body") public static CheckboxesDefault checkboxesDefault;
@@ -4802,7 +4838,20 @@ public void leftButtonTests() {
 
 <br>
 
-![Button Group Basic Example Example](../images/bootstrap/bgroup-basic-example-html.png)
+<!-- ![Button Group Basic Example Example](../images/bootstrap/bgroup-basic-example-html.png) -->
+```html
+<div id="btn-md-group" class="btn-group mb-3" role="group" aria-label="Default button group">
+    <button type="button" class="btn btn-secondary" ondblclick="alert('Left Button Double Clicked!');"
+            oncontextmenu="alert('Left Button Right Clicked!');">Left
+    </button>
+    <button type="button" class="btn btn-secondary" ondblclick="alert('Middle Button Double Clicked!');"
+            oncontextmenu="alert('Middle Button Right Clicked!');">Middle
+    </button>
+    <button type="button" class="btn btn-secondary" ondblclick="alert('Right Button Double Clicked!');"
+            oncontextmenu="alert('Right Button Right Clicked!');">Right
+    </button>
+</div>
+```
 
 <br>
 
@@ -4862,7 +4911,36 @@ public class ButtonToolbar extends Section {
 }
 ```
 
-![Button toolbar example](../images/bootstrap/button_toolbar-html.png)
+<!-- ![Button toolbar example](../images/bootstrap/button_toolbar-html.png) -->
+
+```html
+
+<div class="btn-toolbar" id="buttonToolbar1" role="toolbar" aria-label="Toolbar with button groups">
+    <div class="btn-group mr-2" role="group" aria-label="First group">
+        <button type="button" class="btn btn-secondary" onclick="alert('1st button is clicked');">1
+        </button>
+        <button type="button" class="btn btn-secondary" onclick="alert('2nd button is clicked');">2
+        </button>
+        <button type="button" class="btn btn-secondary" onclick="alert('3rd button is clicked');">3
+        </button>
+        <button type="button" class="btn btn-secondary" onclick="alert('4th button is clicked');">4
+        </button>
+    </div>
+    <div class="btn-group mr-2" role="group" aria-label="Second group">
+        <button type="button" class="btn btn-secondary" onclick="alert('5th button is clicked');">5
+        </button>
+        <button type="button" class="btn btn-secondary" onclick="alert('6th button is clicked');">6
+        </button>
+        <button type="button" class="btn btn-secondary" onclick="alert('7th button is clicked');">7
+        </button>
+    </div>
+    <div class="btn-group" role="group" aria-label="Third group">
+        <button type="button" class="btn btn-secondary" onclick="alert('8th button is clicked');">8
+        </button>
+    </div>
+</div>
+
+```
 
 
 It is possible to mix input groups with button groups in your toolbars.

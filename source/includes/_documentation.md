@@ -17858,8 +17858,10 @@ We can change default settings placed in the test.properties file (src/test/reso
 
 ```java 
 public class TestsInit {
+private final String pathToDriver = "src\\test\\resources\\Driver\\chromedriver.exe";
+
     public static WebDriver getMyDriver() {
-    System.setProperty("webdriver.chrome.driver","src\\test\\resources\\Driver\\chromedriver.exe");
+    System.setProperty("webdriver.chrome.driver",pathToDriver);
     return new ChromeDriver();
     }
 

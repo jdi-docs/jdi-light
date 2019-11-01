@@ -5952,6 +5952,51 @@ public class Navbar extends Section {
 ![Containers schemes example](../images/bootstrap/navbar-containers.png)
 
 Here is an example with provided Bootstrap v4.3 code:
+
+```java 
+public class NavbarColorScheme extends Navbar {
+
+    //@FindBy(className = "navbar-brand")
+    @UI(".navbar-brand")
+    public Link navbarLink;
+
+    //@FindBy(linkText = "Home\n(current)")
+    @ByText("Home")
+    public Link homeLink;
+
+    //@FindBy(linkText = "Contact form")
+    @ByText("Contact form")
+    public Link contactFormLink;
+
+    //@FindBy(linkText = "Metals & Colors")
+    @ByText("Metals & Colors")
+    public Link metalsAndColorsLink;
+
+    //@FindBy(xpath = "//form/button")
+    @UI("form button")
+    public Button searchButton;
+}
+
+@Test(dataProvider = "navbarColorSchemesWithColors")
+public void colorSchemeAccordanceTest(NavbarColorScheme navbarColorScheme, String bgColor, 
+String navbarAndHomeColor, String contactAndMetalsColor, String searchColor) {
+    navbarColorScheme.core().is()
+            .css("background-color", bgColor);
+    checkColorOfElement(navbarColorScheme.navbarLink, navbarAndHomeColor);
+    checkColorOfElement(navbarColorScheme.homeLink, navbarAndHomeColor);
+    checkColorOfElement(navbarColorScheme.contactFormLink, contactAndMetalsColor);
+    checkColorOfElement(navbarColorScheme.metalsAndColorsLink, contactAndMetalsColor);
+    checkColorOfElement(navbarColorScheme.searchButton, 
+String.format("rgba%s, 1)", searchColor));
+    navbarColorScheme.searchButton.core().is()
+            .css("border-color", String.format("rgb%s)", searchColor));
+}
+
+private void checkColorOfElement(ICoreElement elem, String color) {
+    elem.core().is()
+            .css("color", color);
+}
+```
   
 ![Containers HTML example](../images/bootstrap/navbar-containers-html.png)
 
@@ -5978,12 +6023,84 @@ Use our position utilities to place navbars in non-static positions. Choose from
 
 Also note that ``.sticky-top`` uses position: sticky, which isn’t fully supported in every browser.
 
-![Containers schemes example](../images/bootstrap/navbar-placement.png)
+![Containers schemes example](../images/bootstrap/navbar-placement-sticky.png)
 
 Here is an example with provided Bootstrap v4.3 code:
-  
-![Containers HTML example](../images/bootstrap/navbar-placement-html.png)
-<br>
+
+```java 
+@UI("#navbar-sticky-top")
+public static NavbarPlacement navbarPlacementStickyTop;
+
+public class NavbarPlacement extends Navbar {
+
+    @UI(".navbar-brand")
+    public Link stickyTop;
+
+    @UI(".sticky-top .nav-item")
+    public JList navbarLinks;
+
+    @UI("./..")
+    public UIElement parentContainer;
+}
+
+@Test
+public void navbarPositionTest() {
+    navbarPlacementStickyTop.show();
+    navbarPlacementStickyTop.core()
+            .is()
+            .css("position", "sticky")
+            .css("top", "0px");
+}
+
+@Test
+public void navbarScrollTest() throws InterruptedException {
+    navbarPlacementStickyTop.core().jsExecute("scrollIntoView()");
+    int heightOfContainer = getHeightOfContainer();
+    int top1 = getTopValueOfNavbarPlacementStickyTop();
+    assertEquals(top1, 0);
+    bsPageScroll(0, heightOfContainer/3);
+    int top2 = getTopValueOfNavbarPlacementStickyTop();
+    assertEquals(top2, 0);
+    bsPageScroll(0, heightOfContainer);
+    int top3 = getTopValueOfNavbarPlacementStickyTop();
+    assertNotEquals(top3, 0);
+ 
+
+private int getHeightOfContainer() {
+    int heightOfContainerWithPaddings = navbarPlacementStickyTop.parentContainer.getRect().getHeight();
+    String nonDigitsRegexp = "[^0-9.]";
+    String contentPT = navbarPlacementStickyTop.parentContainer.core().css("padding-top").replaceAll(nonDigitsRegexp,"");
+    String contentPB = navbarPlacementStickyTop.parentContainer.core().css("padding-bottom").replaceAll(nonDigitsRegexp, "");
+    return heightOfContainerWithPaddings - parseInt(contentPT) - parseInt(contentPB);
+}
+
+private void bsPageScroll(int x, int y) {
+    bsPage.js().executeScript("scrollBy(" + x + "," + y + ")");
+}
+
+private int getTopValueOfNavbarPlacementStickyTop() {
+    String topStr = navbarPlacementStickyTop.core().jsExecute("getBoundingClientRect().top");
+    double topDouble = Double.parseDouble(topStr);
+    return (int) Math.round(topDouble);
+}
+```
+    
+![Containers HTML example](../images/bootstrap/navbar-placement-sticky-html.png)
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**click()** | Click a link | void
+**text()** | Check whether a text matches a pattern | isAssert
+**css()** | Match passed value with the element css | isAssert
+**is()** | Assertelement | isAssert 
+**jsExecute()** | Execute javascript | String
+**getRect()** | Get element rectangle | Rectangle
+
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navbar/NavbarPlacementTests.java">Bootstrap test examples</a>
+
+<br><br>
 
 #### [Responsive behaviors](https://getbootstrap.com/docs/4.3/components/navbar/#responsive-behaviors)
 

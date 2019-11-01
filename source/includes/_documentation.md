@@ -17857,9 +17857,15 @@ We can change default settings placed in the test.properties file (src/test/reso
 **driver.remote.url** | <a href="https://jdi-docs.github.io/jdi-light/?java#remote-test-runs">Tests can run on remote web servers<a> | driver.remote.url=http://localhost:4444/wd/hub
 
 ```java 
-//       useDriver(CHROME);
-       useDriver(FIREFOX);
-//       useDriver(() -> FF_INFO.getDriver() );
+public class TestsInit {
+    @BeforeSuite(alwaysRun = true)
+    public static void setUp() {
+        useDriver(FIREFOX);
+        initSite(StaticSite.class);
+        openUrl(DOMAIN);
+        logger.toLog("Run Tests");
+    }
+}
     
 ```
 

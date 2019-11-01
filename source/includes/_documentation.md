@@ -6030,51 +6030,6 @@ public class Navbar extends Section {
 ![Containers schemes example](../images/bootstrap/navbar-containers.png)
 
 Here is an example with provided Bootstrap v4.3 code:
-
-```java 
-public class NavbarColorScheme extends Navbar {
-
-    //@FindBy(className = "navbar-brand")
-    @UI(".navbar-brand")
-    public Link navbarLink;
-
-    //@FindBy(linkText = "Home\n(current)")
-    @ByText("Home")
-    public Link homeLink;
-
-    //@FindBy(linkText = "Contact form")
-    @ByText("Contact form")
-    public Link contactFormLink;
-
-    //@FindBy(linkText = "Metals & Colors")
-    @ByText("Metals & Colors")
-    public Link metalsAndColorsLink;
-
-    //@FindBy(xpath = "//form/button")
-    @UI("form button")
-    public Button searchButton;
-}
-
-@Test(dataProvider = "navbarColorSchemesWithColors")
-public void colorSchemeAccordanceTest(NavbarColorScheme navbarColorScheme, String bgColor, 
-String navbarAndHomeColor, String contactAndMetalsColor, String searchColor) {
-    navbarColorScheme.core().is()
-            .css("background-color", bgColor);
-    checkColorOfElement(navbarColorScheme.navbarLink, navbarAndHomeColor);
-    checkColorOfElement(navbarColorScheme.homeLink, navbarAndHomeColor);
-    checkColorOfElement(navbarColorScheme.contactFormLink, contactAndMetalsColor);
-    checkColorOfElement(navbarColorScheme.metalsAndColorsLink, contactAndMetalsColor);
-    checkColorOfElement(navbarColorScheme.searchButton, 
-String.format("rgba%s, 1)", searchColor));
-    navbarColorScheme.searchButton.core().is()
-            .css("border-color", String.format("rgb%s)", searchColor));
-}
-
-private void checkColorOfElement(ICoreElement elem, String color) {
-    elem.core().is()
-            .css("color", color);
-}
-```
   
 ![Containers HTML example](../images/bootstrap/navbar-containers-html.png)
 

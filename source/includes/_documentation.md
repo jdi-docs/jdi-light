@@ -17858,9 +17858,15 @@ We can change default settings placed in the test.properties file (src/test/reso
 
 ```java 
 public class TestsInit {
+    public static WebDriver getMyDriver() {
+    System.setProperty("webdriver.chrome.driver","src\\test\\resources\\Driver\\chromedriver.exe")
+
+    return new ChromeDriver();
+    }
+
     @BeforeSuite(alwaysRun = true)
     public static void setUp() {
-        useDriver(FIREFOX);
+        WebDriverFactory.useDriver("my_driver", () -> getMyDriver());
         initSite(StaticSite.class);
         openUrl(DOMAIN);
         logger.toLog("Run Tests");

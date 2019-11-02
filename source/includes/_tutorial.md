@@ -179,6 +179,108 @@ Exactly what we do in our test with all the details and without any effort from 
 We can change the log level to **STEP** (just add <i>logger.setLogLevel</i>(STEP) to the _setUp()_ method) and remove details. This log we can share with a Customer, a Business Analyst or a Manual QA and let them know what our Automated tests verify.<br/>
 <a href="https://github.com/jdi-tutorials/01-jdi-light-intro" target="_blank">See PageObject examples in PageObjectExample.java on Github</a>
 
+## 2.1 Non-Static Site initialization sample
+1. Simple non-static Page Object
+2. Automated test cases structure
+
+### Simple non-static Page Object
+```java
+@JSite("https://jdi-testing.github.io/jdi-light/")
+public class NonStaticSite {
+
+    @Url("/index.html")
+    @Title(value = "Home", validate = CheckTypes.CONTAINS)
+    private HomePage homePage;
+
+    @XPath("//*[@ui='label']")
+    private UIElement userName;
+
+    private WebElement userIcon;
+
+    @Css("form")
+    private LoginForm loginForm;
+
+
+    public static String getUrl() {
+
+        return getDriver().getCurrentUrl();
+    }
+
+    public void login() {
+
+        if (!getUserName().isDisplayed()) {
+            getUserIcon().click();
+            getLoginForm().submit(DEFAULT_USER, "enter");
+        }
+    }
+
+    public void shouldBeLoggedIn() {
+
+        if (!getUrl().contains("https://jdi-testing.github.io/jdi-light/"))
+            getHomePage().open();
+
+        login();
+    }
+
+    public HomePage getHomePage() {
+        return homePage;
+    }
+
+    public UIElement getUserName() {
+        return userName;
+    }
+
+    public WebElement getUserIcon() {
+        return userIcon;
+    }
+
+    public LoginForm getLoginForm() {
+        return loginForm;
+    }
+}
+```
+
+### Automated test cases initialization sample
+```java
+public class NonStaticTestsInit {
+
+    protected NonStaticSite nonStaticSite;
+
+    @BeforeSuite(alwaysRun = true)
+    public void setUp() {
+
+        nonStaticSite = new NonStaticSite();
+        PageFactory.initElements(nonStaticSite);
+
+        nonStaticSite.getHomePage().open();
+        WebSettings.logger.toLog("Non Static site page opened");
+    }
+
+
+    @AfterSuite(alwaysRun = true)
+    public void cleanUp() {
+        WebDriverUtils.killAllSeleniumDrivers();
+    }
+}
+```
+
+### Automated test case sample
+```java
+public class NonStaticSiteTests extends NonStaticTestsInit {
+
+    @BeforeMethod
+    public void before() {
+        nonStaticSite.shouldBeLoggedIn();
+        nonStaticSite.getHomePage().shouldBeOpened();
+    }
+
+    @Test
+    public void isOpenedTest() {
+        nonStaticSite.getHomePage().isOpened();
+    }
+}
+```
+
 ## 3. JDI Light Forms
 1. Simple login test example. DataClass example<br/>
 2. Login Form in Data Driven Test approach<br/>

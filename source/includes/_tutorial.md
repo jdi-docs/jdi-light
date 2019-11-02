@@ -239,6 +239,7 @@ public class NonStaticSite {
     }
 }
 ```
+Here we can see a simple non-static Page Object example:
 
 ### Automated test cases initialization example
 ```java
@@ -263,6 +264,7 @@ public class NonStaticTestsInit {
     }
 }
 ```
+This is the parent class for test-cases with non-static initialization:
 
 ### Automated test case example
 ```java
@@ -280,6 +282,7 @@ public class NonStaticSiteTests extends NonStaticTestsInit {
     }
 }
 ```
+This is the simple non-static site initialization test example
 
 ## 3. JDI Light Forms
 1. Simple login test example. DataClass example<br/>

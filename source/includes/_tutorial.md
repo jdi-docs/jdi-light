@@ -179,11 +179,11 @@ Exactly what we do in our test with all the details and without any effort from 
 We can change the log level to **STEP** (just add <i>logger.setLogLevel</i>(STEP) to the _setUp()_ method) and remove details. This log we can share with a Customer, a Business Analyst or a Manual QA and let them know what our Automated tests verify.<br/>
 <a href="https://github.com/jdi-tutorials/01-jdi-light-intro" target="_blank">See PageObject examples in PageObjectExample.java on Github</a>
 
-## 2.1 Non-Static Site initialization sample
+## 2.1 Non-Static Site initialization example
 1. Simple non-static Page Object
 2. Automated test cases structure
 
-### Simple non-static Page Object
+### Simple non-static Page Object example
 ```java
 @JSite("https://jdi-testing.github.io/jdi-light/")
 public class NonStaticSite {
@@ -240,7 +240,7 @@ public class NonStaticSite {
 }
 ```
 
-### Automated test cases initialization sample
+### Automated test cases initialization example
 ```java
 public class NonStaticTestsInit {
 
@@ -264,7 +264,7 @@ public class NonStaticTestsInit {
 }
 ```
 
-### Automated test case sample
+### Automated test case example
 ```java
 public class NonStaticSiteTests extends NonStaticTestsInit {
 

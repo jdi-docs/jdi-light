@@ -5983,20 +5983,9 @@ Also note that ``.sticky-top`` uses position: sticky, which isn’t fully suppor
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
+//@FindBy(id = "navbar-sticky-top")
 @UI("#navbar-sticky-top")
 public static NavbarPlacement navbarPlacementStickyTop;
-
-public class NavbarPlacement extends Navbar {
-
-    @UI(".navbar-brand")
-    public Link stickyTop;
-
-    @UI(".sticky-top .nav-item")
-    public JList navbarLinks;
-
-    @UI("./..")
-    public UIElement parentContainer;
-}
 
 @Test
 public void navbarPositionTest() {
@@ -6007,37 +5996,9 @@ public void navbarPositionTest() {
             .css("top", "0px");
 }
 
-@Test
-public void navbarScrollTest() throws InterruptedException {
-    navbarPlacementStickyTop.core().jsExecute("scrollIntoView()");
-    int heightOfContainer = getHeightOfContainer();
-    int top1 = getTopValueOfNavbarPlacementStickyTop();
-    assertEquals(top1, 0);
-    bsPageScroll(0, heightOfContainer/3);
-    int top2 = getTopValueOfNavbarPlacementStickyTop();
-    assertEquals(top2, 0);
-    bsPageScroll(0, heightOfContainer);
-    int top3 = getTopValueOfNavbarPlacementStickyTop();
-    assertNotEquals(top3, 0);
- 
 
-private int getHeightOfContainer() {
-    int heightOfContainerWithPaddings = navbarPlacementStickyTop.parentContainer.getRect().getHeight();
-    String nonDigitsRegexp = "[^0-9.]";
-    String contentPT = navbarPlacementStickyTop.parentContainer.core().css("padding-top").replaceAll(nonDigitsRegexp,"");
-    String contentPB = navbarPlacementStickyTop.parentContainer.core().css("padding-bottom").replaceAll(nonDigitsRegexp, "");
-    return heightOfContainerWithPaddings - parseInt(contentPT) - parseInt(contentPB);
-}
 
-private void bsPageScroll(int x, int y) {
-    bsPage.js().executeScript("scrollBy(" + x + "," + y + ")");
-}
 
-private int getTopValueOfNavbarPlacementStickyTop() {
-    String topStr = navbarPlacementStickyTop.core().jsExecute("getBoundingClientRect().top");
-    double topDouble = Double.parseDouble(topStr);
-    return (int) Math.round(topDouble);
-}
 ```
     
 ![Containers HTML example](../images/bootstrap/navbar-placement-sticky-html.png)

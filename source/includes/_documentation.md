@@ -17870,7 +17870,6 @@ public class TestsInit {
         WebDriverFactory.useDriver("my_driver", () -> getMyDriver());
         initSite(StaticSite.class);
         openUrl(DOMAIN);
-        logger.toLog("Run Tests");
     }
 }
     

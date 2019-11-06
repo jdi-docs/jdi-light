@@ -18015,7 +18015,7 @@ public class TestsInit {
     private final String pathToDriver = "src\\test\\resources\\Driver\\chromedriver.exe";
 
     public static WebDriver getMyDriver() {
-        System.setProperty("webdriver.chrome.driver",pathToDriver);
+        System.setProperty("webdriver.chrome.driver", pathToDriver);
         return new ChromeDriver();
     }
 
@@ -18024,11 +18024,12 @@ public class TestsInit {
         WebDriverFactory.useDriver("my_driver", () -> getMyDriver());
         initSite(StaticSite.class);
         openUrl(DOMAIN);
-        logger.toLog("Run Tests");
     }
 }
     
 ```
+
+This is example for custom driver initialization:
 
 ## Parallel tests run
 TBD

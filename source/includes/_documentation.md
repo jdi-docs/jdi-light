@@ -17564,6 +17564,7 @@ TBD
 
 ### Simple non-static site initialization example:
 
+```java
 public class NonStaticTestsInit {
 
     protected NonStaticSite nonStaticSite;
@@ -17583,6 +17584,7 @@ public class NonStaticTestsInit {
         WebDriverUtils.killAllSeleniumDrivers();
     }
 }
+```
 
 ## Smart Locators
 

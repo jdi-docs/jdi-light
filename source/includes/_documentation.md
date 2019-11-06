@@ -17603,6 +17603,7 @@ public class NonStaticSite {
 ```
 
 ### Automated test cases initialization example
+
 ```java
 public class NonStaticTestsInit {
 
@@ -17625,10 +17626,12 @@ public class NonStaticTestsInit {
     }
 }
 ```
+
 This is the parent class for test-cases with non-static initialization:
 
 
 ### Automated test case example
+
 ```java
 public class NonStaticSiteTests extends NonStaticTestsInit {
 

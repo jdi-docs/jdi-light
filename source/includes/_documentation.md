@@ -17606,6 +17606,8 @@ public class NonStaticSite {
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
+
+
 ### This is the parent class for test-cases with non-static initialization:
 ```java
 public class NonStaticTestsInit {
@@ -17630,6 +17632,8 @@ public class NonStaticTestsInit {
 ```
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
 
 ### This is the simple non-static site initialization test example:
 ```java

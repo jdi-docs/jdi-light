@@ -17547,22 +17547,11 @@ TBD
 
 ## Non-Static Site initialization
 
-### Project is here: 
+### <a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/tree/1169-Add-non-static-site-initialisation-example/jdi-light-examples">Project is here</a>
 
-"https://github.com/jdi-testing/jdi-light/tree/1169-Add-non-static-site-initialisation-example/jdi-light-examples"
+### <a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/tree/1169-Add-non-static-site-initialisation-example/jdi-light-examples/src/main/java/io/github/com/NonStaticSite.java">Simple non-static Page Object is here</a>
 
-
-### Simple non-static Page Object is here:
-
-"https://github.com/jdi-testing/jdi-light/tree/1169-Add-non-static-site-initialisation-example/jdi-light-examples/src/main/java/io/github/com/NonStaticSite.java"
-
-
-### Parent class for test-cases with non-static initialization:
-
-"https://github.com/jdi-testing/jdi-light/tree/1169-Add-non-static-site-initialisation-example/jdi-light-examples/src/test/java/io/github/epam/NonStaticTestsInit.java"
-
-
-### Simple non-static site initialization example:
+### <a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/tree/1169-Add-non-static-site-initialisation-example/jdi-light-examples/src/test/java/io/github/epam/NonStaticTestsInit.java">Parent class for test-cases with non-static initialization</a>
 
 ```java
 public class NonStaticTestsInit {
@@ -17585,6 +17574,7 @@ public class NonStaticTestsInit {
     }
 }
 ```
+### Simple non-static site initialization example:
 
 ## Smart Locators
 

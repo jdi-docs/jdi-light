@@ -17603,6 +17603,8 @@ public class NonStaticSite {
     }
 }
 ```
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 ### This is the parent class for test-cases with non-static initialization:
 ```java
@@ -17620,13 +17622,14 @@ public class NonStaticTestsInit {
         WebSettings.logger.toLog("Non Static site page opened");
     }
 
-
     @AfterSuite(alwaysRun = true)
     public void cleanUp() {
         WebDriverUtils.killAllSeleniumDrivers();
     }
 }
 ```
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 ### This is the simple non-static site initialization test example:
 ```java
@@ -17644,6 +17647,7 @@ public class NonStaticSiteTests extends NonStaticTestsInit {
     }
 }
 ```
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 ## Smart Locators
 

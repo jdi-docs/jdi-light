@@ -17602,6 +17602,16 @@ public class NonStaticSite {
     }
 }
 ```
+
+
+
+
+
+
+
+
+
+
 This is the example of simple Page Object:
 
 
@@ -17628,6 +17638,16 @@ public class NonStaticTestsInit {
     }
 }
 ```
+
+
+
+
+
+
+
+
+
+
 This is the parent class for test-cases with non-static initialization:
 
 
@@ -17647,6 +17667,15 @@ public class NonStaticSiteTests extends NonStaticTestsInit {
     }
 }
 ```
+
+
+
+
+
+
+
+
+
 This is the simple non-static site initialization test example:
 
 

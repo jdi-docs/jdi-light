@@ -17875,6 +17875,8 @@ public class TestsInit {
     
 ```
 
+This is example for custom driver initialization:
+
 ## Parallel tests run
 TBD
 

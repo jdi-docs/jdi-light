@@ -17861,7 +17861,7 @@ public class TestsInit {
     private final String pathToDriver = "src\\test\\resources\\Driver\\chromedriver.exe";
 
     public static WebDriver getMyDriver() {
-        System.setProperty("webdriver.chrome.driver",pathToDriver);
+        System.setProperty("webdriver.chrome.driver", pathToDriver);
         return new ChromeDriver();
     }
 

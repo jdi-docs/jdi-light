@@ -17550,9 +17550,9 @@ TBD
 1. Simple non-static Page Object
 2. Automated test cases structure
 
-### Simple non-static Page Object example
-
 ```java
+*This is the example of simple Page Object:
+
 @JSite("https://jdi-testing.github.io/jdi-light/")
 public class NonStaticSite {
 
@@ -17604,32 +17604,9 @@ public class NonStaticSite {
 }
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-### Automated test cases initialization example
-
 ```java
+*This is the parent class for test-cases with non-static initialization:
+
 public class NonStaticTestsInit {
 
     protected NonStaticSite nonStaticSite;
@@ -17652,29 +17629,9 @@ public class NonStaticTestsInit {
 }
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-This is the parent class for test-cases with non-static initialization:
-
-
-### Automated test case example
-
 ```java
+*This is the simple non-static site initialization test example:
+
 public class NonStaticSiteTests extends NonStaticTestsInit {
 
     @BeforeMethod
@@ -17689,7 +17646,6 @@ public class NonStaticSiteTests extends NonStaticTestsInit {
     }
 }
 ```
-This is the simple non-static site initialization test example:
 
 
 ## Smart Locators

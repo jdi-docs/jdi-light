@@ -17601,6 +17601,8 @@ public class NonStaticSite {
     }
 }
 ```
+
+
 This is the example of simple Page Object:
 
 ```java
@@ -17626,6 +17628,8 @@ public class NonStaticTestsInit {
     }
 }
 ```
+
+
 This is the parent class for test-cases with non-static initialization:
 
 ```java
@@ -17644,7 +17648,9 @@ public class NonStaticSiteTests extends NonStaticTestsInit {
     }
 }
 ```
-*This is the simple non-static site initialization test example:
+
+
+This is the simple non-static site initialization test example:
 
 ## Smart Locators
 

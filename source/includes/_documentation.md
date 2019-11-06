@@ -17550,10 +17550,7 @@ TBD
 2. Automated test cases structure
 
 ### Simple non-static Page Object example
-
-Here we can see a simple non-static Page Object example:
 ```java
-
 @JSite("https://jdi-testing.github.io/jdi-light/")
 public class NonStaticSite {
 
@@ -17568,7 +17565,6 @@ public class NonStaticSite {
 
     @Css("form")
     private LoginForm loginForm;
-
 
     public static String getUrl() {
 
@@ -17594,28 +17590,20 @@ public class NonStaticSite {
     public HomePage getHomePage() {
         return homePage;
     }
-
     public UIElement getUserName() {
         return userName;
     }
-
     public WebElement getUserIcon() {
         return userIcon;
     }
-
     public LoginForm getLoginForm() {
         return loginForm;
     }
 }
-
 ```
 
 ### Automated test cases initialization example
-
-This is the parent class for test-cases with non-static initialization:
-
 ```java
-
 public class NonStaticTestsInit {
 
     protected NonStaticSite nonStaticSite;
@@ -17636,14 +17624,12 @@ public class NonStaticTestsInit {
         WebDriverUtils.killAllSeleniumDrivers();
     }
 }
-
 ```
+This is the parent class for test-cases with non-static initialization:
+
 
 ### Automated test case example
-
 ```java
-This is the simple non-static site initialization test example:
-
 public class NonStaticSiteTests extends NonStaticTestsInit {
 
     @BeforeMethod
@@ -17657,8 +17643,9 @@ public class NonStaticSiteTests extends NonStaticTestsInit {
         nonStaticSite.getHomePage().isOpened();
     }
 }
-
 ```
+This is the simple non-static site initialization test example:
+
 
 ## Smart Locators
 

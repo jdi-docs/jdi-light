@@ -17547,22 +17547,22 @@ TBD
 
 ## Non-Static Site initialization
 
-1. Project is here: 
+### Project is here: 
 
 "https://github.com/jdi-testing/jdi-light/tree/1169-Add-non-static-site-initialisation-example/jdi-light-examples"
 
 
-2. Simple non-static Page Object is here:
+### Simple non-static Page Object is here:
 
 "https://github.com/jdi-testing/jdi-light/tree/1169-Add-non-static-site-initialisation-example/jdi-light-examples/src/main/java/io/github/com/NonStaticSite.java"
 
 
-3. Parent class for test-cases with non-static initialization:
+### Parent class for test-cases with non-static initialization:
 
 "https://github.com/jdi-testing/jdi-light/tree/1169-Add-non-static-site-initialisation-example/jdi-light-examples/src/test/java/io/github/epam/NonStaticTestsInit.java"
 
 
-4. Simple non-static site initialization example:
+### Simple non-static site initialization example:
 
 public class NonStaticTestsInit {
 

@@ -17545,7 +17545,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 ## UI Objects
 TBD
 
-## Non-Static Site initialization example
+## Non-Static Site initialization
 
 1. Simple non-static Page Object
 2. Parent class for test-cases with non-static initialization

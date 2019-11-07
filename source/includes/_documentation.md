@@ -17706,8 +17706,9 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 TBD
 
 ## Non-Static Site initialization
+
 ```java
-<br><br>
+
 public class NonStaticTestsInit {
 
     protected NonStaticSite nonStaticSite;
@@ -17727,8 +17728,9 @@ public class NonStaticTestsInit {
         WebDriverUtils.killAllSeleniumDrivers();
     }
 }
-<br><br>
+
 ```
+
 - <a href="https://github.com/jdi-testing/jdi-light/tree/master/jdi-light-examples">Project is here</a>
 
 - <a href="https://github.com/jdi-testing/jdi-light/tree/master/jdi-light-examples/src/main/java/io/github/com/NonStaticSite.java">Simple non-static Page Object is here</a>

@@ -17717,14 +17717,17 @@ public class NonStaticTestsInit {
     public void setUp() {
 
         nonStaticSite = new NonStaticSite();
+
         PageFactory.initElements(nonStaticSite);
 
         nonStaticSite.getHomePage().open();
+
         WebSettings.logger.toLog("Non Static site page opened");
     }
 
     @AfterSuite(alwaysRun = true)
     public void cleanUp() {
+
         WebDriverUtils.killAllSeleniumDrivers();
     }
 }

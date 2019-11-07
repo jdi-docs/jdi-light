@@ -10106,7 +10106,167 @@ Available methods in Java JDI Light:
 <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/RangeTests.java" target=a_blank> Bootstrap test examples </a>
 
 <br><br>
-  
+ 
+#### Form Validation
+
+##### Custom style
+You can use custom <a href = "https://getbootstrap.com/docs/4.3/components/forms/#custom-styles" target = "a_blank">Bootstrap form validation</a> messages.
+
+![Custom style validation](../images/bootstrap/form-bootstrap-validation.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java
+@UI("#validated-form")
+public FormValidationForm form;
+
+@Test
+public void bootstrapValidationTest() {
+    String name = "ValidName";
+    String email = "InvalidEmail";
+    String phone = "InvalidPhone";
+
+    SimpleContact entity = new SimpleContact(name, email, phone);
+
+    form.fill(entity);
+    form.submit();
+
+    Map<String, String> validFeedback = form.getValidFeedback();
+    MatcherAssert.assertThat("Number of valid feedbacks not equals 1", validFeedback.size() == 1);
+    MatcherAssert.assertThat(validFeedback.keySet(), Matchers.hasItems("Name"));
+    MatcherAssert.assertThat(validFeedback.values(), Matchers.hasItem("Hi, " + name + "!"));
+
+    Map<String, String> invalidFeedback = form.getInvalidFeedback();
+    MatcherAssert.assertThat("Number of invalid feedbacks not equals 2", invalidFeedback.size() == 2);
+    MatcherAssert.assertThat(invalidFeedback.keySet(), 
+        Matchers.hasItems("Email", "Phone"));
+    MatcherAssert.assertThat(invalidFeedback.values(), 
+        Matchers.hasItems("Enter valid email!", "It doesn't look like a valid phone number"));
+}
+```
+
+ ```html
+<form id="validated-form" class="" novalidate="">
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <input id="validated-form-name-field" type="text" class="form-control" placeholder="Enter name" required="">
+                <div id="name-valid-feedback" class="valid-feedback">Hi, Valid Name!</div>
+                <div class="invalid-feedback">Enter your name!</div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-group">
+                <input type="email" class="form-control" id="validated-form-email" placeholder="Enter email" required="">
+                <div class="valid-feedback">Looks good!</div>
+                <div class="invalid-feedback">Enter valid email!</div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-group">
+                <input type="text" class="form-control" id="validated-form-phone" placeholder="Enter phone" pattern="^[-+0-9()\s]+$">
+                <div class="valid-feedback">Looks good!</div>
+                <div class="invalid-feedback">It doesn't look like a valid phone number</div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+        <button type="submit" class="btn btn-primary" id="validated-form-submit">Send</button>
+        <button type="reset" class="btn btn-danger" id="validated-form-reset">Clear</button>
+        </div>
+    </div>
+</form>
+<pre><code data-trim>
+<script>
+	let customValidationListener = function(event) {
+		let valForm = document.getElementById("validated-form");
+		if (valForm.checkValidity() === false) {
+			event.preventDefault();
+			event.stopPropagation();
+		}
+		valForm.classList.add('was-validated');
+	};
+
+	let valForm = document.getElementById("validated-form");
+	valForm.addEventListener('submit', customValidationListener, false);
+</script>
+</code></pre>
+```
+ 
+##### Browser default
+
+Also you can use <a href = "https://getbootstrap.com/docs/4.3/components/forms/#browser-defaults" target = "a_blank">browser default validation</a>.
+
+![Browser default validation](../images/bootstrap/form-browser-defaults.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java
+@UI("#validated-form")
+public FormValidationForm form;
+
+@Test
+public void browserValidationTest() {
+    String name = "ValidName";
+    String email = "InvalidEmail";
+    String phone = "InvalidPhone";
+
+    SimpleContact entity = new SimpleContact(name, email, phone);
+
+    form.fill(entity);
+    form.submit();
+
+    Map<String, String> validFeedback = form.getValidationMessages();
+
+    MatcherAssert.assertThat("", validFeedback.get("Email"),
+        Matchers.is("Please include an '@' in the email address. 'InvalidEmail' is missing an '@'.")); //Browser dependent message
+    MatcherAssert.assertThat("", validFeedback.get("Phone"),
+        Matchers.is("Please match the requested format.")); //Browser dependent message
+    MatcherAssert.assertThat("", validFeedback.get("Name"), Matchers.is(""));
+}
+```
+
+ ```html
+<form id="validated-form"">
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <input id="validated-form-name-field" type="text" class="form-control" placeholder="Enter name" required="">
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-group">
+                <input type="email" class="form-control" id="validated-form-email" placeholder="Enter email" required="">
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-group">
+                <input type="text" class="form-control" id="validated-form-phone" placeholder="Enter phone" pattern="^[-+0-9()\s]+$">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+        <button type="submit" class="btn btn-primary" id="validated-form-submit">Send</button>
+        <button type="reset" class="btn btn-danger" id="validated-form-reset">Clear</button>
+        </div>
+    </div>
+</form>
+```
+ 
+Available methods for form validation in Java JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+**isValid()** | Return if form valid | boolean 
+**getValidationMessages()** | Return map field names to browser validation messages | Map<String, String>
+**getValidFeedback()** |  Return map field names to visible valid bootstrap feedback text | Map<String, String>
+**getInvalidFeedback()** |  Return map field names to visible invalid bootstrap feedback text | Map<String, String>
+**getFeedbackElements()** |  Return map field names to visible bootstrap feedback elements | Map<String, UIElement>
+
+ <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/BootstrapValidationTest.java" target="_blank">Bootstrap Test Examples</a>
+ 
 ### Scrollspy
 **[Scrollspy](https://getbootstrap.com/docs/4.3/components/scrollspy/#example-in-navbar)** – automatically update Bootstrap navigation or list group components based on scroll position to indicate which link is currently active in the viewport.
 <br><br>
@@ -18006,7 +18166,7 @@ public class TestsInit {
     private final String pathToDriver = "src\\test\\resources\\Driver\\chromedriver.exe";
 
     public static WebDriver getMyDriver() {
-        System.setProperty("webdriver.chrome.driver",pathToDriver);
+        System.setProperty("webdriver.chrome.driver", pathToDriver);
         return new ChromeDriver();
     }
 
@@ -18015,11 +18175,12 @@ public class TestsInit {
         WebDriverFactory.useDriver("my_driver", () -> getMyDriver());
         initSite(StaticSite.class);
         openUrl(DOMAIN);
-        logger.toLog("Run Tests");
     }
 }
     
 ```
+
+This is example how to initialize of custom driver:
 
 ## Parallel tests run
 TBD

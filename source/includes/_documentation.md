@@ -17707,12 +17707,6 @@ TBD
 
 ## Non-Static Site initialization
 
-<a href="https://github.com/jdi-testing/jdi-light/tree/master/jdi-light-examples">Project is here</a>
-
-<a href="https://github.com/jdi-testing/jdi-light/tree/master/jdi-light-examples/src/main/java/io/github/com/NonStaticSite.java">Simple non-static Page Object is here</a>
-
-<a href="https://github.com/jdi-testing/jdi-light/tree/master/jdi-light-examples/src/test/java/io/github/epam/NonStaticTestsInit.java">Parent class for test-cases with non-static initialization</a>
-
 ```java
 public class NonStaticTestsInit {
 
@@ -17734,7 +17728,15 @@ public class NonStaticTestsInit {
     }
 }
 ```
-### Simple non-static site initialization example:
+
+- <a href="https://github.com/jdi-testing/jdi-light/tree/master/jdi-light-examples">Project is here</a>
+
+- <a href="https://github.com/jdi-testing/jdi-light/tree/master/jdi-light-examples/src/main/java/io/github/com/NonStaticSite.java">Simple non-static Page Object is here</a>
+
+- <a href="https://github.com/jdi-testing/jdi-light/tree/master/jdi-light-examples/src/test/java/io/github/epam/NonStaticTestsInit.java">Parent class for test-cases with non-static initialization</a>
+
+
+### Simple non-static site initialization example
 
 
 ## Smart Locators

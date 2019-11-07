@@ -17707,6 +17707,7 @@ TBD
 
 ## Non-Static Site initialization
 ```java
+<br><br>
 public class NonStaticTestsInit {
 
     protected NonStaticSite nonStaticSite;
@@ -17726,6 +17727,7 @@ public class NonStaticTestsInit {
         WebDriverUtils.killAllSeleniumDrivers();
     }
 }
+<br><br>
 ```
 - <a href="https://github.com/jdi-testing/jdi-light/tree/master/jdi-light-examples">Project is here</a>
 
@@ -17733,7 +17735,7 @@ public class NonStaticTestsInit {
 
 - <a href="https://github.com/jdi-testing/jdi-light/tree/master/jdi-light-examples/src/test/java/io/github/epam/NonStaticTestsInit.java">Parent class for test-cases with non-static initialization</a>
 
-
+<br><br><br><br><br>
 Simple non-static site initialization example ------>
 
 

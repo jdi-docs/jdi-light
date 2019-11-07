@@ -10138,8 +10138,10 @@ public void bootstrapValidationTest() {
 
     Map<String, String> invalidFeedback = form.getInvalidFeedback();
     MatcherAssert.assertThat("Number of invalid feedbacks not equals 2", invalidFeedback.size() == 2);
-    MatcherAssert.assertThat(invalidFeedback.keySet(), Matchers.hasItems("Email", "Phone"));
-    MatcherAssert.assertThat(invalidFeedback.values(), Matchers.hasItems("Enter valid email!", "It doesn't look like a valid phone number"));
+    MatcherAssert.assertThat(invalidFeedback.keySet(), 
+        Matchers.hasItems("Email", "Phone"));
+    MatcherAssert.assertThat(invalidFeedback.values(), 
+        Matchers.hasItems("Enter valid email!", "It doesn't look like a valid phone number"));
 }
 ```
 
@@ -10175,7 +10177,7 @@ public void bootstrapValidationTest() {
         </div>
     </div>
 </form>
-
+<pre><code data-trim>
 <script>
 	let customValidationListener = function(event) {
 		let valForm = document.getElementById("validated-form");
@@ -10189,6 +10191,7 @@ public void bootstrapValidationTest() {
 	let valForm = document.getElementById("validated-form");
 	valForm.addEventListener('submit', customValidationListener, false);
 </script>
+</code></pre>
 ```
  
 ##### Browser default

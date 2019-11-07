@@ -5676,41 +5676,59 @@ Navbar navigation links build on our ``.nav`` options with their own modifier cl
 
 ```java 
 
-public class Navbar extends Section {
-    //FindBy(xpath = "//*[contains(@class, 'nav-item')]")
-    @UI("//*[contains(@class, 'nav-item')]") public WebList navbarLinks;
-    //FindBy(css = ".navbar-brand")
-    @UI(".navbar-brand") public Link navbarBrand;
-    @JDropdown(expand = ".navbar-toggler-icon", value = ".navbar-nav", list = "a")
-    public Collapse collapseButton;   
-    //FindBy(xpath = "//*[contains(@class, 'nav-link dropdown-toggle')]")
-    @UI("//*[contains(@class, 'nav-link dropdown-toggle')]") public Dropdown navbarDropdown;
+public class NavbarNav extends Section {
+    @UI("#navbar-nav-with-disabled") public NavbarSimpleLinks navLinks1;
+    @UI("#navbar-nav-with-dropdown") public NavbarComplexLinks navbarComplexLinks;
+}
+public class NavbarSimpleLinks extends Section {
+    @UI(".navbar-brand") public Link brand;
+    @UI(".navbar-nav a") public ListGroup listPages;
+}
+public class NavbarComplexLinks extends Section {
+    @UI(".navbar-brand")
+    public Link brand;
+    @UI("ul li")
+    public ListGroup listPages;
+
+    @JDropdown(root = ".dropdown",
+            expand = "#navbarDropdownMenuLink",
+            list = "a")
+    public Dropdown dropdown;
+
+    public void selectMenu(String item) {
+        dropdown.show();
+        dropdown.toggle();
+        dropdown.list().select(item);
+    }
 }
 
-@UI("#navbar-nav-with-disabled") public static Navbar navbarNavWithDisabled;
-
 @Test
-   public void isDisabledItemNavWithDisabled(){
-         navbarNavWithDisabled.navbarLinks.get(4).is().disabled();
-   }
+public void isDisabledItemNavWithDisabled(){
+   navbarNav.navLinks1.listPages.get(4)
+            .is()
+            .displayed();
+   navbarNav.navLinks1.listPages.get(4)
+            .is()
+            .disabled();
+}
    
 
 
 
 
 
-@UI("#navbar-nav-with-dropdown") public static Navbar navbarNavWithDropdown;
-
-@Test(dataProvider = "linkNavbarWithDropdownTest")
-  public void clickNavbarNavWithDropdownLinksTest(int i, String text, String url) {
-     UIElement link = navbarNavWithDropdown.navbarLinks.get(i);
-     link.is().text(text);
-     link.click();
-     assertThat(WindowsManager.windowsCount(), is(2));
-     WindowsManager.switchToWindow(2);
-     assertThat(getUrl(), is(url));
-     WindowsManager.closeWindow();
-  }
+@Test
+public void clickNavbarNavWithDropdownLinksTest() {
+    navbarNav.navbarComplexLinks.listPages.get(4)
+             .is()
+             .displayed();
+    navbarNav.navbarComplexLinks.selectMenu(ITEM_BRAND);
+    newWindowTitleCheck(NAVBAR_BOOTSTRAP);
+    navbarNav.navbarComplexLinks.selectMenu(ITEM_NAV);
+    newWindowTitleCheck(NAVBAR_BOOTSTRAP);
+    navbarNav.navbarComplexLinks.selectMenu(ITEM_FORMS);
+    newWindowTitleCheck(NAVBAR_BOOTSTRAP);
+}
 
 
 
@@ -5984,22 +6002,17 @@ Available methods in Java JDI Light:
 Although it’s not required, you can wrap a navbar in a ``.container`` to center it on a page or add one within to only center the contents of a fixed or static top navbar.
 
 ```java 
-public class Navbar extends Section {
-    //@FindBy(xpath = "//*[contains(@class, 'nav-item')]")
-    @UI("//*[contains(@class, 'nav-item')]") public WebList navbarLinks;
-    @UI(".navbar-brand") public Link navbarBrand; //@FindBy(css = ".navbar-brand")
-    @JDropdown(expand = ".navbar-toggler-icon", value = ".navbar-nav", list = "a")
-    public Collapse collapseButton;
-    //@FindBy(xpath = "//*[contains(@class, 'nav-link dropdown-toggle')]")
-    @UI("//*[contains(@class, 'nav-link dropdown-toggle')]") public Dropdown navbarDropdown;
-}
-
+public class NavbarContainer extends Section {
 //@FindBy(id = "navbar-containers-centred")
-@UI("#navbar-containers-centred") public static Navbar navbarCentredContainer;
+    @UI("#navbar-containers-centred") public NavbarSimpleLinks navLinks1;
+//@FindBy(id = "navbar-containers-expanded")
+    @UI("#navbar-containers-expanded") public NavbarComplexLinks navbarComplexLinks;
+}
 
 @Test
   public void getNameNavbarContainerBrandTest() {
-     navbarCentredContainer.navbarBrand.is().text(textNavbarCentredContainer);
+        navbarContainers.navLinks1.brand.is().text(textNavbarCentredContainer);
+        navbarContainers.navbarComplexLinks.brand.is().text(textNavbarExpandedConteiner);
   }
 
 
@@ -6007,17 +6020,14 @@ public class Navbar extends Section {
 
 
 
-//@FindBy(id = "navbar-containers-expanded")
-@UI("#navbar-containers-expanded") public static Navbar navbarExpandedContainer;
-
 @Test
-  public void clickNavbarCentredContainerLinksTest() {
-     navbarCentredContainer.navbarBrand.click();
+public void clickNavbarCentredContainerLinksTest() {
+     navbarContainers.navLinks1.brand.click();
      assertThat(WindowsManager.windowsCount(), is(2));
      WindowsManager.switchToWindow(2);
      assertThat(getUrl(), is(url));
      WindowsManager.closeWindow();
-    }
+}
 
 
 

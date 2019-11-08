@@ -10177,8 +10177,8 @@ public void bootstrapValidationTest() {
         </div>
     </div>
 </form>
-<pre><code data-trim>
-<script>
+```
+```javascript
 	let customValidationListener = function(event) {
 		let valForm = document.getElementById("validated-form");
 		if (valForm.checkValidity() === false) {
@@ -10190,10 +10190,9 @@ public void bootstrapValidationTest() {
 
 	let valForm = document.getElementById("validated-form");
 	valForm.addEventListener('submit', customValidationListener, false);
-</script>
-</code></pre>
 ```
- 
+
+
 ##### Browser default
 
 Also you can use <a href = "https://getbootstrap.com/docs/4.3/components/forms/#browser-defaults" target = "a_blank">browser default validation</a>.

@@ -3925,7 +3925,13 @@ public void getTextTest() {
 
 Here is an example with provided HTML code:
 
-![Button example](../images/bootstrap/button-html.png)
+<!-- ![Button example](../images/bootstrap/button-html.png) -->
+
+```html
+<button type="button" id="red-button" class="btn btn-danger" 
+onclick="alert('Red button');" ondblclick="alert('Double Click');" 
+oncontextmenu="alert('Right Click');">Red button</button>
+```
 
 Available methods in Java JDI Light:
 
@@ -3966,7 +3972,12 @@ public void getTextTest() {
 ```  
 Here is an example with provided HTML code:
 
-![Disabled button example](../images/bootstrap/disabled_button_code.png)
+<!-- ![Disabled button example](../images/bootstrap/disabled_button_code.png) -->
+
+```html
+<button type="button" id="double-button" class="btn btn-info" 
+ondblclick="alert('Double Click');">Double button </button>
+```
 
 |Method/Property | Description | Return Type
 --- | --- | ---
@@ -3987,9 +3998,34 @@ Checkbox is located in the following classes:
   - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.common.Checkbox_
   
 
-![Checkbox default example](../images/bootstrap/checkbox-default.png)
+<!-- ![Checkbox default example](../images/bootstrap/checkbox-default.png) -->
 
 Here is an example with provided Bootstrap v4.3 code:
+
+```html
+<div class="btn-group-vertical mb-3" id="radio-buttons" role="group">
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1"
+               checked="">
+        <label class="form-check-label" for="exampleRadios1">
+            Default radio
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+        <label class="form-check-label" for="exampleRadios2">
+            Second default radio
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3"
+               disabled="">
+        <label class="form-check-label" for="exampleRadios3">
+            Disabled radio
+        </label>
+    </div>
+</div>
+```
 
 ```java 
 // @FindBy(css = "body") public static CheckboxesDefault checkboxesDefault;
@@ -4802,7 +4838,20 @@ public void leftButtonTests() {
 
 <br>
 
-![Button Group Basic Example Example](../images/bootstrap/bgroup-basic-example-html.png)
+<!-- ![Button Group Basic Example Example](../images/bootstrap/bgroup-basic-example-html.png) -->
+```html
+<div id="btn-md-group" class="btn-group mb-3" role="group" aria-label="Default button group">
+    <button type="button" class="btn btn-secondary" ondblclick="alert('Left Button Double Clicked!');"
+            oncontextmenu="alert('Left Button Right Clicked!');">Left
+    </button>
+    <button type="button" class="btn btn-secondary" ondblclick="alert('Middle Button Double Clicked!');"
+            oncontextmenu="alert('Middle Button Right Clicked!');">Middle
+    </button>
+    <button type="button" class="btn btn-secondary" ondblclick="alert('Right Button Double Clicked!');"
+            oncontextmenu="alert('Right Button Right Clicked!');">Right
+    </button>
+</div>
+```
 
 <br>
 
@@ -4862,7 +4911,36 @@ public class ButtonToolbar extends Section {
 }
 ```
 
-![Button toolbar example](../images/bootstrap/button_toolbar-html.png)
+<!-- ![Button toolbar example](../images/bootstrap/button_toolbar-html.png) -->
+
+```html
+
+<div class="btn-toolbar" id="buttonToolbar1" role="toolbar" aria-label="Toolbar with button groups">
+    <div class="btn-group mr-2" role="group" aria-label="First group">
+        <button type="button" class="btn btn-secondary" onclick="alert('1st button is clicked');">1
+        </button>
+        <button type="button" class="btn btn-secondary" onclick="alert('2nd button is clicked');">2
+        </button>
+        <button type="button" class="btn btn-secondary" onclick="alert('3rd button is clicked');">3
+        </button>
+        <button type="button" class="btn btn-secondary" onclick="alert('4th button is clicked');">4
+        </button>
+    </div>
+    <div class="btn-group mr-2" role="group" aria-label="Second group">
+        <button type="button" class="btn btn-secondary" onclick="alert('5th button is clicked');">5
+        </button>
+        <button type="button" class="btn btn-secondary" onclick="alert('6th button is clicked');">6
+        </button>
+        <button type="button" class="btn btn-secondary" onclick="alert('7th button is clicked');">7
+        </button>
+    </div>
+    <div class="btn-group" role="group" aria-label="Third group">
+        <button type="button" class="btn btn-secondary" onclick="alert('8th button is clicked');">8
+        </button>
+    </div>
+</div>
+
+```
 
 
 It is possible to mix input groups with button groups in your toolbars.
@@ -5598,41 +5676,59 @@ Navbar navigation links build on our ``.nav`` options with their own modifier cl
 
 ```java 
 
-public class Navbar extends Section {
-    //FindBy(xpath = "//*[contains(@class, 'nav-item')]")
-    @UI("//*[contains(@class, 'nav-item')]") public WebList navbarLinks;
-    //FindBy(css = ".navbar-brand")
-    @UI(".navbar-brand") public Link navbarBrand;
-    @JDropdown(expand = ".navbar-toggler-icon", value = ".navbar-nav", list = "a")
-    public Collapse collapseButton;   
-    //FindBy(xpath = "//*[contains(@class, 'nav-link dropdown-toggle')]")
-    @UI("//*[contains(@class, 'nav-link dropdown-toggle')]") public Dropdown navbarDropdown;
+public class NavbarNav extends Section {
+    @UI("#navbar-nav-with-disabled") public NavbarSimpleLinks navLinks1;
+    @UI("#navbar-nav-with-dropdown") public NavbarComplexLinks navbarComplexLinks;
+}
+public class NavbarSimpleLinks extends Section {
+    @UI(".navbar-brand") public Link brand;
+    @UI(".navbar-nav a") public ListGroup listPages;
+}
+public class NavbarComplexLinks extends Section {
+    @UI(".navbar-brand")
+    public Link brand;
+    @UI("ul li")
+    public ListGroup listPages;
+
+    @JDropdown(root = ".dropdown",
+            expand = "#navbarDropdownMenuLink",
+            list = "a")
+    public Dropdown dropdown;
+
+    public void selectMenu(String item) {
+        dropdown.show();
+        dropdown.toggle();
+        dropdown.list().select(item);
+    }
 }
 
-@UI("#navbar-nav-with-disabled") public static Navbar navbarNavWithDisabled;
-
 @Test
-   public void isDisabledItemNavWithDisabled(){
-         navbarNavWithDisabled.navbarLinks.get(4).is().disabled();
-   }
+public void isDisabledItemNavWithDisabled(){
+   navbarNav.navLinks1.listPages.get(4)
+            .is()
+            .displayed();
+   navbarNav.navLinks1.listPages.get(4)
+            .is()
+            .disabled();
+}
    
 
 
 
 
 
-@UI("#navbar-nav-with-dropdown") public static Navbar navbarNavWithDropdown;
-
-@Test(dataProvider = "linkNavbarWithDropdownTest")
-  public void clickNavbarNavWithDropdownLinksTest(int i, String text, String url) {
-     UIElement link = navbarNavWithDropdown.navbarLinks.get(i);
-     link.is().text(text);
-     link.click();
-     assertThat(WindowsManager.windowsCount(), is(2));
-     WindowsManager.switchToWindow(2);
-     assertThat(getUrl(), is(url));
-     WindowsManager.closeWindow();
-  }
+@Test
+public void clickNavbarNavWithDropdownLinksTest() {
+    navbarNav.navbarComplexLinks.listPages.get(4)
+             .is()
+             .displayed();
+    navbarNav.navbarComplexLinks.selectMenu(ITEM_BRAND);
+    newWindowTitleCheck(NAVBAR_BOOTSTRAP);
+    navbarNav.navbarComplexLinks.selectMenu(ITEM_NAV);
+    newWindowTitleCheck(NAVBAR_BOOTSTRAP);
+    navbarNav.navbarComplexLinks.selectMenu(ITEM_FORMS);
+    newWindowTitleCheck(NAVBAR_BOOTSTRAP);
+}
 
 
 
@@ -5906,22 +6002,17 @@ Available methods in Java JDI Light:
 Although it’s not required, you can wrap a navbar in a ``.container`` to center it on a page or add one within to only center the contents of a fixed or static top navbar.
 
 ```java 
-public class Navbar extends Section {
-    //@FindBy(xpath = "//*[contains(@class, 'nav-item')]")
-    @UI("//*[contains(@class, 'nav-item')]") public WebList navbarLinks;
-    @UI(".navbar-brand") public Link navbarBrand; //@FindBy(css = ".navbar-brand")
-    @JDropdown(expand = ".navbar-toggler-icon", value = ".navbar-nav", list = "a")
-    public Collapse collapseButton;
-    //@FindBy(xpath = "//*[contains(@class, 'nav-link dropdown-toggle')]")
-    @UI("//*[contains(@class, 'nav-link dropdown-toggle')]") public Dropdown navbarDropdown;
-}
-
+public class NavbarContainer extends Section {
 //@FindBy(id = "navbar-containers-centred")
-@UI("#navbar-containers-centred") public static Navbar navbarCentredContainer;
+    @UI("#navbar-containers-centred") public NavbarSimpleLinks navLinks1;
+//@FindBy(id = "navbar-containers-expanded")
+    @UI("#navbar-containers-expanded") public NavbarComplexLinks navbarComplexLinks;
+}
 
 @Test
   public void getNameNavbarContainerBrandTest() {
-     navbarCentredContainer.navbarBrand.is().text(textNavbarCentredContainer);
+        navbarContainers.navLinks1.brand.is().text(textNavbarCentredContainer);
+        navbarContainers.navbarComplexLinks.brand.is().text(textNavbarExpandedConteiner);
   }
 
 
@@ -5929,17 +6020,14 @@ public class Navbar extends Section {
 
 
 
-//@FindBy(id = "navbar-containers-expanded")
-@UI("#navbar-containers-expanded") public static Navbar navbarExpandedContainer;
-
 @Test
-  public void clickNavbarCentredContainerLinksTest() {
-     navbarCentredContainer.navbarBrand.click();
+public void clickNavbarCentredContainerLinksTest() {
+     navbarContainers.navLinks1.brand.click();
      assertThat(WindowsManager.windowsCount(), is(2));
      WindowsManager.switchToWindow(2);
      assertThat(getUrl(), is(url));
      WindowsManager.closeWindow();
-    }
+}
 
 
 
@@ -5978,12 +6066,45 @@ Use our position utilities to place navbars in non-static positions. Choose from
 
 Also note that ``.sticky-top`` uses position: sticky, which isn’t fully supported in every browser.
 
-![Containers schemes example](../images/bootstrap/navbar-placement.png)
+![Containers schemes example](../images/bootstrap/navbar-placement-sticky.png)
 
 Here is an example with provided Bootstrap v4.3 code:
-  
-![Containers HTML example](../images/bootstrap/navbar-placement-html.png)
-<br>
+
+```java 
+//@FindBy(id = "navbar-sticky-top")
+@UI("#navbar-sticky-top")
+public static NavbarPlacement navbarPlacementStickyTop;
+
+@Test
+public void navbarPositionTest() {
+    navbarPlacementStickyTop.show();
+    navbarPlacementStickyTop.core()
+            .is()
+            .css("position", "sticky")
+            .css("top", "0px");
+}
+
+
+
+
+```
+    
+![Containers HTML example](../images/bootstrap/navbar-placement-sticky-html.png)
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**click()** | Click a link | void
+**text()** | Check whether a text matches a pattern | isAssert
+**css()** | Match passed value with the element css | isAssert
+**is()** | Assertelement | isAssert 
+**jsExecute()** | Execute javascript | String
+**getRect()** | Get element rectangle | Rectangle
+
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navbar/NavbarPlacementTests.java">Bootstrap test examples</a>
+
+<br><br>
 
 #### [Responsive behaviors](https://getbootstrap.com/docs/4.3/components/navbar/#responsive-behaviors)
 
@@ -9995,7 +10116,157 @@ Available methods in Java JDI Light:
 <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/RangeTests.java" target=a_blank> Bootstrap test examples </a>
 
 <br><br>
-  
+ 
+#### Form Validation
+
+##### Custom style
+You can use custom <a href = "https://getbootstrap.com/docs/4.3/components/forms/#custom-styles" target = "a_blank">Bootstrap form validation</a> messages.
+
+![Custom style validation](../images/bootstrap/form-bootstrap-validation.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java
+@UI("#validated-form")
+public FormValidationForm form;
+
+@Test
+public void bootstrapValidationTest() {
+    String name = "ValidName";
+    String email = "InvalidEmail";
+    String phone = "InvalidPhone";
+
+    SimpleContact entity = new SimpleContact(name, email, phone);
+
+    form.fill(entity);
+    form.submit();
+
+    Map<String, String> validFeedback = form.getValidFeedback();
+    MatcherAssert.assertThat("Number of valid feedbacks not equals 1", validFeedback.size() == 1);
+    MatcherAssert.assertThat(validFeedback.keySet(), Matchers.hasItems("Name"));
+    MatcherAssert.assertThat(validFeedback.values(), Matchers.hasItem("Hi, " + name + "!"));
+
+    Map<String, String> invalidFeedback = form.getInvalidFeedback();
+    MatcherAssert.assertThat("Number of invalid feedbacks not equals 2", invalidFeedback.size() == 2);
+    MatcherAssert.assertThat(invalidFeedback.keySet(), 
+        Matchers.hasItems("Email", "Phone"));
+    MatcherAssert.assertThat(invalidFeedback.values(), 
+        Matchers.hasItems("Enter valid email!", "It doesn't look like a valid phone number"));
+}
+```
+
+ ```html
+<form id="validated-form" class="" novalidate="">
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <input id="validated-form-name-field" type="text" class="form-control" placeholder="Enter name" required="">
+                <div id="name-valid-feedback" class="valid-feedback">Hi, Valid Name!</div>
+                <div class="invalid-feedback">Enter your name!</div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-group">
+                <input type="email" class="form-control" id="validated-form-email" placeholder="Enter email" required="">
+                <div class="valid-feedback">Looks good!</div>
+                <div class="invalid-feedback">Enter valid email!</div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-group">
+                <input type="text" class="form-control" id="validated-form-phone" placeholder="Enter phone" pattern="^[-+0-9()\s]+$">
+                <div class="valid-feedback">Looks good!</div>
+                <div class="invalid-feedback">It doesn't look like a valid phone number</div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+        <button type="submit" class="btn btn-primary" id="validated-form-submit">Send</button>
+        <button type="reset" class="btn btn-danger" id="validated-form-reset">Clear</button>
+        </div>
+    </div>
+</form>
+```
+
+Additional JavaScript code to use Bootstrap validation:
+
+![Browser default validation](../images/bootstrap/form-bootstrap-validation-js.png)
+
+
+##### Browser default
+
+Also you can use <a href = "https://getbootstrap.com/docs/4.3/components/forms/#browser-defaults" target = "a_blank">browser default validation</a>.
+
+![Browser default validation](../images/bootstrap/form-browser-defaults.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java
+@UI("#validated-form")
+public FormValidationForm form;
+
+@Test
+public void browserValidationTest() {
+    String name = "ValidName";
+    String email = "InvalidEmail";
+    String phone = "InvalidPhone";
+
+    SimpleContact entity = new SimpleContact(name, email, phone);
+
+    form.fill(entity);
+    form.submit();
+
+    Map<String, String> validFeedback = form.getValidationMessages();
+
+    MatcherAssert.assertThat("", validFeedback.get("Email"),
+        Matchers.is("Please include an '@' in the email address. 'InvalidEmail' is missing an '@'.")); //Browser dependent message
+    MatcherAssert.assertThat("", validFeedback.get("Phone"),
+        Matchers.is("Please match the requested format.")); //Browser dependent message
+    MatcherAssert.assertThat("", validFeedback.get("Name"), Matchers.is(""));
+}
+```
+
+ ```html
+<form id="validated-form"">
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <input id="validated-form-name-field" type="text" class="form-control" placeholder="Enter name" required="">
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-group">
+                <input type="email" class="form-control" id="validated-form-email" placeholder="Enter email" required="">
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-group">
+                <input type="text" class="form-control" id="validated-form-phone" placeholder="Enter phone" pattern="^[-+0-9()\s]+$">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+        <button type="submit" class="btn btn-primary" id="validated-form-submit">Send</button>
+        <button type="reset" class="btn btn-danger" id="validated-form-reset">Clear</button>
+        </div>
+    </div>
+</form>
+```
+ 
+Available methods for form validation in Java JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+**isValid()** | Return if form valid | boolean 
+**getValidationMessages()** | Return map field names to browser validation messages | Map<String, String>
+**getValidFeedback()** |  Return map field names to visible valid bootstrap feedback text | Map<String, String>
+**getInvalidFeedback()** |  Return map field names to visible invalid bootstrap feedback text | Map<String, String>
+**getFeedbackElements()** |  Return map field names to visible bootstrap feedback elements | Map<String, UIElement>
+
+ <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/BootstrapValidationTest.java" target="_blank">Bootstrap Test Examples</a>
+ 
 ### Scrollspy
 **[Scrollspy](https://getbootstrap.com/docs/4.3/components/scrollspy/#example-in-navbar)** – automatically update Bootstrap navigation or list group components based on scroll position to indicate which link is currently active in the viewport.
 <br><br>
@@ -17434,6 +17705,45 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 ## UI Objects
 TBD
 
+## Non-Static Site initialization
+
+```java
+
+public class NonStaticTestsInit {
+
+    protected NonStaticSite nonStaticSite;
+
+    @BeforeSuite(alwaysRun = true)
+    public void setUp() {
+
+        nonStaticSite = new NonStaticSite();
+
+        PageFactory.initElements(nonStaticSite);
+
+        nonStaticSite.getHomePage().open();
+
+        WebSettings.logger.toLog("Non Static site page opened");
+    }
+
+    @AfterSuite(alwaysRun = true)
+    public void cleanUp() {
+
+        WebDriverUtils.killAllSeleniumDrivers();
+    }
+}
+
+```
+
+- <a href="https://github.com/jdi-testing/jdi-light/tree/master/jdi-light-examples">Project is here</a>
+
+- <a href="https://github.com/jdi-testing/jdi-light/tree/master/jdi-light-examples/src/main/java/io/github/com/NonStaticSite.java">Simple non-static Page Object is here</a>
+
+- <a href="https://github.com/jdi-testing/jdi-light/tree/master/jdi-light-examples/src/test/java/io/github/epam/NonStaticTestsInit.java">Parent class for test-cases with non-static initialization</a>
+
+<br><br><br><br><br>
+Simple non-static site initialization example ------>
+
+
 ## Smart Locators
 
 ```
@@ -17859,45 +18169,30 @@ We can change default settings placed in the test.properties file (src/test/reso
 **driver.remote.url** | <a href="https://jdi-docs.github.io/jdi-light/?java#remote-test-runs">Tests can run on remote web servers<a> | driver.remote.url=http://localhost:4444/wd/hub
 
 ```java 
-       useDriver(() -> FF_INFO.getDriver() );
-    
-```
+public class TestsInit {
+    private final String pathToDriver = "src\\test\\resources\\Driver\\chromedriver.exe";
 
-## Parallel tests run
-TBD
+    public static WebDriver getMyDriver() {
+        System.setProperty("webdriver.chrome.driver", pathToDriver);
+        return new ChromeDriver();
+    }
 
-```java 
-    
-```
-
-## Remote test runs
-TBD
-
-Add before suite
-
-```java 
-public class TestsInit extends TestNGBase {
-
-    public String hubUrl;
-    public RemoteWebDriver driver;
-
-    @BeforeSuite (alwaysRun = true)
-    public void setUpSuite() throws IOException {
-        hubUrl = "http://localhost:4444/wd/hub";
-
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setBrowserName("chrome");
-        capabilities.setVersion("64.0");
-        capabilities.setCapability("enableVNC", true);
-        capabilities.setCapability("enableVideo", false);
-        driver = new RemoteWebDriver(URI.create(hubUrl).toURL(), capabilities);
-        driver.manage().window().maximize();
-
-        WebSettings.init();
-        WebSettings.useDriver(()-> driver);
+    @BeforeSuite(alwaysRun = true)
+    public static void setUp() {
+        WebDriverFactory.useDriver("my_driver", () -> getMyDriver());
+        initSite(StaticSite.class);
+        openUrl(DOMAIN);
     }
 }
     
 ```
+
+This is example how to initialize of custom driver:
+
+## Parallel tests run
+TBD
+
+## Remote test runs
+TBD
 
 

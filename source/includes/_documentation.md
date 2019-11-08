@@ -10178,19 +10178,10 @@ public void bootstrapValidationTest() {
     </div>
 </form>
 ```
-```javascript
-	let customValidationListener = function(event) {
-		let valForm = document.getElementById("validated-form");
-		if (valForm.checkValidity() === false) {
-			event.preventDefault();
-			event.stopPropagation();
-		}
-		valForm.classList.add('was-validated');
-	};
 
-	let valForm = document.getElementById("validated-form");
-	valForm.addEventListener('submit', customValidationListener, false);
-```
+Additional JavaScript code to use Bootstrap validation:
+
+![Browser default validation](../images/bootstrap/form-bootstrap-validation-js.png)
 
 
 ##### Browser default

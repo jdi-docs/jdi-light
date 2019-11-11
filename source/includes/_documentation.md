@@ -6630,162 +6630,6 @@ Available methods in Java JDI Light:
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/progress/ProgressAnimatedStripesTests.java)
 <br>
 
-### Media object
-
-```java 
-public class MediaObject extends Section {
-}
-```
-
-<a href="https://getbootstrap.com/docs/4.3/components/media-object" target=a_blank> Media object</a> helps build complex and repetitive components where some media is positioned alongside content that doesn’t wrap around said media.
-
-```java 
-@UI("#media-object-sample") public static MediaObjectSample mediaObjectSample; // @FindBy(css = "#media-object-sample")
-
-public class MediaObjectSample extends MediaObject {
-@UI("img") public Image imageOfMediaObject;
-@Title
-@UI("h5") public Text headingOfMediaObject;
-@UI(".media-body") public Text bodyOfMediaObject;
-}
-
-@Test
-public void isValidationTestSample() {
-mediaObjectSample.is().displayed();
-mediaObjectSample.is().enabled();
-mediaObjectSample.bodyOfMediaObject.is().text(is(bodyTextOfMediaObjectSample));
-mediaObjectSample.bodyOfMediaObject.is().text(containsString("American comic books"));
-mediaObjectSample.bodyOfMediaObject.assertThat().displayed()
-          .core()
-          .cssClass("media-body");
-}
-
-
-
-
-
-
-
-
-
-@UI("#media-object-nesting") public static MediaObjectNesting mediaObjectNesting; // @FindBy(css = "#media-object-nesting")
-
-public class MediaObjectNesting extends MediaObject {
-@UI("img") public Image imageOfMediaObject;
-@Title
-@UI("h5") public Text headingOfMediaObject;
-@UI(".media-body") public Text bodyOfMediaObject;
-@UI("div.media div.media") public MediaObjectSample  nestingMediaObject;
-}
-
-@Test
-public void isValidationTestNesting() {
-mediaObjectNesting.is().displayed();
-mediaObjectNesting.is().enabled();
-mediaObjectNesting.nestingMediaObject.bodyOfMediaObject.is().text(is(bodyTextOfMediaObjectNesting));
-mediaObjectNesting.nestingMediaObject.bodyOfMediaObject.is().text(containsString("vel eu leo"));
-mediaObjectNesting.nestingMediaObject.bodyOfMediaObject.assertThat().displayed()
-     .and().text(is(bodyTextOfMediaObjectNesting))
-     .core()
-     .cssClass("media-body");
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@UI("#media-object-list") public static JList<MediaObjectSample> mediaObjectList; // @FindBy(css = "#media-object-list")
-
-@Test
-public void isValidationTestListMediaObject() {
-mediaObjectList.is().displayed();
-mediaObjectList.is().enabled();
-mediaObjectList.get(1).headingOfMediaObject.is().text(is(listOfHeading.get(1)));
-mediaObjectList.get(1).bodyOfMediaObject.is().text(containsString("Stark requires"));
-mediaObjectList.assertThat().displayed()
-      .core()
-      .css("font-size", is("14px"));
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-```
-
-**Media object sample**
-
-![Media object sample](../images/bootstrap/media-object-sample.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-  
-![Media object example](../images/bootstrap/media-object-sample-html.png)
-
-
-
-**Media object nesting**
-
-![Media object nesting](../images/bootstrap/media-object-nesting.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-  
-![Media object nesting example](../images/bootstrap/media-object-nesting-html.png)
-
-
-**Media object list**
-
-
-![Media object list](../images/bootstrap/media-object-list.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-  
-![Media object list example](../images/bootstrap/media-object-list-html.png)
-
-Media object is represented by MediaObject class: 
-
-  <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap/src/main/java/com/epam/jdi/light/ui/bootstrap/elements/composite/MediaObject.java">MediaObject</a>  
-
-MediaObject class is inherited from Section class:
- 
-  [Section](https://jdi-docs.github.io/jdi-light/#section)
-  
-Inner elements of media object can be represented by the following classes:
-<ul>
-    <li> [Text](https://jdi-docs.github.io/jdi-light/#text) </li>
-    <li> [Label](https://jdi-docs.github.io/jdi-light/#label) </li>
-    <li> [Link](https://jdi-docs.github.io/jdi-light/#link)  </li>
-    <li> [Image](https://jdi-docs.github.io/jdi-light/#image)  </li>
-    <li> [See more elements](https://jdi-docs.github.io/jdi-light/#html5-common-elements) </li>
-</ul>
-     
-   <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/mediaObject/MediaObjectTests.java" target=a_blank> Bootstrap test examples </a>
-
-
 ###Spinners
 
 Bootstrap “spinners” can be used to show the loading state in your projects. 
@@ -10702,6 +10546,162 @@ In these java test cases examples next classes have been used:
 [Scrollspy with list-group Tests Example](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/scrollspy/ScrollspyWithListGroupTests.java)
 
 <br><br>
+
+### Media object
+
+```java 
+public class MediaObject extends Section {
+}
+```
+
+<a href="https://getbootstrap.com/docs/4.3/components/media-object" target=a_blank> Media object</a> helps build complex and repetitive components where some media is positioned alongside content that doesn’t wrap around said media.
+
+```java 
+@UI("#media-object-sample") public static MediaObjectSample mediaObjectSample; // @FindBy(css = "#media-object-sample")
+
+public class MediaObjectSample extends MediaObject {
+@UI("img") public Image imageOfMediaObject;
+@Title
+@UI("h5") public Text headingOfMediaObject;
+@UI(".media-body") public Text bodyOfMediaObject;
+}
+
+@Test
+public void isValidationTestSample() {
+mediaObjectSample.is().displayed();
+mediaObjectSample.is().enabled();
+mediaObjectSample.bodyOfMediaObject.is().text(is(bodyTextOfMediaObjectSample));
+mediaObjectSample.bodyOfMediaObject.is().text(containsString("American comic books"));
+mediaObjectSample.bodyOfMediaObject.assertThat().displayed()
+          .core()
+          .cssClass("media-body");
+}
+
+
+
+
+
+
+
+
+
+@UI("#media-object-nesting") public static MediaObjectNesting mediaObjectNesting; // @FindBy(css = "#media-object-nesting")
+
+public class MediaObjectNesting extends MediaObject {
+@UI("img") public Image imageOfMediaObject;
+@Title
+@UI("h5") public Text headingOfMediaObject;
+@UI(".media-body") public Text bodyOfMediaObject;
+@UI("div.media div.media") public MediaObjectSample  nestingMediaObject;
+}
+
+@Test
+public void isValidationTestNesting() {
+mediaObjectNesting.is().displayed();
+mediaObjectNesting.is().enabled();
+mediaObjectNesting.nestingMediaObject.bodyOfMediaObject.is().text(is(bodyTextOfMediaObjectNesting));
+mediaObjectNesting.nestingMediaObject.bodyOfMediaObject.is().text(containsString("vel eu leo"));
+mediaObjectNesting.nestingMediaObject.bodyOfMediaObject.assertThat().displayed()
+     .and().text(is(bodyTextOfMediaObjectNesting))
+     .core()
+     .cssClass("media-body");
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@UI("#media-object-list") public static JList<MediaObjectSample> mediaObjectList; // @FindBy(css = "#media-object-list")
+
+@Test
+public void isValidationTestListMediaObject() {
+mediaObjectList.is().displayed();
+mediaObjectList.is().enabled();
+mediaObjectList.get(1).headingOfMediaObject.is().text(is(listOfHeading.get(1)));
+mediaObjectList.get(1).bodyOfMediaObject.is().text(containsString("Stark requires"));
+mediaObjectList.assertThat().displayed()
+      .core()
+      .css("font-size", is("14px"));
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+```
+
+**Media object sample**
+
+![Media object sample](../images/bootstrap/media-object-sample.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Media object example](../images/bootstrap/media-object-sample-html.png)
+
+
+
+**Media object nesting**
+
+![Media object nesting](../images/bootstrap/media-object-nesting.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Media object nesting example](../images/bootstrap/media-object-nesting-html.png)
+
+
+**Media object list**
+
+
+![Media object list](../images/bootstrap/media-object-list.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+![Media object list example](../images/bootstrap/media-object-list-html.png)
+
+Media object is represented by MediaObject class: 
+
+  <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap/src/main/java/com/epam/jdi/light/ui/bootstrap/elements/composite/MediaObject.java">MediaObject</a>  
+
+MediaObject class is inherited from Section class:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)
+  
+Inner elements of media object can be represented by the following classes:
+<ul>
+    <li> [Text](https://jdi-docs.github.io/jdi-light/#text) </li>
+    <li> [Label](https://jdi-docs.github.io/jdi-light/#label) </li>
+    <li> [Link](https://jdi-docs.github.io/jdi-light/#link)  </li>
+    <li> [Image](https://jdi-docs.github.io/jdi-light/#image)  </li>
+    <li> [See more elements](https://jdi-docs.github.io/jdi-light/#html5-common-elements) </li>
+</ul>
+     
+   <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/mediaObject/MediaObjectTests.java" target=a_blank> Bootstrap test examples </a>
+
 
 ### Modal
 **Modal** is a dialog box/popup window that is displayed on page.

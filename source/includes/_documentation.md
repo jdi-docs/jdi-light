@@ -8583,7 +8583,7 @@ Available methods in Java JDI Light:
 
 ## Bootstrap Composite elements
 ### Forms
-**Forms** – logical part of a web page that represents an HTML form.
+<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/forms/" target="_blank">Forms</a> – logical part of a web page that represents an HTML form.
 Form can consists of:
 <ul>
 <li>Textual form controls(inputs, selects, and textareas)</li>
@@ -8593,6 +8593,207 @@ Form can consists of:
 <li>Help text</li>
 <li>Fieldsets(which can disable all the controls within)</li>
 </ul>
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**fillAction(Field field, Object element, Object parent, String setValue)** | Defines the specifics of how form elements will be filled | void
+**getAction(Field field, Object element, Object parent)** | Defines the specifics of how form elements will be obtained for verification and checks | String
+**onlyMandatory()** | Sets form filter option to **MANDATORY**, meaning that only mandatory form elements are filled/submitted or verified/checked for the duration of a single form action | void
+**onlyOptional()** | Sets form filter option to **OPTIONAL**, meaning that only optional form elements are filled/submitted or verified/checked for the duration of a single form action | void
+**fill(T entity)** | Fills all settable elements of the form that can be matched with fields of the input entity | void
+**submit()** | Sends the form by clicking "submit" Button or "submitButton" | void
+**submit(String text)** | Fills first settable form field with value and clicks "submit" Button or "submitButton"  | void
+**submit(T entity)** | Fills all settable elements and clicks "submit" Button or "submitButton"  | void
+**submit(String text, String buttonName)** | Fills first settable field with value and clicks “buttonName” Button or "buttonNamebutton"| void
+**submit(T entity, String buttonName)** | Fills all settable elements and clicks “buttonName” Button or "buttonNamebutton" | void
+**pressButton(String buttonName)** | Clicks “buttonName” Button or "buttonNamebutton". Allows different buttons to send one form, e.g. save/publish/cancel/search/update/... | void
+**verify(T entity)** | Verifies that form has been filled correctly. If not, returns a list of keys where verification has failed | List<String>
+**check(T entity)** | Verifies that form has been filled correctly. If not, throws an exception | void
+**login()** | Clicks "login" Button or "loginButton"| void
+**login(T entity)** | Fills all settable elements and clicks “login” Button or ”loginButton” | void
+**loginAs(T entity)** | Fills all settable elements and clicks “login” Button or ”loginButton” | void
+**send()** | Sends the form by clicking “send” Button or "sendButton" | void
+**send(T entity)** | Fills all settable elements and clicks “send” Button or ”sendButton” | void
+**add(T entity)** | Fills all settable elements and clicks “add” Button or ”addButton” | void
+**publish(T entity)** | Fills all settable elements and clicks “publish” Button or ”publishButton” | void
+**save(T entity)** | Fills all settable elements and clicks “save” Button or ”saveButton” | void
+**update(T entity)** | Fills all settable elements and clicks “update” Button or ”updateButton” | void
+**cancel(T entity)** | Fills all settable elements and clicks “cancel” Button or ”cancelButton” | void
+**close(T entity)** | Fills all settable elements and clicks “close” Button or ”closeButton” | void
+**back(T entity)** | Fills all settable elements and clicks “back” Button or ”backButton” | void
+**select(T entity)** | Fills all settable elements and clicks “select” Button or ”selectButton” | void
+**next(T entity)** | Fills all settable elements and clicks “next” Button or ”nextButton” | void
+**search(T entity)** | Fills all settable elements and clicks “search” Button or ”searchButton” | void
+**is()** | Asserts element  | UIAssert
+
+#### Simple form
+This is an example of simple form consisting of some basic elements.
+![Simple form](../images/bootstrap/form-simple.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java 
+ public class BootstrapFormsPage extends WebPage {
+     @UI("#support-form")      //FindBy(css = "#support-form")
+     public static SupportMessageForm supportMessageForm;
+ }
+
+ @Test
+ public void submitButtonTest() {
+     superheroForm.superheroButtonSubmit.click();
+     lastLogEntry.has().text(containsString(logLineSubmit));
+ }
+
+ @Test
+ public void clearButtonTest() {
+     superheroForm.superheroButtonClear.click();
+     lastLogEntry.has().text(containsString(logLineClear));
+ }
+
+ @Test
+ public void submitFormTest() {
+     superheroForm.submit(EXAMPLE_HERO);
+     lastLogEntry.has().text(containsString(logLineSubmit));
+     superheroForm.check(EXAMPLE_HERO);
+ }
+
+ @Test
+ public void clearFormTest() {
+     superheroForm.clear(EXAMPLE_HERO);
+     lastLogEntry.has().text(containsString(logLineClear));
+     superheroForm.check(TEMPLATE_HERO);
+ }
+```
+
+```html 
+<form id="support-form">
+    <div class="form-group">
+        <label for="support-email">Please enter your email address at which
+            our manager can contact you</label>
+        <input type="email" class="form-control" id="support-email" aria-describedby="emailHelp" placeholder="Enter email">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+            else.</small>
+    </div>
+    <div class="form-group">
+        <label for="support-message">Your message</label>
+        <textarea class="form-control" id="support-message" rows="3"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary" id="support-button-submit">Submit</button>
+    <button type="reset" class="btn btn-danger" id="support-button-clear">Clear</button>
+</form>
+```
+
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/SimpleFormTests.java)
+<br><br><br><br><br><br><br><br><br><br><br>
+
+#### Complicated form
+This is an example of complicated form consisting of various specific elements.
+![Complicated form](../images/bootstrap/form-complicated.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java 
+public class BootstrapFormsPage extends WebPage {
+    @UI("#superhero-creation-form")   //FindBy(css = "#superhero-creation-form")
+    public static SuperheroForm superheroForm;
+
+    @UI(".logs  li:first-child")      //FindBy(css = ".logs  li:first-child")
+    public static Text lastLogEntry;
+}
+
+@Test
+public void submitButtonTest() {
+    superheroForm.superheroButtonSubmit.click();
+    lastLogEntry.has().text(containsString(logLineSubmit));
+}
+
+@Test
+public void clearButtonTest() {
+    superheroForm.superheroButtonClear.click();
+    lastLogEntry.has().text(containsString(logLineClear));
+}
+
+@Test
+public void submitFormTest() {
+    superheroForm.submit(EXAMPLE_HERO);
+    lastLogEntry.has().text(containsString(logLineSubmit));
+    superheroForm.check(EXAMPLE_HERO);
+}
+
+@Test
+public void clearFormTest() {
+    superheroForm.clear(EXAMPLE_HERO);
+    lastLogEntry.has().text(containsString(logLineClear));
+    superheroForm.check(TEMPLATE_HERO);
+}
+``` 
+
+```html 
+<form id="superhero-creation-form">
+    <div class="form-group">
+        <label for="current-alias">Enter your alias</label>
+        <input type="text" class="form-control" id="current-alias" aria-describedby="emailHelp" placeholder="Enter alias">
+    </div>
+    <div class="form-group">
+        <label for="alter-ego">Enter your alter ego</label>
+        <input type="text" class="form-control" id="alter-ego" aria-describedby="emailHelp" placeholder="Enter alter ego">
+    </div>
+    <!-- Radios start -->
+    <fieldset class="form-group">
+        <div class="row">
+            <legend class="col-form-label col-sm-2 pt-0">Species</legend>
+            <div class="col-sm-10">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="superheroSpecies" id="human" value="option1" checked="">
+                    <label class="form-check-label" for="human">
+                        Human
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="superheroSpecies" id="symbiote" value="option2">
+                    <label class="form-check-label" for="symbiote">
+                        Symbiote
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="superheroSpecies" id="skrulls" value="option3">
+                    <label class="form-check-label" for="skrulls">
+                        Skrulls
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="superheroSpecies" id="kryptonian" value="option4">
+                    <label class="form-check-label" for="kryptonian">
+                        Kryptonian
+                    </label>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+    <!-- Radios end -->
+    <div>
+        <label for="superhero-range">Power scale:</label>
+        <input type="range" class="custom-range mb-3" min="0" max="100" id="superhero-range">
+    </div>
+    <label for="select-universe">Universe:</label>
+    <select class="custom-select mb-3" id="select-universe">
+        <option selected="">Select character's universe</option>
+        <option value="1">DC</option>
+        <option value="2">Marvel Earth-616</option>
+        <option value="3">Marvel Cinematic Universe</option>
+    </select>
+    <div class="custom-control custom-switch mb-3" id="superhero-switch-div">
+        <input type="checkbox" class="custom-control-input" id="superhero-switch">
+        <label class="custom-control-label" for="superhero-switch">I'm not going to destroy all living beings</label>
+    </div>
+    <button type="submit" class="btn btn-primary" id="superhero-button-submit">Submit</button>
+    <button type="reset" class="btn btn-danger" id="superhero-button-clear">Clear</button>
+</form>
+```
+
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/ComplicatedFormTests.java)
 
 #### Form controls
 

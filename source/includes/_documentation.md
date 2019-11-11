@@ -6766,7 +6766,11 @@ Here is an example with provided Bootstrap v4.3 code:
   
 ![Media object list example](../images/bootstrap/media-object-list-html.png)
 
-Media object is represented by Section class in Java:
+Media object is represented by MediaObject class: 
+
+  <a>https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap/src/main/java/com/epam/jdi/light/ui/bootstrap/elements/composite/MediaObject.java</a>  
+
+MediaObject class is inherited from Section class:
  
   [Section](https://jdi-docs.github.io/jdi-light/#section)
   

@@ -8211,8 +8211,8 @@ public class DropdownForm extends Dropdown {
 public void fillTest() {
     dropdownForm.expand();
 
-    formBrowserDefaults.fill(DEFAULT_CONTACT);
-    formBrowserDefaults.check(DEFAULT_CONTACT);
+    dropdownForm.form.fill(USER);
+    dropdownForm.form.check(USER);
 
     dropdownForm.collapse();
 }

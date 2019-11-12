@@ -8060,7 +8060,64 @@ Put a form within a dropdown menu, or make it into a dropdown menu, and use <a h
 
 Here is an example form code in the menu items:
 
+```java 
+public class DropdownForm extends Dropdown {
+    @UI("//form") public FormDropdownLogin form;
+}
+
+@Test
+public void fillTest() {
+    dropdownForm.expand();
+
+    dropdownForm.form.fill(USER);
+    dropdownForm.form.check(USER);
+
+    dropdownForm.collapse();
+}
+
+@Test
+public void checkboxTests() {
+    dropdownForm.expand();
+
+    dropdownForm.form.remember.check();
+    dropdownForm.form.remember.is().selected();
+    dropdownForm.form.remember.uncheck();
+    dropdownForm.form.remember.is().deselected();
+
+    dropdownForm.collapse();
+}
+
+@Test
+public void testButton(){
+    dropdownForm.expand();
+
+    dropdownForm.form.submit();
+    validateAlert(is("Sign in"));
+
+    dropdownForm.collapse();
+}
+```
 ![Form HTML example](../images/bootstrap/dropdown-menu-content-form-html.png)
+
+Available methods in Java JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+**assertThat()** | Assert action | TextAssert
+**is()** | Assert action | UIAssert
+**getAttribute()** | Get attribute value | String
+**expand()** | Expand dropdown | void
+**collapse()** | Collapse dropdown | void
+**expanded()** | Assert that dropdown is expanded | DropdownAssert
+**collapsed()** | Assert that dropdown is collapsed | DropdownAssert
+**click()** | Click the button | void
+**getText()** | Get button text | String
+**getValue()** | Get button value | String
+**displayed()** | Check that element is displayed | TextAssert
+**enabled()** | Check that element is enabled | TextAssert
+**check()** | Check checkbox | void
+**selected()** | Check that checkbox is selected | TextAssert
+**deselected()** | Check that checkbox is not selected | TextAssert
 
 <br>
 

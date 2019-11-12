@@ -3802,6 +3802,8 @@ Methods available for Java in JDI Light:
 **select(T entity)** | Fills all settable elements and clicks “select” Button or ”selectButton” | void
 **next(T entity)** | Fills all settable elements and clicks “next” Button or ”nextButton” | void
 **search(T entity)** | Fills all settable elements and clicks “search” Button or ”searchButton” | void
+**isDisplayed()** | Check that form is displayed | boolean
+**isValid()** | Return that form is valid | boolean
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/composite/FormTests.java" target="_blank">Test examples in Java</a>
 

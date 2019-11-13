@@ -6349,16 +6349,16 @@ Available methods in Java JDI Light:
 
 
 ###Progress
+<a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/progress/">Progress</a> is custom progress bar featuring support for stacked bars, animated backgrounds, and text labels.
+
+There is also a complex element <a style="font-weight: bold;" href="https://getbootstrap.com/docs/4.3/components/progress/">MultiplebarsProgress</a> which may consist of several progress bars.
+
+
+![Progress example](../images/bootstrap/progress.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
 ```java 
-
-
-
-
-
-
-
-
-
 //FindBy(css = "#progress-bar-base-width-25 .progress-bar"
 @UI("#progress-bar-base-width-25 .progress-bar")  
 public static Progress progressBaseWidth25;
@@ -6373,12 +6373,6 @@ public void getColorTest(Progress progress, String color) {
    progress.is().color(color);
 }
 ```
-<a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/progress/">Progress</a> is custom progress bar featuring support for stacked bars, animated backgrounds, and text labels.
-
-
-![Progress example](../images/bootstrap/progress.png)
-
-Here is an example with provided Bootstrap v4.3 code:
   
 ![Progress HTML example](../images/bootstrap/progress-html.png)
 
@@ -6388,14 +6382,17 @@ Available methods in Java JDI Light:
 
 |Method/Property | Description | Return Type
 --- | --- | ---
-**getAriaValue()** | Get aria value of the bar | String
+**getValue()** | Get aria value of the bar | String
+**getMaxValue()** | Get max value of the bar  | String
+**getMinValue()** | Get min value of the bar  | String
 **getColor()** | Get color of the bar  | String
+**getStyle()** | Get style of the bar | String
 **is()** | Various assert actions for Progress | ProgressAssert 
 **assertThat()** | Assert action | UIAssert 
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/progress/ProgressBaseTests.java)
 
-**With label**
+####With label
 
 ```java 
 
@@ -6432,20 +6429,11 @@ Here is an example with provided Bootstrap v4.3 code:
   
 ![Progress label HTML example](../images/bootstrap/progress-label-html.png)
 
-Available methods in Java JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
-**getAriaValue()** | Get aria value of the bar | String
-**getColor()** | Get color of the bar  | String
-**is()** | Various assert actions for Progress | ProgressAssert 
-**assertThat()** | Assert action | UIAssert 
-
 <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/ProgressWithLabelsTests.java" target=a_blank> Bootstrap test examples </a>
 
-<br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-**With height**
+####With height
 
 We only set a <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/progress/#height">height</a>
  value on the .progress, so if you change that value the inner .progress-bar will automatically resize accordingly.
@@ -6480,18 +6468,11 @@ public static JList<ProgressSection> progressHeightSections;
   
 ![Progress label HTML example](../images/bootstrap/progress_height_DOM.PNG)
 
-Available methods in Java JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
-**is()** | Various assert actions for Progress | ProgressAssert 
-**assertThat()** | Assert action | UIAssert 
-
 <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/progress/ProgressHeightTests.java" target=a_blank> Bootstrap test examples </a>
 
-<br><br>
+<br><br><br><br><br><br><br><br><br><br>
 
-**With backgrounds**
+####With backgrounds
 
 Use <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/progress/#backgrounds">background</a> utility classes to change the appearance of individual progress bars.
 
@@ -6500,7 +6481,6 @@ Use <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com
 Here is an example with provided Bootstrap v4.3 code:
   
   ```java 
-
 //@FindBy(css = "#progress-background-green")
 @UI("#progress-backgrounds-green") public static Progress progressBackgroundGreen;
 //@FindBy(css = "#progress-background-blue")
@@ -6536,87 +6516,13 @@ Here is an example with provided Bootstrap v4.3 code:
   
 ![Progress backgrounds HTML example](../images/bootstrap/progress-backgrounds-html.png)
 
-Available methods in Java JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
-**getAriaValue()** | Get aria value of the bar | String
-**getColor()** | Get color of the bar  | String
-**is()** | Various assert actions for Progress | ProgressAssert 
-**assertThat()** | Assert action | UIAssert 
-
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/ProgressBackgroundTests.java" target=a_blank> Bootstrap test examples </a>
 
-<br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-**With multiple bars**
+####With striped design
 
-Include <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/progress/#multiple-bars">multiple progress bars</a>  in a progress component if you need.
-
-![Progress multiple example](../images/bootstrap/progress-multiple.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-
-```java 
-// @FindBy(id = "progress-multiple-bars")
-@UI("#progress-multiple-bars")
-public static ProgressMultipleBars progressMultipleBars;
-
-// @FindBy(id = "progress-multiple-ordinary")
-@UI("#progress-multiple-ordinary")
-public Progress multipleOrdinary;
-
-// @FindBy(id = "progress-multiple-success")
-@UI("#progress-multiple-success")
-public Progress multipleSuccess;
-
-// @FindBy(id = "progress-multiple-info")
-@UI("#progress-multiple-info")
-public Progress multipleInfo;
-
-@DataProvider
-public Object[][] progressMultipleBarsData() {
-    return new Object[][]{
-            {progressMultipleBars.multipleOrdinary},
-            {progressMultipleBars.multipleSuccess},
-            {progressMultipleBars.multipleInfo}
-    };
-}
-
-@Test(dataProvider = "progressMultipleBarsData")
-public void isValidationTest(Progress progress) {
-    progress.is().enabled().and().displayed();
-    progress.assertThat()
-            .core()
-            .hasClass("progress-bar")
-            .attr("role", "progressbar");
-}
-```
-
-```html 
-<div class="progress">
-  <div class="progress-bar" role="progressbar" style="width: 15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
-  <div class="progress-bar bg-success" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-  <div class="progress-bar bg-info" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-</div>
-```
-
-Available methods in Java JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
-**getAriaValue()** | Get aria value of the bar | String
-**getColor()** | Get color of the bar  | String
-**is()** | Various assert actions for Progress | ProgressAssert 
-**assertThat()** | Assert action | UIAssert 
-
-[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/ProgressMultipleBarsTests.java)
-
-<br><br><br><br><br><br><br><br><br><br>
-
-**With striped design**
-
-<a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/progress/#striped">Striped progress bars</a>
+Add <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/progress/#striped">.progress-bar-striped</a> to any `.progress-bar to apply` a stripe via CSS gradient over the progress bar’s background color.
 
 ![Progress striped example](../images/bootstrap/progress-striped.png)
 
@@ -6653,28 +6559,19 @@ Here is an example with provided Bootstrap v4.3 code:
 
 ![Progress striped HTML example](../images/bootstrap/progress-striped-html.png)
 
-Available methods in Java JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
-**getAriaValue()** | Get aria value of the bar | String
-**getColor()** | Get color of the bar  | String
-**getMaxValue()** | Get max value of the bar  | String
-**getMinValue()** | Get min value of the bar  | String
-**is()** | Various assert actions for Progress | ProgressAssert 
-**assertThat()** | Assert action | ProgressAssert  
-
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/listprogressbars/ProgressBarsListTests.java)
 
-<br><br><br><br><br><br><br>  
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
-**With animated design**
+####With animated design
+
+The striped gradient can also be <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/progress/#animated-stripes">animated</a>.
+Add .progress-bar-animated to .progress-bar to animate the stripes right to left via CSS3 animations.
+
+Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
-
-
-
 //FindBy(css = "#progress-animated")
 @UI("#progress-animated") public static Progress progressAnimated;
 
@@ -6686,24 +6583,11 @@ public void isValidationTest() {
             .ariaValue("75");
 }
 ```
-The striped gradient can also be <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/progress/#animated-stripes">animated</a>.
-Add .progress-bar-animated to .progress-bar to animate the stripes right to left via CSS3 animations.
-
-Here is an example with provided Bootstrap v4.3 code:
   
 ![Progress animated HTML example](../images/bootstrap/progress-animated-html.png)
 
-Available methods in Java JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
-**getAriaValue()** | Get aria value of the bar | String
-**getColor()** | Get color of the bar  | String
-**is()** | Various assert actions for Progress | ProgressAssert  
-**assertThat()** | Assert action | ProgressAssert
-
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/progress/ProgressAnimatedStripesTests.java)
-<br>
+<br><br><br><br><br><br><br><br>
 
 ###Spinners
 
@@ -8247,6 +8131,63 @@ Available methods in Java JDI Light:
 **collapsed()** | Assert that dropdown is collapsed | DropdownAssert
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/complex/DropdownOptionsTests.java" target="_blank">Bootstrap Test Examples</a>
+
+###MultiplebarsProgress
+
+Include <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/progress/#multiple-bars">multiple progress bars</a>  in a progress component if you need.
+
+There is also a common element <a style="font-weight: bold;" target="_blank" href="https://jdi-docs.github.io/jdi-light/#progress">Progress</a> which includes only one progress bar.
+
+![Progress multiple example](../images/bootstrap/progress-multiple.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java 
+// @FindBy(id = "progress-multiple-bars")
+@UI("#progress-multiple-bars")
+public static ProgressMultipleBars progressMultipleBars;
+
+// @FindBy(id = "progress-multiple-ordinary")
+@UI("#progress-multiple-ordinary")
+public Progress multipleOrdinary;
+
+// @FindBy(id = "progress-multiple-success")
+@UI("#progress-multiple-success")
+public Progress multipleSuccess;
+
+// @FindBy(id = "progress-multiple-info")
+@UI("#progress-multiple-info")
+public Progress multipleInfo;
+
+@DataProvider
+public Object[][] progressMultipleBarsData() {
+    return new Object[][]{
+            {progressMultipleBars.multipleOrdinary},
+            {progressMultipleBars.multipleSuccess},
+            {progressMultipleBars.multipleInfo}
+    };
+}
+
+@Test(dataProvider = "progressMultipleBarsData")
+public void isValidationTest(Progress progress) {
+    progress.is().enabled().and().displayed();
+    progress.assertThat()
+            .core()
+            .hasClass("progress-bar")
+            .attr("role", "progressbar");
+}
+```
+
+```html 
+<div class="progress">
+  <div class="progress-bar" role="progressbar" style="width: 15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+  <div class="progress-bar bg-success" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+  <div class="progress-bar bg-info" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+```
+
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/ProgressMultipleBarsTests.java)
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 ### Toast
 <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/toasts/" target="_blank">Toast</a> - Toasts are lightweight notifications designed to mimic the push notifications.

@@ -16033,9 +16033,9 @@ Inner elements of jumbotron can be represented by the following classes:
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/jumbotron)
 
-## Json/smart locators, json pages
+## JDI Features for parameters in BDD steps 
 
-### Using file-based PageObjects for locators
+### Using aliases as locators parameters 
 ```gherkin
    Scenario: input element
        When I input "simple 1234" in "Name"
@@ -16067,8 +16067,25 @@ But these json file/files **must be** located in **json.page.objects** package.<
 **Keep in mind**: All the elements are collected from these json file/files and are stored in global hash map.<br>
  Therefore it is **essential** that all the elements defined with **unique names**.<br>
 
-[BDD feature test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bdd-no-po-tests/src/test/resources/features/TestsWithLocators.feature)<br>
+[BDD feature test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bdd-no-po-tests/src/test/resources/features/TestsWithProperties.feature)<br>
 [Json PageObject file example](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bdd-no-po-tests/src/test/resources/json/page/objects/html5page.json)
+<br><br><br>
+### Using locators as parameters 
+```gherkin
+   Scenario: click element
+       When I click on "[value*='Red Button']"
+       Then the Alert text equals to "Red button"
+
+   Scenario: clear element
+       When I input "simple text" in "#name"
+       Then the "#name" text equals to "simple text"
+       When I clear "#name"
+       Then the "#name" text equals to ""
+ ```
+
+Feature allows to use locator as parameter instead of an element name.<br><br><br><br><br><br><br>
+
+[BDD feature test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bdd-no-po-tests/src/test/resources/features/TestsWithLocators.feature)
 <br><br><br>
 ### Using element names defined with capital letter as locator IDs 
 ```gherkin
@@ -16094,7 +16111,7 @@ Smart locator is generated like ID with lover case element name: **#element-name
 For better understanding of this test example remove **"Name": "#name"** from html5page.json to be sure how smart locator works.
 <br><br><br>
 
-### Using aliases for pages URLs in BDD steps
+### Using aliases for pages URLs 
 
 ```gherkin
    #Instead of this:
@@ -16131,15 +16148,7 @@ pages.json:
 Alias for pages are defined via **[pages.json](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bdd-no-po-tests/src/test/resources/json/page/objects/pages.json)**. <br>
 Note: domain is read from test.properties automatically. <br><br><br><br><br>
 [BDD feature test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bdd-no-po-tests/src/test/resources/features/JsonBasedPage.feature)
-<br><br>
-### Non page object implementation for basic steps
-You are able to use parameter locator instead of an element name in you features: <br>
-
-**When** I click on **"[value*='Red Button']"** element <br>
-**When** I send keys "simple 1234" to **"#name"** element <br>
-**Then** the **"#name"** element's text matches to "\w{6} \d{4}" <br>
-etc. <br>
-Example [feature](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-bdd-no-po-tests/src/test/resources/features/TestsWithLocators.feature)
+<br><br><br>
 
 ## JDI Light BDD Steps
 

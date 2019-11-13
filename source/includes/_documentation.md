@@ -15951,21 +15951,17 @@ For this feature you should remove **"Name": "#name"** from html5page.json to be
 
 ### Using aliases for pages URLs in BDD steps
 
-```
-Instead of this:
-```
 ```gherkin
+   #Instead of this:
    Scenario: bootstrap page
-       Given Page with url "link" openned
+       Given Page with url "\<LINK TO HOME PAGE\>" opened
    
    Scenario: contacts page
-       When I open url "link contacts"
-       Then the "link contacts" page is opened
+       When I open url "\<LINK TO CONTACTS PAGE\>"
+       Then the url "\<LINK TO CONTACTS PAGE\>" is opened
  ```
-```
-Use this:
-```
 ```gherkin
+   #Use this:
    Scenario: json based bootstrap page
        When I open "Bootstrap Page" page
        Then the "Bootstrap Page" page is opened
@@ -15976,15 +15972,15 @@ Use this:
  ```
 
 Pages can be opened by alias name instead of URL. 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 ```
 pages.json:
 ```
 ```json 
     {
-    "Home Page": "/",
-    "Bootstrap Page": "/bootstrap.html"
+      "Home Page": "/",
+      "Bootstrap Page": "/bootstrap.html"
     }
  ```
 Alias for pages are defined via **[pages.json](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bdd-no-po-tests/src/test/resources/json/page/objects/pages.json)**. <br>

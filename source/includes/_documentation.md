@@ -4176,7 +4176,7 @@ Element that can be represented with one or more clickable buttons aiming to cho
 
 Radio button is located in the following classes:
  
-  - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.common.RadioButton_
+  - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.complex.RadioButtons_
   
 
 ![Radio button example](../images/bootstrap/radio-button.png)
@@ -4188,43 +4188,60 @@ Here is an example with provided Bootstrap v4.3 code:
 @UI("#radio-buttons") public static RadioButtonGroup radioButtonGroup;
 
 public class RadioButtonGroup extends Section {
-    @UI("#exampleRadios1") public RadioButton radio1; //@FindBy(css = "#exampleRadios1") public RadioButton radio1;
-    @UI("#exampleRadios2" )public RadioButton radio2; //@FindBy(css = "#exampleRadios2" )public RadioButton radio2;
-    @UI("#exampleRadios3") public RadioButton radio3; //@FindBy(css = "#exampleRadios3") public RadioButton radio3;
-    @UI("input[type='radio']") public RadioButton radioButton; //@FindBy(css = "input[type='radio']") public RadioButton radioButton;
-    @UI("label[for='exampleRadios1']") public Label radio1Label; //@FindBy(css = "label[for='exampleRadios1']") public Label radio1Label;
-    @UI("label[for='exampleRadios2']") public Label radio2Label; //@FindBy(css = "label[for='exampleRadios2']") public Label radio2Label;
-    @UI("label[for='exampleRadios3']") public Label radio3Label; //@FindBy(css = "label[for='exampleRadios3']") public Label radio3Label;
+//@FindBy(css = "input[type='radio']")
+@UI("input[type='radio']")
+public RadioButtons radioButtons;
 }
 
 @Test
-public void baseInitTest() {
-    radioButtonGroup.radioButton.is()
-            .size(3);
-    radioButtonGroup.radio1.is()
-            .selected();
-    radioButtonGroup.radio2.is()
-            .deselected();
-    radioButtonGroup.radioButton.get(3).is()
-            .deselected();
-    radioButtonGroup.radioButton.get(3).is()
-            .disabled();
+public void radioButtonByIndexTests() {
+    radioButtonGroup.radioButtons.list().get(2).click();
+    radioButtonGroup.radioButtons.list().get(2).is().selected();
+    radioButtonGroup.radioButtons.list().is().selected(2);
+    radioButtonGroup.radioButtons.is().selected(2);
+    radioButtonGroup.radioButtons.list().get(1).is().deselected();
+    radioButtonGroup.radioButtons.list().get(1).select();
+    radioButtonGroup.radioButtons.list().get(1).is().selected();
+    radioButtonGroup.radioButtons.list().is().selected(1);
+    radioButtonGroup.radioButtons.list().get(2).is().deselected();
+    radioButtonGroup.radioButtons.list().select(2);
+    radioButtonGroup.radioButtons.list().get(2).is().selected();
 }
 
 @Test
 public void radioButtonByLabelTests() {
-    radioButtonGroup.radio2Label.click();
-    radioButtonGroup.radioButton.get(2).is()
-            .selected();
-    radioButtonGroup.radioButton.is()
-            .text(is(value2));
-    radioButtonGroup.radio1.select();
-    radioButtonGroup.radio1.is()
-            .selected();
+    radioButtonGroup.radioButtons.list().select(labelText1);;
+    radioButtonGroup.radioButtons.list().is().selected(labelText1);
+    radioButtonGroup.radioButtons.is().selected(labelText1);
+    radioButtonGroup.radioButtons.list().get(1).is().text(is(value1));
+    radioButtonGroup.radioButtons.list().get(2).is().deselected();
+    radioButtonGroup.radioButtons.list().get(2).label().click();
+    radioButtonGroup.radioButtons.is().selected(labelText2);
+    radioButtonGroup.radioButtons.list().get(2).is().text(is(value2));
+    radioButtonGroup.radioButtons.list().get(1).is().deselected();
+    radioButtonGroup.radioButtons.select(labelText1);
+    radioButtonGroup.radioButtons.is().selected(labelText1);
+    radioButtonGroup.radioButtons.list().get(2).is().deselected();
 }
 ```
 
-![Radio button example html](../images/bootstrap/radio-button-html.png)
+```html
+<div class="btn-group-vertical mb-3" id="radio-buttons" role="group">
+     <div class="form-check">
+          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked="">
+          <label class="form-check-label" for="exampleRadios1">Default radio</label>
+     </div>
+     <div class="form-check">
+          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+          <label class="form-check-label" for="exampleRadios2">Second default radio</label>
+     </div>
+     <div class="form-check">
+           <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" disabled="">
+           <label class="form-check-label" for="exampleRadios3">Disabled radio</label>
+     </div>
+</div>
+```
+
 
 
 
@@ -4253,7 +4270,7 @@ Button group is represented by Section class in Java:
 
 Radio button is located in the following classes:
  
-  - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.common.RadioButton_
+  - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.complex.RadioButtons_
   
 
 ![Radio button inline example](../images/bootstrap/radio-default-inline.png)
@@ -4265,46 +4282,66 @@ Here is an example with provided Bootstrap v4.3 code:
 @UI("body") public static RadioButtonsDefaultInline radioButtonsDefaultInline;
 
 public class RadioButtonsDefaultInline extends Section {
-    @UI("input[name='inlineRadioOptions']") public RadioButton radioButton; //@FindBy(css = "input[name='inlineRadioOptions']") public RadioButton radioButton;
-    @UI("#inlineRadio1") public RadioButton radio1; //@FindBy(css = "#inlineRadio1") public RadioButton radio1;
-    @UI("#inlineRadio2") public RadioButton radio2; //@FindBy(css = "#inlineRadio2") public RadioButton radio2;
-    @UI("#inlineRadio3") public RadioButton radio3; //@FindBy(css = "#inlineRadio3") public RadioButton radio3;
-    @UI("label[for='inlineRadio1']") public Label radio1Label; //@FindBy(css = "label[for='inlineRadio1']") public Label radio1Label;
-    @UI("label[for='inlineRadio2']") public Label radio2Label; //@FindBy(css = "label[for='inlineRadio2']") public Label radio2Label;
-    @UI("label[for='inlineRadio3']") public Label radio3Label; //@FindBy(css = "label[for='inlineRadio3']") public Label radio3Label;
+    //@FindBy(css = "input[name='inlineRadioOptions']")
+    @UI("input[name='inlineRadioOptions']")
+    public RadioButtons radioButtons;
 }
 
 @Test
- public void baseInitTest() {
-     radioButtonsDefaultInline.radioButton
-             .is()
-             .size(3);
-     radioButtonsDefaultInline.radio1Label
-             .is()
-             .core()
-             .hasClass("form-check-label")
-             .text(is(label1));
+public void baseInitTest() {
+     radioButtonsDefaultInline.radioButtons.is().size(3);
+     radioButtonsDefaultInline.radioButtons.list().get(1).is().deselected();
+     radioButtonsDefaultInline.radioButtons.list().get(2).is().deselected();
+     radioButtonsDefaultInline.radioButtons.list().get(3).is().deselected();
+     radioButtonsDefaultInline.radioButtons.list().get(3).is().disabled();
+
+     radioButtonsDefaultInline.radioButtons.list().get(1).label()
+                .is()
+                .core()
+                .hasClass("form-check-label")
+                .text(is(label1));
+     radioButtonsDefaultInline.radioButtons.list().get(2).label()
+                .is()
+                .core()
+                .hasClass("form-check-label")
+                .text(is(label2));
+     radioButtonsDefaultInline.radioButtons.list().get(3).label()
+                .is()
+                .core()
+                .hasClass("form-check-label")
+                .text(is(label3));
 }
 
 @Test
 public void radioButtonByIndexTests() {
-    radioButtonsDefaultInline.radioButton.select(2);
-    radioButtonsDefaultInline.radioButton.get(2)
-            .is()
-            .selected();
-    radioButtonsDefaultInline.radioButton.get(1)
-            .is()
-            .deselected();
-    radioButtonsDefaultInline.radio1Label.click();
-    radioButtonsDefaultInline.radioButton.get(1)
-            .is()
-            .selected();
+    radioButtonsDefaultInline.radioButtons.select(2);
+    radioButtonsDefaultInline.radioButtons.is().selected(2);
+    radioButtonsDefaultInline.radioButtons.is().selected("2");
+    radioButtonsDefaultInline.radioButtons.list().get(2).is().selected();
+    radioButtonsDefaultInline.radioButtons.list().get(1).is().deselected();
+    radioButtonsDefaultInline.radioButtons.select(1);
+    radioButtonsDefaultInline.radioButtons.is().selected(1);
+    radioButtonsDefaultInline.radioButtons.is().selected("1");
+    radioButtonsDefaultInline.radioButtons.list().get(2).is().deselected();
+    radioButtonsDefaultInline.radioButtons.list().select("2");
+    radioButtonsDefaultInline.radioButtons.list().get(2).is().selected();
 }
 ```
 
-![Radio button inline example html](../images/bootstrap/radio-default-inline-html.png)
-
-
+```html 
+<div class="form-check form-check-inline">
+     <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+     <label class="form-check-label" for="inlineRadio1">1</label>
+</div>
+<div class="form-check form-check-inline">
+     <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+     <label class="form-check-label" for="inlineRadio2">2</label>
+</div>
+<div class="form-check form-check-inline">
+     <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" disabled="">
+     <label class="form-check-label" for="inlineRadio3">3 (disabled)</label>
+</div>
+```
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -4326,12 +4363,14 @@ Button group is represented by Section class in Java:
   [Section](https://jdi-docs.github.io/jdi-light/#section)  
 
 <br>
+<br>
+<br>
 
 #### <a href="https://getbootstrap.com/docs/4.3/components/forms/#without-labels" target="_blank">Radio button and checkbox without labels</a>
 
 Checkbox and Radio button are located in the following classes:
  
-  - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.common.RadioButton_
+  - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.complex.RadioButtons_
   - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.common.Checkbox_
   
 
@@ -4340,12 +4379,16 @@ Checkbox and Radio button are located in the following classes:
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
-// @FindBy(css = "body") public static CheckboxesAndRadiosWithoutLabels checkboxesAndRadiosWithoutLabels);
-@UI("body") public static CheckboxesAndRadiosWithoutLabels checkboxesAndRadiosWithoutLabels;
+//@FindBy(css = "body")
+@UI("body") 
+public static CheckboxesAndRadiosWithoutLabels checkboxesAndRadiosWithoutLabels;
 
-public class CheckboxesAndRadiosWithoutLabels extends Section {
-    @UI("//input[@id='blankCheckbox']/..") public Checkbox checkbox; // @FindBy(xpath = "//input[@id='blankCheckbox']/..") public Checkbox checkbox;
-    @UI("#blankRadio1") public RadioButton radioButton; // @FindBy(css = "#blankRadio1") public RadioButton radioButton;
+//@FindBy(xpath = "//input[@id='blankCheckbox']/..")
+@UI("//input[@id='blankCheckbox']/..")
+public Checkbox checkbox;
+//@FindBy(css = "#blankRadio1")
+@UI("#blankRadio1")
+public RadioButtons radioButtons;
 }
 
 @Test
@@ -4357,7 +4400,7 @@ public void isValidationTests() {
             .core()
             .hasClass("form-check")
             .tag(is("div"));
-    checkboxesAndRadiosWithoutLabels.radioButton
+    checkboxesAndRadiosWithoutLabels.radioButtons
             .is()
             .displayed()
             .enabled()
@@ -4381,16 +4424,24 @@ public void checkboxClickableTests() {
 
 @Test
 public void radioButtonTests() {
-    checkboxesAndRadiosWithoutLabels.radioButton.select();
-    checkboxesAndRadiosWithoutLabels.radioButton
-            .is()
-            .selected();
+    checkboxesAndRadiosWithoutLabels.radioButtons.select(1);
+    checkboxesAndRadiosWithoutLabels.radioButtons.list()
+             .is()
+             .selected(1);
+    checkboxesAndRadiosWithoutLabels.radioButtons
+             .is()
+             .selected(1);
 }
 ```
 
-![Radio button and checkbox without labels example html](../images/bootstrap/default-without-labels-html.png)
-
-
+```html
+<div class="form-check">
+     <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+</div>
+<div class="form-check">
+      <input class="form-check-input position-static" type="radio" name="blankRadio" id="blankRadio1" value="option1" aria-label="...">
+</div>
+``` 
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -4483,7 +4534,7 @@ Button group is represented by Section class in Java:
 
 Radio button is located in the following classes:
  
-  - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.common.RadioButton_
+  - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.complex.RadioButtons_
   
 
 ![Radio button custom example](../images/bootstrap/custom-radio.png)
@@ -4491,54 +4542,59 @@ Radio button is located in the following classes:
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
-// @FindBy(css = "#custom-radio-con") public static RadioButtonsCustom radioButtonCustom;
-@UI("#custom-radio-con") public static RadioButtonsCustom radioButtonCustom;
-
 public class RadioButtonsCustom extends Section {
-    @UI("#customRadio1") public RadioButton radio1; // @FindBy(css = "#customRadio1") public RadioButton radio1;
-    @UI("#customRadio2") public RadioButton radio2; // @FindBy(css = "#customRadio2") public RadioButton radio2;
-    @UI(".custom-radio") public RadioButton radioButton; // @FindBy(css = ".custom-radio") public RadioButton radioButton;
-    @UI("label[for='customRadio1']") public Label radio1Label; // @FindBy(css = "label[for='customRadio1']") public Label radio1Label;
-    @UI("label[for='customRadio2']") public Label radio2Label; // @FindBy(css = "label[for='customRadio2']") public Label radio2Label;
+    //@FindBy(css = "[name='customRadio']")
+    @UI("[name='customRadio']")
+    public RadioButtons radioButtons;
 }
 
 @Test
-public void baseInitTest() {
-    radioButtonCustom.radioButton.is()
-            .size(2);
-    radioButtonCustom.radio1.is()
-            .deselected();
-    radioButtonCustom.radio2.is()
-            .deselected();
-    radioButtonCustom.radio1Label.is()
-            .text(is(label1));
-    radioButtonCustom.radio2Label.is()
-            .text(is(label2));
+public void radioButtonByIndexTests() {
+   radioButtonCustom.radioButtons.list().get(1).select();
+   radioButtonCustom.radioButtons.list().get(1).core().waitFor().selected();
+   radioButtonCustom.radioButtons.list().get(1).is().selected();
+   radioButtonCustom.radioButtons.list().get(2).is().deselected();
+   radioButtonCustom.radioButtons.list().get(2).select();
+   radioButtonCustom.radioButtons.list().get(2).core().waitFor().selected();
+   radioButtonCustom.radioButtons.list().get(2).is().selected();
+   radioButtonCustom.radioButtons.list().select(label1);
+   radioButtonCustom.radioButtons.list().is().selected(label1);
+   radioButtonCustom.radioButtons.list().get(2).is().deselected();
+   radioButtonCustom.radioButtons.list().get(1).click();
+   radioButtonCustom.radioButtons.list().get(1).is().selected();
+   radioButtonCustom.radioButtons.list().get(2).is().deselected();
 }
 
 @Test
-public void radioOneIsValidationTests() {
-    radioButtonCustom.radio1
-            .is()
-            .hidden()
-            .enabled()
-            .core()
-            .attr("type", "radio")
-            .attr("name", "customRadio")
-            .hasClass("custom-control-input")
-            .tag(is("input"));
+public void radioButtonByIndexInSelectTests() {
+   radioButtonCustom.radioButtons.select(1);
+   radioButtonCustom.radioButtons.is().selected(label1);
+   radioButtonCustom.radioButtons.select(2);
+   radioButtonCustom.radioButtons.is().selected(label2);
+   radioButtonCustom.radioButtons.select(label1);
+   radioButtonCustom.radioButtons.is().selected(label1);
+   radioButtonCustom.radioButtons.is().selected(1);
+   radioButtonCustom.radioButtons.select(label2);
+   radioButtonCustom.radioButtons.is().selected(2);
 }
 ```
 
-![Radio button custom example html](../images/bootstrap/custom-radio-html.png)
-
-
+```html
+<div class="html-left" id="custom-radio-con">
+    <div class="custom-control custom-radio" id="customRadio1-div">
+         <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
+         <label class="custom-control-label" for="customRadio1">Toggle this custom radio</label>
+    </div>
+    <div class="custom-control custom-radio" id="customRadio2-div">
+        <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
+        <label class="custom-control-label" for="customRadio2">Or toggle this other custom radio</label>
+    </div>
+</div>
+```
 
 |Method | Description | Return Type
 --- | --- | ---
 **click()** | Click the button | void
-**check()** | Select the button | void
-**uncheck()** | Deselect the button | void
 **getText()** | Get button text | String
 **is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
@@ -4560,7 +4616,7 @@ Button group is represented by Section class in Java:
 
 Radio button is located in the following classes:
  
-  - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.common.RadioButton_
+  - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.complex.RadioButtons_
   
 
 ![Radio button custom inline example](../images/bootstrap/custom-radio-inline.png)
@@ -4572,49 +4628,55 @@ Here is an example with provided Bootstrap v4.3 code:
 @UI("body") public static RadioButtonsCustomInline radioButtonsCustomInline;
 
 public class RadioButtonsCustomInline extends Section {
-    @UI("#customRadioInline1") public RadioButton radio1; // @FindBy(css = "#customRadioInline1") public RadioButton radio1;
-    @UI("#customRadioInline2") public RadioButton radio2; // @FindBy(css = "#customRadioInline2") public RadioButton radio2;
-    @UI(".custom-control-inline") public RadioButton radioButton; // @FindBy(css = ".custom-control-inline") public RadioButton radioButton;
-    @UI("label[for='customRadioInline1']") public Label radio1Label; // @FindBy(css = "label[for='customRadioInline1']") public Label radio1Label;
-    @UI("label[for='customRadioInline2']") public Label radio2Label; // @FindBy(css = "label[for='customRadioInline2']") public Label radio2Label;
+    //@FindBy(css = ".custom-control-inline .custom-control-input")
+    @UI(".custom-control-inline .custom-control-input")
+    public RadioButtons radioButtons;
 }
 
 @Test
 public void radioButtonByIndexTests() {
-    radioButtonsCustomInline.radioButton.select(2);
-    radioButtonsCustomInline.radio2.is()
-            .selected();
-    radioButtonsCustomInline.radio1.is()
-            .deselected();
-    radioButtonsCustomInline.radioButton.select(1);
-    radioButtonsCustomInline.radio1.is()
-            .selected();
-    radioButtonsCustomInline.radio2.is()
-            .deselected();
+    radioButtonsCustomInline.radioButtons.select(1);
+    radioButtonsCustomInline.radioButtons.is().selected(1);
+    radioButtonsCustomInline.radioButtons.list().get(2).select();
+    radioButtonsCustomInline.radioButtons.list().is().selected(2);
+    radioButtonsCustomInline.radioButtons.list().get(2).is().selected();
+    radioButtonsCustomInline.radioButtons.list().get(1).click();
+    radioButtonsCustomInline.radioButtons.list().get(1).is().selected();
+    radioButtonsCustomInline.radioButtons.list().get(2).is().deselected();
 }
 
 @Test
-public void radioOneIsValidationTests() {
-    radioButtonsCustomInline.radio1.is()
-            .hidden()
-            .enabled()
-            .core()
-            .attr("type", "radio")
-            .attr("name", "customRadioInline1")
-            .hasClass("custom-control-input")
-            .tag(is("input"));
+public void radioButtonByLabelTests() {
+    radioButtonsCustomInline.radioButtons.list().get(1).label().click();
+    radioButtonsCustomInline.radioButtons.is().selected(1);
+    radioButtonsCustomInline.radioButtons.list().get(2).label().click();
+    radioButtonsCustomInline.radioButtons.is().selected(2);
+    radioButtonsCustomInline.radioButtons.list().get(1).label().click();
+    radioButtonsCustomInline.radioButtons.is().selected(text1);
+    radioButtonsCustomInline.radioButtons.list().is().selected(text1);
+    radioButtonsCustomInline.radioButtons.select(text2);
+    radioButtonsCustomInline.radioButtons.list().is().selected(text2);
+    radioButtonsCustomInline.radioButtons.list().get(1).label().is().text(text1);
+    radioButtonsCustomInline.radioButtons.list().get(2).label().is().text(text2);
 }
 ```
 
-![Radio button custom inline example html](../images/bootstrap/custom-radio-inline-html.png)
-
-
+```html 
+<div class="custom-control custom-radio custom-control-inline" id="customRadioInline1-div">
+     <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
+     <label class="custom-control-label" for="customRadioInline1">Toggle this <br> custom
+                                    radio</label>
+</div>
+<div class="custom-control custom-radio custom-control-inline" id="customRadioInline2-div">
+      <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
+      <label class="custom-control-label" for="customRadioInline2">Or toggle this <br> custom
+                                    radio</label>
+</div>
+```
 
 |Method | Description | Return Type
 --- | --- | ---
 **click()** | Click the button | void
-**check()** | Select the button | void
-**uncheck()** | Deselect the button | void
 **getText()** | Get button text | String
 **is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
@@ -4637,7 +4699,7 @@ Button group is represented by Section class in Java:
 Checkbox and Radio button is located in the following classes:
 
 __Java__:
-  - com.epam.jdi.light.ui.bootstrap.elements.common.RadioButton_
+  - com.epam.jdi.light.ui.bootstrap.elements.complex.RadioButtons_
   - com.epam.jdi.light.ui.bootstrap.elements.common.Checkbox_
   
 
@@ -4649,16 +4711,18 @@ Here is an example with provided Bootstrap v4.3 code:
 // @FindBy(css = "body") public static CheckboxAndRadioButtonCustomDisabled checkboxAndRadioButtonCustomDisabled;
 @UI("body") public static CheckboxAndRadioButtonCustomDisabled checkboxAndRadioButtonCustomDisabled;
 
-public class CheckboxAndRadioButtonCustomDisabled extends Section {
-    @UI("#customCheckDisabled1-div") public Checkbox checkbox; // @FindBy(css = "#customCheckDisabled1-div") public Checkbox checkbox;
-    @UI("#customRadioDisabled2-div") public RadioButton radioButtonContainer; // @FindBy(css = "#customRadioDisabled2-div") public RadioButton radioButtonContainer;
-    @UI("#customRadioDisabled2") public RadioButton radioButton; // @FindBy(css = "#customRadioDisabled2") public RadioButton radioButton;
-    @UI("label[for='customRadioDisabled2']") public Label radio1Label; // @FindBy(css = "label[for='customRadioDisabled2']") public Label radio1Label;
-}
+    public class CheckboxAndRadioButtonCustomDisabled extends Section {
+        //FindBy(css = "#customCheckDisabled1-div")
+        @UI("#customCheckDisabled1-div")
+        public Checkbox checkbox;
+        //FindBy(css = "#customRadioDisabled2")
+        @UI("#customRadioDisabled2")
+        public RadioButtons radioButtons;
+    }
 
-@Test
-public void radioButtonIsValidationTests() {
-    checkboxAndRadioButtonCustomDisabled.radioButton.is()
+    @Test
+    public void radioButtonIsValidationTests() {
+        checkboxAndRadioButtonCustomDisabled.radioButtons.list().get(1).is()
             .hidden()
             .disabled()
             .core()
@@ -4666,21 +4730,30 @@ public void radioButtonIsValidationTests() {
             .attr("name", "radioDisabled")
             .hasClass("custom-control-input")
             .tag(Matchers.is("input"));
-}
+    }
 
-@Test
-public void baseInitTest() {
-    checkboxAndRadioButtonCustomDisabled.radioButtonContainer.is()
-            .size(1);
-    checkboxAndRadioButtonCustomDisabled.radioButton.is()
-            .deselected();
-    checkboxAndRadioButtonCustomDisabled.radio1Label.is()
-            .text(is(label1));
-}
+    @Test
+    public void baseInitTest() {
+        checkboxAndRadioButtonCustomDisabled.radioButtons.is().size(1);
+        checkboxAndRadioButtonCustomDisabled.radioButtons.list().get(1)
+                .is()
+                .deselected();
+        checkboxAndRadioButtonCustomDisabled.radioButtons.list().get(1).label()
+                .is()
+                .text(is(label1));
+    }
 ```
 
-![Custom disabled example html](../images/bootstrap/custom-disabled-html.png)
-
+```html
+<div class="custom-control custom-checkbox" id="customCheckDisabled1-div">
+    <input type="checkbox" class="custom-control-input" id="customCheckDisabled1" disabled="">
+    <label class="custom-control-label" for="customCheckDisabled1">Check this custom checkbox</label>
+</div>
+<div class="custom-control custom-radio" id="customRadioDisabled2-div">
+    <input type="radio" name="radioDisabled" id="customRadioDisabled2" class="custom-control-input" disabled="">
+    <label class="custom-control-label" for="customRadioDisabled2">Toggle this custom radio</label>
+</div>
+```
 
 
 |Method | Description | Return Type

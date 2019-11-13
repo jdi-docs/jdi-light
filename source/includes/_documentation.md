@@ -16085,31 +16085,44 @@ And **Name** element is automatically searched by the smart locator **#name**. <
 Example [feature](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-bdd-no-po-tests/src/test/resources/features/TestsWithName.feature) <br>
 For this feature you should remove **"Name": "#name"** from html5page.json to be sure how smart locator works.
 
-### Json-based pages
+### Using aliases for pages URLs in BDD steps
+
+```gherkin
+   #Instead of this:
+   Scenario: bootstrap page
+       Given Page with url "\<LINK TO HOME PAGE\>" opened
+   
+   Scenario: contacts page
+       When I open url "\<LINK TO CONTACTS PAGE\>"
+       Then the url "\<LINK TO CONTACTS PAGE\>" is opened
+ ```
+```gherkin
+   #Use this:
+   Scenario: json based bootstrap page
+       When I open "Bootstrap Page" page
+       Then the "Bootstrap Page" page is opened
+   
+   Scenario: json based contacts page
+       When I open "Contacts Page" page
+       Then the "Contacts Page" page is opened
+ ```
+
+Pages can be opened by alias name instead of URL. 
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 ```
-
 pages.json:
-
-{
-"Home Page": "/",
-"Bootstrap Page": "/bootstrap.html"
-}
 ```
-
-Pages can be opened by name without page objects. <br>
-Instead of this: <br>
-
-**And** I open page by url "https://jdi-testing.github.io/jdi-light/bootstrap.html" <br>
-
-Use this: <br>
-
-**Given** I open "Bootstrap Page" <br>
-
-Pages are defined via **[pages.json](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-bdd-no-po-tests/src/test/resources/json/page/objects/pages.json)**. <br>
-Note: domain is read from test.properties automatically. <br>
-Example [feature](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-bdd-no-po-tests/src/test/resources/features/JsonBasedPage.feature)
-
+```json 
+    {
+      "Home Page": "/",
+      "Bootstrap Page": "/bootstrap.html"
+    }
+ ```
+Alias for pages are defined via **[pages.json](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bdd-no-po-tests/src/test/resources/json/page/objects/pages.json)**. <br>
+Note: domain is read from test.properties automatically. <br><br><br><br><br>
+[BDD feature test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bdd-no-po-tests/src/test/resources/features/JsonBasedPage.feature)
+<br><br>
 ### Non page object implementation for basic steps
 You are able to use parameter locator instead of an element name in you features: <br>
 

@@ -16035,33 +16035,41 @@ Inner elements of jumbotron can be represented by the following classes:
 
 ## Json/smart locators, json pages
 
-### Json-based locators
+### Using file-based PageObjects for locators
+```gherkin
+   Scenario: input element
+       When I input "simple 1234" in "Name"
+       Then the "Name" text matches to "\w{6} \d{4}"
+       Then the "Logout" is hidden
+
+   
+    Scenario: click element
+       When I click on "Red Button"
+       Then the Alert text equals to "Red button"
+ ```
+Features have locators taken from file-based PageObjects instead of an element name.
+<br><br><br><br><br><br><br><br>
 
 ```
-
 html5page.json for json-based locators (contains css locators):
-
-{
-  "Red Button": "[value*='Red Button']",
-  "Name": "#name"
-}
-
-The [attribute*="value"] selector is used here to select elements whose attribute value contains a specified value
 ```
-Features have locators taken from simple file-based PageObjects instead of an element name:
+```json
+    {
+      "Red Button": "[value*='Red Button']",
+      "Name": "#name",
+      "Logout": ".fa-sign-out"
+    }
+```
 
-**When** I click on **"Red button"** element <br>
-**When** I send keys "simple 1234" to **"Name"** element <br>
-**Then** the **"Name"** element's text matches to "\w{6} \d{4}" <br>
-etc. <br>
+**Note**: Locators are defined via json file/files with an arbitrary name. <br>
+But these json file/files **must be** located in **json.page.objects** package.<br>
 
-Elements **Red button** and **Name** are defined via **[html5page.json](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-bdd-no-po-tests/src/test/resources/json/page/objects/html5page.json)**.<br>
-Note that you may give this json file any name you want but it should be located in **json.page.objects** package.<br>
-You may also create as many json files as you want in this package.<br>
-Byt keep in mind that all the elements are collected from these files and are kept in global hash map. <br>
-So you need to create only unique elements in all these files. <br>
-Example [feature](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-bdd-no-po-tests/src/test/resources/features/TestsWithProperties.feature)
+**Keep in mind**: All the elements are collected from these json file/files and are stored in global hash map.<br>
+ Therefore it is **essential** that all the elements defined with **unique names**.<br>
 
+[BDD feature test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bdd-no-po-tests/src/test/resources/features/TestsWithLocators.feature)<br>
+[Json PageObject file example](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bdd-no-po-tests/src/test/resources/json/page/objects/html5page.json)
+<br><br><br>
 ### Using element names defined with capital letter as locator IDs 
 ```gherkin
    Scenario: isDisabled element
@@ -16076,7 +16084,8 @@ Example [feature](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light
 "Accept Conditions" element is automatically searched by the smart locator #accept-conditions.
 ```
 
-Features have locators automatically generated if element name defined with capital letter.<br><br>
+Features have locators automatically generated if there is no available PageObject json implementation 
+and element name defined with capital letter.<br><br>
 **When** \<I\> click on "Element name" <br>
 Smart locator is generated like ID with lover case element name: **#element-name**.
  <br><br><br>

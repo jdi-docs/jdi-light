@@ -16062,28 +16062,28 @@ Byt keep in mind that all the elements are collected from these files and are ke
 So you need to create only unique elements in all these files. <br>
 Example [feature](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-bdd-no-po-tests/src/test/resources/features/TestsWithProperties.feature)
 
-### BDD Smart locators
-
+### Using element names defined with capital letter as locator IDs 
+```gherkin
+   Scenario: isDisabled element
+       Then the "Disabled Name" is disabled
+   
+   Scenario: check element
+       When check "Accept Conditions"
+       Then the "Accept Conditions" is selected
+ ```
+```
+"Disabled Name" element is automatically searched by the smart locator #disabled-name. 
+"Accept Conditions" element is automatically searched by the smart locator #accept-conditions.
 ```
 
-html5page.json for smart locators:
+Features have locators automatically generated if element name defined with capital letter.<br><br>
+**When** \<I\> click on "Element name" <br>
+Smart locator is generated like ID with lover case element name: **#element-name**.
+ <br><br><br>
 
-{
-  "Red Button": "[value*='Red Button']"
-}
-```
-
-Features have locators taken from simple file-based PageObjects instead of an element name:
-
-**When** I click on **"Red button"** element <br>
-**When** I send keys "simple 1234" to **"Name"** element <br>
-**Then** the **"Name"** element's text matches to "\w{6} \d{4}" <br>
-etc. <br>
-
-Element **Red button** is described in **html5page.json**. <br>
-And **Name** element is automatically searched by the smart locator **#name**. <br>
-Example [feature](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-bdd-no-po-tests/src/test/resources/features/TestsWithName.feature) <br>
-For this feature you should remove **"Name": "#name"** from html5page.json to be sure how smart locator works.
+[BDD feature test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bdd-no-po-tests/src/test/resources/features/TestsWithName.feature) <br>
+For better understanding of this test example remove **"Name": "#name"** from html5page.json to be sure how smart locator works.
+<br><br><br>
 
 ### Using aliases for pages URLs in BDD steps
 
@@ -16108,7 +16108,7 @@ For this feature you should remove **"Name": "#name"** from html5page.json to be
  ```
 
 Pages can be opened by alias name instead of URL. 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 ```
 pages.json:

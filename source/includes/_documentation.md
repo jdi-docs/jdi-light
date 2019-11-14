@@ -7324,58 +7324,46 @@ assertThat() | Assert action | TextAssert
 
 Include <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/progress/#multiple-bars">multiple progress bars</a>  in a progress component if you need.
 
-There is also a common element <a style="font-weight: bold;" target="_blank" href="https://jdi-docs.github.io/jdi-light/#progress">Progress</a> which includes only one progress bar.
+In addition there is a common element <a style="font-weight: bold;" target="_blank" href="https://jdi-docs.github.io/jdi-light/#progress">Progress</a> which includes only one progress bar.
 
 ![Progress multiple example](../images/bootstrap/progress-multiple.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
-// @FindBy(id = "progress-multiple-bars")
-@UI("#progress-multiple-bars")
+@UI("#progress-multiple-bars")  //FindBy(css = "#progress-multiple-bars")
 public static ProgressMultipleBars progressMultipleBars;
 
-// @FindBy(id = "progress-multiple-ordinary")
-@UI("#progress-multiple-ordinary")
-public Progress multipleOrdinary;
-
-// @FindBy(id = "progress-multiple-success")
-@UI("#progress-multiple-success")
-public Progress multipleSuccess;
-
-// @FindBy(id = "progress-multiple-info")
-@UI("#progress-multiple-info")
-public Progress multipleInfo;
-
-@DataProvider
-public Object[][] progressMultipleBarsData() {
-    return new Object[][]{
-            {progressMultipleBars.multipleOrdinary},
-            {progressMultipleBars.multipleSuccess},
-            {progressMultipleBars.multipleInfo}
-    };
-}
-
 @Test(dataProvider = "progressMultipleBarsData")
-public void isValidationTest(Progress progress) {
-    progress.is().enabled().and().displayed();
-    progress.assertThat()
-            .core()
-            .hasClass("progress-bar")
-            .attr("role", "progressbar");
+public void separateBarTest(Progress progress, String color, String value, String minValue, String maxValue) {
+    progress.is()
+            .displayed()
+            .enabled()
+            .color(color)
+            .value(value)
+            .minValue(minValue)
+            .maxValue(maxValue);
 }
+
+ @Test
+public void wholeMultiplebarProgressTest() {
+    multiplebarsProgress.barsList.is().size(3);
+    multiplebarsProgress.is()
+            .displayed()
+            .enabled();
+    assertThat(multiplebarsProgress.core().css("background-color"), is("rgba(233, 236, 239, 1)"));
 ```
 
 ```html 
-<div class="progress">
-  <div class="progress-bar" role="progressbar" style="width: 15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
-  <div class="progress-bar bg-success" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-  <div class="progress-bar bg-info" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+<div id="progress-multiple-bars" class="progress">
+    <div id="progress-multiple-ordinary" class="progress-bar" role="progressbar" style="width: 15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+    <div id="progress-multiple-success" class="progress-bar bg-success" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+    <div id="progress-multiple-info" class="progress-bar bg-info" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
 </div>
 ```
 
-[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/ProgressMultipleBarsTests.java)
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/complex/MultiplebarProgressTests.java)
+<br><br><br><br><br><br><br><br><br><br><br><br>
 
 ### Toast
 <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/toasts/" target="_blank">Toast</a> - Toasts are lightweight notifications designed to mimic the push notifications.

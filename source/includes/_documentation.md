@@ -18545,22 +18545,22 @@ TBD
 ## Remote test runs
 TBD
 
-# Review Guide
+## Review Guide
 
-## Easy way to pass review
+### Easy way to pass review
 + Good code style
 + No Wlidcards imports (with asterisk *)
 + `Ctrl+Alt+O` & `Ctrl+Alt+L` in IDEA IDE before any commit
 + Right branch and label in PR
 
-## Short checklist
+### Short checklist
 1. Branch
 2. Label
 3. Codacy
 4. *Other checks
 5. Changed files
 
-## Detailed list
+### Detailed list
 1. Branch should NOT be ***master***
 2. For it shold be ***bootstrap***
 3. Codacy check should be OK. If not then you need to see what's wrong
@@ -18573,17 +18573,17 @@ TBD
    + Unnecessary or forgotten comments
    + Chaining should be separated by lines
 
-## Recommended tools
+### Recommended tools
 1. Intellij IDEA
 2. Git
 
-## Using libraries
+### Using libraries
 1. As log library: slf4j + logback-classic (TO_VERIFY)
 2. As tests runner: TestNG (TO_VERIFY)
 3. As reporter: Allure Framework (TO_VERIFY)
 4. As test framework: JDI (TO_VERIFY)
 
-## Intellij IDEA Preferences
+### Intellij IDEA Preferences
 1. Preferences -> Version Control -> Commit Dialog > Before commit block, setup checkboxes: Reformat Code, Rearrange code, Optimize imports
 2. In app press hotkeys: `Ctrl+Shift+Alt+L`, choose checkboxes: Optimize imports, Rearrange Code
 3. When you work to apply autoreformatting please use (on file, on directory or inside file) `Ctrl-Alt-L` hotkey
@@ -18592,7 +18592,7 @@ TBD
 6. Be sure that equals to 4: Settings->Editor-> Code Style -> Java -> Tabs and Indents -> Tab size field and Indent field
 7. Turn off wildcard imports: set to 999 for Settings -> Editor -> Code style -> Java -> Imports -> Class count to use imports with `*` field and Names count to use static imports with `*`
 
-## CVS section
+### CVS section
 1. Use Git
    + Name branches with useful names 
 2. Merge code into any branch only through GitHub pull request (PR)
@@ -18609,7 +18609,7 @@ TBD
 6. Repeat until branch will be merged by reviewers
 7. Keep actual **.gitignore** file
 
-## Code style
+### Code style
 1. Use spaces, 1 tab size equals to 4
 2. Don't use wildcard imports
 3. Use Intellij's autoreformatting, imports optimization and rearrange option

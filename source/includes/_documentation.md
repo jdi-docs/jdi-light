@@ -5771,8 +5771,6 @@ public class NavbarComplexLinks extends Section {
     public Dropdown dropdown;
 
     public void selectMenu(String item) {
-        dropdown.show();
-        dropdown.toggle();
         dropdown.list().select(item);
     }
 }
@@ -5794,15 +5792,19 @@ public void isDisabledItemNavWithDisabled(){
 
 @Test
 public void clickNavbarNavWithDropdownLinksTest() {
-    navbarNav.navbarComplexLinks.listPages.get(4)
-             .is()
-             .displayed();
-    navbarNav.navbarComplexLinks.selectMenu(ITEM_BRAND);
-    newWindowTitleCheck(NAVBAR_BOOTSTRAP);
-    navbarNav.navbarComplexLinks.selectMenu(ITEM_NAV);
-    newWindowTitleCheck(NAVBAR_BOOTSTRAP);
-    navbarNav.navbarComplexLinks.selectMenu(ITEM_FORMS);
-    newWindowTitleCheck(NAVBAR_BOOTSTRAP);
+        navbarNav.navbarComplexLinks.listPages.get(4)
+                .is()
+                .displayed();
+        UIElement dropdown = navbarNav.navbarComplexLinks.listPages.get(4);
+        dropdown.click();
+        navbarNav.navbarComplexLinks.selectMenu(ITEM_BRAND);
+        newWindowTitleCheck(NAVBAR_BOOTSTRAP);
+        dropdown.click();
+        navbarNav.navbarComplexLinks.selectMenu(ITEM_NAV);
+        newWindowTitleCheck(NAVBAR_BOOTSTRAP);
+        dropdown.click();
+        navbarNav.navbarComplexLinks.selectMenu(ITEM_FORMS);
+        newWindowTitleCheck(NAVBAR_BOOTSTRAP);
 }
 
 

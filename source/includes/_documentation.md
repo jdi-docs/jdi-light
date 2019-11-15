@@ -13577,12 +13577,16 @@ public void clickTest() {
 ```
 
 ```html 
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
+<div class="card mb-3" id="card-example" style="width: 18rem;">
+  <img style="width: 30%; margin: 0 auto;" id="bs-card-example-image"
+    src="https://jdi-testing.github.io/jdi-light/images/wolverin.jpg" class="card-img-top" alt="image">
   <div class="card-body">
     <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <p class="card-text">Some quick example text to build on the card title and make up
+      the bulk of the card's content.</p>
+    <button href="#" class="btn btn-primary" onclick="alert('Card Button Clicked!')">
+      Click Me!
+    </button>
   </div>
 </div>
 ```
@@ -13636,7 +13640,7 @@ public void getBodyTextTest() {
 ```
 
 ```html 
-<div class="card">
+<div class="card" id="card-body">
   <div class="card-body">
     This is some text within a card body.
   </div>
@@ -13669,7 +13673,7 @@ Card titles are used by adding `.card-title` to a `<h*>` tag. In the same way, l
 
 Subtitles are used by adding a `.card-subtitle` to a `<h*>` tag. If the `.card-title` and the `.card-subtitle` items are placed in a `.card-body` item, the card title and subtitle are aligned nicely.
 
-![Card Titles_links_Example](../images/bootstrap/cardsubslinks.png)
+![Card Titles and Links Example](../images/bootstrap/cardsubslinks.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -13703,18 +13707,21 @@ public void clickLink1Test() {
 ```
 
 ```html 
-<div class="card" style="width: 18rem;">
+<div class="card" id="card-subtitle-link" style="width: 18rem;">
   <div class="card-body">
     <h5 class="card-title">Card title</h5>
     <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
+    <p class="card-text">Some quick example text to build on the card title and
+      make up the bulk of the card's content.</p>
+    <a href="https://github.com/jdi-testing/jdi-light" target="_blank" class="card-link" id="bs-card-2-link1">JDI Light
+      Github</a>
+    <a href="https://jdi-testing.github.io/jdi-light/index.html" target="_blank" class="card-link"
+      id="bs-card-2-link2">JDI Website</a>
   </div>
 </div>
 ```
 
-![Card Titles_links Example Code](../images/bootstrap/cardsubslinks-html.png)
+![Card Titles and Links Example Code](../images/bootstrap/cardsubslinks-html.png)
 
 Card is represented by Section class in Java:
 
@@ -13772,10 +13779,14 @@ public void imageClassTest() {
 ```
 
 ```html 
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
+<div class="card mb-3" id="card-image-caps-1" style="width: 18rem;">
+  <img style="width: 30%; margin: 0 auto;" src="images/captain-america.jpg" class="card-img-top"
+    alt="Captain America image">
   <div class="card-body">
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">This is a wider card with supporting text below as a natural
+      lead-in to additional content. This content is a little bit longer.</p>
+    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
   </div>
 </div>
 ```
@@ -13845,7 +13856,10 @@ public void checkCardListGroupsValues() {
 ```
 
 ```html 
-<div class="card" style="width: 18rem;">
+<div class="card mb-3" id="card-list-groups" style="width: 18rem;">
+  <div class="card-header">
+    Featured
+  </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">Cras justo odio</li>
     <li class="list-group-item">Dapibus ac facilisis in</li>
@@ -13919,11 +13933,12 @@ public void isValidationTest() {
 ```
 
 ```html 
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
+<div class="card mb-3" id="card-kitchen-sink" style="width: 18rem;">
+  <img src="images/spider-man.jpg" class="card-img-top" alt="Spider Man" style="width: 30%; margin: 0 auto;">
   <div class="card-body">
     <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <p class="card-text">Some quick example text to build on the card title and make up
+      the bulk of the card's content.</p>
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">Cras justo odio</li>
@@ -13931,8 +13946,8 @@ public void isValidationTest() {
     <li class="list-group-item">Vestibulum at eros</li>
   </ul>
   <div class="card-body">
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
+    <a href="https://github.com/jdi-testing/jdi-light" target="_blank" class="card-link">JDI Light Github</a>
+    <a href="https://jdi-testing.github.io/jdi-light/index.html" target="_blank" class="card-link">JDI Website</a>
   </div>
 </div>
 ```
@@ -13997,14 +14012,17 @@ public void getHeaderTextCardWithHeaderAndFooterTest() {
 ```
 
 ```html 
-<div class="card text-center">
+<div class="card mb-3 text-center" id="card-with-header-and-footer">
   <div class="card-header">
     Featured
   </div>
   <div class="card-body">
     <h5 class="card-title">Special title treatment</h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <p class="card-text">With supporting text below as a natural lead-in to additional
+      content.</p>
+    <button href="#" class="btn btn-primary" onclick="alert('Button Clicked!');">Click
+      Me!
+    </button>
   </div>
   <div class="card-footer text-muted">
     2 days ago
@@ -14038,7 +14056,7 @@ Available methods in Java JDI Light:
 
 Using the grid, wrap cards in columns and rows as needed.
 
-![Card with Header and Footer Example](../images/bootstrap/card_grid.png)
+![Card with Grid Markup Example](../images/bootstrap/card_grid.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -14177,14 +14195,6 @@ int widthInPercent, String widthInPixels) {
     <a href="https://en.wikipedia.org/wiki/Spider-Man" class="btn btn-primary" target="_blank">Read more</a>
   </div>
 </div>
-<div class="card w-50" style="margin-bottom: 10px;">
-  <div class="card-body">
-    <h5 class="card-title">Hulk (w-50)</h5>
-    <p class="card-text">The Hulk is a fictional superhero appearing in publications by
-      the American publisher Marvel Comics.</p>
-    <a href="https://en.wikipedia.org/wiki/Hulk_(film)" class="btn btn-primary" target="_blank">Read more</a>
-  </div>
-</div>
 ```
 
 ![Card utilities Example Code](../images/bootstrap/card_utilities_html.png)
@@ -14239,15 +14249,6 @@ public void isValidationTest() {
     <p class="card-text">Spider-Man is a fictional superhero created by writer-editor
       Stan Lee and writer-artist Steve Ditko.</p>
     <a href="https://en.wikipedia.org/wiki/Spider-Man" class="btn btn-primary" target="_blank">Read more</a>
-  </div>
-</div>
-
-<div class="card" id="card-custom-css-2" style="width: 9rem; margin-bottom: 10px;">
-  <div class="card-body">
-    <h5 class="card-title">Hulk (9rem)</h5>
-    <p class="card-text">The Hulk is a fictional superhero appearing in publications by
-      the American publisher Marvel Comics.</p>
-    <a href="https://en.wikipedia.org/wiki/Hulk_(film)" class="btn btn-primary" target="_blank">Read more</a>
   </div>
 </div>
 ```
@@ -14317,32 +14318,12 @@ public void clickTest() {
 ```
 
 ```html 
-<div id="card-text-left" class="card mb-2" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title">Special title treatment</h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional
-      content.</p>
-    <button href="#" class="btn btn-primary" onclick="alert('Button Clicked!');">Click
-      Me!
-    </button>
-  </div>
-</div>
 <div id="card-text-center" class="card mb-2 text-center" style="width: 18rem;">
   <div class="card-body">
     <h5 class="card-title">Special title treatment</h5>
     <p class="card-text">With supporting text below as a natural lead-in to additional
       content.</p>
     <button href="#" class="btn btn-success" onclick="alert('Button Clicked!');">Click
-      Me!
-    </button>
-  </div>
-</div>
-<div id="card-text-right" class="card mb-3 text-right" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title">Special title treatment</h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional
-      content.</p>
-    <button href="#" class="btn btn-warning" onclick="alert('Button Clicked!');">Click
       Me!
     </button>
   </div>
@@ -14537,16 +14518,6 @@ public void getAltTest() {
       lead-in to additional content. This content is a little bit longer.</p>
     <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
   </div>
-</div>
-
-<div class="card mb-3" id="card-image-caps-2" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">This is a wider card with supporting text below as a natural
-      lead-in to additional content. This content is a little bit longer.</p>
-    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-  </div>
-  <img style="width: 30%; margin: 0 auto;" src="images/punisher.jpg" class="card-img-top" alt="...">
 </div>
 ```
 
@@ -14818,30 +14789,6 @@ public void checkColorCardsTest(CardWithHeaderAndFooter card, String cssClass, S
       the bulk of the card's content.</p>
   </div>
 </div>
-<div class="card text-white bg-secondary mb-3" style="max-width: 18rem;" id="card-grey">
-  <div class="card-header">Header</div>
-  <div class="card-body">
-    <h5 class="card-title">Secondary card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up
-      the bulk of the card's content.</p>
-  </div>
-</div>
-<div class="card text-white bg-success mb-3" style="max-width: 18rem;" id="card-green">
-  <div class="card-header">Header</div>
-  <div class="card-body">
-    <h5 class="card-title">Success card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up
-      the bulk of the card's content.</p>
-  </div>
-</div>
-<div class="card text-white bg-danger mb-3" style="max-width: 18rem;" id="card-red">
-  <div class="card-header">Header</div>
-  <div class="card-body">
-    <h5 class="card-title">Danger card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up
-      the bulk of the card's content.</p>
-  </div>
-</div>
 ```
 
 ![Card Background And Color Code](../images/bootstrap/cardbackgroundandcolor-html.png)
@@ -14908,30 +14855,6 @@ public void getHeaderTextTest(CardBorder cardBorder, String headerText) {
       the bulk of the card's content.</p>
   </div>
 </div>
-<div class="card border-secondary mb-3" id="card-border-secondary" style="max-width: 18rem;">
-  <div class="card-header">Card with secondary border</div>
-  <div class="card-body text-secondary">
-    <h5 class="card-title">Secondary card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up
-      the bulk of the card's content.</p>
-  </div>
-</div>
-<div class="card border-success mb-3" id="card-border-success" style="max-width: 18rem;">
-  <div class="card-header">Card with success border</div>
-  <div class="card-body text-success">
-    <h5 class="card-title">Success card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up
-      the bulk of the card's content.</p>
-  </div>
-</div>
-<div class="card border-danger mb-3" id="card-border-danger" style="max-width: 18rem;">
-  <div class="card-header">Card with danger border</div>
-  <div class="card-body text-danger">
-    <h5 class="card-title">Danger card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up
-      the bulk of the card's content.</p>
-  </div>
-</div>
 ```
 ![Card Borders Example Code](../images/bootstrap/cardborders-html.png)
 
@@ -14984,6 +14907,22 @@ public void isValidationTest() {
     cardMixinsUtilities.is().displayed()
             .and().core().css("border-color", "rgb(40, 167, 69)");
 }
+```
+
+```html 
+<div class="card border-success mb-3" id="card-mixins-utilities" style="max-width: 18rem;">
+  <div class="card-header bg-transparent border-success">According To Samuel L. Jackson
+  </div>
+  <div class="card-body text-success">
+    <h5 class="card-title">The Secret To Marvel Studios’ Success</h5>
+    <p class="card-text">Because while the Marvel Cinematic Universe always includes
+      plenty of spectacle and pulse pounding action, each blockbuster tells a very
+      human story. The heroes of the world are flawed and funny, allowing audiences to
+      connect with characters who are super powered and dealing with situations we
+      truly can't comprehend.</p>
+  </div>
+  <div class="card-footer bg-transparent border-success">For Cinema Blend</div>
+</div>
 ```
 
 ![Card Mixins Utilities Example Code](../images/bootstrap/card-mixins-utilities-html.png)

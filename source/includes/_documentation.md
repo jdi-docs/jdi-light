@@ -13551,6 +13551,8 @@ They are located in the following Java classes:
 
 ![Simple Card Example](../images/bootstrap/simplecard.png)
 
+Here is an example with provided Bootstrap v4.3 code:
+
 ```java 
 @UI("#card-example") // @FindBy(css = "#card-example")
 public static CardExample cardExample;
@@ -13573,7 +13575,17 @@ public void clickTest() {
     Alerts.validateAlert(is(alertText));
 }
 ```
-Here is an example with provided Bootstrap v4.3 code:
+
+```html 
+<div class="card" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+```
 
 ![Simple Card Example Code](../images/bootstrap/simplecard-html.png)
 
@@ -13607,6 +13619,8 @@ The building block of a card is the `.card-body`. Use it whenever you need a pad
 
 ![Card Body Example](../images/bootstrap/cardbody.png)
 
+Here is an example with provided Bootstrap v4.3 code:
+
 ```java 
 @UI("#card-body") // @FindBy(css = "#card-body")
 public static CardBody cardBody;
@@ -13620,7 +13634,14 @@ public void getBodyTextTest() {
     assertEquals(cardBody.text.getText(), text);
 }
 ```
-Here is an example with provided Bootstrap v4.3 code:
+
+```html 
+<div class="card">
+  <div class="card-body">
+    This is some text within a card body.
+  </div>
+</div>
+```
 
 ![Card Body Example Code](../images/bootstrap/cardbody-html.png)
 
@@ -13681,6 +13702,18 @@ public void clickLink1Test() {
 }
 ```
 
+```html 
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a>
+  </div>
+</div>
+```
+
 ![Card Titles_links Example Code](../images/bootstrap/cardsubslinks-html.png)
 
 Card is represented by Section class in Java:
@@ -13736,6 +13769,15 @@ public void imageClassTest() {
      cardImage.image.is().core().hasClass(IMAGE_TOP_CLASS);
      cardImage.image.assertThat().core().hasClass(IMAGE_TOP_CLASS);
 }
+```
+
+```html 
+<div class="card" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div>
 ```
 
 ![Card Image Example Code](../images/bootstrap/card-image-html.png)
@@ -13802,6 +13844,16 @@ public void checkCardListGroupsValues() {
 }
 ```
 
+```html 
+<div class="card" style="width: 18rem;">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Cras justo odio</li>
+    <li class="list-group-item">Dapibus ac facilisis in</li>
+    <li class="list-group-item">Vestibulum at eros</li>
+  </ul>
+</div>
+```
+
 ![Card list groups code](../images/bootstrap/card_list_groups_code.png)
 
 Card is represented by Section class in Java:
@@ -13866,6 +13918,25 @@ public void isValidationTest() {
 }
 ```
 
+```html 
+<div class="card" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Cras justo odio</li>
+    <li class="list-group-item">Dapibus ac facilisis in</li>
+    <li class="list-group-item">Vestibulum at eros</li>
+  </ul>
+  <div class="card-body">
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a>
+  </div>
+</div>
+```
+
 ![Kitchen Sink Example Code](../images/bootstrap/card-kitchen-sink-html.png)
 
 Available methods in Java JDI Light:
@@ -13925,6 +13996,22 @@ public void getHeaderTextCardWithHeaderAndFooterTest() {
 }
 ```
 
+```html 
+<div class="card text-center">
+  <div class="card-header">
+    Featured
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Special title treatment</h5>
+    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+  <div class="card-footer text-muted">
+    2 days ago
+  </div>
+</div>
+```
+
 ![Card with Header and Footer Code](../images/bootstrap/cardheaderfooter-html.png)
 
 Card is represented by Section class in Java:
@@ -13981,7 +14068,56 @@ public void getButtonTextCardWithGridMarkup22Test() {
             .displayed();
 }
 ```
- 
+
+```html 
+<div id="card-with-grid-markup">
+  <div class="row mb-3">
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Title</h5>
+          <p class="card-text">1st row 1st cell</p>
+          <button href="#" class="btn btn-primary" onclick="alert('Button Clicked!');">Click me
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Title</h5>
+          <p class="card-text">1st row 2nd cell</p>
+          <button href="#" class="btn btn-primary" onclick="alert('Button Clicked!');">Click me
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Title</h5>
+          <p class="card-text">2nd row 1st cell</p>
+          <button href="#" class="btn btn-primary" onclick="alert('Button Clicked!');">Click me
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Title</h5>
+          <p class="card-text">2nd row 2nd cell</p>
+          <button href="#" class="btn btn-primary" onclick="alert('Button Clicked!');">Click me
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
 ![Card Grid Code](../images/bootstrap/card_grid_html.png)
 
 Card is represented by Section class in Java:
@@ -14032,6 +14168,25 @@ int widthInPercent, String widthInPixels) {
 }
 ```
 
+```html 
+<div class="card w-75" style="margin-bottom: 10px;">
+  <div class="card-body">
+    <h5 class="card-title">Spider man (w-75)</h5>
+    <p class="card-text">Spider-Man is a fictional superhero created by writer-editor
+      Stan Lee and writer-artist Steve Ditko.</p>
+    <a href="https://en.wikipedia.org/wiki/Spider-Man" class="btn btn-primary" target="_blank">Read more</a>
+  </div>
+</div>
+<div class="card w-50" style="margin-bottom: 10px;">
+  <div class="card-body">
+    <h5 class="card-title">Hulk (w-50)</h5>
+    <p class="card-text">The Hulk is a fictional superhero appearing in publications by
+      the American publisher Marvel Comics.</p>
+    <a href="https://en.wikipedia.org/wiki/Hulk_(film)" class="btn btn-primary" target="_blank">Read more</a>
+  </div>
+</div>
+```
+
 ![Card utilities Example Code](../images/bootstrap/card_utilities_html.png)
 
 Available methods in Java JDI Light:
@@ -14075,6 +14230,26 @@ public void isValidationTest() {
             .css("width", is("208px"))
             .css("margin-bottom", is("10px"));
 }
+```
+
+```html 
+<div class="card" id="card-custom-css-1" style="width: 13rem; margin-bottom: 10px;">
+  <div class="card-body">
+    <h5 class="card-title">Spider man (13rem)</h5>
+    <p class="card-text">Spider-Man is a fictional superhero created by writer-editor
+      Stan Lee and writer-artist Steve Ditko.</p>
+    <a href="https://en.wikipedia.org/wiki/Spider-Man" class="btn btn-primary" target="_blank">Read more</a>
+  </div>
+</div>
+
+<div class="card" id="card-custom-css-2" style="width: 9rem; margin-bottom: 10px;">
+  <div class="card-body">
+    <h5 class="card-title">Hulk (9rem)</h5>
+    <p class="card-text">The Hulk is a fictional superhero appearing in publications by
+      the American publisher Marvel Comics.</p>
+    <a href="https://en.wikipedia.org/wiki/Hulk_(film)" class="btn btn-primary" target="_blank">Read more</a>
+  </div>
+</div>
 ```
 
 ![Card custom CSS Example Code](../images/bootstrap/card_custom_CSS_html.png)
@@ -14139,6 +14314,39 @@ public void clickTest() {
     cardRightTextAlignment.cardButton.click();
     validateAlert(is(alertText));
 }
+```
+
+```html 
+<div id="card-text-left" class="card mb-2" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Special title treatment</h5>
+    <p class="card-text">With supporting text below as a natural lead-in to additional
+      content.</p>
+    <button href="#" class="btn btn-primary" onclick="alert('Button Clicked!');">Click
+      Me!
+    </button>
+  </div>
+</div>
+<div id="card-text-center" class="card mb-2 text-center" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Special title treatment</h5>
+    <p class="card-text">With supporting text below as a natural lead-in to additional
+      content.</p>
+    <button href="#" class="btn btn-success" onclick="alert('Button Clicked!');">Click
+      Me!
+    </button>
+  </div>
+</div>
+<div id="card-text-right" class="card mb-3 text-right" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Special title treatment</h5>
+    <p class="card-text">With supporting text below as a natural lead-in to additional
+      content.</p>
+    <button href="#" class="btn btn-warning" onclick="alert('Button Clicked!');">Click
+      Me!
+    </button>
+  </div>
+</div>
 ```
 
 ![Card Text Alignment Example Code](../images/bootstrap/cardtextalignment-html.png)
@@ -14229,6 +14437,34 @@ public void isValidationTest() {
 }
 ```
 
+```html 
+<div id="card-navigation" class="card text-center mb-3">
+  <div class="card-header">
+    <ul class="nav nav-tabs card-header-tabs">
+      <li class="nav-item">
+        <a id="activeLink" class="nav-link active" href="javascript: void()"
+          onclick="alert('Active Tab Clicked!');">Active</a>
+      </li>
+      <li class="nav-item">
+        <a id="jdiLink" class="nav-link" href="https://github.com/jdi-testing/jdi-light" target="_blank">JDI</a>
+      </li>
+      <li class="nav-item">
+        <a id="disabledLink" class="nav-link disabled" href="javascript: void()" tabindex="-1"
+          aria-disabled="true">Disabled</a>
+      </li>
+    </ul>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Special title treatment</h5>
+    <p class="card-text">With supporting text below as a natural lead-in to additional
+      content.</p>
+    <button href="#" class="btn btn-primary" onclick="alert('Button Clicked!');">Click
+      Me!
+    </button>
+  </div>
+</div>
+```
+
 ![Card Navigation Example Code](../images/bootstrap/cardnav-html.png)
 
 Card is represented by Section class in Java:
@@ -14289,6 +14525,29 @@ public void getAltTest() {
     assertEquals(cardImageOnTop.image.alt(), topCardData.getAltAttr());
     assertEquals(cardImageOnBottom.image.alt(), bottomCardData.getAltAttr());
 }
+```
+
+```html 
+<div class="card mb-3" id="card-image-caps-1" style="width: 18rem;">
+  <img style="width: 30%; margin: 0 auto;" src="images/captain-america.jpg" class="card-img-top"
+    alt="Captain America image">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">This is a wider card with supporting text below as a natural
+      lead-in to additional content. This content is a little bit longer.</p>
+    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+  </div>
+</div>
+
+<div class="card mb-3" id="card-image-caps-2" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">This is a wider card with supporting text below as a natural
+      lead-in to additional content. This content is a little bit longer.</p>
+    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+  </div>
+  <img style="width: 30%; margin: 0 auto;" src="images/punisher.jpg" class="card-img-top" alt="...">
+</div>
 ```
 
 ![Card Image Caps Example Code](../images/bootstrap/cardimagecaps-html.png)
@@ -14363,6 +14622,18 @@ public void vectorInternalElementsTest() {
 }
 ```
 
+```html 
+<div class="card bg-dark text-dark mb-3">
+  <img src="images/captain-america.jpg" class="card-img" alt="Captain America image">
+  <div class="card-img-overlay">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">This is a wider card with supporting text below as a natural
+      lead-in to additional content. This content is a little bit longer.</p>
+    <p class="card-text">Last updated 3 mins ago</p>
+  </div>
+</div>
+```
+
 ![Card Image Overlays Example](../images/bootstrap/card-image-overlays-html.png)
 
 Card is represented by Section class in Java:
@@ -14420,6 +14691,31 @@ public void isValidationTest() {
             .css("font-size", is("11.2px"))
             .tag(is("small"));
 ```
+
+```html 
+<div class="card mb-3" id="card-horizontal" style="max-width: 540px;">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <img src="images/wolverin.jpg" class="card-img" id="card-horizontal-img" title="Wolverine icon">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title" id="card-horizontal-title">Wolverine</h5>
+        <p class="card-text">Wolverine is a fictional character appearing in
+          American comic books published by Marvel Comics, mostly in association
+          with the X-Men. He is a mutant who possesses animal-keen senses,
+          enhanced physical capabilities, powerful regenerative ability known as a
+          healing factor, and three retractable claws in each hand. Wolverine has
+          been depicted variously as a member of the X-Men, Alpha Flight, and the
+          Avengers.</p>
+        <p class="card-text"><small class="text-muted">The character appeared in
+            #180 (1974)</small></p>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
 Here is an example with provided Bootstrap v4.3 code:
 
 ![Card horizontal example](../images/bootstrap/card_horizontal-html.png)
@@ -14513,6 +14809,41 @@ public void checkColorCardsTest(CardWithHeaderAndFooter card, String cssClass, S
 }
 ```
 
+```html 
+<div class="card text-white bg-primary mb-3" style="max-width: 18rem;" id="card-bright-blue">
+  <div class="card-header">Header</div>
+  <div class="card-body">
+    <h5 class="card-title">Primary card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up
+      the bulk of the card's content.</p>
+  </div>
+</div>
+<div class="card text-white bg-secondary mb-3" style="max-width: 18rem;" id="card-grey">
+  <div class="card-header">Header</div>
+  <div class="card-body">
+    <h5 class="card-title">Secondary card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up
+      the bulk of the card's content.</p>
+  </div>
+</div>
+<div class="card text-white bg-success mb-3" style="max-width: 18rem;" id="card-green">
+  <div class="card-header">Header</div>
+  <div class="card-body">
+    <h5 class="card-title">Success card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up
+      the bulk of the card's content.</p>
+  </div>
+</div>
+<div class="card text-white bg-danger mb-3" style="max-width: 18rem;" id="card-red">
+  <div class="card-header">Header</div>
+  <div class="card-body">
+    <h5 class="card-title">Danger card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up
+      the bulk of the card's content.</p>
+  </div>
+</div>
+```
+
 ![Card Background And Color Code](../images/bootstrap/cardbackgroundandcolor-html.png)
 
 Card is represented by Section class in Java:
@@ -14568,6 +14899,40 @@ public void getHeaderTextTest(CardBorder cardBorder, String headerText) {
 }
 ```
 
+```html 
+<div class="card border-primary mb-3" id="card-border-primary" style="max-width: 18rem;">
+  <div class="card-header">Card with primary border</div>
+  <div class="card-body text-primary">
+    <h5 class="card-title">Primary card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up
+      the bulk of the card's content.</p>
+  </div>
+</div>
+<div class="card border-secondary mb-3" id="card-border-secondary" style="max-width: 18rem;">
+  <div class="card-header">Card with secondary border</div>
+  <div class="card-body text-secondary">
+    <h5 class="card-title">Secondary card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up
+      the bulk of the card's content.</p>
+  </div>
+</div>
+<div class="card border-success mb-3" id="card-border-success" style="max-width: 18rem;">
+  <div class="card-header">Card with success border</div>
+  <div class="card-body text-success">
+    <h5 class="card-title">Success card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up
+      the bulk of the card's content.</p>
+  </div>
+</div>
+<div class="card border-danger mb-3" id="card-border-danger" style="max-width: 18rem;">
+  <div class="card-header">Card with danger border</div>
+  <div class="card-body text-danger">
+    <h5 class="card-title">Danger card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up
+      the bulk of the card's content.</p>
+  </div>
+</div>
+```
 ![Card Borders Example Code](../images/bootstrap/cardborders-html.png)
 
 Card is represented by Section class in Java:

@@ -14724,42 +14724,12 @@ Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
 @UI("#card-bright-blue") // @FindBy(css = "#card-bright-blue")
-public static CardWithHeaderAndFooter cardBrightBlue;
-@UI("#card-grey") // @FindBy(css = "#card-grey")
-public static CardWithHeaderAndFooter cardGrey;
-@UI("#card-green") // @FindBy(css = "#card-green")
-public static CardWithHeaderAndFooter cardGreen;
-@UI("#card-red") // @FindBy(css = "#card-red")
-public static CardWithHeaderAndFooter cardRed;
-@UI("#card-yellow") // @FindBy(css = "#card-yellow")
-public static CardWithHeaderAndFooter cardYellow;
-@UI("#card-blue") // @FindBy(css = "#card-blue")
-public static CardWithHeaderAndFooter cardBlue;
-@UI("#card-light") // @FindBy(css = "#card-light")
-public static CardWithHeaderAndFooter cardLight;
-@UI("#card-dark") // @FindBy(css = "#card-dark")
-public static CardWithHeaderAndFooter cardDark;
+public static CardStyled cardBrightBlue;
 
-public class CardWithHeaderAndFooter extends Card {
+public class CardStyled extends Card {
+    @UI(".card-header") public Text header;
     @UI(".card-title") public Text title;
-    @UI(".card-body p") public Text paragraph;
-    @UI("button") public Button button;
-    @UI(".card-header")public Text header;
-    @UI("//*[contains(@class, 'footer')]") public Text footer;
-}
-
-@DataProvider(name = "cardColors")
-public static Object[][] cardColors() {
-    return new Object[][]{
-            {cardBrightBlue, "bg-primary", "rgba(0, 123, 255, 1)"},
-            {cardGrey, "bg-secondary", "rgba(108, 117, 125, 1)"},
-            {cardGreen, "bg-success", "rgba(40, 167, 69, 1)"},
-            {cardRed, "bg-danger", "rgba(220, 53, 69, 1)"},
-            {cardYellow, "bg-warning", "rgba(255, 193, 7, 1)"},
-            {cardBlue, "bg-info", "rgba(23, 162, 184, 1)"},
-            {cardLight, "bg-light", "rgba(248, 249, 250, 1)"},
-            {cardDark, "bg-dark", "rgba(52, 58, 64, 1)"},
-    };
+    @UI(".card-text") public Text body;
 }
 
 @Test(dataProvider = "cardColors")
@@ -14824,10 +14794,10 @@ Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
 @UI("#card-border-primary") // @FindBy(css = "#card-border-primatry")
-public static CardBorder cardBorderPrimary;
+public static CardStyled cardBorderPrimary;
 
-public class CardBorder extends Card {
-    @UI(".card-header") public Text border;
+public class CardStyled extends Card {
+    @UI(".card-header") public Text header;
     @UI(".card-title") public Text title;
     @UI(".card-text") public Text body;
 }

@@ -14941,10 +14941,13 @@ public class CardGrouped extends Card {
     @UI(".card-footer small") public Text footerText;
 }
 
+private String card1ImageSrc = "https://jdi-testing.github.io/jdi-light/images/spider-man.jpg";
+private String card2ImageSrc = "https://jdi-testing.github.io/jdi-light/images/hulk.jpg";
+private String card1ImageAlt = "spider-man";
+private String card2ImageAlt = "hulk";
+
 @Test
 public void getSrcTest() {
-    assertEquals(cardGroupSectionWithoutFooter.card1.image.src(), card1ImageSrc);
-    assertEquals(cardGroupSectionWithoutFooter.card2.image.src(), card2ImageSrc);
     assertEquals(cardGroupSectionWithoutFooter.card1.image.src(), card1ImageSrc);
     assertEquals(cardGroupSectionWithoutFooter.card2.image.src(), card2ImageSrc);
 }
@@ -14953,9 +14956,33 @@ public void getSrcTest() {
 public void getAltTest() {
     assertEquals(cardGroupSectionWithoutFooter.card1.image.alt(), card1ImageAlt);
     assertEquals(cardGroupSectionWithoutFooter.card2.image.alt(), card2ImageAlt);
-    assertEquals(cardGroupSectionWithoutFooter.card1.image.alt(), card1ImageAlt);
-    assertEquals(cardGroupSectionWithoutFooter.card2.image.alt(), card2ImageAlt);
 }
+```
+
+```html
+<div class="card-group" style="margin-bottom: 10px;">
+  <div class="card">
+    <p style="text-align: center;"><img src="images/spider-man.jpg" class="card-img-top" alt="spider-man"
+        style="width: 75px; height: 120px;"></p>
+    <div class="card-body">
+      <h5 class="card-title">Spider man</h5>
+      <p class="card-text">Spider-Man is a fictional superhero created by
+        writer-editor Stan Lee and writer-artist Steve Ditko.</p>
+      <p class="card-text"><small class="text-muted">Peter Parker</small></p>
+    </div>
+  </div>
+  <div class="card">
+    <p style="text-align: center;"><img src="images/hulk.jpg" class="card-img-top" alt="hulk"
+        style="width: 98px; height: 120px;">
+    </p>
+    <div class="card-body">
+      <h5 class="card-title">Hulk</h5>
+      <p class="card-text">The Hulk is a fictional superhero appearing in publications
+        by the American publisher Marvel Comics.</p>
+      <p class="card-text"><small class="text-muted">Bruce Banner</small></p>
+    </div>
+  </div>
+</div>
 ```
 
 ![Card_groups HTML example](../images/bootstrap/card-groups-html.png)
@@ -14983,21 +15010,52 @@ public class CardGrouped extends Card {
     @UI(".card-footer small") public Text footerText;
 }
 
+private String card1ImageSrc = "https://jdi-testing.github.io/jdi-light/images/spider-man.jpg";
+private String card2ImageSrc = "https://jdi-testing.github.io/jdi-light/images/hulk.jpg";
+private String card1ImageAlt = "spider-man";
+private String card2ImageAlt = "hulk";
+
 @Test
 public void getSrcTest() {
-    assertEquals(cardGroupWithoutFooter.card1.image.src(), card1ImageSrc);
-    assertEquals(cardGroupWithoutFooter.card2.image.src(), card2ImageSrc);
     assertEquals(cardGroupWithFooter.card1.image.src(), card1ImageSrc);
     assertEquals(cardGroupWithFooter.card2.image.src(), card2ImageSrc);
 }
 
 @Test
 public void getAltTest() {
-    assertEquals(cardGroupWithoutFooter.card1.image.alt(), card1ImageAlt);
-    assertEquals(cardGroupWithoutFooter.card2.image.alt(), card2ImageAlt);
     assertEquals(cardGroupWithFooter.card1.image.alt(), card1ImageAlt);
     assertEquals(cardGroupWithFooter.card2.image.alt(), card2ImageAlt);
 }
+```
+
+```html 
+<div class="card-group" style="margin-bottom: 10px;">
+  <div class="card">
+    <p style="text-align: center;"><img src="images/spider-man.jpg" class="card-img-top" alt="spider-man"
+        style="width: 75px; height: 120px;"></p>
+    <div class="card-body">
+      <h5 class="card-title">Spider man</h5>
+      <p class="card-text">Spider-Man is a fictional superhero created by
+        writer-editor Stan Lee and writer-artist Steve Ditko.</p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">Peter Parker</small>
+    </div>
+  </div>
+  <div class="card">
+    <p style="text-align: center;"><img src="images/hulk.jpg" class="card-img-top" alt="hulk"
+        style="width: 98px; height: 120px;">
+    </p>
+    <div class="card-body">
+      <h5 class="card-title">Hulk</h5>
+      <p class="card-text">The Hulk is a fictional superhero appearing in publications
+        by the American publisher Marvel Comics.</p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">Bruce Banner</small>
+    </div>
+  </div>
+</div>
 ```
 
 ![Card_groups HTML example](../images/bootstrap/card-groups-with-footer-html.png)
@@ -15022,10 +15080,10 @@ Use card decks for a set of equal width and height cards that aren't attached to
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
-@UI(".card-group:nth-of-type(1)") // @FindBy(css = ".card-deck:nth-of-type(1)")
-public static CardGroupSection cardGroupSectionWithoutFooter;
+@UI(".card-deck:nth-of-type(1)") // @FindBy(css = ".card-deck:nth-of-type(1)")
+public static CardDeckSection cardDeckSectionWithoutFooter;
 
-public class CardGroupSection extends Section {
+public class CardDeckSection extends Section {
     @UI(".card:nth-of-type(1)") public CardGrouped card1;
     @UI(".card:nth-of-type(2)") public CardGrouped card2;
 }
@@ -15038,44 +15096,64 @@ public class CardGrouped extends Card {
     @UI(".card-footer small") public Text footerText;
 }
 
-private String card1Title = "SPIDER MAN";
-private String card2Title = "HULK";
-private String card1ImageSrc = "https://jdi-testing.github.io/jdi-light/images/spider-man.jpg";
-private String card2ImageSrc = "https://jdi-testing.github.io/jdi-light/images/hulk.jpg";
-private String card1ImageAlt = "spider-man";
-private String card2ImageAlt = "hulk";
-private String card1MainText = "Spider-Man is a fictional superhero created by writer-editor Stan Lee and writer-artist Steve Ditko.";
-private String card2MainText = "The Hulk is a fictional superhero appearing in publications by the American publisher Marvel Comics.";
-private String card1HeroName = "Peter Parker";
-private String card2HeroName = "Bruce Banner";
+private static final String card1Title = "SPIDER MAN";
+private static final String card2Title = "HULK";
+private static final String card1MainText = "Spider-Man is a fictional superhero created by writer-editor Stan Lee and writer-artist Steve Ditko.";
+private static final String card2MainText = "The Hulk is a fictional superhero appearing in publications by the American publisher Marvel Comics.";
 
 @Test
-public void isValidationTest() {
-    cardGroupSectionWithoutFooter.highlight();
-    cardGroupSectionWithoutFooter.card1.title.is().text(card1Title);
-    cardGroupSectionWithoutFooter.card2.title.is().text(card2Title);
-    cardGroupSectionWithoutFooter.card1.image.is().src(card1ImageSrc);
-    cardGroupSectionWithoutFooter.card2.image.is().src(card2ImageSrc);
-    cardGroupSectionWithoutFooter.card1.image.is().alt(card1ImageAlt);
-    cardGroupSectionWithoutFooter.card2.image.is().alt(card2ImageAlt);
-    cardGroupSectionWithoutFooter.card1.mainText.is().text(card1MainText);
-    cardGroupSectionWithoutFooter.card2.mainText.is().text(card2MainText);
-    cardGroupSectionWithoutFooter.card1.mutedText.is().text(card1HeroName);
-    cardGroupSectionWithoutFooter.card2.mutedText.is().text(card2HeroName);
+public void getTitleTextTest() {
+    cardDeckSectionWithoutFooter.highlight();
+    assertEquals(cardDeckSectionWithoutFooter.card1.title.getText(), card1Title);
+    assertEquals(cardDeckSectionWithoutFooter.card2.title.getText(), card2Title);
+}
+
+@Test
+public void getMainTextTest() {
+    cardDeckSectionWithoutFooter.highlight();
+    assertEquals(cardDeckSectionWithoutFooter.card1.mainText.getText(), card1MainText);
+    assertEquals(cardDeckSectionWithoutFooter.card2.mainText.getText(), card2MainText);
 }
 ```
-  
+
+```html 
+<div class="card-deck" style="margin-bottom: 10px;">
+  <div class="card">
+    <p style="text-align: center;"><img src="images/spider-man.jpg" class="card-img-top" alt="spider-man"
+        style="width: 75px; height: 120px;"></p>
+    <div class="card-body">
+      <h5 class="card-title">Spider man</h5>
+      <p class="card-text">Spider-Man is a fictional superhero created by
+        writer-editor Stan Lee and writer-artist Steve Ditko.</p>
+      <p class="card-text"><small class="text-muted">Peter Parker</small></p>
+    </div>
+  </div>
+  <div class="card">
+    <p style="text-align: center;"><img src="images/hulk.jpg" class="card-img-top" alt="hulk"
+        style="width: 98px; height: 120px;">
+    </p>
+    <div class="card-body">
+      <h5 class="card-title">Hulk</h5>
+      <p class="card-text">The Hulk is a fictional superhero appearing in publications
+        by the American publisher Marvel Comics.</p>
+      <p class="card-text"><small class="text-muted">Bruce Banner</small></p>
+    </div>
+  </div>
+</div>
+```
+
 ![Card_decks HTML example](../images/bootstrap/card-decks-html.png)
 
 ##### Card decks with footer
 
-![Card_groups example](../images/bootstrap/card-decks-with-footer.png)
+![Card_decks example](../images/bootstrap/card-decks-with-footer.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
-@UI(".card-group:nth-of-type(2)") // @FindBy(css = ".card-deck:nth-of-type(2)")
-public static CardGroupSection cardGroupSectionWithFooter;
+
+@UI(".card-deck:nth-of-type(2)") // @FindBy(css = ".card-deck:nth-of-type(2)")
+public static CardDeckSection cardDeckSectionWithFooter;
 
 public class CardGroupSection extends Section {
     @UI(".card:nth-of-type(1)") public CardGrouped card1;
@@ -15090,34 +15168,56 @@ public class CardGrouped extends Card {
     @UI(".card-footer small") public Text footerText;
 }
 
-private String card1Title = "SPIDER MAN";
-private String card2Title = "HULK";
-private String card1ImageSrc = "https://jdi-testing.github.io/jdi-light/images/spider-man.jpg";
-private String card2ImageSrc = "https://jdi-testing.github.io/jdi-light/images/hulk.jpg";
-private String card1ImageAlt = "spider-man";
-private String card2ImageAlt = "hulk";
-private String card1MainText = "Spider-Man is a fictional superhero created by writer-editor Stan Lee and writer-artist Steve Ditko.";
-private String card2MainText = "The Hulk is a fictional superhero appearing in publications by the American publisher Marvel Comics.";
-private String card1HeroName = "Peter Parker";
-private String card2HeroName = "Bruce Banner";
+private static final String card1Title = "SPIDER MAN";
+private static final String card2Title = "HULK";
+private static final String card1MainText = "Spider-Man is a fictional superhero created by writer-editor Stan Lee and writer-artist Steve Ditko.";
+private static final String card2MainText = "The Hulk is a fictional superhero appearing in publications by the American publisher Marvel Comics.";
 
 @Test
-public void isValidationTest() {
-    cardGroupSectionWithFooter.highlight();
-    cardGroupSectionWithFooter.card1.title.is().text(card1Title);
-    cardGroupSectionWithFooter.card2.title.is().text(card2Title);
-    cardGroupSectionWithFooter.card1.image.is().src(card1ImageSrc);
-    cardGroupSectionWithFooter.card2.image.is().src(card2ImageSrc);
-    cardGroupSectionWithFooter.card1.image.is().alt(card1ImageAlt);
-    cardGroupSectionWithFooter.card2.image.is().alt(card2ImageAlt);
-    cardGroupSectionWithFooter.card1.mainText.is().text(card1MainText);
-    cardGroupSectionWithFooter.card2.mainText.is().text(card2MainText);
-    cardGroupSectionWithFooter.card1.footerText.is().text(card1HeroName);
-    cardGroupSectionWithFooter.card2.footerText.is().text(card2HeroName);
+public void getTitleTextTest() {
+    cardDeckSectionWithFooter.highlight();
+    assertEquals(cardDeckSectionWithFooter.card1.title.getText(), card1Title);
+    assertEquals(cardDeckSectionWithFooter.card2.title.getText(), card2Title);
 }
+
+@Test
+public void getMainTextTest() {
+    cardDeckSectionWithFooter.highlight();
+    assertEquals(cardDeckSectionWithFooter.card1.mainText.getText(), card1MainText);
+    assertEquals(cardDeckSectionWithFooter.card2.mainText.getText(), card2MainText);
 ```
 
-![Card_groups HTML example](../images/bootstrap/card-decks-with-footer-html.png)
+```html 
+<div class="card-deck" style="margin-bottom: 10px;">
+  <div class="card">
+    <p style="text-align: center;"><img src="images/spider-man.jpg" class="card-img-top" alt="spider-man"
+        style="width: 75px; height: 120px;"></p>
+    <div class="card-body">
+      <h5 class="card-title">Spider man</h5>
+      <p class="card-text">Spider-Man is a fictional superhero created by
+        writer-editor Stan Lee and writer-artist Steve Ditko.</p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">Peter Parker</small>
+    </div>
+  </div>
+  <div class="card">
+    <p style="text-align: center;"><img src="images/hulk.jpg" class="card-img-top" alt="hulk"
+        style="width: 98px; height: 120px;">
+    </p>
+    <div class="card-body">
+      <h5 class="card-title">Hulk</h5>
+      <p class="card-text">The Hulk is a fictional superhero appearing in publications
+        by the American publisher Marvel Comics.</p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">Bruce Banner</small>
+    </div>
+  </div>
+</div>
+```
+
+![Card_decks HTML example](../images/bootstrap/card-decks-with-footer-html.png)
 
 Card are represented by Section class in Java:
 
@@ -15181,6 +15281,52 @@ public void checkElementsPositionTest() {
     assertTrue(cardColumns.bottomLeftCard.core().getreLocation().x < cardColumns.bottomRightCard.core().getLocation().x);
     assertTrue(cardColumns.bottomLeftCard.core().getLocation().x < cardColumns.middleRightCard.core().getLocation().x);
 }
+```
+
+```html 
+<div class="card-columns" style="column-count: 2">
+  <div class="card p-3">
+    <blockquote class="blockquote mb-0 card-body">
+      <p>I don’t want to go.</p>
+      <footer class="blockquote-footer">
+        <small class="text-muted">
+          Peter Parker in <cite title="Source Title">Avengers</cite>
+        </small>
+      </footer>
+    </blockquote>
+  </div>
+  <div class="card">
+    <img src="images/hulk.jpg" class="card-img-top" alt="hulk">
+    <div class="card-body">
+      <h5 class="card-title">Who is Hulk?</h5>
+      <p class="card-text">..A monster man who took "Go Green" too seriously.</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small>
+      </p>
+    </div>
+  </div>
+  <div class="card bg-primary text-white text-center p-3">
+    <blockquote class="blockquote mb-0">
+      <p>If toast is cut diagonally, I can’t eat it.</p>
+      <footer class="blockquote-footer text-white">
+        <small>
+          Nick Fury in <cite title="Source Title">Captain Marvel</cite>
+        </small>
+      </footer>
+    </blockquote>
+  </div>
+  <div class="card text-center">
+    <div class="card-body">
+      <h5 class="card-title">Iron Man</h5>
+      <p class="card-text">I do anything and everything that Mr. Stark requires —
+        including occasionally taking out the trash.</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small>
+      </p>
+    </div>
+  </div>
+  <div class="card">
+    <img src="images/punisher.jpg" class="card-img-top" alt="punisher">
+  </div>
+</div>
 ```
 
 ![Card Columns Example Code](../images/bootstrap/card-columns-html.png)

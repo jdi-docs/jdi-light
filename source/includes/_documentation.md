@@ -9954,8 +9954,8 @@ Inner elements of media object can be represented by the following classes:
    <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/mediaObject/MediaObjectTests.java" target=a_blank> Bootstrap test examples </a>
 
 
-### [Modal](https://getbootstrap.com/docs/4.3/components/modal/)
-Modal is a dialog box/popup window that is displayed on page.
+### Modal
+[Modal](https://getbootstrap.com/docs/4.3/components/modal/) is a dialog box/popup window that is displayed on page.
 
 #### [Modal Live demo](https://getbootstrap.com/docs/4.3/components/modal/#live-demo)
 Toggle a working modal demo by clicking the button below. It will slide down and fade in from the top of the page.
@@ -13543,9 +13543,9 @@ They are located in the following Java classes:
 
 - com.epam.jdi.light.ui.bootstrap.elements.common;
 
-### [Card](https://getbootstrap.com/docs/4.3/components/card/)
+### Card
 
-Bootstrap’s cards provide a flexible and extensible content container with multiple variants and options.
+[Cards](https://getbootstrap.com/docs/4.3/components/card/) in Bootstrap provide a flexible and extensible content container with multiple variants and options.
 
 #### [Card Example](https://getbootstrap.com/docs/4.3/components/card/#example)
 
@@ -14934,9 +14934,9 @@ Available methods in Java JDI Light:
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardColumnsTests.java)
 
-### [Jumbotron](https://getbootstrap.com/docs/4.0/components/jumbotron)
+### Jumbotron
 
-Jumbotron – Lightweight, flexible component for showcasing hero
+[Jumbotron](https://getbootstrap.com/docs/4.3/components/jumbotron) – Lightweight, flexible component for showcasing hero
 
 ![Jumbotron](../images/bootstrap/jumbotron.png)
 

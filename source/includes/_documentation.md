@@ -13577,12 +13577,16 @@ public void clickTest() {
 ```
 
 ```html 
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
+<div class="card mb-3" id="card-example" style="width: 18rem;">
+  <img style="width: 30%; margin: 0 auto;" id="bs-card-example-image"
+    src="https://jdi-testing.github.io/jdi-light/images/wolverin.jpg" class="card-img-top" alt="image">
   <div class="card-body">
     <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <p class="card-text">Some quick example text to build on the card title and make up
+      the bulk of the card's content.</p>
+    <button href="#" class="btn btn-primary" onclick="alert('Card Button Clicked!')">
+      Click Me!
+    </button>
   </div>
 </div>
 ```
@@ -13636,7 +13640,7 @@ public void getBodyTextTest() {
 ```
 
 ```html 
-<div class="card">
+<div class="card" id="card-body">
   <div class="card-body">
     This is some text within a card body.
   </div>
@@ -13669,7 +13673,7 @@ Card titles are used by adding `.card-title` to a `<h*>` tag. In the same way, l
 
 Subtitles are used by adding a `.card-subtitle` to a `<h*>` tag. If the `.card-title` and the `.card-subtitle` items are placed in a `.card-body` item, the card title and subtitle are aligned nicely.
 
-![Card Titles_links_Example](../images/bootstrap/cardsubslinks.png)
+![Card Titles and Links Example](../images/bootstrap/cardsubslinks.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -13703,18 +13707,21 @@ public void clickLink1Test() {
 ```
 
 ```html 
-<div class="card" style="width: 18rem;">
+<div class="card" id="card-subtitle-link" style="width: 18rem;">
   <div class="card-body">
     <h5 class="card-title">Card title</h5>
     <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
+    <p class="card-text">Some quick example text to build on the card title and
+      make up the bulk of the card's content.</p>
+    <a href="https://github.com/jdi-testing/jdi-light" target="_blank" class="card-link" id="bs-card-2-link1">JDI Light
+      Github</a>
+    <a href="https://jdi-testing.github.io/jdi-light/index.html" target="_blank" class="card-link"
+      id="bs-card-2-link2">JDI Website</a>
   </div>
 </div>
 ```
 
-![Card Titles_links Example Code](../images/bootstrap/cardsubslinks-html.png)
+![Card Titles and Links Example Code](../images/bootstrap/cardsubslinks-html.png)
 
 Card is represented by Section class in Java:
 
@@ -13772,10 +13779,14 @@ public void imageClassTest() {
 ```
 
 ```html 
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
+<div class="card mb-3" id="card-image-caps-1" style="width: 18rem;">
+  <img style="width: 30%; margin: 0 auto;" src="images/captain-america.jpg" class="card-img-top"
+    alt="Captain America image">
   <div class="card-body">
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">This is a wider card with supporting text below as a natural
+      lead-in to additional content. This content is a little bit longer.</p>
+    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
   </div>
 </div>
 ```
@@ -13845,7 +13856,10 @@ public void checkCardListGroupsValues() {
 ```
 
 ```html 
-<div class="card" style="width: 18rem;">
+<div class="card mb-3" id="card-list-groups" style="width: 18rem;">
+  <div class="card-header">
+    Featured
+  </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">Cras justo odio</li>
     <li class="list-group-item">Dapibus ac facilisis in</li>
@@ -13919,11 +13933,12 @@ public void isValidationTest() {
 ```
 
 ```html 
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
+<div class="card mb-3" id="card-kitchen-sink" style="width: 18rem;">
+  <img src="images/spider-man.jpg" class="card-img-top" alt="Spider Man" style="width: 30%; margin: 0 auto;">
   <div class="card-body">
     <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <p class="card-text">Some quick example text to build on the card title and make up
+      the bulk of the card's content.</p>
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">Cras justo odio</li>
@@ -13931,8 +13946,8 @@ public void isValidationTest() {
     <li class="list-group-item">Vestibulum at eros</li>
   </ul>
   <div class="card-body">
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
+    <a href="https://github.com/jdi-testing/jdi-light" target="_blank" class="card-link">JDI Light Github</a>
+    <a href="https://jdi-testing.github.io/jdi-light/index.html" target="_blank" class="card-link">JDI Website</a>
   </div>
 </div>
 ```
@@ -13997,14 +14012,17 @@ public void getHeaderTextCardWithHeaderAndFooterTest() {
 ```
 
 ```html 
-<div class="card text-center">
+<div class="card mb-3 text-center" id="card-with-header-and-footer">
   <div class="card-header">
     Featured
   </div>
   <div class="card-body">
     <h5 class="card-title">Special title treatment</h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <p class="card-text">With supporting text below as a natural lead-in to additional
+      content.</p>
+    <button href="#" class="btn btn-primary" onclick="alert('Button Clicked!');">Click
+      Me!
+    </button>
   </div>
   <div class="card-footer text-muted">
     2 days ago
@@ -14038,7 +14056,7 @@ Available methods in Java JDI Light:
 
 Using the grid, wrap cards in columns and rows as needed.
 
-![Card with Header and Footer Example](../images/bootstrap/card_grid.png)
+![Card with Grid Markup Example](../images/bootstrap/card_grid.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -14177,14 +14195,6 @@ int widthInPercent, String widthInPixels) {
     <a href="https://en.wikipedia.org/wiki/Spider-Man" class="btn btn-primary" target="_blank">Read more</a>
   </div>
 </div>
-<div class="card w-50" style="margin-bottom: 10px;">
-  <div class="card-body">
-    <h5 class="card-title">Hulk (w-50)</h5>
-    <p class="card-text">The Hulk is a fictional superhero appearing in publications by
-      the American publisher Marvel Comics.</p>
-    <a href="https://en.wikipedia.org/wiki/Hulk_(film)" class="btn btn-primary" target="_blank">Read more</a>
-  </div>
-</div>
 ```
 
 ![Card utilities Example Code](../images/bootstrap/card_utilities_html.png)
@@ -14239,15 +14249,6 @@ public void isValidationTest() {
     <p class="card-text">Spider-Man is a fictional superhero created by writer-editor
       Stan Lee and writer-artist Steve Ditko.</p>
     <a href="https://en.wikipedia.org/wiki/Spider-Man" class="btn btn-primary" target="_blank">Read more</a>
-  </div>
-</div>
-
-<div class="card" id="card-custom-css-2" style="width: 9rem; margin-bottom: 10px;">
-  <div class="card-body">
-    <h5 class="card-title">Hulk (9rem)</h5>
-    <p class="card-text">The Hulk is a fictional superhero appearing in publications by
-      the American publisher Marvel Comics.</p>
-    <a href="https://en.wikipedia.org/wiki/Hulk_(film)" class="btn btn-primary" target="_blank">Read more</a>
   </div>
 </div>
 ```
@@ -14317,32 +14318,12 @@ public void clickTest() {
 ```
 
 ```html 
-<div id="card-text-left" class="card mb-2" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title">Special title treatment</h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional
-      content.</p>
-    <button href="#" class="btn btn-primary" onclick="alert('Button Clicked!');">Click
-      Me!
-    </button>
-  </div>
-</div>
 <div id="card-text-center" class="card mb-2 text-center" style="width: 18rem;">
   <div class="card-body">
     <h5 class="card-title">Special title treatment</h5>
     <p class="card-text">With supporting text below as a natural lead-in to additional
       content.</p>
     <button href="#" class="btn btn-success" onclick="alert('Button Clicked!');">Click
-      Me!
-    </button>
-  </div>
-</div>
-<div id="card-text-right" class="card mb-3 text-right" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title">Special title treatment</h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional
-      content.</p>
-    <button href="#" class="btn btn-warning" onclick="alert('Button Clicked!');">Click
       Me!
     </button>
   </div>
@@ -14537,16 +14518,6 @@ public void getAltTest() {
       lead-in to additional content. This content is a little bit longer.</p>
     <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
   </div>
-</div>
-
-<div class="card mb-3" id="card-image-caps-2" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">This is a wider card with supporting text below as a natural
-      lead-in to additional content. This content is a little bit longer.</p>
-    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-  </div>
-  <img style="width: 30%; margin: 0 auto;" src="images/punisher.jpg" class="card-img-top" alt="...">
 </div>
 ```
 
@@ -14753,42 +14724,12 @@ Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
 @UI("#card-bright-blue") // @FindBy(css = "#card-bright-blue")
-public static CardWithHeaderAndFooter cardBrightBlue;
-@UI("#card-grey") // @FindBy(css = "#card-grey")
-public static CardWithHeaderAndFooter cardGrey;
-@UI("#card-green") // @FindBy(css = "#card-green")
-public static CardWithHeaderAndFooter cardGreen;
-@UI("#card-red") // @FindBy(css = "#card-red")
-public static CardWithHeaderAndFooter cardRed;
-@UI("#card-yellow") // @FindBy(css = "#card-yellow")
-public static CardWithHeaderAndFooter cardYellow;
-@UI("#card-blue") // @FindBy(css = "#card-blue")
-public static CardWithHeaderAndFooter cardBlue;
-@UI("#card-light") // @FindBy(css = "#card-light")
-public static CardWithHeaderAndFooter cardLight;
-@UI("#card-dark") // @FindBy(css = "#card-dark")
-public static CardWithHeaderAndFooter cardDark;
+public static CardStyled cardBrightBlue;
 
-public class CardWithHeaderAndFooter extends Card {
+public class CardStyled extends Card {
+    @UI(".card-header") public Text header;
     @UI(".card-title") public Text title;
-    @UI(".card-body p") public Text paragraph;
-    @UI("button") public Button button;
-    @UI(".card-header")public Text header;
-    @UI("//*[contains(@class, 'footer')]") public Text footer;
-}
-
-@DataProvider(name = "cardColors")
-public static Object[][] cardColors() {
-    return new Object[][]{
-            {cardBrightBlue, "bg-primary", "rgba(0, 123, 255, 1)"},
-            {cardGrey, "bg-secondary", "rgba(108, 117, 125, 1)"},
-            {cardGreen, "bg-success", "rgba(40, 167, 69, 1)"},
-            {cardRed, "bg-danger", "rgba(220, 53, 69, 1)"},
-            {cardYellow, "bg-warning", "rgba(255, 193, 7, 1)"},
-            {cardBlue, "bg-info", "rgba(23, 162, 184, 1)"},
-            {cardLight, "bg-light", "rgba(248, 249, 250, 1)"},
-            {cardDark, "bg-dark", "rgba(52, 58, 64, 1)"},
-    };
+    @UI(".card-text") public Text body;
 }
 
 @Test(dataProvider = "cardColors")
@@ -14814,30 +14755,6 @@ public void checkColorCardsTest(CardWithHeaderAndFooter card, String cssClass, S
   <div class="card-header">Header</div>
   <div class="card-body">
     <h5 class="card-title">Primary card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up
-      the bulk of the card's content.</p>
-  </div>
-</div>
-<div class="card text-white bg-secondary mb-3" style="max-width: 18rem;" id="card-grey">
-  <div class="card-header">Header</div>
-  <div class="card-body">
-    <h5 class="card-title">Secondary card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up
-      the bulk of the card's content.</p>
-  </div>
-</div>
-<div class="card text-white bg-success mb-3" style="max-width: 18rem;" id="card-green">
-  <div class="card-header">Header</div>
-  <div class="card-body">
-    <h5 class="card-title">Success card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up
-      the bulk of the card's content.</p>
-  </div>
-</div>
-<div class="card text-white bg-danger mb-3" style="max-width: 18rem;" id="card-red">
-  <div class="card-header">Header</div>
-  <div class="card-body">
-    <h5 class="card-title">Danger card title</h5>
     <p class="card-text">Some quick example text to build on the card title and make up
       the bulk of the card's content.</p>
   </div>
@@ -14877,10 +14794,10 @@ Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
 @UI("#card-border-primary") // @FindBy(css = "#card-border-primatry")
-public static CardBorder cardBorderPrimary;
+public static CardStyled cardBorderPrimary;
 
-public class CardBorder extends Card {
-    @UI(".card-header") public Text border;
+public class CardStyled extends Card {
+    @UI(".card-header") public Text header;
     @UI(".card-title") public Text title;
     @UI(".card-text") public Text body;
 }
@@ -14904,30 +14821,6 @@ public void getHeaderTextTest(CardBorder cardBorder, String headerText) {
   <div class="card-header">Card with primary border</div>
   <div class="card-body text-primary">
     <h5 class="card-title">Primary card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up
-      the bulk of the card's content.</p>
-  </div>
-</div>
-<div class="card border-secondary mb-3" id="card-border-secondary" style="max-width: 18rem;">
-  <div class="card-header">Card with secondary border</div>
-  <div class="card-body text-secondary">
-    <h5 class="card-title">Secondary card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up
-      the bulk of the card's content.</p>
-  </div>
-</div>
-<div class="card border-success mb-3" id="card-border-success" style="max-width: 18rem;">
-  <div class="card-header">Card with success border</div>
-  <div class="card-body text-success">
-    <h5 class="card-title">Success card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up
-      the bulk of the card's content.</p>
-  </div>
-</div>
-<div class="card border-danger mb-3" id="card-border-danger" style="max-width: 18rem;">
-  <div class="card-header">Card with danger border</div>
-  <div class="card-body text-danger">
-    <h5 class="card-title">Danger card title</h5>
     <p class="card-text">Some quick example text to build on the card title and make up
       the bulk of the card's content.</p>
   </div>
@@ -14986,6 +14879,22 @@ public void isValidationTest() {
 }
 ```
 
+```html 
+<div class="card border-success mb-3" id="card-mixins-utilities" style="max-width: 18rem;">
+  <div class="card-header bg-transparent border-success">According To Samuel L. Jackson
+  </div>
+  <div class="card-body text-success">
+    <h5 class="card-title">The Secret To Marvel Studios’ Success</h5>
+    <p class="card-text">Because while the Marvel Cinematic Universe always includes
+      plenty of spectacle and pulse pounding action, each blockbuster tells a very
+      human story. The heroes of the world are flawed and funny, allowing audiences to
+      connect with characters who are super powered and dealing with situations we
+      truly can't comprehend.</p>
+  </div>
+  <div class="card-footer bg-transparent border-success">For Cinema Blend</div>
+</div>
+```
+
 ![Card Mixins Utilities Example Code](../images/bootstrap/card-mixins-utilities-html.png)
 
 Card is represented by Section class in Java:
@@ -15032,10 +14941,13 @@ public class CardGrouped extends Card {
     @UI(".card-footer small") public Text footerText;
 }
 
+private String card1ImageSrc = "https://jdi-testing.github.io/jdi-light/images/spider-man.jpg";
+private String card2ImageSrc = "https://jdi-testing.github.io/jdi-light/images/hulk.jpg";
+private String card1ImageAlt = "spider-man";
+private String card2ImageAlt = "hulk";
+
 @Test
 public void getSrcTest() {
-    assertEquals(cardGroupSectionWithoutFooter.card1.image.src(), card1ImageSrc);
-    assertEquals(cardGroupSectionWithoutFooter.card2.image.src(), card2ImageSrc);
     assertEquals(cardGroupSectionWithoutFooter.card1.image.src(), card1ImageSrc);
     assertEquals(cardGroupSectionWithoutFooter.card2.image.src(), card2ImageSrc);
 }
@@ -15044,9 +14956,33 @@ public void getSrcTest() {
 public void getAltTest() {
     assertEquals(cardGroupSectionWithoutFooter.card1.image.alt(), card1ImageAlt);
     assertEquals(cardGroupSectionWithoutFooter.card2.image.alt(), card2ImageAlt);
-    assertEquals(cardGroupSectionWithoutFooter.card1.image.alt(), card1ImageAlt);
-    assertEquals(cardGroupSectionWithoutFooter.card2.image.alt(), card2ImageAlt);
 }
+```
+
+```html
+<div class="card-group" style="margin-bottom: 10px;">
+  <div class="card">
+    <p style="text-align: center;"><img src="images/spider-man.jpg" class="card-img-top" alt="spider-man"
+        style="width: 75px; height: 120px;"></p>
+    <div class="card-body">
+      <h5 class="card-title">Spider man</h5>
+      <p class="card-text">Spider-Man is a fictional superhero created by
+        writer-editor Stan Lee and writer-artist Steve Ditko.</p>
+      <p class="card-text"><small class="text-muted">Peter Parker</small></p>
+    </div>
+  </div>
+  <div class="card">
+    <p style="text-align: center;"><img src="images/hulk.jpg" class="card-img-top" alt="hulk"
+        style="width: 98px; height: 120px;">
+    </p>
+    <div class="card-body">
+      <h5 class="card-title">Hulk</h5>
+      <p class="card-text">The Hulk is a fictional superhero appearing in publications
+        by the American publisher Marvel Comics.</p>
+      <p class="card-text"><small class="text-muted">Bruce Banner</small></p>
+    </div>
+  </div>
+</div>
 ```
 
 ![Card_groups HTML example](../images/bootstrap/card-groups-html.png)
@@ -15074,21 +15010,52 @@ public class CardGrouped extends Card {
     @UI(".card-footer small") public Text footerText;
 }
 
+private String card1ImageSrc = "https://jdi-testing.github.io/jdi-light/images/spider-man.jpg";
+private String card2ImageSrc = "https://jdi-testing.github.io/jdi-light/images/hulk.jpg";
+private String card1ImageAlt = "spider-man";
+private String card2ImageAlt = "hulk";
+
 @Test
 public void getSrcTest() {
-    assertEquals(cardGroupWithoutFooter.card1.image.src(), card1ImageSrc);
-    assertEquals(cardGroupWithoutFooter.card2.image.src(), card2ImageSrc);
     assertEquals(cardGroupWithFooter.card1.image.src(), card1ImageSrc);
     assertEquals(cardGroupWithFooter.card2.image.src(), card2ImageSrc);
 }
 
 @Test
 public void getAltTest() {
-    assertEquals(cardGroupWithoutFooter.card1.image.alt(), card1ImageAlt);
-    assertEquals(cardGroupWithoutFooter.card2.image.alt(), card2ImageAlt);
     assertEquals(cardGroupWithFooter.card1.image.alt(), card1ImageAlt);
     assertEquals(cardGroupWithFooter.card2.image.alt(), card2ImageAlt);
 }
+```
+
+```html 
+<div class="card-group" style="margin-bottom: 10px;">
+  <div class="card">
+    <p style="text-align: center;"><img src="images/spider-man.jpg" class="card-img-top" alt="spider-man"
+        style="width: 75px; height: 120px;"></p>
+    <div class="card-body">
+      <h5 class="card-title">Spider man</h5>
+      <p class="card-text">Spider-Man is a fictional superhero created by
+        writer-editor Stan Lee and writer-artist Steve Ditko.</p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">Peter Parker</small>
+    </div>
+  </div>
+  <div class="card">
+    <p style="text-align: center;"><img src="images/hulk.jpg" class="card-img-top" alt="hulk"
+        style="width: 98px; height: 120px;">
+    </p>
+    <div class="card-body">
+      <h5 class="card-title">Hulk</h5>
+      <p class="card-text">The Hulk is a fictional superhero appearing in publications
+        by the American publisher Marvel Comics.</p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">Bruce Banner</small>
+    </div>
+  </div>
+</div>
 ```
 
 ![Card_groups HTML example](../images/bootstrap/card-groups-with-footer-html.png)
@@ -15113,10 +15080,10 @@ Use card decks for a set of equal width and height cards that aren't attached to
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
-@UI(".card-group:nth-of-type(1)") // @FindBy(css = ".card-deck:nth-of-type(1)")
-public static CardGroupSection cardGroupSectionWithoutFooter;
+@UI(".card-deck:nth-of-type(1)") // @FindBy(css = ".card-deck:nth-of-type(1)")
+public static CardDeckSection cardDeckSectionWithoutFooter;
 
-public class CardGroupSection extends Section {
+public class CardDeckSection extends Section {
     @UI(".card:nth-of-type(1)") public CardGrouped card1;
     @UI(".card:nth-of-type(2)") public CardGrouped card2;
 }
@@ -15129,44 +15096,64 @@ public class CardGrouped extends Card {
     @UI(".card-footer small") public Text footerText;
 }
 
-private String card1Title = "SPIDER MAN";
-private String card2Title = "HULK";
-private String card1ImageSrc = "https://jdi-testing.github.io/jdi-light/images/spider-man.jpg";
-private String card2ImageSrc = "https://jdi-testing.github.io/jdi-light/images/hulk.jpg";
-private String card1ImageAlt = "spider-man";
-private String card2ImageAlt = "hulk";
-private String card1MainText = "Spider-Man is a fictional superhero created by writer-editor Stan Lee and writer-artist Steve Ditko.";
-private String card2MainText = "The Hulk is a fictional superhero appearing in publications by the American publisher Marvel Comics.";
-private String card1HeroName = "Peter Parker";
-private String card2HeroName = "Bruce Banner";
+private static final String card1Title = "SPIDER MAN";
+private static final String card2Title = "HULK";
+private static final String card1MainText = "Spider-Man is a fictional superhero created by writer-editor Stan Lee and writer-artist Steve Ditko.";
+private static final String card2MainText = "The Hulk is a fictional superhero appearing in publications by the American publisher Marvel Comics.";
 
 @Test
-public void isValidationTest() {
-    cardGroupSectionWithoutFooter.highlight();
-    cardGroupSectionWithoutFooter.card1.title.is().text(card1Title);
-    cardGroupSectionWithoutFooter.card2.title.is().text(card2Title);
-    cardGroupSectionWithoutFooter.card1.image.is().src(card1ImageSrc);
-    cardGroupSectionWithoutFooter.card2.image.is().src(card2ImageSrc);
-    cardGroupSectionWithoutFooter.card1.image.is().alt(card1ImageAlt);
-    cardGroupSectionWithoutFooter.card2.image.is().alt(card2ImageAlt);
-    cardGroupSectionWithoutFooter.card1.mainText.is().text(card1MainText);
-    cardGroupSectionWithoutFooter.card2.mainText.is().text(card2MainText);
-    cardGroupSectionWithoutFooter.card1.mutedText.is().text(card1HeroName);
-    cardGroupSectionWithoutFooter.card2.mutedText.is().text(card2HeroName);
+public void getTitleTextTest() {
+    cardDeckSectionWithoutFooter.highlight();
+    assertEquals(cardDeckSectionWithoutFooter.card1.title.getText(), card1Title);
+    assertEquals(cardDeckSectionWithoutFooter.card2.title.getText(), card2Title);
+}
+
+@Test
+public void getMainTextTest() {
+    cardDeckSectionWithoutFooter.highlight();
+    assertEquals(cardDeckSectionWithoutFooter.card1.mainText.getText(), card1MainText);
+    assertEquals(cardDeckSectionWithoutFooter.card2.mainText.getText(), card2MainText);
 }
 ```
-  
+
+```html 
+<div class="card-deck" style="margin-bottom: 10px;">
+  <div class="card">
+    <p style="text-align: center;"><img src="images/spider-man.jpg" class="card-img-top" alt="spider-man"
+        style="width: 75px; height: 120px;"></p>
+    <div class="card-body">
+      <h5 class="card-title">Spider man</h5>
+      <p class="card-text">Spider-Man is a fictional superhero created by
+        writer-editor Stan Lee and writer-artist Steve Ditko.</p>
+      <p class="card-text"><small class="text-muted">Peter Parker</small></p>
+    </div>
+  </div>
+  <div class="card">
+    <p style="text-align: center;"><img src="images/hulk.jpg" class="card-img-top" alt="hulk"
+        style="width: 98px; height: 120px;">
+    </p>
+    <div class="card-body">
+      <h5 class="card-title">Hulk</h5>
+      <p class="card-text">The Hulk is a fictional superhero appearing in publications
+        by the American publisher Marvel Comics.</p>
+      <p class="card-text"><small class="text-muted">Bruce Banner</small></p>
+    </div>
+  </div>
+</div>
+```
+
 ![Card_decks HTML example](../images/bootstrap/card-decks-html.png)
 
 ##### Card decks with footer
 
-![Card_groups example](../images/bootstrap/card-decks-with-footer.png)
+![Card_decks example](../images/bootstrap/card-decks-with-footer.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
-@UI(".card-group:nth-of-type(2)") // @FindBy(css = ".card-deck:nth-of-type(2)")
-public static CardGroupSection cardGroupSectionWithFooter;
+
+@UI(".card-deck:nth-of-type(2)") // @FindBy(css = ".card-deck:nth-of-type(2)")
+public static CardDeckSection cardDeckSectionWithFooter;
 
 public class CardGroupSection extends Section {
     @UI(".card:nth-of-type(1)") public CardGrouped card1;
@@ -15181,34 +15168,56 @@ public class CardGrouped extends Card {
     @UI(".card-footer small") public Text footerText;
 }
 
-private String card1Title = "SPIDER MAN";
-private String card2Title = "HULK";
-private String card1ImageSrc = "https://jdi-testing.github.io/jdi-light/images/spider-man.jpg";
-private String card2ImageSrc = "https://jdi-testing.github.io/jdi-light/images/hulk.jpg";
-private String card1ImageAlt = "spider-man";
-private String card2ImageAlt = "hulk";
-private String card1MainText = "Spider-Man is a fictional superhero created by writer-editor Stan Lee and writer-artist Steve Ditko.";
-private String card2MainText = "The Hulk is a fictional superhero appearing in publications by the American publisher Marvel Comics.";
-private String card1HeroName = "Peter Parker";
-private String card2HeroName = "Bruce Banner";
+private static final String card1Title = "SPIDER MAN";
+private static final String card2Title = "HULK";
+private static final String card1MainText = "Spider-Man is a fictional superhero created by writer-editor Stan Lee and writer-artist Steve Ditko.";
+private static final String card2MainText = "The Hulk is a fictional superhero appearing in publications by the American publisher Marvel Comics.";
 
 @Test
-public void isValidationTest() {
-    cardGroupSectionWithFooter.highlight();
-    cardGroupSectionWithFooter.card1.title.is().text(card1Title);
-    cardGroupSectionWithFooter.card2.title.is().text(card2Title);
-    cardGroupSectionWithFooter.card1.image.is().src(card1ImageSrc);
-    cardGroupSectionWithFooter.card2.image.is().src(card2ImageSrc);
-    cardGroupSectionWithFooter.card1.image.is().alt(card1ImageAlt);
-    cardGroupSectionWithFooter.card2.image.is().alt(card2ImageAlt);
-    cardGroupSectionWithFooter.card1.mainText.is().text(card1MainText);
-    cardGroupSectionWithFooter.card2.mainText.is().text(card2MainText);
-    cardGroupSectionWithFooter.card1.footerText.is().text(card1HeroName);
-    cardGroupSectionWithFooter.card2.footerText.is().text(card2HeroName);
+public void getTitleTextTest() {
+    cardDeckSectionWithFooter.highlight();
+    assertEquals(cardDeckSectionWithFooter.card1.title.getText(), card1Title);
+    assertEquals(cardDeckSectionWithFooter.card2.title.getText(), card2Title);
 }
+
+@Test
+public void getMainTextTest() {
+    cardDeckSectionWithFooter.highlight();
+    assertEquals(cardDeckSectionWithFooter.card1.mainText.getText(), card1MainText);
+    assertEquals(cardDeckSectionWithFooter.card2.mainText.getText(), card2MainText);
 ```
 
-![Card_groups HTML example](../images/bootstrap/card-decks-with-footer-html.png)
+```html 
+<div class="card-deck" style="margin-bottom: 10px;">
+  <div class="card">
+    <p style="text-align: center;"><img src="images/spider-man.jpg" class="card-img-top" alt="spider-man"
+        style="width: 75px; height: 120px;"></p>
+    <div class="card-body">
+      <h5 class="card-title">Spider man</h5>
+      <p class="card-text">Spider-Man is a fictional superhero created by
+        writer-editor Stan Lee and writer-artist Steve Ditko.</p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">Peter Parker</small>
+    </div>
+  </div>
+  <div class="card">
+    <p style="text-align: center;"><img src="images/hulk.jpg" class="card-img-top" alt="hulk"
+        style="width: 98px; height: 120px;">
+    </p>
+    <div class="card-body">
+      <h5 class="card-title">Hulk</h5>
+      <p class="card-text">The Hulk is a fictional superhero appearing in publications
+        by the American publisher Marvel Comics.</p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">Bruce Banner</small>
+    </div>
+  </div>
+</div>
+```
+
+![Card_decks HTML example](../images/bootstrap/card-decks-with-footer-html.png)
 
 Card are represented by Section class in Java:
 
@@ -15272,6 +15281,52 @@ public void checkElementsPositionTest() {
     assertTrue(cardColumns.bottomLeftCard.core().getreLocation().x < cardColumns.bottomRightCard.core().getLocation().x);
     assertTrue(cardColumns.bottomLeftCard.core().getLocation().x < cardColumns.middleRightCard.core().getLocation().x);
 }
+```
+
+```html 
+<div class="card-columns" style="column-count: 2">
+  <div class="card p-3">
+    <blockquote class="blockquote mb-0 card-body">
+      <p>I don’t want to go.</p>
+      <footer class="blockquote-footer">
+        <small class="text-muted">
+          Peter Parker in <cite title="Source Title">Avengers</cite>
+        </small>
+      </footer>
+    </blockquote>
+  </div>
+  <div class="card">
+    <img src="images/hulk.jpg" class="card-img-top" alt="hulk">
+    <div class="card-body">
+      <h5 class="card-title">Who is Hulk?</h5>
+      <p class="card-text">..A monster man who took "Go Green" too seriously.</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small>
+      </p>
+    </div>
+  </div>
+  <div class="card bg-primary text-white text-center p-3">
+    <blockquote class="blockquote mb-0">
+      <p>If toast is cut diagonally, I can’t eat it.</p>
+      <footer class="blockquote-footer text-white">
+        <small>
+          Nick Fury in <cite title="Source Title">Captain Marvel</cite>
+        </small>
+      </footer>
+    </blockquote>
+  </div>
+  <div class="card text-center">
+    <div class="card-body">
+      <h5 class="card-title">Iron Man</h5>
+      <p class="card-text">I do anything and everything that Mr. Stark requires —
+        including occasionally taking out the trash.</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small>
+      </p>
+    </div>
+  </div>
+  <div class="card">
+    <img src="images/punisher.jpg" class="card-img-top" alt="punisher">
+  </div>
+</div>
 ```
 
 ![Card Columns Example Code](../images/bootstrap/card-columns-html.png)

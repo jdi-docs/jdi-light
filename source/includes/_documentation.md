@@ -6383,9 +6383,26 @@ public void getColorTest(Progress progress, String color) {
 }
 ```
   
-![Progress HTML example](../images/bootstrap/progress-html.png)
-
-
+```html 
+<div id="progress-base">
+    <p>base</p>
+    <div class="progress" id="progress-bar-base-width-0">
+        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    <div class="progress" id="progress-bar-base-width-25">
+        <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    <div class="progress" id="progress-bar-base-width-50">
+        <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    <div class="progress" id="progress-bar-base-width-75">
+        <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    <div class="progress" id="progress-bar-base-width-100">
+        <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+</div>
+```
 
 Available methods in Java JDI Light:
 
@@ -6403,8 +6420,13 @@ Available methods in Java JDI Light:
 
 ####With label
 
-```java 
+Add <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/progress/#labels">labels</a> to your progress bars by placing text within the `.progress-bar`.
 
+![Progress label example](../images/bootstrap/progress-label.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java 
 //@FindBy(css = "#progress-with-labels")
 @UI("#progress-with-labels") public static Progress progressWithLabels; 
 
@@ -6429,18 +6451,17 @@ Available methods in Java JDI Light:
          }
          progressWithLabels.core().is().text(maxPercent);
     }
-
+```
+  
+```html 
+<div class="progress">
+    <div id="progress-with-labels" class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+</div>
 ```
 
-![Progress label example](../images/bootstrap/progress-label.png)
+<a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/progress/ProgressWithLabelsTests.java" target=a_blank> Bootstrap test examples </a>
 
-Here is an example with provided Bootstrap v4.3 code:
-  
-![Progress label HTML example](../images/bootstrap/progress-label-html.png)
-
-<a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/ProgressWithLabelsTests.java" target=a_blank> Bootstrap test examples </a>
-
-<br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 ####With height
 
@@ -6475,11 +6496,27 @@ public static JList<ProgressSection> progressHeightSections;
 
 ```
   
-![Progress label HTML example](../images/bootstrap/progress_height_DOM.PNG)
+```html 
+<div id="progress-height">
+    <p>various heights</p>
+          <div class="progress" id="progress-height-20px" style="height: 20px;">
+              <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+          <div class="progress" id="progress-height-40px" style="height: 40px;">
+              <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+          <div class="progress" id="progress-height-60px" style="height: 60px;">
+              <div class="progress-bar bg-warning" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+          <div class="progress" id="progress-height-80px" style="height: 80px;">
+              <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+      </div>
+```  
 
 <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/progress/ProgressHeightTests.java" target=a_blank> Bootstrap test examples </a>
 
-<br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br>
 
 ####With backgrounds
 
@@ -6523,11 +6560,24 @@ Here is an example with provided Bootstrap v4.3 code:
 
 ```
   
-![Progress backgrounds HTML example](../images/bootstrap/progress-backgrounds-html.png)
+```html 
+<div class="progress">
+    <div id="progress-backgrounds-green" class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+<div class="progress">
+    <div id="progress-backgrounds-blue" class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+<div class="progress">
+    <div id="progress-backgrounds-yellow" class="progress-bar bg-warning" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+<div class="progress">
+    <div id="progress-backgrounds-red" class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+```
 
-<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/ProgressBackgroundTests.java" target=a_blank> Bootstrap test examples </a>
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/progress/ProgressBackgroundTests.java" target=a_blank> Bootstrap test examples </a>
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 ####With striped design
 
@@ -6566,11 +6616,32 @@ Here is an example with provided Bootstrap v4.3 code:
 
 ```
 
-![Progress striped HTML example](../images/bootstrap/progress-striped-html.png)
+```html 
+<div id="striped-base">
+    <br>
+    <p>striped</p>
+
+    <div class="progress">
+        <div class="progress-bar progress-bar-striped" id="striped_ordinary" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    <div class="progress">
+        <div class="progress-bar progress-bar-striped bg-success" id="striped_success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    <div class="progress">
+        <div class="progress-bar progress-bar-striped bg-info" id="striped_info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    <div class="progress">
+        <div class="progress-bar progress-bar-striped bg-warning" id="striped_warning" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    <div class="progress">
+        <div class="progress-bar progress-bar-striped bg-danger" id="striped_danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+</div>
+```
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/listprogressbars/ProgressBarsListTests.java)
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br>
 
 
 ####With animated design
@@ -6593,7 +6664,11 @@ public void isValidationTest() {
 }
 ```
   
-![Progress animated HTML example](../images/bootstrap/progress-animated-html.png)
+```html 
+<div class="progress">
+    <div class="progress-bar progress-bar-striped progress-bar-animated" id="progress-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+</div>
+```
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/progress/ProgressAnimatedStripesTests.java)
 <br><br><br><br><br><br><br><br>
@@ -7331,7 +7406,7 @@ assertThat() | Assert action | TextAssert
 
 Include <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/progress/#multiple-bars">multiple progress bars</a>  in a progress component if you need.
 
-In addition there is a common element <a style="font-weight: bold;" target="_blank" href="https://jdi-docs.github.io/jdi-light/#progress">Progress</a> which includes only one progress bar.
+There is a common element <a style="font-weight: bold;" target="_blank" href="https://jdi-docs.github.io/jdi-light/#progress">Progress</a> which includes only one progress bar.
 
 ![Progress multiple example](../images/bootstrap/progress-multiple.png)
 
@@ -7352,13 +7427,11 @@ public void separateBarTest(Progress progress, String color, String value, Strin
             .maxValue(maxValue);
 }
 
- @Test
-public void wholeMultiplebarProgressTest() {
-    multiplebarsProgress.barsList.is().size(3);
-    multiplebarsProgress.is()
-            .displayed()
-            .enabled();
-    assertThat(multiplebarsProgress.core().css("background-color"), is("rgba(233, 236, 239, 1)"));
+@Test
+public void getValuesTest() {
+    assertThat(multiplebarsProgress.getValues(), is(multipleprogressValues));
+    assertThat(multiplebarsProgress.getValues().get(1), is("30"));
+}
 ```
 
 ```html 
@@ -7369,8 +7442,18 @@ public void wholeMultiplebarProgressTest() {
 </div>
 ```
 
-[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/complex/MultiplebarProgressTests.java)
-<br><br><br><br><br><br><br><br><br><br><br><br>
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**getProgress(int Index)** |	Returns progressbar by index |	Progress
+**getProgresses()** | Returns list of progressbars |	JList`<Progress>`
+**getValues()** |	Returns list of values of each progressbar |	List`<String>`
+**is()** | Various assert actions | UIAssert 
+**assertThat()** | Assert action | UIAssert
+
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/complex/MultiplebarsProgressTests.java)
+<br><br><br>
 
 ### Toast
 <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/toasts/" target="_blank">Toast</a> - Toasts are lightweight notifications designed to mimic the push notifications.

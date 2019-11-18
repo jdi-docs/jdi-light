@@ -16493,7 +16493,7 @@ Note: domain is read from test.properties automatically. <br><br><br><br><br>
 
 ### Label 
 
-```
+```gherkin
 Label action examples:
 
 When I click on "JDI Title"
@@ -16540,7 +16540,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 
 ### ColorPicker
 
-```
+```gherkin
 ColorPicker action example:
 
 When I set "Color Picker" to "#00FF00" color
@@ -16593,7 +16593,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 
 ### DropDown
 
-```
+```gherkin
 DropDown action example:
 
 When I Select "Pirate" field from "Drop Down"
@@ -16642,10 +16642,10 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 
 ### Image
 
-````
+````gherkin
 Image validation examples:
 
-  Then the "Jdi Logo" attribute "src" equals to "https://jdi-testing.github.io/jdi-light/images/jdi-logo.jpg"
+  Then the "Jdi Logo" attribute "src" equals to "https;//jdi-testing.github.io/jdi-light/images/jdi-logo.jpg"
   Then the "Jdi Logo" attribute "alt" equals to "Jdi Logo 2"
   Then the "Jdi Logo" attribute "src" contains "jdi-logo.jpg"
   Then the "Jdi Logo" attribute "height" contains "100"
@@ -16687,10 +16687,10 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi
 
 ### Icon
 
-````
+````gherkin
 Image validation examples:
 
-  Then the "Jdi Logo" attribute "src" equals to "https://jdi-testing.github.io/jdi-light/images/jdi-logo.jpg"
+  Then the "Jdi Logo" attribute "src" equals to "http;//jdi-testing.github.io/jdi-light/images/jdi-logo.jpg"
   Then the "Jdi Logo" attribute "alt" equals to "Jdi Logo 2"
   Then the "Jdi Logo" attribute "src" contains "jdi-logo.jpg"
   Then the "Jdi Logo" attribute "height" contains "100"
@@ -16732,7 +16732,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 ### Alert
 
-````
+````gherkin
 Alert action examples:
 
   When I accept alert
@@ -16782,7 +16782,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 
 ### FileInput
 
-```
+```gherkin
 FileInput action examples:
 
 When I upload file "/res/general.xml" by "Avatar" file input element
@@ -16791,9 +16791,9 @@ When try to upload file "/res/general.xml" by "File Input" file input element
 
 FileInput validation examples:
 
-Then the "Avatar" file input element label equals to "Profile picture:"
+Then the "Avatar" file input element label equals to "Profile picture"
 Then the "Avatar" file input element label contains "picture"
-Then the "Avatar" file input element text equals to "C:\fakepath\general.xml"
+Then the "Avatar" file input element text equals to "fakepath\general.xml"
 Then the "Avatar" file input element text contains "general.xml"
 Then the "Avatar" attribute "id" equals to "avatar"
 Then "File Input" is enabled
@@ -16844,7 +16844,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 
 ### Link 
 
-```
+```gherkin
 Link action examples:
 
 When I click on "Github Link"
@@ -16861,7 +16861,7 @@ Actions: <br>
 **When** \<I\> show "\<ELEMENT NAME\>" <br>
 **When** \<I\> set "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" with value "\<ATTRIBUTE NAME\>" <br><br><br><br>
 
-```
+```gherkin
 Link validation examples:
 
 Then the "Github Link" is enabled
@@ -16872,14 +16872,14 @@ Then the "Github Link" URL path equals to "/jdi-testing"
 Then the "Github Link" text equals to "Github JDI"
 Then the "Github Link" text contains "JDI"
 Then the "Github Link" text matches to "[a-zA-Z]{6} JE*DI"
-Then the "Github Link" reference equals to "https://github.com/jdi-testing"
+Then the "Github Link" reference equals to "https//github.com/jdi-testing"
 Then the "Github Link" reference contains "github"
-Then the "Github Link" reference matches to "https://github.com/.*"
+Then the "Github Link" reference matches to "https//github.com/.*"
 Then the "Github Link" alternative text equals to "Github JDI Link"
 Then the "Github Link" alternative text contains "JDI"
 Then the "Github Link" alternative text matches to "Git.* JE*DI Link"
 Then the "Github Link" attribute "alt" equals to "Github JDI Link"
-Then the "Github Link" attribute "href" contains "https://github.com"
+Then the "Github Link" attribute "href" contains "https//github.com"
 Then the "Github Link" attribute "ui" matches to "github.link"
 Then the "Github Link" does not appear
 Then the "Github Link" does not appear during "5" seconds
@@ -16889,7 +16889,7 @@ Scenario examples for Link:
   Scenario: Click link test
      Given I open "Html5 Page"
      When click on "Github Link"
-     Then the current URL is "https://github.com/jdi-testing"
+     Then the current URL is "https//github.com/jdi-testing"
     
   Scenario: Link alternative text matching to RegExp
      Given I open "Html5 Page"
@@ -16927,7 +16927,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi
 <br><br><br>
 ### Button
 
-```
+```gherkin
 Button action examples:
 
 When I click on "Red Button" 
@@ -16960,15 +16960,15 @@ Then the "Red Button" attribute "type" equals to "button"
 Scenario example for Button:
 
   Given I open "Home Page" page
-   Then the "Red Button" is displayed
-    And the "Red Button" is enabled
-    And the "Red Button" text equals to "Big Red Button-Input"
-    And the "Red Button" text contains "Red Button"
-    And the "Red Button" css "font-size" equals to "14px"
-    And the "Red Button" attribute "type" equals to "button"
-    And the "Disabled Button" is disabled
-   When click on "Blue Button"
-   Then the alert text equals to "Blue button"
+  Then the "Red Button" is displayed
+  And the "Red Button" is enabled
+  And the "Red Button" text equals to "Big Red Button-Input"
+  And the "Red Button" text contains "Red Button"
+  And the "Red Button" css "font-size" equals to "14px"
+  And the "Red Button" attribute "type" equals to "button"
+  And the "Disabled Button" is disabled
+  When click on "Blue Button"
+  Then the alert text equals to "Blue button"
    
 ```
 
@@ -17006,7 +17006,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 <br>
 ### DateTimeSelector
 
-```
+```gherkin
 DateTimeSelector action example:
 
 When I set date "2018-11-13" in "Birth Date"
@@ -17064,7 +17064,7 @@ There are BDD test examples for Input Type Date derivatives:<br>
 
 ### Checkbox  
 
-```
+```gherkin
 Checkbox action examples:
 
 When check "Accept Conditions"
@@ -17124,7 +17124,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 <br><br><br><br><br><br><br><br>
 ### Progress Bar
   
-```
+```gherkin
 Progress Bar validation examples:
 
 Then the "Progress" attribute "max" equals to "110"
@@ -17171,10 +17171,10 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 
 ### Text
 
-```
+```gherkin
 Text validation examples:
 
-Then the "Jdi Text" text equals to "Powerful Framework for UI Tests Automation. Suitable for any UI project: Web(Html5, Angular, React...), Mobile(Android IOs), Desktop(Win app) etc."
+Then the "Jdi Text" text equals to "Powerful Framework for UI Tests Automation. Suitable for any UI project such as Web(Html5, Angular, React...), Mobile(Android IOs), Desktop(Win app) etc."
 Then the "Jdi Text" text contains "Powerful Framework for UI"
 Then the "Jdi Text" is enabled
 Then the "Jdi Text" text matches to ".+"
@@ -17221,7 +17221,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi
 
 ### ComboBox
 
-```
+```gherkin
 ComboBox action examples:
 
 When select "Coconut" field from "Ice Cream"
@@ -17300,7 +17300,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 ### DataList
 
 <p style="color:#FFA500">Note: this element is an alias for ComboBox</p>
-```
+```gherkin
 Datalist action examples:
 
 When select "Coconut" field from "Ice Cream"
@@ -17373,7 +17373,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 
 ### NumberSelector
 
-````
+````gherkin
 
 NumberSelector action examples:
 
@@ -17389,8 +17389,8 @@ NumberSelector action examples:
 
 NumberSelector validation examples:
 
-  Then the "Height" label text equals to "Height (metres):"
-  Then the "Height" label text contains "(metres):"
+  Then the "Height" label text equals to "Height (metres)"
+  Then the "Height" label text contains "(metres)"
   Then the "Height" label text label text matches to "\w{15}"
   Then the "Height" placeholder equals to "20 cm increments. Range [0.3,2.5]"
   Then the "Height" placeholder contains "20 cm"
@@ -17479,7 +17479,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 
 ### Range
 
-```
+```gherkin
 Range action examples:
 
   When I install "Volume" value to 5
@@ -17544,7 +17544,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 
 ### TextArea 
 
-```
+```gherkin
 TextArea actions examples:
 
 When I send keys "sent keys" to "Text Area"
@@ -17562,7 +17562,7 @@ When I input in the "Text Area" lines
 
 TextArea validations examples:
 
-Then the "Text Area" label text equals to "Text example:"
+Then the "Text Area" label text equals to "Text example"
 Then the "Text Area" label text contains "Text"
 Then the "Text Area" label text matches to "Text example."
 Then the "Text Area" placeholder equals to "Input huge text"
@@ -17662,7 +17662,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi
 
 ### Menu 
 
-```
+```gherkin
 Menu actions examples:
 
 When I select "Contact form" in "Left Menu" menu
@@ -17685,7 +17685,7 @@ Scenario examples for Menu:
   Scenario: Select items test
     Given I open "Html5 Page"
     When I check "Accept Conditions"
-    When select items in "Left Menu" menu:
+    When select items in "Left Menu" menu
      | Service |
      | Dates   |
     Then the "Dates Page" page is opened
@@ -17730,7 +17730,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi
 <br>
 <br>
 ### TextField
-```
+```gherkin
 TextField action example:
 
 When I send keys "Lorem" to "Name"
@@ -17784,12 +17784,12 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 <br>
 
 ### MultiSelector
-```
+```gherkin
 MultiSelector actions examples:
 
- When I check in the "Multi Dropdown" values:
+ When I check in the "Multi Dropdown" values
       | Electro | Metalic |
- When I check in the "Multi Dropdown" values by number:
+ When I check in the "Multi Dropdown" values by number
       | 1 | 5 |
  When I check value "Steam" in the "Multi Dropdown"
 
@@ -17802,18 +17802,18 @@ Actions: <br>
   &nbsp;&nbsp;&nbsp;&nbsp;|\<GHERKIN DATA TABLE\>|<br>
  **When** \<I\> check value  \<ELEMENT NAME\>  in the  \<ELEMENT NAME\> <br>
 
-```
+```gherkin
 MultiSelector validation examples:
 
- Then the "Multi Dropdown" selected values:
+ Then the "Multi Dropdown" selected values
       | Electro | Wood |
  Then the "Multi Dropdown" selected value is "Steam"
  Then the "Multi Dropdown" values has item "Wood"
  Then the "Multi Dropdown" has disabled item "Disabled"
  Then the "Multi Dropdown" has no enabled item "Disabled"
- Then the "Multi Dropdown" has enabled items:
+ Then the "Multi Dropdown" has enabled items
       | Electro | Metalic |
- Then the "Multi Dropdown" contains items:
+ Then the "Multi Dropdown" contains items
       | Disabled | Wood | Steam | Electro | Metalic |
     
 Scenario: MultiSelector validation
@@ -17822,7 +17822,7 @@ Scenario: MultiSelector validation
     And the "Ages" values has item "Wood"
     And  the "Ages" has disabled item "Disabled"
     And the "Ages" has no enabled item "Disabled"
-    And the "Ages" has enabled items:
+    And the "Ages" has enabled items
       | Electro | Metalic |
 
 ```
@@ -17853,12 +17853,12 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 
 <p style="color:#FFA500">Note: this element is an alias for MultiSelector</p>
 
-```
+```gherkin
 MultiDropDown actions examples:
 
- When I check in the "Multi Dropdown" values:
+ When I check in the "Multi Dropdown" values
       | Electro | Metalic |
- When I check in the "Multi Dropdown" values by number:
+ When I check in the "Multi Dropdown" values by number
       | 1 | 5 |
  When I check value "Steam" in the "Multi Dropdown"
 
@@ -17871,18 +17871,18 @@ Actions: <br>
   &nbsp;&nbsp;&nbsp;&nbsp;|\<GHERKIN DATA TABLE\>|<br>
  **When** \<I\> check value  \<ELEMENT NAME\>  in the  \<ELEMENT NAME\> <br>
 
-```
+```gherkin
 MultiDropDown validation examples:
 
- Then the "Multi Dropdown" selected values:
+ Then the "Multi Dropdown" selected values
       | Electro | Wood |
  Then the "Multi Dropdown" selected value is "Steam"
  Then the "Multi Dropdown" values has item "Wood"
  Then the "Multi Dropdown" has disabled item "Disabled"
  Then the "Multi Dropdown" has no enabled item "Disabled"
- Then the "Multi Dropdown" has enabled items:
+ Then the "Multi Dropdown" has enabled items
       | Electro | Metalic |
- Then the "Multi Dropdown" contains items:
+ Then the "Multi Dropdown" contains items
       | Disabled | Wood | Steam | Electro | Metalic |
     
 Scenario: MultiDropDown validation
@@ -17891,7 +17891,7 @@ Scenario: MultiDropDown validation
     And the "Ages" values has item "Wood"
     And  the "Ages" has disabled item "Disabled"
     And the "Ages" has no enabled item "Disabled"
-    And the "Ages" has enabled items:
+    And the "Ages" has enabled items
       | Electro | Metalic |
 
 ```
@@ -17919,21 +17919,21 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 
 ### CheckList
 
-```
+```gherkin
 CheckList actions examples:
 
 When I check element "Hot option" in "Weather" checklist
-When I select fields from "Weather" checklist:
+When I select fields from "Weather" checklist
      | Cold       | 
      | Hot option |
-When I check elements in "Weather" checklist:
+When I check elements in "Weather" checklist
      | Hot option |
-When I select in "Weather" checklist elements by numbers:
+When I select in "Weather" checklist elements by numbers
      | 1 |
      | 2 |
 When I check all elements in "Weather" checklist
 When I uncheck all elements in "Weather" checklist
-When I check elements in "Weather" checklist:
+When I check elements in "Weather" checklist
      | Rainy day |
      | Sunny     |
 
@@ -17943,17 +17943,17 @@ CheckList validation examples:
 Then in the "Weather" checklist checked element is "Cold"
 Then the "Weather" checklist text is "Hot option"
 Then count of selected elements in "Weather" checklist is "2"
-Then in the "Weather" checklist checked elements are:
+Then in the "Weather" checklist checked elements are
      | Hot option |
      | Sunny      |
 
 Scenario example for CheckList:
 
 Scenario: Check element via numbers test
-  When I check in "Weather" checklist elements by numbers:
+  When I check in "Weather" checklist elements by numbers
       | 1 |
       | 4 |
-  Then in the "Weather" checklist checked elements are:
+  Then in the "Weather" checklist checked elements are
       | Hot option |
       | Sunny      |
 
@@ -18002,7 +18002,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 
 ### Table
 
-```
+```gherkin
 Table actions examples:
 
 When I click the cell in row "2" in column "2" of the table "Simple Table"
@@ -18019,8 +18019,8 @@ Then the "Users Table" does not appear
 Then the "Users Table" does not appear during "5" seconds
 Then the "Users Table" table columns count equals "4"
 Then the "Users Table" table rows count equals "6"
-Then the "Users Table" table header has items:
-Then the "Users Table" table preview equals values:
+Then the "Users Table" table header has items
+Then the "Users Table" table preview equals values
 Then the "Users Table" table has size "6"
 Then the "Users Table" table has size greater than "3"
 Then the "Users Table" table has size less or equal to "6"
@@ -18038,7 +18038,7 @@ Scenario examples for Table:
     Given I open "Users Page"
     Then the "Users Table" table columns count equals "4"
     And the "Users Table" table rows count equals "6"
-    And the "Users Table" table header has items:
+    And the "Users Table" table header has items
       | Number      |
       | Type        |
       | User        |
@@ -18091,7 +18091,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi
 
 Note: this element is an alias for Table
 
-```
+```gherkin
 Table validation examples:
 
 Then the "Users Table" is enabled
@@ -18102,8 +18102,8 @@ Then the "Users Table" does not appear
 Then the "Users Table" does not appear during "5" seconds
 Then the "Users Table" table columns count equals "4"
 Then the "Users Table" table rows count equals "6"
-Then the "Users Table" table header has items:
-Then the "Users Table" table preview equals values:
+Then the "Users Table" table header has items
+Then the "Users Table" table preview equals values
 Then the "Users Table" table has size "6"
 Then the "Users Table" table has size greater than "3"
 Then the "Users Table" table has size less or equal to "6"
@@ -18121,7 +18121,7 @@ Scenario examples for Table:
     Given I open "Users Page"
     Then the "Users Table" table columns count equals "4"
     And the "Users Table" table rows count equals "6"
-    And the "Users Table" table header has items:
+    And the "Users Table" table header has items
       | Number      |
       | Type        |
       | User        |
@@ -18167,19 +18167,19 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi
 
 ### Form
 
-```
+```gherkin
 Form actions examples:
 
-When fill form "Contact Form" with data:
-    |name|Roman|
-    |lastName|Iovlev|
-    |position|ChiefQA|
-    |passportNumber|654321|
-    |passportSeria|1234|
-    |description|JDI - awesome UI automation tool|
-    |acceptConditions|true|
-    |gender|Female|
-    |religion|Other|
+When fill form "Contact Form" with data
+    | name | Roman |
+    | lastName| Iovlev |
+    | position| ChiefQA |
+    | passportNumber| 654321 |
+    | passportSeria| 1234 |
+    | description| JDI - awesome UI automation tool |
+    | acceptConditions| true | 
+    | gender| Female |
+    | religion| Other |
 When I submit form "Contact Form"
 When I save form
 
@@ -18189,16 +18189,16 @@ When send form "Contact Form" with "Roman Contacts"
 
 Form validation examples:
 
-Then the form "Contact Form" data equals to:
-    |name|Roman|
-    |lastName|Iovlev|
-    |position|ChiefQA|
-    |passportNumber|654321|
-    |passportSeria|1234|
-    |description|JDI - awesome UI automation tool|
-    |acceptConditions|true|
-    |gender|Female|
-    |religion|Other|
+Then the form "Contact Form" data equals to
+    | name| Roman |
+    | lastName | Iovlev |
+    | position | ChiefQA |
+    | passportNumber | 654321 |
+    | passportSeria | 1234 |
+    | description | JDI - awesome UI automation tool |
+    | acceptConditions | true |
+    | gender| Female |
+    | religion| Other |
 Then the form "Contact Form" is displayed
 Then the form "Contact Form" is hidden
 Then the form "Contact Form" does not appear
@@ -18212,27 +18212,27 @@ Form scenario example:
 
   Scenario: fillContactForm
     Given I open "Contact Form Page"
-    When fill form "Contact Form" with data:
-    |name|Roman|
-    |lastName|Iovlev|
-    |position|ChiefQA|
-    |passportNumber|654321|
-    |passportSeria|1234|
-    |description|JDI - awesome UI automation tool|
-    |acceptConditions|true|
-    |gender|Female|
-    |religion|Other|
+    When fill form "Contact Form" with data
+    | name| Roman |
+    | lastName | Iovlev |
+    | position | ChiefQA |
+    | passportNumber | 654321 |
+    | passportSeria | 1234 |
+    | description | JDI - awesome UI automation tool |
+    | acceptConditions | true |
+    | gender | Female |
+    | religion | Other |
     And I submit form "Contact Form"
-    Then the form "Contact Form" data equals to:
-    |name|Roman|
-    |lastName|Iovlev|
-    |position|ChiefQA|
-    |passportNumber|654321|
-    |passportSeria|1234|
-    |description|JDI - awesome UI automation tool|
-    |acceptConditions|true|
-    |gender|Female|
-    |religion|Other|
+    Then the form "Contact Form" data equals to
+    | name | Roman |
+    | lastName | Iovlev |
+    | position | ChiefQA |
+    | passportNumber | 654321 |
+    | passportSeria | 1234 |
+    | description | JDI - awesome UI automation tool |
+    | acceptConditions | true |
+    | gender | Female |
+    | religion | Other |
 
 ```
 Actions: <br>
@@ -18272,7 +18272,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 <br>
 ### Radiobuttons
 
-```
+```gherkin
 Radiobuttons actions examples:
 
 When I select "Blue" field from "Colors"
@@ -18297,14 +18297,15 @@ Then the "Colors" consists of next values
 Then the "Colors" contains "Blue" radio button 
 Then the "Colors" contains "Yellow" disabled radio button 
 Then the "Colors" does not contain "Yellow" enabled radio button 
-Then the "Colors" contains next enabled values: 
+Then the "Colors" contains next enabled values
 	| Red | Green | Blue | Yellow |
 
 Scenario example for Radiobuttons:
 
  Given I open "Html5 Page" page
- Then the "Html5 Page.Colors" consists of next values:
+ Then the "Html5 Page.Colors" consists of next values
       | Red | Green | Blue | Yellow |
+ When I highlight "Colors"	
  When I Select "Blue" field from "Html5 Page.Colors"
  Then the "Html5 Page.Colors" text equals to "Blue"
 
@@ -18343,7 +18344,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi
 <br><br><br><br><br><br><br><br><br><br><br><br>
 
 ### WebPage
-```
+```gherkin
 WebPage action examples:
 
 When I scroll to the bottom of the page
@@ -18360,7 +18361,7 @@ When I refresh webpage
 WebPage validation examples:
 
 Then the current page title is "Home Page"
-Then current page url is "https://jdi-testing.github.io/jdi-light/contacts.html"
+Then current page url is "https//jdi-testing.github.io/jdi-light/contacts.html"
 Then the bottom of the page is reached
 Then the top of the page is reached
 Then the page is scrolled "30" px down

@@ -697,6 +697,7 @@ public void uploadTest() {
     assertTrue(avatar.getText().contains("general.xml"));
     assertTrue(avatar.getValue().contains("general.xml"));
 }
+
 ```
 ```csharp
 [Test]
@@ -759,6 +760,9 @@ Available method in Java JDI Light:
 |Method | Description | Return Type
 --- | --- | ---
 **uploadFile(String)** |Select file to upload  | void
+**uploadFileRobot(String path, long mSec)**|Select file to upload  | void
+**getValue()**|Get file name  | void
+**getLabel()**|Get label | void
 
 Available method in C# JDI Light:
 

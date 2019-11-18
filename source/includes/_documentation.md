@@ -13554,7 +13554,7 @@ content container with multiple variants and options.
 fixed width. Cards have no fixed width to start, so they’ll naturally fill the full width of its parent element.
 This is easily customized with our various sizing options.
 
-![Simple Card Example](../images/bootstrap/simplecard.png)
+![Card Example](../images/bootstrap/simplecard.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -13624,7 +13624,7 @@ Available methods in Java JDI Light:
 
 #### Card Body
 
-[Card Body](https://getbootstrap.com/docs/4.3/components/card/#body) - The building block of a card is the `.card-body`.
+[Card Body](https://getbootstrap.com/docs/4.3/components/card/#body) - the building block of a card is the `.card-body`.
 Use it whenever you need a padded section within a card.
 
 ![Card Body Example](../images/bootstrap/cardbody.png)
@@ -13673,15 +13673,16 @@ Available methods in Java JDI Light:
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardBodyTests.java)
 
-#### Card with Titles and Links
+#### Card Titles, Text and Links
 
-[Card titles](https://getbootstrap.com/docs/4.3/components/card/#titles-text-and-links) are used by adding `.card-title`
-to a `<h*>` tag. In the same way, links are added and placed next to each other by adding `.card-link` to an `<a>` tag.
+[Card Titles, Text and Links](https://getbootstrap.com/docs/4.3/components/card/#titles-text-and-links) - card titles
+are used by adding `.card-title` to a `<h*>` tag. In the same way, links are added and placed next to each other
+by adding `.card-link` to an `<a>` tag.
 
 Subtitles are used by adding a `.card-subtitle` to a `<h*>` tag. If the `.card-title` and the `.card-subtitle` items
 are placed in a `.card-body` item, the card title and subtitle are aligned nicely.
 
-![Card Titles and Links Example](../images/bootstrap/cardsubslinks.png)
+![Card Titles, Text and Links Example](../images/bootstrap/cardsubslinks.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -13758,7 +13759,7 @@ Available methods in Java JDI Light:
 to the top of the card. With `.card-text`, text can be added to the card. Text within `.card-text` can also be styled
 with the standard HTML tags.
 
-![Card Image Example](../images/bootstrap/card-image.png)
+![Card Images Example](../images/bootstrap/card-image.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -13826,9 +13827,9 @@ And here are methods available in Java:
  
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardImageTests.java)
 
-#### Card list groups
+#### Card List Groups
 
-[Card list groups](https://getbootstrap.com/docs/4.3/components/card/#list-groups) – create lists of content in a card
+[Card List Groups Example](https://getbootstrap.com/docs/4.3/components/card/#list-groups) – create lists of content in a card
 with a flush list group.
 
 ![Card list groups](../images/bootstrap/card_list_groups.png)
@@ -13896,7 +13897,7 @@ Inner elements of Card List Groups represented by the following classes:
 **is()** | Assert action | TextAssert
 **assertThat()** | Assert action | TextAssert
 
-[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card)
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardListGroupsTests.java)
 
 #### Card Kitchen Sink
 
@@ -13904,7 +13905,7 @@ Inner elements of Card List Groups represented by the following classes:
 types to create the card you need, or throw everything in there. Shown below are image styles, blocks, text styles, and
 a list group—all wrapped in a fixed-width card.
 
-![Kitchen Sink Example](../images/bootstrap/card-kitchen-sink.png)
+![Card Kitchen Sink Example](../images/bootstrap/card-kitchen-sink.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -13967,6 +13968,16 @@ public void isValidationTest() {
 
 ![Kitchen Sink Example Code](../images/bootstrap/card-kitchen-sink-html.png)
 
+Card is represented by Section class in Java:
+
+[Section](https://jdi-docs.github.io/jdi-light/#section)
+
+Inner elements of Card Kitchen Sink represented by the following classes:
+
+- [Text](https://jdi-docs.github.io/jdi-light/#text)
+- [Button](https://jdi-docs.github.io/jdi-light/#button)
+- [Link](https://jdi-docs.github.io/jdi-light/#link)
+
 Available methods in Java JDI Light:
 
 |Method | Description | Return Type
@@ -13980,16 +13991,6 @@ Available methods in Java JDI Light:
 **alt()** | Assert alt image attribute | ImageAssert
 **width()** | Assert image width | ImageAssert
 **height()** | Assert image height | ImageAssert
-
-Card is represented by Section class in Java:
-
-[Section](https://jdi-docs.github.io/jdi-light/#section)
-
-Inner elements of Card Kitchen Sink represented by the following classes:
-
-- [Text](https://jdi-docs.github.io/jdi-light/#text)
-- [Button](https://jdi-docs.github.io/jdi-light/#button)
-- [Link](https://jdi-docs.github.io/jdi-light/#link)
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardKitchenSinkTests.java)
 
@@ -14064,7 +14065,7 @@ Available methods in Java JDI Light:
 **text()** | Assert text | TextAssert
 **assertThat()** | Assert action | UIAssert
 
-[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/Card/CardWithHeaderAndFooterTests.java)
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardWithHeaderAndFooterTests.java)
 
 #### Card with Grid Markup
 
@@ -14171,14 +14172,14 @@ Available methods in Java JDI Light:
 **text()** | Assert text | TextAssert
 **assertThat()** | Assert action | UIAssert
 
-[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/Card/CardWithGridMarkupTests.java)
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardWithGridMarkupTests.java)
 
-#### Card utilities
+#### Card Utilities
 
-[Card utilities](https://getbootstrap.com/docs/4.3/components/card/#using-utilities) - use handful of available
+[Card Utilities](https://getbootstrap.com/docs/4.3/components/card/#using-utilities) - use handful of available
 sizing utilities to quickly set a card’s width.
 
-![Card utilities Example](../images/bootstrap/card_utilities.png)
+![Card Utilities Example](../images/bootstrap/card_utilities.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -14226,12 +14227,12 @@ Available methods in Java JDI Light:
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardUtilitiesTests.java)
 
-#### Card using custom CSS
+#### Card Using Custom CSS
 
-[Card using custom CSS](https://getbootstrap.com/docs/4.3/components/card/#using-custom-css) - use custom CSS in your
+[Card Using Custom CSS](https://getbootstrap.com/docs/4.3/components/card/#using-custom-css) - use custom CSS in your
 stylesheets or as inline styles to set a width.
 
-![Card custom CSS Example](../images/bootstrap/card_custom_CSS.png)
+![Card Using Custom CSS Example](../images/bootstrap/card_custom_CSS.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -14561,7 +14562,7 @@ Available methods in Java JDI Light:
 **isDisplayed()** | Returns true if card is displayed, false if not | boolean
 **assertThat()** | Assert action | UIAssert
 
-[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardImageCapsTest.java)
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardImageCapsTests.java)
 
 #### Card Image Overlays
 
@@ -14648,14 +14649,14 @@ And here are methods available in Java:
 **getText(String tagName)** | get text of an element inside vector image by tag | String
 **getAttribute(String tagName, String attr)** | get attribute of an element inside vector image by tag | String
 
-[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardImageOverlaysTest.java)
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardImageOverlaysTests.java)
 
 #### Card Horizontal
 
 [Card Horizontal](https://getbootstrap.com/docs/4.3/components/card/#horizontal) - using a combination of grid and
 utility classes, cards can be made horizontal in a mobile-friendly and responsive way.
 
-![Card horizontal example](../images/bootstrap/card_horizontal.png)
+![Card Horizontal Example](../images/bootstrap/card_horizontal.png)
 
 ```java 
 @UI("#card-horizontal") //FindBy(css = "#card-horizontal")
@@ -14811,7 +14812,7 @@ Available methods in Java JDI Light:
 border-color of a card. Note that you can put `.text-{color}` classes on the parent `.card` or a subset of the card’s
 contents as shown below.
 
-![Card Borders Example](../images/bootstrap/cardborders.png)
+![Card Border Example](../images/bootstrap/cardborders.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -14939,12 +14940,12 @@ Available methods in Java JDI Light:
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardMixinsUtilitiesTests.java)
 
-#### Card groups
+#### Card Groups
 
-[Card groups](https://getbootstrap.com/docs/4.3/components/card/#card-groups) - use card groups to render cards as
+[Card Groups](https://getbootstrap.com/docs/4.3/components/card/#card-groups) - use card groups to render cards as
 a single, attached element with equal width and height columns.
 
-![Card_groups example](../images/bootstrap/card-groups.png)
+![Card_Groups Example](../images/bootstrap/card-groups.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -15011,9 +15012,9 @@ public void getAltTest() {
 
 ![Card_groups HTML example](../images/bootstrap/card-groups-html.png)
 
-##### Card groups with footer
+##### Card Groups with Footer
 
-![Card_groups example](../images/bootstrap/card-groups-with-footer.png)
+![Card Groups with Footer Example](../images/bootstrap/card-groups-with-footer.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -15095,12 +15096,12 @@ Inner elements of Card Grouped represented by the following classes:
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardGroupsTests.java)
 
-#### Card decks
+#### Card Decks
 
-[Card decks](https://getbootstrap.com/docs/4.3/components/card/#card-decks) - use card decks for a set of equal width
+[Card Decks](https://getbootstrap.com/docs/4.3/components/card/#card-decks) - use card decks for a set of equal width
 and height cards that aren't attached to one another.
 
-![Card_decks example](../images/bootstrap/card-decks.png)
+![Card_Decks Example](../images/bootstrap/card-decks.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -15169,9 +15170,9 @@ public void getMainTextTest() {
 
 ![Card_decks HTML example](../images/bootstrap/card-decks-html.png)
 
-##### Card decks with footer
+##### Card Decks with Footer
 
-![Card_decks example](../images/bootstrap/card-decks-with-footer.png)
+![Card Decks with Footer Example](../images/bootstrap/card-decks-with-footer.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -15280,7 +15281,7 @@ Here is an example with provided Bootstrap v4.3 code:
  
 ```java 
 @UI(".card-columns")
-public static CardColumns cardColumns; //@FindBy(css='.card-columns')
+public static CardColumns cardColumns; //@FindBy(css = ".card-columns")
 
 public class CardColumnsSection extends Section {
     @UI(".card:nth-of-type(1)") public CardWithinCardColumns topLeftCard;

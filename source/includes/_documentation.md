@@ -16229,7 +16229,43 @@ Add a header to label sections of actions in any dropdown menu.
 
 Here is an example headers code in the menu items:
 
+```java 
+//@FindBy(id = "dropdown-content-header")
+@UI("#dropdown-content-header")
+public static DropdownMenuContent dropdownMenuContentHeader;
+
+@Test
+public void checkHeaderTest() {
+    dropdownMenuContentHeader.show();
+    dropdownMenuContentHeader.is().displayed();
+    dropdownMenuContentHeader.expand();
+    dropdownMenuContentHeader.menu().children().is().size(2);
+    dropdownMenuContentHeader.header.is().core()
+            .displayed()
+            .tag("h6")
+            .hasClass("dropdown-header")
+            .text("DROPDOWN HEADER");
+}
+```
+
 ![Headers HTML example](../images/bootstrap/dropdown-menu-content-headers-html.png)
+
+Available methods in Java JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+**expand()** | Expand dropdown | void
+**collapse()** | Collapse dropdown | void
+**is()** | Assert action | DropdownMenuAssert
+**menu()** | Get dropdown menu | UIElement
+**list()** | Get dropdown items | WebList
+**tag()** | Assert element tag | IsAssert
+**hasClass()** | Match passed value with element class| boolean
+**text()** | Assert text | TextAssert
+
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/dropdown/DropdownMenuContentTests.java">Bootstrap test examples</a>
+
+<br>
 
 <a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#dividers">**Dividers**</a><br>
 Separate groups of related menu items with a divider.
@@ -16238,7 +16274,41 @@ Separate groups of related menu items with a divider.
 
 Here is an example dividers code in the menu items:
 
+```java 
+//@FindBy(id = "dropdown-content-divider")
+@UI("#dropdown-content-divider")
+public static DropdownMenuContent dropdownMenuContentDivider;
+
+@Test
+public void checkDividerTest() {
+    dropdownMenuContentDivider.show();
+    dropdownMenuContentDivider.is().displayed();
+    dropdownMenuContentDivider.expand();
+    dropdownMenuContentDivider.menu().children().is().size(4);
+    dropdownMenuContentDivider.divider.is().core()
+            .displayed()
+            .tag("div")
+            .hasClass("dropdown-divider");
+}
+```
+
 ![Dividers HTML example](../images/bootstrap/dropdown-menu-content-dividers-html.png)
+
+Available methods in Java JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+**expand()** | Expand dropdown | void
+**collapse()** | Collapse dropdown | void
+**is()** | Assert action | DropdownMenuAssert
+**menu()** | Get dropdown menu | UIElement
+**list()** | Get dropdown items | WebList
+**tag()** | Assert element tag | IsAssert
+**hasClass()** | Match passed value with element class| boolean
+
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/dropdown/DropdownMenuContentTests.java">Bootstrap test examples</a>
+
+<br>
 
 <a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#text">**Text**</a><br>
 Place any freeform text within a dropdown menu with text and use <a href="https://getbootstrap.com/docs/4.3/utilities/spacing/">spacing utilities</a>. Note that you’ll likely need additional sizing styles to constrain the menu width.
@@ -16247,7 +16317,40 @@ Place any freeform text within a dropdown menu with text and use <a href="https:
 
 Here is an example text code in the menu items:
 
+```java 
+//@FindBy(id = "dropdown-content-text")
+@UI("#dropdown-content-text")
+public static DropdownMenuContent dropdownMenuContentText;
+
+@Test
+public void checkTextTest() {
+    dropdownMenuContentText.show();
+    dropdownMenuContentText.is().displayed();
+    dropdownMenuContentText.expand();
+    dropdownMenuContentText.menu().children().is().size(2);
+    dropdownMenuContentText.text.is()
+           .values(TextTypes.TEXT, hasItems("Some example text that's free-flowing within the dropdown menu."));
+    dropdownMenuContentText.text.is()
+           .values(TextTypes.TEXT, hasItems("And this is more example text."));
+}
+```
+
 ![Text HTML example](../images/bootstrap/dropdown-menu-content-text-html.png)
+
+Available methods in Java JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+**expand()** | Expand dropdown | void
+**collapse()** | Collapse dropdown | void
+**is()** | Assert action | DropdownMenuAssert
+**menu()** | Get dropdown menu | UIElement
+**list()** | Get dropdown items | WebList
+**values()** | Match passed values with element's values | TextAssert
+
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/dropdown/DropdownMenuContentTests.java">Bootstrap test examples</a>
+
+<br>
 
 <a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#forms">**Forms**</a><br>
 Put a form within a dropdown menu, or make it into a dropdown menu, and use <a href="https://getbootstrap.com/docs/4.3/utilities/spacing/">margin or padding utilities</a> to give it the negative space you require.

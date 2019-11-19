@@ -13515,95 +13515,79 @@ And here are methods available in Java:
  
 #### Custom file input 
 
- ```java 
- 
- 
- 
- 
- 
- 
- 
-    @UI("#custom-file-input-01") public static CustomFileInput customFileInputPrepend;
-    @UI("#custom-file-input-02") public static CustomFileInput customFileInputAppend;
-    
-    public class CustomFileInput extends Section {     
-        @UI(".input-group-text") public Label upload;     //@FindBy(css = ".input-group-text")
-        @UI(".custom-file-input") public FileInput input; //@FindBy(css = ".custom-file-input")
-        @UI(".custom-file-label") public Label label;     //@FindBy(css = ".custom-file-label")
-    }
-    
-     @Test
-     public void labelTextTests() {
-         customFileInputPrepend.upload.is().text("Upload");
-         customFileInputPrepend.upload.is().value("Upload");
-    
-         customFileInputAppend.upload.is().text("Upload");
-         customFileInputAppend.upload.is().value("Upload");
-     }
-        
-    @Test
-    public void uploadTest() {
-         customFileInputPrepend.click();
-         customFileInputPrepend.input.setValue(mergePath(PROJECT_PATH,/src/test/resources/general.xml"));
-         customFileInputAppend.click();
-         customFileInputAppend.input.setValue(mergePath(PROJECT_PATH,/src/test/resources/general.xml"));
-        
-         customFileInputPrepend.label.is().text("general.xml");
-         customFileInputPrepend.label.is().value("general.xml");
-         customFileInputAppend.label.is().text("general.xml");
-         customFileInputAppend.label.is().value("general.xml");
-     }          
-            
-            
-            
-            
-            
-    @UI("#custom-file-input-button-01") public static CustomFileInputWithButton customFileInputWithButtonPrepend;
-    @UI("#custom-file-input-button-02") public static CustomFileInputWithButton customFileInputWithButtonAppend;    
-    
-    public class CustomFileInputWithButton extends Section {      
-        @UI(".btn.btn-outline-secondary") public Button button; //@FindBy (css = ".btn.btn-outline-secondary")
-        @UI(".custom-file-input") public FileInput input;       //@FindBy (css = ".custom-file-input")
-        @UI(".custom-file-label") public Label label;           //@FindBy (css = ".custom-file-label")
-    }
-    
-     @Test
-     public void inputTextTests() {
-         customFileInputWithButtonPrepend.label.is().text("Choose file");
-         customFileInputWithButtonPrepend.label.is().value("Choose file");
- 
-         customFileInputWithButtonAppend.label.is().text("Choose file");
-         customFileInputWithButtonAppend.label.is().value("Choose file");
-     }   
-       
-       @Test
-       public void buttonAppendClickTests() {
-           customFileInputWithButtonAppend.button.hover();
-           customFileInputWithButtonAppend.button.is().displayed();
-           customFileInputWithButtonAppend.button.is().enabled();
-           customFileInputWithButtonAppend.button.click();
-           validateAlert(is("Button clicked, thank you!"));
-       }         
-       
-```
- 
 [Custom file input](https://getbootstrap.com/docs/4.3/components/input-group/#custom-file-input) – Input groups include support for custom selects and custom file inputs. Browser default versions of these are not supported.
-
-**Custom file input example**
 
 ![Custom file input](../images/bootstrap/custom_file_input.png)
 
-Here is an example with provided Bootstrap v4.3 code:
-  
-![Custom file input example](../images/bootstrap/custom_file_input_code.png)
+```java 
+public class InputGroupCustomUploadFile extends Section {
+    
+@UI("label[for='upload-file-c']") //@FindBy(css ="label[for='upload-file-c']")
+public Label labelInputFile;
+@UI("input#upload-file-c") //@FindBy(css ="input#upload-file-c")
+public FileInput fileInput; 
+@UI("button") //@FindBy(css = "button") 
+public Button btnSubmit;
 
-**Custom file input with button example**
+public void clickSubmitButton() {
+        btnSubmit.click();
+    }
+}
 
-![Custom file input with button](../images/bootstrap/custom_file_input_with_button.png)
+public class InputGroupCustomFileInput extends Section {
+@UI("label[for='file-input-c']") //@FindBy(css ="label[for='file-input-c']") 
+public Label labelInputFile;
+@UI("input#file-input-c")   //@FindBy(css ="input#file-input-c")
+public FileInput fileInput;
+}
  
-Here is an example with provided Bootstrap v4.3 code:
-   
-![Custom file input with button example](../images/bootstrap/custom_file_input_with_button_code.png)
+@BeforeMethod
+public void before() {
+States.shouldBeLoggedIn();
+bsPage.shouldBeOpened();
+inputGroupCustomFileInput.fileInput.core().
+                        setup(jdiB -> jdiB.setSearchRule(ANY_ELEMENT));
+inputGroupCustomFileInput.fileInput.core().setClickArea(ACTION_CLICK);
+inputGroupCustomUploadFile.fileInput.core().
+                        setup(jdiB -> jdiB.setSearchRule(ANY_ELEMENT));
+inputGroupCustomUploadFile.fileInput.core().setClickArea(ACTION_CLICK);
+}
+
+@Test
+public void uploadTest() {
+clearInput();
+inputGroupCustomFileInput.fileInput.uploadFile(mergePath(PROJECT_PATH,
+                "/src/test/resources/general.xml"));
+inputGroupCustomFileInput.fileInput.is().text(containsString("general.xml"));
+inputGroupCustomFileInput.fileInput.is().value(containsString("general.xml"));
+}
+
+@Test
+public void buttonUploadFileTest() {
+inputGroupCustomUploadFile.btnSubmit.is().text("Submit");
+inputGroupCustomUploadFile.clickSubmitButton();
+validateAlert(is(alertMessage));
+}
+```
+
+```html
+<div class="input-group mb-3" id="file-input">
+    <div class="custom-file">
+        <input type="file" class="custom-file-input" id="file-input-c">
+        <label class="custom-file-label" for="file-input-c">Choose file</label>
+    </div>
+</div>
+<div class="input-group" id="upload-file">
+    <div class="custom-file">
+        <input type="file" class="custom-file-input" id="upload-file-c">
+        <label class="custom-file-label" for="upload-file-c">Choose file</label>
+    </div>
+    <div class="input-group-append">
+         <button class="btn btn-outline-secondary" type="button" 
+                    onclick="alert('Button clicked, thank you!');">Submit</button>
+    </div>
+</div> 
+```
 
 And here are methods available in Java:
 
@@ -13614,8 +13598,9 @@ And here are methods available in Java:
 **click()** | click on element | void
 **hover()** | hover on element | void
 **setValue(String value)** | set file path to input | void
-**upload(String value)** | set file path to input | void
 **getValue()** | returns text of input field | String
+**uploadFile(String path)** | set file path to input | void
+**uploadFileRobot(String path, long mSecDelay)** | set file path to input | void
 **text()** | returns text of input field | String
  
 <br>
@@ -13629,6 +13614,10 @@ They are located in the following Java classes:
 - com.epam.jdi.light.elements.common;
 
 - com.epam.jdi.light.ui.bootstrap.elements.common;
+
+
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/inputGroup/InputGroupCustomFileInputTests.java)
+
 
 ### Card
 

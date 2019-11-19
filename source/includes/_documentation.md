@@ -18450,8 +18450,7 @@ public class UserCard : Form<User>
 
 ```
 
-```java
-
+```java 
 public class UserCard extends Form<User> {
     @Css("#name") TextField name;
     
@@ -18473,7 +18472,6 @@ public class UserCard extends Form<User> {
     TextField lastName;
     Button submitButton; 
 }
-
 ```
 
 
@@ -18681,7 +18679,7 @@ Available methods in Java
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#alert)
 
 ## Logs
-```java
+```java 
 //setup loglevel before running a test (for example in TestInit)
 logger.setLogLevel(STEP);
 
@@ -18697,7 +18695,6 @@ public void loginTest() {
 [22:23.617  STEP] : Click on 'User Icon'
 [22:23.727  STEP] : Login as User(userName:epam; password:1234)
 [22:24.516  STEP] : Check that 'Home Page' is opened (url CONTAINS '/index.html'; title EQUALS 'Home Page')
-
 ```
 JDI uses the _log4j library_, but provides more levels of logging. (require log4j.xml / log2j2.xml)
 **logger.setLogLevel(STEP);**
@@ -18867,7 +18864,8 @@ TBD
 
 ### Easy way to pass review
 + Good code style
-+ No Wlidcards imports (with asterisk *)
++ No Wildcards imports (with asterisk *). You can use settings from the picture below
+![Wildcard Imports](../images/review-wildcard-imports.png)
 + `Ctrl+Alt+O` & `Ctrl+Alt+L` in IDEA IDE before any commit
 + Right branch and label in PR
 
@@ -18931,21 +18929,21 @@ TBD
 1. Use spaces, 1 tab size equals to 4
 2. Don't use wildcard imports
 3. Use Intellij's autoreformatting, imports optimization and rearrange option
-4. Fix all codacy issues
-5. If codacy issue shouldn't be resolved use warnings supressions
+4. Fix all Codacy issues
+5. If Codacy issue shouldn't be resolved use warnings suppressions
 6. Use semantic-value names for classes , variables, methods and so on. Use full version of words (human instead of h and so on). Common abbreviations (as id, uid and so on are applied). Use valuable names, for example instead of accountList use accounts and so on
 7. Remove double empty lines, use empty lines only when it make sense (additionally to autoreformatting)
 8. Use correct line breaks: (PROVIDE_SAMPLES)
 9. Try to use lines with no more 100-120 symbols (including indents) 
 10. Use chaining style, recommended sample:
-    ```java
-    object
-        .method(1)
-        .otherMethod();
-    ```
+```java 
+object
+    .method(1)
+    .otherMethod();
+```
 11. Always use `{}` braces for even empty if, for, etc.
 12. Follow to the sequence of keywords: public protected private abstract default static final transient volatile synchronized native strictfp
-13. Don't use such convinences as: `mValue`, `_value`, and so on. Acceptable `__` as unused argument of dataprovider in test methods
+13. Don't use such conveniences as: `mValue`, `_value`, and so on. Acceptable `__` as unused argument of data provider in test methods
 14. Feel free to smart refactoring
 15. Feel free to use smart ?:
 16. Use `UpperCamelCase` naming style for classes, `lowerCamelCase` for fields and methods, `UPPERCASE` for enums, `lowercase` for packages

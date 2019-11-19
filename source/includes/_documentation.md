@@ -13596,8 +13596,6 @@ public void clickTest() {
 </div>
 ```
 
-![Simple Card Example Code](../images/bootstrap/simplecard-html.png)
-
 Card is represented by Section class in Java:
 
 [Section](https://jdi-docs.github.io/jdi-light/#section)
@@ -13653,8 +13651,6 @@ public void getBodyTextTest() {
 </div>
 ```
 
-![Card Body Example Code](../images/bootstrap/cardbody-html.png)
-
 Card is represented by Section class in Java:
 
 [Section](https://jdi-docs.github.io/jdi-light/#section)
@@ -13709,7 +13705,7 @@ public void clickLink1Test() {
     ArrayList<String> tabs = new ArrayList<>(WebDriverFactory.getDriver().getWindowHandles());
     WebDriver driver = WebDriverFactory.getDriver();
     driver.switchTo().window(tabs.get(1));
-    assertEquals(getUrl() , link1Ref);
+    assertEquals(getUrl(), link1Ref);
     driver.close();
     driver.switchTo().window(tabs.get(0));
 }
@@ -13729,8 +13725,6 @@ public void clickLink1Test() {
   </div>
 </div>
 ```
-
-![Card Titles and Links Example Code](../images/bootstrap/cardsubslinks-html.png)
 
 Card is represented by Section class in Java:
 
@@ -13801,8 +13795,6 @@ public void imageClassTest() {
   </div>
 </div>
 ```
-
-![Card Image Example Code](../images/bootstrap/card-image-html.png)
 
 Card is represented by Section class in Java:
 
@@ -13879,8 +13871,6 @@ public void checkCardListGroupsValues() {
   </ul>
 </div>
 ```
-
-![Card list groups code](../images/bootstrap/card_list_groups_code.png)
 
 Card is represented by Section class in Java:
 
@@ -13966,8 +13956,6 @@ public void isValidationTest() {
 </div>
 ```
 
-![Kitchen Sink Example Code](../images/bootstrap/card-kitchen-sink-html.png)
-
 Card is represented by Section class in Java:
 
 [Section](https://jdi-docs.github.io/jdi-light/#section)
@@ -14044,8 +14032,6 @@ public void getHeaderTextCardWithHeaderAndFooterTest() {
   </div>
 </div>
 ```
-
-![Card with Header and Footer Code](../images/bootstrap/cardheaderfooter-html.png)
 
 Card is represented by Section class in Java:
 
@@ -14152,8 +14138,6 @@ public void getButtonTextCardWithGridMarkup22Test() {
 </div>
 ```
 
-![Card Grid Code](../images/bootstrap/card_grid_html.png)
-
 Card is represented by Section class in Java:
 
 [Section](https://jdi-docs.github.io/jdi-light/#section)
@@ -14214,8 +14198,6 @@ int widthInPercent, String widthInPixels) {
 </div>
 ```
 
-![Card utilities Example Code](../images/bootstrap/card_utilities_html.png)
-
 Available methods in Java JDI Light:
 
 |Method | Description | Return Type
@@ -14270,8 +14252,6 @@ public void isValidationTest() {
   </div>
 </div>
 ```
-
-![Card custom CSS Example Code](../images/bootstrap/card_custom_CSS_html.png)
 
 Card is represented by Section class in Java:
 
@@ -14348,8 +14328,6 @@ public void clickTest() {
   </div>
 </div>
 ```
-
-![Card Text Alignment Example Code](../images/bootstrap/cardtextalignment-html.png)
 
 Card is represented by Section class in Java:
 
@@ -14466,8 +14444,6 @@ public void isValidationTest() {
 </div>
 ```
 
-![Card Navigation Example Code](../images/bootstrap/cardnav-html.png)
-
 Card is represented by Section class in Java:
 
 [Section](https://jdi-docs.github.io/jdi-light/#section)
@@ -14540,8 +14516,6 @@ public void getAltTest() {
   </div>
 </div>
 ```
-
-![Card Image Caps Example Code](../images/bootstrap/cardimagecaps-html.png)
 
 Card is represented by Section class in Java:
 
@@ -14626,8 +14600,6 @@ public void vectorInternalElementsTest() {
 </div>
 ```
 
-![Card Image Overlays Example](../images/bootstrap/card-image-overlays-html.png)
-
 Card is represented by Section class in Java:
 
 [Section](https://jdi-docs.github.io/jdi-light/#section)
@@ -14657,6 +14629,8 @@ And here are methods available in Java:
 utility classes, cards can be made horizontal in a mobile-friendly and responsive way.
 
 ![Card Horizontal Example](../images/bootstrap/card_horizontal.png)
+
+Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
 @UI("#card-horizontal") //FindBy(css = "#card-horizontal")
@@ -14708,10 +14682,6 @@ public void isValidationTest() {
   </div>
 </div>
 ```
-
-Here is an example with provided Bootstrap v4.3 code:
-
-![Card horizontal example](../images/bootstrap/card_horizontal-html.png)
 
 Card is represented by Section class in Java:
 
@@ -14784,8 +14754,6 @@ public void checkColorCardsTest(CardWithHeaderAndFooter card, String cssClass, S
 </div>
 ```
 
-![Card Background And Color Code](../images/bootstrap/cardbackgroundandcolor-html.png)
-
 Card is represented by Section class in Java:
 
 [Section](https://jdi-docs.github.io/jdi-light/#section)
@@ -14850,7 +14818,6 @@ public void getHeaderTextTest(CardBorder cardBorder, String headerText) {
   </div>
 </div>
 ```
-![Card Borders Example Code](../images/bootstrap/cardborders-html.png)
 
 Card is represented by Section class in Java:
 
@@ -14918,8 +14885,6 @@ public void isValidationTest() {
   <div class="card-footer bg-transparent border-success">For Cinema Blend</div>
 </div>
 ```
-
-![Card Mixins Utilities Example Code](../images/bootstrap/card-mixins-utilities-html.png)
 
 Card is represented by Section class in Java:
 
@@ -15010,8 +14975,6 @@ public void getAltTest() {
 </div>
 ```
 
-![Card_groups HTML example](../images/bootstrap/card-groups-html.png)
-
 ##### Card Groups with Footer
 
 ![Card Groups with Footer Example](../images/bootstrap/card-groups-with-footer.png)
@@ -15082,8 +15045,6 @@ public void getAltTest() {
   </div>
 </div>
 ```
-
-![Card_groups HTML example](../images/bootstrap/card-groups-with-footer-html.png)
 
 Card is represented by Section class in Java:
 
@@ -15168,8 +15129,6 @@ public void getMainTextTest() {
 </div>
 ```
 
-![Card_decks HTML example](../images/bootstrap/card-decks-html.png)
-
 ##### Card Decks with Footer
 
 ![Card Decks with Footer Example](../images/bootstrap/card-decks-with-footer.png)
@@ -15242,8 +15201,6 @@ public void getMainTextTest() {
   </div>
 </div>
 ```
-
-![Card_decks HTML example](../images/bootstrap/card-decks-with-footer-html.png)
 
 Card are represented by Section class in Java:
 
@@ -15361,8 +15318,6 @@ public void checkElementsPositionTest() {
   </div>
 </div>
 ```
-
-![Card Columns Example Code](../images/bootstrap/card-columns-html.png)
 
 Card are represented by Section class in Java:
 

@@ -759,10 +759,16 @@ Available method in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**uploadFile(String)** |Select file to upload  | void
-**uploadFileRobot(String path, long mSec)**|Select file to upload  | void
-**getValue()**|Get file name  | void
-**getLabel()**|Get label | void
+**is()** | property that returns object for work with assertions | UIAssert
+**assertThat()** | property that returns object for work with assertions | UIAssert
+**click()** | click on element | void
+**hover()** | hover on element | void
+**setValue(String value)** | set file path to input | void
+**getValue()** | Get file name | String
+**uploadFile(String path)** | set file path to input | void
+**uploadFileRobot(String path, long mSecDelay)** | set file path to input | void
+**text()** | returns text of input field | String
+**label()**| Get label | Label
 
 Available method in C# JDI Light:
 
@@ -13598,11 +13604,11 @@ And here are methods available in Java:
 **click()** | click on element | void
 **hover()** | hover on element | void
 **setValue(String value)** | set file path to input | void
-**getValue()** | returns text of input field | String
+**getValue()** | Get file name | String
 **uploadFile(String path)** | set file path to input | void
 **uploadFileRobot(String path, long mSecDelay)** | set file path to input | void
 **text()** | returns text of input field | String
- 
+**label()**| Get label | Label
 <br>
 
 The Custom file input is defined as a section and uses additional web elements: Button, FileInput and Label.

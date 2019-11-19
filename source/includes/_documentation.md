@@ -692,10 +692,9 @@ public static FileInput avatar;
 
 @Test
 public void uploadTest() {
-    avatar.uploadFile(mergePath(PROJECT_PATH,"/src/test/resources/general.xml"));
-    avatar.is().text(containsString("general.xml"));
-    assertTrue(avatar.getText().contains("general.xml"));
-    assertTrue(avatar.getValue().contains("general.xml"));
+        avatar.uploadFile(mergePath(PROJECT_PATH, "/src/test/resources/general.xml"));
+        avatar.is().text(containsString("general.xml"));
+        avatar.is().value(containsString("general.xml"));
 }
 
 ```

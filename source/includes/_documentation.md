@@ -18929,8 +18929,8 @@ TBD
 1. Use spaces, 1 tab size equals to 4
 2. Don't use wildcard imports
 3. Use Intellij's autoreformatting, imports optimization and rearrange option
-4. Fix all codacy issues
-5. If codacy issue shouldn't be resolved use warnings supressions
+4. Fix all Codacy issues
+5. If Codacy issue shouldn't be resolved use warnings suppressions
 6. Use semantic-value names for classes , variables, methods and so on. Use full version of words (human instead of h and so on). Common abbreviations (as id, uid and so on are applied). Use valuable names, for example instead of accountList use accounts and so on
 7. Remove double empty lines, use empty lines only when it make sense (additionally to autoreformatting)
 8. Use correct line breaks: (PROVIDE_SAMPLES)
@@ -18943,7 +18943,7 @@ object
 ```
 11. Always use `{}` braces for even empty if, for, etc.
 12. Follow to the sequence of keywords: public protected private abstract default static final transient volatile synchronized native strictfp
-13. Don't use such convinences as: `mValue`, `_value`, and so on. Acceptable `__` as unused argument of dataprovider in test methods
+13. Don't use such conveniences as: `mValue`, `_value`, and so on. Acceptable `__` as unused argument of data provider in test methods
 14. Feel free to smart refactoring
 15. Feel free to use smart ?:
 16. Use `UpperCamelCase` naming style for classes, `lowerCamelCase` for fields and methods, `UPPERCASE` for enums, `lowercase` for packages

@@ -18467,12 +18467,18 @@ Inner elements of jumbotron can be represented by the following classes:
 ### Dropdown
 <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/dropdowns/" target="_blank">Dropdowns</a> are toggleable, contextual overlays for displaying lists of links and more. 
 
-Dropdown is located in the following classes:
+For working with Dropdown there are two classes available in JDI:
+ 
+  - __Java__: <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap/src/main/java/com/epam/jdi/light/ui/bootstrap/elements/composite/BootstrapDropdown.java">BootstrapDropdown</a>,
+   <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap/src/main/java/com/epam/jdi/light/ui/bootstrap/elements/composite/DropdownMenu.java">DropdownMenu</a>
+  - __C#__: TBD
 
-- __Java__: <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap/src/main/java/com/epam/jdi/light/ui/bootstrap/elements/composite/BootstrapDropdown.java">BootstrapDropdown</a>
-- __C#__: TBD
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap/src/main/java/com/epam/jdi/light/ui/bootstrap/elements/composite/BootstrapDropdown.java">BootstrapDropdown</a> class is designed to work with Dropdown element.
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap/src/main/java/com/epam/jdi/light/ui/bootstrap/elements/composite/DropdownMenu.java">DropdownMenu</a> class 
+extends <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap/src/main/java/com/epam/jdi/light/ui/bootstrap/elements/composite/BootstrapDropdown.java">BootstrapDropdown</a> class providing additional methods for working with the Dropdown menu items elements
 
-Available methods in Java JDI Light:
+
+Methods available for BootstrapDropdown class in Java JDI Light:
 
 |Method/Property | Description | Return Type
 --- | --- | ---
@@ -18480,24 +18486,48 @@ Available methods in Java JDI Light:
 **collapse()** | Collapse dropdown | void
 **isExpanded()** | Return if dropdown expanded | boolean
 **isCollapsed()** | Return if dropdown expanded | boolean
+**expander()** | Get dropdown expander | Button
+**menu()** | Get dropdown menu | UIElement
 **is()** | Assert action | BootstrapDropdownAssert
 **assertThat()** | Assert action | BootstrapDropdownAssert
 **has()** | Assert action | BootstrapDropdownAssert
 **waitFor()** | Assert action | BootstrapDropdownAssert
 **shouldBe()** | Assert action | BootstrapDropdownAssert
 **verify()** | Soft assert action | BootstrapDropdownAssert
+**expanded()** | Assert that dropdown is expanded | BootstrapDropdownAssert
+**collapsed()** | Assert that dropdown is collapsed | BootstrapDropdownAssert
+
+<br>
+Additional methods available for DropdownMenu class in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**select(int index)** | Click at dropdown item | void
+**select(String item)** | Click at dropdown item | void
+**itemValues()** | Get items text values | List<String>
+**hasItems(String... item)** | Return if dropdown contains all items | boolean
+**list()** | Get dropdown items | WebList
+**is()** | Assert action | DropdownMenuAssert
+**assertThat()** | Assert action | DropdownMenuAssert
+**has()** | Assert action | DropdownMenuAssert
+**waitFor()** | Assert action | DropdownMenuAssert
+**shouldBe()** | Assert action | DropdownMenuAssert
+**verify()** | Soft assert action | DropdownMenuAssert
+**active(int itemIndex)** | Check if item in dropdown menu is active | DropdownMenuAssert
+**itemValues(String... values)** | Asserts whether dropdown are exactly match arguments  | DropdownMenuAssert
+**hasItems(String... values)** | Asserts whether dropdown has all items from arguments | DropdownMenuAssert
 
 #### [Single button](https://getbootstrap.com/docs/4.3/components/dropdowns/#single-button)
 Any single `.btn` can be turned into a dropdown toggle with some markup changes. Here’s how you can put them to work with either `<button>` elements:
 
 ![Dropdown example](../images/bootstrap/dropdown.png)
 
-Here is an example with provided Bootstrap v4.3 code:
+Here is an example with provided Bootstrap v4.3 code for `<button>` elements:
 
 ```java 
 //@FindBy(id = "simpleDropdown")
 @UI("#simpleDropdown")
-public static Dropdown simpleDropdown;
+public static DropdownMenu simpleDropdown;
 
 @Test
 public void textTest() {
@@ -18530,35 +18560,33 @@ public void clickTest() {
 }
 ```
 
-```html
+```html 
 <div id="simpleDropdown" class="dropdown">
-    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
-            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-            style="margin-bottom: 5px;">
+    <button class="btn btn-primary dropdown-toggle" type="button" 
+    id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+     aria-expanded="false" style="margin-bottom: 5px;">
         Dropdown
     </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"
-         x-placement="bottom-start"
-         style="position: absolute; transform: translate3d(0px, 38px, 0px); top: 0px; left: 0px; will-change: transform;">
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" x-placement=
+    "bottom-start" style="position: absolute; transform: translate3d(0px, 38px, 0px);
+     top: 0px; left: 0px; will-change: transform;">
         <a class="dropdown-item" href="https://getbootstrap.com/" target="_blank">Action</a>
-        <a class="dropdown-item"
-           href="https://getbootstrap.com/docs/4.0/components/dropdowns/" target="_blank">Another
+        <a class="dropdown-item" href="https://getbootstrap.com/docs/4.0/components/dropdowns/" target="_blank">Another
             action</a>
-        <a class="dropdown-item"
-           href="https://getbootstrap.com/docs/4.3/getting-started/introduction/"
-           target="_blank">Separated link</a>
+        <a class="dropdown-item" href="https://getbootstrap.com/docs/4.3/getting
+        -started/introduction/" target="_blank">Separated link</a>
     </div>
 </div>
 ```
 
-<br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 And with `<a>` elements:
 
 ```java 
 //@FindBy(id = "linkDropdown")
 @UI("#linkDropdown")
-public static Dropdown linkDropdown;
+public static DropdownMenu linkDropdown;
 
 @Test
 public void linkDropdownIsValidationTest() {
@@ -18568,41 +18596,27 @@ public void linkDropdownIsValidationTest() {
 }
 ```
 
-```html
+```html 
 <div id="linkDropdown" class="dropdown show">
-    <a class="btn btn-primary dropdown-toggle" href="https://getbootstrap.com/"
-       role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-       aria-expanded="false" style="margin-bottom: 5px;">
+    <a class="btn btn-primary dropdown-toggle" href="https://
+      getbootstrap.com/" role="button" id="dropdownMenuLink" data-toggle=
+      "dropdown" aria-haspopup="true" aria-expanded="false" style="margin-bottom: 5px;">
         Dropdown link
     </a>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-        <a class="dropdown-item"
-           href="https://getbootstrap.com/docs/4.0/components/dropdowns/"
-           target="_blank">Action</a>
-        <a class="dropdown-item"
-           href="https://getbootstrap.com/docs/4.0/components/dropdowns/" target="_blank">Another
-            action</a>
-        <a class="dropdown-item"
-           href="https://getbootstrap.com/docs/4.3/getting-started/introduction/"
-           target="_blank">Something else here</a>
+        <a class="dropdown-item" href="https://getbootstrap.com/docs/4.0/
+        components/dropdowns/" target="_blank">Action</a>
+        <a class="dropdown-item" href="https://getbootstrap.com/docs/4.0/
+        components/dropdowns/" target="_blank">Another
+        action</a>
+        <a class="dropdown-item" href="https://getbootstrap.com/docs/4.3/
+        getting-started/introduction/" target="_blank">Something else here</a>
     </div>
 </div>
 ```
 
-Available methods in Java JDI Light:
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/dropdown/DropdownTests.java">Bootstrap test examples</a>
 
-|Method/Property | Description | Return Type
---- | --- | ---
-**assertThat()** | Assert action | TextAssert
-**is()** | Assert action | UIAssert
-**cssClass()** | Assert element css class | IsAssert
-**tag()** | Assert element tag | IsAssert
-**hasClass()** | Match passed value with element class| boolean
-**attr()** | Assert element's attribute | IsAssert
-**getValue()** | Get dropdown value | String
-**getText()** | Get dropdown text | String
-
-[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/dropdown/DropdownTests.java)
 
 #### <a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#split-button">Split button</a>
 Similarly, create split button dropdowns with virtually the same markup as single button dropdowns, but with the addition of ``.dropdown-toggle-split`` for proper spacing around the dropdown caret.
@@ -18614,7 +18628,7 @@ Here is an example with provided Bootstrap v4.3 code:
 ```java 
 //@FindBy(id = "splitDropdown")
 @UI("#splitDropdown")
-public static Dropdown splitDropdown;
+public static DropdownMenu splitDropdown;
 
 @Test
 public void splitDropdownIsValidationTest() {
@@ -18646,19 +18660,24 @@ public void splitDropdownIsValidationTest() {
     </div>
 </div>
 ```
+```html 
+<div id="splitDropdown" class="btn-group">
+    <button type="button" class="btn btn-primary" style="margin-bottom: 5px;">Action
+    </button>
+    <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" 
+    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+    style="margin-bottom: 5px;">
+        <span class="sr-only">Toggle Dropdown</span>
+    </button>
+    <div class="dropdown-menu">
+        <a class="dropdown-item" href="https://getbootstrap.com/docs/4.0/components/dropdowns/" target="_blank">Action</a>
+        <a class="dropdown-item" href="https://getbootstrap.com/docs/4.0/components/dropdowns/" target="_blank">Another
+            action</a>
+        <a class="dropdown-item" href="https://getbootstrap.com/docs/4.3/getting-started/introduction/" target="_blank">Something else here</a>
+    </div>
+</div>
+```
 
-Available methods in Java JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
-**assertThat()** | Assert action | TextAssert
-**is()** | Assert action | UIAssert
-**cssClass()** | Assert element css class | IsAssert
-**tag()** | Assert element tag | IsAssert
-**hasClass()** | Match passed value with element class| boolean
-**attr()** | Assert element's attribute | IsAssert
-**getValue()** | Get dropdown value | String
-**getText()** | Get dropdown text | String
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/dropdown/DropdownTests.java">Bootstrap test examples</a>
 
@@ -18673,8 +18692,8 @@ Here is an example of Large button code:
 
 ```java 
 //@FindBy(id = "largeDropdown")
-@UI("#largeDropdown")
-public static Dropdown largeDropdown;
+public static DropdownMenu largeDropdown;
+@UI("#largeSplitDropdown")
 
 @Test
 public void largeDropdownIsValidationTest() {
@@ -18688,34 +18707,31 @@ public void largeDropdownIsValidationTest() {
 }
 ```
 
-```html
-<div id="largeDropdown" class="btn-group">
-    <button class="btn btn-primary btn-lg dropdown-toggle" type="button"
-            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-            style="margin-bottom: 5px;">
+```html 
+<div id="largeDropdown" class="btn-group show">
+    <button class="btn btn-primary btn-lg dropdown-toggle" type="button" data-
+    toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="margin-
+    bottom: 5px;">
         Large button
     </button>
-    <div class="dropdown-menu" x-placement="bottom-start"
-         style="position: absolute; transform: translate3d(0px, 48px, 0px); top: 0px; left: 0px; will-change: transform;">
-        <a class="dropdown-item"
-           href="https://getbootstrap.com/docs/4.0/components/dropdowns/"
-           target="_blank">Action</a>
-        <a class="dropdown-item"
-           href="https://getbootstrap.com/docs/4.0/components/dropdowns/" target="_blank">Another
+    <div class="dropdown-menu show" x-placement="bottom-start" style="position:
+    absolute; transform: translate3d(0px, 48px, 0px); top: 0px; left: 0px; will-
+    change: transform;">
+        <a class="dropdown-item" href="https://getbootstrap.com/docs/4.0/components/dropdowns/" target="_blank">Action</a>
+        <a class="dropdown-item" href="https://getbootstrap.com/docs/4.0/components/dropdowns/" target="_blank">Another
             action</a>
-        <a class="dropdown-item"
-           href="https://getbootstrap.com/docs/4.3/getting-started/introduction/"
-           target="_blank">Something else here</a>
+        <a class="dropdown-item" href="https://getbootstrap.com/docs/4.3/getting-started/introduction/" target="_blank">Something else here</a>
     </div>
 </div>
 ```
+
 
 Here is an example of Large split button code:
 
 ```java 
 //@FindBy(id = "largeSplitDropdown")
 @UI("#largeSplitDropdown")
-public static Dropdown largeSplitDropdown;
+public static DropdownMenu largeSplitDropdown;
 
 @Test
 public void largeSplitDropdownIsValidationTest() {
@@ -18730,43 +18746,23 @@ public void largeSplitDropdownIsValidationTest() {
 }
 ```
 
-```html
+```html 
 <div id="largeSplitDropdown" class="btn-group">
     <button class="btn btn-primary btn-lg" type="button" style="margin-bottom: 5px;">
         Large split button
     </button>
-    <button type="button"
-            class="btn btn-lg btn-primary dropdown-toggle dropdown-toggle-split"
-            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-            style="margin-bottom: 5px;">
+    <button type="button" class="btn btn-lg btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-bottom: 5px;">
         <span class="sr-only">Toggle Dropdown</span>
     </button>
-    <div class="dropdown-menu">
-        <a class="dropdown-item"
-           href="https://getbootstrap.com/docs/4.0/components/dropdowns/"
-           target="_blank">Action</a>
-        <a class="dropdown-item"
-           href="https://getbootstrap.com/docs/4.0/components/dropdowns/" target="_blank">Another
+    <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(180px, 48px, 0px); top: 0px; left: 0px; will-change: transform;">
+        <a class="dropdown-item" href="https://getbootstrap.com/docs/4.0/components/dropdowns/" target="_blank">Action</a>
+        <a class="dropdown-item" href="https://getbootstrap.com/docs/4.0/components/dropdowns/" target="_blank">Another
             action</a>
-        <a class="dropdown-item"
-           href="https://getbootstrap.com/docs/4.3/getting-started/introduction/"
-           target="_blank">Something else here</a>
+        <a class="dropdown-item" href="https://getbootstrap.com/docs/4.3/getting-started
+        /introduction/" target="_blank">Something else here</a>
     </div>
 </div>
 ```
-
-Available methods in Java JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
-**assertThat()** | Assert action | TextAssert
-**is()** | Assert action | UIAssert
-**cssClass()** | Assert element css class | IsAssert
-**tag()** | Assert element tag | IsAssert
-**hasClass()** | Match passed value with element class| boolean
-**attr()** | Assert element's attribute | IsAssert
-**getValue()** | Get dropdown value | String
-**getText()** | Get dropdown text | String
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/dropdown/DropdownTests.java">Bootstrap test examples</a>
 
@@ -18784,7 +18780,7 @@ Here is an example of Dropup code:
 ```java 
 //@FindBy(id = "dropUpDropdown")
 @UI("#dropUpDropdown")
-public static Dropdown dropUpDropdown;
+public static DropdownMenu dropUpDropdown;
 
 @Test
 public void dropUpDropdownIsValidationTest() {
@@ -18818,6 +18814,22 @@ public void dropUpDropdownIsValidationTest() {
 </div>
 ```
 
+```html 
+<div id="dropUpDropdown" class="btn-group dropup">
+    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
+     aria-haspopup="true" aria-expanded="false" style="margin-bottom: 5px;">
+        Dropup
+    </button>
+    <div class="dropdown-menu">
+        <a class="dropdown-item" href="https://getbootstrap.com/docs/4.0/components/
+        dropdowns/" target="_blank">Action</a>
+        <a class="dropdown-item" href="https://getbootstrap.com/docs/4.0/components/dropdowns/" target="_blank">Another
+            action</a>
+        <a class="dropdown-item" href="https://getbootstrap.com/docs/4.3/getting-started/
+        introduction/" target="_blank">Something else here</a>
+    </div>
+</div>
+```
 <br>
 
 Here is an example of Dropup split code:
@@ -18825,7 +18837,7 @@ Here is an example of Dropup split code:
 ```java 
 //@FindBy(id = "dropUpSplitDropdown")
 @UI("#dropUpSplitDropdown")
-public static Dropdown dropUpSplitDropdown;
+public static DropdownMenu dropUpSplitDropdown;
 
 @Test
 public void dropUpSplitDropdownIsValidationTest() {
@@ -18870,7 +18882,7 @@ Here is an example of Dropright code:
 ```java 
 //@FindBy(id = "dropRightDropdown")
 @UI("#dropRightDropdown")
-public static Dropdown dropRightDropdown;
+public static DropdownMenu dropRightDropdown;
 
 @Test
 public void dropRightDropdownIsValidationTest() {
@@ -18904,14 +18916,14 @@ public void dropRightDropdownIsValidationTest() {
 </div>
 ```
 
-<br>
+<br><br>
 
 Here is an example of Dropright split code:
 
 ```java 
 //@FindBy(id = "dropRightSplitDropdown")
 @UI("#dropRightSplitDropdown")
-public static Dropdown dropRightSplitDropdown;
+public static DropdownMenu dropRightSplitDropdown;
 
 @Test
 public void dropRightSplitDropdownIsValidationTest() {
@@ -18956,7 +18968,7 @@ Here is an example of Dropleft code:
 ```java 
 //@FindBy(id = "dropLeftDropdown")
 @UI("#dropLeftDropdown")
-public static Dropdown dropLeftDropdown;
+public static DropdownMenu dropLeftDropdown;
 
 @Test
 public void dropLeftDropdownIsValidationTest() {
@@ -18997,7 +19009,7 @@ Here is an example of Dropleft split code:
 ```java 
 //@FindBy(id = "dropLeftSplitDropdown")
 @UI("#dropLeftSplitDropdown")
-public static Dropdown dropLeftSplitDropdown;
+public static DropdownMenu dropLeftSplitDropdown;
 
 @Test
 public void dropLeftSplitDropdownIsValidationTest() {
@@ -19008,24 +19020,16 @@ public void dropLeftSplitDropdownIsValidationTest() {
 }
 ```
 
-```html
+```html 
 <div id="dropLeftSplitDropdown" class="btn-group">
     <div class="btn-group dropleft" role="group">
-        <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split"
-                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                style="margin-bottom: 5px;">
+        <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-bottom: 5px;">
             <span class="sr-only">Toggle Dropleft</span>
         </button>
-        <div class="dropdown-menu">
-            <a class="dropdown-item"
-               href="https://getbootstrap.com/docs/4.0/components/dropdowns/"
-               target="_blank">Action</a>
-            <a class="dropdown-item"
-               href="https://getbootstrap.com/docs/4.0/components/dropdowns/"
-               target="_blank">Another action</a>
-            <a class="dropdown-item"
-               href="https://getbootstrap.com/docs/4.3/getting-started/introduction/"
-               target="_blank">Something else here</a>
+        <div class="dropdown-menu" x-placement="left-start" style="position: absolute; transform: translate3d(-2px, 0px, 0px); top: 0px; left: 0px; will-change: transform;">
+            <a class="dropdown-item" href="https://getbootstrap.com/docs/4.0/components/dropdowns/" target="_blank">Action</a>
+            <a class="dropdown-item" href="https://getbootstrap.com/docs/4.0/components/dropdowns/" target="_blank">Another action</a>
+            <a class="dropdown-item" href="https://getbootstrap.com/docs/4.3/getting-started/introduction/" target="_blank">Something else here</a>
         </div>
     </div>
     <button type="button" class="btn btn-primary" style="margin-bottom: 5px;">
@@ -19033,20 +19037,6 @@ public void dropLeftSplitDropdownIsValidationTest() {
     </button>
 </div>
 ```
-
-Available methods in Java JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
-**assertThat()** | Assert action | TextAssert
-**is()** | Assert action | UIAssert
-**cssClass()** | Assert element css class | IsAssert
-**tag()** | Assert element tag | IsAssert
-**hasClass()** | Match passed value with element class| boolean
-**attr()** | Assert element's attribute | IsAssert
-**getValue()** | Get dropdown value | String
-**getText()** | Get dropdown text | String
-
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/dropdown/DropdownTests.java">Bootstrap test examples</a>
 
 <br>
@@ -19055,9 +19045,6 @@ Available methods in Java JDI Light:
 Historically dropdown menu contents had to be links, but that’s no longer the case with v4. 
 Now you can optionally use ``<button>`` elements in your dropdowns instead of just ``<a>``s.
 
-Dropdown menu items is located in the following classes:
- 
-  - __Java__: <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap/src/main/java/com/epam/jdi/light/ui/bootstrap/elements/composite/DropdownMenu.java">DropdownMenu</a>
   
 ![Menu items example](../images/bootstrap/dropdown-menu-items.png)
 
@@ -19066,7 +19053,7 @@ Here is an example of Menu items code:
 ```java 
 //@FindBy(css = "#dropdown-menu-items")
 @UI("#dropdown-menu-items")
-public static Dropdown dropdownMenuItems;
+public static DropdownMenu dropdownMenuItems;
 
 @DataProvider(name = "actionsDataProvider")
 public Object[][] actionsDataProvider() {
@@ -19104,24 +19091,7 @@ public void menuItemsActionsTest(String itemText, String alertText) {
     </div>
 </div>
 ```
-Available methods in Java JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
-**select(int index)** | Click at dropdown item | void
-**select(String item)** | Click at dropdown item | void
-**itemValues()** | Get items text values | List<String>
-**hasItems(String... item)** | Return if dropdown contains all items | boolean
-**list()** | Get dropdown items | WebList
-**expander()** | Get dropdown expander | Button
-**menu()** | Get dropdown menu | UIElement
-**is()** | Assert action | DropdownMenuAssert
-**assertThat()** | Assert action | DropdownMenuAssert
-**has()** | Assert action | DropdownMenuAssert
-**waitFor()** | Assert action | DropdownMenuAssert
-**shouldBe()** | Assert action | DropdownMenuAssert
-**verify()** | Soft assert action | DropdownMenuAssert
-
+<br><br><br>
 You can also create non-interactive dropdown items with ``.dropdown-item-text``. Feel free to style further with custom CSS or text utilities.
 
 ![Non-interactive items example](../images/bootstrap/dropdown-non-interactive-items.png)
@@ -19131,7 +19101,7 @@ Here is an example of non-interactive dropdown items code:
 ```java 
 //@FindBy(css = "dropdown-menu-text-item")
 @UI("#dropdown-menu-text-item")
-public static Dropdown dropdownMenuTextItem;
+public static DropdownMenu dropdownMenuTextItem;
 
 @Test(expectedExceptions = RuntimeException.class,
         expectedExceptionsMessageRegExp = ".*Expected: an array containing \"href\".*")
@@ -19161,37 +19131,11 @@ public void textItemTest() {
 </div>
 ```
 
-Available methods in Java JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
-**expand()** | Expand dropdown| void
-**collapse()** | Collapse dropdown| void
-**select(String item)** | Click at dropdown item | void
-**collapse()** | Collapse dropdown| void
-**isExpanded()** | Return if dropdown expanded| boolean
-**isCollapsed()** | Return if dropdown expanded| boolean
-**itemValues()** | Get items text values| List<String>
-**hasItems(String... item)** | Return if dropdown contains all items| boolean
-**expander()** | Get dropdown expander | Button
-**menu()** | Get dropdown menu | UIElement
-**list()** | Get dropdown items | WebList
-**assertThat()** | Get dropdown assert | DropdownAssert
-
-Available asserts in Java JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
-**expanded()** | Check if expanded| DropdownAssert
-**collapsed()** | Check if collapsed| DropdownAssert
-**itemValues(Matcher<Iterable<String>> condition)** | Asserts whether items match condition | DropdownAssert
-**itemValues(String... values)** | Asserts whether dropdown are exactly match arguments  | DropdownAssert
-**hasItems(String... values)** | Asserts whether dropdown has all items from arguments | DropdownAssert
-
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/dropdown/DropdownMenuItemsTest.java">Bootstrap test examples</a>
 
-
+<br><br><br><br><br>
 <a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#active">**Active**</a><br>
+
 Add ``.active`` to items in the dropdown to style them as active.
 
 ![Active example](../images/bootstrap/dropdown-menu-items-active.png)
@@ -19201,7 +19145,7 @@ Here is a code example of items in the dropdown which are styled as active:
 ```java 
 //@FindBy(css = "#dropdown-menu-items-active")
 @UI("#dropdown-menu-items-active")
-public static Dropdown dropdownMenuItemsActive;
+public static DropdownMenu dropdownMenuItemsActive;
 
 @Test(dataProvider = "dropdownMenu")
 public void dropdownMenuTest(String itemText, String itemHref) {
@@ -19236,30 +19180,10 @@ public void isActiveTest() {
     </div>
 </div>
 ```
-
-Available methods in Java JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
-**expand()** | Expand dropdown| void
-**collapse()** | Collapse dropdown| void
-**select(String item)** | Click at dropdown item | void
-**collapse()** | Collapse dropdown| void
-**isExpanded()** | Return if dropdown expanded| boolean
-**isCollapsed()** | Return if dropdown expanded| boolean
-**expander()** | Get dropdown expander | Button
-
-Available asserts in Java JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
-**expanded()** | Check if expanded| DropdownAssert
-**collapsed()** | Check if collapsed| DropdownAssert
-**active(int itemIndex)** | Check if item in dropdown menu is active | DropdownAssert
-
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/dropdown/DropdownActiveTests.java">Bootstrap test examples</a>
-
+<br><br><br><br><br><br><br><br><br><br><br>
 <a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#disabled">**Disabled**</a><br>
+
 Add ``.disabled`` to items in the dropdown to style them as disabled.
 
 ![Disabled example](../images/bootstrap/dropdown-menu-items-disabled.png)
@@ -19269,7 +19193,7 @@ Here is a code example of items in the dropdown which are styled as disabled:
 ```java 
 //@FindBy(css = "#dropdown-menu-disabled-item")
 @UI("#dropdown-menu-disabled-item")
-public static Dropdown dropdownMenuDisabledItem;
+public static DropdownMenu dropdownMenuDisabledItem;
 
 private final String DISABLED_ITEM_TEXT = "Disabled link";
 private final String DISABLED_ITEM_HREF = "https://getbootstrap.com/docs/4.3/components/dropdowns/";
@@ -19301,17 +19225,9 @@ public void itemTest() {
 </div>
 ```
 
-Available methods in Java JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
-**expand()** | Expand dropdown| void
-**collapse()** | Collapse dropdown| void
-**list()** | Get dropdown items | WebList
-
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/dropdown/DisabledMenuItemTest.java">Bootstrap test examples</a>
 
-<br>
+<br><br><br>
 
 #### <a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#menu-alignment">Menu alignment</a>
 By default, a dropdown menu is automatically positioned 100% from the top and along the left side of its parent. Add ``.dropdown-menu-right`` to a ``.dropdown-menu`` to right align the dropdown menu.
@@ -19325,7 +19241,7 @@ Here is an example of right-aligned menu code:
 ```java 
 //@FindBy(id = "rightAllignedDropdown")
 @UI("#rightAllignedDropdown")
-public static Dropdown rightAllignedDropdown;
+public static DropdownMenu rightAllignedDropdown;
 
 @Test
 public void rightAllignedDropdownIsValidationTest() {
@@ -19355,6 +19271,7 @@ public void rightAllignedDropdownIsValidationTest() {
 ```
 
 <a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#responsive-alignment">**Responsive alignment**</a><br>
+
 If you want to use responsive alignment, disable dynamic positioning by adding the<br> ``data-display="static"`` attribute and use the responsive variation classes.
 
 To align **right** the dropdown menu with the given breakpoint or larger, add<br> ``.dropdown-menu{-sm|-md|-lg|-xl}-right``.
@@ -19365,11 +19282,10 @@ Here is an example of left-aligned but right aligned when large screen:
 
 Here is an example of left-aligned but right aligned when large screen code:
 
-```html
+```html 
 <div class="btn-group">
-    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
-            data-display="static" aria-haspopup="true" aria-expanded="false"
-            style="margin-bottom: 5px;">
+    <button type="button" class="btn btn-primary dropdown-toggle" 
+    data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false" style="margin-bottom: 5px;">
         Right aligned when large screen
     </button>
     <div class="dropdown-menu dropdown-menu-lg-right">
@@ -19392,7 +19308,7 @@ Here is an example of right-aligned but left aligned when large screen code:
 ```java 
 //@FindBy(id = "leftAllignedDropdown")
 @UI("#leftAllignedDropdown")
-public static Dropdown leftAllignedDropdown;
+public static DropdownMenu leftAllignedDropdown;
 
 @Test
 public void leftAllignedDropdownIsValidationTest() {
@@ -19404,11 +19320,9 @@ public void leftAllignedDropdownIsValidationTest() {
 }
 ```
 
-```html
+```html 
 <div id="leftAllignedDropdown" class="btn-group">
-    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
-            data-display="static" aria-haspopup="true" aria-expanded="false"
-            style="margin-bottom: 5px;">
+    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false" style="margin-bottom: 5px;">
         Left aligned when large screen
     </button>
     <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
@@ -19423,26 +19337,13 @@ public void leftAllignedDropdownIsValidationTest() {
     </div>
 </div>
 ```
-
-Available methods in Java JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
-**assertThat()** | Assert action | TextAssert
-**is()** | Assert action | UIAssert
-**cssClass()** | Assert element css class | IsAssert
-**tag()** | Assert element tag | IsAssert
-**hasClass()** | Match passed value with element class| boolean
-**attr()** | Assert element's attribute | IsAssert
-**getValue()** | Get dropdown value | String
-**getText()** | Get dropdown text | String
-
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/dropdown/DropdownTests.java">Bootstrap test examples</a>
 
 <br>
 
 #### <a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#menu-content">Menu content</a>
 <a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#headers">**Headers**</a><br>
+
 Add a header to label sections of actions in any dropdown menu.
 
 ![Headers example](../images/bootstrap/dropdown-menu-content-headers.png)
@@ -19477,24 +19378,12 @@ public void checkHeaderTest() {
 </div>
 ```
 
-Available methods in Java JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
-**expand()** | Expand dropdown | void
-**collapse()** | Collapse dropdown | void
-**is()** | Assert action | DropdownMenuAssert
-**menu()** | Get dropdown menu | UIElement
-**list()** | Get dropdown items | WebList
-**tag()** | Assert element tag | IsAssert
-**hasClass()** | Match passed value with element class| boolean
-**text()** | Assert text | TextAssert
-
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/dropdown/DropdownMenuContentTests.java">Bootstrap test examples</a>
 
 <br>
 
 <a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#dividers">**Dividers**</a><br>
+
 Separate groups of related menu items with a divider.
 
 ![Dividers example](../images/bootstrap/dropdown-menu-content-dividers.png)
@@ -19530,24 +19419,10 @@ public void checkDividerTest() {
        target="_blank">Separated link</a>
 </div>
 ```
-
-Available methods in Java JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
-**expand()** | Expand dropdown | void
-**collapse()** | Collapse dropdown | void
-**is()** | Assert action | DropdownMenuAssert
-**menu()** | Get dropdown menu | UIElement
-**list()** | Get dropdown items | WebList
-**tag()** | Assert element tag | IsAssert
-**hasClass()** | Match passed value with element class| boolean
-
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/dropdown/DropdownMenuContentTests.java">Bootstrap test examples</a>
 
-<br>
-
 <a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#text">**Text**</a><br>
+
 Place any freeform text within a dropdown menu with text and use <a href="https://getbootstrap.com/docs/4.3/utilities/spacing/">spacing utilities</a>. Note that you’ll likely need additional sizing styles to constrain the menu width.
 
 ![Text example](../images/bootstrap/dropdown-menu-content-text.png)
@@ -19583,22 +19458,8 @@ public void checkTextTest() {
 </div>
 ```
 
-Available methods in Java JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
-**expand()** | Expand dropdown | void
-**collapse()** | Collapse dropdown | void
-**is()** | Assert action | DropdownMenuAssert
-**menu()** | Get dropdown menu | UIElement
-**list()** | Get dropdown items | WebList
-**values()** | Match passed values with element's values | TextAssert
-
-<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/dropdown/DropdownMenuContentTests.java">Bootstrap test examples</a>
-
-<br>
-
 <a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#forms">**Forms**</a><br>
+
 Put a form within a dropdown menu, or make it into a dropdown menu, and use <a href="https://getbootstrap.com/docs/4.3/utilities/spacing/">margin or padding utilities</a> to give it the negative space you require.
 
 ![Form example](../images/bootstrap/dropdown-menu-content-form.png)
@@ -19606,7 +19467,7 @@ Put a form within a dropdown menu, or make it into a dropdown menu, and use <a h
 Here is an example form code in the menu items:
 
 ```java 
-public class DropdownForm extends Dropdown {
+public class DropdownForm extends DropdownMenu {
     @UI("//form") public FormDropdownLogin form;
 }
 
@@ -19674,31 +19535,42 @@ public void testButton(){
 </div>
 ```
 
-Available methods in Java JDI Light:
+```html 
+<div class="dropdown-menu show" x-placement="top-start" style="position: absolute; transform: translate3d(0px, -366px, 0px); top: 0px; left: 0px; will-change: transform;">
+    <form class="px-4 py-3">
+        <div class="form-group">
+            <label for="exampleDropdownFormEmail1">Email address</label>
+            <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
+        </div>
+        <div class="form-group">
+            <label for="exampleDropdownFormPassword1">Password</label>
+            <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
+        </div>
+        <div class="form-group">
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="dropdownCheck">
+                <label class="form-check-label" for="dropdownCheck">
+                    Remember me
+                </label>
+            </div>
+        </div>
+        <button type="button" class="btn btn-primary" onclick="alert('Sign in');">Sign in
+        </button>
+    </form>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="https://jdi-testing.github.io/jdi-light/index.html" target="_blank">New around here? Sign up</a>
+    <a class="dropdown-item" href="https://jdi-testing.github.io/jdi-light/index.html"
+     target="_blank">Forgot password?</a>
+</div>
+```
 
-|Method/Property | Description | Return Type
---- | --- | ---
-**assertThat()** | Assert action | TextAssert
-**is()** | Assert action | UIAssert
-**getAttribute()** | Get attribute value | String
-**expand()** | Expand dropdown | void
-**collapse()** | Collapse dropdown | void
-**expanded()** | Assert that dropdown is expanded | DropdownAssert
-**collapsed()** | Assert that dropdown is collapsed | DropdownAssert
-**click()** | Click the button | void
-**getText()** | Get button text | String
-**getValue()** | Get button value | String
-**displayed()** | Check that element is displayed | TextAssert
-**enabled()** | Check that element is enabled | TextAssert
-**check()** | Check checkbox | void
-**selected()** | Check that checkbox is selected | TextAssert
-**deselected()** | Check that checkbox is not selected | TextAssert
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/dropdown/DropdownFormTest.java" target="_blank">Bootstrap Test Examples</a>
 
-<br>
+<br><br><br><br>
 
 <a target="_blank" href="https://getbootstrap.com/docs/4.3/components/dropdowns/#dropdown-options">**Dropdown Options**</a><br>
+
 Use ``data-offset`` or ``data-reference`` to change the location of the dropdown.
 
 ![Dropdown Options Example](../images/bootstrap/dropdown-options.png)
@@ -19706,14 +19578,14 @@ Use ``data-offset`` or ``data-reference`` to change the location of the dropdown
 ```java 
 //@FindBy(id = "offsetDropdown")
 @UI("#offsetDropdown")
-public static Dropdown offsetDropdown;
+public static DropdownMenu offsetDropdown;
 
 //@FindBy(id = "referenceDropdown")
 @UI("#referenceDropdown")
-public static Dropdown referenceDropdown;
+public static DropdownMenu referenceDropdown;
 
 @Test(dataProvider = "dropdownData")
-public void expandCollapseTest(Dropdown dropdown) {
+public void expandCollapseTest(BootstrapDropdown dropdown) {
     dropdown.expand();
     dropdown.is().expanded();
     dropdown.collapse();
@@ -19748,20 +19620,22 @@ Here is an example with Bootstrap v4.3 code:
         <a class="dropdown-item" href="javascript: void();" onclick="alert('Separated link clicked!');">Separated link</a>
     </div>
 </div>
+```html 
+<div id="referenceDropdown" class="btn-group">
+    <button type="button" class="btn btn-secondary">Reference</button>
+    <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" id="dropdownMenuReference" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-reference="parent">
+        <span class="sr-only">Toggle Dropdown</span>
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuReference" x-placement="top-start" style="position: absolute; transform: translate3d(0px, -151px, 0px); top: 0px; left: 0px; will-change: transform;">
+        <a class="dropdown-item" href="javascript: void();" onclick="alert('Action clicked!');">Action</a>
+        <a class="dropdown-item" href="javascript: void();" onclick="alert('Another action clicked!');">Another action</a>
+        <a class="dropdown-item" href="javascript: void();" onclick="alert('Something else here clicked!');">Something else here</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="javascript: void();" onclick="alert('Separated link clicked!');">Separated link</a>
+    </div>
+</div>
 ```
-
-Available methods in Java JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
-**assertThat()** | Assert action | TextAssert
-**is()** | Assert action | UIAssert
-**getAttribute()** | Get attribute value | String
-**expand()** | Expand dropdown | void
-**collapse()** | Collapse dropdown | void
-**expanded()** | Assert that dropdown is expanded | DropdownAssert
-**collapsed()** | Assert that dropdown is collapsed | DropdownAssert
-
+```
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/dropdown/DropdownOptionsTests.java" target="_blank">Bootstrap Test Examples</a>
 
 

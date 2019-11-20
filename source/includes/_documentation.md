@@ -69,7 +69,7 @@ Label's implementation is located in the following classes:
 
  
  
- Available methods in C# JDI Light: 
+Available methods in C# JDI Light: 
 
 |Method | Description | Return Type 
 --- | --- | --- 
@@ -697,6 +697,7 @@ public void uploadTest() {
     assertTrue(avatar.getText().contains("general.xml"));
     assertTrue(avatar.getValue().contains("general.xml"));
 }
+
 ```
 ```csharp
 [Test]
@@ -759,6 +760,9 @@ Available method in Java JDI Light:
 |Method | Description | Return Type
 --- | --- | ---
 **uploadFile(String)** |Select file to upload  | void
+**uploadFileRobot(String path, long mSec)**|Select file to upload  | void
+**getValue()**|Get file name  | void
+**getLabel()**|Get label | void
 
 Available method in C# JDI Light:
 
@@ -5356,9 +5360,11 @@ Badge is located in the following class: <br>
 
 **1) <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/badge/" target="_blank">Badge</a>** - Element that scale to match the size of the immediate parent element by using relative font sizing and em units.<br>
 
-   ![Badge](../images/bootstrap/badge_heading.png)<br>
-   Here is an example with provided Bootstrap v4.3 code:  
-   ![Badge example](../images/bootstrap/badge_heading_code.png)
+![Badge](../images/bootstrap/badge_heading.png)
+
+Here is an example with provided Bootstrap v4.3 code:  
+
+![Badge example](../images/bootstrap/badge_heading_code.png)
 
 Available methods in Java JDI Light:
 
@@ -5389,9 +5395,11 @@ Available methods in Java JDI Light:
 
 **2) <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/badge/" target="_blank">Badge</a>** - Element which used as part of buttons to provide a counter. Unless the context is clear (as with the “Notifications” example, where it is understood that the “4” is the number of notifications), consider including additional context with a visually hidden piece of additional text.<br>
 
-   ![Badge](../images/bootstrap/badge_button.png)<br>
-   Here is an example with provided Bootstrap v4.3 code:  
-   ![Badge example](../images/bootstrap/badge_button_code.png)
+![Badge](../images/bootstrap/badge_button.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+![Badge example](../images/bootstrap/badge_button_code.png)
 
 Available methods in Java JDI Light:
 
@@ -5424,9 +5432,12 @@ Available methods in Java JDI Light:
 ```
 
 **3) <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/badge/#links" target="_blank">Badge</a>** - .badge-* classes on an link element quickly provide actionable badges with hover and focus states.<br>
-   ![Badge](../images/bootstrap/badge_link.png)<br>
-   Here is an example with provided Bootstrap v4.3 code:  
-   ![Badge example](../images/bootstrap/badge_link_code.png)
+
+![Badge](../images/bootstrap/badge_link.png)
+
+Here is an example with provided Bootstrap v4.3 code:  
+
+![Badge example](../images/bootstrap/badge_link_code.png)
 
 Available methods in Java JDI Light:
 
@@ -6376,9 +6387,26 @@ public void getColorTest(Progress progress, String color) {
 }
 ```
   
-![Progress HTML example](../images/bootstrap/progress-html.png)
-
-
+```html 
+<div id="progress-base">
+    <p>base</p>
+    <div class="progress" id="progress-bar-base-width-0">
+        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    <div class="progress" id="progress-bar-base-width-25">
+        <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    <div class="progress" id="progress-bar-base-width-50">
+        <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    <div class="progress" id="progress-bar-base-width-75">
+        <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    <div class="progress" id="progress-bar-base-width-100">
+        <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+</div>
+```
 
 Available methods in Java JDI Light:
 
@@ -6396,8 +6424,13 @@ Available methods in Java JDI Light:
 
 ####With label
 
-```java 
+Add <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/progress/#labels">labels</a> to your progress bars by placing text within the `.progress-bar`.
 
+![Progress label example](../images/bootstrap/progress-label.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java 
 //@FindBy(css = "#progress-with-labels")
 @UI("#progress-with-labels") public static Progress progressWithLabels; 
 
@@ -6422,18 +6455,17 @@ Available methods in Java JDI Light:
          }
          progressWithLabels.core().is().text(maxPercent);
     }
-
+```
+  
+```html 
+<div class="progress">
+    <div id="progress-with-labels" class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+</div>
 ```
 
-![Progress label example](../images/bootstrap/progress-label.png)
+<a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/progress/ProgressWithLabelsTests.java" target=a_blank> Bootstrap test examples </a>
 
-Here is an example with provided Bootstrap v4.3 code:
-  
-![Progress label HTML example](../images/bootstrap/progress-label-html.png)
-
-<a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/ProgressWithLabelsTests.java" target=a_blank> Bootstrap test examples </a>
-
-<br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 ####With height
 
@@ -6468,11 +6500,27 @@ public static JList<ProgressSection> progressHeightSections;
 
 ```
   
-![Progress label HTML example](../images/bootstrap/progress_height_DOM.PNG)
+```html 
+<div id="progress-height">
+    <p>various heights</p>
+          <div class="progress" id="progress-height-20px" style="height: 20px;">
+              <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+          <div class="progress" id="progress-height-40px" style="height: 40px;">
+              <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+          <div class="progress" id="progress-height-60px" style="height: 60px;">
+              <div class="progress-bar bg-warning" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+          <div class="progress" id="progress-height-80px" style="height: 80px;">
+              <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+      </div>
+```  
 
 <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/progress/ProgressHeightTests.java" target=a_blank> Bootstrap test examples </a>
 
-<br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br>
 
 ####With backgrounds
 
@@ -6516,11 +6564,24 @@ Here is an example with provided Bootstrap v4.3 code:
 
 ```
   
-![Progress backgrounds HTML example](../images/bootstrap/progress-backgrounds-html.png)
+```html 
+<div class="progress">
+    <div id="progress-backgrounds-green" class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+<div class="progress">
+    <div id="progress-backgrounds-blue" class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+<div class="progress">
+    <div id="progress-backgrounds-yellow" class="progress-bar bg-warning" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+<div class="progress">
+    <div id="progress-backgrounds-red" class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+```
 
-<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/ProgressBackgroundTests.java" target=a_blank> Bootstrap test examples </a>
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/progress/ProgressBackgroundTests.java" target=a_blank> Bootstrap test examples </a>
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 ####With striped design
 
@@ -6559,11 +6620,32 @@ Here is an example with provided Bootstrap v4.3 code:
 
 ```
 
-![Progress striped HTML example](../images/bootstrap/progress-striped-html.png)
+```html 
+<div id="striped-base">
+    <br>
+    <p>striped</p>
+
+    <div class="progress">
+        <div class="progress-bar progress-bar-striped" id="striped_ordinary" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    <div class="progress">
+        <div class="progress-bar progress-bar-striped bg-success" id="striped_success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    <div class="progress">
+        <div class="progress-bar progress-bar-striped bg-info" id="striped_info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    <div class="progress">
+        <div class="progress-bar progress-bar-striped bg-warning" id="striped_warning" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    <div class="progress">
+        <div class="progress-bar progress-bar-striped bg-danger" id="striped_danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+</div>
+```
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/listprogressbars/ProgressBarsListTests.java)
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br>
 
 
 ####With animated design
@@ -6586,7 +6668,11 @@ public void isValidationTest() {
 }
 ```
   
-![Progress animated HTML example](../images/bootstrap/progress-animated-html.png)
+```html 
+<div class="progress">
+    <div class="progress-bar progress-bar-striped progress-bar-animated" id="progress-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+</div>
+```
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/progress/ProgressAnimatedStripesTests.java)
 <br><br><br><br><br><br><br><br>
@@ -7324,7 +7410,7 @@ assertThat() | Assert action | TextAssert
 
 Include <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/progress/#multiple-bars">multiple progress bars</a>  in a progress component if you need.
 
-In addition there is a common element <a style="font-weight: bold;" target="_blank" href="https://jdi-docs.github.io/jdi-light/#progress">Progress</a> which includes only one progress bar.
+There is a common element <a style="font-weight: bold;" target="_blank" href="https://jdi-docs.github.io/jdi-light/#progress">Progress</a> which includes only one progress bar.
 
 ![Progress multiple example](../images/bootstrap/progress-multiple.png)
 
@@ -7345,13 +7431,11 @@ public void separateBarTest(Progress progress, String color, String value, Strin
             .maxValue(maxValue);
 }
 
- @Test
-public void wholeMultiplebarProgressTest() {
-    multiplebarsProgress.barsList.is().size(3);
-    multiplebarsProgress.is()
-            .displayed()
-            .enabled();
-    assertThat(multiplebarsProgress.core().css("background-color"), is("rgba(233, 236, 239, 1)"));
+@Test
+public void getValuesTest() {
+    assertThat(multiplebarsProgress.getValues(), is(multipleprogressValues));
+    assertThat(multiplebarsProgress.getValues().get(1), is("30"));
+}
 ```
 
 ```html 
@@ -7362,8 +7446,18 @@ public void wholeMultiplebarProgressTest() {
 </div>
 ```
 
-[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/complex/MultiplebarProgressTests.java)
-<br><br><br><br><br><br><br><br><br><br><br><br>
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**getProgress(int Index)** |	Returns progressbar by index |	Progress
+**getProgresses()** | Returns list of progressbars |	JList`<Progress>`
+**getValues()** |	Returns list of values of each progressbar |	List`<String>`
+**is()** | Various assert actions | UIAssert 
+**assertThat()** | Assert action | UIAssert
+
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/complex/MultiplebarsProgressTests.java)
+<br><br><br>
 
 ### Toast
 <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/toasts/" target="_blank">Toast</a> - Toasts are lightweight notifications designed to mimic the push notifications.
@@ -7793,10 +7887,9 @@ Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
 public class BootstrapFormsPage extends WebPage {
-    @UI("#superhero-creation-form")   //FindBy(css = "#superhero-creation-form")
+    @UI("#superhero-creation-form") // @FindBy(css = "#superhero-creation-form")
     public static SuperheroForm superheroForm;
-
-    @UI(".logs  li:first-child")      //FindBy(css = ".logs  li:first-child")
+    @UI(".logs  li:first-child") //@FindBy(css = ".logs  li:first-child")
     public static Text lastLogEntry;
 }
 
@@ -8556,7 +8649,7 @@ Inner elements represented by the following classes:
 <br>
 
 ##### [Horizontal form label sizing](https://getbootstrap.com/docs/4.3/components/forms/#horizontal-form-label-sizing)
-Be sure to use ``.col-form-label-sm`` or ``.col-form-label-lg`` to your ``<label>``s or ``<legend>``s to correctly follow the size of ``.form-control-lg`` and ``.form-control-sm``.
+Be sure to use `.col-form-label-sm` or `.col-form-label-lg` to your `<label>`s or `<legend>`s to correctly follow the size of `.form-control-lg` and `.form-control-sm`.
 
 ![Horizontal form label sizing](../images/bootstrap/form-horizontal-sizing.png)
 
@@ -8878,11 +8971,8 @@ public void helpTextTests() {
 **check()** | Assert action | TextAssert
 **selected()** | Assert action | TextAssert
 **deselected()** | Assert action | TextAssert
-<br>
 
 [Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/FormHelpText.java)
-
-<br>
 
 Form group is represented by Section class in Java:
  
@@ -9346,7 +9436,7 @@ Here is an example with provided Bootstrap v4.3 code:
 Here is an example with provided Bootstrap v4.3 code:
 ![Select menu](../images/bootstrap/form-select-menu-size-html.png) <br>
 
- Available methods in Java JDI Light:
+Available methods in Java JDI Light:
 <br>
 
 |Method | Description | Return Type
@@ -9364,9 +9454,9 @@ Create custom <a style="font-weight: bold;" target="_blank" href="https://getboo
  controls (`<input type="range">`) with .custom-range. The track (the background) and thumb (the value) are both styled to appear the same across browsers. 
 Range inputs have implicit values for min and max: 0 and 100, respectively. You may specify new values for those using the min and max attributes.
   
- ![Range_example](../images/bootstrap/range.png)
+![Range_example](../images/bootstrap/range.png)
  
- Here is an example with provided Bootstrap v4.3 code:
+Here is an example with provided Bootstrap v4.3 code:
  
 ```java 
 //@FindBy(css = "#customRange3")
@@ -9952,12 +10042,14 @@ Inner elements of media object can be represented by the following classes:
 
 
 ### Modal
-**Modal** is a dialog box/popup window that is displayed on page.
+[Modal](https://getbootstrap.com/docs/4.3/components/modal/) is a dialog box/popup window that is displayed on page.
 
-#### Modal Live demo
-Toggle a working <a style="font-weight: bold;" href="https://getbootstrap.com/docs/4.3/components/modal/#live-demo" target="_blank">modal demo</a> by clicking the button below. It will slide down and fade in from the top of the page.
+#### [Modal Live demo](https://getbootstrap.com/docs/4.3/components/modal/#live-demo)
+Toggle a working modal demo by clicking the button below. It will slide down and fade in from the top of the page.
 
 ![Modal_Live_demo](../images/bootstrap/modal-live-demo.png)
+
+Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
 //FindBy(css = "#modal-live-demo .bd-example .btn")
@@ -9995,10 +10087,7 @@ public void saveAndCloseButtonsTest() {
     modalLiveDemo.closeButton.click();
     modalLiveDemo.is().hidden();
 }
-
 ```
-
-Here is an example with provided Bootstrap v4.3 code:
 
 ![Modal Live_demo HTML](../images/bootstrap/modal-live-demo-html.png)
 
@@ -10892,11 +10981,11 @@ Inner elements of input group can be represented by following classes:
  
 #### Disabled elements popover
  
- **[Disabled elements popover](https://getbootstrap.com/docs/4.3/components/popovers/#disabled-elements)** 
+**[Disabled elements popover](https://getbootstrap.com/docs/4.3/components/popovers/#disabled-elements)** 
  
- ![Disabled elements popover example](../images/bootstrap/popover-disabled.png)
+![Disabled elements popover example](../images/bootstrap/popover-disabled.png)
  
- Here is an example with provided Bootstrap v4.3 code:
+Here is an example with provided Bootstrap v4.3 code:
  
  ```java 
  @UI("body") public static Popover popover; // @FindBy(css = "body") public static Popover popover;
@@ -13510,13 +13599,13 @@ Here is an example with provided Bootstrap v4.3 code:
 
 **Custom file input with button example**
 
- ![Custom file input with button](../images/bootstrap/custom_file_input_with_button.png)
+![Custom file input with button](../images/bootstrap/custom_file_input_with_button.png)
  
- Here is an example with provided Bootstrap v4.3 code:
+Here is an example with provided Bootstrap v4.3 code:
    
- ![Custom file input with button example](../images/bootstrap/custom_file_input_with_button_code.png)
+![Custom file input with button example](../images/bootstrap/custom_file_input_with_button_code.png)
 
- And here are methods available in Java:
+And here are methods available in Java:
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -13541,14 +13630,20 @@ They are located in the following Java classes:
 
 - com.epam.jdi.light.ui.bootstrap.elements.common;
 
-
 ### Card
 
-Bootstrap’s <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/card/">cards</a> provide a flexible and extensible content container with multiple variants and options.
+[Cards](https://getbootstrap.com/docs/4.3/components/card/) in Bootstrap provide a flexible and extensible
+content container with multiple variants and options.
 
 #### Card Example
 
+[Card Example](https://getbootstrap.com/docs/4.3/components/card/#example) - basic card with mixed content and a
+fixed width. Cards have no fixed width to start, so they’ll naturally fill the full width of its parent element.
+This is easily customized with our various sizing options.
+
 ![Simple Card Example](../images/bootstrap/simplecard.png)
+
+Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
 @UI("#card-example") // @FindBy(css = "#card-example")
@@ -13572,7 +13667,21 @@ public void clickTest() {
     Alerts.validateAlert(is(alertText));
 }
 ```
-Here is an example with provided Bootstrap v4.3 code:
+
+```html 
+<div class="card mb-3" id="card-example" style="width: 18rem;">
+  <img style="width: 30%; margin: 0 auto;" id="bs-card-example-image"
+    src="https://jdi-testing.github.io/jdi-light/images/wolverin.jpg" class="card-img-top" alt="image">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up
+      the bulk of the card's content.</p>
+    <button href="#" class="btn btn-primary" onclick="alert('Card Button Clicked!')">
+      Click Me!
+    </button>
+  </div>
+</div>
+```
 
 ![Simple Card Example Code](../images/bootstrap/simplecard-html.png)
 
@@ -13582,29 +13691,32 @@ Card is represented by Section class in Java:
 
 Inner elements of Card Example represented by the following classes:
 
-- [Text](https://jdi-docs.github.io/jdi-light/#text)<br>
-- [Button](https://jdi-docs.github.io/jdi-light/#button)<br>
+- [Text](https://jdi-docs.github.io/jdi-light/#text)
+- [Button](https://jdi-docs.github.io/jdi-light/#button)
 - [Image](https://jdi-docs.github.io/jdi-light/#image)
 
 Available methods in Java JDI Light:
- 
+
 |Method | Description | Return Type
 --- | --- | ---
- **getText()**| Returns text  | String
- **is()** |	Assert action |	UIAssert
- **assertThat()** |	Assert action |	UIAssert
- **src()** |	Assert image src |	ImageAssert
- **alt()** |	Assert alt image attribute |	ImageAssert
- **width()** |	Assert image width |	ImageAssert
- **height()** |	Assert image height |	ImageAssert
+**getText()**| Returns text | String
+**is()** | Assert action | UIAssert
+**assertThat()** | Assert action | UIAssert
+**src()** | Assert image src | ImageAssert
+**alt()** | Assert alt image attribute | ImageAssert
+**width()** | Assert image width | ImageAssert
+**height()** | Assert image height | ImageAssert
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardExampleTests.java)
 
 #### Card Body
 
-The building block of a card is the _.<a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/card/#body">card-body</a>_. Use it whenever you need a padded section within a card.
+[Card Body](https://getbootstrap.com/docs/4.3/components/card/#body) - The building block of a card is the `.card-body`.
+Use it whenever you need a padded section within a card.
 
 ![Card Body Example](../images/bootstrap/cardbody.png)
+
+Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
 @UI("#card-body") // @FindBy(css = "#card-body")
@@ -13619,30 +13731,44 @@ public void getBodyTextTest() {
     assertEquals(cardBody.text.getText(), text);
 }
 ```
-Here is an example with provided Bootstrap v4.3 code:
+
+```html 
+<div class="card" id="card-body">
+  <div class="card-body">
+    This is some text within a card body.
+  </div>
+</div>
+```
 
 ![Card Body Example Code](../images/bootstrap/cardbody-html.png)
 
+Card is represented by Section class in Java:
+
+[Section](https://jdi-docs.github.io/jdi-light/#section)
+
 Inner elements of Card Body represented by the following classes:
+
 [Text](https://jdi-docs.github.io/jdi-light/#text)
 
 Available methods in Java JDI Light:
- 
+
 |Method | Description | Return Type
 --- | --- | ---
- **getText()**| Returns text  | String
- **is()** |	Assert action |	UIAssert
- **assertThat()** |	Assert action |	UIAssert
+**getText()**| Returns text | String
+**is()** | Assert action | UIAssert
+**assertThat()** | Assert action | UIAssert
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardBodyTests.java)
 
-#### Card with Subtitles and Links
+#### Card with Titles and Links
 
-<a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/card/#titles-text-and-links">Card titles</a> are used by adding _.card-title_ to a ``<h*>`` tag. In the same way, links are added and placed next to each other by adding _.card-link_ to an ``<a>`` tag.
+[Card titles](https://getbootstrap.com/docs/4.3/components/card/#titles-text-and-links) are used by adding `.card-title`
+to a `<h*>` tag. In the same way, links are added and placed next to each other by adding `.card-link` to an `<a>` tag.
 
-Subtitles are used by adding a _.card-subtitle_ to a ``<h*>`` tag. If the _.card-title_ and the _.card-subtitle_ items are placed in a _.card-body_ item, the card title and subtitle are aligned nicely.
+Subtitles are used by adding a `.card-subtitle` to a `<h*>` tag. If the `.card-title` and the `.card-subtitle` items
+are placed in a `.card-body` item, the card title and subtitle are aligned nicely.
 
-![Card subtitles_links_Example](../images/bootstrap/cardsubslinks.png)
+![Card Titles and Links Example](../images/bootstrap/cardsubslinks.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -13675,28 +13801,49 @@ public void clickLink1Test() {
 }
 ```
 
-![Card subtitles_links Example Code](../images/bootstrap/cardsubslinks-html.png)
+```html 
+<div class="card" id="card-subtitle-link" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+    <p class="card-text">Some quick example text to build on the card title and
+      make up the bulk of the card's content.</p>
+    <a href="https://github.com/jdi-testing/jdi-light" target="_blank" class="card-link" id="bs-card-2-link1">
+      JDI Light Github</a>
+    <a href="https://jdi-testing.github.io/jdi-light/index.html" target="_blank" class="card-link"
+      id="bs-card-2-link2">JDI Website</a>
+  </div>
+</div>
+```
 
-Inner elements of Card with Subtitles and Links represented by the following classes:
+![Card Titles and Links Example Code](../images/bootstrap/cardsubslinks-html.png)
 
-+ [Text](https://jdi-docs.github.io/jdi-light/#text)<br>
-+ [Link](https://jdi-docs.github.io/jdi-light/#link)
+Card is represented by Section class in Java:
+
+[Section](https://jdi-docs.github.io/jdi-light/#section)
+
+Inner elements of Card with Titles and Links represented by the following classes:
+
+- [Text](https://jdi-docs.github.io/jdi-light/#text)
+- [Link](https://jdi-docs.github.io/jdi-light/#link)
 
 Available methods in Java JDI Light:
  
 |Method | Description | Return Type
 --- | --- | ---
- **getText()**| Returns text  | String
- **is()** |	Assert action |	UIAssert
- **assertThat()** |	Assert action |	UIAssert
- **ref()** |	Returns the reference |	String
- **url()** |	Returns the URL |	URL
+**getText()**| Returns text | String
+**is()** | Assert action | UIAssert
+**assertThat()** | Assert action | UIAssert
+**ref()** | Returns the reference | String
+**url()** | Returns the URL | URL
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardWithSubtitlesAndLinksTests.java)
 
 #### Card Images
 
-<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/card/#images" target="_blank">Card Images</a> are used with .card-img-top to place an image to the top of the card. With .card-text, text can be added to the card. Text within .card-text can also be styled with the standard HTML tags.
+[Card Images](https://getbootstrap.com/docs/4.3/components/card/#images) are used with `.card-img-top` to place an image
+to the top of the card. With `.card-text`, text can be added to the card. Text within `.card-text` can also be styled
+with the standard HTML tags.
 
 ![Card Image Example](../images/bootstrap/card-image.png)
 
@@ -13706,11 +13853,9 @@ Here is an example with provided Bootstrap v4.3 code:
 @UI("#card-image") // @FindBy(css = "#card-image")
 public static CardImage cardImage;
 
-@Test
-public void availabilityTest() {
-    cardImage.image.is()
-            .displayed()
-            .enabled();
+public class CardImage extends Card {
+    @UI(".card-text") public Text text;
+    @UI("#bs-card-image") public Image image;
 }
 
 @Test
@@ -13730,8 +13875,31 @@ public void imageClassTest() {
 }
 ```
 
+```html 
+<div class="card mb-3" id="card-image-caps-1" style="width: 18rem;">
+  <img style="width: 30%; margin: 0 auto;" src="images/captain-america.jpg" class="card-img-top"
+    alt="Captain America image">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">This is a wider card with supporting text below as a natural
+      lead-in to additional content. This content is a little bit longer.</p>
+    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+  </div>
+</div>
+```
+
 ![Card Image Example Code](../images/bootstrap/card-image-html.png)
- And here are methods available in Java:
+
+Card is represented by Section class in Java:
+
+[Section](https://jdi-docs.github.io/jdi-light/#section)
+
+Inner elements of Card Image represented by the following classes:
+
+- [Text](https://jdi-docs.github.io/jdi-light/#text)
+- [Image](https://jdi-docs.github.io/jdi-light/#image)
+
+And here are methods available in Java:
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -13743,11 +13911,12 @@ public void imageClassTest() {
 **displayed()** | check item is displayed | TextAssert
 **enabled()** | check item is enabled | TextAssert
  
-[Card Image test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardImageTests.java)
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardImageTests.java)
 
 #### Card list groups
 
-<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.0/components/jumbotron" target="_blank">Card list groups</a> – Create lists of content in a card with a flush list group.
+[Card list groups](https://getbootstrap.com/docs/4.3/components/card/#list-groups) – create lists of content in a card
+with a flush list group.
 
 ![Card list groups](../images/bootstrap/card_list_groups.png)
 
@@ -13784,29 +13953,52 @@ public void checkCardListGroupsValues() {
 }
 ```
 
+```html 
+<div class="card mb-3" id="card-list-groups" style="width: 18rem;">
+  <div class="card-header">
+    Featured
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Cras justo odio</li>
+    <li class="list-group-item">Dapibus ac facilisis in</li>
+    <li class="list-group-item">Vestibulum at eros</li>
+  </ul>
+</div>
+```
+
 ![Card list groups code](../images/bootstrap/card_list_groups_code.png)
 
-[Card list groups test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card)
+Card is represented by Section class in Java:
+
+[Section](https://jdi-docs.github.io/jdi-light/#section)
+
+Inner elements of Card List Groups represented by the following classes:
+
+- [Text](https://jdi-docs.github.io/jdi-light/#text)
 
 |Method | Description | Return Type
 --- | --- | ---
- getText()| Returns text of list cell  | String
- size()| Returns cells quantity of list groups   | int 
- is() |	Assert action |	TextAssert
- assertThat() |	Assert action |	TextAssert
+**getText()** | Returns text of list cell | String
+**size()** | Returns cells quantity of list groups | int 
+**is()** | Assert action | TextAssert
+**assertThat()** | Assert action | TextAssert
 
-#### Kitchen Sink
- 
-<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/card/#kitchen-sink" target="_blank">Kitchen sink</a> – Mix and match multiple content types to create the card you need, or throw everything in there. Shown below are image styles, blocks, text styles, and a list group—all wrapped in a fixed-width card.
- 
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card)
+
+#### Card Kitchen Sink
+
+[Card Kitchen Sink](https://getbootstrap.com/docs/4.3/components/card/#kitchen-sink) – Mix and match multiple content
+types to create the card you need, or throw everything in there. Shown below are image styles, blocks, text styles, and
+a list group—all wrapped in a fixed-width card.
+
 ![Kitchen Sink Example](../images/bootstrap/card-kitchen-sink.png)
- 
+
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
 @UI("#card-kitchen-sink") // @FindBy(css = "#card-kitchen-sink")
 public static CardKitchenSink cardKitchenSink; 
- 
+
 public class CardKitchenSink extends Card {
     @UI(".card-img-top") public Image image;
     @UI(".card-title") public Text title;
@@ -13814,7 +14006,7 @@ public class CardKitchenSink extends Card {
     @UI(".card-body") public WebList body;
     @UI(".list-group") public WebList list;
 }
- 
+
 @Test
 public void itemsTest() {
     assertEquals(cardKitchenSink.list.size(), 3);
@@ -13825,7 +14017,7 @@ public void itemsTest() {
     cardKitchenSink.list.get(2).is().text(containsString(item2Text));
     cardKitchenSink.list.get(3).is().text(containsString(item3Text));
 }
- 
+
 @Test
 public void isValidationTest() {
     cardKitchenSink.image.is().src(is(imgSrc));
@@ -13838,46 +14030,66 @@ public void isValidationTest() {
     cardKitchenSink.text.is().text(is(cardText));
     cardKitchenSink.text.is().text(containsString(cardText));
 }
- ```
- 
+```
+
+```html 
+<div class="card mb-3" id="card-kitchen-sink" style="width: 18rem;">
+  <img src="images/spider-man.jpg" class="card-img-top" alt="Spider Man" style="width: 30%; margin: 0 auto;">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up
+      the bulk of the card's content.</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Cras justo odio</li>
+    <li class="list-group-item">Dapibus ac facilisis in</li>
+    <li class="list-group-item">Vestibulum at eros</li>
+  </ul>
+  <div class="card-body">
+    <a href="https://github.com/jdi-testing/jdi-light" target="_blank" class="card-link">JDI Light Github</a>
+    <a href="https://jdi-testing.github.io/jdi-light/index.html" target="_blank" class="card-link">JDI Website</a>
+  </div>
+</div>
+```
+
 ![Kitchen Sink Example Code](../images/bootstrap/card-kitchen-sink-html.png)
- 
+
 Available methods in Java JDI Light:
- 
+
 |Method | Description | Return Type
 --- | --- | ---
- **getText()**| Returns text of kitchen sink  | String
- **getName()**| Returns name of kitchen sink  | String
- **is()** |	Assert action |	UIAssert
- **isDisplayed()** |	Returns true if kitchen sink is displayed, false if not |	boolean
- **assertThat()** |	Assert action |	UIAssert
- **src()** |	Assert image src |	ImageAssert
- **alt()** |	Assert alt image attribute |	ImageAssert
- **width()** |	Assert image width |	ImageAssert
- **height()** |	Assert image height |	ImageAssert
-  
-Kitchen sink is represented by Section class in Java:
-  
-  + Section #BS
-   
-Inner elements of kitchen sink can be represented by the following classes:
- 
-  + Text #BS
-   
-  + Image #BS
-   
-  + Title #BS
-   
-  + Link #BS
- 
-<a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardKitchenSinkTests.java" target="_blank">Bootstrap Test Examples</a>
- 
- 
+**getText()**| Returns text of kitchen sink | String
+**getName()**| Returns name of kitchen sink | String
+**is()** | Assert action | UIAssert
+**isDisplayed()** | Returns true if kitchen sink is displayed, false if not | boolean
+**assertThat()** | Assert action | UIAssert
+**src()** | Assert image src | ImageAssert
+**alt()** | Assert alt image attribute | ImageAssert
+**width()** | Assert image width | ImageAssert
+**height()** | Assert image height | ImageAssert
+
+Card is represented by Section class in Java:
+
+[Section](https://jdi-docs.github.io/jdi-light/#section)
+
+Inner elements of Card Kitchen Sink represented by the following classes:
+
+- [Text](https://jdi-docs.github.io/jdi-light/#text)
+- [Button](https://jdi-docs.github.io/jdi-light/#button)
+- [Link](https://jdi-docs.github.io/jdi-light/#link)
+
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardKitchenSinkTests.java)
+
 #### Card with Header and Footer
- 
-Add an optional<a href="https://getbootstrap.com/docs/4.3/components/card/#header-and-footer" target="a_blank"> header and/or footer </a>within a card.
- 
- ```java 
+
+[Card with Header and Footer](https://getbootstrap.com/docs/4.3/components/card/#header-and-footer) - add an optional
+header and/or footer within a card.
+
+![Card with Header and Footer Example](../images/bootstrap/cardheaderfooter.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java 
 @UI("#card-with-header-and-footer") // @FindBy(css = "#card-with-header-and-footer")
 public static CardWithHeaderAndFooter cardWithHeaderAndFooter;
 
@@ -13893,49 +14105,62 @@ public class CardWithHeaderAndFooter extends Card {
 public void getFooterTextCardWithHeaderAndFooterTest() {
     cardWithHeaderAndFooter.footer.is().text(textFooterCardWithHeaderAndFooter);
 }
-    
+
 @Test
 public void getHeaderTextCardWithHeaderAndFooterTest() {
     cardWithHeaderAndFooter.header.is().text(textHeaderCardWithHeaderAndFooter);
 }
 ```
- 
-![Card with Header and Footer Example](../images/bootstrap/cardheaderfooter.png)
- 
-Here is an example with provided Bootstrap v4.3 code:
- 
+
+```html 
+<div class="card mb-3 text-center" id="card-with-header-and-footer">
+  <div class="card-header">
+    Featured
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Special title treatment</h5>
+    <p class="card-text">With supporting text below as a natural lead-in to additional
+      content.</p>
+    <button href="#" class="btn btn-primary" onclick="alert('Button Clicked!');">Click
+      Me!
+    </button>
+  </div>
+  <div class="card-footer text-muted">
+    2 days ago
+  </div>
+</div>
+```
+
 ![Card with Header and Footer Code](../images/bootstrap/cardheaderfooter-html.png)
- 
+
 Card is represented by Section class in Java:
-  
+
 [Section](https://jdi-docs.github.io/jdi-light/#section)
-   
-Inner elements of card can be represented by the following classes:
-<ul>
-    <li> [Text](https://jdi-docs.github.io/jdi-light/#text) </li>
-    <li> [Label](https://jdi-docs.github.io/jdi-light/#label) </li>
-    <li> [Button](https://jdi-docs.github.io/jdi-light/#button)  </li>
-    <li> [See more elements](https://jdi-docs.github.io/jdi-light/#html5-common-elements)</li>
-</ul>
+
+Inner elements of Card with Header and Footer represented by the following classes:
+
+- [Text](https://jdi-docs.github.io/jdi-light/#text)
+- [Button](https://jdi-docs.github.io/jdi-light/#button)
 
 Available methods in Java JDI Light:
- 
+
 |Method | Description | Return Type
 --- | --- | ---
- **click()** |	Click the button |	void
- **is()** |	Assert action |	UIAssert
- **text()** |	Assert text |	TextAssert
- **assertThat()** |	Assert action |	UIAssert
-      
-<a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/Card/CardWithHeaderAndFooterTests.java" target=a_blank> Bootstrap test examples </a>
+**click()** | Click the button | void
+**is()** | Assert action | UIAssert
+**text()** | Assert text | TextAssert
+**assertThat()** | Assert action | UIAssert
+
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/Card/CardWithHeaderAndFooterTests.java)
 
 #### Card with Grid Markup
- 
-Using the <a href="https://getbootstrap.com/docs/4.3/components/card/#using-grid-markup" target="a_blank">grid, wrap cards in columns  and rows</a> as needed.
 
- ![Card with Header and Footer Example](../images/bootstrap/card_grid.png)
- 
- Here is an example with provided Bootstrap v4.3 code:
+[Card with Grid Markup](https://getbootstrap.com/docs/4.3/components/card/#using-grid-markup) - using the grid,
+wrap cards in columns and rows as needed.
+
+![Card with Grid Markup Example](../images/bootstrap/card_grid.png)
+
+Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
 @UI("#card-with-grid-markup") // @FindBy(css = "#card-with-grid-markup")
@@ -13963,43 +14188,96 @@ public void getButtonTextCardWithGridMarkup22Test() {
             .displayed();
 }
 ```
- 
- ![Card with Header and Footer Code](../images/bootstrap/card_grid_html.png)
- 
+
+```html 
+<div id="card-with-grid-markup">
+  <div class="row mb-3">
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Title</h5>
+          <p class="card-text">1st row 1st cell</p>
+          <button href="#" class="btn btn-primary" onclick="alert('Button Clicked!');">Click me
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Title</h5>
+          <p class="card-text">1st row 2nd cell</p>
+          <button href="#" class="btn btn-primary" onclick="alert('Button Clicked!');">Click me
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Title</h5>
+          <p class="card-text">2nd row 1st cell</p>
+          <button href="#" class="btn btn-primary" onclick="alert('Button Clicked!');">Click me
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Title</h5>
+          <p class="card-text">2nd row 2nd cell</p>
+          <button href="#" class="btn btn-primary" onclick="alert('Button Clicked!');">Click me
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+![Card Grid Code](../images/bootstrap/card_grid_html.png)
+
 Card is represented by Section class in Java:
- 
+
 [Section](https://jdi-docs.github.io/jdi-light/#section)
-  
-Inner elements of card can be represented by the following classes:
-<ul>
-    <li> [Text](https://jdi-docs.github.io/jdi-light/#text) </li>
-    <li> [Label](https://jdi-docs.github.io/jdi-light/#label) </li>
-    <li> [Button](https://jdi-docs.github.io/jdi-light/#button)  </li>
-    <li> [See more elements](https://jdi-docs.github.io/jdi-light/#html5-common-elements) </li>
-</ul>
+
+Inner elements of Card with Grid Markup represented by the following classes:
+
+- [Text](https://jdi-docs.github.io/jdi-light/#text)
+- [Button](https://jdi-docs.github.io/jdi-light/#button)
 
 Available methods in Java JDI Light:
- 
+
 |Method | Description | Return Type
 --- | --- | ---
- **click()** |	Click the button |	void
- **is()** |	Assert action |	UIAssert
- **text()** |	Assert text |	TextAssert
- **assertThat()** |	Assert action |	UIAssert
-     
-<a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/Card/CardWithGridMarkupTests.java" target=a_blank> Bootstrap test examples </a>
- 
+**click()** | Click the button | void
+**is()** | Assert action | UIAssert
+**text()** | Assert text | TextAssert
+**assertThat()** | Assert action | UIAssert
+
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/Card/CardWithGridMarkupTests.java)
+
 #### Card utilities
 
-Use  handful of available <a href="https://getbootstrap.com/docs/4.3/components/card/#using-utilities">sizing utilities</a> to quickly set a card’s width.
+[Card utilities](https://getbootstrap.com/docs/4.3/components/card/#using-utilities) - use handful of available
+sizing utilities to quickly set a card’s width.
 
 ![Card utilities Example](../images/bootstrap/card_utilities.png)
 
 Here is an example with provided Bootstrap v4.3 code:
-  
+
 ```java 
 @UI(".w-75") // @FindBy(className = ".w-75")
 public static CardUtilities cardWidth75;
+
+public class CardUtilities extends Card {
+    @UI(".card-title") public Text cardTitle;
+    @UI(".card-text") public Text cardText;
+    @UI(".btn") public Button cardButton;
+}
 
 @Test(dataProvider = "cardUtilitiesElementsWithWidth")
 public void cardValidationTest(CardUtilities cardUtilitiesElem, 
@@ -14010,23 +14288,35 @@ int widthInPercent, String widthInPixels) {
             .css("background-color", whiteColor);
 }
 ```
-  
+
+```html 
+<div class="card w-75" style="margin-bottom: 10px;">
+  <div class="card-body">
+    <h5 class="card-title">Spider man (w-75)</h5>
+    <p class="card-text">Spider-Man is a fictional superhero created by writer-editor
+      Stan Lee and writer-artist Steve Ditko.</p>
+    <a href="https://en.wikipedia.org/wiki/Spider-Man" class="btn btn-primary" target="_blank">Read more</a>
+  </div>
+</div>
+```
+
 ![Card utilities Example Code](../images/bootstrap/card_utilities_html.png)
 
 Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
- css()| Get element's css value | int 
- hasClass()| Assert class  | String
- is() |	Assert action |	TextAssert
- assertThat() |	Assert action |	TextAssert
- 
-<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardUtilitiesTests.java"> Bootstrap test examples </a>
+**css()** | Get element's css value | int 
+**hasClass()** | Assert class | String
+**is()** | Assert action | TextAssert
+**assertThat()** | Assert action | TextAssert
+
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardUtilitiesTests.java)
 
 #### Card using custom CSS
 
-Use <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.0/components/card/#using-custom-css">custom CSS</a> custom CSS in your stylesheets or as inline styles to set a width.
+[Card using custom CSS](https://getbootstrap.com/docs/4.3/components/card/#using-custom-css) - use custom CSS in your
+stylesheets or as inline styles to set a width.
 
 ![Card custom CSS Example](../images/bootstrap/card_custom_CSS.png)
 
@@ -14034,7 +14324,7 @@ Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
 @UI("#card-custom-css-1") // @FindBy(css = "#card-custom-css-1")
-public static CardWithCustomCss13Rem cardWithCustomCss13Rem;
+public static CardWithCustomCss cardWithCustomCss13Rem;
 
 public class CardWithCustomCss extends Card {
     @UI(".card-title") public Text title;
@@ -14056,42 +14346,63 @@ public void isValidationTest() {
 }
 ```
 
+```html 
+<div class="card" id="card-custom-css-1" style="width: 13rem; margin-bottom: 10px;">
+  <div class="card-body">
+    <h5 class="card-title">Spider man (13rem)</h5>
+    <p class="card-text">Spider-Man is a fictional superhero created by writer-editor
+      Stan Lee and writer-artist Steve Ditko.</p>
+    <a href="https://en.wikipedia.org/wiki/Spider-Man" class="btn btn-primary" target="_blank">Read more</a>
+  </div>
+</div>
+```
+
 ![Card custom CSS Example Code](../images/bootstrap/card_custom_CSS_html.png)
 
-Inner elements of Card using custom CSS represented by the following classes:<br>
+Card is represented by Section class in Java:
 
-+ [Text](https://jdi-docs.github.io/jdi-light/#text)
-+ [Button](https://jdi-docs.github.io/jdi-light/#button)
-+ [Link](https://jdi-docs.github.io/jdi-light/#link)
+[Section](https://jdi-docs.github.io/jdi-light/#section)
+
+Inner elements of Card with custom CSS represented by the following classes:
+
+- [Text](https://jdi-docs.github.io/jdi-light/#text)
+- [Button](https://jdi-docs.github.io/jdi-light/#button)
 
 Available methods in Java JDI Light:
- 
+
 |Method | Description | Return Type
 --- | --- | ---
- **click()** |	Click the button |	void
- **is()** |	Assert action |	UIAssert
- **text()** |	Assert text |	TextAssert
- **ref()** |	Returns the reference |	String
- **url()** |	Returns the URL |	URL
- **assertThat()** |	Assert action |	UIAssert
+**click()** | Click the button | void
+**is()** | Assert action | UIAssert
+**text()** | Assert text | TextAssert
+**ref()** | Returns the reference | String
+**url()** | Returns the URL | URL
+**assertThat()** | Assert action | UIAssert
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardWithCustomCss13RemTests.java)
 
 #### Card Text Alignment
 
-You can quickly change the text alignment of any card — in its entirety or specific parts — with Bootstrap's <a style="font-weight: bold;" href="https://getbootstrap.com/docs/4.3/utilities/text/#text-alignment" target="_blank">text align classes</a>.
+[Card Text Alignment](https://getbootstrap.com/docs/4.3/utilities/text/#text-alignment) - You can quickly change
+the text alignment of any card — in it's entirety or specific parts — with Bootstrap's text align classes.
 
 ![Card Text Alignment Example](../images/bootstrap/cardtextalignment.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
-@UI("#card-text-left")  // @FindBy(css = "#card-text-left")
+@UI("#card-text-left") // @FindBy(css = "#card-text-left")
 public static CardTextAlignment cardLeftTextAlignment;
-@UI("#card-text-center")  // @FindBy(css = "#card-text-center")
+@UI("#card-text-center") // @FindBy(css = "#card-text-center")
 public static CardTextAlignment cardCenterTextAlignment;
-@UI("#card-text-right")  // @FindBy(css = "#card-text-right")
+@UI("#card-text-right") // @FindBy(css = "#card-text-right")
 public static CardTextAlignment cardRightTextAlignment;
+
+public class CardTextAlignment extends Card {
+    @UI(".card-title") public Text cardTitle;
+    @UI(".card-text") public Text cardDescription;
+    @UI("button") public Button cardButton;
+}
 
 String alertText = "Button Clicked!";
 
@@ -14111,9 +14422,29 @@ public void clickTest() {
 }
 ```
 
+```html 
+<div id="card-text-center" class="card mb-2 text-center" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Special title treatment</h5>
+    <p class="card-text">With supporting text below as a natural lead-in to additional
+      content.</p>
+    <button href="#" class="btn btn-success" onclick="alert('Button Clicked!');">Click
+      Me!
+    </button>
+  </div>
+</div>
+```
+
 ![Card Text Alignment Example Code](../images/bootstrap/cardtextalignment-html.png)
 
-<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardTextAlignmentTests.java" target="_blank">Bootstrap test examples</a>
+Card is represented by Section class in Java:
+
+[Section](https://jdi-docs.github.io/jdi-light/#section)
+
+Inner elements of Card Text Alignment represented by the following classes:
+
+- [Text](https://jdi-docs.github.io/jdi-light/#text)
+- [Button](https://jdi-docs.github.io/jdi-light/#button)
 
 Available methods in Java JDI Light:
 
@@ -14130,10 +14461,12 @@ Available methods in Java JDI Light:
 **is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
 
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardTextAlignmentTests.java)
+
 #### Card Navigation
 
-Add some navigation to a card’s header (or block) with Bootstrap’s
-<a style="font-weight: bold;" href="https://getbootstrap.com/docs/4.3/components/card/#navigation" target="_blank">nav components</a>.
+[Card Navigation](https://getbootstrap.com/docs/4.3/components/card/#navigation) adds some navigation to a card’s header
+(or block) with Bootstrap’s nav components.
 
 ![Card Navigation Example](../images/bootstrap/cardnav.png)
 
@@ -14144,18 +14477,12 @@ Here is an example with provided Bootstrap v4.3 code:
 public static CardNavigation cardNavigation;
 
 public class CardNavigation extends Card {
-    @UI("#activeLink") // @FindBy(id = "activeLink")
-    public Link activeLink;
-    @UI("#jdiLink") // @FindBy(id = "jdiLink")
-    public Link jdiLink;
-    @UI("#disabledLink") // @FindBy(id = "disabledLink")
-    public Link disabledLink;
-    @UI("h5") // @FindBy(tagName = "h5")
-    public Text title;
-    @UI(".card-text") // @FindBy(css = ".card-text")
-    public Text subtitle;
-    @UI("button") // @FindBy(tagName = "button")
-    public Button button;
+    @UI("#activeLink") public Link activeLink;
+    @UI("#jdiLink") public Link jdiLink;
+    @UI("#disabledLink") public Link disabledLink;
+    @UI("h5") public Text title;
+    @UI(".card-text") public Text subtitle;
+    @UI("button") public Button button;
 }
 
 @Test
@@ -14197,18 +14524,45 @@ public void isValidationTest() {
 }
 ```
 
+```html 
+<div id="card-navigation" class="card text-center mb-3">
+  <div class="card-header">
+    <ul class="nav nav-tabs card-header-tabs">
+      <li class="nav-item">
+        <a id="activeLink" class="nav-link active" href="javascript: void()"
+          onclick="alert('Active Tab Clicked!');">Active</a>
+      </li>
+      <li class="nav-item">
+        <a id="jdiLink" class="nav-link" href="https://github.com/jdi-testing/jdi-light" target="_blank">JDI</a>
+      </li>
+      <li class="nav-item">
+        <a id="disabledLink" class="nav-link disabled" href="javascript: void()" tabindex="-1"
+          aria-disabled="true">Disabled</a>
+      </li>
+    </ul>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Special title treatment</h5>
+    <p class="card-text">With supporting text below as a natural lead-in to additional
+      content.</p>
+    <button href="#" class="btn btn-primary" onclick="alert('Button Clicked!');">Click
+      Me!
+    </button>
+  </div>
+</div>
+```
+
 ![Card Navigation Example Code](../images/bootstrap/cardnav-html.png)
 
-Card Navigation is represented by Section class in Java:
+Card is represented by Section class in Java:
 
-+ Section #BS
+[Section](https://jdi-docs.github.io/jdi-light/#section)
 
-Inner elements of Card Navigation can be represented by the following classes:
+Inner elements of Card Navigation represented by the following classes:
 
-+ Text #BS
-+ Button #BS
-+ Link #BS
-+ Menu #BS
+- [Text](https://jdi-docs.github.io/jdi-light/#text)
+- [Button](https://jdi-docs.github.io/jdi-light/#button)
+- [Link](https://jdi-docs.github.io/jdi-light/#link)
 
 Available methods in Java JDI Light:
 
@@ -14227,12 +14581,12 @@ Available methods in Java JDI Light:
 **tag()** | Assert element tag | IsAssert
 **is()** | Assert action | TextAssert
 
-<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardNavigationTests.java" target="_blank">Bootstrap test examples</a>
- 
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardNavigationTests.java)
+
 #### Card Image Caps
 
-Similar to headers and footers, cards can include 
-top and bottom “image caps” — images at the top or bottom of a card.
+[Card Image Caps](https://getbootstrap.com/docs/4.3/components/card/#image-caps) - similar to headers and footers, cards
+can include top and bottom “image caps” — images at the top or bottom of a card.
 
 ![Card Image Caps Example](../images/bootstrap/cardimagecaps.png)
 
@@ -14241,6 +14595,11 @@ Here is an example with provided Bootstrap v4.3 code:
 ```java 
 @UI("#card-image-caps-1") // @FindBy(id = "card-image-caps-1")
 public static CardImageCaps cardImageOnTop;
+
+public class CardImageCaps extends Card {
+    @UI(".card-img-top") public Image image;
+    @UI(".card-body") public Text text;
+}
 
 @Test
 public void getSrcTest() {
@@ -14253,48 +14612,50 @@ public void getAltTest() {
     assertEquals(cardImageOnTop.image.alt(), topCardData.getAltAttr());
     assertEquals(cardImageOnBottom.image.alt(), bottomCardData.getAltAttr());
 }
+```
 
-@Test
-public void isValidationTest() {
-    cardImageOnTop.text.is().text(is(topCardData.getText()));
-    cardImageOnTop.image.is().src(is(topCardData.getSrcAttr()));
-    cardImageOnTop.image.is().alt(is(topCardData.getAltAttr()));
-    cardImageOnTop.image.unhighlight();
-    cardImageOnTop.image.assertThat().width(is(topCardData.getWidth()));
-    cardImageOnTop.image.assertThat().height(is(topCardData.getHeight()));
-
-    cardImageOnBottom.text.is().text(is(bottomCardData.getText()));
-    cardImageOnBottom.image.is().src(is(bottomCardData.getSrcAttr()));
-    cardImageOnBottom.image.is().alt(is(bottomCardData.getAltAttr()));
-    cardImageOnBottom.image.unhighlight();
-    cardImageOnBottom.image.assertThat().width(is(bottomCardData.getWidth()));
-    cardImageOnBottom.image.assertThat().height(is(bottomCardData.getHeight()));
-
-    cardImageOnTop.is().imageOnTop();
-    cardImageOnBottom.is().imageBelow();
-}
+```html 
+<div class="card mb-3" id="card-image-caps-1" style="width: 18rem;">
+  <img style="width: 30%; margin: 0 auto;" src="images/captain-america.jpg" class="card-img-top"
+    alt="Captain America image">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">This is a wider card with supporting text below as a natural
+      lead-in to additional content. This content is a little bit longer.</p>
+    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+  </div>
+</div>
 ```
 
 ![Card Image Caps Example Code](../images/bootstrap/cardimagecaps-html.png)
+
+Card is represented by Section class in Java:
+
+[Section](https://jdi-docs.github.io/jdi-light/#section)
+
+Inner elements of Card Image Caps represented by the following classes:
+
+- [Text](https://jdi-docs.github.io/jdi-light/#text)
+- [Image](https://jdi-docs.github.io/jdi-light/#image)
 
 Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
- **getText()**| Returns text of card  | String
- **getName()**| Returns name of card  | String
- **is()** |	Assert action |	UIAssert
- **isDisplayed()** |	Returns true if card is displayed, false if not |	boolean
- **assertThat()** |	Assert action |	UIAssert
- 
-<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardImageCapsTest.java" target="_blank">Bootstrap test example with card image caps</a>
-<br><br>
- 
+**getText()**| Returns text of card | String
+**getName()**| Returns name of card | String
+**is()** | Assert action | UIAssert
+**isDisplayed()** | Returns true if card is displayed, false if not | boolean
+**assertThat()** | Assert action | UIAssert
+
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardImageCapsTest.java)
+
 #### Card Image Overlays
 
-<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/card/#image-overlays" target="_blank">Card Image Overlays</a> turn an image into a card background and overlay your card’s text. Depending on the image, you may or may not need additional styles or utilities..
+[Card Image Overlays](https://getbootstrap.com/docs/4.3/components/card/#image-overlays) turn an image into a card
+background and overlay your card’s text. Depending on the image, you may or may not need additional styles or utilities.
 
-![Card Image Example](../images/bootstrap/card-image-overlays.png)
+![Card Image Overlays Example](../images/bootstrap/card-image-overlays.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -14303,10 +14664,8 @@ Here is an example with provided Bootstrap v4.3 code:
 public static CardImageOverlays cardImageOverlays;
 
 public class CardImageOverlays extends Card {
-    @UI("#card-svg") // @FindBy(css = "#card-svg")
-    public VectorImage vectorImage;
-    @UI("#card-overlay-section") // @FindBy(css = "#card-overlay-section")
-    public OverlaySection overlaySection;
+    @UI("#card-svg") public VectorImage vectorImage;
+    @UI("#card-overlay-section") public OverlaySection overlaySection;
 }
 
 @Test
@@ -14341,9 +14700,30 @@ public void vectorInternalElementsTest() {
 }
 ```
 
-![Card Image Example Code](../images/bootstrap/card-image-overlays-html.png)
+```html 
+<div class="card bg-dark text-dark mb-3">
+  <img src="images/captain-america.jpg" class="card-img" alt="Captain America image">
+  <div class="card-img-overlay">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">This is a wider card with supporting text below as a natural
+      lead-in to additional content. This content is a little bit longer.</p>
+    <p class="card-text">Last updated 3 mins ago</p>
+  </div>
+</div>
+```
 
- And here are methods available in Java:
+![Card Image Overlays Example](../images/bootstrap/card-image-overlays-html.png)
+
+Card is represented by Section class in Java:
+
+[Section](https://jdi-docs.github.io/jdi-light/#section)
+
+Inner elements of Card Image Overlays represented by the following classes:
+
+- [Text](https://jdi-docs.github.io/jdi-light/#text)
+- [VectorImage](https://jdi-docs.github.io/jdi-light/#vector-image) <---No such element--->
+
+And here are methods available in Java:
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -14354,12 +14734,13 @@ public void vectorInternalElementsTest() {
 **enabled()** | check item is enabled | TextAssert
 **getText(String tagName)** | get text of an element inside vector image by tag | String
 **getAttribute(String tagName, String attr)** | get attribute of an element inside vector image by tag | String
- 
-[Card Image Overlays test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardImageOverlaysTest.java)
+
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardImageOverlaysTest.java)
 
 #### Card Horizontal
 
-Using a combination of grid and utility classes, cards can be made <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/card/#horizontal">horizontal</a> in a mobile-friendly and responsive way.
+[Card Horizontal](https://getbootstrap.com/docs/4.3/components/card/#horizontal) - using a combination of grid and
+utility classes, cards can be made horizontal in a mobile-friendly and responsive way.
 
 ![Card horizontal example](../images/bootstrap/card_horizontal.png)
 
@@ -14389,76 +14770,75 @@ public void isValidationTest() {
             .css("font-size", is("11.2px"))
             .tag(is("small"));
 ```
+
+```html 
+<div class="card mb-3" id="card-horizontal" style="max-width: 540px;">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <img src="images/wolverin.jpg" class="card-img" id="card-horizontal-img" title="Wolverine icon">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title" id="card-horizontal-title">Wolverine</h5>
+        <p class="card-text">Wolverine is a fictional character appearing in
+          American comic books published by Marvel Comics, mostly in association
+          with the X-Men. He is a mutant who possesses animal-keen senses,
+          enhanced physical capabilities, powerful regenerative ability known as a
+          healing factor, and three retractable claws in each hand. Wolverine has
+          been depicted variously as a member of the X-Men, Alpha Flight, and the
+          Avengers.</p>
+        <p class="card-text"><small class="text-muted">The character appeared in
+            #180 (1974)</small></p>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
 Here is an example with provided Bootstrap v4.3 code:
-  
+
 ![Card horizontal example](../images/bootstrap/card_horizontal-html.png)
- 
- Inner elements of Card Horizontal represented by the following classes:<br>
- 
- + [Text](https://jdi-docs.github.io/jdi-light/#text)<br>
- + [Image](https://jdi-docs.github.io/jdi-light/#image)
- 
- Available methods in Java JDI Light:
- 
+
+Card is represented by Section class in Java:
+
+[Section](https://jdi-docs.github.io/jdi-light/#section)
+
+Inner elements of Card Horizontal represented by the following classes:<br>
+
+- [Text](https://jdi-docs.github.io/jdi-light/#text)
+- [Image](https://jdi-docs.github.io/jdi-light/#image)
+
+Available methods in Java JDI Light:
+
 |Method | Description | Return Type
 --- | --- | ---
-**getText()**| Returns text  | String
-**is()** |	Assert action |	UIAssert
-**assertThat()** |	Assert action |	UIAssert
-**src()** |	Assert image src |	ImageAssert
-**alt()** |	Assert alt image attribute |	ImageAssert
-**width()** |	Assert image width |	ImageAssert
-**height()** |	Assert image height |	ImageAssert
-  
- [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardHorizontalTests.java)
+**getText()**| Returns text | String
+**is()** |	Assert action | UIAssert
+**assertThat()** | Assert action | UIAssert
+**src()** | Assert image src | ImageAssert
+**alt()** | Assert alt image attribute | ImageAssert
+**width()** | Assert image width | ImageAssert
+**height()** | Assert image height | ImageAssert
+
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardHorizontalTests.java)
 
 #### Card Background And Color
 
-<a href="https://getbootstrap.com/docs/4.3/components/card/#background-and-color" target="a_blank"> Card Background And Color</a> - use text and background utilities to change the appearance of a card.
+[Card Background And Color](https://getbootstrap.com/docs/4.3/components/card/#background-and-color) - use text and
+background utilities to change the appearance of a card.
 
 ![Card Background And Color Example](../images/bootstrap/cardbackgroundandcolor.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
-public class CardWithHeaderAndFooter extends Card {
-    @UI(".card-title") public Text title; //@FindBy(css = ".card-title") public Text title
-    @UI(".card-body p") public Text paragraph;//@FindBy(css = ".card-body p") public Text paragraph
-    @UI("button") public Button button;//@FindBy(css = "button") public Button button
-    @UI(".card-header")public Text header;//@FindBy(css = ".card-header") public Text header
-    //@FindBy(css = "[class^="footer"]") public Text footer
-    @UI("//*[contains(@class, 'footer')]") public Text footer;
-}
-
 @UI("#card-bright-blue") // @FindBy(css = "#card-bright-blue")
-public static CardWithHeaderAndFooter cardBrightBlue;
-@UI("#card-grey") // @FindBy(css = "#card-grey")
-public static CardWithHeaderAndFooter cardGrey;
-@UI("#card-green") // @FindBy(css = "#card-green")
-public static CardWithHeaderAndFooter cardGreen;
-@UI("#card-red") // @FindBy(css = "#card-red")
-public static CardWithHeaderAndFooter cardRed;
-@UI("#card-yellow") // @FindBy(css = "#card-yellow")
-public static CardWithHeaderAndFooter cardYellow;
-@UI("#card-blue") // @FindBy(css = "#card-blue")
-public static CardWithHeaderAndFooter cardBlue;
-@UI("#card-light") // @FindBy(css = "#card-light")
-public static CardWithHeaderAndFooter cardLight;
-@UI("#card-dark") // @FindBy(css = "#card-dark")
-public static CardWithHeaderAndFooter cardDark;
+public static CardStyled cardBrightBlue;
 
-@DataProvider(name = "cardColors")
-public static Object[][] cardColors() {
-    return new Object[][]{
-            {cardBrightBlue, "bg-primary", "rgba(0, 123, 255, 1)"},
-            {cardGrey, "bg-secondary", "rgba(108, 117, 125, 1)"},
-            {cardGreen, "bg-success", "rgba(40, 167, 69, 1)"},
-            {cardRed, "bg-danger", "rgba(220, 53, 69, 1)"},
-            {cardYellow, "bg-warning", "rgba(255, 193, 7, 1)"},
-            {cardBlue, "bg-info", "rgba(23, 162, 184, 1)"},
-            {cardLight, "bg-light", "rgba(248, 249, 250, 1)"},
-            {cardDark, "bg-dark", "rgba(52, 58, 64, 1)"},
-    };
+public class CardStyled extends Card {
+    @UI(".card-header") public Text header;
+    @UI(".card-title") public Text title;
+    @UI(".card-text") public Text body;
 }
 
 @Test(dataProvider = "cardColors")
@@ -14479,34 +14859,44 @@ public void checkColorCardsTest(CardWithHeaderAndFooter card, String cssClass, S
 }
 ```
 
+```html 
+<div class="card text-white bg-primary mb-3" style="max-width: 18rem;" id="card-bright-blue">
+  <div class="card-header">Header</div>
+  <div class="card-body">
+    <h5 class="card-title">Primary card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up
+      the bulk of the card's content.</p>
+  </div>
+</div>
+```
+
 ![Card Background And Color Code](../images/bootstrap/cardbackgroundandcolor-html.png)
 
-Card Navigation is represented by Section class in Java:
+Card is represented by Section class in Java:
 
-+ [Section](https://jdi-docs.github.io/jdi-light/#section)
+[Section](https://jdi-docs.github.io/jdi-light/#section)
 
-Inner elements of Card Navigation can be represented by the following classes:
+Inner elements of Card Background Color can be represented by the following classes:
 
-+ [Text](https://jdi-docs.github.io/jdi-light/#text)  
-+ [Button](https://jdi-docs.github.io/jdi-light/#button)
-+ [Link](https://jdi-docs.github.io/jdi-light/#link)
-+ [Menu](https://jdi-docs.github.io/jdi-light/#menu)
+- [Text](https://jdi-docs.github.io/jdi-light/#text)  
+- [Button](https://jdi-docs.github.io/jdi-light/#button)
 
 Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**is()** |	Assert action |	UIAssert
+**is()** | Assert action | UIAssert
 **displayed()** | Check that element is displayed | TextAssert
 **css()** | Get element css value | String
-**assertThat()** |	Assert action |	UIAssert
+**assertThat()** | Assert action | UIAssert
 
-<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardBackgroundAndColorTests.java" target="_blank">Bootstrap test examples</a>
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardBackgroundAndColorTests.java)
 
 #### Card Border
 
-Use <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/card/#border">border</a> utilities to change just the border-color of a card. 
-Note that you can put .text-{color} classes on the parent .card or a subset of the card’s contents as shown below.
+[Card Border](https://getbootstrap.com/docs/4.3/components/card/#border) - use border utilities to change just the
+border-color of a card. Note that you can put `.text-{color}` classes on the parent `.card` or a subset of the card’s
+contents as shown below.
 
 ![Card Borders Example](../images/bootstrap/cardborders.png)
 
@@ -14514,10 +14904,10 @@ Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
 @UI("#card-border-primary") // @FindBy(css = "#card-border-primatry")
-public static CardBorder cardBorderPrimary;
+public static CardStyled cardBorderPrimary;
 
-public class CardBorder extends Card {
-    @UI(".card-header") public Text border;
+public class CardStyled extends Card {
+    @UI(".card-header") public Text header;
     @UI(".card-title") public Text title;
     @UI(".card-text") public Text body;
 }
@@ -14536,26 +14926,41 @@ public void getHeaderTextTest(CardBorder cardBorder, String headerText) {
 }
 ```
 
+```html 
+<div class="card border-primary mb-3" id="card-border-primary" style="max-width: 18rem;">
+  <div class="card-header">Card with primary border</div>
+  <div class="card-body text-primary">
+    <h5 class="card-title">Primary card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up
+      the bulk of the card's content.</p>
+  </div>
+</div>
+```
 ![Card Borders Example Code](../images/bootstrap/cardborders-html.png)
 
+Card is represented by Section class in Java:
+
+[Section](https://jdi-docs.github.io/jdi-light/#section)
+
 Inner elements of Card Border represented by the following classes:
+
 [Text](https://jdi-docs.github.io/jdi-light/#text)
 
 Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**is()** |	Assert action |	UIAssert
+**is()** | Assert action | UIAssert
 **text()** | Assert text | TextAssert
 **css()** | Get element css value | String
-**assertThat()** |	Assert action |	UIAssert
+**assertThat()** | Assert action | UIAssert
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardBorderTests.java)
 
 #### Card Mixins Utilities
-  
-You can also <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/card/#mixins-utilities">change</a> the borders on the card header and footer as needed, and even remove their background-color
-with .bg-transparent.
+
+[Card Mixins Utilities](https://getbootstrap.com/docs/4.3/components/card/#mixins-utilities) - you can also change
+the borders on the card header and footer as needed, and even remove their background-color with `.bg-transparent`.
 
 ![Card Mixins Utilities Example](../images/bootstrap/card-mixins-utilities.png)
 
@@ -14584,25 +14989,47 @@ public void isValidationTest() {
 }
 ```
 
+```html 
+<div class="card border-success mb-3" id="card-mixins-utilities" style="max-width: 18rem;">
+  <div class="card-header bg-transparent border-success">According To Samuel L. Jackson
+  </div>
+  <div class="card-body text-success">
+    <h5 class="card-title">The Secret To Marvel Studios’ Success</h5>
+    <p class="card-text">Because while the Marvel Cinematic Universe always includes
+      plenty of spectacle and pulse pounding action, each blockbuster tells a very
+      human story. The heroes of the world are flawed and funny, allowing audiences to
+      connect with characters who are super powered and dealing with situations we
+      truly can't comprehend.</p>
+  </div>
+  <div class="card-footer bg-transparent border-success">For Cinema Blend</div>
+</div>
+```
+
 ![Card Mixins Utilities Example Code](../images/bootstrap/card-mixins-utilities-html.png)
 
+Card is represented by Section class in Java:
+
+[Section](https://jdi-docs.github.io/jdi-light/#section)
+
 Inner elements of Card Mixing Utilities represented by the following classes:
+
 [Text](https://jdi-docs.github.io/jdi-light/#text)
 
 Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**is()** |	Assert action |	UIAssert
+**is()** | Assert action | UIAssert
 **text()** | Assert text | TextAssert
 **css()** | Get element css value | String
-**assertThat()** |	Assert action |	UIAssert
+**assertThat()** | Assert action | UIAssert
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardMixinsUtilitiesTests.java)
 
 #### Card groups
 
-Use <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/card/#card-groups" target="_blank">card groups</a> to render cards as a single, attached element with equal width and height columns.
+[Card groups](https://getbootstrap.com/docs/4.3/components/card/#card-groups) - use card groups to render cards as
+a single, attached element with equal width and height columns.
 
 ![Card_groups example](../images/bootstrap/card-groups.png)
 
@@ -14625,10 +15052,13 @@ public class CardGrouped extends Card {
     @UI(".card-footer small") public Text footerText;
 }
 
+private String card1ImageSrc = "https://jdi-testing.github.io/jdi-light/images/spider-man.jpg";
+private String card2ImageSrc = "https://jdi-testing.github.io/jdi-light/images/hulk.jpg";
+private String card1ImageAlt = "spider-man";
+private String card2ImageAlt = "hulk";
+
 @Test
 public void getSrcTest() {
-    assertEquals(cardGroupSectionWithoutFooter.card1.image.src(), card1ImageSrc);
-    assertEquals(cardGroupSectionWithoutFooter.card2.image.src(), card2ImageSrc);
     assertEquals(cardGroupSectionWithoutFooter.card1.image.src(), card1ImageSrc);
     assertEquals(cardGroupSectionWithoutFooter.card2.image.src(), card2ImageSrc);
 }
@@ -14637,9 +15067,33 @@ public void getSrcTest() {
 public void getAltTest() {
     assertEquals(cardGroupSectionWithoutFooter.card1.image.alt(), card1ImageAlt);
     assertEquals(cardGroupSectionWithoutFooter.card2.image.alt(), card2ImageAlt);
-    assertEquals(cardGroupSectionWithoutFooter.card1.image.alt(), card1ImageAlt);
-    assertEquals(cardGroupSectionWithoutFooter.card2.image.alt(), card2ImageAlt);
 }
+```
+
+```html 
+<div class="card-group" style="margin-bottom: 10px;">
+  <div class="card">
+    <p style="text-align: center;"><img src="images/spider-man.jpg" class="card-img-top" alt="spider-man"
+        style="width: 75px; height: 120px;"></p>
+    <div class="card-body">
+      <h5 class="card-title">Spider man</h5>
+      <p class="card-text">Spider-Man is a fictional superhero created by
+        writer-editor Stan Lee and writer-artist Steve Ditko.</p>
+      <p class="card-text"><small class="text-muted">Peter Parker</small></p>
+    </div>
+  </div>
+  <div class="card">
+    <p style="text-align: center;"><img src="images/hulk.jpg" class="card-img-top" alt="hulk"
+        style="width: 98px; height: 120px;">
+    </p>
+    <div class="card-body">
+      <h5 class="card-title">Hulk</h5>
+      <p class="card-text">The Hulk is a fictional superhero appearing in publications
+        by the American publisher Marvel Comics.</p>
+      <p class="card-text"><small class="text-muted">Bruce Banner</small></p>
+    </div>
+  </div>
+</div>
 ```
 
 ![Card_groups HTML example](../images/bootstrap/card-groups-html.png)
@@ -14667,51 +15121,81 @@ public class CardGrouped extends Card {
     @UI(".card-footer small") public Text footerText;
 }
 
+private String card1ImageSrc = "https://jdi-testing.github.io/jdi-light/images/spider-man.jpg";
+private String card2ImageSrc = "https://jdi-testing.github.io/jdi-light/images/hulk.jpg";
+private String card1ImageAlt = "spider-man";
+private String card2ImageAlt = "hulk";
+
 @Test
 public void getSrcTest() {
-    assertEquals(cardGroupWithoutFooter.card1.image.src(), card1ImageSrc);
-    assertEquals(cardGroupWithoutFooter.card2.image.src(), card2ImageSrc);
     assertEquals(cardGroupWithFooter.card1.image.src(), card1ImageSrc);
     assertEquals(cardGroupWithFooter.card2.image.src(), card2ImageSrc);
 }
 
 @Test
 public void getAltTest() {
-    assertEquals(cardGroupWithoutFooter.card1.image.alt(), card1ImageAlt);
-    assertEquals(cardGroupWithoutFooter.card2.image.alt(), card2ImageAlt);
     assertEquals(cardGroupWithFooter.card1.image.alt(), card1ImageAlt);
     assertEquals(cardGroupWithFooter.card2.image.alt(), card2ImageAlt);
 }
 ```
 
+```html 
+<div class="card-group" style="margin-bottom: 10px;">
+  <div class="card">
+    <p style="text-align: center;"><img src="images/spider-man.jpg" class="card-img-top" alt="spider-man"
+        style="width: 75px; height: 120px;"></p>
+    <div class="card-body">
+      <h5 class="card-title">Spider man</h5>
+      <p class="card-text">Spider-Man is a fictional superhero created by
+        writer-editor Stan Lee and writer-artist Steve Ditko.</p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">Peter Parker</small>
+    </div>
+  </div>
+  <div class="card">
+    <p style="text-align: center;"><img src="images/hulk.jpg" class="card-img-top" alt="hulk"
+        style="width: 98px; height: 120px;">
+    </p>
+    <div class="card-body">
+      <h5 class="card-title">Hulk</h5>
+      <p class="card-text">The Hulk is a fictional superhero appearing in publications
+        by the American publisher Marvel Comics.</p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">Bruce Banner</small>
+    </div>
+  </div>
+</div>
+```
+
 ![Card_groups HTML example](../images/bootstrap/card-groups-with-footer-html.png)
 
-Card groups are represented by Section class in Java:
- <ul>
- <li>[Section](https://jdi-docs.github.io/jdi-light/#section)</li>
- </ul>
+Card is represented by Section class in Java:
 
-Inner elements of Card groups can be represented by the following classes:
-<ul>
-<li>[Text](https://jdi-docs.github.io/jdi-light/#text)</li>
-<li>[Image](https://jdi-docs.github.io/jdi-light/#image)</li>
-</ul>
-  
+[Section](https://jdi-docs.github.io/jdi-light/#section)
+
+Inner elements of Card Grouped represented by the following classes:
+
+- [Text](https://jdi-docs.github.io/jdi-light/#text)
+- [Image](https://jdi-docs.github.io/jdi-light/#image)
+
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardGroupsTests.java)
 
 #### Card decks
 
-Use <a style="font-weight: bold;" href="https://getbootstrap.com/docs/4.3/components/card/#card-decks" target="_blank">card decks</a> for a set of equal width and height cards that aren’t attached to one another.
+[Card decks](https://getbootstrap.com/docs/4.3/components/card/#card-decks) - use card decks for a set of equal width
+and height cards that aren't attached to one another.
 
 ![Card_decks example](../images/bootstrap/card-decks.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
-@UI(".card-group:nth-of-type(1)") // @FindBy(css = ".card-deck:nth-of-type(1)")
-public static CardGroupSection cardGroupSectionWithoutFooter;
+@UI(".card-deck:nth-of-type(1)") // @FindBy(css = ".card-deck:nth-of-type(1)")
+public static CardDeckSection cardDeckSectionWithoutFooter;
 
-public class CardGroupSection extends Section {
+public class CardDeckSection extends Section {
     @UI(".card:nth-of-type(1)") public CardGrouped card1;
     @UI(".card:nth-of-type(2)") public CardGrouped card2;
 }
@@ -14724,54 +15208,64 @@ public class CardGrouped extends Card {
     @UI(".card-footer small") public Text footerText;
 }
 
-private String card1Title = "SPIDER MAN";
-private String card2Title = "HULK";
-private String card1ImageSrc = "https://jdi-testing.github.io/jdi-light/images/spider-man.jpg";
-private String card2ImageSrc = "https://jdi-testing.github.io/jdi-light/images/hulk.jpg";
-private String card1ImageAlt = "spider-man";
-private String card2ImageAlt = "hulk";
-private String card1MainText = "Spider-Man is a fictional superhero created by writer-editor Stan Lee and writer-artist Steve Ditko.";
-private String card2MainText = "The Hulk is a fictional superhero appearing in publications by the American publisher Marvel Comics.";
-private String card1HeroName = "Peter Parker";
-private String card2HeroName = "Bruce Banner";
+private static final String card1Title = "SPIDER MAN";
+private static final String card2Title = "HULK";
+private static final String card1MainText = "Spider-Man is a fictional superhero created by writer-editor Stan Lee and writer-artist Steve Ditko.";
+private static final String card2MainText = "The Hulk is a fictional superhero appearing in publications by the American publisher Marvel Comics.";
 
 @Test
-public void isValidationTest() {
-    cardGroupSectionWithoutFooter.highlight();
-    cardGroupSectionWithoutFooter.card1.title.is().text(card1Title);
-    cardGroupSectionWithoutFooter.card2.title.is().text(card2Title);
-    cardGroupSectionWithoutFooter.card1.image.is().src(card1ImageSrc);
-    cardGroupSectionWithoutFooter.card2.image.is().src(card2ImageSrc);
-    cardGroupSectionWithoutFooter.card1.image.is().alt(card1ImageAlt);
-    cardGroupSectionWithoutFooter.card2.image.is().alt(card2ImageAlt);
-    cardGroupSectionWithoutFooter.card1.mainText.is().text(card1MainText);
-    cardGroupSectionWithoutFooter.card2.mainText.is().text(card2MainText);
-    cardGroupSectionWithoutFooter.card1.mutedText.is().text(card1HeroName);
-    cardGroupSectionWithoutFooter.card2.mutedText.is().text(card2HeroName);
+public void getTitleTextTest() {
+    cardDeckSectionWithoutFooter.highlight();
+    assertEquals(cardDeckSectionWithoutFooter.card1.title.getText(), card1Title);
+    assertEquals(cardDeckSectionWithoutFooter.card2.title.getText(), card2Title);
+}
+
+@Test
+public void getMainTextTest() {
+    cardDeckSectionWithoutFooter.highlight();
+    assertEquals(cardDeckSectionWithoutFooter.card1.mainText.getText(), card1MainText);
+    assertEquals(cardDeckSectionWithoutFooter.card2.mainText.getText(), card2MainText);
 }
 ```
-  
+
+```html 
+<div class="card-deck" style="margin-bottom: 10px;">
+  <div class="card">
+    <p style="text-align: center;"><img src="images/spider-man.jpg" class="card-img-top" alt="spider-man"
+        style="width: 75px; height: 120px;"></p>
+    <div class="card-body">
+      <h5 class="card-title">Spider man</h5>
+      <p class="card-text">Spider-Man is a fictional superhero created by
+        writer-editor Stan Lee and writer-artist Steve Ditko.</p>
+      <p class="card-text"><small class="text-muted">Peter Parker</small></p>
+    </div>
+  </div>
+  <div class="card">
+    <p style="text-align: center;"><img src="images/hulk.jpg" class="card-img-top" alt="hulk"
+        style="width: 98px; height: 120px;">
+    </p>
+    <div class="card-body">
+      <h5 class="card-title">Hulk</h5>
+      <p class="card-text">The Hulk is a fictional superhero appearing in publications
+        by the American publisher Marvel Comics.</p>
+      <p class="card-text"><small class="text-muted">Bruce Banner</small></p>
+    </div>
+  </div>
+</div>
+```
+
 ![Card_decks HTML example](../images/bootstrap/card-decks-html.png)
-
-Card Decks are represented by Section class in Java:
-
-+ [Section](https://jdi-docs.github.io/jdi-light/#section)
-
-Inner elements of Card Decks can be represented by the following classes:
-
-+ [Text](https://jdi-docs.github.io/jdi-light/#text)  
-+ [Image](https://jdi-docs.github.io/jdi-light/#image)
-
 
 ##### Card decks with footer
 
-![Card_groups example](../images/bootstrap/card-decks-with-footer.png)
+![Card_decks example](../images/bootstrap/card-decks-with-footer.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
-@UI(".card-group:nth-of-type(2)") // @FindBy(css = ".card-deck:nth-of-type(2)")
-public static CardGroupSection cardGroupSectionWithFooter;
+
+@UI(".card-deck:nth-of-type(2)") // @FindBy(css = ".card-deck:nth-of-type(2)")
+public static CardDeckSection cardDeckSectionWithFooter;
 
 public class CardGroupSection extends Section {
     @UI(".card:nth-of-type(1)") public CardGrouped card1;
@@ -14786,34 +15280,65 @@ public class CardGrouped extends Card {
     @UI(".card-footer small") public Text footerText;
 }
 
-private String card1Title = "SPIDER MAN";
-private String card2Title = "HULK";
-private String card1ImageSrc = "https://jdi-testing.github.io/jdi-light/images/spider-man.jpg";
-private String card2ImageSrc = "https://jdi-testing.github.io/jdi-light/images/hulk.jpg";
-private String card1ImageAlt = "spider-man";
-private String card2ImageAlt = "hulk";
-private String card1MainText = "Spider-Man is a fictional superhero created by writer-editor Stan Lee and writer-artist Steve Ditko.";
-private String card2MainText = "The Hulk is a fictional superhero appearing in publications by the American publisher Marvel Comics.";
-private String card1HeroName = "Peter Parker";
-private String card2HeroName = "Bruce Banner";
+private static final String card1Title = "SPIDER MAN";
+private static final String card2Title = "HULK";
+private static final String card1MainText = "Spider-Man is a fictional superhero created by writer-editor Stan Lee and writer-artist Steve Ditko.";
+private static final String card2MainText = "The Hulk is a fictional superhero appearing in publications by the American publisher Marvel Comics.";
 
 @Test
-public void isValidationTest() {
-    cardGroupSectionWithFooter.highlight();
-    cardGroupSectionWithFooter.card1.title.is().text(card1Title);
-    cardGroupSectionWithFooter.card2.title.is().text(card2Title);
-    cardGroupSectionWithFooter.card1.image.is().src(card1ImageSrc);
-    cardGroupSectionWithFooter.card2.image.is().src(card2ImageSrc);
-    cardGroupSectionWithFooter.card1.image.is().alt(card1ImageAlt);
-    cardGroupSectionWithFooter.card2.image.is().alt(card2ImageAlt);
-    cardGroupSectionWithFooter.card1.mainText.is().text(card1MainText);
-    cardGroupSectionWithFooter.card2.mainText.is().text(card2MainText);
-    cardGroupSectionWithFooter.card1.footerText.is().text(card1HeroName);
-    cardGroupSectionWithFooter.card2.footerText.is().text(card2HeroName);
+public void getTitleTextTest() {
+    cardDeckSectionWithFooter.highlight();
+    assertEquals(cardDeckSectionWithFooter.card1.title.getText(), card1Title);
+    assertEquals(cardDeckSectionWithFooter.card2.title.getText(), card2Title);
 }
+
+@Test
+public void getMainTextTest() {
+    cardDeckSectionWithFooter.highlight();
+    assertEquals(cardDeckSectionWithFooter.card1.mainText.getText(), card1MainText);
+    assertEquals(cardDeckSectionWithFooter.card2.mainText.getText(), card2MainText);
 ```
-  
-![Card_groups HTML example](../images/bootstrap/card-decks-with-footer-html.png)
+
+```html 
+<div class="card-deck" style="margin-bottom: 10px;">
+  <div class="card">
+    <p style="text-align: center;"><img src="images/spider-man.jpg" class="card-img-top" alt="spider-man"
+        style="width: 75px; height: 120px;"></p>
+    <div class="card-body">
+      <h5 class="card-title">Spider man</h5>
+      <p class="card-text">Spider-Man is a fictional superhero created by
+        writer-editor Stan Lee and writer-artist Steve Ditko.</p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">Peter Parker</small>
+    </div>
+  </div>
+  <div class="card">
+    <p style="text-align: center;"><img src="images/hulk.jpg" class="card-img-top" alt="hulk"
+        style="width: 98px; height: 120px;">
+    </p>
+    <div class="card-body">
+      <h5 class="card-title">Hulk</h5>
+      <p class="card-text">The Hulk is a fictional superhero appearing in publications
+        by the American publisher Marvel Comics.</p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">Bruce Banner</small>
+    </div>
+  </div>
+</div>
+```
+
+![Card_decks HTML example](../images/bootstrap/card-decks-with-footer-html.png)
+
+Card are represented by Section class in Java:
+
+[Section](https://jdi-docs.github.io/jdi-light/#section)
+
+Inner elements of Card Grouped can be represented by the following classes:
+
+- [Text](https://jdi-docs.github.io/jdi-light/#text)  
+- [Image](https://jdi-docs.github.io/jdi-light/#image)
 
 Available methods in Java JDI Light:
 
@@ -14828,14 +15353,15 @@ Available methods in Java JDI Light:
 **src()** | Get image source path | String
 **alt()** | Get image alt() value | String
 
-<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardDeckTests.java" target="_blank">Bootstrap test examples</a>
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardDeckTests.java)
 
 #### Card Columns
 
-<a href="https://getbootstrap.com/docs/4.3/components/card/#card-columns" target="a_blank">Card columns </a>can also be extended and customized with some additional code. 
-For example .card-columns class to generate a set of responsive tiers for changing the number of columns.
+[Card Columns](https://getbootstrap.com/docs/4.3/components/card/#card-columns) can also be extended and customized
+with some additional code. For example `.card-columns` class to generate a set of responsive tiers for changing
+the number of columns.
  
- ![Card Columns Example](../images/bootstrap/card-columns.png)
+![Card Columns Example](../images/bootstrap/card-columns.png)
  
 Here is an example with provided Bootstrap v4.3 code:
  
@@ -14861,45 +15387,95 @@ public class CardWithinCardColumns extends Card {
 
 @Test
 public void checkElementsPositionTest() {
-    assertTrue(cardColumns.topLeftCard.core().getLocation().x < cardColumns.topRightCard.core().getLocation().x);
-    assertTrue(cardColumns.topLeftCard.core().getLocation().y < cardColumns.bottomLeftCard.core().getLocation().y);
-    assertTrue(cardColumns.topRightCard.core().getLocation().y < cardColumns.middleRightCard.core().getLocation().y);
-    assertTrue(cardColumns.middleRightCard.core().getLocation().y < cardColumns.bottomRightCard.core().getLocation().y);
-    assertTrue(cardColumns.bottomLeftCard.core().getreLocation().x < cardColumns.bottomRightCard.core().getLocation().x);
-    assertTrue(cardColumns.bottomLeftCard.core().getLocation().x < cardColumns.middleRightCard.core().getLocation().x);
+    assertTrue(cardColumnsSection.topLeftCard.core().getLocation().x <
+            cardColumnsSection.topRightCard.core().getLocation().x);
+    assertTrue(cardColumnsSection.topLeftCard.core().getLocation().y <
+            cardColumnsSection.bottomLeftCard.core().getLocation().y);
+    assertTrue(cardColumnsSection.topRightCard.core().getLocation().y <
+            cardColumnsSection.middleRightCard.core().getLocation().y);
+    assertTrue(cardColumnsSection.middleRightCard.core().getLocation().y <
+            cardColumnsSection.bottomRightCard.core().getLocation().y);
+    assertTrue(cardColumnsSection.bottomLeftCard.core().getLocation().x <
+            cardColumnsSection.bottomRightCard.core().getLocation().x);
+    assertTrue(cardColumnsSection.bottomLeftCard.core().getLocation().x <
+            cardColumnsSection.middleRightCard.core().getLocation().x);
 }
 ```
- 
- ![Card Columns Example Code](../images/bootstrap/card-columns-html.png)
- 
-Card columns are represented by Section class in Java:
-<ul>
-<li>[Section](https://jdi-docs.github.io/jdi-light/#section)</li>
-</ul>
 
-Inner elements of Card columns can be represented by the following classes:
-<ul>
-<li>[Text](https://jdi-docs.github.io/jdi-light/#text)</li>
-<li>[Image](https://jdi-docs.github.io/jdi-light/#image)</li>
-</ul>
+```html 
+<div class="card-columns" style="column-count: 2">
+  <div class="card p-3">
+    <blockquote class="blockquote mb-0 card-body">
+      <p>I don’t want to go.</p>
+      <footer class="blockquote-footer">
+        <small class="text-muted">
+          Peter Parker in <cite title="Source Title">Avengers</cite>
+        </small>
+      </footer>
+    </blockquote>
+  </div>
+  <div class="card">
+    <img src="images/hulk.jpg" class="card-img-top" alt="hulk">
+    <div class="card-body">
+      <h5 class="card-title">Who is Hulk?</h5>
+      <p class="card-text">..A monster man who took "Go Green" too seriously.</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small>
+      </p>
+    </div>
+  </div>
+  <div class="card bg-primary text-white text-center p-3">
+    <blockquote class="blockquote mb-0">
+      <p>If toast is cut diagonally, I can’t eat it.</p>
+      <footer class="blockquote-footer text-white">
+        <small>
+          Nick Fury in <cite title="Source Title">Captain Marvel</cite>
+        </small>
+      </footer>
+    </blockquote>
+  </div>
+  <div class="card text-center">
+    <div class="card-body">
+      <h5 class="card-title">Iron Man</h5>
+      <p class="card-text">I do anything and everything that Mr. Stark requires —
+        including occasionally taking out the trash.</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small>
+      </p>
+    </div>
+  </div>
+  <div class="card">
+    <img src="images/punisher.jpg" class="card-img-top" alt="punisher">
+  </div>
+</div>
+```
+
+![Card Columns Example Code](../images/bootstrap/card-columns-html.png)
+
+Card are represented by Section class in Java:
+
+[Section](https://jdi-docs.github.io/jdi-light/#section)
+
+Inner elements of Card Columns can be represented by the following classes:
+
+- [Text](https://jdi-docs.github.io/jdi-light/#text)  
+- [Image](https://jdi-docs.github.io/jdi-light/#image)
 
 Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**getText()**| Returns text  | String
-**is()** |	Assert action |	UIAssert
-**assertThat()** |	Assert action |	UIAssert
-**src()** |	Assert image src |	ImageAssert
-**alt()** |	Assert alt image attribute |	ImageAssert
-**width()** |	Assert image width |	ImageAssert
-**height()** |	Assert image height |	ImageAssert
-   
+**getText()**| Returns text | String
+**is()** | Assert action | UIAssert
+**assertThat()** |	Assert action | UIAssert
+**src()** | Assert image src | ImageAssert
+**alt()** | Assert alt image attribute | ImageAssert
+**width()** | Assert image width | ImageAssert
+**height()** | Assert image height | ImageAssert
+
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardColumnsTests.java)
 
 ### Jumbotron
 
-<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.0/components/jumbotron" target="_blank">Jumbotron</a> – Lightweight, flexible component for showcasing hero
+[Jumbotron](https://getbootstrap.com/docs/4.3/components/jumbotron) – Lightweight, flexible component for showcasing hero
 
 ![Jumbotron](../images/bootstrap/jumbotron.png)
 
@@ -14931,23 +15507,20 @@ public void clickTest() {
     driver.switchTo().window(tabs.get(0));
 } 
 ```
-  
+
 ![Jumbotron example](../images/bootstrap/jumbotron-html.png)
 
 Jumbotron is represented by Section class in Java:
- 
-  [Section](https://jdi-docs.github.io/jdi-light/#section)
-  
+
+[Section](https://jdi-docs.github.io/jdi-light/#section)
+
 Inner elements of jumbotron can be represented by the following classes:
 
-  - [Text](https://jdi-docs.github.io/jdi-light/#text)
-  
-  - [Button](https://jdi-docs.github.io/jdi-light/#button)
-  
-  - [Label](https://jdi-docs.github.io/jdi-light/#label)
-  
-  - [Link](https://jdi-docs.github.io/jdi-light/#link)
-  
+- [Text](https://jdi-docs.github.io/jdi-light/#text)
+- [Button](https://jdi-docs.github.io/jdi-light/#button)
+- [Label](https://jdi-docs.github.io/jdi-light/#label)
+- [Link](https://jdi-docs.github.io/jdi-light/#link)
+
 [See more elements](https://jdi-docs.github.io/jdi-light/#html5-common-elements)
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/jumbotron)
@@ -15005,8 +15578,8 @@ Additional methods available for DropdownMenu class in Java JDI Light:
 **itemValues(String... values)** | Asserts whether dropdown are exactly match arguments  | DropdownMenuAssert
 **hasItems(String... values)** | Asserts whether dropdown has all items from arguments | DropdownMenuAssert
 
-#### <a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#single-button">Single button</a>
-Any single ``.btn`` can be turned into a dropdown toggle with some markup changes. Here’s how you can put them to work with either `<button>` elements:
+#### [Single button](https://getbootstrap.com/docs/4.3/components/dropdowns/#single-button)
+Any single `.btn` can be turned into a dropdown toggle with some markup changes. Here’s how you can put them to work with either `<button>` elements:
 
 ![Dropdown example](../images/bootstrap/dropdown.png)
 
@@ -16073,7 +16646,7 @@ Note: domain is read from test.properties automatically. <br><br><br><br><br>
 
 ### Label 
 
-```
+```gherkin
 Label action examples:
 
 When I click on "JDI Title"
@@ -16120,7 +16693,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 
 ### ColorPicker
 
-```
+```gherkin
 ColorPicker action example:
 
 When I set "Color Picker" to "#00FF00" color
@@ -16173,7 +16746,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 
 ### DropDown
 
-```
+```gherkin
 DropDown action example:
 
 When I Select "Pirate" field from "Drop Down"
@@ -16222,10 +16795,10 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 
 ### Image
 
-````
+````gherkin
 Image validation examples:
 
-  Then the "Jdi Logo" attribute "src" equals to "https://jdi-testing.github.io/jdi-light/images/jdi-logo.jpg"
+  Then the "Jdi Logo" attribute "src" equals to "https;//jdi-testing.github.io/jdi-light/images/jdi-logo.jpg"
   Then the "Jdi Logo" attribute "alt" equals to "Jdi Logo 2"
   Then the "Jdi Logo" attribute "src" contains "jdi-logo.jpg"
   Then the "Jdi Logo" attribute "height" contains "100"
@@ -16267,10 +16840,10 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi
 
 ### Icon
 
-````
+````gherkin
 Image validation examples:
 
-  Then the "Jdi Logo" attribute "src" equals to "https://jdi-testing.github.io/jdi-light/images/jdi-logo.jpg"
+  Then the "Jdi Logo" attribute "src" equals to "http;//jdi-testing.github.io/jdi-light/images/jdi-logo.jpg"
   Then the "Jdi Logo" attribute "alt" equals to "Jdi Logo 2"
   Then the "Jdi Logo" attribute "src" contains "jdi-logo.jpg"
   Then the "Jdi Logo" attribute "height" contains "100"
@@ -16312,7 +16885,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 ### Alert
 
-````
+````gherkin
 Alert action examples:
 
   When I accept alert
@@ -16362,7 +16935,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 
 ### FileInput
 
-```
+```gherkin
 FileInput action examples:
 
 When I upload file "/res/general.xml" by "Avatar" file input element
@@ -16371,9 +16944,9 @@ When try to upload file "/res/general.xml" by "File Input" file input element
 
 FileInput validation examples:
 
-Then the "Avatar" file input element label equals to "Profile picture:"
+Then the "Avatar" file input element label equals to "Profile picture"
 Then the "Avatar" file input element label contains "picture"
-Then the "Avatar" file input element text equals to "C:\fakepath\general.xml"
+Then the "Avatar" file input element text equals to "fakepath\general.xml"
 Then the "Avatar" file input element text contains "general.xml"
 Then the "Avatar" attribute "id" equals to "avatar"
 Then "File Input" is enabled
@@ -16424,7 +16997,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 
 ### Link 
 
-```
+```gherkin
 Link action examples:
 
 When I click on "Github Link"
@@ -16441,7 +17014,7 @@ Actions: <br>
 **When** \<I\> show "\<ELEMENT NAME\>" <br>
 **When** \<I\> set "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" with value "\<ATTRIBUTE NAME\>" <br><br><br><br>
 
-```
+```gherkin
 Link validation examples:
 
 Then the "Github Link" is enabled
@@ -16452,14 +17025,14 @@ Then the "Github Link" URL path equals to "/jdi-testing"
 Then the "Github Link" text equals to "Github JDI"
 Then the "Github Link" text contains "JDI"
 Then the "Github Link" text matches to "[a-zA-Z]{6} JE*DI"
-Then the "Github Link" reference equals to "https://github.com/jdi-testing"
+Then the "Github Link" reference equals to "https//github.com/jdi-testing"
 Then the "Github Link" reference contains "github"
-Then the "Github Link" reference matches to "https://github.com/.*"
+Then the "Github Link" reference matches to "https//github.com/.*"
 Then the "Github Link" alternative text equals to "Github JDI Link"
 Then the "Github Link" alternative text contains "JDI"
 Then the "Github Link" alternative text matches to "Git.* JE*DI Link"
 Then the "Github Link" attribute "alt" equals to "Github JDI Link"
-Then the "Github Link" attribute "href" contains "https://github.com"
+Then the "Github Link" attribute "href" contains "https//github.com"
 Then the "Github Link" attribute "ui" matches to "github.link"
 Then the "Github Link" does not appear
 Then the "Github Link" does not appear during "5" seconds
@@ -16469,7 +17042,7 @@ Scenario examples for Link:
   Scenario: Click link test
      Given I open "Html5 Page"
      When click on "Github Link"
-     Then the current URL is "https://github.com/jdi-testing"
+     Then the current URL is "https//github.com/jdi-testing"
     
   Scenario: Link alternative text matching to RegExp
      Given I open "Html5 Page"
@@ -16507,7 +17080,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi
 <br><br><br>
 ### Button
 
-```
+```gherkin
 Button action examples:
 
 When I click on "Red Button" 
@@ -16540,15 +17113,15 @@ Then the "Red Button" attribute "type" equals to "button"
 Scenario example for Button:
 
   Given I open "Home Page" page
-   Then the "Red Button" is displayed
-    And the "Red Button" is enabled
-    And the "Red Button" text equals to "Big Red Button-Input"
-    And the "Red Button" text contains "Red Button"
-    And the "Red Button" css "font-size" equals to "14px"
-    And the "Red Button" attribute "type" equals to "button"
-    And the "Disabled Button" is disabled
-   When click on "Blue Button"
-   Then the alert text equals to "Blue button"
+  Then the "Red Button" is displayed
+  And the "Red Button" is enabled
+  And the "Red Button" text equals to "Big Red Button-Input"
+  And the "Red Button" text contains "Red Button"
+  And the "Red Button" css "font-size" equals to "14px"
+  And the "Red Button" attribute "type" equals to "button"
+  And the "Disabled Button" is disabled
+  When click on "Blue Button"
+  Then the alert text equals to "Blue button"
    
 ```
 
@@ -16586,7 +17159,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 <br>
 ### DateTimeSelector
 
-```
+```gherkin
 DateTimeSelector action example:
 
 When I set date "2018-11-13" in "Birth Date"
@@ -16644,7 +17217,7 @@ There are BDD test examples for Input Type Date derivatives:<br>
 
 ### Checkbox  
 
-```
+```gherkin
 Checkbox action examples:
 
 When check "Accept Conditions"
@@ -16704,7 +17277,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 <br><br><br><br><br><br><br><br>
 ### Progress Bar
   
-```
+```gherkin
 Progress Bar validation examples:
 
 Then the "Progress" attribute "max" equals to "110"
@@ -16751,10 +17324,10 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 
 ### Text
 
-```
+```gherkin
 Text validation examples:
 
-Then the "Jdi Text" text equals to "Powerful Framework for UI Tests Automation. Suitable for any UI project: Web(Html5, Angular, React...), Mobile(Android IOs), Desktop(Win app) etc."
+Then the "Jdi Text" text equals to "Powerful Framework for UI Tests Automation. Suitable for any UI project such as Web(Html5, Angular, React...), Mobile(Android IOs), Desktop(Win app) etc."
 Then the "Jdi Text" text contains "Powerful Framework for UI"
 Then the "Jdi Text" is enabled
 Then the "Jdi Text" text matches to ".+"
@@ -16801,7 +17374,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi
 
 ### ComboBox
 
-```
+```gherkin
 ComboBox action examples:
 
 When select "Coconut" field from "Ice Cream"
@@ -16880,7 +17453,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 ### DataList
 
 <p style="color:#FFA500">Note: this element is an alias for ComboBox</p>
-```
+```gherkin
 Datalist action examples:
 
 When select "Coconut" field from "Ice Cream"
@@ -16953,7 +17526,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 
 ### NumberSelector
 
-````
+````gherkin
 
 NumberSelector action examples:
 
@@ -16969,8 +17542,8 @@ NumberSelector action examples:
 
 NumberSelector validation examples:
 
-  Then the "Height" label text equals to "Height (metres):"
-  Then the "Height" label text contains "(metres):"
+  Then the "Height" label text equals to "Height (metres)"
+  Then the "Height" label text contains "(metres)"
   Then the "Height" label text label text matches to "\w{15}"
   Then the "Height" placeholder equals to "20 cm increments. Range [0.3,2.5]"
   Then the "Height" placeholder contains "20 cm"
@@ -17059,7 +17632,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 
 ### Range
 
-```
+```gherkin
 Range action examples:
 
   When I install "Volume" value to 5
@@ -17124,7 +17697,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 
 ### TextArea 
 
-```
+```gherkin
 TextArea actions examples:
 
 When I send keys "sent keys" to "Text Area"
@@ -17142,7 +17715,7 @@ When I input in the "Text Area" lines
 
 TextArea validations examples:
 
-Then the "Text Area" label text equals to "Text example:"
+Then the "Text Area" label text equals to "Text example"
 Then the "Text Area" label text contains "Text"
 Then the "Text Area" label text matches to "Text example."
 Then the "Text Area" placeholder equals to "Input huge text"
@@ -17242,7 +17815,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi
 
 ### Menu 
 
-```
+```gherkin
 Menu actions examples:
 
 When I select "Contact form" in "Left Menu" menu
@@ -17265,7 +17838,7 @@ Scenario examples for Menu:
   Scenario: Select items test
     Given I open "Html5 Page"
     When I check "Accept Conditions"
-    When select items in "Left Menu" menu:
+    When select items in "Left Menu" menu
      | Service |
      | Dates   |
     Then the "Dates Page" page is opened
@@ -17310,7 +17883,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi
 <br>
 <br>
 ### TextField
-```
+```gherkin
 TextField action example:
 
 When I send keys "Lorem" to "Name"
@@ -17364,12 +17937,12 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 <br>
 
 ### MultiSelector
-```
+```gherkin
 MultiSelector actions examples:
 
- When I check in the "Multi Dropdown" values:
+ When I check in the "Multi Dropdown" values
       | Electro | Metalic |
- When I check in the "Multi Dropdown" values by number:
+ When I check in the "Multi Dropdown" values by number
       | 1 | 5 |
  When I check value "Steam" in the "Multi Dropdown"
 
@@ -17382,18 +17955,18 @@ Actions: <br>
   &nbsp;&nbsp;&nbsp;&nbsp;|\<GHERKIN DATA TABLE\>|<br>
  **When** \<I\> check value  \<ELEMENT NAME\>  in the  \<ELEMENT NAME\> <br>
 
-```
+```gherkin
 MultiSelector validation examples:
 
- Then the "Multi Dropdown" selected values:
+ Then the "Multi Dropdown" selected values
       | Electro | Wood |
  Then the "Multi Dropdown" selected value is "Steam"
  Then the "Multi Dropdown" values has item "Wood"
  Then the "Multi Dropdown" has disabled item "Disabled"
  Then the "Multi Dropdown" has no enabled item "Disabled"
- Then the "Multi Dropdown" has enabled items:
+ Then the "Multi Dropdown" has enabled items
       | Electro | Metalic |
- Then the "Multi Dropdown" contains items:
+ Then the "Multi Dropdown" contains items
       | Disabled | Wood | Steam | Electro | Metalic |
     
 Scenario: MultiSelector validation
@@ -17402,7 +17975,7 @@ Scenario: MultiSelector validation
     And the "Ages" values has item "Wood"
     And  the "Ages" has disabled item "Disabled"
     And the "Ages" has no enabled item "Disabled"
-    And the "Ages" has enabled items:
+    And the "Ages" has enabled items
       | Electro | Metalic |
 
 ```
@@ -17433,12 +18006,12 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 
 <p style="color:#FFA500">Note: this element is an alias for MultiSelector</p>
 
-```
+```gherkin
 MultiDropDown actions examples:
 
- When I check in the "Multi Dropdown" values:
+ When I check in the "Multi Dropdown" values
       | Electro | Metalic |
- When I check in the "Multi Dropdown" values by number:
+ When I check in the "Multi Dropdown" values by number
       | 1 | 5 |
  When I check value "Steam" in the "Multi Dropdown"
 
@@ -17451,18 +18024,18 @@ Actions: <br>
   &nbsp;&nbsp;&nbsp;&nbsp;|\<GHERKIN DATA TABLE\>|<br>
  **When** \<I\> check value  \<ELEMENT NAME\>  in the  \<ELEMENT NAME\> <br>
 
-```
+```gherkin
 MultiDropDown validation examples:
 
- Then the "Multi Dropdown" selected values:
+ Then the "Multi Dropdown" selected values
       | Electro | Wood |
  Then the "Multi Dropdown" selected value is "Steam"
  Then the "Multi Dropdown" values has item "Wood"
  Then the "Multi Dropdown" has disabled item "Disabled"
  Then the "Multi Dropdown" has no enabled item "Disabled"
- Then the "Multi Dropdown" has enabled items:
+ Then the "Multi Dropdown" has enabled items
       | Electro | Metalic |
- Then the "Multi Dropdown" contains items:
+ Then the "Multi Dropdown" contains items
       | Disabled | Wood | Steam | Electro | Metalic |
     
 Scenario: MultiDropDown validation
@@ -17471,7 +18044,7 @@ Scenario: MultiDropDown validation
     And the "Ages" values has item "Wood"
     And  the "Ages" has disabled item "Disabled"
     And the "Ages" has no enabled item "Disabled"
-    And the "Ages" has enabled items:
+    And the "Ages" has enabled items
       | Electro | Metalic |
 
 ```
@@ -17499,21 +18072,21 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 
 ### CheckList
 
-```
+```gherkin
 CheckList actions examples:
 
 When I check element "Hot option" in "Weather" checklist
-When I select fields from "Weather" checklist:
+When I select fields from "Weather" checklist
      | Cold       | 
      | Hot option |
-When I check elements in "Weather" checklist:
+When I check elements in "Weather" checklist
      | Hot option |
-When I select in "Weather" checklist elements by numbers:
+When I select in "Weather" checklist elements by numbers
      | 1 |
      | 2 |
 When I check all elements in "Weather" checklist
 When I uncheck all elements in "Weather" checklist
-When I check elements in "Weather" checklist:
+When I check elements in "Weather" checklist
      | Rainy day |
      | Sunny     |
 
@@ -17523,17 +18096,17 @@ CheckList validation examples:
 Then in the "Weather" checklist checked element is "Cold"
 Then the "Weather" checklist text is "Hot option"
 Then count of selected elements in "Weather" checklist is "2"
-Then in the "Weather" checklist checked elements are:
+Then in the "Weather" checklist checked elements are
      | Hot option |
      | Sunny      |
 
 Scenario example for CheckList:
 
 Scenario: Check element via numbers test
-  When I check in "Weather" checklist elements by numbers:
+  When I check in "Weather" checklist elements by numbers
       | 1 |
       | 4 |
-  Then in the "Weather" checklist checked elements are:
+  Then in the "Weather" checklist checked elements are
       | Hot option |
       | Sunny      |
 
@@ -17582,7 +18155,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 
 ### Table
 
-```
+```gherkin
 Table actions examples:
 
 When I click the cell in row "2" in column "2" of the table "Simple Table"
@@ -17599,8 +18172,8 @@ Then the "Users Table" does not appear
 Then the "Users Table" does not appear during "5" seconds
 Then the "Users Table" table columns count equals "4"
 Then the "Users Table" table rows count equals "6"
-Then the "Users Table" table header has items:
-Then the "Users Table" table preview equals values:
+Then the "Users Table" table header has items
+Then the "Users Table" table preview equals values
 Then the "Users Table" table has size "6"
 Then the "Users Table" table has size greater than "3"
 Then the "Users Table" table has size less or equal to "6"
@@ -17618,7 +18191,7 @@ Scenario examples for Table:
     Given I open "Users Page"
     Then the "Users Table" table columns count equals "4"
     And the "Users Table" table rows count equals "6"
-    And the "Users Table" table header has items:
+    And the "Users Table" table header has items
       | Number      |
       | Type        |
       | User        |
@@ -17671,7 +18244,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi
 
 Note: this element is an alias for Table
 
-```
+```gherkin
 Table validation examples:
 
 Then the "Users Table" is enabled
@@ -17682,8 +18255,8 @@ Then the "Users Table" does not appear
 Then the "Users Table" does not appear during "5" seconds
 Then the "Users Table" table columns count equals "4"
 Then the "Users Table" table rows count equals "6"
-Then the "Users Table" table header has items:
-Then the "Users Table" table preview equals values:
+Then the "Users Table" table header has items
+Then the "Users Table" table preview equals values
 Then the "Users Table" table has size "6"
 Then the "Users Table" table has size greater than "3"
 Then the "Users Table" table has size less or equal to "6"
@@ -17701,7 +18274,7 @@ Scenario examples for Table:
     Given I open "Users Page"
     Then the "Users Table" table columns count equals "4"
     And the "Users Table" table rows count equals "6"
-    And the "Users Table" table header has items:
+    And the "Users Table" table header has items
       | Number      |
       | Type        |
       | User        |
@@ -17747,19 +18320,19 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi
 
 ### Form
 
-```
+```gherkin
 Form actions examples:
 
-When fill form "Contact Form" with data:
-    |name|Roman|
-    |lastName|Iovlev|
-    |position|ChiefQA|
-    |passportNumber|654321|
-    |passportSeria|1234|
-    |description|JDI - awesome UI automation tool|
-    |acceptConditions|true|
-    |gender|Female|
-    |religion|Other|
+When fill form "Contact Form" with data
+    | name | Roman |
+    | lastName| Iovlev |
+    | position| ChiefQA |
+    | passportNumber| 654321 |
+    | passportSeria| 1234 |
+    | description| JDI - awesome UI automation tool |
+    | acceptConditions| true | 
+    | gender| Female |
+    | religion| Other |
 When I submit form "Contact Form"
 When I save form
 
@@ -17769,16 +18342,16 @@ When send form "Contact Form" with "Roman Contacts"
 
 Form validation examples:
 
-Then the form "Contact Form" data equals to:
-    |name|Roman|
-    |lastName|Iovlev|
-    |position|ChiefQA|
-    |passportNumber|654321|
-    |passportSeria|1234|
-    |description|JDI - awesome UI automation tool|
-    |acceptConditions|true|
-    |gender|Female|
-    |religion|Other|
+Then the form "Contact Form" data equals to
+    | name| Roman |
+    | lastName | Iovlev |
+    | position | ChiefQA |
+    | passportNumber | 654321 |
+    | passportSeria | 1234 |
+    | description | JDI - awesome UI automation tool |
+    | acceptConditions | true |
+    | gender| Female |
+    | religion| Other |
 Then the form "Contact Form" is displayed
 Then the form "Contact Form" is hidden
 Then the form "Contact Form" does not appear
@@ -17792,27 +18365,27 @@ Form scenario example:
 
   Scenario: fillContactForm
     Given I open "Contact Form Page"
-    When fill form "Contact Form" with data:
-    |name|Roman|
-    |lastName|Iovlev|
-    |position|ChiefQA|
-    |passportNumber|654321|
-    |passportSeria|1234|
-    |description|JDI - awesome UI automation tool|
-    |acceptConditions|true|
-    |gender|Female|
-    |religion|Other|
+    When fill form "Contact Form" with data
+    | name| Roman |
+    | lastName | Iovlev |
+    | position | ChiefQA |
+    | passportNumber | 654321 |
+    | passportSeria | 1234 |
+    | description | JDI - awesome UI automation tool |
+    | acceptConditions | true |
+    | gender | Female |
+    | religion | Other |
     And I submit form "Contact Form"
-    Then the form "Contact Form" data equals to:
-    |name|Roman|
-    |lastName|Iovlev|
-    |position|ChiefQA|
-    |passportNumber|654321|
-    |passportSeria|1234|
-    |description|JDI - awesome UI automation tool|
-    |acceptConditions|true|
-    |gender|Female|
-    |religion|Other|
+    Then the form "Contact Form" data equals to
+    | name | Roman |
+    | lastName | Iovlev |
+    | position | ChiefQA |
+    | passportNumber | 654321 |
+    | passportSeria | 1234 |
+    | description | JDI - awesome UI automation tool |
+    | acceptConditions | true |
+    | gender | Female |
+    | religion | Other |
 
 ```
 Actions: <br>
@@ -17852,7 +18425,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 <br>
 ### Radiobuttons
 
-```
+```gherkin
 Radiobuttons actions examples:
 
 When I select "Blue" field from "Colors"
@@ -17877,14 +18450,15 @@ Then the "Colors" consists of next values
 Then the "Colors" contains "Blue" radio button 
 Then the "Colors" contains "Yellow" disabled radio button 
 Then the "Colors" does not contain "Yellow" enabled radio button 
-Then the "Colors" contains next enabled values: 
+Then the "Colors" contains next enabled values
 	| Red | Green | Blue | Yellow |
 
 Scenario example for Radiobuttons:
 
  Given I open "Html5 Page" page
- Then the "Html5 Page.Colors" consists of next values:
+ Then the "Html5 Page.Colors" consists of next values
       | Red | Green | Blue | Yellow |
+ When I highlight "Colors"	
  When I Select "Blue" field from "Html5 Page.Colors"
  Then the "Html5 Page.Colors" text equals to "Blue"
 
@@ -17923,7 +18497,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi
 <br><br><br><br><br><br><br><br><br><br><br><br>
 
 ### WebPage
-```
+```gherkin
 WebPage action examples:
 
 When I scroll to the bottom of the page
@@ -17940,7 +18514,7 @@ When I refresh webpage
 WebPage validation examples:
 
 Then the current page title is "Home Page"
-Then current page url is "https://jdi-testing.github.io/jdi-light/contacts.html"
+Then current page url is "https//jdi-testing.github.io/jdi-light/contacts.html"
 Then the bottom of the page is reached
 Then the top of the page is reached
 Then the page is scrolled "30" px down
@@ -18021,11 +18595,11 @@ public class NonStaticTestsInit {
 
 ```
 
-- <a href="https://github.com/jdi-testing/jdi-light/tree/master/jdi-light-examples">Project is here</a>
+- Project is <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-examples">here</a>
 
-- <a href="https://github.com/jdi-testing/jdi-light/tree/master/jdi-light-examples/src/main/java/io/github/com/NonStaticSite.java">Simple non-static Page Object is here</a>
+- Simple non-static Page Object is <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-examples/src/main/java/io/github/com/NonStaticSite.java">here</a>
 
-- <a href="https://github.com/jdi-testing/jdi-light/tree/master/jdi-light-examples/src/test/java/io/github/epam/NonStaticTestsInit.java">Parent class for test-cases with non-static initialization</a>
+- Parent class for test-cases with non-static initialization is <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-examples/src/test/java/io/github/epam/NonStaticTestsInit.java">here</a>
 
 <br><br><br><br><br>
 Simple non-static site initialization example ------>

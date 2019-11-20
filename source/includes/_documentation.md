@@ -28,7 +28,7 @@ TBD
 	
 @Test
   public void getLabelTextTest() {
-      assertEquals(colorPicker.labelText(), "Select a color");
+      assertEquals(colorPicker.lDriver SettingsabelText(), "Select a color");
   }
   
  ```
@@ -18918,7 +18918,7 @@ We can change default settings placed in the test.properties file (src/test/reso
 --- | --- | ---
 **driver** | Describe what kind of driver we want to use: chrome, firefox, ie… or we can just replace it with ${driver} and read the exact driver name from command line or pom file | driver = ${driver}
 **drivers.version** | By default, JDI Light will download the latest version of the driver for us, but if we need a specific version we can put it here (in this case the framework will find and download exactly the version specified) | drivers.version = LATEST<br>drivers.version = PRELATEST<br> driver.version = 2.23
-**timeout.wait.element** | Wait for an element on the opened page, by default = 10 seconds | timeout.wait.element = 20
+**timeout.wait.element** | Wait for an element on the opened page, by default = 10 seconds. Valid values are integers from 0 to 999. | timeout.wait.element = 20
 **timeout.wait.page** | JDI Light automatically defines that new page is opened and in this case will use this timeout (usually it is more than enough for an element). By default, it's 30 seconds | timeout.wait.page = 40
 **domain** | Web application root URL (used if we're working with one application in tests). Can be also read from the command line, e.g. _${domain}_ | domain = https://jdi-testing.github.io/jdi-light/
 **drivers.folder** | Set up the driver folder | drivers.folder = C:\\Selenium

@@ -28,7 +28,7 @@ TBD
 	
 @Test
   public void getLabelTextTest() {
-      assertEquals(colorPicker.labelText(), "Select a color");
+      assertEquals(colorPicker.lDriver SettingsabelText(), "Select a color");
   }
   
  ```
@@ -692,10 +692,9 @@ public static FileInput avatar;
 
 @Test
 public void uploadTest() {
-    avatar.uploadFile(mergePath(PROJECT_PATH,"/src/test/resources/general.xml"));
-    avatar.is().text(containsString("general.xml"));
-    assertTrue(avatar.getText().contains("general.xml"));
-    assertTrue(avatar.getValue().contains("general.xml"));
+        avatar.uploadFile(mergePath(PROJECT_PATH, "/src/test/resources/general.xml"));
+        avatar.is().text(containsString("general.xml"));
+        avatar.is().value(containsString("general.xml"));
 }
 
 ```
@@ -759,10 +758,16 @@ Available method in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**uploadFile(String)** |Select file to upload  | void
-**uploadFileRobot(String path, long mSec)**|Select file to upload  | void
-**getValue()**|Get file name  | void
-**getLabel()**|Get label | void
+**is()** | property that returns object for work with assertions | UIAssert
+**assertThat()** | property that returns object for work with assertions | UIAssert
+**click()** | click on element | void
+**hover()** | hover on element | void
+**setValue(String value)** | set file path to input | void
+**getValue()** | Get file name | String
+**uploadFile(String path)** | set file path to input | void
+**uploadFileRobot(String path, long mSecDelay)** | set file path to input | void
+**text()** | returns text of input field | String
+**label()**| Get label | Label
 
 Available method in C# JDI Light:
 
@@ -16491,86 +16496,61 @@ And here are methods available in Java:
  
 #### Custom file input 
 
- ```java 
- 
- 
- 
- 
- 
- 
- 
-    @UI("#custom-file-input-01") public static CustomFileInput customFileInputPrepend;
-    @UI("#custom-file-input-02") public static CustomFileInput customFileInputAppend;
-    
-    public class CustomFileInput extends Section {     
-        @UI(".input-group-text") public Label upload;     //@FindBy(css = ".input-group-text")
-        @UI(".custom-file-input") public FileInput input; //@FindBy(css = ".custom-file-input")
-        @UI(".custom-file-label") public Label label;     //@FindBy(css = ".custom-file-label")
-    }
-    
-     @Test
-     public void labelTextTests() {
-         customFileInputPrepend.upload.is().text("Upload");
-         customFileInputPrepend.upload.is().value("Upload");
-    
-         customFileInputAppend.upload.is().text("Upload");
-         customFileInputAppend.upload.is().value("Upload");
-     }
-        
-    @Test
-    public void uploadTest() {
-         customFileInputPrepend.click();
-         customFileInputPrepend.input.setValue(mergePath(PROJECT_PATH,/src/test/resources/general.xml"));
-         customFileInputAppend.click();
-         customFileInputAppend.input.setValue(mergePath(PROJECT_PATH,/src/test/resources/general.xml"));
-        
-         customFileInputPrepend.label.is().text("general.xml");
-         customFileInputPrepend.label.is().value("general.xml");
-         customFileInputAppend.label.is().text("general.xml");
-         customFileInputAppend.label.is().value("general.xml");
-     }          
-            
-            
-            
-            
-            
-    @UI("#custom-file-input-button-01") public static CustomFileInputWithButton customFileInputWithButtonPrepend;
-    @UI("#custom-file-input-button-02") public static CustomFileInputWithButton customFileInputWithButtonAppend;    
-    
-    public class CustomFileInputWithButton extends Section {      
-        @UI(".btn.btn-outline-secondary") public Button button; //@FindBy (css = ".btn.btn-outline-secondary")
-        @UI(".custom-file-input") public FileInput input;       //@FindBy (css = ".custom-file-input")
-        @UI(".custom-file-label") public Label label;           //@FindBy (css = ".custom-file-label")
-    }
-    
-     @Test
-     public void inputTextTests() {
-         customFileInputWithButtonPrepend.label.is().text("Choose file");
-         customFileInputWithButtonPrepend.label.is().value("Choose file");
- 
-         customFileInputWithButtonAppend.label.is().text("Choose file");
-         customFileInputWithButtonAppend.label.is().value("Choose file");
-     }   
-       
-       @Test
-       public void buttonAppendClickTests() {
-           customFileInputWithButtonAppend.button.hover();
-           customFileInputWithButtonAppend.button.is().displayed();
-           customFileInputWithButtonAppend.button.is().enabled();
-           customFileInputWithButtonAppend.button.click();
-           validateAlert(is("Button clicked, thank you!"));
-       }         
-       
-```
- 
 [Custom file input](https://getbootstrap.com/docs/4.3/components/input-group/#custom-file-input) – Input groups include support for custom selects and custom file inputs. Browser default versions of these are not supported.
-
-**Custom file input example**
 
 ![Custom file input](../images/bootstrap/custom_file_input.png)
 
-Here is an example with provided Bootstrap v4.3 code:
-  
+```java 
+public class InputGroupCustomUploadFile extends Section {
+    
+@UI("label[for='upload-file-c']") //@FindBy(css ="label[for='upload-file-c']")
+public Label labelInputFile;
+@UI("input#upload-file-c") //@FindBy(css ="input#upload-file-c")
+public FileInput fileInput; 
+@UI("button") //@FindBy(css = "button") 
+public Button btnSubmit;
+
+public void clickSubmitButton() {
+        btnSubmit.click();
+    }
+}
+
+public class InputGroupCustomFileInput extends Section {
+@UI("label[for='file-input-c']") //@FindBy(css ="label[for='file-input-c']") 
+public Label labelInputFile;
+@UI("input#file-input-c")   //@FindBy(css ="input#file-input-c")
+public FileInput fileInput;
+}
+ 
+@BeforeMethod
+public void before() {
+States.shouldBeLoggedIn();
+bsPage.shouldBeOpened();
+inputGroupCustomFileInput.fileInput.core().
+                        setup(jdiB -> jdiB.setSearchRule(ANY_ELEMENT));
+inputGroupCustomFileInput.fileInput.core().setClickArea(ACTION_CLICK);
+inputGroupCustomUploadFile.fileInput.core().
+                        setup(jdiB -> jdiB.setSearchRule(ANY_ELEMENT));
+inputGroupCustomUploadFile.fileInput.core().setClickArea(ACTION_CLICK);
+}
+
+@Test
+public void uploadTest() {
+clearInput();
+inputGroupCustomFileInput.fileInput.uploadFile(mergePath(PROJECT_PATH,
+                "/src/test/resources/general.xml"));
+inputGroupCustomFileInput.fileInput.is().text(containsString("general.xml"));
+inputGroupCustomFileInput.fileInput.is().value(containsString("general.xml"));
+}
+
+@Test
+public void buttonUploadFileTest() {
+inputGroupCustomUploadFile.btnSubmit.is().text("Submit");
+inputGroupCustomUploadFile.clickSubmitButton();
+validateAlert(is(alertMessage));
+}
+```
+
 ```html
 <div class="input-group mb-3" id="file-input">
     <div class="custom-file">
@@ -16578,26 +16558,16 @@ Here is an example with provided Bootstrap v4.3 code:
         <label class="custom-file-label" for="file-input-c">Choose file</label>
     </div>
 </div>
-```
-
-**Custom file input with button example**
-
-![Custom file input with button](../images/bootstrap/custom_file_input_with_button.png)
- 
-Here is an example with provided Bootstrap v4.3 code:
-   
-```html
 <div class="input-group" id="upload-file">
     <div class="custom-file">
         <input type="file" class="custom-file-input" id="upload-file-c">
         <label class="custom-file-label" for="upload-file-c">Choose file</label>
     </div>
     <div class="input-group-append">
-        <button class="btn btn-outline-secondary" type="button"
-                onclick="alert('Button clicked, thank you!');">Submit
-        </button>
+         <button class="btn btn-outline-secondary" type="button" 
+                    onclick="alert('Button clicked, thank you!');">Submit</button>
     </div>
-</div>
+</div> 
 ```
 
 And here are methods available in Java:
@@ -16609,10 +16579,11 @@ And here are methods available in Java:
 **click()** | click on element | void
 **hover()** | hover on element | void
 **setValue(String value)** | set file path to input | void
-**upload(String value)** | set file path to input | void
-**getValue()** | returns text of input field | String
+**getValue()** | Get file name | String
+**uploadFile(String path)** | set file path to input | void
+**uploadFileRobot(String path, long mSecDelay)** | set file path to input | void
 **text()** | returns text of input field | String
- 
+**label()**| Get label | Label
 <br>
 
 The Custom file input is defined as a section and uses additional web elements: Button, FileInput and Label.
@@ -16625,6 +16596,10 @@ They are located in the following Java classes:
 
 - com.epam.jdi.light.ui.bootstrap.elements.common;
 
+
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/inputgroup/InputGroupCustomFileInputTests.java)
+
+
 ### Card
 
 [Cards](https://getbootstrap.com/docs/4.3/components/card/) in Bootstrap provide a flexible and extensible
@@ -16636,7 +16611,7 @@ content container with multiple variants and options.
 fixed width. Cards have no fixed width to start, so they’ll naturally fill the full width of its parent element.
 This is easily customized with our various sizing options.
 
-![Simple Card Example](../images/bootstrap/simplecard.png)
+![Card Example](../images/bootstrap/simplecard.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -16678,8 +16653,6 @@ public void clickTest() {
 </div>
 ```
 
-![Simple Card Example Code](../images/bootstrap/simplecard-html.png)
-
 Card is represented by Section class in Java:
 
 [Section](https://jdi-docs.github.io/jdi-light/#section)
@@ -16706,7 +16679,7 @@ Available methods in Java JDI Light:
 
 #### Card Body
 
-[Card Body](https://getbootstrap.com/docs/4.3/components/card/#body) - The building block of a card is the `.card-body`.
+[Card Body](https://getbootstrap.com/docs/4.3/components/card/#body) - the building block of a card is the `.card-body`.
 Use it whenever you need a padded section within a card.
 
 ![Card Body Example](../images/bootstrap/cardbody.png)
@@ -16735,8 +16708,6 @@ public void getBodyTextTest() {
 </div>
 ```
 
-![Card Body Example Code](../images/bootstrap/cardbody-html.png)
-
 Card is represented by Section class in Java:
 
 [Section](https://jdi-docs.github.io/jdi-light/#section)
@@ -16755,15 +16726,16 @@ Available methods in Java JDI Light:
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardBodyTests.java)
 
-#### Card with Titles and Links
+#### Card Titles, Text and Links
 
-[Card titles](https://getbootstrap.com/docs/4.3/components/card/#titles-text-and-links) are used by adding `.card-title`
-to a `<h*>` tag. In the same way, links are added and placed next to each other by adding `.card-link` to an `<a>` tag.
+[Card Titles, Text and Links](https://getbootstrap.com/docs/4.3/components/card/#titles-text-and-links) - card titles
+are used by adding `.card-title` to a `<h*>` tag. In the same way, links are added and placed next to each other
+by adding `.card-link` to an `<a>` tag.
 
 Subtitles are used by adding a `.card-subtitle` to a `<h*>` tag. If the `.card-title` and the `.card-subtitle` items
 are placed in a `.card-body` item, the card title and subtitle are aligned nicely.
 
-![Card Titles and Links Example](../images/bootstrap/cardsubslinks.png)
+![Card Titles, Text and Links Example](../images/bootstrap/cardsubslinks.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -16790,7 +16762,7 @@ public void clickLink1Test() {
     ArrayList<String> tabs = new ArrayList<>(WebDriverFactory.getDriver().getWindowHandles());
     WebDriver driver = WebDriverFactory.getDriver();
     driver.switchTo().window(tabs.get(1));
-    assertEquals(getUrl() , link1Ref);
+    assertEquals(getUrl(), link1Ref);
     driver.close();
     driver.switchTo().window(tabs.get(0));
 }
@@ -16810,8 +16782,6 @@ public void clickLink1Test() {
   </div>
 </div>
 ```
-
-![Card Titles and Links Example Code](../images/bootstrap/cardsubslinks-html.png)
 
 Card is represented by Section class in Java:
 
@@ -16840,7 +16810,7 @@ Available methods in Java JDI Light:
 to the top of the card. With `.card-text`, text can be added to the card. Text within `.card-text` can also be styled
 with the standard HTML tags.
 
-![Card Image Example](../images/bootstrap/card-image.png)
+![Card Images Example](../images/bootstrap/card-image.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -16883,8 +16853,6 @@ public void imageClassTest() {
 </div>
 ```
 
-![Card Image Example Code](../images/bootstrap/card-image-html.png)
-
 Card is represented by Section class in Java:
 
 [Section](https://jdi-docs.github.io/jdi-light/#section)
@@ -16908,9 +16876,9 @@ And here are methods available in Java:
  
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardImageTests.java)
 
-#### Card list groups
+#### Card List Groups
 
-[Card list groups](https://getbootstrap.com/docs/4.3/components/card/#list-groups) – create lists of content in a card
+[Card List Groups Example](https://getbootstrap.com/docs/4.3/components/card/#list-groups) – create lists of content in a card
 with a flush list group.
 
 ![Card list groups](../images/bootstrap/card_list_groups.png)
@@ -16961,8 +16929,6 @@ public void checkCardListGroupsValues() {
 </div>
 ```
 
-![Card list groups code](../images/bootstrap/card_list_groups_code.png)
-
 Card is represented by Section class in Java:
 
 [Section](https://jdi-docs.github.io/jdi-light/#section)
@@ -16978,7 +16944,7 @@ Inner elements of Card List Groups represented by the following classes:
 **is()** | Assert action | TextAssert
 **assertThat()** | Assert action | TextAssert
 
-[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card)
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardListGroupsTests.java)
 
 #### Card Kitchen Sink
 
@@ -16986,7 +16952,7 @@ Inner elements of Card List Groups represented by the following classes:
 types to create the card you need, or throw everything in there. Shown below are image styles, blocks, text styles, and
 a list group—all wrapped in a fixed-width card.
 
-![Kitchen Sink Example](../images/bootstrap/card-kitchen-sink.png)
+![Card Kitchen Sink Example](../images/bootstrap/card-kitchen-sink.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -17047,7 +17013,15 @@ public void isValidationTest() {
 </div>
 ```
 
-![Kitchen Sink Example Code](../images/bootstrap/card-kitchen-sink-html.png)
+Card is represented by Section class in Java:
+
+[Section](https://jdi-docs.github.io/jdi-light/#section)
+
+Inner elements of Card Kitchen Sink represented by the following classes:
+
+- [Text](https://jdi-docs.github.io/jdi-light/#text)
+- [Button](https://jdi-docs.github.io/jdi-light/#button)
+- [Link](https://jdi-docs.github.io/jdi-light/#link)
 
 Available methods in Java JDI Light:
 
@@ -17062,16 +17036,6 @@ Available methods in Java JDI Light:
 **alt()** | Assert alt image attribute | ImageAssert
 **width()** | Assert image width | ImageAssert
 **height()** | Assert image height | ImageAssert
-
-Card is represented by Section class in Java:
-
-[Section](https://jdi-docs.github.io/jdi-light/#section)
-
-Inner elements of Card Kitchen Sink represented by the following classes:
-
-- [Text](https://jdi-docs.github.io/jdi-light/#text)
-- [Button](https://jdi-docs.github.io/jdi-light/#button)
-- [Link](https://jdi-docs.github.io/jdi-light/#link)
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardKitchenSinkTests.java)
 
@@ -17126,8 +17090,6 @@ public void getHeaderTextCardWithHeaderAndFooterTest() {
 </div>
 ```
 
-![Card with Header and Footer Code](../images/bootstrap/cardheaderfooter-html.png)
-
 Card is represented by Section class in Java:
 
 [Section](https://jdi-docs.github.io/jdi-light/#section)
@@ -17146,7 +17108,7 @@ Available methods in Java JDI Light:
 **text()** | Assert text | TextAssert
 **assertThat()** | Assert action | UIAssert
 
-[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/Card/CardWithHeaderAndFooterTests.java)
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardWithHeaderAndFooterTests.java)
 
 #### Card with Grid Markup
 
@@ -17233,8 +17195,6 @@ public void getButtonTextCardWithGridMarkup22Test() {
 </div>
 ```
 
-![Card Grid Code](../images/bootstrap/card_grid_html.png)
-
 Card is represented by Section class in Java:
 
 [Section](https://jdi-docs.github.io/jdi-light/#section)
@@ -17253,14 +17213,14 @@ Available methods in Java JDI Light:
 **text()** | Assert text | TextAssert
 **assertThat()** | Assert action | UIAssert
 
-[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/Card/CardWithGridMarkupTests.java)
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardWithGridMarkupTests.java)
 
-#### Card utilities
+#### Card Utilities
 
-[Card utilities](https://getbootstrap.com/docs/4.3/components/card/#using-utilities) - use handful of available
+[Card Utilities](https://getbootstrap.com/docs/4.3/components/card/#using-utilities) - use handful of available
 sizing utilities to quickly set a card’s width.
 
-![Card utilities Example](../images/bootstrap/card_utilities.png)
+![Card Utilities Example](../images/bootstrap/card_utilities.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -17295,8 +17255,6 @@ int widthInPercent, String widthInPixels) {
 </div>
 ```
 
-![Card utilities Example Code](../images/bootstrap/card_utilities_html.png)
-
 Available methods in Java JDI Light:
 
 |Method | Description | Return Type
@@ -17308,12 +17266,12 @@ Available methods in Java JDI Light:
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardUtilitiesTests.java)
 
-#### Card using custom CSS
+#### Card Using Custom CSS
 
-[Card using custom CSS](https://getbootstrap.com/docs/4.3/components/card/#using-custom-css) - use custom CSS in your
+[Card Using Custom CSS](https://getbootstrap.com/docs/4.3/components/card/#using-custom-css) - use custom CSS in your
 stylesheets or as inline styles to set a width.
 
-![Card custom CSS Example](../images/bootstrap/card_custom_CSS.png)
+![Card Using Custom CSS Example](../images/bootstrap/card_custom_CSS.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -17351,8 +17309,6 @@ public void isValidationTest() {
   </div>
 </div>
 ```
-
-![Card custom CSS Example Code](../images/bootstrap/card_custom_CSS_html.png)
 
 Card is represented by Section class in Java:
 
@@ -17429,8 +17385,6 @@ public void clickTest() {
   </div>
 </div>
 ```
-
-![Card Text Alignment Example Code](../images/bootstrap/cardtextalignment-html.png)
 
 Card is represented by Section class in Java:
 
@@ -17547,8 +17501,6 @@ public void isValidationTest() {
 </div>
 ```
 
-![Card Navigation Example Code](../images/bootstrap/cardnav-html.png)
-
 Card is represented by Section class in Java:
 
 [Section](https://jdi-docs.github.io/jdi-light/#section)
@@ -17622,8 +17574,6 @@ public void getAltTest() {
 </div>
 ```
 
-![Card Image Caps Example Code](../images/bootstrap/cardimagecaps-html.png)
-
 Card is represented by Section class in Java:
 
 [Section](https://jdi-docs.github.io/jdi-light/#section)
@@ -17643,7 +17593,7 @@ Available methods in Java JDI Light:
 **isDisplayed()** | Returns true if card is displayed, false if not | boolean
 **assertThat()** | Assert action | UIAssert
 
-[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardImageCapsTest.java)
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardImageCapsTests.java)
 
 #### Card Image Overlays
 
@@ -17707,8 +17657,6 @@ public void vectorInternalElementsTest() {
 </div>
 ```
 
-![Card Image Overlays Example](../images/bootstrap/card-image-overlays-html.png)
-
 Card is represented by Section class in Java:
 
 [Section](https://jdi-docs.github.io/jdi-light/#section)
@@ -17730,14 +17678,16 @@ And here are methods available in Java:
 **getText(String tagName)** | get text of an element inside vector image by tag | String
 **getAttribute(String tagName, String attr)** | get attribute of an element inside vector image by tag | String
 
-[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardImageOverlaysTest.java)
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardImageOverlaysTests.java)
 
 #### Card Horizontal
 
 [Card Horizontal](https://getbootstrap.com/docs/4.3/components/card/#horizontal) - using a combination of grid and
 utility classes, cards can be made horizontal in a mobile-friendly and responsive way.
 
-![Card horizontal example](../images/bootstrap/card_horizontal.png)
+![Card Horizontal Example](../images/bootstrap/card_horizontal.png)
+
+Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
 @UI("#card-horizontal") //FindBy(css = "#card-horizontal")
@@ -17789,10 +17739,6 @@ public void isValidationTest() {
   </div>
 </div>
 ```
-
-Here is an example with provided Bootstrap v4.3 code:
-
-![Card horizontal example](../images/bootstrap/card_horizontal-html.png)
 
 Card is represented by Section class in Java:
 
@@ -17865,8 +17811,6 @@ public void checkColorCardsTest(CardWithHeaderAndFooter card, String cssClass, S
 </div>
 ```
 
-![Card Background And Color Code](../images/bootstrap/cardbackgroundandcolor-html.png)
-
 Card is represented by Section class in Java:
 
 [Section](https://jdi-docs.github.io/jdi-light/#section)
@@ -17893,7 +17837,7 @@ Available methods in Java JDI Light:
 border-color of a card. Note that you can put `.text-{color}` classes on the parent `.card` or a subset of the card’s
 contents as shown below.
 
-![Card Borders Example](../images/bootstrap/cardborders.png)
+![Card Border Example](../images/bootstrap/cardborders.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -17931,7 +17875,6 @@ public void getHeaderTextTest(CardBorder cardBorder, String headerText) {
   </div>
 </div>
 ```
-![Card Borders Example Code](../images/bootstrap/cardborders-html.png)
 
 Card is represented by Section class in Java:
 
@@ -18000,8 +17943,6 @@ public void isValidationTest() {
 </div>
 ```
 
-![Card Mixins Utilities Example Code](../images/bootstrap/card-mixins-utilities-html.png)
-
 Card is represented by Section class in Java:
 
 [Section](https://jdi-docs.github.io/jdi-light/#section)
@@ -18021,12 +17962,12 @@ Available methods in Java JDI Light:
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardMixinsUtilitiesTests.java)
 
-#### Card groups
+#### Card Groups
 
-[Card groups](https://getbootstrap.com/docs/4.3/components/card/#card-groups) - use card groups to render cards as
+[Card Groups](https://getbootstrap.com/docs/4.3/components/card/#card-groups) - use card groups to render cards as
 a single, attached element with equal width and height columns.
 
-![Card_groups example](../images/bootstrap/card-groups.png)
+![Card_Groups Example](../images/bootstrap/card-groups.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -18091,11 +18032,9 @@ public void getAltTest() {
 </div>
 ```
 
-![Card_groups HTML example](../images/bootstrap/card-groups-html.png)
+##### Card Groups with Footer
 
-##### Card groups with footer
-
-![Card_groups example](../images/bootstrap/card-groups-with-footer.png)
+![Card Groups with Footer Example](../images/bootstrap/card-groups-with-footer.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -18164,8 +18103,6 @@ public void getAltTest() {
 </div>
 ```
 
-![Card_groups HTML example](../images/bootstrap/card-groups-with-footer-html.png)
-
 Card is represented by Section class in Java:
 
 [Section](https://jdi-docs.github.io/jdi-light/#section)
@@ -18177,12 +18114,12 @@ Inner elements of Card Grouped represented by the following classes:
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardGroupsTests.java)
 
-#### Card decks
+#### Card Decks
 
-[Card decks](https://getbootstrap.com/docs/4.3/components/card/#card-decks) - use card decks for a set of equal width
+[Card Decks](https://getbootstrap.com/docs/4.3/components/card/#card-decks) - use card decks for a set of equal width
 and height cards that aren't attached to one another.
 
-![Card_decks example](../images/bootstrap/card-decks.png)
+![Card_Decks Example](../images/bootstrap/card-decks.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -18249,11 +18186,9 @@ public void getMainTextTest() {
 </div>
 ```
 
-![Card_decks HTML example](../images/bootstrap/card-decks-html.png)
+##### Card Decks with Footer
 
-##### Card decks with footer
-
-![Card_decks example](../images/bootstrap/card-decks-with-footer.png)
+![Card Decks with Footer Example](../images/bootstrap/card-decks-with-footer.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -18324,8 +18259,6 @@ public void getMainTextTest() {
 </div>
 ```
 
-![Card_decks HTML example](../images/bootstrap/card-decks-with-footer-html.png)
-
 Card are represented by Section class in Java:
 
 [Section](https://jdi-docs.github.io/jdi-light/#section)
@@ -18362,7 +18295,7 @@ Here is an example with provided Bootstrap v4.3 code:
  
 ```java 
 @UI(".card-columns")
-public static CardColumns cardColumns; //@FindBy(css='.card-columns')
+public static CardColumns cardColumns; //@FindBy(css = ".card-columns")
 
 public class CardColumnsSection extends Section {
     @UI(".card:nth-of-type(1)") public CardWithinCardColumns topLeftCard;
@@ -18442,8 +18375,6 @@ public void checkElementsPositionTest() {
   </div>
 </div>
 ```
-
-![Card Columns Example Code](../images/bootstrap/card-columns-html.png)
 
 Card are represented by Section class in Java:
 
@@ -19518,6 +19449,25 @@ Add a header to label sections of actions in any dropdown menu.
 
 Here is an example headers code in the menu items:
 
+```java 
+//@FindBy(id = "dropdown-content-header")
+@UI("#dropdown-content-header")
+public static DropdownMenuContent dropdownMenuContentHeader;
+
+@Test
+public void checkHeaderTest() {
+    dropdownMenuContentHeader.show();
+    dropdownMenuContentHeader.is().displayed();
+    dropdownMenuContentHeader.expand();
+    dropdownMenuContentHeader.menu().children().is().size(2);
+    dropdownMenuContentHeader.header.is().core()
+            .displayed()
+            .tag("h6")
+            .hasClass("dropdown-header")
+            .text("DROPDOWN HEADER");
+}
+```
+
 ```html
 <div class="dropdown-menu" id="dropdown-content-header">
     <h6 class="dropdown-header">Dropdown header</h6>
@@ -19527,12 +19477,47 @@ Here is an example headers code in the menu items:
 </div>
 ```
 
+Available methods in Java JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+**expand()** | Expand dropdown | void
+**collapse()** | Collapse dropdown | void
+**is()** | Assert action | DropdownMenuAssert
+**menu()** | Get dropdown menu | UIElement
+**list()** | Get dropdown items | WebList
+**tag()** | Assert element tag | IsAssert
+**hasClass()** | Match passed value with element class| boolean
+**text()** | Assert text | TextAssert
+
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/dropdown/DropdownMenuContentTests.java">Bootstrap test examples</a>
+
+<br>
+
 <a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#dividers">**Dividers**</a><br>
 Separate groups of related menu items with a divider.
 
 ![Dividers example](../images/bootstrap/dropdown-menu-content-dividers.png)
 
 Here is an example dividers code in the menu items:
+
+```java 
+//@FindBy(id = "dropdown-content-divider")
+@UI("#dropdown-content-divider")
+public static DropdownMenuContent dropdownMenuContentDivider;
+
+@Test
+public void checkDividerTest() {
+    dropdownMenuContentDivider.show();
+    dropdownMenuContentDivider.is().displayed();
+    dropdownMenuContentDivider.expand();
+    dropdownMenuContentDivider.menu().children().is().size(4);
+    dropdownMenuContentDivider.divider.is().core()
+            .displayed()
+            .tag("div")
+            .hasClass("dropdown-divider");
+}
+```
 
 ```html
 <div class="dropdown-menu" id="dropdown-content-divider">
@@ -19546,12 +19531,46 @@ Here is an example dividers code in the menu items:
 </div>
 ```
 
+Available methods in Java JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+**expand()** | Expand dropdown | void
+**collapse()** | Collapse dropdown | void
+**is()** | Assert action | DropdownMenuAssert
+**menu()** | Get dropdown menu | UIElement
+**list()** | Get dropdown items | WebList
+**tag()** | Assert element tag | IsAssert
+**hasClass()** | Match passed value with element class| boolean
+
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/dropdown/DropdownMenuContentTests.java">Bootstrap test examples</a>
+
+<br>
+
 <a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#text">**Text**</a><br>
 Place any freeform text within a dropdown menu with text and use <a href="https://getbootstrap.com/docs/4.3/utilities/spacing/">spacing utilities</a>. Note that you’ll likely need additional sizing styles to constrain the menu width.
 
 ![Text example](../images/bootstrap/dropdown-menu-content-text.png)
 
 Here is an example text code in the menu items:
+
+```java 
+//@FindBy(id = "dropdown-content-text")
+@UI("#dropdown-content-text")
+public static DropdownMenuContent dropdownMenuContentText;
+
+@Test
+public void checkTextTest() {
+    dropdownMenuContentText.show();
+    dropdownMenuContentText.is().displayed();
+    dropdownMenuContentText.expand();
+    dropdownMenuContentText.menu().children().is().size(2);
+    dropdownMenuContentText.text.is()
+           .values(TextTypes.TEXT, hasItems("Some example text that's free-flowing within the dropdown menu."));
+    dropdownMenuContentText.text.is()
+           .values(TextTypes.TEXT, hasItems("And this is more example text."));
+}
+```
 
 ```html
 <div class="dropdown-menu p-4 text-muted" style="max-width: 200px;" id="dropdown-content-text">
@@ -19563,6 +19582,21 @@ Here is an example text code in the menu items:
     </p>
 </div>
 ```
+
+Available methods in Java JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+**expand()** | Expand dropdown | void
+**collapse()** | Collapse dropdown | void
+**is()** | Assert action | DropdownMenuAssert
+**menu()** | Get dropdown menu | UIElement
+**list()** | Get dropdown items | WebList
+**values()** | Match passed values with element's values | TextAssert
+
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/dropdown/DropdownMenuContentTests.java">Bootstrap test examples</a>
+
+<br>
 
 <a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#forms">**Forms**</a><br>
 Put a form within a dropdown menu, or make it into a dropdown menu, and use <a href="https://getbootstrap.com/docs/4.3/utilities/spacing/">margin or padding utilities</a> to give it the negative space you require.
@@ -21801,11 +21835,11 @@ public class NonStaticTestsInit {
 
 ```
 
-- <a href="https://github.com/jdi-testing/jdi-light/tree/master/jdi-light-examples">Project is here</a>
+- Project is <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-examples">here</a>
 
-- <a href="https://github.com/jdi-testing/jdi-light/tree/master/jdi-light-examples/src/main/java/io/github/com/NonStaticSite.java">Simple non-static Page Object is here</a>
+- Simple non-static Page Object is <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-examples/src/main/java/io/github/com/NonStaticSite.java">here</a>
 
-- <a href="https://github.com/jdi-testing/jdi-light/tree/master/jdi-light-examples/src/test/java/io/github/epam/NonStaticTestsInit.java">Parent class for test-cases with non-static initialization</a>
+- Parent class for test-cases with non-static initialization is <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-examples/src/test/java/io/github/epam/NonStaticTestsInit.java">here</a>
 
 <br><br><br><br><br>
 Simple non-static site initialization example ------>
@@ -21849,8 +21883,7 @@ public class UserCard : Form<User>
 
 ```
 
-```java
-
+```java 
 public class UserCard extends Form<User> {
     @Css("#name") TextField name;
     
@@ -21872,7 +21905,6 @@ public class UserCard extends Form<User> {
     TextField lastName;
     Button submitButton; 
 }
-
 ```
 
 
@@ -22080,7 +22112,7 @@ Available methods in Java
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#alert)
 
 ## Logs
-```java
+```java 
 //setup loglevel before running a test (for example in TestInit)
 logger.setLogLevel(STEP);
 
@@ -22096,7 +22128,6 @@ public void loginTest() {
 [22:23.617  STEP] : Click on 'User Icon'
 [22:23.727  STEP] : Login as User(userName:epam; password:1234)
 [22:24.516  STEP] : Check that 'Home Page' is opened (url CONTAINS '/index.html'; title EQUALS 'Home Page')
-
 ```
 JDI uses the _log4j library_, but provides more levels of logging. (require log4j.xml / log2j2.xml)
 **logger.setLogLevel(STEP);**
@@ -22223,7 +22254,7 @@ We can change default settings placed in the test.properties file (src/test/reso
 --- | --- | ---
 **driver** | Describe what kind of driver we want to use: chrome, firefox, ie… or we can just replace it with ${driver} and read the exact driver name from command line or pom file | driver = ${driver}
 **drivers.version** | By default, JDI Light will download the latest version of the driver for us, but if we need a specific version we can put it here (in this case the framework will find and download exactly the version specified) | drivers.version = LATEST<br>drivers.version = PRELATEST<br> driver.version = 2.23
-**timeout.wait.element** | Wait for an element on the opened page, by default = 10 seconds | timeout.wait.element = 20
+**timeout.wait.element** | Wait for an element on the opened page, by default = 10 seconds. Valid values are integers from 0 to 999. | timeout.wait.element = 20
 **timeout.wait.page** | JDI Light automatically defines that new page is opened and in this case will use this timeout (usually it is more than enough for an element). By default, it's 30 seconds | timeout.wait.page = 40
 **domain** | Web application root URL (used if we're working with one application in tests). Can be also read from the command line, e.g. _${domain}_ | domain = https://jdi-testing.github.io/jdi-light/
 **drivers.folder** | Set up the driver folder | drivers.folder = C:\\Selenium
@@ -22266,7 +22297,8 @@ TBD
 
 ### Easy way to pass review
 + Good code style
-+ No Wlidcards imports (with asterisk *)
++ No Wildcards imports (with asterisk *). You can use settings from the picture below
+![Wildcard Imports](../images/review-wildcard-imports.png)
 + `Ctrl+Alt+O` & `Ctrl+Alt+L` in IDEA IDE before any commit
 + Right branch and label in PR
 
@@ -22330,21 +22362,21 @@ TBD
 1. Use spaces, 1 tab size equals to 4
 2. Don't use wildcard imports
 3. Use Intellij's autoreformatting, imports optimization and rearrange option
-4. Fix all codacy issues
-5. If codacy issue shouldn't be resolved use warnings supressions
+4. Fix all Codacy issues
+5. If Codacy issue shouldn't be resolved use warnings suppressions
 6. Use semantic-value names for classes , variables, methods and so on. Use full version of words (human instead of h and so on). Common abbreviations (as id, uid and so on are applied). Use valuable names, for example instead of accountList use accounts and so on
 7. Remove double empty lines, use empty lines only when it make sense (additionally to autoreformatting)
 8. Use correct line breaks: (PROVIDE_SAMPLES)
 9. Try to use lines with no more 100-120 symbols (including indents) 
 10. Use chaining style, recommended sample:
-    ```java
-    object
-        .method(1)
-        .otherMethod();
-    ```
+```java 
+object
+    .method(1)
+    .otherMethod();
+```
 11. Always use `{}` braces for even empty if, for, etc.
 12. Follow to the sequence of keywords: public protected private abstract default static final transient volatile synchronized native strictfp
-13. Don't use such convinences as: `mValue`, `_value`, and so on. Acceptable `__` as unused argument of dataprovider in test methods
+13. Don't use such conveniences as: `mValue`, `_value`, and so on. Acceptable `__` as unused argument of data provider in test methods
 14. Feel free to smart refactoring
 15. Feel free to use smart ?:
 16. Use `UpperCamelCase` naming style for classes, `lowerCamelCase` for fields and methods, `UPPERCASE` for enums, `lowercase` for packages

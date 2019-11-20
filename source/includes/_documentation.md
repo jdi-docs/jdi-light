@@ -18579,7 +18579,7 @@ public void clickTest() {
 </div>
 ```
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 And with `<a>` elements:
 
@@ -18660,23 +18660,6 @@ public void splitDropdownIsValidationTest() {
     </div>
 </div>
 ```
-```html 
-<div id="splitDropdown" class="btn-group">
-    <button type="button" class="btn btn-primary" style="margin-bottom: 5px;">Action
-    </button>
-    <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" 
-    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-    style="margin-bottom: 5px;">
-        <span class="sr-only">Toggle Dropdown</span>
-    </button>
-    <div class="dropdown-menu">
-        <a class="dropdown-item" href="https://getbootstrap.com/docs/4.0/components/dropdowns/" target="_blank">Action</a>
-        <a class="dropdown-item" href="https://getbootstrap.com/docs/4.0/components/dropdowns/" target="_blank">Another
-            action</a>
-        <a class="dropdown-item" href="https://getbootstrap.com/docs/4.3/getting-started/introduction/" target="_blank">Something else here</a>
-    </div>
-</div>
-```
 
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/dropdown/DropdownTests.java">Bootstrap test examples</a>
@@ -18717,10 +18700,14 @@ public void largeDropdownIsValidationTest() {
     <div class="dropdown-menu show" x-placement="bottom-start" style="position:
     absolute; transform: translate3d(0px, 48px, 0px); top: 0px; left: 0px; will-
     change: transform;">
-        <a class="dropdown-item" href="https://getbootstrap.com/docs/4.0/components/dropdowns/" target="_blank">Action</a>
-        <a class="dropdown-item" href="https://getbootstrap.com/docs/4.0/components/dropdowns/" target="_blank">Another
+        <a class="dropdown-item" href="https://getbootstrap.com/
+        docs/4.0/components/dropdowns/" target="_blank">Action</a>
+        <a class="dropdown-item" href="https://getbootstrap.com/
+        docs/4.0/components/dropdowns/" target="_blank">Another
             action</a>
-        <a class="dropdown-item" href="https://getbootstrap.com/docs/4.3/getting-started/introduction/" target="_blank">Something else here</a>
+        <a class="dropdown-item" href="https://getbootstrap.com/
+        docs/4.3/getting-started/introduction/"
+         target="_blank">Something else here</a>
     </div>
 </div>
 ```
@@ -18754,11 +18741,16 @@ public void largeSplitDropdownIsValidationTest() {
     <button type="button" class="btn btn-lg btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-bottom: 5px;">
         <span class="sr-only">Toggle Dropdown</span>
     </button>
-    <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(180px, 48px, 0px); top: 0px; left: 0px; will-change: transform;">
-        <a class="dropdown-item" href="https://getbootstrap.com/docs/4.0/components/dropdowns/" target="_blank">Action</a>
-        <a class="dropdown-item" href="https://getbootstrap.com/docs/4.0/components/dropdowns/" target="_blank">Another
-            action</a>
-        <a class="dropdown-item" href="https://getbootstrap.com/docs/4.3/getting-started
+    <div class="dropdown-menu" x-placement="bottom-start" 
+     style="position: absolute; transform: translate3d(180px, 48px, 0px);
+     top: 0px; left: 0px; will-change: transform;">
+        <a class="dropdown-item" href="https://getbootstrap.com/
+         docs/4.0/components/dropdowns/" target="_blank">Action</a>
+        <a class="dropdown-item" href="https://getbootstrap.com/
+          docs/4.0/components/dropdowns/"
+          target="_blank">Another action</a>
+        <a class="dropdown-item" href="https://getbootstrap.com/
+        docs/4.3/getting-started
         /introduction/" target="_blank">Something else here</a>
     </div>
 </div>
@@ -18766,7 +18758,6 @@ public void largeSplitDropdownIsValidationTest() {
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/dropdown/DropdownTests.java">Bootstrap test examples</a>
 
-<br>
 
 #### <a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#directions">Directions</a>
 Trigger dropdown menus <a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#dropup">above</a> elements by adding ``.dropup`` to the parent element.<br>
@@ -18814,22 +18805,6 @@ public void dropUpDropdownIsValidationTest() {
 </div>
 ```
 
-```html 
-<div id="dropUpDropdown" class="btn-group dropup">
-    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
-     aria-haspopup="true" aria-expanded="false" style="margin-bottom: 5px;">
-        Dropup
-    </button>
-    <div class="dropdown-menu">
-        <a class="dropdown-item" href="https://getbootstrap.com/docs/4.0/components/
-        dropdowns/" target="_blank">Action</a>
-        <a class="dropdown-item" href="https://getbootstrap.com/docs/4.0/components/dropdowns/" target="_blank">Another
-            action</a>
-        <a class="dropdown-item" href="https://getbootstrap.com/docs/4.3/getting-started/
-        introduction/" target="_blank">Something else here</a>
-    </div>
-</div>
-```
 <br>
 
 Here is an example of Dropup split code:
@@ -19091,7 +19066,7 @@ public void menuItemsActionsTest(String itemText, String alertText) {
     </div>
 </div>
 ```
-<br><br><br>
+<br><br><br><br><br><br>
 You can also create non-interactive dropdown items with ``.dropdown-item-text``. Feel free to style further with custom CSS or text utilities.
 
 ![Non-interactive items example](../images/bootstrap/dropdown-non-interactive-items.png)
@@ -19123,17 +19098,22 @@ public void textItemTest() {
     <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-bottom: 5px;">
         Menu items with non-interactive
     </button>
-    <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 37px, 0px); top: 0px; left: 0px; will-change: transform;">
+    <div class="dropdown-menu" x-placement="bottom-start"
+     style="position: absolute; transform: translate3d(0px, 37px, 0px);
+     top: 0px; left: 0px; will-change: transform;">
         <span class="dropdown-item-text">Dropdown item text</span>
-        <a class="dropdown-item" href="https://getbootstrap.com/docs/4.3/components/dropdowns/" target="_blank">Action</a>
-        <a class="dropdown-item" href="https://getbootstrap.com/docs/4.3/getting-started/introduction/" target="_blank">Another action</a>
+        <a class="dropdown-item" href="https://getbootstrap.com/
+            docs/4.3/components/dropdowns/" target="_blank">Action</a>
+        <a class="dropdown-item" href="https://getbootstrap.com/
+            docs/4.3/getting-started/introduction/"
+             target="_blank">Another action</a>
     </div>
 </div>
 ```
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/dropdown/DropdownMenuItemsTest.java">Bootstrap test examples</a>
 
-<br><br><br><br><br>
+<br><br>
 <a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#active">**Active**</a><br>
 
 Add ``.active`` to items in the dropdown to style them as active.
@@ -19174,14 +19154,20 @@ public void isActiveTest() {
         Menu items with active
     </button>
     <div class="dropdown-menu">
-        <a class="dropdown-item" href="https://getbootstrap.com/docs/4.3/components/dropdowns/#active" target="_blank">Action</a>
-        <a class="dropdown-item active" href="https://getbootstrap.com/docs/4.3/components/dropdowns/" target="_blank">Another action</a>
-        <a class="dropdown-item" href="https://getbootstrap.com/docs/4.3/getting-started/introduction/" target="_blank">Something else here</a>
+        <a class="dropdown-item" href="https://getbootstrap.com/
+        docs/4.3/components/dropdowns/#active" 
+        target="_blank">Action</a>
+        <a class="dropdown-item active" 
+        href="https://getbootstrap.com/docs/4.3/components/dropdowns/"
+         target="_blank">Another action</a>
+        <a class="dropdown-item" href="https://getbootstrap.com/
+        docs/4.3/getting-started/introduction/"
+         target="_blank">Something else here</a>
     </div>
 </div>
 ```
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/dropdown/DropdownActiveTests.java">Bootstrap test examples</a>
-<br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br>
 <a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#disabled">**Disabled**</a><br>
 
 Add ``.disabled`` to items in the dropdown to style them as disabled.
@@ -19217,17 +19203,22 @@ public void itemTest() {
         Menu items with disabled
     </button>
     <div class="dropdown-menu">
-        <a class="dropdown-item" href="https://getbootstrap.com/docs/4.3/components/dropdowns/" target="_blank">Regular link</a>
-        <a class="dropdown-item disabled" href="https://getbootstrap.com/docs/4.3/components/dropdowns/" target="_blank">Disabled
-            link</a>
-        <a class="dropdown-item" href="https://getbootstrap.com/docs/4.3/getting-started/introduction/" target="_blank">Another link</a>
+        <a class="dropdown-item" href="https://getbootstrap.com/
+           docs/4.3/components/dropdowns/" 
+           target="_blank">Regular link</a>
+        <a class="dropdown-item disabled"
+             href="https://getbootstrap.com/docs/4.3/components/
+            dropdowns/" target="_blank">Disabled link</a>
+        <a class="dropdown-item" href="https://getbootstrap.com/
+            docs/4.3/getting-started/introduction/"
+             target="_blank">Another link</a>
     </div>
 </div>
 ```
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/dropdown/DisabledMenuItemTest.java">Bootstrap test examples</a>
 
-<br><br><br>
+<br>
 
 #### <a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#menu-alignment">Menu alignment</a>
 By default, a dropdown menu is automatically positioned 100% from the top and along the left side of its parent. Add ``.dropdown-menu-right`` to a ``.dropdown-menu`` to right align the dropdown menu.
@@ -19372,15 +19363,17 @@ public void checkHeaderTest() {
 ```html
 <div class="dropdown-menu" id="dropdown-content-header">
     <h6 class="dropdown-header">Dropdown header</h6>
-    <a class="dropdown-item" href="https://getbootstrap.com/" target="_blank">Action</a>
-    <a class="dropdown-item" href="https://getbootstrap.com/docs/4.0/components/dropdowns/"
+    <a class="dropdown-item" href="https://getbootstrap.com/"
+     target="_blank">Action</a>
+    <a class="dropdown-item" href="https://getbootstrap.com/docs/
+     4.0/components/dropdowns/"
        target="_blank">Another action</a>
 </div>
 ```
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/dropdown/DropdownMenuContentTests.java">Bootstrap test examples</a>
 
-<br>
+<br><br><br><br><br><br>
 
 <a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#dividers">**Dividers**</a><br>
 
@@ -19410,17 +19403,20 @@ public void checkDividerTest() {
 
 ```html
 <div class="dropdown-menu" id="dropdown-content-divider">
-    <a class="dropdown-item" href="https://getbootstrap.com/" target="_blank">Action</a>
-    <a class="dropdown-item" href="https://getbootstrap.com/docs/4.0/components/dropdowns/"
+    <a class="dropdown-item" href="https://getbootstrap.com/"
+     target="_blank">Action</a>
+    <a class="dropdown-item" href="https://getbootstrap.com/docs
+    /4.0/components/dropdowns/"
        target="_blank">Another action</a>
     <div class="dropdown-divider"></div>
     <a class="dropdown-item"
-       href="https://getbootstrap.com/docs/4.3/getting-started/introduction/"
+       href="https://getbootstrap.com/docs/4.3/getting-started/
+        introduction/"
        target="_blank">Separated link</a>
 </div>
 ```
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/dropdown/DropdownMenuContentTests.java">Bootstrap test examples</a>
-
+<br><br><br><br>
 <a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#text">**Text**</a><br>
 
 Place any freeform text within a dropdown menu with text and use <a href="https://getbootstrap.com/docs/4.3/utilities/spacing/">spacing utilities</a>. Note that you’ll likely need additional sizing styles to constrain the menu width.
@@ -19457,7 +19453,7 @@ public void checkTextTest() {
     </p>
 </div>
 ```
-
+<br><br><br><br><br><br><br>
 <a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#forms">**Forms**</a><br>
 
 Put a form within a dropdown menu, or make it into a dropdown menu, and use <a href="https://getbootstrap.com/docs/4.3/utilities/spacing/">margin or padding utilities</a> to give it the negative space you require.
@@ -19535,39 +19531,10 @@ public void testButton(){
 </div>
 ```
 
-```html 
-<div class="dropdown-menu show" x-placement="top-start" style="position: absolute; transform: translate3d(0px, -366px, 0px); top: 0px; left: 0px; will-change: transform;">
-    <form class="px-4 py-3">
-        <div class="form-group">
-            <label for="exampleDropdownFormEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
-        </div>
-        <div class="form-group">
-            <label for="exampleDropdownFormPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
-        </div>
-        <div class="form-group">
-            <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="dropdownCheck">
-                <label class="form-check-label" for="dropdownCheck">
-                    Remember me
-                </label>
-            </div>
-        </div>
-        <button type="button" class="btn btn-primary" onclick="alert('Sign in');">Sign in
-        </button>
-    </form>
-    <div class="dropdown-divider"></div>
-    <a class="dropdown-item" href="https://jdi-testing.github.io/jdi-light/index.html" target="_blank">New around here? Sign up</a>
-    <a class="dropdown-item" href="https://jdi-testing.github.io/jdi-light/index.html"
-     target="_blank">Forgot password?</a>
-</div>
-```
-
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/dropdown/DropdownFormTest.java" target="_blank">Bootstrap Test Examples</a>
 
-<br><br><br><br>
+<br><br><br><br><br><br>
 
 <a target="_blank" href="https://getbootstrap.com/docs/4.3/components/dropdowns/#dropdown-options">**Dropdown Options**</a><br>
 
@@ -19620,22 +19587,8 @@ Here is an example with Bootstrap v4.3 code:
         <a class="dropdown-item" href="javascript: void();" onclick="alert('Separated link clicked!');">Separated link</a>
     </div>
 </div>
-```html 
-<div id="referenceDropdown" class="btn-group">
-    <button type="button" class="btn btn-secondary">Reference</button>
-    <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" id="dropdownMenuReference" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-reference="parent">
-        <span class="sr-only">Toggle Dropdown</span>
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuReference" x-placement="top-start" style="position: absolute; transform: translate3d(0px, -151px, 0px); top: 0px; left: 0px; will-change: transform;">
-        <a class="dropdown-item" href="javascript: void();" onclick="alert('Action clicked!');">Action</a>
-        <a class="dropdown-item" href="javascript: void();" onclick="alert('Another action clicked!');">Another action</a>
-        <a class="dropdown-item" href="javascript: void();" onclick="alert('Something else here clicked!');">Something else here</a>
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="javascript: void();" onclick="alert('Separated link clicked!');">Separated link</a>
-    </div>
-</div>
 ```
-```
+
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/dropdown/DropdownOptionsTests.java" target="_blank">Bootstrap Test Examples</a>
 
 

@@ -5908,7 +5908,7 @@ Adding images to the ```.navbar-brand``` will likely always require custom style
 
         @Test(dataProvider = "navbarBrandsWithImage")
         public void checkNavbarImage(UIElement brandWithImage) {
-            UIElement imgFromNavbar = brandWithImage.childs().get(1);
+            UIElement imgFromNavbar = brandWithImage.children().get(1);
             imgFromNavbar.highlight("blue");
             imgFromNavbar.is().core().tag("img").attr("src", containsString(imgPath));
             imgFromNavbar.unhighlight();
@@ -6797,10 +6797,10 @@ public void expandingTest() {
 @Test
 public void getTextTest() {
     navbarExternalContent.toggler.expand();
-    navbarExternalContent.toggler.value().childs().get(1).is()
+    navbarExternalContent.toggler.value().children().get(1).is()
             .displayed()
             .text(text);
-    navbarExternalContent.toggler.value().childs().get(2).is()
+    navbarExternalContent.toggler.value().children().get(2).is()
             .displayed()
             .text(mutedText);
     navbarExternalContent.toggler.collapse();
@@ -7567,7 +7567,7 @@ Use margin utilities like ``.m-5`` for easy spacing.
 
 @Test(dataProvider = "spinnerData")
 public void isValidationTest(Spinner spinner) {
-    spinner.childs().get(0).highlight();
+    spinner.children().get(0).highlight();
     spinner
             .is()
             .enabled()
@@ -10042,10 +10042,10 @@ Here is an example with provided Bootstrap v4.3 code:
     public void checkStructureRow() {
         formRow.row.assertThat().hasClass("form-row");
         formRow.row.is().enabled().displayed();
-        formRow.row.childs().foreach(e -> e.is()
+        formRow.row.children().foreach(e -> e.is()
                 .displayed()
                 .enabled());
-        formRow.cols.childs().foreach(e -> e.is()
+        formRow.cols.children().foreach(e -> e.is()
                 .tag("input")
         );
     }
@@ -12756,7 +12756,7 @@ public void modalCssTest(Button button, Modal modal, String modalCss) {
 
     modal.is().displayed();
 
-    modal.childs().get(1).core().is().hasClass(modalCss);
+    modal.children().get(1).core().is().hasClass(modalCss);
 
     modal.close();
 }
@@ -12770,7 +12770,7 @@ public void modalSizeTest(Button button,
 
     modal.is().displayed();
 
-    assertThat(modal.childs().get(2).core().getRect().width, equalTo(modalWidth));
+    assertThat(modal.children().get(2).core().getRect().width, equalTo(modalWidth));
 
     modal.close();
 }
@@ -19562,11 +19562,11 @@ public void expandCollapseTest(BootstrapDropdown dropdown) {
 @Test
 public void optionsCssTest() {
     offsetDropdown.expand();
-    assertThat(offsetDropdown.core().childs().get(1).getAttribute(DATA_OFFSET), is(DATA_OFFSET_VALUE));
+    assertThat(offsetDropdown.core().children().get(1).getAttribute(DATA_OFFSET), is(DATA_OFFSET_VALUE));
     offsetDropdown.collapse();
 
     referenceDropdown.expand();
-    assertThat(referenceDropdown.core().childs().get(2).getAttribute(DATA_REFERENCE), is(DATA_REFERENCE_VALUE));
+    assertThat(referenceDropdown.core().children().get(2).getAttribute(DATA_REFERENCE), is(DATA_REFERENCE_VALUE));
     referenceDropdown.collapse();
 }
 ```

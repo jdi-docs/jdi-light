@@ -14976,12 +14976,6 @@ Methods available for BootstrapDropdown class in Java JDI Light:
 **isCollapsed()** | Return if dropdown expanded | boolean
 **expander()** | Get dropdown expander | Button
 **menu()** | Get dropdown menu | UIElement
-**hasClass()** | Match passed value with element class| boolean
-**getValue()** | Get dropdown value | String
-**getText()** | Get dropdown text | String
-**getAttribute()** | Get attribute value | String
-**click()** | Click the button | void
-**check()** | Check checkbox | void
 **is()** | Assert action | BootstrapDropdownAssert
 **assertThat()** | Assert action | BootstrapDropdownAssert
 **has()** | Assert action | BootstrapDropdownAssert
@@ -14990,14 +14984,7 @@ Methods available for BootstrapDropdown class in Java JDI Light:
 **verify()** | Soft assert action | BootstrapDropdownAssert
 **expanded()** | Assert that dropdown is expanded | BootstrapDropdownAssert
 **collapsed()** | Assert that dropdown is collapsed | BootstrapDropdownAssert
-**cssClass()** | Assert element css class | IsAssert
-**tag()** | Assert element tag | IsAssert
-**attr()** | Assert element's attribute | IsAssert
-**cssClass()** | Assert element css class | IsAssert
-**displayed()** | Check that element is displayed | TextAssert
-**enabled()** | Check that element is enabled | TextAssert
-**selected()** | Check that checkbox is selected | TextAssert
-**deselected()** | Check that checkbox is not selected | TextAssert
+
 <br>
 Additional methods available for DropdownMenu class in Java JDI Light:
 
@@ -15014,9 +15001,9 @@ Additional methods available for DropdownMenu class in Java JDI Light:
 **waitFor()** | Assert action | DropdownMenuAssert
 **shouldBe()** | Assert action | DropdownMenuAssert
 **verify()** | Soft assert action | DropdownMenuAssert
-**active(int itemIndex)** | Check if item in dropdown menu is active | DropdownAssert
-**itemValues(String... values)** | Asserts whether dropdown are exactly match arguments  | DropdownAssert
-**hasItems(String... values)** | Asserts whether dropdown has all items from arguments | DropdownAssert
+**active(int itemIndex)** | Check if item in dropdown menu is active | DropdownMenuAssert
+**itemValues(String... values)** | Asserts whether dropdown are exactly match arguments  | DropdownMenuAssert
+**hasItems(String... values)** | Asserts whether dropdown has all items from arguments | DropdownMenuAssert
 
 #### <a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#single-button">Single button</a>
 Any single ``.btn`` can be turned into a dropdown toggle with some markup changes. Here’s how you can put them to work with either `<button>` elements:

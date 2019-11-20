@@ -4075,7 +4075,20 @@ public void clickableTests() {
 }
 ```
 
-![Checkbox default example html](../images/bootstrap/checkbox-default-html.png)
+```html
+<div class="form-check" id="check1">
+    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+    <label class="form-check-label" for="defaultCheck1">
+        Default checkbox
+    </label>
+</div>
+<div class="form-check" id="check2">
+    <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" disabled>
+    <label class="form-check-label" for="defaultCheck2">
+        Disabled checkbox
+    </label>
+</div>
+```
 
 
 
@@ -4154,7 +4167,21 @@ public void clickableTests() {
 }
 ```
 
-![Checkbox default inline example html](../images/bootstrap/checkbox-default-inline-html.png)
+```html
+<div class="form-check form-check-inline">
+    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+    <label class="form-check-label" for="inlineCheckbox1">1</label>
+</div>
+<div class="form-check form-check-inline">
+    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+    <label class="form-check-label" for="inlineCheckbox2">2</label>
+</div>
+<div class="form-check form-check-inline">
+    <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3"
+           disabled>
+    <label class="form-check-label" for="inlineCheckbox3">3 (disabled)</label>
+</div>
+```
 
 
 
@@ -4467,7 +4494,7 @@ Button group is represented by Section class in Java:
  
   [Section](https://jdi-docs.github.io/jdi-light/#section)  
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br>
 #### <a href="https://getbootstrap.com/docs/4.3/components/forms/#checkboxes" target="_blank">Checkbox custom</a>
 Checkbox is located in the following classes:
  
@@ -4514,8 +4541,12 @@ public void clickableTests() {
 }
 ```
 
-![Checkbox custom example html](../images/bootstrap/checkbox-custom-html.png)
-
+```html
+<div class="custom-control custom-checkbox" id="customCheck1-div">
+    <input type="checkbox" class="custom-control-input" id="customCheck1">
+    <label class="custom-control-label" for="customCheck1">Check this custom checkbox</label>
+</div>
+```
 
 
 |Method | Description | Return Type
@@ -4829,7 +4860,17 @@ public void clickableTests() {
 }
 ```
 
-![Switches custom example html](../images/bootstrap/switches-html.png)
+```html
+<div class="custom-control custom-switch" id="customSwitch1-div">
+    <input type="checkbox" class="custom-control-input" id="customSwitch1">
+    <label class="custom-control-label" for="customSwitch1">Toggle this switch
+        element</label>
+</div>
+<div class="custom-control custom-switch" id="customSwitch2-div">
+    <input type="checkbox" class="custom-control-input" disabled id="customSwitch2">
+    <label class="custom-control-label" for="customSwitch2">Disabled switch element</label>
+</div>
+```
 
 
 
@@ -5043,7 +5084,24 @@ Here is an example with provided Bootstrap v4.3 code:
         assertEquals(buttonToolbar.inputAreaInToolbar.getValue(), textForTestingInputField);
     }
 ``` 
-![Button toolbar_mixed example](../images/bootstrap/button_toolbar_mixed-html.png)
+
+```html
+<div class="btn-toolbar mb-3" id="buttonToolbar2" role="toolbar"
+     aria-label="Toolbar with button groups">
+    <div class="btn-group mr-2" role="group" aria-label="First group">
+        <button type="button" class="btn btn-secondary"
+                onclick="alert('1st button is clicked');">1
+        </button>
+    </div>
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <div class="input-group-text" id="btnGroupAddon">@</div>
+        </div>
+        <input type="text" class="form-control" placeholder="Input group example"
+               aria-label="Input group example" aria-describedby="btnGroupAddon">
+    </div>
+</div>
+```
 <br>
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/buttonGroup/ButtonToolbarTests.java" target="_blank">Bootstrap test examples</a>
@@ -5089,7 +5147,26 @@ public void isValidationTest() {
 
 Here is an example with provided Bootstrap v4.3 code:
 
-![Button Group Sizing HTML Example](../images/bootstrap/bgroup-sizing-html.png)
+```html
+<div id="btn-lg-group" class="btn-group btn-group-lg mb-3" role="group"
+     aria-label="Large button group">
+    <button type="button" class="btn btn-secondary"
+            onclick="alert('Lg Left Button Clicked!');"
+            ondblclick="alert('Lg Left Button Double Clicked!');"
+            oncontextmenu="alert('Lg Left Button Right Clicked!');">Left
+    </button>
+    <button type="button" class="btn btn-secondary"
+            onclick="alert('Lg Middle Button Clicked!');"
+            ondblclick="alert('Lg Middle Button Double Clicked!');"
+            oncontextmenu="alert('Lg Middle Button Right Clicked!');">Middle
+    </button>
+    <button type="button" class="btn btn-secondary"
+            onclick="alert('Lg Right Button Clicked!');"
+            ondblclick="alert('Lg Right Button Double Clicked!');"
+            oncontextmenu="alert('Lg Right Button Right Clicked!');">Right
+    </button>
+</div>
+```
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/buttonGroup/SizingTests.java" target="_blank">Bootstrap test examples</a>
 
@@ -5157,7 +5234,31 @@ public void dropdownMenuTests() {
 
 <br>
 
-![Button Group Nesting HTML Example](../images/bootstrap/bgroup-nesting-html.png)
+```html
+<div class="btn-group" id="button-group-nesting" role="group"
+     aria-label="Button group with nested dropdown">
+    <button type="button" class="btn btn-secondary" onclick="alert('Button 1 Clicked!');">
+        1
+    </button>
+    <button type="button" class="btn btn-secondary" onclick="alert('Button 2 Clicked!');">
+        2
+    </button>
+
+    <div class="btn-group" role="group">
+        <button id="btnGroupDr1" type="button" class="btn btn-secondary dropdown-toggle"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown
+        </button>
+        <div class="dropdown-menu" aria-labelledby="btnGroupDr1">
+            <a class="dropdown-item" href="https://github.com/jdi-testing/jdi-light"
+               target="_blank">JDI Github</a>
+            <a class="dropdown-item"
+               href="https://jdi-docs.github.io/jdi-light/#jdi-light-framework"
+               target="_blank">JDI Docs</a>
+        </div>
+    </div>
+</div>
+```
 <br>
 
 |Method | Description | Return Type
@@ -5233,7 +5334,33 @@ public void dropdownMenuTests() {
 
 <br>
 
-![Button Group Vertical Variation Example](../images/bootstrap/bgroup-vertical-variation-html.png)
+```html
+<div class="btn-group-vertical mb-3" id="vertical-variation" role="group"
+     aria-label="Vertical button group">
+    <button type="button" class="btn btn-secondary" onclick="alert('Button One Clicked!');">
+        Button one
+    </button>
+    <button type="button" class="btn btn-secondary" onclick="alert('Button Two Clicked!');">
+        Button two
+    </button>
+    <div class="btn-group" role="group">
+        <button id="btnGroupVerticalDrop1" type="button"
+                class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+            Dropdown
+        </button>
+        <div class="dropdown-menu" aria-labelledby="btnGroupVerticalDrop1"
+             x-placement="bottom-start"
+             style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 38px, 0px);">
+            <a class="dropdown-item" href="https://github.com/jdi-testing/jdi-light"
+               target="_blank">JDI Light</a>
+            <a class="dropdown-item"
+               href="https://jdi-docs.github.io/jdi-light/#jdi-light-framework"
+               target="_blank">JDI Docs</a>
+        </div>
+    </div>
+</div>
+```
 <br>
 
 |Method | Description | Return Type
@@ -5312,7 +5439,21 @@ public void dismissibleAlertButtonClickTest() {
   
 <br>
   
-![Alert example](../images/bootstrap/alert-html-example.png)
+```html
+<div class="alert alert-success" id="simple-alert" role="alert">
+    Alert with <a
+        href="https://jdi-testing.github.io/jdi-light/index.html"
+        class="alert-link" target="_blank">index page link</a>.
+</div>
+<div class="alert alert-warning alert-dismissible fade show" id="dismissible-alert"
+     role="alert">
+    <strong>Dismissible alert!</strong><br> Hide alert clicking on "x".
+    <button type="button" class="close" id="dismissible-alert-close-button"
+            data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+```
 
 Available methods in Java JDI Light:
 
@@ -5369,7 +5510,10 @@ Badge is located in the following class: <br>
 
 Here is an example with provided Bootstrap v4.3 code:  
 
-![Badge example](../images/bootstrap/badge_heading_code.png)
+```html
+<h1>Heading <span class="badge badge-secondary" id="badge-secondary">Badge</span></h1>
+<h2>Heading <span class="badge badge-secondary" id="badge-secondary">Badge</span></h2>
+``` 
 
 Available methods in Java JDI Light:
 
@@ -5404,7 +5548,13 @@ Available methods in Java JDI Light:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-![Badge example](../images/bootstrap/badge_button_code.png)
+```html
+<button type="button" class="btn btn-primary" id="btn-primary"
+        onclick="alert('Button with badge');">
+    Profile <span class="badge badge-light">9</span> <span
+        class="sr-only">unread messages</span>
+</button>
+```
 
 Available methods in Java JDI Light:
 
@@ -5442,7 +5592,9 @@ Available methods in Java JDI Light:
 
 Here is an example with provided Bootstrap v4.3 code:  
 
-![Badge example](../images/bootstrap/badge_link_code.png)
+```html 
+<a href="https://github.com/jdi-testing" style="font-size: 16px;"class="badge badge-success" id="badge-success" alt="Github JDI Link">Github JDI</a>
+```
 
 Available methods in Java JDI Light:
 
@@ -5500,7 +5652,19 @@ A <a href="https://getbootstrap.com/docs/4.3/components/breadcrumb/" target="_bl
 
 Here is an example with provided Bootstrap v4.3 code:
   
-![Breadcrumb HTML example](../images/bootstrap/breadcrumb-html.png)
+```html
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb" id="breadcrumb">
+        <li class="breadcrumb-item"><a
+                href="https://jdi-testing.github.io/jdi-light/index.html" target="_blank">Home</a>
+        </li>
+        <li class="breadcrumb-item"><a
+                href="https://jdi-testing.github.io/jdi-light/html5.html" target="_blank">HTML
+            5</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Bootstrap</li>
+    </ol>
+</nav>
+```
 
 Available methods in Java JDI Light:
 
@@ -5534,7 +5698,17 @@ Nav - Navigation component.
 
 Here is an example with provided Bootstrap v4.3 code:
   
-![Navs HTML example](../images/bootstrap/navs-html.png)
+```html
+<nav class="nav" id="nav-base-a">
+    <a class="nav-link active" href="https://jdi-testing.github.io/jdi-light/index.html"
+       target="_blank">Active</a>
+    <a class="nav-link" href="https://github.com/jdi-docs" target="_blank">JDI Docs</a>
+    <a class="nav-link" href="https://github.com/jdi-testing" target="_blank">JDI - testing
+        tool</a>
+    <a class="nav-link disabled" href="https://getbootstrap.com" tabindex="-1"
+       aria-disabled="true" target="_blank">Disabled</a>
+</nav>
+```
 
 Available methods in Java JDI Light:
 
@@ -5620,7 +5794,32 @@ public void collapseLinkTextTest(String linkText) {
 }
 ```
 
-![Supported content](../images/bootstrap/navbar-supported-content-uncollapsed-html.png)
+```html
+<nav id="navbar-nav-with-disabled" class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="https://getbootstrap.com/docs/4.3/components/navbar/#nav"
+       target="_blank">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+            aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link active"
+               href="https://jdi-testing.github.io/jdi-light/index.html" target="_blank">Home
+                <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link"
+               href="https://jdi-testing.github.io/jdi-light/html5.html" target="_blank">HTML
+                5</a>
+            <a class="nav-item nav-link"
+               href="https://jdi-testing.github.io/jdi-light/bootstrap.html" target="_blank">Bootstrap</a>
+            <a class="nav-item nav-link disabled"
+               href="https://jdi-testing.github.io/jdi-light/bootstrap.html" tabindex="-1"
+               aria-disabled="true" target="_blank">Disabled</a>
+        </div>
+    </div>
+</nav>
+```
 
 Navbar is represented by Section class in Java:
  
@@ -5831,7 +6030,32 @@ public void clickNavbarNavWithDropdownLinksTest() {
 
 Here is an example with provided Bootstrap v4.3 code:
   
-![Color Nav HTML example](../images/bootstrap/nav-html.png)
+```html
+<nav id="navbar-nav-with-disabled" class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="https://getbootstrap.com/docs/4.3/components/navbar/#nav"
+       target="_blank">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+            aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link active"
+               href="https://jdi-testing.github.io/jdi-light/index.html" target="_blank">Home
+                <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link"
+               href="https://jdi-testing.github.io/jdi-light/html5.html" target="_blank">HTML
+                5</a>
+            <a class="nav-item nav-link"
+               href="https://jdi-testing.github.io/jdi-light/bootstrap.html" target="_blank">Bootstrap</a>
+            <a class="nav-item nav-link disabled"
+               href="https://jdi-testing.github.io/jdi-light/bootstrap.html" tabindex="-1"
+               aria-disabled="true" target="_blank">Disabled</a>
+        </div>
+    </div>
+</nav>
+```
 
 With dropdown
 
@@ -5839,7 +6063,53 @@ With dropdown
 
 Here is an example with provided Bootstrap v4.3 code:
   
-![Color Nav HTML example](../images/bootstrap/nav-dropdown-html.png)
+```html
+<nav id="navbar-nav-with-dropdown" class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="https://getbootstrap.com/docs/4.3/components/navbar/#nav"
+       target="_blank">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+            aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="https://jdi-testing.github.io/jdi-light/index.html"
+                   target="_blank">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="https://jdi-testing.github.io/jdi-light/html5.html"
+                   target="_blank">HTML 5</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link"
+                   href="https://jdi-testing.github.io/jdi-light/bootstrap.html"
+                   target="_blank">Bootstrap</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle"
+                   href="https://getbootstrap.com/docs/4.3/components/navbar/"
+                   id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false" target="_blank">
+                    Navbar
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item"
+                       href="https://getbootstrap.com/docs/4.3/components/navbar/#brand"
+                       target="_blank">Brand</a>
+                    <a class="dropdown-item"
+                       href="https://getbootstrap.com/docs/4.3/components/navbar/#nav"
+                       target="_blank">Nav</a>
+                    <a class="dropdown-item"
+                       href="https://getbootstrap.com/docs/4.3/components/navbar/#forms"
+                       target="_blank">Forms</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+``` 
 
 Nav is represented by Section class in Java:
  
@@ -5898,7 +6168,18 @@ public void checkFormElements() {
 
 Here is an example with provided Bootstrap v4.3 code:
   
-![Forms HTML example](../images/bootstrap/navbar-forms1-html.png)
+```html
+<nav class="navbar navbar-light bg-light" id="navbar-form-1">
+    <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search"
+               aria-label="Search" style="width: 135px">
+        <button class="btn btn-outline-success my-2 my-sm-0"
+                type="submit"
+                onclick="alert('Search Main Button Clicked!');">Search
+        </button>
+    </form>
+</nav>
+```
 
 Immediate children elements in .navbar use flex layout and will default to justify-content: between.
 
@@ -5906,7 +6187,19 @@ Immediate children elements in .navbar use flex layout and will default to justi
 
 Here is an example with provided Bootstrap v4.3 code:
   
-![Forms HTML example](../images/bootstrap/navbar-forms2-html.png)
+```html
+<nav class="navbar navbar-light bg-light" id="navbar-form-2">
+    <a class="navbar-brand">Navbar</a>
+    <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search"
+               aria-label="Search" style="width: 135px">
+        <button class="btn btn-sm btn-outline-secondary my-2 my-sm-0"
+                type="submit"
+                onclick="alert('Search Smaller Button Clicked!');">Search
+        </button>
+    </form>
+</nav>
+```
 
 Input groups work, too:
 
@@ -5914,7 +6207,19 @@ Input groups work, too:
 
 Here is an example with provided Bootstrap v4.3 code:
   
-![Forms HTML example](../images/bootstrap/navbar-forms3-html.png)
+```html
+<nav class="navbar navbar-light bg-light" id="navbar-form-3">
+    <form class="form-inline">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">@</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Username"
+                   aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+    </form>
+</nav>
+```
 
 Media object is represented by Section class in Java:
  
@@ -5959,7 +6264,13 @@ public void verifySimpleNavbarTextTest() {
 ```
 
   
-![Text HTML example](../images/bootstrap/navbar-text1-html.png)
+```html
+<nav class="navbar navbar-light bg-light">
+   <span class="navbar-text">
+	   Navbar text with an inline element
+	</span>
+</nav>
+```
 
 Mix and match with other components and utilities as needed.
 
@@ -5995,7 +6306,37 @@ public void verifyComplexNavbarHomeTest() {
 ```
 
   
-![Text HTML example](../images/bootstrap/navbar-text2-html.png)
+```html
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="https://getbootstrap.com/docs/4.3/components/navbar/#nav"
+       target="_blank">Navbar w/ text</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="https://jdi-testing.github.io/jdi-light/index.html"
+                   target="_blank">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="https://jdi-testing.github.io/jdi-light/html5.html"
+                   target="_blank">HTML 5</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link"
+                   href="https://jdi-testing.github.io/jdi-light/bootstrap.html"
+                   target="_blank">Bootstrap</a>
+            </li>
+        </ul>
+        <span class="navbar-text">
+		  Navbar text with an inline element
+		</span>
+    </div>
+</nav>
+```
 
 Available methods in Java JDI Light:
 
@@ -6076,7 +6417,42 @@ private void checkColorOfElement(ICoreElement elem, String color) {
 }
 ```
   
-![Color schemes HTML example](../images/bootstrap/navbar-color-schemes-html.png)
+```html
+<nav id="navbar-dark-colorscheme" class="navbar navbar-expand-lg navbar-dark bg-dark mb-1">
+    <a class="navbar-brand"
+       href="https://getbootstrap.com/docs/4.0/components/navbar/#color-schemes"
+       target="_blank">Navbar</a>
+    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
+            data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false"
+            aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse" id="navbarColor01" style="">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="https://jdi-testing.github.io/jdi-light/index.html"
+                   target="_blank">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="https://jdi-testing.github.io/jdi-light/contacts.html"
+                   target="_blank">Contact form</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link"
+                   href="https://jdi-testing.github.io/jdi-light/metals-colors.html"
+                   target="_blank">Metals & Colors</a>
+            </li>
+        </ul>
+        <form class="form-inline">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search"
+                   aria-label="Search">
+            <button class="btn btn-outline-info my-2 my-sm-0" type="button"
+                    onclick="alert('Search');">Search
+            </button>
+        </form>
+    </div>
+</nav>
+```
 
 Available methods in Java JDI Light:
 
@@ -6134,12 +6510,29 @@ public void clickNavbarCentredContainerLinksTest() {
 
 Here is an example with provided Bootstrap v4.3 code:
   
-![Containers HTML example](../images/bootstrap/navbar-containers-html.png)
+```html
+<div class="container" id="navbar-containers-centred">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-1">
+        <a class="navbar-brand"
+           href="https://getbootstrap.com/docs/4.3/components/navbar/#containers"
+           target="_blank">Navbar</a>
+    </nav>
+</div>
+```
 
 When the container is within your navbar, its horizontal padding is removed at breakpoints lower than your specified ``.navbar-expand{-sm|-md|-lg|-xl}`` class.
 This ensures we’re not doubling up on padding unnecessarily on lower viewports when your navbar is collapsed.
  
-![Containers HTML example](../images/bootstrap/navbar-containers2-html.png)
+```html
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-3"
+     id="navbar-containers-expanded">
+    <div class="container">
+        <a class="navbar-brand"
+           href="https://getbootstrap.com/docs/4.3/components/navbar/#containers"
+           target="_blank">Navbar</a>
+    </div>
+</nav>
+```
 
 Container is represented by Section class in Java:
  
@@ -6182,7 +6575,31 @@ public void navbarPositionTest() {
 
 ```
     
-![Containers HTML example](../images/bootstrap/navbar-placement-sticky-html.png)
+```html
+<nav class="navbar navbar-expand-lg sticky-top navbar-light bg-light" id="navbar-sticky-top">
+    <a class="navbar-brand" href="https://getbootstrap.com/docs/4.3/components/navbar/#placement">Sticky Top</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="javascript: void();"> <span class="sr-only"></span>Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="javascript: void();">Features</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="javascript: void();">Pricing</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="javascript: void();" tabindex="-1" aria-disabled="true">Disabled</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+```
 
 Available methods in Java JDI Light:
 
@@ -6226,7 +6643,39 @@ Below are examples of different toggle styles.
 
 Here is an example with provided Bootstrap v4.3 code:
   
-![No .navbar-brand HTML example](../images/bootstrap/nobrand-html.png)
+```html
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-2">
+    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
+            data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01"
+            aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse" id="navbarTogglerDemo01" style="">
+        <a class="navbar-brand" href="javascript:void();">Hidden brand</a>
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+                <a class="nav-link" href="https://github.com/jdi-testing/jdi-light"
+                   target="_blank">JDI <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="https://jdi-docs.github.io/jdi-light/#navbar"
+                   target="_blank">JDI Docs</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1"
+                   aria-disabled="true">Disabled</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search"
+                   aria-label="Search">
+            <button class="btn btn-outline-light my-2 my-sm-0" type="submit"
+                    onclick="alert('Search Button Clicked!');">Search
+            </button>
+        </form>
+    </div>
+</nav>
+```
 
 **2. With a brand name shown on the left and toggler on the right**
 
@@ -6241,7 +6690,39 @@ Here is an example with provided Bootstrap v4.3 code:
 
 Here is an example with provided Bootstrap v4.3 code:
   
-![Toggler Right HTML example](../images/bootstrap/toggler-right-html.png)
+```html
+<nav class="navbar navbar-expand-lg navbar-dark bg-success mb-2">
+    <a class="navbar-brand" href="javascript:void();">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02"
+            aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+                <a class="nav-link" href="https://github.com/jdi-testing/jdi-light"
+                   target="_blank">JDI <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="https://jdi-docs.github.io/jdi-light/#navbar"
+                   target="_blank">JDI Docs</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1"
+                   aria-disabled="true">Disabled</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search">
+            <button class="btn btn-outline-light my-2 my-sm-0" type="submit"
+                    onclick="alert('Search Button Clicked!');">Search
+            </button>
+        </form>
+    </div>
+</nav>
+```
 
 **3. With a toggler on the left and brand name on the right**
 
@@ -6256,7 +6737,40 @@ Here is an example with provided Bootstrap v4.3 code:
 
 Here is an example with provided Bootstrap v4.3 code:
   
-![Toggler Left HTML example](../images/bootstrap/toggler-left-html.png)
+```html
+<nav class="navbar navbar-expand-lg navbar-dark mb-3 bg-dark">
+    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
+            data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03"
+            aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="javascript:void();">Navbar</a>
+
+    <div class="navbar-collapse collapse" id="navbarTogglerDemo03" style="">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+                <a class="nav-link" href="https://github.com/jdi-testing/jdi-light"
+                   target="_blank">JDI <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="https://jdi-docs.github.io/jdi-light/#navbar"
+                   target="_blank">JDI Docs</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1"
+                   aria-disabled="true">Disabled</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search"
+                   aria-label="Search">
+            <button class="btn btn-outline-light my-2 my-sm-0" type="submit"
+                    onclick="alert('Search Button Clicked!');">Search
+            </button>
+        </form>
+    </div>
+</nav>
+```
 
 <br>
 
@@ -6293,7 +6807,25 @@ public void getTextTest() {
 }
 
 ```
-![External_content HTML example](../images/bootstrap/navbar-external-html.png)
+
+```html
+<div class="pos-f-t" id="navbar-external-content">
+    <div class="collapse" id="navbarToggleExternalContent">
+        <div class="bg-dark p-4">
+            <h5 class="text-white h4">Collapsed content</h5>
+            <span class="text-muted">Toggleable via the navbar brand.</span>
+        </div>
+    </div>
+    <nav class="navbar navbar-dark bg-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarToggleExternalContent"
+                aria-controls="navbarToggleExternalContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </nav>
+</div>
+```
 
 Navbar - External content is represented by Section class in Java:
  
@@ -6328,7 +6860,20 @@ Pagination is functionality for navigating through pages.
 
 Here is an example with provided Bootstrap v4.3 code:
   
-![Pagination HTML example](../images/bootstrap/pagination-html.png)
+```html
+<nav aria-label="sizing-small">
+    <ul class="pagination pagination-sm" id="pagination-small">
+        <li class="page-item active" aria-current="page">
+            <span class="page-link">1<span class="sr-only">(current)</span></span>
+        </li>
+        <li class="page-item"><a class="page-link"
+                                 href="https://jdi-testing.github.io/jdi-light/index.html"
+                                 target="_blank">2</a></li>
+        <li class="page-item"><a class="page-link" href="https://getbootstrap.com"
+                                 target="_blank">3</a></li>
+    </ul>
+</nav>
+```
 
 **Pagination with icons**
 
@@ -6336,7 +6881,31 @@ Here is an example with provided Bootstrap v4.3 code:
 
 Here is an example with provided Bootstrap v4.3 code:
   
-![Pagination HTML example](../images/bootstrap/pagination-with-icons-html.png)
+```html
+<nav aria-label="Page navigation example">
+    <ul class="pagination" id="pagination-icons">
+        <li class="page-item">
+            <a class="page-link" href="https://github.com/jdi-docs" target="_blank"
+               aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+        <li class="page-item"><a class="page-link" href="https://github.com/jdi-testing"
+                                 target="_blank">1</a></li>
+        <li class="page-item"><a class="page-link"
+                                 href="https://jdi-testing.github.io/jdi-light/index.html"
+                                 target="_blank">2</a></li>
+        <li class="page-item"><a class="page-link" href="https://getbootstrap.com"
+                                 target="_blank">3</a></li>
+        <li class="page-item">
+            <a class="page-link" href="https://jdi-docs.github.io/jdi-light/"
+               target="_blank" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+```
 
 **Pagination with disabled item**
 
@@ -6344,7 +6913,28 @@ Here is an example with provided Bootstrap v4.3 code:
 
 Here is an example with provided Bootstrap v4.3 code:
   
-![Pagination HTML example](../images/bootstrap/pagination-disabled-html.png)
+```html
+<nav aria-label="disabled-and-active-states">
+    <ul class="pagination" id="pagination-states">
+        <li class="page-item disabled">
+            <a class="page-link" href="https://github.com/jdi-docs" target="_blank"
+               tabindex="-1" aria-disabled="true">Previous</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="https://github.com/jdi-testing"
+                                 target="_blank">1</a></li>
+        <li class="page-item active" aria-current="page">
+            <a class="page-link" href="https://jdi-testing.github.io/jdi-light/index.html"
+               target="_blank">2 <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="page-item"><a class="page-link" href="https://getbootstrap.com"
+                                 target="_blank">3</a></li>
+        <li class="page-item">
+            <a class="page-link" href="https://jdi-docs.github.io/jdi-light/"
+               target="_blank">Next</a>
+        </li>
+    </ul>
+</nav>
+```
 
 **Pagination with previous and next items**
 
@@ -6352,7 +6942,28 @@ Here is an example with provided Bootstrap v4.3 code:
 
 Here is an example with provided Bootstrap v4.3 code:
   
-![Pagination HTML example](../images/bootstrap/pagination-prev-next-html.png)
+```html
+<nav aria-label="disabled-and-active-states">
+    <ul class="pagination" id="pagination-states">
+        <li class="page-item">
+            <a class="page-link" href="https://github.com/jdi-docs" target="_blank"
+               tabindex="-1" aria-disabled="true">Previous</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="https://github.com/jdi-testing"
+                                 target="_blank">1</a></li>
+        <li class="page-item active" aria-current="page">
+            <a class="page-link" href="https://jdi-testing.github.io/jdi-light/index.html"
+               target="_blank">2 <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="page-item"><a class="page-link" href="https://getbootstrap.com"
+                                 target="_blank">3</a></li>
+        <li class="page-item">
+            <a class="page-link" href="https://jdi-docs.github.io/jdi-light/"
+               target="_blank">Next</a>
+        </li>
+    </ul>
+</nav>
+```
 
 
 Available methods in Java JDI Light:
@@ -6720,7 +7331,11 @@ public void checkSpinnerAppearAndThenDisappear() {
 
 Here is an example with provided Bootstrap v4.3 code:
 
-![Border Spinner HTML Example](../images/bootstrap/borderspinner-html.png)
+```html
+<div class="spinner-border" role="status">
+    <span class="sr-only">Loading...</span>
+</div>
+```
 
 Border Spinner are represented by the following class:
  
@@ -6787,7 +7402,32 @@ You can use any of our text color utilities on the standard spinner.
 ![Colored Spinners Example](../images/bootstrap/coloredspinners.png)
 Here is an example with provided Bootstrap v4.3 code:
 
-![Colored Spinners HTML Example](../images/bootstrap/coloredspinners-html.png)
+```html
+<div class="spinner-border text-primary" role="status" id="spinner-text-primary">
+    <span class="sr-only">Loading...</span>
+</div>
+<div class="spinner-border text-secondary" role="status" id="spinner-text-secondary">
+    <span class="sr-only">Loading...</span>
+</div>
+<div class="spinner-border text-success" role="status" id="spinner-text-success">
+    <span class="sr-only">Loading...</span>
+</div>
+<div class="spinner-border text-danger" role="status" id="spinner-text-danger">
+    <span class="sr-only">Loading...</span>
+</div>
+<div class="spinner-border text-warning" role="status" id="spinner-text-warning">
+    <span class="sr-only">Loading...</span>
+</div>
+<div class="spinner-border text-info" role="status" id="spinner-text-info">
+    <span class="sr-only">Loading...</span>
+</div>
+<div class="spinner-border text-light" role="status" id="spinner-text-light">
+    <span class="sr-only">Loading...</span>
+</div>
+<div class="spinner-border text-dark" role="status" id="spinner-text-dark">
+    <span class="sr-only">Loading...</span>
+</div>
+```
 
 
 
@@ -6864,7 +7504,34 @@ public void isValidationTest(Spinner spinner) {
 
 Here is an example with provided Bootstrap v4.3 code:
 
-![Growing Spinners HTML Example](../images/bootstrap/growingspinners-html.png)
+```html
+<div id="growing-spinners">
+    <div class="spinner-grow text-primary" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+    <div class="spinner-grow text-secondary" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+    <div class="spinner-grow text-success" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+    <div class="spinner-grow text-danger" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+    <div class="spinner-grow text-warning" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+    <div class="spinner-grow text-info" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+    <div class="spinner-grow text-light" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+    <div class="spinner-grow text-dark" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+```
 
 Spinner is represented by Section class in Java:
  
@@ -6916,7 +7583,13 @@ public void spinnerAlignmentStyleTest(Spinner spinner, String style) {
 
 Here is an example with provided Bootstrap v4.3 code:
 
-![Spinner Margin HTML Example](../images/bootstrap/spinnermargin-html.png)
+```html
+<div class="border mb-3 p-3">
+    <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+```
 
 **Spinner Placement**
 
@@ -6933,9 +7606,19 @@ to place spinners exactly where you need them in any situation.
 
 Here are the examples with provided Bootstrap v4.3 code:
 
-![Spinner Flex Right Example](../images/bootstrap/spinner-flex-center-html.png)
+```html
+<div class="d-flex justify-content-center border mb-3 p-3">
+    <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+```
 
-![Spinner Flex Right HTML Example](../images/bootstrap/spinner-flex-right-html.png)
+```html
+<div class="d-flex align-items-center border mb-3 p-3">
+    <div class="spinner-border ml-auto" role="status" aria-hidden="true"></div>
+</div>
+```
 
 
 **Spinner Floats**
@@ -6944,7 +7627,13 @@ Here are the examples with provided Bootstrap v4.3 code:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-![Spinner Float Right HTML Example](../images/bootstrap/spinnerfloat-html.png)
+```html
+<div class="clearfix border mb-3 p-3">
+    <div class="spinner-border float-right" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+```
 
 
 **Spinner Text Align**
@@ -6953,7 +7642,13 @@ Here is an example with provided Bootstrap v4.3 code:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-![Spinner Text Align Center HTML Example](../images/bootstrap/spinner-text-align-html.png)
+```html
+<div class="text-center mb-3 border p-3">
+    <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+```
 
 Spinner is represented by Section class in Java:
  
@@ -7035,7 +7730,16 @@ public void spinnerStylingTest() {
 
 Here is an example with provided Bootstrap v4.3 code:
 
-![Spinner Size Native HTML Example](../images/bootstrap/spinner-size-native-html.png)
+```html
+<div class="border mb-3 p-3 text-center">
+    <div class="spinner-border spinner-border-sm" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+    <div class="spinner-grow spinner-grow-sm" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+```
 
 Or, use custom CSS or inline styles to change the dimensions as needed.
 
@@ -7043,7 +7747,20 @@ Or, use custom CSS or inline styles to change the dimensions as needed.
 
 Here is an example with provided Bootstrap v4.3 code:
 
-![Spinner Size CSS HTML Example](../images/bootstrap/spinner-size-css-html.png)
+```html
+<div id="spinner-size">
+    <div class="border mb-3 p-3 text-center">
+        <div class="spinner-border" id="spinBorder" style="width: 3rem; height: 3rem;"
+             role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+        <div class="spinner-grow" id="spinGrow" style="width: 3rem; height: 3rem;"
+             role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+</div>
+```
 
 Spinner is represented by Section class in Java:
  
@@ -7102,7 +7819,37 @@ public void checkSpinnerInButtonWithText() {
 
 Here is an example with provided Bootstrap v4.3 code:
 
-![Spinner Buttons HTML Example](../images/bootstrap/spinnerbuttons-html.png)
+```html
+ <div class="border text-center p-3 mb-3">
+     <button class="btn btn-primary" type="button" disabled="" id="button-with-spinner">
+         <span class="spinner-border spinner-border-sm" role="status"
+               id=spinner-in-button" aria-hidden="true"></span>
+         <span class="sr-only">Loading...</span>
+     </button>
+     <button class="btn btn-primary" type="button" disabled=""
+             id="button-with-spinner-and-text">
+         <span class="spinner-border spinner-border-sm" role="status"
+               id=spinner-in-button-with-text"
+               aria-hidden="true"></span>
+         Loading...
+     </button>
+ </div>
+
+ <div class="border text-center p-3 mb-3">
+     <button class="btn btn-primary" type="button" disabled=""
+             id="button-with-growing-spinner">
+         <span class="spinner-grow spinner-grow-sm" role="status"
+               id=growing-spinner-in-button" aria-hidden="true"></span>
+         <span class="sr-only">Loading...</span>
+     </button>
+     <button class="btn btn-primary" type="button" disabled=""
+             id="button-with-growing-spinner-and-text">
+         <span class="spinner-grow spinner-grow-sm" role="status"
+               id=growing-spinner-in-button-with-text" aria-hidden="true"></span>
+         Loading...
+     </button>
+ </div>
+```
 
 Spinner is represented by ButtonWithSpinner class in Java:
  
@@ -7173,7 +7920,33 @@ public void tooltipWithHtmlTest() {
 
 Here is an example with provided Bootstrap v4.3 code:
   
-![Tooltip example](../images/bootstrap/popover-html.png)
+```html
+<button type="button" class="btn btn-info btn-block" id="tooltipOnTop" data-toggle="tooltip"
+        data-placement="top" title="Tooltip on top">Tooltip on top
+</button>
+<hr>
+<button type="button" class="btn btn-info btn-block" id="tooltipOnRight" data-toggle="tooltip"
+        data-placement="right" title="Tooltip on right">Tooltip on right
+</button>
+<hr>
+<button type="button" class="btn btn-info btn-block" id="tooltipOnBottom" data-toggle="tooltip"
+        data-placement="bottom" title="Tooltip on bottom">Tooltip on bottom
+</button>
+<hr>
+<button type="button" class="btn btn-info btn-block" id="tooltipOnLeft" data-toggle="tooltip"
+        data-placement="left" title="Tooltip on left">Tooltip on left
+</button>
+<hr>
+<button type="button" class="btn btn-info btn-block" id="tooltipWithHTML" data-toggle="tooltip"
+        data-html="true" title="<em>Tooltip</em> <u>with</u> <b>HTML</b>">Tooltip with HTML
+</button>
+<hr>
+<span class="d-inline-block" id="wrapperForDisabledButton" tabindex="0" data-toggle="tooltip"
+      title="Disabled tooltip">
+		<button class="btn btn-info btn-block" id="tooltipOnDisabledButton"
+                style="pointer-events: none;" type="button" disabled>Disabled button</button>
+</span>
+```
 
 Available methods in Java JDI Light:
 
@@ -7209,7 +7982,47 @@ assertThat()	 |  Assert action	| UIpAssert
 
 Here is an example with provided Bootstrap v4.3 code:
   
-![Popover example](../images/bootstrap/popover-html.png)
+```html
+<div class="html-left" id="popovers">
+    <button type="button" class="btn btn-secondary btn-block mb-3" id="popover-top"
+            data-container="body" data-toggle="popover" data-placement="top"
+            data-content="Top popover is visible.">
+        Popover on top
+    </button>
+    <button type="button" class="btn btn-secondary btn-block mb-3" id="popover-right"
+            data-container="body" data-toggle="popover" data-placement="right"
+            data-content="Right popover is visible.">
+        Popover on right
+    </button>
+    <button type="button" class="btn btn-secondary btn-block mb-3" id="popover-bottom"
+            data-container="body" data-toggle="popover" data-placement="bottom"
+            data-content="Bottom popover is visible.">
+        Popover on bottom
+    </button>
+    <button type="button" class="btn btn-secondary btn-block mb-3" id="popover-left"
+            data-container="body" data-toggle="popover" data-placement="left"
+            data-content="Left popover is visible.">
+        Popover on left
+    </button>
+    <button type="button" class="btn btn-lg btn-danger btn-block mb-3" id="popover-title"
+            data-toggle="popover" title="Popover title"
+            data-content="And here's some amazing content. It's very engaging. Right?">Click to
+        toggle popover
+    </button>
+
+    <a tabindex="0" class="btn btn-lg btn-danger btn-block mb-3" role="button"
+       id="popover-dismissible" data-toggle="popover" data-trigger="focus"
+       title="Dismissible popover"
+       data-content="And here's some amazing content. It's very engaging. Right?">Dismissible
+        popover</a>
+
+    <span class="d-inline-block mb-3" style="width:100%;" data-toggle="popover"
+          id="popover-disabled" data-content="Disabled popover">
+			<button class="btn btn-primary btn-block" style="pointer-events: none;" type="button"
+                    disabled>Disabled button</button>
+		</span>
+</div>
+```
 
 Available methods in Java JDI Light:
 
@@ -7290,7 +8103,28 @@ You can use a ``@JDropdown`` annotation to declare a Collapse within your Page O
 
 Here is an example with provided Bootstrap v4.3 code:
 
-![Collapse HTML example](../images/bootstrap/collapse-html.png)
+```html
+<div class="accordion mb-3" id="accordionExample">
+    <div class="card">
+        <div class="card-header" id="headingOne">
+            <h2 class="mb-0">
+                <button id="bs-group-toggle-one" class="btn btn-link" type="button"
+                        data-toggle="collapse" data-target="#bs-group-one"
+                        aria-expanded="true" aria-controls="collapseOne">
+                    Collapsible Group Item #1
+                </button>
+            </h2>
+        </div>
+
+        <div class="collapse"
+             aria-labelledby="headingOne" data-parent="#accordionExample" id="bs-group-one">
+            <div class="card-body" id="bs-group-one-body">You probably haven't heard of
+                them accusamus labore sustainable VHS.
+            </div>
+        </div>
+    </div>
+</div>
+```
 
 Available methods in Java JDI Light:
 
@@ -7315,7 +8149,45 @@ Here’s a carousel with slides only. Note the presence of the .d-block and .w-1
 
 Here is an example with provided Bootstrap v4.3 code:
   
-![Carousel slides only HTML example](../images/bootstrap/carousel-slides-only-html.png)
+```html
+<div id="carousel-example-slides-only" class="carousel slide mb-2" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800"
+                 height="400" xmlns="http://www.w3.org/2000/svg"
+                 preserveAspectRatio="xMidYMid slice" focusable="false" role="img"
+                 aria-label="Placeholder: First slide"><title>Placeholder</title>
+                <rect width="100%" height="100%" fill="#777"></rect>
+                <text x="34%" y="27%" fill="#555" dy=".3em" style="font-size:25px;">First
+                    slide
+                </text>
+            </svg>
+        </div>
+        <div class="carousel-item">
+            <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800"
+                 height="400" xmlns="http://www.w3.org/2000/svg"
+                 preserveAspectRatio="xMidYMid slice" focusable="false" role="img"
+                 aria-label="Placeholder: First slide"><title>Placeholder</title>
+                <rect width="100%" height="100%" fill="#33AAFF"></rect>
+                <text x="27%" y="27%" fill="#555" dy=".3em" style="font-size:25px;">Second
+                    slide
+                </text>
+            </svg>
+        </div>
+        <div class="carousel-item">
+            <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800"
+                 height="400" xmlns="http://www.w3.org/2000/svg"
+                 preserveAspectRatio="xMidYMid slice" focusable="false" role="img"
+                 aria-label="Placeholder: First slide"><title>Placeholder</title>
+                <rect width="100%" height="100%" fill="#20AD1E"></rect>
+                <text x="31%" y="27%" fill="#555" dy=".3em" style="font-size:25px;">Third
+                    slide
+                </text>
+            </svg>
+        </div>
+    </div>
+</div>
+```
 
 **With controls**<br>
 Adding in the previous and next controls:
@@ -7324,7 +8196,55 @@ Adding in the previous and next controls:
 
 Here is an example with provided Bootstrap v4.3 code:
   
-![Carousel with controls HTML example](../images/bootstrap/carousel-with-controls-html.png)
+```html
+<div id="carousel-example-controls" class="carousel slide mb-2" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item">
+            <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800"
+                 height="400" xmlns="http://www.w3.org/2000/svg"
+                 preserveAspectRatio="xMidYMid slice" focusable="false" role="img"
+                 aria-label="Placeholder: First slide"><title>Placeholder</title>
+                <rect width="100%" height="100%" fill="#777"></rect>
+                <text x="34%" y="27%" fill="#555" dy=".3em" style="font-size:25px;">First
+                    slide
+                </text>
+            </svg>
+        </div>
+        <div class="carousel-item">
+            <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800"
+                 height="400" xmlns="http://www.w3.org/2000/svg"
+                 preserveAspectRatio="xMidYMid slice" focusable="false" role="img"
+                 aria-label="Placeholder: First slide"><title>Placeholder</title>
+                <rect width="100%" height="100%" fill="#33AAFF"></rect>
+                <text x="27%" y="27%" fill="#555" dy=".3em" style="font-size:25px;">Second
+                    slide
+                </text>
+            </svg>
+        </div>
+        <div class="carousel-item active">
+            <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800"
+                 height="400" xmlns="http://www.w3.org/2000/svg"
+                 preserveAspectRatio="xMidYMid slice" focusable="false" role="img"
+                 aria-label="Placeholder: First slide"><title>Placeholder</title>
+                <rect width="100%" height="100%" fill="#20AD1E"></rect>
+                <text x="31%" y="27%" fill="#555" dy=".3em" style="font-size:25px;">Third
+                    slide
+                </text>
+            </svg>
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#carousel-example-controls" role="button"
+       data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carousel-example-controls" role="button"
+       data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+```
 
 **With indicators**<br>
 You can also add the indicators to the carousel, alongside the controls, too.
@@ -7333,7 +8253,61 @@ You can also add the indicators to the carousel, alongside the controls, too.
 
 Here is an example with provided Bootstrap v4.3 code:
   
-![Carousel with indicators HTML example](../images/bootstrap/carousel-with-indicators-html.png)
+```html
+<div id="carousel-example-indicators" class="carousel slide mb-2" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#carousel-example-indicators" data-slide-to="0"
+            class="active"></li>
+        <li data-target="#carousel-example-indicators" data-slide-to="1" class=""></li>
+        <li data-target="#carousel-example-indicators" data-slide-to="2" class=""></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800"
+                 height="400" xmlns="http://www.w3.org/2000/svg"
+                 preserveAspectRatio="xMidYMid slice" focusable="false" role="img"
+                 aria-label="Placeholder: First slide"><title>Placeholder</title>
+                <rect width="100%" height="100%" fill="#777"></rect>
+                <text x="34%" y="27%" fill="#555" dy=".3em" style="font-size:25px;">First
+                    slide
+                </text>
+            </svg>
+        </div>
+        <div class="carousel-item">
+            <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800"
+                 height="400" xmlns="http://www.w3.org/2000/svg"
+                 preserveAspectRatio="xMidYMid slice" focusable="false" role="img"
+                 aria-label="Placeholder: First slide"><title>Placeholder</title>
+                <rect width="100%" height="100%" fill="#33AAFF"></rect>
+                <text x="27%" y="27%" fill="#555" dy=".3em" style="font-size:25px;">Second
+                    slide
+                </text>
+            </svg>
+        </div>
+        <div class="carousel-item">
+            <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800"
+                 height="400" xmlns="http://www.w3.org/2000/svg"
+                 preserveAspectRatio="xMidYMid slice" focusable="false" role="img"
+                 aria-label="Placeholder: First slide"><title>Placeholder</title>
+                <rect width="100%" height="100%" fill="#20AD1E"></rect>
+                <text x="31%" y="27%" fill="#555" dy=".3em" style="font-size:25px;">Third
+                    slide
+                </text>
+            </svg>
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#carousel-example-indicators" role="button"
+       data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carousel-example-indicators" role="button"
+       data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+```
 
 **With captions**<br>
 Add captions to your slides easily with the .carousel-caption element within any .carousel-item.
@@ -7344,21 +8318,183 @@ We hide them initially with .d-none and bring them back on medium-sized devices 
 
 Here is an example with provided Bootstrap v4.3 code:
   
-![Carousel with captions HTML example](../images/bootstrap/carousel-with-captions-html.png)
+```html
+<div id="carousel-example-captions" class="carousel slide mb-2" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#carousel-example-captions" data-slide-to="0" class=""></li>
+        <li data-target="#carousel-example-captions" data-slide-to="1" class="active"></li>
+        <li data-target="#carousel-example-captions" data-slide-to="2" class=""></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="carousel-item">
+            <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800"
+                 height="400" xmlns="http://www.w3.org/2000/svg"
+                 preserveAspectRatio="xMidYMid slice" focusable="false" role="img"
+                 aria-label="Placeholder: First slide"><title>Placeholder</title>
+                <rect width="100%" height="100%" fill="#777"></rect>
+                <text x="34%" y="12%" fill="#555" dy=".3em" style="font-size:25px;">First
+                    slide
+                </text>
+            </svg>
+            <div class="carousel-caption d-none d-md-block">
+                <h5>First slide label</h5>
+                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            </div>
+        </div>
+        <div class="carousel-item active">
+            <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800"
+                 height="400" xmlns="http://www.w3.org/2000/svg"
+                 preserveAspectRatio="xMidYMid slice" focusable="false" role="img"
+                 aria-label="Placeholder: First slide"><title>Placeholder</title>
+                <rect width="100%" height="100%" fill="#33AAFF"></rect>
+                <text x="27%" y="12%" fill="#555" dy=".3em" style="font-size:25px;">Second
+                    slide
+                </text>
+            </svg>
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Second slide label</h5>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800"
+                 height="400" xmlns="http://www.w3.org/2000/svg"
+                 preserveAspectRatio="xMidYMid slice" focusable="false" role="img"
+                 aria-label="Placeholder: First slide"><title>Placeholder</title>
+                <rect width="100%" height="100%" fill="#20AD1E"></rect>
+                <text x="31%" y="12%" fill="#555" dy=".3em" style="font-size:25px;">Third
+                    slide
+                </text>
+            </svg>
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Third slide label</h5>
+                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+            </div>
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#carousel-example-captions" role="button"
+       data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carousel-example-captions" role="button"
+       data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+```
 
 **Crossfade**<br>
 Add .carousel-fade to your carousel to animate slides with a fade transition instead of a slide.
 
 Here is an example with provided Bootstrap v4.3 code:
   
-![Carousel crossfade HTML example](../images/bootstrap/carousel-crossfade-html.png)
+```html
+<div id="carousel-example-fade" class="carousel slide mb-2 carousel-fade"
+     data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800"
+                 height="400" xmlns="http://www.w3.org/2000/svg"
+                 preserveAspectRatio="xMidYMid slice" focusable="false" role="img"
+                 aria-label="Placeholder: First slide"><title>Placeholder</title>
+                <rect width="100%" height="100%" fill="#777"></rect>
+                <text x="34%" y="27%" fill="#555" dy=".3em" style="font-size:25px;">First
+                    slide
+                </text>
+            </svg>
+        </div>
+        <div class="carousel-item">
+            <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800"
+                 height="400" xmlns="http://www.w3.org/2000/svg"
+                 preserveAspectRatio="xMidYMid slice" focusable="false" role="img"
+                 aria-label="Placeholder: First slide"><title>Placeholder</title>
+                <rect width="100%" height="100%" fill="#33AAFF"></rect>
+                <text x="27%" y="27%" fill="#555" dy=".3em" style="font-size:25px;">Second
+                    slide
+                </text>
+            </svg>
+        </div>
+        <div class="carousel-item">
+            <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800"
+                 height="400" xmlns="http://www.w3.org/2000/svg"
+                 preserveAspectRatio="xMidYMid slice" focusable="false" role="img"
+                 aria-label="Placeholder: First slide"><title>Placeholder</title>
+                <rect width="100%" height="100%" fill="#20AD1E"></rect>
+                <text x="31%" y="27%" fill="#555" dy=".3em" style="font-size:25px;">Third
+                    slide
+                </text>
+            </svg>
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#carousel-example-fade" role="button"
+       data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carousel-example-fade" role="button"
+       data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+```
 
 **Individual .carousel-item interval**<br>
 Add data-interval="" to a .carousel-item to change the amount of time to delay between automatically cycling to the next item.
 
 Here is an example with provided Bootstrap v4.3 code:
   
-![Carousel example interval HTML example](../images/bootstrap/carousel-example-interval-html.png)
+```html
+<div id="carousel-example-interval" class="carousel slide mb-3" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active" data-interval="3000">
+            <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800"
+                 height="400" xmlns="http://www.w3.org/2000/svg"
+                 preserveAspectRatio="xMidYMid slice" focusable="false" role="img"
+                 aria-label="Placeholder: First slide"><title>Placeholder</title>
+                <rect width="100%" height="100%" fill="#777"></rect>
+                <text x="34%" y="27%" fill="#555" dy=".3em" style="font-size:25px;">First
+                    slide
+                </text>
+            </svg>
+        </div>
+        <div class="carousel-item" data-interval="3000">
+            <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800"
+                 height="400" xmlns="http://www.w3.org/2000/svg"
+                 preserveAspectRatio="xMidYMid slice" focusable="false" role="img"
+                 aria-label="Placeholder: First slide"><title>Placeholder</title>
+                <rect width="100%" height="100%" fill="#33AAFF"></rect>
+                <text x="27%" y="27%" fill="#555" dy=".3em" style="font-size:25px;">Second
+                    slide
+                </text>
+            </svg>
+        </div>
+        <div class="carousel-item" data-interval="3000">
+            <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800"
+                 height="400" xmlns="http://www.w3.org/2000/svg"
+                 preserveAspectRatio="xMidYMid slice" focusable="false" role="img"
+                 aria-label="Placeholder: First slide"><title>Placeholder</title>
+                <rect width="100%" height="100%" fill="#20AD1E"></rect>
+                <text x="31%" y="27%" fill="#555" dy=".3em" style="font-size:25px;">Third
+                    slide
+                </text>
+            </svg>
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#carousel-example-interval" role="button"
+       data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carousel-example-interval" role="button"
+       data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+```
 
 Carousel is located in the following classes:
  
@@ -7710,7 +8846,23 @@ __Events for toasts:__
 
 Here is an example with provided Bootstrap v4.3 code:
   
-![Toast HTML example](../images/bootstrap/toast_html.png)
+```html
+<div class="toast" role="alert" data-animation="false" aria-live="assertive"
+     aria-atomic="true" id="simpleToast">
+    <div class="toast-header">
+        <img src="images/range-circle.png" class="rounded mr-2" alt="...">
+        <strong class="mr-auto">Bootstrap</strong>
+        <small class="text-muted">11 mins ago</small>
+        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast"
+                aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="toast-body">
+        Hello, world! This is a toast message.
+    </div>
+</div>
+```
 
 <br>
 
@@ -7721,7 +8873,26 @@ Here is an example with provided Bootstrap v4.3 code:
 
 Here is an example with provided Bootstrap v4.3 code:
   
-![Toast HTML example](../images/bootstrap/translucent_toast_code.png)
+```html
+<div aria-live="polite" aria-atomic="true"
+     style="min-height: 200px;background-color: grey;">
+    <div class="toast" role="alert" data-animation="false" aria-live="assertive"
+         aria-atomic="true" id="translucentToast">
+        <div class="toast-header">
+            <img src="images/range-circle.png" class="rounded mr-2" alt="...">
+            <strong class="mr-auto">Bootstrap</strong>
+            <small class="text-muted">11 mins ago</small>
+            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast"
+                    aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="toast-body">
+            Hello, world! This is a toast message.
+        </div>
+    </div>
+</div>
+```
 
 <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/toasts/#stacking" target="_blank">**Stacking**</a>
 
@@ -7731,7 +8902,41 @@ When you have multiple toasts, we default to vertically stacking them in a reada
 
 Here is an example with provided Bootstrap v4.3 code:
   
-![Toast stack HTML example](../images/bootstrap/stack_of_toasts_html.png)
+```html
+<div aria-live="polite" aria-atomic="true"
+     style="min-height: 200px;background-color: grey;">
+    <div class="toast several" role="alert" aria-live="assertive" id="firstMultipleToast"
+         aria-atomic="true">
+        <div class="toast-header">
+            <img src="images/range-circle.png" class="rounded mr-2" alt="...">
+            <strong class="mr-auto">Bootstrap</strong>
+            <small class="text-muted">just now</small>
+            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast"
+                    aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="toast-body">
+            See? Just like this.
+        </div>
+    </div>
+    <div class="toast several" role="alert" aria-live="assertive" id="secondMultipleToast"
+         aria-atomic="true">
+        <div class="toast-header">
+            <img src="images/range-circle.png" class="rounded mr-2" alt="...">
+            <strong class="mr-auto">Bootstrap</strong>
+            <small class="text-muted">2 seconds ago</small>
+            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast"
+                    aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="toast-body">
+            Heads up, toasts will stack automatically
+        </div>
+    </div>
+</div>
+```
 
 
 <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/toasts/#stacking" target="_blank">**Placement**</a>
@@ -7744,7 +8949,26 @@ Example with top right align:
 
 Here is an example with provided Bootstrap v4.3 code:
   
-![Toast top right  HTML example](../images/bootstrap/toast_align_html.png)
+```html
+<div aria-live="polite" aria-atomic="true"
+     style="position: relative; min-height: 200px;background-color: grey;">
+    <div class="toast" id="toastRightTop" style="position: absolute; top: 0; right: 0;"
+         data-autohide="false">
+        <div class="toast-header">
+            <img src="images/range-circle.png" class="rounded mr-2" alt="...">
+            <strong class="mr-auto">Bootstrap</strong>
+            <small>11 mins ago</small>
+            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast"
+                    aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="toast-body">
+            Hello, world! This is a toast message.
+        </div>
+    </div>
+</div>
+```
 
 Example with top right align stack of toasts:
 
@@ -7752,15 +8976,77 @@ Example with top right align stack of toasts:
 
 Here is an example with provided Bootstrap v4.3 code:
   
-![Toast top right stack HTML example](../images/bootstrap/stack_top_align_html.png)
+```html
+<div aria-live="polite" aria-atomic="true"
+     style="position: relative; min-height: 200px; background-color: grey;">
+    <!-- Position it -->
+    <div style="position: absolute; top: 0; right: 0;">
 
-Example with center align stack of toasts:
+        <!-- Then put toasts within -->
+        <div class="toast severalWithPosition" role="alert" aria-live="assertive"
+             id="firstStackToast" aria-atomic="true">
+            <div class="toast-header">
+                <img src="images/range-circle.png" class="rounded mr-2" alt="...">
+                <strong class="mr-auto">Bootstrap</strong>
+                <small class="text-muted">just now</small>
+                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast"
+                        aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="toast-body">
+                See? Just like this.
+            </div>
+        </div>
+
+        <div class="toast severalWithPosition" role="alert" aria-live="assertive"
+             id="secondStackToast" aria-atomic="true">
+            <div class="toast-header">
+                <img src="images/range-circle.png" class="rounded mr-2" alt="...">
+                <strong class="mr-auto">Bootstrap</strong>
+                <small class="text-muted">2 seconds ago</small>
+                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast"
+                        aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="toast-body">
+                Heads up, toasts will stack automatically
+            </div>
+        </div>
+    </div>
+</div>
+```
+
+Example with center align toast:
 
 ![Toast top right stack example](../images/bootstrap/toast_center.png)
 
 Here is an example with provided Bootstrap v4.3 code:
   
-![Toast top right stack HTML example](../images/bootstrap/toast_center_html.png)
+```html
+<div aria-live="polite" aria-atomic="true"
+     class="d-flex justify-content-center align-items-center"
+     style="min-height: 200px;background-color: grey;">
+
+    <!-- Then put toasts within -->
+    <div class="toast" role="alert" id="toastCenterTop" aria-live="assertive"
+         aria-atomic="true" data-delay="3000">
+        <div class="toast-header">
+            <img src="images/range-circle.png" class="rounded mr-2" alt="...">
+            <strong class="mr-auto">Bootstrap</strong>
+            <small>11 mins ago</small>
+            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast"
+                    aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="toast-body">
+            Hello, world! This is a toast message.
+        </div>
+    </div>
+</div>
+```
 
 Available methods in Java JDI Light:
 
@@ -8004,7 +9290,46 @@ Textual <a style="font-weight: bold;" href="https://getbootstrap.com/docs/4.3/co
 
 Here is an example with provided Bootstrap v4.3 code:
 
-![Form controls example](../images/bootstrap/form-controls-html.png)
+```html
+<form id="form-controls">
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Email address</label>
+        <input type="email" class="form-control" id="exampleFormControlInput1"
+               placeholder="name@example.com">
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlSelect1">Example select</label>
+        <select class="form-control" id="exampleFormControlSelect1">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlSelect2">Example multiple select</label>
+        <select multiple class="form-control" id="exampleFormControlSelect2">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1">Example textarea</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+</form>
+
+<form id="form-controls-file-input">
+    <div class="form-group">
+        <label for="exampleFormControlFile1">Example file input</label>
+        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+    </div>
+</form>
+```
 
 Form is represented by Section class in Java:
  
@@ -8093,9 +9418,79 @@ public void submitEntityToContactFormTest() {
 
 <br>
 
-![Form custom style Example](../images/bootstrap/form-custom-styles-html1.png)
-![Form custom style Example](../images/bootstrap/form-custom-styles-html2.png)
-![Form custom style Example](../images/bootstrap/form-custom-styles-html3.png)
+```html
+<form class="needs-validation" novalidate>
+    <div class="form-row">
+        <div class="col-md-4 mb-3">
+            <label for="validationCustom01">First name</label>
+            <input type="text" class="form-control" id="validationCustom01" placeholder="First name"
+                   value="Mark" required>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="validationCustom02">Last name</label>
+            <input type="text" class="form-control" id="validationCustom02" placeholder="Last name"
+                   value="Otto" required>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="validationCustomUsername">Username</label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroupPrepend">@</span>
+                </div>
+                <input type="text" class="form-control" id="validationCustomUsername"
+                       placeholder="Username" aria-describedby="inputGroupPrepend" required>
+                <div class="invalid-feedback">
+                    Please choose a username.
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-md-6 mb-3">
+            <label for="validationCustom03">City</label>
+            <input type="text" class="form-control" id="validationCustom03" placeholder="City"
+                   required>
+            <div class="invalid-feedback">
+                Please provide a valid city.
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <label for="validationCustom04">State</label>
+            <input type="text" class="form-control" id="validationCustom04" placeholder="State"
+                   required>
+            <div class="invalid-feedback">
+                Please provide a valid state.
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <label for="validationCustom05">Zip</label>
+            <input type="text" class="form-control" id="validationCustom05" placeholder="Zip"
+                   required>
+            <div class="invalid-feedback">
+                Please provide a valid zip.
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+            <label class="form-check-label" for="invalidCheck">
+                Agree to terms and conditions
+            </label>
+            <div class="invalid-feedback">
+                You must agree before submitting.
+            </div>
+        </div>
+    </div>
+    <button class="btn btn-primary" type="submit">Submit form</button>
+</form>
+```
 
 
 <br>
@@ -8201,8 +9596,58 @@ public void isValidationTests(TextField element, String label, String value) {
 
 <br>
 
-![Form browser defaults Example](../images/bootstrap/form-browser-defaults-html1.png)
-![Form browser defaults Example](../images/bootstrap/form-browser-defaults-html2.png)
+```html
+<form>
+    <div class="form-row">
+        <div class="col-md-4 mb-3">
+            <label for="validationDefault01">First name</label>
+            <input type="text" class="form-control" id="validationDefault01"
+                   placeholder="First name" value="Mark" required>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="validationDefault02">Last name</label>
+            <input type="text" class="form-control" id="validationDefault02" placeholder="Last name"
+                   value="Otto" required>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="validationDefaultUsername">Username</label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroupPrepend2">@</span>
+                </div>
+                <input type="text" class="form-control" id="validationDefaultUsername"
+                       placeholder="Username" aria-describedby="inputGroupPrepend2" required>
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-md-6 mb-3">
+            <label for="validationDefault03">City</label>
+            <input type="text" class="form-control" id="validationDefault03" placeholder="City"
+                   required>
+        </div>
+        <div class="col-md-3 mb-3">
+            <label for="validationDefault04">State</label>
+            <input type="text" class="form-control" id="validationDefault04" placeholder="State"
+                   required>
+        </div>
+        <div class="col-md-3 mb-3">
+            <label for="validationDefault05">Zip</label>
+            <input type="text" class="form-control" id="validationDefault05" placeholder="Zip"
+                   required>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+            <label class="form-check-label" for="invalidCheck2">
+                Agree to terms and conditions
+            </label>
+        </div>
+    </div>
+    <button class="btn btn-primary" type="submit">Submit form</button>
+</form>
+```
 
 
 <br>
@@ -8305,9 +9750,80 @@ public void fillTest() {
 
 <br>
 
-![Form server side Example](../images/bootstrap/form-server-side-html1.png)
-![Form server side Example](../images/bootstrap/form-server-side-html2.png)
-![Form server side Example](../images/bootstrap/form-server-side-html3.png)
+```html
+<form>
+    <div class="form-row">
+        <div class="col-md-4 mb-3">
+            <label for="validationServer01">First name</label>
+            <input type="text" class="form-control is-valid" id="validationServer01"
+                   placeholder="First name" value="Mark" required>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="validationServer02">Last name</label>
+            <input type="text" class="form-control is-valid" id="validationServer02"
+                   placeholder="Last name" value="Otto" required>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="validationServerUsername">Username</label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroupPrepend3">@</span>
+                </div>
+                <input type="text" class="form-control is-invalid" id="validationServerUsername"
+                       placeholder="Username" aria-describedby="inputGroupPrepend3" required>
+                <div class="invalid-feedback">
+                    Please choose a username.
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-md-6 mb-3">
+            <label for="validationServer03">City</label>
+            <input type="text" class="form-control is-invalid" id="validationServer03"
+                   placeholder="City" required>
+            <div class="invalid-feedback">
+                Please provide a valid city.
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <label for="validationServer04">State</label>
+            <input type="text" class="form-control is-invalid" id="validationServer04"
+                   placeholder="State" required>
+            <div class="invalid-feedback">
+                Please provide a valid state.
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <label for="validationServer05">Zip</label>
+            <input type="text" class="form-control is-invalid" id="validationServer05"
+                   placeholder="Zip" required>
+            <div class="invalid-feedback">
+                Please provide a valid zip.
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="form-check">
+            <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3"
+                   required>
+            <label class="form-check-label" for="invalidCheck3">
+                Agree to terms and conditions
+            </label>
+            <div class="invalid-feedback">
+                You must agree before submitting.
+            </div>
+        </div>
+    </div>
+    <button class="btn btn-primary" type="submit">Submit form</button>
+</form>
+```
 
 
 <br>
@@ -8405,8 +9921,69 @@ public void sendMethodTest() {
 
 <br>
 
-![Form tooltips Example](../images/bootstrap/form-tooltip-html1-1.png)
-![Form tooltips Example](../images/bootstrap/form-tooltip-html1-2.png)
+```html
+<form class="needs-validation" novalidate>
+    <div class="form-row">
+        <div class="col-md-4 mb-3">
+            <label for="validationTooltip01">First name</label>
+            <input type="text" class="form-control" id="validationTooltip01"
+                   placeholder="First name" value="Mark" required>
+            <div class="valid-tooltip">
+                Looks good!
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="validationTooltip02">Last name</label>
+            <input type="text" class="form-control" id="validationTooltip02" placeholder="Last name"
+                   value="Otto" required>
+            <div class="valid-tooltip">
+                Looks good!
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="validationTooltipUsername">Username</label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
+                </div>
+                <input type="text" class="form-control" id="validationTooltipUsername"
+                       placeholder="Username" aria-describedby="validationTooltipUsernamePrepend"
+                       required>
+                <div class="invalid-tooltip">
+                    Please choose a unique and valid username.
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-md-6 mb-3">
+            <label for="validationTooltip03">City</label>
+            <input type="text" class="form-control" id="validationTooltip03" placeholder="City"
+                   required>
+            <div class="invalid-tooltip">
+                Please provide a valid city.
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <label for="validationTooltip04">State</label>
+            <input type="text" class="form-control" id="validationTooltip04" placeholder="State"
+                   required>
+            <div class="invalid-tooltip">
+                Please provide a valid state.
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <label for="validationTooltip05">Zip</label>
+            <input type="text" class="form-control" id="validationTooltip05" placeholder="Zip"
+                   required>
+            <div class="invalid-tooltip">
+                Please provide a valid zip.
+            </div>
+        </div>
+    </div>
+    <button class="btn btn-primary" type="submit">Submit form</button>
+</form>
+```
 
 
 <br>
@@ -8613,8 +10190,66 @@ public void directFillingTest() {
 
 <br>
 
-![Form horizontal Example](../images/bootstrap/form-horizontal-html1.png)
-![Form horizontal Example](../images/bootstrap/form-horizontal-html2.png)
+```html
+<form>
+    <div class="form-group row">
+        <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+        <div class="col-sm-10">
+            <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+        <div class="col-sm-10">
+            <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+        </div>
+    </div>
+    <fieldset class="form-group">
+        <div class="row">
+            <legend class="col-form-label col-sm-2 pt-0">Radios</legend>
+            <div class="col-sm-10">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1"
+                           value="option1" checked>
+                    <label class="form-check-label" for="gridRadios1">
+                        First radio
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2"
+                           value="option2">
+                    <label class="form-check-label" for="gridRadios2">
+                        Second radio
+                    </label>
+                </div>
+                <div class="form-check disabled">
+                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3"
+                           value="option3" disabled>
+                    <label class="form-check-label" for="gridRadios3">
+                        Third disabled radio
+                    </label>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+    <div class="form-group row">
+        <div class="col-sm-2">Checkbox</div>
+        <div class="col-sm-10">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="gridCheck1">
+                <label class="form-check-label" for="gridCheck1">
+                    Example checkbox
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-10">
+            <button type="submit" class="btn btn-primary">Sign in</button>
+        </div>
+    </div>
+</form>
+```
 
 
 <br>
@@ -8876,7 +10511,32 @@ public void isValidationTests() {
 
 <br>
 
-![Form disabled Example](../images/bootstrap/form-disabled-html.png)
+```html
+<form>
+    <fieldset disabled>
+        <div class="form-group">
+            <label for="disabledTextInput">Disabled input</label>
+            <input type="text" id="disabledTextInput" class="form-control"
+                   placeholder="Disabled input">
+        </div>
+        <div class="form-group">
+            <label for="disabledSelect">Disabled select menu</label>
+            <select id="disabledSelect" class="form-control">
+                <option>Disabled select</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="disabledFieldsetCheck" disabled>
+                <label class="form-check-label" for="disabledFieldsetCheck">
+                    Can't check this
+                </label>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </fieldset>
+</form>
+```
 
 
 <br>
@@ -8958,7 +10618,26 @@ public void helpTextTests() {
 
 <br>
 
-![Form help text Example](../images/bootstrap/form-help-text-html.png)
+```html
+<label for="inputPassword5">Password</label>
+<input type="password" id="inputPassword5" class="form-control"
+       aria-describedby="passwordHelpBlock">
+<small id="passwordHelpBlock" class="form-text text-muted">
+    Your password must be 8-20 characters long, contain letters and numbers, and must not contain
+    spaces, special characters, or emoji.
+</small>
+<br/>
+<form class="form-inline">
+    <div class="form-group">
+        <label for="inputPassword6">Password</label>
+        <input type="password" id="inputPassword6" class="form-control mx-sm-3"
+               aria-describedby="passwordHelpInline">
+        <small id="passwordHelpInline" class="text-muted">
+            Must be 8-20 characters long.
+        </small>
+    </div>
+</form>
+```
 
 
 <br>
@@ -9057,7 +10736,29 @@ public class FormSignUp extends DataClass<FormSignUp>{
 
 <br>
 
-![Forms Overview Example](../images/bootstrap/form-overview-html.png)
+```html
+<form id="forms-overview" class="mb-3">
+    <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1"
+               aria-describedby="emailHelp" placeholder="Enter email">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with
+            anyone else.</small>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1"
+               placeholder="Password">
+    </div>
+    <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div>
+    <button type="submit" class="btn btn-primary"
+            onclick="alert('Form filled and submitted successfully');">Submit
+    </button>
+</form>
+```
 
 
 <br>
@@ -9141,7 +10842,33 @@ public void isValidationTest() {
 
 ```
 
-![Forms_sizing_example](../images/bootstrap/forms-sizing-html.png)
+````html
+<div class="html-left" id="forms-sizing">
+    <div class="mb-3">
+        <input class="form-control form-control-lg mb-3" id="form-sizing-lg" type="text"
+               placeholder=".form-control-lg">
+        <input class="form-control mb-3" id="form-sizing-default" type="text"
+               placeholder="Default input">
+        <input class="form-control form-control-sm mb-3" id="form-sizing-sm" type="text"
+               placeholder=".form-control-sm">
+    </div>
+
+    <div class="mb-3">
+        <select class="form-control form-control-lg mb-3" id="form-sizing-select-lg">
+            <option>Large select</option>
+            <option>Large option</option>
+        </select>
+        <select class="form-control mb-3" id="form-sizing-select-default">
+            <option>Default select</option>
+            <option>Default option</option>
+        </select>
+        <select class="form-control form-control-sm mb-3" id="form-sizing-select-sm">
+            <option>Small select</option>
+            <option>Small option</option>
+        </select>
+    </div>
+</div>
+````
 
 Form group is represented by Section class in Java:
 
@@ -9198,7 +10925,10 @@ public void check() {
 
 ```
 
-![Forms_readonly_plain_text_HTML_example](../images/bootstrap/form-readonly-html.png)
+```html
+<input class="form-control mb-3" id="forms-readonly-input" type="text"
+                                   placeholder="Readonly input here..." readonly>
+```
 
 Available methods in Java JDI Light:
 
@@ -9251,7 +10981,16 @@ public void labelTest() {
     readonlyPlainText1.label().is().text("Email");
 }
 ```
-![Forms_readonly_plain_text_HTML_example](../images/bootstrap/readonly_plain_text_DOM.png)
+
+```html
+<div class="form-group row">
+    <label for="readonlyPlainText1" class="col-sm-2 col-form-label">Email</label>
+    <div class="col-sm-10">
+        <input type="text" readonly class="form-control-plaintext" id="readonlyPlainText1"
+               value="email@example.com">
+    </div>
+</div>
+```
 
 
 Available methods in Java JDI Light:
@@ -9299,7 +11038,15 @@ public static RangeInput rangeInput;
     rangeInput.label().is().text("Example Range input");
  }
 ```
-![Forms_range_input_HTML_example](../images/bootstrap/range_input_html.png)
+
+```html
+<form class="mb-3">
+    <div class="form-group">
+        <label for="formControlRange">Example Range input</label>
+        <input type="range" class="form-control-range" id="formControlRange">
+    </div>
+</form>
+```
 
 Available methods in Java JDI Light:
 
@@ -9419,27 +11166,72 @@ Select menu is located in the following classes:
 
 ![Select menu](../images/bootstrap/form-select-menu.png) <br>
 Here is an example with provided Bootstrap v4.3 code:
-![Select menu](../images/bootstrap/form-select-menu-html.png) <br>
+
+```html
+<select class="custom-select mb-3" id="forms-select-menu">
+    <option selected>Open this select menu</option>
+    <option value="1">One</option>
+    <option value="2">Two</option>
+    <option value="3">Three</option>
+</select>
+``` 
+<br>
 
 **Large select menu**
 ![Select menu](../images/bootstrap/form-select-menu-large.png) <br>
 Here is an example with provided Bootstrap v4.3 code:
-![Select menu](../images/bootstrap/form-select-menu-large-html.png) <br>
+
+```html
+<select class="custom-select custom-select-lg mb-3" id="forms-select-menu-large">
+    <option selected>Open this select menu</option>
+    <option value="1">One</option>
+    <option value="2">Two</option>
+    <option value="3">Three</option>
+</select>
+```
+ <br>
 
 **Small select menu**
 ![Select menu](../images/bootstrap/form-select-menu-small.png) <br>
 Here is an example with provided Bootstrap v4.3 code:
-![Select menu](../images/bootstrap/form-select-menu-small-html.png) <br>
+
+```html
+<select class="custom-select custom-select-sm mb-3" id="forms-select-menu-small">
+    <option selected>Open this select menu</option>
+    <option value="1">One</option>
+    <option value="2">Two</option>
+    <option value="3">Three</option>
+</select>
+```
+<br>
 
 **Select menu multiple**
 ![Select menu](../images/bootstrap/form-select-menu-multiple.png) <br>
 Here is an example with provided Bootstrap v4.3 code:
-![Select menu](../images/bootstrap/form-select-menu-multiple-html.png) <br>
+
+```html
+<select class="custom-select mb-3" multiple id="forms-select-menu-multiple">
+    <option selected>Open this select menu</option>
+    <option value="1">One</option>
+    <option value="2">Two</option>
+    <option value="3">Three</option>
+</select>
+```
+<br>
 
 **Select menu size**
 ![Select menu](../images/bootstrap/form-select-menu-size.png) <br>
 Here is an example with provided Bootstrap v4.3 code:
-![Select menu](../images/bootstrap/form-select-menu-size-html.png) <br>
+
+```html
+<select class="custom-select mb-3" size="3" id="forms-select-menu-size">
+    <option selected>Open this select menu</option>
+    <option value="1">One</option>
+    <option value="2">Two</option>
+    <option value="3">Three</option>
+</select>
+```
+<br>
 
 Available methods in Java JDI Light:
 <br>
@@ -9487,7 +11279,19 @@ public void setThumbValueTest() {
     range3.is().thumbValue(5);
 }
 ```
-![Range_example](../images/bootstrap/range_html.png)
+
+```html
+<div class="html-left">
+    <label for="customRange1">Example range</label>
+    <input type="range" class="custom-range" id="customRange1">
+
+    <label for="customRange2">Example range</label>
+    <input type="range" class="custom-range" min="0" max="5" id="customRange2">
+
+    <label for="customRange3">Example range</label>
+    <input type="range" class="custom-range" min="0" max="5" step="0.5" id="customRange3">
+</div>
+```
 
 Available methods in Java JDI Light:
 
@@ -9840,21 +11644,121 @@ public class ScrollSpyNav extends Section {
 ```
 
 ![Scrollspy](../images/bootstrap/scroll_spy1.png)<br>
-![Scrollspy](../images/bootstrap/scroll_spy1_html.png)<br>
+
+```html
+<nav id="navbar-example2" class="navbar navbar-light bg-light">
+    <a class="navbar-brand"
+       href="https://getbootstrap.com/docs/4.3/components/scrollspy/#example-in-navbar"
+       target="_blank">Navbar</a>
+    <ul class="nav nav-pills">
+        <li class="nav-item"><a class="nav-link" href="#fat">@fat</a>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="#mdo">@mdo</a>
+        </li>
+        <li class="nav-item dropdown"><a
+                class="nav-link dropdown-toggle" data-toggle="dropdown"
+                href="#" role="button" aria-haspopup="true"
+                aria-expanded="false">Dropdown</a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="#one">one</a> <a
+                    class="dropdown-item" href="#two">two</a>
+                <div role="separator" class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#three">three</a>
+            </div>
+        </li>
+    </ul>
+</nav>
+<div data-spy="scroll" data-target="#navbar-example2"
+     data-offset="0" class="scrollspy-example">
+    <h4 id="fat">@fat</h4>
+    <p>...</p>
+    <h4 id="mdo">@mdo</h4>
+    <p>...</p>
+    <h4 id="one">one</h4>
+    <p>...</p>
+    <h4 id="two">two</h4>
+    <p>...</p>
+    <h4 id="three">three</h4>
+    <p>...</p>
+</div>
+```
+<br>
 <br>
 
 - [Scrollspy with nested nav] (https://getbootstrap.com/docs/4.3/components/scrollspy/#example-with-nested-nav)
 <br> 
 
 ![Scrollspy](../images/bootstrap/scroll_spy2.png)<br>
-![Scrollspy](../images/bootstrap/scroll_spy2_html.png)<br>
+
+```html
+<nav id="navbar-example3" class="navbar navbar-light bg-light">
+    <a class="navbar-brand"
+       href="https://getbootstrap.com/docs/4.3/components/scrollspy/#example-with-nested-nav"
+       target="_blank">Navbar</a>
+    <nav class="nav nav-pills flex-column">
+        <a class="nav-link" href="#item-1">Item 1</a>
+        <nav class="nav nav-pills flex-column">
+            <a class="nav-link ml-3 my-1" href="#item-1-1">Item 1-1</a> <a
+                class="nav-link ml-3 my-1" href="#item-1-2">Item 1-2</a>
+        </nav>
+        <a class="nav-link" href="#item-2">Item 2</a> <a
+            class="nav-link" href="#item-3">Item 3</a>
+        <nav class="nav nav-pills flex-column">
+            <a class="nav-link ml-3 my-1" href="#item-3-1">Item 3-1</a> <a
+                class="nav-link ml-3 my-1" href="#item-3-2">Item 3-2</a>
+        </nav>
+    </nav>
+</nav>
+
+<div data-spy="scroll" data-target="#navbar-example3"
+     data-offset="0" class="scrollspy-example-2">
+    <h4 id="item-1">Item 1</h4>
+    <p>...</p>
+    <h5 id="item-1-1">Item 1-1</h5>
+    <p>...</p>
+    <h5 id="item-1-2">Item 1-2</h5>
+    <p>...</p>
+    <h4 id="item-2">Item 2</h4>
+    <p>...</p>
+    <h4 id="item-3">Item 3</h4>
+    <p>...</p>
+    <h5 id="item-3-1">Item 3-1</h5>
+    <p>...</p>
+    <h5 id="item-3-2">Item 3-2</h5>
+    <p>...</p>
+</div>
+```
+<br>
 <br>
 
 - [Scrollspy with list-group] (https://getbootstrap.com/docs/4.3/components/scrollspy/#example-with-list-group)
 <br>
 
 ![Scrollspy](../images/bootstrap/scroll_spy3.png)<br>
-![Scrollspy](../images/bootstrap/scroll_spy3_html.png)
+
+```html
+<div id="list-example" class="list-group">
+    <a class="list-group-item list-group-item-action"
+       href="#list-item-1">Item 1</a> <a
+        class="list-group-item list-group-item-action"
+        href="#list-item-2">Item 2</a> <a
+        class="list-group-item list-group-item-action"
+        href="#list-item-3">Item 3</a> <a
+        class="list-group-item list-group-item-action"
+        href="#list-item-4">Item 4</a>
+</div>
+<div data-spy="scroll" data-target="#list-example"
+     data-offset="0" class="scrollspy-example">
+    <h4 id="list-item-1">Item 1</h4>
+    <p>...</p>
+    <h4 id="list-item-2">Item 2</h4>
+    <p>...</p>
+    <h4 id="list-item-3">Item 3</h4>
+    <p>...</p>
+    <h4 id="list-item-4">Item 4</h4>
+    <p>...</p>
+</div>
+```
 
 Available methods in Java JDI Light:
 
@@ -10004,7 +11908,18 @@ mediaObjectList.assertThat().displayed()
 
 Here is an example with provided Bootstrap v4.3 code:
   
-![Media object example](../images/bootstrap/media-object-sample-html.png)
+```html
+<div class="media" id="media-object-sample">
+    <img src="images/wolverin.jpg" class="mr-3" alt="...">
+    <div class="media-body">
+        <h5 class="mt-0">WOLVERINE</h5>
+        Wolverine is a fictional character appearing in American comic books published by Marvel
+        Comics, mostly in association with the X-Men. He is a mutant who possesses animal-keen
+        senses, enhanced physical capabilities, powerful regenerative ability known as a healing
+        factor, and three retractable claws in each hand.
+    </div>
+</div>
+```
 
 
 
@@ -10014,7 +11929,26 @@ Here is an example with provided Bootstrap v4.3 code:
 
 Here is an example with provided Bootstrap v4.3 code:
   
-![Media object nesting example](../images/bootstrap/media-object-nesting-html.png)
+```html
+<div class="media" id="media-object-nesting">
+    <img src="images/wolverin.jpg" class="mr-3" alt="...">
+    <div class="media-body">
+        <h5 class="mt-0">Media heading</h5>
+        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
+        sollicitudin.
+        <div class="media mt-3">
+            <a class="mr-3" href="https://jdi-testing.github.io/jdi-light/index.html"
+               target="_blank">
+                <img src="images/punisher.jpg" class="mr-3" alt="...">
+            </a>
+            <div class="media-body">
+                <h5 class="mt-0">IRON MAN</h5>
+                Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo.
+            </div>
+        </div>
+    </div>
+</div>
+```
 
 
 **Media object list**
@@ -10024,7 +11958,34 @@ Here is an example with provided Bootstrap v4.3 code:
 
 Here is an example with provided Bootstrap v4.3 code:
   
-![Media object list example](../images/bootstrap/media-object-list-html.png)
+```html
+<ul class="list-unstyled" id="media-object-list">
+    <li class="media">
+        <img src="images/wolverin.jpg" class="mr-3" alt="...">
+        <div class="media-body">
+            <h5 class="mt-0 mb-1">WOLVERINE first</h5>
+            Wolverine is a fictional character appearing in American comic books published by
+            Marvel Comics
+        </div>
+    </li>
+    <li class="media my-4">
+        <img src="images/punisher.jpg" class="mr-3" alt="...">
+        <div class="media-body">
+            <h5 class="mt-0 mb-1">IRON MAN second</h5>
+            I do anything and everything that Mr. Stark requires — including occasionally taking
+            out the trash
+        </div>
+    </li>
+    <li class="media">
+        <img src="images/spider-man.jpg" class="mr-3" alt="...">
+        <div class="media-body">
+            <h5 class="mt-0 mb-1">SPIDER MAN third</h5>
+            Spider-Man is a fictional superhero created by writer-editor Stan Lee and
+            writer-artist Steve Ditko.
+        </div>
+    </li>
+</ul>
+```
 
 Media object is represented by MediaObject class: 
 
@@ -10094,7 +12055,29 @@ public void saveAndCloseButtonsTest() {
 }
 ```
 
-![Modal Live_demo HTML](../images/bootstrap/modal-live-demo-html.png)
+```html
+<div id="exampleModalLive" class="modal fade" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalLiveLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLiveLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Woohoo, you're reading this text in a modal!</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
+                </button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+```
 
 Modal is represented by Section class in Java:
  
@@ -10273,7 +12256,31 @@ public void modalBasicFunctionalityTest(Button showButton,
 
 Here is an example with provided Bootstrap v4.3 code:
 
-![Modal Vertically Centered HTML](../images/bootstrap/modal-vertically-centered-html.png)
+```html
+<div id="exModalCenter" class="modal fade" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div id="modal-vertical-content-1" class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exModalCenterTitle">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac
+                    facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac,
+                    vestibulum at eros.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
+                </button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+```
 
 Modal is represented by Section class in Java:
  
@@ -10347,7 +12354,41 @@ public void verifyOpenModalDialogTooltips() {
 
 ```
 
-![Modal Tooltips and Popovers HTML](../images/bootstrap/modal-tooltips-and-popovers-html.png)
+```html
+<div id="exampleModalPopovers" class="modal fade" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalPopoversLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalPopoversLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h5>Popover in a modal</h5>
+                <p>This <a href="#exampleModalPopovers" role="button" class="btn btn-secondary popover-test"
+                           title="Popover title" data-toggle="popover"
+                           data-content="Popover body content is set in this attribute."
+                           data-container="#exampleModalPopovers">button</a> triggers a popover on click.
+                </p>
+                <hr/>
+                <h5>Tooltips in a modal</h5>
+                <p><a href="#exampleModalPopovers" class="tooltip-test" title="Tooltip" data-toggle="tooltip"
+                      data-container="#exampleModalPopovers">This link</a> and
+                    <a href="#exampleModalPopovers" class="tooltip-test" title="Tooltip" data-toggle="tooltip"
+                       data-container="#exampleModalPopovers">that link</a> have tooltips on hover.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
+                </button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+```
 
 Modal is represented by Section class in Java:
  
@@ -10432,7 +12473,63 @@ public void checkCloseByEscapeButton() {
     }
 ```
 
-![Modal using grid HTML example](../images/bootstrap/modal-grid-html.png)
+```html
+<div id="grid-modal-base" class="html-left mb-3">
+    <div id="gridSystemModal" class="modal fade" tabindex="-1" role="dialog"
+         aria-labelledby="gridModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="gridModalLabel">Grids in modals</h5>
+                    <button id="close-modal-cross" type="button" class="close" data-dismiss="modal"
+                            aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid bd-example-row">
+                        <div class="row">
+                            <div class="col-md-4">.col-md-4</div>
+                            <div class="col-md-4 ml-auto">.col-md-4 .ml-auto</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3 ml-auto">.col-md-3 .ml-auto</div>
+                            <div class="col-md-2 ml-auto">.col-md-2 .ml-auto</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 ml-auto">.col-md-6 .ml-auto</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-9">
+                                Level 1: .col-sm-9
+                                <div class="row">
+                                    <div class="col-8 col-sm-6">
+                                        Level 2: .col-8 .col-sm-6
+                                    </div>
+                                    <div class="col-4 col-sm-6">
+                                        Level 2: .col-4 .col-sm-6
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="close-modal" type="button" class="btn btn-secondary"
+                            data-dismiss="modal">Close
+                    </button>
+                    <button id="save-modal" type="button" class="btn btn-primary">Save changes
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bd-example">
+        <button id="btn-modal-using-grid" type="button" class="btn btn-primary" data-toggle="modal"
+                data-target="#gridSystemModal">Launch demo modal
+        </button>
+    </div>
+</div>
+```
 
 Available methods in Java JDI Light:
 
@@ -10498,7 +12595,39 @@ Here is an example with provided Bootstrap v4.3 code:
     }
 ```
 
-![Varying modal content HTML example](../images/bootstrap/modal-varying-content-html.PNG)
+```html
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div id="modalVaryingContentWindow" class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="recipient-name"
+                               class="col-form-label">Recipient:</label>
+                        <input type="text" class="form-control" id="recipient-name"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">Message:</label>
+                        <textarea class="form-control" id="message-text"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
+                </button>
+                <button type="button" class="btn btn-primary">Send message</button>
+            </div>
+        </div>
+    </div>
+</div>
+```
 
 Available methods in Java JDI Light:
 
@@ -10554,7 +12683,34 @@ public void playVideoTest() {
 }
 ```
 
-![Embedding YouTube video example](../images/bootstrap/modal-youtube-html.png)
+```html
+<div id="modal-youtube" class="html-left mb-3">
+    <div class="bd-example">
+        <button type="button" class="btn btn-primary mb-3" data-toggle="modal"
+                data-target="#youTubeModalLabel">Embedding YouTube video
+        </button>
+    </div>
+    <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="youTubeModalLabel"
+         id="youTubeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title h4">Embedding YouTube video</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen="" src="https://www.youtube.com/embed/lw4g9ItC7Sc"
+                            width="1120" height="630" frameborder="0"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+```
 
 Available methods in Java JDI Light:
 
@@ -10622,7 +12778,25 @@ public void modalSizeTest(Button button,
 
 Here is an example with provided Bootstrap v4.3 code:
 
-![Modal Optional Sizes HTML Example](../images/bootstrap/modal-optional-sizes-html.png)
+```html
+<div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog"
+     aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title h4" id="myExtraLargeModalLabel">Extra large modal</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+        </div>
+    </div>
+</div>
+```
 
 Modal is represented by Section class in Java:
  
@@ -10706,9 +12880,22 @@ public void clickableTests() {
 }
 ```
 
-![Popover example html](../images/bootstrap/popover-title-html.png)
+```html
+<button type="button" class="btn btn-lg btn-danger btn-block mb-3" id="popover-title"
+        data-toggle="popover" title="Popover title"
+        data-content="And here's some amazing content. It's very engaging. Right?">Click to
+    toggle popover
+</button>
+```
 
-![Popover example html container](../images/bootstrap/popover-title-html-div.png)
+```html
+<div class="popover fade bs-popover-right show" role="tooltip" id="popover757247" style="will-change: 
+    transform; position: absolute; transform: translate3d(542px, 39291px, 0px); top: 0px; left: 0px;" x-placement=
+    "right">
+    <div class="arrow" style="top: 35px;"></div>
+    <h3 class="popover-header">Popover title</h3><div class="popover-body">And here's some amazing content. It's very engaging. Right?</div>
+</div>
+```
 
 
 
@@ -10809,9 +12996,23 @@ public void clickableTests() {
 }
 ```
 
-![Four directions popover top example html](../images/bootstrap/popover-top-html.png)
+```html
+<button type="button" class="btn btn-secondary btn-block mb-3" id="popover-top"
+        data-container="body" data-toggle="popover" data-placement="top"
+        data-content="Top popover is visible.">
+    Popover on top
+</button>
+```
 
-![Four directions popover top container example html](../images/bootstrap/popover-top-html-div.png)
+```html
+<div class="popover fade show bs-popover-top" role="tooltip" id="popover561586" x-placement="top" 
+    style="position: absolute; transform: translate3d(320px, 39051px, 0px); top: 0px; left: 0px; will-change: 
+    transform;">
+    <div class="arrow" style="left: 68px;"></div>
+    <h3 class="popover-header"></h3><div class="popover-body">Top popover is visible.</div>
+</div>
+```
+
 <br><br>
 
 Popover right
@@ -10820,9 +13021,24 @@ Popover right
 
 Here is an example with provided Bootstrap v4.3 code:
 
-![Four directions popover right example html](../images/bootstrap/popover-right-html.png)
+```html
+<button type="button" class="btn btn-secondary btn-block mb-3" id="popover-right"
+        data-container="body" data-toggle="popover" data-placement="right"
+        data-content="Right popover is visible.">
+    Popover on right
+</button>
+```
 
-![Four directions popover right container example html](../images/bootstrap/popover-right-html-div.png)
+```html
+<div class="popover fade bs-popover-right show" role="tooltip" id="popover525348" x-placement="right" 
+    style="position: absolute; transform: translate3d(542px, 39152px, 0px); top: 0px; left: 0px; will-change: 
+    transform;">
+    <div class="arrow" style="top: 7px;"></div>
+    <h3 class="popover-header"></h3>
+    <div class="popover-body">Right popover is visible.</div>
+</div>
+```
+
 <br><br>
 
 Popover bottom
@@ -10831,9 +13047,23 @@ Popover bottom
 
 Here is an example with provided Bootstrap v4.3 code:
 
-![Four directions popover bottom example html](../images/bootstrap/popover-bottom-html.png)
+```html
+<button type="button" class="btn btn-secondary btn-block mb-3" id="popover-bottom"
+        data-container="body" data-toggle="popover" data-placement="bottom"
+        data-content="Bottom popover is visible.">
+    Popover on bottom
+</button>
+```
 
-![Four directions popover bottom container example html](../images/bootstrap/popover-bottom-html-div.png)
+```html
+<div class="popover fade show bs-popover-bottom" role="tooltip" id="popover24015" x-placement="bottom" 
+    style="position: absolute; transform: translate3d(308px, 39244px, 0px); top: 0px; left: 0px; will-change: 
+    transform;">
+    <div class="arrow" style="left: 80px;"></div>
+    <h3 class="popover-header"></h3>
+    <div class="popover-body">Bottom popover is visible.</div>
+</div>
+```
 <br><br>
 
 Popover left
@@ -10842,9 +13072,23 @@ Popover left
 
 Here is an example with provided Bootstrap v4.3 code:
 
-![Four directions popover left example html](../images/bootstrap/popover-left-html.png)
+```html
+<button type="button" class="btn btn-secondary btn-block mb-3" id="popover-left"
+        data-container="body" data-toggle="popover" data-placement="left"
+        data-content="Left popover is visible.">
+    Popover on left
+</button>
+```
 
-![Four directions popover left container example html](../images/bootstrap/popover-left-html-div.png)
+```html
+<div class="popover fade bs-popover-left show" role="tooltip" id="popover587895" x-placement="left" 
+    style="position: absolute; transform: translate3d(88px, 39260px, 0px); top: 0px; left: 0px; will-change: 
+    transform;">
+    <div class="arrow" style="top: 7px;"></div>
+    <h3 class="popover-header"></h3>
+    <div class="popover-body">Left popover is visible.</div>
+</div>
+```
 <br><br>
 
 
@@ -10944,9 +13188,23 @@ public void clickableTests() {
 }
 ```
 
-![Dismissible popover example html](../images/bootstrap/popover-dismissible-html.png)
+```html
+<a tabindex="0" class="btn btn-lg btn-danger btn-block mb-3" role="button"
+   id="popover-dismissible" data-toggle="popover" data-trigger="focus"
+   title="Dismissible popover"
+   data-content="And here's some amazing content. It's very engaging. Right?">Dismissible
+    popover</a>
+```
 
-![Dismissible popover example container html](../images/bootstrap/popover-dismissible-html-div.png)
+```html
+<div class="popover fade bs-popover-right" role="tooltip" id="popover278744" 
+    style="will-change: transform; position: absolute; transform: translate3d(542px, 39355px, 0px); top: 0px; left: 0px;" 
+    x-placement="right">
+    <div class="arrow" style="top: 35px;"></div>
+    <h3 class="popover-header">Dismissible popover</h3>
+    <div class="popover-body">And here's some amazing content. It's very engaging. Right?</div>
+</div>
+```
 
 
 
@@ -11047,9 +13305,22 @@ Here is an example with provided Bootstrap v4.3 code:
  }
  ```
  
- ![Disabled elements popover example html](../images/bootstrap/popover-disabled-html.png)
+```html
+<span class="d-inline-block mb-3" style="width:100%;" data-toggle="popover"
+      id="popover-disabled" data-content="Disabled popover">
+        <button class="btn btn-primary btn-block" style="pointer-events: none;" type="button"
+                disabled>Disabled button</button>
+</span>
+```
  
- ![Disabled elements popover example container html](../images/bootstrap/popover-disabled-html-div.png)
+```html
+<div class="popover fade show bs-popover-right" role="tooltip" id="popover180279" x-placement="right" 
+    style="will-change: transform; position: absolute; transform: translate3d(542px, 39442px, 0px); top: 0px; left: 0px;">
+    <div class="arrow" style="top: 7px;"></div>
+    <h3 class="popover-header"></h3>
+    <div class="popover-body">Disabled popover</div>
+</div>
+```
  
 
 
@@ -11134,9 +13405,37 @@ public void isValidationTests() {
 }
 ```
 
-![Nav base example html](../images/bootstrap/nav-base-li-html.png)
+```html
+<ul class="nav" id="nav-base-li">
+    <li class="nav-item">
+        <a class="nav-link active" href="https://jdi-testing.github.io/jdi-light/index.html"
+           target="_blank">Active</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="https://github.com/jdi-docs" target="_blank">JDI Docs</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="https://github.com/jdi-testing" target="_blank">JDI -
+            testing tool</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link disabled" href="https://getbootstrap.com" tabindex="-1"
+           aria-disabled="true" target="_blank">Disabled</a>
+    </li>
+</ul>
+```
 
-![Nav base example html](../images/bootstrap/nav-base-a-html.png)
+```html
+<nav class="nav" id="nav-base-a">
+    <a class="nav-link active" href="https://jdi-testing.github.io/jdi-light/index.html"
+       target="_blank">Active</a>
+    <a class="nav-link" href="https://github.com/jdi-docs" target="_blank">JDI Docs</a>
+    <a class="nav-link" href="https://github.com/jdi-testing" target="_blank">JDI - testing
+        tool</a>
+    <a class="nav-link disabled" href="https://getbootstrap.com" tabindex="-1"
+       aria-disabled="true" target="_blank">Disabled</a>
+</nav>
+```
 
 
 
@@ -11211,9 +13510,45 @@ public void linkClickableLiTests(int index, String pageTitle) {
 }
 ```
 
-![Nav horizontal alignmen example html](../images/bootstrap/nav-align-center-html.png)
+```html
+<ul class="nav justify-content-center" id="nav-center">
+    <li class="nav-item">
+        <a class="nav-link active" href="https://jdi-testing.github.io/jdi-light/index.html"
+           target="_blank">Active</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="https://github.com/jdi-docs" target="_blank">JDI Docs</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="https://github.com/jdi-testing" target="_blank">JDI -
+            testing tool</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link disabled" href="https://getbootstrap.com" tabindex="-1"
+           aria-disabled="true" target="_blank">Disabled</a>
+    </li>
+</ul>
+```
 
-![Nav horizontal alignmen example html](../images/bootstrap/nav-align-right-html.png)
+```html
+<ul class="nav justify-content-end" id="nav-end">
+    <li class="nav-item">
+        <a class="nav-link active" href="https://jdi-testing.github.io/jdi-light/index.html"
+           target="_blank">Active</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="https://github.com/jdi-docs" target="_blank">JDI Docs</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="https://github.com/jdi-testing" target="_blank">JDI -
+            testing tool</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link disabled" href="https://getbootstrap.com" tabindex="-1"
+           aria-disabled="true" target="_blank">Disabled</a>
+    </li>
+</ul>
+```
 
 
 
@@ -11281,9 +13616,37 @@ public void linkClickableLiTests(int index, String pageTitle) {
 }
 ```
 
-![Nav vertical alignmen example html](../images/bootstrap/nav-vertical-li-html.png)
+```html
+<ul class="nav flex-column" id="nav-vert-li">
+    <li class="nav-item">
+        <a class="nav-link active" href="https://jdi-testing.github.io/jdi-light/index.html"
+           target="_blank">Active</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="https://github.com/jdi-docs" target="_blank">JDI Docs</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="https://github.com/jdi-testing" target="_blank">JDI -
+            testing tool</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link disabled" href="https://getbootstrap.com" tabindex="-1"
+           aria-disabled="true" target="_blank">Disabled</a>
+    </li>
+</ul>
+```
 
-![Nav vertical alignmen example html](../images/bootstrap/nav-vertical-a-html.png)
+```html
+<nav class="nav flex-column" id="nav-vert-a">
+    <a class="nav-link active" href="https://jdi-testing.github.io/jdi-light/index.html"
+       target="_blank">Active</a>
+    <a class="nav-link" href="https://github.com/jdi-docs" target="_blank">JDI Docs</a>
+    <a class="nav-link" href="https://github.com/jdi-testing" target="_blank">JDI - testing
+        tool</a>
+    <a class="nav-link disabled" href="https://getbootstrap.com" tabindex="-1"
+       aria-disabled="true" target="_blank">Disabled</a>
+</nav>
+```
 
 
 
@@ -11351,7 +13714,25 @@ public void linkClickableLiTests(int index, String pageTitle) {
 }
 ```
 
-![Nav tabs example html](../images/bootstrap/nav-tabs-html.png)
+```html
+<ul class="nav nav-tabs" id="nav-tabs">
+    <li class="nav-item">
+        <a class="nav-link active" href="https://jdi-testing.github.io/jdi-light/index.html"
+           target="_blank">Active</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="https://github.com/jdi-docs" target="_blank">JDI Docs</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="https://github.com/jdi-testing" target="_blank">JDI -
+            testing tool</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link disabled" href="https://getbootstrap.com" tabindex="-1"
+           aria-disabled="true" target="_blank">Disabled</a>
+    </li>
+</ul>
+```
 
 
 
@@ -11414,7 +13795,25 @@ public void linkClickableLiTests(int index, String pageTitle) {
 }
 ```
 
-![Nav pills example html](../images/bootstrap/nav-pills-html.png)
+```html
+<ul class="nav nav-pills" id="nav-pills">
+    <li class="nav-item">
+        <a class="nav-link active" href="https://jdi-testing.github.io/jdi-light/index.html"
+           target="_blank">Active</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="https://github.com/jdi-docs" target="_blank">JDI Docs</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="https://github.com/jdi-testing" target="_blank">JDI -
+            testing tool</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link disabled" href="https://getbootstrap.com" tabindex="-1"
+           aria-disabled="true" target="_blank">Disabled</a>
+    </li>
+</ul>
+```
 
 
 
@@ -11477,7 +13876,25 @@ public void linkClickableLiTests(int index, String pageTitle) {
 }
 ```
 
-![Nav fill and justify example html](../images/bootstrap/nav-fill-and-justify-html.png)
+```html
+<ul class="nav nav-pills nav-fill" id="nav-justify">
+    <li class="nav-item">
+        <a class="nav-link active" href="https://jdi-testing.github.io/jdi-light/index.html"
+           target="_blank">Active</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="https://github.com/jdi-docs" target="_blank">JDI Docs</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="https://github.com/jdi-testing" target="_blank">JDI - testing
+            tool</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link disabled" href="https://getbootstrap.com" tabindex="-1"
+           aria-disabled="true" target="_blank">Disabled</a>
+    </li>
+</ul>
+```
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -11558,7 +13975,37 @@ public void dropdownIsValidationTests() {
 }
 ```
 
-![Nav tabs with dropdowns example html](../images/bootstrap/nav-tabs-with-dropdown-html.png)
+```html
+<ul class="nav nav-tabs" id="nav-with-dropdown">
+    <li class="nav-item">
+        <a class="nav-link active" href="https://jdi-testing.github.io/jdi-light/index.html"
+           target="_blank">Active</a>
+    </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+           aria-haspopup="true" aria-expanded="false">Dropdown</a>
+        <div class="dropdown-menu">
+            <a class="dropdown-item"
+               href="https://jdi-testing.github.io/jdi-light/index.html" target="_blank">JDI
+                home</a>
+            <a class="dropdown-item" href="https://github.com/jdi-docs" target="_blank">JDI
+                Docs</a>
+            <a class="dropdown-item" href="https://github.com/jdi-testing" target="_blank">JDI
+                - testing tool</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="https://getbootstrap.com" target="_blank">Bootstrap</a>
+        </div>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="https://github.com/jdi-testing" target="_blank">JDI -
+            testing tool</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link disabled" href="https://getbootstrap.com" tabindex="-1"
+           aria-disabled="true" target="_blank">Disabled</a>
+    </li>
+</ul>
+```
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -11629,7 +14076,37 @@ public void dropdownClickableTests() {
 }
 ```
 
-![Nav pills with dropdowns example html](../images/bootstrap/nav-pills-with-dropdown-html.png)
+```html
+<ul class="nav nav-pills" id="nav-pills-drop">
+    <li class="nav-item">
+        <a class="nav-link active" href="https://jdi-testing.github.io/jdi-light/index.html"
+           target="_blank">Active</a>
+    </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+           aria-haspopup="true" aria-expanded="false">Dropdown</a>
+        <div class="dropdown-menu">
+            <a class="dropdown-item"
+               href="https://jdi-testing.github.io/jdi-light/index.html" target="_blank">JDI
+                home</a>
+            <a class="dropdown-item" href="https://github.com/jdi-docs" target="_blank">JDI
+                Docs</a>
+            <a class="dropdown-item" href="https://github.com/jdi-testing" target="_blank">JDI
+                - testing tool</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="https://getbootstrap.com" target="_blank">Bootstrap</a>
+        </div>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="https://github.com/jdi-testing" target="_blank">JDI -
+            testing tool</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link disabled" href="https://getbootstrap.com" tabindex="-1"
+           aria-disabled="true" target="_blank">Disabled</a>
+    </li>
+</ul>
+```
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -11693,7 +14170,15 @@ public void listGroupTests(int num, String text) {
 }
 ```
 
-![List group basic example html](../images/bootstrap/list-group-basic-html.png)
+```html
+<ul class="list-group mb-3" id="list-group-basic-example">
+    <li class="list-group-item">Cras justo odio</li>
+    <li class="list-group-item">Dapibus ac facilisis in</li>
+    <li class="list-group-item">Morbi leo risus</li>
+    <li class="list-group-item">Porta ac consectetur ac</li>
+    <li class="list-group-item">Vestibulum at eros</li>
+</ul>
+```
 
 
 
@@ -11757,7 +14242,15 @@ public void isValidationTests() {
 }
 ```
 
-![List group active items example html](../images/bootstrap/list-group-active-html.png)
+```html
+<ul class="list-group mb-3" id="list-group-active-items">
+    <li class="list-group-item active">Cras justo odio</li>
+    <li class="list-group-item">Dapibus ac facilisis in</li>
+    <li class="list-group-item">Morbi leo risus</li>
+    <li class="list-group-item">Porta ac consectetur ac</li>
+    <li class="list-group-item">Vestibulum at eros</li>
+</ul>
+```
 
 
 
@@ -11822,7 +14315,15 @@ public void listGroupTextTests(int num, String text) {
 }
 ```
 
-![List group disabled items html](../images/bootstrap/list-group-disabled-html.png)
+```html
+<ul class="list-group mb-3" id="disabled-items">
+    <li class="list-group-item disabled" aria-disabled="true">Cras justo odio</li>
+    <li class="list-group-item">Dapibus ac facilisis in</li>
+    <li class="list-group-item">Morbi leo risus</li>
+    <li class="list-group-item">Porta ac consectetur ac</li>
+    <li class="list-group-item">Vestibulum at eros</li>
+</ul>
+```
 
 
 
@@ -11890,7 +14391,23 @@ public void isValidationTests() {
 }
 ```
 
-![List group links html](../images/bootstrap/list-group-links-html.png)
+```html
+<div class="list-group mb-3" id="list-group-links">
+    <a href="https://github.com/jdi-docs"
+       class="list-group-item list-group-item-action active" target="_blank">
+        JDI Docs
+    </a>
+    <a href="https://github.com/jdi-testing" class="list-group-item list-group-item-action"
+       target="_blank">JDI - testing tool</a>
+    <a href="https://jdi-testing.github.io/jdi-light/index.html"
+       class="list-group-item list-group-item-action" target="_blank">JDI website</a>
+    <a href="https://getbootstrap.com/docs/4.3/components/list-group/#links-and-buttons"
+       class="list-group-item list-group-item-action" target="_blank">Bootstrap</a>
+    <a href="https://github.com/jdi-docs"
+       class="list-group-item list-group-item-action disabled" tabindex="-1"
+       aria-disabled="true" target="_blank">JDI Docs</a>
+</div>
+```
 
 
 
@@ -11958,7 +14475,25 @@ public void buttonClickableTests(int index, String text) {
 }
 ```
 
-![List group buttons html](../images/bootstrap/list-group-buttons-html.png)
+```html
+<div class="list-group mb-3" id="list-group-buttons">
+    <button type="button" class="list-group-item list-group-item-action active"
+            onclick="alert('Cras justo odio');">Cras justo odio
+    </button>
+    <button type="button" class="list-group-item list-group-item-action"
+            onclick="alert('Dapibus ac facilisis in');">Dapibus ac facilisis in
+    </button>
+    <button type="button" class="list-group-item list-group-item-action"
+            onclick="alert('Morbi leo risus');">Morbi leo risus
+    </button>
+    <button type="button" class="list-group-item list-group-item-action"
+            onclick="alert('Porta ac consectetur ac');">Porta ac consectetur ac
+    </button>
+    <button type="button" class="list-group-item list-group-item-action"
+            onclick="alert('Vestibulum at eros');" disabled>Vestibulum at eros
+    </button>
+</div>
+```
 
 
 
@@ -12020,7 +14555,17 @@ public void initTests() {
 }
 ```
 
-![List group flush html](../images/bootstrap/list-group-flush-html.png)
+```html  
+<div class="html-left">
+    <ul class="list-group list-group-flush mb-3" id="list-group-flush">
+        <li class="list-group-item">Cras justo odio</li>
+        <li class="list-group-item">Dapibus ac facilisis in</li>
+        <li class="list-group-item">Morbi leo risus</li>
+        <li class="list-group-item">Porta ac consectetur ac</li>
+        <li class="list-group-item">Vestibulum at eros</li>
+    </ul>
+</div>
+```
 
 
 
@@ -12077,7 +14622,13 @@ public void listGroupTests(int num, String text) {
 }
 ```
 
-![List group horizontal html](../images/bootstrap/list-group-horizontal-html.png)
+```html
+<ul class="list-group list-group-horizontal mb-3" id="list-group-horizontal">
+    <li class="list-group-item">Cras justo odio</li>
+    <li class="list-group-item">Dapibus ac facilisis in</li>
+    <li class="list-group-item">Morbi leo risus</li>
+</ul>
+```
 
 
 
@@ -12138,7 +14689,22 @@ public void listGroupTests(int num, String text) {
 }
 ```
 
-![List group with badges html](../images/bootstrap/list-group-badges-html.png)
+```html
+<ul class="list-group mb-3" id="list-group-with-badges">
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+        Cras justo odio
+        <span class="badge badge-primary badge-pill">14</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+        Dapibus ac facilisis in
+        <span class="badge badge-primary badge-pill">2</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+        Morbi leo risus
+        <span class="badge badge-primary badge-pill">1</span>
+    </li>
+</ul>
+```
 
 
 
@@ -12203,7 +14769,37 @@ public void linkClickableTests(int index, String pageTitle) {
 }
 ```
 
-![List group custom content html](../images/bootstrap/list-group-custom-html.png)
+```html
+<div class="list-group mb-3" id="list-group-custom-content">
+    <a href="https://jdi-testing.github.io/jdi-light/index.html"
+       class="list-group-item list-group-item-action active" target="_blank">
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">List group item heading one</h5>
+            <small>3 days ago</small>
+        </div>
+        <p class="mb-1">Some simple text for first section of custom list group.</p>
+        <small class="footer">JDI website</small>
+    </a>
+    <a href="https://github.com/jdi-testing" class="list-group-item list-group-item-action"
+       target="_blank">
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">List group item heading two</h5>
+            <small class="text-muted">3 days ago</small>
+        </div>
+        <p class="mb-1">Some simple text for second section of custom list group.</p>
+        <small class="text-muted footer">JDI - testing tool</small>
+    </a>
+    <a href="https://github.com/jdi-docs" class="list-group-item list-group-item-action"
+       target="_blank">
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">List group item heading three</h5>
+            <small class="text-muted">3 days ago</small>
+        </div>
+        <p class="mb-1">Some simple text for third section of custom list group.</p>
+        <small class="text-muted footer">JDI Docs</small>
+    </a>
+</div>
+```
 
 
 
@@ -12281,7 +14877,24 @@ public class PaginationOverview extends Section {
  }
 ```
 
-![Pagination overview html](../images/bootstrap/pagination-overview-html.png)
+```html
+<nav aria-label="Page navigation example">
+    <ul class="pagination" id="pagination-overview">
+        <li class="page-item"><a class="page-link" href="https://github.com/jdi-docs"
+                                 target="_blank">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="https://github.com/jdi-testing"
+                                 target="_blank">1</a></li>
+        <li class="page-item"><a class="page-link"
+                                 href="https://jdi-testing.github.io/jdi-light/index.html"
+                                 target="_blank">2</a></li>
+        <li class="page-item"><a class="page-link" href="https://getbootstrap.com"
+                                 target="_blank">3</a></li>
+        <li class="page-item"><a class="page-link"
+                                 href="https://jdi-docs.github.io/jdi-light/"
+                                 target="_blank">Next</a></li>
+    </ul>
+</nav>
+```
 
 
 
@@ -12347,7 +14960,31 @@ public void linkClickableTests(int index, String pageTitle) {
 }
 ```
 
-![Pagination working with icons html](../images/bootstrap/pagination-with-icons-html.png)
+```html
+<nav aria-label="Page navigation example">
+    <ul class="pagination" id="pagination-icons">
+        <li class="page-item">
+            <a class="page-link" href="https://github.com/jdi-docs" target="_blank"
+               aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+        <li class="page-item"><a class="page-link" href="https://github.com/jdi-testing"
+                                 target="_blank">1</a></li>
+        <li class="page-item"><a class="page-link"
+                                 href="https://jdi-testing.github.io/jdi-light/index.html"
+                                 target="_blank">2</a></li>
+        <li class="page-item"><a class="page-link" href="https://getbootstrap.com"
+                                 target="_blank">3</a></li>
+        <li class="page-item">
+            <a class="page-link" href="https://jdi-docs.github.io/jdi-light/"
+               target="_blank" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+```
 
 
 
@@ -12419,7 +15056,28 @@ public void linkClickableTests(int index, String pageTitle) {
 }
 ```
 
-![Pagination disabled and active states html](../images/bootstrap/pagination-dis-and-active-html.png)
+```html
+<nav aria-label="disabled-and-active-states">
+    <ul class="pagination" id="pagination-states">
+        <li class="page-item disabled">
+            <a class="page-link" href="https://github.com/jdi-docs" target="_blank"
+               tabindex="-1" aria-disabled="true">Previous</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="https://github.com/jdi-testing"
+                                 target="_blank">1</a></li>
+        <li class="page-item active" aria-current="page">
+            <a class="page-link" href="https://jdi-testing.github.io/jdi-light/index.html"
+               target="_blank">2 <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="page-item"><a class="page-link" href="https://getbootstrap.com"
+                                 target="_blank">3</a></li>
+        <li class="page-item">
+            <a class="page-link" href="https://jdi-docs.github.io/jdi-light/"
+               target="_blank">Next</a>
+        </li>
+    </ul>
+</nav>
+```
 
 
 
@@ -12499,7 +15157,33 @@ public void linkTextTests(int index, String linkText) {
 }
 ```
 
-![Pagination sizing html](../images/bootstrap/pagination-sizing-html.png)
+```html
+<nav aria-label="sizing-big">
+    <ul class="pagination pagination-lg" id="pagination-big">
+        <li class="page-item active" aria-current="page">
+            <span class="page-link">1<span class="sr-only">(current)</span></span>
+        </li>
+        <li class="page-item"><a class="page-link"
+                                 href="https://jdi-testing.github.io/jdi-light/index.html"
+                                 target="_blank">2</a></li>
+        <li class="page-item"><a class="page-link" href="https://getbootstrap.com"
+                                 target="_blank">3</a></li>
+    </ul>
+</nav>
+
+<nav aria-label="sizing-small">
+    <ul class="pagination pagination-sm" id="pagination-small">
+        <li class="page-item active" aria-current="page">
+            <span class="page-link">1<span class="sr-only">(current)</span></span>
+        </li>
+        <li class="page-item"><a class="page-link"
+                                 href="https://jdi-testing.github.io/jdi-light/index.html"
+                                 target="_blank">2</a></li>
+        <li class="page-item"><a class="page-link" href="https://getbootstrap.com"
+                                 target="_blank">3</a></li>
+    </ul>
+</nav>
+```
 
 
 
@@ -12582,7 +15266,46 @@ public void linkClickableCenterTests(int index, String pageTitle) {
 }
 ```
 
-![Pagination alignment html](../images/bootstrap/pagination-alignment-html.png)
+```html
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center" id="pagination-center">
+        <li class="page-item disabled">
+            <a class="page-link" href="https://github.com/jdi-docs" target="_blank"
+               tabindex="-1" aria-disabled="true">Previous</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="https://github.com/jdi-testing"
+                                 target="_blank">1</a></li>
+        <li class="page-item"><a class="page-link"
+                                 href="https://jdi-testing.github.io/jdi-light/index.html"
+                                 target="_blank">2</a></li>
+        <li class="page-item"><a class="page-link" href="https://getbootstrap.com"
+                                 target="_blank">3</a></li>
+        <li class="page-item">
+            <a class="page-link" href="https://jdi-docs.github.io/jdi-light/"
+               target="_blank">Next</a>
+        </li>
+    </ul>
+</nav>
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-end" id="pagination-end">
+        <li class="page-item disabled">
+            <a class="page-link" href="https://github.com/jdi-docs" target="_blank"
+               tabindex="-1" aria-disabled="true">Previous</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="https://github.com/jdi-testing"
+                                 target="_blank">1</a></li>
+        <li class="page-item"><a class="page-link"
+                                 href="https://jdi-testing.github.io/jdi-light/index.html"
+                                 target="_blank">2</a></li>
+        <li class="page-item"><a class="page-link" href="https://getbootstrap.com"
+                                 target="_blank">3</a></li>
+        <li class="page-item">
+            <a class="page-link" href="https://jdi-docs.github.io/jdi-light/"
+               target="_blank">Next</a>
+        </li>
+    </ul>
+</nav>
+```
 
 
 
@@ -12637,8 +15360,15 @@ Button group is represented by Section class in Java:
 Here is an example with provided Bootstrap v4.3 code:
 
 
-
-<img src="images/bootstrap/input-group-base-example1-html.png" alt="Input group example1 html"> 
+```html
+<div class="input-group mb-3" id="input-group-basic-example1">
+    <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon">@</span>
+    </div>
+    <input type="text" class="form-control" placeholder="Username" aria-label="Username"
+           aria-describedby="basic-addon1">
+</div>
+```
 
 ```java 
 
@@ -12663,8 +15393,15 @@ Here is an example with provided Bootstrap v4.3 code:
 Here is an example with provided Bootstrap v4.3 code:
 
 
-
- <img src="images/bootstrap/input-group-base-example2-html.png" alt="Input group example2 html">  
+```html
+<div class="input-group mb-3" id="input-group-basic-example2">
+    <input type="text" class="form-control" placeholder="Recipient's username"
+           aria-label="Recipient's username" aria-describedby="basic-addon2">
+    <div class="input-group-append">
+        <span class="input-group-text" id="basic-addon2">@example.com</span>
+    </div>
+</div>
+``` 
 
 ```java 
 
@@ -12689,7 +15426,14 @@ Here is an example with provided Bootstrap v4.3 code:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-<img src="images/bootstrap/input-group-base-example3-html.png" alt="Input group example3 html">
+```html
+<div class="input-group mb-3" id="input-group-basic-example3">
+    <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon3">https://example.com/users/</span>
+    </div>
+    <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+</div>
+```
 
 
 ```java 
@@ -12718,7 +15462,17 @@ Here is an example with provided Bootstrap v4.3 code:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-<img src="images/bootstrap/input-group-base-example4-html.png" alt="Input group example4 html"> 
+```html
+<div class="input-group mb-3" id="input-group-basic-example4">
+    <div class="input-group-prepend">
+        <span class="input-group-text">$</span>
+    </div>
+    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+    <div class="input-group-append">
+        <span class="input-group-text">.00</span>
+    </div>
+</div>
+```
 
 ```java 
 
@@ -12744,7 +15498,14 @@ Here is an example with provided Bootstrap v4.3 code:
 
 Here is an example with provided Bootstrap v4.3 code:
 
-<img src="images/bootstrap/input-group-base-example5-html.png" alt="Input group example5 html"> 
+```html
+<div class="input-group" id="input-group-basic-example5">
+    <div class="input-group-prepend">
+        <span class="input-group-text">With textarea</span>
+    </div>
+    <textarea class="form-control" aria-label="With textarea"></textarea>
+</div>
+```
 
 Input group are represented by Section class in Java:
  
@@ -12809,7 +15570,31 @@ Inner elements of input group can be represented by following classes:
 
 Here is an example with provided Bootstrap v4.3 code:
   
-![Sizing example](../images/bootstrap/sizing_code.png)
+```html
+<div class="input-group input-group-sm mb-3" id="input-group-small">
+    <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-sm">Small</span>
+    </div>
+    <input type="text" class="form-control" aria-label="Sizing example input"
+           aria-describedby="inputGroup-sizing-sm">
+</div>
+
+<div class="input-group mb-3" id="input-group-default">
+    <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-default">Default</span>
+    </div>
+    <input type="text" class="form-control" aria-label="Sizing example input"
+           aria-describedby="inputGroup-sizing-default">
+</div>
+
+<div class="input-group input-group-lg" id="input-group-large">
+    <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-lg">Large</span>
+    </div>
+    <input type="text" class="form-control" aria-label="Sizing example input"
+           aria-describedby="inputGroup-sizing-lg">
+</div>
+```
 
 And here are methods available in Java:
     
@@ -12848,7 +15633,15 @@ And here are methods available in Java:
 
 Here is an example with provided Bootstrap v4.3 code:
   
-![Wrapping example](../images/bootstrap/wrapping_code.png)
+```html
+<div class="input-group flex-nowrap" id="input-group-nowrap">
+    <div class="input-group-prepend">
+        <span class="input-group-text" id="addon-wrapping1">@</span>
+    </div>
+    <input type="text" class="form-control" placeholder="Input group with nowrap"
+           aria-label="Username" aria-describedby="addon-wrapping">
+</div>
+```
 
 Wrapping property can be checked by using following class:
  
@@ -12889,7 +15682,17 @@ __Example with radio__
 
 Here is an example with provided Bootstrap v4.3 code:
   
-![radio example](../images/bootstrap/input-group-radio-html.png)
+```html
+<div class="input-group" id="input-group-radio">
+    <div class="input-group-prepend">
+        <div class="input-group-text">
+            <input type="radio" name="radio-button" id="radio-button"
+                   aria-label="Radio button for following text input">
+        </div>
+    </div>
+    <input type="text" class="form-control" aria-label="Text input with radio button">
+</div>
+```
 
 This input group example is represented by the following classes in Java:
  
@@ -12928,7 +15731,16 @@ __Example with checkbox__
 
 Here is an example with provided Bootstrap v4.3 code:
   
-![Checkboxes example](../images/bootstrap/input-group-checkbox-html.png)
+```html
+<div class="input-group mb-3" id="input-group-checkbox">
+    <div class="input-group-prepend">
+        <div class="input-group-text">
+            <input type="checkbox" aria-label="Checkbox for following text input">
+        </div>
+    </div>
+    <input type="text" class="form-control" aria-label="Text input with checkbox">
+</div>
+```
 
 This input group example is represented by the following classes in Java:
  
@@ -12997,7 +15809,15 @@ public void setAllValuesTest() {
 
 Here is an example with provided Bootstrap v4.3 code:
   
-![Multiple inputs example](../images/bootstrap/multiple_inputs_code.png)
+```html
+<div class="input-group" id="multiple-inputs">
+    <div class="input-group-prepend">
+        <span class="input-group-text">First and last name</span>
+    </div>
+    <input type="text" aria-label="First name" class="form-control" id="mi-i-1">
+    <input type="text" aria-label="Last name" class="form-control" id="mi-i-2">
+</div>
+```
 
 And here are methods available in Java:
     
@@ -13086,7 +15906,25 @@ And here are methods available in Java:
 ```
 Here is an example with provided Bootstrap v4.3 code:
   
-![Multiple addons example](../images/bootstrap/multiple_addons_code.png)
+```html
+<div class="input-group mb-3" id="multiple-addons-1">
+    <div class="input-group-prepend">
+        <span class="input-group-text" id="left-sign">$</span>
+        <span class="input-group-text" id="left-nil">0.00</span>
+    </div>
+    <input type="text" class="form-control"
+           aria-label="Dollar amount (with dot and two decimal places)">
+</div>
+
+<div class="input-group mb-3" id="multiple-addons-2">
+    <input type="text" class="form-control"
+           aria-label="Dollar amount (with dot and two decimal places)">
+    <div class="input-group-append">
+        <span class="input-group-text" id="right-sign">$</span>
+        <span class="input-group-text" id="right-nil">0.00</span>
+    </div>
+</div>
+```
 
 
 Multiple input is represented by Section class in Java:
@@ -13155,7 +15993,45 @@ public void checkButtonAddon4Test() {
 ```
 
   
-![Button addons example](../images/bootstrap/button_addons_code.png)
+```html
+<div class="input-group mb-3" id="input-group-button-addon1">
+    <div class="input-group-prepend">
+        <button class="btn btn-outline-secondary" type="button" id="button-addon1">Button
+        </button>
+    </div>
+    <input type="text" class="form-control" placeholder=""
+           aria-label="Example text with button addon" aria-describedby="button-addon1">
+</div>
+
+<div class="input-group mb-3" id="input-group-button-addon2">
+    <input type="text" class="form-control" placeholder="Recipient's username"
+           aria-label="Recipient's username" aria-describedby="button-addon2">
+    <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button
+        </button>
+    </div>
+</div>
+
+<div class="input-group mb-3" id="input-group-button-addon3">
+    <div class="input-group-prepend" id="button-addon3">
+        <button class="btn btn-outline-secondary" type="button">Button</button>
+        <button class="btn btn-outline-secondary" type="button">Button</button>
+    </div>
+    <input type="text" class="form-control" placeholder=""
+           aria-label="Example text with two button addons"
+           aria-describedby="button-addon3">
+</div>
+
+<div class="input-group" id="input-group-button-addon4">
+    <input type="text" class="form-control" placeholder="Recipient's username"
+           aria-label="Recipient's username with two button addons"
+           aria-describedby="button-addon4">
+    <div class="input-group-append" id="button-addon4">
+        <button class="btn btn-outline-secondary" type="button">Button</button>
+        <button class="btn btn-outline-secondary" type="button">Button</button>
+    </div>
+</div>
+```
 
 And here are methods available in Java:
     
@@ -13243,7 +16119,23 @@ public void dropdownButtonTests() {
 }
 ```
   
-![Buttons with dropdowns example](../images/bootstrap/buttons-with-dropdowns-html.png)
+```html
+<div class="input-group mb-3" id="button-with-dropdown">
+    <div class="input-group-prepend">
+        <button class="btn btn-outline-secondary dropdown-toggle" type="button"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown
+        </button>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+            <div role="separator" class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Separated link</a>
+        </div>
+    </div>
+    <input type="text" class="form-control" aria-label="Text input with dropdown button">
+</div>
+```
 
 And here are methods available in Java:
     
@@ -13337,7 +16229,37 @@ public void actionButtonTests() {
 }
 ```
   
-![Segmented buttons example](../images/bootstrap/segmented-button-html.png)
+```html
+<div class="input-group mb-3" id="segmented-button">
+    <div class="input-group-prepend">
+        <button type="button" class="btn btn-outline-secondary" id="Segmented-action-button"
+                onclick="alert('Action Button Alert');">Action
+        </button>
+        <button type="button"
+                class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="sr-only">Toggle Dropdown</span>
+        </button>
+        <div class="dropdown-menu">
+            <a class="dropdown-item"
+               href="https://jdi-testing.github.io/jdi-light/index.html"
+               target="_blank">Action</a>
+            <a class="dropdown-item"
+               href="https://jdi-testing.github.io/jdi-light/index.html" target="_blank">Another
+                action</a>
+            <a class="dropdown-item"
+               href="https://jdi-testing.github.io/jdi-light/index.html" target="_blank">Something
+                else here</a>
+            <div role="separator" class="dropdown-divider"></div>
+            <a class="dropdown-item"
+               href="https://jdi-testing.github.io/jdi-light/index.html" target="_blank">Separated
+                link</a>
+        </div>
+    </div>
+    <input type="text" class="form-control"
+           aria-label="Text input with segmented dropdown button">
+</div>
+```
 
 And here are methods available in Java:
     
@@ -13426,7 +16348,31 @@ public void selectorIsValidationTests() {
 }
 ```
   
-![Custom select example](../images/bootstrap/custom-select-code.png)
+```html
+<div class="input-group mb-3" id="custom-select-01">
+    <div class="input-group-prepend">
+        <label class="input-group-text" for="inputGroupSelect01">Options</label>
+    </div>
+    <select class="custom-select" id="inputGroupSelect01">
+        <option selected>Choose...</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+    </select>
+</div>
+
+<div class="input-group mb-3" id="custom-select-02">
+    <select class="custom-select" id="inputGroupSelect02">
+        <option selected>Choose...</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+    </select>
+    <div class="input-group-append">
+        <label class="input-group-text" for="inputGroupSelect02">Options</label>
+    </div>
+</div>
+```
 
 <br><br><br><br><br><br><br><br><br><br>
 **[Custom select with button](https://getbootstrap.com/docs/4.3/components/input-group/#custom-select)** – Input groups include support for custom selects and button. Browser default versions of these are not supported.
@@ -13479,7 +16425,37 @@ public void selectorIsValidationTests() {
 }
 ```
   
-![Custom select with button example](../images/bootstrap/custom-select-with-button-html.png)
+```html
+<div class="input-group mb-3" id="custom-select-button-01">
+    <div class="input-group-prepend">
+        <button class="btn btn-outline-secondary" type="button"
+                onclick="alert('Button clicked, thank you!');">Button
+        </button>
+    </div>
+    <select class="custom-select" id="inputGroupSelect03"
+            aria-label="Example select with button addon">
+        <option selected>Choose...</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+    </select>
+</div>
+
+<div class="input-group mb-3" id="custom-select-button-02">
+    <select class="custom-select" id="inputGroupSelect04"
+            aria-label="Example select with button addon">
+        <option selected>Choose...</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+    </select>
+    <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="button"
+                onclick="alert('Button clicked, thank you!');">Button
+        </button>
+    </div>
+</div>
+```
 
 
 
@@ -15458,7 +18434,20 @@ public void clickTest() {
 } 
 ```
 
-![Jumbotron example](../images/bootstrap/jumbotron-html.png)
+```html
+<div class="jumbotron" id="jumbotron">
+    <h1 class="display-4">Hello, world!</h1>
+    <p class="lead">This is a simple hero unit, a simple
+        jumbotron-style component for calling extra attention to
+        featured content or information.</p>
+    <hr class="my-4">
+    <p>It uses utility classes for typography and spacing to
+        space content out within the larger container.</p>
+    <a class="btn btn-primary btn-lg"
+       href="https://getbootstrap.com/docs/4.3/components/jumbotron/"
+       target="_blank" role="button">Learn more</a>
+</div>
+```
 
 Jumbotron is represented by Section class in Java:
 
@@ -15541,7 +18530,26 @@ public void clickTest() {
 }
 ```
 
-![Dropdown HTML example](../images/bootstrap/dropdown-html.png)
+```html
+<div id="simpleDropdown" class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+            style="margin-bottom: 5px;">
+        Dropdown
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"
+         x-placement="bottom-start"
+         style="position: absolute; transform: translate3d(0px, 38px, 0px); top: 0px; left: 0px; will-change: transform;">
+        <a class="dropdown-item" href="https://getbootstrap.com/" target="_blank">Action</a>
+        <a class="dropdown-item"
+           href="https://getbootstrap.com/docs/4.0/components/dropdowns/" target="_blank">Another
+            action</a>
+        <a class="dropdown-item"
+           href="https://getbootstrap.com/docs/4.3/getting-started/introduction/"
+           target="_blank">Separated link</a>
+    </div>
+</div>
+```
 
 <br><br><br><br><br><br><br><br><br>
 
@@ -15560,7 +18568,26 @@ public void linkDropdownIsValidationTest() {
 }
 ```
 
-![Dropdown link HTML example](../images/bootstrap/dropdown-link-html.png)
+```html
+<div id="linkDropdown" class="dropdown show">
+    <a class="btn btn-primary dropdown-toggle" href="https://getbootstrap.com/"
+       role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+       aria-expanded="false" style="margin-bottom: 5px;">
+        Dropdown link
+    </a>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <a class="dropdown-item"
+           href="https://getbootstrap.com/docs/4.0/components/dropdowns/"
+           target="_blank">Action</a>
+        <a class="dropdown-item"
+           href="https://getbootstrap.com/docs/4.0/components/dropdowns/" target="_blank">Another
+            action</a>
+        <a class="dropdown-item"
+           href="https://getbootstrap.com/docs/4.3/getting-started/introduction/"
+           target="_blank">Something else here</a>
+    </div>
+</div>
+```
 
 Available methods in Java JDI Light:
 
@@ -15597,7 +18624,28 @@ public void splitDropdownIsValidationTest() {
 }
 ```
 
-![Split button HTML example](../images/bootstrap/dropdown-split-html.png)
+```html
+<div id="splitDropdown" class="btn-group">
+    <button type="button" class="btn btn-primary" style="margin-bottom: 5px;">Action
+    </button>
+    <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+            style="margin-bottom: 5px;">
+        <span class="sr-only">Toggle Dropdown</span>
+    </button>
+    <div class="dropdown-menu">
+        <a class="dropdown-item"
+           href="https://getbootstrap.com/docs/4.0/components/dropdowns/"
+           target="_blank">Action</a>
+        <a class="dropdown-item"
+           href="https://getbootstrap.com/docs/4.0/components/dropdowns/" target="_blank">Another
+            action</a>
+        <a class="dropdown-item"
+           href="https://getbootstrap.com/docs/4.3/getting-started/introduction/"
+           target="_blank">Something else here</a>
+    </div>
+</div>
+```
 
 Available methods in Java JDI Light:
 
@@ -15640,7 +18688,27 @@ public void largeDropdownIsValidationTest() {
 }
 ```
 
-![Large button HTML example](../images/bootstrap/dropdown-large-html.png)
+```html
+<div id="largeDropdown" class="btn-group">
+    <button class="btn btn-primary btn-lg dropdown-toggle" type="button"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+            style="margin-bottom: 5px;">
+        Large button
+    </button>
+    <div class="dropdown-menu" x-placement="bottom-start"
+         style="position: absolute; transform: translate3d(0px, 48px, 0px); top: 0px; left: 0px; will-change: transform;">
+        <a class="dropdown-item"
+           href="https://getbootstrap.com/docs/4.0/components/dropdowns/"
+           target="_blank">Action</a>
+        <a class="dropdown-item"
+           href="https://getbootstrap.com/docs/4.0/components/dropdowns/" target="_blank">Another
+            action</a>
+        <a class="dropdown-item"
+           href="https://getbootstrap.com/docs/4.3/getting-started/introduction/"
+           target="_blank">Something else here</a>
+    </div>
+</div>
+```
 
 Here is an example of Large split button code:
 
@@ -15662,7 +18730,30 @@ public void largeSplitDropdownIsValidationTest() {
 }
 ```
 
-![Large split button HTML example](../images/bootstrap/dropdown-large-split-html.png)
+```html
+<div id="largeSplitDropdown" class="btn-group">
+    <button class="btn btn-primary btn-lg" type="button" style="margin-bottom: 5px;">
+        Large split button
+    </button>
+    <button type="button"
+            class="btn btn-lg btn-primary dropdown-toggle dropdown-toggle-split"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+            style="margin-bottom: 5px;">
+        <span class="sr-only">Toggle Dropdown</span>
+    </button>
+    <div class="dropdown-menu">
+        <a class="dropdown-item"
+           href="https://getbootstrap.com/docs/4.0/components/dropdowns/"
+           target="_blank">Action</a>
+        <a class="dropdown-item"
+           href="https://getbootstrap.com/docs/4.0/components/dropdowns/" target="_blank">Another
+            action</a>
+        <a class="dropdown-item"
+           href="https://getbootstrap.com/docs/4.3/getting-started/introduction/"
+           target="_blank">Something else here</a>
+    </div>
+</div>
+```
 
 Available methods in Java JDI Light:
 
@@ -15707,7 +18798,25 @@ public void dropUpDropdownIsValidationTest() {
 }
 ```
 
-![Dropup HTML example](../images/bootstrap/dropdown-directions-dropup-html.png)
+```html
+<div id="dropUpDropdown" class="btn-group dropup">
+    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false" style="margin-bottom: 5px;">
+        Dropup
+    </button>
+    <div class="dropdown-menu">
+        <a class="dropdown-item"
+           href="https://getbootstrap.com/docs/4.0/components/dropdowns/"
+           target="_blank">Action</a>
+        <a class="dropdown-item"
+           href="https://getbootstrap.com/docs/4.0/components/dropdowns/" target="_blank">Another
+            action</a>
+        <a class="dropdown-item"
+           href="https://getbootstrap.com/docs/4.3/getting-started/introduction/"
+           target="_blank">Something else here</a>
+    </div>
+</div>
+```
 
 <br>
 
@@ -15730,7 +18839,29 @@ public void dropUpSplitDropdownIsValidationTest() {
     }
 ```
 
-![Dropup HTML example](../images/bootstrap/dropdown-directions-dropup-split-html.png)
+```html
+<div id="dropUpSplitDropdown" class="btn-group dropup">
+    <button type="button" class="btn btn-primary" style="margin-bottom: 5px;">
+        Split dropup
+    </button>
+    <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+            style="margin-bottom: 5px;">
+        <span class="sr-only">Toggle Dropdown</span>
+    </button>
+    <div class="dropdown-menu">
+        <a class="dropdown-item"
+           href="https://getbootstrap.com/docs/4.0/components/dropdowns/"
+           target="_blank">Action</a>
+        <a class="dropdown-item"
+           href="https://getbootstrap.com/docs/4.0/components/dropdowns/" target="_blank">Another
+            action</a>
+        <a class="dropdown-item"
+           href="https://getbootstrap.com/docs/4.3/getting-started/introduction/"
+           target="_blank">Something else here</a>
+    </div>
+</div>
+```
 
 <br>
 
@@ -15753,7 +18884,25 @@ public void dropRightDropdownIsValidationTest() {
 }
 ```
 
-![Dropright HTML example](../images/bootstrap/dropdown-directions-dropright-html.png)
+```html
+<div id="dropRightDropdown" class="btn-group dropright">
+    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false" style="margin-bottom: 5px;">
+        Dropright
+    </button>
+    <div class="dropdown-menu">
+        <a class="dropdown-item"
+           href="https://getbootstrap.com/docs/4.0/components/dropdowns/"
+           target="_blank">Action</a>
+        <a class="dropdown-item"
+           href="https://getbootstrap.com/docs/4.0/components/dropdowns/" target="_blank">Another
+            action</a>
+        <a class="dropdown-item"
+           href="https://getbootstrap.com/docs/4.3/getting-started/introduction/"
+           target="_blank">Something else here</a>
+    </div>
+</div>
+```
 
 <br>
 
@@ -15776,7 +18925,29 @@ public void dropRightSplitDropdownIsValidationTest() {
     }
 ```
 
-![Dropright split HTML example](../images/bootstrap/dropdown-directions-dropright-split-html.png)
+```html
+<div id="dropRightSplitDropdown" class="btn-group dropright">
+    <button type="button" class="btn btn-primary" style="margin-bottom: 5px;">
+        Split dropright
+    </button>
+    <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+            style="margin-bottom: 5px;">
+        <span class="sr-only">Toggle Dropright</span>
+    </button>
+    <div class="dropdown-menu">
+        <a class="dropdown-item"
+           href="https://getbootstrap.com/docs/4.0/components/dropdowns/"
+           target="_blank">Action</a>
+        <a class="dropdown-item"
+           href="https://getbootstrap.com/docs/4.0/components/dropdowns/" target="_blank">Another
+            action</a>
+        <a class="dropdown-item"
+           href="https://getbootstrap.com/docs/4.3/getting-started/introduction/"
+           target="_blank">Something else here</a>
+    </div>
+</div>
+```
 
 <br>
 
@@ -15799,7 +18970,25 @@ public void dropLeftDropdownIsValidationTest() {
     }
 ```
 
-![Dropleft HTML example](../images/bootstrap/dropdown-directions-dropleft-html.png)
+```html
+<div id="dropLeftDropdown" class="btn-group dropleft">
+    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false" style="margin-bottom: 5px;">
+        Dropleft
+    </button>
+    <div class="dropdown-menu">
+        <a class="dropdown-item"
+           href="https://getbootstrap.com/docs/4.0/components/dropdowns/"
+           target="_blank">Action</a>
+        <a class="dropdown-item"
+           href="https://getbootstrap.com/docs/4.0/components/dropdowns/" target="_blank">Another
+            action</a>
+        <a class="dropdown-item"
+           href="https://getbootstrap.com/docs/4.3/getting-started/introduction/"
+           target="_blank">Something else here</a>
+    </div>
+</div>
+```
 
 <br>
 
@@ -15819,7 +19008,31 @@ public void dropLeftSplitDropdownIsValidationTest() {
 }
 ```
 
-![Dropleft split HTML example](../images/bootstrap/dropdown-directions-dropleft-split-html.png)
+```html
+<div id="dropLeftSplitDropdown" class="btn-group">
+    <div class="btn-group dropleft" role="group">
+        <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                style="margin-bottom: 5px;">
+            <span class="sr-only">Toggle Dropleft</span>
+        </button>
+        <div class="dropdown-menu">
+            <a class="dropdown-item"
+               href="https://getbootstrap.com/docs/4.0/components/dropdowns/"
+               target="_blank">Action</a>
+            <a class="dropdown-item"
+               href="https://getbootstrap.com/docs/4.0/components/dropdowns/"
+               target="_blank">Another action</a>
+            <a class="dropdown-item"
+               href="https://getbootstrap.com/docs/4.3/getting-started/introduction/"
+               target="_blank">Something else here</a>
+        </div>
+    </div>
+    <button type="button" class="btn btn-primary" style="margin-bottom: 5px;">
+        Split dropleft
+    </button>
+</div>
+```
 
 Available methods in Java JDI Light:
 
@@ -16122,7 +19335,24 @@ public void rightAllignedDropdownIsValidationTest() {
 }
 ```
 
-![Right-aligned-example](../images/bootstrap/dropdown-alignment-right-html.png)
+```html
+<div id="rightAllignedDropdown" class="btn-group">
+    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false" style="margin-bottom: 5px;">
+        Right-aligned menu example
+    </button>
+    <div class="dropdown-menu dropdown-menu-right">
+        <button class="dropdown-item" type="button" onclick="alert('Action');">Action
+        </button>
+        <button class="dropdown-item" type="button" onclick="alert('Another action');">
+            Another action
+        </button>
+        <button class="dropdown-item" type="button" onclick="alert('One more action');">
+            Something else here
+        </button>
+    </div>
+</div>
+```
 
 <a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#responsive-alignment">**Responsive alignment**</a><br>
 If you want to use responsive alignment, disable dynamic positioning by adding the<br> ``data-display="static"`` attribute and use the responsive variation classes.
@@ -16135,7 +19365,25 @@ Here is an example of left-aligned but right aligned when large screen:
 
 Here is an example of left-aligned but right aligned when large screen code:
 
-![Right-aligned-when-large-screen-example](../images/bootstrap/dropdown-alignment-large-right-html.png)
+```html
+<div class="btn-group">
+    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
+            data-display="static" aria-haspopup="true" aria-expanded="false"
+            style="margin-bottom: 5px;">
+        Right aligned when large screen
+    </button>
+    <div class="dropdown-menu dropdown-menu-lg-right">
+        <button class="dropdown-item" type="button" onclick="alert('Action');">Action
+        </button>
+        <button class="dropdown-item" type="button" onclick="alert('Another action');">
+            Another action
+        </button>
+        <button class="dropdown-item" type="button" onclick="alert('One more action');">
+            Something else here
+        </button>
+    </div>
+</div>
+```
 
 To align **left** the dropdown menu with the given breakpoint or larger, add<br> ``.dropdown-menu-right`` and ``.dropdown-menu{-sm|-md|-lg|-xl}-left``.
 
@@ -16156,7 +19404,25 @@ public void leftAllignedDropdownIsValidationTest() {
 }
 ```
 
-![Left-aligned-when-large-screen-example](../images/bootstrap/dropdown-alignment-large-left-html.png)
+```html
+<div id="leftAllignedDropdown" class="btn-group">
+    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
+            data-display="static" aria-haspopup="true" aria-expanded="false"
+            style="margin-bottom: 5px;">
+        Left aligned when large screen
+    </button>
+    <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
+        <button class="dropdown-item" type="button" onclick="alert('Action');">Action
+        </button>
+        <button class="dropdown-item" type="button" onclick="alert('Another action');">
+            Another action
+        </button>
+        <button class="dropdown-item" type="button" onclick="alert('One more action');">
+            Something else here
+        </button>
+    </div>
+</div>
+```
 
 Available methods in Java JDI Light:
 
@@ -16202,7 +19468,14 @@ public void checkHeaderTest() {
 }
 ```
 
-![Headers HTML example](../images/bootstrap/dropdown-menu-content-headers-html.png)
+```html
+<div class="dropdown-menu" id="dropdown-content-header">
+    <h6 class="dropdown-header">Dropdown header</h6>
+    <a class="dropdown-item" href="https://getbootstrap.com/" target="_blank">Action</a>
+    <a class="dropdown-item" href="https://getbootstrap.com/docs/4.0/components/dropdowns/"
+       target="_blank">Another action</a>
+</div>
+```
 
 Available methods in Java JDI Light:
 
@@ -16246,7 +19519,17 @@ public void checkDividerTest() {
 }
 ```
 
-![Dividers HTML example](../images/bootstrap/dropdown-menu-content-dividers-html.png)
+```html
+<div class="dropdown-menu" id="dropdown-content-divider">
+    <a class="dropdown-item" href="https://getbootstrap.com/" target="_blank">Action</a>
+    <a class="dropdown-item" href="https://getbootstrap.com/docs/4.0/components/dropdowns/"
+       target="_blank">Another action</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item"
+       href="https://getbootstrap.com/docs/4.3/getting-started/introduction/"
+       target="_blank">Separated link</a>
+</div>
+```
 
 Available methods in Java JDI Light:
 
@@ -16289,7 +19572,16 @@ public void checkTextTest() {
 }
 ```
 
-![Text HTML example](../images/bootstrap/dropdown-menu-content-text-html.png)
+```html
+<div class="dropdown-menu p-4 text-muted" style="max-width: 200px;" id="dropdown-content-text">
+    <p>
+        Some example text that's free-flowing within the dropdown menu.
+    </p>
+    <p class="mb-0">
+        And this is more example text.
+    </p>
+</div>
+```
 
 Available methods in Java JDI Light:
 
@@ -16350,7 +19642,37 @@ public void testButton(){
     dropdownForm.collapse();
 }
 ```
-![Form HTML example](../images/bootstrap/dropdown-menu-content-form-html.png)
+```html
+<div class="dropdown-menu">
+    <form class="px-4 py-3">
+        <div class="form-group">
+            <label for="exampleDropdownFormEmail1">Email address</label>
+            <input type="email" class="form-control" id="exampleDropdownFormEmail1"
+                   placeholder="email@example.com">
+        </div>
+        <div class="form-group">
+            <label for="exampleDropdownFormPassword1">Password</label>
+            <input type="password" class="form-control" id="exampleDropdownFormPassword1"
+                   placeholder="Password">
+        </div>
+        <div class="form-group">
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="dropdownCheck">
+                <label class="form-check-label" for="dropdownCheck">
+                    Remember me
+                </label>
+            </div>
+        </div>
+        <button type="button" class="btn btn-primary" onclick="alert('Sign in');">Sign in
+        </button>
+    </form>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="https://jdi-testing.github.io/jdi-light/index.html"
+       target="_blank">New around here? Sign up</a>
+    <a class="dropdown-item" href="https://jdi-testing.github.io/jdi-light/index.html"
+       target="_blank">Forgot password?</a>
+</div>
+```
 
 Available methods in Java JDI Light:
 
@@ -16412,7 +19734,21 @@ public void optionsCssTest() {
 
 Here is an example with Bootstrap v4.3 code:
 
-![Dropdown Options HTML example](../images/bootstrap/dropdown-options-html.png)
+```html
+<div id="referenceDropdown" class="btn-group">
+    <button type="button" class="btn btn-secondary">Reference</button>
+    <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" id="dropdownMenuReference" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-reference="parent">
+        <span class="sr-only">Toggle Dropdown</span>
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuReference">
+        <a class="dropdown-item" href="javascript: void();" onclick="alert('Action clicked!');">Action</a>
+        <a class="dropdown-item" href="javascript: void();" onclick="alert('Another action clicked!');">Another action</a>
+        <a class="dropdown-item" href="javascript: void();" onclick="alert('Something else here clicked!');">Something else here</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="javascript: void();" onclick="alert('Separated link clicked!');">Separated link</a>
+    </div>
+</div>
+```
 
 Available methods in Java JDI Light:
 

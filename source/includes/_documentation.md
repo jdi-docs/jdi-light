@@ -3906,100 +3906,6 @@ More than that, it has a nested **StringCheckType** class with the following met
 
 ## Bootstrap Common elements
 
-### Button
-Bootstrap includes several predefined button styles, each serving its own semantic purpose, with a few extras thrown in for more control.
-
-**<a href="https://getbootstrap.com/docs/4.3/components/buttons/" target="_blank">Button</a>** – Element that represents a clickable button.
-
-![Button](../images/bootstrap/button.png)
-
-Button is located in the following classes:
- 
-  - __Java__: _com.epam.jdi.light.ui.bootstrap.common.Button_
-
-```java 
-@UI("//*[text()='Red button']") // @FindBy(css = "//*[text()='Red button']")
-public static Button redButton;
-
-@Test
-public void clickTest() {
-    redButton.click();
-    assertEquals(getAlertText(), "Red button");
-    acceptAlert();
-}
-
-@Test
-public void getTextTest() {
-    assertEquals(redButton.getText(), "Red button");
-}
-```
-
-Here is an example with provided HTML code:
-
-<!-- ![Button example](../images/bootstrap/button-html.png) -->
-
-```html
-<button type="button" id="red-button" class="btn btn-danger" 
-onclick="alert('Red button');" ondblclick="alert('Double Click');" 
-oncontextmenu="alert('Right Click');">Red button</button>
-```
-
-Available methods in Java JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
-**click()** | Click the button  | void
-**getText()** | Get button text | String
-**is()** | Assert action | TextAssert 
-**assertThat()** | Assert action | TextAssert
-<br>
-
-**<a href="https://getbootstrap.com/docs/4.3/components/buttons/" target="_blank">Disabled Button</a>** – Element that represents a Not clickable button.
-
-![Disabled button](../images/bootstrap/disabled_button.png)
-
-Button is located in the following classes:
-
-- __Java__: _com.epam.jdi.light.ui.bootstrap.common.Button_
-  
-```java 
-@UI("//*[text()='Disabled button']") // @FindBy(css = "//*[text()='Disabled button']")
-public static Button disabledButton;
-
-@Test
-public void disableButtonTest() {
-    try { disabledButton.click();
-          fail("Disabled button should not work, but work");
-        } catch (Exception ex) {
-            assertThat(safeException(ex),
-                containsString("Can't perform click. Element is disabled"));
-        }
-     }
-
-@Test
-public void getTextTest() {
-    assertEquals(disabledButton.getText(), "Disabled button");
-}
-```  
-Here is an example with provided HTML code:
-
-<!-- ![Disabled button example](../images/bootstrap/disabled_button_code.png) -->
-
-```html
-<button type="button" id="double-button" class="btn btn-info" 
-ondblclick="alert('Double Click');">Double button </button>
-```
-
-|Method/Property | Description | Return Type
---- | --- | ---
-**click()** | Click the button  | void
-**getText()** | Get button text | String
-**is()** | Assert action | TextAssert 
-**assertThat()** | Assert action | TextAssert
-<br><br>
-
-
-
 ### Checkboxes and radios
 
 #### <a href="https://getbootstrap.com/docs/4.3/components/buttons/" target="_blank">Checkbox default</a>
@@ -5524,47 +5430,6 @@ Available methods in Java JDI Light:
 **assertThat()** | Assert action | TextAssert
 **displayed()** | Check that element is displayed | TextAssert
   
-  ```java 
-  
-
-
-
-
-
-
-  @UI("#btn-primary") // @FindBy(css = "#btn-primary")
-  
-    @Test
-    public void badgeTest() {
-        assertTrue(buttonPrimary.badge().isDisplayed());
-        assertEquals(buttonPrimary.badgeText(), "9");
-        assertEquals(buttonPrimary.badgeValue(), "9");
-    }
-  ```
-
-**2) <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/badge/" target="_blank">Badge</a>** - Element which used as part of buttons to provide a counter. Unless the context is clear (as with the “Notifications” example, where it is understood that the “4” is the number of notifications), consider including additional context with a visually hidden piece of additional text.<br>
-
-![Badge](../images/bootstrap/badge_button.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-
-```html
-<button type="button" class="btn btn-primary" id="btn-primary"
-        onclick="alert('Button with badge');">
-    Profile <span class="badge badge-light">9</span> <span
-        class="sr-only">unread messages</span>
-</button>
-```
-
-Available methods in Java JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
-**getText()** | Get button text | String
-**is()** | Assert action | TextAssert 
-**assertThat()** | Assert action | TextAssert
-**displayed()** | Check that element is displayed | TextAssert
-
 ```java 
 
 
@@ -5586,7 +5451,7 @@ Available methods in Java JDI Light:
         }
 ```
 
-**3) <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/badge/#links" target="_blank">Badge</a>** - .badge-* classes on an link element quickly provide actionable badges with hover and focus states.<br>
+**2) <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/badge/#links" target="_blank">Badge</a>** - .badge-* classes on an link element quickly provide actionable badges with hover and focus states.<br>
 
 ![Badge](../images/bootstrap/badge_link.png)
 

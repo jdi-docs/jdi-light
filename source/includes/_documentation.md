@@ -3822,29 +3822,6 @@ Methods available for Java in JDI Light:
 
 ### WebPage
 
-```java 
-public class MainPage extends WebPage{}
-MainPage mainPage = new MainPage;
-mainPage.setCurrentPage(WebPage page);
-mainPage.getCurrentPage();
-mainPage.getUrl()
-mainPage.getTitle()
-mainPage.checkOpened()
-mainPage.toString()
-mainPage.StringCheckType().check()
-
-@Test
-public void verifyURL() {
-    mainPage.setCurrentPage(mainPage);
-    assertEquals(mainPage.getUrl(), "www.mainpage.ru");
-}
-@Test
-public void verifyTitle() {
-    mainPage.setCurrentPage(mainPage);
-    assertEquals(mainPage.getTitle(), "Main page");
-}
-```
-
 **WebPage** is provided by JDI Light in:
  
   - __Java__: _com.epam.jdi.light.elements.composite_
@@ -3852,6 +3829,50 @@ public void verifyTitle() {
 ![WebPage](../images/html/webpage.png)
 
 **WebPage** - A parent Java class for all JDI Page Object classes. WebPage class extends _DriverBase_ class, implements PageObject interface and contains a number of commonly used methods:
+
+Methods available for Java in JDI Light:
+
+```java 
+public class ActionsWebPageTests extends TestsInit {
+
+    @BeforeMethod
+    public void before() {
+        shouldBeLoggedIn();
+        contactFormPage.shouldBeOpened();
+        leftMenu.select("Contact form");
+    }
+
+    @Test
+    public void getUrlTest() {
+        Assert.assertEquals(WebPage.getUrl(), "https://jdi-testing.github.io/jdi-light/contacts.html");
+    }
+
+    @Test
+    public void getTitleTest() {
+        Assert.assertEquals(WebPage.getTitle(), "Contact Form");
+    }
+
+    @Test
+    public void checkOpenedTest() {
+        contactFormPage.checkOpened();
+    }
+
+    @Test
+    public void isOpenedTest() {
+        Assert.assertTrue(contactFormPage.isOpened());
+    }
+
+    @Test
+    public void scrollToBottomTest() {
+        WebPage.scrollToBottom();
+    }
+
+    @Test
+    public void toStringTest() {
+        Assert.assertEquals(contactFormPage.toString(), "StaticSite.contactFormPage (url=https://jdi-testing.github.io/jdi-light/contacts.html; title=Contact Form)");
+    }
+}
+```
 
 |Method | Description | Return Type
 --- | --- | ---

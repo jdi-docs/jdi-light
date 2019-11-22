@@ -3833,7 +3833,7 @@ Methods available for Java in JDI Light:
 Methods available for Java in JDI Light:
 
 ```java 
-public class ActionsWebPageTests extends TestsInit {}
+public class ActionsWebPageTests extends TestsInit {
 
     @BeforeMethod
     public void before() {
@@ -3841,7 +3841,7 @@ public class ActionsWebPageTests extends TestsInit {}
         contactFormPage.shouldBeOpened();
         leftMenu.select("Contact form");
     }
-}
+
     @Test
     public void getUrlTest() {
         Assert.assertEquals(WebPage.getUrl(), "https://jdi-testing.github.io/jdi-light/contacts.html");
@@ -3857,7 +3857,6 @@ public class ActionsWebPageTests extends TestsInit {}
         contactFormPage.checkOpened();
     }
 
-
     @Test
     public void isOpenedTest() {
         Assert.assertTrue(contactFormPage.isOpened());
@@ -3872,6 +3871,7 @@ public class ActionsWebPageTests extends TestsInit {}
     public void toStringTest() {
         Assert.assertEquals(contactFormPage.toString(), "StaticSite.contactFormPage (url=https://jdi-testing.github.io/jdi-light/contacts.html; title=Contact Form)");
     }
+}
 ```
 
 |Method | Description | Return Type

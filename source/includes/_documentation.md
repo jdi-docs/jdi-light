@@ -1934,7 +1934,7 @@ Here is the list of available methods in Java JDI Light:
 
 Radio buttons are represented by the following class:
  
-  - __Java__: _com.epam.jdi.light.ui.html.complex.RadioButtons_
+  - __Java__: _com.epam.jdi.light.ui.html.complex.elements.RadioButtons_
   - __C#__: _JDI.Light.Elements.Complex.RadioButtons_
 
 ```java 

@@ -15258,7 +15258,8 @@ Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
 
-   @UI("#input-group-basic-example2") public static InputGroupInputWithText inputGroupBasicExample2;//@FindBy(css = "#input-group-basic-example2")
+    //@FindBy(css = "#input-group-basic-example2")
+   @UI("#input-group-basic-example2") public static InputGroupInputWithText inputGroupBasicExample2;
 
    public class InputGroupInputWithText extends Section{
        @UI(".input-group-text") public Text text;
@@ -15291,7 +15292,8 @@ Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
 
-   @UI("#input-group-basic-example3") public static InputGroupInputWithLabelAndText inputGroupBasicExample3;//@FindBy(css = "#input-group-basic-example3")
+    //@FindBy(css = "#input-group-basic-example3")
+   @UI("#input-group-basic-example3") public static InputGroupInputWithLabelAndText inputGroupBasicExample3;
 
    public class InputGroupInputWithLabelAndText extends Section{
        @UI(".input-group-text") public Text text;
@@ -15324,7 +15326,8 @@ Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
 
-  @UI("#input-group-basic-example4") public static InputGroupInputWithTwoText inputGroupBasicExample4;//@FindBy(css = "#input-group-basic-example4")
+   //@FindBy(css = "#input-group-basic-example4")
+  @UI("#input-group-basic-example4") public static InputGroupInputWithTwoText inputGroupBasicExample4;
 
   public class InputGroupInputWithTwoText extends Section{
       @UI(".input-group-prepend .input-group-text") public Text text_pretend;
@@ -15362,7 +15365,8 @@ Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
 
-  @UI("#input-group-basic-example5") public static InputGroupTextareaWithText inputGroupBasicExample5;//@FindBy(css = "#input-group-basic-example5")
+   //@FindBy(css = "#input-group-basic-example5")
+  @UI("#input-group-basic-example5") public static InputGroupTextareaWithText inputGroupBasicExample5;
 
   public class InputGroupTextareaWithText extends Section{
       @UI(".input-group-text") public Text text;

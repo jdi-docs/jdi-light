@@ -8487,6 +8487,18 @@ Available methods in Java JDI Light:
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/complex/MultiplebarsProgressTests.java)
 <br><br><br>
 
+### RadioButtons
+
+  **RadioButtons** – extends from <a href="https://jdi-docs.github.io/jdi-light/#radiobuttons">HTML 5 RadioButtons</a> class.
+  
+  Bootstrap RadioButtons class is represented by the following class:
+   
+    - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.complex.RadioButtons_
+    
+  Is similar to the parent class but overrides its list() method and adds list(JFunc1<WebElement, Boolean> searchRule, ElementArea elementArea) method.
+  
+  <br>
+
 ### Toast
 <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/toasts/" target="_blank">Toast</a> - Toasts are lightweight notifications designed to mimic the push notifications.
 <br />

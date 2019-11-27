@@ -7341,7 +7341,8 @@ Below it is in blue, along with the supported variants.
 ```java 
 
 // @FindBy(id = "growing-spinners")
-@UI("#growing-spinners") public static GrowingSpinners growingSpinners;
+@UI("#growing-spinners") 
+public static GrowingSpinners growingSpinners;
 
 // @FindBy(css = ".text-primary")
 @UI(".text-primary")
@@ -7664,7 +7665,7 @@ Available methods in Java JDI Light:
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/spinner/SpinnerSizeTests.java" target="_blank">Bootstrap Test Examples</a>
 
-####Spinner Buttons
+### Spinner Buttons
 
 Use <a href="https://getbootstrap.com/docs/4.3/components/spinners/#buttons" target="_blank">spinners within buttons</a> to indicate an action is currently processing or taking place. 
 You may also swap the text out of the spinner element and utilize button text as needed.

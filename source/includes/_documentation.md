@@ -12798,6 +12798,10 @@ public void clickableTests() {
  **click()** | Get button text | void
  **highlight()** | Get button text | void
  **unhighlight()** | Get button text | void
+ **getPopover(String locator)** | Get the popover click  | void
+ **getBody()** | Get body of popover  |  String
+ **getContainer()** | Get container of popover  |  String
+ **getHeader()** | Get header of popover  |  String
 
 <br>
 

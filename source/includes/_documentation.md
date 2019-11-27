@@ -15225,7 +15225,8 @@ Button group is represented by Section class in Java:
 
 ```java 
 
-   @UI("#input-group-basic-example1") public static InputGroupInputWithText inputGroupBasicExample1;//@FindBy(css = "#input-group-basic-example1")
+    //@FindBy(css = "#input-group-basic-example1")
+   @UI("#input-group-basic-example1") public static InputGroupInputWithText inputGroupBasicExample1;
 
    public class InputGroupInputWithText extends Section{
        @UI(".input-group-text") public Text text;

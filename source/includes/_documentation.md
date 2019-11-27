@@ -5576,36 +5576,6 @@ Java: com.epam.jdi.light.elements.complex.WebList
 
 <br><br>
 
-### Navs
-
-Nav - Navigation component.
-
-![Navs example](../images/bootstrap/navs.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-  
-```html
-<nav class="nav" id="nav-base-a">
-    <a class="nav-link active" href="https://jdi-testing.github.io/jdi-light/index.html"
-       target="_blank">Active</a>
-    <a class="nav-link" href="https://github.com/jdi-docs" target="_blank">JDI Docs</a>
-    <a class="nav-link" href="https://github.com/jdi-testing" target="_blank">JDI - testing
-        tool</a>
-    <a class="nav-link disabled" href="https://getbootstrap.com" tabindex="-1"
-       aria-disabled="true" target="_blank">Disabled</a>
-</nav>
-```
-
-Available methods in Java JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
-**** | TBD  | 
-**** |  |  
-**** |  | 
-**** |  | 
-**** |  |  
-
 ### Navbar
 
 #### <a href="https://getbootstrap.com/docs/4.3/components/navbar/#supported-content" target="_blank">Supported content</a>
@@ -7850,86 +7820,6 @@ assertThat()	 |  Assert action	| UIpAssert
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/TooltipTests.java" target="_blank">Bootstrap test example with tooltips</a>
  
-<br>
-
-### Popover
-**Popover** – is a pop-up box that appears when the user clicks on an element. The popover can contain header and a lot of content.
-
-![Popover with title](../images/bootstrap/popover_title.png)
-
-![Popover top](../images/bootstrap/popover_top.png)
-
-![Popover bottom](../images/bootstrap/popover_bottom.png)
-
-![Popover left](../images/bootstrap/popover_left.png)
-
-![Popover right](../images/bootstrap/popover_right.png)
-
-![Popover disabled](../images/bootstrap/popover_disabled.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-  
-```html
-<div class="html-left" id="popovers">
-    <button type="button" class="btn btn-secondary btn-block mb-3" id="popover-top"
-            data-container="body" data-toggle="popover" data-placement="top"
-            data-content="Top popover is visible.">
-        Popover on top
-    </button>
-    <button type="button" class="btn btn-secondary btn-block mb-3" id="popover-right"
-            data-container="body" data-toggle="popover" data-placement="right"
-            data-content="Right popover is visible.">
-        Popover on right
-    </button>
-    <button type="button" class="btn btn-secondary btn-block mb-3" id="popover-bottom"
-            data-container="body" data-toggle="popover" data-placement="bottom"
-            data-content="Bottom popover is visible.">
-        Popover on bottom
-    </button>
-    <button type="button" class="btn btn-secondary btn-block mb-3" id="popover-left"
-            data-container="body" data-toggle="popover" data-placement="left"
-            data-content="Left popover is visible.">
-        Popover on left
-    </button>
-    <button type="button" class="btn btn-lg btn-danger btn-block mb-3" id="popover-title"
-            data-toggle="popover" title="Popover title"
-            data-content="And here's some amazing content. It's very engaging. Right?">Click to
-        toggle popover
-    </button>
-
-    <a tabindex="0" class="btn btn-lg btn-danger btn-block mb-3" role="button"
-       id="popover-dismissible" data-toggle="popover" data-trigger="focus"
-       title="Dismissible popover"
-       data-content="And here's some amazing content. It's very engaging. Right?">Dismissible
-        popover</a>
-
-    <span class="d-inline-block mb-3" style="width:100%;" data-toggle="popover"
-          id="popover-disabled" data-content="Disabled popover">
-			<button class="btn btn-primary btn-block" style="pointer-events: none;" type="button"
-                    disabled>Disabled button</button>
-		</span>
-</div>
-```
-
-Available methods in Java JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  | 
- |  | 
- |  | 
- 
-
-Available methods and properties in C# JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  |
- |  | 
 <br>
 
 
@@ -12725,7 +12615,8 @@ Available methods in Java JDI Light:
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
-@UI("body") public static Popover popover; // @FindBy(css = "body") public static Popover popover;
+// @FindBy(css = "body") public static Popover popover;
+@UI("body") public static Popover popover;
 
 @Test
 public void isValidationTests() {
@@ -12845,7 +12736,8 @@ Popover top
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
-@UI("body") public static Popover popover; // @FindBy(css = "body") public static Popover popover;
+// @FindBy(css = "body") public static Popover popover;
+@UI("body") public static Popover popover;
 
 @Test
 public void isValidationTests() {
@@ -13037,7 +12929,8 @@ Inner elements of input group can be represented by following classes:
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
-@UI("body") public static Popover popover; // @FindBy(css = "body") public static Popover popover;
+// @FindBy(css = "body") public static Popover popover;
+@UI("body") public static Popover popover;
 
 @Test
 public void isValidationTests() {
@@ -13154,7 +13047,8 @@ Inner elements of input group can be represented by following classes:
 Here is an example with provided Bootstrap v4.3 code:
  
  ```java 
- @UI("body") public static Popover popover; // @FindBy(css = "body") public static Popover popover;
+ // @FindBy(css = "body") public static Popover popover;
+ @UI("body") public static Popover popover;
  
  @Test
  public void isValidationTests() {
@@ -13273,8 +13167,10 @@ Here is an example with provided Bootstrap v4.3 code:
 @UI("#nav-base-li") public static NavsBaseLi navsBaseLi;
 
 public class NavsBaseLi extends Section {
-    @UI("li") public ListGroup navItem; // @FindBy(css = "li") public ListGroup navItem;
-    @UI("li a") public ListGroup navItemLink; // @FindBy(css = "li a")  public ListGroup navItemLink;
+    // @FindBy(css = "li") public ListGroup navItem;
+    @UI("li") public ListGroup navItem;
+    // @FindBy(css = "li a")  public ListGroup navItemLink;
+    @UI("li a") public ListGroup navItemLink;
 }
 
 @Test(dataProvider = "clickValidate")
@@ -13376,8 +13272,10 @@ Here is an example with provided Bootstrap v4.3 code:
 @UI("#nav-center") public static NavsAlignmentCenter navsAlignmentCenter;
 
 public class NavsAlignmentCenter extends Section {
-    @UI("li") public ListGroup navItem; // @FindBy(css = "li") public ListGroup navItem;
-    @UI("li a") public ListGroup navItemLink; // @FindBy(css = "li a")  public ListGroup navItemLink;
+    // @FindBy(css = "li") public ListGroup navItem;
+    @UI("li") public ListGroup navItem;
+    // @FindBy(css = "li a")  public ListGroup navItemLink;
+    @UI("li a") public ListGroup navItemLink;
 }
 
 @Test
@@ -13487,8 +13385,10 @@ Here is an example with provided Bootstrap v4.3 code:
 @UI("#nav-vert-li") public static NavsVerticalLi navsVerticalLi;
 
 public class NavsVerticalLi extends Section {
-    @UI("li") public ListGroup navItem; // @FindBy(css = "li") public ListGroup navItem;
-    @UI("li a") public ListGroup navItemLink; // @FindBy(css = "li a")  public ListGroup navItemLink;
+    // @FindBy(css = "li") public ListGroup navItem;
+    @UI("li") public ListGroup navItem;
+    // @FindBy(css = "li a")  public ListGroup navItemLink;
+    @UI("li a") public ListGroup navItemLink;
 }
 
 @Test
@@ -13585,8 +13485,10 @@ Here is an example with provided Bootstrap v4.3 code:
 @UI("#nav-tabs") public static NavsTabs navsTabs;
 
 public class NavsTabs extends Section {
-    @UI("li") public ListGroup navItem; // @FindBy(css = "li") public ListGroup navItem;
-    @UI("li a") public ListGroup navItemLink; // @FindBy(css = "li a")  public ListGroup navItemLink;
+    // @FindBy(css = "li") public ListGroup navItem;
+    @UI("li") public ListGroup navItem;
+    // @FindBy(css = "li a")  public ListGroup navItemLink;
+    @UI("li a") public ListGroup navItemLink;
 }
 
 @Test
@@ -13671,8 +13573,10 @@ Here is an example with provided Bootstrap v4.3 code:
 @UI("#nav-pills") public static NavsPills navsPills;
 
 public class NavsPills extends Section {
-    @UI("li") public ListGroup navItem; // @FindBy(css = "li") public ListGroup navItem;
-    @UI("li a") public ListGroup navItemLink; // @FindBy(css = "li a")  public ListGroup navItemLink;
+    // @FindBy(css = "li") public ListGroup navItem;
+    @UI("li") public ListGroup navItem;
+    // @FindBy(css = "li a")  public ListGroup navItemLink;
+    @UI("li a") public ListGroup navItemLink;
 }
 
 @Test(dataProvider = "listData")
@@ -13752,8 +13656,10 @@ Here is an example with provided Bootstrap v4.3 code:
 @UI("#nav-justify") public static NavsJustify navsJustify;
 
 public class NavsJustify extends Section {
-    @UI("li") public ListGroup navItem; // @FindBy(css = "li") public ListGroup navItem;
-    @UI("li a") public ListGroup navItemLink; // @FindBy(css = "li a")  public ListGroup navItemLink;
+    // @FindBy(css = "li") public ListGroup navItem;
+    @UI("li") public ListGroup navItem;
+    // @FindBy(css = "li a")  public ListGroup navItemLink;
+    @UI("li a") public ListGroup navItemLink;
 }
 
 @Test(dataProvider = "listData")
@@ -13831,8 +13737,10 @@ Here is an example with provided Bootstrap v4.3 code:
 @UI("#nav-with-dropdown") public static NavsTabsWithDropdown navsTabsWithDropdown;
 
 public class NavsTabsWithDropdown extends Section {
-    @UI("li") public ListGroup navItem; // @FindBy(css = "li") public ListGroup navItem;
-    @UI("a.nav-link") public ListGroup navItemLink; // @FindBy(css = "a.nav-link") public ListGroup navItemLink;
+    // @FindBy(css = "li") public ListGroup navItem;
+    @UI("li") public ListGroup navItem;
+    // @FindBy(css = "a.nav-link") public ListGroup navItemLink;
+    @UI("a.nav-link") public ListGroup navItemLink;
     @JDropdown(expand = ".dropdown-toggle",
             value = ".dropdown-toggle",
             list = ".dropdown-item")
@@ -13942,8 +13850,10 @@ Here is an example with provided Bootstrap v4.3 code:
 @UI("#nav-pills-drop") public static NavsPillsWithDropdown navsPillsWithDropdown;
 
 public class NavsPillsWithDropdown extends Section {
-    @UI("li") public ListGroup navItem; // @FindBy(css = "li") public ListGroup navItem;
-    @UI("a.nav-link") public ListGroup navItemLink; // @FindBy(css = "a.nav-link") public ListGroup navItemLink;
+    // @FindBy(css = "li") public ListGroup navItem;
+    @UI("li") public ListGroup navItem;
+    // @FindBy(css = "a.nav-link") public ListGroup navItemLink;
+    @UI("a.nav-link") public ListGroup navItemLink;
     @JDropdown(expand = ".dropdown-toggle",
             value = ".dropdown-toggle",
             list = ".dropdown-item")

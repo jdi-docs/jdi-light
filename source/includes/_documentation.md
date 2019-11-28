@@ -8346,7 +8346,7 @@ assertThat() | Assert action | TextAssert
 <br>
 <br>
 
-###MultiplebarsProgress
+###Multiple progress bars
 
 Include <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/progress/#multiple-bars">multiple progress bars</a>  in a progress component if you need.
 
@@ -8358,9 +8358,9 @@ Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
 @UI("#progress-multiple-bars")  //FindBy(css = "#progress-multiple-bars")
-public static ProgressMultipleBars progressMultipleBars;
+public static MultipleProgressBars multipleProgressBars;
 
-@Test(dataProvider = "progressMultipleBarsData")
+@Test(dataProvider = "multipleProgressBarsData")
 public void separateBarTest(Progress progress, String color, String value, String minValue, String maxValue) {
     progress.is()
             .displayed()
@@ -8372,19 +8372,19 @@ public void separateBarTest(Progress progress, String color, String value, Strin
 }
 
 @Test
-public void entireMultiplebarsProgressTest() {
-    multiplebarsProgress.getProgresses().is().size(3);
-    multiplebarsProgress.is()
+public void entireMultipleProgressBarsTest() {
+    multipleProgressBars.getProgresses().is().size(3);
+    multipleProgressBars.is()
             .displayed()
             .enabled();
-    assertThat(multiplebarsProgress.core().css("background-color"), is("rgba(233, 236, 239, 1)"));
-    baseValidation(multiplebarsProgress);
+    assertThat(multipleProgressBars.core().css("background-color"), is("rgba(233, 236, 239, 1)"));
+    baseValidation(multipleProgressBars);
 }
 
 @Test
 public void getValuesTest() {
-    assertThat(multiplebarsProgress.getValues(), is(multipleprogressValues));
-    assertThat(multiplebarsProgress.getValues().get(1), is("30"));
+    assertThat(multipleProgressBars.getValues(), is(multipleprogressValues));
+    assertThat(multipleProgressBars.getValues().get(1), is("30"));
 }
 ```
 
@@ -8406,7 +8406,7 @@ Available methods in Java JDI Light:
 **is()** | Various assert actions | UIAssert 
 **assertThat()** | Assert action | UIAssert
 
-[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/complex/MultiplebarsProgressTests.java)
+[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/complex/MultipleProgressBarsTests.java)
 <br><br><br>
 
 ### RadioButtons

@@ -7928,6 +7928,19 @@ Here’s a carousel with slides only. Note the presence of the .d-block and .w-1
 
 Here is an example with provided Bootstrap v4.3 code:
  
+```java 
+
+@UI("#carousel-example-slides-only")
+public static Carousel carouselWithSlidesOnly;
+
+@Test
+public void getSlidesTextTest() {
+    carouselWithSlidesOnly.is().text(firstSlideText);
+    carouselWithSlidesOnly.is().text(secondSlideText);
+}
+
+``` 
+ 
 ```html
 <div id="carousel-example-slides-only" class="carousel slide mb-2" data-ride="carousel">
     <div class="carousel-inner">
@@ -7974,6 +7987,28 @@ Adding in the previous and next controls:
 ![Carousel with controls example](../images/bootstrap/carousel-with-controls.png)
 
 Here is an example with provided Bootstrap v4.3 code:
+
+```java 
+@UI("#carousel-example-controls") // @FindBy(css = "#carousel-example-controls")
+public static Carousel carouselWithControls;
+
+@Test
+public void prevTest() {
+	carouselWithControls.prev();	
+	carouselWithControls.is().text(firstSlideText);
+	carouselWithControls.prevControl().is().text(prevText);
+	
+	carouselWithControls.next();	
+	carouselWithControls.is().text(secondSlideText);
+	carouselWithControls.nextControl().is().text(prevText);
+}
+
+@Test
+public void getTextTest() {
+    assertEquals(carouselWithControls.getText(), thirdSlideText);
+}
+
+```
   
 ```html
 <div id="carousel-example-controls" class="carousel slide mb-2" data-ride="carousel">
@@ -8031,6 +8066,20 @@ You can also add the indicators to the carousel, alongside the controls, too.
 ![Carousel with indicators example](../images/bootstrap/carousel-with-indicators.png)
 
 Here is an example with provided Bootstrap v4.3 code:
+  
+```java 
+@UI("#carousel-example-indicators")
+public static Carousel carouselWithIndicators;
+
+@Test
+public void selectTest() {
+	carouselWithIndicators.select(1);
+	carouselWithIndicators.is().text(firstSlideFullText);
+	carouselWithIndicators.get(1).is().selected();
+	carouselWithIndicators.get(2).is().deselected();
+}
+
+```
   
 ```html
 <div id="carousel-example-indicators" class="carousel slide mb-2" data-ride="carousel">
@@ -8096,6 +8145,25 @@ We hide them initially with .d-none and bring them back on medium-sized devices 
 ![Carousel with captions example](../images/bootstrap/carousel-with-captions.png)
 
 Here is an example with provided Bootstrap v4.3 code:
+  
+```java 
+
+@UI("#carousel-example-captions")
+public static Carousel carouselWithCaptions;
+
+@Test
+public void captionTest() {
+	carouselWithCaptions.select(1);
+	carouselWithCaptions.is().text(firstSlideWithLabelText);
+
+	carouselWithCaptions.select(2);
+	carouselWithCaptions.is().text(secondSlideWithLabelText);
+
+	carouselWithCaptions.select(3);
+	carouselWithCaptions.is().text(thirdSlideWithLabelText);
+}
+
+```
   
 ```html
 <div id="carousel-example-captions" class="carousel slide mb-2" data-ride="carousel">
@@ -8169,6 +8237,24 @@ Add .carousel-fade to your carousel to animate slides with a fade transition ins
 
 Here is an example with provided Bootstrap v4.3 code:
   
+```java 
+
+@UI("#carousel-example-fade")
+public static Carousel carouselWithFadeTransition;
+
+@Test
+public void fadePrevTest() {
+	carouselWithFadeTransition.prev();
+	carouselWithFadeTransition.is().text(thirdSlideFullText);
+
+	carouselWithFadeTransition.prev();
+	carouselWithFadeTransition.is().text(secondSlideFullText);
+
+	carouselWithFadeTransition.prevControl().is().text(prevText);
+}
+
+```
+  
 ```html
 <div id="carousel-example-fade" class="carousel slide mb-2 carousel-fade"
      data-ride="carousel">
@@ -8224,6 +8310,19 @@ Here is an example with provided Bootstrap v4.3 code:
 Add data-interval="" to a .carousel-item to change the amount of time to delay between automatically cycling to the next item.
 
 Here is an example with provided Bootstrap v4.3 code:
+
+```java 
+
+@Test
+public void intervalTest() {
+	int customInterval = 1;
+	WebPage.reload();
+	durationMoreThan(interval, () -> carouselWithCustomInterval.is().text(secondSlideFullText));
+	customInterval = carouselWithCustomInterval.interval() / 1000;
+	durationMoreThan(customInterval, () -> carouselWithCustomInterval.is().text(thirdSlideFullText));
+}
+
+```
   
 ```html
 <div id="carousel-example-interval" class="carousel slide mb-3" data-ride="carousel">
@@ -8278,48 +8377,6 @@ Here is an example with provided Bootstrap v4.3 code:
 Carousel is located in the following classes:
  
   - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.complex.Carousel_
-  
-  
-```java 
-@UI("#carousel-example-controls") // @FindBy(css = "#carousel-example-controls")
-public static Carousel carouselWithControls;
-
-@Test
-public void prevTest() {
-	carouselWithControls.prev();	
-	carouselWithControls.is().text(firstSlideText);
-	carouselWithControls.prevControl().is().text(prevText);
-	
-	carouselWithControls.next();	
-	carouselWithControls.is().text(secondSlideText);
-	carouselWithControls.nextControl().is().text(prevText);
-}
-
-@Test
-public void getTextTest() {
-    assertEquals(carouselWithControls.getText(), thirdSlideText);
-}
-
-@Test
-public void selectTest() {
-	carouselWithIndicators.select(1);
-	carouselWithIndicators.is().text(firstSlideFullText);
-	carouselWithIndicators.get(1).is().selected();
-	carouselWithIndicators.get(2).is().deselected();
-}
-
-@Test
-public void intervalTest() {
-	int customInterval = 1;
-	WebPage.reload();
-	durationMoreThan(interval, () -> carouselWithCustomInterval.is().text(secondSlideFullText));
-	customInterval = carouselWithCustomInterval.interval() / 1000;
-	durationMoreThan(customInterval, () -> carouselWithCustomInterval.is().text(thirdSlideFullText));
-}
-
-
-
-```
 
 Available methods in Java JDI Light:
 

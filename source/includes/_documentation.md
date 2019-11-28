@@ -11623,24 +11623,32 @@ public class MediaObject extends Section {
 <a href="https://getbootstrap.com/docs/4.3/components/media-object" target=a_blank> Media object</a> helps build complex and repetitive components where some media is positioned alongside content that doesn’t wrap around said media.
 
 ```java 
-@UI("#media-object-sample") public static MediaObjectSample mediaObjectSample; // @FindBy(css = "#media-object-sample")
+// @FindBy(css = "#media-object-sample")
+@UI("#media-object-sample") public static MediaObjectSample mediaObjectSample; 
 
 public class MediaObjectSample extends MediaObject {
 @UI("img") public Image imageOfMediaObject;
+
 @Title
 @UI("h5") public Text headingOfMediaObject;
+
 @UI(".media-body") public Text bodyOfMediaObject;
 }
 
 @Test
 public void isValidationTestSample() {
-mediaObjectSample.is().displayed();
-mediaObjectSample.is().enabled();
-mediaObjectSample.bodyOfMediaObject.is().text(is(bodyTextOfMediaObjectSample));
-mediaObjectSample.bodyOfMediaObject.is().text(containsString("American comic books"));
-mediaObjectSample.bodyOfMediaObject.assertThat().displayed()
-          .core()
-          .cssClass("media-body");
+    mediaObjectSample.is().displayed();
+    mediaObjectSample.is().enabled();
+    mediaObjectSample.bodyOfMediaObject.is().text(is(bodyTextOfMediaObjectSample));
+    mediaObjectSample.bodyOfMediaObject.is().text(containsString("American comic books"));
+    assertThat(mediaObjectSample.headingOfMediaObject.core().css("font-size"), is("20px"));
+    assertThat(mediaObjectSample.bodyOfMediaObject.core().css("font-size"), is("14px"));
+    mediaObjectSample.bodyOfMediaObject.assertThat().displayed()
+            .and().text(is(bodyTextOfMediaObjectSample))
+            .core()
+            .css("font-size", is("14px"))
+            .cssClass("media-body")
+    ;
 }
 
 
@@ -11650,27 +11658,35 @@ mediaObjectSample.bodyOfMediaObject.assertThat().displayed()
 
 
 
-
-@UI("#media-object-nesting") public static MediaObjectNesting mediaObjectNesting; // @FindBy(css = "#media-object-nesting")
+// @FindBy(css = "#media-object-nesting")
+@UI("#media-object-nesting") public static MediaObjectNesting mediaObjectNesting; 
 
 public class MediaObjectNesting extends MediaObject {
 @UI("img") public Image imageOfMediaObject;
+
 @Title
 @UI("h5") public Text headingOfMediaObject;
+
 @UI(".media-body") public Text bodyOfMediaObject;
+
 @UI("div.media div.media") public MediaObjectSample  nestingMediaObject;
 }
 
 @Test
 public void isValidationTestNesting() {
-mediaObjectNesting.is().displayed();
-mediaObjectNesting.is().enabled();
-mediaObjectNesting.nestingMediaObject.bodyOfMediaObject.is().text(is(bodyTextOfMediaObjectNesting));
-mediaObjectNesting.nestingMediaObject.bodyOfMediaObject.is().text(containsString("vel eu leo"));
-mediaObjectNesting.nestingMediaObject.bodyOfMediaObject.assertThat().displayed()
-     .and().text(is(bodyTextOfMediaObjectNesting))
-     .core()
-     .cssClass("media-body");
+    mediaObjectNesting.is().displayed();
+    mediaObjectNesting.is().enabled();
+    mediaObjectNesting.nestingMediaObject.bodyOfMediaObject.is().text(is(bodyTextOfMediaObjectNesting));
+    mediaObjectNesting.nestingMediaObject.bodyOfMediaObject.is().text(containsString("vel eu leo"));
+    assertThat(mediaObjectNesting.nestingMediaObject.headingOfMediaObject.core().css("font-size"), is("20px"));
+    assertThat(mediaObjectNesting.nestingMediaObject.bodyOfMediaObject.core().css("font-size"), is("14px"));
+    mediaObjectNesting.nestingMediaObject.bodyOfMediaObject.assertThat().displayed()
+            .and().text(is(bodyTextOfMediaObjectNesting))
+            .core()
+            .css("font-size", is("14px"))
+            .cssClass("media-body")
+    ;
+
 }
 
 

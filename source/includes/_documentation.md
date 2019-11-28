@@ -7925,7 +7925,7 @@ Here’s a carousel with slides only. Note the presence of the .d-block and .w-1
 ![Carousel slides only example](../images/bootstrap/carousel-slides-only.png)
 
 Here is an example with provided Bootstrap v4.3 code:
-  
+ 
 ```html
 <div id="carousel-example-slides-only" class="carousel slide mb-2" data-ride="carousel">
     <div class="carousel-inner">
@@ -8286,9 +8286,11 @@ public static Carousel carouselWithControls;
 public void prevTest() {
 	carouselWithControls.prev();	
 	carouselWithControls.is().text(firstSlideText);
+	carouselWithControls.prevControl().is().text(prevText);
 	
 	carouselWithControls.next();	
 	carouselWithControls.is().text(secondSlideText);
+	carouselWithControls.nextControl().is().text(prevText);
 }
 
 @Test
@@ -8296,9 +8298,22 @@ public void getTextTest() {
     assertEquals(carouselWithControls.getText(), thirdSlideText);
 }
 
+@Test
+public void selectTest() {
+	carouselWithIndicators.select(1);
+	carouselWithIndicators.is().text(firstSlideFullText);
+	carouselWithIndicators.get(1).is().selected();
+	carouselWithIndicators.get(2).is().deselected();
+}
 
-
-
+@Test
+public void intervalTest() {
+	int customInterval = 1;
+	WebPage.reload();
+	durationMoreThan(interval, () -> carouselWithCustomInterval.is().text(secondSlideFullText));
+	customInterval = carouselWithCustomInterval.interval() / 1000;
+	durationMoreThan(customInterval, () -> carouselWithCustomInterval.is().text(thirdSlideFullText));
+}
 
 
 
@@ -8310,10 +8325,13 @@ Available methods in Java JDI Light:
 --- | --- | ---
 getText() | Get carousel text  | String 
 select(int i) | Select slide by index  | void  
+get(int i) | Return slide by index  | UIElement  
 assertThat() | Assert action | TextAssert
 next() | Move to the next slide | void
 prev() | Move to the previous slide | void
 currentSlide() | Return current slide | UIElement
+nextControl() | Return 'next' control | UIElement
+prevControl() | Return 'previous' control | UIElement
 indicators() | Return list of carousel indicators | WebList
 interval() | Return current slide interval | int
 isDisplayed() | Check that carousel is displayed | boolean
@@ -8322,6 +8340,8 @@ assertThat() | Assert action | TextAssert
 
 <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/complex/CarouselTests.java" target="_blank">Bootstrap test examples</a>
 
+<br>
+<br>
 <br>
 
 ###MultiplebarsProgress

@@ -21912,17 +21912,6 @@ TBD
 ### Report Portal
 TBD
 
-## JDI Settings
-- **driver** -  we can set up where we would like to run our tests. Some common options are: <i>chrome</i>, <i>firefox</i>, <i>ie</i>… or we can just replace it with _${driver}_ and read the exact driver name from command line<br/>
-- **drivers.version** - by default JDI Light will download the latest version of a driver for us, but if we need a specific version we can put it here (in this case the framework will find and download exactly the version specified)
-- **timeout.wait.element** – timeout in seconds to wait for an element on the opened page. The default is 10 seconds.
-- **timeout.wait.page** - JDI Light automatically defines that new page has opened, and in this case it will use this timeout (usually it is more than enough for an element). By default, it's 30 seconds.
-- **domain** – web application root URL (used if we work with one application in tests). Can be also read from the command line, e.g. _${domain}_
-- **page.load.strategy** - like in <a href="https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/capabilities_exports_PageLoadStrategy.html" target="_blank">Selenium strategies</a> to load the page. Options: _normal, eager, none_
-- **browser.size** - the size of the tested browser. By default, JDI Light will maximize browser, but we can set exact values.
-- **screenshot.strategy** - defines screenshoting strategy. If it set to "on fail" value, then when test fails, web element last processed will be highlighted and page screenshot will be taken, saved and added to Allure report as well, if possible. Options: _on fail, off_
-- **html.code.logging** - defines a strategy for writting html-code of the web element last processed before test failure to log. If it set to "on fail" value, then web element's html-code will be logged (and added to Allure report as well) when test fails, if possible. Options: _on fail, off_
-
 ## SoftAsserts
 
 ```java 
@@ -22046,6 +22035,20 @@ public class TestsInit {
 ```
 
 This is example how to initialize of custom driver:
+
+## JDI Settings
+
+|Property name | Description | Examples
+--- | --- | ---
+**driver** | Describe what kind of driver we want to use: chrome, firefox, ie… or we can just replace it with ${driver} and read the exact driver name from command line or pom file | driver = ${driver}
+**drivers.version** | By default, JDI Light will download the latest version of the driver for us, but if we need a specific version we can put it here (in this case the framework will find and download exactly the version specified) | drivers.version = LATEST<br>drivers.version = PRELATEST<br> driver.version = 2.23
+**timeout.wait.element** | Wait for an element on the opened page, by default = 10 seconds. Valid values are integers from 0 to 999. | timeout.wait.element = 20
+**timeout.wait.page** | JDI Light automatically defines that new page is opened and in this case will use this timeout (usually it is more than enough for an element). By default, it's 30 seconds | timeout.wait.page = 40
+**domain** | Web application root URL (used if we're working with one application in tests). Can be also read from the command line, e.g. _${domain}_ | domain = https://jdi-testing.github.io/jdi-light/
+**browser.size** | The size of the tested browser. By default, JDI Light will maximize the browser, but we can set exact values | browser.size = MAXIMIZE<br>browser.size = 1024x762
+**page.load.strategy** | Like in <a href="https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/capabilities_exports_PageLoadStrategy.html" target="_blank">Selenium strategies</a> to load the page. Options: _normal, eager, none_ | page.load.strategy = normal
+**screenshot.strategy** | Defines screenshoting strategy. If it set to "on fail" value, then when test fails, web element last processed will be highlighted and page screenshot will be taken, saved and added to Allure report as well, if possible. Options: _on fail, off_ | screenshot.strategy = off
+**html.code.logging** | Defines a strategy for writting html-code of the web element last processed before test failure to log. If it set to "on fail" value, then web element's html-code will be logged (and added to Allure report as well) when test fails, if possible. Options: _on fail, off_ | html.code.logging = off
 
 ## Parallel tests run
 TBD

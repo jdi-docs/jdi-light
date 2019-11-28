@@ -8350,6 +8350,16 @@ public void separateBarTest(Progress progress, String color, String value, Strin
 }
 
 @Test
+public void entireMultiplebarsProgressTest() {
+    multiplebarsProgress.getProgresses().is().size(3);
+    multiplebarsProgress.is()
+            .displayed()
+            .enabled();
+    assertThat(multiplebarsProgress.core().css("background-color"), is("rgba(233, 236, 239, 1)"));
+    baseValidation(multiplebarsProgress);
+}
+
+@Test
 public void getValuesTest() {
     assertThat(multiplebarsProgress.getValues(), is(multipleprogressValues));
     assertThat(multiplebarsProgress.getValues().get(1), is("30"));

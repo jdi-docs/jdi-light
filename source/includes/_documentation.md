@@ -125,6 +125,16 @@ public void GetTextTest()
 
 ![Button](../images/button.png)
 
+```html 
+<button type="button" id="red-button" class="btn btn-danger" onclick="alert('Red button');" ondblclick="alert('Double Click');" oncontextmenu="alert('Right Click');">Red button
+                             </button>
+```
+
+```h
+<button type="button" id="red-button" class="btn btn-danger" onclick="alert('Red button');" ondblclick="alert('Double Click');" oncontextmenu="alert('Right Click');">Red button
+                             </button>
+
+
 Button is located in the following classes:
  
   - __Java__: _com.epam.jdi.light.ui.html.common.Button_
@@ -5498,43 +5508,37 @@ Available methods in Java JDI Light:
 
 ### Breadcrumb
 
+
+
+<a href="https://getbootstrap.com/docs/4.3/components/breadcrumb/" target="_blank">Breadcrumb</a> is a control element  used for navigational on web pages
+
+![Breadcrumb example](../images/bootstrap/breadcrumb.png)
+
+Breadcrumb is located in the following class: <br>
+- __Java__: _com.epam.jdi.light.ui.bootstrap.elements.common.Breadcrumb_
+
+Inner elements are represented  by the following class: <br>
+- __Java__: _com.epam.jdi.light.elements.complex.WebList_
+
 ```java 
-
-
-
-
-
-
-
-
-
 
 // @FindBy(css = "#breadcrumb")
 @UI("#breadcrumb") public static Breadcrumb breadcrumb;
 
-public class Breadcrumb extends UIBaseElement<UIAssert>{
-    // @FindBy(css = ".breadcrumb-item")
-    @Css(".breadcrumb-item") public WebList itemns;
-}
-
-
 @Test
 public void getTextTest() {
-    breadcrumb.itemns.has().size(3);
-    breadcrumb.itemns.assertThat().values(TEXT, hasItems(new String[]{"Home", "HTML 5", "Bootstrap"}));
+    breadcrumb.items.has().size(3);
+    breadcrumb.items
+              .assertThat()
+              .values(TEXT, hasItems(ITEMS_VALUES));
 }
     
 @Test
- public void getCurrectItemTest() {
-    breadcrumb.itemns.last().has().value("Bootstrap");
-    breadcrumb.itemns.last().has().text("Bootstrap");
+public void getCurrectItemTest() {
+    breadcrumb.items.last().has().value(BOOTSTRAP);
+    breadcrumb.items.last().has().text(BOOTSTRAP);
 }
 ```
-
-<a href="https://getbootstrap.com/docs/4.3/components/breadcrumb/" target="_blank">breadcrumb</a>
-A <a href="https://getbootstrap.com/docs/4.3/components/breadcrumb/" target="_blank">breadcrumb</a> is a control element  used for navigational on web pages
-
-![Breadcrumb example](../images/bootstrap/breadcrumb.png)
 
 Here is an example with provided Bootstrap v4.3 code:
   
@@ -5552,6 +5556,7 @@ Here is an example with provided Bootstrap v4.3 code:
 </nav>
 ```
 
+
 Available methods in Java JDI Light:
 
 |Method/Property | Description | Return Type
@@ -5561,16 +5566,13 @@ Available methods in Java JDI Light:
 **getValue()** |Get item value  |  String
 **get(String option)**|Get item by text|UIElement 
 **get(int index)**|Get item by index| UIElement
-**last()**|Get last (current) item |UIElement
+**last()**|Get last item |UIElement
 **first()**|Get first item |UIElement
 **is()**	 |  Assert action	| UIAssert
 **assertThat()**	 |  Assert action	| UIAssert
+**shouldBe()**	 |  Assert action	| UIAssert
 
-In this java test case example Breadcrumb has been implemented as WebList.
 
-WebList is located in the following classes:
-
-Java: com.epam.jdi.light.elements.complex.WebList
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/BreadcrumbTests.java" target="_blank">Breadcrumb Tests Example</a>
 
@@ -20085,7 +20087,14 @@ Scenario example for Button:
 **Then** the "\<ELEMENT NAME\>" does not appear during "\<TIME\>" seconds <br>
 **Then** the "\<ELEMENT NAME\>" css "\<ATTRIBUTE NAME\>" equals to "\<TEXT\>" <br>
 **Then** the "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" equals to "\<TEXT\>" <br>
-  
+
+```html 
+<button type="button" id="red-button" class="btn btn-danger" onclick="alert('Red button');" ondblclick="alert('Double Click');" oncontextmenu="alert('Right Click');">Red button
+                             </button>
+```
+
+
+
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa)<br>
 <a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Button.feature" target="_blank">Cucumber tests</a>) for Button<br>
 

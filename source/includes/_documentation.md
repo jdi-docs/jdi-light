@@ -7818,7 +7818,7 @@ getTooltipText() |Get tooltip text |String
 getTooltipPlacement() |Get tooltip placement| String
 isTooltipWithHTML() |Check that tooltip contains html text |boolean
 is()	 |  Assert action	| UIAssert
-assertThat()	 |  Assert action	| UIpAssert
+assertThat()	 |  Assert action	| TooltipAssert
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/TooltipTests.java" target="_blank">Bootstrap test example with tooltips</a>
  

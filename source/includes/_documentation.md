@@ -11292,32 +11292,64 @@ Available methods for form validation in Java JDI Light:
     @UI("#navbar-example2") public static NavbarWithDropdown navbarWithDropdown;
     @UI("#navbar-example2~div") public static ScrollSpyNav scrollSpyInNavbar;
     
-public class NavbarWithDropdown extends Section {
-    @UI("ul>li") // @FindBy(css = "ul>li")
-    public ListGroup navGroup;
-    @UI("ul>li>a") // @FindBy(css ="ul>li>a")
-    public ListGroup navItemLink;
-    @JDropdown(expand = ".dropdown-toggle",
-            value = ".dropdown-toggle",
-            list = ".dropdown-item")
-    public Dropdown dropdownMenu;
-    @UI(".navbar-brand") // @FindBy(css = ".navbar-brand")
-    public Link navbarLink;
-}
+    public class NavbarWithDropdown extends Section {
+        // @FindBy(css = "ul>li")
+        @UI("ul>li") 
+        public ListGroup navGroup;
+        
+        // @FindBy(css ="ul>li>a")
+        @UI("ul>li>a") 
+        public ListGroup navItemLink;
+        
+        @JDropdown(expand = ".dropdown-toggle",
+                value = ".dropdown-toggle",
+                list = ".dropdown-item")
+        public Dropdown dropdownMenu;
+        
+        // @FindBy(css = ".navbar-brand")
+        @UI(".navbar-brand") 
+        public Link navbarLink;
+    }
   
-public class ScrollSpyNav extends Section {
-    @UI(".//h4 | .//h5") public ListGroup header;//@FindBy(xpath = ".//h4 | .//h5")
-    @UI("p") public ListGroup mainText;          // @FindBy(css = "p")
-
-    public void scrollParagraph(ListGroup listGroup, int index, String className){
-        mainText.get(index).show();
-
-        if (!listGroup.get(index).core().hasClass(className) &&
-                index < header.size()) {
-            header.get(index + 1).show();
+    public class ScrollSpyNav extends Section {
+        // @FindBy(xpath = ".//h4 | .//h5")
+        @UI(".//h4 | .//h5") public ListGroup header;
+        
+        // @FindBy(css = "p")
+        @UI("p") public ListGroup mainText;          
+    
+        public void scrollParagraph(ListGroup listGroup, int index, String className){
+            mainText.get(index).show();
+    
+            if (!listGroup.get(index).core().hasClass(className) &&
+                    index < header.size()) {
+                header.get(index + 1).show();
+            }
         }
     }
-}
+
+    private String itemLink = "https://jdi-testing.github.io/jdi-light/bootstrap.html#";
+    
+    @DataProvider
+    public Object[][] dropdownCheck() {
+        return new Object[][]{
+                {3, itemLink + "one", "one"},
+                {4, itemLink + "two", "two"},
+                {5, itemLink + "three", "three"}
+        };
+    }
+
+    @Test(dataProvider = "dropdownCheck", priority = 1)
+    public void dropdownCheckTests(int _index, String link, String header) {
+        navbarWithDropdown.dropdownMenu.expand();
+        navbarWithDropdown.dropdownMenu.list().get(header).is()
+                .core()
+                .displayed()
+                .enabled()
+                .text(is(header))
+                .value(is(header))
+                .attr(ATTR_NAME_HREF, is(link));
+    }
 
     @Test
     public void navbarLinkClickableTests() {
@@ -11367,25 +11399,33 @@ public class ScrollSpyNav extends Section {
     @UI("#navbar-example3") public static NestedNav nestedNav;
     @UI("#navbar-example3~div") public static ScrollSpyNav scrollSpyWithNestedNav;
       
-public class NestedNav extends Section {
-    @UI("nav") public ListGroup navGroup;          // @FindBy(css = "nav")
-    @UI("nav nav a") public ListGroup navItemLink; // @FindBy(css = "nav nav a")
-    @UI(".navbar-brand") public Link navbarLink;   // @FindBy(css = ".navbar-brand")
-}
+    public class NestedNav extends Section {
+        // @FindBy(css = "nav")
+        @UI("nav") public ListGroup navGroup;          
+        
+        // @FindBy(css = "nav nav a")
+        @UI("nav nav a") public ListGroup navItemLink; 
+        
+        // @FindBy(css = ".navbar-brand")
+        @UI(".navbar-brand") public Link navbarLink;   
+    }
 
-public class ScrollSpyNav extends Section {
-    @UI(".//h4 | .//h5") public ListGroup header;//@FindBy(xpath = ".//h4 | .//h5")
-    @UI("p") public ListGroup mainText;          // @FindBy(css = "p")
-
-    public void scrollParagraph(ListGroup listGroup, int index, String className){
-        mainText.get(index).show();
-
-        if (!listGroup.get(index).core().hasClass(className) &&
-                index < header.size()) {
-            header.get(index + 1).show();
+    public class ScrollSpyNav extends Section {
+        // @FindBy(xpath = ".//h4 | .//h5")
+        @UI(".//h4 | .//h5") public ListGroup header;
+        
+        // @FindBy(css = "p")
+        @UI("p") public ListGroup mainText;          
+    
+        public void scrollParagraph(ListGroup listGroup, int index, String className){
+            mainText.get(index).show();
+    
+            if (!listGroup.get(index).core().hasClass(className) &&
+                    index < header.size()) {
+                header.get(index + 1).show();
+            }
         }
     }
-}
 
     @Test(dataProvider = "itemsCheck")
     public void paragraphClickableTests(int index) {

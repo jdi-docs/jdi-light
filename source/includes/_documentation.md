@@ -16481,20 +16481,37 @@ This is easily customized with our various sizing options.
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java 
-@UI("#card-example") // @FindBy(css = "#card-example")
+```java
+// @FindBy(css = "#card-example") 
+@UI("#card-example")
 public static CardExample cardExample;
 
 public class CardExample extends Card {
-    @UI(".card-title") public Text title;
-    @UI(".card-text") public Text text;
-    @UI(".btn") public Button button;
-    @UI(".card-img-top") public Image image;
-}    
+    @UI(".card-title")
+    public Text title;
+    @UI(".card-text")
+    public Text text;
+    @UI(".btn")
+    public Button button;
+    @UI("#bs-card-example-image")
+    public Image image;
+}   
 
 @Test
-public void getTitleTextTest() {
+public void isValidationTest() {
+    cardExample.image.is().src(is(imageSrc));
+    cardExample.image.is().alt(is(imageAlt));
+    cardExample.image.unhighlight();
+    cardExample.image.assertThat().width(is(86));
+    cardExample.image.assertThat().height(is(137));
     cardExample.title.is().text(is(titleText));
+    cardExample.text.is().text(is(mainText));
+    cardExample.button.is().displayed()
+            .and().text(is(buttonText))
+            .core()
+            .attr("type", "submit")
+            .tag(is("button"));
+    cardExample.button.is().enabled();
 }
 
 @Test
@@ -16553,11 +16570,13 @@ Use it whenever you need a padded section within a card.
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
-@UI("#card-body") // @FindBy(css = "#card-body")
+//@FindBy(css = ".card-body")
+@UI(".card-body")
 public static CardBody cardBody;
 
 public class CardBody extends Card {
-    @UI(".card-body") public Text text;
+    @UI(".card-body")
+    public Text text;
 }
 
 @Test
@@ -16605,8 +16624,9 @@ are placed in a `.card-body` item, the card title and subtitle are aligned nicel
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java 
-@UI("#card-subtitle-link") // @FindBy(css = "#card-subtitle-link")
+```java
+// @FindBy(css = "#card-subtitle-link") 
+@UI("#card-subtitle-link") 
 public static CardWithSubtitlesAndLinks cardWithSubtitlesAndLinks;
 
 public class CardWithSubtitlesAndLinks extends Card {
@@ -16681,7 +16701,8 @@ with the standard HTML tags.
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
-@UI("#card-image") // @FindBy(css = "#card-image")
+//@FindBy(css = "#card-image")
+@UI("#card-image") 
 public static CardImage cardImage;
 
 public class CardImage extends Card {
@@ -16752,7 +16773,8 @@ with a flush list group.
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
-@UI("#card-list-groups") // @FindBy(css = "#card-list-groups")
+//@FindBy(css = "#card-list-groups")
+@UI("#card-list-groups")
 public static CardListGroups cardListGroups;
 
 public class CardListGroups extends Card {
@@ -16823,7 +16845,8 @@ a list group—all wrapped in a fixed-width card.
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
-@UI("#card-kitchen-sink") // @FindBy(css = "#card-kitchen-sink")
+//@FindBy(css = "#card-kitchen-sink")
+@UI("#card-kitchen-sink")
 public static CardKitchenSink cardKitchenSink; 
 
 public class CardKitchenSink extends Card {
@@ -16914,15 +16937,16 @@ header and/or footer within a card.
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java 
-@UI("#card-with-header-and-footer") // @FindBy(css = "#card-with-header-and-footer")
+```java
+//@FindBy(css = "#card-with-header-and-footer") 
+@UI("#card-with-header-and-footer")
 public static CardWithHeaderAndFooter cardWithHeaderAndFooter;
 
 public class CardWithHeaderAndFooter extends Card {
     @UI(".card-title") public Text title;
     @UI(".card-body p") public Text paragraph;
     @UI("button") public Button button;
-    @UI(".card-header")public Text header;
+    @UI(".card-header") public Text header;
     @UI("//*[contains(@class, 'footer')]") public Text footer;
 }
 
@@ -16985,8 +17009,9 @@ wrap cards in columns and rows as needed.
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java 
-@UI("#card-with-grid-markup") // @FindBy(css = "#card-with-grid-markup")
+```java
+//@FindBy(css = "#card-with-grid-markup")
+@UI("#card-with-grid-markup")
 public static CardWithGridMarkup cardWithGridMarkup;
 
 public class CardWithGridMarkup extends Card {
@@ -17090,8 +17115,9 @@ sizing utilities to quickly set a card’s width.
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java 
-@UI(".w-75") // @FindBy(className = ".w-75")
+```java
+//@FindBy(className = ".w-75") 
+@UI(".w-75")
 public static CardUtilities cardWidth75;
 
 public class CardUtilities extends Card {
@@ -17142,7 +17168,8 @@ stylesheets or as inline styles to set a width.
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
-@UI("#card-custom-css-1") // @FindBy(css = "#card-custom-css-1")
+//@FindBy(css = "#card-custom-css-1")
+@UI("#card-custom-css-1")
 public static CardWithCustomCss cardWithCustomCss13Rem;
 
 public class CardWithCustomCss extends Card {
@@ -17158,6 +17185,16 @@ public void getTextTest() {
 
 @Test
 public void isValidationTest() {
+    cardWithCustomCss13Rem.title.is().text(is(title));
+    cardWithCustomCss13Rem.text.is().text(is(text));
+    cardWithCustomCss13Rem.button.is().displayed()
+            .and().text(is(buttonText))
+            .core()
+            .css("font-size", is("16px"))
+            .cssClass("btn btn-primary")
+            .tag(is("a"))
+            .attr("href", link);
+    cardWithCustomCss13Rem.button.is().enabled();
     cardWithCustomCss13Rem.is().displayed()
             .core()
             .css("width", is("208px"))
@@ -17192,8 +17229,6 @@ Available methods in Java JDI Light:
 **click()** | Click the button | void
 **is()** | Assert action | UIAssert
 **text()** | Assert text | TextAssert
-**ref()** | Returns the reference | String
-**url()** | Returns the URL | URL
 **assertThat()** | Assert action | UIAssert
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardWithCustomCss13RemTests.java)
@@ -17208,11 +17243,14 @@ the text alignment of any card — in it's entirety or specific parts — with B
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
-@UI("#card-text-left") // @FindBy(css = "#card-text-left")
+//@FindBy(css = "#card-text-left")
+@UI("#card-text-left")
 public static CardTextAlignment cardLeftTextAlignment;
-@UI("#card-text-center") // @FindBy(css = "#card-text-center")
+//@FindBy(css = "#card-text-center")
+@UI("#card-text-center")
 public static CardTextAlignment cardCenterTextAlignment;
-@UI("#card-text-right") // @FindBy(css = "#card-text-right")
+//@FindBy(css = "#card-text-right")
+@UI("#card-text-right")
 public static CardTextAlignment cardRightTextAlignment;
 
 public class CardTextAlignment extends Card {
@@ -17292,12 +17330,21 @@ Here is an example with provided Bootstrap v4.3 code:
 public static CardNavigation cardNavigation;
 
 public class CardNavigation extends Card {
+    @UI(".nav") public Menu nav;
     @UI("#activeLink") public Link activeLink;
     @UI("#jdiLink") public Link jdiLink;
     @UI("#disabledLink") public Link disabledLink;
     @UI("h5") public Text title;
     @UI(".card-text") public Text subtitle;
     @UI("button") public Button button;
+}
+
+@Test
+public void getLinkTextTest() {
+    cardNavigation.nav.highlight();
+    assertEquals(cardNavigation.activeLink.getText(), activeLinkText);
+    assertEquals(cardNavigation.jdiLink.getText(), jdiLinkText);
+    assertEquals(cardNavigation.disabledLink.getText(), disabledLinkText);
 }
 
 @Test
@@ -17373,6 +17420,7 @@ Card is represented by Section class in Java:
 
 Inner elements of Card Navigation represented by the following classes:
 
+- [Menu](https://jdi-docs.github.io/jdi-light/#menu)
 - [Text](https://jdi-docs.github.io/jdi-light/#text)
 - [Button](https://jdi-docs.github.io/jdi-light/#button)
 - [Link](https://jdi-docs.github.io/jdi-light/#link)
@@ -17406,7 +17454,8 @@ can include top and bottom “image caps” — images at the top or bottom of a
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
-@UI("#card-image-caps-1") // @FindBy(id = "card-image-caps-1")
+//@FindBy(id = "card-image-caps-1")
+@UI("#card-image-caps-1")
 public static CardImageCaps cardImageOnTop;
 
 public class CardImageCaps extends Card {
@@ -17470,8 +17519,9 @@ background and overlay your card’s text. Depending on the image, you may or ma
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java 
-@UI("#card-image-overlay") // @FindBy(css = "#card-image-overlay")
+```java
+//@FindBy(css = "#card-image-overlay") 
+@UI("#card-image-overlay")
 public static CardImageOverlays cardImageOverlays;
 
 public class CardImageOverlays extends Card {
@@ -17556,7 +17606,8 @@ utility classes, cards can be made horizontal in a mobile-friendly and responsiv
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
-@UI("#card-horizontal") //FindBy(css = "#card-horizontal")
+//FindBy(css = "#card-horizontal")
+@UI("#card-horizontal")
 public static CardHorizontal cardHorizontal;
 
 public class CardHorizontal extends Card {
@@ -17580,6 +17631,14 @@ public void isValidationTest() {
             .core()
             .css("font-size", is("11.2px"))
             .tag(is("small"));
+    cardHorizontal.image.is().displayed()
+            .and().src(is(imageSrc))
+            .core()
+            .attr("title", imageTitle);
+    cardHorizontal.image.unhighlight();
+    cardHorizontal.image.assertThat().width(anyOf(is(91), is(94)));
+    cardHorizontal.image.assertThat().height(anyOf(is(146), is(150)));
+}
 ```
 
 ```html 
@@ -17639,7 +17698,8 @@ background utilities to change the appearance of a card.
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
-@UI("#card-bright-blue") // @FindBy(css = "#card-bright-blue")
+//@FindBy(css = "#card-bright-blue")
+@UI("#card-bright-blue")
 public static CardStyled cardBrightBlue;
 
 public class CardStyled extends Card {
@@ -17708,7 +17768,8 @@ contents as shown below.
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
-@UI("#card-border-primary") // @FindBy(css = "#card-border-primatry")
+//@FindBy(css = "#card-border-primatry")
+@UI("#card-border-primary")//@FindBy(css = "#card-border-primatry")
 public static CardStyled cardBorderPrimary;
 
 public class CardStyled extends Card {
@@ -17771,7 +17832,8 @@ the borders on the card header and footer as needed, and even remove their backg
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
-@UI("#card-mixins-utilities")  // @FindBy(css = "#card-mixins-utilities")         
+//@FindBy(css = "#card-mixins-utilities")
+@UI("#card-mixins-utilities")         
 public static CardMixinsUtilities cardMixinsUtilities;
 
 public class CardMixinsUtilities extends Card {
@@ -17837,8 +17899,9 @@ a single, attached element with equal width and height columns.
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java 
-@UI(".card-group:nth-of-type(1)") // @FindBy(css = ".card-group:nth-of-type(1)")
+```java
+//@FindBy(css = ".card-group:nth-of-type(1)") 
+@UI(".card-group:nth-of-type(1)")
 public static CardGroupedSection cardGroupSectionWithoutFooter;
 
 public class CardGroupSection extends Section {
@@ -17905,7 +17968,8 @@ public void getAltTest() {
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
-@UI(".card-group:nth-of-type(2)") // @FindBy(css = ".card-group:nth-of-type(2)")
+//@FindBy(css = ".card-group:nth-of-type(2)")
+@UI(".card-group:nth-of-type(2)")
 public static CardGroupedSection cardGroupWithFooter;
 
 public class CardGroupSection extends Section {
@@ -17990,7 +18054,8 @@ and height cards that aren't attached to one another.
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
-@UI(".card-deck:nth-of-type(1)") // @FindBy(css = ".card-deck:nth-of-type(1)")
+//@FindBy(css = ".card-deck:nth-of-type(1)")
+@UI(".card-deck:nth-of-type(1)")
 public static CardDeckSection cardDeckSectionWithoutFooter;
 
 public class CardDeckSection extends Section {
@@ -18059,8 +18124,8 @@ public void getMainTextTest() {
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
-
-@UI(".card-deck:nth-of-type(2)") // @FindBy(css = ".card-deck:nth-of-type(2)")
+//@FindBy(css = ".card-deck:nth-of-type(2)")
+@UI(".card-deck:nth-of-type(2)")
 public static CardDeckSection cardDeckSectionWithFooter;
 
 public class CardGroupSection extends Section {
@@ -18093,6 +18158,7 @@ public void getMainTextTest() {
     cardDeckSectionWithFooter.highlight();
     assertEquals(cardDeckSectionWithFooter.card1.mainText.getText(), card1MainText);
     assertEquals(cardDeckSectionWithFooter.card2.mainText.getText(), card2MainText);
+}    
 ```
 
 ```html 
@@ -18159,9 +18225,10 @@ the number of columns.
  
 Here is an example with provided Bootstrap v4.3 code:
  
-```java 
+```java
+//@FindBy(css = ".card-columns") 
 @UI(".card-columns")
-public static CardColumns cardColumns; //@FindBy(css = ".card-columns")
+public static CardColumns cardColumns; 
 
 public class CardColumnsSection extends Section {
     @UI(".card:nth-of-type(1)") public CardWithinCardColumns topLeftCard;
@@ -18274,7 +18341,8 @@ Available methods in Java JDI Light:
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
-@Css("#jumbotron") // @FindBy(css = "#jumbotron")
+// @FindBy(css = "#jumbotron")
+@Css("#jumbotron")
 public static Jumbotron jumbotron;
 
 public class Jumbotron extends Section implements IsJumbotron {

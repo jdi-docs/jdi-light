@@ -11296,16 +11296,13 @@ Available methods for form validation in Java JDI Light:
         // @FindBy(css = "ul>li")
         @UI("ul>li") 
         public ListGroup navGroup;
-        
         // @FindBy(css ="ul>li>a")
         @UI("ul>li>a") 
         public ListGroup navItemLink;
-        
         @JDropdown(expand = ".dropdown-toggle",
                 value = ".dropdown-toggle",
                 list = ".dropdown-item")
         public Dropdown dropdownMenu;
-        
         // @FindBy(css = ".navbar-brand")
         @UI(".navbar-brand") 
         public Link navbarLink;
@@ -11314,7 +11311,6 @@ Available methods for form validation in Java JDI Light:
     public class ScrollSpyNav extends Section {
         // @FindBy(xpath = ".//h4 | .//h5")
         @UI(".//h4 | .//h5") public ListGroup header;
-        
         // @FindBy(css = "p")
         @UI("p") public ListGroup mainText;          
     
@@ -11373,19 +11369,7 @@ Available methods for form validation in Java JDI Light:
                 .enabled()
                 .attr("role", "separator");
     }
-
-
-    
- 
-     
-
-
-
-     
-     
-     
-     
-     
+  
      
      
      
@@ -11402,10 +11386,8 @@ Available methods for form validation in Java JDI Light:
     public class NestedNav extends Section {
         // @FindBy(css = "nav")
         @UI("nav") public ListGroup navGroup;          
-        
         // @FindBy(css = "nav nav a")
         @UI("nav nav a") public ListGroup navItemLink; 
-        
         // @FindBy(css = ".navbar-brand")
         @UI(".navbar-brand") public Link navbarLink;   
     }
@@ -11413,7 +11395,6 @@ Available methods for form validation in Java JDI Light:
     public class ScrollSpyNav extends Section {
         // @FindBy(xpath = ".//h4 | .//h5")
         @UI(".//h4 | .//h5") public ListGroup header;
-        
         // @FindBy(css = "p")
         @UI("p") public ListGroup mainText;          
     
@@ -11425,6 +11406,13 @@ Available methods for form validation in Java JDI Light:
                 header.get(index + 1).show();
             }
         }
+    }
+
+    @DataProvider
+    public Object[][] itemsCheck() {
+        return new Object[][]{
+                {1}, {2}, {3}, {4}, {5}, {6}, {7}
+        };
     }
 
     @Test(dataProvider = "itemsCheck")
@@ -11461,20 +11449,29 @@ Available methods for form validation in Java JDI Light:
     @UI("#list-example>a") public static ListGroup listGroupForScrollSpy;
     @UI("#list-example~div") public static ScrollSpyNav scrollSpyWithListGroup;
     
-public class ScrollSpyNav extends Section {
-    @UI(".//h4 | .//h5") public ListGroup header;//@FindBy(xpath = ".//h4 | .//h5")
-    @UI("p") public ListGroup mainText;          // @FindBy(css = "p")
-
-    public void scrollParagraph(ListGroup listGroup, int index, String className){
-        mainText.get(index).show();
-
-        if (!listGroup.get(index).core().hasClass(className) &&
-                index < header.size()) {
-            header.get(index + 1).show();
+    public class ScrollSpyNav extends Section {
+        //@FindBy(xpath = ".//h4 | .//h5")
+        @UI(".//h4 | .//h5") public ListGroup header;
+        // @FindBy(css = "p")
+        @UI("p") public ListGroup mainText;          
+    
+        public void scrollParagraph(ListGroup listGroup, int index, String className){
+            mainText.get(index).show();
+    
+            if (!listGroup.get(index).core().hasClass(className) &&
+                    index < header.size()) {
+                header.get(index + 1).show();
+            }
         }
     }
-}
-   
+
+    @DataProvider
+    public Object[][] itemsCheck() {
+        return new Object[][]{
+                {1}, {2}, {3}, {4}
+        };
+    }   
+
     @Test(dataProvider = "itemsCheck")
     public void paragraphClickableTests(int index) {
         scrollSpyWithListGroup.mainText.get(index).highlight();

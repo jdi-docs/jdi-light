@@ -7845,49 +7845,6 @@ assertThat()	 |  Assert action	| TooltipAssert
 
 ###Collapse
 
-```java 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    @JDropdown(expand = "#bs-group-toggle-one",
-                value = "#bs-group-one",
-                list = "#bs-group-one-body")
-        public static Collapse collapseGroupOne;
-
-    String groupOneText = "You probably haven't heard of them accusamus labore sustainable VHS.";
-
-    @Test
-        public void collapseGroupOneTest() {
-            collapseGroupOne.highlight();
-            collapseGroupOne.expand();
-    
-            collapseGroupOne.is().expanded();
-            collapseGroupOne.value().is().text(groupOneText);
-    
-            collapseGroupOne.collapse();alert
-            collapseGroupOne.is().collapsed();
-        }
-```
-
 The <a style="font-weight: bold;" href="https://getbootstrap.com/docs/4.3/components/collapse/" target="_blank">collapse</a> is used to show and hide content. 
 Buttons or anchors are used as triggers that are mapped to specific elements you toggle.
 
@@ -7897,6 +7854,27 @@ You can use a ``@JDropdown`` annotation to declare a Collapse within your Page O
 ![Collapse example](../images/bootstrap/collapse.png)
 
 Here is an example with provided Bootstrap v4.3 code:
+
+```java 
+    @JDropdown(expand = "#bs-group-toggle-one",
+                value = "#bs-group-one",
+                list = "#bs-group-one-body")
+        public static Collapse collapseGroupOne;
+
+    String groupOneText = "You probably haven't heard of them accusamus labore sustainable VHS.";
+
+    @Test
+    public void collapseGroupOneTest() {
+        collapseGroupOne.highlight();
+        collapseGroupOne.expand();
+
+        collapseGroupOne.is().expanded();
+        collapseGroupOne.value().is().text(groupOneText);
+
+        collapseGroupOne.collapse();alert
+        collapseGroupOne.is().collapsed();
+    }
+```
 
 ```html
 <div class="accordion mb-3" id="accordionExample">
@@ -7927,10 +7905,10 @@ Available methods in Java JDI Light:
 --- | --- | ---
 **expand()** | Expands element  | void
 **collapse()** | Collapses element  | void
-**expanded()** | Checks whether collapse is expanded | UISelectAssert
-**collapsed()** | Checks whether collapse is collapsed | UISelectAssert 
 **value()** | Returns collapse ``value()`` property | UIElement
-**list()** | Returns collapse ``list()`` property | UIElement
+**list()** | Returns collapse ``list()`` property | WebList
+**is()** | Various assert actions | UISelectAssert
+**assertThat()** | Assert action | UISelectAssert 
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/complex/CollapseTests.java)
 

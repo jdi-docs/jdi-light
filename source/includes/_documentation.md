@@ -5339,11 +5339,12 @@ Alert is located in the following class: <br>
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java 
+```java
+// @FindBy(css = "#simple-alert") public static Alert simpleAlert; 
 @Css("#simple-alert") public static Alert simpleAlert;
-@Css("#dismissible-alert") public static Alert dismissibleAlert;
-// @FindBy(css = "#simple-alert") public static Alert simpleAlert;
+
 // @FindBy(css = "#dismissible-alert") public static Alert dismissibleAlert;
+@Css("#dismissible-alert") public static Alert dismissibleAlert;
 
 @Test
 public void simpleAlertExistingTest() {
@@ -5364,12 +5365,18 @@ public void simpleAlertLinkClickableTest() {
 @Test
 public void dismissibleAlertButtonIsValidationTest() {
     dismissibleAlert.dismissButton().is().displayed()
-            .enabled();
+            .enabled()
+            .core()
+            .attr("type", "button")
+            .attr("data-dismiss", "alert")
+            .attr("aria-label", "Close")
+            .tag(is("button"));
 }
 
 @Test (priority = 1)
 public void dismissibleAlertButtonClickTest() {
     dismissibleAlert.dismissButton().click();
+    dismissibleAlert.base().waitSec(1);
     dismissibleAlert.is().hidden();
 }
 ```
@@ -5396,7 +5403,6 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**getText()** | Get alert text | String
 **is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
 **displayed()** | Check that element is displayed | TextAssert
@@ -5404,11 +5410,6 @@ Available methods in Java JDI Light:
 **click()** | Click to hide alert | Action
 
 <br>
-
-Inner elements represented by the following classes:
-<ul>
-    <li> [Text](https://jdi-docs.github.io/jdi-light/#text) </li>
-</ul>
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/AlertTests.java" target="_blank">Alert test examples</a>
 

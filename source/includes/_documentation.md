@@ -8494,228 +8494,6 @@ __Events for toasts:__
   - _hide.bs.toast_ - this event is fired immediately when the hide instance method has been called.<br/>
   - _hidden.bs.toast_ - this event is fired when the toast has finished being hidden from the user<br/>
  <br /> 
- 
- ```java 
- 
- 
- 
- 
- 
- 
-  
-   
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
-
- 
- 
- @UI("#simpleToast") public static Toast simpleToast; //@FindBy(id="simpleToast")
-
- @Test
- public void simpleToastValidationTest() {
-     simpleToastButton.click();
-     simpleToast.is().displayed();
-     simpleToast.headerText.is().text(toastHeaderText);
-     simpleToast.body.is().text(toastBodyText);
- }
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
-
-
-
-
- 
- @UI("#translucentToast") public static Toast translucentToast; //@FindBy(id="translucentToast")
- 
- @Test
- public void translucentToastValidationTest() {
-     translucentToastButton.click();
-     translucentToast.is().displayed();
-     translucentToast.headerText.is().text(toastHeaderText);
-     translucentToast.body.is().text(toastBodyText);
- }
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
-
-
-
-
-
-
-
-
-
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- @UI("#firstMultipleToast") public static Toast firstStackToast; //@FindBy(id="firstMultipleToast")
- @UI("#secondMultipleToast") public static Toast secondStackToast; //@FindBy(id="secondMultipleToast")
- 
- @Test
- public void stackOfToastsValidationTest() {
-     stackOfToastsButton.click();
-     firstStackToast.is().displayed();
-     secondStackToast.is().displayed();
-     firstStackToast.headerText.is().text(toastHeaderText);
-     firstStackToast.body.is().text(stackToastBodyText);
-     secondStackToast.headerText.is().text(toastHeaderText);
-     secondStackToast.body.is().text(secondStackToastBodyText);
-     }
- 
- 
-  
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- @UI("#toastRightTop") public static Toast toastWithTopAlign; //@FindBy(id="toastRightTop")
- 
- @Test
- public void toastWithTopAlignValidationTest() {
-     toastWithTopAlignButton.click();
-     toastWithTopAlign.is().displayed();
-     toastWithTopAlign.headerText.is().text(toastHeaderText);
-     toastWithTopAlign.body.is().text(toastBodyText);
-     toastWithTopAlign.closeButton.click();
-     toastWithTopAlign.base().waitSec(1);
-     toastWithTopAlign.is().hidden();
- }
-
-
-
-
-
-
-
-
-
-
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- @UI("#firstStackToast") public static Toast firstTopAlignStackToast; //@FindBy(id="firstStackToast")
- @UI("#secondStackToast") public static Toast secondTopAlignStackToast; //@FindBy(id="secondStackToast")
- 
- @Test
-  public void stackOfTopAlignToastsValidationTest() {
-      stackOfToastsWithTopAlignButton.click();
-      firstTopAlignStackToast.headerText.is().text(toastHeaderText);
-      firstTopAlignStackToast.body.is().text(stackToastBodyText);
-      secondTopAlignStackToast.headerText.is().text(toastHeaderText);
-      secondTopAlignStackToast.body.is().text(secondStackToastBodyText);
-      firstTopAlignStackToast.is().displayed();
-      secondTopAlignStackToast.is().displayed();
-  }
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
-  @UI("#toastCenterTop") public static Toast toastWithCenterAlign; //@FindBy(id="toastCenterTop")
-  @UI("#toastRightTop") public static Toast toastWithTopAlign; //@FindBy(id="toastRightTop")
-  
-  @Test
-  public void toastWithCenterAlignValidationTest() {
-      toastWithCenterAlignButton.click();
-      toastWithCenterAlign.is().displayed();
-      toastWithCenterAlign.headerText.is().text(toastHeaderText);
-      toastWithCenterAlign.body.is().text(toastBodyText);
-      toastWithCenterAlign.closeButton.click();
-      toastWithCenterAlign.base().waitSec(1);
-      toastWithCenterAlign.is().hidden();
-  }
- 
- ``` 
 
 <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/toasts/#basic" target="_blank">**Simple Toast**</a>
 <br />
@@ -8723,6 +8501,20 @@ __Events for toasts:__
 ![Simple toast example](../images/bootstrap/toast.png)
 
 Here is an example with provided Bootstrap v4.3 code:
+  
+```java 
+//@FindBy(id="simpleToast")
+@UI("#simpleToast") public static Toast simpleToast; 
+
+@Test
+public void simpleToastValidationTest() {
+    simpleToastButton.click();
+    simpleToast.is().displayed();
+    simpleToast.headerText.is().text(toastHeaderText);
+    simpleToast.body.is().text(toastBodyText);
+}
+
+```
   
 ```html
 <div class="toast" role="alert" data-animation="false" aria-live="assertive"
@@ -8750,6 +8542,20 @@ Here is an example with provided Bootstrap v4.3 code:
 ![Translucent toast example](../images/bootstrap/toast_center.png)
 
 Here is an example with provided Bootstrap v4.3 code:
+
+```java 
+//@FindBy(id="translucentToast")
+@UI("#translucentToast") public static Toast translucentToast; 
+
+@Test
+public void translucentToastValidationTest() {
+    translucentToastButton.click();
+    translucentToast.is().displayed();
+    translucentToast.headerText.is().text(toastHeaderText);
+    translucentToast.body.is().text(toastBodyText);
+}
+
+```
   
 ```html
 <div aria-live="polite" aria-atomic="true"
@@ -8779,6 +8585,25 @@ When you have multiple toasts, we default to vertically stacking them in a reada
 ![Toast stack example](../images/bootstrap/stack_of_toast.png)
 
 Here is an example with provided Bootstrap v4.3 code:
+  
+```java 
+//@FindBy(id="firstMultipleToast")
+@UI("#firstMultipleToast") public static Toast firstStackToast; 
+//@FindBy(id="secondMultipleToast")
+@UI("#secondMultipleToast") public static Toast secondStackToast; 
+
+@Test
+public void stackOfToastsValidationTest() {
+    stackOfToastsButton.click();
+    firstStackToast.is().displayed();
+    secondStackToast.is().displayed();
+    firstStackToast.headerText.is().text(toastHeaderText);
+    firstStackToast.body.is().text(stackToastBodyText);
+    secondStackToast.headerText.is().text(toastHeaderText);
+    secondStackToast.body.is().text(secondStackToastBodyText);
+}
+
+```
   
 ```html
 <div aria-live="polite" aria-atomic="true"
@@ -8826,6 +8651,23 @@ Example with top right align:
 ![Toast top right example](../images/bootstrap/toast_align.png)
 
 Here is an example with provided Bootstrap v4.3 code:
+
+```java 
+//@FindBy(id="toastRightTop")
+@UI("#toastRightTop") public static Toast toastWithTopAlign; 
+
+@Test
+public void toastWithTopAlignValidationTest() {
+    toastWithTopAlignButton.click();
+    toastWithTopAlign.is().displayed();
+    toastWithTopAlign.headerText.is().text(toastHeaderText);
+    toastWithTopAlign.body.is().text(toastBodyText);
+    toastWithTopAlign.closeButton.click();
+    toastWithTopAlign.base().waitSec(1);
+    toastWithTopAlign.is().hidden();
+}
+
+```
   
 ```html
 <div aria-live="polite" aria-atomic="true"
@@ -8853,6 +8695,25 @@ Example with top right align stack of toasts:
 ![Toast top right stack example](../images/bootstrap/stack_top_html.png)
 
 Here is an example with provided Bootstrap v4.3 code:
+
+```java  
+//@FindBy(id="firstStackToast")
+@UI("#firstStackToast") public static Toast firstTopAlignStackToast; 
+//@FindBy(id="secondStackToast")
+@UI("#secondStackToast") public static Toast secondTopAlignStackToast; 
+
+@Test
+ public void stackOfTopAlignToastsValidationTest() {
+    stackOfToastsWithTopAlignButton.click();
+    firstTopAlignStackToast.headerText.is().text(toastHeaderText);
+    firstTopAlignStackToast.body.is().text(stackToastBodyText);
+    secondTopAlignStackToast.headerText.is().text(toastHeaderText);
+    secondTopAlignStackToast.body.is().text(secondStackToastBodyText);
+    firstTopAlignStackToast.is().displayed();
+    secondTopAlignStackToast.is().displayed();
+}
+
+``` 
   
 ```html
 <div aria-live="polite" aria-atomic="true"
@@ -8901,6 +8762,25 @@ Example with center align toast:
 ![Toast top right stack example](../images/bootstrap/toast_center.png)
 
 Here is an example with provided Bootstrap v4.3 code:
+  
+```java 
+//@FindBy(id="toastCenterTop")
+@UI("#toastCenterTop") public static Toast toastWithCenterAlign; 
+//@FindBy(id="toastRightTop")
+@UI("#toastRightTop") public static Toast toastWithTopAlign; 
+
+@Test
+public void toastWithCenterAlignValidationTest() {
+    toastWithCenterAlignButton.click();
+    toastWithCenterAlign.is().displayed();
+    toastWithCenterAlign.headerText.is().text(toastHeaderText);
+    toastWithCenterAlign.body.is().text(toastBodyText);
+    toastWithCenterAlign.closeButton.click();
+    toastWithCenterAlign.base().waitSec(1);
+    toastWithCenterAlign.is().hidden();
+}
+
+```
   
 ```html
 <div aria-live="polite" aria-atomic="true"

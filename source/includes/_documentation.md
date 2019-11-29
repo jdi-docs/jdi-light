@@ -4841,6 +4841,12 @@ Button group is located in the following packages:
   - __Java__: _io.github.epam.bootstrap.tests.composite.section.buttonGroup_
   - __C#__:
 
+<br>
+
+Button group is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+
 #### <a href="https://getbootstrap.com/docs/4.3/components/button-group/#basic-example" target="_blank">Button Group Basic</a> 
 Wrap a series of buttons with .btn in .btn-group.
 
@@ -4849,15 +4855,17 @@ Wrap a series of buttons with .btn in .btn-group.
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
-// @FindBy(css = "#basic-example")
+// @FindBy(css = "#basic-example") public static ButtonGroupBasic buttonGroupBasic;
 @UI("#basic-example") 
 public static ButtonGroupBasic buttonGroupBasic;
 
 public class ButtonGroupBasic extends Section {
     @UI("//button[text()='Left']") 
     public Button leftButton;
+    
     @UI("//button[text()='Middle']") 
     public Button middleButton;
+    
     @UI("//button[text()='Right']") 
     public Button rightButton;
 }
@@ -4894,6 +4902,8 @@ public void leftButtonTests() {
 
 <br>
 
+Available methods in Java JDI Light:
+
 |Method | Description | Return Type
 --- | --- | ---
 **click()** | Click the button | void
@@ -4902,21 +4912,11 @@ public void leftButtonTests() {
 **assertThat()** | Assert action | TextAssert
 **displayed()** | Check that element is displayed | TextAssert
 **enabled()** | Check that element is enabled | TextAssert
-<br>
 
-Button group is represented by Section class in Java:
- 
-  [Section](https://jdi-docs.github.io/jdi-light/#section)  
-
-Inner elements represented by the following classes:
-<ul>
-    <li> [Button](https://jdi-docs.github.io/jdi-light/#button)</li>
-</ul>
 <br>
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/buttonGroup/BasicTests.java" target="_blank">Button Group Basic Tests Example</a>
 
-<br>
 
 #### <a href="https://getbootstrap.com/docs/4.0/components/button-group/#button-toolbar" target="_blank">Button toolbar</a>
 Combine sets of button groups into button toolbars for more complex components. Use utility classes as needed to space out groups, buttons, and more.
@@ -4926,12 +4926,16 @@ Combine sets of button groups into button toolbars for more complex components. 
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
-@UI(".btn-toolbar") public static ButtonToolbar buttonToolbar;
 // @FindBy(css = ".btn-toolbar") public static ButtonToolbar buttonToolbar;
+@UI(".btn-toolbar") 
+public static ButtonToolbar buttonToolbar;
 
-public class ButtonToolbar extends Section {
-    @UI("button") public WebList buttonsInToolbar;
-    @UI("input") public TextField inputAreaInToolbar;
+public class ButtonGroupToolbar extends Section {
+    @UI("button") 
+    public WebList buttonsInToolbar;
+    
+    @UI("input") 
+    public TextField inputAreaInToolbar;
 
     @Test
     public void buttonsInButtonToolbarTest() {
@@ -5016,9 +5020,21 @@ Here is an example with provided Bootstrap v4.3 code:
     </div>
 </div>
 ```
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**click()** | Click the button | void
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**displayed()** | Check that element is displayed | TextAssert
+**enabled()** | Check that element is enabled | TextAssert
+
 <br>
 
-<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/buttonGroup/ButtonToolbarTests.java" target="_blank">Bootstrap test examples</a>
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/buttonGroup/ToolbarTests.java" target="_blank">Bootstrap test examples</a>
 
 
 #### <a href="https://getbootstrap.com/docs/4.0/components/button-group/#sizing" target="_blank">Button Group Sizing</a>
@@ -5032,30 +5048,34 @@ just add ``.btn-group-*`` to each ``.btn-group``, including each one when nestin
 @UI("#btn-lg-group") // @FindBy(id = "btn-lg-group")
 public static ButtonGroupSizing largeBtnGroup;
 
-@UI("//button[contains(text(), 'Left')]")
-public Button leftBtn;
-@UI("//button[contains(text(), 'Middle')]")
-public Button midBtn;
-@UI("//button[contains(text(), 'Right')]")
-public Button rightBtn;
-
-String leftBtnText = "Left";
-
-@Test
-public void isValidationTest() {
-    largeBtnGroup.highlight();
-    largeBtnGroup.is().displayed();
-    largeBtnGroup.is().enabled();
-    largeBtnGroup.leftBtn.is().text(is(leftBtnText));
-    largeBtnGroup.leftBtn.is().text(containsString("Le"));
-    assertThat(largeBtnGroup.leftBtn.core().css("font-size"), is("20px"));
-    largeBtnGroup.leftBtn.assertThat().displayed()
-            .and().text(is(leftBtnText))
-            .core()
-            .css("font-size", is("20px"))
-            .cssClass("btn btn-secondary")
-            .attr("type", "button")
-            .tag(is("button"));
+public class ButtonGroupSizing extends Section { 
+    @UI("//button[contains(text(), 'Left')]")
+    public Button leftBtn;
+    
+    @UI("//button[contains(text(), 'Middle')]")
+    public Button midBtn;
+    
+    @UI("//button[contains(text(), 'Right')]")
+    public Button rightBtn;
+    
+    String leftBtnText = "Left";
+    
+    @Test
+    public void isValidationTest() {
+        largeBtnGroup.highlight();
+        largeBtnGroup.is().displayed();
+        largeBtnGroup.is().enabled();
+        largeBtnGroup.leftBtn.is().text(is(leftBtnText));
+        largeBtnGroup.leftBtn.is().text(containsString("Le"));
+        assertThat(largeBtnGroup.leftBtn.core().css("font-size"), is("20px"));
+        largeBtnGroup.leftBtn.assertThat().displayed()
+                .and().text(is(leftBtnText))
+                .core()
+                .css("font-size", is("20px"))
+                .cssClass("btn btn-secondary")
+                .attr("type", "button")
+                .tag(is("button"));
+    }
 }
 ``` 
 
@@ -5082,26 +5102,21 @@ Here is an example with provided Bootstrap v4.3 code:
 </div>
 ```
 
-<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/buttonGroup/SizingTests.java" target="_blank">Bootstrap test examples</a>
-
 Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
+**click()** | Click the button | void
 **getText()** | Get button text | String
-**getValue()** | Get button value | String
-**click()** | Click button | void
-**doubleClick()** | Double-click button | void
-**rightClick()** | Right-click button | void
-**displayed()** | Check that element is displayed | TextAssert
-**css()** | Get button css value | String
-**cssClass()** | Assert button css class | IsAssert
-**attr()** | Assert button attribute | IsAssert
-**tag()** | Assert button tag | IsAssert
 **is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
+**displayed()** | Check that element is displayed | TextAssert
+**enabled()** | Check that element is enabled | TextAssert
 
 <br>
+
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/buttonGroup/SizingTests.java" target="_blank">Bootstrap test examples</a>
+
 
 #### <a href="https://getbootstrap.com/docs/4.3/components/button-group/#nesting" target="_blank">Button Group Nesting</a>
 Place a ``.btn-group`` within another ``.btn-group`` when you want dropdown menus mixed with a series of buttons.
@@ -5111,12 +5126,17 @@ Place a ``.btn-group`` within another ``.btn-group`` when you want dropdown menu
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
-@UI("#button-group-nesting") public static ButtonGroupNesting buttonGroupNesting;
 // @FindBy(css = "#button-group-nesting") public static ButtonGroupNesting buttonGroupNesting;
+@UI("#button-group-nesting") 
+public static ButtonGroupNesting buttonGroupNesting;
 
 public class ButtonGroupNesting extends Section {
-    @UI("//button[text()='1']") public Button one;
-    @UI("//button[text()='2']") public Button two;
+    @UI("button[onclick*='Button 1']") 
+    public Button one;
+    
+    @UI("button[onclick*='Button 2']") 
+    public Button two;
+    
     @JDropdown(expand = ".btn-group",
             value = ".dropdown-menu",
             list = ".dropdown-item")
@@ -5184,14 +5204,12 @@ public void dropdownMenuTests() {
 **assertThat()** | Assert action | TextAssert
 **displayed()** | Check that element is displayed | TextAssert
 **enabled()** | Check that element is enabled | TextAssert
+**select(String option)** | Select option by text | void
+**select(int option)** | Select option by index | void
 **expand()** | Dropdown expand | void
 **expanded()** | Check that dropdown is expanded | TextAssert
 **assertThat()** | Assert action | TextAssert
 <br>
-
-Button group is represented by Section class in Java:
- 
-  [Section](https://jdi-docs.github.io/jdi-light/#section)  
 
 Inner elements represented by the following classes:
 <ul>
@@ -5202,7 +5220,8 @@ Inner elements represented by the following classes:
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/buttonGroup/NestingTests.java" target="_blank">Button Group Nesting Tests Example</a>
 
-<br><br>
+<br>
+
 
 #### <a href="https://getbootstrap.com/docs/4.3/components/button-group/#vertical-variation" target="_blank">Button Group Vertical Variation</a>
 Make a set of buttons appear vertically stacked rather than horizontally.
@@ -5212,12 +5231,17 @@ Make a set of buttons appear vertically stacked rather than horizontally.
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
-@UI("#vertical-variation") public static  ButtonGroupVerticalVariation buttonGroupVerticalVariation;
 // @FindBy(css = "#vertical-variation") public static  ButtonGroupVerticalVariation buttonGroupVerticalVariation;
+@UI("#vertical-variation") 
+public static  ButtonGroupVerticalVariation buttonGroupVerticalVariation;
 
 public class ButtonGroupVerticalVariation extends Section {
-    @UI("//button[text()='Button one']") public Button buttonOne;
-    @UI("//button[text()='Button two']") public Button buttonTwo;
+    @UI("button[onclick*='Button One']") 
+    public Button buttonOne;
+    
+    @UI("button[onclick*='Button Two']") 
+    public Button buttonTwo;
+    
     @JDropdown(expand = ".btn-group",
             value = ".dropdown-menu",
             list = ".dropdown-item")
@@ -5286,14 +5310,12 @@ public void dropdownMenuTests() {
 **assertThat()** | Assert action | TextAssert
 **displayed()** | Check that element is displayed | TextAssert
 **enabled()** | Check that element is enabled | TextAssert
+**select(String option)** | Select option by text | void
+**select(int option)** | Select option by index | void
 **expand()** | Dropdown expand | void
 **expanded()** | Check that dropdown is expanded | TextAssert
 **assertThat()** | Assert action | TextAssert
 <br>
-
-Button group is represented by Section class in Java:
- 
-  [Section](https://jdi-docs.github.io/jdi-light/#section)  
 
 Inner elements represented by the following classes:
 <ul>

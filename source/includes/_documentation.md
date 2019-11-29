@@ -5557,7 +5557,7 @@ Here is an example with provided Bootstrap v4.3 code:
 </nav>
 ```
 
-Breadcrumb is located in the following class: <br>
+Breadcrumb is represented  by the following class: <br>
 - [UIBaseElement](https://jdi-docs.github.io/jdi-light/#uibaseelement) 
 
 Inner elements are represented  by the following class: <br>

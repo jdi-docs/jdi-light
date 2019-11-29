@@ -3980,8 +3980,10 @@ Here is an example with provided Bootstrap v4.3 code:
 @UI("body") public static CheckboxesDefault checkboxesDefault;
 
 public class CheckboxesDefault extends Section {
-    @UI("#check1") public Checkbox checkboxOne; // @FindBy(css = "#check1") public Checkbox checkboxOne;
-    @UI("#check1") public Checkbox checkboxTwo; // @FindBy(css = "#check2") public Checkbox checkboxTwo;
+    // @FindBy(css = "#check1") public Checkbox checkboxOne;
+    @UI("#check1") public Checkbox checkboxOne; 
+    // @FindBy(css = "#check2") public Checkbox checkboxTwo;
+    @UI("#check1") public Checkbox checkboxTwo; 
 }
 
 @Test
@@ -4066,9 +4068,12 @@ Here is an example with provided Bootstrap v4.3 code:
 @UI("body") public static CheckboxesDefaultInline checkboxesDefaultInline;
 
 public class CheckboxesDefaultInline {
-    @UI("//input[@id='inlineCheckbox1']/..") public Checkbox checkboxOne; // @FindBy(xpath = "//input[@id='inlineCheckbox1']/..") public Checkbox checkboxOne;
-    @UI("//input[@id='inlineCheckbox2']/..") public Checkbox checkboxTwo; // @FindBy(xpath = "//input[@id='inlineCheckbox2']/..") public Checkbox checkboxTwo;
-    @UI("//input[@id='inlineCheckbox3']/..") public Checkbox checkboxThree; // @FindBy(xpath = "//input[@id='inlineCheckbox3']/..") public Checkbox checkboxThree;
+    // @FindBy(xpath = "//input[@id='inlineCheckbox1']/..") public Checkbox checkboxOne;
+    @UI("//input[@id='inlineCheckbox1']/..") public Checkbox checkboxOne; 
+    // @FindBy(xpath = "//input[@id='inlineCheckbox2']/..") public Checkbox checkboxTwo;
+    @UI("//input[@id='inlineCheckbox2']/..") public Checkbox checkboxTwo; 
+    // @FindBy(xpath = "//input[@id='inlineCheckbox3']/..") public Checkbox checkboxThree;
+    @UI("//input[@id='inlineCheckbox3']/..") public Checkbox checkboxThree; 
 }
 
 @Test
@@ -4447,7 +4452,8 @@ Here is an example with provided Bootstrap v4.3 code:
 @UI("body") public static CheckboxesCustom checkboxesCustom;
 
 public class CheckboxesCustom extends Section {
-    @UI("#customCheck1-div") public Checkbox checkbox; // @FindBy(css = "#customCheck1-div") public Checkbox checkbox;
+    // @FindBy(css = "#customCheck1-div") public Checkbox checkbox;
+    @UI("#customCheck1-div") public Checkbox checkbox; 
 }
 
 @Test
@@ -4762,11 +4768,14 @@ Checkbox is located in the following classes:
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
-@UI("body") public static Switches switches; // @FindBy(css = "body") public static Switches switches;
+// @FindBy(css = "body") public static Switches switches;
+@UI("body") public static Switches switches; 
 
 public class Switches extends Section {
-    @UI("#customSwitch1-div") public Checkbox checkbox; // @FindBy(css = "#customSwitch1-div") public Checkbox checkbox;
-    @UI("#customSwitch2-div") public Checkbox checkboxDisabled; // @FindBy(css = "#customSwitch2-div") public Checkbox checkboxDisabled;
+    // @FindBy(css = "#customSwitch1-div") public Checkbox checkbox;
+    @UI("#customSwitch1-div") public Checkbox checkbox; 
+    // @FindBy(css = "#customSwitch2-div") public Checkbox checkboxDisabled;
+    @UI("#customSwitch2-div") public Checkbox checkboxDisabled; 
 }
 
 @Test

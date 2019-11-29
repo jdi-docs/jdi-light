@@ -4841,34 +4841,7 @@ Button group is located in the following packages:
   - __Java__: _io.github.epam.bootstrap.tests.composite.section.buttonGroup_
   - __C#__:
 
-Available methods in Java JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
-**click()** | Click the button | void
-**doubleClick()** | Double Click on button | void
-**rightClick()** | Right Click the button | void
-**getText()** | Get button text | String
-**is()** | Assert action | TextAssert 
-**assertThat()** | Assert action | TextAssert
-**select(String option)** | Select option by text| void
-**select(int option)** | Select option by index | void
-**values()** | Get list of all available values | List<String>
-
-<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/ButtonTests.java" target="_blank">Test examples in Java</a>
-
-
-Available methods and properties in C# JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
- |  | 
- |  | 
- |  |
- |  | 
-<br>
-
-#### <a href="https://getbootstrap.com/docs/4.3/components/button-group/#basic-example" target="_blank">Button Group Basic Example</a> 
+#### <a href="https://getbootstrap.com/docs/4.3/components/button-group/#basic-example" target="_blank">Button Group Basic</a> 
 Wrap a series of buttons with .btn in .btn-group.
 
 ![Button Group Basic Example HTML](../images/bootstrap/bgroup-basic-example-screen.png)
@@ -4876,24 +4849,28 @@ Wrap a series of buttons with .btn in .btn-group.
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
-@UI("#basic-example") public static ButtonGroupBasicExample buttonGroupBasicExample;
-// @FindBy(css = "#basic-example") public static ButtonGroupBasicExample buttonGroupBasicExample;
+// @FindBy(css = "#basic-example")
+@UI("#basic-example") 
+public static ButtonGroupBasic buttonGroupBasic;
 
-public class ButtonGroupBasicExample extends Section {
-    @UI("//button[text()='Left']") public Button leftButton;
-    @UI("//button[text()='Middle']") public Button middleButton;
-    @UI("//button[text()='Right']") public Button rightButton;
+public class ButtonGroupBasic extends Section {
+    @UI("//button[text()='Left']") 
+    public Button leftButton;
+    @UI("//button[text()='Middle']") 
+    public Button middleButton;
+    @UI("//button[text()='Right']") 
+    public Button rightButton;
 }
 
 @Test
 public void leftButtonTests() {
-    buttonGroupBasicExample.leftButton.is()
+    buttonGroupBasic.leftButton.is()
             .displayed()
             .enabled()
             .core()
             .hasClass("btn btn-secondary")
             .css("font-size", "16px");
-    buttonGroupBasicExample.leftButton.click();
+    buttonGroupBasic.leftButton.click();
     validateAlert(is(leftButtonClickAlert));
 }
 ```
@@ -4937,7 +4914,7 @@ Inner elements represented by the following classes:
 </ul>
 <br>
 
-<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/buttonGroup/BasicExampleTests.java" target="_blank">Button Group Basic Example Tests Example</a>
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/buttonGroup/BasicTests.java" target="_blank">Button Group Basic Tests Example</a>
 
 <br>
 

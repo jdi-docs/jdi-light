@@ -1,4 +1,11 @@
 # Documentation
+## Base Elements
+
+### UIBaseElement
+
+### WebList
+
+
 ## Extended Selenium features
 TBD
 
@@ -5514,12 +5521,6 @@ Available methods in Java JDI Light:
 
 ![Breadcrumb example](../images/bootstrap/breadcrumb.png)
 
-Breadcrumb is located in the following class: <br>
-- __Java__: _com.epam.jdi.light.ui.bootstrap.elements.common.Breadcrumb_
-
-Inner elements are represented  by the following class: <br>
-- __Java__: _com.epam.jdi.light.elements.complex.WebList_
-
 ```java 
 
 // @FindBy(css = "#breadcrumb")
@@ -5556,6 +5557,11 @@ Here is an example with provided Bootstrap v4.3 code:
 </nav>
 ```
 
+Breadcrumb is located in the following class: <br>
+- [UIBaseElement](https://jdi-docs.github.io/jdi-light/#uibaseelement) 
+
+Inner elements are represented  by the following class: <br>
+- [Weblist](https://jdi-docs.github.io/jdi-light/#weblist) 
 
 Available methods in Java JDI Light:
 
@@ -21507,6 +21513,8 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 
 ## UI Objects
 TBD
+
+###Web 
 
 ## Non-Static Site initialization
 

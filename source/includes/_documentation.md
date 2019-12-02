@@ -71,6 +71,10 @@ TBD
  
 ![Label](../images/colorpicker.png) 
 
+```html 
+<label for="test">Description</label>
+```
+
 Label's implementation is located in the following classes: 
 
    - __Java__: _com.epam.jdi.light.elements.base.BaseUIElement_
@@ -84,6 +88,10 @@ Available methods in C# JDI Light:
 --- | --- | --- 
 **Label()** | Creates label for element using the element's Id | Label 
 **LabelText()** | Gets the text of a label | string 
+**click()** | Click the button  | void
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
 
 <a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/LabelsTests.cs" target="_blank">C# test examples</a> 
 

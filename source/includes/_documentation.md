@@ -3,6 +3,8 @@
 
 ### UIBaseElement
 
+### UIElement
+
 ### WebList
 
 
@@ -6726,132 +6728,6 @@ Available methods in Java JDI Light:
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navbar/ExternalContentTests.java" target=a_blank> Bootstrap test examples </a>
 <br>
 
-### Pagination
-
-Pagination is functionality for navigating through pages.
-
-**Pagination with active state**
-
-![Pagination example](../images/bootstrap/pagination.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-  
-```html
-<nav aria-label="sizing-small">
-    <ul class="pagination pagination-sm" id="pagination-small">
-        <li class="page-item active" aria-current="page">
-            <span class="page-link">1<span class="sr-only">(current)</span></span>
-        </li>
-        <li class="page-item"><a class="page-link"
-                                 href="https://jdi-testing.github.io/jdi-light/index.html"
-                                 target="_blank">2</a></li>
-        <li class="page-item"><a class="page-link" href="https://getbootstrap.com"
-                                 target="_blank">3</a></li>
-    </ul>
-</nav>
-```
-
-**Pagination with icons**
-
-![Pagination example](../images/bootstrap/pagination-icons.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-  
-```html
-<nav aria-label="Page navigation example">
-    <ul class="pagination" id="pagination-icons">
-        <li class="page-item">
-            <a class="page-link" href="https://github.com/jdi-docs" target="_blank"
-               aria-label="Previous">
-                <span aria-hidden="true">&laquo;</span>
-            </a>
-        </li>
-        <li class="page-item"><a class="page-link" href="https://github.com/jdi-testing"
-                                 target="_blank">1</a></li>
-        <li class="page-item"><a class="page-link"
-                                 href="https://jdi-testing.github.io/jdi-light/index.html"
-                                 target="_blank">2</a></li>
-        <li class="page-item"><a class="page-link" href="https://getbootstrap.com"
-                                 target="_blank">3</a></li>
-        <li class="page-item">
-            <a class="page-link" href="https://jdi-docs.github.io/jdi-light/"
-               target="_blank" aria-label="Next">
-                <span aria-hidden="true">&raquo;</span>
-            </a>
-        </li>
-    </ul>
-</nav>
-```
-
-**Pagination with disabled item**
-
-![Pagination example](../images/bootstrap/pagination-disabled.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-  
-```html
-<nav aria-label="disabled-and-active-states">
-    <ul class="pagination" id="pagination-states">
-        <li class="page-item disabled">
-            <a class="page-link" href="https://github.com/jdi-docs" target="_blank"
-               tabindex="-1" aria-disabled="true">Previous</a>
-        </li>
-        <li class="page-item"><a class="page-link" href="https://github.com/jdi-testing"
-                                 target="_blank">1</a></li>
-        <li class="page-item active" aria-current="page">
-            <a class="page-link" href="https://jdi-testing.github.io/jdi-light/index.html"
-               target="_blank">2 <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="page-item"><a class="page-link" href="https://getbootstrap.com"
-                                 target="_blank">3</a></li>
-        <li class="page-item">
-            <a class="page-link" href="https://jdi-docs.github.io/jdi-light/"
-               target="_blank">Next</a>
-        </li>
-    </ul>
-</nav>
-```
-
-**Pagination with previous and next items**
-
-![Pagination example](../images/bootstrap/pagination-prev-next.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-  
-```html
-<nav aria-label="disabled-and-active-states">
-    <ul class="pagination" id="pagination-states">
-        <li class="page-item">
-            <a class="page-link" href="https://github.com/jdi-docs" target="_blank"
-               tabindex="-1" aria-disabled="true">Previous</a>
-        </li>
-        <li class="page-item"><a class="page-link" href="https://github.com/jdi-testing"
-                                 target="_blank">1</a></li>
-        <li class="page-item active" aria-current="page">
-            <a class="page-link" href="https://jdi-testing.github.io/jdi-light/index.html"
-               target="_blank">2 <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="page-item"><a class="page-link" href="https://getbootstrap.com"
-                                 target="_blank">3</a></li>
-        <li class="page-item">
-            <a class="page-link" href="https://jdi-docs.github.io/jdi-light/"
-               target="_blank">Next</a>
-        </li>
-    </ul>
-</nav>
-```
-
-
-Available methods in Java JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
-**** | TBD  | 
-**** |  |  
-**** |  | 
-**** |  | 
-**** |  |  
-
 
 ###Progress
 <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/progress/">Progress</a> is custom progress bar featuring support for stacked bars, animated backgrounds, and text labels.
@@ -13261,7 +13137,11 @@ public void isValidationTests() {
 </nav>
 ```
 
+Available methods in Java JDI Light:
 
+All methods are inherited from base element -  [UIElement](https://jdi-docs.github.io/jdi-light/#uielement)
+
+Most applicable methods:
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -13376,7 +13256,11 @@ public void linkClickableLiTests(int index, String pageTitle) {
 </ul>
 ```
 
+Available methods in Java JDI Light:
 
+All methods are inherited from base element -  [UIElement](https://jdi-docs.github.io/jdi-light/#uielement)
+
+Most applicable methods:
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -13477,6 +13361,11 @@ public void linkClickableLiTests(int index, String pageTitle) {
 ```
 
 
+Available methods in Java JDI Light:
+
+All methods are inherited from base element -  [UIElement](https://jdi-docs.github.io/jdi-light/#uielement)
+
+Most applicable methods:
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -13565,6 +13454,11 @@ public void linkClickableLiTests(int index, String pageTitle) {
 ```
 
 
+Available methods in Java JDI Light:
+
+All methods are inherited from base element -  [UIElement](https://jdi-docs.github.io/jdi-light/#uielement)
+
+Most applicable methods:
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -13648,6 +13542,11 @@ public void linkClickableLiTests(int index, String pageTitle) {
 ```
 
 
+Available methods in Java JDI Light:
+
+All methods are inherited from base element -  [UIElement](https://jdi-docs.github.io/jdi-light/#uielement)
+
+Most applicable methods:
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -13729,6 +13628,13 @@ public void linkClickableLiTests(int index, String pageTitle) {
     </li>
 </ul>
 ```
+
+
+Available methods in Java JDI Light:
+
+All methods are inherited from base element -  [UIElement](https://jdi-docs.github.io/jdi-light/#uielement)
+
+Most applicable methods:
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -13843,6 +13749,13 @@ public void dropdownIsValidationTests() {
 </ul>
 ```
 
+
+Available methods in Java JDI Light:
+
+All methods are inherited from base element -  [UIElement](https://jdi-docs.github.io/jdi-light/#uielement)
+
+Most applicable methods:
+
 |Method | Description | Return Type
 --- | --- | ---
 **getText()** | Get button text | String
@@ -13945,6 +13858,12 @@ public void dropdownClickableTests() {
     </li>
 </ul>
 ```
+
+Available methods in Java JDI Light:
+
+All methods are inherited from base element -  [UIElement](https://jdi-docs.github.io/jdi-light/#uielement)
+
+Most applicable methods:
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -21995,7 +21914,7 @@ We can change default settings placed in the test.properties file (src/test/reso
 **domain** | Web application root URL (used if we're working with one application in tests). Can be also read from the command line, e.g. _${domain}_ | domain = https://jdi-testing.github.io/jdi-light/
 **drivers.folder** | Set up the driver folder | drivers.folder = C:\\Selenium
 **screens.folder** | Set up the screenshot folder | screens.folder = C:\\Test-screenshot
-**element.search.strategy** | Can find only one element on a page (_single_), many elements on a page (_multiple_). Also, we can define whether we want to search through visible elements only or not. Consists of 2 params: visibility (_visible_ can use _displayed_ or _any_), and the type of search. Options: _soft (=any, multiple)_; _strict(=visible, single)_; or _combined from visible/displayed/any/all and single/multiple_. Note: _visible=displayed_, _any=all_ | element.search.strategy = visible, multiple
+**element.search.strategy** | Can find only one element on a page (_single_), many elements on a page (_multiple_). Also, we can define whether we want to search through visible elements only or not. Consists of 2 params: visibility (_visible_ can use _displayed_, _inview_, _enabled_ or _any_), and the type of search. Options: _soft (=any, multiple)_; _strict(=visible, single)_; or _combined from visible/displayed/inview/enabled/any/all and single/multiple_. Note: _visible=displayed_, _any=all_ | element.search.strategy = visible, multiple<br>element.search.strategy = inview, strict
 **browser.size** | the size of the tested browser. By default, JDI Light will maximize the browser, but we can set exact values | browser.size = MAXIMIZE<br>browser.size = 1024x762
 **browser.kill** | Set up at what time browser should be shut down | browser.kill=afterAndBefore<br>browser.kill=after<br>browser.kill=before
 **page.load.strategy** | Selenium-like strategies to load the page. Options: _normal, eager, none_ | page.load.strategy = normal

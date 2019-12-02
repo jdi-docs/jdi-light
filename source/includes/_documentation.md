@@ -11384,7 +11384,9 @@ Available methods for form validation in Java JDI Light:
 ![Scrollspy](../images/bootstrap/scroll_spy2.png)<br>
 
 ```java
-@UI("#navbar-example3") public static NestedNav nestedNav;
+    // @FindBy(css = "#navbar-example3")
+    @UI("#navbar-example3") public static NestedNav nestedNav;
+    // @FindBy(css = "#navbar-example3~div")
     @UI("#navbar-example3~div") public static ScrollSpyNav scrollSpyWithNestedNav;
       
     public class NestedNav extends Section {
@@ -11486,11 +11488,13 @@ Available methods for form validation in Java JDI Light:
 ![Scrollspy](../images/bootstrap/scroll_spy3.png)<br>
 
 ```java
-@UI("#list-example>a") public static ListGroup listGroupForScrollSpy;
+    // @FindBy(css = "#list-example>a")
+    @UI("#list-example>a") public static ListGroup listGroupForScrollSpy;
+    // @FindBy(css = "#list-example~div")
     @UI("#list-example~div") public static ScrollSpyNav scrollSpyWithListGroup;
     
     public class ScrollSpyNav extends Section {
-        //@FindBy(xpath = ".//h4 | .//h5")
+        // @FindBy(xpath = ".//h4 | .//h5")
         @UI(".//h4 | .//h5") public ListGroup header;
         // @FindBy(css = "p")
         @UI("p") public ListGroup mainText;          

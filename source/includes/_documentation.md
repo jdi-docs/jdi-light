@@ -1397,8 +1397,7 @@ Available method in C# JDI Light:
   public void labelTest() {
       assertEquals(volume.label().getText(), "Volume");
       volume.label().is().text(containsString("lume"));
-      volume.label().assertThat().
-        text(equalToIgnoringCase("volume"));
+      volume.label().assertThat().text(equalToIgnoringCase("volume"));
   }
   @Test
   public void assertValidationTest() {

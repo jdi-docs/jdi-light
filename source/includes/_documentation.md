@@ -1350,11 +1350,6 @@ Available method in C# JDI Light:
 
 ### Range
 
-**Range** - A graphical control element that allows the user to set the value from the range.</br>
-
-![Range](../images/html/range_html2.png)</br>
-
-<br><br>
 ```java 
   @UI("#volume")  //@FindBy(id = "volume") 
   public static Range volume;
@@ -1447,6 +1442,10 @@ Available method in C# JDI Light:
       Assert.AreEqual(TestSite.Html5Page.Volume.GetValue(), "30");
   }
 ```
+
+**Range** - A graphical control element that allows the user to set the value from the range.</br>
+
+![Range](../images/html/range_html2.png)</br>
 
 ```html
 <label for="volume">Volume</label>

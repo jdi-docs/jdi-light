@@ -8876,36 +8876,48 @@ This is an example of simple form consisting of some basic elements.
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
- public class BootstrapFormsPage extends WebPage {
-     @UI("#support-form")      //FindBy(css = "#support-form")
-     public static SupportMessageForm supportMessageForm;
- }
+     public class BootstrapFormsPage extends WebPage {
+         //FindBy(css = "#support-form")
+         @UI("#support-form")      
+         public static SupportMessageForm supportMessageForm;
+     }
+    
+    @Test
+    public void submitButtonTest() {
+        supportMessageForm.supportButtonSubmit.click();
+        lastLogEntry.has().text(containsString(logLineSubmit));
+    }
 
- @Test
- public void submitButtonTest() {
-     superheroForm.superheroButtonSubmit.click();
-     lastLogEntry.has().text(containsString(logLineSubmit));
- }
+    @Test
+    public void clearButtonTest() {
+        supportMessageForm.supportButtonClear.click();
+        lastLogEntry.has().text(containsString(logLineClear));
+    }
 
- @Test
- public void clearButtonTest() {
-     superheroForm.superheroButtonClear.click();
-     lastLogEntry.has().text(containsString(logLineClear));
- }
+    @Test
+    public void submitFormTest() {
+        setDefaultValues();
+        supportMessageForm.submit(EXAMPLE_MESSAGE);
+        lastLogEntry.has().text(containsString(logLineSubmit));
+        supportMessageForm.check(EXAMPLE_MESSAGE);
+    }
 
- @Test
- public void submitFormTest() {
-     superheroForm.submit(EXAMPLE_HERO);
-     lastLogEntry.has().text(containsString(logLineSubmit));
-     superheroForm.check(EXAMPLE_HERO);
- }
+    @Test
+    public void fillFormTest() {
+        setDefaultValues();
+        supportMessageForm.fill(EXAMPLE_MESSAGE);
+        supportMessageForm.supportEmail.has().text(EXAMPLE_MESSAGE.supportEmail);
+        supportMessageForm.supportMessage.has().text(EXAMPLE_MESSAGE.supportMessage);
+        supportMessageForm.check(EXAMPLE_MESSAGE);
+    }
 
- @Test
- public void clearFormTest() {
-     superheroForm.clear(EXAMPLE_HERO);
-     lastLogEntry.has().text(containsString(logLineClear));
-     superheroForm.check(TEMPLATE_HERO);
- }
+    @Test
+    public void clearFormTest() {
+        setDefaultValues();
+        supportMessageForm.clear(EXAMPLE_MESSAGE);
+        lastLogEntry.has().text(containsString(logLineClear));
+        supportMessageForm.check(TEMPLATE_MESSAGE);
+    }
 ```
 
 ```html 
@@ -8936,38 +8948,40 @@ This is an example of complicated form consisting of various specific elements.
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
-public class BootstrapFormsPage extends WebPage {
-    @UI("#superhero-creation-form") // @FindBy(css = "#superhero-creation-form")
-    public static SuperheroForm superheroForm;
-    @UI(".logs  li:first-child") //@FindBy(css = ".logs  li:first-child")
-    public static Text lastLogEntry;
-}
-
-@Test
-public void submitButtonTest() {
-    superheroForm.superheroButtonSubmit.click();
-    lastLogEntry.has().text(containsString(logLineSubmit));
-}
-
-@Test
-public void clearButtonTest() {
-    superheroForm.superheroButtonClear.click();
-    lastLogEntry.has().text(containsString(logLineClear));
-}
-
-@Test
-public void submitFormTest() {
-    superheroForm.submit(EXAMPLE_HERO);
-    lastLogEntry.has().text(containsString(logLineSubmit));
-    superheroForm.check(EXAMPLE_HERO);
-}
-
-@Test
-public void clearFormTest() {
-    superheroForm.clear(EXAMPLE_HERO);
-    lastLogEntry.has().text(containsString(logLineClear));
-    superheroForm.check(TEMPLATE_HERO);
-}
+    public class BootstrapFormsPage extends WebPage {
+        // @FindBy(css = "#superhero-creation-form")
+        @UI("#superhero-creation-form") 
+        public static SuperheroForm superheroForm;
+        //@FindBy(css = ".logs  li:first-child")        
+        @UI(".logs  li:first-child") 
+        public static Text lastLogEntry;
+    }
+    
+    @Test
+    public void submitButtonTest() {
+        superheroForm.superheroButtonSubmit.click();
+        lastLogEntry.has().text(containsString(logLineSubmit));
+    }
+    
+    @Test
+    public void clearButtonTest() {
+        superheroForm.superheroButtonClear.click();
+        lastLogEntry.has().text(containsString(logLineClear));
+    }
+    
+    @Test
+    public void submitFormTest() {
+        superheroForm.submit(EXAMPLE_HERO);
+        lastLogEntry.has().text(containsString(logLineSubmit));
+        superheroForm.check(EXAMPLE_HERO);
+    }
+    
+    @Test
+    public void clearFormTest() {
+        superheroForm.clear(EXAMPLE_HERO);
+        lastLogEntry.has().text(containsString(logLineClear));
+        superheroForm.check(TEMPLATE_HERO);
+    }
 ``` 
 
 ```html 
@@ -11632,93 +11646,6 @@ public void isValidationTestSample() {
             .cssClass("media-body")
     ;
 }
-
-
-
-
-
-
-
-
-// @FindBy(css = "#media-object-nesting")
-@UI("#media-object-nesting") public static MediaObjectNesting mediaObjectNesting; 
-
-public class MediaObjectNesting extends MediaObject {
-@UI("img") public Image imageOfMediaObject;
-
-@Title
-@UI("h5") public Text headingOfMediaObject;
-
-@UI(".media-body") public Text bodyOfMediaObject;
-
-@UI("div.media div.media") public MediaObjectSample  nestingMediaObject;
-}
-
-@Test
-public void isValidationTestNesting() {
-    mediaObjectNesting.is().displayed();
-    mediaObjectNesting.is().enabled();
-    mediaObjectNesting.nestingMediaObject.bodyOfMediaObject.is().text(is(bodyTextOfMediaObjectNesting));
-    mediaObjectNesting.nestingMediaObject.bodyOfMediaObject.is().text(containsString("vel eu leo"));
-    assertThat(mediaObjectNesting.nestingMediaObject.headingOfMediaObject.core().css("font-size"), is("20px"));
-    assertThat(mediaObjectNesting.nestingMediaObject.bodyOfMediaObject.core().css("font-size"), is("14px"));
-    mediaObjectNesting.nestingMediaObject.bodyOfMediaObject.assertThat().displayed()
-            .and().text(is(bodyTextOfMediaObjectNesting))
-            .core()
-            .css("font-size", is("14px"))
-            .cssClass("media-body")
-    ;
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// @FindBy(css = "#media-object-list")
-@UI("#media-object-list") public static JList<MediaObjectSample> mediaObjectList; 
-
-@Test
-public void isValidationTestListMediaObject() {
-    mediaObjectList.is().displayed();
-    mediaObjectList.is().enabled();
-    mediaObjectList.get(1).headingOfMediaObject.is().text(is(listOfHeading.get(0)));
-    mediaObjectList.get(2).bodyOfMediaObject.is().text(containsString("Stark requires"));
-    assertThat(mediaObjectList.get(2).headingOfMediaObject.core().css("font-size"), is("20px"));
-    assertThat(mediaObjectList.get(1).bodyOfMediaObject.core().css("font-size"), is("14px"));
-    mediaObjectList.assertThat().displayed()
-            .core()
-            .css("font-size", is("14px"));
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
 ```
 
 **Media object sample**
@@ -11741,12 +11668,45 @@ Here is an example with provided Bootstrap v4.3 code:
 ```
 
 
-
 **Media object nesting**
 
 ![Media object nesting](../images/bootstrap/media-object-nesting.png)
 
 Here is an example with provided Bootstrap v4.3 code:
+  
+  ```java 
+  // @FindBy(css = "#media-object-nesting")
+  @UI("#media-object-nesting") public static MediaObjectNesting mediaObjectNesting; 
+  
+  public class MediaObjectNesting extends MediaObject {
+  @UI("img") public Image imageOfMediaObject;
+  
+  @Title
+  @UI("h5") public Text headingOfMediaObject;
+  
+  @UI(".media-body") public Text bodyOfMediaObject;
+  
+  @UI("div.media div.media") public MediaObjectSample  nestingMediaObject;
+  }
+  
+  @Test
+  public void isValidationTestNesting() {
+      mediaObjectNesting.is().displayed();
+      mediaObjectNesting.is().enabled();
+      mediaObjectNesting.nestingMediaObject.bodyOfMediaObject.is().text(is(bodyTextOfMediaObjectNesting));
+      mediaObjectNesting.nestingMediaObject.bodyOfMediaObject.is().text(containsString("vel eu leo"));
+      assertThat(mediaObjectNesting.nestingMediaObject.headingOfMediaObject.core().css("font-size"), is("20px"));
+      assertThat(mediaObjectNesting.nestingMediaObject.bodyOfMediaObject.core().css("font-size"), is("14px"));
+      mediaObjectNesting.nestingMediaObject.bodyOfMediaObject.assertThat().displayed()
+              .and().text(is(bodyTextOfMediaObjectNesting))
+              .core()
+              .css("font-size", is("14px"))
+              .cssClass("media-body")
+      ;
+  
+  }
+  
+  ```
   
 ```html
 <div class="media" id="media-object-nesting">
@@ -11776,6 +11736,25 @@ Here is an example with provided Bootstrap v4.3 code:
 ![Media object list](../images/bootstrap/media-object-list.png)
 
 Here is an example with provided Bootstrap v4.3 code:
+
+```java 
+    // @FindBy(css = "#media-object-list")
+    @UI("#media-object-list") public static JList<MediaObjectSample> mediaObjectList; 
+    
+    @Test
+    public void isValidationTestListMediaObject() {
+        mediaObjectList.is().displayed();
+        mediaObjectList.is().enabled();
+        mediaObjectList.get(1).headingOfMediaObject.is().text(is(listOfHeading.get(0)));
+        mediaObjectList.get(2).bodyOfMediaObject.is().text(containsString("Stark requires"));
+        assertThat(mediaObjectList.get(2).headingOfMediaObject.core().css("font-size"), is("20px"));
+        assertThat(mediaObjectList.get(1).bodyOfMediaObject.core().css("font-size"), is("14px"));
+        mediaObjectList.assertThat().displayed()
+                .core()
+                .css("font-size", is("14px"));
+    }
+
+```
   
 ```html
 <ul class="list-unstyled" id="media-object-list">

@@ -7743,24 +7743,37 @@ You can use a ``@JDropdown`` annotation to declare a Collapse within your Page O
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
-    @JDropdown(expand = "#bs-group-toggle-one",
-                value = "#bs-group-one",
-                list = "#bs-group-one-body")
-        public static Collapse collapseGroupOne;
+@JDropdown(expand = "#bs-group-toggle-one",
+            value = "#bs-group-one",
+            list = "#bs-group-one-body")
+public static Collapse collapseGroupOne;
 
-    String groupOneText = "You probably haven't heard of them accusamus labore sustainable VHS.";
+String groupOneText = "You probably haven't heard of them accusamus labore sustainable VHS.";
 
-    @Test
-    public void collapseGroupOneTest() {
-        collapseGroupOne.highlight();
-        collapseGroupOne.expand();
+@Test
+public void collapseGroupOneTest() {
+    collapseGroupOne.highlight();
+    collapseGroupOne.expand();
 
-        collapseGroupOne.is().expanded();
-        collapseGroupOne.value().is().text(groupOneText);
+    collapseGroupOne.is().expanded();
+    collapseGroupOne.value().is().text(groupOneText);
 
-        collapseGroupOne.collapse();alert
-        collapseGroupOne.is().collapsed();
-    }
+    collapseGroupOne.collapse();alert
+    collapseGroupOne.is().collapsed();
+}
+
+@Test
+public void collapseGroupOneListTest() {
+    collapseGroupOne.highlight();
+    collapseGroupOne.expand();
+
+    collapseGroupOne.is().expanded();
+    collapseGroupOne.list().is().size(1);
+    collapseGroupOne.list().get(1).is().text(groupOneText);
+
+    collapseGroupOne.close();
+    collapseGroupOne.is().collapsed();
+}
 ```
 
 ```html

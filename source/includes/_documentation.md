@@ -11236,14 +11236,21 @@ Available methods for form validation in Java JDI Light:
 
  <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/BootstrapValidationTest.java" target="_blank">Bootstrap Test Examples</a>
  
+ 
 ### Scrollspy
 **[Scrollspy](https://getbootstrap.com/docs/4.3/components/scrollspy/#example-in-navbar)** – automatically update Bootstrap navigation or list group components based on scroll position to indicate which link is currently active in the viewport.
 <br><br>
 - [Scrollspy in navbar] (https://getbootstrap.com/docs/4.3/components/scrollspy/#example-in-navbar) 
 <br>
 
+
+
+![Scrollspy](../images/bootstrap/scroll_spy1.png)<br>
+
 ```java 
+    // @FindBy(css = "#navbar-example2")
     @UI("#navbar-example2") public static NavbarWithDropdown navbarWithDropdown;
+    // @FindBy(css = "#navbar-example2~div")
     @UI("#navbar-example2~div") public static ScrollSpyNav scrollSpyInNavbar;
     
     public class NavbarWithDropdown extends Section {
@@ -11323,18 +11330,61 @@ Available methods for form validation in Java JDI Light:
                 .enabled()
                 .attr("role", "separator");
     }
-  
-     
-     
-     
-     
-     
-     
-     
-     
+      
+```
+
+```html
+<nav id="navbar-example2" class="navbar navbar-light bg-light">
+    <a class="navbar-brand"
+       href="https://getbootstrap.com/docs/4.3/components/scrollspy/#example-in-navbar"
+       target="_blank">Navbar</a>
+    <ul class="nav nav-pills">
+        <li class="nav-item"><a class="nav-link" href="#fat">@fat</a>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="#mdo">@mdo</a>
+        </li>
+        <li class="nav-item dropdown"><a
+                class="nav-link dropdown-toggle" data-toggle="dropdown"
+                href="#" role="button" aria-haspopup="true"
+                aria-expanded="false">Dropdown</a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="#one">one</a> <a
+                    class="dropdown-item" href="#two">two</a>
+                <div role="separator" class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#three">three</a>
+            </div>
+        </li>
+    </ul>
+</nav>
+<div data-spy="scroll" data-target="#navbar-example2"
+     data-offset="0" class="scrollspy-example">
+    <h4 id="fat">@fat</h4>
+    <p>...</p>
+    <h4 id="mdo">@mdo</h4>
+    <p>...</p>
+    <h4 id="one">one</h4>
+    <p>...</p>
+    <h4 id="two">two</h4>
+    <p>...</p>
+    <h4 id="three">three</h4>
+    <p>...</p>
+</div>
+```
+<br>
+<br>
 
 
-    @UI("#navbar-example3") public static NestedNav nestedNav;
+
+
+
+
+- [Scrollspy with nested nav] (https://getbootstrap.com/docs/4.3/components/scrollspy/#example-with-nested-nav)
+<br> 
+
+![Scrollspy](../images/bootstrap/scroll_spy2.png)<br>
+
+```java
+@UI("#navbar-example3") public static NestedNav nestedNav;
     @UI("#navbar-example3~div") public static ScrollSpyNav scrollSpyWithNestedNav;
       
     public class NestedNav extends Section {
@@ -11387,20 +11437,56 @@ Available methods for form validation in Java JDI Light:
         scrollSpyWithNestedNav.mainText.is().size(7);
         scrollSpyWithNestedNav.header.is().size(7);
     }
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-    
-    @UI("#list-example>a") public static ListGroup listGroupForScrollSpy;
+```
+
+```html
+<nav id="navbar-example3" class="navbar navbar-light bg-light">
+    <a class="navbar-brand"
+       href="https://getbootstrap.com/docs/4.3/components/scrollspy/#example-with-nested-nav"
+       target="_blank">Navbar</a>
+    <nav class="nav nav-pills flex-column">
+        <a class="nav-link" href="#item-1">Item 1</a>
+        <nav class="nav nav-pills flex-column">
+            <a class="nav-link ml-3 my-1" href="#item-1-1">Item 1-1</a> <a
+                class="nav-link ml-3 my-1" href="#item-1-2">Item 1-2</a>
+        </nav>
+        <a class="nav-link" href="#item-2">Item 2</a> <a
+            class="nav-link" href="#item-3">Item 3</a>
+        <nav class="nav nav-pills flex-column">
+            <a class="nav-link ml-3 my-1" href="#item-3-1">Item 3-1</a> <a
+                class="nav-link ml-3 my-1" href="#item-3-2">Item 3-2</a>
+        </nav>
+    </nav>
+</nav>
+
+<div data-spy="scroll" data-target="#navbar-example3"
+     data-offset="0" class="scrollspy-example-2">
+    <h4 id="item-1">Item 1</h4>
+    <p>...</p>
+    <h5 id="item-1-1">Item 1-1</h5>
+    <p>...</p>
+    <h5 id="item-1-2">Item 1-2</h5>
+    <p>...</p>
+    <h4 id="item-2">Item 2</h4>
+    <p>...</p>
+    <h4 id="item-3">Item 3</h4>
+    <p>...</p>
+    <h5 id="item-3-1">Item 3-1</h5>
+    <p>...</p>
+    <h5 id="item-3-2">Item 3-2</h5>
+    <p>...</p>
+</div>
+```
+<br>
+<br>
+
+- [Scrollspy with list-group] (https://getbootstrap.com/docs/4.3/components/scrollspy/#example-with-list-group)
+<br>
+
+![Scrollspy](../images/bootstrap/scroll_spy3.png)<br>
+
+```java
+@UI("#list-example>a") public static ListGroup listGroupForScrollSpy;
     @UI("#list-example~div") public static ScrollSpyNav scrollSpyWithListGroup;
     
     public class ScrollSpyNav extends Section {
@@ -11450,106 +11536,7 @@ Available methods for form validation in Java JDI Light:
         scrollSpyWithListGroup.mainText.is().size(4);
         listGroupForScrollSpy.is().size(4);
     }
-    
 ```
-
-![Scrollspy](../images/bootstrap/scroll_spy1.png)<br>
-
-```html
-<nav id="navbar-example2" class="navbar navbar-light bg-light">
-    <a class="navbar-brand"
-       href="https://getbootstrap.com/docs/4.3/components/scrollspy/#example-in-navbar"
-       target="_blank">Navbar</a>
-    <ul class="nav nav-pills">
-        <li class="nav-item"><a class="nav-link" href="#fat">@fat</a>
-        </li>
-        <li class="nav-item"><a class="nav-link" href="#mdo">@mdo</a>
-        </li>
-        <li class="nav-item dropdown"><a
-                class="nav-link dropdown-toggle" data-toggle="dropdown"
-                href="#" role="button" aria-haspopup="true"
-                aria-expanded="false">Dropdown</a>
-            <div class="dropdown-menu">
-                <a class="dropdown-item" href="#one">one</a> <a
-                    class="dropdown-item" href="#two">two</a>
-                <div role="separator" class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#three">three</a>
-            </div>
-        </li>
-    </ul>
-</nav>
-<div data-spy="scroll" data-target="#navbar-example2"
-     data-offset="0" class="scrollspy-example">
-    <h4 id="fat">@fat</h4>
-    <p>...</p>
-    <h4 id="mdo">@mdo</h4>
-    <p>...</p>
-    <h4 id="one">one</h4>
-    <p>...</p>
-    <h4 id="two">two</h4>
-    <p>...</p>
-    <h4 id="three">three</h4>
-    <p>...</p>
-</div>
-```
-<br>
-<br>
-
-
-
-
-
-
-- [Scrollspy with nested nav] (https://getbootstrap.com/docs/4.3/components/scrollspy/#example-with-nested-nav)
-<br> 
-
-![Scrollspy](../images/bootstrap/scroll_spy2.png)<br>
-
-```html
-<nav id="navbar-example3" class="navbar navbar-light bg-light">
-    <a class="navbar-brand"
-       href="https://getbootstrap.com/docs/4.3/components/scrollspy/#example-with-nested-nav"
-       target="_blank">Navbar</a>
-    <nav class="nav nav-pills flex-column">
-        <a class="nav-link" href="#item-1">Item 1</a>
-        <nav class="nav nav-pills flex-column">
-            <a class="nav-link ml-3 my-1" href="#item-1-1">Item 1-1</a> <a
-                class="nav-link ml-3 my-1" href="#item-1-2">Item 1-2</a>
-        </nav>
-        <a class="nav-link" href="#item-2">Item 2</a> <a
-            class="nav-link" href="#item-3">Item 3</a>
-        <nav class="nav nav-pills flex-column">
-            <a class="nav-link ml-3 my-1" href="#item-3-1">Item 3-1</a> <a
-                class="nav-link ml-3 my-1" href="#item-3-2">Item 3-2</a>
-        </nav>
-    </nav>
-</nav>
-
-<div data-spy="scroll" data-target="#navbar-example3"
-     data-offset="0" class="scrollspy-example-2">
-    <h4 id="item-1">Item 1</h4>
-    <p>...</p>
-    <h5 id="item-1-1">Item 1-1</h5>
-    <p>...</p>
-    <h5 id="item-1-2">Item 1-2</h5>
-    <p>...</p>
-    <h4 id="item-2">Item 2</h4>
-    <p>...</p>
-    <h4 id="item-3">Item 3</h4>
-    <p>...</p>
-    <h5 id="item-3-1">Item 3-1</h5>
-    <p>...</p>
-    <h5 id="item-3-2">Item 3-2</h5>
-    <p>...</p>
-</div>
-```
-<br>
-<br>
-
-- [Scrollspy with list-group] (https://getbootstrap.com/docs/4.3/components/scrollspy/#example-with-list-group)
-<br>
-
-![Scrollspy](../images/bootstrap/scroll_spy3.png)<br>
 
 ```html
 <div id="list-example" class="list-group">
@@ -11618,42 +11605,42 @@ public class MediaObject extends Section {
 
 <a href="https://getbootstrap.com/docs/4.3/components/media-object" target=a_blank> Media object</a> helps build complex and repetitive components where some media is positioned alongside content that doesn’t wrap around said media.
 
-```java 
-// @FindBy(css = "#media-object-sample")
-@UI("#media-object-sample") public static MediaObjectSample mediaObjectSample; 
-
-public class MediaObjectSample extends MediaObject {
-@UI("img") public Image imageOfMediaObject;
-
-@Title
-@UI("h5") public Text headingOfMediaObject;
-
-@UI(".media-body") public Text bodyOfMediaObject;
-}
-
-@Test
-public void isValidationTestSample() {
-    mediaObjectSample.is().displayed();
-    mediaObjectSample.is().enabled();
-    mediaObjectSample.bodyOfMediaObject.is().text(is(bodyTextOfMediaObjectSample));
-    mediaObjectSample.bodyOfMediaObject.is().text(containsString("American comic books"));
-    assertThat(mediaObjectSample.headingOfMediaObject.core().css("font-size"), is("20px"));
-    assertThat(mediaObjectSample.bodyOfMediaObject.core().css("font-size"), is("14px"));
-    mediaObjectSample.bodyOfMediaObject.assertThat().displayed()
-            .and().text(is(bodyTextOfMediaObjectSample))
-            .core()
-            .css("font-size", is("14px"))
-            .cssClass("media-body")
-    ;
-}
-```
-
 **Media object sample**
 
 ![Media object sample](../images/bootstrap/media-object-sample.png)
 
 Here is an example with provided Bootstrap v4.3 code:
   
+  ```java 
+  // @FindBy(css = "#media-object-sample")
+  @UI("#media-object-sample") public static MediaObjectSample mediaObjectSample; 
+  
+  public class MediaObjectSample extends MediaObject {
+  @UI("img") public Image imageOfMediaObject;
+  
+  @Title
+  @UI("h5") public Text headingOfMediaObject;
+  
+  @UI(".media-body") public Text bodyOfMediaObject;
+  }
+  
+  @Test
+  public void isValidationTestSample() {
+      mediaObjectSample.is().displayed();
+      mediaObjectSample.is().enabled();
+      mediaObjectSample.bodyOfMediaObject.is().text(is(bodyTextOfMediaObjectSample));
+      mediaObjectSample.bodyOfMediaObject.is().text(containsString("American comic books"));
+      assertThat(mediaObjectSample.headingOfMediaObject.core().css("font-size"), is("20px"));
+      assertThat(mediaObjectSample.bodyOfMediaObject.core().css("font-size"), is("14px"));
+      mediaObjectSample.bodyOfMediaObject.assertThat().displayed()
+              .and().text(is(bodyTextOfMediaObjectSample))
+              .core()
+              .css("font-size", is("14px"))
+              .cssClass("media-body")
+      ;
+  }
+  ```
+
 ```html
 <div class="media" id="media-object-sample">
     <img src="images/wolverin.jpg" class="mr-3" alt="...">

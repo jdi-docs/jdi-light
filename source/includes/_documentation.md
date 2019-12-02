@@ -5340,10 +5340,12 @@ Here is an example with provided Bootstrap v4.3 code:
 
 ```java
 // @FindBy(css = "#simple-alert") public static Alert simpleAlert; 
-@Css("#simple-alert") public static Alert simpleAlert;
+@Css("#simple-alert") 
+public static Alert simpleAlert;
 
 // @FindBy(css = "#dismissible-alert") public static Alert dismissibleAlert;
-@Css("#dismissible-alert") public static Alert dismissibleAlert;
+@Css("#dismissible-alert") 
+public static Alert dismissibleAlert;
 
 @Test
 public void simpleAlertExistingTest() {

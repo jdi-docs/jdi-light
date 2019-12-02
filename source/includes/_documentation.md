@@ -3,6 +3,8 @@
 
 ### UIBaseElement
 
+### UIElement
+
 ### WebList
 
 
@@ -13258,9 +13260,10 @@ public void isValidationTests() {
        aria-disabled="true" target="_blank">Disabled</a>
 </nav>
 ```
+Available methods in Java JDI Light:
+All methods are inherited from base element -  [UIElement](https://jdi-docs.github.io/jdi-light/#UIElement)
 
-
-
+Most applicable methods:
 |Method | Description | Return Type
 --- | --- | ---
 **getText()** | Get button text | String
@@ -13374,8 +13377,10 @@ public void linkClickableLiTests(int index, String pageTitle) {
 </ul>
 ```
 
+Available methods in Java JDI Light:
+All methods are inherited from base element -  [UIElement](https://jdi-docs.github.io/jdi-light/#UIElement)
 
-
+Most applicable methods:
 |Method | Description | Return Type
 --- | --- | ---
 **getText()** | Get button text | String
@@ -13475,7 +13480,10 @@ public void linkClickableLiTests(int index, String pageTitle) {
 ```
 
 
+Available methods in Java JDI Light:
+All methods are inherited from base element -  [UIElement](https://jdi-docs.github.io/jdi-light/#UIElement)
 
+Most applicable methods:
 |Method | Description | Return Type
 --- | --- | ---
 **getText()** | Get button text | String
@@ -13563,7 +13571,10 @@ public void linkClickableLiTests(int index, String pageTitle) {
 ```
 
 
+Available methods in Java JDI Light:
+All methods are inherited from base element -  [UIElement](https://jdi-docs.github.io/jdi-light/#UIElement)
 
+Most applicable methods:
 |Method | Description | Return Type
 --- | --- | ---
 **getText()** | Get button text | String
@@ -13646,7 +13657,10 @@ public void linkClickableLiTests(int index, String pageTitle) {
 ```
 
 
+Available methods in Java JDI Light:
+All methods are inherited from base element -  [UIElement](https://jdi-docs.github.io/jdi-light/#UIElement)
 
+Most applicable methods:
 |Method | Description | Return Type
 --- | --- | ---
 **getText()** | Get button text | String
@@ -13728,6 +13742,11 @@ public void linkClickableLiTests(int index, String pageTitle) {
 </ul>
 ```
 
+
+Available methods in Java JDI Light:
+All methods are inherited from base element -  [UIElement](https://jdi-docs.github.io/jdi-light/#UIElement)
+
+Most applicable methods:
 |Method | Description | Return Type
 --- | --- | ---
 **getText()** | Get button text | String
@@ -13841,6 +13860,10 @@ public void dropdownIsValidationTests() {
 </ul>
 ```
 
+Available methods in Java JDI Light:
+All methods are inherited from base element -  [UIElement](https://jdi-docs.github.io/jdi-light/#UIElement)
+
+Most applicable methods:
 |Method | Description | Return Type
 --- | --- | ---
 **getText()** | Get button text | String
@@ -13944,6 +13967,10 @@ public void dropdownClickableTests() {
 </ul>
 ```
 
+Available methods in Java JDI Light:
+All methods are inherited from base element -  [UIElement](https://jdi-docs.github.io/jdi-light/#UIElement)
+
+Most applicable methods:
 |Method | Description | Return Type
 --- | --- | ---
 **getText()** | Get button text | String

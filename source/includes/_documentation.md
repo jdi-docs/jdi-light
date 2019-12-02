@@ -1354,6 +1354,7 @@ Available method in C# JDI Light:
 
 ![Range](../images/html/range_html2.png)</br>
 
+<br><br>
 ```java 
   @UI("#volume")  //@FindBy(id = "volume") 
   public static Range volume;

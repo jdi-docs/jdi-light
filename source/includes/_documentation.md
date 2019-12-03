@@ -1827,7 +1827,7 @@ public ITextArea TextArea;
 Text areas are represented by the following classes in Java and C#:
  
   - __C#__: _JDI.Light.Elements.Common.TextArea_
-  - __Java__: _com.epam.jdi.light.ui.html.common.TextArea_
+  - __Java__: <a href='https://github.com/jdi-testing/jdi-light/blob/1466-cleanup-textarea/jdi-light-html/src/main/java/com/epam/jdi/light/ui/html/elements/common/TextArea.java'></a>
   
 In both Java and C# TextArea is a descendant of TextField and inherits its methods. But TextArea also has methods of its own.
  

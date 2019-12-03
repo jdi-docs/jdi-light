@@ -1854,7 +1854,7 @@ Here is a list of available methods in C#:
 **minlength()** | returns value of minlength attribute | int
 **maxlength()** | returns value of maxlength attribute | int
 **addNewLine(String line)** | add line to the already existing  | void
-**setValue()**    | returns void                           | String
+**setValue()**    | setting value                          | void
 **getValue()**    | calls getText() method                 | String
 **getText()**     | returns value of attribute "value"     | String
 **is()**          | returns object for work with assertions | TextAreaAssert

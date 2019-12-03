@@ -209,7 +209,7 @@ Here is an example with provided HTML code:
 
 <!-- ![Checkbox example](../images/html/checkbox_html.png) -->
 
-```java
+```java 
 //@FindBy(id = "accept-conditions") 
 @UI("#accept-conditions")
 public static Checkbox acceptConditions;
@@ -1009,7 +1009,7 @@ Link are represented by the following class:
 
 ![Link](../images/html/link_html2.png)
 
-```html
+```html 
 <a ui="github-link" href="https://github.com/jdi-testing" alt="Github JDI Link">Github JDI</a>
 ```
 
@@ -1099,7 +1099,7 @@ Here is an example with provided HTML code:
 
 <!-- ![Menu example](../images/html/menu.png) -->
 
-```html
+```html 
 <ul class="sidebar-menu">
     <li ui="label" index="1">
         <a href="index.html"> <span>Home</span>  </a>
@@ -1616,7 +1616,7 @@ And here are methods available in Java:
 
 ![Text](../images/html/text_html2.png)
 
-```html
+```html 
 <p ui="jdi-text">Powerful Framework for UI Tests Automation. Suitable for any UI project: 
 Web(Html5, Angular, React...), Mobile(Android IOs), Desktop(Win app) etc.</p>
 ```
@@ -1931,7 +1931,7 @@ public void BaseValidationTest()
 
 ![Title](../images/html/title2.png)
 
-```html
+```html 
 <h1 ui="jdi-title" onclick="alert('JDI Title');">JDI Testing platform</h1>
 ```
 
@@ -2281,7 +2281,7 @@ Tables are represented by the following classes in Java and C#:
     
   ![Table](../images/html/tableHtml2.png)
 
-```html
+```html 
 <table class="uui-table stripe tbl-without-header table-td-click" ui="table" id="users-table">
     <tbody>
         <tr>
@@ -2606,7 +2606,7 @@ DataTables are represented by the following classes in Java and C#:
     
   ![DataTable](../images/html/tableHtml2.png)
 
-```html
+```html 
 <table class="uui-table stripe tbl-without-header table-td-click" ui="table" id="users-table">
     <tbody>
         <tr>
@@ -2739,7 +2739,7 @@ Suppose we have 'Colors' dropdown, which looks like this in HTML code:
 
 <!-- ![Dropdown HTML](../images/html/dropdown_html.png) -->
 
-```html
+```html 
 <div class="form-group colors" ui="dropdown" id="colors">
     <select class="selectpicker uui-form-element" style="display: none;">
         <option>Colors</option>
@@ -2747,7 +2747,26 @@ Suppose we have 'Colors' dropdown, which looks like this in HTML code:
         <option>Green</option>
         <option>Blue</option>
         <option>Yellow</option>
-    </select><div class="btn-group bootstrap-select uui-form-element"><button type="button" class="btn dropdown-toggle selectpicker btn-default" data-toggle="dropdown" title="Colors"><span class="filter-option pull-left" value="">Colors</span>&nbsp;<span class="caret"></span></button><div class="dropdown-menu open" style="max-height: 933px; overflow: hidden; min-height: 90px;"><ul class="dropdown-menu inner selectpicker" role="menu" style="max-height: 921px; overflow-y: auto; min-height: 78px;"><li rel="0" class="selected"><a tabindex="0" class="" style=""><span class="text">Colors</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="1"><a tabindex="0" class="" style=""><span class="text">Red</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="2"><a tabindex="0" class="" style=""><span class="text">Green</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="3"><a tabindex="0" class="" style=""><span class="text">Blue</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li><li rel="4"><a tabindex="0" class="" style=""><span class="text">Yellow</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li></ul></div></div>
+    </select>
+    <div class="btn-group bootstrap-select uui-form-element"><button type="button"
+            class="btn dropdown-toggle selectpicker btn-default" data-toggle="dropdown" title="Colors"><span
+                class="filter-option pull-left" value="">Colors</span>&nbsp;<span class="caret"></span></button>
+        <div class="dropdown-menu open" style="max-height: 933px; overflow: hidden; min-height: 90px;">
+            <ul class="dropdown-menu inner selectpicker" role="menu"
+                style="max-height: 921px; overflow-y: auto; min-height: 78px;">
+                <li rel="0" class="selected"><a tabindex="0" class="" style=""><span class="text">Colors</span>
+                    <i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
+                <li rel="1"><a tabindex="0" class="" style=""><span class="text">Red</span>
+                    <i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
+                <li rel="2"><a tabindex="0" class="" style=""><span class="text">Green</span>
+                    <i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
+                <li rel="3"><a tabindex="0" class="" style=""><span class="text">Blue</span>
+                    <i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
+                <li rel="4"><a tabindex="0" class="" style=""><span class="text">Yellow</span>
+                    <i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
+            </ul>
+        </div>
+    </div>
 </div>
 ```
 
@@ -3966,31 +3985,6 @@ Checkbox is located in the following classes:
 <!-- ![Checkbox default example](../images/bootstrap/checkbox-default.png) -->
 
 Here is an example with provided Bootstrap v4.3 code:
-
-```html
-<div class="btn-group-vertical mb-3" id="radio-buttons" role="group">
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1"
-               checked="">
-        <label class="form-check-label" for="exampleRadios1">
-            Default radio
-        </label>
-    </div>
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-        <label class="form-check-label" for="exampleRadios2">
-            Second default radio
-        </label>
-    </div>
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3"
-               disabled="">
-        <label class="form-check-label" for="exampleRadios3">
-            Disabled radio
-        </label>
-    </div>
-</div>
-```
 
 ```java 
 // @FindBy(css = "body") public static CheckboxesDefault checkboxesDefault;
@@ -5298,7 +5292,7 @@ public void dropdownMenuTests() {
 
 <br>
 
-```html
+```html 
 <div class="btn-group-vertical mb-3" id="vertical-variation" role="group"
      aria-label="Vertical button group">
     <button type="button" class="btn btn-secondary" onclick="alert('Button One Clicked!');">
@@ -5364,7 +5358,7 @@ Alert is located in the following class: <br>
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 // @FindBy(css = "#simple-alert") public static Alert simpleAlert; 
 @Css("#simple-alert") 
 public static Alert simpleAlert;
@@ -5407,9 +5401,9 @@ public void dismissibleAlertButtonClickTest() {
     dismissibleAlert.is().hidden();
 }
 ```
-  
+
 <br>
-  
+
 ```html
 <div class="alert alert-success" id="simple-alert" role="alert">
     Alert with <a
@@ -7833,7 +7827,7 @@ public void getSlidesTextTest() {
 
 ``` 
  
-```html
+```html 
 <div id="carousel-example-slides-only" class="carousel slide mb-2" data-ride="carousel">
     <div class="carousel-inner">
         <div class="carousel-item active">
@@ -7902,7 +7896,7 @@ public void getTextTest() {
 
 ```
   
-```html
+```html 
 <div id="carousel-example-controls" class="carousel slide mb-2" data-ride="carousel">
     <div class="carousel-inner">
         <div class="carousel-item">
@@ -7973,7 +7967,7 @@ public void selectTest() {
 
 ```
   
-```html
+```html 
 <div id="carousel-example-indicators" class="carousel slide mb-2" data-ride="carousel">
     <ol class="carousel-indicators">
         <li data-target="#carousel-example-indicators" data-slide-to="0"
@@ -8057,7 +8051,7 @@ public void captionTest() {
 
 ```
   
-```html
+```html 
 <div id="carousel-example-captions" class="carousel slide mb-2" data-ride="carousel">
     <ol class="carousel-indicators">
         <li data-target="#carousel-example-captions" data-slide-to="0" class=""></li>
@@ -8147,7 +8141,7 @@ public void fadePrevTest() {
 
 ```
   
-```html
+```html 
 <div id="carousel-example-fade" class="carousel slide mb-2 carousel-fade"
      data-ride="carousel">
     <div class="carousel-inner">
@@ -8216,7 +8210,7 @@ public void intervalTest() {
 
 ```
   
-```html
+```html 
 <div id="carousel-example-interval" class="carousel slide mb-3" data-ride="carousel">
     <div class="carousel-inner">
         <div class="carousel-item active" data-interval="3000">
@@ -9758,62 +9752,62 @@ Available methods for form validation in Java JDI Light:
 
 ![Scrollspy](../images/bootstrap/scroll_spy2.png)<br>
 
-```java
-    // @FindBy(css = "#navbar-example3")
-    @UI("#navbar-example3") public static NestedNav nestedNav;
-    // @FindBy(css = "#navbar-example3~div")
-    @UI("#navbar-example3~div") public static ScrollSpyNav scrollSpyWithNestedNav;
-      
-    public class NestedNav extends Section {
-        // @FindBy(css = "nav")
-        @UI("nav") public ListGroup navGroup;          
-        // @FindBy(css = "nav nav a")
-        @UI("nav nav a") public ListGroup navItemLink; 
-        // @FindBy(css = ".navbar-brand")
-        @UI(".navbar-brand") public Link navbarLink;   
-    }
+```java 
+// @FindBy(css = "#navbar-example3")
+@UI("#navbar-example3") public static NestedNav nestedNav;
+// @FindBy(css = "#navbar-example3~div")
+@UI("#navbar-example3~div") public static ScrollSpyNav scrollSpyWithNestedNav;
+  
+public class NestedNav extends Section {
+    // @FindBy(css = "nav")
+    @UI("nav") public ListGroup navGroup;          
+    // @FindBy(css = "nav nav a")
+    @UI("nav nav a") public ListGroup navItemLink; 
+    // @FindBy(css = ".navbar-brand")
+    @UI(".navbar-brand") public Link navbarLink;   
+}
 
-    public class ScrollSpyNav extends Section {
-        // @FindBy(xpath = ".//h4 | .//h5")
-        @UI(".//h4 | .//h5") public ListGroup header;
-        // @FindBy(css = "p")
-        @UI("p") public ListGroup mainText;          
-    
-        public void scrollParagraph(ListGroup listGroup, int index, String className){
-            mainText.get(index).show();
-    
-            if (!listGroup.get(index).core().hasClass(className) &&
-                    index < header.size()) {
-                header.get(index + 1).show();
-            }
+public class ScrollSpyNav extends Section {
+    // @FindBy(xpath = ".//h4 | .//h5")
+    @UI(".//h4 | .//h5") public ListGroup header;
+    // @FindBy(css = "p")
+    @UI("p") public ListGroup mainText;          
+
+    public void scrollParagraph(ListGroup listGroup, int index, String className){
+        mainText.get(index).show();
+
+        if (!listGroup.get(index).core().hasClass(className) &&
+                index < header.size()) {
+            header.get(index + 1).show();
         }
     }
+}
 
-    @DataProvider
-    public Object[][] itemsCheck() {
-        return new Object[][]{
-                {1}, {2}, {3}, {4}, {5}, {6}, {7}
-        };
-    }
+@DataProvider
+public Object[][] itemsCheck() {
+    return new Object[][]{
+            {1}, {2}, {3}, {4}, {5}, {6}, {7}
+    };
+}
 
-    @Test(dataProvider = "itemsCheck")
-    public void paragraphClickableTests(int index) {
-        scrollSpyWithNestedNav.mainText.get(index).highlight();
+@Test(dataProvider = "itemsCheck")
+public void paragraphClickableTests(int index) {
+    scrollSpyWithNestedNav.mainText.get(index).highlight();
 
-        scrollSpyWithNestedNav.scrollParagraph(nestedNav.navItemLink, index, CLASS_NAME_ACTIVE);
+    scrollSpyWithNestedNav.scrollParagraph(nestedNav.navItemLink, index, CLASS_NAME_ACTIVE);
 
-        assertTrue(nestedNav.navItemLink.get(index).hasClass(CLASS_NAME_ACTIVE));
-        nestedNav.navItemLink.get(index).unhighlight();
-    }
+    assertTrue(nestedNav.navItemLink.get(index).hasClass(CLASS_NAME_ACTIVE));
+    nestedNav.navItemLink.get(index).unhighlight();
+}
 
 
-    @Test
-    public void isValidationTests() {
-        nestedNav.navItemLink.is().size(7);
-        nestedNav.navGroup.is().size(3);
-        scrollSpyWithNestedNav.mainText.is().size(7);
-        scrollSpyWithNestedNav.header.is().size(7);
-    }
+@Test
+public void isValidationTests() {
+    nestedNav.navItemLink.is().size(7);
+    nestedNav.navGroup.is().size(3);
+    scrollSpyWithNestedNav.mainText.is().size(7);
+    scrollSpyWithNestedNav.header.is().size(7);
+}
 ```
 
 ```html
@@ -9862,59 +9856,59 @@ Available methods for form validation in Java JDI Light:
 
 ![Scrollspy](../images/bootstrap/scroll_spy3.png)<br>
 
-```java
-    // @FindBy(css = "#list-example>a")
-    @UI("#list-example>a") public static ListGroup listGroupForScrollSpy;
-    // @FindBy(css = "#list-example~div")
-    @UI("#list-example~div") public static ScrollSpyNav scrollSpyWithListGroup;
-    
-    public class ScrollSpyNav extends Section {
-        // @FindBy(xpath = ".//h4 | .//h5")
-        @UI(".//h4 | .//h5") public ListGroup header;
-        // @FindBy(css = "p")
-        @UI("p") public ListGroup mainText;          
-    
-        public void scrollParagraph(ListGroup listGroup, int index, String className){
-            mainText.get(index).show();
-    
-            if (!listGroup.get(index).core().hasClass(className) &&
-                    index < header.size()) {
-                header.get(index + 1).show();
-            }
+```java 
+// @FindBy(css = "#list-example>a")
+@UI("#list-example>a") public static ListGroup listGroupForScrollSpy;
+// @FindBy(css = "#list-example~div")
+@UI("#list-example~div") public static ScrollSpyNav scrollSpyWithListGroup;
+
+public class ScrollSpyNav extends Section {
+    // @FindBy(xpath = ".//h4 | .//h5")
+    @UI(".//h4 | .//h5") public ListGroup header;
+    // @FindBy(css = "p")
+    @UI("p") public ListGroup mainText;          
+
+    public void scrollParagraph(ListGroup listGroup, int index, String className){
+        mainText.get(index).show();
+
+        if (!listGroup.get(index).core().hasClass(className) &&
+                index < header.size()) {
+            header.get(index + 1).show();
         }
     }
+}
 
-    @DataProvider
-    public Object[][] itemsCheck() {
-        return new Object[][]{
-                {1}, {2}, {3}, {4}
-        };
-    }   
+@DataProvider
+public Object[][] itemsCheck() {
+    return new Object[][]{
+            {1}, {2}, {3}, {4}
+    };
+}   
 
-    @Test(dataProvider = "itemsCheck")
-    public void paragraphClickableTests(int index) {
-        scrollSpyWithListGroup.mainText.get(index).highlight();
+@Test(dataProvider = "itemsCheck")
+public void paragraphClickableTests(int index) {
+    scrollSpyWithListGroup.mainText.get(index).highlight();
 
-        scrollSpyWithListGroup.scrollParagraph(listGroupForScrollSpy, index, CLASS_NAME_ACTIVE);
+    scrollSpyWithListGroup.scrollParagraph(listGroupForScrollSpy, index, CLASS_NAME_ACTIVE);
 
-        listGroupForScrollSpy.get(index)
-                .is()
-                .core()
-                .displayed()
-                .enabled()
-                .cssClass(CLASS_NAME_LIST_GROUP_ITEM_LIST_GROUP_ITEM_ACTION_ACTIVE)
-                .css(CSS_NAME_BACKGROUND_COLOR, "rgba(0, 123, 255, 1)")//#007bff Color Hex
-                .css(CSS_NAME_BORDER_COLOR, "rgb(0, 123, 255)");//#007bff Color Hex
+    listGroupForScrollSpy.get(index)
+            .is()
+            .core()
+            .displayed()
+            .enabled()
+            .cssClass(CLASS_NAME_LIST_GROUP_ITEM_LIST_GROUP_ITEM_ACTION_ACTIVE)
+            .css(CSS_NAME_BACKGROUND_COLOR, "rgba(0, 123, 255, 1)")//#007bff Color Hex
+            .css(CSS_NAME_BORDER_COLOR, "rgb(0, 123, 255)");//#007bff Color Hex
 
-        listGroupForScrollSpy.get(index).unhighlight();
-    }
+    listGroupForScrollSpy.get(index).unhighlight();
+}
 
-    @Test
-    public void isValidationTests() {
-        scrollSpyWithListGroup.header.is().size(4);
-        scrollSpyWithListGroup.mainText.is().size(4);
-        listGroupForScrollSpy.is().size(4);
-    }
+@Test
+public void isValidationTests() {
+    scrollSpyWithListGroup.header.is().size(4);
+    scrollSpyWithListGroup.mainText.is().size(4);
+    listGroupForScrollSpy.is().size(4);
+}
 ```
 
 ```html
@@ -11053,7 +11047,7 @@ public void clickableTests() {
 </button>
 ```
 
-```html
+```html 
 <div class="popover fade bs-popover-right show" role="tooltip" id="popover757247" style="will-change: 
     transform; position: absolute; transform: translate3d(542px, 39291px, 0px); top: 0px; left: 0px;" x-placement=
     "right">
@@ -11174,7 +11168,7 @@ public void clickableTests() {
 </button>
 ```
 
-```html
+```html 
 <div class="popover fade show bs-popover-top" role="tooltip" id="popover561586" x-placement="top" 
     style="position: absolute; transform: translate3d(320px, 39051px, 0px); top: 0px; left: 0px; will-change: 
     transform;">
@@ -11199,7 +11193,7 @@ Here is an example with provided Bootstrap v4.3 code:
 </button>
 ```
 
-```html
+```html 
 <div class="popover fade bs-popover-right show" role="tooltip" id="popover525348" x-placement="right" 
     style="position: absolute; transform: translate3d(542px, 39152px, 0px); top: 0px; left: 0px; will-change: 
     transform;">
@@ -11225,7 +11219,7 @@ Here is an example with provided Bootstrap v4.3 code:
 </button>
 ```
 
-```html
+```html 
 <div class="popover fade show bs-popover-bottom" role="tooltip" id="popover24015" x-placement="bottom" 
     style="position: absolute; transform: translate3d(308px, 39244px, 0px); top: 0px; left: 0px; will-change: 
     transform;">
@@ -11250,7 +11244,7 @@ Here is an example with provided Bootstrap v4.3 code:
 </button>
 ```
 
-```html
+```html 
 <div class="popover fade bs-popover-left show" role="tooltip" id="popover587895" x-placement="left" 
     style="position: absolute; transform: translate3d(88px, 39260px, 0px); top: 0px; left: 0px; will-change: 
     transform;">
@@ -11367,7 +11361,7 @@ public void clickableTests() {
     popover</a>
 ```
 
-```html
+```html 
 <div class="popover fade bs-popover-right" role="tooltip" id="popover278744" 
     style="will-change: transform; position: absolute; transform: translate3d(542px, 39355px, 0px); top: 0px; left: 0px;" 
     x-placement="right">
@@ -11376,8 +11370,6 @@ public void clickableTests() {
     <div class="popover-body">And here's some amazing content. It's very engaging. Right?</div>
 </div>
 ```
-
-
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -11485,7 +11477,7 @@ Here is an example with provided Bootstrap v4.3 code:
 </span>
 ```
  
-```html
+```html 
 <div class="popover fade show bs-popover-right" role="tooltip" id="popover180279" x-placement="right" 
     style="will-change: transform; position: absolute; transform: translate3d(542px, 39442px, 0px); top: 0px; left: 0px;">
     <div class="arrow" style="top: 7px;"></div>
@@ -14851,7 +14843,7 @@ This is easily customized with our various sizing options.
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 // @FindBy(css = "#card-example") 
 @UI("#card-example")
 public static CardExample cardExample;
@@ -14994,7 +14986,7 @@ are placed in a `.card-body` item, the card title and subtitle are aligned nicel
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 // @FindBy(css = "#card-subtitle-link") 
 @UI("#card-subtitle-link") 
 public static CardWithSubtitlesAndLinks cardWithSubtitlesAndLinks;
@@ -15307,7 +15299,7 @@ header and/or footer within a card.
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 //@FindBy(css = "#card-with-header-and-footer") 
 @UI("#card-with-header-and-footer")
 public static CardWithHeaderAndFooter cardWithHeaderAndFooter;
@@ -15379,7 +15371,7 @@ wrap cards in columns and rows as needed.
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 //@FindBy(css = "#card-with-grid-markup")
 @UI("#card-with-grid-markup")
 public static CardWithGridMarkup cardWithGridMarkup;
@@ -15485,7 +15477,7 @@ sizing utilities to quickly set a card’s width.
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 //@FindBy(className = ".w-75") 
 @UI(".w-75")
 public static CardUtilities cardWidth75;
@@ -15889,7 +15881,7 @@ background and overlay your card’s text. Depending on the image, you may or ma
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 //@FindBy(css = "#card-image-overlay") 
 @UI("#card-image-overlay")
 public static CardImageOverlays cardImageOverlays;
@@ -16269,7 +16261,7 @@ a single, attached element with equal width and height columns.
 
 Here is an example with provided Bootstrap v4.3 code:
 
-```java
+```java 
 //@FindBy(css = ".card-group:nth-of-type(1)") 
 @UI(".card-group:nth-of-type(1)")
 public static CardGroupedSection cardGroupSectionWithoutFooter;
@@ -16595,7 +16587,7 @@ the number of columns.
  
 Here is an example with provided Bootstrap v4.3 code:
  
-```java
+```java 
 //@FindBy(css = ".card-columns") 
 @UI(".card-columns")
 public static CardColumns cardColumns; 

@@ -1853,10 +1853,11 @@ Here is a list of available methods in C#:
 **cols()** | returns value of cols attribute | int
 **minlength()** | returns value of minlength attribute | int
 **maxlength()** | returns value of maxlength attribute | int
-**placeholder()** | returns value of placeholder attribute | String
 **addNewLine(String line)** | add line to the already existing  | void
-**is()** | returns object for work with assertions  | TextAreaAssert
-**assertThat()** | returns object for work with assertions  | TextAreaAssert
+**setValue()**    | returns void                           | String
+**getValue()**    | calls getText() method                 | String
+**getText()**     | returns value of attribute "value"     | String
+**is()**          | returns object for work with assertions | TextAreaAssert
 
   <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/TextAreaTests.java" target="_blank">Test examples in Java</a><br>
   [BDD Steps example](https://jdi-docs.github.io/jdi-light/#textarea-2) <br>

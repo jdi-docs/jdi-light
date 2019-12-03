@@ -1183,11 +1183,6 @@ Available method in C# JDI Light:
 **List<string> Values()** | Gets values of all options | List<string>
 **void HoverAndClick(string[])** | Hovers and clicks menu item and subitems | void
 **void HoverAndClick(string)** | Hovers and clicks menu item | void
-
-Available Assert methods in C# JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
 **Is** | Get select assert | MenuSelectAssert
 **AssertThat** | Get select assert | MenuSelectAssert
 
@@ -1623,8 +1618,8 @@ Web(Html5, Angular, React...), Mobile(Android IOs), Desktop(Win app) etc.</p>
 
 Text is represented by the following class:
 
-Java: com.epam.jdi.light.ui.html.common.Text  
-C#: JDI.Light.Elements.Common.TextElement
+  - __C#__: JDI.Light.Elements.Common.TextElement
+  - __Java__: com.epam.jdi.light.ui.html.common.Text  
 
 Here is a list of available methods in C#:
 
@@ -1948,6 +1943,8 @@ Here is the list of available methods in Java JDI Light:
 --- | --- | ---
 **click()** |Click title | void
 **getText()** |Returns title text  | String
+**Is()** |Gets Title's assert | TitleAssert
+**AssertThat()** |Gets Title's assert | TitleAssert
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/LabelTests.java" target="_blank">Test examples in Java</a>
 

@@ -1824,7 +1824,7 @@ Text areas are represented by the following classes in Java and C#:
   
 In C# TextArea is a descendant of TextField and inherits its methods. But TextArea also has methods of its own.
 
-In JAVA TextArea is a descendant of UIBaseElement parameterized with <TextAreaAssert> and inherits its methods. But TextArea also has methods of its own.
+In JAVA TextArea is a descendant of UIBaseElement parameterized with TextAreaAssert and inherits its methods. But TextArea also has methods of its own.
   
 Here is a list of available methods in C#:
   

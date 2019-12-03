@@ -195,8 +195,23 @@ Available methods and properties in C# JDI Light:
 
 ### Checkbox
 
-```java 
-@UI("#accept-conditions") // @FindBy(id = "accept-conditions")
+**Checkbox** – Element allows you to select single value for submission.
+
+![Checkbox](../images/checkbox.png)
+
+Checkbox is located in the following classes:
+ 
+  - __Java__: _com.epam.jdi.light.ui.html.common.Checkbox*_
+  - __C#__: _JDI.Light.Elements.Common.CheckBox*_
+
+
+Here is an example with provided HTML code:
+
+<!-- ![Checkbox example](../images/html/checkbox_html.png) -->
+
+```java
+//@FindBy(id = "accept-conditions") 
+@UI("#accept-conditions")
 public static Checkbox acceptConditions;
 
 @Test
@@ -307,24 +322,13 @@ public void BaseValidationTest()
 }
 
 ```
-**Checkbox** – Element allows you to select single value for submission.
-
-![Checkbox](../images/checkbox.png)
-
-Checkbox is located in the following classes:
- 
-  - __Java__: _com.epam.jdi.light.ui.html.common.Checkbox*_
-  - __C#__: _JDI.Light.Elements.Common.CheckBox*_
-
-
-Here is an example with provided HTML code:
-
-<!-- ![Checkbox example](../images/html/checkbox_html.png) -->
 
 ```html
 <input type="checkbox" id="accept-conditions" checked="">
 <label for="accept-conditions">Accept terms and conditions</label>
 ```
+
+<br><br><br><br><br><br><br><br><br><br><br>
 
 Available methods in Java JDI Light:
 
@@ -345,11 +349,6 @@ Available methods in C# JDI Light:
 **Check(bool checkEnabled = true)** | Checks a checkbox | void
 **Uncheck(bool checkEnabled = true)** | Unhecks a checkbox | void
 **IsChecked** | Determines whether a checkbox is checked | bool
-
-Available assert methods in C# JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
 **Selected()** | Checks whether a checkbox is selected | CheckBoxAssert
 **Deselected()** | Checks whether a checkbox is deselected | CheckBoxAssert
 **Enabled()** | Checks whether a checkbox is enabled | CheckBoxAssert
@@ -713,8 +712,23 @@ public void SetPartyTimeTest()
 
 ### FileInput
 
+**FileInput** - A graphical control element that allows user to upload documents to web site.
+
+![FileInput](../images/fileinput.png)
+
+FileInput element is located in JDI Light in:
+
+  - __Java__: _com.epam.jdi.light.ui.html.common.FileInput_
+  - __C#__: _JDI.Light.Elements.Composite.FileInput_
+
+
+Here is an example with HTML code provided:
+
+<!-- ![FileInput example](../images/html/fileinput_html.png) -->
+
 ```java 
-@UI("#avatar") // @FindBy(id = "avatar")
+//@FindBy(id = "avatar")
+@UI("#avatar") 
 public static FileInput avatar; 
 
 @Test
@@ -763,30 +777,18 @@ public void BaseValidationTest()
 
 ```
 
-**FileInput** - A graphical control element that allows user to upload documents to web site.
-
-![FileInput](../images/fileinput.png)
-
-FileInput element is located in JDI Light in:
-
-  - __Java__: _com.epam.jdi.light.ui.html.common.FileInput_
-  - __C#__: _JDI.Light.Elements.Composite.FileInput_
-
-
-Here is an example with HTML code provided:
-
-<!-- ![FileInput example](../images/html/fileinput_html.png) -->
-
 ```html
 <input type="file" id="avatar" accept="image/png, image/jpeg">
 ```
+
+<br><br><br><br><br><br><br><br><br>
 
 Available method in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**is()** | property that returns object for work with assertions | UIAssert
-**assertThat()** | property that returns object for work with assertions | UIAssert
+**is()** | property that returns object for work with assertions | TextAssert
+**assertThat()** | property that returns object for work with assertions | TextAssert
 **click()** | click on element | void
 **hover()** | hover on element | void
 **setValue(String value)** | set file path to input | void
@@ -801,11 +803,6 @@ Available method in C# JDI Light:
 |Method | Description | Return Type
 --- | --- | ---
 **SelectFile(string filepath)** |Select file to upload  | void
-
-Available assert methods in C# JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
 **IsDownloaded()** |Checks whether a file is downloaded  | FileAssert
 **Text(Matcher<string> value)** | Checks whether an occurrence of a text is contained within a text file | FileAssert
 **HasSize(Matcher<long> size)** | Checks that a file has a particular size according to the matcher | FileAssert
@@ -818,6 +815,10 @@ Available assert methods in C# JDI Light:
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#fileinput-2)
 
 ### Icon
+
+**Icon** – Is a simple element type that represents icons and graphic images.
+
+![Icon](../images/html/image_html2.png)
 
 ```java 
 @UI("#jdi-logo") 
@@ -850,20 +851,17 @@ public IIcon Logo
      Jdi.Assert.AreEquals(LogoImage.GetAlt(), Alt);
    }
 ```
-**Icon** – Is a simple element type that represents icons and graphic images.
-
-![Icon](../images/html/image_html2.png)
 
 ```html
 <label for="jdi-logo">JDI Logo:</label>
 <img src="/jdi-light/images/jdi-logo.jpg" id="jdi-logo" alt="Jdi Logo 2" width="101" height="100" onclick="alert('JDI Logo');">
 ```
 
-Icons are represented by the following classes:
- 
-  - __Java__: _com.epam.jdi.light.ui.html.common.Icon , com.epam.jdi.light.ui.html.common.Image_
-  - __C#__: JDI.Light.Interfaces.Common.IIcon, _JDI.Light.Elements.Common.Image
+<br><br><br><br><br><br><br><br><br>
 
+Icon is represented by Image class:
+ 
+[Image](https://jdi-docs.github.io/jdi-light/#image)
 
  
 Icon in JDI is a descendant of Image. It inherits all Image's methods and serves as its wrapper. Here are Java methods for Icon, inherited from Image interface:

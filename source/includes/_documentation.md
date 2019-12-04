@@ -143,13 +143,13 @@ public void GetTextTest()
 ![Button](../images/button.png)
 
 ```html 
-<button type="button" id="red-button" class="btn btn-danger" onclick="alert('Red button');" ondblclick="alert('Double Click');" oncontextmenu="alert('Right Click');">Red button
-                             </button>
+<button type="button" id="red-button" class="btn btn-danger" onclick="alert('Red button');" ondblclick="alert('Double Click');" 
+oncontextmenu="alert('Right Click');">Red button</button>
 ```
 
 ```h
-<button type="button" id="red-button" class="btn btn-danger" onclick="alert('Red button');" ondblclick="alert('Double Click');" oncontextmenu="alert('Right Click');">Red button
-                             </button>
+<button type="button" id="red-button" class="btn btn-danger" onclick="alert('Red button');" ondblclick="alert('Double Click');"
+ oncontextmenu="alert('Right Click');">Red button</button>
 
 
 Button is located in the following classes:
@@ -854,7 +854,8 @@ public IIcon Logo
 
 ```html
 <label for="jdi-logo">JDI Logo:</label>
-<img src="/jdi-light/images/jdi-logo.jpg" id="jdi-logo" alt="Jdi Logo 2" width="101" height="100" onclick="alert('JDI Logo');">
+<img src="/jdi-light/images/jdi-logo.jpg" id="jdi-logo" alt="Jdi Logo 2"
+     width="101" height="100" onclick="alert('JDI Logo');">
 ```
 
 <br><br><br><br><br><br><br><br><br>
@@ -932,7 +933,8 @@ public IImage LogoImage;
 
 ```html
 <label for="jdi-logo">JDI Logo:</label>
-<img src="/jdi-light/images/jdi-logo.jpg" id="jdi-logo" alt="Jdi Logo 2" width="101" height="100" onclick="alert('JDI Logo');">
+<img src="/jdi-light/images/jdi-logo.jpg" id="jdi-logo" alt="Jdi Logo 2" 
+     width="101" height="100" onclick="alert('JDI Logo');">
 ```
 
 Images are represented by the following classes in Java and C#:
@@ -1041,7 +1043,7 @@ Here is the list of available methods in C#:
 **AssertThat()** | Returns object for work with assertions | LinkAssert
 
 <a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/LinkTests.cs" target="_blank">Test examples in C#</a>
-<br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/#link-2)
 
 ### Menu
@@ -1965,6 +1967,7 @@ Radio buttons are represented by the following class:
   - __C#__: _JDI.Light.Elements.Complex.RadioButtons_
 
 ```java 
+<br><br><br><br><br><br><br>
 @UI("[name=colors]") //@FindBy(name = "colors")
 public static RadioButtons colors;
 
@@ -2687,6 +2690,7 @@ DataTableAssert methods in Java:
 <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/RangeTests.java" target="_blank">Test examples in Java</a><br>
 
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#datatable-2)
+<br><br><br><br><br><br><br><br><br><br>
 
 ### DropDown
 

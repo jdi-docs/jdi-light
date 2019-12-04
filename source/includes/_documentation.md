@@ -7754,7 +7754,7 @@ public void collapseGroupOneTest() {
     collapseGroupOne.is().expanded();
     collapseGroupOne.value().is().text(groupOneText);
 
-    collapseGroupOne.collapse();alert
+    collapseGroupOne.collapse();
     collapseGroupOne.is().collapsed();
 }
 
@@ -7767,7 +7767,7 @@ public void collapseGroupOneListTest() {
     collapseGroupOne.list().is().size(1);
     collapseGroupOne.list().get(1).is().text(groupOneText);
 
-    collapseGroupOne.close();
+    collapseGroupOne.collapse();
     collapseGroupOne.is().collapsed();
 }
 ```
@@ -7800,7 +7800,7 @@ Available methods in Java JDI Light:
 |Method | Description | Return Type
 --- | --- | ---
 **expand()** | Expands element  | void
-**close()** | Close expanded element  | void
+**collapse()** | Collapses element  | void
 **value()** | Returns collapse ``value()`` property | UIElement
 **list()** | Returns collapse ``list()`` property | WebList
 **is()** | Various assert actions | UISelectAssert

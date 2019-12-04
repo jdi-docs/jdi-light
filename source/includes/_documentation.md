@@ -7796,7 +7796,7 @@ Available methods in Java JDI Light:
 |Method | Description | Return Type
 --- | --- | ---
 **expand()** | Expands element  | void
-**collapse()** | Collapses element  | void
+**close()** | Close expanded element  | void
 **value()** | Returns collapse ``value()`` property | UIElement
 **list()** | Returns collapse ``list()`` property | WebList
 **is()** | Various assert actions | UISelectAssert

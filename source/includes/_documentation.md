@@ -143,13 +143,13 @@ public void GetTextTest()
 ![Button](../images/button.png)
 
 ```html 
-<button type="button" id="red-button" class="btn btn-danger" onclick="alert('Red button');" ondblclick="alert('Double Click');" 
-oncontextmenu="alert('Right Click');">Red button</button>
+<button type="button" id="red-button" class="btn btn-danger" onclick="alert('Red button');" 
+ondblclick="alert('Double Click');" oncontextmenu="alert('Right Click');">Red button</button>
 ```
 
 ```h
-<button type="button" id="red-button" class="btn btn-danger" onclick="alert('Red button');" ondblclick="alert('Double Click');"
- oncontextmenu="alert('Right Click');">Red button</button>
+<button type="button" id="red-button" class="btn btn-danger" onclick="alert('Red button');" 
+ondblclick="alert('Double Click');" oncontextmenu="alert('Right Click');">Red button</button>
 
 
 Button is located in the following classes:
@@ -1043,10 +1043,24 @@ Here is the list of available methods in C#:
 **AssertThat()** | Returns object for work with assertions | LinkAssert
 
 <a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/LinkTests.cs" target="_blank">Test examples in C#</a>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br>
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/#link-2)
 
 ### Menu
+
+**Menu** - A list of links, which leads to different pages or sections of website.
+
+Menu element is located in JDI Light in:
+
+  - __Java__: _com.epam.jdi.light.ui.html. element
+  .Menu_
+  - __C#__: _JDI.Light.Elements.Composite.Menu_
+
+![Menu example](../images/html/menu2.png) 
+
+Here is an example with provided HTML code:
+
+<!-- ![Menu example](../images/html/menu.png) -->
 
 ```java 
 @UI(".sidebar-menu span<[*'%s']<<") 
@@ -1086,20 +1100,6 @@ public void AssertValidationTest()
 }
 
 ```
-
-**Menu** - A list of links, which leads to different pages or sections of website.
-
-Menu element is located in JDI Light in:
-
-  - __Java__: _com.epam.jdi.light.ui.html. element
-  .Menu_
-  - __C#__: _JDI.Light.Elements.Composite.Menu_
-
-![Menu example](../images/html/menu2.png) 
-
-Here is an example with provided HTML code:
-
-<!-- ![Menu example](../images/html/menu.png) -->
 
 ```html 
 <ul class="sidebar-menu">
@@ -1966,8 +1966,11 @@ Radio buttons are represented by the following class:
   - __Java__: _com.epam.jdi.light.ui.html.complex.elements.RadioButtons_
   - __C#__: _JDI.Light.Elements.Complex.RadioButtons_
 
+Consider an example where each radio button is a particular color, described with given HTML code:
+
+![RadioButton](../images/html/radio_html2.png)
+
 ```java 
-<br><br><br><br><br><br><br>
 @UI("[name=colors]") //@FindBy(name = "colors")
 public static RadioButtons colors;
 
@@ -2000,10 +2003,6 @@ public void GetSelected()
 	MyRadioButtons.AssertThat().Selected(Is.EqualTo("some value"));
 }
 ```
-
-Consider an example where each radio button is a particular color, described with given HTML code:
-
-![RadioButton](../images/html/radio_html2.png)
 
 ```html
 <input type="radio" id="red" name="colors">
@@ -2690,7 +2689,7 @@ DataTableAssert methods in Java:
 <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/RangeTests.java" target="_blank">Test examples in Java</a><br>
 
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#datatable-2)
-<br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 ### DropDown
 
@@ -3234,6 +3233,8 @@ Checklist element type is available in the following packages:
 
 See an example with HTML code describing checklist element.
 
+![Checklist Example](../images/html/checklist_html2.png)
+
 ```java 
 @UI("[name=checks-group]") public static Checklist weather;
 public static Checklist weatherNoLocator;
@@ -3307,8 +3308,6 @@ public void IsDisabledTest()
     _weather.Is.Selected(HasItems(new [] { "Hot option" } ));
 }
 ```
-
-![Checklist Example](../images/html/checklist_html2.png)
 
 ```html
 <input type="checkbox" id="hot" name="checks-group" checked="">

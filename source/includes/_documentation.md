@@ -20453,7 +20453,7 @@ TBD
 ## Remote test runs
 TBD
 
-## Multiple domain example
+## Multiple domains example
 Here is the example [MultipleDomainsExampleTest.java](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/MultipleDomainsExampleTest.java) 
 of test class with multiple domain. For this example the following files were added to the project:
 

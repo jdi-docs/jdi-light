@@ -5438,46 +5438,62 @@ Available methods in Java JDI Light:
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/AlertTests.java" target="_blank">Alert test examples</a>
 
+
+<br><br><br><br><br><br>
 ### Badge
-Badge is located in the following class: <br>
-- __Java__: _com.epam.jdi.light.ui.bootstrap.common.Badge_
-
-[Bootstrap page documentation](https://getbootstrap.com/docs/4.3/components/badge/) <br>
-
-```java 
-
-
-
-
-
-
-
-
-@UI("#badge-secondary") // @FindBy(css = "#badge-secondary")
-
-    @Test
-    public void getTextTest() {
-        assertEquals(badgeSecondary.getText(), badgeSecondaryText);
-        assertEquals(badgeSecondary.getValue(), badgeSecondaryText);
-    }
-
-    @Test
-    public void simpleVisibilityTest() {
-        assertTrue(badgeSecondary.isDisplayed());
-    }
-```
 
 **1) <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/badge/" target="_blank">Badge</a>** - Element that scale to match the size of the immediate parent element by using relative font sizing and em units.<br>
 
+Here is an example badge with provided Bootstrap v4.3 code: 
+ 
 ![Badge](../images/bootstrap/badge_heading.png)
 
-Here is an example with provided Bootstrap v4.3 code:  
+```java 
+// @FindBy(css = "#badge-secondary")
+@UI("#badge-secondary") public static Text badgeSecondary;
+// @FindBy(css = "#btn-primary")
+@UI("#btn-primary") public static ButtonWithBadge buttonWithBadge;
+
+@Test
+public void getTextTest() {
+    assertEquals(badgeSecondary.getText(), badgeSecondaryText);
+    assertEquals(badgeSecondary.getValue(), badgeSecondaryText);
+}
+
+@Test
+public void simpleVisibilityTest() {
+    assertTrue(badgeSecondary.isDisplayed());
+}
+
+@Test
+public void checkBadgeInButton(){
+    buttonWithBadge.badge.is().displayed();
+    buttonWithBadge.badge.is().text(badgeInButtonText);
+}
+```
 
 ```html
-<h1>Heading <span class="badge badge-secondary" id="badge-secondary">Badge</span></h1>
-<h2>Heading <span class="badge badge-secondary" id="badge-secondary">Badge</span></h2>
+<h1>Heading 
+    <span class="badge badge-secondary" id="badge-secondary">Badge</span>
+</h1>
 ``` 
 
+An example nested badge in button with provided Bootstrap v4.3 code:  
+
+![Badge](../images/bootstrap/badge_button.png)
+
+```html 
+<button type="button" class="btn btn-primary" id="btn-primary" onclick="alert('Button with badge');">
+    Profile
+    <span class="badge badge-light">9</span> 
+    <span class="sr-only">unread messages</span>
+</button>
+```
+
+In this case Badge is represented by the following class: 
+
+  [Text](https://jdi-docs.github.io/jdi-light/#text)
+  
 Available methods in Java JDI Light:
 
 |Method | Description | Return Type
@@ -5486,50 +5502,50 @@ Available methods in Java JDI Light:
 **is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
 **displayed()** | Check that element is displayed | TextAssert
-  
-```java 
-
-
-
-
-
-
-@UI("#badge-success") // @FindBy(css = "#badge-success")
-
-        @Test
-        public void getTextTest() {
-            assertEquals(badgeSuccess.getText(), badgeSuccessText);
-            assertEquals(badgeSuccess.getValue(), badgeSuccessText);
-        }
-    
-        @Test
-        public void simpleVisibilityTest() {
-            assertTrue(badgeSuccess.isDisplayed());
-        }
-```
-
+<br>
 **2) <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/badge/#links" target="_blank">Badge</a>** - .badge-* classes on an link element quickly provide actionable badges with hover and focus states.<br>
 
 ![Badge](../images/bootstrap/badge_link.png)
 
 Here is an example with provided Bootstrap v4.3 code:  
 
+```java 
+// @FindBy(css = "#badge-success")
+@UI("#badge-success") public static Link badgeSuccess;
+
+@Test
+public void getTextTest() {
+    assertEquals(badgeSuccess.getText(), badgeSuccessText);
+    assertEquals(badgeSuccess.getValue(), badgeSuccessText);
+}
+
+@Test
+public void simpleVisibilityTest() {
+    assertTrue(badgeSuccess.isDisplayed());
+}
+```
+
 ```html 
 <a href="https://github.com/jdi-testing" style="font-size: 16px;"class="badge badge-success" id="badge-success" alt="Github JDI Link">Github JDI</a>
 ```
 
+In this case Badge is represented by Text class in Java:
+ 
+  [Link](https://jdi-docs.github.io/jdi-light/#link)
+  
 Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**getText()** | Get button text | String
-**is()** | Assert action | TextAssert 
-**assertThat()** | Assert action | TextAssert
-**displayed()** | Check that element is displayed | TextAssert
+**click()** |Follow the link | void
+**getText()** |Returns the link text  | String
+**ref()** |Returns the reference  | String
+**url()** |Returns the URL  | URL
+**alt()** |Returns the alternate text | String
+**is()** | Returns object for work with assertions | LinkAssert
+**assertThat()** | Returns object for work with assertions | LinkAssert
 
-<br>
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/BadgeTests.java" target="_blank">Bootstrap badge test examples</a><br>
-<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/ButtonTests.java" target="_blank">Bootstrap badge in button tests examples</a>
 <br><br>
 
 ### Breadcrumb

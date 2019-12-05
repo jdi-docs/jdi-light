@@ -6750,14 +6750,17 @@ Available methods in Java JDI Light:
 
 
 ###Progress
+Progress is located in the following class:
+- __Java__: _com.epam.jdi.light.ui.bootstrap.elements.common.Progress_
+
 <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/progress/">Progress</a> is custom progress bar featuring support for stacked bars, animated backgrounds, and text labels.
 
-There is also a complex element <a style="font-weight: bold;" href="https://getbootstrap.com/docs/4.3/components/progress/">MultiplebarsProgress</a> which may consist of several progress bars.
+There is also a complex element <a style="font-weight: bold;" href="https://jdi-docs.github.io/jdi-light/?java#multiple-progress-bars">MultiplebarsProgress</a> which may consist of several progress bars.
 
 
 ![Progress example](../images/bootstrap/progress.png)
 
-Here is an example with provided Bootstrap v4.3 code:
+Here is an example with provided Bootstrap v4.3 code:_
 
 ```java 
 //FindBy(css = "#progress-bar-base-width-25 .progress-bar"
@@ -6766,7 +6769,7 @@ public static Progress progressBaseWidth25;
 
 @Test(dataProvider = "progressWidth")
 public void getWidthTest(Progress progress, String width) {
-    progress.is().ariaValue(width);
+    progress.is().value(width);
 }
 
 @Test(dataProvider = "progressColor")
@@ -6806,11 +6809,16 @@ Available methods in Java JDI Light:
 **getColor()** | Get color of the bar  | String
 **getStyle()** | Get style of the bar | String
 **is()** | Various assert actions for Progress | ProgressAssert 
-**assertThat()** | Assert action | UIAssert 
+**value()** | Match passed value with the progress value 'aria-valuenow' | ProgressAssert
+**color()** | Match passed value with the progress css 'background-color' | ProgressAssert
+**minValue()** | Match passed value with the progress value 'aria-valuemin' | ProgressAssert
+**maxValue()** | Match passed value with the progress value 'aria-valuemax' | ProgressAssert
+**animated()** | Match passed value with the progress css 'animation-name' | ProgressAssert
+**height()** | Match passed value with the progress height | ProgressAssert
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/progress/ProgressBaseTests.java)
 
-####With label
+####Labels
 
 Add <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/progress/#labels">labels</a> to your progress bars by placing text within the `.progress-bar`.
 
@@ -6855,7 +6863,7 @@ Here is an example with provided Bootstrap v4.3 code:
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-####With height
+####Height
 
 We only set a <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/progress/#height">height</a>
  value on the .progress, so if you change that value the inner .progress-bar will automatically resize accordingly.
@@ -6910,7 +6918,7 @@ public static JList<ProgressSection> progressHeightSections;
 
 <br><br><br><br><br>
 
-####With backgrounds
+####Backgrounds
 
 Use <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/progress/#backgrounds">background</a> utility classes to change the appearance of individual progress bars.
 
@@ -6971,7 +6979,7 @@ Here is an example with provided Bootstrap v4.3 code:
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-####With striped design
+####Striped
 
 Add <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/progress/#striped">.progress-bar-striped</a> to any `.progress-bar to apply` a stripe via CSS gradient over the progress bar’s background color.
 
@@ -6980,31 +6988,23 @@ Add <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
-
-    public class BootstrapPage extends WebPage {
-    @UI("#striped-base .progress") public static JList<ProgressSection> progressSections;
-    }
-
-    public class ProgressSection extends Section {
-        //@FindBy(css = ".progress-bar")
-        @UI(".progress-bar")
-        public Progress progress;
-    }
-
-    @Test(dataProvider = "progressData")
-    public void checkProgressData(String progressId, String value, String color,
-                                  String min, String max, String classStriped) {
-
-        progressSections.stream().filter(progressSection ->
-                progressSection.progress.attr("id").equals(progressId)).forEach(
-                progressSection -> {
-                    progressSection.progress.is().core().hasClass(classStriped);
-                    progressSection.progress.is().ariaValue(value)
-                                                 .color(color)
-                                                 .minValue(min)
-                                                 .maxValue(max);
-                });
-    }
+//@FindBy(css = "#striped-base .progress")    
+@UI("#striped-base .progress") 
+public static JList<ProgressSection> progressSections;
+   
+@Test(dataProvider = "progressData")
+public void checkProgressData(String progressId, String value, String color,
+                              String min, String max, String classStriped
+    progressSections.stream().filter(progressSection ->
+            progressSection.progress.attr("id").equals(progressId)).forEach(
+            progressSection -> {
+                progressSection.progress.is().core().hasClass(classStriped);
+                progressSection.progress.is().value(value)
+                                             .color(color)
+                                             .minValue(min)
+                                             .maxValue(max);
+            });
+}
 
 ```
 
@@ -7036,7 +7036,7 @@ Here is an example with provided Bootstrap v4.3 code:
 <br><br><br><br><br><br>
 
 
-####With animated design
+####Animated stripes
 
 The striped gradient can also be <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/progress/#animated-stripes">animated</a>.
 Add .progress-bar-animated to .progress-bar to animate the stripes right to left via CSS3 animations.
@@ -7052,7 +7052,7 @@ public void isValidationTest() {
     progressAnimated.is()
             .animated("progress-bar-stripes")
             .color("rgba(0, 123, 255, 1)")
-            .ariaValue("75");
+            .value("75");
 }
 ```
   

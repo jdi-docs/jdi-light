@@ -2639,7 +2639,7 @@ DataTables are represented by the following classes in Java and C#:
 </table>
 ```
 
-Here is a list of available methods in Java (_btw DataTable expand Table class - methods from previous table are available too_):
+Here is a list of available methods in Java (_btw DataTable expand [Table](#table) class - methods from previous table are available too_):
 
 In return types column _"D"_ refers to the user data object and _"L"_ refers to the table line object.
 

@@ -3379,20 +3379,25 @@ MultiSelector is represented by the following class:
   
   
 ```java 
-@UI("#ages") 
-// equal to @FindBy(css = "#ages") 
-public static MultiSelect ages;
+@UI("#ages") // @FindBy(css = "#ages")  
+public static MultiSelector ages;
 
 @Test
-public void checkTest() {
-       ages.check("Electro", "Metalic");
-       assertEquals(ages.checked(), asList("Electro", "Metalic"));
-    }
+public void selectTest() {
+    ages.check("Electro", "Metalic");
+    assertEquals(ages.checked(), asList("Electro", "Metalic"));
+}
+
 @Test
 public void disabledTest() {
+    try {
         ages.select("Disabled");
-        assertEquals(ages.getValue(), text);
+    } catch (Exception ex) {
+        assertThat(safeException(ex), containsString("Can't perform click. Element is disabled"));
     }
+    assertEquals(ages.selected(), text);
+}
+
 ```
 ```csharp 
 [Test]
@@ -3571,18 +3576,15 @@ Here is the list of some methods available for C# in JDI Light:
 
 **Section** - Logical part of Web Page that contains other UI Elements
   
-Section is represented by the following class:
+Section is located in the following classes:
+ 
+  - __Java__: _com.epam.jdi.light.elements.composite.Section_
+  - __C#__: _JDI.Light.Elements.Composite.Section_  
 
-Java: com.epam.jdi.light.elements.composite.Section  
-public class Section extends JDIBase implements PageObject 
-
-C#: JDI.Light.Elements.Composite.Section  
-public class Section : UIElement
   
 ```java 
    @UI(".someSectionUI") // @FindBy(css = ".someSectionUI")
    public static SomeSection someSectionUI;
-   //public class SomeSection extends Section
 
    @Test
    public void someSectionWebElementTest() {

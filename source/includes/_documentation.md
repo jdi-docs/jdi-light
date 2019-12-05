@@ -6742,8 +6742,9 @@ Available methods in Java JDI Light:
 
 ###Progress
 Progress is located in the following class:
-- __Java__: _com.epam.jdi.light.ui.bootstrap.elements.common.Progress_
 
+  - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.common.Progress_
+  
 <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/progress/">Progress</a> is custom progress bar featuring support for stacked bars, animated backgrounds, and text labels.
 
 There is also a complex element <a style="font-weight: bold;" href="https://jdi-docs.github.io/jdi-light/?java#multiple-progress-bars">MultiplebarsProgress</a> which may consist of several progress bars.
@@ -6760,7 +6761,7 @@ public static Progress progressBaseWidth25;
 
 @Test(dataProvider = "progressWidth")
 public void getWidthTest(Progress progress, String width) {
-    progress.is().value(width);
+   progress.is().value(width);
 }
 
 @Test(dataProvider = "progressColor")
@@ -6800,14 +6801,16 @@ Available methods in Java JDI Light:
 **getColor()** | Get color of the bar  | String
 **getStyle()** | Get style of the bar | String
 **is()** | Various assert actions for Progress | ProgressAssert 
-**value()** | Match passed value with the progress value 'aria-valuenow' | ProgressAssert
-**color()** | Match passed value with the progress css 'background-color' | ProgressAssert
-**minValue()** | Match passed value with the progress value 'aria-valuemin' | ProgressAssert
-**maxValue()** | Match passed value with the progress value 'aria-valuemax' | ProgressAssert
-**animated()** | Match passed value with the progress css 'animation-name' | ProgressAssert
+**value()** | Match passed value with the progress value _'aria-valuenow'_ | ProgressAssert
+**color()** | Match passed value with the progress css _'background-color'_ | ProgressAssert
+**minValue()** | Match passed value with the progress value _'aria-valuemin'_ | ProgressAssert
+**maxValue()** | Match passed value with the progress value _'aria-valuemax'_ | ProgressAssert
+**animated()** | Match passed value with the progress css _'animation-name'_ | ProgressAssert
 **height()** | Match passed value with the progress height | ProgressAssert
 
-[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/progress/ProgressBaseTests.java)
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/progress/ProgressBaseTests.java" target=a_blank> Bootstrap test examples </a>
+
+<br><br><br><br><br>
 
 ####Labels
 
@@ -6819,29 +6822,30 @@ Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
 //@FindBy(css = "#progress-with-labels")
-@UI("#progress-with-labels") public static Progress progressWithLabels; 
+@UI("#progress-with-labels") 
+public static Progress progressWithLabels; 
 
 @Test
-    public void getDefaultPercentTest() {
-         assertThat(progressWithLabels.core().getText(), is(defaultPercent));
-    }
+public void getDefaultPercentTest() {
+   assertThat(progressWithLabels.core().getText(), is(defaultPercent));
+}
  
 @Test
-    public void getPercentTest() {
-         progressWithLabels.core().is().text(defaultPercent);
-         minus.click();
-         progressWithLabels.core().is().text("20%");
-         for (int i = 0; i < 10; i++) {
-             minus.click();
-         }
-         progressWithLabels.core().is().text(minPercent);
-         plus.click();
-         progressWithLabels.core().is().text("5%");
-         for (int i = 0; i < 30; i++) {
-             plus.click();
-         }
-         progressWithLabels.core().is().text(maxPercent);
-    }
+public void getPercentTest() {
+   progressWithLabels.core().is().text(defaultPercent);
+   minus.click();
+   progressWithLabels.core().is().text("20%");
+   for (int i = 0; i < 10; i++) {
+       minus.click();
+   }
+   progressWithLabels.core().is().text(minPercent);
+   plus.click();
+   progressWithLabels.core().is().text("5%");
+   for (int i = 0; i < 30; i++) {
+       plus.click();
+   }
+   progressWithLabels.core().is().text(maxPercent);
+}
 ```
   
 ```html 
@@ -6868,22 +6872,22 @@ Here is an example with provided Bootstrap v4.3 code:
 @UI("#progress-height .progress")
 public static JList<ProgressSection> progressHeightSections;
 
- @Test
-    public void heightOfSectionShouldBeValid() {
-        for (ProgressSection section : progressHeightSections) {
-            int actualHeight = section.core().getSize().getHeight();
-            int expectedHeight = section.getProgressSectionHeightValueInPx();
-            assertEquals(actualHeight, expectedHeight);
-        }
-    }
+@Test
+public void heightOfSectionShouldBeValid() {
+   for (ProgressSection section : progressHeightSections) {
+       int actualHeight = section.core().getSize().getHeight();
+       int expectedHeight = section.getProgressSectionHeightValueInPx();
+       assertEquals(actualHeight, expectedHeight);
+   }
+}
 
-    @Test
-    public void heightOfBarShouldBeValid() {
-        for (ProgressSection section : progressHeightSections) {
-            int expectedBarHeight = section.getProgressSectionHeightValueInPx();
-            section.progress.is().height(expectedBarHeight);
-        }
-    }
+@Test
+public void heightOfBarShouldBeValid() {
+   for (ProgressSection section : progressHeightSections) {
+       int expectedBarHeight = section.getProgressSectionHeightValueInPx();
+       section.progress.is().height(expectedBarHeight);
+   }
+}
 
 ```
   
@@ -6917,7 +6921,7 @@ Use <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com
 
 Here is an example with provided Bootstrap v4.3 code:
   
-  ```java 
+```java 
 //@FindBy(css = "#progress-background-green")
 @UI("#progress-backgrounds-green") public static Progress progressBackgroundGreen;
 //@FindBy(css = "#progress-background-blue")
@@ -6928,26 +6932,26 @@ Here is an example with provided Bootstrap v4.3 code:
 @UI("#progress-backgrounds-red") public static Progress progressBackgroundRed;
 
 @DataProvider(name = "progressBackgroundsWithAttributes")
-    public static Object[][] progressBackgroundsWithAttributes() {
-        return new Object[][]{
-                {progressBackgroundGreen, 25, "rgba(40, 167, 69, 1)"},
-                {progressBackgroundBlue, 50, "rgba(23, 162, 184, 1)"},
-                {progressBackgroundYellow, 75, "rgba(255, 193, 7, 1)"},
-                {progressBackgroundRed, 100, "rgba(220, 53, 69, 1)"}
-        };
-    }
+public static Object[][] progressBackgroundsWithAttributes() {
+   return new Object[][]{
+           {progressBackgroundGreen, 25, "rgba(40, 167, 69, 1)"},
+           {progressBackgroundBlue, 50, "rgba(23, 162, 184, 1)"},
+           {progressBackgroundYellow, 75, "rgba(255, 193, 7, 1)"},
+           {progressBackgroundRed, 100, "rgba(220, 53, 69, 1)"}
+   };
+}
 
 @Test(dataProvider = "progressBackgroundsWithAttributes")
-    public void isValidationTest(ICoreElement progressBackground, int widthNumber, String color) {
-        progressBackground.core().is()
-                .tag(is("div"))
-                .attr("role", "progressbar")
-                .attr("style", String.format("width: %s%%;", widthNumber))
-                .attr("aria-valuenow", widthNumber + "")
-                .attr("aria-valuemin", "0")
-                .attr("aria-valuemax", "100")
-                .css("background-color", color);
-    }
+public void isValidationTest(ICoreElement progressBackground, int widthNumber, String color) {
+   progressBackground.core().is()
+           .tag(is("div"))
+           .attr("role", "progressbar")
+           .attr("style", String.format("width: %s%%;", widthNumber))
+           .attr("aria-valuenow", widthNumber + "")
+           .attr("aria-valuemin", "0")
+           .attr("aria-valuemax", "100")
+           .css("background-color", color);
+}
 
 ```
   
@@ -6991,9 +6995,9 @@ public void checkProgressData(String progressId, String value, String color,
             progressSection -> {
                 progressSection.progress.is().core().hasClass(classStriped);
                 progressSection.progress.is().value(value)
-                                             .color(color)
-                                             .minValue(min)
-                                             .maxValue(max);
+                        .color(color)
+                        .minValue(min)
+                        .maxValue(max);
             });
 }
 
@@ -7022,7 +7026,7 @@ public void checkProgressData(String progressId, String value, String color,
 </div>
 ```
 
-[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/listprogressbars/ProgressBarsListTests.java)
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/progress/ProgressBarsListTests.java" target=a_blank> Bootstrap test examples </a>
 
 <br><br><br><br><br><br>
 
@@ -7036,14 +7040,15 @@ Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
 //FindBy(css = "#progress-animated")
-@UI("#progress-animated") public static Progress progressAnimated;
+@UI("#progress-animated") 
+public static Progress progressAnimated;
 
 @Test
 public void isValidationTest() {
-    progressAnimated.is()
-            .animated("progress-bar-stripes")
-            .color("rgba(0, 123, 255, 1)")
-            .value("75");
+   progressAnimated.is()
+           .animated("progress-bar-stripes")
+           .color("rgba(0, 123, 255, 1)")
+           .value("75");
 }
 ```
   
@@ -7053,7 +7058,7 @@ public void isValidationTest() {
 </div>
 ```
 
-[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/progress/ProgressAnimatedStripesTests.java)
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/progress/ProgressAnimatedStripesTests.java" target=a_blank> Bootstrap test examples </a>
 <br><br><br><br><br><br><br><br>
 
 ###Spinners

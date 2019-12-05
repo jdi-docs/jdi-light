@@ -7080,26 +7080,23 @@ Spinners are represented by the following class in JDI:
   - __C#__: TBD
   
   
-  Available methods in Java JDI Light:
+ Available methods in Java JDI Light:
   
-  |Method/Property | Description | Return Type
-  --- | --- | ---
-  disappearAfter(int sec)|Wait when spinner disappear | Spinner
-  getColor() |Get item color | String
-  is()	 |  Assert action	| SpinnerAssert
-  color()	 |  Assert action	| SpinnerAssert
+|Method/Property | Description | Return Type
+--- | --- | ---
+**disappearAfter(int sec)**|Wait when spinner disappear | Spinner
+**getColor()** |Get item color | String
+**is()**	 |  Assert action	| SpinnerAssert
+**color()**	 |  Assert action	| SpinnerAssert
  
 
 **Border Spinner**
 
-<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/spinners/#border-spinner" target="_blank">Border Spinner</a> - use the border spinners for a lightweight loading indicator.
-
-![Border Spinner Example](../images/bootstrap/borderspinner.png)
-
 ```java 
 
 // @FindBy(id = "button-show-spinner-border")
-@UI("#button-show-spinner-border") public static Button buttonSpinnerBorder; 
+@UI("#button-show-spinner-border") 
+public static Button buttonSpinnerBorder; 
 // @FindBy(css = "#spinner-border")
 @UI("#spinner-border") public static Spinner spinnerBorder; 
 
@@ -7116,6 +7113,11 @@ public void checkSpinnerAppearAndThenDisappear() {
 
 ```
 
+<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/spinners/#border-spinner" target="_blank">Border Spinner</a> - use the border spinners for a lightweight loading indicator.
+
+![Border Spinner Example](../images/bootstrap/borderspinner.png)
+
+
 Here is an example with provided Bootstrap v4.3 code:
 
 ```html
@@ -7127,52 +7129,51 @@ Here is an example with provided Bootstrap v4.3 code:
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/spinner/SpinnerBorderTests.java)
 
 
-### Colors
+#### Colors
+ ```java 
+ // @FindBy(id = "spinner-text-primary")
+ @UI("#spinner-text-primary") 
+ public static Spinner spinnerWithTextPrimary; 
+ // @FindBy(css = "#spinner-text-light")
+ @UI("#spinner-text-light") 
+ public static Spinner spinnerWithTextLight; 
  
+ @Test(dataProvider = "Color Spinners")
+ public void assertColorTests(Spinner colorSpinner, String color)
+ {
+     colorSpinner.is().color(color);
+  }
+ 
+ @Test(dataProvider = "Color Spinners")
+ public void assertSpinnerColorTests(Spinner colorSpinner,
+                                             String color){
+     colorSpinner.is()
+         .core()
+         .cssClass(containsString(color));
+  }
+ 
+ @Test(dataProvider = "Color Spinners")
+ public void assertColorByHasClassTests(Spinner colorSpinner,
+                                                String color){
+     colorSpinner.core().hasClass("spinner-border" + color);
+  }
+ 
+ @Test(dataProvider = "Color Spinners")
+ public void isValidationTest(Spinner colorSpinner, String __){
+     colorSpinner.is()
+         .displayed()
+         .core()
+         .css("font-size", is("14px"))
+         .cssClass(containsString("spinner-border"))
+         .attr("role", "status");
+  }
+ ```
+
 The border spinner uses <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/spinners/#colors" target="_blank">currentColor</a>
  for its border-color, 
 meaning you can customize the color with <a href="https://getbootstrap.com/docs/4.3/utilities/colors/" target="_blank">text color utilities</a>. 
 You can use any of our text color utilities on the standard spinner.
 
-```java 
-
-
-
-
-
-
- // @FindBy(id = "spinner-text-primary")
- @UI("#spinner-text-primary") public static Spinner spinnerWithTextPrimary; 
- // @FindBy(css = "#spinner-text-light")
- @UI("#spinner-text-light") public static Spinner spinnerWithTextLight; 
-
- @Test(dataProvider = "Color Spinners")
- public void assertColorTests(Spinner colorSpinner, String color) {
-    colorSpinner.is().color(color);
- }
-
- @Test(dataProvider = "Color Spinners")
- public void assertSpinnerColorTests(Spinner colorSpinner, String color) {
-    colorSpinner.is()
-        .core()
-        .cssClass(containsString(color));
- }
-
- @Test(dataProvider = "Color Spinners")
- public void assertColorByHasClassTests(Spinner colorSpinner, String color) {
-    colorSpinner.core().hasClass("spinner-border" + color);
- }
-
- @Test(dataProvider = "Color Spinners")
- public void isValidationTest(Spinner colorSpinner, String __) {
-    colorSpinner.is()
-        .displayed()
-        .core()
-        .css("font-size", is("14px"))
-        .cssClass(containsString("spinner-border"))
-        .attr("role", "status");
- }
-```
 
 ![Colored Spinners Example](../images/bootstrap/coloredspinners.png)
 Here is an example with provided Bootstrap v4.3 code:
@@ -7206,16 +7207,9 @@ Here is an example with provided Bootstrap v4.3 code:
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/spinner/SpinnerColorTests.java" target="_blank">Bootstrap test example with colored spinners</a>
 
-<br>
+<br><br>
 
-### Growing Spinners
-
-If you don’t fancy a border spinner, switch to the <a style="font-weight: bold;" href="https://getbootstrap.com/docs/4.3/components/spinners/#growing-spinner" target="_blank">grow spinner</a>.
-
-Once again, this spinner is built with currentColor, so you can easily change its appearance with <a href="https://getbootstrap.com/docs/4.3/utilities/colors/" target="_blank">text color utilities</a>. 
-Below it is in blue, along with the supported variants.
-
-![Growing Spinners Example](../images/bootstrap/growingspinners.png)
+#### Growing Spinners
 
 ```java 
 
@@ -7268,6 +7262,14 @@ public void isValidationTest(Spinner spinner) {
 }
 ```
 
+If you don’t fancy a border spinner, switch to the <a style="font-weight: bold;" href="https://getbootstrap.com/docs/4.3/components/spinners/#growing-spinner" target="_blank">grow spinner</a>.
+
+Once again, this spinner is built with currentColor, so you can easily change its appearance with <a href="https://getbootstrap.com/docs/4.3/utilities/colors/" target="_blank">text color utilities</a>. 
+Below it is in blue, along with the supported variants.
+
+![Growing Spinners Example](../images/bootstrap/growingspinners.png)
+
+
 Here is an example with provided Bootstrap v4.3 code:
 
 ```html
@@ -7301,17 +7303,15 @@ Here is an example with provided Bootstrap v4.3 code:
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/spinner/GrowingSpinnersTests.java" target="_blank">Bootstrap Test Examples</a>
 
-### Spinner Alignment
+<br><br><br><br><br><br>
+
+#### Spinner Alignment
 
 Spinners in Bootstrap are built with ``rem``s, ``currentColor``, and ``display: inline-flex``. 
 This means they can easily be resized, recolored, and <a style="font-weight: bold;" href="https://getbootstrap.com/docs/4.3/components/spinners/#alignment" target="_blank">quickly aligned</a>.
 
 
 **Spinner Margin**
-
-Use margin utilities like ``.m-5`` for easy spacing.
-
-![Spinner Margin Example](../images/bootstrap/spinnermargin.png)
 
 ```java 
 
@@ -7330,10 +7330,16 @@ public void isValidationTest(Spinner spinner) {
 }
 
 @Test(dataProvider = "spinnerStyleData")
-public void spinnerAlignmentStyleTest(Spinner spinner, String style) {
+public void spinnerAlignmentStyleTest(Spinner spinner,
+                                       String style) {
     spinner.is().core().hasClass(style);
 }
 ```
+
+Use margin utilities like ``.m-5`` for easy spacing.
+
+![Spinner Margin Example](../images/bootstrap/spinnermargin.png)
+
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -7370,7 +7376,8 @@ Here are the examples with provided Bootstrap v4.3 code:
 
 ```html
 <div class="d-flex align-items-center border mb-3 p-3">
-    <div class="spinner-border ml-auto" role="status" aria-hidden="true"></div>
+    <div class="spinner-border ml-auto" role="status" 
+        aria-hidden="true"></div>
 </div>
 ```
 
@@ -7404,15 +7411,9 @@ Here is an example with provided Bootstrap v4.3 code:
 </div>
 ```
 
-<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/spinner/SpinnerAlignmentTests.java" target="_blank">Bootstrap Test Examples</a>
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/spinner/SpinnerAlignmentTests.java" target="_blank">Bootstrap Test Examples</a>
 
-### Spinner Size
-
-Add ``.spinner-border-sm`` and ``.spinner-grow-sm`` 
-to make a <a href="https://getbootstrap.com/docs/4.3/components/spinners/#size" target="_blank">smaller spinner</a> 
-that can quickly be used within other components.
-
-![Spinner Size Native Example](../images/bootstrap/spinner-size-native.png)
+#### Spinner Size
 
 ```java 
 
@@ -7436,9 +7437,12 @@ public Spinner spinner;
 @UI("#spinGrow")
 public Spinner growingSpinner;
 
-private static final String smallSpinnerClass = "spinner-border-sm";
-private static final String smallGrowingSpinnerClass = "spinner-grow-sm";
-private static final String spinnerStyleValue = "width: 3rem; height: 3rem; border: 3px dashed red;";
+private static final String smallSpinnerClass =
+                                     "spinner-border-sm";
+private static final String smallGrowingSpinnerClass =
+                                     "spinner-grow-sm";
+private static final String spinnerStyleValue = 
+        "width: 3rem; height: 3rem; border: 3px dashed red";
 
 @DataProvider
 public Object[][] spinnerData() {
@@ -7458,17 +7462,32 @@ public void isValidationTest(Spinner spinner) {
 
 @Test
 public void spinnerClassTest() {
-    spinnerSize.smallSpinner.is().core().hasClass(smallSpinnerClass);
-    spinnerSize.smallGrowingSpinner.is().core().hasClass(smallGrowingSpinnerClass);
+    spinnerSize.smallSpinner.is().core().
+    hasClass(smallSpinnerClass);
+    spinnerSize.smallGrowingSpinner.
+    is().
+    core().
+    hasClass(smallGrowingSpinnerClass);
 }
 
 @Test
 public void spinnerStylingTest() {
-    spinnerSize.spinner.is().core().attr("style", spinnerStyleValue);
-    spinnerSize.growingSpinner.is().core().attr("style", spinnerStyleValue);
+    spinnerSize.spinner.
+    is().core().
+    attr("style", spinnerStyleValue);
+    spinnerSize.growingSpinner.is().core().
+    attr("style", spinnerStyleValue);
 }
 ```
 
+Add ``.spinner-border-sm`` and ``.spinner-grow-sm`` 
+to make a <a href="https://getbootstrap.com/docs/4.3/components/spinners/#size" target="_blank">smaller spinner</a> 
+that can quickly be used within other components.
+
+![Spinner Size Native Example](../images/bootstrap/spinner-size-native.png)
+
+
+<br>
 Here is an example with provided Bootstrap v4.3 code:
 
 ```html
@@ -7481,29 +7500,34 @@ Here is an example with provided Bootstrap v4.3 code:
     </div>
 </div>
 ```
-
+<br>
 Or, use custom CSS or inline styles to change the dimensions as needed.
 
 ![Spinner Size CSS Example](../images/bootstrap/spinner-size-css.png)
 
+<br>
 Here is an example with provided Bootstrap v4.3 code:
 
 ```html
 <div id="spinner-size">
     <div class="border mb-3 p-3 text-center">
-        <div class="spinner-border" id="spinBorder" style="width: 3rem; height: 3rem;"
+        <div class="spinner-border" id="spinBorder"
+             style="width: 3rem; height: 3rem;"
              role="status">
             <span class="sr-only">Loading...</span>
         </div>
-        <div class="spinner-grow" id="spinGrow" style="width: 3rem; height: 3rem;"
+        <div class="spinner-grow" id="spinGrow"
+             style="width: 3rem; height: 3rem;"
              role="status">
             <span class="sr-only">Loading...</span>
         </div>
     </div>
 </div>
 ```
-
+<br>
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/spinner/SpinnerSizeTests.java" target="_blank">Bootstrap Test Examples</a>
+
+<br><br><br><br><br><br><br>
 
 ### Spinner Buttons
 
@@ -7515,7 +7539,7 @@ You may also swap the text out of the spinner element and utilize button text as
 Buttons with spinner are represented by ButtonWithSpinner class in Java:
  
  - __Java__: <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap/src/main/java/com/epam/jdi/light/ui/bootstrap/elements/complex/ButtonWithSpinner.java">ButtonWithSpinner</a>
-  - __C#__: TBD
+ - __C#__: TBD
 
 Available methods in Java JDI Light for ButtonWithSpinner:
 
@@ -7525,8 +7549,9 @@ Available methods in Java JDI Light for ButtonWithSpinner:
 **getText()** | Get button text | String
 **is()** | Assert action | TextAssert 
 
-Inner elements of are represented by following classes:
- + [Spinner](https://jdi-docs.github.io/jdi-light/#spinners)
+The inner element is  [Spinner](https://jdi-docs.github.io/jdi-light/#spinners)
+
+<br>
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/spinner/SpinnerButtonsTests.java" target="_blank">Bootstrap Test Examples</a>
 
@@ -7552,7 +7577,8 @@ public void checkButtonText() {
 
 @Test()
 public void checkSpinnerInButtonWithText() {
-    buttonWithSpinnerAndText.spinner.is().core().hasClass(spinnerClassName);
+    buttonWithSpinnerAndText.spinner.is().core()
+    .hasClass(spinnerClassName);
     buttonWithSpinnerAndText.spinner
         .is()
         .displayed()
@@ -7561,19 +7587,25 @@ public void checkSpinnerInButtonWithText() {
 }
 
 ```
-
+<br>
 Here is an example with provided Bootstrap v4.3 code:
 
 ```html
  <div class="border text-center p-3 mb-3">
-     <button class="btn btn-primary" type="button" disabled="" id="button-with-spinner">
-         <span class="spinner-border spinner-border-sm" role="status"
-               id=spinner-in-button" aria-hidden="true"></span>
+     <button class="btn btn-primary" type="button" 
+            disabled="" id="button-with-spinner">
+         <span class="spinner-border spinner-border-sm"
+               role="status"
+               id=spinner-in-button" aria-hidden="true">
+               
+        </span>
          <span class="sr-only">Loading...</span>
      </button>
-     <button class="btn btn-primary" type="button" disabled=""
+     <button class="btn btn-primary"
+             type="button" disabled=""
              id="button-with-spinner-and-text">
-         <span class="spinner-border spinner-border-sm" role="status"
+         <span class="spinner-border spinner-border-sm"
+               role="status"
                id=spinner-in-button-with-text"
                aria-hidden="true"></span>
          Loading...
@@ -7581,16 +7613,23 @@ Here is an example with provided Bootstrap v4.3 code:
  </div>
 
  <div class="border text-center p-3 mb-3">
-     <button class="btn btn-primary" type="button" disabled=""
+     <button class="btn btn-primary" 
+            type="button" disabled=""
              id="button-with-growing-spinner">
-         <span class="spinner-grow spinner-grow-sm" role="status"
-               id=growing-spinner-in-button" aria-hidden="true"></span>
+         <span class="spinner-grow spinner-grow-sm"
+                role="status"
+               id=growing-spinner-in-button" 
+               aria-hidden="true">             
+        </span>
          <span class="sr-only">Loading...</span>
      </button>
-     <button class="btn btn-primary" type="button" disabled=""
+     <button class="btn btn-primary" 
+             type="button" disabled=""
              id="button-with-growing-spinner-and-text">
-         <span class="spinner-grow spinner-grow-sm" role="status"
-               id=growing-spinner-in-button-with-text" aria-hidden="true"></span>
+         <span class="spinner-grow spinner-grow-sm"
+               role="status"
+               id=growing-spinner-in-button-with-text"
+                aria-hidden="true"></span>
          Loading...
      </button>
  </div>

@@ -7302,6 +7302,21 @@ Their appearance, alignment, and sizing can be easily customized with Bootstrap 
 
 For accessibility purposes, each loader in the examples below includes ``role="status"`` and a nested ``<span class="sr-only">Loading...</span>``.
 
+Spinners are represented by the following class in JDI:
+ 
+  - __Java__: <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap/src/main/java/com/epam/jdi/light/ui/bootstrap/elements/common/Spinner.java">Spinner</a>
+  - __C#__: TBD
+  
+  
+  Available methods in Java JDI Light:
+  
+  |Method/Property | Description | Return Type
+  --- | --- | ---
+  disappearAfter(int sec)|Wait when spinner disappear | Spinner
+  getColor() |Get item color | String
+  is()	 |  Assert action	| SpinnerAssert
+  color()	 |  Assert action	| SpinnerAssert
+ 
 
 **Border Spinner**
 
@@ -7337,25 +7352,13 @@ Here is an example with provided Bootstrap v4.3 code:
 </div>
 ```
 
-Border Spinner are represented by the following class:
- 
-  - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.common.Spinner_
-  
-Available methods in Java JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
-disappearAfter(int sec)|Wait when spinner dissapear | Spinner
-is()	 |  Assert action	| UIAssert
-assertThat()	 |  Assert action	| UIAssert  
-
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/spinner/SpinnerBorderTests.java)
 
 
-### Colored Spinners
+### Colors
  
-<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/spinners/#colors" target="_blank">Colored spinners</a>.
-The border spinner uses currentColor for its border-color, 
+The border spinner uses <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/spinners/#colors" target="_blank">currentColor</a>
+ for its border-color, 
 meaning you can customize the color with <a href="https://getbootstrap.com/docs/4.3/utilities/colors/" target="_blank">text color utilities</a>. 
 You can use any of our text color utilities on the standard spinner.
 
@@ -7367,29 +7370,29 @@ You can use any of our text color utilities on the standard spinner.
 
 
  // @FindBy(id = "spinner-text-primary")
- @UI("#spinner-text-primary") public static ColorSpinner spinnerWithTextPrimary; 
+ @UI("#spinner-text-primary") public static Spinner spinnerWithTextPrimary; 
  // @FindBy(css = "#spinner-text-light")
- @UI("#spinner-text-light") public static ColorSpinner spinnerWithTextLight; 
+ @UI("#spinner-text-light") public static Spinner spinnerWithTextLight; 
 
  @Test(dataProvider = "Color Spinners")
- public void assertColorTests(ColorSpinner colorSpinner, String color) {
+ public void assertColorTests(Spinner colorSpinner, String color) {
     colorSpinner.is().color(color);
  }
 
  @Test(dataProvider = "Color Spinners")
- public void assertSpinnerColorTests(ColorSpinner colorSpinner, String color) {
+ public void assertSpinnerColorTests(Spinner colorSpinner, String color) {
     colorSpinner.is()
         .core()
         .cssClass(containsString(color));
  }
 
  @Test(dataProvider = "Color Spinners")
- public void assertColorByHasClassTests(ColorSpinner colorSpinner, String color) {
+ public void assertColorByHasClassTests(Spinner colorSpinner, String color) {
     colorSpinner.core().hasClass("spinner-border" + color);
  }
 
  @Test(dataProvider = "Color Spinners")
- public void isValidationTest(ColorSpinner colorSpinner, String __) {
+ public void isValidationTest(Spinner colorSpinner, String __) {
     colorSpinner.is()
         .displayed()
         .core()
@@ -7429,17 +7432,7 @@ Here is an example with provided Bootstrap v4.3 code:
 </div>
 ```
 
-
-
-Available methods in Java JDI Light:
-
-|Method/Property | Description | Return Type
---- | --- | ---
-getColor() |Get item color | String
-is()	 |  Assert action	| UIAssert
-assertThat()	 |  Assert action	| UIAssert
-
-<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/ColorSpinnersTests.java" target="_blank">Bootstrap test example with colored spinners</a>
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/spinner/SpinnerColorTests.java" target="_blank">Bootstrap test example with colored spinners</a>
 
 <br>
 
@@ -7455,7 +7448,8 @@ Below it is in blue, along with the supported variants.
 ```java 
 
 // @FindBy(id = "growing-spinners")
-@UI("#growing-spinners") public static GrowingSpinners growingSpinners;
+@UI("#growing-spinners")
+public static GrowingSpinnersSection growingSpinners;
 
 // @FindBy(css = ".text-primary")
 @UI(".text-primary")
@@ -7533,20 +7527,7 @@ Here is an example with provided Bootstrap v4.3 code:
 </div>
 ```
 
-Spinner is represented by Section class in Java:
- 
-  [Section](https://jdi-docs.github.io/jdi-light/#section)
-
-Available methods in Java JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
-**is()** | Asserts element  | UIAssert
-**displayed()** | Asserts element is displayed  | UIAssert
-**enabled()** | Asserts element is enabled | UIAssert
-**hasClass()** | Match passed value with element class | UISelectAssert 
-
-<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/spinner/GrowingSpinnersTests.java" target="_blank">Bootstrap Test Examples</a>
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/spinner/GrowingSpinnersTests.java" target="_blank">Bootstrap Test Examples</a>
 
 ### Spinner Alignment
 
@@ -7563,7 +7544,8 @@ Use margin utilities like ``.m-5`` for easy spacing.
 ```java 
 
 // @FindBy(id = "spinner-alignment")
-@UI("#spinner-alignment") public static SpinnerAlignment spinnerAlignment
+@UI("#spinner-alignment") 
+public static SpinnerAlignmentSection spinnerAlignment
 
 @Test(dataProvider = "spinnerData")
 public void isValidationTest(Spinner spinner) {
@@ -7650,20 +7632,6 @@ Here is an example with provided Bootstrap v4.3 code:
 </div>
 ```
 
-Spinner is represented by Section class in Java:
- 
-  [Section](https://jdi-docs.github.io/jdi-light/#section)
-
-Available methods in Java JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
-**is()** | Asserts element  | UIAssert
-**displayed()** | Asserts element is displayed  | UIAssert
-**enabled()** | Asserts element is enabled | UIAssert
-**hasClass()** | Match passed value with element class | UISelectAssert
-**attr()** | Match passed value with element attribute | IsAssert
-
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/spinner/SpinnerAlignmentTests.java" target="_blank">Bootstrap Test Examples</a>
 
 ### Spinner Size
@@ -7677,7 +7645,8 @@ that can quickly be used within other components.
 ```java 
 
 // @FindBy(id = "spinner-size")
-@UI("#spinner-size") public static SpinnerSize spinnerSize;
+@UI("#spinner-size") 
+public static SpinnerSizeSection spinnerSize;
 
 // @FindBy(css = ".spinner-border-sm")
 @UI(".spinner-border-sm")
@@ -7762,21 +7731,7 @@ Here is an example with provided Bootstrap v4.3 code:
 </div>
 ```
 
-Spinner is represented by Section class in Java:
- 
-  [Section](https://jdi-docs.github.io/jdi-light/#section)
-
-Available methods in Java JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
-**is()** | Asserts element  | UIAssert
-**displayed()** | Asserts element is displayed  | UIAssert
-**enabled()** | Asserts element is enabled | UIAssert
-**hasClass()** | Match passed value with element class | UISelectAssert
-**attr()** | Match passed value with element attribute | IsAssert
-
-<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/spinner/SpinnerSizeTests.java" target="_blank">Bootstrap Test Examples</a>
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/spinner/SpinnerSizeTests.java" target="_blank">Bootstrap Test Examples</a>
 
 ####Spinner Buttons
 
@@ -7785,19 +7740,37 @@ You may also swap the text out of the spinner element and utilize button text as
 
 ![Spinner Buttons Example](../images/bootstrap/spinnerbuttons.png)
 
+Buttons with spinner are represented by ButtonWithSpinner class in Java:
+ 
+ - __Java__: <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap/src/main/java/com/epam/jdi/light/ui/bootstrap/elements/complex/ButtonWithSpinner.java">ButtonWithSpinner</a>
+  - __C#__: TBD
+
+Available methods in Java JDI Light for ButtonWithSpinner:
+
+|Method | Description | Return Type
+--- | --- | ---
+**click()** | Click the button  | void
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+
+Inner elements of are represented by following classes:
+ + [Spinner](https://jdi-docs.github.io/jdi-light/#spinners)
+
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/spinner/SpinnerButtonsTests.java" target="_blank">Bootstrap Test Examples</a>
+
+
 ```java 
 
-public class ButtonWithSpinner extends Button implements PageObject {
+public class ButtonWithSpinner extends Button{
     // @FindBy(css = "[class*='spinner']")
     public @UI("[class*='spinner']") Spinner spinner;
-    // @FindBy(css = "[class*='spinner'] + span")
-    public @UI("[class*='spinner'] + span")  TextField span;
 }
 
 // @FindBy(id = "#button-with-spinner-and-text")
-@UI("#button-with-spinner-and-text") public static ButtonWithSpinner buttonWithSpinnerAndText;
+@UI("#button-with-spinner-and-text") 
+public static ButtonWithSpinner buttonWithSpinnerAndText;
 
-private final String spinnerClass = "spinner-border";
+private final String spinnerClassName = "spinner-border";
 
 @Test()
 public void checkButtonText() {
@@ -7807,7 +7780,7 @@ public void checkButtonText() {
 
 @Test()
 public void checkSpinnerInButtonWithText() {
-    buttonWithSpinnerAndText.spinner.is().core().hasClass(spinnerClass);
+    buttonWithSpinnerAndText.spinner.is().core().hasClass(spinnerClassName);
     buttonWithSpinnerAndText.spinner
         .is()
         .displayed()
@@ -7851,25 +7824,6 @@ Here is an example with provided Bootstrap v4.3 code:
  </div>
 ```
 
-Spinner is represented by ButtonWithSpinner class in Java:
- 
-+ com.epam.jdi.light.ui.bootstrap.elements.complex.ButtonWithSpinner
-
-Available methods in Java JDI Light for ButtonWithSpinner:
-
-|Method | Description | Return Type
---- | --- | ---
-**click()** | Click the button  | void
-**getText()** | Get button text | String
-**is()** | Assert action | TextAssert 
-**assertThat()** | Assert action | TextAssert
-
-Inner elements of are represented by following classes:
-
- + [Text](https://jdi-docs.github.io/jdi-light/#text)
- + [Spinner](https://jdi-docs.github.io/jdi-light/#spinners)
-
-<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/spinner/SpinnerButtonsTests.java" target="_blank">Bootstrap Test Examples</a>
 
 ### Tooltip
 <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/tooltips/" target="_blank">Tooltip</a> is a hint that used in conjuction with a pointer.

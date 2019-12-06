@@ -2684,123 +2684,6 @@ DataTableAssert methods in Java:
 
 **DropDown** – A graphical control element that allows user to choose a single value from a list.
 
-![DropDown](../images/dropdown.png)
-
-JDI Light has support for dropdown elements with their own type. There are several ways of dropdown usage in JDI Light, each serving different needs.
-
-__JDI Dropdown annotation__
-
-For better use, JDI Light provides a __*@JDropdown*__ annotation to locate dropdown elements. This annotation consists of the following elements:
-
- - __*root()*__ - value of this element points to the root locator of dropdown element
- - __*value()*__ - locator of option selected by default in dropdown list
- - __*list()*__ - locator representing list options
- - __*expand()*__ - locator for expanding the dropdown list
- - __*how()*__ - type of locators with which elements will be identified. By default it is css
- 
-```java 
-@JDropdown(root = "div[ui=dropdown]",
-           value = ".filter-option",
-           list = "li",
-           expand = ".caret")
-public Droplist colors;
-
-@Test
-public void complexTest() {
-    metalAndColorsPage.shouldBeOpened();
-    metalAndColorsPage.colors.select(Green);
-}
-```
-
-```csharp 
-[JDropDown(root: "#colors", 
-           value: ".filter-option", 
-           list:"li", 
-           expand:".caret")]
-public Droplist Colors;
-
-[Test]
-public void ComplexTest() 
-{
-    MetalAndColorsPage.ShouldBeOpened();
-    MetalAndColorsPage.Colors.Select(Green);
-}
-```
-
-Suppose we have 'Colors' dropdown, which looks like this in HTML code:
-
-<!-- ![Dropdown HTML](../images/html/dropdown_html.png) -->
-
-```html 
-<div class="form-group colors" ui="dropdown" id="colors">
-    <select class="selectpicker uui-form-element" style="display: none;">
-        <option>Colors</option>
-        <option>Red</option>
-        <option>Green</option>
-        <option>Blue</option>
-        <option>Yellow</option>
-    </select>
-    <div class="btn-group bootstrap-select uui-form-element"><button type="button"
-            class="btn dropdown-toggle selectpicker btn-default" data-toggle="dropdown" title="Colors"><span
-                class="filter-option pull-left" value="">Colors</span>&nbsp;<span class="caret"></span></button>
-        <div class="dropdown-menu open" style="max-height: 933px; overflow: hidden; min-height: 90px;">
-            <ul class="dropdown-menu inner selectpicker" role="menu"
-                style="max-height: 921px; overflow-y: auto; min-height: 78px;">
-                <li rel="0" class="selected"><a tabindex="0" class="" style=""><span class="text">Colors</span>
-                    <i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
-                <li rel="1"><a tabindex="0" class="" style=""><span class="text">Red</span>
-                    <i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
-                <li rel="2"><a tabindex="0" class="" style=""><span class="text">Green</span>
-                    <i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
-                <li rel="3"><a tabindex="0" class="" style=""><span class="text">Blue</span>
-                    <i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
-                <li rel="4"><a tabindex="0" class="" style=""><span class="text">Yellow</span>
-                    <i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
-            </ul>
-        </div>
-    </div>
-</div>
-```
-
-__Dropdown representation__
-
-```java 
-public Droplist colors;
-@CSS("#colors") public Droplist colors;
-public Droplist colors = dropdown("#colors");
-public Droplist colors = $d("#colors");
-
-@Test
-public void colorsTest() {
-    colors.select(Green);
-    assertEquals(colors.selected(), Green);
-}
-```
-
-```csharp 
-public DropDown Colors;
-[FindBy(Css = "#colors")] 
-public DropDown Colors;
-
-[Test]
-public void ColorsTest() 
-{
-    Colors.Select(Green);
-    Assert.AreEquals(Colors.Selected(), Green);
-}
-```
-
-JDI Light provides a __Droplist__ class which can be used for dropdown representation as a type of web element.
-
-Simple locator annotations from *com.epam.jdi.light.elements.pageobjects.annotations.simple* can be used together with dropdown elements.
-
-<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-examples/src/test/java/io/github/epam/tests/epam/ComplexElementsTests.java" target="_blank">Test examples in Java</a>
-
-Dropdown lists in JDI light also support HTML5 elements. There is a __Dropdown__ class which is more like a special case of Droplist.
-This type can be used in cases when dropdown is represented with HTML _\<select>_ tag.
-
-Consider an example of HTML5 dropdown with the given HTML code:
-
 ```java 
 @UI("#dress-code") //@FindBy(id = "dress-code")
 public Dropdown dressCode;
@@ -2810,6 +2693,32 @@ public void selectEnumTest() {
     dressCode.select(Fancy);
     assertEquals(dressCode.getValue(), "Fancy");
 }
+
+@Test
+public void selectNumTest() {
+    dressCode.select(1);
+    assertEquals(dressCode.getValue(), "Fancy");
+}
+
+@Test
+public void selectedTest() {
+    dressCode.select(Pirate);
+    assertEquals(dressCode.selected(), "Pirate");
+    assertEquals(dressCode.getValue(), "Pirate");
+    assertEquals(dressCode.getText(), "Pirate");
+}
+
+@Test
+public void negativeDropdownTest() {
+    try {
+        dressCode.base().waitSec(1);
+        dressCode.select("Unknown");
+        fail("You have selected dressCode that does not exist in dropdown - something went wrong");
+    } catch (Exception ex) {
+        assertThat(safeException(ex), containsString("Cannot locate option with text: Unknown"));
+    }
+}
+    
 ```
 
 ```csharp 
@@ -2855,6 +2764,18 @@ public void BaseValidationTest()
 
 ```
 
+![DropDown](../images/dropdown.png)
+
+JDI Light has support for dropdown elements with their own type. There are several ways of dropdown usage in JDI Light, each serving different needs.
+
+__Dropdown representation__
+
+JDI Light provides a __Dropdown__ class which is using for dropdown representation as a type of web element.
+
+Also this class can be used when working with HTML5 elements in cases when dropdown is represented with HTML _\<select>_ tag.
+
+Consider an example of HTML5 dropdown with the given HTML code:
+
 ![Dropdown HTML5](../images/html/dropdown_html52.png)
 
 ```html
@@ -2865,6 +2786,103 @@ public void BaseValidationTest()
     <option value="pirate">Pirate</option>
 </select>
 ```
+
+__JDI Dropdown annotation__
+
+For better use, JDI Light provides a __*@JDropdown*__ annotation to locate dropdown elements. This annotation can be used in cases when working with a
+complex element that may consist of more a complicated html structure. JDropdown annotation allows customise navigation of the web element inner structure by using 
+annotation default methods.
+
+```java 
+@JDropdown(root = "div[ui=dropdown]",
+           value = ".filter-option",
+           list = "li",
+           expand = ".caret")
+public Droplist colors;
+
+@Test
+public void complexTest() {
+    metalAndColorsPage.shouldBeOpened();
+    metalAndColorsPage.colors.select(Green);
+}
+
+@Test
+public void navigationListTest() {
+    navigation.get(nContactForm).click();
+    contactFormPage.checkOpened();
+    navigation.get(nHome).click();
+    homePage.jdiText.is().text(containsString("QUIS NOSTRUD EXERCITATION"));
+    homePage.githubLink.click();
+    originalWindow();
+}
+
+@Test
+public void navigationMenuTest() {
+    navigationL.select(ContactForm);
+    contactFormPage.checkOpened();
+    navigationL.select(Home);
+    homePage.checkOpened();
+    navigationL.select(Service);
+    navigationL.select(ComplexTable);
+}
+
+```
+
+```csharp 
+[JDropDown(root: "#colors", 
+           value: ".filter-option", 
+           list:"li", 
+           expand:".caret")]
+public Droplist Colors;
+
+[Test]
+public void ComplexTest() 
+{
+    MetalAndColorsPage.ShouldBeOpened();
+    MetalAndColorsPage.Colors.Select(Green);
+}
+```
+
+<!-- ![Dropdown HTML](../images/html/dropdown_html.png) -->
+
+```html 
+<div class="form-group colors" ui="dropdown" id="colors">
+    <select class="selectpicker uui-form-element" style="display: none;">
+        <option>Colors</option>
+        <option>Red</option>
+        <option>Green</option>
+        <option>Blue</option>
+        <option>Yellow</option>
+    </select>
+    <div class="btn-group bootstrap-select uui-form-element"><button type="button"
+            class="btn dropdown-toggle selectpicker btn-default" data-toggle="dropdown" title="Colors"><span
+                class="filter-option pull-left" value="">Colors</span>&nbsp;<span class="caret"></span></button>
+        <div class="dropdown-menu open" style="max-height: 933px; overflow: hidden; min-height: 90px;">
+            <ul class="dropdown-menu inner selectpicker" role="menu"
+                style="max-height: 921px; overflow-y: auto; min-height: 78px;">
+                <li rel="0" class="selected"><a tabindex="0" class="" style=""><span class="text">Colors</span>
+                    <i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
+                <li rel="1"><a tabindex="0" class="" style=""><span class="text">Red</span>
+                    <i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
+                <li rel="2"><a tabindex="0" class="" style=""><span class="text">Green</span>
+                    <i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
+                <li rel="3"><a tabindex="0" class="" style=""><span class="text">Blue</span>
+                    <i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
+                <li rel="4"><a tabindex="0" class="" style=""><span class="text">Yellow</span>
+                    <i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+```
+
+JDropdown annotation consists of the following elements using which element inner structure can be customised:
+
+ - __*root()*__ - value of this element points to the root locator of dropdown element
+ - __*value()*__ - locator of option selected by default in dropdown list
+ - __*list()*__ - locator representing list options
+ - __*expand()*__ - locator for expanding the dropdown list
+ - __*how()*__ - type of locators with which elements will be identified. By default it is css
 
 Here is a list of some available methods:
 
@@ -2879,11 +2897,6 @@ Here is a list of some available methods:
 **size()** | Return amount of elements in the list | int
 **setup(Field field)** | Setup the dropdown using specified fields | void
 **sendKeys(CharSequence... charSequence)** | Send specific keys | void
-
-Available Assert methods in Java:
-
-|Method | Description | Return Type
---- | --- | ---
 **is()** | Applicable for performing assert actions for DropDown | ListAssert<UIElement>
 **assertThat()** | Applicable for performing assert actions for DropDown | ListAssert<UIElement>
 **has()** | Applicable for performing assert actions for DropDown | ListAssert<UIElement>
@@ -2906,7 +2919,8 @@ Available Assert methods in C#:
 
 <a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DropDownTests.cs" target="_blank">Test examples in C#</a>
 
-[BDD test examples](https://jdi-docs.github.io/jdi-light/?java#dropdown-2)
+[BDD test examples](https://jdi-docs.github.io/jdi-light/?java#dropdown-3)
+<br><br><br>
 
 ### MultiDropDown
 

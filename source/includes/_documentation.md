@@ -8359,6 +8359,842 @@ Available methods in Java JDI Light:
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/complex/MultipleProgressBarsTests.java)
 <br><br><br>
 
+### Navs
+
+***[Navs](https://getbootstrap.com/docs/4.3/components/navs/)*** - Different types of combination of navigation components.
+
+#### Base
+**[Base nav](https://getbootstrap.com/docs/4.3/components/navs/#base-nav)** 
+
+![Nav base example](../images/bootstrap/nav-base.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java 
+// @FindBy(css = "#nav-base-li") public static NavsBaseLi navsBaseLi;
+@UI("#nav-base-li") public static NavsBaseLi navsBaseLi;
+
+public class NavsBaseLi extends Section {
+    // @FindBy(css = "li") public ListGroup navItem;
+    @UI("li") public ListGroup navItem;
+    // @FindBy(css = "li a")  public ListGroup navItemLink;
+    @UI("li a") public ListGroup navItemLink;
+}
+
+@Test(dataProvider = "clickValidate")
+public void linkClickableLiTests(int index, String pageTitle) {
+    navsBaseLi.navItem.get(index).highlight();
+    navsBaseLi.navItem.get(index).click();
+    newWindowTitleCheck(pageTitle);
+    navsBaseLi.navItem.get(index).unhighlight();
+}
+
+@Test(dataProvider = "listData")
+public void itemsIsValidationTests(int index, String linkText) {
+    navsBaseLi.navItemLink.get(index).is()
+            .core()
+            .hasClass("nav-link")
+            .text(is(linkText));
+}
+
+@Test
+public void isValidationTests() {
+    navsBaseLi.navItem.is()
+            .size(4);
+    navsBaseLi.navItemLink.get(1)
+            .is()
+            .core()
+            .hasClass("active");
+    navsBaseLi.navItemLink.get(4)
+            .is()
+            .core()
+            .hasClass("disabled");
+}
+```
+
+```html
+<ul class="nav" id="nav-base-li">
+    <li class="nav-item">
+        <a class="nav-link active" href="https://jdi-testing.github.io/jdi-light/index.html"
+           target="_blank">Active</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="https://github.com/jdi-docs" target="_blank">JDI Docs</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="https://github.com/jdi-testing" target="_blank">JDI -
+            testing tool</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link disabled" href="https://getbootstrap.com" tabindex="-1"
+           aria-disabled="true" target="_blank">Disabled</a>
+    </li>
+</ul>
+```
+
+```html
+<nav class="nav" id="nav-base-a">
+    <a class="nav-link active" href="https://jdi-testing.github.io/jdi-light/index.html"
+       target="_blank">Active</a>
+    <a class="nav-link" href="https://github.com/jdi-docs" target="_blank">JDI Docs</a>
+    <a class="nav-link" href="https://github.com/jdi-testing" target="_blank">JDI - testing
+        tool</a>
+    <a class="nav-link disabled" href="https://getbootstrap.com" tabindex="-1"
+       aria-disabled="true" target="_blank">Disabled</a>
+</nav>
+```
+
+Available methods in Java JDI Light:
+
+All methods are inherited from base element -  [UIElement](https://jdi-docs.github.io/jdi-light/#uielement)
+
+Most applicable methods:
+
+|Method | Description | Return Type
+--- | --- | ---
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**get()** | Select button by index | UIElement
+**click()** | Get button text | void
+**highlight()** | Get button text | void
+**unhighlight()** | Get button text | void
+
+<br>
+
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navs/BaseTests.java)<br>
+
+Nav group is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+
+<br>
+
+#### Horizontal alignment
+**[Nav horizontal alignmen](https://getbootstrap.com/docs/4.3/components/navs/#horizontal-alignment)** 
+
+![Nav horizontal alignmen example](../images/bootstrap/nav-align-center.png)
+
+![Nav horizontal alignmen example](../images/bootstrap/nav-align-right.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java 
+// @FindBy(css = "#nav-center") public static NavsAlignmentCenter navsAlignmentCenter;
+@UI("#nav-center") public static NavsAlignmentCenter navsAlignmentCenter;
+
+public class NavsAlignmentCenter extends Section {
+    // @FindBy(css = "li") public ListGroup navItem;
+    @UI("li") public ListGroup navItem;
+    // @FindBy(css = "li a")  public ListGroup navItemLink;
+    @UI("li a") public ListGroup navItemLink;
+}
+
+@Test
+public void isValidationTests() {
+    navsAlignmentCenter.navItem.is()
+            .size(4);
+    navsAlignmentCenter.is()
+            .displayed()
+            .enabled()
+            .core()
+            .hasClass("nav justify-content-center");
+    navsAlignmentCenter.navItemLink.get(1)
+            .is()
+            .core()
+            .hasClass("active");
+}
+
+@Test(dataProvider = "listData")
+public void itemsIsValidationTests(int index, String linkText) {
+    navsAlignmentCenter.navItem.get(index)
+            .is()
+            .core()
+            .hasClass("nav-item")
+            .text(is(linkText));
+}
+
+@Test(dataProvider = "clickValidate")
+public void linkClickableLiTests(int index, String pageTitle) {
+    navsAlignmentCenter.navItem.get(index).highlight();
+    navsAlignmentCenter.navItem.get(index).click();
+    newWindowTitleCheck(pageTitle);
+    navsAlignmentCenter.navItem.get(index).unhighlight();
+}
+```
+
+```html
+<ul class="nav justify-content-center" id="nav-center">
+    <li class="nav-item">
+        <a class="nav-link active" href="https://jdi-testing.github.io/jdi-light/index.html"
+           target="_blank">Active</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="https://github.com/jdi-docs" target="_blank">JDI Docs</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="https://github.com/jdi-testing" target="_blank">JDI -
+            testing tool</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link disabled" href="https://getbootstrap.com" tabindex="-1"
+           aria-disabled="true" target="_blank">Disabled</a>
+    </li>
+</ul>
+```
+
+```html
+<ul class="nav justify-content-end" id="nav-end">
+    <li class="nav-item">
+        <a class="nav-link active" href="https://jdi-testing.github.io/jdi-light/index.html"
+           target="_blank">Active</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="https://github.com/jdi-docs" target="_blank">JDI Docs</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="https://github.com/jdi-testing" target="_blank">JDI -
+            testing tool</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link disabled" href="https://getbootstrap.com" tabindex="-1"
+           aria-disabled="true" target="_blank">Disabled</a>
+    </li>
+</ul>
+```
+
+Available methods in Java JDI Light:
+
+All methods are inherited from base element -  [UIElement](https://jdi-docs.github.io/jdi-light/#uielement)
+
+Most applicable methods:
+
+|Method | Description | Return Type
+--- | --- | ---
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**get()** | Select button by index | UIElement
+**click()** | Get button text | void
+**highlight()** | Get button text | void
+**unhighlight()** | Get button text | void
+
+<br>
+
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navs/AlignmentTests.java)<br>
+
+Nav group is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+
+<br>
+
+#### Vertical alignment
+**[Nav vertical alignmen](https://getbootstrap.com/docs/4.3/components/navs/#vertical)** 
+
+![Nav vertical alignmen example](../images/bootstrap/nav-vertical.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java 
+// @FindBy(css = "#nav-vert-li") public static NavsVerticalLi navsVerticalLi;
+@UI("#nav-vert-li") public static NavsVerticalLi navsVerticalLi;
+
+public class NavsVerticalLi extends Section {
+    // @FindBy(css = "li") public ListGroup navItem;
+    @UI("li") public ListGroup navItem;
+    // @FindBy(css = "li a")  public ListGroup navItemLink;
+    @UI("li a") public ListGroup navItemLink;
+}
+
+@Test
+public void isValidationTests() {
+    navsVerticalLi.navItem.is()
+            .size(4);
+    navsVerticalLi.is()
+            .displayed()
+            .enabled()
+            .core()
+            .hasClass("nav flex-column");
+    navsVerticalLi.navItemLink.get(1)
+            .is()
+            .core()
+            .hasClass("active");
+    navsVerticalLi.navItemLink.get(4)
+            .is()
+            .core()
+            .hasClass("disabled");
+}
+
+@Test(dataProvider = "clickValidate")
+public void linkClickableLiTests(int index, String pageTitle) {
+    navsVerticalLi.navItem.get(index).highlight();
+    navsVerticalLi.navItem.get(index).click();
+    newWindowTitleCheck(pageTitle);
+    navsVerticalLi.navItem.get(index).unhighlight();
+}
+```
+
+```html
+<ul class="nav flex-column" id="nav-vert-li">
+    <li class="nav-item">
+        <a class="nav-link active" href="https://jdi-testing.github.io/jdi-light/index.html"
+           target="_blank">Active</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="https://github.com/jdi-docs" target="_blank">JDI Docs</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="https://github.com/jdi-testing" target="_blank">JDI -
+            testing tool</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link disabled" href="https://getbootstrap.com" tabindex="-1"
+           aria-disabled="true" target="_blank">Disabled</a>
+    </li>
+</ul>
+```
+
+```html
+<nav class="nav flex-column" id="nav-vert-a">
+    <a class="nav-link active" href="https://jdi-testing.github.io/jdi-light/index.html"
+       target="_blank">Active</a>
+    <a class="nav-link" href="https://github.com/jdi-docs" target="_blank">JDI Docs</a>
+    <a class="nav-link" href="https://github.com/jdi-testing" target="_blank">JDI - testing
+        tool</a>
+    <a class="nav-link disabled" href="https://getbootstrap.com" tabindex="-1"
+       aria-disabled="true" target="_blank">Disabled</a>
+</nav>
+```
+
+
+Available methods in Java JDI Light:
+
+All methods are inherited from base element -  [UIElement](https://jdi-docs.github.io/jdi-light/#uielement)
+
+Most applicable methods:
+
+|Method | Description | Return Type
+--- | --- | ---
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**get()** | Select button by index | UIElement
+**click()** | Get button text | void
+**highlight()** | Get button text | void
+**unhighlight()** | Get button text | void
+
+<br>
+
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navs/VerticalTests.java)<br>
+
+Nav group is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+
+<br>
+
+#### Tabs
+**[Nav tabs](https://getbootstrap.com/docs/4.3/components/navs/#tabs)** 
+
+![Nav tabs example](../images/bootstrap/nav-tabs.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java 
+// @FindBy(css = "#nav-tabs") public static NavsTabs navsTabs;
+@UI("#nav-tabs") public static NavsTabs navsTabs;
+
+public class NavsTabs extends Section {
+    // @FindBy(css = "li") public ListGroup navItem;
+    @UI("li") public ListGroup navItem;
+    // @FindBy(css = "li a")  public ListGroup navItemLink;
+    @UI("li a") public ListGroup navItemLink;
+}
+
+@Test
+public void isValidationTests() {
+    navsTabs.navItem.is()
+            .size(4);
+    navsTabs.is()
+            .displayed()
+            .enabled()
+            .core()
+            .hasClass("nav nav-tabs");
+    navsTabs.navItemLink.get(1)
+            .is()
+            .core()
+            .hasClass("active");
+    navsTabs.navItemLink.get(4)
+            .is()
+            .core()
+            .hasClass("disabled");
+}
+
+@Test(dataProvider = "clickValidate")
+public void linkClickableLiTests(int index, String pageTitle) {
+    navsTabs.navItem.get(index).highlight();
+    navsTabs.navItem.get(index).click();
+    newWindowTitleCheck(pageTitle);
+    navsTabs.navItem.get(index).unhighlight();
+}
+```
+
+```html
+<ul class="nav nav-tabs" id="nav-tabs">
+    <li class="nav-item">
+        <a class="nav-link active" href="https://jdi-testing.github.io/jdi-light/index.html"
+           target="_blank">Active</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="https://github.com/jdi-docs" target="_blank">JDI Docs</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="https://github.com/jdi-testing" target="_blank">JDI -
+            testing tool</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link disabled" href="https://getbootstrap.com" tabindex="-1"
+           aria-disabled="true" target="_blank">Disabled</a>
+    </li>
+</ul>
+```
+
+
+Available methods in Java JDI Light:
+
+All methods are inherited from base element -  [UIElement](https://jdi-docs.github.io/jdi-light/#uielement)
+
+Most applicable methods:
+
+|Method | Description | Return Type
+--- | --- | ---
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**get()** | Select button by index | UIElement
+**click()** | Get button text | void
+**highlight()** | Get button text | void
+**unhighlight()** | Get button text | void
+
+<br>
+
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navs/TabsTests.java)<br>
+
+Nav group is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+
+<br>
+
+#### Pills
+**[Nav pills](https://getbootstrap.com/docs/4.3/components/navs/#pills)** 
+
+![Nav pills example](../images/bootstrap/nav-pills.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java 
+// @FindBy(css = "#nav-pills") public static NavsPills navsPills;
+@UI("#nav-pills") public static NavsPills navsPills;
+
+public class NavsPills extends Section {
+    // @FindBy(css = "li") public ListGroup navItem;
+    @UI("li") public ListGroup navItem;
+    // @FindBy(css = "li a")  public ListGroup navItemLink;
+    @UI("li a") public ListGroup navItemLink;
+}
+
+@Test(dataProvider = "listData")
+public void itemsIsValidationTests(int index, String linkText) {
+    navsPills.navItem.get(index)
+            .is()
+            .core()
+            .hasClass("nav-item")
+            .text(is(linkText));
+    navsPills.navItemLink.get(index)
+            .is()
+            .core()
+            .hasClass("nav-link")
+            .text(is(linkText));
+}
+
+@Test(dataProvider = "clickValidate")
+public void linkClickableLiTests(int index, String pageTitle) {
+    navsPills.navItem.get(index).highlight();
+    navsPills.navItem.get(index).click();
+    newWindowTitleCheck(pageTitle);
+    navsPills.navItem.get(index).unhighlight();
+}
+```
+
+```html
+<ul class="nav nav-pills" id="nav-pills">
+    <li class="nav-item">
+        <a class="nav-link active" href="https://jdi-testing.github.io/jdi-light/index.html"
+           target="_blank">Active</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="https://github.com/jdi-docs" target="_blank">JDI Docs</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="https://github.com/jdi-testing" target="_blank">JDI -
+            testing tool</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link disabled" href="https://getbootstrap.com" tabindex="-1"
+           aria-disabled="true" target="_blank">Disabled</a>
+    </li>
+</ul>
+```
+
+
+Available methods in Java JDI Light:
+
+All methods are inherited from base element -  [UIElement](https://jdi-docs.github.io/jdi-light/#uielement)
+
+Most applicable methods:
+
+|Method | Description | Return Type
+--- | --- | ---
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**get()** | Select button by index | UIElement
+**click()** | Get button text | void
+**highlight()** | Get button text | void
+**unhighlight()** | Get button text | void
+
+<br>
+
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navs/PillsTests.java)<br>
+
+Nav group is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+
+<br>
+
+#### Fill and justify
+**[Nav fill and justify](https://getbootstrap.com/docs/4.3/components/navs/#fill-and-justify)** 
+
+![Nav fill and justify example](../images/bootstrap/nav-fill-and-justify.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java 
+// @FindBy(css = "#nav-justify") public static NavsJustify navsJustify;
+@UI("#nav-justify") public static NavsJustify navsJustify;
+
+public class NavsJustify extends Section {
+    // @FindBy(css = "li") public ListGroup navItem;
+    @UI("li") public ListGroup navItem;
+    // @FindBy(css = "li a")  public ListGroup navItemLink;
+    @UI("li a") public ListGroup navItemLink;
+}
+
+@Test(dataProvider = "listData")
+public void itemsIsValidationTests(int index, String linkText) {
+    navsJustify.navItem.get(index)
+            .is()
+            .core()
+            .hasClass("nav-item")
+            .text(is(linkText));
+    navsJustify.navItemLink.get(index)
+            .is()
+            .core()
+            .hasClass("nav-link")
+            .text(is(linkText));
+}
+
+@Test(dataProvider = "clickValidate")
+public void linkClickableLiTests(int index, String pageTitle) {
+    navsJustify.navItem.get(index).highlight();
+    navsJustify.navItem.get(index).click();
+    newWindowTitleCheck(pageTitle);
+    navsJustify.navItem.get(index).unhighlight();
+}
+```
+
+```html
+<ul class="nav nav-pills nav-fill" id="nav-justify">
+    <li class="nav-item">
+        <a class="nav-link active" href="https://jdi-testing.github.io/jdi-light/index.html"
+           target="_blank">Active</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="https://github.com/jdi-docs" target="_blank">JDI Docs</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="https://github.com/jdi-testing" target="_blank">JDI - testing
+            tool</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link disabled" href="https://getbootstrap.com" tabindex="-1"
+           aria-disabled="true" target="_blank">Disabled</a>
+    </li>
+</ul>
+```
+
+
+Available methods in Java JDI Light:
+
+All methods are inherited from base element -  [UIElement](https://jdi-docs.github.io/jdi-light/#uielement)
+
+Most applicable methods:
+
+|Method | Description | Return Type
+--- | --- | ---
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**get()** | Select button by index | UIElement
+**click()** | Get button text | void
+**highlight()** | Get button text | void
+**unhighlight()** | Get button text | void
+
+<br>
+
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navs/FillAndJustifyTests.java)<br>
+
+Nav group is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+
+<br>
+
+#### Tabs with dropdowns
+**[Nav tabs with dropdowns](https://getbootstrap.com/docs/4.3/components/navs/#tabs-with-dropdowns)** 
+
+![Nav tabs with dropdowns example](../images/bootstrap/nav-tabs-with-dropdowns.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java 
+// @FindBy(css = "#nav-with-dropdown") public static NavsTabsWithDropdown navsTabsWithDropdown;
+@UI("#nav-with-dropdown") public static NavsTabsWithDropdown navsTabsWithDropdown;
+
+public class NavsTabsWithDropdown extends Section {
+    // @FindBy(css = "li") public ListGroup navItem;
+    @UI("li") public ListGroup navItem;
+    // @FindBy(css = "a.nav-link") public ListGroup navItemLink;
+    @UI("a.nav-link") public ListGroup navItemLink;
+    @JDropdown(expand = ".dropdown-toggle",
+            value = ".dropdown-toggle",
+            list = ".dropdown-item")
+    public Dropdown dropdownMenu;
+}
+
+@Test
+public void isValidationTests() {
+    navsTabsWithDropdown.navItem.is()
+            .size(4);
+    navsTabsWithDropdown.is()
+            .displayed()
+            .enabled()
+            .core()
+            .hasClass("nav nav-tabs");
+    navsTabsWithDropdown.navItemLink.get(1)
+            .is()
+            .core()
+            .hasClass("active");
+    navsTabsWithDropdown.navItemLink.get(4)
+            .is()
+            .core()
+            .hasClass("disabled");
+}
+
+@Test
+public void dropdownIsValidationTests() {
+    navsTabsWithDropdown.dropdownMenu.expand();
+    navsTabsWithDropdown.dropdownMenu
+            .is()
+            .displayed()
+            .expanded()
+            .enabled()
+            .size(4);
+    navsTabsWithDropdown.dropdownMenu
+            .is()
+            .core()
+            .attr("data-toggle", "dropdown")
+            .attr("aria-haspopup", "true")
+            .attr("aria-expanded", "true")
+            .attr("role", "button")
+            .tag("a");
+}
+```
+
+```html
+<ul class="nav nav-tabs" id="nav-with-dropdown">
+    <li class="nav-item">
+        <a class="nav-link active" href="https://jdi-testing.github.io/jdi-light/index.html"
+           target="_blank">Active</a>
+    </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+           aria-haspopup="true" aria-expanded="false">Dropdown</a>
+        <div class="dropdown-menu">
+            <a class="dropdown-item"
+               href="https://jdi-testing.github.io/jdi-light/index.html" target="_blank">JDI
+                home</a>
+            <a class="dropdown-item" href="https://github.com/jdi-docs" target="_blank">JDI
+                Docs</a>
+            <a class="dropdown-item" href="https://github.com/jdi-testing" target="_blank">JDI
+                - testing tool</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="https://getbootstrap.com" target="_blank">Bootstrap</a>
+        </div>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="https://github.com/jdi-testing" target="_blank">JDI -
+            testing tool</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link disabled" href="https://getbootstrap.com" tabindex="-1"
+           aria-disabled="true" target="_blank">Disabled</a>
+    </li>
+</ul>
+```
+
+
+Available methods in Java JDI Light:
+
+All methods are inherited from base element -  [UIElement](https://jdi-docs.github.io/jdi-light/#uielement)
+
+Most applicable methods:
+
+|Method | Description | Return Type
+--- | --- | ---
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**get()** | Select button by index | UIElement
+**click()** | Get button text | void
+**highlight()** | Get button text | void
+**unhighlight()** | Get button text | void
+**expand()** | Get button text | void
+**expanded()** | Get button text | TextAssert
+
+<br>
+
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navs/TabsWithDropdownTests.java)<br>
+
+Nav group is represented by Section class in Java:
+ 
+[Section](https://jdi-docs.github.io/jdi-light/#section)  
+
+#### Pills with dropdowns
+**[Nav pills with dropdowns](https://getbootstrap.com/docs/4.3/components/navs/#pills-with-dropdowns)** 
+
+![Nav pills with dropdowns example](../images/bootstrap/nav-pills-with-dropdowns.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java 
+// @FindBy(css = "#nav-pills-drop") public static NavsPillsWithDropdown navsPillsWithDropdown;
+@UI("#nav-pills-drop") public static NavsPillsWithDropdown navsPillsWithDropdown;
+
+public class NavsPillsWithDropdown extends Section {
+    // @FindBy(css = "li") public ListGroup navItem;
+    @UI("li") public ListGroup navItem;
+    // @FindBy(css = "a.nav-link") public ListGroup navItemLink;
+    @UI("a.nav-link") public ListGroup navItemLink;
+    @JDropdown(expand = ".dropdown-toggle",
+            value = ".dropdown-toggle",
+            list = ".dropdown-item")
+    public Dropdown dropdownMenu;
+}
+
+@Test
+public void dropdownIsValidationTests() {
+    navsPillsWithDropdown.dropdownMenu.expand();
+    navsPillsWithDropdown.dropdownMenu
+            .is()
+            .expanded()
+            .size(4)
+            .core()
+            .attr("data-toggle", "dropdown")
+            .attr("aria-haspopup", "true")
+            .attr("aria-expanded", "true")
+            .attr("role", "button")
+            .tag("a");
+    navsPillsWithDropdown.dropdownMenu.expand();
+}
+
+@Test
+public void dropdownClickableTests() {
+    navsPillsWithDropdown.dropdownMenu.select(linkDrop1);
+    newWindowTitleCheck(pageTitle1);
+    navsPillsWithDropdown.dropdownMenu.select(linkDrop2);
+    newWindowTitleCheck(pageTitle2);
+    navsPillsWithDropdown.dropdownMenu.select(linkDrop3);
+    newWindowTitleCheck(pageTitle3);
+    navsPillsWithDropdown.dropdownMenu.select(linkDrop4);
+    newWindowTitleCheck(pageTitle4);
+}
+```
+
+```html
+<ul class="nav nav-pills" id="nav-pills-drop">
+    <li class="nav-item">
+        <a class="nav-link active" href="https://jdi-testing.github.io/jdi-light/index.html"
+           target="_blank">Active</a>
+    </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+           aria-haspopup="true" aria-expanded="false">Dropdown</a>
+        <div class="dropdown-menu">
+            <a class="dropdown-item"
+               href="https://jdi-testing.github.io/jdi-light/index.html" target="_blank">JDI
+                home</a>
+            <a class="dropdown-item" href="https://github.com/jdi-docs" target="_blank">JDI
+                Docs</a>
+            <a class="dropdown-item" href="https://github.com/jdi-testing" target="_blank">JDI
+                - testing tool</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="https://getbootstrap.com" target="_blank">Bootstrap</a>
+        </div>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="https://github.com/jdi-testing" target="_blank">JDI -
+            testing tool</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link disabled" href="https://getbootstrap.com" tabindex="-1"
+           aria-disabled="true" target="_blank">Disabled</a>
+    </li>
+</ul>
+```
+
+Available methods in Java JDI Light:
+
+All methods are inherited from base element -  [UIElement](https://jdi-docs.github.io/jdi-light/#uielement)
+
+Most applicable methods:
+
+|Method | Description | Return Type
+--- | --- | ---
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**get()** | Select button by index | UIElement
+**click()** | Get button text | void
+**highlight()** | Get button text | void
+**unhighlight()** | Get button text | void
+**expand()** | Get button text | void
+**expanded()** | Get button text | TextAssertn
+
+<br>
+
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navs/PillsWithDropdownTests.java)<br>
+
+Nav group is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+
+<br>
+
+
 ### RadioButtons
 
   **RadioButtons** – extends from <a href="https://jdi-docs.github.io/jdi-light/#radiobuttons">HTML 5 RadioButtons</a> class.
@@ -11524,842 +12360,6 @@ Inner elements of input group can be represented by following classes:
     <li> [Button](https://jdi-docs.github.io/jdi-light/#button-2) </li> 
     <li> [MediaObject](https://jdi-docs.github.io/jdi-light/#media-object) </li>
 </ul>
-
-### Navs
-
-***[Navs](https://getbootstrap.com/docs/4.3/components/navs/)*** - Different types of combination of navigation components.
-
-#### Base
-**[Base nav](https://getbootstrap.com/docs/4.3/components/navs/#base-nav)** 
-
-![Nav base example](../images/bootstrap/nav-base.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-
-```java 
-// @FindBy(css = "#nav-base-li") public static NavsBaseLi navsBaseLi;
-@UI("#nav-base-li") public static NavsBaseLi navsBaseLi;
-
-public class NavsBaseLi extends Section {
-    // @FindBy(css = "li") public ListGroup navItem;
-    @UI("li") public ListGroup navItem;
-    // @FindBy(css = "li a")  public ListGroup navItemLink;
-    @UI("li a") public ListGroup navItemLink;
-}
-
-@Test(dataProvider = "clickValidate")
-public void linkClickableLiTests(int index, String pageTitle) {
-    navsBaseLi.navItem.get(index).highlight();
-    navsBaseLi.navItem.get(index).click();
-    newWindowTitleCheck(pageTitle);
-    navsBaseLi.navItem.get(index).unhighlight();
-}
-
-@Test(dataProvider = "listData")
-public void itemsIsValidationTests(int index, String linkText) {
-    navsBaseLi.navItemLink.get(index).is()
-            .core()
-            .hasClass("nav-link")
-            .text(is(linkText));
-}
-
-@Test
-public void isValidationTests() {
-    navsBaseLi.navItem.is()
-            .size(4);
-    navsBaseLi.navItemLink.get(1)
-            .is()
-            .core()
-            .hasClass("active");
-    navsBaseLi.navItemLink.get(4)
-            .is()
-            .core()
-            .hasClass("disabled");
-}
-```
-
-```html
-<ul class="nav" id="nav-base-li">
-    <li class="nav-item">
-        <a class="nav-link active" href="https://jdi-testing.github.io/jdi-light/index.html"
-           target="_blank">Active</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="https://github.com/jdi-docs" target="_blank">JDI Docs</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="https://github.com/jdi-testing" target="_blank">JDI -
-            testing tool</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link disabled" href="https://getbootstrap.com" tabindex="-1"
-           aria-disabled="true" target="_blank">Disabled</a>
-    </li>
-</ul>
-```
-
-```html
-<nav class="nav" id="nav-base-a">
-    <a class="nav-link active" href="https://jdi-testing.github.io/jdi-light/index.html"
-       target="_blank">Active</a>
-    <a class="nav-link" href="https://github.com/jdi-docs" target="_blank">JDI Docs</a>
-    <a class="nav-link" href="https://github.com/jdi-testing" target="_blank">JDI - testing
-        tool</a>
-    <a class="nav-link disabled" href="https://getbootstrap.com" tabindex="-1"
-       aria-disabled="true" target="_blank">Disabled</a>
-</nav>
-```
-
-Available methods in Java JDI Light:
-
-All methods are inherited from base element -  [UIElement](https://jdi-docs.github.io/jdi-light/#uielement)
-
-Most applicable methods:
-
-|Method | Description | Return Type
---- | --- | ---
-**getText()** | Get button text | String
-**is()** | Assert action | TextAssert 
-**assertThat()** | Assert action | TextAssert
-**get()** | Select button by index | UIElement
-**click()** | Get button text | void
-**highlight()** | Get button text | void
-**unhighlight()** | Get button text | void
-
-<br>
-
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navs/BaseTests.java)<br>
-
-Nav group is represented by Section class in Java:
- 
-  [Section](https://jdi-docs.github.io/jdi-light/#section)  
-
-<br>
-
-#### Horizontal alignment
-**[Nav horizontal alignmen](https://getbootstrap.com/docs/4.3/components/navs/#horizontal-alignment)** 
-
-![Nav horizontal alignmen example](../images/bootstrap/nav-align-center.png)
-
-![Nav horizontal alignmen example](../images/bootstrap/nav-align-right.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-
-```java 
-// @FindBy(css = "#nav-center") public static NavsAlignmentCenter navsAlignmentCenter;
-@UI("#nav-center") public static NavsAlignmentCenter navsAlignmentCenter;
-
-public class NavsAlignmentCenter extends Section {
-    // @FindBy(css = "li") public ListGroup navItem;
-    @UI("li") public ListGroup navItem;
-    // @FindBy(css = "li a")  public ListGroup navItemLink;
-    @UI("li a") public ListGroup navItemLink;
-}
-
-@Test
-public void isValidationTests() {
-    navsAlignmentCenter.navItem.is()
-            .size(4);
-    navsAlignmentCenter.is()
-            .displayed()
-            .enabled()
-            .core()
-            .hasClass("nav justify-content-center");
-    navsAlignmentCenter.navItemLink.get(1)
-            .is()
-            .core()
-            .hasClass("active");
-}
-
-@Test(dataProvider = "listData")
-public void itemsIsValidationTests(int index, String linkText) {
-    navsAlignmentCenter.navItem.get(index)
-            .is()
-            .core()
-            .hasClass("nav-item")
-            .text(is(linkText));
-}
-
-@Test(dataProvider = "clickValidate")
-public void linkClickableLiTests(int index, String pageTitle) {
-    navsAlignmentCenter.navItem.get(index).highlight();
-    navsAlignmentCenter.navItem.get(index).click();
-    newWindowTitleCheck(pageTitle);
-    navsAlignmentCenter.navItem.get(index).unhighlight();
-}
-```
-
-```html
-<ul class="nav justify-content-center" id="nav-center">
-    <li class="nav-item">
-        <a class="nav-link active" href="https://jdi-testing.github.io/jdi-light/index.html"
-           target="_blank">Active</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="https://github.com/jdi-docs" target="_blank">JDI Docs</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="https://github.com/jdi-testing" target="_blank">JDI -
-            testing tool</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link disabled" href="https://getbootstrap.com" tabindex="-1"
-           aria-disabled="true" target="_blank">Disabled</a>
-    </li>
-</ul>
-```
-
-```html
-<ul class="nav justify-content-end" id="nav-end">
-    <li class="nav-item">
-        <a class="nav-link active" href="https://jdi-testing.github.io/jdi-light/index.html"
-           target="_blank">Active</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="https://github.com/jdi-docs" target="_blank">JDI Docs</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="https://github.com/jdi-testing" target="_blank">JDI -
-            testing tool</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link disabled" href="https://getbootstrap.com" tabindex="-1"
-           aria-disabled="true" target="_blank">Disabled</a>
-    </li>
-</ul>
-```
-
-Available methods in Java JDI Light:
-
-All methods are inherited from base element -  [UIElement](https://jdi-docs.github.io/jdi-light/#uielement)
-
-Most applicable methods:
-
-|Method | Description | Return Type
---- | --- | ---
-**getText()** | Get button text | String
-**is()** | Assert action | TextAssert 
-**assertThat()** | Assert action | TextAssert
-**get()** | Select button by index | UIElement
-**click()** | Get button text | void
-**highlight()** | Get button text | void
-**unhighlight()** | Get button text | void
-
-<br>
-
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navs/AlignmentTests.java)<br>
-
-Nav group is represented by Section class in Java:
- 
-  [Section](https://jdi-docs.github.io/jdi-light/#section)  
-
-<br>
-
-#### Vertical alignment
-**[Nav vertical alignmen](https://getbootstrap.com/docs/4.3/components/navs/#vertical)** 
-
-![Nav vertical alignmen example](../images/bootstrap/nav-vertical.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-
-```java 
-// @FindBy(css = "#nav-vert-li") public static NavsVerticalLi navsVerticalLi;
-@UI("#nav-vert-li") public static NavsVerticalLi navsVerticalLi;
-
-public class NavsVerticalLi extends Section {
-    // @FindBy(css = "li") public ListGroup navItem;
-    @UI("li") public ListGroup navItem;
-    // @FindBy(css = "li a")  public ListGroup navItemLink;
-    @UI("li a") public ListGroup navItemLink;
-}
-
-@Test
-public void isValidationTests() {
-    navsVerticalLi.navItem.is()
-            .size(4);
-    navsVerticalLi.is()
-            .displayed()
-            .enabled()
-            .core()
-            .hasClass("nav flex-column");
-    navsVerticalLi.navItemLink.get(1)
-            .is()
-            .core()
-            .hasClass("active");
-    navsVerticalLi.navItemLink.get(4)
-            .is()
-            .core()
-            .hasClass("disabled");
-}
-
-@Test(dataProvider = "clickValidate")
-public void linkClickableLiTests(int index, String pageTitle) {
-    navsVerticalLi.navItem.get(index).highlight();
-    navsVerticalLi.navItem.get(index).click();
-    newWindowTitleCheck(pageTitle);
-    navsVerticalLi.navItem.get(index).unhighlight();
-}
-```
-
-```html
-<ul class="nav flex-column" id="nav-vert-li">
-    <li class="nav-item">
-        <a class="nav-link active" href="https://jdi-testing.github.io/jdi-light/index.html"
-           target="_blank">Active</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="https://github.com/jdi-docs" target="_blank">JDI Docs</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="https://github.com/jdi-testing" target="_blank">JDI -
-            testing tool</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link disabled" href="https://getbootstrap.com" tabindex="-1"
-           aria-disabled="true" target="_blank">Disabled</a>
-    </li>
-</ul>
-```
-
-```html
-<nav class="nav flex-column" id="nav-vert-a">
-    <a class="nav-link active" href="https://jdi-testing.github.io/jdi-light/index.html"
-       target="_blank">Active</a>
-    <a class="nav-link" href="https://github.com/jdi-docs" target="_blank">JDI Docs</a>
-    <a class="nav-link" href="https://github.com/jdi-testing" target="_blank">JDI - testing
-        tool</a>
-    <a class="nav-link disabled" href="https://getbootstrap.com" tabindex="-1"
-       aria-disabled="true" target="_blank">Disabled</a>
-</nav>
-```
-
-
-Available methods in Java JDI Light:
-
-All methods are inherited from base element -  [UIElement](https://jdi-docs.github.io/jdi-light/#uielement)
-
-Most applicable methods:
-
-|Method | Description | Return Type
---- | --- | ---
-**getText()** | Get button text | String
-**is()** | Assert action | TextAssert 
-**assertThat()** | Assert action | TextAssert
-**get()** | Select button by index | UIElement
-**click()** | Get button text | void
-**highlight()** | Get button text | void
-**unhighlight()** | Get button text | void
-
-<br>
-
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navs/VerticalTests.java)<br>
-
-Nav group is represented by Section class in Java:
- 
-  [Section](https://jdi-docs.github.io/jdi-light/#section)  
-
-<br>
-
-#### Tabs
-**[Nav tabs](https://getbootstrap.com/docs/4.3/components/navs/#tabs)** 
-
-![Nav tabs example](../images/bootstrap/nav-tabs.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-
-```java 
-// @FindBy(css = "#nav-tabs") public static NavsTabs navsTabs;
-@UI("#nav-tabs") public static NavsTabs navsTabs;
-
-public class NavsTabs extends Section {
-    // @FindBy(css = "li") public ListGroup navItem;
-    @UI("li") public ListGroup navItem;
-    // @FindBy(css = "li a")  public ListGroup navItemLink;
-    @UI("li a") public ListGroup navItemLink;
-}
-
-@Test
-public void isValidationTests() {
-    navsTabs.navItem.is()
-            .size(4);
-    navsTabs.is()
-            .displayed()
-            .enabled()
-            .core()
-            .hasClass("nav nav-tabs");
-    navsTabs.navItemLink.get(1)
-            .is()
-            .core()
-            .hasClass("active");
-    navsTabs.navItemLink.get(4)
-            .is()
-            .core()
-            .hasClass("disabled");
-}
-
-@Test(dataProvider = "clickValidate")
-public void linkClickableLiTests(int index, String pageTitle) {
-    navsTabs.navItem.get(index).highlight();
-    navsTabs.navItem.get(index).click();
-    newWindowTitleCheck(pageTitle);
-    navsTabs.navItem.get(index).unhighlight();
-}
-```
-
-```html
-<ul class="nav nav-tabs" id="nav-tabs">
-    <li class="nav-item">
-        <a class="nav-link active" href="https://jdi-testing.github.io/jdi-light/index.html"
-           target="_blank">Active</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="https://github.com/jdi-docs" target="_blank">JDI Docs</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="https://github.com/jdi-testing" target="_blank">JDI -
-            testing tool</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link disabled" href="https://getbootstrap.com" tabindex="-1"
-           aria-disabled="true" target="_blank">Disabled</a>
-    </li>
-</ul>
-```
-
-
-Available methods in Java JDI Light:
-
-All methods are inherited from base element -  [UIElement](https://jdi-docs.github.io/jdi-light/#uielement)
-
-Most applicable methods:
-
-|Method | Description | Return Type
---- | --- | ---
-**getText()** | Get button text | String
-**is()** | Assert action | TextAssert 
-**assertThat()** | Assert action | TextAssert
-**get()** | Select button by index | UIElement
-**click()** | Get button text | void
-**highlight()** | Get button text | void
-**unhighlight()** | Get button text | void
-
-<br>
-
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navs/TabsTests.java)<br>
-
-Nav group is represented by Section class in Java:
- 
-  [Section](https://jdi-docs.github.io/jdi-light/#section)  
-
-<br>
-
-#### Pills
-**[Nav pills](https://getbootstrap.com/docs/4.3/components/navs/#pills)** 
-
-![Nav pills example](../images/bootstrap/nav-pills.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-
-```java 
-// @FindBy(css = "#nav-pills") public static NavsPills navsPills;
-@UI("#nav-pills") public static NavsPills navsPills;
-
-public class NavsPills extends Section {
-    // @FindBy(css = "li") public ListGroup navItem;
-    @UI("li") public ListGroup navItem;
-    // @FindBy(css = "li a")  public ListGroup navItemLink;
-    @UI("li a") public ListGroup navItemLink;
-}
-
-@Test(dataProvider = "listData")
-public void itemsIsValidationTests(int index, String linkText) {
-    navsPills.navItem.get(index)
-            .is()
-            .core()
-            .hasClass("nav-item")
-            .text(is(linkText));
-    navsPills.navItemLink.get(index)
-            .is()
-            .core()
-            .hasClass("nav-link")
-            .text(is(linkText));
-}
-
-@Test(dataProvider = "clickValidate")
-public void linkClickableLiTests(int index, String pageTitle) {
-    navsPills.navItem.get(index).highlight();
-    navsPills.navItem.get(index).click();
-    newWindowTitleCheck(pageTitle);
-    navsPills.navItem.get(index).unhighlight();
-}
-```
-
-```html
-<ul class="nav nav-pills" id="nav-pills">
-    <li class="nav-item">
-        <a class="nav-link active" href="https://jdi-testing.github.io/jdi-light/index.html"
-           target="_blank">Active</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="https://github.com/jdi-docs" target="_blank">JDI Docs</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="https://github.com/jdi-testing" target="_blank">JDI -
-            testing tool</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link disabled" href="https://getbootstrap.com" tabindex="-1"
-           aria-disabled="true" target="_blank">Disabled</a>
-    </li>
-</ul>
-```
-
-
-Available methods in Java JDI Light:
-
-All methods are inherited from base element -  [UIElement](https://jdi-docs.github.io/jdi-light/#uielement)
-
-Most applicable methods:
-
-|Method | Description | Return Type
---- | --- | ---
-**getText()** | Get button text | String
-**is()** | Assert action | TextAssert 
-**assertThat()** | Assert action | TextAssert
-**get()** | Select button by index | UIElement
-**click()** | Get button text | void
-**highlight()** | Get button text | void
-**unhighlight()** | Get button text | void
-
-<br>
-
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navs/PillsTests.java)<br>
-
-Nav group is represented by Section class in Java:
- 
-  [Section](https://jdi-docs.github.io/jdi-light/#section)  
-
-<br>
-
-#### Fill and justify
-**[Nav fill and justify](https://getbootstrap.com/docs/4.3/components/navs/#fill-and-justify)** 
-
-![Nav fill and justify example](../images/bootstrap/nav-fill-and-justify.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-
-```java 
-// @FindBy(css = "#nav-justify") public static NavsJustify navsJustify;
-@UI("#nav-justify") public static NavsJustify navsJustify;
-
-public class NavsJustify extends Section {
-    // @FindBy(css = "li") public ListGroup navItem;
-    @UI("li") public ListGroup navItem;
-    // @FindBy(css = "li a")  public ListGroup navItemLink;
-    @UI("li a") public ListGroup navItemLink;
-}
-
-@Test(dataProvider = "listData")
-public void itemsIsValidationTests(int index, String linkText) {
-    navsJustify.navItem.get(index)
-            .is()
-            .core()
-            .hasClass("nav-item")
-            .text(is(linkText));
-    navsJustify.navItemLink.get(index)
-            .is()
-            .core()
-            .hasClass("nav-link")
-            .text(is(linkText));
-}
-
-@Test(dataProvider = "clickValidate")
-public void linkClickableLiTests(int index, String pageTitle) {
-    navsJustify.navItem.get(index).highlight();
-    navsJustify.navItem.get(index).click();
-    newWindowTitleCheck(pageTitle);
-    navsJustify.navItem.get(index).unhighlight();
-}
-```
-
-```html
-<ul class="nav nav-pills nav-fill" id="nav-justify">
-    <li class="nav-item">
-        <a class="nav-link active" href="https://jdi-testing.github.io/jdi-light/index.html"
-           target="_blank">Active</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="https://github.com/jdi-docs" target="_blank">JDI Docs</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="https://github.com/jdi-testing" target="_blank">JDI - testing
-            tool</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link disabled" href="https://getbootstrap.com" tabindex="-1"
-           aria-disabled="true" target="_blank">Disabled</a>
-    </li>
-</ul>
-```
-
-
-Available methods in Java JDI Light:
-
-All methods are inherited from base element -  [UIElement](https://jdi-docs.github.io/jdi-light/#uielement)
-
-Most applicable methods:
-
-|Method | Description | Return Type
---- | --- | ---
-**getText()** | Get button text | String
-**is()** | Assert action | TextAssert 
-**assertThat()** | Assert action | TextAssert
-**get()** | Select button by index | UIElement
-**click()** | Get button text | void
-**highlight()** | Get button text | void
-**unhighlight()** | Get button text | void
-
-<br>
-
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navs/FillAndJustifyTests.java)<br>
-
-Nav group is represented by Section class in Java:
- 
-  [Section](https://jdi-docs.github.io/jdi-light/#section)  
-
-<br>
-
-#### Tabs with dropdowns
-**[Nav tabs with dropdowns](https://getbootstrap.com/docs/4.3/components/navs/#tabs-with-dropdowns)** 
-
-![Nav tabs with dropdowns example](../images/bootstrap/nav-tabs-with-dropdowns.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-
-```java 
-// @FindBy(css = "#nav-with-dropdown") public static NavsTabsWithDropdown navsTabsWithDropdown;
-@UI("#nav-with-dropdown") public static NavsTabsWithDropdown navsTabsWithDropdown;
-
-public class NavsTabsWithDropdown extends Section {
-    // @FindBy(css = "li") public ListGroup navItem;
-    @UI("li") public ListGroup navItem;
-    // @FindBy(css = "a.nav-link") public ListGroup navItemLink;
-    @UI("a.nav-link") public ListGroup navItemLink;
-    @JDropdown(expand = ".dropdown-toggle",
-            value = ".dropdown-toggle",
-            list = ".dropdown-item")
-    public Dropdown dropdownMenu;
-}
-
-@Test
-public void isValidationTests() {
-    navsTabsWithDropdown.navItem.is()
-            .size(4);
-    navsTabsWithDropdown.is()
-            .displayed()
-            .enabled()
-            .core()
-            .hasClass("nav nav-tabs");
-    navsTabsWithDropdown.navItemLink.get(1)
-            .is()
-            .core()
-            .hasClass("active");
-    navsTabsWithDropdown.navItemLink.get(4)
-            .is()
-            .core()
-            .hasClass("disabled");
-}
-
-@Test
-public void dropdownIsValidationTests() {
-    navsTabsWithDropdown.dropdownMenu.expand();
-    navsTabsWithDropdown.dropdownMenu
-            .is()
-            .displayed()
-            .expanded()
-            .enabled()
-            .size(4);
-    navsTabsWithDropdown.dropdownMenu
-            .is()
-            .core()
-            .attr("data-toggle", "dropdown")
-            .attr("aria-haspopup", "true")
-            .attr("aria-expanded", "true")
-            .attr("role", "button")
-            .tag("a");
-}
-```
-
-```html
-<ul class="nav nav-tabs" id="nav-with-dropdown">
-    <li class="nav-item">
-        <a class="nav-link active" href="https://jdi-testing.github.io/jdi-light/index.html"
-           target="_blank">Active</a>
-    </li>
-    <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
-           aria-haspopup="true" aria-expanded="false">Dropdown</a>
-        <div class="dropdown-menu">
-            <a class="dropdown-item"
-               href="https://jdi-testing.github.io/jdi-light/index.html" target="_blank">JDI
-                home</a>
-            <a class="dropdown-item" href="https://github.com/jdi-docs" target="_blank">JDI
-                Docs</a>
-            <a class="dropdown-item" href="https://github.com/jdi-testing" target="_blank">JDI
-                - testing tool</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="https://getbootstrap.com" target="_blank">Bootstrap</a>
-        </div>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="https://github.com/jdi-testing" target="_blank">JDI -
-            testing tool</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link disabled" href="https://getbootstrap.com" tabindex="-1"
-           aria-disabled="true" target="_blank">Disabled</a>
-    </li>
-</ul>
-```
-
-
-Available methods in Java JDI Light:
-
-All methods are inherited from base element -  [UIElement](https://jdi-docs.github.io/jdi-light/#uielement)
-
-Most applicable methods:
-
-|Method | Description | Return Type
---- | --- | ---
-**getText()** | Get button text | String
-**is()** | Assert action | TextAssert 
-**assertThat()** | Assert action | TextAssert
-**get()** | Select button by index | UIElement
-**click()** | Get button text | void
-**highlight()** | Get button text | void
-**unhighlight()** | Get button text | void
-**expand()** | Get button text | void
-**expanded()** | Get button text | TextAssert
-
-<br>
-
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navs/TabsWithDropdownTests.java)<br>
-
-Nav group is represented by Section class in Java:
- 
-[Section](https://jdi-docs.github.io/jdi-light/#section)  
-
-#### Pills with dropdowns
-**[Nav pills with dropdowns](https://getbootstrap.com/docs/4.3/components/navs/#pills-with-dropdowns)** 
-
-![Nav pills with dropdowns example](../images/bootstrap/nav-pills-with-dropdowns.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-
-```java 
-// @FindBy(css = "#nav-pills-drop") public static NavsPillsWithDropdown navsPillsWithDropdown;
-@UI("#nav-pills-drop") public static NavsPillsWithDropdown navsPillsWithDropdown;
-
-public class NavsPillsWithDropdown extends Section {
-    // @FindBy(css = "li") public ListGroup navItem;
-    @UI("li") public ListGroup navItem;
-    // @FindBy(css = "a.nav-link") public ListGroup navItemLink;
-    @UI("a.nav-link") public ListGroup navItemLink;
-    @JDropdown(expand = ".dropdown-toggle",
-            value = ".dropdown-toggle",
-            list = ".dropdown-item")
-    public Dropdown dropdownMenu;
-}
-
-@Test
-public void dropdownIsValidationTests() {
-    navsPillsWithDropdown.dropdownMenu.expand();
-    navsPillsWithDropdown.dropdownMenu
-            .is()
-            .expanded()
-            .size(4)
-            .core()
-            .attr("data-toggle", "dropdown")
-            .attr("aria-haspopup", "true")
-            .attr("aria-expanded", "true")
-            .attr("role", "button")
-            .tag("a");
-    navsPillsWithDropdown.dropdownMenu.expand();
-}
-
-@Test
-public void dropdownClickableTests() {
-    navsPillsWithDropdown.dropdownMenu.select(linkDrop1);
-    newWindowTitleCheck(pageTitle1);
-    navsPillsWithDropdown.dropdownMenu.select(linkDrop2);
-    newWindowTitleCheck(pageTitle2);
-    navsPillsWithDropdown.dropdownMenu.select(linkDrop3);
-    newWindowTitleCheck(pageTitle3);
-    navsPillsWithDropdown.dropdownMenu.select(linkDrop4);
-    newWindowTitleCheck(pageTitle4);
-}
-```
-
-```html
-<ul class="nav nav-pills" id="nav-pills-drop">
-    <li class="nav-item">
-        <a class="nav-link active" href="https://jdi-testing.github.io/jdi-light/index.html"
-           target="_blank">Active</a>
-    </li>
-    <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
-           aria-haspopup="true" aria-expanded="false">Dropdown</a>
-        <div class="dropdown-menu">
-            <a class="dropdown-item"
-               href="https://jdi-testing.github.io/jdi-light/index.html" target="_blank">JDI
-                home</a>
-            <a class="dropdown-item" href="https://github.com/jdi-docs" target="_blank">JDI
-                Docs</a>
-            <a class="dropdown-item" href="https://github.com/jdi-testing" target="_blank">JDI
-                - testing tool</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="https://getbootstrap.com" target="_blank">Bootstrap</a>
-        </div>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="https://github.com/jdi-testing" target="_blank">JDI -
-            testing tool</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link disabled" href="https://getbootstrap.com" tabindex="-1"
-           aria-disabled="true" target="_blank">Disabled</a>
-    </li>
-</ul>
-```
-
-Available methods in Java JDI Light:
-
-All methods are inherited from base element -  [UIElement](https://jdi-docs.github.io/jdi-light/#uielement)
-
-Most applicable methods:
-
-|Method | Description | Return Type
---- | --- | ---
-**getText()** | Get button text | String
-**is()** | Assert action | TextAssert 
-**assertThat()** | Assert action | TextAssert
-**get()** | Select button by index | UIElement
-**click()** | Get button text | void
-**highlight()** | Get button text | void
-**unhighlight()** | Get button text | void
-**expand()** | Get button text | void
-**expanded()** | Get button text | TextAssertn
-
-<br>
-
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navs/PillsWithDropdownTests.java)<br>
-
-Nav group is represented by Section class in Java:
- 
-  [Section](https://jdi-docs.github.io/jdi-light/#section)  
-
-<br>
-
 
 ### List group
 

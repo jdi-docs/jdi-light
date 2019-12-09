@@ -2363,6 +2363,7 @@ Here is a list of available methods in Java:
 **webCell(int colNum, int rowNum)** | Returns all UIElements in the column according to cell position | List<UIElement>
   
 AssertTable methods in Java:
+
 | Method | Description | Return Type|
 --- | --- | ---
 **assertThat()** | Applicable for performing assert actions for tables | TableAssert
@@ -2917,18 +2918,61 @@ Available Assert methods in C#:
 [BDD test examples](https://jdi-docs.github.io/jdi-light/?java#dropdown-3)
 <br><br><br>
 
-### MultiDropDown
+### MultiDropdown
+
+**MultiDropdown** – A graphical control element that allows user to choose several values from a list.
+
+![DropDown](../images/multidropdown.png)
+
+JDI Light provides a MultiSelector class which is using for MultiDropdown representation as a type of web element.
 
 ```java 
 @UI("#multi-dropdown") //@FindBy(id = "multi-dropdown")
-public static MultiSelect multiDropdown;
+public static MultiSelector multiDropdown;
 
 @Test
 public void selectTest() {
+    if (isFireFox()) return;
+    multiDropdown.check("Electro", "Metalic");
+    assertEquals(multiDropdown.checked(), asList("Electro", "Metalic"));
+}
+
+@Test
+public void selectEnumTest() {
+    if (isFireFox()) return;
     multiDropdown.check(Wood, Steam);
     assertEquals(multiDropdown.checked(), asList("Steam", "Wood"));
 }
+
+@Test
+public void selectedTest() {
+    assertEquals(multiDropdown.selected(), text);
+}
+
+@Test
+public void disabledTest() {
+    if (isFireFox()) return;
+    multiDropdown.select("Disabled");
+    assertEquals(multiDropdown.selected(), "Steam");
+}
+
+@Test
+public void labelTest() {
+    assertEquals(multiDropdown.label().getText(), "Multi dropdown:");
+    multiDropdown.label().is().text(containsString("Multi"));
+}
+
+@Test
+public void isValidationTest() {
+    multiDropdown.is().selected("Steam");
+    multiDropdown.is().selected(Steam);
+    multiDropdown.assertThat().values(hasItem("Wood"));
+    multiDropdown.assertThat().disabled(hasItem("Disabled"))
+            .enabled(not(hasItem("Disabled")))
+            .enabled(hasItems("Electro", "Metalic"));
+}
 ```
+
 ```csharp 
 [FindBy(Css = "#multi-dropdown")]
 public MultiDropdown MultiDropdown { get; set; }
@@ -2989,10 +3033,6 @@ public void BaseValidationTest()
 }
 ```
 
-**MultiDropDown** – A graphical control element that allows user to choose several values from a list.
-
-![DropDown](../images/multidropdown.png)
-
 ```html
 <span class="multiselect-native-select">
     <select id="multi-dropdown" multiple="multiple">
@@ -3024,10 +3064,24 @@ public void BaseValidationTest()
 </span>
 ```
 
-MultiDropDown elements can be described by the following class:
+MultiDropdown are represented by the following classes:
 
- - __Java__: _com.epam.jdi.light.ui.html.complex.MultiDropdown_
+ - __Java__: _com.epam.jdi.light.ui.html.complex.MultiSelector_
  - __C#__: _JDI.Light.Elements.Composite.MultiDropdown_
+ 
+ The list of methods available for Java in JDI Light:
+ 
+|Method | Description | Return Type
+--- | --- | ---
+**check(String/String.../Enum.../int...)** |Select values in multi dropdown | void
+**uncheck(String.../Enum.../int...)** | Deselect values in multi dropdown | void
+**selected()** | Get selected value by default | String
+**checked()** | Get selected values | List\<String>
+**is()** | Applicable for performing assert actions for MultiDropdown | DataTableAssert
+**assertThat()** | Applicable for performing assert actions for MultiDropdown | DataTableAssert
+**has()** | Applicable for performing assert actions for MultiDropdown | DataTableAssert
+**waitFor()** | Applicable for performing assert actions for MultiDropdown | DataTableAssert
+**shouldBe()** | Applicable for performing assert actions for MultiDropdown | DataTableAssert
 
 Here is the list of some methods available for C# in JDI Light:
 
@@ -3040,11 +3094,6 @@ Here is the list of some methods available for C# in JDI Light:
 **OptionExists(string)** |Check whether option exists in list  | bool
 **Expand()** |Expand list  | void
 **Close()** |Close expanded list  | void
-
-Available assertion methods in C# for JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
 **Selected(string option)** |Check whether option is selected  | MultiDropdownAssert
 **Selected(Enum option)** |Check whether option is selected  | MultiDropdownAssert
 **Values(Matcher<IEnumerable<string>> condition)** |Check whether some values exist in MultiDropDown by some matcher  | MultiDropdownAssert
@@ -3052,15 +3101,6 @@ Available assertion methods in C# for JDI Light:
 **Enabled(Matcher<IEnumerable<string>> condition)** |Check whether some values are enabled in MultiDropDown by some matcher  | MultiDropdownAssert
 **Is** |Gets multiDropDown assert  | MultiDropdownAssert
 **AssertThat** |Gets multiDropDown assert  | MultiDropdownAssert
-
-The list of methods available for Java in JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
-**check(String/String.../Enum.../int...)** |Select values in multi dropdown | void
-**uncheck(String.../Enum.../int...)** | Deselect values in multi dropdown | void
-**selected()** | Get selected value by default | String
-**checked()** | Get selected values | List\<String>
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/MultiDropdownTests.java" target="_blank">Test examples in Java</a>
 

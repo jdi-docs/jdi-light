@@ -2520,18 +2520,8 @@ public void rowMatcherTest() {
 }
  
 @Test
-public void rowsMatcherTest() {
-   users.assertThat().allRows(d -> d.user.length() > 4);
-}
- 
-@Test
 public void atLeastMatcherTest() {
    users.assertThat().atLeast(3).rows(d -> d.type.contains("User"));
-}
- 
-@Test
-public void exactMatcherTest() {
-   users.assertThat().exact(2).rows(d -> d.description.contains(":VIP"));
 }
  
 @Test
@@ -2575,13 +2565,6 @@ public void lineByNameTest() {
 public void lineFilterTest() {
    MarvelUser line = users.line(d -> d.user.contains("Ivan"));
    validateUserRow(line);
-}
-
-@Test
-public void linesFilterTest() {
-   List<MarvelUser> filteredData = users.lines(d -> d.user.contains("Ivan"));
-   assertEquals(filteredData.size(), 1);
-   validateUserRow(filteredData.get(0));
 }
 
 @Test
@@ -2678,7 +2661,7 @@ DataTableAssert methods in Java:
 <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/RangeTests.java" target="_blank">Test examples in Java</a><br>
 
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#datatable-2)
-<br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 ### DropDown
 
@@ -2793,6 +2776,39 @@ For better use, JDI Light provides a __*@JDropdown*__ annotation to locate dropd
 complex element that may consist of more a complicated html structure. JDropdown annotation allows customise navigation of the web element inner structure by using 
 annotation default methods.
 
+<!-- ![Dropdown HTML](../images/html/dropdown_html.png) -->
+
+```html 
+<div class="form-group colors" ui="dropdown" id="colors">
+    <select class="selectpicker uui-form-element" style="display: none;">
+        <option>Colors</option>
+        <option>Red</option>
+        <option>Green</option>
+        <option>Blue</option>
+        <option>Yellow</option>
+    </select>
+    <div class="btn-group bootstrap-select uui-form-element"><button type="button"
+            class="btn dropdown-toggle selectpicker btn-default" data-toggle="dropdown" title="Colors"><span
+                class="filter-option pull-left" value="">Colors</span>&nbsp;<span class="caret"></span></button>
+        <div class="dropdown-menu open" style="max-height: 933px; overflow: hidden; min-height: 90px;">
+            <ul class="dropdown-menu inner selectpicker" role="menu"
+                style="max-height: 921px; overflow-y: auto; min-height: 78px;">
+                <li rel="0" class="selected"><a tabindex="0" class="" style=""><span class="text">Colors</span>
+                    <i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
+                <li rel="1"><a tabindex="0" class="" style=""><span class="text">Red</span>
+                    <i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
+                <li rel="2"><a tabindex="0" class="" style=""><span class="text">Green</span>
+                    <i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
+                <li rel="3"><a tabindex="0" class="" style=""><span class="text">Blue</span>
+                    <i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
+                <li rel="4"><a tabindex="0" class="" style=""><span class="text">Yellow</span>
+                    <i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+```
+
 ```java 
 @JDropdown(root = "div[ui=dropdown]",
            value = ".filter-option",
@@ -2841,39 +2857,6 @@ public void ComplexTest()
     MetalAndColorsPage.ShouldBeOpened();
     MetalAndColorsPage.Colors.Select(Green);
 }
-```
-
-<!-- ![Dropdown HTML](../images/html/dropdown_html.png) -->
-
-```html 
-<div class="form-group colors" ui="dropdown" id="colors">
-    <select class="selectpicker uui-form-element" style="display: none;">
-        <option>Colors</option>
-        <option>Red</option>
-        <option>Green</option>
-        <option>Blue</option>
-        <option>Yellow</option>
-    </select>
-    <div class="btn-group bootstrap-select uui-form-element"><button type="button"
-            class="btn dropdown-toggle selectpicker btn-default" data-toggle="dropdown" title="Colors"><span
-                class="filter-option pull-left" value="">Colors</span>&nbsp;<span class="caret"></span></button>
-        <div class="dropdown-menu open" style="max-height: 933px; overflow: hidden; min-height: 90px;">
-            <ul class="dropdown-menu inner selectpicker" role="menu"
-                style="max-height: 921px; overflow-y: auto; min-height: 78px;">
-                <li rel="0" class="selected"><a tabindex="0" class="" style=""><span class="text">Colors</span>
-                    <i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
-                <li rel="1"><a tabindex="0" class="" style=""><span class="text">Red</span>
-                    <i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
-                <li rel="2"><a tabindex="0" class="" style=""><span class="text">Green</span>
-                    <i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
-                <li rel="3"><a tabindex="0" class="" style=""><span class="text">Blue</span>
-                    <i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
-                <li rel="4"><a tabindex="0" class="" style=""><span class="text">Yellow</span>
-                    <i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
-            </ul>
-        </div>
-    </div>
-</div>
 ```
 
 JDropdown annotation consists of the following elements using which element inner structure can be customised:

@@ -2663,9 +2663,23 @@ DataTableAssert methods in Java:
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#datatable-2)
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-### DropDown
+### Dropdown
 
-**DropDown** – A graphical control element that allows user to choose a single value from a list.
+**Dropdown** – A graphical control element that allows user to choose a single value from a list.
+
+![DropDown](../images/dropdown.png)
+
+JDI Light has support for dropdown elements with their own type. There are several ways of dropdown usage in JDI Light, each serving different needs.
+
+__Dropdown representation__
+
+JDI Light provides a __Dropdown__ class which is using for dropdown representation as a type of web element.
+
+Also this class can be used when working with HTML5 elements in cases when dropdown is represented with HTML _\<select>_ tag.
+
+Consider an example of HTML5 dropdown with the given HTML code:
+
+![Dropdown HTML5](../images/html/dropdown_html52.png)
 
 ```java 
 @UI("#dress-code") //@FindBy(id = "dress-code")
@@ -2747,20 +2761,6 @@ public void BaseValidationTest()
 
 ```
 
-![DropDown](../images/dropdown.png)
-
-JDI Light has support for dropdown elements with their own type. There are several ways of dropdown usage in JDI Light, each serving different needs.
-
-__Dropdown representation__
-
-JDI Light provides a __Dropdown__ class which is using for dropdown representation as a type of web element.
-
-Also this class can be used when working with HTML5 elements in cases when dropdown is represented with HTML _\<select>_ tag.
-
-Consider an example of HTML5 dropdown with the given HTML code:
-
-![Dropdown HTML5](../images/html/dropdown_html52.png)
-
 ```html
 <select id="dress-code">
     <option value="fancy">Fancy</option>
@@ -2770,6 +2770,8 @@ Consider an example of HTML5 dropdown with the given HTML code:
 </select>
 ```
 
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
 __JDI Dropdown annotation__
 
 For better use, JDI Light provides a __*@JDropdown*__ annotation to locate dropdown elements. This annotation can be used in cases when working with a
@@ -2777,37 +2779,6 @@ complex element that may consist of more a complicated html structure. JDropdown
 annotation default methods.
 
 <!-- ![Dropdown HTML](../images/html/dropdown_html.png) -->
-
-```html 
-<div class="form-group colors" ui="dropdown" id="colors">
-    <select class="selectpicker uui-form-element" style="display: none;">
-        <option>Colors</option>
-        <option>Red</option>
-        <option>Green</option>
-        <option>Blue</option>
-        <option>Yellow</option>
-    </select>
-    <div class="btn-group bootstrap-select uui-form-element"><button type="button"
-            class="btn dropdown-toggle selectpicker btn-default" data-toggle="dropdown" title="Colors"><span
-                class="filter-option pull-left" value="">Colors</span>&nbsp;<span class="caret"></span></button>
-        <div class="dropdown-menu open" style="max-height: 933px; overflow: hidden; min-height: 90px;">
-            <ul class="dropdown-menu inner selectpicker" role="menu"
-                style="max-height: 921px; overflow-y: auto; min-height: 78px;">
-                <li rel="0" class="selected"><a tabindex="0" class="" style=""><span class="text">Colors</span>
-                    <i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
-                <li rel="1"><a tabindex="0" class="" style=""><span class="text">Red</span>
-                    <i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
-                <li rel="2"><a tabindex="0" class="" style=""><span class="text">Green</span>
-                    <i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
-                <li rel="3"><a tabindex="0" class="" style=""><span class="text">Blue</span>
-                    <i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
-                <li rel="4"><a tabindex="0" class="" style=""><span class="text">Yellow</span>
-                    <i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
-            </ul>
-        </div>
-    </div>
-</div>
-```
 
 ```java 
 @JDropdown(root = "div[ui=dropdown]",
@@ -2857,6 +2828,37 @@ public void ComplexTest()
     MetalAndColorsPage.ShouldBeOpened();
     MetalAndColorsPage.Colors.Select(Green);
 }
+```
+
+```html 
+<div class="form-group colors" ui="dropdown" id="colors">
+    <select class="selectpicker uui-form-element" style="display: none;">
+        <option>Colors</option>
+        <option>Red</option>
+        <option>Green</option>
+        <option>Blue</option>
+        <option>Yellow</option>
+    </select>
+    <div class="btn-group bootstrap-select uui-form-element"><button type="button"
+            class="btn dropdown-toggle selectpicker btn-default" data-toggle="dropdown" title="Colors"><span
+                class="filter-option pull-left" value="">Colors</span>&nbsp;<span class="caret"></span></button>
+        <div class="dropdown-menu open" style="max-height: 933px; overflow: hidden; min-height: 90px;">
+            <ul class="dropdown-menu inner selectpicker" role="menu"
+                style="max-height: 921px; overflow-y: auto; min-height: 78px;">
+                <li rel="0" class="selected"><a tabindex="0" class="" style=""><span class="text">Colors</span>
+                    <i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
+                <li rel="1"><a tabindex="0" class="" style=""><span class="text">Red</span>
+                    <i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
+                <li rel="2"><a tabindex="0" class="" style=""><span class="text">Green</span>
+                    <i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
+                <li rel="3"><a tabindex="0" class="" style=""><span class="text">Blue</span>
+                    <i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
+                <li rel="4"><a tabindex="0" class="" style=""><span class="text">Yellow</span>
+                    <i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
 ```
 
 JDropdown annotation consists of the following elements using which element inner structure can be customised:

@@ -2515,6 +2515,16 @@ public void commonMatchersTest() {
 }
  
 @Test
+public void rowMatcherTest() {
+   users.has().row(d -> d.user.contains("Ivan"));
+}
+ 
+@Test
+public void rowsMatcherTest() {
+   users.assertThat().allRows(d -> d.user.length() > 4);
+}
+ 
+@Test
 public void atLeastMatcherTest() {
    users.assertThat().atLeast(3).rows(d -> d.type.contains("User"));
 }
@@ -2565,6 +2575,13 @@ public void lineByNameTest() {
 public void lineFilterTest() {
    MarvelUser line = users.line(d -> d.user.contains("Ivan"));
    validateUserRow(line);
+}
+
+@Test
+public void linesFilterTest() {
+   List<MarvelUser> filteredData = users.lines(d -> d.user.contains("Ivan"));
+   assertEquals(filteredData.size(), 1);
+   validateUserRow(filteredData.get(0));
 }
 
 @Test
@@ -2661,7 +2678,7 @@ DataTableAssert methods in Java:
 <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/RangeTests.java" target="_blank">Test examples in Java</a><br>
 
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#datatable-2)
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br>
 
 ### DropDown
 
@@ -2776,39 +2793,6 @@ For better use, JDI Light provides a __*@JDropdown*__ annotation to locate dropd
 complex element that may consist of more a complicated html structure. JDropdown annotation allows customise navigation of the web element inner structure by using 
 annotation default methods.
 
-<!-- ![Dropdown HTML](../images/html/dropdown_html.png) -->
-
-```html 
-<div class="form-group colors" ui="dropdown" id="colors">
-    <select class="selectpicker uui-form-element" style="display: none;">
-        <option>Colors</option>
-        <option>Red</option>
-        <option>Green</option>
-        <option>Blue</option>
-        <option>Yellow</option>
-    </select>
-    <div class="btn-group bootstrap-select uui-form-element"><button type="button"
-            class="btn dropdown-toggle selectpicker btn-default" data-toggle="dropdown" title="Colors"><span
-                class="filter-option pull-left" value="">Colors</span>&nbsp;<span class="caret"></span></button>
-        <div class="dropdown-menu open" style="max-height: 933px; overflow: hidden; min-height: 90px;">
-            <ul class="dropdown-menu inner selectpicker" role="menu"
-                style="max-height: 921px; overflow-y: auto; min-height: 78px;">
-                <li rel="0" class="selected"><a tabindex="0" class="" style=""><span class="text">Colors</span>
-                    <i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
-                <li rel="1"><a tabindex="0" class="" style=""><span class="text">Red</span>
-                    <i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
-                <li rel="2"><a tabindex="0" class="" style=""><span class="text">Green</span>
-                    <i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
-                <li rel="3"><a tabindex="0" class="" style=""><span class="text">Blue</span>
-                    <i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
-                <li rel="4"><a tabindex="0" class="" style=""><span class="text">Yellow</span>
-                    <i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
-            </ul>
-        </div>
-    </div>
-</div>
-```
-
 ```java 
 @JDropdown(root = "div[ui=dropdown]",
            value = ".filter-option",
@@ -2857,6 +2841,39 @@ public void ComplexTest()
     MetalAndColorsPage.ShouldBeOpened();
     MetalAndColorsPage.Colors.Select(Green);
 }
+```
+
+<!-- ![Dropdown HTML](../images/html/dropdown_html.png) -->
+
+```html 
+<div class="form-group colors" ui="dropdown" id="colors">
+    <select class="selectpicker uui-form-element" style="display: none;">
+        <option>Colors</option>
+        <option>Red</option>
+        <option>Green</option>
+        <option>Blue</option>
+        <option>Yellow</option>
+    </select>
+    <div class="btn-group bootstrap-select uui-form-element"><button type="button"
+            class="btn dropdown-toggle selectpicker btn-default" data-toggle="dropdown" title="Colors"><span
+                class="filter-option pull-left" value="">Colors</span>&nbsp;<span class="caret"></span></button>
+        <div class="dropdown-menu open" style="max-height: 933px; overflow: hidden; min-height: 90px;">
+            <ul class="dropdown-menu inner selectpicker" role="menu"
+                style="max-height: 921px; overflow-y: auto; min-height: 78px;">
+                <li rel="0" class="selected"><a tabindex="0" class="" style=""><span class="text">Colors</span>
+                    <i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
+                <li rel="1"><a tabindex="0" class="" style=""><span class="text">Red</span>
+                    <i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
+                <li rel="2"><a tabindex="0" class="" style=""><span class="text">Green</span>
+                    <i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
+                <li rel="3"><a tabindex="0" class="" style=""><span class="text">Blue</span>
+                    <i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
+                <li rel="4"><a tabindex="0" class="" style=""><span class="text">Yellow</span>
+                    <i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
 ```
 
 JDropdown annotation consists of the following elements using which element inner structure can be customised:
@@ -9204,6 +9221,348 @@ Nav group is represented by Section class in Java:
   
   <br>
 
+### Toast
+<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/toasts/" target="_blank">Toast</a> - Toasts are lightweight notifications designed to mimic the push notifications.
+<br />
+__Options for toasts:__
+<br />
+ - _Animation<br/>_
+ - _Autohide <br/>_
+ - _Delay <br/>_
+ <br/>
+__Events for toasts:__
+<br>
+  - _show.bs.toast_ - this event fires immediately when the show instance method is called.<br/>
+  - _shown.bs.toast_ - this event is fired when the toast has been made visible to the user<br/>
+  - _hide.bs.toast_ - this event is fired immediately when the hide instance method has been called.<br/>
+  - _hidden.bs.toast_ - this event is fired when the toast has finished being hidden from the user<br/>
+ <br /> 
+
+<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/toasts/#basic" target="_blank">**Simple Toast**</a>
+<br />
+
+![Simple toast example](../images/bootstrap/toast.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+```java 
+//@FindBy(id="simpleToast")
+@UI("#simpleToast") public static Toast simpleToast; 
+
+@Test
+public void simpleToastValidationTest() {
+    simpleToastButton.click();
+    simpleToast.is().displayed();
+    simpleToast.headerText.is().text(toastHeaderText);
+    simpleToast.body.is().text(toastBodyText);
+}
+
+```
+  
+```html
+<div class="toast" role="alert" data-animation="false" aria-live="assertive"
+     aria-atomic="true" id="simpleToast">
+    <div class="toast-header">
+        <img src="images/range-circle.png" class="rounded mr-2" alt="...">
+        <strong class="mr-auto">Bootstrap</strong>
+        <small class="text-muted">11 mins ago</small>
+        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast"
+                aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="toast-body">
+        Hello, world! This is a toast message.
+    </div>
+</div>
+```
+
+<br>
+
+<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/toasts/#translucent" target="_blank">**Translucent Toast**</a>
+
+
+![Translucent toast example](../images/bootstrap/toast_center.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java 
+//@FindBy(id="translucentToast")
+@UI("#translucentToast") public static Toast translucentToast; 
+
+@Test
+public void translucentToastValidationTest() {
+    translucentToastButton.click();
+    translucentToast.is().displayed();
+    translucentToast.headerText.is().text(toastHeaderText);
+    translucentToast.body.is().text(toastBodyText);
+}
+
+```
+  
+```html
+<div aria-live="polite" aria-atomic="true"
+     style="min-height: 200px;background-color: grey;">
+    <div class="toast" role="alert" data-animation="false" aria-live="assertive"
+         aria-atomic="true" id="translucentToast">
+        <div class="toast-header">
+            <img src="images/range-circle.png" class="rounded mr-2" alt="...">
+            <strong class="mr-auto">Bootstrap</strong>
+            <small class="text-muted">11 mins ago</small>
+            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast"
+                    aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="toast-body">
+            Hello, world! This is a toast message.
+        </div>
+    </div>
+</div>
+```
+
+<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/toasts/#stacking" target="_blank">**Stacking**</a>
+
+When you have multiple toasts, we default to vertically stacking them in a readable manner
+
+![Toast stack example](../images/bootstrap/stack_of_toast.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+```java 
+//@FindBy(id="firstMultipleToast")
+@UI("#firstMultipleToast") public static Toast firstStackToast; 
+//@FindBy(id="secondMultipleToast")
+@UI("#secondMultipleToast") public static Toast secondStackToast; 
+
+@Test
+public void stackOfToastsValidationTest() {
+    stackOfToastsButton.click();
+    firstStackToast.is().displayed();
+    secondStackToast.is().displayed();
+    firstStackToast.headerText.is().text(toastHeaderText);
+    firstStackToast.body.is().text(stackToastBodyText);
+    secondStackToast.headerText.is().text(toastHeaderText);
+    secondStackToast.body.is().text(secondStackToastBodyText);
+}
+
+```
+  
+```html
+<div aria-live="polite" aria-atomic="true"
+     style="min-height: 200px;background-color: grey;">
+    <div class="toast several" role="alert" aria-live="assertive" id="firstMultipleToast"
+         aria-atomic="true">
+        <div class="toast-header">
+            <img src="images/range-circle.png" class="rounded mr-2" alt="...">
+            <strong class="mr-auto">Bootstrap</strong>
+            <small class="text-muted">just now</small>
+            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast"
+                    aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="toast-body">
+            See? Just like this.
+        </div>
+    </div>
+    <div class="toast several" role="alert" aria-live="assertive" id="secondMultipleToast"
+         aria-atomic="true">
+        <div class="toast-header">
+            <img src="images/range-circle.png" class="rounded mr-2" alt="...">
+            <strong class="mr-auto">Bootstrap</strong>
+            <small class="text-muted">2 seconds ago</small>
+            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast"
+                    aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="toast-body">
+            Heads up, toasts will stack automatically
+        </div>
+    </div>
+</div>
+```
+
+
+<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/toasts/#stacking" target="_blank">**Placement**</a>
+
+Place toasts with custom CSS as you need them. The top right is often used for notifications, as is the top middle.
+<br /><br />
+Example with top right align:
+
+![Toast top right example](../images/bootstrap/toast_align.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java 
+//@FindBy(id="toastRightTop")
+@UI("#toastRightTop") public static Toast toastWithTopAlign; 
+
+@Test
+public void toastWithTopAlignValidationTest() {
+    toastWithTopAlignButton.click();
+    toastWithTopAlign.is().displayed();
+    toastWithTopAlign.headerText.is().text(toastHeaderText);
+    toastWithTopAlign.body.is().text(toastBodyText);
+    toastWithTopAlign.closeButton.click();
+    toastWithTopAlign.base().waitSec(1);
+    toastWithTopAlign.is().hidden();
+}
+
+```
+  
+```html
+<div aria-live="polite" aria-atomic="true"
+     style="position: relative; min-height: 200px;background-color: grey;">
+    <div class="toast" id="toastRightTop" style="position: absolute; top: 0; right: 0;"
+         data-autohide="false">
+        <div class="toast-header">
+            <img src="images/range-circle.png" class="rounded mr-2" alt="...">
+            <strong class="mr-auto">Bootstrap</strong>
+            <small>11 mins ago</small>
+            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast"
+                    aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="toast-body">
+            Hello, world! This is a toast message.
+        </div>
+    </div>
+</div>
+```
+
+Example with top right align stack of toasts:
+
+![Toast top right stack example](../images/bootstrap/stack_top_html.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java  
+//@FindBy(id="firstStackToast")
+@UI("#firstStackToast") public static Toast firstTopAlignStackToast; 
+//@FindBy(id="secondStackToast")
+@UI("#secondStackToast") public static Toast secondTopAlignStackToast; 
+
+@Test
+ public void stackOfTopAlignToastsValidationTest() {
+    stackOfToastsWithTopAlignButton.click();
+    firstTopAlignStackToast.headerText.is().text(toastHeaderText);
+    firstTopAlignStackToast.body.is().text(stackToastBodyText);
+    secondTopAlignStackToast.headerText.is().text(toastHeaderText);
+    secondTopAlignStackToast.body.is().text(secondStackToastBodyText);
+    firstTopAlignStackToast.is().displayed();
+    secondTopAlignStackToast.is().displayed();
+}
+
+``` 
+  
+```html
+<div aria-live="polite" aria-atomic="true"
+     style="position: relative; min-height: 200px; background-color: grey;">
+    <!-- Position it -->
+    <div style="position: absolute; top: 0; right: 0;">
+
+        <!-- Then put toasts within -->
+        <div class="toast severalWithPosition" role="alert" aria-live="assertive"
+             id="firstStackToast" aria-atomic="true">
+            <div class="toast-header">
+                <img src="images/range-circle.png" class="rounded mr-2" alt="...">
+                <strong class="mr-auto">Bootstrap</strong>
+                <small class="text-muted">just now</small>
+                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast"
+                        aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="toast-body">
+                See? Just like this.
+            </div>
+        </div>
+
+        <div class="toast severalWithPosition" role="alert" aria-live="assertive"
+             id="secondStackToast" aria-atomic="true">
+            <div class="toast-header">
+                <img src="images/range-circle.png" class="rounded mr-2" alt="...">
+                <strong class="mr-auto">Bootstrap</strong>
+                <small class="text-muted">2 seconds ago</small>
+                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast"
+                        aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="toast-body">
+                Heads up, toasts will stack automatically
+            </div>
+        </div>
+    </div>
+</div>
+```
+
+Example with center align toast:
+
+![Toast top right stack example](../images/bootstrap/toast_center.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+```java 
+//@FindBy(id="toastCenterTop")
+@UI("#toastCenterTop") public static Toast toastWithCenterAlign; 
+//@FindBy(id="toastRightTop")
+@UI("#toastRightTop") public static Toast toastWithTopAlign; 
+
+@Test
+public void toastWithCenterAlignValidationTest() {
+    toastWithCenterAlignButton.click();
+    toastWithCenterAlign.is().displayed();
+    toastWithCenterAlign.headerText.is().text(toastHeaderText);
+    toastWithCenterAlign.body.is().text(toastBodyText);
+    toastWithCenterAlign.closeButton.click();
+    toastWithCenterAlign.base().waitSec(1);
+    toastWithCenterAlign.is().hidden();
+}
+
+```
+  
+```html
+<div aria-live="polite" aria-atomic="true"
+     class="d-flex justify-content-center align-items-center"
+     style="min-height: 200px;background-color: grey;">
+
+    <!-- Then put toasts within -->
+    <div class="toast" role="alert" id="toastCenterTop" aria-live="assertive"
+         aria-atomic="true" data-delay="3000">
+        <div class="toast-header">
+            <img src="images/range-circle.png" class="rounded mr-2" alt="...">
+            <strong class="mr-auto">Bootstrap</strong>
+            <small>11 mins ago</small>
+            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast"
+                    aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="toast-body">
+            Hello, world! This is a toast message.
+        </div>
+    </div>
+</div>
+```
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**getText()** |	Get toast text |	String
+**is()** |	Assert action |	TextAssert
+**assertThat()** |	Assert action |	TextAssert
+**isDisplayed()** | Show\wait that toast element displayed on the screen | Boolean
+**close()** |	Close toast |	void
+
+[Toast test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/)
+ 
+<br>
+
 
 ## Bootstrap Composite elements
 ### Forms
@@ -12709,348 +13068,6 @@ Button group is represented by Section class in Java:
 
 <br>
 
-### Toast
-<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/toasts/" target="_blank">Toast</a> - Toasts are lightweight notifications designed to mimic the push notifications.
-<br />
-__Options for toasts:__
-<br />
- - _Animation<br/>_
- - _Autohide <br/>_
- - _Delay <br/>_
- <br/>
-__Events for toasts:__
-<br>
-  - _show.bs.toast_ - this event fires immediately when the show instance method is called.<br/>
-  - _shown.bs.toast_ - this event is fired when the toast has been made visible to the user<br/>
-  - _hide.bs.toast_ - this event is fired immediately when the hide instance method has been called.<br/>
-  - _hidden.bs.toast_ - this event is fired when the toast has finished being hidden from the user<br/>
- <br /> 
-
-<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/toasts/#basic" target="_blank">**Simple Toast**</a>
-<br />
-
-![Simple toast example](../images/bootstrap/toast.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-  
-```java 
-//@FindBy(id="simpleToast")
-@UI("#simpleToast") public static Toast simpleToast; 
-
-@Test
-public void simpleToastValidationTest() {
-    simpleToastButton.click();
-    simpleToast.is().displayed();
-    simpleToast.headerText.is().text(toastHeaderText);
-    simpleToast.body.is().text(toastBodyText);
-}
-
-```
-  
-```html
-<div class="toast" role="alert" data-animation="false" aria-live="assertive"
-     aria-atomic="true" id="simpleToast">
-    <div class="toast-header">
-        <img src="images/range-circle.png" class="rounded mr-2" alt="...">
-        <strong class="mr-auto">Bootstrap</strong>
-        <small class="text-muted">11 mins ago</small>
-        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast"
-                aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-    <div class="toast-body">
-        Hello, world! This is a toast message.
-    </div>
-</div>
-```
-
-<br>
-
-<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/toasts/#translucent" target="_blank">**Translucent Toast**</a>
-
-
-![Translucent toast example](../images/bootstrap/toast_center.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-
-```java 
-//@FindBy(id="translucentToast")
-@UI("#translucentToast") public static Toast translucentToast; 
-
-@Test
-public void translucentToastValidationTest() {
-    translucentToastButton.click();
-    translucentToast.is().displayed();
-    translucentToast.headerText.is().text(toastHeaderText);
-    translucentToast.body.is().text(toastBodyText);
-}
-
-```
-  
-```html
-<div aria-live="polite" aria-atomic="true"
-     style="min-height: 200px;background-color: grey;">
-    <div class="toast" role="alert" data-animation="false" aria-live="assertive"
-         aria-atomic="true" id="translucentToast">
-        <div class="toast-header">
-            <img src="images/range-circle.png" class="rounded mr-2" alt="...">
-            <strong class="mr-auto">Bootstrap</strong>
-            <small class="text-muted">11 mins ago</small>
-            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast"
-                    aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="toast-body">
-            Hello, world! This is a toast message.
-        </div>
-    </div>
-</div>
-```
-
-<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/toasts/#stacking" target="_blank">**Stacking**</a>
-
-When you have multiple toasts, we default to vertically stacking them in a readable manner
-
-![Toast stack example](../images/bootstrap/stack_of_toast.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-  
-```java 
-//@FindBy(id="firstMultipleToast")
-@UI("#firstMultipleToast") public static Toast firstStackToast; 
-//@FindBy(id="secondMultipleToast")
-@UI("#secondMultipleToast") public static Toast secondStackToast; 
-
-@Test
-public void stackOfToastsValidationTest() {
-    stackOfToastsButton.click();
-    firstStackToast.is().displayed();
-    secondStackToast.is().displayed();
-    firstStackToast.headerText.is().text(toastHeaderText);
-    firstStackToast.body.is().text(stackToastBodyText);
-    secondStackToast.headerText.is().text(toastHeaderText);
-    secondStackToast.body.is().text(secondStackToastBodyText);
-}
-
-```
-  
-```html
-<div aria-live="polite" aria-atomic="true"
-     style="min-height: 200px;background-color: grey;">
-    <div class="toast several" role="alert" aria-live="assertive" id="firstMultipleToast"
-         aria-atomic="true">
-        <div class="toast-header">
-            <img src="images/range-circle.png" class="rounded mr-2" alt="...">
-            <strong class="mr-auto">Bootstrap</strong>
-            <small class="text-muted">just now</small>
-            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast"
-                    aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="toast-body">
-            See? Just like this.
-        </div>
-    </div>
-    <div class="toast several" role="alert" aria-live="assertive" id="secondMultipleToast"
-         aria-atomic="true">
-        <div class="toast-header">
-            <img src="images/range-circle.png" class="rounded mr-2" alt="...">
-            <strong class="mr-auto">Bootstrap</strong>
-            <small class="text-muted">2 seconds ago</small>
-            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast"
-                    aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="toast-body">
-            Heads up, toasts will stack automatically
-        </div>
-    </div>
-</div>
-```
-
-
-<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/toasts/#stacking" target="_blank">**Placement**</a>
-
-Place toasts with custom CSS as you need them. The top right is often used for notifications, as is the top middle.
-<br /><br />
-Example with top right align:
-
-![Toast top right example](../images/bootstrap/toast_align.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-
-```java 
-//@FindBy(id="toastRightTop")
-@UI("#toastRightTop") public static Toast toastWithTopAlign; 
-
-@Test
-public void toastWithTopAlignValidationTest() {
-    toastWithTopAlignButton.click();
-    toastWithTopAlign.is().displayed();
-    toastWithTopAlign.headerText.is().text(toastHeaderText);
-    toastWithTopAlign.body.is().text(toastBodyText);
-    toastWithTopAlign.closeButton.click();
-    toastWithTopAlign.base().waitSec(1);
-    toastWithTopAlign.is().hidden();
-}
-
-```
-  
-```html
-<div aria-live="polite" aria-atomic="true"
-     style="position: relative; min-height: 200px;background-color: grey;">
-    <div class="toast" id="toastRightTop" style="position: absolute; top: 0; right: 0;"
-         data-autohide="false">
-        <div class="toast-header">
-            <img src="images/range-circle.png" class="rounded mr-2" alt="...">
-            <strong class="mr-auto">Bootstrap</strong>
-            <small>11 mins ago</small>
-            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast"
-                    aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="toast-body">
-            Hello, world! This is a toast message.
-        </div>
-    </div>
-</div>
-```
-
-Example with top right align stack of toasts:
-
-![Toast top right stack example](../images/bootstrap/stack_top_html.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-
-```java  
-//@FindBy(id="firstStackToast")
-@UI("#firstStackToast") public static Toast firstTopAlignStackToast; 
-//@FindBy(id="secondStackToast")
-@UI("#secondStackToast") public static Toast secondTopAlignStackToast; 
-
-@Test
- public void stackOfTopAlignToastsValidationTest() {
-    stackOfToastsWithTopAlignButton.click();
-    firstTopAlignStackToast.headerText.is().text(toastHeaderText);
-    firstTopAlignStackToast.body.is().text(stackToastBodyText);
-    secondTopAlignStackToast.headerText.is().text(toastHeaderText);
-    secondTopAlignStackToast.body.is().text(secondStackToastBodyText);
-    firstTopAlignStackToast.is().displayed();
-    secondTopAlignStackToast.is().displayed();
-}
-
-``` 
-  
-```html
-<div aria-live="polite" aria-atomic="true"
-     style="position: relative; min-height: 200px; background-color: grey;">
-    <!-- Position it -->
-    <div style="position: absolute; top: 0; right: 0;">
-
-        <!-- Then put toasts within -->
-        <div class="toast severalWithPosition" role="alert" aria-live="assertive"
-             id="firstStackToast" aria-atomic="true">
-            <div class="toast-header">
-                <img src="images/range-circle.png" class="rounded mr-2" alt="...">
-                <strong class="mr-auto">Bootstrap</strong>
-                <small class="text-muted">just now</small>
-                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast"
-                        aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="toast-body">
-                See? Just like this.
-            </div>
-        </div>
-
-        <div class="toast severalWithPosition" role="alert" aria-live="assertive"
-             id="secondStackToast" aria-atomic="true">
-            <div class="toast-header">
-                <img src="images/range-circle.png" class="rounded mr-2" alt="...">
-                <strong class="mr-auto">Bootstrap</strong>
-                <small class="text-muted">2 seconds ago</small>
-                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast"
-                        aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="toast-body">
-                Heads up, toasts will stack automatically
-            </div>
-        </div>
-    </div>
-</div>
-```
-
-Example with center align toast:
-
-![Toast top right stack example](../images/bootstrap/toast_center.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-  
-```java 
-//@FindBy(id="toastCenterTop")
-@UI("#toastCenterTop") public static Toast toastWithCenterAlign; 
-//@FindBy(id="toastRightTop")
-@UI("#toastRightTop") public static Toast toastWithTopAlign; 
-
-@Test
-public void toastWithCenterAlignValidationTest() {
-    toastWithCenterAlignButton.click();
-    toastWithCenterAlign.is().displayed();
-    toastWithCenterAlign.headerText.is().text(toastHeaderText);
-    toastWithCenterAlign.body.is().text(toastBodyText);
-    toastWithCenterAlign.closeButton.click();
-    toastWithCenterAlign.base().waitSec(1);
-    toastWithCenterAlign.is().hidden();
-}
-
-```
-  
-```html
-<div aria-live="polite" aria-atomic="true"
-     class="d-flex justify-content-center align-items-center"
-     style="min-height: 200px;background-color: grey;">
-
-    <!-- Then put toasts within -->
-    <div class="toast" role="alert" id="toastCenterTop" aria-live="assertive"
-         aria-atomic="true" data-delay="3000">
-        <div class="toast-header">
-            <img src="images/range-circle.png" class="rounded mr-2" alt="...">
-            <strong class="mr-auto">Bootstrap</strong>
-            <small>11 mins ago</small>
-            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast"
-                    aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="toast-body">
-            Hello, world! This is a toast message.
-        </div>
-    </div>
-</div>
-```
-
-Available methods in Java JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
-**getText()** |	Get toast text |	String
-**getTitle()** |	Get toast title |	String
-**is()** |	Assert action |	TextAssert
-**assertThat()** |	Assert action |	TextAssert
-**isDisplayed()** | Show\wait that toast element displayed on the screen | Boolean
-**close()** |	Close toast |	void
-
-[Toast test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/)
- 
-<br>
 
 ### Pagination
 
@@ -13058,7 +13075,7 @@ Available methods in Java JDI Light:
 
 ***[Pagination overview](https://getbootstrap.com/docs/4.3/components/pagination/#overview)***
 
-Pagination is located in the following classes:
+List Group is located in the following classes:
  
   - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.complex.Pagination_
   
@@ -13151,7 +13168,7 @@ Button group is represented by Section class in Java:
 
 ***[Pagination working with icons](https://getbootstrap.com/docs/4.3/components/pagination/#working-with-icons)***
 
-Pagination is located in the following classes:
+List Group is located in the following classes:
  
   - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.complex.Pagination_
   
@@ -13241,7 +13258,7 @@ Button group is represented by Section class in Java:
 
 ***[Pagination disabled and active states](https://getbootstrap.com/docs/4.3/components/pagination/#disabled-and-active-states)***
 
-Pagination is located in the following classes:
+List Group is located in the following classes:
  
   - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.complex.Pagination_
   
@@ -13334,7 +13351,7 @@ Button group is represented by Section class in Java:
 
 ***[Pagination sizing](https://getbootstrap.com/docs/4.3/components/pagination/#sizing)***
 
-Pagination is located in the following classes:
+List Group is located in the following classes:
  
   - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.complex.Pagination_
   
@@ -13440,7 +13457,7 @@ Button group is represented by Section class in Java:
 
 ***[Pagination alignment](https://getbootstrap.com/docs/4.3/components/pagination/#alignment)***
 
-Pagination is located in the following classes:
+List Group is located in the following classes:
  
   - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.complex.Pagination_
   

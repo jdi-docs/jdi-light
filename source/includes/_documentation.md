@@ -2018,14 +2018,25 @@ public void GetSelected()
 <label for="yellow">Yellow</label>
 ```
 
-Here is the list of some available methods:
+Here is the list of some available methods in Java:
 
 |Method | Description | Return Type
 --- | --- | ---
-**select(String/int/Enum)/Select(string/int)** | Select radiobutton by value/index  | void
-**selected()/Selected()** | Get selected radiobutton value | string
+**select(String/int/Enum)** | Select radiobutton by value/index  | void
+**selected()** | Get selected radiobutton value | string
 **is()** | Returns object for work with assertions | RadioButtonAssert
 **assertThat()** | Returns object for work with assertions | RadioButtonAssert
+
+Here is the list of some available methods in C#:
+
+|Method | Description | Return Type
+--- | --- | ---
+**Select(string/int)** | Select radiobutton by value/index  | void
+**Selected()** | Get selected radiobutton value | string
+**Is()** | Returns object for work with assertions | RadioButtonAssert
+**AssertThat()** | Returns object for work with assertions | RadioButtonAssert
+**Values()** | Returns list of values | List<string>
+
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/RadioTests.java" target="_blank">Test examples in Java</a>
 

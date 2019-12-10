@@ -2024,6 +2024,7 @@ Here is the list of some available methods in Java:
 --- | --- | ---
 **select(String/int/Enum)** | Select radiobutton by value/index  | void
 **selected()** | Get selected radiobutton value | string
+**values()** | Returns list of values | List<string>
 **is()** | Returns object for work with assertions | RadioButtonAssert
 **assertThat()** | Returns object for work with assertions | RadioButtonAssert
 

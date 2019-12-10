@@ -2018,14 +2018,25 @@ public void GetSelected()
 <label for="yellow">Yellow</label>
 ```
 
-Here is the list of some available methods:
+Here is the list of some available methods in Java:
 
 |Method | Description | Return Type
 --- | --- | ---
-**select(String/int/Enum)/Select(string/int)** | Select radiobutton by value/index  | void
-**selected()/Selected()** | Get selected radiobutton value | string
+**select(String/int/Enum)** | Select radiobutton by value/index  | void
+**selected()** | Get selected radiobutton value | string
 **is()** | Returns object for work with assertions | RadioButtonAssert
 **assertThat()** | Returns object for work with assertions | RadioButtonAssert
+
+Here is the list of some available methods in C#:
+
+|Method | Description | Return Type
+--- | --- | ---
+**Select(string/int)** | Select radiobutton by value/index  | void
+**Selected()** | Get selected radiobutton value | string
+**Is()** | Returns object for work with assertions | RadioButtonAssert
+**AssertThat()** | Returns object for work with assertions | RadioButtonAssert
+**Values()** | Returns list of values | List<string>
+
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/RadioTests.java" target="_blank">Test examples in Java</a>
 
@@ -2490,195 +2501,167 @@ And here are methods available in C#:
 **DataTable** – A complex element that consists of header, a body (at least one row and one column) and a footer. You are 
 able to perform a list of readonly interactions with this element in order to get all data based on specified criteria.
 
-DataTables are represented by the following classes in Java and C#:
+DataTables are represented by the following classes in Java:
 
 ```java 
-         
-         @UI("#users-table") //@FindBy(id = "users-table")
-         public static DataTable<UserRow, UserInfo> usersData;
-         	@JTable( root = "#users-table",
-         		row = "//tr[%s]/td", column = "//tr/td[%s]",
-         		cell = "//tr[{1}]/td[{0}]", allCells = "td",
-         		headers = "th", header = {"Name", "Phone", "Email", "City"},
-         		rowHeader = "Name", size = 4
-         	)
-         	public static DataTable<UserRow, UserInfo> usersDataSetup;
-         
-         @Test
-             public void dataTableTest() {
-                 dataTableValidation(usersData);
-             }
-         @Test
-             public void jDataTableTest() {
-                 dataTableValidation(usersDataSetup);
-             }
-             private void dataTableValidation(DataTable<UserRow, UserInfo> table) {
-                 assertEquals(table.size(), 4);
-                 assertEquals(table.count(), 400);
-                 assertEquals(table.header(), asList("Name", "Phone", "Email", "City"));
-                 String value = table.preview();
-                 assertEquals(value.substring(0,194),
-                 "Name Phone Email City" +
-                     "Burke Tucker 076 1971 1687 et.euismod.et@ut.edu GozŽe" +
-                     "Grady Brock (011307) 16843 cursus.et@commodo.org Alcobendas" +
-                     "Harding Lloyd 0800 1111 neque.In.ornare@mauris.co.uk Beauvais");
-             }
-         @Test
-             public void filterDataTest() {
-                 assertEquals(usersData.data(2), GRADY_BROCK);
-                 assertEquals(usersData.data("Grady Brock"), GRADY_BROCK);
-                 assertEquals(usersData.data(d -> d.name.contains("Brock")), GRADY_BROCK);
-                 usersData.assertThat().row(d -> d.equals(GRADY_BROCK));
-                 /*
-                 List<UserInfo> filteredData = usersData.datas(d -> d.name.contains("Brock"));
-                 assertEquals(filteredData.size(), 1);
-                 assertEquals(filteredData.get(0), GRADY_BROCK);
-                 */
-             }
-         @Test
-             public void filterLinesTest() {
-                 UserRow line =  usersData.line(2);
-                 validateUserRow(line);
-                 line =  usersData.line("Grady Brock");
-                 validateUserRow(line);
-                 line =  usersData.line(d -> d.name.contains("Brock"));
-                 validateUserRow(line);
-                 /*
-                 List<UserRow> filteredData = usersData.lines(d -> d.name.contains("Brock"));
-                 assertEquals(filteredData.size(), 1);
-                 validateUserRow(filteredData.get(0));
-                 */
-             }
-         
-             private void validateUserRow(UserRow line) {
-                 line.city.click();
-                 validateAlert(is(GRADY_BROCK.city));
-                 assertEquals(line.email.getText(), GRADY_BROCK.email);
-             }	    
-         @Test
-             public void tableParamsTest() {
-                     assertEquals(users.size(), 4);
-                     assertEquals(users.count(), 6);
-                     assertEquals(users.header(), asList("Number", "Type", "User", "Description"));
-             }    
-         @Test
-             public void previewTest() {
-                     if (isFireFox()) return;
-                     String value = users.preview();
-                     assertEquals(value,
-                             "Number Type User Desciption1  Admin User Manager RomanWolverineVip2  Admin User Manager Sergey IvanSpider ManVip3  Admin User Manager VladzimirPunisherVip4  Admin User Manager Helen BennettCaptain Americasome descriptionVip5  Admin User Manager Yoshi TannamuriCyclopesome descriptionVip6  Admin User Manager Giovanni RovelliHulksome descriptionVip");
-             }   
-         @Test
-             public void valueTest() {
-                     String value = users.getValue();
-                     assertEquals(value,
-                     "||X||Number|Type|User|Description||\r\n" +
-                         "||1||1|Admin|Roman|Wolverine:VIP||\r\n" +
-                         "||2||2|User|Sergey Ivan|Spider Man:Dude||\r\n" +
-                         "||3||3|Manager|Vladzimir|Punisher:VIP||\r\n" +
-                         "||4||4|User|Helen Bennett|Captain America\\nsome description:Dude||\r\n" +
-                         "||5||5|User|Yoshi Tannamuri|Cyclope\\nsome description:Dude||\r\n" +
-                         "||6||6|User|Giovanni Rovelli|Hulk\\nsome description:Dude||\r\n");
-             }
-         @Test
-             public void dataColumnTestIndex() {
-                     assertEquals(users.data(2), SPIDER_MAN);
-             }
-         @Test
-             public void dataColumnNameTest() {
-                     assertEquals(usersSetup.data("Sergey Ivan"), SPIDER_MAN);
-             }
-         @Test
-             public void dataFilterTest() {
-                     assertEquals(users.data(d -> d.user.contains("Ivan")), SPIDER_MAN);
-             }
-         @Test
-             public void allDataFilterTest() {
-                     List<MarvelUserInfo> filteredData = users.datas(d -> d.user.contains("Ivan"));
-                     assertEquals(filteredData.size(), 1);
-                     assertEquals(filteredData.get(0), SPIDER_MAN);
-             }
-         @Test
-             public void commonMatchersTest() {
-                     users.is().displayed();
-                     users.has().size(6);
-                     users.assertThat().size(greaterThan(3));
-                     users.is().notEmpty().size(lessThanOrEqualTo(6));
-             }
-         @Test
-             public void rowMatcherTest() {
-                     users.has().row(d -> d.user.contains("Ivan"));
-             }
-         @Test
-             public void rowsMatcherTest() {
-                     users.assertThat().allRows(d -> d.user.length() > 4);
-             }
-         @Test
-             public void atLeastMatcherTest() {
-                     users.assertThat().atLeast(3).rows(d -> d.type.contains("User"));
-             }
-         @Test
-             public void exactMatcherTest() {
-                     users.assertThat().exact(2).rows(d -> d.description.contains(":VIP"));
-             }
-         @Test
-             public void rowDataMatcherTest() {
-                     users.has().row(SPIDER_MAN);
-             }
-         @Test
-             public void rowDataExactMatcherTest() {
-                     users.assertThat().exact(1).rows(SPIDER_MAN);
-             }
-         @Test
-             public void tableChainTest() {
-                     users.assertThat()
-                         .displayed()
-                         .size(6)
-                         .size(greaterThan(3))
-                         .notEmpty()
-                         .row(d -> d.user.contains("Ivan"))
-                         .allRows(d -> d.user.length() > 4)
-                         .atLeast(3).rows(d -> d.type.contains("User"))
-                         .row(SPIDER_MAN)
-                         .exact(2).rows(d -> d.description.contains(":VIP"))
-                         .exact(1).rows(SPIDER_MAN);
-             }	
-         @Test
-             public void lineByIndexTest() {
-                 MarvelUser line = users.line(2);
-                 validateUserRow(line);
-             }
-         @Test
-             public void lineByNameTest() {
-                 MarvelUser line = usersSetup.line("Sergey Ivan");
-                 validateUserRow(line);
-             }
-         @Test
-             public void lineFilterTest() {
-                 MarvelUser line = users.line(d -> d.user.contains("Ivan"));
-                 validateUserRow(line);
-             }
-         @Test
-             public void linesFilterTest() {
-                 List<MarvelUser> filteredData = users.lines(d -> d.user.contains("Ivan"));
-                 assertEquals(filteredData.size(), 1);
-                 validateUserRow(filteredData.get(0));
-             }
-         
-             public static void validateUserRow(MarvelUser line) {
-                 line.type.select("Admin");
-                 assertEquals(line.type.getValue(), "Admin");
-                 line.type.select("User");
-                 line.number.assertThat().text(is("2"));
-             } 
-         @Test
-             public void baseValidationTest() {
-                 baseValidation(users);
-             }
+@UI("#users-table") //@FindBy(id = "users-table")
+public static DataTable<UserRow, UserInfo> usersData;
+@JTable( root = "#users-table",
+  row = "//tr[%s]/td", column = "//tr/td[%s]",
+  cell = "//tr[{1}]/td[{0}]", allCells = "td",
+  headers = "th", header = {"Name", "Phone", "Email", "City"},
+  rowHeader = "Name", size = 4
+)
+
+public static DataTable<UserRow, UserInfo> usersDataSetup;
+
+@Test
+public void dataTableTest() {
+   dataTableValidation(usersData);
+}
+
+@Test
+public void jDataTableTest() {
+   dataTableValidation(usersDataSetup);
+}
+
+@Test
+private void dataTableValidation(DataTable<UserRow, UserInfo> table) {
+   assertEquals(table.size(), 4);
+   assertEquals(table.count(), 400);
+   assertEquals(table.header(), asList("Name", "Phone", "Email", "City"));
+   String value = table.preview();
+   assertEquals(value.substring(0,194),
+   "Name Phone Email City" +
+       "Burke Tucker 076 1971 1687 et.euismod.et@ut.edu GozŽe" +
+       "Grady Brock (011307) 16843 cursus.et@commodo.org Alcobendas" +
+       "Harding Lloyd 0800 1111 neque.In.ornare@mauris.co.uk Beauvais");
+}
+
+@Test
+public void filterDataTest() {
+   assertEquals(usersData.data(2), GRADY_BROCK);
+   assertEquals(usersData.data("Grady Brock"), GRADY_BROCK);
+   assertEquals(usersData.data(d -> d.name.contains("Brock")), GRADY_BROCK);
+   usersData.assertThat().row(d -> d.equals(GRADY_BROCK));
+}
+
+@Test
+public void filterLinesTest() {
+   UserRow line =  usersData.line(2);
+   validateUserRow(line);
+   line =  usersData.line("Grady Brock");
+   validateUserRow(line);
+   line =  usersData.line(d -> d.name.contains("Brock"));
+   validateUserRow(line);
+}
+
+private void validateUserRow(UserRow line) {
+   line.city.click();
+   validateAlert(is(GRADY_BROCK.city));
+   assertEquals(line.email.getText(), GRADY_BROCK.email);
+}	
+    
+@Test
+public void tableParamsTest() {
+   assertEquals(users.size(), 4);
+   assertEquals(users.count(), 6);
+   assertEquals(users.header(), asList("Number", "Type", "User", "Description"));
+}    
+ 
+@Test
+public void dataColumnTestIndex() {
+   assertEquals(users.data(2), SPIDER_MAN);
+}
+
+@Test
+public void dataColumnNameTest() {
+   assertEquals(usersSetup.data("Sergey Ivan"), SPIDER_MAN);
+}
+
+@Test
+public void dataFilterTest() {
+   assertEquals(users.data(d -> d.user.contains("Ivan")), SPIDER_MAN);
+}
+ 
+@Test
+public void allDataFilterTest() {
+   List<MarvelUserInfo> filteredData = users.datas(d -> d.user.contains("Ivan"));
+   assertEquals(filteredData.size(), 1);
+   assertEquals(filteredData.get(0), SPIDER_MAN);
+}
+ 
+@Test
+public void commonMatchersTest() {
+   users.is().displayed();
+   users.has().size(6);
+   users.assertThat().size(greaterThan(3));
+   users.is().notEmpty().size(lessThanOrEqualTo(6));
+}
+ 
+@Test
+public void rowMatcherTest() {
+   users.has().row(d -> d.user.contains("Ivan"));
+}
+ 
+@Test
+public void atLeastMatcherTest() {
+   users.assertThat().atLeast(3).rows(d -> d.type.contains("User"));
+}
+ 
+@Test
+public void rowDataMatcherTest() {
+   users.has().row(SPIDER_MAN);
+}
+ 
+@Test
+public void rowDataExactMatcherTest() {
+   users.assertThat().exact(1).rows(SPIDER_MAN);
+}
+ 
+@Test
+public void tableChainTest() {
+   users.assertThat()
+       .displayed()
+       .size(6)
+       .size(greaterThan(3))
+       .notEmpty()
+       .row(d -> d.user.contains("Ivan"))
+       .allRows(d -> d.user.length() > 4)
+       .atLeast(3).rows(d -> d.type.contains("User"))
+       .row(SPIDER_MAN)
+       .exact(2).rows(d -> d.description.contains(":VIP"))
+       .exact(1).rows(SPIDER_MAN);
+ }
+ 
+@Test
+public void lineByIndexTest() {
+   MarvelUser line = users.line(2);
+   validateUserRow(line);
+}
+
+@Test
+public void lineByNameTest() {
+   MarvelUser line = usersSetup.line("Sergey Ivan");
+   validateUserRow(line);
+}
+
+@Test
+public void lineFilterTest() {
+   MarvelUser line = users.line(d -> d.user.contains("Ivan"));
+   validateUserRow(line);
+}
+
+@Test
+public static void validateUserRow(MarvelUser line) {
+   line.type.select("Admin");
+   assertEquals(line.type.getValue(), "Admin");
+   line.type.select("User");
+   line.number.assertThat().text(is("2"));
+} 
   ```
  
   - __Java__: _com.epam.jdi.light.elements.complex.table.DataTable.java_
-  - __C#__:
     
   ![DataTable](../images/html/tableHtml2.png)
 
@@ -2713,7 +2696,7 @@ DataTables are represented by the following classes in Java and C#:
 </table>
 ```
 
-Here is a list of available methods in Java (_btw DataTable expand Table class - methods from previous table are available too_):
+Here is a list of available methods in Java (DataTable expand [Table](#table) class - methods from previous table are available too_):
 
 In return types column _"D"_ refers to the user data object and _"L"_ refers to the table line object.
 
@@ -2763,128 +2746,25 @@ DataTableAssert methods in Java:
 <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/RangeTests.java" target="_blank">Test examples in Java</a><br>
 
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#datatable-2)
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-### DropDown
+### Dropdown
 
-**DropDown** – A graphical control element that allows user to choose a single value from a list.
+**Dropdown** – A graphical control element that allows user to choose a single value from a list.
 
 ![DropDown](../images/dropdown.png)
 
 JDI Light has support for dropdown elements with their own type. There are several ways of dropdown usage in JDI Light, each serving different needs.
 
-__JDI Dropdown annotation__
-
-For better use, JDI Light provides a __*@JDropdown*__ annotation to locate dropdown elements. This annotation consists of the following elements:
-
- - __*root()*__ - value of this element points to the root locator of dropdown element
- - __*value()*__ - locator of option selected by default in dropdown list
- - __*list()*__ - locator representing list options
- - __*expand()*__ - locator for expanding the dropdown list
- - __*how()*__ - type of locators with which elements will be identified. By default it is css
- 
-```java 
-@JDropdown(root = "div[ui=dropdown]",
-           value = ".filter-option",
-           list = "li",
-           expand = ".caret")
-public Droplist colors;
-
-@Test
-public void complexTest() {
-    metalAndColorsPage.shouldBeOpened();
-    metalAndColorsPage.colors.select(Green);
-}
-```
-
-```csharp 
-[JDropDown(root: "#colors", 
-           value: ".filter-option", 
-           list:"li", 
-           expand:".caret")]
-public Droplist Colors;
-
-[Test]
-public void ComplexTest() 
-{
-    MetalAndColorsPage.ShouldBeOpened();
-    MetalAndColorsPage.Colors.Select(Green);
-}
-```
-
-Suppose we have 'Colors' dropdown, which looks like this in HTML code:
-
-<!-- ![Dropdown HTML](../images/html/dropdown_html.png) -->
-
-```html 
-<div class="form-group colors" ui="dropdown" id="colors">
-    <select class="selectpicker uui-form-element" style="display: none;">
-        <option>Colors</option>
-        <option>Red</option>
-        <option>Green</option>
-        <option>Blue</option>
-        <option>Yellow</option>
-    </select>
-    <div class="btn-group bootstrap-select uui-form-element"><button type="button"
-            class="btn dropdown-toggle selectpicker btn-default" data-toggle="dropdown" title="Colors"><span
-                class="filter-option pull-left" value="">Colors</span>&nbsp;<span class="caret"></span></button>
-        <div class="dropdown-menu open" style="max-height: 933px; overflow: hidden; min-height: 90px;">
-            <ul class="dropdown-menu inner selectpicker" role="menu"
-                style="max-height: 921px; overflow-y: auto; min-height: 78px;">
-                <li rel="0" class="selected"><a tabindex="0" class="" style=""><span class="text">Colors</span>
-                    <i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
-                <li rel="1"><a tabindex="0" class="" style=""><span class="text">Red</span>
-                    <i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
-                <li rel="2"><a tabindex="0" class="" style=""><span class="text">Green</span>
-                    <i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
-                <li rel="3"><a tabindex="0" class="" style=""><span class="text">Blue</span>
-                    <i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
-                <li rel="4"><a tabindex="0" class="" style=""><span class="text">Yellow</span>
-                    <i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
-            </ul>
-        </div>
-    </div>
-</div>
-```
-
 __Dropdown representation__
 
-```java 
-public Droplist colors;
-@CSS("#colors") public Droplist colors;
-public Droplist colors = dropdown("#colors");
-public Droplist colors = $d("#colors");
+JDI Light provides a __Dropdown__ class which is using for dropdown representation as a type of web element.
 
-@Test
-public void colorsTest() {
-    colors.select(Green);
-    assertEquals(colors.selected(), Green);
-}
-```
-
-```csharp 
-public DropDown Colors;
-[FindBy(Css = "#colors")] 
-public DropDown Colors;
-
-[Test]
-public void ColorsTest() 
-{
-    Colors.Select(Green);
-    Assert.AreEquals(Colors.Selected(), Green);
-}
-```
-
-JDI Light provides a __Droplist__ class which can be used for dropdown representation as a type of web element.
-
-Simple locator annotations from *com.epam.jdi.light.elements.pageobjects.annotations.simple* can be used together with dropdown elements.
-
-<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-examples/src/test/java/io/github/epam/tests/epam/ComplexElementsTests.java" target="_blank">Test examples in Java</a>
-
-Dropdown lists in JDI light also support HTML5 elements. There is a __Dropdown__ class which is more like a special case of Droplist.
-This type can be used in cases when dropdown is represented with HTML _\<select>_ tag.
+Also this class can be used when working with HTML5 elements in cases when dropdown is represented with HTML _\<select>_ tag.
 
 Consider an example of HTML5 dropdown with the given HTML code:
+
+![Dropdown HTML5](../images/html/dropdown_html52.png)
 
 ```java 
 @UI("#dress-code") //@FindBy(id = "dress-code")
@@ -2895,6 +2775,32 @@ public void selectEnumTest() {
     dressCode.select(Fancy);
     assertEquals(dressCode.getValue(), "Fancy");
 }
+
+@Test
+public void selectNumTest() {
+    dressCode.select(1);
+    assertEquals(dressCode.getValue(), "Fancy");
+}
+
+@Test
+public void selectedTest() {
+    dressCode.select(Pirate);
+    assertEquals(dressCode.selected(), "Pirate");
+    assertEquals(dressCode.getValue(), "Pirate");
+    assertEquals(dressCode.getText(), "Pirate");
+}
+
+@Test
+public void negativeDropdownTest() {
+    try {
+        dressCode.base().waitSec(1);
+        dressCode.select("Unknown");
+        fail("You have selected dressCode that does not exist in dropdown - something went wrong");
+    } catch (Exception ex) {
+        assertThat(safeException(ex), containsString("Cannot locate option with text: Unknown"));
+    }
+}
+    
 ```
 
 ```csharp 
@@ -2940,8 +2846,6 @@ public void BaseValidationTest()
 
 ```
 
-![Dropdown HTML5](../images/html/dropdown_html52.png)
-
 ```html
 <select id="dress-code">
     <option value="fancy">Fancy</option>
@@ -2950,6 +2854,104 @@ public void BaseValidationTest()
     <option value="pirate">Pirate</option>
 </select>
 ```
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+__JDI Dropdown annotation__
+
+For better use, JDI Light provides a __*@JDropdown*__ annotation to locate dropdown elements. This annotation can be used in cases when working with a
+complex element that may consist of more a complicated html structure. JDropdown annotation allows customise navigation of the web element inner structure by using 
+annotation default methods.
+
+<!-- ![Dropdown HTML](../images/html/dropdown_html.png) -->
+
+```java 
+@JDropdown(root = "div[ui=dropdown]",
+           value = ".filter-option",
+           list = "li",
+           expand = ".caret")
+public Dropdown colors;
+
+@Test
+public void complexTest() {
+    metalAndColorsPage.shouldBeOpened();
+    metalAndColorsPage.colors.select(Green);
+}
+
+@Test
+public void navigationListTest() {
+    navigation.get(nContactForm).click();
+    contactFormPage.checkOpened();
+    navigation.get(nHome).click();
+    homePage.jdiText.is().text(containsString("QUIS NOSTRUD EXERCITATION"));
+    homePage.githubLink.click();
+    originalWindow();
+}
+
+@Test
+public void navigationMenuTest() {
+    navigationL.select(ContactForm);
+    contactFormPage.checkOpened();
+    navigationL.select(Home);
+    homePage.checkOpened();
+    navigationL.select(Service);
+    navigationL.select(ComplexTable);
+}
+
+```
+
+```csharp 
+[JDropDown(root: "#colors", 
+           value: ".filter-option", 
+           list:"li", 
+           expand:".caret")]
+public Droplist Colors;
+
+[Test]
+public void ComplexTest() 
+{
+    MetalAndColorsPage.ShouldBeOpened();
+    MetalAndColorsPage.Colors.Select(Green);
+}
+```
+
+```html 
+<div class="form-group colors" ui="dropdown" id="colors">
+    <select class="selectpicker uui-form-element" style="display: none;">
+        <option>Colors</option>
+        <option>Red</option>
+        <option>Green</option>
+        <option>Blue</option>
+        <option>Yellow</option>
+    </select>
+    <div class="btn-group bootstrap-select uui-form-element"><button type="button"
+            class="btn dropdown-toggle selectpicker btn-default" data-toggle="dropdown" title="Colors"><span
+                class="filter-option pull-left" value="">Colors</span>&nbsp;<span class="caret"></span></button>
+        <div class="dropdown-menu open" style="max-height: 933px; overflow: hidden; min-height: 90px;">
+            <ul class="dropdown-menu inner selectpicker" role="menu"
+                style="max-height: 921px; overflow-y: auto; min-height: 78px;">
+                <li rel="0" class="selected"><a tabindex="0" class="" style=""><span class="text">Colors</span>
+                    <i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
+                <li rel="1"><a tabindex="0" class="" style=""><span class="text">Red</span>
+                    <i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
+                <li rel="2"><a tabindex="0" class="" style=""><span class="text">Green</span>
+                    <i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
+                <li rel="3"><a tabindex="0" class="" style=""><span class="text">Blue</span>
+                    <i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
+                <li rel="4"><a tabindex="0" class="" style=""><span class="text">Yellow</span>
+                    <i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+```
+
+JDropdown annotation consists of the following elements using which element inner structure can be customised:
+
+ - __*root()*__ - value of this element points to the root locator of dropdown element
+ - __*value()*__ - locator of option selected by default in dropdown list
+ - __*list()*__ - locator representing list options
+ - __*expand()*__ - locator for expanding the dropdown list
+ - __*how()*__ - type of locators with which elements will be identified. By default it is css
 
 Here is a list of some available methods:
 
@@ -2964,11 +2966,6 @@ Here is a list of some available methods:
 **size()** | Return amount of elements in the list | int
 **setup(Field field)** | Setup the dropdown using specified fields | void
 **sendKeys(CharSequence... charSequence)** | Send specific keys | void
-
-Available Assert methods in Java:
-
-|Method | Description | Return Type
---- | --- | ---
 **is()** | Applicable for performing assert actions for DropDown | ListAssert<UIElement>
 **assertThat()** | Applicable for performing assert actions for DropDown | ListAssert<UIElement>
 **has()** | Applicable for performing assert actions for DropDown | ListAssert<UIElement>
@@ -2991,20 +2988,64 @@ Available Assert methods in C#:
 
 <a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/DropDownTests.cs" target="_blank">Test examples in C#</a>
 
-[BDD test examples](https://jdi-docs.github.io/jdi-light/?java#dropdown-2)
+[BDD test examples](https://jdi-docs.github.io/jdi-light/?java#dropdown-3)
+<br><br><br>
 
-### MultiDropDown
+### MultiDropdown
+
+**MultiDropdown** – A graphical control element that allows user to choose several values from a list.
+
+![DropDown](../images/multidropdown.png)
+
+JDI Light provides a MultiSelector class which is using for MultiDropdown representation as a type of web element.
 
 ```java 
 @UI("#multi-dropdown") //@FindBy(id = "multi-dropdown")
-public static MultiSelect multiDropdown;
+public static MultiSelector multiDropdown;
 
 @Test
 public void selectTest() {
+    if (isFireFox()) return;
+    multiDropdown.check("Electro", "Metalic");
+    assertEquals(multiDropdown.checked(), asList("Electro", "Metalic"));
+}
+
+@Test
+public void selectEnumTest() {
+    if (isFireFox()) return;
     multiDropdown.check(Wood, Steam);
     assertEquals(multiDropdown.checked(), asList("Steam", "Wood"));
 }
+
+@Test
+public void selectedTest() {
+    assertEquals(multiDropdown.selected(), text);
+}
+
+@Test
+public void disabledTest() {
+    if (isFireFox()) return;
+    multiDropdown.select("Disabled");
+    assertEquals(multiDropdown.selected(), "Steam");
+}
+
+@Test
+public void labelTest() {
+    assertEquals(multiDropdown.label().getText(), "Multi dropdown:");
+    multiDropdown.label().is().text(containsString("Multi"));
+}
+
+@Test
+public void isValidationTest() {
+    multiDropdown.is().selected("Steam");
+    multiDropdown.is().selected(Steam);
+    multiDropdown.assertThat().values(hasItem("Wood"));
+    multiDropdown.assertThat().disabled(hasItem("Disabled"))
+            .enabled(not(hasItem("Disabled")))
+            .enabled(hasItems("Electro", "Metalic"));
+}
 ```
+
 ```csharp 
 [FindBy(Css = "#multi-dropdown")]
 public MultiDropdown MultiDropdown { get; set; }
@@ -3065,10 +3106,6 @@ public void BaseValidationTest()
 }
 ```
 
-**MultiDropDown** – A graphical control element that allows user to choose several values from a list.
-
-![DropDown](../images/multidropdown.png)
-
 ```html
 <span class="multiselect-native-select">
     <select id="multi-dropdown" multiple="multiple">
@@ -3100,10 +3137,24 @@ public void BaseValidationTest()
 </span>
 ```
 
-MultiDropDown elements can be described by the following class:
+MultiDropdown are represented by the following classes:
 
- - __Java__: _com.epam.jdi.light.ui.html.complex.MultiDropdown_
+ - __Java__: _com.epam.jdi.light.ui.html.complex.MultiSelector_
  - __C#__: _JDI.Light.Elements.Composite.MultiDropdown_
+ 
+ The list of methods available for Java in JDI Light:
+ 
+|Method | Description | Return Type
+--- | --- | ---
+**check(String/String.../Enum.../int...)** |Select values in multi dropdown | void
+**uncheck(String.../Enum.../int...)** | Deselect values in multi dropdown | void
+**selected()** | Get selected value by default | String
+**checked()** | Get selected values | List\<String>
+**is()** | Applicable for performing assert actions for MultiDropdown | DataTableAssert
+**assertThat()** | Applicable for performing assert actions for MultiDropdown | DataTableAssert
+**has()** | Applicable for performing assert actions for MultiDropdown | DataTableAssert
+**waitFor()** | Applicable for performing assert actions for MultiDropdown | DataTableAssert
+**shouldBe()** | Applicable for performing assert actions for MultiDropdown | DataTableAssert
 
 Here is the list of some methods available for C# in JDI Light:
 
@@ -3116,11 +3167,6 @@ Here is the list of some methods available for C# in JDI Light:
 **OptionExists(string)** |Check whether option exists in list  | bool
 **Expand()** |Expand list  | void
 **Close()** |Close expanded list  | void
-
-Available assertion methods in C# for JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
 **Selected(string option)** |Check whether option is selected  | MultiDropdownAssert
 **Selected(Enum option)** |Check whether option is selected  | MultiDropdownAssert
 **Values(Matcher<IEnumerable<string>> condition)** |Check whether some values exist in MultiDropDown by some matcher  | MultiDropdownAssert
@@ -3128,15 +3174,6 @@ Available assertion methods in C# for JDI Light:
 **Enabled(Matcher<IEnumerable<string>> condition)** |Check whether some values are enabled in MultiDropDown by some matcher  | MultiDropdownAssert
 **Is** |Gets multiDropDown assert  | MultiDropdownAssert
 **AssertThat** |Gets multiDropDown assert  | MultiDropdownAssert
-
-The list of methods available for Java in JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
-**check(String/String.../Enum.../int...)** |Select values in multi dropdown | void
-**uncheck(String.../Enum.../int...)** | Deselect values in multi dropdown | void
-**selected()** | Get selected value by default | String
-**checked()** | Get selected values | List\<String>
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/MultiDropdownTests.java" target="_blank">Test examples in Java</a>
 
@@ -3453,20 +3490,25 @@ MultiSelector is represented by the following class:
   
   
 ```java 
-@UI("#ages") 
-// equal to @FindBy(css = "#ages") 
-public static MultiSelect ages;
+@UI("#ages") // @FindBy(css = "#ages")  
+public static MultiSelector ages;
 
 @Test
-public void checkTest() {
-       ages.check("Electro", "Metalic");
-       assertEquals(ages.checked(), asList("Electro", "Metalic"));
-    }
+public void selectTest() {
+    ages.check("Electro", "Metalic");
+    assertEquals(ages.checked(), asList("Electro", "Metalic"));
+}
+
 @Test
 public void disabledTest() {
+    try {
         ages.select("Disabled");
-        assertEquals(ages.getValue(), text);
+    } catch (Exception ex) {
+        assertThat(safeException(ex), containsString("Can't perform click. Element is disabled"));
     }
+    assertEquals(ages.selected(), text);
+}
+
 ```
 ```csharp 
 [Test]
@@ -3645,18 +3687,15 @@ Here is the list of some methods available for C# in JDI Light:
 
 **Section** - Logical part of Web Page that contains other UI Elements
   
-Section is represented by the following class:
+Section is located in the following classes:
+ 
+  - __Java__: _com.epam.jdi.light.elements.composite.Section_
+  - __C#__: _JDI.Light.Elements.Composite.Section_  
 
-Java: com.epam.jdi.light.elements.composite.Section  
-public class Section extends JDIBase implements PageObject 
-
-C#: JDI.Light.Elements.Composite.Section  
-public class Section : UIElement
   
 ```java 
    @UI(".someSectionUI") // @FindBy(css = ".someSectionUI")
    public static SomeSection someSectionUI;
-   //public class SomeSection extends Section
 
    @Test
    public void someSectionWebElementTest() {
@@ -6824,14 +6863,18 @@ Available methods in Java JDI Light:
 
 
 ###Progress
+Progress is located in the following class:
+
+  - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.common.Progress_
+  
 <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/progress/">Progress</a> is custom progress bar featuring support for stacked bars, animated backgrounds, and text labels.
 
-There is also a complex element <a style="font-weight: bold;" href="https://getbootstrap.com/docs/4.3/components/progress/">MultiplebarsProgress</a> which may consist of several progress bars.
+There is also a complex element <a style="font-weight: bold;" href="https://jdi-docs.github.io/jdi-light/?java#multiple-progress-bars">MultiplebarsProgress</a> which may consist of several progress bars.
 
 
 ![Progress example](../images/bootstrap/progress.png)
 
-Here is an example with provided Bootstrap v4.3 code:
+Here is an example with provided Bootstrap v4.3 code:_
 
 ```java 
 //FindBy(css = "#progress-bar-base-width-25 .progress-bar"
@@ -6840,7 +6883,7 @@ public static Progress progressBaseWidth25;
 
 @Test(dataProvider = "progressWidth")
 public void getWidthTest(Progress progress, String width) {
-    progress.is().ariaValue(width);
+   progress.is().value(width);
 }
 
 @Test(dataProvider = "progressColor")
@@ -6880,11 +6923,18 @@ Available methods in Java JDI Light:
 **getColor()** | Get color of the bar  | String
 **getStyle()** | Get style of the bar | String
 **is()** | Various assert actions for Progress | ProgressAssert 
-**assertThat()** | Assert action | UIAssert 
+**value()** | Match passed value with the progress value _'aria-valuenow'_ | ProgressAssert
+**color()** | Match passed value with the progress css _'background-color'_ | ProgressAssert
+**minValue()** | Match passed value with the progress value _'aria-valuemin'_ | ProgressAssert
+**maxValue()** | Match passed value with the progress value _'aria-valuemax'_ | ProgressAssert
+**animated()** | Match passed value with the progress css _'animation-name'_ | ProgressAssert
+**height()** | Match passed value with the progress height | ProgressAssert
 
-[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/progress/ProgressBaseTests.java)
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/progress/ProgressBaseTests.java" target=a_blank> Bootstrap test examples </a>
 
-####With label
+<br><br><br><br><br>
+
+####Labels
 
 Add <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/progress/#labels">labels</a> to your progress bars by placing text within the `.progress-bar`.
 
@@ -6894,29 +6944,30 @@ Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
 //@FindBy(css = "#progress-with-labels")
-@UI("#progress-with-labels") public static Progress progressWithLabels; 
+@UI("#progress-with-labels") 
+public static Progress progressWithLabels; 
 
 @Test
-    public void getDefaultPercentTest() {
-         assertThat(progressWithLabels.core().getText(), is(defaultPercent));
-    }
+public void getDefaultPercentTest() {
+   assertThat(progressWithLabels.core().getText(), is(defaultPercent));
+}
  
 @Test
-    public void getPercentTest() {
-         progressWithLabels.core().is().text(defaultPercent);
-         minus.click();
-         progressWithLabels.core().is().text("20%");
-         for (int i = 0; i < 10; i++) {
-             minus.click();
-         }
-         progressWithLabels.core().is().text(minPercent);
-         plus.click();
-         progressWithLabels.core().is().text("5%");
-         for (int i = 0; i < 30; i++) {
-             plus.click();
-         }
-         progressWithLabels.core().is().text(maxPercent);
-    }
+public void getPercentTest() {
+   progressWithLabels.core().is().text(defaultPercent);
+   minus.click();
+   progressWithLabels.core().is().text("20%");
+   for (int i = 0; i < 10; i++) {
+       minus.click();
+   }
+   progressWithLabels.core().is().text(minPercent);
+   plus.click();
+   progressWithLabels.core().is().text("5%");
+   for (int i = 0; i < 30; i++) {
+       plus.click();
+   }
+   progressWithLabels.core().is().text(maxPercent);
+}
 ```
   
 ```html 
@@ -6929,7 +6980,7 @@ Here is an example with provided Bootstrap v4.3 code:
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-####With height
+####Height
 
 We only set a <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/progress/#height">height</a>
  value on the .progress, so if you change that value the inner .progress-bar will automatically resize accordingly.
@@ -6943,22 +6994,22 @@ Here is an example with provided Bootstrap v4.3 code:
 @UI("#progress-height .progress")
 public static JList<ProgressSection> progressHeightSections;
 
- @Test
-    public void heightOfSectionShouldBeValid() {
-        for (ProgressSection section : progressHeightSections) {
-            int actualHeight = section.core().getSize().getHeight();
-            int expectedHeight = section.getProgressSectionHeightValueInPx();
-            assertEquals(actualHeight, expectedHeight);
-        }
-    }
+@Test
+public void heightOfSectionShouldBeValid() {
+   for (ProgressSection section : progressHeightSections) {
+       int actualHeight = section.core().getSize().getHeight();
+       int expectedHeight = section.getProgressSectionHeightValueInPx();
+       assertEquals(actualHeight, expectedHeight);
+   }
+}
 
-    @Test
-    public void heightOfBarShouldBeValid() {
-        for (ProgressSection section : progressHeightSections) {
-            int expectedBarHeight = section.getProgressSectionHeightValueInPx();
-            section.progress.is().height(expectedBarHeight);
-        }
-    }
+@Test
+public void heightOfBarShouldBeValid() {
+   for (ProgressSection section : progressHeightSections) {
+       int expectedBarHeight = section.getProgressSectionHeightValueInPx();
+       section.progress.is().height(expectedBarHeight);
+   }
+}
 
 ```
   
@@ -6984,7 +7035,7 @@ public static JList<ProgressSection> progressHeightSections;
 
 <br><br><br><br><br>
 
-####With backgrounds
+####Backgrounds
 
 Use <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/progress/#backgrounds">background</a> utility classes to change the appearance of individual progress bars.
 
@@ -6992,7 +7043,7 @@ Use <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com
 
 Here is an example with provided Bootstrap v4.3 code:
   
-  ```java 
+```java 
 //@FindBy(css = "#progress-background-green")
 @UI("#progress-backgrounds-green") public static Progress progressBackgroundGreen;
 //@FindBy(css = "#progress-background-blue")
@@ -7003,26 +7054,26 @@ Here is an example with provided Bootstrap v4.3 code:
 @UI("#progress-backgrounds-red") public static Progress progressBackgroundRed;
 
 @DataProvider(name = "progressBackgroundsWithAttributes")
-    public static Object[][] progressBackgroundsWithAttributes() {
-        return new Object[][]{
-                {progressBackgroundGreen, 25, "rgba(40, 167, 69, 1)"},
-                {progressBackgroundBlue, 50, "rgba(23, 162, 184, 1)"},
-                {progressBackgroundYellow, 75, "rgba(255, 193, 7, 1)"},
-                {progressBackgroundRed, 100, "rgba(220, 53, 69, 1)"}
-        };
-    }
+public static Object[][] progressBackgroundsWithAttributes() {
+   return new Object[][]{
+           {progressBackgroundGreen, 25, "rgba(40, 167, 69, 1)"},
+           {progressBackgroundBlue, 50, "rgba(23, 162, 184, 1)"},
+           {progressBackgroundYellow, 75, "rgba(255, 193, 7, 1)"},
+           {progressBackgroundRed, 100, "rgba(220, 53, 69, 1)"}
+   };
+}
 
 @Test(dataProvider = "progressBackgroundsWithAttributes")
-    public void isValidationTest(ICoreElement progressBackground, int widthNumber, String color) {
-        progressBackground.core().is()
-                .tag(is("div"))
-                .attr("role", "progressbar")
-                .attr("style", String.format("width: %s%%;", widthNumber))
-                .attr("aria-valuenow", widthNumber + "")
-                .attr("aria-valuemin", "0")
-                .attr("aria-valuemax", "100")
-                .css("background-color", color);
-    }
+public void isValidationTest(ICoreElement progressBackground, int widthNumber, String color) {
+   progressBackground.core().is()
+           .tag(is("div"))
+           .attr("role", "progressbar")
+           .attr("style", String.format("width: %s%%;", widthNumber))
+           .attr("aria-valuenow", widthNumber + "")
+           .attr("aria-valuemin", "0")
+           .attr("aria-valuemax", "100")
+           .css("background-color", color);
+}
 
 ```
   
@@ -7045,7 +7096,7 @@ Here is an example with provided Bootstrap v4.3 code:
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-####With striped design
+####Striped
 
 Add <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/progress/#striped">.progress-bar-striped</a> to any `.progress-bar to apply` a stripe via CSS gradient over the progress bar’s background color.
 
@@ -7054,31 +7105,23 @@ Add <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com
 Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
-
-    public class BootstrapPage extends WebPage {
-    @UI("#striped-base .progress") public static JList<ProgressSection> progressSections;
-    }
-
-    public class ProgressSection extends Section {
-        //@FindBy(css = ".progress-bar")
-        @UI(".progress-bar")
-        public Progress progress;
-    }
-
-    @Test(dataProvider = "progressData")
-    public void checkProgressData(String progressId, String value, String color,
-                                  String min, String max, String classStriped) {
-
-        progressSections.stream().filter(progressSection ->
-                progressSection.progress.attr("id").equals(progressId)).forEach(
-                progressSection -> {
-                    progressSection.progress.is().core().hasClass(classStriped);
-                    progressSection.progress.is().ariaValue(value)
-                                                 .color(color)
-                                                 .minValue(min)
-                                                 .maxValue(max);
-                });
-    }
+//@FindBy(css = "#striped-base .progress")    
+@UI("#striped-base .progress") 
+public static JList<ProgressSection> progressSections;
+   
+@Test(dataProvider = "progressData")
+public void checkProgressData(String progressId, String value, String color,
+                              String min, String max, String classStriped
+    progressSections.stream().filter(progressSection ->
+            progressSection.progress.attr("id").equals(progressId)).forEach(
+            progressSection -> {
+                progressSection.progress.is().core().hasClass(classStriped);
+                progressSection.progress.is().value(value)
+                        .color(color)
+                        .minValue(min)
+                        .maxValue(max);
+            });
+}
 
 ```
 
@@ -7105,12 +7148,12 @@ Here is an example with provided Bootstrap v4.3 code:
 </div>
 ```
 
-[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/listprogressbars/ProgressBarsListTests.java)
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/progress/ProgressBarsListTests.java" target=a_blank> Bootstrap test examples </a>
 
 <br><br><br><br><br><br>
 
 
-####With animated design
+####Animated stripes
 
 The striped gradient can also be <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/progress/#animated-stripes">animated</a>.
 Add .progress-bar-animated to .progress-bar to animate the stripes right to left via CSS3 animations.
@@ -7119,14 +7162,15 @@ Here is an example with provided Bootstrap v4.3 code:
 
 ```java 
 //FindBy(css = "#progress-animated")
-@UI("#progress-animated") public static Progress progressAnimated;
+@UI("#progress-animated") 
+public static Progress progressAnimated;
 
 @Test
 public void isValidationTest() {
-    progressAnimated.is()
-            .animated("progress-bar-stripes")
-            .color("rgba(0, 123, 255, 1)")
-            .ariaValue("75");
+   progressAnimated.is()
+           .animated("progress-bar-stripes")
+           .color("rgba(0, 123, 255, 1)")
+           .value("75");
 }
 ```
   
@@ -7136,7 +7180,7 @@ public void isValidationTest() {
 </div>
 ```
 
-[Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/progress/ProgressAnimatedStripesTests.java)
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/progress/ProgressAnimatedStripesTests.java" target=a_blank> Bootstrap test examples </a>
 <br><br><br><br><br><br><br><br>
 
 ###Spinners
@@ -8437,6 +8481,842 @@ Available methods in Java JDI Light:
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/complex/MultipleProgressBarsTests.java)
 <br><br><br>
 
+### Navs
+
+***[Navs](https://getbootstrap.com/docs/4.3/components/navs/)*** - Different types of combination of navigation components.
+
+#### Base
+**[Base nav](https://getbootstrap.com/docs/4.3/components/navs/#base-nav)** 
+
+![Nav base example](../images/bootstrap/nav-base.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java 
+// @FindBy(css = "#nav-base-li") public static NavsBaseLi navsBaseLi;
+@UI("#nav-base-li") public static NavsBaseLi navsBaseLi;
+
+public class NavsBaseLi extends Section {
+    // @FindBy(css = "li") public ListGroup navItem;
+    @UI("li") public ListGroup navItem;
+    // @FindBy(css = "li a")  public ListGroup navItemLink;
+    @UI("li a") public ListGroup navItemLink;
+}
+
+@Test(dataProvider = "clickValidate")
+public void linkClickableLiTests(int index, String pageTitle) {
+    navsBaseLi.navItem.get(index).highlight();
+    navsBaseLi.navItem.get(index).click();
+    newWindowTitleCheck(pageTitle);
+    navsBaseLi.navItem.get(index).unhighlight();
+}
+
+@Test(dataProvider = "listData")
+public void itemsIsValidationTests(int index, String linkText) {
+    navsBaseLi.navItemLink.get(index).is()
+            .core()
+            .hasClass("nav-link")
+            .text(is(linkText));
+}
+
+@Test
+public void isValidationTests() {
+    navsBaseLi.navItem.is()
+            .size(4);
+    navsBaseLi.navItemLink.get(1)
+            .is()
+            .core()
+            .hasClass("active");
+    navsBaseLi.navItemLink.get(4)
+            .is()
+            .core()
+            .hasClass("disabled");
+}
+```
+
+```html
+<ul class="nav" id="nav-base-li">
+    <li class="nav-item">
+        <a class="nav-link active" href="https://jdi-testing.github.io/jdi-light/index.html"
+           target="_blank">Active</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="https://github.com/jdi-docs" target="_blank">JDI Docs</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="https://github.com/jdi-testing" target="_blank">JDI -
+            testing tool</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link disabled" href="https://getbootstrap.com" tabindex="-1"
+           aria-disabled="true" target="_blank">Disabled</a>
+    </li>
+</ul>
+```
+
+```html
+<nav class="nav" id="nav-base-a">
+    <a class="nav-link active" href="https://jdi-testing.github.io/jdi-light/index.html"
+       target="_blank">Active</a>
+    <a class="nav-link" href="https://github.com/jdi-docs" target="_blank">JDI Docs</a>
+    <a class="nav-link" href="https://github.com/jdi-testing" target="_blank">JDI - testing
+        tool</a>
+    <a class="nav-link disabled" href="https://getbootstrap.com" tabindex="-1"
+       aria-disabled="true" target="_blank">Disabled</a>
+</nav>
+```
+
+Available methods in Java JDI Light:
+
+All methods are inherited from base element -  [UIElement](https://jdi-docs.github.io/jdi-light/#uielement)
+
+Most applicable methods:
+
+|Method | Description | Return Type
+--- | --- | ---
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**get()** | Select button by index | UIElement
+**click()** | Get button text | void
+**highlight()** | Get button text | void
+**unhighlight()** | Get button text | void
+
+<br>
+
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navs/BaseTests.java)<br>
+
+Nav group is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+
+<br>
+
+#### Horizontal alignment
+**[Nav horizontal alignmen](https://getbootstrap.com/docs/4.3/components/navs/#horizontal-alignment)** 
+
+![Nav horizontal alignmen example](../images/bootstrap/nav-align-center.png)
+
+![Nav horizontal alignmen example](../images/bootstrap/nav-align-right.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java 
+// @FindBy(css = "#nav-center") public static NavsAlignmentCenter navsAlignmentCenter;
+@UI("#nav-center") public static NavsAlignmentCenter navsAlignmentCenter;
+
+public class NavsAlignmentCenter extends Section {
+    // @FindBy(css = "li") public ListGroup navItem;
+    @UI("li") public ListGroup navItem;
+    // @FindBy(css = "li a")  public ListGroup navItemLink;
+    @UI("li a") public ListGroup navItemLink;
+}
+
+@Test
+public void isValidationTests() {
+    navsAlignmentCenter.navItem.is()
+            .size(4);
+    navsAlignmentCenter.is()
+            .displayed()
+            .enabled()
+            .core()
+            .hasClass("nav justify-content-center");
+    navsAlignmentCenter.navItemLink.get(1)
+            .is()
+            .core()
+            .hasClass("active");
+}
+
+@Test(dataProvider = "listData")
+public void itemsIsValidationTests(int index, String linkText) {
+    navsAlignmentCenter.navItem.get(index)
+            .is()
+            .core()
+            .hasClass("nav-item")
+            .text(is(linkText));
+}
+
+@Test(dataProvider = "clickValidate")
+public void linkClickableLiTests(int index, String pageTitle) {
+    navsAlignmentCenter.navItem.get(index).highlight();
+    navsAlignmentCenter.navItem.get(index).click();
+    newWindowTitleCheck(pageTitle);
+    navsAlignmentCenter.navItem.get(index).unhighlight();
+}
+```
+
+```html
+<ul class="nav justify-content-center" id="nav-center">
+    <li class="nav-item">
+        <a class="nav-link active" href="https://jdi-testing.github.io/jdi-light/index.html"
+           target="_blank">Active</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="https://github.com/jdi-docs" target="_blank">JDI Docs</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="https://github.com/jdi-testing" target="_blank">JDI -
+            testing tool</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link disabled" href="https://getbootstrap.com" tabindex="-1"
+           aria-disabled="true" target="_blank">Disabled</a>
+    </li>
+</ul>
+```
+
+```html
+<ul class="nav justify-content-end" id="nav-end">
+    <li class="nav-item">
+        <a class="nav-link active" href="https://jdi-testing.github.io/jdi-light/index.html"
+           target="_blank">Active</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="https://github.com/jdi-docs" target="_blank">JDI Docs</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="https://github.com/jdi-testing" target="_blank">JDI -
+            testing tool</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link disabled" href="https://getbootstrap.com" tabindex="-1"
+           aria-disabled="true" target="_blank">Disabled</a>
+    </li>
+</ul>
+```
+
+Available methods in Java JDI Light:
+
+All methods are inherited from base element -  [UIElement](https://jdi-docs.github.io/jdi-light/#uielement)
+
+Most applicable methods:
+
+|Method | Description | Return Type
+--- | --- | ---
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**get()** | Select button by index | UIElement
+**click()** | Get button text | void
+**highlight()** | Get button text | void
+**unhighlight()** | Get button text | void
+
+<br>
+
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navs/AlignmentTests.java)<br>
+
+Nav group is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+
+<br>
+
+#### Vertical alignment
+**[Nav vertical alignmen](https://getbootstrap.com/docs/4.3/components/navs/#vertical)** 
+
+![Nav vertical alignmen example](../images/bootstrap/nav-vertical.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java 
+// @FindBy(css = "#nav-vert-li") public static NavsVerticalLi navsVerticalLi;
+@UI("#nav-vert-li") public static NavsVerticalLi navsVerticalLi;
+
+public class NavsVerticalLi extends Section {
+    // @FindBy(css = "li") public ListGroup navItem;
+    @UI("li") public ListGroup navItem;
+    // @FindBy(css = "li a")  public ListGroup navItemLink;
+    @UI("li a") public ListGroup navItemLink;
+}
+
+@Test
+public void isValidationTests() {
+    navsVerticalLi.navItem.is()
+            .size(4);
+    navsVerticalLi.is()
+            .displayed()
+            .enabled()
+            .core()
+            .hasClass("nav flex-column");
+    navsVerticalLi.navItemLink.get(1)
+            .is()
+            .core()
+            .hasClass("active");
+    navsVerticalLi.navItemLink.get(4)
+            .is()
+            .core()
+            .hasClass("disabled");
+}
+
+@Test(dataProvider = "clickValidate")
+public void linkClickableLiTests(int index, String pageTitle) {
+    navsVerticalLi.navItem.get(index).highlight();
+    navsVerticalLi.navItem.get(index).click();
+    newWindowTitleCheck(pageTitle);
+    navsVerticalLi.navItem.get(index).unhighlight();
+}
+```
+
+```html
+<ul class="nav flex-column" id="nav-vert-li">
+    <li class="nav-item">
+        <a class="nav-link active" href="https://jdi-testing.github.io/jdi-light/index.html"
+           target="_blank">Active</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="https://github.com/jdi-docs" target="_blank">JDI Docs</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="https://github.com/jdi-testing" target="_blank">JDI -
+            testing tool</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link disabled" href="https://getbootstrap.com" tabindex="-1"
+           aria-disabled="true" target="_blank">Disabled</a>
+    </li>
+</ul>
+```
+
+```html
+<nav class="nav flex-column" id="nav-vert-a">
+    <a class="nav-link active" href="https://jdi-testing.github.io/jdi-light/index.html"
+       target="_blank">Active</a>
+    <a class="nav-link" href="https://github.com/jdi-docs" target="_blank">JDI Docs</a>
+    <a class="nav-link" href="https://github.com/jdi-testing" target="_blank">JDI - testing
+        tool</a>
+    <a class="nav-link disabled" href="https://getbootstrap.com" tabindex="-1"
+       aria-disabled="true" target="_blank">Disabled</a>
+</nav>
+```
+
+
+Available methods in Java JDI Light:
+
+All methods are inherited from base element -  [UIElement](https://jdi-docs.github.io/jdi-light/#uielement)
+
+Most applicable methods:
+
+|Method | Description | Return Type
+--- | --- | ---
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**get()** | Select button by index | UIElement
+**click()** | Get button text | void
+**highlight()** | Get button text | void
+**unhighlight()** | Get button text | void
+
+<br>
+
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navs/VerticalTests.java)<br>
+
+Nav group is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+
+<br>
+
+#### Tabs
+**[Nav tabs](https://getbootstrap.com/docs/4.3/components/navs/#tabs)** 
+
+![Nav tabs example](../images/bootstrap/nav-tabs.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java 
+// @FindBy(css = "#nav-tabs") public static NavsTabs navsTabs;
+@UI("#nav-tabs") public static NavsTabs navsTabs;
+
+public class NavsTabs extends Section {
+    // @FindBy(css = "li") public ListGroup navItem;
+    @UI("li") public ListGroup navItem;
+    // @FindBy(css = "li a")  public ListGroup navItemLink;
+    @UI("li a") public ListGroup navItemLink;
+}
+
+@Test
+public void isValidationTests() {
+    navsTabs.navItem.is()
+            .size(4);
+    navsTabs.is()
+            .displayed()
+            .enabled()
+            .core()
+            .hasClass("nav nav-tabs");
+    navsTabs.navItemLink.get(1)
+            .is()
+            .core()
+            .hasClass("active");
+    navsTabs.navItemLink.get(4)
+            .is()
+            .core()
+            .hasClass("disabled");
+}
+
+@Test(dataProvider = "clickValidate")
+public void linkClickableLiTests(int index, String pageTitle) {
+    navsTabs.navItem.get(index).highlight();
+    navsTabs.navItem.get(index).click();
+    newWindowTitleCheck(pageTitle);
+    navsTabs.navItem.get(index).unhighlight();
+}
+```
+
+```html
+<ul class="nav nav-tabs" id="nav-tabs">
+    <li class="nav-item">
+        <a class="nav-link active" href="https://jdi-testing.github.io/jdi-light/index.html"
+           target="_blank">Active</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="https://github.com/jdi-docs" target="_blank">JDI Docs</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="https://github.com/jdi-testing" target="_blank">JDI -
+            testing tool</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link disabled" href="https://getbootstrap.com" tabindex="-1"
+           aria-disabled="true" target="_blank">Disabled</a>
+    </li>
+</ul>
+```
+
+
+Available methods in Java JDI Light:
+
+All methods are inherited from base element -  [UIElement](https://jdi-docs.github.io/jdi-light/#uielement)
+
+Most applicable methods:
+
+|Method | Description | Return Type
+--- | --- | ---
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**get()** | Select button by index | UIElement
+**click()** | Get button text | void
+**highlight()** | Get button text | void
+**unhighlight()** | Get button text | void
+
+<br>
+
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navs/TabsTests.java)<br>
+
+Nav group is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+
+<br>
+
+#### Pills
+**[Nav pills](https://getbootstrap.com/docs/4.3/components/navs/#pills)** 
+
+![Nav pills example](../images/bootstrap/nav-pills.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java 
+// @FindBy(css = "#nav-pills") public static NavsPills navsPills;
+@UI("#nav-pills") public static NavsPills navsPills;
+
+public class NavsPills extends Section {
+    // @FindBy(css = "li") public ListGroup navItem;
+    @UI("li") public ListGroup navItem;
+    // @FindBy(css = "li a")  public ListGroup navItemLink;
+    @UI("li a") public ListGroup navItemLink;
+}
+
+@Test(dataProvider = "listData")
+public void itemsIsValidationTests(int index, String linkText) {
+    navsPills.navItem.get(index)
+            .is()
+            .core()
+            .hasClass("nav-item")
+            .text(is(linkText));
+    navsPills.navItemLink.get(index)
+            .is()
+            .core()
+            .hasClass("nav-link")
+            .text(is(linkText));
+}
+
+@Test(dataProvider = "clickValidate")
+public void linkClickableLiTests(int index, String pageTitle) {
+    navsPills.navItem.get(index).highlight();
+    navsPills.navItem.get(index).click();
+    newWindowTitleCheck(pageTitle);
+    navsPills.navItem.get(index).unhighlight();
+}
+```
+
+```html
+<ul class="nav nav-pills" id="nav-pills">
+    <li class="nav-item">
+        <a class="nav-link active" href="https://jdi-testing.github.io/jdi-light/index.html"
+           target="_blank">Active</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="https://github.com/jdi-docs" target="_blank">JDI Docs</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="https://github.com/jdi-testing" target="_blank">JDI -
+            testing tool</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link disabled" href="https://getbootstrap.com" tabindex="-1"
+           aria-disabled="true" target="_blank">Disabled</a>
+    </li>
+</ul>
+```
+
+
+Available methods in Java JDI Light:
+
+All methods are inherited from base element -  [UIElement](https://jdi-docs.github.io/jdi-light/#uielement)
+
+Most applicable methods:
+
+|Method | Description | Return Type
+--- | --- | ---
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**get()** | Select button by index | UIElement
+**click()** | Get button text | void
+**highlight()** | Get button text | void
+**unhighlight()** | Get button text | void
+
+<br>
+
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navs/PillsTests.java)<br>
+
+Nav group is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+
+<br>
+
+#### Fill and justify
+**[Nav fill and justify](https://getbootstrap.com/docs/4.3/components/navs/#fill-and-justify)** 
+
+![Nav fill and justify example](../images/bootstrap/nav-fill-and-justify.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java 
+// @FindBy(css = "#nav-justify") public static NavsJustify navsJustify;
+@UI("#nav-justify") public static NavsJustify navsJustify;
+
+public class NavsJustify extends Section {
+    // @FindBy(css = "li") public ListGroup navItem;
+    @UI("li") public ListGroup navItem;
+    // @FindBy(css = "li a")  public ListGroup navItemLink;
+    @UI("li a") public ListGroup navItemLink;
+}
+
+@Test(dataProvider = "listData")
+public void itemsIsValidationTests(int index, String linkText) {
+    navsJustify.navItem.get(index)
+            .is()
+            .core()
+            .hasClass("nav-item")
+            .text(is(linkText));
+    navsJustify.navItemLink.get(index)
+            .is()
+            .core()
+            .hasClass("nav-link")
+            .text(is(linkText));
+}
+
+@Test(dataProvider = "clickValidate")
+public void linkClickableLiTests(int index, String pageTitle) {
+    navsJustify.navItem.get(index).highlight();
+    navsJustify.navItem.get(index).click();
+    newWindowTitleCheck(pageTitle);
+    navsJustify.navItem.get(index).unhighlight();
+}
+```
+
+```html
+<ul class="nav nav-pills nav-fill" id="nav-justify">
+    <li class="nav-item">
+        <a class="nav-link active" href="https://jdi-testing.github.io/jdi-light/index.html"
+           target="_blank">Active</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="https://github.com/jdi-docs" target="_blank">JDI Docs</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="https://github.com/jdi-testing" target="_blank">JDI - testing
+            tool</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link disabled" href="https://getbootstrap.com" tabindex="-1"
+           aria-disabled="true" target="_blank">Disabled</a>
+    </li>
+</ul>
+```
+
+
+Available methods in Java JDI Light:
+
+All methods are inherited from base element -  [UIElement](https://jdi-docs.github.io/jdi-light/#uielement)
+
+Most applicable methods:
+
+|Method | Description | Return Type
+--- | --- | ---
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**get()** | Select button by index | UIElement
+**click()** | Get button text | void
+**highlight()** | Get button text | void
+**unhighlight()** | Get button text | void
+
+<br>
+
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navs/FillAndJustifyTests.java)<br>
+
+Nav group is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+
+<br>
+
+#### Tabs with dropdowns
+**[Nav tabs with dropdowns](https://getbootstrap.com/docs/4.3/components/navs/#tabs-with-dropdowns)** 
+
+![Nav tabs with dropdowns example](../images/bootstrap/nav-tabs-with-dropdowns.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java 
+// @FindBy(css = "#nav-with-dropdown") public static NavsTabsWithDropdown navsTabsWithDropdown;
+@UI("#nav-with-dropdown") public static NavsTabsWithDropdown navsTabsWithDropdown;
+
+public class NavsTabsWithDropdown extends Section {
+    // @FindBy(css = "li") public ListGroup navItem;
+    @UI("li") public ListGroup navItem;
+    // @FindBy(css = "a.nav-link") public ListGroup navItemLink;
+    @UI("a.nav-link") public ListGroup navItemLink;
+    @JDropdown(expand = ".dropdown-toggle",
+            value = ".dropdown-toggle",
+            list = ".dropdown-item")
+    public Dropdown dropdownMenu;
+}
+
+@Test
+public void isValidationTests() {
+    navsTabsWithDropdown.navItem.is()
+            .size(4);
+    navsTabsWithDropdown.is()
+            .displayed()
+            .enabled()
+            .core()
+            .hasClass("nav nav-tabs");
+    navsTabsWithDropdown.navItemLink.get(1)
+            .is()
+            .core()
+            .hasClass("active");
+    navsTabsWithDropdown.navItemLink.get(4)
+            .is()
+            .core()
+            .hasClass("disabled");
+}
+
+@Test
+public void dropdownIsValidationTests() {
+    navsTabsWithDropdown.dropdownMenu.expand();
+    navsTabsWithDropdown.dropdownMenu
+            .is()
+            .displayed()
+            .expanded()
+            .enabled()
+            .size(4);
+    navsTabsWithDropdown.dropdownMenu
+            .is()
+            .core()
+            .attr("data-toggle", "dropdown")
+            .attr("aria-haspopup", "true")
+            .attr("aria-expanded", "true")
+            .attr("role", "button")
+            .tag("a");
+}
+```
+
+```html
+<ul class="nav nav-tabs" id="nav-with-dropdown">
+    <li class="nav-item">
+        <a class="nav-link active" href="https://jdi-testing.github.io/jdi-light/index.html"
+           target="_blank">Active</a>
+    </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+           aria-haspopup="true" aria-expanded="false">Dropdown</a>
+        <div class="dropdown-menu">
+            <a class="dropdown-item"
+               href="https://jdi-testing.github.io/jdi-light/index.html" target="_blank">JDI
+                home</a>
+            <a class="dropdown-item" href="https://github.com/jdi-docs" target="_blank">JDI
+                Docs</a>
+            <a class="dropdown-item" href="https://github.com/jdi-testing" target="_blank">JDI
+                - testing tool</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="https://getbootstrap.com" target="_blank">Bootstrap</a>
+        </div>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="https://github.com/jdi-testing" target="_blank">JDI -
+            testing tool</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link disabled" href="https://getbootstrap.com" tabindex="-1"
+           aria-disabled="true" target="_blank">Disabled</a>
+    </li>
+</ul>
+```
+
+
+Available methods in Java JDI Light:
+
+All methods are inherited from base element -  [UIElement](https://jdi-docs.github.io/jdi-light/#uielement)
+
+Most applicable methods:
+
+|Method | Description | Return Type
+--- | --- | ---
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**get()** | Select button by index | UIElement
+**click()** | Get button text | void
+**highlight()** | Get button text | void
+**unhighlight()** | Get button text | void
+**expand()** | Get button text | void
+**expanded()** | Get button text | TextAssert
+
+<br>
+
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navs/TabsWithDropdownTests.java)<br>
+
+Nav group is represented by Section class in Java:
+ 
+[Section](https://jdi-docs.github.io/jdi-light/#section)  
+
+#### Pills with dropdowns
+**[Nav pills with dropdowns](https://getbootstrap.com/docs/4.3/components/navs/#pills-with-dropdowns)** 
+
+![Nav pills with dropdowns example](../images/bootstrap/nav-pills-with-dropdowns.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java 
+// @FindBy(css = "#nav-pills-drop") public static NavsPillsWithDropdown navsPillsWithDropdown;
+@UI("#nav-pills-drop") public static NavsPillsWithDropdown navsPillsWithDropdown;
+
+public class NavsPillsWithDropdown extends Section {
+    // @FindBy(css = "li") public ListGroup navItem;
+    @UI("li") public ListGroup navItem;
+    // @FindBy(css = "a.nav-link") public ListGroup navItemLink;
+    @UI("a.nav-link") public ListGroup navItemLink;
+    @JDropdown(expand = ".dropdown-toggle",
+            value = ".dropdown-toggle",
+            list = ".dropdown-item")
+    public Dropdown dropdownMenu;
+}
+
+@Test
+public void dropdownIsValidationTests() {
+    navsPillsWithDropdown.dropdownMenu.expand();
+    navsPillsWithDropdown.dropdownMenu
+            .is()
+            .expanded()
+            .size(4)
+            .core()
+            .attr("data-toggle", "dropdown")
+            .attr("aria-haspopup", "true")
+            .attr("aria-expanded", "true")
+            .attr("role", "button")
+            .tag("a");
+    navsPillsWithDropdown.dropdownMenu.expand();
+}
+
+@Test
+public void dropdownClickableTests() {
+    navsPillsWithDropdown.dropdownMenu.select(linkDrop1);
+    newWindowTitleCheck(pageTitle1);
+    navsPillsWithDropdown.dropdownMenu.select(linkDrop2);
+    newWindowTitleCheck(pageTitle2);
+    navsPillsWithDropdown.dropdownMenu.select(linkDrop3);
+    newWindowTitleCheck(pageTitle3);
+    navsPillsWithDropdown.dropdownMenu.select(linkDrop4);
+    newWindowTitleCheck(pageTitle4);
+}
+```
+
+```html
+<ul class="nav nav-pills" id="nav-pills-drop">
+    <li class="nav-item">
+        <a class="nav-link active" href="https://jdi-testing.github.io/jdi-light/index.html"
+           target="_blank">Active</a>
+    </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+           aria-haspopup="true" aria-expanded="false">Dropdown</a>
+        <div class="dropdown-menu">
+            <a class="dropdown-item"
+               href="https://jdi-testing.github.io/jdi-light/index.html" target="_blank">JDI
+                home</a>
+            <a class="dropdown-item" href="https://github.com/jdi-docs" target="_blank">JDI
+                Docs</a>
+            <a class="dropdown-item" href="https://github.com/jdi-testing" target="_blank">JDI
+                - testing tool</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="https://getbootstrap.com" target="_blank">Bootstrap</a>
+        </div>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="https://github.com/jdi-testing" target="_blank">JDI -
+            testing tool</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link disabled" href="https://getbootstrap.com" tabindex="-1"
+           aria-disabled="true" target="_blank">Disabled</a>
+    </li>
+</ul>
+```
+
+Available methods in Java JDI Light:
+
+All methods are inherited from base element -  [UIElement](https://jdi-docs.github.io/jdi-light/#uielement)
+
+Most applicable methods:
+
+|Method | Description | Return Type
+--- | --- | ---
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+**assertThat()** | Assert action | TextAssert
+**get()** | Select button by index | UIElement
+**click()** | Get button text | void
+**highlight()** | Get button text | void
+**unhighlight()** | Get button text | void
+**expand()** | Get button text | void
+**expanded()** | Get button text | TextAssertn
+
+<br>
+
+[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navs/PillsWithDropdownTests.java)<br>
+
+Nav group is represented by Section class in Java:
+ 
+  [Section](https://jdi-docs.github.io/jdi-light/#section)  
+
+<br>
+
+
 ### RadioButtons
 
   **RadioButtons** – extends from <a href="https://jdi-docs.github.io/jdi-light/#radiobuttons">HTML 5 RadioButtons</a> class.
@@ -8448,348 +9328,6 @@ Available methods in Java JDI Light:
   Is similar to the parent class but overrides its list() method and adds list(JFunc1<WebElement, Boolean> searchRule, ElementArea elementArea) method.
   
   <br>
-
-### Toast
-<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/toasts/" target="_blank">Toast</a> - Toasts are lightweight notifications designed to mimic the push notifications.
-<br />
-__Options for toasts:__
-<br />
- - _Animation<br/>_
- - _Autohide <br/>_
- - _Delay <br/>_
- <br/>
-__Events for toasts:__
-<br>
-  - _show.bs.toast_ - this event fires immediately when the show instance method is called.<br/>
-  - _shown.bs.toast_ - this event is fired when the toast has been made visible to the user<br/>
-  - _hide.bs.toast_ - this event is fired immediately when the hide instance method has been called.<br/>
-  - _hidden.bs.toast_ - this event is fired when the toast has finished being hidden from the user<br/>
- <br /> 
-
-<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/toasts/#basic" target="_blank">**Simple Toast**</a>
-<br />
-
-![Simple toast example](../images/bootstrap/toast.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-  
-```java 
-//@FindBy(id="simpleToast")
-@UI("#simpleToast") public static Toast simpleToast; 
-
-@Test
-public void simpleToastValidationTest() {
-    simpleToastButton.click();
-    simpleToast.is().displayed();
-    simpleToast.headerText.is().text(toastHeaderText);
-    simpleToast.body.is().text(toastBodyText);
-}
-
-```
-  
-```html
-<div class="toast" role="alert" data-animation="false" aria-live="assertive"
-     aria-atomic="true" id="simpleToast">
-    <div class="toast-header">
-        <img src="images/range-circle.png" class="rounded mr-2" alt="...">
-        <strong class="mr-auto">Bootstrap</strong>
-        <small class="text-muted">11 mins ago</small>
-        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast"
-                aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-    <div class="toast-body">
-        Hello, world! This is a toast message.
-    </div>
-</div>
-```
-
-<br>
-
-<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/toasts/#translucent" target="_blank">**Translucent Toast**</a>
-
-
-![Translucent toast example](../images/bootstrap/toast_center.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-
-```java 
-//@FindBy(id="translucentToast")
-@UI("#translucentToast") public static Toast translucentToast; 
-
-@Test
-public void translucentToastValidationTest() {
-    translucentToastButton.click();
-    translucentToast.is().displayed();
-    translucentToast.headerText.is().text(toastHeaderText);
-    translucentToast.body.is().text(toastBodyText);
-}
-
-```
-  
-```html
-<div aria-live="polite" aria-atomic="true"
-     style="min-height: 200px;background-color: grey;">
-    <div class="toast" role="alert" data-animation="false" aria-live="assertive"
-         aria-atomic="true" id="translucentToast">
-        <div class="toast-header">
-            <img src="images/range-circle.png" class="rounded mr-2" alt="...">
-            <strong class="mr-auto">Bootstrap</strong>
-            <small class="text-muted">11 mins ago</small>
-            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast"
-                    aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="toast-body">
-            Hello, world! This is a toast message.
-        </div>
-    </div>
-</div>
-```
-
-<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/toasts/#stacking" target="_blank">**Stacking**</a>
-
-When you have multiple toasts, we default to vertically stacking them in a readable manner
-
-![Toast stack example](../images/bootstrap/stack_of_toast.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-  
-```java 
-//@FindBy(id="firstMultipleToast")
-@UI("#firstMultipleToast") public static Toast firstStackToast; 
-//@FindBy(id="secondMultipleToast")
-@UI("#secondMultipleToast") public static Toast secondStackToast; 
-
-@Test
-public void stackOfToastsValidationTest() {
-    stackOfToastsButton.click();
-    firstStackToast.is().displayed();
-    secondStackToast.is().displayed();
-    firstStackToast.headerText.is().text(toastHeaderText);
-    firstStackToast.body.is().text(stackToastBodyText);
-    secondStackToast.headerText.is().text(toastHeaderText);
-    secondStackToast.body.is().text(secondStackToastBodyText);
-}
-
-```
-  
-```html
-<div aria-live="polite" aria-atomic="true"
-     style="min-height: 200px;background-color: grey;">
-    <div class="toast several" role="alert" aria-live="assertive" id="firstMultipleToast"
-         aria-atomic="true">
-        <div class="toast-header">
-            <img src="images/range-circle.png" class="rounded mr-2" alt="...">
-            <strong class="mr-auto">Bootstrap</strong>
-            <small class="text-muted">just now</small>
-            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast"
-                    aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="toast-body">
-            See? Just like this.
-        </div>
-    </div>
-    <div class="toast several" role="alert" aria-live="assertive" id="secondMultipleToast"
-         aria-atomic="true">
-        <div class="toast-header">
-            <img src="images/range-circle.png" class="rounded mr-2" alt="...">
-            <strong class="mr-auto">Bootstrap</strong>
-            <small class="text-muted">2 seconds ago</small>
-            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast"
-                    aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="toast-body">
-            Heads up, toasts will stack automatically
-        </div>
-    </div>
-</div>
-```
-
-
-<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/toasts/#stacking" target="_blank">**Placement**</a>
-
-Place toasts with custom CSS as you need them. The top right is often used for notifications, as is the top middle.
-<br /><br />
-Example with top right align:
-
-![Toast top right example](../images/bootstrap/toast_align.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-
-```java 
-//@FindBy(id="toastRightTop")
-@UI("#toastRightTop") public static Toast toastWithTopAlign; 
-
-@Test
-public void toastWithTopAlignValidationTest() {
-    toastWithTopAlignButton.click();
-    toastWithTopAlign.is().displayed();
-    toastWithTopAlign.headerText.is().text(toastHeaderText);
-    toastWithTopAlign.body.is().text(toastBodyText);
-    toastWithTopAlign.closeButton.click();
-    toastWithTopAlign.base().waitSec(1);
-    toastWithTopAlign.is().hidden();
-}
-
-```
-  
-```html
-<div aria-live="polite" aria-atomic="true"
-     style="position: relative; min-height: 200px;background-color: grey;">
-    <div class="toast" id="toastRightTop" style="position: absolute; top: 0; right: 0;"
-         data-autohide="false">
-        <div class="toast-header">
-            <img src="images/range-circle.png" class="rounded mr-2" alt="...">
-            <strong class="mr-auto">Bootstrap</strong>
-            <small>11 mins ago</small>
-            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast"
-                    aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="toast-body">
-            Hello, world! This is a toast message.
-        </div>
-    </div>
-</div>
-```
-
-Example with top right align stack of toasts:
-
-![Toast top right stack example](../images/bootstrap/stack_top_html.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-
-```java  
-//@FindBy(id="firstStackToast")
-@UI("#firstStackToast") public static Toast firstTopAlignStackToast; 
-//@FindBy(id="secondStackToast")
-@UI("#secondStackToast") public static Toast secondTopAlignStackToast; 
-
-@Test
- public void stackOfTopAlignToastsValidationTest() {
-    stackOfToastsWithTopAlignButton.click();
-    firstTopAlignStackToast.headerText.is().text(toastHeaderText);
-    firstTopAlignStackToast.body.is().text(stackToastBodyText);
-    secondTopAlignStackToast.headerText.is().text(toastHeaderText);
-    secondTopAlignStackToast.body.is().text(secondStackToastBodyText);
-    firstTopAlignStackToast.is().displayed();
-    secondTopAlignStackToast.is().displayed();
-}
-
-``` 
-  
-```html
-<div aria-live="polite" aria-atomic="true"
-     style="position: relative; min-height: 200px; background-color: grey;">
-    <!-- Position it -->
-    <div style="position: absolute; top: 0; right: 0;">
-
-        <!-- Then put toasts within -->
-        <div class="toast severalWithPosition" role="alert" aria-live="assertive"
-             id="firstStackToast" aria-atomic="true">
-            <div class="toast-header">
-                <img src="images/range-circle.png" class="rounded mr-2" alt="...">
-                <strong class="mr-auto">Bootstrap</strong>
-                <small class="text-muted">just now</small>
-                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast"
-                        aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="toast-body">
-                See? Just like this.
-            </div>
-        </div>
-
-        <div class="toast severalWithPosition" role="alert" aria-live="assertive"
-             id="secondStackToast" aria-atomic="true">
-            <div class="toast-header">
-                <img src="images/range-circle.png" class="rounded mr-2" alt="...">
-                <strong class="mr-auto">Bootstrap</strong>
-                <small class="text-muted">2 seconds ago</small>
-                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast"
-                        aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="toast-body">
-                Heads up, toasts will stack automatically
-            </div>
-        </div>
-    </div>
-</div>
-```
-
-Example with center align toast:
-
-![Toast top right stack example](../images/bootstrap/toast_center.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-  
-```java 
-//@FindBy(id="toastCenterTop")
-@UI("#toastCenterTop") public static Toast toastWithCenterAlign; 
-//@FindBy(id="toastRightTop")
-@UI("#toastRightTop") public static Toast toastWithTopAlign; 
-
-@Test
-public void toastWithCenterAlignValidationTest() {
-    toastWithCenterAlignButton.click();
-    toastWithCenterAlign.is().displayed();
-    toastWithCenterAlign.headerText.is().text(toastHeaderText);
-    toastWithCenterAlign.body.is().text(toastBodyText);
-    toastWithCenterAlign.closeButton.click();
-    toastWithCenterAlign.base().waitSec(1);
-    toastWithCenterAlign.is().hidden();
-}
-
-```
-  
-```html
-<div aria-live="polite" aria-atomic="true"
-     class="d-flex justify-content-center align-items-center"
-     style="min-height: 200px;background-color: grey;">
-
-    <!-- Then put toasts within -->
-    <div class="toast" role="alert" id="toastCenterTop" aria-live="assertive"
-         aria-atomic="true" data-delay="3000">
-        <div class="toast-header">
-            <img src="images/range-circle.png" class="rounded mr-2" alt="...">
-            <strong class="mr-auto">Bootstrap</strong>
-            <small>11 mins ago</small>
-            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast"
-                    aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="toast-body">
-            Hello, world! This is a toast message.
-        </div>
-    </div>
-</div>
-```
-
-Available methods in Java JDI Light:
-
-|Method | Description | Return Type
---- | --- | ---
-**getText()** |	Get toast text |	String
-**is()** |	Assert action |	TextAssert
-**assertThat()** |	Assert action |	TextAssert
-**isDisplayed()** | Show\wait that toast element displayed on the screen | Boolean
-**close()** |	Close toast |	void
-
-[Toast test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/)
- 
-<br>
 
 
 ## Bootstrap Composite elements
@@ -11603,842 +12141,6 @@ Inner elements of input group can be represented by following classes:
     <li> [MediaObject](https://jdi-docs.github.io/jdi-light/#media-object) </li>
 </ul>
 
-### Navs
-
-***[Navs](https://getbootstrap.com/docs/4.3/components/navs/)*** - Different types of combination of navigation components.
-
-#### Base
-**[Base nav](https://getbootstrap.com/docs/4.3/components/navs/#base-nav)** 
-
-![Nav base example](../images/bootstrap/nav-base.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-
-```java 
-// @FindBy(css = "#nav-base-li") public static NavsBaseLi navsBaseLi;
-@UI("#nav-base-li") public static NavsBaseLi navsBaseLi;
-
-public class NavsBaseLi extends Section {
-    // @FindBy(css = "li") public ListGroup navItem;
-    @UI("li") public ListGroup navItem;
-    // @FindBy(css = "li a")  public ListGroup navItemLink;
-    @UI("li a") public ListGroup navItemLink;
-}
-
-@Test(dataProvider = "clickValidate")
-public void linkClickableLiTests(int index, String pageTitle) {
-    navsBaseLi.navItem.get(index).highlight();
-    navsBaseLi.navItem.get(index).click();
-    newWindowTitleCheck(pageTitle);
-    navsBaseLi.navItem.get(index).unhighlight();
-}
-
-@Test(dataProvider = "listData")
-public void itemsIsValidationTests(int index, String linkText) {
-    navsBaseLi.navItemLink.get(index).is()
-            .core()
-            .hasClass("nav-link")
-            .text(is(linkText));
-}
-
-@Test
-public void isValidationTests() {
-    navsBaseLi.navItem.is()
-            .size(4);
-    navsBaseLi.navItemLink.get(1)
-            .is()
-            .core()
-            .hasClass("active");
-    navsBaseLi.navItemLink.get(4)
-            .is()
-            .core()
-            .hasClass("disabled");
-}
-```
-
-```html
-<ul class="nav" id="nav-base-li">
-    <li class="nav-item">
-        <a class="nav-link active" href="https://jdi-testing.github.io/jdi-light/index.html"
-           target="_blank">Active</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="https://github.com/jdi-docs" target="_blank">JDI Docs</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="https://github.com/jdi-testing" target="_blank">JDI -
-            testing tool</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link disabled" href="https://getbootstrap.com" tabindex="-1"
-           aria-disabled="true" target="_blank">Disabled</a>
-    </li>
-</ul>
-```
-
-```html
-<nav class="nav" id="nav-base-a">
-    <a class="nav-link active" href="https://jdi-testing.github.io/jdi-light/index.html"
-       target="_blank">Active</a>
-    <a class="nav-link" href="https://github.com/jdi-docs" target="_blank">JDI Docs</a>
-    <a class="nav-link" href="https://github.com/jdi-testing" target="_blank">JDI - testing
-        tool</a>
-    <a class="nav-link disabled" href="https://getbootstrap.com" tabindex="-1"
-       aria-disabled="true" target="_blank">Disabled</a>
-</nav>
-```
-
-Available methods in Java JDI Light:
-
-All methods are inherited from base element -  [UIElement](https://jdi-docs.github.io/jdi-light/#uielement)
-
-Most applicable methods:
-
-|Method | Description | Return Type
---- | --- | ---
-**getText()** | Get button text | String
-**is()** | Assert action | TextAssert 
-**assertThat()** | Assert action | TextAssert
-**get()** | Select button by index | UIElement
-**click()** | Get button text | void
-**highlight()** | Get button text | void
-**unhighlight()** | Get button text | void
-
-<br>
-
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navs/BaseTests.java)<br>
-
-Nav group is represented by Section class in Java:
- 
-  [Section](https://jdi-docs.github.io/jdi-light/#section)  
-
-<br>
-
-#### Horizontal alignment
-**[Nav horizontal alignmen](https://getbootstrap.com/docs/4.3/components/navs/#horizontal-alignment)** 
-
-![Nav horizontal alignmen example](../images/bootstrap/nav-align-center.png)
-
-![Nav horizontal alignmen example](../images/bootstrap/nav-align-right.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-
-```java 
-// @FindBy(css = "#nav-center") public static NavsAlignmentCenter navsAlignmentCenter;
-@UI("#nav-center") public static NavsAlignmentCenter navsAlignmentCenter;
-
-public class NavsAlignmentCenter extends Section {
-    // @FindBy(css = "li") public ListGroup navItem;
-    @UI("li") public ListGroup navItem;
-    // @FindBy(css = "li a")  public ListGroup navItemLink;
-    @UI("li a") public ListGroup navItemLink;
-}
-
-@Test
-public void isValidationTests() {
-    navsAlignmentCenter.navItem.is()
-            .size(4);
-    navsAlignmentCenter.is()
-            .displayed()
-            .enabled()
-            .core()
-            .hasClass("nav justify-content-center");
-    navsAlignmentCenter.navItemLink.get(1)
-            .is()
-            .core()
-            .hasClass("active");
-}
-
-@Test(dataProvider = "listData")
-public void itemsIsValidationTests(int index, String linkText) {
-    navsAlignmentCenter.navItem.get(index)
-            .is()
-            .core()
-            .hasClass("nav-item")
-            .text(is(linkText));
-}
-
-@Test(dataProvider = "clickValidate")
-public void linkClickableLiTests(int index, String pageTitle) {
-    navsAlignmentCenter.navItem.get(index).highlight();
-    navsAlignmentCenter.navItem.get(index).click();
-    newWindowTitleCheck(pageTitle);
-    navsAlignmentCenter.navItem.get(index).unhighlight();
-}
-```
-
-```html
-<ul class="nav justify-content-center" id="nav-center">
-    <li class="nav-item">
-        <a class="nav-link active" href="https://jdi-testing.github.io/jdi-light/index.html"
-           target="_blank">Active</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="https://github.com/jdi-docs" target="_blank">JDI Docs</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="https://github.com/jdi-testing" target="_blank">JDI -
-            testing tool</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link disabled" href="https://getbootstrap.com" tabindex="-1"
-           aria-disabled="true" target="_blank">Disabled</a>
-    </li>
-</ul>
-```
-
-```html
-<ul class="nav justify-content-end" id="nav-end">
-    <li class="nav-item">
-        <a class="nav-link active" href="https://jdi-testing.github.io/jdi-light/index.html"
-           target="_blank">Active</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="https://github.com/jdi-docs" target="_blank">JDI Docs</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="https://github.com/jdi-testing" target="_blank">JDI -
-            testing tool</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link disabled" href="https://getbootstrap.com" tabindex="-1"
-           aria-disabled="true" target="_blank">Disabled</a>
-    </li>
-</ul>
-```
-
-Available methods in Java JDI Light:
-
-All methods are inherited from base element -  [UIElement](https://jdi-docs.github.io/jdi-light/#uielement)
-
-Most applicable methods:
-
-|Method | Description | Return Type
---- | --- | ---
-**getText()** | Get button text | String
-**is()** | Assert action | TextAssert 
-**assertThat()** | Assert action | TextAssert
-**get()** | Select button by index | UIElement
-**click()** | Get button text | void
-**highlight()** | Get button text | void
-**unhighlight()** | Get button text | void
-
-<br>
-
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navs/AlignmentTests.java)<br>
-
-Nav group is represented by Section class in Java:
- 
-  [Section](https://jdi-docs.github.io/jdi-light/#section)  
-
-<br>
-
-#### Vertical alignment
-**[Nav vertical alignmen](https://getbootstrap.com/docs/4.3/components/navs/#vertical)** 
-
-![Nav vertical alignmen example](../images/bootstrap/nav-vertical.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-
-```java 
-// @FindBy(css = "#nav-vert-li") public static NavsVerticalLi navsVerticalLi;
-@UI("#nav-vert-li") public static NavsVerticalLi navsVerticalLi;
-
-public class NavsVerticalLi extends Section {
-    // @FindBy(css = "li") public ListGroup navItem;
-    @UI("li") public ListGroup navItem;
-    // @FindBy(css = "li a")  public ListGroup navItemLink;
-    @UI("li a") public ListGroup navItemLink;
-}
-
-@Test
-public void isValidationTests() {
-    navsVerticalLi.navItem.is()
-            .size(4);
-    navsVerticalLi.is()
-            .displayed()
-            .enabled()
-            .core()
-            .hasClass("nav flex-column");
-    navsVerticalLi.navItemLink.get(1)
-            .is()
-            .core()
-            .hasClass("active");
-    navsVerticalLi.navItemLink.get(4)
-            .is()
-            .core()
-            .hasClass("disabled");
-}
-
-@Test(dataProvider = "clickValidate")
-public void linkClickableLiTests(int index, String pageTitle) {
-    navsVerticalLi.navItem.get(index).highlight();
-    navsVerticalLi.navItem.get(index).click();
-    newWindowTitleCheck(pageTitle);
-    navsVerticalLi.navItem.get(index).unhighlight();
-}
-```
-
-```html
-<ul class="nav flex-column" id="nav-vert-li">
-    <li class="nav-item">
-        <a class="nav-link active" href="https://jdi-testing.github.io/jdi-light/index.html"
-           target="_blank">Active</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="https://github.com/jdi-docs" target="_blank">JDI Docs</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="https://github.com/jdi-testing" target="_blank">JDI -
-            testing tool</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link disabled" href="https://getbootstrap.com" tabindex="-1"
-           aria-disabled="true" target="_blank">Disabled</a>
-    </li>
-</ul>
-```
-
-```html
-<nav class="nav flex-column" id="nav-vert-a">
-    <a class="nav-link active" href="https://jdi-testing.github.io/jdi-light/index.html"
-       target="_blank">Active</a>
-    <a class="nav-link" href="https://github.com/jdi-docs" target="_blank">JDI Docs</a>
-    <a class="nav-link" href="https://github.com/jdi-testing" target="_blank">JDI - testing
-        tool</a>
-    <a class="nav-link disabled" href="https://getbootstrap.com" tabindex="-1"
-       aria-disabled="true" target="_blank">Disabled</a>
-</nav>
-```
-
-
-Available methods in Java JDI Light:
-
-All methods are inherited from base element -  [UIElement](https://jdi-docs.github.io/jdi-light/#uielement)
-
-Most applicable methods:
-
-|Method | Description | Return Type
---- | --- | ---
-**getText()** | Get button text | String
-**is()** | Assert action | TextAssert 
-**assertThat()** | Assert action | TextAssert
-**get()** | Select button by index | UIElement
-**click()** | Get button text | void
-**highlight()** | Get button text | void
-**unhighlight()** | Get button text | void
-
-<br>
-
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navs/VerticalTests.java)<br>
-
-Nav group is represented by Section class in Java:
- 
-  [Section](https://jdi-docs.github.io/jdi-light/#section)  
-
-<br>
-
-#### Tabs
-**[Nav tabs](https://getbootstrap.com/docs/4.3/components/navs/#tabs)** 
-
-![Nav tabs example](../images/bootstrap/nav-tabs.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-
-```java 
-// @FindBy(css = "#nav-tabs") public static NavsTabs navsTabs;
-@UI("#nav-tabs") public static NavsTabs navsTabs;
-
-public class NavsTabs extends Section {
-    // @FindBy(css = "li") public ListGroup navItem;
-    @UI("li") public ListGroup navItem;
-    // @FindBy(css = "li a")  public ListGroup navItemLink;
-    @UI("li a") public ListGroup navItemLink;
-}
-
-@Test
-public void isValidationTests() {
-    navsTabs.navItem.is()
-            .size(4);
-    navsTabs.is()
-            .displayed()
-            .enabled()
-            .core()
-            .hasClass("nav nav-tabs");
-    navsTabs.navItemLink.get(1)
-            .is()
-            .core()
-            .hasClass("active");
-    navsTabs.navItemLink.get(4)
-            .is()
-            .core()
-            .hasClass("disabled");
-}
-
-@Test(dataProvider = "clickValidate")
-public void linkClickableLiTests(int index, String pageTitle) {
-    navsTabs.navItem.get(index).highlight();
-    navsTabs.navItem.get(index).click();
-    newWindowTitleCheck(pageTitle);
-    navsTabs.navItem.get(index).unhighlight();
-}
-```
-
-```html
-<ul class="nav nav-tabs" id="nav-tabs">
-    <li class="nav-item">
-        <a class="nav-link active" href="https://jdi-testing.github.io/jdi-light/index.html"
-           target="_blank">Active</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="https://github.com/jdi-docs" target="_blank">JDI Docs</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="https://github.com/jdi-testing" target="_blank">JDI -
-            testing tool</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link disabled" href="https://getbootstrap.com" tabindex="-1"
-           aria-disabled="true" target="_blank">Disabled</a>
-    </li>
-</ul>
-```
-
-
-Available methods in Java JDI Light:
-
-All methods are inherited from base element -  [UIElement](https://jdi-docs.github.io/jdi-light/#uielement)
-
-Most applicable methods:
-
-|Method | Description | Return Type
---- | --- | ---
-**getText()** | Get button text | String
-**is()** | Assert action | TextAssert 
-**assertThat()** | Assert action | TextAssert
-**get()** | Select button by index | UIElement
-**click()** | Get button text | void
-**highlight()** | Get button text | void
-**unhighlight()** | Get button text | void
-
-<br>
-
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navs/TabsTests.java)<br>
-
-Nav group is represented by Section class in Java:
- 
-  [Section](https://jdi-docs.github.io/jdi-light/#section)  
-
-<br>
-
-#### Pills
-**[Nav pills](https://getbootstrap.com/docs/4.3/components/navs/#pills)** 
-
-![Nav pills example](../images/bootstrap/nav-pills.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-
-```java 
-// @FindBy(css = "#nav-pills") public static NavsPills navsPills;
-@UI("#nav-pills") public static NavsPills navsPills;
-
-public class NavsPills extends Section {
-    // @FindBy(css = "li") public ListGroup navItem;
-    @UI("li") public ListGroup navItem;
-    // @FindBy(css = "li a")  public ListGroup navItemLink;
-    @UI("li a") public ListGroup navItemLink;
-}
-
-@Test(dataProvider = "listData")
-public void itemsIsValidationTests(int index, String linkText) {
-    navsPills.navItem.get(index)
-            .is()
-            .core()
-            .hasClass("nav-item")
-            .text(is(linkText));
-    navsPills.navItemLink.get(index)
-            .is()
-            .core()
-            .hasClass("nav-link")
-            .text(is(linkText));
-}
-
-@Test(dataProvider = "clickValidate")
-public void linkClickableLiTests(int index, String pageTitle) {
-    navsPills.navItem.get(index).highlight();
-    navsPills.navItem.get(index).click();
-    newWindowTitleCheck(pageTitle);
-    navsPills.navItem.get(index).unhighlight();
-}
-```
-
-```html
-<ul class="nav nav-pills" id="nav-pills">
-    <li class="nav-item">
-        <a class="nav-link active" href="https://jdi-testing.github.io/jdi-light/index.html"
-           target="_blank">Active</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="https://github.com/jdi-docs" target="_blank">JDI Docs</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="https://github.com/jdi-testing" target="_blank">JDI -
-            testing tool</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link disabled" href="https://getbootstrap.com" tabindex="-1"
-           aria-disabled="true" target="_blank">Disabled</a>
-    </li>
-</ul>
-```
-
-
-Available methods in Java JDI Light:
-
-All methods are inherited from base element -  [UIElement](https://jdi-docs.github.io/jdi-light/#uielement)
-
-Most applicable methods:
-
-|Method | Description | Return Type
---- | --- | ---
-**getText()** | Get button text | String
-**is()** | Assert action | TextAssert 
-**assertThat()** | Assert action | TextAssert
-**get()** | Select button by index | UIElement
-**click()** | Get button text | void
-**highlight()** | Get button text | void
-**unhighlight()** | Get button text | void
-
-<br>
-
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navs/PillsTests.java)<br>
-
-Nav group is represented by Section class in Java:
- 
-  [Section](https://jdi-docs.github.io/jdi-light/#section)  
-
-<br>
-
-#### Fill and justify
-**[Nav fill and justify](https://getbootstrap.com/docs/4.3/components/navs/#fill-and-justify)** 
-
-![Nav fill and justify example](../images/bootstrap/nav-fill-and-justify.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-
-```java 
-// @FindBy(css = "#nav-justify") public static NavsJustify navsJustify;
-@UI("#nav-justify") public static NavsJustify navsJustify;
-
-public class NavsJustify extends Section {
-    // @FindBy(css = "li") public ListGroup navItem;
-    @UI("li") public ListGroup navItem;
-    // @FindBy(css = "li a")  public ListGroup navItemLink;
-    @UI("li a") public ListGroup navItemLink;
-}
-
-@Test(dataProvider = "listData")
-public void itemsIsValidationTests(int index, String linkText) {
-    navsJustify.navItem.get(index)
-            .is()
-            .core()
-            .hasClass("nav-item")
-            .text(is(linkText));
-    navsJustify.navItemLink.get(index)
-            .is()
-            .core()
-            .hasClass("nav-link")
-            .text(is(linkText));
-}
-
-@Test(dataProvider = "clickValidate")
-public void linkClickableLiTests(int index, String pageTitle) {
-    navsJustify.navItem.get(index).highlight();
-    navsJustify.navItem.get(index).click();
-    newWindowTitleCheck(pageTitle);
-    navsJustify.navItem.get(index).unhighlight();
-}
-```
-
-```html
-<ul class="nav nav-pills nav-fill" id="nav-justify">
-    <li class="nav-item">
-        <a class="nav-link active" href="https://jdi-testing.github.io/jdi-light/index.html"
-           target="_blank">Active</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="https://github.com/jdi-docs" target="_blank">JDI Docs</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="https://github.com/jdi-testing" target="_blank">JDI - testing
-            tool</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link disabled" href="https://getbootstrap.com" tabindex="-1"
-           aria-disabled="true" target="_blank">Disabled</a>
-    </li>
-</ul>
-```
-
-
-Available methods in Java JDI Light:
-
-All methods are inherited from base element -  [UIElement](https://jdi-docs.github.io/jdi-light/#uielement)
-
-Most applicable methods:
-
-|Method | Description | Return Type
---- | --- | ---
-**getText()** | Get button text | String
-**is()** | Assert action | TextAssert 
-**assertThat()** | Assert action | TextAssert
-**get()** | Select button by index | UIElement
-**click()** | Get button text | void
-**highlight()** | Get button text | void
-**unhighlight()** | Get button text | void
-
-<br>
-
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navs/FillAndJustifyTests.java)<br>
-
-Nav group is represented by Section class in Java:
- 
-  [Section](https://jdi-docs.github.io/jdi-light/#section)  
-
-<br>
-
-#### Tabs with dropdowns
-**[Nav tabs with dropdowns](https://getbootstrap.com/docs/4.3/components/navs/#tabs-with-dropdowns)** 
-
-![Nav tabs with dropdowns example](../images/bootstrap/nav-tabs-with-dropdowns.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-
-```java 
-// @FindBy(css = "#nav-with-dropdown") public static NavsTabsWithDropdown navsTabsWithDropdown;
-@UI("#nav-with-dropdown") public static NavsTabsWithDropdown navsTabsWithDropdown;
-
-public class NavsTabsWithDropdown extends Section {
-    // @FindBy(css = "li") public ListGroup navItem;
-    @UI("li") public ListGroup navItem;
-    // @FindBy(css = "a.nav-link") public ListGroup navItemLink;
-    @UI("a.nav-link") public ListGroup navItemLink;
-    @JDropdown(expand = ".dropdown-toggle",
-            value = ".dropdown-toggle",
-            list = ".dropdown-item")
-    public Dropdown dropdownMenu;
-}
-
-@Test
-public void isValidationTests() {
-    navsTabsWithDropdown.navItem.is()
-            .size(4);
-    navsTabsWithDropdown.is()
-            .displayed()
-            .enabled()
-            .core()
-            .hasClass("nav nav-tabs");
-    navsTabsWithDropdown.navItemLink.get(1)
-            .is()
-            .core()
-            .hasClass("active");
-    navsTabsWithDropdown.navItemLink.get(4)
-            .is()
-            .core()
-            .hasClass("disabled");
-}
-
-@Test
-public void dropdownIsValidationTests() {
-    navsTabsWithDropdown.dropdownMenu.expand();
-    navsTabsWithDropdown.dropdownMenu
-            .is()
-            .displayed()
-            .expanded()
-            .enabled()
-            .size(4);
-    navsTabsWithDropdown.dropdownMenu
-            .is()
-            .core()
-            .attr("data-toggle", "dropdown")
-            .attr("aria-haspopup", "true")
-            .attr("aria-expanded", "true")
-            .attr("role", "button")
-            .tag("a");
-}
-```
-
-```html
-<ul class="nav nav-tabs" id="nav-with-dropdown">
-    <li class="nav-item">
-        <a class="nav-link active" href="https://jdi-testing.github.io/jdi-light/index.html"
-           target="_blank">Active</a>
-    </li>
-    <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
-           aria-haspopup="true" aria-expanded="false">Dropdown</a>
-        <div class="dropdown-menu">
-            <a class="dropdown-item"
-               href="https://jdi-testing.github.io/jdi-light/index.html" target="_blank">JDI
-                home</a>
-            <a class="dropdown-item" href="https://github.com/jdi-docs" target="_blank">JDI
-                Docs</a>
-            <a class="dropdown-item" href="https://github.com/jdi-testing" target="_blank">JDI
-                - testing tool</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="https://getbootstrap.com" target="_blank">Bootstrap</a>
-        </div>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="https://github.com/jdi-testing" target="_blank">JDI -
-            testing tool</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link disabled" href="https://getbootstrap.com" tabindex="-1"
-           aria-disabled="true" target="_blank">Disabled</a>
-    </li>
-</ul>
-```
-
-
-Available methods in Java JDI Light:
-
-All methods are inherited from base element -  [UIElement](https://jdi-docs.github.io/jdi-light/#uielement)
-
-Most applicable methods:
-
-|Method | Description | Return Type
---- | --- | ---
-**getText()** | Get button text | String
-**is()** | Assert action | TextAssert 
-**assertThat()** | Assert action | TextAssert
-**get()** | Select button by index | UIElement
-**click()** | Get button text | void
-**highlight()** | Get button text | void
-**unhighlight()** | Get button text | void
-**expand()** | Get button text | void
-**expanded()** | Get button text | TextAssert
-
-<br>
-
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navs/TabsWithDropdownTests.java)<br>
-
-Nav group is represented by Section class in Java:
- 
-[Section](https://jdi-docs.github.io/jdi-light/#section)  
-
-#### Pills with dropdowns
-**[Nav pills with dropdowns](https://getbootstrap.com/docs/4.3/components/navs/#pills-with-dropdowns)** 
-
-![Nav pills with dropdowns example](../images/bootstrap/nav-pills-with-dropdowns.png)
-
-Here is an example with provided Bootstrap v4.3 code:
-
-```java 
-// @FindBy(css = "#nav-pills-drop") public static NavsPillsWithDropdown navsPillsWithDropdown;
-@UI("#nav-pills-drop") public static NavsPillsWithDropdown navsPillsWithDropdown;
-
-public class NavsPillsWithDropdown extends Section {
-    // @FindBy(css = "li") public ListGroup navItem;
-    @UI("li") public ListGroup navItem;
-    // @FindBy(css = "a.nav-link") public ListGroup navItemLink;
-    @UI("a.nav-link") public ListGroup navItemLink;
-    @JDropdown(expand = ".dropdown-toggle",
-            value = ".dropdown-toggle",
-            list = ".dropdown-item")
-    public Dropdown dropdownMenu;
-}
-
-@Test
-public void dropdownIsValidationTests() {
-    navsPillsWithDropdown.dropdownMenu.expand();
-    navsPillsWithDropdown.dropdownMenu
-            .is()
-            .expanded()
-            .size(4)
-            .core()
-            .attr("data-toggle", "dropdown")
-            .attr("aria-haspopup", "true")
-            .attr("aria-expanded", "true")
-            .attr("role", "button")
-            .tag("a");
-    navsPillsWithDropdown.dropdownMenu.expand();
-}
-
-@Test
-public void dropdownClickableTests() {
-    navsPillsWithDropdown.dropdownMenu.select(linkDrop1);
-    newWindowTitleCheck(pageTitle1);
-    navsPillsWithDropdown.dropdownMenu.select(linkDrop2);
-    newWindowTitleCheck(pageTitle2);
-    navsPillsWithDropdown.dropdownMenu.select(linkDrop3);
-    newWindowTitleCheck(pageTitle3);
-    navsPillsWithDropdown.dropdownMenu.select(linkDrop4);
-    newWindowTitleCheck(pageTitle4);
-}
-```
-
-```html
-<ul class="nav nav-pills" id="nav-pills-drop">
-    <li class="nav-item">
-        <a class="nav-link active" href="https://jdi-testing.github.io/jdi-light/index.html"
-           target="_blank">Active</a>
-    </li>
-    <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
-           aria-haspopup="true" aria-expanded="false">Dropdown</a>
-        <div class="dropdown-menu">
-            <a class="dropdown-item"
-               href="https://jdi-testing.github.io/jdi-light/index.html" target="_blank">JDI
-                home</a>
-            <a class="dropdown-item" href="https://github.com/jdi-docs" target="_blank">JDI
-                Docs</a>
-            <a class="dropdown-item" href="https://github.com/jdi-testing" target="_blank">JDI
-                - testing tool</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="https://getbootstrap.com" target="_blank">Bootstrap</a>
-        </div>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="https://github.com/jdi-testing" target="_blank">JDI -
-            testing tool</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link disabled" href="https://getbootstrap.com" tabindex="-1"
-           aria-disabled="true" target="_blank">Disabled</a>
-    </li>
-</ul>
-```
-
-Available methods in Java JDI Light:
-
-All methods are inherited from base element -  [UIElement](https://jdi-docs.github.io/jdi-light/#uielement)
-
-Most applicable methods:
-
-|Method | Description | Return Type
---- | --- | ---
-**getText()** | Get button text | String
-**is()** | Assert action | TextAssert 
-**assertThat()** | Assert action | TextAssert
-**get()** | Select button by index | UIElement
-**click()** | Get button text | void
-**highlight()** | Get button text | void
-**unhighlight()** | Get button text | void
-**expand()** | Get button text | void
-**expanded()** | Get button text | TextAssertn
-
-<br>
-
-[Java test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navs/PillsWithDropdownTests.java)<br>
-
-Nav group is represented by Section class in Java:
- 
-  [Section](https://jdi-docs.github.io/jdi-light/#section)  
-
-<br>
-
-
 ### List group
 
 ***[List groups](https://getbootstrap.com/docs/4.3/components/list-group/)*** are a flexible and powerful component for displaying a series of content. Modify and extend them to support just about any content within.
@@ -13132,6 +12834,348 @@ Button group is represented by Section class in Java:
 
 <br>
 
+### Toast
+<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/toasts/" target="_blank">Toast</a> - Toasts are lightweight notifications designed to mimic the push notifications.
+<br />
+__Options for toasts:__
+<br />
+ - _Animation<br/>_
+ - _Autohide <br/>_
+ - _Delay <br/>_
+ <br/>
+__Events for toasts:__
+<br>
+  - _show.bs.toast_ - this event fires immediately when the show instance method is called.<br/>
+  - _shown.bs.toast_ - this event is fired when the toast has been made visible to the user<br/>
+  - _hide.bs.toast_ - this event is fired immediately when the hide instance method has been called.<br/>
+  - _hidden.bs.toast_ - this event is fired when the toast has finished being hidden from the user<br/>
+ <br /> 
+
+<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/toasts/#basic" target="_blank">**Simple Toast**</a>
+<br />
+
+![Simple toast example](../images/bootstrap/toast.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+```java 
+//@FindBy(id="simpleToast")
+@UI("#simpleToast") public static Toast simpleToast; 
+
+@Test
+public void simpleToastValidationTest() {
+    simpleToastButton.click();
+    simpleToast.is().displayed();
+    simpleToast.headerText.is().text(toastHeaderText);
+    simpleToast.body.is().text(toastBodyText);
+}
+
+```
+  
+```html
+<div class="toast" role="alert" data-animation="false" aria-live="assertive"
+     aria-atomic="true" id="simpleToast">
+    <div class="toast-header">
+        <img src="images/range-circle.png" class="rounded mr-2" alt="...">
+        <strong class="mr-auto">Bootstrap</strong>
+        <small class="text-muted">11 mins ago</small>
+        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast"
+                aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="toast-body">
+        Hello, world! This is a toast message.
+    </div>
+</div>
+```
+
+<br>
+
+<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/toasts/#translucent" target="_blank">**Translucent Toast**</a>
+
+
+![Translucent toast example](../images/bootstrap/toast_center.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java 
+//@FindBy(id="translucentToast")
+@UI("#translucentToast") public static Toast translucentToast; 
+
+@Test
+public void translucentToastValidationTest() {
+    translucentToastButton.click();
+    translucentToast.is().displayed();
+    translucentToast.headerText.is().text(toastHeaderText);
+    translucentToast.body.is().text(toastBodyText);
+}
+
+```
+  
+```html
+<div aria-live="polite" aria-atomic="true"
+     style="min-height: 200px;background-color: grey;">
+    <div class="toast" role="alert" data-animation="false" aria-live="assertive"
+         aria-atomic="true" id="translucentToast">
+        <div class="toast-header">
+            <img src="images/range-circle.png" class="rounded mr-2" alt="...">
+            <strong class="mr-auto">Bootstrap</strong>
+            <small class="text-muted">11 mins ago</small>
+            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast"
+                    aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="toast-body">
+            Hello, world! This is a toast message.
+        </div>
+    </div>
+</div>
+```
+
+<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/toasts/#stacking" target="_blank">**Stacking**</a>
+
+When you have multiple toasts, we default to vertically stacking them in a readable manner
+
+![Toast stack example](../images/bootstrap/stack_of_toast.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+```java 
+//@FindBy(id="firstMultipleToast")
+@UI("#firstMultipleToast") public static Toast firstStackToast; 
+//@FindBy(id="secondMultipleToast")
+@UI("#secondMultipleToast") public static Toast secondStackToast; 
+
+@Test
+public void stackOfToastsValidationTest() {
+    stackOfToastsButton.click();
+    firstStackToast.is().displayed();
+    secondStackToast.is().displayed();
+    firstStackToast.headerText.is().text(toastHeaderText);
+    firstStackToast.body.is().text(stackToastBodyText);
+    secondStackToast.headerText.is().text(toastHeaderText);
+    secondStackToast.body.is().text(secondStackToastBodyText);
+}
+
+```
+  
+```html
+<div aria-live="polite" aria-atomic="true"
+     style="min-height: 200px;background-color: grey;">
+    <div class="toast several" role="alert" aria-live="assertive" id="firstMultipleToast"
+         aria-atomic="true">
+        <div class="toast-header">
+            <img src="images/range-circle.png" class="rounded mr-2" alt="...">
+            <strong class="mr-auto">Bootstrap</strong>
+            <small class="text-muted">just now</small>
+            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast"
+                    aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="toast-body">
+            See? Just like this.
+        </div>
+    </div>
+    <div class="toast several" role="alert" aria-live="assertive" id="secondMultipleToast"
+         aria-atomic="true">
+        <div class="toast-header">
+            <img src="images/range-circle.png" class="rounded mr-2" alt="...">
+            <strong class="mr-auto">Bootstrap</strong>
+            <small class="text-muted">2 seconds ago</small>
+            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast"
+                    aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="toast-body">
+            Heads up, toasts will stack automatically
+        </div>
+    </div>
+</div>
+```
+
+
+<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/toasts/#stacking" target="_blank">**Placement**</a>
+
+Place toasts with custom CSS as you need them. The top right is often used for notifications, as is the top middle.
+<br /><br />
+Example with top right align:
+
+![Toast top right example](../images/bootstrap/toast_align.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java 
+//@FindBy(id="toastRightTop")
+@UI("#toastRightTop") public static Toast toastWithTopAlign; 
+
+@Test
+public void toastWithTopAlignValidationTest() {
+    toastWithTopAlignButton.click();
+    toastWithTopAlign.is().displayed();
+    toastWithTopAlign.headerText.is().text(toastHeaderText);
+    toastWithTopAlign.body.is().text(toastBodyText);
+    toastWithTopAlign.closeButton.click();
+    toastWithTopAlign.base().waitSec(1);
+    toastWithTopAlign.is().hidden();
+}
+
+```
+  
+```html
+<div aria-live="polite" aria-atomic="true"
+     style="position: relative; min-height: 200px;background-color: grey;">
+    <div class="toast" id="toastRightTop" style="position: absolute; top: 0; right: 0;"
+         data-autohide="false">
+        <div class="toast-header">
+            <img src="images/range-circle.png" class="rounded mr-2" alt="...">
+            <strong class="mr-auto">Bootstrap</strong>
+            <small>11 mins ago</small>
+            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast"
+                    aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="toast-body">
+            Hello, world! This is a toast message.
+        </div>
+    </div>
+</div>
+```
+
+Example with top right align stack of toasts:
+
+![Toast top right stack example](../images/bootstrap/stack_top_html.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+
+```java  
+//@FindBy(id="firstStackToast")
+@UI("#firstStackToast") public static Toast firstTopAlignStackToast; 
+//@FindBy(id="secondStackToast")
+@UI("#secondStackToast") public static Toast secondTopAlignStackToast; 
+
+@Test
+ public void stackOfTopAlignToastsValidationTest() {
+    stackOfToastsWithTopAlignButton.click();
+    firstTopAlignStackToast.headerText.is().text(toastHeaderText);
+    firstTopAlignStackToast.body.is().text(stackToastBodyText);
+    secondTopAlignStackToast.headerText.is().text(toastHeaderText);
+    secondTopAlignStackToast.body.is().text(secondStackToastBodyText);
+    firstTopAlignStackToast.is().displayed();
+    secondTopAlignStackToast.is().displayed();
+}
+
+``` 
+  
+```html
+<div aria-live="polite" aria-atomic="true"
+     style="position: relative; min-height: 200px; background-color: grey;">
+    <!-- Position it -->
+    <div style="position: absolute; top: 0; right: 0;">
+
+        <!-- Then put toasts within -->
+        <div class="toast severalWithPosition" role="alert" aria-live="assertive"
+             id="firstStackToast" aria-atomic="true">
+            <div class="toast-header">
+                <img src="images/range-circle.png" class="rounded mr-2" alt="...">
+                <strong class="mr-auto">Bootstrap</strong>
+                <small class="text-muted">just now</small>
+                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast"
+                        aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="toast-body">
+                See? Just like this.
+            </div>
+        </div>
+
+        <div class="toast severalWithPosition" role="alert" aria-live="assertive"
+             id="secondStackToast" aria-atomic="true">
+            <div class="toast-header">
+                <img src="images/range-circle.png" class="rounded mr-2" alt="...">
+                <strong class="mr-auto">Bootstrap</strong>
+                <small class="text-muted">2 seconds ago</small>
+                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast"
+                        aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="toast-body">
+                Heads up, toasts will stack automatically
+            </div>
+        </div>
+    </div>
+</div>
+```
+
+Example with center align toast:
+
+![Toast top right stack example](../images/bootstrap/toast_center.png)
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+```java 
+//@FindBy(id="toastCenterTop")
+@UI("#toastCenterTop") public static Toast toastWithCenterAlign; 
+//@FindBy(id="toastRightTop")
+@UI("#toastRightTop") public static Toast toastWithTopAlign; 
+
+@Test
+public void toastWithCenterAlignValidationTest() {
+    toastWithCenterAlignButton.click();
+    toastWithCenterAlign.is().displayed();
+    toastWithCenterAlign.headerText.is().text(toastHeaderText);
+    toastWithCenterAlign.body.is().text(toastBodyText);
+    toastWithCenterAlign.closeButton.click();
+    toastWithCenterAlign.base().waitSec(1);
+    toastWithCenterAlign.is().hidden();
+}
+
+```
+  
+```html
+<div aria-live="polite" aria-atomic="true"
+     class="d-flex justify-content-center align-items-center"
+     style="min-height: 200px;background-color: grey;">
+
+    <!-- Then put toasts within -->
+    <div class="toast" role="alert" id="toastCenterTop" aria-live="assertive"
+         aria-atomic="true" data-delay="3000">
+        <div class="toast-header">
+            <img src="images/range-circle.png" class="rounded mr-2" alt="...">
+            <strong class="mr-auto">Bootstrap</strong>
+            <small>11 mins ago</small>
+            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast"
+                    aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="toast-body">
+            Hello, world! This is a toast message.
+        </div>
+    </div>
+</div>
+```
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**getText()** |	Get toast text |	String
+**getTitle()** |	Get toast title |	String
+**is()** |	Assert action |	TextAssert
+**assertThat()** |	Assert action |	TextAssert
+**isDisplayed()** | Show\wait that toast element displayed on the screen | Boolean
+**close()** |	Close toast |	void
+
+[Toast test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/)
+ 
+<br>
 
 ### Pagination
 
@@ -13139,7 +13183,7 @@ Button group is represented by Section class in Java:
 
 ***[Pagination overview](https://getbootstrap.com/docs/4.3/components/pagination/#overview)***
 
-List Group is located in the following classes:
+Pagination is located in the following classes:
  
   - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.complex.Pagination_
   
@@ -13232,7 +13276,7 @@ Button group is represented by Section class in Java:
 
 ***[Pagination working with icons](https://getbootstrap.com/docs/4.3/components/pagination/#working-with-icons)***
 
-List Group is located in the following classes:
+Pagination is located in the following classes:
  
   - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.complex.Pagination_
   
@@ -13322,7 +13366,7 @@ Button group is represented by Section class in Java:
 
 ***[Pagination disabled and active states](https://getbootstrap.com/docs/4.3/components/pagination/#disabled-and-active-states)***
 
-List Group is located in the following classes:
+Pagination is located in the following classes:
  
   - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.complex.Pagination_
   
@@ -13415,7 +13459,7 @@ Button group is represented by Section class in Java:
 
 ***[Pagination sizing](https://getbootstrap.com/docs/4.3/components/pagination/#sizing)***
 
-List Group is located in the following classes:
+Pagination is located in the following classes:
  
   - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.complex.Pagination_
   
@@ -13521,7 +13565,7 @@ Button group is represented by Section class in Java:
 
 ***[Pagination alignment](https://getbootstrap.com/docs/4.3/components/pagination/#alignment)***
 
-List Group is located in the following classes:
+Pagination is located in the following classes:
  
   - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.complex.Pagination_
   
@@ -20485,8 +20529,6 @@ We can change default settings placed in the test.properties file (src/test/reso
 **driver** | Describe what kind of driver we want to use: chrome, firefox, ie… or we can just replace it with ${driver} and read the exact driver name from command line or pom file | driver = ${driver} <br> driver=chrome
 **drivers.version** | By default, JDI Light will download the latest version of the driver for us, but if we need a specific version we can put it here (in this case the framework will find and download exactly the version specified) | drivers.version = LATEST<br>drivers.version = PRELATEST<br> driver.version = 2.23.0 <br> driver.version=3.0.0-beta4
 **drivers.folder** | Set up the driver folder. Use only absolute path. If no parameter specified default value is "resources\drivers". Note there is no filename specifying  required, use 'driver' property instead  | drivers.folder = C:\\Selenium
-**browser.size** | the size of the tested browser. By default, JDI Light will maximize the browser, but we can set exact values | browser.size = MAXIMIZE<br>browser.size = 1024x762
-**browser.kill** | Set up at what time browser should be shut down | browser.kill=afterAndBefore<br>browser.kill=after<br>browser.kill=before
 **driver.remote.url** | <a href="https://jdi-docs.github.io/jdi-light/?java#remote-test-runs">Tests can run on remote web servers<a> | driver.remote.url=http://localhost:4444/wd/hub
 **timeout.wait.element** | Wait for an element on the opened page, by default = 10 seconds. Valid values are integers from 0 to 999. | timeout.wait.element = 20
 **chrome.capabilities.path** | Path to the Chrome properties file. File should be located in (src/test/resources). | chrome.capabilities.path=chrome.properties
@@ -20518,8 +20560,10 @@ This is example how to initialize of custom driver:
 
 |Property name | Description | Examples
 --- | --- | ---
-**timeout.wait.page** | JDI Light automatically defines that new page is opened and in this case will use this timeout (usually it is more than enough for an element). By default, it's 30 seconds | timeout.wait.page = 40
-**domain** | Web application root URL (used if we're working with one application in tests). Can be also read from the command line, e.g. _${domain}_ | domain = https://jdi-testing.github.io/jdi-light/
+**timeout.wait.page** | JDI Light automatically defines that new page is opened and in this case will use this timeout (usually it is more than enough for an element). By default, it's 30 seconds. Valid values are integers from 0 to 999. | timeout.wait.page = 40
+**domain** | Web application root URL (used if we're working with one application in tests). Can be also read from the command line, e.g. _${domain}_ | domain = https://jdi-testing.github.io/jdi-light/ <br> domain = http://127.0.0.1:8080
+**browser.size** | the size of the tested browser. By default, JDI Light will maximize the browser, but we can set exact values | browser.size = MAXIMIZE<br>browser.size = 1024x762
+**browser.kill** | Set up at what time browser should be shut down | browser.kill=afterAndBefore<br>browser.kill=after<br>browser.kill=before
 **page.load.strategy** | Like in <a href="https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/capabilities_exports_PageLoadStrategy.html" target="_blank">Selenium strategies</a> to load the page. Options: _normal, eager, none_ | page.load.strategy = normal
 **page.check.after.open** | Check the page has been opened. Available options: _NONE, NEW_PAGE, EVERY_PAGE_ | page.check.after.open = NONE
 **element.search.strategy** | Can find only one element on a page (_single_), many elements on a page (_multiple_). Also, we can define whether we want to search through visible elements only or not. Consists of 2 params: visibility (_visible_ can use _displayed_, _inview_, _enabled_ or _any_), and the type of search. Options: _soft (=any, multiple)_; _strict(=visible, single)_; or _combined from visible/displayed/inview/enabled/any/all and single/multiple_. Note: _visible=displayed_, _any=all_ | element.search.strategy = visible, multiple<br>element.search.strategy = inview, strict
@@ -20527,6 +20571,7 @@ This is example how to initialize of custom driver:
 **screens.folder** | Set up the screenshot folder | screens.folder = C:\\Test-screenshot
 **assert.type** | <a href="https://jdi-docs.github.io/jdi-light/?java#softasserts">Assert type</a>: soft or strict | assert.type = soft
 **html.code.logging** | Defines a strategy for writting html-code of the web element last processed before test failure to log. If it set to "on fail" value, then web element's html-code will be logged (and added to Allure report as well) when test fails, if possible. Options: _on fail, off_ | html.code.logging = off
+**log.level** | Defines a level of categorizing the entries in your log file: _OFF_ - no logging; _FATAL_ - unexpected errors; _ERROR_ - critical errors; _WARNING_ - errors due to wrong params; _STEP_ - business related info; _INFO_ - actions info; _DEBUG_ - debug messages; _TRACE_ - trace info; _ALL_ - all log messages. If no level specified log level is _INFO_ by default | log.level = STEP <br> log.level = ERROR
 **smart.locators** | A list of templates for <a href="https://jdi-docs.github.io/jdi-light/#smart-locators">Smart locators</a>. Should be separated by ; symbol | smart.locators=#%s;[ui=%s]
 
 ## Parallel tests run

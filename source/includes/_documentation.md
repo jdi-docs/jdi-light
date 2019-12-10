@@ -2039,252 +2039,14 @@ Here is the list of some available methods:
 
 Tables are represented by the following classes in Java and C#:
 
-```java 
-         @UI("#users-table") //@FindBy(id = "users-table")
-         public static Table users;
-         	@JTable(
-         		root = "#users-table",
-         		row = "//tr[%s]/td",
-         		column = "//tr/td[%s]",
-         		cell = "//tr[{1}]/td[{0}]",
-         		allCells = "td",
-         		headers = "th",
-         		header = {"Name", "Phone", "Email", "City"},
-         	 	rowHeader = "Name",
-         		size = 4
-         	) public static Table usersSetup;
-         
-         
-         @Test
-            public void tablePerformanceTest() {
-                tablePerformance(users);
-            }
-         @Test
-            public void jTablePerformanceTest() {
-                tablePerformance(usersSetup);
-            }
-            
-            private void tablePerformance(Table table) {
-                assertEquals(table.size(), 4);
-                assertEquals(table.count(), 400);
-                assertEquals(table.header(), asList("Name", "Phone", "Email", "City"));
-                start();
-                assertEquals(table.row(1).getValue(),
-                        "Burke Tucker;076 1971 1687;et.euismod.et@ut.edu;GozŽe");
-                logTime("Get 1 row");
-        
-                assertEquals(table.row("Burke Tucker").getValue(),
-                        "Burke Tucker;076 1971 1687;et.euismod.et@ut.edu;GozŽe");
-                logTime("Get 'Burke Tucker' row");
-        
-                String zacharyEmail = "ipsum.non.arcu@auctorullamcorper.ca";
-                assertEquals(table.cell(3,4), zacharyEmail);
-                logTime("Get cell(3,4)");
-                assertEquals(table.cell("Email",4), zacharyEmail);
-                logTime("Get cell(Email,4)");
-                assertEquals(table.cell(3,"Zachary Hendrix"), zacharyEmail);
-                logTime("Get cell(3,Zachary Hendrix)");
-                assertEquals(table.cell("Email","Zachary Hendrix"), zacharyEmail);
-                logTime("Get cell(Email,Zachary Hendrix)");
-        
-                assertEquals(table.column(2).getValue().substring(0, 30),
-                        "076 1971 1687;(011307) 16843;0");
-                logTime("Get column(2)");
-        
-                assertEquals(table.column("Phone").getValue().substring(0, 30),
-                        "076 1971 1687;(011307) 16843;0");
-                logTime("Get column(Phone)");
-        
-                String value = table.preview();
-                assertEquals(value.substring(0,194),
-                "Name Phone Email City" +
-                    "Burke Tucker 076 1971 1687 et.euismod.et@ut.edu GozŽe" +
-                    "Grady Brock (011307) 16843 cursus.et@commodo.org Alcobendas" +
-                    "Harding Lloyd 0800 1111 neque.In.ornare@mauris.co.uk Beauvais");
-                logTime("Preview");
-                /*value = table.getValue();
-                assertEquals(value.substring(0,228),
-                    "||X||Name|Phone|Email|City||\r\n" +
-                    "||1||Burke Tucker|076 1971 1687|et.euismod.et@ut.edu|GozŽe||\r\n" +
-                    "||2||Grady Brock|(011307) 16843|cursus.et@commodo.org|Alcobendas||\r\n" +
-                    "||3||Harding Lloyd|0800 1111|neque.In.ornare@mauris.co.uk|Beauvais||");
-                logTime("Get value");*/
-            }
-         @Test
-            public void tableDataTest() {
-                assertEquals(users.row(2).asData(UserInfo.class),
-                        GRADY_BROCK);
-            }
-         @Test
-            public void tableEntityTest() {
-                UserRow user = users.row(2).asLine(UserRow.class);
-                user.name.click();
-                validateAlert(containsString("Brock"));
-                user.city.click();
-                validateAlert(is("Alcobendas"));
-            }
-        
-            private static long timeStart;
-            public static void start() {
-                timeStart = currentTimeMillis();
-            }
-            public static void logTime(String description) {
-                out.println(description + ": " + (currentTimeMillis() - timeStart) + "ms");
-                timeStart = currentTimeMillis();
-            }	
-         @Test
-             public void hugeTableSearchTest() {
-                 StopWatch timer = StopWatch.createStarted();
-                 Line row = usersTable.row(
-                     containsValue("Meyer", inColumn("Name")),
-                     containsValue("co.uk", inColumn("Email")));
-                 System.out.println("Huge table search test Time: " + timer.getTime());
-                 Assert.assertEquals(row.getValue(),
-                 "Brian Meyer;(016977) 0358;mollis.nec@seddictumeleifend.co.uk;Houston");
-             }
-         @Test
-             public void hugeTableValidateTest() {
-                 StopWatch timer = StopWatch.createStarted();
-                 String actualTable = usersTable.preview();
-                 System.out.println("Huge table validate test Time: " + timer.getTime());
-                 Assert.assertEquals(actualTable, TABLE_SNAPSHOOT);
-             }
-         @Test
-             public void bigDropdownTest() {
-                 String name = "Charles Byers";
-                 StopWatch timer = StopWatch.createStarted();
-                 userNames.select(name);
-                 System.out.println("Big dropdown test Time: " + timer.getTime());
-                 Assert.assertEquals(userNames.selected(), name);
-             }
-         @Test
-             public void longTextTest() {
-                 String text = "Lorem ipsum dolor sit amet, eos numquam rationibus ad. Ius cu accumsan salutatus, ne pro purto ridens vulputate. Cu eum doctus tritani, munere sanctus complectitur vis id. Paulo vulputate te eos, suas tollit laudem nam id. His esse rebum reprimique ut, te solum atqui homero vim.\\n\\n" +
-                         "Labitur salutatus eos an. Vim ut dicam fuisset. Ex sed animal accommodare, utinam graeci iisque vim id, ea fugit scripta deleniti nec. Eos cu nisl veri meis. Affert audiam copiosae mel ne, fabulas menandri temporibus has et. Sed latine graecis ei, eu fugit soluta intellegam vis, nibh graeci meliore ad duo.\\n\\n" +
-                         "Et quis meis delenit mea, ius ea sumo laboramus vituperatoribus. Te simul luptatum tractatos nam, eam in causae constituam, quod stet ancillae nam ei. Ne his dico veniam legere, id has vidisse euismod sanctus. Vis putant volumus tincidunt et.\\n\\n" +
-                         "Has eirmod consequat ad. Sea illud clita ut, has quando accusata cotidieque an, volutpat iudicabit definitionem ut sea. Pri at atqui molestiae, nibh ullum consulatu vix at. Nec id nisl nonumes epicurei, et vitae possit probatus ius. Fierent delicata argumentum ut quo. Tation tincidunt sed eu, sit in nostrud democritum.\\n\\n" +
-                         "Usu esse utroque sapientem ad. Eam ut consul soleat sapientem, cu dolor consequuntur vis. Erat temporibus mea id, has ex dicam tritani. Pertinacia expetendis consectetuer eos ei, vidit malis periculis est ea, ne nam movet fuisset. Pro id habemus definitiones, in ferri solum reprehendunt mei. Vel eligendi honestatis liberavisse id.";
-                 StopWatch timer = StopWatch.createStarted();
-                 textareaPerformance.setText(text + "\\n"+ text);
-                 System.out.println("Long text test Time: " + timer.getTime());
-             }	
-  ```
-
-```csharp
-       
-        [Test]
-        public void HugeTableSearchByColumnNamesContainValuesTest()
-        {
-            PerformancePage.UsersTable.AssertThat().HasRowWithValues(
-                ContainsValue("Meyer", InColumn("Name")),
-                ContainsValue("co.uk", InColumn("Email")));
-            var row = PerformancePage.UsersTable.Row(
-                ContainsValue("Meyer", InColumn("Name")),
-                ContainsValue("co.uk", InColumn("Email")));
-                Assert.AreEqual("Brian Meyer;(016977) 0358;mollis.nec@seddictumeleifend.co.uk;Houston",
-                    row.GetValue());
-        }
-
-        [Test]
-        public void HugeTableSearchByColumnNumbersContainValuesTest()
-        {
-            PerformancePage.UsersTable.AssertThat().HasRowWithValues(
-                ContainsValue("Burke", InColumn(1)),
-                ContainsValue("ut.edu", InColumn(3)));
-            var row = PerformancePage.UsersTable.Row(1);
-            PerformancePage.UsersTable.Is().HasRowWithValues( 
-				HasValue("Brian Meyer", InColumn("Name")), 
-				HasValue("(016977) 0358", InColumn("Phone")),
-                HasValue("mollis.nec@seddictumeleifend.co.uk", InColumn("Email")), 
-				HasValue("Houston", InColumn("City")));
-        }
-
-        [Test]
-        public void HugeTableSearchByColumnNamesHasValuesTest()
-        {
-            PerformancePage.UsersTable.AssertThat().HasRowWithValues(
-                HasValue("Brian Meyer", InColumn("Name")),
-                HasValue("mollis.nec@seddictumeleifend.co.uk", InColumn("Email")));
-            var row = PerformancePage.UsersTable.Row(
-                HasValue("Brian Meyer", InColumn("Name")),
-                HasValue("mollis.nec@seddictumeleifend.co.uk", InColumn("Email")));
-            Assert.AreEqual("Brian Meyer;(016977) 0358;mollis.nec@seddictumeleifend.co.uk;Houston",
-                row.GetValue());
-        }
-
-        [Test]
-        public void HugeTableSearchByColumnNumbersHasValuesTest()
-        {
-            PerformancePage.UsersTable.AssertThat().HasRowWithValues(
-                HasValue("Brian Meyer", InColumn(1)),
-                HasValue("mollis.nec@seddictumeleifend.co.uk", InColumn(3)));
-            var row = PerformancePage.UsersTable.Row(
-                ContainsValue("Meyer", InColumn("Name")),
-                ContainsValue("co.uk", InColumn("Email")));
-            Assert.AreEqual("Brian Meyer;(016977) 0358;mollis.nec@seddictumeleifend.co.uk;Houston",
-                row.GetValue());
-        } 
-
-		[Test]
-        public void TableChainTest()
-        {            
-            PerformancePage.UsersTable.AssertThat()
-                .Size(400)
-                .Size(Is.GreaterThan(399))                
-                .HasRowWithValues(
-                    HasValue("Brian Meyer", InColumn("Name")),
-                    HasValue("mollis.nec@seddictumeleifend.co.uk", InColumn("Email")))
-                .NotEmpty()
-                .RowsWithValues(3, ContainsValue("Baker", InColumn(1)))
-                .HasColumn("Email")
-                .HasColumns(new[] {"Name", "City"})
-                .Columns(Is.SubsequenceOf(new[] {"Name", "City", "Phone", "Email", "Address"}));
-        }
-		
-		[Test]
-        public void TableRowPerformanceTest()
-        {
-            PerformancePage.Open();
-            PerformancePage.CheckOpened();
-            AreEqual("Burke Tucker;076 1971 1687;et.euismod.et@ut.edu;GozŽe", PerformancePage.UsersTable.Row(1).GetValue());
-            AreEqual("Burke Tucker;076 1971 1687;et.euismod.et@ut.edu;GozŽe", PerformancePage.UsersTable.Row("Burke Tucker").GetValue());
-            AreEqual("Burke Tucker;076 1971 1687;et.euismod.et@ut.edu;GozŽe", PerformancePage.UsersTable.Row(Users.Name).GetValue());
-            var value = PerformancePage.UsersTable.Preview();
-            AreEqual("Name Phone Email City" +
-                "Burke Tucker 076 1971 1687 et.euismod.et@ut.edu GozŽe" +
-                "Grady Brock (011307) 16843 cursus.et@commodo.org Alcobendas" +
-                "Harding Lloyd 0800 1111 neque.In.ornare@mauris.co.uk Beauvais", value.Substring(0, 194));
-        }
-
-        [Test]
-        public void TableCellPerformanceTest()
-        {
-            PerformancePage.Open();
-            PerformancePage.CheckOpened();
-            AreEqual("ipsum.non.arcu@auctorullamcorper.ca", PerformancePage.UsersTable.Cell(3, 4));
-            AreEqual("ipsum.non.arcu@auctorullamcorper.ca", PerformancePage.UsersTable.Cell("Email", 4));
-            AreEqual("ipsum.non.arcu@auctorullamcorper.ca", PerformancePage.UsersTable.Cell(3, "Zachary Hendrix"));
-            AreEqual("ipsum.non.arcu@auctorullamcorper.ca", PerformancePage.UsersTable.Cell("Email", "Zachary Hendrix"));
-        }
-
-        [Test]
-        public void TableColumnPerformanceTest()
-        {
-            PerformancePage.Open();
-            PerformancePage.CheckOpened();
-            AreEqual("076 1971 1687;(011307) 16843;0", PerformancePage.UsersTable.Column(2).GetValue().Substring(0, 30));
-            AreEqual("076 1971 1687;(011307) 16843;0", PerformancePage.UsersTable.Column("Phone").GetValue().Substring(0, 30));
-            AreEqual("076 1971 1687;(011307) 16843;0", PerformancePage.UsersTable.Column(Users.Phone).GetValue().Substring(0, 30));
-        }		
-```
-
-  - __Java__: _com.epam.jdi.light.elements.complex.table.Table.java_
-  - __C#__: _JDI.Light.Elements.Complex.Table.cs_
+  - __Java__: <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light/src/main/java/com/epam/jdi/light/elements/complex/table/Table.java">Table.java</a>
+  - __C#__: <a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light/Elements/Complex/Table/Table.cs">Table.cs</a>
     
   ![Table](../images/html/tableHtml2.png)
 
 ```html 
-<table class="uui-table stripe tbl-without-header table-td-click" ui="table" id="users-table">
+<table class="uui-table stripe tbl-without-header table-td-click"
+                ui="table" id="users-table">
     <tbody>
         <tr>
             <th>Name</th>
@@ -2313,6 +2075,321 @@ Tables are represented by the following classes in Java and C#:
     </tbody>
 </table>
 ```
+
+
+```java 
+@UI("#users-table")
+//@FindBy(id = "users-table")
+public static Table users;
+@JTable(
+    root = "#users-table",
+    row = "//tr[%s]/td",
+    column = "//tr/td[%s]",
+    cell = "//tr[{1}]/td[{0}]",
+    allCells = "td",
+    headers = "th",
+    header = {"Name", "Phone", "Email", "City"},
+    rowHeader = "Name",
+    size = 4
+) public static Table usersSetup;
+
+
+@Test
+public void tablePerformanceTest() {
+    tablePerformance(users);
+}
+@Test
+public void jTablePerformanceTest() {
+    tablePerformance(usersSetup);
+}
+
+private void tablePerformance(Table table) {
+    assertEquals(table.size(), 4);
+    assertEquals(table.count(), 400);
+    assertEquals(table.header(), asList("Name", "Phone", "Email", "City"));
+    start();
+    assertEquals(table.row(1).getValue(),
+            "Burke Tucker;076 1971 1687;et.euismod.et@ut.edu;GozŽe");
+    logTime("Get 1 row");
+
+    assertEquals(table.row("Burke Tucker").getValue(),
+            "Burke Tucker;076 1971 1687;et.euismod.et@ut.edu;GozŽe");
+    logTime("Get 'Burke Tucker' row");
+
+    String zacharyEmail = "ipsum.non.arcu@auctorullamcorper.ca";
+    assertEquals(table.cell(3,4), zacharyEmail);
+    logTime("Get cell(3,4)");
+    assertEquals(table.cell("Email",4), zacharyEmail);
+    logTime("Get cell(Email,4)");
+    assertEquals(table.cell(3,"Zachary Hendrix"), zacharyEmail);
+    logTime("Get cell(3,Zachary Hendrix)");
+    assertEquals(table.cell("Email","Zachary Hendrix"), zacharyEmail);
+    logTime("Get cell(Email,Zachary Hendrix)");
+
+    assertEquals(table.column(2).getValue().substring(0, 30),
+            "076 1971 1687;(011307) 16843;0");
+    logTime("Get column(2)");
+
+    assertEquals(table.column("Phone").getValue().substring(0, 30),
+            "076 1971 1687;(011307) 16843;0");
+    logTime("Get column(Phone)");
+
+    String value = table.preview();
+    assertEquals(value.substring(0,194),
+    "Name Phone Email City" +
+        "Burke Tucker 076 1971 1687 et.euismod.et@ut.edu GozŽe" +
+        "Grady Brock (011307) 16843 cursus.et@commodo.org Alcobendas" +
+        "Harding Lloyd 0800 1111 neque.In.ornare@mauris.co.uk Beauvais");
+    logTime("Preview");
+    /*value = table.getValue();
+    assertEquals(value.substring(0,228),
+        "||X||Name|Phone|Email|City||\r\n" +
+        "||1||Burke Tucker|076 1971 1687|et.euismod.et@ut.edu|GozŽe||\r\n" +
+        "||2||Grady Brock|(011307) 16843|cursus.et@commodo.org|Alcobendas||\r\n" +
+        "||3||Harding Lloyd|0800 1111|neque.In.ornare@mauris.co.uk|Beauvais||");
+    logTime("Get value");*/
+}
+@Test
+public void tableDataTest() {
+    assertEquals(users.row(2).asData(UserInfo.class),
+            GRADY_BROCK);
+}
+@Test
+public void tableEntityTest() {
+    UserRow user = users.row(2).asLine(UserRow.class);
+    user.name.click();
+    validateAlert(containsString("Brock"));
+    user.city.click();
+    validateAlert(is("Alcobendas"));
+}
+
+private static long timeStart;
+public static void start() {
+    timeStart = currentTimeMillis();
+}
+public static void logTime(String description) {
+    out.println(description + ": " + (currentTimeMillis() - timeStart) + "ms");
+    timeStart = currentTimeMillis();
+}	
+@Test
+ public void hugeTableSearchTest() {
+     StopWatch timer = StopWatch.createStarted();
+     Line row = usersTable.row(
+         containsValue("Meyer", inColumn("Name")),
+         containsValue("co.uk", inColumn("Email")));
+     System.out.println("Huge table search test Time: " + timer.getTime());
+     Assert.assertEquals(row.getValue(),
+     "Brian Meyer;(016977) 0358;mollis.nec@seddictumeleifend.co.uk;Houston");
+ }
+@Test
+ public void hugeTableValidateTest() {
+     StopWatch timer = StopWatch.createStarted();
+     String actualTable = usersTable.preview();
+     System.out.println("Huge table validate test Time: " + timer.getTime());
+     Assert.assertEquals(actualTable, TABLE_SNAPSHOOT);
+ }
+@Test
+ public void bigDropdownTest() {
+     String name = "Charles Byers";
+     StopWatch timer = StopWatch.createStarted();
+     userNames.select(name);
+     System.out.println("Big dropdown test Time: " + timer.getTime());
+     Assert.assertEquals(userNames.selected(), name);
+ }
+@Test
+ public void longTextTest() {
+     String text = "Lorem ipsum dolor sit amet,
+     eos numquam rationibus ad.
+     Ius cu accumsan salutatus,
+     ne pro purto ridens vulputate. 
+        Cu eum doctus tritani,
+     munere sanctus complectitur vis id.
+     Paulo vulputate te eos,
+        suas tollit laudem nam id.
+     His esse rebum reprimique ut,
+     te solum atqui homero vim.\\n\\n" +
+     "Labitur salutatus eos an. Vim ut dicam fuisset. Ex sed animal
+     accommodare, 
+      utinam graeci iisque vim id, ea fugit scripta deleniti nec.
+     Eos cu nisl veri meis.
+      Affert audiam copiosae mel ne, fabulas menandri temporibus has et.
+      Sed latine graecis ei,
+      eu fugit soluta intellegam vis, nibh graeci meliore ad duo.\\n\\n" +
+      "Et quis meis delenit mea, ius ea sumo laboramus vituperatoribus.
+        Te simul luptatum 
+      tractatos nam, eam in causae constituam, 
+       quod stet ancillae nam ei.
+      Ne his dico veniam
+      legere, id has vidisse euismod sanctus.
+      Vis putant volumus tincidunt et.\\n\\n" +
+      "Has eirmod consequat ad. Sea illud clita ut, 
+      has quando accusata cotidieque an,
+      volutpat iudicabit definitionem ut sea.
+         Pri at atqui molestiae,
+     nibh ullum consulatu vix at.
+      Nec id nisl nonumes epicurei, et vitae possit probatus ius. 
+      Fierent delicata argumentum ut
+     quo. Tation tincidunt sed eu, 
+        sit in nostrud democritum.\\n\\n" +
+    "Usu esse utroque sapientem ad. Eam ut consul soleat sapientem,
+     cu dolor consequuntur vis.
+     Erat temporibus mea id, has ex dicam tritani.
+     Pertinacia expetendis consectetuer eos ei,
+     vidit malis periculis est ea, ne nam movet fuisset.
+     Pro id habemus definitiones, 
+    in ferri solum reprehendunt mei.
+     Vel eligendi honestatis liberavisse id.";
+     StopWatch timer = StopWatch.createStarted();
+     textareaPerformance.setText(text + "\\n"+ text);
+     System.out.println("Long text test Time: " + timer.getTime());
+ }	
+  ```
+
+```csharp
+       
+[Test]
+public void HugeTableSearchByColumnNamesContainValuesTest()
+{
+    PerformancePage.UsersTable.AssertThat().HasRowWithValues(
+        ContainsValue("Meyer", InColumn("Name")),
+        ContainsValue("co.uk", InColumn("Email")));
+    var row = PerformancePage.UsersTable.Row(
+        ContainsValue("Meyer", InColumn("Name")),
+        ContainsValue("co.uk", InColumn("Email")));
+        Assert.AreEqual(
+            "Brian Meyer;(016977) 0358;mollis.nec@seddictumeleifend.co.uk;Houston",
+            row.GetValue());
+}
+
+[Test]
+public void HugeTableSearchByColumnNumbersContainValuesTest()
+{
+    PerformancePage.UsersTable.AssertThat().HasRowWithValues(
+        ContainsValue("Burke", InColumn(1)),
+        ContainsValue("ut.edu", InColumn(3)));
+    var row = PerformancePage.UsersTable.Row(1);
+    PerformancePage.UsersTable.Is().HasRowWithValues( 
+        HasValue("Brian Meyer", InColumn("Name")), 
+        HasValue("(016977) 0358", InColumn("Phone")),
+        HasValue("mollis.nec@seddictumeleifend.co.uk", InColumn("Email")), 
+        HasValue("Houston", InColumn("City")));
+}
+
+[Test]
+public void HugeTableSearchByColumnNamesHasValuesTest()
+{
+    PerformancePage.UsersTable.AssertThat().HasRowWithValues(
+        HasValue("Brian Meyer", InColumn("Name")),
+        HasValue("mollis.nec@seddictumeleifend.co.uk", InColumn("Email")));
+    var row = PerformancePage.UsersTable.Row(
+        HasValue("Brian Meyer", InColumn("Name")),
+        HasValue("mollis.nec@seddictumeleifend.co.uk", InColumn("Email")));
+    Assert.AreEqual("Brian Meyer;(016977)
+             0358;mollis.nec@seddictumeleifend.co.uk;Houston",
+        row.GetValue());
+}
+
+[Test]
+public void HugeTableSearchByColumnNumbersHasValuesTest()
+{
+    PerformancePage.UsersTable.AssertThat().HasRowWithValues(
+        HasValue("Brian Meyer", InColumn(1)),
+        HasValue("mollis.nec@seddictumeleifend.co.uk", InColumn(3)));
+    var row = PerformancePage.UsersTable.Row(
+        ContainsValue("Meyer", InColumn("Name")),
+        ContainsValue("co.uk", InColumn("Email")));
+    Assert.AreEqual("Brian Meyer;
+        (016977) 0358;mollis.nec@seddictumeleifend.co.uk;Houston",
+        row.GetValue());
+} 
+
+[Test]
+public void TableChainTest()
+{            
+    PerformancePage.UsersTable.AssertThat()
+        .Size(400)
+        .Size(Is.GreaterThan(399))                
+        .HasRowWithValues(
+            HasValue("Brian Meyer", InColumn("Name")),
+            HasValue("mollis.nec@seddictumeleifend.co.uk", 
+           InColumn("Email")))
+        .NotEmpty()
+        .RowsWithValues(3, ContainsValue("Baker", InColumn(1)))
+        .HasColumn("Email")
+        .HasColumns(new[] {"Name", "City"})
+        .Columns(Is.SubsequenceOf(new[] {"Name", "City", "Phone", "Email", "Address"}));
+}
+
+[Test]
+public void TableRowPerformanceTest()
+{
+    PerformancePage.Open();
+    PerformancePage.CheckOpened();
+    AreEqual("Burke Tucker;076 1971 1687;et.euismod.et@ut.edu;GozŽe",
+                PerformancePage.UsersTable.Row(1).GetValue());
+    AreEqual("Burke Tucker;076 1971 1687;et.euismod.et@ut.edu;GozŽe",
+                 PerformancePage.UsersTable.Row("Burke Tucker").GetValue());
+    AreEqual("Burke Tucker;076 1971 1687;et.euismod.et@ut.edu;GozŽe", 
+                PerformancePage.UsersTable.Row(Users.Name).GetValue());
+    var value = PerformancePage.UsersTable.Preview();
+    AreEqual("Name Phone Email City" +
+        "Burke Tucker 076 1971 1687 et.euismod.et@ut.edu GozŽe" +
+        "Grady Brock (011307) 16843 cursus.et@commodo.org Alcobendas" +
+        "Harding Lloyd 0800 1111 neque.In.ornare@mauris.co.uk Beauvais",
+                         value.Substring(0, 194));
+}
+
+[Test]
+public void TableCellPerformanceTest()
+{
+    PerformancePage.Open();
+    PerformancePage.CheckOpened();
+    AreEqual("ipsum.non.arcu@auctorullamcorper.ca",
+         PerformancePage.UsersTable.Cell(3, 4));
+    AreEqual("ipsum.non.arcu@auctorullamcorper.ca",
+                 PerformancePage.UsersTable.Cell("Email", 4));
+    AreEqual("ipsum.non.arcu@auctorullamcorper.ca",
+                 PerformancePage.UsersTable.Cell(3, "Zachary Hendrix"));
+    AreEqual("ipsum.non.arcu@auctorullamcorper.ca",
+                 PerformancePage.UsersTable.Cell("Email", "Zachary Hendrix"));
+}
+
+[Test]
+public void TableColumnPerformanceTest()
+{
+    PerformancePage.Open();
+    PerformancePage.CheckOpened();
+    AreEqual("076 1971 1687;(011307) 16843;0",
+       PerformancePage.UsersTable.Column(2).GetValue().Substring(0, 30));
+    AreEqual("076 1971 1687;(011307) 16843;0",
+       PerformancePage.UsersTable.Column("Phone").GetValue().Substring(0, 30));
+    AreEqual("076 1971 1687;(011307) 16843;0",
+       PerformancePage.UsersTable.Column(Users.Phone).GetValue().Substring(0, 30));
+}		
+```
+
+__JDI JTable annotation__
+
+Along with providing a Table type element JDI Light also provides a __*@JDropdown*__ annotation for
+ a better element locating. In addition to what Table type does __*@JDropdown*__  also allows 
+ some kind of customization in the way the element is being located on the page.
+
+
+This annotation has the following fields that can be used for locating a table element:
+
+ - __*String root()*__ - value of this field points to the root locator of table element
+ - __*String[] header()*__ - list of the columns names 
+ - __*String headers()*__ - locator of a table header
+ - __*String row()*__ - locator representing a single row of a table
+ - __*String column()*__ - locator representing a column of a table
+ - __*String cell()*__ - locator representing a table cell
+ - __*String allCells()*__ - locator representing all table cells
+ - __*String rowHeader()*__ - the value of a table header corresponding to a particular raw
+ - __*int size()*__ - amount of columns
+ - __*int count()*__ - amount of rows
+ - __*int firstColumnIndex()*__ - index of the first column
+ - __*int[] columnsMapping()*__ - 
+
 
 Here is a list of available methods in Java:
 
@@ -2350,15 +2427,17 @@ Here is a list of available methods in Java:
 **webColumn(String colName)** | Returns all UIElements in the column according to column name | List<UIElement>
 **webColumn(Enum colName)** | Returns all UIElements in the column according to column name | List<UIElement>
 **webCell(int colNum, int rowNum)** | Returns all UIElements in the column according to cell position | List<UIElement>
-  
-AssertTable methods in Java:
-| Method | Description | Return Type|
---- | --- | ---
-**assertThat()** | Applicable for performing assert actions for tables | TableAssert
-**has()** | Applicable for performing assert actions for tables | TableAssert
-**is()** | Applicable for performing assert actions for tables | TableAssert
-**shouldBe()** | Applicable for performing assert actions for tables | TableAssert
-**waitFor()** | Applicable for performing assert actions for tables | TableAssert
+**empty()** | Asserts whether table is empty | BaseTableAssert
+**notEmpty()** | Asserts whether table is not empty | BaseTableAssert
+**size(Matcher<Integer> condition)** | Asserts whether table size satisfies some matcher condition | BaseTableAssert
+**size(int size)** | Asserts whether table has a particular size | BaseTableAssert
+**column(String column)** | Asserts whether table Check that the table has the specified column | BaseTableAssert
+**columns(List<String> columns)** | Asserts whether table Check that the table has the specified columns | BaseTableAssert
+**columns(Matcher<Collection<? extends String>>)** | Match passed value with table columns | BaseTableAssert
+**rowThat(TableMatcher... matchers)** |Check that the table has at list one specified row | BaseTableAssert
+**rowThat(Single matcher, Column column)** | Check that the table has at list one specified row | BaseTableAssert
+**row(Matcher<String> matcher, Column column)** |Check that the table has rows that meet expected condition| BaseTableAssert
+**rows(TableMatcher... matchers)** |Makes sure that the table has at least a certain number of the specified line| BaseTableAssert
 
 And here are methods available in C#:
 
@@ -2390,11 +2469,6 @@ And here are methods available in C#:
 **Columns()** | Sets and returns a list of column objects of a table | List<Line>
 **GetValue()** | Returns a string content of values for a particular row, where values are separated by ";" | string
 **string Preview()** | Returns a string content of the whole table | string
-
-AssertTable methods in C#:
-
-| Method | Description | Return Type|
---- | --- | ---
 **Empty()** | Asserts whether table is empty | TableAssert
 **NotEmpty()** | Asserts whether table is not empty | TableAssert
 **Size(Matcher<int> condition)** | Asserts whether table size satisfies some matcher condition | TableAssert

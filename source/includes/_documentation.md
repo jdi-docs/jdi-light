@@ -3188,31 +3188,26 @@ DataList element contains a set of options with values available as inputs.
 
 ![DataList](../images/icecreamdatalist.png)
 
-__JDI DataList annotation__
+__C# JDI DataList annotation__
 
-For better use JDI Light provides a __*@JDataList*__ annotation to locate DataList elements. This annotation consists of the following elements:
+For better use in C# JDI Light provides a __*[JDataList]*__ annotation to locate DataList elements. This annotation consists of the following elements:
 
  - __*root*__ - value of this element points to the root locator of the dropdown element
  - __*values*__ - options locator in dropdown list
  - __*how*__ - type of locators with which elements will be identified. By default it is set as css
  
-```java 
-TBD
-```
-
 ```csharp 
-[JDataList(root: "#ice-cream", 
-           values: "#ice-cream-flavors > option"]
-public IDataList IceCream;
+[JDataList("#ice-cream", "#ice-cream-flavors > option")]
+    public DataList IceCream { get; set; }
 
 [JDataList("#disabled-dropdown",
           "#disabled-dropdown > option")]
-        public DataList DisabledDropdownAsDataList { get; set; }
+    public DataList DisabledDropdownAsDataList { get; set; }
 
 [Test]
-public void ComplexTest() 
+public void GetValueTest()
 {
-    IceCream.Select("Coconut");
+    AreEqual(TestSite.Html5Page.IceCream.Selected(), "Coconut");
 }
 
 [Test]
@@ -3271,19 +3266,25 @@ public void AssertOptionsValuesTest()
 
 DataList element type is provided by JDI Light in:
 
- - __Java__: _com.epam.jdi.light.ui.html.complex.DataList_
+ - __Java__: _com.epam.jdi.light.ui.html.complex.DataListOptions_
  - __C#__: _JDI.Light.Elements.Common.DataList_
  
 Have a look at the following example with HTML code provided:
 
 ```java 
 @UI("#ice-cream") //@FindBy(id = "ice-cream")
-public static DataList iceCreamDataList;DropDown
+public static DataListOptions iceCreamDataList;
 
 @Test
 public void selectEnumTest() {
-    iceCreamDataList.select(Strawberry);
-    assertEquals(iceCreamDataList.getValue(), "Strawberry");
+    iceCream.select(Strawberry);
+    assertEquals(iceCream.getValue(), "Strawberry");
+}
+@Test
+public void selectNumTest() {
+    iceCream.clear();
+    iceCream.select(5);
+    assertEquals(iceCream.getValue(), "Vanilla");
 }
 ```
 
@@ -3310,8 +3311,11 @@ The list of methods available for Java in JDI Light:
 **select(String/Enum/int)** |Select datalist option by value or index | void
 **selected()** |Get selected option value | String
 **values()** |Get all option values from DataList | List\<String>
+**input(string value)** |Input user's value into DataList  | void
 **listEnabled()** |Return a list of values of enabled options | List\<String>
 **listDisabled()** |Return a list of values of disabled options | List\<String>
+**is** |Gets element's assert | DataListAssert
+**assertThat** |Gets element's assert | DataListAssert
 
 The list of some methods available for C# in JDI Light:
 
@@ -3321,11 +3325,6 @@ The list of some methods available for C# in JDI Light:
 **Select(string/int)** |Select datalist by value/index  | void
 **Input(string value)** |Input user's value into DataList  | void
 **GetSelected()** |Get selected DataList value  | string
-
-The list of available assert methods:
-
-|Method | Description | Return Type
---- | --- | ---
 **Is** |Gets element's assert | DataListAssert
 **AssertThat** |Gets element's assert | DataListAssert
 

@@ -7856,6 +7856,73 @@ assertThat()	 |  Assert action	| TooltipAssert
  
 <br>
 
+###Image
+
+<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/content/images/" target="_blank">Images</a> is a hint that used in conjuction with a pointer.
+
+```java 
+    //@FindBy(css = "#card-image")
+    @UI("#card-image")
+    public static CardImage cardImage;
+
+    public class CardImage extends Card {
+        @UI(".card-text") public Text text;
+        @UI("#bs-card-image") public Image image;
+    }
+
+    @Test
+    public void availabilityTest() {
+        cardImage.image.is()
+                .displayed()
+                .enabled();
+    }
+
+    @Test
+    public void getAltTest() {
+        assertEquals(cardImage.image.alt(), ALT_ATTR_EXPECTED);
+    }
+
+    @Test
+    public void isValidationTest() {
+        cardImage.image.is().src(is(SRC_ATTR_EXPECTED));
+        cardImage.image.is().alt(is(ALT_ATTR_EXPECTED));
+        cardImage.image.unhighlight();
+        cardImage.image.assertThat().width(is(WIDTH));
+        cardImage.image.assertThat().height(is(HEIGHT));
+    }
+
+    @Test
+    public void imageClassTest() {
+        cardImage.image.is().core().hasClass(IMAGE_TOP_CLASS);
+        cardImage.image.assertThat().core().hasClass(IMAGE_TOP_CLASS);
+    }
+```
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+```html
+<div class="card mb-3" id="card-image-caps-1" style="width: 18rem;">
+  <img style="width: 30%; margin: 0 auto;" src="images/captain-america.jpg" class="card-img-top"
+    alt="Captain America image">
+</div>
+```
+
+Available methods in Java JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+alt() | Assert alt image attribute  | ImageAssert
+width() | Assert image width | ImageAssert
+height() | Assert image height | ImageAssert
+getText() | Get item text | String
+getValue() |Get item value  |  String
+is()	 |  Assert action	| UIAssert
+assertThat()	 |  Assert action	| ImageAssert
+
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/ImageTests.java" target="_blank">Bootstrap test example with tooltips</a>
+ 
+<br>
+
 
 ## Bootstrap Complex elements
 

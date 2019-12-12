@@ -4043,16 +4043,22 @@ public class ActionsWebPageTests extends TestsInit {
 **getCurrentPage()**|Returns the name of current Page|String
 **setCurrentPage(WebPage page)**|Instantiates the current Page with Name|void
 **WebPage()**|Default constructor for WebPage class|WebPage
-**WebPage(String url)**|Parameterized URL constructor for WebPage class|void
+**WebPage(String url)**|Parameterized URL constructor for WebPage class|WebPage
+**WebPage(String url, String title)**|Parameterized with URL and Title constructor|WebPage
+**openSite()**|Opens a Site|void
+**openSite(Class<?> site)**|Parameterized Site opening|void
 **openUrl(String url)**|Opening WebPage with URL|void
 **getUrl()**|Returns URL of Page|String
 **getTitle()**|Returns Page Title|String
+**setUrl(String uri)**|Setting Up URL of Page|void
+**setUrl(String uri, String template, CheckTypes validate)**|Parameterized setting Up URL of Page|void
 **updatePageData(Url urlAnnotation, Title titleAnnotation)**|Setting Page URL and     |void
 **url()**|Returns new StringCheckType object with checked URL|StringCheckType
 **title()**|Returns new StringCheckType object with checked Title|StringCheckType
 **open(String url)**|Opens url specified for page|void
 **open(Object... params)**|Opens url specified for page with parameters|void
 **checkOpened()**|Checks that page has opened|void
+**visualWindowCheck()**|empty|void
 **isOpened()**|Checks that page has opened|boolean
 **shouldBeOpened()**|Checks that page has opened|void
 **shouldBeOpened(Object... params)**|Checks that page has opened with parameters|void
@@ -4070,8 +4076,10 @@ public class ActionsWebPageTests extends TestsInit {
 **scrollUp(int value)**|Scrolls up to designated position|void
 **scrollRight(int value)**|Scrolls right to designated position|void
 **scrollLeft(int value)**|Scrolls left to designated position|void
-**addPage(WebPage page)**|Adds selected page to the Map of pages|void
-**getPage(String value)**|Gets page from Map by value|T_extends_WebPage
+**zoomLevel()**|Getting zoom level|double
+**xOffset()**|Getting window x offset|long
+**yOffset()**|Getting window y offset|long
+**windowScreenshot()**|Getting window screenshot|String
 **toString()**|Overrides the Object class toString() method|String
   
 

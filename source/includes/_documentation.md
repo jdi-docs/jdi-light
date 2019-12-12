@@ -20411,28 +20411,23 @@ Level _STEP_ can show business-related information in the console output, and yo
 ## Reports
 ### Allure
 
-```java 
-    @Override
-    public void afterInvocation(IInvokedMethod iInvokedMethod, ITestResult iTestResult) {
-        if (iInvokedMethod.isTestMethod()) {
-            String result = getTestResult(iTestResult);
-            if ("FAILED".equals(result)) {
-                logger.error("=== Test '%s' %s ===", TEST_NAME.get(), result);
-            }
-            else {
-                System.out.println("STEP PASSED");
-                logger.step("=== Test '%s' %s ===", TEST_NAME.get(), result);
-            }
-        }
-    }
-```
-
-Allure steps are logged in custom TestNG listener.
+JDILogger
+<br>
 
 |Method | Description 
 --- | --- 
 **void step(String msg, Object... args)** | Log successful step
 **void error(String msg, Object... args)** | Log failed step
+
+
+AllureLoggerHelper
+<br>
+
+|Method | Description 
+--- | --- 
+**void startStep(String uuid, String message)** | Start logging step
+**void passStep(String uuid)** | Log step is successfully completed
+**void failStep(String uuid, String screenName)** | Log step is failed
 
 <a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-examples/src/test/java/io/github/epam/tests/allurereport" target="_blank">Allure screenshoots tests</a> for WebPage<br>
 

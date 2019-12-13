@@ -217,13 +217,13 @@ public static Checkbox acceptConditions;
 @Test
 public void checkTest() {
     acceptConditions.check();
-    assertEquals(acceptConditions.isSelected(), true);
+    acceptConditions.is().selected();
 }
 
 @Test
 public void uncheckTest() {
     acceptConditions.uncheck();
-    assertEquals(acceptConditions.isSelected(), false);
+    acceptConditions.is().deselected();
 }
 ```
 ```csharp

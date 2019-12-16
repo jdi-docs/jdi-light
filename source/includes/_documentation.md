@@ -225,6 +225,11 @@ public void uncheckTest() {
     acceptConditions.uncheck();
     acceptConditions.is().deselected();
 }
+
+@Test
+public void getLabelTextTest() {
+    acceptConditions.label().is().text(labelText);
+}
 ```
 ```csharp
 

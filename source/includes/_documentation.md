@@ -19,14 +19,16 @@ TBD
    
   //In the next test Label is found from 'name' and 'disabledName' locators:
    
-  @UI("#name") // @FindBy(css = "#name")
- public static TextField name;
+  // @FindBy(css = "#name")
+  @UI("#name") 
+  public static TextField name;
 	
-  @UI("#disabled-name") // @FindBy(css = "#disabled-name")
- public static TextField disabledName;
+  // @FindBy(css = "#disabled-name")
+  @UI("#disabled-name") 
+  public static TextField disabledName;
 	
- //By default Label is found by locator 
- By.cssSelector("[for="+getAttribute("id")+"]")
+  //By default Label is found by locator 
+  By.cssSelector("[for="+getAttribute("id")+"]")
    
   @Test
   public void labelTest() {
@@ -35,10 +37,16 @@ TBD
       disabledName.label().is().text(equalToIgnoringCase("Surname:"));
   }
 	
-@Test
-  public void getLabelTextTest() {
-      assertEquals(colorPicker.lDriver SettingsabelText(), "Select a color");
-  }
+ @Test
+ public void labelAssertThatTest() {
+     jdiTitle.assertThat().text(is(text));
+ }
+
+ @Test
+ public void labelClickTest() {
+     jdiTitle.click();
+     validateAlert(containsString("JDI Title"));
+ }
   
  ```
 
@@ -107,15 +115,28 @@ Available methods in C# JDI Light:
 public static Button redButton;
 
 @Test
-public void clickTest() {
-    redButton.click();
-    assertEquals(getAlertText(), "Red button");
-    acceptAlert();
+public void buttonTest() {
+   redButton.is().text(text);
+   redButton.assertThat().displayed()
+         .and().text(is(text))
+         .core()
+         .css("font-size", is("14px"))
+         .cssClass("uui-button red")
+         .attr("type", "button")
+         .tag(is("input"));
 }
 
 @Test
-public void getTextTest() {
-    assertEquals(redButton.getText(), "Big Red Button-Input");
+public void buttonAssertThatTest() {
+   redButton.assertThat().text(is(text));
+}
+
+@Test
+public void buttonClickTest() {
+   redButton.click();
+   validateAlert(containsString("Red button"));
+   dblClickButton.doubleClick();
+   validateAlert(containsString("Double Click"));
 }
 ```
 ```csharp

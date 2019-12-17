@@ -1001,14 +1001,24 @@ And here are methods available in Java:
 ### Link
 
 ```java 
+//@FindBy(css = "[ui=github-link]") 
 @UI("[ui=github-link]") 
-// equal to @FindBy(css = "[ui=github-link]") 
 public static Link githubLink;
 
 @Test
-public void getTextTest() {
-        assertEquals(githubLink.getText(), text);
-    }
+public void linkTextTest() {
+    githubLink.is().text(EXPECTED_TEXT);
+    githubLink.is().text(equalTo(EXPECTED_TEXT));
+    githubLink.is().text(containsString(PART_OF_EXPECTED_TEXT));
+}
+
+@Test
+public void linkRefTest() {
+    githubLink.is().ref(EXPECTED_URL);
+    githubLink.is().ref(equalTo(EXPECTED_URL));
+    githubLink.is().ref(containsString(PART_OF_EXPECTED_URL));
+    githubLink.is().ref(matchesPattern(EXPECTED_URL_REGEX));
+}
 ```
 ```csharp 
 [FindBy(Css = "[ui = github-link]")]

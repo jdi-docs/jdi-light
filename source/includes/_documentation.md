@@ -354,8 +354,6 @@ public void BaseValidationTest()
 <label for="accept-conditions">Accept terms and conditions</label>
 ```
 
-<br><br><br><br><br><br><br><br><br><br><br>
-
 Available methods in Java JDI Light:
 
 |Methods | Description | Return Type
@@ -761,9 +759,12 @@ public static FileInput avatar;
 public void uploadTest() {
         avatar.uploadFile(mergePath(PROJECT_PATH, "/src/test/resources/general.xml"));
         avatar.is().text(containsString("general.xml"));
-        avatar.is().value(containsString("general.xml"));
 }
 
+ @Test
+    public void labelTest() {
+        avatar.label().is().text(containsString("picture:"));
+    }
 ```
 ```csharp
 [Test]
@@ -806,8 +807,6 @@ public void BaseValidationTest()
 ```html
 <input type="file" id="avatar" accept="image/png, image/jpeg">
 ```
-
-<br><br><br><br><br><br><br><br><br>
 
 Available method in Java JDI Light:
 

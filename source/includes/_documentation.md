@@ -939,19 +939,22 @@ Here is a list of available methods in C#:
 
 ### Image
 
+**Image** – Is a simple element type that represents graphic images.
+
+![Image](../images/html/image_html2.png)
+
 ```java 
 @UI("#jdi-logo") 
 // same as FindBy(css = "#jdi-logo")
 public static Image jdiLogo;
 
-    @Test
-    public void isValidationTest() {
-        WebPage.refresh();
-        jdiLogo.is().src(containsString("jdi-logo.jpg"));
-        jdiLogo.is().alt(is("Jdi Logo 2"));
-        jdiLogo.assertThat().height(is(100));
-        jdiLogo.assertThat().width(is(101));
-    }
+@Test
+public void isValidationTest() {
+    jdiLogo.is().src(containsString("jdi-logo.jpg"));
+    jdiLogo.is().alt(is("Jdi Logo 2"));
+    jdiLogo.assertThat().height(is(100));
+    jdiLogo.assertThat().width(is(101));
+}
 ```
 ```csharp 
 [FindBy(Css = "#jdi-logo")]
@@ -969,21 +972,33 @@ public IImage LogoImage;
      Jdi.Assert.AreEquals(LogoImage.GetAlt(), Alt);
    }
 ```
-**Image** – Is a simple element type that represents graphic images.
-
-![Image](../images/html/image_html2.png)
-
 ```html
 <label for="jdi-logo">JDI Logo:</label>
 <img src="/jdi-light/images/jdi-logo.jpg" id="jdi-logo" alt="Jdi Logo 2" 
      width="101" height="100" onclick="alert('JDI Logo');">
 ```
 
+<br><br><br><br><br><br><br><br><br>
+
 Images are represented by the following classes in Java and C#:
  
-  - __C#__: _JDI.Light.Elements.Common.Image_
   - __Java__: _com.epam.jdi.light.ui.html.common.Image_
+  - __C#__: _JDI.Light.Elements.Common.Image_
   
+Here is a list of available methods in Java:
+
+|Method | Description | Return Type
+--- | --- | ---
+**click()** | click on the image| void
+**src()** | get value of src attribute | String
+**height()** |get value of height attribute| String
+**width()** | get value of width attribute| String
+**alt()** |get value of alt attribute | String
+**is()** | method for building assertions | ImageAssert
+**assertThat()** |method for building assertions  | ImageAssert
+
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/ImageTests.java" target="_blank">Test examples in Java</a>
+
 Here is a list of available methods in C#:
 
 |Method | Description | Return Type
@@ -996,23 +1011,7 @@ Here is a list of available methods in C#:
 **Is()** | method for building assertions | ImageAssert
 **AssertThat()** |method for building assertions  | ImageAssert
 
-<a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/ImagesTests.cs" target="_blank">Test examples in C#</a><br>
-[BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#image-2) <br>
-
-And here are methods available in Java:
-
-|Method | Description | Return Type
---- | --- | ---
-**click()** | click on the image| void
-**src()** | get value of src attribute | String
-**height()** |get value of height attribute| String
-**width()** | get value of width attribute| String
-**alt()** |get value of alt attribute | String
-**is()** | method for building assertions | ImageAssert
-**assertThat()** |method for building assertions  | ImageAssert
-
-<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/ImageTests.java" target="_blank">Test examples in Java</a><br>
-[BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#image-2)<br>
+<a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/ImagesTests.cs" target="_blank">Test examples in C#</a>
 
 ### Link
 
@@ -1794,37 +1793,43 @@ And here are methods available in Java:
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#textfield-2)<br>
 
 ### TextArea
+
+**TextArea** – Is a simple element type that allows users to fill in text areas (they may contain a few lines). 
+
+![InputTypeTextArea](../images/html/textArea_html2.png)
+
+
 ```java 
 @UI("#text-area") 
 // same as FindBy(css = "#text-area")
 public static TextArea textArea;
 
-    @Test
-    public void getLinesTest() {
-        textArea.setLines("test 1", "test 2", "test 3");
-        assertEquals(textArea.getLines(), asList("test 1", "test 2", "test 3"));
-    }
-    
-    @Test
-    public void focusTest() {
-        textArea.focus();
-    }
-    
-    @Test
-    public void rowsTest() {
-        assertEquals(textArea.rows(), 3);
-        assertEquals(textArea.cols(), 33);
-        assertEquals(textArea.minlength(), 10);
-        assertEquals(textArea.maxlength(), 200);
-    }
-     
-    @Test
-    // this test demonstrates usage of methods inherited from TextField interface:
-    public void clearTest() {
-             textArea.setText(text);
-             textArea.clear();
-             assertEquals(textArea.getText(), "");
-    }
+String text = "TextArea";
+
+@Test
+public void addNewLineTest(){
+    textArea.setLines("line1", "line2");
+    textArea.addNewLine("line3");
+    textArea.assertThat().text(is("line1\nline2\nline3"));
+    textArea.clear();
+    textArea.assertThat().text(is(""));
+}
+
+@Test
+public void isValidationTest() {
+    textArea.is().enabled();
+    textArea.setText(text);
+    textArea.is().text(containsString("Area"));
+    disabledTextArea.is().disabled();
+}
+
+@Test
+public void rowsTest() {
+    textArea.is().rowsCount(is(3));
+    textArea.is().colsCount(is(33));
+    textArea.is().minlength(is(10));
+    textArea.is().maxlength(is(200));
+}
 ```
 ```csharp 
 [FindBy(Css = "#text-area")]
@@ -1845,11 +1850,6 @@ public ITextArea TextArea;
       Assert.CollectionEquals(TextArea.GetLines(), new[] { "line1", "line2", "line3" });
    }
 ```
-
-**TextArea** – Is a simple element type that allows users to fill in text areas (they may contain a few lines). 
-
-![InputTypeTextArea](../images/html/textArea_html2.png)
-
 ```html
 <label for="text-area">Text example:</label>
 <textarea id="text-area" rows="3" cols="33" maxlength="200" minlength="10"
@@ -1860,15 +1860,37 @@ public ITextArea TextArea;
 <textarea disabled="" placeholder="Disabled area"></textarea>
 ```
 
-Text areas are represented by the following classes in Java and C#:
- 
-  - __C#__: _JDI.Light.Elements.Common.TextArea_
-  - __Java__: <a href='https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-html/src/main/java/com/epam/jdi/light/ui/html/elements/common/TextArea.java'>TextArea</a>
-  
-In C# TextArea is a descendant of TextField and inherits its methods. But TextArea also has methods of its own.
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-In JAVA TextArea is a descendant of UIBaseElement parameterized with TextAreaAssert and inherits its methods. But TextArea also has methods of its own.
+Text areas are represented by the following classes:
+
+  - __Java__: <a href='https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-html/src/main/java/com/epam/jdi/light/ui/html/elements/common/TextArea.java'>TextArea</a>
+  - __C#__: _JDI.Light.Elements.Common.TextArea_
   
+In JAVA TextArea is a descendant of UIBaseElement with HasLabel, SetValue, HasPlaceholder, IsInput interfaces parameterized with TextAreaAssert and inherits its methods. But TextArea also has methods of its own.
+
+In C# TextArea is a descendant of TextField and inherits its methods. But TextArea also has methods of its own.
+  
+Here is a list of available methods in Java:
+  
+|Method | Description | Return Type
+--- | --- | ---
+**setLines(String... lines)** | sets lines (text)  | void
+**getLines()** | returns lines (text) from the text area | List<String>
+**labelText()** | returns value of TextArea label | String
+**placeholder()** | returns value of placeholder in TextArea | String
+**rows()** | returns value of rows attribute | int
+**cols()** | returns value of cols attribute | int
+**minlength()** | returns value of minlength attribute | int
+**maxlength()** | returns value of maxlength attribute | int
+**addNewLine(String line)** | add line to the already existing  | void
+**setValue()**    | setting value                          | void
+**getValue()**    | calls getText() method                 | String
+**getText()**     | returns value of attribute "value"     | String
+**is()**          | returns object for work with assertions | TextAreaAssert
+
+  <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/TextAreaTests.java" target="_blank">Test examples in Java</a><br>
+
 Here is a list of available methods in C#:
   
 |Method | Description | Return Type
@@ -1884,26 +1906,6 @@ Here is a list of available methods in C#:
 **AssertThat()** | returns object for work with assertions  | TextAreaAssert
  
   <a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/TextAreaTests.cs" target="_blank">Test examples in C#</a><br>
-  [BDD Steps example](https://jdi-docs.github.io/jdi-light/#textarea-2) <br>
-  
-  And here are methods available in Java:
-  
-|Method | Description | Return Type
---- | --- | ---
-**setLines(String... lines)** | sets lines (text)  | void
-**getLines()** | returns lines (text) from the text area | List<String>
-**rows()** | returns value of rows attribute | int
-**cols()** | returns value of cols attribute | int
-**minlength()** | returns value of minlength attribute | int
-**maxlength()** | returns value of maxlength attribute | int
-**addNewLine(String line)** | add line to the already existing  | void
-**setValue()**    | setting value                          | void
-**getValue()**    | calls getText() method                 | String
-**getText()**     | returns value of attribute "value"     | String
-**is()**          | returns object for work with assertions | TextAreaAssert
-
-  <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/TextAreaTests.java" target="_blank">Test examples in Java</a><br>
-  [BDD Steps example](https://jdi-docs.github.io/jdi-light/#textarea-2) <br>
 
 ### Title
 **Title** – A graphical control element representing document title, which is displayed in the title bar of the browser or tab page.

@@ -19,14 +19,16 @@ TBD
    
   //In the next test Label is found from 'name' and 'disabledName' locators:
    
-  @UI("#name") // @FindBy(css = "#name")
- public static TextField name;
+  // @FindBy(css = "#name")
+  @UI("#name") 
+  public static TextField name;
 	
-  @UI("#disabled-name") // @FindBy(css = "#disabled-name")
- public static TextField disabledName;
+  // @FindBy(css = "#disabled-name")
+  @UI("#disabled-name") 
+  public static TextField disabledName;
 	
- //By default Label is found by locator 
- By.cssSelector("[for="+getAttribute("id")+"]")
+  //By default Label is found by locator 
+  By.cssSelector("[for="+getAttribute("id")+"]")
    
   @Test
   public void labelTest() {
@@ -35,10 +37,16 @@ TBD
       disabledName.label().is().text(equalToIgnoringCase("Surname:"));
   }
 	
-@Test
-  public void getLabelTextTest() {
-      assertEquals(colorPicker.lDriver SettingsabelText(), "Select a color");
-  }
+ @Test
+ public void labelAssertThatTest() {
+     jdiTitle.assertThat().text(is(text));
+ }
+
+ @Test
+ public void labelClickTest() {
+     jdiTitle.click();
+     validateAlert(containsString("JDI Title"));
+ }
   
  ```
 
@@ -107,15 +115,28 @@ Available methods in C# JDI Light:
 public static Button redButton;
 
 @Test
-public void clickTest() {
-    redButton.click();
-    assertEquals(getAlertText(), "Red button");
-    acceptAlert();
+public void buttonTest() {
+   redButton.is().text(text);
+   redButton.assertThat().displayed()
+         .and().text(is(text))
+         .core()
+         .css("font-size", is("14px"))
+         .cssClass("uui-button red")
+         .attr("type", "button")
+         .tag(is("input"));
 }
 
 @Test
-public void getTextTest() {
-    assertEquals(redButton.getText(), "Big Red Button-Input");
+public void buttonAssertThatTest() {
+   redButton.assertThat().text(is(text));
+}
+
+@Test
+public void buttonClickTest() {
+   redButton.click();
+   validateAlert(containsString("Red button"));
+   dblClickButton.doubleClick();
+   validateAlert(containsString("Double Click"));
 }
 ```
 ```csharp
@@ -217,13 +238,18 @@ public static Checkbox acceptConditions;
 @Test
 public void checkTest() {
     acceptConditions.check();
-    assertEquals(acceptConditions.isSelected(), true);
+    acceptConditions.is().selected();
 }
 
 @Test
 public void uncheckTest() {
     acceptConditions.uncheck();
-    assertEquals(acceptConditions.isSelected(), false);
+    acceptConditions.is().deselected();
+}
+
+@Test
+public void getLabelTextTest() {
+    acceptConditions.label().is().text(labelText);
 }
 ```
 ```csharp
@@ -327,8 +353,6 @@ public void BaseValidationTest()
 <input type="checkbox" id="accept-conditions" checked="">
 <label for="accept-conditions">Accept terms and conditions</label>
 ```
-
-<br><br><br><br><br><br><br><br><br><br><br>
 
 Available methods in Java JDI Light:
 
@@ -735,9 +759,12 @@ public static FileInput avatar;
 public void uploadTest() {
         avatar.uploadFile(mergePath(PROJECT_PATH, "/src/test/resources/general.xml"));
         avatar.is().text(containsString("general.xml"));
-        avatar.is().value(containsString("general.xml"));
 }
 
+ @Test
+    public void labelTest() {
+        avatar.label().is().text(containsString("picture:"));
+    }
 ```
 ```csharp
 [Test]
@@ -780,8 +807,6 @@ public void BaseValidationTest()
 ```html
 <input type="file" id="avatar" accept="image/png, image/jpeg">
 ```
-
-<br><br><br><br><br><br><br><br><br>
 
 Available method in Java JDI Light:
 
@@ -975,14 +1000,24 @@ And here are methods available in Java:
 ### Link
 
 ```java 
+//@FindBy(css = "[ui=github-link]") 
 @UI("[ui=github-link]") 
-// equal to @FindBy(css = "[ui=github-link]") 
 public static Link githubLink;
 
 @Test
-public void getTextTest() {
-        assertEquals(githubLink.getText(), text);
-    }
+public void linkTextTest() {
+    githubLink.is().text(EXPECTED_TEXT);
+    githubLink.is().text(equalTo(EXPECTED_TEXT));
+    githubLink.is().text(containsString(PART_OF_EXPECTED_TEXT));
+}
+
+@Test
+public void linkRefTest() {
+    githubLink.is().ref(EXPECTED_URL);
+    githubLink.is().ref(equalTo(EXPECTED_URL));
+    githubLink.is().ref(containsString(PART_OF_EXPECTED_URL));
+    githubLink.is().ref(matchesPattern(EXPECTED_URL_REGEX));
+}
 ```
 ```csharp 
 [FindBy(Css = "[ui = github-link]")]
@@ -1520,35 +1555,24 @@ And here are methods available in Java:
 **Text** - Is a combination of letters and textual symbols. When performing testing, the text is used in most operations: when typing text into the login field, when finding a button with some certain text in it, or when checking if actual text matches expected one.
 
 ```java 
-  @UI("[ui=jdi-text]") //@FindBy(css = "[ui=jdi-text]") 
-  public static Text jdiText;
+@UI("[ui=jdi-text]") //@FindBy(css = "[ui=jdi-text]") 
+public static Text jdiText;
 
-  @Test
-  public void getTextTest() {
-      assertEquals(jdiText.getText(), text);
-  }
+@Test
+public void textPositiveTest() {
+    jdiText.is().text(equalTo(TEXT));
+    jdiText.is().text(TEXT);
+}
 
-  @Test
-  public void getValueTest() {
-      assertEquals(jdiText.getValue(), text);
-  }
+@Test
+public void textContainsTest() {        
+    jdiText.is().text(containsString(PART_OF_TEXT));
+}
 
-  @Test
-  public void isValidationTest() {
-      jdiText.is().enabled();
-      jdiText.is().text(is(text));
-      jdiText.is().text(containsString("Powerful Framework for UI"));
-  }
-
-  @Test
-  public void assertValidationTest() {
-      jdiText.assertThat().text(is(text));
-  }
-
-  @Test
-  public void baseValidationTest() {
-      baseValidation(jdiText);
-  }
+@Test
+public void textDoesNotContainWordTest() {
+    jdiText.is().text(not(NOT_EXPECTED_TEXT));
+}
   
 ```
 
@@ -2024,6 +2048,7 @@ Here is the list of some available methods in Java:
 --- | --- | ---
 **select(String/int/Enum)** | Select radiobutton by value/index  | void
 **selected()** | Get selected radiobutton value | string
+**values()** | Returns list of values | List<string>
 **is()** | Returns object for work with assertions | RadioButtonAssert
 **assertThat()** | Returns object for work with assertions | RadioButtonAssert
 
@@ -3222,31 +3247,26 @@ DataList element contains a set of options with values available as inputs.
 
 ![DataList](../images/icecreamdatalist.png)
 
-__JDI DataList annotation__
+__C# JDI DataList annotation__
 
-For better use JDI Light provides a __*@JDataList*__ annotation to locate DataList elements. This annotation consists of the following elements:
+For better use in C# JDI Light provides a __*[JDataList]*__ annotation to locate DataList elements. This annotation consists of the following elements:
 
  - __*root*__ - value of this element points to the root locator of the dropdown element
  - __*values*__ - options locator in dropdown list
  - __*how*__ - type of locators with which elements will be identified. By default it is set as css
  
-```java 
-TBD
-```
-
 ```csharp 
-[JDataList(root: "#ice-cream", 
-           values: "#ice-cream-flavors > option"]
-public IDataList IceCream;
+[JDataList("#ice-cream", "#ice-cream-flavors > option")]
+    public DataList IceCream { get; set; }
 
 [JDataList("#disabled-dropdown",
           "#disabled-dropdown > option")]
-        public DataList DisabledDropdownAsDataList { get; set; }
+    public DataList DisabledDropdownAsDataList { get; set; }
 
 [Test]
-public void ComplexTest() 
+public void GetValueTest()
 {
-    IceCream.Select("Coconut");
+    AreEqual(TestSite.Html5Page.IceCream.Selected(), "Coconut");
 }
 
 [Test]
@@ -3305,19 +3325,25 @@ public void AssertOptionsValuesTest()
 
 DataList element type is provided by JDI Light in:
 
- - __Java__: _com.epam.jdi.light.ui.html.complex.DataList_
+ - __Java__: _com.epam.jdi.light.ui.html.complex.DataListOptions_
  - __C#__: _JDI.Light.Elements.Common.DataList_
  
 Have a look at the following example with HTML code provided:
 
 ```java 
 @UI("#ice-cream") //@FindBy(id = "ice-cream")
-public static DataList iceCreamDataList;DropDown
+public static DataListOptions iceCreamDataList;
 
 @Test
 public void selectEnumTest() {
-    iceCreamDataList.select(Strawberry);
-    assertEquals(iceCreamDataList.getValue(), "Strawberry");
+    iceCream.select(Strawberry);
+    assertEquals(iceCream.getValue(), "Strawberry");
+}
+@Test
+public void selectNumTest() {
+    iceCream.clear();
+    iceCream.select(5);
+    assertEquals(iceCream.getValue(), "Vanilla");
 }
 ```
 
@@ -3344,8 +3370,11 @@ The list of methods available for Java in JDI Light:
 **select(String/Enum/int)** |Select datalist option by value or index | void
 **selected()** |Get selected option value | String
 **values()** |Get all option values from DataList | List\<String>
+**input(string value)** |Input user's value into DataList  | void
 **listEnabled()** |Return a list of values of enabled options | List\<String>
 **listDisabled()** |Return a list of values of disabled options | List\<String>
+**is** |Gets element's assert | DataListAssert
+**assertThat** |Gets element's assert | DataListAssert
 
 The list of some methods available for C# in JDI Light:
 
@@ -3355,11 +3384,6 @@ The list of some methods available for C# in JDI Light:
 **Select(string/int)** |Select datalist by value/index  | void
 **Input(string value)** |Input user's value into DataList  | void
 **GetSelected()** |Get selected DataList value  | string
-
-The list of available assert methods:
-
-|Method | Description | Return Type
---- | --- | ---
 **Is** |Gets element's assert | DataListAssert
 **AssertThat** |Gets element's assert | DataListAssert
 
@@ -4078,16 +4102,22 @@ public class ActionsWebPageTests extends TestsInit {
 **getCurrentPage()**|Returns the name of current Page|String
 **setCurrentPage(WebPage page)**|Instantiates the current Page with Name|void
 **WebPage()**|Default constructor for WebPage class|WebPage
-**WebPage(String url)**|Parameterized URL constructor for WebPage class|void
+**WebPage(String url)**|Parameterized URL constructor for WebPage class|WebPage
+**WebPage(String url, String title)**|Parameterized with URL and Title constructor|WebPage
+**openSite()**|Opens a Site|void
+**openSite(Class<?> site)**|Parameterized Site opening|void
 **openUrl(String url)**|Opening WebPage with URL|void
 **getUrl()**|Returns URL of Page|String
 **getTitle()**|Returns Page Title|String
+**setUrl(String uri)**|Setting Up URL of Page|void
+**setUrl(String uri, String template, CheckTypes validate)**|Parameterized setting Up URL of Page|void
 **updatePageData(Url urlAnnotation, Title titleAnnotation)**|Setting Page URL and     |void
 **url()**|Returns new StringCheckType object with checked URL|StringCheckType
 **title()**|Returns new StringCheckType object with checked Title|StringCheckType
 **open(String url)**|Opens url specified for page|void
 **open(Object... params)**|Opens url specified for page with parameters|void
 **checkOpened()**|Checks that page has opened|void
+**visualWindowCheck()**|empty|void
 **isOpened()**|Checks that page has opened|boolean
 **shouldBeOpened()**|Checks that page has opened|void
 **shouldBeOpened(Object... params)**|Checks that page has opened with parameters|void
@@ -4105,8 +4135,10 @@ public class ActionsWebPageTests extends TestsInit {
 **scrollUp(int value)**|Scrolls up to designated position|void
 **scrollRight(int value)**|Scrolls right to designated position|void
 **scrollLeft(int value)**|Scrolls left to designated position|void
-**addPage(WebPage page)**|Adds selected page to the Map of pages|void
-**getPage(String value)**|Gets page from Map by value|T_extends_WebPage
+**zoomLevel()**|Getting zoom level|double
+**xOffset()**|Getting window x offset|long
+**yOffset()**|Getting window y offset|long
+**windowScreenshot()**|Getting window screenshot|String
 **toString()**|Overrides the Object class toString() method|String
   
 
@@ -7881,6 +7913,73 @@ is()	 |  Assert action	| UIAssert
 assertThat()	 |  Assert action	| TooltipAssert
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/TooltipTests.java" target="_blank">Bootstrap test example with tooltips</a>
+ 
+<br>
+
+###Image
+
+<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/content/images/" target="_blank">Images</a> is a hint that used in conjuction with a pointer.
+
+```java 
+    //@FindBy(css = "#card-image")
+    @UI("#card-image")
+    public static CardImage cardImage;
+
+    public class CardImage extends Card {
+        @UI(".card-text") public Text text;
+        @UI("#bs-card-image") public Image image;
+    }
+
+    @Test
+    public void availabilityTest() {
+        cardImage.image.is()
+                .displayed()
+                .enabled();
+    }
+
+    @Test
+    public void getAltTest() {
+        assertEquals(cardImage.image.alt(), ALT_ATTR_EXPECTED);
+    }
+
+    @Test
+    public void isValidationTest() {
+        cardImage.image.is().src(is(SRC_ATTR_EXPECTED));
+        cardImage.image.is().alt(is(ALT_ATTR_EXPECTED));
+        cardImage.image.unhighlight();
+        cardImage.image.assertThat().width(is(WIDTH));
+        cardImage.image.assertThat().height(is(HEIGHT));
+    }
+
+    @Test
+    public void imageClassTest() {
+        cardImage.image.is().core().hasClass(IMAGE_TOP_CLASS);
+        cardImage.image.assertThat().core().hasClass(IMAGE_TOP_CLASS);
+    }
+```
+
+Here is an example with provided Bootstrap v4.3 code:
+  
+```html
+<div class="card mb-3" id="card-image-caps-1" style="width: 18rem;">
+  <img style="width: 30%; margin: 0 auto;" src="images/captain-america.jpg" class="card-img-top"
+    alt="Captain America image">
+</div>
+```
+
+Available methods in Java JDI Light:
+
+|Method/Property | Description | Return Type
+--- | --- | ---
+alt() | Assert alt image attribute  | ImageAssert
+width() | Assert image width | ImageAssert
+height() | Assert image height | ImageAssert
+getText() | Get item text | String
+getValue() |Get item value  |  String
+is()	 |  Assert action	| UIAssert
+assertThat()	 |  Assert action	| ImageAssert
+
+<a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/ImageTests.java" target="_blank">Bootstrap test example with tooltips</a>
  
 <br>
 
@@ -20446,28 +20545,23 @@ Level _STEP_ can show business-related information in the console output, and yo
 ## Reports
 ### Allure
 
-```java 
-    @Override
-    public void afterInvocation(IInvokedMethod iInvokedMethod, ITestResult iTestResult) {
-        if (iInvokedMethod.isTestMethod()) {
-            String result = getTestResult(iTestResult);
-            if ("FAILED".equals(result)) {
-                logger.error("=== Test '%s' %s ===", TEST_NAME.get(), result);
-            }
-            else {
-                System.out.println("STEP PASSED");
-                logger.step("=== Test '%s' %s ===", TEST_NAME.get(), result);
-            }
-        }
-    }
-```
-
-Allure steps are logged in custom TestNG listener.
+JDILogger
+<br>
 
 |Method | Description 
 --- | --- 
 **void step(String msg, Object... args)** | Log successful step
 **void error(String msg, Object... args)** | Log failed step
+
+
+AllureLoggerHelper
+<br>
+
+|Method | Description 
+--- | --- 
+**void startStep(String uuid, String message)** | Start logging step
+**void passStep(String uuid)** | Log step is successfully completed
+**void failStep(String uuid, String screenName)** | Log step is failed
 
 <a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-examples/src/test/java/io/github/epam/tests/allurereport" target="_blank">Allure screenshoots tests</a> for WebPage<br>
 

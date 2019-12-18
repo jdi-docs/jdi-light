@@ -1556,35 +1556,24 @@ And here are methods available in Java:
 **Text** - Is a combination of letters and textual symbols. When performing testing, the text is used in most operations: when typing text into the login field, when finding a button with some certain text in it, or when checking if actual text matches expected one.
 
 ```java 
-  @UI("[ui=jdi-text]") //@FindBy(css = "[ui=jdi-text]") 
-  public static Text jdiText;
+@UI("[ui=jdi-text]") //@FindBy(css = "[ui=jdi-text]") 
+public static Text jdiText;
 
-  @Test
-  public void getTextTest() {
-      assertEquals(jdiText.getText(), text);
-  }
+@Test
+public void textPositiveTest() {
+    jdiText.is().text(equalTo(TEXT));
+    jdiText.is().text(TEXT);
+}
 
-  @Test
-  public void getValueTest() {
-      assertEquals(jdiText.getValue(), text);
-  }
+@Test
+public void textContainsTest() {        
+    jdiText.is().text(containsString(PART_OF_TEXT));
+}
 
-  @Test
-  public void isValidationTest() {
-      jdiText.is().enabled();
-      jdiText.is().text(is(text));
-      jdiText.is().text(containsString("Powerful Framework for UI"));
-  }
-
-  @Test
-  public void assertValidationTest() {
-      jdiText.assertThat().text(is(text));
-  }
-
-  @Test
-  public void baseValidationTest() {
-      baseValidation(jdiText);
-  }
+@Test
+public void textDoesNotContainWordTest() {
+    jdiText.is().text(not(NOT_EXPECTED_TEXT));
+}
   
 ```
 

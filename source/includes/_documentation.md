@@ -2117,7 +2117,8 @@ public void jTablePerformanceTest() {
 private void tablePerformance(Table table) {
     assertEquals(table.size(), 4);
     assertEquals(table.count(), 400);
-    assertEquals(table.header(), asList("Name", "Phone", "Email", "City"));
+    assertEquals(table.header(), asList("Name", "Phone",
+                 "Email", "City"));
     start();
     assertEquals(table.row(1).getValue(),
             "Burke Tucker;076 1971 1687;et.euismod.et@ut.edu;GozŽe");
@@ -2147,17 +2148,20 @@ private void tablePerformance(Table table) {
 
     String value = table.preview();
     assertEquals(value.substring(0,194),
-    "Name Phone Email City" +
-        "Burke Tucker 076 1971 1687 et.euismod.et@ut.edu GozŽe" +
-        "Grady Brock (011307) 16843 cursus.et@commodo.org Alcobendas" +
-        "Harding Lloyd 0800 1111 neque.In.ornare@mauris.co.uk Beauvais");
+       "Name Phone Email City" +
+       "Burke Tucker 076 1971 1687 et.euismod.et@ut.edu GozŽe"+
+       "Grady Brock (011307) 16843 cursus.et@commodo.org Alcobendas"+
+       "Harding Lloyd 0800 1111 neque.In.ornare@mauris.co.uk Beauvais");
     logTime("Preview");
     /*value = table.getValue();
     assertEquals(value.substring(0,228),
    "||X||Name|Phone|Email|City||\r\n" +
-   "||1||Burke Tucker|076 1971 1687|et.euismod.et@ut.edu|GozŽe||\r\n" +
-   "||2||Grady Brock|(011307) 16843|cursus.et@commodo.org|Alcobendas||\r\n"+
-   "||3||Harding Lloyd|0800 1111|neque.In.ornare@mauris.co.uk|Beauvais||");
+   "||1||Burke Tucker|076 1971 1687|
+        et.euismod.et@ut.edu|GozŽe||\r\n" +
+   "||2||Grady Brock|(011307) 16843|cursus.et@commodo.org|Alcobendas
+        ||\r\n"+
+   "||3||Harding Lloyd|0800 1111|neque.In.ornare@mauris.co.uk
+        |Beauvais||");
     logTime("Get value");*/
 }
 @Test
@@ -2179,7 +2183,8 @@ public static void start() {
     timeStart = currentTimeMillis();
 }
 public static void logTime(String description) {
-    out.println(description + ": " + (currentTimeMillis() - timeStart) + "ms");
+    out.println(description + ": " +
+         (currentTimeMillis() - timeStart) + "ms");
     timeStart = currentTimeMillis();
 }	
 @Test
@@ -2188,15 +2193,18 @@ public static void logTime(String description) {
      Line row = usersTable.row(
          containsValue("Meyer", inColumn("Name")),
          containsValue("co.uk", inColumn("Email")));
-     System.out.println("Huge table search test Time: " + timer.getTime());
+     System.out.println("Huge table search test Time: "+ 
+            timer.getTime());
      Assert.assertEquals(row.getValue(),
-    "Brian Meyer;(016977) 0358;mollis.nec@seddictumeleifend.co.uk;Houston");
+        "Brian Meyer;(016977) 0358;mollis.nec@seddictumeleifend.co.uk;
+               Houston");
  }
 @Test
  public void hugeTableValidateTest() {
     StopWatch timer = StopWatch.createStarted();
     String actualTable = usersTable.preview();
-    System.out.println("Huge table validate test Time: " + timer.getTime());
+    System.out.println("Huge table validate test Time: "
+         + timer.getTime());
     Assert.assertEquals(actualTable, TABLE_SNAPSHOT);
  }
 @Test
@@ -2204,7 +2212,8 @@ public static void logTime(String description) {
      String name = "Charles Byers";
      StopWatch timer = StopWatch.createStarted();
      userNames.select(name);
-     System.out.println("Big dropdown test Time: " + timer.getTime());
+     System.out.println("Big dropdown test Time: "
+         + timer.getTime());
      Assert.assertEquals(userNames.selected(), name);
  }
 @Test
@@ -2223,10 +2232,13 @@ public static void logTime(String description) {
      accommodare, 
       utinam graeci iisque vim id, ea fugit scripta deleniti nec.
      Eos cu nisl veri meis.
-      Affert audiam copiosae mel ne, fabulas menandri temporibus has et.
+      Affert audiam copiosae mel ne,
+         fabulas menandri temporibus has et.
       Sed latine graecis ei,
-      eu fugit soluta intellegam vis, nibh graeci meliore ad duo.\\n\\n" +
-      "Et quis meis delenit mea, ius ea sumo laboramus vituperatoribus.
+      eu fugit soluta intellegam vis,
+         nibh graeci meliore ad duo.\\n\\n" +
+      "Et quis meis delenit mea,
+         ius ea sumo laboramus vituperatoribus.
         Te simul luptatum 
       tractatos nam, eam in causae constituam, 
        quod stet ancillae nam ei.
@@ -2238,12 +2250,14 @@ public static void logTime(String description) {
       volutpat iudicabit definitionem ut sea.
          Pri at atqui molestiae,
      nibh ullum consulatu vix at.
-      Nec id nisl nonumes epicurei, et vitae possit probatus ius. 
+      Nec id nisl nonumes epicurei,
+         et vitae possit probatus ius. 
       Fierent delicata argumentum ut
      quo. Tation tincidunt sed eu, 
         sit in nostrud democritum.\\n\\n" +
-    "Usu esse utroque sapientem ad. Eam ut consul soleat sapientem,
-     cu dolor consequuntur vis.
+    "Usu esse utroque sapientem ad.
+        Eam ut consul soleat sapientem,
+        cu dolor consequuntur vis.
      Erat temporibus mea id, has ex dicam tritani.
      Pertinacia expetendis consectetuer eos ei,
      vidit malis periculis est ea, ne nam movet fuisset.
@@ -2252,7 +2266,8 @@ public static void logTime(String description) {
      Vel eligendi honestatis liberavisse id.";
      StopWatch timer = StopWatch.createStarted();
      textareaPerformance.setText(text + "\\n"+ text);
-     System.out.println("Long text test Time: " + timer.getTime());
+     System.out.println("Long text test Time: " +
+         timer.getTime());
  }	
   ```
 
@@ -2268,7 +2283,8 @@ public void HugeTableSearchByColumnNamesContainValuesTest()
         ContainsValue("Meyer", InColumn("Name")),
         ContainsValue("co.uk", InColumn("Email")));
         Assert.AreEqual(
-     "Brian Meyer;(016977) 0358;mollis.nec@seddictumeleifend.co.uk;Houston",
+     "Brian Meyer;(016977) 0358;
+        mollis.nec@seddictumeleifend.co.uk;Houston",
       row.GetValue());
 }
 
@@ -2280,10 +2296,11 @@ public void HugeTableSearchByColumnNumbersContainValuesTest()
         ContainsValue("ut.edu", InColumn(3)));
     var row = PerformancePage.UsersTable.Row(1);
     PerformancePage.UsersTable.Is().HasRowWithValues( 
-        HasValue("Brian Meyer", InColumn("Name")), 
-        HasValue("(016977) 0358", InColumn("Phone")),
-        HasValue("mollis.nec@seddictumeleifend.co.uk", InColumn("Email")), 
-        HasValue("Houston", InColumn("City")));
+       HasValue("Brian Meyer", InColumn("Name")), 
+       HasValue("(016977) 0358", InColumn("Phone")),
+       HasValue("mollis.nec@seddictumeleifend.co.uk", 
+            InColumn("Email")), 
+       HasValue("Houston", InColumn("City")));
 }
 
 [Test]
@@ -2291,13 +2308,15 @@ public void HugeTableSearchByColumnNamesHasValuesTest()
 {
     PerformancePage.UsersTable.AssertThat().HasRowWithValues(
         HasValue("Brian Meyer", InColumn("Name")),
-        HasValue("mollis.nec@seddictumeleifend.co.uk", InColumn("Email")));
+        HasValue("mollis.nec@seddictumeleifend.co.uk",
+        InColumn("Email")));
     var row = PerformancePage.UsersTable.Row(
         HasValue("Brian Meyer", InColumn("Name")),
-        HasValue("mollis.nec@seddictumeleifend.co.uk", InColumn("Email")));
+        HasValue("mollis.nec@seddictumeleifend.co.uk",
+         InColumn("Email")));
     Assert.AreEqual("Brian Meyer;(016977)
              0358;mollis.nec@seddictumeleifend.co.uk;Houston",
-        row.GetValue());
+             row.GetValue());
 }
 
 [Test]
@@ -2305,7 +2324,8 @@ public void HugeTableSearchByColumnNumbersHasValuesTest()
 {
     PerformancePage.UsersTable.AssertThat().HasRowWithValues(
         HasValue("Brian Meyer", InColumn(1)),
-        HasValue("mollis.nec@seddictumeleifend.co.uk", InColumn(3)));
+        HasValue("mollis.nec@seddictumeleifend.co.uk",
+         InColumn(3)));
     var row = PerformancePage.UsersTable.Row(
         ContainsValue("Meyer", InColumn("Name")),
         ContainsValue("co.uk", InColumn("Email")));
@@ -2338,16 +2358,16 @@ public void TableRowPerformanceTest()
     PerformancePage.Open();
     PerformancePage.CheckOpened();
     AreEqual("Burke Tucker;076 1971 1687;et.euismod.et@ut.edu;GozŽe",
-                PerformancePage.UsersTable.Row(1).GetValue());
+       PerformancePage.UsersTable.Row(1).GetValue());
     AreEqual("Burke Tucker;076 1971 1687;et.euismod.et@ut.edu;GozŽe",
-                 PerformancePage.UsersTable.Row("Burke Tucker").GetValue());
+      PerformancePage.UsersTable.Row("Burke Tucker").GetValue());
     AreEqual("Burke Tucker;076 1971 1687;et.euismod.et@ut.edu;GozŽe", 
-                PerformancePage.UsersTable.Row(Users.Name).GetValue());
+      PerformancePage.UsersTable.Row(Users.Name).GetValue());
     var value = PerformancePage.UsersTable.Preview();
     AreEqual("Name Phone Email City" +
-        "Burke Tucker 076 1971 1687 et.euismod.et@ut.edu GozŽe" +
-        "Grady Brock (011307) 16843 cursus.et@commodo.org Alcobendas" +
-        "Harding Lloyd 0800 1111 neque.In.ornare@mauris.co.uk Beauvais",
+      "Burke Tucker 076 1971 1687 et.euismod.et@ut.edu GozŽe"+
+      "Grady Brock (011307) 16843 cursus.et@commodo.org Alcobendas"+
+      "Harding Lloyd 0800 1111 neque.In.ornare@mauris.co.uk Beauvais",
                          value.Substring(0, 194));
 }
 
@@ -2357,13 +2377,13 @@ public void TableCellPerformanceTest()
     PerformancePage.Open();
     PerformancePage.CheckOpened();
     AreEqual("ipsum.non.arcu@auctorullamcorper.ca",
-         PerformancePage.UsersTable.Cell(3, 4));
+       PerformancePage.UsersTable.Cell(3, 4));
     AreEqual("ipsum.non.arcu@auctorullamcorper.ca",
-                 PerformancePage.UsersTable.Cell("Email", 4));
+       PerformancePage.UsersTable.Cell("Email", 4));
     AreEqual("ipsum.non.arcu@auctorullamcorper.ca",
-                 PerformancePage.UsersTable.Cell(3, "Zachary Hendrix"));
+       PerformancePage.UsersTable.Cell(3, "Zachary Hendrix"));
     AreEqual("ipsum.non.arcu@auctorullamcorper.ca",
-             PerformancePage.UsersTable.Cell("Email", "Zachary Hendrix"));
+       PerformancePage.UsersTable.Cell("Email", "Zachary Hendrix"));
 }
 
 [Test]
@@ -2372,12 +2392,14 @@ public void TableColumnPerformanceTest()
     PerformancePage.Open();
     PerformancePage.CheckOpened();
     AreEqual("076 1971 1687;(011307) 16843;0",
-       PerformancePage.UsersTable.Column(2).GetValue().Substring(0, 30));
+       PerformancePage.UsersTable.Column(2).
+         GetValue().Substring(0, 30));
     AreEqual("076 1971 1687;(011307) 16843;0",
-    PerformancePage.UsersTable.Column("Phone").GetValue().Substring(0, 30));
+    PerformancePage.UsersTable.Column("Phone").
+        GetValue().Substring(0, 30));
     AreEqual("076 1971 1687;(011307) 16843;0",
-    PerformancePage.UsersTable.Column(Users.Phone).GetValue().
-    Substring(0, 30));
+    PerformancePage.UsersTable.Column(Users.Phone).
+        GetValue().Substring(0, 30));
 }		
 ```
 
@@ -2513,7 +2535,8 @@ public static DataTable<UserRow, UserInfo> usersData;
 @JTable( root = "#users-table",
   row = "//tr[%s]/td", column = "//tr/td[%s]",
   cell = "//tr[{1}]/td[{0}]", allCells = "td",
-  headers = "th", header = {"Name", "Phone", "Email", "City"},
+  headers = "th", header = {"Name", "Phone", "Email",
+                             "City"},
   rowHeader = "Name", size = 4
 )
 
@@ -2533,20 +2556,22 @@ public void jDataTableTest() {
 private void dataTableValidation(DataTable<UserRow, UserInfo> table) {
    assertEquals(table.size(), 4);
    assertEquals(table.count(), 400);
-   assertEquals(table.header(), asList("Name", "Phone", "Email", "City"));
+   assertEquals(table.header(), 
+        asList("Name", "Phone", "Email", "City"));
    String value = table.preview();
    assertEquals(value.substring(0,194),
    "Name Phone Email City" +
-       "Burke Tucker 076 1971 1687 et.euismod.et@ut.edu GozŽe" +
-       "Grady Brock (011307) 16843 cursus.et@commodo.org Alcobendas" +
-       "Harding Lloyd 0800 1111 neque.In.ornare@mauris.co.uk Beauvais");
+   "Burke Tucker 076 1971 1687 et.euismod.et@ut.edu GozŽe"+
+   "Grady Brock (011307) 16843 cursus.et@commodo.org Alcobendas"+
+   "Harding Lloyd 0800 1111 neque.In.ornare@mauris.co.uk Beauvais");
 }
 
 @Test
 public void filterDataTest() {
    assertEquals(usersData.data(2), GRADY_BROCK);
-   assertEquals(usersData.data("Grady Brock"), GRADY_BROCK);
-   assertEquals(usersData.data(d -> d.name.contains("Brock")), GRADY_BROCK);
+   assertEquals(usersData.data("Grady Brock"),GRADY_BROCK);
+   assertEquals(usersData.data(d -> d.name.contains("Brock")),
+         GRADY_BROCK);
    usersData.assertThat().row(d -> d.equals(GRADY_BROCK));
 }
 
@@ -2563,7 +2588,7 @@ public void filterLinesTest() {
 private void validateUserRow(UserRow line) {
    line.city.click();
    validateAlert(is(GRADY_BROCK.city));
-   assertEquals(line.email.getText(), GRADY_BROCK.email);
+   assertEquals(line.email.getText(),GRADY_BROCK.email);
 }	
     
 @Test
@@ -2571,7 +2596,7 @@ public void tableParamsTest() {
    assertEquals(users.size(), 4);
    assertEquals(users.count(), 6);
    assertEquals(users.header(),
-   asList("Number", "Type", "User", "Description"));
+   asList("Number", "Type", "User","Description"));
 }    
  
 @Test
@@ -2581,12 +2606,14 @@ public void dataColumnTestIndex() {
 
 @Test
 public void dataColumnNameTest() {
-   assertEquals(usersSetup.data("Sergey Ivan"), SPIDER_MAN);
+   assertEquals(usersSetup.data("Sergey Ivan"),
+                SPIDER_MAN);
 }
 
 @Test
 public void dataFilterTest() {
-   assertEquals(users.data(d -> d.user.contains("Ivan")), SPIDER_MAN);
+   assertEquals(users.data(d -> d.user.contains("Ivan")),
+         SPIDER_MAN);
 }
  
 @Test
@@ -2612,7 +2639,8 @@ public void rowMatcherTest() {
  
 @Test
 public void atLeastMatcherTest() {
-   users.assertThat().atLeast(3).rows(d -> d.type.contains("User"));
+   users.assertThat().atLeast(3).
+        rows(d -> d.type.contains("User"));
 }
  
 @Test

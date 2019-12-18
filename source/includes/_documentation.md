@@ -2154,10 +2154,10 @@ private void tablePerformance(Table table) {
     logTime("Preview");
     /*value = table.getValue();
     assertEquals(value.substring(0,228),
-      "||X||Name|Phone|Email|City||\r\n" +
-      "||1||Burke Tucker|076 1971 1687|et.euismod.et@ut.edu|GozŽe||\r\n" +
-        "||2||Grady Brock|(011307) 16843|cursus.et@commodo.org|Alcobendas||\r\n" +
-        "||3||Harding Lloyd|0800 1111|neque.In.ornare@mauris.co.uk|Beauvais||");
+   "||X||Name|Phone|Email|City||\r\n" +
+   "||1||Burke Tucker|076 1971 1687|et.euismod.et@ut.edu|GozŽe||\r\n" +
+   "||2||Grady Brock|(011307) 16843|cursus.et@commodo.org|Alcobendas||\r\n"+
+   "||3||Harding Lloyd|0800 1111|neque.In.ornare@mauris.co.uk|Beauvais||");
     logTime("Get value");*/
 }
 @Test
@@ -2190,14 +2190,14 @@ public static void logTime(String description) {
          containsValue("co.uk", inColumn("Email")));
      System.out.println("Huge table search test Time: " + timer.getTime());
      Assert.assertEquals(row.getValue(),
-     "Brian Meyer;(016977) 0358;mollis.nec@seddictumeleifend.co.uk;Houston");
+    "Brian Meyer;(016977) 0358;mollis.nec@seddictumeleifend.co.uk;Houston");
  }
 @Test
  public void hugeTableValidateTest() {
-     StopWatch timer = StopWatch.createStarted();
-     String actualTable = usersTable.preview();
-     System.out.println("Huge table validate test Time: " + timer.getTime());
-     Assert.assertEquals(actualTable, TABLE_SNAPSHOOT);
+    StopWatch timer = StopWatch.createStarted();
+    String actualTable = usersTable.preview();
+    System.out.println("Huge table validate test Time: " + timer.getTime());
+    Assert.assertEquals(actualTable, TABLE_SNAPSHOT);
  }
 @Test
  public void bigDropdownTest() {
@@ -2268,8 +2268,8 @@ public void HugeTableSearchByColumnNamesContainValuesTest()
         ContainsValue("Meyer", InColumn("Name")),
         ContainsValue("co.uk", InColumn("Email")));
         Assert.AreEqual(
-            "Brian Meyer;(016977) 0358;mollis.nec@seddictumeleifend.co.uk;Houston",
-            row.GetValue());
+     "Brian Meyer;(016977) 0358;mollis.nec@seddictumeleifend.co.uk;Houston",
+      row.GetValue());
 }
 
 [Test]
@@ -2328,7 +2328,8 @@ public void TableChainTest()
         .RowsWithValues(3, ContainsValue("Baker", InColumn(1)))
         .HasColumn("Email")
         .HasColumns(new[] {"Name", "City"})
-        .Columns(Is.SubsequenceOf(new[] {"Name", "City", "Phone", "Email", "Address"}));
+        .Columns(Is.SubsequenceOf(new[] {"Name", "City", "Phone",
+         "Email", "Address"}));
 }
 
 [Test]
@@ -2362,7 +2363,7 @@ public void TableCellPerformanceTest()
     AreEqual("ipsum.non.arcu@auctorullamcorper.ca",
                  PerformancePage.UsersTable.Cell(3, "Zachary Hendrix"));
     AreEqual("ipsum.non.arcu@auctorullamcorper.ca",
-                 PerformancePage.UsersTable.Cell("Email", "Zachary Hendrix"));
+             PerformancePage.UsersTable.Cell("Email", "Zachary Hendrix"));
 }
 
 [Test]
@@ -2373,9 +2374,10 @@ public void TableColumnPerformanceTest()
     AreEqual("076 1971 1687;(011307) 16843;0",
        PerformancePage.UsersTable.Column(2).GetValue().Substring(0, 30));
     AreEqual("076 1971 1687;(011307) 16843;0",
-       PerformancePage.UsersTable.Column("Phone").GetValue().Substring(0, 30));
+    PerformancePage.UsersTable.Column("Phone").GetValue().Substring(0, 30));
     AreEqual("076 1971 1687;(011307) 16843;0",
-       PerformancePage.UsersTable.Column(Users.Phone).GetValue().Substring(0, 30));
+    PerformancePage.UsersTable.Column(Users.Phone).GetValue().
+    Substring(0, 30));
 }		
 ```
 
@@ -2568,7 +2570,8 @@ private void validateUserRow(UserRow line) {
 public void tableParamsTest() {
    assertEquals(users.size(), 4);
    assertEquals(users.count(), 6);
-   assertEquals(users.header(), asList("Number", "Type", "User", "Description"));
+   assertEquals(users.header(),
+   asList("Number", "Type", "User", "Description"));
 }    
  
 @Test
@@ -2588,7 +2591,8 @@ public void dataFilterTest() {
  
 @Test
 public void allDataFilterTest() {
-   List<MarvelUserInfo> filteredData = users.datas(d -> d.user.contains("Ivan"));
+   List<MarvelUserInfo> filteredData = 
+            users.datas(d -> d.user.contains("Ivan"));
    assertEquals(filteredData.size(), 1);
    assertEquals(filteredData.get(0), SPIDER_MAN);
 }
@@ -2668,7 +2672,8 @@ public static void validateUserRow(MarvelUser line) {
   ![DataTable](../images/html/tableHtml2.png)
 
 ```html 
-<table class="uui-table stripe tbl-without-header table-td-click" ui="table" id="users-table">
+<table class="uui-table stripe tbl-without-header table-td-click"
+     ui="table" id="users-table">
     <tbody>
         <tr>
             <th>Name</th>

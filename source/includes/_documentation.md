@@ -818,20 +818,6 @@ public void BaseValidationTest()
 
 ```
 
-**FileInput** - A graphical control element that allows user to upload documents to web site.
-
-![FileInput](../images/fileInputAndDownload.png)
-
-FileInput element is located in JDI Light in:
-
-  - __Java__: _com.epam.jdi.light.ui.html.common.FileInput_
-  - __C#__: _JDI.Light.Elements.Composite.FileInput_
-
-
-Here is an example with HTML code provided:
-
-<!-- ![FileInput example](../images/html/fileinput_html.png) -->
-
 ```html
 <label for="avatar">Profile picture:</label>
 <input type="file" id="avatar" accept="image/png, image/jpeg">

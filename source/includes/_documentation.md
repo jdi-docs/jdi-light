@@ -2154,8 +2154,8 @@ private void tablePerformance(Table table) {
     logTime("Preview");
     /*value = table.getValue();
     assertEquals(value.substring(0,228),
-        "||X||Name|Phone|Email|City||\r\n" +
-        "||1||Burke Tucker|076 1971 1687|et.euismod.et@ut.edu|GozŽe||\r\n" +
+      "||X||Name|Phone|Email|City||\r\n" +
+      "||1||Burke Tucker|076 1971 1687|et.euismod.et@ut.edu|GozŽe||\r\n" +
         "||2||Grady Brock|(011307) 16843|cursus.et@commodo.org|Alcobendas||\r\n" +
         "||3||Harding Lloyd|0800 1111|neque.In.ornare@mauris.co.uk|Beauvais||");
     logTime("Get value");*/
@@ -2399,7 +2399,9 @@ This annotation has the following fields that can be used for locating a table e
  - __*int size()*__ - amount of columns
  - __*int count()*__ - amount of rows
  - __*int firstColumnIndex()*__ - index of the first column
- - __*int[] columnsMapping()*__ - 
+ - __*int[] columnsMapping()*__ - a collection containing indexes of the columns
+ that are going to be used for processing, e.g. if one decides to work with not all columns but only with particular ones
+ or if a column contains e.g. an icon or a checkbox and should not be processed then its index shouldn't be listed in columnsMapping field
 
 
 Here is a list of available methods in Java:
@@ -3893,7 +3895,8 @@ on JDISite.java >> public static LoginFormSmart loginFormSmart;
 on JDISite.java >> public static Form<User> lightLoginForm;
 ```
 
-**Light Forms** - if a Form consists of only TextFields and Buttons, there is no need to define a Form UI Object. Such form can be added directly to the related page or to the root Site class.
+**Light Forms** - if a Form consists of only TextFields and Buttons, there is no need to define a Form UI Object.
+ Such form can be added directly to the related page or to the root Site class.
 
 ```java 
 @Test

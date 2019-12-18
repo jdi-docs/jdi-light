@@ -738,7 +738,7 @@ public void SetPartyTimeTest()
 
 **FileInput** - A graphical control element that allows user to upload documents to web site.
 
-![FileInput](../images/fileinput.png)
+![FileInput](../images/fileInputAndDownload.png)
 
 FileInput element is located in JDI Light in:
 
@@ -755,16 +755,30 @@ Here is an example with HTML code provided:
 @UI("#avatar") 
 public static FileInput avatar; 
 
+@FindBy(xpath = "//a[@download]")
+@UI("[download]") 
+public static Link downloadJdiLogo;
+
 @Test
 public void uploadTest() {
-        avatar.uploadFile(mergePath(PROJECT_PATH, "/src/test/resources/general.xml"));
-        avatar.is().text(containsString("general.xml"));
+    avatar.uploadFile(mergePath(PROJECT_PATH, "/src/test/resources/general.xml"));
+    avatar.is().text(containsString("general.xml"));
 }
 
- @Test
-    public void labelTest() {
-        avatar.label().is().text(containsString("picture:"));
-    }
+@Test
+public void labelTest() {
+    avatar.label().is().text(containsString("picture:"));
+}
+
+@Test
+public void downloadTest() {
+    cleanupDownloads();
+    downloadJdiLogo.click();
+    assertThatFile("jdi-logo.jpg")
+            .isDownloaded()
+            .hasSize(is(32225L));
+    assertThatFile("jdi-logo.jpg").hasSize(greaterThan(100L));
+}
 ```
 ```csharp
 [Test]
@@ -805,7 +819,10 @@ public void BaseValidationTest()
 ```
 
 ```html
+<label for="avatar">Profile picture:</label>
 <input type="file" id="avatar" accept="image/png, image/jpeg">
+<input type="file" accept="image/png, image/jpeg" disabled="">
+<a href="/jdi-light/images/jdi-logo.jpg" download="">Download JDI Logo</a>
 ```
 
 Available method in Java JDI Light:
@@ -833,7 +850,7 @@ Available method in C# JDI Light:
 **HasSize(Matcher<long> size)** | Checks that a file has a particular size according to the matcher | FileAssert
 **CleanupDownloads()** | Cleans the directory | void
 
-<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/FileUploadTests.java">Test examples in Java</a>
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/example/common/FileInputExampleTests.java">Test examples in Java</a>
 
 <a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/FileInputTests.cs">Test examples in C#</a>
 

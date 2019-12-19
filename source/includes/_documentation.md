@@ -395,20 +395,16 @@ Available methods in C# JDI Light:
 public static ColorPicker colorPicker;
 
 @Test
-public void getColorTest() {
-    assertEquals(colorPicker.color(), "#3fd7a6");
+public void checkColorTest() {
+    colorPicker.assertThat().color(COLOR);
+    disabledPicker.is().color(DISABLED_COLOR);
 }
 
 @Test
 public void setColorTest() {
-    colorPicker.setColor("#432376");
-    assertEquals(colorPicker.color(), "#432376");
-}
-
-@Test
-public void getLabelTextTest() {
-    assertEquals(colorPicker.labelText(), "Select a color");
-}
+    colorPicker.setColor(SETTING_COLOR);
+    colorPicker.is().color(SETTING_COLOR);
+}  
 ```
 ```csharp
 [FindBy(Css = "#color-picker")]
@@ -434,7 +430,7 @@ public void SetColorTest()
 
 Colorpicker is located in the following classes:
 
-  - __Java__: _com.epam.jdi.light.ui.html.common.ColorPicker*_
+  - __Java__: _com.epam.jdi.light.ui.html.common.ColorPicker_
 
 
 Here is an example with provided HTML code:

@@ -755,7 +755,7 @@ Here is an example with HTML code provided:
 @UI("#avatar") 
 public static FileInput avatar; 
 
-@FindBy(xpath = "//a[@download]")
+//@FindBy(xpath = "//a[@download]")
 @UI("[download]") 
 public static Link downloadJdiLogo;
 
@@ -772,12 +772,12 @@ public void labelTest() {
 
 @Test
 public void downloadTest() {
-    cleanupDownloads();
-    downloadJdiLogo.click();
-    assertThatFile("jdi-logo.jpg")
+    FileAssert.cleanupDownloads();
+    FileAssert.downloadJdiLogo.click();
+    FileAssert.assertThatFile("jdi-logo.jpg")
             .isDownloaded()
             .hasSize(is(32225L));
-    assertThatFile("jdi-logo.jpg").hasSize(greaterThan(100L));
+    FileAssert.assertThatFile("jdi-logo.jpg").hasSize(greaterThan(100L));
 }
 ```
 ```csharp

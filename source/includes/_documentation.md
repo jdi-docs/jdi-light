@@ -1063,7 +1063,7 @@ Here is the list of available methods in Java:
 **is()** | Returns object for work with assertions | LinkAssert
 **assertThat()** | Returns object for work with assertions | LinkAssert
 
-<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/LinkTests.java" target="_blank">Test examples in Java</a><br>
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/example/common/LinkExampleTests.java" target="_blank">Test examples in Java</a><br>
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/#link-2)
 
 Here is the list of available methods in C#:
@@ -1668,7 +1668,7 @@ And here are methods available in Java:
 **is()** |Various assert actions for Text| TextAssert
 **assertThat()** |Various assert actions for Text| TextAssert 
 
-<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/TextTests.java" target="_blank">Test examples in Java</a>
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/example/common/TextExampleTests" target="_blank">Test examples in Java</a>
 
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#text-2)
 

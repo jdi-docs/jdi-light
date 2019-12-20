@@ -1329,20 +1329,15 @@ ProgressBar is located in the following classes:
 public static ProgressBar progress;
 
 @Test
-public void labelTest() {
-    progress.label().is().text("File progress");
+public void valueTest() {
+    progress.is().volume(70);
+    progress.is().volume(greaterThanOrEqualTo(10));
+    progress.is().volume(lessThanOrEqualTo(100));
 }
 
 @Test
 public void maxTest() {
     progress.is().maxVolume(100);
-}
-
-@Test
-public void valueTest() {
-    progress.is().volume(70);
-    progress.is().volume(greaterThanOrEqualTo(10));
-    progress.is().volume(lessThanOrEqualTo(100));
 }
 ```
 ```csharp

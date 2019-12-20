@@ -1871,24 +1871,25 @@ Here is a list of available methods in C#:
 Title is represented by the following class:
  
   - __Java__: _com.epam.jdi.light.ui.html.common.Title_
-  - __C#__: _JDI.Light.Elements.Common.Title_
-  
-  
+  - __C#__: _JDI.Light.Elements.Common.Title
+
+![Title](../images/html/title2.png)
+
 ```java 
-@UI("[ui=jdi-title]") 
-// equal to @FindBy(css = "[ui=jdi-title]") 
+@UI("[ui=jdi-title]") //@FindBy(css = "[ui=jdi-title]") 
 public static Title jdiTitle;
 
 @Test
-public void getTextTest() {
-        assertEquals(jdiTitle.getText(), "Title text");
+public void textTest() {
+    jdiTitle.is().text(titleText);
 }
 
 @Test
 public void clickTest() {
-        jdiTitle.click();
+    jdiTitle.click();
+    assertEquals(getAlertText(), "JDI Title");
+    acceptAlert();
 }    
-    
 ```
 ```csharp 
 [FindBy(Css = "[ui=jdi-title]")]
@@ -1928,9 +1929,6 @@ public void BaseValidationTest()
 }   
     
 ```
-
-
-![Title](../images/html/title2.png)
 
 ```html 
 <h1 ui="jdi-title" onclick="alert('JDI Title');">JDI Testing platform</h1>

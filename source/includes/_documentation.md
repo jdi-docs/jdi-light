@@ -1386,59 +1386,26 @@ Available method in C# JDI Light:
 ### Range
 
 ```java 
-  @UI("#volume")  //@FindBy(id = "volume") 
-  public static Range volume;
-  @Test
-  public void getLabelTextTest() {
-      assertEquals(volume.labelText(), "Volume");
-  }
-  @Test
-  public void getValueTest() {
-      assertEquals(disabledRange.value(), 50);
-  }
-  @Test
-  public void minTest() {
-      assertEquals(volume.min(), 10.0);
-  }
-  @Test
-  public void maxTest() {
-      assertEquals(volume.max(), 100.0);
-  }
-  @Test
-  public void stepTest() {
-      assertEquals(volume.step(), 5.0);
-  }
-  @Test
-  public void setValue() {
-      volume.setValue(10);
-      assertEquals(volume.value(), 10);
-  }
-  @Test
-  public void isValidationTest() {
-      volume.is().enabled();
-      volume.assertThat().minValue(is(10.0));
-      volume.assertThat().maxValue(is(100.0));
-      volume.assertThat().step(is(5.0));
-      volume.is().value(greaterThanOrEqualTo(10.0));
-      volume.is().value(lessThanOrEqualTo(100.0));
-      volume.is().value(is(90.0));
-  }
-  @Test
-  public void labelTest() {
-      assertEquals(volume.label().getText(), "Volume");
-      volume.label().is().text(containsString("lume"));
-      volume.label().assertThat().text(equalToIgnoringCase("volume"));
-  }
-  @Test
-  public void assertValidationTest() {
-      volume.assertThat().value(greaterThan(0.0));
-      volume.assertThat().value(lessThan(200.0));
-      disabledRange.assertThat().value(is(50.0));
-  }
-  @Test
-  public void baseValidationTest() {
-      baseValidation(volume);
-  }
+@UI("#volume")  //@FindBy(id = "volume") 
+public static Range volume;
+
+@Test
+public void setVolumeTest() {
+    volume.setVolume(10);
+    volume.assertThat().volume(10);
+}
+
+@Test
+public void checkStepTest() {
+    volume.assertThat().step(5);
+    volume.assertThat().step(is(5));
+}
+
+@Test
+public void checkMaxTest() {
+    volume.assertThat().maxVolume(100);
+    volume.assertThat().maxVolume(is(100));
+}
 ```
 
 ```csharp

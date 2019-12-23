@@ -526,32 +526,32 @@ public static DateTimeSelector partyTime;
 public static DateTimeSelector bookingTime;
 
 @Test
-    public void setDateTimeTest() {
-        partyTime.setDateTime("2017-05-10T00:00");
-        partyTime.show();
-        partyTime.is().text("2017-05-10T00:00");
-        bookingTime.setDateTime("05:00");
-        bookingTime.show();
-        bookingTime.is().text("05:00");
-    }
+public void setDateTimeTest() {
+    partyTime.setDateTime("2017-05-10T00:00");
+    partyTime.show();
+    partyTime.is().text("2017-05-10T00:00");
+    bookingTime.setDateTime("05:00");
+    bookingTime.show();
+    bookingTime.is().text("05:00");
+}
 
-    @Test
-    public void getDateTest() {
-        birthDate.is().text("1985-06-18");
-    }
+@Test
+public void getDateTest() {
+    birthDate.is().text("1985-06-18");
+}
 
-    @Test
-    public void minMaxTest() {
-        assertEquals(partyTime.min(), "2018-05-07T00:00");
-        assertEquals(partyTime.max(), "2018-06-14T00:00");
-    }
+@Test
+public void minMaxTest() {
+    assertEquals(partyTime.min(), "2018-05-07T00:00");
+    assertEquals(partyTime.max(), "2018-06-14T00:00");
+}
 
-    @Test
-    public void labelTest() {
-        birthDate.label().assertThat().text(is("Birth date"));
-        birthDate.label().is().text(equalToIgnoringCase("birth date"));
-        birthDate.assertThat().date(containsString("1985"));
-    }
+@Test
+public void labelTest() {
+    birthDate.label().assertThat().text(is("Birth date"));
+    birthDate.label().is().text(equalToIgnoringCase("birth date"));
+    birthDate.assertThat().date(containsString("1985"));
+}
 ```
 ```csharp 
 [FindBy(Css = "#birth-date")]
@@ -845,17 +845,17 @@ public static Icon jdiLogo;
 public IIcon Logo
 ;
 
-   [Test]
-   public void GetSourceTest()
-   {
-     Jdi.Assert.AreEquals(LogoImage.GetSource(), Src);
-   }
+[Test]
+public void GetSourceTest()
+{
+  Jdi.Assert.AreEquals(LogoImage.GetSource(), Src);
+}
 
-   [Test]
-   public void GetTipTest()
-   {
-     Jdi.Assert.AreEquals(LogoImage.GetAlt(), Alt);
-   }
+[Test]
+public void GetTipTest()
+{
+  Jdi.Assert.AreEquals(LogoImage.GetAlt(), Alt);
+}
 ```
 
 ```html

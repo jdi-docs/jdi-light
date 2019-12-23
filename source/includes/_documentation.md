@@ -513,19 +513,45 @@ __In the following sections there are examples of different implementations of s
 __Input Type Date__
 
 ```java 
-@UI("#birth-date") //@FindBy(css = "#birth-date") 
+//@FindBy(css = "#birth-date")
+@UI("#birth-date")  
 public static DateTimeSelector birthDate;
 
-@Test
-public void setDateTimeTest() {
-    birthDate.setDateTime("2018-11-13");
-    assertEquals(birthDate.value(), "2018-11-13");
-}
+//@FindBy(id = "party-time")
+@UI("#party-time") 
+public static DateTimeSelector partyTime;
+
+//@FindBy(css = "#booking-time")
+@UI("#booking-date")  
+public static DateTimeSelector bookingTime;
 
 @Test
-public void maxTest() {
-    assertEquals(birthDate.max(), "2030-12-31");
-}
+    public void setDateTimeTest() {
+        partyTime.setDateTime("2017-05-10T00:00");
+        partyTime.show();
+        partyTime.is().text("2017-05-10T00:00");
+        bookingTime.setDateTime("05:00");
+        bookingTime.show();
+        bookingTime.is().text("05:00");
+    }
+
+    @Test
+    public void getDateTest() {
+        birthDate.is().text("1985-06-18");
+    }
+
+    @Test
+    public void minMaxTest() {
+        assertEquals(partyTime.min(), "2018-05-07T00:00");
+        assertEquals(partyTime.max(), "2018-06-14T00:00");
+    }
+
+    @Test
+    public void labelTest() {
+        birthDate.label().assertThat().text(is("Birth date"));
+        birthDate.label().is().text(equalToIgnoringCase("birth date"));
+        birthDate.assertThat().date(containsString("1985"));
+    }
 ```
 ```csharp 
 [FindBy(Css = "#birth-date")]
@@ -554,22 +580,6 @@ public void SetBirthDateTest()
 
 __Input Type Week__
 
-```java 
-@UI("#autumn-week") //@FindBy(css = "#autumn-week") 
-public static DateTimeSelector autumnWeek;
-
-@Test
-public void minTest() {
-    assertEquals(autumnWeek.min(), "2018-W35");
-}
-
-@Test
-public void setDateTimeTest() {
-    autumnWeek.setDateTime("2018-W12");
-    autumnWeek.show();
-    assertEquals(autumnWeek.value(), "2018-W12");
-}
-```
 ```csharp 
 [FindBy(Css = "#autumn-week")]
 public IDateTimeSelector AutumnDateTime { get; set; }
@@ -604,22 +614,6 @@ public void AutumnDateTimeTest()
 
 __Input Type Month__
 
-```java 
-@UI("#month-date") //@FindBy(css = "#month-date") 
-public static DateTimeSelector monthDate;
-
-@Test
-public void maxTest() {
-    assertEquals(monthDate.max(), "2020-12");
-}
-
-@Test
-public void setDateTimeTest() {
-    monthDate.setDateTime("2018-10");
-    monthDate.show();
-    assertEquals(monthDate.value(), "2018-10");
-}
-```
 ```csharp 
 [FindBy(Css = "#month-date")]
 public IDateTimeSelector MonthOfHolidays { get; set; }
@@ -649,22 +643,6 @@ public void SetMonthTest()
 
 __Input Type Time__
 
-```java 
-@UI("#booking-date") //@FindBy(css = "#booking-time") 
-public static DateTimeSelector bookingTime;
-
-@Test
-public void minTest() {
-    assertEquals(bookingTime.min(), "9:00");
-}
-
-@Test
-public void setDateTimeTest() {
-    bookingTime.setDateTime("05:00");
-    bookingTime.show();
-    assertEquals(bookingTime.value(), "05:00");
-}
-```
 ```csharp 
 [FindBy(Css = "#booking-time")]
 public IDateTimeSelector BookingTime { get; set; }
@@ -693,16 +671,6 @@ public void SetTimeTest()
 
 __Input Type DateTime-Local__
 
-```java 
-@UI("#party-time") //@FindBy(id = "party-time")
-public static DateTimeSelector partyTime;
-
-@Test
-public void setDateTimeTest() {
-    partyTime.setDateTime("2017-05-10T00:00");
-    assertEquals(partyTime.value(), "2017-05-10T00:00");
-}
-```
 ```csharp 
 [FindBy(Css = "#party-time")]
 public IDateTimeSelector PartyTime { get; set; }
@@ -895,6 +863,9 @@ public IIcon Logo
 <img src="/jdi-light/images/jdi-logo.jpg" id="jdi-logo" alt="Jdi Logo 2"
      width="101" height="100" onclick="alert('JDI Logo');">
 ```
+
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/ImageTests.java" target="_blank">Test examples in Java</a>
+<br>
 
 <br><br><br><br><br><br><br><br><br>
 

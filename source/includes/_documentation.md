@@ -20333,7 +20333,16 @@ public class UserCard extends Form<User> {
 ```
 
 
-If your developers are following some standard way of marking UI elements or you have an agreement to add special attributes, you can even avoid writing locators for elements and make your page objects much more compact.
+If your developers are following some standard way of marking UI elements or you have
+ an agreement to add special attributes, you can even avoid writing locators for elements
+  and make your page objects much more compact.
+  
+ E.g. let's say we have an agreement on naming elements and their ids in the following way:
+ an element that represents a Button element buttonSubmit should have id equal to btn-submit,
+  an a text field element userName - the id=user-name, and so on.
+ In this case we can save time on addind UI annotation for each element (e.g. UI("#user-name") Text userName)
+ and write just Text userName and allow JDI frameworks to transform the variable name from "username" to "user-name" and find an element with such id. 
+  
 
 You can manage locator creation from field name using:
 

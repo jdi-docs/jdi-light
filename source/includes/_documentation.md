@@ -393,20 +393,16 @@ Available methods in C# JDI Light:
 public static ColorPicker colorPicker;
 
 @Test
-public void getColorTest() {
-    assertEquals(colorPicker.color(), "#3fd7a6");
+public void checkColorTest() {
+    colorPicker.assertThat().color(COLOR);
+    disabledPicker.is().color(DISABLED_COLOR);
 }
 
 @Test
 public void setColorTest() {
-    colorPicker.setColor("#432376");
-    assertEquals(colorPicker.color(), "#432376");
-}
-
-@Test
-public void getLabelTextTest() {
-    assertEquals(colorPicker.labelText(), "Select a color");
-}
+    colorPicker.setColor(SETTING_COLOR);
+    colorPicker.is().color(SETTING_COLOR);
+}  
 ```
 ```csharp
 [FindBy(Css = "#color-picker")]
@@ -432,7 +428,7 @@ public void SetColorTest()
 
 Colorpicker is located in the following classes:
 
-  - __Java__: _com.epam.jdi.light.ui.html.common.ColorPicker*_
+  - __Java__: _com.epam.jdi.light.ui.html.common.ColorPicker_
 
 
 Here is an example with provided HTML code:
@@ -517,18 +513,44 @@ __In the following sections there are examples of different implementations of s
 __Input Type Date__
 
 ```java 
-@UI("#birth-date") //@FindBy(css = "#birth-date") 
+//@FindBy(css = "#birth-date")
+@UI("#birth-date")  
 public static DateTimeSelector birthDate;
+
+//@FindBy(id = "party-time")
+@UI("#party-time") 
+public static DateTimeSelector partyTime;
+
+//@FindBy(css = "#booking-time")
+@UI("#booking-date")  
+public static DateTimeSelector bookingTime;
 
 @Test
 public void setDateTimeTest() {
-    birthDate.setDateTime("2018-11-13");
-    assertEquals(birthDate.value(), "2018-11-13");
+    partyTime.setDateTime("2017-05-10T00:00");
+    partyTime.show();
+    partyTime.is().text("2017-05-10T00:00");
+    bookingTime.setDateTime("05:00");
+    bookingTime.show();
+    bookingTime.is().text("05:00");
 }
 
 @Test
-public void maxTest() {
-    assertEquals(birthDate.max(), "2030-12-31");
+public void getDateTest() {
+    birthDate.is().text("1985-06-18");
+}
+
+@Test
+public void minMaxTest() {
+    assertEquals(partyTime.min(), "2018-05-07T00:00");
+    assertEquals(partyTime.max(), "2018-06-14T00:00");
+}
+
+@Test
+public void labelTest() {
+    birthDate.label().assertThat().text(is("Birth date"));
+    birthDate.label().is().text(equalToIgnoringCase("birth date"));
+    birthDate.assertThat().date(containsString("1985"));
 }
 ```
 ```csharp 
@@ -558,22 +580,6 @@ public void SetBirthDateTest()
 
 __Input Type Week__
 
-```java 
-@UI("#autumn-week") //@FindBy(css = "#autumn-week") 
-public static DateTimeSelector autumnWeek;
-
-@Test
-public void minTest() {
-    assertEquals(autumnWeek.min(), "2018-W35");
-}
-
-@Test
-public void setDateTimeTest() {
-    autumnWeek.setDateTime("2018-W12");
-    autumnWeek.show();
-    assertEquals(autumnWeek.value(), "2018-W12");
-}
-```
 ```csharp 
 [FindBy(Css = "#autumn-week")]
 public IDateTimeSelector AutumnDateTime { get; set; }
@@ -608,22 +614,6 @@ public void AutumnDateTimeTest()
 
 __Input Type Month__
 
-```java 
-@UI("#month-date") //@FindBy(css = "#month-date") 
-public static DateTimeSelector monthDate;
-
-@Test
-public void maxTest() {
-    assertEquals(monthDate.max(), "2020-12");
-}
-
-@Test
-public void setDateTimeTest() {
-    monthDate.setDateTime("2018-10");
-    monthDate.show();
-    assertEquals(monthDate.value(), "2018-10");
-}
-```
 ```csharp 
 [FindBy(Css = "#month-date")]
 public IDateTimeSelector MonthOfHolidays { get; set; }
@@ -653,22 +643,6 @@ public void SetMonthTest()
 
 __Input Type Time__
 
-```java 
-@UI("#booking-date") //@FindBy(css = "#booking-time") 
-public static DateTimeSelector bookingTime;
-
-@Test
-public void minTest() {
-    assertEquals(bookingTime.min(), "9:00");
-}
-
-@Test
-public void setDateTimeTest() {
-    bookingTime.setDateTime("05:00");
-    bookingTime.show();
-    assertEquals(bookingTime.value(), "05:00");
-}
-```
 ```csharp 
 [FindBy(Css = "#booking-time")]
 public IDateTimeSelector BookingTime { get; set; }
@@ -697,16 +671,6 @@ public void SetTimeTest()
 
 __Input Type DateTime-Local__
 
-```java 
-@UI("#party-time") //@FindBy(id = "party-time")
-public static DateTimeSelector partyTime;
-
-@Test
-public void setDateTimeTest() {
-    partyTime.setDateTime("2017-05-10T00:00");
-    assertEquals(partyTime.value(), "2017-05-10T00:00");
-}
-```
 ```csharp 
 [FindBy(Css = "#party-time")]
 public IDateTimeSelector PartyTime { get; set; }
@@ -881,17 +845,17 @@ public static Icon jdiLogo;
 public IIcon Logo
 ;
 
-   [Test]
-   public void GetSourceTest()
-   {
-     Jdi.Assert.AreEquals(LogoImage.GetSource(), Src);
-   }
+[Test]
+public void GetSourceTest()
+{
+  Jdi.Assert.AreEquals(LogoImage.GetSource(), Src);
+}
 
-   [Test]
-   public void GetTipTest()
-   {
-     Jdi.Assert.AreEquals(LogoImage.GetAlt(), Alt);
-   }
+[Test]
+public void GetTipTest()
+{
+  Jdi.Assert.AreEquals(LogoImage.GetAlt(), Alt);
+}
 ```
 
 ```html
@@ -899,6 +863,9 @@ public IIcon Logo
 <img src="/jdi-light/images/jdi-logo.jpg" id="jdi-logo" alt="Jdi Logo 2"
      width="101" height="100" onclick="alert('JDI Logo');">
 ```
+
+<a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/ImageTests.java" target="_blank">Test examples in Java</a>
+<br>
 
 <br><br><br><br><br><br><br><br><br>
 
@@ -1333,20 +1300,15 @@ ProgressBar is located in the following classes:
 public static ProgressBar progress;
 
 @Test
-public void getValueTest() {
-    assertEquals(progress.value(), "70");
+public void valueTest() {
+    progress.is().volume(70);
+    progress.is().volume(greaterThanOrEqualTo(10));
+    progress.is().volume(lessThanOrEqualTo(100));
 }
 
 @Test
 public void maxTest() {
-    assertEquals(progress.max(), "100");
-}
-
-@Test
-public void assertValidationTest() {
-    progress.assertThat().volume(greaterThan(0));
-    progress.assertThat().volume(lessThan(200));
-    progress.assertThat().volume(is(70));
+    progress.is().maxVolume(100);
 }
 ```
 ```csharp
@@ -1405,59 +1367,26 @@ Available method in C# JDI Light:
 ### Range
 
 ```java 
-  @UI("#volume")  //@FindBy(id = "volume") 
-  public static Range volume;
-  @Test
-  public void getLabelTextTest() {
-      assertEquals(volume.labelText(), "Volume");
-  }
-  @Test
-  public void getValueTest() {
-      assertEquals(disabledRange.value(), 50);
-  }
-  @Test
-  public void minTest() {
-      assertEquals(volume.min(), 10.0);
-  }
-  @Test
-  public void maxTest() {
-      assertEquals(volume.max(), 100.0);
-  }
-  @Test
-  public void stepTest() {
-      assertEquals(volume.step(), 5.0);
-  }
-  @Test
-  public void setValue() {
-      volume.setValue(10);
-      assertEquals(volume.value(), 10);
-  }
-  @Test
-  public void isValidationTest() {
-      volume.is().enabled();
-      volume.assertThat().minValue(is(10.0));
-      volume.assertThat().maxValue(is(100.0));
-      volume.assertThat().step(is(5.0));
-      volume.is().value(greaterThanOrEqualTo(10.0));
-      volume.is().value(lessThanOrEqualTo(100.0));
-      volume.is().value(is(90.0));
-  }
-  @Test
-  public void labelTest() {
-      assertEquals(volume.label().getText(), "Volume");
-      volume.label().is().text(containsString("lume"));
-      volume.label().assertThat().text(equalToIgnoringCase("volume"));
-  }
-  @Test
-  public void assertValidationTest() {
-      volume.assertThat().value(greaterThan(0.0));
-      volume.assertThat().value(lessThan(200.0));
-      disabledRange.assertThat().value(is(50.0));
-  }
-  @Test
-  public void baseValidationTest() {
-      baseValidation(volume);
-  }
+@UI("#volume")  //@FindBy(id = "volume") 
+public static Range volume;
+
+@Test
+public void setVolumeTest() {
+    volume.setVolume(10);
+    volume.assertThat().volume(10);
+}
+
+@Test
+public void checkStepTest() {
+    volume.assertThat().step(5);
+    volume.assertThat().step(is(5));
+}
+
+@Test
+public void checkMaxTest() {
+    volume.assertThat().maxVolume(100);
+    volume.assertThat().maxVolume(is(100));
+}
 ```
 
 ```csharp
@@ -1913,24 +1842,25 @@ Here is a list of available methods in C#:
 Title is represented by the following class:
  
   - __Java__: _com.epam.jdi.light.ui.html.common.Title_
-  - __C#__: _JDI.Light.Elements.Common.Title_
-  
-  
+  - __C#__: _JDI.Light.Elements.Common.Title
+
+![Title](../images/html/title2.png)
+
 ```java 
-@UI("[ui=jdi-title]") 
-// equal to @FindBy(css = "[ui=jdi-title]") 
+@UI("[ui=jdi-title]") //@FindBy(css = "[ui=jdi-title]") 
 public static Title jdiTitle;
 
 @Test
-public void getTextTest() {
-        assertEquals(jdiTitle.getText(), "Title text");
+public void textTest() {
+    jdiTitle.is().text(titleText);
 }
 
 @Test
 public void clickTest() {
-        jdiTitle.click();
+    jdiTitle.click();
+    assertEquals(getAlertText(), "JDI Title");
+    acceptAlert();
 }    
-    
 ```
 ```csharp 
 [FindBy(Css = "[ui=jdi-title]")]
@@ -1970,9 +1900,6 @@ public void BaseValidationTest()
 }   
     
 ```
-
-
-![Title](../images/html/title2.png)
 
 ```html 
 <h1 ui="jdi-title" onclick="alert('JDI Title');">JDI Testing platform</h1>

@@ -581,17 +581,17 @@ See Example 2<br/>
 **JQuery/Selenide** - Selenide or JQuery-like style, where instead of @FindBy annotations you can use direct initialization<br/>
 <a href="https://github.com/jdi-tutorials/04-jdi-light-different-forms/blob/master/src/main/java/jdisite/sections/SelenideLoginForm.java" target="_blank">See example in SelenideLoginForm.java on Github</a><br/><br/><br/><br/><br/><br/>
 
-**JDI Light Forms** - typical Forms in JDI with **typified elements**, **@UI** annotations, extending from Form and without **fill/check** methods<br/>
+**By creating a normal JDI Light Form** - typical Forms in JDI with *typified elements*, *@UI* annotations, extending from Form and without *fill/check* methods<br/>
 <a href="https://github.com/jdi-tutorials/04-jdi-light-different-forms/blob/master/src/main/java/jdisite/sections/LoginForm.java" target="_blank">See example in LoginForm.java on Github</a><br/>
 
-**Smart JDI Forms** - If you can get a locator from a variable name, you can use Smart locators for elements and remove locator annotations from Forms. This also allows you to combine UI Fields with the same Type like **TextField**s in example<br/>
+**By using smart locators for a JDI Light Form** - If you can get a locator from a variable name, you can use Smart locators for elements and remove locator annotations from Forms. This also allows you to combine UI Fields with the same Type like *TextField*.<br/>
 [See more details and exampels for Smart locators in documentation](https://jdi-docs.github.io/jdi-light/?java#smart-locators)<br/>
 <a href="https://github.com/jdi-tutorials/04-jdi-light-different-forms/blob/master/src/main/java/jdisite/sections/LoginFormSmart.java" target="_blank">See example in LoginFormSmart.java on Github</a>
 
 ```java
 on JDISite.java >> public static Form<User> lightLoginForm;
 ```
-**Light Forms** - if your Form consists of only TextFields and buttons, you can avoid UI Object at all and just write one line in the respective page or in the root Site class<br/>
+**If your Form consists of only TextFields and buttons** you can avoid UI Object at all and just write one line in the respective page or in the root Site class<br/>
 This allows us to construct Login Forms in 1 line instead of 17!<br/>
 <a class="github-button" href="https://github.com/jdi-testing/jdi-light" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star jdi-testing/jdi-light on GitHub">Nice job man!</a>
 

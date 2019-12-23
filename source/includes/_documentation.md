@@ -3889,36 +3889,7 @@ And here are methods available in Java:
 
 ### Form
 
-```java 
-public class LoginForm extends Form<User> {
-    @UI("#name") TextField name;
-    @UI("#password") TextField password;
-    @UI("#login-button") Button loginButton;
-}
 
-public class User extends DataClass<User> {
-    public String name, password;
-}
-
-on JDISite.java >> public static LoginForm loginForm;
-
-In tests:
-
-@Test
-public void loginWithUserTest() {
-    shouldBeLoggedOut();
-    loginForm.shouldBeOpened();
-    loginForm.login(DEFAULT_USER);
-    homePage.checkOpened();
-}
-    
-@Test
-public void fillContactFormTest() {
-    shouldContactPageBeOpenedAndRefreshed();
-    main.contactForm.fill(DEFAULT_CONTACT);
-    main.contactForm.check(DEFAULT_CONTACT);
-}   
-```
 
 **Form** – Logical part of a web page that represents an HTML form. 
 Form consists of elements based on _SetValue_ interface and buttons with **submit** function.
@@ -3930,62 +3901,87 @@ Form provides the _fill, submit and verify/check_ functionality.
 ```html
 <form class="form-horizontal login" id="login-form">
     <div class="form-horizontal-pad">
-        <div class="form-group form-group10"><label for="name" class="col-sm-3">Login</label>
-            <div class="col-sm-9"><input id="name" type="text" class="uui-form-element"></div>
+        <div class="form-group form-group10">
+            <label for="name" class="col-sm-3">Login</label>
+            <div class="col-sm-9"><input id="name"
+                 type="text" class="uui-form-element"></div>
         </div>
-        <div class="form-group form-group10"><label for="password" class="col-sm-3">Password</label>
-            <div class="col-sm-9"><input id="password" type="password" class="uui-form-element"></div>
+        <div class="form-group form-group10">
+            <label for="password" class="col-sm-3">Password</label>
+            <div class="col-sm-9"><input id="password"
+                 type="password" class="uui-form-element"></div>
         </div>
         <span class="login-txt hidden">* Login Faild</span>
     </div>
-    <button type="submit" class="uui-button dark-blue btn-login" id="login-button">
+    <button type="submit" class="uui-button dark-blue btn-login"
+             id="login-button">
         <i class="fa fa-sign-in"></i><span>Enter</span></button>
 </form>
 ```
 
 Form is located in the following classes:
  
-  - __Java__: _com.epam.jdi.light.elements.composite.Form_
-  - __C#__: _JDI.Light.Elements.Composite.Form_
+  - __Java__: <a href="https://github.com/jdi-testing/jdi-light/tree/master/jdi-light/src/main/java/com/epam/jdi/light/elements/composite/Form.java">Form.java</a>
+  - __C#__:   <a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light/Elements/Composite/Form.cs">Form.cs</a>
+ 
+ ```java 
+public class User extends DataClass<User> {
+     public String name, password;
+ }
+
+public class LoginForm extends Form<User> {...}
+
+
+
+public class LoginForm extends Form<User> {
+     @UI("#name") TextField name;
+     @UI("#password") TextField password;
+     @UI("#login-button") Button loginButton;}
   
-Form is parameterized by an entity that corresponds to the form. For example, a login form can be parameterized by a user entity. The entity should extend DataClass class (parameterized by the entity itself). 
-The names of the entity fields should be exactly the same as the names of the form fields. All fields of the entity managed by the form should be Strings.
 
-JDI Light Java supports three types of forms:
-
-**JDI Light Forms** - typical Forms in JDI with **typified elements**, **@UI** annotations, extending from Form and without **fill/check** methods.
-
-```java 
+      
 public class LoginFormSmart extends Form<User> {
     TextField name, password;
     Button loginButton;
 }
+  
 
-on JDISite.java >> public static LoginFormSmart loginFormSmart;
-```
 
-**Smart JDI Forms** - Forms utilizing the _Smart locator_ functionality of JDI. In Smart Forms there is no need to explicitly define locators for form elements if such locators can be obtained implicitly from field names using Smart locator functionality.
-[See more details and exampels for Smart locators in documentation](https://jdi-docs.github.io/jdi-light/?java#smart-locators)
 
-```java 
+
 on JDISite.java >> public static Form<User> lightLoginForm;
-```
 
-**Light Forms** - if a Form consists of only TextFields and Buttons, there is no need to define a Form UI Object.
- Such form can be added directly to the related page or to the root Site class.
 
-```java 
+
+
+
+
+public class Form<T> extends Section {
+    public Form<T> onlyMandatory() {
+        setFilter(MANDATORY);
+        return this;
+    }
+    public Form<T> onlyOptional() {
+        setFilter(OPTIONAL);
+        return this;
+    }
+}
+
+public class ContactFormCustom extends Form<Contacts> {
+    @Mandatory TextField name;
+    TextField lastName, position, passportNumber, passportSeria;
+    @UI("['Submit']") public Button submit;
+
+
 @Test
 public void onlyMandatoryOptionTest() {
     shouldContactPageBeOpenedAndRefreshed();
     main.contactFormCustom.onlyMandatory().fill(DEFAULT_CONTACT);
     main.contactFormCustom.onlyMandatory().check(DEFAULT_CONTACT);
 }
-```
 
-In Java, Form has a filter property that defines which form elements will be filled/submited or verified/checked. Filter can be set to either **ALL**, **MANDATORY** or **OPTIONAL**. Based on this property, fill/submit and verify/check functions are applied to either all form elements or only mandatory (only optional) form elements. Mandatory form fields should be marked with **@Mandatory** annotation. Optional form fields are the ones without **@Mandatory** annotation. **ALL** is the default Form option. To set form filters as **MANDATORY** or **OPTIONAL**, **onlyMandatory()** and **onlyOptional()** methods should be used. They set the corresponding form filter option for a duration of a single action (all form action methods set the form filter option back to **ALL**).
 
-```java 
+
 @BeforeSuite(alwaysRun = true)
 public static void setUp() {
     logger.setLogLevel(INFO);
@@ -3998,28 +3994,113 @@ public static void setUp() {
     homePage.open();
     logger.toLog("Run Tests");
 }
-```
 
-In Java, Form has a **FILL_ACTION** and **GET_ACTION** lambdas. 
-These define how the Form should be filled and verified. The default behavior defined in the Form class simply utilizes **setValue(String value)** method of the SetValue interface and **getValue()** method of the HasValue interface. However, these lambdas are redefined in the _HtmlSettings_ class in order to customise behavior for "non-text" form elements such as Checkboxes (the behavior of custom elements is defined by **@FillValue** and **@VerifyValue** annotations). **FILL_ACTION** and **GET_ACTION** lambdas can also be further modified in order to customize Form behavior, but it is important to take into account that behavior defined in the HtmlSettings might be lost. 
-It is customary to reassign these lambdas before all the tests are run, for example in TestNG's **@BeforeSuite** method.
 
-```java 
 public class LoginForm extends Form<User> {
     TextField name, password;
     Button loginButton;
 
 	@Override
-	public void fillAction(Field field, Object element, Object parent, String setValue) {
+	public void fillAction(Field field, Object element,
+         Object parent, String setValue) {
 		if (isInterface(field, TextField.class))
 			((TextField)element).higlight();
 		super.fillAction(field, element, parent, setValue);
 	}
 }
-```
 
+
+
+
+
+
+More test examples: 
+
+
+
+on JDISite.java >> public static LoginFormSmart loginForm;
+ 
+ @Test
+ public void loginWithUserTest() {
+     shouldBeLoggedOut();
+     loginForm.shouldBeOpened();
+     loginForm.login(DEFAULT_USER);
+     homePage.checkOpened();
+ }
+     
+ @Test
+ public void fillContactFormTest() {
+     shouldContactPageBeOpenedAndRefreshed();
+     main.contactForm.fill(DEFAULT_CONTACT);
+     main.contactForm.check(DEFAULT_CONTACT);
+ } 
+ ```
+ 
+Form is parameterized by an entity that corresponds to the form. For example, a login form can be parameterized by a user entity. The entity should extend DataClass class (parameterized by the entity itself). 
+The names of the entity fields should be exactly the same as the names of the form fields. All fields of the entity managed by the form should be Strings.
+
+<br>
+JDI Light allows you to define a form in three ways:
+<br>
+
+**By creating a normal JDI Light Form** - a typical Form in JDI with typified elements, @UI annotations, extending from Form.
+
+<br>
+**By using smart locators for a JDI Light Form** - Such Form utilizes the
+ _Smart locator_ functionality of JDI. In this case there is no need to explicitly define
+  locators for the form elements as such locators can be obtained implicitly from field names
+   using Smart locator functionality.
+[See more details and exampels for Smart locators in documentation](https://jdi-docs.github.io/jdi-light/?java#smart-locators)
+
+<br>
+
+**If a Form consists of only TextFields and Buttons**, there is no need to define a Form UI Object.
+ Such form can be added directly to the related page or to the root Site class.
+ In this case the form field  will be taken from the entity that the form is being parameterized by.
+
+<br>
+
+**Form Filters**
+
+In Java, Form has a **filter** property that defines which form elements will be filled/submited
+ or verified/checked. Filter can be set to either *ALL*, *MANDATORY* or *OPTIONAL*. 
+ 
+ Based on this property, fill/submit and verify/check functions are applied to either all 
+ form elements or only mandatory (only optional) form elements.
+ 
+ <br>
+ Mandatory form fields should be marked with *@Mandatory* annotation. Optional form fields are the ones without
+  *@Mandatory* annotation. *ALL* is the default Form option.
+  
+  <br> 
+ To set form filters 
+  as *MANDATORY* or *OPTIONAL*, *onlyMandatory()* and *onlyOptional()* methods 
+  should be used. They set the corresponding form filter option for a duration of a single
+   action (all form action methods set the form filter option back to *ALL*).
+
+<br>
+
+**Form Actions**
+
+In Java, Form also has a **FILL_ACTION** and **GET_ACTION** lambdas. 
+This defines how the Form should be filled and verified. The default behavior defined in the 
+Form class simply utilizes *setValue(String value)* method of the SetValue interface and
+ *getValue()* method of the HasValue interface.
+  
+However, these lambdas can be redefined in the _HtmlSettings_ class in order to customise the behavior
+ for "non-text" form elements such as Checkboxes (the behavior of custom elements is defined
+  by *@FillValue* and *@VerifyValue* annotations).
+  
+*FILL_ACTION* and *GET_ACTION* lambdas can also be further modified in order to customize
+ Form behavior, but it is important to take into account that behavior defined in the
+ HtmlSettings might be lost. 
+ 
+It is customary to reassign these lambdas before all the tests are run, for example in TestNG's *@BeforeSuite* method.
+
+<br>
 In Java, if fill/submit and verify/check methods need to be redefined for a specific form, it is possible to override **fillAction()** and **getAction()** for such form.
 
+<br>
 Methods available for Java in JDI Light:
 
 |Method | Description | Return Type

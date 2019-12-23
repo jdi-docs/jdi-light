@@ -3763,28 +3763,6 @@ Here is the list of some methods available for C# in JDI Light:
 ## HTML5 Composite elements
 ###Section
 
-**Section** - Logical part of Web Page that contains other UI Elements
-  
-Section is located in the following classes:
- 
-  - __Java__: _com.epam.jdi.light.elements.composite.Section_
-  - __C#__: _JDI.Light.Elements.Composite.Section_  
-
-  
-```java 
-   @UI(".someSectionUI") // @FindBy(css = ".someSectionUI")
-   public static SomeSection someSectionUI;
-
-   @Test
-   public void someSectionWebElementTest() {
-      assertNotNull(someSection.webElementPublic);
-      assertEquals(someSection.webElementPublic.locator.toString(), "id='webElementPublic'");
-      assertEquals(someSection.webElementPublic.parent, someSection);
-      assertEquals(someSection.webElementPublic.name, "Web Element Public");
-   }
-   
-```
-
 ```csharp
 
   [FindBy(Id = "contact-form")]
@@ -3871,6 +3849,30 @@ Section is located in the following classes:
       new object[] { nameof(JdiSearchSection.SearchInput), "By.CssSelector: .search-field input", "SearchInput", null },
   };
 ```
+
+**Section** - Logical part of Web Page that contains other UI Elements
+  
+Section is located in the following classes:
+ 
+  - __Java__: _com.epam.jdi.light.elements.composite.Section_
+  - __C#__: _JDI.Light.Elements.Composite.Section_  
+
+  
+```java 
+   @UI(".someSectionUI") // @FindBy(css = ".someSectionUI")
+   public static SomeSection someSectionUI;
+
+   @Test
+   public void someSectionWebElementTest() {
+      assertNotNull(someSection.webElementPublic);
+      assertEquals(someSection.webElementPublic.locator.toString(), "id='webElementPublic'");
+      assertEquals(someSection.webElementPublic.parent, someSection);
+      assertEquals(someSection.webElementPublic.name, "Web Element Public");
+   }
+   
+```
+
+
 
 And here are methods available in Java:
 

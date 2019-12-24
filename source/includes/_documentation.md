@@ -3281,15 +3281,15 @@ Have a look at the following example with HTML code provided:
 public static DataListOptions iceCreamDataList;
 
 @Test
-public void selectEnumTest() {
-    iceCream.select(Strawberry);
-    assertEquals(iceCream.getValue(), "Strawberry");
+public void selectTest() {
+    iceCream.select("Chocolate");
+    iceCream.is().selected("Chocolate");
 }
+
 @Test
 public void selectNumTest() {
-    iceCream.clear();
     iceCream.select(5);
-    assertEquals(iceCream.getValue(), "Vanilla");
+    iceCream.is().selected("Vanilla");
 }
 ```
 

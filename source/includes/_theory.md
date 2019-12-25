@@ -13,7 +13,6 @@ TBD
 <button id="submit-button">
 ```
 ```csharp
-
 public class UserCard : Form<User>
 {
     [FindBy(Css = "#name")]
@@ -36,28 +35,19 @@ public class UserCard : Form<User>
 
 public class UserCard : Form<User>
 {
-    TextField Name; 
+    TextField name; 
     TextField LastName;
     Button SubmitButton;
 }
-
 ```
-
-```java
-
+ ```java 
 public class UserCard extends Form<User> {
-    @Css("#name") TextField name;
-    
-    @Css("#last-name") TextField lastName; 
-    
+    @Css("#name") TextField name; 
+    @Css("#last-name") TextField lastName;  
     @Css("#submit-button") Button submitButton; 
 }
 
-//If Smart locator rule is id:
-    WebSettings.SMART_SEARCH_LOCATORS = asList("#%s");
-    
-//and the conversion rule is 'hyphen-to-java-name':
-    WebSettings.SMART_SEARCH_NAME = StringUtils::splitHyphen;
+
 
 //So you can write:
 public class UserCard extends Form<User> {
@@ -66,20 +56,86 @@ public class UserCard extends Form<User> {
     Button submitButton; 
 }
 
+
+
+
+
+
+//in test.properties:
+smart.locators = "#%s"
+smart.locators.toName = UPPER_SNAKE_CASE
+
+public class UserCard extends Form {
+TextField name;
+TextField lastName;
+TextField passportCode;
+}
+
+//Then JDI will be using the following locators for the elements:
+name -->#NAME
+lastName --> #LAST_NAME
+passportCode --> #PASSPORT_CODE, etc
+
+
+
+
+/* You don't need to set values for WebSettings class fields.
+   This code is just for illustrating how the default locator
+   value and the default locator naming rule are set 
+   in WebSettings*/
+
+//Smart locator rule is id:
+    WebSettings.SMART_SEARCH_LOCATORS = asList("#%s");
+   
+ 
+
+//and the conversion rule is 'hyphen-to-java-name':
+    WebSettings.SMART_SEARCH_NAME = StringUtils::splitHyphen;
+
 ```
 
 
-If you have your developers following some standard way of marking UI elements or you have an agreement to add special attributes, you can even avoid writing locators for elements, thus making your page objects much more compact.
+If you have your developers following some standard way of marking UI elements or you have
+an agreement to add special attributes, you can even avoid writing locators for elements,
+thus making your page objects much more compact.
 
-You can manage locator creation from field name using:
+E.g. let's say we have an agreement on naming elements and their ids in the following way:<br>
+a Button element *submitButton* should have id equal to *submit-button*, a text field
+element *lastName* should have id equal to *last-name*, and so on.
 
-### Settings interface ISmartLocators contains:
+In this case we can save time on adding a UI annotation for each element e.g.:<br>
+ *@Css("#last-name")<br>
+  Text lastName*
+ 
+Instead, we just write:<br>
+ *Text lastName*
   
-- **SmartSearch** - method invoked if you have an element with no locator
+and allow JDI Light framework to transform the variable name from "lastName"
+ to "last-name" and find an element with such id. 
+  
+###How to define a smart locator
 
-- **SmartSearchLocator** - locator that can be used to try to find an element
+Smart locators can be set in JDI framework via a config file named *test.properties*.
+There are two properties that we need: *smart.locators* and *smart.locators.toName*.
 
-- **SmartSearchName** -  method to create locator name from field name (this value will be passed as parameter to SmartSearchLocator)
+*smart.locators* property is a string representing locators separated by ";" (e.g. "#%s;name=%s")
+that are going to be used for searching for an element.
+
+*smart.locators.toName* property should contain one of the following values:<br>
+kebab-case | camelCase | snake_case | PascalCase | UPPER_SNAKE_CASE that tells to JDI how to create a locator form a given variable name.
+
+<br>
+  
+*test.properties* file is processed via **WebSetting.java** class:
+  
+- **WebSettings.SMART_SEARCH** - method invoked if you have an element with no locator
+
+- **WebSettings.SMART_SEARCH_LOCATORS** - it is either the list of locators taken from smart.locators property
+or "#%s" if that property is empty
+
+- **WebSettings.SMART_SEARCH_NAME** -  method to create locator name from field name
+ (this value will be passed as a %s parameter to SMART_SEARCH_LOCATORS). By default,
+  kebab-case will be used
 
 
 

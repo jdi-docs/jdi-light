@@ -1223,13 +1223,46 @@ NumberSelector are represented by the following class:
   
   
 ```java 
-@UI("#height") 
-// equal to @FindBy(css = "#height") 
-public static NumberSelector height;
+    @UI("#height") 
+    // equal to @FindBy(css = "#height") 
+    public static NumberSelector height;
 
-@Test
-public void getNumberTest() {
-        assertEquals(height.value(), number);
+    @Test
+    public void minMaxTest() {
+        height.assertThat().min(is(0.3));
+        height.assertThat().max(is(2.5));
+    }
+
+    @Test
+    public void stepTest() {
+        height.assertThat().step(is(0.2));
+    }
+
+    @Test
+    public void placeholderTest() {
+        height.is().placeholder("20 cm increments. Range [0.3,2.5]");
+    }
+
+    @Test
+    public void setNumberTest() {
+        height.setNumber("1.4");
+        height.is().number(greaterThanOrEqualTo(0.3));
+        height.is().number(lessThanOrEqualTo(2.5));
+        height.assertThat().number(is(1.4));
+    }
+
+    @Test
+    public void labelTest() {
+        height.label().is().text("Height (metres):");
+        height.label().is().text(containsString("Height"));
+        height.label().is().text(equalToIgnoringCase("height (metres):"));
+    }
+
+    @Test
+    public void assertValidationTest() {
+        height.assertThat().number(greaterThan(0.0));
+        height.assertThat().number(lessThan(3.0));
+        height.assertThat().number(is(2.1));
     }
 ```
 ```csharp 
@@ -1941,14 +1974,37 @@ Consider an example where each radio button is a particular color, described wit
 ![RadioButton](../images/html/radio_html2.png)
 
 ```java 
-@UI("[name=colors]") //@FindBy(name = "colors")
-public static RadioButtons colors;
+    //@FindBy(name = "colors")
+    @UI("[name=colors]") 
+    public static RadioButtons colors;
 
-@Test
-public void selectTest() {
-    colors.select(Blue);
-    assertEquals(colors.getValue(), "Blue");
-}
+    @Test
+    public void selectTest() {
+        colors.select("Green");
+        colors.is().selected(Green);
+        colors.is().text("Green");
+        colorsNoLocator.select("Blue");
+        colorsNoLocator.is().selected("Blue");
+        colors.is().value("Blue");
+    }
+
+    @Test
+    public void valuesTest() {
+        colors.is().values(hasItems("Red", "Green", "Blue", "Yellow"));
+    }
+
+    @Test
+    public void isValidationTest() {
+        colors.is().values(hasItem("Yellow"));
+        colors.is().disabled(hasItem("Yellow"));
+        colors.is().enabled(not(hasItem("Yellow")));
+        colors.is().enabled(hasItems("Green", "Blue"));
+    }
+
+    @Test
+    public void assertValidationTest() {
+        colors.assertThat().values(contains("Red", "Green", "Blue", "Yellow"));
+    }
 ```
 ```csharp 
 [FindBy(Css = "#colors")] 

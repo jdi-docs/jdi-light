@@ -6,12 +6,6 @@ TBD
 TBD
 
 ## Smart Locators
-
-```
-<input type="text" id="name">
-<input type="text" id="last-name">
-<button id="submit-button">
-```
 ```csharp
 public class UserCard : Form<User>
 {
@@ -49,6 +43,18 @@ public class UserCard extends Form<User> {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 //So you can write:
 public class UserCard extends Form<User> {
     TextField name;
@@ -78,7 +84,6 @@ passportCode --> #PASSPORT_CODE, etc
 
 
 
-
 /* You don't need to set values for WebSettings class fields.
    This code is just for illustrating how the default locator
    value and the default locator naming rule are set 
@@ -93,11 +98,17 @@ passportCode --> #PASSPORT_CODE, etc
   WebSettings.SMART_SEARCH_NAME = StringUtils::splitHyphen;
 
 ```
-
+```html
+<input type="text" id="name">
+<input type="text" id="last-name">
+<button id="submit-button">
+```
+<br>
 
 If you have your developers following some standard way of marking UI elements or you have
 an agreement to add special attributes, you can even avoid writing locators for elements,
 thus making your page objects much more compact.
+
 
 E.g. let's say we have an agreement on naming elements and their ids in the following way:<br>
 a Button element *submitButton* should have id equal to *submit-button*, a text field

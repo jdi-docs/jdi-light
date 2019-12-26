@@ -102,50 +102,8 @@ If you need a quick test (i.e. you don't need Page Objects), you can simply use 
 You can also initialize your Page Objects directly with elements if you don't like annotations.
 <br/><br/><br/><br/><br/><br/><br/>
 ### Smart Test locators
-```
-<input type="text" id="name">
-<input type="text" id="last-name">
-<input type="text" id="passport-code">
-<input type="text" id="passport-number">
-<button id="submit-button">
-```
-```java 
-public class UserCard extends Form<User> {
-    @Css("#name") TextField name;
-    @Css("#last-name") TextField lastName;
-    @Css("#passport-code") TextField passportCode;
-    @Css("#passport-number") TextField passportNumber;   
-    @Css("#submit-button") Button submitButton; 
-}
-//If the smart locator rule is 'id'
-WebSettings.SMART_SEARCH_LOCATORS = asList("#%s");
-//and the convertation rule is 'hyphen to java name';
-WebSettings.SMART_SEARCH_NAME = StringUtils::splitHyphen;
-//So you can write
-public class UserCard extends Form<User> {
-    TextField name;
-    TextField lastName;
-    TextField passportCode
-    TextField passportNumber;  
-    Button submitButton; 
-}
-//or just write all TextFields in one line
-public class UserCard extends Form<User> {
-    TextField name, lastName, passportCode, passportNumber;  
-    Button submitButton; 
-}
-```
-If your developers are following some standard way of marking UI elements or you have an agreement to add some special attributes, you can even avoid writing locators for elements and make your page objects much more compact.
 
-You can manage locator creation from field name using:
-
-**WebSettings.SMART_SEARCH** - function invoked if your element has no locator or just setting a list of used locators.
-
-**WebSettings.SMART_SEARCH_LOCATORS** - list of locators which can be used to try to find element.
-
-**WebSettings.SMART_SEARCH_NAME** - function that creates locator name from field name (this value will be passed as a <i>%s</i> parameter to SMART_SEARCH_LOCATORS).
-
-<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+[See details and examples for Smart locators in the documentation](https://jdi-docs.github.io/jdi-light/?java#smart-locators)
 
 ```java 
 @Test

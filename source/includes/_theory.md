@@ -82,7 +82,7 @@ passportCode --> #PASSPORT_CODE, etc
 /* You don't need to set values for WebSettings class fields.
    This code is just for illustrating how the default locator
    value and the default locator naming rule are set 
-   in WebSettings*/
+   in WebSettings class*/
 
 //Smart locator rule is id:
   WebSettings.SMART_SEARCH_LOCATORS = asList("#%s");

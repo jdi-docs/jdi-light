@@ -66,9 +66,9 @@ smart.locators = "#%s"
 smart.locators.toName = UPPER_SNAKE_CASE
 
 public class UserCard extends Form {
-TextField name;
-TextField lastName;
-TextField passportCode;
+    TextField name;
+    TextField lastName;
+    TextField passportCode;
 }
 
 //Then JDI will be using the following locators for the elements:
@@ -85,12 +85,12 @@ passportCode --> #PASSPORT_CODE, etc
    in WebSettings*/
 
 //Smart locator rule is id:
-    WebSettings.SMART_SEARCH_LOCATORS = asList("#%s");
+  WebSettings.SMART_SEARCH_LOCATORS = asList("#%s");
    
  
 
 //and the conversion rule is 'hyphen-to-java-name':
-    WebSettings.SMART_SEARCH_NAME = StringUtils::splitHyphen;
+  WebSettings.SMART_SEARCH_NAME = StringUtils::splitHyphen;
 
 ```
 

@@ -1651,32 +1651,29 @@ And here are methods available in Java:
 
 ### TextField
 ```java 
-@UI("#name") 
-// same as @FindBy(css = "#name")
+@UI("#name") //@FindBy(css = "#name")
 public static TextField name;
 
-    @Test
-    public void sendKeysTest() {
-        name.sendKeys("Test");
-        assertEquals(name.getValue(), text+"Test");
-    }
+@Test
+public void setTextTest() {
+    name.setText(text);
+    name.is().text(text);
+    name.is().text(is(text));
+    name.is().text(containsString("Field"));
+}
 
-    @Test
-    public void inputTest() {
-        name.input("New text");
-        assertEquals(name.getText(), "New text");
-    }
+@Test
+public void sendKeysTest() {
+    name.setText(text);
+    name.sendKeys("Test");
+    name.is().text(text + "Test");
+}
 
-    @Test
-    public void clearTest() {
-        name.clear();
-        assertEquals(name.getText(), "");
-    }
-
-    @Test
-    public void placeholderTest() {
-        assertEquals(name.placeholder(), "Input name");
-    }
+@Test
+public void clearTest() {
+    name.clear();
+    name.is().text("");
+}
 ```
 ```csharp 
 [FindBy(Id = "name")]

@@ -3405,13 +3405,15 @@ See an example with HTML code describing checklist element.
 ![Checklist Example](../images/html/checklist_html2.png)
 
 ```java 
+//@FindBy(name = "checks-group")
 @UI("[name=checks-group]") public static Checklist weather;
 public static Checklist weatherNoLocator;
 
 @Test
-public void selectTest() {
-    weather.check(Cold, Rainy);
-    assertEquals(weather.checked(), asList("Cold", "Rainy day"));
+public void checkTest() {
+    weather.check("Rainy day", "Sunny");
+    weather.is().checked(hasSize(2));
+    weather.is().checked(hasItems("Rainy day", "Sunny"));
 }
 
 @Test

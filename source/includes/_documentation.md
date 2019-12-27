@@ -3566,7 +3566,7 @@ public void disabledTest() {
     } catch (Exception ex) {
         assertThat(safeException(ex), containsString("Can't perform click. Element is disabled"));
     }
-    assertEquals(ages.selected(), text);
+    ages.is().selected(text);
 }
 
 ```

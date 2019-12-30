@@ -2828,8 +2828,8 @@ Consider an example of HTML5 dropdown with the given HTML code:
 ```java 
 @JDropdown(root = "div[ui=dropdown]",
     value = ".filter-option",
-		list = "li",
-		expand = ".caret")
+    list = "li",
+    expand = ".caret")
 public static Dropdown colors2; //@FindBy(css = "div[ui=dropdown]")
 	
 @Test

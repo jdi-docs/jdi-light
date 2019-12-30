@@ -2826,40 +2826,40 @@ Consider an example of HTML5 dropdown with the given HTML code:
 ![Dropdown HTML5](../images/html/dropdown_html52.png)
 
 ```java 
-@UI("#dress-code") //@FindBy(id = "dress-code")
-public Dropdown dressCode;
+@JDropdown(root = "div[ui=dropdown]",
+    value = ".filter-option",
+		list = "li",
+		expand = ".caret")
+public static Dropdown colors2; //@FindBy(css = "div[ui=dropdown]")
+	
+@Test
+public void selectStringTest() {
+    colors2.select("Red");
+    colors2.is().selected("Red");
+}
 
 @Test
 public void selectEnumTest() {
-    dressCode.select(Fancy);
-    assertEquals(dressCode.getValue(), "Fancy");
+    colors2.select(Green);
+    colors2.is().selected(Green);
 }
 
 @Test
-public void selectNumTest() {
-    dressCode.select(1);
-    assertEquals(dressCode.getValue(), "Fancy");
+public void selectIndexTest() {
+    colors2.select(4);
+    colors2.is().selected(Blue);
 }
 
 @Test
-public void selectedTest() {
-    dressCode.select(Pirate);
-    assertEquals(dressCode.selected(), "Pirate");
-    assertEquals(dressCode.getValue(), "Pirate");
-    assertEquals(dressCode.getText(), "Pirate");
-}
-
-@Test
-public void negativeDropdownTest() {
-    try {
-        dressCode.base().waitSec(1);
-        dressCode.select("Unknown");
-        fail("You have selected dressCode that does not exist in dropdown - something went wrong");
-    } catch (Exception ex) {
-        assertThat(safeException(ex), containsString("Cannot locate option with text: Unknown"));
-    }
-}
-    
+public void checkValuesTest() {
+    colors2.assertThat().values(is(dropdownValues));
+    colors2.is().values(hasItem("Yellow"));
+    colors2.is().values(not(hasItem("Missing color")));
+    colors2.is().enabled("Colors", "Red", "Green", "Blue", "Yellow");
+    colors2.is().values(INNER, hasItem("Yellow"));
+    colors2.assertThat().values(INNER, is(dropdownValues));
+    colors2.is().values(INNER, not(hasItem("Missing color")));
+}    
 ```
 
 ```csharp 
@@ -2913,7 +2913,7 @@ public void BaseValidationTest()
     <option value="pirate">Pirate</option>
 </select>
 ```
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
 
 __JDI Dropdown annotation__
 
@@ -2923,40 +2923,6 @@ annotation default methods.
 
 <!-- ![Dropdown HTML](../images/html/dropdown_html.png) -->
 
-```java 
-@JDropdown(root = "div[ui=dropdown]",
-           value = ".filter-option",
-           list = "li",
-           expand = ".caret")
-public Dropdown colors;
-
-@Test
-public void complexTest() {
-    metalAndColorsPage.shouldBeOpened();
-    metalAndColorsPage.colors.select(Green);
-}
-
-@Test
-public void navigationListTest() {
-    navigation.get(nContactForm).click();
-    contactFormPage.checkOpened();
-    navigation.get(nHome).click();
-    homePage.jdiText.is().text(containsString("QUIS NOSTRUD EXERCITATION"));
-    homePage.githubLink.click();
-    originalWindow();
-}
-
-@Test
-public void navigationMenuTest() {
-    navigationL.select(ContactForm);
-    contactFormPage.checkOpened();
-    navigationL.select(Home);
-    homePage.checkOpened();
-    navigationL.select(Service);
-    navigationL.select(ComplexTable);
-}
-
-```
 
 ```csharp 
 [JDropDown(root: "#colors", 
@@ -3024,7 +2990,6 @@ Here is a list of some available methods:
 **close()** | Close expanded before dropdown list | void
 **size()** | Return amount of elements in the list | int
 **setup(Field field)** | Setup the dropdown using specified fields | void
-**sendKeys(CharSequence... charSequence)** | Send specific keys | void
 **is()** | Applicable for performing assert actions for DropDown | ListAssert<UIElement>
 **assertThat()** | Applicable for performing assert actions for DropDown | ListAssert<UIElement>
 **has()** | Applicable for performing assert actions for DropDown | ListAssert<UIElement>

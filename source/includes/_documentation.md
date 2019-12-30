@@ -3512,8 +3512,9 @@ MultiSelector is represented by the following class:
  
   - __Java__: _com.epam.jdi.light.ui.html.complex.MultiSelector_
   - __C#__: _JDI.Light.Elements.Common.MultiSelector_
-  
-  
+
+![MultiSelector](../images/html/multiSelectHtml2.png)
+
 ```java 
 @UI("#ages") // @FindBy(css = "#ages")  
 public static MultiSelector ages;
@@ -3525,15 +3526,16 @@ public void selectTest() {
 }
 
 @Test
-public void disabledTest() {
-    try {
-        ages.select("Disabled");
-    } catch (Exception ex) {
-        assertThat(safeException(ex), containsString("Can't perform click. Element is disabled"));
-    }
-    ages.is().selected(text);
+public void selectEnumTest() {
+    ages.check(Wood, Steam);
+    assertEquals(ages.checked(), asList("Steam", "Wood"));
 }
 
+@Test
+public void selectNumTest() {
+    ages.check(1, 5);
+    assertEquals(ages.checked(), asList("Electro", "Wood"));
+}
 ```
 ```csharp 
 [Test]
@@ -3547,9 +3549,6 @@ public void MultiSelectByIndexes()
     MyMultiSelector.Select(int[]);
 }
 ```
-
-
-![MultiSelector](../images/html/multiSelectHtml2.png)
 
 ```html
 <select id="ages" multiple="" size="4">

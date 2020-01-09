@@ -3466,8 +3466,8 @@ List of available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**check(String.../Enum/int...)** | Check checkboxes | void
-**uncheck(String.../Enum/int...)** | Unselect checkboxes | void
+**check(String.../Enum/int...)** | Check specified checkboxes and uncheck others | void
+**uncheck(String.../Enum/int...)** | Uncheck specified checkboxes and check others  | void
 **select(String.../Enum/int...)** | Select checkboxes | void
 **uncheckAll()** | Uncheck all checkboxes in checklist | void
 **checkAll()** | Check all checkboxes in checklist | void

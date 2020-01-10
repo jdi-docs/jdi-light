@@ -3024,50 +3024,41 @@ Available Assert methods in C#:
 JDI Light provides a MultiSelector class which is using for MultiDropdown representation as a type of web element.
 
 ```java 
-@UI("#multi-dropdown") //@FindBy(id = "multi-dropdown")
-public static MultiSelector multiDropdown;
+    //@FindBy(id = "multi-dropdown")
+    @UI("#multi-dropdown") 
+    public static MultiSelector multiDropdown;
 
-@Test
-public void selectTest() {
-    if (isFireFox()) return;
-    multiDropdown.check("Electro", "Metalic");
-    assertEquals(multiDropdown.checked(), asList("Electro", "Metalic"));
-}
+    @Test
+    public void selectTest() {
+        multiDropdown.check("Electro", "Metalic");
+        multiDropdown.checked().equals(asList("Electro", "Metalic"));
+        multiDropdown.is().selected("Electro");
+        multiDropdown.uncheck("Metalic");
+        multiDropdown.checked().equals(asList("Electro"));
+    }
 
-@Test
-public void selectEnumTest() {
-    if (isFireFox()) return;
-    multiDropdown.check(Wood, Steam);
-    assertEquals(multiDropdown.checked(), asList("Steam", "Wood"));
-}
+    @Test
+    public void disabledTest() {
+        multiDropdown.select("Disabled");
+        multiDropdown.is().selected("Steam");
+    }
 
-@Test
-public void selectedTest() {
-    assertEquals(multiDropdown.selected(), text);
-}
+    @Test
+    public void labelTest() {
+        multiDropdown.label().is().text("Multi dropdown:");
+        multiDropdown.label().is().text(containsString("Multi"));
+    }
 
-@Test
-public void disabledTest() {
-    if (isFireFox()) return;
-    multiDropdown.select("Disabled");
-    assertEquals(multiDropdown.selected(), "Steam");
-}
-
-@Test
-public void labelTest() {
-    assertEquals(multiDropdown.label().getText(), "Multi dropdown:");
-    multiDropdown.label().is().text(containsString("Multi"));
-}
-
-@Test
-public void isValidationTest() {
-    multiDropdown.is().selected("Steam");
-    multiDropdown.is().selected(Steam);
-    multiDropdown.assertThat().values(hasItem("Wood"));
-    multiDropdown.assertThat().disabled(hasItem("Disabled"))
-            .enabled(not(hasItem("Disabled")))
-            .enabled(hasItems("Electro", "Metalic"));
-}
+    @Test
+    public void isValidationTest() {
+        multiDropdown.is().selected("Steam");
+        multiDropdown.is().selected(Steam);
+        multiDropdown.assertThat().values(hasItem("Steam"));
+        multiDropdown.shouldBe().value("Steam");
+        multiDropdown.assertThat().disabled(hasItem("Disabled"))
+                .enabled(not(hasItem("Disabled")))
+                .enabled(hasItems("Electro", "Metalic"));
+    }
 ```
 
 ```csharp 
@@ -3604,38 +3595,58 @@ ComboBox is provided by JDI Light in:
   - __C#__: _JDI.Light.Elements.Common.Combobox_
 
 ```java 
-public static Combobox iceCream;
+    public static Combobox iceCream;
 
-@UI("#ice-cream") // @FindBy(id = "ice-cream")
-public static DataList iceCreamDataList;
+    // @FindBy(id = "ice-cream")
+    @UI("#ice-cream") 
+    public static DataList iceCreamDataList;
 
-  
-@Test
-public void selectTest() {
-    iceCreamDataList.select("Chocolate");
-    assertEquals(iceCreamDataList.getValue(), "Chocolate");
-}
-@Test
-public void selectNumTest() {
-    iceCreamDataList.select(5);
-    assertEquals(iceCreamDataList.getValue(), "Vanilla");
-}
-@Test
-public void selectedTest() {
-    assertEquals(iceCreamDataList.selected(), "Coconut");
-}
-@Test
-public void labelTest() {
-    assertEquals(iceCreamDataList.label().getText(), "Choose your lovely icecream");
-    iceCreamDataList.label().is().text(containsString("lovely icecream"));
-}
-@Test
-public void isValidationTest() {
-    iceCream.is().enabled();
-    iceCream.is().text(is(text));
-    iceCream.select(Vanilla);
-    iceCream.is().text(containsString("Van"));
-}
+    @Test
+    public void getTextTest() {
+        iceCreamIs.is().text("Coconut");
+    }
+
+    @Test
+    public void inputTest() {
+        iceCreamIs.input("New text");
+        iceCreamIs.is().text("New text");
+        iceCreamIs.clear();
+        iceCreamIs.is().text("");
+    }
+
+    @Test
+    public void placeholderTest() {
+        iceCreamIs.placeholder().equals("Ice cream");
+    }
+
+    @Test
+    public void selectTest() {
+        iceCreamIs.select("Chocolate");
+        iceCreamIs.is().text("Chocolate");
+        iceCreamIs.select(Strawberry);
+        iceCreamIs.is().text("Strawberry");
+        iceCreamIs.clear();
+        iceCreamIs.select(5);
+        iceCreamIs.is().text("Vanilla");
+    }
+
+    @Test
+    public void labelTest() {
+        iceCreamIs.label().is().text("Choose your lovely icecream");
+        iceCreamIs.label().is().text(containsString("lovely icecream"));
+    }
+
+    @Test
+    public void isValidationTest() {
+        iceCreamIs.listEnabled();
+        iceCreamIs.assertThat().equals(asList("Chocolate", "Strawberry"));
+        iceCreamIs.is().enabled();
+        iceCreamIs.is().text("Coconut");
+        iceCreamIs.is().selected("Coconut");
+        iceCreamIs.is().selected(is("Coconut"));
+        iceCreamIs.select(Vanilla);
+        iceCreamIs.is().text(containsString("Van"));
+    }
 ```
 ```csharp 
 [Test]

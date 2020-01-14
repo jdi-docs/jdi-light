@@ -3039,6 +3039,7 @@ JDI Light provides a MultiSelector class which is using for MultiDropdown repres
 
     @Test
     public void disabledTest() {
+        multiDropdown.check("Steam");
         multiDropdown.select("Disabled");
         multiDropdown.is().selected("Steam");
     }
@@ -3602,11 +3603,6 @@ ComboBox is provided by JDI Light in:
     public static DataList iceCreamDataList;
 
     @Test
-    public void getTextTest() {
-        iceCreamIs.is().text("Coconut");
-    }
-
-    @Test
     public void inputTest() {
         iceCreamIs.input("New text");
         iceCreamIs.is().text("New text");
@@ -3622,12 +3618,8 @@ ComboBox is provided by JDI Light in:
     @Test
     public void selectTest() {
         iceCreamIs.select("Chocolate");
-        iceCreamIs.is().text("Chocolate");
         iceCreamIs.select(Strawberry);
-        iceCreamIs.is().text("Strawberry");
-        iceCreamIs.clear();
         iceCreamIs.select(5);
-        iceCreamIs.is().text("Vanilla");
     }
 
     @Test
@@ -3641,7 +3633,6 @@ ComboBox is provided by JDI Light in:
         iceCreamIs.listEnabled();
         iceCreamIs.assertThat().equals(asList("Chocolate", "Strawberry"));
         iceCreamIs.is().enabled();
-        iceCreamIs.is().text("Coconut");
         iceCreamIs.is().selected("Coconut");
         iceCreamIs.is().selected(is("Coconut"));
         iceCreamIs.select(Vanilla);

@@ -2709,6 +2709,7 @@ public void selectIndexTest() {
 
 @Test
 public void checkValuesTest() {
+    colors2.assertThat().size(5);
     colors2.assertThat().values(is(dropdownValues));
     colors2.is().values(hasItem("Yellow"));
     colors2.is().values(not(hasItem("Missing color")));

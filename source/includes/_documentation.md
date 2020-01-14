@@ -2128,171 +2128,28 @@ public static Table users;
     size = 4
 ) public static Table usersSetup;
 
-
 @Test
-public void tablePerformanceTest() {
-    tablePerformance(users);
-}
-@Test
-public void jTablePerformanceTest() {
-    tablePerformance(usersSetup);
+public void tableReceivingDataTest() {
+    assertThat(usersSetup.column("City").getValue().substring(0,26), is("GozŽe;Alcobendas;Beauvais;"));
+    assertThat(usersSetup.preview().substring(0,35), is("Name Phone Email CityBurke Tucker 0"));
+    assertThat(usersSetup.cell(1,4), is("Zachary Hendrix"));
 }
 
-private void tablePerformance(Table table) {
-    assertEquals(table.size(), 4);
-    assertEquals(table.count(), 400);
-    assertEquals(table.header(), asList("Name", "Phone",
-                 "Email", "City"));
-    start();
-    assertEquals(table.row(1).getValue(),
-            "Burke Tucker;076 1971 1687;et.euismod.et@ut.edu;GozŽe");
-    logTime("Get 1 row");
-
-    assertEquals(table.row("Burke Tucker").getValue(),
-            "Burke Tucker;076 1971 1687;et.euismod.et@ut.edu;GozŽe");
-    logTime("Get 'Burke Tucker' row");
-
-    String zacharyEmail = "ipsum.non.arcu@auctorullamcorper.ca";
-    assertEquals(table.cell(3,4), zacharyEmail);
-    logTime("Get cell(3,4)");
-    assertEquals(table.cell("Email",4), zacharyEmail);
-    logTime("Get cell(Email,4)");
-    assertEquals(table.cell(3,"Zachary Hendrix"), zacharyEmail);
-    logTime("Get cell(3,Zachary Hendrix)");
-    assertEquals(table.cell("Email","Zachary Hendrix"), zacharyEmail);
-    logTime("Get cell(Email,Zachary Hendrix)");
-
-    assertEquals(table.column(2).getValue().substring(0, 30),
-            "076 1971 1687;(011307) 16843;0");
-    logTime("Get column(2)");
-
-    assertEquals(table.column("Phone").getValue().substring(0, 30),
-            "076 1971 1687;(011307) 16843;0");
-    logTime("Get column(Phone)");
-
-    String value = table.preview();
-    assertEquals(value.substring(0,194),
-       "Name Phone Email City" +
-       "Burke Tucker 076 1971 1687 et.euismod.et@ut.edu GozŽe"+
-       "Grady Brock (011307) 16843 cursus.et@commodo.org Alcobendas"+
-       "Harding Lloyd 0800 1111 neque.In.ornare@mauris.co.uk Beauvais");
-    logTime("Preview");
-    /*value = table.getValue();
-    assertEquals(value.substring(0,228),
-   "||X||Name|Phone|Email|City||\r\n" +
-   "||1||Burke Tucker|076 1971 1687|
-        et.euismod.et@ut.edu|GozŽe||\r\n" +
-   "||2||Grady Brock|(011307) 16843|cursus.et@commodo.org|Alcobendas
-        ||\r\n"+
-   "||3||Harding Lloyd|0800 1111|neque.In.ornare@mauris.co.uk
-        |Beauvais||");
-    logTime("Get value");*/
-}
 @Test
-public void tableDataTest() {
-    assertEquals(users.row(2).asData(UserInfo.class),
-            GRADY_BROCK);
-}
-@Test
-public void tableEntityTest() {
-    UserRow user = users.row(2).asLine(UserRow.class);
-    user.name.click();
-    validateAlert(containsString("Brock"));
-    user.city.click();
-    validateAlert(is("Alcobendas"));
+public void rowMatcherTest() {
+    usersSetup.has().rowThat(containsValue("Colby Young", inColumn("Name")));
+    usersSetup.assertThat().all().rows(containsValue("0", inColumn("Phone")));
+    usersSetup.assertThat().no().rows(containsValue("Australopithecus", inColumn("Name")));
+    usersSetup.assertThat().atLeast(2).rows(containsValue("Sean", inColumn("Name")));
+    usersSetup.assertThat().exact(15).rows(containsValue("0800 1111", inColumn("Phone")));
 }
 
-private static long timeStart;
-public static void start() {
-    timeStart = currentTimeMillis();
+@Test
+public void tableParamTest() {
+    assertThat(usersSetup.size(), is(4));
+    assertThat(usersSetup.count(), is(400));
+    assertThat(usersSetup.header(), hasItems("Name", "Phone", "Email", "City"));
 }
-public static void logTime(String description) {
-    out.println(description + ": " +
-         (currentTimeMillis() - timeStart) + "ms");
-    timeStart = currentTimeMillis();
-}	
-@Test
- public void hugeTableSearchTest() {
-     StopWatch timer = StopWatch.createStarted();
-     Line row = usersTable.row(
-         containsValue("Meyer", inColumn("Name")),
-         containsValue("co.uk", inColumn("Email")));
-     System.out.println("Huge table search test Time: "+ 
-            timer.getTime());
-     Assert.assertEquals(row.getValue(),
-        "Brian Meyer;(016977) 0358;mollis.nec@seddictumeleifend.co.uk;
-               Houston");
- }
-@Test
- public void hugeTableValidateTest() {
-    StopWatch timer = StopWatch.createStarted();
-    String actualTable = usersTable.preview();
-    System.out.println("Huge table validate test Time: "
-         + timer.getTime());
-    Assert.assertEquals(actualTable, TABLE_SNAPSHOT);
- }
-@Test
- public void bigDropdownTest() {
-     String name = "Charles Byers";
-     StopWatch timer = StopWatch.createStarted();
-     userNames.select(name);
-     System.out.println("Big dropdown test Time: "
-         + timer.getTime());
-     Assert.assertEquals(userNames.selected(), name);
- }
-@Test
- public void longTextTest() {
-     String text = "Lorem ipsum dolor sit amet,
-     eos numquam rationibus ad.
-     Ius cu accumsan salutatus,
-     ne pro purto ridens vulputate. 
-        Cu eum doctus tritani,
-     munere sanctus complectitur vis id.
-     Paulo vulputate te eos,
-        suas tollit laudem nam id.
-     His esse rebum reprimique ut,
-     te solum atqui homero vim.\\n\\n" +
-     "Labitur salutatus eos an. Vim ut dicam fuisset. Ex sed animal
-     accommodare, 
-      utinam graeci iisque vim id, ea fugit scripta deleniti nec.
-     Eos cu nisl veri meis.
-      Affert audiam copiosae mel ne,
-         fabulas menandri temporibus has et.
-      Sed latine graecis ei,
-      eu fugit soluta intellegam vis,
-         nibh graeci meliore ad duo.\\n\\n" +
-      "Et quis meis delenit mea,
-         ius ea sumo laboramus vituperatoribus.
-        Te simul luptatum 
-      tractatos nam, eam in causae constituam, 
-       quod stet ancillae nam ei.
-      Ne his dico veniam
-      legere, id has vidisse euismod sanctus.
-      Vis putant volumus tincidunt et.\\n\\n" +
-      "Has eirmod consequat ad. Sea illud clita ut, 
-      has quando accusata cotidieque an,
-      volutpat iudicabit definitionem ut sea.
-         Pri at atqui molestiae,
-     nibh ullum consulatu vix at.
-      Nec id nisl nonumes epicurei,
-         et vitae possit probatus ius. 
-      Fierent delicata argumentum ut
-     quo. Tation tincidunt sed eu, 
-        sit in nostrud democritum.\\n\\n" +
-    "Usu esse utroque sapientem ad.
-        Eam ut consul soleat sapientem,
-        cu dolor consequuntur vis.
-     Erat temporibus mea id, has ex dicam tritani.
-     Pertinacia expetendis consectetuer eos ei,
-     vidit malis periculis est ea, ne nam movet fuisset.
-     Pro id habemus definitiones, 
-    in ferri solum reprehendunt mei.
-     Vel eligendi honestatis liberavisse id.";
-     StopWatch timer = StopWatch.createStarted();
-     textareaPerformance.setText(text + "\\n"+ text);
-     System.out.println("Long text test Time: " +
-         timer.getTime());
- }	
   ```
 
 ```csharp

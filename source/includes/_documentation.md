@@ -2146,9 +2146,9 @@ public void rowMatcherTest() {
 
 @Test
 public void tableParamTest() {
-    assertThat(usersSetup.size(), is(4));
-    assertThat(usersSetup.count(), is(400));
-    assertThat(usersSetup.header(), hasItems("Name", "Phone", "Email", "City"));
+    usersSetup.is().size(4);
+    usersSetup.is().count(400);
+    usersSetup.is().columns(asList("Name", "Phone", "Email", "City"));
 }
   ```
 

@@ -2044,20 +2044,20 @@ Here is the list of some available methods in Java:
 
 |Method | Description | Return Type
 --- | --- | ---
+**assertThat()** | Returns object for work with assertions | RadioButtonAssert
+**is()** | Returns object for work with assertions | RadioButtonAssert
 **select(String/int/Enum)** | Select radiobutton by value/index  | void
 **selected()** | Get selected radiobutton value | string
 **values()** | Returns list of values | List<string>
-**is()** | Returns object for work with assertions | RadioButtonAssert
-**assertThat()** | Returns object for work with assertions | RadioButtonAssert
 
 Here is the list of some available methods in C#:
 
 |Method | Description | Return Type
 --- | --- | ---
+**AssertThat()** | Returns object for work with assertions | RadioButtonAssert
+**Is()** | Returns object for work with assertions | RadioButtonAssert
 **Select(string/int)** | Select radiobutton by value/index  | void
 **Selected()** | Get selected radiobutton value | string
-**Is()** | Returns object for work with assertions | RadioButtonAssert
-**AssertThat()** | Returns object for work with assertions | RadioButtonAssert
 **Values()** | Returns list of values | List<string>
 
 
@@ -2319,24 +2319,33 @@ Here is a list of available methods in Java:
 **column(Enum colName)** | Returns a column object of a table according to column name | Line
 **column(int colNum)** | Returns a column object of a table according to column number | Line
 **column(String colName)** | Returns a column object of a table according to column name | Line
+**column(String column)** | Asserts whether table Check that the table has the specified column | BaseTableAssert
 **columns()** | Returns a list of column objects of a table | List\<Line>
+**columns(List<String> columns)** | Asserts whether table Check that the table has the specified columns | BaseTableAssert
+**columns(Matcher<Collection<? extends String>>)** | Match passed value with table columns | BaseTableAssert
+**count()** | Returns amount of rows | int
+**empty()** | Asserts whether table is empty | BaseTableAssert
 **filterRows(Matcher<String> matcher, Column column)** | Sets and returns a list of filtered rows of a table according to matching column | List\<Line>
 **filterRows(Pair<Matcher<String>,Column>... matchers)** | Sets and returns a list of filtered rows of a table according to matching column | List\<Line>
 **getValue()** | Returns a string content of values for a particular row, where values are separated by ";" | String
+**header()** | Returns a list of table's headers | List<String>
 **isEmpty()** | Asserts whether a table is empty | boolean
 **isNotEmpty()** | Asserts whether a table is not empty | boolean
+**notEmpty()** | Asserts whether table is not empty | BaseTableAssert
 **preview()** | Returns table preview | String
+**row(Matcher<String> matcher, Column column)** |Check that the table has rows that meet expected condition| BaseTableAssert
+**rows(TableMatcher... matchers)** |Makes sure that the table has at least a certain number of the specified line| BaseTableAssert
 **row(Enum rowName)** | Returns a row object of a table according to row name | Line
 **row(int rowNum)** | Returns a row object of a table according to row number | Line
 **row(Matcher<String> matcher, Column column)** | Returns a row object of a table according to matching column | Line
 **row(Pair<Matcher<String>,Column>... matchers)** | Returns a row object of a table according to matching column | Line
 **row(String rowName)** | Returns a row object of a table according to row name | Line
 **row(TableMatcher... matchers)** | Returns a row object of a table according to matcher | Line
+**rowThat(TableMatcher... matchers)** |Check that the table has at list one specified row | BaseTableAssert
+**rowThat(Single matcher, Column column)** | Check that the table has at list one specified row | BaseTableAssert
 **rows()** | Returns a list of rows of a table | List\<Line>
 **rows(TableMatcher... matchers)** | Returns a list of rows of a table according to matchers | List\<Line>
 **size()** | Returns amount of columns | int
-**count()** | Returns amount of rows | int
-**header()** | Returns a list of table's headers | List<String>
 **webRow(int rowNum)** | Returns all UIElements in the row according to row number | List<UIElement>
 **webRow(String rowName)** | Returns all UIElements in the row according to row name | List<UIElement>
 **webRow(Enum rowName)** | Returns all UIElements in the row according to row name | List<UIElement>
@@ -2344,38 +2353,14 @@ Here is a list of available methods in Java:
 **webColumn(String colName)** | Returns all UIElements in the column according to column name | List<UIElement>
 **webColumn(Enum colName)** | Returns all UIElements in the column according to column name | List<UIElement>
 **webCell(int colNum, int rowNum)** | Returns all UIElements in the column according to cell position | List<UIElement>
-**empty()** | Asserts whether table is empty | BaseTableAssert
-**notEmpty()** | Asserts whether table is not empty | BaseTableAssert
 **size(Matcher<Integer> condition)** | Asserts whether table size satisfies some matcher condition | BaseTableAssert
 **size(int size)** | Asserts whether table has a particular size | BaseTableAssert
-**column(String column)** | Asserts whether table Check that the table has the specified column | BaseTableAssert
-**columns(List<String> columns)** | Asserts whether table Check that the table has the specified columns | BaseTableAssert
-**columns(Matcher<Collection<? extends String>>)** | Match passed value with table columns | BaseTableAssert
-**rowThat(TableMatcher... matchers)** |Check that the table has at list one specified row | BaseTableAssert
-**rowThat(Single matcher, Column column)** | Check that the table has at list one specified row | BaseTableAssert
-**row(Matcher<String> matcher, Column column)** |Check that the table has rows that meet expected condition| BaseTableAssert
-**rows(TableMatcher... matchers)** |Makes sure that the table has at least a certain number of the specified line| BaseTableAssert
 
 And here are methods available in C#:
 
 | Method | Description | Return Type|
 --- | --- | ---
 **AssertThat()** | Applicable for performing assert actions for tables | TableAssert
-**Is()** | Applicable for performing assert actions for tables | TableAssert
-**ContainsValue(string value, Column column)** | Looks for an object by some value occurrence in a particular column | TableMatcher 
-**HasValue(string value, Column column)** | Looks for an object (exact match) in a particular column | TableMatcher
-**InColumn(string value)** | Sets an object of some column to a particular value | Column
-**InColumn(int num)** | Sets an object of some column to a particular column number | Column
-**Row(params TableMatcher[] matchers)** | Sets and returns a row object from a table according to some matcher params (returns 'null' if there is no such row) | Line
-**Row(int rowNum)** | Sets and returns a row object of a table according to the row index | Line
-**Row(string rowName)** | Sets and returns a row object of a table according to the row name | Line
-**Row(Enum rowName)** | Sets and returns a row object of a table according to row name | Line
-**Row(Matcher<String> matcher, Column column)** | Sets and returns a row object of a table according to matching column | Line
-**Row(params KeyValuePair<Matcher<string>, Column>[] matchers)** | Sets and returns a row object of a table according to matching column | Line
-**RowsAsLines(params TableMatcher[] matchers)** | Sets and returns a list of rows of a table according to matchers | List<Line>
-**RowsAsLines()** | Sets and returns a list of rows of a table | List<Line>
-**FilterRows(Matcher<String> matcher, Column column)** | Sets and returns a list of filtered rows of a table according to matching column | List<Line>
-**FilterRows(params KeyValuePair<Matcher<string>, Column>[] matchers)** | Sets and returns a list of filtered rows of a table according to matching column | List<Line>
 **Cell(int colNum, int rowNum)** | Sets and returns a cell object of a table according to the cell's indices | string
 **Cell(string colName, int rowNum)** | Sets and returns a cell object of a table according to the cell's column name and row index | string
 **Cell(int colNum, string rowName)** | Sets and returns a cell object of a table according to the cell's column index and row name | string
@@ -2384,17 +2369,32 @@ And here are methods available in C#:
 **Column(string colName)** | Sets and returns a column object of a table according to the column's name | Line
 **Column(Enum colName)** | Sets and returns a column object of a table according to column name | Line
 **Columns()** | Sets and returns a list of column objects of a table | List<Line>
-**GetValue()** | Returns a string content of values for a particular row, where values are separated by ";" | string
-**string Preview()** | Returns a string content of the whole table | string
+**Columns(Matcher<IEnumerable<string>> condition)** | Asserts whether headers satisfy some matcher condition | TableAssert
+**ContainsValue(string value, Column column)** | Looks for an object by some value occurrence in a particular column | TableMatcher 
 **Empty()** | Asserts whether table is empty | TableAssert
-**NotEmpty()** | Asserts whether table is not empty | TableAssert
-**Size(Matcher<int> condition)** | Asserts whether table size satisfies some matcher condition | TableAssert
-**Size(int expectedSize)** | Asserts whether table has a particular size | TableAssert
+**FilterRows(Matcher<String> matcher, Column column)** | Sets and returns a list of filtered rows of a table according to matching column | List<Line>
+**FilterRows(params KeyValuePair<Matcher<string>, Column>[] matchers)** | Sets and returns a list of filtered rows of a table according to matching column | List<Line>
+**GetValue()** | Returns a string content of values for a particular row, where values are separated by ";" | string
 **HasColumn(string column)** | Asserts whether table has a particular header | TableAssert
 **HasColumns(IEnumerable<string> columns)** | Asserts whether table has particular headers | TableAssert
-**Columns(Matcher<IEnumerable<string>> condition)** | Asserts whether headers satisfy some matcher condition | TableAssert
-**RowsWithValues(int count, params TableMatcher[] matchers)** | Asserts whether rows with particular matchers exist in a table multiple times | TableAssert
 **HasRowWithValues(params TableMatcher[] matchers)** | Asserts whether a row with particular matchers exists in a table | TableAssert
+**HasValue(string value, Column column)** | Looks for an object (exact match) in a particular column | TableMatcher
+**Is()** | Applicable for performing assert actions for tables | TableAssert
+**InColumn(string value)** | Sets an object of some column to a particular value | Column
+**InColumn(int num)** | Sets an object of some column to a particular column number | Column
+**NotEmpty()** | Asserts whether table is not empty | TableAssert
+**Row(params TableMatcher[] matchers)** | Sets and returns a row object from a table according to some matcher params (returns 'null' if there is no such row) | Line
+**Row(int rowNum)** | Sets and returns a row object of a table according to the row index | Line
+**Row(string rowName)** | Sets and returns a row object of a table according to the row name | Line
+**Row(Enum rowName)** | Sets and returns a row object of a table according to row name | Line
+**Row(Matcher<String> matcher, Column column)** | Sets and returns a row object of a table according to matching column | Line
+**Row(params KeyValuePair<Matcher<string>, Column>[] matchers)** | Sets and returns a row object of a table according to matching column | Line
+**RowsAsLines(params TableMatcher[] matchers)** | Sets and returns a list of rows of a table according to matchers | List<Line>
+**RowsAsLines()** | Sets and returns a list of rows of a table | List<Line>
+**RowsWithValues(int count, params TableMatcher[] matchers)** | Asserts whether rows with particular matchers exist in a table multiple times | TableAssert
+**string Preview()** | Returns a string content of the whole table | string
+**Size(Matcher<int> condition)** | Asserts whether table size satisfies some matcher condition | TableAssert
+**Size(int expectedSize)** | Asserts whether table has a particular size | TableAssert
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-examples/src/test/java/io/github/epam/tests/recommended/TableTests.java" target="_blank">Test examples in Java</a>
 
@@ -2634,6 +2634,7 @@ In return types column _"D"_ refers to the user data object and _"L"_ refers to 
 **filterLines(Matcher<String> matcher, Column column)** | Returns a list of objects of a table according to matching row and column | List\<L>
 **filterLines(Pair<Matcher<String>,Column>...matchers)** | Returns a list of objects of a table according to matching column | List\<L>
 **getValue()** | Returns string content of values for particular row, where values are separated by "&#124;" | String
+**getValue()** | Returns table content separated by "&#124;" | String
 **line(Enum rowName)** | Returns an object of a table according to row name | L
 **line(int rowNum)** | Returns an object of a table according to row number | L
 **line(JFunc1<D, Boolean> matcher)** | Returns an object of a table according to matching row | L
@@ -2646,7 +2647,6 @@ In return types column _"D"_ refers to the user data object and _"L"_ refers to 
 **offCache()** | Turns off cache usage | void
 **refresh()** | Clears all data and lines | void
 **setup(Field field)** | Sets up the table using specified fields | void
-**getValue()** | Returns table content separated by "&#124;" | String
 
 DataTableAssert methods in Java:
 
@@ -2839,31 +2839,31 @@ Here is a list of some available methods:
 
 |Method | Description | Return Type
 --- | --- | ---
+**assertThat()** | Applicable for performing assert actions for DropDown | ListAssert<UIElement>
+**close()** | Close expanded before dropdown list | void
+**expand()** | Expand dropdown list | void
 **getValue()/getText()/getSelected()** | Return selected dropdown value | String
-**selected(String option)** | Check if option has been selected | boolean
+**has()** | Applicable for performing assert actions for DropDown | ListAssert<UIElement>
+**is()** | Applicable for performing assert actions for DropDown | ListAssert<UIElement>
 **isExpanded()** | Show that dropdown element expanded | boolean
 **isDisplayed()** | Show\wait that dropdown element displayed on the screen | boolean
-**expand()** | Expand dropdown list | void
-**close()** | Close expanded before dropdown list | void
-**size()** | Return amount of elements in the list | int
+**selected(String option)** | Check if option has been selected | boolean
 **setup(Field field)** | Setup the dropdown using specified fields | void
-**is()** | Applicable for performing assert actions for DropDown | ListAssert<UIElement>
-**assertThat()** | Applicable for performing assert actions for DropDown | ListAssert<UIElement>
-**has()** | Applicable for performing assert actions for DropDown | ListAssert<UIElement>
-**waitFor()** | Applicable for performing assert actions for DropDown | ListAssert<UIElement>
 **shouldBe()** | Applicable for performing assert actions for DropDown | ListAssert<UIElement>
+**size()** | Return amount of elements in the list | int
+**waitFor()** | Applicable for performing assert actions for DropDown | ListAssert<UIElement>
 
 Available Assert methods in C#:
 
 |Method | Description | Return Type
 --- | --- | ---
-**Selected(string option)** |Checks whether some option is selected  | DropDownAssert 
-**Selected(Enum option)** |Checks whether some option is selected  | DropDownAssert
-**Values(Matcher<IEnumerable<string>> condition)** |Checks that dropdown values match some condition | DropDownAssert
+**AssertThat** |Gets dropdown assertion | DropDownAssert
 **Disabled(Matcher<IEnumerable<string>> condition)** |Checks that dropdown values are disabled by some condition | DropDownAssert
 **Enabled(Matcher<IEnumerable<string>> condition)** |Checks that dropdown values are enabled by some condition | DropDownAssert
 **Is** |Gets dropdown assertion | DropDownAssert
-**AssertThat** |Gets dropdown assertion | DropDownAssert
+**Selected(string option)** |Checks whether some option is selected  | DropDownAssert 
+**Selected(Enum option)** |Checks whether some option is selected  | DropDownAssert
+**Values(Matcher<IEnumerable<string>> condition)** |Checks that dropdown values match some condition | DropDownAssert
 
 <a href="https://github.com/jdi-testing/jdi-light/tree/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/dropdown" target="_blank">Test examples in Java</a>
 
@@ -3019,15 +3019,15 @@ MultiDropdown are represented by the following classes:
  
 |Method | Description | Return Type
 --- | --- | ---
-**check(String/String.../Enum.../int...)** |Select values in multi dropdown | void
-**uncheck(String.../Enum.../int...)** | Deselect values in multi dropdown | void
-**selected()** | Get selected value by default | String
-**checked()** | Get selected values | List\<String>
-**is()** | Applicable for performing assert actions for MultiDropdown | DataTableAssert
 **assertThat()** | Applicable for performing assert actions for MultiDropdown | DataTableAssert
+**check(String/String.../Enum.../int...)** |Select values in multi dropdown | void
+**checked()** | Get selected values | List\<String>
 **has()** | Applicable for performing assert actions for MultiDropdown | DataTableAssert
-**waitFor()** | Applicable for performing assert actions for MultiDropdown | DataTableAssert
+**is()** | Applicable for performing assert actions for MultiDropdown | DataTableAssert
+**selected()** | Get selected value by default | String
 **shouldBe()** | Applicable for performing assert actions for MultiDropdown | DataTableAssert
+**uncheck(String.../Enum.../int...)** | Deselect values in multi dropdown | void
+**waitFor()** | Applicable for performing assert actions for MultiDropdown | DataTableAssert
 
 Here is the list of some methods available for C# in JDI Light:
 

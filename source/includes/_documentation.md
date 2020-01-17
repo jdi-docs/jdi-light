@@ -3703,27 +3703,119 @@ Form consists of elements based on _SetValue_ interface and buttons with **submi
 
 Form provides the _fill, submit and verify/check_ functionality.  
 
-![Form](../images/html/form_html2.png)
+![Form](../images/html/contact_form_example.png)
 
 ```html
-<form class="form-horizontal login" id="login-form">
-    <div class="form-horizontal-pad">
-        <div class="form-group form-group10">
-            <label for="name" class="col-sm-3">Login</label>
-            <div class="col-sm-9"><input id="name"
-                 type="text" class="uui-form-element"></div>
+<form class="form" id="contact-form">
+    <div class="row overflow">
+        <div class="col-sm-4">
+            <div class="form-group form-group10">
+                <label for="name">Name</label>
+                <input id="name" type="text" class="uui-form-element">
+            </div>
         </div>
-        <div class="form-group form-group10">
-            <label for="password" class="col-sm-3">Password</label>
-            <div class="col-sm-9"><input id="password"
-                 type="password" class="uui-form-element"></div>
+        <div class="col-sm-4">
+            <div class="form-group form-group10">
+                <label for="last-name">Last Name</label>
+                <input id="last-name" type="text" class="uui-form-element">
+            </div>
         </div>
-        <span class="login-txt hidden">* Login Faild</span>
+        <div class="col-sm-4">
+            <div class="form-group form-group10">
+                <label for="position">Position</label>
+                <input id="position" type="text" class="uui-form-element">
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="form-group form-group10 lower">
+                <label for="passport">Passport</label>
+                <input id="passport" type="checkbox" name="passport" class="uui-form-element">
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group form-group10">
+                <label for="passport-number">Number</label>
+                <input id="passport-number" type="text" class="uui-form-element">
+            </div>
+        </div>
+        <div class="col-sm-5">
+            <div class="form-group form-group10">
+                <label for="passport-seria">Seria</label>
+                <input id="passport-seria" type="text" class="uui-form-element">
+            </div>
+        </div>
+        </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <label for="gender">Gender</label>
+            <select class="uui-form-element" ui="dropdown" id="gender">
+                <option>Male</option>
+                <option checked="">Female</option>
+            </select>
+        </div>
+        <div class="col-sm-4">
+            <label for="religion">Religion</label>
+            <div class="form-group form-group10">
+                <input list="religion-options" id="religion" placeholder="Religion" class="uui-form-element">
+                <datalist id="religion-options">
+                    <option>Christian</option>
+                    <option>Muslims</option>
+                    <option>Induism</option>
+                    <option>Other</option>
+                </datalist>
+            </div>
+        </div>
+        <div class="col-sm-4">	
+            <label for="weather">Weather</label>
+            <div class="form-group salad" ui="droplist" id="weather">
+                <div class="dropdown salad">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></button>
+                    <ul class="dropdown-menu" style="display: none;">
+                        <li>
+                            <a href="#" class="checkbox">
+                                <input type="checkbox" id="g5" class="uui-form-element blue">
+                                <label for="g5">Sun</label>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="checkbox">
+                                <input type="checkbox" id="g6" class="uui-form-element blue">
+                                <label for="g6">Rain</label>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="checkbox">
+                                <input type="checkbox" id="g7" class="uui-form-element blue">
+                                <label for="g7">Weather</label>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="checkbox">
+                                <input type="checkbox" id="g8" class="uui-form-element blue">
+                                <label for="g8">Snow</label>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
-    <button type="submit" class="uui-button dark-blue btn-login"
-             id="login-button">
-        <i class="fa fa-sign-in"></i><span>Enter</span></button>
-</form>
+    <div class="row overflow">
+        <div class="col-sm-12">
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea class="uui-form-element" rows="4" cols="10" id="description"></textarea>
+            </div>
+            <div> 
+                <input id="accept-conditions" type="checkbox" name="accept-conditions">
+                <label for="accept-conditions">Accept conditions</label>
+            </div>
+        </div>
+        <div class="col-sm-12 text-right">
+            <button class="uui-button dark-blue" type="submit">Submit</button>
+        </div>
+    </div>
+ </form>
 ```
 
 Form is located in the following classes:
@@ -3731,116 +3823,47 @@ Form is located in the following classes:
   - __Java__: <a href="https://github.com/jdi-testing/jdi-light/tree/master/jdi-light/src/main/java/com/epam/jdi/light/elements/composite/Form.java">Form.java</a>
   - __C#__:   <a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light/Elements/Composite/Form.cs">Form.cs</a>
  
- ```java 
-public class User extends DataClass<User> {
-     public String name, password;
- }
-
-public class LoginForm extends Form<User> {...}
-
-
-
-public class LoginForm extends Form<User> {
-     @UI("#name") TextField name;
-     @UI("#password") TextField password;
-     @UI("#login-button") Button loginButton;}
-  
-
-      
-public class LoginFormSmart extends Form<User> {
-    TextField name, password;
-    Button loginButton;
-}
-  
-
-
-
-
-on JDISite.java >> public static Form<User> lightLoginForm;
-
-
-
-
-
-
-public class Form<T> extends Section {
-    public Form<T> onlyMandatory() {
-        setFilter(MANDATORY);
-        return this;
-    }
-    public Form<T> onlyOptional() {
-        setFilter(OPTIONAL);
-        return this;
-    }
-}
-
+ ```java    
 public class ContactFormCustom extends Form<Contacts> {
     @Mandatory TextField name;
     TextField lastName, position, passportNumber, passportSeria;
-    @UI("['Submit']") public Button submit;
 
+    Dropdown gender;
+    IsCombobox religion;
+
+    Checkbox passport, acceptConditions;
+    TextArea description;
+
+    @UI("['Submit']") public Button submit;
+}
+
+@Test
+public void submitEntityToContactFormCustomTest() {
+    main.contactFormCustom.submit(DEFAULT_CONTACT);
+    main.contactFormCustom.check(DEFAULT_CONTACT);
+    checkContactFormCustomSubmitted();
+}
+
+@Test
+public void plainSubmitTest() {
+    main.contactFormCustom.fill(DEFAULT_CONTACT);
+    main.contactFormCustom.submit();
+    main.contactFormCustom.check(DEFAULT_CONTACT);
+    checkContactFormCustomSubmitted();
+}
 
 @Test
 public void onlyMandatoryOptionTest() {
-    shouldContactPageBeOpenedAndRefreshed();
     main.contactFormCustom.onlyMandatory().fill(DEFAULT_CONTACT);
     main.contactFormCustom.onlyMandatory().check(DEFAULT_CONTACT);
+    main.contactFormCustom.check(ONLY_NAME_FILLED_DEFAULT_CONTACT);
 }
 
-
-
-@BeforeSuite(alwaysRun = true)
-public static void setUp() {
-    logger.setLogLevel(INFO);
-    initElements(StaticSite.class);
-    Form.FILL_ACTION = (field, element, parent, setValue) -> {
-         if (isInterface(field, TextField.class))
-           	((TextField)element).higlight();
-         ((SetValue) element).setValue(setValue);
-    };
-    homePage.open();
-    logger.toLog("Run Tests");
+@Test
+public void onlyOptionalOptionTest() {
+    main.contactForm.onlyOptional().fill(DEFAULT_CONTACT);
+    main.contactFormCustom.onlyOptional().check(ALL_EXCEPT_NAME_FILLED_DEFAULT_CONTACT);
 }
-
-
-public class LoginForm extends Form<User> {
-    TextField name, password;
-    Button loginButton;
-
-	@Override
-	public void fillAction(Field field, Object element,
-         Object parent, String setValue) {
-		if (isInterface(field, TextField.class))
-			((TextField)element).higlight();
-		super.fillAction(field, element, parent, setValue);
-	}
-}
-
-
-
-
-
-
-More test examples: 
-
-
-
-on JDISite.java >> public static LoginFormSmart loginForm;
- 
- @Test
- public void loginWithUserTest() {
-     shouldBeLoggedOut();
-     loginForm.shouldBeOpened();
-     loginForm.login(DEFAULT_USER);
-     homePage.checkOpened();
- }
-     
- @Test
- public void fillContactFormTest() {
-     shouldContactPageBeOpenedAndRefreshed();
-     main.contactForm.fill(DEFAULT_CONTACT);
-     main.contactForm.check(DEFAULT_CONTACT);
- } 
  ```
  
 Form is parameterized by an entity that corresponds to the form. For example, a login form can be parameterized by a user entity. The entity should extend DataClass class (parameterized by the entity itself). 

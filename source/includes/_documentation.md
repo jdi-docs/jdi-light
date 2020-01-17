@@ -5631,13 +5631,13 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
+**alt()** |Returns the alternate text | String
+**assertThat()** | Returns object for work with assertions | LinkAssert
 **click()** |Follow the link | void
 **getText()** |Returns the link text  | String
+**is()** | Returns object for work with assertions | LinkAssert
 **ref()** |Returns the reference  | String
 **url()** |Returns the URL  | URL
-**alt()** |Returns the alternate text | String
-**is()** | Returns object for work with assertions | LinkAssert
-**assertThat()** | Returns object for work with assertions | LinkAssert
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/BadgeTests.java" target="_blank">Bootstrap badge test examples</a><br>
 <br><br>
@@ -5696,17 +5696,16 @@ Available methods in Java JDI Light:
 
 |Method/Property | Description | Return Type
 --- | --- | ---
+**assertThat()**	 |  Assert action	| UIAssert
 **click()** | Click the item  | void
+**first()**|Get first item |UIElement
 **getText()** |Get item text  |  String
 **getValue()** |Get item value  |  String
 **get(String option)**|Get item by text|UIElement 
 **get(int index)**|Get item by index| UIElement
-**last()**|Get last item |UIElement
-**first()**|Get first item |UIElement
 **is()**	 |  Assert action	| UIAssert
-**assertThat()**	 |  Assert action	| UIAssert
+**last()**|Get last item |UIElement
 **shouldBe()**	 |  Assert action	| UIAssert
-
 
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/BreadcrumbTests.java" target="_blank">Breadcrumb Tests Example</a>
@@ -5832,17 +5831,17 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**is()** | Asserts element  | UIAssert
-**displayed()** | Asserts element is displayed  | UIAssert 
-**hasClass()** | Checks whether element has class  | boolean 
-**click()** | Click on element  | void   
-**text()** | Check whether a text matches a pattern  | IsAssert 
 **attr()** | Check whether an element has attribute of specified name and with given value  | IsAssert 
-**toggle()** | Toggle collapse  | void 
-**select()** | Select a dropdown element  | void 
+**click()** | Click on element  | void   
+**displayed()** | Asserts element is displayed  | UIAssert 
 **expanded()** | Check whether a dropdown is expanded  | void 
-**setValue()** | Set a value for input group  | void 
 **getValue()** | Get value from input group  | String 
+**hasClass()** | Checks whether element has class  | boolean 
+**is()** | Asserts element  | UIAssert
+**select()** | Select a dropdown element  | void 
+**setValue()** | Set a value for input group  | void 
+**text()** | Check whether a text matches a pattern  | IsAssert 
+**toggle()** | Toggle collapse  | void 
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navbar/NavbarSupportedContentTests.java" target="_blank">Bootstrap Test Examples</a>
 <br><br>
@@ -5946,8 +5945,8 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**is()** | Assert action | UIAssert 
 **assertThat()** | Assert action | UIAssert
+**is()** | Assert action | UIAssert 
 **hasAttr()** | Assert action | UIAssert
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navbar/NavbarBrandTests.java" target="_blank">Bootstrap test examples</a>
@@ -6335,11 +6334,11 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
+**assertThat()** | Assert action | TextAssert
 **click()** | Click the button | void
+**get()** | Select button by index | action
 **getText()** | Get button text | String
 **is()** | Assert action | TextAssert 
-**assertThat()** | Assert action | TextAssert
-**get()** | Select button by index | action
 
 <br><br> 
 
@@ -6451,10 +6450,10 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
+**assertThat()** | Assert action | TextAssert
 **click()** | Click the button | void
 **getText()** | Get button text | String
 **is()** | Assert action | TextAssert 
-**assertThat()** | Assert action | TextAssert
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navbar/NavbarColorSchemeTests.java">Bootstrap test examples</a>
 
@@ -6599,11 +6598,11 @@ Available methods in Java JDI Light:
 |Method | Description | Return Type
 --- | --- | ---
 **click()** | Click a link | void
-**text()** | Check whether a text matches a pattern | isAssert
 **css()** | Match passed value with the element css | isAssert
+**getRect()** | Get element rectangle | Rectangle
 **is()** | Assertelement | isAssert 
 **jsExecute()** | Execute javascript | String
-**getRect()** | Get element rectangle | Rectangle
+**text()** | Check whether a text matches a pattern | isAssert
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navbar/NavbarPlacementTests.java">Bootstrap test examples</a>
 
@@ -6834,11 +6833,11 @@ Available methods in Java JDI Light:
 
 |Method/Property | Description | Return Type
 --- | --- | ---
-**expand()** | Expands element  | void
+**assertThat()** | Assert action | TextAssert
 **collapse()** | Collapses element  | void
+**expand()** | Expands element  | void
 **getText()** | Get current value | String 
 **is()** | Assert action | TextAssert 
-**assertThat()** | Assert action | TextAssert
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/navbar/ExternalContentTests.java" target=a_blank> Bootstrap test examples </a>
 <br>
@@ -6899,18 +6898,18 @@ Available methods in Java JDI Light:
 
 |Method/Property | Description | Return Type
 --- | --- | ---
+**animated()** | Match passed value with the progress css _'animation-name'_ | ProgressAssert
+**color()** | Match passed value with the progress css _'background-color'_ | ProgressAssert
 **getValue()** | Get aria value of the bar | String
 **getMaxValue()** | Get max value of the bar  | String
 **getMinValue()** | Get min value of the bar  | String
 **getColor()** | Get color of the bar  | String
 **getStyle()** | Get style of the bar | String
-**is()** | Various assert actions for Progress | ProgressAssert 
-**value()** | Match passed value with the progress value _'aria-valuenow'_ | ProgressAssert
-**color()** | Match passed value with the progress css _'background-color'_ | ProgressAssert
-**minValue()** | Match passed value with the progress value _'aria-valuemin'_ | ProgressAssert
-**maxValue()** | Match passed value with the progress value _'aria-valuemax'_ | ProgressAssert
-**animated()** | Match passed value with the progress css _'animation-name'_ | ProgressAssert
 **height()** | Match passed value with the progress height | ProgressAssert
+**is()** | Various assert actions for Progress | ProgressAssert 
+**maxValue()** | Match passed value with the progress value _'aria-valuemax'_ | ProgressAssert
+**minValue()** | Match passed value with the progress value _'aria-valuemin'_ | ProgressAssert
+**value()** | Match passed value with the progress value _'aria-valuenow'_ | ProgressAssert
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/progress/ProgressBaseTests.java" target=a_blank> Bootstrap test examples </a>
 
@@ -7184,10 +7183,10 @@ Spinners are represented by the following class in JDI:
   
 |Method/Property | Description | Return Type
 --- | --- | ---
+**color()**	 |  Assert action	| SpinnerAssert
 **disappearAfter(int sec)**|Wait when spinner disappear | Spinner
 **getColor()** |Get item color | String
 **is()**	 |  Assert action	| SpinnerAssert
-**color()**	 |  Assert action	| SpinnerAssert
  
 
 **Border Spinner**
@@ -7817,6 +7816,7 @@ Available methods in Java JDI Light:
 
 |Method/Property | Description | Return Type
 --- | --- | ---
+assertThat()	 |  Assert action	| TooltipAssert
 click() | Click the item  | void
 getText() |Get item text  |  String
 getValue() |Get item value  |  String
@@ -7824,7 +7824,6 @@ getTooltipText() |Get tooltip text |String
 getTooltipPlacement() |Get tooltip placement| String
 isTooltipWithHTML() |Check that tooltip contains html text |boolean
 is()	 |  Assert action	| UIAssert
-assertThat()	 |  Assert action	| TooltipAssert
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/TooltipTests.java" target="_blank">Bootstrap test example with tooltips</a>
  
@@ -7886,12 +7885,12 @@ Available methods in Java JDI Light:
 |Method/Property | Description | Return Type
 --- | --- | ---
 alt() | Assert alt image attribute  | ImageAssert
-width() | Assert image width | ImageAssert
-height() | Assert image height | ImageAssert
+assertThat()	 |  Assert action	| ImageAssert
 getText() | Get item text | String
 getValue() |Get item value  |  String
+height() | Assert image height | ImageAssert
 is()	 |  Assert action	| UIAssert
-assertThat()	 |  Assert action	| ImageAssert
+width() | Assert image width | ImageAssert
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/ImageTests.java" target="_blank">Bootstrap test example with tooltips</a>
  
@@ -7973,12 +7972,12 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**expand()** | Expands element  | void
-**collapse()** | Collapses element  | void
-**value()** | Returns collapse ``value()`` property | UIElement
-**list()** | Returns collapse ``list()`` property | WebList
-**is()** | Various assert actions | UISelectAssert
 **assertThat()** | Assert action | UISelectAssert 
+**collapse()** | Collapses element  | void
+**expand()** | Expands element  | void
+**is()** | Various assert actions | UISelectAssert
+**list()** | Returns collapse ``list()`` property | WebList
+**value()** | Returns collapse ``value()`` property | UIElement
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/complex/CollapseTests.java)
 
@@ -8446,20 +8445,19 @@ Available methods in Java JDI Light:
 
 |Method/Property | Description | Return Type
 --- | --- | ---
-getText() | Get carousel text  | String 
-select(int i) | Select slide by index  | void  
-get(int i) | Return slide by index  | UIElement  
 assertThat() | Assert action | TextAssert
-next() | Move to the next slide | void
-prev() | Move to the previous slide | void
 currentSlide() | Return current slide | UIElement
-nextControl() | Return 'next' control | UIElement
-prevControl() | Return 'previous' control | UIElement
+get(int i) | Return slide by index  | UIElement  
+getText() | Get carousel text  | String 
 indicators() | Return list of carousel indicators | WebList
 interval() | Return current slide interval | int
 isDisplayed() | Check that carousel is displayed | boolean
 is() | Assert action | TextAssert
-assertThat() | Assert action | TextAssert
+next() | Move to the next slide | void
+nextControl() | Return 'next' control | UIElement
+prev() | Move to the previous slide | void
+prevControl() | Return 'previous' control | UIElement
+select(int i) | Select slide by index  | void  
 
 <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/complex/CarouselTests.java" target="_blank">Bootstrap test examples</a>
 
@@ -8521,11 +8519,11 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
+**assertThat()** | Assert action | UIAssert
 **getProgress(int Index)** |	Returns progressbar by index |	Progress
 **getProgresses()** | Returns list of progressbars |	JList`<Progress>`
 **getValues()** |	Returns list of values of each progressbar |	List`<String>`
 **is()** | Various assert actions | UIAssert 
-**assertThat()** | Assert action | UIAssert
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/complex/MultipleProgressBarsTests.java)
 <br><br><br>
@@ -8623,12 +8621,12 @@ Most applicable methods:
 
 |Method | Description | Return Type
 --- | --- | ---
-**getText()** | Get button text | String
-**is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
-**get()** | Select button by index | UIElement
 **click()** | Get button text | void
+**get()** | Select button by index | UIElement
+**getText()** | Get button text | String
 **highlight()** | Get button text | void
+**is()** | Assert action | TextAssert 
 **unhighlight()** | Get button text | void
 
 <br>

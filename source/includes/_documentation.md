@@ -4534,10 +4534,10 @@ public void radioButtonTests() {
 
 |Method | Description | Return Type
 --- | --- | ---
-**click()** | Click the element | void
-**check()** | Click the element | void
-**is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
+**check()** | Click the element | void
+**click()** | Click the element | void
+**is()** | Assert action | TextAssert 
 
 <br>
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/CheckboxesAndRadiosWithoutLabelsTests.java" target="_blank">Test examples in Java</a>
@@ -4605,14 +4605,14 @@ public void clickableTests() {
 
 |Method | Description | Return Type
 --- | --- | ---
-**click()** | Click the checkbox | void
+**assertThat()** | Assert action checkbox | CheckboxAssert
 **check(String)** | Set to checked on "true" (case insensitive) or unchecked otherwise | void
 **check()** | Set to checked | void
-**uncheck()** | Set to unchecked | void
+**click()** | Click the checkbox | void
+**is()** | Assert action checkbox | CheckboxAssert
 **isSelected()** | Verify value | boolean 
 **isEnabled()** | Verify state | boolean
-**assertThat()** | Assert action checkbox | CheckboxAssert
-**is()** | Assert action checkbox | CheckboxAssert
+**uncheck()** | Set to unchecked | void
 
 <br>
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/CustomCheckboxTests.java" target="_blank">Test examples in Java</a>
@@ -4688,13 +4688,13 @@ public void radioButtonByIndexInSelectTests() {
 
 |Method | Description | Return Type
 --- | --- | ---
+**assertThat()** | Assert action | TextAssert
 **click()** | Click the button | void
+**get()** | Select button by index | action
 **getText()** | Get button text | String
 **is()** | Assert action | TextAssert 
-**assertThat()** | Assert action | TextAssert
 **select()** | Select button | void
 **selected()** | Radio button is selected | TextAssert
-**get()** | Select button by index | action
 
 <br>
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/RadioButtonCustomTests.java" target="_blank">Test examples in Java</a>
@@ -4770,13 +4770,13 @@ public void radioButtonByLabelTests() {
 
 |Method | Description | Return Type
 --- | --- | ---
+**assertThat()** | Assert action | TextAssert
 **click()** | Click the button | void
+**get()** | Select button by index | action
 **getText()** | Get button text | String
 **is()** | Assert action | TextAssert 
-**assertThat()** | Assert action | TextAssert
 **select()** | Select button | void
 **selected()** | Radio button is selected | TextAssert
-**get()** | Select button by index | action
 
 <br>
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/RadioButtonsCustomInlineTests.java" target="_blank">Test examples in Java</a>
@@ -4852,10 +4852,10 @@ Here is an example with provided Bootstrap v4.3 code:
 
 |Method | Description | Return Type
 --- | --- | ---
-**click()** | Click the element | void
-**check()** | Click the element | void
-**is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
+**check()** | Click the element | void
+**click()** | Click the element | void
+**is()** | Assert action | TextAssert 
 
 <br>
 <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/CheckboxAndRadioButtonCustomDisabledTests.java" target="_blank">Test examples in Java</a>
@@ -4933,14 +4933,14 @@ public void clickableTests() {
 
 |Method | Description | Return Type
 --- | --- | ---
-**click()** | Click the checkbox | void
+**assertThat()** | Assert action checkbox | CheckboxAssert
 **check(String)** | Set to checked on "true" (case insensitive) or unchecked otherwise | void
 **check()** | Set to checked | void
-**uncheck()** | Set to unchecked | void
-**isSelected()** | Verify value | boolean 
-**isEnabled()** | Verify state | boolean
-**assertThat()** | Assert action checkbox | CheckboxAssert
+**click()** | Click the checkbox | void
 **is()** | Assert action checkbox | CheckboxAssert
+**isEnabled()** | Verify state | boolean
+**isSelected()** | Verify value | boolean 
+**uncheck()** | Set to unchecked | void
 
 <br>
 <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/SwitchesTests.java" target="_blank">Test examples in Java</a>
@@ -5026,12 +5026,12 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**click()** | Click the button | void
-**getText()** | Get button text | String
-**is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
+**click()** | Click the button | void
 **displayed()** | Check that element is displayed | TextAssert
 **enabled()** | Check that element is enabled | TextAssert
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
 
 <br>
 
@@ -5145,12 +5145,12 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**click()** | Click the button | void
-**getText()** | Get button text | String
-**is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
+**click()** | Click the button | void
 **displayed()** | Check that element is displayed | TextAssert
 **enabled()** | Check that element is enabled | TextAssert
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
 
 <br>
 
@@ -5226,12 +5226,12 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**click()** | Click the button | void
-**getText()** | Get button text | String
-**is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
+**click()** | Click the button | void
 **displayed()** | Check that element is displayed | TextAssert
 **enabled()** | Check that element is enabled | TextAssert
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
 
 <br>
 
@@ -5317,18 +5317,17 @@ public void dropdownMenuTests() {
 
 |Method | Description | Return Type
 --- | --- | ---
+**assertThat()** | Assert action | TextAssert
 **click()** | Click the button | void
+**displayed()** | Check that element is displayed | TextAssert
+**enabled()** | Check that element is enabled | TextAssert
+**expand()** | Dropdown expand | void
+**expanded()** | Check that dropdown is expanded | TextAssert
 **getText()** | Get button text | String
 **getValue()** | Get button value | String
 **is()** | Assert action | TextAssert 
-**assertThat()** | Assert action | TextAssert
-**displayed()** | Check that element is displayed | TextAssert
-**enabled()** | Check that element is enabled | TextAssert
 **select(String option)** | Select option by text | void
 **select(int option)** | Select option by index | void
-**expand()** | Dropdown expand | void
-**expanded()** | Check that dropdown is expanded | TextAssert
-**assertThat()** | Assert action | TextAssert
 <br>
 
 Inner elements represented by the following classes:
@@ -5423,18 +5422,17 @@ public void dropdownMenuTests() {
 
 |Method | Description | Return Type
 --- | --- | ---
+**assertThat()** | Assert action | TextAssert
 **click()** | Click the button | void
+**displayed()** | Check that element is displayed | TextAssert
+**enabled()** | Check that element is enabled | TextAssert
+**expand()** | Dropdown expand | void
+**expanded()** | Check that dropdown is expanded | TextAssert
 **getText()** | Get button text | String
 **getValue()** | Get button value | String
 **is()** | Assert action | TextAssert 
-**assertThat()** | Assert action | TextAssert
-**displayed()** | Check that element is displayed | TextAssert
-**enabled()** | Check that element is enabled | TextAssert
 **select(String option)** | Select option by text | void
 **select(int option)** | Select option by index | void
-**expand()** | Dropdown expand | void
-**expanded()** | Check that dropdown is expanded | TextAssert
-**assertThat()** | Assert action | TextAssert
 <br>
 
 Inner elements represented by the following classes:
@@ -5524,11 +5522,11 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
+**click()** | Click to hide alert | Action
 **displayed()** | Check that element is displayed | TextAssert
 **hidden()** | Check that element is hidden | TextAssert
-**click()** | Click to hide alert | Action
+**is()** | Assert action | TextAssert 
 
 <br>
 
@@ -5594,10 +5592,10 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**getText()** | Get button text | String
-**is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
 **displayed()** | Check that element is displayed | TextAssert
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
 <br>
 **2) <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/badge/#links" target="_blank">Badge</a>** - .badge-* classes on an link element quickly provide actionable badges with hover and focus states.<br>
 

@@ -1036,13 +1036,13 @@ Here is the list of available methods in Java:
 
 |Method | Description | Return Type
 --- | --- | ---
+**alt()** |Returns the alternate text | String
+**assertThat()** | Returns object for work with assertions | LinkAssert
 **click()** |Follow the link | void
 **getText()** |Returns the link text  | String
+**is()** | Returns object for work with assertions | LinkAssert
 **ref()** |Returns the reference  | String
 **url()** |Returns the URL  | URL
-**alt()** |Returns the alternate text | String
-**is()** | Returns object for work with assertions | LinkAssert
-**assertThat()** | Returns object for work with assertions | LinkAssert
 
 <a href="https://github.com/jdi-testing/jdi-light/tree/1509---jdi-light-test-examples/jdi-light-html-tests/src/test/java/io/github/epam/example/common/LinkExampleTests.java" target="_blank">Test examples in Java</a><br>
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/#link-2)
@@ -1051,13 +1051,13 @@ Here is the list of available methods in C#:
 
 |Method | Description | Return Type
 --- | --- | ---
+**Alt()** |Returns the alternate text | string
+**AssertThat()** | Returns object for work with assertions | LinkAssert
 **Click()** |Follow the link | void
 **GetText()** |Returns the link text  | string
+**Is()** | Returns object for work with assertions | LinkAssert
 **Ref()** |Returns the reference  | string
 **Url()** |Returns the URL  | string
-**Alt()** |Returns the alternate text | string
-**Is()** | Returns object for work with assertions | LinkAssert
-**AssertThat()** | Returns object for work with assertions | LinkAssert
 
 <a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/LinkTests.cs" target="_blank">Test examples in C#</a>
 <br>
@@ -1177,33 +1177,33 @@ Available method in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**void select(String...)** | Select menu element and subelement | void
-**void select(String)** | Select menu element | void
-**void select(TEnum...)** | Select menu element and subelement | void
-**void select(TEnum)** | Select menu element | void
-**void select(int...)** | Select menu element by index | void
-**void select(int)** | Select menu element and subelements by index | void    
 **String selected()** | Returns selected menu item | String
 **List<String> values()** | Returns selected menu item and subitems | List<String>
 **void hoverAndClick(String...)** | Hovers and clicks menu item and subitems | void
 **void hoverAndClick(String)** | Hovers and clicks menu item | void
+**void select(int...)** | Select menu element by index | void
+**void select(int)** | Select menu element and subelements by index | void    
+**void select(String...)** | Select menu element and subelement | void
+**void select(String)** | Select menu element | void
+**void select(TEnum...)** | Select menu element and subelement | void
+**void select(TEnum)** | Select menu element | void
 
 Available method in C# JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
+**AssertThat** | Get select assert | MenuSelectAssert
+**Is** | Get select assert | MenuSelectAssert
+**List<string> Values()** | Gets values of all options | List<string>
+**string Selected()** | Returns selected menu item | string
+**void HoverAndClick(string[])** | Hovers and clicks menu item and subitems | void
+**void HoverAndClick(string)** | Hovers and clicks menu item | void
 **void Select(string[])** | Select menu element and subelements by string values | void
 **void Select(string)** | Select menu element | void
 **void Select(int[])** | Select menu element and subelements by index | void
 **void Select(int)** | Select menu element and subelements by index | void 
 **void Select(Enum[])** | Select menu element and subelements by getting values of enum | void
 **void Select(Enum)** | Select menu element | void
-**string Selected()** | Returns selected menu item | string
-**List<string> Values()** | Gets values of all options | List<string>
-**void HoverAndClick(string[])** | Hovers and clicks menu item and subitems | void
-**void HoverAndClick(string)** | Hovers and clicks menu item | void
-**Is** | Get select assert | MenuSelectAssert
-**AssertThat** | Get select assert | MenuSelectAssert
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/MenuTests.java" target="_blank">Test examples in Java</a>
 
@@ -1288,27 +1288,27 @@ Here is the list of available methods in Java:
 
 |Method | Description | Return Type
 --- | --- | ---
-**placeholder()** |Returns the placeholder text  | String
-**min()** |Returns the min value   | String
-**max()** |Returns the max value  | String
-**value()** |Returns the value  | String
-**step()** |Returns the step value | String
-**setNumber(String)** |Sets the value | void
-**is()** | Returns object for work with assertions | NumberAssert
 **assertThat()** | Returns object for work with assertions | NumberAssert
+**is()** | Returns object for work with assertions | NumberAssert
+**max()** |Returns the max value  | String
+**min()** |Returns the min value   | String
+**value()** |Returns the value  | String
+**placeholder()** |Returns the placeholder text  | String
+**setNumber(String)** |Sets the value | void
+**step()** |Returns the step value | String
 
 Here is the list of available methods in C#:
 
 |Method | Description | Return Type
 --- | --- | ---
-**Placeholder** |Returns the placeholder text  | String
-**Min** |Returns the min value   | double
-**Max** |Returns the max value  | double
-**Value** |Returns the value  | double
-**Step** |Returns the step value | double
-**SetNumber(double)** |Sets the value | void
-**Is()** | Returns object for work with assertions | NumberAssert
 **AssertThat()** | Returns object for work with assertions | NumberAssert
+**Is()** | Returns object for work with assertions | NumberAssert
+**Max** |Returns the max value  | double
+**Min** |Returns the min value   | double
+**Placeholder** |Returns the placeholder text  | String
+**SetNumber(double)** |Sets the value | void
+**Step** |Returns the step value | double
+**Value** |Returns the value  | double
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/NumberSelectorTests.java" target="_blank">Test examples in Java</a>
 
@@ -1375,10 +1375,10 @@ Available method in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**value()** |Get current progress value  | String
-**max()** |Get progressbar maximum possible value  | String
-**is()** |Various assert actions for Progress bar  | ProgressAssert
 **assertThat()** |Various assert actions for Progress bar | ProgressAssert 
+**is()** |Various assert actions for Progress bar  | ProgressAssert
+**max()** |Get progressbar maximum possible value  | String
+**value()** |Get current progress value  | String
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/ProgressTests.java" target="_blank">Test examples in Java</a><br>
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#progress-bar) <br>
@@ -1388,10 +1388,10 @@ Available method in C# JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**Value()** |Get current progress value  | string
-**Max()** |Get progressbar maximum possible value  | string
-**Is()** |Various assert actions for Progress bar  | ProgressAssert
 **AssertThat()** |Various assert actions for Progress bar | ProgressAssert 
+**Is()** |Various assert actions for Progress bar  | ProgressAssert
+**Max()** |Get progressbar maximum possible value  | string
+**Value()** |Get current progress value  | string
 
 <a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/ProgressTests.cs" target="_blank">Test examples in C#</a><br>
 [BDD Steps example](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-bdd-tests/src/test/resources/features/ProgressBar.feature)<br>
@@ -1498,15 +1498,15 @@ Here is a list of available methods in C#:
 
 |Method | Description | Return Type
 --- | --- | ---
+**AssertThat()** | Returns object for work with assertions | RangeAssert
+**GetValue()** | Returns the value | String
+**Is()** | Returns object for work with assertions | RangeAssert
+**Max()** | Returns the max value| Double
+**Min()** | Returns the min value | Double
 **SetValue(string value)** | Sets the value | void
 **SetValue(double value)** | Sets the value | void
-**GetValue()** | Returns the value | String
-**Value()** | Returns the value | Double
-**Min()** | Returns the min value | Double
-**Max()** | Returns the max value| Double
 **Step()** | Returns the step value | Double
-**Is()** | Returns object for work with assertions | RangeAssert
-**AssertThat()** | Returns object for work with assertions | RangeAssert
+**Value()** | Returns the value | Double
 
 <a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/RangeTests.cs" target="_blank">Test examples in C#</a></br>
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#range-2) <br>
@@ -1515,15 +1515,15 @@ And here are methods available in Java:
 
 |Method | Description | Return Type
 --- | --- | ---
-**setValue(double volume)** | Sets the value | void
-**setValue(String volume)** | Sets the value | void
+**assertThat()** | Returns object for work with assertions | RangeAssert
 **getValue()** | Gets the value | String
-**value()** | Returns the value | double
+**is()** | Returns object for work with assertions | RangeAssert
 **max()** | Returns the max value | double
 **min()** | Returns the min value | double
+**setValue(double volume)** | Sets the value | void
+**setValue(String volume)** | Sets the value | void
 **step()** | Returns the step value | double
-**is()** | Returns object for work with assertions | RangeAssert
-**assertThat()** | Returns object for work with assertions | RangeAssert
+**value()** | Returns the value | double
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/RangeTests.java" target="_blank">Test examples in Java</a></br>
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#range-2) <br>
@@ -1628,10 +1628,10 @@ Here is a list of available methods in C#:
 
 |Method | Description | Return Type
 --- | --- | ---
+**AssertThat** | Gets text assert | TextAssert
+**Is** | Gets text assert | TextAssert
 **GetText()** | returns text| String
 **GetValue()** | returns text| String
-**Is** | Gets text assert | TextAssert
-**AssertThat** | Gets text assert | TextAssert
 **WaitFor** | Gets text assert | TextAssert
 
 <a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/TextTests.cs" target="_blank">Test examples in C#</a>
@@ -1640,9 +1640,9 @@ And here are methods available in Java:
     
 |Method | Description | Return Type
 --- | --- | ---
+**assertThat()** |Various assert actions for Text| TextAssert 
 **getText()** |Get current value | String
 **is()** |Various assert actions for Text| TextAssert
-**assertThat()** |Various assert actions for Text| TextAssert 
 
 <a href="https://github.com/jdi-testing/jdi-light/tree/1509---jdi-light-test-examples/jdi-light-html-tests/src/test/java/io/github/epam/example/common/TextExampleTests.java" target="_blank">Test examples in Java</a>
 
@@ -1719,17 +1719,16 @@ Here is a list of available methods and properties in C#:
 
 |Method / Property | Description | Return Type
 --- | --- | ---
-**SendKeys(string value)** | adds text to the field | void
-**SetText(String value)** | sets new text | void
+**AssertThat** | property that returns object for work with assertions| TextAssert
 **Clear()** | clears the text field | void
-**Input(string text)** | sets new text  | void
 **Focus()** | places cursor within the text field | void
-**Placeholder** | returns value of the placeholder attribute | String
 **GetText()** | returns text from the text field  | String
 **GetValue()** | returns text from the text field| String
+**Input(string text)** | sets new text  | void
 **Is** | property that returns object for work with assertions| TextAssert
-**AssertThat** | property that returns object for work with assertions| TextAssert
-
+**Placeholder** | returns value of the placeholder attribute | String
+**SendKeys(string value)** | adds text to the field | void
+**SetText(String value)** | sets new text | void
 
 <a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Common/TextFieldsTests.cs" target="_blank">Test examples in C#</a><br>
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#textfield-2)<br>
@@ -1738,14 +1737,14 @@ And here are methods available in Java:
 
 |Method | Description | Return Type
 --- | --- | ---
-**sendKeys(CharSequence... value)** | adds text to the field | void
-**setText(String value)** | sets new text | void
 **clear()** | clears the text field | void
-**input(String value)** | sets new text | void
 **focus()** | places cursor within the text field | void
-**placeholder()** | returns value of the placeholder attribute | String
 **getText()** | returns text from the text field  | String
 **getValue()** | returns text from the text field| String
+**input(String value)** | sets new text | void
+**placeholder()** | returns value of the placeholder attribute | String
+**sendKeys(CharSequence... value)** | adds text to the field | void
+**setText(String value)** | sets new text | void
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/TextFieldTests.java" target="_blank">Test examples in Java</a><br>
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#textfield-2)<br>
@@ -1833,19 +1832,20 @@ Here is a list of available methods in Java:
   
 |Method | Description | Return Type
 --- | --- | ---
-**setLines(String... lines)** | sets lines (text)  | void
-**getLines()** | returns lines (text) from the text area | List<String>
-**labelText()** | returns value of TextArea label | String
-**placeholder()** | returns value of placeholder in TextArea | String
-**rows()** | returns value of rows attribute | int
-**cols()** | returns value of cols attribute | int
-**minlength()** | returns value of minlength attribute | int
-**maxlength()** | returns value of maxlength attribute | int
 **addNewLine(String line)** | add line to the already existing  | void
-**setValue()**    | setting value                          | void
+**cols()** | returns value of cols attribute | int
+**getLines()** | returns lines (text) from the text area | List<String>
 **getValue()**    | calls getText() method                 | String
 **getText()**     | returns value of attribute "value"     | String
 **is()**          | returns object for work with assertions | TextAreaAssert
+**labelText()** | returns value of TextArea label | String
+**maxlength()** | returns value of maxlength attribute | int
+**minlength()** | returns value of minlength attribute | int
+**placeholder()** | returns value of placeholder in TextArea | String
+**rows()** | returns value of rows attribute | int
+**setLines(String... lines)** | sets lines (text)  | void
+**setValue()**    | setting value                          | void
+
 
   <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/TextAreaTests.java" target="_blank">Test examples in Java</a><br>
 
@@ -1853,15 +1853,15 @@ Here is a list of available methods in C#:
   
 |Method | Description | Return Type
 --- | --- | ---
-**SetLines(string[] lines)** | sets lines (text)  | void
-**GetLines()** | returns lines (text) from the text area | string[]
-**Rows()** | returns value of rows attribute | int
-**Cols()** | returns value of cols attribute | int
-**Minlength()** | returns value of minlength attribute | int
-**Maxlength()** | returns value of maxlength attribute | int
 **AddNewLine(string line)** | add line to the already existing ones | void
-**Is()** | returns object for work with assertions  | TextAreaAssert
 **AssertThat()** | returns object for work with assertions  | TextAreaAssert
+**Cols()** | returns value of cols attribute | int
+**GetLines()** | returns lines (text) from the text area | string[]
+**Is()** | returns object for work with assertions  | TextAreaAssert
+**Maxlength()** | returns value of maxlength attribute | int
+**Minlength()** | returns value of minlength attribute | int
+**Rows()** | returns value of rows attribute | int
+**SetLines(string[] lines)** | sets lines (text)  | void
  
   <a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/TextAreaTests.cs" target="_blank">Test examples in C#</a><br>
 
@@ -1938,17 +1938,17 @@ Here is the list of methods available in C# JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**Is** |Gets Title's assert | TitleAssert
 **AssertThat** |Gets Title's assert | TitleAssert
+**Is** |Gets Title's assert | TitleAssert
 
 Here is the list of available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
+**AssertThat()** |Gets Title's assert | TitleAssert
 **click()** |Click title | void
 **getText()** |Returns title text  | String
 **Is()** |Gets Title's assert | TitleAssert
-**AssertThat()** |Gets Title's assert | TitleAssert
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/LabelTests.java" target="_blank">Test examples in Java</a>
 

@@ -94,13 +94,12 @@ Available methods in C# JDI Light:
 
 |Method | Description | Return Type 
 --- | --- | --- 
-**Label()** | Creates label for element using the element's Id | Label 
-**LabelText()** | Gets the text of a label | string 
+**assertThat()** | Assert action | TextAssert
 **click()** | Click the button  | void
 **getText()** | Get button text | String
-**is()** | Assert action | TextAssert 
-**assertThat()** | Assert action | TextAssert
-
+**is()** | Assert action | TextAssert
+**Label()** | Creates label for element using the element's Id | Label 
+**LabelText()** | Gets the text of a label | string 
 <a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/LabelsTests.cs" target="_blank">C# test examples</a> 
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/LabelTests.java" target="_blank">Java test examples</a> 
@@ -192,10 +191,10 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
+**assertThat()** | Assert action | TextAssert
 **click()** | Click the button  | void
 **getText()** | Get button text | String
 **is()** | Assert action | TextAssert 
-**assertThat()** | Assert action | TextAssert
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/ButtonTests.java" target="_blank">Java test examples</a>
 <br>
@@ -205,10 +204,10 @@ Available methods and properties in C# JDI Light:
 
 |Method/Property | Description | Return Type
 --- | --- | ---
+**AssertThat** | Assert action | TextAssert
 **Click()** | Click the button  | void
 **GetText()** | Get button text | string
 **Is** | Assert action | TextAssert 
-**AssertThat** | Assert action | TextAssert
 
 <a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/ButtonTests.cs" target="_blank">C# test examples</a>
 <br>
@@ -358,27 +357,27 @@ Available methods in Java JDI Light:
 
 |Methods | Description | Return Type
 --- | --- | ---
-**click()** | Click the checkbox  | void
+**assertThat()** | Assert action checkbox | CheckboxAssert
 **check(String)**| Set to checked on "true" (case insensitive) or unchecked otherwise | void
 **check()**| Set to checked | void
-**uncheck()**| Set to unchecked | void
-**isSelected()** | Verify value | boolean 
-**assertThat()** | Assert action checkbox | CheckboxAssert
+**click()** | Click the checkbox  | void
 **is()** | Assert action checkbox | CheckboxAssert
+**isSelected()** | Verify value | boolean 
+**uncheck()**| Set to unchecked | void
 
 Available methods in C# JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
+**AssertThat** | Gets assert for checkbox | CheckBoxAssert
 **Check(bool checkEnabled = true)** | Checks a checkbox | void
-**Uncheck(bool checkEnabled = true)** | Unhecks a checkbox | void
+**Deselected()** | Checks whether a checkbox is deselected | CheckBoxAssert
+**Displayed()** | Checks whether a checkbox is displayed | CheckBoxAssert
+**Enabled()** | Checks whether a checkbox is enabled | CheckBoxAssert
+**Is** | Gets assert for checkbox | CheckBoxAssert
 **IsChecked** | Determines whether a checkbox is checked | bool
 **Selected()** | Checks whether a checkbox is selected | CheckBoxAssert
-**Deselected()** | Checks whether a checkbox is deselected | CheckBoxAssert
-**Enabled()** | Checks whether a checkbox is enabled | CheckBoxAssert
-**Displayed()** | Checks whether a checkbox is displayed | CheckBoxAssert
-**Is** | Gets assert for checkbox | CheckBoxAssert
-**AssertThat** | Gets assert for checkbox | CheckBoxAssert
+**Uncheck(bool checkEnabled = true)** | Unhecks a checkbox | void
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/CheckboxTests.java" target="_blank">Java test examples</a>
 
@@ -444,10 +443,10 @@ Here is the list of some available methods in Java:
 
 |Methods | Description | Return Type
 --- | --- | ---
-**color()** | Returns color code in  hexadecimal format ("#rrggbb") | String
-**setColor(String)** | Set color from string hex representation ("#rrggbb") | void
-**is()** | Assert acton color | ColorAssert
 **assertThat()** | Assert acton color | ColorAssert 
+**color()** | Returns color code in  hexadecimal format ("#rrggbb") | String
+**is()** | Assert acton color | ColorAssert
+**setColor(String)** | Set color from string hex representation ("#rrggbb") | void
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/ColorPickerTests.java" target="_blank">Java test examples</a>
 <br>
@@ -457,10 +456,10 @@ Here is the list of some available methods in C#:
 
 |Methods | Description | Return Type
 --- | --- | ---
-**Color()** | Returns color code in  hexadecimal format ("#rrggbb") | string
-**SetColor(String)** | Set color from string hex representation ("#rrggbb") | void
-**Is()** | Assert acton color | ColorAssert
 **AssertThat()** | Assert acton color | ColorAssert 
+**Color()** | Returns color code in  hexadecimal format ("#rrggbb") | string
+**Is()** | Assert acton color | ColorAssert
+**SetColor(String)** | Set color from string hex representation ("#rrggbb") | void
 
 <a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/ColorPickerTests.cs" target="_blank">Test examples in C#</a>
 <br>
@@ -487,24 +486,24 @@ Here is the list of some methods available in C#:
 
 |Method | Description | Return Type
 --- | --- | ---
-**SetDateTime(string/DateTime value)** | Sets a date or time | void
-**GetDateTime()** | Returns the set date or time | DateTime
-**Value()** | Returns value attribute | string
-**Min()** | Gets attribute with name min | string
-**Max()** | Gets attribute with name max | string
-**Is()** | Asserts action of DateTimeSelector | DateTimeSelectorAssert
 **AssertThat()** | Asserts action of DateTimeSelector | DateTimeSelectorAssert
+**GetDateTime()** | Returns the set date or time | DateTime
+**Is()** | Asserts action of DateTimeSelector | DateTimeSelectorAssert
+**Max()** | Gets attribute with name max | string
+**Min()** | Gets attribute with name min | string
+**SetDateTime(string/DateTime value)** | Sets a date or time | void
+**Value()** | Returns value attribute | string
 
 And here are some of the methods available in Java:
 
 |Method | Description | Return Type
 --- | --- | ---
+**assertThat()** | Assertion | DateTimeAssert
+**is()** | Assertion | DateTimeAssert
+**max()** | Gets attribute with name max | String
+**min()** | Gets attribute with name min | String
 **setDateTime(string value)** | Sets a date or time | void
 **value()** | Returns the set date or time | String
-**min()** | Gets attribute with name min | String
-**max()** | Gets attribute with name max | String
-**is()** | Assertion | DateTimeAssert
-**assertThat()** | Assertion | DateTimeAssert
 
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/#datetimeselector-2)
 
@@ -793,26 +792,26 @@ Available method in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**is()** | property that returns object for work with assertions | TextAssert
 **assertThat()** | property that returns object for work with assertions | TextAssert
 **click()** | click on element | void
-**hover()** | hover on element | void
-**setValue(String value)** | set file path to input | void
 **getValue()** | Get file name | String
+**is()** | property that returns object for work with assertions | TextAssert
+**hover()** | hover on element | void
+**label()**| Get label | Label
+**setValue(String value)** | set file path to input | void
+**text()** | returns text of input field | String
 **uploadFile(String path)** | set file path to input | void
 **uploadFileRobot(String path, long mSecDelay)** | set file path to input | void
-**text()** | returns text of input field | String
-**label()**| Get label | Label
 
 Available method in C# JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**SelectFile(string filepath)** |Select file to upload  | void
-**IsDownloaded()** |Checks whether a file is downloaded  | FileAssert
-**Text(Matcher<string> value)** | Checks whether an occurrence of a text is contained within a text file | FileAssert
-**HasSize(Matcher<long> size)** | Checks that a file has a particular size according to the matcher | FileAssert
 **CleanupDownloads()** | Cleans the directory | void
+**HasSize(Matcher<long> size)** | Checks that a file has a particular size according to the matcher | FileAssert
+**IsDownloaded()** |Checks whether a file is downloaded  | FileAssert
+**SelectFile(string filepath)** |Select file to upload  | void
+**Text(Matcher<string> value)** | Checks whether an occurrence of a text is contained within a text file | FileAssert
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/example/common/FileInputExampleTests.java">Test examples in Java</a>
 
@@ -878,25 +877,25 @@ Icon in JDI is a descendant of Image. It inherits all Image's methods and serves
 
 |Method | Description | Return Type
 --- | --- | ---
-**click()** | click on the image| void
-**src()** | get value of src attribute | String
-**height()** |get value of height attribute| String
-**width()** | get value of width attribute| String
 **alt()** |get value of alt attribute | String
-**is()** | method for building assertions | ImageAssert
 **assertThat()** |method for building assertions  | ImageAssert
+**click()** | click on the image| void
+**height()** |get value of height attribute| String
+**is()** | method for building assertions | ImageAssert
+**src()** | get value of src attribute | String
+**width()** | get value of width attribute| String
 
 Here is a list of available methods in C#:
 
 |Method | Description | Return Type
 --- | --- | ---
-**Click()** | click on the image| void
-**Src** | get value of src attribute | string
-**Height** |get value of height attribute| string
-**Width** | get value of width attribute| string
 **Alt** |get value of alt attribute | string
-**Is()** | method for building assertions | ImageAssert
 **AssertThat()** |method for building assertions  | ImageAssert
+**Click()** | click on the image| void
+**Height** |get value of height attribute| string
+**Is()** | method for building assertions | ImageAssert
+**Src** | get value of src attribute | string
+**Width** | get value of width attribute| string
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/ImageTests.java" target="_blank">Test examples in Java</a><br>
 
@@ -956,13 +955,13 @@ Here is a list of available methods in Java:
 
 |Method | Description | Return Type
 --- | --- | ---
-**click()** | click on the image| void
-**src()** | get value of src attribute | String
-**height()** |get value of height attribute| String
-**width()** | get value of width attribute| String
 **alt()** |get value of alt attribute | String
-**is()** | method for building assertions | ImageAssert
 **assertThat()** |method for building assertions  | ImageAssert
+**click()** | click on the image| void
+**height()** |get value of height attribute| String
+**is()** | method for building assertions | ImageAssert
+**src()** | get value of src attribute | String
+**width()** | get value of width attribute| String
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/ImageTests.java" target="_blank">Test examples in Java</a>
 
@@ -970,13 +969,13 @@ Here is a list of available methods in C#:
 
 |Method | Description | Return Type
 --- | --- | ---
-**Click()** | click on the image| void
-**Src** | get value of src attribute | string
-**Height** |get value of height attribute| string
-**Width** | get value of width attribute| string
 **Alt** |get value of alt attribute | string
-**Is()** | method for building assertions | ImageAssert
 **AssertThat()** |method for building assertions  | ImageAssert
+**Click()** | click on the image| void
+**Height** |get value of height attribute| string
+**Is()** | method for building assertions | ImageAssert
+**Src** | get value of src attribute | string
+**Width** | get value of width attribute| string
 
 <a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/ImagesTests.cs" target="_blank">Test examples in C#</a>
 

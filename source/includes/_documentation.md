@@ -9693,13 +9693,13 @@ Inner elements of Forms - Sizing are represented by the following classes:
 
 |Method / Property | Description | Return Type
 --- | --- | ---
-**SendKeys(string value)** | adds text to the field | void
-**SetText(String value)** | sets new text | void
+**AssertThat** | Assert action | TextAssert
 **GetText()** | returns text from the text field  | String
 **GetValue()** | returns text from the text field| String
-**select(string/int)** | Select data by value/index| void
 **Is** | Assert action | TextAssert
-**AssertThat** | Assert action | TextAssert
+**select(string/int)** | Select data by value/index| void
+**SendKeys(string value)** | adds text to the field | void
+**SetText(String value)** | sets new text | void
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/FormReadOnlyTests.java)
 
@@ -9745,15 +9745,15 @@ Available methods in Java JDI Light:
 
 |Method / Property | Description | Return Type
 --- | --- | ---
-**SendKeys(string value)** | adds text to the field | void
-**SetText(String value)** | sets new text | void
-**Input(string text)** | sets new text  | void
+**AssertThat()** | property that returns object for work with assertions| TextAssert
 **Focus()** | places cursor within the text field | void
-**Placeholder** | returns value of the placeholder attribute | String
 **GetText()** | returns text from the text field  | String
 **GetValue()** | returns text from the text field| String
 **Is()** | property that returns object for work with assertions| TextAssert
-**AssertThat()** | property that returns object for work with assertions| TextAssert
+**Input(string text)** | sets new text  | void
+**Placeholder** | returns value of the placeholder attribute | String
+**SendKeys(string value)** | adds text to the field | void
+**SetText(String value)** | sets new text | void
 
 
 <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite.section.form.FormReadOnlyTests.java" target=a_blank> Bootstrap test examples </a>
@@ -9808,11 +9808,11 @@ Available methods in Java JDI Light:
 
 |Method/Property | Description | Return Type
 --- | --- | ---
-**is()** | Various assert actions for Progress | ProgressAssert 
 **assertThat()** | Assert action | TextAssert
+**attr()** | Match passed value with element attribute | ICoreElement
 **getValue()** | Get item value | String
 **hasClass()** | Match passed value with element class | ICoreElement
-**attr()** | Match passed value with element attribute | ICoreElement
+**is()** | Various assert actions for Progress | ProgressAssert 
 **label()** | Get label associated with an item | Label
 **labelText()** | Get text of a label associated with an item | String
 
@@ -9863,10 +9863,10 @@ Available methods in Java JDI Light:
 
 |Method/Property | Description | Return Type
 --- | --- | ---
-**is()** | Various assert actions for Progress | UIAssert 
 **assertThat()** | Assert action | UIAssert
-**hasClass()** | Match passed value with element class | boolean
 **attr()** | Match passed value with element attribute | String
+**hasClass()** | Match passed value with element class | boolean
+**is()** | Various assert actions for Progress | UIAssert 
 **label()** | Get label associated with an item | Label
 **labelText()** | Get text of a label associated with an item | String
 
@@ -10049,9 +10049,9 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
+**assertThat()** | Assert action | TextAssert
 **click()** | Click the button | void
 **is()** | Assert action | TextAssert 
-**assertThat()** | Assert action | TextAssert
 <br>
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/form/FormsSelectMenuTests.java" target=a_blank> Bootstrap test examples </a>
@@ -10108,17 +10108,17 @@ Available methods in Java JDI Light:
 
 |Method/Property | Description | Return Type
 --- | --- | ---
-**is()** | Various assert actions for Progress | RangeAssert 
 **assertThat()** | Assert action | UIAssert
+**getValue()** | Get thumb value as String | String
+**is()** | Various assert actions for Progress | RangeAssert 
 **label()** | Get label associated with an item | Label
 **labelText()** | Get text of a label associated with an item | String
-**thumbValue()** | Get thumb value | double
-**getValue()** | Get thumb value as String | String
-**min()** | Get minimal limit of range | double
 **max()** | Get maximal limit of range | double
+**min()** | Get minimal limit of range | double
 **step()** | Get incremental step of range | double
 **setThumbValue()** | Set thumb value with a "double" parameter | void
 **setValue()** | Set thumb value with a String parameter | void
+**thumbValue()** | Get thumb value | double
 
 
 <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/RangeTests.java" target=a_blank> Bootstrap test examples </a>
@@ -10609,17 +10609,17 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
+**assertThat()**	|  Assert action	| TextAssert
+**click()**	| Click element | void
+**expand()**| Expand dropdown|void  
+**get(int)**	| Select element by index	 | UIElement
+**get(String)**	| Select element by text	 | UIElement
 **getText()**|Get text	  | String
 **getValue()**| Get value | String
 **is()**		|  Assert action	| TextAssert
-**assertThat()**	|  Assert action	| TextAssert
-**get(int)**	| Select element by index	 | UIElement
-**get(String)**	| Select element by text	 | UIElement
 **list()**| Get list of dropdown | WebList
-**size()**| Get WebList size| int
-**click()**	| Click element | void
-**expand()**| Expand dropdown|void  
 **show ()**| Scroll to element| void
+**size()**| Get WebList size| int
 
 In these java test cases examples next classes have been used:
 
@@ -11042,10 +11042,10 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**is()** | Asserts element  | UIAssert
-**displayed()** | Asserts element is displayed  | UIAssert
-**hidden()** | Asserts element is hidden | UIAssert
 **close()** | Close modal | void
+**displayed()** | Asserts element is displayed  | UIAssert
+**is()** | Asserts element  | UIAssert
+**hidden()** | Asserts element is hidden | UIAssert
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/modal/ModalScrollingLongContentTests.java)
 
@@ -11118,10 +11118,10 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**is()** | Asserts element  | UIAssert
+**close()** | Close modal | void 
 **displayed()** | Asserts element is displayed  | UIAssert
 **hidden()** | Asserts element is hidden | UIAssert 
-**close()** | Close modal | void 
+**is()** | Asserts element  | UIAssert
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/modal/ModalVerticallyCenteredTests.java" target="_blank">Bootstrap Test Examples</a>
 
@@ -11226,10 +11226,10 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**is()** | Asserts element  | UIAssert
+**close()** | Close modal | void 
 **displayed()** | Asserts element is displayed  | UIAssert
 **hidden()** | Asserts element is hidden | UIAssert 
-**close()** | Close modal | void 
+**is()** | Asserts element  | UIAssert
 
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/modal/ModalTooltipsAndPopoversTests.java" target="_blank">Bootstrap Test Examples</a>
@@ -11363,13 +11363,13 @@ Available methods in Java JDI Light:
 
 |Method/Property | Description | Return Type
 --- | --- | ---
-**getCellInRow(int rowN, int cellN)** | Get cellN from rowN | GridCell
-**getGridRow(int rowN)** | Get rowN  | GridRow
 **close()** | Close Modal Window using X control | void
 **clickBtnClose()** | Close Modal Window  | void
-**getTitle()** | Get Modal Window Title | Text
 **displayed()** | Asserts element is displayed  | UIAssert
 **disappear()** | Asserts element is not displayed | UIAssert 
+**getCellInRow(int rowN, int cellN)** | Get cellN from rowN | GridCell
+**getGridRow(int rowN)** | Get rowN  | GridRow
+**getTitle()** | Get Modal Window Title | Text
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/modal/GridModalTests.java)
 
@@ -11461,12 +11461,12 @@ Available methods in Java JDI Light:
 
 |Method/Property | Description | Return Type
 --- | --- | ---
-**is()** | Assert action | TextAssert
 **assertThat()** | Assert action  | TextAssert
 **click()** | Click button  | void
 **displayed()** | Assert is displayed  | void
 **getTitle()** | Get Modal Window Title | Text 
 **getText()** | Get text value of the element | String
+
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/modal/ModalVaryingContentTests.java)
 
@@ -11634,11 +11634,11 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**is()** | Asserts element  | UIAssert
+**close()** | Close modal | void 
 **displayed()** | Asserts element is displayed  | UIAssert
 **hidden()** | Asserts element is hidden | UIAssert 
 **hasClass()** | Matches passed value with the element class | IsAssert 
-**close()** | Close modal | void 
+**is()** | Asserts element  | UIAssert
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/modal/ModalOptionalSizesTests.java" target="_blank">Bootstrap Test Examples</a>
 
@@ -11730,20 +11730,20 @@ public void clickableTests() {
 
 |Method | Description | Return Type
 --- | --- | ---
- **getText()** | Get button text | String
- **enabled()** | assert is enabled | TextAssert
+ **assertThat()** | Assert action | TextAssert
+ **click()** | Get button text | void
  **disabled()** | assert is disabled | TextAssert
  **displayed()** | assert is displayed | TextAssert
- **is()** | Assert action | TextAssert 
- **assertThat()** | Assert action | TextAssert
  **get()** | Select button by index | UIElement
- **click()** | Get button text | void
- **highlight()** | Get button text | void
- **unhighlight()** | Get button text | void
+ **getText()** | Get button text | String
  **getPopover(String locator)** | Get the popover click  | void
  **getBody()** | Get body of popover  |  String
  **getContainer()** | Get container of popover  |  String
  **getHeader()** | Get header of popover  |  String
+ **enabled()** | assert is enabled | TextAssert
+ **highlight()** | Get button text | void
+ **is()** | Assert action | TextAssert 
+ **unhighlight()** | Get button text | void
 
 <br>
 
@@ -11929,15 +11929,15 @@ Here is an example with provided Bootstrap v4.3 code:
 
 |Method | Description | Return Type
 --- | --- | ---
- **getText()** | Get button text | String
+ **assertThat()** | Assert action | TextAssert
+ **click()** | Get button text | void
  **enabled()** | assert is enabled | TextAssert
  **disabled()** | assert is disabled | TextAssert
  **displayed()** | assert is displayed | TextAssert
- **is()** | Assert action | TextAssert 
- **assertThat()** | Assert action | TextAssert
  **get()** | Select button by index | UIElement
- **click()** | Get button text | void
+ **getText()** | Get button text | String
  **highlight()** | Get button text | void
+ **is()** | Assert action | TextAssert 
  **unhighlight()** | Get button text | void
 
 <br>
@@ -12043,15 +12043,15 @@ public void clickableTests() {
 
 |Method | Description | Return Type
 --- | --- | ---
- **getText()** | Get button text | String
- **enabled()** | assert is enabled | TextAssert
+ **assertThat()** | Assert action | TextAssert
+ **click()** | Get button text | void
  **disabled()** | assert is disabled | TextAssert
  **displayed()** | assert is displayed | TextAssert
- **is()** | Assert action | TextAssert 
- **assertThat()** | Assert action | TextAssert
+ **enabled()** | assert is enabled | TextAssert
  **get()** | Select button by index | UIElement
- **click()** | Get button text | void
+ **getText()** | Get button text | String
  **highlight()** | Get button text | void
+ **is()** | Assert action | TextAssert 
  **unhighlight()** | Get button text | void
 
 <br>
@@ -12160,15 +12160,15 @@ Here is an example with provided Bootstrap v4.3 code:
 
 |Method | Description | Return Type
 --- | --- | ---
- **getText()** | Get button text | String
- **enabled()** | assert is enabled | TextAssert
+ **assertThat()** | Assert action | TextAssert
+ **click()** | Get button text | void
  **disabled()** | assert is disabled | TextAssert
  **displayed()** | assert is displayed | TextAssert
- **is()** | Assert action | TextAssert 
- **assertThat()** | Assert action | TextAssert
+ **enabled()** | assert is enabled | TextAssert
  **get()** | Select button by index | UIElement
- **click()** | Get button text | void
+ **getText()** | Get button text | String
  **highlight()** | Get button text | void
+ **is()** | Assert action | TextAssert 
  **unhighlight()** | Get button text | void
 
 <br>
@@ -12241,10 +12241,10 @@ public void listGroupTests(int num, String text) {
 
 |Method | Description | Return Type
 --- | --- | ---
-**getText()** | Get button text | String
-**is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
 **get()** | Select button by index | action
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
 
 <br>
 
@@ -12313,10 +12313,10 @@ public void isValidationTests() {
 
 |Method | Description | Return Type
 --- | --- | ---
-**getText()** | Get button text | String
-**is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
 **get()** | Select button by index | action
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
 
 <br>
 
@@ -12386,10 +12386,10 @@ public void listGroupTextTests(int num, String text) {
 
 |Method | Description | Return Type
 --- | --- | ---
-**getText()** | Get button text | String
-**is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
 **get()** | Select button by index | action
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
 
 <br>
 
@@ -12470,11 +12470,11 @@ public void isValidationTests() {
 
 |Method | Description | Return Type
 --- | --- | ---
+**assertThat()** | Assert action | TextAssert
 **click()** | Click the button | void
+**get()** | Select button by index | action
 **getText()** | Get button text | String
 **is()** | Assert action | TextAssert 
-**assertThat()** | Assert action | TextAssert
-**get()** | Select button by index | action
 
 <br>
 
@@ -12556,11 +12556,11 @@ public void buttonClickableTests(int index, String text) {
 
 |Method | Description | Return Type
 --- | --- | ---
+**assertThat()** | Assert action | TextAssert
 **click()** | Click the button | void
+**get()** | Select button by index | action
 **getText()** | Get button text | String
 **is()** | Assert action | TextAssert 
-**assertThat()** | Assert action | TextAssert
-**get()** | Select button by index | action
 
 <br>
 
@@ -12628,10 +12628,10 @@ public void initTests() {
 
 |Method | Description | Return Type
 --- | --- | ---
-**getText()** | Get button text | String
-**is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
 **get()** | Select button by index | action
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
 
 <br>
 
@@ -12691,10 +12691,10 @@ public void listGroupTests(int num, String text) {
 
 |Method | Description | Return Type
 --- | --- | ---
-**getText()** | Get button text | String
-**is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
 **get()** | Select button by index | action
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
 
 <br>
 
@@ -12767,10 +12767,10 @@ public void listGroupTests(int num, String text) {
 
 |Method | Description | Return Type
 --- | --- | ---
-**getText()** | Get button text | String
-**is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
 **get()** | Select button by index | action
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
 
 <br>
 
@@ -12862,13 +12862,13 @@ public void linkClickableTests(int index, String pageTitle) {
 
 |Method | Description | Return Type
 --- | --- | ---
+**assertThat()** | Assert action | TextAssert
 **click()** | Click the button | void
+**get()** | Select button by index | action
 **getText()** | Get button text | String
 **is()** | Assert action | TextAssert 
-**assertThat()** | Assert action | TextAssert
 **select()** | Select button | void
 **selected()** | Radio button is selected | TextAssert
-**get()** | Select button by index | action
 
 <br>
 
@@ -13213,12 +13213,12 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
+**assertThat()** |	Assert action |	TextAssert
+**close()** |	Close toast |	void
 **getText()** |	Get toast text |	String
 **getTitle()** |	Get toast title |	String
 **is()** |	Assert action |	TextAssert
-**assertThat()** |	Assert action |	TextAssert
 **isDisplayed()** | Show\wait that toast element displayed on the screen | Boolean
-**close()** |	Close toast |	void
 
 [Toast test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/)
  
@@ -13299,14 +13299,14 @@ public class PaginationOverview extends Section {
 
 |Method | Description | Return Type
 --- | --- | ---
-**click()** | Click the element | void
-**hover()** | Hover on the element | void
-**highlight()** | Highlight element | void
-**unhighlight()** | Unhighlight element | void
-**getText()** | Get button text | String
-**is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
+**click()** | Click the element | void
 **get()** | Select button by index | UIElement
+**getText()** | Get button text | String
+**highlight()** | Highlight element | void
+**hover()** | Hover on the element | void
+**is()** | Assert action | TextAssert 
+**unhighlight()** | Unhighlight element | void
 
 <br>
 
@@ -13389,14 +13389,14 @@ public void linkClickableTests(int index, String pageTitle) {
 
 |Method | Description | Return Type
 --- | --- | ---
-**click()** | Click the element | void
-**hover()** | Hover on the element | void
-**highlight()** | Highlight element | void
-**unhighlight()** | Unhighlight element | void
-**getText()** | Get button text | String
-**is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
+**click()** | Click the element | void
 **get()** | Select button by index | UIElement
+**getText()** | Get button text | String
+**highlight()** | Highlight element | void
+**hover()** | Hover on the element | void
+**is()** | Assert action | TextAssert 
+**unhighlight()** | Unhighlight element | void
 
 <br>
 
@@ -13482,14 +13482,14 @@ public void linkClickableTests(int index, String pageTitle) {
 
 |Method | Description | Return Type
 --- | --- | ---
-**click()** | Click the element | void
-**hover()** | Hover on the element | void
-**highlight()** | Highlight element | void
-**unhighlight()** | Unhighlight element | void
-**getText()** | Get button text | String
-**is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
+**click()** | Click the element | void
 **get()** | Select button by index | UIElement
+**getText()** | Get button text | String
+**highlight()** | Highlight element | void
+**hover()** | Hover on the element | void
+**is()** | Assert action | TextAssert 
+**unhighlight()** | Unhighlight element | void
 
 <br>
 
@@ -13588,14 +13588,14 @@ public void linkTextTests(int index, String linkText) {
 
 |Method | Description | Return Type
 --- | --- | ---
-**click()** | Click the element | void
-**hover()** | Hover on the element | void
-**highlight()** | Highlight element | void
-**unhighlight()** | Unhighlight element | void
-**getText()** | Get button text | String
-**is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
+**click()** | Click the element | void
 **get()** | Select button by index | UIElement
+**getText()** | Get button text | String
+**highlight()** | Highlight element | void
+**hover()** | Hover on the element | void
+**is()** | Assert action | TextAssert 
+**unhighlight()** | Unhighlight element | void
 
 <br>
 
@@ -13710,14 +13710,14 @@ public void linkClickableCenterTests(int index, String pageTitle) {
 
 |Method | Description | Return Type
 --- | --- | ---
-**click()** | Click the element | void
-**hover()** | Hover on the element | void
-**highlight()** | Highlight element | void
-**unhighlight()** | Unhighlight element | void
-**getText()** | Get button text | String
-**is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
+**click()** | Click the element | void
 **get()** | Select button by index | UIElement
+**getText()** | Get button text | String
+**highlight()** | Highlight element | void
+**hover()** | Hover on the element | void
+**is()** | Assert action | TextAssert 
+**unhighlight()** | Unhighlight element | void
 
 <br>
 
@@ -14004,13 +14004,13 @@ And here are methods available in Java:
     
 |Method / Property | Description | Return Type
 --- | --- | ---
-**setText(String value)** | adds text to the field | void
+**assertThat()** | property that returns object for work with assertions| TextAssert
 **clear()** | clears the text field | void
 **focus()** | places cursor within the text field | void
 **getText()** | returns text from the text field  | String
 **getValue()** | returns text from the text field| String
 **is()** | property that returns object for work with assertions| TextAssert
-**assertThat()** | property that returns object for work with assertions| TextAssert
+**setText(String value)** | adds text to the field | void
 
 
 #### Wrapping
@@ -14227,22 +14227,7 @@ And here are methods available in Java:
     
 |Method | Description | Return Type
 --- | --- | ---
- **getValue()**| Return value for first input within element | String
- **getValue(String locator)**| Return value for input within element with *locator* | String
- **getValue(int index)**| Return value for input within element with *index* | String
- **getAllValue()**| Return values for all inputs within element | List\<String>
- **getText()**| Return text for first input within element | String
- **getText(String locator)**| Return text for input within element with *locator* | String
- **getText(int index)**| Return text for input within element with *index* | String
- **getAllText()**| Return texts for all inputs within element | List\<String>
- **setValue(String value)**| Set value for first input within element | void
- **setValue(String value, String locator)**| Set value for input within element with *locator* | void
- **setValue(String value, int index)**| Set value for input within element with *index* | void
- **setAllValue(List\<String> values)**| Set values for all inputs within element | void 
- **sendKeys(String value)**| Send text to first input within element | void
- **sendKeys(String value, String locator)**| Send text to input within element with *locator* | void
- **sendKeys(String value, int index)**| Send text to input within element with *index* | void
- **sendKeysAll(List\<String> values)**| Send texts to all inputs within element | void
+ **assertThat()**| Property that returns object for work with assertions | MultipleInputsAssert
  **clear()**| Clear first input within element | void
  **clear(String locator)**| Clear input within element with *locator* | void
  **clear(int index)**| Clear input within element with *index* | void
@@ -14250,16 +14235,31 @@ And here are methods available in Java:
  **focus()**| Focus on first input within element | void
  **focus(String locator)**| Focus on input within element with *locator* | void
  **focus(int index)**| Focus on input within element with *index* | void
- **placeholder()**| Return placeholder from first input within element | String
- **placeholder(String locator)**| Return placeholder from input within element with *locator* | String
- **placeholder(int index)**| Return placeholder from input within element with *index* | String
- **placeholderAll()**| Return placeholders for all inputs within element | List\<String>
+ **getAllText()**| Return texts for all inputs within element | List\<String>
+ **getAllValue()**| Return values for all inputs within element | List\<String>
+ **getText()**| Return text for first input within element | String
+ **getText(String locator)**| Return text for input within element with *locator* | String
+ **getText(int index)**| Return text for input within element with *index* | String
+ **getValue()**| Return value for first input within element | String
+ **getValue(String locator)**| Return value for input within element with *locator* | String
+ **getValue(int index)**| Return value for input within element with *index* | String
  **input(String value)**| Set text for first input within element | void
  **input(String value, String locator)**| Set text for input within element with *locator* | void
  **input(String value, int index)**| Set text for input within element with *index* | void
  **inputAll()**| Set texts for all inputs within element | void
  **is()**| Property that returns object for work with assertions | MultipleInputsAssert
- **assertThat()**| Property that returns object for work with assertions | MultipleInputsAssert
+ **placeholder()**| Return placeholder from first input within element | String
+ **placeholder(String locator)**| Return placeholder from input within element with *locator* | String
+ **placeholder(int index)**| Return placeholder from input within element with *index* | String
+ **placeholderAll()**| Return placeholders for all inputs within element | List\<String>
+ **sendKeys(String value)**| Send text to first input within element | void
+ **sendKeys(String value, String locator)**| Send text to input within element with *locator* | void
+ **sendKeys(String value, int index)**| Send text to input within element with *index* | void
+ **sendKeysAll(List\<String> values)**| Send texts to all inputs within element | void
+ **setAllValue(List\<String> values)**| Set values for all inputs within element | void 
+ **setValue(String value)**| Set value for first input within element | void
+ **setValue(String value, String locator)**| Set value for input within element with *locator* | void
+ **setValue(String value, int index)**| Set value for input within element with *index* | void
  
  <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/complex/MultipleInputsTests.java" target="_blank">Bootstrap test example with multiple inputs</a>
  
@@ -14441,20 +14441,20 @@ And here are methods available in Java:
     
 |Method | Description | Return Type
 --- | --- | ---
-**setText(String value)** | adds text to the field | void
-**sendKeys(String value)** | adds text to the field | void
-**input(String value)** | adds text to the field | void
-**clear()** | clears the text field | void
-**focus()** | places cursor within the text field | void
-**getText()** | returns text from the text field  | String
-**getValue()** | returns text from the text field| String
-**is()** | property that returns object for work with assertions| TextAssert
 **assertThat()** | property that returns object for work with assertions| TextAssert
+**clear()** | clears the text field | void
 **click()** | click on button | void
 **displayed()** | check item is displayed | TextAssert
 **enabled()** | check item is enabled | TextAssert
 **expand()** | expand dropdown menu | void
 **expanded()** | check that dropdown is expanded | TextAssert
+**focus()** | places cursor within the text field | void
+**getText()** | returns text from the text field  | String
+**getValue()** | returns text from the text field| String
+**input(String value)** | adds text to the field | void
+**is()** | property that returns object for work with assertions| TextAssert
+**sendKeys(String value)** | adds text to the field | void
+**setText(String value)** | adds text to the field | void
   
  <br>
 Input group are represented by Section class in Java:
@@ -14545,19 +14545,19 @@ And here are methods available in Java:
     
 |Method | Description | Return Type
 --- | --- | ---
-**setText(String value)** | adds text to the field | void
-**sendKeys(String value)** | adds text to the field | void
-**clear()** | clears the text field | void
-**focus()** | places cursor within the text field | void
-**getText()** | returns text from the text field  | String
-**getValue()** | returns text from the text field| String
-**is()** | property that returns object for work with assertions| TextAssert
 **assertThat()** | property that returns object for work with assertions| TextAssert
+**clear()** | clears the text field | void
 **click()** | click on button | void
 **displayed()** | check item is displayed | TextAssert
 **enabled()** | check item is enabled | TextAssert
 **expand()** | expand dropdown menu | void
 **expanded()** | check that dropdown is expanded | TextAssert
+**focus()** | places cursor within the text field | void
+**getText()** | returns text from the text field  | String
+**getValue()** | returns text from the text field| String
+**is()** | property that returns object for work with assertions| TextAssert
+**sendKeys(String value)** | adds text to the field | void
+**setText(String value)** | adds text to the field | void
  
  <br>
 Input group are represented by Section class in Java:
@@ -14669,19 +14669,19 @@ And here are methods available in Java:
     
 |Method | Description | Return Type
 --- | --- | ---
-**setText(String value)** | adds text to the field | void
-**sendKeys(String value)** | adds text to the field | void
-**clear()** | clears the text field | void
-**focus()** | places cursor within the text field | void
-**getText()** | returns text from the text field  | String
-**getValue()** | returns text from the text field| String
-**is()** | property that returns object for work with assertions| TextAssert
 **assertThat()** | property that returns object for work with assertions| TextAssert
+**clear()** | clears the text field | void
 **click()** | click on button | void
 **displayed()** | check item is displayed | TextAssert
 **enabled()** | check item is enabled | TextAssert
 **expand()** | expand dropdown menu | void
 **expanded()** | check that dropdown is expanded | TextAssert
+**focus()** | places cursor within the text field | void
+**getText()** | returns text from the text field  | String
+**getValue()** | returns text from the text field| String
+**is()** | property that returns object for work with assertions| TextAssert
+**sendKeys(String value)** | adds text to the field | void
+**setText(String value)** | adds text to the field | void
 
  <br>
 Input group are represented by Section class in Java:
@@ -14867,19 +14867,19 @@ And here are methods available in Java:
     
 |Method | Description | Return Type
 --- | --- | ---
-**setText(String value)** | adds text to the field | void
-**sendKeys(String value)** | adds text to the field | void
+**assertThat()** | property that returns object for work with assertions| TextAssert
 **clear()** | clears the text field | void
+**click()** | click on button | void
+**displayed()** | check item is displayed | TextAssert
+**enabled()** | check item is enabled | TextAssert
 **focus()** | places cursor within the text field | void
 **getText()** | returns text from the text field  | String
 **getValue()** | returns text from the text field| String
 **is()** | property that returns object for work with assertions| TextAssert
-**assertThat()** | property that returns object for work with assertions| TextAssert
 **select(int value)** | choose item by index | void
 **selected** | returns text from the selected item | TextAssert
-**click()** | click on button | void
-**displayed()** | check item is displayed | TextAssert
-**enabled()** | check item is enabled | TextAssert
+**sendKeys(String value)** | adds text to the field | void
+**setText(String value)** | adds text to the field | void
  
  
   <br>
@@ -14978,16 +14978,16 @@ And here are methods available in Java:
 
 |Method | Description | Return Type
 --- | --- | ---
-**is()** | property that returns object for work with assertions | UIAssert
 **assertThat()** | property that returns object for work with assertions | UIAssert
 **click()** | click on element | void
-**hover()** | hover on element | void
-**setValue(String value)** | set file path to input | void
 **getValue()** | Get file name | String
+**hover()** | hover on element | void
+**is()** | property that returns object for work with assertions | UIAssert
+**label()**| Get label | Label
+**setValue(String value)** | set file path to input | void
+**text()** | returns text of input field | String
 **uploadFile(String path)** | set file path to input | void
 **uploadFileRobot(String path, long mSecDelay)** | set file path to input | void
-**text()** | returns text of input field | String
-**label()**| Get label | Label
 <br>
 
 The Custom file input is defined as a section and uses additional web elements: Button, FileInput and Label.
@@ -15088,13 +15088,13 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**getText()**| Returns text | String
-**is()** | Assert action | UIAssert
-**assertThat()** | Assert action | UIAssert
-**src()** | Assert image src | ImageAssert
 **alt()** | Assert alt image attribute | ImageAssert
-**width()** | Assert image width | ImageAssert
+**assertThat()** | Assert action | UIAssert
+**getText()**| Returns text | String
 **height()** | Assert image height | ImageAssert
+**is()** | Assert action | UIAssert
+**src()** | Assert image src | ImageAssert
+**width()** | Assert image width | ImageAssert
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardExampleTests.java)
 
@@ -15143,9 +15143,9 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
+**assertThat()** | Assert action | UIAssert
 **getText()**| Returns text | String
 **is()** | Assert action | UIAssert
-**assertThat()** | Assert action | UIAssert
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardBodyTests.java)
 
@@ -15220,9 +15220,9 @@ Available methods in Java JDI Light:
  
 |Method | Description | Return Type
 --- | --- | ---
+**assertThat()** | Assert action | UIAssert
 **getText()**| Returns text | String
 **is()** | Assert action | UIAssert
-**assertThat()** | Assert action | UIAssert
 **ref()** | Returns the reference | String
 **url()** | Returns the URL | URL
 
@@ -15291,13 +15291,13 @@ And here are methods available in Java:
 
 |Method | Description | Return Type
 --- | --- | ---
-**src()** | get attribute src | String
 **alt()** | get attribute alt | String
-**hasClass(String className)** | check that expected className is presented | IsAssert
-**is()** | property that returns object for work with assertions| TextAssert
 **assertThat()** | property that returns object for work with assertions| TextAssert
 **displayed()** | check item is displayed | TextAssert
 **enabled()** | check item is enabled | TextAssert
+**hasClass(String className)** | check that expected className is presented | IsAssert
+**is()** | property that returns object for work with assertions| TextAssert
+**src()** | get attribute src | String
  
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardImageTests.java)
 
@@ -15365,10 +15365,10 @@ Inner elements of Card List Groups represented by the following classes:
 
 |Method | Description | Return Type
 --- | --- | ---
-**getText()** | Returns text of list cell | String
-**size()** | Returns cells quantity of list groups | int 
-**is()** | Assert action | TextAssert
 **assertThat()** | Assert action | TextAssert
+**getText()** | Returns text of list cell | String
+**is()** | Assert action | TextAssert
+**size()** | Returns cells quantity of list groups | int 
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardListGroupsTests.java)
 
@@ -15454,15 +15454,15 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**getText()**| Returns text of kitchen sink | String
+**alt()** | Assert alt image attribute | ImageAssert
+**assertThat()** | Assert action | UIAssert
 **getName()**| Returns name of kitchen sink | String
+**getText()**| Returns text of kitchen sink | String
+**height()** | Assert image height | ImageAssert
 **is()** | Assert action | UIAssert
 **isDisplayed()** | Returns true if kitchen sink is displayed, false if not | boolean
-**assertThat()** | Assert action | UIAssert
 **src()** | Assert image src | ImageAssert
-**alt()** | Assert alt image attribute | ImageAssert
 **width()** | Assert image width | ImageAssert
-**height()** | Assert image height | ImageAssert
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardKitchenSinkTests.java)
 
@@ -15531,10 +15531,10 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
+**assertThat()** | Assert action | UIAssert
 **click()** | Click the button | void
 **is()** | Assert action | UIAssert
 **text()** | Assert text | TextAssert
-**assertThat()** | Assert action | UIAssert
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardWithHeaderAndFooterTests.java)
 
@@ -15637,10 +15637,10 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
+**assertThat()** | Assert action | UIAssert
 **click()** | Click the button | void
 **is()** | Assert action | UIAssert
 **text()** | Assert text | TextAssert
-**assertThat()** | Assert action | UIAssert
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardWithGridMarkupTests.java)
 
@@ -15689,10 +15689,10 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
+**assertThat()** | Assert action | TextAssert
 **css()** | Get element's css value | int 
 **hasClass()** | Assert class | String
 **is()** | Assert action | TextAssert
-**assertThat()** | Assert action | TextAssert
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardUtilitiesTests.java)
 
@@ -15764,10 +15764,10 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
+**assertThat()** | Assert action | UIAssert
 **click()** | Click the button | void
 **is()** | Assert action | UIAssert
 **text()** | Assert text | TextAssert
-**assertThat()** | Assert action | UIAssert
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardWithCustomCss13RemTests.java)
 
@@ -15841,16 +15841,16 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**getText()** | Get button text | String
-**getValue()** | Get button value | String
+**assertThat()** | Assert action | TextAssert
+**attr()** | Assert button attribute | IsAssert
 **click()** | Click button | void
-**displayed()** | Check that element is displayed | TextAssert
 **css()** | Get button css value | String
 **cssClass()** | Assert button css class | IsAssert
-**attr()** | Assert button attribute | IsAssert
-**tag()** | Assert button tag | IsAssert
+**displayed()** | Check that element is displayed | TextAssert
+**getText()** | Get button text | String
+**getValue()** | Get button value | String
 **is()** | Assert action | TextAssert 
-**assertThat()** | Assert action | TextAssert
+**tag()** | Assert button tag | IsAssert
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardTextAlignmentTests.java)
 
@@ -15967,18 +15967,18 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**getText()** | Get element text | String
-**getValue()** | Get element value | String
+**attr()** | Assert element attribute | IsAssert
 **click()** | Click element | void
-**displayed()** | Check that element is displayed | TextAssert
-**enabled()** | Check that element is enabled | UIAssert
-**disabled()** | Check that element is disabled | UIAssert
-**ref()** | Get link ref attribute value | String
 **css()** | Get button css value | String
 **cssClass()** | Assert element css class | IsAssert
-**attr()** | Assert element attribute | IsAssert
-**tag()** | Assert element tag | IsAssert
+**disabled()** | Check that element is disabled | UIAssert
+**displayed()** | Check that element is displayed | TextAssert
+**enabled()** | Check that element is enabled | UIAssert
+**getText()** | Get element text | String
+**getValue()** | Get element value | String
 **is()** | Assert action | TextAssert
+**ref()** | Get link ref attribute value | String
+**tag()** | Assert element tag | IsAssert
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardNavigationTests.java)
 
@@ -16040,11 +16040,11 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**getText()**| Returns text of card | String
+**assertThat()** | Assert action | UIAssert
 **getName()**| Returns name of card | String
+**getText()**| Returns text of card | String
 **is()** | Assert action | UIAssert
 **isDisplayed()** | Returns true if card is displayed, false if not | boolean
-**assertThat()** | Assert action | UIAssert
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardImageCapsTests.java)
 
@@ -16124,13 +16124,13 @@ And here are methods available in Java:
 
 |Method | Description | Return Type
 --- | --- | ---
-**hasClass(String className)** | check that expected className is presented | IsAssert
-**is()** | property that returns object for work with assertions| TextAssert
 **assertThat()** | property that returns object for work with assertions| TextAssert
 **displayed()** | check item is displayed | TextAssert
 **enabled()** | check item is enabled | TextAssert
-**getText(String tagName)** | get text of an element inside vector image by tag | String
 **getAttribute(String tagName, String attr)** | get attribute of an element inside vector image by tag | String
+**getText(String tagName)** | get text of an element inside vector image by tag | String
+**hasClass(String className)** | check that expected className is presented | IsAssert
+**is()** | property that returns object for work with assertions| TextAssert
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardImageOverlaysTests.java)
 
@@ -16216,13 +16216,13 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**getText()**| Returns text | String
-**is()** |	Assert action | UIAssert
-**assertThat()** | Assert action | UIAssert
-**src()** | Assert image src | ImageAssert
 **alt()** | Assert alt image attribute | ImageAssert
-**width()** | Assert image width | ImageAssert
+**assertThat()** | Assert action | UIAssert
+**getText()**| Returns text | String
 **height()** | Assert image height | ImageAssert
+**is()** |	Assert action | UIAssert
+**src()** | Assert image src | ImageAssert
+**width()** | Assert image width | ImageAssert
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardHorizontalTests.java)
 
@@ -16288,10 +16288,10 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**is()** | Assert action | UIAssert
-**displayed()** | Check that element is displayed | TextAssert
-**css()** | Get element css value | String
 **assertThat()** | Assert action | UIAssert
+**css()** | Get element css value | String
+**displayed()** | Check that element is displayed | TextAssert
+**is()** | Assert action | UIAssert
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardBackgroundAndColorTests.java)
 
@@ -16353,10 +16353,10 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
+**assertThat()** | Assert action | UIAssert
+**css()** | Get element css value | String
 **is()** | Assert action | UIAssert
 **text()** | Assert text | TextAssert
-**css()** | Get element css value | String
-**assertThat()** | Assert action | UIAssert
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardBorderTests.java)
 
@@ -16421,10 +16421,10 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
+**assertThat()** | Assert action | UIAssert
+**css()** | Get element css value | String
 **is()** | Assert action | UIAssert
 **text()** | Assert text | TextAssert
-**css()** | Get element css value | String
-**assertThat()** | Assert action | UIAssert
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardMixinsUtilitiesTests.java)
 
@@ -16742,14 +16742,14 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**getText()** | Get element text | String
-**displayed()** | Check that element is displayed | TextAssert
-**css()** | Get element css value | String
-**attr()** | Assert element attribute | IsAssert
-**is()** | Assert action | TextAssert 
-**assertThat()** | Assert action | TextAssert
-**src()** | Get image source path | String
 **alt()** | Get image alt() value | String
+**assertThat()** | Assert action | TextAssert
+**attr()** | Assert element attribute | IsAssert
+**css()** | Get element css value | String
+**displayed()** | Check that element is displayed | TextAssert
+**getText()** | Get element text | String
+**is()** | Assert action | TextAssert 
+**src()** | Get image source path | String
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardDeckTests.java)
 
@@ -16860,13 +16860,13 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**getText()**| Returns text | String
-**is()** | Assert action | UIAssert
-**assertThat()** |	Assert action | UIAssert
-**src()** | Assert image src | ImageAssert
 **alt()** | Assert alt image attribute | ImageAssert
-**width()** | Assert image width | ImageAssert
+**assertThat()** |	Assert action | UIAssert
+**getText()**| Returns text | String
 **height()** | Assert image height | ImageAssert
+**is()** | Assert action | UIAssert
+**src()** | Assert image src | ImageAssert
+**width()** | Assert image width | ImageAssert
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardColumnsTests.java)
 
@@ -16954,40 +16954,40 @@ Methods available for BootstrapDropdown class in Java JDI Light:
 
 |Method/Property | Description | Return Type
 --- | --- | ---
-**expand()** | Expand dropdown | void
-**collapse()** | Collapse dropdown | void
-**isExpanded()** | Return if dropdown expanded | boolean
-**isCollapsed()** | Return if dropdown expanded | boolean
-**expander()** | Get dropdown expander | Button
-**menu()** | Get dropdown menu | UIElement
-**is()** | Assert action | BootstrapDropdownAssert
 **assertThat()** | Assert action | BootstrapDropdownAssert
+**collapse()** | Collapse dropdown | void
+**collapsed()** | Assert that dropdown is collapsed | BootstrapDropdownAssert
+**expand()** | Expand dropdown | void
+**expanded()** | Assert that dropdown is expanded | BootstrapDropdownAssert
+**expander()** | Get dropdown expander | Button
 **has()** | Assert action | BootstrapDropdownAssert
-**waitFor()** | Assert action | BootstrapDropdownAssert
+**is()** | Assert action | BootstrapDropdownAssert
+**isCollapsed()** | Return if dropdown expanded | boolean
+**isExpanded()** | Return if dropdown expanded | boolean
+**menu()** | Get dropdown menu | UIElement
 **shouldBe()** | Assert action | BootstrapDropdownAssert
 **verify()** | Soft assert action | BootstrapDropdownAssert
-**expanded()** | Assert that dropdown is expanded | BootstrapDropdownAssert
-**collapsed()** | Assert that dropdown is collapsed | BootstrapDropdownAssert
+**waitFor()** | Assert action | BootstrapDropdownAssert
 
 <br>
 Additional methods available for DropdownMenu class in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**select(int index)** | Click at dropdown item | void
-**select(String item)** | Click at dropdown item | void
-**itemValues()** | Get items text values | List<String>
-**hasItems(String... item)** | Return if dropdown contains all items | boolean
-**list()** | Get dropdown items | WebList
-**is()** | Assert action | DropdownMenuAssert
+**active(int itemIndex)** | Check if item in dropdown menu is active | DropdownMenuAssert
 **assertThat()** | Assert action | DropdownMenuAssert
 **has()** | Assert action | DropdownMenuAssert
-**waitFor()** | Assert action | DropdownMenuAssert
+**hasItems(String... item)** | Return if dropdown contains all items | boolean
+**hasItems(String... values)** | Asserts whether dropdown has all items from arguments | DropdownMenuAssert
+**is()** | Assert action | DropdownMenuAssert
+**itemValues()** | Get items text values | List<String>
+**itemValues(String... values)** | Asserts whether dropdown are exactly match arguments  | DropdownMenuAssert
+**list()** | Get dropdown items | WebList
+**select(String item)** | Click at dropdown item | void
+**select(int index)** | Click at dropdown item | void
 **shouldBe()** | Assert action | DropdownMenuAssert
 **verify()** | Soft assert action | DropdownMenuAssert
-**active(int itemIndex)** | Check if item in dropdown menu is active | DropdownMenuAssert
-**itemValues(String... values)** | Asserts whether dropdown are exactly match arguments  | DropdownMenuAssert
-**hasItems(String... values)** | Asserts whether dropdown has all items from arguments | DropdownMenuAssert
+**waitFor()** | Assert action | DropdownMenuAssert
 
 #### [Single button](https://getbootstrap.com/docs/4.3/components/dropdowns/#single-button)
 Any single `.btn` can be turned into a dropdown toggle with some markup changes. Here’s how you can put them to work with either `<button>` elements:
@@ -20170,24 +20170,24 @@ Apart from locator annotations JDI Light provides support for smart locators. Wh
 
 |Annotation | Description | Example
 --- | --- | ---
+**@FindAll** | TBD. The JDI Light annotation should correspond exactly to Selenium @FindAll annotation | TBD
 **@FindBy** | This JDI Light locator corresponds to Selenium @FindBy locator. It is used to locate an element using one of the predefined strategies. JDI Light supports most of the Selenium strategies: **id**, **name**, **className**, **css**, **tagName**, **linkText**, **partialLinkText**, **xpath**. Added strategy is **text**, which allows detecting element(s) with the given text inside its text nodes. The **group** annotation parameter allows to use different **@FindBy** locators for different test groups. | @FindBy(css = "#passport")
 **@FindBys** | TBD. The JDI Light annotation should correspond exactly to Selenium @FindBys annotation | @FindBys({@FindBy(css = ".main-form"), @FindBy(css = "#accept-conditions")})
-**@FindAll** | TBD. The JDI Light annotation should correspond exactly to Selenium @FindAll annotation | TBD
 
 ### JDI Light specific annotations
 
 |Annotation | Description | Example
 --- | --- | ---
-**@Css("expr")** | This locator is an alias for @FindBy(css = "expr")| @Css(".fa-sign-out")
-**@XPath("expr")** | This locator is an alias for @FindBy(xpath = "expr") | @XPath(".//button\[@type='submit'\]")
 **@ByText("text")** | This locator allows detecting element(s) with the given text inside its text nodes. It is equivalent to xpath = ".//*/text()\[normalize-space(.) = 'text'\]/parent::\*" | @ByText("Calculate")
-**@WithText("text")** | This locator allows detecting element with the given text inside its text nodes. It is equivalent to xpath = ".//*/text()\[contains(normalize-space(.), 'text')\]/parent::\*" | @WithText("Calculat")
-**@UI("expr")** | This locator accepts either a css locator or an xpath expression as an argument and locates element accordingly. It provides additional features as described below. Additionally, the **group** annotation parameter allows to use different **@UI** locators for different test groups. | @UI("#users-table")
+**@Css("expr")** | This locator is an alias for @FindBy(css = "expr")| @Css(".fa-sign-out")
+**@JDropdown** | This locator helps locate dropdown elements and <a href='https://jdi-docs.github.io/jdi-light/?java#dropdown' target="_blank">provides additional features</a> | @JDropdown(root = "div\[ui=combobox\]", value = "input", list = "li", expand = ".caret")
+**@UI("'expr\[n\]")** | Such notation allows to enhance css locators to choose an element at a specific position. It is equivalent to xpath = ".//xpath-expr\[n\]" | @UI("\[type=checkbox\]\[1\]")
 **@UI("\['text'\]")** | Such notation allows to enhance css locators to detect element(s) with given text inside its text nodes. It is equivalent to xpath = ".//\*/text()\[normalize-space(.) = 'text'\]/parent::\*" | @UI(".user\['Roman'\]") or @UI("\['Accept'\] input") 
 **@UI("\[\*'text'\]")** | Such notation allows to enhance css locators to detect element(s) which contain(s) given text inside its text nodes. It is equivalent to xpath = ".//\*/text()\[contains(normalize-space(.), 'text')\]/parent::\*" | @UI(".user\[\*'Roma'\]") or @UI("\[\*'Accept'\] input")
-**@UI("'expr\[n\]")** | Such notation allows to enhance css locators to choose an element at a specific position. It is equivalent to xpath = ".//xpath-expr\[n\]" | @UI("\[type=checkbox\]\[1\]")
+**@UI("expr")** | This locator accepts either a css locator or an xpath expression as an argument and locates element accordingly. It provides additional features as described below. Additionally, the **group** annotation parameter allows to use different **@UI** locators for different test groups. | @UI("#users-table")
 **@UI("expr<")** | Such notation allows to enhance css locators by allowing to move up the DOM to the parent of the element. E.g. \[’text’\]**<**\[type=checkbox\] is the same as //\*\[text()=’text’\]/..//*\[@type=‘checkbox’\] | @UI("\[’Ice Cream’\]<\[type=checkbox\]")
-**@JDropdown** | This locator helps locate dropdown elements and <a href='https://jdi-docs.github.io/jdi-light/?java#dropdown' target="_blank">provides additional features</a> | @JDropdown(root = "div\[ui=combobox\]", value = "input", list = "li", expand = ".caret")
+**@WithText("text")** | This locator allows detecting element with the given text inside its text nodes. It is equivalent to xpath = ".//*/text()\[contains(normalize-space(.), 'text')\]/parent::\*" | @WithText("Calculat")
+**@XPath("expr")** | This locator is an alias for @FindBy(xpath = "expr") | @XPath(".//button\[@type='submit'\]")
 
 
 ### Smart locators
@@ -20216,17 +20216,17 @@ JDI has good support for managing opened windows and tabs of the browser. It can
 
 |Method | Description | Return Type
 --- | --- | ---
-**getWindows()** | Returns a list of all windows/tabs | Set<String>
-**newWindowIsOpened()** | Check the new window is opened | boolean
-**setWindowName(String value)** | Set readable name for current opened windows | void
-**windowsCount()** | Get window count | int
-**switchToNewWindow()** | Switch to a new window | void
-**openNewTab()** | Open a new tab | void
-**originalWindow()** | Switch to the original window | void
-**switchToWindow(int number)** | Switch to window with a number. _switchToWindow(2) means switch to the second window_ | void
-**switchToWindow(String value)** | Switch to windows with names. To set name for the current window, we should use the **setWindowName()** method | void
 **closeWindow()** | Close current window | void
 **closeWindow(String value)** | Close window with a specific name. | void
+**getWindows()** | Returns a list of all windows/tabs | Set<String>
+**newWindowIsOpened()** | Check the new window is opened | boolean
+**openNewTab()** | Open a new tab | void
+**originalWindow()** | Switch to the original window | void
+**setWindowName(String value)** | Set readable name for current opened windows | void
+**switchToNewWindow()** | Switch to a new window | void
+**switchToWindow(String value)** | Switch to windows with names. To set name for the current window, we should use the **setWindowName()** method | void
+**switchToWindow(int number)** | Switch to window with a number. _switchToWindow(2) means switch to the second window_ | void
+**windowsCount()** | Get window count | int
 
 ## Alerts
 ```java 
@@ -20302,8 +20302,8 @@ Available methods in Java
 **acceptAlert()** | Accept alert | void
 **dismissAlert()** | Dismiss alert | void
 **getAlertText()** | Get alert text | String
-**validateAlert(Matcher<String> text)** | Validate alert by matching passed value with the alert text | void
 **inputAndAcceptAlert(String text)** | Input the specified text in the alert and accept it | void
+**validateAlert(Matcher<String> text)** | Validate alert by matching passed value with the alert text | void
 
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#alert)
 
@@ -20350,8 +20350,8 @@ JDILogger
 
 |Method | Description 
 --- | --- 
-**void step(String msg, Object... args)** | Log successful step
 **void error(String msg, Object... args)** | Log failed step
+**void step(String msg, Object... args)** | Log successful step
 
 
 AllureLoggerHelper
@@ -20359,9 +20359,9 @@ AllureLoggerHelper
 
 |Method | Description 
 --- | --- 
-**void startStep(String uuid, String message)** | Start logging step
-**void passStep(String uuid)** | Log step is successfully completed
 **void failStep(String uuid, String screenName)** | Log step is failed
+**void passStep(String uuid)** | Log step is successfully completed
+**void startStep(String uuid, String message)** | Start logging step
 
 <a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-examples/src/test/java/io/github/epam/tests/allurereport" target="_blank">Allure screenshoots tests</a> for WebPage<br>
 
@@ -20431,11 +20431,11 @@ Here is the list of available SoftAssert class methods:
 
 |Method | Description | Return Type
 --- | --- | ---
-**setAssertType(String type)** |Set the type of asserts | void
+**assertResults()** |Outputs assert results | void
 **assertSoft()** |Set the soft type of asserts | void
 **assertStrict()** |Set the strict type of asserts | void
-**assertResults()** |Outputs assert results | void
 **clearResults()** |Resets assert results | void
+**setAssertType(String type)** |Set the type of asserts | void
 
 **Settings:**
 
@@ -20456,14 +20456,14 @@ We can change default settings placed in the test.properties file (src/test/reso
 
 |Property name | Description | Examples
 --- | --- | ---
-**driver** | Describe what kind of driver we want to use: chrome, firefox, ie… or we can just replace it with ${driver} and read the exact driver name from command line or pom file | driver = ${driver} <br> driver=chrome
-**drivers.version** | By default, JDI Light will download the latest version of the driver for us, but if we need a specific version we can put it here (in this case the framework will find and download exactly the version specified) | drivers.version = LATEST<br>drivers.version = PRELATEST<br> driver.version = 2.23.0 <br> driver.version=3.0.0-beta4
-**drivers.folder** | Set up the driver folder. Use only absolute path. If no parameter specified default value is "resources\drivers". Note there is no filename specifying  required, use 'driver' property instead  | drivers.folder = C:\\Selenium
-**driver.remote.url** | <a href="https://jdi-docs.github.io/jdi-light/?java#remote-test-runs">Tests can run on remote web servers<a> | driver.remote.url=http://localhost:4444/wd/hub
-**timeout.wait.element** | Wait for an element on the opened page, by default = 10 seconds. Valid values are integers from 0 to 999. | timeout.wait.element = 20
 **chrome.capabilities.path** | Path to the Chrome properties file. File should be located in (src/test/resources). | chrome.capabilities.path=chrome.properties
+**driver** | Describe what kind of driver we want to use: chrome, firefox, ie… or we can just replace it with ${driver} and read the exact driver name from command line or pom file | driver = ${driver} <br> driver=chrome
+**driver.remote.url** | <a href="https://jdi-docs.github.io/jdi-light/?java#remote-test-runs">Tests can run on remote web servers<a> | driver.remote.url=http://localhost:4444/wd/hub
+**drivers.folder** | Set up the driver folder. Use only absolute path. If no parameter specified default value is "resources\drivers". Note there is no filename specifying  required, use 'driver' property instead  | drivers.folder = C:\\Selenium
+**drivers.version** | By default, JDI Light will download the latest version of the driver for us, but if we need a specific version we can put it here (in this case the framework will find and download exactly the version specified) | drivers.version = LATEST<br>drivers.version = PRELATEST<br> driver.version = 2.23.0 <br> driver.version=3.0.0-beta4
 **ff.capabilities.path** | Path to the Firefox properties file. File should be located in (src/test/resources). | ff.capabilities.path=ff.properties
 **ie.capabilities.path** | Path to the Internet Explorer properties file. File should be located in (src/test/resources). | ie.capabilities.path=ie.properties
+**timeout.wait.element** | Wait for an element on the opened page, by default = 10 seconds. Valid values are integers from 0 to 999. | timeout.wait.element = 20
 
 ```java 
 public class TestsInit {
@@ -20490,19 +20490,19 @@ This is example how to initialize of custom driver:
 
 |Property name | Description | Examples
 --- | --- | ---
-**timeout.wait.page** | JDI Light automatically defines that new page is opened and in this case will use this timeout (usually it is more than enough for an element). By default, it's 30 seconds. Valid values are integers from 0 to 999. | timeout.wait.page = 40
-**domain** | Web application root URL (used if we're working with one application in tests). Can be also read from the command line, e.g. _${domain}_ | domain = https://jdi-testing.github.io/jdi-light/ <br> domain = http://127.0.0.1:8080
-**browser.size** | the size of the tested browser. By default, JDI Light will maximize the browser, but we can set exact values | browser.size = MAXIMIZE<br>browser.size = 1024x762
-**browser.kill** | Set up at what time browser should be shut down | browser.kill=afterAndBefore<br>browser.kill=after<br>browser.kill=before
-**page.load.strategy** | Like in <a href="https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/capabilities_exports_PageLoadStrategy.html" target="_blank">Selenium strategies</a> to load the page. Options: _normal, eager, none_ | page.load.strategy = normal
-**page.check.after.open** | Check the page has been opened. Available options: _NONE, NEW_PAGE, EVERY_PAGE_ | page.check.after.open = NONE
-**element.search.strategy** | Can find only one element on a page (_single_), many elements on a page (_multiple_). Also, we can define whether we want to search through visible elements only or not. Consists of 2 params: visibility (_visible_ can use _displayed_, _inview_, _enabled_ or _any_), and the type of search. Options: _soft (=any, multiple)_; _strict(=visible, single)_; or _combined from visible/displayed/inview/enabled/any/all and single/multiple_. Note: _visible=displayed_, _any=all_ | element.search.strategy = visible, multiple<br>element.search.strategy = inview, strict
-**screenshot.strategy** | Defines screenshoting strategy. If it set to "on fail" value, then when test fails, web element last processed will be highlighted and page screenshot will be taken, saved and added to Allure report as well, if possible. Options: _on fail, off_ | screenshot.strategy = off
-**screens.folder** | Set up the screenshot folder | screens.folder = C:\\Test-screenshot
 **assert.type** | <a href="https://jdi-docs.github.io/jdi-light/?java#softasserts">Assert type</a>: soft or strict | assert.type = soft
+**browser.kill** | Set up at what time browser should be shut down | browser.kill=afterAndBefore<br>browser.kill=after<br>browser.kill=before
+**browser.size** | the size of the tested browser. By default, JDI Light will maximize the browser, but we can set exact values | browser.size = MAXIMIZE<br>browser.size = 1024x762
+**domain** | Web application root URL (used if we're working with one application in tests). Can be also read from the command line, e.g. _${domain}_ | domain = https://jdi-testing.github.io/jdi-light/ <br> domain = http://127.0.0.1:8080
+**element.search.strategy** | Can find only one element on a page (_single_), many elements on a page (_multiple_). Also, we can define whether we want to search through visible elements only or not. Consists of 2 params: visibility (_visible_ can use _displayed_, _inview_, _enabled_ or _any_), and the type of search. Options: _soft (=any, multiple)_; _strict(=visible, single)_; or _combined from visible/displayed/inview/enabled/any/all and single/multiple_. Note: _visible=displayed_, _any=all_ | element.search.strategy = visible, multiple<br>element.search.strategy = inview, strict
 **html.code.logging** | Defines a strategy for writting html-code of the web element last processed before test failure to log. If it set to "on fail" value, then web element's html-code will be logged (and added to Allure report as well) when test fails, if possible. Options: _on fail, off_ | html.code.logging = off
 **log.level** | Defines a level of categorizing the entries in your log file: _OFF_ - no logging; _FATAL_ - unexpected errors; _ERROR_ - critical errors; _WARNING_ - errors due to wrong params; _STEP_ - business related info; _INFO_ - actions info; _DEBUG_ - debug messages; _TRACE_ - trace info; _ALL_ - all log messages. If no level specified log level is _INFO_ by default | log.level = STEP <br> log.level = ERROR
+**page.check.after.open** | Check the page has been opened. Available options: _NONE, NEW_PAGE, EVERY_PAGE_ | page.check.after.open = NONE
+**page.load.strategy** | Like in <a href="https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/capabilities_exports_PageLoadStrategy.html" target="_blank">Selenium strategies</a> to load the page. Options: _normal, eager, none_ | page.load.strategy = normal
+**screens.folder** | Set up the screenshot folder | screens.folder = C:\\Test-screenshot
+**screenshot.strategy** | Defines screenshoting strategy. If it set to "on fail" value, then when test fails, web element last processed will be highlighted and page screenshot will be taken, saved and added to Allure report as well, if possible. Options: _on fail, off_ | screenshot.strategy = off
 **smart.locators** | A list of templates for <a href="https://jdi-docs.github.io/jdi-light/#smart-locators">Smart locators</a>. Should be separated by ; symbol | smart.locators=#%s;[ui=%s]
+**timeout.wait.page** | JDI Light automatically defines that new page is opened and in this case will use this timeout (usually it is more than enough for an element). By default, it's 30 seconds. Valid values are integers from 0 to 999. | timeout.wait.page = 40
 
 ## Parallel tests run
 TBD

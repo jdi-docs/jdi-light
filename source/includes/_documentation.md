@@ -3033,20 +3033,20 @@ Here is the list of some methods available for C# in JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**OptionIsEnabled(string)** |Check whether option is enabled  | bool
-**SelectOption(string)** |Select specified option  | void
-**GetSelectedOptions()** |Get selected options  | List
-**SelectOptions(List)** |Select specified options  | void
-**OptionExists(string)** |Check whether option exists in list  | bool
-**Expand()** |Expand list  | void
+**AssertThat** |Gets multiDropDown assert  | MultiDropdownAssert
 **Close()** |Close expanded list  | void
+**Disabled(Matcher<IEnumerable<string>> condition)** |Check whether some values are disabled in MultiDropDown by some matcher  | MultiDropdownAssert
+**Enabled(Matcher<IEnumerable<string>> condition)** |Check whether some values are enabled in MultiDropDown by some matcher  | MultiDropdownAssert
+**Expand()** |Expand list  | void
+**GetSelectedOptions()** |Get selected options  | List
+**Is** |Gets multiDropDown assert  | MultiDropdownAssert
+**OptionIsEnabled(string)** |Check whether option is enabled  | bool
+**OptionExists(string)** |Check whether option exists in list  | bool
+**SelectOption(string)** |Select specified option  | void
+**SelectOptions(List)** |Select specified options  | void
 **Selected(string option)** |Check whether option is selected  | MultiDropdownAssert
 **Selected(Enum option)** |Check whether option is selected  | MultiDropdownAssert
 **Values(Matcher<IEnumerable<string>> condition)** |Check whether some values exist in MultiDropDown by some matcher  | MultiDropdownAssert
-**Disabled(Matcher<IEnumerable<string>> condition)** |Check whether some values are disabled in MultiDropDown by some matcher  | MultiDropdownAssert
-**Enabled(Matcher<IEnumerable<string>> condition)** |Check whether some values are enabled in MultiDropDown by some matcher  | MultiDropdownAssert
-**Is** |Gets multiDropDown assert  | MultiDropdownAssert
-**AssertThat** |Gets multiDropDown assert  | MultiDropdownAssert
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/MultiDropdownTests.java" target="_blank">Test examples in Java</a>
 
@@ -3180,25 +3180,25 @@ The list of methods available for Java in JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
+**assertThat** |Gets element's assert | DataListAssert
+**input(string value)** |Input user's value into DataList  | void
+**is** |Gets element's assert | DataListAssert
+**listEnabled()** |Return a list of values of enabled options | List\<String>
+**listDisabled()** |Return a list of values of disabled options | List\<String>
 **select(String/Enum/int)** |Select datalist option by value or index | void
 **selected()** |Get selected option value | String
 **values()** |Get all option values from DataList | List\<String>
-**input(string value)** |Input user's value into DataList  | void
-**listEnabled()** |Return a list of values of enabled options | List\<String>
-**listDisabled()** |Return a list of values of disabled options | List\<String>
-**is** |Gets element's assert | DataListAssert
-**assertThat** |Gets element's assert | DataListAssert
 
 The list of some methods available for C# in JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**Expand()** |Expands the list of possible values | void
-**Select(string/int)** |Select datalist by value/index  | void
-**Input(string value)** |Input user's value into DataList  | void
-**GetSelected()** |Get selected DataList value  | string
-**Is** |Gets element's assert | DataListAssert
 **AssertThat** |Gets element's assert | DataListAssert
+**Expand()** |Expands the list of possible values | void
+**GetSelected()** |Get selected DataList value  | string
+**Input(string value)** |Input user's value into DataList  | void
+**Is** |Gets element's assert | DataListAssert
+**Select(string/int)** |Select datalist by value/index  | void
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/combobox/DataListTests.java" target="_blank">Test examples in Java</a>
 
@@ -3315,39 +3315,39 @@ List of available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
+**assertThat()** | Get select assert | selectAssert
 **check(String.../Enum/int...)** | Check specified checkboxes and uncheck others | void
-**uncheck(String.../Enum/int...)** | Uncheck specified checkboxes and check others  | void
-**select(String.../Enum/int...)** | Select checkboxes | void
-**uncheckAll()** | Uncheck all checkboxes in checklist | void
 **checkAll()** | Check all checkboxes in checklist | void
 **checked()** | Get selected checkbox values | List\<String>
-**values()** | Get checklist values | List\<String>
+**has()** | Get select assert | selectAssert
+**is()** | Get select assert | selectAssert
 **listEnabled()** | Get enabled checkboxes | List\<String>
 **listDisabled()** | Get disabled checkboxes | List\<String>
-**size()** | Get checklist size | int
-**is()** | Get select assert | selectAssert
-**assertThat()** | Get select assert | selectAssert
-**has()** | Get select assert | selectAssert
 **selected()** | Get selected checkbox values | String
+**select(String.../Enum/int...)** | Select checkboxes | void
+**size()** | Get checklist size | int
+**uncheck(String.../Enum/int...)** | Uncheck specified checkboxes and check others  | void
+**uncheckAll()** | Uncheck all checkboxes in checklist | void
+**values()** | Get checklist values | List\<String>
 
 Here is the list of some methods available for C# in JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
+**AssertThat** | Get select assert | SelectAssert
 **Check(params string[]/params int[])** |Check checklist by values/indexes  | void
-**Uncheck(params string[]/params int[])** |Unselect checklist by values/indexes  | void
-**Select(params string[]/params int[])** |Select checklist by values/indexes  | void
-**UncheckAll()** |Uncheck all checkboxes | void
 **CheckAll()** |Check all checkboxes | void
 **Checked()** |Get selected checkboxes from checklist value  | List\<String>
-**Values()** | Get checklist values | List\<String>
+**Has** | Get select assert | SelectAssert
+**Is** | Get select assert | SelectAssert
 **ListEnabled()** | Get enabled checkboxes | List\<String>
 **ListDisabled()** | Get disabled checkboxes | List\<String>
-**Size()** | Get checklist size | int
-**Is** | Get select assert | SelectAssert
-**AssertThat** | Get select assert | SelectAssert
-**Has** | Get select assert | SelectAssert
+**Select(params string[]/params int[])** |Select checklist by values/indexes  | void
 **Selected(string option)** | Checks whether a checkbox is selected | bool
+**Size()** | Get checklist size | int
+**Uncheck(params string[]/params int[])** |Unselect checklist by values/indexes  | void
+**UncheckAll()** |Uncheck all checkboxes | void
+**Values()** | Get checklist values | List\<String>
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/ChecklistTests.java" target="_blank">Test examples in Java</a>
 
@@ -3413,26 +3413,26 @@ Here is a list of available methods and properties in C#:
 
 |Method / Property | Description | Return Type
 --- | --- | ---
-**Check(string/string[]/int/int[]/Enum[])** | Select multiselector by values | void
-**Uncheck(string[]/Enum[]/int[])** | Select multiselector by values/indexes | void
-**Selected()** | Get selected values | string
-**Checked()** | Get selected values  | List\<string>
-**Is** | Property that returns object for work with assertions | SelectAssert
 **AssertThat** | Property that returns object for work with assertions | SelectAssert
+**Check(string/string[]/int/int[]/Enum[])** | Select multiselector by values | void
+**Checked()** | Get selected values  | List\<string>
 **has()** | Returns object for work with assertions | SelectAssert
-**waitFor()** | Returns object for work with assertions | SelectAssert
+**Is** | Property that returns object for work with assertions | SelectAssert
+**Selected()** | Get selected values | string
 **shouldBe()** | Returns object for work with assertions | SelectAssert
+**Uncheck(string[]/Enum[]/int[])** | Select multiselector by values/indexes | void
+**waitFor()** | Returns object for work with assertions | SelectAssert
 
 Here is the list of available methods/asserts in Java:
 
 |Method | Description | Return Type
 --- | --- | ---
+**assertThat()** | Returns object for work with assertions| SelectAssert
 **check(String/Strings.../TEnum...)** |Select multiselector by values | void
-**uncheck(Strings.../TEnum.../int)** |Select multiselector by values/indices  | void
-**selected()** |Get selected values  | String
 **checked()** |Get selected values  | List\<String>
 **is()** |  Returns object for work with assertions| SelectAssert
-**assertThat()** | Returns object for work with assertions| SelectAssert
+**selected()** |Get selected values  | String
+**uncheck(Strings.../TEnum.../int)** |Select multiselector by values/indices  | void
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/MultiSelectorTests.java" target="_blank">Test examples in Java</a>
 
@@ -3542,22 +3542,22 @@ The list of methods available for Java in JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
+**listEnabled()** |Return list of values of enabled options | List\<String>
+**listDisabled()** |Return list of values of disabled options | List\<String>
 **select(String/Enum/int)** |Select combobox option by value or index | void
 **selected()** |Get selected option value | String
 **values()** |Get all option values from combobox | List\<String>
-**listEnabled()** |Return list of values of enabled options | List\<String>
-**listDisabled()** |Return list of values of disabled options | List\<String>
 
 Here is the list of some methods available for C# in JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**Expand()** |Expands the list of possible values | void
-**Select(string/int)** |Select combobox by value/index  | void
-**Input(string)** |Input user's value into combobox  | void
-**GetSelected()** |Get selected combobox value  | string
-**is()** |  Returns object for work with assertions| ComboBoxAssert
 **assertThat()** | Returns object for work with assertions| ComboBoxAssert
+**Expand()** |Expands the list of possible values | void
+**GetSelected()** |Get selected combobox value  | string
+**Input(string)** |Input user's value into combobox  | void
+**is()** |  Returns object for work with assertions| ComboBoxAssert
+**Select(string/int)** |Select combobox by value/index  | void
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/complex/combobox/IsComboboxTests.java" target="_blank">Test examples in Java</a>
 
@@ -3683,11 +3683,11 @@ And here are methods available in Java:
 
 |Method | Description | Return Type
 --- | --- | ---
-**shouldBe()** | Returns object for work with assertions | IsAssert
-**waitFor()** | Returns object for work with assertions | IsAssert
+**assertThat()** | Returns object for work with assertions | IsAssert
 **has()** | Returns object for work with assertions | IsAssert
 **is()** | Returns object for work with assertions | IsAssert
-**assertThat()** | Returns object for work with assertions | IsAssert
+**shouldBe()** | Returns object for work with assertions | IsAssert
+**waitFor()** | Returns object for work with assertions | IsAssert
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/composite/section" target="_blank">Test examples in Java</a>
 
@@ -3912,36 +3912,36 @@ Methods available for Java in JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
+**add(T entity)** | Fills all settable elements and clicks “add” Button or ”addButton” | void
+**back(T entity)** | Fills all settable elements and clicks “back” Button or ”backButton” | void
+**cancel(T entity)** | Fills all settable elements and clicks “cancel” Button or ”cancelButton” | void
+**check(T entity)** | Verifies that form has been filled correctly. If not, throws an exception | void
+**close(T entity)** | Fills all settable elements and clicks “close” Button or ”closeButton” | void
+**fill(T entity)** | Fills all settable elements of the form that can be matched with fields of the input entity | void
 **fillAction(Field field, Object element, Object parent, String setValue)** | Defines the specifics of how form elements will be filled | void
 **getAction(Field field, Object element, Object parent)** | Defines the specifics of how form elements will be obtained for verification and checks | String
+**isDisplayed()** | Check that form is displayed | boolean
+**isValid()** | Return that form is valid | boolean
+**login()** | Clicks "login" Button or "loginButton"| void
+**login(T entity)** | Fills all settable elements and clicks “login” Button or ”loginButton” | void
+**loginAs(T entity)** | Fills all settable elements and clicks “login” Button or ”loginButton” | void
+**next(T entity)** | Fills all settable elements and clicks “next” Button or ”nextButton” | void
 **onlyMandatory()** | Sets form filter option to **MANDATORY**, meaning that only mandatory form elements are filled/submitted or verified/checked for the duration of a single form action | void
 **onlyOptional()** | Sets form filter option to **OPTIONAL**, meaning that only optional form elements are filled/submitted or verified/checked for the duration of a single form action | void
-**fill(T entity)** | Fills all settable elements of the form that can be matched with fields of the input entity | void
+**pressButton(String buttonName)** | Clicks “buttonName” Button or "buttonNamebutton". Allows different buttons to send one form, e.g. save/publish/cancel/search/update/... | void
+**publish(T entity)** | Fills all settable elements and clicks “publish” Button or ”publishButton” | void
+**save(T entity)** | Fills all settable elements and clicks “save” Button or ”saveButton” | void
+**select(T entity)** | Fills all settable elements and clicks “select” Button or ”selectButton” | void
+**search(T entity)** | Fills all settable elements and clicks “search” Button or ”searchButton” | void
+**send()** | Sends the form by clicking “send” Button or "sendButton" | void
+**send(T entity)** | Fills all settable elements and clicks “send” Button or ”sendButton” | void
 **submit()** | Sends the form by clicking "submit" Button or "submitButton" | void
 **submit(String text)** | Fills first settable form field with value and clicks "submit" Button or "submitButton"  | void
 **submit(T entity)** | Fills all settable elements and clicks "submit" Button or "submitButton"  | void
 **submit(String text, String buttonName)** | Fills first settable field with value and clicks “buttonName” Button or "buttonNamebutton"| void
 **submit(T entity, String buttonName)** | Fills all settable elements and clicks “buttonName” Button or "buttonNamebutton" | void
-**pressButton(String buttonName)** | Clicks “buttonName” Button or "buttonNamebutton". Allows different buttons to send one form, e.g. save/publish/cancel/search/update/... | void
 **verify(T entity)** | Verifies that form has been filled correctly. If not, returns a list of keys where verification has failed | List<String>
-**check(T entity)** | Verifies that form has been filled correctly. If not, throws an exception | void
-**login()** | Clicks "login" Button or "loginButton"| void
-**login(T entity)** | Fills all settable elements and clicks “login” Button or ”loginButton” | void
-**loginAs(T entity)** | Fills all settable elements and clicks “login” Button or ”loginButton” | void
-**send()** | Sends the form by clicking “send” Button or "sendButton" | void
-**send(T entity)** | Fills all settable elements and clicks “send” Button or ”sendButton” | void
-**add(T entity)** | Fills all settable elements and clicks “add” Button or ”addButton” | void
-**publish(T entity)** | Fills all settable elements and clicks “publish” Button or ”publishButton” | void
-**save(T entity)** | Fills all settable elements and clicks “save” Button or ”saveButton” | void
 **update(T entity)** | Fills all settable elements and clicks “update” Button or ”updateButton” | void
-**cancel(T entity)** | Fills all settable elements and clicks “cancel” Button or ”cancelButton” | void
-**close(T entity)** | Fills all settable elements and clicks “close” Button or ”closeButton” | void
-**back(T entity)** | Fills all settable elements and clicks “back” Button or ”backButton” | void
-**select(T entity)** | Fills all settable elements and clicks “select” Button or ”selectButton” | void
-**next(T entity)** | Fills all settable elements and clicks “next” Button or ”nextButton” | void
-**search(T entity)** | Fills all settable elements and clicks “search” Button or ”searchButton” | void
-**isDisplayed()** | Check that form is displayed | boolean
-**isValid()** | Return that form is valid | boolean
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/composite/FormTests.java" target="_blank">Test examples in Java</a>
 
@@ -4016,35 +4016,22 @@ public class ActionsWebPageTests extends TestsInit {
 |Method | Description | Return Type
 --- | --- | ---
 **asForm()**|Returns new Form parameterized with local Name|Form<T>
+**back()**|Go back to previous page|void
+**checkOpened()**|Checks that page has opened|void
+**forward()**|Go forward to next page|void
 **getCurrentPage()**|Returns the name of current Page|String
-**setCurrentPage(WebPage page)**|Instantiates the current Page with Name|void
-**WebPage()**|Default constructor for WebPage class|WebPage
-**WebPage(String url)**|Parameterized URL constructor for WebPage class|WebPage
-**WebPage(String url, String title)**|Parameterized with URL and Title constructor|WebPage
+**getHtml()**|Gets HTML of current page|String
+**getTitle()**|Returns Page Title|String
+**getUrl()**|Returns URL of Page|String
+**isOpened()**|Checks that page has opened|boolean
+**open(String url)**|Opens url specified for page|void
+**open(Object... params)**|Opens url specified for page with parameters|void
+**openedPage(String url)**|Checks that page has opened|void
 **openSite()**|Opens a Site|void
 **openSite(Class<?> site)**|Parameterized Site opening|void
 **openUrl(String url)**|Opening WebPage with URL|void
-**getUrl()**|Returns URL of Page|String
-**getTitle()**|Returns Page Title|String
-**setUrl(String uri)**|Setting Up URL of Page|void
-**setUrl(String uri, String template, CheckTypes validate)**|Parameterized setting Up URL of Page|void
-**updatePageData(Url urlAnnotation, Title titleAnnotation)**|Setting Page URL and     |void
-**url()**|Returns new StringCheckType object with checked URL|StringCheckType
-**title()**|Returns new StringCheckType object with checked Title|StringCheckType
-**open(String url)**|Opens url specified for page|void
-**open(Object... params)**|Opens url specified for page with parameters|void
-**checkOpened()**|Checks that page has opened|void
-**visualWindowCheck()**|empty|void
-**isOpened()**|Checks that page has opened|boolean
-**shouldBeOpened()**|Checks that page has opened|void
-**shouldBeOpened(Object... params)**|Checks that page has opened with parameters|void
-**openedPage(String url)**|Checks that page has opened|void
 **refresh()**|Reloads current page|void
 **reload()**|Same as **refresh()**|void
-**back()**|Go back to previous page|void
-**forward()**|Go forward to next page|void
-**zoom(double factor)**|Zooms current page|void
-**getHtml()**|Gets HTML of current page|String
 **scroll(int x, int y)**|Scrolls to designated position|void
 **scrollToTop()**|Scrolls to top|void
 **scrollToBottom()**|Scrolls to bottom|void
@@ -4052,21 +4039,33 @@ public class ActionsWebPageTests extends TestsInit {
 **scrollUp(int value)**|Scrolls up to designated position|void
 **scrollRight(int value)**|Scrolls right to designated position|void
 **scrollLeft(int value)**|Scrolls left to designated position|void
-**zoomLevel()**|Getting zoom level|double
+**setCurrentPage(WebPage page)**|Instantiates the current Page with Name|void
+**setUrl(String uri)**|Setting Up URL of Page|void
+**setUrl(String uri, String template, CheckTypes validate)**|Parameterized setting Up URL of Page|void
+**shouldBeOpened()**|Checks that page has opened|void
+**shouldBeOpened(Object... params)**|Checks that page has opened with parameters|void
+**title()**|Returns new StringCheckType object with checked Title|StringCheckType
+**toString()**|Overrides the Object class toString() method|String
+**updatePageData(Url urlAnnotation, Title titleAnnotation)**|Setting Page URL and     |void
+**url()**|Returns new StringCheckType object with checked URL|StringCheckType
+**visualWindowCheck()**|empty|void
+**WebPage()**|Default constructor for WebPage class|WebPage
+**WebPage(String url)**|Parameterized URL constructor for WebPage class|WebPage
+**WebPage(String url, String title)**|Parameterized with URL and Title constructor|WebPage
+**windowScreenshot()**|Getting window screenshot|String
 **xOffset()**|Getting window x offset|long
 **yOffset()**|Getting window y offset|long
-**windowScreenshot()**|Getting window screenshot|String
-**toString()**|Overrides the Object class toString() method|String
-  
+**zoom(double factor)**|Zooms current page|void
+**zoomLevel()**|Getting zoom level|double
 
 More than that, it has a nested **StringCheckType** class with the following methods:
 
 |Method | Description | Return Type
 --- | --- | ---
-**StringCheckType(Supplier<String> actual, String equals, String what)**|A parameterized constructor|StringCheckType
 **check()**|Checks that current page url/title equals to expected url/title|boolean
-**match()**|Checks that current page url/title matches to expected url/title-matcher|boolean
 **contains()**|Checks that current page url/title contains expected url/title-matcher|boolean
+**match()**|Checks that current page url/title matches to expected url/title-matcher|boolean
+**StringCheckType(Supplier<String> actual, String equals, String what)**|A parameterized constructor|StringCheckType
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/composite/webpage/ActionsWebPageTests.java" target="_blank">Test examples in Java</a>
 
@@ -4145,14 +4144,14 @@ public void clickableTests() {
 
 |Method | Description | Return Type
 --- | --- | ---
+**assertThat()** | Assert action checkbox | CheckboxAssert
 **click()** | Click the checkbox | void
 **check(String)** | Set to checked on "true" (case insensitive) or unchecked otherwise | void
 **check()** | Set to checked | void
-**uncheck()** | Set to unchecked | void
+**is()** | Assert action checkbox | CheckboxAssert
 **isSelected()** | Verify value | boolean 
 **isEnabled()** | Verify state | boolean
-**assertThat()** | Assert action checkbox | CheckboxAssert
-**is()** | Assert action checkbox | CheckboxAssert
+**uncheck()** | Set to unchecked | void
 
 <br>
 
@@ -4241,14 +4240,14 @@ public void clickableTests() {
 
 |Method | Description | Return Type
 --- | --- | ---
+**assertThat()** | Assert action checkbox | CheckboxAssert
 **click()** | Click the checkbox | void
 **check(String)** | Set to checked on "true" (case insensitive) or unchecked otherwise | void
 **check()** | Set to checked | void
-**uncheck()** | Set to unchecked | void
-**isSelected()** | Verify value | boolean 
-**isEnabled()** | Verify state | boolean
-**assertThat()** | Assert action checkbox | CheckboxAssert
 **is()** | Assert action checkbox | CheckboxAssert
+**isEnabled()** | Verify state | boolean
+**isSelected()** | Verify value | boolean
+**uncheck()** | Set to unchecked | void
 
 <br>
 
@@ -4337,13 +4336,13 @@ public void radioButtonByLabelTests() {
 
 |Method | Description | Return Type
 --- | --- | ---
+**assertThat()** | Assert action | TextAssert
 **click()** | Click the button | void
+**get()** | Select button by index | action
 **getText()** | Get button text | String
 **is()** | Assert action | TextAssert 
-**assertThat()** | Assert action | TextAssert
 **select()** | Select button | void
 **selected()** | Radio button is selected | TextAssert
-**get()** | Select button by index | action
 
 <br>
 
@@ -4435,13 +4434,13 @@ public void radioButtonByIndexTests() {
 
 |Method | Description | Return Type
 --- | --- | ---
+**assertThat()** | Assert action | TextAssert
 **click()** | Click the button | void
+**get()** | Select button by index | action
 **getText()** | Get button text | String
 **is()** | Assert action | TextAssert 
-**assertThat()** | Assert action | TextAssert
 **select()** | Select button | void
 **selected()** | Radio button is selected | TextAssert
-**get()** | Select button by index | action
 
 <br>
 

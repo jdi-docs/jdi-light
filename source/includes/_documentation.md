@@ -8740,12 +8740,12 @@ Most applicable methods:
 
 |Method | Description | Return Type
 --- | --- | ---
-**getText()** | Get button text | String
-**is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
-**get()** | Select button by index | UIElement
 **click()** | Get button text | void
+**get()** | Select button by index | UIElement
+**getText()** | Get button text | String
 **highlight()** | Get button text | void
+**is()** | Assert action | TextAssert 
 **unhighlight()** | Get button text | void
 
 <br>
@@ -8845,12 +8845,12 @@ Most applicable methods:
 
 |Method | Description | Return Type
 --- | --- | ---
-**getText()** | Get button text | String
-**is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
-**get()** | Select button by index | UIElement
 **click()** | Get button text | void
+**get()** | Select button by index | UIElement
+**getText()** | Get button text | String
 **highlight()** | Get button text | void
+**is()** | Assert action | TextAssert 
 **unhighlight()** | Get button text | void
 
 <br>
@@ -8938,12 +8938,12 @@ Most applicable methods:
 
 |Method | Description | Return Type
 --- | --- | ---
-**getText()** | Get button text | String
-**is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
-**get()** | Select button by index | UIElement
 **click()** | Get button text | void
+**get()** | Select button by index | UIElement
+**getText()** | Get button text | String
 **highlight()** | Get button text | void
+**is()** | Assert action | TextAssert 
 **unhighlight()** | Get button text | void
 
 <br>
@@ -9026,12 +9026,12 @@ Most applicable methods:
 
 |Method | Description | Return Type
 --- | --- | ---
-**getText()** | Get button text | String
-**is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
-**get()** | Select button by index | UIElement
 **click()** | Get button text | void
+**get()** | Select button by index | UIElement
+**getText()** | Get button text | String
 **highlight()** | Get button text | void
+**is()** | Assert action | TextAssert 
 **unhighlight()** | Get button text | void
 
 <br>
@@ -9114,12 +9114,12 @@ Most applicable methods:
 
 |Method | Description | Return Type
 --- | --- | ---
-**getText()** | Get button text | String
-**is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
-**get()** | Select button by index | UIElement
 **click()** | Get button text | void
+**get()** | Select button by index | UIElement
+**getText()** | Get button text | String
 **highlight()** | Get button text | void
+**is()** | Assert action | TextAssert 
 **unhighlight()** | Get button text | void
 
 <br>
@@ -9234,15 +9234,15 @@ Most applicable methods:
 
 |Method | Description | Return Type
 --- | --- | ---
-**getText()** | Get button text | String
-**is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
-**get()** | Select button by index | UIElement
 **click()** | Get button text | void
-**highlight()** | Get button text | void
-**unhighlight()** | Get button text | void
 **expand()** | Get button text | void
 **expanded()** | Get button text | TextAssert
+**get()** | Select button by index | UIElement
+**getText()** | Get button text | String
+**highlight()** | Get button text | void
+**is()** | Assert action | TextAssert 
+**unhighlight()** | Get button text | void
 
 <br>
 
@@ -9343,15 +9343,15 @@ Most applicable methods:
 
 |Method | Description | Return Type
 --- | --- | ---
-**getText()** | Get button text | String
-**is()** | Assert action | TextAssert 
 **assertThat()** | Assert action | TextAssert
-**get()** | Select button by index | UIElement
 **click()** | Get button text | void
-**highlight()** | Get button text | void
-**unhighlight()** | Get button text | void
 **expand()** | Get button text | void
-**expanded()** | Get button text | TextAssertn
+**expanded()** | Get button text | TextAssert
+**get()** | Select button by index | UIElement
+**getText()** | Get button text | String
+**highlight()** | Get button text | void
+**is()** | Assert action | TextAssert 
+**unhighlight()** | Get button text | void
 
 <br>
 
@@ -9394,35 +9394,35 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
+**add(T entity)** | Fills all settable elements and clicks “add” Button or ”addButton” | void
+**back(T entity)** | Fills all settable elements and clicks “back” Button or ”backButton” | void
+**cancel(T entity)** | Fills all settable elements and clicks “cancel” Button or ”cancelButton” | void
+**check(T entity)** | Verifies that form has been filled correctly. If not, throws an exception | void
+**close(T entity)** | Fills all settable elements and clicks “close” Button or ”closeButton” | void
+**fill(T entity)** | Fills all settable elements of the form that can be matched with fields of the input entity | void
 **fillAction(Field field, Object element, Object parent, String setValue)** | Defines the specifics of how form elements will be filled | void
 **getAction(Field field, Object element, Object parent)** | Defines the specifics of how form elements will be obtained for verification and checks | String
+**is()** | Asserts element  | UIAssert
+**login()** | Clicks "login" Button or "loginButton"| void
+**login(T entity)** | Fills all settable elements and clicks “login” Button or ”loginButton” | void
+**loginAs(T entity)** | Fills all settable elements and clicks “login” Button or ”loginButton” | void
+**next(T entity)** | Fills all settable elements and clicks “next” Button or ”nextButton” | void
 **onlyMandatory()** | Sets form filter option to **MANDATORY**, meaning that only mandatory form elements are filled/submitted or verified/checked for the duration of a single form action | void
 **onlyOptional()** | Sets form filter option to **OPTIONAL**, meaning that only optional form elements are filled/submitted or verified/checked for the duration of a single form action | void
-**fill(T entity)** | Fills all settable elements of the form that can be matched with fields of the input entity | void
+**pressButton(String buttonName)** | Clicks “buttonName” Button or "buttonNamebutton". Allows different buttons to send one form, e.g. save/publish/cancel/search/update/... | void
+**publish(T entity)** | Fills all settable elements and clicks “publish” Button or ”publishButton” | void
+**save(T entity)** | Fills all settable elements and clicks “save” Button or ”saveButton” | void
+**search(T entity)** | Fills all settable elements and clicks “search” Button or ”searchButton” | void
+**select(T entity)** | Fills all settable elements and clicks “select” Button or ”selectButton” | void
+**send()** | Sends the form by clicking “send” Button or "sendButton" | void
+**send(T entity)** | Fills all settable elements and clicks “send” Button or ”sendButton” | void
 **submit()** | Sends the form by clicking "submit" Button or "submitButton" | void
 **submit(String text)** | Fills first settable form field with value and clicks "submit" Button or "submitButton"  | void
 **submit(T entity)** | Fills all settable elements and clicks "submit" Button or "submitButton"  | void
 **submit(String text, String buttonName)** | Fills first settable field with value and clicks “buttonName” Button or "buttonNamebutton"| void
 **submit(T entity, String buttonName)** | Fills all settable elements and clicks “buttonName” Button or "buttonNamebutton" | void
-**pressButton(String buttonName)** | Clicks “buttonName” Button or "buttonNamebutton". Allows different buttons to send one form, e.g. save/publish/cancel/search/update/... | void
-**verify(T entity)** | Verifies that form has been filled correctly. If not, returns a list of keys where verification has failed | List<String>
-**check(T entity)** | Verifies that form has been filled correctly. If not, throws an exception | void
-**login()** | Clicks "login" Button or "loginButton"| void
-**login(T entity)** | Fills all settable elements and clicks “login” Button or ”loginButton” | void
-**loginAs(T entity)** | Fills all settable elements and clicks “login” Button or ”loginButton” | void
-**send()** | Sends the form by clicking “send” Button or "sendButton" | void
-**send(T entity)** | Fills all settable elements and clicks “send” Button or ”sendButton” | void
-**add(T entity)** | Fills all settable elements and clicks “add” Button or ”addButton” | void
-**publish(T entity)** | Fills all settable elements and clicks “publish” Button or ”publishButton” | void
-**save(T entity)** | Fills all settable elements and clicks “save” Button or ”saveButton” | void
 **update(T entity)** | Fills all settable elements and clicks “update” Button or ”updateButton” | void
-**cancel(T entity)** | Fills all settable elements and clicks “cancel” Button or ”cancelButton” | void
-**close(T entity)** | Fills all settable elements and clicks “close” Button or ”closeButton” | void
-**back(T entity)** | Fills all settable elements and clicks “back” Button or ”backButton” | void
-**select(T entity)** | Fills all settable elements and clicks “select” Button or ”selectButton” | void
-**next(T entity)** | Fills all settable elements and clicks “next” Button or ”nextButton” | void
-**search(T entity)** | Fills all settable elements and clicks “search” Button or ”searchButton” | void
-**is()** | Asserts element  | UIAssert
+**verify(T entity)** | Verifies that form has been filled correctly. If not, returns a list of keys where verification has failed | List<String>
 
 #### Simple form
 This is an example of simple form consisting of some basic elements.

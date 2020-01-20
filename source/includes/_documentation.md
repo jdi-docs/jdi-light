@@ -2113,9 +2113,6 @@ Tables are represented by the following classes in Java and C#:
 
 
 ```java 
-@UI("#users-table")
-//@FindBy(id = "users-table")
-public static Table users;
 @JTable(
     root = "#users-table",
     row = "//tr[%s]/td",
@@ -2412,168 +2409,49 @@ DataTables are represented by the following classes in Java:
 
 ```java 
 @UI("#users-table") //@FindBy(id = "users-table")
-public static DataTable<UserRow, UserInfo> usersData;
+public static DataTable<PerformanceUserRow, PerformanceUserInfo> usersData;
 @JTable( root = "#users-table",
-  row = "//tr[%s]/td", column = "//tr/td[%s]",
-  cell = "//tr[{1}]/td[{0}]", allCells = "td",
-  headers = "th", header = {"Name", "Phone", "Email",
-                             "City"},
-  rowHeader = "Name", size = 4
+        row = "//tr[%s]/td", column = "//tr/td[%s]",
+        cell = "//tr[{1}]/td[{0}]", allCells = "td",
+        headers = "th", header = {"Name", "Phone", "Email", "City"},
+        rowHeader = "Name", size = 4
 )
-
-public static DataTable<UserRow, UserInfo> usersDataSetup;
-
-@Test
-public void dataTableTest() {
-   dataTableValidation(usersData);
-}
-
-@Test
-public void jDataTableTest() {
-   dataTableValidation(usersDataSetup);
-}
-
-@Test
-private void dataTableValidation(DataTable<UserRow, UserInfo> table) {
-   assertEquals(table.size(), 4);
-   assertEquals(table.count(), 400);
-   assertEquals(table.header(), 
-        asList("Name", "Phone", "Email", "City"));
-   String value = table.preview();
-   assertEquals(value.substring(0,194),
-   "Name Phone Email City" +
-   "Burke Tucker 076 1971 1687 et.euismod.et@ut.edu GozŽe"+
-   "Grady Brock (011307) 16843 cursus.et@commodo.org Alcobendas"+
-   "Harding Lloyd 0800 1111 neque.In.ornare@mauris.co.uk Beauvais");
-}
+public static DataTable<PerformanceUserRow, PerformanceUserInfo> usersDataSetup;
 
 @Test
 public void filterDataTest() {
-   assertEquals(usersData.data(2), GRADY_BROCK);
-   assertEquals(usersData.data("Grady Brock"),GRADY_BROCK);
-   assertEquals(usersData.data(d -> d.name.contains("Brock")),
-         GRADY_BROCK);
-   usersData.assertThat().row(d -> d.equals(GRADY_BROCK));
+    assertEquals(usersDataSetup.dataRow("Grady Brock"), GRADY_BROCK);
+    assertEquals(usersDataSetup.dataRow(2), GRADY_BROCK);
+    usersDataSetup.assertThat().row(d -> d.name.contains("Brock"));
+    usersDataSetup.has().row(GRADY_BROCK);
+    usersDataSetup.assertThat().row(d -> d.equals(GRADY_BROCK));
 }
 
 @Test
 public void filterLinesTest() {
-   UserRow line =  usersData.line(2);
-   validateUserRow(line);
-   line =  usersData.line("Grady Brock");
-   validateUserRow(line);
-   line =  usersData.line(d -> d.name.contains("Brock"));
-   validateUserRow(line);
+    PerformanceUserRow line =  usersData.line(2);
+    validateUserRow(line);
+    line =  usersData.line("Grady Brock");
+    validateUserRow(line);
+    line =  usersData.line(d -> d.name.contains("Brock"));
+    validateUserRow(line);
 }
 
-private void validateUserRow(UserRow line) {
-   line.city.click();
-   validateAlert(is(GRADY_BROCK.city));
-   assertEquals(line.email.getText(),GRADY_BROCK.email);
-}	
-    
-@Test
-public void tableParamsTest() {
-   assertEquals(users.size(), 4);
-   assertEquals(users.count(), 6);
-   assertEquals(users.header(),
-   asList("Number", "Type", "User","Description"));
-}    
- 
-@Test
-public void dataColumnTestIndex() {
-   assertEquals(users.data(2), SPIDER_MAN);
+private void validateUserRow(PerformanceUserRow line) {
+    line.city.click();
+    validateAlert(is(GRADY_BROCK.city));
+    assertEquals(line.email.getText(), GRADY_BROCK.email);
 }
 
 @Test
-public void dataColumnNameTest() {
-   assertEquals(usersSetup.data("Sergey Ivan"),
-                SPIDER_MAN);
+public void rowMatcherChainTest() {
+    usersDataSetup.assertThat()
+            .all().rows(d -> d.name.length() > 4)
+            .no().rows(d -> isBlank(d.phone))
+            .atLeast(2).rows(d -> d.name.contains("Sean"))
+            .exact(15).rows(d -> d.phone.contains("0800 1111"))
+            .exact(1).row(GRADY_BROCK);
 }
-
-@Test
-public void dataFilterTest() {
-   assertEquals(users.data(d -> d.user.contains("Ivan")),
-         SPIDER_MAN);
-}
- 
-@Test
-public void allDataFilterTest() {
-   List<MarvelUserInfo> filteredData = 
-            users.datas(d -> d.user.contains("Ivan"));
-   assertEquals(filteredData.size(), 1);
-   assertEquals(filteredData.get(0), SPIDER_MAN);
-}
- 
-@Test
-public void commonMatchersTest() {
-   users.is().displayed();
-   users.has().size(6);
-   users.assertThat().size(greaterThan(3));
-   users.is().notEmpty().size(lessThanOrEqualTo(6));
-}
- 
-@Test
-public void rowMatcherTest() {
-   users.has().row(d -> d.user.contains("Ivan"));
-}
- 
-@Test
-public void atLeastMatcherTest() {
-   users.assertThat().atLeast(3).
-        rows(d -> d.type.contains("User"));
-}
- 
-@Test
-public void rowDataMatcherTest() {
-   users.has().row(SPIDER_MAN);
-}
- 
-@Test
-public void rowDataExactMatcherTest() {
-   users.assertThat().exact(1).rows(SPIDER_MAN);
-}
- 
-@Test
-public void tableChainTest() {
-   users.assertThat()
-       .displayed()
-       .size(6)
-       .size(greaterThan(3))
-       .notEmpty()
-       .row(d -> d.user.contains("Ivan"))
-       .allRows(d -> d.user.length() > 4)
-       .atLeast(3).rows(d -> d.type.contains("User"))
-       .row(SPIDER_MAN)
-       .exact(2).rows(d -> d.description.contains(":VIP"))
-       .exact(1).rows(SPIDER_MAN);
- }
- 
-@Test
-public void lineByIndexTest() {
-   MarvelUser line = users.line(2);
-   validateUserRow(line);
-}
-
-@Test
-public void lineByNameTest() {
-   MarvelUser line = usersSetup.line("Sergey Ivan");
-   validateUserRow(line);
-}
-
-@Test
-public void lineFilterTest() {
-   MarvelUser line = users.line(d -> d.user.contains("Ivan"));
-   validateUserRow(line);
-}
-
-@Test
-public static void validateUserRow(MarvelUser line) {
-   line.type.select("Admin");
-   assertEquals(line.type.getValue(), "Admin");
-   line.type.select("User");
-   line.number.assertThat().text(is("2"));
-} 
   ```
  
   - __Java__: _com.epam.jdi.light.elements.complex.table.DataTable.java_

@@ -152,7 +152,7 @@ or "#%s" if that property is empty
 ## JDI Locators (simple as css powerful as xpath)
 
 ```java
-//Here's sinmle test to find 4th text element's parent element
+//Here's simple test to find 4th text element's parent element
 public void indexAndParentTest() {
     bys = searchBy(By.cssSelector("input[type=text][4]<"));
     assertEquals(bys.size(), 3);

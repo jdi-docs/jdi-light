@@ -34,7 +34,7 @@ public class UserCard : Form<User>
     Button SubmitButton;
 }
 ```
- ```java 
+```java 
 public class UserCard extends Form<User> {
     @Css("#name") TextField name; 
     @Css("#last-name") TextField lastName;  
@@ -96,7 +96,6 @@ passportCode --> #PASSPORT_CODE, etc
 
 //and the conversion rule is 'hyphen-to-java-name':
   WebSettings.SMART_SEARCH_NAME = StringUtils::splitHyphen;
-
 ```
 ```html
 <input type="text" id="name">
@@ -151,4 +150,43 @@ or "#%s" if that property is empty
 
 
 ## JDI Locators (simple as css powerful as xpath)
-TBD
+JDI locators can be used to perform search with the help of css locators, but with extended possibilities, that are not available within the css element search:
+- Search by element's full text - ['text']
+```java
+public void fullTextTest() {
+    bys = searchBy(By.cssSelector("#contact-form['Last Name']"));
+    assertEquals(bys.size(), 2);
+    assertEquals(getElement(bys).getTagName(), "label");
+    assertEquals(getElement(bys).getAttribute("for"), "last-name");
+}
+```
+
+- Search by element's part of the text - [*'text']
+```java
+public void partTextTest() {
+    bys = searchBy(By.cssSelector("#contact-form[*'Last N']"));
+    assertEquals(bys.size(), 2);
+    assertEquals(getElement(bys).getTagName(), "label");
+    assertEquals(getElement(bys).getAttribute("for"), "last-name");
+}
+```
+
+- Search by element index - [3]
+
+```java
+public void cssIndexTest() {
+   bys = searchBy(By.cssSelector("input[type=text][4]"));
+   assertEquals(bys.size(), 2);
+   assertEquals(getElement(bys).findElement(By.xpath("..")).getText(), "Last Name");
+}
+```
+- Search by element's parent - <
+```java
+public void indexAndParentTest() {
+    bys = searchBy(By.cssSelector("input[type=text][4]<"));
+    assertEquals(bys.size(), 3);
+    assertEquals(getElement(bys).getText(), "Last Name");
+    assertEquals(getElement(bys).getTagName(), "div");
+}
+```
+

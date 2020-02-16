@@ -11,6 +11,14 @@ In JDI we have following Common elements:</br>
 [Label](https://jdi-docs.github.io/jdi-light/?java#label) 
 [Button](https://jdi-docs.github.io/jdi-light/?java#button) ...
 
+```java 
+@UI("input[type=text].name") public TextField name;
+@UI("h1") public Label label;
+@UI("//div[@name='disclamer']") public Text disclaimer;
+@UI("textarea[ui=description]") public TextArea description;
+@UI("//*[text()='Submit']") public Button submit;
+```
+
 ### Complex elements
 In addition to [Common elements](https://jdi-docs.github.io/jdi-light/?java#common-elements) features Complex elements helps to combine list of different elements in one UI element</br>
 Typical example of Complex element is ```Dropdown```, ```Combobx```, ```Table``` etc.</br>
@@ -21,6 +29,15 @@ In JDI we have following Common elements:</br>
 [Dropdown](https://jdi-docs.github.io/jdi-light/?java#dropdown) 
 [Combobox](https://jdi-docs.github.io/jdi-light/?java#combobox) 
 [Checklist](https://jdi-docs.github.io/jdi-light/?java#checklist) ...
+
+```java 
+@UI(".colors") public Dropdown colors;
+@UI("input[type=checkbox].conditions") public Checklist acceptConditions;
+@JDropdown(root = ".colors", value = ".dropdown-value", list = "li", expand = ".caret")
+public Dropdown colors;
+@UI("[ui=label] li") public JList<Labels> tabs;
+@UI("//button[text()='%s']") public JList<Button> buttons;
+```
 
 ### Composite elements
 Composite elements represents part of page and often used just as container for elements and actions</br>
@@ -33,6 +50,25 @@ In JDI we have following Common elements:</br>
 [WebPage](https://jdi-docs.github.io/jdi-light/?java#webpage) 
 [Section](https://jdi-docs.github.io/jdi-light/?java#section) 
 [Form](https://jdi-docs.github.io/jdi-light/?java#form) ...
+
+```java
+public class LoginForm extends Form<User> {
+    public TextField name, password;
+    @UI("//*[text()='Submit']") public Button submit;
+    ...
+}
+public class TopPanel extends Section {
+    @UI("form.login") public LoginForm loginForm;
+    @UI("h1") public Label label;
+    @UI(".colors") public Dropdown colors;
+    ...
+}
+@Url("/login.html") @Title("Login to JDI")
+public class LoginPage extends WebPage {
+    @UI(".top-panel") public TopPanel topPanel;
+    ...
+}
+```
 
 ## UI Objects Pattern
 TBD

@@ -71,7 +71,30 @@ public class LoginPage extends WebPage {
 ```
 
 ## UI Objects Pattern
-TBD
+UI objects extend typical <a href="https://github.com/SeleniumHQ/selenium/wiki/PageObjects" target="_blank">Page Objects pattern</a> with [UI Elements](https://jdi-docs.github.io/jdi-light/?java#ui-elements) and add ability to fragmentize pages to sections.</br>
+Typical UI objects structure consists of:</br>
+* Site class that collects all pages and common parts of the application like header, footer or navigation panel
+* Page Objects that extends from ```WebPage``` and represents logical application pages
+* Composite elements that typically represented by ```Sections``` or other [Composite elements](https://jdi-docs.github.io/jdi-light/?java#composite-elements) and acts as Containers for other elements and smaller sections
+* UI Elements that represents functional elements on page used by application user
+
+```java
+public class AwesomeApplication {
+    public LoginPage loginPage;
+    @UI(".nav li") public Menu navigation;
+}
+@Url("/login.html") @Title("Login to JDI")
+public class LoginPage extends WebPage {
+    @UI(".top-panel") public TopPanel topPanel;
+    ...
+}
+public class TopPanel extends Section {
+    @UI("form.login") public LoginForm loginForm;
+    @UI("h1") public Label label;
+    @UI(".colors") public Dropdown colors;
+    ...
+}
+```
 
 ## Entity Driven Testing
 TBD

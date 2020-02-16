@@ -1,5 +1,40 @@
 # Theory
-## UI Objects Pattern (Extend your PageObjects with UI elements)
+## UI Elements
+In order to effectiviely utilize <a href="https://github.com/SeleniumHQ/selenium/wiki/PageObjects" target="_blank">Page Objects pattern</a> we need to use elements on the pages. Instead of tag-like Selenium ```WebElement``` s that represents tag in html in JDI we introduce UI Elements that represrent element on UI used by real user.</br>
+JDI provides an ability to create your own element or reuse standard element from our rich collection</br>
+### Common elements
+* Used to make your Page Objects more intuitive and clear
+* In addition we use elements type and name in our logs and reports that simplifies tests maintanance
+* And of course we expect from UI elements only actions that are relevant to them (e.g. you can't sendKeys in ```Button``` but this is possible with ```WebElement``` or ```SelenideElement```)
+
+In JDI we have following Common elements:</br>
+[Label](https://jdi-docs.github.io/jdi-light/?java#label) 
+[Button](https://jdi-docs.github.io/jdi-light/?java#button) ...
+
+### Complex elements
+In addition to [Common elements](https://jdi-docs.github.io/jdi-light/?java#common-elements) features Complex elements helps to combine list of different elements in one UI element</br>
+Typical example of Complex element is ```Dropdown```, ```Combobx```, ```Table``` etc.</br>
+Other examples are lists of similar elements like ```List<WebElement>``` in Selenium. Typical examples are: ```Menu```, ```Checklist```, ```RadioButtons```, ```Tabs``` etc.
+Also you can use list of Common elements as ```List<...>``` e.g. ```List<Button>``` or ```List<Label>```
+
+In JDI we have following Common elements:</br>
+[Dropdown](https://jdi-docs.github.io/jdi-light/?java#dropdown) 
+[Combobox](https://jdi-docs.github.io/jdi-light/?java#combobox) 
+[Checklist](https://jdi-docs.github.io/jdi-light/?java#checklist) ...
+
+### Composite elements
+Composite elements represents part of page and often used just as container for elements and actions</br>
+Typical examples are ```WebPage``` and ```Section```.</br>
+In the same time composite elements also can have a locator that defines a context for all elements inside. That means that all elements in composite element will be searched relatively under this locator.</br>
+Composite elements also can have predefined actions like fill(...), submit(...) and check(...) for ```Form``` or open(), checkOpened() for ```WebPage```.</br>
+Remember that you can create your own Composite elements with JDI Light for example for Header, Navigation bar, Footer, Left sidebar, advertisement or main part ofr the page.</br>
+
+In JDI we have following Common elements:</br>
+[WebPage](https://jdi-docs.github.io/jdi-light/?java#webpage) 
+[Section](https://jdi-docs.github.io/jdi-light/?java#section) 
+[Form](https://jdi-docs.github.io/jdi-light/?java#form) ...
+
+## UI Objects Pattern
 TBD
 
 ## Entity Driven Testing

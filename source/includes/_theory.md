@@ -1,20 +1,20 @@
 # Theory
 ## UI Elements
-In order to efficiently utilize the <a href="https://github.com/SeleniumHQ/selenium/wiki/PageObjects" target="_blank">Page Objects pattern</a>, we need to use elements on pages. Instead of tag-like Selenium ```WebElement```s representing tags in html, JDI introduces UI Elements that represent UI elements used by real users.</br>
-JDI allows users to create their own elements or reuse built-ins from the rich collection</br>
+In order to effectiviely utilize <a href="https://github.com/SeleniumHQ/selenium/wiki/PageObjects" target="_blank">Page Objects pattern</a> we need to use elements on the pages. Instead of tag-like Selenium ```WebElement``` s that represents tag in html in JDI we introduce UI Elements that represrent element on UI used by real user.</br>
+JDI provides an ability to create your own element or reuse standard element from our rich collection</br>
 
 ### Common elements
 
 ```java 
 @UI("input[type=text].name") public TextField name;
 @UI("h1") public Label label;
-@UI("//div[@name='disclaimer']") public Text disclaimer;
+@UI("//div[@name='disclamer']") public Text disclaimer;
 @UI("textarea[ui=description]") public TextArea description;
 @UI("//*[text()='Submit']") public Button submit;
 ```
 * Used to make your Page Objects more intuitive and clear
-* In addition, we use elements ```type``` and ```name``` in our logs and reports, which simplifies test maintenance
-* And of course we expect our UI elements to only accept actions that are relevant to them (e.g. you can't <em>sendKeys</em> to a ```Button``` but this is possible with ```WebElement``` or ```SelenideElement```)
+* In addition we use elements type and name in our logs and reports that simplifies tests maintanance
+* And of course we expect from UI elements only actions that are relevant to them (e.g. you can't sendKeys in ```Button``` but this is possible with ```WebElement``` or ```SelenideElement```)
 
 In JDI we have following Common elements:</br>
 * [Label](https://jdi-docs.github.io/jdi-light/?java#label)</br> 
@@ -31,10 +31,10 @@ public Dropdown colors;
 @UI("[ui=label] li") public JList<Labels> tabs;
 @UI("//button[text()='%s']") public JList<Button> buttons;
 ```
-In addition to [Common elements](https://jdi-docs.github.io/jdi-light/?java#common-elements), featured Complex elements help to combine lists of different elements in one UI element</br>
-Typical examples of Complex elements are: ```Dropdown```, ```Combobox```, ```Table``` etc.</br>
+In addition to [Common elements](https://jdi-docs.github.io/jdi-light/?java#common-elements) features Complex elements helps to combine list of different elements in one UI element</br>
+Typical example of Complex element is ```Dropdown```, ```Combobx```, ```Table``` etc.</br>
 Other examples are lists of similar elements like ```List<WebElement>``` in Selenium. Typical examples are: ```Menu```, ```Checklist```, ```RadioButtons```, ```Tabs``` etc.
-You can also use lists of Common elements such as ```List<...>``` (e.g. ```List<Button>``` or ```List<Label>```).
+Also you can use list of Common elements as ```List<...>``` e.g. ```List<Button>``` or ```List<Label>```
 
 In JDI we have the following Complex elements:</br>
 * [Dropdown](https://jdi-docs.github.io/jdi-light/?java#dropdown)</br>
@@ -61,12 +61,11 @@ public class LoginPage extends WebPage {
     ...
 }
 ```
-Composite elements represent parts of pages and are often simply used as containers for elements and actions.</br>
+Composite elements represents part of page and often used just as container for elements and actions</br>
 Typical examples are ```WebPage``` and ```Section```.</br>
-At the same time composite elements can also have a locator that defines a context for all elements inside. 
-That means that all elements inside a composite element will be searched relatively to this locator.</br>
-Composite elements can also have predefined actions like <em>fill(...)</em>, <em>submit(...)</em> and <em>check(...)</em> for ```Form``` or open(), checkOpened() for ```WebPage```.</br>
-Remember that you can create your own Composite elements with JDI Light, e.g. a Header, Navigation bar, Footer, Left sidebar, Advertisement or Main part of a page.</br>
+In the same time composite elements also can have a locator that defines a context for all elements inside. That means that all elements in composite element will be searched relatively under this locator.</br>
+Composite elements also can have predefined actions like fill(...), submit(...) and check(...) for ```Form``` or open(), checkOpened() for ```WebPage```.</br>
+Remember that you can create your own Composite elements with JDI Light for example for Header, Navigation bar, Footer, Left sidebar, advertisement or main part ofr the page.</br>
 
 In JDI we have the following Composite elements:</br>
 * [WebPage](https://jdi-docs.github.io/jdi-light/?java#webpage)</br> 
@@ -74,7 +73,7 @@ In JDI we have the following Composite elements:</br>
 * [Form](https://jdi-docs.github.io/jdi-light/?java#form) ...
 
 
-## UI Object Pattern
+## UI Objects Pattern
 
 ```java
 public class AwesomeApplication {
@@ -102,7 +101,63 @@ A typical UI object structure consists of:</br>
 
 
 ## Entity Driven Testing
-TBD
+
+```java
+(1)
+public class LoginForm extends Form<User> {
+    public TextField name, password;
+    @UI("//*[text()='Submit']") public Button submit;
+    ...
+}
+public class User extends DataClass<User> {
+    public String name, password;
+}
+@Test(dataProvider = "users")
+public void loginTest(User user) {
+    loginForm.loginAs(user);
+}
+(2)
+@UI("#user-table")
+public static DataTable<?, UserInfo> userTable;
+public class UserInfo extends DataClass<UserInfo> {
+    public String number, type, user, description;
+}
+@Test
+public void userInfoTest() {
+    usersListPage.open();
+    userTable.has().value(SPIDER_MAN, inRow(2));
+    userTable.assertThat()
+      .all().rows(d -> d.user.length() > 4)
+      .no().rows(d -> isBlank(d.user))
+      .atLeast(3).rows(d -> d.type.contains("User"))
+      .exact(1).rows(SPIDER_MAN);
+    assertEquals(userTable.dataRow("Wolverine").type, "Admin");
+}
+(3)
+@UI(".search-results li") public DataList<?, Result> resultsList;
+public class Result extends DataClass<Result> {
+    public String name, description, link;
+}
+@Test
+public void resultsTest() {
+        resultsList.assertThat().value(containsString(
+            "name:JDI FACEBOOK GROUP; description:English Community Facebook group"))
+            .any(e -> e.description.toLowerCase().contains("jdi"))
+            .each(e -> e.name.toLowerCase().contains("jdi"))
+            .onlyOne(e -> e.name.contains("OWNER"))
+            .noOne(e -> e.name.equalsIgnoreCase("Selenide"));
+            
+        resultsList.assertThat(not(empty()))
+            .and(hasSize(greaterThan(2)))
+            .and(hasItem(CORRECT))
+            .and(hasItems(CORRECT, CORRECT_2, CORRECT_3))
+            .and(not(hasItem(CORRUPTED)))
+            .and(not(hasItems(CORRUPTED, CORRUPTED_2)));
+}
+```
+Entites Driven Testing(EDT) is approach where Business Entites going through test scenarios instead of unnamed data.</br>
+EDT can be orgnically combined with DDT that use Business Entites as input to similar scenarios.
+JDI Light natively supports EDT with Forms, Tables and DataLists. See more examples in the right panel.
 
 ## Smart Locators
 ```csharp

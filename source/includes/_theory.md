@@ -17,7 +17,7 @@ JDI allows users to create their own elements or reuse built-ins from the rich c
 * And of course we expect our UI elements to only accept actions that are relevant to them (e.g. you can't <em>sendKeys</em> to a ```Button``` but this is possible with ```WebElement``` or ```SelenideElement```)
 
 In JDI we have following Common elements:</br>
-* [Label](https://jdi-docs.github.io/jdi-light/?java#label)<br> 
+* [Label](https://jdi-docs.github.io/jdi-light/?java#label)</br> 
 * [Button](https://jdi-docs.github.io/jdi-light/?java#button) ...
 
 
@@ -37,8 +37,8 @@ Other examples are lists of similar elements like ```List<WebElement>``` in Sele
 You can also use lists of Common elements such as ```List<...>``` (e.g. ```List<Button>``` or ```List<Label>```).
 
 In JDI we have the following Complex elements:</br>
-* [Dropdown](https://jdi-docs.github.io/jdi-light/?java#dropdown)<br>
-* [Combobox](https://jdi-docs.github.io/jdi-light/?java#combobox)<br> 
+* [Dropdown](https://jdi-docs.github.io/jdi-light/?java#dropdown)</br>
+* [Combobox](https://jdi-docs.github.io/jdi-light/?java#combobox)</br> 
 * [Checklist](https://jdi-docs.github.io/jdi-light/?java#checklist) ...
 
 ### Composite elements
@@ -69,8 +69,8 @@ Composite elements can also have predefined actions like <em>fill(...)</em>, <em
 Remember that you can create your own Composite elements with JDI Light, e.g. a Header, Navigation bar, Footer, Left sidebar, Advertisement or Main part of a page.</br>
 
 In JDI we have the following Composite elements:</br>
-* [WebPage](https://jdi-docs.github.io/jdi-light/?java#webpage)<br> 
-* [Section](https://jdi-docs.github.io/jdi-light/?java#section)<br>
+* [WebPage](https://jdi-docs.github.io/jdi-light/?java#webpage)</br> 
+* [Section](https://jdi-docs.github.io/jdi-light/?java#section)</br>
 * [Form](https://jdi-docs.github.io/jdi-light/?java#form) ...
 
 
@@ -95,9 +95,9 @@ public class TopPanel extends Section {
 ```
 UI objects extend the typical <a href="https://github.com/SeleniumHQ/selenium/wiki/PageObjects" target="_blank">Page Objects pattern</a> with [UI Elements](https://jdi-docs.github.io/jdi-light/?java#ui-elements) and allow users to split pages into sections.</br>
 A typical UI object structure consists of:</br>
-* A ```Site class``` that contains all pages and common parts of application like header, footer or navigation panel<br>
-* ```Page Objects``` extending from ```WebPage``` and representing respective application pages<br>
-* Composite elements typically represented by ```Sections``` or other [Composite elements](https://jdi-docs.github.io/jdi-light/?java#composite-elements), acting as Containers for other elements and smaller sections<br>
+* A ```Site class``` that contains all pages and common parts of application like header, footer or navigation panel</br>
+* ```Page Objects``` extending from ```WebPage``` and representing respective application pages</br>
+* Composite elements typically represented by ```Sections``` or other [Composite elements](https://jdi-docs.github.io/jdi-light/?java#composite-elements), acting as Containers for other elements and smaller sections</br>
 * UI Elements representing functional elements on page utilized by end user
 
 

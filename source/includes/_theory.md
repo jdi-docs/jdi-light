@@ -12,13 +12,13 @@ JDI provides an ability to create your own element or reuse standard element fro
 @UI("textarea[ui=description]") public TextArea description;
 @UI("//*[text()='Submit']") public Button submit;
 ```
-* Used to make your Page Objects more intuitive and clear
-* In addition we use elements type and name in our logs and reports that simplifies tests maintanance
-* And of course we expect from UI elements only actions that are relevant to them (e.g. you can't sendKeys in ```Button``` but this is possible with ```WebElement``` or ```SelenideElement```)
+- Used to make your Page Objects more intuitive and clear
+- In addition we use elements type and name in our logs and reports that simplifies tests maintanance
+- And of course we expect from UI elements only actions that are relevant to them (e.g. you can't sendKeys in ```Button``` but this is possible with ```WebElement``` or ```SelenideElement```)
 
 In JDI we have following Common elements:</br>
-* [Label](https://jdi-docs.github.io/jdi-light/?java#label)</br> 
-* [Button](https://jdi-docs.github.io/jdi-light/?java#button) ...
+- [Label](https://jdi-docs.github.io/jdi-light/?java#label)</br> 
+- [Button](https://jdi-docs.github.io/jdi-light/?java#button) ...
 
 
 ### Complex elements
@@ -37,9 +37,9 @@ Other examples are lists of similar elements like ```List<WebElement>``` in Sele
 Also you can use list of Common elements as ```List<...>``` e.g. ```List<Button>``` or ```List<Label>```
 
 In JDI we have the following Complex elements:</br>
-* [Dropdown](https://jdi-docs.github.io/jdi-light/?java#dropdown)</br>
-* [Combobox](https://jdi-docs.github.io/jdi-light/?java#combobox)</br> 
-* [Checklist](https://jdi-docs.github.io/jdi-light/?java#checklist) ...
+[Dropdown](https://jdi-docs.github.io/jdi-light/?java#dropdown)</br>
+[Combobox](https://jdi-docs.github.io/jdi-light/?java#combobox)</br> 
+[Checklist](https://jdi-docs.github.io/jdi-light/?java#checklist) ...
 
 ### Composite elements
 
@@ -68,12 +68,12 @@ Composite elements also can have predefined actions like fill(...), submit(...) 
 Remember that you can create your own Composite elements with JDI Light for example for Header, Navigation bar, Footer, Left sidebar, advertisement or main part ofr the page.</br>
 
 In JDI we have the following Composite elements:</br>
-* [WebPage](https://jdi-docs.github.io/jdi-light/?java#webpage)</br> 
-* [Section](https://jdi-docs.github.io/jdi-light/?java#section)</br>
-* [Form](https://jdi-docs.github.io/jdi-light/?java#form) ...
+- [WebPage](https://jdi-docs.github.io/jdi-light/?java#webpage)</br> 
+- [Section](https://jdi-docs.github.io/jdi-light/?java#section)</br>
+- [Form](https://jdi-docs.github.io/jdi-light/?java#form) ...
 
 
-## UI Objects Pattern
+## UI Object Pattern
 
 ```java
 public class AwesomeApplication {
@@ -94,10 +94,10 @@ public class TopPanel extends Section {
 ```
 UI objects extend the typical <a href="https://github.com/SeleniumHQ/selenium/wiki/PageObjects" target="_blank">Page Objects pattern</a> with [UI Elements](https://jdi-docs.github.io/jdi-light/?java#ui-elements) and allow users to split pages into sections.</br>
 A typical UI object structure consists of:</br>
-* A ```Site class``` that contains all pages and common parts of application like header, footer or navigation panel</br>
-* ```Page Objects``` extending from ```WebPage``` and representing respective application pages</br>
-* Composite elements typically represented by ```Sections``` or other [Composite elements](https://jdi-docs.github.io/jdi-light/?java#composite-elements), acting as Containers for other elements and smaller sections</br>
-* UI Elements representing functional elements on page utilized by end user
+- A ```Site class``` that contains all pages and common parts of application like header, footer or navigation panel</br>
+- ```Page Objects``` extending from ```WebPage``` and representing respective application pages</br>
+- Composite elements typically represented by ```Sections``` or other [Composite elements](https://jdi-docs.github.io/jdi-light/?java#composite-elements), acting as Containers for other elements and smaller sections</br>
+- UI Elements representing functional elements on page utilized by end user
 
 
 ## Entity Driven Testing

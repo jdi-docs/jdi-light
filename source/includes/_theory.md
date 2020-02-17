@@ -1,20 +1,20 @@
 # Theory
 ## UI Elements
-In order to effectiviely utilize <a href="https://github.com/SeleniumHQ/selenium/wiki/PageObjects" target="_blank">Page Objects pattern</a> we need to use elements on the pages. Instead of tag-like Selenium ```WebElement``` s that represents tag in html in JDI we introduce UI Elements that represrent element on UI used by real user.</br>
-JDI provides an ability to create your own element or reuse standard element from our rich collection</br>
+In order to efficiently utilize the <a href="https://github.com/SeleniumHQ/selenium/wiki/PageObjects" target="_blank">Page Objects pattern</a>, we need to use elements on pages. Instead of tag-like Selenium ```WebElement```s representing tags in html, JDI introduces UI Elements that represent UI elements used by real users.</br>
+JDI allows users to create their own elements or reuse built-ins from the rich collection</br>
 
 ### Common elements
 
 ```java 
 @UI("input[type=text].name") public TextField name;
 @UI("h1") public Label label;
-@UI("//div[@name='disclamer']") public Text disclaimer;
+@UI("//div[@name='disclaimer']") public Text disclaimer;
 @UI("textarea[ui=description]") public TextArea description;
 @UI("//*[text()='Submit']") public Button submit;
 ```
 * Used to make your Page Objects more intuitive and clear
-* In addition we use elements type and name in our logs and reports that simplifies tests maintanance
-* And of course we expect from UI elements only actions that are relevant to them (e.g. you can't sendKeys in ```Button``` but this is possible with ```WebElement``` or ```SelenideElement```)
+* In addition, we use elements ```type``` and ```name``` in our logs and reports, which simplifies test maintenance
+* And of course we expect our UI elements to only accept actions that are relevant to them (e.g. you can't <em>sendKeys</em> to a ```Button``` but this is possible with ```WebElement``` or ```SelenideElement```)
 
 In JDI we have following Common elements:</br>
 [Label](https://jdi-docs.github.io/jdi-light/?java#label) 
@@ -31,15 +31,15 @@ public Dropdown colors;
 @UI("[ui=label] li") public JList<Labels> tabs;
 @UI("//button[text()='%s']") public JList<Button> buttons;
 ```
-In addition to [Common elements](https://jdi-docs.github.io/jdi-light/?java#common-elements) features Complex elements helps to combine list of different elements in one UI element</br>
-Typical example of Complex element is ```Dropdown```, ```Combobx```, ```Table``` etc.</br>
+In addition to [Common elements](https://jdi-docs.github.io/jdi-light/?java#common-elements), featured Complex elements help to combine lists of different elements in one UI element</br>
+Typical examples of Complex elements are: ```Dropdown```, ```Combobox```, ```Table``` etc.</br>
 Other examples are lists of similar elements like ```List<WebElement>``` in Selenium. Typical examples are: ```Menu```, ```Checklist```, ```RadioButtons```, ```Tabs``` etc.
-Also you can use list of Common elements as ```List<...>``` e.g. ```List<Button>``` or ```List<Label>```
+You can also use lists of Common elements such as ```List<...>``` (e.g. ```List<Button>``` or ```List<Label>```).
 
-In JDI we have following Common elements:</br>
-[Dropdown](https://jdi-docs.github.io/jdi-light/?java#dropdown) 
-[Combobox](https://jdi-docs.github.io/jdi-light/?java#combobox) 
-[Checklist](https://jdi-docs.github.io/jdi-light/?java#checklist) ...
+In JDI we have the following Complex elements:</br>
+* [Dropdown](https://jdi-docs.github.io/jdi-light/?java#dropdown)
+* [Combobox](https://jdi-docs.github.io/jdi-light/?java#combobox) 
+* [Checklist](https://jdi-docs.github.io/jdi-light/?java#checklist) ...
 
 ### Composite elements
 
@@ -61,19 +61,20 @@ public class LoginPage extends WebPage {
     ...
 }
 ```
-Composite elements represents part of page and often used just as container for elements and actions</br>
+Composite elements represent parts of pages and are often simply used as containers for elements and actions.</br>
 Typical examples are ```WebPage``` and ```Section```.</br>
-In the same time composite elements also can have a locator that defines a context for all elements inside. That means that all elements in composite element will be searched relatively under this locator.</br>
-Composite elements also can have predefined actions like fill(...), submit(...) and check(...) for ```Form``` or open(), checkOpened() for ```WebPage```.</br>
-Remember that you can create your own Composite elements with JDI Light for example for Header, Navigation bar, Footer, Left sidebar, advertisement or main part ofr the page.</br>
+At the same time composite elements can also have a locator that defines a context for all elements inside. 
+That means that all elements inside a composite element will be searched relatively to this locator.</br>
+Composite elements can also have predefined actions like <em>fill(...)</em>, <em>submit(...)</em> and <em>check(...)</em> for ```Form``` or open(), checkOpened() for ```WebPage```.</br>
+Remember that you can create your own Composite elements with JDI Light, e.g. a Header, Navigation bar, Footer, Left sidebar, Advertisement or Main part of a page.</br>
 
-In JDI we have following Common elements:</br>
-[WebPage](https://jdi-docs.github.io/jdi-light/?java#webpage) 
-[Section](https://jdi-docs.github.io/jdi-light/?java#section) 
-[Form](https://jdi-docs.github.io/jdi-light/?java#form) ...
+In JDI we have the following Composite elements:</br>
+* [WebPage](https://jdi-docs.github.io/jdi-light/?java#webpage) 
+* [Section](https://jdi-docs.github.io/jdi-light/?java#section) 
+* [Form](https://jdi-docs.github.io/jdi-light/?java#form) ...
 
 
-## UI Objects Pattern
+## UI Object Pattern
 
 ```java
 public class AwesomeApplication {
@@ -92,12 +93,12 @@ public class TopPanel extends Section {
     ...
 }
 ```
-UI objects extend typical <a href="https://github.com/SeleniumHQ/selenium/wiki/PageObjects" target="_blank">Page Objects pattern</a> with [UI Elements](https://jdi-docs.github.io/jdi-light/?java#ui-elements) and add ability to fragmentize pages to sections.</br>
-Typical UI objects structure consists of:</br>
-* Site class that collects all pages and common parts of the application like header, footer or navigation panel
-* Page Objects that extends from ```WebPage``` and represents logical application pages
-* Composite elements that typically represented by ```Sections``` or other [Composite elements](https://jdi-docs.github.io/jdi-light/?java#composite-elements) and acts as Containers for other elements and smaller sections
-* UI Elements that represents functional elements on page used by application user
+UI objects extend the typical <a href="https://github.com/SeleniumHQ/selenium/wiki/PageObjects" target="_blank">Page Objects pattern</a> with [UI Elements](https://jdi-docs.github.io/jdi-light/?java#ui-elements) and allow users to split pages into sections.</br>
+A typical UI object structure consists of:</br>
+* A ```Site class``` that contains all pages and common parts of application like header, footer or navigation panel
+* ```Page Objects``` extending from ```WebPage``` and representing respective application pages
+* Composite elements typically represented by ```Sections``` or other [Composite elements](https://jdi-docs.github.io/jdi-light/?java#composite-elements), acting as Containers for other elements and smaller sections
+* UI Elements representing functional elements on page utilized by end user
 
 
 ## Entity Driven Testing

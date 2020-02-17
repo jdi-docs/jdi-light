@@ -16,7 +16,7 @@ JDI provides an ability to create your own element or reuse standard element fro
 - In addition we use elements type and name in our logs and reports that simplifies tests maintanance
 - And of course we expect from UI elements only actions that are relevant to them (e.g. you can't sendKeys in ```Button``` but this is possible with ```WebElement``` or ```SelenideElement```)
 
-In JDI we have following Common elements:</br>
+In JDI we have the following Common elements:</br>
 - [Label](https://jdi-docs.github.io/jdi-light/?java#label)</br> 
 - [Button](https://jdi-docs.github.io/jdi-light/?java#button) ...
 

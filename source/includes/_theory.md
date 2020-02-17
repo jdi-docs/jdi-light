@@ -37,9 +37,9 @@ Other examples are lists of similar elements like ```List<WebElement>``` in Sele
 Also you can use list of Common elements as ```List<...>``` e.g. ```List<Button>``` or ```List<Label>```
 
 In JDI we have the following Complex elements:</br>
-[Dropdown](https://jdi-docs.github.io/jdi-light/?java#dropdown)</br>
-[Combobox](https://jdi-docs.github.io/jdi-light/?java#combobox)</br> 
-[Checklist](https://jdi-docs.github.io/jdi-light/?java#checklist) ...
+- [Dropdown](https://jdi-docs.github.io/jdi-light/?java#dropdown)</br>
+- [Combobox](https://jdi-docs.github.io/jdi-light/?java#combobox)</br> 
+- [Checklist](https://jdi-docs.github.io/jdi-light/?java#checklist) ...
 
 ### Composite elements
 

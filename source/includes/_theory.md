@@ -273,6 +273,64 @@ WebSettings.SMART_SEARCH = el -> {
 From other hands you can setup Smart Locators in code using `WebSettings.SMART_SEARCH_NAME` and `WebSettings.SMART_SEARCH_LOCATORS` variables</br>
 Or you can define by yourself what should be done in case of UI Element has no locator using `WebSettings.SMART_SEARCH` function
 
+### Smart Annotations 
+In case you have few standart patterns for locators you can use Smart Annotations in order to mark the elements with this locators.</br>
+For `@UI("#last-name") TextFiled lastName;`</br>
+use `@SId TextField lastName;`</br>
+For `@UI(".contact-form") Form<CardData> contactForm;`</br>
+use `@SClass Form<CardData> contactForm;`</br>
+For `@UI("//*[text()='Submit Card']") Button submitCard;`</br>
+use `@SText Button submitCard;`</br>
+For `@UI("[name='accept-conditions']") Checkbox acceptConditions;`</br>
+use `@SName Checkbox acceptConditions;`</br>
+or use @Smart annotation for any specific html attribute
+For `@UI("[data-type=data-multy-combobx]") MultiCombobox dataMultyCombobx;`</br>
+use `@Smart("data-type") MultiCombobox dataMultyCombobx;`</br>
+</br>
+
+### Custom Smart Annotation
+Or you always can create your own annotation for smart behaviour</br>
+Let's assume you would like to use smart locators for buttons like `//button[text()='Button Text']`</br>
+1. Create new annotation</br>
+`
+SButton.java
+@Retention(RetentionPolicy.RUNTIME)
+@Target({ElementType.TYPE, ElementType.FIELD})
+public @interface SButton {
+}
+`</br>
+2. setup behaviour for this annotations before you call initSite(...)
+`
+@BeforeSuite(alwaysRun = true)
+public static void setUp() {
+    JDI_ANNOTATIONS.add("Buttons", aRule(SButton.class,
+        (e, a) -> e.setLocator(format("//button[text()='%s']", splitCamelCase(e.getName())))));
+    initSite(YourAwesomeSite.class);
+`</br>
+Thats all. Now we can write</br>
+`@SButton public Button logIn, signIn, cancel, useVipAccess;`</br>
+instead of </br>
+`
+@FindBy(xpath = "//button[text()='Log In']")
+public WebElement logIn;
+@FindBy(xpath = "//button[text()='Sign In']")
+public WebElement signIn;
+@FindBy(xpath = "//button[text()='Cancel']")
+public WebElement cancel;
+@FindBy(xpath = "//button[text()='Use Vip Access']")
+public WebElement useVipAccess;
+`</br>
+
+## JDI Annotations
+In order to control elements behaviour in JDI Light you can use following standard annotations:</br>
+**@Root** - ignore all parent sections locators for this element and use only locator that specified for element (including smart locators)</br>
+**@Frame("frame-id")** or **@Frame({"frame-id", "div[name-adv]"})** in case you have two or more frames above element - use driver.switchTo().frame(...) before searching your element. Or call it multiple times if @Frame has list of locators. Can be used together with @UI locator</br>
+**@Css("div.dropdown")** - if your element has Css locator (deprecated, recommended to use universal **@UI**)</br>
+**@XPath("//div[text()="Submit"]")** - if your element has Xpath locator (deprecated, recommended to use universal **@UI**)</br>
+**ByText("Submit")** - Used for elements that can be forund by text (use locator `".//*/text()[normalize-space(.) = %s]/parent::*"`)</br>
+**WithText("Navigation")** - Used for elements that can be forund as text contains(use locator `".//*/text()[contains(normalize-space(.), %s)]/parent::*"`)</br>
+
+
 ## JDI Locators (simple as css powerful as xpath)
 With JDI Light you can use simple and fast css selecctors with power of xpath locators. Now you can search by text or index in css or even move up and down in html tree.</br>
 See some examples below:</br>

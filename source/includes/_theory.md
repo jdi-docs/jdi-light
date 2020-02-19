@@ -273,27 +273,19 @@ From other hands you can setup Smart Locators in code using `WebSettings.SMART_S
 Or you can define by yourself what should be done in case of UI Element has no locator using `WebSettings.SMART_SEARCH` function
 
 ## JDI Locators (simple as css powerful as xpath)
+With JDI Light you can use simple and fast css selecctors with power of xpath locators. Now you can search by text or index in css or even move up and down in html tree.</br>
+See some examples below:</br>
+XPath: `//div[contains(@class,'btn')]//*[text()='Submit']`</br>
+JDI Locator: `div.btn['Submit']`
 
-```java
-//Here's simple test to find 4th text element's parent element
-public void indexAndParentTest() {
-    bys = searchBy(By.cssSelector("input[type=text][4]<"));
-    assertEquals(bys.size(), 3);
-    assertEquals(getElement(bys).getText(), "Last Name");
-    assertEquals(getElement(bys).getTagName(), "div");
-}
-```
+XPath: `//*[contains(@class,'nav-menu')]//*[@data-role='header']//*[contains(text(),'Navigation menu')]`</br>
+JDI Locator: `.nav-menu [data-role=header][*'Navigation menu']`</br>
 
-JDI locators can be used to perform search with the help of css locators, but with extended possibilities, that are not available within the css element search:
+XPath: `//label[text()='Gold status']/..//input[@type='checkbox']`</br>
+JDI Locator: `label['Gold status']<input[type=checkbox]`</br>
 
-- Search by element's full text - **['text']**
+XPath: `//label[text()='Gold status']/..//input[@type='checkbox']`</br>
+JDI Locator: `label['Gold status']<input[type=checkbox]`</br>
 
-- Search by element's part of the text - **[*'text']**
-
-- Search by element index - **[3]**
-
-- Search by element's parent - **<**
-
-You can also use them apart or altogether
-
-
+XPath: `//*[contains(@class,'nav-menu')]//*[@data-role='header'][3]`</br>
+JDI Locator: `.nav-menu [data-role=header][3]`</br>

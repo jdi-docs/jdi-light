@@ -284,8 +284,5 @@ JDI Locator: `.nav-menu [data-role=header][*'Navigation menu']`</br>
 XPath: `//label[text()='Gold status']/..//input[@type='checkbox']`</br>
 JDI Locator: `label['Gold status']<input[type=checkbox]`</br>
 
-XPath: `//label[text()='Gold status']/..//input[@type='checkbox']`</br>
-JDI Locator: `label['Gold status']<input[type=checkbox]`</br>
-
 XPath: `//*[contains(@class,'nav-menu')]//*[@data-role='header'][3]`</br>
 JDI Locator: `.nav-menu [data-role=header][3]`</br>

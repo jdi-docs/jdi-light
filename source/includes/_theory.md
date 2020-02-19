@@ -207,7 +207,7 @@ public WebElement acceptConditions;
 public WebElement submitButton; 
 ```
 In standrd way in Selenium in Page Objects you need to write following code for this elements.
-</br></br></br></br></br></br></br></br></br></br></br></br
+</br></br></br></br></br></br></br></br></br></br></br></br>
 
 ```java
 @UI("[ui=name]") public Textfield name;
@@ -218,7 +218,7 @@ In standrd way in Selenium in Page Objects you need to write following code for 
 @UI("[ui=submit-button]") public Button submitButton;
 ```
 In JDI Light with standard UI Objects code be more obvious but still has duplications in locator and element name.
-</br></br></br></br></br></br
+</br></br></br></br></br></br>
 
 ```java
 public Textfield name, lastName, pinCode, promoCode;

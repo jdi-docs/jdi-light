@@ -165,6 +165,7 @@ Let's assume you have some typical way to locate most of the elements for exampl
 Let's asume you have `@UI("[ui=last-name]") public TextField lastName;`  element in JDI. In this case you simplify it to `public TextField lastName;` and omit locator</br>
 See more complex example below and in code panel at the right:</br>
 For example you have following html</br>
+
 ```html
 <input type="text" ui="name"/>
 <input type="text" ui="last-name"/>
@@ -259,7 +260,7 @@ WebSettings.SMART_SEARCH_NAME = StringUtils::toKebabCase;
 JDI Light like
 WebSettings.SMART_SEARCH = el -> {
   String locatorName = toKebabCase(el.getName());
-  UIElement element = $("[auto="+locatorName+"], el.base().parent));
+  UIElement element = $("[auto="+locatorName+"]", el.base().parent));
   element.setName(el.getName());
   return element.getWebElement();
 }

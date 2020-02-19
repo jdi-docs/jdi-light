@@ -327,8 +327,11 @@ In order to control elements behaviour in JDI Light you can use following standa
 **@Frame("frame-id")** or **@Frame({"frame-id", "div[name-adv]"})** in case you have two or more frames above element - use driver.switchTo().frame(...) before searching your element. Or call it multiple times if @Frame has list of locators. Can be used together with @UI locator</br>
 **@Css("div.dropdown")** - if your element has Css locator (deprecated, recommended to use universal **@UI**)</br>
 **@XPath("//div[text()="Submit"]")** - if your element has Xpath locator (deprecated, recommended to use universal **@UI**)</br>
-**ByText("Submit")** - Used for elements that can be forund by text (use locator `".//*/text()[normalize-space(.) = %s]/parent::*"`)</br>
-**WithText("Navigation")** - Used for elements that can be forund as text contains(use locator `".//*/text()[contains(normalize-space(.), %s)]/parent::*"`)</br>
+**@ByText("Submit")** - Used for elements that can be forund by text (use locator `".//*/text()[normalize-space(.) = %s]/parent::*"`)</br>
+**@WithText("Navigation")** - Used for elements that can be forund as text contains(use locator `".//*/text()[contains(normalize-space(.), %s)]/parent::*"`)</br>
+**@ClickArea(...)** - specify how click will be performed. Allowed values: SMART_CLICK(try to find area where user able to click), TOP_LEFT(click top-left corner of the element), TOP_RIGHT(click top-right corner of the element), BOTTOM_LEFT(click bottom-left corner of the element), BOTTOM_RIGHT(click bottom-right corner of the element), CENTER(Selenium standard click in the center of the element), JS(using JS click)</br>
+**@GetTextAs(...)** - specify how getText will be performed. Allowed values: TEXT(getText()), VALUE(getAttribute("value")), INNER(jsExecute("innerText")), LABEL(using label related to element - good for checkboxes and radio), SMART_TEXT (try to find value smart)</br>
+**@SetTextAs(...)** - specify how input text will be performed. Allowed values: SEND_KEYS(sendKeys(...)), SET_TEXT(set `value` attribute using JS), CLEAR_SEND_KEYS(clear(); sendKeys(...))</br>
 
 
 ## JDI Locators (simple as css powerful as xpath)

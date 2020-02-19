@@ -140,19 +140,19 @@ public class Result extends DataClass<Result> {
 }
 @Test
 public void resultsTest() {
-        resultsList.assertThat().value(containsString(
-            "name:JDI FACEBOOK GROUP; description:English Community Facebook group"))
-            .any(e -> e.description.toLowerCase().contains("jdi"))
-            .each(e -> e.name.toLowerCase().contains("jdi"))
-            .onlyOne(e -> e.name.contains("OWNER"))
-            .noOne(e -> e.name.equalsIgnoreCase("Selenide"));
-            
-        resultsList.assertThat(not(empty()))
-            .and(hasSize(greaterThan(2)))
-            .and(hasItem(CORRECT))
-            .and(hasItems(CORRECT, CORRECT_2, CORRECT_3))
-            .and(not(hasItem(CORRUPTED)))
-            .and(not(hasItems(CORRUPTED, CORRUPTED_2)));
+  resultsList.assertThat()
+    .value(containsString("name:JDI FACEBOOK GROUP; description:English Community Facebook group"))
+    .any(e -> e.description.toLowerCase().contains("jdi"))
+    .each(e -> e.name.toLowerCase().contains("jdi"))
+    .onlyOne(e -> e.name.contains("OWNER"))
+    .noOne(e -> e.name.equalsIgnoreCase("Selenide"));
+
+  resultsList.assertThat(not(empty()))
+    .and(hasSize(greaterThan(2)))
+    .and(hasItem(CORRECT))
+    .and(hasItems(CORRECT, CORRECT_2, CORRECT_3))
+    .and(not(hasItem(CORRUPTED)))
+    .and(not(hasItems(CORRUPTED, CORRUPTED_2)));
 }
 ```
 Entites Driven Testing(EDT) is approach where Business Entites going through test scenarios instead of unnamed data.</br>
@@ -332,7 +332,8 @@ In order to control elements behaviour in JDI Light you can use following standa
 **@ClickArea(...)** - specify how click will be performed. Allowed values: SMART_CLICK(try to find area where user able to click), TOP_LEFT(click top-left corner of the element), TOP_RIGHT(click top-right corner of the element), BOTTOM_LEFT(click bottom-left corner of the element), BOTTOM_RIGHT(click bottom-right corner of the element), CENTER(Selenium standard click in the center of the element), JS(using JS click)</br>
 **@GetTextAs(...)** - specify how getText will be performed. Allowed values: TEXT(getText()), VALUE(getAttribute("value")), INNER(jsExecute("innerText")), LABEL(using label related to element - good for checkboxes and radio), SMART_TEXT (try to find value smart)</br>
 **@SetTextAs(...)** - specify how input text will be performed. Allowed values: SEND_KEYS(sendKeys(...)), SET_TEXT(set `value` attribute using JS), CLEAR_SEND_KEYS(clear(); sendKeys(...))</br>
-
+**@NoCache** - always get element from page. Not use cache</br>
+...
 
 ## JDI Locators (simple as css powerful as xpath)
 With JDI Light you can use simple and fast css selecctors with power of xpath locators. Now you can search by text or index in css or even move up and down in html tree.</br>

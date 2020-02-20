@@ -73,7 +73,7 @@ In JDI we have the following Composite elements:</br>
 - [Form](https://jdi-docs.github.io/jdi-light/?java#form) ...
 
 
-## UI Object Pattern
+## UI Objects
 
 ```java
 public class AwesomeApplication {

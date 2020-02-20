@@ -292,25 +292,27 @@ use `@Smart("data-type") MultiCombobox dataMultyCombobx;`</br>
 Or you always can create your own annotation for smart behaviour</br>
 Let's assume you would like to use smart locators for buttons like `//button[text()='Button Text']`</br>
 1. Create new annotation</br>
-`
+```js
 SButton.java
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.TYPE, ElementType.FIELD})
 public @interface SButton {
 }
-`</br>
+```
 2. setup behaviour for this annotations before you call initSite(...)
-`
+```js
 @BeforeSuite(alwaysRun = true)
 public static void setUp() {
     JDI_ANNOTATIONS.add("Buttons", aRule(SButton.class,
         (e, a) -> e.setLocator(format("//button[text()='%s']", splitCamelCase(e.getName())))));
     initSite(YourAwesomeSite.class);
-`</br>
+```
 Thats all. Now we can write</br>
-`@SButton public Button logIn, signIn, cancel, useVipAccess;`</br>
+```js
+@SButton public Button logIn, signIn, cancel, useVipAccess;
+```
 instead of </br>
-`
+```js
 @FindBy(xpath = "//button[text()='Log In']")
 public WebElement logIn;
 @FindBy(xpath = "//button[text()='Sign In']")
@@ -319,7 +321,7 @@ public WebElement signIn;
 public WebElement cancel;
 @FindBy(xpath = "//button[text()='Use Vip Access']")
 public WebElement useVipAccess;
-`</br>
+```
 
 ## JDI Annotations
 In order to control elements behaviour in JDI Light you can use following standard annotations:</br>

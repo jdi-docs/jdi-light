@@ -156,8 +156,31 @@ public void resultsTest() {
 }
 ```
 Entites Driven Testing(EDT) is approach where Business Entites going through test scenarios instead of unnamed data.</br>
-EDT can be orgnically combined with DDT that use Business Entites as input to similar scenarios.
-JDI Light natively supports EDT with Forms, Tables and DataLists. See more examples in the right panel.
+EDT can be orgnically combined with DDT that use Business Entites as input to similar scenarios.</br>
+JDI Light natively supports EDT with Forms, Tables and DataLists. See more examples in the right panel.</br>
+</br>
+Example scenario:</br>
+
+```html
+> Provide List<User> for test
+0. Have user in DB
+1. Login with user
+2. Submit Contact Us Form for user
+3. Get Act. Opening from Vacancy table
+4. Assert Act. Opening equals to Exp. Opening
+```
+Code example:</br>
+
+```html
+@Test(dataProvider = “users")                      //>
+public void formTest(User user) {
+    DB.users.shouldHas(user);                      //0.
+    loginForm.loginAs(user);                       //1.
+    contactUsForm.submit(user);                    //2.
+    Vacancy vacancy = vacancyTable.getEntity(3);   //3.
+    Assert.areEquals(vacancy, expectedVacancy);    //4.
+}
+```
 
 ## Smart Locators
 ### Smart locators example

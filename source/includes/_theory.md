@@ -17,8 +17,23 @@ JDI provides an ability to create your own element or reuse standard element fro
 - And of course we expect from UI elements only actions that are relevant to them (e.g. you can't sendKeys in ```Button``` but this is possible with ```WebElement``` or ```SelenideElement```)
 
 In JDI we have the following Common elements:</br>
-- [Label](https://jdi-docs.github.io/jdi-light/?java#label)</br> 
-- [Button](https://jdi-docs.github.io/jdi-light/?java#button) ...
+- [Label](https://jdi-docs.github.io/jdi-light/?java#label), 
+[Button](https://jdi-docs.github.io/jdi-light/?java#button),
+[Checkbox](https://jdi-docs.github.io/jdi-light/?java#checkbox),
+[ColorPicker](https://jdi-docs.github.io/jdi-light/?java#colorpicker),
+[DateTimeSelector](https://jdi-docs.github.io/jdi-light/?java#datetimeselector),
+[FileInput](https://jdi-docs.github.io/jdi-light/?java#fileinput),
+[Icon](https://jdi-docs.github.io/jdi-light/?java#icon),
+[Image](https://jdi-docs.github.io/jdi-light/?java#image),
+[Link](https://jdi-docs.github.io/jdi-light/?java#link),
+[Menu](https://jdi-docs.github.io/jdi-light/?java#menu),
+[NumberSelector](https://jdi-docs.github.io/jdi-light/?java#numberselector),
+[ProgressBar](https://jdi-docs.github.io/jdi-light/?java#progressbar),
+[Range](https://jdi-docs.github.io/jdi-light/?java#range),
+[Text](https://jdi-docs.github.io/jdi-light/?java#text),
+[TextField](https://jdi-docs.github.io/jdi-light/?java#textfield),
+[TextArea](https://jdi-docs.github.io/jdi-light/?java#textarea),
+[Title](https://jdi-docs.github.io/jdi-light/?java#title).
 
 
 ### Complex elements

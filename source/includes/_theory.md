@@ -73,7 +73,7 @@ In JDI we have the following Composite elements:</br>
 - [Form](https://jdi-docs.github.io/jdi-light/?java#form) ...
 
 
-## UI Object Pattern
+## UI Objects
 
 ```java
 public class AwesomeApplication {
@@ -140,47 +140,74 @@ public class Result extends DataClass<Result> {
 }
 @Test
 public void resultsTest() {
-        resultsList.assertThat().value(containsString(
-            "name:JDI FACEBOOK GROUP; description:English Community Facebook group"))
-            .any(e -> e.description.toLowerCase().contains("jdi"))
-            .each(e -> e.name.toLowerCase().contains("jdi"))
-            .onlyOne(e -> e.name.contains("OWNER"))
-            .noOne(e -> e.name.equalsIgnoreCase("Selenide"));
-            
-        resultsList.assertThat(not(empty()))
-            .and(hasSize(greaterThan(2)))
-            .and(hasItem(CORRECT))
-            .and(hasItems(CORRECT, CORRECT_2, CORRECT_3))
-            .and(not(hasItem(CORRUPTED)))
-            .and(not(hasItems(CORRUPTED, CORRUPTED_2)));
+  resultsList.assertThat()
+    .value(containsString("name:JDI FACEBOOK GROUP; description:English Community Facebook group"))
+    .any(e -> e.description.toLowerCase().contains("jdi"))
+    .each(e -> e.name.toLowerCase().contains("jdi"))
+    .onlyOne(e -> e.name.contains("OWNER"))
+    .noOne(e -> e.name.equalsIgnoreCase("Selenide"));
+
+  resultsList.assertThat(not(empty()))
+    .and(hasSize(greaterThan(2)))
+    .and(hasItem(CORRECT))
+    .and(hasItems(CORRECT, CORRECT_2, CORRECT_3))
+    .and(not(hasItem(CORRUPTED)))
+    .and(not(hasItems(CORRUPTED, CORRUPTED_2)));
 }
 ```
 Entites Driven Testing(EDT) is approach where Business Entites going through test scenarios instead of unnamed data.</br>
-EDT can be orgnically combined with DDT that use Business Entites as input to similar scenarios.
-JDI Light natively supports EDT with Forms, Tables and DataLists. See more examples in the right panel.
+EDT can be orgnically combined with DDT that use Business Entites as input to similar scenarios.</br>
+JDI Light natively supports EDT with Forms, Tables and DataLists. See more examples in the right panel.</br>
+</br>
+Example scenario:</br>
+
+```html
+> Provide List<User> for test
+0. Have user in DB
+1. Login with user
+2. Submit Contact Us Form for user
+3. Get Act. Opening from Vacancy table
+4. Assert Act. Opening equals to Exp. Opening
+```
+Code example:</br>
+
+```html
+@Test(dataProvider = “users")                      //>
+public void formTest(User user) {
+    DB.users.shouldHas(user);                      //0.
+    loginForm.loginAs(user);                       //1.
+    contactUsForm.submit(user);                    //2.
+    Vacancy vacancy = vacancyTable.getEntity(3);   //3.
+    Assert.areEquals(vacancy, expectedVacancy);    //4.
+}
+```
 
 ## Smart Locators
+### Smart locators example
+Let's assume you have some typical way to locate most of the elements for example most of elements has id or name or special attribute to locate ui elements valuable for automation. </br>
+Let's asume you have `@UI("[ui=last-name]") public TextField lastName;`  element in JDI. In this case you simplify it to `public TextField lastName;` and omit locator</br>
+See more complex example below and in code panel at the right:</br>
+For example you have following html</br>
+
+```html
+<input type="text" ui="name"/>
+<input type="text" ui="last-name"/>
+<input type="text" ui="pin-code"/>
+<input type="text" ui="promo-code"/>
+<input type="checkbox" ui="accept-conditions"/>
+<a href="..." ui="external-link">External link</a>
+<button ui="submit-button">
+```
+
 ```csharp
 public class UserCard : Form<User>
 {
-    [FindBy(Css = "#name")]
-    TextField Name; 
-    
-    [FindBy(Css = "#last-name")]
-    TextField LastName;
-    
-    [FindBy(Css = "#submit-button")]
-    Button SubmitButton;
+    [FindBy(Css = "#name")] public TextField Name;
+    [FindBy(Css = "#last-name")] public TextField LastName;
+    [FindBy(Css = "#submit-button")] public Button SubmitButton;
 }
-
-//If Smart locator rule is id:
-    SmartSearchLocator = "#{0}";
-    
-//and the conversion rule is 'hyphen-to-csharp-name':
-    SmartSearchName(string name) => StringExtensions.SplitHyphen(name);
-    
-//So you can write:
-
+SmartSearchLocator = "#{0}";
+SmartSearchName(string name) => StringExtensions.SplitHyphen(name);
 public class UserCard : Form<User>
 {
     TextField name; 
@@ -188,143 +215,166 @@ public class UserCard : Form<User>
     Button SubmitButton;
 }
 ```
-```java 
-public class UserCard extends Form<User> {
-    @Css("#name") TextField name; 
-    @Css("#last-name") TextField lastName;  
-    @Css("#submit-button") Button submitButton; 
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//So you can write:
-public class UserCard extends Form<User> {
-    TextField name;
-    TextField lastName;
-    Button submitButton; 
-}
-
-
-
-
-
-
-//in test.properties:
-smart.locators = "#%s"
-smart.locators.toName = UPPER_SNAKE_CASE
-
-public class UserCard extends Form {
-    TextField name;
-    TextField lastName;
-    TextField passportCode;
-}
-
-//Then JDI will be using the following locators for the elements:
-name -->#NAME
-lastName --> #LAST_NAME
-passportCode --> #PASSPORT_CODE, etc
-
-
-
-/* You don't need to set values for WebSettings class fields.
-   This code is just for illustrating how the default locator
-   value and the default locator naming rule are set 
-   in WebSettings class*/
-
-//Smart locator rule is id:
-  WebSettings.SMART_SEARCH_LOCATORS = asList("#%s");
-   
- 
-
-//and the conversion rule is 'hyphen-to-java-name':
-  WebSettings.SMART_SEARCH_NAME = StringUtils::splitHyphen;
+```java
+Selenium
+@FindBy(css = "[ui=name]") 
+public WebElement name;
+@FindBy(css = "[ui=last-name]") 
+public WebElement lastName;
+@FindBy(css = "[ui=pin-ncodeame]") 
+public WebElement pinCode;
+@FindBy(css = "[ui=promo-code]") 
+public WebElement promoCode;
+@FindBy(css = "[ui=accept-conditions]") 
+public WebElement acceptConditions;
+@FindBy(css = "[ui=submit-button]") 
+public WebElement submitButton; 
 ```
-```html
-<input type="text" id="name">
-<input type="text" id="last-name">
-<button id="submit-button">
-```
-<br>
-
-If you have your developers following some standard way of marking UI elements or you have
-an agreement to add special attributes, you can even avoid writing locators for elements,
-thus making your page objects much more compact.
-
-
-E.g. let's say we have an agreement on naming elements and their ids in the following way:<br>
-a Button element *submitButton* should have id equal to *submit-button*, a text field
-element *lastName* should have id equal to *last-name*, and so on.
-
-In this case we can save time on adding a UI annotation for each element e.g.:<br>
- *@Css("#last-name")<br>
-  Text lastName*
- 
-Instead, we just write:<br>
- *Text lastName*
-  
-and allow JDI Light framework to transform the variable name from "lastName"
- to "last-name" and find an element with such id. 
-  
-###How to define a smart locator
-
-Smart locators can be set in JDI framework via a config file named *test.properties*.
-There are two properties that we need: *smart.locators* and *smart.locators.toName*.
-
-*smart.locators* property is a string representing locators separated by ";" (e.g. "#%s;name=%s")
-that are going to be used for searching for an element.
-
-*smart.locators.toName* property should contain one of the following values:<br>
-kebab-case | camelCase | snake_case | PascalCase | UPPER_SNAKE_CASE that tells to JDI how to create a locator form a given variable name.
-
-<br>
-  
-*test.properties* file is processed via **WebSetting.java** class:
-  
-- **WebSettings.SMART_SEARCH** - method invoked if you have an element with no locator
-
-- **WebSettings.SMART_SEARCH_LOCATORS** - it is either the list of locators taken from smart.locators property
-or "#%s" if that property is empty
-
-- **WebSettings.SMART_SEARCH_NAME** -  method to create locator name from field name
- (this value will be passed as a %s parameter to SMART_SEARCH_LOCATORS). By default,
-  kebab-case will be used
-
-
-
-## JDI Locators (simple as css powerful as xpath)
+In standrd way in Selenium in Page Objects you need to write following code for this elements.
+</br></br></br></br></br></br></br></br></br></br></br></br>
 
 ```java
-//Here's simple test to find 4th text element's parent element
-public void indexAndParentTest() {
-    bys = searchBy(By.cssSelector("input[type=text][4]<"));
-    assertEquals(bys.size(), 3);
-    assertEquals(getElement(bys).getText(), "Last Name");
-    assertEquals(getElement(bys).getTagName(), "div");
+@UI("[ui=name]") public Textfield name;
+@UI("[ui=last-name]") public Textfield lastName;
+@UI("[ui=pin-code]") public Textfield pinCode;
+@UI("[ui=promo-code]") public Textfield promoCode;
+@UI("[ui=accept-conditions]") public Checkbox acceptConditions;
+@UI("[ui=submit-button]") public Button submitButton;
+```
+In JDI Light with standard UI Objects code be more obvious but still has duplications in locator and element name.
+</br></br></br></br></br></br>
+
+```java
+public Textfield name, lastName, pinCode, promoCode;
+public Checkbox acceptConditions;
+public Button submitButton;
+```
+And using smart locators you can write this without any duplications (without locators) just in few lines</br>
+Isn't this looks cool?</br></br>
+
+### Define smart locator using test.properties
+
+```java
+smart.locators="[ui=%s]"
+smart.locators.toName=UPPER_SNAKE_CASE
+```
+You can setup your smart locators in `test.properties` in following way:</br>
+Setup `smart.locators=`</br>
+put `#%s` in case you smart locator is id</br>
+put `.%s` for class</br>
+put `[name=%s]` for name or other attribute</br>
+</br>
+For example you set `smart.locators=[ui=%s]`</br>
+Setup `smart.toName=`</br>
+`kebab-case` will produce `[ui=last-name]` locator for public WebElement lastName;</br>
+`camelCase` will produce `[ui=lastName]` locator for public WebElement lastName;</br>
+`snake_case` will produce `[ui=last_name]` locator for public WebElement lastName;</br>
+`PascalCase` will produce `[ui=LastName]` locator for public WebElement lastName;</br>
+`UPPER_SNAKE_CASE` will produce `[ui=LAST_NAME]` locator for public WebElement lastName;</br>
+or if you have `smart.locators=//*[text()='%s']`</br>
+`First Upper Case` will produce `//*[text()='Submit Form']` locator for public WebElement submitForm;</br>
+`ALL UPPER CASE` will produce `//*[text()='SUBMIT FORM']` locator for public WebElement submitForm;</br>
+
+### Define smart locator using WebSettings
+
+```java
+WebSettings.SMART_SEARCH_LOCATORS = asList("#%s");
+WebSettings.SMART_SEARCH_NAME = StringUtils::toKebabCase;
+JDI Light like
+WebSettings.SMART_SEARCH = el -> {
+  String locatorName = toKebabCase(el.getName());
+  UIElement element = $("[auto="+locatorName+"]", el.base().parent));
+  element.setName(el.getName());
+  return element.getWebElement();
+}
+Selenium like:
+WebSettings.SMART_SEARCH = el -> {
+  String locatorName = toKebabCase(el.getName());
+  return getDriver.findElement(By.cssClass("[auto="+locatorName+"]"));
 }
 ```
+From other hands you can setup Smart Locators in code using `WebSettings.SMART_SEARCH_NAME` and `WebSettings.SMART_SEARCH_LOCATORS` variables</br>
+Or you can define by yourself what should be done in case of UI Element has no locator using `WebSettings.SMART_SEARCH` function
 
-JDI locators can be used to perform search with the help of css locators, but with extended possibilities, that are not available within the css element search:
+### Smart Annotations 
+In case you have few standart patterns for locators you can use Smart Annotations in order to mark the elements with this locators.</br>
+For `@UI("#last-name") TextFiled lastName;`</br>
+use `@SId TextField lastName;`</br>
+For `@UI(".contact-form") Form<CardData> contactForm;`</br>
+use `@SClass Form<CardData> contactForm;`</br>
+For `@UI("//*[text()='Submit Card']") Button submitCard;`</br>
+use `@SText Button submitCard;`</br>
+For `@UI("[name='accept-conditions']") Checkbox acceptConditions;`</br>
+use `@SName Checkbox acceptConditions;`</br>
+or use @Smart annotation for any specific html attribute
+For `@UI("[data-type=data-multy-combobx]") MultiCombobox dataMultyCombobx;`</br>
+use `@Smart("data-type") MultiCombobox dataMultyCombobx;`</br>
+</br>
 
-- Search by element's full text - **['text']**
+### Custom Smart Annotation
+Or you always can create your own annotation for smart behaviour</br>
+Let's assume you would like to use smart locators for buttons like `//button[text()='Button Text']`</br>
+1. Create new annotation</br>
 
-- Search by element's part of the text - **[*'text']**
+```html
+SButton.java
+@Retention(RetentionPolicy.RUNTIME)
+@Target({ElementType.TYPE, ElementType.FIELD})
+public @interface SButton {
+}
+```
+2. setup behaviour for this annotations before you call initSite(...)
 
-- Search by element index - **[3]**
+```html
+@BeforeSuite(alwaysRun = true)
+public static void setUp() {
+    JDI_ANNOTATIONS.add("Buttons", aRule(SButton.class,
+        (e, a) -> e.setLocator(format("//button[text()='%s']", splitCamelCase(e.getName())))));
+    initSite(YourAwesomeSite.class);
+```
+Thats all. Now we can write</br>
 
-- Search by element's parent - **<**
+```html
+@SButton public Button logIn, signIn, cancel, useVipAccess;
+```
+instead of </br>
 
-You can also use them apart or altogether
+```html
+@FindBy(xpath = "//button[text()='Log In']")
+public WebElement logIn;
+@FindBy(xpath = "//button[text()='Sign In']")
+public WebElement signIn;
+@FindBy(xpath = "//button[text()='Cancel']")
+public WebElement cancel;
+@FindBy(xpath = "//button[text()='Use Vip Access']")
+public WebElement useVipAccess;
+```
 
+## JDI Annotations
+In order to control elements behaviour in JDI Light you can use following standard annotations:</br>
+**@Root** - ignore all parent sections locators for this element and use only locator that specified for element (including smart locators)</br>
+**@Frame("frame-id")** or **@Frame({"frame-id", "div[name-adv]"})** in case you have two or more frames above element - use driver.switchTo().frame(...) before searching your element. Or call it multiple times if @Frame has list of locators. Can be used together with @UI locator</br>
+**@Css("div.dropdown")** - if your element has Css locator (deprecated, recommended to use universal **@UI**)</br>
+**@XPath("//div[text()="Submit"]")** - if your element has Xpath locator (deprecated, recommended to use universal **@UI**)</br>
+**@ByText("Submit")** - Used for elements that can be forund by text (use locator `".//*/text()[normalize-space(.) = %s]/parent::*"`)</br>
+**@WithText("Navigation")** - Used for elements that can be forund as text contains(use locator `".//*/text()[contains(normalize-space(.), %s)]/parent::*"`)</br>
+**@ClickArea(...)** - specify how click will be performed. Allowed values: SMART_CLICK(try to find area where user able to click), TOP_LEFT(click top-left corner of the element), TOP_RIGHT(click top-right corner of the element), BOTTOM_LEFT(click bottom-left corner of the element), BOTTOM_RIGHT(click bottom-right corner of the element), CENTER(Selenium standard click in the center of the element), JS(using JS click)</br>
+**@GetTextAs(...)** - specify how getText will be performed. Allowed values: TEXT(getText()), VALUE(getAttribute("value")), INNER(jsExecute("innerText")), LABEL(using label related to element - good for checkboxes and radio), SMART_TEXT (try to find value smart)</br>
+**@SetTextAs(...)** - specify how input text will be performed. Allowed values: SEND_KEYS(sendKeys(...)), SET_TEXT(set `value` attribute using JS), CLEAR_SEND_KEYS(clear(); sendKeys(...))</br>
+**@NoCache** - always get element from page. Not use cache</br>
+...
 
+## JDI Locators (simple as css powerful as xpath)
+With JDI Light you can use simple and fast css selecctors with power of xpath locators. Now you can search by text or index in css or even move up and down in html tree.</br>
+See some examples below:</br>
+XPath: `//div[contains(@class,'btn')]//*[text()='Submit']`</br>
+JDI Locator: `div.btn['Submit']`
+
+XPath: `//*[contains(@class,'nav-menu')]//*[@data-role='header']//*[contains(text(),'Navigation menu')]`</br>
+JDI Locator: `.nav-menu [data-role=header][*'Navigation menu']`</br>
+
+XPath: `//label[text()='Gold status']/..//input[@type='checkbox']`</br>
+JDI Locator: `label['Gold status']<input[type=checkbox]`</br>
+
+XPath: `//*[contains(@class,'nav-menu')]//*[@data-role='header'][3]`</br>
+JDI Locator: `.nav-menu [data-role=header][3]`</br>

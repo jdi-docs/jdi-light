@@ -17,8 +17,23 @@ JDI provides an ability to create your own element or reuse standard element fro
 - And of course we expect from UI elements only actions that are relevant to them (e.g. you can't sendKeys in ```Button``` but this is possible with ```WebElement``` or ```SelenideElement```)
 
 In JDI we have the following Common elements:</br>
-- [Label](https://jdi-docs.github.io/jdi-light/?java#label)</br> 
-- [Button](https://jdi-docs.github.io/jdi-light/?java#button) ...
+- [Label](https://jdi-docs.github.io/jdi-light/?java#label), 
+[Button](https://jdi-docs.github.io/jdi-light/?java#button),
+[Checkbox](https://jdi-docs.github.io/jdi-light/?java#checkbox),
+[ColorPicker](https://jdi-docs.github.io/jdi-light/?java#colorpicker),
+[DateTimeSelector](https://jdi-docs.github.io/jdi-light/?java#datetimeselector),
+[FileInput](https://jdi-docs.github.io/jdi-light/?java#fileinput),
+[Icon](https://jdi-docs.github.io/jdi-light/?java#icon),
+[Image](https://jdi-docs.github.io/jdi-light/?java#image),
+[Link](https://jdi-docs.github.io/jdi-light/?java#link),
+[Menu](https://jdi-docs.github.io/jdi-light/?java#menu),
+[NumberSelector](https://jdi-docs.github.io/jdi-light/?java#numberselector),
+[ProgressBar](https://jdi-docs.github.io/jdi-light/?java#progressbar),
+[Range](https://jdi-docs.github.io/jdi-light/?java#range),
+[Text](https://jdi-docs.github.io/jdi-light/?java#text),
+[TextField](https://jdi-docs.github.io/jdi-light/?java#textfield),
+[TextArea](https://jdi-docs.github.io/jdi-light/?java#textarea),
+[Title](https://jdi-docs.github.io/jdi-light/?java#title).
 
 
 ### Complex elements
@@ -37,9 +52,15 @@ Other examples are lists of similar elements like ```List<WebElement>``` in Sele
 Also you can use list of Common elements as ```List<...>``` e.g. ```List<Button>``` or ```List<Label>```
 
 In JDI we have the following Complex elements:</br>
-- [Dropdown](https://jdi-docs.github.io/jdi-light/?java#dropdown)</br>
-- [Combobox](https://jdi-docs.github.io/jdi-light/?java#combobox)</br> 
-- [Checklist](https://jdi-docs.github.io/jdi-light/?java#checklist) ...
+- [RadioButtons](https://jdi-docs.github.io/jdi-light/?java#radiobuttons),
+[Table](https://jdi-docs.github.io/jdi-light/?java#table),
+[DataTable](https://jdi-docs.github.io/jdi-light/?java#datatable),
+[Dropdown](https://jdi-docs.github.io/jdi-light/?java#dropdown),
+[MultiDropdown](https://jdi-docs.github.io/jdi-light/?java#multidropdown),
+[DataList](https://jdi-docs.github.io/jdi-light/?java#datalist),
+[Checklist](https://jdi-docs.github.io/jdi-light/?java#checklist),
+[MultiSelector](https://jdi-docs.github.io/jdi-light/?java#multiselector),
+[Combobox](https://jdi-docs.github.io/jdi-light/?java#combobox).
 
 ### Composite elements
 
@@ -68,9 +89,10 @@ Composite elements also can have predefined actions like fill(...), submit(...) 
 Remember that you can create your own Composite elements with JDI Light for example for Header, Navigation bar, Footer, Left sidebar, advertisement or main part ofr the page.</br>
 
 In JDI we have the following Composite elements:</br>
-- [WebPage](https://jdi-docs.github.io/jdi-light/?java#webpage)</br> 
-- [Section](https://jdi-docs.github.io/jdi-light/?java#section)</br>
-- [Form](https://jdi-docs.github.io/jdi-light/?java#form) ...
+ 
+- [Section](https://jdi-docs.github.io/jdi-light/?java#section),
+[Form](https://jdi-docs.github.io/jdi-light/?java#form),
+[WebPage](https://jdi-docs.github.io/jdi-light/?java#webpage).
 
 
 ## UI Objects

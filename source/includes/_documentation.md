@@ -1,9 +1,77 @@
-# Documentation
+﻿# Documentation
 ## Base Elements
 
 ### UIBaseElement
 
 ### UIElement
+
+Available methods in Java JDI Light: 
+
+|Method | Description | Return Type 
+--- | --- | --- 
+**check()** | Click on element if not selected | void
+**classes()** | Get all classes as list | List<String>
+**clear()** | Clear input field | void
+**click()** | Click on element | void
+**click(Element area)** | Click on element area(Element area could be SMART_CLICK, TOP_LEFT, TOP_RIGHT, BOTTOM_LEFT, BOTTOM_RIGHT, CENTER, JS) | void
+**click(int x, int y)** | Click on point (x, y) | void
+**doubleClick()** | Double click on the element | void
+**dragAndDropTo(int x, int y)** | Drag and drop it to certain coordinates | void
+**dragAndDropTo(WebElement to)** | Drag and drop it to another element | void
+**focus()** | Focus on element | void
+**getAllAttributes()** | Get all element’s attributes | MapArray<String, String>
+**getAttribute(String value)** | Get the attribute value | String
+**getCssValue(String value)** | Get element css value | String
+**getLocation()** | Get element location as point | Point
+**getRect()** | Get element rectangle | Rectangle
+**getSize()** | Get element size | Dimension
+**getTagName()** | Return tag name, e.g. <button …> will return “button” | String
+**getText()** | Get text of the element | String
+**getValue()** | Get text | String
+**hasAttribute(String attrName)** | Return true is element hat expected attribute | boolean
+**hasClass(String className)** | Return true of element has expected class | boolean
+**highlight()** | Highlight element with red color | void
+**highlight(String color)** | Scroll view to element and make a border around with specified color | void
+**hover()** | Hover mouse to element | void
+**input(String value)** | Input specified value as keys | void
+**isDeselected()** | Check that element is deselected | boolean
+**isDisabled()** | Check element is disabled | boolean
+**isDisplayed()** | Check the element is displayed | boolean
+**isEnabled()** | Check the element is enabled | boolean
+**isExist()** | Check element exist | boolean
+**isHidden()** | Check element is hidden | boolean
+**isNotExist()** | Check element isn’t exist | boolean
+**isNotVisible()** | Check element is not visible by user | boolean
+**isSelected()** | Check that element is selected | boolean
+**isVisible()** | Check element is displayed | boolean
+**jsExecute(String jsCode)** | Execute java script call | String
+**labelText()** | Get label text | String
+**makePhoto()** | Get element’s screenshot | File
+**placeholder()** | Gets attribute ‘placeholder’ | String
+**printHtml()** | Get the element attribute “innerHTML” value | String
+**rightClick()** | Right click on the element | void
+**select()** | Select item | void
+**select(int index)** | Select item by index | void
+**select(String value)** | Select item by value | void
+**select(String… names)** | Select items by values | void
+**sendKeys(CharSequence… value)** | Send specified value as keys | void
+**setAttribute(String name, String value)** | Set value to the specified attribute | void
+**setText(String value)** | Put value as text | void
+**setValue()** | Input value | void
+**show()** | Scroll screen view to item | void
+**text()** | Get text | String
+**uncheck()** | Click on element if selected | void
+
+
+Aliases in in Java JDI Light: 
+
+|Method | Description | Return Type 
+--- | --- | --- 
+**attr()** | Get attribute | String
+**attrs()** | Get all attributes | MapArray<String, String>
+**css(String prop)** | Get css value | String
+**text()** | Get text | String
+
 
 ### WebList
 

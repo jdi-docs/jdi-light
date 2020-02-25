@@ -5,6 +5,34 @@
 
 ### UIElement
 
+```java 
+
+  @Test
+  public void click() {
+      submit.click();
+      Assert.assertEquals(sum.getText(), "Summary: 3");
+  }
+
+  @Test
+  public void isDisplayed(){
+      Assert.assertTrue(submit.isDisplayed());
+  }
+
+  @Test
+  public void input(){
+      description.input("Hello world!");
+      Assert.assertEquals(description.getText(), "Hello world!");
+      description.clear();
+  }
+
+  @Test
+  public void hasAttribute() {
+      Assert.assertTrue(submit.hasAttribute("class"));
+      Assert.assertTrue(submit.hasAttribute("type"));
+  }
+  
+```
+
 Available methods in Java JDI Light: 
 
 |Method | Description | Return Type 
@@ -67,7 +95,7 @@ Aliases in in Java JDI Light:
 
 |Method | Description | Return Type 
 --- | --- | --- 
-**attr()** | Get attribute | String
+**attr(String value)** | Get attribute | String
 **attrs()** | Get all attributes | MapArray<String, String>
 **css(String prop)** | Get css value | String
 **text()** | Get text | String

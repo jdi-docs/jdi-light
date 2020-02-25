@@ -53,7 +53,7 @@ Available methods in Java JDI Light:
 **getLocation()** | Get element location as point | Point
 **getRect()** | Get element rectangle | Rectangle
 **getSize()** | Get element size | Dimension
-**getTagName()** | Return tag name, e.g. <button …> will return “button” | String
+**getTagName()** | Return tag name | String
 **getText()** | Get text of the element | String
 **getValue()** | Get text | String
 **hasAttribute(String attrName)** | Return true is element hat expected attribute | boolean

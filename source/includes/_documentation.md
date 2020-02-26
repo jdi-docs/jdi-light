@@ -10,25 +10,25 @@
   @Test
   public void click() {
       submit.click();
-      Assert.assertEquals(sum.getText(), "Summary: 3");
+      assertEquals(sum.getText(), "Summary: 3");
   }
 
   @Test
   public void isDisplayed(){
-      Assert.assertTrue(submit.isDisplayed());
+      assertTrue(submit.isDisplayed());
   }
 
   @Test
   public void input(){
       description.input("Hello world!");
-      Assert.assertEquals(description.getText(), "Hello world!");
+      assertEquals(description.getText(), "Hello world!");
       description.clear();
   }
 
   @Test
   public void hasAttribute() {
-      Assert.assertTrue(submit.hasAttribute("class"));
-      Assert.assertTrue(submit.hasAttribute("type"));
+      assertTrue(submit.hasAttribute("class"));
+      assertTrue(submit.hasAttribute("type"));
   }
   
 ```

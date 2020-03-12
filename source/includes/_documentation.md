@@ -20447,120 +20447,147 @@ There are two ways to use **assertResults()** method:
 
 - As a separate method if you need to check several elements (e.g. _multipleValidationsTest_)
 
+## JDI asserts
 
-Also we have some classes with special asserts in the next packages:
+Also we have some classes with JDI special asserts in the next packages:
 
 - com.epam.jdi.light.asserts.generic
 
 **ListAssert.class** includes next asserts:
 
-**each(JFunc1<T, Boolean> condition)** - assert that each of list elements meet condition
-**any(JFunc1<T, Boolean> condition)** - assert that any of list elements meet condition
-**onlyOne(JFunc1<T, Boolean> condition)** - assert that only one of list elements meet condition
-**noOne(JFunc1<T, Boolean> condition)** - assert that none of list elements meet condition
+|Method | Description |
+--- | --- |
+**each(JFunc1<T, Boolean> condition)** | - assert that each of list elements meet condition |
+**any(JFunc1<T, Boolean> condition)** | - assert that any of list elements meet condition |
+**onlyOne(JFunc1<T, Boolean> condition)** | - assert that only one of list elements meet condition |
+**noOne(JFunc1<T, Boolean> condition)** | - assert that none of list elements meet condition |
 
 **TextAssert.class** includes next asserts:
 
-**text(Matcher<String> condition)** - asserts that element has presented text
+|Method | Description |
+--- | --- |
+**text(Matcher<String> condition)** | - asserts that element has presented text |
 
 **UIAssert.class** includes next asserts:
 
-**displayed()** - assert that element is displayed
-**visible()** - assert that element is visible for user
-**notVisible()** - assert that element is not visible by user
-**disappear()** - assert that element is disappeared
-**hidden()** - assert that element is hidden
-**notAppear(int timeoutSec)** - assert that element does not appear during presented seconds
-**attr(String attrName, Matcher<String> condition)** - assert that element has presented attribute
-**css(String css, Matcher<String> condition)** - assert that element has presented css
-**hasClass(String className)** - assert that element has presented css class
-**hasAttribute(String attrName)** - assert that element has presented css class attribute
-**enabled()** - assert that element is enabled
-**disabled()** - assert that element is disabled
+|Method | Description |
+--- | --- |
+**displayed()** | - assert that element is displayed |
+**visible()** | - assert that element is visible for user |
+**notVisible()** | - assert that element is not visible by user |
+**disappear()** | - assert that element is disappeared |
+**hidden()** | - assert that element is hidden |
+**notAppear(int timeoutSec)** | - assert that element does not appear during presented seconds |
+**attr(String attrName, Matcher<String> condition)** | - assert that element has presented attribute |
+**css(String css, Matcher<String> condition)** | - assert that element has presented css |
+**hasClass(String className)** | - assert that element has presented css class |
+**hasAttribute(String attrName)** | - assert that element has presented css class attribute |
+**enabled()** | - assert that element is enabled |
+**disabled()** | - assert that element is disabled |
 
 **UISelectAssert.class** includes next asserts:
 
-**selected(Matcher<String> condition)** - assert that option selected for element
-**selected(String option)** - assert that option selected for element
-**selected(int i)** - assert that option selected for element
-**values(Matcher<? super List<String>> condition)** - assert that element contains values
-**values(String... values)** - assert that element contains values
-**enabled(String... enabled)** - assert that items enabled
-**size(Matcher<Integer> condition)** - assert element size
-**size(int size)** - assert that element size is equals to presented size
-**empty()** - assert that element size is empty
-**notEmpty()** - assert that element size is not empty
-**displayed()** - assert that element is displayed
-**expanded()** - assert that element is expanded
-**collapsed()** - assert that element is collapsed
-**disappear()** - assert that element is disappeared
-**hidden()** - assert that element is hidden
-**notAppear(int timeoutSec)** - assert that element does not appear during presented seconds
+|Method | Description |
+--- | --- |
+**selected(Matcher<String> condition)** | - assert that option selected for element |
+**selected(String option)** | - assert that option selected for element |
+**selected(int i)** | - assert that option selected for element |
+**values(Matcher<? super List<String>> condition)** | - assert that element contains values |
+**values(String... values)** | - assert that element contains values |
+**enabled(String... enabled)** | - assert that items enabled |
+**size(Matcher<Integer> condition)** | - assert element size |
+**size(int size)** | - assert that element size is equals to presented size |
+**empty()** | - assert that element size is empty |
+**notEmpty()** | - assert that element size is not empty |
+**displayed()** | - assert that element is displayed |
+**expanded()** | - assert that element is expanded |
+**collapsed()** | - assert that element is collapsed |
+**disappear()** | - assert that element is disappeared |
+**hidden()** | - assert that element is hidden |
+**notAppear(int timeoutSec)** | - assert that element does not appear during presented seconds |
 
 - com.epam.jdi.light.ui.html.asserts
 
 **CheckboxAssert.class** includes next asserts:
 
-**selected()** - assert that element is selected
-**text(Matcher<String> condition)** - assert that element has presented text
-**deselected()** - assert that element is not selected
+|Method | Description |
+--- | --- |
+**selected()** | - assert that element is selected |
+**text(Matcher<String> condition)** | - assert that element has presented text |
+**deselected()** | - assert that element is not selected | 
 
 **ColorAssert.class** includes next asserts:
 
-**color(String color)** - assert that element has presented color
+|Method | Description |
+--- | --- |
+**color(String color)** | - assert that element has presented color |
 
 **DateTimeAssert.class** includes next asserts:
 
-**text(Matcher<String> condition)** - assert that element has presented text
-**date(Matcher<String> date)** - assert that element has presented date
-**month(Matcher<String> month)** - assert that element has presented month
-**week(Matcher<String> week)** - assert that element has presented week
-**time(Matcher<String> time)** - assert that element has presented time
-**min(Matcher<Float> min)** - assert that element has presented minimum value
-**max(Matcher<Float> max)** - assert that element has presented maximum value
+|Method | Description |
+--- | --- |
+**text(Matcher<String> condition)** | - assert that element has presented text |
+**date(Matcher<String> date)** | - assert that element has presented date |
+**month(Matcher<String> month)** | - assert that element has presented month |
+**week(Matcher<String> week)** | - assert that element has presented week |
+**time(Matcher<String> time)** | - assert that element has presented time |
+**min(Matcher<Float> min)** | - assert that element has presented minimum value |
+**max(Matcher<Float> max)** | - assert that element has presented maximum value |
 
 **ImageAssert.class** includes next asserts:
 
-**src(Matcher<String> condition)** - assert that element has presented src
-**fileName(Matcher<String> condition)** - assert that element has presented file name
-**alt(Matcher<String> condition)** - assert that element has presented alt
-**height(Matcher<Integer> condition)** - assert that element has presented height
-**width(Matcher<Integer> condition)** - assert that element has presented width
+|Method | Description |
+--- | --- |
+**src(Matcher<String> condition)** | - assert that element has presented src |
+**fileName(Matcher<String> condition)** | - assert that element has presented file name |
+**alt(Matcher<String> condition)** | - assert that element has presented alt |
+**height(Matcher<Integer> condition)** | - assert that element has presented height |
+**width(Matcher<Integer> condition)** | - assert that element has presented width |
 
 **LinkAssert.class** includes next asserts:
 
-**text(Matcher<String> condition)** - assert that element has presented text
-**alt(Matcher<String> condition)** - assert that element has presented alt
-**ref(Matcher<String> condition)** - assert that element has presented ref
+|Method | Description |
+--- | --- |
+**text(Matcher<String> condition)** | - assert that element has presented text |
+**alt(Matcher<String> condition)** | - assert that element has presented alt |
+**ref(Matcher<String> condition)** | - assert that element has presented ref |
 
 **NumberAssert.class** includes next asserts:
 
-**text(Matcher<String> condition)** - assert that element has presented text
-**min(Matcher<Double> min)** - assert that element has presented minimum value
-**max(Matcher<Double> max)** - assert that element has presented maximum value
-**step(Matcher<Double> step)** - assert that element step is equals to presented
-**placeholder(Matcher<String> placeholder)** - assert that element placeholder is equals to presented
-**number(Matcher<Double> number)** - assert that element number is equals to presented 
+|Method | Description |
+--- | --- |
+**text(Matcher<String> condition)** | - assert that element has presented text |
+**min(Matcher<Double> min)** | - assert that element has presented minimum value |
+**max(Matcher<Double> max)** | - assert that element has presented maximum value |
+**step(Matcher<Double> step)** | - assert that element step is equals to presented |
+**placeholder(Matcher<String> placeholder)** | - assert that element placeholder is equals to presented |
+**number(Matcher<Double> number)** | - assert that element number is equals to presented |
 
 **ProgressAssert.class** includes next asserts:
 
-**max(Matcher<Integer> max)** - assert that element has presented maximum value
-**value(Matcher<Integer> value)** - assert that element value is equals to presented  
+|Method | Description |
+--- | --- |
+**max(Matcher<Integer> max)** | - assert that element has presented maximum value |
+**value(Matcher<Integer> value)** | - assert that element value is equals to presented  
 
 **RangeAssert.class** includes next asserts:
 
-**value(Matcher<Integer> value)** - assert that element value is equals to presented 
-**min(Matcher<Integer> min)** - assert that element has presented minimum value
-**max(Matcher<Integer> max)** - assert that element has presented maximum value
-**step(Matcher<Integer> step)** - assert that element step is equals to presented
+|Method | Description |
+--- | --- |
+**value(Matcher<Integer> value)** |- assert that element value is equals to presented |
+**min(Matcher<Integer> min)** | - assert that element has presented minimum value |
+**max(Matcher<Integer> max)** | - assert that element has presented maximum value |
+**step(Matcher<Integer> step)** | - assert that element step is equals to presented |
 
 **TextAreaAssert.class** includes next asserts:
 
-**text(Matcher<String> condition)** - assert that element has presented text
-**rowsCount(Matcher<Integer> condition)** - assert that element has presented quantity of rows
-**colsCount(Matcher<Integer> condition)** - assert that element has presented quantity of columns
-**minlength(Matcher<Integer> condition)** - assert minimum length of element
-**maxlength(Matcher<Integer> condition)** - assert minimum length of element
+|Method | Description |
+--- | --- |
+**text(Matcher<String> condition)** | - assert that element has presented text |
+**rowsCount(Matcher<Integer> condition)** | - assert that element has presented quantity of rows |
+**colsCount(Matcher<Integer> condition)** | - assert that element has presented quantity of columns |
+**minlength(Matcher<Integer> condition)** | - assert minimum length of element |
+**maxlength(Matcher<Integer> condition)** | - assert minimum length of element |
 
 ## Driver Settings
 We can change default settings placed in the test.properties file (src/test/resources)

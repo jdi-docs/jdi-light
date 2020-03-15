@@ -18223,7 +18223,7 @@ Validations: <br>
 **Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa)<br>
-<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Label.feature" target="_blank">Cucumber tests</a> for Label<br>
+<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-bdd-tests/src/test/resources/features/Label.feature" target="_blank">Cucumber tests</a> for Label<br>
 <br><br><br><br>
 
 ### ColorPicker
@@ -18275,7 +18275,7 @@ Validations: <br>
 **Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial)<br>
-<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/ColorPicker.feature" target="_blank">Cucumber tests</a> for ColorPicker<br>
+<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-bdd-tests/src/test/resources/features/ColorPicker.feature" target="_blank">Cucumber tests</a> for ColorPicker<br>
 
 <br><br><br><br><br><br>
 
@@ -18324,7 +18324,7 @@ Validations: <br>
 **Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial)<br>
-<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/DropDown.feature" target="_blank">Cucumber tests</a> for DropDown<br>
+<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-bdd-tests/src/test/resources/features/DropDown.feature" target="_blank">Cucumber tests</a> for DropDown<br>
 
 <br><br><br><br><br>
 
@@ -18369,7 +18369,7 @@ Validations: <br>
 **Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)<br>
-<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Image.feature" target="_blank">Cucumber tests</a> for Image <br>
+<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-bdd-tests/src/test/resources/features/Image.feature" target="_blank">Cucumber tests</a> for Image <br>
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
@@ -18415,7 +18415,7 @@ Validations: <br>
 **Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)<br>
-<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Image.feature" target="_blank">Cucumber tests</a> for Image <br>
+<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-bdd-tests/src/test/resources/features/Image.feature" target="_blank">Cucumber tests</a> for Image <br>
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 ### Alert
@@ -18455,7 +18455,7 @@ Validations: <br>
 
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa)<br>
-<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Alert.feature" target="_blank">Cucumber tests</a> for Alert<br>
+<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-bdd-tests/src/test/resources/features/Alert.feature" target="_blank">Cucumber tests</a> for Alert<br>
 
 <br>
 <br>
@@ -18526,7 +18526,7 @@ Validations:<br>
 
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial)<br>
-<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/FileInput.feature" target="_blank">Cucumber tests</a> for FileInput<br>
+<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-bdd-tests/src/test/resources/features/FileInput.feature" target="_blank">Cucumber tests</a> for FileInput<br>
 
 <br><br><br><br><br><br>
 
@@ -18609,7 +18609,7 @@ Validations: <br>
 **Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)<br>
-<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Link.feature" target="_blank">Cucumber tests</a> for Link<br>
+<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-bdd-tests/src/test/resources/features/Link.feature" target="_blank">Cucumber tests</a> for Link<br>
 
 
 <br><br><br>
@@ -18696,7 +18696,7 @@ Scenario example for Button:
 
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa)<br>
-<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Button.feature" target="_blank">Cucumber tests</a>) for Button<br>
+<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-bdd-tests/src/test/resources/features/Button.feature" target="_blank">Cucumber tests</a>) for Button<br>
 
 <br>
 ### DateTimeSelector
@@ -18742,11 +18742,11 @@ Validations:<br>
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)<br>
 
 There are BDD test examples for Input Type Date derivatives:<br>
-[Input Type Date](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Date.feature),
-[Input Type Week](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Week.feature),
-[Input Type Month](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Month.feature),<br>
-[Input Type Time](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Time.feature),
-[DateTime-Local](https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/DateTime.feature)<br><br>
+[Input Type Date](https://github.com/jdi-testing/jdi-light/blob/master/jdi-bdd-tests/src/test/resources/features/Date.feature),
+[Input Type Week](https://github.com/jdi-testing/jdi-light/blob/master/jdi-bdd-tests/src/test/resources/features/Week.feature),
+[Input Type Month](https://github.com/jdi-testing/jdi-light/blob/master/jdi-bdd-tests/src/test/resources/features/Month.feature),<br>
+[Input Type Time](https://github.com/jdi-testing/jdi-light/blob/master/jdi-bdd-tests/src/test/resources/features/Time.feature),
+[DateTime-Local](https://github.com/jdi-testing/jdi-light/blob/master/jdi-bdd-tests/src/test/resources/features/DateTime.feature)<br><br>
 
 
 
@@ -18814,7 +18814,7 @@ Validations: <br>
 **Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa)<br>
-<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Checkbox.feature" target="_blank">Cucumber tests</a> for Checkbox<br>
+<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-bdd-tests/src/test/resources/features/Checkbox.feature" target="_blank">Cucumber tests</a> for Checkbox<br>
 
 <br><br><br><br><br><br><br><br>
 ### Progress Bar
@@ -18861,7 +18861,7 @@ Validations: <br>
 **Then** the "\<ELEMENT NAME\>" does not appear during "\<NUMBER\>" seconds <br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial) <br>
-<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/ProgressBar.feature" target="_blank">Cucumber tests</a> for Progress Bar<br>
+<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-bdd-tests/src/test/resources/features/ProgressBar.feature" target="_blank">Cucumber tests</a> for Progress Bar<br>
 <br><br><br><br><br><br><br><br>
 
 ### Text
@@ -18911,7 +18911,7 @@ Validations:<br>
 **Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)<br>
-<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Text.feature" target="_blank">Cucumber tests</a> for Text<br><br>
+<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-bdd-tests/src/test/resources/features/Text.feature" target="_blank">Cucumber tests</a> for Text<br><br>
 <br><br><br><br><br><br><br><br>
 
 ### ComboBox
@@ -18989,7 +18989,7 @@ Validations:<br>
 **Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial)<br>
-<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/ComboBox.feature" target="_blank">Cucumber tests</a> for ComboBox<br><br>
+<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-bdd-tests/src/test/resources/features/ComboBox.feature" target="_blank">Cucumber tests</a> for ComboBox<br><br>
 <br><br><br><br><br><br><br><br>
 
 ### DataList
@@ -19063,7 +19063,7 @@ Validations:<br>
 **Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial)<br>
-<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/DataList.feature" target="_blank">Cucumber tests</a> for DataList<br><br>
+<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-bdd-tests/src/test/resources/features/DataList.feature" target="_blank">Cucumber tests</a> for DataList<br><br>
 <br><br><br><br><br><br><br><br>
 
 ### NumberSelector
@@ -19163,7 +19163,7 @@ Validations: <br>
 **Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa)<br>
-<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/NumberSelector.feature" target="_blank">Cucumber tests</a> for NumberSelector<br>
+<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-bdd-tests/src/test/resources/features/NumberSelector.feature" target="_blank">Cucumber tests</a> for NumberSelector<br>
 <br>
 <br>
 <br>
@@ -19228,7 +19228,7 @@ Validations: <br>
 **Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
 <br>
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial) <br>
-<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Range.feature" target="_blank">Cucumber tests</a> for Range<br>
+<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-bdd-tests/src/test/resources/features/Range.feature" target="_blank">Cucumber tests</a> for Range<br>
 <br>
 <br>
 <br>
@@ -19342,7 +19342,7 @@ Validations: <br>
 &nbsp;&nbsp;&nbsp;&nbsp;|\<GHERKIN DATA TABLE\>|<br> 
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)<br>
-<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/TextArea.feature" target="_blank">Cucumber tests</a> for TextArea <br>
+<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-bdd-tests/src/test/resources/features/Textarea.feature" target="_blank">Cucumber tests</a> for TextArea <br>
 
 
 <br>
@@ -19412,7 +19412,7 @@ Validations: <br>
 **Then** the "\<VALUE\>" in "\<ELEMENT NAME\>" menu is deselected <br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)<br>
-<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Menu.feature" target="_blank">Cucumber tests</a> for Menu<br>
+<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-bdd-tests/src/test/resources/features/Menu.feature" target="_blank">Cucumber tests</a> for Menu<br>
 <br>
 <br>
 <br>
@@ -19473,7 +19473,7 @@ Validations: <br>
 **Then** the "\<ELEMENT NAME\>" does not appear during "\<SECONDS\>" seconds <br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial)<br>
-<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/TextField.feature" target="_blank">Cucumber tests</a> for TextField<br>
+<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-bdd-tests/src/test/resources/features/TextField.feature" target="_blank">Cucumber tests</a> for TextField<br>
 <br>
 <br>
 <br>
@@ -19536,7 +19536,7 @@ Validations: <br>
 
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#checklist)<br>
-<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/MultiDropDown.feature" target="_blank">Cucumber tests</a> for CheckList<br>
+<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-bdd-tests/src/test/resources/features/MultiDropDown.feature" target="_blank">Cucumber tests</a> for CheckList<br>
 <br>
 <br>
 <br>
@@ -19605,7 +19605,7 @@ Validations: <br>
 
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#checklist)<br>
-<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/MultiDropDown.feature" target="_blank">Cucumber tests</a> for CheckList<br>
+<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-bdd-tests/src/test/resources/features/MultiDropDown.feature" target="_blank">Cucumber tests</a> for CheckList<br>
 <br>
 <br>
 <br>
@@ -19691,7 +19691,7 @@ Validations: <br>
 
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#checklist)<br>
-<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/CheckList.feature" target="_blank">Cucumber tests</a> for CheckList<br>
+<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-bdd-tests/src/test/resources/features/CheckList.feature" target="_blank">Cucumber tests</a> for CheckList<br>
 
 <br><br><br><br><br><br><br><br><br><br><br>
 
@@ -19779,7 +19779,7 @@ Validations: <br>
 **Then** the "\<ELEMENT NAME\>" table has exact "\<COUNT\>" rows which have value "\<TEXT\>" in column "\<COLUMN\>" <br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)<br>
-<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Table.feature" target="_blank">Cucumber tests</a> for Table<br>
+<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-bdd-tests/src/test/resources/features/Table.feature" target="_blank">Cucumber tests</a> for Table<br>
 <br><br><br><br><br><br><br><br><br><br><br>
 
 ### DataTable
@@ -19857,7 +19857,7 @@ Validations: <br>
 **Then** the "\<ELEMENT NAME\>" table has exact "\<COUNT\>" rows which have value "\<TEXT\>" in column "\<COLUMN\>" <br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)<br>
-<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Table.feature" target="_blank">Cucumber tests</a> for Table<br>
+<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-bdd-tests/src/test/resources/features/Table.feature" target="_blank">Cucumber tests</a> for Table<br>
 <br><br><br><br><br><br><br><br><br><br><br>
 
 ### Form
@@ -19941,7 +19941,7 @@ Actions: <br>
  It's also possible to use JSON data files:<br>
  **When** \<I\> fill form \<ELEMENT NAME\> with \<JSON DATA FILE NAME\><br>
  **When** \<I\> [submit|login as|send|add|publich|save|update|cancel|close|back|select|next|search] form \<ELEMENT NAME\> with \<JSON DATA FILE NAME\><br>
- <a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/jsonData/Roman%20Contacts.json" target="_blank">JSON data file example</a>
+ <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-bdd-tests/src/test/resources/json/test/data/Roman%20Contacts.json" target="_blank">JSON data file example</a>
  
 Validations: <br>
 
@@ -19955,11 +19955,11 @@ Validations: <br>
  
  It's also possible to use JSON data files:<br>
  **Then** the form \<ELEMENT NAME\> data equals to \<JSON DATA FILE NAME\><br>
- <a href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/jsonData/Roman%20Contacts.json" target="_blank">JSON data file example</a>
+ <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-bdd-tests/src/test/resources/json/test/data/Roman%20Contacts.json" target="_blank">JSON data file example</a>
 
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#jdi-light-in-bdd-style-even-for-manual-qa)<br>
-<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Form.feature" target="_blank">Cucumber tests</a> for Form<br>
+<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-bdd-tests/src/test/resources/features/Form.feature" target="_blank">Cucumber tests</a> for Form<br>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <br><br><br><br><br><br><br><br><br><br><br><br>
 
@@ -20035,7 +20035,7 @@ Validations: <br><br>
     |"\<RADIO_3\>" | "\<RADIO_2\>" | "\<RADIO_3\>" |
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi-light-in-bdd-style-even-for-manual-qa)<br>
-<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/Radio.feature" target="_blank">Cucumber tests</a> for Radiobuttons<br>
+<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-bdd-tests/src/test/resources/features/RadioButtons.feature" target="_blank">Cucumber tests</a> for Radiobuttons<br>
 <br><br><br><br><br><br><br><br><br><br><br><br>
 
 ### WebPage
@@ -20101,7 +20101,7 @@ Validations: <br>
 **Then** the page is zoomed <br>
 
 More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?java#tutorial)<br>
-<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/bdd/jdi-light-bdd-tests/src/test/resources/features/WebPage.feature" target="_blank">Cucumber tests</a> for WebPage<br>
+<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-bdd-tests/src/test/resources/features/WebPage.feature" target="_blank">Cucumber tests</a> for WebPage<br>
 <br>
 
 

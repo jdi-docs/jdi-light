@@ -1,4 +1,4 @@
-# Theory
+﻿# Theory
 ## UI Elements
 In order to effectiviely utilize <a href="https://github.com/SeleniumHQ/selenium/wiki/PageObjects" target="_blank">Page Objects pattern</a> we need to use elements on the pages. Instead of tag-like Selenium ```WebElement``` s that represents tag in html in JDI we introduce UI Elements that represrent element on UI used by real user.</br>
 JDI provides an ability to create your own element or reuse standard element from our rich collection</br>
@@ -252,7 +252,7 @@ public WebElement acceptConditions;
 @FindBy(css = "[ui=submit-button]") 
 public WebElement submitButton; 
 ```
-In standrd way in Selenium in Page Objects you need to write following code for this elements.
+In standard way in Selenium in Page Objects you need to write following code for this elements.
 </br></br></br></br></br></br></br></br></br></br></br></br>
 
 ```java
@@ -374,7 +374,7 @@ public WebElement useVipAccess;
 
 ## JDI Annotations
 In order to control elements behaviour in JDI Light you can use following standard annotations:</br>
-**@Root** - ignore all parent sections locators for this element and use only locator that specified for element (including smart locators)</br>
+**@Root** - ignores all parent sections locators for this element and uses only locator that specified for element (including smart locators)</br>
 **@Frame("frame-id")** or **@Frame({"frame-id", "div[name-adv]"})** in case you have two or more frames above element - use driver.switchTo().frame(...) before searching your element. Or call it multiple times if @Frame has list of locators. Can be used together with @UI locator</br>
 **@Css("div.dropdown")** - if your element has Css locator (deprecated, recommended to use universal **@UI**)</br>
 **@XPath("//div[text()="Submit"]")** - if your element has Xpath locator (deprecated, recommended to use universal **@UI**)</br>
@@ -383,7 +383,23 @@ In order to control elements behaviour in JDI Light you can use following standa
 **@ClickArea(...)** - specify how click will be performed. Allowed values: SMART_CLICK(try to find area where user able to click), TOP_LEFT(click top-left corner of the element), TOP_RIGHT(click top-right corner of the element), BOTTOM_LEFT(click bottom-left corner of the element), BOTTOM_RIGHT(click bottom-right corner of the element), CENTER(Selenium standard click in the center of the element), JS(using JS click)</br>
 **@GetTextAs(...)** - specify how getText will be performed. Allowed values: TEXT(getText()), VALUE(getAttribute("value")), INNER(jsExecute("innerText")), LABEL(using label related to element - good for checkboxes and radio), SMART_TEXT (try to find value smart)</br>
 **@SetTextAs(...)** - specify how input text will be performed. Allowed values: SEND_KEYS(sendKeys(...)), SET_TEXT(set `value` attribute using JS), CLEAR_SEND_KEYS(clear(); sendKeys(...))</br>
-**@NoCache** - always get element from page. Not use cache</br>
+**@NoCache** - always gets element from page. Not use cache</br>
+**@WaitTimeout(sec)** – waits element for sec seconds implicitly</br>
+**@NoWait** – doesn’t wait element to appear, so it should to be found be already on page</br>
+**@Name(“Test”)** – sets name of element to e.g. “Test” like in example</br>
+**@GetAny** – gets element without validation</br>
+**@GetVisible** – returns displayed element</br>
+**@GetVisibleEnabled** – returns displayed and enabled element</br>
+**@GetShowInView** – returns displayed and clickable element</br>
+**@PageName** – sets pageName variable for element</br>
+**@SId** – sets smart Id locator, e.g “By.cssSelector: #Test”, where “Test” is name of the element</br>
+**@SText** – sets smart text locator, e.g. “By.xpath: .//*/text()[normalize-space(.) = "S Text"]/parent::*”, where “SText” is name of the element. Pay attention that it’s creating locator with white space for words staring with capital letter</br>
+**@SName** – sets smart name locator, e.g. for “@Name(“Test”) @SName” it will be “By.cssSelector: [name='test']”</br>
+**@Smart** – smart locator, e.g. for the variant “@Name(“Smart”) @Smart(“id”)” it will be “By.cssSelector: [id=’smart’]”</br>
+**@SClass** – smart class locator, e.g. for “@Name(“Test”) @SName” it will be “By.cssSelector: .test”</br>
+**@UI** – list UI locator, e.g. @UI("img")</br>
+**@FindBy** – annotation that could have fields: css, tagName, linkText, partialLinkText, xpath; text, id, name, className, group. Could be quickly changed to from Selenium @FindBy by changing import line</br>
+**@VisualCheck** – adds pair “(“visualCheck”, “”)” to params</br>
 ...
 
 ## JDI Locators (simple as css powerful as xpath)

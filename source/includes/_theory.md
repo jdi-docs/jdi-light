@@ -404,17 +404,17 @@ In order to control elements behaviour in JDI Light you can use following standa
 ## JDI Locators (simple as css powerful as xpath)
 
 ```java
-@XPath(`//div[contains(@class,'btn')]//*[text()='Submit']`)
-@UI(`div.btn['Submit']`)
+@XPath("//div[contains(@class,'btn')]//*[text()='Submit']")
+@UI("div.btn['Submit']")
 
-@XPath(`//*[contains(@class,'nav-menu')]//*[@data-role='header']//*[contains(text(),'Navigation menu')]`)
-@UI(`.nav-menu [data-role=header][*'Navigation menu']`)
+@XPath("//*[contains(@class,'nav-menu')]//*[@data-role='header']//*[contains(text(),'Navigation menu')]")
+@UI(".nav-menu [data-role=header][*'Navigation menu']")
 
-@XPath(`//label[text()='Gold status']/..//input[@type='checkbox']`)
-@UI(`label['Gold status']<input[type=checkbox]`)
+@XPath("//label[text()='Gold status']/..//input[@type='checkbox']")
+@UI("label['Gold status']<input[type=checkbox]")
 
-@XPath(`//*[contains(@class,'nav-menu')]//*[@data-role='header'][3]`)
-@UI(`.nav-menu [data-role=header][3]`)
+@XPath("//*[contains(@class,'nav-menu')]//*[@data-role='header'][3]")
+@UI(".nav-menu [data-role=header][3]")
 ```
 
 With JDI Light you can use simple and fast css selecctors with power of xpath locators. Now you can search by text or index in css or even move up and down in html tree.</br>

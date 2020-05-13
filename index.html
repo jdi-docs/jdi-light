@@ -2331,7 +2331,18 @@ public WebElement useVipAccess;
 <strong>@UI</strong> – for list UI locator, e.g. @UI(&quot;img&quot;), see more examples in previous section</br>
 <strong>@FindBy</strong> – annotation that could have fields: css, tagName, linkText, partialLinkText, xpath; text, id, name, className, group. Could be quickly changed to from Selenium @FindBy by changing import line</br>
 <strong>@VisualCheck</strong> – adds pair “(“visualCheck”, “”)” to params</p>
-<h2 id='jdi-locators-simple-as-css-powerful-as-xpath'>JDI Locators (simple as css powerful as xpath)</h2>
+<h2 id='jdi-locators-simple-as-css-powerful-as-xpath'>JDI Locators (simple as css powerful as xpath)</h2><pre class="highlight java tab-java"><code><span class="nd">@XPath</span><span class="o">(</span><span class="err">`</span><span class="c1">//div[contains(@class,'btn')]//*[text()='Submit']`)</span>
+<span class="nd">@UI</span><span class="o">(</span><span class="err">`</span><span class="n">div</span><span class="o">.</span><span class="na">btn</span><span class="o">[</span><span class="err">'</span><span class="n">Submit</span><span class="err">'</span><span class="o">]</span><span class="err">`</span><span class="o">)</span>
+
+<span class="nd">@XPath</span><span class="o">(</span><span class="err">`</span><span class="c1">//*[contains(@class,'nav-menu')]//*[@data-role='header']//*[contains(text(),'Navigation menu')]`)</span>
+<span class="nd">@UI</span><span class="o">(</span><span class="err">`</span><span class="o">.</span><span class="na">nav</span><span class="o">-</span><span class="n">menu</span> <span class="o">[</span><span class="n">data</span><span class="o">-</span><span class="n">role</span><span class="o">=</span><span class="n">header</span><span class="o">][*</span><span class="err">'</span><span class="n">Navigation</span> <span class="n">menu</span><span class="err">'</span><span class="o">]</span><span class="err">`</span><span class="o">)</span>
+
+<span class="nd">@XPath</span><span class="o">(</span><span class="err">`</span><span class="c1">//label[text()='Gold status']/..//input[@type='checkbox']`)</span>
+<span class="nd">@UI</span><span class="o">(</span><span class="err">`</span><span class="n">label</span><span class="o">[</span><span class="err">'</span><span class="n">Gold</span> <span class="n">status</span><span class="err">'</span><span class="o">]&lt;</span><span class="n">input</span><span class="o">[</span><span class="n">type</span><span class="o">=</span><span class="n">checkbox</span><span class="o">]</span><span class="err">`</span><span class="o">)</span>
+
+<span class="nd">@XPath</span><span class="o">(</span><span class="err">`</span><span class="c1">//*[contains(@class,'nav-menu')]//*[@data-role='header'][3]`)</span>
+<span class="nd">@UI</span><span class="o">(</span><span class="err">`</span><span class="o">.</span><span class="na">nav</span><span class="o">-</span><span class="n">menu</span> <span class="o">[</span><span class="n">data</span><span class="o">-</span><span class="n">role</span><span class="o">=</span><span class="n">header</span><span class="o">][</span><span class="mi">3</span><span class="o">]</span><span class="err">`</span><span class="o">)</span>
+</code></pre>
 <p>With JDI Light you can use simple and fast css selecctors with power of xpath locators. Now you can search by text or index in css or even move up and down in html tree.</br>
 See some examples below:</br>
 XPath: <code>//div[contains(@class,&#39;btn&#39;)]//*[text()=&#39;Submit&#39;]</code></br>

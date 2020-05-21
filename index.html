@@ -572,6 +572,9 @@
                             <li>
 								<a href="#icons" class="toc-h2 h3 toc-link" data-title="Icons">Icons</a>
                             </li>
+                            <li>
+								<a href="#progress-spinner" class="toc-h2 h3 toc-link" data-title="Progress spinner">Progress spinner</a>
+                            </li>
                         </ul>
                   </li>
                   <li>
@@ -8849,19 +8852,19 @@ Methods available for Java in JDI Light:</p>
 
 <p>There is two different icons in Angular: Basic icon and SVG icon:</p>
 
-<p><img src="images/angular/angular_basic_icon.png" alt="Basic icon" /> <img src="images/angular/angular_svg_icon.png" alt="Basic icon" /></p>
+<p><img src="images/angular/basic_icon.png" alt="Basic icon" /> <img src="images/angular/svg_icon.png" alt="Basic icon" /></p>
 <pre class="highlight html tab-html"><code><span class="nt">&lt;mat-icon</span> <span class="na">_ngcontent-hkf-c334=</span><span class="s">""</span> <span class="na">role=</span><span class="s">"img"</span> <span class="na">aria-hidden=</span><span class="s">"false"</span> <span class="na">aria-label=</span><span class="s">"Example home icon"</span> <span class="na">class=</span><span class="s">"mat-icon notranslate material-icons mat-icon-no-color"</span><span class="nt">&gt;</span>home<span class="nt">&lt;/mat-icon&gt;</span>
 <span class="nt">&lt;mat-icon</span> <span class="na">_ngcontent-hkf-c335=</span><span class="s">""</span> <span class="na">role=</span><span class="s">"img"</span> <span class="na">svgicon=</span><span class="s">"thumbs-up"</span> <span class="na">aria-hidden=</span><span class="s">"false"</span> <span class="na">aria-label=</span><span class="s">"Example thumbs up SVG icon"</span> <span class="na">class=</span><span class="s">"mat-icon notranslate mat-icon-no-color"</span><span class="nt">&gt;&lt;svg</span> <span class="na">xmlns=</span><span class="s">"http://www.w3.org/2000/svg"</span> <span class="na">width=</span><span class="s">"100%"</span> <span class="na">height=</span><span class="s">"100%"</span> <span class="na">fit=</span><span class="s">""</span> <span class="na">preserveAspectRatio=</span><span class="s">"xMidYMid meet"</span> <span class="na">focusable=</span><span class="s">"false"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;path</span> <span class="na">d=</span><span class="s">"M0 0h24v24H0z"</span> <span class="na">fill=</span><span class="s">"none"</span><span class="nt">&gt;&lt;/path&gt;</span>
     <span class="nt">&lt;path</span> <span class="na">d=</span><span class="s">"M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-1.91l-.01-.01L23 10z"</span><span class="nt">&gt;&lt;/path&gt;</span>
 <span class="nt">&lt;/svg&gt;&lt;/mat-icon&gt;</span>
-</code></pre><pre class="highlight java tab-java"><code>   <span class="c1">// @FindBy(xPath="//mat-icon[contains(@aria-label,'home icon')]")</span>
+</code></pre><pre class="highlight java tab-java"><code>    <span class="nd">@FindBy</span><span class="o">(</span><span class="n">xPath</span><span class="o">=</span><span class="s">"//mat-icon[contains(@aria-label,'home icon')]"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">Icon</span> <span class="n">basicIcon</span><span class="o">;</span>
 
     <span class="nd">@XPath</span><span class="o">(</span><span class="s">"//mat-icon[contains(@aria-label,'home icon')]"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">Icon</span> <span class="n">basicIcon</span><span class="o">;</span>
 
-   <span class="c1">// @FindBy(xPath="//mat-icon[contains(@aria-label,'SVG icon')]")</span>
+    <span class="nd">@FindBy</span><span class="o">(</span><span class="n">xPath</span><span class="o">=</span><span class="s">"//mat-icon[contains(@aria-label,'SVG icon')]"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">Icon</span> <span class="n">svgIcon</span><span class="o">;</span>
 
     <span class="nd">@XPath</span><span class="o">(</span><span class="s">"//mat-icon[contains(@aria-label,'SVG icon')]"</span><span class="o">)</span>
@@ -8894,7 +8897,42 @@ Methods available for Java in JDI Light:</p>
 </tr>
 </tbody></table>
 
-<p><br>   </p>
+<p><br>  </p>
+<h3 id='progress-spinner'>Progress spinner</h3><h4 id='progress-spinner-overview'><a href="https://material.angular.io/components/progress-spinner/overview" target="_blank">Progress Spinner overview</a></h4>
+<p>Progress Spinner is located in the following class:</p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.angular.elements.common.Spinner</em></li>
+</ul>
+
+<p><img src="images/angular/basic_progress_spinner.png" alt="Progress spinner" /></p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;mat-spinner</span> <span class="na">_ngcontent-krq-c336=</span><span class="s">""</span> <span class="na">role=</span><span class="s">"progressbar"</span> <span class="na">mode=</span><span class="s">"indeterminate"</span> <span class="na">class=</span><span class="s">"mat-spinner mat-progress-spinner mat-primary mat-progress-spinner-indeterminate-animation"</span> <span class="na">style=</span><span class="s">"width: 100px; height: 100px;"</span><span class="nt">&gt;&lt;svg</span> <span class="na">preserveAspectRatio=</span><span class="s">"xMidYMid meet"</span> <span class="na">focusable=</span><span class="s">"false"</span> <span class="na">viewBox=</span><span class="s">"0 0 100 100"</span> <span class="na">style=</span><span class="s">"width: 100px; height: 100px;"</span><span class="nt">&gt;&lt;circle</span> <span class="na">cx=</span><span class="s">"50%"</span> <span class="na">cy=</span><span class="s">"50%"</span> <span class="na">r=</span><span class="s">"45"</span> <span class="na">class=</span><span class="s">"ng-star-inserted"</span> <span class="na">style=</span><span class="s">"animation-name: mat-progress-spinner-stroke-rotate-100; stroke-dasharray: 282.743px; stroke-width: 10%;"</span><span class="nt">&gt;&lt;/circle&gt;</span><span class="c">&lt;!----&gt;&lt;!----&gt;</span><span class="nt">&lt;/svg&gt;&lt;/mat-spinner&gt;</span>
+</code></pre><pre class="highlight java tab-java"><code>    <span class="nd">@FindBy</span><span class="o">(</span><span class="n">css</span><span class="o">=</span><span class="s">".mat-spinner"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Icon</span> <span class="n">basicIcon</span><span class="o">;</span>
+
+    <span class="nd">@Css</span><span class="o">(</span><span class="s">".mat-spinner"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Spinner</span> <span class="n">basicProgressSpinner</span><span class="o">;</span>
+
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkBasicSpinnerIsDisplayed</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">basicProgressSpinner</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+        <span class="n">basicProgressSpinner</span><span class="o">.</span><span class="na">isDisplayed</span><span class="o">();</span>
+    <span class="o">}</span>
+</code></pre>
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>isDisplayed</strong></td>
+<td>Verify state</td>
+<td>boolean</td>
+</tr>
+</tbody></table>
 <h2 id='bootstrap-common-elements'>Bootstrap Common elements</h2><h3 id='checkboxes-and-radios'>Checkboxes and radios</h3><h4 id='checkbox-default'><a href="https://getbootstrap.com/docs/4.3/components/buttons/" target="_blank">Checkbox default</a></h4>
 <p>Checkbox is located in the following classes:</p>
 

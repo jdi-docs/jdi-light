@@ -4079,7 +4079,7 @@ Icon is located in the following class:
    
 There is two different icons in Angular: Basic icon and SVG icon:
 
-![Basic icon](../images/angular/angular_basic_icon.png) ![Basic icon](../images/angular/angular_svg_icon.png)
+![Basic icon](../images/angular/basic_icon.png) ![Basic icon](../images/angular/svg_icon.png)
 
 ```html
 <mat-icon _ngcontent-hkf-c334="" role="img" aria-hidden="false" aria-label="Example home icon" class="mat-icon notranslate material-icons mat-icon-no-color">home</mat-icon>
@@ -4090,13 +4090,13 @@ There is two different icons in Angular: Basic icon and SVG icon:
 ```
    
 ```java 
-   // @FindBy(xPath="//mat-icon[contains(@aria-label,'home icon')]")
+    @FindBy(xPath="//mat-icon[contains(@aria-label,'home icon')]")
     public static Icon basicIcon;
 
     @XPath("//mat-icon[contains(@aria-label,'home icon')]")
     public static Icon basicIcon;
 
-   // @FindBy(xPath="//mat-icon[contains(@aria-label,'SVG icon')]")
+    @FindBy(xPath="//mat-icon[contains(@aria-label,'SVG icon')]")
     public static Icon svgIcon;
     
     @XPath("//mat-icon[contains(@aria-label,'SVG icon')]")
@@ -4119,7 +4119,42 @@ There is two different icons in Angular: Basic icon and SVG icon:
 --- | --- | ---
 **isDisplayed** | Verify state | boolean
 
-<br>   
+<br>  
+
+### Progress spinner
+
+#### <a href="https://material.angular.io/components/progress-spinner/overview" target="_blank">Progress Spinner overview</a>
+
+Progress Spinner is located in the following class:
+
+   - __Java__: _com.epam.jdi.light.ui.angular.elements.common.Spinner_
+   
+
+![Progress spinner](../images/angular/basic_progress_spinner.png)
+
+```html
+<mat-spinner _ngcontent-krq-c336="" role="progressbar" mode="indeterminate" class="mat-spinner mat-progress-spinner mat-primary mat-progress-spinner-indeterminate-animation" style="width: 100px; height: 100px;"><svg preserveAspectRatio="xMidYMid meet" focusable="false" viewBox="0 0 100 100" style="width: 100px; height: 100px;"><circle cx="50%" cy="50%" r="45" class="ng-star-inserted" style="animation-name: mat-progress-spinner-stroke-rotate-100; stroke-dasharray: 282.743px; stroke-width: 10%;"></circle><!----><!----></svg></mat-spinner>
+```
+   
+```java 
+    @FindBy(css=".mat-spinner")
+    public static Icon basicIcon;
+
+    @Css(".mat-spinner")
+    public static Spinner basicProgressSpinner;
+
+
+    @Test
+    public void checkBasicSpinnerIsDisplayed() {
+        basicProgressSpinner.show();
+        basicProgressSpinner.isDisplayed();
+    }
+```
+|Method | Description | Return Type
+--- | --- | ---
+**isDisplayed** | Verify state | boolean
+
+ 
 
 ## Bootstrap Common elements
 

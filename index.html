@@ -567,6 +567,14 @@
                         </ul>
                   </li>
                   <li>
+                    <a href="#angular-common-elements" class="toc-h2 toc-link" data-title="Angular Common elements">Angular Common elements</a>
+                        <ul class="toc-list-h2">
+                            <li>
+								<a href="#icons" class="toc-h2 h3 toc-link" data-title="Icons">Icons</a>
+                            </li>
+                        </ul>
+                  </li>
+                  <li>
                     <a href="#bootstrap-common-elements" class="toc-h2 toc-link" data-title="Bootstrap Common elements">Bootstrap Common elements</a>
                         <ul class="toc-list-h2">
                             <li>
@@ -8832,6 +8840,61 @@ Methods available for Java in JDI Light:</p>
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/composite/webpage/ActionsWebPageTests.java" target="_blank">Test examples in Java</a></p>
 
 <p><a href="https://jdi-docs.github.io/jdi-light/?java#webpage-2">BDD Steps example</a></p>
+<h2 id='angular-common-elements'>Angular Common elements</h2><h3 id='icons'>Icons</h3><h4 id='icon-overview'><a href="https://material.angular.io/components/icon/overview" target="_blank">Icon overview</a></h4>
+<p>Icon is located in the following class:</p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.angular.elements.common.Icon</em></li>
+</ul>
+
+<p>There is two different icons in Angular: Basic icon and SVG icon:</p>
+
+<p><img src="images/angular/angular_basic_icon.png" alt="Basic icon" /> <img src="images/angular/angular_svg_icon.png" alt="Basic icon" /></p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;mat-icon</span> <span class="na">_ngcontent-hkf-c334=</span><span class="s">""</span> <span class="na">role=</span><span class="s">"img"</span> <span class="na">aria-hidden=</span><span class="s">"false"</span> <span class="na">aria-label=</span><span class="s">"Example home icon"</span> <span class="na">class=</span><span class="s">"mat-icon notranslate material-icons mat-icon-no-color"</span><span class="nt">&gt;</span>home<span class="nt">&lt;/mat-icon&gt;</span>
+<span class="nt">&lt;mat-icon</span> <span class="na">_ngcontent-hkf-c335=</span><span class="s">""</span> <span class="na">role=</span><span class="s">"img"</span> <span class="na">svgicon=</span><span class="s">"thumbs-up"</span> <span class="na">aria-hidden=</span><span class="s">"false"</span> <span class="na">aria-label=</span><span class="s">"Example thumbs up SVG icon"</span> <span class="na">class=</span><span class="s">"mat-icon notranslate mat-icon-no-color"</span><span class="nt">&gt;&lt;svg</span> <span class="na">xmlns=</span><span class="s">"http://www.w3.org/2000/svg"</span> <span class="na">width=</span><span class="s">"100%"</span> <span class="na">height=</span><span class="s">"100%"</span> <span class="na">fit=</span><span class="s">""</span> <span class="na">preserveAspectRatio=</span><span class="s">"xMidYMid meet"</span> <span class="na">focusable=</span><span class="s">"false"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;path</span> <span class="na">d=</span><span class="s">"M0 0h24v24H0z"</span> <span class="na">fill=</span><span class="s">"none"</span><span class="nt">&gt;&lt;/path&gt;</span>
+    <span class="nt">&lt;path</span> <span class="na">d=</span><span class="s">"M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-1.91l-.01-.01L23 10z"</span><span class="nt">&gt;&lt;/path&gt;</span>
+<span class="nt">&lt;/svg&gt;&lt;/mat-icon&gt;</span>
+</code></pre><pre class="highlight java tab-java"><code>   <span class="c1">// @FindBy(xPath="//mat-icon[contains(@aria-label,'home icon')]")</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Icon</span> <span class="n">basicIcon</span><span class="o">;</span>
+
+    <span class="nd">@XPath</span><span class="o">(</span><span class="s">"//mat-icon[contains(@aria-label,'home icon')]"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Icon</span> <span class="n">basicIcon</span><span class="o">;</span>
+
+   <span class="c1">// @FindBy(xPath="//mat-icon[contains(@aria-label,'SVG icon')]")</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Icon</span> <span class="n">svgIcon</span><span class="o">;</span>
+
+    <span class="nd">@XPath</span><span class="o">(</span><span class="s">"//mat-icon[contains(@aria-label,'SVG icon')]"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Icon</span> <span class="n">svgIcon</span><span class="o">;</span>
+
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkBasicIconIsDisplayed</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">basicIcon</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+        <span class="n">basicIcon</span><span class="o">.</span><span class="na">isDisplayed</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkSVGIconIsDisplayed</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">svgIcon</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+        <span class="n">svgIcon</span><span class="o">.</span><span class="na">isDisplayed</span><span class="o">();</span>
+    <span class="o">}</span>
+</code></pre>
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>isDisplayed</strong></td>
+<td>Verify state</td>
+<td>boolean</td>
+</tr>
+</tbody></table>
+
+<p><br>   </p>
 <h2 id='bootstrap-common-elements'>Bootstrap Common elements</h2><h3 id='checkboxes-and-radios'>Checkboxes and radios</h3><h4 id='checkbox-default'><a href="https://getbootstrap.com/docs/4.3/components/buttons/" target="_blank">Checkbox default</a></h4>
 <p>Checkbox is located in the following classes:</p>
 

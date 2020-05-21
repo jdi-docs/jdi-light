@@ -4067,6 +4067,60 @@ More than that, it has a nested **StringCheckType** class with the following met
 
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#webpage-2)
 
+## Angular Common elements
+
+### Icons
+
+#### <a href="https://material.angular.io/components/icon/overview" target="_blank">Icon overview</a>
+
+Icon is located in the following class:
+
+   - __Java__: _com.epam.jdi.light.ui.angular.elements.common.Icon_
+   
+There is two different icons in Angular: Basic icon and SVG icon:
+
+![Basic icon](../images/angular/angular_basic_icon.png) ![Basic icon](../images/angular/angular_svg_icon.png)
+
+```html
+<mat-icon _ngcontent-hkf-c334="" role="img" aria-hidden="false" aria-label="Example home icon" class="mat-icon notranslate material-icons mat-icon-no-color">home</mat-icon>
+<mat-icon _ngcontent-hkf-c335="" role="img" svgicon="thumbs-up" aria-hidden="false" aria-label="Example thumbs up SVG icon" class="mat-icon notranslate mat-icon-no-color"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fit="" preserveAspectRatio="xMidYMid meet" focusable="false">
+    <path d="M0 0h24v24H0z" fill="none"></path>
+    <path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-1.91l-.01-.01L23 10z"></path>
+</svg></mat-icon>
+```
+   
+```java 
+   // @FindBy(xPath="//mat-icon[contains(@aria-label,'home icon')]")
+    public static Icon basicIcon;
+
+    @XPath("//mat-icon[contains(@aria-label,'home icon')]")
+    public static Icon basicIcon;
+
+   // @FindBy(xPath="//mat-icon[contains(@aria-label,'SVG icon')]")
+    public static Icon svgIcon;
+    
+    @XPath("//mat-icon[contains(@aria-label,'SVG icon')]")
+    public static Icon svgIcon;
+
+
+    @Test
+    public void checkBasicIconIsDisplayed() {
+        basicIcon.show();
+        basicIcon.isDisplayed();
+    }
+
+    @Test
+    public void checkSVGIconIsDisplayed() {
+        svgIcon.show();
+        svgIcon.isDisplayed();
+    }
+```
+|Method | Description | Return Type
+--- | --- | ---
+**isDisplayed** | Verify state | boolean
+
+<br>   
+
 ## Bootstrap Common elements
 
 ### Checkboxes and radios

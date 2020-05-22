@@ -4118,6 +4118,7 @@ There is two different icons in Angular: Basic icon and SVG icon:
 |Method | Description | Return Type
 --- | --- | ---
 **isDisplayed** | Verify state | boolean
+**show()** | Scroll to element | void
 
 <br>  
 
@@ -4153,6 +4154,7 @@ Progress Spinner is located in the following class:
 |Method | Description | Return Type
 --- | --- | ---
 **isDisplayed** | Verify state | boolean
+**show()** | Scroll to element | void
 
  
 

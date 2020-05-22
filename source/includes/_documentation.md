@@ -4069,26 +4069,6 @@ More than that, it has a nested **StringCheckType** class with the following met
 
 ## Angular Common elements
 
-### Icons
-
-#### <a href="https://material.angular.io/components/icon/overview" target="_blank">Icon overview</a>
-
-Icon is located in the following class:
-
-   - __Java__: _com.epam.jdi.light.ui.angular.elements.common.Icon_
-   
-There is two different icons in Angular: Basic icon and SVG icon:
-
-![Basic icon](../images/angular/basic_icon.png) ![Basic icon](../images/angular/svg_icon.png)
-
-```html
-<mat-icon _ngcontent-hkf-c334="" role="img" aria-hidden="false" aria-label="Example home icon" class="mat-icon notranslate material-icons mat-icon-no-color">home</mat-icon>
-<mat-icon _ngcontent-hkf-c335="" role="img" svgicon="thumbs-up" aria-hidden="false" aria-label="Example thumbs up SVG icon" class="mat-icon notranslate mat-icon-no-color"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fit="" preserveAspectRatio="xMidYMid meet" focusable="false">
-    <path d="M0 0h24v24H0z" fill="none"></path>
-    <path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-1.91l-.01-.01L23 10z"></path>
-</svg></mat-icon>
-```
-   
 ```java 
     @FindBy(xPath="//mat-icon[contains(@aria-label,'home icon')]")
     public static Icon basicIcon;
@@ -4115,6 +4095,27 @@ There is two different icons in Angular: Basic icon and SVG icon:
         svgIcon.isDisplayed();
     }
 ```
+
+### Icons
+
+#### <a href="https://material.angular.io/components/icon/overview" target="_blank">Icon overview</a>
+
+Icon is located in the following class:
+
+   - __Java__: _com.epam.jdi.light.ui.angular.elements.common.Icon_
+   
+There is two different icons in Angular: Basic icon and SVG icon:
+
+![Basic icon](../images/angular/basic_icon.png) ![Basic icon](../images/angular/svg_icon.png)
+
+```html
+<mat-icon _ngcontent-hkf-c334="" role="img" aria-hidden="false" aria-label="Example home icon" class="mat-icon notranslate material-icons mat-icon-no-color">home</mat-icon>
+<mat-icon _ngcontent-hkf-c335="" role="img" svgicon="thumbs-up" aria-hidden="false" aria-label="Example thumbs up SVG icon" class="mat-icon notranslate mat-icon-no-color"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fit="" preserveAspectRatio="xMidYMid meet" focusable="false">
+    <path d="M0 0h24v24H0z" fill="none"></path>
+    <path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-1.91l-.01-.01L23 10z"></path>
+</svg></mat-icon>
+```
+   
 |Method | Description | Return Type
 --- | --- | ---
 **isDisplayed** | Verify state | boolean
@@ -4124,19 +4125,6 @@ There is two different icons in Angular: Basic icon and SVG icon:
 
 ### Progress spinner
 
-#### <a href="https://material.angular.io/components/progress-spinner/overview" target="_blank">Progress Spinner overview</a>
-
-Progress Spinner is located in the following class:
-
-   - __Java__: _com.epam.jdi.light.ui.angular.elements.common.Spinner_
-   
-
-![Progress spinner](../images/angular/basic_progress_spinner.png)
-
-```html
-<mat-spinner _ngcontent-krq-c336="" role="progressbar" mode="indeterminate" class="mat-spinner mat-progress-spinner mat-primary mat-progress-spinner-indeterminate-animation" style="width: 100px; height: 100px;"><svg preserveAspectRatio="xMidYMid meet" focusable="false" viewBox="0 0 100 100" style="width: 100px; height: 100px;"><circle cx="50%" cy="50%" r="45" class="ng-star-inserted" style="animation-name: mat-progress-spinner-stroke-rotate-100; stroke-dasharray: 282.743px; stroke-width: 10%;"></circle><!----><!----></svg></mat-spinner>
-```
-   
 ```java 
     @FindBy(css=".mat-spinner")
     public static Icon basicIcon;
@@ -4151,6 +4139,20 @@ Progress Spinner is located in the following class:
         basicProgressSpinner.isDisplayed();
     }
 ```
+
+#### <a href="https://material.angular.io/components/progress-spinner/overview" target="_blank">Progress Spinner overview</a>
+
+Progress Spinner is located in the following class:
+
+   - __Java__: _com.epam.jdi.light.ui.angular.elements.common.Spinner_
+   
+
+![Progress spinner](../images/angular/basic_progress_spinner.png)
+
+```html
+<mat-spinner _ngcontent-krq-c336="" role="progressbar" mode="indeterminate" class="mat-spinner mat-progress-spinner mat-primary mat-progress-spinner-indeterminate-animation" style="width: 100px; height: 100px;"><svg preserveAspectRatio="xMidYMid meet" focusable="false" viewBox="0 0 100 100" style="width: 100px; height: 100px;"><circle cx="50%" cy="50%" r="45" class="ng-star-inserted" style="animation-name: mat-progress-spinner-stroke-rotate-100; stroke-dasharray: 282.743px; stroke-width: 10%;"></circle><!----><!----></svg></mat-spinner>
+```
+
 |Method | Description | Return Type
 --- | --- | ---
 **isDisplayed** | Verify state | boolean

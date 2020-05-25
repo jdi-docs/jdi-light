@@ -8843,16 +8843,16 @@ Methods available for Java in JDI Light:</p>
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/composite/webpage/ActionsWebPageTests.java" target="_blank">Test examples in Java</a></p>
 
 <p><a href="https://jdi-docs.github.io/jdi-light/?java#webpage-2">BDD Steps example</a></p>
-<h2 id='angular-common-elements'>Angular Common elements</h2><pre class="highlight java tab-java"><code>    <span class="nd">@FindBy</span><span class="o">(</span><span class="n">xPath</span><span class="o">=</span><span class="s">"//mat-icon[contains(@aria-label,'home icon')]"</span><span class="o">)</span>
+<h2 id='angular-common-elements'>Angular Common elements</h2><pre class="highlight java tab-java"><code>    <span class="nd">@FindBy</span><span class="o">(</span><span class="n">id</span><span class="o">=</span><span class="s">"basic_icon"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">Icon</span> <span class="n">basicIcon</span><span class="o">;</span>
 
-    <span class="nd">@XPath</span><span class="o">(</span><span class="s">"//mat-icon[contains(@aria-label,'home icon')]"</span><span class="o">)</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#basic_icon"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">Icon</span> <span class="n">basicIcon</span><span class="o">;</span>
 
-    <span class="nd">@FindBy</span><span class="o">(</span><span class="n">xPath</span><span class="o">=</span><span class="s">"//mat-icon[contains(@aria-label,'SVG icon')]"</span><span class="o">)</span>
+    <span class="nd">@FindBy</span><span class="o">(</span><span class="n">id</span><span class="o">=</span><span class="s">"svg_icon"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">Icon</span> <span class="n">svgIcon</span><span class="o">;</span>
 
-    <span class="nd">@XPath</span><span class="o">(</span><span class="s">"//mat-icon[contains(@aria-label,'SVG icon')]"</span><span class="o">)</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#svg_icon"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">Icon</span> <span class="n">svgIcon</span><span class="o">;</span>
 
 
@@ -8903,10 +8903,10 @@ Methods available for Java in JDI Light:</p>
 </tbody></table>
 
 <p><br>  </p>
-<h3 id='progress-spinner'>Progress spinner</h3><pre class="highlight java tab-java"><code>    <span class="nd">@FindBy</span><span class="o">(</span><span class="n">css</span><span class="o">=</span><span class="s">".mat-spinner"</span><span class="o">)</span>
+<h3 id='progress-spinner'>Progress spinner</h3><pre class="highlight java tab-java"><code>    <span class="nd">@FindBy</span><span class="o">(</span><span class="n">id</span><span class="o">=</span><span class="s">"basic_progress_spinner"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">Icon</span> <span class="n">basicIcon</span><span class="o">;</span>
 
-    <span class="nd">@Css</span><span class="o">(</span><span class="s">".mat-spinner"</span><span class="o">)</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#basic_progress_spinner"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">Spinner</span> <span class="n">basicProgressSpinner</span><span class="o">;</span>
 
 

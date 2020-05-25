@@ -4070,16 +4070,16 @@ More than that, it has a nested **StringCheckType** class with the following met
 ## Angular Common elements
 
 ```java 
-    @FindBy(xPath="//mat-icon[contains(@aria-label,'home icon')]")
+    @FindBy(id="basic_icon")
     public static Icon basicIcon;
 
-    @XPath("//mat-icon[contains(@aria-label,'home icon')]")
+    @UI("#basic_icon")
     public static Icon basicIcon;
 
-    @FindBy(xPath="//mat-icon[contains(@aria-label,'SVG icon')]")
+    @FindBy(id="svg_icon")
     public static Icon svgIcon;
     
-    @XPath("//mat-icon[contains(@aria-label,'SVG icon')]")
+    @UI("#svg_icon")
     public static Icon svgIcon;
 
 
@@ -4126,10 +4126,10 @@ There is two different icons in Angular: Basic icon and SVG icon:
 ### Progress spinner
 
 ```java 
-    @FindBy(css=".mat-spinner")
+    @FindBy(id="basic_progress_spinner")
     public static Icon basicIcon;
 
-    @Css(".mat-spinner")
+    @UI("#basic_progress_spinner")
     public static Spinner basicProgressSpinner;
 
 

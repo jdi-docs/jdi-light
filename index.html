@@ -575,6 +575,9 @@
                             <li>
 								<a href="#progress-spinner" class="toc-h2 h3 toc-link" data-title="Progress spinner">Progress spinner</a>
                             </li>
+                            <li>
+								<a href="#slide-toggle" class="toc-h2 h3 toc-link" data-title="Slide toggle">Slide toggle</a>
+                            </li>
                         </ul>
                   </li>
                   <li>
@@ -8903,8 +8906,7 @@ Methods available for Java in JDI Light:</p>
 </tbody></table>
 
 <p><br>  </p>
-<h3 id='progress-spinner'>Progress spinner</h3><pre class="highlight java tab-java"><code>    <span class="nd">@FindBy</span><span class="o">(</span><span class="n">id</span><span class="o">=</span><span class="s">"basic_progress_spinner"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Icon</span> <span class="n">basicIcon</span><span class="o">;</span>
+<h3 id='progress-spinner'>Progress spinner</h3><pre class="highlight java tab-java"><code>    <span class="c1">//@FindBy(id="basic_progress_spinner") public static Icon basicIcon;</span>
 
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"#basic_progress_spinner"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">Spinner</span> <span class="n">basicProgressSpinner</span><span class="o">;</span>
@@ -8933,7 +8935,7 @@ Methods available for Java in JDI Light:</p>
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>isDisplayed</strong></td>
+<td><strong>isDisplayed()</strong></td>
 <td>Verify state</td>
 <td>boolean</td>
 </tr>
@@ -8941,6 +8943,150 @@ Methods available for Java in JDI Light:</p>
 <td><strong>show()</strong></td>
 <td>Scroll to element</td>
 <td>void</td>
+</tr>
+</tbody></table>
+<h3 id='slide-toggle'>Slide toggle</h3><pre class="highlight java tab-java"><code>    <span class="c1">//@FindBy(id="mat-slide-toggle-1") public static SlideToggle basicSlideToggle;</span>
+
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#mat-slide-toggle-1"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">SlideToggle</span> <span class="n">basicSlideToggle</span><span class="o">;</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">basicToggleCheckedTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">basicSlideToggle</span><span class="o">.</span><span class="na">check</span><span class="o">();</span>
+        <span class="n">basicSlideToggle</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">();</span>
+        <span class="n">basicSlideToggle</span><span class="o">.</span><span class="na">uncheck</span><span class="o">();</span>
+        <span class="n">basicSlideToggle</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">deselected</span><span class="o">();</span>
+    <span class="o">}</span>
+</code></pre><h4 id='slide-toggle-overview'><a href="https://material.angular.io/components/slide-toggle/overview" target="_blank">Slide toggle overview</a></h4>
+<p>Slide toggle is located in the following class:</p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.angular.elements.common.SlideToggle</em></li>
+</ul>
+
+<p>There is two different slide toggles in Angular: Basic and Configurable:</p>
+
+<p><img src="images/angular/basic_slide_toggle.png" alt="Basic slide toggle" /></p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;mat-slide-toggle</span> <span class="na">_ngcontent-bco-c235=</span><span class="s">""</span> <span class="na">class=</span><span class="s">"mat-slide-toggle mat-accent mat-checked"</span> <span class="na">id=</span><span class="s">"mat-slide-toggle-1"</span> <span class="na">tabindex=</span><span class="s">"-1"</span><span class="nt">&gt;&lt;label</span> <span class="na">class=</span><span class="s">"mat-slide-toggle-label"</span> <span class="na">for=</span><span class="s">"mat-slide-toggle-1-input"</span><span class="nt">&gt;&lt;div</span> <span class="na">class=</span><span class="s">"mat-slide-toggle-bar"</span><span class="nt">&gt;&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">role=</span><span class="s">"switch"</span> <span class="na">class=</span><span class="s">"mat-slide-toggle-input cdk-visually-hidden"</span> <span class="na">id=</span><span class="s">"mat-slide-toggle-1-input"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">aria-checked=</span><span class="s">"true"</span><span class="nt">&gt;&lt;div</span> <span class="na">class=</span><span class="s">"mat-slide-toggle-thumb-container"</span><span class="nt">&gt;&lt;div</span> <span class="na">class=</span><span class="s">"mat-slide-toggle-thumb"</span><span class="nt">&gt;&lt;/div&gt;&lt;div</span> <span class="na">mat-ripple=</span><span class="s">""</span> <span class="na">class=</span><span class="s">"mat-ripple mat-slide-toggle-ripple mat-focus-indicator"</span><span class="nt">&gt;&lt;div</span> <span class="na">class=</span><span class="s">"mat-ripple-element mat-slide-toggle-persistent-ripple"</span><span class="nt">&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;span</span> <span class="na">class=</span><span class="s">"mat-slide-toggle-content"</span><span class="nt">&gt;&lt;span</span> <span class="na">style=</span><span class="s">"display: none;"</span><span class="nt">&gt;</span><span class="ni">&amp;nbsp;</span><span class="nt">&lt;/span&gt;</span>Slide me!<span class="nt">&lt;/span&gt;&lt;/label&gt;&lt;/mat-slide-toggle&gt;</span>
+</code></pre>
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>check()</strong></td>
+<td>Check element</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>uncheck()</strong></td>
+<td>Uncheck element</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>isDisplayed()</strong></td>
+<td>Verify state</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>selected()</strong></td>
+<td>Verify state</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>deselected()</strong></td>
+<td>Verify state</td>
+<td>boolean</td>
+</tr>
+</tbody></table>
+
+<p><br></p>
+<pre class="highlight java tab-java"><code>    <span class="c1">//@FindBy(id="mat-slide-toggle-2") public static SlideToggle resultSlideToggle;</span>
+
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#mat-slide-toggle-2"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">SlideToggle</span> <span class="n">resultSlideToggle</span><span class="o">;</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">resultToggleColorTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">disableCheckbox</span><span class="o">.</span><span class="na">uncheck</span><span class="o">();</span>
+        <span class="n">resultSlideToggle</span><span class="o">.</span><span class="na">check</span><span class="o">();</span>
+        <span class="n">primaryRadioButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">resultSlideToggle</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">hasClass</span><span class="o">(</span><span class="s">"mat-primary"</span><span class="o">);</span>
+        <span class="n">accentRadioButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">resultSlideToggle</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">hasClass</span><span class="o">(</span><span class="s">"mat-accent"</span><span class="o">);</span>
+        <span class="n">warningRadioButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">resultSlideToggle</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">hasClass</span><span class="o">(</span><span class="s">"mat-warn"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">resultToggleCheckedTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">resultSlideToggle</span><span class="o">.</span><span class="na">uncheck</span><span class="o">();</span>
+        <span class="n">checkedCheckbox</span><span class="o">.</span><span class="na">check</span><span class="o">();</span>
+        <span class="n">resultSlideToggle</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">();</span>
+        <span class="n">checkedCheckbox</span><span class="o">.</span><span class="na">uncheck</span><span class="o">();</span>
+        <span class="n">resultSlideToggle</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">deselected</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">resultToggleDisableTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">disableCheckbox</span><span class="o">.</span><span class="na">check</span><span class="o">();</span>
+        <span class="n">resultSlideToggle</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">disabled</span><span class="o">();</span>
+        <span class="n">disableCheckbox</span><span class="o">.</span><span class="na">uncheck</span><span class="o">();</span>
+        <span class="n">resultSlideToggle</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
+    <span class="o">}</span>
+</code></pre>
+<p><img src="images/angular/configurable_slide_toggle.png" alt="Configurable slide toggle" /></p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;mat-card-content</span> <span class="na">_ngcontent-noq-c236=</span><span class="s">""</span> <span class="na">class=</span><span class="s">"mat-card-content"</span><span class="nt">&gt;&lt;h4</span> <span class="na">_ngcontent-noq-c236=</span><span class="s">""</span><span class="nt">&gt;</span>Slider configuration<span class="nt">&lt;/h4&gt;&lt;section</span> <span class="na">_ngcontent-noq-c236=</span><span class="s">""</span> <span class="na">class=</span><span class="s">"example-section"</span><span class="nt">&gt;&lt;label</span> <span class="na">_ngcontent-noq-c236=</span><span class="s">""</span> <span class="na">class=</span><span class="s">"example-margin"</span><span class="nt">&gt;</span>Color:<span class="nt">&lt;/label&gt;&lt;mat-radio-group</span> <span class="na">_ngcontent-noq-c236=</span><span class="s">""</span> <span class="na">role=</span><span class="s">"radiogroup"</span> <span class="na">class=</span><span class="s">"mat-radio-group ng-untouched ng-pristine ng-valid"</span><span class="nt">&gt;&lt;mat-radio-button</span> <span class="na">_ngcontent-noq-c236=</span><span class="s">""</span> <span class="na">value=</span><span class="s">"primary"</span> <span class="na">class=</span><span class="s">"mat-radio-button example-margin mat-accent"</span> <span class="na">tabindex=</span><span class="s">"-1"</span> <span class="na">id=</span><span class="s">"mat-radio-13"</span><span class="nt">&gt;&lt;label</span> <span class="na">class=</span><span class="s">"mat-radio-label"</span> <span class="na">for=</span><span class="s">"mat-radio-13-input"</span><span class="nt">&gt;&lt;div</span> <span class="na">class=</span><span class="s">"mat-radio-container"</span><span class="nt">&gt;&lt;div</span> <span class="na">class=</span><span class="s">"mat-radio-outer-circle"</span><span class="nt">&gt;&lt;/div&gt;&lt;div</span> <span class="na">class=</span><span class="s">"mat-radio-inner-circle"</span><span class="nt">&gt;&lt;/div&gt;&lt;input</span> <span class="na">type=</span><span class="s">"radio"</span> <span class="na">class=</span><span class="s">"mat-radio-input cdk-visually-hidden"</span> <span class="na">id=</span><span class="s">"mat-radio-13-input"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">name=</span><span class="s">"mat-radio-group-11"</span> <span class="na">value=</span><span class="s">"primary"</span><span class="nt">&gt;&lt;div</span> <span class="na">mat-ripple=</span><span class="s">""</span> <span class="na">class=</span><span class="s">"mat-ripple mat-radio-ripple mat-focus-indicator"</span><span class="nt">&gt;&lt;div</span> <span class="na">class=</span><span class="s">"mat-ripple-element mat-radio-persistent-ripple"</span><span class="nt">&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div</span> <span class="na">class=</span><span class="s">"mat-radio-label-content"</span><span class="nt">&gt;&lt;span</span> <span class="na">style=</span><span class="s">"display: none;"</span><span class="nt">&gt;</span><span class="ni">&amp;nbsp;</span><span class="nt">&lt;/span&gt;</span> Primary <span class="nt">&lt;/div&gt;&lt;/label&gt;&lt;/mat-radio-button&gt;&lt;mat-radio-button</span> <span class="na">_ngcontent-noq-c236=</span><span class="s">""</span> <span class="na">value=</span><span class="s">"accent"</span> <span class="na">class=</span><span class="s">"mat-radio-button example-margin mat-accent mat-radio-checked"</span> <span class="na">tabindex=</span><span class="s">"-1"</span> <span class="na">id=</span><span class="s">"mat-radio-14"</span><span class="nt">&gt;&lt;label</span> <span class="na">class=</span><span class="s">"mat-radio-label"</span> <span class="na">for=</span><span class="s">"mat-radio-14-input"</span><span class="nt">&gt;&lt;div</span> <span class="na">class=</span><span class="s">"mat-radio-container"</span><span class="nt">&gt;&lt;div</span> <span class="na">class=</span><span class="s">"mat-radio-outer-circle"</span><span class="nt">&gt;&lt;/div&gt;&lt;div</span> <span class="na">class=</span><span class="s">"mat-radio-inner-circle"</span><span class="nt">&gt;&lt;/div&gt;&lt;input</span> <span class="na">type=</span><span class="s">"radio"</span> <span class="na">class=</span><span class="s">"mat-radio-input cdk-visually-hidden"</span> <span class="na">id=</span><span class="s">"mat-radio-14-input"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">name=</span><span class="s">"mat-radio-group-11"</span> <span class="na">value=</span><span class="s">"accent"</span><span class="nt">&gt;&lt;div</span> <span class="na">mat-ripple=</span><span class="s">""</span> <span class="na">class=</span><span class="s">"mat-ripple mat-radio-ripple mat-focus-indicator"</span><span class="nt">&gt;&lt;div</span> <span class="na">class=</span><span class="s">"mat-ripple-element mat-radio-persistent-ripple"</span><span class="nt">&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div</span> <span class="na">class=</span><span class="s">"mat-radio-label-content"</span><span class="nt">&gt;&lt;span</span> <span class="na">style=</span><span class="s">"display: none;"</span><span class="nt">&gt;</span><span class="ni">&amp;nbsp;</span><span class="nt">&lt;/span&gt;</span> Accent <span class="nt">&lt;/div&gt;&lt;/label&gt;&lt;/mat-radio-button&gt;&lt;mat-radio-button</span> <span class="na">_ngcontent-noq-c236=</span><span class="s">""</span> <span class="na">value=</span><span class="s">"warn"</span> <span class="na">class=</span><span class="s">"mat-radio-button example-margin mat-accent"</span> <span class="na">tabindex=</span><span class="s">"-1"</span> <span class="na">id=</span><span class="s">"mat-radio-15"</span><span class="nt">&gt;&lt;label</span> <span class="na">class=</span><span class="s">"mat-radio-label"</span> <span class="na">for=</span><span class="s">"mat-radio-15-input"</span><span class="nt">&gt;&lt;div</span> <span class="na">class=</span><span class="s">"mat-radio-container"</span><span class="nt">&gt;&lt;div</span> <span class="na">class=</span><span class="s">"mat-radio-outer-circle"</span><span class="nt">&gt;&lt;/div&gt;&lt;div</span> <span class="na">class=</span><span class="s">"mat-radio-inner-circle"</span><span class="nt">&gt;&lt;/div&gt;&lt;input</span> <span class="na">type=</span><span class="s">"radio"</span> <span class="na">class=</span><span class="s">"mat-radio-input cdk-visually-hidden"</span> <span class="na">id=</span><span class="s">"mat-radio-15-input"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">name=</span><span class="s">"mat-radio-group-11"</span> <span class="na">value=</span><span class="s">"warn"</span><span class="nt">&gt;&lt;div</span> <span class="na">mat-ripple=</span><span class="s">""</span> <span class="na">class=</span><span class="s">"mat-ripple mat-radio-ripple mat-focus-indicator"</span><span class="nt">&gt;&lt;div</span> <span class="na">class=</span><span class="s">"mat-ripple-element mat-radio-persistent-ripple"</span><span class="nt">&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div</span> <span class="na">class=</span><span class="s">"mat-radio-label-content"</span><span class="nt">&gt;&lt;span</span> <span class="na">style=</span><span class="s">"display: none;"</span><span class="nt">&gt;</span><span class="ni">&amp;nbsp;</span><span class="nt">&lt;/span&gt;</span> Warn <span class="nt">&lt;/div&gt;&lt;/label&gt;&lt;/mat-radio-button&gt;&lt;/mat-radio-group&gt;&lt;/section&gt;&lt;section</span> <span class="na">_ngcontent-noq-c236=</span><span class="s">""</span> <span class="na">class=</span><span class="s">"example-section"</span><span class="nt">&gt;&lt;mat-checkbox</span> <span class="na">_ngcontent-noq-c236=</span><span class="s">""</span> <span class="na">class=</span><span class="s">"mat-checkbox example-margin mat-accent ng-untouched ng-pristine ng-valid"</span> <span class="na">id=</span><span class="s">"mat-checkbox-6"</span><span class="nt">&gt;&lt;label</span> <span class="na">class=</span><span class="s">"mat-checkbox-layout"</span> <span class="na">for=</span><span class="s">"mat-checkbox-6-input"</span><span class="nt">&gt;&lt;div</span> <span class="na">class=</span><span class="s">"mat-checkbox-inner-container"</span><span class="nt">&gt;&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">class=</span><span class="s">"mat-checkbox-input cdk-visually-hidden"</span> <span class="na">id=</span><span class="s">"mat-checkbox-6-input"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">aria-checked=</span><span class="s">"false"</span><span class="nt">&gt;&lt;div</span> <span class="na">matripple=</span><span class="s">""</span> <span class="na">class=</span><span class="s">"mat-ripple mat-checkbox-ripple mat-focus-indicator"</span><span class="nt">&gt;&lt;div</span> <span class="na">class=</span><span class="s">"mat-ripple-element mat-checkbox-persistent-ripple"</span><span class="nt">&gt;&lt;/div&gt;&lt;/div&gt;&lt;div</span> <span class="na">class=</span><span class="s">"mat-checkbox-frame"</span><span class="nt">&gt;&lt;/div&gt;&lt;div</span> <span class="na">class=</span><span class="s">"mat-checkbox-background"</span><span class="nt">&gt;&lt;svg</span> <span class="na">version=</span><span class="s">"1.1"</span> <span class="na">focusable=</span><span class="s">"false"</span> <span class="na">viewBox=</span><span class="s">"0 0 24 24"</span> <span class="na">xml:space=</span><span class="s">"preserve"</span> <span class="na">class=</span><span class="s">"mat-checkbox-checkmark"</span><span class="nt">&gt;&lt;path</span> <span class="na">fill=</span><span class="s">"none"</span> <span class="na">stroke=</span><span class="s">"white"</span> <span class="na">d=</span><span class="s">"M4.1,12.7 9,17.6 20.3,6.3"</span> <span class="na">class=</span><span class="s">"mat-checkbox-checkmark-path"</span><span class="nt">&gt;&lt;/path&gt;&lt;/svg&gt;&lt;div</span> <span class="na">class=</span><span class="s">"mat-checkbox-mixedmark"</span><span class="nt">&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;span</span> <span class="na">class=</span><span class="s">"mat-checkbox-label"</span><span class="nt">&gt;&lt;span</span> <span class="na">style=</span><span class="s">"display: none;"</span><span class="nt">&gt;</span><span class="ni">&amp;nbsp;</span><span class="nt">&lt;/span&gt;</span>Checked<span class="nt">&lt;/span&gt;&lt;/label&gt;&lt;/mat-checkbox&gt;&lt;/section&gt;&lt;section</span> <span class="na">_ngcontent-noq-c236=</span><span class="s">""</span> <span class="na">class=</span><span class="s">"example-section"</span><span class="nt">&gt;&lt;mat-checkbox</span> <span class="na">_ngcontent-noq-c236=</span><span class="s">""</span> <span class="na">class=</span><span class="s">"mat-checkbox example-margin mat-accent ng-untouched ng-pristine ng-valid"</span> <span class="na">id=</span><span class="s">"mat-checkbox-7"</span><span class="nt">&gt;&lt;label</span> <span class="na">class=</span><span class="s">"mat-checkbox-layout"</span> <span class="na">for=</span><span class="s">"mat-checkbox-7-input"</span><span class="nt">&gt;&lt;div</span> <span class="na">class=</span><span class="s">"mat-checkbox-inner-container"</span><span class="nt">&gt;&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">class=</span><span class="s">"mat-checkbox-input cdk-visually-hidden"</span> <span class="na">id=</span><span class="s">"mat-checkbox-7-input"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">aria-checked=</span><span class="s">"false"</span><span class="nt">&gt;&lt;div</span> <span class="na">matripple=</span><span class="s">""</span> <span class="na">class=</span><span class="s">"mat-ripple mat-checkbox-ripple mat-focus-indicator"</span><span class="nt">&gt;&lt;div</span> <span class="na">class=</span><span class="s">"mat-ripple-element mat-checkbox-persistent-ripple"</span><span class="nt">&gt;&lt;/div&gt;&lt;/div&gt;&lt;div</span> <span class="na">class=</span><span class="s">"mat-checkbox-frame"</span><span class="nt">&gt;&lt;/div&gt;&lt;div</span> <span class="na">class=</span><span class="s">"mat-checkbox-background"</span><span class="nt">&gt;&lt;svg</span> <span class="na">version=</span><span class="s">"1.1"</span> <span class="na">focusable=</span><span class="s">"false"</span> <span class="na">viewBox=</span><span class="s">"0 0 24 24"</span> <span class="na">xml:space=</span><span class="s">"preserve"</span> <span class="na">class=</span><span class="s">"mat-checkbox-checkmark"</span><span class="nt">&gt;&lt;path</span> <span class="na">fill=</span><span class="s">"none"</span> <span class="na">stroke=</span><span class="s">"white"</span> <span class="na">d=</span><span class="s">"M4.1,12.7 9,17.6 20.3,6.3"</span> <span class="na">class=</span><span class="s">"mat-checkbox-checkmark-path"</span><span class="nt">&gt;&lt;/path&gt;&lt;/svg&gt;&lt;div</span> <span class="na">class=</span><span class="s">"mat-checkbox-mixedmark"</span><span class="nt">&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;span</span> <span class="na">class=</span><span class="s">"mat-checkbox-label"</span><span class="nt">&gt;&lt;span</span> <span class="na">style=</span><span class="s">"display: none;"</span><span class="nt">&gt;</span><span class="ni">&amp;nbsp;</span><span class="nt">&lt;/span&gt;</span>Disabled<span class="nt">&lt;/span&gt;&lt;/label&gt;&lt;/mat-checkbox&gt;&lt;/section&gt;&lt;/mat-card-content&gt;</span>
+</code></pre>
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>check()</strong></td>
+<td>Check element</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>uncheck()</strong></td>
+<td>Uncheck element</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>isEnabled()</strong></td>
+<td>Verify state</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isDisabled()</strong></td>
+<td>Verify state</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>selected()</strong></td>
+<td>Verify state</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>deselected()</strong></td>
+<td>Verify state</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>click()</strong></td>
+<td>Click element</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>hasClass()</strong></td>
+<td>Verify element class</td>
+<td>boolean</td>
 </tr>
 </tbody></table>
 <h2 id='bootstrap-common-elements'>Bootstrap Common elements</h2><h3 id='checkboxes-and-radios'>Checkboxes and radios</h3><h4 id='checkbox-default'><a href="https://getbootstrap.com/docs/4.3/components/buttons/" target="_blank">Checkbox default</a></h4>

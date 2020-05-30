@@ -4067,6 +4067,193 @@ More than that, it has a nested **StringCheckType** class with the following met
 
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#webpage-2)
 
+## Angular Common elements
+
+```java 
+    @FindBy(id="basic_icon")
+    public static Icon basicIcon;
+
+    @UI("#basic_icon")
+    public static Icon basicIcon;
+
+    @FindBy(id="svg_icon")
+    public static Icon svgIcon;
+    
+    @UI("#svg_icon")
+    public static Icon svgIcon;
+
+
+    @Test
+    public void checkBasicIconIsDisplayed() {
+        basicIcon.show();
+        basicIcon.isDisplayed();
+    }
+
+    @Test
+    public void checkSVGIconIsDisplayed() {
+        svgIcon.show();
+        svgIcon.isDisplayed();
+    }
+```
+
+### Icons
+
+#### <a href="https://material.angular.io/components/icon/overview" target="_blank">Icon overview</a>
+
+Icon is located in the following class:
+
+   - __Java__: _com.epam.jdi.light.ui.angular.elements.common.Icon_
+   
+There is two different icons in Angular: Basic icon and SVG icon:
+
+![Basic icon](../images/angular/basic_icon.png) ![Basic icon](../images/angular/svg_icon.png)
+
+```html
+<mat-icon _ngcontent-hkf-c334="" role="img" aria-hidden="false" aria-label="Example home icon" class="mat-icon notranslate material-icons mat-icon-no-color">home</mat-icon>
+<mat-icon _ngcontent-hkf-c335="" role="img" svgicon="thumbs-up" aria-hidden="false" aria-label="Example thumbs up SVG icon" class="mat-icon notranslate mat-icon-no-color"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fit="" preserveAspectRatio="xMidYMid meet" focusable="false">
+    <path d="M0 0h24v24H0z" fill="none"></path>
+    <path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-1.91l-.01-.01L23 10z"></path>
+</svg></mat-icon>
+```
+   
+|Method | Description | Return Type
+--- | --- | ---
+**isDisplayed** | Verify state | boolean
+**show()** | Scroll to element | void
+
+<br>  
+
+### Progress spinner
+
+```java 
+    //@FindBy(id="basic_progress_spinner") public static Icon basicIcon;
+    
+    @UI("#basic_progress_spinner")
+    public static Spinner basicProgressSpinner;
+
+
+    @Test
+    public void checkBasicSpinnerIsDisplayed() {
+        basicProgressSpinner.show();
+        basicProgressSpinner.isDisplayed();
+    }
+```
+
+#### <a href="https://material.angular.io/components/progress-spinner/overview" target="_blank">Progress Spinner overview</a>
+
+Progress Spinner is located in the following class:
+
+   - __Java__: _com.epam.jdi.light.ui.angular.elements.common.Spinner_
+   
+
+![Progress spinner](../images/angular/basic_progress_spinner.png)
+
+```html
+<mat-spinner _ngcontent-krq-c336="" role="progressbar" mode="indeterminate" class="mat-spinner mat-progress-spinner mat-primary mat-progress-spinner-indeterminate-animation" style="width: 100px; height: 100px;"><svg preserveAspectRatio="xMidYMid meet" focusable="false" viewBox="0 0 100 100" style="width: 100px; height: 100px;"><circle cx="50%" cy="50%" r="45" class="ng-star-inserted" style="animation-name: mat-progress-spinner-stroke-rotate-100; stroke-dasharray: 282.743px; stroke-width: 10%;"></circle><!----><!----></svg></mat-spinner>
+```
+
+|Method | Description | Return Type
+--- | --- | ---
+**isDisplayed()** | Verify state | boolean
+**show()** | Scroll to element | void
+
+
+### Slide toggle
+
+```java 
+    //@FindBy(id="mat-slide-toggle-1") public static SlideToggle basicSlideToggle;
+
+    @UI("#mat-slide-toggle-1")
+    public static SlideToggle basicSlideToggle;
+
+    @Test
+    public void basicToggleCheckedTest() {
+        basicSlideToggle.check();
+        basicSlideToggle.is().selected();
+        basicSlideToggle.uncheck();
+        basicSlideToggle.is().deselected();
+    }
+```
+
+#### <a href="https://material.angular.io/components/slide-toggle/overview" target="_blank">Slide toggle overview</a>
+
+Slide toggle is located in the following class:
+
+   - __Java__: _com.epam.jdi.light.ui.angular.elements.common.SlideToggle_
+   
+There is two different slide toggles in Angular: Basic and Configurable:
+
+![Basic slide toggle](../images/angular/basic_slide_toggle.png)
+
+```html
+<mat-slide-toggle _ngcontent-bco-c235="" class="mat-slide-toggle mat-accent mat-checked" id="mat-slide-toggle-1" tabindex="-1"><label class="mat-slide-toggle-label" for="mat-slide-toggle-1-input"><div class="mat-slide-toggle-bar"><input type="checkbox" role="switch" class="mat-slide-toggle-input cdk-visually-hidden" id="mat-slide-toggle-1-input" tabindex="0" aria-checked="true"><div class="mat-slide-toggle-thumb-container"><div class="mat-slide-toggle-thumb"></div><div mat-ripple="" class="mat-ripple mat-slide-toggle-ripple mat-focus-indicator"><div class="mat-ripple-element mat-slide-toggle-persistent-ripple"></div></div></div></div><span class="mat-slide-toggle-content"><span style="display: none;">&nbsp;</span>Slide me!</span></label></mat-slide-toggle>
+```
+   
+|Method | Description | Return Type
+--- | --- | ---
+**check()** | Check element | void
+**uncheck()** | Uncheck element | void
+**isDisplayed()** | Verify state | boolean
+**selected()** | Verify state | boolean
+**deselected()** | Verify state | boolean
+
+<br>
+
+```java 
+    //@FindBy(id="mat-slide-toggle-2") public static SlideToggle resultSlideToggle;
+
+    @UI("#mat-slide-toggle-2")
+    public static SlideToggle resultSlideToggle;
+
+    @Test
+    public void resultToggleColorTest() {
+        disableCheckbox.uncheck();
+        resultSlideToggle.check();
+        primaryRadioButton.click();
+        resultSlideToggle.is().hasClass("mat-primary");
+        accentRadioButton.click();
+        resultSlideToggle.is().hasClass("mat-accent");
+        warningRadioButton.click();
+        resultSlideToggle.is().hasClass("mat-warn");
+    }
+    
+    @Test
+    public void resultToggleCheckedTest() {
+        resultSlideToggle.uncheck();
+        checkedCheckbox.check();
+        resultSlideToggle.is().selected();
+        checkedCheckbox.uncheck();
+        resultSlideToggle.is().deselected();
+    }
+    
+    @Test
+    public void resultToggleDisableTest() {
+        disableCheckbox.check();
+        resultSlideToggle.is().disabled();
+        disableCheckbox.uncheck();
+        resultSlideToggle.is().enabled();
+    }
+```  
+
+![Configurable slide toggle](../images/angular/configurable_slide_toggle.png)
+
+```html
+<mat-card-content _ngcontent-noq-c236="" class="mat-card-content"><h4 _ngcontent-noq-c236="">Slider configuration</h4><section _ngcontent-noq-c236="" class="example-section"><label _ngcontent-noq-c236="" class="example-margin">Color:</label><mat-radio-group _ngcontent-noq-c236="" role="radiogroup" class="mat-radio-group ng-untouched ng-pristine ng-valid"><mat-radio-button _ngcontent-noq-c236="" value="primary" class="mat-radio-button example-margin mat-accent" tabindex="-1" id="mat-radio-13"><label class="mat-radio-label" for="mat-radio-13-input"><div class="mat-radio-container"><div class="mat-radio-outer-circle"></div><div class="mat-radio-inner-circle"></div><input type="radio" class="mat-radio-input cdk-visually-hidden" id="mat-radio-13-input" tabindex="0" name="mat-radio-group-11" value="primary"><div mat-ripple="" class="mat-ripple mat-radio-ripple mat-focus-indicator"><div class="mat-ripple-element mat-radio-persistent-ripple"></div></div></div><div class="mat-radio-label-content"><span style="display: none;">&nbsp;</span> Primary </div></label></mat-radio-button><mat-radio-button _ngcontent-noq-c236="" value="accent" class="mat-radio-button example-margin mat-accent mat-radio-checked" tabindex="-1" id="mat-radio-14"><label class="mat-radio-label" for="mat-radio-14-input"><div class="mat-radio-container"><div class="mat-radio-outer-circle"></div><div class="mat-radio-inner-circle"></div><input type="radio" class="mat-radio-input cdk-visually-hidden" id="mat-radio-14-input" tabindex="0" name="mat-radio-group-11" value="accent"><div mat-ripple="" class="mat-ripple mat-radio-ripple mat-focus-indicator"><div class="mat-ripple-element mat-radio-persistent-ripple"></div></div></div><div class="mat-radio-label-content"><span style="display: none;">&nbsp;</span> Accent </div></label></mat-radio-button><mat-radio-button _ngcontent-noq-c236="" value="warn" class="mat-radio-button example-margin mat-accent" tabindex="-1" id="mat-radio-15"><label class="mat-radio-label" for="mat-radio-15-input"><div class="mat-radio-container"><div class="mat-radio-outer-circle"></div><div class="mat-radio-inner-circle"></div><input type="radio" class="mat-radio-input cdk-visually-hidden" id="mat-radio-15-input" tabindex="0" name="mat-radio-group-11" value="warn"><div mat-ripple="" class="mat-ripple mat-radio-ripple mat-focus-indicator"><div class="mat-ripple-element mat-radio-persistent-ripple"></div></div></div><div class="mat-radio-label-content"><span style="display: none;">&nbsp;</span> Warn </div></label></mat-radio-button></mat-radio-group></section><section _ngcontent-noq-c236="" class="example-section"><mat-checkbox _ngcontent-noq-c236="" class="mat-checkbox example-margin mat-accent ng-untouched ng-pristine ng-valid" id="mat-checkbox-6"><label class="mat-checkbox-layout" for="mat-checkbox-6-input"><div class="mat-checkbox-inner-container"><input type="checkbox" class="mat-checkbox-input cdk-visually-hidden" id="mat-checkbox-6-input" tabindex="0" aria-checked="false"><div matripple="" class="mat-ripple mat-checkbox-ripple mat-focus-indicator"><div class="mat-ripple-element mat-checkbox-persistent-ripple"></div></div><div class="mat-checkbox-frame"></div><div class="mat-checkbox-background"><svg version="1.1" focusable="false" viewBox="0 0 24 24" xml:space="preserve" class="mat-checkbox-checkmark"><path fill="none" stroke="white" d="M4.1,12.7 9,17.6 20.3,6.3" class="mat-checkbox-checkmark-path"></path></svg><div class="mat-checkbox-mixedmark"></div></div></div><span class="mat-checkbox-label"><span style="display: none;">&nbsp;</span>Checked</span></label></mat-checkbox></section><section _ngcontent-noq-c236="" class="example-section"><mat-checkbox _ngcontent-noq-c236="" class="mat-checkbox example-margin mat-accent ng-untouched ng-pristine ng-valid" id="mat-checkbox-7"><label class="mat-checkbox-layout" for="mat-checkbox-7-input"><div class="mat-checkbox-inner-container"><input type="checkbox" class="mat-checkbox-input cdk-visually-hidden" id="mat-checkbox-7-input" tabindex="0" aria-checked="false"><div matripple="" class="mat-ripple mat-checkbox-ripple mat-focus-indicator"><div class="mat-ripple-element mat-checkbox-persistent-ripple"></div></div><div class="mat-checkbox-frame"></div><div class="mat-checkbox-background"><svg version="1.1" focusable="false" viewBox="0 0 24 24" xml:space="preserve" class="mat-checkbox-checkmark"><path fill="none" stroke="white" d="M4.1,12.7 9,17.6 20.3,6.3" class="mat-checkbox-checkmark-path"></path></svg><div class="mat-checkbox-mixedmark"></div></div></div><span class="mat-checkbox-label"><span style="display: none;">&nbsp;</span>Disabled</span></label></mat-checkbox></section></mat-card-content>
+```
+|Method | Description | Return Type
+--- | --- | ---
+**check()** | Check element | void
+**uncheck()** | Uncheck element | void
+**isEnabled()** | Verify state | boolean
+**isDisabled()** | Verify state | boolean
+**selected()** | Verify state | boolean
+**deselected()** | Verify state | boolean
+**click()** | Click element | void
+**hasClass()** | Verify element class | boolean
+
+
+ 
+
 ## Bootstrap Common elements
 
 ### Checkboxes and radios

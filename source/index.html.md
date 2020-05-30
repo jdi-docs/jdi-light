@@ -28,8 +28,6 @@ search: true
 # JDI Light Framework
 JDI Light is a powerful Test Automation Framework that helps to make your tests fast, sustainable and provides obvious and predictable test run results.
 
-<font color="red">!!! ATTENTION: Only works properly with <strong>JDK 8</strong>. There may be some problems when using <strong>JDK 12</strong> or later.</font>
-
 JDI Light powered by Selenium and has simple integration with Selenium based projects
 ![Allure Log](images/intro/allure-report-log.png)
 

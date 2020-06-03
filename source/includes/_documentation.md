@@ -4121,6 +4121,8 @@ There is two different icons in Angular: Basic icon and SVG icon:
 **isDisplayed** | Verify state | boolean
 **show()** | Scroll to element | void
 
+#### <a href="https://github.com/jdi-testing/jdi-light/tree/angular/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests" target="_blank">Here you can find Icons tests</a>
+
 <br>  
 
 ### Progress spinner
@@ -4156,6 +4158,8 @@ Progress Spinner is located in the following class:
 --- | --- | ---
 **isDisplayed()** | Verify state | boolean
 **show()** | Scroll to element | void
+
+#### <a href="https://github.com/jdi-testing/jdi-light/tree/angular/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests" target="_blank">Here you can find Spinner tests</a>
 
 
 ### Slide toggle
@@ -4252,6 +4256,87 @@ There is two different slide toggles in Angular: Basic and Configurable:
 **hasClass()** | Verify element class | boolean
 
 
+#### <a href="https://github.com/jdi-testing/jdi-light/tree/angular/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests" target="_blank">Here you can find Slide toggle tests</a>
+
+
+### Checkboxes
+
+```java 
+   //@FindBy(id="mat-checkbox-1") public static Checkbox basicCheckbox;
+   @UI("#mat-checkbox-1")
+   public static Checkbox basicCheckbox;
+   
+   //@FindBy(id="mat-checkbox-2") public static Checkbox configurableCheckedCheckbox; 
+   @UI("#mat-checkbox-2")
+   public static Checkbox configurableCheckedCheckbox;
+
+
+   @Test
+   public void basicCheckboxTest() {
+       basicCheckbox.isDisplayed();
+       basicCheckbox.check();
+       basicCheckbox.isSelected();
+       basicCheckbox.uncheck();
+       basicCheckbox.is().deselected();
+   }
+   
+   @Test
+   public void configurableCheckboxTest() {
+       configurableCheckedCheckbox.show();
+       configurableCheckedCheckbox.check();
+       configurableResultCheckbox.isSelected();
+       configurableCheckedCheckbox.uncheck();
+       configurableResultCheckbox.is().deselected();
+   
+       configurableIndeterminateCheckbox.check();
+       configurableResultCheckbox.hasClass("mat-checkbox-indeterminate");
+   
+       configurableCheckboxAlignBeforeRadioButton.click();
+       configurableResultCheckbox.hasClass("mat-checkbox-label-before");
+   
+       configurableDisabledCheckbox.click();
+       configurableResultCheckbox.hasClass("mat-checkbox-disabled");
+   } 
+```
+
+#### <a href="https://material.angular.io/components/checkbox/overview" target="_blank">Checkbox overview</a>
+
+Checkbox is located in the following class:
+
+   - __Java__: _com.epam.jdi.light.ui.angular.elements.common.Checkbox_
+   
+There is two different checkboxes in Angular: Basic and Configurable:
+
+![Basic checkbox](../images/angular/basic_checkbox.png)
+
+```html
+<mat-checkbox _ngcontent-eoy-c233="" class="mat-checkbox mat-accent" id="mat-checkbox-1"><label class="mat-checkbox-layout" for="mat-checkbox-1-input"><div class="mat-checkbox-inner-container"><input type="checkbox" class="mat-checkbox-input cdk-visually-hidden" id="mat-checkbox-1-input" tabindex="0" aria-checked="false"><div matripple="" class="mat-ripple mat-checkbox-ripple mat-focus-indicator"><div class="mat-ripple-element mat-checkbox-persistent-ripple"></div></div><div class="mat-checkbox-frame"></div><div class="mat-checkbox-background"><svg version="1.1" focusable="false" viewBox="0 0 24 24" xml:space="preserve" class="mat-checkbox-checkmark"><path fill="none" stroke="white" d="M4.1,12.7 9,17.6 20.3,6.3" class="mat-checkbox-checkmark-path"></path></svg><div class="mat-checkbox-mixedmark"></div></div></div><span class="mat-checkbox-label"><span style="display: none;">&nbsp;</span>Check me!</span></label></mat-checkbox>
+```
+   
+|Method | Description | Return Type
+--- | --- | ---
+**check()** | Check element | void
+**uncheck()** | Uncheck element | void
+**isDisplayed()** | Verify state | boolean
+**selected()** | Verify state | boolean
+**deselected()** | Verify state | boolean
+
+
+![Configurable checkbox](../images/angular/configurable_checkbox.png)
+
+```html
+<checkbox-configurable-example _nghost-eoy-c234="" ng-version="9.1.0"><h2 _ngcontent-eoy-c234="" class="example-h2">Configurable checkbox</h2><mat-card _ngcontent-eoy-c234="" class="mat-card mat-focus-indicator"><mat-card-content _ngcontent-eoy-c234="" class="mat-card-content"><h4 _ngcontent-eoy-c234="">Checkbox configuration</h4><section _ngcontent-eoy-c234="" class="example-section"><mat-checkbox _ngcontent-eoy-c234="" class="mat-checkbox example-margin mat-accent ng-untouched ng-pristine ng-valid" id="mat-checkbox-2"><label class="mat-checkbox-layout" for="mat-checkbox-2-input"><div class="mat-checkbox-inner-container"><input type="checkbox" class="mat-checkbox-input cdk-visually-hidden" id="mat-checkbox-2-input" tabindex="0" aria-checked="false"><div matripple="" class="mat-ripple mat-checkbox-ripple mat-focus-indicator"><div class="mat-ripple-element mat-checkbox-persistent-ripple"></div></div><div class="mat-checkbox-frame"></div><div class="mat-checkbox-background"><svg version="1.1" focusable="false" viewBox="0 0 24 24" xml:space="preserve" class="mat-checkbox-checkmark"><path fill="none" stroke="white" d="M4.1,12.7 9,17.6 20.3,6.3" class="mat-checkbox-checkmark-path"></path></svg><div class="mat-checkbox-mixedmark"></div></div></div><span class="mat-checkbox-label"><span style="display: none;">&nbsp;</span>Checked</span></label></mat-checkbox><mat-checkbox _ngcontent-eoy-c234="" class="mat-checkbox example-margin mat-accent ng-untouched ng-pristine ng-valid" id="mat-checkbox-3"><label class="mat-checkbox-layout" for="mat-checkbox-3-input"><div class="mat-checkbox-inner-container"><input type="checkbox" class="mat-checkbox-input cdk-visually-hidden" id="mat-checkbox-3-input" tabindex="0" aria-checked="false"><div matripple="" class="mat-ripple mat-checkbox-ripple mat-focus-indicator"><div class="mat-ripple-element mat-checkbox-persistent-ripple"></div></div><div class="mat-checkbox-frame"></div><div class="mat-checkbox-background"><svg version="1.1" focusable="false" viewBox="0 0 24 24" xml:space="preserve" class="mat-checkbox-checkmark"><path fill="none" stroke="white" d="M4.1,12.7 9,17.6 20.3,6.3" class="mat-checkbox-checkmark-path"></path></svg><div class="mat-checkbox-mixedmark"></div></div></div><span class="mat-checkbox-label"><span style="display: none;">&nbsp;</span>Indeterminate</span></label></mat-checkbox></section><section _ngcontent-eoy-c234="" class="example-section"><label _ngcontent-eoy-c234="" class="example-margin">Align:</label><mat-radio-group _ngcontent-eoy-c234="" role="radiogroup" class="mat-radio-group ng-untouched ng-pristine ng-valid"><mat-radio-button _ngcontent-eoy-c234="" value="after" class="mat-radio-button example-margin mat-accent mat-radio-checked" tabindex="-1" id="mat-radio-10"><label class="mat-radio-label" for="mat-radio-10-input"><div class="mat-radio-container"><div class="mat-radio-outer-circle"></div><div class="mat-radio-inner-circle"></div><input type="radio" class="mat-radio-input cdk-visually-hidden" id="mat-radio-10-input" tabindex="0" name="mat-radio-group-8" value="after"><div mat-ripple="" class="mat-ripple mat-radio-ripple mat-focus-indicator"><div class="mat-ripple-element mat-radio-persistent-ripple"></div></div></div><div class="mat-radio-label-content"><span style="display: none;">&nbsp;</span>After</div></label></mat-radio-button><mat-radio-button _ngcontent-eoy-c234="" value="before" class="mat-radio-button example-margin mat-accent" tabindex="-1" id="mat-radio-11"><label class="mat-radio-label" for="mat-radio-11-input"><div class="mat-radio-container"><div class="mat-radio-outer-circle"></div><div class="mat-radio-inner-circle"></div><input type="radio" class="mat-radio-input cdk-visually-hidden" id="mat-radio-11-input" tabindex="0" name="mat-radio-group-8" value="before"><div mat-ripple="" class="mat-ripple mat-radio-ripple mat-focus-indicator"><div class="mat-ripple-element mat-radio-persistent-ripple"></div></div></div><div class="mat-radio-label-content"><span style="display: none;">&nbsp;</span>Before</div></label></mat-radio-button></mat-radio-group></section><section _ngcontent-eoy-c234="" class="example-section"><mat-checkbox _ngcontent-eoy-c234="" class="mat-checkbox example-margin mat-accent ng-untouched ng-pristine ng-valid" id="mat-checkbox-4"><label class="mat-checkbox-layout" for="mat-checkbox-4-input"><div class="mat-checkbox-inner-container"><input type="checkbox" class="mat-checkbox-input cdk-visually-hidden" id="mat-checkbox-4-input" tabindex="0" aria-checked="false"><div matripple="" class="mat-ripple mat-checkbox-ripple mat-focus-indicator"><div class="mat-ripple-element mat-checkbox-persistent-ripple"></div></div><div class="mat-checkbox-frame"></div><div class="mat-checkbox-background"><svg version="1.1" focusable="false" viewBox="0 0 24 24" xml:space="preserve" class="mat-checkbox-checkmark"><path fill="none" stroke="white" d="M4.1,12.7 9,17.6 20.3,6.3" class="mat-checkbox-checkmark-path"></path></svg><div class="mat-checkbox-mixedmark"></div></div></div><span class="mat-checkbox-label"><span style="display: none;">&nbsp;</span>Disabled</span></label></mat-checkbox></section></mat-card-content></mat-card><mat-card _ngcontent-eoy-c234="" class="mat-card mat-focus-indicator result"><mat-card-content _ngcontent-eoy-c234="" class="mat-card-content"><h4 _ngcontent-eoy-c234="">Result</h4><section _ngcontent-eoy-c234="" class="example-section"><mat-checkbox _ngcontent-eoy-c234="" class="mat-checkbox example-margin mat-accent ng-untouched ng-pristine ng-valid" id="mat-checkbox-5"><label class="mat-checkbox-layout" for="mat-checkbox-5-input"><div class="mat-checkbox-inner-container"><input type="checkbox" class="mat-checkbox-input cdk-visually-hidden" id="mat-checkbox-5-input" tabindex="0" aria-checked="false"><div matripple="" class="mat-ripple mat-checkbox-ripple mat-focus-indicator"><div class="mat-ripple-element mat-checkbox-persistent-ripple"></div></div><div class="mat-checkbox-frame"></div><div class="mat-checkbox-background"><svg version="1.1" focusable="false" viewBox="0 0 24 24" xml:space="preserve" class="mat-checkbox-checkmark"><path fill="none" stroke="white" d="M4.1,12.7 9,17.6 20.3,6.3" class="mat-checkbox-checkmark-path"></path></svg><div class="mat-checkbox-mixedmark"></div></div></div><span class="mat-checkbox-label"><span style="display: none;">&nbsp;</span> I'm a checkbox </span></label></mat-checkbox></section></mat-card-content></mat-card></checkbox-configurable-example>
+```
+   
+|Method | Description | Return Type
+--- | --- | ---
+**check()** | Check element | void
+**uncheck()** | Uncheck element | void
+**isDisplayed()** | Verify state | boolean
+**selected()** | Verify state | boolean
+**deselected()** | Verify state | boolean
+
+#### <a href="https://github.com/jdi-testing/jdi-light/tree/angular/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests" target="_blank">Here you can find Checkbox tests</a>
  
 
 ## Bootstrap Common elements

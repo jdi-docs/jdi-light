@@ -20928,21 +20928,17 @@ Before running JDI project in Sauce Lab, you need to set up Sauce Lab Credential
 1. Copy your Sauce Labs **username** and **accessKey** in the [User Settings](https://app.saucelabs.com/user-settings) section of the [Sauce Labs Dashboard](https://app.saucelabs.com/dashboard/builds).
 2. Open a Terminal window (command prompt for Windows) and set your Sauce Labs Environment variables:   
 
-   ##### Mac OSX:
+   **Mac OSX:**
 
-   ```
    $ export SAUCE_USERNAME="username"
 
    $ export SAUCE_ACCESS_KEY="accessKey"
-   ```
 
-   ##### Windows:
+   **Windows:**
 
-   ```
    > set SAUCE_USERNAME="username"
 
    > set SAUCE_ACCESS_KEY="accessKey"
-   ```
 
    - To set an environment variables permanently in Windows, you must append it to the `PATH` variable.
 
@@ -20953,31 +20949,25 @@ Before running JDI project in Sauce Lab, you need to set up Sauce Lab Credential
    
 9. Test the environment variables
 
-    ##### Mac OSX:
+    **Mac OSX:**
 
-    ```
     $ echo $SAUCE_USERNAME
 
     $ echo $SAUCE_ACCESS_KEY
-    ```
 
-    - ***WARNING FOR UNIX USERS!***:
+    ***WARNING FOR UNIX USERS!***:
 
     - If you have problems setting your environment variables, run the following commands in your terminal:
 
-    ```
     $ launchctl setenv SAUCE_USERNAME $SAUCE_USERNAME
 
     $ launchctl setenv SAUCE_ACCESS_KEY $SAUCE_ACCESS_KEY
-    ```
 
-    ##### Windows:
+    **Windows:**
 
-    ```
     > echo %SAUCE_USERNAME%
-   
+
     > echo %SAUCE_ACCESS_KEY%
-    ```
 
 #### Required Sauce Lab Capabilities
 

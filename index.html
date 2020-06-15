@@ -28608,16 +28608,20 @@ Level <em>STEP</em> can show business-related information in the console output,
 <li>Open a Terminal window (command prompt for Windows) and set your Sauce Labs Environment variables:<br></li>
 </ol>
 
-<p>##### Mac OSX:</p>
-<pre class="highlight plaintext"><code>   $ export SAUCE_USERNAME="username"
+<p><strong>Mac OSX:</strong></p>
 
-   $ export SAUCE_ACCESS_KEY="accessKey"
-</code></pre>
-<p>##### Windows:</p>
-<pre class="highlight plaintext"><code>   &gt; set SAUCE_USERNAME="username"
+<p>$ export SAUCE_USERNAME=&quot;username&quot;</p>
 
-   &gt; set SAUCE_ACCESS_KEY="accessKey"
-</code></pre>
+<p>$ export SAUCE_ACCESS_KEY=&quot;accessKey&quot;</p>
+
+<p><strong>Windows:</strong></p>
+
+<blockquote>
+<p>set SAUCE_USERNAME=&quot;username&quot;</p>
+
+<p>set SAUCE_ACCESS_KEY=&quot;accessKey&quot;</p>
+</blockquote>
+
 <ul>
 <li><p>To set an environment variables permanently in Windows, you must append it to the <code>PATH</code> variable.</p></li>
 <li><p>Go to <strong>Control Panel &gt; System &gt; Windows version &gt; Advanced System Settings &gt; Environment Variables &gt; System
@@ -28627,29 +28631,27 @@ Variables &gt; Edit &gt; New</strong></p></li>
 
 <ol>
 <li><p>Test the environment variables</p>
-<h5 id='mac-osx'>Mac OSX:</h5><pre class="highlight plaintext"><code>$ echo $SAUCE_USERNAME
 
-$ echo $SAUCE_ACCESS_KEY
-</code></pre></li>
+<p><strong>Mac OSX:</strong></p>
+
+<p>$ echo $SAUCE_USERNAME</p>
+
+<p>$ echo $SAUCE_ACCESS_KEY</p>
+
+<p><strong><em>WARNING FOR UNIX USERS!</em></strong>:</p></li>
 </ol>
-
-<p>- <strong><em>WARNING FOR UNIX USERS!</em></strong>:</p>
 
 <p>- If you have problems setting your environment variables, run the following commands in your terminal:</p>
 
-<p>```
-    $ launchctl setenv SAUCE_USERNAME $SAUCE_USERNAME</p>
+<p>$ launchctl setenv SAUCE_USERNAME $SAUCE_USERNAME</p>
 
-<p>$ launchctl setenv SAUCE_ACCESS_KEY $SAUCE_ACCESS_KEY
-    ```</p>
+<p>$ launchctl setenv SAUCE_ACCESS_KEY $SAUCE_ACCESS_KEY</p>
 
-<p>##### Windows:</p>
+<p><strong>Windows:</strong></p>
 
-<p>```
-    &gt; echo %SAUCE_USERNAME%</p>
+<p>&gt; echo %SAUCE_USERNAME%</p>
 
-<p>&gt; echo %SAUCE_ACCESS_KEY%
-    ```</p>
+<p>&gt; echo %SAUCE_ACCESS_KEY%</p>
 <h4 id='required-sauce-lab-capabilities'>Required Sauce Lab Capabilities</h4>
 <p>Following capabilities are required for Sauce Lab:</p>
 

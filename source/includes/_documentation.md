@@ -20934,11 +20934,11 @@ Before running JDI project in Sauce Lab, you need to set up Sauce Lab Credential
 
    $ export SAUCE_ACCESS_KEY="accessKey"
 
-   **Windows:**
+    **Windows:**
 
-   > set SAUCE_USERNAME="username"
+    > set SAUCE_USERNAME="username"
 
-   > set SAUCE_ACCESS_KEY="accessKey"
+    > set SAUCE_ACCESS_KEY="accessKey"
 
    - To set an environment variables permanently in Windows, you must append it to the `PATH` variable.
 

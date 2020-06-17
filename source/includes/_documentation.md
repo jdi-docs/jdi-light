@@ -20946,8 +20946,8 @@ Before running JDI project in Sauce Lab, you need to set up Sauce Lab Credential
     Variables > Edit > New**
 
    - Then set the "Name" and "Value" for each variable
-   
-9. Test the environment variables
+
+3. Test the environment variables
 
     **Mac OSX:**
 
@@ -20975,11 +20975,11 @@ Following capabilities are required for Sauce Lab:
 
 - username - Sauce Lab username
 
-- accessKey - Suace Lab access key
+- accessKey - Sauce Lab access key
 
-- seleniumVersion - prefered version of Selenium
+- seleniumVersion - preferred version of Selenium
 
-- name - test run name <br /><br />
+- name - test run name
 
 Here some optional capabilities:
 
@@ -20997,7 +20997,7 @@ In order to run test with Sauce Lab you need set up remote settings in test.prop
 
 - remote.type=sauce
 
-- driver.remote.url=https://ondemand.us-west-1.saucelabs.com:443/wd/hub
+- driver.remote.url=https://ondemand.eu-central-1.saucelabs.com:443/wd/hub
 
 See your personal remote url: [here](https://app.saucelabs.com/user-settings) look at the 'Driver Creation' section.
 

@@ -28601,7 +28601,7 @@ Level <em>STEP</em> can show business-related information in the console output,
 <h2 id='remote-test-runs'>Remote test runs</h2>
 <p>TBD</p>
 <h2 id='saucelabs-integration'>SauceLabs integration</h2>
-<p>Before running JDI project in Sauce Lab, you need to set up Sauce Lab Credentials</p>
+<p>Before running JDI project in Sauce Lab, you need to set up Sauce Lab Credentials.</p>
 <h4 id='set-your-sauce-labs-credentials'>Set Your Sauce Labs Credentials</h4>
 <ol>
 <li>Copy your Sauce Labs <strong>username</strong> and <strong>accessKey</strong> in the <a href="https://app.saucelabs.com/user-settings">User Settings</a> section of the <a href="https://app.saucelabs.com/dashboard/builds">Sauce Labs Dashboard</a>.</li>
@@ -28624,11 +28624,11 @@ Level <em>STEP</em> can show business-related information in the console output,
 <li><p>To set an environment variables permanently in Windows, you must append it to the <code>PATH</code> variable.</p></li>
 <li><p>Go to <strong>Control Panel &gt; System &gt; Windows version &gt; Advanced System Settings &gt; Environment Variables &gt; System
 Variables &gt; Edit &gt; New</strong></p></li>
-<li><p>Then set the &quot;Name&quot; and &quot;Value&quot; for each variable</p></li>
+<li><p>Then set the &quot;Name&quot; and &quot;Value&quot; for each variable.</p></li>
 </ul>
 
 <ol>
-<li><p>Test the environment variables</p>
+<li><p>Test the environment variables:</p>
 
 <p><strong>Mac OSX:</strong></p>
 
@@ -28636,10 +28636,9 @@ Variables &gt; Edit &gt; New</strong></p></li>
 
 <p>$ echo $SAUCE_ACCESS_KEY</p>
 
-<p><strong><em>WARNING FOR UNIX USERS!</em></strong>:</p></li>
-</ol>
+<p><strong><em>WARNING FOR UNIX USERS!</em></strong>:</p>
 
-<p>- If you have problems setting your environment variables, run the following commands in your terminal:</p>
+<p>If you have problems setting your environment variables, run the following commands in your terminal:</p>
 
 <p>$ launchctl setenv SAUCE_USERNAME $SAUCE_USERNAME</p>
 
@@ -28647,9 +28646,12 @@ Variables &gt; Edit &gt; New</strong></p></li>
 
 <p><strong>Windows:</strong></p>
 
-<p>&gt; echo %SAUCE_USERNAME%</p>
+<blockquote>
+<p>echo %SAUCE_USERNAME%</p>
 
-<p>&gt; echo %SAUCE_ACCESS_KEY%</p>
+<p>echo %SAUCE_ACCESS_KEY%</p>
+</blockquote></li>
+</ol>
 <h4 id='required-sauce-lab-capabilities'>Required Sauce Lab Capabilities</h4>
 <p>Following capabilities are required for Sauce Lab:</p>
 
@@ -28665,12 +28667,12 @@ Variables &gt; Edit &gt; New</strong></p></li>
 <ul>
 <li><p>maxDuration - how long is the whole test allowed to run</p></li>
 <li><p>commandTimeout - the max time allowed to wait for a Selenium command</p></li>
-<li><p>idleTimeout - how long can the browser wait for a new command </p></li>
+<li><p>idleTimeout - how long can the browser wait for a new command.</p></li>
 </ul>
 
 <p>More optional capabilities can be found <a href="https://github.com/saucelabs-training/demo-java/blob/master/on-boarding-modules/testng/src/test/java/Module4TestNGTest.java">here</a></p>
 <h4 id='jdi-options'>JDI options</h4>
-<p>In order to run test with Sauce Lab you need set up remote settings in test.properties file.</p>
+<p>In order to run test with Sauce Lab you need set up remote settings in test.properties file:</p>
 
 <ul>
 <li><p>remote.type=sauce</p></li>
@@ -28681,7 +28683,7 @@ Variables &gt; Edit &gt; New</strong></p></li>
 
 <p>Remote url should be different if you are from US.</p>
 
-<p>And that it. Set Sauce Lab capabilities, set remote execution in test.properties and you can run test with Sauce Lab</p>
+<p>And that it. Set Sauce Lab capabilities, set remote execution in test.properties and you can run test with Sauce Labs.</p>
 <h2 id='multiple-domains-example'>Multiple domains example</h2>
 <p>Here is the example <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/MultipleDomainsExampleTest.java">MultipleDomainsExampleTest.java</a> 
 of test class with multiple domain. For this example the following files were added to the project:</p>

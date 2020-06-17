@@ -20922,7 +20922,7 @@ TBD
 
 ## SauceLabs integration
 
-Before running JDI project in Sauce Lab, you need to set up Sauce Lab Credentials.
+Before running JDI project in Sauce Lab, you need to set up Sauce Lab Credentials
 
 #### Set Your Sauce Labs Credentials
 1. Copy your Sauce Labs **username** and **accessKey** in the [User Settings](https://app.saucelabs.com/user-settings) section of the [Sauce Labs Dashboard](https://app.saucelabs.com/dashboard/builds).
@@ -20945,9 +20945,9 @@ Before running JDI project in Sauce Lab, you need to set up Sauce Lab Credential
    - Go to **Control Panel > System > Windows version > Advanced System Settings > Environment Variables > System
     Variables > Edit > New**
 
-   - Then set the "Name" and "Value" for each variable.
+   - Then set the "Name" and "Value" for each variable
 
-3. Test the environment variables:
+3. Test the environment variables
 
     **Mac OSX:**
 
@@ -20957,17 +20957,17 @@ Before running JDI project in Sauce Lab, you need to set up Sauce Lab Credential
 
     ***WARNING FOR UNIX USERS!***:
 
-       If you have problems setting your environment variables, run the following commands in your terminal:
+    - If you have problems setting your environment variables, run the following commands in your terminal:
 
-       $ launchctl setenv SAUCE_USERNAME $SAUCE_USERNAME
+    $ launchctl setenv SAUCE_USERNAME $SAUCE_USERNAME
 
-       $ launchctl setenv SAUCE_ACCESS_KEY $SAUCE_ACCESS_KEY
+    $ launchctl setenv SAUCE_ACCESS_KEY $SAUCE_ACCESS_KEY
 
     **Windows:**
 
-     > echo %SAUCE_USERNAME%
+    > echo %SAUCE_USERNAME%
 
-     > echo %SAUCE_ACCESS_KEY%
+    > echo %SAUCE_ACCESS_KEY%
 
 #### Required Sauce Lab Capabilities
 
@@ -20987,13 +20987,13 @@ Here some optional capabilities:
 
 - commandTimeout - the max time allowed to wait for a Selenium command
 
-- idleTimeout - how long can the browser wait for a new command.
+- idleTimeout - how long can the browser wait for a new command 
 
 More optional capabilities can be found [here](https://github.com/saucelabs-training/demo-java/blob/master/on-boarding-modules/testng/src/test/java/Module4TestNGTest.java)
 
 #### JDI options
 
-In order to run test with Sauce Lab you need set up remote settings in test.properties file:
+In order to run test with Sauce Lab you need set up remote settings in test.properties file.
 
 - remote.type=sauce
 
@@ -21003,7 +21003,7 @@ See your personal remote url: [here](https://app.saucelabs.com/user-settings) lo
 
 Remote url should be different if you are from US.
 
-And that it. Set Sauce Lab capabilities, set remote execution in test.properties and you can run test with Sauce Labs.
+And that it. Set Sauce Lab capabilities, set remote execution in test.properties and you can run test with Sauce Lab
 
 ## Multiple domains example
 Here is the example [MultipleDomainsExampleTest.java](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/MultipleDomainsExampleTest.java) 

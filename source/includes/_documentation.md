@@ -20957,11 +20957,11 @@ Before running JDI project in Sauce Lab, you need to set up Sauce Lab Credential
 
     ***WARNING FOR UNIX USERS!***:
 
-    If you have problems setting your environment variables, run the following commands in your terminal:
+       If you have problems setting your environment variables, run the following commands in your terminal:
 
-    $ launchctl setenv SAUCE_USERNAME $SAUCE_USERNAME
+       $ launchctl setenv SAUCE_USERNAME $SAUCE_USERNAME
 
-    $ launchctl setenv SAUCE_ACCESS_KEY $SAUCE_ACCESS_KEY
+       $ launchctl setenv SAUCE_ACCESS_KEY $SAUCE_ACCESS_KEY
 
     **Windows:**
 

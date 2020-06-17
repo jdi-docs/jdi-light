@@ -20963,11 +20963,11 @@ Before running JDI project in Sauce Lab, you need to set up Sauce Lab Credential
 
        $ launchctl setenv SAUCE_ACCESS_KEY $SAUCE_ACCESS_KEY
 
-    **Windows:**
+   **Windows:**
 
-     > echo %SAUCE_USERNAME%
+   > echo %SAUCE_USERNAME%
 
-     > echo %SAUCE_ACCESS_KEY%
+   > echo %SAUCE_ACCESS_KEY%
 
 #### Required Sauce Lab Capabilities
 

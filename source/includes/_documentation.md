@@ -4337,8 +4337,302 @@ There is two different checkboxes in Angular: Basic and Configurable:
 **deselected()** | Verify state | boolean
 
 #### <a href="https://github.com/jdi-testing/jdi-light/tree/angular/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests" target="_blank">Here you can find Checkbox tests</a>
- 
 
+
+### Inputs
+
+```java 
+    @UI("#inputs_basic_food")
+    public static TextField foodBasicInput;
+
+    @UI("#inputs_basic_comment")
+    public static TextField leaveACommentBasicInput;
+
+    @UI("#inputs_errorStateMatcher_email")
+    public static TextField emailErrorStateMatcherInput;
+
+    @UI("#inputs_errorStateMatcher_message")
+    public static Text errorStateMatcherMessageInput;
+
+    @UI("#inputs_autosize_textarea")
+    public static TextArea autoSizeTextArea;
+
+    @UI("#inputs_clearable_textbox")
+    public static TextArea clearableInput;
+
+    @UI("#inputs_clearable_button")
+    public static Button clearableInputButton;
+
+
+    @Test
+    public void basicInputTest() {
+        foodBasicInput.isDisplayed();
+        foodBasicInput.clear();
+        foodBasicInput.setText("Lasagna");
+        foodBasicInput.is().text("Lasagna");
+        foodBasicInput.clear();
+        foodBasicInput.sendKeys("Ice Cream");
+        foodBasicInput.is().text(containsString("Ice"));
+
+        leaveACommentBasicInput.isDisplayed();
+        leaveACommentBasicInput.sendKeys("Delicious");
+        leaveACommentBasicInput.is().text("Delicious");
+    }
+
+    @Test
+    public void inputWithACustomErrorStateMatcherTest() {
+        emailErrorStateMatcherInput.isDisplayed();
+        emailErrorStateMatcherInput.sendKeys("test");
+        errorStateMatcherMessageInput.is().text("Please enter a valid email address");
+    }
+    
+    @Test
+    public void autoResizingTextAreaTest() {
+        autoSizeTextArea.isDisplayed();
+        autoSizeTextArea.hasClass("cdktextareaautosize");
+        autoSizeTextArea.setLines("line1", "line2");
+        autoSizeTextArea.addNewLine("line3");
+        autoSizeTextArea.is().text("line1\nline2\nline3");
+        autoSizeTextArea.clear();
+        autoSizeTextArea.is().text("");
+        autoSizeTextArea.setText("TextArea");
+        autoSizeTextArea.is().text(containsString("Text"));
+    }
+    
+    @Test
+    public void clearableInputTest() {
+        clearableInput.isDisplayed();
+        clearableInput.clear();
+        clearableInput.sendKeys("test");
+        clearableInputButton.isDisplayed();
+        clearableInputButton.click();
+        clearableInput.is().text("");
+    }
+
+    @Test
+    public void inputWithErrorMessagesTest() {
+        emailInput.isDisplayed();
+        emailInput.sendKeys("test");
+        emailInput.sendKeys(Keys.ENTER);
+        errorMessageInput.isDisplayed();
+        errorMessageInput.is().text("Please enter a valid email address");
+    }
+
+    @Test
+    public void inputsInAFormTest() {
+        inputsForm.fill(DEFAULT_USER);
+        firstName.is().text(DEFAULT_USER.firstName);
+        lastName.is().text(DEFAULT_USER.lastName);
+        address.is().text(DEFAULT_USER.address);
+        address2.is().text(DEFAULT_USER.address2);
+        city.is().text(DEFAULT_USER.city);
+        state.is().text(DEFAULT_USER.state);
+        postalCode.is().text(DEFAULT_USER.postalCode);
+    }
+
+    @Test
+    public void inputWithHintsTest() {
+        messageHintInput.isDisplayed();
+        messageHintInput.sendKeys("test");
+        messageHint.isDisplayed();
+        messageHint.is().text("Don't disclose personal info");
+        messageCounterHint.isDisplayed();
+        messageCounterHint.is().text("4 / 256");
+    }
+
+    @Test
+    public void inputWithPrefixesAndSuffixesTest() {
+        prefixInput.isDisplayed();
+        suffixInput.isDisplayed();
+        telephoneInput.isDisplayed();
+        telephoneInput.sendKeys("0123456789");
+        telephoneInput.clear();
+        telephoneInput.is().text("");
+    }
+```
+#### <a href="https://material.angular.io/components/input/overview" target="_blank">Input overview</a>
+
+Input is located in the following class:
+
+   - __Java__: _com.epam.jdi.light.ui.html.elements.common.TextField, _com.epam.jdi.light.ui.html.elements.common.TextArea
+
+There are eight different inputs in Angular:
+* Basic inputs
+* Input with a custom ErrorStateMatcher
+* Auto-resizing textarea
+* Input with a clear button
+* Input with error messages
+* Input in a form
+* Input with hints
+* Input with prefixes and suffixes
+
+![Basic inputs](../images/angular/basic_inputs.png)
+```html
+<input _ngcontent-ohc-c255="" matinput="" id="inputs_basic_food" placeholder="Ex. Pizza" value="Sushi" class="mat-input-element mat-form-field-autofill-control ng-tns-c94-34 cdk-text-field-autofill-monitored" aria-invalid="false" aria-required="false">
+```
+
+|Method | Description | Return Type
+--- | --- | ---
+**focus()** | place cursor within the text field | void
+**sendKeys(String value)** | send text to the text field | void
+**setText(String value)** | set text | void
+**input(String value)** | set text | void
+**getText()** | returns text from the text field | String
+**getValue()** | returns text from the text field | String
+**clear()** | clears the text field | void
+**is()** | property that returns object for work with assertions | TextAssert
+**placeholder()** | returns value of placeholder attribute | String
+
+
+![Input with a custom ErrorStateMatcher](../images/angular/input_with_a_custom_errorstatematcher.png)
+```html
+<input _ngcontent-ohc-c256="" matinput="" id="inputs_errorStateMatcher_email" placeholder="Ex. pat@example.com" class="mat-input-element mat-form-field-autofill-control ng-tns-c94-39 cdk-text-field-autofill-monitored ng-untouched ng-pristine ng-invalid" aria-describedby="mat-hint-3" aria-invalid="false" aria-required="false">
+```
+
+|Method | Description | Return Type
+--- | --- | ---
+**focus()** | place cursor within the text field | void
+**sendKeys(String value)** | send text to the text field | void
+**setText(String value)** | set text | void
+**input(String value)** | set text | void
+**getText()** | returns text from the text field | String
+**getValue()** | returns text from the text field | String
+**clear()** | clears the text field | void
+**is()** | property that returns object for work with assertions | TextAssert
+**placeholder()** | returns value of placeholder attribute | String
+
+
+![Auto-resizing textarea](../images/angular/auto_resizing_textarea.png)
+```html
+<textarea _ngcontent-ohc-c257="" rows="1" matinput="" id="inputs_autosize_textarea" cdktextareaautosize="" cdkautosizeminrows="1" cdkautosizemaxrows="5" class="mat-input-element mat-form-field-autofill-control cdk-textarea-autosize ng-tns-c94-42 cdk-text-field-autofill-monitored" aria-invalid="false" aria-required="false" style="min-height: 18px; max-height: 90px; height: 18px;"></textarea>
+```
+
+|Method | Description | Return Type
+--- | --- | ---
+**addNewLine(String line)** | add line to the already existing | void
+**cols()** | returns value of cols attribute | int
+**rows()** | returns value of rows attribute | int
+**setText(String value)** | set text | void
+**input(String value)** | set text | void
+**getText()** | returns text from the textarea | String
+**getValue()** | returns text from the textarea | String
+**labelText()** | returns value of TextArea label | String
+**maxlength()** | returns value of maxlength attribute | int
+**minlengt()** | returns value of minlength attribute | int
+**clear()** | clears the text field | void
+**is()** | property that returns object for work with assertions | TextAssert
+**placeholder()** | returns value of placeholder attribute | String
+
+
+![Input with a clear button](../images/angular/input_with_a_clear_button.png)
+```html
+<input _ngcontent-ohc-c258="" matinput="" id="inputs_clearable_textbox" type="text" class="mat-input-element mat-form-field-autofill-control ng-tns-c94-43 cdk-text-field-autofill-monitored ng-untouched ng-pristine ng-valid" aria-invalid="false" aria-required="false">
+<button _ngcontent-ohc-c258="" mat-button="" id="inputs_clearable_button" matsuffix="" mat-icon-button="" aria-label="Clear" class="mat-focus-indicator mat-button mat-icon-button mat-button-base ng-tns-c94-43 ng-star-inserted"><span class="mat-button-wrapper"><mat-icon _ngcontent-ohc-c258="" role="img" class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true">close</mat-icon></span><div matripple="" class="mat-ripple mat-button-ripple mat-button-ripple-round"></div><div class="mat-button-focus-overlay"></div></button>
+```
+
+|Method | Description | Return Type
+--- | --- | ---
+**focus()** | place cursor within the text field | void
+**sendKeys(String value)** | send text to the text field | void
+**setText(String value)** | set text | void
+**input(String value)** | set text | void
+**getText()** | returns text from the text field | String
+**getValue()** | returns text from the text field | String
+**clear()** | clears the text field | void
+**is()** | property that returns object for work with assertions | TextAssert
+**placeholder()** | returns value of placeholder attribute | String
+
+
+![Input with error messages](../images/angular/input_with_error_messages.png)
+```html
+<input _ngcontent-ohc-c259="" matinput="" id="inputs_error_email" placeholder="Ex. pat@example.com" class="mat-input-element mat-form-field-autofill-control ng-tns-c94-44 cdk-text-field-autofill-monitored ng-untouched ng-pristine ng-invalid" aria-invalid="false" aria-required="false">
+```
+
+|Method | Description | Return Type
+--- | --- | ---
+**focus()** | place cursor within the text field | void
+**sendKeys(String value)** | send text to the text field | void
+**setText(String value)** | set text | void
+**input(String value)** | set text | void
+**getText()** | returns text from the text field | String
+**getValue()** | returns text from the text field | String
+**clear()** | clears the text field | void
+**is()** | property that returns object for work with assertions | TextAssert
+**placeholder()** | returns value of placeholder attribute | String
+
+
+![Inputs in a form](../images/angular/inputs_in_a_form.png)
+```html
+`h`
+```
+
+|Method | Description | Return Type
+--- | --- | ---
+**add(T entity)** | fills all settable elements and clicks “add” Button or ”addButton” | void
+**back(T entity)** | fills all settable elements and clicks “back” Button or ”backButton” | void
+**cancel(T entity)** | fills all settable elements and clicks “cancel” Button or ”cancelButton” | void
+**check(T entity)** | verifies that form has been filled correctly. If not, throws an exception | void
+**close(T entity)** | fills all settable elements and clicks “close” Button or ”closeButton” | void
+**next(T entity)** | fills all settable elements and clicks “next” Button or ”nextButton” | void
+**login(T entity)** | fills all settable elements and clicks “login” Button or ”loginButton” | void
+**publish(T entity)** | fills all settable elements and clicks “publish” Button or ”publishButton” | void
+**save(T entity)** | fills all settable elements and clicks “save” Button or ”saveButton” | void
+**select(T entity)** | fills all settable elements and clicks “select” Button or ”selectButton” | void
+**search(T entity)** | fills all settable elements and clicks “search” Button or ”searchButton” | void
+**login(T entity)** | fills all settable elements and clicks “login” Button or ”loginButton” | void
+**send(T entity)** | fills all settable elements and clicks “send” Button or ”sendButton” | void
+**submit(T entity)** | fills all settable elements and clicks “submit” Button or ”submitButton” | void
+**update(T entity)** | fills all settable elements and clicks “update” Button or ”updateButton” | void
+**fill(T entity)** | fills all settable elements of the form that can be matched with fields of the input entity | void
+**verify(T entity)** | verifies that form has been filled correctly. If not, returns a list of keys where verification has failed | List
+**fillAction(Field field, Object element, Object parent, String setValue)** | defines the specifics of how form elements will be filled | void
+**getAction(Field field, Object element, Object parent)** | defines the specifics of how form elements will be obtained for verification and checks | void
+**isDisplayed()** | check that form is displayed | boolean
+**isValid()** | check that form is valid | boolean
+**login()** | clicks “login” Button or ”loginButton” | boolean
+
+
+![Input with hints](../images/angular/input_with_hints.png)
+```html
+<input _ngcontent-ohc-c261="" matinput="" id="inputs_hints_message" maxlength="256" placeholder="Ex. I need help with..." class="mat-input-element mat-form-field-autofill-control ng-tns-c94-53 cdk-text-field-autofill-monitored" aria-describedby="inputs_hints_text inputs_hints_counter" aria-invalid="false" aria-required="false">
+<mat-hint _ngcontent-ohc-c261="" id="inputs_hints_text" class="mat-hint ng-tns-c94-53"><strong _ngcontent-ohc-c261="">Don't disclose personal info</strong></mat-hint>
+```
+
+|Method | Description | Return Type
+--- | --- | ---
+**focus()** | place cursor within the text field | void
+**sendKeys(String value)** | send text to the text field | void
+**setText(String value)** | set text | void
+**input(String value)** | set text | void
+**getText()** | returns text from the text field | String
+**getValue()** | returns text from the text field | String
+**clear()** | clears the text field | void
+**is()** | property that returns object for work with assertions | TextAssert
+**placeholder()** | returns value of placeholder attribute | String
+
+
+![Input with prefixes and suffixes](../images/angular/input_with_prefixes_and_suffixes.png)
+```html
+<span _ngcontent-ohc-c262="" matprefix="" id="inputs_prefixes" class="ng-tns-c94-54">+1 &nbsp;</span>
+<input _ngcontent-ohc-c262="" type="tel" matinput="" id="inputs_prefixes_suffixes_phone" placeholder="555-555-1234" class="mat-input-element mat-form-field-autofill-control ng-tns-c94-54 cdk-text-field-autofill-monitored" aria-invalid="false" aria-required="false">
+<mat-icon _ngcontent-ohc-c262="" role="img" matsuffix="" id="inputs_suffixes" class="mat-icon notranslate material-icons mat-icon-no-color ng-tns-c94-54" aria-hidden="true">edit</mat-icon>
+```
+
+|Method | Description | Return Type
+--- | --- | ---
+**focus()** | place cursor within the text field | void
+**sendKeys(String value)** | send text to the text field | void
+**setText(String value)** | set text | void
+**input(String value)** | set text | void
+**getText()** | returns text from the text field | String
+**getValue()** | returns text from the text field | String
+**clear()** | clears the text field | void
+**is()** | property that returns object for work with assertions | TextAssert
+**placeholder()** | returns value of placeholder attribute | String
+
+
+#### <a href="https://github.com/jdi-testing/jdi-light/tree/angular/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests" target="_blank">Here you can find Input tests</a>
+---
 ## Bootstrap Common elements
 
 ### Checkboxes and radios

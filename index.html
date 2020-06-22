@@ -9335,21 +9335,22 @@ Methods available for Java in JDI Light:</p>
            _com.epam.jdi.light.ui.html.elements.common.TextArea</li>
 </ul>
 
-<p>There are eight different inputs in Angular:
-- Basic inputs
-- Input with a custom ErrorStateMatcher
-- Auto-resizing textarea
-- Input with a clear button
-- Input with error messages
-- Input in a form
-- Input with hints
-- Input with prefixes and suffixes</p>
+<p>There are eight different inputs in Angular:</p>
 
-<p><img src="images/angular/basic_inputs.PNG" alt="Basic inputs" />
-<code>html
-&lt;input _ngcontent-ohc-c255=&quot;&quot; matinput=&quot;&quot; id=&quot;inputs_basic_food&quot; placeholder=&quot;Ex. Pizza&quot; value=&quot;Sushi&quot; class=&quot;mat-input-element mat-form-field-autofill-control ng-tns-c94-34 cdk-text-field-autofill-monitored&quot; aria-invalid=&quot;false&quot; aria-required=&quot;false&quot;&gt;
-</code></p>
+<ul>
+<li>Basic inputs</li>
+<li>Input with a custom ErrorStateMatcher</li>
+<li>Auto-resizing textarea</li>
+<li>Input with a clear button</li>
+<li>Input with error messages</li>
+<li>Input in a form</li>
+<li>Input with hints</li>
+<li>Input with prefixes and suffixes</li>
+</ul>
 
+<p><img src="images/angular/basic_inputs.PNG" alt="Basic inputs" /></p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;input</span> <span class="na">_ngcontent-ohc-c255=</span><span class="s">""</span> <span class="na">matinput=</span><span class="s">""</span> <span class="na">id=</span><span class="s">"inputs_basic_food"</span> <span class="na">placeholder=</span><span class="s">"Ex. Pizza"</span> <span class="na">value=</span><span class="s">"Sushi"</span> <span class="na">class=</span><span class="s">"mat-input-element mat-form-field-autofill-control ng-tns-c94-34 cdk-text-field-autofill-monitored"</span> <span class="na">aria-invalid=</span><span class="s">"false"</span> <span class="na">aria-required=</span><span class="s">"false"</span><span class="nt">&gt;</span>
+</code></pre>
 <table><thead>
 <tr>
 <th>Method</th>
@@ -9404,11 +9405,9 @@ Methods available for Java in JDI Light:</p>
 </tr>
 </tbody></table>
 
-<p><img src="images/angular/input_with_a_custom_errorstatematcher.PNG" alt="Input with a custom ErrorStateMatcher" />
-<code>html
-&lt;input _ngcontent-ohc-c256=&quot;&quot; matinput=&quot;&quot; id=&quot;inputs_errorStateMatcher_email&quot; placeholder=&quot;Ex. pat@example.com&quot; class=&quot;mat-input-element mat-form-field-autofill-control ng-tns-c94-39 cdk-text-field-autofill-monitored ng-untouched ng-pristine ng-invalid&quot; aria-describedby=&quot;mat-hint-3&quot; aria-invalid=&quot;false&quot; aria-required=&quot;false&quot;&gt;
-</code></p>
-
+<p><img src="images/angular/input_with_a_custom_errorstatematcher.PNG" alt="Input with a custom ErrorStateMatcher" /></p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;input</span> <span class="na">_ngcontent-ohc-c256=</span><span class="s">""</span> <span class="na">matinput=</span><span class="s">""</span> <span class="na">id=</span><span class="s">"inputs_errorStateMatcher_email"</span> <span class="na">placeholder=</span><span class="s">"Ex. pat@example.com"</span> <span class="na">class=</span><span class="s">"mat-input-element mat-form-field-autofill-control ng-tns-c94-39 cdk-text-field-autofill-monitored ng-untouched ng-pristine ng-invalid"</span> <span class="na">aria-describedby=</span><span class="s">"mat-hint-3"</span> <span class="na">aria-invalid=</span><span class="s">"false"</span> <span class="na">aria-required=</span><span class="s">"false"</span><span class="nt">&gt;</span>
+</code></pre>
 <table><thead>
 <tr>
 <th>Method</th>
@@ -9463,11 +9462,9 @@ Methods available for Java in JDI Light:</p>
 </tr>
 </tbody></table>
 
-<p><img src="images/angular/auto_resizing_textarea.PNG" alt="Auto-resizing textarea" />
-<code>html
-&lt;textarea _ngcontent-ohc-c257=&quot;&quot; rows=&quot;1&quot; matinput=&quot;&quot; id=&quot;inputs_autosize_textarea&quot; cdktextareaautosize=&quot;&quot; cdkautosizeminrows=&quot;1&quot; cdkautosizemaxrows=&quot;5&quot; class=&quot;mat-input-element mat-form-field-autofill-control cdk-textarea-autosize ng-tns-c94-42 cdk-text-field-autofill-monitored&quot; aria-invalid=&quot;false&quot; aria-required=&quot;false&quot; style=&quot;min-height: 18px; max-height: 90px; height: 18px;&quot;&gt;&lt;/textarea&gt;
-</code></p>
-
+<p><img src="images/angular/auto_resizing_textarea.PNG" alt="Auto-resizing textarea" /></p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;textarea</span> <span class="na">_ngcontent-ohc-c257=</span><span class="s">""</span> <span class="na">rows=</span><span class="s">"1"</span> <span class="na">matinput=</span><span class="s">""</span> <span class="na">id=</span><span class="s">"inputs_autosize_textarea"</span> <span class="na">cdktextareaautosize=</span><span class="s">""</span> <span class="na">cdkautosizeminrows=</span><span class="s">"1"</span> <span class="na">cdkautosizemaxrows=</span><span class="s">"5"</span> <span class="na">class=</span><span class="s">"mat-input-element mat-form-field-autofill-control cdk-textarea-autosize ng-tns-c94-42 cdk-text-field-autofill-monitored"</span> <span class="na">aria-invalid=</span><span class="s">"false"</span> <span class="na">aria-required=</span><span class="s">"false"</span> <span class="na">style=</span><span class="s">"min-height: 18px; max-height: 90px; height: 18px;"</span><span class="nt">&gt;&lt;/textarea&gt;</span>
+</code></pre>
 <table><thead>
 <tr>
 <th>Method</th>
@@ -9542,12 +9539,10 @@ Methods available for Java in JDI Light:</p>
 </tr>
 </tbody></table>
 
-<p><img src="images/angular/input_with_a_clear_button.PNG" alt="Input with a clear button" />
-<code>html
-&lt;input _ngcontent-ohc-c258=&quot;&quot; matinput=&quot;&quot; id=&quot;inputs_clearable_textbox&quot; type=&quot;text&quot; class=&quot;mat-input-element mat-form-field-autofill-control ng-tns-c94-43 cdk-text-field-autofill-monitored ng-untouched ng-pristine ng-valid&quot; aria-invalid=&quot;false&quot; aria-required=&quot;false&quot;&gt;
-&lt;button _ngcontent-ohc-c258=&quot;&quot; mat-button=&quot;&quot; id=&quot;inputs_clearable_button&quot; matsuffix=&quot;&quot; mat-icon-button=&quot;&quot; aria-label=&quot;Clear&quot; class=&quot;mat-focus-indicator mat-button mat-icon-button mat-button-base ng-tns-c94-43 ng-star-inserted&quot;&gt;&lt;span class=&quot;mat-button-wrapper&quot;&gt;&lt;mat-icon _ngcontent-ohc-c258=&quot;&quot; role=&quot;img&quot; class=&quot;mat-icon notranslate material-icons mat-icon-no-color&quot; aria-hidden=&quot;true&quot;&gt;close&lt;/mat-icon&gt;&lt;/span&gt;&lt;div matripple=&quot;&quot; class=&quot;mat-ripple mat-button-ripple mat-button-ripple-round&quot;&gt;&lt;/div&gt;&lt;div class=&quot;mat-button-focus-overlay&quot;&gt;&lt;/div&gt;&lt;/button&gt;
-</code></p>
-
+<p><img src="images/angular/input_with_a_clear_button.PNG" alt="Input with a clear button" /></p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;input</span> <span class="na">_ngcontent-ohc-c258=</span><span class="s">""</span> <span class="na">matinput=</span><span class="s">""</span> <span class="na">id=</span><span class="s">"inputs_clearable_textbox"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"mat-input-element mat-form-field-autofill-control ng-tns-c94-43 cdk-text-field-autofill-monitored ng-untouched ng-pristine ng-valid"</span> <span class="na">aria-invalid=</span><span class="s">"false"</span> <span class="na">aria-required=</span><span class="s">"false"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">_ngcontent-ohc-c258=</span><span class="s">""</span> <span class="na">mat-button=</span><span class="s">""</span> <span class="na">id=</span><span class="s">"inputs_clearable_button"</span> <span class="na">matsuffix=</span><span class="s">""</span> <span class="na">mat-icon-button=</span><span class="s">""</span> <span class="na">aria-label=</span><span class="s">"Clear"</span> <span class="na">class=</span><span class="s">"mat-focus-indicator mat-button mat-icon-button mat-button-base ng-tns-c94-43 ng-star-inserted"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"mat-button-wrapper"</span><span class="nt">&gt;&lt;mat-icon</span> <span class="na">_ngcontent-ohc-c258=</span><span class="s">""</span> <span class="na">role=</span><span class="s">"img"</span> <span class="na">class=</span><span class="s">"mat-icon notranslate material-icons mat-icon-no-color"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span>close<span class="nt">&lt;/mat-icon&gt;&lt;/span&gt;&lt;div</span> <span class="na">matripple=</span><span class="s">""</span> <span class="na">class=</span><span class="s">"mat-ripple mat-button-ripple mat-button-ripple-round"</span><span class="nt">&gt;&lt;/div&gt;&lt;div</span> <span class="na">class=</span><span class="s">"mat-button-focus-overlay"</span><span class="nt">&gt;&lt;/div&gt;&lt;/button&gt;</span>
+</code></pre>
 <table><thead>
 <tr>
 <th>Method</th>
@@ -9602,11 +9597,9 @@ Methods available for Java in JDI Light:</p>
 </tr>
 </tbody></table>
 
-<p><img src="images/angular/input_with_error_messages.PNG" alt="Input with error messages" />
-<code>html
-&lt;input _ngcontent-ohc-c259=&quot;&quot; matinput=&quot;&quot; id=&quot;inputs_error_email&quot; placeholder=&quot;Ex. pat@example.com&quot; class=&quot;mat-input-element mat-form-field-autofill-control ng-tns-c94-44 cdk-text-field-autofill-monitored ng-untouched ng-pristine ng-invalid&quot; aria-invalid=&quot;false&quot; aria-required=&quot;false&quot;&gt;
-</code></p>
-
+<p><img src="images/angular/input_with_error_messages.PNG" alt="Input with error messages" /></p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;input</span> <span class="na">_ngcontent-ohc-c259=</span><span class="s">""</span> <span class="na">matinput=</span><span class="s">""</span> <span class="na">id=</span><span class="s">"inputs_error_email"</span> <span class="na">placeholder=</span><span class="s">"Ex. pat@example.com"</span> <span class="na">class=</span><span class="s">"mat-input-element mat-form-field-autofill-control ng-tns-c94-44 cdk-text-field-autofill-monitored ng-untouched ng-pristine ng-invalid"</span> <span class="na">aria-invalid=</span><span class="s">"false"</span> <span class="na">aria-required=</span><span class="s">"false"</span><span class="nt">&gt;</span>
+</code></pre>
 <table><thead>
 <tr>
 <th>Method</th>
@@ -9661,11 +9654,9 @@ Methods available for Java in JDI Light:</p>
 </tr>
 </tbody></table>
 
-<p><img src="images/angular/inputs_in_a_form.PNG" alt="Inputs in a form" />
-<code>html
-&lt;form _ngcontent-sod-c260=&quot;&quot; novalidate=&quot;&quot; class=&quot;example-form ng-untouched ng-pristine ng-valid&quot;&gt;&lt;/form&gt;
-</code></p>
-
+<p><img src="images/angular/inputs_in_a_form.PNG" alt="Inputs in a form" /></p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;form</span> <span class="na">_ngcontent-sod-c260=</span><span class="s">""</span> <span class="na">novalidate=</span><span class="s">""</span> <span class="na">class=</span><span class="s">"example-form ng-untouched ng-pristine ng-valid"</span><span class="nt">&gt;&lt;/form&gt;</span>
+</code></pre>
 <table><thead>
 <tr>
 <th>Method</th>
@@ -9785,12 +9776,10 @@ Methods available for Java in JDI Light:</p>
 </tr>
 </tbody></table>
 
-<p><img src="images/angular/input_with_hints.PNG" alt="Input with hints" />
-<code>html
-&lt;input _ngcontent-ohc-c261=&quot;&quot; matinput=&quot;&quot; id=&quot;inputs_hints_message&quot; maxlength=&quot;256&quot; placeholder=&quot;Ex. I need help with...&quot; class=&quot;mat-input-element mat-form-field-autofill-control ng-tns-c94-53 cdk-text-field-autofill-monitored&quot; aria-describedby=&quot;inputs_hints_text inputs_hints_counter&quot; aria-invalid=&quot;false&quot; aria-required=&quot;false&quot;&gt;
-&lt;mat-hint _ngcontent-ohc-c261=&quot;&quot; id=&quot;inputs_hints_text&quot; class=&quot;mat-hint ng-tns-c94-53&quot;&gt;&lt;strong _ngcontent-ohc-c261=&quot;&quot;&gt;Don&#39;t disclose personal info&lt;/strong&gt;&lt;/mat-hint&gt;
-</code></p>
-
+<p><img src="images/angular/input_with_hints.PNG" alt="Input with hints" /></p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;input</span> <span class="na">_ngcontent-ohc-c261=</span><span class="s">""</span> <span class="na">matinput=</span><span class="s">""</span> <span class="na">id=</span><span class="s">"inputs_hints_message"</span> <span class="na">maxlength=</span><span class="s">"256"</span> <span class="na">placeholder=</span><span class="s">"Ex. I need help with..."</span> <span class="na">class=</span><span class="s">"mat-input-element mat-form-field-autofill-control ng-tns-c94-53 cdk-text-field-autofill-monitored"</span> <span class="na">aria-describedby=</span><span class="s">"inputs_hints_text inputs_hints_counter"</span> <span class="na">aria-invalid=</span><span class="s">"false"</span> <span class="na">aria-required=</span><span class="s">"false"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;mat-hint</span> <span class="na">_ngcontent-ohc-c261=</span><span class="s">""</span> <span class="na">id=</span><span class="s">"inputs_hints_text"</span> <span class="na">class=</span><span class="s">"mat-hint ng-tns-c94-53"</span><span class="nt">&gt;&lt;strong</span> <span class="na">_ngcontent-ohc-c261=</span><span class="s">""</span><span class="nt">&gt;</span>Don't disclose personal info<span class="nt">&lt;/strong&gt;&lt;/mat-hint&gt;</span>
+</code></pre>
 <table><thead>
 <tr>
 <th>Method</th>
@@ -9845,13 +9834,11 @@ Methods available for Java in JDI Light:</p>
 </tr>
 </tbody></table>
 
-<p><img src="images/angular/input_with_prefixes_and_suffixes.PNG" alt="Input with prefixes and suffixes" />
-<code>html
-&lt;span _ngcontent-ohc-c262=&quot;&quot; matprefix=&quot;&quot; id=&quot;inputs_prefixes&quot; class=&quot;ng-tns-c94-54&quot;&gt;+1 &amp;nbsp;&lt;/span&gt;
-&lt;input _ngcontent-ohc-c262=&quot;&quot; type=&quot;tel&quot; matinput=&quot;&quot; id=&quot;inputs_prefixes_suffixes_phone&quot; placeholder=&quot;555-555-1234&quot; class=&quot;mat-input-element mat-form-field-autofill-control ng-tns-c94-54 cdk-text-field-autofill-monitored&quot; aria-invalid=&quot;false&quot; aria-required=&quot;false&quot;&gt;
-&lt;mat-icon _ngcontent-ohc-c262=&quot;&quot; role=&quot;img&quot; matsuffix=&quot;&quot; id=&quot;inputs_suffixes&quot; class=&quot;mat-icon notranslate material-icons mat-icon-no-color ng-tns-c94-54&quot; aria-hidden=&quot;true&quot;&gt;edit&lt;/mat-icon&gt;
-</code></p>
-
+<p><img src="images/angular/input_with_prefixes_and_suffixes.PNG" alt="Input with prefixes and suffixes" /></p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;span</span> <span class="na">_ngcontent-ohc-c262=</span><span class="s">""</span> <span class="na">matprefix=</span><span class="s">""</span> <span class="na">id=</span><span class="s">"inputs_prefixes"</span> <span class="na">class=</span><span class="s">"ng-tns-c94-54"</span><span class="nt">&gt;</span>+1 <span class="ni">&amp;nbsp;</span><span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">_ngcontent-ohc-c262=</span><span class="s">""</span> <span class="na">type=</span><span class="s">"tel"</span> <span class="na">matinput=</span><span class="s">""</span> <span class="na">id=</span><span class="s">"inputs_prefixes_suffixes_phone"</span> <span class="na">placeholder=</span><span class="s">"555-555-1234"</span> <span class="na">class=</span><span class="s">"mat-input-element mat-form-field-autofill-control ng-tns-c94-54 cdk-text-field-autofill-monitored"</span> <span class="na">aria-invalid=</span><span class="s">"false"</span> <span class="na">aria-required=</span><span class="s">"false"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;mat-icon</span> <span class="na">_ngcontent-ohc-c262=</span><span class="s">""</span> <span class="na">role=</span><span class="s">"img"</span> <span class="na">matsuffix=</span><span class="s">""</span> <span class="na">id=</span><span class="s">"inputs_suffixes"</span> <span class="na">class=</span><span class="s">"mat-icon notranslate material-icons mat-icon-no-color ng-tns-c94-54"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span>edit<span class="nt">&lt;/mat-icon&gt;</span>
+</code></pre>
 <table><thead>
 <tr>
 <th>Method</th>

@@ -581,6 +581,9 @@
                             <li>
 								<a href="#checkboxes" class="toc-h2 h3 toc-link" data-title="Checkboxes">Checkboxes</a>
                             </li>
+                            <li>
+								<a href="#inputs" class="toc-h2 h3 toc-link" data-title="Inputs">Inputs</a>
+                            </li>
                         </ul>
                   </li>
                   <li>
@@ -9210,7 +9213,700 @@ Methods available for Java in JDI Light:</p>
 <td>boolean</td>
 </tr>
 </tbody></table>
-<h4 id='here-you-can-find-checkbox-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/CheckboxTests.java" target="_blank">Here you can find Checkbox tests</a></h4><h2 id='bootstrap-common-elements'>Bootstrap Common elements</h2><h3 id='checkboxes-and-radios'>Checkboxes and radios</h3><h4 id='checkbox-default'><a href="https://getbootstrap.com/docs/4.3/components/buttons/" target="_blank">Checkbox default</a></h4>
+<h4 id='here-you-can-find-checkbox-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/CheckboxTests.java" target="_blank">Here you can find Checkbox tests</a></h4><h3 id='inputs'>Inputs</h3><pre class="highlight java tab-java"><code>    <span class="c1">//@FindBy(id="inputs_basic_food") public static TextField foodBasicInput;</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#inputs_basic_food"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">TextField</span> <span class="n">foodBasicInput</span><span class="o">;</span>
+
+    <span class="c1">//@FindBy(id="inputs_basic_comment") public static TextField leaveACommentBasicInput;</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#inputs_basic_comment"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">TextField</span> <span class="n">leaveACommentBasicInput</span><span class="o">;</span>
+
+    <span class="c1">//@FindBy(id="inputs_errorStateMatcher_email") public static TextField emailErrorStateMatcherInput;</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#inputs_errorStateMatcher_email"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">TextField</span> <span class="n">emailErrorStateMatcherInput</span><span class="o">;</span>
+
+    <span class="c1">//@FindBy(id="inputs_errorStateMatcher_message") public static TextField errorStateMatcherMessageInput;</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#inputs_errorStateMatcher_message"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Text</span> <span class="n">errorStateMatcherMessageInput</span><span class="o">;</span>
+
+    <span class="c1">//@FindBy(id="inputs_autosize_textarea") public static TextField autoSizeTextArea;</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#inputs_autosize_textarea"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">TextArea</span> <span class="n">autoSizeTextArea</span><span class="o">;</span>
+
+    <span class="c1">//@FindBy(id="inputs_clearable_textbox") public static TextField clearableInput;</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#inputs_clearable_textbox"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">TextArea</span> <span class="n">clearableInput</span><span class="o">;</span>
+
+    <span class="c1">//@FindBy(id="inputs_clearable_button") public static TextField clearableInputButton;</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#inputs_clearable_button"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Button</span> <span class="n">clearableInputButton</span><span class="o">;</span>
+
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">basicInputTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">foodBasicInput</span><span class="o">.</span><span class="na">isDisplayed</span><span class="o">();</span>
+        <span class="n">foodBasicInput</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
+        <span class="n">foodBasicInput</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="s">"Lasagna"</span><span class="o">);</span>
+        <span class="n">foodBasicInput</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Lasagna"</span><span class="o">);</span>
+        <span class="n">foodBasicInput</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
+        <span class="n">foodBasicInput</span><span class="o">.</span><span class="na">sendKeys</span><span class="o">(</span><span class="s">"Ice Cream"</span><span class="o">);</span>
+        <span class="n">foodBasicInput</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"Ice"</span><span class="o">));</span>
+
+        <span class="n">leaveACommentBasicInput</span><span class="o">.</span><span class="na">isDisplayed</span><span class="o">();</span>
+        <span class="n">leaveACommentBasicInput</span><span class="o">.</span><span class="na">sendKeys</span><span class="o">(</span><span class="s">"Delicious"</span><span class="o">);</span>
+        <span class="n">leaveACommentBasicInput</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Delicious"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">inputWithACustomErrorStateMatcherTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">emailErrorStateMatcherInput</span><span class="o">.</span><span class="na">isDisplayed</span><span class="o">();</span>
+        <span class="n">emailErrorStateMatcherInput</span><span class="o">.</span><span class="na">sendKeys</span><span class="o">(</span><span class="s">"test"</span><span class="o">);</span>
+        <span class="n">errorStateMatcherMessageInput</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Please enter a valid email address"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">autoResizingTextAreaTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">autoSizeTextArea</span><span class="o">.</span><span class="na">isDisplayed</span><span class="o">();</span>
+        <span class="n">autoSizeTextArea</span><span class="o">.</span><span class="na">hasClass</span><span class="o">(</span><span class="s">"cdktextareaautosize"</span><span class="o">);</span>
+        <span class="n">autoSizeTextArea</span><span class="o">.</span><span class="na">setLines</span><span class="o">(</span><span class="s">"line1"</span><span class="o">,</span> <span class="s">"line2"</span><span class="o">);</span>
+        <span class="n">autoSizeTextArea</span><span class="o">.</span><span class="na">addNewLine</span><span class="o">(</span><span class="s">"line3"</span><span class="o">);</span>
+        <span class="n">autoSizeTextArea</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"line1\nline2\nline3"</span><span class="o">);</span>
+        <span class="n">autoSizeTextArea</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
+        <span class="n">autoSizeTextArea</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">""</span><span class="o">);</span>
+        <span class="n">autoSizeTextArea</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="s">"TextArea"</span><span class="o">);</span>
+        <span class="n">autoSizeTextArea</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"Text"</span><span class="o">));</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">clearableInputTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">clearableInput</span><span class="o">.</span><span class="na">isDisplayed</span><span class="o">();</span>
+        <span class="n">clearableInput</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
+        <span class="n">clearableInput</span><span class="o">.</span><span class="na">sendKeys</span><span class="o">(</span><span class="s">"test"</span><span class="o">);</span>
+        <span class="n">clearableInputButton</span><span class="o">.</span><span class="na">isDisplayed</span><span class="o">();</span>
+        <span class="n">clearableInputButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">clearableInput</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">""</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">inputWithErrorMessagesTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">emailInput</span><span class="o">.</span><span class="na">isDisplayed</span><span class="o">();</span>
+        <span class="n">emailInput</span><span class="o">.</span><span class="na">sendKeys</span><span class="o">(</span><span class="s">"test"</span><span class="o">);</span>
+        <span class="n">emailInput</span><span class="o">.</span><span class="na">sendKeys</span><span class="o">(</span><span class="n">Keys</span><span class="o">.</span><span class="na">ENTER</span><span class="o">);</span>
+        <span class="n">errorMessageInput</span><span class="o">.</span><span class="na">isDisplayed</span><span class="o">();</span>
+        <span class="n">errorMessageInput</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Please enter a valid email address"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">inputsInAFormTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">inputsForm</span><span class="o">.</span><span class="na">fill</span><span class="o">(</span><span class="n">DEFAULT_USER</span><span class="o">);</span>
+        <span class="n">firstName</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">DEFAULT_USER</span><span class="o">.</span><span class="na">firstName</span><span class="o">);</span>
+        <span class="n">lastName</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">DEFAULT_USER</span><span class="o">.</span><span class="na">lastName</span><span class="o">);</span>
+        <span class="n">address</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">DEFAULT_USER</span><span class="o">.</span><span class="na">address</span><span class="o">);</span>
+        <span class="n">address2</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">DEFAULT_USER</span><span class="o">.</span><span class="na">address2</span><span class="o">);</span>
+        <span class="n">city</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">DEFAULT_USER</span><span class="o">.</span><span class="na">city</span><span class="o">);</span>
+        <span class="n">state</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">DEFAULT_USER</span><span class="o">.</span><span class="na">state</span><span class="o">);</span>
+        <span class="n">postalCode</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">DEFAULT_USER</span><span class="o">.</span><span class="na">postalCode</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">inputWithHintsTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">messageHintInput</span><span class="o">.</span><span class="na">isDisplayed</span><span class="o">();</span>
+        <span class="n">messageHintInput</span><span class="o">.</span><span class="na">sendKeys</span><span class="o">(</span><span class="s">"test"</span><span class="o">);</span>
+        <span class="n">messageHint</span><span class="o">.</span><span class="na">isDisplayed</span><span class="o">();</span>
+        <span class="n">messageHint</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Don't disclose personal info"</span><span class="o">);</span>
+        <span class="n">messageCounterHint</span><span class="o">.</span><span class="na">isDisplayed</span><span class="o">();</span>
+        <span class="n">messageCounterHint</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"4 / 256"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">inputWithPrefixesAndSuffixesTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">prefixInput</span><span class="o">.</span><span class="na">isDisplayed</span><span class="o">();</span>
+        <span class="n">suffixInput</span><span class="o">.</span><span class="na">isDisplayed</span><span class="o">();</span>
+        <span class="n">telephoneInput</span><span class="o">.</span><span class="na">isDisplayed</span><span class="o">();</span>
+        <span class="n">telephoneInput</span><span class="o">.</span><span class="na">sendKeys</span><span class="o">(</span><span class="s">"0123456789"</span><span class="o">);</span>
+        <span class="n">telephoneInput</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
+        <span class="n">telephoneInput</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">""</span><span class="o">);</span>
+    <span class="o">}</span>
+</code></pre><h4 id='input-overview'><a href="https://material.angular.io/components/input/overview" target="_blank">Input overview</a></h4>
+<p>Input is located in the following class:</p>
+
+<ul>
+<li><strong>Java</strong>: _com.epam.jdi.light.ui.html.elements.common.TextField, _com.epam.jdi.light.ui.html.elements.common.TextArea</li>
+</ul>
+
+<p>There are eight different inputs in Angular:
+* Basic inputs
+* Input with a custom ErrorStateMatcher
+* Auto-resizing textarea
+* Input with a clear button
+* Input with error messages
+* Input in a form
+* Input with hints
+* Input with prefixes and suffixes</p>
+
+<p><img src="images/angular/basic_inputs.png" alt="Basic inputs" />
+<code>html
+&lt;input _ngcontent-ohc-c255=&quot;&quot; matinput=&quot;&quot; id=&quot;inputs_basic_food&quot; placeholder=&quot;Ex. Pizza&quot; value=&quot;Sushi&quot; class=&quot;mat-input-element mat-form-field-autofill-control ng-tns-c94-34 cdk-text-field-autofill-monitored&quot; aria-invalid=&quot;false&quot; aria-required=&quot;false&quot;&gt;
+</code></p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>focus()</strong></td>
+<td>place cursor within the text field</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>sendKeys(String value)</strong></td>
+<td>send text to the text field</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>setText(String value)</strong></td>
+<td>set text</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>input(String value)</strong></td>
+<td>set text</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>getText()</strong></td>
+<td>returns text from the text field</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>getValue()</strong></td>
+<td>returns text from the text field</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>clear()</strong></td>
+<td>clears the text field</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>is()</strong></td>
+<td>property that returns object for work with assertions</td>
+<td>TextAssert</td>
+</tr>
+<tr>
+<td><strong>placeholder()</strong></td>
+<td>returns value of placeholder attribute</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+<p><img src="images/angular/input_with_a_custom_errorstatematcher.png" alt="Input with a custom ErrorStateMatcher" />
+<code>html
+&lt;input _ngcontent-ohc-c256=&quot;&quot; matinput=&quot;&quot; id=&quot;inputs_errorStateMatcher_email&quot; placeholder=&quot;Ex. pat@example.com&quot; class=&quot;mat-input-element mat-form-field-autofill-control ng-tns-c94-39 cdk-text-field-autofill-monitored ng-untouched ng-pristine ng-invalid&quot; aria-describedby=&quot;mat-hint-3&quot; aria-invalid=&quot;false&quot; aria-required=&quot;false&quot;&gt;
+</code></p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>focus()</strong></td>
+<td>place cursor within the text field</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>sendKeys(String value)</strong></td>
+<td>send text to the text field</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>setText(String value)</strong></td>
+<td>set text</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>input(String value)</strong></td>
+<td>set text</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>getText()</strong></td>
+<td>returns text from the text field</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>getValue()</strong></td>
+<td>returns text from the text field</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>clear()</strong></td>
+<td>clears the text field</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>is()</strong></td>
+<td>property that returns object for work with assertions</td>
+<td>TextAssert</td>
+</tr>
+<tr>
+<td><strong>placeholder()</strong></td>
+<td>returns value of placeholder attribute</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+<p><img src="images/angular/auto_resizing_textarea.png" alt="Auto-resizing textarea" />
+<code>html
+&lt;textarea _ngcontent-ohc-c257=&quot;&quot; rows=&quot;1&quot; matinput=&quot;&quot; id=&quot;inputs_autosize_textarea&quot; cdktextareaautosize=&quot;&quot; cdkautosizeminrows=&quot;1&quot; cdkautosizemaxrows=&quot;5&quot; class=&quot;mat-input-element mat-form-field-autofill-control cdk-textarea-autosize ng-tns-c94-42 cdk-text-field-autofill-monitored&quot; aria-invalid=&quot;false&quot; aria-required=&quot;false&quot; style=&quot;min-height: 18px; max-height: 90px; height: 18px;&quot;&gt;&lt;/textarea&gt;
+</code></p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>addNewLine(String line)</strong></td>
+<td>add line to the already existing</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>cols()</strong></td>
+<td>returns value of cols attribute</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>rows()</strong></td>
+<td>returns value of rows attribute</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>setText(String value)</strong></td>
+<td>set text</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>input(String value)</strong></td>
+<td>set text</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>getText()</strong></td>
+<td>returns text from the textarea</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>getValue()</strong></td>
+<td>returns text from the textarea</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>labelText()</strong></td>
+<td>returns value of TextArea label</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>maxlength()</strong></td>
+<td>returns value of maxlength attribute</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>minlengt()</strong></td>
+<td>returns value of minlength attribute</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>clear()</strong></td>
+<td>clears the text field</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>is()</strong></td>
+<td>property that returns object for work with assertions</td>
+<td>TextAssert</td>
+</tr>
+<tr>
+<td><strong>placeholder()</strong></td>
+<td>returns value of placeholder attribute</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+<p><img src="images/angular/input_with_a_clear_button.png" alt="Input with a clear button" />
+<code>html
+&lt;input _ngcontent-ohc-c258=&quot;&quot; matinput=&quot;&quot; id=&quot;inputs_clearable_textbox&quot; type=&quot;text&quot; class=&quot;mat-input-element mat-form-field-autofill-control ng-tns-c94-43 cdk-text-field-autofill-monitored ng-untouched ng-pristine ng-valid&quot; aria-invalid=&quot;false&quot; aria-required=&quot;false&quot;&gt;
+&lt;button _ngcontent-ohc-c258=&quot;&quot; mat-button=&quot;&quot; id=&quot;inputs_clearable_button&quot; matsuffix=&quot;&quot; mat-icon-button=&quot;&quot; aria-label=&quot;Clear&quot; class=&quot;mat-focus-indicator mat-button mat-icon-button mat-button-base ng-tns-c94-43 ng-star-inserted&quot;&gt;&lt;span class=&quot;mat-button-wrapper&quot;&gt;&lt;mat-icon _ngcontent-ohc-c258=&quot;&quot; role=&quot;img&quot; class=&quot;mat-icon notranslate material-icons mat-icon-no-color&quot; aria-hidden=&quot;true&quot;&gt;close&lt;/mat-icon&gt;&lt;/span&gt;&lt;div matripple=&quot;&quot; class=&quot;mat-ripple mat-button-ripple mat-button-ripple-round&quot;&gt;&lt;/div&gt;&lt;div class=&quot;mat-button-focus-overlay&quot;&gt;&lt;/div&gt;&lt;/button&gt;
+</code></p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>focus()</strong></td>
+<td>place cursor within the text field</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>sendKeys(String value)</strong></td>
+<td>send text to the text field</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>setText(String value)</strong></td>
+<td>set text</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>input(String value)</strong></td>
+<td>set text</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>getText()</strong></td>
+<td>returns text from the text field</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>getValue()</strong></td>
+<td>returns text from the text field</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>clear()</strong></td>
+<td>clears the text field</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>is()</strong></td>
+<td>property that returns object for work with assertions</td>
+<td>TextAssert</td>
+</tr>
+<tr>
+<td><strong>placeholder()</strong></td>
+<td>returns value of placeholder attribute</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+<p><img src="images/angular/input_with_error_messages.png" alt="Input with error messages" />
+<code>html
+&lt;input _ngcontent-ohc-c259=&quot;&quot; matinput=&quot;&quot; id=&quot;inputs_error_email&quot; placeholder=&quot;Ex. pat@example.com&quot; class=&quot;mat-input-element mat-form-field-autofill-control ng-tns-c94-44 cdk-text-field-autofill-monitored ng-untouched ng-pristine ng-invalid&quot; aria-invalid=&quot;false&quot; aria-required=&quot;false&quot;&gt;
+</code></p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>focus()</strong></td>
+<td>place cursor within the text field</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>sendKeys(String value)</strong></td>
+<td>send text to the text field</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>setText(String value)</strong></td>
+<td>set text</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>input(String value)</strong></td>
+<td>set text</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>getText()</strong></td>
+<td>returns text from the text field</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>getValue()</strong></td>
+<td>returns text from the text field</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>clear()</strong></td>
+<td>clears the text field</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>is()</strong></td>
+<td>property that returns object for work with assertions</td>
+<td>TextAssert</td>
+</tr>
+<tr>
+<td><strong>placeholder()</strong></td>
+<td>returns value of placeholder attribute</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+<p><img src="images/angular/inputs_in_a_form.png" alt="Inputs in a form" />
+<code>html
+&lt;form _ngcontent-sod-c260=&quot;&quot; novalidate=&quot;&quot; class=&quot;example-form ng-untouched ng-pristine ng-valid&quot;&gt;&lt;/form&gt;
+</code></p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>add(T entity)</strong></td>
+<td>fills all settable elements and clicks “add” Button or ”addButton”</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>back(T entity)</strong></td>
+<td>fills all settable elements and clicks “back” Button or ”backButton”</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>cancel(T entity)</strong></td>
+<td>fills all settable elements and clicks “cancel” Button or ”cancelButton”</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>check(T entity)</strong></td>
+<td>verifies that form has been filled correctly. If not, throws an exception</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>close(T entity)</strong></td>
+<td>fills all settable elements and clicks “close” Button or ”closeButton”</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>next(T entity)</strong></td>
+<td>fills all settable elements and clicks “next” Button or ”nextButton”</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>login(T entity)</strong></td>
+<td>fills all settable elements and clicks “login” Button or ”loginButton”</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>publish(T entity)</strong></td>
+<td>fills all settable elements and clicks “publish” Button or ”publishButton”</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>save(T entity)</strong></td>
+<td>fills all settable elements and clicks “save” Button or ”saveButton”</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>select(T entity)</strong></td>
+<td>fills all settable elements and clicks “select” Button or ”selectButton”</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>search(T entity)</strong></td>
+<td>fills all settable elements and clicks “search” Button or ”searchButton”</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>login(T entity)</strong></td>
+<td>fills all settable elements and clicks “login” Button or ”loginButton”</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>send(T entity)</strong></td>
+<td>fills all settable elements and clicks “send” Button or ”sendButton”</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>submit(T entity)</strong></td>
+<td>fills all settable elements and clicks “submit” Button or ”submitButton”</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>update(T entity)</strong></td>
+<td>fills all settable elements and clicks “update” Button or ”updateButton”</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>fill(T entity)</strong></td>
+<td>fills all settable elements of the form that can be matched with fields of the input entity</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>verify(T entity)</strong></td>
+<td>verifies that form has been filled correctly. If not, returns a list of keys where verification has failed</td>
+<td>List</td>
+</tr>
+<tr>
+<td><strong>fillAction(Field field, Object element, Object parent, String setValue)</strong></td>
+<td>defines the specifics of how form elements will be filled</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>getAction(Field field, Object element, Object parent)</strong></td>
+<td>defines the specifics of how form elements will be obtained for verification and checks</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>isDisplayed()</strong></td>
+<td>check that form is displayed</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isValid()</strong></td>
+<td>check that form is valid</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>login()</strong></td>
+<td>clicks “login” Button or ”loginButton”</td>
+<td>boolean</td>
+</tr>
+</tbody></table>
+
+<p><img src="images/angular/input_with_hints.png" alt="Input with hints" />
+<code>html
+&lt;input _ngcontent-ohc-c261=&quot;&quot; matinput=&quot;&quot; id=&quot;inputs_hints_message&quot; maxlength=&quot;256&quot; placeholder=&quot;Ex. I need help with...&quot; class=&quot;mat-input-element mat-form-field-autofill-control ng-tns-c94-53 cdk-text-field-autofill-monitored&quot; aria-describedby=&quot;inputs_hints_text inputs_hints_counter&quot; aria-invalid=&quot;false&quot; aria-required=&quot;false&quot;&gt;
+&lt;mat-hint _ngcontent-ohc-c261=&quot;&quot; id=&quot;inputs_hints_text&quot; class=&quot;mat-hint ng-tns-c94-53&quot;&gt;&lt;strong _ngcontent-ohc-c261=&quot;&quot;&gt;Don&#39;t disclose personal info&lt;/strong&gt;&lt;/mat-hint&gt;
+</code></p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>focus()</strong></td>
+<td>place cursor within the text field</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>sendKeys(String value)</strong></td>
+<td>send text to the text field</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>setText(String value)</strong></td>
+<td>set text</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>input(String value)</strong></td>
+<td>set text</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>getText()</strong></td>
+<td>returns text from the text field</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>getValue()</strong></td>
+<td>returns text from the text field</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>clear()</strong></td>
+<td>clears the text field</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>is()</strong></td>
+<td>property that returns object for work with assertions</td>
+<td>TextAssert</td>
+</tr>
+<tr>
+<td><strong>placeholder()</strong></td>
+<td>returns value of placeholder attribute</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+<p><img src="images/angular/input_with_prefixes_and_suffixes.png" alt="Input with prefixes and suffixes" />
+<code>html
+&lt;span _ngcontent-ohc-c262=&quot;&quot; matprefix=&quot;&quot; id=&quot;inputs_prefixes&quot; class=&quot;ng-tns-c94-54&quot;&gt;+1 &amp;nbsp;&lt;/span&gt;
+&lt;input _ngcontent-ohc-c262=&quot;&quot; type=&quot;tel&quot; matinput=&quot;&quot; id=&quot;inputs_prefixes_suffixes_phone&quot; placeholder=&quot;555-555-1234&quot; class=&quot;mat-input-element mat-form-field-autofill-control ng-tns-c94-54 cdk-text-field-autofill-monitored&quot; aria-invalid=&quot;false&quot; aria-required=&quot;false&quot;&gt;
+&lt;mat-icon _ngcontent-ohc-c262=&quot;&quot; role=&quot;img&quot; matsuffix=&quot;&quot; id=&quot;inputs_suffixes&quot; class=&quot;mat-icon notranslate material-icons mat-icon-no-color ng-tns-c94-54&quot; aria-hidden=&quot;true&quot;&gt;edit&lt;/mat-icon&gt;
+</code></p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>focus()</strong></td>
+<td>place cursor within the text field</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>sendKeys(String value)</strong></td>
+<td>send text to the text field</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>setText(String value)</strong></td>
+<td>set text</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>input(String value)</strong></td>
+<td>set text</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>getText()</strong></td>
+<td>returns text from the text field</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>getValue()</strong></td>
+<td>returns text from the text field</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>clear()</strong></td>
+<td>clears the text field</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>is()</strong></td>
+<td>property that returns object for work with assertions</td>
+<td>TextAssert</td>
+</tr>
+<tr>
+<td><strong>placeholder()</strong></td>
+<td>returns value of placeholder attribute</td>
+<td>String</td>
+</tr>
+</tbody></table>
+<h4 id='java-tests-examples'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/InputTests.java" target="_blank">Java tests examples</a></h4>
+<hr>
+<h2 id='bootstrap-common-elements'>Bootstrap Common elements</h2><h3 id='checkboxes-and-radios'>Checkboxes and radios</h3><h4 id='checkbox-default'><a href="https://getbootstrap.com/docs/4.3/components/buttons/" target="_blank">Checkbox default</a></h4>
 <p>Checkbox is located in the following classes:</p>
 
 <ul>

@@ -4462,19 +4462,20 @@ There is two different checkboxes in Angular: Basic and Configurable:
 
 Input is located in the following class:
 
-   - __Java__: _com.epam.jdi.light.ui.html.elements.common.TextField, _com.epam.jdi.light.ui.html.elements.common.TextArea
+   - __Java__: _com.epam.jdi.light.ui.html.elements.common.TextField
+               _com.epam.jdi.light.ui.html.elements.common.TextArea
 
 There are eight different inputs in Angular:
-* Basic inputs
-* Input with a custom ErrorStateMatcher
-* Auto-resizing textarea
-* Input with a clear button
-* Input with error messages
-* Input in a form
-* Input with hints
-* Input with prefixes and suffixes
+- Basic inputs
+- Input with a custom ErrorStateMatcher
+- Auto-resizing textarea
+- Input with a clear button
+- Input with error messages
+- Input in a form
+- Input with hints
+- Input with prefixes and suffixes
 
-![Basic inputs](../images/angular/basic_inputs.png)
+![Basic inputs](../images/angular/basic_inputs.PNG)
 ```html
 <input _ngcontent-ohc-c255="" matinput="" id="inputs_basic_food" placeholder="Ex. Pizza" value="Sushi" class="mat-input-element mat-form-field-autofill-control ng-tns-c94-34 cdk-text-field-autofill-monitored" aria-invalid="false" aria-required="false">
 ```
@@ -4492,7 +4493,7 @@ There are eight different inputs in Angular:
 **placeholder()** | returns value of placeholder attribute | String
 
 
-![Input with a custom ErrorStateMatcher](../images/angular/input_with_a_custom_errorstatematcher.png)
+![Input with a custom ErrorStateMatcher](../images/angular/input_with_a_custom_errorstatematcher.PNG)
 ```html
 <input _ngcontent-ohc-c256="" matinput="" id="inputs_errorStateMatcher_email" placeholder="Ex. pat@example.com" class="mat-input-element mat-form-field-autofill-control ng-tns-c94-39 cdk-text-field-autofill-monitored ng-untouched ng-pristine ng-invalid" aria-describedby="mat-hint-3" aria-invalid="false" aria-required="false">
 ```
@@ -4510,7 +4511,7 @@ There are eight different inputs in Angular:
 **placeholder()** | returns value of placeholder attribute | String
 
 
-![Auto-resizing textarea](../images/angular/auto_resizing_textarea.png)
+![Auto-resizing textarea](../images/angular/auto_resizing_textarea.PNG)
 ```html
 <textarea _ngcontent-ohc-c257="" rows="1" matinput="" id="inputs_autosize_textarea" cdktextareaautosize="" cdkautosizeminrows="1" cdkautosizemaxrows="5" class="mat-input-element mat-form-field-autofill-control cdk-textarea-autosize ng-tns-c94-42 cdk-text-field-autofill-monitored" aria-invalid="false" aria-required="false" style="min-height: 18px; max-height: 90px; height: 18px;"></textarea>
 ```
@@ -4532,7 +4533,7 @@ There are eight different inputs in Angular:
 **placeholder()** | returns value of placeholder attribute | String
 
 
-![Input with a clear button](../images/angular/input_with_a_clear_button.png)
+![Input with a clear button](../images/angular/input_with_a_clear_button.PNG)
 ```html
 <input _ngcontent-ohc-c258="" matinput="" id="inputs_clearable_textbox" type="text" class="mat-input-element mat-form-field-autofill-control ng-tns-c94-43 cdk-text-field-autofill-monitored ng-untouched ng-pristine ng-valid" aria-invalid="false" aria-required="false">
 <button _ngcontent-ohc-c258="" mat-button="" id="inputs_clearable_button" matsuffix="" mat-icon-button="" aria-label="Clear" class="mat-focus-indicator mat-button mat-icon-button mat-button-base ng-tns-c94-43 ng-star-inserted"><span class="mat-button-wrapper"><mat-icon _ngcontent-ohc-c258="" role="img" class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true">close</mat-icon></span><div matripple="" class="mat-ripple mat-button-ripple mat-button-ripple-round"></div><div class="mat-button-focus-overlay"></div></button>
@@ -4551,7 +4552,7 @@ There are eight different inputs in Angular:
 **placeholder()** | returns value of placeholder attribute | String
 
 
-![Input with error messages](../images/angular/input_with_error_messages.png)
+![Input with error messages](../images/angular/input_with_error_messages.PNG)
 ```html
 <input _ngcontent-ohc-c259="" matinput="" id="inputs_error_email" placeholder="Ex. pat@example.com" class="mat-input-element mat-form-field-autofill-control ng-tns-c94-44 cdk-text-field-autofill-monitored ng-untouched ng-pristine ng-invalid" aria-invalid="false" aria-required="false">
 ```
@@ -4569,7 +4570,7 @@ There are eight different inputs in Angular:
 **placeholder()** | returns value of placeholder attribute | String
 
 
-![Inputs in a form](../images/angular/inputs_in_a_form.png)
+![Inputs in a form](../images/angular/inputs_in_a_form.PNG)
 ```html
 <form _ngcontent-sod-c260="" novalidate="" class="example-form ng-untouched ng-pristine ng-valid"></form>
 ```
@@ -4600,7 +4601,7 @@ There are eight different inputs in Angular:
 **login()** | clicks “login” Button or ”loginButton” | boolean
 
 
-![Input with hints](../images/angular/input_with_hints.png)
+![Input with hints](../images/angular/input_with_hints.PNG)
 ```html
 <input _ngcontent-ohc-c261="" matinput="" id="inputs_hints_message" maxlength="256" placeholder="Ex. I need help with..." class="mat-input-element mat-form-field-autofill-control ng-tns-c94-53 cdk-text-field-autofill-monitored" aria-describedby="inputs_hints_text inputs_hints_counter" aria-invalid="false" aria-required="false">
 <mat-hint _ngcontent-ohc-c261="" id="inputs_hints_text" class="mat-hint ng-tns-c94-53"><strong _ngcontent-ohc-c261="">Don't disclose personal info</strong></mat-hint>
@@ -4619,7 +4620,7 @@ There are eight different inputs in Angular:
 **placeholder()** | returns value of placeholder attribute | String
 
 
-![Input with prefixes and suffixes](../images/angular/input_with_prefixes_and_suffixes.png)
+![Input with prefixes and suffixes](../images/angular/input_with_prefixes_and_suffixes.PNG)
 ```html
 <span _ngcontent-ohc-c262="" matprefix="" id="inputs_prefixes" class="ng-tns-c94-54">+1 &nbsp;</span>
 <input _ngcontent-ohc-c262="" type="tel" matinput="" id="inputs_prefixes_suffixes_phone" placeholder="555-555-1234" class="mat-input-element mat-form-field-autofill-control ng-tns-c94-54 cdk-text-field-autofill-monitored" aria-invalid="false" aria-required="false">

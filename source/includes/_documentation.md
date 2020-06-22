@@ -4343,24 +4343,31 @@ There is two different checkboxes in Angular: Basic and Configurable:
 ### Inputs
 
 ```java 
+    //@FindBy(id="inputs_basic_food") public static TextField foodBasicInput;
     @UI("#inputs_basic_food")
     public static TextField foodBasicInput;
 
+    //@FindBy(id="inputs_basic_comment") public static TextField leaveACommentBasicInput;
     @UI("#inputs_basic_comment")
     public static TextField leaveACommentBasicInput;
 
+    //@FindBy(id="inputs_errorStateMatcher_email") public static TextField emailErrorStateMatcherInput;
     @UI("#inputs_errorStateMatcher_email")
     public static TextField emailErrorStateMatcherInput;
 
+    //@FindBy(id="inputs_errorStateMatcher_message") public static TextField errorStateMatcherMessageInput;
     @UI("#inputs_errorStateMatcher_message")
     public static Text errorStateMatcherMessageInput;
 
+    //@FindBy(id="inputs_autosize_textarea") public static TextField autoSizeTextArea;
     @UI("#inputs_autosize_textarea")
     public static TextArea autoSizeTextArea;
 
+    //@FindBy(id="inputs_clearable_textbox") public static TextField clearableInput;
     @UI("#inputs_clearable_textbox")
     public static TextArea clearableInput;
 
+    //@FindBy(id="inputs_clearable_button") public static TextField clearableInputButton;
     @UI("#inputs_clearable_button")
     public static Button clearableInputButton;
 
@@ -4564,7 +4571,7 @@ There are eight different inputs in Angular:
 
 ![Inputs in a form](../images/angular/inputs_in_a_form.png)
 ```html
-`h`
+<form _ngcontent-sod-c260="" novalidate="" class="example-form ng-untouched ng-pristine ng-valid"></form>
 ```
 
 |Method | Description | Return Type
@@ -4632,7 +4639,7 @@ There are eight different inputs in Angular:
 **placeholder()** | returns value of placeholder attribute | String
 
 
-#### <a href="https://github.com/jdi-testing/jdi-light/tree/angular/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests" target="_blank">Here you can find Input tests</a>
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/InputTests.java" target="_blank">Java tests examples</a>
 ---
 ## Bootstrap Common elements
 

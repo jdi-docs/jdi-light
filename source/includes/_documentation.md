@@ -4121,7 +4121,7 @@ There is two different icons in Angular: Basic icon and SVG icon:
 **isDisplayed** | Verify state | boolean
 **show()** | Scroll to element | void
 
-#### <a href="https://github.com/jdi-testing/jdi-light/tree/angular/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests" target="_blank">Here you can find Icons tests</a>
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/IconsTests.java" target="_blank">Here you can find Icons tests</a>
 
 <br>  
 
@@ -4159,15 +4159,15 @@ Progress Spinner is located in the following class:
 **isDisplayed()** | Verify state | boolean
 **show()** | Scroll to element | void
 
-#### <a href="https://github.com/jdi-testing/jdi-light/tree/angular/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests" target="_blank">Here you can find Spinner tests</a>
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/SpinnerTests.java" target="_blank">Here you can find Spinner tests</a>
 
 
 ### Slide toggle
 
 ```java 
-    //@FindBy(id="mat-slide-toggle-1") public static SlideToggle basicSlideToggle;
+    //@FindBy(id="slide-toggles-basic") public static SlideToggle basicSlideToggle;
 
-    @UI("#mat-slide-toggle-1")
+    @UI("#slide-toggles-basic")
     public static SlideToggle basicSlideToggle;
 
     @Test
@@ -4204,9 +4204,9 @@ There is two different slide toggles in Angular: Basic and Configurable:
 <br>
 
 ```java 
-    //@FindBy(id="mat-slide-toggle-2") public static SlideToggle resultSlideToggle;
+    //@FindBy(id="slide-toggles-configured") public static SlideToggle resultSlideToggle;
 
-    @UI("#mat-slide-toggle-2")
+    @UI("#slide-toggles-configured")
     public static SlideToggle resultSlideToggle;
 
     @Test
@@ -4256,18 +4256,18 @@ There is two different slide toggles in Angular: Basic and Configurable:
 **hasClass()** | Verify element class | boolean
 
 
-#### <a href="https://github.com/jdi-testing/jdi-light/tree/angular/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests" target="_blank">Here you can find Slide toggle tests</a>
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/SlideToggleTests.java" target="_blank">Here you can find Slide toggle tests</a>
 
 
 ### Checkboxes
 
 ```java 
-   //@FindBy(id="mat-checkbox-1") public static Checkbox basicCheckbox;
-   @UI("#mat-checkbox-1")
+   //@FindBy(id="checkboxes-basic_checkbox") public static Checkbox basicCheckbox;
+   @UI("#checkboxes-basic_checkbox")
    public static Checkbox basicCheckbox;
    
-   //@FindBy(id="mat-checkbox-2") public static Checkbox configurableCheckedCheckbox; 
-   @UI("#mat-checkbox-2")
+   //@FindBy(id="checkboxes-configured_checkbox") public static Checkbox configurableCheckedCheckbox; 
+   @UI("#checkboxes-configured_checkbox")
    public static Checkbox configurableCheckedCheckbox;
 
 
@@ -4336,8 +4336,9 @@ There is two different checkboxes in Angular: Basic and Configurable:
 **selected()** | Verify state | boolean
 **deselected()** | Verify state | boolean
 
-#### <a href="https://github.com/jdi-testing/jdi-light/tree/angular/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests" target="_blank">Here you can find Checkbox tests</a>
 
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/CheckboxTests.java" target="_blank">Here you can find Checkbox tests</a>
+ 
 
 ### Inputs
 
@@ -21216,7 +21217,7 @@ TBD
 
 ## SauceLabs integration
 
-Before running JDI project in Sauce Lab, you need to set up Sauce Lab Credentials
+Before running JDI project in Sauce Lab, you need to set up Sauce Lab Credentials.
 
 #### Set Your Sauce Labs Credentials
 1. Copy your Sauce Labs **username** and **accessKey** in the [User Settings](https://app.saucelabs.com/user-settings) section of the [Sauce Labs Dashboard](https://app.saucelabs.com/dashboard/builds).
@@ -21287,7 +21288,7 @@ More optional capabilities can be found [here](https://github.com/saucelabs-trai
 
 #### JDI options
 
-In order to run test with Sauce Lab you need set up remote settings in test.properties file.
+In order to run test with Sauce Lab you need set up remote settings in test.properties file:
 
 - remote.type=sauce
 
@@ -21297,7 +21298,7 @@ See your personal remote url: [here](https://app.saucelabs.com/user-settings) lo
 
 Remote url should be different if you are from US.
 
-And that it. Set Sauce Lab capabilities, set remote execution in test.properties and you can run test with Sauce Lab
+And that it. Set Sauce Lab capabilities, set remote execution in test.properties and you can run test with Sauce Labs.
 
 ## Multiple domains example
 Here is the example [MultipleDomainsExampleTest.java](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/MultipleDomainsExampleTest.java) 

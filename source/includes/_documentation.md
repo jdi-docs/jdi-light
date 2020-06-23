@@ -4342,6 +4342,25 @@ There is two different checkboxes in Angular: Basic and Configurable:
 
 ### Inputs
 
+
+#### <a href="https://material.angular.io/components/input/overview" target="_blank">Input overview</a>
+
+Input is located in the following class:
+
+   - __Java__: _com.epam.jdi.light.ui.html.elements.common.TextField
+               _com.epam.jdi.light.ui.html.elements.common.TextArea
+
+There are eight different inputs in Angular:
+
+   - Basic inputs
+   - Input with a custom ErrorStateMatcher
+   - Auto-resizing textarea
+   - Input with a clear button
+   - Input with error messages
+   - Input in a form
+   - Input with hints
+   - Input with prefixes and suffixes
+
 <br>
 
 ```java 
@@ -4368,23 +4387,6 @@ There is two different checkboxes in Angular: Basic and Configurable:
         leaveACommentBasicInput.is().text("Delicious");
     }
 ```
-#### <a href="https://material.angular.io/components/input/overview" target="_blank">Input overview</a>
-
-Input is located in the following class:
-
-   - __Java__: _com.epam.jdi.light.ui.html.elements.common.TextField
-               _com.epam.jdi.light.ui.html.elements.common.TextArea
-
-There are eight different inputs in Angular:
-- Basic inputs
-- Input with a custom ErrorStateMatcher
-- Auto-resizing textarea
-- Input with a clear button
-- Input with error messages
-- Input in a form
-- Input with hints
-- Input with prefixes and suffixes
-
 ![Basic inputs](../images/angular/basic_inputs.PNG)
 ```html
 <input _ngcontent-ohc-c255="" matinput="" id="inputs_basic_food" placeholder="Ex. Pizza" value="Sushi" class="mat-input-element mat-form-field-autofill-control ng-tns-c94-34 cdk-text-field-autofill-monitored" aria-invalid="false" aria-required="false">

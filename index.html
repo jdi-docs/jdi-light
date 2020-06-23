@@ -9213,7 +9213,27 @@ Methods available for Java in JDI Light:</p>
 <td>boolean</td>
 </tr>
 </tbody></table>
-<h4 id='here-you-can-find-checkbox-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/CheckboxTests.java" target="_blank">Here you can find Checkbox tests</a></h4><h3 id='inputs'>Inputs</h3>
+<h4 id='here-you-can-find-checkbox-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/CheckboxTests.java" target="_blank">Here you can find Checkbox tests</a></h4><h3 id='inputs'>Inputs</h3><h4 id='input-overview'><a href="https://material.angular.io/components/input/overview" target="_blank">Input overview</a></h4>
+<p>Input is located in the following class:</p>
+
+<ul>
+<li><strong>Java</strong>: _com.epam.jdi.light.ui.html.elements.common.TextField
+           _com.epam.jdi.light.ui.html.elements.common.TextArea</li>
+</ul>
+
+<p>There are eight different inputs in Angular:</p>
+
+<ul>
+<li>Basic inputs</li>
+<li>Input with a custom ErrorStateMatcher</li>
+<li>Auto-resizing textarea</li>
+<li>Input with a clear button</li>
+<li>Input with error messages</li>
+<li>Input in a form</li>
+<li>Input with hints</li>
+<li>Input with prefixes and suffixes</li>
+</ul>
+
 <p><br></p>
 <pre class="highlight java tab-java"><code>    <span class="c1">//@FindBy(id="inputs_basic_food") public static TextField foodBasicInput;</span>
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"#inputs_basic_food"</span><span class="o">)</span>
@@ -9237,24 +9257,7 @@ Methods available for Java in JDI Light:</p>
         <span class="n">leaveACommentBasicInput</span><span class="o">.</span><span class="na">sendKeys</span><span class="o">(</span><span class="s">"Delicious"</span><span class="o">);</span>
         <span class="n">leaveACommentBasicInput</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Delicious"</span><span class="o">);</span>
     <span class="o">}</span>
-</code></pre><h4 id='input-overview'><a href="https://material.angular.io/components/input/overview" target="_blank">Input overview</a></h4>
-<p>Input is located in the following class:</p>
-
-<ul>
-<li><strong>Java</strong>: _com.epam.jdi.light.ui.html.elements.common.TextField
-           _com.epam.jdi.light.ui.html.elements.common.TextArea</li>
-</ul>
-
-<p>There are eight different inputs in Angular:
-- Basic inputs
-- Input with a custom ErrorStateMatcher
-- Auto-resizing textarea
-- Input with a clear button
-- Input with error messages
-- Input in a form
-- Input with hints
-- Input with prefixes and suffixes</p>
-
+</code></pre>
 <p><img src="images/angular/basic_inputs.PNG" alt="Basic inputs" />
 <code>html
 &lt;input _ngcontent-ohc-c255=&quot;&quot; matinput=&quot;&quot; id=&quot;inputs_basic_food&quot; placeholder=&quot;Ex. Pizza&quot; value=&quot;Sushi&quot; class=&quot;mat-input-element mat-form-field-autofill-control ng-tns-c94-34 cdk-text-field-autofill-monitored&quot; aria-invalid=&quot;false&quot; aria-required=&quot;false&quot;&gt;

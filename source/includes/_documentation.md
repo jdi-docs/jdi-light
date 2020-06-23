@@ -4483,7 +4483,27 @@ There are eight different inputs in Angular:
 **is()** | property that returns object for work with assertions | TextAssert
 **placeholder()** | returns value of placeholder attribute | String
 
+<br>
 
+```java 
+    //@FindBy(id="inputs_clearable_textbox") public static TextArea clearableInput;
+    @UI("#inputs_clearable_textbox")
+    public static TextArea clearableInput;
+    
+    //@FindBy(id="inputs_clearable_button") public static Button clearableInputButton;
+    @UI("#inputs_clearable_button")
+    public static Button clearableInputButton;
+
+    @Test
+    public void clearableInputTest() {
+        clearableInput.isDisplayed();
+        clearableInput.clear();
+        clearableInput.sendKeys("test");
+        clearableInputButton.isDisplayed();
+        clearableInputButton.click();
+        clearableInput.is().text("");
+    }
+```
 ![Input with a clear button](../images/angular/input_with_a_clear_button.PNG)
 
 ```html
@@ -4503,7 +4523,26 @@ There are eight different inputs in Angular:
 **is()** | property that returns object for work with assertions | TextAssert
 **placeholder()** | returns value of placeholder attribute | String
 
+<br>
 
+```java 
+    //@FindBy(id="inputs_error_email") public static TextField emailInput;
+    @UI("#inputs_error_email")
+    public static TextField emailInput;
+    
+    //@FindBy(id="inputs_error_message") public static Text errorMessageInput;
+    @UI("#inputs_error_message")
+    public static Text errorMessageInput;
+
+    @Test
+    public void inputWithErrorMessagesTest() {
+        emailInput.isDisplayed();
+        emailInput.sendKeys("test");
+        emailInput.sendKeys(Keys.ENTER);
+        errorMessageInput.isDisplayed();
+        errorMessageInput.is().text("Please enter a valid email address");
+    }
+```
 ![Input with error messages](../images/angular/input_with_error_messages.PNG)
 
 ```html
@@ -4522,7 +4561,25 @@ There are eight different inputs in Angular:
 **is()** | property that returns object for work with assertions | TextAssert
 **placeholder()** | returns value of placeholder attribute | String
 
+<br>
 
+```java 
+    //@FindBy(css="input-form-example form") public static InputsForm inputsForm;
+    @UI("input-form-example form")
+    public static InputsForm inputsForm;
+
+    @Test
+    public void inputsInAFormTest() {
+        inputsForm.fill(DEFAULT_USER);
+        firstName.is().text(DEFAULT_USER.firstName);
+        lastName.is().text(DEFAULT_USER.lastName);
+        address.is().text(DEFAULT_USER.address);
+        address2.is().text(DEFAULT_USER.address2);
+        city.is().text(DEFAULT_USER.city);
+        state.is().text(DEFAULT_USER.state);
+        postalCode.is().text(DEFAULT_USER.postalCode);
+    }
+```
 ![Inputs in a form](../images/angular/inputs_in_a_form.PNG)
 
 ```html

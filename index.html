@@ -9774,6 +9774,29 @@ Methods available for Java in JDI Light:</p>
 </tr>
 </tbody></table>
 
+<p><br></p>
+<pre class="highlight java tab-java"><code>    <span class="c1">//@FindBy(id="inputs_hints_message") public static TextField messageHintInput;</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#inputs_hints_message"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">TextField</span> <span class="n">messageHintInput</span><span class="o">;</span>
+
+    <span class="c1">//@FindBy(id="inputs_hints_text") public static Text messageHint;</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#inputs_hints_text"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Text</span> <span class="n">messageHint</span><span class="o">;</span>
+
+    <span class="c1">//@FindBy(id="inputs_hints_counter") public static Text messageCounterHint;</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#inputs_hints_counter"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Text</span> <span class="n">messageCounterHint</span><span class="o">;</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">inputWithHintsTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">messageHintInput</span><span class="o">.</span><span class="na">isDisplayed</span><span class="o">();</span>
+        <span class="n">messageHintInput</span><span class="o">.</span><span class="na">sendKeys</span><span class="o">(</span><span class="s">"test"</span><span class="o">);</span>
+        <span class="n">messageHint</span><span class="o">.</span><span class="na">isDisplayed</span><span class="o">();</span>
+        <span class="n">messageHint</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Don't disclose personal info"</span><span class="o">);</span>
+        <span class="n">messageCounterHint</span><span class="o">.</span><span class="na">isDisplayed</span><span class="o">();</span>
+        <span class="n">messageCounterHint</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"4 / 256"</span><span class="o">);</span>
+    <span class="o">}</span>
+</code></pre>
 <p><img src="images/angular/input_with_hints.PNG" alt="Input with hints" /></p>
 <pre class="highlight html tab-html"><code><span class="nt">&lt;input</span> <span class="na">_ngcontent-ohc-c261=</span><span class="s">""</span> <span class="na">matinput=</span><span class="s">""</span> <span class="na">id=</span><span class="s">"inputs_hints_message"</span> <span class="na">maxlength=</span><span class="s">"256"</span> <span class="na">placeholder=</span><span class="s">"Ex. I need help with..."</span> <span class="na">class=</span><span class="s">"mat-input-element mat-form-field-autofill-control ng-tns-c94-53 cdk-text-field-autofill-monitored"</span> <span class="na">aria-describedby=</span><span class="s">"inputs_hints_text inputs_hints_counter"</span> <span class="na">aria-invalid=</span><span class="s">"false"</span> <span class="na">aria-required=</span><span class="s">"false"</span><span class="nt">&gt;</span>
 <span class="nt">&lt;mat-hint</span> <span class="na">_ngcontent-ohc-c261=</span><span class="s">""</span> <span class="na">id=</span><span class="s">"inputs_hints_text"</span> <span class="na">class=</span><span class="s">"mat-hint ng-tns-c94-53"</span><span class="nt">&gt;&lt;strong</span> <span class="na">_ngcontent-ohc-c261=</span><span class="s">""</span><span class="nt">&gt;</span>Don't disclose personal info<span class="nt">&lt;/strong&gt;&lt;/mat-hint&gt;</span>
@@ -9832,6 +9855,29 @@ Methods available for Java in JDI Light:</p>
 </tr>
 </tbody></table>
 
+<p><br></p>
+<pre class="highlight java tab-java"><code>    <span class="c1">//@FindBy(id="inputs_prefixes") public static Text prefixInput;</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#inputs_prefixes"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Text</span> <span class="n">prefixInput</span><span class="o">;</span>
+
+    <span class="c1">//@FindBy(id="inputs_suffixes") public static Icon suffixInput;</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#inputs_suffixes"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Icon</span> <span class="n">suffixInput</span><span class="o">;</span>
+
+    <span class="c1">//@FindBy(id="inputs_prefixes_suffixes_phone") public static TextField telephoneInput;</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#inputs_prefixes_suffixes_phone"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">TextField</span> <span class="n">telephoneInput</span><span class="o">;</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">inputWithPrefixesAndSuffixesTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">prefixInput</span><span class="o">.</span><span class="na">isDisplayed</span><span class="o">();</span>
+        <span class="n">suffixInput</span><span class="o">.</span><span class="na">isDisplayed</span><span class="o">();</span>
+        <span class="n">telephoneInput</span><span class="o">.</span><span class="na">isDisplayed</span><span class="o">();</span>
+        <span class="n">telephoneInput</span><span class="o">.</span><span class="na">sendKeys</span><span class="o">(</span><span class="s">"0123456789"</span><span class="o">);</span>
+        <span class="n">telephoneInput</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
+        <span class="n">telephoneInput</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">""</span><span class="o">);</span>
+    <span class="o">}</span>
+</code></pre>
 <p><img src="images/angular/input_with_prefixes_and_suffixes.PNG" alt="Input with prefixes and suffixes" /></p>
 <pre class="highlight html tab-html"><code><span class="nt">&lt;span</span> <span class="na">_ngcontent-ohc-c262=</span><span class="s">""</span> <span class="na">matprefix=</span><span class="s">""</span> <span class="na">id=</span><span class="s">"inputs_prefixes"</span> <span class="na">class=</span><span class="s">"ng-tns-c94-54"</span><span class="nt">&gt;</span>+1 <span class="ni">&amp;nbsp;</span><span class="nt">&lt;/span&gt;</span>
 <span class="nt">&lt;input</span> <span class="na">_ngcontent-ohc-c262=</span><span class="s">""</span> <span class="na">type=</span><span class="s">"tel"</span> <span class="na">matinput=</span><span class="s">""</span> <span class="na">id=</span><span class="s">"inputs_prefixes_suffixes_phone"</span> <span class="na">placeholder=</span><span class="s">"555-555-1234"</span> <span class="na">class=</span><span class="s">"mat-input-element mat-form-field-autofill-control ng-tns-c94-54 cdk-text-field-autofill-monitored"</span> <span class="na">aria-invalid=</span><span class="s">"false"</span> <span class="na">aria-required=</span><span class="s">"false"</span><span class="nt">&gt;</span>

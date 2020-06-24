@@ -4611,7 +4611,31 @@ There are eight different inputs in Angular:
 **isValid()** | check that form is valid | boolean
 **login()** | clicks “login” Button or ”loginButton” | boolean
 
+<br>
 
+```java 
+    //@FindBy(id="inputs_hints_message") public static TextField messageHintInput;
+    @UI("#inputs_hints_message")
+    public static TextField messageHintInput;
+
+    //@FindBy(id="inputs_hints_text") public static Text messageHint;
+    @UI("#inputs_hints_text")
+    public static Text messageHint;
+
+    //@FindBy(id="inputs_hints_counter") public static Text messageCounterHint;
+    @UI("#inputs_hints_counter")
+    public static Text messageCounterHint;
+
+    @Test
+    public void inputWithHintsTest() {
+        messageHintInput.isDisplayed();
+        messageHintInput.sendKeys("test");
+        messageHint.isDisplayed();
+        messageHint.is().text("Don't disclose personal info");
+        messageCounterHint.isDisplayed();
+        messageCounterHint.is().text("4 / 256");
+    }
+```
 ![Input with hints](../images/angular/input_with_hints.PNG)
 
 ```html
@@ -4631,7 +4655,31 @@ There are eight different inputs in Angular:
 **is()** | property that returns object for work with assertions | TextAssert
 **placeholder()** | returns value of placeholder attribute | String
 
+<br>
 
+```java 
+    //@FindBy(id="inputs_prefixes") public static Text prefixInput;
+    @UI("#inputs_prefixes")
+    public static Text prefixInput;
+
+    //@FindBy(id="inputs_suffixes") public static Icon suffixInput;
+    @UI("#inputs_suffixes")
+    public static Icon suffixInput;
+
+    //@FindBy(id="inputs_prefixes_suffixes_phone") public static TextField telephoneInput;
+    @UI("#inputs_prefixes_suffixes_phone")
+    public static TextField telephoneInput;
+
+    @Test
+    public void inputWithPrefixesAndSuffixesTest() {
+        prefixInput.isDisplayed();
+        suffixInput.isDisplayed();
+        telephoneInput.isDisplayed();
+        telephoneInput.sendKeys("0123456789");
+        telephoneInput.clear();
+        telephoneInput.is().text("");
+    }
+```
 ![Input with prefixes and suffixes](../images/angular/input_with_prefixes_and_suffixes.PNG)
 
 ```html

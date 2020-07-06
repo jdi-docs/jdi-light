@@ -21371,7 +21371,7 @@ And that it. Set Sauce Lab capabilities, set remote execution in test.properties
 
 ## Applitools Eyes integration
 
-#### 1. Set your Applitools Eyes key as system variable 
+#### 1. Set your Applitools Eyes key as a system variable 
 
 Open a Terminal window (command prompt for Windows) and set your Applitools Eyes key:   
 
@@ -21386,9 +21386,9 @@ Open a Terminal window (command prompt for Windows) and set your Applitools Eyes
    - To set an environment variables permanently in Windows, go to **Control Panel > System > Windows version > Advanced System Settings > Environment Variables > System
     Variables > Edit > New**
 
-   - Then set the "Name" as APPLITOOLS_API_KEY and "Value" as <Applitools_Eyes_key>
+   - Then set the "Name" to APPLITOOLS_API_KEY and "Value" to <Applitools_Eyes_key>
 
-Check that environment variable is set:
+Check that the environment variable is set:
 
   **Mac OSX:**
 

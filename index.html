@@ -29340,17 +29340,13 @@ Level <em>STEP</em> can show business-related information in the console output,
 </ol>
 
 <p><strong>Mac OSX:</strong></p>
-
-<p>$ export SAUCE_USERNAME=&quot;username&quot;</p>
-
-<p>$ export SAUCE_ACCESS_KEY=&quot;accessKey&quot;</p>
-
+<pre class="highlight html tab-html"><code>   $ export SAUCE_USERNAME="username"
+   $ export SAUCE_ACCESS_KEY="accessKey"
+</code></pre>
 <p><strong>Windows:</strong></p>
-
-<p>&gt; set SAUCE_USERNAME=&quot;username&quot;</p>
-
-<p>&gt; set SAUCE_ACCESS_KEY=&quot;accessKey&quot;</p>
-
+<pre class="highlight html tab-html"><code>    &gt; set SAUCE_USERNAME="username"
+    &gt; set SAUCE_ACCESS_KEY="accessKey"
+</code></pre>
 <ul>
 <li><p>To set an environment variables permanently in Windows, you must append it to the <code>PATH</code> variable.</p></li>
 <li><p>Go to <strong>Control Panel &gt; System &gt; Windows version &gt; Advanced System Settings &gt; Environment Variables &gt; System
@@ -29361,27 +29357,23 @@ Variables &gt; Edit &gt; New</strong></p></li>
 <ol>
 <li><p>Test the environment variables</p>
 
-<p><strong>Mac OSX:</strong></p>
-
-<p>$ echo $SAUCE_USERNAME</p>
-
-<p>$ echo $SAUCE_ACCESS_KEY</p>
-
-<p><strong><em>WARNING FOR UNIX USERS!</em></strong>:</p></li>
+<p><strong>Mac OSX:</strong></p></li>
 </ol>
+<pre class="highlight html tab-html"><code>    $ echo $SAUCE_USERNAME
+    $ echo $SAUCE_ACCESS_KEY
+</code></pre>
+<p><strong><em>WARNING FOR UNIX USERS!</em></strong></p>
 
-<p>- If you have problems setting your environment variables, run the following commands in your terminal:</p>
-
-<p>$ launchctl setenv SAUCE_USERNAME $SAUCE_USERNAME</p>
-
-<p>$ launchctl setenv SAUCE_ACCESS_KEY $SAUCE_ACCESS_KEY</p>
-
+<ul>
+<li>If you have problems setting your environment variables, run the following commands in your terminal:</li>
+</ul>
+<pre class="highlight html tab-html"><code>    $ launchctl setenv SAUCE_USERNAME $SAUCE_USERNAME
+    $ launchctl setenv SAUCE_ACCESS_KEY $SAUCE_ACCESS_KEY
+</code></pre>
 <p><strong>Windows:</strong></p>
-
-<p>&gt; echo %SAUCE_USERNAME%</p>
-
-<p>&gt; echo %SAUCE_ACCESS_KEY%</p>
-<h4 id='required-sauce-lab-capabilities'>Required Sauce Lab Capabilities</h4>
+<pre class="highlight html tab-html"><code>    &gt; echo %SAUCE_USERNAME%
+    &gt; echo %SAUCE_ACCESS_KEY%
+</code></pre><h4 id='required-sauce-lab-capabilities'>Required Sauce Lab Capabilities</h4>
 <p>Following capabilities are required for Sauce Lab:</p>
 
 <ul>
@@ -29433,7 +29425,7 @@ Variables &gt; Edit &gt; New</strong></p></li>
 <p><strong>Mac OSX:</strong></p>
 <pre class="highlight html tab-html"><code>    $ echo $APPLITOOLS_API_KEY
 </code></pre>
-<p><strong><em>WARNING FOR UNIX USERS!</em></strong>:</p>
+<p><strong><em>WARNING FOR UNIX USERS!</em></strong></p>
 
 <ul>
 <li>If you have problems setting your environment variable, run the following command in your terminal:</li>
@@ -29457,7 +29449,7 @@ Variables &gt; Edit &gt; New</strong></p></li>
 <p>In after suite method call </p>
 <pre class="highlight html tab-html"><code>    closeAllEyes();
 </code></pre>
-<p>That&#39;s it, check your tests results at https://eyes.applitools.com/app/test-results.</p>
+<p>That&#39;s it, check your tests results <a href="https://eyes.applitools.com/app/test-results">here</a></p>
 <h2 id='multiple-domains-example'>Multiple domains example</h2>
 <p>Here is the example <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/MultipleDomainsExampleTest.java">MultipleDomainsExampleTest.java</a> 
 of test class with multiple domain. For this example the following files were added to the project:</p>

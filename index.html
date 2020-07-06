@@ -861,6 +861,9 @@
                     <a href="#saucelabs-integration" class="toc-h2 toc-link" data-title="SauceLabs integration">SauceLabs integration</a>
                   </li>
                   <li>
+                    <a href="#applitools-eyes-integration" class="toc-h2 toc-link" data-title="Applitools Eyes integration">Applitools Eyes integration</a>
+                  </li>
+                  <li>
                     <a href="#multiple-domains-example" class="toc-h2 toc-link" data-title="Multiple domains example">Multiple domains example</a>
                   </li>
               </ul>
@@ -29410,6 +29413,60 @@ Variables &gt; Edit &gt; New</strong></p></li>
 <p>Remote url should be different if you are from US.</p>
 
 <p>And that it. Set Sauce Lab capabilities, set remote execution in test.properties and you can run test with Sauce Labs.</p>
+<h2 id='applitools-eyes-integration'>Applitools Eyes integration</h2><h4 id='1-set-your-applitools-eyes-key-as-a-system-variable'>1. Set your Applitools Eyes key as a system variable</h4>
+<p>Open a Terminal window (command prompt for Windows) and set your Applitools Eyes key:   </p>
+
+<p><strong>Mac OSX:</strong></p>
+
+<p>$ export APPLITOOLS_API_KEY=&quot;<Applitools_Eyes_key>&quot;</p>
+
+<p><strong>Windows:</strong></p>
+
+<p>&gt; set APPLITOOLS_API_KEY=&quot;<Applitools_Eyes_key>&quot;</p>
+
+<ul>
+<li><p>To set an environment variables permanently in Windows, go to <strong>Control Panel &gt; System &gt; Windows version &gt; Advanced System Settings &gt; Environment Variables &gt; System
+Variables &gt; Edit &gt; New</strong></p></li>
+<li><p>Then set the &quot;Name&quot; to APPLITOOLS_API_KEY and &quot;Value&quot; to <Applitools_Eyes_key></p></li>
+</ul>
+
+<p>Check that the environment variable is set:</p>
+
+<p><strong>Mac OSX:</strong></p>
+
+<p>$ echo $APPLITOOLS_API_KEY</p>
+
+<p><strong><em>WARNING FOR UNIX USERS!</em></strong>:</p>
+
+<ul>
+<li><p>If you have problems setting your environment variable, run the following command in your terminal:</p>
+
+<p>$ launchctl setenv APPLITOOLS_API_KEY $APPLITOOLS_API_KEY</p></li>
+</ul>
+
+<p><strong>Windows:</strong></p>
+
+<p>&gt; echo %APPLITOOLS_API_KEY%</p>
+<h4 id='2-add-applitools-eyes-dependency-to-the-pom-file'>2. Add Applitools Eyes dependency to the .pom file:</h4>
+<p><dependency>
+        <groupId>com.epam.jdi</groupId>
+        <artifactId>jdi-light-eyes</artifactId>
+        <version>RELEASE</version>
+    </dependency></p>
+<h4 id='3-configure-before-and-after-methods'>3. Configure before and after methods:</h4>
+<p>In before suite method (if you use testNG, that&#39;ll the method annotated by @BeforeSuite) call</p>
+
+<p>visualTestInitJdi();</p>
+
+<p>Before each test call (if you use testNG, that&#39;ll be in the method annotated by @BeforeMethod)</p>
+
+<p>newVisualTest(method);</p>
+
+<p>In after suite method call </p>
+
+<p>closeAllEyes();</p>
+
+<p>That&#39;s it, check your tests results at https://eyes.applitools.com/app/test-results.</p>
 <h2 id='multiple-domains-example'>Multiple domains example</h2>
 <p>Here is the example <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/MultipleDomainsExampleTest.java">MultipleDomainsExampleTest.java</a> 
 of test class with multiple domain. For this example the following files were added to the project:</p>

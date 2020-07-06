@@ -21377,13 +21377,13 @@ Open a Terminal window (command prompt for Windows) and set your Applitools Eyes
 
   **Mac OSX:**
   
-```
+```html
     $ export APPLITOOLS_API_KEY="Applitools_Eyes_key"
 ```
 
   **Windows:**
   
-```
+```html
     > set APPLITOOLS_API_KEY="Applitools_Eyes_key"
 ```
 
@@ -21396,7 +21396,7 @@ Check that the environment variable is set:
 
   **Mac OSX:**
   
-```
+```html
     $ echo $APPLITOOLS_API_KEY
 ```
 
@@ -21404,19 +21404,19 @@ Check that the environment variable is set:
 
    - If you have problems setting your environment variable, run the following command in your terminal:
 
-```
+```html
     $ launchctl setenv APPLITOOLS_API_KEY $APPLITOOLS_API_KEY
 ```
 
   **Windows:**
   
-```
+```html
     > echo %APPLITOOLS_API_KEY%
 ```
 
 #### 2. Add Applitools Eyes dependency to the .pom file:
 
-```xml
+```html
     <dependency>
         <groupId>com.epam.jdi</groupId>
         <artifactId>jdi-light-eyes</artifactId>
@@ -21428,19 +21428,19 @@ Check that the environment variable is set:
 
 In before suite method (if you use testNG, that'll the method annotated by @BeforeSuite) call
 
-```
+```html
     visualTestInitJdi();
 ```
 
 Before each test call (if you use testNG, that'll be in the method annotated by @BeforeMethod)
 
-```
+```html
     newVisualTest(method);
 ```
 
 In after suite method call 
 
-```
+```html
     closeAllEyes();
 ```
 

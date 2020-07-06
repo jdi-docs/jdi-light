@@ -21376,13 +21376,17 @@ And that it. Set Sauce Lab capabilities, set remote execution in test.properties
 Open a Terminal window (command prompt for Windows) and set your Applitools Eyes key:   
 
   **Mac OSX:**
+  
 ```
     $ export APPLITOOLS_API_KEY="Applitools_Eyes_key"
 ```
+
   **Windows:**
+  
 ```
     > set APPLITOOLS_API_KEY="Applitools_Eyes_key"
 ```
+
    - To set an environment variables permanently in Windows, go to **Control Panel > System > Windows version > Advanced System Settings > Environment Variables > System
     Variables > Edit > New**
 
@@ -21391,41 +21395,55 @@ Open a Terminal window (command prompt for Windows) and set your Applitools Eyes
 Check that the environment variable is set:
 
   **Mac OSX:**
+  
 ```
     $ echo $APPLITOOLS_API_KEY
 ```
+
   ***WARNING FOR UNIX USERS!***:
 
    - If you have problems setting your environment variable, run the following command in your terminal:
+
 ```
     $ launchctl setenv APPLITOOLS_API_KEY $APPLITOOLS_API_KEY
 ```
+
   **Windows:**
+  
 ```
     > echo %APPLITOOLS_API_KEY%
 ```
+
 #### 2. Add Applitools Eyes dependency to the .pom file:
-```
+
+```xml
     <dependency>
         <groupId>com.epam.jdi</groupId>
         <artifactId>jdi-light-eyes</artifactId>
         <version>RELEASE</version>
     </dependency>
 ```
+
 #### 3. Configure before and after methods:
 
 In before suite method (if you use testNG, that'll the method annotated by @BeforeSuite) call
+
 ```
     visualTestInitJdi();
 ```
+
 Before each test call (if you use testNG, that'll be in the method annotated by @BeforeMethod)
+
 ```
     newVisualTest(method);
 ```
+
 In after suite method call 
+
 ```
     closeAllEyes();
 ```
+
 That's it, check your tests results at https://eyes.applitools.com/app/test-results.
 
 ## Multiple domains example

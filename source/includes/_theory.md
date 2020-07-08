@@ -13,7 +13,7 @@ JDI provides an ability to create your own element or reuse standard element fro
 @UI("//*[text()='Submit']") public Button submit;
 ```
 - Used to make your Page Objects more intuitive and clear
-- In addition we use elements type and name in our logs and reports that simplifies tests maintanance
+- In addition we use elements type and name in our logs and reports that simplifies tests maintenance
 - And of course we expect from UI elements only actions that are relevant to them (e.g. you can't sendKeys in ```Button``` but this is possible with ```WebElement``` or ```SelenideElement```)
 
 In JDI we have the following Common elements:</br>

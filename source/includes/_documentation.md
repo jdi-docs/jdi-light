@@ -4702,6 +4702,78 @@ There are eight different inputs in Angular:
 
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/InputTests.java" target="_blank">Java tests examples</a>
+
+
+### Toolbar
+
+```java 
+    /**@FindBy(id = "toolbar-basic") public static ToolbarSection toolbarSection;*/
+    @UI("#toolbar-basic")
+    public static TextArea toolbarTextArea;
+    public static Text toolbarTextArea;
+
+    /**@FindBy(id = "toolbar-table") public static ToolbarSection toolbarSection;*/
+    @UI("#toolbar-table")
+    public static Table toolbarTable;
+
+    /**@FindBy(css = "#toolbar-table span:not(.example-spacer)") public static ToolbarSection toolbarSection;*/
+    @UI("#toolbar-table span:not(.example-spacer)") 
+    public static JList<Text> toolbarRowsElementsWithText;
+
+  
+    @Test
+    public void basicToolbarTest() {
+         String textForTest = "My App";
+         String classForTest = "mat-toolbar";
+         toolbarTextArea.is().displayed();
+         toolbarTable.is().hasClass(classForTest);
+         toolbarTextArea.is().text(containsString(textForTest));
+      }
+
+    @Test
+    public void multiRowToolbarTest() {
+        String classForTest = "mat-toolbar";
+        List<String> listForTest = Arrays.asList("Custom Toolbar", "Second Line", "Third Line");
+        toolbarTable.is().displayed();
+        toolbarTable.is().hasClass(classForTest);
+        toolbarRowsElementsWithText.is().values(listForTest);
+    }
+
+    @Test
+    public void multiRowToolbarColorTest() {
+        String colorForTest = "primary";
+        toolbarTable.has().attr("color", colorForTest);
+    }
+
+   } 
+
+```
+#### <a href="https://material.angular.io/components/toolbar/overview" target="_blank">Toolbar overview</a>
+
+"<mat-toolbar>" is a container for headers, titles, or actions.
+
+There is two different toolbars in Angular: Single row and Multiple row:
+
+![Toolbar examples](../images/angular/toolbar_examples.png)
+
+```html
+<mat-toolbar _ngcontent-duh-c290="" id="toolbar-basic" class="mat-toolbar mat-toolbar-single-row">My App</mat-toolbar>
+```
+
+```html
+<mat-toolbar _ngcontent-duh-c291="" id="toolbar-table" color="primary" class="mat-toolbar mat-primary mat-toolbar-multiple-rows"><mat-toolbar-row _ngcontent-duh-c291="" class="mat-toolbar-row"><span _ngcontent-duh-c291="">Custom Toolbar</span></mat-toolbar-row><mat-toolbar-row _ngcontent-duh-c291="" class="mat-toolbar-row"><span _ngcontent-duh-c291="">Second Line</span><span _ngcontent-duh-c291="" class="example-spacer"></span><mat-icon _ngcontent-duh-c291="" role="img" aria-hidden="false" aria-label="Example user verified icon" class="mat-icon notranslate example-icon material-icons mat-icon-no-color">verified_user</mat-icon></mat-toolbar-row><mat-toolbar-row _ngcontent-duh-c291="" class="mat-toolbar-row"><span _ngcontent-duh-c291="">Third Line</span><span _ngcontent-duh-c291="" class="example-spacer"></span><mat-icon _ngcontent-duh-c291="" role="img" aria-hidden="false" aria-label="Example heart icon" class="mat-icon notranslate example-icon material-icons mat-icon-no-color">favorite</mat-icon><mat-icon _ngcontent-duh-c291="" role="img" aria-hidden="false" aria-label="Example delete icon" class="mat-icon notranslate example-icon material-icons mat-icon-no-color">delete</mat-icon></mat-toolbar-row></mat-toolbar>
+```
+   
+|Method | Description | Return Type
+--- | --- | ---
+**hasClass()** | Match passed value with the element class | boolean
+**values()** | Assert that values are the same | List<String>
+**has()** | assert that element has attribute | boolean
+**attr()** | Check whether an element has attribute of specified name and with given value  | IsAssert 
+**is()** | Assert action | TextAssert 
+**displayed()** | Check that element is displayed | TextAssert
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/ToolbarTests.java" target="_blank">Here you can find Toolbar tests</a>
 ---
 ## Bootstrap Common elements
 
@@ -4712,7 +4784,7 @@ There are eight different inputs in Angular:
 Checkbox is located in the following classes:
  
   - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.common.Checkbox_
-  
+
 
 <!-- ![Checkbox default example](../images/bootstrap/checkbox-default.png) -->
 

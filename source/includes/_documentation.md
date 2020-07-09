@@ -4703,7 +4703,6 @@ There are eight different inputs in Angular:
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/InputTests.java" target="_blank">Java tests examples</a>
 
-
 ### Toolbar
 
 ```java 
@@ -4720,7 +4719,6 @@ There are eight different inputs in Angular:
     @UI("#toolbar-table span:not(.example-spacer)") 
     public static JList<Text> toolbarRowsElementsWithText;
 
-  
     @Test
     public void basicToolbarTest() {
          String textForTest = "My App";
@@ -4744,13 +4742,11 @@ There are eight different inputs in Angular:
         String colorForTest = "primary";
         toolbarTable.has().attr("color", colorForTest);
     }
-
    } 
-
 ```
 #### <a href="https://material.angular.io/components/toolbar/overview" target="_blank">Toolbar overview</a>
 
-"<mat-toolbar>" is a container for headers, titles, or actions.
+"mat-toolbar" is a container for headers, titles, or actions.
 
 There is two different toolbars in Angular: Single row and Multiple row:
 
@@ -4772,6 +4768,7 @@ There is two different toolbars in Angular: Single row and Multiple row:
 **attr()** | Check whether an element has attribute of specified name and with given value  | IsAssert 
 **is()** | Assert action | TextAssert 
 **displayed()** | Check that element is displayed | TextAssert
+
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/ToolbarTests.java" target="_blank">Here you can find Toolbar tests</a>
 ---

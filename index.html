@@ -584,6 +584,9 @@
                             <li>
 								<a href="#inputs" class="toc-h2 h3 toc-link" data-title="Inputs">Inputs</a>
                             </li>
+                            <li>
+								<a href="#toolbar" class="toc-h2 h3 toc-link" data-title="Toolbar">Toolbar</a>
+                            </li>
                         </ul>
                   </li>
                   <li>
@@ -9939,7 +9942,94 @@ Methods available for Java in JDI Light:</p>
 <td>String</td>
 </tr>
 </tbody></table>
-<h4 id='java-tests-examples'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/InputTests.java" target="_blank">Java tests examples</a></h4>
+<h4 id='java-tests-examples'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/InputTests.java" target="_blank">Java tests examples</a></h4><h3 id='toolbar'>Toolbar</h3><pre class="highlight java tab-java"><code>    <span class="cm">/**@FindBy(id = "toolbar-basic") public static ToolbarSection toolbarSection;*/</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#toolbar-basic"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">TextArea</span> <span class="n">toolbarTextArea</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Text</span> <span class="n">toolbarTextArea</span><span class="o">;</span>
+
+    <span class="cm">/**@FindBy(id = "toolbar-table") public static ToolbarSection toolbarSection;*/</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#toolbar-table"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Table</span> <span class="n">toolbarTable</span><span class="o">;</span>
+
+    <span class="cm">/**@FindBy(css = "#toolbar-table span:not(.example-spacer)") public static ToolbarSection toolbarSection;*/</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#toolbar-table span:not(.example-spacer)"</span><span class="o">)</span> 
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">JList</span><span class="o">&lt;</span><span class="n">Text</span><span class="o">&gt;</span> <span class="n">toolbarRowsElementsWithText</span><span class="o">;</span>
+
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">basicToolbarTest</span><span class="o">()</span> <span class="o">{</span>
+         <span class="n">String</span> <span class="n">textForTest</span> <span class="o">=</span> <span class="s">"My App"</span><span class="o">;</span>
+         <span class="n">String</span> <span class="n">classForTest</span> <span class="o">=</span> <span class="s">"mat-toolbar"</span><span class="o">;</span>
+         <span class="n">toolbarTextArea</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+         <span class="n">toolbarTable</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">hasClass</span><span class="o">(</span><span class="n">classForTest</span><span class="o">);</span>
+         <span class="n">toolbarTextArea</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="n">textForTest</span><span class="o">));</span>
+      <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">multiRowToolbarTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">String</span> <span class="n">classForTest</span> <span class="o">=</span> <span class="s">"mat-toolbar"</span><span class="o">;</span>
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">listForTest</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">"Custom Toolbar"</span><span class="o">,</span> <span class="s">"Second Line"</span><span class="o">,</span> <span class="s">"Third Line"</span><span class="o">);</span>
+        <span class="n">toolbarTable</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+        <span class="n">toolbarTable</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">hasClass</span><span class="o">(</span><span class="n">classForTest</span><span class="o">);</span>
+        <span class="n">toolbarRowsElementsWithText</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">values</span><span class="o">(</span><span class="n">listForTest</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">multiRowToolbarColorTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">String</span> <span class="n">colorForTest</span> <span class="o">=</span> <span class="s">"primary"</span><span class="o">;</span>
+        <span class="n">toolbarTable</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">attr</span><span class="o">(</span><span class="s">"color"</span><span class="o">,</span> <span class="n">colorForTest</span><span class="o">);</span>
+    <span class="o">}</span>
+
+   <span class="o">}</span> 
+
+</code></pre><h4 id='toolbar-overview'><a href="https://material.angular.io/components/toolbar/overview" target="_blank">Toolbar overview</a></h4>
+<p>&quot;<mat-toolbar>&quot; is a container for headers, titles, or actions.</p>
+
+<p>There is two different toolbars in Angular: Single row and Multiple row:</p>
+
+<p><img src="images/angular/toolbar_examples.png" alt="Toolbar examples" /></p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;mat-toolbar</span> <span class="na">_ngcontent-duh-c290=</span><span class="s">""</span> <span class="na">id=</span><span class="s">"toolbar-basic"</span> <span class="na">class=</span><span class="s">"mat-toolbar mat-toolbar-single-row"</span><span class="nt">&gt;</span>My App<span class="nt">&lt;/mat-toolbar&gt;</span>
+</code></pre><pre class="highlight html tab-html"><code><span class="nt">&lt;mat-toolbar</span> <span class="na">_ngcontent-duh-c291=</span><span class="s">""</span> <span class="na">id=</span><span class="s">"toolbar-table"</span> <span class="na">color=</span><span class="s">"primary"</span> <span class="na">class=</span><span class="s">"mat-toolbar mat-primary mat-toolbar-multiple-rows"</span><span class="nt">&gt;&lt;mat-toolbar-row</span> <span class="na">_ngcontent-duh-c291=</span><span class="s">""</span> <span class="na">class=</span><span class="s">"mat-toolbar-row"</span><span class="nt">&gt;&lt;span</span> <span class="na">_ngcontent-duh-c291=</span><span class="s">""</span><span class="nt">&gt;</span>Custom Toolbar<span class="nt">&lt;/span&gt;&lt;/mat-toolbar-row&gt;&lt;mat-toolbar-row</span> <span class="na">_ngcontent-duh-c291=</span><span class="s">""</span> <span class="na">class=</span><span class="s">"mat-toolbar-row"</span><span class="nt">&gt;&lt;span</span> <span class="na">_ngcontent-duh-c291=</span><span class="s">""</span><span class="nt">&gt;</span>Second Line<span class="nt">&lt;/span&gt;&lt;span</span> <span class="na">_ngcontent-duh-c291=</span><span class="s">""</span> <span class="na">class=</span><span class="s">"example-spacer"</span><span class="nt">&gt;&lt;/span&gt;&lt;mat-icon</span> <span class="na">_ngcontent-duh-c291=</span><span class="s">""</span> <span class="na">role=</span><span class="s">"img"</span> <span class="na">aria-hidden=</span><span class="s">"false"</span> <span class="na">aria-label=</span><span class="s">"Example user verified icon"</span> <span class="na">class=</span><span class="s">"mat-icon notranslate example-icon material-icons mat-icon-no-color"</span><span class="nt">&gt;</span>verified_user<span class="nt">&lt;/mat-icon&gt;&lt;/mat-toolbar-row&gt;&lt;mat-toolbar-row</span> <span class="na">_ngcontent-duh-c291=</span><span class="s">""</span> <span class="na">class=</span><span class="s">"mat-toolbar-row"</span><span class="nt">&gt;&lt;span</span> <span class="na">_ngcontent-duh-c291=</span><span class="s">""</span><span class="nt">&gt;</span>Third Line<span class="nt">&lt;/span&gt;&lt;span</span> <span class="na">_ngcontent-duh-c291=</span><span class="s">""</span> <span class="na">class=</span><span class="s">"example-spacer"</span><span class="nt">&gt;&lt;/span&gt;&lt;mat-icon</span> <span class="na">_ngcontent-duh-c291=</span><span class="s">""</span> <span class="na">role=</span><span class="s">"img"</span> <span class="na">aria-hidden=</span><span class="s">"false"</span> <span class="na">aria-label=</span><span class="s">"Example heart icon"</span> <span class="na">class=</span><span class="s">"mat-icon notranslate example-icon material-icons mat-icon-no-color"</span><span class="nt">&gt;</span>favorite<span class="nt">&lt;/mat-icon&gt;&lt;mat-icon</span> <span class="na">_ngcontent-duh-c291=</span><span class="s">""</span> <span class="na">role=</span><span class="s">"img"</span> <span class="na">aria-hidden=</span><span class="s">"false"</span> <span class="na">aria-label=</span><span class="s">"Example delete icon"</span> <span class="na">class=</span><span class="s">"mat-icon notranslate example-icon material-icons mat-icon-no-color"</span><span class="nt">&gt;</span>delete<span class="nt">&lt;/mat-icon&gt;&lt;/mat-toolbar-row&gt;&lt;/mat-toolbar&gt;</span>
+</code></pre>
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>hasClass()</strong></td>
+<td>Match passed value with the element class</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>values()</strong></td>
+<td>Assert that values are the same</td>
+<td>List<String></td>
+</tr>
+<tr>
+<td><strong>has()</strong></td>
+<td>assert that element has attribute</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>attr()</strong></td>
+<td>Check whether an element has attribute of specified name and with given value</td>
+<td>IsAssert</td>
+</tr>
+<tr>
+<td><strong>is()</strong></td>
+<td>Assert action</td>
+<td>TextAssert</td>
+</tr>
+<tr>
+<td><strong>displayed()</strong></td>
+<td>Check that element is displayed</td>
+<td>TextAssert</td>
+</tr>
+</tbody></table>
+<h4 id='here-you-can-find-toolbar-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/ToolbarTests.java" target="_blank">Here you can find Toolbar tests</a></h4>
 <hr>
 <h2 id='bootstrap-common-elements'>Bootstrap Common elements</h2><h3 id='checkboxes-and-radios'>Checkboxes and radios</h3><h4 id='checkbox-default'><a href="https://getbootstrap.com/docs/4.3/components/buttons/" target="_blank">Checkbox default</a></h4>
 <p>Checkbox is located in the following classes:</p>

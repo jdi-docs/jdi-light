@@ -29,7 +29,7 @@
   public void hasAttribute() {
       assertTrue(submit.hasAttribute("class"));
       assertTrue(submit.hasAttribute("type"));
-  }
+  
   
 ```
 
@@ -4746,7 +4746,7 @@ There are eight different inputs in Angular:
 ```
 #### <a href="https://material.angular.io/components/toolbar/overview" target="_blank">Toolbar overview</a>
 
-"mat-toolbar" is a container for headers, titles, or actions.
+"mat-toolbar" - is a container for headers, titles, or actions.
 
 There is two different toolbars in Angular: Single row and Multiple row:
 

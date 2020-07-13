@@ -21447,17 +21447,18 @@ Before running JDI project in Sauce Lab, you need to set up Sauce Lab Credential
 2. Open a Terminal window (command prompt for Windows) and set your Sauce Labs Environment variables:   
 
    **Mac OSX:**
-
+   
+```html
    $ export SAUCE_USERNAME="username"
-
    $ export SAUCE_ACCESS_KEY="accessKey"
+```
 
-    **Windows:**
+   **Windows:**
 
+```html
     > set SAUCE_USERNAME="username"
-
     > set SAUCE_ACCESS_KEY="accessKey"
-
+```
    - To set an environment variables permanently in Windows, you must append it to the `PATH` variable.
 
    - Go to **Control Panel > System > Windows version > Advanced System Settings > Environment Variables > System
@@ -21469,23 +21470,26 @@ Before running JDI project in Sauce Lab, you need to set up Sauce Lab Credential
 
     **Mac OSX:**
 
+```html
     $ echo $SAUCE_USERNAME
-
     $ echo $SAUCE_ACCESS_KEY
+```
 
-    ***WARNING FOR UNIX USERS!***:
+   ***WARNING FOR UNIX USERS!***
 
-    - If you have problems setting your environment variables, run the following commands in your terminal:
+   - If you have problems setting your environment variables, run the following commands in your terminal:
 
+```html
     $ launchctl setenv SAUCE_USERNAME $SAUCE_USERNAME
-
     $ launchctl setenv SAUCE_ACCESS_KEY $SAUCE_ACCESS_KEY
+```
 
-    **Windows:**
-
+   **Windows:**
+    
+```html
     > echo %SAUCE_USERNAME%
-
     > echo %SAUCE_ACCESS_KEY%
+```
 
 #### Required Sauce Lab Capabilities
 
@@ -21522,6 +21526,83 @@ See your personal remote url: [here](https://app.saucelabs.com/user-settings) lo
 Remote url should be different if you are from US.
 
 And that it. Set Sauce Lab capabilities, set remote execution in test.properties and you can run test with Sauce Labs.
+
+## Applitools Eyes integration
+
+#### 1. Set your Applitools Eyes key as a system variable 
+
+Open a Terminal window (command prompt for Windows) and set your Applitools Eyes key:   
+
+  **Mac OSX:**
+  
+```html
+    $ export APPLITOOLS_API_KEY="Applitools_Eyes_key"
+```
+
+  **Windows:**
+  
+```html
+    > set APPLITOOLS_API_KEY="Applitools_Eyes_key"
+```
+
+   - To set an environment variables permanently in Windows, go to **Control Panel > System > Windows version > Advanced System Settings > Environment Variables > System
+    Variables > Edit > New**
+
+   - Then set the "Name" to APPLITOOLS_API_KEY and "Value" to Applitools_Eyes_key
+
+Check that the environment variable is set:
+
+  **Mac OSX:**
+  
+```html
+    $ echo $APPLITOOLS_API_KEY
+```
+
+  ***WARNING FOR UNIX USERS!***
+
+   - If you have problems setting your environment variable, run the following command in your terminal:
+
+```html
+    $ launchctl setenv APPLITOOLS_API_KEY $APPLITOOLS_API_KEY
+```
+
+  **Windows:**
+  
+```html
+    > echo %APPLITOOLS_API_KEY%
+```
+
+#### 2. Add Applitools Eyes dependency to the .pom file:
+
+```html
+    <dependency>
+        <groupId>com.epam.jdi</groupId>
+        <artifactId>jdi-light-eyes</artifactId>
+        <version>RELEASE</version>
+    </dependency>
+```
+
+#### 3. Configure before and after methods:
+
+In before suite method (if you use testNG, that'll the method annotated by @BeforeSuite) call
+
+```html
+    visualTestInitJdi();
+```
+
+Before each test call (if you use testNG, that'll be in the method annotated by @BeforeMethod)
+
+```html
+    newVisualTest(method);
+```
+
+In after suite method call 
+
+```html
+    closeAllEyes();
+```
+
+That's it, check your tests results [here](https://eyes.applitools.com/app/test-results)
 
 ## Multiple domains example
 Here is the example [MultipleDomainsExampleTest.java](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/MultipleDomainsExampleTest.java) 

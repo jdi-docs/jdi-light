@@ -29,7 +29,7 @@
   public void hasAttribute() {
       assertTrue(submit.hasAttribute("class"));
       assertTrue(submit.hasAttribute("type"));
-  
+}  
   
 ```
 

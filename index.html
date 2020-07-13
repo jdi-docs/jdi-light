@@ -587,6 +587,9 @@
                             <li>
 								<a href="#toolbar" class="toc-h2 h3 toc-link" data-title="Toolbar">Toolbar</a>
                             </li>
+                            <li>
+								<a href="#basic-button" class="toc-h2 h3 toc-link" data-title="Basic Button">Basic Button</a>
+                            </li>
                         </ul>
                   </li>
                   <li>
@@ -10026,7 +10029,122 @@ Methods available for Java in JDI Light:</p>
 <td>TextAssert</td>
 </tr>
 </tbody></table>
-<h4 id='here-you-can-find-toolbar-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/ToolbarTests.java" target="_blank">Here you can find Toolbar tests</a></h4>
+<h4 id='here-you-can-find-toolbar-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/ToolbarTests.java" target="_blank">Here you can find Toolbar tests</a></h4><h3 id='basic-button'>Basic Button</h3><h4 id='button-overview'><a href="https://material.angular.io/components/button/overview" target="_blank">Button overview</a></h4>
+<p>Basic Button is located in the following class:</p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.elements.common.Button</em></li>
+</ul>
+
+<p>The angular Button:</p>
+
+<p><br></p>
+<pre class="highlight java tab-java"><code>    <span class="c1">//@FindBy(id="basic-buttons-label") public static Text basicButtonsLabel;</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#basic-buttons-label"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">Label</span> <span class="n">basicButtonsLabel</span><span class="o">;</span>
+
+    <span class="c1">//@FindBy(id="basic-primary-button") public static Text basicPrimaryButton;</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#basic-primary-button"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">Button</span> <span class="n">basicPrimaryButton</span><span class="o">;</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">clickTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">basicBasicButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">basicBasicButton</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">hasClass</span><span class="o">(</span><span class="n">FOCUSED_CLASS</span><span class="o">);</span>
+        <span class="n">basicButtonsSection</span><span class="o">.</span><span class="na">basicButtonsLabel</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="n">BASIC_TEXT</span><span class="o">));</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">clickWithMoveTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">basicWarnButton</span><span class="o">.</span><span class="na">click</span><span class="o">(</span><span class="n">ElementArea</span><span class="o">.</span><span class="na">TOP_LEFT</span><span class="o">);</span>
+        <span class="n">basicWarnButton</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">hasClass</span><span class="o">(</span><span class="n">FOCUSED_CLASS</span><span class="o">);</span>
+        <span class="n">basicButtonsSection</span><span class="o">.</span><span class="na">basicButtonsLabel</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="n">WARN_TEXT</span><span class="o">));</span>
+    <span class="o">}</span>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">disableButtonTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">basicDisabledButton</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">disabled</span><span class="o">();</span>
+    <span class="o">}</span>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">isValidationTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">basicWarnButton</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+        <span class="n">basicWarnButton</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
+        <span class="n">basicWarnButton</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="n">WARN_TEXT</span><span class="o">));</span>
+        <span class="n">basicWarnButton</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="n">WARN_TEXT</span><span class="o">));</span>
+        <span class="n">assertThat</span><span class="o">(</span><span class="n">basicWarnButton</span><span class="o">.</span><span class="na">core</span><span class="o">().</span><span class="na">css</span><span class="o">(</span><span class="s">"font-size"</span><span class="o">),</span> <span class="n">is</span><span class="o">(</span><span class="s">"14px"</span><span class="o">));</span>
+        <span class="n">basicWarnButton</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">displayed</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">and</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="n">WARN_TEXT</span><span class="o">))</span>
+                <span class="o">.</span><span class="na">core</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">css</span><span class="o">(</span><span class="s">"font-size"</span><span class="o">,</span> <span class="n">is</span><span class="o">(</span><span class="s">"14px"</span><span class="o">))</span>
+                <span class="o">.</span><span class="na">and</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">cssClass</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"mat-button"</span><span class="o">))</span>
+                <span class="o">.</span><span class="na">and</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">attr</span><span class="o">(</span><span class="s">"type"</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">tag</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="s">"button"</span><span class="o">));</span>
+        <span class="n">basicDisabledButton</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="n">DISABLED_TEXT</span><span class="o">));</span>
+        <span class="n">basicDisabledButton</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">disabled</span><span class="o">();</span>
+    <span class="o">}</span>
+</code></pre>
+<p><img src="images/angular/basic_buttons.png" alt="Button" /></p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;button</span> <span class="na">_ngcontent-jos-c358=</span><span class="s">""</span> <span class="na">mat-raised-button=</span><span class="s">""</span> <span class="na">color=</span><span class="s">"primary"</span> <span class="na">id=</span><span class="s">"raised-primary-button"</span> <span class="na">class=</span><span class="s">"mat-focus-indicator mat-raised-button mat-button-base mat-primary"</span> <span class="na">ng-reflect-color=</span><span class="s">"primary"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"mat-button-wrapper"</span><span class="nt">&gt;</span>Primary<span class="nt">&lt;/span&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">matripple=</span><span class="s">""</span> <span class="na">class=</span><span class="s">"mat-ripple mat-button-ripple"</span> <span class="na">ng-reflect-disabled=</span><span class="s">"false"</span> <span class="na">ng-reflect-centered=</span><span class="s">"false"</span> <span class="na">ng-reflect-trigger=</span><span class="s">"[object HTMLButtonElement]"</span><span class="nt">&gt;&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mat-button-focus-overlay"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/button&gt;</span>
+</code></pre>
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>show()</strong></td>
+<td>Scroll to element</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>click()</strong></td>
+<td>Click the button</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>clickWithMoveTest(ElementArea ea)</strong></td>
+<td>Click the button</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>assertThat()</strong></td>
+<td>Assert action</td>
+<td>TextAssert</td>
+</tr>
+<tr>
+<td><strong>displayed()</strong></td>
+<td>Check that element is displayed</td>
+<td>TextAssert</td>
+</tr>
+<tr>
+<td><strong>enabled()</strong></td>
+<td>Check that element is enabled</td>
+<td>TextAssert</td>
+</tr>
+<tr>
+<td><strong>disabled()</strong></td>
+<td>Check that element is disabled</td>
+<td>TextAssert</td>
+</tr>
+<tr>
+<td><strong>getText()</strong></td>
+<td>Get button text</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>is()</strong></td>
+<td>Assert action</td>
+<td>TextAssert</td>
+</tr>
+</tbody></table>
+<h4 id='basic-button-java-tests-examples'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/BasicButtonTests.java" target="_blank">Basic Button java tests examples</a></h4>
 <hr>
 <h2 id='bootstrap-common-elements'>Bootstrap Common elements</h2><h3 id='checkboxes-and-radios'>Checkboxes and radios</h3><h4 id='checkbox-default'><a href="https://getbootstrap.com/docs/4.3/components/buttons/" target="_blank">Checkbox default</a></h4>
 <p>Checkbox is located in the following classes:</p>

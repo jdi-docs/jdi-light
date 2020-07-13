@@ -4771,6 +4771,87 @@ There is two different toolbars in Angular: Single row and Multiple row:
 
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/ToolbarTests.java" target="_blank">Here you can find Toolbar tests</a>
+
+### Basic Button
+
+#### <a href="https://material.angular.io/components/button/overview" target="_blank">Button overview</a>
+
+Basic Button is located in the following class:
+
+   - __Java__: _com.epam.jdi.light.ui.html.elements.common.Button_
+   
+The angular Button:
+
+<br>
+
+```java 
+    //@FindBy(id="basic-buttons-label") public static Text basicButtonsLabel;
+    @UI("#basic-buttons-label")
+    public Label basicButtonsLabel;
+
+    //@FindBy(id="basic-primary-button") public static Text basicPrimaryButton;
+    @UI("#basic-primary-button")
+    public Button basicPrimaryButton;
+
+    @Test
+    public void clickTest() {
+        basicBasicButton.click();
+        basicBasicButton.is().hasClass(FOCUSED_CLASS);
+        basicButtonsSection.basicButtonsLabel.is().has().text(containsString(BASIC_TEXT));
+    }
+
+    @Test
+    public void clickWithMoveTest() {
+        basicWarnButton.click(ElementArea.TOP_LEFT);
+        basicWarnButton.is().hasClass(FOCUSED_CLASS);
+        basicButtonsSection.basicButtonsLabel.is().has().text(containsString(WARN_TEXT));
+    }
+    @Test
+    public void disableButtonTest() {
+        basicDisabledButton.is().disabled();
+    }
+    @Test
+    public void isValidationTest() {
+        basicWarnButton.is().displayed();
+        basicWarnButton.is().enabled();
+        basicWarnButton.is().text(is(WARN_TEXT));
+        basicWarnButton.is().text(containsString(WARN_TEXT));
+        assertThat(basicWarnButton.core().css("font-size"), is("14px"));
+        basicWarnButton.assertThat().displayed()
+                .and().text(is(WARN_TEXT))
+                .core()
+                .css("font-size", is("14px"))
+                .and()
+                .cssClass(containsString("mat-button"))
+                .and()
+                .attr("type")
+                .tag(is("button"));
+        basicDisabledButton.is().text(containsString(DISABLED_TEXT));
+        basicDisabledButton.is().disabled();
+    }
+```
+![Button](../images/angular/basic_buttons.png)
+
+```html
+<button _ngcontent-jos-c358="" mat-raised-button="" color="primary" id="raised-primary-button" class="mat-focus-indicator mat-raised-button mat-button-base mat-primary" ng-reflect-color="primary">
+    <span class="mat-button-wrapper">Primary</span>
+    <div matripple="" class="mat-ripple mat-button-ripple" ng-reflect-disabled="false" ng-reflect-centered="false" ng-reflect-trigger="[object HTMLButtonElement]"></div>
+    <div class="mat-button-focus-overlay"></div>
+</button>
+```
+   
+|Method | Description | Return Type
+--- | --- | ---
+**show()** | Scroll to element | void
+**click()** | Click the button | void
+**clickWithMoveTest(ElementArea ea)** | Click the button | void
+**assertThat()** | Assert action | TextAssert
+**displayed()** | Check that element is displayed | TextAssert
+**enabled()** | Check that element is enabled | TextAssert
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/BasicButtonTests.java" target="_blank">Basic Button java tests examples</a>
 ---
 ## Bootstrap Common elements
 
@@ -21362,18 +21443,17 @@ Before running JDI project in Sauce Lab, you need to set up Sauce Lab Credential
 2. Open a Terminal window (command prompt for Windows) and set your Sauce Labs Environment variables:   
 
    **Mac OSX:**
-   
-```html
+
    $ export SAUCE_USERNAME="username"
+
    $ export SAUCE_ACCESS_KEY="accessKey"
-```
 
-   **Windows:**
+    **Windows:**
 
-```html
     > set SAUCE_USERNAME="username"
+
     > set SAUCE_ACCESS_KEY="accessKey"
-```
+
    - To set an environment variables permanently in Windows, you must append it to the `PATH` variable.
 
    - Go to **Control Panel > System > Windows version > Advanced System Settings > Environment Variables > System
@@ -21385,26 +21465,23 @@ Before running JDI project in Sauce Lab, you need to set up Sauce Lab Credential
 
     **Mac OSX:**
 
-```html
     $ echo $SAUCE_USERNAME
+
     $ echo $SAUCE_ACCESS_KEY
-```
 
-   ***WARNING FOR UNIX USERS!***
+    ***WARNING FOR UNIX USERS!***:
 
-   - If you have problems setting your environment variables, run the following commands in your terminal:
+    - If you have problems setting your environment variables, run the following commands in your terminal:
 
-```html
     $ launchctl setenv SAUCE_USERNAME $SAUCE_USERNAME
-    $ launchctl setenv SAUCE_ACCESS_KEY $SAUCE_ACCESS_KEY
-```
 
-   **Windows:**
-    
-```html
+    $ launchctl setenv SAUCE_ACCESS_KEY $SAUCE_ACCESS_KEY
+
+    **Windows:**
+
     > echo %SAUCE_USERNAME%
+
     > echo %SAUCE_ACCESS_KEY%
-```
 
 #### Required Sauce Lab Capabilities
 
@@ -21441,83 +21518,6 @@ See your personal remote url: [here](https://app.saucelabs.com/user-settings) lo
 Remote url should be different if you are from US.
 
 And that it. Set Sauce Lab capabilities, set remote execution in test.properties and you can run test with Sauce Labs.
-
-## Applitools Eyes integration
-
-#### 1. Set your Applitools Eyes key as a system variable 
-
-Open a Terminal window (command prompt for Windows) and set your Applitools Eyes key:   
-
-  **Mac OSX:**
-  
-```html
-    $ export APPLITOOLS_API_KEY="Applitools_Eyes_key"
-```
-
-  **Windows:**
-  
-```html
-    > set APPLITOOLS_API_KEY="Applitools_Eyes_key"
-```
-
-   - To set an environment variables permanently in Windows, go to **Control Panel > System > Windows version > Advanced System Settings > Environment Variables > System
-    Variables > Edit > New**
-
-   - Then set the "Name" to APPLITOOLS_API_KEY and "Value" to Applitools_Eyes_key
-
-Check that the environment variable is set:
-
-  **Mac OSX:**
-  
-```html
-    $ echo $APPLITOOLS_API_KEY
-```
-
-  ***WARNING FOR UNIX USERS!***
-
-   - If you have problems setting your environment variable, run the following command in your terminal:
-
-```html
-    $ launchctl setenv APPLITOOLS_API_KEY $APPLITOOLS_API_KEY
-```
-
-  **Windows:**
-  
-```html
-    > echo %APPLITOOLS_API_KEY%
-```
-
-#### 2. Add Applitools Eyes dependency to the .pom file:
-
-```html
-    <dependency>
-        <groupId>com.epam.jdi</groupId>
-        <artifactId>jdi-light-eyes</artifactId>
-        <version>RELEASE</version>
-    </dependency>
-```
-
-#### 3. Configure before and after methods:
-
-In before suite method (if you use testNG, that'll the method annotated by @BeforeSuite) call
-
-```html
-    visualTestInitJdi();
-```
-
-Before each test call (if you use testNG, that'll be in the method annotated by @BeforeMethod)
-
-```html
-    newVisualTest(method);
-```
-
-In after suite method call 
-
-```html
-    closeAllEyes();
-```
-
-That's it, check your tests results [here](https://eyes.applitools.com/app/test-results)
 
 ## Multiple domains example
 Here is the example [MultipleDomainsExampleTest.java](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/MultipleDomainsExampleTest.java) 

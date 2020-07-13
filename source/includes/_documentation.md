@@ -4851,6 +4851,7 @@ The angular Button:
 **assertThat()** | Assert action | TextAssert
 **displayed()** | Check that element is displayed | TextAssert
 **enabled()** | Check that element is enabled | TextAssert
+**disabled()** | Check that element is disabled | TextAssert
 **getText()** | Get button text | String
 **is()** | Assert action | TextAssert 
 

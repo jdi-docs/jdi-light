@@ -4771,6 +4771,88 @@ There is two different toolbars in Angular: Single row and Multiple row:
 
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/ToolbarTests.java" target="_blank">Here you can find Toolbar tests</a>
+
+### Basic Button
+
+#### <a href="https://material.angular.io/components/button/overview" target="_blank">Button overview</a>
+
+Basic Button is located in the following class:
+
+   - __Java__: _com.epam.jdi.light.ui.html.elements.common.Button_
+   
+The angular Button:
+
+<br>
+
+```java 
+    //@FindBy(id="basic-buttons-label") public static Text basicButtonsLabel;
+    @UI("#basic-buttons-label")
+    public Label basicButtonsLabel;
+
+    //@FindBy(id="basic-primary-button") public static Text basicPrimaryButton;
+    @UI("#basic-primary-button")
+    public Button basicPrimaryButton;
+
+    @Test
+    public void clickTest() {
+        basicBasicButton.click();
+        basicBasicButton.is().hasClass(FOCUSED_CLASS);
+        basicButtonsSection.basicButtonsLabel.is().has().text(containsString(BASIC_TEXT));
+    }
+
+    @Test
+    public void clickWithMoveTest() {
+        basicWarnButton.click(ElementArea.TOP_LEFT);
+        basicWarnButton.is().hasClass(FOCUSED_CLASS);
+        basicButtonsSection.basicButtonsLabel.is().has().text(containsString(WARN_TEXT));
+    }
+    @Test
+    public void disableButtonTest() {
+        basicDisabledButton.is().disabled();
+    }
+    @Test
+    public void isValidationTest() {
+        basicWarnButton.is().displayed();
+        basicWarnButton.is().enabled();
+        basicWarnButton.is().text(is(WARN_TEXT));
+        basicWarnButton.is().text(containsString(WARN_TEXT));
+        assertThat(basicWarnButton.core().css("font-size"), is("14px"));
+        basicWarnButton.assertThat().displayed()
+                .and().text(is(WARN_TEXT))
+                .core()
+                .css("font-size", is("14px"))
+                .and()
+                .cssClass(containsString("mat-button"))
+                .and()
+                .attr("type")
+                .tag(is("button"));
+        basicDisabledButton.is().text(containsString(DISABLED_TEXT));
+        basicDisabledButton.is().disabled();
+    }
+```
+![Button](../images/angular/basic_buttons.png)
+
+```html
+<button _ngcontent-jos-c358="" mat-raised-button="" color="primary" id="raised-primary-button" class="mat-focus-indicator mat-raised-button mat-button-base mat-primary" ng-reflect-color="primary">
+    <span class="mat-button-wrapper">Primary</span>
+    <div matripple="" class="mat-ripple mat-button-ripple" ng-reflect-disabled="false" ng-reflect-centered="false" ng-reflect-trigger="[object HTMLButtonElement]"></div>
+    <div class="mat-button-focus-overlay"></div>
+</button>
+```
+   
+|Method | Description | Return Type
+--- | --- | ---
+**show()** | Scroll to element | void
+**click()** | Click the button | void
+**clickWithMoveTest(ElementArea ea)** | Click the button | void
+**assertThat()** | Assert action | TextAssert
+**displayed()** | Check that element is displayed | TextAssert
+**enabled()** | Check that element is enabled | TextAssert
+**disabled()** | Check that element is disabled | TextAssert
+**getText()** | Get button text | String
+**is()** | Assert action | TextAssert 
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/BasicButtonTests.java" target="_blank">Basic Button java tests examples</a>
 ---
 ## Bootstrap Common elements
 

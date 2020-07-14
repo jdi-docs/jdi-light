@@ -4854,6 +4854,178 @@ The angular Button:
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/BasicButtonTests.java" target="_blank">Basic Button java tests examples</a>
 ---
+## Angular Complex elements 
+
+### List 
+
+List is a container component that wraps and formats a series of line items. 
+
+There is two different lists in Angular: Basic list and List with sections. 
+
+See an example with HTML code describing basic list element. 
+
+![List examples](../images/angular/basic_list.png) 
+
+```java 
+
+@UI("#basic-list mat-list-item") 
+public JList<Label> basicList; 
+
+@UI("#list-with-sections mat-list-item") 
+public JList<Label> listWithSection; 
+
+@Test 
+public void basicListBasicTest() { 
+listSection.basicList.is().displayed(); 
+listSection.basicList.get(1).show(); 
+} 
+
+@Test 
+public void basicListTextTest() { 
+listSection.basicList.get(1).is().text("Item 1"); 
+} 
+
+@Test 
+public void listWithSectionsTextTest() { 
+listSection.listWithSection.get(1).is().text("folder\nPhotos\nJan 1, 2016"); 
+} 
+
+``` 
+
+```html 
+<mat-list id="basic-list" role="list"> 
+<mat-list-item id="basic-list-item-1" role="listitem">Item 1</mat-list-item> 
+<mat-list-item id="basic-list-item-2" role="listitem">Item 2</mat-list-item> 
+<mat-list-item id="basic-list-item-3" role="listitem">Item 3</mat-list-item> 
+</mat-list> 
+``` 
+
+To add an icon to your list item, use the matListIcon attribute. 
+Subheader can be added to a list by annotating a heading tag with an matSubheader attribute. To add a divider, use <mat-divider>. 
+
+See an example with HTML code describing list with sections element. 
+
+![List examples](../images/angular/list_with_sections.png) 
+
+```html 
+<mat-list id="list-with-sections"> 
+<div mat-subheader>Folders</div> 
+<mat-list-item id="{{ 'list-with-section-items-' + folder.name.toLowerCase() }}" *ngFor="let folder of folders"> 
+<mat-icon mat-list-icon>folder</mat-icon> 
+<div mat-line>{{folder.name}}</div> 
+<div mat-line> {{folder.updated | date}} </div> 
+</mat-list-item> 
+<mat-divider></mat-divider> 
+<div mat-subheader>Notes</div> 
+<mat-list-item id="{{ 'list-with-section-items-' + note.name.toLowerCase().replace(' ','-') }}" *ngFor="let note of notes"> 
+<mat-icon mat-list-icon>note</mat-icon> 
+<div mat-line>{{note.name}}</div> 
+<div mat-line> {{note.updated | date}} </div> 
+</mat-list-item> 
+</mat-list> 
+``` 
+
+|Method | Description | Return Type 
+--- | --- | --- 
+**is()** | Assert action | TextAssert 
+**displayed()** | Check that element is displayed | TextAssert 
+**get(int index)** | Select label by index | Label 
+**show()** | Scroll to element | void 
+**text(String text)** | Check whether a text matches a pattern | TextAssert 
+
+### Grid list 
+
+Grid list is a two-dimensional list view that arranges cells into grid-based layout. 
+
+There is two different grid lists in Angular: Basic grid list and Dynamic grid list. 
+
+See an example with HTML code describing basic grid list element. 
+
+![Grid list examples](../images/angular/basic_grid_list.png) 
+
+```java 
+
+@UI("#basic-grid-list mat-grid-tile") 
+public JList<Label> basicGridList; 
+
+@UI("#dynamic-grid-list mat-grid-tile") 
+public JList<Label> dynamicGridList; 
+
+@Test 
+public void basicGridListBasicTest() { 
+gridListSection.basicGridList.is().displayed(); 
+gridListSection.basicGridList.get(1).show(); 
+} 
+
+@Test 
+public void basicGridListTextTest() { 
+gridListSection.basicGridList.get(1).is().text("1"); 
+} 
+
+@Test 
+public void basicGridListColorTest() { 
+gridListSection.dynamicGridList.get(1) 
+.has().css("background-color", "rgba(" + 173 + ", " + 216 + ", " + 230 + ", 1)"); 
+} 
+
+@Test 
+public void dynamicGridListBasicTest() { 
+gridListSection.dynamicGridList.is().displayed(); 
+gridListSection.dynamicGridList.get(1).show(); 
+} 
+
+@Test 
+public void dynamicGridListTextTest() { 
+gridListSection.dynamicGridList.get(1).is().text("One"); 
+} 
+
+@Test 
+public void dynamicGridListColorTest() { 
+gridListSection.dynamicGridList.get(1) 
+.has().css("background-color", "rgba(" + 173 + ", " + 216 + ", " + 230 + ", 1)"); 
+gridListSection.dynamicGridList.get(4) 
+.has().css("background-color", "rgba(" + 221 + ", " + 189 + ", " + 241 + ", 1)"); 
+} 
+
+``` 
+
+```html 
+<mat-grid-list
+
+id="basic-grid-list" cols="2" rowHeight="2:1"> 
+<mat-grid-tile id="basic-grid-list-tile-1">1</mat-grid-tile> 
+<mat-grid-tile id="basic-grid-list-tile-2">2</mat-grid-tile> 
+<mat-grid-tile id="basic-grid-list-tile-3">3</mat-grid-tile> 
+<mat-grid-tile id="basic-grid-list-tile-4">4</mat-grid-tile> 
+</mat-grid-list> 
+``` 
+
+See an example with HTML code describing dynamic grid list element. 
+
+![Grid list examples](../images/angular/dynamic_grid_list.png) 
+
+```html 
+<mat-grid-list id="dynamic-grid-list" cols="4" rowHeight="100px"> 
+<mat-grid-tile 
+id="{{ 'dynamic-grid-list-' + tile.text.toLowerCase() }}" 
+*ngFor="let tile of tiles" 
+[colspan]="tile.cols" 
+[rowspan]="tile.rows" 
+[style.background]="tile.color"> 
+{{tile.text}} 
+</mat-grid-tile> 
+</mat-grid-list> 
+``` 
+|Method | Description | Return Type 
+--- | --- | --- 
+**is()** | Assert action | TextAssert 
+**displayed()** | Check that element is displayed | TextAssert 
+**get(int index)** | Select label by index | Label 
+**show()** | Scroll to element | void 
+**text(String text)** | Check whether a text matches a pattern | TextAssert 
+**has()** | Assert that element has attribute | TextAssert 
+**css(String css, String value)** | Match passed value with the element css | IsAssert
+---
 ## Bootstrap Common elements
 
 ### Checkboxes and radios

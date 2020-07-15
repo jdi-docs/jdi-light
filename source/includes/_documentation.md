@@ -4853,6 +4853,128 @@ The angular Button:
 **is()** | Assert action | TextAssert 
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/BasicButtonTests.java" target="_blank">Basic Button java tests examples</a>
+
+### Button toggle
+
+```java     
+    //@FindBy(id = "underline-button-toggle-button") public static Button basicButtonToggleUnderline;
+    @UI("#underline-button-toggle-button")
+    public static Button basicButtonToggleUnderline;
+
+    @Test
+    public void basicButtonToggleTest() {
+        basicButtonToggleUnderline.is().enabled();
+        basicButtonToggleUnderline.is().displayed();
+        basicButtonToggleUnderline.has().text("Underline");
+    }
+
+    @Test
+    public void basicUnderlineButtonToggleTest() {
+        String pressedAttribute = "aria-pressed";
+        basicButtonToggleUnderline.click();
+        basicButtonToggleUnderline.has().attr(pressedAttribute, "true");
+        basicButtonToggleUnderline.click();
+        basicButtonToggleUnderline.has().attr(pressedAttribute, "false");
+    }
+```
+
+#### <a href="https://material.angular.io/components/button-toggle/overview" target="_blank">Button toggle overview</a>
+  
+Button toggle is based on Basic Button. Basic Button is located in the following class:
+                                        
+- __Java__: _com.epam.jdi.light.ui.html.elements.common.Button_
+ 
+There are two different button toggles in Angular: Basic and Exclusive:
+
+![Basic button toggle](../images/angular/basic_button_toggle.png)
+
+```html
+<mat-button-toggle _ngcontent-pwh-c327="" value="bold" id="bold-button-toggle" class="mat-button-toggle mat-focus-indicator mat-button-toggle-appearance-standard" tabindex="-1">
+    <button type="button" class="mat-button-toggle-button mat-focus-indicator" id="bold-button-toggle-button" tabindex="0" aria-pressed="false">
+        <div class="mat-button-toggle-label-content">Bold</div>
+    </button>
+    <div class="mat-button-toggle-focus-overlay"></div>
+    <div matripple="" class="mat-ripple mat-button-toggle-ripple"></div>
+</mat-button-toggle>
+```
+   
+|Method | Description | Return Type
+--- | --- | ---
+**click()** | Click the button | void
+**is()** | Assert action | TextAssert
+**has()** | Assert action | TextAssert
+**attr()** | Check whether an element has attribute of specified name and with given value | IsAssert
+**displayed()** | Check that element is displayed |	TextAssert
+**enabled()** | Check that element is enabled | TextAssert
+**disabled()** | Check that element is disabled | TextAssert
+
+<br>
+
+```java 
+    //@FindBy(id = "left-align-button-toggle-button") public Button exclusiveButtonToggleLeft;
+    @UI("#left-align-button-toggle-button")
+    public Button exclusiveButtonToggleLeft;
+
+    //@FindBy(id = "center-align-button-toggle-button") public Button exclusiveButtonToggleCenter;
+    @UI("#center-align-button-toggle-button")
+    public Button exclusiveButtonToggleCenter;
+
+    //@FindBy(id = "justify-align-button-toggle-button") public Button exclusiveButtonToggleJustify;
+    @UI("#justify-align-button-toggle-button")
+    public Button exclusiveButtonToggleJustify;
+
+    //@FindBy(css = "div.example-selected-value"") public Text selectedValue;
+    @UI("div.example-selected-value")
+    public Text selectedValue;
+
+    @Test
+    public void exclusiveButtonToggleEnabledTest() {
+        exclusiveButtonToggleCenter.is().enabled();
+        exclusiveButtonToggleJustify.is().disabled();
+    }
+
+    @Test
+    public void exclusiveButtonToggleTest() {
+        exclusiveButtonToggleLeft.click();
+        exclusiveButtonToggleLeft.has().attr(pressedAttribute, buttonIsPressed);
+        exclusiveButtonToggleCenter.click();
+        exclusiveButtonToggleCenter.has().attr(pressedAttribute, buttonIsPressed);
+        exclusiveButtonToggleLeft.has().attr(pressedAttribute, buttonIsNotPressed);
+    }
+
+    @Test
+    public void exclusiveButtonToggleSelectedValueTest() {
+        exclusiveButtonToggleLeft.click();
+        selectedValue.has().text("Selected value: left");
+    }
+```  
+
+![Exclusive button toggle](../images/angular/exclusive_button_toggle.png)
+
+```html
+<mat-button-toggle _ngcontent-pwh-c328="" value="left" aria-label="Text align left" id="left-align-button-toggle" class="mat-button-toggle mat-focus-indicator mat-button-toggle-appearance-standard" tabindex="-1">
+    <button type="button" class="mat-button-toggle-button mat-focus-indicator" id="left-align-button-toggle-button" tabindex="0" aria-pressed="false" name="mat-button-toggle-group-7" aria-label="Text align left">
+        <div class="mat-button-toggle-label-content"><mat-icon _ngcontent-pwh-c328="" role="img" class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true">format_align_left</mat-icon></div>
+    </button>
+    <div class="mat-button-toggle-focus-overlay"></div>
+    <div matripple="" class="mat-ripple mat-button-toggle-ripple"></div>
+</mat-button-toggle>
+```
+
+|Method | Description | Return Type
+--- | --- | ---
+**click()** | Click the button | void
+**is()** | Assert action | TextAssert
+**has()** | Assert action | TextAssert
+**attr()** | Check whether an element has attribute of specified name and with given value | IsAssert
+**displayed()** | Check that element is displayed |	TextAssert
+**enabled()** | Check that element is enabled | TextAssert
+**disabled()** | Check that element is disabled | TextAssert
+**text()** | Check whether a text matches a pattern | IsAssert
+
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/1959-button-toggle-tests/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/ButtonToggleTest.java" target="_blank">Here you can find Button toggle tests</a>
+
 ---
 ## Bootstrap Common elements
 

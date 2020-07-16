@@ -4858,11 +4858,13 @@ The angular Button:
 
 ### List 
 
-List is a container component that wraps and formats a series of line items. 
+#### <a href="https://material.angular.io/components/list/overview" target="_blank">List overview</a>
 
-There is two different lists in Angular: Basic list and List with sections. 
+List is a container component that wraps and formats a series of line items.
 
-See an example with HTML code describing basic list element. 
+There is two different lists in Angular: Basic list and List with sections.
+
+See an example with HTML code describing basic list element.
 
 ![List examples](../images/angular/basic_list.png) 
 
@@ -4876,18 +4878,28 @@ public JList<Label> listWithSection;
 
 @Test 
 public void basicListBasicTest() { 
-listSection.basicList.is().displayed(); 
-listSection.basicList.get(1).show(); 
+    listSection.basicList.is().displayed(); 
 } 
 
 @Test 
 public void basicListTextTest() { 
-listSection.basicList.get(1).is().text("Item 1"); 
-} 
+    listSection.basicList.get(1).is().text("Item 1"); 
+}
+
+@Test
+public void listWithSectionsBasicTest() {
+    listSection.listWithSection.is().displayed();
+}
+
+@Test
+public void listWithSectionsIconTest() {
+    listSection.listWithSection.get(1).children().get(3).is().text("folder");
+    listSection.listWithSection.get(5).children().get(3).is().text("note");
+}
 
 @Test 
 public void listWithSectionsTextTest() { 
-listSection.listWithSection.get(1).is().text("folder\nPhotos\nJan 1, 2016"); 
+    listSection.listWithSection.get(1).is().text("folder\nPhotos\nJan 1, 2016"); 
 } 
 
 ``` 
@@ -4933,7 +4945,10 @@ See an example with HTML code describing list with sections element.
 **show()** | Scroll to element | void 
 **text(String text)** | Check whether a text matches a pattern | TextAssert 
 
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/ListTests.java" target="_blank">List java tests examples</a>
 ### Grid list 
+
+#### <a href="https://material.angular.io/components/grid-list/overview" target="_blank">Grid list overview</a>
 
 Grid list is a two-dimensional list view that arranges cells into grid-based layout. 
 
@@ -4953,38 +4968,34 @@ public JList<Label> dynamicGridList;
 
 @Test 
 public void basicGridListBasicTest() { 
-gridListSection.basicGridList.is().displayed(); 
-gridListSection.basicGridList.get(1).show(); 
+    gridListSection.basicGridList.is().displayed(); 
 } 
 
 @Test 
 public void basicGridListTextTest() { 
-gridListSection.basicGridList.get(1).is().text("1"); 
+    gridListSection.basicGridList.get(1).is().text("1"); 
 } 
 
 @Test 
 public void basicGridListColorTest() { 
-gridListSection.dynamicGridList.get(1) 
-.has().css("background-color", "rgba(" + 173 + ", " + 216 + ", " + 230 + ", 1)"); 
+    gridListSection.basicGridList.get(1) 
+        .has().css("background-color", "rgba(" + 173 + ", " + 216 + ", " + 230 + ", 1)"); 
 } 
 
 @Test 
 public void dynamicGridListBasicTest() { 
-gridListSection.dynamicGridList.is().displayed(); 
-gridListSection.dynamicGridList.get(1).show(); 
+    gridListSection.dynamicGridList.is().displayed(); 
 } 
 
 @Test 
 public void dynamicGridListTextTest() { 
-gridListSection.dynamicGridList.get(1).is().text("One"); 
+    gridListSection.dynamicGridList.get(1).is().text("One"); 
 } 
 
 @Test 
 public void dynamicGridListColorTest() { 
-gridListSection.dynamicGridList.get(1) 
-.has().css("background-color", "rgba(" + 173 + ", " + 216 + ", " + 230 + ", 1)"); 
-gridListSection.dynamicGridList.get(4) 
-.has().css("background-color", "rgba(" + 221 + ", " + 189 + ", " + 241 + ", 1)"); 
+    gridListSection.dynamicGridList.get(1) 
+        .has().css("background-color", "rgba(" + 173 + ", " + 216 + ", " + 230 + ", 1)"); 
 } 
 
 ``` 
@@ -5025,6 +5036,7 @@ id="{{ 'dynamic-grid-list-' + tile.text.toLowerCase() }}"
 **text(String text)** | Check whether a text matches a pattern | TextAssert 
 **has()** | Assert that element has attribute | TextAssert 
 **css(String css, String value)** | Match passed value with the element css | IsAssert
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/GridListTests.java" target="_blank">Grid list java tests examples</a>
 ---
 ## Bootstrap Common elements
 

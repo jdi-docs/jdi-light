@@ -4870,9 +4870,11 @@ See an example with HTML code describing basic list element.
 
 ```java 
 
+//@FindBy(css = "#basic-list mat-list-item")
 @UI("#basic-list mat-list-item") 
 public JList<Label> basicList; 
 
+//@FindBy(css = "#list-with-sections mat-list-item")
 @UI("#list-with-sections mat-list-item") 
 public JList<Label> listWithSection; 
 
@@ -4960,9 +4962,11 @@ See an example with HTML code describing basic grid list element.
 
 ```java 
 
+//@FindBy(css = "#basic-grid-list mat-grid-tile")
 @UI("#basic-grid-list mat-grid-tile") 
 public JList<Label> basicGridList; 
 
+//@FindBy(css = "#dynamic-grid-list mat-grid-tile")
 @UI("#dynamic-grid-list mat-grid-tile") 
 public JList<Label> dynamicGridList; 
 

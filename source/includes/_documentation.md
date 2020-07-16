@@ -4770,7 +4770,7 @@ There is two different toolbars in Angular: Single row and Multiple row:
 **displayed()** | Check that element is displayed | TextAssert
 
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/ToolbarTests.java" target="_blank">Here you can find Toolbar tests</a>
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/ToolbarTests.java" target="_blank">Here you can find Toolbar tests</a
 
 ### Basic Button
 
@@ -4853,6 +4853,72 @@ The angular Button:
 **is()** | Assert action | TextAssert 
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/BasicButtonTests.java" target="_blank">Basic Button java tests examples</a>
+---
+## Angular Complex elements
+
+### Radio Button
+
+#### <a href="https://material.angular.io/components/radio/overview" target="_blank">Radio button overview</a>
+
+Element that can be represented with one or more clickable buttons aiming to choose only one button of the group.
+
+Radio button is located in the following classes:
+
+   - __Java__: com.epam.jdi.light.ui.bootstrap.elements.complex.RadioButtons
+   
+There is two different radio buttons in Angular: Basic radios and Radios with NGmodel.
+ 
+See an example with HTML code describing basic radios element.
+   
+![Basic radios](../images/angular/basic_radios.png)
+
+```html
+<mat-radio-group id="basic-radio-group" aria-label="Select an option"> 
+<mat-radio-button id="{{'radio-option-one'}}" value="1">Option 1</mat-radio-button> 
+<mat-radio-button id="{{'radio-option-two'}}" value="2">Option 2</mat-radio-button> 
+</mat-radio-group>
+```
+
+|Method | Description | Return Type
+--- | --- | ---
+**click()** | Click the button | void
+**is()** | Assert action | TextAssert
+**has()** | assert that element has attribute | boolean
+**attr()** | Check whether an element has attribute of specified name and with given value  | IsAssert 
+**displayed()** | Check that element is displayed | TextAssert
+**text()** | Assert that element has presented text | TextAssert
+
+```java
+@Css("#basic-radio-group") 
+public static RadioButtons basicRadioButtons; 
+
+@UI("#radio-option-one") 
+public static Button firstBasicRadioButton; 
+
+@UI("#radio-option-two") 
+public static Button secondBasicRadioButton;
+
+@Test 
+public void displayedBasicRadioButtonTest() { 
+radioButtonSection.basicRadioButtons.is().displayed(); 
+radioButtonSection.firstBasicRadioButton.is().displayed(); 
+radioButtonSection.secondBasicRadioButton.is().displayed(); 
+}
+
+@Test 
+public void nameBasicRadioButtonTest() { 
+radioButtonSection.firstBasicRadioButton.has().text("Option 1"); 
+radioButtonSection.secondBasicRadioButton.has().text("Option 2"); 
+}
+
+@Test 
+public void onlyOneOptionOneButtonEnabledTest() { 
+radioButtonSection.firstBasicRadioButton.click(); 
+radioButtonSection.firstBasicRadioButton.has().attr(attrNameButton, matchesRegex(enableButton)); 
+radioButtonSection.secondBasicRadioButton.has().attr(attrNameButton, disableBasicButton); 
+}
+```
+   
 ---
 ## Bootstrap Common elements
 

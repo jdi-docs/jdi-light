@@ -4853,7 +4853,118 @@ The angular Button:
 **is()** | Assert action | TextAssert 
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/BasicButtonTests.java" target="_blank">Basic Button java tests examples</a>
----
+
+### Snackbar
+
+#### <a href="https://material.angular.io/components/snack-bar/overview" target="_blank">Snackbar overview</a>
+
+Snackbar is located in the following class:
+
+   - __Java__: _com.epam.jdi.light.angular.elements.common.Snackbar_
+
+
+There are two different snackbars in Angular: Basic and Snackbar with a custom component:
+
+<br>
+
+![Basic snackbar](../images/angular/basic_snackbar.png)
+
+```java 
+    //@FindBy(I don't remember how to write these properly, please fill it for me) public static Snackbar basicSnackbar;
+    @UI("//*[contains(@id,'cdk-overlay')]//snack-bar-container//simple-snack-bar")
+    public static Snackbar basicSnackbar;
+
+    //@FindBy(id="snack-bar-message-input") public static TextField messageInput;
+    @UI("#snack-bar-message-input")
+    public static TextField messageInput;
+
+    //@FindBy(id="snack-bar-message-input") public static TextField actionInput;
+    @UI("#snack-bar-action-input")
+    public static TextField actionInput;
+
+    //@FindBy(id="snack-bar-message-input") public static Button openButton;
+    @UI("#snack-bar-open-button")
+    public static Button openButton;
+
+    @Test
+    public void basicSnackbarTest() {
+        messageInput.setValue(MESSAGE);
+        actionInput.setValue(ACTION);
+        openButton.click();
+        basicSnackbar.is().displayed();
+        basicSnackbar.children().get(1).has().text(MESSAGE);
+        basicSnackbar.children().get(2).has().text(ACTION);
+        basicSnackbar.children().get(2).click();
+        basicSnackbar.is().hidden();
+    }
+```
+
+```html
+<snack-bar-container class="mat-snack-bar-container ng-tns-c188-205 ng-trigger ng-trigger-state mat-snack-bar-center ng-star-inserted" role="status" style="transform: scale(1); opacity: 1;">
+    <simple-snack-bar class="mat-simple-snackbar ng-star-inserted">
+        <span>Disco party!</span>
+        <div class="mat-simple-snackbar-action ng-star-inserted">
+            <button mat-button="" class="mat-focus-indicator mat-button mat-button-base">
+                <span class="mat-button-wrapper">Dance</span>
+                <div matripple="" class="mat-ripple mat-button-ripple"></div>
+                <div class="mat-button-focus-overlay"></div>
+            </button>
+        </div>
+    </simple-snack-bar>
+</snack-bar-container>
+```
+
+|Method | Description | Return Type
+--- | --- | ---
+**is()** | Property that returns object for work with assertions | TextAssert
+**hidden()** | Verify state | TextAssert
+**displayed()** | Verify state | TextAssert
+
+<br>
+
+![Snackbar with a custom component](../images/angular/snackbar_with_a_custom_component.png)
+
+```java 
+    //@FindBy(id="snack-bar-custom-component-input") public static TextField durationInput;
+    @UI("#snack-bar-custom-component-input")
+    public static TextField durationInput;
+
+    //@FindBy(id="snack-bar-custom-component-button") public static Button customSnackbarOpenButton;
+    @UI("#snack-bar-custom-component-button")
+    public static Button customSnackbarOpenButton;
+
+    //@FindBy(id="snack-bar-custom-component") public static Snackbar customSnackbar;
+    @UI("#snack-bar-custom-component")
+    public static Snackbar customSnackbar;
+
+    @Test
+    public void customSnackbarTest() {
+        durationInput.setValue(String.valueOf(DURATION));
+        customSnackbarOpenButton.click();
+        duration(DURATION, () -> {
+            customSnackbar.base().timer().wait(() -> customSnackbar.is().displayed());
+            customSnackbar.base().timer().wait(() -> customSnackbar.is().hidden());
+        });
+    }
+```
+
+```html
+<snack-bar-container class="mat-snack-bar-container ng-tns-c188-208 ng-trigger ng-trigger-state mat-snack-bar-center ng-star-inserted" role="alert" style="transform: scale(1); opacity: 1;">
+    <snack-bar-component-example-snack id="snack-bar-custom-component" _nghost-hhp-c350="" class="ng-star-inserted">
+        <span _ngcontent-hhp-c350="" class="example-pizza-party"> Pizza party!!! 🍕</span>
+    </snack-bar-component-example-snack>
+</snack-bar-container>
+```
+
+|Method | Description | Return Type
+--- | --- | ---
+**is()** | Property that returns object for work with assertions | TextAssert
+**hidden()** | Verify state | TextAssert
+**displayed()** | Verify state | TextAssert
+
+#### <a href="" target="_blank">Snackbar java tests examples</a>
+
+
 ## Bootstrap Common elements
 
 ### Checkboxes and radios

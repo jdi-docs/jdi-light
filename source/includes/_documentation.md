@@ -4878,11 +4878,11 @@ There are two different snackbars in Angular: Basic and Snackbar with a custom c
     @UI("#snack-bar-message-input")
     public static TextField messageInput;
 
-    //@FindBy(id="snack-bar-message-input") public static TextField actionInput;
+    //@FindBy(id="snack-bar-action-input") public static TextField actionInput;
     @UI("#snack-bar-action-input")
     public static TextField actionInput;
 
-    //@FindBy(id="snack-bar-message-input") public static Button openButton;
+    //@FindBy(id="snack-bar-open-button") public static Button openButton;
     @UI("#snack-bar-open-button")
     public static Button openButton;
 

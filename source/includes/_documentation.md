@@ -4872,34 +4872,37 @@ There is two different radio buttons in Angular: Basic radios and Radios with NG
 See an example with HTML code describing basic radios element.
 
 ```java
-@Css("#basic-radio-group") 
-public static RadioButtons basicRadioButtons; 
+    //FindBy(id = "basic-radio-group") public static RadioButtons basicRadioButtons;
+    @Css("#basic-radio-group") 
+    public static RadioButtons basicRadioButtons; 
 
-@UI("#radio-option-one") 
-public static Button firstBasicRadioButton; 
+    //FindBy(id = "radio-option-one") public static Button firstBasicRadioButton; 
+    @UI("#radio-option-one") 
+    public static Button firstBasicRadioButton; 
 
-@UI("#radio-option-two") 
-public static Button secondBasicRadioButton;
+    //FindBy(id = "radio-option-two") public static Button secondBasicRadioButton;
+    @UI("#radio-option-two") 
+    public static Button secondBasicRadioButton;
 
-@Test 
-public void displayedBasicRadioButtonTest() { 
-radioButtonSection.basicRadioButtons.is().displayed(); 
-radioButtonSection.firstBasicRadioButton.is().displayed(); 
-radioButtonSection.secondBasicRadioButton.is().displayed(); 
-}
+    @Test 
+    public void displayedBasicRadioButtonTest() { 
+    radioButtonSection.basicRadioButtons.is().displayed(); 
+    radioButtonSection.firstBasicRadioButton.is().displayed(); 
+    radioButtonSection.secondBasicRadioButton.is().displayed(); 
+    }
 
-@Test 
-public void nameBasicRadioButtonTest() { 
-radioButtonSection.firstBasicRadioButton.has().text("Option 1"); 
-radioButtonSection.secondBasicRadioButton.has().text("Option 2"); 
-}
+    @Test 
+    public void nameBasicRadioButtonTest() { 
+    radioButtonSection.firstBasicRadioButton.has().text("Option 1"); 
+    radioButtonSection.secondBasicRadioButton.has().text("Option 2"); 
+    }
 
-@Test 
-public void onlyOneOptionOneButtonEnabledTest() { 
-radioButtonSection.firstBasicRadioButton.click(); 
-radioButtonSection.firstBasicRadioButton.has().attr(attrNameButton, matchesRegex(enableButton)); 
-radioButtonSection.secondBasicRadioButton.has().attr(attrNameButton, disableBasicButton); 
-}
+    @Test 
+    public void onlyOneOptionOneButtonEnabledTest() { 
+    radioButtonSection.firstBasicRadioButton.click(); 
+    radioButtonSection.firstBasicRadioButton.has().attr(attrNameButton, matchesRegex(enableButton)); 
+    radioButtonSection.secondBasicRadioButton.has().attr(attrNameButton, disableBasicButton); 
+    }
 ```
 
 ![Basic radios](../images/angular/basic_radios.png)
@@ -4922,54 +4925,60 @@ radioButtonSection.secondBasicRadioButton.has().attr(attrNameButton, disableBasi
 
 See an example with HTML code describing radios with NGmodel element.
  
- ```java
-     @Css("#season-radio-group")
-     public static RadioButtons seasonRadioButtons;
+```java
+    //FindBy(id = "season-radio-group") public static RadioButtons seasonRadioButtons;
+    @Css("#season-radio-group")
+    public static RadioButtons seasonRadioButtons;
  
-     @UI("#favorite-season-winter")
-     public static Button winterNGModelRadioButton;
+    //FindBy(id = "favorite-season-winter") public static Button winterNGModelRadioButton;
+    @UI("#favorite-season-winter")
+    public static Button winterNGModelRadioButton;
+
+    //FindBy(id = "favorite-season-spring") public static Button springNGModelRadioButton;
+    @UI("#favorite-season-spring")
+    public static Button springNGModelRadioButton;
  
-     @UI("#favorite-season-spring")
-     public static Button springNGModelRadioButton;
+    //FindBy(id = "favorite-season-summer") public static Button summerNGModelRadioButton;
+    @UI("#favorite-season-summer")
+    public static Button summerNGModelRadioButton;
  
-     @UI("#favorite-season-summer")
-     public static Button summerNGModelRadioButton;
+    //FindBy(id = "favorite-season-autumn") public static Button autumnNGModelRadioButton;
+    @UI("#favorite-season-autumn")
+    public static Button autumnNGModelRadioButton;
  
-     @UI("#favorite-season-autumn")
-     public static Button autumnNGModelRadioButton;
+    //FindBy(id = "your-favorite-season-text") public static Text favoriteSeason;
+    @UI("#your-favorite-season-text")
+    public static Text favoriteSeason;
  
-     @UI("#your-favorite-season-text")
-     public static Text favoriteSeason;
+    @Test
+    public void displayedSeasonRadioButtonTest() {
+      radioButtonSection.seasonRadioButtons.is().displayed();
+      radioButtonSection.winterNGModelRadioButton.is().displayed();
+      radioButtonSection.springNGModelRadioButton.is().displayed();
+      radioButtonSection.summerNGModelRadioButton.is().displayed();
+      radioButtonSection.autumnNGModelRadioButton.is().displayed();
+    }
  
-     @Test
-     public void displayedSeasonRadioButtonTest() {
-         radioButtonSection.seasonRadioButtons.is().displayed();
-         radioButtonSection.winterNGModelRadioButton.is().displayed();
-         radioButtonSection.springNGModelRadioButton.is().displayed();
-         radioButtonSection.summerNGModelRadioButton.is().displayed();
-         radioButtonSection.autumnNGModelRadioButton.is().displayed();
-     }
+    @Test
+    public void nameSeasonRadioButtonTest() {
+      radioButtonSection.winterNGModelRadioButton.has().text("Winter");
+      radioButtonSection.springNGModelRadioButton.has().text("Spring");
+      radioButtonSection.summerNGModelRadioButton.has().text("Summer");
+      radioButtonSection.autumnNGModelRadioButton.has().text("Autumn");
+    }
  
-     @Test
-     public void nameSeasonRadioButtonTest() {
-         radioButtonSection.winterNGModelRadioButton.has().text("Winter");
-         radioButtonSection.springNGModelRadioButton.has().text("Spring");
-         radioButtonSection.summerNGModelRadioButton.has().text("Summer");
-         radioButtonSection.autumnNGModelRadioButton.has().text("Autumn");
-     }
- 
-     @Test
-     public void favoriteSeasonTest() {
-         radioButtonSection.winterNGModelRadioButton.click();
-         radioButtonSection.favoriteSeason.has().text("Your favorite season is: Winter");
-         radioButtonSection.springNGModelRadioButton.click();
-         radioButtonSection.favoriteSeason.has().text("Your favorite season is: Spring");
-         radioButtonSection.summerNGModelRadioButton.click();
-         radioButtonSection.favoriteSeason.has().text("Your favorite season is: Summer");
-         radioButtonSection.autumnNGModelRadioButton.click();
-         radioButtonSection.favoriteSeason.has().text("Your favorite season is: Autumn");
-     }
- ```
+    @Test
+    public void favoriteSeasonTest() {
+      radioButtonSection.winterNGModelRadioButton.click();
+      radioButtonSection.favoriteSeason.has().text("Your favorite season is: Winter");
+      radioButtonSection.springNGModelRadioButton.click();
+      radioButtonSection.favoriteSeason.has().text("Your favorite season is: Spring");
+      radioButtonSection.summerNGModelRadioButton.click();
+      radioButtonSection.favoriteSeason.has().text("Your favorite season is: Summer");
+      radioButtonSection.autumnNGModelRadioButton.click();
+      radioButtonSection.favoriteSeason.has().text("Your favorite season is: Autumn");
+    }
+```
  
  ![Radios_with_ngmodel](../images/angular/radios_with_ngmodel.png) 
  

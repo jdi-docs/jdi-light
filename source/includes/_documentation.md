@@ -4854,23 +4854,23 @@ The angular Button:
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/BasicButtonTests.java" target="_blank">Basic Button java tests examples</a>
 
-### Snackbar
+### Snack-bar
 
-#### <a href="https://material.angular.io/components/snack-bar/overview" target="_blank">Snackbar overview</a>
+#### <a href="https://material.angular.io/components/snack-bar/overview" target="_blank">Snack-bar overview</a>
 
-Snackbar is located in the following class:
+Snack-bar is located in the following class:
 
    - __Java__: _com.epam.jdi.light.angular.elements.common.Snackbar_
 
 
-There are two different snackbars in Angular: Basic and Snackbar with a custom component:
+There are two different snack-bars in Angular: Basic and Snack-bar with a custom component:
 
 <br>
 
-![Basic snackbar](../images/angular/basic_snackbar.png)
+![Basic snack-bar](../images/angular/basic_snackbar.png)
 
 ```java 
-    //@FindBy(I don't remember how to write these properly, please fill it for me) public static Snackbar basicSnackbar;
+    //@FindBy(xpath="//*[contains(@id,'cdk-overlay')]/snack-bar-container/simple-snack-bar") public static Snackbar basicSnackbar;
     @UI("//*[contains(@id,'cdk-overlay')]//snack-bar-container//simple-snack-bar")
     public static Snackbar basicSnackbar;
 
@@ -4888,12 +4888,12 @@ There are two different snackbars in Angular: Basic and Snackbar with a custom c
 
     @Test
     public void basicSnackbarTest() {
-        messageInput.setValue(MESSAGE);
-        actionInput.setValue(ACTION);
+        messageInput.setValue("MESSAGE");
+        actionInput.setValue("ACTION");
         openButton.click();
         basicSnackbar.is().displayed();
-        basicSnackbar.children().get(1).has().text(MESSAGE);
-        basicSnackbar.children().get(2).has().text(ACTION);
+        basicSnackbar.children().get(1).has().text("MESSAGE");
+        basicSnackbar.children().get(2).has().text("ACTION");
         basicSnackbar.children().get(2).click();
         basicSnackbar.is().hidden();
     }
@@ -4922,7 +4922,7 @@ There are two different snackbars in Angular: Basic and Snackbar with a custom c
 
 <br>
 
-![Snackbar with a custom component](../images/angular/snackbar_with_a_custom_component.png)
+![Snack-bar with a custom component](../images/angular/snackbar_with_a_custom_component.png)
 
 ```java 
     //@FindBy(id="snack-bar-custom-component-input") public static TextField durationInput;

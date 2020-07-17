@@ -4916,7 +4916,7 @@ There are two different snackbars in Angular: Basic and Snackbar with a custom c
 
 |Method | Description | Return Type
 --- | --- | ---
-**is()** | Property that returns object for work with assertions | TextAssert
+**is()** | Property that returns an object for working with assertions | TextAssert
 **hidden()** | Verify state | TextAssert
 **displayed()** | Verify state | TextAssert
 
@@ -4958,7 +4958,7 @@ There are two different snackbars in Angular: Basic and Snackbar with a custom c
 
 |Method | Description | Return Type
 --- | --- | ---
-**is()** | Property that returns object for work with assertions | TextAssert
+**is()** | Property that returns an object for working with assertions | TextAssert
 **hidden()** | Verify state | TextAssert
 **displayed()** | Verify state | TextAssert
 

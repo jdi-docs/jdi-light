@@ -4975,6 +4975,63 @@ There are two different button toggles in Angular: Basic and Exclusive:
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/1959-button-toggle-tests/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/ButtonToggleTest.java" target="_blank">Here you can find Button toggle tests</a>
 
+### Badge
+
+```java 
+    /**@FindBy(css = "#text-with-badge span") public static Badge badgeWithText;*/
+    @UI("#text-with-badge span")
+    public static Badge badgeWithText;
+        
+    /**@FindBy(css = "#button-with-left-badge span:not(.mat-button-wrapper)") public static Badge badgeWithButton;*/
+    @UI("#button-with-left-badge span:not(.mat-button-wrapper)")
+    public static Badge badgeWithButton;
+    
+    /**@FindBy(css = "#icon-with-badge span") public static Badge badgeWithIcon;*/
+    @UI("#icon-with-badge span")
+    public static Badge badgeWithIcon;
+
+    @Test
+    public void basicBadgeTest() {
+        badgeWithText.is().displayed();
+        badgeWithButton.is().displayed();
+        badgeWithIcon.is().displayed();
+    }
+    
+    @Test
+    public void badgeTextTest() {
+        badgeWithText.has().text("4");
+        badgeWithButton.has().text("8");
+        badgeWithIcon.has().text("15");
+    }
+   } 
+```
+#### <a href="https://material.angular.io/components/badge/overview" target="_blank">Badge overview</a>
+
+Badge is located in the following class:
+
+- __Java__: _com.epam.jdi.light.angular.elements.common.Badge_
+
+![Badge](../images/angular/badge.png)
+
+```html
+<span _ngcontent-iwc-c329="" matbadge="4" matbadgeoverlap="false" id="text-with-badge" class="mat-badge mat-badge-above mat-badge-after mat-badge-medium">
+    "Text with a badge"
+    <span _ngcontent-iwc-c329="" id="mat-badge-content-0" class="mat-badge-content mat-badge-active">4</span>
+</span>
+```
+   
+|Method | Description | Return Type
+--- | --- | ---
+**is()** | Assert action | TextAssert
+**has()** | Assert action | TextAssert
+**attr()** | Check whether an element has attribute of specified name and with given value | IsAssert
+**displayed()** | Check that element is displayed |	TextAssert
+**enabled()** | Check that element is enabled | TextAssert
+**disabled()** | Check that element is disabled | TextAssert
+
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/BadgeTests.java" target="_blank">Here you can find Badge tests</a>
+
 ---
 ## Bootstrap Common elements
 

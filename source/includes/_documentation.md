@@ -5011,7 +5011,7 @@ Badge is located in the following class:
 
 - __Java__: _com.epam.jdi.light.angular.elements.common.Badge_
 
-![Badge](../images/angular/badge.png)
+![Badge](../images/angular/badge.PNG)
 
 ```html
 <span _ngcontent-iwc-c329="" matbadge="4" matbadgeoverlap="false" id="text-with-badge" class="mat-badge mat-badge-above mat-badge-after mat-badge-medium">

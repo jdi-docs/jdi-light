@@ -4867,8 +4867,6 @@ There are two different snack-bars in Angular: Basic and Snack-bar with a custom
 
 <br>
 
-![Basic snack-bar](../images/angular/basic_snackbar.png)
-
 ```java 
     //@FindBy(xpath="//*[contains(@id,'cdk-overlay')]/snack-bar-container/simple-snack-bar") public static Snackbar basicSnackbar;
     @UI("//*[contains(@id,'cdk-overlay')]//snack-bar-container//simple-snack-bar")
@@ -4898,6 +4896,7 @@ There are two different snack-bars in Angular: Basic and Snack-bar with a custom
         basicSnackbar.is().hidden();
     }
 ```
+![Basic snack-bar](../images/angular/basic_snackbar.png)
 
 ```html
 <snack-bar-container class="mat-snack-bar-container ng-tns-c188-205 ng-trigger ng-trigger-state mat-snack-bar-center ng-star-inserted" role="status" style="transform: scale(1); opacity: 1;">
@@ -4922,8 +4921,6 @@ There are two different snack-bars in Angular: Basic and Snack-bar with a custom
 
 <br>
 
-![Snack-bar with a custom component](../images/angular/snackbar_with_a_custom_component.png)
-
 ```java 
     //@FindBy(id="snack-bar-custom-component-input") public static TextField durationInput;
     @UI("#snack-bar-custom-component-input")
@@ -4947,6 +4944,7 @@ There are two different snack-bars in Angular: Basic and Snack-bar with a custom
         });
     }
 ```
+![Snack-bar with a custom component](../images/angular/snackbar_with_a_custom_component.png)
 
 ```html
 <snack-bar-container class="mat-snack-bar-container ng-tns-c188-208 ng-trigger ng-trigger-state mat-snack-bar-center ng-star-inserted" role="alert" style="transform: scale(1); opacity: 1;">

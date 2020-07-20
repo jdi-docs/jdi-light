@@ -4770,7 +4770,7 @@ There is two different toolbars in Angular: Single row and Multiple row:
 **displayed()** | Check that element is displayed | TextAssert
 
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/ToolbarTests.java" target="_blank">Here you can find Toolbar tests</a>
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/ToolbarTests.java" target="_blank">Here you can find Toolbar tests</a
 
 ### Basic Button
 
@@ -4853,6 +4853,155 @@ The angular Button:
 **is()** | Assert action | TextAssert 
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/BasicButtonTests.java" target="_blank">Basic Button java tests examples</a>
+
+---
+## Angular Complex elements
+
+### Radio Button
+
+#### <a href="https://material.angular.io/components/radio/overview" target="_blank">Radio button overview</a>
+
+Element that can be represented with one or more clickable buttons aiming to choose only one button of the group.
+
+Radio button is located in the following classes:
+
+   - __Java__: com.epam.jdi.light.ui.bootstrap.elements.complex.RadioButtons
+   
+There are two different radio buttons in Angular: Basic radios and Radios with NGmodel.
+ 
+See an example with HTML code describing basic radios element.
+
+```java
+    //FindBy(id = "basic-radio-group") public static RadioButtons basicRadioButtons;
+    @Css("#basic-radio-group") 
+    public static RadioButtons basicRadioButtons; 
+
+    //FindBy(id = "radio-option-one") public static Button firstBasicRadioButton; 
+    @UI("#radio-option-one") 
+    public static Button firstBasicRadioButton; 
+
+    //FindBy(id = "radio-option-two") public static Button secondBasicRadioButton;
+    @UI("#radio-option-two") 
+    public static Button secondBasicRadioButton;
+
+    @Test 
+    public void displayedBasicRadioButtonTest() { 
+    radioButtonSection.basicRadioButtons.is().displayed(); 
+    radioButtonSection.firstBasicRadioButton.is().displayed(); 
+    radioButtonSection.secondBasicRadioButton.is().displayed(); 
+    }
+
+    @Test 
+    public void nameBasicRadioButtonTest() { 
+    radioButtonSection.firstBasicRadioButton.has().text("Option 1"); 
+    radioButtonSection.secondBasicRadioButton.has().text("Option 2"); 
+    }
+
+    @Test 
+    public void onlyOneOptionOneButtonEnabledTest() { 
+    radioButtonSection.firstBasicRadioButton.click(); 
+    radioButtonSection.firstBasicRadioButton.has().attr(attrNameButton, matchesRegex(enableButton)); 
+    radioButtonSection.secondBasicRadioButton.has().attr(attrNameButton, disableBasicButton); 
+    }
+```
+
+![Basic radios](../images/angular/basic_radios.png)
+
+```html
+<mat-radio-group id="basic-radio-group" aria-label="Select an option"> 
+<mat-radio-button id="{{'radio-option-one'}}" value="1">Option 1</mat-radio-button> 
+<mat-radio-button id="{{'radio-option-two'}}" value="2">Option 2</mat-radio-button> 
+</mat-radio-group>
+```
+
+|Method | Description | Return Type
+--- | --- | ---
+**click()** | Click the button | void
+**is()** | Assert action | TextAssert
+**has()** | assert that element has attribute | boolean
+**attr()** | Check whether an element has attribute of specified name and with given value  | IsAssert 
+**displayed()** | Check that element is displayed | TextAssert
+**text()** | Assert that element has presented text | TextAssert
+
+See an example with HTML code describing radios with NGmodel element.
+ 
+```java
+    //FindBy(id = "season-radio-group") public static RadioButtons seasonRadioButtons;
+    @Css("#season-radio-group")
+    public static RadioButtons seasonRadioButtons;
+ 
+    //FindBy(id = "favorite-season-winter") public static Button winterNGModelRadioButton;
+    @UI("#favorite-season-winter")
+    public static Button winterNGModelRadioButton;
+
+    //FindBy(id = "favorite-season-spring") public static Button springNGModelRadioButton;
+    @UI("#favorite-season-spring")
+    public static Button springNGModelRadioButton;
+ 
+    //FindBy(id = "favorite-season-summer") public static Button summerNGModelRadioButton;
+    @UI("#favorite-season-summer")
+    public static Button summerNGModelRadioButton;
+ 
+    //FindBy(id = "favorite-season-autumn") public static Button autumnNGModelRadioButton;
+    @UI("#favorite-season-autumn")
+    public static Button autumnNGModelRadioButton;
+ 
+    //FindBy(id = "your-favorite-season-text") public static Text favoriteSeason;
+    @UI("#your-favorite-season-text")
+    public static Text favoriteSeason;
+ 
+    @Test
+    public void displayedSeasonRadioButtonTest() {
+      radioButtonSection.seasonRadioButtons.is().displayed();
+      radioButtonSection.winterNGModelRadioButton.is().displayed();
+      radioButtonSection.springNGModelRadioButton.is().displayed();
+      radioButtonSection.summerNGModelRadioButton.is().displayed();
+      radioButtonSection.autumnNGModelRadioButton.is().displayed();
+    }
+ 
+    @Test
+    public void nameSeasonRadioButtonTest() {
+      radioButtonSection.winterNGModelRadioButton.has().text("Winter");
+      radioButtonSection.springNGModelRadioButton.has().text("Spring");
+      radioButtonSection.summerNGModelRadioButton.has().text("Summer");
+      radioButtonSection.autumnNGModelRadioButton.has().text("Autumn");
+    }
+ 
+    @Test
+    public void favoriteSeasonTest() {
+      radioButtonSection.winterNGModelRadioButton.click();
+      radioButtonSection.favoriteSeason.has().text("Your favorite season is: Winter");
+      radioButtonSection.springNGModelRadioButton.click();
+      radioButtonSection.favoriteSeason.has().text("Your favorite season is: Spring");
+      radioButtonSection.summerNGModelRadioButton.click();
+      radioButtonSection.favoriteSeason.has().text("Your favorite season is: Summer");
+      radioButtonSection.autumnNGModelRadioButton.click();
+      radioButtonSection.favoriteSeason.has().text("Your favorite season is: Autumn");
+    }
+```
+ 
+ ![Radios_with_ngmodel](../images/angular/radios_with_ngmodel.png) 
+ 
+ ```html
+<mat-radio-group id="season-radio-group" aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]="favoriteSeason">
+  <mat-radio-button id="{{'favorite-season-' + season.toLowerCase()}}" class="example-radio-button" *ngFor="let season of seasons" [value]="season">
+    {{season}}
+  </mat-radio-button>
+</mat-radio-group>
+```
+|Method | Description | Return Type
+--- | --- | ---
+**click()** | Click the button | void
+**is()** | Assert action | TextAssert
+**has()** | assert that element has attribute | boolean
+**attr()** | Check whether an element has attribute of specified name and with given value  | IsAssert 
+**displayed()** | Check that element is displayed | TextAssert
+**text()** | Assert that element has presented text | TextAssert
+
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/RadioButtonTests.java" target="_blank">Here you can find Radio Button tests</a>
+ 
+
 ---
 ## Bootstrap Common elements
 

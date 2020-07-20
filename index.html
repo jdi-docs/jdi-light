@@ -601,6 +601,17 @@
                         </ul>
                   </li>
                   <li>
+                    <a href="#angular-complex-elements-2" class="toc-h2 toc-link" data-title="Angular Complex elements">Angular Complex elements</a>
+                        <ul class="toc-list-h2">
+                            <li>
+								<a href="#list" class="toc-h2 h3 toc-link" data-title="List">List</a>
+                            </li>
+                            <li>
+								<a href="#grid-list" class="toc-h2 h3 toc-link" data-title="Grid list">Grid list</a>
+                            </li>
+                        </ul>
+                  </li>
+                  <li>
                     <a href="#bootstrap-common-elements" class="toc-h2 toc-link" data-title="Bootstrap Common elements">Bootstrap Common elements</a>
                         <ul class="toc-list-h2">
                             <li>
@@ -10343,6 +10354,227 @@ Methods available for Java in JDI Light:</p>
 </tr>
 </tbody></table>
 <h4 id='here-you-can-find-radio-button-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/RadioButtonTests.java" target="_blank">Here you can find Radio Button tests</a></h4>
+<hr>
+<h2 id='angular-complex-elements-2'>Angular Complex elements</h2><h3 id='list'>List</h3><h4 id='list-overview'><a href="https://material.angular.io/components/list/overview" target="_blank">List overview</a></h4>
+<p>List is a container component that wraps and formats a series of line items.</p>
+
+<p>There are two different lists in Angular: Basic list and List with sections.</p>
+
+<p>See an example with HTML code describing basic list element.</p>
+
+<p><img src="images/angular/basic_list.png" alt="List examples" /> </p>
+<pre class="highlight java tab-java"><code>
+<span class="c1">//@FindBy(css = "#basic-list mat-list-item")</span>
+<span class="nd">@UI</span><span class="o">(</span><span class="s">"#basic-list mat-list-item"</span><span class="o">)</span> 
+<span class="kd">public</span> <span class="n">JList</span><span class="o">&lt;</span><span class="n">Label</span><span class="o">&gt;</span> <span class="n">basicList</span><span class="o">;</span> 
+
+<span class="c1">//@FindBy(css = "#list-with-sections mat-list-item")</span>
+<span class="nd">@UI</span><span class="o">(</span><span class="s">"#list-with-sections mat-list-item"</span><span class="o">)</span> 
+<span class="kd">public</span> <span class="n">JList</span><span class="o">&lt;</span><span class="n">Label</span><span class="o">&gt;</span> <span class="n">listWithSection</span><span class="o">;</span> 
+
+<span class="nd">@Test</span> 
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">basicListBasicTest</span><span class="o">()</span> <span class="o">{</span> 
+    <span class="n">listSection</span><span class="o">.</span><span class="na">basicList</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span> 
+<span class="o">}</span> 
+
+<span class="nd">@Test</span> 
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">basicListTextTest</span><span class="o">()</span> <span class="o">{</span> 
+    <span class="n">listSection</span><span class="o">.</span><span class="na">basicList</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Item 1"</span><span class="o">);</span> 
+<span class="o">}</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">listWithSectionsBasicTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">listSection</span><span class="o">.</span><span class="na">listWithSection</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+<span class="o">}</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">listWithSectionsIconTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">listSection</span><span class="o">.</span><span class="na">listWithSection</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">children</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="mi">3</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"folder"</span><span class="o">);</span>
+    <span class="n">listSection</span><span class="o">.</span><span class="na">listWithSection</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">5</span><span class="o">).</span><span class="na">children</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="mi">3</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"note"</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="nd">@Test</span> 
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">listWithSectionsTextTest</span><span class="o">()</span> <span class="o">{</span> 
+    <span class="n">listSection</span><span class="o">.</span><span class="na">listWithSection</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"folder\nPhotos\nJan 1, 2016"</span><span class="o">);</span> 
+<span class="o">}</span> 
+
+</code></pre><pre class="highlight html tab-html"><code><span class="nt">&lt;mat-list</span> <span class="na">id=</span><span class="s">"basic-list"</span> <span class="na">role=</span><span class="s">"list"</span><span class="nt">&gt;</span> 
+<span class="nt">&lt;mat-list-item</span> <span class="na">id=</span><span class="s">"basic-list-item-1"</span> <span class="na">role=</span><span class="s">"listitem"</span><span class="nt">&gt;</span>Item 1<span class="nt">&lt;/mat-list-item&gt;</span> 
+<span class="nt">&lt;mat-list-item</span> <span class="na">id=</span><span class="s">"basic-list-item-2"</span> <span class="na">role=</span><span class="s">"listitem"</span><span class="nt">&gt;</span>Item 2<span class="nt">&lt;/mat-list-item&gt;</span> 
+<span class="nt">&lt;mat-list-item</span> <span class="na">id=</span><span class="s">"basic-list-item-3"</span> <span class="na">role=</span><span class="s">"listitem"</span><span class="nt">&gt;</span>Item 3<span class="nt">&lt;/mat-list-item&gt;</span> 
+<span class="nt">&lt;/mat-list&gt;</span> 
+</code></pre>
+<p>To add an icon to your list item, use the matListIcon attribute. 
+Subheader can be added to a list by annotating a heading tag with an matSubheader attribute. To add a divider, use <mat-divider>. </p>
+
+<p>See an example with HTML code describing list with sections element. </p>
+
+<p><img src="images/angular/list_with_sections.png" alt="List examples" /> </p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;mat-list</span> <span class="na">id=</span><span class="s">"list-with-sections"</span><span class="nt">&gt;</span> 
+<span class="nt">&lt;div</span> <span class="na">mat-subheader</span><span class="nt">&gt;</span>Folders<span class="nt">&lt;/div&gt;</span> 
+<span class="nt">&lt;mat-list-item</span> <span class="na">id=</span><span class="s">"{{ 'list-with-section-items-' + folder.name.toLowerCase() }}"</span> <span class="err">*</span><span class="na">ngFor=</span><span class="s">"let folder of folders"</span><span class="nt">&gt;</span> 
+<span class="nt">&lt;mat-icon</span> <span class="na">mat-list-icon</span><span class="nt">&gt;</span>folder<span class="nt">&lt;/mat-icon&gt;</span> 
+<span class="nt">&lt;div</span> <span class="na">mat-line</span><span class="nt">&gt;</span>{{folder.name}}<span class="nt">&lt;/div&gt;</span> 
+<span class="nt">&lt;div</span> <span class="na">mat-line</span><span class="nt">&gt;</span> {{folder.updated | date}} <span class="nt">&lt;/div&gt;</span> 
+<span class="nt">&lt;/mat-list-item&gt;</span> 
+<span class="nt">&lt;mat-divider&gt;&lt;/mat-divider&gt;</span> 
+<span class="nt">&lt;div</span> <span class="na">mat-subheader</span><span class="nt">&gt;</span>Notes<span class="nt">&lt;/div&gt;</span> 
+<span class="nt">&lt;mat-list-item</span> <span class="na">id=</span><span class="s">"{{ 'list-with-section-items-' + note.name.toLowerCase().replace(' ','-') }}"</span> <span class="err">*</span><span class="na">ngFor=</span><span class="s">"let note of notes"</span><span class="nt">&gt;</span> 
+<span class="nt">&lt;mat-icon</span> <span class="na">mat-list-icon</span><span class="nt">&gt;</span>note<span class="nt">&lt;/mat-icon&gt;</span> 
+<span class="nt">&lt;div</span> <span class="na">mat-line</span><span class="nt">&gt;</span>{{note.name}}<span class="nt">&lt;/div&gt;</span> 
+<span class="nt">&lt;div</span> <span class="na">mat-line</span><span class="nt">&gt;</span> {{note.updated | date}} <span class="nt">&lt;/div&gt;</span> 
+<span class="nt">&lt;/mat-list-item&gt;</span> 
+<span class="nt">&lt;/mat-list&gt;</span> 
+</code></pre>
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>is()</strong></td>
+<td>Assert action</td>
+<td>TextAssert</td>
+</tr>
+<tr>
+<td><strong>displayed()</strong></td>
+<td>Check that element is displayed</td>
+<td>TextAssert</td>
+</tr>
+<tr>
+<td><strong>get(int index)</strong></td>
+<td>Select label by index</td>
+<td>Label</td>
+</tr>
+<tr>
+<td><strong>show()</strong></td>
+<td>Scroll to element</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>text(String text)</strong></td>
+<td>Check whether a text matches a pattern</td>
+<td>TextAssert</td>
+</tr>
+</tbody></table>
+<h4 id='list-java-tests-examples'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/ListTests.java" target="_blank">List java tests examples</a></h4><h3 id='grid-list'>Grid list</h3><h4 id='grid-list-overview'><a href="https://material.angular.io/components/grid-list/overview" target="_blank">Grid list overview</a></h4>
+<p>Grid list is a two-dimensional list view that arranges cells into grid-based layout. </p>
+
+<p>There are two different grid lists in Angular: Basic grid list and Dynamic grid list. </p>
+
+<p>See an example with HTML code describing basic grid list element. </p>
+
+<p><img src="images/angular/basic_grid_list.png" alt="Grid list examples" /> </p>
+<pre class="highlight java tab-java"><code>
+<span class="c1">//@FindBy(css = "#basic-grid-list mat-grid-tile")</span>
+<span class="nd">@UI</span><span class="o">(</span><span class="s">"#basic-grid-list mat-grid-tile"</span><span class="o">)</span> 
+<span class="kd">public</span> <span class="n">JList</span><span class="o">&lt;</span><span class="n">Label</span><span class="o">&gt;</span> <span class="n">basicGridList</span><span class="o">;</span> 
+
+<span class="c1">//@FindBy(css = "#dynamic-grid-list mat-grid-tile")</span>
+<span class="nd">@UI</span><span class="o">(</span><span class="s">"#dynamic-grid-list mat-grid-tile"</span><span class="o">)</span> 
+<span class="kd">public</span> <span class="n">JList</span><span class="o">&lt;</span><span class="n">Label</span><span class="o">&gt;</span> <span class="n">dynamicGridList</span><span class="o">;</span> 
+
+<span class="nd">@Test</span> 
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">basicGridListBasicTest</span><span class="o">()</span> <span class="o">{</span> 
+    <span class="n">gridListSection</span><span class="o">.</span><span class="na">basicGridList</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span> 
+<span class="o">}</span> 
+
+<span class="nd">@Test</span> 
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">basicGridListTextTest</span><span class="o">()</span> <span class="o">{</span> 
+    <span class="n">gridListSection</span><span class="o">.</span><span class="na">basicGridList</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"1"</span><span class="o">);</span> 
+<span class="o">}</span> 
+
+<span class="nd">@Test</span> 
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">basicGridListColorTest</span><span class="o">()</span> <span class="o">{</span> 
+    <span class="n">gridListSection</span><span class="o">.</span><span class="na">basicGridList</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">)</span> 
+        <span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">css</span><span class="o">(</span><span class="s">"background-color"</span><span class="o">,</span> <span class="s">"rgba("</span> <span class="o">+</span> <span class="mi">173</span> <span class="o">+</span> <span class="s">", "</span> <span class="o">+</span> <span class="mi">216</span> <span class="o">+</span> <span class="s">", "</span> <span class="o">+</span> <span class="mi">230</span> <span class="o">+</span> <span class="s">", 1)"</span><span class="o">);</span> 
+<span class="o">}</span> 
+
+<span class="nd">@Test</span> 
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">dynamicGridListBasicTest</span><span class="o">()</span> <span class="o">{</span> 
+    <span class="n">gridListSection</span><span class="o">.</span><span class="na">dynamicGridList</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span> 
+<span class="o">}</span> 
+
+<span class="nd">@Test</span> 
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">dynamicGridListTextTest</span><span class="o">()</span> <span class="o">{</span> 
+    <span class="n">gridListSection</span><span class="o">.</span><span class="na">dynamicGridList</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"One"</span><span class="o">);</span> 
+<span class="o">}</span> 
+
+<span class="nd">@Test</span> 
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">dynamicGridListColorTest</span><span class="o">()</span> <span class="o">{</span> 
+    <span class="n">gridListSection</span><span class="o">.</span><span class="na">dynamicGridList</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">)</span> 
+        <span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">css</span><span class="o">(</span><span class="s">"background-color"</span><span class="o">,</span> <span class="s">"rgba("</span> <span class="o">+</span> <span class="mi">173</span> <span class="o">+</span> <span class="s">", "</span> <span class="o">+</span> <span class="mi">216</span> <span class="o">+</span> <span class="s">", "</span> <span class="o">+</span> <span class="mi">230</span> <span class="o">+</span> <span class="s">", 1)"</span><span class="o">);</span> 
+<span class="o">}</span> 
+
+</code></pre><pre class="highlight html tab-html"><code><span class="nt">&lt;mat-grid-list</span>
+
+<span class="na">id=</span><span class="s">"basic-grid-list"</span> <span class="na">cols=</span><span class="s">"2"</span> <span class="na">rowHeight=</span><span class="s">"2:1"</span><span class="nt">&gt;</span> 
+<span class="nt">&lt;mat-grid-tile</span> <span class="na">id=</span><span class="s">"basic-grid-list-tile-1"</span><span class="nt">&gt;</span>1<span class="nt">&lt;/mat-grid-tile&gt;</span> 
+<span class="nt">&lt;mat-grid-tile</span> <span class="na">id=</span><span class="s">"basic-grid-list-tile-2"</span><span class="nt">&gt;</span>2<span class="nt">&lt;/mat-grid-tile&gt;</span> 
+<span class="nt">&lt;mat-grid-tile</span> <span class="na">id=</span><span class="s">"basic-grid-list-tile-3"</span><span class="nt">&gt;</span>3<span class="nt">&lt;/mat-grid-tile&gt;</span> 
+<span class="nt">&lt;mat-grid-tile</span> <span class="na">id=</span><span class="s">"basic-grid-list-tile-4"</span><span class="nt">&gt;</span>4<span class="nt">&lt;/mat-grid-tile&gt;</span> 
+<span class="nt">&lt;/mat-grid-list&gt;</span> 
+</code></pre>
+<p>See an example with HTML code describing dynamic grid list element. </p>
+
+<p><img src="images/angular/dynamic_grid_list.png" alt="Grid list examples" /> </p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;mat-grid-list</span> <span class="na">id=</span><span class="s">"dynamic-grid-list"</span> <span class="na">cols=</span><span class="s">"4"</span> <span class="na">rowHeight=</span><span class="s">"100px"</span><span class="nt">&gt;</span> 
+<span class="nt">&lt;mat-grid-tile</span> 
+<span class="na">id=</span><span class="s">"{{ 'dynamic-grid-list-' + tile.text.toLowerCase() }}"</span> 
+<span class="err">*</span><span class="na">ngFor=</span><span class="s">"let tile of tiles"</span> 
+<span class="err">[</span><span class="na">colspan</span><span class="err">]="</span><span class="na">tile</span><span class="err">.</span><span class="na">cols</span><span class="err">"</span> 
+<span class="err">[</span><span class="na">rowspan</span><span class="err">]="</span><span class="na">tile</span><span class="err">.</span><span class="na">rows</span><span class="err">"</span> 
+<span class="err">[</span><span class="na">style</span><span class="err">.</span><span class="na">background</span><span class="err">]="</span><span class="na">tile</span><span class="err">.</span><span class="na">color</span><span class="err">"</span><span class="nt">&gt;</span> 
+{{tile.text}} 
+<span class="nt">&lt;/mat-grid-tile&gt;</span> 
+<span class="nt">&lt;/mat-grid-list&gt;</span> 
+</code></pre>
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>is()</strong></td>
+<td>Assert action</td>
+<td>TextAssert</td>
+</tr>
+<tr>
+<td><strong>displayed()</strong></td>
+<td>Check that element is displayed</td>
+<td>TextAssert</td>
+</tr>
+<tr>
+<td><strong>get(int index)</strong></td>
+<td>Select label by index</td>
+<td>Label</td>
+</tr>
+<tr>
+<td><strong>show()</strong></td>
+<td>Scroll to element</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>text(String text)</strong></td>
+<td>Check whether a text matches a pattern</td>
+<td>TextAssert</td>
+</tr>
+<tr>
+<td><strong>has()</strong></td>
+<td>Assert that element has attribute</td>
+<td>TextAssert</td>
+</tr>
+<tr>
+<td><strong>css(String css, String value)</strong></td>
+<td>Match passed value with the element css</td>
+<td>IsAssert</td>
+</tr>
+</tbody></table>
+<h4 id='grid-list-java-tests-examples'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/GridListTests.java" target="_blank">Grid list java tests examples</a></h4>
 <hr>
 <h2 id='bootstrap-common-elements'>Bootstrap Common elements</h2><h3 id='checkboxes-and-radios'>Checkboxes and radios</h3><h4 id='checkbox-default'><a href="https://getbootstrap.com/docs/4.3/components/buttons/" target="_blank">Checkbox default</a></h4>
 <p>Checkbox is located in the following classes:</p>

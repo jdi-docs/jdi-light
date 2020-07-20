@@ -5370,6 +5370,677 @@ id="{{ 'dynamic-grid-list-' + tile.text.toLowerCase() }}"
 **css(String css, String value)** | Match passed value with the element css | IsAssert
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/GridListTests.java" target="_blank">Grid list java tests examples</a>
 ---
+## Angular Complex elements 
+### Select 
+#### <a href="https://material.angular.io/components/select/overview" target="_blank">Select overview</a>
+Select is a form control for selecting a value from a set of options.
+
+There are two similar select elements in Angular: material and native element.
+
+```<mat-form-field>``` is a component used to wrap several Angular Material components and apply common Text field 
+styles such as the underline, floating label, and hint messages.
+
+Angular Material also supports use of the native ```<select>``` element inside of ```<mat-form-field>```. The native 
+control has several performance, accessibility, and usability advantages.
+
+```java 
+//@FindBy(css = "#basic-mat-select")
+public static MaterialSelector basicMatSelect;
+
+@Test
+public void checkLabelValue() {
+    basicMatSelect.label().has().value("Favorite food");
+}
+@Test
+public void checkPreselectedValue() {
+    basicNativeSelect.verify().selected(matchesPattern("[a-zA-Z]+"));
+}
+@Test
+public void checkOptionCanBeSelectedByIndex() {
+    basicMatSelect.select(2);
+    basicMatSelect.is().selected(PIZZA);
+}
+
+//@FindBy(css = "#basic-native-select")
+public static NativeSelector basicNativeSelect;
+
+@Test
+public void checkListDisabledOptions() {
+    basicNativeSelect.has().listDisabled(Collections.EMPTY_LIST);
+}
+@Test
+public void checkListEnabledOptions() {
+    basicNativeSelect.has().listEnabled(Arrays.asList(VOLVO, SAAB, MERCEDES, AUDI));
+}
+@Test
+public void checkAvailableOptions() {
+    basicNativeSelect.assertThat().values(hasItem(AUDI)).values(hasItems(AUDI, VOLVO, SAAB, MERCEDES));
+}
+```
+
+See an example with HTML code describing basic select elements.
+
+![Basic Select](../images/angular/basic_select.png)
+
+```html 
+<mat-form-field>
+  <mat-label>Cars</mat-label>
+  <select matNativeControl required id="basic-native-select">
+    <option value="volvo">Volvo</option>
+    <option value="saab">Saab</option>
+    <option value="mercedes">Mercedes</option>
+    <option value="audi">Audi</option>
+  </select>
+</mat-form-field>
+
+<mat-form-field>
+  <mat-label>Favorite food</mat-label>
+  <mat-select id="basic-mat-select">
+    <mat-option *ngFor="let food of foods" [value]="food.value" id="basic-mat-select-list">
+      {{food.viewValue}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+```
+The ```<mat-select>``` supports 2-way binding to the value property without the need for Angular forms.
+
+```java 
+//@FindBy(css = "#two-binding-select")
+public static MaterialSelector twoBindingSelect;
+//@FindBy(css = "#select-binding-confirm")
+public static Text selectBindingConfirm;
+
+@Test
+public void checkOptionCanBeSelectedByNameAndConfirmMessageWillAppear() {
+    twoBindingSelect.select(OPTION_1);
+    twoBindingSelect.is().selected(OPTION_1);
+    selectBindingConfirm.assertThat().text("You selected: option1");
+}
+@Test
+public void checkNoneOptionCanBeSelectedByNameAndConfirmMessageWillBeEmpty() {
+    twoBindingSelect.select(NONE);
+    twoBindingSelect.is().selected(matchesPattern("\\W+"));
+    selectBindingConfirm.assertThat().text("You selected:");
+}
+```
+![Two Binding Select](../images/angular/two_binding_select.png) 
+
+```html 
+<mat-form-field>
+  <mat-label>Select an option</mat-label>
+  <mat-select [(value)]="selected" id="two-binding-select">
+    <mat-option>None</mat-option>
+    <mat-option value="option1">Option 1</mat-option>
+    <mat-option value="option2">Option 2</mat-option>
+    <mat-option value="option3">Option 3</mat-option>
+  </mat-select>
+</mat-form-field>
+<p id="select-binding-confirm">You selected: {{selected}}</p>
+```
+Both ```<mat-select>``` and ```<select>``` support all of the form directives from the core FormsModule (NgModel) and 
+ReactiveFormsModule (FormControl, FormGroup, etc.)
+
+```java 
+//@FindBy(css = "#form-mat-select")
+public static MaterialSelector formMatSelect;
+//@FindBy(css = "#form-mat-select-confirm")
+public static Text formMatSelectConfirm;
+
+@Test
+public void checkOptionCanBeSelectedByIndexAndConfirmMessageWillAppear() {
+    formMatSelect.select(3);
+    formMatSelect.is().selected(TACOS);
+    formMatSelectConfirm.assertThat().text("Selected food: tacos-2");
+}
+@Test
+public void checkListEnabledOptions() {
+    formMatSelect.has().listEnabled(Arrays.asList(STEAK, PIZZA, TACOS));
+}
+
+//@FindBy(css = "#form-native-select")
+public static NativeSelector formNativeSelect;
+//@FindBy(css = "#form-native-select-confirm")
+public static Text formNativeSelectConfirm;
+
+@Test
+public void checkOptionCanBeSelectedByNameAndConfirmMessageWillAppear() {
+    formNativeSelect.select(VOLVO);
+    formNativeSelect.is().selected(containsString(VOLVO));
+    formNativeSelectConfirm.assertThat().text("Selected car: volvo");
+}
+@Test
+public void checkAvailableOptions() {
+    formNativeSelect.assertThat().values(hasItem(VOLVO)).values(hasItems(VOLVO, SAAB, MERCEDES));
+}
+```
+![Form Select](../images/angular/form_select.png) 
+
+```html 
+<mat-form-field>
+    <mat-label>Favorite food</mat-label>
+    <mat-select [(ngModel)]="selectedValue" name="food" id="form-mat-select">
+      <mat-option *ngFor="let food of foods" [value]="food.value" id="form-mat-select-list">
+        {{food.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <p id="form-mat-select-confirm"> Selected food: {{selectedValue}} </p>
+
+  <mat-form-field>
+    <mat-label>Favorite car</mat-label>
+    <select matNativeControl [(ngModel)]="selectedCar" name="car" id="form-native-select">
+      <option value="" selected></option>
+      <option *ngFor="let car of cars" [value]="car.value">
+        {{car.viewValue}}
+      </option>
+    </select>
+  </mat-form-field>
+  <p id="form-native-select-confirm"> Selected car: {{selectedCar}} </p>
+```
+There are a number of ```<mat-form-field>``` features that can be used with both ```<select>``` and ```<mat-select>```. 
+These include error messages, hint text, prefix & suffix, and theming.
+
+```java 
+//@FindBy(css = "#form-mat-feature-select")
+public static MaterialSelector formMatFeatureSelect;
+
+@Test
+public void checkOptionCanBeSelectedByNameAndHintMessageWillAppear() {
+    formMatFeatureSelect.select("Fox");
+    formMatFeatureSelect.is().selected("Fox");
+    formMatFeatureSelect.hint().assertThat().text("Wa-pa-pa-pa-pa-pa-pow!");
+}
+@Test
+public void checkEmptyOptionCanBeSelectedByNameAndErrorMessageWillAppear() {
+    formMatFeatureSelect.select("--");
+    formMatFeatureSelect.is().selected(matchesPattern("\\W+"));
+    formMatFeatureSelect.error().assertThat().text("Please choose an animal");
+}
+
+//@FindBy(css = "#form-native-feature-select")
+public static NativeSelector formNativeFeatureSelect;
+
+@Test
+public void checkOptionCanBeSelectedByNameAndHintMessageWillAppear() {
+    formNativeFeatureSelect.select(MERCEDES);
+    formNativeFeatureSelect.is().selected(MERCEDES);
+    formNativeFeatureSelect.waitFor().attr(ARIA_INVALID, "false");
+    formNativeFeatureSelect.hint().assertThat().text("You can pick up your favorite car here");
+}
+@Test
+public void checkEmptyOptionCanBeSelectedByNameAndErrorMessageWillAppear() {
+    formNativeFeatureSelect.select("");
+    formNativeFeatureSelect.core().click(0, formNativeFeatureSelect.core().getRect().getHeight() + 1);
+    formNativeFeatureSelect.core().click(0, formNativeFeatureSelect.core().getRect().getHeight() + 1);
+    formNativeFeatureSelect.is().selected("");
+    formNativeFeatureSelect.waitFor().attr(ARIA_INVALID, "true");
+    formNativeFeatureSelect.error().assertThat().text("This field is required");
+}
+```
+![Form Feature Select](../images/angular/form_feature_select.png) 
+
+```html 
+<mat-form-field>
+  <mat-label>Favorite animal</mat-label>
+  <mat-select [formControl]="animalControl" required id="form-mat-feature-select">
+    <mat-option id="form-mat-feature-list">--</mat-option>
+    <mat-option *ngFor="let animal of animals" [value]="animal" id="form-mat-feature-list">
+      {{animal.name}}
+    </mat-option>
+  </mat-select>
+  <mat-error *ngIf="animalControl.hasError('required')" id="form-mat-feature-error">Please choose an animal</mat-error>
+  <mat-hint id="form-mat-feature-hint">{{animalControl.value?.sound}}</mat-hint>
+</mat-form-field>
+
+<mat-form-field>
+  <mat-label>Select your car (required)</mat-label>
+  <select matNativeControl required [formControl]="selectFormControl" id="form-native-feature-select">
+    <option label="--select something--"></option>
+    <option value="saab">Saab</option>
+    <option value="mercedes">Mercedes</option>
+    <option value="audi">Audi</option>
+  </select>
+  <mat-error *ngIf="selectFormControl.hasError('required')" id="form-native-feature-error">
+    This field is required
+  </mat-error>
+  <mat-hint id="form-native-feature-hint">You can pick up your favorite car here</mat-hint>
+</mat-form-field>
+```
+It is possible to disable the entire select or individual options in the select by using the disabled property on the 
+```<select>``` or ```<mat-select>``` and the ```<option>``` or ```<mat-option>``` elements respectively.
+
+```java 
+//@FindBy(css = "#disable-mat-select")
+public static MaterialSelector disableMatSelect;
+//@FindBy(css = "#disable-checkbox-select")
+public static Checkbox disableCheckboxSelect;
+
+@Test
+public void verifyCheckboxLabelValue() {
+    disableCheckboxSelect.label().has().value("Disable select");
+}
+@Test
+public void checkDisabledOptionCannotBeSelectedByName() {
+    pickDisableSelectCheckboxAsUnchecked();
+    disableMatSelect.waitFor().attr(ARIA_DISABLED, "false");
+    String preselectedValue = disableMatSelect.selected();
+    disableMatSelect.multipleSelect(OPTION_2_DISABLED);
+    disableMatSelect.is().selected(preselectedValue);
+}
+
+//@FindBy(css = "#disable-native-select")
+public static NativeSelector disableNativeSelect;
+
+@Test
+public void checkEnabledOptionCanBeSelectedByIndex() {
+    pickDisableSelectCheckboxAsUnchecked();
+    disableNativeSelect.waitFor().displayed();
+    disableNativeSelect.select(2);
+    disableNativeSelect.is().selected(VOLVO);
+}
+@Test
+public void checkDisabledOptionCannotBeSelectedByName() {
+    pickDisableSelectCheckboxAsUnchecked();
+    disableNativeSelect.waitFor().displayed();
+    String preselectedValue = disableNativeSelect.selected();
+    disableNativeSelect.select(SAAB);
+    disableNativeSelect.is().selected(preselectedValue);
+}
+```
+![Disabled Select](../images/angular/disabled_select.png) 
+
+```html 
+<p>
+  <mat-checkbox [formControl]="disableSelect" id="disable-checkbox-select">Disable select</mat-checkbox>
+</p>
+
+<mat-form-field>
+  <mat-label>Choose an option</mat-label>
+  <mat-select [disabled]="disableSelect.value" id="disable-mat-select">
+    <mat-option value="option1">Option 1</mat-option>
+    <mat-option value="option2" disabled>Option 2 (disabled)</mat-option>
+    <mat-option value="option3">Option 3</mat-option>
+  </mat-select>
+</mat-form-field>
+
+<mat-form-field>
+  <mat-label>Choose an option</mat-label>
+  <select matNativeControl [disabled]="disableSelect.value" id="disable-native-select">
+    <option value="" selected disabled></option>
+    <option value="volvo">Volvo</option>
+    <option value="saab" disabled>Saab</option>
+    <option value="mercedes">Mercedes</option>
+    <option value="audi">Audi</option>
+  </select>
+</mat-form-field>
+```
+If you want one of your options to reset the select's value, you can omit specifying its value.
+
+```java 
+//@FindBy(css = "#reset-mat-select")
+public static MaterialSelector resetMatSelect;
+
+@Test
+public void checkResetOptionCanBeSelectedById() {
+    resetMatSelect.select(1);
+    resetMatSelect.is().selected(matchesPattern("\\W+"));
+}
+@Test
+public void checkEnabledOptionCanBeSelectedByName() {
+    resetMatSelect.select("Montana");
+    resetMatSelect.is().selected("Montana");
+}
+@Test
+public void checkListDisabledOptions() {
+    resetMatSelect.has().listDisabled();
+}
+
+//@FindBy(css = "#reset-native-select")
+public static NativeSelector resetNativeSelect;
+
+@Test
+public void checkResetOptionCanBeSelectedById() {
+    resetNativeSelect.select(1);
+    resetNativeSelect.is().selected(matchesPattern("\\W*"));
+}
+@Test
+public void checkListEnabledOptions() {
+    resetNativeSelect.has().listEnabled(Arrays.asList("", VOLVO, SAAB, MERCEDES, AUDI));
+}
+@Test
+public void checkAvailableOptions() {
+    resetNativeSelect.assertThat().values(hasItem(MERCEDES)).values(hasItems(SAAB, AUDI, VOLVO));
+}
+```
+![Reset Select](../images/angular/reset_select.png) 
+
+```html 
+<mat-form-field>
+  <mat-label>State</mat-label>
+  <mat-select id="reset-mat-select">
+    <mat-option>None</mat-option>
+    <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
+  </mat-select>
+</mat-form-field>
+
+<mat-form-field>
+  <mat-label>Select your car</mat-label>
+  <select matNativeControl id="reset-native-select">
+    <option value="" selected></option>
+    <option value="volvo">Volvo</option>
+    <option value="saab">Saab</option>
+    <option value="mercedes">Mercedes</option>
+    <option value="audi">Audi</option>
+  </select>
+</mat-form-field>
+```
+The ```<mat-optgroup>``` element can be used to group common options under a subheading. The name of the group can be 
+set using the label property of ```<mat-optgroup>```.
+
+```java 
+//@FindBy(css = "#option-groups-mat-select")
+public static MaterialSelector optionGroupsMatSelect;
+
+@Test
+public void checkDisabledOptionCannotBeSelectedByName() {
+    String preselectedValue = optionGroupsMatSelect.selected();
+    optionGroupsMatSelect.multipleSelect(FLAREON);
+    optionGroupsMatSelect.is().selected(preselectedValue);
+}
+@Test
+public void checkListDisabledOptions() {
+    optionGroupsMatSelect.has().listDisabled(CHARMANDER, VULPIX, FLAREON);
+}
+@Test
+public void checkAvailableGroups() {
+    optionGroupsMatSelect.has().groups(Arrays.asList(GRASS, WATER, FIRE, PSYCHIC));
+}
+@Test
+public void checkAvailableOptionsAndGroups() {
+    optionGroupsMatSelect.has().groupsAndOptions(getPokemonsMap());
+}
+
+//@FindBy(css = "#option-groups-native-select")
+public static NativeSelector optionGroupsNativeSelect;
+
+@Test
+public void checkListEnabledOptions() {
+    optionGroupsNativeSelect.has().listEnabled(Arrays.asList(VOLVO, SAAB, MERCEDES, AUDI));
+}
+@Test
+public void checkAvailableOptions() {
+    optionGroupsNativeSelect.assertThat().values(MERCEDES).values(VOLVO, SAAB, AUDI, MERCEDES);
+}
+@Test
+public void checkAvailableGroups() {
+    optionGroupsNativeSelect.is().groups(Arrays.asList(SWEDISH_CARS, GERMAN_CARS));
+}
+@Test
+public void checkAvailableOptionsAndGroups() {
+    optionGroupsNativeSelect.assertThat().groupsAndOptions(getCarsMap());
+}
+```
+![Option Groups Select](../images/angular/option_groups_select.png) 
+
+```html 
+<mat-form-field>
+  <mat-label>Pokemon</mat-label>
+  <mat-select [formControl]="pokemonControl" id="option-groups-mat-select">
+    <mat-option>-- None --</mat-option>
+    <mat-optgroup *ngFor="let group of pokemonGroups" [label]="group.name"
+                  [disabled]="group.disabled">
+      <mat-option *ngFor="let pokemon of group.pokemon" [value]="pokemon.value">
+        {{pokemon.viewValue}}
+      </mat-option>
+    </mat-optgroup>
+  </mat-select>
+</mat-form-field>
+
+<mat-form-field>
+  <mat-label>Cars</mat-label>
+  <select matNativeControl id="option-groups-native-select">
+    <optgroup label="Swedish Cars">
+      <option value="volvo">Volvo</option>
+      <option value="saab">Saab</option>
+    </optgroup>
+    <optgroup label="German Cars">
+      <option value="mercedes">Mercedes</option>
+      <option value="audi">Audi</option>
+    </optgroup>
+  </select>
+</mat-form-field>
+```
+```java 
+//@FindBy(css = "#multiple-select")
+public static MaterialSelector multipleSelect;
+
+@Test
+public void checkSingleOptionCanBeSelectedById() {
+    multipleSelect.multipleSelect(3);
+    multipleSelect.is().selected(ONION);
+    multipleSelect.multipleSelect(3);
+}
+@Test
+public void checkThreeOptionsCanBeSelectedByName() {
+    multipleSelect.multipleSelect(EXTRA_CHEESE, PEPPERONI, TOMATO);
+    multipleSelect.is().selected(EXTRA_CHEESE + ", " + PEPPERONI + ", " + TOMATO);
+    multipleSelect.multipleSelect(EXTRA_CHEESE, PEPPERONI, TOMATO);
+}
+```
+```<mat-select>``` defaults to single-selection mode, but can be configured to allow multiple selection by setting the 
+multiple property. This will allow the user to select multiple values at once. When using the ```<mat-select>``` in 
+multiple selection mode, its value will be a sorted list of all selected values rather than a single value.
+
+![Multiple Select](../images/angular/multiple_select.png) 
+
+```html 
+<mat-form-field>
+  <mat-label>Toppings</mat-label>
+  <mat-select [formControl]="toppings" multiple id="multiple-select">
+    <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+  </mat-select>
+</mat-form-field>
+```
+If you want to display a custom trigger label inside a ```<mat-select>```, you can use the ```<mat-select-trigger>``` 
+element.
+
+```java 
+//@FindBy(css = "#custom-trigger-text-select")
+public static MaterialSelector customTriggerTextSelect;
+
+@Test
+public void checkOptionCanBeSelectedByName() {
+    customTriggerTextSelect.multipleSelect(SAUSAGE);
+    customTriggerTextSelect.is().selected(SAUSAGE);
+    customTriggerTextSelect.multipleSelect(SAUSAGE);
+}
+@Test
+public void checkAllOptionsCanBeSelectedById() {
+    customTriggerTextSelect.multipleSelect(1, 2, 3, 4, 5, 6);
+    customTriggerTextSelect.verify().selected(EXTRA_CHEESE + " (+5 others)");
+    customTriggerTextSelect.multipleSelect(1, 2, 3, 4, 5, 6);
+}
+```
+![Custom Trigger Text Select](../images/angular/custom_trigger_text_select.png) 
+
+```html 
+<mat-form-field>
+  <mat-label>Toppings</mat-label>
+  <mat-select [formControl]="toppings" multiple id="custom-trigger-text-select">
+    <mat-select-trigger>
+      {{toppings.value ? toppings.value[0] : ''}}
+      <span *ngIf="toppings.value?.length > 1" class="example-additional-selection">
+        (+{{toppings.value.length - 1}} {{toppings.value?.length === 2 ? 'other' : 'others'}})
+      </span>
+    </mat-select-trigger>
+    <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+  </mat-select>
+</mat-form-field>
+```
+By default, when a user clicks on a ```<mat-option>```, a ripple animation is shown. This can be disabled by setting the 
+disableRipple property on ```<mat-select>```.
+
+```java 
+//@FindBy(css = "#no-option-ripple-select")
+public static MaterialSelector noOptionRippleSelect;
+
+@Test
+public void checkLabelValue() {
+    noOptionRippleSelect.label().has().value("Select an option");
+}
+@Test
+public void checkOptionCanBeSelectedByName() {
+    noOptionRippleSelect.select(OPTION_1);
+    noOptionRippleSelect.is().selected(OPTION_1);
+}
+```
+![No Option Ripple Select](../images/angular/no_option_ripple_select.png) 
+
+```html 
+<mat-form-field>
+  <mat-label>Select an option</mat-label>
+  <mat-select disableRipple id="no-option-ripple-select">
+    <mat-option value="1">Option 1</mat-option>
+    <mat-option value="2">Option 2</mat-option>
+    <mat-option value="3">Option 3</mat-option>
+  </mat-select>
+</mat-form-field>
+```
+```java 
+//@FindBy(css = "#custom-panel-styling-select")
+public static MaterialSelector customPanelStylingSelect;
+
+@Test
+public void checkRedOptionCanBeSelectedByName() {
+    customPanelStylingSelect.select(RED);
+    customPanelStylingSelect.is().selected(RED);
+    customPanelStylingSelect.has().color(255, 0, 0, 0.5);
+}
+@Test
+public void checkGreenOptionCanBeSelectedByName() {
+    customPanelStylingSelect.select(GREEN);
+    customPanelStylingSelect.is().selected(GREEN);
+    customPanelStylingSelect.has().color(0, 255, 0, 0.5);
+}
+@Test
+public void checkBlueOptionCanBeSelectedByName() {
+    customPanelStylingSelect.select(BLUE);
+    customPanelStylingSelect.is().selected(BLUE);
+    customPanelStylingSelect.has().color(0, 0, 255, 0.5);
+}
+```
+In order to facilitate easily styling the dropdown panel, ```<mat-select>``` has a panelClass property which can be 
+used to apply additional CSS classes to the dropdown panel.
+
+![Custom Panel Styling Select](../images/angular/custom_panel_styling_select.png) 
+
+```html 
+<mat-form-field>
+  <mat-label>Panel color</mat-label>
+  <mat-select [formControl]="panelColor"
+              panelClass="example-panel-{{panelColor.value}}" id="custom-panel-styling-select">
+    <mat-option value="red">Red</mat-option>
+    <mat-option value="green">Green</mat-option>
+    <mat-option value="blue">Blue</mat-option>
+  </mat-select>
+</mat-form-field>
+```
+The ```<mat-form-field>``` allows you to associate error messages with your ```<select>``` or ```<mat-select>```. 
+By default, these error messages are shown when the control is invalid and either the user has interacted with 
+(touched) the element or the parent form has been submitted. If you wish to override this behavior (e.g. to show the 
+error as soon as the invalid control is dirty or when a parent form group is invalid), you can use the 
+errorStateMatcher property of the ```<mat-select>```.
+
+```java 
+//@FindBy(css = "#mat-error-state-matcher-select")
+public static MaterialSelector matErrorStateMatcherSelect;
+
+@Test
+public void checkValidOptionCanBeSelectedByNameAndHintMessageWillAppear() {
+    matErrorStateMatcherSelect.select(VALID_OPTION);
+    matErrorStateMatcherSelect.is().selected(VALID_OPTION);
+    matErrorStateMatcherSelect.hint().assertThat().text("Errors appear instantly!");
+}
+@Test
+public void checkInvalidOptionCanBeSelectedByNameAndErrorMessageWillAppear() {
+    matErrorStateMatcherSelect.select(INVALID_OPTION);
+    matErrorStateMatcherSelect.is().selected(matchesPattern(INVALID_OPTION));
+    matErrorStateMatcherSelect.error().assertThat().text(INVALID_SELECTON);
+}
+@Test
+public void checkClearOptionCanBeSelectedByNameAndErrorMessageWillAppear() {
+    matErrorStateMatcherSelect.select(CLEAR);
+    matErrorStateMatcherSelect.is().selected(matchesPattern("\\W+"));
+    matErrorStateMatcherSelect.error().assertThat().text(MUST_MAKE_SELECTION);
+}
+
+//@FindBy(css = "#native-error-state-matcher-select")
+public static NativeSelector nativeErrorStateMatcherSelect;
+
+@Test
+public void checkValidOptionCanBeSelectedByName() {
+    nativeErrorStateMatcherSelect.select(VALID_OPTION);
+    nativeErrorStateMatcherSelect.is().selected(VALID_OPTION);
+}
+@Test
+public void checkInvalidOptionCanBeSelectedByNameAndErrorMessageWillAppear() {
+    nativeErrorStateMatcherSelect.select(INVALID_OPTION);
+    nativeErrorStateMatcherSelect.is().selected(matchesPattern(INVALID_OPTION));
+    nativeErrorStateMatcherSelect.error().assertThat().text(INVALID_SELECTON);
+}
+@Test
+public void checkClearOptionCanBeSelectedByNameAndErrorMessageWillAppear() {
+    nativeErrorStateMatcherSelect.select("");
+    nativeErrorStateMatcherSelect.is().selected("");
+    nativeErrorStateMatcherSelect.error().assertThat().text(MUST_MAKE_SELECTION);
+}
+```
+![Error State Matcher Select](../images/angular/error_state_matcher_select.png) 
+
+```html 
+<mat-form-field>
+  <mat-label>Choose one</mat-label>
+  <mat-select [formControl]="selected" [errorStateMatcher]="matcher" id="mat-error-state-matcher-select">
+    <mat-option>Clear</mat-option>
+    <mat-option value="valid">Valid option</mat-option>
+    <mat-option value="invalid">Invalid option</mat-option>
+  </mat-select>
+  <mat-hint id="mat-error-state-matcher-hint">Errors appear instantly!</mat-hint>
+  <mat-error *ngIf="selected.hasError('required')" id="mat-error-state-matcher-selection">
+    You must make a selection
+  </mat-error>
+  <mat-error *ngIf="selected.hasError('pattern') && !selected.hasError('required')"
+             id="mat-error-state-matcher-invalid">
+    Your selection is invalid
+  </mat-error>
+</mat-form-field>
+
+<mat-form-field class="demo-full-width">
+  <mat-label>Choose one</mat-label>
+  <select matNativeControl [formControl]="nativeSelectFormControl" [errorStateMatcher]="matcher"
+          id="native-error-state-matcher-select">
+    <option value=""></option>
+    <option value="valid" selected>Valid option</option>
+    <option value="invalid">Invalid option</option>
+  </select>
+  <mat-error *ngIf="nativeSelectFormControl.hasError('required')" id="native-error-state-matcher-selection">
+    You must make a selection
+  </mat-error>
+  <mat-error *ngIf="nativeSelectFormControl.hasError('pattern') && !nativeSelectFormControl.hasError('required')"
+             id="native-error-state-matcher-invalid">
+    Your selection is invalid
+  </mat-error>
+</mat-form-field>
+```
+
+|Method | Description | Return Type 
+--- | --- | --- 
+**is()** | Assert action | MaterialSelectorAssert 
+**show()** | Scroll to element | void 
+**text(String text)** | Check whether a text matches a pattern | TextAssert 
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/select" target="_blank">Select java tests examples</a>
+---
 ## Bootstrap Common elements
 
 ### Checkboxes and radios

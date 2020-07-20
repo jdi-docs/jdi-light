@@ -4856,6 +4856,14 @@ The angular Button:
 
 ### Button toggle
 
+#### <a href="https://material.angular.io/components/button-toggle/overview" target="_blank">Button toggle overview</a>
+  
+Button toggle is based on Basic Button. Basic Button is located in the following class:
+                                        
+- __Java__: _com.epam.jdi.light.ui.html.elements.common.Button_
+ 
+There are two different button toggles in Angular: Basic and Exclusive:
+
 ```java     
     //@FindBy(id = "underline-button-toggle-button") public static Button basicButtonToggleUnderline;
     @UI("#underline-button-toggle-button")
@@ -4878,20 +4886,12 @@ The angular Button:
     }
 ```
 
-#### <a href="https://material.angular.io/components/button-toggle/overview" target="_blank">Button toggle overview</a>
-  
-Button toggle is based on Basic Button. Basic Button is located in the following class:
-                                        
-- __Java__: _com.epam.jdi.light.ui.html.elements.common.Button_
- 
-There are two different button toggles in Angular: Basic and Exclusive:
-
 ![Basic button toggle](../images/angular/basic_button_toggle.png)
 
 ```html
-<mat-button-toggle _ngcontent-pwh-c327="" value="bold" id="bold-button-toggle" class="mat-button-toggle mat-focus-indicator mat-button-toggle-appearance-standard" tabindex="-1">
-    <button type="button" class="mat-button-toggle-button mat-focus-indicator" id="bold-button-toggle-button" tabindex="0" aria-pressed="false">
-        <div class="mat-button-toggle-label-content">Bold</div>
+<mat-button-toggle _ngcontent-eoo-c327="" value="underline" id="underline-button-toggle" class="mat-button-toggle mat-focus-indicator mat-button-toggle-appearance-standard" tabindex="-1">
+    <button type="button" class="mat-button-toggle-button mat-focus-indicator" id="underline-button-toggle-button" tabindex="0" aria-pressed="false">
+        <div class="mat-button-toggle-label-content">Underline</div>
     </button>
     <div class="mat-button-toggle-focus-overlay"></div>
     <div matripple="" class="mat-ripple mat-button-toggle-ripple"></div>

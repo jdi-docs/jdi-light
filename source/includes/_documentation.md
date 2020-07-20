@@ -4770,7 +4770,7 @@ There is two different toolbars in Angular: Single row and Multiple row:
 **displayed()** | Check that element is displayed | TextAssert
 
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/ToolbarTests.java" target="_blank">Here you can find Toolbar tests</a>
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/ToolbarTests.java" target="_blank">Here you can find Toolbar tests</a
 
 ### Basic Button
 
@@ -5032,6 +5032,343 @@ Badge is located in the following class:
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/BadgeTests.java" target="_blank">Here you can find Badge tests</a>
 
+
+---
+## Angular Complex elements
+
+### Radio Button
+
+#### <a href="https://material.angular.io/components/radio/overview" target="_blank">Radio button overview</a>
+
+Element that can be represented with one or more clickable buttons aiming to choose only one button of the group.
+
+Radio button is located in the following classes:
+
+   - __Java__: com.epam.jdi.light.ui.bootstrap.elements.complex.RadioButtons
+   
+There are two different radio buttons in Angular: Basic radios and Radios with NGmodel.
+ 
+See an example with HTML code describing basic radios element.
+
+```java
+    //FindBy(id = "basic-radio-group") public static RadioButtons basicRadioButtons;
+    @Css("#basic-radio-group") 
+    public static RadioButtons basicRadioButtons; 
+
+    //FindBy(id = "radio-option-one") public static Button firstBasicRadioButton; 
+    @UI("#radio-option-one") 
+    public static Button firstBasicRadioButton; 
+
+    //FindBy(id = "radio-option-two") public static Button secondBasicRadioButton;
+    @UI("#radio-option-two") 
+    public static Button secondBasicRadioButton;
+
+    @Test 
+    public void displayedBasicRadioButtonTest() { 
+    radioButtonSection.basicRadioButtons.is().displayed(); 
+    radioButtonSection.firstBasicRadioButton.is().displayed(); 
+    radioButtonSection.secondBasicRadioButton.is().displayed(); 
+    }
+
+    @Test 
+    public void nameBasicRadioButtonTest() { 
+    radioButtonSection.firstBasicRadioButton.has().text("Option 1"); 
+    radioButtonSection.secondBasicRadioButton.has().text("Option 2"); 
+    }
+
+    @Test 
+    public void onlyOneOptionOneButtonEnabledTest() { 
+    radioButtonSection.firstBasicRadioButton.click(); 
+    radioButtonSection.firstBasicRadioButton.has().attr(attrNameButton, matchesRegex(enableButton)); 
+    radioButtonSection.secondBasicRadioButton.has().attr(attrNameButton, disableBasicButton); 
+    }
+```
+
+![Basic radios](../images/angular/basic_radios.png)
+
+```html
+<mat-radio-group id="basic-radio-group" aria-label="Select an option"> 
+<mat-radio-button id="{{'radio-option-one'}}" value="1">Option 1</mat-radio-button> 
+<mat-radio-button id="{{'radio-option-two'}}" value="2">Option 2</mat-radio-button> 
+</mat-radio-group>
+```
+
+|Method | Description | Return Type
+--- | --- | ---
+**click()** | Click the button | void
+**is()** | Assert action | TextAssert
+**has()** | assert that element has attribute | boolean
+**attr()** | Check whether an element has attribute of specified name and with given value  | IsAssert 
+**displayed()** | Check that element is displayed | TextAssert
+**text()** | Assert that element has presented text | TextAssert
+
+See an example with HTML code describing radios with NGmodel element.
+ 
+```java
+    //FindBy(id = "season-radio-group") public static RadioButtons seasonRadioButtons;
+    @Css("#season-radio-group")
+    public static RadioButtons seasonRadioButtons;
+ 
+    //FindBy(id = "favorite-season-winter") public static Button winterNGModelRadioButton;
+    @UI("#favorite-season-winter")
+    public static Button winterNGModelRadioButton;
+
+    //FindBy(id = "favorite-season-spring") public static Button springNGModelRadioButton;
+    @UI("#favorite-season-spring")
+    public static Button springNGModelRadioButton;
+ 
+    //FindBy(id = "favorite-season-summer") public static Button summerNGModelRadioButton;
+    @UI("#favorite-season-summer")
+    public static Button summerNGModelRadioButton;
+ 
+    //FindBy(id = "favorite-season-autumn") public static Button autumnNGModelRadioButton;
+    @UI("#favorite-season-autumn")
+    public static Button autumnNGModelRadioButton;
+ 
+    //FindBy(id = "your-favorite-season-text") public static Text favoriteSeason;
+    @UI("#your-favorite-season-text")
+    public static Text favoriteSeason;
+ 
+    @Test
+    public void displayedSeasonRadioButtonTest() {
+      radioButtonSection.seasonRadioButtons.is().displayed();
+      radioButtonSection.winterNGModelRadioButton.is().displayed();
+      radioButtonSection.springNGModelRadioButton.is().displayed();
+      radioButtonSection.summerNGModelRadioButton.is().displayed();
+      radioButtonSection.autumnNGModelRadioButton.is().displayed();
+    }
+ 
+    @Test
+    public void nameSeasonRadioButtonTest() {
+      radioButtonSection.winterNGModelRadioButton.has().text("Winter");
+      radioButtonSection.springNGModelRadioButton.has().text("Spring");
+      radioButtonSection.summerNGModelRadioButton.has().text("Summer");
+      radioButtonSection.autumnNGModelRadioButton.has().text("Autumn");
+    }
+ 
+    @Test
+    public void favoriteSeasonTest() {
+      radioButtonSection.winterNGModelRadioButton.click();
+      radioButtonSection.favoriteSeason.has().text("Your favorite season is: Winter");
+      radioButtonSection.springNGModelRadioButton.click();
+      radioButtonSection.favoriteSeason.has().text("Your favorite season is: Spring");
+      radioButtonSection.summerNGModelRadioButton.click();
+      radioButtonSection.favoriteSeason.has().text("Your favorite season is: Summer");
+      radioButtonSection.autumnNGModelRadioButton.click();
+      radioButtonSection.favoriteSeason.has().text("Your favorite season is: Autumn");
+    }
+```
+ 
+ ![Radios_with_ngmodel](../images/angular/radios_with_ngmodel.png) 
+ 
+ ```html
+<mat-radio-group id="season-radio-group" aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]="favoriteSeason">
+  <mat-radio-button id="{{'favorite-season-' + season.toLowerCase()}}" class="example-radio-button" *ngFor="let season of seasons" [value]="season">
+    {{season}}
+  </mat-radio-button>
+</mat-radio-group>
+```
+|Method | Description | Return Type
+--- | --- | ---
+**click()** | Click the button | void
+**is()** | Assert action | TextAssert
+**has()** | assert that element has attribute | boolean
+**attr()** | Check whether an element has attribute of specified name and with given value  | IsAssert 
+**displayed()** | Check that element is displayed | TextAssert
+**text()** | Assert that element has presented text | TextAssert
+
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/RadioButtonTests.java" target="_blank">Here you can find Radio Button tests</a>
+ 
+
+---
+## Angular Complex elements 
+
+### List 
+
+#### <a href="https://material.angular.io/components/list/overview" target="_blank">List overview</a>
+
+List is a container component that wraps and formats a series of line items.
+
+There are two different lists in Angular: Basic list and List with sections.
+
+See an example with HTML code describing basic list element.
+
+![List examples](../images/angular/basic_list.png) 
+
+```java 
+
+//@FindBy(css = "#basic-list mat-list-item")
+@UI("#basic-list mat-list-item") 
+public JList<Label> basicList; 
+
+//@FindBy(css = "#list-with-sections mat-list-item")
+@UI("#list-with-sections mat-list-item") 
+public JList<Label> listWithSection; 
+
+@Test 
+public void basicListBasicTest() { 
+    listSection.basicList.is().displayed(); 
+} 
+
+@Test 
+public void basicListTextTest() { 
+    listSection.basicList.get(1).is().text("Item 1"); 
+}
+
+@Test
+public void listWithSectionsBasicTest() {
+    listSection.listWithSection.is().displayed();
+}
+
+@Test
+public void listWithSectionsIconTest() {
+    listSection.listWithSection.get(1).children().get(3).is().text("folder");
+    listSection.listWithSection.get(5).children().get(3).is().text("note");
+}
+
+@Test 
+public void listWithSectionsTextTest() { 
+    listSection.listWithSection.get(1).is().text("folder\nPhotos\nJan 1, 2016"); 
+} 
+
+``` 
+
+```html 
+<mat-list id="basic-list" role="list"> 
+<mat-list-item id="basic-list-item-1" role="listitem">Item 1</mat-list-item> 
+<mat-list-item id="basic-list-item-2" role="listitem">Item 2</mat-list-item> 
+<mat-list-item id="basic-list-item-3" role="listitem">Item 3</mat-list-item> 
+</mat-list> 
+``` 
+
+To add an icon to your list item, use the matListIcon attribute. 
+Subheader can be added to a list by annotating a heading tag with an matSubheader attribute. To add a divider, use <mat-divider>. 
+
+See an example with HTML code describing list with sections element. 
+
+![List examples](../images/angular/list_with_sections.png) 
+
+```html 
+<mat-list id="list-with-sections"> 
+<div mat-subheader>Folders</div> 
+<mat-list-item id="{{ 'list-with-section-items-' + folder.name.toLowerCase() }}" *ngFor="let folder of folders"> 
+<mat-icon mat-list-icon>folder</mat-icon> 
+<div mat-line>{{folder.name}}</div> 
+<div mat-line> {{folder.updated | date}} </div> 
+</mat-list-item> 
+<mat-divider></mat-divider> 
+<div mat-subheader>Notes</div> 
+<mat-list-item id="{{ 'list-with-section-items-' + note.name.toLowerCase().replace(' ','-') }}" *ngFor="let note of notes"> 
+<mat-icon mat-list-icon>note</mat-icon> 
+<div mat-line>{{note.name}}</div> 
+<div mat-line> {{note.updated | date}} </div> 
+</mat-list-item> 
+</mat-list> 
+``` 
+
+|Method | Description | Return Type 
+--- | --- | --- 
+**is()** | Assert action | TextAssert 
+**displayed()** | Check that element is displayed | TextAssert 
+**get(int index)** | Select label by index | Label 
+**show()** | Scroll to element | void 
+**text(String text)** | Check whether a text matches a pattern | TextAssert 
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/ListTests.java" target="_blank">List java tests examples</a>
+### Grid list 
+
+#### <a href="https://material.angular.io/components/grid-list/overview" target="_blank">Grid list overview</a>
+
+Grid list is a two-dimensional list view that arranges cells into grid-based layout. 
+
+There are two different grid lists in Angular: Basic grid list and Dynamic grid list. 
+
+See an example with HTML code describing basic grid list element. 
+
+![Grid list examples](../images/angular/basic_grid_list.png) 
+
+```java 
+
+//@FindBy(css = "#basic-grid-list mat-grid-tile")
+@UI("#basic-grid-list mat-grid-tile") 
+public JList<Label> basicGridList; 
+
+//@FindBy(css = "#dynamic-grid-list mat-grid-tile")
+@UI("#dynamic-grid-list mat-grid-tile") 
+public JList<Label> dynamicGridList; 
+
+@Test 
+public void basicGridListBasicTest() { 
+    gridListSection.basicGridList.is().displayed(); 
+} 
+
+@Test 
+public void basicGridListTextTest() { 
+    gridListSection.basicGridList.get(1).is().text("1"); 
+} 
+
+@Test 
+public void basicGridListColorTest() { 
+    gridListSection.basicGridList.get(1) 
+        .has().css("background-color", "rgba(" + 173 + ", " + 216 + ", " + 230 + ", 1)"); 
+} 
+
+@Test 
+public void dynamicGridListBasicTest() { 
+    gridListSection.dynamicGridList.is().displayed(); 
+} 
+
+@Test 
+public void dynamicGridListTextTest() { 
+    gridListSection.dynamicGridList.get(1).is().text("One"); 
+} 
+
+@Test 
+public void dynamicGridListColorTest() { 
+    gridListSection.dynamicGridList.get(1) 
+        .has().css("background-color", "rgba(" + 173 + ", " + 216 + ", " + 230 + ", 1)"); 
+} 
+
+``` 
+
+```html 
+<mat-grid-list
+
+id="basic-grid-list" cols="2" rowHeight="2:1"> 
+<mat-grid-tile id="basic-grid-list-tile-1">1</mat-grid-tile> 
+<mat-grid-tile id="basic-grid-list-tile-2">2</mat-grid-tile> 
+<mat-grid-tile id="basic-grid-list-tile-3">3</mat-grid-tile> 
+<mat-grid-tile id="basic-grid-list-tile-4">4</mat-grid-tile> 
+</mat-grid-list> 
+``` 
+
+See an example with HTML code describing dynamic grid list element. 
+
+![Grid list examples](../images/angular/dynamic_grid_list.png) 
+
+```html 
+<mat-grid-list id="dynamic-grid-list" cols="4" rowHeight="100px"> 
+<mat-grid-tile 
+id="{{ 'dynamic-grid-list-' + tile.text.toLowerCase() }}" 
+*ngFor="let tile of tiles" 
+[colspan]="tile.cols" 
+[rowspan]="tile.rows" 
+[style.background]="tile.color"> 
+{{tile.text}} 
+</mat-grid-tile> 
+</mat-grid-list> 
+``` 
+|Method | Description | Return Type 
+--- | --- | --- 
+**is()** | Assert action | TextAssert 
+**displayed()** | Check that element is displayed | TextAssert 
+**get(int index)** | Select label by index | Label 
+**show()** | Scroll to element | void 
+**text(String text)** | Check whether a text matches a pattern | TextAssert 
+**has()** | Assert that element has attribute | TextAssert 
+**css(String css, String value)** | Match passed value with the element css | IsAssert
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/GridListTests.java" target="_blank">Grid list java tests examples</a>
 ---
 ## Bootstrap Common elements
 

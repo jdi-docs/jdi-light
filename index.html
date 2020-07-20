@@ -590,6 +590,12 @@
                             <li>
 								<a href="#basic-button" class="toc-h2 h3 toc-link" data-title="Basic Button">Basic Button</a>
                             </li>
+                            <li>
+								<a href="#button-toggle" class="toc-h2 h3 toc-link" data-title="Button toggle">Button toggle</a>
+                            </li>
+                            <li>
+								<a href="#badge" class="toc-h2 h3 toc-link" data-title="Badge">Badge</a>
+                            </li>
                         </ul>
                   </li>
                   <li>
@@ -624,7 +630,7 @@
 								<a href="#alert" class="toc-h2 h3 toc-link" data-title="Alert">Alert</a>
                             </li>
                             <li>
-								<a href="#badge" class="toc-h2 h3 toc-link" data-title="Badge">Badge</a>
+								<a href="#badge-2" class="toc-h2 h3 toc-link" data-title="Badge">Badge</a>
                             </li>
                             <li>
 								<a href="#breadcrumb" class="toc-h2 h3 toc-link" data-title="Breadcrumb">Breadcrumb</a>
@@ -10163,7 +10169,260 @@ Methods available for Java in JDI Light:</p>
 <td>TextAssert</td>
 </tr>
 </tbody></table>
-<h4 id='basic-button-java-tests-examples'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/BasicButtonTests.java" target="_blank">Basic Button java tests examples</a></h4>
+<h4 id='basic-button-java-tests-examples'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/BasicButtonTests.java" target="_blank">Basic Button java tests examples</a></h4><h3 id='button-toggle'>Button toggle</h3><h4 id='button-toggle-overview'><a href="https://material.angular.io/components/button-toggle/overview" target="_blank">Button toggle overview</a></h4>
+<p>Button toggle is based on Basic Button. Basic Button is located in the following class:</p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.elements.common.Button</em></li>
+</ul>
+
+<p>There are two different button toggles in Angular: Basic and Exclusive:</p>
+<pre class="highlight java tab-java"><code>    <span class="c1">//@FindBy(id = "underline-button-toggle-button") public static Button basicButtonToggleUnderline;</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#underline-button-toggle-button"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Button</span> <span class="n">basicButtonToggleUnderline</span><span class="o">;</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">basicButtonToggleTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">basicButtonToggleUnderline</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
+        <span class="n">basicButtonToggleUnderline</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+        <span class="n">basicButtonToggleUnderline</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Underline"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">basicUnderlineButtonToggleTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">String</span> <span class="n">pressedAttribute</span> <span class="o">=</span> <span class="s">"aria-pressed"</span><span class="o">;</span>
+        <span class="n">basicButtonToggleUnderline</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">basicButtonToggleUnderline</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">attr</span><span class="o">(</span><span class="n">pressedAttribute</span><span class="o">,</span> <span class="s">"true"</span><span class="o">);</span>
+        <span class="n">basicButtonToggleUnderline</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">basicButtonToggleUnderline</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">attr</span><span class="o">(</span><span class="n">pressedAttribute</span><span class="o">,</span> <span class="s">"false"</span><span class="o">);</span>
+    <span class="o">}</span>
+</code></pre>
+<p><img src="images/angular/basic_button_toggle.png" alt="Basic button toggle" /></p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;mat-button-toggle</span> <span class="na">_ngcontent-eoo-c327=</span><span class="s">""</span> <span class="na">value=</span><span class="s">"underline"</span> <span class="na">id=</span><span class="s">"underline-button-toggle"</span> <span class="na">class=</span><span class="s">"mat-button-toggle mat-focus-indicator mat-button-toggle-appearance-standard"</span> <span class="na">tabindex=</span><span class="s">"-1"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"mat-button-toggle-button mat-focus-indicator"</span> <span class="na">id=</span><span class="s">"underline-button-toggle-button"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">aria-pressed=</span><span class="s">"false"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mat-button-toggle-label-content"</span><span class="nt">&gt;</span>Underline<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mat-button-toggle-focus-overlay"</span><span class="nt">&gt;&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">matripple=</span><span class="s">""</span> <span class="na">class=</span><span class="s">"mat-ripple mat-button-toggle-ripple"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/mat-button-toggle&gt;</span>
+</code></pre>
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>click()</strong></td>
+<td>Click the button</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>is()</strong></td>
+<td>Assert action</td>
+<td>TextAssert</td>
+</tr>
+<tr>
+<td><strong>has()</strong></td>
+<td>Assert action</td>
+<td>TextAssert</td>
+</tr>
+<tr>
+<td><strong>attr()</strong></td>
+<td>Check whether an element has attribute of specified name and with given value</td>
+<td>IsAssert</td>
+</tr>
+<tr>
+<td><strong>displayed()</strong></td>
+<td>Check that element is displayed</td>
+<td>TextAssert</td>
+</tr>
+<tr>
+<td><strong>enabled()</strong></td>
+<td>Check that element is enabled</td>
+<td>TextAssert</td>
+</tr>
+<tr>
+<td><strong>disabled()</strong></td>
+<td>Check that element is disabled</td>
+<td>TextAssert</td>
+</tr>
+</tbody></table>
+
+<p><br></p>
+<pre class="highlight java tab-java"><code>    <span class="c1">//@FindBy(id = "left-align-button-toggle-button") public Button exclusiveButtonToggleLeft;</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#left-align-button-toggle-button"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">Button</span> <span class="n">exclusiveButtonToggleLeft</span><span class="o">;</span>
+
+    <span class="c1">//@FindBy(id = "center-align-button-toggle-button") public Button exclusiveButtonToggleCenter;</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#center-align-button-toggle-button"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">Button</span> <span class="n">exclusiveButtonToggleCenter</span><span class="o">;</span>
+
+    <span class="c1">//@FindBy(id = "justify-align-button-toggle-button") public Button exclusiveButtonToggleJustify;</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#justify-align-button-toggle-button"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">Button</span> <span class="n">exclusiveButtonToggleJustify</span><span class="o">;</span>
+
+    <span class="c1">//@FindBy(css = "div.example-selected-value"") public Text selectedValue;</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"div.example-selected-value"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">Text</span> <span class="n">selectedValue</span><span class="o">;</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">exclusiveButtonToggleEnabledTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">exclusiveButtonToggleCenter</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
+        <span class="n">exclusiveButtonToggleJustify</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">disabled</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">exclusiveButtonToggleTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">exclusiveButtonToggleLeft</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">exclusiveButtonToggleLeft</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">attr</span><span class="o">(</span><span class="n">pressedAttribute</span><span class="o">,</span> <span class="n">buttonIsPressed</span><span class="o">);</span>
+        <span class="n">exclusiveButtonToggleCenter</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">exclusiveButtonToggleCenter</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">attr</span><span class="o">(</span><span class="n">pressedAttribute</span><span class="o">,</span> <span class="n">buttonIsPressed</span><span class="o">);</span>
+        <span class="n">exclusiveButtonToggleLeft</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">attr</span><span class="o">(</span><span class="n">pressedAttribute</span><span class="o">,</span> <span class="n">buttonIsNotPressed</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">exclusiveButtonToggleSelectedValueTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">exclusiveButtonToggleLeft</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">selectedValue</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Selected value: left"</span><span class="o">);</span>
+    <span class="o">}</span>
+</code></pre>
+<p><img src="images/angular/exclusive_button_toggle.png" alt="Exclusive button toggle" /></p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;mat-button-toggle</span> <span class="na">_ngcontent-pwh-c328=</span><span class="s">""</span> <span class="na">value=</span><span class="s">"left"</span> <span class="na">aria-label=</span><span class="s">"Text align left"</span> <span class="na">id=</span><span class="s">"left-align-button-toggle"</span> <span class="na">class=</span><span class="s">"mat-button-toggle mat-focus-indicator mat-button-toggle-appearance-standard"</span> <span class="na">tabindex=</span><span class="s">"-1"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"mat-button-toggle-button mat-focus-indicator"</span> <span class="na">id=</span><span class="s">"left-align-button-toggle-button"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">aria-pressed=</span><span class="s">"false"</span> <span class="na">name=</span><span class="s">"mat-button-toggle-group-7"</span> <span class="na">aria-label=</span><span class="s">"Text align left"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mat-button-toggle-label-content"</span><span class="nt">&gt;&lt;mat-icon</span> <span class="na">_ngcontent-pwh-c328=</span><span class="s">""</span> <span class="na">role=</span><span class="s">"img"</span> <span class="na">class=</span><span class="s">"mat-icon notranslate material-icons mat-icon-no-color"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span>format_align_left<span class="nt">&lt;/mat-icon&gt;&lt;/div&gt;</span>
+    <span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mat-button-toggle-focus-overlay"</span><span class="nt">&gt;&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">matripple=</span><span class="s">""</span> <span class="na">class=</span><span class="s">"mat-ripple mat-button-toggle-ripple"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/mat-button-toggle&gt;</span>
+</code></pre>
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>click()</strong></td>
+<td>Click the button</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>is()</strong></td>
+<td>Assert action</td>
+<td>TextAssert</td>
+</tr>
+<tr>
+<td><strong>has()</strong></td>
+<td>Assert action</td>
+<td>TextAssert</td>
+</tr>
+<tr>
+<td><strong>attr()</strong></td>
+<td>Check whether an element has attribute of specified name and with given value</td>
+<td>IsAssert</td>
+</tr>
+<tr>
+<td><strong>displayed()</strong></td>
+<td>Check that element is displayed</td>
+<td>TextAssert</td>
+</tr>
+<tr>
+<td><strong>enabled()</strong></td>
+<td>Check that element is enabled</td>
+<td>TextAssert</td>
+</tr>
+<tr>
+<td><strong>disabled()</strong></td>
+<td>Check that element is disabled</td>
+<td>TextAssert</td>
+</tr>
+<tr>
+<td><strong>text()</strong></td>
+<td>Check whether a text matches a pattern</td>
+<td>IsAssert</td>
+</tr>
+</tbody></table>
+<h4 id='here-you-can-find-button-toggle-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/1959-button-toggle-tests/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/ButtonToggleTest.java" target="_blank">Here you can find Button toggle tests</a></h4><h3 id='badge'>Badge</h3><pre class="highlight java tab-java"><code>    <span class="cm">/**@FindBy(css = "#text-with-badge span") public static Badge badgeWithText;*/</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#text-with-badge span"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Badge</span> <span class="n">badgeWithText</span><span class="o">;</span>
+
+    <span class="cm">/**@FindBy(css = "#button-with-left-badge span:not(.mat-button-wrapper)") public static Badge badgeWithButton;*/</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#button-with-left-badge span:not(.mat-button-wrapper)"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Badge</span> <span class="n">badgeWithButton</span><span class="o">;</span>
+
+    <span class="cm">/**@FindBy(css = "#icon-with-badge span") public static Badge badgeWithIcon;*/</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#icon-with-badge span"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Badge</span> <span class="n">badgeWithIcon</span><span class="o">;</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">basicBadgeTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">badgeWithText</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+        <span class="n">badgeWithButton</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+        <span class="n">badgeWithIcon</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">badgeTextTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">badgeWithText</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"4"</span><span class="o">);</span>
+        <span class="n">badgeWithButton</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"8"</span><span class="o">);</span>
+        <span class="n">badgeWithIcon</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"15"</span><span class="o">);</span>
+    <span class="o">}</span>
+   <span class="o">}</span> 
+</code></pre><h4 id='badge-overview'><a href="https://material.angular.io/components/badge/overview" target="_blank">Badge overview</a></h4>
+<p>Badge is located in the following class:</p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.angular.elements.common.Badge</em></li>
+</ul>
+
+<p><img src="images/angular/badge.PNG" alt="Badge" /></p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;span</span> <span class="na">_ngcontent-iwc-c329=</span><span class="s">""</span> <span class="na">matbadge=</span><span class="s">"4"</span> <span class="na">matbadgeoverlap=</span><span class="s">"false"</span> <span class="na">id=</span><span class="s">"text-with-badge"</span> <span class="na">class=</span><span class="s">"mat-badge mat-badge-above mat-badge-after mat-badge-medium"</span><span class="nt">&gt;</span>
+    "Text with a badge"
+    <span class="nt">&lt;span</span> <span class="na">_ngcontent-iwc-c329=</span><span class="s">""</span> <span class="na">id=</span><span class="s">"mat-badge-content-0"</span> <span class="na">class=</span><span class="s">"mat-badge-content mat-badge-active"</span><span class="nt">&gt;</span>4<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/span&gt;</span>
+</code></pre>
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>is()</strong></td>
+<td>Assert action</td>
+<td>TextAssert</td>
+</tr>
+<tr>
+<td><strong>has()</strong></td>
+<td>Assert action</td>
+<td>TextAssert</td>
+</tr>
+<tr>
+<td><strong>attr()</strong></td>
+<td>Check whether an element has attribute of specified name and with given value</td>
+<td>IsAssert</td>
+</tr>
+<tr>
+<td><strong>displayed()</strong></td>
+<td>Check that element is displayed</td>
+<td>TextAssert</td>
+</tr>
+<tr>
+<td><strong>enabled()</strong></td>
+<td>Check that element is enabled</td>
+<td>TextAssert</td>
+</tr>
+<tr>
+<td><strong>disabled()</strong></td>
+<td>Check that element is disabled</td>
+<td>TextAssert</td>
+</tr>
+</tbody></table>
+<h4 id='here-you-can-find-badge-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/BadgeTests.java" target="_blank">Here you can find Badge tests</a></h4>
 <hr>
 <h2 id='angular-complex-elements'>Angular Complex elements</h2><h3 id='radio-button'>Radio Button</h3><h4 id='radio-button-overview'><a href="https://material.angular.io/components/radio/overview" target="_blank">Radio button overview</a></h4>
 <p>Element that can be represented with one or more clickable buttons aiming to choose only one button of the group.</p>
@@ -12454,7 +12713,7 @@ just add <code>.btn-group-*</code> to each <code>.btn-group</code>, including ea
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/AlertTests.java" target="_blank">Alert test examples</a></p>
 
 <p><br><br><br><br><br><br></p>
-<h3 id='badge'>Badge</h3>
+<h3 id='badge-2'>Badge</h3>
 <p><strong>1) <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/badge/" target="_blank">Badge</a></strong> - Element that scale to match the size of the immediate parent element by using relative font sizing and em units.<br></p>
 
 <p>Here is an example badge with provided Bootstrap v4.3 code: </p>

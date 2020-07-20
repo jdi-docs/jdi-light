@@ -5032,8 +5032,6 @@ Badge is located in the following class:
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/BadgeTests.java" target="_blank">Here you can find Badge tests</a>
 
-
----
 ## Angular Complex elements
 
 ### Radio Button
@@ -5050,7 +5048,7 @@ There are two different radio buttons in Angular: Basic radios and Radios with N
  
 See an example with HTML code describing basic radios element.
 
-```java
+```java 
     //FindBy(id = "basic-radio-group") public static RadioButtons basicRadioButtons;
     @Css("#basic-radio-group") 
     public static RadioButtons basicRadioButtons; 
@@ -5086,7 +5084,7 @@ See an example with HTML code describing basic radios element.
 
 ![Basic radios](../images/angular/basic_radios.png)
 
-```html
+```html 
 <mat-radio-group id="basic-radio-group" aria-label="Select an option"> 
 <mat-radio-button id="{{'radio-option-one'}}" value="1">Option 1</mat-radio-button> 
 <mat-radio-button id="{{'radio-option-two'}}" value="2">Option 2</mat-radio-button> 
@@ -5104,7 +5102,7 @@ See an example with HTML code describing basic radios element.
 
 See an example with HTML code describing radios with NGmodel element.
  
-```java
+```java 
     //FindBy(id = "season-radio-group") public static RadioButtons seasonRadioButtons;
     @Css("#season-radio-group")
     public static RadioButtons seasonRadioButtons;
@@ -5161,7 +5159,7 @@ See an example with HTML code describing radios with NGmodel element.
  
  ![Radios_with_ngmodel](../images/angular/radios_with_ngmodel.png) 
  
- ```html
+```html 
 <mat-radio-group id="season-radio-group" aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]="favoriteSeason">
   <mat-radio-button id="{{'favorite-season-' + season.toLowerCase()}}" class="example-radio-button" *ngFor="let season of seasons" [value]="season">
     {{season}}
@@ -5177,13 +5175,7 @@ See an example with HTML code describing radios with NGmodel element.
 **displayed()** | Check that element is displayed | TextAssert
 **text()** | Assert that element has presented text | TextAssert
 
-
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/RadioButtonTests.java" target="_blank">Here you can find Radio Button tests</a>
- 
-
----
-## Angular Complex elements 
-
 ### List 
 
 #### <a href="https://material.angular.io/components/list/overview" target="_blank">List overview</a>
@@ -5369,8 +5361,7 @@ id="{{ 'dynamic-grid-list-' + tile.text.toLowerCase() }}"
 **has()** | Assert that element has attribute | TextAssert 
 **css(String css, String value)** | Match passed value with the element css | IsAssert
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/GridListTests.java" target="_blank">Grid list java tests examples</a>
----
-## Angular Complex elements 
+
 ### Select 
 #### <a href="https://material.angular.io/components/select/overview" target="_blank">Select overview</a>
 Select is a form control for selecting a value from a set of options.

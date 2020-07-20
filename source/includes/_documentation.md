@@ -4862,7 +4862,7 @@ The angular Button:
 
 List is a container component that wraps and formats a series of line items.
 
-There is two different lists in Angular: Basic list and List with sections.
+There are two different lists in Angular: Basic list and List with sections.
 
 See an example with HTML code describing basic list element.
 
@@ -4954,7 +4954,7 @@ See an example with HTML code describing list with sections element.
 
 Grid list is a two-dimensional list view that arranges cells into grid-based layout. 
 
-There is two different grid lists in Angular: Basic grid list and Dynamic grid list. 
+There are two different grid lists in Angular: Basic grid list and Dynamic grid list. 
 
 See an example with HTML code describing basic grid list element. 
 

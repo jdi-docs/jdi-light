@@ -4867,7 +4867,7 @@ Radio button is located in the following classes:
 
    - __Java__: com.epam.jdi.light.ui.bootstrap.elements.complex.RadioButtons
    
-There is two different radio buttons in Angular: Basic radios and Radios with NGmodel.
+There are two different radio buttons in Angular: Basic radios and Radios with NGmodel.
  
 See an example with HTML code describing basic radios element.
 

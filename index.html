@@ -604,16 +604,14 @@
                             <li>
 								<a href="#radio-button" class="toc-h2 h3 toc-link" data-title="Radio Button">Radio Button</a>
                             </li>
-                        </ul>
-                  </li>
-                  <li>
-                    <a href="#angular-complex-elements-2" class="toc-h2 toc-link" data-title="Angular Complex elements">Angular Complex elements</a>
-                        <ul class="toc-list-h2">
                             <li>
 								<a href="#list" class="toc-h2 h3 toc-link" data-title="List">List</a>
                             </li>
                             <li>
 								<a href="#grid-list" class="toc-h2 h3 toc-link" data-title="Grid list">Grid list</a>
+                            </li>
+                            <li>
+								<a href="#select" class="toc-h2 h3 toc-link" data-title="Select">Select</a>
                             </li>
                         </ul>
                   </li>
@@ -10422,9 +10420,7 @@ Methods available for Java in JDI Light:</p>
 <td>TextAssert</td>
 </tr>
 </tbody></table>
-<h4 id='here-you-can-find-badge-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/BadgeTests.java" target="_blank">Here you can find Badge tests</a></h4>
-<hr>
-<h2 id='angular-complex-elements'>Angular Complex elements</h2><h3 id='radio-button'>Radio Button</h3><h4 id='radio-button-overview'><a href="https://material.angular.io/components/radio/overview" target="_blank">Radio button overview</a></h4>
+<h4 id='here-you-can-find-badge-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/BadgeTests.java" target="_blank">Here you can find Badge tests</a></h4><h2 id='angular-complex-elements'>Angular Complex elements</h2><h3 id='radio-button'>Radio Button</h3><h4 id='radio-button-overview'><a href="https://material.angular.io/components/radio/overview" target="_blank">Radio button overview</a></h4>
 <p>Element that can be represented with one or more clickable buttons aiming to choose only one button of the group.</p>
 
 <p>Radio button is located in the following classes:</p>
@@ -10612,9 +10608,7 @@ Methods available for Java in JDI Light:</p>
 <td>TextAssert</td>
 </tr>
 </tbody></table>
-<h4 id='here-you-can-find-radio-button-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/RadioButtonTests.java" target="_blank">Here you can find Radio Button tests</a></h4>
-<hr>
-<h2 id='angular-complex-elements-2'>Angular Complex elements</h2><h3 id='list'>List</h3><h4 id='list-overview'><a href="https://material.angular.io/components/list/overview" target="_blank">List overview</a></h4>
+<h4 id='here-you-can-find-radio-button-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/RadioButtonTests.java" target="_blank">Here you can find Radio Button tests</a></h4><h3 id='list'>List</h3><h4 id='list-overview'><a href="https://material.angular.io/components/list/overview" target="_blank">List overview</a></h4>
 <p>List is a container component that wraps and formats a series of line items.</p>
 
 <p>There are two different lists in Angular: Basic list and List with sections.</p>
@@ -10833,7 +10827,774 @@ Subheader can be added to a list by annotating a heading tag with an matSubheade
 <td>IsAssert</td>
 </tr>
 </tbody></table>
-<h4 id='grid-list-java-tests-examples'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/GridListTests.java" target="_blank">Grid list java tests examples</a></h4>
+<h4 id='grid-list-java-tests-examples'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/GridListTests.java" target="_blank">Grid list java tests examples</a></h4><h3 id='select'>Select</h3><h4 id='select-overview'><a href="https://material.angular.io/components/select/overview" target="_blank">Select overview</a></h4>
+<p>Selectors are located in the following classes:</p>
+
+<ul>
+<li><strong>Java</strong>: com.epam.jdi.light.angular.elements.complex.MaterialSelector</li>
+<li><strong>Java</strong>: com.epam.jdi.light.angular.elements.complex.NativeSelector</li>
+</ul>
+
+<p>There are two similar select elements in Angular: material and native element.</p>
+
+<p><code>&lt;mat-form-field&gt;</code> is a component used to wrap several Angular Material components and apply common Text field 
+styles such as the underline, floating label, and hint messages.</p>
+
+<p>Angular Material also supports use of the native <code>&lt;select&gt;</code> element inside of <code>&lt;mat-form-field&gt;</code>. The native 
+control has several performance, accessibility, and usability advantages.</p>
+<pre class="highlight java tab-java"><code><span class="c1">//@FindBy(css = "#basic-mat-select")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">MaterialSelector</span> <span class="n">basicMatSelect</span><span class="o">;</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkLabelValue</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">basicMatSelect</span><span class="o">.</span><span class="na">label</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="s">"Favorite food"</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkPreselectedValue</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">basicNativeSelect</span><span class="o">.</span><span class="na">verify</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="n">matchesPattern</span><span class="o">(</span><span class="s">"[a-zA-Z]+"</span><span class="o">));</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkOptionCanBeSelectedByIndex</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">basicMatSelect</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+    <span class="n">basicMatSelect</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="n">PIZZA</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="c1">//@FindBy(css = "#basic-native-select")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">NativeSelector</span> <span class="n">basicNativeSelect</span><span class="o">;</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkListDisabledOptions</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">basicNativeSelect</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">listDisabled</span><span class="o">(</span><span class="n">Collections</span><span class="o">.</span><span class="na">EMPTY_LIST</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkListEnabledOptions</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">basicNativeSelect</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">listEnabled</span><span class="o">(</span><span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="n">VOLVO</span><span class="o">,</span> <span class="n">SAAB</span><span class="o">,</span> <span class="n">MERCEDES</span><span class="o">,</span> <span class="n">AUDI</span><span class="o">));</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkAvailableOptions</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">basicNativeSelect</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">values</span><span class="o">(</span><span class="n">hasItem</span><span class="o">(</span><span class="n">AUDI</span><span class="o">)).</span><span class="na">values</span><span class="o">(</span><span class="n">hasItems</span><span class="o">(</span><span class="n">AUDI</span><span class="o">,</span> <span class="n">VOLVO</span><span class="o">,</span> <span class="n">SAAB</span><span class="o">,</span> <span class="n">MERCEDES</span><span class="o">));</span>
+<span class="o">}</span>
+</code></pre>
+<p>See examples with HTML code describing select elements.</p>
+
+<p><img src="images/angular/basic_select.png" alt="Basic Select" /></p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;mat-form-field&gt;</span>
+  <span class="nt">&lt;mat-label&gt;</span>Favorite food<span class="nt">&lt;/mat-label&gt;</span>
+  <span class="nt">&lt;mat-select</span> <span class="na">id=</span><span class="s">"basic-mat-select"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;mat-option</span> <span class="err">*</span><span class="na">ngFor=</span><span class="s">"let food of foods"</span> <span class="err">[</span><span class="na">value</span><span class="err">]="</span><span class="na">food</span><span class="err">.</span><span class="na">value</span><span class="err">"</span> <span class="na">id=</span><span class="s">"basic-mat-select-list"</span><span class="nt">&gt;</span>
+      {{food.viewValue}}
+    <span class="nt">&lt;/mat-option&gt;</span>
+  <span class="nt">&lt;/mat-select&gt;</span>
+<span class="nt">&lt;/mat-form-field&gt;</span>
+
+<span class="nt">&lt;mat-form-field&gt;</span>
+  <span class="nt">&lt;mat-label&gt;</span>Cars<span class="nt">&lt;/mat-label&gt;</span>
+  <span class="nt">&lt;select</span> <span class="na">matNativeControl</span> <span class="na">required</span> <span class="na">id=</span><span class="s">"basic-native-select"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"volvo"</span><span class="nt">&gt;</span>Volvo<span class="nt">&lt;/option&gt;</span>
+    <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"saab"</span><span class="nt">&gt;</span>Saab<span class="nt">&lt;/option&gt;</span>
+    <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"mercedes"</span><span class="nt">&gt;</span>Mercedes<span class="nt">&lt;/option&gt;</span>
+    <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"audi"</span><span class="nt">&gt;</span>Audi<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;/select&gt;</span>
+<span class="nt">&lt;/mat-form-field&gt;</span>
+</code></pre>
+<p>The <code>&lt;mat-select&gt;</code> supports 2-way binding to the value property without the need for Angular forms.</p>
+<pre class="highlight java tab-java"><code><span class="c1">//@FindBy(css = "#two-binding-select")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">MaterialSelector</span> <span class="n">twoBindingSelect</span><span class="o">;</span>
+<span class="c1">//@FindBy(css = "#select-binding-confirm")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">Text</span> <span class="n">selectBindingConfirm</span><span class="o">;</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkOptionCanBeSelectedByNameAndConfirmMessageWillAppear</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">twoBindingSelect</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">OPTION_1</span><span class="o">);</span>
+    <span class="n">twoBindingSelect</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="n">OPTION_1</span><span class="o">);</span>
+    <span class="n">selectBindingConfirm</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"You selected: option1"</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkNoneOptionCanBeSelectedByNameAndConfirmMessageWillBeEmpty</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">twoBindingSelect</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">NONE</span><span class="o">);</span>
+    <span class="n">twoBindingSelect</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="n">matchesPattern</span><span class="o">(</span><span class="s">"\\W+"</span><span class="o">));</span>
+    <span class="n">selectBindingConfirm</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"You selected:"</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<p><img src="images/angular/two_binding_select.png" alt="Two Binding Select" /> </p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;mat-form-field&gt;</span>
+  <span class="nt">&lt;mat-label&gt;</span>Select an option<span class="nt">&lt;/mat-label&gt;</span>
+  <span class="nt">&lt;mat-select</span> <span class="err">[(</span><span class="na">value</span><span class="err">)]="</span><span class="na">selected</span><span class="err">"</span> <span class="na">id=</span><span class="s">"two-binding-select"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;mat-option&gt;</span>None<span class="nt">&lt;/mat-option&gt;</span>
+    <span class="nt">&lt;mat-option</span> <span class="na">value=</span><span class="s">"option1"</span><span class="nt">&gt;</span>Option 1<span class="nt">&lt;/mat-option&gt;</span>
+    <span class="nt">&lt;mat-option</span> <span class="na">value=</span><span class="s">"option2"</span><span class="nt">&gt;</span>Option 2<span class="nt">&lt;/mat-option&gt;</span>
+    <span class="nt">&lt;mat-option</span> <span class="na">value=</span><span class="s">"option3"</span><span class="nt">&gt;</span>Option 3<span class="nt">&lt;/mat-option&gt;</span>
+  <span class="nt">&lt;/mat-select&gt;</span>
+<span class="nt">&lt;/mat-form-field&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">id=</span><span class="s">"select-binding-confirm"</span><span class="nt">&gt;</span>You selected: {{selected}}<span class="nt">&lt;/p&gt;</span>
+</code></pre>
+<p>Both <code>&lt;mat-select&gt;</code> and <code>&lt;select&gt;</code> support all of the form directives from the core FormsModule (NgModel) and 
+ReactiveFormsModule (FormControl, FormGroup, etc.)</p>
+<pre class="highlight java tab-java"><code><span class="c1">//@FindBy(css = "#form-mat-select")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">MaterialSelector</span> <span class="n">formMatSelect</span><span class="o">;</span>
+<span class="c1">//@FindBy(css = "#form-mat-select-confirm")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">Text</span> <span class="n">formMatSelectConfirm</span><span class="o">;</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkOptionCanBeSelectedByIndexAndConfirmMessageWillAppear</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">formMatSelect</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+    <span class="n">formMatSelect</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="n">TACOS</span><span class="o">);</span>
+    <span class="n">formMatSelectConfirm</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Selected food: tacos-2"</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkListEnabledOptions</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">formMatSelect</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">listEnabled</span><span class="o">(</span><span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="n">STEAK</span><span class="o">,</span> <span class="n">PIZZA</span><span class="o">,</span> <span class="n">TACOS</span><span class="o">));</span>
+<span class="o">}</span>
+
+<span class="c1">//@FindBy(css = "#form-native-select")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">NativeSelector</span> <span class="n">formNativeSelect</span><span class="o">;</span>
+<span class="c1">//@FindBy(css = "#form-native-select-confirm")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">Text</span> <span class="n">formNativeSelectConfirm</span><span class="o">;</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkOptionCanBeSelectedByNameAndConfirmMessageWillAppear</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">formNativeSelect</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">VOLVO</span><span class="o">);</span>
+    <span class="n">formNativeSelect</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="n">VOLVO</span><span class="o">));</span>
+    <span class="n">formNativeSelectConfirm</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Selected car: volvo"</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkAvailableOptions</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">formNativeSelect</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">values</span><span class="o">(</span><span class="n">hasItem</span><span class="o">(</span><span class="n">VOLVO</span><span class="o">)).</span><span class="na">values</span><span class="o">(</span><span class="n">hasItems</span><span class="o">(</span><span class="n">VOLVO</span><span class="o">,</span> <span class="n">SAAB</span><span class="o">,</span> <span class="n">MERCEDES</span><span class="o">));</span>
+<span class="o">}</span>
+</code></pre>
+<p><img src="images/angular/form_select.png" alt="Form Select" /> </p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;mat-form-field&gt;</span>
+    <span class="nt">&lt;mat-label&gt;</span>Favorite food<span class="nt">&lt;/mat-label&gt;</span>
+    <span class="nt">&lt;mat-select</span> <span class="err">[(</span><span class="na">ngModel</span><span class="err">)]="</span><span class="na">selectedValue</span><span class="err">"</span> <span class="na">name=</span><span class="s">"food"</span> <span class="na">id=</span><span class="s">"form-mat-select"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;mat-option</span> <span class="err">*</span><span class="na">ngFor=</span><span class="s">"let food of foods"</span> <span class="err">[</span><span class="na">value</span><span class="err">]="</span><span class="na">food</span><span class="err">.</span><span class="na">value</span><span class="err">"</span> <span class="na">id=</span><span class="s">"form-mat-select-list"</span><span class="nt">&gt;</span>
+        {{food.viewValue}}
+      <span class="nt">&lt;/mat-option&gt;</span>
+    <span class="nt">&lt;/mat-select&gt;</span>
+  <span class="nt">&lt;/mat-form-field&gt;</span>
+  <span class="nt">&lt;p</span> <span class="na">id=</span><span class="s">"form-mat-select-confirm"</span><span class="nt">&gt;</span> Selected food: {{selectedValue}} <span class="nt">&lt;/p&gt;</span>
+
+  <span class="nt">&lt;mat-form-field&gt;</span>
+    <span class="nt">&lt;mat-label&gt;</span>Favorite car<span class="nt">&lt;/mat-label&gt;</span>
+    <span class="nt">&lt;select</span> <span class="na">matNativeControl</span> <span class="err">[(</span><span class="na">ngModel</span><span class="err">)]="</span><span class="na">selectedCar</span><span class="err">"</span> <span class="na">name=</span><span class="s">"car"</span> <span class="na">id=</span><span class="s">"form-native-select"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">""</span> <span class="na">selected</span><span class="nt">&gt;&lt;/option&gt;</span>
+      <span class="nt">&lt;option</span> <span class="err">*</span><span class="na">ngFor=</span><span class="s">"let car of cars"</span> <span class="err">[</span><span class="na">value</span><span class="err">]="</span><span class="na">car</span><span class="err">.</span><span class="na">value</span><span class="err">"</span><span class="nt">&gt;</span>
+        {{car.viewValue}}
+      <span class="nt">&lt;/option&gt;</span>
+    <span class="nt">&lt;/select&gt;</span>
+  <span class="nt">&lt;/mat-form-field&gt;</span>
+  <span class="nt">&lt;p</span> <span class="na">id=</span><span class="s">"form-native-select-confirm"</span><span class="nt">&gt;</span> Selected car: {{selectedCar}} <span class="nt">&lt;/p&gt;</span>
+</code></pre>
+<p>There are a number of <code>&lt;mat-form-field&gt;</code> features that can be used with both <code>&lt;select&gt;</code> and <code>&lt;mat-select&gt;</code>. 
+These include error messages, hint text, prefix &amp; suffix, and theming.</p>
+<pre class="highlight java tab-java"><code><span class="c1">//@FindBy(css = "#form-mat-feature-select")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">MaterialSelector</span> <span class="n">formMatFeatureSelect</span><span class="o">;</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkOptionCanBeSelectedByNameAndHintMessageWillAppear</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">formMatFeatureSelect</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="s">"Fox"</span><span class="o">);</span>
+    <span class="n">formMatFeatureSelect</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="s">"Fox"</span><span class="o">);</span>
+    <span class="n">formMatFeatureSelect</span><span class="o">.</span><span class="na">hint</span><span class="o">().</span><span class="na">assertThat</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Wa-pa-pa-pa-pa-pa-pow!"</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkEmptyOptionCanBeSelectedByNameAndErrorMessageWillAppear</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">formMatFeatureSelect</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="s">"--"</span><span class="o">);</span>
+    <span class="n">formMatFeatureSelect</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="n">matchesPattern</span><span class="o">(</span><span class="s">"\\W+"</span><span class="o">));</span>
+    <span class="n">formMatFeatureSelect</span><span class="o">.</span><span class="na">error</span><span class="o">().</span><span class="na">assertThat</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Please choose an animal"</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="c1">//@FindBy(css = "#form-native-feature-select")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">NativeSelector</span> <span class="n">formNativeFeatureSelect</span><span class="o">;</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkOptionCanBeSelectedByNameAndHintMessageWillAppear</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">formNativeFeatureSelect</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">MERCEDES</span><span class="o">);</span>
+    <span class="n">formNativeFeatureSelect</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="n">MERCEDES</span><span class="o">);</span>
+    <span class="n">formNativeFeatureSelect</span><span class="o">.</span><span class="na">waitFor</span><span class="o">().</span><span class="na">attr</span><span class="o">(</span><span class="n">ARIA_INVALID</span><span class="o">,</span> <span class="s">"false"</span><span class="o">);</span>
+    <span class="n">formNativeFeatureSelect</span><span class="o">.</span><span class="na">hint</span><span class="o">().</span><span class="na">assertThat</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"You can pick up your favorite car here"</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkEmptyOptionCanBeSelectedByNameAndErrorMessageWillAppear</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">formNativeFeatureSelect</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="s">""</span><span class="o">);</span>
+    <span class="n">formNativeFeatureSelect</span><span class="o">.</span><span class="na">core</span><span class="o">().</span><span class="na">click</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="n">formNativeFeatureSelect</span><span class="o">.</span><span class="na">core</span><span class="o">().</span><span class="na">getRect</span><span class="o">().</span><span class="na">getHeight</span><span class="o">()</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
+    <span class="n">formNativeFeatureSelect</span><span class="o">.</span><span class="na">core</span><span class="o">().</span><span class="na">click</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="n">formNativeFeatureSelect</span><span class="o">.</span><span class="na">core</span><span class="o">().</span><span class="na">getRect</span><span class="o">().</span><span class="na">getHeight</span><span class="o">()</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
+    <span class="n">formNativeFeatureSelect</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="s">""</span><span class="o">);</span>
+    <span class="n">formNativeFeatureSelect</span><span class="o">.</span><span class="na">waitFor</span><span class="o">().</span><span class="na">attr</span><span class="o">(</span><span class="n">ARIA_INVALID</span><span class="o">,</span> <span class="s">"true"</span><span class="o">);</span>
+    <span class="n">formNativeFeatureSelect</span><span class="o">.</span><span class="na">error</span><span class="o">().</span><span class="na">assertThat</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"This field is required"</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<p><img src="images/angular/form_feature_select.png" alt="Form Feature Select" /> </p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;mat-form-field&gt;</span>
+  <span class="nt">&lt;mat-label&gt;</span>Favorite animal<span class="nt">&lt;/mat-label&gt;</span>
+  <span class="nt">&lt;mat-select</span> <span class="err">[</span><span class="na">formControl</span><span class="err">]="</span><span class="na">animalControl</span><span class="err">"</span> <span class="na">required</span> <span class="na">id=</span><span class="s">"form-mat-feature-select"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;mat-option</span> <span class="na">id=</span><span class="s">"form-mat-feature-list"</span><span class="nt">&gt;</span>--<span class="nt">&lt;/mat-option&gt;</span>
+    <span class="nt">&lt;mat-option</span> <span class="err">*</span><span class="na">ngFor=</span><span class="s">"let animal of animals"</span> <span class="err">[</span><span class="na">value</span><span class="err">]="</span><span class="na">animal</span><span class="err">"</span> <span class="na">id=</span><span class="s">"form-mat-feature-list"</span><span class="nt">&gt;</span>
+      {{animal.name}}
+    <span class="nt">&lt;/mat-option&gt;</span>
+  <span class="nt">&lt;/mat-select&gt;</span>
+  <span class="nt">&lt;mat-error</span> <span class="err">*</span><span class="na">ngIf=</span><span class="s">"animalControl.hasError('required')"</span> <span class="na">id=</span><span class="s">"form-mat-feature-error"</span><span class="nt">&gt;</span>Please choose an animal<span class="nt">&lt;/mat-error&gt;</span>
+  <span class="nt">&lt;mat-hint</span> <span class="na">id=</span><span class="s">"form-mat-feature-hint"</span><span class="nt">&gt;</span>{{animalControl.value?.sound}}<span class="nt">&lt;/mat-hint&gt;</span>
+<span class="nt">&lt;/mat-form-field&gt;</span>
+
+<span class="nt">&lt;mat-form-field&gt;</span>
+  <span class="nt">&lt;mat-label&gt;</span>Select your car (required)<span class="nt">&lt;/mat-label&gt;</span>
+  <span class="nt">&lt;select</span> <span class="na">matNativeControl</span> <span class="na">required</span> <span class="err">[</span><span class="na">formControl</span><span class="err">]="</span><span class="na">selectFormControl</span><span class="err">"</span> <span class="na">id=</span><span class="s">"form-native-feature-select"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;option</span> <span class="na">label=</span><span class="s">"--select something--"</span><span class="nt">&gt;&lt;/option&gt;</span>
+    <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"saab"</span><span class="nt">&gt;</span>Saab<span class="nt">&lt;/option&gt;</span>
+    <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"mercedes"</span><span class="nt">&gt;</span>Mercedes<span class="nt">&lt;/option&gt;</span>
+    <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"audi"</span><span class="nt">&gt;</span>Audi<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;/select&gt;</span>
+  <span class="nt">&lt;mat-error</span> <span class="err">*</span><span class="na">ngIf=</span><span class="s">"selectFormControl.hasError('required')"</span> <span class="na">id=</span><span class="s">"form-native-feature-error"</span><span class="nt">&gt;</span>
+    This field is required
+  <span class="nt">&lt;/mat-error&gt;</span>
+  <span class="nt">&lt;mat-hint</span> <span class="na">id=</span><span class="s">"form-native-feature-hint"</span><span class="nt">&gt;</span>You can pick up your favorite car here<span class="nt">&lt;/mat-hint&gt;</span>
+<span class="nt">&lt;/mat-form-field&gt;</span>
+</code></pre>
+<p>It is possible to disable the entire select or individual options in the select by using the disabled property on the 
+<code>&lt;select&gt;</code> or <code>&lt;mat-select&gt;</code> and the <code>&lt;option&gt;</code> or <code>&lt;mat-option&gt;</code> elements respectively.</p>
+<pre class="highlight java tab-java"><code><span class="c1">//@FindBy(css = "#disable-mat-select")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">MaterialSelector</span> <span class="n">disableMatSelect</span><span class="o">;</span>
+<span class="c1">//@FindBy(css = "#disable-checkbox-select")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">Checkbox</span> <span class="n">disableCheckboxSelect</span><span class="o">;</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">verifyCheckboxLabelValue</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">disableCheckboxSelect</span><span class="o">.</span><span class="na">label</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="s">"Disable select"</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkDisabledOptionCannotBeSelectedByName</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">pickDisableSelectCheckboxAsUnchecked</span><span class="o">();</span>
+    <span class="n">disableMatSelect</span><span class="o">.</span><span class="na">waitFor</span><span class="o">().</span><span class="na">attr</span><span class="o">(</span><span class="n">ARIA_DISABLED</span><span class="o">,</span> <span class="s">"false"</span><span class="o">);</span>
+    <span class="n">String</span> <span class="n">preselectedValue</span> <span class="o">=</span> <span class="n">disableMatSelect</span><span class="o">.</span><span class="na">selected</span><span class="o">();</span>
+    <span class="n">disableMatSelect</span><span class="o">.</span><span class="na">multipleSelect</span><span class="o">(</span><span class="n">OPTION_2_DISABLED</span><span class="o">);</span>
+    <span class="n">disableMatSelect</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="n">preselectedValue</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="c1">//@FindBy(css = "#disable-native-select")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">NativeSelector</span> <span class="n">disableNativeSelect</span><span class="o">;</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkEnabledOptionCanBeSelectedByIndex</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">pickDisableSelectCheckboxAsUnchecked</span><span class="o">();</span>
+    <span class="n">disableNativeSelect</span><span class="o">.</span><span class="na">waitFor</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+    <span class="n">disableNativeSelect</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+    <span class="n">disableNativeSelect</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="n">VOLVO</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkDisabledOptionCannotBeSelectedByName</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">pickDisableSelectCheckboxAsUnchecked</span><span class="o">();</span>
+    <span class="n">disableNativeSelect</span><span class="o">.</span><span class="na">waitFor</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+    <span class="n">String</span> <span class="n">preselectedValue</span> <span class="o">=</span> <span class="n">disableNativeSelect</span><span class="o">.</span><span class="na">selected</span><span class="o">();</span>
+    <span class="n">disableNativeSelect</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">SAAB</span><span class="o">);</span>
+    <span class="n">disableNativeSelect</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="n">preselectedValue</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<p><img src="images/angular/disabled_select.png" alt="Disabled Select" /> </p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;p&gt;</span>
+  <span class="nt">&lt;mat-checkbox</span> <span class="err">[</span><span class="na">formControl</span><span class="err">]="</span><span class="na">disableSelect</span><span class="err">"</span> <span class="na">id=</span><span class="s">"disable-checkbox-select"</span><span class="nt">&gt;</span>Disable select<span class="nt">&lt;/mat-checkbox&gt;</span>
+<span class="nt">&lt;/p&gt;</span>
+
+<span class="nt">&lt;mat-form-field&gt;</span>
+  <span class="nt">&lt;mat-label&gt;</span>Choose an option<span class="nt">&lt;/mat-label&gt;</span>
+  <span class="nt">&lt;mat-select</span> <span class="err">[</span><span class="na">disabled</span><span class="err">]="</span><span class="na">disableSelect</span><span class="err">.</span><span class="na">value</span><span class="err">"</span> <span class="na">id=</span><span class="s">"disable-mat-select"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;mat-option</span> <span class="na">value=</span><span class="s">"option1"</span><span class="nt">&gt;</span>Option 1<span class="nt">&lt;/mat-option&gt;</span>
+    <span class="nt">&lt;mat-option</span> <span class="na">value=</span><span class="s">"option2"</span> <span class="na">disabled</span><span class="nt">&gt;</span>Option 2 (disabled)<span class="nt">&lt;/mat-option&gt;</span>
+    <span class="nt">&lt;mat-option</span> <span class="na">value=</span><span class="s">"option3"</span><span class="nt">&gt;</span>Option 3<span class="nt">&lt;/mat-option&gt;</span>
+  <span class="nt">&lt;/mat-select&gt;</span>
+<span class="nt">&lt;/mat-form-field&gt;</span>
+
+<span class="nt">&lt;mat-form-field&gt;</span>
+  <span class="nt">&lt;mat-label&gt;</span>Choose an option<span class="nt">&lt;/mat-label&gt;</span>
+  <span class="nt">&lt;select</span> <span class="na">matNativeControl</span> <span class="err">[</span><span class="na">disabled</span><span class="err">]="</span><span class="na">disableSelect</span><span class="err">.</span><span class="na">value</span><span class="err">"</span> <span class="na">id=</span><span class="s">"disable-native-select"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">""</span> <span class="na">selected</span> <span class="na">disabled</span><span class="nt">&gt;&lt;/option&gt;</span>
+    <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"volvo"</span><span class="nt">&gt;</span>Volvo<span class="nt">&lt;/option&gt;</span>
+    <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"saab"</span> <span class="na">disabled</span><span class="nt">&gt;</span>Saab<span class="nt">&lt;/option&gt;</span>
+    <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"mercedes"</span><span class="nt">&gt;</span>Mercedes<span class="nt">&lt;/option&gt;</span>
+    <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"audi"</span><span class="nt">&gt;</span>Audi<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;/select&gt;</span>
+<span class="nt">&lt;/mat-form-field&gt;</span>
+</code></pre>
+<p>If you want one of your options to reset the select&#39;s value, you can omit specifying its value.</p>
+<pre class="highlight java tab-java"><code><span class="c1">//@FindBy(css = "#reset-mat-select")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">MaterialSelector</span> <span class="n">resetMatSelect</span><span class="o">;</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkResetOptionCanBeSelectedById</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">resetMatSelect</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+    <span class="n">resetMatSelect</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="n">matchesPattern</span><span class="o">(</span><span class="s">"\\W+"</span><span class="o">));</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkEnabledOptionCanBeSelectedByName</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">resetMatSelect</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="s">"Montana"</span><span class="o">);</span>
+    <span class="n">resetMatSelect</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="s">"Montana"</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkListDisabledOptions</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">resetMatSelect</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">listDisabled</span><span class="o">();</span>
+<span class="o">}</span>
+
+<span class="c1">//@FindBy(css = "#reset-native-select")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">NativeSelector</span> <span class="n">resetNativeSelect</span><span class="o">;</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkResetOptionCanBeSelectedById</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">resetNativeSelect</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+    <span class="n">resetNativeSelect</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="n">matchesPattern</span><span class="o">(</span><span class="s">"\\W*"</span><span class="o">));</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkListEnabledOptions</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">resetNativeSelect</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">listEnabled</span><span class="o">(</span><span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">""</span><span class="o">,</span> <span class="n">VOLVO</span><span class="o">,</span> <span class="n">SAAB</span><span class="o">,</span> <span class="n">MERCEDES</span><span class="o">,</span> <span class="n">AUDI</span><span class="o">));</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkAvailableOptions</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">resetNativeSelect</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">values</span><span class="o">(</span><span class="n">hasItem</span><span class="o">(</span><span class="n">MERCEDES</span><span class="o">)).</span><span class="na">values</span><span class="o">(</span><span class="n">hasItems</span><span class="o">(</span><span class="n">SAAB</span><span class="o">,</span> <span class="n">AUDI</span><span class="o">,</span> <span class="n">VOLVO</span><span class="o">));</span>
+<span class="o">}</span>
+</code></pre>
+<p><img src="images/angular/reset_select.png" alt="Reset Select" /> </p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;mat-form-field&gt;</span>
+  <span class="nt">&lt;mat-label&gt;</span>State<span class="nt">&lt;/mat-label&gt;</span>
+  <span class="nt">&lt;mat-select</span> <span class="na">id=</span><span class="s">"reset-mat-select"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;mat-option&gt;</span>None<span class="nt">&lt;/mat-option&gt;</span>
+    <span class="nt">&lt;mat-option</span> <span class="err">*</span><span class="na">ngFor=</span><span class="s">"let state of states"</span> <span class="err">[</span><span class="na">value</span><span class="err">]="</span><span class="na">state</span><span class="err">"</span><span class="nt">&gt;</span>{{state}}<span class="nt">&lt;/mat-option&gt;</span>
+  <span class="nt">&lt;/mat-select&gt;</span>
+<span class="nt">&lt;/mat-form-field&gt;</span>
+
+<span class="nt">&lt;mat-form-field&gt;</span>
+  <span class="nt">&lt;mat-label&gt;</span>Select your car<span class="nt">&lt;/mat-label&gt;</span>
+  <span class="nt">&lt;select</span> <span class="na">matNativeControl</span> <span class="na">id=</span><span class="s">"reset-native-select"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">""</span> <span class="na">selected</span><span class="nt">&gt;&lt;/option&gt;</span>
+    <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"volvo"</span><span class="nt">&gt;</span>Volvo<span class="nt">&lt;/option&gt;</span>
+    <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"saab"</span><span class="nt">&gt;</span>Saab<span class="nt">&lt;/option&gt;</span>
+    <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"mercedes"</span><span class="nt">&gt;</span>Mercedes<span class="nt">&lt;/option&gt;</span>
+    <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"audi"</span><span class="nt">&gt;</span>Audi<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;/select&gt;</span>
+<span class="nt">&lt;/mat-form-field&gt;</span>
+</code></pre>
+<p>The <code>&lt;mat-optgroup&gt;</code> element can be used to group common options under a subheading. The name of the group can be 
+set using the label property of <code>&lt;mat-optgroup&gt;</code>.</p>
+<pre class="highlight java tab-java"><code><span class="c1">//@FindBy(css = "#option-groups-mat-select")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">MaterialSelector</span> <span class="n">optionGroupsMatSelect</span><span class="o">;</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkDisabledOptionCannotBeSelectedByName</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">String</span> <span class="n">preselectedValue</span> <span class="o">=</span> <span class="n">optionGroupsMatSelect</span><span class="o">.</span><span class="na">selected</span><span class="o">();</span>
+    <span class="n">optionGroupsMatSelect</span><span class="o">.</span><span class="na">multipleSelect</span><span class="o">(</span><span class="n">FLAREON</span><span class="o">);</span>
+    <span class="n">optionGroupsMatSelect</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="n">preselectedValue</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkListDisabledOptions</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">optionGroupsMatSelect</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">listDisabled</span><span class="o">(</span><span class="n">CHARMANDER</span><span class="o">,</span> <span class="n">VULPIX</span><span class="o">,</span> <span class="n">FLAREON</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkAvailableGroups</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">optionGroupsMatSelect</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">groups</span><span class="o">(</span><span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="n">GRASS</span><span class="o">,</span> <span class="n">WATER</span><span class="o">,</span> <span class="n">FIRE</span><span class="o">,</span> <span class="n">PSYCHIC</span><span class="o">));</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkAvailableOptionsAndGroups</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">optionGroupsMatSelect</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">groupsAndOptions</span><span class="o">(</span><span class="n">getPokemonsMap</span><span class="o">());</span>
+<span class="o">}</span>
+
+<span class="c1">//@FindBy(css = "#option-groups-native-select")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">NativeSelector</span> <span class="n">optionGroupsNativeSelect</span><span class="o">;</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkListEnabledOptions</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">optionGroupsNativeSelect</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">listEnabled</span><span class="o">(</span><span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="n">VOLVO</span><span class="o">,</span> <span class="n">SAAB</span><span class="o">,</span> <span class="n">MERCEDES</span><span class="o">,</span> <span class="n">AUDI</span><span class="o">));</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkAvailableOptions</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">optionGroupsNativeSelect</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">values</span><span class="o">(</span><span class="n">MERCEDES</span><span class="o">).</span><span class="na">values</span><span class="o">(</span><span class="n">VOLVO</span><span class="o">,</span> <span class="n">SAAB</span><span class="o">,</span> <span class="n">AUDI</span><span class="o">,</span> <span class="n">MERCEDES</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkAvailableGroups</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">optionGroupsNativeSelect</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">groups</span><span class="o">(</span><span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="n">SWEDISH_CARS</span><span class="o">,</span> <span class="n">GERMAN_CARS</span><span class="o">));</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkAvailableOptionsAndGroups</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">optionGroupsNativeSelect</span><span class="o">.</span><span class="na">assertThat</span><span class="o">().</span><span class="na">groupsAndOptions</span><span class="o">(</span><span class="n">getCarsMap</span><span class="o">());</span>
+<span class="o">}</span>
+</code></pre>
+<p><img src="images/angular/option_groups_select.png" alt="Option Groups Select" /> </p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;mat-form-field&gt;</span>
+  <span class="nt">&lt;mat-label&gt;</span>Pokemon<span class="nt">&lt;/mat-label&gt;</span>
+  <span class="nt">&lt;mat-select</span> <span class="err">[</span><span class="na">formControl</span><span class="err">]="</span><span class="na">pokemonControl</span><span class="err">"</span> <span class="na">id=</span><span class="s">"option-groups-mat-select"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;mat-option&gt;</span>-- None --<span class="nt">&lt;/mat-option&gt;</span>
+    <span class="nt">&lt;mat-optgroup</span> <span class="err">*</span><span class="na">ngFor=</span><span class="s">"let group of pokemonGroups"</span> <span class="err">[</span><span class="na">label</span><span class="err">]="</span><span class="na">group</span><span class="err">.</span><span class="na">name</span><span class="err">"</span>
+                  <span class="err">[</span><span class="na">disabled</span><span class="err">]="</span><span class="na">group</span><span class="err">.</span><span class="na">disabled</span><span class="err">"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;mat-option</span> <span class="err">*</span><span class="na">ngFor=</span><span class="s">"let pokemon of group.pokemon"</span> <span class="err">[</span><span class="na">value</span><span class="err">]="</span><span class="na">pokemon</span><span class="err">.</span><span class="na">value</span><span class="err">"</span><span class="nt">&gt;</span>
+        {{pokemon.viewValue}}
+      <span class="nt">&lt;/mat-option&gt;</span>
+    <span class="nt">&lt;/mat-optgroup&gt;</span>
+  <span class="nt">&lt;/mat-select&gt;</span>
+<span class="nt">&lt;/mat-form-field&gt;</span>
+
+<span class="nt">&lt;mat-form-field&gt;</span>
+  <span class="nt">&lt;mat-label&gt;</span>Cars<span class="nt">&lt;/mat-label&gt;</span>
+  <span class="nt">&lt;select</span> <span class="na">matNativeControl</span> <span class="na">id=</span><span class="s">"option-groups-native-select"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;optgroup</span> <span class="na">label=</span><span class="s">"Swedish Cars"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"volvo"</span><span class="nt">&gt;</span>Volvo<span class="nt">&lt;/option&gt;</span>
+      <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"saab"</span><span class="nt">&gt;</span>Saab<span class="nt">&lt;/option&gt;</span>
+    <span class="nt">&lt;/optgroup&gt;</span>
+    <span class="nt">&lt;optgroup</span> <span class="na">label=</span><span class="s">"German Cars"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"mercedes"</span><span class="nt">&gt;</span>Mercedes<span class="nt">&lt;/option&gt;</span>
+      <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"audi"</span><span class="nt">&gt;</span>Audi<span class="nt">&lt;/option&gt;</span>
+    <span class="nt">&lt;/optgroup&gt;</span>
+  <span class="nt">&lt;/select&gt;</span>
+<span class="nt">&lt;/mat-form-field&gt;</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="c1">//@FindBy(css = "#multiple-select")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">MaterialSelector</span> <span class="n">multipleSelect</span><span class="o">;</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkSingleOptionCanBeSelectedById</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">multipleSelect</span><span class="o">.</span><span class="na">multipleSelect</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+    <span class="n">multipleSelect</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="n">ONION</span><span class="o">);</span>
+    <span class="n">multipleSelect</span><span class="o">.</span><span class="na">multipleSelect</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkThreeOptionsCanBeSelectedByName</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">multipleSelect</span><span class="o">.</span><span class="na">multipleSelect</span><span class="o">(</span><span class="n">EXTRA_CHEESE</span><span class="o">,</span> <span class="n">PEPPERONI</span><span class="o">,</span> <span class="n">TOMATO</span><span class="o">);</span>
+    <span class="n">multipleSelect</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="n">EXTRA_CHEESE</span> <span class="o">+</span> <span class="s">", "</span> <span class="o">+</span> <span class="n">PEPPERONI</span> <span class="o">+</span> <span class="s">", "</span> <span class="o">+</span> <span class="n">TOMATO</span><span class="o">);</span>
+    <span class="n">multipleSelect</span><span class="o">.</span><span class="na">multipleSelect</span><span class="o">(</span><span class="n">EXTRA_CHEESE</span><span class="o">,</span> <span class="n">PEPPERONI</span><span class="o">,</span> <span class="n">TOMATO</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<p><code>&lt;mat-select&gt;</code> defaults to single-selection mode, but can be configured to allow multiple selection by setting the 
+multiple property. This will allow the user to select multiple values at once. When using the <code>&lt;mat-select&gt;</code> in 
+multiple selection mode, its value will be a sorted list of all selected values rather than a single value.</p>
+
+<p><img src="images/angular/multiple_select.png" alt="Multiple Select" /> </p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;mat-form-field&gt;</span>
+  <span class="nt">&lt;mat-label&gt;</span>Toppings<span class="nt">&lt;/mat-label&gt;</span>
+  <span class="nt">&lt;mat-select</span> <span class="err">[</span><span class="na">formControl</span><span class="err">]="</span><span class="na">toppings</span><span class="err">"</span> <span class="na">multiple</span> <span class="na">id=</span><span class="s">"multiple-select"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;mat-option</span> <span class="err">*</span><span class="na">ngFor=</span><span class="s">"let topping of toppingList"</span> <span class="err">[</span><span class="na">value</span><span class="err">]="</span><span class="na">topping</span><span class="err">"</span><span class="nt">&gt;</span>{{topping}}<span class="nt">&lt;/mat-option&gt;</span>
+  <span class="nt">&lt;/mat-select&gt;</span>
+<span class="nt">&lt;/mat-form-field&gt;</span>
+</code></pre>
+<p>If you want to display a custom trigger label inside a <code>&lt;mat-select&gt;</code>, you can use the <code>&lt;mat-select-trigger&gt;</code> 
+element.</p>
+<pre class="highlight java tab-java"><code><span class="c1">//@FindBy(css = "#custom-trigger-text-select")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">MaterialSelector</span> <span class="n">customTriggerTextSelect</span><span class="o">;</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkOptionCanBeSelectedByName</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">customTriggerTextSelect</span><span class="o">.</span><span class="na">multipleSelect</span><span class="o">(</span><span class="n">SAUSAGE</span><span class="o">);</span>
+    <span class="n">customTriggerTextSelect</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="n">SAUSAGE</span><span class="o">);</span>
+    <span class="n">customTriggerTextSelect</span><span class="o">.</span><span class="na">multipleSelect</span><span class="o">(</span><span class="n">SAUSAGE</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkAllOptionsCanBeSelectedById</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">customTriggerTextSelect</span><span class="o">.</span><span class="na">multipleSelect</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">6</span><span class="o">);</span>
+    <span class="n">customTriggerTextSelect</span><span class="o">.</span><span class="na">verify</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="n">EXTRA_CHEESE</span> <span class="o">+</span> <span class="s">" (+5 others)"</span><span class="o">);</span>
+    <span class="n">customTriggerTextSelect</span><span class="o">.</span><span class="na">multipleSelect</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">6</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<p><img src="images/angular/custom_trigger_text_select.png" alt="Custom Trigger Text Select" /> </p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;mat-form-field&gt;</span>
+  <span class="nt">&lt;mat-label&gt;</span>Toppings<span class="nt">&lt;/mat-label&gt;</span>
+  <span class="nt">&lt;mat-select</span> <span class="err">[</span><span class="na">formControl</span><span class="err">]="</span><span class="na">toppings</span><span class="err">"</span> <span class="na">multiple</span> <span class="na">id=</span><span class="s">"custom-trigger-text-select"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;mat-select-trigger&gt;</span>
+      {{toppings.value ? toppings.value[0] : ''}}
+      <span class="nt">&lt;span</span> <span class="err">*</span><span class="na">ngIf=</span><span class="s">"toppings.value?.length &gt; 1"</span> <span class="na">class=</span><span class="s">"example-additional-selection"</span><span class="nt">&gt;</span>
+        (+{{toppings.value.length - 1}} {{toppings.value?.length === 2 ? 'other' : 'others'}})
+      <span class="nt">&lt;/span&gt;</span>
+    <span class="nt">&lt;/mat-select-trigger&gt;</span>
+    <span class="nt">&lt;mat-option</span> <span class="err">*</span><span class="na">ngFor=</span><span class="s">"let topping of toppingList"</span> <span class="err">[</span><span class="na">value</span><span class="err">]="</span><span class="na">topping</span><span class="err">"</span><span class="nt">&gt;</span>{{topping}}<span class="nt">&lt;/mat-option&gt;</span>
+  <span class="nt">&lt;/mat-select&gt;</span>
+<span class="nt">&lt;/mat-form-field&gt;</span>
+</code></pre>
+<p>By default, when a user clicks on a <code>&lt;mat-option&gt;</code>, a ripple animation is shown. This can be disabled by setting the 
+disableRipple property on <code>&lt;mat-select&gt;</code>.</p>
+<pre class="highlight java tab-java"><code><span class="c1">//@FindBy(css = "#no-option-ripple-select")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">MaterialSelector</span> <span class="n">noOptionRippleSelect</span><span class="o">;</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkLabelValue</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">noOptionRippleSelect</span><span class="o">.</span><span class="na">label</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="s">"Select an option"</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkOptionCanBeSelectedByName</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">noOptionRippleSelect</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">OPTION_1</span><span class="o">);</span>
+    <span class="n">noOptionRippleSelect</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="n">OPTION_1</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<p><img src="images/angular/no_option_ripple_select.png" alt="No Option Ripple Select" /> </p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;mat-form-field&gt;</span>
+  <span class="nt">&lt;mat-label&gt;</span>Select an option<span class="nt">&lt;/mat-label&gt;</span>
+  <span class="nt">&lt;mat-select</span> <span class="na">disableRipple</span> <span class="na">id=</span><span class="s">"no-option-ripple-select"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;mat-option</span> <span class="na">value=</span><span class="s">"1"</span><span class="nt">&gt;</span>Option 1<span class="nt">&lt;/mat-option&gt;</span>
+    <span class="nt">&lt;mat-option</span> <span class="na">value=</span><span class="s">"2"</span><span class="nt">&gt;</span>Option 2<span class="nt">&lt;/mat-option&gt;</span>
+    <span class="nt">&lt;mat-option</span> <span class="na">value=</span><span class="s">"3"</span><span class="nt">&gt;</span>Option 3<span class="nt">&lt;/mat-option&gt;</span>
+  <span class="nt">&lt;/mat-select&gt;</span>
+<span class="nt">&lt;/mat-form-field&gt;</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="c1">//@FindBy(css = "#custom-panel-styling-select")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">MaterialSelector</span> <span class="n">customPanelStylingSelect</span><span class="o">;</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkRedOptionCanBeSelectedByName</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">customPanelStylingSelect</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">RED</span><span class="o">);</span>
+    <span class="n">customPanelStylingSelect</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="n">RED</span><span class="o">);</span>
+    <span class="n">customPanelStylingSelect</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">color</span><span class="o">(</span><span class="mi">255</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mf">0.5</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkGreenOptionCanBeSelectedByName</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">customPanelStylingSelect</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">GREEN</span><span class="o">);</span>
+    <span class="n">customPanelStylingSelect</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="n">GREEN</span><span class="o">);</span>
+    <span class="n">customPanelStylingSelect</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">color</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">255</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mf">0.5</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkBlueOptionCanBeSelectedByName</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">customPanelStylingSelect</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">BLUE</span><span class="o">);</span>
+    <span class="n">customPanelStylingSelect</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="n">BLUE</span><span class="o">);</span>
+    <span class="n">customPanelStylingSelect</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">color</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">255</span><span class="o">,</span> <span class="mf">0.5</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<p>In order to facilitate easily styling the dropdown panel, <code>&lt;mat-select&gt;</code> has a panelClass property which can be 
+used to apply additional CSS classes to the dropdown panel.</p>
+
+<p><img src="images/angular/custom_panel_styling_select.png" alt="Custom Panel Styling Select" /> </p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;mat-form-field&gt;</span>
+  <span class="nt">&lt;mat-label&gt;</span>Panel color<span class="nt">&lt;/mat-label&gt;</span>
+  <span class="nt">&lt;mat-select</span> <span class="err">[</span><span class="na">formControl</span><span class="err">]="</span><span class="na">panelColor</span><span class="err">"</span>
+              <span class="na">panelClass=</span><span class="s">"example-panel-{{panelColor.value}}"</span> <span class="na">id=</span><span class="s">"custom-panel-styling-select"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;mat-option</span> <span class="na">value=</span><span class="s">"red"</span><span class="nt">&gt;</span>Red<span class="nt">&lt;/mat-option&gt;</span>
+    <span class="nt">&lt;mat-option</span> <span class="na">value=</span><span class="s">"green"</span><span class="nt">&gt;</span>Green<span class="nt">&lt;/mat-option&gt;</span>
+    <span class="nt">&lt;mat-option</span> <span class="na">value=</span><span class="s">"blue"</span><span class="nt">&gt;</span>Blue<span class="nt">&lt;/mat-option&gt;</span>
+  <span class="nt">&lt;/mat-select&gt;</span>
+<span class="nt">&lt;/mat-form-field&gt;</span>
+</code></pre>
+<p>The <code>&lt;mat-form-field&gt;</code> allows you to associate error messages with your <code>&lt;select&gt;</code> or <code>&lt;mat-select&gt;</code>. 
+By default, these error messages are shown when the control is invalid and either the user has interacted with 
+(touched) the element or the parent form has been submitted. If you wish to override this behavior (e.g. to show the 
+error as soon as the invalid control is dirty or when a parent form group is invalid), you can use the 
+errorStateMatcher property of the <code>&lt;mat-select&gt;</code>.</p>
+<pre class="highlight java tab-java"><code><span class="c1">//@FindBy(css = "#mat-error-state-matcher-select")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">MaterialSelector</span> <span class="n">matErrorStateMatcherSelect</span><span class="o">;</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkValidOptionCanBeSelectedByNameAndHintMessageWillAppear</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">matErrorStateMatcherSelect</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">VALID_OPTION</span><span class="o">);</span>
+    <span class="n">matErrorStateMatcherSelect</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="n">VALID_OPTION</span><span class="o">);</span>
+    <span class="n">matErrorStateMatcherSelect</span><span class="o">.</span><span class="na">hint</span><span class="o">().</span><span class="na">assertThat</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Errors appear instantly!"</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkInvalidOptionCanBeSelectedByNameAndErrorMessageWillAppear</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">matErrorStateMatcherSelect</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">INVALID_OPTION</span><span class="o">);</span>
+    <span class="n">matErrorStateMatcherSelect</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="n">matchesPattern</span><span class="o">(</span><span class="n">INVALID_OPTION</span><span class="o">));</span>
+    <span class="n">matErrorStateMatcherSelect</span><span class="o">.</span><span class="na">error</span><span class="o">().</span><span class="na">assertThat</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">INVALID_SELECTON</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkClearOptionCanBeSelectedByNameAndErrorMessageWillAppear</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">matErrorStateMatcherSelect</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">CLEAR</span><span class="o">);</span>
+    <span class="n">matErrorStateMatcherSelect</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="n">matchesPattern</span><span class="o">(</span><span class="s">"\\W+"</span><span class="o">));</span>
+    <span class="n">matErrorStateMatcherSelect</span><span class="o">.</span><span class="na">error</span><span class="o">().</span><span class="na">assertThat</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">MUST_MAKE_SELECTION</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="c1">//@FindBy(css = "#native-error-state-matcher-select")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">NativeSelector</span> <span class="n">nativeErrorStateMatcherSelect</span><span class="o">;</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkValidOptionCanBeSelectedByName</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">nativeErrorStateMatcherSelect</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">VALID_OPTION</span><span class="o">);</span>
+    <span class="n">nativeErrorStateMatcherSelect</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="n">VALID_OPTION</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkInvalidOptionCanBeSelectedByNameAndErrorMessageWillAppear</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">nativeErrorStateMatcherSelect</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">INVALID_OPTION</span><span class="o">);</span>
+    <span class="n">nativeErrorStateMatcherSelect</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="n">matchesPattern</span><span class="o">(</span><span class="n">INVALID_OPTION</span><span class="o">));</span>
+    <span class="n">nativeErrorStateMatcherSelect</span><span class="o">.</span><span class="na">error</span><span class="o">().</span><span class="na">assertThat</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">INVALID_SELECTON</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkClearOptionCanBeSelectedByNameAndErrorMessageWillAppear</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">nativeErrorStateMatcherSelect</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="s">""</span><span class="o">);</span>
+    <span class="n">nativeErrorStateMatcherSelect</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="s">""</span><span class="o">);</span>
+    <span class="n">nativeErrorStateMatcherSelect</span><span class="o">.</span><span class="na">error</span><span class="o">().</span><span class="na">assertThat</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">MUST_MAKE_SELECTION</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<p><img src="images/angular/error_state_matcher_select.png" alt="Error State Matcher Select" /> </p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;mat-form-field&gt;</span>
+  <span class="nt">&lt;mat-label&gt;</span>Choose one<span class="nt">&lt;/mat-label&gt;</span>
+  <span class="nt">&lt;mat-select</span> <span class="err">[</span><span class="na">formControl</span><span class="err">]="</span><span class="na">selected</span><span class="err">"</span> <span class="err">[</span><span class="na">errorStateMatcher</span><span class="err">]="</span><span class="na">matcher</span><span class="err">"</span> <span class="na">id=</span><span class="s">"mat-error-state-matcher-select"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;mat-option&gt;</span>Clear<span class="nt">&lt;/mat-option&gt;</span>
+    <span class="nt">&lt;mat-option</span> <span class="na">value=</span><span class="s">"valid"</span><span class="nt">&gt;</span>Valid option<span class="nt">&lt;/mat-option&gt;</span>
+    <span class="nt">&lt;mat-option</span> <span class="na">value=</span><span class="s">"invalid"</span><span class="nt">&gt;</span>Invalid option<span class="nt">&lt;/mat-option&gt;</span>
+  <span class="nt">&lt;/mat-select&gt;</span>
+  <span class="nt">&lt;mat-hint</span> <span class="na">id=</span><span class="s">"mat-error-state-matcher-hint"</span><span class="nt">&gt;</span>Errors appear instantly!<span class="nt">&lt;/mat-hint&gt;</span>
+  <span class="nt">&lt;mat-error</span> <span class="err">*</span><span class="na">ngIf=</span><span class="s">"selected.hasError('required')"</span> <span class="na">id=</span><span class="s">"mat-error-state-matcher-selection"</span><span class="nt">&gt;</span>
+    You must make a selection
+  <span class="nt">&lt;/mat-error&gt;</span>
+  <span class="nt">&lt;mat-error</span> <span class="err">*</span><span class="na">ngIf=</span><span class="s">"selected.hasError('pattern') &amp;&amp; !selected.hasError('required')"</span>
+             <span class="na">id=</span><span class="s">"mat-error-state-matcher-invalid"</span><span class="nt">&gt;</span>
+    Your selection is invalid
+  <span class="nt">&lt;/mat-error&gt;</span>
+<span class="nt">&lt;/mat-form-field&gt;</span>
+
+<span class="nt">&lt;mat-form-field</span> <span class="na">class=</span><span class="s">"demo-full-width"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;mat-label&gt;</span>Choose one<span class="nt">&lt;/mat-label&gt;</span>
+  <span class="nt">&lt;select</span> <span class="na">matNativeControl</span> <span class="err">[</span><span class="na">formControl</span><span class="err">]="</span><span class="na">nativeSelectFormControl</span><span class="err">"</span> <span class="err">[</span><span class="na">errorStateMatcher</span><span class="err">]="</span><span class="na">matcher</span><span class="err">"</span>
+          <span class="na">id=</span><span class="s">"native-error-state-matcher-select"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">""</span><span class="nt">&gt;&lt;/option&gt;</span>
+    <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"valid"</span> <span class="na">selected</span><span class="nt">&gt;</span>Valid option<span class="nt">&lt;/option&gt;</span>
+    <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"invalid"</span><span class="nt">&gt;</span>Invalid option<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;/select&gt;</span>
+  <span class="nt">&lt;mat-error</span> <span class="err">*</span><span class="na">ngIf=</span><span class="s">"nativeSelectFormControl.hasError('required')"</span> <span class="na">id=</span><span class="s">"native-error-state-matcher-selection"</span><span class="nt">&gt;</span>
+    You must make a selection
+  <span class="nt">&lt;/mat-error&gt;</span>
+  <span class="nt">&lt;mat-error</span> <span class="err">*</span><span class="na">ngIf=</span><span class="s">"nativeSelectFormControl.hasError('pattern') &amp;&amp; !nativeSelectFormControl.hasError('required')"</span>
+             <span class="na">id=</span><span class="s">"native-error-state-matcher-invalid"</span><span class="nt">&gt;</span>
+    Your selection is invalid
+  <span class="nt">&lt;/mat-error&gt;</span>
+<span class="nt">&lt;/mat-form-field&gt;</span>
+</code></pre>
+<p>List of some available <strong>MaterialSelector</strong> methods:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>is()</strong></td>
+<td>Assert action</td>
+<td>MaterialSelectorAssert</td>
+</tr>
+<tr>
+<td><strong>expand()</strong></td>
+<td>Expand MaterialSelector list</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>collapse()</strong></td>
+<td>Collapse expanded MaterialSelector list</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>isExpanded()</strong></td>
+<td>Show that MaterialSelector expanded</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isCollapsed()</strong></td>
+<td>Show that MaterialSelector collapsed</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>select(String value/int index)</strong></td>
+<td>Select an option from MaterialSelector</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>multipleSelect(String... values/int... indexes)</strong></td>
+<td>Select multiple options from MaterialSelector</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>selected(String option)</strong></td>
+<td>Check if option has been selected</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>selected()</strong></td>
+<td>Returns selected value as string</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>values()</strong></td>
+<td>Returns all available MaterialSelector options</td>
+<td><code>List&lt;String&gt;</code></td>
+</tr>
+<tr>
+<td><strong>listEnabled()</strong></td>
+<td>Returns all enable MaterialSelector options</td>
+<td><code>List&lt;String&gt;</code></td>
+</tr>
+<tr>
+<td><strong>listDisabled()</strong></td>
+<td>Returns all disable MaterialSelector options</td>
+<td><code>List&lt;String&gt;</code></td>
+</tr>
+<tr>
+<td><strong>groups()</strong></td>
+<td>Returns existing MaterialSelector groups</td>
+<td><code>List&lt;String&gt;</code></td>
+</tr>
+<tr>
+<td><strong>groupsAndOptions()</strong></td>
+<td>Returns MaterialSelector map of the group and options if any</td>
+<td><code>Map&lt;String, List&lt;String&gt;&gt;</code></td>
+</tr>
+<tr>
+<td><strong>color(int r, int g, int b, double a)</strong></td>
+<td>Check that rgba(red, green, blue, opacity) is the specified color</td>
+<td>boolean</td>
+</tr>
+</tbody></table>
+
+<p>List of some available <strong>NativeSelector</strong> methods:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>is()</strong></td>
+<td>Assert action</td>
+<td>NativeSelectorAssert</td>
+</tr>
+<tr>
+<td><strong>list()</strong></td>
+<td>Returns a WebList item representing a list of available NativeSelector options</td>
+<td>WebList</td>
+</tr>
+<tr>
+<td><strong>select(String value/int index)</strong></td>
+<td>Select an option from NativeSelector</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>selected(String option)</strong></td>
+<td>Check if option has been selected</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>selected()</strong></td>
+<td>Returns selected value as string</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>values()</strong></td>
+<td>Returns all available NativeSelector options</td>
+<td><code>List&lt;String&gt;</code></td>
+</tr>
+<tr>
+<td><strong>values(TextTypes type)</strong></td>
+<td>Returns all available NativeSelector options by text type</td>
+<td><code>List&lt;String&gt;</code></td>
+</tr>
+<tr>
+<td><strong>listEnabled()</strong></td>
+<td>Returns all enable NativeSelector options</td>
+<td><code>List&lt;String&gt;</code></td>
+</tr>
+<tr>
+<td><strong>listDisabled()</strong></td>
+<td>Returns all disable NativeSelector options</td>
+<td><code>List&lt;String&gt;</code></td>
+</tr>
+<tr>
+<td><strong>groups()</strong></td>
+<td>Returns existing NativeSelector groups</td>
+<td><code>List&lt;String&gt;</code></td>
+</tr>
+<tr>
+<td><strong>groupsAndOptions()</strong></td>
+<td>Returns NativeSelector map of the group and options if any</td>
+<td><code>Map&lt;String, List&lt;String&gt;&gt;</code></td>
+</tr>
+</tbody></table>
+<h4 id='select-java-tests-examples'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/select" target="_blank">Select java tests examples</a></h4>
 <hr>
 <h2 id='bootstrap-common-elements'>Bootstrap Common elements</h2><h3 id='checkboxes-and-radios'>Checkboxes and radios</h3><h4 id='checkbox-default'><a href="https://getbootstrap.com/docs/4.3/components/buttons/" target="_blank">Checkbox default</a></h4>
 <p>Checkbox is located in the following classes:</p>

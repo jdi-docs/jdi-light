@@ -5364,7 +5364,11 @@ id="{{ 'dynamic-grid-list-' + tile.text.toLowerCase() }}"
 
 ### Select 
 #### <a href="https://material.angular.io/components/select/overview" target="_blank">Select overview</a>
-Select is a form control for selecting a value from a set of options.
+
+Selectors are located in the following classes:
+ 
+  - __Java__: com.epam.jdi.light.angular.elements.complex.MaterialSelector
+  - __Java__: com.epam.jdi.light.angular.elements.complex.NativeSelector
 
 There are two similar select elements in Angular: material and native element.
 
@@ -5409,11 +5413,20 @@ public void checkAvailableOptions() {
 }
 ```
 
-See an example with HTML code describing basic select elements.
+See examples with HTML code describing select elements.
 
 ![Basic Select](../images/angular/basic_select.png)
 
 ```html 
+<mat-form-field>
+  <mat-label>Favorite food</mat-label>
+  <mat-select id="basic-mat-select">
+    <mat-option *ngFor="let food of foods" [value]="food.value" id="basic-mat-select-list">
+      {{food.viewValue}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
 <mat-form-field>
   <mat-label>Cars</mat-label>
   <select matNativeControl required id="basic-native-select">
@@ -5422,15 +5435,6 @@ See an example with HTML code describing basic select elements.
     <option value="mercedes">Mercedes</option>
     <option value="audi">Audi</option>
   </select>
-</mat-form-field>
-
-<mat-form-field>
-  <mat-label>Favorite food</mat-label>
-  <mat-select id="basic-mat-select">
-    <mat-option *ngFor="let food of foods" [value]="food.value" id="basic-mat-select-list">
-      {{food.viewValue}}
-    </mat-option>
-  </mat-select>
 </mat-form-field>
 ```
 The ```<mat-select>``` supports 2-way binding to the value property without the need for Angular forms.
@@ -6023,12 +6027,41 @@ public void checkClearOptionCanBeSelectedByNameAndErrorMessageWillAppear() {
   </mat-error>
 </mat-form-field>
 ```
+List of some available **MaterialSelector** methods:
 
 |Method | Description | Return Type 
 --- | --- | --- 
 **is()** | Assert action | MaterialSelectorAssert 
-**show()** | Scroll to element | void 
-**text(String text)** | Check whether a text matches a pattern | TextAssert 
+**expand()** | Expand MaterialSelector list | void 
+**collapse()** | Collapse expanded MaterialSelector list | void 
+**isExpanded()** | Show that MaterialSelector expanded | boolean 
+**isCollapsed()** | Show that MaterialSelector collapsed | boolean 
+**select(String value/int index)** | Select an option from MaterialSelector | void 
+**multipleSelect(String... values/int... indexes)** | Select multiple options from MaterialSelector | void 
+**selected(String option)** | Check if option has been selected | boolean 
+**selected()** | Returns selected value as string | String 
+**values()** | Returns all available MaterialSelector options | ```List<String>``` 
+**listEnabled()** | Returns all enable MaterialSelector options | ```List<String>``` 
+**listDisabled()** | Returns all disable MaterialSelector options | ```List<String>``` 
+**groups()** | Returns existing MaterialSelector groups | ```List<String>``` 
+**groupsAndOptions()** | Returns MaterialSelector map of the group and options if any | ```Map<String, List<String>>``` 
+**color(int r, int g, int b, double a)** | Check that rgba(red, green, blue, opacity) is the specified color | boolean 
+
+List of some available **NativeSelector** methods:
+
+|Method | Description | Return Type 
+--- | --- | --- 
+**is()** | Assert action | NativeSelectorAssert 
+**list()** | Returns a WebList item representing a list of available NativeSelector options | WebList 
+**select(String value/int index)** | Select an option from NativeSelector | void 
+**selected(String option)** | Check if option has been selected | boolean 
+**selected()** | Returns selected value as string | String 
+**values()** | Returns all available NativeSelector options | ```List<String>``` 
+**values(TextTypes type)** | Returns all available NativeSelector options by text type | ```List<String>``` 
+**listEnabled()** | Returns all enable NativeSelector options | ```List<String>``` 
+**listDisabled()** | Returns all disable NativeSelector options | ```List<String>``` 
+**groups()** | Returns existing NativeSelector groups | ```List<String>``` 
+**groupsAndOptions()** | Returns NativeSelector map of the group and options if any | ```Map<String, List<String>>``` 
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/select" target="_blank">Select java tests examples</a>
 ---

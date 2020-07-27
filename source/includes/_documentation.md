@@ -5076,7 +5076,7 @@ Snackbar is located in the following class:
    
 ![Snackbar](../images/angular/snackbar.png)
 
-```html
+```html 
 <mat-form-field>
   <mat-label>Message</mat-label>
   <input matInput value="Disco party!" #message>

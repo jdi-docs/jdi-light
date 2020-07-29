@@ -6080,7 +6080,7 @@ Autocomplete element is identified by the input node wrapped inside the ```mat-f
 
 ![Autocomplete Overview](../images/angular/autocomplete_overview.png)
 
-``` html 
+```html  
 <mat-form-field>
     <div class="mat-form-field-wrapper">
         <div class="mat-form-field-flex">
@@ -6104,7 +6104,7 @@ Autocomplete element is identified by the input node wrapped inside the ```mat-f
 </mat-form-field>
 ```
 
-``` java 
+```java  
 //@FindBy(css = "#autocomplete-overview-input")
 public static AutoComplete autocompleteOverviewInput;
 
@@ -6120,7 +6120,7 @@ public void verifyautocompleteOverviewInput() {
 
 ![Disabled autocomplete](../images/angular/disabled_autocomplete.png)
 
-``` html 
+```html  
 <mat-form-field class="mat-form-field mat-form-field-disabled">
     <div class="mat-form-field-wrapper">
         <div class="mat-form-field-flex">
@@ -6144,7 +6144,7 @@ public void verifyautocompleteOverviewInput() {
 </mat-form-field>
 ```
 
-``` java 
+```java  
 //@FindBy(css = "#autocomplete-overview-input")
 public static AutoComplete autocompleteOverviewInput;
 
@@ -6162,7 +6162,7 @@ public void verifyautocompleteOverviewInputDisabling() {
 
 ![Display value autocomplete](../images/angular/display_value_autocomplete.png)
 
-``` html 
+```html  
 <mat-form-field>
     <div class="mat-form-field-wrapper">
         <div class="mat-form-field-flex">
@@ -6190,7 +6190,7 @@ public void verifyautocompleteOverviewInputDisabling() {
 </mat-form-field>
 ```
 
-``` java 
+```java  
 //@FindBy(css ="#autocomplete-display-value-input")
 public static AutoComplete autocompleteDisplayValueInput
 
@@ -6207,7 +6207,7 @@ public void verifyautocompleteDisplayValueInput() {
 
 ![Filter autocomplete](../images/angular/filter_autocomplete.png)
 
-``` html 
+```html  
 <mat-form-field>
     <div class="mat-form-field-wrapper">
         <div class="mat-form-field-flex">
@@ -6232,7 +6232,7 @@ public void verifyautocompleteDisplayValueInput() {
 </mat-form-field>
 ```
 
-``` java 
+```java  
 //@FindBy(css = "#autocomplete-filter-input")
 public static AutoComplete autocompleteFilterInput
 
@@ -6254,7 +6254,7 @@ public void verifyAutocompleteFilterInput() {
 
 ![Groups and options autocomplete](../images/angular/groups_and_options_autocomplete.png)
 
-``` html 
+```html  
 <mat-form-field _class="mat-form-field mat-form-field-invalid ng-invalid">
     <div class="mat-form-field-wrapper">
         <div class="mat-form-field-flex">
@@ -6280,7 +6280,7 @@ public void verifyAutocompleteFilterInput() {
 </mat-form-field>
 ```
 
-``` java 
+```java  
 @Test
 public void verifyOptionGroupsAutocomplete() {
     String[] values = {"A", "C", "D", "F", "G", "H", "I", "K", "L", "M", "N", "O", "P", "R", "S", "T", "U", "V", "W"};

@@ -5032,6 +5032,74 @@ Badge is located in the following class:
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/BadgeTests.java" target="_blank">Here you can find Badge tests</a>
 
+### Snackbar
+
+```java 
+   @UI("//simple-snack-bar")
+   public Snackbar basicSnackbar;
+   
+   @UI("#snack-bar-custom-component")
+   public Snackbar customSnackbar;
+
+
+   @Test
+    public void checkBasicSnackbarTest() {
+        snackbarSection.messageInput.setValue(MESSAGE);
+        snackbarSection.actionInput.setValue(ACTION);
+        snackbarSection.openButton.click();
+
+        snackbarSection.basicSnackbar.is().displayed();
+        snackbarSection.basicSnackbar.has().message(MESSAGE);
+        snackbarSection.basicSnackbar.has().action(ACTION);
+        snackbarSection.basicSnackbar.is().disappear();
+    }
+   
+   @Test
+    public void checkSnackbarDurationTest() {
+        snackbarSection.durationInput.setValue(String.valueOf(DURATION));
+        snackbarSection.customSnackbarOpenButton.click();
+
+        duration(DURATION, () -> {
+            snackbarSection.customSnackbar.base().timer().wait(() ->
+			snackbarSection.customSnackbar.is().displayed());
+            snackbarSection.customSnackbar.base().timer().wait(() ->
+			snackbarSection.customSnackbar.is().hidden());
+        });
+    }
+```
+
+#### <a href="https://material.angular.io/components/snack-bar/overview" target="_blank">Snackbar overview</a>
+
+Snackbar is located in the following class:
+
+   - __Java__: com.epam.jdi.light.ui.angular.elements.common.Snackbar
+   
+![Snackbar](../images/angular/snackbar.png)
+
+```html 
+<mat-form-field>
+  <mat-label>Message</mat-label>
+  <input matInput value="Disco party!" #message>
+</mat-form-field>
+
+<mat-form-field>
+  <mat-label>Action</mat-label>
+  <input matInput value="Dance" #action>
+</mat-form-field>
+
+<button mat-stroked-button (click)="openSnackBar(message.value, action.value)">Show snack-bar</button>
+```
+   
+|Method | Description | Return Type
+--- | --- | ---
+**getMessageText()** | Get message text | String
+**getActionText()** | Get action text | String
+**clickAction()** | Click button | void
+**isActionDisplayed()** | Check that button is displayed | boolean
+**is()** | Assert action | SnackbarAssert
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/SnackbarTests.java" target="_blank">Here you can find Snackbar tests</a>
+
 ## Angular Complex elements
 
 ### Radio Button

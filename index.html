@@ -616,6 +616,9 @@
                             <li>
 								<a href="#select" class="toc-h2 h3 toc-link" data-title="Select">Select</a>
                             </li>
+                            <li>
+								<a href="#autocomplete" class="toc-h2 h3 toc-link" data-title="Autocomplete">Autocomplete</a>
+                            </li>
                         </ul>
                   </li>
                   <li>
@@ -11682,6 +11685,343 @@ errorStateMatcher property of the <code>&lt;mat-select&gt;</code>.</p>
 </tr>
 </tbody></table>
 <h4 id='select-java-tests-examples'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/select" target="_blank">Select java tests examples</a></h4>
+<hr>
+<h3 id='autocomplete'>Autocomplete</h3><h4 id='autocomplete-overview'><a href="https://material.angular.io/components/autocomplete/overview" target="_blank">Autocomplete overview</a></h4>
+<p>You can find the autocomplete methods in the following class:</p>
+
+<ul>
+<li><strong>Java</strong>: com.epam.jdi.light.angular.elements.complex.AutoComplete.java</li>
+</ul>
+
+<p>See the examples with HTML code describing autocomplete elements below.</p>
+
+<p>Autocomplete element is identified by the input node wrapped inside the <code>mat-form-field</code> (see the test examples).</p>
+
+<p><img src="images/angular/autocomplete_overview.png" alt="Autocomplete Overview" /></p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;mat-form-field&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mat-form-field-wrapper"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mat-form-field-flex"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mat-form-field-infix"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;input</span>
+                    <span class="na">id=</span><span class="s">"autocomplete-overview-input"</span>
+                    <span class="na">placeholder=</span><span class="s">"State"</span>
+                    <span class="na">aria-label=</span><span class="s">"State"</span>
+                    <span class="na">class=</span><span class="s">"mat-input-element mat-form-field-autofill-control mat-autocomplete-trigger cdk-text-field-autofill-monitored ng-pristine ng-valid ng-touched"</span>
+                    <span class="na">aria-invalid=</span><span class="s">"false"</span>
+                    <span class="na">aria-required=</span><span class="s">"false"</span>
+                    <span class="na">autocomplete=</span><span class="s">"off"</span>
+                    <span class="na">role=</span><span class="s">"combobox"</span>
+                    <span class="na">aria-autocomplete=</span><span class="s">"list"</span>
+                    <span class="na">aria-expanded=</span><span class="s">"false"</span>
+                    <span class="na">aria-haspopup=</span><span class="s">"true"</span>
+                <span class="nt">/&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/mat-form-field&gt;</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="c1">//@FindBy(css = "#autocomplete-overview-input")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">AutoComplete</span> <span class="n">autocompleteOverviewInput</span><span class="o">;</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">verifyautocompleteOverviewInput</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">autocompleteOverviewInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">placeholder</span><span class="o">(</span><span class="s">"State"</span><span class="o">);</span>
+    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">autocompleteOverviewInput</span><span class="o">.</span><span class="na">setValue</span><span class="o">(</span><span class="s">"F"</span><span class="o">,</span> <span class="s">"FloridaPopulation: 20.27M"</span><span class="o">);</span>
+    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">autocompleteOverviewInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Florida"</span><span class="o">);</span>
+    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">autocompleteOverviewInput</span><span class="o">.</span><span class="na">setValue</span><span class="o">(</span><span class="s">"CaliforniaPopulation: 39.14M"</span><span class="o">);</span>
+    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">autocompleteOverviewInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"California"</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<p><img src="images/angular/disabled_autocomplete.png" alt="Disabled autocomplete" /></p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;mat-form-field</span> <span class="na">class=</span><span class="s">"mat-form-field mat-form-field-disabled"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mat-form-field-wrapper"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mat-form-field-flex"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mat-form-field-infix"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;input</span>
+                    <span class="na">id=</span><span class="s">"autocomplete-overview-input"</span>
+                    <span class="na">placeholder=</span><span class="s">"State"</span>
+                    <span class="na">aria-label=</span><span class="s">"State"</span>
+                    <span class="na">class=</span><span class="s">"mat-input-element mat-form-field-autofill-control mat-autocomplete-trigger cdk-text-field-autofill-monitored ng-pristine ng-touched"</span>
+                    <span class="na">aria-invalid=</span><span class="s">"false"</span>
+                    <span class="na">aria-required=</span><span class="s">"false"</span>
+                    <span class="na">autocomplete=</span><span class="s">"off"</span>
+                    <span class="na">role=</span><span class="s">"combobox"</span>
+                    <span class="na">aria-autocomplete=</span><span class="s">"list"</span>
+                    <span class="na">aria-expanded=</span><span class="s">"false"</span>
+                    <span class="na">aria-haspopup=</span><span class="s">"true"</span>
+                    <span class="na">disabled=</span><span class="s">""</span>
+                <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/mat-form-field&gt;</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="c1">//@FindBy(css = "#autocomplete-overview-input")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">AutoComplete</span> <span class="n">autocompleteOverviewInput</span><span class="o">;</span>
+
+<span class="c1">//@FindBy(css = "#autocomplete-overview-slide-toggle")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">SlideToggle</span> <span class="n">autocompleteOverviewInputSlideToggle</span><span class="o">;</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">verifyautocompleteOverviewInputDisabling</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">autocompleteOverviewInputSlideToggle</span><span class="o">.</span><span class="na">check</span><span class="o">();</span>
+    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">autocompleteOverviewInput</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">disabled</span><span class="o">();</span>
+    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">autocompleteOverviewInputSlideToggle</span><span class="o">.</span><span class="na">uncheck</span><span class="o">();</span>
+    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">autocompleteOverviewInput</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre>
+<p><img src="images/angular/display_value_autocomplete.png" alt="Display value autocomplete" /></p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;mat-form-field&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mat-form-field-wrapper"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mat-form-field-flex"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mat-form-field-infix"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;input</span>
+                    <span class="na">type=</span><span class="s">"text"</span>
+                    <span class="na">id=</span><span class="s">"autocomplete-display-value-input"</span>
+                    <span class="na">class=</span><span class="s">"mat-input-element mat-form-field-autofill-control mat-autocomplete-trigger cdk-text-field-autofill-monitored ng-valid ng-touched ng-dirty"</span>
+                    <span class="na">aria-invalid=</span><span class="s">"false"</span>
+                    <span class="na">aria-required=</span><span class="s">"false"</span>
+                    <span class="na">autocomplete=</span><span class="s">"off"</span>
+                    <span class="na">role=</span><span class="s">"combobox"</span>
+                    <span class="na">aria-autocomplete=</span><span class="s">"list"</span>
+                    <span class="na">aria-expanded=</span><span class="s">"false"</span>
+                    <span class="na">aria-haspopup=</span><span class="s">"true"</span>
+                <span class="nt">/&gt;</span>
+                <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"mat-form-field-label-wrapper"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"mat-form-field-label ng-star-inserted"</span> <span class="na">id=</span><span class="s">"mat-form-field-label-5"</span> <span class="na">for=</span><span class="s">"autocomplete-display-value-input"</span> <span class="na">aria-owns=</span><span class="s">"autocomplete-display-value-input"</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;mat-label</span> <span class="na">class=</span><span class="s">"ng-star-inserted"</span><span class="nt">&gt;</span>Assignee<span class="nt">&lt;/mat-label&gt;</span>
+                    <span class="nt">&lt;/label&gt;</span>
+                <span class="nt">&lt;/span&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/mat-form-field&gt;</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="c1">//@FindBy(css ="#autocomplete-display-value-input")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">AutoComplete</span> <span class="n">autocompleteDisplayValueInput</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">verifyautocompleteDisplayValueInput</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">autocompleteDisplayValueInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">displayValue</span><span class="o">(</span><span class="s">"Assignee"</span><span class="o">);</span>
+    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">autocompleteDisplayValueInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">placeholder</span><span class="o">(</span><span class="s">""</span><span class="o">);</span>
+    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">autocompleteDisplayValueInput</span><span class="o">.</span><span class="na">setValue</span><span class="o">(</span><span class="s">"Sh"</span><span class="o">,</span> <span class="s">"Shelley"</span><span class="o">);</span>
+    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">autocompleteDisplayValueInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Shelley"</span><span class="o">);</span>
+    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">autocompleteDisplayValueInput</span><span class="o">.</span><span class="na">setValue</span><span class="o">(</span><span class="s">"Mary"</span><span class="o">);</span>
+    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">autocompleteDisplayValueInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Mary"</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<p><img src="images/angular/filter_autocomplete.png" alt="Filter autocomplete" /></p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;mat-form-field&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mat-form-field-wrapper"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mat-form-field-flex"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mat-form-field-infix"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;input</span>
+                    <span class="na">type=</span><span class="s">"text"</span>
+                    <span class="na">id=</span><span class="s">"autocomplete-filter-input"</span>
+                    <span class="na">placeholder=</span><span class="s">"Pick one"</span>
+                    <span class="na">aria-label=</span><span class="s">"Number"</span>
+                    <span class="na">class=</span><span class="s">"mat-input-element mat-form-field-autofill-control mat-autocomplete-trigger cdk-text-field-autofill-monitored ng-valid ng-touched ng-dirty"</span>
+                    <span class="na">aria-invalid=</span><span class="s">"false"</span>
+                    <span class="na">aria-required=</span><span class="s">"false"</span>
+                    <span class="na">autocomplete=</span><span class="s">"off"</span>
+                    <span class="na">role=</span><span class="s">"combobox"</span>
+                    <span class="na">aria-autocomplete=</span><span class="s">"list"</span>
+                    <span class="na">aria-expanded=</span><span class="s">"false"</span>
+                    <span class="na">aria-haspopup=</span><span class="s">"true"</span>
+                <span class="nt">/&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/mat-form-field&gt;</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="c1">//@FindBy(css = "#autocomplete-filter-input")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">AutoComplete</span> <span class="n">autocompleteFilterInput</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">verifyAutocompleteFilterInput</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">String</span> <span class="n">expectedValuesArray</span><span class="o">[]</span> <span class="o">=</span> <span class="o">{</span><span class="s">"One"</span><span class="o">,</span> <span class="s">"Two"</span><span class="o">,</span> <span class="s">"Three"</span><span class="o">};</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">expectedValues</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="n">expectedValuesArray</span><span class="o">);</span>
+
+    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">autocompleteFilterInput</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">autocompleteFilterInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">options</span><span class="o">(</span><span class="n">expectedValues</span><span class="o">);</span>
+    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">autocompleteFilterInput</span><span class="o">.</span><span class="na">setValue</span><span class="o">(</span><span class="s">"n"</span><span class="o">,</span> <span class="s">"One"</span><span class="o">);</span>
+    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">autocompleteFilterInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"One"</span><span class="o">);</span>
+    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">autocompleteFilterInput</span><span class="o">.</span><span class="na">setValue</span><span class="o">(</span><span class="s">"Three"</span><span class="o">);</span>
+    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">autocompleteFilterInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Three"</span><span class="o">);</span>
+    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">autocompleteFilterInput</span><span class="o">.</span><span class="na">setValue</span><span class="o">(</span><span class="s">"o"</span><span class="o">,</span> <span class="s">"Two"</span><span class="o">);</span>
+    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">autocompleteFilterInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Two"</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<p><img src="images/angular/groups_and_options_autocomplete.png" alt="Groups and options autocomplete" /></p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;mat-form-field</span> <span class="na">_class=</span><span class="s">"mat-form-field mat-form-field-invalid ng-invalid"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mat-form-field-wrapper"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mat-form-field-flex"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mat-form-field-infix"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;input</span>
+                    <span class="na">type=</span><span class="s">"text"</span>
+                    <span class="na">id=</span><span class="s">"autocomplete-grouped-options-input"</span>
+                    <span class="na">placeholder=</span><span class="s">"States Group"</span>
+                    <span class="na">formcontrolname=</span><span class="s">"stateGroup"</span>
+                    <span class="na">required</span>
+                    <span class="na">class=</span><span class="s">"mat-input-element mat-form-field-autofill-control mat-autocomplete-trigger cdk-text-field-autofill-monitored ng-touched ng-dirty ng-invalid"</span>
+                    <span class="na">aria-invalid=</span><span class="s">"true"</span>
+                    <span class="na">aria-required=</span><span class="s">"true"</span>
+                    <span class="na">autocomplete=</span><span class="s">"off"</span>
+                    <span class="na">role=</span><span class="s">"combobox"</span>
+                    <span class="na">aria-autocomplete=</span><span class="s">"list"</span>
+                    <span class="na">aria-expanded=</span><span class="s">"false"</span>
+                    <span class="na">aria-haspopup=</span><span class="s">"true"</span>
+                <span class="nt">/&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/mat-form-field&gt;</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">verifyOptionGroupsAutocomplete</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">String</span><span class="o">[]</span> <span class="n">values</span> <span class="o">=</span> <span class="o">{</span><span class="s">"A"</span><span class="o">,</span> <span class="s">"C"</span><span class="o">,</span> <span class="s">"D"</span><span class="o">,</span> <span class="s">"F"</span><span class="o">,</span> <span class="s">"G"</span><span class="o">,</span> <span class="s">"H"</span><span class="o">,</span> <span class="s">"I"</span><span class="o">,</span> <span class="s">"K"</span><span class="o">,</span> <span class="s">"L"</span><span class="o">,</span> <span class="s">"M"</span><span class="o">,</span> <span class="s">"N"</span><span class="o">,</span> <span class="s">"O"</span><span class="o">,</span> <span class="s">"P"</span><span class="o">,</span> <span class="s">"R"</span><span class="o">,</span> <span class="s">"S"</span><span class="o">,</span> <span class="s">"T"</span><span class="o">,</span> <span class="s">"U"</span><span class="o">,</span> <span class="s">"V"</span><span class="o">,</span> <span class="s">"W"</span><span class="o">};</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">groupsValues</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="n">values</span><span class="o">);</span>
+
+    <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;&gt;</span> <span class="n">groupAndOptionsValues</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
+    <span class="n">String</span><span class="o">[]</span> <span class="n">options</span> <span class="o">=</span> <span class="o">{</span><span class="s">"California"</span><span class="o">,</span> <span class="s">"Colorado"</span><span class="o">,</span> <span class="s">"Connecticut"</span><span class="o">};</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">optionsValues</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="n">options</span><span class="o">);</span>
+    <span class="n">groupAndOptionsValues</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"C"</span><span class="o">,</span> <span class="n">optionsValues</span><span class="o">);</span>
+
+    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">optionGroupsAutocomplete</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
+    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">optionGroupsAutocomplete</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">mandatory</span><span class="o">();</span>
+    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">optionGroupsAutocomplete</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">invalid</span><span class="o">();</span>
+
+    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">optionGroupsAutocomplete</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">optionGroupsAutocomplete</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">groups</span><span class="o">(</span><span class="n">groupsValues</span><span class="o">);</span>
+
+    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">optionGroupsAutocomplete</span><span class="o">.</span><span class="na">input</span><span class="o">(</span><span class="s">"C"</span><span class="o">);</span>
+    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">optionGroupsAutocomplete</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">groupsAndOptions</span><span class="o">(</span><span class="n">groupAndOptionsValues</span><span class="o">);</span>
+
+    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">optionGroupsAutocomplete</span><span class="o">.</span><span class="na">setValue</span><span class="o">(</span><span class="s">"C"</span><span class="o">,</span> <span class="s">"California"</span><span class="o">);</span>
+    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">optionGroupsAutocomplete</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"California"</span><span class="o">);</span>
+    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">optionGroupsAutocomplete</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">valid</span><span class="o">();</span>
+    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">optionGroupsAutocomplete</span><span class="o">.</span><span class="na">input</span><span class="o">(</span><span class="s">"C"</span><span class="o">);</span>
+    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">optionGroupsAutocomplete</span><span class="o">.</span><span class="na">setValue</span><span class="o">(</span><span class="s">"Colorado"</span><span class="o">);</span>
+    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">optionGroupsAutocomplete</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Colorado"</span><span class="o">);</span>
+    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">optionGroupsAutocomplete</span><span class="o">.</span><span class="na">setValue</span><span class="o">(</span><span class="s">"New York"</span><span class="o">);</span>
+    <span class="n">autocompleteSection</span><span class="o">.</span><span class="na">optionGroupsAutocomplete</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"New York"</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<p>List of the available <strong>AutoComplete</strong> methods:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>is()</strong></td>
+<td>Assert action</td>
+<td>AutoCompleteAssert</td>
+</tr>
+<tr>
+<td><strong>has()</strong></td>
+<td>Assert action</td>
+<td>AutoCompleteAssert</td>
+</tr>
+<tr>
+<td><strong><em>input(String value)</em></strong></td>
+<td>Inputs the provided value</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong><em>select(String value)</em></strong></td>
+<td>Selects the required value from the autocomplete list</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong><em>select(String input, String value)</em></strong></td>
+<td>Provides the input and selects the required value</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong><em>placeholder()</em></strong></td>
+<td>Returns the value of the displayed placeholder</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong><em>displayValue()</em></strong></td>
+<td>Returns the display value</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong><em>isOptionHighlighted(String option)</em></strong></td>
+<td>Returns true if the provided option is highlighted in the displayed list</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong><em>setValue(String inputValue, String selectValue)</em></strong></td>
+<td>Types in the inputValue and selects the corresponding selectValue</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong><em>setValue(String selectValue)</em></strong></td>
+<td>Selects the required selectValue</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong><em>getValue()</em></strong></td>
+<td>Returns the value popualted into the autocomplete</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong><em>text()</em></strong></td>
+<td>Returns the value popualted into the autocomplete</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong><em>options()</em></strong></td>
+<td>Return the list of options avaialble for the particular autocomplete</td>
+<td>List<String></td>
+</tr>
+<tr>
+<td><strong><em>options(String inputValue)</em></strong></td>
+<td>Returns the list of options which are displayed when the inputValue is provided</td>
+<td>List<String></td>
+</tr>
+<tr>
+<td><strong><em>groups()</em></strong></td>
+<td>Returns the groups of options available in the autocomplete</td>
+<td>List<String></td>
+</tr>
+<tr>
+<td><strong><em>groupsAndOptionsValues()</em></strong></td>
+<td>Returns the hash map where the keys are the groups and the values are the lists of options within each group</td>
+<td>HashMap<String, List<String>&gt;</td>
+</tr>
+<tr>
+<td><strong><em>isMandatory()</em></strong></td>
+<td>Returns true if the autocomplete field is mandatory</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong><em>isInvalidated()</em></strong></td>
+<td>Returns true if the autocomplete is invalidated by the input</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong><em>isEnabled()</em></strong></td>
+<td>Returns true if the autocomplete is enabled</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong><em>isDisabled()</em></strong></td>
+<td>Returns true if the autocomplete is disabled</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong><em>expanded()</em></strong></td>
+<td>Returns true if the autocomplete is expanded</td>
+<td>Boolean</td>
+</tr>
+<tr>
+<td><strong><em>collapsed()</em></strong></td>
+<td>Returns true if the autocomplete is collapsed</td>
+<td>Boolean</td>
+</tr>
+</tbody></table>
+<h4 id='autocomplete-java-tests-examples'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/AutocompleteTests.java" target="_blank">AutoComplete java tests examples</a></h4>
 <hr>
 <h2 id='bootstrap-common-elements'>Bootstrap Common elements</h2><h3 id='checkboxes-and-radios'>Checkboxes and radios</h3><h4 id='checkbox-default'><a href="https://getbootstrap.com/docs/4.3/components/buttons/" target="_blank">Checkbox default</a></h4>
 <p>Checkbox is located in the following classes:</p>

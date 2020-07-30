@@ -6132,6 +6132,283 @@ List of some available **NativeSelector** methods:
 **groupsAndOptions()** | Returns NativeSelector map of the group and options if any | ```Map<String, List<String>>``` 
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/select" target="_blank">Select java tests examples</a>
+
+---
+
+### Autocomplete 
+#### <a href="https://material.angular.io/components/autocomplete/overview" target="_blank">Autocomplete overview</a>
+
+You can find the autocomplete methods in the following class:
+
+  - __Java__: com.epam.jdi.light.angular.elements.complex.AutoComplete.java
+ 
+See the examples with HTML code describing autocomplete elements below.
+
+Autocomplete element is identified by the input node wrapped inside the ```mat-form-field``` (see the test examples).
+
+![Autocomplete Overview](../images/angular/autocomplete_overview.png)
+
+```html  
+<mat-form-field>
+    <div class="mat-form-field-wrapper">
+        <div class="mat-form-field-flex">
+            <div class="mat-form-field-infix">
+                <input
+                    id="autocomplete-overview-input"
+                    placeholder="State"
+                    aria-label="State"
+                    class="mat-input-element mat-form-field-autofill-control mat-autocomplete-trigger cdk-text-field-autofill-monitored ng-pristine ng-valid ng-touched"
+                    aria-invalid="false"
+                    aria-required="false"
+                    autocomplete="off"
+                    role="combobox"
+                    aria-autocomplete="list"
+                    aria-expanded="false"
+                    aria-haspopup="true"
+                />
+            </div>
+        </div>
+    </div>
+</mat-form-field>
+```
+
+```java  
+//@FindBy(css = "#autocomplete-overview-input")
+public static AutoComplete autocompleteOverviewInput;
+
+@Test
+public void verifyautocompleteOverviewInput() {
+    autocompleteSection.autocompleteOverviewInput.has().placeholder("State");
+    autocompleteSection.autocompleteOverviewInput.setValue("F", "FloridaPopulation: 20.27M");
+    autocompleteSection.autocompleteOverviewInput.has().text("Florida");
+    autocompleteSection.autocompleteOverviewInput.setValue("CaliforniaPopulation: 39.14M");
+    autocompleteSection.autocompleteOverviewInput.has().text("California");
+}
+```
+
+![Disabled autocomplete](../images/angular/disabled_autocomplete.png)
+
+```html  
+<mat-form-field class="mat-form-field mat-form-field-disabled">
+    <div class="mat-form-field-wrapper">
+        <div class="mat-form-field-flex">
+            <div class="mat-form-field-infix">
+                <input
+                    id="autocomplete-overview-input"
+                    placeholder="State"
+                    aria-label="State"
+                    class="mat-input-element mat-form-field-autofill-control mat-autocomplete-trigger cdk-text-field-autofill-monitored ng-pristine ng-touched"
+                    aria-invalid="false"
+                    aria-required="false"
+                    autocomplete="off"
+                    role="combobox"
+                    aria-autocomplete="list"
+                    aria-expanded="false"
+                    aria-haspopup="true"
+                    disabled=""
+                />
+        </div>
+    </div>
+</mat-form-field>
+```
+
+```java  
+//@FindBy(css = "#autocomplete-overview-input")
+public static AutoComplete autocompleteOverviewInput;
+
+//@FindBy(css = "#autocomplete-overview-slide-toggle")
+public static SlideToggle autocompleteOverviewInputSlideToggle;
+
+@Test
+public void verifyautocompleteOverviewInputDisabling() {
+    autocompleteSection.autocompleteOverviewInputSlideToggle.check();
+    autocompleteSection.autocompleteOverviewInput.is().disabled();
+    autocompleteSection.autocompleteOverviewInputSlideToggle.uncheck();
+    autocompleteSection.autocompleteOverviewInput.is().enabled();
+}
+```
+
+![Display value autocomplete](../images/angular/display_value_autocomplete.png)
+
+```html  
+<mat-form-field>
+    <div class="mat-form-field-wrapper">
+        <div class="mat-form-field-flex">
+            <div class="mat-form-field-infix">
+                <input
+                    type="text"
+                    id="autocomplete-display-value-input"
+                    class="mat-input-element mat-form-field-autofill-control mat-autocomplete-trigger cdk-text-field-autofill-monitored ng-valid ng-touched ng-dirty"
+                    aria-invalid="false"
+                    aria-required="false"
+                    autocomplete="off"
+                    role="combobox"
+                    aria-autocomplete="list"
+                    aria-expanded="false"
+                    aria-haspopup="true"
+                />
+                <span class="mat-form-field-label-wrapper">
+                    <label class="mat-form-field-label ng-star-inserted" id="mat-form-field-label-5" for="autocomplete-display-value-input" aria-owns="autocomplete-display-value-input">
+                        <mat-label class="ng-star-inserted">Assignee</mat-label>
+                    </label>
+                </span>
+            </div>
+        </div>
+    </div>
+</mat-form-field>
+```
+
+```java  
+//@FindBy(css ="#autocomplete-display-value-input")
+public static AutoComplete autocompleteDisplayValueInput
+
+@Test
+public void verifyautocompleteDisplayValueInput() {
+    autocompleteSection.autocompleteDisplayValueInput.has().displayValue("Assignee");
+    autocompleteSection.autocompleteDisplayValueInput.has().placeholder("");
+    autocompleteSection.autocompleteDisplayValueInput.setValue("Sh", "Shelley");
+    autocompleteSection.autocompleteDisplayValueInput.has().text("Shelley");
+    autocompleteSection.autocompleteDisplayValueInput.setValue("Mary");
+    autocompleteSection.autocompleteDisplayValueInput.has().text("Mary");
+}
+```
+
+![Filter autocomplete](../images/angular/filter_autocomplete.png)
+
+```html  
+<mat-form-field>
+    <div class="mat-form-field-wrapper">
+        <div class="mat-form-field-flex">
+            <div class="mat-form-field-infix">
+                <input
+                    type="text"
+                    id="autocomplete-filter-input"
+                    placeholder="Pick one"
+                    aria-label="Number"
+                    class="mat-input-element mat-form-field-autofill-control mat-autocomplete-trigger cdk-text-field-autofill-monitored ng-valid ng-touched ng-dirty"
+                    aria-invalid="false"
+                    aria-required="false"
+                    autocomplete="off"
+                    role="combobox"
+                    aria-autocomplete="list"
+                    aria-expanded="false"
+                    aria-haspopup="true"
+                />
+            </div>
+        </div>
+    </div>
+</mat-form-field>
+```
+
+```java  
+//@FindBy(css = "#autocomplete-filter-input")
+public static AutoComplete autocompleteFilterInput
+
+@Test
+public void verifyAutocompleteFilterInput() {
+    String expectedValuesArray[] = {"One", "Two", "Three"};
+    List<String> expectedValues = Arrays.asList(expectedValuesArray);
+	
+    autocompleteSection.autocompleteFilterInput.click();
+    autocompleteSection.autocompleteFilterInput.has().options(expectedValues);
+    autocompleteSection.autocompleteFilterInput.setValue("n", "One");
+    autocompleteSection.autocompleteFilterInput.has().text("One");
+    autocompleteSection.autocompleteFilterInput.setValue("Three");
+    autocompleteSection.autocompleteFilterInput.has().text("Three");
+    autocompleteSection.autocompleteFilterInput.setValue("o", "Two");
+    autocompleteSection.autocompleteFilterInput.has().text("Two");
+}
+```
+
+![Groups and options autocomplete](../images/angular/groups_and_options_autocomplete.png)
+
+```html  
+<mat-form-field _class="mat-form-field mat-form-field-invalid ng-invalid">
+    <div class="mat-form-field-wrapper">
+        <div class="mat-form-field-flex">
+            <div class="mat-form-field-infix">
+                <input
+                    type="text"
+                    id="autocomplete-grouped-options-input"
+                    placeholder="States Group"
+                    formcontrolname="stateGroup"
+                    required
+                    class="mat-input-element mat-form-field-autofill-control mat-autocomplete-trigger cdk-text-field-autofill-monitored ng-touched ng-dirty ng-invalid"
+                    aria-invalid="true"
+                    aria-required="true"
+                    autocomplete="off"
+                    role="combobox"
+                    aria-autocomplete="list"
+                    aria-expanded="false"
+                    aria-haspopup="true"
+                />
+            </div>
+        </div>
+    </div>
+</mat-form-field>
+```
+
+```java  
+@Test
+public void verifyOptionGroupsAutocomplete() {
+    String[] values = {"A", "C", "D", "F", "G", "H", "I", "K", "L", "M", "N", "O", "P", "R", "S", "T", "U", "V", "W"};
+    List<String> groupsValues = Arrays.asList(values);
+	
+    Map<String, List<String>> groupAndOptionsValues = new HashMap<>();
+    String[] options = {"California", "Colorado", "Connecticut"};
+    List<String> optionsValues = Arrays.asList(options);
+    groupAndOptionsValues.put("C", optionsValues);
+	
+    autocompleteSection.optionGroupsAutocomplete.clear();
+    autocompleteSection.optionGroupsAutocomplete.is().mandatory();
+    autocompleteSection.optionGroupsAutocomplete.is().invalid();
+	
+    autocompleteSection.optionGroupsAutocomplete.click();
+    autocompleteSection.optionGroupsAutocomplete.has().groups(groupsValues);
+	
+    autocompleteSection.optionGroupsAutocomplete.input("C");
+    autocompleteSection.optionGroupsAutocomplete.has().groupsAndOptions(groupAndOptionsValues);
+	
+    autocompleteSection.optionGroupsAutocomplete.setValue("C", "California");
+    autocompleteSection.optionGroupsAutocomplete.has().text("California");
+    autocompleteSection.optionGroupsAutocomplete.is().valid();
+    autocompleteSection.optionGroupsAutocomplete.input("C");
+    autocompleteSection.optionGroupsAutocomplete.setValue("Colorado");
+    autocompleteSection.optionGroupsAutocomplete.has().text("Colorado");
+    autocompleteSection.optionGroupsAutocomplete.setValue("New York");
+    autocompleteSection.optionGroupsAutocomplete.has().text("New York");
+}
+```
+
+List of the available **AutoComplete** methods:
+
+| Method | Description | Return Type 
+--- | --- | --- 
+**is()** | Assert action | AutoCompleteAssert 
+**has()** | Assert action | AutoCompleteAssert 
+***input(String value)*** | Inputs the provided value | void 
+***select(String value)*** | Selects the required value from the autocomplete list | void 
+***select(String input, String value)*** | Provides the input and selects the required value | void 
+***placeholder()*** | Returns the value of the displayed placeholder | String 
+***displayValue()*** | Returns the display value | String 
+***isOptionHighlighted(String option)*** | Returns true if the provided option is highlighted in the displayed list | boolean  
+***setValue(String inputValue, String selectValue)*** | Types in the inputValue and selects the corresponding selectValue | void 
+***setValue(String selectValue)*** | Selects the required selectValue | void 
+***getValue()*** | Returns the value popualted into the autocomplete | String 
+***text()*** | Returns the value popualted into the autocomplete | String 
+***options()*** | Return the list of options avaialble for the particular autocomplete | List<String> 
+***options(String inputValue)*** | Returns the list of options which are displayed when the inputValue is provided | List<String> 
+***groups()*** | Returns the groups of options available in the autocomplete | List<String> 
+***groupsAndOptionsValues()*** | Returns the hash map where the keys are the groups and the values are the lists of options within each group | HashMap<String, List<String>> 
+***isMandatory()*** | Returns true if the autocomplete field is mandatory | boolean 
+***isInvalidated()*** | Returns true if the autocomplete is invalidated by the input | boolean 
+***isEnabled()*** | Returns true if the autocomplete is enabled | boolean 
+***isDisabled()*** | Returns true if the autocomplete is disabled | boolean 
+***expanded()*** | Returns true if the autocomplete is expanded | Boolean 
+***collapsed()*** | Returns true if the autocomplete is collapsed | Boolean 
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/AutocompleteTests.java" target="_blank">AutoComplete java tests examples</a>
+
 ---
 ## Bootstrap Common elements
 

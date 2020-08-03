@@ -6381,7 +6381,7 @@ List of the available **AutoComplete** methods:
 
 Snackbar is located in the following class:
 
-   - __Java__: com.epam.jdi.light.ui.angular.elements.common.Snackbar
+   - __Java__: com.epam.jdi.light.ui.angular.elements.complex.Snackbar
    
 ![Snackbar](../images/angular/snackbar.png)
 
@@ -6407,7 +6407,7 @@ Snackbar is located in the following class:
 **isActionDisplayed()** | Check that button is displayed | boolean
 **is()** | Assert action | SnackbarAssert
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/SnackbarTests.java" target="_blank">Here you can find Snackbar tests</a>
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/SnackbarTests.java" target="_blank">Here you can find Snackbar tests</a>
 
 ---
 ## Bootstrap Common elements

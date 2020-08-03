@@ -596,9 +596,6 @@
                             <li>
 								<a href="#badge" class="toc-h2 h3 toc-link" data-title="Badge">Badge</a>
                             </li>
-                            <li>
-								<a href="#snackbar" class="toc-h2 h3 toc-link" data-title="Snackbar">Snackbar</a>
-                            </li>
                         </ul>
                   </li>
                   <li>
@@ -618,6 +615,9 @@
                             </li>
                             <li>
 								<a href="#autocomplete" class="toc-h2 h3 toc-link" data-title="Autocomplete">Autocomplete</a>
+                            </li>
+                            <li>
+								<a href="#snackbar" class="toc-h2 h3 toc-link" data-title="Snackbar">Snackbar</a>
                             </li>
                         </ul>
                   </li>
@@ -10426,91 +10426,7 @@ Methods available for Java in JDI Light:</p>
 <td>TextAssert</td>
 </tr>
 </tbody></table>
-<h4 id='here-you-can-find-badge-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/BadgeTests.java" target="_blank">Here you can find Badge tests</a></h4><h3 id='snackbar'>Snackbar</h3><pre class="highlight java tab-java"><code>   <span class="nd">@UI</span><span class="o">(</span><span class="s">"//simple-snack-bar"</span><span class="o">)</span>
-   <span class="kd">public</span> <span class="n">Snackbar</span> <span class="n">basicSnackbar</span><span class="o">;</span>
-
-   <span class="nd">@UI</span><span class="o">(</span><span class="s">"#snack-bar-custom-component"</span><span class="o">)</span>
-   <span class="kd">public</span> <span class="n">Snackbar</span> <span class="n">customSnackbar</span><span class="o">;</span>
-
-
-   <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkBasicSnackbarTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">snackbarSection</span><span class="o">.</span><span class="na">messageInput</span><span class="o">.</span><span class="na">setValue</span><span class="o">(</span><span class="n">MESSAGE</span><span class="o">);</span>
-        <span class="n">snackbarSection</span><span class="o">.</span><span class="na">actionInput</span><span class="o">.</span><span class="na">setValue</span><span class="o">(</span><span class="n">ACTION</span><span class="o">);</span>
-        <span class="n">snackbarSection</span><span class="o">.</span><span class="na">openButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
-
-        <span class="n">snackbarSection</span><span class="o">.</span><span class="na">basicSnackbar</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-        <span class="n">snackbarSection</span><span class="o">.</span><span class="na">basicSnackbar</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">message</span><span class="o">(</span><span class="n">MESSAGE</span><span class="o">);</span>
-        <span class="n">snackbarSection</span><span class="o">.</span><span class="na">basicSnackbar</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">action</span><span class="o">(</span><span class="n">ACTION</span><span class="o">);</span>
-        <span class="n">snackbarSection</span><span class="o">.</span><span class="na">basicSnackbar</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">disappear</span><span class="o">();</span>
-    <span class="o">}</span>
-
-   <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkSnackbarDurationTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">snackbarSection</span><span class="o">.</span><span class="na">durationInput</span><span class="o">.</span><span class="na">setValue</span><span class="o">(</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">DURATION</span><span class="o">));</span>
-        <span class="n">snackbarSection</span><span class="o">.</span><span class="na">customSnackbarOpenButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
-
-        <span class="n">duration</span><span class="o">(</span><span class="n">DURATION</span><span class="o">,</span> <span class="o">()</span> <span class="o">-&gt;</span> <span class="o">{</span>
-            <span class="n">snackbarSection</span><span class="o">.</span><span class="na">customSnackbar</span><span class="o">.</span><span class="na">base</span><span class="o">().</span><span class="na">timer</span><span class="o">().</span><span class="na">wait</span><span class="o">(()</span> <span class="o">-&gt;</span>
-            <span class="n">snackbarSection</span><span class="o">.</span><span class="na">customSnackbar</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">());</span>
-            <span class="n">snackbarSection</span><span class="o">.</span><span class="na">customSnackbar</span><span class="o">.</span><span class="na">base</span><span class="o">().</span><span class="na">timer</span><span class="o">().</span><span class="na">wait</span><span class="o">(()</span> <span class="o">-&gt;</span>
-            <span class="n">snackbarSection</span><span class="o">.</span><span class="na">customSnackbar</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">hidden</span><span class="o">());</span>
-        <span class="o">});</span>
-    <span class="o">}</span>
-</code></pre><h4 id='snackbar-overview'><a href="https://material.angular.io/components/snack-bar/overview" target="_blank">Snackbar overview</a></h4>
-<p>Snackbar is located in the following class:</p>
-
-<ul>
-<li><strong>Java</strong>: com.epam.jdi.light.ui.angular.elements.common.Snackbar</li>
-</ul>
-
-<p><img src="images/angular/snackbar.png" alt="Snackbar" /></p>
-<pre class="highlight html tab-html"><code><span class="nt">&lt;mat-form-field&gt;</span>
-  <span class="nt">&lt;mat-label&gt;</span>Message<span class="nt">&lt;/mat-label&gt;</span>
-  <span class="nt">&lt;input</span> <span class="na">matInput</span> <span class="na">value=</span><span class="s">"Disco party!"</span> <span class="err">#</span><span class="na">message</span><span class="nt">&gt;</span>
-<span class="nt">&lt;/mat-form-field&gt;</span>
-
-<span class="nt">&lt;mat-form-field&gt;</span>
-  <span class="nt">&lt;mat-label&gt;</span>Action<span class="nt">&lt;/mat-label&gt;</span>
-  <span class="nt">&lt;input</span> <span class="na">matInput</span> <span class="na">value=</span><span class="s">"Dance"</span> <span class="err">#</span><span class="na">action</span><span class="nt">&gt;</span>
-<span class="nt">&lt;/mat-form-field&gt;</span>
-
-<span class="nt">&lt;button</span> <span class="na">mat-stroked-button</span> <span class="err">(</span><span class="na">click</span><span class="err">)="</span><span class="na">openSnackBar</span><span class="err">(</span><span class="na">message</span><span class="err">.</span><span class="na">value</span><span class="err">,</span> <span class="na">action</span><span class="err">.</span><span class="na">value</span><span class="err">)"</span><span class="nt">&gt;</span>Show snack-bar<span class="nt">&lt;/button&gt;</span>
-</code></pre>
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>getMessageText()</strong></td>
-<td>Get message text</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>getActionText()</strong></td>
-<td>Get action text</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>clickAction()</strong></td>
-<td>Click button</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>isActionDisplayed()</strong></td>
-<td>Check that button is displayed</td>
-<td>boolean</td>
-</tr>
-<tr>
-<td><strong>is()</strong></td>
-<td>Assert action</td>
-<td>SnackbarAssert</td>
-</tr>
-</tbody></table>
-<h4 id='here-you-can-find-snackbar-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/SnackbarTests.java" target="_blank">Here you can find Snackbar tests</a></h4><h2 id='angular-complex-elements'>Angular Complex elements</h2><h3 id='radio-button'>Radio Button</h3><h4 id='radio-button-overview'><a href="https://material.angular.io/components/radio/overview" target="_blank">Radio button overview</a></h4>
+<h4 id='here-you-can-find-badge-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/BadgeTests.java" target="_blank">Here you can find Badge tests</a></h4><h2 id='angular-complex-elements'>Angular Complex elements</h2><h3 id='radio-button'>Radio Button</h3><h4 id='radio-button-overview'><a href="https://material.angular.io/components/radio/overview" target="_blank">Radio button overview</a></h4>
 <p>Element that can be represented with one or more clickable buttons aiming to choose only one button of the group.</p>
 
 <p>Radio button is located in the following classes:</p>
@@ -12021,7 +11937,91 @@ errorStateMatcher property of the <code>&lt;mat-select&gt;</code>.</p>
 <td>Boolean</td>
 </tr>
 </tbody></table>
-<h4 id='autocomplete-java-tests-examples'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/AutocompleteTests.java" target="_blank">AutoComplete java tests examples</a></h4>
+<h4 id='autocomplete-java-tests-examples'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/AutocompleteTests.java" target="_blank">AutoComplete java tests examples</a></h4><h3 id='snackbar'>Snackbar</h3><pre class="highlight java tab-java"><code>   <span class="nd">@UI</span><span class="o">(</span><span class="s">"//simple-snack-bar"</span><span class="o">)</span>
+   <span class="kd">public</span> <span class="n">Snackbar</span> <span class="n">basicSnackbar</span><span class="o">;</span>
+
+   <span class="nd">@UI</span><span class="o">(</span><span class="s">"#snack-bar-custom-component"</span><span class="o">)</span>
+   <span class="kd">public</span> <span class="n">Snackbar</span> <span class="n">customSnackbar</span><span class="o">;</span>
+
+
+   <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkBasicSnackbarTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">snackbarSection</span><span class="o">.</span><span class="na">messageInput</span><span class="o">.</span><span class="na">setValue</span><span class="o">(</span><span class="n">MESSAGE</span><span class="o">);</span>
+        <span class="n">snackbarSection</span><span class="o">.</span><span class="na">actionInput</span><span class="o">.</span><span class="na">setValue</span><span class="o">(</span><span class="n">ACTION</span><span class="o">);</span>
+        <span class="n">snackbarSection</span><span class="o">.</span><span class="na">openButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+
+        <span class="n">snackbarSection</span><span class="o">.</span><span class="na">basicSnackbar</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+        <span class="n">snackbarSection</span><span class="o">.</span><span class="na">basicSnackbar</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">message</span><span class="o">(</span><span class="n">MESSAGE</span><span class="o">);</span>
+        <span class="n">snackbarSection</span><span class="o">.</span><span class="na">basicSnackbar</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">action</span><span class="o">(</span><span class="n">ACTION</span><span class="o">);</span>
+        <span class="n">snackbarSection</span><span class="o">.</span><span class="na">basicSnackbar</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">disappear</span><span class="o">();</span>
+    <span class="o">}</span>
+
+   <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkSnackbarDurationTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">snackbarSection</span><span class="o">.</span><span class="na">durationInput</span><span class="o">.</span><span class="na">setValue</span><span class="o">(</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">DURATION</span><span class="o">));</span>
+        <span class="n">snackbarSection</span><span class="o">.</span><span class="na">customSnackbarOpenButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+
+        <span class="n">duration</span><span class="o">(</span><span class="n">DURATION</span><span class="o">,</span> <span class="o">()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+            <span class="n">snackbarSection</span><span class="o">.</span><span class="na">customSnackbar</span><span class="o">.</span><span class="na">base</span><span class="o">().</span><span class="na">timer</span><span class="o">().</span><span class="na">wait</span><span class="o">(()</span> <span class="o">-&gt;</span>
+            <span class="n">snackbarSection</span><span class="o">.</span><span class="na">customSnackbar</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">());</span>
+            <span class="n">snackbarSection</span><span class="o">.</span><span class="na">customSnackbar</span><span class="o">.</span><span class="na">base</span><span class="o">().</span><span class="na">timer</span><span class="o">().</span><span class="na">wait</span><span class="o">(()</span> <span class="o">-&gt;</span>
+            <span class="n">snackbarSection</span><span class="o">.</span><span class="na">customSnackbar</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">hidden</span><span class="o">());</span>
+        <span class="o">});</span>
+    <span class="o">}</span>
+</code></pre><h4 id='snackbar-overview'><a href="https://material.angular.io/components/snack-bar/overview" target="_blank">Snackbar overview</a></h4>
+<p>Snackbar is located in the following class:</p>
+
+<ul>
+<li><strong>Java</strong>: com.epam.jdi.light.ui.angular.elements.complex.Snackbar</li>
+</ul>
+
+<p><img src="images/angular/snackbar.png" alt="Snackbar" /></p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;mat-form-field&gt;</span>
+  <span class="nt">&lt;mat-label&gt;</span>Message<span class="nt">&lt;/mat-label&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">matInput</span> <span class="na">value=</span><span class="s">"Disco party!"</span> <span class="err">#</span><span class="na">message</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/mat-form-field&gt;</span>
+
+<span class="nt">&lt;mat-form-field&gt;</span>
+  <span class="nt">&lt;mat-label&gt;</span>Action<span class="nt">&lt;/mat-label&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">matInput</span> <span class="na">value=</span><span class="s">"Dance"</span> <span class="err">#</span><span class="na">action</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/mat-form-field&gt;</span>
+
+<span class="nt">&lt;button</span> <span class="na">mat-stroked-button</span> <span class="err">(</span><span class="na">click</span><span class="err">)="</span><span class="na">openSnackBar</span><span class="err">(</span><span class="na">message</span><span class="err">.</span><span class="na">value</span><span class="err">,</span> <span class="na">action</span><span class="err">.</span><span class="na">value</span><span class="err">)"</span><span class="nt">&gt;</span>Show snack-bar<span class="nt">&lt;/button&gt;</span>
+</code></pre>
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>getMessageText()</strong></td>
+<td>Get message text</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>getActionText()</strong></td>
+<td>Get action text</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>clickAction()</strong></td>
+<td>Click button</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>isActionDisplayed()</strong></td>
+<td>Check that button is displayed</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>is()</strong></td>
+<td>Assert action</td>
+<td>SnackbarAssert</td>
+</tr>
+</tbody></table>
+<h4 id='here-you-can-find-snackbar-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/SnackbarTests.java" target="_blank">Here you can find Snackbar tests</a></h4>
 <hr>
 <h2 id='bootstrap-common-elements'>Bootstrap Common elements</h2><h3 id='checkboxes-and-radios'>Checkboxes and radios</h3><h4 id='checkbox-default'><a href="https://getbootstrap.com/docs/4.3/components/buttons/" target="_blank">Checkbox default</a></h4>
 <p>Checkbox is located in the following classes:</p>

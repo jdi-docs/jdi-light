@@ -6409,6 +6409,68 @@ Snackbar is located in the following class:
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/SnackbarTests.java" target="_blank">Here you can find Snackbar tests</a>
 
+### Paginator
+
+```java 
+    @UI("//paginator-configurable-example/mat-paginator")
+    public Paginator paginator;
+	
+	@Test
+    public void labelPaginationTest() {
+        paginatorSection.paginator.has().label("Items per page:");
+    }
+	
+    @Test
+    public void navigationDisabledPaginatorTest() {
+        paginatorSection.listLength.setValue("0");
+
+        paginatorSection.paginator.has().range();
+        paginatorSection.paginator.has().previousDisabled();
+        paginatorSection.paginator.has().nextDisabled();
+
+        paginatorSection.listLength.setValue("100");
+        paginatorSection.paginator.select(100);
+        
+		paginatorSection.paginator.has().previousDisabled();
+        paginatorSection.paginator.has().nextDisabled();
+    }
+
+    @Test
+    public void pageSizeOptionsPaginatorTest() {
+        paginatorSection.paginator.has().itemsPerPageList(PAGESIZEOPTIONS);
+    }
+```
+
+#### <a href="https://material.angular.io/components/paginator/overview" target="_blank">Paginator overview</a>
+
+Paginator is located in the following class:
+
+   - __Java__: com.epam.jdi.light.ui.angular.elements.complex.Paginator
+   
+![Paginator](../images/angular/paginator.png)
+
+```html 
+<mat-paginator [length]="100"
+              [pageSize]="10"
+              [pageSizeOptions]="[5, 10, 25, 100]">
+</mat-paginator>
+```
+   
+|Method | Description | Return Type
+--- | --- | ---
+**label()** | Get label | String
+**select(int number)** | Select number of items per page | void
+**selected()** | Get selected number of items per page | int
+**options()** | Get list of items per page | List\<Integer\>
+**range()** | Get range | String
+**isPreviousEnabled()** | Check if previous button enabled | boolean
+**previous()** | Click previous button | void
+**isNextEnabled()** | Check if next button enabled | boolean
+**next()** | Click next button | void
+**is()** | Assert action | PaginatorAssert
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/PaginatorTests.java" target="_blank">Here you can find Paginator tests</a>
+
 ---
 ## Bootstrap Common elements
 

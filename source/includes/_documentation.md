@@ -5107,15 +5107,13 @@ during initialization, it is advised to lazy load the tab's content.
     @UI("#tabs-nav-bar")
     public TabGroup tabsNavBar;
 
-    @Test
-        public void verifyTabsWithLinkTitlesAfterAdding() {
-            tabsSection.addLinkButton.click();
-            tabsSection.addLinkButton.click();
-            int numberForTest = tabsSection.tabsNavBar.getTabLinksCount() - 1;
-            List<String> listForTest = Collections.singletonList(String.format("Link %s", numberForTest));
-            tabsSection.tabsNavBar.is().assertTabsLinksTitles(listForTest);
-        }
-    
+     @Test
+       public void verifyTabWithLinkIsHighLighted() {
+           String tabTitleForTest = "Third";
+           tabsSection.tabsNavBar.clickTabLink(tabTitleForTest);
+           tabsSection.tabsNavBar.is().assertTabWithLinkIsHighlighted(tabTitleForTest);
+       }
+
         @Test
         public void verifyTabWithLinkBackgroundColor() {
             tabsSection.toggleBackgroundButton.click();

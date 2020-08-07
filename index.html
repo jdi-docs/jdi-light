@@ -10569,14 +10569,12 @@ during initialization, it is advised to lazy load the tab&#39;s content.</p>
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"#tabs-nav-bar"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="n">TabGroup</span> <span class="n">tabsNavBar</span><span class="o">;</span>
 
-    <span class="nd">@Test</span>
-        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">verifyTabsWithLinkTitlesAfterAdding</span><span class="o">()</span> <span class="o">{</span>
-            <span class="n">tabsSection</span><span class="o">.</span><span class="na">addLinkButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
-            <span class="n">tabsSection</span><span class="o">.</span><span class="na">addLinkButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
-            <span class="kt">int</span> <span class="n">numberForTest</span> <span class="o">=</span> <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabsNavBar</span><span class="o">.</span><span class="na">getTabLinksCount</span><span class="o">()</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span>
-            <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">listForTest</span> <span class="o">=</span> <span class="n">Collections</span><span class="o">.</span><span class="na">singletonList</span><span class="o">(</span><span class="n">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">"Link %s"</span><span class="o">,</span> <span class="n">numberForTest</span><span class="o">));</span>
-            <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabsNavBar</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">assertTabsLinksTitles</span><span class="o">(</span><span class="n">listForTest</span><span class="o">);</span>
-        <span class="o">}</span>
+     <span class="nd">@Test</span>
+       <span class="kd">public</span> <span class="kt">void</span> <span class="nf">verifyTabWithLinkIsHighLighted</span><span class="o">()</span> <span class="o">{</span>
+           <span class="n">String</span> <span class="n">tabTitleForTest</span> <span class="o">=</span> <span class="s">"Third"</span><span class="o">;</span>
+           <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabsNavBar</span><span class="o">.</span><span class="na">clickTabLink</span><span class="o">(</span><span class="n">tabTitleForTest</span><span class="o">);</span>
+           <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabsNavBar</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">assertTabWithLinkIsHighlighted</span><span class="o">(</span><span class="n">tabTitleForTest</span><span class="o">);</span>
+       <span class="o">}</span>
 
         <span class="nd">@Test</span>
         <span class="kd">public</span> <span class="kt">void</span> <span class="nf">verifyTabWithLinkBackgroundColor</span><span class="o">()</span> <span class="o">{</span>

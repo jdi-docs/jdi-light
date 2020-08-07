@@ -4770,375 +4770,6 @@ There is two different toolbars in Angular: Single row and Multiple row:
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/ToolbarTests.java" target="_blank">Here you can find Toolbar tests</a>
 
-### Tabs
-
-<br>
-
-```java 
-    /**@FindBy(id = "basic-tab") public static TabGroupSection tabsSection;*/
-    @UI("#basic-tab")
-    public Tabs basicTab;
-
-    @Test
-    public void verifyTabs() {
-        tabsSection.basicTab.is().displayed();
-        tabsSection.basicTab.has().attr(CLASS_ATTR, TAB_GROUP_DEFAULT_CLASS);
-    }
-
-    @Test
-    public void verifyTabsTitles() {
-        tabsSection.basicTab.is().assertTabsTitles(TITLES_DEFAULT_LIST);
-    }
-
-    @Test
-    public void verifyTabPanelContentByNumber() {
-        int tabNumberForTest = 3;
-        String stringForTest = String.format(DYNAMIC_CONTENT, tabNumberForTest);
-        tabsSection.basicTab.clickTab(tabNumberForTest);
-        tabsSection.basicTab.is().assertTabPanelContent(stringForTest);
-    }
-```
-#### <a href="https://material.angular.io/components/tabs/overview" target="_blank">Tabs overview</a>
-
-Angular Material tabs organize content into separate views where only one view can be visible at a time. 
-
-![Tabs examples](../images/angular/tab/tabs_base_group.png)
-
-```html
-<mat-tab-group _ngcontent-sbh-c317 id="basic-tab" class="mat-tab-group mat-primary"></mat-tab-group>
-```
-|Method | Description | Return Type
---- | --- | ---
-**has()** | assert that element has attribute | boolean
-**attr()** | Check whether an element has attribute of specified name and with given value  | IsAssert 
-**is()** | Assert action | TextAssert 
-**displayed()** | Check that element is displayed | TextAssert
-
-<br>
-
-```java 
-    /**@FindBy(id = "tab-with-custom-label") public static TabGroupSection tabsSection;*/
-    @UI("#tab-with-custom-label")
-    public TabGroup tabWithCustomLabel;
-
-     @Test
-        public void verifyCustomLabelTemplateTabPanelContentByNumber() {
-            int tabNumberForTest = 3;
-            String stringForTest = String.format(DYNAMIC_CONTENT, tabNumberForTest);
-            tabsSection.tabWithCustomLabel.clickTab(tabNumberForTest);
-            tabsSection.tabWithCustomLabel.is().assertTabPanelContent(stringForTest);
-        }
-    
-        @Test
-        public void activeCustomLabelTemplateTabIsHighlighted() {
-            int tabNumberForTest = 2;
-            tabsSection.tabWithCustomLabel.clickTab(tabNumberForTest);
-            tabsSection.tabWithCustomLabel.is().assertTabIsHighlighted(tabNumberForTest);
-        }
-```
-
-If a tab's label is only text then the simple tab-group API can be used.
-For more complex labels, add a template with the mat-tab-label directive inside the mat-tab.
-
-![Tabs examples](../images/angular/tab/tabs_with_custom_label_content.png)
-
-```html
-<mat-tab-group _ngcontent-ecm-c350 id="tab-with-custom-label" class="mat-tab-group mat-primary"></mat-tab-group>
-```
-
-```html
-<ng-template mat-tab-label>
-  <mat-icon class="example-tab-icon">thumb_up</mat-icon>
-  First
-</ng-template>
-```
-
-|Method | Description | Return Type
---- | --- | ---
-**has()** | assert that element has attribute | boolean
-**attr()** | Check whether an element has attribute of specified name and with given value  | IsAssert 
-**is()** | Assert action | TextAssert 
-**displayed()** | Check that element is displayed | TextAssert
-**clickTab()** | Click required tab by tab number or tab name | void
-
-<br>
-
-```java 
-     /**@FindBy(id = "tab-dynamic-height-based-on-content") public static TabGroupSection tabsSection;*/
-     @UI("#tab-dynamic-height-based-on-content")
-     public TabGroup tabDynamicHeightBasedOnContent;
-         
-      @Test
-      public void verifyDynamicHeightBasedOnContentsTabsTitles() {
-             List<String> listForTest = Arrays.asList("Short tab", "Long tab");
-             tabsSection.tabDynamicHeightBasedOnContent.is().assertTabsTitles(listForTest);
-      }
-     
-      @Test
-      public void verifyDynamicHeightBasedOnContentsTabPanelContentByNumber() {
-             int tabNumberForTest = 2;
-             String stringForTest = "Large content";
-             tabsSection.tabDynamicHeightBasedOnContent.clickTab(tabNumberForTest);
-             tabsSection.tabDynamicHeightBasedOnContent.is().assertTabPanelContent(stringForTest);
-      }
-```
-
-By default, the tab group will not change its height to the height of the currently active tab. 
-To change this, set the dynamicHeight input to true. The tab body will animate its height according 
-to the height of the active tab.
-
-![Tabs examples](../images/angular/tab/tabs_dynamic_height.png)
-
-```html
-<mat-tab-group _ngcontent-sbh-c351 dynamicheight id="tab-dynamic-height-based-on-content" class="mat-tab-group 
-mat-primary mat-tab-group-dynamic-height"></mat-tab-group>
-```
-
-|Method | Description | Return Type
---- | --- | ---
-**has()** | assert that element has attribute | boolean
-**attr()** | Check whether an element has attribute of specified name and with given value  | IsAssert 
-**is()** | Assert action | TextAssert 
-**displayed()** | Check that element is displayed | TextAssert
-**clickTab()** | Click required tab by tab number or tab name | void
-
-<br>
-
-```java 
-    /**@FindBy(id = "dynamically-changing-tabs") public static TabGroupSection tabsSection;*/
-    @UI("#dynamically-changing-tabs")
-    public TabGroup dynamicallyChangingTabs;
-
-    @Test
-     public void selectedByIndexTabIsHighlighted() {
-         int indexForTest = 2;
-         int tabNumberForTest = indexForTest + 1;
-         tabsSection.selectByIndexInput.clear();
-         tabsSection.selectByIndexInput.sendKeys(String.valueOf(indexForTest));
-         tabsSection.dynamicallyChangingTabs.is().assertTabIsHighlighted(tabNumberForTest);
-     }
- 
-     @Test
-     public void selectedByIndexTabIsNormalizedToTabsCount() {
-         int indexForTest = 10;
-         int tabNumberForTest = tabsSection.dynamicallyChangingTabs.getTabsCount();
-         tabsSection.selectByIndexInput.sendKeys(String.valueOf(indexForTest));
-         tabsSection.dynamicallyChangingTabs.is().assertTabIsHighlighted(tabNumberForTest);
-     }
-```
-
-![Tabs examples](../images/angular/tab/tabs_dynamicly_changing.png)
-
-```html
-<mat-tab-group _ngcontent-sbh-c352  id="dynamically-changing-tabs" class="mat-tab-group mat-primary"></mat-tab-group>
-```
-
-|Method | Description | Return Type
---- | --- | ---
-**has()** | assert that element has attribute | boolean
-**attr()** | Check whether an element has attribute of specified name and with given value  | IsAssert 
-**is()** | Assert action | TextAssert 
-**displayed()** | Check that element is displayed | TextAssert
-**clickTab()** | Click required tab by tab number or tab name | void
-**getTabsCount()** | returns tabs count | int
-**sendKeys()** | fill the text area | void
-**clear()** | clear text aria | void
-
-<br>
-
-```java 
-    /**@FindBy(id = "tab-with-headers-on-the-bottom") public static TabGroupSection tabsSection;*/
-    @UI("#tab-with-headers-on-the-bottom")
-    public TabGroup tabWithHeadersOnTheBottom;
-
-      @Test
-        public void verifyTabsWithHeadersOnTheBottomTitles() {
-            tabsSection.tabWithHeadersOnTheBottom.is().assertTabsTitles(TITLES_DEFAULT_LIST);
-        }
-    
-        @Test
-        public void verifyTabWithHeadersOnTheBottomPanelContentByNumber() {
-            int tabNumberForTest = 3;
-            String stringForTest = String.format(DYNAMIC_CONTENT, tabNumberForTest);
-            tabsSection.tabWithHeadersOnTheBottom.clickTab(tabNumberForTest);
-            tabsSection.tabWithHeadersOnTheBottom.is().assertTabPanelContent(stringForTest);
-        }
-```
-
-![Tabs examples](../images/angular/tab/tabs_with_bottom_headers.png)
-
-```html
-<mat-tab-group _ngcontent-sbh-c353  id="tab-with-headers-on-the-bottom" headerposition="below" 
-class="mat-tab-group mat-primary mat-tab-group-inverted-header"></mat-tab-group>
-```
-
-|Method | Description | Return Type
---- | --- | ---
-**has()** | assert that element has attribute | boolean
-**attr()** | Check whether an element has attribute of specified name and with given value  | IsAssert 
-**is()** | Assert action | TextAssert 
-**displayed()** | Check that element is displayed | TextAssert
-**clickTab()** | Click required tab by tab number or tab name | void
-
-<br>
-
-```java 
-    /**@FindBy(id = "tabs-with-lazy-loaded-content") public static TabGroupSection tabsSection;*/
-    @UI("#tabs-with-lazy-loaded-content")
-    public TabGroup tabsWithLazyLoadedContent;
-
-      @Test
-        public void verifyTabWithLazyLoadedContent() {
-            int tabNumberForTest = 3;
-            refresh();
-            tabsSection.tabsWithLazyLoadedContent.clickTab(tabNumberForTest);
-            SimpleDateFormat dateTimeInGMT = new SimpleDateFormat("MMM d, yyyy, h:mm:ss aa");
-            dateTimeInGMT.setTimeZone(TimeZone.getTimeZone("GMT+3"));
-            String timeForTest = dateTimeInGMT.format(new Date());
-            String stringForTest = String.format("Content %s - Loaded: %s", tabNumberForTest, timeForTest);
-            tabsSection.tabsWithLazyLoadedContent.is().assertTabPanelContent(stringForTest);
-        }
-    
-        @Test
-        public void activeTabWithLazyLoadedContentIsHighlighted() {
-            int tabNumberForTest = 2;
-            tabsSection.tabsWithLazyLoadedContent.clickTab(tabNumberForTest);
-            tabsSection.tabsWithLazyLoadedContent.is().assertTabIsHighlighted(tabNumberForTest);
-        }
-```
-By default, the tab contents are eagerly loaded. Eagerly loaded tabs will initalize the child
-components but not inject them into the DOM until the tab is activated.
-
-If the tab contains several complex child components or the tab's contents rely on DOM calculations 
-during initialization, it is advised to lazy load the tab's content.
-
-![Tabs examples](../images/angular/tab/tabs_lazy_loaded_content.png)
-
-```html
-<mat-tab-group _ngcontent-sbh-c354 id="tabs-with-lazy-loaded-content" class="mat-tab-group mat-primary"></mat-tab-group>
-```
-
-|Method | Description | Return Type
---- | --- | ---
-**has()** | assert that element has attribute | boolean
-**attr()** | Check whether an element has attribute of specified name and with given value  | IsAssert 
-**is()** | Assert action | TextAssert 
-**displayed()** | Check that element is displayed | TextAssert
-**clickTab()** | Click required tab by tab number or tab name | void
-**refresh()** | refresh the page | void
-
-<br>
-
-```java 
-    /**@FindBy(id = "tab-group-theme-example") public static TabGroupSection tabsSection;*/
-    @UI("#tab-group-theme-example")
-    public TabGroup tabGroupThemeExample;
-
-    @Test
-    public void verifyCustomThemeTabPanelContentByNumber() {
-        int tabNumberForTest = 3;
-        String stringForTest = String.format(DYNAMIC_CONTENT, tabNumberForTest);
-        tabsSection.tabGroupThemeExample.clickTab(tabNumberForTest);
-        tabsSection.tabGroupThemeExample.is().assertTabPanelContent(stringForTest);
-    }
-
-    @Test
-    public void activeCustomThemeTabIsHighlighted() {
-        int tabNumberForTest = 2;
-        tabsSection.tabGroupThemeExample.clickTab(tabNumberForTest);
-        tabsSection.tabGroupThemeExample.is().assertTabIsHighlighted(tabNumberForTest);
-    }
-```
-
-![Tabs examples](../images/angular/tab/tabs_theme_customizing.png)
-
-```html
-<mat-tab-group _ngcontent-sbh-c355 id="tab-group-theme-example" class="mat-tab-group mat-primary mat-background-primary"></mat-tab-group>
-```
-
-|Method | Description | Return Type
---- | --- | ---
-**has()** | assert that element has attribute | boolean
-**attr()** | Check whether an element has attribute of specified name and with given value  | IsAssert 
-**is()** | Assert action | TextAssert 
-**displayed()** | Check that element is displayed | TextAssert
-**clickTab()** | Click required tab by tab number or tab name | void
-**clickButtonByValue(String value)** | click button in button toggle | void
-
-<br>
-
-```java 
-    /**@FindBy(id = "tabs-async-loading-content") public static TabGroupSection tabsSection;*/
-    @UI("#tabs-async-loading-content")
-    public TabGroup tabsAsyncLoadingContent;
-
-     @Test
-         public void verifyCustomThemeAsyncLoadingContentTabsTitles() {
-             tabsSection.tabsAsyncLoadingContent.is().assertTabsTitles(TITLES_DEFAULT_LIST);
-         }
-     
-         @Test
-         public void verifyAsyncLoadingContentTabPanelContentByNumber() {
-             int tabNumberForTest = 3;
-             String stringForTest = String.format(DYNAMIC_CONTENT, tabNumberForTest);
-             tabsSection.tabsAsyncLoadingContent.clickTab(tabNumberForTest);
-             tabsSection.tabsAsyncLoadingContent.is().assertTabPanelContent(stringForTest);
-         }
-```
-
-![Tabs examples](../images/angular/tab/tabs_async_loading_tab_content.png)
-
-```html
-<mat-tab-group _ngcontent-sbh-c356 id="tabs-async-loading-content" class="mat-tab-group mat-primary"></mat-tab-group>
-```
-
-|Method | Description | Return Type
---- | --- | ---
-**has()** | assert that element has attribute | boolean
-**attr()** | Check whether an element has attribute of specified name and with given value  | IsAssert 
-**is()** | Assert action | TextAssert 
-**displayed()** | Check that element is displayed | TextAssert
-**clickTab()** | Click required tab by tab number or tab name | void
-
-<br>
-
-```java 
-    /**@FindBy(id = "tabs-nav-bar") public static TabGroupSection tabsSection;*/
-    @UI("#tabs-nav-bar")
-    public TabGroup tabsNavBar;
-
-     @Test
-       public void verifyTabWithLinkIsHighLighted() {
-           String tabTitleForTest = "Third";
-           tabsSection.tabsNavBar.clickTabLink(tabTitleForTest);
-           tabsSection.tabsNavBar.is().assertTabWithLinkIsHighlighted(tabTitleForTest);
-       }
-
-        @Test
-        public void verifyTabWithLinkBackgroundColor() {
-            tabsSection.toggleBackgroundButton.click();
-            tabsSection.tabsNavBar.has().attr(CLASS_ATTR, "mat-tab-nav-bar mat-tab-header mat-primary " +
-                    "mat-background-primary");
-        }
-```
-
-![Tabs examples](../images/angular/tab/tabs_with_nav_bar.png)
-
-```html
-<nav _ngcontent-sbh-c357 id="tabs-nav-bar" class="mat-tab-nav-bar mat-tab-header mat-primary"></nav>
-```
-
-|Method | Description | Return Type
---- | --- | ---
-**has()** | assert that element has attribute | boolean
-**attr()** | Check whether an element has attribute of specified name and with given value  | IsAssert 
-**is()** | Assert action | TextAssert 
-**displayed()** | Check that element is displayed | TextAssert
-**clickTabLink(String tabName)** | Click required tab by tab name | void
-**getTabLinksCount()** | return number of tabs | int
-
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/tabgroup" target="_blank">Here you can find Tabs tests</a>
-
 ### Basic Button
 
 #### <a href="https://material.angular.io/components/button/overview" target="_blank">Button overview</a>
@@ -6776,7 +6407,377 @@ Snackbar is located in the following class:
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/SnackbarTests.java" target="_blank">Here you can find Snackbar tests</a>
 
+### Tabs
+
+<br>
+
+```java 
+    /**@FindBy(id = "basic-tab") public static TabGroupSection tabsSection;*/
+    @UI("#basic-tab")
+    public Tabs basicTab;
+
+    @Test
+    public void verifyTabs() {
+        tabsSection.basicTab.is().displayed();
+        tabsSection.basicTab.has().attr(CLASS_ATTR, TAB_GROUP_DEFAULT_CLASS);
+    }
+
+    @Test
+    public void verifyTabsTitles() {
+        tabsSection.basicTab.is().assertTabsTitles(TITLES_DEFAULT_LIST);
+    }
+
+    @Test
+    public void verifyTabPanelContentByNumber() {
+        int tabNumberForTest = 3;
+        String stringForTest = String.format(DYNAMIC_CONTENT, tabNumberForTest);
+        tabsSection.basicTab.clickTab(tabNumberForTest);
+        tabsSection.basicTab.is().assertTabPanelContent(stringForTest);
+    }
+```
+#### <a href="https://material.angular.io/components/tabs/overview" target="_blank">Tabs overview</a>
+
+Angular Material tabs organize content into separate views where only one view can be visible at a time. 
+
+![Tabs examples](../images/angular/tab/tabs_base_group.PNG)
+
+```html
+<mat-tab-group _ngcontent-sbh-c317 id="basic-tab" class="mat-tab-group mat-primary"></mat-tab-group>
+```
+|Method | Description | Return Type
+--- | --- | ---
+**has()** | assert that element has attribute | boolean
+**attr()** | Check whether an element has attribute of specified name and with given value  | IsAssert 
+**is()** | Assert action | TextAssert 
+**displayed()** | Check that element is displayed | TextAssert
+
+<br>
+
+```java 
+    /**@FindBy(id = "tab-with-custom-label") public static TabGroupSection tabsSection;*/
+    @UI("#tab-with-custom-label")
+    public TabGroup tabWithCustomLabel;
+
+     @Test
+        public void verifyCustomLabelTemplateTabPanelContentByNumber() {
+            int tabNumberForTest = 3;
+            String stringForTest = String.format(DYNAMIC_CONTENT, tabNumberForTest);
+            tabsSection.tabWithCustomLabel.clickTab(tabNumberForTest);
+            tabsSection.tabWithCustomLabel.is().assertTabPanelContent(stringForTest);
+        }
+    
+        @Test
+        public void activeCustomLabelTemplateTabIsHighlighted() {
+            int tabNumberForTest = 2;
+            tabsSection.tabWithCustomLabel.clickTab(tabNumberForTest);
+            tabsSection.tabWithCustomLabel.is().assertTabIsHighlighted(tabNumberForTest);
+        }
+```
+
+If a tab's label is only text then the simple tab-group API can be used.
+For more complex labels, add a template with the mat-tab-label directive inside the mat-tab.
+
+![Tabs examples](../images/angular/tab/tabs_with_custom_label_content.PNG)
+
+```html
+<mat-tab-group _ngcontent-ecm-c350 id="tab-with-custom-label" class="mat-tab-group mat-primary"></mat-tab-group>
+```
+
+```html
+<ng-template mat-tab-label>
+  <mat-icon class="example-tab-icon">thumb_up</mat-icon>
+  First
+</ng-template>
+```
+
+|Method | Description | Return Type
+--- | --- | ---
+**has()** | assert that element has attribute | boolean
+**attr()** | Check whether an element has attribute of specified name and with given value  | IsAssert 
+**is()** | Assert action | TextAssert 
+**displayed()** | Check that element is displayed | TextAssert
+**clickTab()** | Click required tab by tab number or tab name | void
+
+<br>
+
+```java 
+     /**@FindBy(id = "tab-dynamic-height-based-on-content") public static TabGroupSection tabsSection;*/
+     @UI("#tab-dynamic-height-based-on-content")
+     public TabGroup tabDynamicHeightBasedOnContent;
+         
+      @Test
+      public void verifyDynamicHeightBasedOnContentsTabsTitles() {
+             List<String> listForTest = Arrays.asList("Short tab", "Long tab");
+             tabsSection.tabDynamicHeightBasedOnContent.is().assertTabsTitles(listForTest);
+      }
+     
+      @Test
+      public void verifyDynamicHeightBasedOnContentsTabPanelContentByNumber() {
+             int tabNumberForTest = 2;
+             String stringForTest = "Large content";
+             tabsSection.tabDynamicHeightBasedOnContent.clickTab(tabNumberForTest);
+             tabsSection.tabDynamicHeightBasedOnContent.is().assertTabPanelContent(stringForTest);
+      }
+```
+
+By default, the tab group will not change its height to the height of the currently active tab. 
+To change this, set the dynamicHeight input to true. The tab body will animate its height according 
+to the height of the active tab.
+
+![Tabs examples](../images/angular/tab/tabs_dynamic_height.PNG)
+
+```html
+<mat-tab-group _ngcontent-sbh-c351 dynamicheight id="tab-dynamic-height-based-on-content" class="mat-tab-group 
+mat-primary mat-tab-group-dynamic-height"></mat-tab-group>
+```
+
+|Method | Description | Return Type
+--- | --- | ---
+**has()** | assert that element has attribute | boolean
+**attr()** | Check whether an element has attribute of specified name and with given value  | IsAssert 
+**is()** | Assert action | TextAssert 
+**displayed()** | Check that element is displayed | TextAssert
+**clickTab()** | Click required tab by tab number or tab name | void
+
+<br>
+
+```java 
+    /**@FindBy(id = "dynamically-changing-tabs") public static TabGroupSection tabsSection;*/
+    @UI("#dynamically-changing-tabs")
+    public TabGroup dynamicallyChangingTabs;
+
+    @Test
+     public void selectedByIndexTabIsHighlighted() {
+         int indexForTest = 2;
+         int tabNumberForTest = indexForTest + 1;
+         tabsSection.selectByIndexInput.clear();
+         tabsSection.selectByIndexInput.sendKeys(String.valueOf(indexForTest));
+         tabsSection.dynamicallyChangingTabs.is().assertTabIsHighlighted(tabNumberForTest);
+     }
+ 
+     @Test
+     public void selectedByIndexTabIsNormalizedToTabsCount() {
+         int indexForTest = 10;
+         int tabNumberForTest = tabsSection.dynamicallyChangingTabs.getTabsCount();
+         tabsSection.selectByIndexInput.sendKeys(String.valueOf(indexForTest));
+         tabsSection.dynamicallyChangingTabs.is().assertTabIsHighlighted(tabNumberForTest);
+     }
+```
+
+![Tabs examples](../images/angular/tab/tabs_dynamicly_changing.PNG)
+
+```html
+<mat-tab-group _ngcontent-sbh-c352  id="dynamically-changing-tabs" class="mat-tab-group mat-primary"></mat-tab-group>
+```
+
+|Method | Description | Return Type
+--- | --- | ---
+**has()** | assert that element has attribute | boolean
+**attr()** | Check whether an element has attribute of specified name and with given value  | IsAssert 
+**is()** | Assert action | TextAssert 
+**displayed()** | Check that element is displayed | TextAssert
+**clickTab()** | Click required tab by tab number or tab name | void
+**getTabsCount()** | returns tabs count | int
+**sendKeys()** | fill the text area | void
+**clear()** | clear text aria | void
+
+<br>
+
+```java 
+    /**@FindBy(id = "tab-with-headers-on-the-bottom") public static TabGroupSection tabsSection;*/
+    @UI("#tab-with-headers-on-the-bottom")
+    public TabGroup tabWithHeadersOnTheBottom;
+
+      @Test
+        public void verifyTabsWithHeadersOnTheBottomTitles() {
+            tabsSection.tabWithHeadersOnTheBottom.is().assertTabsTitles(TITLES_DEFAULT_LIST);
+        }
+    
+        @Test
+        public void verifyTabWithHeadersOnTheBottomPanelContentByNumber() {
+            int tabNumberForTest = 3;
+            String stringForTest = String.format(DYNAMIC_CONTENT, tabNumberForTest);
+            tabsSection.tabWithHeadersOnTheBottom.clickTab(tabNumberForTest);
+            tabsSection.tabWithHeadersOnTheBottom.is().assertTabPanelContent(stringForTest);
+        }
+```
+
+![Tabs examples](../images/angular/tab/tabs_with_bottom_headers.PNG)
+
+```html
+<mat-tab-group _ngcontent-sbh-c353  id="tab-with-headers-on-the-bottom" headerposition="below" 
+class="mat-tab-group mat-primary mat-tab-group-inverted-header"></mat-tab-group>
+```
+
+|Method | Description | Return Type
+--- | --- | ---
+**has()** | assert that element has attribute | boolean
+**attr()** | Check whether an element has attribute of specified name and with given value  | IsAssert 
+**is()** | Assert action | TextAssert 
+**displayed()** | Check that element is displayed | TextAssert
+**clickTab()** | Click required tab by tab number or tab name | void
+
+<br>
+
+```java 
+    /**@FindBy(id = "tabs-with-lazy-loaded-content") public static TabGroupSection tabsSection;*/
+    @UI("#tabs-with-lazy-loaded-content")
+    public TabGroup tabsWithLazyLoadedContent;
+
+      @Test
+        public void verifyTabWithLazyLoadedContent() {
+            int tabNumberForTest = 3;
+            refresh();
+            tabsSection.tabsWithLazyLoadedContent.clickTab(tabNumberForTest);
+            SimpleDateFormat dateTimeInGMT = new SimpleDateFormat("MMM d, yyyy, h:mm:ss aa");
+            dateTimeInGMT.setTimeZone(TimeZone.getTimeZone("GMT+3"));
+            String timeForTest = dateTimeInGMT.format(new Date());
+            String stringForTest = String.format("Content %s - Loaded: %s", tabNumberForTest, timeForTest);
+            tabsSection.tabsWithLazyLoadedContent.is().assertTabPanelContent(stringForTest);
+        }
+    
+        @Test
+        public void activeTabWithLazyLoadedContentIsHighlighted() {
+            int tabNumberForTest = 2;
+            tabsSection.tabsWithLazyLoadedContent.clickTab(tabNumberForTest);
+            tabsSection.tabsWithLazyLoadedContent.is().assertTabIsHighlighted(tabNumberForTest);
+        }
+```
+By default, the tab contents are eagerly loaded. Eagerly loaded tabs will initalize the child
+components but not inject them into the DOM until the tab is activated.
+
+If the tab contains several complex child components or the tab's contents rely on DOM calculations 
+during initialization, it is advised to lazy load the tab's content.
+
+![Tabs examples](../images/angular/tab/tabs_lazy_loaded_content.PNG)
+
+```html
+<mat-tab-group _ngcontent-sbh-c354 id="tabs-with-lazy-loaded-content" class="mat-tab-group mat-primary"></mat-tab-group>
+```
+
+|Method | Description | Return Type
+--- | --- | ---
+**has()** | assert that element has attribute | boolean
+**attr()** | Check whether an element has attribute of specified name and with given value  | IsAssert 
+**is()** | Assert action | TextAssert 
+**displayed()** | Check that element is displayed | TextAssert
+**clickTab()** | Click required tab by tab number or tab name | void
+**refresh()** | refresh the page | void
+
+<br>
+
+```java 
+    /**@FindBy(id = "tab-group-theme-example") public static TabGroupSection tabsSection;*/
+    @UI("#tab-group-theme-example")
+    public TabGroup tabGroupThemeExample;
+
+    @Test
+    public void verifyCustomThemeTabPanelContentByNumber() {
+        int tabNumberForTest = 3;
+        String stringForTest = String.format(DYNAMIC_CONTENT, tabNumberForTest);
+        tabsSection.tabGroupThemeExample.clickTab(tabNumberForTest);
+        tabsSection.tabGroupThemeExample.is().assertTabPanelContent(stringForTest);
+    }
+
+    @Test
+    public void activeCustomThemeTabIsHighlighted() {
+        int tabNumberForTest = 2;
+        tabsSection.tabGroupThemeExample.clickTab(tabNumberForTest);
+        tabsSection.tabGroupThemeExample.is().assertTabIsHighlighted(tabNumberForTest);
+    }
+```
+
+![Tabs examples](../images/angular/tab/tabs_theme_customizing.PNG)
+
+```html
+<mat-tab-group _ngcontent-sbh-c355 id="tab-group-theme-example" class="mat-tab-group mat-primary mat-background-primary"></mat-tab-group>
+```
+
+|Method | Description | Return Type
+--- | --- | ---
+**has()** | assert that element has attribute | boolean
+**attr()** | Check whether an element has attribute of specified name and with given value  | IsAssert 
+**is()** | Assert action | TextAssert 
+**displayed()** | Check that element is displayed | TextAssert
+**clickTab()** | Click required tab by tab number or tab name | void
+**clickButtonByValue(String value)** | click button in button toggle | void
+
+<br>
+
+```java 
+    /**@FindBy(id = "tabs-async-loading-content") public static TabGroupSection tabsSection;*/
+    @UI("#tabs-async-loading-content")
+    public TabGroup tabsAsyncLoadingContent;
+
+     @Test
+         public void verifyCustomThemeAsyncLoadingContentTabsTitles() {
+             tabsSection.tabsAsyncLoadingContent.is().assertTabsTitles(TITLES_DEFAULT_LIST);
+         }
+     
+         @Test
+         public void verifyAsyncLoadingContentTabPanelContentByNumber() {
+             int tabNumberForTest = 3;
+             String stringForTest = String.format(DYNAMIC_CONTENT, tabNumberForTest);
+             tabsSection.tabsAsyncLoadingContent.clickTab(tabNumberForTest);
+             tabsSection.tabsAsyncLoadingContent.is().assertTabPanelContent(stringForTest);
+         }
+```
+
+![Tabs examples](../images/angular/tab/tabs_async_loading_tab_content.PNG)
+
+```html
+<mat-tab-group _ngcontent-sbh-c356 id="tabs-async-loading-content" class="mat-tab-group mat-primary"></mat-tab-group>
+```
+
+|Method | Description | Return Type
+--- | --- | ---
+**has()** | assert that element has attribute | boolean
+**attr()** | Check whether an element has attribute of specified name and with given value  | IsAssert 
+**is()** | Assert action | TextAssert 
+**displayed()** | Check that element is displayed | TextAssert
+**clickTab()** | Click required tab by tab number or tab name | void
+
+<br>
+
+```java 
+    /**@FindBy(id = "tabs-nav-bar") public static TabGroupSection tabsSection;*/
+    @UI("#tabs-nav-bar")
+    public TabGroup tabsNavBar;
+
+     @Test
+       public void verifyTabWithLinkIsHighLighted() {
+           String tabTitleForTest = "Third";
+           tabsSection.tabsNavBar.clickTabLink(tabTitleForTest);
+           tabsSection.tabsNavBar.is().assertTabWithLinkIsHighlighted(tabTitleForTest);
+       }
+
+        @Test
+        public void verifyTabWithLinkBackgroundColor() {
+            tabsSection.toggleBackgroundButton.click();
+            tabsSection.tabsNavBar.has().attr(CLASS_ATTR, "mat-tab-nav-bar mat-tab-header mat-primary " +
+                    "mat-background-primary");
+        }
+```
+
+![Tabs examples](../images/angular/tab/tabs_with_nav_bar.PNG)
+
+```html
+<nav _ngcontent-sbh-c357 id="tabs-nav-bar" class="mat-tab-nav-bar mat-tab-header mat-primary"></nav>
+```
+
+|Method | Description | Return Type
+--- | --- | ---
+**has()** | assert that element has attribute | boolean
+**attr()** | Check whether an element has attribute of specified name and with given value  | IsAssert 
+**is()** | Assert action | TextAssert 
+**displayed()** | Check that element is displayed | TextAssert
+**clickTabLink(String tabName)** | Click required tab by tab name | void
+**getTabLinksCount()** | return number of tabs | int
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/tabgroup" target="_blank">Here you can find Tabs tests</a>
+
 ---
+
 ## Bootstrap Common elements
 
 ### Checkboxes and radios

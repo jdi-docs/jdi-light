@@ -6407,7 +6407,7 @@ Snackbar is located in the following class:
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/SnackbarTests.java" target="_blank">Here you can find Snackbar tests</a>
 
-### Tabs
+### Tab group
 
 <br>
 

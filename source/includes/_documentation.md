@@ -6415,27 +6415,27 @@ Snackbar is located in the following class:
 	
 	@Test
     public void labelPaginationTest() {
-        paginatorSection.paginator.has().label("Items per page:");
+        paginator.has().label("Items per page:");
     }
 	
+
     @Test
     public void navigationDisabledPaginatorTest() {
-        paginatorSection.listLength.setValue("0");
+        listLength.setValue("0");
 
-        paginatorSection.paginator.has().range();
-        paginatorSection.paginator.has().previousDisabled();
-        paginatorSection.paginator.has().nextDisabled();
+        paginator.has().range();
+        paginator.has().previousDisabled();
+        paginator.has().nextDisabled();
 
-        paginatorSection.listLength.setValue("100");
-        paginatorSection.paginator.select(100);
-        
-		paginatorSection.paginator.has().previousDisabled();
-        paginatorSection.paginator.has().nextDisabled();
+        listLength.setValue("100");
+        paginator.select(100);
+        paginator.has().previousDisabled();
+        paginator.has().nextDisabled();
     }
 
     @Test
     public void pageSizeOptionsPaginatorTest() {
-        paginatorSection.paginator.has().itemsPerPageList(PAGESIZEOPTIONS);
+        paginator.has().itemsPerPageList(PAGESIZEOPTIONS);
     }
 ```
 
@@ -6459,7 +6459,7 @@ Paginator is located in the following class:
 **label()** | Get label | String
 **select(int number)** | Select number of items per page | void
 **selected()** | Get selected number of items per page | int
-**options()** | Get list of items per page | List\<Integer\>
+**options()** | Get list of number of items per page | List\<Integer\>
 **range()** | Get range | String
 **isPreviousEnabled()** | Check if previous button enabled | boolean
 **previous()** | Click previous button | void
@@ -6468,7 +6468,7 @@ Paginator is located in the following class:
 **is()** | Assert action | PaginatorAssert
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/PaginatorTests.java" target="_blank">Here you can find Paginator tests</a>
-=======
+
 ### Tab group
 
 <br>

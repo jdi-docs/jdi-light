@@ -620,6 +620,9 @@
 								<a href="#snackbar" class="toc-h2 h3 toc-link" data-title="Snackbar">Snackbar</a>
                             </li>
                             <li>
+								<a href="#paginator" class="toc-h2 h3 toc-link" data-title="Paginator">Paginator</a>
+                            </li>
+                            <li>
 								<a href="#tab-group" class="toc-h2 h3 toc-link" data-title="Tab group">Tab group</a>
                             </li>
                         </ul>
@@ -12024,7 +12027,105 @@ errorStateMatcher property of the <code>&lt;mat-select&gt;</code>.</p>
 <td>SnackbarAssert</td>
 </tr>
 </tbody></table>
-<h4 id='here-you-can-find-snackbar-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/SnackbarTests.java" target="_blank">Here you can find Snackbar tests</a></h4><h3 id='tab-group'>Tab group</h3>
+<h4 id='here-you-can-find-snackbar-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/SnackbarTests.java" target="_blank">Here you can find Snackbar tests</a></h4><h3 id='paginator'>Paginator</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//paginator-configurable-example/mat-paginator"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">Paginator</span> <span class="n">paginator</span><span class="o">;</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">labelPaginationTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">paginator</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">label</span><span class="o">(</span><span class="s">"Items per page:"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">navigationDisabledPaginatorTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">listLength</span><span class="o">.</span><span class="na">setValue</span><span class="o">(</span><span class="s">"0"</span><span class="o">);</span>
+
+        <span class="n">paginator</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">range</span><span class="o">();</span>
+        <span class="n">paginator</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">previousDisabled</span><span class="o">();</span>
+        <span class="n">paginator</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">nextDisabled</span><span class="o">();</span>
+
+        <span class="n">listLength</span><span class="o">.</span><span class="na">setValue</span><span class="o">(</span><span class="s">"100"</span><span class="o">);</span>
+        <span class="n">paginator</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="mi">100</span><span class="o">);</span>
+        <span class="n">paginator</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">previousDisabled</span><span class="o">();</span>
+        <span class="n">paginator</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">nextDisabled</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">pageSizeOptionsPaginatorTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">paginator</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">itemsPerPageList</span><span class="o">(</span><span class="n">PAGESIZEOPTIONS</span><span class="o">);</span>
+    <span class="o">}</span>
+</code></pre><h4 id='paginator-overview'><a href="https://material.angular.io/components/paginator/overview" target="_blank">Paginator overview</a></h4>
+<p>Paginator is located in the following class:</p>
+
+<ul>
+<li><strong>Java</strong>: com.epam.jdi.light.ui.angular.elements.complex.Paginator</li>
+</ul>
+
+<p><img src="images/angular/paginator.png" alt="Paginator" /></p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;mat-paginator</span> <span class="err">[</span><span class="na">length</span><span class="err">]="</span><span class="na">100</span><span class="err">"</span>
+              <span class="err">[</span><span class="na">pageSize</span><span class="err">]="</span><span class="na">10</span><span class="err">"</span>
+              <span class="err">[</span><span class="na">pageSizeOptions</span><span class="err">]="[</span><span class="na">5</span><span class="err">,</span> <span class="na">10</span><span class="err">,</span> <span class="na">25</span><span class="err">,</span> <span class="na">100</span><span class="err">]"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/mat-paginator&gt;</span>
+</code></pre>
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>label()</strong></td>
+<td>Get label</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>select(int number)</strong></td>
+<td>Select number of items per page</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>selected()</strong></td>
+<td>Get selected number of items per page</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>options()</strong></td>
+<td>Get list of number of items per page</td>
+<td>List&lt;Integer&gt;</td>
+</tr>
+<tr>
+<td><strong>range()</strong></td>
+<td>Get range</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>isPreviousEnabled()</strong></td>
+<td>Check if previous button enabled</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>previous()</strong></td>
+<td>Click previous button</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>isNextEnabled()</strong></td>
+<td>Check if next button enabled</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>next()</strong></td>
+<td>Click next button</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>is()</strong></td>
+<td>Assert action</td>
+<td>PaginatorAssert</td>
+</tr>
+</tbody></table>
+<h4 id='here-you-can-find-paginator-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/PaginatorTests.java" target="_blank">Here you can find Paginator tests</a></h4><h3 id='tab-group'>Tab group</h3>
 <p><br></p>
 <pre class="highlight java tab-java"><code>    <span class="cm">/**@FindBy(id = "basic-tab") public static TabGroupSection tabsSection;*/</span>
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"#basic-tab"</span><span class="o">)</span>

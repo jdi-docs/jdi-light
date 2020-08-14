@@ -6791,42 +6791,42 @@ There are three different menu in Angular: basic menu, menu with icons and neste
 See an example with HTML code describing basic menu element.
 
 ```java 
-    //FindBy(css = "#basic-menu-button")
-    public static NestedDropdownMenu basicMenu; 
+//FindBy(css = "#basic-menu-button")
+public static NestedDropdownMenu basicMenu; 
     
-    //FindBy(css = "#basic-menu-selected-option")
-    public static Text basicMenuSelectedOption;
+//FindBy(css = "#basic-menu-selected-option")
+public static Text basicMenuSelectedOption;
 
-    @Test
-    public void basicMenuTest() {
+@Test
+public void basicMenuTest() {
     basicMenu.is().displayed();
-    }
+}
 
-    @Test
-    public void basicMenuSelectTest() {
+@Test
+public void basicMenuSelectTest() {
     basicMenu.select("Item 1");
     basicMenuSelectedOption.is().text("Item 1");
-    }
+}
 
-    @Test
-    public void checkBasicMenuAvailableOptionsTest() {
+@Test
+public void checkBasicMenuAvailableOptionsTest() {
     String[] expectedList = BASIC_MENU_VALUES;
     basicMenu.expand();
     List<String> actualList = basicMenu.values();
     for (int i = 0; i < expectedList.length; i++) {
     basicMenu.is().checkValue(expectedList[i], (actualList.get(i)));
-    }
+}
 ```
 
 ![Basic menu](../images/angular/basic_menu.png)
 
 ```html 
-<button aria-haspopup="true" id="basic-menu-button">
-<span class="mat-button-wrapper">Menu</span>
-</button> 
-<div class="mat-menu-content"> 
-<button role="menuitem" aria-disabled="false">"Item 1"</button>
-<button role="menuitem" aria-disabled="false">"Item 2"</button>
+<button aria-haspopup="true" id="nested-menu-button">
+    <span>Animal index</span>
+</button>
+<div class="mat-menu-content">
+    <button aria-haspopup="true" role="menuitem" aria-disabled="false">"Vertebrates"</button>
+    <button aria-haspopup="true" role="menuitem" aria-disabled="false">"Invertebrates"</button>
 </div>
 ```
  
@@ -6843,62 +6843,62 @@ See an example with HTML code describing basic menu element.
 See an example with HTML code describing menu with icons element.
  
 ```java 
-    //FindBy(css = "#menu-with-icons-button")
-    public static NestedDropdownMenu menuWithIcons; 
+//FindBy(css = "#menu-with-icons-button")
+public static NestedDropdownMenu menuWithIcons; 
     
-    //FindBy(css = "#icons-menu-selected-option")
-    public static Text iconsMenuSelectedOption;
+//FindBy(css = "#icons-menu-selected-option")
+public static Text iconsMenuSelectedOption;
 
-    @Test
-    public void menuWithIconsTest() {
+@Test
+public void menuWithIconsTest() {
     menuWithIcons.is().displayed();
-    }
+}
 
-    @Test
-    public void menuWithIconsSelectTest() {
+@Test
+public void menuWithIconsSelectTest() {
     menuWithIcons.expand();
     menuWithIcons.selectForMenuWithIcons("Redial");
     iconsMenuSelectedOption.is().text("Redial");
-    }
+}
 
-    @Test
-    public void disabledMenuWithIconsOptionTest() {
+@Test
+public void disabledMenuWithIconsOptionTest() {
     menuWithIcons.expand();
     menuWithIcons.is().isDisabledMenuWithIconsOption("Check voice mail");
-    }
+}
 
-    @Test
-    public void checkMenuWithIconsAvailableOptionsTest() {
+@Test
+public void checkMenuWithIconsAvailableOptionsTest() {
     String[] expectedList = MENU_WITH_ICONS_VALUES;
     List<String> actualList = menuWithIcons.valuesForMenuWithIcons();
     menuWithIcons.expand();
     for (int i = 0; i < expectedList.length; i++) {
-    menuWithIcons.checkValue(expectedList[i], actualList.get(i));
+        menuWithIcons.checkValue(expectedList[i], actualList.get(i));
     }
-    }
+}
 ```
  
  ![Menu with icons](../images/angular/menu_with_icons.png) 
  
 ```html 
 <button aria-haspopup="true" id="menu-with-icons-button">
-<span>
-<mat-icon role="img"></mat-icon>
-</span>
+    <span>
+        <mat-icon role="img"></mat-icon>
+    </span>
 </button> 
 <div class="mat-menu-content"> 
-<button role="menuitem" aria-disabled="false">
-<mat-icon role="img"</mat-icon>
-<span>Redial<>/span>
-</button>
-<button role="menuitem" aria-disabled="true">
-<mat-icon role="img"</mat-icon>
-<span>Check voice mail<>/span>
-</button>
-<button role="menuitem" aria-disabled="false">
-<mat-icon role="img"</mat-icon>
-<span>Disable alerts<>/span>
-</button>
+    <button role="menuitem" aria-disabled="false">
+        <mat-icon role="img"</mat-icon>
+            <span>Redial</span>
+    </button>
+    <button role="menuitem" aria-disabled="true">
+        <mat-icon role="img"</mat-icon>
+            <span>Check voice mail</span>
+    </button>
+    <button role="menuitem" aria-disabled="false">
+        <mat-icon role="img"</mat-icon>
+            <span>Disable alerts>/span>
+    </button>
 </div>
 ```
 |Method | Description | Return Type
@@ -6915,43 +6915,43 @@ See an example with HTML code describing menu with icons element.
 See an example with HTML code describing nested menu element.
  
 ```java 
-    //FindBy(css = "#nested-menu-button")
-    public static NestedDropdownMenu nestedMenu;
+//FindBy(css = "#nested-menu-button")
+public static NestedDropdownMenu nestedMenu;
     
-    //FindBy(css = "#nested-menu-selected-option-")
-    public static Text nestedMenuSelectedOption;
+//FindBy(css = "#nested-menu-selected-option-")
+public static Text nestedMenuSelectedOption;
 
-    @Test
-    public void nestedMenuTest() {
+@Test
+public void nestedMenuTest() {
     nestedMenu.is().displayed();
     }
 
-    @Test
-    public void nestedMenuFirstNestingLayerSelectTest() {
+@Test
+public void nestedMenuFirstNestingLayerSelectTest() {
     nestedMenu.expand();
     nestedMenu.select("Vertebrates");
     nestedMenuSelectedOption.is().text("Vertebrates");
-    }
+}
     
-    @Test
-    public void nestedMenuSecondNestingLayerSelectTest() {
+@Test
+public void nestedMenuSecondNestingLayerSelectTest() {
     nestedMenu.expand();
     nestedMenu.select("Vertebrates", "Fishes");
     nestedMenuSelectedOption.is().text("Fishes");
-    }
+}
     
-    @Test
-    public void nestedMenuThirdNestingLayerSelectTest() {
+@Test
+public void nestedMenuThirdNestingLayerSelectTest() {
     nestedMenu.expand();
     nestedMenu.select("Vertebrates", "Fishes", "Bala shark");
     nestedMenuSelectedOption.is().text("Bala shark");
-    }
+}
     
-    @Test
-    public void disabledNestedMenuOptionTest() {
+@Test
+public void disabledNestedMenuOptionTest() {
     nestedMenu.expand();
     nestedMenu.is().isDisabledNestedMenuOption("Vertebrates", "Reptiles", "Velociraptor");
-    }
+}
     
     @Test
     public void checkNestedMenuAvailableOptionsTest() {
@@ -6959,20 +6959,20 @@ See an example with HTML code describing nested menu element.
     nestedMenu.expand();
     List<String> actualList = nestedMenu.valuesForNestedMenu();
     for (int i = 0; i < expectedList.length; i++) {
-    nestedMenu.is().checkValue(expectedList[i], actualList.get(i));
+        nestedMenu.is().checkValue(expectedList[i], actualList.get(i));
     }
-    }
+}
 ```
  
- ![Nested menu](../images/angular/nested_menu.PNG) 
+ ![Nested menu](../images/angular/nested_menu.png) 
  
 ```html 
 <button aria-haspopup="true" id="nested-menu-button">
-<span>Animal index</span>
+    <span>Animal index</span>
 </button> 
 <div class="mat-menu-content"> 
-<button aria-haspopup="true" role="menuitem" aria-disabled="false">"Vertebrates"</button>
-<button aria-haspopup="true" role="menuitem" aria-disabled="false">"Invertebrates"</button>
+    <button aria-haspopup="true" role="menuitem" aria-disabled="false">"Vertebrates"</button>
+    <button aria-haspopup="true" role="menuitem" aria-disabled="false">"Invertebrates"</button>
 </div>
 ```
 |Method | Description | Return Type

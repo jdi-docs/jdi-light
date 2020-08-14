@@ -6953,8 +6953,8 @@ public void disabledNestedMenuOptionTest() {
     nestedMenu.is().isDisabledNestedMenuOption("Vertebrates", "Reptiles", "Velociraptor");
 }
     
-    @Test
-    public void checkNestedMenuAvailableOptionsTest() {
+@Test
+public void checkNestedMenuAvailableOptionsTest() {
     String[] expectedList = NESTED_MENU_VALUES;
     nestedMenu.expand();
     List<String> actualList = nestedMenu.valuesForNestedMenu();

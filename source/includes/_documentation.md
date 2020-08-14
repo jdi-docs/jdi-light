@@ -6459,19 +6459,19 @@ Angular Material tabs organize content into separate views where only one view c
     public TabGroup tabWithCustomLabel;
 
      @Test
-        public void verifyCustomLabelTemplateTabPanelContentByNumber() {
-            int tabNumberForTest = 3;
-            String stringForTest = String.format(DYNAMIC_CONTENT, tabNumberForTest);
-            tabsSection.tabWithCustomLabel.clickTab(tabNumberForTest);
-            tabsSection.tabWithCustomLabel.is().assertTabPanelContent(stringForTest);
-        }
+     public void verifyCustomLabelTemplateTabPanelContentByNumber() {
+         int tabNumberForTest = 3;
+         String stringForTest = String.format(DYNAMIC_CONTENT, tabNumberForTest);
+         tabsSection.tabWithCustomLabel.clickTab(tabNumberForTest);
+         tabsSection.tabWithCustomLabel.is().assertTabPanelContent(stringForTest);
+     }
     
-        @Test
-        public void activeCustomLabelTemplateTabIsHighlighted() {
-            int tabNumberForTest = 2;
-            tabsSection.tabWithCustomLabel.clickTab(tabNumberForTest);
-            tabsSection.tabWithCustomLabel.is().assertTabIsHighlighted(tabNumberForTest);
-        }
+     @Test
+     public void activeCustomLabelTemplateTabIsHighlighted() {
+         int tabNumberForTest = 2;
+         tabsSection.tabWithCustomLabel.clickTab(tabNumberForTest);
+         tabsSection.tabWithCustomLabel.is().assertTabIsHighlighted(tabNumberForTest);
+     }
 ```
 
 If a tab's label is only text then the simple tab-group API can be used.
@@ -6507,16 +6507,16 @@ For more complex labels, add a template with the mat-tab-label directive inside 
          
       @Test
       public void verifyDynamicHeightBasedOnContentsTabsTitles() {
-             List<String> listForTest = Arrays.asList("Short tab", "Long tab");
-             tabsSection.tabDynamicHeightBasedOnContent.is().assertTabsTitles(listForTest);
+          List<String> listForTest = Arrays.asList("Short tab", "Long tab");
+          tabsSection.tabDynamicHeightBasedOnContent.is().assertTabsTitles(listForTest);
       }
      
       @Test
       public void verifyDynamicHeightBasedOnContentsTabPanelContentByNumber() {
-             int tabNumberForTest = 2;
-             String stringForTest = "Large content";
-             tabsSection.tabDynamicHeightBasedOnContent.clickTab(tabNumberForTest);
-             tabsSection.tabDynamicHeightBasedOnContent.is().assertTabPanelContent(stringForTest);
+          int tabNumberForTest = 2;
+          String stringForTest = "Large content";
+          tabsSection.tabDynamicHeightBasedOnContent.clickTab(tabNumberForTest);
+          tabsSection.tabDynamicHeightBasedOnContent.is().assertTabPanelContent(stringForTest);
       }
 ```
 
@@ -6588,18 +6588,18 @@ mat-primary mat-tab-group-dynamic-height"></mat-tab-group>
     @UI("#tab-with-headers-on-the-bottom")
     public TabGroup tabWithHeadersOnTheBottom;
 
-      @Test
-        public void verifyTabsWithHeadersOnTheBottomTitles() {
-            tabsSection.tabWithHeadersOnTheBottom.is().assertTabsTitles(TITLES_DEFAULT_LIST);
-        }
+    @Test
+    public void verifyTabsWithHeadersOnTheBottomTitles() {
+        tabsSection.tabWithHeadersOnTheBottom.is().assertTabsTitles(TITLES_DEFAULT_LIST);
+    }
     
-        @Test
-        public void verifyTabWithHeadersOnTheBottomPanelContentByNumber() {
-            int tabNumberForTest = 3;
-            String stringForTest = String.format(DYNAMIC_CONTENT, tabNumberForTest);
-            tabsSection.tabWithHeadersOnTheBottom.clickTab(tabNumberForTest);
-            tabsSection.tabWithHeadersOnTheBottom.is().assertTabPanelContent(stringForTest);
-        }
+    @Test
+    public void verifyTabWithHeadersOnTheBottomPanelContentByNumber() {
+        int tabNumberForTest = 3;
+        String stringForTest = String.format(DYNAMIC_CONTENT, tabNumberForTest);
+        tabsSection.tabWithHeadersOnTheBottom.clickTab(tabNumberForTest);
+        tabsSection.tabWithHeadersOnTheBottom.is().assertTabPanelContent(stringForTest);
+    }
 ```
 
 ![Tabs examples](../images/angular/tab/tabs_with_bottom_headers.PNG)
@@ -6624,24 +6624,24 @@ class="mat-tab-group mat-primary mat-tab-group-inverted-header"></mat-tab-group>
     @UI("#tabs-with-lazy-loaded-content")
     public TabGroup tabsWithLazyLoadedContent;
 
-      @Test
-        public void verifyTabWithLazyLoadedContent() {
-            int tabNumberForTest = 3;
-            refresh();
-            tabsSection.tabsWithLazyLoadedContent.clickTab(tabNumberForTest);
-            SimpleDateFormat dateTimeInGMT = new SimpleDateFormat("MMM d, yyyy, h:mm:ss aa");
-            dateTimeInGMT.setTimeZone(TimeZone.getTimeZone("GMT+3"));
-            String timeForTest = dateTimeInGMT.format(new Date());
-            String stringForTest = String.format("Content %s - Loaded: %s", tabNumberForTest, timeForTest);
-            tabsSection.tabsWithLazyLoadedContent.is().assertTabPanelContent(stringForTest);
-        }
+    @Test
+    public void verifyTabWithLazyLoadedContent() {
+        int tabNumberForTest = 3;
+        refresh();
+        tabsSection.tabsWithLazyLoadedContent.clickTab(tabNumberForTest);
+        SimpleDateFormat dateTimeInGMT = new SimpleDateFormat("MMM d, yyyy, h:mm:ss aa");
+        dateTimeInGMT.setTimeZone(TimeZone.getTimeZone("GMT+3"));
+        String timeForTest = dateTimeInGMT.format(new Date());
+        String stringForTest = String.format("Content %s - Loaded: %s", tabNumberForTest, timeForTest);
+        tabsSection.tabsWithLazyLoadedContent.is().assertTabPanelContent(stringForTest);
+    }
     
-        @Test
-        public void activeTabWithLazyLoadedContentIsHighlighted() {
-            int tabNumberForTest = 2;
-            tabsSection.tabsWithLazyLoadedContent.clickTab(tabNumberForTest);
-            tabsSection.tabsWithLazyLoadedContent.is().assertTabIsHighlighted(tabNumberForTest);
-        }
+    @Test
+    public void activeTabWithLazyLoadedContentIsHighlighted() {
+        int tabNumberForTest = 2;
+        tabsSection.tabsWithLazyLoadedContent.clickTab(tabNumberForTest);
+        tabsSection.tabsWithLazyLoadedContent.is().assertTabIsHighlighted(tabNumberForTest);
+    }
 ```
 By default, the tab contents are eagerly loaded. Eagerly loaded tabs will initalize the child
 components but not inject them into the DOM until the tab is activated.
@@ -6709,18 +6709,18 @@ during initialization, it is advised to lazy load the tab's content.
     @UI("#tabs-async-loading-content")
     public TabGroup tabsAsyncLoadingContent;
 
-     @Test
-         public void verifyCustomThemeAsyncLoadingContentTabsTitles() {
-             tabsSection.tabsAsyncLoadingContent.is().assertTabsTitles(TITLES_DEFAULT_LIST);
-         }
+    @Test
+    public void verifyCustomThemeAsyncLoadingContentTabsTitles() {
+        tabsSection.tabsAsyncLoadingContent.is().assertTabsTitles(TITLES_DEFAULT_LIST);
+    }
      
-         @Test
-         public void verifyAsyncLoadingContentTabPanelContentByNumber() {
-             int tabNumberForTest = 3;
-             String stringForTest = String.format(DYNAMIC_CONTENT, tabNumberForTest);
-             tabsSection.tabsAsyncLoadingContent.clickTab(tabNumberForTest);
-             tabsSection.tabsAsyncLoadingContent.is().assertTabPanelContent(stringForTest);
-         }
+    @Test
+    public void verifyAsyncLoadingContentTabPanelContentByNumber() {
+        int tabNumberForTest = 3;
+        String stringForTest = String.format(DYNAMIC_CONTENT, tabNumberForTest);
+        tabsSection.tabsAsyncLoadingContent.clickTab(tabNumberForTest);
+        tabsSection.tabsAsyncLoadingContent.is().assertTabPanelContent(stringForTest);
+    }
 ```
 
 ![Tabs examples](../images/angular/tab/tabs_async_loading_tab_content.PNG)
@@ -6744,19 +6744,19 @@ during initialization, it is advised to lazy load the tab's content.
     @UI("#tabs-nav-bar")
     public TabGroup tabsNavBar;
 
-     @Test
-       public void verifyTabWithLinkIsHighLighted() {
-           String tabTitleForTest = "Third";
-           tabsSection.tabsNavBar.clickTabLink(tabTitleForTest);
-           tabsSection.tabsNavBar.is().assertTabWithLinkIsHighlighted(tabTitleForTest);
-       }
+    @Test
+    public void verifyTabWithLinkIsHighLighted() {
+        String tabTitleForTest = "Third";
+        tabsSection.tabsNavBar.clickTabLink(tabTitleForTest);
+        tabsSection.tabsNavBar.is().assertTabWithLinkIsHighlighted(tabTitleForTest);
+    }
 
-        @Test
-        public void verifyTabWithLinkBackgroundColor() {
-            tabsSection.toggleBackgroundButton.click();
-            tabsSection.tabsNavBar.has().attr(CLASS_ATTR, "mat-tab-nav-bar mat-tab-header mat-primary " +
+    @Test
+    public void verifyTabWithLinkBackgroundColor() {
+        tabsSection.toggleBackgroundButton.click();
+        tabsSection.tabsNavBar.has().attr(CLASS_ATTR, "mat-tab-nav-bar mat-tab-header mat-primary " +
                     "mat-background-primary");
-        }
+    }
 ```
 
 ![Tabs examples](../images/angular/tab/tabs_with_nav_bar.PNG)

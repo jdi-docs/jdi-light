@@ -12190,19 +12190,19 @@ errorStateMatcher property of the <code>&lt;mat-select&gt;</code>.</p>
     <span class="kd">public</span> <span class="n">TabGroup</span> <span class="n">tabWithCustomLabel</span><span class="o">;</span>
 
      <span class="nd">@Test</span>
-        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">verifyCustomLabelTemplateTabPanelContentByNumber</span><span class="o">()</span> <span class="o">{</span>
-            <span class="kt">int</span> <span class="n">tabNumberForTest</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
-            <span class="n">String</span> <span class="n">stringForTest</span> <span class="o">=</span> <span class="n">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="n">DYNAMIC_CONTENT</span><span class="o">,</span> <span class="n">tabNumberForTest</span><span class="o">);</span>
-            <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabWithCustomLabel</span><span class="o">.</span><span class="na">clickTab</span><span class="o">(</span><span class="n">tabNumberForTest</span><span class="o">);</span>
-            <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabWithCustomLabel</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">assertTabPanelContent</span><span class="o">(</span><span class="n">stringForTest</span><span class="o">);</span>
-        <span class="o">}</span>
+     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">verifyCustomLabelTemplateTabPanelContentByNumber</span><span class="o">()</span> <span class="o">{</span>
+         <span class="kt">int</span> <span class="n">tabNumberForTest</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
+         <span class="n">String</span> <span class="n">stringForTest</span> <span class="o">=</span> <span class="n">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="n">DYNAMIC_CONTENT</span><span class="o">,</span> <span class="n">tabNumberForTest</span><span class="o">);</span>
+         <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabWithCustomLabel</span><span class="o">.</span><span class="na">clickTab</span><span class="o">(</span><span class="n">tabNumberForTest</span><span class="o">);</span>
+         <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabWithCustomLabel</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">assertTabPanelContent</span><span class="o">(</span><span class="n">stringForTest</span><span class="o">);</span>
+     <span class="o">}</span>
 
-        <span class="nd">@Test</span>
-        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">activeCustomLabelTemplateTabIsHighlighted</span><span class="o">()</span> <span class="o">{</span>
-            <span class="kt">int</span> <span class="n">tabNumberForTest</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
-            <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabWithCustomLabel</span><span class="o">.</span><span class="na">clickTab</span><span class="o">(</span><span class="n">tabNumberForTest</span><span class="o">);</span>
-            <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabWithCustomLabel</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">assertTabIsHighlighted</span><span class="o">(</span><span class="n">tabNumberForTest</span><span class="o">);</span>
-        <span class="o">}</span>
+     <span class="nd">@Test</span>
+     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">activeCustomLabelTemplateTabIsHighlighted</span><span class="o">()</span> <span class="o">{</span>
+         <span class="kt">int</span> <span class="n">tabNumberForTest</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+         <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabWithCustomLabel</span><span class="o">.</span><span class="na">clickTab</span><span class="o">(</span><span class="n">tabNumberForTest</span><span class="o">);</span>
+         <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabWithCustomLabel</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">assertTabIsHighlighted</span><span class="o">(</span><span class="n">tabNumberForTest</span><span class="o">);</span>
+     <span class="o">}</span>
 </code></pre>
 <p>If a tab&#39;s label is only text then the simple tab-group API can be used.
 For more complex labels, add a template with the mat-tab-label directive inside the mat-tab.</p>
@@ -12255,16 +12255,16 @@ For more complex labels, add a template with the mat-tab-label directive inside 
 
       <span class="nd">@Test</span>
       <span class="kd">public</span> <span class="kt">void</span> <span class="nf">verifyDynamicHeightBasedOnContentsTabsTitles</span><span class="o">()</span> <span class="o">{</span>
-             <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">listForTest</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">"Short tab"</span><span class="o">,</span> <span class="s">"Long tab"</span><span class="o">);</span>
-             <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabDynamicHeightBasedOnContent</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">assertTabsTitles</span><span class="o">(</span><span class="n">listForTest</span><span class="o">);</span>
+          <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">listForTest</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">"Short tab"</span><span class="o">,</span> <span class="s">"Long tab"</span><span class="o">);</span>
+          <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabDynamicHeightBasedOnContent</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">assertTabsTitles</span><span class="o">(</span><span class="n">listForTest</span><span class="o">);</span>
       <span class="o">}</span>
 
       <span class="nd">@Test</span>
       <span class="kd">public</span> <span class="kt">void</span> <span class="nf">verifyDynamicHeightBasedOnContentsTabPanelContentByNumber</span><span class="o">()</span> <span class="o">{</span>
-             <span class="kt">int</span> <span class="n">tabNumberForTest</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
-             <span class="n">String</span> <span class="n">stringForTest</span> <span class="o">=</span> <span class="s">"Large content"</span><span class="o">;</span>
-             <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabDynamicHeightBasedOnContent</span><span class="o">.</span><span class="na">clickTab</span><span class="o">(</span><span class="n">tabNumberForTest</span><span class="o">);</span>
-             <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabDynamicHeightBasedOnContent</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">assertTabPanelContent</span><span class="o">(</span><span class="n">stringForTest</span><span class="o">);</span>
+          <span class="kt">int</span> <span class="n">tabNumberForTest</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+          <span class="n">String</span> <span class="n">stringForTest</span> <span class="o">=</span> <span class="s">"Large content"</span><span class="o">;</span>
+          <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabDynamicHeightBasedOnContent</span><span class="o">.</span><span class="na">clickTab</span><span class="o">(</span><span class="n">tabNumberForTest</span><span class="o">);</span>
+          <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabDynamicHeightBasedOnContent</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">assertTabPanelContent</span><span class="o">(</span><span class="n">stringForTest</span><span class="o">);</span>
       <span class="o">}</span>
 </code></pre>
 <p>By default, the tab group will not change its height to the height of the currently active tab. 
@@ -12388,18 +12388,18 @@ mat-primary mat-tab-group-dynamic-height"</span><span class="nt">&gt;&lt;/mat-ta
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"#tab-with-headers-on-the-bottom"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="n">TabGroup</span> <span class="n">tabWithHeadersOnTheBottom</span><span class="o">;</span>
 
-      <span class="nd">@Test</span>
-        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">verifyTabsWithHeadersOnTheBottomTitles</span><span class="o">()</span> <span class="o">{</span>
-            <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabWithHeadersOnTheBottom</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">assertTabsTitles</span><span class="o">(</span><span class="n">TITLES_DEFAULT_LIST</span><span class="o">);</span>
-        <span class="o">}</span>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">verifyTabsWithHeadersOnTheBottomTitles</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabWithHeadersOnTheBottom</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">assertTabsTitles</span><span class="o">(</span><span class="n">TITLES_DEFAULT_LIST</span><span class="o">);</span>
+    <span class="o">}</span>
 
-        <span class="nd">@Test</span>
-        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">verifyTabWithHeadersOnTheBottomPanelContentByNumber</span><span class="o">()</span> <span class="o">{</span>
-            <span class="kt">int</span> <span class="n">tabNumberForTest</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
-            <span class="n">String</span> <span class="n">stringForTest</span> <span class="o">=</span> <span class="n">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="n">DYNAMIC_CONTENT</span><span class="o">,</span> <span class="n">tabNumberForTest</span><span class="o">);</span>
-            <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabWithHeadersOnTheBottom</span><span class="o">.</span><span class="na">clickTab</span><span class="o">(</span><span class="n">tabNumberForTest</span><span class="o">);</span>
-            <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabWithHeadersOnTheBottom</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">assertTabPanelContent</span><span class="o">(</span><span class="n">stringForTest</span><span class="o">);</span>
-        <span class="o">}</span>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">verifyTabWithHeadersOnTheBottomPanelContentByNumber</span><span class="o">()</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">tabNumberForTest</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
+        <span class="n">String</span> <span class="n">stringForTest</span> <span class="o">=</span> <span class="n">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="n">DYNAMIC_CONTENT</span><span class="o">,</span> <span class="n">tabNumberForTest</span><span class="o">);</span>
+        <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabWithHeadersOnTheBottom</span><span class="o">.</span><span class="na">clickTab</span><span class="o">(</span><span class="n">tabNumberForTest</span><span class="o">);</span>
+        <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabWithHeadersOnTheBottom</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">assertTabPanelContent</span><span class="o">(</span><span class="n">stringForTest</span><span class="o">);</span>
+    <span class="o">}</span>
 </code></pre>
 <p><img src="images/angular/tab/tabs_with_bottom_headers.PNG" alt="Tabs examples" /></p>
 <pre class="highlight html tab-html"><code><span class="nt">&lt;mat-tab-group</span> <span class="na">_ngcontent-sbh-c353</span>  <span class="na">id=</span><span class="s">"tab-with-headers-on-the-bottom"</span> <span class="na">headerposition=</span><span class="s">"below"</span> 
@@ -12444,24 +12444,24 @@ mat-primary mat-tab-group-dynamic-height"</span><span class="nt">&gt;&lt;/mat-ta
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"#tabs-with-lazy-loaded-content"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="n">TabGroup</span> <span class="n">tabsWithLazyLoadedContent</span><span class="o">;</span>
 
-      <span class="nd">@Test</span>
-        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">verifyTabWithLazyLoadedContent</span><span class="o">()</span> <span class="o">{</span>
-            <span class="kt">int</span> <span class="n">tabNumberForTest</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
-            <span class="n">refresh</span><span class="o">();</span>
-            <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabsWithLazyLoadedContent</span><span class="o">.</span><span class="na">clickTab</span><span class="o">(</span><span class="n">tabNumberForTest</span><span class="o">);</span>
-            <span class="n">SimpleDateFormat</span> <span class="n">dateTimeInGMT</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SimpleDateFormat</span><span class="o">(</span><span class="s">"MMM d, yyyy, h:mm:ss aa"</span><span class="o">);</span>
-            <span class="n">dateTimeInGMT</span><span class="o">.</span><span class="na">setTimeZone</span><span class="o">(</span><span class="n">TimeZone</span><span class="o">.</span><span class="na">getTimeZone</span><span class="o">(</span><span class="s">"GMT+3"</span><span class="o">));</span>
-            <span class="n">String</span> <span class="n">timeForTest</span> <span class="o">=</span> <span class="n">dateTimeInGMT</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="k">new</span> <span class="n">Date</span><span class="o">());</span>
-            <span class="n">String</span> <span class="n">stringForTest</span> <span class="o">=</span> <span class="n">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">"Content %s - Loaded: %s"</span><span class="o">,</span> <span class="n">tabNumberForTest</span><span class="o">,</span> <span class="n">timeForTest</span><span class="o">);</span>
-            <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabsWithLazyLoadedContent</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">assertTabPanelContent</span><span class="o">(</span><span class="n">stringForTest</span><span class="o">);</span>
-        <span class="o">}</span>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">verifyTabWithLazyLoadedContent</span><span class="o">()</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">tabNumberForTest</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
+        <span class="n">refresh</span><span class="o">();</span>
+        <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabsWithLazyLoadedContent</span><span class="o">.</span><span class="na">clickTab</span><span class="o">(</span><span class="n">tabNumberForTest</span><span class="o">);</span>
+        <span class="n">SimpleDateFormat</span> <span class="n">dateTimeInGMT</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SimpleDateFormat</span><span class="o">(</span><span class="s">"MMM d, yyyy, h:mm:ss aa"</span><span class="o">);</span>
+        <span class="n">dateTimeInGMT</span><span class="o">.</span><span class="na">setTimeZone</span><span class="o">(</span><span class="n">TimeZone</span><span class="o">.</span><span class="na">getTimeZone</span><span class="o">(</span><span class="s">"GMT+3"</span><span class="o">));</span>
+        <span class="n">String</span> <span class="n">timeForTest</span> <span class="o">=</span> <span class="n">dateTimeInGMT</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="k">new</span> <span class="n">Date</span><span class="o">());</span>
+        <span class="n">String</span> <span class="n">stringForTest</span> <span class="o">=</span> <span class="n">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">"Content %s - Loaded: %s"</span><span class="o">,</span> <span class="n">tabNumberForTest</span><span class="o">,</span> <span class="n">timeForTest</span><span class="o">);</span>
+        <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabsWithLazyLoadedContent</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">assertTabPanelContent</span><span class="o">(</span><span class="n">stringForTest</span><span class="o">);</span>
+    <span class="o">}</span>
 
-        <span class="nd">@Test</span>
-        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">activeTabWithLazyLoadedContentIsHighlighted</span><span class="o">()</span> <span class="o">{</span>
-            <span class="kt">int</span> <span class="n">tabNumberForTest</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
-            <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabsWithLazyLoadedContent</span><span class="o">.</span><span class="na">clickTab</span><span class="o">(</span><span class="n">tabNumberForTest</span><span class="o">);</span>
-            <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabsWithLazyLoadedContent</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">assertTabIsHighlighted</span><span class="o">(</span><span class="n">tabNumberForTest</span><span class="o">);</span>
-        <span class="o">}</span>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">activeTabWithLazyLoadedContentIsHighlighted</span><span class="o">()</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">tabNumberForTest</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+        <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabsWithLazyLoadedContent</span><span class="o">.</span><span class="na">clickTab</span><span class="o">(</span><span class="n">tabNumberForTest</span><span class="o">);</span>
+        <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabsWithLazyLoadedContent</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">assertTabIsHighlighted</span><span class="o">(</span><span class="n">tabNumberForTest</span><span class="o">);</span>
+    <span class="o">}</span>
 </code></pre>
 <p>By default, the tab contents are eagerly loaded. Eagerly loaded tabs will initalize the child
 components but not inject them into the DOM until the tab is activated.</p>
@@ -12578,18 +12578,18 @@ during initialization, it is advised to lazy load the tab&#39;s content.</p>
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"#tabs-async-loading-content"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="n">TabGroup</span> <span class="n">tabsAsyncLoadingContent</span><span class="o">;</span>
 
-     <span class="nd">@Test</span>
-         <span class="kd">public</span> <span class="kt">void</span> <span class="nf">verifyCustomThemeAsyncLoadingContentTabsTitles</span><span class="o">()</span> <span class="o">{</span>
-             <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabsAsyncLoadingContent</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">assertTabsTitles</span><span class="o">(</span><span class="n">TITLES_DEFAULT_LIST</span><span class="o">);</span>
-         <span class="o">}</span>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">verifyCustomThemeAsyncLoadingContentTabsTitles</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabsAsyncLoadingContent</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">assertTabsTitles</span><span class="o">(</span><span class="n">TITLES_DEFAULT_LIST</span><span class="o">);</span>
+    <span class="o">}</span>
 
-         <span class="nd">@Test</span>
-         <span class="kd">public</span> <span class="kt">void</span> <span class="nf">verifyAsyncLoadingContentTabPanelContentByNumber</span><span class="o">()</span> <span class="o">{</span>
-             <span class="kt">int</span> <span class="n">tabNumberForTest</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
-             <span class="n">String</span> <span class="n">stringForTest</span> <span class="o">=</span> <span class="n">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="n">DYNAMIC_CONTENT</span><span class="o">,</span> <span class="n">tabNumberForTest</span><span class="o">);</span>
-             <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabsAsyncLoadingContent</span><span class="o">.</span><span class="na">clickTab</span><span class="o">(</span><span class="n">tabNumberForTest</span><span class="o">);</span>
-             <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabsAsyncLoadingContent</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">assertTabPanelContent</span><span class="o">(</span><span class="n">stringForTest</span><span class="o">);</span>
-         <span class="o">}</span>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">verifyAsyncLoadingContentTabPanelContentByNumber</span><span class="o">()</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">tabNumberForTest</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
+        <span class="n">String</span> <span class="n">stringForTest</span> <span class="o">=</span> <span class="n">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="n">DYNAMIC_CONTENT</span><span class="o">,</span> <span class="n">tabNumberForTest</span><span class="o">);</span>
+        <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabsAsyncLoadingContent</span><span class="o">.</span><span class="na">clickTab</span><span class="o">(</span><span class="n">tabNumberForTest</span><span class="o">);</span>
+        <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabsAsyncLoadingContent</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">assertTabPanelContent</span><span class="o">(</span><span class="n">stringForTest</span><span class="o">);</span>
+    <span class="o">}</span>
 </code></pre>
 <p><img src="images/angular/tab/tabs_async_loading_tab_content.PNG" alt="Tabs examples" /></p>
 <pre class="highlight html tab-html"><code><span class="nt">&lt;mat-tab-group</span> <span class="na">_ngcontent-sbh-c356</span> <span class="na">id=</span><span class="s">"tabs-async-loading-content"</span> <span class="na">class=</span><span class="s">"mat-tab-group mat-primary"</span><span class="nt">&gt;&lt;/mat-tab-group&gt;</span>
@@ -12633,19 +12633,19 @@ during initialization, it is advised to lazy load the tab&#39;s content.</p>
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"#tabs-nav-bar"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="n">TabGroup</span> <span class="n">tabsNavBar</span><span class="o">;</span>
 
-     <span class="nd">@Test</span>
-       <span class="kd">public</span> <span class="kt">void</span> <span class="nf">verifyTabWithLinkIsHighLighted</span><span class="o">()</span> <span class="o">{</span>
-           <span class="n">String</span> <span class="n">tabTitleForTest</span> <span class="o">=</span> <span class="s">"Third"</span><span class="o">;</span>
-           <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabsNavBar</span><span class="o">.</span><span class="na">clickTabLink</span><span class="o">(</span><span class="n">tabTitleForTest</span><span class="o">);</span>
-           <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabsNavBar</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">assertTabWithLinkIsHighlighted</span><span class="o">(</span><span class="n">tabTitleForTest</span><span class="o">);</span>
-       <span class="o">}</span>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">verifyTabWithLinkIsHighLighted</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">String</span> <span class="n">tabTitleForTest</span> <span class="o">=</span> <span class="s">"Third"</span><span class="o">;</span>
+        <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabsNavBar</span><span class="o">.</span><span class="na">clickTabLink</span><span class="o">(</span><span class="n">tabTitleForTest</span><span class="o">);</span>
+        <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabsNavBar</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">assertTabWithLinkIsHighlighted</span><span class="o">(</span><span class="n">tabTitleForTest</span><span class="o">);</span>
+    <span class="o">}</span>
 
-        <span class="nd">@Test</span>
-        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">verifyTabWithLinkBackgroundColor</span><span class="o">()</span> <span class="o">{</span>
-            <span class="n">tabsSection</span><span class="o">.</span><span class="na">toggleBackgroundButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
-            <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabsNavBar</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">attr</span><span class="o">(</span><span class="n">CLASS_ATTR</span><span class="o">,</span> <span class="s">"mat-tab-nav-bar mat-tab-header mat-primary "</span> <span class="o">+</span>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">verifyTabWithLinkBackgroundColor</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">tabsSection</span><span class="o">.</span><span class="na">toggleBackgroundButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">tabsSection</span><span class="o">.</span><span class="na">tabsNavBar</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">attr</span><span class="o">(</span><span class="n">CLASS_ATTR</span><span class="o">,</span> <span class="s">"mat-tab-nav-bar mat-tab-header mat-primary "</span> <span class="o">+</span>
                     <span class="s">"mat-background-primary"</span><span class="o">);</span>
-        <span class="o">}</span>
+    <span class="o">}</span>
 </code></pre>
 <p><img src="images/angular/tab/tabs_with_nav_bar.PNG" alt="Tabs examples" /></p>
 <pre class="highlight html tab-html"><code><span class="nt">&lt;nav</span> <span class="na">_ngcontent-sbh-c357</span> <span class="na">id=</span><span class="s">"tabs-nav-bar"</span> <span class="na">class=</span><span class="s">"mat-tab-nav-bar mat-tab-header mat-primary"</span><span class="nt">&gt;&lt;/nav&gt;</span>

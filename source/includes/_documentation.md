@@ -5030,6 +5030,64 @@ Badge is located in the following class:
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/BadgeTests.java" target="_blank">Here you can find Badge tests</a>
 
+### Tooltip
+
+```java 
+    @UI(".mat-tooltip")
+    public static Tooltip tooltip;
+        
+    @Test
+    public void basicTooltipTest() {
+        basicTooltipButton.hover();
+        tooltip.has().text("Petit a petit, l’oiseau fait son nid");
+    }
+
+    @Test
+    public void customPositionTooltipTest() {
+        Map<String, Tooltip.Position> position = new HashMap<>();
+        position.put("after", Tooltip.Position.RIGHT);
+        position.put("before", Tooltip.Position.LEFT);
+        position.put("above", Tooltip.Position.ABOVE);
+        position.put("below", Tooltip.Position.BELOW);
+        position.put("left", Tooltip.Position.LEFT);
+        position.put("right", Tooltip.Position.RIGHT);
+
+        position.forEach(
+                (k, v) -> {
+                    positionTooltipSelector.click();
+                    (new CdkOverlayContainer()).select(k);
+                    positionTooltipButton.hover();
+                    tooltip.has().position(v, positionTooltipButton);
+                }
+        );
+    }	
+```
+#### <a href="https://material.angular.io/components/tooltip/overview" target="_blank">Tooltip overview</a>
+
+Tooltip is located in the following class:
+
+- __Java__: _com.epam.jdi.light.angular.elements.common.Tooltip_
+
+![Tooltip](../images/angular/tooltip.PNG)
+
+```html
+<button mat-raised-button
+        matTooltip="Info about the action"
+        aria-label="Button that displays a tooltip when focused or hovered over">
+  Action
+</button>
+
+```
+   
+|Method | Description | Return Type
+--- | --- | ---
+**text()** | Get text | String
+**color()** | Get color | String
+**position(UIBaseElement<?> element)** | Get position relative to element | Position
+**is()** | Assert action | TooltipAssert
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/TooltipTests.java" target="_blank">Here you can find Tooltip tests</a>
+
 ## Angular Complex elements
 
 ### Radio Button

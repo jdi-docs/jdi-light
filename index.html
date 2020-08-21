@@ -596,6 +596,9 @@
                             <li>
 								<a href="#badge" class="toc-h2 h3 toc-link" data-title="Badge">Badge</a>
                             </li>
+                            <li>
+								<a href="#tooltip" class="toc-h2 h3 toc-link" data-title="Tooltip">Tooltip</a>
+                            </li>
                         </ul>
                   </li>
                   <li>
@@ -658,7 +661,7 @@
 								<a href="#spinner-buttons" class="toc-h2 h3 toc-link" data-title="Spinner Buttons">Spinner Buttons</a>
                             </li>
                             <li>
-								<a href="#tooltip" class="toc-h2 h3 toc-link" data-title="Tooltip">Tooltip</a>
+								<a href="#tooltip-2" class="toc-h2 h3 toc-link" data-title="Tooltip">Tooltip</a>
                             </li>
                             <li>
 								<a href="#image-2" class="toc-h2 h3 toc-link" data-title="Image">Image</a>
@@ -10432,7 +10435,78 @@ Methods available for Java in JDI Light:</p>
 <td>TextAssert</td>
 </tr>
 </tbody></table>
-<h4 id='here-you-can-find-badge-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/BadgeTests.java" target="_blank">Here you can find Badge tests</a></h4><h2 id='angular-complex-elements'>Angular Complex elements</h2><h3 id='radio-button'>Radio Button</h3><h4 id='radio-button-overview'><a href="https://material.angular.io/components/radio/overview" target="_blank">Radio button overview</a></h4>
+<h4 id='here-you-can-find-badge-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/BadgeTests.java" target="_blank">Here you can find Badge tests</a></h4><h3 id='tooltip'>Tooltip</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">".mat-tooltip"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Tooltip</span> <span class="n">tooltip</span><span class="o">;</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">basicTooltipTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">basicTooltipButton</span><span class="o">.</span><span class="na">hover</span><span class="o">();</span>
+        <span class="n">tooltip</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">assertTooltipText</span><span class="o">(</span><span class="s">"Petit a petit, l’oiseau fait son nid"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">customPositionTooltipTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Tooltip</span><span class="o">.</span><span class="na">Position</span><span class="o">&gt;</span> <span class="n">position</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
+        <span class="n">position</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"after"</span><span class="o">,</span> <span class="n">Tooltip</span><span class="o">.</span><span class="na">Position</span><span class="o">.</span><span class="na">RIGHT</span><span class="o">);</span>
+        <span class="n">position</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"before"</span><span class="o">,</span> <span class="n">Tooltip</span><span class="o">.</span><span class="na">Position</span><span class="o">.</span><span class="na">LEFT</span><span class="o">);</span>
+        <span class="n">position</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"above"</span><span class="o">,</span> <span class="n">Tooltip</span><span class="o">.</span><span class="na">Position</span><span class="o">.</span><span class="na">ABOVE</span><span class="o">);</span>
+        <span class="n">position</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"below"</span><span class="o">,</span> <span class="n">Tooltip</span><span class="o">.</span><span class="na">Position</span><span class="o">.</span><span class="na">BELOW</span><span class="o">);</span>
+        <span class="n">position</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"left"</span><span class="o">,</span> <span class="n">Tooltip</span><span class="o">.</span><span class="na">Position</span><span class="o">.</span><span class="na">LEFT</span><span class="o">);</span>
+        <span class="n">position</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"right"</span><span class="o">,</span> <span class="n">Tooltip</span><span class="o">.</span><span class="na">Position</span><span class="o">.</span><span class="na">RIGHT</span><span class="o">);</span>
+
+        <span class="n">position</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span>
+                <span class="o">(</span><span class="n">k</span><span class="o">,</span> <span class="n">v</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="o">{</span>
+                    <span class="n">positionTooltipSelector</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+                    <span class="o">(</span><span class="k">new</span> <span class="n">CdkOverlayContainer</span><span class="o">()).</span><span class="na">select</span><span class="o">(</span><span class="n">k</span><span class="o">);</span>
+                    <span class="n">positionTooltipButton</span><span class="o">.</span><span class="na">hover</span><span class="o">();</span>
+                    <span class="n">tooltip</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">assertTooltipPosition</span><span class="o">(</span><span class="n">v</span><span class="o">,</span> <span class="n">positionTooltipButton</span><span class="o">);</span>
+                <span class="o">}</span>
+        <span class="o">);</span>
+    <span class="o">}</span>   
+</code></pre><h4 id='tooltip-overview'><a href="https://material.angular.io/components/tooltip/overview" target="_blank">Tooltip overview</a></h4>
+<p>Tooltip is located in the following class:</p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.angular.elements.common.Tooltip</em></li>
+</ul>
+
+<p><img src="images/angular/tooltip.PNG" alt="Tooltip" /></p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;button</span> <span class="na">mat-raised-button</span>
+        <span class="na">matTooltip=</span><span class="s">"Info about the action"</span>
+        <span class="na">aria-label=</span><span class="s">"Button that displays a tooltip when focused or hovered over"</span><span class="nt">&gt;</span>
+  Action
+<span class="nt">&lt;/button&gt;</span>
+
+</code></pre>
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>text()</strong></td>
+<td>Get text</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>color()</strong></td>
+<td>Get color</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>position(UIBaseElement&lt;?&gt; element)</strong></td>
+<td>Get position relative to element</td>
+<td>Position</td>
+</tr>
+<tr>
+<td><strong>is()</strong></td>
+<td>Assert action</td>
+<td>TooltipAssert</td>
+</tr>
+</tbody></table>
+<h4 id='here-you-can-find-tooltip-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/TooltipTests.java" target="_blank">Here you can find Tooltip tests</a></h4><h2 id='angular-complex-elements'>Angular Complex elements</h2><h3 id='radio-button'>Radio Button</h3><h4 id='radio-button-overview'><a href="https://material.angular.io/components/radio/overview" target="_blank">Radio button overview</a></h4>
 <p>Element that can be represented with one or more clickable buttons aiming to choose only one button of the group.</p>
 
 <p>Radio button is located in the following classes:</p>
@@ -16936,7 +17010,7 @@ Here is an example with provided Bootstrap v4.3 code:</p>
          Loading...
      <span class="nt">&lt;/button&gt;</span>
  <span class="nt">&lt;/div&gt;</span>
-</code></pre><h3 id='tooltip'>Tooltip</h3>
+</code></pre><h3 id='tooltip-2'>Tooltip</h3>
 <p><a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/tooltips/" target="_blank">Tooltip</a> is a hint that used in conjuction with a pointer.</p>
 
 <p><img src="images/bootstrap/tooltip_top.png" alt="Tooltip top" /></p>

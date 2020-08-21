@@ -5039,7 +5039,7 @@ Badge is located in the following class:
     @Test
     public void basicTooltipTest() {
         basicTooltipButton.hover();
-        tooltip.has().text("Petit a petit, l’oiseau fait son nid");
+        tooltip.has().assertTooltipText("Petit a petit, l’oiseau fait son nid");
     }
 
     @Test
@@ -5057,7 +5057,7 @@ Badge is located in the following class:
                     positionTooltipSelector.click();
                     (new CdkOverlayContainer()).select(k);
                     positionTooltipButton.hover();
-                    tooltip.has().position(v, positionTooltipButton);
+                    tooltip.has().assertTooltipPosition(v, positionTooltipButton);
                 }
         );
     }	

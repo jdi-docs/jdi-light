@@ -4099,7 +4099,21 @@ Divider icon:
 ![Divider icon](../images/angular/divider.png)
 
 ```html
-<mat-list class="mat-list mat-list-base"><mat-list-item class="mat-list-item mat-focus-indicator"><div class="mat-list-item-content"><div mat-ripple="" class="mat-ripple mat-list-item-ripple"></div><div class="mat-list-text"></div>Item 1</div></mat-list-item><mat-divider role="separator" class="mat-divider mat-divider-horizontal" aria-orientation="horizontal"></mat-divider><mat-list-item class="mat-list-item mat-focus-indicator"><div class="mat-list-item-content"><div mat-ripple="" class="mat-ripple mat-list-item-ripple"></div><div class="mat-list-text"></div>Item 2</div></mat-list-item><mat-divider role="separator" class="mat-divider mat-divider-horizontal" aria-orientation="horizontal"></mat-divider><mat-list-item class="mat-list-item mat-focus-indicator"><div class="mat-list-item-content"><div mat-ripple="" class="mat-ripple mat-list-item-ripple"></div><div class="mat-list-text"></div>Item 3</div></mat-list-item></mat-list>
+<mat-list class="mat-list mat-list-base">
+  <mat-list-item class="mat-list-item mat-focus-indicator">
+    <div class="mat-list-item-content">
+      <div mat-ripple="" class="mat-ripple mat-list-item-ripple"></div>
+      <div class="mat-list-text"></div>Item 1</div></mat-list-item>
+      <mat-divider role="separator" class="mat-divider mat-divider-horizontal" aria-orientation="horizontal"></mat-divider><mat-list-item class="mat-list-item mat-focus-indicator">
+    <div class="mat-list-item-content">
+      <div mat-ripple="" class="mat-ripple mat-list-item-ripple"></div>
+      <div class="mat-list-text"></div>Item 2</div></mat-list-item>
+      <mat-divider role="separator" class="mat-divider mat-divider-horizontal" aria-orientation="horizontal"></mat-divider><mat-list-item class="mat-list-item mat-focus-indicator">
+    <div class="mat-list-item-content">
+      <div mat-ripple="" class="mat-ripple mat-list-item-ripple"></div>
+      <div class="mat-list-text"></div>Item 3</div>
+  </mat-list-item>
+</mat-list>
 ```
    
 |Method | Description | Return Type

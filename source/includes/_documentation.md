@@ -4069,6 +4069,48 @@ More than that, it has a nested **StringCheckType** class with the following met
 
 ## Angular Common elements
 
+```java
+    @UI("#divider-list mat-divider")
+    public JList<Divider> dividers;
+
+    @Test
+    public void dividerDisplayTest() {
+        dividerSection.dividers.get(1).is().displayed();
+        dividerSection.dividers.get(2).is().displayed();
+    }
+
+    @Test
+    public void dividerAttrTest() {
+        dividerSection.dividers.get(1).is().attr("aria-orientation", "horizontal");
+        dividerSection.dividers.get(2).is().attr("aria-orientation", "horizontal");
+    }
+```
+
+### Divider
+
+#### <a href="https://material.angular.io/components/divider/overview" target="_blank">Divider overview</a>
+
+Icon is located in the following class:
+
+   - __Java__: _com.epam.jdi.light.ui.angular.elements.common.Divider
+   
+Divider icon:
+
+(../images/angular/divider.png)
+
+```html
+<mat-list class="mat-list mat-list-base"><mat-list-item class="mat-list-item mat-focus-indicator"><div class="mat-list-item-content"><div mat-ripple="" class="mat-ripple mat-list-item-ripple"></div><div class="mat-list-text"></div>Item 1</div></mat-list-item><mat-divider role="separator" class="mat-divider mat-divider-horizontal" aria-orientation="horizontal"></mat-divider><mat-list-item class="mat-list-item mat-focus-indicator"><div class="mat-list-item-content"><div mat-ripple="" class="mat-ripple mat-list-item-ripple"></div><div class="mat-list-text"></div>Item 2</div></mat-list-item><mat-divider role="separator" class="mat-divider mat-divider-horizontal" aria-orientation="horizontal"></mat-divider><mat-list-item class="mat-list-item mat-focus-indicator"><div class="mat-list-item-content"><div mat-ripple="" class="mat-ripple mat-list-item-ripple"></div><div class="mat-list-text"></div>Item 3</div></mat-list-item></mat-list>
+```
+   
+|Method | Description | Return Type
+--- | --- | ---
+**isDisplayed** | Verify state | boolean
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/DividerTests.java" target="_blank">Here you can find Divider tests</a>
+
+<br>  
+
+
 ```java 
     @FindBy(id="basic_icon")
     public static Icon basicIcon;

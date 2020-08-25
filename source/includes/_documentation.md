@@ -5460,6 +5460,79 @@ id="{{ 'dynamic-grid-list-' + tile.text.toLowerCase() }}"
 **css(String css, String value)** | Match passed value with the element css | IsAssert
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/GridListTests.java" target="_blank">Grid list java tests examples</a>
 
+### Card
+
+#### <a href="https://material.angular.io/components/card/overview" target="_blank">Card overview</a>
+
+Card is a content container for text, photos, and actions in the context of a single subject
+
+Card is located in the following classes:
+
+   - __Java__: com.epam.jdi.light.ui.bootstrap.elements.complex.Card
+   
+Card example code:
+
+```java 
+
+    //FindBy(id = "simple-card") public static RadioButtons basicRadioButtons;
+    @UI("#simple-card")
+    public static Card simpleCard;
+
+    //FindBy(id = "example-card") public static Card card;
+    @UI("#example-card")
+    public static Card card;
+
+    @Test
+    public void displayedBasicCardTest() {
+        cardSection.simpleCard.is().displayed();
+        cardSection.card.is().displayed();
+    }
+
+    @Test
+    public void attributeCardTest() {
+        cardSection.simpleCard.is().assertCardText("Simple card");
+        cardSection.card.is().assertAltImageAttribute("Photo of a Shiba Inu");
+        cardSection.card.is().assertSrcImageAttribute("https://material.angular.io/assets/img/examples/shiba2.jpg");
+    }
+
+    @Test
+    public void displayedCardTest() {
+        cardSection.card.getHeader().is().displayed();
+        cardSection.card.getHeaderText().is().displayed();
+        cardSection.card.getAvatar().is().displayed();
+        cardSection.card.getTitle().is().displayed();
+        cardSection.card.getTitle().is().text("Shiba Inu");
+        cardSection.card.getSubtitle().is().displayed();
+        cardSection.card.getSubtitle().is().text("Dog Breed");
+        cardSection.card.getImage().is().displayed();
+        cardSection.card.getContent().is().displayed();
+        cardSection.card.getContent().is().displayed();
+    }
+```
+
+![Card](../images/angular/card.png)
+
+```html 
+<mat-card class="mat-card mat-focus-indicator">Simple card</mat-card>
+```
+
+|Method | Description | Return Type
+--- | --- | ---
+**getHeader** | Get header | UIElement
+**getAvatar** | Get avatar | UIElement
+**getHeaderText** | Get header text | UIElement
+**getTitle** | Get title | UIElement
+**getSubtitle** | Get subtitle | UIElement
+**getImage** | Get image | UIElement
+**getContent** | Get content | UIElement
+**getButtons** | Get buttons | UIElement
+**getCardText** | Get card text | UIElement
+**getButtonByText** | Get button by text | UIElement
+**getButtonByNumber** | Get button by number | UIElement
+**is()** | Assert action | CardAssert 
+**displayed()** | Check that element is displayed | TextAssert
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/CardTests.java" target="_blank">Card java tests examples</a>
+
 ### Select 
 #### <a href="https://material.angular.io/components/select/overview" target="_blank">Select overview</a>
 

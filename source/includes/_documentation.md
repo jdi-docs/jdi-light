@@ -5469,8 +5469,6 @@ Card is a content container for text, photos, and actions in the context of a si
 Card is located in the following classes:
 
    - __Java__: com.epam.jdi.light.ui.bootstrap.elements.complex.Card
-   
-Card example code:
 
 ```java 
 

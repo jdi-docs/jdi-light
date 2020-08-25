@@ -4090,13 +4090,13 @@ More than that, it has a nested **StringCheckType** class with the following met
 
 #### <a href="https://material.angular.io/components/divider/overview" target="_blank">Divider overview</a>
 
-Icon is located in the following class:
+Divider is located in the following class:
 
    - __Java__: _com.epam.jdi.light.ui.angular.elements.common.Divider
    
 Divider icon:
 
-(../images/angular/divider.png)
+![Divider icon](../images/angular/basic_icon.png)
 
 ```html
 <mat-list class="mat-list mat-list-base"><mat-list-item class="mat-list-item mat-focus-indicator"><div class="mat-list-item-content"><div mat-ripple="" class="mat-ripple mat-list-item-ripple"></div><div class="mat-list-text"></div>Item 1</div></mat-list-item><mat-divider role="separator" class="mat-divider mat-divider-horizontal" aria-orientation="horizontal"></mat-divider><mat-list-item class="mat-list-item mat-focus-indicator"><div class="mat-list-item-content"><div mat-ripple="" class="mat-ripple mat-list-item-ripple"></div><div class="mat-list-text"></div>Item 2</div></mat-list-item><mat-divider role="separator" class="mat-divider mat-divider-horizontal" aria-orientation="horizontal"></mat-divider><mat-list-item class="mat-list-item mat-focus-indicator"><div class="mat-list-item-content"><div mat-ripple="" class="mat-ripple mat-list-item-ripple"></div><div class="mat-list-text"></div>Item 3</div></mat-list-item></mat-list>
@@ -4148,7 +4148,7 @@ Icon is located in the following class:
    
 There is two different icons in Angular: Basic icon and SVG icon:
 
-![Basic icon](../images/angular/basic_icon.png) ![Basic icon](../images/angular/svg_icon.png)
+![Basic icon](../images/angular/basic_icon.png) ![Svg icon](../images/angular/svg_icon.png)
 
 ```html
 <mat-icon _ngcontent-hkf-c334="" role="img" aria-hidden="false" aria-label="Example home icon" class="mat-icon notranslate material-icons mat-icon-no-color">home</mat-icon>

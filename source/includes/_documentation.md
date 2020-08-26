@@ -4919,24 +4919,30 @@ Button toggle is based on Basic Button. Basic Button is located in the following
 There are two different button toggles in Angular: Basic and Exclusive:
 
 ```java     
-    //@FindBy(id = "underline-button-toggle-button") public static Button basicButtonToggleUnderline;
-    @UI("#underline-button-toggle-button")
-    public static Button basicButtonToggleUnderline;
+    //@FindBy(id = "mat-button-toggle-group-font") public static basicButtonToggle;
+    @UI("#mat-button-toggle-group-font")
+    public static ButtonToggle basicButtonToggle;
 
     @Test
-    public void basicButtonToggleTest() {
-        basicButtonToggleUnderline.is().enabled();
-        basicButtonToggleUnderline.is().displayed();
-        basicButtonToggleUnderline.has().text("Underline");
+    public void verifyButtonToggle() {
+        basicButtonToggle.is().displayed();
+        basicButtonToggle.is().enabled();
+        basicButtonToggle.clickButtonToggleByValue(ITALIC);
+        basicButtonToggle.is().assertButtonToggleIsSelected(ITALIC);
+        basicButtonToggle.is().assertButtonToggleButtonIsPressed(ITALIC);
+        basicButtonToggle.is().assertButtonToggleButtonHasText(ITALIC);
     }
 
     @Test
-    public void basicUnderlineButtonToggleTest() {
-        String pressedAttribute = "aria-pressed";
-        basicButtonToggleUnderline.click();
-        basicButtonToggleUnderline.has().attr(pressedAttribute, "true");
-        basicButtonToggleUnderline.click();
-        basicButtonToggleUnderline.has().attr(pressedAttribute, "false");
+    public void verifyButtonToggleCombineSelection() {
+        basicButtonToggle.clickButtonToggleByValue(ITALIC);
+        basicButtonToggle.clickButtonToggleByValue(BOLD);
+        basicButtonToggle.clickButtonToggleByValue(UNDERLINE);
+        basicButtonToggle.is().assertButtonToggleIsSelected(ITALIC);
+        basicButtonToggle.is().assertButtonToggleIsSelected(BOLD);
+        basicButtonToggle.is().assertButtonToggleIsSelected(UNDERLINE);
+        basicButtonToggle.clickButtonToggleByValue(BOLD);
+        basicButtonToggle.is().assertButtonToggleIsNotSelected(BOLD);
     }
 ```
 
@@ -4944,7 +4950,7 @@ There are two different button toggles in Angular: Basic and Exclusive:
 
 ```html
 <mat-button-toggle _ngcontent-eoo-c327="" value="underline" id="underline-button-toggle" class="mat-button-toggle mat-focus-indicator mat-button-toggle-appearance-standard" tabindex="-1">
-    <button type="button" class="mat-button-toggle-button mat-focus-indicator" id="underline-button-toggle-button" tabindex="0" aria-pressed="false">
+    <button type="button" class="mat-button-toggle-button mat-focus-indicator" tabindex="0" aria-pressed="false">
         <div class="mat-button-toggle-label-content">Underline</div>
     </button>
     <div class="mat-button-toggle-focus-overlay"></div>
@@ -4954,52 +4960,37 @@ There are two different button toggles in Angular: Basic and Exclusive:
    
 |Method | Description | Return Type
 --- | --- | ---
-**click()** | Click the button | void
+**clickButtonToggleByValue()** | Click required button | void
 **is()** | Assert action | TextAssert
-**has()** | Assert action | TextAssert
-**attr()** | Check whether an element has attribute of specified name and with given value | IsAssert
-**displayed()** | Check that element is displayed |	TextAssert
 **enabled()** | Check that element is enabled | TextAssert
 **disabled()** | Check that element is disabled | TextAssert
 
 <br>
 
 ```java 
-    //@FindBy(id = "left-align-button-toggle-button") public Button exclusiveButtonToggleLeft;
-    @UI("#left-align-button-toggle-button")
-    public Button exclusiveButtonToggleLeft;
-
-    //@FindBy(id = "center-align-button-toggle-button") public Button exclusiveButtonToggleCenter;
-    @UI("#center-align-button-toggle-button")
-    public Button exclusiveButtonToggleCenter;
-
-    //@FindBy(id = "justify-align-button-toggle-button") public Button exclusiveButtonToggleJustify;
-    @UI("#justify-align-button-toggle-button")
-    public Button exclusiveButtonToggleJustify;
-
-    //@FindBy(css = "div.example-selected-value"") public Text selectedValue;
+    //@FindBy(id = "mat-button-toggle-group-align") public Button basicButtonToggleAlign;
+    @UI("#mat-button-toggle-group-align")
+    public static ButtonToggle basicButtonToggleAlign;
     @UI("div.example-selected-value")
-    public Text selectedValue;
+    public static Text selectedValue;
 
     @Test
-    public void exclusiveButtonToggleEnabledTest() {
-        exclusiveButtonToggleCenter.is().enabled();
-        exclusiveButtonToggleJustify.is().disabled();
+    public void verifyExclusiveButtonToggle() {
+         basicButtonToggleAlign.is().displayed();
+         basicButtonToggleAlign.is().enabled();
+         basicButtonToggleAlign.clickButtonToggleByValue(LEFT);
+         basicButtonToggleAlign.is().assertButtonToggleIsSelected(LEFT);
+         buttonToggleSection.selectedValue.has().text("Selected value: left");
     }
-
+    
     @Test
-    public void exclusiveButtonToggleTest() {
-        exclusiveButtonToggleLeft.click();
-        exclusiveButtonToggleLeft.has().attr(pressedAttribute, buttonIsPressed);
-        exclusiveButtonToggleCenter.click();
-        exclusiveButtonToggleCenter.has().attr(pressedAttribute, buttonIsPressed);
-        exclusiveButtonToggleLeft.has().attr(pressedAttribute, buttonIsNotPressed);
-    }
-
-    @Test
-    public void exclusiveButtonToggleSelectedValueTest() {
-        exclusiveButtonToggleLeft.click();
-        selectedValue.has().text("Selected value: left");
+    public void verifyExclusiveButtonToggleSeparateSelection() {
+        basicButtonToggleAlign.clickButtonToggleByValue(CENTER);
+        basicButtonToggleAlign.clickButtonToggleByValue(RIGHT);
+        basicButtonToggleAlign.clickButtonToggleByValue(LEFT);
+        basicButtonToggleAlign.is().assertButtonToggleIsSelected(LEFT);
+        basicButtonToggleAlign.is().assertButtonToggleIsNotSelected(RIGHT);
+        basicButtonToggleAlign.is().assertButtonToggleIsNotSelected(CENTER);
     }
 ```  
 
@@ -5007,7 +4998,7 @@ There are two different button toggles in Angular: Basic and Exclusive:
 
 ```html
 <mat-button-toggle _ngcontent-pwh-c328="" value="left" aria-label="Text align left" id="left-align-button-toggle" class="mat-button-toggle mat-focus-indicator mat-button-toggle-appearance-standard" tabindex="-1">
-    <button type="button" class="mat-button-toggle-button mat-focus-indicator" id="left-align-button-toggle-button" tabindex="0" aria-pressed="false" name="mat-button-toggle-group-7" aria-label="Text align left">
+    <button type="button" class="mat-button-toggle-button mat-focus-indicator"  tabindex="0" aria-pressed="false" name="mat-button-toggle-group-7" aria-label="Text align left">
         <div class="mat-button-toggle-label-content"><mat-icon _ngcontent-pwh-c328="" role="img" class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true">format_align_left</mat-icon></div>
     </button>
     <div class="mat-button-toggle-focus-overlay"></div>
@@ -5017,17 +5008,15 @@ There are two different button toggles in Angular: Basic and Exclusive:
 
 |Method | Description | Return Type
 --- | --- | ---
-**click()** | Click the button | void
+**clickButtonToggleByValue()** | Click required button | void
 **is()** | Assert action | TextAssert
 **has()** | Assert action | TextAssert
-**attr()** | Check whether an element has attribute of specified name and with given value | IsAssert
-**displayed()** | Check that element is displayed |	TextAssert
 **enabled()** | Check that element is enabled | TextAssert
 **disabled()** | Check that element is disabled | TextAssert
 **text()** | Check whether a text matches a pattern | IsAssert
 
-
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/1959-button-toggle-tests/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/ButtonToggleTest.java" target="_blank">Here you can find Button toggle tests</a>
+---
 
 ### Badge
 

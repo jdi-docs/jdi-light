@@ -4069,6 +4069,62 @@ More than that, it has a nested **StringCheckType** class with the following met
 
 ## Angular Common elements
 
+```java
+    @UI("#divider-list mat-divider")
+    public JList<Divider> dividers;
+
+    @Test
+    public void dividerDisplayTest() {
+        dividerSection.dividers.get(1).is().displayed();
+        dividerSection.dividers.get(2).is().displayed();
+    }
+
+    @Test
+    public void dividerAttrTest() {
+        dividerSection.dividers.get(1).is().attr("aria-orientation", "horizontal");
+        dividerSection.dividers.get(2).is().attr("aria-orientation", "horizontal");
+    }
+```
+
+### Divider
+
+#### <a href="https://material.angular.io/components/divider/overview" target="_blank">Divider overview</a>
+
+Divider is located in the following class:
+
+   - __Java__: _com.epam.jdi.light.ui.angular.elements.common.Divider
+   
+Divider icon:
+
+![Divider icon](../images/angular/divider.png)
+
+```html
+<mat-list class="mat-list mat-list-base">
+  <mat-list-item class="mat-list-item mat-focus-indicator">
+    <div class="mat-list-item-content">
+      <div mat-ripple="" class="mat-ripple mat-list-item-ripple"></div>
+      <div class="mat-list-text"></div>Item 1</div></mat-list-item>
+      <mat-divider role="separator" class="mat-divider mat-divider-horizontal" aria-orientation="horizontal"></mat-divider><mat-list-item class="mat-list-item mat-focus-indicator">
+    <div class="mat-list-item-content">
+      <div mat-ripple="" class="mat-ripple mat-list-item-ripple"></div>
+      <div class="mat-list-text"></div>Item 2</div></mat-list-item>
+      <mat-divider role="separator" class="mat-divider mat-divider-horizontal" aria-orientation="horizontal"></mat-divider><mat-list-item class="mat-list-item mat-focus-indicator">
+    <div class="mat-list-item-content">
+      <div mat-ripple="" class="mat-ripple mat-list-item-ripple"></div>
+      <div class="mat-list-text"></div>Item 3</div>
+  </mat-list-item>
+</mat-list>
+```
+   
+|Method | Description | Return Type
+--- | --- | ---
+**isDisplayed** | Verify state | boolean
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/DividerTests.java" target="_blank">Here you can find Divider tests</a>
+
+<br>  
+
+
 ```java 
     @FindBy(id="basic_icon")
     public static Icon basicIcon;
@@ -4106,7 +4162,7 @@ Icon is located in the following class:
    
 There is two different icons in Angular: Basic icon and SVG icon:
 
-![Basic icon](../images/angular/basic_icon.png) ![Basic icon](../images/angular/svg_icon.png)
+![Basic icon](../images/angular/basic_icon.png) ![Svg icon](../images/angular/svg_icon.png)
 
 ```html
 <mat-icon _ngcontent-hkf-c334="" role="img" aria-hidden="false" aria-label="Example home icon" class="mat-icon notranslate material-icons mat-icon-no-color">home</mat-icon>
@@ -5030,6 +5086,7 @@ Badge is located in the following class:
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/BadgeTests.java" target="_blank">Here you can find Badge tests</a>
 
+
 ### Progress bar
 #### <a href="https://material.angular.io/components/checkbox/overview" target="_blank">Progress bar overview</a>
 
@@ -5493,6 +5550,65 @@ List of the available **Slider** methods:
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/AutocompleteTests.java" target="_blank">Slider java tests examples</a>
 
+=======
+### Tooltip
+
+```java 
+    @UI(".mat-tooltip")
+    public static Tooltip tooltip;
+        
+    @Test
+    public void basicTooltipTest() {
+        basicTooltipButton.hover();
+        tooltip.has().assertTooltipText("Petit a petit, l’oiseau fait son nid");
+    }
+
+    @Test
+    public void customPositionTooltipTest() {
+        Map<String, Tooltip.Position> position = new HashMap<>();
+        position.put("after", Tooltip.Position.RIGHT);
+        position.put("before", Tooltip.Position.LEFT);
+        position.put("above", Tooltip.Position.ABOVE);
+        position.put("below", Tooltip.Position.BELOW);
+        position.put("left", Tooltip.Position.LEFT);
+        position.put("right", Tooltip.Position.RIGHT);
+
+        position.forEach(
+                (k, v) -> {
+                    positionTooltipSelector.click();
+                    (new CdkOverlayContainer()).select(k);
+                    positionTooltipButton.hover();
+                    tooltip.has().assertTooltipPosition(v, positionTooltipButton);
+                }
+        );
+    }	
+```
+#### <a href="https://material.angular.io/components/tooltip/overview" target="_blank">Tooltip overview</a>
+
+Tooltip is located in the following class:
+
+- __Java__: _com.epam.jdi.light.angular.elements.common.Tooltip_
+
+![Tooltip](../images/angular/tooltip.PNG)
+
+```html
+<button mat-raised-button
+        matTooltip="Info about the action"
+        aria-label="Button that displays a tooltip when focused or hovered over">
+  Action
+</button>
+
+```
+   
+|Method | Description | Return Type
+--- | --- | ---
+**text()** | Get text | String
+**color()** | Get color | String
+**position(UIBaseElement<?> element)** | Get position relative to element | Position
+**is()** | Assert action | TooltipAssert
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/TooltipTests.java" target="_blank">Here you can find Tooltip tests</a>
+
 
 ## Angular Complex elements
 
@@ -5823,6 +5939,77 @@ id="{{ 'dynamic-grid-list-' + tile.text.toLowerCase() }}"
 **has()** | Assert that element has attribute | TextAssert 
 **css(String css, String value)** | Match passed value with the element css | IsAssert
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/GridListTests.java" target="_blank">Grid list java tests examples</a>
+
+### Card
+
+#### <a href="https://material.angular.io/components/card/overview" target="_blank">Card overview</a>
+
+Card is a content container for text, photos, and actions in the context of a single subject
+
+Card is located in the following classes:
+
+   - __Java__: com.epam.jdi.light.ui.bootstrap.elements.complex.Card
+
+```java 
+
+    //FindBy(id = "simple-card") public static RadioButtons basicRadioButtons;
+    @UI("#simple-card")
+    public static Card simpleCard;
+
+    //FindBy(id = "example-card") public static Card card;
+    @UI("#example-card")
+    public static Card card;
+
+    @Test
+    public void displayedBasicCardTest() {
+        cardSection.simpleCard.is().displayed();
+        cardSection.card.is().displayed();
+    }
+
+    @Test
+    public void attributeCardTest() {
+        cardSection.simpleCard.is().assertCardText("Simple card");
+        cardSection.card.is().assertAltImageAttribute("Photo of a Shiba Inu");
+        cardSection.card.is().assertSrcImageAttribute("https://material.angular.io/assets/img/examples/shiba2.jpg");
+    }
+
+    @Test
+    public void displayedCardTest() {
+        cardSection.card.getHeader().is().displayed();
+        cardSection.card.getHeaderText().is().displayed();
+        cardSection.card.getAvatar().is().displayed();
+        cardSection.card.getTitle().is().displayed();
+        cardSection.card.getTitle().is().text("Shiba Inu");
+        cardSection.card.getSubtitle().is().displayed();
+        cardSection.card.getSubtitle().is().text("Dog Breed");
+        cardSection.card.getImage().is().displayed();
+        cardSection.card.getContent().is().displayed();
+        cardSection.card.getContent().is().displayed();
+    }
+```
+
+![Card](../images/angular/card.png)
+
+```html 
+<mat-card class="mat-card mat-focus-indicator">Simple card</mat-card>
+```
+
+|Method | Description | Return Type
+--- | --- | ---
+**getHeader** | Get header | UIElement
+**getAvatar** | Get avatar | UIElement
+**getHeaderText** | Get header text | UIElement
+**getTitle** | Get title | UIElement
+**getSubtitle** | Get subtitle | UIElement
+**getImage** | Get image | UIElement
+**getContent** | Get content | UIElement
+**getButtons** | Get buttons | UIElement
+**getCardText** | Get card text | UIElement
+**getButtonByText** | Get button by text | UIElement
+**getButtonByNumber** | Get button by number | UIElement
+**is()** | Assert action | CardAssert 
+**displayed()** | Check that element is displayed | TextAssert
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/CardTests.java" target="_blank">Card java tests examples</a>
 
 ### Select 
 #### <a href="https://material.angular.io/components/select/overview" target="_blank">Select overview</a>
@@ -7301,6 +7488,218 @@ during initialization, it is advised to lazy load the tab's content.
 **getTabLinksCount()** | return number of tabs | int
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/tabgroup" target="_blank">Here you can find Tabs tests</a>
+
+### Menu
+
+#### <a href="https://material.angular.io/components/menu/overview" target="_blank">Menu overview</a>
+
+Menu element represents a group of commands that a user can perform or activate.
+
+Menu is located in the following classes:
+
+   - __Java__: com.epam.jdi.light.ui.bootstrap.elements.complex.Menu
+   
+There are three different menu in Angular: basic menu, menu with icons and nested menu.
+
+See an example with HTML code describing basic menu element.
+
+```java 
+//FindBy(css = "#basic-menu-button")
+public static NestedDropdownMenu basicMenu; 
+    
+//FindBy(css = "#basic-menu-selected-option")
+public static Text basicMenuSelectedOption;
+
+@Test
+public void basicMenuTest() {
+    basicMenu.is().displayed();
+}
+
+@Test
+public void basicMenuSelectTest() {
+    basicMenu.select("Item 1");
+    basicMenuSelectedOption.is().text("Item 1");
+}
+
+@Test
+public void checkBasicMenuAvailableOptionsTest() {
+    String[] expectedList = BASIC_MENU_VALUES;
+    basicMenu.expand();
+    List<String> actualList = basicMenu.values();
+    for (int i = 0; i < expectedList.length; i++) {
+    basicMenu.is().checkValue(expectedList[i], (actualList.get(i)));
+}
+```
+
+![Basic menu](../images/angular/basic_menu.png)
+
+```html 
+<button aria-haspopup="true" id="nested-menu-button">
+    <span>Animal index</span>
+</button>
+<div class="mat-menu-content">
+    <button aria-haspopup="true" role="menuitem" aria-disabled="false">"Vertebrates"</button>
+    <button aria-haspopup="true" role="menuitem" aria-disabled="false">"Invertebrates"</button>
+</div>
+```
+ 
+|Method | Description | Return Type
+--- | --- | ---
+**expand()** | Expand menu | void
+**select()** | Select a certain element | UIElement
+**values()** | Get list of values | List
+**checkValue()** | Check that element value is correct | boolean
+**is()** | Assert action | NestedDropdownMenuAssert
+**displayed()** | Check that element is displayed | TextAssert
+**text()** | Assert that element has presented text | TextAssert
+
+See an example with HTML code describing menu with icons element.
+ 
+```java 
+//FindBy(css = "#menu-with-icons-button")
+public static NestedDropdownMenu menuWithIcons; 
+    
+//FindBy(css = "#icons-menu-selected-option")
+public static Text iconsMenuSelectedOption;
+
+@Test
+public void menuWithIconsTest() {
+    menuWithIcons.is().displayed();
+}
+
+@Test
+public void menuWithIconsSelectTest() {
+    menuWithIcons.expand();
+    menuWithIcons.selectForMenuWithIcons("Redial");
+    iconsMenuSelectedOption.is().text("Redial");
+}
+
+@Test
+public void disabledMenuWithIconsOptionTest() {
+    menuWithIcons.expand();
+    menuWithIcons.is().isDisabledMenuWithIconsOption("Check voice mail");
+}
+
+@Test
+public void checkMenuWithIconsAvailableOptionsTest() {
+    String[] expectedList = MENU_WITH_ICONS_VALUES;
+    List<String> actualList = menuWithIcons.valuesForMenuWithIcons();
+    menuWithIcons.expand();
+    for (int i = 0; i < expectedList.length; i++) {
+        menuWithIcons.checkValue(expectedList[i], actualList.get(i));
+    }
+}
+```
+ 
+ ![Menu with icons](../images/angular/menu_with_icons.png) 
+ 
+```html 
+<button aria-haspopup="true" id="menu-with-icons-button">
+    <span>
+        <mat-icon role="img"></mat-icon>
+    </span>
+</button> 
+<div class="mat-menu-content"> 
+    <button role="menuitem" aria-disabled="false">
+        <mat-icon role="img"</mat-icon>
+            <span>Redial</span>
+    </button>
+    <button role="menuitem" aria-disabled="true">
+        <mat-icon role="img"</mat-icon>
+            <span>Check voice mail</span>
+    </button>
+    <button role="menuitem" aria-disabled="false">
+        <mat-icon role="img"</mat-icon>
+            <span>Disable alerts>/span>
+    </button>
+</div>
+```
+|Method | Description | Return Type
+--- | --- | ---
+**expand()** | Expand menu | void
+**selectForMenuWithIcons()** | Select a certain element | UIElement
+**valuesForMenuWithIcons()** | Get list of values | List
+**checkValue()** | Check that element value is correct | boolean
+**isDisabledMenuWithIconsOption()** | Check that element is disabled | boolean
+**is()** | Assert action | NestedDropdownMenuAssert
+**displayed()** | Check that element is displayed | TextAssert
+**text()** | Assert that element has presented text | TextAssert
+
+See an example with HTML code describing nested menu element.
+ 
+```java 
+//FindBy(css = "#nested-menu-button")
+public static NestedDropdownMenu nestedMenu;
+    
+//FindBy(css = "#nested-menu-selected-option-")
+public static Text nestedMenuSelectedOption;
+
+@Test
+public void nestedMenuTest() {
+    nestedMenu.is().displayed();
+    }
+
+@Test
+public void nestedMenuFirstNestingLayerSelectTest() {
+    nestedMenu.expand();
+    nestedMenu.select("Vertebrates");
+    nestedMenuSelectedOption.is().text("Vertebrates");
+}
+    
+@Test
+public void nestedMenuSecondNestingLayerSelectTest() {
+    nestedMenu.expand();
+    nestedMenu.select("Vertebrates", "Fishes");
+    nestedMenuSelectedOption.is().text("Fishes");
+}
+    
+@Test
+public void nestedMenuThirdNestingLayerSelectTest() {
+    nestedMenu.expand();
+    nestedMenu.select("Vertebrates", "Fishes", "Bala shark");
+    nestedMenuSelectedOption.is().text("Bala shark");
+}
+    
+@Test
+public void disabledNestedMenuOptionTest() {
+    nestedMenu.expand();
+    nestedMenu.is().isDisabledNestedMenuOption("Vertebrates", "Reptiles", "Velociraptor");
+}
+    
+@Test
+public void checkNestedMenuAvailableOptionsTest() {
+    String[] expectedList = NESTED_MENU_VALUES;
+    nestedMenu.expand();
+    List<String> actualList = nestedMenu.valuesForNestedMenu();
+    for (int i = 0; i < expectedList.length; i++) {
+        nestedMenu.is().checkValue(expectedList[i], actualList.get(i));
+    }
+}
+```
+ 
+ ![Nested menu](../images/angular/nested_menu.png) 
+ 
+```html 
+<button aria-haspopup="true" id="nested-menu-button">
+    <span>Animal index</span>
+</button> 
+<div class="mat-menu-content"> 
+    <button aria-haspopup="true" role="menuitem" aria-disabled="false">"Vertebrates"</button>
+    <button aria-haspopup="true" role="menuitem" aria-disabled="false">"Invertebrates"</button>
+</div>
+```
+|Method | Description | Return Type
+--- | --- | ---
+**expand()** | Expand menu | void
+**select()** | Select a certain element | UIElement
+**valuesForNestedMenu()** | Get list of values | List
+**checkValue()** | Check that element value is correct | boolean
+**isDisabledNestedMenuOption()** | Check that element is disabled | boolean
+**is()** | Assert action | NestedDropdownMenuAssert
+**displayed()** | Check that element is displayed | TextAssert
+**text()** | Assert that element has presented text | TextAssert
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/menu" target="_blank">Menu java tests examples</a>
 ---
 
 ## Bootstrap Common elements
@@ -8075,12 +8474,12 @@ Here is an example with provided Bootstrap v4.3 code:
     <input type="checkbox" class="custom-control-input" id="customCheckDisabled1" disabled="">
     <label class="custom-control-label" for="customCheckDisabled1">Check this custom checkbox</label>
 </div>
+
 <div class="custom-control custom-radio" id="customRadioDisabled2-div">
     <input type="radio" name="radioDisabled" id="customRadioDisabled2" class="custom-control-input" disabled="">
     <label class="custom-control-label" for="customRadioDisabled2">Toggle this custom radio</label>
 </div>
 ```
-
 
 |Method | Description | Return Type
 --- | --- | ---

@@ -4069,9 +4069,9 @@ More than that, it has a nested **StringCheckType** class with the following met
 
 ## Angular Common elements
 
-```java
+```java 
     @UI("#divider-list mat-divider")
-    public JList<Divider> dividers;
+    public class JList<Divider> dividers;
 
     @Test
     public void dividerDisplayTest() {
@@ -7489,6 +7489,745 @@ during initialization, it is advised to lazy load the tab's content.
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/tabgroup" target="_blank">Here you can find Tabs tests</a>
 
+### Datepicker 
+
+```java 
+//@FindBy(css = "#basic-datepicker")
+public static Datepicker basicDatepicker;
+
+@Test
+public void checkExpanded() {
+    basicDatepicker.expand();
+    basicDatepicker.is().expanded();
+}
+@Test
+public void checkEnabled() {
+    basicDatepicker.is().enabled();
+}
+@Test
+public void checkEnabledToggle() {
+    basicDatepicker.has().enabledToggle();
+}
+@Test
+public void checkEnabledInput() {
+    basicDatepicker.has().enabledInput();
+}
+@Test
+public void checkCollapsed() {
+    basicDatepicker.collapse();
+    basicDatepicker.is().collapsed();
+}
+@Test
+public void checkFocus() {
+    basicDatepicker.focus();
+    basicDatepicker.is().focused();
+}
+@Test
+public void checkTodayDayValue() {
+    basicDatepicker.has().todayDay(LocalDate.now().getDayOfMonth());
+}
+@Test
+public void checkSendKeysDate() {
+    basicDatepicker.sendKeys("11/25/2012");
+    basicDatepicker.is().date("11/25/2012");
+}
+@Test
+public void checkSelectedDate() {
+    basicDatepicker.setDate(LocalDate.of(1990, 11, 16));
+    basicDatepicker.is().selectedDate(LocalDate.of(1990, 11, 16));
+}
+@Test
+public void checkInputMonthDayYear() {
+    basicDatepicker.input("20-nov-2014");
+    basicDatepicker.is().month(Month.NOVEMBER).day(20).year(Year.of(2014));
+}
+@Test
+public void checkSelectedMonthDayYear() {
+    basicDatepicker.setText("04-OCTOBER-2000");
+    basicDatepicker.is().selectedMonth(Month.OCTOBER).selectedDay(4).selectedYear(Year.of(2000));
+}
+```
+#### <a href="https://material.angular.io/components/datepicker/overview" target="_blank">Datepicker overview</a>
+
+The datepicker allows users to enter a date either through text input, or by choosing a date from the calendar.
+It is made up of several components and directives that work together.
+Datepicker is located in the following class:
+ 
+  - __Java__: com.epam.jdi.light.angular.elements.complex.Datepicker
+
+A datepicker is composed of a text input and a calendar pop-up, connected via the `matDatepicker` property on the text 
+input. There is also an optional datepicker toggle button that gives the user an easy way to open the datepicker pop-up.
+
+This works exactly the same with an input that is part of an `<mat-form-field>` and the toggle can easily be used as a 
+prefix or suffix on the Material input.
+
+See examples with HTML code describing datepicker elements.
+
+![Basic Datepicker](../images/angular/basic_datepicker.png)
+
+```html 
+<mat-form-field>
+  <mat-label>Choose a date</mat-label>
+  <input matInput [matDatepicker]="picker" id="basic-datepicker">
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+```
+The `startView` property of `<mat-datepicker>` can be used to set the view that will show up when the calendar first 
+opens. It can be set to `month`, `year`, or `multi-year`; by default it will open to month view.
+
+The month, year, or range of years that the calendar opens to is determined by first checking if any date is currently 
+selected, if so it will open to the month or year containing that date.
+
+```java 
+//@FindBy(css = "#start-date-datepicker")
+public static Datepicker startDateDatepicker;
+
+@Test
+public void checkLabelValue() {
+    startDateDatepicker.label().has().value(CHOOSE_A_DATE);
+}
+@Test
+public void checkStartYearValue() {
+    startDateDatepicker.has().startYear(Year.of(1990));
+}
+@Test
+public void checkStartMonthValue() {
+    startDateDatepicker.has().startMonth(Month.JANUARY);
+}
+@Test
+public void checkStartDayValue() {
+    startDateDatepicker.has().startDay(1);
+}
+@Test
+public void checkStartDayWithLocaleValue() {
+    startDateDatepicker.has().startDay(1, Locale.US);
+}
+```
+![Datepicker start date](../images/angular/start_date_datepicker.png) 
+
+```html 
+<mat-form-field>
+  <mat-label>Choose a date</mat-label>
+  <input matInput [matDatepicker]="picker" id="start-date-datepicker">
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+</mat-form-field>
+```
+
+```java 
+//@FindBy(css = "#selected-datepicker")
+public static Datepicker selectedDatepicker;
+//@FindBy(css = "#deserialize-datepicker")
+public static Datepicker deserializeDatepicker;
+//@FindBy(css = "#binding-datepicker")
+public static Datepicker bindingDatepicker;
+
+@Test
+public void checkInputDateBinding() {
+    selectedDatepicker.input("7/28/2014");
+    bindingDatepicker.is().date("7/28/2014");
+}
+@Test
+public void checkSelectedDateBinding() {
+    selectedDatepicker.setDate(LocalDate.of(1988, 1, 12));
+    bindingDatepicker.is().selectedDate(LocalDate.of(1988, 1, 12));
+}
+@Test
+public void checkInputMonthDayYearBinding() {
+    selectedDatepicker.input("2/15/1997");
+    bindingDatepicker.is().month(Month.FEBRUARY).day(15).year(Year.of(1997));
+}
+@Test
+public void checkSelectDateBinding() {
+    selectedDatepicker.select(LocalDate.of(2017, 12, 24));
+    bindingDatepicker.is().text("12/24/2017");
+}
+@Test
+public void checkHasNoReverseBinding() {
+    bindingDatepicker.select("1/1/2020");
+    selectedDatepicker.is().value("");
+}
+@Test
+public void checkSetInvalidAdditionalTextValue() {
+    deserializeDatepicker.setText("day");
+    deserializeDatepicker.is().invalid();
+}
+@Test
+public void checkSetInvalidTextValue() {
+    deserializeDatepicker.clear();
+    deserializeDatepicker.setText("year");
+    deserializeDatepicker.is().invalid();
+}
+@Test
+public void checkInputInvalidDateValue() {
+    deserializeDatepicker.clear();
+    deserializeDatepicker.input("13/1/2020");
+    deserializeDatepicker.is().invalid();
+}
+@Test
+public void checkSetInvalidDateValue() {
+    deserializeDatepicker.clear();
+    deserializeDatepicker.setText("2020-13-02");
+    deserializeDatepicker.is().invalid();
+}
+```
+The type of values that the datepicker expects depends on the type of `DateAdapter` provided in your application. 
+The `NativeDateAdapter`, for example, works directly with plain JavaScript `Date` objects. When using the 
+`MomentDateAdapter`, however, the values will all be Moment.js instances. This use of the adapter pattern allows
+the datepicker component to work with any arbitrary date representation with a custom `DateAdapter`.
+
+Depending on the `DateAdapter` being used, the datepicker may automatically deserialize certain date formats for you as 
+well. For example, both the `NativeDateAdapter` and `MomentDateAdapter` allow ISO 8601 strings to be passed to the 
+datepicker and automatically converted to the proper object type. This can be convenient when binding data directly from 
+your backend to the datepicker. However, the datepicker will not accept date strings formatted in user format such as 
+`"1/2/2017"` as this is ambiguous and will mean different things depending on the locale of the browser running the code.
+
+As with other types of `<input>`, the datepicker works with `@angular/forms` directives such as `formGroup`, `formControl`, 
+`ngModel`, etc.
+
+![Datepicker selected value](../images/angular/selected_datepicker.png) 
+
+```html 
+<mat-form-field>
+  <mat-label>Angular forms</mat-label>
+  <input matInput [matDatepicker]="picker1" [formControl]="date" id="selected-datepicker">
+  <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+  <mat-datepicker #picker1></mat-datepicker>
+</mat-form-field>
+<mat-form-field>
+  <mat-label>Angular forms (w/ deserialization)</mat-label>
+  <input matInput [matDatepicker]="picker2"
+         [formControl]="serializedDate" id="deserialize-datepicker">
+  <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+  <mat-datepicker #picker2></mat-datepicker>
+</mat-form-field>
+<mat-form-field>
+  <mat-label>Value binding</mat-label>
+  <input matInput [matDatepicker]="picker3" [value]="date.value" id="binding-datepicker">
+  <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+  <mat-datepicker #picker3></mat-datepicker>
+</mat-form-field>
+```
+There are three properties that add date validation to the datepicker input. The first two are the ``min`` and ``max`` 
+properties. In addition to enforcing validation on the input, these properties will disable all dates on the calendar 
+popup before or after the respective values and prevent the user from advancing the calendar past the `month` or `year` 
+(depending on current view) containing the `min` or `max` date.
+
+```java 
+//@FindBy(css = "#min-max-datepicker")
+public static Datepicker minMaxDatepicker;
+
+@Test
+public void checkTodayDayValue() {
+    minMaxDatepicker.has().todayDay(LocalDate.now().getDayOfMonth());
+}
+@Test
+public void checkDisabledPreviousMonthNavigation() {
+    String minDate = getMinDate();
+    minMaxDatepicker.input(minDate);
+    minMaxDatepicker.is().date(minDate).and().disabledNavigation(PREVIOUS_MONTH.getName());
+}
+@Test
+public void checkDisabledNextMonthNavigation() {
+    String maxDate = getMaxDate();
+    minMaxDatepicker.input(maxDate);
+    minMaxDatepicker.is().month(Month.DECEMBER).day(31).year(Year.of(LocalDate.now().getYear() + 1))
+                    .and().disabledNavigation(NEXT_MONTH.getName());
+}
+@Test
+public void checkDisabledMonthsAndYearsNavigation() {
+    String firstDisabledYearCell = String.format(CELL.getName(), MIN_YEAR - 2);
+    String secondDisabledYearCell = String.format(CELL.getName(), MIN_YEAR - 1);
+    minMaxDatepicker.openYearsView();
+    minMaxDatepicker.has().disabledNavigation(PREVIOUS_TWENTY_YEARS.getName(),
+                                              NEXT_TWENTY_YEARS.getName(),
+                                              firstDisabledYearCell,
+                                              secondDisabledYearCell);
+}
+```
+![Datepicker with min & max validation](../images/angular/min_max_datepicker.png) 
+
+```html 
+<mat-form-field class="example-full-width">
+  <mat-label>Choose a date</mat-label>
+  <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" id="min-max-datepicker">
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+```
+The second way to add date validation is using the `matDatepickerFilter` property of the datepicker input. 
+
+```java 
+//@FindBy(css = "#filter-datepicker")
+public static Datepicker filterDatepicker;
+
+@Test
+public void checkLabelValue() {
+    filterDatepicker.label().has().value(CHOOSE_A_DATE);
+}
+@Test
+public void checkTodayDayValue() {
+    filterDatepicker.has().todayDay(LocalDate.now().getDayOfMonth());
+}
+@Test
+public void checkEmptyDateValue() {
+    filterDatepicker.clear();
+    filterDatepicker.has().value("");
+}
+@Test
+public void checkDisabledSaturdays() {
+    filterDatepicker.has().disabledNavigation(filterDatepicker.getWeekDayNumbers(DatepickerNavigation.SATURDAY));
+}
+@Test
+public void checkDisabledSundays() {
+    filterDatepicker.has().disabledNavigation(filterDatepicker.getWeekDayNumbers(DatepickerNavigation.SUNDAY));
+}
+@Test
+public void checkEnabledMondays() {
+    filterDatepicker.has().enabledNavigation(filterDatepicker.getWeekDayNumbers(DatepickerNavigation.MONDAY));
+}
+@Test
+public void checkEnabledWednesdays() {
+    filterDatepicker.has().enabledNavigation(filterDatepicker.getWeekDayNumbers(DatepickerNavigation.WEDNESDAY));
+}
+```
+This property accepts a function of `<D> => boolean` (where `<D>` is the date type used by the datepicker. A result of 
+`true` indicates that the date is valid and a result of `false` indicates that it is not. Again this will also disable 
+the dates on the calendar that are invalid. However, one important difference between using `matDatepickerFilter` vs 
+using `min` or `max` is that filtering out all dates before or after a certain point, will not prevent the user from 
+advancing the calendar past that point.
+
+![Datepicker with filter validation](../images/angular/filter_datepicker.png) 
+
+```html 
+<mat-form-field class="example-full-width">
+  <mat-label>Choose a date</mat-label>
+  <input matInput [matDatepickerFilter]="myFilter" [matDatepicker]="picker" id="filter-datepicker">
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+```
+
+```java 
+//@FindBy(css = "#input-change-events-datepicker")
+public static Datepicker inputChangeEventsDatepicker;
+
+@Test
+public void selectFirstInputChangeEventsTest() {
+    refresh();
+    LocalDate firstEventDate = LocalDate.now();
+    List<String> inputChangeEvents = getInputChangeEvents(firstEventDate);
+    inputChangeEventsDatepicker.select(firstEventDate);
+    inputChangeEventsDatepicker.select(LocalDate.of(2020, 8, 9));
+    inputChangeEventsDatepicker.is().firstInputChangeEvents(inputChangeEvents);
+}
+@Test
+public void selectLastInputChangeEventsTest() {
+    LocalDate lastEventDate = LocalDate.now();
+    List<String> inputChangeEvents = getInputChangeEvents(lastEventDate);
+    inputChangeEventsDatepicker.select(LocalDate.of(2020, 8, 9));
+    inputChangeEventsDatepicker.select(lastEventDate);
+    inputChangeEventsDatepicker.is().lastInputChangeEvents(inputChangeEvents);
+}
+@Test
+public void selectLastNullInputChangeEventsTest() {
+    LocalDate eventDate = LocalDate.now();
+    List<String> inputChangeEvents = new ArrayList<>(Arrays.asList("input: null", "change: null"));
+    inputChangeEventsDatepicker.select(eventDate);
+    inputChangeEventsDatepicker.clear();
+    inputChangeEventsDatepicker.is().lastInputChangeEvents(inputChangeEvents);
+}
+@Test
+public void selectLastUndefinedChangeEventTest() {
+    refresh();
+    String changeEvent = "change: undefined";
+    inputChangeEventsDatepicker.show();
+    inputChangeEventsDatepicker.sendKeys("august");
+    inputChangeEventsDatepicker.clear();
+    inputChangeEventsDatepicker.is().lastChangeEvent(changeEvent);
+}
+```
+The input's native `(input)` and `(change)` events will only trigger due to user interaction with the input element; 
+they will not fire when the user selects a date from the calendar popup. Therefore, the datepicker input also has support 
+for `(dateInput)` and `(dateChange)` events. These trigger when the user interacts with either the input or the popup.
+
+The `(dateInput)` event will fire whenever the value changes due to the user typing or selecting a date from the calendar. 
+The `(dateChange)` event will fire whenever the user finishes typing input (on `<input>` blur), or when the user chooses 
+a date from the calendar.
+
+![Datepicker input and change events](../images/angular/input_change_events_datepicker.png) 
+
+```html 
+<mat-form-field>
+  <mat-label>Input & change events</mat-label>
+  <input matInput [matDatepicker]="picker"
+         (dateInput)="addEvent('input', $event)" (dateChange)="addEvent('change', $event)"
+         id="input-change-events-datepicker">
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+<div class="example-events">
+  <div *ngFor="let e of events">{{e}}</div>
+</div>
+```
+As with any standard `<input>`, it is possible to disable the datepicker input by adding the `disabled property`. 
+By default, the `<mat-datepicker>` and `<mat-datepicker-toggle>` will inherit their disabled state from the `<input>`, 
+but this can be overridden by setting the `disabled` property on the datepicker or toggle elements. 
+
+```java 
+//@FindBy(css = "#completely-disabled-datepicker")
+public static Datepicker completelyDisabledDatepicker;
+//@FindBy(css = "#popup-disabled-datepicker")
+public static Datepicker popupDisabledDatepicker;
+//@FindBy(css = "#input-disabled-datepicker")
+public static Datepicker inputDisabledDatepicker;
+
+@Test
+public void checkLabelValue() {
+    completelyDisabledDatepicker.label().has().value(completelyDisabled);
+    popupDisabledDatepicker.label().has().value(popupDisabled);
+    inputDisabledDatepicker.label().has().value(inputDisabled);
+}
+@Test
+public void checkCompletelyDisabled() {
+    completelyDisabledDatepicker.is().disabled();
+}
+@Test
+public void checkToggleDisabled() {
+    completelyDisabledDatepicker.has().disabledToggle();
+    popupDisabledDatepicker.has().disabledToggle();
+}
+@Test
+public void checkInputDisabled() {
+    completelyDisabledDatepicker.has().disabledInput();
+    inputDisabledDatepicker.has().disabledInput();
+}
+@Test
+public void checkSetDateToEnabledInput() {
+    popupDisabledDatepicker.setDate(LocalDate.of(2030, 1, 19));
+    popupDisabledDatepicker.is().date("1/19/2030");
+}
+@Test
+public void checkSelectDateByEnabledToggle() {
+    inputDisabledDatepicker.select(LocalDate.of(2029, 2, 28));
+    inputDisabledDatepicker.is().selectedDate(LocalDate.of(2029, 2, 28));
+}
+```
+
+This can be useful if you want to disable text input but allow selection via the calendar or vice-versa.
+
+![Disabled datepicker](../images/angular/disabled_datepicker.png) 
+
+```html 
+<p>
+  <mat-form-field>
+    <mat-label>Completely disabled</mat-label>
+    <input matInput [matDatepicker]="dp1" disabled id="completely-disabled-datepicker">
+    <mat-datepicker-toggle matSuffix [for]="dp1"></mat-datepicker-toggle>
+    <mat-datepicker #dp1></mat-datepicker>
+  </mat-form-field>
+</p>
+<p>
+  <mat-form-field>
+    <mat-label>Popup disabled</mat-label>
+    <input matInput [matDatepicker]="dp2" id="popup-disabled-datepicker">
+    <mat-datepicker-toggle matSuffix [for]="dp2" disabled></mat-datepicker-toggle>
+    <mat-datepicker #dp2></mat-datepicker>
+  </mat-form-field>
+</p>
+<p>
+  <mat-form-field>
+    <mat-label>Input disabled</mat-label>
+    <input matInput [matDatepicker]="dp3" disabled id="input-disabled-datepicker">
+    <mat-datepicker-toggle matSuffix [for]="dp3"></mat-datepicker-toggle>
+    <mat-datepicker #dp3 disabled="false"></mat-datepicker>
+  </mat-form-field>
+</p>
+```
+The datepicker normally opens as a popup under the input. However this is not ideal for touch devices that don't have 
+as much screen real estate and need bigger click targets. For this reason `<mat-datepicker>` has a `touchUi` property 
+that can be set to `true` in order to enable a more touch friendly UI where the calendar opens in a large dialog.
+
+```java 
+//@FindBy(css = "#touch-ui-datepicker")
+public static Datepicker touchUiDatepicker;
+
+@Test
+public void checkSendKeysDate() {
+    touchUiDatepicker.sendKeys("11/25/2012");
+    touchUiDatepicker.is().date("11/25/2012");
+}
+@Test
+public void checkSelectedDate() {
+    touchUiDatepicker.setDate(LocalDate.of(1990, 11, 16));
+    touchUiDatepicker.is().selectedDate(LocalDate.of(1990, 11, 16));
+}
+@Test
+public void checkInputMonthDayYear() {
+    touchUiDatepicker.input("20-nov-2014");
+    touchUiDatepicker.is().month(Month.NOVEMBER).day(20).year(Year.of(2014));
+}
+@Test
+public void checkSelectDate() {
+    touchUiDatepicker.select(LocalDate.of(2019, 12, 21));
+    touchUiDatepicker.is().text("12/21/2019");
+}
+@Test
+public void checkSelectStringDate() {
+    touchUiDatepicker.select("11/25/2020");
+    touchUiDatepicker.is().value("11/25/2020");
+}
+```
+![Datepicker touch UI](../images/angular/touch_ui_datepicker.png) 
+
+```html 
+<mat-form-field class="example-full-width">
+  <mat-label>Choose a date</mat-label>
+  <input matInput [matDatepicker]="picker" id="touch-ui-datepicker">
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker touchUi #picker></mat-datepicker>
+</mat-form-field>
+```
+```java 
+//@FindBy(css = "#open-method-datepicker")
+public static Datepicker openMethodDatepicker;
+
+@Test
+public void checkSelectedDate() {
+    openMethodDatepicker.setDate(LocalDate.of(1997, 3, 10));
+    openMethodDatepicker.is().selectedDate(LocalDate.of(1997, 3, 10));
+}
+@Test
+public void checkSelectDate() {
+    openMethodDatepicker.select(LocalDate.of(2017, 7, 2));
+    openMethodDatepicker.is().text("7/2/2017");
+}
+```
+The calendar popup can be programmatically controlled using the `open` and `close` methods on the `<mat-datepicker>`. 
+It also has an `opened` property that reflects the status of the popup.
+
+![Datepicker open method](../images/angular/open_method_datepicker.png) 
+
+```html 
+<mat-form-field class="example-full-width">
+  <input matInput [matDatepicker]="picker" placeholder="Choose a date" id="open-method-datepicker">
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+<button mat-raised-button (click)="picker.open()">Open</button>
+```
+By default, the `MAT_DATE_LOCALE` injection token will use the existing `LOCALE_ID` locale code from `@angular/core`. 
+If you want to override it, you can provide a new value for the `MAT_DATE_LOCALE` token:
+
+```java 
+//@FindBy(css = "#different-locale-datepicker")
+public static Datepicker differentLocaleDatepicker;
+
+@Test
+public void checkInputDate() {
+    refresh();
+    differentLocaleDatepicker.input("2002/12/13");
+    differentLocaleDatepicker.is().selectedDate(LocalDate.of(2002, 12, 13), Locale.JAPAN);
+}
+@Test
+public void checkSendKeysDate() {
+    differentLocaleDatepicker.switchLocale();
+    differentLocaleDatepicker.sendKeys("06/10/2009");
+    differentLocaleDatepicker.is().selectedDate(LocalDate.of(2009, 10, 6), Locale.FRANCE);
+}
+@Test
+public void checkSelectedDate() {
+    refresh();
+    differentLocaleDatepicker.select("09/16/2009", Locale.JAPAN);
+    differentLocaleDatepicker.is().selectedDate(LocalDate.of(2009, 9, 16), Locale.JAPAN);
+}
+@Test
+public void checkSelectStringDate() {
+    differentLocaleDatepicker.switchLocale();
+    differentLocaleDatepicker.select("02/07/2015", Locale.FRANCE);
+    differentLocaleDatepicker.is().text("7/2/2015");
+}
+@Test
+public void checkSelectDate() {
+    differentLocaleDatepicker.switchLocale();
+    differentLocaleDatepicker.select(LocalDate.of(2016, 7, 2), Locale.FRANCE);
+    differentLocaleDatepicker.is().value("2/7/2016");
+}
+@Test
+public void checkSwitchLocale() {
+    differentLocaleDatepicker.show();
+    differentLocaleDatepicker.switchLocale();
+    differentLocaleDatepicker.has().locale(Locale.FRANCE);
+}
+```
+```html
+    @NgModule({
+      providers: [
+        {provide: MAT_DATE_LOCALE, useValue: 'en-GB'},
+      ],
+    })
+    export class MyApp {}
+```
+It's also possible to set the locale at runtime using the `setLocale` method of the `DateAdapter`.
+
+![Datepicker with different locale](../images/angular/different_locale_datepicker.png) 
+
+```html 
+<mat-form-field>
+  <mat-label>Different locale</mat-label>
+  <input matInput [matDatepicker]="dp" id="different-locale-datepicker">
+  <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+  <mat-datepicker #dp></mat-datepicker>
+</mat-form-field>
+<button mat-button (click)="french()">Dynamically switch to French</button>
+```
+```java 
+//@FindBy(css = "#moment-js-datepicker")
+public static Datepicker momentJsDatepicker;
+
+@Test
+public void checkMomentDate() {
+    refresh();
+    momentJsDatepicker.is().selectedDate(LocalDate.of(2017, 1, 1));
+}
+@Test
+public void checkInputDate() {
+    momentJsDatepicker.input("5/10/1996");
+    momentJsDatepicker.is().selectedDate(LocalDate.of(1996, 5, 10));
+}
+@Test
+public void checkSetTextDate() {
+    momentJsDatepicker.setText("4/14/2009");
+    momentJsDatepicker.is().date("4/14/2009");
+}
+@Test
+public void checkSelectValidDate() {
+    momentJsDatepicker.select("1/31/2007");
+    momentJsDatepicker.is().valid();
+}
+@Test
+public void checkSetInvalidDate() {
+    momentJsDatepicker.input("January-31-2007");
+    momentJsDatepicker.is().invalid();
+}
+@Test
+public void checkSendKeysDate() {
+    momentJsDatepicker.sendKeys("11/03/2008");
+    momentJsDatepicker.is().selectedDate(LocalDate.of(2008, 11, 3));
+}
+```
+The datepicker was built to be date implementation agnostic. This means that it can be made to work with a variety 
+of different date implementations. However it also means that developers need to make sure to provide the appropriate 
+pieces for the datepicker to work with their chosen implementation.
+
+![Datepicker that uses Moment.js dates](../images/angular/moment_js_datepicker.png) 
+
+```html 
+<mat-form-field>
+  <mat-label>Moment.js datepicker</mat-label>
+  <input matInput [matDatepicker]="dp" [formControl]="date" id="moment-js-datepicker">
+  <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+  <mat-datepicker #dp></mat-datepicker>
+</mat-form-field>
+```
+```java 
+//@FindBy(css = "#custom-formats-datepicker")
+public static Datepicker customFormatsDatepicker;
+
+@Test
+public void checkInputDate() {
+    customFormatsDatepicker.input("MAR-10-1997");
+    customFormatsDatepicker.is().selectedDate(LocalDate.of(1997, 3, 10));
+}
+@Test
+public void checkSetTextDate() {
+    customFormatsDatepicker.setText("January-31-2007");
+    customFormatsDatepicker.is().date("January 31, 2007");
+}
+@Test
+public void checkSendKeysDate() {
+    customFormatsDatepicker.sendKeys("November 03, 2008");
+    customFormatsDatepicker.is().selectedDate(LocalDate.of(2008, 11, 3));
+}
+@Test
+public void checkSelectDate() {
+    customFormatsDatepicker.select(LocalDate.of(2017, 7, 2));
+    customFormatsDatepicker.is().text("July 2, 2017");
+}
+```
+
+The `MAT_DATE_FORMATS` object is a collection of formats that the datepicker uses when parsing and displaying dates. 
+These formats are passed through to the `DateAdapter` so you will want to make sure that the format objects you're 
+using are compatible with the `DateAdapter` used in your app.
+
+If you want use one of the `DateAdapters` that ships with Angular Material, but use your own `MAT_DATE_FORMATS`, you can 
+import the `NativeDateModule` or `MomentDateModule`. These modules are identical to the "Mat"-prefixed versions 
+(`MatNativeDateModule` and `MatMomentDateModule`) except they do not include the default formats.
+
+
+![Datepicker with custom formats](../images/angular/custom_formats_datepicker.png) 
+
+
+```html 
+<mat-form-field>
+  <mat-label>Verbose datepicker</mat-label>
+  <input matInput [matDatepicker]="dp" [formControl]="date" id="custom-formats-datepicker">
+  <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+  <mat-datepicker #dp></mat-datepicker>
+</mat-form-field>
+```
+
+List of some available **Datepicker** methods:
+
+|Method | Description | Return Type 
+--- | --- | --- 
+**is()** | Assert action | DatepickerAssert 
+**expand()** | Expand Datepicker panel | void 
+**collapse()** | Collapse expanded Datepicker panel | void 
+**isExpanded()** | Shows that Datepicker has expanded | boolean 
+**isCollapsed()** | Shows that Datepicker has collapsed | boolean 
+**isFocused()** | Shows that Datepicker has focus | boolean 
+**isValid()** | Shows that Datepicker has a valid value | boolean 
+**isInvalid()** | Shows that Datepicker has an invalid value | boolean 
+**isEnabled()** | Shows Datepicker is enabled | boolean 
+**isDisabled()** | Shows Datepicker is disabled | boolean 
+**isToggleEnabled()** | Shows Datepicker toggle is enabled | boolean 
+**isToggleDisabled()** | Shows Datepicker toggle is disabled | boolean 
+**isInputEnabled()** | Shows Datepicker input is enabled  | boolean 
+**isInputDisabled()** | Shows Datepicker input is disabled  | boolean 
+**isDisabledNavigationElements(String... elements)** | Shows Datepicker elements is disabled  | boolean 
+**setDate(LocalDate date)** | Set date on input Datepicker | void 
+**selectDayInPreviousMonth(int day)** | Select day in the previous month | void 
+**selectDayInNextMonth(int day)** | Select day in the next month | void 
+**navigateToDayInPreviousMonths(int monthCount, int day)** | Navigate to day in the defined previous month count | void 
+**navigateToDayInNextMonths(int monthCount, int day)** | Navigate to day in the defined next month count | void 
+**openYearsView()** | Open Datepicker years view | void 
+**getMonth()** | Get Datepicker input month value | Month 
+**startMonth()** | Get Datepicker start month value | Month 
+**getDay()** | Get Datepicker input day value | int 
+**startDay()** | Get Datepicker start day value | int 
+**getYear()** | Get Datepicker input year value | Year 
+**startYear()** | Get Datepicker start year value | Year 
+**select(String date/LocalDate date)** | Select date in Datepicker | void 
+**select(String date/LocalDate date, Locale locale)** | Select date in Datepicker with specific Locale | void 
+**selectedDate()** | Get Datepicker selected date value | LocalDate 
+**selectedDate(Locale locale)** | Get Datepicker selected date value with specific Locale | LocalDate 
+**selectedMonth()** | Get Datepicker selected month value | Month 
+**selectDay(int day)** | Select day in Datepicker | void 
+**selectedDay()** | Get Datepicker selected day value | int 
+**todayDay()** | Get Datepicker doday day value | int 
+**selectedYear()** | Get Datepicker selected year value | Year 
+**getWeekDayNumbers(DatepickerNavigation weekName)** | Get Datepicker week day numbers | String[] 
+**switchLocale()** | Switch locale for Datepicker | void 
+**isSelectedLocale(Locale locale)** | Check Datepicker locale | boolean 
+**isFirstInputChangeEvents(List<String> events)** | Check Datepicker has first input & change events | boolean 
+**isLastInputChangeEvents(List<String> events)** | Check Datepicker has last input & change events | boolean 
+**isLastChangeEvent(String lastChangeEvent)** | Check Datepicker has last change event | boolean 
+**isLastInputEvent(String lastInputEvent)** | Check Datepicker has last input event | boolean 
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/datepicker" target="_blank">Datepicker java tests examples</a>
+
+
 ### Menu
 
 #### <a href="https://material.angular.io/components/menu/overview" target="_blank">Menu overview</a>
@@ -8474,12 +9213,12 @@ Here is an example with provided Bootstrap v4.3 code:
     <input type="checkbox" class="custom-control-input" id="customCheckDisabled1" disabled="">
     <label class="custom-control-label" for="customCheckDisabled1">Check this custom checkbox</label>
 </div>
-
 <div class="custom-control custom-radio" id="customRadioDisabled2-div">
     <input type="radio" name="radioDisabled" id="customRadioDisabled2" class="custom-control-input" disabled="">
     <label class="custom-control-label" for="customRadioDisabled2">Toggle this custom radio</label>
 </div>
 ```
+
 
 |Method | Description | Return Type
 --- | --- | ---

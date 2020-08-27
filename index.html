@@ -641,6 +641,9 @@
 								<a href="#tab-group" class="toc-h2 h3 toc-link" data-title="Tab group">Tab group</a>
                             </li>
                             <li>
+								<a href="#datepicker" class="toc-h2 h3 toc-link" data-title="Datepicker">Datepicker</a>
+                            </li>
+                            <li>
 								<a href="#menu-2" class="toc-h2 h3 toc-link" data-title="Menu">Menu</a>
                             </li>
                         </ul>
@@ -8916,7 +8919,7 @@ Methods available for Java in JDI Light:</p>
 
 <p><a href="https://jdi-docs.github.io/jdi-light/?java#webpage-2">BDD Steps example</a></p>
 <h2 id='angular-common-elements'>Angular Common elements</h2><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#divider-list mat-divider"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="n">JList</span><span class="o">&lt;</span><span class="n">Divider</span><span class="o">&gt;</span> <span class="n">dividers</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kd">class</span> <span class="nc">JList</span><span class="o">&lt;</span><span class="n">Divider</span><span class="o">&gt;</span> <span class="n">dividers</span><span class="o">;</span>
 
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">dividerDisplayTest</span><span class="o">()</span> <span class="o">{</span>
@@ -13437,7 +13440,862 @@ during initialization, it is advised to lazy load the tab&#39;s content.</p>
 <td>int</td>
 </tr>
 </tbody></table>
-<h4 id='here-you-can-find-tabs-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/tabgroup" target="_blank">Here you can find Tabs tests</a></h4><h3 id='menu-2'>Menu</h3><h4 id='menu-overview'><a href="https://material.angular.io/components/menu/overview" target="_blank">Menu overview</a></h4>
+<h4 id='here-you-can-find-tabs-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/tabgroup" target="_blank">Here you can find Tabs tests</a></h4><h3 id='datepicker'>Datepicker</h3><pre class="highlight java tab-java"><code><span class="c1">//@FindBy(css = "#basic-datepicker")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">Datepicker</span> <span class="n">basicDatepicker</span><span class="o">;</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkExpanded</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">basicDatepicker</span><span class="o">.</span><span class="na">expand</span><span class="o">();</span>
+    <span class="n">basicDatepicker</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">expanded</span><span class="o">();</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkEnabled</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">basicDatepicker</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkEnabledToggle</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">basicDatepicker</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">enabledToggle</span><span class="o">();</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkEnabledInput</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">basicDatepicker</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">enabledInput</span><span class="o">();</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkCollapsed</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">basicDatepicker</span><span class="o">.</span><span class="na">collapse</span><span class="o">();</span>
+    <span class="n">basicDatepicker</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">collapsed</span><span class="o">();</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkFocus</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">basicDatepicker</span><span class="o">.</span><span class="na">focus</span><span class="o">();</span>
+    <span class="n">basicDatepicker</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">focused</span><span class="o">();</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkTodayDayValue</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">basicDatepicker</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">todayDay</span><span class="o">(</span><span class="n">LocalDate</span><span class="o">.</span><span class="na">now</span><span class="o">().</span><span class="na">getDayOfMonth</span><span class="o">());</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkSendKeysDate</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">basicDatepicker</span><span class="o">.</span><span class="na">sendKeys</span><span class="o">(</span><span class="s">"11/25/2012"</span><span class="o">);</span>
+    <span class="n">basicDatepicker</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">date</span><span class="o">(</span><span class="s">"11/25/2012"</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkSelectedDate</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">basicDatepicker</span><span class="o">.</span><span class="na">setDate</span><span class="o">(</span><span class="n">LocalDate</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">1990</span><span class="o">,</span> <span class="mi">11</span><span class="o">,</span> <span class="mi">16</span><span class="o">));</span>
+    <span class="n">basicDatepicker</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selectedDate</span><span class="o">(</span><span class="n">LocalDate</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">1990</span><span class="o">,</span> <span class="mi">11</span><span class="o">,</span> <span class="mi">16</span><span class="o">));</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkInputMonthDayYear</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">basicDatepicker</span><span class="o">.</span><span class="na">input</span><span class="o">(</span><span class="s">"20-nov-2014"</span><span class="o">);</span>
+    <span class="n">basicDatepicker</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">month</span><span class="o">(</span><span class="n">Month</span><span class="o">.</span><span class="na">NOVEMBER</span><span class="o">).</span><span class="na">day</span><span class="o">(</span><span class="mi">20</span><span class="o">).</span><span class="na">year</span><span class="o">(</span><span class="n">Year</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">2014</span><span class="o">));</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkSelectedMonthDayYear</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">basicDatepicker</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="s">"04-OCTOBER-2000"</span><span class="o">);</span>
+    <span class="n">basicDatepicker</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selectedMonth</span><span class="o">(</span><span class="n">Month</span><span class="o">.</span><span class="na">OCTOBER</span><span class="o">).</span><span class="na">selectedDay</span><span class="o">(</span><span class="mi">4</span><span class="o">).</span><span class="na">selectedYear</span><span class="o">(</span><span class="n">Year</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">2000</span><span class="o">));</span>
+<span class="o">}</span>
+</code></pre><h4 id='datepicker-overview'><a href="https://material.angular.io/components/datepicker/overview" target="_blank">Datepicker overview</a></h4>
+<p>The datepicker allows users to enter a date either through text input, or by choosing a date from the calendar.
+It is made up of several components and directives that work together.
+Datepicker is located in the following class:</p>
+
+<ul>
+<li><strong>Java</strong>: com.epam.jdi.light.angular.elements.complex.Datepicker</li>
+</ul>
+
+<p>A datepicker is composed of a text input and a calendar pop-up, connected via the <code>matDatepicker</code> property on the text 
+input. There is also an optional datepicker toggle button that gives the user an easy way to open the datepicker pop-up.</p>
+
+<p>This works exactly the same with an input that is part of an <code>&lt;mat-form-field&gt;</code> and the toggle can easily be used as a 
+prefix or suffix on the Material input.</p>
+
+<p>See examples with HTML code describing datepicker elements.</p>
+
+<p><img src="images/angular/basic_datepicker.png" alt="Basic Datepicker" /></p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;mat-form-field&gt;</span>
+  <span class="nt">&lt;mat-label&gt;</span>Choose a date<span class="nt">&lt;/mat-label&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">matInput</span> <span class="err">[</span><span class="na">matDatepicker</span><span class="err">]="</span><span class="na">picker</span><span class="err">"</span> <span class="na">id=</span><span class="s">"basic-datepicker"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;mat-datepicker-toggle</span> <span class="na">matSuffix</span> <span class="err">[</span><span class="na">for</span><span class="err">]="</span><span class="na">picker</span><span class="err">"</span><span class="nt">&gt;&lt;/mat-datepicker-toggle&gt;</span>
+  <span class="nt">&lt;mat-datepicker</span> <span class="err">#</span><span class="na">picker</span><span class="nt">&gt;&lt;/mat-datepicker&gt;</span>
+<span class="nt">&lt;/mat-form-field&gt;</span>
+</code></pre>
+<p>The <code>startView</code> property of <code>&lt;mat-datepicker&gt;</code> can be used to set the view that will show up when the calendar first 
+opens. It can be set to <code>month</code>, <code>year</code>, or <code>multi-year</code>; by default it will open to month view.</p>
+
+<p>The month, year, or range of years that the calendar opens to is determined by first checking if any date is currently 
+selected, if so it will open to the month or year containing that date.</p>
+<pre class="highlight java tab-java"><code><span class="c1">//@FindBy(css = "#start-date-datepicker")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">Datepicker</span> <span class="n">startDateDatepicker</span><span class="o">;</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkLabelValue</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">startDateDatepicker</span><span class="o">.</span><span class="na">label</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="n">CHOOSE_A_DATE</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkStartYearValue</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">startDateDatepicker</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">startYear</span><span class="o">(</span><span class="n">Year</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">1990</span><span class="o">));</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkStartMonthValue</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">startDateDatepicker</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">startMonth</span><span class="o">(</span><span class="n">Month</span><span class="o">.</span><span class="na">JANUARY</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkStartDayValue</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">startDateDatepicker</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">startDay</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkStartDayWithLocaleValue</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">startDateDatepicker</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">startDay</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="n">Locale</span><span class="o">.</span><span class="na">US</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<p><img src="images/angular/start_date_datepicker.png" alt="Datepicker start date" /> </p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;mat-form-field&gt;</span>
+  <span class="nt">&lt;mat-label&gt;</span>Choose a date<span class="nt">&lt;/mat-label&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">matInput</span> <span class="err">[</span><span class="na">matDatepicker</span><span class="err">]="</span><span class="na">picker</span><span class="err">"</span> <span class="na">id=</span><span class="s">"start-date-datepicker"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;mat-datepicker-toggle</span> <span class="na">matSuffix</span> <span class="err">[</span><span class="na">for</span><span class="err">]="</span><span class="na">picker</span><span class="err">"</span><span class="nt">&gt;&lt;/mat-datepicker-toggle&gt;</span>
+  <span class="nt">&lt;mat-datepicker</span> <span class="err">#</span><span class="na">picker</span> <span class="na">startView=</span><span class="s">"year"</span> <span class="err">[</span><span class="na">startAt</span><span class="err">]="</span><span class="na">startDate</span><span class="err">"</span><span class="nt">&gt;&lt;/mat-datepicker&gt;</span>
+<span class="nt">&lt;/mat-form-field&gt;</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="c1">//@FindBy(css = "#selected-datepicker")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">Datepicker</span> <span class="n">selectedDatepicker</span><span class="o">;</span>
+<span class="c1">//@FindBy(css = "#deserialize-datepicker")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">Datepicker</span> <span class="n">deserializeDatepicker</span><span class="o">;</span>
+<span class="c1">//@FindBy(css = "#binding-datepicker")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">Datepicker</span> <span class="n">bindingDatepicker</span><span class="o">;</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkInputDateBinding</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">selectedDatepicker</span><span class="o">.</span><span class="na">input</span><span class="o">(</span><span class="s">"7/28/2014"</span><span class="o">);</span>
+    <span class="n">bindingDatepicker</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">date</span><span class="o">(</span><span class="s">"7/28/2014"</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkSelectedDateBinding</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">selectedDatepicker</span><span class="o">.</span><span class="na">setDate</span><span class="o">(</span><span class="n">LocalDate</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">1988</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">12</span><span class="o">));</span>
+    <span class="n">bindingDatepicker</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selectedDate</span><span class="o">(</span><span class="n">LocalDate</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">1988</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">12</span><span class="o">));</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkInputMonthDayYearBinding</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">selectedDatepicker</span><span class="o">.</span><span class="na">input</span><span class="o">(</span><span class="s">"2/15/1997"</span><span class="o">);</span>
+    <span class="n">bindingDatepicker</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">month</span><span class="o">(</span><span class="n">Month</span><span class="o">.</span><span class="na">FEBRUARY</span><span class="o">).</span><span class="na">day</span><span class="o">(</span><span class="mi">15</span><span class="o">).</span><span class="na">year</span><span class="o">(</span><span class="n">Year</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">1997</span><span class="o">));</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkSelectDateBinding</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">selectedDatepicker</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">LocalDate</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">2017</span><span class="o">,</span> <span class="mi">12</span><span class="o">,</span> <span class="mi">24</span><span class="o">));</span>
+    <span class="n">bindingDatepicker</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"12/24/2017"</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkHasNoReverseBinding</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">bindingDatepicker</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="s">"1/1/2020"</span><span class="o">);</span>
+    <span class="n">selectedDatepicker</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="s">""</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkSetInvalidAdditionalTextValue</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">deserializeDatepicker</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="s">"day"</span><span class="o">);</span>
+    <span class="n">deserializeDatepicker</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">invalid</span><span class="o">();</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkSetInvalidTextValue</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">deserializeDatepicker</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
+    <span class="n">deserializeDatepicker</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="s">"year"</span><span class="o">);</span>
+    <span class="n">deserializeDatepicker</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">invalid</span><span class="o">();</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkInputInvalidDateValue</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">deserializeDatepicker</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
+    <span class="n">deserializeDatepicker</span><span class="o">.</span><span class="na">input</span><span class="o">(</span><span class="s">"13/1/2020"</span><span class="o">);</span>
+    <span class="n">deserializeDatepicker</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">invalid</span><span class="o">();</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkSetInvalidDateValue</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">deserializeDatepicker</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
+    <span class="n">deserializeDatepicker</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="s">"2020-13-02"</span><span class="o">);</span>
+    <span class="n">deserializeDatepicker</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">invalid</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre>
+<p>The type of values that the datepicker expects depends on the type of <code>DateAdapter</code> provided in your application. 
+The <code>NativeDateAdapter</code>, for example, works directly with plain JavaScript <code>Date</code> objects. When using the 
+<code>MomentDateAdapter</code>, however, the values will all be Moment.js instances. This use of the adapter pattern allows
+the datepicker component to work with any arbitrary date representation with a custom <code>DateAdapter</code>.</p>
+
+<p>Depending on the <code>DateAdapter</code> being used, the datepicker may automatically deserialize certain date formats for you as 
+well. For example, both the <code>NativeDateAdapter</code> and <code>MomentDateAdapter</code> allow ISO 8601 strings to be passed to the 
+datepicker and automatically converted to the proper object type. This can be convenient when binding data directly from 
+your backend to the datepicker. However, the datepicker will not accept date strings formatted in user format such as 
+<code>&quot;1/2/2017&quot;</code> as this is ambiguous and will mean different things depending on the locale of the browser running the code.</p>
+
+<p>As with other types of <code>&lt;input&gt;</code>, the datepicker works with <code>@angular/forms</code> directives such as <code>formGroup</code>, <code>formControl</code>, 
+<code>ngModel</code>, etc.</p>
+
+<p><img src="images/angular/selected_datepicker.png" alt="Datepicker selected value" /> </p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;mat-form-field&gt;</span>
+  <span class="nt">&lt;mat-label&gt;</span>Angular forms<span class="nt">&lt;/mat-label&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">matInput</span> <span class="err">[</span><span class="na">matDatepicker</span><span class="err">]="</span><span class="na">picker1</span><span class="err">"</span> <span class="err">[</span><span class="na">formControl</span><span class="err">]="</span><span class="na">date</span><span class="err">"</span> <span class="na">id=</span><span class="s">"selected-datepicker"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;mat-datepicker-toggle</span> <span class="na">matSuffix</span> <span class="err">[</span><span class="na">for</span><span class="err">]="</span><span class="na">picker1</span><span class="err">"</span><span class="nt">&gt;&lt;/mat-datepicker-toggle&gt;</span>
+  <span class="nt">&lt;mat-datepicker</span> <span class="err">#</span><span class="na">picker1</span><span class="nt">&gt;&lt;/mat-datepicker&gt;</span>
+<span class="nt">&lt;/mat-form-field&gt;</span>
+<span class="nt">&lt;mat-form-field&gt;</span>
+  <span class="nt">&lt;mat-label&gt;</span>Angular forms (w/ deserialization)<span class="nt">&lt;/mat-label&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">matInput</span> <span class="err">[</span><span class="na">matDatepicker</span><span class="err">]="</span><span class="na">picker2</span><span class="err">"</span>
+         <span class="err">[</span><span class="na">formControl</span><span class="err">]="</span><span class="na">serializedDate</span><span class="err">"</span> <span class="na">id=</span><span class="s">"deserialize-datepicker"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;mat-datepicker-toggle</span> <span class="na">matSuffix</span> <span class="err">[</span><span class="na">for</span><span class="err">]="</span><span class="na">picker2</span><span class="err">"</span><span class="nt">&gt;&lt;/mat-datepicker-toggle&gt;</span>
+  <span class="nt">&lt;mat-datepicker</span> <span class="err">#</span><span class="na">picker2</span><span class="nt">&gt;&lt;/mat-datepicker&gt;</span>
+<span class="nt">&lt;/mat-form-field&gt;</span>
+<span class="nt">&lt;mat-form-field&gt;</span>
+  <span class="nt">&lt;mat-label&gt;</span>Value binding<span class="nt">&lt;/mat-label&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">matInput</span> <span class="err">[</span><span class="na">matDatepicker</span><span class="err">]="</span><span class="na">picker3</span><span class="err">"</span> <span class="err">[</span><span class="na">value</span><span class="err">]="</span><span class="na">date</span><span class="err">.</span><span class="na">value</span><span class="err">"</span> <span class="na">id=</span><span class="s">"binding-datepicker"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;mat-datepicker-toggle</span> <span class="na">matSuffix</span> <span class="err">[</span><span class="na">for</span><span class="err">]="</span><span class="na">picker3</span><span class="err">"</span><span class="nt">&gt;&lt;/mat-datepicker-toggle&gt;</span>
+  <span class="nt">&lt;mat-datepicker</span> <span class="err">#</span><span class="na">picker3</span><span class="nt">&gt;&lt;/mat-datepicker&gt;</span>
+<span class="nt">&lt;/mat-form-field&gt;</span>
+</code></pre>
+<p>There are three properties that add date validation to the datepicker input. The first two are the <code>min</code> and <code>max</code> 
+properties. In addition to enforcing validation on the input, these properties will disable all dates on the calendar 
+popup before or after the respective values and prevent the user from advancing the calendar past the <code>month</code> or <code>year</code> 
+(depending on current view) containing the <code>min</code> or <code>max</code> date.</p>
+<pre class="highlight java tab-java"><code><span class="c1">//@FindBy(css = "#min-max-datepicker")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">Datepicker</span> <span class="n">minMaxDatepicker</span><span class="o">;</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkTodayDayValue</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">minMaxDatepicker</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">todayDay</span><span class="o">(</span><span class="n">LocalDate</span><span class="o">.</span><span class="na">now</span><span class="o">().</span><span class="na">getDayOfMonth</span><span class="o">());</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkDisabledPreviousMonthNavigation</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">String</span> <span class="n">minDate</span> <span class="o">=</span> <span class="n">getMinDate</span><span class="o">();</span>
+    <span class="n">minMaxDatepicker</span><span class="o">.</span><span class="na">input</span><span class="o">(</span><span class="n">minDate</span><span class="o">);</span>
+    <span class="n">minMaxDatepicker</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">date</span><span class="o">(</span><span class="n">minDate</span><span class="o">).</span><span class="na">and</span><span class="o">().</span><span class="na">disabledNavigation</span><span class="o">(</span><span class="n">PREVIOUS_MONTH</span><span class="o">.</span><span class="na">getName</span><span class="o">());</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkDisabledNextMonthNavigation</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">String</span> <span class="n">maxDate</span> <span class="o">=</span> <span class="n">getMaxDate</span><span class="o">();</span>
+    <span class="n">minMaxDatepicker</span><span class="o">.</span><span class="na">input</span><span class="o">(</span><span class="n">maxDate</span><span class="o">);</span>
+    <span class="n">minMaxDatepicker</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">month</span><span class="o">(</span><span class="n">Month</span><span class="o">.</span><span class="na">DECEMBER</span><span class="o">).</span><span class="na">day</span><span class="o">(</span><span class="mi">31</span><span class="o">).</span><span class="na">year</span><span class="o">(</span><span class="n">Year</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">LocalDate</span><span class="o">.</span><span class="na">now</span><span class="o">().</span><span class="na">getYear</span><span class="o">()</span> <span class="o">+</span> <span class="mi">1</span><span class="o">))</span>
+                    <span class="o">.</span><span class="na">and</span><span class="o">().</span><span class="na">disabledNavigation</span><span class="o">(</span><span class="n">NEXT_MONTH</span><span class="o">.</span><span class="na">getName</span><span class="o">());</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkDisabledMonthsAndYearsNavigation</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">String</span> <span class="n">firstDisabledYearCell</span> <span class="o">=</span> <span class="n">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="n">CELL</span><span class="o">.</span><span class="na">getName</span><span class="o">(),</span> <span class="n">MIN_YEAR</span> <span class="o">-</span> <span class="mi">2</span><span class="o">);</span>
+    <span class="n">String</span> <span class="n">secondDisabledYearCell</span> <span class="o">=</span> <span class="n">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="n">CELL</span><span class="o">.</span><span class="na">getName</span><span class="o">(),</span> <span class="n">MIN_YEAR</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
+    <span class="n">minMaxDatepicker</span><span class="o">.</span><span class="na">openYearsView</span><span class="o">();</span>
+    <span class="n">minMaxDatepicker</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">disabledNavigation</span><span class="o">(</span><span class="n">PREVIOUS_TWENTY_YEARS</span><span class="o">.</span><span class="na">getName</span><span class="o">(),</span>
+                                              <span class="n">NEXT_TWENTY_YEARS</span><span class="o">.</span><span class="na">getName</span><span class="o">(),</span>
+                                              <span class="n">firstDisabledYearCell</span><span class="o">,</span>
+                                              <span class="n">secondDisabledYearCell</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<p><img src="images/angular/min_max_datepicker.png" alt="Datepicker with min &amp; max validation" /> </p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;mat-form-field</span> <span class="na">class=</span><span class="s">"example-full-width"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;mat-label&gt;</span>Choose a date<span class="nt">&lt;/mat-label&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">matInput</span> <span class="err">[</span><span class="na">min</span><span class="err">]="</span><span class="na">minDate</span><span class="err">"</span> <span class="err">[</span><span class="na">max</span><span class="err">]="</span><span class="na">maxDate</span><span class="err">"</span> <span class="err">[</span><span class="na">matDatepicker</span><span class="err">]="</span><span class="na">picker</span><span class="err">"</span> <span class="na">id=</span><span class="s">"min-max-datepicker"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;mat-datepicker-toggle</span> <span class="na">matSuffix</span> <span class="err">[</span><span class="na">for</span><span class="err">]="</span><span class="na">picker</span><span class="err">"</span><span class="nt">&gt;&lt;/mat-datepicker-toggle&gt;</span>
+  <span class="nt">&lt;mat-datepicker</span> <span class="err">#</span><span class="na">picker</span><span class="nt">&gt;&lt;/mat-datepicker&gt;</span>
+<span class="nt">&lt;/mat-form-field&gt;</span>
+</code></pre>
+<p>The second way to add date validation is using the <code>matDatepickerFilter</code> property of the datepicker input. </p>
+<pre class="highlight java tab-java"><code><span class="c1">//@FindBy(css = "#filter-datepicker")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">Datepicker</span> <span class="n">filterDatepicker</span><span class="o">;</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkLabelValue</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">filterDatepicker</span><span class="o">.</span><span class="na">label</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="n">CHOOSE_A_DATE</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkTodayDayValue</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">filterDatepicker</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">todayDay</span><span class="o">(</span><span class="n">LocalDate</span><span class="o">.</span><span class="na">now</span><span class="o">().</span><span class="na">getDayOfMonth</span><span class="o">());</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkEmptyDateValue</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">filterDatepicker</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
+    <span class="n">filterDatepicker</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="s">""</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkDisabledSaturdays</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">filterDatepicker</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">disabledNavigation</span><span class="o">(</span><span class="n">filterDatepicker</span><span class="o">.</span><span class="na">getWeekDayNumbers</span><span class="o">(</span><span class="n">DatepickerNavigation</span><span class="o">.</span><span class="na">SATURDAY</span><span class="o">));</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkDisabledSundays</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">filterDatepicker</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">disabledNavigation</span><span class="o">(</span><span class="n">filterDatepicker</span><span class="o">.</span><span class="na">getWeekDayNumbers</span><span class="o">(</span><span class="n">DatepickerNavigation</span><span class="o">.</span><span class="na">SUNDAY</span><span class="o">));</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkEnabledMondays</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">filterDatepicker</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">enabledNavigation</span><span class="o">(</span><span class="n">filterDatepicker</span><span class="o">.</span><span class="na">getWeekDayNumbers</span><span class="o">(</span><span class="n">DatepickerNavigation</span><span class="o">.</span><span class="na">MONDAY</span><span class="o">));</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkEnabledWednesdays</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">filterDatepicker</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">enabledNavigation</span><span class="o">(</span><span class="n">filterDatepicker</span><span class="o">.</span><span class="na">getWeekDayNumbers</span><span class="o">(</span><span class="n">DatepickerNavigation</span><span class="o">.</span><span class="na">WEDNESDAY</span><span class="o">));</span>
+<span class="o">}</span>
+</code></pre>
+<p>This property accepts a function of <code>&lt;D&gt; =&gt; boolean</code> (where <code>&lt;D&gt;</code> is the date type used by the datepicker. A result of 
+<code>true</code> indicates that the date is valid and a result of <code>false</code> indicates that it is not. Again this will also disable 
+the dates on the calendar that are invalid. However, one important difference between using <code>matDatepickerFilter</code> vs 
+using <code>min</code> or <code>max</code> is that filtering out all dates before or after a certain point, will not prevent the user from 
+advancing the calendar past that point.</p>
+
+<p><img src="images/angular/filter_datepicker.png" alt="Datepicker with filter validation" /> </p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;mat-form-field</span> <span class="na">class=</span><span class="s">"example-full-width"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;mat-label&gt;</span>Choose a date<span class="nt">&lt;/mat-label&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">matInput</span> <span class="err">[</span><span class="na">matDatepickerFilter</span><span class="err">]="</span><span class="na">myFilter</span><span class="err">"</span> <span class="err">[</span><span class="na">matDatepicker</span><span class="err">]="</span><span class="na">picker</span><span class="err">"</span> <span class="na">id=</span><span class="s">"filter-datepicker"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;mat-datepicker-toggle</span> <span class="na">matSuffix</span> <span class="err">[</span><span class="na">for</span><span class="err">]="</span><span class="na">picker</span><span class="err">"</span><span class="nt">&gt;&lt;/mat-datepicker-toggle&gt;</span>
+  <span class="nt">&lt;mat-datepicker</span> <span class="err">#</span><span class="na">picker</span><span class="nt">&gt;&lt;/mat-datepicker&gt;</span>
+<span class="nt">&lt;/mat-form-field&gt;</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="c1">//@FindBy(css = "#input-change-events-datepicker")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">Datepicker</span> <span class="n">inputChangeEventsDatepicker</span><span class="o">;</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">selectFirstInputChangeEventsTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">refresh</span><span class="o">();</span>
+    <span class="n">LocalDate</span> <span class="n">firstEventDate</span> <span class="o">=</span> <span class="n">LocalDate</span><span class="o">.</span><span class="na">now</span><span class="o">();</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">inputChangeEvents</span> <span class="o">=</span> <span class="n">getInputChangeEvents</span><span class="o">(</span><span class="n">firstEventDate</span><span class="o">);</span>
+    <span class="n">inputChangeEventsDatepicker</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">firstEventDate</span><span class="o">);</span>
+    <span class="n">inputChangeEventsDatepicker</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">LocalDate</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">2020</span><span class="o">,</span> <span class="mi">8</span><span class="o">,</span> <span class="mi">9</span><span class="o">));</span>
+    <span class="n">inputChangeEventsDatepicker</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">firstInputChangeEvents</span><span class="o">(</span><span class="n">inputChangeEvents</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">selectLastInputChangeEventsTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">LocalDate</span> <span class="n">lastEventDate</span> <span class="o">=</span> <span class="n">LocalDate</span><span class="o">.</span><span class="na">now</span><span class="o">();</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">inputChangeEvents</span> <span class="o">=</span> <span class="n">getInputChangeEvents</span><span class="o">(</span><span class="n">lastEventDate</span><span class="o">);</span>
+    <span class="n">inputChangeEventsDatepicker</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">LocalDate</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">2020</span><span class="o">,</span> <span class="mi">8</span><span class="o">,</span> <span class="mi">9</span><span class="o">));</span>
+    <span class="n">inputChangeEventsDatepicker</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">lastEventDate</span><span class="o">);</span>
+    <span class="n">inputChangeEventsDatepicker</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">lastInputChangeEvents</span><span class="o">(</span><span class="n">inputChangeEvents</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">selectLastNullInputChangeEventsTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">LocalDate</span> <span class="n">eventDate</span> <span class="o">=</span> <span class="n">LocalDate</span><span class="o">.</span><span class="na">now</span><span class="o">();</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">inputChangeEvents</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;(</span><span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">"input: null"</span><span class="o">,</span> <span class="s">"change: null"</span><span class="o">));</span>
+    <span class="n">inputChangeEventsDatepicker</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">eventDate</span><span class="o">);</span>
+    <span class="n">inputChangeEventsDatepicker</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
+    <span class="n">inputChangeEventsDatepicker</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">lastInputChangeEvents</span><span class="o">(</span><span class="n">inputChangeEvents</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">selectLastUndefinedChangeEventTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">refresh</span><span class="o">();</span>
+    <span class="n">String</span> <span class="n">changeEvent</span> <span class="o">=</span> <span class="s">"change: undefined"</span><span class="o">;</span>
+    <span class="n">inputChangeEventsDatepicker</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+    <span class="n">inputChangeEventsDatepicker</span><span class="o">.</span><span class="na">sendKeys</span><span class="o">(</span><span class="s">"august"</span><span class="o">);</span>
+    <span class="n">inputChangeEventsDatepicker</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
+    <span class="n">inputChangeEventsDatepicker</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">lastChangeEvent</span><span class="o">(</span><span class="n">changeEvent</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<p>The input&#39;s native <code>(input)</code> and <code>(change)</code> events will only trigger due to user interaction with the input element; 
+they will not fire when the user selects a date from the calendar popup. Therefore, the datepicker input also has support 
+for <code>(dateInput)</code> and <code>(dateChange)</code> events. These trigger when the user interacts with either the input or the popup.</p>
+
+<p>The <code>(dateInput)</code> event will fire whenever the value changes due to the user typing or selecting a date from the calendar. 
+The <code>(dateChange)</code> event will fire whenever the user finishes typing input (on <code>&lt;input&gt;</code> blur), or when the user chooses 
+a date from the calendar.</p>
+
+<p><img src="images/angular/input_change_events_datepicker.png" alt="Datepicker input and change events" /> </p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;mat-form-field&gt;</span>
+  <span class="nt">&lt;mat-label&gt;</span>Input <span class="err">&amp;</span> change events<span class="nt">&lt;/mat-label&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">matInput</span> <span class="err">[</span><span class="na">matDatepicker</span><span class="err">]="</span><span class="na">picker</span><span class="err">"</span>
+         <span class="err">(</span><span class="na">dateInput</span><span class="err">)="</span><span class="na">addEvent</span><span class="err">('</span><span class="na">input</span><span class="err">',</span> <span class="err">$</span><span class="na">event</span><span class="err">)"</span> <span class="err">(</span><span class="na">dateChange</span><span class="err">)="</span><span class="na">addEvent</span><span class="err">('</span><span class="na">change</span><span class="err">',</span> <span class="err">$</span><span class="na">event</span><span class="err">)"</span>
+         <span class="na">id=</span><span class="s">"input-change-events-datepicker"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;mat-datepicker-toggle</span> <span class="na">matSuffix</span> <span class="err">[</span><span class="na">for</span><span class="err">]="</span><span class="na">picker</span><span class="err">"</span><span class="nt">&gt;&lt;/mat-datepicker-toggle&gt;</span>
+  <span class="nt">&lt;mat-datepicker</span> <span class="err">#</span><span class="na">picker</span><span class="nt">&gt;&lt;/mat-datepicker&gt;</span>
+<span class="nt">&lt;/mat-form-field&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"example-events"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="err">*</span><span class="na">ngFor=</span><span class="s">"let e of events"</span><span class="nt">&gt;</span>{{e}}<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre>
+<p>As with any standard <code>&lt;input&gt;</code>, it is possible to disable the datepicker input by adding the <code>disabled property</code>. 
+By default, the <code>&lt;mat-datepicker&gt;</code> and <code>&lt;mat-datepicker-toggle&gt;</code> will inherit their disabled state from the <code>&lt;input&gt;</code>, 
+but this can be overridden by setting the <code>disabled</code> property on the datepicker or toggle elements. </p>
+<pre class="highlight java tab-java"><code><span class="c1">//@FindBy(css = "#completely-disabled-datepicker")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">Datepicker</span> <span class="n">completelyDisabledDatepicker</span><span class="o">;</span>
+<span class="c1">//@FindBy(css = "#popup-disabled-datepicker")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">Datepicker</span> <span class="n">popupDisabledDatepicker</span><span class="o">;</span>
+<span class="c1">//@FindBy(css = "#input-disabled-datepicker")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">Datepicker</span> <span class="n">inputDisabledDatepicker</span><span class="o">;</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkLabelValue</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">completelyDisabledDatepicker</span><span class="o">.</span><span class="na">label</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="n">completelyDisabled</span><span class="o">);</span>
+    <span class="n">popupDisabledDatepicker</span><span class="o">.</span><span class="na">label</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="n">popupDisabled</span><span class="o">);</span>
+    <span class="n">inputDisabledDatepicker</span><span class="o">.</span><span class="na">label</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="n">inputDisabled</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkCompletelyDisabled</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">completelyDisabledDatepicker</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">disabled</span><span class="o">();</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkToggleDisabled</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">completelyDisabledDatepicker</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">disabledToggle</span><span class="o">();</span>
+    <span class="n">popupDisabledDatepicker</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">disabledToggle</span><span class="o">();</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkInputDisabled</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">completelyDisabledDatepicker</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">disabledInput</span><span class="o">();</span>
+    <span class="n">inputDisabledDatepicker</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">disabledInput</span><span class="o">();</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkSetDateToEnabledInput</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">popupDisabledDatepicker</span><span class="o">.</span><span class="na">setDate</span><span class="o">(</span><span class="n">LocalDate</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">2030</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">19</span><span class="o">));</span>
+    <span class="n">popupDisabledDatepicker</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">date</span><span class="o">(</span><span class="s">"1/19/2030"</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkSelectDateByEnabledToggle</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">inputDisabledDatepicker</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">LocalDate</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">2029</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">28</span><span class="o">));</span>
+    <span class="n">inputDisabledDatepicker</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selectedDate</span><span class="o">(</span><span class="n">LocalDate</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">2029</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">28</span><span class="o">));</span>
+<span class="o">}</span>
+</code></pre>
+<p>This can be useful if you want to disable text input but allow selection via the calendar or vice-versa.</p>
+
+<p><img src="images/angular/disabled_datepicker.png" alt="Disabled datepicker" /> </p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;p&gt;</span>
+  <span class="nt">&lt;mat-form-field&gt;</span>
+    <span class="nt">&lt;mat-label&gt;</span>Completely disabled<span class="nt">&lt;/mat-label&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">matInput</span> <span class="err">[</span><span class="na">matDatepicker</span><span class="err">]="</span><span class="na">dp1</span><span class="err">"</span> <span class="na">disabled</span> <span class="na">id=</span><span class="s">"completely-disabled-datepicker"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;mat-datepicker-toggle</span> <span class="na">matSuffix</span> <span class="err">[</span><span class="na">for</span><span class="err">]="</span><span class="na">dp1</span><span class="err">"</span><span class="nt">&gt;&lt;/mat-datepicker-toggle&gt;</span>
+    <span class="nt">&lt;mat-datepicker</span> <span class="err">#</span><span class="na">dp1</span><span class="nt">&gt;&lt;/mat-datepicker&gt;</span>
+  <span class="nt">&lt;/mat-form-field&gt;</span>
+<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p&gt;</span>
+  <span class="nt">&lt;mat-form-field&gt;</span>
+    <span class="nt">&lt;mat-label&gt;</span>Popup disabled<span class="nt">&lt;/mat-label&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">matInput</span> <span class="err">[</span><span class="na">matDatepicker</span><span class="err">]="</span><span class="na">dp2</span><span class="err">"</span> <span class="na">id=</span><span class="s">"popup-disabled-datepicker"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;mat-datepicker-toggle</span> <span class="na">matSuffix</span> <span class="err">[</span><span class="na">for</span><span class="err">]="</span><span class="na">dp2</span><span class="err">"</span> <span class="na">disabled</span><span class="nt">&gt;&lt;/mat-datepicker-toggle&gt;</span>
+    <span class="nt">&lt;mat-datepicker</span> <span class="err">#</span><span class="na">dp2</span><span class="nt">&gt;&lt;/mat-datepicker&gt;</span>
+  <span class="nt">&lt;/mat-form-field&gt;</span>
+<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p&gt;</span>
+  <span class="nt">&lt;mat-form-field&gt;</span>
+    <span class="nt">&lt;mat-label&gt;</span>Input disabled<span class="nt">&lt;/mat-label&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">matInput</span> <span class="err">[</span><span class="na">matDatepicker</span><span class="err">]="</span><span class="na">dp3</span><span class="err">"</span> <span class="na">disabled</span> <span class="na">id=</span><span class="s">"input-disabled-datepicker"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;mat-datepicker-toggle</span> <span class="na">matSuffix</span> <span class="err">[</span><span class="na">for</span><span class="err">]="</span><span class="na">dp3</span><span class="err">"</span><span class="nt">&gt;&lt;/mat-datepicker-toggle&gt;</span>
+    <span class="nt">&lt;mat-datepicker</span> <span class="err">#</span><span class="na">dp3</span> <span class="na">disabled=</span><span class="s">"false"</span><span class="nt">&gt;&lt;/mat-datepicker&gt;</span>
+  <span class="nt">&lt;/mat-form-field&gt;</span>
+<span class="nt">&lt;/p&gt;</span>
+</code></pre>
+<p>The datepicker normally opens as a popup under the input. However this is not ideal for touch devices that don&#39;t have 
+as much screen real estate and need bigger click targets. For this reason <code>&lt;mat-datepicker&gt;</code> has a <code>touchUi</code> property 
+that can be set to <code>true</code> in order to enable a more touch friendly UI where the calendar opens in a large dialog.</p>
+<pre class="highlight java tab-java"><code><span class="c1">//@FindBy(css = "#touch-ui-datepicker")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">Datepicker</span> <span class="n">touchUiDatepicker</span><span class="o">;</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkSendKeysDate</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">touchUiDatepicker</span><span class="o">.</span><span class="na">sendKeys</span><span class="o">(</span><span class="s">"11/25/2012"</span><span class="o">);</span>
+    <span class="n">touchUiDatepicker</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">date</span><span class="o">(</span><span class="s">"11/25/2012"</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkSelectedDate</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">touchUiDatepicker</span><span class="o">.</span><span class="na">setDate</span><span class="o">(</span><span class="n">LocalDate</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">1990</span><span class="o">,</span> <span class="mi">11</span><span class="o">,</span> <span class="mi">16</span><span class="o">));</span>
+    <span class="n">touchUiDatepicker</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selectedDate</span><span class="o">(</span><span class="n">LocalDate</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">1990</span><span class="o">,</span> <span class="mi">11</span><span class="o">,</span> <span class="mi">16</span><span class="o">));</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkInputMonthDayYear</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">touchUiDatepicker</span><span class="o">.</span><span class="na">input</span><span class="o">(</span><span class="s">"20-nov-2014"</span><span class="o">);</span>
+    <span class="n">touchUiDatepicker</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">month</span><span class="o">(</span><span class="n">Month</span><span class="o">.</span><span class="na">NOVEMBER</span><span class="o">).</span><span class="na">day</span><span class="o">(</span><span class="mi">20</span><span class="o">).</span><span class="na">year</span><span class="o">(</span><span class="n">Year</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">2014</span><span class="o">));</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkSelectDate</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">touchUiDatepicker</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">LocalDate</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">2019</span><span class="o">,</span> <span class="mi">12</span><span class="o">,</span> <span class="mi">21</span><span class="o">));</span>
+    <span class="n">touchUiDatepicker</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"12/21/2019"</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkSelectStringDate</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">touchUiDatepicker</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="s">"11/25/2020"</span><span class="o">);</span>
+    <span class="n">touchUiDatepicker</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="s">"11/25/2020"</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<p><img src="images/angular/touch_ui_datepicker.png" alt="Datepicker touch UI" /> </p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;mat-form-field</span> <span class="na">class=</span><span class="s">"example-full-width"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;mat-label&gt;</span>Choose a date<span class="nt">&lt;/mat-label&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">matInput</span> <span class="err">[</span><span class="na">matDatepicker</span><span class="err">]="</span><span class="na">picker</span><span class="err">"</span> <span class="na">id=</span><span class="s">"touch-ui-datepicker"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;mat-datepicker-toggle</span> <span class="na">matSuffix</span> <span class="err">[</span><span class="na">for</span><span class="err">]="</span><span class="na">picker</span><span class="err">"</span><span class="nt">&gt;&lt;/mat-datepicker-toggle&gt;</span>
+  <span class="nt">&lt;mat-datepicker</span> <span class="na">touchUi</span> <span class="err">#</span><span class="na">picker</span><span class="nt">&gt;&lt;/mat-datepicker&gt;</span>
+<span class="nt">&lt;/mat-form-field&gt;</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="c1">//@FindBy(css = "#open-method-datepicker")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">Datepicker</span> <span class="n">openMethodDatepicker</span><span class="o">;</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkSelectedDate</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">openMethodDatepicker</span><span class="o">.</span><span class="na">setDate</span><span class="o">(</span><span class="n">LocalDate</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">1997</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">10</span><span class="o">));</span>
+    <span class="n">openMethodDatepicker</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selectedDate</span><span class="o">(</span><span class="n">LocalDate</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">1997</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">10</span><span class="o">));</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkSelectDate</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">openMethodDatepicker</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">LocalDate</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">2017</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">2</span><span class="o">));</span>
+    <span class="n">openMethodDatepicker</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"7/2/2017"</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<p>The calendar popup can be programmatically controlled using the <code>open</code> and <code>close</code> methods on the <code>&lt;mat-datepicker&gt;</code>. 
+It also has an <code>opened</code> property that reflects the status of the popup.</p>
+
+<p><img src="images/angular/open_method_datepicker.png" alt="Datepicker open method" /> </p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;mat-form-field</span> <span class="na">class=</span><span class="s">"example-full-width"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">matInput</span> <span class="err">[</span><span class="na">matDatepicker</span><span class="err">]="</span><span class="na">picker</span><span class="err">"</span> <span class="na">placeholder=</span><span class="s">"Choose a date"</span> <span class="na">id=</span><span class="s">"open-method-datepicker"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;mat-datepicker</span> <span class="err">#</span><span class="na">picker</span><span class="nt">&gt;&lt;/mat-datepicker&gt;</span>
+<span class="nt">&lt;/mat-form-field&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">mat-raised-button</span> <span class="err">(</span><span class="na">click</span><span class="err">)="</span><span class="na">picker</span><span class="err">.</span><span class="na">open</span><span class="err">()"</span><span class="nt">&gt;</span>Open<span class="nt">&lt;/button&gt;</span>
+</code></pre>
+<p>By default, the <code>MAT_DATE_LOCALE</code> injection token will use the existing <code>LOCALE_ID</code> locale code from <code>@angular/core</code>. 
+If you want to override it, you can provide a new value for the <code>MAT_DATE_LOCALE</code> token:</p>
+<pre class="highlight java tab-java"><code><span class="c1">//@FindBy(css = "#different-locale-datepicker")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">Datepicker</span> <span class="n">differentLocaleDatepicker</span><span class="o">;</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkInputDate</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">refresh</span><span class="o">();</span>
+    <span class="n">differentLocaleDatepicker</span><span class="o">.</span><span class="na">input</span><span class="o">(</span><span class="s">"2002/12/13"</span><span class="o">);</span>
+    <span class="n">differentLocaleDatepicker</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selectedDate</span><span class="o">(</span><span class="n">LocalDate</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">2002</span><span class="o">,</span> <span class="mi">12</span><span class="o">,</span> <span class="mi">13</span><span class="o">),</span> <span class="n">Locale</span><span class="o">.</span><span class="na">JAPAN</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkSendKeysDate</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">differentLocaleDatepicker</span><span class="o">.</span><span class="na">switchLocale</span><span class="o">();</span>
+    <span class="n">differentLocaleDatepicker</span><span class="o">.</span><span class="na">sendKeys</span><span class="o">(</span><span class="s">"06/10/2009"</span><span class="o">);</span>
+    <span class="n">differentLocaleDatepicker</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selectedDate</span><span class="o">(</span><span class="n">LocalDate</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">2009</span><span class="o">,</span> <span class="mi">10</span><span class="o">,</span> <span class="mi">6</span><span class="o">),</span> <span class="n">Locale</span><span class="o">.</span><span class="na">FRANCE</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkSelectedDate</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">refresh</span><span class="o">();</span>
+    <span class="n">differentLocaleDatepicker</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="s">"09/16/2009"</span><span class="o">,</span> <span class="n">Locale</span><span class="o">.</span><span class="na">JAPAN</span><span class="o">);</span>
+    <span class="n">differentLocaleDatepicker</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selectedDate</span><span class="o">(</span><span class="n">LocalDate</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">2009</span><span class="o">,</span> <span class="mi">9</span><span class="o">,</span> <span class="mi">16</span><span class="o">),</span> <span class="n">Locale</span><span class="o">.</span><span class="na">JAPAN</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkSelectStringDate</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">differentLocaleDatepicker</span><span class="o">.</span><span class="na">switchLocale</span><span class="o">();</span>
+    <span class="n">differentLocaleDatepicker</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="s">"02/07/2015"</span><span class="o">,</span> <span class="n">Locale</span><span class="o">.</span><span class="na">FRANCE</span><span class="o">);</span>
+    <span class="n">differentLocaleDatepicker</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"7/2/2015"</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkSelectDate</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">differentLocaleDatepicker</span><span class="o">.</span><span class="na">switchLocale</span><span class="o">();</span>
+    <span class="n">differentLocaleDatepicker</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">LocalDate</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">2016</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">2</span><span class="o">),</span> <span class="n">Locale</span><span class="o">.</span><span class="na">FRANCE</span><span class="o">);</span>
+    <span class="n">differentLocaleDatepicker</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="s">"2/7/2016"</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkSwitchLocale</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">differentLocaleDatepicker</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+    <span class="n">differentLocaleDatepicker</span><span class="o">.</span><span class="na">switchLocale</span><span class="o">();</span>
+    <span class="n">differentLocaleDatepicker</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">locale</span><span class="o">(</span><span class="n">Locale</span><span class="o">.</span><span class="na">FRANCE</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre><pre class="highlight html tab-html"><code>    @NgModule({
+      providers: [
+        {provide: MAT_DATE_LOCALE, useValue: 'en-GB'},
+      ],
+    })
+    export class MyApp {}
+</code></pre>
+<p>It&#39;s also possible to set the locale at runtime using the <code>setLocale</code> method of the <code>DateAdapter</code>.</p>
+
+<p><img src="images/angular/different_locale_datepicker.png" alt="Datepicker with different locale" /> </p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;mat-form-field&gt;</span>
+  <span class="nt">&lt;mat-label&gt;</span>Different locale<span class="nt">&lt;/mat-label&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">matInput</span> <span class="err">[</span><span class="na">matDatepicker</span><span class="err">]="</span><span class="na">dp</span><span class="err">"</span> <span class="na">id=</span><span class="s">"different-locale-datepicker"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;mat-datepicker-toggle</span> <span class="na">matSuffix</span> <span class="err">[</span><span class="na">for</span><span class="err">]="</span><span class="na">dp</span><span class="err">"</span><span class="nt">&gt;&lt;/mat-datepicker-toggle&gt;</span>
+  <span class="nt">&lt;mat-datepicker</span> <span class="err">#</span><span class="na">dp</span><span class="nt">&gt;&lt;/mat-datepicker&gt;</span>
+<span class="nt">&lt;/mat-form-field&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">mat-button</span> <span class="err">(</span><span class="na">click</span><span class="err">)="</span><span class="na">french</span><span class="err">()"</span><span class="nt">&gt;</span>Dynamically switch to French<span class="nt">&lt;/button&gt;</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="c1">//@FindBy(css = "#moment-js-datepicker")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">Datepicker</span> <span class="n">momentJsDatepicker</span><span class="o">;</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkMomentDate</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">refresh</span><span class="o">();</span>
+    <span class="n">momentJsDatepicker</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selectedDate</span><span class="o">(</span><span class="n">LocalDate</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">2017</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">));</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkInputDate</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">momentJsDatepicker</span><span class="o">.</span><span class="na">input</span><span class="o">(</span><span class="s">"5/10/1996"</span><span class="o">);</span>
+    <span class="n">momentJsDatepicker</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selectedDate</span><span class="o">(</span><span class="n">LocalDate</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">1996</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">10</span><span class="o">));</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkSetTextDate</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">momentJsDatepicker</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="s">"4/14/2009"</span><span class="o">);</span>
+    <span class="n">momentJsDatepicker</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">date</span><span class="o">(</span><span class="s">"4/14/2009"</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkSelectValidDate</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">momentJsDatepicker</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="s">"1/31/2007"</span><span class="o">);</span>
+    <span class="n">momentJsDatepicker</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">valid</span><span class="o">();</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkSetInvalidDate</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">momentJsDatepicker</span><span class="o">.</span><span class="na">input</span><span class="o">(</span><span class="s">"January-31-2007"</span><span class="o">);</span>
+    <span class="n">momentJsDatepicker</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">invalid</span><span class="o">();</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkSendKeysDate</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">momentJsDatepicker</span><span class="o">.</span><span class="na">sendKeys</span><span class="o">(</span><span class="s">"11/03/2008"</span><span class="o">);</span>
+    <span class="n">momentJsDatepicker</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selectedDate</span><span class="o">(</span><span class="n">LocalDate</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">2008</span><span class="o">,</span> <span class="mi">11</span><span class="o">,</span> <span class="mi">3</span><span class="o">));</span>
+<span class="o">}</span>
+</code></pre>
+<p>The datepicker was built to be date implementation agnostic. This means that it can be made to work with a variety 
+of different date implementations. However it also means that developers need to make sure to provide the appropriate 
+pieces for the datepicker to work with their chosen implementation.</p>
+
+<p><img src="images/angular/moment_js_datepicker.png" alt="Datepicker that uses Moment.js dates" /> </p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;mat-form-field&gt;</span>
+  <span class="nt">&lt;mat-label&gt;</span>Moment.js datepicker<span class="nt">&lt;/mat-label&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">matInput</span> <span class="err">[</span><span class="na">matDatepicker</span><span class="err">]="</span><span class="na">dp</span><span class="err">"</span> <span class="err">[</span><span class="na">formControl</span><span class="err">]="</span><span class="na">date</span><span class="err">"</span> <span class="na">id=</span><span class="s">"moment-js-datepicker"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;mat-datepicker-toggle</span> <span class="na">matSuffix</span> <span class="err">[</span><span class="na">for</span><span class="err">]="</span><span class="na">dp</span><span class="err">"</span><span class="nt">&gt;&lt;/mat-datepicker-toggle&gt;</span>
+  <span class="nt">&lt;mat-datepicker</span> <span class="err">#</span><span class="na">dp</span><span class="nt">&gt;&lt;/mat-datepicker&gt;</span>
+<span class="nt">&lt;/mat-form-field&gt;</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="c1">//@FindBy(css = "#custom-formats-datepicker")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">Datepicker</span> <span class="n">customFormatsDatepicker</span><span class="o">;</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkInputDate</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">customFormatsDatepicker</span><span class="o">.</span><span class="na">input</span><span class="o">(</span><span class="s">"MAR-10-1997"</span><span class="o">);</span>
+    <span class="n">customFormatsDatepicker</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selectedDate</span><span class="o">(</span><span class="n">LocalDate</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">1997</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">10</span><span class="o">));</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkSetTextDate</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">customFormatsDatepicker</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="s">"January-31-2007"</span><span class="o">);</span>
+    <span class="n">customFormatsDatepicker</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">date</span><span class="o">(</span><span class="s">"January 31, 2007"</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkSendKeysDate</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">customFormatsDatepicker</span><span class="o">.</span><span class="na">sendKeys</span><span class="o">(</span><span class="s">"November 03, 2008"</span><span class="o">);</span>
+    <span class="n">customFormatsDatepicker</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selectedDate</span><span class="o">(</span><span class="n">LocalDate</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">2008</span><span class="o">,</span> <span class="mi">11</span><span class="o">,</span> <span class="mi">3</span><span class="o">));</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkSelectDate</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">customFormatsDatepicker</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">LocalDate</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">2017</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">2</span><span class="o">));</span>
+    <span class="n">customFormatsDatepicker</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"July 2, 2017"</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<p>The <code>MAT_DATE_FORMATS</code> object is a collection of formats that the datepicker uses when parsing and displaying dates. 
+These formats are passed through to the <code>DateAdapter</code> so you will want to make sure that the format objects you&#39;re 
+using are compatible with the <code>DateAdapter</code> used in your app.</p>
+
+<p>If you want use one of the <code>DateAdapters</code> that ships with Angular Material, but use your own <code>MAT_DATE_FORMATS</code>, you can 
+import the <code>NativeDateModule</code> or <code>MomentDateModule</code>. These modules are identical to the &quot;Mat&quot;-prefixed versions 
+(<code>MatNativeDateModule</code> and <code>MatMomentDateModule</code>) except they do not include the default formats.</p>
+
+<p><img src="images/angular/custom_formats_datepicker.png" alt="Datepicker with custom formats" /> </p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;mat-form-field&gt;</span>
+  <span class="nt">&lt;mat-label&gt;</span>Verbose datepicker<span class="nt">&lt;/mat-label&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">matInput</span> <span class="err">[</span><span class="na">matDatepicker</span><span class="err">]="</span><span class="na">dp</span><span class="err">"</span> <span class="err">[</span><span class="na">formControl</span><span class="err">]="</span><span class="na">date</span><span class="err">"</span> <span class="na">id=</span><span class="s">"custom-formats-datepicker"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;mat-datepicker-toggle</span> <span class="na">matSuffix</span> <span class="err">[</span><span class="na">for</span><span class="err">]="</span><span class="na">dp</span><span class="err">"</span><span class="nt">&gt;&lt;/mat-datepicker-toggle&gt;</span>
+  <span class="nt">&lt;mat-datepicker</span> <span class="err">#</span><span class="na">dp</span><span class="nt">&gt;&lt;/mat-datepicker&gt;</span>
+<span class="nt">&lt;/mat-form-field&gt;</span>
+</code></pre>
+<p>List of some available <strong>Datepicker</strong> methods:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>is()</strong></td>
+<td>Assert action</td>
+<td>DatepickerAssert</td>
+</tr>
+<tr>
+<td><strong>expand()</strong></td>
+<td>Expand Datepicker panel</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>collapse()</strong></td>
+<td>Collapse expanded Datepicker panel</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>isExpanded()</strong></td>
+<td>Shows that Datepicker has expanded</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isCollapsed()</strong></td>
+<td>Shows that Datepicker has collapsed</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isFocused()</strong></td>
+<td>Shows that Datepicker has focus</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isValid()</strong></td>
+<td>Shows that Datepicker has a valid value</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isInvalid()</strong></td>
+<td>Shows that Datepicker has an invalid value</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isEnabled()</strong></td>
+<td>Shows Datepicker is enabled</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isDisabled()</strong></td>
+<td>Shows Datepicker is disabled</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isToggleEnabled()</strong></td>
+<td>Shows Datepicker toggle is enabled</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isToggleDisabled()</strong></td>
+<td>Shows Datepicker toggle is disabled</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isInputEnabled()</strong></td>
+<td>Shows Datepicker input is enabled</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isInputDisabled()</strong></td>
+<td>Shows Datepicker input is disabled</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isDisabledNavigationElements(String... elements)</strong></td>
+<td>Shows Datepicker elements is disabled</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>setDate(LocalDate date)</strong></td>
+<td>Set date on input Datepicker</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>selectDayInPreviousMonth(int day)</strong></td>
+<td>Select day in the previous month</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>selectDayInNextMonth(int day)</strong></td>
+<td>Select day in the next month</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>navigateToDayInPreviousMonths(int monthCount, int day)</strong></td>
+<td>Navigate to day in the defined previous month count</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>navigateToDayInNextMonths(int monthCount, int day)</strong></td>
+<td>Navigate to day in the defined next month count</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>openYearsView()</strong></td>
+<td>Open Datepicker years view</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>getMonth()</strong></td>
+<td>Get Datepicker input month value</td>
+<td>Month</td>
+</tr>
+<tr>
+<td><strong>startMonth()</strong></td>
+<td>Get Datepicker start month value</td>
+<td>Month</td>
+</tr>
+<tr>
+<td><strong>getDay()</strong></td>
+<td>Get Datepicker input day value</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>startDay()</strong></td>
+<td>Get Datepicker start day value</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>getYear()</strong></td>
+<td>Get Datepicker input year value</td>
+<td>Year</td>
+</tr>
+<tr>
+<td><strong>startYear()</strong></td>
+<td>Get Datepicker start year value</td>
+<td>Year</td>
+</tr>
+<tr>
+<td><strong>select(String date/LocalDate date)</strong></td>
+<td>Select date in Datepicker</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>select(String date/LocalDate date, Locale locale)</strong></td>
+<td>Select date in Datepicker with specific Locale</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>selectedDate()</strong></td>
+<td>Get Datepicker selected date value</td>
+<td>LocalDate</td>
+</tr>
+<tr>
+<td><strong>selectedDate(Locale locale)</strong></td>
+<td>Get Datepicker selected date value with specific Locale</td>
+<td>LocalDate</td>
+</tr>
+<tr>
+<td><strong>selectedMonth()</strong></td>
+<td>Get Datepicker selected month value</td>
+<td>Month</td>
+</tr>
+<tr>
+<td><strong>selectDay(int day)</strong></td>
+<td>Select day in Datepicker</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>selectedDay()</strong></td>
+<td>Get Datepicker selected day value</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>todayDay()</strong></td>
+<td>Get Datepicker doday day value</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>selectedYear()</strong></td>
+<td>Get Datepicker selected year value</td>
+<td>Year</td>
+</tr>
+<tr>
+<td><strong>getWeekDayNumbers(DatepickerNavigation weekName)</strong></td>
+<td>Get Datepicker week day numbers</td>
+<td>String[]</td>
+</tr>
+<tr>
+<td><strong>switchLocale()</strong></td>
+<td>Switch locale for Datepicker</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>isSelectedLocale(Locale locale)</strong></td>
+<td>Check Datepicker locale</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isFirstInputChangeEvents(List<String> events)</strong></td>
+<td>Check Datepicker has first input &amp; change events</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isLastInputChangeEvents(List<String> events)</strong></td>
+<td>Check Datepicker has last input &amp; change events</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isLastChangeEvent(String lastChangeEvent)</strong></td>
+<td>Check Datepicker has last change event</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isLastInputEvent(String lastInputEvent)</strong></td>
+<td>Check Datepicker has last input event</td>
+<td>boolean</td>
+</tr>
+</tbody></table>
+<h4 id='datepicker-java-tests-examples'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/datepicker" target="_blank">Datepicker java tests examples</a></h4><h3 id='menu-2'>Menu</h3><h4 id='menu-overview'><a href="https://material.angular.io/components/menu/overview" target="_blank">Menu overview</a></h4>
 <p>Menu element represents a group of commands that a user can perform or activate.</p>
 
 <p>Menu is located in the following classes:</p>
@@ -14713,7 +15571,6 @@ during initialization, it is advised to lazy load the tab&#39;s content.</p>
     <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">class=</span><span class="s">"custom-control-input"</span> <span class="na">id=</span><span class="s">"customCheckDisabled1"</span> <span class="na">disabled=</span><span class="s">""</span><span class="nt">&gt;</span>
     <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"custom-control-label"</span> <span class="na">for=</span><span class="s">"customCheckDisabled1"</span><span class="nt">&gt;</span>Check this custom checkbox<span class="nt">&lt;/label&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
-
 <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"custom-control custom-radio"</span> <span class="na">id=</span><span class="s">"customRadioDisabled2-div"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"radio"</span> <span class="na">name=</span><span class="s">"radioDisabled"</span> <span class="na">id=</span><span class="s">"customRadioDisabled2"</span> <span class="na">class=</span><span class="s">"custom-control-input"</span> <span class="na">disabled=</span><span class="s">""</span><span class="nt">&gt;</span>
     <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"custom-control-label"</span> <span class="na">for=</span><span class="s">"customRadioDisabled2"</span><span class="nt">&gt;</span>Toggle this custom radio<span class="nt">&lt;/label&gt;</span>

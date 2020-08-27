@@ -634,6 +634,9 @@
                             <li>
 								<a href="#tab-group" class="toc-h2 h3 toc-link" data-title="Tab group">Tab group</a>
                             </li>
+                            <li>
+								<a href="#menu-2" class="toc-h2 h3 toc-link" data-title="Menu">Menu</a>
+                            </li>
                         </ul>
                   </li>
                   <li>
@@ -810,7 +813,7 @@
 								<a href="#textarea-2" class="toc-h2 h3 toc-link" data-title="TextArea">TextArea</a>
                             </li>
                             <li>
-								<a href="#menu-2" class="toc-h2 h3 toc-link" data-title="Menu">Menu</a>
+								<a href="#menu-3" class="toc-h2 h3 toc-link" data-title="Menu">Menu</a>
                             </li>
                             <li>
 								<a href="#textfield-2" class="toc-h2 h3 toc-link" data-title="TextField">TextField</a>
@@ -12943,7 +12946,309 @@ during initialization, it is advised to lazy load the tab&#39;s content.</p>
 <td>int</td>
 </tr>
 </tbody></table>
-<h4 id='here-you-can-find-tabs-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/tabgroup" target="_blank">Here you can find Tabs tests</a></h4>
+<h4 id='here-you-can-find-tabs-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/tabgroup" target="_blank">Here you can find Tabs tests</a></h4><h3 id='menu-2'>Menu</h3><h4 id='menu-overview'><a href="https://material.angular.io/components/menu/overview" target="_blank">Menu overview</a></h4>
+<p>Menu element represents a group of commands that a user can perform or activate.</p>
+
+<p>Menu is located in the following classes:</p>
+
+<ul>
+<li><strong>Java</strong>: com.epam.jdi.light.ui.bootstrap.elements.complex.Menu</li>
+</ul>
+
+<p>There are three different menu in Angular: basic menu, menu with icons and nested menu.</p>
+
+<p>See an example with HTML code describing basic menu element.</p>
+<pre class="highlight java tab-java"><code><span class="c1">//FindBy(css = "#basic-menu-button")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">NestedDropdownMenu</span> <span class="n">basicMenu</span><span class="o">;</span> 
+
+<span class="c1">//FindBy(css = "#basic-menu-selected-option")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">Text</span> <span class="n">basicMenuSelectedOption</span><span class="o">;</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">basicMenuTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">basicMenu</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+<span class="o">}</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">basicMenuSelectTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">basicMenu</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="s">"Item 1"</span><span class="o">);</span>
+    <span class="n">basicMenuSelectedOption</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Item 1"</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkBasicMenuAvailableOptionsTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">String</span><span class="o">[]</span> <span class="n">expectedList</span> <span class="o">=</span> <span class="n">BASIC_MENU_VALUES</span><span class="o">;</span>
+    <span class="n">basicMenu</span><span class="o">.</span><span class="na">expand</span><span class="o">();</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">actualList</span> <span class="o">=</span> <span class="n">basicMenu</span><span class="o">.</span><span class="na">values</span><span class="o">();</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">expectedList</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+    <span class="n">basicMenu</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">checkValue</span><span class="o">(</span><span class="n">expectedList</span><span class="o">[</span><span class="n">i</span><span class="o">],</span> <span class="o">(</span><span class="n">actualList</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">)));</span>
+<span class="o">}</span>
+</code></pre>
+<p><img src="images/angular/basic_menu.png" alt="Basic menu" /></p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;button</span> <span class="na">aria-haspopup=</span><span class="s">"true"</span> <span class="na">id=</span><span class="s">"nested-menu-button"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span&gt;</span>Animal index<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mat-menu-content"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">aria-haspopup=</span><span class="s">"true"</span> <span class="na">role=</span><span class="s">"menuitem"</span> <span class="na">aria-disabled=</span><span class="s">"false"</span><span class="nt">&gt;</span>"Vertebrates"<span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">aria-haspopup=</span><span class="s">"true"</span> <span class="na">role=</span><span class="s">"menuitem"</span> <span class="na">aria-disabled=</span><span class="s">"false"</span><span class="nt">&gt;</span>"Invertebrates"<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre>
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>expand()</strong></td>
+<td>Expand menu</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>select()</strong></td>
+<td>Select a certain element</td>
+<td>UIElement</td>
+</tr>
+<tr>
+<td><strong>values()</strong></td>
+<td>Get list of values</td>
+<td>List</td>
+</tr>
+<tr>
+<td><strong>checkValue()</strong></td>
+<td>Check that element value is correct</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>is()</strong></td>
+<td>Assert action</td>
+<td>NestedDropdownMenuAssert</td>
+</tr>
+<tr>
+<td><strong>displayed()</strong></td>
+<td>Check that element is displayed</td>
+<td>TextAssert</td>
+</tr>
+<tr>
+<td><strong>text()</strong></td>
+<td>Assert that element has presented text</td>
+<td>TextAssert</td>
+</tr>
+</tbody></table>
+
+<p>See an example with HTML code describing menu with icons element.</p>
+<pre class="highlight java tab-java"><code><span class="c1">//FindBy(css = "#menu-with-icons-button")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">NestedDropdownMenu</span> <span class="n">menuWithIcons</span><span class="o">;</span> 
+
+<span class="c1">//FindBy(css = "#icons-menu-selected-option")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">Text</span> <span class="n">iconsMenuSelectedOption</span><span class="o">;</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">menuWithIconsTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">menuWithIcons</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+<span class="o">}</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">menuWithIconsSelectTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">menuWithIcons</span><span class="o">.</span><span class="na">expand</span><span class="o">();</span>
+    <span class="n">menuWithIcons</span><span class="o">.</span><span class="na">selectForMenuWithIcons</span><span class="o">(</span><span class="s">"Redial"</span><span class="o">);</span>
+    <span class="n">iconsMenuSelectedOption</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Redial"</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">disabledMenuWithIconsOptionTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">menuWithIcons</span><span class="o">.</span><span class="na">expand</span><span class="o">();</span>
+    <span class="n">menuWithIcons</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">isDisabledMenuWithIconsOption</span><span class="o">(</span><span class="s">"Check voice mail"</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkMenuWithIconsAvailableOptionsTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">String</span><span class="o">[]</span> <span class="n">expectedList</span> <span class="o">=</span> <span class="n">MENU_WITH_ICONS_VALUES</span><span class="o">;</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">actualList</span> <span class="o">=</span> <span class="n">menuWithIcons</span><span class="o">.</span><span class="na">valuesForMenuWithIcons</span><span class="o">();</span>
+    <span class="n">menuWithIcons</span><span class="o">.</span><span class="na">expand</span><span class="o">();</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">expectedList</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+        <span class="n">menuWithIcons</span><span class="o">.</span><span class="na">checkValue</span><span class="o">(</span><span class="n">expectedList</span><span class="o">[</span><span class="n">i</span><span class="o">],</span> <span class="n">actualList</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+<p><img src="images/angular/menu_with_icons.png" alt="Menu with icons" /> </p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;button</span> <span class="na">aria-haspopup=</span><span class="s">"true"</span> <span class="na">id=</span><span class="s">"menu-with-icons-button"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span&gt;</span>
+        <span class="nt">&lt;mat-icon</span> <span class="na">role=</span><span class="s">"img"</span><span class="nt">&gt;&lt;/mat-icon&gt;</span>
+    <span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/button&gt;</span> 
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mat-menu-content"</span><span class="nt">&gt;</span> 
+    <span class="nt">&lt;button</span> <span class="na">role=</span><span class="s">"menuitem"</span> <span class="na">aria-disabled=</span><span class="s">"false"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;mat-icon</span> <span class="na">role=</span><span class="s">"img"</span><span class="err">&lt;/</span><span class="na">mat-icon</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;span&gt;</span>Redial<span class="nt">&lt;/span&gt;</span>
+    <span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">role=</span><span class="s">"menuitem"</span> <span class="na">aria-disabled=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;mat-icon</span> <span class="na">role=</span><span class="s">"img"</span><span class="err">&lt;/</span><span class="na">mat-icon</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;span&gt;</span>Check voice mail<span class="nt">&lt;/span&gt;</span>
+    <span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">role=</span><span class="s">"menuitem"</span> <span class="na">aria-disabled=</span><span class="s">"false"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;mat-icon</span> <span class="na">role=</span><span class="s">"img"</span><span class="err">&lt;/</span><span class="na">mat-icon</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;span&gt;</span>Disable alerts&gt;/span&gt;
+    <span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre>
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>expand()</strong></td>
+<td>Expand menu</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>selectForMenuWithIcons()</strong></td>
+<td>Select a certain element</td>
+<td>UIElement</td>
+</tr>
+<tr>
+<td><strong>valuesForMenuWithIcons()</strong></td>
+<td>Get list of values</td>
+<td>List</td>
+</tr>
+<tr>
+<td><strong>checkValue()</strong></td>
+<td>Check that element value is correct</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isDisabledMenuWithIconsOption()</strong></td>
+<td>Check that element is disabled</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>is()</strong></td>
+<td>Assert action</td>
+<td>NestedDropdownMenuAssert</td>
+</tr>
+<tr>
+<td><strong>displayed()</strong></td>
+<td>Check that element is displayed</td>
+<td>TextAssert</td>
+</tr>
+<tr>
+<td><strong>text()</strong></td>
+<td>Assert that element has presented text</td>
+<td>TextAssert</td>
+</tr>
+</tbody></table>
+
+<p>See an example with HTML code describing nested menu element.</p>
+<pre class="highlight java tab-java"><code><span class="c1">//FindBy(css = "#nested-menu-button")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">NestedDropdownMenu</span> <span class="n">nestedMenu</span><span class="o">;</span>
+
+<span class="c1">//FindBy(css = "#nested-menu-selected-option-")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">Text</span> <span class="n">nestedMenuSelectedOption</span><span class="o">;</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">nestedMenuTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">nestedMenu</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+    <span class="o">}</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">nestedMenuFirstNestingLayerSelectTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">nestedMenu</span><span class="o">.</span><span class="na">expand</span><span class="o">();</span>
+    <span class="n">nestedMenu</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="s">"Vertebrates"</span><span class="o">);</span>
+    <span class="n">nestedMenuSelectedOption</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Vertebrates"</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">nestedMenuSecondNestingLayerSelectTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">nestedMenu</span><span class="o">.</span><span class="na">expand</span><span class="o">();</span>
+    <span class="n">nestedMenu</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="s">"Vertebrates"</span><span class="o">,</span> <span class="s">"Fishes"</span><span class="o">);</span>
+    <span class="n">nestedMenuSelectedOption</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Fishes"</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">nestedMenuThirdNestingLayerSelectTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">nestedMenu</span><span class="o">.</span><span class="na">expand</span><span class="o">();</span>
+    <span class="n">nestedMenu</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="s">"Vertebrates"</span><span class="o">,</span> <span class="s">"Fishes"</span><span class="o">,</span> <span class="s">"Bala shark"</span><span class="o">);</span>
+    <span class="n">nestedMenuSelectedOption</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Bala shark"</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">disabledNestedMenuOptionTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">nestedMenu</span><span class="o">.</span><span class="na">expand</span><span class="o">();</span>
+    <span class="n">nestedMenu</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">isDisabledNestedMenuOption</span><span class="o">(</span><span class="s">"Vertebrates"</span><span class="o">,</span> <span class="s">"Reptiles"</span><span class="o">,</span> <span class="s">"Velociraptor"</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkNestedMenuAvailableOptionsTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">String</span><span class="o">[]</span> <span class="n">expectedList</span> <span class="o">=</span> <span class="n">NESTED_MENU_VALUES</span><span class="o">;</span>
+    <span class="n">nestedMenu</span><span class="o">.</span><span class="na">expand</span><span class="o">();</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">actualList</span> <span class="o">=</span> <span class="n">nestedMenu</span><span class="o">.</span><span class="na">valuesForNestedMenu</span><span class="o">();</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">expectedList</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+        <span class="n">nestedMenu</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">checkValue</span><span class="o">(</span><span class="n">expectedList</span><span class="o">[</span><span class="n">i</span><span class="o">],</span> <span class="n">actualList</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+<p><img src="images/angular/nested_menu.png" alt="Nested menu" /> </p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;button</span> <span class="na">aria-haspopup=</span><span class="s">"true"</span> <span class="na">id=</span><span class="s">"nested-menu-button"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span&gt;</span>Animal index<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/button&gt;</span> 
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mat-menu-content"</span><span class="nt">&gt;</span> 
+    <span class="nt">&lt;button</span> <span class="na">aria-haspopup=</span><span class="s">"true"</span> <span class="na">role=</span><span class="s">"menuitem"</span> <span class="na">aria-disabled=</span><span class="s">"false"</span><span class="nt">&gt;</span>"Vertebrates"<span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">aria-haspopup=</span><span class="s">"true"</span> <span class="na">role=</span><span class="s">"menuitem"</span> <span class="na">aria-disabled=</span><span class="s">"false"</span><span class="nt">&gt;</span>"Invertebrates"<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre>
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>expand()</strong></td>
+<td>Expand menu</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>select()</strong></td>
+<td>Select a certain element</td>
+<td>UIElement</td>
+</tr>
+<tr>
+<td><strong>valuesForNestedMenu()</strong></td>
+<td>Get list of values</td>
+<td>List</td>
+</tr>
+<tr>
+<td><strong>checkValue()</strong></td>
+<td>Check that element value is correct</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isDisabledNestedMenuOption()</strong></td>
+<td>Check that element is disabled</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>is()</strong></td>
+<td>Assert action</td>
+<td>NestedDropdownMenuAssert</td>
+</tr>
+<tr>
+<td><strong>displayed()</strong></td>
+<td>Check that element is displayed</td>
+<td>TextAssert</td>
+</tr>
+<tr>
+<td><strong>text()</strong></td>
+<td>Assert that element has presented text</td>
+<td>TextAssert</td>
+</tr>
+</tbody></table>
+<h4 id='menu-java-tests-examples'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/menu" target="_blank">Menu java tests examples</a></h4>
 <hr>
 <h2 id='bootstrap-common-elements'>Bootstrap Common elements</h2><h3 id='checkboxes-and-radios'>Checkboxes and radios</h3><h4 id='checkbox-default'><a href="https://getbootstrap.com/docs/4.3/components/buttons/" target="_blank">Checkbox default</a></h4>
 <p>Checkbox is located in the following classes:</p>
@@ -13917,6 +14222,7 @@ during initialization, it is advised to lazy load the tab&#39;s content.</p>
     <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">class=</span><span class="s">"custom-control-input"</span> <span class="na">id=</span><span class="s">"customCheckDisabled1"</span> <span class="na">disabled=</span><span class="s">""</span><span class="nt">&gt;</span>
     <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"custom-control-label"</span> <span class="na">for=</span><span class="s">"customCheckDisabled1"</span><span class="nt">&gt;</span>Check this custom checkbox<span class="nt">&lt;/label&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
+
 <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"custom-control custom-radio"</span> <span class="na">id=</span><span class="s">"customRadioDisabled2-div"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"radio"</span> <span class="na">name=</span><span class="s">"radioDisabled"</span> <span class="na">id=</span><span class="s">"customRadioDisabled2"</span> <span class="na">class=</span><span class="s">"custom-control-input"</span> <span class="na">disabled=</span><span class="s">""</span><span class="nt">&gt;</span>
     <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"custom-control-label"</span> <span class="na">for=</span><span class="s">"customRadioDisabled2"</span><span class="nt">&gt;</span>Toggle this custom radio<span class="nt">&lt;/label&gt;</span>
@@ -30565,7 +30871,7 @@ More information in the <a href="https://jdi-docs.github.io/jdi-light/?java#tuto
 <br>
 <br>
 <br></p>
-<h3 id='menu-2'>Menu</h3><pre class="highlight gherkin tab-gherkin"><code><span class="err">Menu actions examples</span><span class="p">:</span>
+<h3 id='menu-3'>Menu</h3><pre class="highlight gherkin tab-gherkin"><code><span class="err">Menu actions examples</span><span class="p">:</span>
 
 <span class="nf">When</span> I select <span class="s">"Contact form"</span> in <span class="s">"Left Menu"</span> menu
 <span class="nf">When</span> I select <span class="s">"Service;Dates"</span> items in <span class="s">"Left Menu"</span> menu

@@ -4069,6 +4069,62 @@ More than that, it has a nested **StringCheckType** class with the following met
 
 ## Angular Common elements
 
+```java
+    @UI("#divider-list mat-divider")
+    public JList<Divider> dividers;
+
+    @Test
+    public void dividerDisplayTest() {
+        dividerSection.dividers.get(1).is().displayed();
+        dividerSection.dividers.get(2).is().displayed();
+    }
+
+    @Test
+    public void dividerAttrTest() {
+        dividerSection.dividers.get(1).is().attr("aria-orientation", "horizontal");
+        dividerSection.dividers.get(2).is().attr("aria-orientation", "horizontal");
+    }
+```
+
+### Divider
+
+#### <a href="https://material.angular.io/components/divider/overview" target="_blank">Divider overview</a>
+
+Divider is located in the following class:
+
+   - __Java__: _com.epam.jdi.light.ui.angular.elements.common.Divider
+   
+Divider icon:
+
+![Divider icon](../images/angular/divider.png)
+
+```html
+<mat-list class="mat-list mat-list-base">
+  <mat-list-item class="mat-list-item mat-focus-indicator">
+    <div class="mat-list-item-content">
+      <div mat-ripple="" class="mat-ripple mat-list-item-ripple"></div>
+      <div class="mat-list-text"></div>Item 1</div></mat-list-item>
+      <mat-divider role="separator" class="mat-divider mat-divider-horizontal" aria-orientation="horizontal"></mat-divider><mat-list-item class="mat-list-item mat-focus-indicator">
+    <div class="mat-list-item-content">
+      <div mat-ripple="" class="mat-ripple mat-list-item-ripple"></div>
+      <div class="mat-list-text"></div>Item 2</div></mat-list-item>
+      <mat-divider role="separator" class="mat-divider mat-divider-horizontal" aria-orientation="horizontal"></mat-divider><mat-list-item class="mat-list-item mat-focus-indicator">
+    <div class="mat-list-item-content">
+      <div mat-ripple="" class="mat-ripple mat-list-item-ripple"></div>
+      <div class="mat-list-text"></div>Item 3</div>
+  </mat-list-item>
+</mat-list>
+```
+   
+|Method | Description | Return Type
+--- | --- | ---
+**isDisplayed** | Verify state | boolean
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/DividerTests.java" target="_blank">Here you can find Divider tests</a>
+
+<br>  
+
+
 ```java 
     @FindBy(id="basic_icon")
     public static Icon basicIcon;
@@ -4106,7 +4162,7 @@ Icon is located in the following class:
    
 There is two different icons in Angular: Basic icon and SVG icon:
 
-![Basic icon](../images/angular/basic_icon.png) ![Basic icon](../images/angular/svg_icon.png)
+![Basic icon](../images/angular/basic_icon.png) ![Svg icon](../images/angular/svg_icon.png)
 
 ```html
 <mat-icon _ngcontent-hkf-c334="" role="img" aria-hidden="false" aria-label="Example home icon" class="mat-icon notranslate material-icons mat-icon-no-color">home</mat-icon>
@@ -5030,6 +5086,64 @@ Badge is located in the following class:
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/BadgeTests.java" target="_blank">Here you can find Badge tests</a>
 
+### Tooltip
+
+```java 
+    @UI(".mat-tooltip")
+    public static Tooltip tooltip;
+        
+    @Test
+    public void basicTooltipTest() {
+        basicTooltipButton.hover();
+        tooltip.has().assertTooltipText("Petit a petit, l’oiseau fait son nid");
+    }
+
+    @Test
+    public void customPositionTooltipTest() {
+        Map<String, Tooltip.Position> position = new HashMap<>();
+        position.put("after", Tooltip.Position.RIGHT);
+        position.put("before", Tooltip.Position.LEFT);
+        position.put("above", Tooltip.Position.ABOVE);
+        position.put("below", Tooltip.Position.BELOW);
+        position.put("left", Tooltip.Position.LEFT);
+        position.put("right", Tooltip.Position.RIGHT);
+
+        position.forEach(
+                (k, v) -> {
+                    positionTooltipSelector.click();
+                    (new CdkOverlayContainer()).select(k);
+                    positionTooltipButton.hover();
+                    tooltip.has().assertTooltipPosition(v, positionTooltipButton);
+                }
+        );
+    }	
+```
+#### <a href="https://material.angular.io/components/tooltip/overview" target="_blank">Tooltip overview</a>
+
+Tooltip is located in the following class:
+
+- __Java__: _com.epam.jdi.light.angular.elements.common.Tooltip_
+
+![Tooltip](../images/angular/tooltip.PNG)
+
+```html
+<button mat-raised-button
+        matTooltip="Info about the action"
+        aria-label="Button that displays a tooltip when focused or hovered over">
+  Action
+</button>
+
+```
+   
+|Method | Description | Return Type
+--- | --- | ---
+**text()** | Get text | String
+**color()** | Get color | String
+**position(UIBaseElement<?> element)** | Get position relative to element | Position
+**is()** | Assert action | TooltipAssert
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/TooltipTests.java" target="_blank">Here you can find Tooltip tests</a>
+
 ## Angular Complex elements
 
 ### Radio Button
@@ -5359,6 +5473,77 @@ id="{{ 'dynamic-grid-list-' + tile.text.toLowerCase() }}"
 **has()** | Assert that element has attribute | TextAssert 
 **css(String css, String value)** | Match passed value with the element css | IsAssert
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/GridListTests.java" target="_blank">Grid list java tests examples</a>
+
+### Card
+
+#### <a href="https://material.angular.io/components/card/overview" target="_blank">Card overview</a>
+
+Card is a content container for text, photos, and actions in the context of a single subject
+
+Card is located in the following classes:
+
+   - __Java__: com.epam.jdi.light.ui.bootstrap.elements.complex.Card
+
+```java 
+
+    //FindBy(id = "simple-card") public static RadioButtons basicRadioButtons;
+    @UI("#simple-card")
+    public static Card simpleCard;
+
+    //FindBy(id = "example-card") public static Card card;
+    @UI("#example-card")
+    public static Card card;
+
+    @Test
+    public void displayedBasicCardTest() {
+        cardSection.simpleCard.is().displayed();
+        cardSection.card.is().displayed();
+    }
+
+    @Test
+    public void attributeCardTest() {
+        cardSection.simpleCard.is().assertCardText("Simple card");
+        cardSection.card.is().assertAltImageAttribute("Photo of a Shiba Inu");
+        cardSection.card.is().assertSrcImageAttribute("https://material.angular.io/assets/img/examples/shiba2.jpg");
+    }
+
+    @Test
+    public void displayedCardTest() {
+        cardSection.card.getHeader().is().displayed();
+        cardSection.card.getHeaderText().is().displayed();
+        cardSection.card.getAvatar().is().displayed();
+        cardSection.card.getTitle().is().displayed();
+        cardSection.card.getTitle().is().text("Shiba Inu");
+        cardSection.card.getSubtitle().is().displayed();
+        cardSection.card.getSubtitle().is().text("Dog Breed");
+        cardSection.card.getImage().is().displayed();
+        cardSection.card.getContent().is().displayed();
+        cardSection.card.getContent().is().displayed();
+    }
+```
+
+![Card](../images/angular/card.png)
+
+```html 
+<mat-card class="mat-card mat-focus-indicator">Simple card</mat-card>
+```
+
+|Method | Description | Return Type
+--- | --- | ---
+**getHeader** | Get header | UIElement
+**getAvatar** | Get avatar | UIElement
+**getHeaderText** | Get header text | UIElement
+**getTitle** | Get title | UIElement
+**getSubtitle** | Get subtitle | UIElement
+**getImage** | Get image | UIElement
+**getContent** | Get content | UIElement
+**getButtons** | Get buttons | UIElement
+**getCardText** | Get card text | UIElement
+**getButtonByText** | Get button by text | UIElement
+**getButtonByNumber** | Get button by number | UIElement
+**is()** | Assert action | CardAssert 
+**displayed()** | Check that element is displayed | TextAssert
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/CardTests.java" target="_blank">Card java tests examples</a>
 
 ### Select 
 #### <a href="https://material.angular.io/components/select/overview" target="_blank">Select overview</a>
@@ -6521,19 +6706,19 @@ Angular Material tabs organize content into separate views where only one view c
     public TabGroup tabWithCustomLabel;
 
      @Test
-        public void verifyCustomLabelTemplateTabPanelContentByNumber() {
-            int tabNumberForTest = 3;
-            String stringForTest = String.format(DYNAMIC_CONTENT, tabNumberForTest);
-            tabsSection.tabWithCustomLabel.clickTab(tabNumberForTest);
-            tabsSection.tabWithCustomLabel.is().assertTabPanelContent(stringForTest);
-        }
+     public void verifyCustomLabelTemplateTabPanelContentByNumber() {
+         int tabNumberForTest = 3;
+         String stringForTest = String.format(DYNAMIC_CONTENT, tabNumberForTest);
+         tabsSection.tabWithCustomLabel.clickTab(tabNumberForTest);
+         tabsSection.tabWithCustomLabel.is().assertTabPanelContent(stringForTest);
+     }
     
-        @Test
-        public void activeCustomLabelTemplateTabIsHighlighted() {
-            int tabNumberForTest = 2;
-            tabsSection.tabWithCustomLabel.clickTab(tabNumberForTest);
-            tabsSection.tabWithCustomLabel.is().assertTabIsHighlighted(tabNumberForTest);
-        }
+     @Test
+     public void activeCustomLabelTemplateTabIsHighlighted() {
+         int tabNumberForTest = 2;
+         tabsSection.tabWithCustomLabel.clickTab(tabNumberForTest);
+         tabsSection.tabWithCustomLabel.is().assertTabIsHighlighted(tabNumberForTest);
+     }
 ```
 
 If a tab's label is only text then the simple tab-group API can be used.
@@ -6569,16 +6754,16 @@ For more complex labels, add a template with the mat-tab-label directive inside 
          
       @Test
       public void verifyDynamicHeightBasedOnContentsTabsTitles() {
-             List<String> listForTest = Arrays.asList("Short tab", "Long tab");
-             tabsSection.tabDynamicHeightBasedOnContent.is().assertTabsTitles(listForTest);
+          List<String> listForTest = Arrays.asList("Short tab", "Long tab");
+          tabsSection.tabDynamicHeightBasedOnContent.is().assertTabsTitles(listForTest);
       }
      
       @Test
       public void verifyDynamicHeightBasedOnContentsTabPanelContentByNumber() {
-             int tabNumberForTest = 2;
-             String stringForTest = "Large content";
-             tabsSection.tabDynamicHeightBasedOnContent.clickTab(tabNumberForTest);
-             tabsSection.tabDynamicHeightBasedOnContent.is().assertTabPanelContent(stringForTest);
+          int tabNumberForTest = 2;
+          String stringForTest = "Large content";
+          tabsSection.tabDynamicHeightBasedOnContent.clickTab(tabNumberForTest);
+          tabsSection.tabDynamicHeightBasedOnContent.is().assertTabPanelContent(stringForTest);
       }
 ```
 
@@ -6650,18 +6835,18 @@ mat-primary mat-tab-group-dynamic-height"></mat-tab-group>
     @UI("#tab-with-headers-on-the-bottom")
     public TabGroup tabWithHeadersOnTheBottom;
 
-      @Test
-        public void verifyTabsWithHeadersOnTheBottomTitles() {
-            tabsSection.tabWithHeadersOnTheBottom.is().assertTabsTitles(TITLES_DEFAULT_LIST);
-        }
+    @Test
+    public void verifyTabsWithHeadersOnTheBottomTitles() {
+        tabsSection.tabWithHeadersOnTheBottom.is().assertTabsTitles(TITLES_DEFAULT_LIST);
+    }
     
-        @Test
-        public void verifyTabWithHeadersOnTheBottomPanelContentByNumber() {
-            int tabNumberForTest = 3;
-            String stringForTest = String.format(DYNAMIC_CONTENT, tabNumberForTest);
-            tabsSection.tabWithHeadersOnTheBottom.clickTab(tabNumberForTest);
-            tabsSection.tabWithHeadersOnTheBottom.is().assertTabPanelContent(stringForTest);
-        }
+    @Test
+    public void verifyTabWithHeadersOnTheBottomPanelContentByNumber() {
+        int tabNumberForTest = 3;
+        String stringForTest = String.format(DYNAMIC_CONTENT, tabNumberForTest);
+        tabsSection.tabWithHeadersOnTheBottom.clickTab(tabNumberForTest);
+        tabsSection.tabWithHeadersOnTheBottom.is().assertTabPanelContent(stringForTest);
+    }
 ```
 
 ![Tabs examples](../images/angular/tab/tabs_with_bottom_headers.PNG)
@@ -6686,24 +6871,24 @@ class="mat-tab-group mat-primary mat-tab-group-inverted-header"></mat-tab-group>
     @UI("#tabs-with-lazy-loaded-content")
     public TabGroup tabsWithLazyLoadedContent;
 
-      @Test
-        public void verifyTabWithLazyLoadedContent() {
-            int tabNumberForTest = 3;
-            refresh();
-            tabsSection.tabsWithLazyLoadedContent.clickTab(tabNumberForTest);
-            SimpleDateFormat dateTimeInGMT = new SimpleDateFormat("MMM d, yyyy, h:mm:ss aa");
-            dateTimeInGMT.setTimeZone(TimeZone.getTimeZone("GMT+3"));
-            String timeForTest = dateTimeInGMT.format(new Date());
-            String stringForTest = String.format("Content %s - Loaded: %s", tabNumberForTest, timeForTest);
-            tabsSection.tabsWithLazyLoadedContent.is().assertTabPanelContent(stringForTest);
-        }
+    @Test
+    public void verifyTabWithLazyLoadedContent() {
+        int tabNumberForTest = 3;
+        refresh();
+        tabsSection.tabsWithLazyLoadedContent.clickTab(tabNumberForTest);
+        SimpleDateFormat dateTimeInGMT = new SimpleDateFormat("MMM d, yyyy, h:mm:ss aa");
+        dateTimeInGMT.setTimeZone(TimeZone.getTimeZone("GMT+3"));
+        String timeForTest = dateTimeInGMT.format(new Date());
+        String stringForTest = String.format("Content %s - Loaded: %s", tabNumberForTest, timeForTest);
+        tabsSection.tabsWithLazyLoadedContent.is().assertTabPanelContent(stringForTest);
+    }
     
-        @Test
-        public void activeTabWithLazyLoadedContentIsHighlighted() {
-            int tabNumberForTest = 2;
-            tabsSection.tabsWithLazyLoadedContent.clickTab(tabNumberForTest);
-            tabsSection.tabsWithLazyLoadedContent.is().assertTabIsHighlighted(tabNumberForTest);
-        }
+    @Test
+    public void activeTabWithLazyLoadedContentIsHighlighted() {
+        int tabNumberForTest = 2;
+        tabsSection.tabsWithLazyLoadedContent.clickTab(tabNumberForTest);
+        tabsSection.tabsWithLazyLoadedContent.is().assertTabIsHighlighted(tabNumberForTest);
+    }
 ```
 By default, the tab contents are eagerly loaded. Eagerly loaded tabs will initalize the child
 components but not inject them into the DOM until the tab is activated.
@@ -6771,18 +6956,18 @@ during initialization, it is advised to lazy load the tab's content.
     @UI("#tabs-async-loading-content")
     public TabGroup tabsAsyncLoadingContent;
 
-     @Test
-         public void verifyCustomThemeAsyncLoadingContentTabsTitles() {
-             tabsSection.tabsAsyncLoadingContent.is().assertTabsTitles(TITLES_DEFAULT_LIST);
-         }
+    @Test
+    public void verifyCustomThemeAsyncLoadingContentTabsTitles() {
+        tabsSection.tabsAsyncLoadingContent.is().assertTabsTitles(TITLES_DEFAULT_LIST);
+    }
      
-         @Test
-         public void verifyAsyncLoadingContentTabPanelContentByNumber() {
-             int tabNumberForTest = 3;
-             String stringForTest = String.format(DYNAMIC_CONTENT, tabNumberForTest);
-             tabsSection.tabsAsyncLoadingContent.clickTab(tabNumberForTest);
-             tabsSection.tabsAsyncLoadingContent.is().assertTabPanelContent(stringForTest);
-         }
+    @Test
+    public void verifyAsyncLoadingContentTabPanelContentByNumber() {
+        int tabNumberForTest = 3;
+        String stringForTest = String.format(DYNAMIC_CONTENT, tabNumberForTest);
+        tabsSection.tabsAsyncLoadingContent.clickTab(tabNumberForTest);
+        tabsSection.tabsAsyncLoadingContent.is().assertTabPanelContent(stringForTest);
+    }
 ```
 
 ![Tabs examples](../images/angular/tab/tabs_async_loading_tab_content.PNG)
@@ -6806,19 +6991,19 @@ during initialization, it is advised to lazy load the tab's content.
     @UI("#tabs-nav-bar")
     public TabGroup tabsNavBar;
 
-     @Test
-       public void verifyTabWithLinkIsHighLighted() {
-           String tabTitleForTest = "Third";
-           tabsSection.tabsNavBar.clickTabLink(tabTitleForTest);
-           tabsSection.tabsNavBar.is().assertTabWithLinkIsHighlighted(tabTitleForTest);
-       }
+    @Test
+    public void verifyTabWithLinkIsHighLighted() {
+        String tabTitleForTest = "Third";
+        tabsSection.tabsNavBar.clickTabLink(tabTitleForTest);
+        tabsSection.tabsNavBar.is().assertTabWithLinkIsHighlighted(tabTitleForTest);
+    }
 
-        @Test
-        public void verifyTabWithLinkBackgroundColor() {
-            tabsSection.toggleBackgroundButton.click();
-            tabsSection.tabsNavBar.has().attr(CLASS_ATTR, "mat-tab-nav-bar mat-tab-header mat-primary " +
+    @Test
+    public void verifyTabWithLinkBackgroundColor() {
+        tabsSection.toggleBackgroundButton.click();
+        tabsSection.tabsNavBar.has().attr(CLASS_ATTR, "mat-tab-nav-bar mat-tab-header mat-primary " +
                     "mat-background-primary");
-        }
+    }
 ```
 
 ![Tabs examples](../images/angular/tab/tabs_with_nav_bar.PNG)
@@ -7049,7 +7234,6 @@ public void checkNestedMenuAvailableOptionsTest() {
 **text()** | Assert that element has presented text | TextAssert
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/menu" target="_blank">Menu java tests examples</a>
-
 ---
 
 ## Bootstrap Common elements
@@ -7824,12 +8008,12 @@ Here is an example with provided Bootstrap v4.3 code:
     <input type="checkbox" class="custom-control-input" id="customCheckDisabled1" disabled="">
     <label class="custom-control-label" for="customCheckDisabled1">Check this custom checkbox</label>
 </div>
+
 <div class="custom-control custom-radio" id="customRadioDisabled2-div">
     <input type="radio" name="radioDisabled" id="customRadioDisabled2" class="custom-control-input" disabled="">
     <label class="custom-control-label" for="customRadioDisabled2">Toggle this custom radio</label>
 </div>
 ```
-
 
 |Method | Description | Return Type
 --- | --- | ---

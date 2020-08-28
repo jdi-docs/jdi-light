@@ -4302,6 +4302,7 @@ There is two different slide toggles in Angular: Basic and Configurable:
 ```
 |Method | Description | Return Type
 --- | --- | ---
+
 **check()** | Check element | void
 **uncheck()** | Uncheck element | void
 **isEnabled()** | Verify state | boolean
@@ -4311,9 +4312,7 @@ There is two different slide toggles in Angular: Basic and Configurable:
 **click()** | Click element | void
 **hasClass()** | Verify element class | boolean
 
-
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/SlideToggleTests.java" target="_blank">Here you can find Slide toggle tests</a>
-
 
 ### Checkboxes
 
@@ -5077,6 +5076,7 @@ Badge is located in the following class:
 
 
 ### Progress bar
+
 #### <a href="https://material.angular.io/components/checkbox/overview" target="_blank">Progress bar overview</a>
 
 Progress bar is located in the following class:
@@ -5198,33 +5198,6 @@ public void verifyQueryProgressBarTest() {
 //@FindBy(css = "#mat-progress-bar-configurable")
 public static ProgressBar matProgressBarConfigurable;
 
-//@FindBy(css = "#progress-bars-primary-color-radio")
-public static Button progressBarsPrimaryColorRadio;
-
-//@FindBy(css = "#progress-bars-accent-color-radio")
-public static Button progressBarsAccentColorRadio;
-
-//@FindBy(css = "#progress-bars-warn-color-radio")
-public static Button progressBarsWarnColorRadio;
-
-//@FindBy(css = "#progress-bars-determinate-mode-radio")
-public static Button progressBarsDeterminateModeRadio;
-
-//@FindBy(css = "#progress-bars-indeterminate-mode-radio")
-public static Button progressBarsIndeterminateModeRadio;
-
-//@FindBy(css = "#progress-bars-buffer-mode-radio")
-public static Button progressBarsBufferModeRadio;
-
-//@FindBy(css = "#progress-bars-determinate-mode-radio")
-public static Button progressBarsDeterminateModeRadio;
-
-//@FindBy(css = "#progress-bars-progress-slider")
-public static Slider progressBarsProgressSlider;
-
-//@FindBy(css = "#progress-bars-buffer-slider")
-public static Slider progressBarsBufferSlider;
-
 @Test
 public void verifyBasicConfigurableProgressBarTest() throws Exception {
     matProgressBarConfigurable.shouldBe().displayed();
@@ -5235,101 +5208,6 @@ public void verifyBasicConfigurableProgressBarTest() throws Exception {
     matProgressBarConfigurable.has().max(100);
     matProgressBarConfigurable.has().min(0);
     matProgressBarConfigurable.has().color(BLUE);
-}
-
-@Test
-public void verifyConfigurableProgressBarColorTransformationsTest() {
-    matProgressBarConfigurable.has().color(BLUE);
-    progressBarsAccentColorRadio.click();
-    matProgressBarConfigurable.is().displayed();
-    matProgressBarConfigurable.show();
-    matProgressBarConfigurable.is().visible();
-    matProgressBarConfigurable.has().color(YELLOW);
-    matProgressBarDeterminate.has().color(BLUE);
-    matProgressBarQuery.has().color(BLUE);
-    progressBarsWarnColorRadio.click();
-    matProgressBarConfigurable.has().color(RED);
-    progressBarsIndeterminateModeRadio.click();
-    matProgressBarConfigurable.has().color(RED);
-    progressBarsPrimaryColorRadio.click();
-    matProgressBarConfigurable.has().color(BLUE);
-    matProgressBarConfigurable.has().mode(INDETERMINATE);
-    progressBarsDeterminateModeRadio.click();
-}
-
-@Test
-public void verifyConfiguredProgressBarModeTransformationsTest() throws Exception {
-    matProgressBarConfigurable.has().mode(DETERMINATE);
-    matProgressBarConfigurable.has().value(50);
-    matProgressBarConfigurable.has().color(BLUE);
-    progressBarsQueryModeRadio.click();
-    matProgressBarConfigurable.has().mode(QUERY);
-    matProgressBarConfigurable.is().displayed();
-    matProgressBarConfigurable.show();
-    matProgressBarConfigurable.is().visible();
-    matProgressBarConfigurable.has().color(BLUE);
-    matProgressBarDeterminate.has().mode(DETERMINATE);
-    matProgressBarQuery.has().mode(QUERY);
-    progressBarsIndeterminateModeRadio.click();
-    matProgressBarConfigurable.is().displayed();
-    matProgressBarConfigurable.show();
-    matProgressBarConfigurable.is().visible();
-    matProgressBarConfigurable.has().mode(INDETERMINATE);
-    matProgressBarConfigurable.has().color(BLUE);
-    progressBarsBufferModeRadio.click();
-    matProgressBarConfigurable.is().displayed();
-    matProgressBarConfigurable.show();
-    matProgressBarConfigurable.has().mode(BUFFER);
-    matProgressBarConfigurable.has().color(BLUE);
-    matProgressBarConfigurable.has().value(50);
-    matProgressBarConfigurable.has().bufferValue(0.75);
-}
-
-@Test
-public void verifyDeterminateModeValuesTransformation() throws Exception {
-    matProgressBarConfigurable.has().value(50);
-    matProgressBarConfigurable.has().max(100);
-    matProgressBarConfigurable.has().min(0);
-    progressBarsProgressSlider.moveRight();
-    matProgressBarConfigurable.has().value(51);
-    while (!matProgressBarConfigurable.getValue().equals("100")) {
-        progressBarsProgressSlider.moveRight();
-    }
-    matProgressBarConfigurable.has().value(100);
-    while (!matProgressBarConfigurable.getValue().equals("0")) {
-        progressBarsProgressSlider.moveLeft();
-    }
-    matProgressBarConfigurable.has().value(0);
-    while (!matProgressBarConfigurable.getValue().equals("50")) {
-        progressBarsProgressSlider.moveRight();
-    }
-}
-
-@Test
-public void verifyBufferModeValuesTransformation() throws Exception {
-    progressBarsBufferModeRadio.click();
-    matProgressBarConfigurable.has().value(50);
-    matProgressBarConfigurable.has().bufferValue(0.75);
-    matProgressBarConfigurable.has().max(100);
-    matProgressBarConfigurable.has().min(0);
-    progressBarsProgressSlider.moveRight();
-    matProgressBarConfigurable.has().value(51);
-    while (!matProgressBarConfigurable.getValue().equals("25")) {
-        progressBarsProgressSlider.moveLeft();
-    }
-    matProgressBarConfigurable.has().value(25);
-    while (matProgressBarConfigurable.bufferValue() != 0.95) {
-        progressBarsBufferSlider.moveRight();
-    }
-    matProgressBarConfigurable.has().bufferValue(0.95);
-    while (matProgressBarConfigurable.bufferValue() != 0.75) {
-        progressBarsBufferSlider.moveLeft();
-    }
-    matProgressBarConfigurable.has().bufferValue(0.75);
-    while (!matProgressBarConfigurable.getValue().equals("50")) {
-        progressBarsProgressSlider.moveRight();
-    }
-    matProgressBarConfigurable.has().value(50);
 }
 ```
 
@@ -5347,13 +5225,13 @@ List of the available **Progress bar** methods:
 **bufferValue()** | Assert action | ProgressBarAssert
 **color()** | Assert action | ProgressBarAssert    
 
-
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/AutocompleteTests.java" target="_blank">Progress bar java tests examples</a>
 
 ### Slider
+
 #### <a href="https://material.angular.io/components/checkbox/overview" target="_blank">Slider overview</a>
 
-Progress bar is located in the following class:
+Progress bar locates in the following class:
 
    - __Java__: _com.epam.jdi.light.ui.angular.elements.common.Slider_
    
@@ -5376,24 +5254,6 @@ public void sliderBasicGetValueTest() {
     matSliderBasic.setupValue(30);
     matSliderBasic.has().value(30.0);
 }
-
-@Test
-public void sliderBasicSetupValueTest() {
-    matSliderBasic.show();
-    matSliderBasic.setupValue(15);
-    matSliderBasic.has().value(15.0);
-}
-
-@Test
-public void sliderBasicValidationTest() {
-    matSliderBasic.show();
-    matSliderBasic.setupValue(65);
-    matSliderBasic.is().enabled();
-    matSliderBasic.is().displayed();
-    matSliderBasic.has().value(greaterThanOrEqualTo(0.0));
-    matSliderBasic.has().value(lessThanOrEqualTo(100.0));
-    matSliderBasic.has().value(65.0);
-}
 ```
 
 ![Slider with custom thumb label formatting](../images/angular/slider_with_custom_thumb_label_formatting.PNG)
@@ -5413,24 +5273,6 @@ public void sliderFormattingGetValueTest() {
     matSliderFormatting.setupValue(2000);
     matSliderFormatting.has().value(2000.0);
 }
-
-@Test
-public void sliderFormattingSetupValueTest() {
-    matSliderFormatting.show();
-    matSliderFormatting.setupValue(650);
-    matSliderFormatting.has().value(650.0);
-}
-
-@Test
-public void sliderFormattingValidationTest() {
-    matSliderFormatting.show();
-    matSliderFormatting.setupValue(8500);
-    matSliderFormatting.is().enabled();
-    matSliderFormatting.is().displayed();
-    matSliderFormatting.has().value(greaterThanOrEqualTo(1.0));
-    matSliderFormatting.has().value(lessThanOrEqualTo(100000.0));
-    matSliderFormatting.has().value(equalTo(8500.0));
-}
 ```
 
 ![Configurable slider](../images/angular/configurable_slider.PNG)
@@ -5442,30 +5284,6 @@ public void sliderFormattingValidationTest() {
 ```java  
 //@FindBy(css = "#mat-slider-configurable")
 public static Slider matSliderConfigurable;
-
-//@FindBy(css = "#slider-configurable-value")
-public static TextField sliderConfigurableValue;
-
-//@FindBy(css = "#slider-configurable-min")
-public static TextField sliderConfigurableMin;
-
-//@FindBy(css = "#slider-configurable-max")
-public static TextField sliderConfigurableMax;
-
-//@FindBy(css = "#slider-configurable-step")
-public static TextField sliderConfigurableStep;
-
-//@FindBy(css = "#slider-configurable-thumb-label")
-public static Checkbox sliderConfigurableThumbLabel;
-
-//@FindBy(css = "#slider-configurable-vertical")
-public static Checkbox sliderConfigurableVertical;
-
-//@FindBy(css = "#slider-configurable-invert")
-public static Checkbox sliderConfigurableInvert;
-
-//@FindBy(css = "#slider-configurable-disabled")
-public static Checkbox sliderConfigurableDisabled;
 
 @Test
 public void sliderConfigurableGetValueTest() {
@@ -5481,49 +5299,7 @@ public void sliderConfigurableSetupValueTest() {
     matSliderConfigurable.setupValue(35.5);
     matSliderConfigurable.has().value(35.5);
 }
-
-@Test
-public void sliderConfigurableValidationTest() {
-    matSliderConfigurable.show();
-    matSliderConfigurable.setupValue(75);
-    matSliderConfigurable.is().enabled();
-    matSliderConfigurable.is().displayed();
-    matSliderConfigurable.has().value(greaterThanOrEqualTo(0.0));
-    matSliderConfigurable.has().value(lessThanOrEqualTo(100.0));
-    matSliderConfigurable.has().value(equalTo(75.0));
-    matSliderConfigurable.setupValue(0);
-}
-
-@Test
-public void showThumbLabelTest() {
-    matSliderConfigurable.show();
-    sliderConfigurableThumbLabel.check();
-    matSliderConfigurable.slide(20);
-    matSliderConfigurable.is().thumbLabelDisplayed(true);
-    
-    sliderConfigurableThumbLabel.uncheck();
-    matSliderConfigurable.is().thumbLabelDisplayed(false);
-    
-    matSliderConfigurable.slide(50);
-    matSliderConfigurable.is().thumbLabelDisplayed(false);
-}
-
-@Test
-public void checkOrientationTest() {
-    matSliderConfigurable.show();
-    matSliderConfigurable.is().orientation("horizontal");
-    matSliderConfigurable.is().displayed();
-    
-    sliderConfigurableVertical.check();
-    matSliderConfigurable.is().orientation("vertical");
-    matSliderConfigurable.is().displayed();
-    
-    sliderConfigurableVertical.uncheck();
-    matSliderConfigurable.is().orientation("horizontal");
-    matSliderConfigurable.is().displayed();
-}
 ```
-
 List of the available **Slider** methods:
 
 | Method | Description | Return Type 
@@ -5536,10 +5312,8 @@ List of the available **Slider** methods:
 **slide()** | Drag & drop based on percentage length | void  
 **thumbLabelDisplayed()** | Assert action | SliderAssert
 
-
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/AutocompleteTests.java" target="_blank">Slider java tests examples</a>
 
-=======
 ### Tooltip
 
 ```java 

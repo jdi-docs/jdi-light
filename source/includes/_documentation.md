@@ -4302,6 +4302,7 @@ There is two different slide toggles in Angular: Basic and Configurable:
 ```
 |Method | Description | Return Type
 --- | --- | ---
+
 **check()** | Check element | void
 **uncheck()** | Uncheck element | void
 **isEnabled()** | Verify state | boolean
@@ -4311,9 +4312,7 @@ There is two different slide toggles in Angular: Basic and Configurable:
 **click()** | Click element | void
 **hasClass()** | Verify element class | boolean
 
-
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/SlideToggleTests.java" target="_blank">Here you can find Slide toggle tests</a>
-
 
 ### Checkboxes
 
@@ -4919,24 +4918,30 @@ Button toggle is based on Basic Button. Basic Button is located in the following
 There are two different button toggles in Angular: Basic and Exclusive:
 
 ```java     
-    //@FindBy(id = "underline-button-toggle-button") public static Button basicButtonToggleUnderline;
-    @UI("#underline-button-toggle-button")
-    public static Button basicButtonToggleUnderline;
+    //@FindBy(id = "mat-button-toggle-group-font") public static basicButtonToggle;
+    @UI("#mat-button-toggle-group-font")
+    public static ButtonToggle basicButtonToggle;
 
     @Test
-    public void basicButtonToggleTest() {
-        basicButtonToggleUnderline.is().enabled();
-        basicButtonToggleUnderline.is().displayed();
-        basicButtonToggleUnderline.has().text("Underline");
+    public void verifyButtonToggle() {
+        basicButtonToggle.is().displayed();
+        basicButtonToggle.is().enabled();
+        basicButtonToggle.clickButtonToggleByValue(ITALIC);
+        basicButtonToggle.is().assertButtonToggleIsSelected(ITALIC);
+        basicButtonToggle.is().assertButtonToggleButtonIsPressed(ITALIC);
+        basicButtonToggle.is().assertButtonToggleButtonHasText(ITALIC);
     }
 
     @Test
-    public void basicUnderlineButtonToggleTest() {
-        String pressedAttribute = "aria-pressed";
-        basicButtonToggleUnderline.click();
-        basicButtonToggleUnderline.has().attr(pressedAttribute, "true");
-        basicButtonToggleUnderline.click();
-        basicButtonToggleUnderline.has().attr(pressedAttribute, "false");
+    public void verifyButtonToggleCombineSelection() {
+        basicButtonToggle.clickButtonToggleByValue(ITALIC);
+        basicButtonToggle.clickButtonToggleByValue(BOLD);
+        basicButtonToggle.clickButtonToggleByValue(UNDERLINE);
+        basicButtonToggle.is().assertButtonToggleIsSelected(ITALIC);
+        basicButtonToggle.is().assertButtonToggleIsSelected(BOLD);
+        basicButtonToggle.is().assertButtonToggleIsSelected(UNDERLINE);
+        basicButtonToggle.clickButtonToggleByValue(BOLD);
+        basicButtonToggle.is().assertButtonToggleIsNotSelected(BOLD);
     }
 ```
 
@@ -4944,7 +4949,7 @@ There are two different button toggles in Angular: Basic and Exclusive:
 
 ```html
 <mat-button-toggle _ngcontent-eoo-c327="" value="underline" id="underline-button-toggle" class="mat-button-toggle mat-focus-indicator mat-button-toggle-appearance-standard" tabindex="-1">
-    <button type="button" class="mat-button-toggle-button mat-focus-indicator" id="underline-button-toggle-button" tabindex="0" aria-pressed="false">
+    <button type="button" class="mat-button-toggle-button mat-focus-indicator" tabindex="0" aria-pressed="false">
         <div class="mat-button-toggle-label-content">Underline</div>
     </button>
     <div class="mat-button-toggle-focus-overlay"></div>
@@ -4954,52 +4959,37 @@ There are two different button toggles in Angular: Basic and Exclusive:
    
 |Method | Description | Return Type
 --- | --- | ---
-**click()** | Click the button | void
+**clickButtonToggleByValue()** | Click required button | void
 **is()** | Assert action | TextAssert
-**has()** | Assert action | TextAssert
-**attr()** | Check whether an element has attribute of specified name and with given value | IsAssert
-**displayed()** | Check that element is displayed |	TextAssert
 **enabled()** | Check that element is enabled | TextAssert
 **disabled()** | Check that element is disabled | TextAssert
 
 <br>
 
 ```java 
-    //@FindBy(id = "left-align-button-toggle-button") public Button exclusiveButtonToggleLeft;
-    @UI("#left-align-button-toggle-button")
-    public Button exclusiveButtonToggleLeft;
-
-    //@FindBy(id = "center-align-button-toggle-button") public Button exclusiveButtonToggleCenter;
-    @UI("#center-align-button-toggle-button")
-    public Button exclusiveButtonToggleCenter;
-
-    //@FindBy(id = "justify-align-button-toggle-button") public Button exclusiveButtonToggleJustify;
-    @UI("#justify-align-button-toggle-button")
-    public Button exclusiveButtonToggleJustify;
-
-    //@FindBy(css = "div.example-selected-value"") public Text selectedValue;
+    //@FindBy(id = "mat-button-toggle-group-align") public Button basicButtonToggleAlign;
+    @UI("#mat-button-toggle-group-align")
+    public static ButtonToggle basicButtonToggleAlign;
     @UI("div.example-selected-value")
-    public Text selectedValue;
+    public static Text selectedValue;
 
     @Test
-    public void exclusiveButtonToggleEnabledTest() {
-        exclusiveButtonToggleCenter.is().enabled();
-        exclusiveButtonToggleJustify.is().disabled();
+    public void verifyExclusiveButtonToggle() {
+         basicButtonToggleAlign.is().displayed();
+         basicButtonToggleAlign.is().enabled();
+         basicButtonToggleAlign.clickButtonToggleByValue(LEFT);
+         basicButtonToggleAlign.is().assertButtonToggleIsSelected(LEFT);
+         buttonToggleSection.selectedValue.has().text("Selected value: left");
     }
-
+    
     @Test
-    public void exclusiveButtonToggleTest() {
-        exclusiveButtonToggleLeft.click();
-        exclusiveButtonToggleLeft.has().attr(pressedAttribute, buttonIsPressed);
-        exclusiveButtonToggleCenter.click();
-        exclusiveButtonToggleCenter.has().attr(pressedAttribute, buttonIsPressed);
-        exclusiveButtonToggleLeft.has().attr(pressedAttribute, buttonIsNotPressed);
-    }
-
-    @Test
-    public void exclusiveButtonToggleSelectedValueTest() {
-        exclusiveButtonToggleLeft.click();
-        selectedValue.has().text("Selected value: left");
+    public void verifyExclusiveButtonToggleSeparateSelection() {
+        basicButtonToggleAlign.clickButtonToggleByValue(CENTER);
+        basicButtonToggleAlign.clickButtonToggleByValue(RIGHT);
+        basicButtonToggleAlign.clickButtonToggleByValue(LEFT);
+        basicButtonToggleAlign.is().assertButtonToggleIsSelected(LEFT);
+        basicButtonToggleAlign.is().assertButtonToggleIsNotSelected(RIGHT);
+        basicButtonToggleAlign.is().assertButtonToggleIsNotSelected(CENTER);
     }
 ```  
 
@@ -5007,7 +4997,7 @@ There are two different button toggles in Angular: Basic and Exclusive:
 
 ```html
 <mat-button-toggle _ngcontent-pwh-c328="" value="left" aria-label="Text align left" id="left-align-button-toggle" class="mat-button-toggle mat-focus-indicator mat-button-toggle-appearance-standard" tabindex="-1">
-    <button type="button" class="mat-button-toggle-button mat-focus-indicator" id="left-align-button-toggle-button" tabindex="0" aria-pressed="false" name="mat-button-toggle-group-7" aria-label="Text align left">
+    <button type="button" class="mat-button-toggle-button mat-focus-indicator"  tabindex="0" aria-pressed="false" name="mat-button-toggle-group-7" aria-label="Text align left">
         <div class="mat-button-toggle-label-content"><mat-icon _ngcontent-pwh-c328="" role="img" class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true">format_align_left</mat-icon></div>
     </button>
     <div class="mat-button-toggle-focus-overlay"></div>
@@ -5017,17 +5007,15 @@ There are two different button toggles in Angular: Basic and Exclusive:
 
 |Method | Description | Return Type
 --- | --- | ---
-**click()** | Click the button | void
+**clickButtonToggleByValue()** | Click required button | void
 **is()** | Assert action | TextAssert
 **has()** | Assert action | TextAssert
-**attr()** | Check whether an element has attribute of specified name and with given value | IsAssert
-**displayed()** | Check that element is displayed |	TextAssert
 **enabled()** | Check that element is enabled | TextAssert
 **disabled()** | Check that element is disabled | TextAssert
 **text()** | Check whether a text matches a pattern | IsAssert
 
-
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/1959-button-toggle-tests/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/ButtonToggleTest.java" target="_blank">Here you can find Button toggle tests</a>
+---
 
 ### Badge
 
@@ -5088,6 +5076,7 @@ Badge is located in the following class:
 
 
 ### Progress bar
+
 #### <a href="https://material.angular.io/components/checkbox/overview" target="_blank">Progress bar overview</a>
 
 Progress bar is located in the following class:
@@ -5209,33 +5198,6 @@ public void verifyQueryProgressBarTest() {
 //@FindBy(css = "#mat-progress-bar-configurable")
 public static ProgressBar matProgressBarConfigurable;
 
-//@FindBy(css = "#progress-bars-primary-color-radio")
-public static Button progressBarsPrimaryColorRadio;
-
-//@FindBy(css = "#progress-bars-accent-color-radio")
-public static Button progressBarsAccentColorRadio;
-
-//@FindBy(css = "#progress-bars-warn-color-radio")
-public static Button progressBarsWarnColorRadio;
-
-//@FindBy(css = "#progress-bars-determinate-mode-radio")
-public static Button progressBarsDeterminateModeRadio;
-
-//@FindBy(css = "#progress-bars-indeterminate-mode-radio")
-public static Button progressBarsIndeterminateModeRadio;
-
-//@FindBy(css = "#progress-bars-buffer-mode-radio")
-public static Button progressBarsBufferModeRadio;
-
-//@FindBy(css = "#progress-bars-determinate-mode-radio")
-public static Button progressBarsDeterminateModeRadio;
-
-//@FindBy(css = "#progress-bars-progress-slider")
-public static Slider progressBarsProgressSlider;
-
-//@FindBy(css = "#progress-bars-buffer-slider")
-public static Slider progressBarsBufferSlider;
-
 @Test
 public void verifyBasicConfigurableProgressBarTest() throws Exception {
     matProgressBarConfigurable.shouldBe().displayed();
@@ -5246,101 +5208,6 @@ public void verifyBasicConfigurableProgressBarTest() throws Exception {
     matProgressBarConfigurable.has().max(100);
     matProgressBarConfigurable.has().min(0);
     matProgressBarConfigurable.has().color(BLUE);
-}
-
-@Test
-public void verifyConfigurableProgressBarColorTransformationsTest() {
-    matProgressBarConfigurable.has().color(BLUE);
-    progressBarsAccentColorRadio.click();
-    matProgressBarConfigurable.is().displayed();
-    matProgressBarConfigurable.show();
-    matProgressBarConfigurable.is().visible();
-    matProgressBarConfigurable.has().color(YELLOW);
-    matProgressBarDeterminate.has().color(BLUE);
-    matProgressBarQuery.has().color(BLUE);
-    progressBarsWarnColorRadio.click();
-    matProgressBarConfigurable.has().color(RED);
-    progressBarsIndeterminateModeRadio.click();
-    matProgressBarConfigurable.has().color(RED);
-    progressBarsPrimaryColorRadio.click();
-    matProgressBarConfigurable.has().color(BLUE);
-    matProgressBarConfigurable.has().mode(INDETERMINATE);
-    progressBarsDeterminateModeRadio.click();
-}
-
-@Test
-public void verifyConfiguredProgressBarModeTransformationsTest() throws Exception {
-    matProgressBarConfigurable.has().mode(DETERMINATE);
-    matProgressBarConfigurable.has().value(50);
-    matProgressBarConfigurable.has().color(BLUE);
-    progressBarsQueryModeRadio.click();
-    matProgressBarConfigurable.has().mode(QUERY);
-    matProgressBarConfigurable.is().displayed();
-    matProgressBarConfigurable.show();
-    matProgressBarConfigurable.is().visible();
-    matProgressBarConfigurable.has().color(BLUE);
-    matProgressBarDeterminate.has().mode(DETERMINATE);
-    matProgressBarQuery.has().mode(QUERY);
-    progressBarsIndeterminateModeRadio.click();
-    matProgressBarConfigurable.is().displayed();
-    matProgressBarConfigurable.show();
-    matProgressBarConfigurable.is().visible();
-    matProgressBarConfigurable.has().mode(INDETERMINATE);
-    matProgressBarConfigurable.has().color(BLUE);
-    progressBarsBufferModeRadio.click();
-    matProgressBarConfigurable.is().displayed();
-    matProgressBarConfigurable.show();
-    matProgressBarConfigurable.has().mode(BUFFER);
-    matProgressBarConfigurable.has().color(BLUE);
-    matProgressBarConfigurable.has().value(50);
-    matProgressBarConfigurable.has().bufferValue(0.75);
-}
-
-@Test
-public void verifyDeterminateModeValuesTransformation() throws Exception {
-    matProgressBarConfigurable.has().value(50);
-    matProgressBarConfigurable.has().max(100);
-    matProgressBarConfigurable.has().min(0);
-    progressBarsProgressSlider.moveRight();
-    matProgressBarConfigurable.has().value(51);
-    while (!matProgressBarConfigurable.getValue().equals("100")) {
-        progressBarsProgressSlider.moveRight();
-    }
-    matProgressBarConfigurable.has().value(100);
-    while (!matProgressBarConfigurable.getValue().equals("0")) {
-        progressBarsProgressSlider.moveLeft();
-    }
-    matProgressBarConfigurable.has().value(0);
-    while (!matProgressBarConfigurable.getValue().equals("50")) {
-        progressBarsProgressSlider.moveRight();
-    }
-}
-
-@Test
-public void verifyBufferModeValuesTransformation() throws Exception {
-    progressBarsBufferModeRadio.click();
-    matProgressBarConfigurable.has().value(50);
-    matProgressBarConfigurable.has().bufferValue(0.75);
-    matProgressBarConfigurable.has().max(100);
-    matProgressBarConfigurable.has().min(0);
-    progressBarsProgressSlider.moveRight();
-    matProgressBarConfigurable.has().value(51);
-    while (!matProgressBarConfigurable.getValue().equals("25")) {
-        progressBarsProgressSlider.moveLeft();
-    }
-    matProgressBarConfigurable.has().value(25);
-    while (matProgressBarConfigurable.bufferValue() != 0.95) {
-        progressBarsBufferSlider.moveRight();
-    }
-    matProgressBarConfigurable.has().bufferValue(0.95);
-    while (matProgressBarConfigurable.bufferValue() != 0.75) {
-        progressBarsBufferSlider.moveLeft();
-    }
-    matProgressBarConfigurable.has().bufferValue(0.75);
-    while (!matProgressBarConfigurable.getValue().equals("50")) {
-        progressBarsProgressSlider.moveRight();
-    }
-    matProgressBarConfigurable.has().value(50);
 }
 ```
 
@@ -5358,13 +5225,13 @@ List of the available **Progress bar** methods:
 **bufferValue()** | Assert action | ProgressBarAssert
 **color()** | Assert action | ProgressBarAssert    
 
-
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/AutocompleteTests.java" target="_blank">Progress bar java tests examples</a>
 
 ### Slider
+
 #### <a href="https://material.angular.io/components/checkbox/overview" target="_blank">Slider overview</a>
 
-Progress bar is located in the following class:
+Progress bar locates in the following class:
 
    - __Java__: _com.epam.jdi.light.ui.angular.elements.common.Slider_
    
@@ -5387,24 +5254,6 @@ public void sliderBasicGetValueTest() {
     matSliderBasic.setupValue(30);
     matSliderBasic.has().value(30.0);
 }
-
-@Test
-public void sliderBasicSetupValueTest() {
-    matSliderBasic.show();
-    matSliderBasic.setupValue(15);
-    matSliderBasic.has().value(15.0);
-}
-
-@Test
-public void sliderBasicValidationTest() {
-    matSliderBasic.show();
-    matSliderBasic.setupValue(65);
-    matSliderBasic.is().enabled();
-    matSliderBasic.is().displayed();
-    matSliderBasic.has().value(greaterThanOrEqualTo(0.0));
-    matSliderBasic.has().value(lessThanOrEqualTo(100.0));
-    matSliderBasic.has().value(65.0);
-}
 ```
 
 ![Slider with custom thumb label formatting](../images/angular/slider_with_custom_thumb_label_formatting.PNG)
@@ -5424,24 +5273,6 @@ public void sliderFormattingGetValueTest() {
     matSliderFormatting.setupValue(2000);
     matSliderFormatting.has().value(2000.0);
 }
-
-@Test
-public void sliderFormattingSetupValueTest() {
-    matSliderFormatting.show();
-    matSliderFormatting.setupValue(650);
-    matSliderFormatting.has().value(650.0);
-}
-
-@Test
-public void sliderFormattingValidationTest() {
-    matSliderFormatting.show();
-    matSliderFormatting.setupValue(8500);
-    matSliderFormatting.is().enabled();
-    matSliderFormatting.is().displayed();
-    matSliderFormatting.has().value(greaterThanOrEqualTo(1.0));
-    matSliderFormatting.has().value(lessThanOrEqualTo(100000.0));
-    matSliderFormatting.has().value(equalTo(8500.0));
-}
 ```
 
 ![Configurable slider](../images/angular/configurable_slider.PNG)
@@ -5453,30 +5284,6 @@ public void sliderFormattingValidationTest() {
 ```java  
 //@FindBy(css = "#mat-slider-configurable")
 public static Slider matSliderConfigurable;
-
-//@FindBy(css = "#slider-configurable-value")
-public static TextField sliderConfigurableValue;
-
-//@FindBy(css = "#slider-configurable-min")
-public static TextField sliderConfigurableMin;
-
-//@FindBy(css = "#slider-configurable-max")
-public static TextField sliderConfigurableMax;
-
-//@FindBy(css = "#slider-configurable-step")
-public static TextField sliderConfigurableStep;
-
-//@FindBy(css = "#slider-configurable-thumb-label")
-public static Checkbox sliderConfigurableThumbLabel;
-
-//@FindBy(css = "#slider-configurable-vertical")
-public static Checkbox sliderConfigurableVertical;
-
-//@FindBy(css = "#slider-configurable-invert")
-public static Checkbox sliderConfigurableInvert;
-
-//@FindBy(css = "#slider-configurable-disabled")
-public static Checkbox sliderConfigurableDisabled;
 
 @Test
 public void sliderConfigurableGetValueTest() {
@@ -5492,49 +5299,7 @@ public void sliderConfigurableSetupValueTest() {
     matSliderConfigurable.setupValue(35.5);
     matSliderConfigurable.has().value(35.5);
 }
-
-@Test
-public void sliderConfigurableValidationTest() {
-    matSliderConfigurable.show();
-    matSliderConfigurable.setupValue(75);
-    matSliderConfigurable.is().enabled();
-    matSliderConfigurable.is().displayed();
-    matSliderConfigurable.has().value(greaterThanOrEqualTo(0.0));
-    matSliderConfigurable.has().value(lessThanOrEqualTo(100.0));
-    matSliderConfigurable.has().value(equalTo(75.0));
-    matSliderConfigurable.setupValue(0);
-}
-
-@Test
-public void showThumbLabelTest() {
-    matSliderConfigurable.show();
-    sliderConfigurableThumbLabel.check();
-    matSliderConfigurable.slide(20);
-    matSliderConfigurable.is().thumbLabelDisplayed(true);
-    
-    sliderConfigurableThumbLabel.uncheck();
-    matSliderConfigurable.is().thumbLabelDisplayed(false);
-    
-    matSliderConfigurable.slide(50);
-    matSliderConfigurable.is().thumbLabelDisplayed(false);
-}
-
-@Test
-public void checkOrientationTest() {
-    matSliderConfigurable.show();
-    matSliderConfigurable.is().orientation("horizontal");
-    matSliderConfigurable.is().displayed();
-    
-    sliderConfigurableVertical.check();
-    matSliderConfigurable.is().orientation("vertical");
-    matSliderConfigurable.is().displayed();
-    
-    sliderConfigurableVertical.uncheck();
-    matSliderConfigurable.is().orientation("horizontal");
-    matSliderConfigurable.is().displayed();
-}
 ```
-
 List of the available **Slider** methods:
 
 | Method | Description | Return Type 
@@ -5547,10 +5312,8 @@ List of the available **Slider** methods:
 **slide()** | Drag & drop based on percentage length | void  
 **thumbLabelDisplayed()** | Assert action | SliderAssert
 
-
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/AutocompleteTests.java" target="_blank">Slider java tests examples</a>
 
-=======
 ### Tooltip
 
 ```java 

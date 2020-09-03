@@ -4967,15 +4967,11 @@ There are two different button toggles in Angular: Basic and Exclusive:
 <br>
 
 ```java 
-    //@FindBy(id = "mat-button-toggle-group-font")
-    @UI("#mat-button-toggle-group-font") 
-    public static ButtonToggle basicButtonToggle;
-
     //@FindBy(id = "mat-button-toggle-group-align")
     @UI("#mat-button-toggle-group-align")  
     public static ButtonToggle basicButtonToggleAlign;
 
-
+     //@FindBy(css = "div.example-selected-value")
     @UI("div.example-selected-value")
     public static Text selectedValue;
 
@@ -5393,10 +5389,6 @@ Radio buttons locates in the following classes:
    
 There are two different radio buttons types in Angular: Basic radios and Radios with NGmodel.
  
-![Basic radios](../images/angular/basic_radios.png)
-
-![Radios_with_ngmodel](../images/angular/radios_with_ngmodel.png) 
-
 ```java 
     //FindBy(id = "basic-radio-group") 
     public static RadioButtons basicRadioGroup;
@@ -5435,12 +5427,16 @@ There are two different radio buttons types in Angular: Basic radios and Radios 
      }
 ```
 
+![Basic radios](../images/angular/basic_radios.png)
+
 ```html 
 <mat-radio-group id="basic-radio-group" aria-label="Select an option"> 
 <mat-radio-button id="{{'radio-option-one'}}" value="1">Option 1</mat-radio-button> 
 <mat-radio-button id="{{'radio-option-two'}}" value="2">Option 2</mat-radio-button> 
 </mat-radio-group>
 ```
+
+![Radios_with_ngmodel](../images/angular/radios_with_ngmodel.png) 
 
 ```html 
 <mat-radio-group id="season-radio-group" aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]="favoriteSeason">
@@ -5452,7 +5448,7 @@ There are two different radio buttons types in Angular: Basic radios and Radios 
 
 |Method | Description | Return Type
 --- | --- | ---
-**click)** | Click the button by value | void
+**click()** | Click the button by value | void
 **is()** | Assert action | TextAssert
 **has()** | assert that element has attribute | TextAssert
 **attr()** | Check whether an element has attribute of specified name and with given value  | IsAssert 

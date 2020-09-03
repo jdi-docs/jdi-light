@@ -4967,9 +4967,15 @@ There are two different button toggles in Angular: Basic and Exclusive:
 <br>
 
 ```java 
-    //@FindBy(id = "mat-button-toggle-group-align") public Button basicButtonToggleAlign;
-    @UI("#mat-button-toggle-group-align")
+    //@FindBy(id = "mat-button-toggle-group-font")
+    @UI("#mat-button-toggle-group-font") 
+    public static ButtonToggle basicButtonToggle;
+
+    //@FindBy(id = "mat-button-toggle-group-align")
+    @UI("#mat-button-toggle-group-align")  
     public static ButtonToggle basicButtonToggleAlign;
+
+
     @UI("div.example-selected-value")
     public static Text selectedValue;
 
@@ -5014,7 +5020,7 @@ There are two different button toggles in Angular: Basic and Exclusive:
 **disabled()** | Check that element is disabled | TextAssert
 **text()** | Check whether a text matches a pattern | IsAssert
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/1959-button-toggle-tests/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/ButtonToggleTest.java" target="_blank">Here you can find Button toggle tests</a>
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/ButtonToggleTests.java" target="_blank">Here you can find Button toggle tests</a>
 ---
 
 ### Badge
@@ -5392,13 +5398,13 @@ There are two different radio buttons types in Angular: Basic radios and Radios 
 ![Radios_with_ngmodel](../images/angular/radios_with_ngmodel.png) 
 
 ```java 
-    //FindBy(id = "basic-radio-group") public static RadioButtons basicRadioGroup;
+    //FindBy(id = "basic-radio-group") 
     public static RadioButtons basicRadioGroup;
 
-    //FindBy(id = "season-radio-group") public static RadioButtons seasonRadioGroup;
+    //FindBy(id = "season-radio-group")
     public static RadioButtons seasonRadioGroup;
 
-    //FindBy(id = "your-favorit-season-text") public static Text yourFavoriteSeasonText;
+    //FindBy(id = "your-favorit-season-text") 
     public static Text yourFavoriteSeasonText;
 
     @Test

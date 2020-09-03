@@ -614,7 +614,7 @@
                     <a href="#angular-complex-elements" class="toc-h2 toc-link" data-title="Angular Complex elements">Angular Complex elements</a>
                         <ul class="toc-list-h2">
                             <li>
-								<a href="#radio-button" class="toc-h2 h3 toc-link" data-title="Radio Button">Radio Button</a>
+								<a href="#radio-buttons" class="toc-h2 h3 toc-link" data-title="Radio Buttons">Radio Buttons</a>
                             </li>
                             <li>
 								<a href="#list" class="toc-h2 h3 toc-link" data-title="List">List</a>
@@ -10297,9 +10297,15 @@ Methods available for Java in JDI Light:</p>
 </tbody></table>
 
 <p><br></p>
-<pre class="highlight java tab-java"><code>    <span class="c1">//@FindBy(id = "mat-button-toggle-group-align") public Button basicButtonToggleAlign;</span>
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#mat-button-toggle-group-align"</span><span class="o">)</span>
+<pre class="highlight java tab-java"><code>    <span class="c1">//@FindBy(id = "mat-button-toggle-group-font")</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#mat-button-toggle-group-font"</span><span class="o">)</span> 
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">ButtonToggle</span> <span class="n">basicButtonToggle</span><span class="o">;</span>
+
+    <span class="c1">//@FindBy(id = "mat-button-toggle-group-align")</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#mat-button-toggle-group-align"</span><span class="o">)</span>  
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">ButtonToggle</span> <span class="n">basicButtonToggleAlign</span><span class="o">;</span>
+
+
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"div.example-selected-value"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">Text</span> <span class="n">selectedValue</span><span class="o">;</span>
 
@@ -10369,7 +10375,7 @@ Methods available for Java in JDI Light:</p>
 <td>IsAssert</td>
 </tr>
 </tbody></table>
-<h4 id='here-you-can-find-button-toggle-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/1959-button-toggle-tests/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/ButtonToggleTest.java" target="_blank">Here you can find Button toggle tests</a></h4>
+<h4 id='here-you-can-find-button-toggle-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/ButtonToggleTests.java" target="_blank">Here you can find Button toggle tests</a></h4>
 <hr>
 <h3 id='badge'>Badge</h3><pre class="highlight java tab-java"><code>    <span class="cm">/**@FindBy(css = "#text-with-badge span") public static Badge badgeWithText;*/</span>
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"#text-with-badge span"</span><span class="o">)</span>
@@ -10779,151 +10785,60 @@ Methods available for Java in JDI Light:</p>
 <td>TooltipAssert</td>
 </tr>
 </tbody></table>
-<h4 id='here-you-can-find-tooltip-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/TooltipTests.java" target="_blank">Here you can find Tooltip tests</a></h4><h2 id='angular-complex-elements'>Angular Complex elements</h2><h3 id='radio-button'>Radio Button</h3><h4 id='radio-button-overview'><a href="https://material.angular.io/components/radio/overview" target="_blank">Radio button overview</a></h4>
+<h4 id='here-you-can-find-tooltip-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/TooltipTests.java" target="_blank">Here you can find Tooltip tests</a></h4><h2 id='angular-complex-elements'>Angular Complex elements</h2><h3 id='radio-buttons'>Radio Buttons</h3><h4 id='radio-button-overview'><a href="https://material.angular.io/components/radio/overview" target="_blank">Radio button overview</a></h4>
 <p>Element that can be represented with one or more clickable buttons aiming to choose only one button of the group.</p>
 
-<p>Radio button is located in the following classes:</p>
+<p>Radio buttons locates in the following classes:</p>
 
 <ul>
-<li><strong>Java</strong>: com.epam.jdi.light.ui.bootstrap.elements.complex.RadioButtons</li>
+<li><strong>Java</strong>:  com.epam.jdi.light.angular.elements.complex;</li>
 </ul>
 
-<p>There are two different radio buttons in Angular: Basic radios and Radios with NGmodel.</p>
+<p>There are two different radio buttons types in Angular: Basic radios and Radios with NGmodel.</p>
 
-<p>See an example with HTML code describing basic radios element.</p>
-<pre class="highlight java tab-java"><code>    <span class="c1">//FindBy(id = "basic-radio-group") public static RadioButtons basicRadioButtons;</span>
-    <span class="nd">@Css</span><span class="o">(</span><span class="s">"#basic-radio-group"</span><span class="o">)</span> 
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">RadioButtons</span> <span class="n">basicRadioButtons</span><span class="o">;</span> 
-
-    <span class="c1">//FindBy(id = "radio-option-one") public static Button firstBasicRadioButton; </span>
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#radio-option-one"</span><span class="o">)</span> 
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Button</span> <span class="n">firstBasicRadioButton</span><span class="o">;</span> 
-
-    <span class="c1">//FindBy(id = "radio-option-two") public static Button secondBasicRadioButton;</span>
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#radio-option-two"</span><span class="o">)</span> 
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Button</span> <span class="n">secondBasicRadioButton</span><span class="o">;</span>
-
-    <span class="nd">@Test</span> 
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">displayedBasicRadioButtonTest</span><span class="o">()</span> <span class="o">{</span> 
-    <span class="n">radioButtonSection</span><span class="o">.</span><span class="na">basicRadioButtons</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span> 
-    <span class="n">radioButtonSection</span><span class="o">.</span><span class="na">firstBasicRadioButton</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span> 
-    <span class="n">radioButtonSection</span><span class="o">.</span><span class="na">secondBasicRadioButton</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span> 
-    <span class="o">}</span>
-
-    <span class="nd">@Test</span> 
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">nameBasicRadioButtonTest</span><span class="o">()</span> <span class="o">{</span> 
-    <span class="n">radioButtonSection</span><span class="o">.</span><span class="na">firstBasicRadioButton</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Option 1"</span><span class="o">);</span> 
-    <span class="n">radioButtonSection</span><span class="o">.</span><span class="na">secondBasicRadioButton</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Option 2"</span><span class="o">);</span> 
-    <span class="o">}</span>
-
-    <span class="nd">@Test</span> 
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onlyOneOptionOneButtonEnabledTest</span><span class="o">()</span> <span class="o">{</span> 
-    <span class="n">radioButtonSection</span><span class="o">.</span><span class="na">firstBasicRadioButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span> 
-    <span class="n">radioButtonSection</span><span class="o">.</span><span class="na">firstBasicRadioButton</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">attr</span><span class="o">(</span><span class="n">attrNameButton</span><span class="o">,</span> <span class="n">matchesRegex</span><span class="o">(</span><span class="n">enableButton</span><span class="o">));</span> 
-    <span class="n">radioButtonSection</span><span class="o">.</span><span class="na">secondBasicRadioButton</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">attr</span><span class="o">(</span><span class="n">attrNameButton</span><span class="o">,</span> <span class="n">disableBasicButton</span><span class="o">);</span> 
-    <span class="o">}</span>
-</code></pre>
 <p><img src="images/angular/basic_radios.png" alt="Basic radios" /></p>
-<pre class="highlight html tab-html"><code><span class="nt">&lt;mat-radio-group</span> <span class="na">id=</span><span class="s">"basic-radio-group"</span> <span class="na">aria-label=</span><span class="s">"Select an option"</span><span class="nt">&gt;</span> 
+
+<p><img src="images/angular/radios_with_ngmodel.png" alt="Radios_with_ngmodel" /> </p>
+<pre class="highlight java tab-java"><code>    <span class="c1">//FindBy(id = "basic-radio-group") </span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">RadioButtons</span> <span class="n">basicRadioGroup</span><span class="o">;</span>
+
+    <span class="c1">//FindBy(id = "season-radio-group")</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">RadioButtons</span> <span class="n">seasonRadioGroup</span><span class="o">;</span>
+
+    <span class="c1">//FindBy(id = "your-favorit-season-text") </span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Text</span> <span class="n">yourFavoriteSeasonText</span><span class="o">;</span>
+
+    <span class="nd">@Test</span>
+     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">basicRadioButtonsTest</span><span class="o">()</span> <span class="o">{</span>
+         <span class="n">basicRadioGroup</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+         <span class="n">basicRadioGroup</span><span class="o">.</span><span class="na">click</span><span class="o">(</span><span class="s">"2"</span><span class="o">);</span>
+         <span class="n">basicRadioGroup</span><span class="o">.</span><span class="na">click</span><span class="o">(</span><span class="s">"1"</span><span class="o">);</span>
+         <span class="n">basicRadioGroup</span><span class="o">.</span><span class="na">click</span><span class="o">(</span><span class="s">"2"</span><span class="o">);</span>
+
+         <span class="n">basicRadioGroup</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">checked</span><span class="o">(</span><span class="s">"2"</span><span class="o">);</span>
+         <span class="n">basicRadioGroup</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">notChecked</span><span class="o">(</span><span class="s">"1"</span><span class="o">);</span>
+     <span class="o">}</span>   
+
+     <span class="nd">@Test</span>
+     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">seasonsRadioButtonsTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">seasonRadioGroup</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+        <span class="n">seasonRadioGroup</span><span class="o">.</span><span class="na">click</span><span class="o">(</span><span class="n">SUMMER</span><span class="o">);</span>
+        <span class="n">seasonRadioGroup</span><span class="o">.</span><span class="na">click</span><span class="o">(</span><span class="n">WINTER</span><span class="o">);</span>
+        <span class="n">seasonRadioGroup</span><span class="o">.</span><span class="na">click</span><span class="o">(</span><span class="n">AUTUMN</span><span class="o">);</span>
+
+        <span class="n">seasonRadioGroup</span><span class="o">.</span><span class="na">click</span><span class="o">(</span><span class="n">SPRING</span><span class="o">);</span>
+        <span class="n">seasonRadioGroup</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">checked</span><span class="o">(</span><span class="n">SPRING</span><span class="o">);</span>
+        <span class="n">yourFavoriteSeasonText</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">"Your favorite season is: %s"</span><span class="o">,</span> <span class="n">SPRING</span><span class="o">));</span>
+
+        <span class="n">seasonRadioGroup</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">notChecked</span><span class="o">(</span><span class="n">WINTER</span><span class="o">);</span>
+        <span class="n">seasonRadioGroup</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">notChecked</span><span class="o">(</span><span class="n">SUMMER</span><span class="o">);</span>
+        <span class="n">seasonRadioGroup</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">notChecked</span><span class="o">(</span><span class="n">AUTUMN</span><span class="o">);</span>
+     <span class="o">}</span>
+</code></pre><pre class="highlight html tab-html"><code><span class="nt">&lt;mat-radio-group</span> <span class="na">id=</span><span class="s">"basic-radio-group"</span> <span class="na">aria-label=</span><span class="s">"Select an option"</span><span class="nt">&gt;</span> 
 <span class="nt">&lt;mat-radio-button</span> <span class="na">id=</span><span class="s">"{{'radio-option-one'}}"</span> <span class="na">value=</span><span class="s">"1"</span><span class="nt">&gt;</span>Option 1<span class="nt">&lt;/mat-radio-button&gt;</span> 
 <span class="nt">&lt;mat-radio-button</span> <span class="na">id=</span><span class="s">"{{'radio-option-two'}}"</span> <span class="na">value=</span><span class="s">"2"</span><span class="nt">&gt;</span>Option 2<span class="nt">&lt;/mat-radio-button&gt;</span> 
 <span class="nt">&lt;/mat-radio-group&gt;</span>
-</code></pre>
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>click()</strong></td>
-<td>Click the button</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>is()</strong></td>
-<td>Assert action</td>
-<td>TextAssert</td>
-</tr>
-<tr>
-<td><strong>has()</strong></td>
-<td>assert that element has attribute</td>
-<td>boolean</td>
-</tr>
-<tr>
-<td><strong>attr()</strong></td>
-<td>Check whether an element has attribute of specified name and with given value</td>
-<td>IsAssert</td>
-</tr>
-<tr>
-<td><strong>displayed()</strong></td>
-<td>Check that element is displayed</td>
-<td>TextAssert</td>
-</tr>
-<tr>
-<td><strong>text()</strong></td>
-<td>Assert that element has presented text</td>
-<td>TextAssert</td>
-</tr>
-</tbody></table>
-
-<p>See an example with HTML code describing radios with NGmodel element.</p>
-<pre class="highlight java tab-java"><code>    <span class="c1">//FindBy(id = "season-radio-group") public static RadioButtons seasonRadioButtons;</span>
-    <span class="nd">@Css</span><span class="o">(</span><span class="s">"#season-radio-group"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">RadioButtons</span> <span class="n">seasonRadioButtons</span><span class="o">;</span>
-
-    <span class="c1">//FindBy(id = "favorite-season-winter") public static Button winterNGModelRadioButton;</span>
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#favorite-season-winter"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Button</span> <span class="n">winterNGModelRadioButton</span><span class="o">;</span>
-
-    <span class="c1">//FindBy(id = "favorite-season-spring") public static Button springNGModelRadioButton;</span>
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#favorite-season-spring"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Button</span> <span class="n">springNGModelRadioButton</span><span class="o">;</span>
-
-    <span class="c1">//FindBy(id = "favorite-season-summer") public static Button summerNGModelRadioButton;</span>
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#favorite-season-summer"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Button</span> <span class="n">summerNGModelRadioButton</span><span class="o">;</span>
-
-    <span class="c1">//FindBy(id = "favorite-season-autumn") public static Button autumnNGModelRadioButton;</span>
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#favorite-season-autumn"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Button</span> <span class="n">autumnNGModelRadioButton</span><span class="o">;</span>
-
-    <span class="c1">//FindBy(id = "your-favorite-season-text") public static Text favoriteSeason;</span>
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#your-favorite-season-text"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Text</span> <span class="n">favoriteSeason</span><span class="o">;</span>
-
-    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">displayedSeasonRadioButtonTest</span><span class="o">()</span> <span class="o">{</span>
-      <span class="n">radioButtonSection</span><span class="o">.</span><span class="na">seasonRadioButtons</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-      <span class="n">radioButtonSection</span><span class="o">.</span><span class="na">winterNGModelRadioButton</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-      <span class="n">radioButtonSection</span><span class="o">.</span><span class="na">springNGModelRadioButton</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-      <span class="n">radioButtonSection</span><span class="o">.</span><span class="na">summerNGModelRadioButton</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-      <span class="n">radioButtonSection</span><span class="o">.</span><span class="na">autumnNGModelRadioButton</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">nameSeasonRadioButtonTest</span><span class="o">()</span> <span class="o">{</span>
-      <span class="n">radioButtonSection</span><span class="o">.</span><span class="na">winterNGModelRadioButton</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Winter"</span><span class="o">);</span>
-      <span class="n">radioButtonSection</span><span class="o">.</span><span class="na">springNGModelRadioButton</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Spring"</span><span class="o">);</span>
-      <span class="n">radioButtonSection</span><span class="o">.</span><span class="na">summerNGModelRadioButton</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Summer"</span><span class="o">);</span>
-      <span class="n">radioButtonSection</span><span class="o">.</span><span class="na">autumnNGModelRadioButton</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Autumn"</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">favoriteSeasonTest</span><span class="o">()</span> <span class="o">{</span>
-      <span class="n">radioButtonSection</span><span class="o">.</span><span class="na">winterNGModelRadioButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
-      <span class="n">radioButtonSection</span><span class="o">.</span><span class="na">favoriteSeason</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Your favorite season is: Winter"</span><span class="o">);</span>
-      <span class="n">radioButtonSection</span><span class="o">.</span><span class="na">springNGModelRadioButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
-      <span class="n">radioButtonSection</span><span class="o">.</span><span class="na">favoriteSeason</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Your favorite season is: Spring"</span><span class="o">);</span>
-      <span class="n">radioButtonSection</span><span class="o">.</span><span class="na">summerNGModelRadioButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
-      <span class="n">radioButtonSection</span><span class="o">.</span><span class="na">favoriteSeason</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Your favorite season is: Summer"</span><span class="o">);</span>
-      <span class="n">radioButtonSection</span><span class="o">.</span><span class="na">autumnNGModelRadioButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
-      <span class="n">radioButtonSection</span><span class="o">.</span><span class="na">favoriteSeason</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Your favorite season is: Autumn"</span><span class="o">);</span>
-    <span class="o">}</span>
-</code></pre>
-<p><img src="images/angular/radios_with_ngmodel.png" alt="Radios_with_ngmodel" /> </p>
-<pre class="highlight html tab-html"><code><span class="nt">&lt;mat-radio-group</span> <span class="na">id=</span><span class="s">"season-radio-group"</span> <span class="na">aria-labelledby=</span><span class="s">"example-radio-group-label"</span> <span class="na">class=</span><span class="s">"example-radio-group"</span> <span class="err">[(</span><span class="na">ngModel</span><span class="err">)]="</span><span class="na">favoriteSeason</span><span class="err">"</span><span class="nt">&gt;</span>
+</code></pre><pre class="highlight html tab-html"><code><span class="nt">&lt;mat-radio-group</span> <span class="na">id=</span><span class="s">"season-radio-group"</span> <span class="na">aria-labelledby=</span><span class="s">"example-radio-group-label"</span> <span class="na">class=</span><span class="s">"example-radio-group"</span> <span class="err">[(</span><span class="na">ngModel</span><span class="err">)]="</span><span class="na">favoriteSeason</span><span class="err">"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;mat-radio-button</span> <span class="na">id=</span><span class="s">"{{'favorite-season-' + season.toLowerCase()}}"</span> <span class="na">class=</span><span class="s">"example-radio-button"</span> <span class="err">*</span><span class="na">ngFor=</span><span class="s">"let season of seasons"</span> <span class="err">[</span><span class="na">value</span><span class="err">]="</span><span class="na">season</span><span class="err">"</span><span class="nt">&gt;</span>
     {{season}}
   <span class="nt">&lt;/mat-radio-button&gt;</span>
@@ -10937,8 +10852,8 @@ Methods available for Java in JDI Light:</p>
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>click()</strong></td>
-<td>Click the button</td>
+<td><strong>click)</strong></td>
+<td>Click the button by value</td>
 <td>void</td>
 </tr>
 <tr>
@@ -10949,7 +10864,7 @@ Methods available for Java in JDI Light:</p>
 <tr>
 <td><strong>has()</strong></td>
 <td>assert that element has attribute</td>
-<td>boolean</td>
+<td>TextAssert</td>
 </tr>
 <tr>
 <td><strong>attr()</strong></td>
@@ -14557,7 +14472,7 @@ import the <code>NativeDateModule</code> or <code>MomentDateModule</code>. These
 <p><a href="https://jdi-docs.github.io/jdi-light/#section">Section</a>  </p>
 
 <p><br></p>
-<h4 id='radio-button-2'><a href="https://getbootstrap.com/docs/4.3/components/forms/#default-stacked" target="_blank">Radio button</a></h4>
+<h4 id='radio-button'><a href="https://getbootstrap.com/docs/4.3/components/forms/#default-stacked" target="_blank">Radio button</a></h4>
 <p>Element that can be represented with one or more clickable buttons aiming to choose only one button of the group.</p>
 
 <p>Radio button is located in the following classes:</p>

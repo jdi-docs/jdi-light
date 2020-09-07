@@ -646,6 +646,9 @@
                             <li>
 								<a href="#menu-2" class="toc-h2 h3 toc-link" data-title="Menu">Menu</a>
                             </li>
+                            <li>
+								<a href="#ripple" class="toc-h2 h3 toc-link" data-title="Ripple">Ripple</a>
+                            </li>
                         </ul>
                   </li>
                   <li>
@@ -14223,7 +14226,285 @@ import the <code>NativeDateModule</code> or <code>MomentDateModule</code>. These
 <td>TextAssert</td>
 </tr>
 </tbody></table>
-<h4 id='menu-java-tests-examples'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/menu" target="_blank">Menu java tests examples</a></h4>
+<h4 id='menu-java-tests-examples'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/menu" target="_blank">Menu java tests examples</a></h4><h3 id='ripple'>Ripple</h3><h4 id='ripple-overview'><a href="https://material.angular.io/components/ripple/overview" target="_blank">Ripple overview</a></h4>
+<p>Connect user input to screen reactions by using ripples to both indicate the point of touch, and to confirm that touch 
+input was received. For touch or mouse, this occurs at the point of contact.</p>
+
+<p>The <code>matRipple</code> attribute directive defines an area in which a ripple animates on user interaction.
+Ripple is located in the following class:</p>
+
+<ul>
+<li><strong>Java</strong>: com.epam.jdi.light.angular.elements.complex.Ripple</li>
+</ul>
+
+<p>By default, a ripple is activated when the host element of the <code>matRipple</code> directive receives mouse or touch events. 
+Upon being pressed, a ripple will begin fading in from the point of contact, radiating to cover the host element. 
+Each ripple will fade out only upon release of the mouse or touch.</p>
+
+<p>Ripples can also be triggered programmatically by getting a reference to the MatRipple directive and calling its <code>launch</code> 
+method.
+See examples with HTML code describing ripple element.</p>
+<pre class="highlight java tab-java"><code><span class="c1">//@FindBy(css = "#ripple-container")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">Ripple</span> <span class="n">rippleContainer</span><span class="o">;</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">displayedTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">rippleContainer</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">centeredTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">rippleContainer</span><span class="o">.</span><span class="na">center</span><span class="o">();</span>
+    <span class="n">rippleContainer</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">centered</span><span class="o">();</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">disabledTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">rippleContainer</span><span class="o">.</span><span class="na">disable</span><span class="o">();</span>
+    <span class="n">rippleContainer</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">disabled</span><span class="o">();</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">unboundedTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">rippleContainer</span><span class="o">.</span><span class="na">unbound</span><span class="o">();</span>
+    <span class="n">rippleContainer</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">unbounded</span><span class="o">();</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">rippleActionTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">rippleContainer</span><span class="o">.</span><span class="na">ripple</span><span class="o">();</span>
+    <span class="n">rippleContainer</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">active</span><span class="o">();</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">radiusTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="n">expectedRadius</span> <span class="o">=</span> <span class="mi">260</span><span class="o">;</span>
+    <span class="n">rippleContainer</span><span class="o">.</span><span class="na">setRadius</span><span class="o">(</span><span class="n">expectedRadius</span><span class="o">);</span>
+    <span class="n">rippleContainer</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">radius</span><span class="o">(</span><span class="n">expectedRadius</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">rippleRadiusTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="n">expectedRadius</span> <span class="o">=</span> <span class="mi">124</span><span class="o">;</span>
+    <span class="n">rippleContainer</span><span class="o">.</span><span class="na">setRadius</span><span class="o">(</span><span class="n">expectedRadius</span><span class="o">);</span>
+    <span class="n">rippleContainer</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">radius</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="mi">124</span><span class="o">));</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">rippleCorrectRadiusTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">rippleContainer</span><span class="o">.</span><span class="na">setRadius</span><span class="o">(</span><span class="mi">100</span><span class="o">);</span>
+    <span class="n">rippleContainer</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">correctRadius</span><span class="o">();</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">rippleNotCorrectRadiusTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">rippleContainer</span><span class="o">.</span><span class="na">setRadius</span><span class="o">(-</span><span class="mi">5</span><span class="o">);</span>
+    <span class="n">rippleContainer</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">incorrectRadius</span><span class="o">();</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">colorTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">String</span> <span class="n">expectedColor</span> <span class="o">=</span> <span class="s">"BLUE"</span><span class="o">;</span>
+    <span class="n">rippleContainer</span><span class="o">.</span><span class="na">setColor</span><span class="o">(</span><span class="n">expectedColor</span><span class="o">);</span>
+    <span class="n">rippleContainer</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">color</span><span class="o">(</span><span class="n">expectedColor</span><span class="o">.</span><span class="na">toLowerCase</span><span class="o">());</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">rippleCorrectColorTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">rippleContainer</span><span class="o">.</span><span class="na">setColor</span><span class="o">(</span><span class="s">"rgba(255, 0, 255, 0.7)"</span><span class="o">);</span>
+    <span class="n">rippleContainer</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">correctColor</span><span class="o">();</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">rippleNotCorrectColorTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">rippleContainer</span><span class="o">.</span><span class="na">setColor</span><span class="o">(</span><span class="s">"custom color"</span><span class="o">);</span>
+    <span class="n">rippleContainer</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">incorrectColor</span><span class="o">();</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">rippleRadiusAndColorTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">String</span> <span class="n">expectedColor</span> <span class="o">=</span> <span class="s">"SALMON"</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">expectedRadius</span> <span class="o">=</span> <span class="mi">219</span><span class="o">;</span>
+    <span class="n">rippleContainer</span><span class="o">.</span><span class="na">setColor</span><span class="o">(</span><span class="n">expectedColor</span><span class="o">);</span>
+    <span class="n">rippleContainer</span><span class="o">.</span><span class="na">setRadius</span><span class="o">(</span><span class="n">expectedRadius</span><span class="o">);</span>
+    <span class="n">rippleContainer</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">radius</span><span class="o">(</span><span class="n">expectedRadius</span><span class="o">).</span><span class="na">and</span><span class="o">().</span><span class="na">color</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="n">expectedColor</span><span class="o">.</span><span class="na">toLowerCase</span><span class="o">()));</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">rippleRadiusAndColorAndCenteredTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">rippleContainer</span><span class="o">.</span><span class="na">center</span><span class="o">();</span>
+    <span class="n">String</span> <span class="n">expectedColor</span> <span class="o">=</span> <span class="s">"rgba(28, 140, 16, 0.1)"</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">expectedRadius</span> <span class="o">=</span> <span class="mi">150</span><span class="o">;</span>
+    <span class="n">rippleContainer</span><span class="o">.</span><span class="na">setColor</span><span class="o">(</span><span class="n">expectedColor</span><span class="o">);</span>
+    <span class="n">rippleContainer</span><span class="o">.</span><span class="na">setRadius</span><span class="o">(</span><span class="n">expectedRadius</span><span class="o">);</span>
+    <span class="n">rippleContainer</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">radius</span><span class="o">(</span><span class="n">expectedRadius</span><span class="o">).</span><span class="na">and</span><span class="o">().</span><span class="na">color</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="n">expectedColor</span><span class="o">.</span><span class="na">toLowerCase</span><span class="o">())).</span><span class="na">and</span><span class="o">().</span><span class="na">centered</span><span class="o">();</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseClickByCoordinatesAndRadiusTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">299</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">expectedRadius</span> <span class="o">=</span> <span class="mi">300</span><span class="o">;</span>
+    <span class="n">rippleContainer</span><span class="o">.</span><span class="na">setRadius</span><span class="o">(</span><span class="n">expectedRadius</span><span class="o">);</span>
+    <span class="n">rippleContainer</span><span class="o">.</span><span class="na">ripple</span><span class="o">(</span><span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="o">);</span>
+    <span class="n">rippleContainer</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">rippleCenter</span><span class="o">(</span><span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="o">).</span><span class="na">and</span><span class="o">().</span><span class="na">radius</span><span class="o">(</span><span class="n">expectedRadius</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">randomMouseClickCenteredAndUnboundedTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">rippleContainer</span><span class="o">.</span><span class="na">unbound</span><span class="o">();</span>
+    <span class="n">rippleContainer</span><span class="o">.</span><span class="na">center</span><span class="o">();</span>
+    <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="n">RandomUtils</span><span class="o">.</span><span class="na">nextInt</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">299</span><span class="o">);</span>
+    <span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="n">RandomUtils</span><span class="o">.</span><span class="na">nextInt</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">299</span><span class="o">);</span>
+    <span class="n">rippleContainer</span><span class="o">.</span><span class="na">ripple</span><span class="o">(</span><span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="o">);</span>
+    <span class="n">rippleContainer</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">unbounded</span><span class="o">().</span><span class="na">and</span><span class="o">().</span><span class="na">centered</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre>
+<p><img src="images/angular/ripple.png" alt="Ripple" /></p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;mat-checkbox</span> <span class="err">[(</span><span class="na">ngModel</span><span class="err">)]="</span><span class="na">centered</span><span class="err">"</span> <span class="na">class=</span><span class="s">"example-ripple-checkbox"</span> <span class="na">id=</span><span class="s">"ripple-centered-checkbox"</span><span class="nt">&gt;</span>Centered
+<span class="nt">&lt;/mat-checkbox&gt;</span>
+<span class="nt">&lt;mat-checkbox</span> <span class="err">[(</span><span class="na">ngModel</span><span class="err">)]="</span><span class="na">disabled</span><span class="err">"</span> <span class="na">class=</span><span class="s">"example-ripple-checkbox"</span> <span class="na">id=</span><span class="s">"ripple-disabled-checkbox"</span><span class="nt">&gt;</span>Disabled
+<span class="nt">&lt;/mat-checkbox&gt;</span>
+<span class="nt">&lt;mat-checkbox</span> <span class="err">[(</span><span class="na">ngModel</span><span class="err">)]="</span><span class="na">unbounded</span><span class="err">"</span> <span class="na">class=</span><span class="s">"example-ripple-checkbox"</span> <span class="na">id=</span><span class="s">"ripple-unbounded-checkbox"</span><span class="nt">&gt;</span>Unbounded
+<span class="nt">&lt;/mat-checkbox&gt;</span>
+
+<span class="nt">&lt;mat-form-field</span> <span class="na">class=</span><span class="s">"example-ripple-form-field"</span> <span class="na">id=</span><span class="s">"ripple-radius-input"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">matInput</span> <span class="err">[(</span><span class="na">ngModel</span><span class="err">)]="</span><span class="na">radius</span><span class="err">"</span> <span class="na">type=</span><span class="s">"number"</span> <span class="na">placeholder=</span><span class="s">"Radius"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/mat-form-field&gt;</span>
+<span class="nt">&lt;mat-form-field</span> <span class="na">class=</span><span class="s">"example-ripple-form-field"</span> <span class="na">id=</span><span class="s">"ripple-color-input"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">matInput</span> <span class="err">[(</span><span class="na">ngModel</span><span class="err">)]="</span><span class="na">color</span><span class="err">"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">placeholder=</span><span class="s">"Color"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/mat-form-field&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"example-ripple-container mat-elevation-z4"</span> <span class="na">id=</span><span class="s">"ripple-container"</span>
+     <span class="na">matRipple</span>
+     <span class="err">[</span><span class="na">matRippleCentered</span><span class="err">]="</span><span class="na">centered</span><span class="err">"</span>
+     <span class="err">[</span><span class="na">matRippleDisabled</span><span class="err">]="</span><span class="na">disabled</span><span class="err">"</span>
+     <span class="err">[</span><span class="na">matRippleUnbounded</span><span class="err">]="</span><span class="na">unbounded</span><span class="err">"</span>
+     <span class="err">[</span><span class="na">matRippleRadius</span><span class="err">]="</span><span class="na">radius</span><span class="err">"</span>
+     <span class="err">[</span><span class="na">matRippleColor</span><span class="err">]="</span><span class="na">color</span><span class="err">"</span><span class="nt">&gt;</span>
+  Click me
+<span class="nt">&lt;/div&gt;</span>
+</code></pre>
+<p>List of some available <strong>Ripple</strong> methods:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>is()</strong></td>
+<td>Assert action</td>
+<td>RippleAssert</td>
+</tr>
+<tr>
+<td><strong>isDisplayed()</strong></td>
+<td>Shows Ripple is displayed</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>ripple()</strong></td>
+<td>Activate Ripple</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>ripple(int x, int y)</strong></td>
+<td>Activate Ripple by coordinates</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>enable()</strong></td>
+<td>Enable Ripple</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>disable()</strong></td>
+<td>Disable Ripple</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>bound()</strong></td>
+<td>Bound Ripple</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>unbound()</strong></td>
+<td>Unbound Ripple</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>decentralize()</strong></td>
+<td>Decentralize Ripple</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>center()</strong></td>
+<td>Center Ripple</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>isDisabled()</strong></td>
+<td>Shows that Ripple has disabled</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isUnbounded()</strong></td>
+<td>Shows that Ripple has unbounded</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isCentered()</strong></td>
+<td>Shows that Ripple has centered</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isActive()</strong></td>
+<td>Shows that Ripple is active</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isRippleCenter(int x, int y)</strong></td>
+<td>Shows that Ripple has centered by coordinates</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>setRadius(int radius)</strong></td>
+<td>Setup Ripple radius</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>setColor(int color)</strong></td>
+<td>Setup Ripple color</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>isRadius(int radius)</strong></td>
+<td>Shows that Ripple has required radius</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isColor(String color)</strong></td>
+<td>Shows that Ripple has required color</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>color()</strong></td>
+<td>Get Ripple color</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>radius()</strong></td>
+<td>Get Ripple radius</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>isCorrectRadius()</strong></td>
+<td>Shows that Ripple input radius is correct</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isCorrectColor()</strong></td>
+<td>Shows that Ripple input color is correct</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>clearRadius()</strong></td>
+<td>Clear Ripple input radius</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>clearColor()</strong></td>
+<td>Clear Ripple input color</td>
+<td>void</td>
+</tr>
+</tbody></table>
+<h4 id='ripple-java-tests-examples'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/RippleTests.java" target="_blank">Ripple java tests examples</a></h4>
 <hr>
 <h2 id='bootstrap-common-elements'>Bootstrap Common elements</h2><h3 id='checkboxes-and-radios'>Checkboxes and radios</h3><h4 id='checkbox-default'><a href="https://getbootstrap.com/docs/4.3/components/buttons/" target="_blank">Checkbox default</a></h4>
 <p>Checkbox is located in the following classes:</p>

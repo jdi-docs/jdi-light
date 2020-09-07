@@ -8142,6 +8142,187 @@ public void checkNestedMenuAvailableOptionsTest() {
 **text()** | Assert that element has presented text | TextAssert
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/menu" target="_blank">Menu java tests examples</a>
+
+### Ripple 
+#### <a href="https://material.angular.io/components/ripple/overview" target="_blank">Ripple overview</a>
+
+Connect user input to screen reactions by using ripples to both indicate the point of touch, and to confirm that touch 
+input was received. For touch or mouse, this occurs at the point of contact.
+
+The `matRipple` attribute directive defines an area in which a ripple animates on user interaction.
+Ripple is located in the following class:
+ 
+  - __Java__: com.epam.jdi.light.angular.elements.complex.Ripple
+
+By default, a ripple is activated when the host element of the `matRipple` directive receives mouse or touch events. 
+Upon being pressed, a ripple will begin fading in from the point of contact, radiating to cover the host element. 
+Each ripple will fade out only upon release of the mouse or touch.
+
+Ripples can also be triggered programmatically by getting a reference to the MatRipple directive and calling its `launch` 
+method.
+See examples with HTML code describing ripple element.
+
+```java 
+//@FindBy(css = "#ripple-container")
+public static Ripple rippleContainer;
+@Test
+public void displayedTest() {
+    rippleContainer.is().displayed();
+}
+@Test
+public void centeredTest() {
+    rippleContainer.center();
+    rippleContainer.is().centered();
+}
+@Test
+public void disabledTest() {
+    rippleContainer.disable();
+    rippleContainer.is().disabled();
+}
+@Test
+public void unboundedTest() {
+    rippleContainer.unbound();
+    rippleContainer.is().unbounded();
+}
+@Test
+public void rippleActionTest() {
+    rippleContainer.ripple();
+    rippleContainer.is().active();
+}
+@Test
+public void radiusTest() {
+    int expectedRadius = 260;
+    rippleContainer.setRadius(expectedRadius);
+    rippleContainer.has().radius(expectedRadius);
+}
+@Test
+public void rippleRadiusTest() {
+    int expectedRadius = 124;
+    rippleContainer.setRadius(expectedRadius);
+    rippleContainer.is().radius(is(124));
+}
+@Test
+public void rippleCorrectRadiusTest() {
+    rippleContainer.setRadius(100);
+    rippleContainer.has().correctRadius();
+}
+@Test
+public void rippleNotCorrectRadiusTest() {
+    rippleContainer.setRadius(-5);
+    rippleContainer.has().incorrectRadius();
+}
+@Test
+public void colorTest() {
+    String expectedColor = "BLUE";
+    rippleContainer.setColor(expectedColor);
+    rippleContainer.is().color(expectedColor.toLowerCase());
+}
+@Test
+public void rippleCorrectColorTest() {
+    rippleContainer.setColor("rgba(255, 0, 255, 0.7)");
+    rippleContainer.has().correctColor();
+}
+@Test
+public void rippleNotCorrectColorTest() {
+    rippleContainer.setColor("custom color");
+    rippleContainer.has().incorrectColor();
+}
+@Test
+public void rippleRadiusAndColorTest() {
+    String expectedColor = "SALMON";
+    int expectedRadius = 219;
+    rippleContainer.setColor(expectedColor);
+    rippleContainer.setRadius(expectedRadius);
+    rippleContainer.is().radius(expectedRadius).and().color(is(expectedColor.toLowerCase()));
+}
+@Test
+public void rippleRadiusAndColorAndCenteredTest() {
+    rippleContainer.center();
+    String expectedColor = "rgba(28, 140, 16, 0.1)";
+    int expectedRadius = 150;
+    rippleContainer.setColor(expectedColor);
+    rippleContainer.setRadius(expectedRadius);
+    rippleContainer.is().radius(expectedRadius).and().color(is(expectedColor.toLowerCase())).and().centered();
+}
+@Test
+public void mouseClickByCoordinatesAndRadiusTest() {
+    int x = 0;
+    int y = 299;
+    int expectedRadius = 300;
+    rippleContainer.setRadius(expectedRadius);
+    rippleContainer.ripple(x, y);
+    rippleContainer.is().rippleCenter(x, y).and().radius(expectedRadius);
+}
+@Test
+public void randomMouseClickCenteredAndUnboundedTest() {
+    rippleContainer.unbound();
+    rippleContainer.center();
+    int x = RandomUtils.nextInt(0, 299);
+    int y = RandomUtils.nextInt(0, 299);
+    rippleContainer.ripple(x, y);
+    rippleContainer.is().unbounded().and().centered();
+}
+```
+
+![Ripple](../images/angular/ripple.png)
+
+```html 
+<mat-checkbox [(ngModel)]="centered" class="example-ripple-checkbox" id="ripple-centered-checkbox">Centered
+</mat-checkbox>
+<mat-checkbox [(ngModel)]="disabled" class="example-ripple-checkbox" id="ripple-disabled-checkbox">Disabled
+</mat-checkbox>
+<mat-checkbox [(ngModel)]="unbounded" class="example-ripple-checkbox" id="ripple-unbounded-checkbox">Unbounded
+</mat-checkbox>
+
+<mat-form-field class="example-ripple-form-field" id="ripple-radius-input">
+  <input matInput [(ngModel)]="radius" type="number" placeholder="Radius">
+</mat-form-field>
+<mat-form-field class="example-ripple-form-field" id="ripple-color-input">
+  <input matInput [(ngModel)]="color" type="text" placeholder="Color">
+</mat-form-field>
+
+<div class="example-ripple-container mat-elevation-z4" id="ripple-container"
+     matRipple
+     [matRippleCentered]="centered"
+     [matRippleDisabled]="disabled"
+     [matRippleUnbounded]="unbounded"
+     [matRippleRadius]="radius"
+     [matRippleColor]="color">
+  Click me
+</div>
+```
+
+List of some available **Ripple** methods:
+
+|Method | Description | Return Type 
+--- | --- | --- 
+**is()** | Assert action | RippleAssert 
+**isDisplayed()** | Shows Ripple is displayed | boolean 
+**ripple()** | Activate Ripple | void 
+**ripple(int x, int y)** | Activate Ripple by coordinates | void 
+**enable()** | Enable Ripple | void 
+**disable()** | Disable Ripple | void 
+**bound()** | Bound Ripple | void 
+**unbound()** | Unbound Ripple | void 
+**decentralize()** | Decentralize Ripple | void 
+**center()** | Center Ripple | void 
+**isDisabled()** | Shows that Ripple has disabled | boolean 
+**isUnbounded()** | Shows that Ripple has unbounded | boolean 
+**isCentered()** | Shows that Ripple has centered | boolean 
+**isActive()** | Shows that Ripple is active | boolean 
+**isRippleCenter(int x, int y)** | Shows that Ripple has centered by coordinates | boolean 
+**setRadius(int radius)** | Setup Ripple radius | void 
+**setColor(int color)** | Setup Ripple color | void 
+**isRadius(int radius)** | Shows that Ripple has required radius | boolean 
+**isColor(String color)** | Shows that Ripple has required color | boolean 
+**color()** | Get Ripple color | String 
+**radius()** | Get Ripple radius | int 
+**isCorrectRadius()** | Shows that Ripple input radius is correct | boolean 
+**isCorrectColor()** | Shows that Ripple input color is correct | boolean 
+**clearRadius()** | Clear Ripple input radius | void 
+**clearColor()** | Clear Ripple input color | void 
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/RippleTests.java" target="_blank">Ripple java tests examples</a>
 ---
 
 ## Bootstrap Common elements

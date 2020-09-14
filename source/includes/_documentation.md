@@ -8622,7 +8622,7 @@ List of some available **ExpansionPanel** methods:
 **next(String title)** | Select next ExpansionPanel by title | void 
 **previous(String title)** | Select previous ExpansionPanel by title | void 
 **end(String title)** | Select end ExpansionPanel by title | void 
-**input(String placeholder, String text)** | Input ExpansionPanel panel placeholder by index | void 
+**input(String placeholder, String text)** | Input ExpansionPanel panel placeholder text | void 
 **clear(String field)** | Clear ExpansionPanel field | void 
 **value(String field)** | Get ExpansionPanel field value | String 
 **title(int index)** | Get ExpansionPanel title value by index | String 

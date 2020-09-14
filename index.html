@@ -649,6 +649,9 @@
                             <li>
 								<a href="#ripple" class="toc-h2 h3 toc-link" data-title="Ripple">Ripple</a>
                             </li>
+                            <li>
+								<a href="#expansion-panel" class="toc-h2 h3 toc-link" data-title="Expansion panel">Expansion panel</a>
+                            </li>
                         </ul>
                   </li>
                   <li>
@@ -14504,7 +14507,363 @@ See examples with HTML code describing ripple element.</p>
 <td>void</td>
 </tr>
 </tbody></table>
-<h4 id='ripple-java-tests-examples'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/RippleTests.java" target="_blank">Ripple java tests examples</a></h4>
+<h4 id='ripple-java-tests-examples'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/RippleTests.java" target="_blank">Ripple java tests examples</a></h4><h3 id='expansion-panel'>Expansion panel</h3><h4 id='expansion-panel-overview'><a href="https://material.angular.io/components/expansion/overview" target="_blank">Expansion panel overview</a></h4>
+<p><code>&lt;mat-expansion-panel&gt;</code> provides an expandable details-summary view.
+Expansion panel is located in the following class:</p>
+
+<ul>
+<li><strong>Java</strong>: com.epam.jdi.light.angular.elements.complex.ExpansionPanel</li>
+</ul>
+
+<p><strong>Expansion-panel content</strong> </p>
+
+<p><em>Header</em> </p>
+<pre class="highlight java tab-java"><code><span class="c1">//@FindBy(css = "#basic-expansion-panel")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">ExpansionPanel</span> <span class="n">basicExpansionPanel</span><span class="o">;</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">displayedTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">basicExpansionPanel</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">expandByIndicatorTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">basicExpansionPanel</span><span class="o">.</span><span class="na">expand</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+    <span class="n">basicExpansionPanel</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">expanded</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">collapseByIndicatorTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">basicExpansionPanel</span><span class="o">.</span><span class="na">expand</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+    <span class="n">basicExpansionPanel</span><span class="o">.</span><span class="na">collapse</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+    <span class="n">basicExpansionPanel</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">collapsed</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">expandCollapseByIndicatorTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">basicExpansionPanel</span><span class="o">.</span><span class="na">expand</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+    <span class="n">basicExpansionPanel</span><span class="o">.</span><span class="na">expand</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+    <span class="n">basicExpansionPanel</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">expanded</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">and</span><span class="o">().</span><span class="na">collapsed</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">inputTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">String</span> <span class="n">expectedName</span> <span class="o">=</span> <span class="s">"Viktor"</span><span class="o">;</span>
+    <span class="n">String</span> <span class="n">expectedAge</span> <span class="o">=</span> <span class="s">"33"</span><span class="o">;</span>
+    <span class="n">basicExpansionPanel</span><span class="o">.</span><span class="na">expand</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+    <span class="n">basicExpansionPanel</span><span class="o">.</span><span class="na">clear</span><span class="o">(</span><span class="n">FIRST_NAME</span><span class="o">);</span>
+    <span class="n">basicExpansionPanel</span><span class="o">.</span><span class="na">clear</span><span class="o">(</span><span class="n">AGE</span><span class="o">);</span>
+    <span class="n">basicExpansionPanel</span><span class="o">.</span><span class="na">input</span><span class="o">(</span><span class="n">FIRST_NAME</span><span class="o">,</span> <span class="n">expectedName</span><span class="o">);</span>
+    <span class="n">basicExpansionPanel</span><span class="o">.</span><span class="na">input</span><span class="o">(</span><span class="n">AGE</span><span class="o">,</span> <span class="n">expectedAge</span><span class="o">);</span>
+    <span class="n">basicExpansionPanel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="n">FIRST_NAME</span><span class="o">,</span> <span class="n">expectedName</span><span class="o">).</span><span class="na">and</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="n">AGE</span><span class="o">,</span> <span class="n">expectedAge</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">titleTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">basicExpansionPanel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">title</span><span class="o">(</span><span class="s">"Personal data"</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
+    <span class="n">basicExpansionPanel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">title</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="s">"Self aware panel"</span><span class="o">),</span> <span class="mi">2</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">descriptionTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">basicExpansionPanel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">description</span><span class="o">(</span><span class="s">"Type your name and age"</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
+    <span class="n">basicExpansionPanel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">description</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="s">"Currently I am closed"</span><span class="o">),</span> <span class="mi">2</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">variableDescriptionTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">basicExpansionPanel</span><span class="o">.</span><span class="na">expand</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+    <span class="n">basicExpansionPanel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">description</span><span class="o">(</span><span class="s">"Currently I am open"</span><span class="o">,</span> <span class="mi">2</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">contentTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">basicExpansionPanel</span><span class="o">.</span><span class="na">expand</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+    <span class="n">basicExpansionPanel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">content</span><span class="o">(</span><span class="s">"I'm visible because I am open"</span><span class="o">,</span> <span class="mi">2</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<p>The <code>&lt;mat-expansion-panel-header&gt;</code> shows a summary of the panel content and acts as the control for expanding and collapsing. 
+This header may optionally contain an <code>&lt;mat-panel-title&gt;</code> and an <code>&lt;mat-panel-description</code>&gt;, which format the content of the 
+header to align with Material Design specifications.
+By default, the expansion-panel header includes a toggle icon at the end of the header to indicate the expansion state. 
+This icon can be hidden via the <code>hideToggle</code> property. </p>
+
+<p><em>Action bar</em> </p>
+
+<p>Actions may optionally be included at the bottom of the panel, visible only when the expansion is in its expanded state. </p>
+
+<p><em>Disabling a panel</em> </p>
+
+<p>Expansion panels can be disabled using the disabled attribute. A disabled expansion panel can&#39;t be toggled by the user, 
+but can still be manipulated programmatically. </p>
+
+<p><em>Accordion</em> </p>
+
+<p>Multiple expansion-panels can be combined into an accordion. The <code>multi=&quot;true&quot;</code> input allows the expansions state to be set 
+independently of each other. When <code>multi=&quot;false&quot;</code> (default) just one panel can be expanded at a given time. </p>
+
+<p><em>Lazy rendering</em> </p>
+
+<p>By default, the expansion panel content will be initialized even when the panel is closed. To instead defer initialization 
+until the panel is 
+open, the content should be provided as an <code>ng-template</code>. </p>
+
+<p><em>Accessibility</em> </p>
+
+<p>The expansion-panel aims to mimic the experience of the native <code>&lt;details&gt;</code> and <code>&lt;summary&gt;</code> elements. The expansion panel 
+header has <code>role=&quot;button&quot;</code> and also the attribute aria-controls with the expansion panel&#39;s id as value.</p>
+
+<p>The expansion panel headers are buttons. Users can use the keyboard to activate the expansion panel header to switch between 
+expanded state and collapsed state. Because the header acts as a button, additional interactive elements should not be 
+put inside of the header.</p>
+
+<p>See examples with HTML code describing expansion panel element.</p>
+
+<p><img src="images/angular/basic_expansion_panel.png" alt="Basic expansion panel" /></p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;mat-accordion</span> <span class="na">id=</span><span class="s">"basic-expansion-panel"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;mat-expansion-panel&gt;</span>
+    <span class="nt">&lt;mat-expansion-panel-header&gt;</span>
+      <span class="nt">&lt;mat-panel-title&gt;</span>
+        Personal data
+      <span class="nt">&lt;/mat-panel-title&gt;</span>
+      <span class="nt">&lt;mat-panel-description&gt;</span>
+        Type your name and age
+      <span class="nt">&lt;/mat-panel-description&gt;</span>
+    <span class="nt">&lt;/mat-expansion-panel-header&gt;</span>
+    <span class="nt">&lt;mat-form-field&gt;</span>
+      <span class="nt">&lt;mat-label&gt;</span>First name<span class="nt">&lt;/mat-label&gt;</span>
+      <span class="nt">&lt;input</span> <span class="na">matInput</span> <span class="na">id=</span><span class="s">"basic-first-name-input"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/mat-form-field&gt;</span>
+    <span class="nt">&lt;mat-form-field&gt;</span>
+      <span class="nt">&lt;mat-label&gt;</span>Age<span class="nt">&lt;/mat-label&gt;</span>
+      <span class="nt">&lt;input</span> <span class="na">matInput</span> <span class="na">type=</span><span class="s">"number"</span> <span class="na">min=</span><span class="s">"1"</span> <span class="na">id=</span><span class="s">"basic-age-input"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/mat-form-field&gt;</span>
+  <span class="nt">&lt;/mat-expansion-panel&gt;</span>
+  <span class="nt">&lt;mat-expansion-panel</span> <span class="err">(</span><span class="na">opened</span><span class="err">)="</span><span class="na">panelOpenState =</span><span class="err"> </span><span class="s">true"</span>
+                       <span class="err">(</span><span class="na">closed</span><span class="err">)="</span><span class="na">panelOpenState =</span><span class="err"> </span><span class="s">false"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;mat-expansion-panel-header&gt;</span>
+      <span class="nt">&lt;mat-panel-title&gt;</span>
+        Self aware panel
+      <span class="nt">&lt;/mat-panel-title&gt;</span>
+      <span class="nt">&lt;mat-panel-description&gt;</span>
+        Currently I am {{panelOpenState ? 'open' : 'closed'}}
+      <span class="nt">&lt;/mat-panel-description&gt;</span>
+    <span class="nt">&lt;/mat-expansion-panel-header&gt;</span>
+    <span class="nt">&lt;p&gt;</span>I'm visible because I am open<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/mat-expansion-panel&gt;</span>
+<span class="nt">&lt;/mat-accordion&gt;</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="c1">//@FindBy(css = "#accordion-expansion-panel")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">ExpansionPanel</span> <span class="n">accordionExpansionPanel</span><span class="o">;</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">expandByIconTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">accordionExpansionPanel</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+        <span class="n">accordionExpansionPanel</span><span class="o">.</span><span class="na">expand</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+        <span class="n">accordionExpansionPanel</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">expanded</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">collapseByIconTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">accordionExpansionPanel</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+        <span class="n">accordionExpansionPanel</span><span class="o">.</span><span class="na">expand</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+        <span class="n">accordionExpansionPanel</span><span class="o">.</span><span class="na">collapse</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+        <span class="n">accordionExpansionPanel</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">collapsed</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">expandCollapseByIconTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">accordionExpansionPanel</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+        <span class="n">accordionExpansionPanel</span><span class="o">.</span><span class="na">expand</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+        <span class="n">accordionExpansionPanel</span><span class="o">.</span><span class="na">expand</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+        <span class="n">accordionExpansionPanel</span><span class="o">.</span><span class="na">expand</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+        <span class="n">accordionExpansionPanel</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">expanded</span><span class="o">(</span><span class="mi">3</span><span class="o">).</span><span class="na">and</span><span class="o">().</span><span class="na">collapsed</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">and</span><span class="o">().</span><span class="na">collapsed</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">nextTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">accordionExpansionPanel</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+    <span class="n">accordionExpansionPanel</span><span class="o">.</span><span class="na">expand</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+    <span class="n">accordionExpansionPanel</span><span class="o">.</span><span class="na">next</span><span class="o">(</span><span class="s">"Personal data"</span><span class="o">);</span>
+    <span class="n">accordionExpansionPanel</span><span class="o">.</span><span class="na">next</span><span class="o">(</span><span class="s">"Destination"</span><span class="o">);</span>
+    <span class="n">accordionExpansionPanel</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">expanded</span><span class="o">(</span><span class="mi">3</span><span class="o">).</span><span class="na">and</span><span class="o">().</span><span class="na">collapsed</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">and</span><span class="o">().</span><span class="na">collapsed</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">previousTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">accordionExpansionPanel</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+    <span class="n">accordionExpansionPanel</span><span class="o">.</span><span class="na">expand</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+    <span class="n">accordionExpansionPanel</span><span class="o">.</span><span class="na">previous</span><span class="o">(</span><span class="s">"Day of the trip"</span><span class="o">);</span>
+    <span class="n">accordionExpansionPanel</span><span class="o">.</span><span class="na">previous</span><span class="o">(</span><span class="s">"Destination"</span><span class="o">);</span>
+    <span class="n">accordionExpansionPanel</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">expanded</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">and</span><span class="o">().</span><span class="na">collapsed</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">and</span><span class="o">().</span><span class="na">collapsed</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">endTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">accordionExpansionPanel</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+    <span class="n">accordionExpansionPanel</span><span class="o">.</span><span class="na">expand</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+    <span class="n">accordionExpansionPanel</span><span class="o">.</span><span class="na">end</span><span class="o">(</span><span class="s">"Day of the trip"</span><span class="o">);</span>
+    <span class="n">accordionExpansionPanel</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">collapsed</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">and</span><span class="o">().</span><span class="na">collapsed</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">and</span><span class="o">().</span><span class="na">collapsed</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">multiInputTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">String</span> <span class="n">expectedName</span> <span class="o">=</span> <span class="s">"Alex"</span><span class="o">;</span>
+    <span class="n">String</span> <span class="n">expectedAge</span> <span class="o">=</span> <span class="s">"25"</span><span class="o">;</span>
+    <span class="n">String</span> <span class="n">expectedDestination</span> <span class="o">=</span> <span class="s">"Spain"</span><span class="o">;</span>
+    <span class="n">String</span> <span class="n">expectedDate</span> <span class="o">=</span> <span class="s">"12/1/2019"</span><span class="o">;</span>
+    <span class="n">accordionExpansionPanel</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+    <span class="n">accordionExpansionPanel</span><span class="o">.</span><span class="na">expand</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+    <span class="n">accordionExpansionPanel</span><span class="o">.</span><span class="na">clear</span><span class="o">(</span><span class="n">FIRST_NAME</span><span class="o">);</span>
+    <span class="n">accordionExpansionPanel</span><span class="o">.</span><span class="na">clear</span><span class="o">(</span><span class="n">AGE</span><span class="o">);</span>
+    <span class="n">accordionExpansionPanel</span><span class="o">.</span><span class="na">input</span><span class="o">(</span><span class="n">FIRST_NAME</span><span class="o">,</span> <span class="n">expectedName</span><span class="o">);</span>
+    <span class="n">accordionExpansionPanel</span><span class="o">.</span><span class="na">input</span><span class="o">(</span><span class="n">AGE</span><span class="o">,</span> <span class="n">expectedAge</span><span class="o">);</span>
+    <span class="n">accordionExpansionPanel</span><span class="o">.</span><span class="na">expand</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+    <span class="n">accordionExpansionPanel</span><span class="o">.</span><span class="na">clear</span><span class="o">(</span><span class="n">COUNTRY</span><span class="o">);</span>
+    <span class="n">accordionExpansionPanel</span><span class="o">.</span><span class="na">input</span><span class="o">(</span><span class="n">COUNTRY</span><span class="o">,</span> <span class="n">expectedDestination</span><span class="o">);</span>
+    <span class="n">accordionExpansionPanel</span><span class="o">.</span><span class="na">expand</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+    <span class="n">accordionExpansionPanel</span><span class="o">.</span><span class="na">input</span><span class="o">(</span><span class="n">DATE</span><span class="o">,</span> <span class="n">expectedDate</span><span class="o">);</span>
+    <span class="n">accordionExpansionPanel</span><span class="o">.</span><span class="na">expand</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+    <span class="n">accordionExpansionPanel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="n">FIRST_NAME</span><span class="o">,</span> <span class="n">expectedName</span><span class="o">).</span><span class="na">and</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="n">AGE</span><span class="o">,</span> <span class="n">expectedAge</span><span class="o">);</span>
+    <span class="n">accordionExpansionPanel</span><span class="o">.</span><span class="na">expand</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+    <span class="n">accordionExpansionPanel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="n">COUNTRY</span><span class="o">,</span> <span class="n">expectedDestination</span><span class="o">);</span>
+    <span class="n">accordionExpansionPanel</span><span class="o">.</span><span class="na">expand</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+    <span class="n">accordionExpansionPanel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="n">expectedDate</span><span class="o">),</span> <span class="n">DATE</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<p><img src="images/angular/accordion_expansion_panel.png" alt="Accordion expansion panel" /></p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;mat-accordion</span> <span class="na">class=</span><span class="s">"example-headers-align"</span> <span class="na">id=</span><span class="s">"accordion-expansion-panel"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;mat-expansion-panel</span> <span class="err">[</span><span class="na">expanded</span><span class="err">]="</span><span class="na">step =</span><span class="s">==</span> <span class="na">0</span><span class="err">"</span> <span class="err">(</span><span class="na">opened</span><span class="err">)="</span><span class="na">setStep</span><span class="err">(</span><span class="na">0</span><span class="err">)"</span> <span class="na">hideToggle</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;mat-expansion-panel-header&gt;</span>
+      <span class="nt">&lt;mat-panel-title&gt;</span>
+        Personal data
+      <span class="nt">&lt;/mat-panel-title&gt;</span>
+      <span class="nt">&lt;mat-panel-description&gt;</span>
+        Type your name and age
+        <span class="nt">&lt;mat-icon&gt;</span>account_circle<span class="nt">&lt;/mat-icon&gt;</span>
+      <span class="nt">&lt;/mat-panel-description&gt;</span>
+    <span class="nt">&lt;/mat-expansion-panel-header&gt;</span>
+    <span class="nt">&lt;mat-form-field&gt;</span>
+      <span class="nt">&lt;mat-label&gt;</span>First name<span class="nt">&lt;/mat-label&gt;</span>
+      <span class="nt">&lt;input</span> <span class="na">matInput</span> <span class="na">id=</span><span class="s">"accordion-first-name-input"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/mat-form-field&gt;</span>
+    <span class="nt">&lt;mat-form-field&gt;</span>
+      <span class="nt">&lt;mat-label&gt;</span>Age<span class="nt">&lt;/mat-label&gt;</span>
+      <span class="nt">&lt;input</span> <span class="na">matInput</span> <span class="na">type=</span><span class="s">"number"</span> <span class="na">min=</span><span class="s">"1"</span> <span class="na">id=</span><span class="s">"accordion-age-input"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/mat-form-field&gt;</span>
+    <span class="nt">&lt;mat-action-row&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">mat-button</span> <span class="na">color=</span><span class="s">"primary"</span> <span class="err">(</span><span class="na">click</span><span class="err">)="</span><span class="na">nextStep</span><span class="err">()"</span><span class="nt">&gt;</span>Next<span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;/mat-action-row&gt;</span>
+  <span class="nt">&lt;/mat-expansion-panel&gt;</span>
+  <span class="nt">&lt;mat-expansion-panel</span> <span class="err">[</span><span class="na">expanded</span><span class="err">]="</span><span class="na">step =</span><span class="s">==</span> <span class="na">1</span><span class="err">"</span> <span class="err">(</span><span class="na">opened</span><span class="err">)="</span><span class="na">setStep</span><span class="err">(</span><span class="na">1</span><span class="err">)"</span> <span class="na">hideToggle</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;mat-expansion-panel-header&gt;</span>
+      <span class="nt">&lt;mat-panel-title&gt;</span>
+        Destination
+      <span class="nt">&lt;/mat-panel-title&gt;</span>
+      <span class="nt">&lt;mat-panel-description&gt;</span>
+        Type the country name
+        <span class="nt">&lt;mat-icon&gt;</span>map<span class="nt">&lt;/mat-icon&gt;</span>
+      <span class="nt">&lt;/mat-panel-description&gt;</span>
+    <span class="nt">&lt;/mat-expansion-panel-header&gt;</span>
+    <span class="nt">&lt;mat-form-field&gt;</span>
+      <span class="nt">&lt;mat-label&gt;</span>Country<span class="nt">&lt;/mat-label&gt;</span>
+      <span class="nt">&lt;input</span> <span class="na">matInput</span> <span class="na">id=</span><span class="s">"accordion-country-input"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/mat-form-field&gt;</span>
+    <span class="nt">&lt;mat-action-row&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">mat-button</span> <span class="na">color=</span><span class="s">"warn"</span> <span class="err">(</span><span class="na">click</span><span class="err">)="</span><span class="na">prevStep</span><span class="err">()"</span><span class="nt">&gt;</span>Previous<span class="nt">&lt;/button&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">mat-button</span> <span class="na">color=</span><span class="s">"primary"</span> <span class="err">(</span><span class="na">click</span><span class="err">)="</span><span class="na">nextStep</span><span class="err">()"</span><span class="nt">&gt;</span>Next<span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;/mat-action-row&gt;</span>
+  <span class="nt">&lt;/mat-expansion-panel&gt;</span>
+  <span class="nt">&lt;mat-expansion-panel</span> <span class="err">[</span><span class="na">expanded</span><span class="err">]="</span><span class="na">step =</span><span class="s">==</span> <span class="na">2</span><span class="err">"</span> <span class="err">(</span><span class="na">opened</span><span class="err">)="</span><span class="na">setStep</span><span class="err">(</span><span class="na">2</span><span class="err">)"</span> <span class="na">hideToggle</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;mat-expansion-panel-header&gt;</span>
+      <span class="nt">&lt;mat-panel-title&gt;</span>
+        Day of the trip
+      <span class="nt">&lt;/mat-panel-title&gt;</span>
+      <span class="nt">&lt;mat-panel-description&gt;</span>
+        Inform the date you wish to travel
+        <span class="nt">&lt;mat-icon&gt;</span>date_range<span class="nt">&lt;/mat-icon&gt;</span>
+      <span class="nt">&lt;/mat-panel-description&gt;</span>
+    <span class="nt">&lt;/mat-expansion-panel-header&gt;</span>
+    <span class="nt">&lt;mat-form-field&gt;</span>
+      <span class="nt">&lt;mat-label&gt;</span>Date<span class="nt">&lt;/mat-label&gt;</span>
+      <span class="nt">&lt;input</span> <span class="na">matInput</span> <span class="err">[</span><span class="na">matDatepicker</span><span class="err">]="</span><span class="na">picker</span><span class="err">"</span> <span class="err">(</span><span class="na">focus</span><span class="err">)="</span><span class="na">picker</span><span class="err">.</span><span class="na">open</span><span class="err">()"</span> <span class="na">readonly</span> <span class="na">id=</span><span class="s">"accordion-date-input"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;mat-datepicker-toggle</span> <span class="na">matSuffix</span> <span class="err">[</span><span class="na">for</span><span class="err">]="</span><span class="na">picker</span><span class="err">"</span><span class="nt">&gt;&lt;/mat-datepicker-toggle&gt;</span>
+      <span class="nt">&lt;mat-datepicker</span> <span class="err">#</span><span class="na">picker</span><span class="nt">&gt;&lt;/mat-datepicker&gt;</span>
+    <span class="nt">&lt;/mat-form-field&gt;</span>
+    <span class="nt">&lt;mat-datepicker</span> <span class="err">#</span><span class="na">picker</span><span class="nt">&gt;&lt;/mat-datepicker&gt;</span>
+    <span class="nt">&lt;mat-action-row&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">mat-button</span> <span class="na">color=</span><span class="s">"warn"</span> <span class="err">(</span><span class="na">click</span><span class="err">)="</span><span class="na">prevStep</span><span class="err">()"</span><span class="nt">&gt;</span>Previous<span class="nt">&lt;/button&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">mat-button</span> <span class="na">color=</span><span class="s">"primary"</span> <span class="err">(</span><span class="na">click</span><span class="err">)="</span><span class="na">nextStep</span><span class="err">()"</span><span class="nt">&gt;</span>End<span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;/mat-action-row&gt;</span>
+  <span class="nt">&lt;/mat-expansion-panel&gt;</span>
+<span class="nt">&lt;/mat-accordion&gt;</span>
+</code></pre>
+<p>List of some available <strong>ExpansionPanel</strong> methods:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>is()</strong></td>
+<td>Assert action</td>
+<td>ExpansionPanelAssert</td>
+</tr>
+<tr>
+<td><strong>expand(int index)</strong></td>
+<td>Expand ExpansionPanel panel by index</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>collapse(int index)</strong></td>
+<td>Collapse expanded ExpansionPanel panel by index</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>isExpanded(int index)</strong></td>
+<td>Shows that ExpansionPanel has expanded by index</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isCollapsed(int index)</strong></td>
+<td>Shows that ExpansionPanel has collapsed by index</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>next(String title)</strong></td>
+<td>Select next ExpansionPanel by title</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>previous(String title)</strong></td>
+<td>Select previous ExpansionPanel by title</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>end(String title)</strong></td>
+<td>Select end ExpansionPanel by title</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>input(String placeholder, String text)</strong></td>
+<td>Input ExpansionPanel panel placeholder by index</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>clear(String field)</strong></td>
+<td>Clear ExpansionPanel field</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>value(String field)</strong></td>
+<td>Get ExpansionPanel field value</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>title(int index)</strong></td>
+<td>Get ExpansionPanel title value by index</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>description(int index)</strong></td>
+<td>Get ExpansionPanel description value by index</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>content(int index)</strong></td>
+<td>Get ExpansionPanel content value by index</td>
+<td>String</td>
+</tr>
+</tbody></table>
+<h4 id='expansionpanel-java-tests-examples'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/ExpansionPanelTests.java" target="_blank">ExpansionPanel java tests examples</a></h4>
 <hr>
 <h2 id='bootstrap-common-elements'>Bootstrap Common elements</h2><h3 id='checkboxes-and-radios'>Checkboxes and radios</h3><h4 id='checkbox-default'><a href="https://getbootstrap.com/docs/4.3/components/buttons/" target="_blank">Checkbox default</a></h4>
 <p>Checkbox is located in the following classes:</p>

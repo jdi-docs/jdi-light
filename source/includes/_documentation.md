@@ -8380,6 +8380,313 @@ List of the available **Bottom sheet** methods:
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/AutocompleteTests.java" target="_blank">Bottom sheet java tests examples</a>
 
+=======
+### Expansion panel 
+#### <a href="https://material.angular.io/components/expansion/overview" target="_blank">Expansion panel overview</a>
+`<mat-expansion-panel>` provides an expandable details-summary view.
+Expansion panel is located in the following class:
+ 
+  - __Java__: com.epam.jdi.light.angular.elements.complex.ExpansionPanel
+
+**Expansion-panel content** 
+
+*Header* 
+
+```java 
+//@FindBy(css = "#basic-expansion-panel")
+public static ExpansionPanel basicExpansionPanel;
+
+@Test
+public void displayedTest() {
+    basicExpansionPanel.is().displayed();
+}
+@Test
+public void expandByIndicatorTest() {
+    basicExpansionPanel.expand(1);
+    basicExpansionPanel.is().expanded(1);
+}
+@Test
+public void collapseByIndicatorTest() {
+    basicExpansionPanel.expand(2);
+    basicExpansionPanel.collapse(2);
+    basicExpansionPanel.is().collapsed(2);
+}
+@Test
+public void expandCollapseByIndicatorTest() {
+    basicExpansionPanel.expand(2);
+    basicExpansionPanel.expand(1);
+    basicExpansionPanel.is().expanded(1).and().collapsed(2);
+}
+@Test
+public void inputTest() {
+    String expectedName = "Viktor";
+    String expectedAge = "33";
+    basicExpansionPanel.expand(1);
+    basicExpansionPanel.clear(FIRST_NAME);
+    basicExpansionPanel.clear(AGE);
+    basicExpansionPanel.input(FIRST_NAME, expectedName);
+    basicExpansionPanel.input(AGE, expectedAge);
+    basicExpansionPanel.has().value(FIRST_NAME, expectedName).and().value(AGE, expectedAge);
+}
+@Test
+public void titleTest() {
+    basicExpansionPanel.has().title("Personal data", 1);
+    basicExpansionPanel.has().title(is("Self aware panel"), 2);
+}
+@Test
+public void descriptionTest() {
+    basicExpansionPanel.has().description("Type your name and age", 1);
+    basicExpansionPanel.has().description(is("Currently I am closed"), 2);
+}
+@Test
+public void variableDescriptionTest() {
+    basicExpansionPanel.expand(2);
+    basicExpansionPanel.has().description("Currently I am open", 2);
+}
+@Test
+public void contentTest() {
+    basicExpansionPanel.expand(2);
+    basicExpansionPanel.has().content("I'm visible because I am open", 2);
+}
+```
+
+The `<mat-expansion-panel-header>` shows a summary of the panel content and acts as the control for expanding and collapsing. 
+This header may optionally contain an `<mat-panel-title>` and an `<mat-panel-description`>, which format the content of the 
+header to align with Material Design specifications.
+By default, the expansion-panel header includes a toggle icon at the end of the header to indicate the expansion state. 
+This icon can be hidden via the `hideToggle` property. 
+
+*Action bar* 
+
+Actions may optionally be included at the bottom of the panel, visible only when the expansion is in its expanded state. 
+ 
+*Disabling a panel* 
+
+Expansion panels can be disabled using the disabled attribute. A disabled expansion panel can't be toggled by the user, 
+but can still be manipulated programmatically. 
+
+*Accordion* 
+
+Multiple expansion-panels can be combined into an accordion. The `multi="true"` input allows the expansions state to be set 
+independently of each other. When `multi="false"` (default) just one panel can be expanded at a given time. 
+
+*Lazy rendering* 
+
+By default, the expansion panel content will be initialized even when the panel is closed. To instead defer initialization 
+until the panel is 
+open, the content should be provided as an `ng-template`. 
+
+*Accessibility* 
+
+The expansion-panel aims to mimic the experience of the native `<details>` and `<summary>` elements. The expansion panel 
+header has `role="button"` and also the attribute aria-controls with the expansion panel's id as value.
+
+The expansion panel headers are buttons. Users can use the keyboard to activate the expansion panel header to switch between 
+expanded state and collapsed state. Because the header acts as a button, additional interactive elements should not be 
+put inside of the header.
+
+See examples with HTML code describing expansion panel element.
+
+![Basic expansion panel](../images/angular/basic_expansion_panel.png)
+
+```html 
+<mat-accordion id="basic-expansion-panel">
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Personal data
+      </mat-panel-title>
+      <mat-panel-description>
+        Type your name and age
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <mat-form-field>
+      <mat-label>First name</mat-label>
+      <input matInput id="basic-first-name-input">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Age</mat-label>
+      <input matInput type="number" min="1" id="basic-age-input">
+    </mat-form-field>
+  </mat-expansion-panel>
+  <mat-expansion-panel (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Self aware panel
+      </mat-panel-title>
+      <mat-panel-description>
+        Currently I am {{panelOpenState ? 'open' : 'closed'}}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>I'm visible because I am open</p>
+  </mat-expansion-panel>
+</mat-accordion>
+```
+```java 
+//@FindBy(css = "#accordion-expansion-panel")
+public static ExpansionPanel accordionExpansionPanel;
+
+    @Test
+    public void expandByIconTest() {
+        accordionExpansionPanel.show();
+        accordionExpansionPanel.expand(3);
+        accordionExpansionPanel.is().expanded(3);
+    }
+    @Test
+    public void collapseByIconTest() {
+        accordionExpansionPanel.show();
+        accordionExpansionPanel.expand(3);
+        accordionExpansionPanel.collapse(3);
+        accordionExpansionPanel.is().collapsed(3);
+    }
+    @Test
+    public void expandCollapseByIconTest() {
+        accordionExpansionPanel.show();
+        accordionExpansionPanel.expand(2);
+        accordionExpansionPanel.expand(1);
+        accordionExpansionPanel.expand(3);
+        accordionExpansionPanel.is().expanded(3).and().collapsed(1).and().collapsed(2);
+    }
+@Test
+public void nextTest() {
+    accordionExpansionPanel.show();
+    accordionExpansionPanel.expand(1);
+    accordionExpansionPanel.next("Personal data");
+    accordionExpansionPanel.next("Destination");
+    accordionExpansionPanel.is().expanded(3).and().collapsed(1).and().collapsed(2);
+}
+@Test
+public void previousTest() {
+    accordionExpansionPanel.show();
+    accordionExpansionPanel.expand(3);
+    accordionExpansionPanel.previous("Day of the trip");
+    accordionExpansionPanel.previous("Destination");
+    accordionExpansionPanel.is().expanded(1).and().collapsed(2).and().collapsed(3);
+}
+@Test
+public void endTest() {
+    accordionExpansionPanel.show();
+    accordionExpansionPanel.expand(3);
+    accordionExpansionPanel.end("Day of the trip");
+    accordionExpansionPanel.is().collapsed(1).and().collapsed(2).and().collapsed(3);
+}
+@Test
+public void multiInputTest() {
+    String expectedName = "Alex";
+    String expectedAge = "25";
+    String expectedDestination = "Spain";
+    String expectedDate = "12/1/2019";
+    accordionExpansionPanel.show();
+    accordionExpansionPanel.expand(1);
+    accordionExpansionPanel.clear(FIRST_NAME);
+    accordionExpansionPanel.clear(AGE);
+    accordionExpansionPanel.input(FIRST_NAME, expectedName);
+    accordionExpansionPanel.input(AGE, expectedAge);
+    accordionExpansionPanel.expand(2);
+    accordionExpansionPanel.clear(COUNTRY);
+    accordionExpansionPanel.input(COUNTRY, expectedDestination);
+    accordionExpansionPanel.expand(3);
+    accordionExpansionPanel.input(DATE, expectedDate);
+    accordionExpansionPanel.expand(1);
+    accordionExpansionPanel.has().value(FIRST_NAME, expectedName).and().value(AGE, expectedAge);
+    accordionExpansionPanel.expand(2);
+    accordionExpansionPanel.has().value(COUNTRY, expectedDestination);
+    accordionExpansionPanel.expand(3);
+    accordionExpansionPanel.has().value(is(expectedDate), DATE);
+}
+```
+
+![Accordion expansion panel](../images/angular/accordion_expansion_panel.png)
+
+```html 
+<mat-accordion class="example-headers-align" id="accordion-expansion-panel">
+  <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Personal data
+      </mat-panel-title>
+      <mat-panel-description>
+        Type your name and age
+        <mat-icon>account_circle</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <mat-form-field>
+      <mat-label>First name</mat-label>
+      <input matInput id="accordion-first-name-input">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Age</mat-label>
+      <input matInput type="number" min="1" id="accordion-age-input">
+    </mat-form-field>
+    <mat-action-row>
+      <button mat-button color="primary" (click)="nextStep()">Next</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+  <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Destination
+      </mat-panel-title>
+      <mat-panel-description>
+        Type the country name
+        <mat-icon>map</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <mat-form-field>
+      <mat-label>Country</mat-label>
+      <input matInput id="accordion-country-input">
+    </mat-form-field>
+    <mat-action-row>
+      <button mat-button color="warn" (click)="prevStep()">Previous</button>
+      <button mat-button color="primary" (click)="nextStep()">Next</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+  <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Day of the trip
+      </mat-panel-title>
+      <mat-panel-description>
+        Inform the date you wish to travel
+        <mat-icon>date_range</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <mat-form-field>
+      <mat-label>Date</mat-label>
+      <input matInput [matDatepicker]="picker" (focus)="picker.open()" readonly id="accordion-date-input">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-datepicker #picker></mat-datepicker>
+    <mat-action-row>
+      <button mat-button color="warn" (click)="prevStep()">Previous</button>
+      <button mat-button color="primary" (click)="nextStep()">End</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>
+```
+
+List of some available **ExpansionPanel** methods:
+
+|Method | Description | Return Type 
+--- | --- | --- 
+**is()** | Assert action | ExpansionPanelAssert 
+**expand(int index)** | Expand ExpansionPanel panel by index | void 
+**collapse(int index)** | Collapse expanded ExpansionPanel panel by index | void 
+**isExpanded(int index)** | Shows that ExpansionPanel has expanded by index | boolean 
+**isCollapsed(int index)** | Shows that ExpansionPanel has collapsed by index | boolean 
+**next(String title)** | Select next ExpansionPanel by title | void 
+**previous(String title)** | Select previous ExpansionPanel by title | void 
+**end(String title)** | Select end ExpansionPanel by title | void 
+**input(String placeholder, String text)** | Input ExpansionPanel panel placeholder text | void 
+**clear(String field)** | Clear ExpansionPanel field | void 
+**value(String field)** | Get ExpansionPanel field value | String 
+**title(int index)** | Get ExpansionPanel title value by index | String 
+**description(int index)** | Get ExpansionPanel description value by index | String 
+**content(int index)** | Get ExpansionPanel content value by index | String 
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/ExpansionPanelTests.java" target="_blank">ExpansionPanel java tests examples</a>
 ---
 
 ## Bootstrap Common elements

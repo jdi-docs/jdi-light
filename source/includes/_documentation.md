@@ -8846,7 +8846,7 @@ List of some available **Sidenav** methods:
 **sendKeys(CharSequence… value)** | Sends specified value as keys | void
 **attr(String value)** | Gets attribute | String
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/ExpansionPanelTests.java" target="_blank">ExpansionPanel java tests examples</a>
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/SideNavTests.java" target="_blank">Sidenav java tests examples</a>
 ---
 
 ## Bootstrap Common elements

@@ -8632,6 +8632,223 @@ List of some available **ExpansionPanel** methods:
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/ExpansionPanelTests.java" target="_blank">ExpansionPanel java tests examples</a>
 ---
 
+### SideNav
+#### <a href="https://material.angular.io/components/sidenav/overview" target="_blank">SideNav</a>
+
+Sidenav is located in the following class:
+ 
+  - __Java__: com.epam.jdi.light.angular.elements.complex.SideNavTests
+
+**Sidenav content** 
+
+Angular Material provides two sets of components designed to add collapsible side content (often navigation, 
+though it can be any content) alongside some primary content. These are the sidenav and drawer components.
+The sidenav components are designed to add side content to a fullscreen app. To set up a sidenav we use three 
+components: <mat-sidenav-container> which acts as a structural container for our content and sidenav, 
+<mat-sidenav-content> which represents the main content, and <mat-sidenav> which represents the added side content.
+```
+    
+    //@FindBy(css = "#basic-sidenav")
+    public static SideNav basicSideNav;
+
+    @Test
+    public void verifyBasicSideNavTest() {
+        basicSideNav.show();
+        basicSideNav.is().displayed();
+        basicSideNav.is().enabled();
+        basicSideNav.getSideNav().has().text(SIDE_NAV_CONTENT);
+        basicSideNav.getContent().has().text(MAIN_CONTENT);
+    }
+```
+
+![Basic sidenav](../images/angular/sidenav/basic_sidenav.PNG)
+
+```
+    //@FindBy(css = "#basic-drawer")
+    public static SideNav basicDrawer;
+
+    @Test
+    public void verifyBasicDrawerTest() {
+        basicDrawer.show();
+        basicDrawer.is().displayed();
+        basicDrawer.is().enabled();
+        basicDrawer.getMatDrawer().has().text(DRAWER_CONTENT);
+        basicDrawer.getMatDrawerContent().has().text(MAIN_CONTENT);
+    }
+```
+
+![Basic drawer](../images/angular/sidenav/basic_drawer.PNG)
+
+```
+    //@FindBy(css = "#implicit-main-content")
+    public static SideNav implicitMainContent;
+
+    @Test
+    public void verifyImplicitMainContentWithTwoSideNavTest() {
+        implicitMainContent.show();
+        UIElement startSideNav = implicitMainContent.getSideNav("start");
+        UIElement endSideNav = implicitMainContent.getSideNav("end");
+
+        startSideNav.has().attr(MODE, SIDE);
+        startSideNav.has().attr(STYLE, STYLE_VISIBLE);
+        startSideNav.has().text("Start content");
+
+        endSideNav.has().attr(MODE, SIDE);
+        endSideNav.has().attr(STYLE, STYLE_VISIBLE);
+        endSideNav.has().text("End content");
+
+        implicitMainContent.getContent().has().text("Implicit main content");
+        implicitMainContent.getContent().is().displayed();
+        implicitMainContent.getContent().is().enabled();
+    }
+```
+
+![Implicit content with two sidenavs](../images/angular/sidenav/two_side_navs.PNG)
+
+```
+    //@FindBy(css = "#open-close-behavior")
+    public static SideNav openCloseBehavior;
+
+    @Test
+    public void verifyOpenCloseBehaviorTest() {
+        openCloseBehavior.show();
+        openCloseBehavior.getContent().is().displayed();
+        openCloseBehavior.getContent().is().enabled();
+
+        sideNavToggle.click();
+        openCloseBehavior.getSideNav().has().text(SIDE_NAV_CONTENT);
+
+        sideNavOpened.click();
+        openCloseBehavior.base().timer().wait(() -> openCloseBehavior.isEnabled());
+        openCloseBehavior.getEvents().has().text("open!\nclose!");
+    }
+```
+
+![Sidenav open & close behavior](../images/angular/sidenav/open_close_behavior.PNG)
+
+```
+    //@FindBy(css = "#configurable-mode")
+    public static SideNav configurableMode;
+
+    @Test
+    public void toggleConfigurableSideNavTest() {
+        refresh();
+        configurableMode.show();
+        contentToggle.click();
+        configurableMode.base().timer().wait(() -> configurableMode.visualValidation(".mat-sidenav"));
+        configurableMode.getSideNav().has().attr(STYLE, STYLE_VISIBLE);
+
+        sideToggle.click();
+        configurableMode.base().timer().wait(() -> configurableMode.visualValidation(".mat-sidenav"));
+        configurableMode.getSideNav().has().attr(STYLE, STYLE_HIDDEN);
+    }
+```
+
+![Sidenav with configurable mode](../images/angular/sidenav/configurable_mode.PNG)
+
+```
+    //@FindBy(css = "#custom-escape-backdrop")
+    public static SideNav customEscapeBackdrop;
+
+@Test
+    public void closeByToggleTest() {
+        refresh();
+        customEscapeBackdrop.show();
+        openSideNav.click();
+        toggleSideNav.click();
+        customEscapeBackdrop.getContent().has().text(containsString("toggle button"));
+    }
+
+    @Test
+    public void closeByBackdropTest() {
+        openSideNav.click();
+        customEscapeBackdrop.core().click();
+        customEscapeBackdrop.getContent().has().text(containsString("backdrop"));
+    }
+```
+
+![Sidenav with custom escape backdrop click behavior](../images/angular/sidenav/custom_backdrop.PNG)
+
+```
+    //@FindBy(css = "#auto-size-side-nav")
+    public static SideNav autoSizeSideNav;
+
+    @Test
+    public void verifyAutoSizeSideNav() {
+        autoSizeSideNav.show();
+        toggleAutoNav.click();
+        toggleExtraText.click();
+        autoSizeSideNav.getMatDrawer().has().text(containsString("Toggle extra text"));
+        autoSizeSideNav.getMatDrawerContent().has().attr(STYLE, "margin-left: 294px;");
+    }
+```
+
+![Autosize sidenav](../images/angular/sidenav/auto_size.PNG)
+
+```
+    //@FindBy(css = "#fixed-position")
+    public static SideNav fixedPosition;
+
+    @Test
+    public void fixedSideNavTest() {
+        String testValue = "100";
+        fixedPosition.show();
+        topGap.click();
+        topGap.clear();
+        topGap.sendKeys(testValue);
+        bottomGap.click();
+        bottomGap.clear();
+        bottomGap.sendKeys(testValue);
+        fixSideNav.click();
+        fixedPosition.getSideNav().has().attr(STYLE, "transform: none; visibility: visible; top: 100px; bottom: " +
+                "100px;");
+
+        toggleFixedSideNav.click();
+        fixedPosition.base().timer().wait(() -> fixedPosition.visualValidation(".mat-sidenav-content"));
+        fixedPosition.getSideNav().has().attr(STYLE, "top: 100px; bottom: 100px; box-shadow: none; visibility: " +
+                "hidden;");
+    }
+```
+
+![Fixed sidenav](../images/angular/sidenav/fixed_side_nav.PNG)
+
+```
+    //@FindBy(css = "#responsive-content")
+    public static SideNav responsiveContent;
+
+    @Test
+    public void toggleResponsiveSideNavTest() {
+        int[] testValues = {1, 3};
+        responsiveContent.show();
+        toolbarToggle.click();
+        for (int value : testValues) {
+            responsiveContent.getSideNavLinks().get(value).click();
+            responsiveContent.getResponsiveResults().get(value).has().text(String.format("Selected Nav Item %d", value));
+        }
+    }
+```
+
+![Responsive sidenav](../images/angular/sidenav/responsive.PNG)
+
+List of some available **Sidenav** methods:
+
+|Method | Description | Return Type 
+--- | --- | --- 
+**is()** | Assert action | SideNavAssert
+**has()** | Assert action | SideNavAssert 
+**click()** | Click the checkbox | void
+**get()** | Select button by index | action
+**getText()** | Get button text | String
+**hasClass()** | Verify element class | boolean
+**isDisplayed** | Verify state | boolean
+**show()** | Scroll to element | void
+**text()** | Gets text | String
+**sendKeys(CharSequence… value)** | Sends specified value as keys | void
+**attr(String value)** | Gets attribute | String
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/SideNavTests.java" target="_blank">Sidenav java tests examples</a>
+---
+
 ## Bootstrap Common elements
 
 ### Checkboxes and radios

@@ -8920,7 +8920,7 @@ List of some available **Sidenav** methods:
 
 ### Bottom sheet
 
-#### <a href="https://material.angular.io/components/checkbox/overview" target="_blank">Bottom sheet overview</a>
+#### <a href="https://material.angular.io/components/bottom-sheet/overview" target="_blank">Bottom sheet overview</a>
 
 Bottom sheet locates in the following class:
 
@@ -8971,11 +8971,11 @@ List of the available **Bottom sheet** methods:
 **closed()** | Check that bottom sheet is closed | boolean  
 **values()** | Get list of bottom sheet options | List  
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/AutocompleteTests.java" target="_blank">Bottom sheet java tests examples</a>
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/BottomSheet.java" target="_blank">Bottom sheet java tests examples</a>
 
 ### Dialog
 
-#### <a href="https://material.angular.io/components/checkbox/overview" target="_blank">Dialog overview</a>
+#### <a href="https://material.angular.io/components/dialog/overview" target="_blank">Dialog overview</a>
 
 Bottom sheet locates in the following class:
 
@@ -9022,7 +9022,7 @@ List of the available **Dialog** methods:
 **closed()** | Check that bottom sheet is closed | boolean  
 **answerText()** | Check that answer is correct | boolean
 
- #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/AutocompleteTests.java" target="_blank">Dialog java tests examples</a>
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/DialogTests.java" target="_blank">Dialog java tests examples</a>
 
 ---
 

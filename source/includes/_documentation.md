@@ -8879,7 +8879,6 @@ public void checkBottomSheetIsDisplayedTest() {
 @Test
 public void checkBottomSheetIsHiddenTest() {
     bottomSheet.open();
-    bottomSheet.is().opened();
     bottomSheet.close();
     bottomSheet.is().closed();
 }
@@ -8903,6 +8902,56 @@ List of the available **Bottom sheet** methods:
 **values()** | Get list of bottom sheet options | List  
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/AutocompleteTests.java" target="_blank">Bottom sheet java tests examples</a>
+
+### Dialog
+
+#### <a href="https://material.angular.io/components/checkbox/overview" target="_blank">Dialog overview</a>
+
+Bottom sheet locates in the following class:
+
+The `mat-dialog` service can be used to open modal dialogs with Material Design styling and animations.
+
+   - __Java__: _com.epam.jdi.light.ui.angular.elements.complex.Dialog_
+   
+
+![Dialog](../images/angular/dialog.PNG)
+
+```html  
+<dialog-overview-example _nghost-agc-c348="" ng-version="9.1.0"><h2 _ngcontent-agc-c348="" class="example-h2"><a _ngcontent-agc-c348="" href="https://material.angular.io/components/dialog/overview"> Dialog Overview </a></h2><ol _ngcontent-agc-c348=""><li _ngcontent-agc-c348=""><mat-form-field _ngcontent-agc-c348="" class="mat-form-field ng-tns-c95-161 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-fill mat-form-field-can-float mat-form-field-has-label mat-form-field-hide-placeholder ng-untouched ng-pristine ng-valid"><div class="mat-form-field-wrapper ng-tns-c95-161"><div class="mat-form-field-flex ng-tns-c95-161"><!----><!----><div class="mat-form-field-infix ng-tns-c95-161"><input _ngcontent-agc-c348="" matinput="" class="mat-input-element mat-form-field-autofill-control ng-tns-c95-161 cdk-text-field-autofill-monitored ng-untouched ng-pristine ng-valid" id="mat-input-74" aria-invalid="false" aria-required="false"><span class="mat-form-field-label-wrapper ng-tns-c95-161"><label class="mat-form-field-label ng-tns-c95-161 mat-empty mat-form-field-empty ng-star-inserted" id="mat-form-field-label-189" for="mat-input-74" aria-owns="mat-input-74"><!----><mat-label _ngcontent-agc-c348="" class="ng-tns-c95-161 ng-star-inserted">What's your name?</mat-label><!----><!----></label><!----></span></div><!----></div><div class="mat-form-field-underline ng-tns-c95-161 ng-star-inserted"><span class="mat-form-field-ripple ng-tns-c95-161"></span></div><!----><div class="mat-form-field-subscript-wrapper ng-tns-c95-161"><!----><div class="mat-form-field-hint-wrapper ng-tns-c95-161 ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);"><!----><div class="mat-form-field-hint-spacer ng-tns-c95-161"></div></div><!----></div></div></mat-form-field></li><li _ngcontent-agc-c348=""><button _ngcontent-agc-c348="" id="dialog" mat-raised-button="" class="mat-focus-indicator mat-raised-button mat-button-base"><span class="mat-button-wrapper">Pick one</span><div matripple="" class="mat-ripple mat-button-ripple"></div><div class="mat-button-focus-overlay"></div></button></li><br _ngcontent-agc-c348=""><!----></ol></dialog-overview-example>
+```
+
+```java  
+//@FindBy(css = "#dialog")
+public static Dialog dialog;
+
+@Test
+public void basicDialogTest() {
+    dialog.sendKeysToNameFormField("EPAM Systems");
+    dialog.open();
+    dialog.is().opened();
+    dialog.is().nameText("EPAM Systems");
+    dialog.sendKeysToAnswerFormField("Lion");
+    dialog.submitAnswer();
+    dialog.is().closed();
+    dialog.is().answerText("Lion");
+}
+```
+
+List of the available **Dialog** methods:
+
+| Method | Description | Return Type 
+--- | --- | --- 
+**is()** | Assert action | DialogAssert 
+**open()** | Open dialog window | void 
+**opened()** | Check that dialog window is opened | boolean 
+**nameText()** | Check that name is correct | boolean  
+**sendKeysToAnswerFormField()** | Enter answer | void 
+**sendKeysToNameFormField()** | Enter name | void 
+**submitAnswer()** | Click "Ok" button | void 
+**closed()** | Check that bottom sheet is closed | boolean  
+**answerText()** | Check that answer is correct | boolean
+
+ #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/AutocompleteTests.java" target="_blank">Dialog java tests examples</a>
 
 ---
 

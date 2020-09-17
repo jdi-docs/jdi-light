@@ -8971,7 +8971,7 @@ List of the available **Bottom sheet** methods:
 **closed()** | Check that bottom sheet is closed | boolean  
 **values()** | Get list of bottom sheet options | List  
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/BottomSheet.java" target="_blank">Bottom sheet java tests examples</a>
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/BottomSheetTests.java" target="_blank">Bottom sheet java tests examples</a>
 
 ### Dialog
 

@@ -8668,7 +8668,7 @@ components: <mat-sidenav-container> which acts as a structural container for our
 
 ![Basic sidenav](../images/angular/sidenav/basic_sidenav.PNG)
 
-```
+```java
     //@FindBy(css = "#basic-drawer")
     public static SideNav basicDrawer;
 
@@ -8764,7 +8764,7 @@ components: <mat-sidenav-container> which acts as a structural container for our
     //@FindBy(css = "#custom-escape-backdrop")
     public static SideNav customEscapeBackdrop;
 
-@Test
+    @Test
     public void closeByToggleTest() {
         refresh();
         customEscapeBackdrop.show();

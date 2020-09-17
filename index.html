@@ -14897,17 +14897,17 @@ components: <mat-sidenav-container> which acts as a structural container for our
 <span class="nt">&lt;mat-sidenav-container&gt;&lt;/mat-sidenav-container&gt;</span>
 </code></pre>
 <p><img src="images/angular/sidenav/basic_sidenav.PNG" alt="Basic sidenav" /></p>
-<pre class="highlight plaintext"><code>    //@FindBy(css = "#basic-drawer")
-    public static SideNav basicDrawer;
+<pre class="highlight java tab-java"><code>    <span class="c1">//@FindBy(css = "#basic-drawer")</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">SideNav</span> <span class="n">basicDrawer</span><span class="o">;</span>
 
-    @Test
-    public void verifyBasicDrawerTest() {
-        basicDrawer.show();
-        basicDrawer.is().displayed();
-        basicDrawer.is().enabled();
-        basicDrawer.getMatDrawer().has().text(DRAWER_CONTENT);
-        basicDrawer.getMatDrawerContent().has().text(MAIN_CONTENT);
-    }
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">verifyBasicDrawerTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">basicDrawer</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+        <span class="n">basicDrawer</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+        <span class="n">basicDrawer</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
+        <span class="n">basicDrawer</span><span class="o">.</span><span class="na">getMatDrawer</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">DRAWER_CONTENT</span><span class="o">);</span>
+        <span class="n">basicDrawer</span><span class="o">.</span><span class="na">getMatDrawerContent</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">MAIN_CONTENT</span><span class="o">);</span>
+    <span class="o">}</span>
 </code></pre>
 <p><img src="images/angular/sidenav/basic_drawer.PNG" alt="Basic drawer" /></p>
 <pre class="highlight java tab-java"><code>    <span class="c1">//@FindBy(css = "#implicit-main-content")</span>
@@ -14977,7 +14977,7 @@ components: <mat-sidenav-container> which acts as a structural container for our
 <pre class="highlight java tab-java"><code>    <span class="c1">//@FindBy(css = "#custom-escape-backdrop")</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">SideNav</span> <span class="n">customEscapeBackdrop</span><span class="o">;</span>
 
-<span class="nd">@Test</span>
+    <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">closeByToggleTest</span><span class="o">()</span> <span class="o">{</span>
         <span class="n">refresh</span><span class="o">();</span>
         <span class="n">customEscapeBackdrop</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>

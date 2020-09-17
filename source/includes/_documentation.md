@@ -8647,7 +8647,7 @@ The sidenav components are designed to add side content to a fullscreen app. To 
 components: <mat-sidenav-container> which acts as a structural container for our content and sidenav, 
 <mat-sidenav-content> which represents the main content, and <mat-sidenav> which represents the added side content.
 
-``` java
+```java
     //@FindBy(css = "#basic-sidenav")
     public static SideNav basicSideNav;
 
@@ -8661,14 +8661,14 @@ components: <mat-sidenav-container> which acts as a structural container for our
     }
 ```
 
-``` html
+```html
 <!-- Creates an empty sidenav container with no sidenavs and implicit empty content. -->
 <mat-sidenav-container></mat-sidenav-container>
 ```
 
 ![Basic sidenav](../images/angular/sidenav/basic_sidenav.PNG)
 
-```
+```java
     //@FindBy(css = "#basic-drawer")
     public static SideNav basicDrawer;
 
@@ -8684,7 +8684,7 @@ components: <mat-sidenav-container> which acts as a structural container for our
 
 ![Basic drawer](../images/angular/sidenav/basic_drawer.PNG)
 
-``` java
+```java
     //@FindBy(css = "#implicit-main-content")
     public static SideNav implicitMainContent;
 
@@ -8764,7 +8764,7 @@ components: <mat-sidenav-container> which acts as a structural container for our
     //@FindBy(css = "#custom-escape-backdrop")
     public static SideNav customEscapeBackdrop;
 
-@Test
+    @Test
     public void closeByToggleTest() {
         refresh();
         customEscapeBackdrop.show();

@@ -8646,8 +8646,8 @@ though it can be any content) alongside some primary content. These are the side
 The sidenav components are designed to add side content to a fullscreen app. To set up a sidenav we use three 
 components: <mat-sidenav-container> which acts as a structural container for our content and sidenav, 
 <mat-sidenav-content> which represents the main content, and <mat-sidenav> which represents the added side content.
-```
-    
+
+``` java
     //@FindBy(css = "#basic-sidenav")
     public static SideNav basicSideNav;
 
@@ -8659,6 +8659,11 @@ components: <mat-sidenav-container> which acts as a structural container for our
         basicSideNav.getSideNav().has().text(SIDE_NAV_CONTENT);
         basicSideNav.getContent().has().text(MAIN_CONTENT);
     }
+```
+
+``` html
+<!-- Creates an empty sidenav container with no sidenavs and implicit empty content. -->
+<mat-sidenav-container></mat-sidenav-container>
 ```
 
 ![Basic sidenav](../images/angular/sidenav/basic_sidenav.PNG)
@@ -8679,7 +8684,7 @@ components: <mat-sidenav-container> which acts as a structural container for our
 
 ![Basic drawer](../images/angular/sidenav/basic_drawer.PNG)
 
-```
+``` java
     //@FindBy(css = "#implicit-main-content")
     public static SideNav implicitMainContent;
 
@@ -8703,9 +8708,18 @@ components: <mat-sidenav-container> which acts as a structural container for our
     }
 ```
 
+```html
+<!-- Creates a layout with a left and right sidenav and implicit content. -->
+<mat-sidenav-container>
+  <mat-sidenav>Start</mat-sidenav>
+  <mat-sidenav position="end">End</mat-sidenav>
+  <section>Main</section>
+</mat-sidenav-container>
+```
+
 ![Implicit content with two sidenavs](../images/angular/sidenav/two_side_navs.PNG)
 
-```
+```java
     //@FindBy(css = "#open-close-behavior")
     public static SideNav openCloseBehavior;
 
@@ -8726,7 +8740,7 @@ components: <mat-sidenav-container> which acts as a structural container for our
 
 ![Sidenav open & close behavior](../images/angular/sidenav/open_close_behavior.PNG)
 
-```
+```java
     //@FindBy(css = "#configurable-mode")
     public static SideNav configurableMode;
 
@@ -8746,7 +8760,7 @@ components: <mat-sidenav-container> which acts as a structural container for our
 
 ![Sidenav with configurable mode](../images/angular/sidenav/configurable_mode.PNG)
 
-```
+```java
     //@FindBy(css = "#custom-escape-backdrop")
     public static SideNav customEscapeBackdrop;
 
@@ -8769,7 +8783,7 @@ components: <mat-sidenav-container> which acts as a structural container for our
 
 ![Sidenav with custom escape backdrop click behavior](../images/angular/sidenav/custom_backdrop.PNG)
 
-```
+```java
     //@FindBy(css = "#auto-size-side-nav")
     public static SideNav autoSizeSideNav;
 
@@ -8785,7 +8799,7 @@ components: <mat-sidenav-container> which acts as a structural container for our
 
 ![Autosize sidenav](../images/angular/sidenav/auto_size.PNG)
 
-```
+```java
     //@FindBy(css = "#fixed-position")
     public static SideNav fixedPosition;
 
@@ -8812,7 +8826,7 @@ components: <mat-sidenav-container> which acts as a structural container for our
 
 ![Fixed sidenav](../images/angular/sidenav/fixed_side_nav.PNG)
 
-```
+```java
     //@FindBy(css = "#responsive-content")
     public static SideNav responsiveContent;
 
@@ -8827,7 +8841,6 @@ components: <mat-sidenav-container> which acts as a structural container for our
         }
     }
 ```
-
 ![Responsive sidenav](../images/angular/sidenav/responsive.PNG)
 
 List of some available **Sidenav** methods:

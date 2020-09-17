@@ -14881,22 +14881,21 @@ put inside of the header.</p>
 though it can be any content) alongside some primary content. These are the sidenav and drawer components.
 The sidenav components are designed to add side content to a fullscreen app. To set up a sidenav we use three 
 components: <mat-sidenav-container> which acts as a structural container for our content and sidenav, 
-<mat-sidenav-content> which represents the main content, and <mat-sidenav> which represents the added side content.
-```</p>
+<mat-sidenav-content> which represents the main content, and <mat-sidenav> which represents the added side content.</p>
+<pre class="highlight java tab-java"><code>    <span class="c1">//@FindBy(css = "#basic-sidenav")</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">SideNav</span> <span class="n">basicSideNav</span><span class="o">;</span>
 
-<p>//@FindBy(css = &quot;#basic-sidenav&quot;)
-    public static SideNav basicSideNav;</p>
-
-<p>@Test
-    public void verifyBasicSideNavTest() {
-        basicSideNav.show();
-        basicSideNav.is().displayed();
-        basicSideNav.is().enabled();
-        basicSideNav.getSideNav().has().text(SIDE_NAV_CONTENT);
-        basicSideNav.getContent().has().text(MAIN_CONTENT);
-    }
-```</p>
-
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">verifyBasicSideNavTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">basicSideNav</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+        <span class="n">basicSideNav</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+        <span class="n">basicSideNav</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
+        <span class="n">basicSideNav</span><span class="o">.</span><span class="na">getSideNav</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">SIDE_NAV_CONTENT</span><span class="o">);</span>
+        <span class="n">basicSideNav</span><span class="o">.</span><span class="na">getContent</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">MAIN_CONTENT</span><span class="o">);</span>
+    <span class="o">}</span>
+</code></pre><pre class="highlight html tab-html"><code><span class="c">&lt;!-- Creates an empty sidenav container with no sidenavs and implicit empty content. --&gt;</span>
+<span class="nt">&lt;mat-sidenav-container&gt;&lt;/mat-sidenav-container&gt;</span>
+</code></pre>
 <p><img src="images/angular/sidenav/basic_sidenav.PNG" alt="Basic sidenav" /></p>
 <pre class="highlight plaintext"><code>    //@FindBy(css = "#basic-drawer")
     public static SideNav basicDrawer;
@@ -14911,134 +14910,140 @@ components: <mat-sidenav-container> which acts as a structural container for our
     }
 </code></pre>
 <p><img src="images/angular/sidenav/basic_drawer.PNG" alt="Basic drawer" /></p>
-<pre class="highlight plaintext"><code>    //@FindBy(css = "#implicit-main-content")
-    public static SideNav implicitMainContent;
+<pre class="highlight java tab-java"><code>    <span class="c1">//@FindBy(css = "#implicit-main-content")</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">SideNav</span> <span class="n">implicitMainContent</span><span class="o">;</span>
 
-    @Test
-    public void verifyImplicitMainContentWithTwoSideNavTest() {
-        implicitMainContent.show();
-        UIElement startSideNav = implicitMainContent.getSideNav("start");
-        UIElement endSideNav = implicitMainContent.getSideNav("end");
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">verifyImplicitMainContentWithTwoSideNavTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">implicitMainContent</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+        <span class="n">UIElement</span> <span class="n">startSideNav</span> <span class="o">=</span> <span class="n">implicitMainContent</span><span class="o">.</span><span class="na">getSideNav</span><span class="o">(</span><span class="s">"start"</span><span class="o">);</span>
+        <span class="n">UIElement</span> <span class="n">endSideNav</span> <span class="o">=</span> <span class="n">implicitMainContent</span><span class="o">.</span><span class="na">getSideNav</span><span class="o">(</span><span class="s">"end"</span><span class="o">);</span>
 
-        startSideNav.has().attr(MODE, SIDE);
-        startSideNav.has().attr(STYLE, STYLE_VISIBLE);
-        startSideNav.has().text("Start content");
+        <span class="n">startSideNav</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">attr</span><span class="o">(</span><span class="n">MODE</span><span class="o">,</span> <span class="n">SIDE</span><span class="o">);</span>
+        <span class="n">startSideNav</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">attr</span><span class="o">(</span><span class="n">STYLE</span><span class="o">,</span> <span class="n">STYLE_VISIBLE</span><span class="o">);</span>
+        <span class="n">startSideNav</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Start content"</span><span class="o">);</span>
 
-        endSideNav.has().attr(MODE, SIDE);
-        endSideNav.has().attr(STYLE, STYLE_VISIBLE);
-        endSideNav.has().text("End content");
+        <span class="n">endSideNav</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">attr</span><span class="o">(</span><span class="n">MODE</span><span class="o">,</span> <span class="n">SIDE</span><span class="o">);</span>
+        <span class="n">endSideNav</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">attr</span><span class="o">(</span><span class="n">STYLE</span><span class="o">,</span> <span class="n">STYLE_VISIBLE</span><span class="o">);</span>
+        <span class="n">endSideNav</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"End content"</span><span class="o">);</span>
 
-        implicitMainContent.getContent().has().text("Implicit main content");
-        implicitMainContent.getContent().is().displayed();
-        implicitMainContent.getContent().is().enabled();
-    }
+        <span class="n">implicitMainContent</span><span class="o">.</span><span class="na">getContent</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Implicit main content"</span><span class="o">);</span>
+        <span class="n">implicitMainContent</span><span class="o">.</span><span class="na">getContent</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+        <span class="n">implicitMainContent</span><span class="o">.</span><span class="na">getContent</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
+    <span class="o">}</span>
+</code></pre><pre class="highlight html tab-html"><code><span class="c">&lt;!-- Creates a layout with a left and right sidenav and implicit content. --&gt;</span>
+<span class="nt">&lt;mat-sidenav-container&gt;</span>
+  <span class="nt">&lt;mat-sidenav&gt;</span>Start<span class="nt">&lt;/mat-sidenav&gt;</span>
+  <span class="nt">&lt;mat-sidenav</span> <span class="na">position=</span><span class="s">"end"</span><span class="nt">&gt;</span>End<span class="nt">&lt;/mat-sidenav&gt;</span>
+  <span class="nt">&lt;section&gt;</span>Main<span class="nt">&lt;/section&gt;</span>
+<span class="nt">&lt;/mat-sidenav-container&gt;</span>
 </code></pre>
 <p><img src="images/angular/sidenav/two_side_navs.PNG" alt="Implicit content with two sidenavs" /></p>
-<pre class="highlight plaintext"><code>    //@FindBy(css = "#open-close-behavior")
-    public static SideNav openCloseBehavior;
+<pre class="highlight java tab-java"><code>    <span class="c1">//@FindBy(css = "#open-close-behavior")</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">SideNav</span> <span class="n">openCloseBehavior</span><span class="o">;</span>
 
-    @Test
-    public void verifyOpenCloseBehaviorTest() {
-        openCloseBehavior.show();
-        openCloseBehavior.getContent().is().displayed();
-        openCloseBehavior.getContent().is().enabled();
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">verifyOpenCloseBehaviorTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">openCloseBehavior</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+        <span class="n">openCloseBehavior</span><span class="o">.</span><span class="na">getContent</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+        <span class="n">openCloseBehavior</span><span class="o">.</span><span class="na">getContent</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
 
-        sideNavToggle.click();
-        openCloseBehavior.getSideNav().has().text(SIDE_NAV_CONTENT);
+        <span class="n">sideNavToggle</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">openCloseBehavior</span><span class="o">.</span><span class="na">getSideNav</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">SIDE_NAV_CONTENT</span><span class="o">);</span>
 
-        sideNavOpened.click();
-        openCloseBehavior.base().timer().wait(() -&gt; openCloseBehavior.isEnabled());
-        openCloseBehavior.getEvents().has().text("open!\nclose!");
-    }
+        <span class="n">sideNavOpened</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">openCloseBehavior</span><span class="o">.</span><span class="na">base</span><span class="o">().</span><span class="na">timer</span><span class="o">().</span><span class="na">wait</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">openCloseBehavior</span><span class="o">.</span><span class="na">isEnabled</span><span class="o">());</span>
+        <span class="n">openCloseBehavior</span><span class="o">.</span><span class="na">getEvents</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"open!\nclose!"</span><span class="o">);</span>
+    <span class="o">}</span>
 </code></pre>
 <p><img src="images/angular/sidenav/open_close_behavior.PNG" alt="Sidenav open &amp; close behavior" /></p>
-<pre class="highlight plaintext"><code>    //@FindBy(css = "#configurable-mode")
-    public static SideNav configurableMode;
+<pre class="highlight java tab-java"><code>    <span class="c1">//@FindBy(css = "#configurable-mode")</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">SideNav</span> <span class="n">configurableMode</span><span class="o">;</span>
 
-    @Test
-    public void toggleConfigurableSideNavTest() {
-        refresh();
-        configurableMode.show();
-        contentToggle.click();
-        configurableMode.base().timer().wait(() -&gt; configurableMode.visualValidation(".mat-sidenav"));
-        configurableMode.getSideNav().has().attr(STYLE, STYLE_VISIBLE);
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">toggleConfigurableSideNavTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">refresh</span><span class="o">();</span>
+        <span class="n">configurableMode</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+        <span class="n">contentToggle</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">configurableMode</span><span class="o">.</span><span class="na">base</span><span class="o">().</span><span class="na">timer</span><span class="o">().</span><span class="na">wait</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">configurableMode</span><span class="o">.</span><span class="na">visualValidation</span><span class="o">(</span><span class="s">".mat-sidenav"</span><span class="o">));</span>
+        <span class="n">configurableMode</span><span class="o">.</span><span class="na">getSideNav</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">attr</span><span class="o">(</span><span class="n">STYLE</span><span class="o">,</span> <span class="n">STYLE_VISIBLE</span><span class="o">);</span>
 
-        sideToggle.click();
-        configurableMode.base().timer().wait(() -&gt; configurableMode.visualValidation(".mat-sidenav"));
-        configurableMode.getSideNav().has().attr(STYLE, STYLE_HIDDEN);
-    }
+        <span class="n">sideToggle</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">configurableMode</span><span class="o">.</span><span class="na">base</span><span class="o">().</span><span class="na">timer</span><span class="o">().</span><span class="na">wait</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">configurableMode</span><span class="o">.</span><span class="na">visualValidation</span><span class="o">(</span><span class="s">".mat-sidenav"</span><span class="o">));</span>
+        <span class="n">configurableMode</span><span class="o">.</span><span class="na">getSideNav</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">attr</span><span class="o">(</span><span class="n">STYLE</span><span class="o">,</span> <span class="n">STYLE_HIDDEN</span><span class="o">);</span>
+    <span class="o">}</span>
 </code></pre>
 <p><img src="images/angular/sidenav/configurable_mode.PNG" alt="Sidenav with configurable mode" /></p>
-<pre class="highlight plaintext"><code>    //@FindBy(css = "#custom-escape-backdrop")
-    public static SideNav customEscapeBackdrop;
+<pre class="highlight java tab-java"><code>    <span class="c1">//@FindBy(css = "#custom-escape-backdrop")</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">SideNav</span> <span class="n">customEscapeBackdrop</span><span class="o">;</span>
 
-@Test
-    public void closeByToggleTest() {
-        refresh();
-        customEscapeBackdrop.show();
-        openSideNav.click();
-        toggleSideNav.click();
-        customEscapeBackdrop.getContent().has().text(containsString("toggle button"));
-    }
+<span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">closeByToggleTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">refresh</span><span class="o">();</span>
+        <span class="n">customEscapeBackdrop</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+        <span class="n">openSideNav</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">toggleSideNav</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">customEscapeBackdrop</span><span class="o">.</span><span class="na">getContent</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"toggle button"</span><span class="o">));</span>
+    <span class="o">}</span>
 
-    @Test
-    public void closeByBackdropTest() {
-        openSideNav.click();
-        customEscapeBackdrop.core().click();
-        customEscapeBackdrop.getContent().has().text(containsString("backdrop"));
-    }
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">closeByBackdropTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">openSideNav</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">customEscapeBackdrop</span><span class="o">.</span><span class="na">core</span><span class="o">().</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">customEscapeBackdrop</span><span class="o">.</span><span class="na">getContent</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"backdrop"</span><span class="o">));</span>
+    <span class="o">}</span>
 </code></pre>
 <p><img src="images/angular/sidenav/custom_backdrop.PNG" alt="Sidenav with custom escape backdrop click behavior" /></p>
-<pre class="highlight plaintext"><code>    //@FindBy(css = "#auto-size-side-nav")
-    public static SideNav autoSizeSideNav;
+<pre class="highlight java tab-java"><code>    <span class="c1">//@FindBy(css = "#auto-size-side-nav")</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">SideNav</span> <span class="n">autoSizeSideNav</span><span class="o">;</span>
 
-    @Test
-    public void verifyAutoSizeSideNav() {
-        autoSizeSideNav.show();
-        toggleAutoNav.click();
-        toggleExtraText.click();
-        autoSizeSideNav.getMatDrawer().has().text(containsString("Toggle extra text"));
-        autoSizeSideNav.getMatDrawerContent().has().attr(STYLE, "margin-left: 294px;");
-    }
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">verifyAutoSizeSideNav</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">autoSizeSideNav</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+        <span class="n">toggleAutoNav</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">toggleExtraText</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">autoSizeSideNav</span><span class="o">.</span><span class="na">getMatDrawer</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"Toggle extra text"</span><span class="o">));</span>
+        <span class="n">autoSizeSideNav</span><span class="o">.</span><span class="na">getMatDrawerContent</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">attr</span><span class="o">(</span><span class="n">STYLE</span><span class="o">,</span> <span class="s">"margin-left: 294px;"</span><span class="o">);</span>
+    <span class="o">}</span>
 </code></pre>
 <p><img src="images/angular/sidenav/auto_size.PNG" alt="Autosize sidenav" /></p>
-<pre class="highlight plaintext"><code>    //@FindBy(css = "#fixed-position")
-    public static SideNav fixedPosition;
+<pre class="highlight java tab-java"><code>    <span class="c1">//@FindBy(css = "#fixed-position")</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">SideNav</span> <span class="n">fixedPosition</span><span class="o">;</span>
 
-    @Test
-    public void fixedSideNavTest() {
-        String testValue = "100";
-        fixedPosition.show();
-        topGap.click();
-        topGap.clear();
-        topGap.sendKeys(testValue);
-        bottomGap.click();
-        bottomGap.clear();
-        bottomGap.sendKeys(testValue);
-        fixSideNav.click();
-        fixedPosition.getSideNav().has().attr(STYLE, "transform: none; visibility: visible; top: 100px; bottom: " +
-                "100px;");
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">fixedSideNavTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">String</span> <span class="n">testValue</span> <span class="o">=</span> <span class="s">"100"</span><span class="o">;</span>
+        <span class="n">fixedPosition</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+        <span class="n">topGap</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">topGap</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
+        <span class="n">topGap</span><span class="o">.</span><span class="na">sendKeys</span><span class="o">(</span><span class="n">testValue</span><span class="o">);</span>
+        <span class="n">bottomGap</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">bottomGap</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
+        <span class="n">bottomGap</span><span class="o">.</span><span class="na">sendKeys</span><span class="o">(</span><span class="n">testValue</span><span class="o">);</span>
+        <span class="n">fixSideNav</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">fixedPosition</span><span class="o">.</span><span class="na">getSideNav</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">attr</span><span class="o">(</span><span class="n">STYLE</span><span class="o">,</span> <span class="s">"transform: none; visibility: visible; top: 100px; bottom: "</span> <span class="o">+</span>
+                <span class="s">"100px;"</span><span class="o">);</span>
 
-        toggleFixedSideNav.click();
-        fixedPosition.base().timer().wait(() -&gt; fixedPosition.visualValidation(".mat-sidenav-content"));
-        fixedPosition.getSideNav().has().attr(STYLE, "top: 100px; bottom: 100px; box-shadow: none; visibility: " +
-                "hidden;");
-    }
+        <span class="n">toggleFixedSideNav</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">fixedPosition</span><span class="o">.</span><span class="na">base</span><span class="o">().</span><span class="na">timer</span><span class="o">().</span><span class="na">wait</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">fixedPosition</span><span class="o">.</span><span class="na">visualValidation</span><span class="o">(</span><span class="s">".mat-sidenav-content"</span><span class="o">));</span>
+        <span class="n">fixedPosition</span><span class="o">.</span><span class="na">getSideNav</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">attr</span><span class="o">(</span><span class="n">STYLE</span><span class="o">,</span> <span class="s">"top: 100px; bottom: 100px; box-shadow: none; visibility: "</span> <span class="o">+</span>
+                <span class="s">"hidden;"</span><span class="o">);</span>
+    <span class="o">}</span>
 </code></pre>
 <p><img src="images/angular/sidenav/fixed_side_nav.PNG" alt="Fixed sidenav" /></p>
-<pre class="highlight plaintext"><code>    //@FindBy(css = "#responsive-content")
-    public static SideNav responsiveContent;
+<pre class="highlight java tab-java"><code>    <span class="c1">//@FindBy(css = "#responsive-content")</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">SideNav</span> <span class="n">responsiveContent</span><span class="o">;</span>
 
-    @Test
-    public void toggleResponsiveSideNavTest() {
-        int[] testValues = {1, 3};
-        responsiveContent.show();
-        toolbarToggle.click();
-        for (int value : testValues) {
-            responsiveContent.getSideNavLinks().get(value).click();
-            responsiveContent.getResponsiveResults().get(value).has().text(String.format("Selected Nav Item %d", value));
-        }
-    }
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">toggleResponsiveSideNavTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">testValues</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">3</span><span class="o">};</span>
+        <span class="n">responsiveContent</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+        <span class="n">toolbarToggle</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">value</span> <span class="o">:</span> <span class="n">testValues</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">responsiveContent</span><span class="o">.</span><span class="na">getSideNavLinks</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="n">value</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+            <span class="n">responsiveContent</span><span class="o">.</span><span class="na">getResponsiveResults</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="n">value</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">"Selected Nav Item %d"</span><span class="o">,</span> <span class="n">value</span><span class="o">));</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
 </code></pre>
 <p><img src="images/angular/sidenav/responsive.PNG" alt="Responsive sidenav" /></p>
 

@@ -8948,6 +8948,7 @@ List of the available **Dialog** methods:
 **sendKeysToAnswerFormField()** | Enter answer | void 
 **sendKeysToNameFormField()** | Enter name | void 
 **submitAnswer()** | Click "Ok" button | void 
+**close()** | Close dialog window | void 
 **closed()** | Check that bottom sheet is closed | boolean  
 **answerText()** | Check that answer is correct | boolean
 

@@ -8324,6 +8324,63 @@ List of some available **Ripple** methods:
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/RippleTests.java" target="_blank">Ripple java tests examples</a>
 
+### Bottom sheet
+
+#### <a href="https://material.angular.io/components/checkbox/overview" target="_blank">Bottom sheet overview</a>
+
+Bottom sheet locates in the following class:
+
+The `mat-bottom-sheet` service can be used to open Material Design panels to the bottom of the screen. These panels are 
+intended primarily as an interaction on mobile devices where they can be used as an alternative to dialogs and menus.
+
+   - __Java__: _com.epam.jdi.light.ui.angular.elements.complex.BottomSheet_
+   
+
+![Bottom sheet](../images/angular/bottom_sheet.PNG)
+
+```html  
+<mat-bottom-sheet-container tabindex="-1" role="dialog" aria-modal="true" class="mat-bottom-sheet-container ng-tns-c99-206 ng-trigger ng-trigger-state ng-star-inserted" style="transform: translateY(0%);"><bottom-sheet-overview-example-sheet class="ng-star-inserted"><mat-nav-list role="navigation" id="bottom-sheet-container" class="mat-nav-list mat-list-base"><a href="https://keep.google.com/" mat-list-item="" class="mat-list-item mat-focus-indicator mat-2-line"><div class="mat-list-item-content"><div mat-ripple="" class="mat-ripple mat-list-item-ripple"></div><div class="mat-list-text"><span mat-line="" class="mat-line">Google Keep</span><span mat-line="" class="mat-line">Add to a note</span></div></div></a><a href="https://docs.google.com/" mat-list-item="" class="mat-list-item mat-focus-indicator mat-2-line"><div class="mat-list-item-content"><div mat-ripple="" class="mat-ripple mat-list-item-ripple"></div><div class="mat-list-text"><span mat-line="" class="mat-line">Google Docs</span><span mat-line="" class="mat-line">Embed in a document</span></div></div></a><a href="https://plus.google.com/" mat-list-item="" class="mat-list-item mat-focus-indicator mat-2-line"><div class="mat-list-item-content"><div mat-ripple="" class="mat-ripple mat-list-item-ripple"></div><div class="mat-list-text"><span mat-line="" class="mat-line">Google Plus</span><span mat-line="" class="mat-line">Share with your friends</span></div></div></a><a href="https://hangouts.google.com/" mat-list-item="" class="mat-list-item mat-focus-indicator mat-2-line"><div class="mat-list-item-content"><div mat-ripple="" class="mat-ripple mat-list-item-ripple"></div><div class="mat-list-text"><span mat-line="" class="mat-line">Google Hangouts</span><span mat-line="" class="mat-line">Show to your coworkers</span></div></div></a></mat-nav-list></bottom-sheet-overview-example-sheet><!----></mat-bottom-sheet-container>
+```
+
+```java  
+//@FindBy(css = "#bottom-sheet")
+public static BottomSheet bottomSheet;
+
+@Test
+public void checkBottomSheetIsDisplayedTest() {
+    bottomSheet.open();
+    bottomSheet.is().opened();
+}
+
+@Test
+public void checkBottomSheetIsHiddenTest() {
+    bottomSheet.open();
+    bottomSheet.is().opened();
+    bottomSheet.close();
+    bottomSheet.is().closed();
+}
+
+@Test
+public void checkBottomSheetAvailableOptionsTest() {
+    bottomSheet.open();
+    bottomSheet.is().values(BOTTOM_SHEET_VALUES);
+}
+```
+
+List of the available **Bottom sheet** methods:
+
+| Method | Description | Return Type 
+--- | --- | --- 
+**is()** | Assert action | BottomSheetAssert 
+**open()** | Open bottom sheet | void 
+**close()** | Close bottom sheet | void 
+**opened()** | Check that bottom sheet is opened| boolean
+**closed()** | Check that bottom sheet is closed | boolean  
+**values()** | Get list of bottom sheet options | List  
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/AutocompleteTests.java" target="_blank">Bottom sheet java tests examples</a>
+
+=======
 ### Expansion panel 
 #### <a href="https://material.angular.io/components/expansion/overview" target="_blank">Expansion panel overview</a>
 `<mat-expansion-panel>` provides an expandable details-summary view.
@@ -8860,6 +8917,113 @@ List of some available **Sidenav** methods:
 **attr(String value)** | Gets attribute | String
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/SideNavTests.java" target="_blank">Sidenav java tests examples</a>
+
+### Bottom sheet
+
+#### <a href="https://material.angular.io/components/checkbox/overview" target="_blank">Bottom sheet overview</a>
+
+Bottom sheet locates in the following class:
+
+The `mat-bottom-sheet` service can be used to open Material Design panels to the bottom of the screen. These panels are 
+intended primarily as an interaction on mobile devices where they can be used as an alternative to dialogs and menus.
+
+   - __Java__: _com.epam.jdi.light.ui.angular.elements.complex.BottomSheet_
+   
+
+![Bottom sheet](../images/angular/bottom_sheet.PNG)
+
+```html  
+<mat-bottom-sheet-container tabindex="-1" role="dialog" aria-modal="true" class="mat-bottom-sheet-container ng-tns-c99-206 ng-trigger ng-trigger-state ng-star-inserted" style="transform: translateY(0%);"><bottom-sheet-overview-example-sheet class="ng-star-inserted"><mat-nav-list role="navigation" id="bottom-sheet-container" class="mat-nav-list mat-list-base"><a href="https://keep.google.com/" mat-list-item="" class="mat-list-item mat-focus-indicator mat-2-line"><div class="mat-list-item-content"><div mat-ripple="" class="mat-ripple mat-list-item-ripple"></div><div class="mat-list-text"><span mat-line="" class="mat-line">Google Keep</span><span mat-line="" class="mat-line">Add to a note</span></div></div></a><a href="https://docs.google.com/" mat-list-item="" class="mat-list-item mat-focus-indicator mat-2-line"><div class="mat-list-item-content"><div mat-ripple="" class="mat-ripple mat-list-item-ripple"></div><div class="mat-list-text"><span mat-line="" class="mat-line">Google Docs</span><span mat-line="" class="mat-line">Embed in a document</span></div></div></a><a href="https://plus.google.com/" mat-list-item="" class="mat-list-item mat-focus-indicator mat-2-line"><div class="mat-list-item-content"><div mat-ripple="" class="mat-ripple mat-list-item-ripple"></div><div class="mat-list-text"><span mat-line="" class="mat-line">Google Plus</span><span mat-line="" class="mat-line">Share with your friends</span></div></div></a><a href="https://hangouts.google.com/" mat-list-item="" class="mat-list-item mat-focus-indicator mat-2-line"><div class="mat-list-item-content"><div mat-ripple="" class="mat-ripple mat-list-item-ripple"></div><div class="mat-list-text"><span mat-line="" class="mat-line">Google Hangouts</span><span mat-line="" class="mat-line">Show to your coworkers</span></div></div></a></mat-nav-list></bottom-sheet-overview-example-sheet><!----></mat-bottom-sheet-container>
+```
+
+```java  
+//@FindBy(css = "#bottom-sheet")
+public static BottomSheet bottomSheet;
+
+@Test
+public void checkBottomSheetIsDisplayedTest() {
+    bottomSheet.open();
+    bottomSheet.is().opened();
+}
+
+@Test
+public void checkBottomSheetIsHiddenTest() {
+    bottomSheet.open();
+    bottomSheet.close();
+    bottomSheet.is().closed();
+}
+
+@Test
+public void checkBottomSheetAvailableOptionsTest() {
+    bottomSheet.open();
+    bottomSheet.is().values(BOTTOM_SHEET_VALUES);
+}
+```
+
+List of the available **Bottom sheet** methods:
+
+| Method | Description | Return Type 
+--- | --- | --- 
+**is()** | Assert action | BottomSheetAssert 
+**open()** | Open bottom sheet | void 
+**close()** | Close bottom sheet | void 
+**opened()** | Check that bottom sheet is opened| boolean
+**closed()** | Check that bottom sheet is closed | boolean  
+**values()** | Get list of bottom sheet options | List  
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/AutocompleteTests.java" target="_blank">Bottom sheet java tests examples</a>
+
+### Dialog
+
+#### <a href="https://material.angular.io/components/checkbox/overview" target="_blank">Dialog overview</a>
+
+Bottom sheet locates in the following class:
+
+The `mat-dialog` service can be used to open modal dialogs with Material Design styling and animations.
+
+   - __Java__: _com.epam.jdi.light.ui.angular.elements.complex.Dialog_
+   
+
+![Dialog](../images/angular/dialog.PNG)
+
+```html  
+<dialog-overview-example _nghost-agc-c348="" ng-version="9.1.0"><h2 _ngcontent-agc-c348="" class="example-h2"><a _ngcontent-agc-c348="" href="https://material.angular.io/components/dialog/overview"> Dialog Overview </a></h2><ol _ngcontent-agc-c348=""><li _ngcontent-agc-c348=""><mat-form-field _ngcontent-agc-c348="" class="mat-form-field ng-tns-c95-161 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-fill mat-form-field-can-float mat-form-field-has-label mat-form-field-hide-placeholder ng-untouched ng-pristine ng-valid"><div class="mat-form-field-wrapper ng-tns-c95-161"><div class="mat-form-field-flex ng-tns-c95-161"><!----><!----><div class="mat-form-field-infix ng-tns-c95-161"><input _ngcontent-agc-c348="" matinput="" class="mat-input-element mat-form-field-autofill-control ng-tns-c95-161 cdk-text-field-autofill-monitored ng-untouched ng-pristine ng-valid" id="mat-input-74" aria-invalid="false" aria-required="false"><span class="mat-form-field-label-wrapper ng-tns-c95-161"><label class="mat-form-field-label ng-tns-c95-161 mat-empty mat-form-field-empty ng-star-inserted" id="mat-form-field-label-189" for="mat-input-74" aria-owns="mat-input-74"><!----><mat-label _ngcontent-agc-c348="" class="ng-tns-c95-161 ng-star-inserted">What's your name?</mat-label><!----><!----></label><!----></span></div><!----></div><div class="mat-form-field-underline ng-tns-c95-161 ng-star-inserted"><span class="mat-form-field-ripple ng-tns-c95-161"></span></div><!----><div class="mat-form-field-subscript-wrapper ng-tns-c95-161"><!----><div class="mat-form-field-hint-wrapper ng-tns-c95-161 ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);"><!----><div class="mat-form-field-hint-spacer ng-tns-c95-161"></div></div><!----></div></div></mat-form-field></li><li _ngcontent-agc-c348=""><button _ngcontent-agc-c348="" id="dialog" mat-raised-button="" class="mat-focus-indicator mat-raised-button mat-button-base"><span class="mat-button-wrapper">Pick one</span><div matripple="" class="mat-ripple mat-button-ripple"></div><div class="mat-button-focus-overlay"></div></button></li><br _ngcontent-agc-c348=""><!----></ol></dialog-overview-example>
+```
+
+```java  
+//@FindBy(css = "#dialog")
+public static Dialog dialog;
+
+@Test
+public void basicDialogTest() {
+    dialog.sendKeysToNameFormField("EPAM Systems");
+    dialog.open();
+    dialog.is().opened();
+    dialog.is().nameText("EPAM Systems");
+    dialog.sendKeysToAnswerFormField("Lion");
+    dialog.submitAnswer();
+    dialog.is().closed();
+    dialog.is().answerText("Lion");
+}
+```
+
+List of the available **Dialog** methods:
+
+| Method | Description | Return Type 
+--- | --- | --- 
+**is()** | Assert action | DialogAssert 
+**open()** | Open dialog window | void 
+**opened()** | Check that dialog window is opened | boolean 
+**nameText()** | Check that name is correct | boolean  
+**sendKeysToAnswerFormField()** | Enter answer | void 
+**sendKeysToNameFormField()** | Enter name | void 
+**submitAnswer()** | Click "Ok" button | void 
+**close()** | Close dialog window | void 
+**closed()** | Check that bottom sheet is closed | boolean  
+**answerText()** | Check that answer is correct | boolean
+
+ #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/AutocompleteTests.java" target="_blank">Dialog java tests examples</a>
+
 ---
 
 ## Bootstrap Common elements

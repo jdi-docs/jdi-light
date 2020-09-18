@@ -6415,6 +6415,92 @@ List of some available **NativeSelector** methods:
 **groups()** | Returns existing NativeSelector groups | ```List<String>``` 
 **groupsAndOptions()** | Returns NativeSelector map of the group and options if any | ```Map<String, List<String>>``` 
 
+### Form Field 
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/FormFieldTests.java" target="_blank">Here you can find the Form Field tests</a>
+
+#### <a href="https://material.angular.io/components/form-field/overview" target="_blank">Form Field overview</a>
+
+Form field combines different Angular materials within a single field.
+
+The test methods below allow to discriminate fields in the form: input, mat-select, and textarea. For each type there are methods to get specific types from the form and proccess them.
+Test methods also allow to handle form fields in the form independently of the type just by accessing them using index.
+
+See an example with HTML code describing a form field element.
+
+![Form fields example](../images/angular/form_field_example.png) 
+
+```java 
+
+public static FormField simpleFormFieldInput; 
+
+@Test 
+public void simpleFormFieldInput() { 
+    formFieldSection.simpleFormFieldInput.has().label(1, "Input");
+	formFieldSection.simpleFormFieldInput.has().label(2, "Select");
+	formFieldSection.simpleFormFieldInput.has().label(3, "Textarea");
+    formFieldSection.simpleFormFieldInput.set(1, "Test input value");
+	formFieldSection.simpleFormFieldInput.has().value(1, "Test input value");
+	formFieldSection.simpleFormFieldInput.set(2, "Option");
+	formFieldSection.simpleFormFieldInput.has().value(1, "Test input value");
+	formFieldSection.simpleFormFieldInput.set(3, "Test text area value");
+	formFieldSection.simpleFormFieldInput.has().value(1, "Test text area value");
+	formFieldSection.simpleFormFieldInput.clear(1);
+	formFieldSection.simpleFormFieldInput.has().value(1, "");
+} 
+
+``` 
+
+```html 
+<div _ngcontent-vjc-c279>
+   <mat-form-field _ngcontent-vjc-c279 appearance="fill" id="simple-form-field-input">
+      <input _ngcontent-vjc-c279>
+      <mat-label _ngcontent-vjc-c279>Input</mat-label>
+   </mat-form-field>
+   <mat-form-field _ngcontent-vjc-c279 appearance="fill" id="simple-form-field-select">
+      <mat-select _ngcontent-vjc-c279>
+      <mat-label _ngcontent-vjc-c279>Select</mat-label>
+   </mat-form-field>
+   <mat-form-field _ngcontent-vjc-c279 appearance="fill" id="simple-form-field-textarea">
+      <textarea _ngcontent-vjc-c279>
+      <mat-label _ngcontent-vjc-c279>Textarea</mat-label>
+   </mat-form-field>
+</div> 
+``` 
+
+|Method | Description | Return Type 
+--- | --- | --- 
+**getInputs()** | Gets the WebList of input elements presented in the form | WebList
+**getDropdowns()** | Gets the WebList of dropdown elements presented in the form | WebList
+**getTextAreas()** | Gets the WebList of text area elements presented in the form | WebList
+**input(int index, String value)** | Inputs a value into the input with the provided index. This method counts inputs only | void
+**select(int index, String value)** | Selects a value from the dropdown with the provided index. This method counts dropdowns only | void
+**setTextArea(int index, String value)** | Inputs a value into the text area with the provided index. This method counts text areas only | void
+**set(int index, String value)** | Sets the field with the provided index which is counted for all form fields in the form. Depending on the type of the field (input, mat-select, or textarea) it inputs or selects a value | void
+**value(int index)** | Sets the field with the provided index which is counted for all form fields in the form | String
+**focusOut(int index)** | Moves the focus out of the field with the provided index | void
+**clear(int index)** | Clears field with the provided index | void
+**clickIcon(int index)** | Clicks the icon in the form field with the provided index which is counted for all fields in the form | void
+**is()** | Assert action | FormFieldsAssert
+**value(int index, String expected)** | Assert action: value in the field with the provided index in the form | FormFieldsAssert
+**inputText(int index, String expected)** | Assert action: verifies text in the input with the provided index | FormFieldsAssert
+**textAreaText(int index, String expected)** | Assert action: verifies text in the text area with the provided index | FormFieldsAssert
+**dropdownText(int index, String expected)** | Assert action: verifies text in the dropdown with the provided index | FormFieldsAssert
+**inputPlaceholder(int index, String expected)** | Assert action: placeholder in the input with the provided index | FormFieldsAssert
+**inputLabel(int index, String expected)** | Assert action: label in the input with the provided index | FormFieldsAssert
+**textAreaLabel(int index, String expected)** | Assert action: label in the text area with the provided index | FormFieldsAssert
+**dropdownLabel(int index, String expected)** | Assert action: dropdown in the text area with the provided index | FormFieldsAssert
+**inputHint(int index, String expected)** | Assert action: hint in the input with the provided index | FormFieldsAssert
+**inputError(int index, String expected)** | Assert action: error in the input with the provided index | FormFieldsAssert
+**hint(int index, String expected)** | Assert action: hint in the field with the provided index in the form | FormFieldsAssert
+**fieldIcon(int index, String expected)** | Assert action: icon in the field with the provided index in the form | FormFieldsAssert
+**font(int index, String expected)** | Assert action: font in the field with the provided index in the form | FormFieldsAssert
+**font(int index, Matcher<String> condition)** | Assert action: font contains in the field with the provided index in the form | FormFieldsAssert
+**color(int index, String expected)** | Assert action: color in the field with the provided index in the form | FormFieldsAssert
+**placeholder(int index, String expected)** | Assert action: placeholder in the field with the provided index in the form | FormFieldsAssert
+**label(int index, String expected)** | Assert action: label in the field with the provided index in the form | FormFieldsAssert
+**error(int index, String expected)** | Assert action: error in the field with the provided index in the form | FormFieldsAssert
+
+
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/select" target="_blank">Select java tests examples</a>
 
 ---

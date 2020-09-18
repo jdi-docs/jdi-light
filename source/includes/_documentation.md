@@ -6115,6 +6115,38 @@ public void simpleFormFieldInput() {
 </div> 
 ``` 
 
+![Form fields with hints](../images/angular/form_field_with_hints.png) 
+
+```java 
+
+public static FormField formFieldExampleContainerInputLimited; 
+
+@Test 
+    public void formFieldsWithHintsTest() {
+        formFieldsSection.formFieldExampleContainerInputLimited.show();
+        formFieldsSection.formFieldExampleContainerInputLimited.has().hint(1, "0/10");
+        formFieldsSection.formFieldExampleContainerInputLimited.has().hint(2, "Here's the dropdown arrow ^");
+        formFieldsSection.formFieldExampleContainerInputLimited.set(1, "12345678901");
+        formFieldsSection.formFieldExampleContainerInputLimited.has().hint(1, "10/10");
+        formFieldsSection.formFieldExampleContainerInputLimited.has().inputHint(1, "10/10");
+        formFieldsSection.formFieldExampleContainerInputLimited.has().value(1, "1234567890");
+    }
+``` 
+
+```html 
+<div _ngcontent-tkf-c282>
+   <mat-form-field _ngcontent-tkf-c282 appearance="fill" id="simple-form-field-input">
+      <input _ngcontent-tkf-c282>
+      <div>Max 10 characters</div>
+      <mat-hint _ngcontent-tkf-c282>0/10</mat-label>
+   </mat-form-field>
+   <mat-form-field _ngcontent-tkf-c282 appearance="fill" id="simple-form-field-select">
+      <mat-select _ngcontent-tkf-c282>
+      <mat-hint _ngcontent-tkf-c282>Here's the dropdown arrow ^</mat-label>
+   </mat-form-field>
+</div> 
+``` 
+
 |Method | Description | Return Type 
 --- | --- | --- 
 **getInputs()** | Gets the WebList of input elements presented in the form | WebList
@@ -6148,8 +6180,6 @@ public void simpleFormFieldInput() {
 **label(int index, String expected)** | Assert action: label in the field with the provided index in the form | FormFieldsAssert
 **error(int index, String expected)** | Assert action: error in the field with the provided index in the form | FormFieldsAssert
 
-
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/select" target="_blank">Select java tests examples</a>
 ---
 ## Bootstrap Common elements
 

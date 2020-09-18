@@ -6441,9 +6441,9 @@ public void simpleFormFieldInput() {
     formFieldSection.simpleFormFieldInput.set(1, "Test input value");
 	formFieldSection.simpleFormFieldInput.has().value(1, "Test input value");
 	formFieldSection.simpleFormFieldInput.set(2, "Option");
-	formFieldSection.simpleFormFieldInput.has().value(1, "Test input value");
+	formFieldSection.simpleFormFieldInput.has().value(2, "Option");
 	formFieldSection.simpleFormFieldInput.set(3, "Test text area value");
-	formFieldSection.simpleFormFieldInput.has().value(1, "Test text area value");
+	formFieldSection.simpleFormFieldInput.has().value(3, "Test text area value");
 	formFieldSection.simpleFormFieldInput.clear(1);
 	formFieldSection.simpleFormFieldInput.has().value(1, "");
 } 
@@ -6463,6 +6463,38 @@ public void simpleFormFieldInput() {
    <mat-form-field _ngcontent-vjc-c279 appearance="fill" id="simple-form-field-textarea">
       <textarea _ngcontent-vjc-c279>
       <mat-label _ngcontent-vjc-c279>Textarea</mat-label>
+   </mat-form-field>
+</div> 
+``` 
+
+![Form fields with hints](../images/angular/form_field_with_hints.png) 
+
+```java 
+
+public static FormField formFieldExampleContainerInputLimited; 
+
+@Test 
+    public void formFieldsWithHintsTest() {
+        formFieldsSection.formFieldExampleContainerInputLimited.show();
+        formFieldsSection.formFieldExampleContainerInputLimited.has().hint(1, "0/10");
+        formFieldsSection.formFieldExampleContainerInputLimited.has().hint(2, "Here's the dropdown arrow ^");
+        formFieldsSection.formFieldExampleContainerInputLimited.set(1, "12345678901");
+        formFieldsSection.formFieldExampleContainerInputLimited.has().hint(1, "10/10");
+        formFieldsSection.formFieldExampleContainerInputLimited.has().inputHint(1, "10/10");
+        formFieldsSection.formFieldExampleContainerInputLimited.has().value(1, "1234567890");
+    }
+``` 
+
+```html 
+<div _ngcontent-tkf-c282>
+   <mat-form-field _ngcontent-tkf-c282 appearance="fill" id="simple-form-field-input">
+      <input _ngcontent-tkf-c282>
+      <div>Max 10 characters</div>
+      <mat-hint _ngcontent-tkf-c282>0/10</mat-label>
+   </mat-form-field>
+   <mat-form-field _ngcontent-tkf-c282 appearance="fill" id="simple-form-field-select">
+      <mat-select _ngcontent-tkf-c282>
+      <mat-hint _ngcontent-tkf-c282>Here's the dropdown arrow ^</mat-label>
    </mat-form-field>
 </div> 
 ``` 
@@ -6499,9 +6531,6 @@ public void simpleFormFieldInput() {
 **placeholder(int index, String expected)** | Assert action: placeholder in the field with the provided index in the form | FormFieldsAssert
 **label(int index, String expected)** | Assert action: label in the field with the provided index in the form | FormFieldsAssert
 **error(int index, String expected)** | Assert action: error in the field with the provided index in the form | FormFieldsAssert
-
-
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/select" target="_blank">Select java tests examples</a>
 
 ---
 

@@ -6089,9 +6089,9 @@ public void simpleFormFieldInput() {
     formFieldSection.simpleFormFieldInput.set(1, "Test input value");
 	formFieldSection.simpleFormFieldInput.has().value(1, "Test input value");
 	formFieldSection.simpleFormFieldInput.set(2, "Option");
-	formFieldSection.simpleFormFieldInput.has().value(1, "Test input value");
+	formFieldSection.simpleFormFieldInput.has().value(2, "Option");
 	formFieldSection.simpleFormFieldInput.set(3, "Test text area value");
-	formFieldSection.simpleFormFieldInput.has().value(1, "Test text area value");
+	formFieldSection.simpleFormFieldInput.has().value(3, "Test text area value");
 	formFieldSection.simpleFormFieldInput.clear(1);
 	formFieldSection.simpleFormFieldInput.has().value(1, "");
 } 

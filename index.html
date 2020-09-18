@@ -629,6 +629,9 @@
 								<a href="#select" class="toc-h2 h3 toc-link" data-title="Select">Select</a>
                             </li>
                             <li>
+								<a href="#form-field" class="toc-h2 h3 toc-link" data-title="Form Field">Form Field</a>
+                            </li>
+                            <li>
 								<a href="#autocomplete" class="toc-h2 h3 toc-link" data-title="Autocomplete">Autocomplete</a>
                             </li>
                             <li>
@@ -11997,6 +12000,206 @@ errorStateMatcher property of the <code>&lt;mat-select&gt;</code>.</p>
 <td><strong>groupsAndOptions()</strong></td>
 <td>Returns NativeSelector map of the group and options if any</td>
 <td><code>Map&lt;String, List&lt;String&gt;&gt;</code></td>
+</tr>
+</tbody></table>
+<h3 id='form-field'>Form Field</h3><h4 id='here-you-can-find-the-form-field-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/FormFieldTests.java" target="_blank">Here you can find the Form Field tests</a></h4><h4 id='form-field-overview'><a href="https://material.angular.io/components/form-field/overview" target="_blank">Form Field overview</a></h4>
+<p>Form field combines different Angular materials within a single field.</p>
+
+<p>The test methods below allow to discriminate fields in the form: input, mat-select, and textarea. For each type there are methods to get specific types from the form and proccess them.
+Test methods also allow to handle form fields in the form independently of the type just by accessing them using index.</p>
+
+<p>See an example with HTML code describing a form field element.</p>
+
+<p><img src="images/angular/form_field_example.png" alt="Form fields example" /> </p>
+<pre class="highlight java tab-java"><code>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">FormField</span> <span class="n">simpleFormFieldInput</span><span class="o">;</span> 
+
+<span class="nd">@Test</span> 
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">simpleFormFieldInput</span><span class="o">()</span> <span class="o">{</span> 
+    <span class="n">formFieldSection</span><span class="o">.</span><span class="na">simpleFormFieldInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">label</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">"Input"</span><span class="o">);</span>
+    <span class="n">formFieldSection</span><span class="o">.</span><span class="na">simpleFormFieldInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">label</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="s">"Select"</span><span class="o">);</span>
+    <span class="n">formFieldSection</span><span class="o">.</span><span class="na">simpleFormFieldInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">label</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="s">"Textarea"</span><span class="o">);</span>
+    <span class="n">formFieldSection</span><span class="o">.</span><span class="na">simpleFormFieldInput</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">"Test input value"</span><span class="o">);</span>
+    <span class="n">formFieldSection</span><span class="o">.</span><span class="na">simpleFormFieldInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">"Test input value"</span><span class="o">);</span>
+    <span class="n">formFieldSection</span><span class="o">.</span><span class="na">simpleFormFieldInput</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="s">"Option"</span><span class="o">);</span>
+    <span class="n">formFieldSection</span><span class="o">.</span><span class="na">simpleFormFieldInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">"Test input value"</span><span class="o">);</span>
+    <span class="n">formFieldSection</span><span class="o">.</span><span class="na">simpleFormFieldInput</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="s">"Test text area value"</span><span class="o">);</span>
+    <span class="n">formFieldSection</span><span class="o">.</span><span class="na">simpleFormFieldInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">"Test text area value"</span><span class="o">);</span>
+    <span class="n">formFieldSection</span><span class="o">.</span><span class="na">simpleFormFieldInput</span><span class="o">.</span><span class="na">clear</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+    <span class="n">formFieldSection</span><span class="o">.</span><span class="na">simpleFormFieldInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">""</span><span class="o">);</span>
+<span class="o">}</span> 
+
+</code></pre><pre class="highlight html tab-html"><code><span class="nt">&lt;div</span> <span class="na">_ngcontent-vjc-c279</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;mat-form-field</span> <span class="na">_ngcontent-vjc-c279</span> <span class="na">appearance=</span><span class="s">"fill"</span> <span class="na">id=</span><span class="s">"simple-form-field-input"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;input</span> <span class="na">_ngcontent-vjc-c279</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;mat-label</span> <span class="na">_ngcontent-vjc-c279</span><span class="nt">&gt;</span>Input<span class="nt">&lt;/mat-label&gt;</span>
+   <span class="nt">&lt;/mat-form-field&gt;</span>
+   <span class="nt">&lt;mat-form-field</span> <span class="na">_ngcontent-vjc-c279</span> <span class="na">appearance=</span><span class="s">"fill"</span> <span class="na">id=</span><span class="s">"simple-form-field-select"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;mat-select</span> <span class="na">_ngcontent-vjc-c279</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;mat-label</span> <span class="na">_ngcontent-vjc-c279</span><span class="nt">&gt;</span>Select<span class="nt">&lt;/mat-label&gt;</span>
+   <span class="nt">&lt;/mat-form-field&gt;</span>
+   <span class="nt">&lt;mat-form-field</span> <span class="na">_ngcontent-vjc-c279</span> <span class="na">appearance=</span><span class="s">"fill"</span> <span class="na">id=</span><span class="s">"simple-form-field-textarea"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;textarea</span> <span class="na">_ngcontent-vjc-c279</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;mat-label</span> <span class="na">_ngcontent-vjc-c279</span><span class="nt">&gt;</span>Textarea<span class="nt">&lt;/mat-label&gt;</span>
+   <span class="nt">&lt;/mat-form-field&gt;</span>
+<span class="nt">&lt;/div&gt;</span> 
+</code></pre>
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>getInputs()</strong></td>
+<td>Gets the WebList of input elements presented in the form</td>
+<td>WebList</td>
+</tr>
+<tr>
+<td><strong>getDropdowns()</strong></td>
+<td>Gets the WebList of dropdown elements presented in the form</td>
+<td>WebList</td>
+</tr>
+<tr>
+<td><strong>getTextAreas()</strong></td>
+<td>Gets the WebList of text area elements presented in the form</td>
+<td>WebList</td>
+</tr>
+<tr>
+<td><strong>input(int index, String value)</strong></td>
+<td>Inputs a value into the input with the provided index. This method counts inputs only</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>select(int index, String value)</strong></td>
+<td>Selects a value from the dropdown with the provided index. This method counts dropdowns only</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>setTextArea(int index, String value)</strong></td>
+<td>Inputs a value into the text area with the provided index. This method counts text areas only</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>set(int index, String value)</strong></td>
+<td>Sets the field with the provided index which is counted for all form fields in the form. Depending on the type of the field (input, mat-select, or textarea) it inputs or selects a value</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>value(int index)</strong></td>
+<td>Sets the field with the provided index which is counted for all form fields in the form</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>focusOut(int index)</strong></td>
+<td>Moves the focus out of the field with the provided index</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>clear(int index)</strong></td>
+<td>Clears field with the provided index</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>clickIcon(int index)</strong></td>
+<td>Clicks the icon in the form field with the provided index which is counted for all fields in the form</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>is()</strong></td>
+<td>Assert action</td>
+<td>FormFieldsAssert</td>
+</tr>
+<tr>
+<td><strong>value(int index, String expected)</strong></td>
+<td>Assert action: value in the field with the provided index in the form</td>
+<td>FormFieldsAssert</td>
+</tr>
+<tr>
+<td><strong>inputText(int index, String expected)</strong></td>
+<td>Assert action: verifies text in the input with the provided index</td>
+<td>FormFieldsAssert</td>
+</tr>
+<tr>
+<td><strong>textAreaText(int index, String expected)</strong></td>
+<td>Assert action: verifies text in the text area with the provided index</td>
+<td>FormFieldsAssert</td>
+</tr>
+<tr>
+<td><strong>dropdownText(int index, String expected)</strong></td>
+<td>Assert action: verifies text in the dropdown with the provided index</td>
+<td>FormFieldsAssert</td>
+</tr>
+<tr>
+<td><strong>inputPlaceholder(int index, String expected)</strong></td>
+<td>Assert action: placeholder in the input with the provided index</td>
+<td>FormFieldsAssert</td>
+</tr>
+<tr>
+<td><strong>inputLabel(int index, String expected)</strong></td>
+<td>Assert action: label in the input with the provided index</td>
+<td>FormFieldsAssert</td>
+</tr>
+<tr>
+<td><strong>textAreaLabel(int index, String expected)</strong></td>
+<td>Assert action: label in the text area with the provided index</td>
+<td>FormFieldsAssert</td>
+</tr>
+<tr>
+<td><strong>dropdownLabel(int index, String expected)</strong></td>
+<td>Assert action: dropdown in the text area with the provided index</td>
+<td>FormFieldsAssert</td>
+</tr>
+<tr>
+<td><strong>inputHint(int index, String expected)</strong></td>
+<td>Assert action: hint in the input with the provided index</td>
+<td>FormFieldsAssert</td>
+</tr>
+<tr>
+<td><strong>inputError(int index, String expected)</strong></td>
+<td>Assert action: error in the input with the provided index</td>
+<td>FormFieldsAssert</td>
+</tr>
+<tr>
+<td><strong>hint(int index, String expected)</strong></td>
+<td>Assert action: hint in the field with the provided index in the form</td>
+<td>FormFieldsAssert</td>
+</tr>
+<tr>
+<td><strong>fieldIcon(int index, String expected)</strong></td>
+<td>Assert action: icon in the field with the provided index in the form</td>
+<td>FormFieldsAssert</td>
+</tr>
+<tr>
+<td><strong>font(int index, String expected)</strong></td>
+<td>Assert action: font in the field with the provided index in the form</td>
+<td>FormFieldsAssert</td>
+</tr>
+<tr>
+<td><strong>font(int index, Matcher<String> condition)</strong></td>
+<td>Assert action: font contains in the field with the provided index in the form</td>
+<td>FormFieldsAssert</td>
+</tr>
+<tr>
+<td><strong>color(int index, String expected)</strong></td>
+<td>Assert action: color in the field with the provided index in the form</td>
+<td>FormFieldsAssert</td>
+</tr>
+<tr>
+<td><strong>placeholder(int index, String expected)</strong></td>
+<td>Assert action: placeholder in the field with the provided index in the form</td>
+<td>FormFieldsAssert</td>
+</tr>
+<tr>
+<td><strong>label(int index, String expected)</strong></td>
+<td>Assert action: label in the field with the provided index in the form</td>
+<td>FormFieldsAssert</td>
+</tr>
+<tr>
+<td><strong>error(int index, String expected)</strong></td>
+<td>Assert action: error in the field with the provided index in the form</td>
+<td>FormFieldsAssert</td>
 </tr>
 </tbody></table>
 <h4 id='select-java-tests-examples'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/select" target="_blank">Select java tests examples</a></h4>

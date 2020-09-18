@@ -12022,9 +12022,9 @@ Test methods also allow to handle form fields in the form independently of the t
     <span class="n">formFieldSection</span><span class="o">.</span><span class="na">simpleFormFieldInput</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">"Test input value"</span><span class="o">);</span>
     <span class="n">formFieldSection</span><span class="o">.</span><span class="na">simpleFormFieldInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">"Test input value"</span><span class="o">);</span>
     <span class="n">formFieldSection</span><span class="o">.</span><span class="na">simpleFormFieldInput</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="s">"Option"</span><span class="o">);</span>
-    <span class="n">formFieldSection</span><span class="o">.</span><span class="na">simpleFormFieldInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">"Test input value"</span><span class="o">);</span>
+    <span class="n">formFieldSection</span><span class="o">.</span><span class="na">simpleFormFieldInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="s">"Option"</span><span class="o">);</span>
     <span class="n">formFieldSection</span><span class="o">.</span><span class="na">simpleFormFieldInput</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="s">"Test text area value"</span><span class="o">);</span>
-    <span class="n">formFieldSection</span><span class="o">.</span><span class="na">simpleFormFieldInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">"Test text area value"</span><span class="o">);</span>
+    <span class="n">formFieldSection</span><span class="o">.</span><span class="na">simpleFormFieldInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="s">"Test text area value"</span><span class="o">);</span>
     <span class="n">formFieldSection</span><span class="o">.</span><span class="na">simpleFormFieldInput</span><span class="o">.</span><span class="na">clear</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
     <span class="n">formFieldSection</span><span class="o">.</span><span class="na">simpleFormFieldInput</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">""</span><span class="o">);</span>
 <span class="o">}</span> 
@@ -12041,6 +12041,32 @@ Test methods also allow to handle form fields in the form independently of the t
    <span class="nt">&lt;mat-form-field</span> <span class="na">_ngcontent-vjc-c279</span> <span class="na">appearance=</span><span class="s">"fill"</span> <span class="na">id=</span><span class="s">"simple-form-field-textarea"</span><span class="nt">&gt;</span>
       <span class="nt">&lt;textarea</span> <span class="na">_ngcontent-vjc-c279</span><span class="nt">&gt;</span>
       <span class="nt">&lt;mat-label</span> <span class="na">_ngcontent-vjc-c279</span><span class="nt">&gt;</span>Textarea<span class="nt">&lt;/mat-label&gt;</span>
+   <span class="nt">&lt;/mat-form-field&gt;</span>
+<span class="nt">&lt;/div&gt;</span> 
+</code></pre>
+<p><img src="images/angular/form_field_with_hints.png" alt="Form fields with hints" /> </p>
+<pre class="highlight java tab-java"><code>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">FormField</span> <span class="n">formFieldExampleContainerInputLimited</span><span class="o">;</span> 
+
+<span class="nd">@Test</span> 
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">formFieldsWithHintsTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">formFieldsSection</span><span class="o">.</span><span class="na">formFieldExampleContainerInputLimited</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+        <span class="n">formFieldsSection</span><span class="o">.</span><span class="na">formFieldExampleContainerInputLimited</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">hint</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">"0/10"</span><span class="o">);</span>
+        <span class="n">formFieldsSection</span><span class="o">.</span><span class="na">formFieldExampleContainerInputLimited</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">hint</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="s">"Here's the dropdown arrow ^"</span><span class="o">);</span>
+        <span class="n">formFieldsSection</span><span class="o">.</span><span class="na">formFieldExampleContainerInputLimited</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">"12345678901"</span><span class="o">);</span>
+        <span class="n">formFieldsSection</span><span class="o">.</span><span class="na">formFieldExampleContainerInputLimited</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">hint</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">"10/10"</span><span class="o">);</span>
+        <span class="n">formFieldsSection</span><span class="o">.</span><span class="na">formFieldExampleContainerInputLimited</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">inputHint</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">"10/10"</span><span class="o">);</span>
+        <span class="n">formFieldsSection</span><span class="o">.</span><span class="na">formFieldExampleContainerInputLimited</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">"1234567890"</span><span class="o">);</span>
+    <span class="o">}</span>
+</code></pre><pre class="highlight html tab-html"><code><span class="nt">&lt;div</span> <span class="na">_ngcontent-tkf-c282</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;mat-form-field</span> <span class="na">_ngcontent-tkf-c282</span> <span class="na">appearance=</span><span class="s">"fill"</span> <span class="na">id=</span><span class="s">"simple-form-field-input"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;input</span> <span class="na">_ngcontent-tkf-c282</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div&gt;</span>Max 10 characters<span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;mat-hint</span> <span class="na">_ngcontent-tkf-c282</span><span class="nt">&gt;</span>0/10<span class="nt">&lt;/mat-label&gt;</span>
+   <span class="nt">&lt;/mat-form-field&gt;</span>
+   <span class="nt">&lt;mat-form-field</span> <span class="na">_ngcontent-tkf-c282</span> <span class="na">appearance=</span><span class="s">"fill"</span> <span class="na">id=</span><span class="s">"simple-form-field-select"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;mat-select</span> <span class="na">_ngcontent-tkf-c282</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;mat-hint</span> <span class="na">_ngcontent-tkf-c282</span><span class="nt">&gt;</span>Here's the dropdown arrow ^<span class="nt">&lt;/mat-label&gt;</span>
    <span class="nt">&lt;/mat-form-field&gt;</span>
 <span class="nt">&lt;/div&gt;</span> 
 </code></pre>
@@ -12202,7 +12228,7 @@ Test methods also allow to handle form fields in the form independently of the t
 <td>FormFieldsAssert</td>
 </tr>
 </tbody></table>
-<h4 id='select-java-tests-examples'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/select" target="_blank">Select java tests examples</a></h4>
+
 <hr>
 <h3 id='autocomplete'>Autocomplete</h3><h4 id='autocomplete-overview'><a href="https://material.angular.io/components/autocomplete/overview" target="_blank">Autocomplete overview</a></h4>
 <p>You can find the autocomplete methods in the following class:</p>

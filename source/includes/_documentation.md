@@ -5079,7 +5079,7 @@ Badge is located in the following class:
 
 ### Progress bar
 
-#### <a href="https://material.angular.io/components/checkbox/overview" target="_blank">Progress bar overview</a>
+#### <a href="https://material.angular.io/components/progress-bar/overview" target="_blank">Progress bar overview</a>
 
 Progress bar is located in the following class:
 
@@ -5227,11 +5227,11 @@ List of the available **Progress bar** methods:
 **bufferValue()** | Assert action | ProgressBarAssert
 **color()** | Assert action | ProgressBarAssert    
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/AutocompleteTests.java" target="_blank">Progress bar java tests examples</a>
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/ProgressBarTests.java" target="_blank">Progress bar java tests examples</a>
 
 ### Slider
 
-#### <a href="https://material.angular.io/components/checkbox/overview" target="_blank">Slider overview</a>
+#### <a href="https://material.angular.io/components/slider/overview" target="_blank">Slider overview</a>
 
 Progress bar locates in the following class:
 
@@ -5314,7 +5314,7 @@ List of the available **Slider** methods:
 **slide()** | Drag & drop based on percentage length | void  
 **thumbLabelDisplayed()** | Assert action | SliderAssert
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/AutocompleteTests.java" target="_blank">Slider java tests examples</a>
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/SliderTests.java" target="_blank">Slider java tests examples</a>
 
 ### Tooltip
 

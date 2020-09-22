@@ -4227,6 +4227,15 @@ Progress Spinner is located in the following class:
     public static SlideToggle basicSlideToggle;
 
     @Test
+    public void basicTest() {
+        basicSlideToggle.is().displayed();
+        resultSlideToggle.is().displayed();
+        checkedCheckbox.is().displayed();
+        disableCheckbox.is().displayed();
+        colorRadioButtons.is().displayed();
+    }
+
+    @Test
     public void basicToggleCheckedTest() {
         basicSlideToggle.check();
         basicSlideToggle.is().selected();
@@ -5046,6 +5055,14 @@ There are two different button toggles in Angular: Basic and Exclusive:
         badgeWithText.has().text("4");
         badgeWithButton.has().text("8");
         badgeWithIcon.has().text("15");
+    }
+
+    @Test
+    public void iconBadgeTest() {
+        iconWithBadge.show();
+        iconWithBadge.badge().is().displayed();
+        iconWithBadge.badge().has().text("15");
+        iconWithBadge.has().color("Red");
     }
    } 
 ```

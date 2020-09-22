@@ -9096,6 +9096,15 @@ Methods available for Java in JDI Light:</p>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">SlideToggle</span> <span class="n">basicSlideToggle</span><span class="o">;</span>
 
     <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">basicTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">basicSlideToggle</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+        <span class="n">resultSlideToggle</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+        <span class="n">checkedCheckbox</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+        <span class="n">disableCheckbox</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+        <span class="n">colorRadioButtons</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">basicToggleCheckedTest</span><span class="o">()</span> <span class="o">{</span>
         <span class="n">basicSlideToggle</span><span class="o">.</span><span class="na">check</span><span class="o">();</span>
         <span class="n">basicSlideToggle</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">();</span>
@@ -10415,6 +10424,14 @@ Methods available for Java in JDI Light:</p>
         <span class="n">badgeWithText</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"4"</span><span class="o">);</span>
         <span class="n">badgeWithButton</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"8"</span><span class="o">);</span>
         <span class="n">badgeWithIcon</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"15"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">iconBadgeTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">iconWithBadge</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+        <span class="n">iconWithBadge</span><span class="o">.</span><span class="na">badge</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+        <span class="n">iconWithBadge</span><span class="o">.</span><span class="na">badge</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"15"</span><span class="o">);</span>
+        <span class="n">iconWithBadge</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">color</span><span class="o">(</span><span class="s">"Red"</span><span class="o">);</span>
     <span class="o">}</span>
    <span class="o">}</span> 
 </code></pre><h4 id='badge-overview'><a href="https://material.angular.io/components/badge/overview" target="_blank">Badge overview</a></h4>

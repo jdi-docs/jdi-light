@@ -10398,43 +10398,7 @@ Methods available for Java in JDI Light:</p>
 <td>IsAssert</td>
 </tr>
 </tbody></table>
-<h4 id='here-you-can-find-button-toggle-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/ButtonToggleTests.java" target="_blank">Here you can find Button toggle tests</a></h4>
-<hr>
-<h3 id='badge'>Badge</h3><pre class="highlight java tab-java"><code>    <span class="cm">/**@FindBy(css = "#text-with-badge span") public static Badge badgeWithText;*/</span>
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#text-with-badge span"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Badge</span> <span class="n">badgeWithText</span><span class="o">;</span>
-
-    <span class="cm">/**@FindBy(css = "#button-with-left-badge span:not(.mat-button-wrapper)") public static Badge badgeWithButton;*/</span>
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#button-with-left-badge span:not(.mat-button-wrapper)"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Badge</span> <span class="n">badgeWithButton</span><span class="o">;</span>
-
-    <span class="cm">/**@FindBy(css = "#icon-with-badge span") public static Badge badgeWithIcon;*/</span>
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#icon-with-badge span"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Badge</span> <span class="n">badgeWithIcon</span><span class="o">;</span>
-
-    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">basicBadgeTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">badgeWithText</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-        <span class="n">badgeWithButton</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-        <span class="n">badgeWithIcon</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">badgeTextTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">badgeWithText</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"4"</span><span class="o">);</span>
-        <span class="n">badgeWithButton</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"8"</span><span class="o">);</span>
-        <span class="n">badgeWithIcon</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"15"</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">iconBadgeTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">iconWithBadge</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
-        <span class="n">iconWithBadge</span><span class="o">.</span><span class="na">badge</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-        <span class="n">iconWithBadge</span><span class="o">.</span><span class="na">badge</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"15"</span><span class="o">);</span>
-        <span class="n">iconWithBadge</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">color</span><span class="o">(</span><span class="s">"Red"</span><span class="o">);</span>
-    <span class="o">}</span>
-   <span class="o">}</span> 
-</code></pre><h4 id='badge-overview'><a href="https://material.angular.io/components/badge/overview" target="_blank">Badge overview</a></h4>
+<h4 id='here-you-can-find-button-toggle-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/ButtonToggleTests.java" target="_blank">Here you can find Button toggle tests</a></h4><h3 id='badge'>Badge</h3><h4 id='badge-overview'><a href="https://material.angular.io/components/badge/overview" target="_blank">Badge overview</a></h4>
 <p>Badge is located in the following class:</p>
 
 <ul>
@@ -10446,6 +10410,36 @@ Methods available for Java in JDI Light:</p>
     "Text with a badge"
     <span class="nt">&lt;span</span> <span class="na">_ngcontent-iwc-c329=</span><span class="s">""</span> <span class="na">id=</span><span class="s">"mat-badge-content-0"</span> <span class="na">class=</span><span class="s">"mat-badge-content mat-badge-active"</span><span class="nt">&gt;</span>4<span class="nt">&lt;/span&gt;</span>
 <span class="nt">&lt;/span&gt;</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="nd">@FindBy</span><span class="o">(</span><span class="n">css</span> <span class="o">=</span> <span class="s">"#text-with-badge span"</span><span class="o">)</span> 
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">Badge</span> <span class="n">badgeWithText</span><span class="o">;</span>
+
+<span class="nd">@FindBy</span><span class="o">(</span><span class="n">css</span> <span class="o">=</span> <span class="s">"#button-with-left-badge span:not(.mat-button-wrapper)"</span><span class="o">)</span> 
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">Badge</span> <span class="n">badgeWithButton</span><span class="o">;</span>
+
+<span class="nd">@FindBy</span><span class="o">(</span><span class="n">css</span> <span class="o">=</span> <span class="s">"#icon-with-badge span"</span><span class="o">)</span> 
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">Badge</span> <span class="n">badgeWithIcon</span><span class="o">;</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">basicBadgeTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">badgeWithText</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+    <span class="n">badgeWithButton</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+    <span class="n">badgeWithIcon</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+<span class="o">}</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">badgeTextTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">badgeWithText</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"4"</span><span class="o">);</span>
+    <span class="n">badgeWithButton</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"8"</span><span class="o">);</span>
+    <span class="n">badgeWithIcon</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"15"</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">iconBadgeTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">iconWithBadge</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+    <span class="n">iconWithBadge</span><span class="o">.</span><span class="na">badge</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+    <span class="n">iconWithBadge</span><span class="o">.</span><span class="na">badge</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"15"</span><span class="o">);</span>
+    <span class="n">iconWithBadge</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">color</span><span class="o">(</span><span class="s">"Red"</span><span class="o">);</span>
+<span class="o">}</span>
 </code></pre>
 <table><thead>
 <tr>
@@ -10457,32 +10451,17 @@ Methods available for Java in JDI Light:</p>
 <tr>
 <td><strong>is()</strong></td>
 <td>Assert action</td>
-<td>TextAssert</td>
+<td>BadgeAssert</td>
 </tr>
 <tr>
 <td><strong>has()</strong></td>
 <td>Assert action</td>
-<td>TextAssert</td>
+<td>BadgeAssert</td>
 </tr>
 <tr>
-<td><strong>attr()</strong></td>
-<td>Check whether an element has attribute of specified name and with given value</td>
-<td>IsAssert</td>
-</tr>
-<tr>
-<td><strong>displayed()</strong></td>
-<td>Check that element is displayed</td>
-<td>TextAssert</td>
-</tr>
-<tr>
-<td><strong>enabled()</strong></td>
-<td>Check that element is enabled</td>
-<td>TextAssert</td>
-</tr>
-<tr>
-<td><strong>disabled()</strong></td>
-<td>Check that element is disabled</td>
-<td>TextAssert</td>
+<td><strong>color()</strong></td>
+<td>Check that color is correct</td>
+<td>boolean</td>
 </tr>
 </tbody></table>
 <h4 id='here-you-can-find-badge-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/BadgeTests.java" target="_blank">Here you can find Badge tests</a></h4><h3 id='progress-bar'>Progress bar</h3><h4 id='progress-bar-overview'><a href="https://material.angular.io/components/progress-bar/overview" target="_blank">Progress bar overview</a></h4>

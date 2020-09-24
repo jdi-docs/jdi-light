@@ -5382,6 +5382,73 @@ Tooltip is located in the following class:
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/TooltipTests.java" target="_blank">Here you can find Tooltip tests</a>
 
+### Spinner
+
+#### <a href="https://material.angular.io/components/progress-spinner/overview" target="_blank">Tooltip overview</a>
+
+Spinner is located in the following class:
+
+- __Java__: _com.epam.jdi.light.angular.elements.common.Spinner_
+
+There is 2 different spinners in Angular: Basic and Configurable:
+
+![Basic progress spinner](../images/angular/basic_progress_spinner.PNG)
+
+```java  
+//FindBy(css = "#basic-progress-spinner") 
+public static Spinner basicProgressSpinner;
+
+//FindBy(css = "#show-spinner-group") 
+public static Button showSpinner;
+
+@Test
+public void baseValidationTest() {
+    showSpinner.show();
+    showSpinner.click();
+    baseValidation(basicProgressSpinner);
+}
+
+@Test
+public void checkSpinnerHidden() {
+    showSpinner.click();
+    basicProgressSpinner.assertThat().hidden();
+}
+
+@Test
+public void checkSpinnerAppearAndThenDisappear() {
+    showSpinner.click();
+    basicProgressSpinner.is().displayed();
+    basicProgressSpinner.waitFor().hidden();
+}
+
+@Test
+public void checkSpinnerDurationTest() {
+    refresh();
+    showSpinner.show();
+    final int DURATION = 5;
+    JAction action = () -> {
+        basicProgressSpinner.base().timer().wait(() -> basicProgressSpinner.isDisplayed());
+        basicProgressSpinner.base().timer().wait(() -> basicProgressSpinner.isHidden());
+    };
+    showSpinner.click();
+    duration(DURATION, 900, action);
+}
+```
+
+```html
+<progress-spinner-overview-example _nghost-pjy-c338="" ng-version="9.1.0"><h2 _ngcontent-pjy-c338="" class="example-h2"><a _ngcontent-pjy-c338="" href="https://material.angular.io/components/progress-spinner/overview"> Basic progress-spinner </a></h2><button _ngcontent-pjy-c338="" mat-raised-button="" id="show-spinner" class="mat-focus-indicator mat-raised-button mat-button-base"><span class="mat-button-wrapper"> Show progress-spinner for 5 seconds
+</span><div matripple="" class="mat-ripple mat-button-ripple"></div><div class="mat-button-focus-overlay"></div></button><div _ngcontent-pjy-c338="" hidden=""><mat-spinner _ngcontent-pjy-c338="" role="progressbar" mode="indeterminate" id="basic-progress-spinner" class="mat-spinner mat-progress-spinner mat-primary mat-progress-spinner-indeterminate-animation" style="width: 100px; height: 100px;"><svg preserveAspectRatio="xMidYMid meet" focusable="false" viewBox="0 0 100 100" style="width: 100px; height: 100px;"><circle cx="50%" cy="50%" r="45" class="ng-star-inserted" style="animation-name: mat-progress-spinner-stroke-rotate-100; stroke-dasharray: 282.743px; stroke-width: 10%;"></circle><!----><!----></svg></mat-spinner></div></progress-spinner-overview-example>
+```
+   
+|Method | Description | Return Type
+--- | --- | ---
+**is()** | Assert action | UIAssert
+**click()** | Click action | void
+**isDisplayed()** | Check that element is displayed | boolean
+**isHidden()** | Check that element is hidden | boolean
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/SpinnerTests.java" target="_blank">Here you can find Spinner tests</a>
+
 
 ## Angular Complex elements
 

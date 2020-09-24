@@ -9215,8 +9215,8 @@ Methods available for Java in JDI Light:</p>
 <strong>deselected()</strong> | Verify state | boolean
 <strong>click()</strong> | Click element | void
 <strong>hasClass()</strong> | Verify element class | boolean</p>
-<h4 id='here-you-can-find-slide-toggle-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/SlideToggleTests.java" target="_blank">Here you can find Slide toggle tests</a></h4><h3 id='checkbox-2'>Checkbox</h3><h4 id='checkbox-overview'><a href="https://material.angular.io/components/checkbox/overview" target="_blank">Checkbox overview</a></h4><pre class="highlight java tab-java"><code>   <span class="c1">//@FindBy(id="basic-checkbox")</span>
-   <span class="kd">public</span> <span class="kd">static</span> <span class="n">Checkbox</span> <span class="n">basicCheckbox</span><span class="o">;</span>
+<h4 id='here-you-can-find-slide-toggle-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/SlideToggleTests.java" target="_blank">Here you can find Slide toggle tests</a></h4><h3 id='checkbox-2'>Checkbox</h3><pre class="highlight java tab-java"><code><span class="c1">//@FindBy(id="basic-checkbox")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">Checkbox</span> <span class="n">basicCheckbox</span><span class="o">;</span>
 
 <span class="nd">@Test</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkLabelValue</span><span class="o">()</span> <span class="o">{</span>
@@ -9236,7 +9236,7 @@ Methods available for Java in JDI Light:</p>
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">baseValidationTest</span><span class="o">()</span> <span class="o">{</span>
     <span class="n">baseValidation</span><span class="o">(</span><span class="n">basicCheckbox</span><span class="o">);</span>
 <span class="o">}</span>
-</code></pre>
+</code></pre><h4 id='checkbox-overview'><a href="https://material.angular.io/components/checkbox/overview" target="_blank">Checkbox overview</a></h4>
 <p>Checkbox is located in the following class:</p>
 
 <ul>
@@ -9251,14 +9251,14 @@ Methods available for Java in JDI Light:</p>
 <pre class="highlight html tab-html"><code><span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">"example-section"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;mat-checkbox</span> <span class="na">id=</span><span class="s">"basic-checkbox"</span><span class="nt">&gt;</span>Check me!<span class="nt">&lt;/mat-checkbox&gt;</span>
 <span class="nt">&lt;/section&gt;</span>
-</code></pre><pre class="highlight java tab-java"><code>   <span class="c1">//@FindBy(id="checked-checkbox")</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Checkbox</span> <span class="n">checkedCheckbox</span><span class="o">;</span>
-   <span class="c1">//@FindBy(id="indeterminate-checkbox")</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Checkbox</span> <span class="n">indeterminateCheckbox</span><span class="o">;</span>
-   <span class="c1">//@FindBy(id="disabled-checkbox")</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Checkbox</span> <span class="n">disabledCheckbox</span><span class="o">;</span>
-   <span class="c1">//@FindBy(id="result-checkbox")</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Checkbox</span> <span class="n">resultCheckbox</span><span class="o">;</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="c1">//@FindBy(id="checked-checkbox")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">Checkbox</span> <span class="n">checkedCheckbox</span><span class="o">;</span>
+<span class="c1">//@FindBy(id="indeterminate-checkbox")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">Checkbox</span> <span class="n">indeterminateCheckbox</span><span class="o">;</span>
+<span class="c1">//@FindBy(id="disabled-checkbox")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">Checkbox</span> <span class="n">disabledCheckbox</span><span class="o">;</span>
+<span class="c1">//@FindBy(id="result-checkbox")</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">Checkbox</span> <span class="n">resultCheckbox</span><span class="o">;</span>
 
 <span class="nd">@Test</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">indeterminateTest</span><span class="o">()</span> <span class="o">{</span>

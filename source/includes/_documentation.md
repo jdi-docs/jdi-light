@@ -4324,11 +4324,9 @@ There is two different slide toggles in Angular: Basic and Configurable:
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/SlideToggleTests.java" target="_blank">Here you can find Slide toggle tests</a>
 
 ### Checkbox
-#### <a href="https://material.angular.io/components/checkbox/overview" target="_blank">Checkbox overview</a>
-
 ```java 
-   //@FindBy(id="basic-checkbox")
-   public static Checkbox basicCheckbox;
+//@FindBy(id="basic-checkbox")
+public static Checkbox basicCheckbox;
 
 @Test
 public void checkLabelValue() {
@@ -4349,6 +4347,8 @@ public void baseValidationTest() {
     baseValidation(basicCheckbox);
 }
 ```
+#### <a href="https://material.angular.io/components/checkbox/overview" target="_blank">Checkbox overview</a>
+
 Checkbox is located in the following class:
 
    - __Java__: _com.epam.jdi.light.ui.angular.elements.common.Checkbox_
@@ -4365,14 +4365,14 @@ See examples with HTML code describing datepicker elements.
 </section>
 ```
 ```java 
-   //@FindBy(id="checked-checkbox")
-    public static Checkbox checkedCheckbox;
-   //@FindBy(id="indeterminate-checkbox")
-    public static Checkbox indeterminateCheckbox;
-   //@FindBy(id="disabled-checkbox")
-    public static Checkbox disabledCheckbox;
-   //@FindBy(id="result-checkbox")
-    public static Checkbox resultCheckbox;
+//@FindBy(id="checked-checkbox")
+public static Checkbox checkedCheckbox;
+//@FindBy(id="indeterminate-checkbox")
+public static Checkbox indeterminateCheckbox;
+//@FindBy(id="disabled-checkbox")
+public static Checkbox disabledCheckbox;
+//@FindBy(id="result-checkbox")
+public static Checkbox resultCheckbox;
 
 @Test
 public void indeterminateTest() {

@@ -4391,6 +4391,9 @@ public void configurableCheckboxTest() {
     resultCheckbox.is().indeterminate().and().cssClass("mat-checkbox-label-before");
 }
 ```
+
+![Configurable checkbox](../images/angular/configurable_checkbox.png)
+
 ```html 
 <mat-card>
   <mat-card-content>
@@ -4438,7 +4441,6 @@ public void configurableCheckboxTest() {
   </mat-card-content>
 </mat-card>
 ```
-![Configurable checkbox](../images/angular/configurable_checkbox.png)
 
 List of some available **Checkbox** methods:
 

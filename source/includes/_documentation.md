@@ -5392,7 +5392,7 @@ Spinner is located in the following class:
 
 There is 2 different spinners in Angular: Basic and Configurable:
 
-![Basic progress spinner](../images/angular/basic_progress_spinner.PNG)
+![Basic progress spinner](../images/angular/basic_progress_spinner.png)
 
 ```java  
 //FindBy(css = "#basic-progress-spinner") 

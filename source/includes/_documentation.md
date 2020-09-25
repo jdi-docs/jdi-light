@@ -4342,10 +4342,6 @@ public void checkBasicCheckbox() {
     basicCheckbox.check();
     basicCheckbox.is().selected();
 }
-@Test
-public void baseValidationTest() {
-    baseValidation(basicCheckbox);
-}
 ```
 #### <a href="https://material.angular.io/components/checkbox/overview" target="_blank">Checkbox overview</a>
 
@@ -4373,6 +4369,11 @@ public static Checkbox indeterminateCheckbox;
 public static Checkbox disabledCheckbox;
 //@FindBy(id="result-checkbox")
 public static Checkbox resultCheckbox;
+
+//@FindBy(id="align-before-radio-button")
+public static Button alignBeforeRadioButton;
+//@FindBy(id="align-after-radio-button")
+public static Button alignAfterRadioButton;
 
 @Test
 public void indeterminateTest() {

@@ -9211,11 +9211,11 @@ List of the available **Dialog** methods:
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/DialogTests.java" target="_blank">Dialog java tests examples</a>
 
-### Table
+### matTable
 
 #### <a href="https://material.angular.io/components/table/overview" target="_blank">Table overview</a>
 
-Bottom sheet locates in the following class:
+Table locates in the following class:
 
 The `mat-table` provides a Material Design styled data-table that can be used to display rows of data.
 

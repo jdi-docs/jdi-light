@@ -9215,12 +9215,87 @@ List of the available **Dialog** methods:
 
 #### <a href="https://material.angular.io/components/table/overview" target="_blank">Table overview</a>
 
+---
+
+Sort header locates in following class:
+
+The `mat-sort-header` provide buttons to change table`s rows 
+
+    - __Java__: _com.epam.jdi.light.elements.complex.table.Table_
+    
+![Sort Header](../images/angular/sorting_header.png) 
+
+```html  
+ <a _ngcontent-poo-c363="" href="https://material.angular.io/components/sort/overview"> Sorting overview </a>
+``` 
+ 
+```java  
+private static final String DESSERT = "Dessert (100g)";
+private static final String CALORIES = "Calories";
+private static final String FAT = "Fat (g)";
+private static final String CARBS = "Carbs (g)";
+private static final String PROTEIN = "Protein (g)";
+       
+    @Test
+    public void tableIsVisible() {
+       sortingOverviewSection.sortingOverview.is().tableIsVisible();
+    }
+       
+    @Test
+    public void sortingTableByFirstColumn() {
+       sortingOverviewSection.sortingOverview.clickButtonByText(DESSERT);
+       sortingOverviewSection.sortingOverview.clickButtonByText(DESSERT);
+       sortingOverviewSection.sortingOverview.is().arrowButtonClicked();
+    }
+       
+    @Test
+    public void sortingTableBySecondColumn() {
+       sortingOverviewSection.sortingOverview.clickButtonByText(CALORIES);
+       sortingOverviewSection.sortingOverview.clickButtonByText(CALORIES);
+       sortingOverviewSection.sortingOverview.is().arrowButtonClicked();
+    }
+       
+    @Test
+    public void sortingTableByThirdColumn() {
+        sortingOverviewSection.sortingOverview.clickButtonByText(FAT);
+        sortingOverviewSection.sortingOverview.clickButtonByText(FAT);
+        sortingOverviewSection.sortingOverview.is().arrowButtonClicked();
+    }
+       
+    @Test
+    public void sortingTableByFourthColumn() {
+        sortingOverviewSection.sortingOverview.clickButtonByText(CARBS);
+        sortingOverviewSection.sortingOverview.clickButtonByText(CARBS);
+        sortingOverviewSection.sortingOverview.is().arrowButtonClicked();
+    }
+       
+    @Test
+    public void sortingTableByFifthColumn() {
+        sortingOverviewSection.sortingOverview.clickButtonByText(PROTEIN);
+        sortingOverviewSection.sortingOverview.clickButtonByText(PROTEIN);
+        sortingOverviewSection.sortingOverview.is().arrowButtonClicked();
+    }
+```
+   
+List of the available **Table** methods:
+   
+| Method | Description | Return Type 
+--- | --- | --- 
+**is()** | Assert action | Assert 
+**getTableHeaders()** | Get list of names of columns | WebList
+**clickButtonByText(String text)** | Click to header button by text | void
+**headerButtonIsClicked()** | Verify that header button clicked | boolean 
+
+
+
+####<a href="https://material.angular.io/components/sort/overview"><i class="fa fa-info-circle"></i>Sort header</a>   
+---   
+
 Table locates in the following class:
 
 The `mat-table` provides a Material Design styled data-table that can be used to display rows of data.
 
    - __Java__: _com.epam.jdi.light.elements.complex.table.Table_
-   
 
 ![Table](../images/angular/Table.PNG)
 

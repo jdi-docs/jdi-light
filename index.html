@@ -15637,6 +15637,95 @@ intended primarily as an interaction on mobile devices where they can be used as
 </tr>
 </tbody></table>
 <h4 id='dialog-java-tests-examples'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/DialogTests.java" target="_blank">Dialog java tests examples</a></h4><h3 id='mattable'>matTable</h3><h4 id='table-overview'><a href="https://material.angular.io/components/table/overview" target="_blank">Table overview</a></h4>
+<hr>
+
+<p>Sort header locates in following class:</p>
+
+<p>The <code>mat-sort-header</code> provide buttons to change table`s rows </p>
+
+<p>- <strong>Java</strong>: <em>com.epam.jdi.light.elements.complex.table.Table</em></p>
+
+<p><img src="images/angular/sorting_header.png" alt="Sort Header" /> </p>
+<pre class="highlight html tab-html"><code> <span class="nt">&lt;a</span> <span class="na">_ngcontent-poo-c363=</span><span class="s">""</span> <span class="na">href=</span><span class="s">"https://material.angular.io/components/sort/overview"</span><span class="nt">&gt;</span> Sorting overview <span class="nt">&lt;/a&gt;</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">DESSERT</span> <span class="o">=</span> <span class="s">"Dessert (100g)"</span><span class="o">;</span>
+<span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">CALORIES</span> <span class="o">=</span> <span class="s">"Calories"</span><span class="o">;</span>
+<span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">FAT</span> <span class="o">=</span> <span class="s">"Fat (g)"</span><span class="o">;</span>
+<span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">CARBS</span> <span class="o">=</span> <span class="s">"Carbs (g)"</span><span class="o">;</span>
+<span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">PROTEIN</span> <span class="o">=</span> <span class="s">"Protein (g)"</span><span class="o">;</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">tableIsVisible</span><span class="o">()</span> <span class="o">{</span>
+       <span class="n">sortingOverviewSection</span><span class="o">.</span><span class="na">sortingOverview</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">tableIsVisible</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">sortingTableByFirstColumn</span><span class="o">()</span> <span class="o">{</span>
+       <span class="n">sortingOverviewSection</span><span class="o">.</span><span class="na">sortingOverview</span><span class="o">.</span><span class="na">clickButtonByText</span><span class="o">(</span><span class="n">DESSERT</span><span class="o">);</span>
+       <span class="n">sortingOverviewSection</span><span class="o">.</span><span class="na">sortingOverview</span><span class="o">.</span><span class="na">clickButtonByText</span><span class="o">(</span><span class="n">DESSERT</span><span class="o">);</span>
+       <span class="n">sortingOverviewSection</span><span class="o">.</span><span class="na">sortingOverview</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">arrowButtonClicked</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">sortingTableBySecondColumn</span><span class="o">()</span> <span class="o">{</span>
+       <span class="n">sortingOverviewSection</span><span class="o">.</span><span class="na">sortingOverview</span><span class="o">.</span><span class="na">clickButtonByText</span><span class="o">(</span><span class="n">CALORIES</span><span class="o">);</span>
+       <span class="n">sortingOverviewSection</span><span class="o">.</span><span class="na">sortingOverview</span><span class="o">.</span><span class="na">clickButtonByText</span><span class="o">(</span><span class="n">CALORIES</span><span class="o">);</span>
+       <span class="n">sortingOverviewSection</span><span class="o">.</span><span class="na">sortingOverview</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">arrowButtonClicked</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">sortingTableByThirdColumn</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">sortingOverviewSection</span><span class="o">.</span><span class="na">sortingOverview</span><span class="o">.</span><span class="na">clickButtonByText</span><span class="o">(</span><span class="n">FAT</span><span class="o">);</span>
+        <span class="n">sortingOverviewSection</span><span class="o">.</span><span class="na">sortingOverview</span><span class="o">.</span><span class="na">clickButtonByText</span><span class="o">(</span><span class="n">FAT</span><span class="o">);</span>
+        <span class="n">sortingOverviewSection</span><span class="o">.</span><span class="na">sortingOverview</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">arrowButtonClicked</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">sortingTableByFourthColumn</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">sortingOverviewSection</span><span class="o">.</span><span class="na">sortingOverview</span><span class="o">.</span><span class="na">clickButtonByText</span><span class="o">(</span><span class="n">CARBS</span><span class="o">);</span>
+        <span class="n">sortingOverviewSection</span><span class="o">.</span><span class="na">sortingOverview</span><span class="o">.</span><span class="na">clickButtonByText</span><span class="o">(</span><span class="n">CARBS</span><span class="o">);</span>
+        <span class="n">sortingOverviewSection</span><span class="o">.</span><span class="na">sortingOverview</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">arrowButtonClicked</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">sortingTableByFifthColumn</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">sortingOverviewSection</span><span class="o">.</span><span class="na">sortingOverview</span><span class="o">.</span><span class="na">clickButtonByText</span><span class="o">(</span><span class="n">PROTEIN</span><span class="o">);</span>
+        <span class="n">sortingOverviewSection</span><span class="o">.</span><span class="na">sortingOverview</span><span class="o">.</span><span class="na">clickButtonByText</span><span class="o">(</span><span class="n">PROTEIN</span><span class="o">);</span>
+        <span class="n">sortingOverviewSection</span><span class="o">.</span><span class="na">sortingOverview</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">arrowButtonClicked</span><span class="o">();</span>
+    <span class="o">}</span>
+</code></pre>
+<p>List of the available <strong>Table</strong> methods:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>is()</strong></td>
+<td>Assert action</td>
+<td>Assert</td>
+</tr>
+<tr>
+<td><strong>getTableHeaders()</strong></td>
+<td>Get list of names of columns</td>
+<td>WebList</td>
+</tr>
+<tr>
+<td><strong>clickButtonByText(String text)</strong></td>
+<td>Click to header button by text</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>headerButtonIsClicked()</strong></td>
+<td>Verify that header button clicked</td>
+<td>boolean</td>
+</tr>
+</tbody></table>
+<h4 id='sort-header'><a href="https://material.angular.io/components/sort/overview"><i class="fa fa-info-circle"></i>Sort header</a></h4>
+<hr>
+
 <p>Table locates in the following class:</p>
 
 <p>The <code>mat-table</code> provides a Material Design styled data-table that can be used to display rows of data.</p>

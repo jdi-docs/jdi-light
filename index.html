@@ -15785,7 +15785,32 @@ intended primarily as an interaction on mobile devices where they can be used as
         <span class="n">assertEquals</span><span class="o">(</span><span class="n">flexTable</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">name</span><span class="o">,</span> <span class="s">"Flex Table"</span><span class="o">);</span>
     <span class="o">}</span>
 </code></pre>
-<p>List of the available <strong>Table</strong> methods:</p>
+<p><strong>JDI JTable annotation</strong></p>
+
+<p>Along with providing a Table type element JDI Light also provides a <strong><em>@JDropdown</em></strong> annotation for
+ a better element locating. In addition to what Table type does <strong><em>@JDropdown</em></strong>  also allows 
+ some kind of customization in the way the element is being located on the page.</p>
+
+<p>This annotation has the following fields that can be used for locating a table element:</p>
+
+<ul>
+<li><strong><em>String root()</em></strong> - value of this field points to the root locator of table element</li>
+<li><strong><em>String[] header()</em></strong> - list of the columns names </li>
+<li><strong><em>String headers()</em></strong> - locator of a table header</li>
+<li><strong><em>String row()</em></strong> - locator representing a single row of a table</li>
+<li><strong><em>String column()</em></strong> - locator representing a column of a table</li>
+<li><strong><em>String cell()</em></strong> - locator representing a table cell</li>
+<li><strong><em>String allCells()</em></strong> - locator representing all table cells</li>
+<li><strong><em>String rowHeader()</em></strong> - the value of a table header corresponding to a particular raw</li>
+<li><strong><em>int size()</em></strong> - amount of columns</li>
+<li><strong><em>int count()</em></strong> - amount of rows</li>
+<li><strong><em>int firstColumnIndex()</em></strong> - index of the first column</li>
+<li><strong><em>int[] columnsMapping()</em></strong> - a collection containing indexes of the columns
+that are going to be used for processing, e.g. if one decides to work with not all columns but only with particular ones
+or if a column contains e.g. an icon or a checkbox and should not be processed then its index shouldn&#39;t be listed in columnsMapping field</li>
+</ul>
+
+<p>Here is a list of available methods in Java:</p>
 
 <table><thead>
 <tr>
@@ -15808,6 +15833,221 @@ intended primarily as an interaction on mobile devices where they can be used as
 <td><strong>footerUI()</strong></td>
 <td>link to UI footer</td>
 <td>WebList</td>
+</tr>
+<tr>
+<td><strong>cell(int colNum, int rowNum)</strong></td>
+<td>Returns a cell object of a table according to the cell index</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>cell(int colNum, String rowName)</strong></td>
+<td>Returns a cell object of a table according to the cell index</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>cell(String colName, int rowNum)</strong></td>
+<td>Returns a cell object of a table according to the cell index</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>cell(String colName, String rowNum)</strong></td>
+<td>Returns a cell object of a table according to the cell index</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>column(Enum colName)</strong></td>
+<td>Returns a column object of a table according to column name</td>
+<td>Line</td>
+</tr>
+<tr>
+<td><strong>column(int colNum)</strong></td>
+<td>Returns a column object of a table according to column number</td>
+<td>Line</td>
+</tr>
+<tr>
+<td><strong>column(String colName)</strong></td>
+<td>Returns a column object of a table according to column name</td>
+<td>Line</td>
+</tr>
+<tr>
+<td><strong>column(String column)</strong></td>
+<td>Asserts whether table Check that the table has the specified column</td>
+<td>BaseTableAssert</td>
+</tr>
+<tr>
+<td><strong>columns()</strong></td>
+<td>Returns a list of column objects of a table</td>
+<td>List&lt;Line&gt;</td>
+</tr>
+<tr>
+<td><strong>columns(List<String> columns)</strong></td>
+<td>Asserts whether table Check that the table has the specified columns</td>
+<td>BaseTableAssert</td>
+</tr>
+<tr>
+<td><strong>columns(Matcher<Collection<? extends String>&gt;)</strong></td>
+<td>Match passed value with table columns</td>
+<td>BaseTableAssert</td>
+</tr>
+<tr>
+<td><strong>count()</strong></td>
+<td>Returns amount of rows</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>empty()</strong></td>
+<td>Asserts whether table is empty</td>
+<td>BaseTableAssert</td>
+</tr>
+<tr>
+<td><strong>filterRows(Matcher<String> matcher, Column column)</strong></td>
+<td>Sets and returns a list of filtered rows of a table according to matching column</td>
+<td>List&lt;Line&gt;</td>
+</tr>
+<tr>
+<td><strong>filterRows(Pair<Matcher<String>,Column&gt;... matchers)</strong></td>
+<td>Sets and returns a list of filtered rows of a table according to matching column</td>
+<td>List&lt;Line&gt;</td>
+</tr>
+<tr>
+<td><strong>getValue()</strong></td>
+<td>Returns a string content of values for a particular row, where values are separated by &quot;;&quot;</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>header()</strong></td>
+<td>Returns a list of table&#39;s headers</td>
+<td>List<String></td>
+</tr>
+<tr>
+<td><strong>isEmpty()</strong></td>
+<td>Asserts whether a table is empty</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isNotEmpty()</strong></td>
+<td>Asserts whether a table is not empty</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>notEmpty()</strong></td>
+<td>Asserts whether table is not empty</td>
+<td>BaseTableAssert</td>
+</tr>
+<tr>
+<td><strong>preview()</strong></td>
+<td>Returns table preview</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>row(Matcher<String> matcher, Column column)</strong></td>
+<td>Check that the table has rows that meet expected condition</td>
+<td>BaseTableAssert</td>
+</tr>
+<tr>
+<td><strong>rows(TableMatcher... matchers)</strong></td>
+<td>Makes sure that the table has at least a certain number of the specified line</td>
+<td>BaseTableAssert</td>
+</tr>
+<tr>
+<td><strong>row(Enum rowName)</strong></td>
+<td>Returns a row object of a table according to row name</td>
+<td>Line</td>
+</tr>
+<tr>
+<td><strong>row(int rowNum)</strong></td>
+<td>Returns a row object of a table according to row number</td>
+<td>Line</td>
+</tr>
+<tr>
+<td><strong>row(Matcher<String> matcher, Column column)</strong></td>
+<td>Returns a row object of a table according to matching column</td>
+<td>Line</td>
+</tr>
+<tr>
+<td><strong>row(Pair<Matcher<String>,Column&gt;... matchers)</strong></td>
+<td>Returns a row object of a table according to matching column</td>
+<td>Line</td>
+</tr>
+<tr>
+<td><strong>row(String rowName)</strong></td>
+<td>Returns a row object of a table according to row name</td>
+<td>Line</td>
+</tr>
+<tr>
+<td><strong>row(TableMatcher... matchers)</strong></td>
+<td>Returns a row object of a table according to matcher</td>
+<td>Line</td>
+</tr>
+<tr>
+<td><strong>rowThat(TableMatcher... matchers)</strong></td>
+<td>Check that the table has at list one specified row</td>
+<td>BaseTableAssert</td>
+</tr>
+<tr>
+<td><strong>rowThat(Single matcher, Column column)</strong></td>
+<td>Check that the table has at list one specified row</td>
+<td>BaseTableAssert</td>
+</tr>
+<tr>
+<td><strong>rows()</strong></td>
+<td>Returns a list of rows of a table</td>
+<td>List&lt;Line&gt;</td>
+</tr>
+<tr>
+<td><strong>rows(TableMatcher... matchers)</strong></td>
+<td>Returns a list of rows of a table according to matchers</td>
+<td>List&lt;Line&gt;</td>
+</tr>
+<tr>
+<td><strong>size()</strong></td>
+<td>Returns amount of columns</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>webRow(int rowNum)</strong></td>
+<td>Returns all UIElements in the row according to row number</td>
+<td>List<UIElement></td>
+</tr>
+<tr>
+<td><strong>webRow(String rowName)</strong></td>
+<td>Returns all UIElements in the row according to row name</td>
+<td>List<UIElement></td>
+</tr>
+<tr>
+<td><strong>webRow(Enum rowName)</strong></td>
+<td>Returns all UIElements in the row according to row name</td>
+<td>List<UIElement></td>
+</tr>
+<tr>
+<td><strong>webColumn(int colNum)</strong></td>
+<td>Returns all UIElements in the column according to column number</td>
+<td>List<UIElement></td>
+</tr>
+<tr>
+<td><strong>webColumn(String colName)</strong></td>
+<td>Returns all UIElements in the column according to column name</td>
+<td>List<UIElement></td>
+</tr>
+<tr>
+<td><strong>webColumn(Enum colName)</strong></td>
+<td>Returns all UIElements in the column according to column name</td>
+<td>List<UIElement></td>
+</tr>
+<tr>
+<td><strong>webCell(int colNum, int rowNum)</strong></td>
+<td>Returns all UIElements in the column according to cell position</td>
+<td>List<UIElement></td>
+</tr>
+<tr>
+<td><strong>size(Matcher<Integer> condition)</strong></td>
+<td>Asserts whether table size satisfies some matcher condition</td>
+<td>BaseTableAssert</td>
+</tr>
+<tr>
+<td><strong>size(int size)</strong></td>
+<td>Asserts whether table has a particular size</td>
+<td>BaseTableAssert</td>
 </tr>
 </tbody></table>
 <h4 id='table-java-tests-examples'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/unit/TableUnitTests.java" target="_blank">Table java tests examples</a></h4>

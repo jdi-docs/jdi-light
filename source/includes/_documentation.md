@@ -9354,13 +9354,81 @@ The `mat-table` provides a Material Design styled data-table that can be used to
     }
 ```
 
-List of the available **Table** methods:
+__JDI JTable annotation__
+
+Along with providing a Table type element JDI Light also provides a __*@JDropdown*__ annotation for
+ a better element locating. In addition to what Table type does __*@JDropdown*__  also allows 
+ some kind of customization in the way the element is being located on the page.
+
+
+This annotation has the following fields that can be used for locating a table element:
+
+ - __*String root()*__ - value of this field points to the root locator of table element
+ - __*String[] header()*__ - list of the columns names 
+ - __*String headers()*__ - locator of a table header
+ - __*String row()*__ - locator representing a single row of a table
+ - __*String column()*__ - locator representing a column of a table
+ - __*String cell()*__ - locator representing a table cell
+ - __*String allCells()*__ - locator representing all table cells
+ - __*String rowHeader()*__ - the value of a table header corresponding to a particular raw
+ - __*int size()*__ - amount of columns
+ - __*int count()*__ - amount of rows
+ - __*int firstColumnIndex()*__ - index of the first column
+ - __*int[] columnsMapping()*__ - a collection containing indexes of the columns
+ that are going to be used for processing, e.g. if one decides to work with not all columns but only with particular ones
+ or if a column contains e.g. an icon or a checkbox and should not be processed then its index shouldn't be listed in columnsMapping field
+
+
+Here is a list of available methods in Java:
 
 | Method | Description | Return Type 
 --- | --- | --- 
 **is()** | Assert action | TableAssert 
 **header()** | get list of names of columns | List<String> 
 **footerUI()** | link to UI footer | WebList 
+**cell(int colNum, int rowNum)** | Returns a cell object of a table according to the cell index | String
+**cell(int colNum, String rowName)** | Returns a cell object of a table according to the cell index | String
+**cell(String colName, int rowNum)** | Returns a cell object of a table according to the cell index | String
+**cell(String colName, String rowNum)** | Returns a cell object of a table according to the cell index | String
+**column(Enum colName)** | Returns a column object of a table according to column name | Line
+**column(int colNum)** | Returns a column object of a table according to column number | Line
+**column(String colName)** | Returns a column object of a table according to column name | Line
+**column(String column)** | Asserts whether table Check that the table has the specified column | BaseTableAssert
+**columns()** | Returns a list of column objects of a table | List\<Line>
+**columns(List<String> columns)** | Asserts whether table Check that the table has the specified columns | BaseTableAssert
+**columns(Matcher<Collection<? extends String>>)** | Match passed value with table columns | BaseTableAssert
+**count()** | Returns amount of rows | int
+**empty()** | Asserts whether table is empty | BaseTableAssert
+**filterRows(Matcher<String> matcher, Column column)** | Sets and returns a list of filtered rows of a table according to matching column | List\<Line>
+**filterRows(Pair<Matcher<String>,Column>... matchers)** | Sets and returns a list of filtered rows of a table according to matching column | List\<Line>
+**getValue()** | Returns a string content of values for a particular row, where values are separated by ";" | String
+**header()** | Returns a list of table's headers | List<String>
+**isEmpty()** | Asserts whether a table is empty | boolean
+**isNotEmpty()** | Asserts whether a table is not empty | boolean
+**notEmpty()** | Asserts whether table is not empty | BaseTableAssert
+**preview()** | Returns table preview | String
+**row(Matcher<String> matcher, Column column)** |Check that the table has rows that meet expected condition| BaseTableAssert
+**rows(TableMatcher... matchers)** |Makes sure that the table has at least a certain number of the specified line| BaseTableAssert
+**row(Enum rowName)** | Returns a row object of a table according to row name | Line
+**row(int rowNum)** | Returns a row object of a table according to row number | Line
+**row(Matcher<String> matcher, Column column)** | Returns a row object of a table according to matching column | Line
+**row(Pair<Matcher<String>,Column>... matchers)** | Returns a row object of a table according to matching column | Line
+**row(String rowName)** | Returns a row object of a table according to row name | Line
+**row(TableMatcher... matchers)** | Returns a row object of a table according to matcher | Line
+**rowThat(TableMatcher... matchers)** |Check that the table has at list one specified row | BaseTableAssert
+**rowThat(Single matcher, Column column)** | Check that the table has at list one specified row | BaseTableAssert
+**rows()** | Returns a list of rows of a table | List\<Line>
+**rows(TableMatcher... matchers)** | Returns a list of rows of a table according to matchers | List\<Line>
+**size()** | Returns amount of columns | int
+**webRow(int rowNum)** | Returns all UIElements in the row according to row number | List<UIElement>
+**webRow(String rowName)** | Returns all UIElements in the row according to row name | List<UIElement>
+**webRow(Enum rowName)** | Returns all UIElements in the row according to row name | List<UIElement>
+**webColumn(int colNum)** | Returns all UIElements in the column according to column number | List<UIElement>
+**webColumn(String colName)** | Returns all UIElements in the column according to column name | List<UIElement>
+**webColumn(Enum colName)** | Returns all UIElements in the column according to column name | List<UIElement>
+**webCell(int colNum, int rowNum)** | Returns all UIElements in the column according to cell position | List<UIElement>
+**size(Matcher<Integer> condition)** | Asserts whether table size satisfies some matcher condition | BaseTableAssert
+**size(int size)** | Asserts whether table has a particular size | BaseTableAssert
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/unit/TableUnitTests.java" target="_blank">Table java tests examples</a>
 

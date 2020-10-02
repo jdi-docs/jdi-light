@@ -9432,6 +9432,224 @@ Here is a list of available methods in Java:
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/unit/TableUnitTests.java" target="_blank">Table java tests examples</a>
 
+
+### Chips
+
+#### <a href="https://material.angular.io/components/chips/overview" target="_blank">Chips overview</a>
+
+---
+
+Chips are located in the following class:
+
+    - Java: com.epam.jdi.light.angular.elements.complex.chips
+    
+   The <mat-chip-list> displays a list of values as individual, keyboard accessible, chips.
+   
+   There are four different Chips types in Angular: Basic Chips, Stacked Chips, Chips Autocomplete and Chips with input.
+    
+![Chips](../images/angular/basicChips.png) 
+
+```html  
+ <mat-chip-list id="mat-chip-list-0" aria-label="Fish selection">
+   <mat-chip (click)="clickedBasicChip='One fish'">One fish</mat-chip>
+   <mat-chip (click)="clickedBasicChip='Two fish'">Two fish</mat-chip>
+   <mat-chip color="primary" selected (click)="clickedBasicChip='Primary fish'">Primary fish</mat-chip>
+   <mat-chip color="accent" selected (click)="clickedBasicChip='Accent fish'">Accent fish</mat-chip>
+ </mat-chip-list>
+```
+
+```java  
+    //@FindBy(css="#mat-chip-list-0")
+    UI("#mat-chip-list-0")
+    public static Chips basicChipsRow;   
+    
+    //@FindBy(css="#basic-chips-label")
+    @UI("#basic-chips-label")
+    public static Text basicSelectedValue;          
+                   
+    private static final String ONEFISH = "One fish";
+    private static final String TWOFISH = "Two fish";
+    private static final String PRIMARYFISH = "Primary fish";
+    private static final String ACCENTFISH = "Accent fish";
+          
+    @Test
+    public void basicChipsTest() {
+        basicChipsRow.show();
+        basicChipsRow.is().displayed();
+        basicChipsRow.is().assertChipsIsEnabled();
+        basicChipsRow.clickChipsByTextValue(ONEFISH);
+        basicChipsRow.clickChipsByTextValue(TWOFISH);
+        basicChipsRow.clickChipsByTextValue(PRIMARYFISH);
+        basicChipsRow.clickChipsByTextValue(ACCENTFISH);
+    
+        basicSelectedValue.has().text(String.format("You clicked: %s", ACCENTFISH));
+    }  
+```    
+
+![Chips](../images/angular/stackedChips.png) 
+
+```html  
+ <mat-chip-list id="mat-chip-list-1" class="mat-chip-list-stacked" aria-label="Color selection">
+   <mat-chip *ngFor="let chip of availableColors" selected [color]="chip.color"
+             (click)="clickedStackedChip=chip.name">
+     {{chip.name}}
+   </mat-chip>
+ </mat-chip-list>
+``` 
+
+```java    
+    //@FindBy(css="#mat-chip-list-1")
+    @UI("#mat-chip-list-1")
+    public static Chips stackedChipsList; 
+    
+    //@FindBy(css="#stacked-chips-label")
+    @UI("#stacked-chips-label")
+    public static Text stackedSelectedValue;     
+
+    private static final String NONE = "none";
+    private static final String PRIMARY = "Primary";
+    private static final String ACCENT = "Accent";
+    private static final String WARN = "Warn";
+    
+    @Test
+    public void stackedChipsTest() {
+        stackedChipsList.show();
+        stackedChipsList.is().displayed();
+        stackedChipsList.is().assertChipsIsEnabled();
+        stackedChipsList.clickChipsByTextValue(NONE);
+        stackedChipsList.clickChipsByTextValue(PRIMARY);
+        stackedChipsList.clickChipsByTextValue(ACCENT);
+        stackedChipsList.clickChipsByTextValue(WARN);
+    
+        stackedSelectedValue.has().text(String.format("You clicked: %s", WARN));
+    } 
+``` 
+
+![Chips](../images/angular/chipsAutocomplete.png) 
+
+```html  
+ <mat-form-field id="chips-autocomplete-field" class="example-chip-list">
+   <mat-chip-list #chipList aria-label="Fruit selection">
+     <mat-chip
+       *ngFor="let fruit of fruits"
+       [selectable]="selectable"
+       [removable]="removable"
+       (removed)="remove(fruit)">
+       {{fruit}}
+       <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+     </mat-chip>
+     <input
+       placeholder="New fruit..."
+       #fruitInput
+       [formControl]="fruitCtrl"
+       [matAutocomplete]="auto"
+       [matChipInputFor]="chipList"
+       [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+       (matChipInputTokenEnd)="add($event)">
+   </mat-chip-list>
+   <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+     <mat-option *ngFor="let fruit of filteredFruits | async" [value]="fruit">
+       {{fruit}}
+     </mat-option>
+   </mat-autocomplete>
+ </mat-form-field>
+``` 
+
+```java  
+    //@FindBy(css="#chips-autocomplete-field")
+    public static Chips chipsAutocompleteField;
+    
+    //@FindBy(css="#mat-chip-list-input-0")
+    @UI("#mat-chip-list-input-0")
+    public static Chips chipsAutocompleteInput;    
+    
+    private static final String PLACEHOLDER = "New fruit...";
+    private static final String APPLE = "Apple";
+    private static final String LEMON = "Lemon";
+    private static final String LIME = "Lime";
+    private static final String ORANGE = "Orange";
+    private static final String STRAWBERRY = "Strawberry";
+       
+    @Test
+    public void chipsAutocompleteTest() {
+    
+    String expectedValuesArray[] = {"Apple", "Lemon", "Lime", "Orange", "Strawberry"};
+    List<String> expectedValues = Arrays.asList(expectedValuesArray);
+    
+        chipsAutocompleteField.show();
+        chipsAutocompleteField.is().displayed();
+        chipsAutocompleteInput.is().assertChipsIsEnabled();
+        chipsAutocompleteInput.has().assertChipsHasPlaceholder(PLACEHOLDER);
+        chipsAutocompleteInput.has().assertChipsHasOptions(expectedValues);
+        chipsAutocompleteInput.setValue(LEMON);
+        chipsAutocompleteField.collapseField();
+        chipsAutocompleteInput.setValue(APPLE);
+        chipsAutocompleteField.collapseField();
+        chipsAutocompleteInput.setValue(LIME);
+        chipsAutocompleteField.collapseField();
+        chipsAutocompleteInput.setValue(ORANGE);
+        chipsAutocompleteField.collapseField();
+        chipsAutocompleteInput.setValue(STRAWBERRY);
+    }   
+```   
+
+![Chips](../images/angular/chipsWithInput.png) 
+
+```html  
+ <mat-form-field id="chips-with-input-field" class="example-chip-list">
+   <mat-chip-list #chipList aria-label="Fruit selection">
+     <mat-chip *ngFor="let fruit of fruits" [selectable]="selectable"
+               [removable]="removable" (removed)="remove(fruit)">
+       {{fruit.name}}
+       <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+     </mat-chip>
+     <input placeholder="New fruit..."
+            [matChipInputFor]="chipList"
+            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+            [matChipInputAddOnBlur]="addOnBlur"
+            (matChipInputTokenEnd)="add($event)">
+   </mat-chip-list>
+ </mat-form-field>
+``` 
+ 
+```java 
+    //@FindBy(css="#chips-with-input-field")
+    public static Chips chipsWithInputField;
+    
+    //@FindBy(css="#mat-chip-list-input-1")
+    @UI("#mat-chip-list-input-1")
+    public static Chips chipsWithInputInput;
+        
+    @Test
+    public void chipsWithInputTest() {
+        chipsWithInputField.show();
+        chipsWithInputField.is().displayed();
+        chipsWithInputInput.is().assertChipsIsEnabled();
+        chipsWithInputInput.has().assertChipsHasPlaceholder(PLACEHOLDER);
+        chipsWithInputInput.input("Kiwi" + "\n");
+        chipsWithInputInput.input("Melon");
+        chipsWithInputInput.clearInputField();
+        chipsWithInputInput.input("Rockmelon" + "\n");
+    }
+```
+     
+List of the available **Chips** methods:
+   
+| Method | Description | Return Type 
+--- | --- | --- 
+**getChips()** | Returns a list of chips | WebList
+**getChipsByText(String value)** | Returns a chip by text | UIElement
+**clickChipsByTextValue(String value)** | Clicks a chip by text | void
+**getPlaceholderForChips()** | Returns a placeholder for an input field  | String
+**chipsHasText(String value)** | Checks whether a chip has a corresponding text | boolean
+**setValue(String selectValue)** | Selects a chosen value in autocomplete | void
+**options()** | Returns a list of options available in autocomplete  | List
+**clearInputField()** | Removes an entered value from an input field   | void
+**enabled()** | Checks whether a chip is enabled  | boolean
+**is()** | Assert action | ChipsAssert
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/ChipsTests.java" target="_blank">Here you can find Chips tests</a>
+
 ---
 
 ## Bootstrap Common elements

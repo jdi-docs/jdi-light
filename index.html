@@ -16054,24 +16054,14 @@ or if a column contains e.g. an icon or a checkbox and should not be processed t
 </tr>
 </tbody></table>
 <h4 id='table-java-tests-examples'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/unit/TableUnitTests.java" target="_blank">Table java tests examples</a></h4><h3 id='chips'>Chips</h3><h4 id='chips-overview'><a href="https://material.angular.io/components/chips/overview" target="_blank">Chips overview</a></h4>
-<hr>
-
 <p>Chips are located in the following class:</p>
 
-<p>- Java: com.epam.jdi.light.angular.elements.complex.chips</p>
+<p>- <strong>Java</strong>: com.epam.jdi.light.angular.elements.complex.chips</p>
 
-<p>The <mat-chip-list> displays a list of values as individual, keyboard accessible, chips.</p>
+<p>The <code>mat-chip-list</code> displays a list of values as individual, keyboard accessible, chips.</p>
 
 <p>There are four different Chips types in Angular: Basic Chips, Stacked Chips, Chips Autocomplete and Chips with input.</p>
-
-<p><img src="images/angular/basicChips.png" alt="Chips" /> </p>
-<pre class="highlight html tab-html"><code> <span class="nt">&lt;mat-chip-list</span> <span class="na">id=</span><span class="s">"mat-chip-list-0"</span> <span class="na">aria-label=</span><span class="s">"Fish selection"</span><span class="nt">&gt;</span>
-   <span class="nt">&lt;mat-chip</span> <span class="err">(</span><span class="na">click</span><span class="err">)="</span><span class="na">clickedBasicChip=</span><span class="s">'One fish'</span><span class="err">"</span><span class="nt">&gt;</span>One fish<span class="nt">&lt;/mat-chip&gt;</span>
-   <span class="nt">&lt;mat-chip</span> <span class="err">(</span><span class="na">click</span><span class="err">)="</span><span class="na">clickedBasicChip=</span><span class="s">'Two fish'</span><span class="err">"</span><span class="nt">&gt;</span>Two fish<span class="nt">&lt;/mat-chip&gt;</span>
-   <span class="nt">&lt;mat-chip</span> <span class="na">color=</span><span class="s">"primary"</span> <span class="na">selected</span> <span class="err">(</span><span class="na">click</span><span class="err">)="</span><span class="na">clickedBasicChip=</span><span class="s">'Primary fish'</span><span class="err">"</span><span class="nt">&gt;</span>Primary fish<span class="nt">&lt;/mat-chip&gt;</span>
-   <span class="nt">&lt;mat-chip</span> <span class="na">color=</span><span class="s">"accent"</span> <span class="na">selected</span> <span class="err">(</span><span class="na">click</span><span class="err">)="</span><span class="na">clickedBasicChip=</span><span class="s">'Accent fish'</span><span class="err">"</span><span class="nt">&gt;</span>Accent fish<span class="nt">&lt;/mat-chip&gt;</span>
- <span class="nt">&lt;/mat-chip-list&gt;</span>
-</code></pre><pre class="highlight java tab-java"><code>    <span class="c1">//@FindBy(css="#mat-chip-list-0")</span>
+<pre class="highlight java tab-java"><code>    <span class="c1">//@FindBy(css="#mat-chip-list-0")</span>
     <span class="n">UI</span><span class="o">(</span><span class="s">"#mat-chip-list-0"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">Chips</span> <span class="n">basicChipsRow</span><span class="o">;</span>   
 
@@ -16097,12 +16087,12 @@ or if a column contains e.g. an icon or a checkbox and should not be processed t
         <span class="n">basicSelectedValue</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">"You clicked: %s"</span><span class="o">,</span> <span class="n">ACCENTFISH</span><span class="o">));</span>
     <span class="o">}</span>  
 </code></pre>
-<p><img src="images/angular/stackedChips.png" alt="Chips" /> </p>
-<pre class="highlight html tab-html"><code> <span class="nt">&lt;mat-chip-list</span> <span class="na">id=</span><span class="s">"mat-chip-list-1"</span> <span class="na">class=</span><span class="s">"mat-chip-list-stacked"</span> <span class="na">aria-label=</span><span class="s">"Color selection"</span><span class="nt">&gt;</span>
-   <span class="nt">&lt;mat-chip</span> <span class="err">*</span><span class="na">ngFor=</span><span class="s">"let chip of availableColors"</span> <span class="na">selected</span> <span class="err">[</span><span class="na">color</span><span class="err">]="</span><span class="na">chip</span><span class="err">.</span><span class="na">color</span><span class="err">"</span>
-             <span class="err">(</span><span class="na">click</span><span class="err">)="</span><span class="na">clickedStackedChip=</span><span class="s">chip.name"</span><span class="nt">&gt;</span>
-     {{chip.name}}
-   <span class="nt">&lt;/mat-chip&gt;</span>
+<p><img src="images/angular/basicChips.png" alt="Chips" /> </p>
+<pre class="highlight html tab-html"><code> <span class="nt">&lt;mat-chip-list</span> <span class="na">id=</span><span class="s">"mat-chip-list-0"</span> <span class="na">aria-label=</span><span class="s">"Fish selection"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;mat-chip</span> <span class="err">(</span><span class="na">click</span><span class="err">)="</span><span class="na">clickedBasicChip=</span><span class="s">'One fish'</span><span class="err">"</span><span class="nt">&gt;</span>One fish<span class="nt">&lt;/mat-chip&gt;</span>
+   <span class="nt">&lt;mat-chip</span> <span class="err">(</span><span class="na">click</span><span class="err">)="</span><span class="na">clickedBasicChip=</span><span class="s">'Two fish'</span><span class="err">"</span><span class="nt">&gt;</span>Two fish<span class="nt">&lt;/mat-chip&gt;</span>
+   <span class="nt">&lt;mat-chip</span> <span class="na">color=</span><span class="s">"primary"</span> <span class="na">selected</span> <span class="err">(</span><span class="na">click</span><span class="err">)="</span><span class="na">clickedBasicChip=</span><span class="s">'Primary fish'</span><span class="err">"</span><span class="nt">&gt;</span>Primary fish<span class="nt">&lt;/mat-chip&gt;</span>
+   <span class="nt">&lt;mat-chip</span> <span class="na">color=</span><span class="s">"accent"</span> <span class="na">selected</span> <span class="err">(</span><span class="na">click</span><span class="err">)="</span><span class="na">clickedBasicChip=</span><span class="s">'Accent fish'</span><span class="err">"</span><span class="nt">&gt;</span>Accent fish<span class="nt">&lt;/mat-chip&gt;</span>
  <span class="nt">&lt;/mat-chip-list&gt;</span>
 </code></pre><pre class="highlight java tab-java"><code>    <span class="c1">//@FindBy(css="#mat-chip-list-1")</span>
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"#mat-chip-list-1"</span><span class="o">)</span>
@@ -16130,32 +16120,13 @@ or if a column contains e.g. an icon or a checkbox and should not be processed t
         <span class="n">stackedSelectedValue</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">"You clicked: %s"</span><span class="o">,</span> <span class="n">WARN</span><span class="o">));</span>
     <span class="o">}</span> 
 </code></pre>
-<p><img src="images/angular/chipsAutocomplete.png" alt="Chips" /> </p>
-<pre class="highlight html tab-html"><code> <span class="nt">&lt;mat-form-field</span> <span class="na">id=</span><span class="s">"chips-autocomplete-field"</span> <span class="na">class=</span><span class="s">"example-chip-list"</span><span class="nt">&gt;</span>
-   <span class="nt">&lt;mat-chip-list</span> <span class="err">#</span><span class="na">chipList</span> <span class="na">aria-label=</span><span class="s">"Fruit selection"</span><span class="nt">&gt;</span>
-     <span class="nt">&lt;mat-chip</span>
-       <span class="err">*</span><span class="na">ngFor=</span><span class="s">"let fruit of fruits"</span>
-       <span class="err">[</span><span class="na">selectable</span><span class="err">]="</span><span class="na">selectable</span><span class="err">"</span>
-       <span class="err">[</span><span class="na">removable</span><span class="err">]="</span><span class="na">removable</span><span class="err">"</span>
-       <span class="err">(</span><span class="na">removed</span><span class="err">)="</span><span class="na">remove</span><span class="err">(</span><span class="na">fruit</span><span class="err">)"</span><span class="nt">&gt;</span>
-       {{fruit}}
-       <span class="nt">&lt;mat-icon</span> <span class="na">matChipRemove</span> <span class="err">*</span><span class="na">ngIf=</span><span class="s">"removable"</span><span class="nt">&gt;</span>cancel<span class="nt">&lt;/mat-icon&gt;</span>
-     <span class="nt">&lt;/mat-chip&gt;</span>
-     <span class="nt">&lt;input</span>
-       <span class="na">placeholder=</span><span class="s">"New fruit..."</span>
-       <span class="err">#</span><span class="na">fruitInput</span>
-       <span class="err">[</span><span class="na">formControl</span><span class="err">]="</span><span class="na">fruitCtrl</span><span class="err">"</span>
-       <span class="err">[</span><span class="na">matAutocomplete</span><span class="err">]="</span><span class="na">auto</span><span class="err">"</span>
-       <span class="err">[</span><span class="na">matChipInputFor</span><span class="err">]="</span><span class="na">chipList</span><span class="err">"</span>
-       <span class="err">[</span><span class="na">matChipInputSeparatorKeyCodes</span><span class="err">]="</span><span class="na">separatorKeysCodes</span><span class="err">"</span>
-       <span class="err">(</span><span class="na">matChipInputTokenEnd</span><span class="err">)="</span><span class="na">add</span><span class="err">($</span><span class="na">event</span><span class="err">)"</span><span class="nt">&gt;</span>
-   <span class="nt">&lt;/mat-chip-list&gt;</span>
-   <span class="nt">&lt;mat-autocomplete</span> <span class="err">#</span><span class="na">auto=</span><span class="s">"matAutocomplete"</span> <span class="err">(</span><span class="na">optionSelected</span><span class="err">)="</span><span class="na">selected</span><span class="err">($</span><span class="na">event</span><span class="err">)"</span><span class="nt">&gt;</span>
-     <span class="nt">&lt;mat-option</span> <span class="err">*</span><span class="na">ngFor=</span><span class="s">"let fruit of filteredFruits | async"</span> <span class="err">[</span><span class="na">value</span><span class="err">]="</span><span class="na">fruit</span><span class="err">"</span><span class="nt">&gt;</span>
-       {{fruit}}
-     <span class="nt">&lt;/mat-option&gt;</span>
-   <span class="nt">&lt;/mat-autocomplete&gt;</span>
- <span class="nt">&lt;/mat-form-field&gt;</span>
+<p><img src="images/angular/stackedChips.png" alt="Chips" /> </p>
+<pre class="highlight html tab-html"><code> <span class="nt">&lt;mat-chip-list</span> <span class="na">id=</span><span class="s">"mat-chip-list-1"</span> <span class="na">class=</span><span class="s">"mat-chip-list-stacked"</span> <span class="na">aria-label=</span><span class="s">"Color selection"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;mat-chip</span> <span class="err">*</span><span class="na">ngFor=</span><span class="s">"let chip of availableColors"</span> <span class="na">selected</span> <span class="err">[</span><span class="na">color</span><span class="err">]="</span><span class="na">chip</span><span class="err">.</span><span class="na">color</span><span class="err">"</span>
+             <span class="err">(</span><span class="na">click</span><span class="err">)="</span><span class="na">clickedStackedChip=</span><span class="s">chip.name"</span><span class="nt">&gt;</span>
+     {{chip.name}}
+   <span class="nt">&lt;/mat-chip&gt;</span>
+ <span class="nt">&lt;/mat-chip-list&gt;</span>
 </code></pre><pre class="highlight java tab-java"><code>    <span class="c1">//@FindBy(css="#chips-autocomplete-field")</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">Chips</span> <span class="n">chipsAutocompleteField</span><span class="o">;</span>
 
@@ -16192,20 +16163,31 @@ or if a column contains e.g. an icon or a checkbox and should not be processed t
         <span class="n">chipsAutocompleteInput</span><span class="o">.</span><span class="na">setValue</span><span class="o">(</span><span class="n">STRAWBERRY</span><span class="o">);</span>
     <span class="o">}</span>   
 </code></pre>
-<p><img src="images/angular/chipsWithInput.png" alt="Chips" /> </p>
-<pre class="highlight html tab-html"><code> <span class="nt">&lt;mat-form-field</span> <span class="na">id=</span><span class="s">"chips-with-input-field"</span> <span class="na">class=</span><span class="s">"example-chip-list"</span><span class="nt">&gt;</span>
+<p><img src="images/angular/chipsAutocomplete.png" alt="Chips" /> </p>
+<pre class="highlight html tab-html"><code> <span class="nt">&lt;mat-form-field</span> <span class="na">id=</span><span class="s">"chips-autocomplete-field"</span> <span class="na">class=</span><span class="s">"example-chip-list"</span><span class="nt">&gt;</span>
    <span class="nt">&lt;mat-chip-list</span> <span class="err">#</span><span class="na">chipList</span> <span class="na">aria-label=</span><span class="s">"Fruit selection"</span><span class="nt">&gt;</span>
-     <span class="nt">&lt;mat-chip</span> <span class="err">*</span><span class="na">ngFor=</span><span class="s">"let fruit of fruits"</span> <span class="err">[</span><span class="na">selectable</span><span class="err">]="</span><span class="na">selectable</span><span class="err">"</span>
-               <span class="err">[</span><span class="na">removable</span><span class="err">]="</span><span class="na">removable</span><span class="err">"</span> <span class="err">(</span><span class="na">removed</span><span class="err">)="</span><span class="na">remove</span><span class="err">(</span><span class="na">fruit</span><span class="err">)"</span><span class="nt">&gt;</span>
-       {{fruit.name}}
+     <span class="nt">&lt;mat-chip</span>
+       <span class="err">*</span><span class="na">ngFor=</span><span class="s">"let fruit of fruits"</span>
+       <span class="err">[</span><span class="na">selectable</span><span class="err">]="</span><span class="na">selectable</span><span class="err">"</span>
+       <span class="err">[</span><span class="na">removable</span><span class="err">]="</span><span class="na">removable</span><span class="err">"</span>
+       <span class="err">(</span><span class="na">removed</span><span class="err">)="</span><span class="na">remove</span><span class="err">(</span><span class="na">fruit</span><span class="err">)"</span><span class="nt">&gt;</span>
+       {{fruit}}
        <span class="nt">&lt;mat-icon</span> <span class="na">matChipRemove</span> <span class="err">*</span><span class="na">ngIf=</span><span class="s">"removable"</span><span class="nt">&gt;</span>cancel<span class="nt">&lt;/mat-icon&gt;</span>
      <span class="nt">&lt;/mat-chip&gt;</span>
-     <span class="nt">&lt;input</span> <span class="na">placeholder=</span><span class="s">"New fruit..."</span>
-            <span class="err">[</span><span class="na">matChipInputFor</span><span class="err">]="</span><span class="na">chipList</span><span class="err">"</span>
-            <span class="err">[</span><span class="na">matChipInputSeparatorKeyCodes</span><span class="err">]="</span><span class="na">separatorKeysCodes</span><span class="err">"</span>
-            <span class="err">[</span><span class="na">matChipInputAddOnBlur</span><span class="err">]="</span><span class="na">addOnBlur</span><span class="err">"</span>
-            <span class="err">(</span><span class="na">matChipInputTokenEnd</span><span class="err">)="</span><span class="na">add</span><span class="err">($</span><span class="na">event</span><span class="err">)"</span><span class="nt">&gt;</span>
+     <span class="nt">&lt;input</span>
+       <span class="na">placeholder=</span><span class="s">"New fruit..."</span>
+       <span class="err">#</span><span class="na">fruitInput</span>
+       <span class="err">[</span><span class="na">formControl</span><span class="err">]="</span><span class="na">fruitCtrl</span><span class="err">"</span>
+       <span class="err">[</span><span class="na">matAutocomplete</span><span class="err">]="</span><span class="na">auto</span><span class="err">"</span>
+       <span class="err">[</span><span class="na">matChipInputFor</span><span class="err">]="</span><span class="na">chipList</span><span class="err">"</span>
+       <span class="err">[</span><span class="na">matChipInputSeparatorKeyCodes</span><span class="err">]="</span><span class="na">separatorKeysCodes</span><span class="err">"</span>
+       <span class="err">(</span><span class="na">matChipInputTokenEnd</span><span class="err">)="</span><span class="na">add</span><span class="err">($</span><span class="na">event</span><span class="err">)"</span><span class="nt">&gt;</span>
    <span class="nt">&lt;/mat-chip-list&gt;</span>
+   <span class="nt">&lt;mat-autocomplete</span> <span class="err">#</span><span class="na">auto=</span><span class="s">"matAutocomplete"</span> <span class="err">(</span><span class="na">optionSelected</span><span class="err">)="</span><span class="na">selected</span><span class="err">($</span><span class="na">event</span><span class="err">)"</span><span class="nt">&gt;</span>
+     <span class="nt">&lt;mat-option</span> <span class="err">*</span><span class="na">ngFor=</span><span class="s">"let fruit of filteredFruits | async"</span> <span class="err">[</span><span class="na">value</span><span class="err">]="</span><span class="na">fruit</span><span class="err">"</span><span class="nt">&gt;</span>
+       {{fruit}}
+     <span class="nt">&lt;/mat-option&gt;</span>
+   <span class="nt">&lt;/mat-autocomplete&gt;</span>
  <span class="nt">&lt;/mat-form-field&gt;</span>
 </code></pre><pre class="highlight java tab-java"><code>    <span class="c1">//@FindBy(css="#chips-with-input-field")</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">Chips</span> <span class="n">chipsWithInputField</span><span class="o">;</span>
@@ -16225,6 +16207,22 @@ or if a column contains e.g. an icon or a checkbox and should not be processed t
         <span class="n">chipsWithInputInput</span><span class="o">.</span><span class="na">clearInputField</span><span class="o">();</span>
         <span class="n">chipsWithInputInput</span><span class="o">.</span><span class="na">input</span><span class="o">(</span><span class="s">"Rockmelon"</span> <span class="o">+</span> <span class="s">"\n"</span><span class="o">);</span>
     <span class="o">}</span>
+</code></pre>
+<p><img src="images/angular/chipsWithInput.png" alt="Chips" /> </p>
+<pre class="highlight html tab-html"><code> <span class="nt">&lt;mat-form-field</span> <span class="na">id=</span><span class="s">"chips-with-input-field"</span> <span class="na">class=</span><span class="s">"example-chip-list"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;mat-chip-list</span> <span class="err">#</span><span class="na">chipList</span> <span class="na">aria-label=</span><span class="s">"Fruit selection"</span><span class="nt">&gt;</span>
+     <span class="nt">&lt;mat-chip</span> <span class="err">*</span><span class="na">ngFor=</span><span class="s">"let fruit of fruits"</span> <span class="err">[</span><span class="na">selectable</span><span class="err">]="</span><span class="na">selectable</span><span class="err">"</span>
+               <span class="err">[</span><span class="na">removable</span><span class="err">]="</span><span class="na">removable</span><span class="err">"</span> <span class="err">(</span><span class="na">removed</span><span class="err">)="</span><span class="na">remove</span><span class="err">(</span><span class="na">fruit</span><span class="err">)"</span><span class="nt">&gt;</span>
+       {{fruit.name}}
+       <span class="nt">&lt;mat-icon</span> <span class="na">matChipRemove</span> <span class="err">*</span><span class="na">ngIf=</span><span class="s">"removable"</span><span class="nt">&gt;</span>cancel<span class="nt">&lt;/mat-icon&gt;</span>
+     <span class="nt">&lt;/mat-chip&gt;</span>
+     <span class="nt">&lt;input</span> <span class="na">placeholder=</span><span class="s">"New fruit..."</span>
+            <span class="err">[</span><span class="na">matChipInputFor</span><span class="err">]="</span><span class="na">chipList</span><span class="err">"</span>
+            <span class="err">[</span><span class="na">matChipInputSeparatorKeyCodes</span><span class="err">]="</span><span class="na">separatorKeysCodes</span><span class="err">"</span>
+            <span class="err">[</span><span class="na">matChipInputAddOnBlur</span><span class="err">]="</span><span class="na">addOnBlur</span><span class="err">"</span>
+            <span class="err">(</span><span class="na">matChipInputTokenEnd</span><span class="err">)="</span><span class="na">add</span><span class="err">($</span><span class="na">event</span><span class="err">)"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;/mat-chip-list&gt;</span>
+ <span class="nt">&lt;/mat-form-field&gt;</span>
 </code></pre>
 <p>List of the available <strong>Chips</strong> methods:</p>
 
@@ -16286,9 +16284,7 @@ or if a column contains e.g. an icon or a checkbox and should not be processed t
 <td>ChipsAssert</td>
 </tr>
 </tbody></table>
-<h4 id='here-you-can-find-chips-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/ChipsTests.java" target="_blank">Here you can find Chips tests</a></h4>
-<hr>
-<h2 id='bootstrap-common-elements'>Bootstrap Common elements</h2><h3 id='checkboxes-and-radios'>Checkboxes and radios</h3><h4 id='checkbox-default'><a href="https://getbootstrap.com/docs/4.3/components/buttons/" target="_blank">Checkbox default</a></h4>
+<h4 id='here-you-can-find-chips-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/ChipsTests.java" target="_blank">Here you can find Chips tests</a></h4><h2 id='bootstrap-common-elements'>Bootstrap Common elements</h2><h3 id='checkboxes-and-radios'>Checkboxes and radios</h3><h4 id='checkbox-default'><a href="https://getbootstrap.com/docs/4.3/components/buttons/" target="_blank">Checkbox default</a></h4>
 <p>Checkbox is located in the following classes:</p>
 
 <ul>

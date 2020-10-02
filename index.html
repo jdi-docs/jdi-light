@@ -16062,7 +16062,7 @@ or if a column contains e.g. an icon or a checkbox and should not be processed t
 
 <p>There are four different Chips types in Angular: Basic Chips, Stacked Chips, Chips Autocomplete and Chips with input.</p>
 <pre class="highlight java tab-java"><code>    <span class="c1">//@FindBy(css="#mat-chip-list-0")</span>
-    <span class="n">UI</span><span class="o">(</span><span class="s">"#mat-chip-list-0"</span><span class="o">)</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#mat-chip-list-0"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">Chips</span> <span class="n">basicChipsRow</span><span class="o">;</span>   
 
     <span class="c1">//@FindBy(css="#basic-chips-label")</span>
@@ -16269,6 +16269,11 @@ or if a column contains e.g. an icon or a checkbox and should not be processed t
 <td>List</td>
 </tr>
 <tr>
+<td><strong>input(String value)</strong></td>
+<td>Inputs a value into an input field</td>
+<td>void</td>
+</tr>
+<tr>
 <td><strong>clearInputField()</strong></td>
 <td>Removes an entered value from an input field</td>
 <td>void</td>
@@ -16277,6 +16282,11 @@ or if a column contains e.g. an icon or a checkbox and should not be processed t
 <td><strong>enabled()</strong></td>
 <td>Checks whether a chip is enabled</td>
 <td>boolean</td>
+</tr>
+<tr>
+<td><strong>has()</strong></td>
+<td>Assert action</td>
+<td>ChipsAssert</td>
 </tr>
 <tr>
 <td><strong>is()</strong></td>

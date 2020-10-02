@@ -9447,7 +9447,7 @@ Chips are located in the following class:
 
 ```java  
     //@FindBy(css="#mat-chip-list-0")
-    UI("#mat-chip-list-0")
+    @UI("#mat-chip-list-0")
     public static Chips basicChipsRow;   
     
     //@FindBy(css="#basic-chips-label")
@@ -9642,8 +9642,10 @@ List of the available **Chips** methods:
 **chipsHasText(String value)** | Checks whether a chip has a corresponding text | boolean
 **setValue(String selectValue)** | Selects a chosen value in autocomplete | void
 **options()** | Returns a list of options available in autocomplete  | List
+**input(String value)** | Inputs a value into an input field  | void
 **clearInputField()** | Removes an entered value from an input field   | void
 **enabled()** | Checks whether a chip is enabled  | boolean
+**has()** | Assert action | ChipsAssert
 **is()** | Assert action | ChipsAssert
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/ChipsTests.java" target="_blank">Here you can find Chips tests</a>

@@ -9369,26 +9369,13 @@ List of the available **Table** methods:
 
 #### <a href="https://material.angular.io/components/chips/overview" target="_blank">Chips overview</a>
 
----
-
 Chips are located in the following class:
 
-    - Java: com.epam.jdi.light.angular.elements.complex.chips
+    - __Java__: com.epam.jdi.light.angular.elements.complex.chips
     
-   The <mat-chip-list> displays a list of values as individual, keyboard accessible, chips.
+   The `mat-chip-list` displays a list of values as individual, keyboard accessible, chips.
    
    There are four different Chips types in Angular: Basic Chips, Stacked Chips, Chips Autocomplete and Chips with input.
-    
-![Chips](../images/angular/basicChips.png) 
-
-```html  
- <mat-chip-list id="mat-chip-list-0" aria-label="Fish selection">
-   <mat-chip (click)="clickedBasicChip='One fish'">One fish</mat-chip>
-   <mat-chip (click)="clickedBasicChip='Two fish'">Two fish</mat-chip>
-   <mat-chip color="primary" selected (click)="clickedBasicChip='Primary fish'">Primary fish</mat-chip>
-   <mat-chip color="accent" selected (click)="clickedBasicChip='Accent fish'">Accent fish</mat-chip>
- </mat-chip-list>
-```
 
 ```java  
     //@FindBy(css="#mat-chip-list-0")
@@ -9416,18 +9403,18 @@ Chips are located in the following class:
     
         basicSelectedValue.has().text(String.format("You clicked: %s", ACCENTFISH));
     }  
-```    
-
-![Chips](../images/angular/stackedChips.png) 
+```        
+    
+![Chips](../images/angular/basicChips.png) 
 
 ```html  
- <mat-chip-list id="mat-chip-list-1" class="mat-chip-list-stacked" aria-label="Color selection">
-   <mat-chip *ngFor="let chip of availableColors" selected [color]="chip.color"
-             (click)="clickedStackedChip=chip.name">
-     {{chip.name}}
-   </mat-chip>
+ <mat-chip-list id="mat-chip-list-0" aria-label="Fish selection">
+   <mat-chip (click)="clickedBasicChip='One fish'">One fish</mat-chip>
+   <mat-chip (click)="clickedBasicChip='Two fish'">Two fish</mat-chip>
+   <mat-chip color="primary" selected (click)="clickedBasicChip='Primary fish'">Primary fish</mat-chip>
+   <mat-chip color="accent" selected (click)="clickedBasicChip='Accent fish'">Accent fish</mat-chip>
  </mat-chip-list>
-``` 
+```
 
 ```java    
     //@FindBy(css="#mat-chip-list-1")
@@ -9457,34 +9444,15 @@ Chips are located in the following class:
     } 
 ``` 
 
-![Chips](../images/angular/chipsAutocomplete.png) 
+![Chips](../images/angular/stackedChips.png) 
 
 ```html  
- <mat-form-field id="chips-autocomplete-field" class="example-chip-list">
-   <mat-chip-list #chipList aria-label="Fruit selection">
-     <mat-chip
-       *ngFor="let fruit of fruits"
-       [selectable]="selectable"
-       [removable]="removable"
-       (removed)="remove(fruit)">
-       {{fruit}}
-       <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
-     </mat-chip>
-     <input
-       placeholder="New fruit..."
-       #fruitInput
-       [formControl]="fruitCtrl"
-       [matAutocomplete]="auto"
-       [matChipInputFor]="chipList"
-       [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-       (matChipInputTokenEnd)="add($event)">
-   </mat-chip-list>
-   <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
-     <mat-option *ngFor="let fruit of filteredFruits | async" [value]="fruit">
-       {{fruit}}
-     </mat-option>
-   </mat-autocomplete>
- </mat-form-field>
+ <mat-chip-list id="mat-chip-list-1" class="mat-chip-list-stacked" aria-label="Color selection">
+   <mat-chip *ngFor="let chip of availableColors" selected [color]="chip.color"
+             (click)="clickedStackedChip=chip.name">
+     {{chip.name}}
+   </mat-chip>
+ </mat-chip-list>
 ``` 
 
 ```java  
@@ -9525,25 +9493,36 @@ Chips are located in the following class:
     }   
 ```   
 
-![Chips](../images/angular/chipsWithInput.png) 
+![Chips](../images/angular/chipsAutocomplete.png) 
 
 ```html  
- <mat-form-field id="chips-with-input-field" class="example-chip-list">
+ <mat-form-field id="chips-autocomplete-field" class="example-chip-list">
    <mat-chip-list #chipList aria-label="Fruit selection">
-     <mat-chip *ngFor="let fruit of fruits" [selectable]="selectable"
-               [removable]="removable" (removed)="remove(fruit)">
-       {{fruit.name}}
+     <mat-chip
+       *ngFor="let fruit of fruits"
+       [selectable]="selectable"
+       [removable]="removable"
+       (removed)="remove(fruit)">
+       {{fruit}}
        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
      </mat-chip>
-     <input placeholder="New fruit..."
-            [matChipInputFor]="chipList"
-            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-            [matChipInputAddOnBlur]="addOnBlur"
-            (matChipInputTokenEnd)="add($event)">
+     <input
+       placeholder="New fruit..."
+       #fruitInput
+       [formControl]="fruitCtrl"
+       [matAutocomplete]="auto"
+       [matChipInputFor]="chipList"
+       [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+       (matChipInputTokenEnd)="add($event)">
    </mat-chip-list>
+   <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+     <mat-option *ngFor="let fruit of filteredFruits | async" [value]="fruit">
+       {{fruit}}
+     </mat-option>
+   </mat-autocomplete>
  </mat-form-field>
 ``` 
- 
+
 ```java 
     //@FindBy(css="#chips-with-input-field")
     public static Chips chipsWithInputField;
@@ -9564,6 +9543,25 @@ Chips are located in the following class:
         chipsWithInputInput.input("Rockmelon" + "\n");
     }
 ```
+
+![Chips](../images/angular/chipsWithInput.png) 
+
+```html  
+ <mat-form-field id="chips-with-input-field" class="example-chip-list">
+   <mat-chip-list #chipList aria-label="Fruit selection">
+     <mat-chip *ngFor="let fruit of fruits" [selectable]="selectable"
+               [removable]="removable" (removed)="remove(fruit)">
+       {{fruit.name}}
+       <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+     </mat-chip>
+     <input placeholder="New fruit..."
+            [matChipInputFor]="chipList"
+            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+            [matChipInputAddOnBlur]="addOnBlur"
+            (matChipInputTokenEnd)="add($event)">
+   </mat-chip-list>
+ </mat-form-field>
+``` 
      
 List of the available **Chips** methods:
    
@@ -9582,7 +9580,7 @@ List of the available **Chips** methods:
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/ChipsTests.java" target="_blank">Here you can find Chips tests</a>
 
----
+
 
 ## Bootstrap Common elements
 

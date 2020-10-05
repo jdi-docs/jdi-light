@@ -9211,7 +9211,7 @@ List of the available **Dialog** methods:
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/DialogTests.java" target="_blank">Dialog java tests examples</a>
 
-### matTable
+### MatTable
 
 #### <a href="https://material.angular.io/components/table/overview" target="_blank">Table overview</a>
 

@@ -9432,6 +9432,67 @@ Here is a list of available methods in Java:
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/unit/TableUnitTests.java" target="_blank">Table java tests examples</a>
 
+### Tree 
+
+#### <a href="https://material.angular.io/components/tree/overview" target="_blank">Tree overview</a>
+
+The mat-tree provides a Material Design styled tree that can be used to display hierarchy data.
+
+This tree builds on the foundation of the CDK tree and uses a similar interface for its data source input and template, except that its element and attribute selectors will be prefixed with mat- instead of cdk-.
+
+There are two types of trees: Flat tree and nested tree. The DOM structures are different for these two types of trees.
+See an example with HTML code describing basic Tree element.
+
+![Tree examples](../images/angular/basic_tree.png) 
+
+```java 
+
+@UI("#tree-dynamic")
+public static MaterialTree dynamicTree;
+
+@UI("tree-checklist-example")
+public static UIElement checkBoxesExample;
+
+@Test
+public void expandByNameTest() {
+    dynamicExample.show();
+    dynamicTree.waitExpandTree(dynamicTree.expand(FRUITS));
+    dynamicTree.is().collapsed(VEGETABLES);
+}
+
+@Test
+public void turnOnOffNodeItemTest() {
+    checkBoxesExample.show();
+    checkBoxesTree.expand(GROCERIES);
+    checkBoxesTree.is().expanded(GROCERIES);
+    Checkbox checkbox = checkBoxesTree.getCheckbox(1, ORGANIC_GGS);
+    checkbox.is().enabled();
+    checkbox.check();
+    checkbox.is().selected();
+    checkbox.uncheck();
+    checkbox.show();
+    checkbox.is().deselected();
+}
+
+``` 
+
+```html 
+<mat-tree>
+  <mat-tree-node> parent node </mat-tree-node>
+  <mat-tree-node> -- child node1 </mat-tree-node>
+  <mat-tree-node> -- child node2 </mat-tree-node>
+</mat-tree>
+``` 
+
+|Method | Description | Return Type 
+--- | --- | --- 
+**is()** | Assert action | TextAssert 
+**displayed()** | Check that element is displayed | TextAssert 
+**get(int index)** | Select label by index | Label 
+**show()** | Scroll to element | void 
+**text(String text)** | Check whether a text matches a pattern | TextAssert 
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/MaterialTreeTests.java" target="_blank"Tree java tests examples</a>
 
 ### Chips
 

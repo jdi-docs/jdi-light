@@ -671,6 +671,9 @@
 								<a href="#mattable" class="toc-h2 h3 toc-link" data-title="MatTable">MatTable</a>
                             </li>
                             <li>
+								<a href="#tree" class="toc-h2 h3 toc-link" data-title="Tree">Tree</a>
+                            </li>
+                            <li>
 								<a href="#chips" class="toc-h2 h3 toc-link" data-title="Chips">Chips</a>
                             </li>
                         </ul>
@@ -16053,7 +16056,83 @@ or if a column contains e.g. an icon or a checkbox and should not be processed t
 <td>BaseTableAssert</td>
 </tr>
 </tbody></table>
-<h4 id='table-java-tests-examples'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/unit/TableUnitTests.java" target="_blank">Table java tests examples</a></h4><h3 id='chips'>Chips</h3><h4 id='chips-overview'><a href="https://material.angular.io/components/chips/overview" target="_blank">Chips overview</a></h4>
+<h4 id='table-java-tests-examples'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/unit/TableUnitTests.java" target="_blank">Table java tests examples</a></h4><h3 id='tree'>Tree</h3><h4 id='tree-overview'><a href="https://material.angular.io/components/tree/overview" target="_blank">Tree overview</a></h4>
+<p>The mat-tree provides a Material Design styled tree that can be used to display hierarchy data.</p>
+
+<p>This tree builds on the foundation of the CDK tree and uses a similar interface for its data source input and template, except that its element and attribute selectors will be prefixed with mat- instead of cdk-.</p>
+
+<p>There are two types of trees: Flat tree and nested tree. The DOM structures are different for these two types of trees.
+See an example with HTML code describing basic Tree element.</p>
+
+<p><img src="images/angular/basic_tree.png" alt="Tree examples" /> </p>
+<pre class="highlight java tab-java"><code>
+<span class="nd">@UI</span><span class="o">(</span><span class="s">"#tree-dynamic"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">MaterialTree</span> <span class="n">dynamicTree</span><span class="o">;</span>
+
+<span class="nd">@UI</span><span class="o">(</span><span class="s">"tree-checklist-example"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">UIElement</span> <span class="n">checkBoxesExample</span><span class="o">;</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">expandByNameTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">dynamicExample</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+    <span class="n">dynamicTree</span><span class="o">.</span><span class="na">waitExpandTree</span><span class="o">(</span><span class="n">dynamicTree</span><span class="o">.</span><span class="na">expand</span><span class="o">(</span><span class="n">FRUITS</span><span class="o">));</span>
+    <span class="n">dynamicTree</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">collapsed</span><span class="o">(</span><span class="n">VEGETABLES</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">turnOnOffNodeItemTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">checkBoxesExample</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+    <span class="n">checkBoxesTree</span><span class="o">.</span><span class="na">expand</span><span class="o">(</span><span class="n">GROCERIES</span><span class="o">);</span>
+    <span class="n">checkBoxesTree</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">expanded</span><span class="o">(</span><span class="n">GROCERIES</span><span class="o">);</span>
+    <span class="n">Checkbox</span> <span class="n">checkbox</span> <span class="o">=</span> <span class="n">checkBoxesTree</span><span class="o">.</span><span class="na">getCheckbox</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="n">ORGANIC_GGS</span><span class="o">);</span>
+    <span class="n">checkbox</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
+    <span class="n">checkbox</span><span class="o">.</span><span class="na">check</span><span class="o">();</span>
+    <span class="n">checkbox</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">();</span>
+    <span class="n">checkbox</span><span class="o">.</span><span class="na">uncheck</span><span class="o">();</span>
+    <span class="n">checkbox</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+    <span class="n">checkbox</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">deselected</span><span class="o">();</span>
+<span class="o">}</span>
+
+</code></pre><pre class="highlight html tab-html"><code><span class="nt">&lt;mat-tree&gt;</span>
+  <span class="nt">&lt;mat-tree-node&gt;</span> parent node <span class="nt">&lt;/mat-tree-node&gt;</span>
+  <span class="nt">&lt;mat-tree-node&gt;</span> -- child node1 <span class="nt">&lt;/mat-tree-node&gt;</span>
+  <span class="nt">&lt;mat-tree-node&gt;</span> -- child node2 <span class="nt">&lt;/mat-tree-node&gt;</span>
+<span class="nt">&lt;/mat-tree&gt;</span>
+</code></pre>
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>is()</strong></td>
+<td>Assert action</td>
+<td>TextAssert</td>
+</tr>
+<tr>
+<td><strong>displayed()</strong></td>
+<td>Check that element is displayed</td>
+<td>TextAssert</td>
+</tr>
+<tr>
+<td><strong>get(int index)</strong></td>
+<td>Select label by index</td>
+<td>Label</td>
+</tr>
+<tr>
+<td><strong>show()</strong></td>
+<td>Scroll to element</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>text(String text)</strong></td>
+<td>Check whether a text matches a pattern</td>
+<td>TextAssert</td>
+</tr>
+</tbody></table>
+<h4 id='598b99e4d3'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/MaterialTreeTests.java" target="_blank"Tree java tests examples</a></h4><h3 id='chips'>Chips</h3><h4 id='chips-overview'><a href="https://material.angular.io/components/chips/overview" target="_blank">Chips overview</a></h4>
 <p>Chips are located in the following class:</p>
 
 <p>- <strong>Java</strong>: com.epam.jdi.light.angular.elements.complex.chips</p>

@@ -8892,8 +8892,8 @@ components: <mat-sidenav-container> which acts as a structural container for our
 <mat-sidenav-content> which represents the main content, and <mat-sidenav> which represents the added side content.
 
 ```java
-    //@FindBy(css = "#basic-sidenav")
-    public static SideNav basicSideNav;
+@FindBy(css = "#basic-sidenav")
+public static SideNav basicSideNav;
 
     @Test
     public void verifyBasicSideNavTest() {
@@ -9224,6 +9224,15 @@ The `mat-sort-header` provide buttons to change table`s rows
     - __Java__: _com.epam.jdi.light.elements.complex.table.Table_
     
 ![Sort Header](../images/angular/sorting_header.png) 
+
+List of the available **Sorting Header** methods:
+   
+| Method | Description | Return Type 
+--- | --- | --- 
+**is()** | Assert action | Assert 
+**getTableHeaders()** | Get table headers | WebList
+**clickButtonByText(String text)** | Get header with by text | void
+
 
 ```html  
  <a _ngcontent-poo-c363="" href="https://material.angular.io/components/sort/overview"> Sorting overview </a>

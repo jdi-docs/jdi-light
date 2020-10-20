@@ -15252,8 +15252,8 @@ though it can be any content) alongside some primary content. These are the side
 The sidenav components are designed to add side content to a fullscreen app. To set up a sidenav we use three 
 components: <mat-sidenav-container> which acts as a structural container for our content and sidenav, 
 <mat-sidenav-content> which represents the main content, and <mat-sidenav> which represents the added side content.</p>
-<pre class="highlight java tab-java"><code>    <span class="c1">//@FindBy(css = "#basic-sidenav")</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">SideNav</span> <span class="n">basicSideNav</span><span class="o">;</span>
+<pre class="highlight java tab-java"><code><span class="nd">@FindBy</span><span class="o">(</span><span class="n">css</span> <span class="o">=</span> <span class="s">"#basic-sidenav"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">SideNav</span> <span class="n">basicSideNav</span><span class="o">;</span>
 
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">verifyBasicSideNavTest</span><span class="o">()</span> <span class="o">{</span>
@@ -15652,6 +15652,32 @@ intended primarily as an interaction on mobile devices where they can be used as
 <p>- <strong>Java</strong>: <em>com.epam.jdi.light.elements.complex.table.Table</em></p>
 
 <p><img src="images/angular/sorting_header.png" alt="Sort Header" /> </p>
+
+<p>List of the available <strong>Sorting Header</strong> methods:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>is()</strong></td>
+<td>Assert action</td>
+<td>Assert</td>
+</tr>
+<tr>
+<td><strong>getTableHeaders()</strong></td>
+<td>Get table headers</td>
+<td>WebList</td>
+</tr>
+<tr>
+<td><strong>clickButtonByText(String text)</strong></td>
+<td>Get header with by text</td>
+<td>void</td>
+</tr>
+</tbody></table>
 <pre class="highlight html tab-html"><code> <span class="nt">&lt;a</span> <span class="na">_ngcontent-poo-c363=</span><span class="s">""</span> <span class="na">href=</span><span class="s">"https://material.angular.io/components/sort/overview"</span><span class="nt">&gt;</span> Sorting overview <span class="nt">&lt;/a&gt;</span>
 </code></pre><pre class="highlight java tab-java"><code><span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">DESSERT</span> <span class="o">=</span> <span class="s">"Dessert (100g)"</span><span class="o">;</span>
 <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">CALORIES</span> <span class="o">=</span> <span class="s">"Calories"</span><span class="o">;</span>

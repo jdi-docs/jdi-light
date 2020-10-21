@@ -9491,6 +9491,14 @@ public void turnOnOffNodeItemTest() {
 **get(int index)** | Select label by index | Label 
 **show()** | Scroll to element | void 
 **text(String text)** | Check whether a text matches a pattern | TextAssert 
+**expand(String nodeName)** | Expand node of tree by name | void 
+**collapse(String nodeName)** | Collapse expanded node of tree by name | void 
+**isExpanded(String nodeName)** | Shows that tree has expanded by name | boolean 
+**isCollapsed(String nodeName)** | Shows that tree has collapsed by name | boolean 
+**waitExpandTree(UIElement node)** | wait while work progress bar | void 
+**getNodeItems(int level)** | get list of items in the expanded node | List<UIElement>
+**getCheckbox(int level, String name)** | get element of checkbox from expanded level | Checkbox
+**addNode(int level, String rootName, String newName)** | add new node at expanded level | void
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/MaterialTreeTests.java" target="_blank"Tree java tests examples</a>
 

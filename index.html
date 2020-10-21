@@ -16157,6 +16157,46 @@ See an example with HTML code describing basic Tree element.</p>
 <td>Check whether a text matches a pattern</td>
 <td>TextAssert</td>
 </tr>
+<tr>
+<td><strong>expand(String nodeName)</strong></td>
+<td>Expand node of tree by name</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>collapse(String nodeName)</strong></td>
+<td>Collapse expanded node of tree by name</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>isExpanded(String nodeName)</strong></td>
+<td>Shows that tree has expanded by name</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isCollapsed(String nodeName)</strong></td>
+<td>Shows that tree has collapsed by name</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>waitExpandTree(UIElement node)</strong></td>
+<td>wait while work progress bar</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>getNodeItems(int level)</strong></td>
+<td>get list of items in the expanded node</td>
+<td>List<UIElement></td>
+</tr>
+<tr>
+<td><strong>getCheckbox(int level, String name)</strong></td>
+<td>get element of checkbox from expanded level</td>
+<td>Checkbox</td>
+</tr>
+<tr>
+<td><strong>addNode(int level, String rootName, String newName)</strong></td>
+<td>add new node at expanded level</td>
+<td>void</td>
+</tr>
 </tbody></table>
 <h4 id='598b99e4d3'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/MaterialTreeTests.java" target="_blank"Tree java tests examples</a></h4><h3 id='chips'>Chips</h3><h4 id='chips-overview'><a href="https://material.angular.io/components/chips/overview" target="_blank">Chips overview</a></h4>
 <p>Chips are located in the following class:</p>

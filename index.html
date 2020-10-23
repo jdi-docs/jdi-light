@@ -35708,6 +35708,11 @@ Level <em>STEP</em> can show business-related information in the console output,
 <td>driver.remote.url=http://localhost:4444/wd/hub</td>
 </tr>
 <tr>
+<td><strong>driver.remote.run</strong></td>
+<td>Explicitly specifies whether JDI should use local or remote driver. If not set, JDI would try to select driver based on presence of driver.remote.url and path to local driver</td>
+<td>driver.remote.run=true</td>
+</tr>
+<tr>
 <td><strong>drivers.folder</strong></td>
 <td>Set up the driver folder. Use only absolute path. If no parameter specified default value is &quot;resources\drivers&quot;. Note there is no filename specifying  required, use &#39;driver&#39; property instead</td>
 <td>drivers.folder = C:\Selenium</td>

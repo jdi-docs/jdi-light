@@ -32,7 +32,7 @@ We can change the default settings placed in the <b>test.properties</b> file (<i
 ```java
 src/test/resources/test.properties
 driver=chrome
-#drivers.version=2.23 | LATEST
+#driver.version=2.23 | LATEST
 #timeout.wait.element=10
 #timeout.wait.page=30
 domain=https://jdi-testing.github.io/jdi-light/
@@ -42,7 +42,7 @@ domain=https://jdi-testing.github.io/jdi-light/
 ```
 Let’s look at some of them in details: <br/>
 - **driver** –  we can set up where we would like to run our tests. Some common options are: <i>chrome</i>, <i>firefox</i>, <i>ie</i>… or we can just replace it with _${driver}_ and read the exact driver name from command line<br/>
-- **drivers.version** – by default JDI Light will download the latest version of a driver for us, but if we need a specific version we can put it here (in this case the framework will find and download exactly the version specified)<br/>
+- **driver.version** – by default JDI Light will download the latest version of a driver for us, but if we need a specific version we can put it here (in this case the framework will find and download exactly the version specified)<br/>
 - **timeout.wait.element** – timeout in seconds to wait for an element on the opened page. The default is 10 seconds<br/>
 - **timeout.wait.page** – JDI Light automatically defines a newly opened page and in this case will use this timeout (usually it is more than for an element). The default is 30 seconds<br/>
 - **domain** – web application root URL (used if we work with a single application in tests). Can be also read from the command line in the following way: _${domain}_ <br/>

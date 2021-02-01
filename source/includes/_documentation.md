@@ -1,4 +1,4 @@
-﻿# Documentation
+# Documentation
 ## Base Elements
 
 ### UIBaseElement
@@ -26262,7 +26262,7 @@ We can change default settings placed in the test.properties file (src/test/reso
 **driver.remote.url** | <a href="https://jdi-docs.github.io/jdi-light/?java#remote-test-runs">Tests can run on remote web servers<a> | driver.remote.url=http://localhost:4444/wd/hub
 **driver.remote.run** | Explicitly specifies whether JDI should use local or remote driver. If not set, JDI would try to select driver based on presence of driver.remote.url and path to local driver | driver.remote.run=true
 **drivers.folder** | Set up the driver folder. Use only absolute path. If no parameter specified default value is "resources\drivers". Note there is no filename specifying  required, use 'driver' property instead  | drivers.folder = C:\\Selenium
-**drivers.version** | By default, JDI Light will download the latest version of the driver for us, but if we need a specific version we can put it here (in this case the framework will find and download exactly the version specified) | driver.version = LATEST<br>driver.version = PRELATEST<br> driver.version = 2.23.0 <br> driver.version=3.0.0-beta4
+**driver.version** | By default, JDI Light will download the latest version of the driver for us, but if we need a specific version we can put it here (in this case the framework will find and download exactly the version specified) | driver.version = LATEST<br>driver.version = PRELATEST<br> driver.version = 2.23.0 <br> driver.version=3.0.0-beta4
 **ff.capabilities.path** | Path to the Firefox properties file. File should be located in (src/test/resources). | ff.capabilities.path=ff.properties
 **ie.capabilities.path** | Path to the Internet Explorer properties file. File should be located in (src/test/resources). | ie.capabilities.path=ie.properties
 **timeout.wait.element** | Wait for an element on the opened page, by default = 10 seconds. Valid values are integers from 0 to 999. | timeout.wait.element = 20

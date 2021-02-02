@@ -2773,10 +2773,10 @@ JDI Locator: <code>.nav-menu [data-role=header][3]</code></br></p>
 </tr>
 </tbody></table>
 <h3 id='weblist'>WebList</h3><h2 id='extended-selenium-features'>Extended Selenium features</h2><h3 id='waitafermethod'>WaitAferMethod</h3>
-<p>You can specify the timeout that JDI will wait ater actions
-@WaitAfterAction(&quot;getText&quot;, 3) - will wait after action getText() for 3 seconds
-default timeout = 1 second so you can mit it
-if methodName is empty it will be applied to all &quot;action&quot; methods (taht not get something). List of methods depend on element, for example click() or check(&quot;Gold&quot;) or select(&quot;blue&quot;)</p>
+<p>You can specify the timeout that JDI will wait ater actions<br>
+@WaitAfterAction(&quot;getText&quot;, 3) - will wait after action getText() for 3 seconds<br>
+default timeout = 1 second so you can mit it<br>
+if methodName is empty it will be applied to all &quot;action&quot; methods (taht not get something). List of methods depend on element, for example click() or check(&quot;Gold&quot;) or select(&quot;blue&quot;)<br></p>
 <pre class="highlight java tab-java"><code>   <span class="nd">@WaitAfterMethod</span><span class="o">(</span><span class="s">"gettext"</span><span class="o">,</span> <span class="mi">3</span><span class="o">)</span>
    <span class="kd">public</span> <span class="n">Text</span> <span class="n">colorValue</span><span class="o">;</span>
 

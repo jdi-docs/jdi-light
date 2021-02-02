@@ -105,10 +105,10 @@ Aliases in Java JDI Light:
 
 ## Extended Selenium features
 ### WaitAferMethod
-You can specify the timeout that JDI will wait ater actions
-@WaitAfterAction("getText", 3) - will wait after action getText() for 3 seconds
-default timeout = 1 second so you can mit it
-if methodName is empty it will be applied to all "action" methods (taht not get something). List of methods depend on element, for example click() or check("Gold") or select("blue")
+You can specify the timeout that JDI will wait ater actions<br>
+@WaitAfterAction("getText", 3) - will wait after action getText() for 3 seconds<br>
+default timeout = 1 second so you can mit it<br>
+if methodName is empty it will be applied to all "action" methods (taht not get something). List of methods depend on element, for example click() or check("Gold") or select("blue")<br>
 
 ```java 
    @WaitAfterMethod("gettext", 3)

@@ -104,7 +104,29 @@ Aliases in Java JDI Light:
 
 
 ## Extended Selenium features
-TBD
+### WaitAferMethod
+You can specify the timeout that JDI will wait ater actions
+@WaitAfterAction("getText", 3) - will wait after action getText() for 3 seconds
+default timeout = 1 second so you can mit it
+if methodName is empty it will be applied to all "action" methods (taht not get something). List of methods depend on element, for example click() or check("Gold") or select("blue")
+
+```java 
+   @WaitAfterMethod("gettext", 3)
+   public Text colorValue;
+
+   @WaitAfterMethod(2)
+   public Dropdown detailsButton;
+   
+   @WaitAfterMethod
+   public Dropdown colors;
+...  
+   @Test
+   public void selectColor() {
+     detailsButton.click() - will wait ater click 2 seconds
+     colors.select("Gold"); - will wait ater select 3 seconds
+     assertEquals(colorValue.getText(), "Gold") - will wait ater getText 1 seconds
+   }
+ ```
 
 ## HTML5 Common elements
 

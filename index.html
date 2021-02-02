@@ -463,6 +463,11 @@
                   </li>
                   <li>
                     <a href="#extended-selenium-features" class="toc-h2 toc-link" data-title="Extended Selenium features">Extended Selenium features</a>
+                        <ul class="toc-list-h2">
+                            <li>
+								<a href="#waitafermethod" class="toc-h2 h3 toc-link" data-title="WaitAferMethod">WaitAferMethod</a>
+                            </li>
+                        </ul>
                   </li>
                   <li>
                     <a href="#html5-common-elements" class="toc-h2 toc-link" data-title="HTML5 Common elements">HTML5 Common elements</a>
@@ -2767,9 +2772,27 @@ JDI Locator: <code>.nav-menu [data-role=header][3]</code></br></p>
 <td>String</td>
 </tr>
 </tbody></table>
-<h3 id='weblist'>WebList</h3><h2 id='extended-selenium-features'>Extended Selenium features</h2>
-<p>TBD</p>
-<h2 id='html5-common-elements'>HTML5 Common elements</h2><h3 id='label'>Label</h3><pre class="highlight java tab-java"><code>
+<h3 id='weblist'>WebList</h3><h2 id='extended-selenium-features'>Extended Selenium features</h2><h3 id='waitafermethod'>WaitAferMethod</h3>
+<p>You can specify the timeout that JDI will wait ater actions
+@WaitAfterAction(&quot;getText&quot;, 3) - will wait after action getText() for 3 seconds
+default timeout = 1 second so you can mit it
+if methodName is empty it will be applied to all &quot;action&quot; methods (taht not get something). List of methods depend on element, for example click() or check(&quot;Gold&quot;) or select(&quot;blue&quot;)</p>
+<pre class="highlight java tab-java"><code>   <span class="nd">@WaitAfterMethod</span><span class="o">(</span><span class="s">"gettext"</span><span class="o">,</span> <span class="mi">3</span><span class="o">)</span>
+   <span class="kd">public</span> <span class="n">Text</span> <span class="n">colorValue</span><span class="o">;</span>
+
+   <span class="nd">@WaitAfterMethod</span><span class="o">(</span><span class="mi">2</span><span class="o">)</span>
+   <span class="kd">public</span> <span class="n">Dropdown</span> <span class="n">detailsButton</span><span class="o">;</span>
+
+   <span class="nd">@WaitAfterMethod</span>
+   <span class="kd">public</span> <span class="n">Dropdown</span> <span class="n">colors</span><span class="o">;</span>
+<span class="o">...</span>  
+   <span class="nd">@Test</span>
+   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">selectColor</span><span class="o">()</span> <span class="o">{</span>
+     <span class="n">detailsButton</span><span class="o">.</span><span class="na">click</span><span class="o">()</span> <span class="o">-</span> <span class="n">will</span> <span class="n">wait</span> <span class="n">ater</span> <span class="n">click</span> <span class="mi">2</span> <span class="n">seconds</span>
+     <span class="n">colors</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="s">"Gold"</span><span class="o">);</span> <span class="o">-</span> <span class="n">will</span> <span class="n">wait</span> <span class="n">ater</span> <span class="n">select</span> <span class="mi">3</span> <span class="n">seconds</span>
+     <span class="nf">assertEquals</span><span class="o">(</span><span class="n">colorValue</span><span class="o">.</span><span class="na">getText</span><span class="o">(),</span> <span class="s">"Gold"</span><span class="o">)</span> <span class="o">-</span> <span class="n">will</span> <span class="n">wait</span> <span class="n">ater</span> <span class="n">getText</span> <span class="mi">1</span> <span class="n">seconds</span>
+   <span class="o">}</span>
+</code></pre><h2 id='html5-common-elements'>HTML5 Common elements</h2><h3 id='label'>Label</h3><pre class="highlight java tab-java"><code>
   <span class="c1">//In the next test Label is found from 'name' and 'disabledName' locators:</span>
 
   <span class="c1">// @FindBy(css = "#name")</span>

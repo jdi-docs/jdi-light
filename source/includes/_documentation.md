@@ -23862,6 +23862,50 @@ Note: domain is read from test.properties automatically. <br><br><br><br><br>
 [BDD feature test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bdd-no-po-tests/src/test/resources/features/JsonBasedPage.feature)
 <br><br><br>
 
+## Material UI elements
+
+### Checkbox 
+
+```java 
+    
+    @UI(".MuiCheckbox-root")
+    public Checkbox checkbox;
+
+    @Test
+    public void primaryCheckBoxTest() {
+        primaryCheckBoxPage.shouldBeOpened();
+        checkboxFrame.checkbox.is().enabled();
+        checkboxFrame.checkbox.check();
+        checkboxFrame.checkbox.is().checked();
+        checkboxFrame.checkbox.uncheck();
+        checkboxFrame.checkbox.is().unChecked();
+    }
+    
+    @Test
+    public void disabledCheckboxTest() {
+        nputCheckboxDisabled.shouldBeOpened();
+        checkboxFrame.checkbox.is().disabled();
+    }
+```
+
+#### <a href="https://material-ui.com/components/checkboxes/</a>
+
+Checkbox is located in the following class:
+
+   - __Java__: _com.epam.jdi.light.material.elements.inputs.Checkbox_
+   
+
+![Checkbox](../path/to/Checkbox.png)
+
+|Method | Description | Return Type
+--- | --- | ---
+**is()** | Verify state | boolean
+**isDisabled()** | Verify state | boolean
+**check()** | Checkbox selected | void
+**uncheck()** | Checkbox not selected | void
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/CheckBoxTests.java" target="_blank">Here you can find Checkbox tests</a>
+
 ## JDI Light BDD Steps
 
 ### Label 

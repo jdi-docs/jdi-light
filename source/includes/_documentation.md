@@ -23888,14 +23888,14 @@ Note: domain is read from test.properties automatically. <br><br><br><br><br>
     }
 ```
 
-#### <a href="https://material-ui.com/components/checkboxes/</a>
+#### https://material-ui.com/components/checkboxes/
 
 Checkbox is located in the following class:
 
    - __Java__: _com.epam.jdi.light.material.elements.inputs.Checkbox_
    
 
-![Checkbox](../path/to/Checkbox.png)
+![Checkbox](..source/images/material-ui/Checkbox.png)
 
 |Method | Description | Return Type
 --- | --- | ---

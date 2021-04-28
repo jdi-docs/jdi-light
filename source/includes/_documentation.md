@@ -23906,6 +23906,95 @@ Checkbox is located in the following class:
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/CheckBoxTests.java" target="_blank">Here you can find Checkbox tests</a>
 
+### Transitions
+
+```java 
+    @UI("//h2[text()='Grow']/following::div[contains(@class,'MuiPaper-root')]")
+    public static List<UIElement> growSlideTransitions;
+
+    @UI("//h2[text()='Zoom']/following::div[contains(@class,'MuiPaper-root')]")
+    public static List<UIElement> zoomTransitions;
+
+    @UI("//h1[text()='Transitions']/following::div[contains(@class,'MuiCollapse-container')]")
+    public static List<UIElement> collapseFadeTransitions;
+
+    @UI("//span[@class='MuiSwitch-root']")
+    public static List<Checkbox> checkboxes;
+    
+    @Test
+    public void collapseDisplayTest() {
+      Timer timer = new Timer(2000L);
+
+      collapseFadeTransitions.get(1).has().classValue(not(containsString("MuiCollapse-entered")));
+      collapseFadeTransitions.get(2).has().classValue(not(containsString("MuiCollapse-entered")));
+
+      checkboxes.get(1).check();
+
+      timer.wait(() -> collapseFadeTransitions.get(1).hasClass(containsString("MuiCollapse-entered").toString()));
+      collapseFadeTransitions.get(1).has().classValue(containsString("MuiCollapse-entered"));
+      collapseFadeTransitions.get(2).has().classValue(containsString("MuiCollapse-entered"));
+    }
+
+    @Test
+    public void fadeDisplayTest() {
+      Timer timer = new Timer(2000L);
+      collapseFadeTransitions.get(3).has().classValue(not(containsString("MuiCollapse-entered")));
+      collapseFadeTransitions.get(4).has().classValue(not(containsString("MuiCollapse-entered")));
+
+      checkboxes.get(2).check();
+      timer.wait(() -> collapseFadeTransitions.get(3).hasClass(containsString("MuiCollapse-entered").toString()));
+      collapseFadeTransitions.get(3).has().classValue(containsString("MuiCollapse-entered"));
+      collapseFadeTransitions.get(4).has().classValue(containsString("MuiCollapse-entered"));
+    }
+
+    @Test
+    public void growDisplayTest() {
+      growSlideTransitions.get(1).is().hidden();
+      growSlideTransitions.get(2).is().hidden();
+
+      checkboxes.get(3).check();
+
+      growSlideTransitions.get(1).is().displayed();
+      growSlideTransitions.get(2).is().displayed();
+    }
+
+    @Test
+    public void slideDisplayTest() {
+      growSlideTransitions.get(3).is().hidden();
+
+      checkboxes.get(4).check();
+
+      growSlideTransitions.get(3).is().displayed();
+    }
+
+    @Test
+    public void zoomDisplayTest() {
+      Timer timer = new Timer(2000L);
+      zoomTransitions.get(1).is().hidden();
+      zoomTransitions.get(2).is().hidden();
+
+      checkboxes.get(5).check();
+
+      zoomTransitions.get(1).is().displayed();
+      timer.wait(() -> zoomTransitions.get(2).isDisplayed());
+      zoomTransitions.get(2).is().displayed();
+    }
+```
+
+#### https://material-ui.com/components/transitions/
+
+|Method | Description | Return Type
+--- | --- | ---
+**is()** | Verify state | boolean
+**has()** | Verify state | boolean
+**displayed()** | Verify state | boolean
+**classValue()** | Verify state | boolean
+**isDisplayed()** | Verify state for wait | boolean
+**check()** | Checkbox selected | void
+**hidden()** | Element is hidden | void
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/TransitionTests.java" target="_blank">Here you can find Transitions tests</a>
+
 ## JDI Light BDD Steps
 
 ### Label 

@@ -23904,7 +23904,7 @@ Checkbox is located in the following class:
 **check()** | Checkbox selected | void
 **uncheck()** | Checkbox not selected | void
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/CheckBoxTests.java" target="_blank">Here you can find Checkbox tests</a>
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/CheckboxTests.java" target="_blank">Here you can find Checkbox tests</a>
 
 ### Box
 The Box component serves as a wrapper component for most of the CSS utility needs.
@@ -23936,7 +23936,7 @@ Java example code for the Button box:
 #### https://material-ui.com/components/box/
 
 
-![Box](..source/images/material-ui/Checkbox.png)
+![Box](..source/images/material-ui/Box.png)
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -23944,7 +23944,48 @@ Java example code for the Button box:
 **isDisplayed()** | Verify state | boolean
 **click()** | Clicks on box | void
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/BoxTests.java" target="_blank">Here you can find Box tests</a>
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/BoxTests.java" target="_blank">Here you can find Box tests</a>
+
+### Grid
+The grid creates visual consistency between layouts while allowing flexibility across a wide variety of designs. Material Design’s responsive UI is based on a 12-column grid layout.
+
+```java 
+    
+    @UI(".MuiContainer-root")
+    public static UIElement rootGrid;
+
+    @Test
+    public void gridTest() {
+        rootGrid.is().displayed();
+        rootGrid.attr("class").contains("MuiContainer-maxWidthXl");
+        basicGrid.is().displayed();
+        complexGrid.is().displayed();
+    }
+
+    @Test
+    public void buttonsOnGridTest() {
+        firstButton.is().displayed();
+        secondButton.is().displayed();
+        thirdButton.is().displayed();
+        fourthButton.is().displayed();
+        firstButton.click();
+        secondButton.click();
+        thirdButton.click();
+        fourthButton.click();
+    }
+```
+
+#### https://material-ui.com/components/grid/
+
+
+![Grid](..source/images/material-ui/Grid.png)
+
+|Method | Description | Return Type
+--- | --- | ---
+**is()** | Verify state | boolean
+**isDisplayed()** | Verify state | boolean
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/GridTests.java" target="_blank">Here you can find Grid tests</a>
 
 ### Transitions
 

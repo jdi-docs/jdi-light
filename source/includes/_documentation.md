@@ -24035,6 +24035,343 @@ Java example code for the Button box:
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/TransitionTests.java" target="_blank">Here you can find Transitions tests</a>
 
+### Material Icons
+
+```java 
+    
+    @UI("#defaultAccessAlarm")
+    public static UIElement defaultAlarm;
+
+    @UI("#largeAccessAlarm")
+    public static UIElement largeAlarm;
+
+    @UI("#secondaryAccessAlarm")
+    public static UIElement secondaryAlarm;
+
+    @UI("#miconLastClick")
+    public static UIElement lastClick;
+
+    @UI("#miconLastHover")
+    public static UIElement lastHover;
+    
+    private void lastClickTextIs(String text) {
+        lastClick.is().text(String.format("Last click:%s", text));
+    }
+
+    private void lastHoverTextIs(String text) {
+        lastHover.is().text(String.format("Last hover:%s", text));
+    }
+
+    @Test
+    public void sizeAndColorTest() {
+        defaultAlarm.is().displayed();
+        largeAlarm.is().displayed();
+        secondaryAlarm.is().displayed();
+        assertTrue(largeAlarm.hasClass("MuiSvgIcon-fontSizeLarge"));
+        assertTrue(secondaryAlarm.hasClass("MuiSvgIcon-colorSecondary"));
+    }
+
+    @Test
+    public void defaultMaterialIconTest() {
+        lastClickTextIs("");
+        lastHoverTextIs("");
+
+        defaultAlarm.hover();
+        lastClickTextIs("");
+        lastHoverTextIs(" default");
+
+        defaultAlarm.click();
+        lastClickTextIs(" default");
+        lastHoverTextIs(" default");
+
+        largeAlarm.hover();
+        lastClickTextIs(" default");
+        lastHoverTextIs(" large");
+
+        largeAlarm.click();
+        lastClickTextIs(" large");
+        lastHoverTextIs(" large");
+
+        secondaryAlarm.hover();
+        lastClickTextIs(" large");
+        lastHoverTextIs(" secondary");
+
+        secondaryAlarm.click();
+        lastClickTextIs(" secondary");
+        lastHoverTextIs(" secondary");
+    }
+```
+
+#### https://material-ui.com/components/material-icons/
+
+|Method | Description | Return Type
+--- | --- | ---
+**is()** | Verify state | boolean
+**displayed()** | Verify state | boolean
+**hasClass()** | Verify state | boolean
+**text()** | Verify text | boolean
+**click()** | Clicks on box | void
+**hover()** | Hovers on box | void
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/MaterialIconTests.java" target="_blank">Here you can find Material Icons tests</a>
+
+### Icons
+
+```java 
+    
+    @UI("//div[contains(@class, 'MuiGrid-grid-xs-8')][1]/*[name()='svg']")
+    public static List<UIElement> filled;
+
+    @UI("//div[contains(@class, 'MuiGrid-grid-xs-8')][2]/*[name()='svg']")
+    public static List<UIElement> outlined;
+
+    @UI("//div[contains(@class, 'MuiGrid-grid-xs-8')][3]/*[name()='svg']")
+    public static List<UIElement> rounded;
+
+    @UI("//div[contains(@class, 'MuiGrid-grid-xs-8')][4]/*[name()='svg']")
+    public static List<UIElement> twoTone;
+
+    @UI("//div[contains(@class, 'MuiGrid-grid-xs-8')][5]/*[name()='svg']")
+    public static List<UIElement> sharp;
+
+    @UI("//div[contains(@class, 'MuiGrid-grid-xs-8')][6]/*[name()='svg']")
+    public static List<UIElement> edgeCase;
+
+    @UI("#simpleLastClick")
+    public static Text simpleLastClick;
+
+    @UI("#simpleLastHover")
+    public static Text simpleLastHover;
+
+    @UI("//h2[text()='Color']/following::*[name()='svg']")
+    public static List<UIElement> color;
+
+    @UI("#colorLastClick")
+    public static Text colorLastClick;
+
+    @UI("#colorLastHover")
+    public static Text colorLastHover;
+
+    @UI("//h2[text()='Size']/following::*[name()='svg']")
+    public static List<UIElement> size;
+
+    @UI("#sizeLastClick")
+    public static Text sizeLastClick;
+
+    @UI("#sizeLastHover")
+    public static Text sizeLastHover;
+    
+    private void lastClickHoverTextsIs(Text lastClick, Text lastHover, List<String> txt) {
+        lastClick.is().text(String.format("Last click:%s", txt.get(0)));
+        lastHover.is().text(String.format("Last hover:%s", txt.get(1)));
+    }
+
+    @Test
+    public void simpleIconsTest() {
+        filled.forEach(el -> el.is().displayed());
+        outlined.forEach(el -> el.is().displayed());
+        rounded.forEach(el -> el.is().displayed());
+        twoTone.forEach(el -> el.is().displayed());
+        sharp.forEach(el -> el.is().displayed());
+        edgeCase.forEach(el -> el.is().displayed());
+        lastClickHoverTextsIs(simpleLastClick, simpleLastHover, Arrays.asList("", ""));
+
+        Map<UIElement, List<List<String>>> allSimpleIcons = new LinkedHashMap<>();
+        allSimpleIcons.put(filled.get(1), Arrays.asList(Arrays.asList("", " DeleteIcon"), Arrays.asList(" DeleteIcon", " DeleteIcon")));
+        allSimpleIcons.put(filled.get(2), Arrays.asList(Arrays.asList(" DeleteIcon", " DeleteForeverIcon"), Arrays.asList(" DeleteForeverIcon", " DeleteForeverIcon")));
+        allSimpleIcons.put(outlined.get(1), Arrays.asList(Arrays.asList(" DeleteForeverIcon", " DeleteOutlinedIcon"), Arrays.asList(" DeleteOutlinedIcon", " DeleteOutlinedIcon")));
+        allSimpleIcons.put(outlined.get(2), Arrays.asList(Arrays.asList(" DeleteOutlinedIcon", " DeleteForeverOutlinedIcon"), Arrays.asList(" DeleteForeverOutlinedIcon", " DeleteForeverOutlinedIcon")));
+        allSimpleIcons.put(rounded.get(1), Arrays.asList(Arrays.asList(" DeleteForeverOutlinedIcon", " DeleteRoundedIcon"), Arrays.asList(" DeleteRoundedIcon", " DeleteRoundedIcon")));
+        allSimpleIcons.put(rounded.get(2), Arrays.asList(Arrays.asList(" DeleteRoundedIcon", " DeleteForeverRoundedIcon"), Arrays.asList(" DeleteForeverRoundedIcon", " DeleteForeverRoundedIcon")));
+        allSimpleIcons.put(twoTone.get(1), Arrays.asList(Arrays.asList(" DeleteForeverRoundedIcon", " DeleteTwoToneIcon"), Arrays.asList(" DeleteTwoToneIcon", " DeleteTwoToneIcon")));
+        allSimpleIcons.put(twoTone.get(2), Arrays.asList(Arrays.asList(" DeleteTwoToneIcon", " DeleteForeverTwoToneIcon"), Arrays.asList(" DeleteForeverTwoToneIcon", " DeleteForeverTwoToneIcon")));
+        allSimpleIcons.put(sharp.get(1), Arrays.asList(Arrays.asList(" DeleteForeverTwoToneIcon", " DeleteSharpIcon"), Arrays.asList(" DeleteSharpIcon", " DeleteSharpIcon")));
+        allSimpleIcons.put(sharp.get(2), Arrays.asList(Arrays.asList(" DeleteSharpIcon", " DeleteForeverSharpIcon"), Arrays.asList(" DeleteForeverSharpIcon", " DeleteForeverSharpIcon")));
+        allSimpleIcons.put(edgeCase.get(1), Arrays.asList(Arrays.asList(" DeleteForeverSharpIcon", " ThreeDRotationIcon"), Arrays.asList(" ThreeDRotationIcon", " ThreeDRotationIcon")));
+        allSimpleIcons.put(edgeCase.get(2), Arrays.asList(Arrays.asList(" ThreeDRotationIcon", " FourKIcon"), Arrays.asList(" FourKIcon", " FourKIcon")));
+        allSimpleIcons.put(edgeCase.get(3), Arrays.asList(Arrays.asList(" FourKIcon", " ThreeSixtyIcon"), Arrays.asList(" ThreeSixtyIcon", " ThreeSixtyIcon")));
+
+        allSimpleIcons.forEach(
+                (k, v) -> {
+                    k.hover();
+                    lastClickHoverTextsIs(simpleLastClick, simpleLastHover, v.get(0));
+                    k.click();
+                    lastClickHoverTextsIs(simpleLastClick, simpleLastHover, v.get(1));
+                }
+        );
+    }
+
+    @Test
+    public void colorIconsTest() {
+        color.forEach(el -> el.is().displayed());
+        lastClickHoverTextsIs(colorLastClick, colorLastHover, Arrays.asList("", ""));
+
+        Map<UIElement, List<List<String>>> allColorIcons = new LinkedHashMap<>();
+        allColorIcons.put(color.get(1), Arrays.asList(Arrays.asList("", " default"), Arrays.asList(" default", " default")));
+        allColorIcons.put(color.get(2), Arrays.asList(Arrays.asList(" default", " primary"), Arrays.asList(" primary", " primary")));
+        allColorIcons.put(color.get(3), Arrays.asList(Arrays.asList(" primary", " secondary"), Arrays.asList(" secondary", " secondary")));
+        allColorIcons.put(color.get(4), Arrays.asList(Arrays.asList(" secondary", " action"), Arrays.asList(" action", " action")));
+        allColorIcons.put(color.get(5), Arrays.asList(Arrays.asList(" action", " disabled"), Arrays.asList(" disabled", " disabled")));
+        allColorIcons.put(color.get(6), Arrays.asList(Arrays.asList(" disabled", " green[500]"), Arrays.asList(" green[500]", " green[500]")));
+
+        allColorIcons.forEach(
+                (k, v) -> {
+                    k.hover();
+                    lastClickHoverTextsIs(colorLastClick, colorLastHover, v.get(0));
+                    k.click();
+                    lastClickHoverTextsIs(colorLastClick, colorLastHover, v.get(1));
+                }
+        );
+    }
+
+    @Test
+    public void sizeIconsTest() {
+        size.forEach(el -> el.is().displayed());
+        lastClickHoverTextsIs(sizeLastClick, sizeLastHover, Arrays.asList("", ""));
+
+        Map<UIElement, List<List<String>>> allSizeIcons = new LinkedHashMap<>();
+        allSizeIcons.put(size.get(1), Arrays.asList(Arrays.asList("", " small size"), Arrays.asList(" small size", " small size")));
+        allSizeIcons.put(size.get(2), Arrays.asList(Arrays.asList(" small size", " default size"), Arrays.asList(" default size", " default size")));
+        allSizeIcons.put(size.get(3), Arrays.asList(Arrays.asList(" default size", " large size"), Arrays.asList(" large size", " large size")));
+        allSizeIcons.put(size.get(4), Arrays.asList(Arrays.asList(" large size", " 40 size"), Arrays.asList(" 40 size", " 40 size")));
+
+        allSizeIcons.forEach(
+                (k, v) -> {
+                    k.hover();
+                    lastClickHoverTextsIs(sizeLastClick, sizeLastHover, v.get(0));
+                    k.click();
+                    lastClickHoverTextsIs(sizeLastClick, sizeLastHover, v.get(1));
+                }
+        );
+    }
+```
+
+#### https://material-ui.com/components/icons/
+
+|Method | Description | Return Type
+--- | --- | ---
+**is()** | Verify state | boolean
+**displayed()** | Verify state | boolean
+**text()** | Verify text | boolean
+**click()** | Clicks on box | void
+**hover()** | Hovers on box | void
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/IconTests.java" target="_blank">Here you can find Icons tests</a>
+
+### Floating Action Button
+
+```java 
+    
+ @UI("//div[@id='basicActionBtns']/button")
+    public static List<Button> basicBtns;
+
+    @UI("//button[@aria-label='add']")
+    public static Button addBtn;
+
+    @UI("//button[@aria-label='edit']")
+    public static Button editBtn;
+
+    @UI("//button[contains(@class,'MuiFab-extended')]")
+    public static Button extendedBtn;
+
+    @UI("//button[@aria-label='like']")
+    public static Button disabledBtn;
+
+    @UI("//button[contains(@id,'action-tab')]")
+    public static List<Button> scrollBtns;
+
+    @UI("//button[@aria-label='Add']")
+    public static Button addButton;
+
+    @UI("//button[@aria-label='Edit']")
+    public static Button editButton;
+
+    @UI("//button[@aria-label='Expand']")
+    public static Button expandButton;
+
+    @UI("#action-tabpanel-0")
+    public static UIElement itemNameOne;
+
+    @UI("#action-tabpanel-1")
+    public static UIElement itemNameTwo;
+
+    @UI("#action-tabpanel-2")
+    public static UIElement itemNameThree;
+
+    @UI("#basicActionBtnsLastClick")
+    public static Text basicBtnsLastClick;
+
+    @UI("#animatedActionBtnsLastClick")
+    public static Text animatedBtnsLastClick;
+    
+    private void lastClickTextIs(String text) {
+        lastClick.is().text(String.format("Last click:%s", text));
+    }
+
+    private void lastHoverTextIs(String text) {
+        lastHover.is().text(String.format("Last hover:%s", text));
+    }
+
+    @Test
+    public void basicButtonsTest() {
+        basicBtns.forEach(el -> el.is().displayed());
+        basicBtnsLastClick.is().text("Last click:");
+
+        addBtn.is().enabled();
+        addBtn.click();
+        basicBtnsLastClick.is().text("Last click: Add");
+
+        editBtn.is().enabled();
+        editBtn.click();
+        basicBtnsLastClick.is().text("Last click: Edit");
+
+        extendedBtn.is().enabled();
+        extendedBtn.click();
+        basicBtnsLastClick.is().text("Last click: Navigate");
+
+        disabledBtn.is().disabled();
+    }
+
+    @Test
+    public void animatedButtonsTest() {
+        Timer timer = new Timer(2000L);
+
+        scrollBtns.forEach(el -> el.is().displayed());
+        animatedBtnsLastClick.is().text("Last click:");
+
+        scrollBtns.get(1).click();
+        itemNameOne.is().text("Item One");
+        addButton.click();
+        animatedBtnsLastClick.is().text("Last click: Add");
+
+        scrollBtns.get(2).click();
+        itemNameTwo.is().text("Item Two");
+        timer.wait(() -> editButton.isDisplayed());
+        editButton.click();
+        animatedBtnsLastClick.is().text("Last click: Edit");
+
+        scrollBtns.get(3).click();
+        itemNameThree.is().text("Item Three");
+        timer.wait(() -> expandButton.isDisplayed());
+        expandButton.click();
+        animatedBtnsLastClick.is().text("Last click: Expand");
+    }
+```
+
+#### https://material-ui.com/components/floating-action-button/
+
+|Method | Description | Return Type
+--- | --- | ---
+**is()** | Verify state | boolean
+**displayed()** | Verify state | boolean
+**enabled()** | Verify state | boolean
+**disabled()** | Verify state | boolean
+**text()** | Verify text | boolean
+**click()** | Clicks on box | void
+**isDisplayed()** | Verify state for wait | boolean
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/FabTests.java" target="_blank">Here you can find Floating Action Button tests</a>
+
 ## JDI Light BDD Steps
 
 ### Label 

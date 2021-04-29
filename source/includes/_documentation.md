@@ -24037,8 +24037,7 @@ Java example code for the Button box:
 
 ### Material Icons
 
-```java 
-    
+```java     
     @UI("#defaultAccessAlarm")
     public static UIElement defaultAlarm;
 
@@ -24054,14 +24053,6 @@ Java example code for the Button box:
     @UI("#miconLastHover")
     public static UIElement lastHover;
     
-    private void lastClickTextIs(String text) {
-        lastClick.is().text(String.format("Last click:%s", text));
-    }
-
-    private void lastHoverTextIs(String text) {
-        lastHover.is().text(String.format("Last hover:%s", text));
-    }
-
     @Test
     public void sizeAndColorTest() {
         defaultAlarm.is().displayed();
@@ -24073,32 +24064,32 @@ Java example code for the Button box:
 
     @Test
     public void defaultMaterialIconTest() {
-        lastClickTextIs("");
-        lastHoverTextIs("");
+        lastClick.is().text("Last click:");
+        lastHover.is().text("Last hover:");
 
         defaultAlarm.hover();
-        lastClickTextIs("");
-        lastHoverTextIs(" default");
+        lastClick.is().text("Last click:");
+        lastHover.is().text("Last hover: default");
 
         defaultAlarm.click();
-        lastClickTextIs(" default");
-        lastHoverTextIs(" default");
+        lastClick.is().text("Last click: default");
+        lastHover.is().text("Last hover: default");
 
         largeAlarm.hover();
-        lastClickTextIs(" default");
-        lastHoverTextIs(" large");
+        lastClick.is().text("Last click: default");
+        lastHover.is().text("Last hover: large");
 
         largeAlarm.click();
-        lastClickTextIs(" large");
-        lastHoverTextIs(" large");
+        lastClick.is().text("Last click: large");
+        lastHover.is().text("Last hover: large");
 
         secondaryAlarm.hover();
-        lastClickTextIs(" large");
-        lastHoverTextIs(" secondary");
+        lastClick.is().text("Last click: large");
+        lastHover.is().text("Last hover: secondary");
 
         secondaryAlarm.click();
-        lastClickTextIs(" secondary");
-        lastHoverTextIs(" secondary");
+        lastClick.is().text("Last click: secondary");
+        lastHover.is().text("Last hover: secondary");
     }
 ```
 
@@ -24117,8 +24108,7 @@ Java example code for the Button box:
 
 ### Icons
 
-```java 
-    
+```java     
     @UI("//div[contains(@class, 'MuiGrid-grid-xs-8')][1]/*[name()='svg']")
     public static List<UIElement> filled;
 
@@ -24161,11 +24151,6 @@ Java example code for the Button box:
     @UI("#sizeLastHover")
     public static Text sizeLastHover;
     
-    private void lastClickHoverTextsIs(Text lastClick, Text lastHover, List<String> txt) {
-        lastClick.is().text(String.format("Last click:%s", txt.get(0)));
-        lastHover.is().text(String.format("Last hover:%s", txt.get(1)));
-    }
-
     @Test
     public void simpleIconsTest() {
         filled.forEach(el -> el.is().displayed());
@@ -24174,7 +24159,8 @@ Java example code for the Button box:
         twoTone.forEach(el -> el.is().displayed());
         sharp.forEach(el -> el.is().displayed());
         edgeCase.forEach(el -> el.is().displayed());
-        lastClickHoverTextsIs(simpleLastClick, simpleLastHover, Arrays.asList("", ""));
+        simpleLastClick.is().text("Last click:");
+        simpleLastHover.is().text("Last hover:");
 
         Map<UIElement, List<List<String>>> allSimpleIcons = new LinkedHashMap<>();
         allSimpleIcons.put(filled.get(1), Arrays.asList(Arrays.asList("", " DeleteIcon"), Arrays.asList(" DeleteIcon", " DeleteIcon")));
@@ -24194,9 +24180,11 @@ Java example code for the Button box:
         allSimpleIcons.forEach(
                 (k, v) -> {
                     k.hover();
-                    lastClickHoverTextsIs(simpleLastClick, simpleLastHover, v.get(0));
+                    simpleLastClick.is().text(String.format("Last click:%s", v.get(0).get(0)));
+                    simpleLastHover.is().text(String.format("Last hover:%s", v.get(0).get(1)));
                     k.click();
-                    lastClickHoverTextsIs(simpleLastClick, simpleLastHover, v.get(1));
+                    simpleLastClick.is().text(String.format("Last click:%s", v.get(1).get(0)));
+                    simpleLastHover.is().text(String.format("Last hover:%s", v.get(1).get(1)));
                 }
         );
     }
@@ -24204,7 +24192,8 @@ Java example code for the Button box:
     @Test
     public void colorIconsTest() {
         color.forEach(el -> el.is().displayed());
-        lastClickHoverTextsIs(colorLastClick, colorLastHover, Arrays.asList("", ""));
+        colorLastClick.is().text("Last click:");
+        colorLastHover.is().text("Last hover:");
 
         Map<UIElement, List<List<String>>> allColorIcons = new LinkedHashMap<>();
         allColorIcons.put(color.get(1), Arrays.asList(Arrays.asList("", " default"), Arrays.asList(" default", " default")));
@@ -24217,9 +24206,11 @@ Java example code for the Button box:
         allColorIcons.forEach(
                 (k, v) -> {
                     k.hover();
-                    lastClickHoverTextsIs(colorLastClick, colorLastHover, v.get(0));
+                    colorLastClick.is().text(String.format("Last click:%s", v.get(0).get(0)));
+                    colorLastHover.is().text(String.format("Last hover:%s", v.get(0).get(1)));
                     k.click();
-                    lastClickHoverTextsIs(colorLastClick, colorLastHover, v.get(1));
+                    colorLastClick.is().text(String.format("Last click:%s", v.get(1).get(0)));
+                    colorLastHover.is().text(String.format("Last hover:%s", v.get(1).get(1)));
                 }
         );
     }
@@ -24227,7 +24218,8 @@ Java example code for the Button box:
     @Test
     public void sizeIconsTest() {
         size.forEach(el -> el.is().displayed());
-        lastClickHoverTextsIs(sizeLastClick, sizeLastHover, Arrays.asList("", ""));
+        sizeLastClick.is().text("Last click:");
+        sizeLastHover.is().text("Last hover:");
 
         Map<UIElement, List<List<String>>> allSizeIcons = new LinkedHashMap<>();
         allSizeIcons.put(size.get(1), Arrays.asList(Arrays.asList("", " small size"), Arrays.asList(" small size", " small size")));
@@ -24238,9 +24230,11 @@ Java example code for the Button box:
         allSizeIcons.forEach(
                 (k, v) -> {
                     k.hover();
-                    lastClickHoverTextsIs(sizeLastClick, sizeLastHover, v.get(0));
+                    sizeLastClick.is().text(String.format("Last click:%s", v.get(0).get(0)));
+                    sizeLastHover.is().text(String.format("Last hover:%s", v.get(0).get(1)));
                     k.click();
-                    lastClickHoverTextsIs(sizeLastClick, sizeLastHover, v.get(1));
+                    sizeLastClick.is().text(String.format("Last click:%s", v.get(1).get(0)));
+                    sizeLastHover.is().text(String.format("Last hover:%s", v.get(1).get(1)));
                 }
         );
     }
@@ -24260,9 +24254,8 @@ Java example code for the Button box:
 
 ### Floating Action Button
 
-```java 
-    
- @UI("//div[@id='basicActionBtns']/button")
+```java     
+    @UI("//div[@id='basicActionBtns']/button")
     public static List<Button> basicBtns;
 
     @UI("//button[@aria-label='add']")

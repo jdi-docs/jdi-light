@@ -23906,6 +23906,46 @@ Checkbox is located in the following class:
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/CheckBoxTests.java" target="_blank">Here you can find Checkbox tests</a>
 
+### Box
+The Box component serves as a wrapper component for most of the CSS utility needs.
+Java example code for the Button box:
+
+```java 
+    
+    @UI("//button[contains(@class,'MuiButton-contained')]")
+    public Button containedBox;
+
+    @Test
+    public void containedBoxTest() {
+        Timer timer = new Timer(1000L);
+        timer.wait(() -> containedBox.isDisplayed());
+        containedBox.click();
+        containedBox.is().text("FIRST BUTTON");
+        lastClickContent.is().text("You clicked First button");
+    }
+
+    @Test
+    public void outlinedBoxTest() {
+        outlinedBox.is().displayed();
+        outlinedBox.click();
+        outlinedBox.is().text("SECOND BUTTON");
+        lastClickContent.is().text("You clicked Second button");
+    }
+```
+
+#### https://material-ui.com/components/box/
+
+
+![Box](..source/images/material-ui/Checkbox.png)
+
+|Method | Description | Return Type
+--- | --- | ---
+**is()** | Verify state | boolean
+**isDisplayed()** | Verify state | boolean
+**click()** | Clicks on box | void
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/BoxTests.java" target="_blank">Here you can find Box tests</a>
+
 ## JDI Light BDD Steps
 
 ### Label 

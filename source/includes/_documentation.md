@@ -23916,15 +23916,6 @@ Java example code for the Button box:
     public Button containedBox;
 
     @Test
-    public void containedBoxTest() {
-        Timer timer = new Timer(1000L);
-        timer.wait(() -> containedBox.isDisplayed());
-        containedBox.click();
-        containedBox.is().text("FIRST BUTTON");
-        lastClickContent.is().text("You clicked First button");
-    }
-
-    @Test
     public void outlinedBoxTest() {
         outlinedBox.is().displayed();
         outlinedBox.click();
@@ -23941,8 +23932,9 @@ Java example code for the Button box:
 |Method | Description | Return Type
 --- | --- | ---
 **is()** | Verify state | boolean
-**isDisplayed()** | Verify state | boolean
 **click()** | Clicks on box | void
+**displayed()** | Verify state | void
+**text()** | Verify text | void
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/BoxTests.java" target="_blank">Here you can find Box tests</a>
 
@@ -23951,9 +23943,6 @@ Java example code for the Button box:
 ```java 
     @UI("//h2[text()='Grow']/following::div[contains(@class,'MuiPaper-root')]")
     public static List<UIElement> growSlideTransitions;
-
-    @UI("//h2[text()='Zoom']/following::div[contains(@class,'MuiPaper-root')]")
-    public static List<UIElement> zoomTransitions;
 
     @UI("//h1[text()='Transitions']/following::div[contains(@class,'MuiCollapse-container')]")
     public static List<UIElement> collapseFadeTransitions;
@@ -23976,18 +23965,6 @@ Java example code for the Button box:
     }
 
     @Test
-    public void fadeDisplayTest() {
-      Timer timer = new Timer(2000L);
-      collapseFadeTransitions.get(3).has().classValue(not(containsString("MuiCollapse-entered")));
-      collapseFadeTransitions.get(4).has().classValue(not(containsString("MuiCollapse-entered")));
-
-      checkboxes.get(2).check();
-      timer.wait(() -> collapseFadeTransitions.get(3).hasClass(containsString("MuiCollapse-entered").toString()));
-      collapseFadeTransitions.get(3).has().classValue(containsString("MuiCollapse-entered"));
-      collapseFadeTransitions.get(4).has().classValue(containsString("MuiCollapse-entered"));
-    }
-
-    @Test
     public void growDisplayTest() {
       growSlideTransitions.get(1).is().hidden();
       growSlideTransitions.get(2).is().hidden();
@@ -23996,28 +23973,6 @@ Java example code for the Button box:
 
       growSlideTransitions.get(1).is().displayed();
       growSlideTransitions.get(2).is().displayed();
-    }
-
-    @Test
-    public void slideDisplayTest() {
-      growSlideTransitions.get(3).is().hidden();
-
-      checkboxes.get(4).check();
-
-      growSlideTransitions.get(3).is().displayed();
-    }
-
-    @Test
-    public void zoomDisplayTest() {
-      Timer timer = new Timer(2000L);
-      zoomTransitions.get(1).is().hidden();
-      zoomTransitions.get(2).is().hidden();
-
-      checkboxes.get(5).check();
-
-      zoomTransitions.get(1).is().displayed();
-      timer.wait(() -> zoomTransitions.get(2).isDisplayed());
-      zoomTransitions.get(2).is().displayed();
     }
 ```
 
@@ -24052,15 +24007,6 @@ Java example code for the Button box:
 
     @UI("#miconLastHover")
     public static UIElement lastHover;
-    
-    @Test
-    public void sizeAndColorTest() {
-        defaultAlarm.is().displayed();
-        largeAlarm.is().displayed();
-        secondaryAlarm.is().displayed();
-        assertTrue(largeAlarm.hasClass("MuiSvgIcon-fontSizeLarge"));
-        assertTrue(secondaryAlarm.hasClass("MuiSvgIcon-colorSecondary"));
-    }
 
     @Test
     public void defaultMaterialIconTest() {
@@ -24108,31 +24054,7 @@ Java example code for the Button box:
 
 ### Icons
 
-```java     
-    @UI("//div[contains(@class, 'MuiGrid-grid-xs-8')][1]/*[name()='svg']")
-    public static List<UIElement> filled;
-
-    @UI("//div[contains(@class, 'MuiGrid-grid-xs-8')][2]/*[name()='svg']")
-    public static List<UIElement> outlined;
-
-    @UI("//div[contains(@class, 'MuiGrid-grid-xs-8')][3]/*[name()='svg']")
-    public static List<UIElement> rounded;
-
-    @UI("//div[contains(@class, 'MuiGrid-grid-xs-8')][4]/*[name()='svg']")
-    public static List<UIElement> twoTone;
-
-    @UI("//div[contains(@class, 'MuiGrid-grid-xs-8')][5]/*[name()='svg']")
-    public static List<UIElement> sharp;
-
-    @UI("//div[contains(@class, 'MuiGrid-grid-xs-8')][6]/*[name()='svg']")
-    public static List<UIElement> edgeCase;
-
-    @UI("#simpleLastClick")
-    public static Text simpleLastClick;
-
-    @UI("#simpleLastHover")
-    public static Text simpleLastHover;
-
+```java
     @UI("//h2[text()='Color']/following::*[name()='svg']")
     public static List<UIElement> color;
 
@@ -24141,53 +24063,6 @@ Java example code for the Button box:
 
     @UI("#colorLastHover")
     public static Text colorLastHover;
-
-    @UI("//h2[text()='Size']/following::*[name()='svg']")
-    public static List<UIElement> size;
-
-    @UI("#sizeLastClick")
-    public static Text sizeLastClick;
-
-    @UI("#sizeLastHover")
-    public static Text sizeLastHover;
-    
-    @Test
-    public void simpleIconsTest() {
-        filled.forEach(el -> el.is().displayed());
-        outlined.forEach(el -> el.is().displayed());
-        rounded.forEach(el -> el.is().displayed());
-        twoTone.forEach(el -> el.is().displayed());
-        sharp.forEach(el -> el.is().displayed());
-        edgeCase.forEach(el -> el.is().displayed());
-        simpleLastClick.is().text("Last click:");
-        simpleLastHover.is().text("Last hover:");
-
-        Map<UIElement, List<List<String>>> allSimpleIcons = new LinkedHashMap<>();
-        allSimpleIcons.put(filled.get(1), Arrays.asList(Arrays.asList("", " DeleteIcon"), Arrays.asList(" DeleteIcon", " DeleteIcon")));
-        allSimpleIcons.put(filled.get(2), Arrays.asList(Arrays.asList(" DeleteIcon", " DeleteForeverIcon"), Arrays.asList(" DeleteForeverIcon", " DeleteForeverIcon")));
-        allSimpleIcons.put(outlined.get(1), Arrays.asList(Arrays.asList(" DeleteForeverIcon", " DeleteOutlinedIcon"), Arrays.asList(" DeleteOutlinedIcon", " DeleteOutlinedIcon")));
-        allSimpleIcons.put(outlined.get(2), Arrays.asList(Arrays.asList(" DeleteOutlinedIcon", " DeleteForeverOutlinedIcon"), Arrays.asList(" DeleteForeverOutlinedIcon", " DeleteForeverOutlinedIcon")));
-        allSimpleIcons.put(rounded.get(1), Arrays.asList(Arrays.asList(" DeleteForeverOutlinedIcon", " DeleteRoundedIcon"), Arrays.asList(" DeleteRoundedIcon", " DeleteRoundedIcon")));
-        allSimpleIcons.put(rounded.get(2), Arrays.asList(Arrays.asList(" DeleteRoundedIcon", " DeleteForeverRoundedIcon"), Arrays.asList(" DeleteForeverRoundedIcon", " DeleteForeverRoundedIcon")));
-        allSimpleIcons.put(twoTone.get(1), Arrays.asList(Arrays.asList(" DeleteForeverRoundedIcon", " DeleteTwoToneIcon"), Arrays.asList(" DeleteTwoToneIcon", " DeleteTwoToneIcon")));
-        allSimpleIcons.put(twoTone.get(2), Arrays.asList(Arrays.asList(" DeleteTwoToneIcon", " DeleteForeverTwoToneIcon"), Arrays.asList(" DeleteForeverTwoToneIcon", " DeleteForeverTwoToneIcon")));
-        allSimpleIcons.put(sharp.get(1), Arrays.asList(Arrays.asList(" DeleteForeverTwoToneIcon", " DeleteSharpIcon"), Arrays.asList(" DeleteSharpIcon", " DeleteSharpIcon")));
-        allSimpleIcons.put(sharp.get(2), Arrays.asList(Arrays.asList(" DeleteSharpIcon", " DeleteForeverSharpIcon"), Arrays.asList(" DeleteForeverSharpIcon", " DeleteForeverSharpIcon")));
-        allSimpleIcons.put(edgeCase.get(1), Arrays.asList(Arrays.asList(" DeleteForeverSharpIcon", " ThreeDRotationIcon"), Arrays.asList(" ThreeDRotationIcon", " ThreeDRotationIcon")));
-        allSimpleIcons.put(edgeCase.get(2), Arrays.asList(Arrays.asList(" ThreeDRotationIcon", " FourKIcon"), Arrays.asList(" FourKIcon", " FourKIcon")));
-        allSimpleIcons.put(edgeCase.get(3), Arrays.asList(Arrays.asList(" FourKIcon", " ThreeSixtyIcon"), Arrays.asList(" ThreeSixtyIcon", " ThreeSixtyIcon")));
-
-        allSimpleIcons.forEach(
-                (k, v) -> {
-                    k.hover();
-                    simpleLastClick.is().text(String.format("Last click:%s", v.get(0).get(0)));
-                    simpleLastHover.is().text(String.format("Last hover:%s", v.get(0).get(1)));
-                    k.click();
-                    simpleLastClick.is().text(String.format("Last click:%s", v.get(1).get(0)));
-                    simpleLastHover.is().text(String.format("Last hover:%s", v.get(1).get(1)));
-                }
-        );
-    }
 
     @Test
     public void colorIconsTest() {
@@ -24211,30 +24086,6 @@ Java example code for the Button box:
                     k.click();
                     colorLastClick.is().text(String.format("Last click:%s", v.get(1).get(0)));
                     colorLastHover.is().text(String.format("Last hover:%s", v.get(1).get(1)));
-                }
-        );
-    }
-
-    @Test
-    public void sizeIconsTest() {
-        size.forEach(el -> el.is().displayed());
-        sizeLastClick.is().text("Last click:");
-        sizeLastHover.is().text("Last hover:");
-
-        Map<UIElement, List<List<String>>> allSizeIcons = new LinkedHashMap<>();
-        allSizeIcons.put(size.get(1), Arrays.asList(Arrays.asList("", " small size"), Arrays.asList(" small size", " small size")));
-        allSizeIcons.put(size.get(2), Arrays.asList(Arrays.asList(" small size", " default size"), Arrays.asList(" default size", " default size")));
-        allSizeIcons.put(size.get(3), Arrays.asList(Arrays.asList(" default size", " large size"), Arrays.asList(" large size", " large size")));
-        allSizeIcons.put(size.get(4), Arrays.asList(Arrays.asList(" large size", " 40 size"), Arrays.asList(" 40 size", " 40 size")));
-
-        allSizeIcons.forEach(
-                (k, v) -> {
-                    k.hover();
-                    sizeLastClick.is().text(String.format("Last click:%s", v.get(0).get(0)));
-                    sizeLastHover.is().text(String.format("Last hover:%s", v.get(0).get(1)));
-                    k.click();
-                    sizeLastClick.is().text(String.format("Last click:%s", v.get(1).get(0)));
-                    sizeLastHover.is().text(String.format("Last hover:%s", v.get(1).get(1)));
                 }
         );
     }
@@ -24270,40 +24121,8 @@ Java example code for the Button box:
     @UI("//button[@aria-label='like']")
     public static Button disabledBtn;
 
-    @UI("//button[contains(@id,'action-tab')]")
-    public static List<Button> scrollBtns;
-
-    @UI("//button[@aria-label='Add']")
-    public static Button addButton;
-
-    @UI("//button[@aria-label='Edit']")
-    public static Button editButton;
-
-    @UI("//button[@aria-label='Expand']")
-    public static Button expandButton;
-
-    @UI("#action-tabpanel-0")
-    public static UIElement itemNameOne;
-
-    @UI("#action-tabpanel-1")
-    public static UIElement itemNameTwo;
-
-    @UI("#action-tabpanel-2")
-    public static UIElement itemNameThree;
-
     @UI("#basicActionBtnsLastClick")
     public static Text basicBtnsLastClick;
-
-    @UI("#animatedActionBtnsLastClick")
-    public static Text animatedBtnsLastClick;
-    
-    private void lastClickTextIs(String text) {
-        lastClick.is().text(String.format("Last click:%s", text));
-    }
-
-    private void lastHoverTextIs(String text) {
-        lastHover.is().text(String.format("Last hover:%s", text));
-    }
 
     @Test
     public void basicButtonsTest() {
@@ -24324,31 +24143,6 @@ Java example code for the Button box:
 
         disabledBtn.is().disabled();
     }
-
-    @Test
-    public void animatedButtonsTest() {
-        Timer timer = new Timer(2000L);
-
-        scrollBtns.forEach(el -> el.is().displayed());
-        animatedBtnsLastClick.is().text("Last click:");
-
-        scrollBtns.get(1).click();
-        itemNameOne.is().text("Item One");
-        addButton.click();
-        animatedBtnsLastClick.is().text("Last click: Add");
-
-        scrollBtns.get(2).click();
-        itemNameTwo.is().text("Item Two");
-        timer.wait(() -> editButton.isDisplayed());
-        editButton.click();
-        animatedBtnsLastClick.is().text("Last click: Edit");
-
-        scrollBtns.get(3).click();
-        itemNameThree.is().text("Item Three");
-        timer.wait(() -> expandButton.isDisplayed());
-        expandButton.click();
-        animatedBtnsLastClick.is().text("Last click: Expand");
-    }
 ```
 
 #### https://material-ui.com/components/floating-action-button/
@@ -24361,7 +24155,6 @@ Java example code for the Button box:
 **disabled()** | Verify state | boolean
 **text()** | Verify text | boolean
 **click()** | Clicks on box | void
-**isDisplayed()** | Verify state for wait | boolean
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/FabTests.java" target="_blank">Here you can find Floating Action Button tests</a>
 

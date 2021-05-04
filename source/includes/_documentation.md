@@ -23980,7 +23980,7 @@ The grid creates visual consistency between layouts while allowing flexibility a
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/GridTests.java" target="_blank">Here you can find Grid tests</a>
 
 ### Transitions
-
+<br><br>
 ```java 
     @UI("//h2[text()='Grow']/following::div[contains(@class,'MuiPaper-root')]")
     public static List<UIElement> growSlideTransitions;
@@ -24032,7 +24032,7 @@ The grid creates visual consistency between layouts while allowing flexibility a
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/TransitionTests.java" target="_blank">Here you can find Transitions tests</a>
 
 ### Material Icons
-
+<br><br>
 ```java     
     @UI("#defaultAccessAlarm")
     public static UIElement defaultAlarm;
@@ -24143,7 +24143,7 @@ The grid creates visual consistency between layouts while allowing flexibility a
 **hover()** | Hovers on box | void
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/IconTests.java" target="_blank">Here you can find Icons tests</a>
-
+<br><br><br>
 ### Floating Action Button
 
 ```java     

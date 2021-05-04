@@ -33180,40 +33180,44 @@ Java example code for the Button box:</p>
 <td>boolean</td>
 </tr>
 </tbody></table>
-<h4 id='here-you-can-find-grid-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/GridTests.java" target="_blank">Here you can find Grid tests</a></h4><h3 id='transitions'>Transitions</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h2[text()='Grow']/following::div[contains(@class,'MuiPaper-root')]"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">UIElement</span><span class="o">&gt;</span> <span class="n">growSlideTransitions</span><span class="o">;</span>
+<h4 id='here-you-can-find-grid-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/GridTests.java" target="_blank">Here you can find Grid tests</a></h4><h3 id='transitions'>Transitions</h3>
+<p><br><br>
+```java 
+    @UI(&quot;//h2[text()=&#39;Grow&#39;]/following::div[contains(@class,&#39;MuiPaper-root&#39;)]&quot;)
+    public static List<UIElement> growSlideTransitions;</p>
 
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h1[text()='Transitions']/following::div[contains(@class,'MuiCollapse-container')]"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">UIElement</span><span class="o">&gt;</span> <span class="n">collapseFadeTransitions</span><span class="o">;</span>
+<p>@UI(&quot;//h1[text()=&#39;Transitions&#39;]/following::div[contains(@class,&#39;MuiCollapse-container&#39;)]&quot;)
+    public static List<UIElement> collapseFadeTransitions;</p>
 
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//span[@class='MuiSwitch-root']"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Checkbox</span><span class="o">&gt;</span> <span class="n">checkboxes</span><span class="o">;</span>
+<p>@UI(&quot;//span[@class=&#39;MuiSwitch-root&#39;]&quot;)
+    public static List<Checkbox> checkboxes;</p>
 
-    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">collapseDisplayTest</span><span class="o">()</span> <span class="o">{</span>
-      <span class="n">Timer</span> <span class="n">timer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Timer</span><span class="o">(</span><span class="mi">2000L</span><span class="o">);</span>
+<p>@Test
+    public void collapseDisplayTest() {
+      Timer timer = new Timer(2000L);</p>
 
-      <span class="n">collapseFadeTransitions</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">classValue</span><span class="o">(</span><span class="n">not</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"MuiCollapse-entered"</span><span class="o">)));</span>
-      <span class="n">collapseFadeTransitions</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">classValue</span><span class="o">(</span><span class="n">not</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"MuiCollapse-entered"</span><span class="o">)));</span>
+<p>collapseFadeTransitions.get(1).has().classValue(not(containsString(&quot;MuiCollapse-entered&quot;)));
+      collapseFadeTransitions.get(2).has().classValue(not(containsString(&quot;MuiCollapse-entered&quot;)));</p>
 
-      <span class="n">checkboxes</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">check</span><span class="o">();</span>
+<p>checkboxes.get(1).check();</p>
 
-      <span class="n">timer</span><span class="o">.</span><span class="na">wait</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">collapseFadeTransitions</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">hasClass</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"MuiCollapse-entered"</span><span class="o">).</span><span class="na">toString</span><span class="o">()));</span>
-      <span class="n">collapseFadeTransitions</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">classValue</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"MuiCollapse-entered"</span><span class="o">));</span>
-      <span class="n">collapseFadeTransitions</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">classValue</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"MuiCollapse-entered"</span><span class="o">));</span>
-    <span class="o">}</span>
+<p>timer.wait(() -&gt; collapseFadeTransitions.get(1).hasClass(containsString(&quot;MuiCollapse-entered&quot;).toString()));
+      collapseFadeTransitions.get(1).has().classValue(containsString(&quot;MuiCollapse-entered&quot;));
+      collapseFadeTransitions.get(2).has().classValue(containsString(&quot;MuiCollapse-entered&quot;));
+    }</p>
 
-    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">growDisplayTest</span><span class="o">()</span> <span class="o">{</span>
-      <span class="n">growSlideTransitions</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">hidden</span><span class="o">();</span>
-      <span class="n">growSlideTransitions</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">hidden</span><span class="o">();</span>
+<p>@Test
+    public void growDisplayTest() {
+      growSlideTransitions.get(1).is().hidden();
+      growSlideTransitions.get(2).is().hidden();</p>
 
-      <span class="n">checkboxes</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">3</span><span class="o">).</span><span class="na">check</span><span class="o">();</span>
+<p>checkboxes.get(3).check();</p>
 
-      <span class="n">growSlideTransitions</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-      <span class="n">growSlideTransitions</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-    <span class="o">}</span>
-</code></pre><h4 id='https-material-ui-com-components-transitions'>https://material-ui.com/components/transitions/</h4>
+<p>growSlideTransitions.get(1).is().displayed();
+      growSlideTransitions.get(2).is().displayed();
+    }
+```</p>
+<h4 id='https-material-ui-com-components-transitions'>https://material-ui.com/components/transitions/</h4>
 <table><thead>
 <tr>
 <th>Method</th>
@@ -33257,51 +33261,55 @@ Java example code for the Button box:</p>
 <td>void</td>
 </tr>
 </tbody></table>
-<h4 id='here-you-can-find-transitions-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/TransitionTests.java" target="_blank">Here you can find Transitions tests</a></h4><h3 id='material-icons'>Material Icons</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#defaultAccessAlarm"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">UIElement</span> <span class="n">defaultAlarm</span><span class="o">;</span>
+<h4 id='here-you-can-find-transitions-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/TransitionTests.java" target="_blank">Here you can find Transitions tests</a></h4><h3 id='material-icons'>Material Icons</h3>
+<p><br><br>
+```java<br>
+    @UI(&quot;#defaultAccessAlarm&quot;)
+    public static UIElement defaultAlarm;</p>
 
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#largeAccessAlarm"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">UIElement</span> <span class="n">largeAlarm</span><span class="o">;</span>
+<p>@UI(&quot;#largeAccessAlarm&quot;)
+    public static UIElement largeAlarm;</p>
 
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#secondaryAccessAlarm"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">UIElement</span> <span class="n">secondaryAlarm</span><span class="o">;</span>
+<p>@UI(&quot;#secondaryAccessAlarm&quot;)
+    public static UIElement secondaryAlarm;</p>
 
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#miconLastClick"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">UIElement</span> <span class="n">lastClick</span><span class="o">;</span>
+<p>@UI(&quot;#miconLastClick&quot;)
+    public static UIElement lastClick;</p>
 
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#miconLastHover"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">UIElement</span> <span class="n">lastHover</span><span class="o">;</span>
+<p>@UI(&quot;#miconLastHover&quot;)
+    public static UIElement lastHover;</p>
 
-    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">defaultMaterialIconTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">lastClick</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Last click:"</span><span class="o">);</span>
-        <span class="n">lastHover</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Last hover:"</span><span class="o">);</span>
+<p>@Test
+    public void defaultMaterialIconTest() {
+        lastClick.is().text(&quot;Last click:&quot;);
+        lastHover.is().text(&quot;Last hover:&quot;);</p>
 
-        <span class="n">defaultAlarm</span><span class="o">.</span><span class="na">hover</span><span class="o">();</span>
-        <span class="n">lastClick</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Last click:"</span><span class="o">);</span>
-        <span class="n">lastHover</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Last hover: default"</span><span class="o">);</span>
+<p>defaultAlarm.hover();
+        lastClick.is().text(&quot;Last click:&quot;);
+        lastHover.is().text(&quot;Last hover: default&quot;);</p>
 
-        <span class="n">defaultAlarm</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">lastClick</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Last click: default"</span><span class="o">);</span>
-        <span class="n">lastHover</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Last hover: default"</span><span class="o">);</span>
+<p>defaultAlarm.click();
+        lastClick.is().text(&quot;Last click: default&quot;);
+        lastHover.is().text(&quot;Last hover: default&quot;);</p>
 
-        <span class="n">largeAlarm</span><span class="o">.</span><span class="na">hover</span><span class="o">();</span>
-        <span class="n">lastClick</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Last click: default"</span><span class="o">);</span>
-        <span class="n">lastHover</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Last hover: large"</span><span class="o">);</span>
+<p>largeAlarm.hover();
+        lastClick.is().text(&quot;Last click: default&quot;);
+        lastHover.is().text(&quot;Last hover: large&quot;);</p>
 
-        <span class="n">largeAlarm</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">lastClick</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Last click: large"</span><span class="o">);</span>
-        <span class="n">lastHover</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Last hover: large"</span><span class="o">);</span>
+<p>largeAlarm.click();
+        lastClick.is().text(&quot;Last click: large&quot;);
+        lastHover.is().text(&quot;Last hover: large&quot;);</p>
 
-        <span class="n">secondaryAlarm</span><span class="o">.</span><span class="na">hover</span><span class="o">();</span>
-        <span class="n">lastClick</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Last click: large"</span><span class="o">);</span>
-        <span class="n">lastHover</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Last hover: secondary"</span><span class="o">);</span>
+<p>secondaryAlarm.hover();
+        lastClick.is().text(&quot;Last click: large&quot;);
+        lastHover.is().text(&quot;Last hover: secondary&quot;);</p>
 
-        <span class="n">secondaryAlarm</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">lastClick</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Last click: secondary"</span><span class="o">);</span>
-        <span class="n">lastHover</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Last hover: secondary"</span><span class="o">);</span>
-    <span class="o">}</span>
-</code></pre><h4 id='https-material-ui-com-components-material-icons'>https://material-ui.com/components/material-icons/</h4>
+<p>secondaryAlarm.click();
+        lastClick.is().text(&quot;Last click: secondary&quot;);
+        lastHover.is().text(&quot;Last hover: secondary&quot;);
+    }
+```</p>
+<h4 id='https-material-ui-com-components-material-icons'>https://material-ui.com/components/material-icons/</h4>
 <table><thead>
 <tr>
 <th>Method</th>
@@ -33408,7 +33416,9 @@ Java example code for the Button box:</p>
 <td>void</td>
 </tr>
 </tbody></table>
-<h4 id='here-you-can-find-icons-tests-2'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/IconTests.java" target="_blank">Here you can find Icons tests</a></h4><h3 id='floating-action-button'>Floating Action Button</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div[@id='basicActionBtns']/button"</span><span class="o">)</span>
+<h4 id='here-you-can-find-icons-tests-2'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/IconTests.java" target="_blank">Here you can find Icons tests</a></h4>
+<p><br><br><br></p>
+<h3 id='floating-action-button'>Floating Action Button</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div[@id='basicActionBtns']/button"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Button</span><span class="o">&gt;</span> <span class="n">basicBtns</span><span class="o">;</span>
 
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"//button[@aria-label='add']"</span><span class="o">)</span>

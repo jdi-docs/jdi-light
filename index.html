@@ -809,6 +809,9 @@
 								<a href="#box" class="toc-h2 h3 toc-link" data-title="Box">Box</a>
                             </li>
                             <li>
+								<a href="#grid" class="toc-h2 h3 toc-link" data-title="Grid">Grid</a>
+                            </li>
+                            <li>
 								<a href="#transitions" class="toc-h2 h3 toc-link" data-title="Transitions">Transitions</a>
                             </li>
                             <li>
@@ -33086,7 +33089,7 @@ Note: domain is read from test.properties automatically. <br><br><br><br><br>
 <td>void</td>
 </tr>
 </tbody></table>
-<h4 id='here-you-can-find-checkbox-tests-2'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/CheckBoxTests.java" target="_blank">Here you can find Checkbox tests</a></h4><h3 id='box'>Box</h3>
+<h4 id='here-you-can-find-checkbox-tests-2'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/CheckboxTests.java" target="_blank">Here you can find Checkbox tests</a></h4><h3 id='box'>Box</h3>
 <p>The Box component serves as a wrapper component for most of the CSS utility needs.
 Java example code for the Button box:</p>
 <pre class="highlight java tab-java"><code>
@@ -33101,7 +33104,7 @@ Java example code for the Button box:</p>
         <span class="n">lastClickContent</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"You clicked Second button"</span><span class="o">);</span>
     <span class="o">}</span>
 </code></pre><h4 id='https-material-ui-com-components-box'>https://material-ui.com/components/box/</h4>
-<p><img src="images/..source/images/material-ui/Checkbox.png" alt="Box" /></p>
+<p><img src="images/..source/images/material-ui/Box.png" alt="Box" /></p>
 
 <table><thead>
 <tr>
@@ -33131,7 +33134,53 @@ Java example code for the Button box:</p>
 <td>void</td>
 </tr>
 </tbody></table>
-<h4 id='here-you-can-find-box-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/BoxTests.java" target="_blank">Here you can find Box tests</a></h4><h3 id='transitions'>Transitions</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h2[text()='Grow']/following::div[contains(@class,'MuiPaper-root')]"</span><span class="o">)</span>
+<h4 id='here-you-can-find-box-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/BoxTests.java" target="_blank">Here you can find Box tests</a></h4><h3 id='grid'>Grid</h3>
+<p>The grid creates visual consistency between layouts while allowing flexibility across a wide variety of designs. Material Design’s responsive UI is based on a 12-column grid layout.</p>
+<pre class="highlight java tab-java"><code>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">".MuiContainer-root"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">UIElement</span> <span class="n">rootGrid</span><span class="o">;</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">gridTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">rootGrid</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+        <span class="n">rootGrid</span><span class="o">.</span><span class="na">attr</span><span class="o">(</span><span class="s">"class"</span><span class="o">).</span><span class="na">contains</span><span class="o">(</span><span class="s">"MuiContainer-maxWidthXl"</span><span class="o">);</span>
+        <span class="n">basicGrid</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+        <span class="n">complexGrid</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">buttonsOnGridTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">firstButton</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+        <span class="n">secondButton</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+        <span class="n">thirdButton</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+        <span class="n">fourthButton</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+        <span class="n">firstButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">secondButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">thirdButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">fourthButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+    <span class="o">}</span>
+</code></pre><h4 id='https-material-ui-com-components-grid'>https://material-ui.com/components/grid/</h4>
+<p><img src="images/..source/images/material-ui/Grid.png" alt="Grid" /></p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>is()</strong></td>
+<td>Verify state</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isDisplayed()</strong></td>
+<td>Verify state</td>
+<td>boolean</td>
+</tr>
+</tbody></table>
+<h4 id='here-you-can-find-grid-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/GridTests.java" target="_blank">Here you can find Grid tests</a></h4><h3 id='transitions'>Transitions</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h2[text()='Grow']/following::div[contains(@class,'MuiPaper-root')]"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">UIElement</span><span class="o">&gt;</span> <span class="n">growSlideTransitions</span><span class="o">;</span>
 
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h1[text()='Transitions']/following::div[contains(@class,'MuiCollapse-container')]"</span><span class="o">)</span>

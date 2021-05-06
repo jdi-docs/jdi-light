@@ -23928,32 +23928,6 @@ Checkboxes allow the user to select one or more items from a set.
             textTestLogic(checkboxPage.formControlLabelText.get(i), expectedTexts[i - 1]);
         }
     }
-
-    @Test
-    public void formGroupTest() {
-        String[] expectedTexts = new String[] {"Gilad Gray", "Jason Killian", "Antoine Llorca",
-                "Gilad Gray", "Jason Killian", "Antoine Llorca"};
-        for (int i = 1; i < 3; i++) {
-            int secondCheckboxIndex = (i + 3) / 7 > 0 ? (i + 3) % 7 + 1 : (i + 3) % 7;
-            groupTestLogic(
-                    checkboxPage.formGroupCheckbox.get(i),
-                    checkboxPage.formGroupCheckbox.get(secondCheckboxIndex));
-            textTestLogic(checkboxPage.formGroupText.get(i), expectedTexts[i - 1]);
-        }
-        groupTestErrorLogic(
-                checkboxPage.formGroupCheckbox.get(1),
-                checkboxPage.formGroupCheckbox.get(2),
-                checkboxPage.errorMessage.get(2));
-    }
-
-    @Test
-    public void labelPlacementTest() {
-        String[] expectedText = new String[] {"Top", "Start", "Bottom", "End"};
-        for (int i = 1; i < 2; i++) {
-            checkboxTestLogic(checkboxPage.labelPlacementCheckbox.get(i), "MuiCheckbox-colorPrimary");
-            textTestLogic(checkboxPage.labelPlacementText.get(i), expectedText[i - 1]);
-        }
-    }
     
     private void checkboxTestLogic(Checkbox checkbox, String className) {
         if (checkbox.isEnabled()) {
@@ -24272,28 +24246,6 @@ Radio buttons allow the user to select one option from a set.
             else
                 timer.wait(() -> currentRadioButton.has().classValue(containsString("Mui-disabled")));
             currentRadioButtonLabel.has().text(labels.get(i - 1));
-        }
-    }
-
-    @Test
-    public void labelPlacementTest() {
-        for (int i = 1; i <= 4; i++) {
-            Button currentRadioButton = labelPlacementButtons.get(i);
-            Button currentButtonClass = labelPlacementButtonsClass.get(i);
-            if (i != 4)
-                currentRadioButton.has().classValue(containsString(classes.get(i - 1)));
-            currentRadioButton.click();
-            timer.wait(() -> currentButtonClass.has().classValue(containsString("Mui-checked")));
-        }
-    }
-
-    @Test
-    public void showErrorTest() {
-        for (int i = 1; i <= 2; i++) {
-            showErrorButtons.get(i).click();
-            checkAnswer.click();
-            int finalI = i;
-            timer.wait(() -> errorText.is().text(messages.get(finalI - 1)));
         }
     }
 ```

@@ -23957,7 +23957,7 @@ Checkboxes allow the user to select one or more items from a set.
 
 ### Avatar
 
-### https://material-ui.com/ru/components/avatars/
+#### https://material-ui.com/ru/components/avatars/
 
 ![Avatar](../images/material-ui/Avatar.png)
 
@@ -24012,13 +24012,14 @@ Avatars are found throughout material design with uses in everything from tables
 **hasImage()** | Checks image | boolean
 **classValue()** | Checks class | boolean
 **isDisplayed()** | Verify state | void
-**text()** | Verify text | void
+**text()** | Verify text | boolean
+**has()** | Verify state | boolean
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/AvatarTests.java" target="_blank">Here you can find Avatar tests</a>
 
 ### ClickAwayListener
 
-### https://material-ui.com/ru/components/click-away-listener/
+#### https://material-ui.com/ru/components/click-away-listener/
 
 ![ClickAwayListener](../images/material-ui/ClickAwayListener.png)
 
@@ -24099,7 +24100,7 @@ Detect if a click event happened outside of an element. It listens for clicks th
 
 ### Card
 
-### https://material-ui.com/components/cards/
+#### https://material-ui.com/components/cards/
 
 ![Сard](../images/material-ui/Card.png)
 
@@ -24141,8 +24142,8 @@ Cards contain content and actions about a single subject.
     }
 
     private void textCheck(int index) {
-        jdiAssert(pTagTexts.get(index).text(), Matchers.is("Word of the Day"));
-        jdiAssert(h2TagTexts.get(index).text(), Matchers.is("be•nev•o•lent"));
+        pTagTexts.get(index).has().text(Matchers.is("Word of the Day"));
+        h2TagTexts.get(index).has().text(Matchers.is("be•nev•o•lent"));
     }
 
     @Test
@@ -24153,28 +24154,26 @@ Cards contain content and actions about a single subject.
     @Test
     public void outlinedCardTest() {
         textCheck(2);
-        jdiAssert(outlinedCard.hasClass("MuiPaper-outlined"), Matchers.is(true));
+        outlinedCard.has().classValue(Matchers.containsString("MuiPaper-outlined"));
     }
 
     @Test
     public void complexCardTest() {
         String expectedText = "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup of frozen peas along with the mussels, if you like.";
-        jdiAssert(pTagTexts.get(3).text(), Matchers.is(expectedText));
+        pTagTexts.get(3).has().text(Matchers.is(expectedText));
         complexCardImage.is().displayed();
 
         complexCardHeartIconButton.click();
-        boolean hasClass = new Timer(1000L)
+        new Timer(1000L)
                 .wait(() -> complexCardHeartIcon.has().classValue(Matchers.containsString("jss")));
-        jdiAssert(hasClass, Matchers.is(true));
 
         complexCardHeartIconButton.click();
-        hasClass = new Timer(1000L)
+        new Timer(1000L)
                 .wait(() -> complexCardHeartIcon.has().classValue(Matchers.not("jss")));
-        jdiAssert(hasClass, Matchers.is(true));
 
         complexCardSliderDownButton.click();
         complexCardHiddenTextArea.is().displayed();
-        jdiAssert(complexCardHiddenText.text(), Matchers.is("Method:"));
+        complexCardHiddenText.has().text(Matchers.containsString("Method:"));
     }
 ```
 

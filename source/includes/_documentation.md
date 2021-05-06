@@ -23864,47 +23864,449 @@ Note: domain is read from test.properties automatically. <br><br><br><br><br>
 
 ## Material UI elements
 
-### Checkbox 
-
-```java 
-    
-    @UI(".MuiCheckbox-root")
-    public Checkbox checkbox;
-
-    @Test
-    public void primaryCheckBoxTest() {
-        primaryCheckBoxPage.shouldBeOpened();
-        checkboxFrame.checkbox.is().enabled();
-        checkboxFrame.checkbox.check();
-        checkboxFrame.checkbox.is().checked();
-        checkboxFrame.checkbox.uncheck();
-        checkboxFrame.checkbox.is().unChecked();
-    }
-    
-    @Test
-    public void disabledCheckboxTest() {
-        nputCheckboxDisabled.shouldBeOpened();
-        checkboxFrame.checkbox.is().disabled();
-    }
-```
+### Checkbox
 
 #### https://material-ui.com/components/checkboxes/
 
 Checkbox is located in the following class:
 
    - __Java__: _com.epam.jdi.light.material.elements.inputs.Checkbox_
-   
 
-![Checkbox](..source/images/material-ui/Checkbox.png)
+![Checkbox](../images/material-ui/Checkbox.png)
+
+Checkboxes allow the user to select one or more items from a set.
+
+```java 
+    @UI("//h2[text()='Basic checkboxes']/following-sibling::div[1]/span")
+    public List<Checkbox> basicCheckbox;
+
+    @UI("//h2[text()='Checkbox with FormControlLabel']/following-sibling::div[1]/label/span[1]")
+    public List<Checkbox> formControlLabelCheckbox;
+
+    @UI("//h2[text()='Checkboxes with FormGroup']/following-sibling::div[1]/fieldset/div/label/span[1]")
+    public List<Checkbox> formGroupCheckbox;
+
+    @UI("//h2[text()='Label placement']/following-sibling::fieldset/div/label/span[1]")
+    public List<Checkbox> labelPlacementCheckbox;
+
+    @UI("//h2[text()='Checkbox with FormControlLabel']/following-sibling::div[1]/label/span[2]")
+    public List<Text> formControlLabelText;
+
+    @UI("//h2[text()='Checkboxes with FormGroup']/following-sibling::div[1]/fieldset/div/label/span[2]")
+    public List<Text> formGroupText;
+
+    @UI("//h2[text()='Label placement']/following-sibling::fieldset/div/label/span[2]")
+    public List<Text> labelPlacementText;
+
+    @UI("//h2[text()='Checkboxes with FormGroup']/following-sibling::div[1]/fieldset/legend")
+    public List<Text> errorMessage;
+
+    @BeforeTest()
+    public void beforeTest() {
+        openSection("Checkbox");
+        checkboxPage.shouldBeOpened();
+    }
+
+    @Test
+    public void basicCheckboxTest() {
+        for (int i = 1; i < 3; i++)
+            checkboxTestLogic(
+                    checkboxPage.basicCheckbox.get(i),
+                    i != 2 && i != 7 ? "MuiCheckbox-colorSecondary" :
+                            i == 2 ? "MuiCheckbox-colorPrimary" : "jss3");
+    }
+
+    @Test
+    public void formControlLabelTest() {
+        String[] expectedTexts = new String[] {"Secondary", "Primary", "Uncontrolled", "Disabled",
+                "Disabled", "Indeterminate", "Custom color", "Custom icon", "Custom size"};
+        for (int i = 1; i < 3; i++) {
+            checkboxTestLogic(
+                    checkboxPage.formControlLabelCheckbox.get(i),
+                    i != 2 && i != 7 ? "MuiCheckbox-colorSecondary" :
+                            i == 2 ? "MuiCheckbox-colorPrimary" : "jss3");
+            textTestLogic(checkboxPage.formControlLabelText.get(i), expectedTexts[i - 1]);
+        }
+    }
+
+    @Test
+    public void formGroupTest() {
+        String[] expectedTexts = new String[] {"Gilad Gray", "Jason Killian", "Antoine Llorca",
+                "Gilad Gray", "Jason Killian", "Antoine Llorca"};
+        for (int i = 1; i < 3; i++) {
+            int secondCheckboxIndex = (i + 3) / 7 > 0 ? (i + 3) % 7 + 1 : (i + 3) % 7;
+            groupTestLogic(
+                    checkboxPage.formGroupCheckbox.get(i),
+                    checkboxPage.formGroupCheckbox.get(secondCheckboxIndex));
+            textTestLogic(checkboxPage.formGroupText.get(i), expectedTexts[i - 1]);
+        }
+        groupTestErrorLogic(
+                checkboxPage.formGroupCheckbox.get(1),
+                checkboxPage.formGroupCheckbox.get(2),
+                checkboxPage.errorMessage.get(2));
+    }
+
+    @Test
+    public void labelPlacementTest() {
+        String[] expectedText = new String[] {"Top", "Start", "Bottom", "End"};
+        for (int i = 1; i < 2; i++) {
+            checkboxTestLogic(checkboxPage.labelPlacementCheckbox.get(i), "MuiCheckbox-colorPrimary");
+            textTestLogic(checkboxPage.labelPlacementText.get(i), expectedText[i - 1]);
+        }
+    }
+    
+    private void checkboxTestLogic(Checkbox checkbox, String className) {
+        if (checkbox.isEnabled()) {
+            checkbox.check();
+            checkbox.is().checked();
+            checkbox.uncheck();
+            checkbox.is().unChecked();
+        } else
+            checkbox.is().disabled();
+        checkbox.is().hasClass(className);
+    }
+```
 
 |Method | Description | Return Type
 --- | --- | ---
 **is()** | Verify state | boolean
 **isDisabled()** | Verify state | boolean
-**check()** | Checkbox selected | void
+**hasClassName(String className)** | Checks class| void
+**checked()** | Checkbox selected | void
 **uncheck()** | Checkbox not selected | void
+**check()** | select Checkbox | void
+**uncheck()** | unselect Checkbox | void
+
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/CheckboxTests.java" target="_blank">Here you can find Checkbox tests</a>
+
+
+### Avatar
+
+### https://material-ui.com/ru/components/avatars/
+
+![Avatar](../images/material-ui/Avatar.png)
+
+Avatars are found throughout material design with uses in everything from tables to dialog menus.
+
+```java 
+    
+    @UI("//span[@class='MuiBadge-root']/span")
+    public static List<UIElement> onlineStatus;
+    @UI("//span[@class='MuiBadge-root']/following-sibling::div")
+    public static List<UIElement> avatarWithoutPhoto;
+    @UI("//span[@class='MuiBadge-root']/div")
+    public static List<UIElement> avatarWithPhoto;
+
+    @BeforeTest
+    public void beforeTest() {
+        openSection("Avatar");
+    }
+
+    @Test
+    public void avatarTests() {
+        Timer timer = new Timer(1000L);
+        timer.wait(() -> onlineStatus.get(1).is().displayed());
+        basicAvatarChecks(avatarWithoutPhoto, true);
+        basicAvatarChecks(avatarWithPhoto, false);
+        onlineStatus.get(1).has().classValue(Matchers.containsString("MuiBadge-dot"));
+        onlineStatus.get(2).has().text("R");
+        onlineStatus.get(2).has().classValue(Matchers.containsString("MuiBadge-anchorOriginBottomRightCircle"));
+    }
+    
+    private void basicAvatarChecks(List<UIElement> elements, boolean noPhoto) {
+        for (int i = 1; i <= elements.size(); i++) {
+            elements.get(i).isDisplayed();
+            elements.get(i).hasImage();
+            if (i < 3) {
+                if (i == 1 && noPhoto)
+                    elements.get(i).has().text("L");
+                elements.get(i).has().classValue(Matchers.containsString("MuiAvatar-circle"));
+            }
+            if (i == 3) {
+                elements.get(i).has().text("A");
+                elements.get(i).has().classValue(Matchers.containsString("MuiAvatar-square"));
+            }
+            if (i == 4)
+                elements.get(i).has().classValue(Matchers.containsString("MuiAvatar-rounded"));
+        }
+    }
+```
+
+|Method | Description | Return Type
+--- | --- | ---
+**hasImage()** | Checks image | boolean
+**classValue()** | Checks class | boolean
+**isDisplayed()** | Verify state | void
+**text()** | Verify text | void
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/AvatarTests.java" target="_blank">Here you can find Avatar tests</a>
+
+### ClickAwayListener
+
+### https://material-ui.com/ru/components/click-away-listener/
+
+![ClickAwayListener](../images/material-ui/ClickAwayListener.png)
+
+Detect if a click event happened outside of an element. It listens for clicks that occur somewhere in the document.
+
+```java 
+    
+    @UI("//h2[text()='Example']/following-sibling::div[1]/div/button")
+    public static Button exampleButton;
+
+    @UI("//h2[text()='Portal']/following-sibling::div[1]/div/button")
+    public static Button portalButton;
+
+    @UI("//div[text()='Click me, I will stay visible until you click outside.']")
+    public static TextArea text;
+    
+    public void clickAroundTextPopup(int x, int y) {
+        text.core().click(x, y);
+    }
+
+    public void clickAroundButton(int x, int y, int buttonId) {
+        if (buttonId == 1)
+            exampleButton.core().click(x, y);
+        else if (buttonId == 2)
+            portalButton.core().click(x, y);
+    }
+
+    public void clickButton(int buttonId) {
+        if (buttonId == 1)
+            exampleButton.click();
+        else if (buttonId == 2)
+            portalButton.click();
+    }
+
+    @BeforeTest
+    public void beforeTest() {
+        openSection("Click Away Listener");
+        clickAwayListenerPage.shouldBeOpened();
+    }
+
+    @Test
+    public void exampleClickAwayListenerTest() {
+        textFieldTest(1);
+    }
+
+    @Test
+    public void portalExampleClickAwayListenerTest() {
+        textFieldTest(2);
+    }
+
+    private void textFieldTest(int buttonId) {
+        clickAwayListenerPage.clickButton(buttonId);
+        text.is().displayed();
+        //hiding text field by clicking on 'open menu dropdown' button
+        clickAwayListenerPage.clickButton(buttonId);
+        //checking point outside textfield
+        text.is().hidden();
+        clickAwayListenerPage.clickButton(buttonId);
+        text.is().displayed();
+        clickAwayListenerPage.clickAroundTextPopup(text.getSize().width + 1, -1);
+        text.is().hidden();
+        //check for a fixed bug
+        clickAwayListenerPage.clickButton(buttonId);
+        clickAwayListenerPage.clickAroundButton(exampleButton.getSize().width + 1,0, buttonId);
+        text.is().hidden();
+    }
+```
+
+|Method | Description | Return Type
+--- | --- | ---
+**click()** | Clicks on box | void
+**click(int x, int y)** | Clicks on point in box | void
+**is()** | Verify state | boolean
+**displayed()** | Verify state | boolean
+**hidden()** | Verify text | boolean
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/ClickAwayListenerTests.java" target="_blank">Here you can find ClickAwayListener tests</a>
+
+### Card
+
+### https://material-ui.com/components/cards/
+
+![Сard](../images/material-ui/Card.png)
+
+Cards contain content and actions about a single subject.
+
+```java 
+    
+    @UI("//h2[text()='Outlined Card']/following-sibling::div[1]")
+    public static UIElement outlinedCard;
+
+    @UI("//div[@class='MuiCardContent-root']/p[1]")
+    public static List<Text> pTagTexts;
+
+    @UI("//div[@class='MuiCardContent-root']/h2[1]")
+    public static List<Text> h2TagTexts;
+
+    @UI("//div[@class='MuiCardActions-root']/button[1]")
+    public static Button complexCardHeartIconButton;
+
+    @UI("//div[@class='MuiCardActions-root']/button[1]/span[1]/*")
+    public static Icon complexCardHeartIcon;
+
+    @UI("//div[@class='MuiCardActions-root']/button[3]")
+    public static Button complexCardSliderDownButton;
+
+    @UI("//div[@class='MuiCardActions-root']/preceding-sibling::div[2]")
+    public static Image complexCardImage;
+
+    @UI("//div[@class='MuiCardActions-root']/following-sibling::div[1]")
+    public static TextArea complexCardHiddenTextArea;
+
+    @UI("//div[@class='MuiCardActions-root']/following-sibling::div[1]/div/div/div/p[1]")
+    public static Text complexCardHiddenText;
+    
+    @BeforeTest
+    public void beforeTest() {
+        openSection("Card");
+        surfaceCardPage.isOpened();
+    }
+
+    private void textCheck(int index) {
+        jdiAssert(pTagTexts.get(index).text(), Matchers.is("Word of the Day"));
+        jdiAssert(h2TagTexts.get(index).text(), Matchers.is("be•nev•o•lent"));
+    }
+
+    @Test
+    public void simpleCardTest() {
+        textCheck(1);
+    }
+
+    @Test
+    public void outlinedCardTest() {
+        textCheck(2);
+        jdiAssert(outlinedCard.hasClass("MuiPaper-outlined"), Matchers.is(true));
+    }
+
+    @Test
+    public void complexCardTest() {
+        String expectedText = "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup of frozen peas along with the mussels, if you like.";
+        jdiAssert(pTagTexts.get(3).text(), Matchers.is(expectedText));
+        complexCardImage.is().displayed();
+
+        complexCardHeartIconButton.click();
+        boolean hasClass = new Timer(1000L)
+                .wait(() -> complexCardHeartIcon.has().classValue(Matchers.containsString("jss")));
+        jdiAssert(hasClass, Matchers.is(true));
+
+        complexCardHeartIconButton.click();
+        hasClass = new Timer(1000L)
+                .wait(() -> complexCardHeartIcon.has().classValue(Matchers.not("jss")));
+        jdiAssert(hasClass, Matchers.is(true));
+
+        complexCardSliderDownButton.click();
+        complexCardHiddenTextArea.is().displayed();
+        jdiAssert(complexCardHiddenText.text(), Matchers.is("Method:"));
+    }
+```
+
+|Method | Description | Return Type
+--- | --- | ---
+**click()** | Clicks on box | void
+**is()** | Verify state | boolean
+**displayed()** | Verify state | boolean
+**hidden()** | Verify text | boolean
+**classValue()** | Checks class | boolean
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/surfaces/CardTests.java" target="_blank">Here you can find Card tests</a>
+
+### Radio
+
+https://material-ui.com/components/radio-buttons/
+
+![Radio](../images/material-ui/Radio.png)
+
+Radio buttons allow the user to select one option from a set.
+
+```java 
+    
+    @UI("//fieldset[@id='simpleRadio']//span[contains(@Class,'MuiRadio-root')]")
+    public static List<Button> simpleRadioButtons;
+
+    @UI("//fieldset[@id='simpleRadio']//span[contains(@Class,'MuiFormControlLabel-label')]")
+    public static List<Button> simpleRadioButtonsLabel;
+
+    @UI("//p[@id='lastClickContent']")
+    public static Text lastRadioText;
+
+    @UI("//h2[text()='Label placement']/following::label")
+    public static List<Button> labelPlacementButtons;
+
+    @UI("//h2[text()='Label placement']/following::span[@id='MuiButtonBase-root']")
+    public static List<Button> labelPlacementButtonsClass;
+
+    @UI("//h2[text()='Show error']/following::label")
+    public static List<Button> showErrorButtons;
+
+    @UI("//h2[text()='Show error']/following::p")
+    public static Text errorText;
+
+    @UI("//h2[text()='Show error']/following::button")
+    public static Button checkAnswer;
+
+    static private final List<String> labels = Arrays.asList("First", "Second", "Third", "Disabled");
+    static private final List<String> classes = Arrays.asList("Top", "Start", "Bottom");
+    static private final List<String> messages = Arrays.asList("You got it!", "Sorry, wrong answer!");
+    static private final Timer timer = new Timer(2000L);
+
+    @BeforeTest()
+    public void beforeTest() {
+        openSection("Radio");
+        radioButtonPage.isOpened();
+    }
+
+    @Test
+    public void simpleRadioTest() {
+        for (int i = 1; i <= 4; i++) {
+            Button currentRadioButton = simpleRadioButtons.get(i);
+            Button currentRadioButtonLabel = simpleRadioButtonsLabel.get(i);
+            if (i != 4) {
+                currentRadioButton.click();
+                timer.wait(() -> currentRadioButton.has().classValue(containsString("Mui-checked")));
+                lastRadioText.has().text(containsString(currentRadioButton.text()));
+            }
+            else
+                timer.wait(() -> currentRadioButton.has().classValue(containsString("Mui-disabled")));
+            currentRadioButtonLabel.has().text(labels.get(i - 1));
+        }
+    }
+
+    @Test
+    public void labelPlacementTest() {
+        for (int i = 1; i <= 4; i++) {
+            Button currentRadioButton = labelPlacementButtons.get(i);
+            Button currentButtonClass = labelPlacementButtonsClass.get(i);
+            if (i != 4)
+                currentRadioButton.has().classValue(containsString(classes.get(i - 1)));
+            currentRadioButton.click();
+            timer.wait(() -> currentButtonClass.has().classValue(containsString("Mui-checked")));
+        }
+    }
+
+    @Test
+    public void showErrorTest() {
+        for (int i = 1; i <= 2; i++) {
+            showErrorButtons.get(i).click();
+            checkAnswer.click();
+            int finalI = i;
+            timer.wait(() -> errorText.is().text(messages.get(finalI - 1)));
+        }
+    }
+```
+
+|Method | Description | Return Type
+--- | --- | ---
+**click()** | Clicks on box | void
+**click(int x, int y)** | Clicks on point in box | void
+**is()** | Verify state | boolean
+**displayed()** | Verify state | boolean
+**hidden()** | Verify text | boolean
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/RadioButtonTests.java" target="_blank">Here you can find Radio tests</a>
 
 ### Box
 The Box component serves as a wrapper component for most of the CSS utility needs.
@@ -23980,7 +24382,6 @@ The grid creates visual consistency between layouts while allowing flexibility a
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/GridTests.java" target="_blank">Here you can find Grid tests</a>
 
 ### Transitions
-<br><br>
 ```java 
     @UI("//h2[text()='Grow']/following::div[contains(@class,'MuiPaper-root')]")
     public static List<UIElement> growSlideTransitions;

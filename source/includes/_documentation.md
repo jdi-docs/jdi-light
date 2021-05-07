@@ -23880,33 +23880,6 @@ Checkboxes allow the user to select one or more items from a set.
     @UI("//h2[text()='Basic checkboxes']/following-sibling::div[1]/span")
     public List<Checkbox> basicCheckbox;
 
-    @UI("//h2[text()='Checkbox with FormControlLabel']/following-sibling::div[1]/label/span[1]")
-    public List<Checkbox> formControlLabelCheckbox;
-
-    @UI("//h2[text()='Checkboxes with FormGroup']/following-sibling::div[1]/fieldset/div/label/span[1]")
-    public List<Checkbox> formGroupCheckbox;
-
-    @UI("//h2[text()='Label placement']/following-sibling::fieldset/div/label/span[1]")
-    public List<Checkbox> labelPlacementCheckbox;
-
-    @UI("//h2[text()='Checkbox with FormControlLabel']/following-sibling::div[1]/label/span[2]")
-    public List<Text> formControlLabelText;
-
-    @UI("//h2[text()='Checkboxes with FormGroup']/following-sibling::div[1]/fieldset/div/label/span[2]")
-    public List<Text> formGroupText;
-
-    @UI("//h2[text()='Label placement']/following-sibling::fieldset/div/label/span[2]")
-    public List<Text> labelPlacementText;
-
-    @UI("//h2[text()='Checkboxes with FormGroup']/following-sibling::div[1]/fieldset/legend")
-    public List<Text> errorMessage;
-
-    @BeforeTest()
-    public void beforeTest() {
-        openSection("Checkbox");
-        checkboxPage.shouldBeOpened();
-    }
-
     @Test
     public void basicCheckboxTest() {
         for (int i = 1; i < 3; i++)
@@ -23914,19 +23887,6 @@ Checkboxes allow the user to select one or more items from a set.
                     checkboxPage.basicCheckbox.get(i),
                     i != 2 && i != 7 ? "MuiCheckbox-colorSecondary" :
                             i == 2 ? "MuiCheckbox-colorPrimary" : "jss3");
-    }
-
-    @Test
-    public void formControlLabelTest() {
-        String[] expectedTexts = new String[] {"Secondary", "Primary", "Uncontrolled", "Disabled",
-                "Disabled", "Indeterminate", "Custom color", "Custom icon", "Custom size"};
-        for (int i = 1; i < 3; i++) {
-            checkboxTestLogic(
-                    checkboxPage.formControlLabelCheckbox.get(i),
-                    i != 2 && i != 7 ? "MuiCheckbox-colorSecondary" :
-                            i == 2 ? "MuiCheckbox-colorPrimary" : "jss3");
-            textTestLogic(checkboxPage.formControlLabelText.get(i), expectedTexts[i - 1]);
-        }
     }
     
     private void checkboxTestLogic(Checkbox checkbox, String className) {
@@ -23964,18 +23924,14 @@ Checkboxes allow the user to select one or more items from a set.
 Avatars are found throughout material design with uses in everything from tables to dialog menus.
 
 ```java 
-    
     @UI("//span[@class='MuiBadge-root']/span")
     public static List<UIElement> onlineStatus;
+    
     @UI("//span[@class='MuiBadge-root']/following-sibling::div")
     public static List<UIElement> avatarWithoutPhoto;
+    
     @UI("//span[@class='MuiBadge-root']/div")
     public static List<UIElement> avatarWithPhoto;
-
-    @BeforeTest
-    public void beforeTest() {
-        openSection("Avatar");
-    }
 
     @Test
     public void avatarTests() {
@@ -24017,7 +23973,7 @@ Avatars are found throughout material design with uses in everything from tables
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/AvatarTests.java" target="_blank">Here you can find Avatar tests</a>
 
-### ClickAwayListener
+### Click Away Listener
 
 #### https://material-ui.com/ru/components/click-away-listener/
 
@@ -24025,8 +23981,7 @@ Avatars are found throughout material design with uses in everything from tables
 
 Detect if a click event happened outside of an element. It listens for clicks that occur somewhere in the document.
 
-```java 
-    
+```java     
     @UI("//h2[text()='Example']/following-sibling::div[1]/div/button")
     public static Button exampleButton;
 
@@ -24054,12 +24009,6 @@ Detect if a click event happened outside of an element. It listens for clicks th
             portalButton.click();
     }
 
-    @BeforeTest
-    public void beforeTest() {
-        openSection("Click Away Listener");
-        clickAwayListenerPage.shouldBeOpened();
-    }
-
     @Test
     public void exampleClickAwayListenerTest() {
         textFieldTest(1);
@@ -24073,15 +24022,12 @@ Detect if a click event happened outside of an element. It listens for clicks th
     private void textFieldTest(int buttonId) {
         clickAwayListenerPage.clickButton(buttonId);
         text.is().displayed();
-        //hiding text field by clicking on 'open menu dropdown' button
         clickAwayListenerPage.clickButton(buttonId);
-        //checking point outside textfield
         text.is().hidden();
         clickAwayListenerPage.clickButton(buttonId);
         text.is().displayed();
         clickAwayListenerPage.clickAroundTextPopup(text.getSize().width + 1, -1);
         text.is().hidden();
-        //check for a fixed bug
         clickAwayListenerPage.clickButton(buttonId);
         clickAwayListenerPage.clickAroundButton(exampleButton.getSize().width + 1,0, buttonId);
         text.is().hidden();
@@ -24106,11 +24052,7 @@ Detect if a click event happened outside of an element. It listens for clicks th
 
 Cards contain content and actions about a single subject.
 
-```java 
-    
-    @UI("//h2[text()='Outlined Card']/following-sibling::div[1]")
-    public static UIElement outlinedCard;
-
+```java    
     @UI("//div[@class='MuiCardContent-root']/p[1]")
     public static List<Text> pTagTexts;
 
@@ -24134,27 +24076,10 @@ Cards contain content and actions about a single subject.
 
     @UI("//div[@class='MuiCardActions-root']/following-sibling::div[1]/div/div/div/p[1]")
     public static Text complexCardHiddenText;
-    
-    @BeforeTest
-    public void beforeTest() {
-        openSection("Card");
-        surfaceCardPage.isOpened();
-    }
 
     private void textCheck(int index) {
         pTagTexts.get(index).has().text(Matchers.is("Word of the Day"));
         h2TagTexts.get(index).has().text(Matchers.is("be•nev•o•lent"));
-    }
-
-    @Test
-    public void simpleCardTest() {
-        textCheck(1);
-    }
-
-    @Test
-    public void outlinedCardTest() {
-        textCheck(2);
-        outlinedCard.has().classValue(Matchers.containsString("MuiPaper-outlined"));
     }
 
     @Test
@@ -24196,41 +24121,16 @@ https://material-ui.com/components/radio-buttons/
 Radio buttons allow the user to select one option from a set.
 
 ```java 
-    
     @UI("//fieldset[@id='simpleRadio']//span[contains(@Class,'MuiRadio-root')]")
     public static List<Button> simpleRadioButtons;
 
     @UI("//fieldset[@id='simpleRadio']//span[contains(@Class,'MuiFormControlLabel-label')]")
     public static List<Button> simpleRadioButtonsLabel;
 
-    @UI("//p[@id='lastClickContent']")
-    public static Text lastRadioText;
-
-    @UI("//h2[text()='Label placement']/following::label")
-    public static List<Button> labelPlacementButtons;
-
-    @UI("//h2[text()='Label placement']/following::span[@id='MuiButtonBase-root']")
-    public static List<Button> labelPlacementButtonsClass;
-
-    @UI("//h2[text()='Show error']/following::label")
-    public static List<Button> showErrorButtons;
-
-    @UI("//h2[text()='Show error']/following::p")
-    public static Text errorText;
-
-    @UI("//h2[text()='Show error']/following::button")
-    public static Button checkAnswer;
-
     static private final List<String> labels = Arrays.asList("First", "Second", "Third", "Disabled");
     static private final List<String> classes = Arrays.asList("Top", "Start", "Bottom");
     static private final List<String> messages = Arrays.asList("You got it!", "Sorry, wrong answer!");
     static private final Timer timer = new Timer(2000L);
-
-    @BeforeTest()
-    public void beforeTest() {
-        openSection("Radio");
-        radioButtonPage.isOpened();
-    }
 
     @Test
     public void simpleRadioTest() {
@@ -24260,13 +24160,13 @@ Radio buttons allow the user to select one option from a set.
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/RadioButtonTests.java" target="_blank">Here you can find Radio tests</a>
 
 ### Box
+
 The Box component serves as a wrapper component for most of the CSS utility needs.
 Java example code for the Button box:
 
-```java 
-    
-    @UI("//button[contains(@class,'MuiButton-contained')]")
-    public Button containedBox;
+```java     
+    @UI("//button[contains(@class,'MuiButton-outlined')]")
+    public static Button outlinedBox;
 
     @Test
     public void outlinedBoxTest() {
@@ -24292,10 +24192,10 @@ Java example code for the Button box:
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/BoxTests.java" target="_blank">Here you can find Box tests</a>
 
 ### Grid
+
 The grid creates visual consistency between layouts while allowing flexibility across a wide variety of designs. Material Design’s responsive UI is based on a 12-column grid layout.
 
-```java 
-    
+```java     
     @UI(".MuiContainer-root")
     public static UIElement rootGrid;
 
@@ -24305,18 +24205,6 @@ The grid creates visual consistency between layouts while allowing flexibility a
         rootGrid.attr("class").contains("MuiContainer-maxWidthXl");
         basicGrid.is().displayed();
         complexGrid.is().displayed();
-    }
-
-    @Test
-    public void buttonsOnGridTest() {
-        firstButton.is().displayed();
-        secondButton.is().displayed();
-        thirdButton.is().displayed();
-        fourthButton.is().displayed();
-        firstButton.click();
-        secondButton.click();
-        thirdButton.click();
-        fourthButton.click();
     }
 ```
 
@@ -24333,10 +24221,10 @@ The grid creates visual consistency between layouts while allowing flexibility a
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/GridTests.java" target="_blank">Here you can find Grid tests</a>
 
 ### Transitions
-```java 
-    @UI("//h2[text()='Grow']/following::div[contains(@class,'MuiPaper-root')]")
-    public static List<UIElement> growSlideTransitions;
 
+Transition helps make a UI expressive and easy to use.
+
+```java     
     @UI("//h1[text()='Transitions']/following::div[contains(@class,'MuiCollapse-container')]")
     public static List<UIElement> collapseFadeTransitions;
 
@@ -24356,35 +24244,25 @@ The grid creates visual consistency between layouts while allowing flexibility a
       collapseFadeTransitions.get(1).has().classValue(containsString("MuiCollapse-entered"));
       collapseFadeTransitions.get(2).has().classValue(containsString("MuiCollapse-entered"));
     }
-
-    @Test
-    public void growDisplayTest() {
-      growSlideTransitions.get(1).is().hidden();
-      growSlideTransitions.get(2).is().hidden();
-
-      checkboxes.get(3).check();
-
-      growSlideTransitions.get(1).is().displayed();
-      growSlideTransitions.get(2).is().displayed();
-    }
 ```
 
 #### https://material-ui.com/components/transitions/
 
+![Transitions](..source/images/material-ui/Transitions.png)
+
 |Method | Description | Return Type
 --- | --- | ---
-**is()** | Verify state | boolean
 **has()** | Verify state | boolean
-**displayed()** | Verify state | boolean
+**hasClass()** | Verify state | boolean
 **classValue()** | Verify state | boolean
-**isDisplayed()** | Verify state for wait | boolean
 **check()** | Checkbox selected | void
-**hidden()** | Element is hidden | void
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/TransitionTests.java" target="_blank">Here you can find Transitions tests</a>
 
 ### Material Icons
-<br><br>
+
+The following npm package, @material-ui/icons, includes the 1,100+ official Material icons converted to SvgIcon components.
+
 ```java     
     @UI("#defaultAccessAlarm")
     public static UIElement defaultAlarm;
@@ -24434,6 +24312,8 @@ The grid creates visual consistency between layouts while allowing flexibility a
 
 #### https://material-ui.com/components/material-icons/
 
+![Material Icons](..source/images/material-ui/MaterialIcons.png)
+
 |Method | Description | Return Type
 --- | --- | ---
 **is()** | Verify state | boolean
@@ -24447,7 +24327,13 @@ The grid creates visual consistency between layouts while allowing flexibility a
 
 ### Icons
 
-```java
+Material-UI provides icons support in three ways:
+
+1. Standardized Material Design icons exported as React components (SVG icons).
+2. With the SvgIcon component, a React wrapper for custom SVG icons.
+3. With the Icon component, a React wrapper for custom font icons.
+
+```java     
     @UI("//h2[text()='Color']/following::*[name()='svg']")
     public static List<UIElement> color;
 
@@ -24486,6 +24372,8 @@ The grid creates visual consistency between layouts while allowing flexibility a
 
 #### https://material-ui.com/components/icons/
 
+![Icons](..source/images/material-ui/Icon.png)
+
 |Method | Description | Return Type
 --- | --- | ---
 **is()** | Verify state | boolean
@@ -24495,8 +24383,10 @@ The grid creates visual consistency between layouts while allowing flexibility a
 **hover()** | Hovers on box | void
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/IconTests.java" target="_blank">Here you can find Icons tests</a>
-<br><br><br>
+
 ### Floating Action Button
+
+A floating action button appears in front of all screen content, typically as a circular shape with an icon in its center. FABs come in two types: regular, and extended.
 
 ```java     
     @UI("//div[@id='basicActionBtns']/button")
@@ -24539,6 +24429,8 @@ The grid creates visual consistency between layouts while allowing flexibility a
 ```
 
 #### https://material-ui.com/components/floating-action-button/
+
+![Floating action button](..source/images/material-ui/Fab.png)
 
 |Method | Description | Return Type
 --- | --- | ---

@@ -809,7 +809,7 @@
 								<a href="#avatar" class="toc-h2 h3 toc-link" data-title="Avatar">Avatar</a>
                             </li>
                             <li>
-								<a href="#clickawaylistener" class="toc-h2 h3 toc-link" data-title="ClickAwayListener">ClickAwayListener</a>
+								<a href="#click-away-listener" class="toc-h2 h3 toc-link" data-title="Click Away Listener">Click Away Listener</a>
                             </li>
                             <li>
 								<a href="#card-3" class="toc-h2 h3 toc-link" data-title="Card">Card</a>
@@ -33058,33 +33058,6 @@ Note: domain is read from test.properties automatically. <br><br><br><br><br>
 <pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h2[text()='Basic checkboxes']/following-sibling::div[1]/span"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Checkbox</span><span class="o">&gt;</span> <span class="n">basicCheckbox</span><span class="o">;</span>
 
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h2[text()='Checkbox with FormControlLabel']/following-sibling::div[1]/label/span[1]"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Checkbox</span><span class="o">&gt;</span> <span class="n">formControlLabelCheckbox</span><span class="o">;</span>
-
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h2[text()='Checkboxes with FormGroup']/following-sibling::div[1]/fieldset/div/label/span[1]"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Checkbox</span><span class="o">&gt;</span> <span class="n">formGroupCheckbox</span><span class="o">;</span>
-
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h2[text()='Label placement']/following-sibling::fieldset/div/label/span[1]"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Checkbox</span><span class="o">&gt;</span> <span class="n">labelPlacementCheckbox</span><span class="o">;</span>
-
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h2[text()='Checkbox with FormControlLabel']/following-sibling::div[1]/label/span[2]"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Text</span><span class="o">&gt;</span> <span class="n">formControlLabelText</span><span class="o">;</span>
-
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h2[text()='Checkboxes with FormGroup']/following-sibling::div[1]/fieldset/div/label/span[2]"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Text</span><span class="o">&gt;</span> <span class="n">formGroupText</span><span class="o">;</span>
-
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h2[text()='Label placement']/following-sibling::fieldset/div/label/span[2]"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Text</span><span class="o">&gt;</span> <span class="n">labelPlacementText</span><span class="o">;</span>
-
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h2[text()='Checkboxes with FormGroup']/following-sibling::div[1]/fieldset/legend"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Text</span><span class="o">&gt;</span> <span class="n">errorMessage</span><span class="o">;</span>
-
-    <span class="nd">@BeforeTest</span><span class="o">()</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">beforeTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">openSection</span><span class="o">(</span><span class="s">"Checkbox"</span><span class="o">);</span>
-        <span class="n">checkboxPage</span><span class="o">.</span><span class="na">shouldBeOpened</span><span class="o">();</span>
-    <span class="o">}</span>
-
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">basicCheckboxTest</span><span class="o">()</span> <span class="o">{</span>
         <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span>
@@ -33092,19 +33065,6 @@ Note: domain is read from test.properties automatically. <br><br><br><br><br>
                     <span class="n">checkboxPage</span><span class="o">.</span><span class="na">basicCheckbox</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">),</span>
                     <span class="n">i</span> <span class="o">!=</span> <span class="mi">2</span> <span class="o">&amp;&amp;</span> <span class="n">i</span> <span class="o">!=</span> <span class="mi">7</span> <span class="o">?</span> <span class="s">"MuiCheckbox-colorSecondary"</span> <span class="o">:</span>
                             <span class="n">i</span> <span class="o">==</span> <span class="mi">2</span> <span class="o">?</span> <span class="s">"MuiCheckbox-colorPrimary"</span> <span class="o">:</span> <span class="s">"jss3"</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">formControlLabelTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">String</span><span class="o">[]</span> <span class="n">expectedTexts</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">[]</span> <span class="o">{</span><span class="s">"Secondary"</span><span class="o">,</span> <span class="s">"Primary"</span><span class="o">,</span> <span class="s">"Uncontrolled"</span><span class="o">,</span> <span class="s">"Disabled"</span><span class="o">,</span>
-                <span class="s">"Disabled"</span><span class="o">,</span> <span class="s">"Indeterminate"</span><span class="o">,</span> <span class="s">"Custom color"</span><span class="o">,</span> <span class="s">"Custom icon"</span><span class="o">,</span> <span class="s">"Custom size"</span><span class="o">};</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="n">checkboxTestLogic</span><span class="o">(</span>
-                    <span class="n">checkboxPage</span><span class="o">.</span><span class="na">formControlLabelCheckbox</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">),</span>
-                    <span class="n">i</span> <span class="o">!=</span> <span class="mi">2</span> <span class="o">&amp;&amp;</span> <span class="n">i</span> <span class="o">!=</span> <span class="mi">7</span> <span class="o">?</span> <span class="s">"MuiCheckbox-colorSecondary"</span> <span class="o">:</span>
-                            <span class="n">i</span> <span class="o">==</span> <span class="mi">2</span> <span class="o">?</span> <span class="s">"MuiCheckbox-colorPrimary"</span> <span class="o">:</span> <span class="s">"jss3"</span><span class="o">);</span>
-            <span class="n">textTestLogic</span><span class="o">(</span><span class="n">checkboxPage</span><span class="o">.</span><span class="na">formControlLabelText</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">),</span> <span class="n">expectedTexts</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">]);</span>
-        <span class="o">}</span>
     <span class="o">}</span>
 
     <span class="kd">private</span> <span class="kt">void</span> <span class="nf">checkboxTestLogic</span><span class="o">(</span><span class="n">Checkbox</span> <span class="n">checkbox</span><span class="o">,</span> <span class="n">String</span> <span class="n">className</span><span class="o">)</span> <span class="o">{</span>
@@ -33165,18 +33125,14 @@ Note: domain is read from test.properties automatically. <br><br><br><br><br>
 <p><img src="images/material-ui/Avatar.png" alt="Avatar" /></p>
 
 <p>Avatars are found throughout material design with uses in everything from tables to dialog menus.</p>
-<pre class="highlight java tab-java"><code>
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//span[@class='MuiBadge-root']/span"</span><span class="o">)</span>
+<pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//span[@class='MuiBadge-root']/span"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">UIElement</span><span class="o">&gt;</span> <span class="n">onlineStatus</span><span class="o">;</span>
+
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"//span[@class='MuiBadge-root']/following-sibling::div"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">UIElement</span><span class="o">&gt;</span> <span class="n">avatarWithoutPhoto</span><span class="o">;</span>
+
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"//span[@class='MuiBadge-root']/div"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">UIElement</span><span class="o">&gt;</span> <span class="n">avatarWithPhoto</span><span class="o">;</span>
-
-    <span class="nd">@BeforeTest</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">beforeTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">openSection</span><span class="o">(</span><span class="s">"Avatar"</span><span class="o">);</span>
-    <span class="o">}</span>
 
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">avatarTests</span><span class="o">()</span> <span class="o">{</span>
@@ -33240,12 +33196,11 @@ Note: domain is read from test.properties automatically. <br><br><br><br><br>
 <td>boolean</td>
 </tr>
 </tbody></table>
-<h4 id='here-you-can-find-avatar-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/AvatarTests.java" target="_blank">Here you can find Avatar tests</a></h4><h3 id='clickawaylistener'>ClickAwayListener</h3><h4 id='https-material-ui-com-ru-components-click-away-listener'>https://material-ui.com/ru/components/click-away-listener/</h4>
+<h4 id='here-you-can-find-avatar-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/AvatarTests.java" target="_blank">Here you can find Avatar tests</a></h4><h3 id='click-away-listener'>Click Away Listener</h3><h4 id='https-material-ui-com-ru-components-click-away-listener'>https://material-ui.com/ru/components/click-away-listener/</h4>
 <p><img src="images/material-ui/ClickAwayListener.png" alt="ClickAwayListener" /></p>
 
 <p>Detect if a click event happened outside of an element. It listens for clicks that occur somewhere in the document.</p>
-<pre class="highlight java tab-java"><code>
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h2[text()='Example']/following-sibling::div[1]/div/button"</span><span class="o">)</span>
+<pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h2[text()='Example']/following-sibling::div[1]/div/button"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">Button</span> <span class="n">exampleButton</span><span class="o">;</span>
 
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h2[text()='Portal']/following-sibling::div[1]/div/button"</span><span class="o">)</span>
@@ -33272,12 +33227,6 @@ Note: domain is read from test.properties automatically. <br><br><br><br><br>
             <span class="n">portalButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
     <span class="o">}</span>
 
-    <span class="nd">@BeforeTest</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">beforeTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">openSection</span><span class="o">(</span><span class="s">"Click Away Listener"</span><span class="o">);</span>
-        <span class="n">clickAwayListenerPage</span><span class="o">.</span><span class="na">shouldBeOpened</span><span class="o">();</span>
-    <span class="o">}</span>
-
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">exampleClickAwayListenerTest</span><span class="o">()</span> <span class="o">{</span>
         <span class="n">textFieldTest</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
@@ -33291,15 +33240,12 @@ Note: domain is read from test.properties automatically. <br><br><br><br><br>
     <span class="kd">private</span> <span class="kt">void</span> <span class="nf">textFieldTest</span><span class="o">(</span><span class="kt">int</span> <span class="n">buttonId</span><span class="o">)</span> <span class="o">{</span>
         <span class="n">clickAwayListenerPage</span><span class="o">.</span><span class="na">clickButton</span><span class="o">(</span><span class="n">buttonId</span><span class="o">);</span>
         <span class="n">text</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-        <span class="c1">//hiding text field by clicking on 'open menu dropdown' button</span>
         <span class="n">clickAwayListenerPage</span><span class="o">.</span><span class="na">clickButton</span><span class="o">(</span><span class="n">buttonId</span><span class="o">);</span>
-        <span class="c1">//checking point outside textfield</span>
         <span class="n">text</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">hidden</span><span class="o">();</span>
         <span class="n">clickAwayListenerPage</span><span class="o">.</span><span class="na">clickButton</span><span class="o">(</span><span class="n">buttonId</span><span class="o">);</span>
         <span class="n">text</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
         <span class="n">clickAwayListenerPage</span><span class="o">.</span><span class="na">clickAroundTextPopup</span><span class="o">(</span><span class="n">text</span><span class="o">.</span><span class="na">getSize</span><span class="o">().</span><span class="na">width</span> <span class="o">+</span> <span class="mi">1</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">);</span>
         <span class="n">text</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">hidden</span><span class="o">();</span>
-        <span class="c1">//check for a fixed bug</span>
         <span class="n">clickAwayListenerPage</span><span class="o">.</span><span class="na">clickButton</span><span class="o">(</span><span class="n">buttonId</span><span class="o">);</span>
         <span class="n">clickAwayListenerPage</span><span class="o">.</span><span class="na">clickAroundButton</span><span class="o">(</span><span class="n">exampleButton</span><span class="o">.</span><span class="na">getSize</span><span class="o">().</span><span class="na">width</span> <span class="o">+</span> <span class="mi">1</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span> <span class="n">buttonId</span><span class="o">);</span>
         <span class="n">text</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">hidden</span><span class="o">();</span>
@@ -33342,11 +33288,7 @@ Note: domain is read from test.properties automatically. <br><br><br><br><br>
 <p><img src="images/material-ui/Card.png" alt="Сard" /></p>
 
 <p>Cards contain content and actions about a single subject.</p>
-<pre class="highlight java tab-java"><code>
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h2[text()='Outlined Card']/following-sibling::div[1]"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">UIElement</span> <span class="n">outlinedCard</span><span class="o">;</span>
-
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div[@class='MuiCardContent-root']/p[1]"</span><span class="o">)</span>
+<pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div[@class='MuiCardContent-root']/p[1]"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Text</span><span class="o">&gt;</span> <span class="n">pTagTexts</span><span class="o">;</span>
 
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div[@class='MuiCardContent-root']/h2[1]"</span><span class="o">)</span>
@@ -33370,26 +33312,9 @@ Note: domain is read from test.properties automatically. <br><br><br><br><br>
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div[@class='MuiCardActions-root']/following-sibling::div[1]/div/div/div/p[1]"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">Text</span> <span class="n">complexCardHiddenText</span><span class="o">;</span>
 
-    <span class="nd">@BeforeTest</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">beforeTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">openSection</span><span class="o">(</span><span class="s">"Card"</span><span class="o">);</span>
-        <span class="n">surfaceCardPage</span><span class="o">.</span><span class="na">isOpened</span><span class="o">();</span>
-    <span class="o">}</span>
-
     <span class="kd">private</span> <span class="kt">void</span> <span class="nf">textCheck</span><span class="o">(</span><span class="kt">int</span> <span class="n">index</span><span class="o">)</span> <span class="o">{</span>
         <span class="n">pTagTexts</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">index</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">Matchers</span><span class="o">.</span><span class="na">is</span><span class="o">(</span><span class="s">"Word of the Day"</span><span class="o">));</span>
         <span class="n">h2TagTexts</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">index</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">Matchers</span><span class="o">.</span><span class="na">is</span><span class="o">(</span><span class="s">"be•nev•o•lent"</span><span class="o">));</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">simpleCardTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">textCheck</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">outlinedCardTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">textCheck</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
-        <span class="n">outlinedCard</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">classValue</span><span class="o">(</span><span class="n">Matchers</span><span class="o">.</span><span class="na">containsString</span><span class="o">(</span><span class="s">"MuiPaper-outlined"</span><span class="o">));</span>
     <span class="o">}</span>
 
     <span class="nd">@Test</span>
@@ -33450,41 +33375,16 @@ Note: domain is read from test.properties automatically. <br><br><br><br><br>
 <p><img src="images/material-ui/Radio.png" alt="Radio" /></p>
 
 <p>Radio buttons allow the user to select one option from a set.</p>
-<pre class="highlight java tab-java"><code>
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//fieldset[@id='simpleRadio']//span[contains(@Class,'MuiRadio-root')]"</span><span class="o">)</span>
+<pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//fieldset[@id='simpleRadio']//span[contains(@Class,'MuiRadio-root')]"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Button</span><span class="o">&gt;</span> <span class="n">simpleRadioButtons</span><span class="o">;</span>
 
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"//fieldset[@id='simpleRadio']//span[contains(@Class,'MuiFormControlLabel-label')]"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Button</span><span class="o">&gt;</span> <span class="n">simpleRadioButtonsLabel</span><span class="o">;</span>
 
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//p[@id='lastClickContent']"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Text</span> <span class="n">lastRadioText</span><span class="o">;</span>
-
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h2[text()='Label placement']/following::label"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Button</span><span class="o">&gt;</span> <span class="n">labelPlacementButtons</span><span class="o">;</span>
-
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h2[text()='Label placement']/following::span[@id='MuiButtonBase-root']"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Button</span><span class="o">&gt;</span> <span class="n">labelPlacementButtonsClass</span><span class="o">;</span>
-
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h2[text()='Show error']/following::label"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Button</span><span class="o">&gt;</span> <span class="n">showErrorButtons</span><span class="o">;</span>
-
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h2[text()='Show error']/following::p"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Text</span> <span class="n">errorText</span><span class="o">;</span>
-
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h2[text()='Show error']/following::button"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Button</span> <span class="n">checkAnswer</span><span class="o">;</span>
-
     <span class="kd">static</span> <span class="kd">private</span> <span class="kd">final</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">"First"</span><span class="o">,</span> <span class="s">"Second"</span><span class="o">,</span> <span class="s">"Third"</span><span class="o">,</span> <span class="s">"Disabled"</span><span class="o">);</span>
     <span class="kd">static</span> <span class="kd">private</span> <span class="kd">final</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">classes</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">"Top"</span><span class="o">,</span> <span class="s">"Start"</span><span class="o">,</span> <span class="s">"Bottom"</span><span class="o">);</span>
     <span class="kd">static</span> <span class="kd">private</span> <span class="kd">final</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">messages</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">"You got it!"</span><span class="o">,</span> <span class="s">"Sorry, wrong answer!"</span><span class="o">);</span>
     <span class="kd">static</span> <span class="kd">private</span> <span class="kd">final</span> <span class="n">Timer</span> <span class="n">timer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Timer</span><span class="o">(</span><span class="mi">2000L</span><span class="o">);</span>
-
-    <span class="nd">@BeforeTest</span><span class="o">()</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">beforeTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">openSection</span><span class="o">(</span><span class="s">"Radio"</span><span class="o">);</span>
-        <span class="n">radioButtonPage</span><span class="o">.</span><span class="na">isOpened</span><span class="o">();</span>
-    <span class="o">}</span>
 
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">simpleRadioTest</span><span class="o">()</span> <span class="o">{</span>
@@ -33538,9 +33438,8 @@ Note: domain is read from test.properties automatically. <br><br><br><br><br>
 <h4 id='here-you-can-find-radio-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/RadioButtonTests.java" target="_blank">Here you can find Radio tests</a></h4><h3 id='box'>Box</h3>
 <p>The Box component serves as a wrapper component for most of the CSS utility needs.
 Java example code for the Button box:</p>
-<pre class="highlight java tab-java"><code>
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//button[contains(@class,'MuiButton-contained')]"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="n">Button</span> <span class="n">containedBox</span><span class="o">;</span>
+<pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//button[contains(@class,'MuiButton-outlined')]"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Button</span> <span class="n">outlinedBox</span><span class="o">;</span>
 
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">outlinedBoxTest</span><span class="o">()</span> <span class="o">{</span>
@@ -33582,8 +33481,7 @@ Java example code for the Button box:</p>
 </tbody></table>
 <h4 id='here-you-can-find-box-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/BoxTests.java" target="_blank">Here you can find Box tests</a></h4><h3 id='grid'>Grid</h3>
 <p>The grid creates visual consistency between layouts while allowing flexibility across a wide variety of designs. Material Design’s responsive UI is based on a 12-column grid layout.</p>
-<pre class="highlight java tab-java"><code>
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">".MuiContainer-root"</span><span class="o">)</span>
+<pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">".MuiContainer-root"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">UIElement</span> <span class="n">rootGrid</span><span class="o">;</span>
 
     <span class="nd">@Test</span>
@@ -33592,18 +33490,6 @@ Java example code for the Button box:</p>
         <span class="n">rootGrid</span><span class="o">.</span><span class="na">attr</span><span class="o">(</span><span class="s">"class"</span><span class="o">).</span><span class="na">contains</span><span class="o">(</span><span class="s">"MuiContainer-maxWidthXl"</span><span class="o">);</span>
         <span class="n">basicGrid</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
         <span class="n">complexGrid</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">buttonsOnGridTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">firstButton</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-        <span class="n">secondButton</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-        <span class="n">thirdButton</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-        <span class="n">fourthButton</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-        <span class="n">firstButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">secondButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">thirdButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">fourthButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
     <span class="o">}</span>
 </code></pre><h4 id='https-material-ui-com-components-grid'>https://material-ui.com/components/grid/</h4>
 <p><img src="images/..source/images/material-ui/Grid.png" alt="Grid" /></p>
@@ -33626,10 +33512,9 @@ Java example code for the Button box:</p>
 <td>boolean</td>
 </tr>
 </tbody></table>
-<h4 id='here-you-can-find-grid-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/GridTests.java" target="_blank">Here you can find Grid tests</a></h4><h3 id='transitions'>Transitions</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h2[text()='Grow']/following::div[contains(@class,'MuiPaper-root')]"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">UIElement</span><span class="o">&gt;</span> <span class="n">growSlideTransitions</span><span class="o">;</span>
-
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h1[text()='Transitions']/following::div[contains(@class,'MuiCollapse-container')]"</span><span class="o">)</span>
+<h4 id='here-you-can-find-grid-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/GridTests.java" target="_blank">Here you can find Grid tests</a></h4><h3 id='transitions'>Transitions</h3>
+<p>Transition helps make a UI expressive and easy to use.</p>
+<pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h1[text()='Transitions']/following::div[contains(@class,'MuiCollapse-container')]"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">UIElement</span><span class="o">&gt;</span> <span class="n">collapseFadeTransitions</span><span class="o">;</span>
 
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"//span[@class='MuiSwitch-root']"</span><span class="o">)</span>
@@ -33648,18 +33533,9 @@ Java example code for the Button box:</p>
       <span class="n">collapseFadeTransitions</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">classValue</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"MuiCollapse-entered"</span><span class="o">));</span>
       <span class="n">collapseFadeTransitions</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">classValue</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"MuiCollapse-entered"</span><span class="o">));</span>
     <span class="o">}</span>
-
-    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">growDisplayTest</span><span class="o">()</span> <span class="o">{</span>
-      <span class="n">growSlideTransitions</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">hidden</span><span class="o">();</span>
-      <span class="n">growSlideTransitions</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">hidden</span><span class="o">();</span>
-
-      <span class="n">checkboxes</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">3</span><span class="o">).</span><span class="na">check</span><span class="o">();</span>
-
-      <span class="n">growSlideTransitions</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-      <span class="n">growSlideTransitions</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-    <span class="o">}</span>
 </code></pre><h4 id='https-material-ui-com-components-transitions'>https://material-ui.com/components/transitions/</h4>
+<p><img src="images/..source/images/material-ui/Transitions.png" alt="Transitions" /></p>
+
 <table><thead>
 <tr>
 <th>Method</th>
@@ -33668,17 +33544,12 @@ Java example code for the Button box:</p>
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>is()</strong></td>
-<td>Verify state</td>
-<td>boolean</td>
-</tr>
-<tr>
 <td><strong>has()</strong></td>
 <td>Verify state</td>
 <td>boolean</td>
 </tr>
 <tr>
-<td><strong>displayed()</strong></td>
+<td><strong>hasClass()</strong></td>
 <td>Verify state</td>
 <td>boolean</td>
 </tr>
@@ -33688,70 +33559,60 @@ Java example code for the Button box:</p>
 <td>boolean</td>
 </tr>
 <tr>
-<td><strong>isDisplayed()</strong></td>
-<td>Verify state for wait</td>
-<td>boolean</td>
-</tr>
-<tr>
 <td><strong>check()</strong></td>
 <td>Checkbox selected</td>
 <td>void</td>
 </tr>
-<tr>
-<td><strong>hidden()</strong></td>
-<td>Element is hidden</td>
-<td>void</td>
-</tr>
 </tbody></table>
 <h4 id='here-you-can-find-transitions-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/TransitionTests.java" target="_blank">Here you can find Transitions tests</a></h4><h3 id='material-icons'>Material Icons</h3>
-<p><br><br>
-```java<br>
-    @UI(&quot;#defaultAccessAlarm&quot;)
-    public static UIElement defaultAlarm;</p>
+<p>The following npm package, @material-ui/icons, includes the 1,100+ official Material icons converted to SvgIcon components.</p>
+<pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#defaultAccessAlarm"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">UIElement</span> <span class="n">defaultAlarm</span><span class="o">;</span>
 
-<p>@UI(&quot;#largeAccessAlarm&quot;)
-    public static UIElement largeAlarm;</p>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#largeAccessAlarm"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">UIElement</span> <span class="n">largeAlarm</span><span class="o">;</span>
 
-<p>@UI(&quot;#secondaryAccessAlarm&quot;)
-    public static UIElement secondaryAlarm;</p>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#secondaryAccessAlarm"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">UIElement</span> <span class="n">secondaryAlarm</span><span class="o">;</span>
 
-<p>@UI(&quot;#miconLastClick&quot;)
-    public static UIElement lastClick;</p>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#miconLastClick"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">UIElement</span> <span class="n">lastClick</span><span class="o">;</span>
 
-<p>@UI(&quot;#miconLastHover&quot;)
-    public static UIElement lastHover;</p>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#miconLastHover"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">UIElement</span> <span class="n">lastHover</span><span class="o">;</span>
 
-<p>@Test
-    public void defaultMaterialIconTest() {
-        lastClick.is().text(&quot;Last click:&quot;);
-        lastHover.is().text(&quot;Last hover:&quot;);</p>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">defaultMaterialIconTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">lastClick</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Last click:"</span><span class="o">);</span>
+        <span class="n">lastHover</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Last hover:"</span><span class="o">);</span>
 
-<p>defaultAlarm.hover();
-        lastClick.is().text(&quot;Last click:&quot;);
-        lastHover.is().text(&quot;Last hover: default&quot;);</p>
+        <span class="n">defaultAlarm</span><span class="o">.</span><span class="na">hover</span><span class="o">();</span>
+        <span class="n">lastClick</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Last click:"</span><span class="o">);</span>
+        <span class="n">lastHover</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Last hover: default"</span><span class="o">);</span>
 
-<p>defaultAlarm.click();
-        lastClick.is().text(&quot;Last click: default&quot;);
-        lastHover.is().text(&quot;Last hover: default&quot;);</p>
+        <span class="n">defaultAlarm</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">lastClick</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Last click: default"</span><span class="o">);</span>
+        <span class="n">lastHover</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Last hover: default"</span><span class="o">);</span>
 
-<p>largeAlarm.hover();
-        lastClick.is().text(&quot;Last click: default&quot;);
-        lastHover.is().text(&quot;Last hover: large&quot;);</p>
+        <span class="n">largeAlarm</span><span class="o">.</span><span class="na">hover</span><span class="o">();</span>
+        <span class="n">lastClick</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Last click: default"</span><span class="o">);</span>
+        <span class="n">lastHover</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Last hover: large"</span><span class="o">);</span>
 
-<p>largeAlarm.click();
-        lastClick.is().text(&quot;Last click: large&quot;);
-        lastHover.is().text(&quot;Last hover: large&quot;);</p>
+        <span class="n">largeAlarm</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">lastClick</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Last click: large"</span><span class="o">);</span>
+        <span class="n">lastHover</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Last hover: large"</span><span class="o">);</span>
 
-<p>secondaryAlarm.hover();
-        lastClick.is().text(&quot;Last click: large&quot;);
-        lastHover.is().text(&quot;Last hover: secondary&quot;);</p>
+        <span class="n">secondaryAlarm</span><span class="o">.</span><span class="na">hover</span><span class="o">();</span>
+        <span class="n">lastClick</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Last click: large"</span><span class="o">);</span>
+        <span class="n">lastHover</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Last hover: secondary"</span><span class="o">);</span>
 
-<p>secondaryAlarm.click();
-        lastClick.is().text(&quot;Last click: secondary&quot;);
-        lastHover.is().text(&quot;Last hover: secondary&quot;);
-    }
-```</p>
-<h4 id='https-material-ui-com-components-material-icons'>https://material-ui.com/components/material-icons/</h4>
+        <span class="n">secondaryAlarm</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">lastClick</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Last click: secondary"</span><span class="o">);</span>
+        <span class="n">lastHover</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Last hover: secondary"</span><span class="o">);</span>
+    <span class="o">}</span>
+</code></pre><h4 id='https-material-ui-com-components-material-icons'>https://material-ui.com/components/material-icons/</h4>
+<p><img src="images/..source/images/material-ui/MaterialIcons.png" alt="Material Icons" /></p>
+
 <table><thead>
 <tr>
 <th>Method</th>
@@ -33790,7 +33651,15 @@ Java example code for the Button box:</p>
 <td>void</td>
 </tr>
 </tbody></table>
-<h4 id='here-you-can-find-material-icons-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/MaterialIconTests.java" target="_blank">Here you can find Material Icons tests</a></h4><h3 id='icons-2'>Icons</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h2[text()='Color']/following::*[name()='svg']"</span><span class="o">)</span>
+<h4 id='here-you-can-find-material-icons-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/MaterialIconTests.java" target="_blank">Here you can find Material Icons tests</a></h4><h3 id='icons-2'>Icons</h3>
+<p>Material-UI provides icons support in three ways:</p>
+
+<ol>
+<li>Standardized Material Design icons exported as React components (SVG icons).</li>
+<li>With the SvgIcon component, a React wrapper for custom SVG icons.</li>
+<li>With the Icon component, a React wrapper for custom font icons.</li>
+</ol>
+<pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h2[text()='Color']/following::*[name()='svg']"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">UIElement</span><span class="o">&gt;</span> <span class="n">color</span><span class="o">;</span>
 
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"#colorLastClick"</span><span class="o">)</span>
@@ -33825,6 +33694,8 @@ Java example code for the Button box:</p>
         <span class="o">);</span>
     <span class="o">}</span>
 </code></pre><h4 id='https-material-ui-com-components-icons'>https://material-ui.com/components/icons/</h4>
+<p><img src="images/..source/images/material-ui/Icon.png" alt="Icons" /></p>
+
 <table><thead>
 <tr>
 <th>Method</th>
@@ -33858,9 +33729,9 @@ Java example code for the Button box:</p>
 <td>void</td>
 </tr>
 </tbody></table>
-<h4 id='here-you-can-find-icons-tests-2'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/IconTests.java" target="_blank">Here you can find Icons tests</a></h4>
-<p><br><br><br></p>
-<h3 id='floating-action-button'>Floating Action Button</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div[@id='basicActionBtns']/button"</span><span class="o">)</span>
+<h4 id='here-you-can-find-icons-tests-2'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/IconTests.java" target="_blank">Here you can find Icons tests</a></h4><h3 id='floating-action-button'>Floating Action Button</h3>
+<p>A floating action button appears in front of all screen content, typically as a circular shape with an icon in its center. FABs come in two types: regular, and extended.</p>
+<pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div[@id='basicActionBtns']/button"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Button</span><span class="o">&gt;</span> <span class="n">basicBtns</span><span class="o">;</span>
 
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"//button[@aria-label='add']"</span><span class="o">)</span>
@@ -33898,6 +33769,8 @@ Java example code for the Button box:</p>
         <span class="n">disabledBtn</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">disabled</span><span class="o">();</span>
     <span class="o">}</span>
 </code></pre><h4 id='https-material-ui-com-components-floating-action-button'>https://material-ui.com/components/floating-action-button/</h4>
+<p><img src="images/..source/images/material-ui/Fab.png" alt="Floating action button" /></p>
+
 <table><thead>
 <tr>
 <th>Method</th>

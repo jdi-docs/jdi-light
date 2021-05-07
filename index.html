@@ -809,19 +809,10 @@
 								<a href="#avatar" class="toc-h2 h3 toc-link" data-title="Avatar">Avatar</a>
                             </li>
                             <li>
-								<a href="#https-material-ui-com-ru-components-avatars" class="toc-h2 h3 toc-link" data-title="https://material-ui.com/ru/components/avatars/">https://material-ui.com/ru/components/avatars/</a>
-                            </li>
-                            <li>
 								<a href="#clickawaylistener" class="toc-h2 h3 toc-link" data-title="ClickAwayListener">ClickAwayListener</a>
                             </li>
                             <li>
-								<a href="#https-material-ui-com-ru-components-click-away-listener" class="toc-h2 h3 toc-link" data-title="https://material-ui.com/ru/components/click-away-listener/">https://material-ui.com/ru/components/click-away-listener/</a>
-                            </li>
-                            <li>
 								<a href="#card-3" class="toc-h2 h3 toc-link" data-title="Card">Card</a>
-                            </li>
-                            <li>
-								<a href="#https-material-ui-com-components-cards" class="toc-h2 h3 toc-link" data-title="https://material-ui.com/components/cards/">https://material-ui.com/components/cards/</a>
                             </li>
                             <li>
 								<a href="#radio" class="toc-h2 h3 toc-link" data-title="Radio">Radio</a>
@@ -33170,7 +33161,7 @@ Note: domain is read from test.properties automatically. <br><br><br><br><br>
 <td>void</td>
 </tr>
 </tbody></table>
-<h4 id='here-you-can-find-checkbox-tests-2'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/CheckboxTests.java" target="_blank">Here you can find Checkbox tests</a></h4><h3 id='avatar'>Avatar</h3><h3 id='https-material-ui-com-ru-components-avatars'>https://material-ui.com/ru/components/avatars/</h3>
+<h4 id='here-you-can-find-checkbox-tests-2'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/CheckboxTests.java" target="_blank">Here you can find Checkbox tests</a></h4><h3 id='avatar'>Avatar</h3><h4 id='https-material-ui-com-ru-components-avatars'>https://material-ui.com/ru/components/avatars/</h4>
 <p><img src="images/material-ui/Avatar.png" alt="Avatar" /></p>
 
 <p>Avatars are found throughout material design with uses in everything from tables to dialog menus.</p>
@@ -33241,10 +33232,15 @@ Note: domain is read from test.properties automatically. <br><br><br><br><br>
 <tr>
 <td><strong>text()</strong></td>
 <td>Verify text</td>
-<td>void</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>has()</strong></td>
+<td>Verify state</td>
+<td>boolean</td>
 </tr>
 </tbody></table>
-<h4 id='here-you-can-find-avatar-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/AvatarTests.java" target="_blank">Here you can find Avatar tests</a></h4><h3 id='clickawaylistener'>ClickAwayListener</h3><h3 id='https-material-ui-com-ru-components-click-away-listener'>https://material-ui.com/ru/components/click-away-listener/</h3>
+<h4 id='here-you-can-find-avatar-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/AvatarTests.java" target="_blank">Here you can find Avatar tests</a></h4><h3 id='clickawaylistener'>ClickAwayListener</h3><h4 id='https-material-ui-com-ru-components-click-away-listener'>https://material-ui.com/ru/components/click-away-listener/</h4>
 <p><img src="images/material-ui/ClickAwayListener.png" alt="ClickAwayListener" /></p>
 
 <p>Detect if a click event happened outside of an element. It listens for clicks that occur somewhere in the document.</p>
@@ -33342,7 +33338,7 @@ Note: domain is read from test.properties automatically. <br><br><br><br><br>
 <td>boolean</td>
 </tr>
 </tbody></table>
-<h4 id='here-you-can-find-clickawaylistener-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/ClickAwayListenerTests.java" target="_blank">Here you can find ClickAwayListener tests</a></h4><h3 id='card-3'>Card</h3><h3 id='https-material-ui-com-components-cards'>https://material-ui.com/components/cards/</h3>
+<h4 id='here-you-can-find-clickawaylistener-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/ClickAwayListenerTests.java" target="_blank">Here you can find ClickAwayListener tests</a></h4><h3 id='card-3'>Card</h3><h4 id='https-material-ui-com-components-cards'>https://material-ui.com/components/cards/</h4>
 <p><img src="images/material-ui/Card.png" alt="Сard" /></p>
 
 <p>Cards contain content and actions about a single subject.</p>
@@ -33381,8 +33377,8 @@ Note: domain is read from test.properties automatically. <br><br><br><br><br>
     <span class="o">}</span>
 
     <span class="kd">private</span> <span class="kt">void</span> <span class="nf">textCheck</span><span class="o">(</span><span class="kt">int</span> <span class="n">index</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">jdiAssert</span><span class="o">(</span><span class="n">pTagTexts</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">index</span><span class="o">).</span><span class="na">text</span><span class="o">(),</span> <span class="n">Matchers</span><span class="o">.</span><span class="na">is</span><span class="o">(</span><span class="s">"Word of the Day"</span><span class="o">));</span>
-        <span class="n">jdiAssert</span><span class="o">(</span><span class="n">h2TagTexts</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">index</span><span class="o">).</span><span class="na">text</span><span class="o">(),</span> <span class="n">Matchers</span><span class="o">.</span><span class="na">is</span><span class="o">(</span><span class="s">"be•nev•o•lent"</span><span class="o">));</span>
+        <span class="n">pTagTexts</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">index</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">Matchers</span><span class="o">.</span><span class="na">is</span><span class="o">(</span><span class="s">"Word of the Day"</span><span class="o">));</span>
+        <span class="n">h2TagTexts</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">index</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">Matchers</span><span class="o">.</span><span class="na">is</span><span class="o">(</span><span class="s">"be•nev•o•lent"</span><span class="o">));</span>
     <span class="o">}</span>
 
     <span class="nd">@Test</span>
@@ -33393,28 +33389,26 @@ Note: domain is read from test.properties automatically. <br><br><br><br><br>
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">outlinedCardTest</span><span class="o">()</span> <span class="o">{</span>
         <span class="n">textCheck</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
-        <span class="n">jdiAssert</span><span class="o">(</span><span class="n">outlinedCard</span><span class="o">.</span><span class="na">hasClass</span><span class="o">(</span><span class="s">"MuiPaper-outlined"</span><span class="o">),</span> <span class="n">Matchers</span><span class="o">.</span><span class="na">is</span><span class="o">(</span><span class="kc">true</span><span class="o">));</span>
+        <span class="n">outlinedCard</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">classValue</span><span class="o">(</span><span class="n">Matchers</span><span class="o">.</span><span class="na">containsString</span><span class="o">(</span><span class="s">"MuiPaper-outlined"</span><span class="o">));</span>
     <span class="o">}</span>
 
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">complexCardTest</span><span class="o">()</span> <span class="o">{</span>
         <span class="n">String</span> <span class="n">expectedText</span> <span class="o">=</span> <span class="s">"This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup of frozen peas along with the mussels, if you like."</span><span class="o">;</span>
-        <span class="n">jdiAssert</span><span class="o">(</span><span class="n">pTagTexts</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">3</span><span class="o">).</span><span class="na">text</span><span class="o">(),</span> <span class="n">Matchers</span><span class="o">.</span><span class="na">is</span><span class="o">(</span><span class="n">expectedText</span><span class="o">));</span>
+        <span class="n">pTagTexts</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">3</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">Matchers</span><span class="o">.</span><span class="na">is</span><span class="o">(</span><span class="n">expectedText</span><span class="o">));</span>
         <span class="n">complexCardImage</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
 
         <span class="n">complexCardHeartIconButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
-        <span class="kt">boolean</span> <span class="n">hasClass</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Timer</span><span class="o">(</span><span class="mi">1000L</span><span class="o">)</span>
+        <span class="k">new</span> <span class="nf">Timer</span><span class="o">(</span><span class="mi">1000L</span><span class="o">)</span>
                 <span class="o">.</span><span class="na">wait</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">complexCardHeartIcon</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">classValue</span><span class="o">(</span><span class="n">Matchers</span><span class="o">.</span><span class="na">containsString</span><span class="o">(</span><span class="s">"jss"</span><span class="o">)));</span>
-        <span class="n">jdiAssert</span><span class="o">(</span><span class="n">hasClass</span><span class="o">,</span> <span class="n">Matchers</span><span class="o">.</span><span class="na">is</span><span class="o">(</span><span class="kc">true</span><span class="o">));</span>
 
         <span class="n">complexCardHeartIconButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">hasClass</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Timer</span><span class="o">(</span><span class="mi">1000L</span><span class="o">)</span>
+        <span class="k">new</span> <span class="nf">Timer</span><span class="o">(</span><span class="mi">1000L</span><span class="o">)</span>
                 <span class="o">.</span><span class="na">wait</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">complexCardHeartIcon</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">classValue</span><span class="o">(</span><span class="n">Matchers</span><span class="o">.</span><span class="na">not</span><span class="o">(</span><span class="s">"jss"</span><span class="o">)));</span>
-        <span class="n">jdiAssert</span><span class="o">(</span><span class="n">hasClass</span><span class="o">,</span> <span class="n">Matchers</span><span class="o">.</span><span class="na">is</span><span class="o">(</span><span class="kc">true</span><span class="o">));</span>
 
         <span class="n">complexCardSliderDownButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
         <span class="n">complexCardHiddenTextArea</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-        <span class="n">jdiAssert</span><span class="o">(</span><span class="n">complexCardHiddenText</span><span class="o">.</span><span class="na">text</span><span class="o">(),</span> <span class="n">Matchers</span><span class="o">.</span><span class="na">is</span><span class="o">(</span><span class="s">"Method:"</span><span class="o">));</span>
+        <span class="n">complexCardHiddenText</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">Matchers</span><span class="o">.</span><span class="na">containsString</span><span class="o">(</span><span class="s">"Method:"</span><span class="o">));</span>
     <span class="o">}</span>
 </code></pre>
 <table><thead>

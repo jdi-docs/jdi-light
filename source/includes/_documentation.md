@@ -24563,6 +24563,45 @@ Quickly and responsively toggle the visibility value of components and more with
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/HiddenTests.java" target="_blank">Here you can find Hidden tests</a>
 
+### Stepper
+Steppers convey progress through numbered steps. It provides a wizard-like workflow.
+
+```java
+    @UI("//*[@id='simpleStepper']//following-sibling::div//*[@class='MuiTypography-root MuiTypography-body1']")
+    public static Text simpleLinearStepperTitle;
+
+    @UI("//*[@id='simpleStepper']//following-sibling::div//button[contains(@class, 'MuiButtonBase-root')]")
+    public static WebList simpleLinearStepperButton;
+
+    @Test
+    public void simpleLinearStepperTest(){
+        simpleLinearStepperTitle.is().text("You are on Step #1");
+        simpleLinearStepperButton.get(2).click();
+        simpleLinearStepperTitle.is().text("You are on Step #2");
+        simpleLinearStepperButton.get(1).click();
+        simpleLinearStepperTitle.is().text("You are on Step #1");
+        simpleLinearStepperButton.get(2).click();
+        simpleLinearStepperTitle.is().text("You are on Step #2");
+        simpleLinearStepperButton.get(2).click();
+        simpleLinearStepperTitle.is().text("You are on Step #3");
+        simpleLinearStepperButton.get(2).click();
+        simpleLinearStepperTitle.is().text("All steps completed");
+        simpleLinearStepperButton.get(1).click();
+        simpleLinearStepperTitle.is().text("You are on Step #1");
+    }
+```
+
+#### https://material-ui.com/components/steppers/
+
+You can use for testing Text and Button classes, implemented in JDI-html section.
+
+|Method | Description | Return Type
+--- | --- | ---
+**is()** | Verify state | boolean
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/FabTests.java" target="_blank">Here you can find Stepper tests</a>
+
+
 ## JDI Light BDD Steps
 
 ### Label 

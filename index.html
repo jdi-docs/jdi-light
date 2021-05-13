@@ -818,6 +818,9 @@
 								<a href="#radio" class="toc-h2 h3 toc-link" data-title="Radio">Radio</a>
                             </li>
                             <li>
+								<a href="#app-bar" class="toc-h2 h3 toc-link" data-title="App Bar">App Bar</a>
+                            </li>
+                            <li>
 								<a href="#box" class="toc-h2 h3 toc-link" data-title="Box">Box</a>
                             </li>
                             <li>
@@ -33087,8 +33090,8 @@ Note: domain is read from test.properties automatically. <br><br><br><br><br>
 </thead><tbody>
 <tr>
 <td><strong>is()</strong></td>
-<td>Verify state</td>
-<td>boolean</td>
+<td>Returns Assert class</td>
+<td>Assert</td>
 </tr>
 <tr>
 <td><strong>isDisabled()</strong></td>
@@ -33102,13 +33105,13 @@ Note: domain is read from test.properties automatically. <br><br><br><br><br>
 </tr>
 <tr>
 <td><strong>checked()</strong></td>
-<td>Checkbox selected</td>
-<td>void</td>
+<td>Assert that Checkbox selected</td>
+<td>Assert</td>
 </tr>
 <tr>
 <td><strong>uncheck()</strong></td>
-<td>Checkbox not selected</td>
-<td>void</td>
+<td>Assert that Checkbox not selected</td>
+<td>Assert</td>
 </tr>
 <tr>
 <td><strong>check()</strong></td>
@@ -33187,8 +33190,8 @@ Note: domain is read from test.properties automatically. <br><br><br><br><br>
 </tr>
 <tr>
 <td><strong>text()</strong></td>
-<td>Verify text</td>
-<td>boolean</td>
+<td>Asserts text</td>
+<td>Assert</td>
 </tr>
 <tr>
 <td><strong>has()</strong></td>
@@ -33270,18 +33273,18 @@ Note: domain is read from test.properties automatically. <br><br><br><br><br>
 </tr>
 <tr>
 <td><strong>is()</strong></td>
-<td>Verify state</td>
-<td>boolean</td>
+<td>Returns Assert class</td>
+<td>Assert</td>
 </tr>
 <tr>
 <td><strong>displayed()</strong></td>
-<td>Verify state</td>
-<td>boolean</td>
+<td>Assert state</td>
+<td>Assert</td>
 </tr>
 <tr>
 <td><strong>hidden()</strong></td>
-<td>Verify text</td>
-<td>boolean</td>
+<td>Assert state</td>
+<td>Assert</td>
 </tr>
 </tbody></table>
 <h4 id='here-you-can-find-clickawaylistener-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/ClickAwayListenerTests.java" target="_blank">Here you can find ClickAwayListener tests</a></h4><h3 id='card-3'>Card</h3><h4 id='https-material-ui-com-components-cards'>https://material-ui.com/components/cards/</h4>
@@ -33350,28 +33353,26 @@ Note: domain is read from test.properties automatically. <br><br><br><br><br>
 </tr>
 <tr>
 <td><strong>is()</strong></td>
-<td>Verify state</td>
-<td>boolean</td>
+<td>Returns Assert class</td>
+<td>Assert</td>
 </tr>
 <tr>
 <td><strong>displayed()</strong></td>
-<td>Verify state</td>
-<td>boolean</td>
+<td>Assert state</td>
+<td>Assert</td>
 </tr>
 <tr>
 <td><strong>hidden()</strong></td>
-<td>Verify text</td>
-<td>boolean</td>
+<td>Assert state</td>
+<td>Assert</td>
 </tr>
 <tr>
 <td><strong>classValue()</strong></td>
-<td>Checks class</td>
-<td>boolean</td>
+<td>Assert state</td>
+<td>Assert</td>
 </tr>
 </tbody></table>
-<h4 id='here-you-can-find-card-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/surfaces/CardTests.java" target="_blank">Here you can find Card tests</a></h4><h3 id='radio'>Radio</h3>
-<p>https://material-ui.com/components/radio-buttons/</p>
-
+<h4 id='here-you-can-find-card-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/surfaces/CardTests.java" target="_blank">Here you can find Card tests</a></h4><h3 id='radio'>Radio</h3><h4 id='https-material-ui-com-components-radio-buttons'>https://material-ui.com/components/radio-buttons/</h4>
 <p><img src="images/material-ui/Radio.png" alt="Radio" /></p>
 
 <p>Radio buttons allow the user to select one option from a set.</p>
@@ -33421,21 +33422,111 @@ Note: domain is read from test.properties automatically. <br><br><br><br><br>
 </tr>
 <tr>
 <td><strong>is()</strong></td>
-<td>Verify state</td>
-<td>boolean</td>
+<td>Returns Assert class</td>
+<td>Assert</td>
 </tr>
 <tr>
 <td><strong>displayed()</strong></td>
-<td>Verify state</td>
-<td>boolean</td>
+<td>Assert state</td>
+<td>Assert</td>
 </tr>
 <tr>
 <td><strong>hidden()</strong></td>
-<td>Verify text</td>
-<td>boolean</td>
+<td>Assert state</td>
+<td>Assert</td>
 </tr>
 </tbody></table>
-<h4 id='here-you-can-find-radio-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/RadioButtonTests.java" target="_blank">Here you can find Radio tests</a></h4><h3 id='box'>Box</h3>
+<h4 id='here-you-can-find-radio-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/RadioButtonTests.java" target="_blank">Here you can find Radio tests</a></h4><h3 id='app-bar'>App Bar</h3><h4 id='https-material-ui-com-components-app-bar'>https://material-ui.com/components/app-bar/</h4>
+<p><img src="images/material-ui/AppBar.png" alt="AppBar" /></p>
+
+<p>The App Bar displays information and actions relating to the current screen.</p>
+<pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//*[text()='App Bar with menu']/preceding::button[@aria-label='menu']"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">UIElement</span> <span class="n">simpleMenu</span><span class="o">;</span>
+
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//*[text()='Prominent App Bar']/preceding::button[@aria-label='menu'][1]"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">UIElement</span> <span class="n">appBarMenu</span><span class="o">;</span>
+
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//*[text()='Prominent App Bar']/following::button[@aria-label='open drawer']"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">UIElement</span> <span class="n">prominentMenu</span><span class="o">;</span>
+
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//*[text()='Simple App bar']/following::h6[1]"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Text</span> <span class="n">simpleText</span><span class="o">;</span>
+
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//*[text()='App Bar with menu']/following::h6"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Text</span> <span class="n">appBarText</span><span class="o">;</span>
+
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//*[text()='Prominent App Bar']/following::h5"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Text</span> <span class="n">prominentText</span><span class="o">;</span>
+
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//*[text()='Simple App bar']/following::button[2]"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Button</span> <span class="n">simpleButton</span><span class="o">;</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">simpleAppBarTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">simpleAppBarPage</span><span class="o">.</span><span class="na">open</span><span class="o">();</span>
+        <span class="n">simpleAppBarPage</span><span class="o">.</span><span class="na">shouldBeOpened</span><span class="o">();</span>
+        <span class="n">simpleMenu</span><span class="o">.</span><span class="na">isDisplayed</span><span class="o">();</span>
+        <span class="n">appBarMenu</span><span class="o">.</span><span class="na">isDisplayed</span><span class="o">();</span>
+        <span class="n">prominentMenu</span><span class="o">.</span><span class="na">isDisplayed</span><span class="o">();</span>
+        <span class="n">simpleText</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"News"</span><span class="o">);</span>
+        <span class="n">appBarText</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Photos"</span><span class="o">);</span>
+        <span class="n">prominentText</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Material-UI"</span><span class="o">);</span>
+        <span class="n">simpleButton</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+        <span class="n">appBarIcon</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+        <span class="n">prominentSearch</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+        <span class="n">prominentSecondMenu</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+        <span class="n">logoutSwitchButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">timer</span><span class="o">.</span><span class="na">wait</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">appBarIcon</span><span class="o">.</span><span class="na">isNotVisible</span><span class="o">());</span>
+        <span class="n">logoutSwitchButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">timer</span><span class="o">.</span><span class="na">wait</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">appBarIcon</span><span class="o">.</span><span class="na">isDisplayed</span><span class="o">());</span>
+        <span class="n">appBarIcon</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">timer</span><span class="o">.</span><span class="na">wait</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">appBarIconOptions</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">isDisplayed</span><span class="o">());</span>
+        <span class="n">appBarIconOptions</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">timer</span><span class="o">.</span><span class="na">wait</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+            <span class="n">appBarIconOptions</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">isNotVisible</span><span class="o">();</span>
+            <span class="n">appBarIcon</span><span class="o">.</span><span class="na">isVisible</span><span class="o">();</span>
+        <span class="o">});</span>
+    <span class="o">}</span>
+</code></pre>
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>click()</strong></td>
+<td>Clicks on element</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>click(int x, int y)</strong></td>
+<td>Clicks on point in element</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>is()</strong></td>
+<td>Returns Assert class</td>
+<td>Assert</td>
+</tr>
+<tr>
+<td><strong>has()</strong></td>
+<td>Returns Assert class</td>
+<td>Assert</td>
+</tr>
+<tr>
+<td><strong>displayed()</strong></td>
+<td>Assert state</td>
+<td>Assert</td>
+</tr>
+<tr>
+<td><strong>hidden()</strong></td>
+<td>Assert state</td>
+<td>Assert</td>
+</tr>
+</tbody></table>
+<h4 id='here-you-can-find-appbar-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/surfaces/AppBarTests.java" target="_blank">Here you can find AppBar tests</a></h4><h3 id='box'>Box</h3>
 <p>The Box component serves as a wrapper component for most of the CSS utility needs.
 Java example code for the Button box:</p>
 <pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//button[contains(@class,'MuiButton-outlined')]"</span><span class="o">)</span>

@@ -23903,11 +23903,11 @@ Checkboxes allow the user to select one or more items from a set.
 
 |Method | Description | Return Type
 --- | --- | ---
-**is()** | Verify state | boolean
+**is()** | Returns Assert class | Assert
 **isDisabled()** | Verify state | boolean
 **hasClassName(String className)** | Checks class| void
-**checked()** | Checkbox selected | void
-**uncheck()** | Checkbox not selected | void
+**checked()** | Assert that Checkbox selected | Assert
+**uncheck()** | Assert that Checkbox not selected | Assert
 **check()** | select Checkbox | void
 **uncheck()** | unselect Checkbox | void
 
@@ -23968,7 +23968,7 @@ Avatars are found throughout material design with uses in everything from tables
 **hasImage()** | Checks image | boolean
 **classValue()** | Checks class | boolean
 **isDisplayed()** | Verify state | void
-**text()** | Verify text | boolean
+**text()** | Asserts text | Assert
 **has()** | Verify state | boolean
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/AvatarTests.java" target="_blank">Here you can find Avatar tests</a>
@@ -24038,9 +24038,9 @@ Detect if a click event happened outside of an element. It listens for clicks th
 --- | --- | ---
 **click()** | Clicks on box | void
 **click(int x, int y)** | Clicks on point in box | void
-**is()** | Verify state | boolean
-**displayed()** | Verify state | boolean
-**hidden()** | Verify text | boolean
+**is()** | Returns Assert class | Assert
+**displayed()** | Assert state | Assert
+**hidden()** | Assert state | Assert
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/ClickAwayListenerTests.java" target="_blank">Here you can find ClickAwayListener tests</a>
 
@@ -24105,16 +24105,16 @@ Cards contain content and actions about a single subject.
 |Method | Description | Return Type
 --- | --- | ---
 **click()** | Clicks on box | void
-**is()** | Verify state | boolean
-**displayed()** | Verify state | boolean
-**hidden()** | Verify text | boolean
-**classValue()** | Checks class | boolean
+**is()** | Returns Assert class | Assert
+**displayed()** | Assert state | Assert
+**hidden()** | Assert state | Assert
+**classValue()** | Assert state | Assert
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/surfaces/CardTests.java" target="_blank">Here you can find Card tests</a>
 
 ### Radio
 
-https://material-ui.com/components/radio-buttons/
+####https://material-ui.com/components/radio-buttons/
 
 ![Radio](../images/material-ui/Radio.png)
 
@@ -24153,11 +24153,80 @@ Radio buttons allow the user to select one option from a set.
 --- | --- | ---
 **click()** | Clicks on box | void
 **click(int x, int y)** | Clicks on point in box | void
-**is()** | Verify state | boolean
-**displayed()** | Verify state | boolean
-**hidden()** | Verify text | boolean
+**is()** | Returns Assert class | Assert
+**displayed()** | Assert state | Assert
+**hidden()** | Assert state | Assert
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/RadioButtonTests.java" target="_blank">Here you can find Radio tests</a>
+
+### App Bar
+
+####https://material-ui.com/components/app-bar/
+
+![AppBar](../images/material-ui/AppBar.png)
+
+The App Bar displays information and actions relating to the current screen.
+
+```java 
+    @UI("//*[text()='App Bar with menu']/preceding::button[@aria-label='menu']")
+    public static UIElement simpleMenu;
+
+    @UI("//*[text()='Prominent App Bar']/preceding::button[@aria-label='menu'][1]")
+    public static UIElement appBarMenu;
+
+    @UI("//*[text()='Prominent App Bar']/following::button[@aria-label='open drawer']")
+    public static UIElement prominentMenu;
+
+    @UI("//*[text()='Simple App bar']/following::h6[1]")
+    public static Text simpleText;
+
+    @UI("//*[text()='App Bar with menu']/following::h6")
+    public static Text appBarText;
+
+    @UI("//*[text()='Prominent App Bar']/following::h5")
+    public static Text prominentText;
+
+    @UI("//*[text()='Simple App bar']/following::button[2]")
+    public static Button simpleButton;
+
+    @Test
+    public void simpleAppBarTest() {
+        simpleAppBarPage.open();
+        simpleAppBarPage.shouldBeOpened();
+        simpleMenu.isDisplayed();
+        appBarMenu.isDisplayed();
+        prominentMenu.isDisplayed();
+        simpleText.has().text("News");
+        appBarText.has().text("Photos");
+        prominentText.has().text("Material-UI");
+        simpleButton.is().displayed();
+        appBarIcon.is().displayed();
+        prominentSearch.is().displayed();
+        prominentSecondMenu.is().displayed();
+        logoutSwitchButton.click();
+        timer.wait(() -> appBarIcon.isNotVisible());
+        logoutSwitchButton.click();
+        timer.wait(() -> appBarIcon.isDisplayed());
+        appBarIcon.click();
+        timer.wait(() -> appBarIconOptions.get(1).isDisplayed());
+        appBarIconOptions.get(1).click();
+        timer.wait(() -> {
+            appBarIconOptions.get(1).isNotVisible();
+            appBarIcon.isVisible();
+        });
+    }
+```
+
+|Method | Description | Return Type
+--- | --- | ---
+**click()** | Clicks on element | void
+**click(int x, int y)** | Clicks on point in element | void
+**is()** | Returns Assert class | Assert
+**has()** | Returns Assert class | Assert
+**displayed()** | Assert state | Assert
+**hidden()** | Assert state | Assert
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/surfaces/AppBarTests.java" target="_blank">Here you can find AppBar tests</a>
 
 ### Box
 

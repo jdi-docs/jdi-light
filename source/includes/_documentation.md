@@ -23914,6 +23914,35 @@ Checkboxes allow the user to select one or more items from a set.
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/CheckboxTests.java" target="_blank">Here you can find Checkbox tests</a>
 
+### Container
+
+#### https://material-ui.com/components/container/
+
+![Container](../images/material-ui/Container.png)
+
+The container centers your content horizontally. It's the most basic layout element.
+
+```java 
+    @UI("//div[contains(@Class, 'MuiTypography-body1')]")
+    public static UIElement container;
+
+    @Test
+    public void defaultContainerTest(){
+        Timer timer = new Timer(1000L);
+        timer.wait(() -> container.isDisplayed());
+        container.is().text("Example text");
+        container.is().attr("style", "background-color: rgb(207, 232, 252); height: 100vh;");
+    }
+```
+
+|Method | Description | Return Type
+--- | --- | ---
+**is()** | Verify state | boolean
+**isDisplayed()** | Verify state | boolean
+
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/ContainerTests.java" target="_blank">Here you can find Container tests</a>
+
 
 ### Avatar
 

@@ -838,6 +838,9 @@
                             <li>
 								<a href="#floating-action-button" class="toc-h2 h3 toc-link" data-title="Floating Action Button">Floating Action Button</a>
                             </li>
+                            <li>
+								<a href="#hidden" class="toc-h2 h3 toc-link" data-title="Hidden">Hidden</a>
+                            </li>
                         </ul>
                   </li>
                   <li>
@@ -33900,7 +33903,67 @@ Java example code for the Button box:</p>
 <td>void</td>
 </tr>
 </tbody></table>
-<h4 id='here-you-can-find-floating-action-button-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/FabTests.java" target="_blank">Here you can find Floating Action Button tests</a></h4><h2 id='jdi-light-bdd-steps'>JDI Light BDD Steps</h2><h3 id='label-2'>Label</h3><pre class="highlight gherkin tab-gherkin"><code><span class="err">Label action examples</span><span class="p">:</span>
+<h4 id='here-you-can-find-floating-action-button-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/FabTests.java" target="_blank">Here you can find Floating Action Button tests</a></h4><h3 id='hidden'>Hidden</h3>
+<p>Quickly and responsively toggle the visibility value of components and more with the hidden utilities.</p>
+<pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">".MuiTypography-subtitle1"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Text</span> <span class="n">currentWidth</span><span class="o">;</span>
+
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div[contains(text(),'xsDown')]"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Button</span> <span class="n">xsDown</span><span class="o">;</span>
+
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div[text()='smDown']"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Button</span> <span class="n">smDown</span><span class="o">;</span>
+
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div[text()='mdDown']"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Button</span> <span class="n">mdDown</span><span class="o">;</span>
+
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div[text()='lgDown']"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Button</span> <span class="n">lgDown</span><span class="o">;</span>
+
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div[text()='xlDown']"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Button</span> <span class="n">xlDown</span><span class="o">;</span>
+
+    <span class="nd">@Test</span>
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">defaultHiddenTest</span><span class="o">()</span> <span class="o">{</span>
+            <span class="n">currentWidth</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+            <span class="n">xsDown</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+            <span class="n">smDown</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+            <span class="n">mdDown</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+
+            <span class="n">String</span> <span class="n">width</span> <span class="o">=</span> <span class="n">getWidth</span><span class="o">(</span><span class="n">currentWidth</span><span class="o">);</span>
+            <span class="n">checkWidth</span><span class="o">(</span><span class="n">width</span><span class="o">);</span>
+
+            <span class="n">setHalfScreenWidthSize</span><span class="o">();</span>
+            <span class="n">width</span> <span class="o">=</span> <span class="n">getWidth</span><span class="o">(</span><span class="n">currentWidth</span><span class="o">);</span>
+            <span class="n">checkWidth</span><span class="o">(</span><span class="n">width</span><span class="o">);</span>
+        <span class="o">}</span>
+</code></pre><h4 id='https-material-ui-com-components-hidden'>https://material-ui.com/components/hidden/</h4>
+<p><img src="images/..source/images/material-ui/Hidden.png" alt="Hidden" /></p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>is()</strong></td>
+<td>Verify state</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>displayed()</strong></td>
+<td>Verify state</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>text()</strong></td>
+<td>Verify text</td>
+<td>boolean</td>
+</tr>
+</tbody></table>
+<h4 id='here-you-can-find-hidden-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/HiddenTests.java" target="_blank">Here you can find Hidden tests</a></h4><h2 id='jdi-light-bdd-steps'>JDI Light BDD Steps</h2><h3 id='label-2'>Label</h3><pre class="highlight gherkin tab-gherkin"><code><span class="err">Label action examples</span><span class="p">:</span>
 
 <span class="nf">When</span> I click on <span class="s">"JDI Title"</span>
 

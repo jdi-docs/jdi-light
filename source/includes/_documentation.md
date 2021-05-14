@@ -24443,6 +24443,57 @@ A floating action button appears in front of all screen content, typically as a 
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/FabTests.java" target="_blank">Here you can find Floating Action Button tests</a>
 
+### Hidden
+
+Quickly and responsively toggle the visibility value of components and more with the hidden utilities.
+
+```java     
+    @UI(".MuiTypography-subtitle1")
+    public static Text currentWidth;
+
+    @UI("//div[contains(text(),'xsDown')]")
+    public static Button xsDown;
+
+    @UI("//div[text()='smDown']")
+    public static Button smDown;
+
+    @UI("//div[text()='mdDown']")
+    public static Button mdDown;
+
+    @UI("//div[text()='lgDown']")
+    public static Button lgDown;
+
+    @UI("//div[text()='xlDown']")
+    public static Button xlDown;
+
+    @Test
+        public void defaultHiddenTest() {
+            currentWidth.is().displayed();
+            xsDown.is().displayed();
+            smDown.is().displayed();
+            mdDown.is().displayed();
+    
+            String width = getWidth(currentWidth);
+            checkWidth(width);
+    
+            setHalfScreenWidthSize();
+            width = getWidth(currentWidth);
+            checkWidth(width);
+        }
+```
+
+#### https://material-ui.com/components/hidden/
+
+![Hidden](..source/images/material-ui/Hidden.png)
+
+|Method | Description | Return Type
+--- | --- | ---
+**is()** | Verify state | boolean
+**displayed()** | Verify state | boolean
+**text()** | Verify text | boolean
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/HiddenTests.java" target="_blank">Here you can find Hidden tests</a>
+
 ## JDI Light BDD Steps
 
 ### Label 

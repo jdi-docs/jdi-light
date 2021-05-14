@@ -24599,7 +24599,7 @@ You can use for testing Text and Button classes, implemented in JDI-html section
 --- | --- | ---
 **is()** | Verify state | boolean
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/FabTests.java" target="_blank">Here you can find Stepper tests</a>
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/StepperTests.java" target="_blank">Here you can find Stepper tests</a>
 
 
 ## JDI Light BDD Steps

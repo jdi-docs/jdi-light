@@ -23870,7 +23870,7 @@ Note: domain is read from test.properties automatically. <br><br><br><br><br>
 
 Checkbox is located in the following class:
 
-   - __Java__: _com.epam.jdi.light.material.elements.inputs.Checkbox_
+   - __Java__: _com.epam.jdi.light.material.elements.inputs.Checkbox
 
 ![Checkbox](../images/material-ui/Checkbox.png)
 
@@ -24140,6 +24140,75 @@ Cards contain content and actions about a single subject.
 **classValue()** | Assert state | Assert
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/surfaces/CardTests.java" target="_blank">Here you can find Card tests</a>
+
+### Date / Time
+
+#### https://material-ui.com/components/pickers/
+
+![Сard](../images/material-ui/Date-Time.png)
+
+Date pickers and Time pickers provide a simple way to select a single value from a pre-determined set.
+Dropdown components is used in tests bellow:
+  - __Java__: _com.epam.jdi.light.elements.complex.dropdown.Dropdown_
+
+```java    
+    @JDropdown(
+            root = "//*[@id = 'date-picker-inline-label']/parent::div",
+            value = "//*[@id ='date-picker-inline']",
+            list = "//*[@id = 'date-picker-inline-label']/parent::div /ancestor::body " +
+                    "//div[@class = 'MuiPickersBasePicker-pickerView']//p",
+            expand = "//span[@class = 'MuiIconButton-label']")
+    public static Dropdown inlineDatePicker;
+
+    @JDropdown(
+            root = "//*[@id = 'date-picker-dialog-label']/parent::div",
+            value = "//*[@id ='date-picker-dialog']",
+            list = "//*[@id = 'date-picker-dialog-label']/parent::div /ancestor::body " +
+                    "//div[@class = 'MuiPickersBasePicker-pickerView']//p",
+            expand = "//span[@class = 'MuiIconButton-label']")
+    public static Dropdown dialogPicker;
+
+    @Test
+    public void datePickerInlineTest() {
+        inlineDatePicker.iCore().label().has().text("Date picker inline");
+
+        inlineDatePicker.select("12");
+        inlineDatePicker.has().text(containsString("/12/"));
+
+        inlineDatePicker.value().setText("10/10/2022");
+        inlineDatePicker.has().text("10/10/2022");
+    }
+
+    @Test
+    public void datePickerDialogTest() {
+        dialogPicker.iCore().label().has().text("Date picker dialog");
+
+        dialogPicker.expand();
+        dialogPicker.select("12");
+        dialogPicker.command("ENTER");
+        dialogPicker.has().text(containsString("/12/"));
+
+        dialogPicker.expand();
+        dialogPicker.select("11");
+        dialogPicker.command("ESCAPE");
+        dialogPicker.has().text("08/12/2014");
+
+        dialogPicker.value().setText("10/10/2021");
+        dialogPicker.has().text("10/10/2021");
+    }
+```
+
+|Method | Description | Return Type
+--- | --- | ---
+**select()** | Selects option in dropdown | void
+**has()** | Returns Assert class | Assert
+**command()** | Issues command | void
+**value()** | Returns inner UIElement | UIElement
+**text()** | Assert state | Assert
+**setText()** | Sets text | void
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/DateTimePickersTests.java" target="_blank">Here you can find Date/Time pickers tests</a>
+
 
 ### Radio
 

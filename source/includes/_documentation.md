@@ -24563,8 +24563,11 @@ Quickly and responsively toggle the visibility value of components and more with
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/HiddenTests.java" target="_blank">Here you can find Hidden tests</a>
 
+
 ### Stepper
 Steppers convey progress through numbered steps. It provides a wizard-like workflow.
+
+![Stepper](..source/images/material-ui/Stepper.png)
 
 ```java
     @UI("//*[@id='simpleStepper']//following-sibling::div//*[@class='MuiTypography-root MuiTypography-body1']")
@@ -24598,6 +24601,8 @@ You can use for testing Text and Button classes, implemented in JDI-html section
 |Method | Description | Return Type
 --- | --- | ---
 **is()** | Verify state | boolean
+**text()** | After is() allows to check state of text element | boolean 
+**click()** | Click on button | void
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/StepperTests.java" target="_blank">Here you can find Stepper tests</a>
 

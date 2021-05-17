@@ -806,6 +806,9 @@
 								<a href="#checkbox-3" class="toc-h2 h3 toc-link" data-title="Checkbox">Checkbox</a>
                             </li>
                             <li>
+								<a href="#container" class="toc-h2 h3 toc-link" data-title="Container">Container</a>
+                            </li>
+                            <li>
 								<a href="#avatar" class="toc-h2 h3 toc-link" data-title="Avatar">Avatar</a>
                             </li>
                             <li>
@@ -33127,7 +33130,40 @@ Note: domain is read from test.properties automatically. <br><br><br><br><br>
 <td>void</td>
 </tr>
 </tbody></table>
-<h4 id='here-you-can-find-checkbox-tests-2'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/CheckboxTests.java" target="_blank">Here you can find Checkbox tests</a></h4><h3 id='avatar'>Avatar</h3><h4 id='https-material-ui-com-ru-components-avatars'>https://material-ui.com/ru/components/avatars/</h4>
+<h4 id='here-you-can-find-checkbox-tests-2'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/CheckboxTests.java" target="_blank">Here you can find Checkbox tests</a></h4><h3 id='container'>Container</h3><h4 id='https-material-ui-com-components-container'>https://material-ui.com/components/container/</h4>
+<p><img src="images/material-ui/Container.png" alt="Container" /></p>
+
+<p>The container centers your content horizontally. It&#39;s the most basic layout element.</p>
+<pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div[contains(@Class, 'MuiTypography-body1')]"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">UIElement</span> <span class="n">container</span><span class="o">;</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">defaultContainerTest</span><span class="o">(){</span>
+        <span class="n">Timer</span> <span class="n">timer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Timer</span><span class="o">(</span><span class="mi">1000L</span><span class="o">);</span>
+        <span class="n">timer</span><span class="o">.</span><span class="na">wait</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">container</span><span class="o">.</span><span class="na">isDisplayed</span><span class="o">());</span>
+        <span class="n">container</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Example text"</span><span class="o">);</span>
+        <span class="n">container</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">attr</span><span class="o">(</span><span class="s">"style"</span><span class="o">,</span> <span class="s">"background-color: rgb(207, 232, 252); height: 100vh;"</span><span class="o">);</span>
+    <span class="o">}</span>
+</code></pre>
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>is()</strong></td>
+<td>Verify state</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isDisplayed()</strong></td>
+<td>Verify state</td>
+<td>boolean</td>
+</tr>
+</tbody></table>
+<h4 id='here-you-can-find-container-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/ContainerTests.java" target="_blank">Here you can find Container tests</a></h4><h3 id='avatar'>Avatar</h3><h4 id='https-material-ui-com-ru-components-avatars'>https://material-ui.com/ru/components/avatars/</h4>
 <p><img src="images/material-ui/Avatar.png" alt="Avatar" /></p>
 
 <p>Avatars are found throughout material design with uses in everything from tables to dialog menus.</p>

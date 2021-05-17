@@ -844,6 +844,9 @@
                             <li>
 								<a href="#hidden" class="toc-h2 h3 toc-link" data-title="Hidden">Hidden</a>
                             </li>
+                            <li>
+								<a href="#stepper" class="toc-h2 h3 toc-link" data-title="Stepper">Stepper</a>
+                            </li>
                         </ul>
                   </li>
                   <li>
@@ -33999,7 +34002,59 @@ Java example code for the Button box:</p>
 <td>boolean</td>
 </tr>
 </tbody></table>
-<h4 id='here-you-can-find-hidden-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/HiddenTests.java" target="_blank">Here you can find Hidden tests</a></h4><h2 id='jdi-light-bdd-steps'>JDI Light BDD Steps</h2><h3 id='label-2'>Label</h3><pre class="highlight gherkin tab-gherkin"><code><span class="err">Label action examples</span><span class="p">:</span>
+<h4 id='here-you-can-find-hidden-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/HiddenTests.java" target="_blank">Here you can find Hidden tests</a></h4><h3 id='stepper'>Stepper</h3>
+<p>Steppers convey progress through numbered steps. It provides a wizard-like workflow.</p>
+
+<p><img src="images/..source/images/material-ui/Stepper.png" alt="Stepper" /></p>
+<pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//*[@id='simpleStepper']//following-sibling::div//*[@class='MuiTypography-root MuiTypography-body1']"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Text</span> <span class="n">simpleLinearStepperTitle</span><span class="o">;</span>
+
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//*[@id='simpleStepper']//following-sibling::div//button[contains(@class, 'MuiButtonBase-root')]"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">WebList</span> <span class="n">simpleLinearStepperButton</span><span class="o">;</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">simpleLinearStepperTest</span><span class="o">(){</span>
+        <span class="n">simpleLinearStepperTitle</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"You are on Step #1"</span><span class="o">);</span>
+        <span class="n">simpleLinearStepperButton</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">simpleLinearStepperTitle</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"You are on Step #2"</span><span class="o">);</span>
+        <span class="n">simpleLinearStepperButton</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">simpleLinearStepperTitle</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"You are on Step #1"</span><span class="o">);</span>
+        <span class="n">simpleLinearStepperButton</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">simpleLinearStepperTitle</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"You are on Step #2"</span><span class="o">);</span>
+        <span class="n">simpleLinearStepperButton</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">simpleLinearStepperTitle</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"You are on Step #3"</span><span class="o">);</span>
+        <span class="n">simpleLinearStepperButton</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">simpleLinearStepperTitle</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"All steps completed"</span><span class="o">);</span>
+        <span class="n">simpleLinearStepperButton</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">simpleLinearStepperTitle</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"You are on Step #1"</span><span class="o">);</span>
+    <span class="o">}</span>
+</code></pre><h4 id='https-material-ui-com-components-steppers'>https://material-ui.com/components/steppers/</h4>
+<p>You can use for testing Text and Button classes, implemented in JDI-html section.</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>is()</strong></td>
+<td>Verify state</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>text()</strong></td>
+<td>After is() allows to check state of text element</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>click()</strong></td>
+<td>Click on button</td>
+<td>void</td>
+</tr>
+</tbody></table>
+<h4 id='here-you-can-find-stepper-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/StepperTests.java" target="_blank">Here you can find Stepper tests</a></h4><h2 id='jdi-light-bdd-steps'>JDI Light BDD Steps</h2><h3 id='label-2'>Label</h3><pre class="highlight gherkin tab-gherkin"><code><span class="err">Label action examples</span><span class="p">:</span>
 
 <span class="nf">When</span> I click on <span class="s">"JDI Title"</span>
 

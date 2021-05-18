@@ -24635,6 +24635,45 @@ You can use for testing Text and Button classes, implemented in JDI-html section
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/StepperTests.java" target="_blank">Here you can find Stepper tests</a>
 
+### Slider
+Sliders reflect a range of values along a bar, from which users may select a single value. They are ideal for adjusting settings such as volume, brightness, or applying image filters.
+
+![Slider](..source/images/material-ui/Slider.png)
+
+```java
+    @UI("//*[@id=\"continuous-slider\"]/following-sibling::div//span[contains(@class, \"MuiSlider-root\")]")
+    public static Slider continuousSlider;
+    
+    @Test
+    public void continuousSliderTest(){
+        continuousSlider.is().enabled();
+        continuousSlider.is().orientation("horizontal");
+        continuousSlider.is().value(30);
+        continuousSlider.setValue(15);
+        continuousSlider.is().value(15);
+        continuousSlider.moveLeft();
+        continuousSlider.is().value(14);
+        continuousSlider.moveRight();
+        continuousSlider.is().value(15);
+        continuousSlider.slideHorizontalTo(10);
+        continuousSlider.is().value(10);
+    }
+```
+
+#### https://material-ui.com/components/slider/
+
+|Method | Description | Return Type
+--- | --- | ---
+**value()** | Get current value | int
+**setValue(int)** | Set new value | void
+**orientation()** | Get orientation value | String
+**slideVerticalTo(int)** | Set new value using drag-and-drop action for vertical slider | void
+**slideHorizontalTo(int)** | Set new value using drag-and-drop action for horizontal slider | void
+**moveRight()** | Move right to one unit using arrow key on keyboard | void
+**moveLeft()** | Move left to one unit using arrow key on keyboard | void
+**is()** | Verify state | boolean
+
+#### <a href="PLACE_FOR_GITHUB_LINK" target="_blank">Here you can find Slider tests</a>
 
 ## JDI Light BDD Steps
 

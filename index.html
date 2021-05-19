@@ -815,6 +815,9 @@
 								<a href="#click-away-listener" class="toc-h2 h3 toc-link" data-title="Click Away Listener">Click Away Listener</a>
                             </li>
                             <li>
+								<a href="#divider-2" class="toc-h2 h3 toc-link" data-title="Divider">Divider</a>
+                            </li>
+                            <li>
 								<a href="#card-3" class="toc-h2 h3 toc-link" data-title="Card">Card</a>
                             </li>
                             <li>
@@ -33329,7 +33332,59 @@ Note: domain is read from test.properties automatically. <br><br><br><br><br>
 <td>Assert</td>
 </tr>
 </tbody></table>
-<h4 id='here-you-can-find-clickawaylistener-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/ClickAwayListenerTests.java" target="_blank">Here you can find ClickAwayListener tests</a></h4><h3 id='card-3'>Card</h3><h4 id='https-material-ui-com-components-cards'>https://material-ui.com/components/cards/</h4>
+<h4 id='here-you-can-find-clickawaylistener-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/ClickAwayListenerTests.java" target="_blank">Here you can find ClickAwayListener tests</a></h4><h3 id='divider-2'>Divider</h3><h4 id='https-material-ui-com-components-dividers'>https://material-ui.com/components/dividers/</h4>
+<p>Divider is located in the following class:</p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.material.elements.displaydata.Divider</em></li>
+</ul>
+
+<p><img src="images/material-ui/InsetDivider.png" alt="InsetDivider" />
+<img src="images/material-ui/VerticalDivider.png" alt="VerticalDivider" /></p>
+
+<p>A divider is a thin line that groups content in lists and layouts.</p>
+<pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"(//li[contains(@class, 'MuiDivider-root')])"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Divider</span><span class="o">&gt;</span> <span class="n">insetDividers</span><span class="o">;</span>
+
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">".MuiDivider-root"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Divider</span> <span class="n">verticalDivider</span><span class="o">;</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">insetDividerTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">insetDividers</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span>
+            <span class="n">d</span><span class="o">-&gt;</span> <span class="n">d</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">inset</span><span class="o">()</span>
+        <span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">verticalDividerTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">verticalDivider</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">vertical</span><span class="o">();</span>
+    <span class="o">}</span>
+</code></pre>
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>is()</strong></td>
+<td>Returns DividerAssert class</td>
+<td>DividerAssert</td>
+</tr>
+<tr>
+<td><strong>isInset()</strong></td>
+<td>Assert inset divider</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isVertical()</strong></td>
+<td>Assert vertical divider</td>
+<td>boolean</td>
+</tr>
+</tbody></table>
+<h4 id='here-you-can-find-divider-tests-2'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/DividerTests.java" target="_blank">Here you can find Divider tests</a></h4><h3 id='card-3'>Card</h3><h4 id='https-material-ui-com-components-cards'>https://material-ui.com/components/cards/</h4>
 <p><img src="images/material-ui/Card.png" alt="Сard" /></p>
 
 <p>Cards contain content and actions about a single subject.</p>

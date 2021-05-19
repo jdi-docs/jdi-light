@@ -24088,14 +24088,16 @@ A divider is a thin line that groups content in lists and layouts.
 
 ```java 
     @UI("(//li[contains(@class, 'MuiDivider-root')])")
-    public List<Divider> insetDivider;
+    public static List<Divider> insetDividers;
     
     @UI(".MuiDivider-root")
-    public Divider verticalDivider;
+    public static Divider verticalDivider;
 
     @Test
     public void insetDividerTest() {
-        insetDivider.is().inset()
+        insetDividers.forEach(
+            d-> d.is().inset()
+        );
     }
     
     @Test

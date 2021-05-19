@@ -24073,6 +24073,49 @@ Detect if a click event happened outside of an element. It listens for clicks th
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/ClickAwayListenerTests.java" target="_blank">Here you can find ClickAwayListener tests</a>
 
+### Divider
+
+#### https://material-ui.com/components/dividers/
+
+Divider is located in the following class:
+
+- __Java__: _com.epam.jdi.light.material.elements.displaydata.Divider_
+
+![InsetDivider](../images/material-ui/InsetDivider.png)
+![VerticalDivider](../images/material-ui/VerticalDivider.png)
+
+A divider is a thin line that groups content in lists and layouts.
+
+```java 
+    @UI("(//li[contains(@class, 'MuiDivider-root')])")
+    public static List<Divider> insetDividers;
+    
+    @UI(".MuiDivider-root")
+    public static Divider verticalDivider;
+
+    @Test
+    public void insetDividerTest() {
+        insetDividers.forEach(
+            d-> d.is().inset()
+        );
+    }
+    
+    @Test
+    public void verticalDividerTest() {
+        verticalDivider.is().vertical();
+    }
+```
+
+|Method | Description | Return Type
+--- | --- | ---
+**is()** | Returns DividerAssert class | DividerAssert
+**isInset()** | Assert inset divider | boolean
+**isVertical()** | Assert vertical divider| boolean
+
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/DividerTests.java" target="_blank">Here you can find Divider tests</a>
+
+
 ### Card
 
 #### https://material-ui.com/components/cards/

@@ -24673,7 +24673,7 @@ Sliders reflect a range of values along a bar, from which users may select a sin
 **moveLeft()** | Move left to one unit using arrow key on keyboard | void
 **is()** | Verify state | boolean
 
-#### <a href="PLACE_FOR_GITHUB_LINK" target="_blank">Here you can find Slider tests</a>
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/SliderTests.java" target="_blank">Here you can find Slider tests</a>
 
 ## JDI Light BDD Steps
 

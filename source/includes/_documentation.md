@@ -23868,14 +23868,6 @@ Note: domain is read from test.properties automatically. <br><br><br><br><br>
 
 #### https://material-ui.com/components/checkboxes/
 
-Checkbox is located in the following class:
-
-   - __Java__: _com.epam.jdi.light.material.elements.inputs.Checkbox_
-
-![Checkbox](../images/material-ui/Checkbox.png)
-
-Checkboxes allow the user to select one or more items from a set.
-
 ```java 
     @UI("//h2[text()='Basic checkboxes']/following-sibling::div[1]/span")
     public List<Checkbox> basicCheckbox;
@@ -23901,6 +23893,14 @@ Checkboxes allow the user to select one or more items from a set.
     }
 ```
 
+Checkbox is located in the following class:
+
+   - __Java__: _com.epam.jdi.light.material.elements.inputs.Checkbox_
+
+![Checkbox](../images/material-ui/Checkbox.png)
+
+Checkboxes allow the user to select one or more items from a set.
+
 |Method | Description | Return Type
 --- | --- | ---
 **is()** | Returns Assert class | Assert
@@ -23918,10 +23918,6 @@ Checkboxes allow the user to select one or more items from a set.
 
 #### https://material-ui.com/components/container/
 
-![Container](../images/material-ui/Container.png)
-
-The container centers your content horizontally. It's the most basic layout element.
-
 ```java 
     @UI("//div[contains(@Class, 'MuiTypography-body1')]")
     public static UIElement container;
@@ -23935,6 +23931,10 @@ The container centers your content horizontally. It's the most basic layout elem
     }
 ```
 
+![Container](../images/material-ui/Container.png)
+
+The container centers your content horizontally. It's the most basic layout element.
+
 |Method | Description | Return Type
 --- | --- | ---
 **is()** | Verify state | boolean
@@ -23947,10 +23947,6 @@ The container centers your content horizontally. It's the most basic layout elem
 ### Avatar
 
 #### https://material-ui.com/ru/components/avatars/
-
-![Avatar](../images/material-ui/Avatar.png)
-
-Avatars are found throughout material design with uses in everything from tables to dialog menus.
 
 ```java 
     @UI("//span[@class='MuiBadge-root']/span")
@@ -23972,25 +23968,11 @@ Avatars are found throughout material design with uses in everything from tables
         onlineStatus.get(2).has().text("R");
         onlineStatus.get(2).has().classValue(Matchers.containsString("MuiBadge-anchorOriginBottomRightCircle"));
     }
-    
-    private void basicAvatarChecks(List<UIElement> elements, boolean noPhoto) {
-        for (int i = 1; i <= elements.size(); i++) {
-            elements.get(i).isDisplayed();
-            elements.get(i).hasImage();
-            if (i < 3) {
-                if (i == 1 && noPhoto)
-                    elements.get(i).has().text("L");
-                elements.get(i).has().classValue(Matchers.containsString("MuiAvatar-circle"));
-            }
-            if (i == 3) {
-                elements.get(i).has().text("A");
-                elements.get(i).has().classValue(Matchers.containsString("MuiAvatar-square"));
-            }
-            if (i == 4)
-                elements.get(i).has().classValue(Matchers.containsString("MuiAvatar-rounded"));
-        }
-    }
 ```
+
+![Avatar](../images/material-ui/Avatar.png)
+
+Avatars are found throughout material design with uses in everything from tables to dialog menus.
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -24006,10 +23988,6 @@ Avatars are found throughout material design with uses in everything from tables
 
 #### https://material-ui.com/ru/components/click-away-listener/
 
-![ClickAwayListener](../images/material-ui/ClickAwayListener.png)
-
-Detect if a click event happened outside of an element. It listens for clicks that occur somewhere in the document.
-
 ```java     
     @UI("//h2[text()='Example']/following-sibling::div[1]/div/button")
     public static Button exampleButton;
@@ -24019,24 +23997,6 @@ Detect if a click event happened outside of an element. It listens for clicks th
 
     @UI("//div[text()='Click me, I will stay visible until you click outside.']")
     public static TextArea text;
-    
-    public void clickAroundTextPopup(int x, int y) {
-        text.core().click(x, y);
-    }
-
-    public void clickAroundButton(int x, int y, int buttonId) {
-        if (buttonId == 1)
-            exampleButton.core().click(x, y);
-        else if (buttonId == 2)
-            portalButton.core().click(x, y);
-    }
-
-    public void clickButton(int buttonId) {
-        if (buttonId == 1)
-            exampleButton.click();
-        else if (buttonId == 2)
-            portalButton.click();
-    }
 
     @Test
     public void exampleClickAwayListenerTest() {
@@ -24063,6 +24023,10 @@ Detect if a click event happened outside of an element. It listens for clicks th
     }
 ```
 
+![ClickAwayListener](../images/material-ui/ClickAwayListener.png)
+
+Detect if a click event happened outside of an element. It listens for clicks that occur somewhere in the document.
+
 |Method | Description | Return Type
 --- | --- | ---
 **click()** | Clicks on box | void
@@ -24076,15 +24040,6 @@ Detect if a click event happened outside of an element. It listens for clicks th
 ### Divider
 
 #### https://material-ui.com/components/dividers/
-
-Divider is located in the following class:
-
-- __Java__: _com.epam.jdi.light.material.elements.displaydata.Divider_
-
-![InsetDivider](../images/material-ui/InsetDivider.png)
-![VerticalDivider](../images/material-ui/VerticalDivider.png)
-
-A divider is a thin line that groups content in lists and layouts.
 
 ```java 
     @UI("(//li[contains(@class, 'MuiDivider-root')])")
@@ -24106,6 +24061,15 @@ A divider is a thin line that groups content in lists and layouts.
     }
 ```
 
+Divider is located in the following class:
+
+- __Java__: _com.epam.jdi.light.material.elements.displaydata.Divider_
+
+![InsetDivider](../images/material-ui/InsetDivider.png)
+![VerticalDivider](../images/material-ui/VerticalDivider.png)
+
+A divider is a thin line that groups content in lists and layouts.
+
 |Method | Description | Return Type
 --- | --- | ---
 **is()** | Returns DividerAssert class | DividerAssert
@@ -24115,14 +24079,9 @@ A divider is a thin line that groups content in lists and layouts.
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/DividerTests.java" target="_blank">Here you can find Divider tests</a>
 
-
 ### Card
 
 #### https://material-ui.com/components/cards/
-
-![Сard](../images/material-ui/Card.png)
-
-Cards contain content and actions about a single subject.
 
 ```java    
     @UI("//div[@class='MuiCardContent-root']/p[1]")
@@ -24174,6 +24133,10 @@ Cards contain content and actions about a single subject.
     }
 ```
 
+![Сard](../images/material-ui/Card.png)
+
+Cards contain content and actions about a single subject.
+
 |Method | Description | Return Type
 --- | --- | ---
 **click()** | Clicks on box | void
@@ -24187,10 +24150,6 @@ Cards contain content and actions about a single subject.
 ### Radio
 
 ####https://material-ui.com/components/radio-buttons/
-
-![Radio](../images/material-ui/Radio.png)
-
-Radio buttons allow the user to select one option from a set.
 
 ```java 
     @UI("//fieldset[@id='simpleRadio']//span[contains(@Class,'MuiRadio-root')]")
@@ -24221,6 +24180,10 @@ Radio buttons allow the user to select one option from a set.
     }
 ```
 
+![Radio](../images/material-ui/Radio.png)
+
+Radio buttons allow the user to select one option from a set.
+
 |Method | Description | Return Type
 --- | --- | ---
 **click()** | Clicks on box | void
@@ -24234,10 +24197,6 @@ Radio buttons allow the user to select one option from a set.
 ### App Bar
 
 ####https://material-ui.com/components/app-bar/
-
-![AppBar](../images/material-ui/AppBar.png)
-
-The App Bar displays information and actions relating to the current screen.
 
 ```java 
     @UI("//*[text()='App Bar with menu']/preceding::button[@aria-label='menu']")
@@ -24289,6 +24248,10 @@ The App Bar displays information and actions relating to the current screen.
     }
 ```
 
+![AppBar](../images/material-ui/AppBar.png)
+
+The App Bar displays information and actions relating to the current screen.
+
 |Method | Description | Return Type
 --- | --- | ---
 **click()** | Clicks on element | void
@@ -24302,8 +24265,7 @@ The App Bar displays information and actions relating to the current screen.
 
 ### Box
 
-The Box component serves as a wrapper component for most of the CSS utility needs.
-Java example code for the Button box:
+#### https://material-ui.com/components/box/
 
 ```java     
     @UI("//button[contains(@class,'MuiButton-outlined')]")
@@ -24318,10 +24280,10 @@ Java example code for the Button box:
     }
 ```
 
-#### https://material-ui.com/components/box/
+The Box component serves as a wrapper component for most of the CSS utility needs.
+Java example code for the Button box:
 
-
-![Box](..source/images/material-ui/Box.png)
+![Box](../images/material-ui/Box.png)
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -24363,7 +24325,7 @@ The grid creates visual consistency between layouts while allowing flexibility a
 
 ### Transitions
 
-Transition helps make a UI expressive and easy to use.
+#### https://material-ui.com/components/transitions/
 
 ```java     
     @UI("//h1[text()='Transitions']/following::div[contains(@class,'MuiCollapse-container')]")
@@ -24387,9 +24349,9 @@ Transition helps make a UI expressive and easy to use.
     }
 ```
 
-#### https://material-ui.com/components/transitions/
+Transition helps make a UI expressive and easy to use.
 
-![Transitions](..source/images/material-ui/Transitions.png)
+![Transitions](../images/material-ui/Transitions.png)
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -24401,8 +24363,6 @@ Transition helps make a UI expressive and easy to use.
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/TransitionTests.java" target="_blank">Here you can find Transitions tests</a>
 
 ### Material Icons
-
-The following npm package, @material-ui/icons, includes the 1,100+ official Material icons converted to SvgIcon components.
 
 ```java     
     @UI("#defaultAccessAlarm")
@@ -24453,7 +24413,9 @@ The following npm package, @material-ui/icons, includes the 1,100+ official Mate
 
 #### https://material-ui.com/components/material-icons/
 
-![Material Icons](..source/images/material-ui/MaterialIcons.png)
+The following npm package, @material-ui/icons, includes the 1,100+ official Material icons converted to SvgIcon components.
+
+![Material Icons](../images/material-ui/MaterialIcons.png)
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -24468,11 +24430,7 @@ The following npm package, @material-ui/icons, includes the 1,100+ official Mate
 
 ### Icons
 
-Material-UI provides icons support in three ways:
-
-1. Standardized Material Design icons exported as React components (SVG icons).
-2. With the SvgIcon component, a React wrapper for custom SVG icons.
-3. With the Icon component, a React wrapper for custom font icons.
+#### https://material-ui.com/components/icons/
 
 ```java     
     @UI("//h2[text()='Color']/following::*[name()='svg']")
@@ -24511,9 +24469,13 @@ Material-UI provides icons support in three ways:
     }
 ```
 
-#### https://material-ui.com/components/icons/
+Material-UI provides icons support in three ways:
 
-![Icons](..source/images/material-ui/Icon.png)
+1. Standardized Material Design icons exported as React components (SVG icons).
+2. With the SvgIcon component, a React wrapper for custom SVG icons.
+3. With the Icon component, a React wrapper for custom font icons.
+
+![Icons](../images/material-ui/Icon.png)
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -24527,7 +24489,7 @@ Material-UI provides icons support in three ways:
 
 ### Floating Action Button
 
-A floating action button appears in front of all screen content, typically as a circular shape with an icon in its center. FABs come in two types: regular, and extended.
+#### https://material-ui.com/components/floating-action-button/
 
 ```java     
     @UI("//div[@id='basicActionBtns']/button")
@@ -24569,9 +24531,9 @@ A floating action button appears in front of all screen content, typically as a 
     }
 ```
 
-#### https://material-ui.com/components/floating-action-button/
+A floating action button appears in front of all screen content, typically as a circular shape with an icon in its center. FABs come in two types: regular, and extended.
 
-![Floating action button](..source/images/material-ui/Fab.png)
+![Floating action button](../images/material-ui/Fab.png)
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -24586,7 +24548,7 @@ A floating action button appears in front of all screen content, typically as a 
 
 ### Hidden
 
-Quickly and responsively toggle the visibility value of components and more with the hidden utilities.
+#### https://material-ui.com/components/hidden/
 
 ```java     
     @UI(".MuiTypography-subtitle1")
@@ -24623,9 +24585,9 @@ Quickly and responsively toggle the visibility value of components and more with
         }
 ```
 
-#### https://material-ui.com/components/hidden/
+Quickly and responsively toggle the visibility value of components and more with the hidden utilities.
 
-![Hidden](..source/images/material-ui/Hidden.png)
+![Hidden](../images/material-ui/Hidden.png)
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -24635,11 +24597,11 @@ Quickly and responsively toggle the visibility value of components and more with
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/HiddenTests.java" target="_blank">Here you can find Hidden tests</a>
 
-
 ### Stepper
-Steppers convey progress through numbered steps. It provides a wizard-like workflow.
 
-![Stepper](..source/images/material-ui/Stepper.png)
+#### https://material-ui.com/components/steppers/
+
+![Stepper](../images/material-ui/Stepper.png)
 
 ```java
     @UI("//*[@id='simpleStepper']//following-sibling::div//*[@class='MuiTypography-root MuiTypography-body1']")
@@ -24666,8 +24628,7 @@ Steppers convey progress through numbered steps. It provides a wizard-like workf
     }
 ```
 
-#### https://material-ui.com/components/steppers/
-
+Steppers convey progress through numbered steps. It provides a wizard-like workflow.
 You can use for testing Text and Button classes, implemented in JDI-html section.
 
 |Method | Description | Return Type
@@ -24679,9 +24640,8 @@ You can use for testing Text and Button classes, implemented in JDI-html section
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/StepperTests.java" target="_blank">Here you can find Stepper tests</a>
 
 ### Slider
-Sliders reflect a range of values along a bar, from which users may select a single value. They are ideal for adjusting settings such as volume, brightness, or applying image filters.
 
-![Slider](..source/images/material-ui/Slider.png)
+#### https://material-ui.com/components/slider/
 
 ```java
     @UI("//*[@id=\"continuous-slider\"]/following-sibling::div//span[contains(@class, \"MuiSlider-root\")]")
@@ -24703,7 +24663,9 @@ Sliders reflect a range of values along a bar, from which users may select a sin
     }
 ```
 
-#### https://material-ui.com/components/slider/
+Sliders reflect a range of values along a bar, from which users may select a single value. They are ideal for adjusting settings such as volume, brightness, or applying image filters.
+
+![Slider](../images/material-ui/Slider.png)
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -24717,6 +24679,63 @@ Sliders reflect a range of values along a bar, from which users may select a sin
 **is()** | Verify state | boolean
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/SliderTests.java" target="_blank">Here you can find Slider tests</a>
+
+### Tabs
+
+#### https://material-ui.com/components/Tabs/
+
+```java
+    private List<List<Button>> tableLocators;
+    private List<String> itemList = Arrays.asList("", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven");
+    private int tableIndex;
+    private Timer timer = new Timer(5000L);
+
+    public void clickButton(int indexRow) { tableLocators.get(tableIndex).get(indexRow).click(); }
+    
+    public void checkLastItemText(String name) {lastItemText.get(tableIndex).has().text(containsString(name)); }
+    
+    @BeforeTest()
+    public void beforeTest() {
+        tabPage.open();
+        tabPage.isOpened();
+        tableLocators = Arrays.asList(null, simpleTabs, scrollableTabs, preventScrollTabs, verticalTabs);
+    }
+
+    @Test
+    public void simpleTabTest() {
+        tableIndex = 1;
+        clickButton(1);
+        checkLastItemText(itemList.get(1));
+        tableLocators.get(tableIndex).get(4).has().classValue(containsString("Mui-disabled"));
+        clickButton(5);
+        checkLastItemText(itemList.get(5));
+    }
+
+    @Test
+    public void scrollableTabTest(){
+        tableIndex = 2;
+        clickButton(9);
+        checkLastItemText(itemList.get(9));
+        timer.wait(() -> scrollButtons.get(2).click());
+        clickButton(11);
+        checkLastItemText(itemList.get(11));
+        timer.wait(() -> scrollButtons.get(1).click());
+        clickButton(1);
+        checkLastItemText(itemList.get(1));
+    }
+```
+
+Tabs organize and allow navigation between groups of content that are related and at the same level of hierarchy.
+
+![Tabs](../images/material-ui/Tabs.png)
+
+|Method | Description | Return Type
+--- | --- | ---
+**click()** | Clicks on button | void
+**has()** | Returns Assert class | Assert
+**text()** | Assert text | Assert
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/TabTests.java" target="_blank">Here you can find Tabs tests</a>
 
 ## JDI Light BDD Steps
 

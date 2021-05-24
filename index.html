@@ -853,6 +853,9 @@
                             <li>
 								<a href="#slider-2" class="toc-h2 h3 toc-link" data-title="Slider">Slider</a>
                             </li>
+                            <li>
+								<a href="#tabs-2" class="toc-h2 h3 toc-link" data-title="Tabs">Tabs</a>
+                            </li>
                         </ul>
                   </li>
                   <li>
@@ -33063,17 +33066,7 @@ For better understanding of this test example remove <strong>&quot;Name&quot;: &
 Note: domain is read from test.properties automatically. <br><br><br><br><br>
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bdd-no-po-tests/src/test/resources/features/JsonBasedPage.feature">BDD feature test examples</a>
 <br><br><br></p>
-<h2 id='material-ui-elements'>Material UI elements</h2><h3 id='checkbox-3'>Checkbox</h3><h4 id='https-material-ui-com-components-checkboxes'>https://material-ui.com/components/checkboxes/</h4>
-<p>Checkbox is located in the following class:</p>
-
-<ul>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.material.elements.inputs.Checkbox</em></li>
-</ul>
-
-<p><img src="images/material-ui/Checkbox.png" alt="Checkbox" /></p>
-
-<p>Checkboxes allow the user to select one or more items from a set.</p>
-<pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h2[text()='Basic checkboxes']/following-sibling::div[1]/span"</span><span class="o">)</span>
+<h2 id='material-ui-elements'>Material UI elements</h2><h3 id='checkbox-3'>Checkbox</h3><h4 id='https-material-ui-com-components-checkboxes'>https://material-ui.com/components/checkboxes/</h4><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h2[text()='Basic checkboxes']/following-sibling::div[1]/span"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Checkbox</span><span class="o">&gt;</span> <span class="n">basicCheckbox</span><span class="o">;</span>
 
     <span class="nd">@Test</span>
@@ -33096,6 +33089,16 @@ Note: domain is read from test.properties automatically. <br><br><br><br><br>
         <span class="n">checkbox</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">hasClass</span><span class="o">(</span><span class="n">className</span><span class="o">);</span>
     <span class="o">}</span>
 </code></pre>
+<p>Checkbox is located in the following class:</p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.material.elements.inputs.Checkbox</em></li>
+</ul>
+
+<p><img src="images/material-ui/Checkbox.png" alt="Checkbox" /></p>
+
+<p>Checkboxes allow the user to select one or more items from a set.</p>
+
 <table><thead>
 <tr>
 <th>Method</th>
@@ -33139,11 +33142,7 @@ Note: domain is read from test.properties automatically. <br><br><br><br><br>
 <td>void</td>
 </tr>
 </tbody></table>
-<h4 id='here-you-can-find-checkbox-tests-2'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/CheckboxTests.java" target="_blank">Here you can find Checkbox tests</a></h4><h3 id='container'>Container</h3><h4 id='https-material-ui-com-components-container'>https://material-ui.com/components/container/</h4>
-<p><img src="images/material-ui/Container.png" alt="Container" /></p>
-
-<p>The container centers your content horizontally. It&#39;s the most basic layout element.</p>
-<pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div[contains(@Class, 'MuiTypography-body1')]"</span><span class="o">)</span>
+<h4 id='here-you-can-find-checkbox-tests-2'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/CheckboxTests.java" target="_blank">Here you can find Checkbox tests</a></h4><h3 id='container'>Container</h3><h4 id='https-material-ui-com-components-container'>https://material-ui.com/components/container/</h4><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div[contains(@Class, 'MuiTypography-body1')]"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">UIElement</span> <span class="n">container</span><span class="o">;</span>
 
     <span class="nd">@Test</span>
@@ -33154,6 +33153,10 @@ Note: domain is read from test.properties automatically. <br><br><br><br><br>
         <span class="n">container</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">attr</span><span class="o">(</span><span class="s">"style"</span><span class="o">,</span> <span class="s">"background-color: rgb(207, 232, 252); height: 100vh;"</span><span class="o">);</span>
     <span class="o">}</span>
 </code></pre>
+<p><img src="images/material-ui/Container.png" alt="Container" /></p>
+
+<p>The container centers your content horizontally. It&#39;s the most basic layout element.</p>
+
 <table><thead>
 <tr>
 <th>Method</th>
@@ -33172,11 +33175,7 @@ Note: domain is read from test.properties automatically. <br><br><br><br><br>
 <td>boolean</td>
 </tr>
 </tbody></table>
-<h4 id='here-you-can-find-container-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/ContainerTests.java" target="_blank">Here you can find Container tests</a></h4><h3 id='avatar'>Avatar</h3><h4 id='https-material-ui-com-ru-components-avatars'>https://material-ui.com/ru/components/avatars/</h4>
-<p><img src="images/material-ui/Avatar.png" alt="Avatar" /></p>
-
-<p>Avatars are found throughout material design with uses in everything from tables to dialog menus.</p>
-<pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//span[@class='MuiBadge-root']/span"</span><span class="o">)</span>
+<h4 id='here-you-can-find-container-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/ContainerTests.java" target="_blank">Here you can find Container tests</a></h4><h3 id='avatar'>Avatar</h3><h4 id='https-material-ui-com-ru-components-avatars'>https://material-ui.com/ru/components/avatars/</h4><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//span[@class='MuiBadge-root']/span"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">UIElement</span><span class="o">&gt;</span> <span class="n">onlineStatus</span><span class="o">;</span>
 
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"//span[@class='MuiBadge-root']/following-sibling::div"</span><span class="o">)</span>
@@ -33195,25 +33194,11 @@ Note: domain is read from test.properties automatically. <br><br><br><br><br>
         <span class="n">onlineStatus</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"R"</span><span class="o">);</span>
         <span class="n">onlineStatus</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">classValue</span><span class="o">(</span><span class="n">Matchers</span><span class="o">.</span><span class="na">containsString</span><span class="o">(</span><span class="s">"MuiBadge-anchorOriginBottomRightCircle"</span><span class="o">));</span>
     <span class="o">}</span>
-
-    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">basicAvatarChecks</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">UIElement</span><span class="o">&gt;</span> <span class="n">elements</span><span class="o">,</span> <span class="kt">boolean</span> <span class="n">noPhoto</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">elements</span><span class="o">.</span><span class="na">size</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="n">elements</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">).</span><span class="na">isDisplayed</span><span class="o">();</span>
-            <span class="n">elements</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">).</span><span class="na">hasImage</span><span class="o">();</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="o">)</span> <span class="o">{</span>
-                <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">noPhoto</span><span class="o">)</span>
-                    <span class="n">elements</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"L"</span><span class="o">);</span>
-                <span class="n">elements</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">classValue</span><span class="o">(</span><span class="n">Matchers</span><span class="o">.</span><span class="na">containsString</span><span class="o">(</span><span class="s">"MuiAvatar-circle"</span><span class="o">));</span>
-            <span class="o">}</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">3</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">elements</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"A"</span><span class="o">);</span>
-                <span class="n">elements</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">classValue</span><span class="o">(</span><span class="n">Matchers</span><span class="o">.</span><span class="na">containsString</span><span class="o">(</span><span class="s">"MuiAvatar-square"</span><span class="o">));</span>
-            <span class="o">}</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">4</span><span class="o">)</span>
-                <span class="n">elements</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">classValue</span><span class="o">(</span><span class="n">Matchers</span><span class="o">.</span><span class="na">containsString</span><span class="o">(</span><span class="s">"MuiAvatar-rounded"</span><span class="o">));</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
 </code></pre>
+<p><img src="images/material-ui/Avatar.png" alt="Avatar" /></p>
+
+<p>Avatars are found throughout material design with uses in everything from tables to dialog menus.</p>
+
 <table><thead>
 <tr>
 <th>Method</th>
@@ -33247,11 +33232,7 @@ Note: domain is read from test.properties automatically. <br><br><br><br><br>
 <td>boolean</td>
 </tr>
 </tbody></table>
-<h4 id='here-you-can-find-avatar-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/AvatarTests.java" target="_blank">Here you can find Avatar tests</a></h4><h3 id='click-away-listener'>Click Away Listener</h3><h4 id='https-material-ui-com-ru-components-click-away-listener'>https://material-ui.com/ru/components/click-away-listener/</h4>
-<p><img src="images/material-ui/ClickAwayListener.png" alt="ClickAwayListener" /></p>
-
-<p>Detect if a click event happened outside of an element. It listens for clicks that occur somewhere in the document.</p>
-<pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h2[text()='Example']/following-sibling::div[1]/div/button"</span><span class="o">)</span>
+<h4 id='here-you-can-find-avatar-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/AvatarTests.java" target="_blank">Here you can find Avatar tests</a></h4><h3 id='click-away-listener'>Click Away Listener</h3><h4 id='https-material-ui-com-ru-components-click-away-listener'>https://material-ui.com/ru/components/click-away-listener/</h4><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h2[text()='Example']/following-sibling::div[1]/div/button"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">Button</span> <span class="n">exampleButton</span><span class="o">;</span>
 
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h2[text()='Portal']/following-sibling::div[1]/div/button"</span><span class="o">)</span>
@@ -33259,24 +33240,6 @@ Note: domain is read from test.properties automatically. <br><br><br><br><br>
 
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div[text()='Click me, I will stay visible until you click outside.']"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">TextArea</span> <span class="n">text</span><span class="o">;</span>
-
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">clickAroundTextPopup</span><span class="o">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">,</span> <span class="kt">int</span> <span class="n">y</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">text</span><span class="o">.</span><span class="na">core</span><span class="o">().</span><span class="na">click</span><span class="o">(</span><span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">clickAroundButton</span><span class="o">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">,</span> <span class="kt">int</span> <span class="n">y</span><span class="o">,</span> <span class="kt">int</span> <span class="n">buttonId</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">buttonId</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span>
-            <span class="n">exampleButton</span><span class="o">.</span><span class="na">core</span><span class="o">().</span><span class="na">click</span><span class="o">(</span><span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="o">);</span>
-        <span class="k">else</span> <span class="nf">if</span> <span class="o">(</span><span class="n">buttonId</span> <span class="o">==</span> <span class="mi">2</span><span class="o">)</span>
-            <span class="n">portalButton</span><span class="o">.</span><span class="na">core</span><span class="o">().</span><span class="na">click</span><span class="o">(</span><span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">clickButton</span><span class="o">(</span><span class="kt">int</span> <span class="n">buttonId</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">buttonId</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span>
-            <span class="n">exampleButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
-        <span class="k">else</span> <span class="nf">if</span> <span class="o">(</span><span class="n">buttonId</span> <span class="o">==</span> <span class="mi">2</span><span class="o">)</span>
-            <span class="n">portalButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
-    <span class="o">}</span>
 
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">exampleClickAwayListenerTest</span><span class="o">()</span> <span class="o">{</span>
@@ -33302,6 +33265,10 @@ Note: domain is read from test.properties automatically. <br><br><br><br><br>
         <span class="n">text</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">hidden</span><span class="o">();</span>
     <span class="o">}</span>
 </code></pre>
+<p><img src="images/material-ui/ClickAwayListener.png" alt="ClickAwayListener" /></p>
+
+<p>Detect if a click event happened outside of an element. It listens for clicks that occur somewhere in the document.</p>
+
 <table><thead>
 <tr>
 <th>Method</th>
@@ -33335,18 +33302,7 @@ Note: domain is read from test.properties automatically. <br><br><br><br><br>
 <td>Assert</td>
 </tr>
 </tbody></table>
-<h4 id='here-you-can-find-clickawaylistener-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/ClickAwayListenerTests.java" target="_blank">Here you can find ClickAwayListener tests</a></h4><h3 id='divider-2'>Divider</h3><h4 id='https-material-ui-com-components-dividers'>https://material-ui.com/components/dividers/</h4>
-<p>Divider is located in the following class:</p>
-
-<ul>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.material.elements.displaydata.Divider</em></li>
-</ul>
-
-<p><img src="images/material-ui/InsetDivider.png" alt="InsetDivider" />
-<img src="images/material-ui/VerticalDivider.png" alt="VerticalDivider" /></p>
-
-<p>A divider is a thin line that groups content in lists and layouts.</p>
-<pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"(//li[contains(@class, 'MuiDivider-root')])"</span><span class="o">)</span>
+<h4 id='here-you-can-find-clickawaylistener-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/ClickAwayListenerTests.java" target="_blank">Here you can find ClickAwayListener tests</a></h4><h3 id='divider-2'>Divider</h3><h4 id='https-material-ui-com-components-dividers'>https://material-ui.com/components/dividers/</h4><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"(//li[contains(@class, 'MuiDivider-root')])"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Divider</span><span class="o">&gt;</span> <span class="n">insetDividers</span><span class="o">;</span>
 
     <span class="nd">@UI</span><span class="o">(</span><span class="s">".MuiDivider-root"</span><span class="o">)</span>
@@ -33364,6 +33320,17 @@ Note: domain is read from test.properties automatically. <br><br><br><br><br>
         <span class="n">verticalDivider</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">vertical</span><span class="o">();</span>
     <span class="o">}</span>
 </code></pre>
+<p>Divider is located in the following class:</p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.material.elements.displaydata.Divider</em></li>
+</ul>
+
+<p><img src="images/material-ui/InsetDivider.png" alt="InsetDivider" />
+<img src="images/material-ui/VerticalDivider.png" alt="VerticalDivider" /></p>
+
+<p>A divider is a thin line that groups content in lists and layouts.</p>
+
 <table><thead>
 <tr>
 <th>Method</th>
@@ -33387,11 +33354,7 @@ Note: domain is read from test.properties automatically. <br><br><br><br><br>
 <td>boolean</td>
 </tr>
 </tbody></table>
-<h4 id='here-you-can-find-divider-tests-2'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/DividerTests.java" target="_blank">Here you can find Divider tests</a></h4><h3 id='card-3'>Card</h3><h4 id='https-material-ui-com-components-cards'>https://material-ui.com/components/cards/</h4>
-<p><img src="images/material-ui/Card.png" alt="Сard" /></p>
-
-<p>Cards contain content and actions about a single subject.</p>
-<pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div[@class='MuiCardContent-root']/p[1]"</span><span class="o">)</span>
+<h4 id='here-you-can-find-divider-tests-2'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/DividerTests.java" target="_blank">Here you can find Divider tests</a></h4><h3 id='card-3'>Card</h3><h4 id='https-material-ui-com-components-cards'>https://material-ui.com/components/cards/</h4><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div[@class='MuiCardContent-root']/p[1]"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Text</span><span class="o">&gt;</span> <span class="n">pTagTexts</span><span class="o">;</span>
 
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div[@class='MuiCardContent-root']/h2[1]"</span><span class="o">)</span>
@@ -33439,6 +33402,10 @@ Note: domain is read from test.properties automatically. <br><br><br><br><br>
         <span class="n">complexCardHiddenText</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">Matchers</span><span class="o">.</span><span class="na">containsString</span><span class="o">(</span><span class="s">"Method:"</span><span class="o">));</span>
     <span class="o">}</span>
 </code></pre>
+<p><img src="images/material-ui/Card.png" alt="Сard" /></p>
+
+<p>Cards contain content and actions about a single subject.</p>
+
 <table><thead>
 <tr>
 <th>Method</th>
@@ -33472,11 +33439,7 @@ Note: domain is read from test.properties automatically. <br><br><br><br><br>
 <td>Assert</td>
 </tr>
 </tbody></table>
-<h4 id='here-you-can-find-card-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/surfaces/CardTests.java" target="_blank">Here you can find Card tests</a></h4><h3 id='radio'>Radio</h3><h4 id='https-material-ui-com-components-radio-buttons'>https://material-ui.com/components/radio-buttons/</h4>
-<p><img src="images/material-ui/Radio.png" alt="Radio" /></p>
-
-<p>Radio buttons allow the user to select one option from a set.</p>
-<pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//fieldset[@id='simpleRadio']//span[contains(@Class,'MuiRadio-root')]"</span><span class="o">)</span>
+<h4 id='here-you-can-find-card-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/surfaces/CardTests.java" target="_blank">Here you can find Card tests</a></h4><h3 id='radio'>Radio</h3><h4 id='https-material-ui-com-components-radio-buttons'>https://material-ui.com/components/radio-buttons/</h4><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//fieldset[@id='simpleRadio']//span[contains(@Class,'MuiRadio-root')]"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Button</span><span class="o">&gt;</span> <span class="n">simpleRadioButtons</span><span class="o">;</span>
 
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"//fieldset[@id='simpleRadio']//span[contains(@Class,'MuiFormControlLabel-label')]"</span><span class="o">)</span>
@@ -33503,6 +33466,10 @@ Note: domain is read from test.properties automatically. <br><br><br><br><br>
         <span class="o">}</span>
     <span class="o">}</span>
 </code></pre>
+<p><img src="images/material-ui/Radio.png" alt="Radio" /></p>
+
+<p>Radio buttons allow the user to select one option from a set.</p>
+
 <table><thead>
 <tr>
 <th>Method</th>
@@ -33536,11 +33503,7 @@ Note: domain is read from test.properties automatically. <br><br><br><br><br>
 <td>Assert</td>
 </tr>
 </tbody></table>
-<h4 id='here-you-can-find-radio-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/RadioButtonTests.java" target="_blank">Here you can find Radio tests</a></h4><h3 id='app-bar'>App Bar</h3><h4 id='https-material-ui-com-components-app-bar'>https://material-ui.com/components/app-bar/</h4>
-<p><img src="images/material-ui/AppBar.png" alt="AppBar" /></p>
-
-<p>The App Bar displays information and actions relating to the current screen.</p>
-<pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//*[text()='App Bar with menu']/preceding::button[@aria-label='menu']"</span><span class="o">)</span>
+<h4 id='here-you-can-find-radio-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/RadioButtonTests.java" target="_blank">Here you can find Radio tests</a></h4><h3 id='app-bar'>App Bar</h3><h4 id='https-material-ui-com-components-app-bar'>https://material-ui.com/components/app-bar/</h4><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//*[text()='App Bar with menu']/preceding::button[@aria-label='menu']"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">UIElement</span> <span class="n">simpleMenu</span><span class="o">;</span>
 
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"//*[text()='Prominent App Bar']/preceding::button[@aria-label='menu'][1]"</span><span class="o">)</span>
@@ -33588,6 +33551,10 @@ Note: domain is read from test.properties automatically. <br><br><br><br><br>
         <span class="o">});</span>
     <span class="o">}</span>
 </code></pre>
+<p><img src="images/material-ui/AppBar.png" alt="AppBar" /></p>
+
+<p>The App Bar displays information and actions relating to the current screen.</p>
+
 <table><thead>
 <tr>
 <th>Method</th>
@@ -33626,10 +33593,7 @@ Note: domain is read from test.properties automatically. <br><br><br><br><br>
 <td>Assert</td>
 </tr>
 </tbody></table>
-<h4 id='here-you-can-find-appbar-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/surfaces/AppBarTests.java" target="_blank">Here you can find AppBar tests</a></h4><h3 id='box'>Box</h3>
-<p>The Box component serves as a wrapper component for most of the CSS utility needs.
-Java example code for the Button box:</p>
-<pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//button[contains(@class,'MuiButton-outlined')]"</span><span class="o">)</span>
+<h4 id='here-you-can-find-appbar-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/surfaces/AppBarTests.java" target="_blank">Here you can find AppBar tests</a></h4><h3 id='box'>Box</h3><h4 id='https-material-ui-com-components-box'>https://material-ui.com/components/box/</h4><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//button[contains(@class,'MuiButton-outlined')]"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">Button</span> <span class="n">outlinedBox</span><span class="o">;</span>
 
     <span class="nd">@Test</span>
@@ -33639,8 +33603,11 @@ Java example code for the Button box:</p>
         <span class="n">outlinedBox</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"SECOND BUTTON"</span><span class="o">);</span>
         <span class="n">lastClickContent</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"You clicked Second button"</span><span class="o">);</span>
     <span class="o">}</span>
-</code></pre><h4 id='https-material-ui-com-components-box'>https://material-ui.com/components/box/</h4>
-<p><img src="images/..source/images/material-ui/Box.png" alt="Box" /></p>
+</code></pre>
+<p>The Box component serves as a wrapper component for most of the CSS utility needs.
+Java example code for the Button box:</p>
+
+<p><img src="images/material-ui/Box.png" alt="Box" /></p>
 
 <table><thead>
 <tr>
@@ -33703,9 +33670,7 @@ Java example code for the Button box:</p>
 <td>boolean</td>
 </tr>
 </tbody></table>
-<h4 id='here-you-can-find-grid-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/GridTests.java" target="_blank">Here you can find Grid tests</a></h4><h3 id='transitions'>Transitions</h3>
-<p>Transition helps make a UI expressive and easy to use.</p>
-<pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h1[text()='Transitions']/following::div[contains(@class,'MuiCollapse-container')]"</span><span class="o">)</span>
+<h4 id='here-you-can-find-grid-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/GridTests.java" target="_blank">Here you can find Grid tests</a></h4><h3 id='transitions'>Transitions</h3><h4 id='https-material-ui-com-components-transitions'>https://material-ui.com/components/transitions/</h4><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h1[text()='Transitions']/following::div[contains(@class,'MuiCollapse-container')]"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">UIElement</span><span class="o">&gt;</span> <span class="n">collapseFadeTransitions</span><span class="o">;</span>
 
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"//span[@class='MuiSwitch-root']"</span><span class="o">)</span>
@@ -33724,8 +33689,10 @@ Java example code for the Button box:</p>
       <span class="n">collapseFadeTransitions</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">classValue</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"MuiCollapse-entered"</span><span class="o">));</span>
       <span class="n">collapseFadeTransitions</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">classValue</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"MuiCollapse-entered"</span><span class="o">));</span>
     <span class="o">}</span>
-</code></pre><h4 id='https-material-ui-com-components-transitions'>https://material-ui.com/components/transitions/</h4>
-<p><img src="images/..source/images/material-ui/Transitions.png" alt="Transitions" /></p>
+</code></pre>
+<p>Transition helps make a UI expressive and easy to use.</p>
+
+<p><img src="images/material-ui/Transitions.png" alt="Transitions" /></p>
 
 <table><thead>
 <tr>
@@ -33755,9 +33722,7 @@ Java example code for the Button box:</p>
 <td>void</td>
 </tr>
 </tbody></table>
-<h4 id='here-you-can-find-transitions-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/TransitionTests.java" target="_blank">Here you can find Transitions tests</a></h4><h3 id='material-icons'>Material Icons</h3>
-<p>The following npm package, @material-ui/icons, includes the 1,100+ official Material icons converted to SvgIcon components.</p>
-<pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#defaultAccessAlarm"</span><span class="o">)</span>
+<h4 id='here-you-can-find-transitions-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/TransitionTests.java" target="_blank">Here you can find Transitions tests</a></h4><h3 id='material-icons'>Material Icons</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#defaultAccessAlarm"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">UIElement</span> <span class="n">defaultAlarm</span><span class="o">;</span>
 
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"#largeAccessAlarm"</span><span class="o">)</span>
@@ -33802,7 +33767,9 @@ Java example code for the Button box:</p>
         <span class="n">lastHover</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Last hover: secondary"</span><span class="o">);</span>
     <span class="o">}</span>
 </code></pre><h4 id='https-material-ui-com-components-material-icons'>https://material-ui.com/components/material-icons/</h4>
-<p><img src="images/..source/images/material-ui/MaterialIcons.png" alt="Material Icons" /></p>
+<p>The following npm package, @material-ui/icons, includes the 1,100+ official Material icons converted to SvgIcon components.</p>
+
+<p><img src="images/material-ui/MaterialIcons.png" alt="Material Icons" /></p>
 
 <table><thead>
 <tr>
@@ -33842,15 +33809,7 @@ Java example code for the Button box:</p>
 <td>void</td>
 </tr>
 </tbody></table>
-<h4 id='here-you-can-find-material-icons-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/MaterialIconTests.java" target="_blank">Here you can find Material Icons tests</a></h4><h3 id='icons-2'>Icons</h3>
-<p>Material-UI provides icons support in three ways:</p>
-
-<ol>
-<li>Standardized Material Design icons exported as React components (SVG icons).</li>
-<li>With the SvgIcon component, a React wrapper for custom SVG icons.</li>
-<li>With the Icon component, a React wrapper for custom font icons.</li>
-</ol>
-<pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h2[text()='Color']/following::*[name()='svg']"</span><span class="o">)</span>
+<h4 id='here-you-can-find-material-icons-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/MaterialIconTests.java" target="_blank">Here you can find Material Icons tests</a></h4><h3 id='icons-2'>Icons</h3><h4 id='https-material-ui-com-components-icons'>https://material-ui.com/components/icons/</h4><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h2[text()='Color']/following::*[name()='svg']"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">UIElement</span><span class="o">&gt;</span> <span class="n">color</span><span class="o">;</span>
 
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"#colorLastClick"</span><span class="o">)</span>
@@ -33884,8 +33843,16 @@ Java example code for the Button box:</p>
                 <span class="o">}</span>
         <span class="o">);</span>
     <span class="o">}</span>
-</code></pre><h4 id='https-material-ui-com-components-icons'>https://material-ui.com/components/icons/</h4>
-<p><img src="images/..source/images/material-ui/Icon.png" alt="Icons" /></p>
+</code></pre>
+<p>Material-UI provides icons support in three ways:</p>
+
+<ol>
+<li>Standardized Material Design icons exported as React components (SVG icons).</li>
+<li>With the SvgIcon component, a React wrapper for custom SVG icons.</li>
+<li>With the Icon component, a React wrapper for custom font icons.</li>
+</ol>
+
+<p><img src="images/material-ui/Icon.png" alt="Icons" /></p>
 
 <table><thead>
 <tr>
@@ -33920,9 +33887,7 @@ Java example code for the Button box:</p>
 <td>void</td>
 </tr>
 </tbody></table>
-<h4 id='here-you-can-find-icons-tests-2'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/IconTests.java" target="_blank">Here you can find Icons tests</a></h4><h3 id='floating-action-button'>Floating Action Button</h3>
-<p>A floating action button appears in front of all screen content, typically as a circular shape with an icon in its center. FABs come in two types: regular, and extended.</p>
-<pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div[@id='basicActionBtns']/button"</span><span class="o">)</span>
+<h4 id='here-you-can-find-icons-tests-2'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/IconTests.java" target="_blank">Here you can find Icons tests</a></h4><h3 id='floating-action-button'>Floating Action Button</h3><h4 id='https-material-ui-com-components-floating-action-button'>https://material-ui.com/components/floating-action-button/</h4><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div[@id='basicActionBtns']/button"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Button</span><span class="o">&gt;</span> <span class="n">basicBtns</span><span class="o">;</span>
 
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"//button[@aria-label='add']"</span><span class="o">)</span>
@@ -33959,8 +33924,10 @@ Java example code for the Button box:</p>
 
         <span class="n">disabledBtn</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">disabled</span><span class="o">();</span>
     <span class="o">}</span>
-</code></pre><h4 id='https-material-ui-com-components-floating-action-button'>https://material-ui.com/components/floating-action-button/</h4>
-<p><img src="images/..source/images/material-ui/Fab.png" alt="Floating action button" /></p>
+</code></pre>
+<p>A floating action button appears in front of all screen content, typically as a circular shape with an icon in its center. FABs come in two types: regular, and extended.</p>
+
+<p><img src="images/material-ui/Fab.png" alt="Floating action button" /></p>
 
 <table><thead>
 <tr>
@@ -34000,9 +33967,7 @@ Java example code for the Button box:</p>
 <td>void</td>
 </tr>
 </tbody></table>
-<h4 id='here-you-can-find-floating-action-button-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/FabTests.java" target="_blank">Here you can find Floating Action Button tests</a></h4><h3 id='hidden'>Hidden</h3>
-<p>Quickly and responsively toggle the visibility value of components and more with the hidden utilities.</p>
-<pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">".MuiTypography-subtitle1"</span><span class="o">)</span>
+<h4 id='here-you-can-find-floating-action-button-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/FabTests.java" target="_blank">Here you can find Floating Action Button tests</a></h4><h3 id='hidden'>Hidden</h3><h4 id='https-material-ui-com-components-hidden'>https://material-ui.com/components/hidden/</h4><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">".MuiTypography-subtitle1"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">Text</span> <span class="n">currentWidth</span><span class="o">;</span>
 
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div[contains(text(),'xsDown')]"</span><span class="o">)</span>
@@ -34034,8 +33999,10 @@ Java example code for the Button box:</p>
             <span class="n">width</span> <span class="o">=</span> <span class="n">getWidth</span><span class="o">(</span><span class="n">currentWidth</span><span class="o">);</span>
             <span class="n">checkWidth</span><span class="o">(</span><span class="n">width</span><span class="o">);</span>
         <span class="o">}</span>
-</code></pre><h4 id='https-material-ui-com-components-hidden'>https://material-ui.com/components/hidden/</h4>
-<p><img src="images/..source/images/material-ui/Hidden.png" alt="Hidden" /></p>
+</code></pre>
+<p>Quickly and responsively toggle the visibility value of components and more with the hidden utilities.</p>
+
+<p><img src="images/material-ui/Hidden.png" alt="Hidden" /></p>
 
 <table><thead>
 <tr>
@@ -34060,10 +34027,8 @@ Java example code for the Button box:</p>
 <td>boolean</td>
 </tr>
 </tbody></table>
-<h4 id='here-you-can-find-hidden-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/HiddenTests.java" target="_blank">Here you can find Hidden tests</a></h4><h3 id='stepper'>Stepper</h3>
-<p>Steppers convey progress through numbered steps. It provides a wizard-like workflow.</p>
-
-<p><img src="images/..source/images/material-ui/Stepper.png" alt="Stepper" /></p>
+<h4 id='here-you-can-find-hidden-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/HiddenTests.java" target="_blank">Here you can find Hidden tests</a></h4><h3 id='stepper'>Stepper</h3><h4 id='https-material-ui-com-components-steppers'>https://material-ui.com/components/steppers/</h4>
+<p><img src="images/material-ui/Stepper.png" alt="Stepper" /></p>
 <pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//*[@id='simpleStepper']//following-sibling::div//*[@class='MuiTypography-root MuiTypography-body1']"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">Text</span> <span class="n">simpleLinearStepperTitle</span><span class="o">;</span>
 
@@ -34086,8 +34051,9 @@ Java example code for the Button box:</p>
         <span class="n">simpleLinearStepperButton</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
         <span class="n">simpleLinearStepperTitle</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"You are on Step #1"</span><span class="o">);</span>
     <span class="o">}</span>
-</code></pre><h4 id='https-material-ui-com-components-steppers'>https://material-ui.com/components/steppers/</h4>
-<p>You can use for testing Text and Button classes, implemented in JDI-html section.</p>
+</code></pre>
+<p>Steppers convey progress through numbered steps. It provides a wizard-like workflow.
+You can use for testing Text and Button classes, implemented in JDI-html section.</p>
 
 <table><thead>
 <tr>
@@ -34112,11 +34078,7 @@ Java example code for the Button box:</p>
 <td>void</td>
 </tr>
 </tbody></table>
-<h4 id='here-you-can-find-stepper-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/StepperTests.java" target="_blank">Here you can find Stepper tests</a></h4><h3 id='slider-2'>Slider</h3>
-<p>Sliders reflect a range of values along a bar, from which users may select a single value. They are ideal for adjusting settings such as volume, brightness, or applying image filters.</p>
-
-<p><img src="images/..source/images/material-ui/Slider.png" alt="Slider" /></p>
-<pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//*[@id=\"continuous-slider\"]/following-sibling::div//span[contains(@class, \"MuiSlider-root\")]"</span><span class="o">)</span>
+<h4 id='here-you-can-find-stepper-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/StepperTests.java" target="_blank">Here you can find Stepper tests</a></h4><h3 id='slider-2'>Slider</h3><h4 id='https-material-ui-com-components-slider'>https://material-ui.com/components/slider/</h4><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//*[@id=\"continuous-slider\"]/following-sibling::div//span[contains(@class, \"MuiSlider-root\")]"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">Slider</span> <span class="n">continuousSlider</span><span class="o">;</span>
 
     <span class="nd">@Test</span>
@@ -34133,7 +34095,11 @@ Java example code for the Button box:</p>
         <span class="n">continuousSlider</span><span class="o">.</span><span class="na">slideHorizontalTo</span><span class="o">(</span><span class="mi">10</span><span class="o">);</span>
         <span class="n">continuousSlider</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="mi">10</span><span class="o">);</span>
     <span class="o">}</span>
-</code></pre><h4 id='https-material-ui-com-components-slider'>https://material-ui.com/components/slider/</h4>
+</code></pre>
+<p>Sliders reflect a range of values along a bar, from which users may select a single value. They are ideal for adjusting settings such as volume, brightness, or applying image filters.</p>
+
+<p><img src="images/material-ui/Slider.png" alt="Slider" /></p>
+
 <table><thead>
 <tr>
 <th>Method</th>
@@ -34182,7 +34148,73 @@ Java example code for the Button box:</p>
 <td>boolean</td>
 </tr>
 </tbody></table>
-<h4 id='here-you-can-find-slider-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/SliderTests.java" target="_blank">Here you can find Slider tests</a></h4><h2 id='jdi-light-bdd-steps'>JDI Light BDD Steps</h2><h3 id='label-2'>Label</h3><pre class="highlight gherkin tab-gherkin"><code><span class="err">Label action examples</span><span class="p">:</span>
+<h4 id='here-you-can-find-slider-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/SliderTests.java" target="_blank">Here you can find Slider tests</a></h4><h3 id='tabs-2'>Tabs</h3><h4 id='https-material-ui-com-components-tabs'>https://material-ui.com/components/Tabs/</h4><pre class="highlight java tab-java"><code>    <span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Button</span><span class="o">&gt;&gt;</span> <span class="n">tableLocators</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">itemList</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">""</span><span class="o">,</span> <span class="s">"One"</span><span class="o">,</span> <span class="s">"Two"</span><span class="o">,</span> <span class="s">"Three"</span><span class="o">,</span> <span class="s">"Four"</span><span class="o">,</span> <span class="s">"Five"</span><span class="o">,</span> <span class="s">"Six"</span><span class="o">,</span> <span class="s">"Seven"</span><span class="o">,</span> <span class="s">"Eight"</span><span class="o">,</span> <span class="s">"Nine"</span><span class="o">,</span> <span class="s">"Ten"</span><span class="o">,</span> <span class="s">"Eleven"</span><span class="o">);</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">tableIndex</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">Timer</span> <span class="n">timer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Timer</span><span class="o">(</span><span class="mi">5000L</span><span class="o">);</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">clickButton</span><span class="o">(</span><span class="kt">int</span> <span class="n">indexRow</span><span class="o">)</span> <span class="o">{</span> <span class="n">tableLocators</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">tableIndex</span><span class="o">).</span><span class="na">get</span><span class="o">(</span><span class="n">indexRow</span><span class="o">).</span><span class="na">click</span><span class="o">();</span> <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkLastItemText</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span><span class="n">lastItemText</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">tableIndex</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="n">name</span><span class="o">));</span> <span class="o">}</span>
+
+    <span class="nd">@BeforeTest</span><span class="o">()</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">beforeTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">tabPage</span><span class="o">.</span><span class="na">open</span><span class="o">();</span>
+        <span class="n">tabPage</span><span class="o">.</span><span class="na">isOpened</span><span class="o">();</span>
+        <span class="n">tableLocators</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="kc">null</span><span class="o">,</span> <span class="n">simpleTabs</span><span class="o">,</span> <span class="n">scrollableTabs</span><span class="o">,</span> <span class="n">preventScrollTabs</span><span class="o">,</span> <span class="n">verticalTabs</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">simpleTabTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">tableIndex</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="n">clickButton</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+        <span class="n">checkLastItemText</span><span class="o">(</span><span class="n">itemList</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">));</span>
+        <span class="n">tableLocators</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">tableIndex</span><span class="o">).</span><span class="na">get</span><span class="o">(</span><span class="mi">4</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">classValue</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"Mui-disabled"</span><span class="o">));</span>
+        <span class="n">clickButton</span><span class="o">(</span><span class="mi">5</span><span class="o">);</span>
+        <span class="n">checkLastItemText</span><span class="o">(</span><span class="n">itemList</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">5</span><span class="o">));</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">scrollableTabTest</span><span class="o">(){</span>
+        <span class="n">tableIndex</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+        <span class="n">clickButton</span><span class="o">(</span><span class="mi">9</span><span class="o">);</span>
+        <span class="n">checkLastItemText</span><span class="o">(</span><span class="n">itemList</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">9</span><span class="o">));</span>
+        <span class="n">timer</span><span class="o">.</span><span class="na">wait</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">scrollButtons</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">click</span><span class="o">());</span>
+        <span class="n">clickButton</span><span class="o">(</span><span class="mi">11</span><span class="o">);</span>
+        <span class="n">checkLastItemText</span><span class="o">(</span><span class="n">itemList</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">11</span><span class="o">));</span>
+        <span class="n">timer</span><span class="o">.</span><span class="na">wait</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">scrollButtons</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">click</span><span class="o">());</span>
+        <span class="n">clickButton</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+        <span class="n">checkLastItemText</span><span class="o">(</span><span class="n">itemList</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">));</span>
+    <span class="o">}</span>
+</code></pre>
+<p>Tabs organize and allow navigation between groups of content that are related and at the same level of hierarchy.</p>
+
+<p><img src="images/material-ui/Tabs.png" alt="Tabs" /></p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>click()</strong></td>
+<td>Clicks on button</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>has()</strong></td>
+<td>Returns Assert class</td>
+<td>Assert</td>
+</tr>
+<tr>
+<td><strong>text()</strong></td>
+<td>Assert text</td>
+<td>Assert</td>
+</tr>
+</tbody></table>
+<h4 id='here-you-can-find-tabs-tests-2'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/TabTests.java" target="_blank">Here you can find Tabs tests</a></h4><h2 id='jdi-light-bdd-steps'>JDI Light BDD Steps</h2><h3 id='label-2'>Label</h3><pre class="highlight gherkin tab-gherkin"><code><span class="err">Label action examples</span><span class="p">:</span>
 
 <span class="nf">When</span> I click on <span class="s">"JDI Title"</span>
 

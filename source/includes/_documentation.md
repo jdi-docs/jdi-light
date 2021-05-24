@@ -24727,7 +24727,7 @@ Sliders reflect a range of values along a bar, from which users may select a sin
 
 Tabs organize and allow navigation between groups of content that are related and at the same level of hierarchy.
 
-![Slider](../images/material-ui/Tabs.png)
+![Tabs](../images/material-ui/Tabs.png)
 
 |Method | Description | Return Type
 --- | --- | ---

@@ -24737,6 +24737,58 @@ Tabs organize and allow navigation between groups of content that are related an
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/TabTests.java" target="_blank">Here you can find Tabs tests</a>
 
+### Table
+
+#### https://material-ui.com/components/Tables/
+
+```java
+  @UI(".MuiDataGrid-main div[role='row'] div[tabindex]")
+  public static List<Button> tableCells;
+
+  @UI(".MuiDataGrid-selectedRowCount")
+  public static Text selectedRowCounter;
+
+  @UI(".MuiTablePagination-actions button")
+  public static List<Button> scrollButtons;
+
+  private final Timer timer = new Timer(2000L);
+  private Button getCell(int row, int coll) {
+      return tableCells.get((row - 1) * 6 + coll);
+  }
+
+  @BeforeTest
+  public void beforeTest() {
+    tablePage.open();
+    tablePage.isOpened();
+  }
+
+  @Test
+  public void dataTableTest() {
+    getCell( 1, 1).click();
+    selectedRowCounter.has().text(containsString("9"));
+    getCell(3, 1).click();
+    getCell(5, 1).click();
+    selectedRowCounter.has().text(containsString("7"));
+    scrollButtons.get(2).click();
+    getCell(2, 1).click();
+    selectedRowCounter.has().text(containsString("6"));
+    getCell(1, 5).click();
+    timer.wait(() -> getCell(4, 5).has().text(containsString("150")));
+  }
+```
+
+Tables display sets of data. They can be fully customized.
+
+![Tables](../images/material-ui/Tables.png)
+
+|Method | Description | Return Type
+--- | --- | ---
+**click()** | Clicks on button | void
+**has()** | Returns Assert class | Assert
+**text()** | Assert text | Assert
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/TableTests.java" target="_blank">Here you can find Tables tests</a>
+
 ## JDI Light BDD Steps
 
 ### Label 

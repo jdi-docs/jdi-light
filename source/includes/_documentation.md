@@ -24294,35 +24294,6 @@ Java example code for the Button box:
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/BoxTests.java" target="_blank">Here you can find Box tests</a>
 
-### Grid
-
-The grid creates visual consistency between layouts while allowing flexibility across a wide variety of designs. Material Design’s responsive UI is based on a 12-column grid layout.
-
-```java     
-    @UI(".MuiContainer-root")
-    public static UIElement rootGrid;
-
-    @Test
-    public void gridTest() {
-        rootGrid.is().displayed();
-        rootGrid.attr("class").contains("MuiContainer-maxWidthXl");
-        basicGrid.is().displayed();
-        complexGrid.is().displayed();
-    }
-```
-
-#### https://material-ui.com/components/grid/
-
-
-![Grid](..source/images/material-ui/Grid.png)
-
-|Method | Description | Return Type
---- | --- | ---
-**is()** | Verify state | boolean
-**isDisplayed()** | Verify state | boolean
-
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/GridTests.java" target="_blank">Here you can find Grid tests</a>
-
 ### Transitions
 
 #### https://material-ui.com/components/transitions/
@@ -24788,6 +24759,704 @@ Tables display sets of data. They can be fully customized.
 **text()** | Assert text | Assert
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/TableTests.java" target="_blank">Here you can find Tables tests</a>
+
+### Typography
+
+#### https://material-ui.com/ru/components/typography/
+
+```java
+  @UI("//*[contains(@class,'MuiTypography-gutterBottom')]")
+  public static List<Text> typographyTexts;
+
+  @BeforeMethod
+  public void before() {
+  typographyPage.open();
+  }
+
+  @Test
+  public void typographyTextTest() {
+
+  List<String> expectedTextFields = Arrays.asList("Head 1", "Head 2", "Head 3", "Head 4", "Head 5", "Head 6",
+  "Subtitle 1", "Subtitle 2", "Body 1", "Body 2", "BUTTON TEXT", "Caption text", "OVERLINE TEXT");
+
+  List<String> expectedTypographyClasses = Arrays.asList("MuiTypography-h1", "MuiTypography-h2",
+  "MuiTypography-h3", "MuiTypography-h4", "MuiTypography-h5", "MuiTypography-h6",
+  "MuiTypography-subtitle1", "MuiTypography-subtitle2", "MuiTypography-body1", "MuiTypography-body2",
+  "MuiTypography-button", "MuiTypography-caption", "MuiTypography-overline");
+
+  List<String> actualTextFields = new ArrayList<>();
+
+  for (Text typographyText : typographyTexts) {
+  actualTextFields.add(typographyText.getText());
+  }
+
+  for (int i = 0; i < typographyTexts.size(); i++) {
+  assertEquals(expectedTextFields.get(i), actualTextFields.get(i));
+  typographyTexts.get(i + 1).has().classValue(containsString(expectedTypographyClasses.get(i)));
+  }
+  }
+```
+
+Use typography to present your design and content as clearly and efficiently as possible.
+
+![Typography](../images/material-ui/Typography.png)
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/TypographyTests.java" target="_blank">Here you can find Typography tests</a>
+
+### Badge
+
+#### https://material-ui.com/ru/components/badges/
+
+```java
+  @UI("//span[@class='MuiBadge-root']")
+  public static List<Badge> badge;
+
+  @UI("//span[contains(@class,'MuiBadge-badge')]")
+  public static List<Text> badgeCounter;
+  
+  @BeforeMethod
+  public void before() {
+  badgePage.open();
+  }
+
+  @Test
+  public void simpleBadgeTest() {
+
+  badge.get(1).is().displayed();
+  badge.get(1).is().displayedSvg();
+  badgeCounter.get(1).is().text("4");
+  badgeCounter.get(1).has().classValue(containsString("MuiBadge-anchorOriginTopRightRectangle MuiBadge-colorPrimary"));
+
+  badge.get(2).is().displayed();
+  badge.get(2).is().displayedSvg();
+  badgeCounter.get(2).is().text("4");
+  badgeCounter.get(2).has().classValue(containsString("MuiBadge-anchorOriginTopRightRectangle MuiBadge-colorError"));
+  }
+  
+```
+
+Badge generates a small badge to the top-right of its child(ren).
+
+![Badge](../images/material-ui/Badge.png)
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/BadgeTests.java" target="_blank">Here you can find Badge tests</a>
+
+### Snackbars
+
+#### https://material-ui.com/ru/components/badges/
+
+```java
+  @UI("//div[@class='MuiAlert-message']")
+  public static List<Text> customizedSnackbarPopUpTitles;
+
+  @UI("//div[@class='MuiAlert-message']/parent::div")
+  public static List<Text> customizedSnackbarPopUpStyles;
+
+  @UI("//div[@direction]/div[@class='MuiAlert-message']/parent::div")
+  public static Text successSnackbarPopUp;
+
+  @UI("//span[text()='Open success snackbar']/parent::button")
+  public static Button successSnackbarButton;
+
+  @UI("//button[@aria-label='close']")
+  public static Button closePopUpSnackbarButton;
+  
+  @Test
+  public void customizedSnackbarTest() {
+
+  customizedSnackbarPopUpTitles.get(1).is().text("This is an error message!");
+  customizedSnackbarPopUpStyles.get(1).has().classValue(containsString("MuiAlert-filledError"));
+  customizedSnackbarPopUpTitles.get(2).is().text("This is a warning message!");
+  customizedSnackbarPopUpStyles.get(2).has().classValue(containsString("MuiAlert-filledWarning"));
+  customizedSnackbarPopUpTitles.get(3).is().text("This is an information message!");
+  customizedSnackbarPopUpStyles.get(3).has().classValue(containsString("MuiAlert-filledInfo"));
+  customizedSnackbarPopUpTitles.get(4).is().text("This is a success message!");
+  customizedSnackbarPopUpStyles.get(4).has().classValue(containsString("MuiAlert-filledSuccess"));
+
+  successSnackbarPopUp.is().notVisible();
+  successSnackbarButton.click();
+  successSnackbarPopUp.is().text("This is a success message!");
+  closePopUpSuccessButton.click();
+  successSnackbarPopUp.is().notVisible();
+  }
+```
+
+Snackbars provide brief messages about app processes. The component is also known as a toast.
+
+![Snackbars](../images/material-ui/Snackbars.png)
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/feedback/SnackbarTests.java" target="_blank">Here you can find Snackbars tests</a>
+
+### Backdrop
+
+#### https://material-ui.com/components/backdrop/
+
+```java
+  @UI(".MuiButton-root")
+  public static Button showBackdropButton;
+
+  @UI(".MuiBackdrop-root")
+  public static UIElement backdrop;
+
+  @Test
+  public void defaultBackdropTest() {
+  showBackdropButton.click();
+  timer.wait(() -> backdrop.is().visible());
+  backdrop.click();
+  timer.wait(() -> backdrop.is().hidden());
+  }
+```
+
+The backdrop component is used to provide emphasis on a particular element or parts of it.
+![Backdrop](../images/material-ui/Backdrop.png)
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/feedback/BackdropTests.java" target="_blank">Here you can find Backdrop tests</a>
+
+### Dialog
+
+#### https://material-ui.com/components/dialogs/
+
+```java
+  @UI("//span[text()='Open simple dialog']/parent::*[contains(@class,'MuiButtonBase-root')]")
+  public static Button simpleDialogButton;
+  
+  @UI("//div[@id='simple-dialog-title']/following::div[@class='MuiListItemText-root'][1]")
+  public static Button simpleDialogListButton;
+  
+  @UI("#simpleDialogSelection")
+  public static Text simpleDialogField;
+
+  @Test
+  public void simpleDialogTest() {
+    simpleDialogButton.click();
+    dialogTitle.is().text("Set backup account");
+    simpleDialogListButton.click();
+    simpleDialogField.is().text("Selected: username@gmail.com");
+    }
+  
+  @Test
+  public void alertDialogTest() {
+  
+    alertDialogButton.click();
+    dialogTitle.is().text("Alert dialog question?");
+    dialogContent.is().text(dialogTextContent);
+    dialogOkButton.click();
+    timer.wait(() -> dialogContent.is().notVisible());
+    alertDialogField.is().text("Selected: ok");
+    alertDialogButton.click();
+    dialogCloseButton.click();
+    timer.wait(() -> dialogContent.is().notVisible());
+    alertDialogField.is().text("Selected: close");
+    }
+```
+
+Dialogs inform users about a task and can contain critical information, require decisions, or involve multiple tasks.
+![Dialog](../images/material-ui/Dialog.png)
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/feedback/DialogTests.java" target="_blank">Here you can find Dialog tests</a>
+
+### Date / Time pickers
+
+#### https://material-ui.com/components/pickers/
+
+```java
+  @JDropdown(
+    root = "//*[@id = 'date-picker-inline-label']/parent::div",
+    value = "//*[@id ='date-picker-inline']",
+    list = "//*[@id = 'date-picker-inline-label']/parent::div /ancestor::body " +
+      "//div[@class = 'MuiPickersBasePicker-pickerView']//p",
+    expand = "//span[@class = 'MuiIconButton-label']")
+  public static Dropdown inlineDatePicker;
+  
+  @JDropdown(
+    root = "//*[@id = 'date-picker-dialog-label']/parent::div",
+    value = "//*[@id ='date-picker-dialog']",
+    list = "//*[@id = 'date-picker-dialog-label']/parent::div /ancestor::body " +
+      "//div[@class = 'MuiPickersBasePicker-pickerView']//p",
+    expand = "//span[@class = 'MuiIconButton-label']")
+  public static Dropdown dialogPicker;
+  
+  @Test
+  public void datePickerInlineTest() {
+    inlineDatePicker.iCore().label().has().text("Date picker inline");
+  
+    inlineDatePicker.select("12");
+    inlineDatePicker.has().text(containsString("/12/"));
+  
+    inlineDatePicker.value().setText("10/10/2022");
+    inlineDatePicker.has().text("10/10/2022");
+    }
+  
+  @Test
+  public void datePickerDialogTest() {
+    dialogPicker.iCore().label().has().text("Date picker dialog");
+    dialogPicker.expand();
+    dialogPicker.select("12");
+    dialogPicker.command("ENTER");
+    timer.wait(() -> dialogPicker.has().text(containsString("/12/")));
+  
+    dialogPicker.expand();
+    dialogPicker.select("11");
+    dialogPicker.command("ESCAPE");
+    timer.wait(() -> dialogPicker.has().text("08/12/2014"));
+  
+    dialogPicker.value().setText("10/10/2021");
+    dialogPicker.has().text("10/10/2021");
+    }
+```
+
+Dropdown is located in the following class:
+
+- __Java__: _com.epam.jdi.light.elements.complex.dropdown.Dropdown_
+
+Date pickers and Time pickers provide a simple way to select a single value from a pre-determined set.
+![Dialog](../images/material-ui/DateTimePickers.png)
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/DateTimePickersTests.java" target="_blank">Here you can find Date/Time Pickers tests</a>
+
+### Select
+
+#### https://material-ui.com/components/selects/
+
+```java
+  @UI("//div[@id='simple-select']")
+  public static Button simpleSelectExpand;
+  
+  @UI("//input")
+  public static List<TextField> simpleSelectField;
+  
+  @UI("//ul")
+  public static Select selectList;
+  
+  @UI("//div[@id='disabled-select']")
+  public static Button disabledSelectExpand;
+
+  @Test
+  public void simpleSelectTest() {
+    simpleSelectExpand.click();
+    selectList.selectItemByText("Henry");
+    simpleSelectField.get(1).is().attr("value", "Henry");
+  }
+  
+  @Test
+  public void disabledSelectTest() {
+    disabledSelectExpand.is().classValue(containsString("Mui-disabled"));
+    disabledSelectExpand.has().attr("aria-disabled", "true");
+    disabledSelectExpand.has().attr("aria-labelledby", "disabled-select");
+  }
+```
+
+Select components are used for collecting user provided information from a list of options.
+![Select](../images/material-ui/Select.png)
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/SelectTests.java" target="_blank">Here you can find Select tests</a>
+
+### Switch
+
+#### https://material-ui.com/components/switches/
+
+```java
+  @UI("//span[contains(@class,'MuiSwitch-switchBase')]")
+  public static List<Checkbox> switches;
+  
+  @UI("//p[contains(@class,'MuiFormHelperText-root')]")
+  public static Text formGroupTextForm;
+  
+  @Test
+  public void basicSwitchesTest() {
+    switches.get(1).is().classValue(containsString("MuiSwitch-colorSecondary"));
+    switches.get(1).is().classValue(containsString("Mui-checked"));
+    switches.get(1).click();
+    switches.get(1).is().classValue(not(containsString("Mui-checked")));
+    }
+```
+
+Switches toggle the state of a single setting on or off.
+![Switch](../images/material-ui/Switch.png)
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/SwitchTests.java" target="_blank">Here you can find Switch tests</a>
+
+### Button
+
+#### https://material-ui.com/components/buttons/
+
+```java
+  @UI("//h2[text()='Contained buttons']/parent::div/div[1]/*")
+  public static List<Button> containedButtons;
+  
+  @UI("//h2[text()='Text buttons']/parent::div/div[2]/*")
+  public static List<Button> textButtons;
+  
+  @UI("//h2[text()='Buttons with icons and label']/parent::div/div[3]/*")
+  public static List<Button> iconLabelButtons;
+  
+  @UI("//span[contains(@class,'MuiButton-icon')]")
+  public static List<Icon> iconLabelIcons;
+  
+  @Test
+  public void defaultButtonTest() {
+    containedButtons.get(1).click();
+    containedButtons.get(1).is().text("DEFAULT");
+    containedButtons.get(6).is().text("Last click: Default");
+  
+    containedButtons.get(2).click();
+    containedButtons.get(2).is().text("PRIMARY");
+    containedButtons.get(6).is().text("Last click: Primary");
+  
+    containedButtons.get(3).click();
+    containedButtons.get(3).is().text("SECONDARY");
+    containedButtons.get(6).is().text("Last click: Secondary");
+  
+    containedButtons.get(4).is().text("DISABLED");
+    containedButtons.get(4).is().attr("disabled");
+    containedButtons.get(4).is().disabled();
+  
+    containedButtons.get(5).click();
+    containedButtons.get(5).is().text("LINK");
+    containedButtons.get(6).is().text("Last click: Link");
+    containedButtons.get(5).is().notVisible();
+  }
+```
+
+Buttons allow users to take actions, and make choices, with a single tap.
+
+![Buttons](../images/material-ui/Buttons.png)
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/ButtonTests.java" target="_blank">Here you can find Buttons tests</a>
+
+### Grid
+
+#### https://material-ui.com/components/grid/
+
+```java
+  @UI(".MuiContainer-root")
+  public static UIElement rootGrid;
+  
+  @UI("//h2[text()='Complex grid']/preceding::div[contains(@class,'MuiGrid-spacing')]")
+  public static UIElement basicGrid;
+  
+  @UI("//h2[text()='Complex grid']/following::div[contains(@class,'MuiPaper-rounded')]/div[contains(@class,'MuiGrid-spacing')]")
+  public static UIElement complexGrid;
+  
+  @UI("//div[contains(@class,'MuiPaper-rounded')]")
+  public static List<Button> listButton;
+  
+  @Test
+  public void gridTest() {
+    rootGrid.is().displayed();
+    rootGrid.attr("class").contains("MuiContainer-maxWidthXl");
+    basicGrid.is().displayed();
+    complexGrid.is().displayed();
+    }
+  
+  @Test
+  public void buttonsTest() {
+    listButton.forEach(button -> button.is().displayed());
+    listButton.forEach(button -> button.click());
+    }
+```
+
+The Material Design responsive layout grid adapts to screen size and orientation, ensuring consistency across layouts.
+
+![Grid](../images/material-ui/Grids.png)
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/GridTests.java" target="_blank">Here you can find Grid tests</a>
+
+### Drawer
+
+#### https://material-ui.com/components/drawers/
+
+```java
+  @UI("//*[text()='left']")
+  public static Button leftButton;
+  
+  @UI("//*[text()='right']")
+  public static Button rightButton;
+  
+  @UI("//*[text()='top']")
+  public static Button topButton;
+  
+  @UI("//*[text()='bottom']")
+  public static Button bottomButton;
+  
+  @UI("//div[contains(@class,'MuiPaper-root')]")
+  public static Drawer drawer;
+
+  @Test(priority = 1)
+  public void temporaryDrawerTest() {
+    temporaryDrawerPage.open();
+    List<Button> buttons = Arrays.asList(leftButton, rightButton, topButton, bottomButton);
+    buttons.forEach(
+      button -> {
+        button.click();
+        drawer.is().displayed();
+        String currentButtonName = button.getName();
+        drawer.has().classValue(containsString(String.format("MuiDrawer-paperAnchor%s", currentButtonName.substring(0,currentButtonName.lastIndexOf(" ") + 1))));
+        drawerElementsIcon.forEach(
+          icon -> icon.is().displayedSvg()
+        );
+        drawerElementsText.forEach(
+            text -> actualDrawerTexts.add(text.getText())
+        );
+        assertEquals(actualDrawerTexts, expectedDrawerTexts);
+        actualDrawerTexts.clear();
+        drawerElementsText.get(1).click();
+      }
+    );
+    }
+```
+
+Navigation drawers provide access to destinations in your app. Side sheets are surfaces containing supplementary content that are anchored to the left or right edge of the screen.
+
+![Drawer](../images/material-ui/Drawer.png)
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/DrawerTests.java" target="_blank">Here you can find Drawer tests</a>
+
+### Breadcrumbs
+
+#### https://material-ui.com/components/Breadcrumbs/
+
+```java
+  @UI(".MuiBreadcrumbs-li")
+  public static List<UIElement> breadcrumbs;
+  
+  @UI("//h3[text()='Material UI']")
+  public static UIElement materialElement;
+  
+  @UI("//h3[text()='Core']")
+  public static UIElement coreElement;
+  
+  private static Timer timer = new Timer(3000L);
+
+  @Test
+  public void simpleBreadcrumbsTest() {
+    simpleBreadcrumbsPage.open();
+    breadcrumbs.get(1).is().text("Material-UI");
+    breadcrumbs.get(1).click();
+    timer.wait(() -> materialElement.is().visible());
+    breadcrumbs.get(2).is().text("Core");
+    breadcrumbs.get(2).click();
+    timer.wait(() -> materialElement.is().notVisible());
+    timer.wait(()->coreElement.is().visible());
+    }
+```
+
+Breadcrumbs allow users to make selections from a range of values.
+
+![Breadcrumbs](../images/material-ui/Breadcrumbs.png)
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/BreadcrumbsTests.java" target="_blank">Here you can find Breadcrumbs tests</a>
+
+### Bottom Navigation
+
+#### https://material-ui.com/components/bottom-navigation/
+
+```java
+  @UI(".MuiBottomNavigationAction-root[2]")
+  public static BottomNavigation favorites;
+  
+  @UI("#currentPosition")
+  public static Text currentPosition;
+  
+  @Test
+  public void defaultBottomNavigationTest(){
+    favorites.is().enabled();
+    assertTrue(favorites.core().text().contains("Favorites"));
+    assertFalse(favorites.isSelected());
+    favorites.core().click();
+    assertTrue(currentPosition.getText().contains("Favorites"));
+    favorites.is().selected();
+  }
+```
+
+Bottom navigation bars allow movement between primary destinations in an app.
+
+
+![BottomNavigation](../images/material-ui/BottomNavigation.png)
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/BottomNavigationTests.java" target="_blank">Here you can find Bottom Navigation tests</a>
+
+### Paper
+
+#### https://material-ui.com/components/paper/
+
+```java
+  @UI(".MuiPaper-root")
+  public static List<UIElement> paper;
+
+  private final String WITH_ZERO_ELEVATION = "Paper with elevation = 0";
+  private final String WITH_DEFAULT_ELEVATION = "Paper with default elavation";
+  private final String YOU_CLICKED = "You clicked: %s";
+  public void defaultPaperTest() {
+  
+    paper.get(1).is().text(WITH_ZERO_ELEVATION);
+    paper.get(1).click();
+    paper.get(6).is().text(String.format(YOU_CLICKED, WITH_ZERO_ELEVATION));
+  
+    paper.get(2).is().text(WITH_DEFAULT_ELEVATION);
+    paper.get(2).click();
+    paper.get(6).is().text(String.format(YOU_CLICKED, WITH_DEFAULT_ELEVATION)); 
+  }
+```
+
+In Material Design, the physical properties of paper are translated to the screen.
+
+
+![Paper](../images/material-ui/Paper.png)
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/surfaces/PaperTests.java" target="_blank">Here you can find Paper tests</a>
+
+### Accordion
+
+#### https://material-ui.com/components/Accordion/
+
+```java
+  @UI(".MuiBreadcrumbs-li")
+  public static List<UIElement> breadcrumbs;
+  
+  @UI("//h3[text()='Material UI']")
+  public static UIElement materialElement;
+  
+  @UI("//h3[text()='Core']")
+  public static UIElement coreElement;
+  
+  private static Timer timer = new Timer(3000L);
+
+  @Test
+  public void simpleBreadcrumbsTest() {
+    simpleBreadcrumbsPage.open();
+    breadcrumbs.get(1).is().text("Material-UI");
+    breadcrumbs.get(1).click();
+    timer.wait(() -> materialElement.is().visible());
+    breadcrumbs.get(2).is().text("Core");
+    breadcrumbs.get(2).click();
+    timer.wait(() -> materialElement.is().notVisible());
+    timer.wait(()->coreElement.is().visible());
+    }
+```
+
+Accordions contain creation flows and allow lightweight editing of an element.
+
+![Accordion](../images/material-ui/Accordion.png)
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/surfaces/AccordionTests.java" target="_blank">Here you can find Accordion tests</a>
+
+### Portal
+
+#### https://material-ui.com/components/Portal/
+
+```java
+  @UI("//button")
+  public static Button button;
+  
+  @UI("//button/following::div[1]")
+  public static Text field1;
+  
+  @UI("//button/following::div[2]")
+  public static Text field2;
+  
+  @Test
+  public void portalTest() {
+    button.has().text("Mount children");
+    field1.has().text("It looks like I will render here.");
+    field2.has().text("");
+  
+    button.click();
+    button.has().text("Unmount children");
+    field1.has().text("It looks like I will render here.");
+    field2.has().text("But I actually render here!");
+  
+    button.click();
+    button.has().text("Mount children");
+    field1.has().text("It looks like I will render here.");
+    field2.has().text("");
+  }
+```
+
+The portal component renders its children into a new "subtree" outside of current DOM hierarchy.
+
+![Portal](../images/material-ui/Portal.png)
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/PortalTests.java" target="_blank">Here you can find Portal tests</a>
+
+### Textarea Autosize
+
+#### https://material-ui.com/components/textarea-autosize/
+
+```java
+  @UI("//textarea[@aria-label = 'empty textarea']")
+  public static TextArea emptyTextArea;
+  
+  @UI("//textarea[@aria-label = 'minimum height']")
+  public static TextArea minArea;
+  
+  @UI("//textarea[@aria-label = 'maximum height']")
+  public static TextArea maxArea;
+  
+  private int initialHeight;
+  private static final String ONE_LINE = "1";
+  private static final String THREE_LINES = "1\n2\n3";
+  private static final String FOUR_LINES = "1\n2\n3\n4";
+  
+  @Test
+  public void emptyAreaHeightIncreasesTest() {
+    initialHeight = emptyTextArea.getSize().height;
+    emptyTextArea.setLines(FOUR_LINES);
+    assertThat(emptyTextArea.getSize().height, greaterThan(initialHeight));
+  }
+
+  @Test
+  public void emptyAreaHeightDecreasesTest() {
+    emptyTextArea.setLines(FOUR_LINES);
+    initialHeight = emptyTextArea.getSize().height;
+    emptyTextArea.clear();
+    emptyTextArea.setLines(ONE_LINE);
+    assertThat(emptyTextArea.getSize().height, lessThan(initialHeight));
+  }
+```
+
+A textarea component for React which grows with content.
+
+
+![TextArea](../images/material-ui/TextareaAutosize.png)
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/TextAreaAutoSizeTests.java" target="_blank">Here you can find TextAreaAutosize tests</a>
+
+### Popover
+
+#### https://material-ui.com/components/popover/
+
+```java
+  @UI("//button[contains(@class,'MuiButtonBase-root')]/span[@class='MuiButton-label']")
+  public static Button buttonToClick;
+  
+  @UI("//div[contains(@class,'MuiPaper-root')]/div")
+  public static Button popoverContent;
+  
+  @UI("//span[@class='MuiTypography-root']")
+  public static Text popoverHoverField;
+  
+  @Test
+  public void clickPopoverTest() {
+    buttonToClick.is().text("CLICK TO OPEN POPOVER");
+    buttonToClick.click();
+    popoverContent.is().text("Popover content");
+  }
+  
+  @Test
+  public void hoverPopoverTest() {
+    popoverHoverField.is().text("[Hover to open Popover]");
+    popoverHoverField.hover();
+    popoverHoverField.has().attr("aria-owns", "mouse-over-popover");
+    popoverContent.is().text("Popover content");
+  }
+```
+
+A Popover can be used to display some content on top of another.
+
+![Popover](../images/material-ui/Popover.png)
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/PopoverTests.java" target="_blank">Here you can find Popover tests</a>
 
 ## JDI Light BDD Steps
 

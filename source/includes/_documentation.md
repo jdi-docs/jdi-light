@@ -23914,6 +23914,87 @@ Checkboxes allow the user to select one or more items from a set.
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/CheckboxTests.java" target="_blank">Here you can find Checkbox tests</a>
 
+### Chips
+
+#### https://material-ui.com/components/chips/
+
+```java 
+@UI("//h2[text() = 'Chip']/following-sibling::*[1]")
+public static Chip defaultChips;
+@BeforeMethod
+public void beforeTest() {
+    chipsPage.open();
+}
+
+@Test
+public void defaultChipTest(){
+    basicCheck(defaultChips);
+    disabledCheck(defaultChips);// first variant of class value
+    clickableCheck(defaultChips,3);
+    clickableLinkCheck(defaultChips,7);
+}
+
+@Test
+public void outlinedChipTest(){
+    basicCheck(outlinedChips);
+    disabledCheck(outlinedChips); // second variant of class value
+    clickableCheck(outlinedChips, 3);
+    clickableLinkCheck(outlinedChips, 7);
+}
+
+@Test
+public void chipArrayTest(){
+    chipArrays.is().displayed(1);
+    chipArrays.is().text(1, hasToString("Angular"));
+    chipArrays.is().displayed(2);
+    chipArrays.is().text(2, hasToString("jQuery"));
+    chipArrays.getChipIcon(1).click();
+    chipArrays.is().text(1, hasToString("jQuery")); // "jQuery" became first element as "Angular" element was deleted
+}
+
+public void basicCheck(Chip chips){
+    chips.is().displayed(1);
+    chips.is().text(1, hasToString("Basic"));
+}
+
+public void disabledCheck(Chip chips){
+    chips.is().displayed(2);
+    chips.is().disabled(2);
+    chips.is().text(2, hasToString("Disabled"));
+}
+
+public void clickableCheck(Chip chips, int index){
+    chips.is().displayed(index);
+    chips.is().clickable(index);
+    chips.is().text(index, hasToString("Clickable"));
+}
+
+public void clickableLinkCheck(Chip chips, int index){
+    chips.is().displayed(index);
+    chips.is().text(index, equalToIgnoringCase("Clickable Link"));
+    chips.click(index);
+    chips.is().urlContains("#chip");
+}
+```
+
+Chip is located in the following class:
+
+   - __Java__: _com.epam.jdi.light.material.elements.inputs.Chip_
+
+![Chip](../images/material-ui/Chip.png)
+
+Chips are compact elements that represent an input, attribute, or action.
+
+|Method | Description | Return Type
+--- | --- | ---
+**is()** | Returns Assert class | ChipAssert
+**click(int index)** | Clicks on chip | void
+**getChipLabel(int index)** | Gets label| UIElement
+**getChipRoot(int index)** | Gets root| UIElement
+**getChipIcon(int index)** | Gets Icon|UIElement
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/ChipTests.java" target="_blank">Here you can find Chips tests</a>
+
 ### Container
 
 #### https://material-ui.com/components/container/

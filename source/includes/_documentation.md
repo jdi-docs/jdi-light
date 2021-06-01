@@ -23979,7 +23979,7 @@ public void clickableLinkCheck(Chip chips, int index){
 
 Chip is located in the following class:
 
-   - __Java__: _com.epam.jdi.light.material.elements.inputs.Chip_
+   - __Java__: _com.epam.jdi.light.material.elements.displaydata.Chip_
 
 ![Chip](../images/material-ui/Chip.png)
 
@@ -23993,7 +23993,41 @@ Chips are compact elements that represent an input, attribute, or action.
 **getChipRoot(int index)** | Gets root| UIElement
 **getChipIcon(int index)** | Gets Icon|UIElement
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/ChipTests.java" target="_blank">Here you can find Chips tests</a>
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/ChipTests.java" target="_blank">Here you can find Chips tests</a>
+
+### Tooltip
+
+#### https://material-ui.com/components/tooltips/
+
+```java 
+@UI("//*[contains(@class, 'MuiIconButton-root')]")
+public ButtonWithTooltip buttonWithTooltip;
+@Test
+public void defaultTooltipTest() {
+    tooltipPage.open();
+    tooltipPage.buttonWithTooltip.hover();
+    tooltipPage.buttonWithTooltip.tooltip().is().visible();
+    tooltipPage.buttonWithTooltip.tooltip().has().text("Delete");
+}
+```
+
+Tooltip is located in the following class:
+
+   - __Java__: _com.epam.jdi.light.material.elements.displaydata.Tooltip_
+
+![Tooltip](../images/material-ui/Tooltip.png)
+
+Tooltips display informative text when users hover over, focus on, or tap an element.
+
+|Method | Description | Return Type
+--- | --- | ---
+**is()** | Returns Assert class | TooltipAssert
+**has()** | Returns Assert class | TooltipAssert
+**isVisible()** | Checks element is displayed| boolean
+**isInteractive()** | Checks element is interactive| boolean
+**getValue()** | Gets value| String
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/TooltipTests.java" target="_blank">Here you can find Tooltip tests</a>
 
 ### Container
 

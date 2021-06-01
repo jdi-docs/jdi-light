@@ -830,9 +830,6 @@
 								<a href="#box" class="toc-h2 h3 toc-link" data-title="Box">Box</a>
                             </li>
                             <li>
-								<a href="#grid" class="toc-h2 h3 toc-link" data-title="Grid">Grid</a>
-                            </li>
-                            <li>
 								<a href="#transitions" class="toc-h2 h3 toc-link" data-title="Transitions">Transitions</a>
                             </li>
                             <li>
@@ -858,6 +855,60 @@
                             </li>
                             <li>
 								<a href="#table-2" class="toc-h2 h3 toc-link" data-title="Table">Table</a>
+                            </li>
+                            <li>
+								<a href="#typography" class="toc-h2 h3 toc-link" data-title="Typography">Typography</a>
+                            </li>
+                            <li>
+								<a href="#badge-3" class="toc-h2 h3 toc-link" data-title="Badge">Badge</a>
+                            </li>
+                            <li>
+								<a href="#snackbars" class="toc-h2 h3 toc-link" data-title="Snackbars">Snackbars</a>
+                            </li>
+                            <li>
+								<a href="#backdrop" class="toc-h2 h3 toc-link" data-title="Backdrop">Backdrop</a>
+                            </li>
+                            <li>
+								<a href="#dialog-2" class="toc-h2 h3 toc-link" data-title="Dialog">Dialog</a>
+                            </li>
+                            <li>
+								<a href="#date-time-pickers" class="toc-h2 h3 toc-link" data-title="Date / Time pickers">Date / Time pickers</a>
+                            </li>
+                            <li>
+								<a href="#select-2" class="toc-h2 h3 toc-link" data-title="Select">Select</a>
+                            </li>
+                            <li>
+								<a href="#switch" class="toc-h2 h3 toc-link" data-title="Switch">Switch</a>
+                            </li>
+                            <li>
+								<a href="#button-2" class="toc-h2 h3 toc-link" data-title="Button">Button</a>
+                            </li>
+                            <li>
+								<a href="#grid" class="toc-h2 h3 toc-link" data-title="Grid">Grid</a>
+                            </li>
+                            <li>
+								<a href="#drawer" class="toc-h2 h3 toc-link" data-title="Drawer">Drawer</a>
+                            </li>
+                            <li>
+								<a href="#breadcrumbs" class="toc-h2 h3 toc-link" data-title="Breadcrumbs">Breadcrumbs</a>
+                            </li>
+                            <li>
+								<a href="#bottom-navigation" class="toc-h2 h3 toc-link" data-title="Bottom Navigation">Bottom Navigation</a>
+                            </li>
+                            <li>
+								<a href="#paper" class="toc-h2 h3 toc-link" data-title="Paper">Paper</a>
+                            </li>
+                            <li>
+								<a href="#accordion" class="toc-h2 h3 toc-link" data-title="Accordion">Accordion</a>
+                            </li>
+                            <li>
+								<a href="#portal" class="toc-h2 h3 toc-link" data-title="Portal">Portal</a>
+                            </li>
+                            <li>
+								<a href="#textarea-autosize" class="toc-h2 h3 toc-link" data-title="Textarea Autosize">Textarea Autosize</a>
+                            </li>
+                            <li>
+								<a href="#popover" class="toc-h2 h3 toc-link" data-title="Popover">Popover</a>
                             </li>
                         </ul>
                   </li>
@@ -889,7 +940,7 @@
 								<a href="#link-2" class="toc-h2 h3 toc-link" data-title="Link">Link</a>
                             </li>
                             <li>
-								<a href="#button-2" class="toc-h2 h3 toc-link" data-title="Button">Button</a>
+								<a href="#button-3" class="toc-h2 h3 toc-link" data-title="Button">Button</a>
                             </li>
                             <li>
 								<a href="#datetimeselector-2" class="toc-h2 h3 toc-link" data-title="DateTimeSelector">DateTimeSelector</a>
@@ -33640,40 +33691,7 @@ Java example code for the Button box:</p>
 <td>void</td>
 </tr>
 </tbody></table>
-<h4 id='here-you-can-find-box-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/BoxTests.java" target="_blank">Here you can find Box tests</a></h4><h3 id='grid'>Grid</h3>
-<p>The grid creates visual consistency between layouts while allowing flexibility across a wide variety of designs. Material Design’s responsive UI is based on a 12-column grid layout.</p>
-<pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">".MuiContainer-root"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">UIElement</span> <span class="n">rootGrid</span><span class="o">;</span>
-
-    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">gridTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">rootGrid</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-        <span class="n">rootGrid</span><span class="o">.</span><span class="na">attr</span><span class="o">(</span><span class="s">"class"</span><span class="o">).</span><span class="na">contains</span><span class="o">(</span><span class="s">"MuiContainer-maxWidthXl"</span><span class="o">);</span>
-        <span class="n">basicGrid</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-        <span class="n">complexGrid</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-    <span class="o">}</span>
-</code></pre><h4 id='https-material-ui-com-components-grid'>https://material-ui.com/components/grid/</h4>
-<p><img src="images/..source/images/material-ui/Grid.png" alt="Grid" /></p>
-
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>is()</strong></td>
-<td>Verify state</td>
-<td>boolean</td>
-</tr>
-<tr>
-<td><strong>isDisplayed()</strong></td>
-<td>Verify state</td>
-<td>boolean</td>
-</tr>
-</tbody></table>
-<h4 id='here-you-can-find-grid-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/GridTests.java" target="_blank">Here you can find Grid tests</a></h4><h3 id='transitions'>Transitions</h3><h4 id='https-material-ui-com-components-transitions'>https://material-ui.com/components/transitions/</h4><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h1[text()='Transitions']/following::div[contains(@class,'MuiCollapse-container')]"</span><span class="o">)</span>
+<h4 id='here-you-can-find-box-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/BoxTests.java" target="_blank">Here you can find Box tests</a></h4><h3 id='transitions'>Transitions</h3><h4 id='https-material-ui-com-components-transitions'>https://material-ui.com/components/transitions/</h4><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h1[text()='Transitions']/following::div[contains(@class,'MuiCollapse-container')]"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">UIElement</span><span class="o">&gt;</span> <span class="n">collapseFadeTransitions</span><span class="o">;</span>
 
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"//span[@class='MuiSwitch-root']"</span><span class="o">)</span>
@@ -34278,7 +34296,542 @@ You can use for testing Text and Button classes, implemented in JDI-html section
 <td>Assert</td>
 </tr>
 </tbody></table>
-<h4 id='here-you-can-find-tables-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/TableTests.java" target="_blank">Here you can find Tables tests</a></h4><h2 id='jdi-light-bdd-steps'>JDI Light BDD Steps</h2><h3 id='label-2'>Label</h3><pre class="highlight gherkin tab-gherkin"><code><span class="err">Label action examples</span><span class="p">:</span>
+<h4 id='here-you-can-find-tables-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/TableTests.java" target="_blank">Here you can find Tables tests</a></h4><h3 id='typography'>Typography</h3><h4 id='https-material-ui-com-ru-components-typography'>https://material-ui.com/ru/components/typography/</h4><pre class="highlight java tab-java"><code>  <span class="nd">@UI</span><span class="o">(</span><span class="s">"//*[contains(@class,'MuiTypography-gutterBottom')]"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Text</span><span class="o">&gt;</span> <span class="n">typographyTexts</span><span class="o">;</span>
+
+  <span class="nd">@BeforeMethod</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">before</span><span class="o">()</span> <span class="o">{</span>
+  <span class="n">typographyPage</span><span class="o">.</span><span class="na">open</span><span class="o">();</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">typographyTextTest</span><span class="o">()</span> <span class="o">{</span>
+
+  <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">expectedTextFields</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">"Head 1"</span><span class="o">,</span> <span class="s">"Head 2"</span><span class="o">,</span> <span class="s">"Head 3"</span><span class="o">,</span> <span class="s">"Head 4"</span><span class="o">,</span> <span class="s">"Head 5"</span><span class="o">,</span> <span class="s">"Head 6"</span><span class="o">,</span>
+  <span class="s">"Subtitle 1"</span><span class="o">,</span> <span class="s">"Subtitle 2"</span><span class="o">,</span> <span class="s">"Body 1"</span><span class="o">,</span> <span class="s">"Body 2"</span><span class="o">,</span> <span class="s">"BUTTON TEXT"</span><span class="o">,</span> <span class="s">"Caption text"</span><span class="o">,</span> <span class="s">"OVERLINE TEXT"</span><span class="o">);</span>
+
+  <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">expectedTypographyClasses</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">"MuiTypography-h1"</span><span class="o">,</span> <span class="s">"MuiTypography-h2"</span><span class="o">,</span>
+  <span class="s">"MuiTypography-h3"</span><span class="o">,</span> <span class="s">"MuiTypography-h4"</span><span class="o">,</span> <span class="s">"MuiTypography-h5"</span><span class="o">,</span> <span class="s">"MuiTypography-h6"</span><span class="o">,</span>
+  <span class="s">"MuiTypography-subtitle1"</span><span class="o">,</span> <span class="s">"MuiTypography-subtitle2"</span><span class="o">,</span> <span class="s">"MuiTypography-body1"</span><span class="o">,</span> <span class="s">"MuiTypography-body2"</span><span class="o">,</span>
+  <span class="s">"MuiTypography-button"</span><span class="o">,</span> <span class="s">"MuiTypography-caption"</span><span class="o">,</span> <span class="s">"MuiTypography-overline"</span><span class="o">);</span>
+
+  <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">actualTextFields</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
+
+  <span class="k">for</span> <span class="o">(</span><span class="n">Text</span> <span class="n">typographyText</span> <span class="o">:</span> <span class="n">typographyTexts</span><span class="o">)</span> <span class="o">{</span>
+  <span class="n">actualTextFields</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">typographyText</span><span class="o">.</span><span class="na">getText</span><span class="o">());</span>
+  <span class="o">}</span>
+
+  <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">typographyTexts</span><span class="o">.</span><span class="na">size</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+  <span class="n">assertEquals</span><span class="o">(</span><span class="n">expectedTextFields</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">),</span> <span class="n">actualTextFields</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">));</span>
+  <span class="n">typographyTexts</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">classValue</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="n">expectedTypographyClasses</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">)));</span>
+  <span class="o">}</span>
+  <span class="o">}</span>
+</code></pre>
+<p>Use typography to present your design and content as clearly and efficiently as possible.</p>
+
+<p><img src="images/material-ui/Typography.png" alt="Typography" /></p>
+<h4 id='here-you-can-find-typography-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/TypographyTests.java" target="_blank">Here you can find Typography tests</a></h4><h3 id='badge-3'>Badge</h3><h4 id='https-material-ui-com-ru-components-badges'>https://material-ui.com/ru/components/badges/</h4><pre class="highlight java tab-java"><code>  <span class="nd">@UI</span><span class="o">(</span><span class="s">"//span[@class='MuiBadge-root']"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Badge</span><span class="o">&gt;</span> <span class="n">badge</span><span class="o">;</span>
+
+  <span class="nd">@UI</span><span class="o">(</span><span class="s">"//span[contains(@class,'MuiBadge-badge')]"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Text</span><span class="o">&gt;</span> <span class="n">badgeCounter</span><span class="o">;</span>
+
+  <span class="nd">@BeforeMethod</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">before</span><span class="o">()</span> <span class="o">{</span>
+  <span class="n">badgePage</span><span class="o">.</span><span class="na">open</span><span class="o">();</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">simpleBadgeTest</span><span class="o">()</span> <span class="o">{</span>
+
+  <span class="n">badge</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+  <span class="n">badge</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">displayedSvg</span><span class="o">();</span>
+  <span class="n">badgeCounter</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"4"</span><span class="o">);</span>
+  <span class="n">badgeCounter</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">classValue</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"MuiBadge-anchorOriginTopRightRectangle MuiBadge-colorPrimary"</span><span class="o">));</span>
+
+  <span class="n">badge</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+  <span class="n">badge</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">displayedSvg</span><span class="o">();</span>
+  <span class="n">badgeCounter</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"4"</span><span class="o">);</span>
+  <span class="n">badgeCounter</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">classValue</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"MuiBadge-anchorOriginTopRightRectangle MuiBadge-colorError"</span><span class="o">));</span>
+  <span class="o">}</span>
+
+</code></pre>
+<p>Badge generates a small badge to the top-right of its child(ren).</p>
+
+<p><img src="images/material-ui/Badge.png" alt="Badge" /></p>
+<h4 id='here-you-can-find-badge-tests-2'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/BadgeTests.java" target="_blank">Here you can find Badge tests</a></h4><h3 id='snackbars'>Snackbars</h3><h4 id='https-material-ui-com-ru-components-badges-2'>https://material-ui.com/ru/components/badges/</h4><pre class="highlight java tab-java"><code>  <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div[@class='MuiAlert-message']"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Text</span><span class="o">&gt;</span> <span class="n">customizedSnackbarPopUpTitles</span><span class="o">;</span>
+
+  <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div[@class='MuiAlert-message']/parent::div"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Text</span><span class="o">&gt;</span> <span class="n">customizedSnackbarPopUpStyles</span><span class="o">;</span>
+
+  <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div[@direction]/div[@class='MuiAlert-message']/parent::div"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Text</span> <span class="n">successSnackbarPopUp</span><span class="o">;</span>
+
+  <span class="nd">@UI</span><span class="o">(</span><span class="s">"//span[text()='Open success snackbar']/parent::button"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Button</span> <span class="n">successSnackbarButton</span><span class="o">;</span>
+
+  <span class="nd">@UI</span><span class="o">(</span><span class="s">"//button[@aria-label='close']"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Button</span> <span class="n">closePopUpSnackbarButton</span><span class="o">;</span>
+
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">customizedSnackbarTest</span><span class="o">()</span> <span class="o">{</span>
+
+  <span class="n">customizedSnackbarPopUpTitles</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"This is an error message!"</span><span class="o">);</span>
+  <span class="n">customizedSnackbarPopUpStyles</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">classValue</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"MuiAlert-filledError"</span><span class="o">));</span>
+  <span class="n">customizedSnackbarPopUpTitles</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"This is a warning message!"</span><span class="o">);</span>
+  <span class="n">customizedSnackbarPopUpStyles</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">classValue</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"MuiAlert-filledWarning"</span><span class="o">));</span>
+  <span class="n">customizedSnackbarPopUpTitles</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">3</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"This is an information message!"</span><span class="o">);</span>
+  <span class="n">customizedSnackbarPopUpStyles</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">3</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">classValue</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"MuiAlert-filledInfo"</span><span class="o">));</span>
+  <span class="n">customizedSnackbarPopUpTitles</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">4</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"This is a success message!"</span><span class="o">);</span>
+  <span class="n">customizedSnackbarPopUpStyles</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">4</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">classValue</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"MuiAlert-filledSuccess"</span><span class="o">));</span>
+
+  <span class="n">successSnackbarPopUp</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">notVisible</span><span class="o">();</span>
+  <span class="n">successSnackbarButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+  <span class="n">successSnackbarPopUp</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"This is a success message!"</span><span class="o">);</span>
+  <span class="n">closePopUpSuccessButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+  <span class="n">successSnackbarPopUp</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">notVisible</span><span class="o">();</span>
+  <span class="o">}</span>
+</code></pre>
+<p>Snackbars provide brief messages about app processes. The component is also known as a toast.</p>
+
+<p><img src="images/material-ui/Snackbars.png" alt="Snackbars" /></p>
+<h4 id='here-you-can-find-snackbars-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/feedback/SnackbarTests.java" target="_blank">Here you can find Snackbars tests</a></h4><h3 id='backdrop'>Backdrop</h3><h4 id='https-material-ui-com-components-backdrop'>https://material-ui.com/components/backdrop/</h4><pre class="highlight java tab-java"><code>  <span class="nd">@UI</span><span class="o">(</span><span class="s">".MuiButton-root"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Button</span> <span class="n">showBackdropButton</span><span class="o">;</span>
+
+  <span class="nd">@UI</span><span class="o">(</span><span class="s">".MuiBackdrop-root"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">UIElement</span> <span class="n">backdrop</span><span class="o">;</span>
+
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">defaultBackdropTest</span><span class="o">()</span> <span class="o">{</span>
+  <span class="n">showBackdropButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+  <span class="n">timer</span><span class="o">.</span><span class="na">wait</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">backdrop</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">visible</span><span class="o">());</span>
+  <span class="n">backdrop</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+  <span class="n">timer</span><span class="o">.</span><span class="na">wait</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">backdrop</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">hidden</span><span class="o">());</span>
+  <span class="o">}</span>
+</code></pre>
+<p>The backdrop component is used to provide emphasis on a particular element or parts of it.
+<img src="images/material-ui/Backdrop.png" alt="Backdrop" /></p>
+<h4 id='here-you-can-find-backdrop-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/feedback/BackdropTests.java" target="_blank">Here you can find Backdrop tests</a></h4><h3 id='dialog-2'>Dialog</h3><h4 id='https-material-ui-com-components-dialogs'>https://material-ui.com/components/dialogs/</h4><pre class="highlight java tab-java"><code>  <span class="nd">@UI</span><span class="o">(</span><span class="s">"//span[text()='Open simple dialog']/parent::*[contains(@class,'MuiButtonBase-root')]"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Button</span> <span class="n">simpleDialogButton</span><span class="o">;</span>
+
+  <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div[@id='simple-dialog-title']/following::div[@class='MuiListItemText-root'][1]"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Button</span> <span class="n">simpleDialogListButton</span><span class="o">;</span>
+
+  <span class="nd">@UI</span><span class="o">(</span><span class="s">"#simpleDialogSelection"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Text</span> <span class="n">simpleDialogField</span><span class="o">;</span>
+
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">simpleDialogTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">simpleDialogButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+    <span class="n">dialogTitle</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Set backup account"</span><span class="o">);</span>
+    <span class="n">simpleDialogListButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+    <span class="n">simpleDialogField</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Selected: username@gmail.com"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">alertDialogTest</span><span class="o">()</span> <span class="o">{</span>
+
+    <span class="n">alertDialogButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+    <span class="n">dialogTitle</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Alert dialog question?"</span><span class="o">);</span>
+    <span class="n">dialogContent</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">dialogTextContent</span><span class="o">);</span>
+    <span class="n">dialogOkButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+    <span class="n">timer</span><span class="o">.</span><span class="na">wait</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">dialogContent</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">notVisible</span><span class="o">());</span>
+    <span class="n">alertDialogField</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Selected: ok"</span><span class="o">);</span>
+    <span class="n">alertDialogButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+    <span class="n">dialogCloseButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+    <span class="n">timer</span><span class="o">.</span><span class="na">wait</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">dialogContent</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">notVisible</span><span class="o">());</span>
+    <span class="n">alertDialogField</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Selected: close"</span><span class="o">);</span>
+    <span class="o">}</span>
+</code></pre>
+<p>Dialogs inform users about a task and can contain critical information, require decisions, or involve multiple tasks.
+<img src="images/material-ui/Dialog.png" alt="Dialog" /></p>
+<h4 id='here-you-can-find-dialog-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/feedback/DialogTests.java" target="_blank">Here you can find Dialog tests</a></h4><h3 id='date-time-pickers'>Date / Time pickers</h3><h4 id='https-material-ui-com-components-pickers'>https://material-ui.com/components/pickers/</h4><pre class="highlight java tab-java"><code>  <span class="nd">@JDropdown</span><span class="o">(</span>
+    <span class="n">root</span> <span class="o">=</span> <span class="s">"//*[@id = 'date-picker-inline-label']/parent::div"</span><span class="o">,</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="s">"//*[@id ='date-picker-inline']"</span><span class="o">,</span>
+    <span class="n">list</span> <span class="o">=</span> <span class="s">"//*[@id = 'date-picker-inline-label']/parent::div /ancestor::body "</span> <span class="o">+</span>
+      <span class="s">"//div[@class = 'MuiPickersBasePicker-pickerView']//p"</span><span class="o">,</span>
+    <span class="n">expand</span> <span class="o">=</span> <span class="s">"//span[@class = 'MuiIconButton-label']"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Dropdown</span> <span class="n">inlineDatePicker</span><span class="o">;</span>
+
+  <span class="nd">@JDropdown</span><span class="o">(</span>
+    <span class="n">root</span> <span class="o">=</span> <span class="s">"//*[@id = 'date-picker-dialog-label']/parent::div"</span><span class="o">,</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="s">"//*[@id ='date-picker-dialog']"</span><span class="o">,</span>
+    <span class="n">list</span> <span class="o">=</span> <span class="s">"//*[@id = 'date-picker-dialog-label']/parent::div /ancestor::body "</span> <span class="o">+</span>
+      <span class="s">"//div[@class = 'MuiPickersBasePicker-pickerView']//p"</span><span class="o">,</span>
+    <span class="n">expand</span> <span class="o">=</span> <span class="s">"//span[@class = 'MuiIconButton-label']"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Dropdown</span> <span class="n">dialogPicker</span><span class="o">;</span>
+
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">datePickerInlineTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">inlineDatePicker</span><span class="o">.</span><span class="na">iCore</span><span class="o">().</span><span class="na">label</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Date picker inline"</span><span class="o">);</span>
+
+    <span class="n">inlineDatePicker</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="s">"12"</span><span class="o">);</span>
+    <span class="n">inlineDatePicker</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"/12/"</span><span class="o">));</span>
+
+    <span class="n">inlineDatePicker</span><span class="o">.</span><span class="na">value</span><span class="o">().</span><span class="na">setText</span><span class="o">(</span><span class="s">"10/10/2022"</span><span class="o">);</span>
+    <span class="n">inlineDatePicker</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"10/10/2022"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">datePickerDialogTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">dialogPicker</span><span class="o">.</span><span class="na">iCore</span><span class="o">().</span><span class="na">label</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Date picker dialog"</span><span class="o">);</span>
+    <span class="n">dialogPicker</span><span class="o">.</span><span class="na">expand</span><span class="o">();</span>
+    <span class="n">dialogPicker</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="s">"12"</span><span class="o">);</span>
+    <span class="n">dialogPicker</span><span class="o">.</span><span class="na">command</span><span class="o">(</span><span class="s">"ENTER"</span><span class="o">);</span>
+    <span class="n">timer</span><span class="o">.</span><span class="na">wait</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">dialogPicker</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"/12/"</span><span class="o">)));</span>
+
+    <span class="n">dialogPicker</span><span class="o">.</span><span class="na">expand</span><span class="o">();</span>
+    <span class="n">dialogPicker</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="s">"11"</span><span class="o">);</span>
+    <span class="n">dialogPicker</span><span class="o">.</span><span class="na">command</span><span class="o">(</span><span class="s">"ESCAPE"</span><span class="o">);</span>
+    <span class="n">timer</span><span class="o">.</span><span class="na">wait</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">dialogPicker</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"08/12/2014"</span><span class="o">));</span>
+
+    <span class="n">dialogPicker</span><span class="o">.</span><span class="na">value</span><span class="o">().</span><span class="na">setText</span><span class="o">(</span><span class="s">"10/10/2021"</span><span class="o">);</span>
+    <span class="n">dialogPicker</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"10/10/2021"</span><span class="o">);</span>
+    <span class="o">}</span>
+</code></pre>
+<p>Dropdown is located in the following class:</p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.elements.complex.dropdown.Dropdown</em></li>
+</ul>
+
+<p>Date pickers and Time pickers provide a simple way to select a single value from a pre-determined set.
+<img src="images/material-ui/DateTimePickers.png" alt="Dialog" /></p>
+<h4 id='here-you-can-find-date-time-pickers-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/DateTimePickersTests.java" target="_blank">Here you can find Date/Time Pickers tests</a></h4><h3 id='select-2'>Select</h3><h4 id='https-material-ui-com-components-selects'>https://material-ui.com/components/selects/</h4><pre class="highlight java tab-java"><code>  <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div[@id='simple-select']"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Button</span> <span class="n">simpleSelectExpand</span><span class="o">;</span>
+
+  <span class="nd">@UI</span><span class="o">(</span><span class="s">"//input"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">TextField</span><span class="o">&gt;</span> <span class="n">simpleSelectField</span><span class="o">;</span>
+
+  <span class="nd">@UI</span><span class="o">(</span><span class="s">"//ul"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Select</span> <span class="n">selectList</span><span class="o">;</span>
+
+  <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div[@id='disabled-select']"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Button</span> <span class="n">disabledSelectExpand</span><span class="o">;</span>
+
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">simpleSelectTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">simpleSelectExpand</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+    <span class="n">selectList</span><span class="o">.</span><span class="na">selectItemByText</span><span class="o">(</span><span class="s">"Henry"</span><span class="o">);</span>
+    <span class="n">simpleSelectField</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">attr</span><span class="o">(</span><span class="s">"value"</span><span class="o">,</span> <span class="s">"Henry"</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">disabledSelectTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">disabledSelectExpand</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">classValue</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"Mui-disabled"</span><span class="o">));</span>
+    <span class="n">disabledSelectExpand</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">attr</span><span class="o">(</span><span class="s">"aria-disabled"</span><span class="o">,</span> <span class="s">"true"</span><span class="o">);</span>
+    <span class="n">disabledSelectExpand</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">attr</span><span class="o">(</span><span class="s">"aria-labelledby"</span><span class="o">,</span> <span class="s">"disabled-select"</span><span class="o">);</span>
+  <span class="o">}</span>
+</code></pre>
+<p>Select components are used for collecting user provided information from a list of options.
+<img src="images/material-ui/Select.png" alt="Select" /></p>
+<h4 id='here-you-can-find-select-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/SelectTests.java" target="_blank">Here you can find Select tests</a></h4><h3 id='switch'>Switch</h3><h4 id='https-material-ui-com-components-switches'>https://material-ui.com/components/switches/</h4><pre class="highlight java tab-java"><code>  <span class="nd">@UI</span><span class="o">(</span><span class="s">"//span[contains(@class,'MuiSwitch-switchBase')]"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Checkbox</span><span class="o">&gt;</span> <span class="n">switches</span><span class="o">;</span>
+
+  <span class="nd">@UI</span><span class="o">(</span><span class="s">"//p[contains(@class,'MuiFormHelperText-root')]"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Text</span> <span class="n">formGroupTextForm</span><span class="o">;</span>
+
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">basicSwitchesTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">switches</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">classValue</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"MuiSwitch-colorSecondary"</span><span class="o">));</span>
+    <span class="n">switches</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">classValue</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"Mui-checked"</span><span class="o">));</span>
+    <span class="n">switches</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+    <span class="n">switches</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">classValue</span><span class="o">(</span><span class="n">not</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"Mui-checked"</span><span class="o">)));</span>
+    <span class="o">}</span>
+</code></pre>
+<p>Switches toggle the state of a single setting on or off.
+<img src="images/material-ui/Switch.png" alt="Switch" /></p>
+<h4 id='here-you-can-find-switch-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/SwitchTests.java" target="_blank">Here you can find Switch tests</a></h4><h3 id='button-2'>Button</h3><h4 id='https-material-ui-com-components-buttons'>https://material-ui.com/components/buttons/</h4><pre class="highlight java tab-java"><code>  <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h2[text()='Contained buttons']/parent::div/div[1]/*"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Button</span><span class="o">&gt;</span> <span class="n">containedButtons</span><span class="o">;</span>
+
+  <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h2[text()='Text buttons']/parent::div/div[2]/*"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Button</span><span class="o">&gt;</span> <span class="n">textButtons</span><span class="o">;</span>
+
+  <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h2[text()='Buttons with icons and label']/parent::div/div[3]/*"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Button</span><span class="o">&gt;</span> <span class="n">iconLabelButtons</span><span class="o">;</span>
+
+  <span class="nd">@UI</span><span class="o">(</span><span class="s">"//span[contains(@class,'MuiButton-icon')]"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Icon</span><span class="o">&gt;</span> <span class="n">iconLabelIcons</span><span class="o">;</span>
+
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">defaultButtonTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">containedButtons</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+    <span class="n">containedButtons</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"DEFAULT"</span><span class="o">);</span>
+    <span class="n">containedButtons</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">6</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Last click: Default"</span><span class="o">);</span>
+
+    <span class="n">containedButtons</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+    <span class="n">containedButtons</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"PRIMARY"</span><span class="o">);</span>
+    <span class="n">containedButtons</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">6</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Last click: Primary"</span><span class="o">);</span>
+
+    <span class="n">containedButtons</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">3</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+    <span class="n">containedButtons</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">3</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"SECONDARY"</span><span class="o">);</span>
+    <span class="n">containedButtons</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">6</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Last click: Secondary"</span><span class="o">);</span>
+
+    <span class="n">containedButtons</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">4</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"DISABLED"</span><span class="o">);</span>
+    <span class="n">containedButtons</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">4</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">attr</span><span class="o">(</span><span class="s">"disabled"</span><span class="o">);</span>
+    <span class="n">containedButtons</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">4</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">disabled</span><span class="o">();</span>
+
+    <span class="n">containedButtons</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">5</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+    <span class="n">containedButtons</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">5</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"LINK"</span><span class="o">);</span>
+    <span class="n">containedButtons</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">6</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Last click: Link"</span><span class="o">);</span>
+    <span class="n">containedButtons</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">5</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">notVisible</span><span class="o">();</span>
+  <span class="o">}</span>
+</code></pre>
+<p>Buttons allow users to take actions, and make choices, with a single tap.</p>
+
+<p><img src="images/material-ui/Buttons.png" alt="Buttons" /></p>
+<h4 id='here-you-can-find-buttons-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/ButtonTests.java" target="_blank">Here you can find Buttons tests</a></h4><h3 id='grid'>Grid</h3><h4 id='https-material-ui-com-components-grid'>https://material-ui.com/components/grid/</h4><pre class="highlight java tab-java"><code>  <span class="nd">@UI</span><span class="o">(</span><span class="s">".MuiContainer-root"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">UIElement</span> <span class="n">rootGrid</span><span class="o">;</span>
+
+  <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h2[text()='Complex grid']/preceding::div[contains(@class,'MuiGrid-spacing')]"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">UIElement</span> <span class="n">basicGrid</span><span class="o">;</span>
+
+  <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h2[text()='Complex grid']/following::div[contains(@class,'MuiPaper-rounded')]/div[contains(@class,'MuiGrid-spacing')]"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">UIElement</span> <span class="n">complexGrid</span><span class="o">;</span>
+
+  <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div[contains(@class,'MuiPaper-rounded')]"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Button</span><span class="o">&gt;</span> <span class="n">listButton</span><span class="o">;</span>
+
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">gridTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">rootGrid</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+    <span class="n">rootGrid</span><span class="o">.</span><span class="na">attr</span><span class="o">(</span><span class="s">"class"</span><span class="o">).</span><span class="na">contains</span><span class="o">(</span><span class="s">"MuiContainer-maxWidthXl"</span><span class="o">);</span>
+    <span class="n">basicGrid</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+    <span class="n">complexGrid</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+    <span class="o">}</span>
+
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">buttonsTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">listButton</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">button</span> <span class="o">-&gt;</span> <span class="n">button</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">());</span>
+    <span class="n">listButton</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">button</span> <span class="o">-&gt;</span> <span class="n">button</span><span class="o">.</span><span class="na">click</span><span class="o">());</span>
+    <span class="o">}</span>
+</code></pre>
+<p>The Material Design responsive layout grid adapts to screen size and orientation, ensuring consistency across layouts.</p>
+
+<p><img src="images/material-ui/Grids.png" alt="Grid" /></p>
+<h4 id='here-you-can-find-grid-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/GridTests.java" target="_blank">Here you can find Grid tests</a></h4><h3 id='drawer'>Drawer</h3><h4 id='https-material-ui-com-components-drawers'>https://material-ui.com/components/drawers/</h4><pre class="highlight java tab-java"><code>  <span class="nd">@UI</span><span class="o">(</span><span class="s">"//*[text()='left']"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Button</span> <span class="n">leftButton</span><span class="o">;</span>
+
+  <span class="nd">@UI</span><span class="o">(</span><span class="s">"//*[text()='right']"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Button</span> <span class="n">rightButton</span><span class="o">;</span>
+
+  <span class="nd">@UI</span><span class="o">(</span><span class="s">"//*[text()='top']"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Button</span> <span class="n">topButton</span><span class="o">;</span>
+
+  <span class="nd">@UI</span><span class="o">(</span><span class="s">"//*[text()='bottom']"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Button</span> <span class="n">bottomButton</span><span class="o">;</span>
+
+  <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div[contains(@class,'MuiPaper-root')]"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Drawer</span> <span class="n">drawer</span><span class="o">;</span>
+
+  <span class="nd">@Test</span><span class="o">(</span><span class="n">priority</span> <span class="o">=</span> <span class="mi">1</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">temporaryDrawerTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">temporaryDrawerPage</span><span class="o">.</span><span class="na">open</span><span class="o">();</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">Button</span><span class="o">&gt;</span> <span class="n">buttons</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="n">leftButton</span><span class="o">,</span> <span class="n">rightButton</span><span class="o">,</span> <span class="n">topButton</span><span class="o">,</span> <span class="n">bottomButton</span><span class="o">);</span>
+    <span class="n">buttons</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span>
+      <span class="n">button</span> <span class="o">-&gt;</span> <span class="o">{</span>
+        <span class="n">button</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">drawer</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+        <span class="n">String</span> <span class="n">currentButtonName</span> <span class="o">=</span> <span class="n">button</span><span class="o">.</span><span class="na">getName</span><span class="o">();</span>
+        <span class="n">drawer</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">classValue</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="n">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">"MuiDrawer-paperAnchor%s"</span><span class="o">,</span> <span class="n">currentButtonName</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span><span class="n">currentButtonName</span><span class="o">.</span><span class="na">lastIndexOf</span><span class="o">(</span><span class="s">" "</span><span class="o">)</span> <span class="o">+</span> <span class="mi">1</span><span class="o">))));</span>
+        <span class="n">drawerElementsIcon</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span>
+          <span class="n">icon</span> <span class="o">-&gt;</span> <span class="n">icon</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayedSvg</span><span class="o">()</span>
+        <span class="o">);</span>
+        <span class="n">drawerElementsText</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span>
+            <span class="n">text</span> <span class="o">-&gt;</span> <span class="n">actualDrawerTexts</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">text</span><span class="o">.</span><span class="na">getText</span><span class="o">())</span>
+        <span class="o">);</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">actualDrawerTexts</span><span class="o">,</span> <span class="n">expectedDrawerTexts</span><span class="o">);</span>
+        <span class="n">actualDrawerTexts</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
+        <span class="n">drawerElementsText</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+      <span class="o">}</span>
+    <span class="o">);</span>
+    <span class="o">}</span>
+</code></pre>
+<p>Navigation drawers provide access to destinations in your app. Side sheets are surfaces containing supplementary content that are anchored to the left or right edge of the screen.</p>
+
+<p><img src="images/material-ui/Drawer.png" alt="Drawer" /></p>
+<h4 id='here-you-can-find-drawer-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/DrawerTests.java" target="_blank">Here you can find Drawer tests</a></h4><h3 id='breadcrumbs'>Breadcrumbs</h3><h4 id='https-material-ui-com-components-breadcrumbs'>https://material-ui.com/components/Breadcrumbs/</h4><pre class="highlight java tab-java"><code>  <span class="nd">@UI</span><span class="o">(</span><span class="s">".MuiBreadcrumbs-li"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">UIElement</span><span class="o">&gt;</span> <span class="n">breadcrumbs</span><span class="o">;</span>
+
+  <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h3[text()='Material UI']"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">UIElement</span> <span class="n">materialElement</span><span class="o">;</span>
+
+  <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h3[text()='Core']"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">UIElement</span> <span class="n">coreElement</span><span class="o">;</span>
+
+  <span class="kd">private</span> <span class="kd">static</span> <span class="n">Timer</span> <span class="n">timer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Timer</span><span class="o">(</span><span class="mi">3000L</span><span class="o">);</span>
+
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">simpleBreadcrumbsTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">simpleBreadcrumbsPage</span><span class="o">.</span><span class="na">open</span><span class="o">();</span>
+    <span class="n">breadcrumbs</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Material-UI"</span><span class="o">);</span>
+    <span class="n">breadcrumbs</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+    <span class="n">timer</span><span class="o">.</span><span class="na">wait</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">materialElement</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">visible</span><span class="o">());</span>
+    <span class="n">breadcrumbs</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Core"</span><span class="o">);</span>
+    <span class="n">breadcrumbs</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+    <span class="n">timer</span><span class="o">.</span><span class="na">wait</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">materialElement</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">notVisible</span><span class="o">());</span>
+    <span class="n">timer</span><span class="o">.</span><span class="na">wait</span><span class="o">(()-&gt;</span><span class="n">coreElement</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">visible</span><span class="o">());</span>
+    <span class="o">}</span>
+</code></pre>
+<p>Breadcrumbs allow users to make selections from a range of values.</p>
+
+<p><img src="images/material-ui/Breadcrumbs.png" alt="Breadcrumbs" /></p>
+<h4 id='here-you-can-find-breadcrumbs-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/BreadcrumbsTests.java" target="_blank">Here you can find Breadcrumbs tests</a></h4><h3 id='bottom-navigation'>Bottom Navigation</h3><h4 id='https-material-ui-com-components-bottom-navigation'>https://material-ui.com/components/bottom-navigation/</h4><pre class="highlight java tab-java"><code>  <span class="nd">@UI</span><span class="o">(</span><span class="s">".MuiBottomNavigationAction-root[2]"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">BottomNavigation</span> <span class="n">favorites</span><span class="o">;</span>
+
+  <span class="nd">@UI</span><span class="o">(</span><span class="s">"#currentPosition"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Text</span> <span class="n">currentPosition</span><span class="o">;</span>
+
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">defaultBottomNavigationTest</span><span class="o">(){</span>
+    <span class="n">favorites</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
+    <span class="n">assertTrue</span><span class="o">(</span><span class="n">favorites</span><span class="o">.</span><span class="na">core</span><span class="o">().</span><span class="na">text</span><span class="o">().</span><span class="na">contains</span><span class="o">(</span><span class="s">"Favorites"</span><span class="o">));</span>
+    <span class="n">assertFalse</span><span class="o">(</span><span class="n">favorites</span><span class="o">.</span><span class="na">isSelected</span><span class="o">());</span>
+    <span class="n">favorites</span><span class="o">.</span><span class="na">core</span><span class="o">().</span><span class="na">click</span><span class="o">();</span>
+    <span class="n">assertTrue</span><span class="o">(</span><span class="n">currentPosition</span><span class="o">.</span><span class="na">getText</span><span class="o">().</span><span class="na">contains</span><span class="o">(</span><span class="s">"Favorites"</span><span class="o">));</span>
+    <span class="n">favorites</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">();</span>
+  <span class="o">}</span>
+</code></pre>
+<p>Bottom navigation bars allow movement between primary destinations in an app.</p>
+
+<p><img src="images/material-ui/BottomNavigation.png" alt="BottomNavigation" /></p>
+<h4 id='here-you-can-find-bottom-navigation-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/BottomNavigationTests.java" target="_blank">Here you can find Bottom Navigation tests</a></h4><h3 id='paper'>Paper</h3><h4 id='https-material-ui-com-components-paper'>https://material-ui.com/components/paper/</h4><pre class="highlight java tab-java"><code>  <span class="nd">@UI</span><span class="o">(</span><span class="s">".MuiPaper-root"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">UIElement</span><span class="o">&gt;</span> <span class="n">paper</span><span class="o">;</span>
+
+  <span class="kd">private</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">WITH_ZERO_ELEVATION</span> <span class="o">=</span> <span class="s">"Paper with elevation = 0"</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">WITH_DEFAULT_ELEVATION</span> <span class="o">=</span> <span class="s">"Paper with default elavation"</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">YOU_CLICKED</span> <span class="o">=</span> <span class="s">"You clicked: %s"</span><span class="o">;</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">defaultPaperTest</span><span class="o">()</span> <span class="o">{</span>
+
+    <span class="n">paper</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">WITH_ZERO_ELEVATION</span><span class="o">);</span>
+    <span class="n">paper</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+    <span class="n">paper</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">6</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="n">YOU_CLICKED</span><span class="o">,</span> <span class="n">WITH_ZERO_ELEVATION</span><span class="o">));</span>
+
+    <span class="n">paper</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">WITH_DEFAULT_ELEVATION</span><span class="o">);</span>
+    <span class="n">paper</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+    <span class="n">paper</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">6</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="n">YOU_CLICKED</span><span class="o">,</span> <span class="n">WITH_DEFAULT_ELEVATION</span><span class="o">));</span> 
+  <span class="o">}</span>
+</code></pre>
+<p>In Material Design, the physical properties of paper are translated to the screen.</p>
+
+<p><img src="images/material-ui/Paper.png" alt="Paper" /></p>
+<h4 id='here-you-can-find-paper-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/surfaces/PaperTests.java" target="_blank">Here you can find Paper tests</a></h4><h3 id='accordion'>Accordion</h3><h4 id='https-material-ui-com-components-accordion'>https://material-ui.com/components/Accordion/</h4><pre class="highlight java tab-java"><code>  <span class="nd">@UI</span><span class="o">(</span><span class="s">".MuiBreadcrumbs-li"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">UIElement</span><span class="o">&gt;</span> <span class="n">breadcrumbs</span><span class="o">;</span>
+
+  <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h3[text()='Material UI']"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">UIElement</span> <span class="n">materialElement</span><span class="o">;</span>
+
+  <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h3[text()='Core']"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">UIElement</span> <span class="n">coreElement</span><span class="o">;</span>
+
+  <span class="kd">private</span> <span class="kd">static</span> <span class="n">Timer</span> <span class="n">timer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Timer</span><span class="o">(</span><span class="mi">3000L</span><span class="o">);</span>
+
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">simpleBreadcrumbsTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">simpleBreadcrumbsPage</span><span class="o">.</span><span class="na">open</span><span class="o">();</span>
+    <span class="n">breadcrumbs</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Material-UI"</span><span class="o">);</span>
+    <span class="n">breadcrumbs</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+    <span class="n">timer</span><span class="o">.</span><span class="na">wait</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">materialElement</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">visible</span><span class="o">());</span>
+    <span class="n">breadcrumbs</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Core"</span><span class="o">);</span>
+    <span class="n">breadcrumbs</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+    <span class="n">timer</span><span class="o">.</span><span class="na">wait</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">materialElement</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">notVisible</span><span class="o">());</span>
+    <span class="n">timer</span><span class="o">.</span><span class="na">wait</span><span class="o">(()-&gt;</span><span class="n">coreElement</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">visible</span><span class="o">());</span>
+    <span class="o">}</span>
+</code></pre>
+<p>Accordions contain creation flows and allow lightweight editing of an element.</p>
+
+<p><img src="images/material-ui/Accordion.png" alt="Accordion" /></p>
+<h4 id='here-you-can-find-accordion-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/surfaces/AccordionTests.java" target="_blank">Here you can find Accordion tests</a></h4><h3 id='portal'>Portal</h3><h4 id='https-material-ui-com-components-portal'>https://material-ui.com/components/Portal/</h4><pre class="highlight java tab-java"><code>  <span class="nd">@UI</span><span class="o">(</span><span class="s">"//button"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Button</span> <span class="n">button</span><span class="o">;</span>
+
+  <span class="nd">@UI</span><span class="o">(</span><span class="s">"//button/following::div[1]"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Text</span> <span class="n">field1</span><span class="o">;</span>
+
+  <span class="nd">@UI</span><span class="o">(</span><span class="s">"//button/following::div[2]"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Text</span> <span class="n">field2</span><span class="o">;</span>
+
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">portalTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">button</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Mount children"</span><span class="o">);</span>
+    <span class="n">field1</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"It looks like I will render here."</span><span class="o">);</span>
+    <span class="n">field2</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">""</span><span class="o">);</span>
+
+    <span class="n">button</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+    <span class="n">button</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Unmount children"</span><span class="o">);</span>
+    <span class="n">field1</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"It looks like I will render here."</span><span class="o">);</span>
+    <span class="n">field2</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"But I actually render here!"</span><span class="o">);</span>
+
+    <span class="n">button</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+    <span class="n">button</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Mount children"</span><span class="o">);</span>
+    <span class="n">field1</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"It looks like I will render here."</span><span class="o">);</span>
+    <span class="n">field2</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">""</span><span class="o">);</span>
+  <span class="o">}</span>
+</code></pre>
+<p>The portal component renders its children into a new &quot;subtree&quot; outside of current DOM hierarchy.</p>
+
+<p><img src="images/material-ui/Portal.png" alt="Portal" /></p>
+<h4 id='here-you-can-find-portal-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/PortalTests.java" target="_blank">Here you can find Portal tests</a></h4><h3 id='textarea-autosize'>Textarea Autosize</h3><h4 id='https-material-ui-com-components-textarea-autosize'>https://material-ui.com/components/textarea-autosize/</h4><pre class="highlight java tab-java"><code>  <span class="nd">@UI</span><span class="o">(</span><span class="s">"//textarea[@aria-label = 'empty textarea']"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">TextArea</span> <span class="n">emptyTextArea</span><span class="o">;</span>
+
+  <span class="nd">@UI</span><span class="o">(</span><span class="s">"//textarea[@aria-label = 'minimum height']"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">TextArea</span> <span class="n">minArea</span><span class="o">;</span>
+
+  <span class="nd">@UI</span><span class="o">(</span><span class="s">"//textarea[@aria-label = 'maximum height']"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">TextArea</span> <span class="n">maxArea</span><span class="o">;</span>
+
+  <span class="kd">private</span> <span class="kt">int</span> <span class="n">initialHeight</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">ONE_LINE</span> <span class="o">=</span> <span class="s">"1"</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">THREE_LINES</span> <span class="o">=</span> <span class="s">"1\n2\n3"</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">FOUR_LINES</span> <span class="o">=</span> <span class="s">"1\n2\n3\n4"</span><span class="o">;</span>
+
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">emptyAreaHeightIncreasesTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">initialHeight</span> <span class="o">=</span> <span class="n">emptyTextArea</span><span class="o">.</span><span class="na">getSize</span><span class="o">().</span><span class="na">height</span><span class="o">;</span>
+    <span class="n">emptyTextArea</span><span class="o">.</span><span class="na">setLines</span><span class="o">(</span><span class="n">FOUR_LINES</span><span class="o">);</span>
+    <span class="n">assertThat</span><span class="o">(</span><span class="n">emptyTextArea</span><span class="o">.</span><span class="na">getSize</span><span class="o">().</span><span class="na">height</span><span class="o">,</span> <span class="n">greaterThan</span><span class="o">(</span><span class="n">initialHeight</span><span class="o">));</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">emptyAreaHeightDecreasesTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">emptyTextArea</span><span class="o">.</span><span class="na">setLines</span><span class="o">(</span><span class="n">FOUR_LINES</span><span class="o">);</span>
+    <span class="n">initialHeight</span> <span class="o">=</span> <span class="n">emptyTextArea</span><span class="o">.</span><span class="na">getSize</span><span class="o">().</span><span class="na">height</span><span class="o">;</span>
+    <span class="n">emptyTextArea</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
+    <span class="n">emptyTextArea</span><span class="o">.</span><span class="na">setLines</span><span class="o">(</span><span class="n">ONE_LINE</span><span class="o">);</span>
+    <span class="n">assertThat</span><span class="o">(</span><span class="n">emptyTextArea</span><span class="o">.</span><span class="na">getSize</span><span class="o">().</span><span class="na">height</span><span class="o">,</span> <span class="n">lessThan</span><span class="o">(</span><span class="n">initialHeight</span><span class="o">));</span>
+  <span class="o">}</span>
+</code></pre>
+<p>A textarea component for React which grows with content.</p>
+
+<p><img src="images/material-ui/TextareaAutosize.png" alt="TextArea" /></p>
+<h4 id='here-you-can-find-textareaautosize-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/TextAreaAutoSizeTests.java" target="_blank">Here you can find TextAreaAutosize tests</a></h4><h3 id='popover'>Popover</h3><h4 id='https-material-ui-com-components-popover'>https://material-ui.com/components/popover/</h4><pre class="highlight java tab-java"><code>  <span class="nd">@UI</span><span class="o">(</span><span class="s">"//button[contains(@class,'MuiButtonBase-root')]/span[@class='MuiButton-label']"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Button</span> <span class="n">buttonToClick</span><span class="o">;</span>
+
+  <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div[contains(@class,'MuiPaper-root')]/div"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Button</span> <span class="n">popoverContent</span><span class="o">;</span>
+
+  <span class="nd">@UI</span><span class="o">(</span><span class="s">"//span[@class='MuiTypography-root']"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Text</span> <span class="n">popoverHoverField</span><span class="o">;</span>
+
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">clickPopoverTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">buttonToClick</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"CLICK TO OPEN POPOVER"</span><span class="o">);</span>
+    <span class="n">buttonToClick</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+    <span class="n">popoverContent</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Popover content"</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">hoverPopoverTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">popoverHoverField</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"[Hover to open Popover]"</span><span class="o">);</span>
+    <span class="n">popoverHoverField</span><span class="o">.</span><span class="na">hover</span><span class="o">();</span>
+    <span class="n">popoverHoverField</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">attr</span><span class="o">(</span><span class="s">"aria-owns"</span><span class="o">,</span> <span class="s">"mouse-over-popover"</span><span class="o">);</span>
+    <span class="n">popoverContent</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Popover content"</span><span class="o">);</span>
+  <span class="o">}</span>
+</code></pre>
+<p>A Popover can be used to display some content on top of another.</p>
+
+<p><img src="images/material-ui/Popover.png" alt="Popover" /></p>
+<h4 id='here-you-can-find-popover-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/PopoverTests.java" target="_blank">Here you can find Popover tests</a></h4><h2 id='jdi-light-bdd-steps'>JDI Light BDD Steps</h2><h3 id='label-2'>Label</h3><pre class="highlight gherkin tab-gherkin"><code><span class="err">Label action examples</span><span class="p">:</span>
 
 <span class="nf">When</span> I click on <span class="s">"JDI Title"</span>
 
@@ -34671,7 +35224,7 @@ Validations: <br></p>
 <a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-bdd-tests/src/test/resources/features/Link.feature" target="_blank">Cucumber tests</a> for Link<br></p>
 
 <p><br><br><br></p>
-<h3 id='button-2'>Button</h3><pre class="highlight gherkin tab-gherkin"><code><span class="err">Button action examples</span><span class="p">:</span>
+<h3 id='button-3'>Button</h3><pre class="highlight gherkin tab-gherkin"><code><span class="err">Button action examples</span><span class="p">:</span>
 
 <span class="nf">When</span> I click on <span class="s">"Red Button"</span> 
 <span class="nf">When</span> I click with JS on <span class="s">"Red Button"</span>     

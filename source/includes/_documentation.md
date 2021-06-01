@@ -23919,8 +23919,18 @@ Checkboxes allow the user to select one or more items from a set.
 #### https://material-ui.com/components/chips/
 
 ```java 
+@JDIChip
 @UI("//h2[text() = 'Chip']/following-sibling::*[1]")
 public static Chip defaultChips;
+
+@JDIChip
+@UI("//h2[text() = 'Outlined Chips']/following-sibling::*[1]")
+public static Chip outlinedChips;
+
+@JDIChip
+@UI("//h2[text() = 'Chip array']/following-sibling::*[1]")
+public static Chip chipArrays;
+
 @BeforeMethod
 public void beforeTest() {
     chipsPage.open();
@@ -24002,6 +24012,7 @@ Chips are compact elements that represent an input, attribute, or action.
 ```java 
 @UI("//*[contains(@class, 'MuiIconButton-root')]")
 public ButtonWithTooltip buttonWithTooltip;
+
 @Test
 public void defaultTooltipTest() {
     tooltipPage.open();

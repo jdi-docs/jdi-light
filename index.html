@@ -33202,8 +33202,18 @@ Note: domain is read from test.properties automatically. <br><br><br><br><br>
 <td>void</td>
 </tr>
 </tbody></table>
-<h4 id='here-you-can-find-checkbox-tests-2'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/CheckboxTests.java" target="_blank">Here you can find Checkbox tests</a></h4><h3 id='chips-2'>Chips</h3><h4 id='https-material-ui-com-components-chips'>https://material-ui.com/components/chips/</h4><pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"//h2[text() = 'Chip']/following-sibling::*[1]"</span><span class="o">)</span>
+<h4 id='here-you-can-find-checkbox-tests-2'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/CheckboxTests.java" target="_blank">Here you can find Checkbox tests</a></h4><h3 id='chips-2'>Chips</h3><h4 id='https-material-ui-com-components-chips'>https://material-ui.com/components/chips/</h4><pre class="highlight java tab-java"><code><span class="nd">@JDIChip</span>
+<span class="nd">@UI</span><span class="o">(</span><span class="s">"//h2[text() = 'Chip']/following-sibling::*[1]"</span><span class="o">)</span>
 <span class="kd">public</span> <span class="kd">static</span> <span class="n">Chip</span> <span class="n">defaultChips</span><span class="o">;</span>
+
+<span class="nd">@JDIChip</span>
+<span class="nd">@UI</span><span class="o">(</span><span class="s">"//h2[text() = 'Outlined Chips']/following-sibling::*[1]"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">Chip</span> <span class="n">outlinedChips</span><span class="o">;</span>
+
+<span class="nd">@JDIChip</span>
+<span class="nd">@UI</span><span class="o">(</span><span class="s">"//h2[text() = 'Chip array']/following-sibling::*[1]"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">Chip</span> <span class="n">chipArrays</span><span class="o">;</span>
+
 <span class="nd">@BeforeMethod</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">beforeTest</span><span class="o">()</span> <span class="o">{</span>
     <span class="n">chipsPage</span><span class="o">.</span><span class="na">open</span><span class="o">();</span>
@@ -33304,6 +33314,7 @@ Note: domain is read from test.properties automatically. <br><br><br><br><br>
 </tbody></table>
 <h4 id='here-you-can-find-chips-tests-2'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/ChipTests.java" target="_blank">Here you can find Chips tests</a></h4><h3 id='tooltip-3'>Tooltip</h3><h4 id='https-material-ui-com-components-tooltips'>https://material-ui.com/components/tooltips/</h4><pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"//*[contains(@class, 'MuiIconButton-root')]"</span><span class="o">)</span>
 <span class="kd">public</span> <span class="n">ButtonWithTooltip</span> <span class="n">buttonWithTooltip</span><span class="o">;</span>
+
 <span class="nd">@Test</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">defaultTooltipTest</span><span class="o">()</span> <span class="o">{</span>
     <span class="n">tooltipPage</span><span class="o">.</span><span class="na">open</span><span class="o">();</span>

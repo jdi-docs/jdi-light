@@ -806,6 +806,12 @@
 								<a href="#checkbox-3" class="toc-h2 h3 toc-link" data-title="Checkbox">Checkbox</a>
                             </li>
                             <li>
+								<a href="#chips-2" class="toc-h2 h3 toc-link" data-title="Chips">Chips</a>
+                            </li>
+                            <li>
+								<a href="#tooltip-3" class="toc-h2 h3 toc-link" data-title="Tooltip">Tooltip</a>
+                            </li>
+                            <li>
 								<a href="#container" class="toc-h2 h3 toc-link" data-title="Container">Container</a>
                             </li>
                             <li>
@@ -33196,7 +33202,160 @@ Note: domain is read from test.properties automatically. <br><br><br><br><br>
 <td>void</td>
 </tr>
 </tbody></table>
-<h4 id='here-you-can-find-checkbox-tests-2'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/CheckboxTests.java" target="_blank">Here you can find Checkbox tests</a></h4><h3 id='container'>Container</h3><h4 id='https-material-ui-com-components-container'>https://material-ui.com/components/container/</h4><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div[contains(@Class, 'MuiTypography-body1')]"</span><span class="o">)</span>
+<h4 id='here-you-can-find-checkbox-tests-2'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/CheckboxTests.java" target="_blank">Here you can find Checkbox tests</a></h4><h3 id='chips-2'>Chips</h3><h4 id='https-material-ui-com-components-chips'>https://material-ui.com/components/chips/</h4><pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"//h2[text() = 'Chip']/following-sibling::*[1]"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">Chip</span> <span class="n">defaultChips</span><span class="o">;</span>
+<span class="nd">@BeforeMethod</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">beforeTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">chipsPage</span><span class="o">.</span><span class="na">open</span><span class="o">();</span>
+<span class="o">}</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">defaultChipTest</span><span class="o">(){</span>
+    <span class="n">basicCheck</span><span class="o">(</span><span class="n">defaultChips</span><span class="o">);</span>
+    <span class="n">disabledCheck</span><span class="o">(</span><span class="n">defaultChips</span><span class="o">);</span><span class="c1">// first variant of class value</span>
+    <span class="n">clickableCheck</span><span class="o">(</span><span class="n">defaultChips</span><span class="o">,</span><span class="mi">3</span><span class="o">);</span>
+    <span class="n">clickableLinkCheck</span><span class="o">(</span><span class="n">defaultChips</span><span class="o">,</span><span class="mi">7</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">outlinedChipTest</span><span class="o">(){</span>
+    <span class="n">basicCheck</span><span class="o">(</span><span class="n">outlinedChips</span><span class="o">);</span>
+    <span class="n">disabledCheck</span><span class="o">(</span><span class="n">outlinedChips</span><span class="o">);</span> <span class="c1">// second variant of class value</span>
+    <span class="n">clickableCheck</span><span class="o">(</span><span class="n">outlinedChips</span><span class="o">,</span> <span class="mi">3</span><span class="o">);</span>
+    <span class="n">clickableLinkCheck</span><span class="o">(</span><span class="n">outlinedChips</span><span class="o">,</span> <span class="mi">7</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">chipArrayTest</span><span class="o">(){</span>
+    <span class="n">chipArrays</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+    <span class="n">chipArrays</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="n">hasToString</span><span class="o">(</span><span class="s">"Angular"</span><span class="o">));</span>
+    <span class="n">chipArrays</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+    <span class="n">chipArrays</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="n">hasToString</span><span class="o">(</span><span class="s">"jQuery"</span><span class="o">));</span>
+    <span class="n">chipArrays</span><span class="o">.</span><span class="na">getChipIcon</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+    <span class="n">chipArrays</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="n">hasToString</span><span class="o">(</span><span class="s">"jQuery"</span><span class="o">));</span> <span class="c1">// "jQuery" became first element as "Angular" element was deleted</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">basicCheck</span><span class="o">(</span><span class="n">Chip</span> <span class="n">chips</span><span class="o">){</span>
+    <span class="n">chips</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+    <span class="n">chips</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="n">hasToString</span><span class="o">(</span><span class="s">"Basic"</span><span class="o">));</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">disabledCheck</span><span class="o">(</span><span class="n">Chip</span> <span class="n">chips</span><span class="o">){</span>
+    <span class="n">chips</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+    <span class="n">chips</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">disabled</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+    <span class="n">chips</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="n">hasToString</span><span class="o">(</span><span class="s">"Disabled"</span><span class="o">));</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">clickableCheck</span><span class="o">(</span><span class="n">Chip</span> <span class="n">chips</span><span class="o">,</span> <span class="kt">int</span> <span class="n">index</span><span class="o">){</span>
+    <span class="n">chips</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">(</span><span class="n">index</span><span class="o">);</span>
+    <span class="n">chips</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">clickable</span><span class="o">(</span><span class="n">index</span><span class="o">);</span>
+    <span class="n">chips</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">index</span><span class="o">,</span> <span class="n">hasToString</span><span class="o">(</span><span class="s">"Clickable"</span><span class="o">));</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">clickableLinkCheck</span><span class="o">(</span><span class="n">Chip</span> <span class="n">chips</span><span class="o">,</span> <span class="kt">int</span> <span class="n">index</span><span class="o">){</span>
+    <span class="n">chips</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">(</span><span class="n">index</span><span class="o">);</span>
+    <span class="n">chips</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">index</span><span class="o">,</span> <span class="n">equalToIgnoringCase</span><span class="o">(</span><span class="s">"Clickable Link"</span><span class="o">));</span>
+    <span class="n">chips</span><span class="o">.</span><span class="na">click</span><span class="o">(</span><span class="n">index</span><span class="o">);</span>
+    <span class="n">chips</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">urlContains</span><span class="o">(</span><span class="s">"#chip"</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<p>Chip is located in the following class:</p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.material.elements.displaydata.Chip</em></li>
+</ul>
+
+<p><img src="images/material-ui/Chip.png" alt="Chip" /></p>
+
+<p>Chips are compact elements that represent an input, attribute, or action.</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>is()</strong></td>
+<td>Returns Assert class</td>
+<td>ChipAssert</td>
+</tr>
+<tr>
+<td><strong>click(int index)</strong></td>
+<td>Clicks on chip</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>getChipLabel(int index)</strong></td>
+<td>Gets label</td>
+<td>UIElement</td>
+</tr>
+<tr>
+<td><strong>getChipRoot(int index)</strong></td>
+<td>Gets root</td>
+<td>UIElement</td>
+</tr>
+<tr>
+<td><strong>getChipIcon(int index)</strong></td>
+<td>Gets Icon</td>
+<td>UIElement</td>
+</tr>
+</tbody></table>
+<h4 id='here-you-can-find-chips-tests-2'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/ChipTests.java" target="_blank">Here you can find Chips tests</a></h4><h3 id='tooltip-3'>Tooltip</h3><h4 id='https-material-ui-com-components-tooltips'>https://material-ui.com/components/tooltips/</h4><pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"//*[contains(@class, 'MuiIconButton-root')]"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="n">ButtonWithTooltip</span> <span class="n">buttonWithTooltip</span><span class="o">;</span>
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">defaultTooltipTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">tooltipPage</span><span class="o">.</span><span class="na">open</span><span class="o">();</span>
+    <span class="n">tooltipPage</span><span class="o">.</span><span class="na">buttonWithTooltip</span><span class="o">.</span><span class="na">hover</span><span class="o">();</span>
+    <span class="n">tooltipPage</span><span class="o">.</span><span class="na">buttonWithTooltip</span><span class="o">.</span><span class="na">tooltip</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">visible</span><span class="o">();</span>
+    <span class="n">tooltipPage</span><span class="o">.</span><span class="na">buttonWithTooltip</span><span class="o">.</span><span class="na">tooltip</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Delete"</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<p>Tooltip is located in the following class:</p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.material.elements.displaydata.Tooltip</em></li>
+</ul>
+
+<p><img src="images/material-ui/Tooltip.png" alt="Tooltip" /></p>
+
+<p>Tooltips display informative text when users hover over, focus on, or tap an element.</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>is()</strong></td>
+<td>Returns Assert class</td>
+<td>TooltipAssert</td>
+</tr>
+<tr>
+<td><strong>has()</strong></td>
+<td>Returns Assert class</td>
+<td>TooltipAssert</td>
+</tr>
+<tr>
+<td><strong>isVisible()</strong></td>
+<td>Checks element is displayed</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isInteractive()</strong></td>
+<td>Checks element is interactive</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>getValue()</strong></td>
+<td>Gets value</td>
+<td>String</td>
+</tr>
+</tbody></table>
+<h4 id='here-you-can-find-tooltip-tests-2'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/TooltipTests.java" target="_blank">Here you can find Tooltip tests</a></h4><h3 id='container'>Container</h3><h4 id='https-material-ui-com-components-container'>https://material-ui.com/components/container/</h4><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div[contains(@Class, 'MuiTypography-body1')]"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">UIElement</span> <span class="n">container</span><span class="o">;</span>
 
     <span class="nd">@Test</span>

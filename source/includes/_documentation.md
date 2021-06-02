@@ -24980,16 +24980,9 @@ Badge generates a small badge to the top-right of its child(ren).
 
   @UI("//div[@direction]/div[@class='MuiAlert-message']/parent::div")
   public static Text successSnackbarPopUp;
-
-  @UI("//span[text()='Open success snackbar']/parent::button")
-  public static Button successSnackbarButton;
-
-  @UI("//button[@aria-label='close']")
-  public static Button closePopUpSnackbarButton;
   
   @Test
   public void customizedSnackbarTest() {
-
   customizedSnackbarPopUpTitles.get(1).is().text("This is an error message!");
   customizedSnackbarPopUpStyles.get(1).has().classValue(containsString("MuiAlert-filledError"));
   customizedSnackbarPopUpTitles.get(2).is().text("This is a warning message!");
@@ -24998,12 +24991,6 @@ Badge generates a small badge to the top-right of its child(ren).
   customizedSnackbarPopUpStyles.get(3).has().classValue(containsString("MuiAlert-filledInfo"));
   customizedSnackbarPopUpTitles.get(4).is().text("This is a success message!");
   customizedSnackbarPopUpStyles.get(4).has().classValue(containsString("MuiAlert-filledSuccess"));
-
-  successSnackbarPopUp.is().notVisible();
-  successSnackbarButton.click();
-  successSnackbarPopUp.is().text("This is a success message!");
-  closePopUpSuccessButton.click();
-  successSnackbarPopUp.is().notVisible();
   }
 ```
 
@@ -25087,31 +25074,12 @@ Dialogs inform users about a task and can contain critical information, require 
 
 ```java
   @JDropdown(
-    root = "//*[@id = 'date-picker-inline-label']/parent::div",
-    value = "//*[@id ='date-picker-inline']",
-    list = "//*[@id = 'date-picker-inline-label']/parent::div /ancestor::body " +
-      "//div[@class = 'MuiPickersBasePicker-pickerView']//p",
-    expand = "//span[@class = 'MuiIconButton-label']")
-  public static Dropdown inlineDatePicker;
-  
-  @JDropdown(
     root = "//*[@id = 'date-picker-dialog-label']/parent::div",
     value = "//*[@id ='date-picker-dialog']",
     list = "//*[@id = 'date-picker-dialog-label']/parent::div /ancestor::body " +
       "//div[@class = 'MuiPickersBasePicker-pickerView']//p",
     expand = "//span[@class = 'MuiIconButton-label']")
   public static Dropdown dialogPicker;
-  
-  @Test
-  public void datePickerInlineTest() {
-    inlineDatePicker.iCore().label().has().text("Date picker inline");
-  
-    inlineDatePicker.select("12");
-    inlineDatePicker.has().text(containsString("/12/"));
-  
-    inlineDatePicker.value().setText("10/10/2022");
-    inlineDatePicker.has().text("10/10/2022");
-    }
   
   @Test
   public void datePickerDialogTest() {
@@ -25583,6 +25551,68 @@ A Popover can be used to display some content on top of another.
 ![Popover](../images/material-ui/Popover.png)
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/PopoverTests.java" target="_blank">Here you can find Popover tests</a>
+
+### Modal
+
+#### https://material-ui.com/components/modal/
+
+```java
+  @UI("[id='simple-modal-description']")
+  public static List<Text> modalTexts;
+
+  @UI("button")
+  public static List<Button> buttonModal;
+
+  private static final String EXPECTED_TEXT = "Duis mollis, est non commodo luctus, nisi erat porttitor ligula.";
+  
+  @Test
+  public void modalTests() {
+    for (int modalCounter = 1; modalCounter < 3; modalCounter++) {
+    buttonModal.get(modalCounter).click();
+    modalTexts.get(modalCounter).has().text(EXPECTED_TEXT);
+    }
+    for (int modalCounter = 3; modalCounter > 1; modalCounter--) {
+    buttonModal.get(modalCounter).core().click(-200, -100);
+    }
+  }
+```
+
+The modal component provides a solid foundation for creating dialogs, popovers, lightboxes, or whatever else.
+
+![Modal](../images/material-ui/Modal.png)
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/ModalTests.java" target="_blank">Here you can find Modal tests</a>
+
+### Popper
+
+#### https://material-ui.com/components/popper/
+
+```java
+  @UI("button")
+  public static List<com.epam.jdi.light.ui.html.elements.common.Button> buttons;
+  
+  @UI("[role='tooltip']")
+  public static UIElement tooltip;
+  
+  private final static List<String> POPPER_TEXTS = Arrays.asList("", "TOP", "LEFT", "RIGHT", "BOTTOM");
+  private final static List<String> TOOLTIP_CLASSES = Arrays.asList("", "top", "left", "right", "bottom");
+  
+  @Test
+  public void positionedPoppersTest() {
+    for (int i = 1; i <= 4; i++) {
+    buttons.get(i).click();
+    buttons.get(i).has().text(POPPER_TEXTS.get(i));
+    tooltip.has().attr("x-placement", TOOLTIP_CLASSES.get(i));
+    }
+  }
+```
+
+A Popper can be used to display some content on top of another. It's an alternative to react-popper.
+
+![Popper](../images/material-ui/Popper.png)
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/PopperTests.java" target="_blank">Here you can find Popper tests</a>
+
 
 ## JDI Light BDD Steps
 

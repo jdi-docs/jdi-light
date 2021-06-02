@@ -33255,25 +33255,6 @@ Note: domain is read from test.properties automatically. <br><br><br><br><br>
     <span class="n">chips</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
     <span class="n">chips</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="n">hasToString</span><span class="o">(</span><span class="s">"Basic"</span><span class="o">));</span>
 <span class="o">}</span>
-
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">disabledCheck</span><span class="o">(</span><span class="n">Chip</span> <span class="n">chips</span><span class="o">){</span>
-    <span class="n">chips</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
-    <span class="n">chips</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">disabled</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
-    <span class="n">chips</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="n">hasToString</span><span class="o">(</span><span class="s">"Disabled"</span><span class="o">));</span>
-<span class="o">}</span>
-
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">clickableCheck</span><span class="o">(</span><span class="n">Chip</span> <span class="n">chips</span><span class="o">,</span> <span class="kt">int</span> <span class="n">index</span><span class="o">){</span>
-    <span class="n">chips</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">(</span><span class="n">index</span><span class="o">);</span>
-    <span class="n">chips</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">clickable</span><span class="o">(</span><span class="n">index</span><span class="o">);</span>
-    <span class="n">chips</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">index</span><span class="o">,</span> <span class="n">hasToString</span><span class="o">(</span><span class="s">"Clickable"</span><span class="o">));</span>
-<span class="o">}</span>
-
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">clickableLinkCheck</span><span class="o">(</span><span class="n">Chip</span> <span class="n">chips</span><span class="o">,</span> <span class="kt">int</span> <span class="n">index</span><span class="o">){</span>
-    <span class="n">chips</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">(</span><span class="n">index</span><span class="o">);</span>
-    <span class="n">chips</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">index</span><span class="o">,</span> <span class="n">equalToIgnoringCase</span><span class="o">(</span><span class="s">"Clickable Link"</span><span class="o">));</span>
-    <span class="n">chips</span><span class="o">.</span><span class="na">click</span><span class="o">(</span><span class="n">index</span><span class="o">);</span>
-    <span class="n">chips</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">urlContains</span><span class="o">(</span><span class="s">"#chip"</span><span class="o">);</span>
-<span class="o">}</span>
 </code></pre>
 <p>Chip is located in the following class:</p>
 

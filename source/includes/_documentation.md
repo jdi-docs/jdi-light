@@ -23966,25 +23966,6 @@ public void basicCheck(Chip chips){
     chips.is().displayed(1);
     chips.is().text(1, hasToString("Basic"));
 }
-
-public void disabledCheck(Chip chips){
-    chips.is().displayed(2);
-    chips.is().disabled(2);
-    chips.is().text(2, hasToString("Disabled"));
-}
-
-public void clickableCheck(Chip chips, int index){
-    chips.is().displayed(index);
-    chips.is().clickable(index);
-    chips.is().text(index, hasToString("Clickable"));
-}
-
-public void clickableLinkCheck(Chip chips, int index){
-    chips.is().displayed(index);
-    chips.is().text(index, equalToIgnoringCase("Clickable Link"));
-    chips.click(index);
-    chips.is().urlContains("#chip");
-}
 ```
 
 Chip is located in the following class:

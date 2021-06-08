@@ -25594,6 +25594,44 @@ A Popper can be used to display some content on top of another. It's an alternat
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/PopperTests.java" target="_blank">Here you can find Popper tests</a>
 
+### Progress
+
+#### https://material-ui.com/components/progress/
+
+```java
+  @JDIProgressBar(root ="(//*[contains(@class, 'MuiCircularProgress-root')])[1]")
+  public static ProgressBar circularDefault;
+  
+  @JDIProgressBar(root ="(//*[contains(@class, 'MuiCircularProgress-root')])[6]")
+  public static ProgressBar circularIndeterminate;
+  
+  @UI("//*[contains(@class, 'MuiFab-primary')]")
+  public static Button interactiveIntegrationCircularButton;
+  
+  private Timer timer = new Timer(5000L);
+
+  @Test
+  public void progressTest() {
+    circularDefault.is().indeterminate();
+    int valueNow = circularIndeterminate.getValueNow();
+    timer.wait(() ->circularIndeterminate.is().value(valueNow + 10));
+    circularDefault.is().indeterminate();
+    interactiveIntegrationCircularButton.click();
+    interactiveIntegrationCircularIndeterminate.is().indeterminate();
+    startLoadingButton.click();
+    loadingCircularIndeterminate.is().indeterminate();
+    simulateLoadButton.click();
+    simulateLoadCircularIndeterminate.is().indeterminate();
+    timer.wait(() -> successMessage.is().displayed());
+  }
+```
+
+Progress indicators commonly known as spinners, express an unspecified wait time or display the length of a process. The animation works with CSS, not JavaScript.
+
+![Progress](../images/material-ui/Progress.png)
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/feedback/ProgressTests.java" target="_blank">Here you can find Progress tests</a>
+
 
 ## JDI Light BDD Steps
 

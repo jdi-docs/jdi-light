@@ -25625,6 +25625,8 @@ A Popper can be used to display some content on top of another. It's an alternat
     timer.wait(() -> successMessage.is().displayed());
   }
 ```
+ProgressBar is located in the following class:
+- __Java__: _com.epam.jdi.light.material.elements.feedback.ProgressBar_
 
 Progress indicators commonly known as spinners, express an unspecified wait time or display the length of a process. The animation works with CSS, not JavaScript.
 

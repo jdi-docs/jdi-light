@@ -25634,6 +25634,412 @@ Progress indicators commonly known as spinners, express an unspecified wait time
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/feedback/ProgressTests.java" target="_blank">Here you can find Progress tests</a>
 
+### Transfer List
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+**isMoveRightButtonDisable()** | Assert > button is disabled | TransferListAssert
+**isMoveLeftButtonDisable()** | Assert < button is disabled | TransferListAssert
+**check()** | Click on checkbox to check | void
+**uncheck()** | Click on checkbox to uncheck | void
+**isMoveRightButtonEnable()** | Assert > button is enabled | TransferListAssert
+**isMoveLeftButtonEnable()** | Assert < button is enabled | TransferListAssert
+**moveItemsRight()** | Click on > button | void
+**moveItemsLeft()** | Click on < button | void
+**is()** | Various assert action for Transfer List | TransferListAssert
+**itemsMovedRight()** | Assert items are existed on Right List | TransferListAssert
+**itemsMovedLeft()** | Assert items are existed on Right List | TransferListAssert
+**checked()** | Assert items is selected | TransferListAssert
+
+### Simple Transfer List
+
+#### https://material-ui.com/components/simple_transfer_list
+
+```java
+  @Test
+  public void simpleTransferListTest() {
+    simpleTransferListPage.open();
+    simpleTransferListPage.simpleTransferList.is().isMoveRightButtonDisable();
+    simpleTransferListPage.simpleTransferList.is().isMoveLeftButtonDisable();
+  
+    simpleTransferListPage.simpleTransferList.check("List item 1");
+    simpleTransferListPage.simpleTransferList.is().checked("List item 1");
+    
+    simpleTransferListPage.simpleTransferList.is().isMoveRightButtonEnable();
+    simpleTransferListPage.simpleTransferList.moveItemsRight();
+    simpleTransferListPage.simpleTransferList.is().itemsMovedRight("List item 1");
+    
+    simpleTransferListPage.simpleTransferList.check("List item 5");
+    simpleTransferListPage.simpleTransferList.check("List item 6");
+    simpleTransferListPage.simpleTransferList.is().checked("List item 5");
+    simpleTransferListPage.simpleTransferList.is().checked("List item 6");
+    simpleTransferListPage.simpleTransferList.is().isMoveLeftButtonEnable();
+    simpleTransferListPage.simpleTransferList.moveItemsLeft();
+    simpleTransferListPage.simpleTransferList.is().itemsMovedLeft("List item 5", "List item 6");
+    
+    simpleTransferListPage.simpleTransferList.moveAllElementsRight();
+    simpleTransferListPage.simpleTransferList.is().itemsMovedRight("List item 1", "List item 2",
+        "List item 3", "List item 4", "List item 5", "List item 6", "List item 7", "List item 8");
+    
+    simpleTransferListPage.simpleTransferList.moveAllElementsLeft();
+    simpleTransferListPage.simpleTransferList.is().itemsMovedLeft("List item 1", "List item 2",
+      "List item 3", "List item 4", "List item 5", "List item 6", "List item 7", "List item 8");
+ }
+```
+```html
+<div>
+  <h1>Simple Transfer List</h1>
+  <div class="MuiGrid-root jss119 MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-align-items-xs-center MuiGrid-justify-xs-center">
+    <div class="MuiGrid-root MuiGrid-item">
+      <div class="MuiPaper-root jss120 MuiPaper-elevation1 MuiPaper-rounded">
+        <div class="MuiList-root MuiList-dense MuiList-padding" role="list">
+          <div class="MuiButtonBase-root MuiListItem-root MuiListItem-dense MuiListItem-gutters MuiListItem-button" tabindex="0" role="listitem" aria-disabled="false">
+            <div class="MuiListItemIcon-root">
+                     <span class="MuiButtonBase-root MuiIconButton-root jss100 MuiCheckbox-root MuiCheckbox-colorSecondary MuiIconButton-colorSecondary" aria-disabled="false">
+                        <span class="MuiIconButton-label">
+                           <input class="jss103" tabindex="-1" type="checkbox" data-indeterminate="false" aria-labelledby="transfer-list-item-0-label" value="">
+                           <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+                              <path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"></path>
+                           </svg>
+                        </span>
+                     </span>
+            </div>
+            <div class="MuiListItemText-root MuiListItemText-dense" id="transfer-list-item-0-label"><span class="MuiTypography-root MuiListItemText-primary MuiTypography-body2 MuiTypography-displayBlock">List item 1</span></div>
+            <span class="MuiTouchRipple-root"></span>
+          </div>
+          <div class="MuiButtonBase-root MuiListItem-root MuiListItem-dense MuiListItem-gutters MuiListItem-button" tabindex="0" role="listitem" aria-disabled="false">
+            <div class="MuiListItemIcon-root">
+                     <span class="MuiButtonBase-root MuiIconButton-root jss100 MuiCheckbox-root MuiCheckbox-colorSecondary MuiIconButton-colorSecondary" aria-disabled="false">
+                        <span class="MuiIconButton-label">
+                           <input class="jss103" tabindex="-1" type="checkbox" data-indeterminate="false" aria-labelledby="transfer-list-item-1-label" value="">
+                           <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+                              <path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"></path>
+                           </svg>
+                        </span>
+                     </span>
+            </div>
+            <div class="MuiListItemText-root MuiListItemText-dense" id="transfer-list-item-1-label"><span class="MuiTypography-root MuiListItemText-primary MuiTypography-body2 MuiTypography-displayBlock">List item 2</span></div>
+            <span class="MuiTouchRipple-root"></span>
+          </div>
+          <div class="MuiButtonBase-root MuiListItem-root MuiListItem-dense MuiListItem-gutters MuiListItem-button" tabindex="0" role="listitem" aria-disabled="false">
+            <div class="MuiListItemIcon-root">
+                     <span class="MuiButtonBase-root MuiIconButton-root jss100 MuiCheckbox-root MuiCheckbox-colorSecondary MuiIconButton-colorSecondary" aria-disabled="false">
+                        <span class="MuiIconButton-label">
+                           <input class="jss103" tabindex="-1" type="checkbox" data-indeterminate="false" aria-labelledby="transfer-list-item-2-label" value="">
+                           <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+                              <path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"></path>
+                           </svg>
+                        </span>
+                     </span>
+            </div>
+            <div class="MuiListItemText-root MuiListItemText-dense" id="transfer-list-item-2-label"><span class="MuiTypography-root MuiListItemText-primary MuiTypography-body2 MuiTypography-displayBlock">List item 3</span></div>
+            <span class="MuiTouchRipple-root"></span>
+          </div>
+          <div class="MuiButtonBase-root MuiListItem-root MuiListItem-dense MuiListItem-gutters MuiListItem-button" tabindex="0" role="listitem" aria-disabled="false">
+            <div class="MuiListItemIcon-root">
+                     <span class="MuiButtonBase-root MuiIconButton-root jss100 MuiCheckbox-root MuiCheckbox-colorSecondary MuiIconButton-colorSecondary" aria-disabled="false">
+                        <span class="MuiIconButton-label">
+                           <input class="jss103" tabindex="-1" type="checkbox" data-indeterminate="false" aria-labelledby="transfer-list-item-3-label" value="">
+                           <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+                              <path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"></path>
+                           </svg>
+                        </span>
+                     </span>
+            </div>
+            <div class="MuiListItemText-root MuiListItemText-dense" id="transfer-list-item-3-label"><span class="MuiTypography-root MuiListItemText-primary MuiTypography-body2 MuiTypography-displayBlock">List item 4</span></div>
+            <span class="MuiTouchRipple-root"></span>
+          </div>
+          <li class="MuiListItem-root MuiListItem-dense MuiListItem-gutters"></li>
+        </div>
+      </div>
+    </div>
+    <div class="MuiGrid-root MuiGrid-item">
+      <div class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-column MuiGrid-align-items-xs-center"><button class="MuiButtonBase-root MuiButton-root MuiButton-outlined jss121 MuiButton-outlinedSizeSmall MuiButton-sizeSmall" tabindex="0" type="button" aria-label="move all right"><span class="MuiButton-label">≫</span><span class="MuiTouchRipple-root"></span></button><button class="MuiButtonBase-root MuiButton-root MuiButton-outlined jss121 MuiButton-outlinedSizeSmall MuiButton-sizeSmall Mui-disabled Mui-disabled" tabindex="-1" type="button" aria-label="move selected right" disabled=""><span class="MuiButton-label">&gt;</span></button><button class="MuiButtonBase-root MuiButton-root MuiButton-outlined jss121 MuiButton-outlinedSizeSmall MuiButton-sizeSmall Mui-disabled Mui-disabled" tabindex="-1" type="button" disabled="" aria-label="move selected left"><span class="MuiButton-label">&lt;</span></button><button class="MuiButtonBase-root MuiButton-root MuiButton-outlined jss121 MuiButton-outlinedSizeSmall MuiButton-sizeSmall" tabindex="0" type="button" aria-label="move all left"><span class="MuiButton-label">≪</span><span class="MuiTouchRipple-root"></span></button></div>
+    </div>
+    <div class="MuiGrid-root MuiGrid-item">
+      <div class="MuiPaper-root jss120 MuiPaper-elevation1 MuiPaper-rounded">
+        <div class="MuiList-root MuiList-dense MuiList-padding" role="list">
+          <div class="MuiButtonBase-root MuiListItem-root MuiListItem-dense MuiListItem-gutters MuiListItem-button" tabindex="0" role="listitem" aria-disabled="false">
+            <div class="MuiListItemIcon-root">
+                     <span class="MuiButtonBase-root MuiIconButton-root jss100 MuiCheckbox-root MuiCheckbox-colorSecondary MuiIconButton-colorSecondary" aria-disabled="false">
+                        <span class="MuiIconButton-label">
+                           <input class="jss103" tabindex="-1" type="checkbox" data-indeterminate="false" aria-labelledby="transfer-list-item-4-label" value="">
+                           <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+                              <path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"></path>
+                           </svg>
+                        </span>
+                     </span>
+            </div>
+            <div class="MuiListItemText-root MuiListItemText-dense" id="transfer-list-item-4-label"><span class="MuiTypography-root MuiListItemText-primary MuiTypography-body2 MuiTypography-displayBlock">List item 5</span></div>
+            <span class="MuiTouchRipple-root"></span>
+          </div>
+          <div class="MuiButtonBase-root MuiListItem-root MuiListItem-dense MuiListItem-gutters MuiListItem-button" tabindex="0" role="listitem" aria-disabled="false">
+            <div class="MuiListItemIcon-root">
+                     <span class="MuiButtonBase-root MuiIconButton-root jss100 MuiCheckbox-root MuiCheckbox-colorSecondary MuiIconButton-colorSecondary" aria-disabled="false">
+                        <span class="MuiIconButton-label">
+                           <input class="jss103" tabindex="-1" type="checkbox" data-indeterminate="false" aria-labelledby="transfer-list-item-5-label" value="">
+                           <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+                              <path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"></path>
+                           </svg>
+                        </span>
+                     </span>
+            </div>
+            <div class="MuiListItemText-root MuiListItemText-dense" id="transfer-list-item-5-label"><span class="MuiTypography-root MuiListItemText-primary MuiTypography-body2 MuiTypography-displayBlock">List item 6</span></div>
+            <span class="MuiTouchRipple-root"></span>
+          </div>
+          <div class="MuiButtonBase-root MuiListItem-root MuiListItem-dense MuiListItem-gutters MuiListItem-button" tabindex="0" role="listitem" aria-disabled="false">
+            <div class="MuiListItemIcon-root">
+                     <span class="MuiButtonBase-root MuiIconButton-root jss100 MuiCheckbox-root MuiCheckbox-colorSecondary MuiIconButton-colorSecondary" aria-disabled="false">
+                        <span class="MuiIconButton-label">
+                           <input class="jss103" tabindex="-1" type="checkbox" data-indeterminate="false" aria-labelledby="transfer-list-item-6-label" value="">
+                           <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+                              <path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"></path>
+                           </svg>
+                        </span>
+                     </span>
+            </div>
+            <div class="MuiListItemText-root MuiListItemText-dense" id="transfer-list-item-6-label"><span class="MuiTypography-root MuiListItemText-primary MuiTypography-body2 MuiTypography-displayBlock">List item 7</span></div>
+            <span class="MuiTouchRipple-root"></span>
+          </div>
+          <div class="MuiButtonBase-root MuiListItem-root MuiListItem-dense MuiListItem-gutters MuiListItem-button" tabindex="0" role="listitem" aria-disabled="false">
+            <div class="MuiListItemIcon-root">
+                     <span class="MuiButtonBase-root MuiIconButton-root jss100 MuiCheckbox-root MuiCheckbox-colorSecondary MuiIconButton-colorSecondary" aria-disabled="false">
+                        <span class="MuiIconButton-label">
+                           <input class="jss103" tabindex="-1" type="checkbox" data-indeterminate="false" aria-labelledby="transfer-list-item-7-label" value="">
+                           <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+                              <path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"></path>
+                           </svg>
+                        </span>
+                     </span>
+            </div>
+            <div class="MuiListItemText-root MuiListItemText-dense" id="transfer-list-item-7-label"><span class="MuiTypography-root MuiListItemText-primary MuiTypography-body2 MuiTypography-displayBlock">List item 8</span></div>
+            <span class="MuiTouchRipple-root"></span>
+          </div>
+          <li class="MuiListItem-root MuiListItem-dense MuiListItem-gutters"></li>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+```
+Available methods in Java JDI Light:
+
+![Simple Transfer Lists](../images/material-ui/SimpleTransferList.png)
+
+|Method | Description | Return Type
+--- | --- | ---
+**moveAllElementsRight()** | Click on >> button | void
+**moveAllElementsLeft()** | Click on << button | void
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/TransferListTests.java" target="_blank">Here you can find Simple Transfer List tests</a>
+
+### Enhanced Transfer List
+
+#### https://material-ui.com/components/enhanced_transfer_list
+
+```java
+    @Test
+    public void enhancedTransferListTest() {
+        enhancedTransferListPage.open();
+        enhancedTransferListPage.enhancedTransferList.is().isMoveRightButtonDisable();
+        enhancedTransferListPage.enhancedTransferList.is().isMoveLeftButtonDisable();
+
+        enhancedTransferListPage.enhancedTransferList.check("List item 1");
+        enhancedTransferListPage.enhancedTransferList.is().checked("List item 1");
+        enhancedTransferListPage.enhancedTransferList.is().isMoveRightButtonEnable();
+
+        enhancedTransferListPage.enhancedTransferList.uncheck("List item 1");
+        enhancedTransferListPage.enhancedTransferList.is().unchecked("List item 1");
+
+        enhancedTransferListPage.enhancedTransferList.moveAllElementsRight();
+        enhancedTransferListPage.enhancedTransferList.is().itemsMovedRight("List item 1", "List item 2",
+            "List item 3", "List item 4", "List item 5", "List item 6", "List item 7", "List item 8");
+
+        enhancedTransferListPage.enhancedTransferList.moveAllElementsLeft();
+        enhancedTransferListPage.enhancedTransferList.is().itemsMovedLeft("List item 1", "List item 2",
+            "List item 3", "List item 4", "List item 5", "List item 6", "List item 7", "List item 8");
+    }
+```
+
+```html
+<div>
+   <h1>Enhanced Transfer List</h1>
+   <div class="MuiGrid-root jss123 MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-align-items-xs-center MuiGrid-justify-xs-center">
+      <div class="MuiGrid-root MuiGrid-item">
+         <div class="MuiPaper-root MuiCard-root MuiPaper-elevation1 MuiPaper-rounded">
+            <div class="MuiCardHeader-root jss124">
+               <div class="MuiCardHeader-avatar">
+                  <span class="MuiButtonBase-root MuiIconButton-root jss100 MuiCheckbox-root MuiCheckbox-colorSecondary MuiIconButton-colorSecondary" aria-disabled="false">
+                     <span class="MuiIconButton-label">
+                        <input class="jss103" type="checkbox" data-indeterminate="false" aria-label="all items selected" value="">
+                        <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+                           <path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"></path>
+                        </svg>
+                     </span>
+                     <span class="MuiTouchRipple-root"></span>
+                  </span>
+               </div>
+               <div class="MuiCardHeader-content"><span class="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock">Choices</span><span class="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock">0/4 selected</span></div>
+            </div>
+            <hr class="MuiDivider-root">
+            <div class="MuiList-root jss125 MuiList-dense MuiList-padding" role="list">
+               <div class="MuiButtonBase-root MuiListItem-root MuiListItem-dense MuiListItem-gutters MuiListItem-button" tabindex="0" role="listitem" aria-disabled="false">
+                  <div class="MuiListItemIcon-root">
+                     <span class="MuiButtonBase-root MuiIconButton-root jss100 MuiCheckbox-root MuiCheckbox-colorSecondary MuiIconButton-colorSecondary" aria-disabled="false">
+                        <span class="MuiIconButton-label">
+                           <input class="jss103" tabindex="-1" type="checkbox" data-indeterminate="false" aria-labelledby="transfer-list-all-item-0-label" value="">
+                           <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+                              <path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"></path>
+                           </svg>
+                        </span>
+                     </span>
+                  </div>
+                  <div class="MuiListItemText-root MuiListItemText-dense" id="transfer-list-all-item-0-label"><span class="MuiTypography-root MuiListItemText-primary MuiTypography-body2 MuiTypography-displayBlock">List item 1</span></div>
+                  <span class="MuiTouchRipple-root"></span>
+               </div>
+               <div class="MuiButtonBase-root MuiListItem-root MuiListItem-dense MuiListItem-gutters MuiListItem-button" tabindex="0" role="listitem" aria-disabled="false">
+                  <div class="MuiListItemIcon-root">
+                     <span class="MuiButtonBase-root MuiIconButton-root jss100 MuiCheckbox-root MuiCheckbox-colorSecondary MuiIconButton-colorSecondary" aria-disabled="false">
+                        <span class="MuiIconButton-label">
+                           <input class="jss103" tabindex="-1" type="checkbox" data-indeterminate="false" aria-labelledby="transfer-list-all-item-1-label" value="">
+                           <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+                              <path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"></path>
+                           </svg>
+                        </span>
+                     </span>
+                  </div>
+                  <div class="MuiListItemText-root MuiListItemText-dense" id="transfer-list-all-item-1-label"><span class="MuiTypography-root MuiListItemText-primary MuiTypography-body2 MuiTypography-displayBlock">List item 2</span></div>
+                  <span class="MuiTouchRipple-root"></span>
+               </div>
+               <div class="MuiButtonBase-root MuiListItem-root MuiListItem-dense MuiListItem-gutters MuiListItem-button" tabindex="0" role="listitem" aria-disabled="false">
+                  <div class="MuiListItemIcon-root">
+                     <span class="MuiButtonBase-root MuiIconButton-root jss100 MuiCheckbox-root MuiCheckbox-colorSecondary MuiIconButton-colorSecondary" aria-disabled="false">
+                        <span class="MuiIconButton-label">
+                           <input class="jss103" tabindex="-1" type="checkbox" data-indeterminate="false" aria-labelledby="transfer-list-all-item-2-label" value="">
+                           <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+                              <path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"></path>
+                           </svg>
+                        </span>
+                     </span>
+                  </div>
+                  <div class="MuiListItemText-root MuiListItemText-dense" id="transfer-list-all-item-2-label"><span class="MuiTypography-root MuiListItemText-primary MuiTypography-body2 MuiTypography-displayBlock">List item 3</span></div>
+                  <span class="MuiTouchRipple-root"></span>
+               </div>
+               <div class="MuiButtonBase-root MuiListItem-root MuiListItem-dense MuiListItem-gutters MuiListItem-button" tabindex="0" role="listitem" aria-disabled="false">
+                  <div class="MuiListItemIcon-root">
+                     <span class="MuiButtonBase-root MuiIconButton-root jss100 MuiCheckbox-root MuiCheckbox-colorSecondary MuiIconButton-colorSecondary" aria-disabled="false">
+                        <span class="MuiIconButton-label">
+                           <input class="jss103" tabindex="-1" type="checkbox" data-indeterminate="false" aria-labelledby="transfer-list-all-item-3-label" value="">
+                           <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+                              <path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"></path>
+                           </svg>
+                        </span>
+                     </span>
+                  </div>
+                  <div class="MuiListItemText-root MuiListItemText-dense" id="transfer-list-all-item-3-label"><span class="MuiTypography-root MuiListItemText-primary MuiTypography-body2 MuiTypography-displayBlock">List item 4</span></div>
+                  <span class="MuiTouchRipple-root"></span>
+               </div>
+               <li class="MuiListItem-root MuiListItem-dense MuiListItem-gutters"></li>
+            </div>
+         </div>
+      </div>
+      <div class="MuiGrid-root MuiGrid-item">
+         <div class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-column MuiGrid-align-items-xs-center"><button class="MuiButtonBase-root MuiButton-root MuiButton-outlined jss126 MuiButton-outlinedSizeSmall MuiButton-sizeSmall Mui-disabled Mui-disabled" tabindex="-1" type="button" disabled="" aria-label="move selected right"><span class="MuiButton-label">&gt;</span></button><button class="MuiButtonBase-root MuiButton-root MuiButton-outlined jss126 MuiButton-outlinedSizeSmall MuiButton-sizeSmall Mui-disabled Mui-disabled" tabindex="-1" type="button" disabled="" aria-label="move selected left"><span class="MuiButton-label">&lt;</span></button></div>
+      </div>
+      <div class="MuiGrid-root MuiGrid-item">
+         <div class="MuiPaper-root MuiCard-root MuiPaper-elevation1 MuiPaper-rounded">
+            <div class="MuiCardHeader-root jss124">
+               <div class="MuiCardHeader-avatar">
+                  <span class="MuiButtonBase-root MuiIconButton-root jss100 MuiCheckbox-root MuiCheckbox-colorSecondary MuiIconButton-colorSecondary" aria-disabled="false">
+                     <span class="MuiIconButton-label">
+                        <input class="jss103" type="checkbox" data-indeterminate="false" aria-label="all items selected" value="">
+                        <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+                           <path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"></path>
+                        </svg>
+                     </span>
+                     <span class="MuiTouchRipple-root"></span>
+                  </span>
+               </div>
+               <div class="MuiCardHeader-content"><span class="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock">Chosen</span><span class="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock">0/4 selected</span></div>
+            </div>
+            <hr class="MuiDivider-root">
+            <div class="MuiList-root jss125 MuiList-dense MuiList-padding" role="list">
+               <div class="MuiButtonBase-root MuiListItem-root MuiListItem-dense MuiListItem-gutters MuiListItem-button" tabindex="0" role="listitem" aria-disabled="false">
+                  <div class="MuiListItemIcon-root">
+                     <span class="MuiButtonBase-root MuiIconButton-root jss100 MuiCheckbox-root MuiCheckbox-colorSecondary MuiIconButton-colorSecondary" aria-disabled="false">
+                        <span class="MuiIconButton-label">
+                           <input class="jss103" tabindex="-1" type="checkbox" data-indeterminate="false" aria-labelledby="transfer-list-all-item-4-label" value="">
+                           <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+                              <path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"></path>
+                           </svg>
+                        </span>
+                     </span>
+                  </div>
+                  <div class="MuiListItemText-root MuiListItemText-dense" id="transfer-list-all-item-4-label"><span class="MuiTypography-root MuiListItemText-primary MuiTypography-body2 MuiTypography-displayBlock">List item 5</span></div>
+                  <span class="MuiTouchRipple-root"></span>
+               </div>
+               <div class="MuiButtonBase-root MuiListItem-root MuiListItem-dense MuiListItem-gutters MuiListItem-button" tabindex="0" role="listitem" aria-disabled="false">
+                  <div class="MuiListItemIcon-root">
+                     <span class="MuiButtonBase-root MuiIconButton-root jss100 MuiCheckbox-root MuiCheckbox-colorSecondary MuiIconButton-colorSecondary" aria-disabled="false">
+                        <span class="MuiIconButton-label">
+                           <input class="jss103" tabindex="-1" type="checkbox" data-indeterminate="false" aria-labelledby="transfer-list-all-item-5-label" value="">
+                           <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+                              <path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"></path>
+                           </svg>
+                        </span>
+                     </span>
+                  </div>
+                  <div class="MuiListItemText-root MuiListItemText-dense" id="transfer-list-all-item-5-label"><span class="MuiTypography-root MuiListItemText-primary MuiTypography-body2 MuiTypography-displayBlock">List item 6</span></div>
+                  <span class="MuiTouchRipple-root"></span>
+               </div>
+               <div class="MuiButtonBase-root MuiListItem-root MuiListItem-dense MuiListItem-gutters MuiListItem-button" tabindex="0" role="listitem" aria-disabled="false">
+                  <div class="MuiListItemIcon-root">
+                     <span class="MuiButtonBase-root MuiIconButton-root jss100 MuiCheckbox-root MuiCheckbox-colorSecondary MuiIconButton-colorSecondary" aria-disabled="false">
+                        <span class="MuiIconButton-label">
+                           <input class="jss103" tabindex="-1" type="checkbox" data-indeterminate="false" aria-labelledby="transfer-list-all-item-6-label" value="">
+                           <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+                              <path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"></path>
+                           </svg>
+                        </span>
+                     </span>
+                  </div>
+                  <div class="MuiListItemText-root MuiListItemText-dense" id="transfer-list-all-item-6-label"><span class="MuiTypography-root MuiListItemText-primary MuiTypography-body2 MuiTypography-displayBlock">List item 7</span></div>
+                  <span class="MuiTouchRipple-root"></span>
+               </div>
+               <div class="MuiButtonBase-root MuiListItem-root MuiListItem-dense MuiListItem-gutters MuiListItem-button" tabindex="0" role="listitem" aria-disabled="false">
+                  <div class="MuiListItemIcon-root">
+                     <span class="MuiButtonBase-root MuiIconButton-root jss100 MuiCheckbox-root MuiCheckbox-colorSecondary MuiIconButton-colorSecondary" aria-disabled="false">
+                        <span class="MuiIconButton-label">
+                           <input class="jss103" tabindex="-1" type="checkbox" data-indeterminate="false" aria-labelledby="transfer-list-all-item-7-label" value="">
+                           <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+                              <path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"></path>
+                           </svg>
+                        </span>
+                     </span>
+                  </div>
+                  <div class="MuiListItemText-root MuiListItemText-dense" id="transfer-list-all-item-7-label"><span class="MuiTypography-root MuiListItemText-primary MuiTypography-body2 MuiTypography-displayBlock">List item 8</span></div>
+                  <span class="MuiTouchRipple-root"></span>
+               </div>
+               <li class="MuiListItem-root MuiListItem-dense MuiListItem-gutters"></li>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+```
+
+Available methods in Java JDI Light:
+
+![Enhanced Transfer Lists](../images/material-ui/EnhancedTransferList.png)
+
+|Method | Description | Return Type
+--- | --- | ---
+**moveAllElementsRight()** | Select all elements on left list then click on > button | void
+**moveAllElementsLeft()** | Select all elements on right list then click on < button | void
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/TransferListTests.java" target="_blank">Here you can find Enhanced Transfer List tests</a>
 
 ## JDI Light BDD Steps
 

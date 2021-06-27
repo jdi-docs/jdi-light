@@ -25634,6 +25634,64 @@ Progress indicators commonly known as spinners, express an unspecified wait time
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/feedback/ProgressTests.java" target="_blank">Here you can find Progress tests</a>
 
+### Transfer List
+
+#### https://material-ui.com/zh/components/transfer-list/
+```java
+@JDITransferList(root = "#root", moveAllLeftButton = "button[aria-label='move all left']",
+        moveAllRightButton = "button[aria-label='move all right']")
+public SimpleTransferList simpleTransferList;
+
+@Test
+public void simpleTransferListTest() {
+  inputSimpleTransferListPage.open();
+  inputSimpleTransferListPage.simpleTransferList.is().isMoveRightButtonDisable();
+  inputSimpleTransferListPage.simpleTransferList.is().isMoveLeftButtonDisable();
+
+  inputSimpleTransferListPage.simpleTransferList.check("List item 1");
+  inputSimpleTransferListPage.simpleTransferList.is().checked("List item 1");
+  inputSimpleTransferListPage.simpleTransferList.is().isMoveRightButtonEnable();
+  inputSimpleTransferListPage.simpleTransferList.moveItemsRight();
+  inputSimpleTransferListPage.simpleTransferList.is().itemsMovedRight("List item 1");
+
+  inputSimpleTransferListPage.simpleTransferList.check("List item 5");
+  inputSimpleTransferListPage.simpleTransferList.check("List item 6");
+  inputSimpleTransferListPage.simpleTransferList.is().checked("List item 5");
+  inputSimpleTransferListPage.simpleTransferList.is().checked("List item 6");
+  inputSimpleTransferListPage.simpleTransferList.is().isMoveLeftButtonEnable();
+  inputSimpleTransferListPage.simpleTransferList.moveItemsLeft();
+  inputSimpleTransferListPage.simpleTransferList.is().itemsMovedLeft("List item 5", "List item 6");
+
+  inputSimpleTransferListPage.simpleTransferList.moveAllElementsRight();
+  inputSimpleTransferListPage.simpleTransferList.is().itemsMovedRight("List item 1", "List item 2",
+  "List item 3", "List item 4", "List item 5", "List item 6", "List item 7", "List item 8");
+
+  inputSimpleTransferListPage.simpleTransferList.moveAllElementsLeft();
+  inputSimpleTransferListPage.simpleTransferList.is().itemsMovedLeft("List item 1", "List item 2",
+  "List item 3", "List item 4", "List item 5", "List item 6", "List item 7", "List item 8");
+  }
+```
+Transfer List is located in the following class:
+- __Java__: _com.epam.jdi.light.material.elements.inputs.TransferList.TransferList_
+
+![Progress](../images/material-ui/TransferList.png)
+
+A transfer list (or "shuttle") enables the user to move one or more list items between lists.
+
+|Method | Description | Return Type
+--- | --- | ---
+**is()**|Returns Assert class|TransferListAssert
+**check(String itemText)**|select List item|void
+**uncheck(String itemText)**|unselect List item|void
+**isMoveRightButtonEnable()**|Check right move button enable|boolean
+**isMoveRightButtonDisable()**|Check right move button disable|boolean
+**isMoveLeftButtonEnable()**|Check left move button enable|boolean
+**isMoveLeftButtonDisable()**|Check left move button disable|boolean
+**selector(String itemText)**|Return positioned element|UIElement
+**moveItemsLeft()**|Move all List item to left|void
+**moveItemsRight()**|Move all List item to right|void
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/TransferListTests.java" target="_blank">Here you can find TransferList tests</a>
 
 ## JDI Light BDD Steps
 

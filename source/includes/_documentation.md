@@ -25680,6 +25680,33 @@ Menus display a list of choices on temporary surfaces.
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/MenuTests.java" target="_blank">Here you can find Menu tests</a>
 
+### Lists
+
+#### https://material-ui.com/components/lists/
+
+```java
+  @Url("/simple_list")
+  public static ListPage ListPage;
+
+  @Test
+  public void pinnedSubHeaderList() {
+    ListPage.open();
+  
+    ListPage.stickyZero.is().enabled();
+    ListPage.stickyZero.is().text(hasToString("I'm sticky 0"));
+    ListPage.stickyOne.is().enabled();
+    ListPage.stickyOne.is().text(hasToString("I'm sticky 1"));
+    }
+```
+Lists is located in the following class:
+- __Java__: _com.epam.jdi.light.material.elements.displaydata.Lists_
+
+Lists are continuous, vertical indexes of text or images.
+
+![Lists](../images/material-ui/ListsSubheader.png)
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/ListsTests.java" target="_blank">Here you can find Lists tests</a>
+
 <br></br><br></br>
 
 ## JDI Light BDD Steps

@@ -25674,7 +25674,7 @@ public void simpleTransferListTest() {
 Transfer List is located in the following class:
 - __Java__: _com.epam.jdi.light.material.elements.inputs.TransferList.TransferList_
 
-![Progress](../images/material-ui/TransferList.png)
+![TransferList](../images/material-ui/TransferList.png)
 
 A transfer list (or "shuttle") enables the user to move one or more list items between lists.
 

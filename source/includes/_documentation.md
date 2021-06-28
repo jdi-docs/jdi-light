@@ -25673,8 +25673,41 @@ Menu is located in the following class:
 
 Menus display a list of choices on temporary surfaces.
 ![Menu](../images/material-ui/MenuWithIcons.png)
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/MenuTests.java" target="_blank">Here you can find Menu tests</a>
+#### ContextMenu
+#### https://material-ui.com/ru/components/menus/#context-menu
+ ```java
+package io.github.com.pages.navigation;
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/MenuTests.java" target="_blank">Here you can find Menu tests</a>
+import com.epam.jdi.light.elements.composite.WebPage;
+import com.epam.jdi.light.elements.pageobjects.annotations.locators.UI;
+import com.epam.jdi.light.material.elements.navigation.Menu;
+
+public class ContextMenuPage extends WebPage {
+//@FindBy(css = "li.MuiListItem-button:first-child")
+    @UI("li.MuiListItem-button:first-child")
+    public static Menu menuContextListFirstButton;
+//@FindBy(css = "li.MuiListItem-button:last-child")
+    @UI("li.MuiListItem-button:last-child")
+    public static Menu menuContextListLastButton;
+//@FindBy(css = "li.MuiListItem-button:last-child")
+    @UI("//*/p[starts-with(@class, 'MuiTypography')]")
+    public static Menu contextMenu;
+}
+@Url("/context_menu")
+    public static ContextMenuPage contextMenuPage; 
+@Test
+    public void contextMenuTest() {
+        contextMenuPage.open();
+        contextMenu.rightClick();
+        menuContextListLastButton.has().text("Email");
+        menuContextListLastButton.click();
+        contextMenu.isDisplayed()
+ ```
+Menu is located in the following class:
+- __Java__: _com.epam.jdi.light.material.elements.navigation.Menu_
+Menus display a list of choices on temporary surfaces.
+![Menu](../images/material-ui/ContextMenu.png)
 
 ### Lists
 

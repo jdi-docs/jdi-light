@@ -925,6 +925,12 @@
                             <li>
 								<a href="#progress-2" class="toc-h2 h3 toc-link" data-title="Progress">Progress</a>
                             </li>
+                            <li>
+								<a href="#menu-3" class="toc-h2 h3 toc-link" data-title="Menu">Menu</a>
+                            </li>
+                            <li>
+								<a href="#lists" class="toc-h2 h3 toc-link" data-title="Lists">Lists</a>
+                            </li>
                         </ul>
                   </li>
                   <li>
@@ -985,7 +991,7 @@
 								<a href="#textarea-2" class="toc-h2 h3 toc-link" data-title="TextArea">TextArea</a>
                             </li>
                             <li>
-								<a href="#menu-3" class="toc-h2 h3 toc-link" data-title="Menu">Menu</a>
+								<a href="#menu-4" class="toc-h2 h3 toc-link" data-title="Menu">Menu</a>
                             </li>
                             <li>
 								<a href="#textfield-2" class="toc-h2 h3 toc-link" data-title="TextField">TextField</a>
@@ -35034,7 +35040,66 @@ You can use for testing Text and Button classes, implemented in JDI-html section
 <p>Progress indicators commonly known as spinners, express an unspecified wait time or display the length of a process. The animation works with CSS, not JavaScript.</p>
 
 <p><img src="images/material-ui/Progress.png" alt="Progress" /></p>
-<h4 id='here-you-can-find-progress-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/feedback/ProgressTests.java" target="_blank">Here you can find Progress tests</a></h4><h2 id='jdi-light-bdd-steps'>JDI Light BDD Steps</h2><h3 id='label-2'>Label</h3><pre class="highlight gherkin tab-gherkin"><code><span class="err">Label action examples</span><span class="p">:</span>
+<h4 id='here-you-can-find-progress-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/feedback/ProgressTests.java" target="_blank">Here you can find Progress tests</a></h4><h3 id='menu-3'>Menu</h3><h4 id='https-material-ui-com-ru-components-menus'>https://material-ui.com/ru/components/menus/</h4><pre class="highlight java tab-java"><code>  <span class="nd">@Url</span><span class="o">(</span><span class="s">"/simple_menu"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">SimpleMenuPage</span> <span class="n">simpleMenuPage</span><span class="o">;</span>
+
+  <span class="c1">//@FindBy(css = "div[class^=MuiBox-root]&gt;div div:nth-of-type(1) svg")</span>
+  <span class="nd">@UI</span><span class="o">(</span><span class="s">"div[class^=MuiBox-root]&gt;div div:nth-of-type(1) svg"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Menu</span> <span class="n">iconMenu</span><span class="o">;</span>
+
+  <span class="c1">//@FindBy(css = "div[class*=MuiPaper-root][style*='opacity: 1']")</span>
+  <span class="nd">@UI</span><span class="o">(</span><span class="s">"div[class*=MuiPaper-root][style*='opacity: 1']"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Menu</span> <span class="n">paddingMenuList</span><span class="o">;</span>
+
+  <span class="c1">//@FindBy(css = "li.MuiListItem-button:first-child")</span>
+  <span class="nd">@UI</span><span class="o">(</span><span class="s">"li.MuiListItem-button:first-child"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Menu</span> <span class="n">menuListFirstButton</span><span class="o">;</span>
+
+  <span class="nd">@BeforeMethod</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">before</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">simpleMenuPage</span><span class="o">.</span><span class="na">open</span><span class="o">();</span>
+    <span class="n">simpleMenuPage</span><span class="o">.</span><span class="na">isOpened</span><span class="o">();</span>
+    <span class="o">}</span>
+
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">menuWithIconsTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">iconMenu</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayedSvg</span><span class="o">();</span>
+    <span class="n">iconMenu</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+    <span class="n">paddingMenuList</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+    <span class="n">menuListFirstButton</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayedSvg</span><span class="o">();</span>
+    <span class="n">menuListFirstButton</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Text with send icon"</span><span class="o">);</span>
+    <span class="n">menuListFirstButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+    <span class="n">iconMenu</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+    <span class="o">}</span>
+</code></pre>
+<p>Menu is located in the following class:
+- <strong>Java</strong>: <em>com.epam.jdi.light.material.elements.navigation.Menu</em></p>
+
+<p>Menus display a list of choices on temporary surfaces.</p>
+
+<p><img src="images/material-ui/MenuWithIcons.png" alt="Menu" /></p>
+<h4 id='here-you-can-find-menu-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/MenuTests.java" target="_blank">Here you can find Menu tests</a></h4><h3 id='lists'>Lists</h3><h4 id='https-material-ui-com-components-lists'>https://material-ui.com/components/lists/</h4><pre class="highlight java tab-java"><code>  <span class="nd">@Url</span><span class="o">(</span><span class="s">"/simple_list"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">ListPage</span> <span class="n">ListPage</span><span class="o">;</span>
+
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">pinnedSubHeaderList</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">ListPage</span><span class="o">.</span><span class="na">open</span><span class="o">();</span>
+
+    <span class="n">ListPage</span><span class="o">.</span><span class="na">stickyZero</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
+    <span class="n">ListPage</span><span class="o">.</span><span class="na">stickyZero</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">hasToString</span><span class="o">(</span><span class="s">"I'm sticky 0"</span><span class="o">));</span>
+    <span class="n">ListPage</span><span class="o">.</span><span class="na">stickyOne</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
+    <span class="n">ListPage</span><span class="o">.</span><span class="na">stickyOne</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">hasToString</span><span class="o">(</span><span class="s">"I'm sticky 1"</span><span class="o">));</span>
+    <span class="o">}</span>
+</code></pre>
+<p>Lists is located in the following class:
+- <strong>Java</strong>: <em>com.epam.jdi.light.material.elements.displaydata.Lists</em></p>
+
+<p>Lists are continuous, vertical indexes of text or images.</p>
+
+<p><img src="images/material-ui/ListsSubheader.png" alt="Lists" /></p>
+<h4 id='here-you-can-find-lists-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/ListsTests.java" target="_blank">Here you can find Lists tests</a></h4>
+<p><br></br><br></br></p>
+<h2 id='jdi-light-bdd-steps'>JDI Light BDD Steps</h2><h3 id='label-2'>Label</h3><pre class="highlight gherkin tab-gherkin"><code><span class="err">Label action examples</span><span class="p">:</span>
 
 <span class="nf">When</span> I click on <span class="s">"JDI Title"</span>
 
@@ -36109,7 +36174,7 @@ More information in the <a href="https://jdi-docs.github.io/jdi-light/?java#tuto
 <br>
 <br>
 <br></p>
-<h3 id='menu-3'>Menu</h3><pre class="highlight gherkin tab-gherkin"><code><span class="err">Menu actions examples</span><span class="p">:</span>
+<h3 id='menu-4'>Menu</h3><pre class="highlight gherkin tab-gherkin"><code><span class="err">Menu actions examples</span><span class="p">:</span>
 
 <span class="nf">When</span> I select <span class="s">"Contact form"</span> in <span class="s">"Left Menu"</span> menu
 <span class="nf">When</span> I select <span class="s">"Service;Dates"</span> items in <span class="s">"Left Menu"</span> menu

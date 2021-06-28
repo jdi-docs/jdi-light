@@ -25634,6 +25634,74 @@ Progress indicators commonly known as spinners, express an unspecified wait time
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/feedback/ProgressTests.java" target="_blank">Here you can find Progress tests</a>
 
+### Menu
+
+#### https://material-ui.com/ru/components/menus/
+
+```java
+  @Url("/simple_menu")
+  public static SimpleMenuPage simpleMenuPage;
+  //@FindBy(css = "div[class^=MuiBox-root]>div div:nth-of-type(1) svg")
+  @UI("div[class^=MuiBox-root]>div div:nth-of-type(1) svg")
+  public static Menu iconMenu;
+  //@FindBy(css = "div[class*=MuiPaper-root][style*='opacity: 1']")
+  @UI("div[class*=MuiPaper-root][style*='opacity: 1']")
+  public static Menu paddingMenuList;
+  //@FindBy(css = "li.MuiListItem-button:first-child")
+  @UI("li.MuiListItem-button:first-child")
+  public static Menu menuListFirstButton;
+  
+  @BeforeMethod
+  public void before() {
+    simpleMenuPage.open();
+    simpleMenuPage.isOpened();
+  }
+
+  @Test
+  public void menuWithIconsTest() {
+    iconMenu.is().displayedSvg();
+    iconMenu.click();
+    paddingMenuList.is().displayed();
+    menuListFirstButton.is().displayedSvg();
+    menuListFirstButton.has().text("Text with send icon");
+    menuListFirstButton.click();
+    iconMenu.is().displayed();
+  }
+```
+Menu is located in the following class:
+- __Java__: _com.epam.jdi.light.material.elements.navigation.Menu_
+
+Menus display a list of choices on temporary surfaces.
+![Menu](../images/material-ui/MenuWithIcons.png)
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/MenuTests.java" target="_blank">Here you can find Menu tests</a>
+
+### Lists
+
+#### https://material-ui.com/components/lists/
+
+```java
+  @Url("/simple_list")
+  public static ListPage ListPage;
+  @Test
+  public void pinnedSubHeaderList(){
+  ListPage.open();
+
+  ListPage.stickyZero.is().enabled();
+  ListPage.stickyZero.is().text(hasToString("I'm sticky 0"));
+  ListPage.stickyOne.is().enabled();
+  ListPage.stickyOne.is().text(hasToString("I'm sticky 1"));
+  }
+```
+Lists is located in the following class:
+- __Java__: _com.epam.jdi.light.material.elements.displaydata.Lists_
+
+Lists are continuous, vertical indexes of text or images.
+
+![Lists](../images/material-ui/ListsSubheader.png)
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/ListsTests.java" target="_blank">Here you can find Lists tests</a>
+
 ### Transfer List
 
 Available methods in Java JDI Light:
@@ -25738,6 +25806,8 @@ Available methods in Java JDI Light:
 **moveAllElementsLeft()** | Select all elements on right list then click on < button | void
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/TransferListTests.java" target="_blank">Here you can find Enhanced Transfer List tests</a>
+
+<br></br><br></br>
 
 ## JDI Light BDD Steps
 

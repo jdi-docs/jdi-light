@@ -25693,6 +25693,8 @@ A transfer list (or "shuttle") enables the user to move one or more list items b
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/TransferListTests.java" target="_blank">Here you can find TransferList tests</a>
 
+<br></br><br></br>
+
 ## JDI Light BDD Steps
 
 ### Label 

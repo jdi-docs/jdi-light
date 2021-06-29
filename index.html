@@ -890,6 +890,9 @@
 								<a href="#button-2" class="toc-h2 h3 toc-link" data-title="Button">Button</a>
                             </li>
                             <li>
+								<a href="#buttongroup" class="toc-h2 h3 toc-link" data-title="ButtonGroup">ButtonGroup</a>
+                            </li>
+                            <li>
 								<a href="#grid" class="toc-h2 h3 toc-link" data-title="Grid">Grid</a>
                             </li>
                             <li>
@@ -34724,7 +34727,131 @@ You can use for testing Text and Button classes, implemented in JDI-html section
 <p>Buttons allow users to take actions, and make choices, with a single tap.</p>
 
 <p><img src="images/material-ui/Buttons.png" alt="Buttons" /></p>
-<h4 id='here-you-can-find-buttons-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/ButtonTests.java" target="_blank">Here you can find Buttons tests</a></h4><h3 id='grid'>Grid</h3><h4 id='https-material-ui-com-components-grid'>https://material-ui.com/components/grid/</h4><pre class="highlight java tab-java"><code>  <span class="nd">@UI</span><span class="o">(</span><span class="s">".MuiContainer-root"</span><span class="o">)</span>
+<h4 id='here-you-can-find-buttons-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/ButtonTests.java" target="_blank">Here you can find Buttons tests</a></h4>
+<p><br></br><br></br></p>
+<h3 id='buttongroup'>ButtonGroup</h3><h4 id='link-to-the-site-quot-material-ui-test-component-quot'><a href="https://jdi-testing.github.io/jdi-light/material/button_groups" target="_blank">Link to the site &quot;Material UI test component&quot;</a></h4><h4 id='basic-and-vertical-button-group'>Basic and Vertical button group</h4>
+<p><strong>ButtonGroup</strong> - element that represents a group of clickable button.</p>
+
+<p><img src="images/buttongroup.png" alt="ButtonGroup" />
+<img src="images/verticalbuttongroup.png" alt="ButtonGroup" /></p>
+
+<p>The ButtonGroup component can be used to group related buttons.</p>
+
+<p><br></br></p>
+<h4 id='split-button-2'>Split button</h4>
+<p>ButtonGroup can also be used to create a split button. The dropdown can change the button action (as in this example), or be used to immediately trigger a related action.</p>
+
+<p><img src="images/splitbutton.png" alt="ButtonGroup" /></p>
+<h4 id='here-you-can-find-specification-of-button-group'><a href="https://material-ui.com/ru/components/button-group/" target="_blank">Here you can find specification of Button Group</a></h4>
+<p><br></br></p>
+
+<p>ButtonGroup is located in the following class:</p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.material.elements.inputs.ButtonGroup</em></li>
+</ul>
+
+<p>Available methods in Java JDI Light:</p>
+
+<p>|Method | Description | Return Type
+  --- | --- | ---
+  <strong>getButtonByIndex()</strong> | Get button index | int
+  <strong>select()</strong> | Select the button | void
+  <strong>getMainButton()</strong> | Get main button | String
+  <strong>getButtonByText()</strong> | Get button text | String</p>
+
+<p><br></br></p>
+<h4 id='buttongrouppage'>ButtonGroupPage</h4>
+<p>ButtonGroupPage class has been extended from WebPage. This class contains variables that are used in tests: 
+- basicButtonGroup 
+- verticalButtonGroup
+- splitButtonGroup</p>
+<pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ButtonGroupPage</span> <span class="kd">extends</span> <span class="n">WebPage</span> <span class="o">{</span>
+
+    <span class="c1">//FindBy(xpath = "//*[@id=\"__next\"]/div/div/div[2]/div/div/div/div[1]/div")</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//*[@id=\"__next\"]/div/div/div[2]/div/div/div/div[1]/div"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">ButtonGroup</span> <span class="n">basicButtonGroup</span><span class="o">;</span>
+
+    <span class="c1">//FindBy(xpath = "//*[@id=\"__next\"]/div/div/div[2]/div/div/div/div[2]/div")</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//*[@id=\"__next\"]/div/div/div[2]/div/div/div/div[2]/div"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">ButtonGroup</span> <span class="n">verticalButtonGroup</span><span class="o">;</span>
+
+    <span class="c1">//FindBy(xpath = "//*[@id=\"__next\"]/div/div/div[2]/div/div/div/div[3]/div)</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//*[@id=\"__next\"]/div/div/div[2]/div/div/div/div[3]/div"</span><span class="o">)</span>
+    <span class="nd">@JDIButtonGroup</span><span class="o">(</span>
+            <span class="n">root</span> <span class="o">=</span> <span class="s">"#root"</span><span class="o">,</span>
+            <span class="n">mainButton</span> <span class="o">=</span> <span class="s">".MuiButton-root[1]"</span><span class="o">,</span>
+            <span class="n">expand</span> <span class="o">=</span> <span class="s">".MuiButton-root[2]"</span><span class="o">,</span>
+            <span class="n">list</span> <span class="o">=</span> <span class="s">".MuiPaper-root #split-button-menu"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">ButtonGroup</span> <span class="n">splitButtonGroup</span><span class="o">;</span>
+</code></pre>
+<p><br></br></p>
+<h4 id='buttongrouptests'>ButtonGroupTests</h4>
+<p>ButtonGroupTests is located in the following class:</p>
+
+<ul>
+<li><strong>Java</strong>: <em>io.github.epam.material.tests.inputs.ButtonGroupTests</em></li>
+</ul>
+
+<p>Most applicable methods:</p>
+
+<p>|Method | Description | Return Type
+    --- | --- | ---
+  <strong>click()</strong> | Click the button  | void
+  <strong>enabled()</strong> | Assert that button is enabled | ButtonAssert 
+  <strong>is()</strong>  | Assert action | ButtonAssert 
+  <strong>text()</strong> | Assert text | ButtonAssert</p>
+<pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ButtonGroupTests</span> <span class="kd">extends</span> <span class="n">TestsInit</span> <span class="o">{</span>
+
+    <span class="nd">@BeforeMethod</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">before</span><span class="o">(){</span>
+
+        <span class="n">buttonGroupPage</span><span class="o">.</span><span class="na">open</span><span class="o">();</span>
+        <span class="n">buttonGroupPage</span><span class="o">.</span><span class="na">isOpened</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">basicButtonGroupTest</span><span class="o">()</span> <span class="o">{</span>
+
+        <span class="n">buttonGroupPage</span><span class="o">.</span><span class="na">basicButtonGroup</span><span class="o">.</span><span class="na">getButtonByIndex</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">buttonGroupPage</span><span class="o">.</span><span class="na">basicButtonGroup</span><span class="o">.</span><span class="na">getButtonByIndex</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">buttonGroupPage</span><span class="o">.</span><span class="na">basicButtonGroup</span><span class="o">.</span><span class="na">getButtonByIndex</span><span class="o">(</span><span class="mi">3</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+
+        <span class="n">buttonGroupPage</span><span class="o">.</span><span class="na">basicButtonGroup</span><span class="o">.</span><span class="na">getButtonByText</span><span class="o">(</span><span class="s">"Three"</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">buttonGroupPage</span><span class="o">.</span><span class="na">basicButtonGroup</span><span class="o">.</span><span class="na">getButtonByText</span><span class="o">(</span><span class="s">"Two"</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">buttonGroupPage</span><span class="o">.</span><span class="na">basicButtonGroup</span><span class="o">.</span><span class="na">getButtonByText</span><span class="o">(</span><span class="s">"One"</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+
+        <span class="n">buttonGroupPage</span><span class="o">.</span><span class="na">basicButtonGroup</span><span class="o">.</span><span class="na">getButtonByIndex</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
+        <span class="n">buttonGroupPage</span><span class="o">.</span><span class="na">basicButtonGroup</span><span class="o">.</span><span class="na">getButtonByIndex</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"ONE"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">verticalButtonGroupTest</span><span class="o">()</span> <span class="o">{</span>
+
+        <span class="n">buttonGroupPage</span><span class="o">.</span><span class="na">verticalButtonGroup</span><span class="o">.</span><span class="na">getButtonByIndex</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">buttonGroupPage</span><span class="o">.</span><span class="na">verticalButtonGroup</span><span class="o">.</span><span class="na">getButtonByIndex</span><span class="o">(</span><span class="mi">3</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+
+        <span class="n">buttonGroupPage</span><span class="o">.</span><span class="na">verticalButtonGroup</span><span class="o">.</span><span class="na">getButtonByText</span><span class="o">(</span><span class="s">"Two"</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">buttonGroupPage</span><span class="o">.</span><span class="na">verticalButtonGroup</span><span class="o">.</span><span class="na">getButtonByText</span><span class="o">(</span><span class="s">"One"</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+
+        <span class="n">buttonGroupPage</span><span class="o">.</span><span class="na">basicButtonGroup</span><span class="o">.</span><span class="na">getButtonByIndex</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
+        <span class="n">buttonGroupPage</span><span class="o">.</span><span class="na">basicButtonGroup</span><span class="o">.</span><span class="na">getButtonByIndex</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"ONE"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">splitButtonGroupTest</span><span class="o">()</span> <span class="o">{</span>
+
+        <span class="n">buttonGroupPage</span><span class="o">.</span><span class="na">splitButtonGroup</span><span class="o">.</span><span class="na">getMainButton</span><span class="o">().</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">buttonGroupPage</span><span class="o">.</span><span class="na">splitButtonGroup</span><span class="o">.</span><span class="na">getMainButton</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"SQUASH AND MERGE"</span><span class="o">);</span>
+        <span class="n">buttonGroupPage</span><span class="o">.</span><span class="na">splitButtonGroup</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="s">"Create a merge commit"</span><span class="o">);</span>
+        <span class="n">buttonGroupPage</span><span class="o">.</span><span class="na">splitButtonGroup</span><span class="o">.</span><span class="na">getMainButton</span><span class="o">()</span>
+            <span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"CREATE A MERGE COMMIT"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+</code></pre><h4 id='here-you-can-find-button-group-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/ButtonGroupTests.java" target="_blank">Here you can find Button group tests</a></h4>
+<p><br></br><br></br></p>
+<h3 id='grid'>Grid</h3><h4 id='https-material-ui-com-components-grid'>https://material-ui.com/components/grid/</h4><pre class="highlight java tab-java"><code>  <span class="nd">@UI</span><span class="o">(</span><span class="s">".MuiContainer-root"</span><span class="o">)</span>
   <span class="kd">public</span> <span class="kd">static</span> <span class="n">UIElement</span> <span class="n">rootGrid</span><span class="o">;</span>
 
   <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h2[text()='Complex grid']/preceding::div[contains(@class,'MuiGrid-spacing')]"</span><span class="o">)</span>

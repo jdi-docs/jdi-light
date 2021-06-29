@@ -25232,12 +25232,12 @@ ButtonGroup is located in the following class:
 
   Available methods in Java JDI Light:
   
-  |Method | Description | Return Type
-  --- | --- | ---
-  **getButtonByIndex()** | Get button index | int
-  **select()** | Select the button | void
-  **getMainButton()** | Get main button | String
-  **getButtonByText()** | Get button text | String
+|Method | Description | Return Type
+--- | --- | ---
+**getButtonByIndex()** | Get button index | int
+**select()** | Select the button | void
+**getMainButton()** | Get main button | String
+**getButtonByText()** | Get button text | String
  
 
 <br></br>

@@ -25199,6 +25199,149 @@ Buttons allow users to take actions, and make choices, with a single tap.
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/ButtonTests.java" target="_blank">Here you can find Buttons tests</a>
 
+<br></br><br></br>
+
+### ButtonGroup
+
+#### <a href="https://jdi-testing.github.io/jdi-light/material/button_groups" target="_blank">Link to the site "Material UI test component"</a>
+
+#### Basic and Vertical button group
+
+**ButtonGroup** - element that represents a group of clickable button.
+
+![ButtonGroup](../images/buttongroup.png)
+![ButtonGroup](../images/verticalbuttongroup.png)
+
+The ButtonGroup component can be used to group related buttons.
+
+<br></br>
+
+#### Split button
+ButtonGroup can also be used to create a split button. The dropdown can change the button action (as in this example), or be used to immediately trigger a related action.
+
+![ButtonGroup](../images/splitbutton.png)
+
+
+#### <a href="https://material-ui.com/ru/components/button-group/" target="_blank">Here you can find specification of Button Group</a>
+
+<br></br>
+
+ButtonGroup is located in the following class:
+ 
+  - __Java__: _com.epam.jdi.light.material.elements.inputs.ButtonGroup_
+
+  Available methods in Java JDI Light:
+  
+  |Method | Description | Return Type
+  --- | --- | ---
+  **getButtonByIndex()** | Get button index | int
+  **select()** | Select the button | void
+  **getMainButton()** | Get main button | String
+  **getButtonByText()** | Get button text | String
+ 
+
+<br></br>
+
+#### ButtonGroupPage 
+
+ButtonGroupPage class has been extended from WebPage. This class contains variables that are used in tests: 
+- basicButtonGroup 
+- verticalButtonGroup
+- splitButtonGroup
+
+```java
+public class ButtonGroupPage extends WebPage {
+
+    //FindBy(xpath = "//*[@id=\"__next\"]/div/div/div[2]/div/div/div/div[1]/div")
+    @UI("//*[@id=\"__next\"]/div/div/div[2]/div/div/div/div[1]/div")
+    public ButtonGroup basicButtonGroup;
+
+    //FindBy(xpath = "//*[@id=\"__next\"]/div/div/div[2]/div/div/div/div[2]/div")
+    @UI("//*[@id=\"__next\"]/div/div/div[2]/div/div/div/div[2]/div")
+    public ButtonGroup verticalButtonGroup;
+
+    //FindBy(xpath = "//*[@id=\"__next\"]/div/div/div[2]/div/div/div/div[3]/div)
+    @UI("//*[@id=\"__next\"]/div/div/div[2]/div/div/div/div[3]/div")
+    @JDIButtonGroup(
+            root = "#root",
+            mainButton = ".MuiButton-root[1]",
+            expand = ".MuiButton-root[2]",
+            list = ".MuiPaper-root #split-button-menu")
+    public ButtonGroup splitButtonGroup;
+```
+
+<br></br>
+
+#### ButtonGroupTests
+
+ButtonGroupTests is located in the following class:
+ 
+  - __Java__: _io.github.epam.material.tests.inputs.ButtonGroupTests_
+  
+  Most applicable methods:
+  
+  |Method | Description | Return Type
+    --- | --- | ---
+  **click()** | Click the button  | void
+  **enabled()** | Assert that button is enabled | ButtonAssert 
+  **is()**  | Assert action | ButtonAssert 
+  **text()** | Assert text | ButtonAssert
+  
+```java
+public class ButtonGroupTests extends TestsInit {
+
+    @BeforeMethod
+    public void before(){
+
+        buttonGroupPage.open();
+        buttonGroupPage.isOpened();
+    }
+
+    @Test
+    public void basicButtonGroupTest() {
+
+        buttonGroupPage.basicButtonGroup.getButtonByIndex(1).click();
+        buttonGroupPage.basicButtonGroup.getButtonByIndex(2).click();
+        buttonGroupPage.basicButtonGroup.getButtonByIndex(3).click();
+
+        buttonGroupPage.basicButtonGroup.getButtonByText("Three").click();
+        buttonGroupPage.basicButtonGroup.getButtonByText("Two").click();
+        buttonGroupPage.basicButtonGroup.getButtonByText("One").click();
+
+        buttonGroupPage.basicButtonGroup.getButtonByIndex(1).is().enabled();
+        buttonGroupPage.basicButtonGroup.getButtonByIndex(1).has().text("ONE");
+    }
+
+    @Test
+    public void verticalButtonGroupTest() {
+
+        buttonGroupPage.verticalButtonGroup.getButtonByIndex(2).click();
+        buttonGroupPage.verticalButtonGroup.getButtonByIndex(3).click();
+
+        buttonGroupPage.verticalButtonGroup.getButtonByText("Two").click();
+        buttonGroupPage.verticalButtonGroup.getButtonByText("One").click();
+
+        buttonGroupPage.basicButtonGroup.getButtonByIndex(1).is().enabled();
+        buttonGroupPage.basicButtonGroup.getButtonByIndex(1).has().text("ONE");
+    }
+
+    @Test
+    public void splitButtonGroupTest() {
+
+        buttonGroupPage.splitButtonGroup.getMainButton().click();
+        buttonGroupPage.splitButtonGroup.getMainButton()
+                .has().text("SQUASH AND MERGE");
+        buttonGroupPage.splitButtonGroup.select("Create a merge commit");
+        buttonGroupPage.splitButtonGroup.getMainButton()
+            .has().text("CREATE A MERGE COMMIT");
+    }
+
+```
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/ButtonGroupTests.java" target="_blank">Here you can find Button group tests</a>
+
+<br></br><br></br>
+
 ### Grid
 
 #### https://material-ui.com/components/grid/

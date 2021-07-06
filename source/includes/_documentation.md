@@ -25981,7 +25981,200 @@ Available methods in Java JDI Light:
 **moveAllElementsRight()** | Select all elements on left list then click on > button | void
 **moveAllElementsLeft()** | Select all elements on right list then click on < button | void
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/TransferListTests.java" target="_blank">Here you can find Enhanced Transfer List tests</a>
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui/src/main/java/com/epam/jdi/light/material/elements/inputs/TextField.java">Here you can find Text Fields tests</a>
+
+### Text Field
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+|**setValue(String text)**|Input text| void
+|**Clear()**|Clear data in Text Field| void
+|**Click()**|Click on Text Field| void
+|**GetText()**|Get current Text from Text Field| String
+|**is()** |Various assert action for Text Field| TextFieldAssert
+|**has()**|Various assert action for data of Text Field|TextFieldAssert
+
+### Form Props
+
+#### https://jdi-testing.github.io/jdi-light/material/text_field
+
+```java
+    @Test
+  public void formPropsTextFieldTest() {
+  
+    Random random = new Random();
+    int intNumber = random.nextInt();
+    double doubleNumber = random.nextDouble();
+    float floatNumber = random.nextFloat();
+  
+    String randomString = generateRandomString();
+  
+    textFieldPage.textFieldRequired.is().enabled();
+    textFieldPage.textFieldRequired.setValue(randomString);
+    textFieldPage.textFieldRequired.has().text(randomString);
+    textFieldPage.textFieldRequired.clear();
+    textFieldPage.textFieldRequired.has().text("");
+  
+    textFieldPage.textFieldDisabled.is().disabled();
+  
+    textFieldPage.textFieldPassword.is().enabled();
+    textFieldPage.textFieldPassword.setValue(randomString);
+    textFieldPage.textFieldPassword.clear();
+    textFieldPage.textFieldPassword.has().text("");
+  
+    textFieldPage.textFieldReadOnly.is().enabled();
+    textFieldPage.textFieldReadOnly.is().readOnly();
+  
+    textFieldPage.textFieldNumber.is().enabled();
+    textFieldPage.textFieldNumber.setValue(String.valueOf(intNumber));
+    textFieldPage.textFieldNumber.has().text(String.valueOf(intNumber));
+    textFieldPage.textFieldNumber.setValue(String.valueOf(floatNumber));
+    textFieldPage.textFieldNumber.has().text(String.valueOf(floatNumber));
+    textFieldPage.textFieldNumber.setValue(String.valueOf(doubleNumber));
+    textFieldPage.textFieldNumber.has().text(String.valueOf(doubleNumber));
+    textFieldPage.textFieldNumber.clear();
+    textFieldPage.textFieldNumber.has().text("");
+  
+    textFieldPage.textFieldSearch.is().enabled();
+    textFieldPage.textFieldSearch.setValue(randomString);
+    textFieldPage.textFieldSearch.has().text(randomString);
+    textFieldPage.textFieldSearch.clear();
+    textFieldPage.textFieldSearch.has().text("");
+  
+    textFieldPage.textFieldHelper.is().enabled();
+    textFieldPage.textFieldHelper.has().text(DEFAULT_VALUE);
+    textFieldPage.textFieldHelper.setValue(randomString);
+    textFieldPage.textFieldHelper.has().text(randomString);
+    textFieldPage.textFieldHelper.clear();
+    textFieldPage.textFieldHelper.has().text("");
+    }
+```
+
+![Form Props](../images/material-ui/FormProps.png)
+
+### Validation
+
+#### https://jdi-testing.github.io/jdi-light/material/text_field
+
+```java
+    @Test
+  public void validateTextFieldTest() {
+  
+    String randomString = generateRandomString();
+    textFieldPage.textFieldFilledError.is().enabled();
+    textFieldPage.textFieldFilledError.setValue(randomString);
+    textFieldPage.textFieldFilledError.has().text(randomString);
+    textFieldPage.textFieldFilledError.clear();
+    textFieldPage.textFieldFilledError.has().text("");
+  
+    textFieldPage.textFieldFilledErrorHelperText.is().enabled();
+    textFieldPage.textFieldFilledErrorHelperText.setValue(randomString);
+    textFieldPage.textFieldFilledErrorHelperText.has().text(randomString);
+    textFieldPage.textFieldFilledErrorHelperText.clear();
+    textFieldPage.textFieldFilledErrorHelperText.has().text("");
+    textFieldPage.labelErrorHelperText.has().text("Incorrect entry.");
+  }
+```
+
+![Validation](../images/material-ui/Validation.png)
+
+### Multiline
+
+#### https://jdi-testing.github.io/jdi-light/material/text_field
+
+```java
+    @Test
+  public void multilineTextFieldTest() {
+  
+    String randomString = generateRandomString();
+    textFieldPage.textFieldMultiLine.is().enabled();
+    textFieldPage.textFieldMultiLine.has().text("EUR");
+    textFieldPage.textFieldMultiLine.clearAndSetValue(randomString);
+    textFieldPage.textFieldMultiLine.has().text(randomString);
+    textFieldPage.textFieldMultiLine.clear();
+    textFieldPage.textFieldMultiLine.has().text("");
+  
+    textFieldPage.textFieldMultiLinePlaceHolder.is().enabled();
+    textFieldPage.textFieldMultiLinePlaceHolder.setValue(randomString);
+    textFieldPage.textFieldMultiLinePlaceHolder.has().text(randomString);
+    textFieldPage.textFieldMultiLinePlaceHolder.clear();
+    textFieldPage.textFieldMultiLinePlaceHolder.has().text("");
+  
+    textFieldPage.textFieldMultiLineStatic.is().enabled();
+    textFieldPage.textFieldMultiLineStatic.has().text(DEFAULT_VALUE);
+    textFieldPage.textFieldMultiLineStatic.clearAndSetValue(randomString);
+    textFieldPage.textFieldMultiLineStatic.has().text(randomString);
+    textFieldPage.textFieldMultiLineStatic.clear();
+    textFieldPage.textFieldMultiLineStatic.has().text("");
+  }
+```
+
+![Multiline](../images/material-ui/Multiline.png)
+
+### Select
+
+#### https://jdi-testing.github.io/jdi-light/material/text_field
+
+```java
+    @Test
+    public void selectTest() {
+    
+      for(CurrencyItems currency : CurrencyItems.values()){
+      textFieldPage.selectElementField.click();
+      textFieldPage.selectElement.selectItemByText(currency.currencyItemText);
+      jdiAssert(textFieldPage.selectElementField.getText().equals(currency.currencyItemText), Matchers.is(true));
+    
+      textFieldPage.selectNativeSelect.select(currency.currencyItemText);
+      textFieldPage.selectNativeSelect.has().text(currency.currencyItemText);
+  }
+```
+
+![TextFieldSelect](../images/material-ui/TextFieldSelect.png)
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return Type
+--- | --- | ---
+|**selectItemByText**|Select item by text| void
+
+### Input Adornments
+
+#### https://jdi-testing.github.io/jdi-light/material/text_field
+
+```java
+    @Test
+    public void inputAdornmentsTest() {
+    
+      String randomString = generateRandomString();
+      textFieldPage.textFieldNormal.is().enabled();
+      textFieldPage.textFieldNormal.setValue(randomString);
+      textFieldPage.textFieldNormal.has().text(randomString);
+      textFieldPage.textFieldNormal.clear();
+      textFieldPage.textFieldNormal.has().text("");
+    
+      textFieldPage.textFieldWeight.is().enabled();
+      textFieldPage.textFieldWeight.setValue(randomString);
+      textFieldPage.textFieldWeight.has().text(randomString);
+      textFieldPage.textFieldWeight.clear();
+      textFieldPage.textFieldWeight.has().text("");
+    
+      textFieldPage.textFieldAdornmentPassword.is().enabled();
+      textFieldPage.textFieldAdornmentPassword.setValue(randomString);
+      textFieldPage.textFieldAdornmentPassword.has().text(randomString);
+      textFieldPage.textFieldAdornmentPassword.clear();
+      textFieldPage.textFieldAdornmentPassword.has().text("");
+    
+      textFieldPage.textFieldAmount.is().enabled();
+      textFieldPage.textFieldAmount.setValue(randomString);
+      textFieldPage.textFieldAmount.has().text(randomString);
+      textFieldPage.textFieldAmount.clear();
+      textFieldPage.textFieldAmount.has().text("");
+    }
+```
+
+![Input Adornments](../images/material-ui/InputAdornments.png)
 
 <br></br><br></br>
 

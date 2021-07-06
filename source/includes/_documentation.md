@@ -25989,10 +25989,10 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-|**setValue(String text)**|Input text|
-|**Clear()**|Clear data in Text Field|
-|**Click()**|Click on Text Field|
-|**GetText()**|Get current Text from Text Field|
+|**setValue(String text)**|Input text| void
+|**Clear()**|Clear data in Text Field| void
+|**Click()**|Click on Text Field| void
+|**GetText()**|Get current Text from Text Field| String
 |**is()** |Various assert action for Text Field| TextFieldAssert
 |**has()**|Various assert action for data of Text Field|TextFieldAssert
 
@@ -26137,7 +26137,7 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-|**selectItemByText**|Select item by text|
+|**selectItemByText**|Select item by text| void
 
 ### Input Adornments
 

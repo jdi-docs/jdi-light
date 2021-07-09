@@ -23866,7 +23866,7 @@ Note: domain is read from test.properties automatically. <br><br><br><br><br>
 
 ### Checkbox
 
-#### https://material-ui.com/components/checkboxes/
+#### <a href="https://material-ui.com/components/checkboxes/" target="_blank"> https://material-ui.com/components/checkboxes/ </a>
 
 ```java 
     @UI("//h2[text()='Basic checkboxes']/following-sibling::div[1]/span")
@@ -23916,7 +23916,7 @@ Checkboxes allow the user to select one or more items from a set.
 
 ### Chips
 
-#### https://material-ui.com/components/chips/
+#### <a href="https://material-ui.com/components/chips/" target="_blank"> https://material-ui.com/components/chips/ </a>
 
 ```java 
 @JDIChip
@@ -23988,7 +23988,7 @@ Chips are compact elements that represent an input, attribute, or action.
 
 ### Tooltip
 
-#### https://material-ui.com/components/tooltips/
+#### <a href="https://material-ui.com/components/tooltips/" target="_blank"> https://material-ui.com/components/tooltips/ </a>
 
 ```java 
 @UI("//*[contains(@class, 'MuiIconButton-root')]")
@@ -24023,7 +24023,7 @@ Tooltips display informative text when users hover over, focus on, or tap an ele
 
 ### Container
 
-#### https://material-ui.com/components/container/
+#### <a href="https://material-ui.com/components/container/" target="_blank"> https://material-ui.com/components/container/ </a>
 
 ```java 
     @UI("//div[contains(@Class, 'MuiTypography-body1')]")
@@ -24053,7 +24053,7 @@ The container centers your content horizontally. It's the most basic layout elem
 
 ### Avatar
 
-#### https://material-ui.com/ru/components/avatars/
+#### <a href="https://material-ui.com/ru/components/avatars/" target="_blank"> https://material-ui.com/ru/components/avatars/ </a>
 
 ```java 
     @UI("//span[@class='MuiBadge-root']/span")
@@ -24093,7 +24093,7 @@ Avatars are found throughout material design with uses in everything from tables
 
 ### Click Away Listener
 
-#### https://material-ui.com/ru/components/click-away-listener/
+#### <a href="https://material-ui.com/ru/components/click-away-listener/" target="_blank"> https://material-ui.com/ru/components/click-away-listener/ </a>
 
 ```java     
     @UI("//h2[text()='Example']/following-sibling::div[1]/div/button")
@@ -24146,7 +24146,7 @@ Detect if a click event happened outside of an element. It listens for clicks th
 
 ### Divider
 
-#### https://material-ui.com/components/dividers/
+#### <a href="https://material-ui.com/components/dividers/" target="_blank"> https://material-ui.com/components/dividers/ </a>
 
 ```java 
     @UI("(//li[contains(@class, 'MuiDivider-root')])")
@@ -24188,7 +24188,7 @@ A divider is a thin line that groups content in lists and layouts.
 
 ### Card
 
-#### https://material-ui.com/components/cards/
+#### <a href="https://material-ui.com/components/cards/" target="_blank"> https://material-ui.com/components/cards/ </a>
 
 ```java    
     @UI("//div[@class='MuiCardContent-root']/p[1]")
@@ -24256,7 +24256,7 @@ Cards contain content and actions about a single subject.
 
 ### Radio
 
-####https://material-ui.com/components/radio-buttons/
+#### <a href="https://material-ui.com/components/radio-buttons/" target="_blank"> https://material-ui.com/components/radio-buttons/ </a>
 
 ```java 
     @UI("//fieldset[@id='simpleRadio']//span[contains(@Class,'MuiRadio-root')]")
@@ -24303,7 +24303,7 @@ Radio buttons allow the user to select one option from a set.
 
 ### App Bar
 
-####https://material-ui.com/components/app-bar/
+#### <a href="https://material-ui.com/components/app-bar/" target="_blank"> https://material-ui.com/components/app-bar/ </a>
 
 ```java 
     @UI("//*[text()='App Bar with menu']/preceding::button[@aria-label='menu']")
@@ -24372,7 +24372,7 @@ The App Bar displays information and actions relating to the current screen.
 
 ### Box
 
-#### https://material-ui.com/components/box/
+#### <a href="https://material-ui.com/components/box/" target="_blank"> https://material-ui.com/components/box/ </a>
 
 ```java     
     @UI("//button[contains(@class,'MuiButton-outlined')]")
@@ -24403,7 +24403,7 @@ Java example code for the Button box:
 
 ### Transitions
 
-#### https://material-ui.com/components/transitions/
+#### <a href="https://material-ui.com/components/transitions/" target="_blank"> https://material-ui.com/components/transitions/ </a>
 
 ```java     
     @UI("//h1[text()='Transitions']/following::div[contains(@class,'MuiCollapse-container')]")
@@ -24489,7 +24489,7 @@ Transition helps make a UI expressive and easy to use.
     }
 ```
 
-#### https://material-ui.com/components/material-icons/
+#### <a href="https://material-ui.com/components/material-icons/" target="_blank"> https://material-ui.com/components/material-icons/ </a>
 
 The following npm package, @material-ui/icons, includes the 1,100+ official Material icons converted to SvgIcon components.
 
@@ -24508,7 +24508,7 @@ The following npm package, @material-ui/icons, includes the 1,100+ official Mate
 
 ### Icons
 
-#### https://material-ui.com/components/icons/
+#### <a href="https://material-ui.com/components/icons/" target="_blank"> https://material-ui.com/components/icons/ </a>
 
 ```java     
     @UI("//h2[text()='Color']/following::*[name()='svg']")
@@ -24567,7 +24567,7 @@ Material-UI provides icons support in three ways:
 
 ### Floating Action Button
 
-#### https://material-ui.com/components/floating-action-button/
+#### <a href="https://material-ui.com/components/floating-action-button/" target="_blank"> https://material-ui.com/components/floating-action-button/ </a>
 
 ```java     
     @UI("//div[@id='basicActionBtns']/button")
@@ -24626,7 +24626,7 @@ A floating action button appears in front of all screen content, typically as a 
 
 ### Hidden
 
-#### https://material-ui.com/components/hidden/
+#### <a href="https://material-ui.com/components/hidden/" target="_blank"> https://material-ui.com/components/hidden/ </a>
 
 ```java     
     @UI(".MuiTypography-subtitle1")
@@ -24677,7 +24677,7 @@ Quickly and responsively toggle the visibility value of components and more with
 
 ### Stepper
 
-#### https://material-ui.com/components/steppers/
+#### <a href="https://material-ui.com/components/steppers/" target="_blank"> https://material-ui.com/components/steppers/ </a>
 
 ![Stepper](../images/material-ui/Stepper.png)
 
@@ -24719,7 +24719,7 @@ You can use for testing Text and Button classes, implemented in JDI-html section
 
 ### Slider
 
-#### https://material-ui.com/components/slider/
+#### <a href="https://material-ui.com/components/slider/" target="_blank"> https://material-ui.com/components/slider/ </a>
 
 ```java
     @UI("//*[@id=\"continuous-slider\"]/following-sibling::div//span[contains(@class, \"MuiSlider-root\")]")
@@ -24760,7 +24760,7 @@ Sliders reflect a range of values along a bar, from which users may select a sin
 
 ### Tabs
 
-#### https://material-ui.com/components/Tabs/
+#### <a href="https://material-ui.com/components/Tabs/" target="_blank"> https://material-ui.com/components/Tabs/ </a>
 
 ```java
     private List<List<Button>> tableLocators;
@@ -24817,7 +24817,7 @@ Tabs organize and allow navigation between groups of content that are related an
 
 ### Table
 
-#### https://material-ui.com/components/Tables/
+#### <a href="https://material-ui.com/components/Tables/" target="_blank"> https://material-ui.com/components/Tables/ </a>
 
 ```java
   @UI(".MuiDataGrid-main div[role='row'] div[tabindex]")
@@ -24869,7 +24869,7 @@ Tables display sets of data. They can be fully customized.
 
 ### Typography
 
-#### https://material-ui.com/ru/components/typography/
+#### <a href="https://material-ui.com/ru/components/typography/" target="_blank"> https://material-ui.com/ru/components/typography/ </a>
 
 ```java
   @UI("//*[contains(@class,'MuiTypography-gutterBottom')]")
@@ -24912,7 +24912,7 @@ Use typography to present your design and content as clearly and efficiently as 
 
 ### Badge
 
-#### https://material-ui.com/ru/components/badges/
+#### <a href="https://material-ui.com/ru/components/badges/" target="_blank"> https://material-ui.com/ru/components/badges/ </a>
 
 ```java
   @UI("//span[@class='MuiBadge-root']")
@@ -24950,7 +24950,7 @@ Badge generates a small badge to the top-right of its child(ren).
 
 ### Snackbars
 
-#### https://material-ui.com/ru/components/badges/
+#### <a href="https://material-ui.com/components/snackbars/" target="_blank"> https://material-ui.com/components/snackbars/ </a> 
 
 ```java
   @UI("//div[@class='MuiAlert-message']")
@@ -24983,7 +24983,7 @@ Snackbars provide brief messages about app processes. The component is also know
 
 ### Backdrop
 
-#### https://material-ui.com/components/backdrop/
+#### <a href="https://material-ui.com/components/backdrop/" target="_blank"> https://material-ui.com/components/backdrop/ </a>
 
 ```java
   @UI(".MuiButton-root")
@@ -25008,7 +25008,7 @@ The backdrop component is used to provide emphasis on a particular element or pa
 
 ### Dialog
 
-#### https://material-ui.com/components/dialogs/
+#### <a href="https://material-ui.com/components/dialogs/" target="_blank"> https://material-ui.com/components/dialogs/ </a>
 
 ```java
   @UI("//span[text()='Open simple dialog']/parent::*[contains(@class,'MuiButtonBase-root')]")
@@ -25051,7 +25051,7 @@ Dialogs inform users about a task and can contain critical information, require 
 
 ### Date / Time pickers
 
-#### https://material-ui.com/components/pickers/
+#### <a href="https://material-ui.com/components/pickers/" target="_blank"> https://material-ui.com/components/pickers/ </a>
 
 ```java
   @JDropdown(
@@ -25091,7 +25091,7 @@ Date pickers and Time pickers provide a simple way to select a single value from
 
 ### Select
 
-#### https://material-ui.com/components/selects/
+#### <a href="https://material-ui.com/components/selects/" target="_blank"> https://material-ui.com/components/selects/ </a>
 
 ```java
   @UI("//div[@id='simple-select']")
@@ -25128,7 +25128,7 @@ Select components are used for collecting user provided information from a list 
 
 ### Switch
 
-#### https://material-ui.com/components/switches/
+#### <a href="https://material-ui.com/components/switches/" target="_blank"> https://material-ui.com/components/switches/ </a>
 
 ```java
   @UI("//span[contains(@class,'MuiSwitch-switchBase')]")
@@ -25153,7 +25153,7 @@ Switches toggle the state of a single setting on or off.
 
 ### Button
 
-#### https://material-ui.com/components/buttons/
+#### <a href="https://material-ui.com/components/buttons/" target="_blank"> https://material-ui.com/components/buttons/ </a>
 
 ```java
   @UI("//h2[text()='Contained buttons']/parent::div/div[1]/*")
@@ -25344,7 +25344,7 @@ public class ButtonGroupTests extends TestsInit {
 
 ### Grid
 
-#### https://material-ui.com/components/grid/
+#### <a href="https://material-ui.com/components/grid/" target="_blank"> https://material-ui.com/components/grid/ </a>
 
 ```java
   @UI(".MuiContainer-root")
@@ -25382,7 +25382,7 @@ The Material Design responsive layout grid adapts to screen size and orientation
 
 ### Drawer
 
-#### https://material-ui.com/components/drawers/
+#### <a href="https://material-ui.com/components/drawers/" target="_blank"> https://material-ui.com/components/drawers/ </a>
 
 ```java
   @UI("//*[text()='left']")
@@ -25432,7 +25432,7 @@ Navigation drawers provide access to destinations in your app. Side sheets are s
 
 ### Breadcrumbs
 
-#### https://material-ui.com/components/Breadcrumbs/
+#### <a href="https://material-ui.com/components/Breadcrumbs/" target="_blank"> https://material-ui.com/components/Breadcrumbs/ </a>
 
 ```java
   @UI(".MuiBreadcrumbs-li")
@@ -25467,7 +25467,7 @@ Breadcrumbs allow users to make selections from a range of values.
 
 ### Bottom Navigation
 
-#### https://material-ui.com/components/bottom-navigation/
+#### <a href="https://material-ui.com/components/bottom-navigation/" target="_blank"> https://material-ui.com/components/bottom-navigation/ </a>
 
 ```java
   @UI(".MuiBottomNavigationAction-root[2]")
@@ -25496,7 +25496,7 @@ Bottom navigation bars allow movement between primary destinations in an app.
 
 ### Paper
 
-#### https://material-ui.com/components/paper/
+#### <a href="https://material-ui.com/components/paper/" target="_blank"> https://material-ui.com/components/paper/ </a>
 
 ```java
   @UI(".MuiPaper-root")
@@ -25526,7 +25526,7 @@ In Material Design, the physical properties of paper are translated to the scree
 
 ### Accordion
 
-#### https://material-ui.com/components/Accordion/
+#### <a href="https://material-ui.com/components/Accordion/" target="_blank"> https://material-ui.com/components/Accordion/ </a>
 
 ```java
   @UI(".MuiBreadcrumbs-li")
@@ -25561,7 +25561,7 @@ Accordions contain creation flows and allow lightweight editing of an element.
 
 ### Portal
 
-#### https://material-ui.com/components/Portal/
+#### <a href="https://material-ui.com/components/Portal/" target="_blank"> https://material-ui.com/components/Portal/ </a>
 
 ```java
   @UI("//button")
@@ -25599,7 +25599,7 @@ The portal component renders its children into a new "subtree" outside of curren
 
 ### Textarea Autosize
 
-#### https://material-ui.com/components/textarea-autosize/
+#### <a href="https://material-ui.com/components/textarea-autosize/" target="_blank"> https://material-ui.com/components/textarea-autosize/ </a>
 
 ```java
   @UI("//textarea[@aria-label = 'empty textarea']")
@@ -25642,7 +25642,7 @@ A textarea component for React which grows with content.
 
 ### Popover
 
-#### https://material-ui.com/components/popover/
+#### <a href="https://material-ui.com/components/popover/" target="_blank"> https://material-ui.com/components/popover/ </a>
 
 ```java
   @UI("//button[contains(@class,'MuiButtonBase-root')]/span[@class='MuiButton-label']")
@@ -25678,7 +25678,7 @@ A Popover can be used to display some content on top of another.
 
 ### Modal
 
-#### https://material-ui.com/components/modal/
+#### <a href="https://material-ui.com/components/modal/" target="_blank"> https://material-ui.com/components/modal/ </a>
 
 ```java
   @UI("[id='simple-modal-description']")
@@ -25709,7 +25709,7 @@ The modal component provides a solid foundation for creating dialogs, popovers, 
 
 ### Popper
 
-#### https://material-ui.com/components/popper/
+#### <a href="https://material-ui.com/components/popper/" target="_blank"> https://material-ui.com/components/popper/ </a>
 
 ```java
   @UI("button")
@@ -25739,7 +25739,7 @@ A Popper can be used to display some content on top of another. It's an alternat
 
 ### Progress
 
-#### https://material-ui.com/components/progress/
+#### <a href="https://material-ui.com/components/progress/" target="_blank"> https://material-ui.com/components/progress/ </a>
 
 ```java
   @JDIProgressBar(root ="(//*[contains(@class, 'MuiCircularProgress-root')])[1]")
@@ -25779,7 +25779,7 @@ Progress indicators commonly known as spinners, express an unspecified wait time
 
 ### Menu
 
-#### https://material-ui.com/ru/components/menus/
+#### <a href="https://material-ui.com/ru/components/menus/" target="_blank"> https://material-ui.com/ru/components/menus/ </a>
 
 ```java
   @Url("/simple_menu")
@@ -25818,7 +25818,7 @@ Menus display a list of choices on temporary surfaces.
 ![Menu](../images/material-ui/MenuWithIcons.png)
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/MenuTests.java" target="_blank">Here you can find Menu tests</a>
 #### ContextMenu
-#### https://material-ui.com/ru/components/menus/#context-menu
+#### <a href="https://material-ui.com/ru/components/menus/#context-menu" target="_blank"> https://material-ui.com/ru/components/menus/#context-menu </a>
  ```java
 package io.github.com.pages.navigation;
 
@@ -25854,7 +25854,7 @@ Menus display a list of choices on temporary surfaces.
 
 ### Lists
 
-#### https://material-ui.com/components/lists/
+#### <a href="https://material-ui.com/components/lists/" target="_blank"> https://material-ui.com/components/lists/ </a>
 
 ```java
   @Url("/simple_list")
@@ -25899,7 +25899,7 @@ Available methods in Java JDI Light:
 
 ### Simple Transfer List
 
-#### https://material-ui.com/components/simple_transfer_list
+#### <a href="https://material-ui.com/components/transfer-list/#simple-transfer-list" target="_blank"> https://material-ui.com/components/transfer-list/#simple-transfer-list </a>
 
 ```java
   @Test
@@ -25946,7 +25946,7 @@ Available methods in Java JDI Light:
 
 ### Enhanced Transfer List
 
-#### https://material-ui.com/components/enhanced_transfer_list
+#### <a href="https://material-ui.com/components/transfer-list/#enhanced-transfer-list" target="_blank"> https://material-ui.com/components/transfer-list/#enhanced-transfer-list </a>
 
 ```java
     @Test
@@ -25998,7 +25998,7 @@ Available methods in Java JDI Light:
 
 ### Form Props
 
-#### https://jdi-testing.github.io/jdi-light/material/text_field
+#### <a href="https://material-ui.com/components/text-fields/#form-props" target="_blank"> https://material-ui.com/components/text-fields/#form-props </a>
 
 ```java
     @Test
@@ -26056,7 +26056,7 @@ Available methods in Java JDI Light:
 
 ### Validation
 
-#### https://jdi-testing.github.io/jdi-light/material/text_field
+#### <a href="https://material-ui.com/components/text-fields/#validation" target="_blank"> https://material-ui.com/components/text-fields/#validation </a>
 
 ```java
     @Test
@@ -26082,7 +26082,7 @@ Available methods in Java JDI Light:
 
 ### Multiline
 
-#### https://jdi-testing.github.io/jdi-light/material/text_field
+#### <a href="https://material-ui.com/components/text-fields/#multiline" target="_blank"> https://material-ui.com/components/text-fields/#multiline </a> 
 
 ```java
     @Test
@@ -26115,7 +26115,7 @@ Available methods in Java JDI Light:
 
 ### Select
 
-#### https://jdi-testing.github.io/jdi-light/material/text_field
+#### <a href="https://material-ui.com/components/text-fields/#select" target="_blank"> https://material-ui.com/components/text-fields/#select </a>
 
 ```java
     @Test
@@ -26141,7 +26141,7 @@ Available methods in Java JDI Light:
 
 ### Input Adornments
 
-#### https://jdi-testing.github.io/jdi-light/material/text_field
+#### <a href="https://material-ui.com/components/text-fields/#input-adornments" target="_blank"> https://material-ui.com/components/text-fields/#input-adornments </a>
 
 ```java
     @Test

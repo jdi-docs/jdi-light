@@ -25899,7 +25899,7 @@ Available methods in Java JDI Light:
 
 ### Simple Transfer List
 
-#### <a href="https://material-ui.com/components/simple_transfer_list" target="_blank"> https://material-ui.com/components/simple_transfer_list </a>
+#### <a href="https://material-ui.com/components/transfer-list/#simple-transfer-list" target="_blank"> https://material-ui.com/components/transfer-list/#simple-transfer-list </a>
 
 ```java
   @Test
@@ -25946,7 +25946,7 @@ Available methods in Java JDI Light:
 
 ### Enhanced Transfer List
 
-#### <a href="https://material-ui.com/components/enhanced_transfer_list" target="_blank"> https://material-ui.com/components/enhanced_transfer_list </a>
+#### <a href="https://material-ui.com/components/transfer-list/#enhanced-transfer-list" target="_blank"> https://material-ui.com/components/transfer-list/#enhanced-transfer-list </a>
 
 ```java
     @Test
@@ -25998,7 +25998,7 @@ Available methods in Java JDI Light:
 
 ### Form Props
 
-#### <a href="https://jdi-testing.github.io/jdi-light/material/text_field" target="_blank"> https://jdi-testing.github.io/jdi-light/material/text_field </a>
+#### <a href="https://material-ui.com/components/text-fields/#form-props" target="_blank"> https://material-ui.com/components/text-fields/#form-props </a>
 
 ```java
     @Test
@@ -26056,7 +26056,7 @@ Available methods in Java JDI Light:
 
 ### Validation
 
-#### <a href="https://jdi-testing.github.io/jdi-light/material/text_field" target="_blank"> https://jdi-testing.github.io/jdi-light/material/text_field </a>
+#### <a href="https://material-ui.com/components/text-fields/#validation" target="_blank"> https://material-ui.com/components/text-fields/#validation </a>
 
 ```java
     @Test
@@ -26082,7 +26082,7 @@ Available methods in Java JDI Light:
 
 ### Multiline
 
-#### <a href="https://jdi-testing.github.io/jdi-light/material/text_field" target="_blank"> https://jdi-testing.github.io/jdi-light/material/text_field </a> 
+#### <a href="https://material-ui.com/components/text-fields/#multiline" target="_blank"> https://material-ui.com/components/text-fields/#multiline </a> 
 
 ```java
     @Test
@@ -26115,7 +26115,7 @@ Available methods in Java JDI Light:
 
 ### Select
 
-#### <a href="https://jdi-testing.github.io/jdi-light/material/text_field" target="_blank"> https://jdi-testing.github.io/jdi-light/material/text_field </a>
+#### <a href="https://material-ui.com/components/text-fields/#select" target="_blank"> https://material-ui.com/components/text-fields/#select </a>
 
 ```java
     @Test
@@ -26141,7 +26141,7 @@ Available methods in Java JDI Light:
 
 ### Input Adornments
 
-#### <a href="https://jdi-testing.github.io/jdi-light/material/text_field" target="_blank"> https://jdi-testing.github.io/jdi-light/material/text_field </a>
+#### <a href="https://material-ui.com/components/text-fields/#input-adornments" target="_blank"> https://material-ui.com/components/text-fields/#input-adornments </a>
 
 ```java
     @Test

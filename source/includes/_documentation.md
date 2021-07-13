@@ -25777,6 +25777,51 @@ Progress indicators commonly known as spinners, express an unspecified wait time
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/feedback/ProgressTests.java" target="_blank">Here you can find Progress tests</a>
 
+### Link
+#### <a href="https://material-ui.com/components/links/" target="_blank"> https://material-ui.com/components/links/ </a>
+
+The Link component allows you to easily customize anchor elements with your theme colors and typography styles
+
+![Links](../images/material-ui/links.png)
+
+```java
+
+    @Test
+    public void colorInheritLinkTest() {
+        inheritColorLink.is().underlineHover();
+        inheritColorLink.is().colorInherit();
+        inheritColorLink.click();
+        inheritColorLink.is().text(hasToString("color=\"inherit\""));
+    }
+
+    @Test
+    public void bodyLinkTest() {
+        bodyLink.is().underlineHover();
+        bodyLink.is().typographyBody();
+        bodyLink.click();
+        bodyLink.is().text(hasToString("variant=\"body2\""));
+    }
+```
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return type
+| --- | --- | --- 
+**click()** | click | void
+**isColorPrimary()** | return is color primary | boolean
+**isColorSecondary()** | return is color Secondary | boolean
+**isColorTextPrimary()** | return is color text Primary | boolean
+**isColorTextSecondary** | return is color text Secondary | boolean
+**isColorError()** | return is color Error | boolean
+**isUnderlineAlways()** | return is UnderlineAlways | boolean
+**isTypographyBody()** | return is TypographyBody | boolean
+**isColorInherit()** | return is color Inherit | boolean
+**isUnderlineHover()** | return is UnderlineHover | boolean
+**is()** | Various assert action for Link | LinkAssert
+**getLinkText()** | return text | String
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/LinkTests.java" target="_blank">Here you can find Link tests</a>
+<br></br><br></br>
 ### Simple Menu
 
 #### <a href="https://material-ui.com/ru/components/menus/" target="_blank"> https://material-ui.com/ru/components/menus/ </a>

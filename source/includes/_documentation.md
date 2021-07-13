@@ -25777,29 +25777,68 @@ Progress indicators commonly known as spinners, express an unspecified wait time
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/feedback/ProgressTests.java" target="_blank">Here you can find Progress tests</a>
 
-### Menu
+### Simple Menu
 
 #### <a href="https://material-ui.com/ru/components/menus/" target="_blank"> https://material-ui.com/ru/components/menus/ </a>
 
+Menu is located in the following class:
+- __Java__: _com.epam.jdi.light.material.elements.navigation.Menu_
+
+Menus display a list of choices on temporary surfaces.
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return type
+| --- | --- | --- 
+**click()** | click | void
+**rightClick()** | right-click | void
+**scrollToElement()** | scroll to element | void
+**isDisplayed()** | return answer is displayed | boolean
+**has()** | Various assert action for Menu  | MenuAssert
+**is()** | Various assert action for Menu | MenuAssert
+**getText()** | return text | String
+
 ```java
-  @Url("/simple_menu")
-  public static SimpleMenuPage simpleMenuPage;
-  //@FindBy(css = "div[class^=MuiBox-root]>div div:nth-of-type(1) svg")
-  @UI("div[class^=MuiBox-root]>div div:nth-of-type(1) svg")
-  public static Menu iconMenu;
-  //@FindBy(css = "div[class*=MuiPaper-root][style*='opacity: 1']")
-  @UI("div[class*=MuiPaper-root][style*='opacity: 1']")
-  public static Menu paddingMenuList;
+  //@FindBy(css = "span.MuiButton-label")
+  @UI("span.MuiButton-label")
+  public static Menu menu;
+  
+  //@FindBy(css = ".MuiMenu-list")
+  @UI(".MuiMenu-list")
+  public static Menu menuList;
+  
   //@FindBy(css = "li.MuiListItem-button:first-child")
   @UI("li.MuiListItem-button:first-child")
   public static Menu menuListFirstButton;
   
-  @BeforeMethod
-  public void before() {
-    simpleMenuPage.open();
-    simpleMenuPage.isOpened();
+  @Test
+  public void simpleMenuTest() {
+    menu.has().text("OPEN MENU");
+    menu.click();
+    menuList.is().displayed();
+    menuListFirstButton.has().text("Profile");
+    menuListFirstButton.click();
+    menu.is().displayed();
   }
+```
 
+![SimpleMenu](../images/material-ui/simpleMenu.png)
+
+#### Icon Menu
+
+```java
+  //@FindBy(css = "div[class^=MuiBox-root]>div div:nth-of-type(1) svg")
+  @UI("div[class^=MuiBox-root]>div div:nth-of-type(1) svg")
+  public static Menu iconMenu;
+  
+  //@FindBy(css = "div[class*=MuiPaper-root][style*='opacity: 1']")
+  @UI("div[class*=MuiPaper-root][style*='opacity: 1']")
+  public static Menu paddingMenuList;
+  
+  //@FindBy(css = "li.MuiListItem-button:first-child")
+  @UI("li.MuiListItem-button:first-child")
+  public static Menu menuListFirstButton;
+  
   @Test
   public void menuWithIconsTest() {
     iconMenu.is().displayedSvg();
@@ -25811,17 +25850,57 @@ Progress indicators commonly known as spinners, express an unspecified wait time
     iconMenu.is().displayed();
   }
 ```
-Menu is located in the following class:
-- __Java__: _com.epam.jdi.light.material.elements.navigation.Menu_
 
-Menus display a list of choices on temporary surfaces.
-![Menu](../images/material-ui/MenuWithIcons.png)
+![IconMenu](../images/material-ui/IconMenu.png)
 
-##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/MenuTests.java" target="_blank">Here you can find Menu tests</a>
+#### Selected Menu
+
+```java
+    //@FindBy(xpath = "//div[contains(@class,'MuiListItemText-multiline')]")
+    @UI("//div[contains(@class,'MuiListItemText-multiline')]")
+    public static Menu selelectedMenu;
+
+    @Test
+    public void selectedVerticalPositioningTest() {
+        selelectedMenu.has().text("Selected Menu\nMy account");
+        selelectedMenu.click();
+        scrollMenuList.is().displayed();
+        menuListFirstButton.has().text("Profile");
+        menuListFirstButton.click();
+        menuSelectedField.has().text("Profile");
+        selelectedMenu.is().displayed();
+    }
+```
+
+![SelectedMenu](../images/material-ui/selectedMenu.png)
+
+#### Max height Menu
+
+```java
+    //@FindBy(xpath = "button[class$=MuiIconButton-root][aria-controls='long-menu']")
+    @UI("button[class$=MuiIconButton-root][aria-controls='long-menu']")
+    public static Menu scrollMenu;
+
+    @Test
+    public void scrollMenuTest() {
+      scrollMenu.click();
+      scrollMenuList.is().displayed();
+      menuListFirstButton.has().text("None");
+      menuListLastButton.scrollToElement();
+      menuListLastButton.is().displayed();
+      menuListLastButton.click();
+      scrollMenu.is().displayed();
+      }
+```
+
+![HeightMenu](../images/material-ui/heightMenu1.png)
+![HeightMenu](../images/material-ui/heightMenu2.png)
+
+#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/MenuTests.java" target="_blank">Here you can find Menu tests</a>
 <br></br><br></br>
 
-#### ContextMenu
-#### <a href="https://material-ui.com/ru/components/menus/#context-menu" target="_blank"> https://material-ui.com/ru/components/menus/#context-menu </a>
+### Context Menu
+### <a href="https://material-ui.com/ru/components/menus/#context-menu" target="_blank"> https://material-ui.com/ru/components/menus/#context-menu </a>
  ```java
   //@FindBy(css = "li.MuiListItem-button:first-child")
   @UI("li.MuiListItem-button:first-child")

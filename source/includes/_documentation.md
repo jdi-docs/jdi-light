@@ -25816,46 +25816,63 @@ Menu is located in the following class:
 
 Menus display a list of choices on temporary surfaces.
 ![Menu](../images/material-ui/MenuWithIcons.png)
+
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/MenuTests.java" target="_blank">Here you can find Menu tests</a>
+<br></br><br></br>
+
 #### ContextMenu
 #### <a href="https://material-ui.com/ru/components/menus/#context-menu" target="_blank"> https://material-ui.com/ru/components/menus/#context-menu </a>
  ```java
-package io.github.com.pages.navigation;
+  //@FindBy(css = "li.MuiListItem-button:first-child")
+  @UI("li.MuiListItem-button:first-child")
+  public static Menu menuContextListFirstButton;
 
-import com.epam.jdi.light.elements.composite.WebPage;
-import com.epam.jdi.light.elements.pageobjects.annotations.locators.UI;
-import com.epam.jdi.light.material.elements.navigation.Menu;
+  //@FindBy(css = "li.MuiListItem-button:last-child")
+  @UI("li.MuiListItem-button:last-child")
+  public static Menu menuContextListLastButton;
 
-public class ContextMenuPage extends WebPage {
-//@FindBy(css = "li.MuiListItem-button:first-child")
-    @UI("li.MuiListItem-button:first-child")
-    public static Menu menuContextListFirstButton;
-//@FindBy(css = "li.MuiListItem-button:last-child")
-    @UI("li.MuiListItem-button:last-child")
-    public static Menu menuContextListLastButton;
-//@FindBy(css = "li.MuiListItem-button:last-child")
-    @UI("//*/p[starts-with(@class, 'MuiTypography')]")
-    public static Menu contextMenu;
-}
-@Url("/context_menu")
-    public static ContextMenuPage contextMenuPage; 
-@Test
-    public void contextMenuTest() {
-        contextMenuPage.open();
-        contextMenu.rightClick();
-        menuContextListLastButton.has().text("Email");
-        menuContextListLastButton.click();
-        contextMenu.isDisplayed()
+  //@FindBy(css = "li.MuiListItem-button:last-child")
+  @UI("//*/p[starts-with(@class, 'MuiTypography')]")
+  public static Menu contextMenu;
+
+  @Url("/context_menu")
+  public static ContextMenuPage contextMenuPage;
+
+  @Test
+  public void contextMenuTest() {
+    contextMenuPage.open();
+    contextMenu.rightClick();
+    menuContextListLastButton.has().text("Email");
+    menuContextListLastButton.click();
+    contextMenu.isDisplayed();
+  }
  ```
 Menu is located in the following class:
 - __Java__: _com.epam.jdi.light.material.elements.navigation.Menu_
 Menus display a list of choices on temporary surfaces.
-![Menu](../images/material-ui/ContextMenu.png)
+  
+![Menu](../images/material-ui/contextMenu.png)
 
 ### Lists
 
 #### <a href="https://material-ui.com/components/lists/" target="_blank"> https://material-ui.com/components/lists/ </a>
 
+Available methods in Java JDI Light:
+
+|Method | Description | Return type
+| --- | --- | --- 
+**togle()** | toggle | void
+**check()** | check | void
+**uncheck()** | uncheck | void
+**isChecked()** | return answer is checked | boolean
+**isUnchecked()** | return answer is unchecked | boolean
+**isDisabled()** | return answer is disabled | boolean
+**isEnabled()** | return answer is enabled | boolean
+**is()** | Various assert action for Lists | ListsAssert
+**getText()** | return text | String
+
+
+### Simple List
 ```java
   @Url("/simple_list")
   public static ListPage ListPage;
@@ -25874,9 +25891,86 @@ Lists is located in the following class:
 
 Lists are continuous, vertical indexes of text or images.
 
-![Lists](../images/material-ui/ListsSubheader.png)
+![simpleList](../images/material-ui/simpleList.png)
+
+### Text only and with text
+```java
+TODO
+```
+![textList](../images/material-ui/textOnly.png)
+
+### Avatar with text and icon
+```java
+TODO
+```
+![avatarList](../images/material-ui/avatarList.png)
+
+### Selected List
+```java
+TODO
+```
+![selectedList](../images/material-ui/selectedList.png)
+
+### Checkbox List
+
+```java
+    //FindBy(xpath = '//*[contains(text(),'Line item 1')]]')
+    @UI("//*[contains(text(),'Line item 1')]")
+    public Lists lineItemFirst;
+    
+    @XPath("//*[contains(text(),'Line item 1')]/../../div[contains(@class, 'MuiListItemIcon-root')]/span")
+    public Lists checkboxLineItemFirst;
+    
+    @Test
+    public void checkboxList() {
+        ListPage.lineItemFirst.is().enabled();
+        ListPage.lineItemFirst.is().text(hasToString("Line item 1"));
+        ListPage.checkboxLineItemFirst.is().checked();
+
+        ListPage.checkboxLineItemFirst.uncheck();
+        ListPage.checkboxLineItemFirst.is().unchecked();
+
+        ListPage.checkboxLineItemFirst.check();
+        ListPage.checkboxLineItemFirst.is().checked();
+    }
+```
+
+![checkboxList](../images/material-ui/checkboxList.png)
+
+### List with Switch
+
+```java
+TODO
+```
+
+![switchList](../images/material-ui/SwitchList.png)
+
+### Pinned subheader List
+
+```java
+//FindBy(xpath = '//*[contains(text(),'sticky 0')]')
+@UI("//*[contains(text(),'sticky 0')]")
+public Lists stickyZero;
+
+//FindBy(xpath = '//*[contains(text(),'sticky 1')]')
+@UI("//*[contains(text(),'sticky 1')]")
+public Lists stickyOne;
+ 
+@Test
+    public void pinnedSubHeaderList() {
+        ListPage.stickyZero.is().enabled();
+        ListPage.stickyZero.is().text(hasToString("I'm sticky 0"));
+        ListPage.stickyOne.is().enabled();
+        ListPage.stickyOne.is().text(hasToString("I'm sticky 1"));
+    }
+```
+
+![subheaderList](../images/material-ui/subheaderList.png)
+
 
 #### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/ListsTests.java" target="_blank">Here you can find Lists tests</a>
+
+<br></br><br></br>
 
 ### Transfer List
 

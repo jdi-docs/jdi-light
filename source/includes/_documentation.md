@@ -25824,7 +25824,7 @@ Available methods in Java JDI Light:
 <br></br><br></br>
 ### Simple Menu
 
-#### <a href="https://material-ui.com/ru/components/menus/" target="_blank"> https://material-ui.com/ru/components/menus/ </a>
+### <a href="https://material-ui.com/ru/components/menus/" target="_blank"> https://material-ui.com/ru/components/menus/ </a>
 
 Menu is located in the following class:
 - __Java__: _com.epam.jdi.light.material.elements.navigation.Menu_
@@ -25869,7 +25869,7 @@ Available methods in Java JDI Light:
 
 ![SimpleMenu](../images/material-ui/simpleMenu.png)
 
-#### Icon Menu
+### Icon Menu
 
 ```java
   //@FindBy(css = "div[class^=MuiBox-root]>div div:nth-of-type(1) svg")
@@ -25898,7 +25898,7 @@ Available methods in Java JDI Light:
 
 ![IconMenu](../images/material-ui/IconMenu.png)
 
-#### Selected Menu
+### Selected Menu
 
 ```java
     //@FindBy(xpath = "//div[contains(@class,'MuiListItemText-multiline')]")
@@ -25919,7 +25919,7 @@ Available methods in Java JDI Light:
 
 ![SelectedMenu](../images/material-ui/selectedMenu.png)
 
-#### Max height Menu
+### Max height Menu
 
 ```java
     //@FindBy(xpath = "button[class$=MuiIconButton-root][aria-controls='long-menu']")

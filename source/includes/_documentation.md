@@ -25824,7 +25824,7 @@ Available methods in Java JDI Light:
 <br></br><br></br>
 ### Simple Menu
 
-### <a href="https://material-ui.com/ru/components/menus/" target="_blank"> https://material-ui.com/ru/components/menus/ </a>
+#### <a href="https://material-ui.com/ru/components/menus/" target="_blank"> https://material-ui.com/ru/components/menus/ </a>
 
 Menu is located in the following class:
 - __Java__: _com.epam.jdi.light.material.elements.navigation.Menu_
@@ -25945,7 +25945,7 @@ Available methods in Java JDI Light:
 <br></br><br></br>
 
 ### Context Menu
-### <a href="https://material-ui.com/ru/components/menus/#context-menu" target="_blank"> https://material-ui.com/ru/components/menus/#context-menu </a>
+#### <a href="https://material-ui.com/ru/components/menus/#context-menu" target="_blank"> https://material-ui.com/ru/components/menus/#context-menu </a>
  ```java
   //@FindBy(css = "li.MuiListItem-button:first-child")
   @UI("li.MuiListItem-button:first-child")

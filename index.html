@@ -935,6 +935,27 @@
 								<a href="#lists" class="toc-h2 h3 toc-link" data-title="Lists">Lists</a>
                             </li>
                             <li>
+								<a href="#simple-list" class="toc-h2 h3 toc-link" data-title="Simple List">Simple List</a>
+                            </li>
+                            <li>
+								<a href="#text-only-and-with-text" class="toc-h2 h3 toc-link" data-title="Text only and with text">Text only and with text</a>
+                            </li>
+                            <li>
+								<a href="#avatar-with-text-and-icon" class="toc-h2 h3 toc-link" data-title="Avatar with text and icon">Avatar with text and icon</a>
+                            </li>
+                            <li>
+								<a href="#selected-list" class="toc-h2 h3 toc-link" data-title="Selected List">Selected List</a>
+                            </li>
+                            <li>
+								<a href="#checkbox-list" class="toc-h2 h3 toc-link" data-title="Checkbox List">Checkbox List</a>
+                            </li>
+                            <li>
+								<a href="#list-with-switch" class="toc-h2 h3 toc-link" data-title="List with Switch">List with Switch</a>
+                            </li>
+                            <li>
+								<a href="#pinned-subheader-list" class="toc-h2 h3 toc-link" data-title="Pinned subheader List">Pinned subheader List</a>
+                            </li>
+                            <li>
 								<a href="#transfer-list" class="toc-h2 h3 toc-link" data-title="Transfer List">Transfer List</a>
                             </li>
                             <li>
@@ -35228,38 +35249,94 @@ You can use for testing Text and Button classes, implemented in JDI-html section
 
 <p>Menus display a list of choices on temporary surfaces.
 <img src="images/material-ui/MenuWithIcons.png" alt="Menu" /></p>
-<h5 id='here-you-can-find-menu-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/MenuTests.java" target="_blank">Here you can find Menu tests</a></h5><h4 id='contextmenu'>ContextMenu</h4><h4 id='https-material-ui-com-ru-components-menus-context-menu'><a href="https://material-ui.com/ru/components/menus/#context-menu" target="_blank"> https://material-ui.com/ru/components/menus/#context-menu </a></h4><pre class="highlight java tab-java"><code><span class="kn">package</span> <span class="n">io</span><span class="o">.</span><span class="na">github</span><span class="o">.</span><span class="na">com</span><span class="o">.</span><span class="na">pages</span><span class="o">.</span><span class="na">navigation</span><span class="o">;</span>
+<h5 id='here-you-can-find-menu-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/MenuTests.java" target="_blank">Here you can find Menu tests</a></h5>
+<p><br></br><br></br></p>
+<h4 id='contextmenu'>ContextMenu</h4><h4 id='https-material-ui-com-ru-components-menus-context-menu'><a href="https://material-ui.com/ru/components/menus/#context-menu" target="_blank"> https://material-ui.com/ru/components/menus/#context-menu </a></h4><pre class="highlight java tab-java"><code>  <span class="c1">//@FindBy(css = "li.MuiListItem-button:first-child")</span>
+  <span class="nd">@UI</span><span class="o">(</span><span class="s">"li.MuiListItem-button:first-child"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Menu</span> <span class="n">menuContextListFirstButton</span><span class="o">;</span>
 
-<span class="kn">import</span> <span class="nn">com.epam.jdi.light.elements.composite.WebPage</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">com.epam.jdi.light.elements.pageobjects.annotations.locators.UI</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">com.epam.jdi.light.material.elements.navigation.Menu</span><span class="o">;</span>
+  <span class="c1">//@FindBy(css = "li.MuiListItem-button:last-child")</span>
+  <span class="nd">@UI</span><span class="o">(</span><span class="s">"li.MuiListItem-button:last-child"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Menu</span> <span class="n">menuContextListLastButton</span><span class="o">;</span>
 
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ContextMenuPage</span> <span class="kd">extends</span> <span class="n">WebPage</span> <span class="o">{</span>
-<span class="c1">//@FindBy(css = "li.MuiListItem-button:first-child")</span>
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"li.MuiListItem-button:first-child"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Menu</span> <span class="n">menuContextListFirstButton</span><span class="o">;</span>
-<span class="c1">//@FindBy(css = "li.MuiListItem-button:last-child")</span>
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"li.MuiListItem-button:last-child"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Menu</span> <span class="n">menuContextListLastButton</span><span class="o">;</span>
-<span class="c1">//@FindBy(css = "li.MuiListItem-button:last-child")</span>
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//*/p[starts-with(@class, 'MuiTypography')]"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Menu</span> <span class="n">contextMenu</span><span class="o">;</span>
-<span class="o">}</span>
-<span class="nd">@Url</span><span class="o">(</span><span class="s">"/context_menu"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">ContextMenuPage</span> <span class="n">contextMenuPage</span><span class="o">;</span> 
-<span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">contextMenuTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">contextMenuPage</span><span class="o">.</span><span class="na">open</span><span class="o">();</span>
-        <span class="n">contextMenu</span><span class="o">.</span><span class="na">rightClick</span><span class="o">();</span>
-        <span class="n">menuContextListLastButton</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Email"</span><span class="o">);</span>
-        <span class="n">menuContextListLastButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">contextMenu</span><span class="o">.</span><span class="na">isDisplayed</span><span class="o">()</span>
+  <span class="c1">//@FindBy(css = "li.MuiListItem-button:last-child")</span>
+  <span class="nd">@UI</span><span class="o">(</span><span class="s">"//*/p[starts-with(@class, 'MuiTypography')]"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Menu</span> <span class="n">contextMenu</span><span class="o">;</span>
+
+  <span class="nd">@Url</span><span class="o">(</span><span class="s">"/context_menu"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">ContextMenuPage</span> <span class="n">contextMenuPage</span><span class="o">;</span>
+
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">contextMenuTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">contextMenuPage</span><span class="o">.</span><span class="na">open</span><span class="o">();</span>
+    <span class="n">contextMenu</span><span class="o">.</span><span class="na">rightClick</span><span class="o">();</span>
+    <span class="n">menuContextListLastButton</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Email"</span><span class="o">);</span>
+    <span class="n">menuContextListLastButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+    <span class="n">contextMenu</span><span class="o">.</span><span class="na">isDisplayed</span><span class="o">();</span>
+  <span class="o">}</span>
 </code></pre>
 <p>Menu is located in the following class:
 - <strong>Java</strong>: <em>com.epam.jdi.light.material.elements.navigation.Menu</em>
-Menus display a list of choices on temporary surfaces.
-<img src="images/material-ui/ContextMenu.png" alt="Menu" /></p>
-<h3 id='lists'>Lists</h3><h4 id='https-material-ui-com-components-lists'><a href="https://material-ui.com/components/lists/" target="_blank"> https://material-ui.com/components/lists/ </a></h4><pre class="highlight java tab-java"><code>  <span class="nd">@Url</span><span class="o">(</span><span class="s">"/simple_list"</span><span class="o">)</span>
+Menus display a list of choices on temporary surfaces.</p>
+
+<p><img src="images/material-ui/contextMenu.png" alt="Menu" /></p>
+<h3 id='lists'>Lists</h3><h4 id='https-material-ui-com-components-lists'><a href="https://material-ui.com/components/lists/" target="_blank"> https://material-ui.com/components/lists/ </a></h4>
+<p>Available methods in Java JDI Light:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>togle()</strong></td>
+<td>toggle</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>check()</strong></td>
+<td>check</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>uncheck()</strong></td>
+<td>uncheck</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>isChecked()</strong></td>
+<td>return answer is checked</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isUnchecked()</strong></td>
+<td>return answer is unchecked</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isDisabled()</strong></td>
+<td>return answer is disabled</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isEnabled()</strong></td>
+<td>return answer is enabled</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>is()</strong></td>
+<td>Various assert action for Lists</td>
+<td>ListsAssert</td>
+</tr>
+<tr>
+<td><strong>getText()</strong></td>
+<td>return text</td>
+<td>String</td>
+</tr>
+</tbody></table>
+<h3 id='simple-list'>Simple List</h3><pre class="highlight java tab-java"><code>  <span class="nd">@Url</span><span class="o">(</span><span class="s">"/simple_list"</span><span class="o">)</span>
   <span class="kd">public</span> <span class="kd">static</span> <span class="n">ListPage</span> <span class="n">ListPage</span><span class="o">;</span>
   <span class="nd">@Test</span>
   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">pinnedSubHeaderList</span><span class="o">(){</span>
@@ -35276,8 +35353,60 @@ Menus display a list of choices on temporary surfaces.
 
 <p>Lists are continuous, vertical indexes of text or images.</p>
 
-<p><img src="images/material-ui/ListsSubheader.png" alt="Lists" /></p>
-<h4 id='here-you-can-find-lists-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/ListsTests.java" target="_blank">Here you can find Lists tests</a></h4><h3 id='transfer-list'>Transfer List</h3>
+<p><img src="images/material-ui/simpleList.png" alt="simpleList" /></p>
+<h3 id='text-only-and-with-text'>Text only and with text</h3><pre class="highlight java tab-java"><code><span class="n">TODO</span>
+</code></pre>
+<p><img src="images/material-ui/textOnly.png" alt="textList" /></p>
+<h3 id='avatar-with-text-and-icon'>Avatar with text and icon</h3><pre class="highlight java tab-java"><code><span class="n">TODO</span>
+</code></pre>
+<p><img src="images/material-ui/avatarList.png" alt="avatarList" /></p>
+<h3 id='selected-list'>Selected List</h3><pre class="highlight java tab-java"><code><span class="n">TODO</span>
+</code></pre>
+<p><img src="images/material-ui/selectedList.png" alt="selectedList" /></p>
+<h3 id='checkbox-list'>Checkbox List</h3><pre class="highlight java tab-java"><code>    <span class="c1">//FindBy(xpath = '//*[contains(text(),'Line item 1')]]')</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//*[contains(text(),'Line item 1')]"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">Lists</span> <span class="n">lineItemFirst</span><span class="o">;</span>
+
+    <span class="nd">@XPath</span><span class="o">(</span><span class="s">"//*[contains(text(),'Line item 1')]/../../div[contains(@class, 'MuiListItemIcon-root')]/span"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">Lists</span> <span class="n">checkboxLineItemFirst</span><span class="o">;</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkboxList</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">ListPage</span><span class="o">.</span><span class="na">lineItemFirst</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
+        <span class="n">ListPage</span><span class="o">.</span><span class="na">lineItemFirst</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">hasToString</span><span class="o">(</span><span class="s">"Line item 1"</span><span class="o">));</span>
+        <span class="n">ListPage</span><span class="o">.</span><span class="na">checkboxLineItemFirst</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">checked</span><span class="o">();</span>
+
+        <span class="n">ListPage</span><span class="o">.</span><span class="na">checkboxLineItemFirst</span><span class="o">.</span><span class="na">uncheck</span><span class="o">();</span>
+        <span class="n">ListPage</span><span class="o">.</span><span class="na">checkboxLineItemFirst</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">unchecked</span><span class="o">();</span>
+
+        <span class="n">ListPage</span><span class="o">.</span><span class="na">checkboxLineItemFirst</span><span class="o">.</span><span class="na">check</span><span class="o">();</span>
+        <span class="n">ListPage</span><span class="o">.</span><span class="na">checkboxLineItemFirst</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">checked</span><span class="o">();</span>
+    <span class="o">}</span>
+</code></pre>
+<p><img src="images/material-ui/checkboxList.png" alt="checkboxList" /></p>
+<h3 id='list-with-switch'>List with Switch</h3><pre class="highlight java tab-java"><code><span class="n">TODO</span>
+</code></pre>
+<p><img src="images/material-ui/SwitchList.png" alt="switchList" /></p>
+<h3 id='pinned-subheader-list'>Pinned subheader List</h3><pre class="highlight java tab-java"><code><span class="c1">//FindBy(xpath = '//*[contains(text(),'sticky 0')]')</span>
+<span class="nd">@UI</span><span class="o">(</span><span class="s">"//*[contains(text(),'sticky 0')]"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="n">Lists</span> <span class="n">stickyZero</span><span class="o">;</span>
+
+<span class="c1">//FindBy(xpath = '//*[contains(text(),'sticky 1')]')</span>
+<span class="nd">@UI</span><span class="o">(</span><span class="s">"//*[contains(text(),'sticky 1')]"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="n">Lists</span> <span class="n">stickyOne</span><span class="o">;</span>
+
+<span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">pinnedSubHeaderList</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">ListPage</span><span class="o">.</span><span class="na">stickyZero</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
+        <span class="n">ListPage</span><span class="o">.</span><span class="na">stickyZero</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">hasToString</span><span class="o">(</span><span class="s">"I'm sticky 0"</span><span class="o">));</span>
+        <span class="n">ListPage</span><span class="o">.</span><span class="na">stickyOne</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
+        <span class="n">ListPage</span><span class="o">.</span><span class="na">stickyOne</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">hasToString</span><span class="o">(</span><span class="s">"I'm sticky 1"</span><span class="o">));</span>
+    <span class="o">}</span>
+</code></pre>
+<p><img src="images/material-ui/subheaderList.png" alt="subheaderList" /></p>
+<h4 id='here-you-can-find-lists-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/ListsTests.java" target="_blank">Here you can find Lists tests</a></h4>
+<p><br></br><br></br></p>
+<h3 id='transfer-list'>Transfer List</h3>
 <p>Available methods in Java JDI Light:</p>
 
 <table><thead>

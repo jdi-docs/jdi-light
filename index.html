@@ -929,7 +929,28 @@
 								<a href="#progress-2" class="toc-h2 h3 toc-link" data-title="Progress">Progress</a>
                             </li>
                             <li>
-								<a href="#menu-3" class="toc-h2 h3 toc-link" data-title="Menu">Menu</a>
+								<a href="#link-2" class="toc-h2 h3 toc-link" data-title="Link">Link</a>
+                            </li>
+                            <li>
+								<a href="#simple-menu" class="toc-h2 h3 toc-link" data-title="Simple Menu">Simple Menu</a>
+                            </li>
+                            <li>
+								<a href="#https-material-ui-com-ru-components-menus" class="toc-h2 h3 toc-link" data-title=" https://material-ui.com/ru/components/menus/ "><a href="https://material-ui.com/ru/components/menus/" target="_blank"> https://material-ui.com/ru/components/menus/ </a></a>
+                            </li>
+                            <li>
+								<a href="#icon-menu" class="toc-h2 h3 toc-link" data-title="Icon Menu">Icon Menu</a>
+                            </li>
+                            <li>
+								<a href="#selected-menu" class="toc-h2 h3 toc-link" data-title="Selected Menu">Selected Menu</a>
+                            </li>
+                            <li>
+								<a href="#max-height-menu" class="toc-h2 h3 toc-link" data-title="Max height Menu">Max height Menu</a>
+                            </li>
+                            <li>
+								<a href="#context-menu" class="toc-h2 h3 toc-link" data-title="Context Menu">Context Menu</a>
+                            </li>
+                            <li>
+								<a href="#https-material-ui-com-ru-components-menus-context-menu" class="toc-h2 h3 toc-link" data-title=" https://material-ui.com/ru/components/menus/#context-menu "><a href="https://material-ui.com/ru/components/menus/#context-menu" target="_blank"> https://material-ui.com/ru/components/menus/#context-menu </a></a>
                             </li>
                             <li>
 								<a href="#lists" class="toc-h2 h3 toc-link" data-title="Lists">Lists</a>
@@ -1009,7 +1030,7 @@
 								<a href="#fileinput-2" class="toc-h2 h3 toc-link" data-title="FileInput">FileInput</a>
                             </li>
                             <li>
-								<a href="#link-2" class="toc-h2 h3 toc-link" data-title="Link">Link</a>
+								<a href="#link-3" class="toc-h2 h3 toc-link" data-title="Link">Link</a>
                             </li>
                             <li>
 								<a href="#button-3" class="toc-h2 h3 toc-link" data-title="Button">Button</a>
@@ -1042,7 +1063,7 @@
 								<a href="#textarea-2" class="toc-h2 h3 toc-link" data-title="TextArea">TextArea</a>
                             </li>
                             <li>
-								<a href="#menu-4" class="toc-h2 h3 toc-link" data-title="Menu">Menu</a>
+								<a href="#menu-3" class="toc-h2 h3 toc-link" data-title="Menu">Menu</a>
                             </li>
                             <li>
 								<a href="#textfield-2" class="toc-h2 h3 toc-link" data-title="TextField">TextField</a>
@@ -35215,23 +35236,184 @@ You can use for testing Text and Button classes, implemented in JDI-html section
 <p>Progress indicators commonly known as spinners, express an unspecified wait time or display the length of a process. The animation works with CSS, not JavaScript.</p>
 
 <p><img src="images/material-ui/Progress.png" alt="Progress" /></p>
-<h4 id='here-you-can-find-progress-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/feedback/ProgressTests.java" target="_blank">Here you can find Progress tests</a></h4><h3 id='menu-3'>Menu</h3><h4 id='https-material-ui-com-ru-components-menus'><a href="https://material-ui.com/ru/components/menus/" target="_blank"> https://material-ui.com/ru/components/menus/ </a></h4><pre class="highlight java tab-java"><code>  <span class="nd">@Url</span><span class="o">(</span><span class="s">"/simple_menu"</span><span class="o">)</span>
-  <span class="kd">public</span> <span class="kd">static</span> <span class="n">SimpleMenuPage</span> <span class="n">simpleMenuPage</span><span class="o">;</span>
-  <span class="c1">//@FindBy(css = "div[class^=MuiBox-root]&gt;div div:nth-of-type(1) svg")</span>
-  <span class="nd">@UI</span><span class="o">(</span><span class="s">"div[class^=MuiBox-root]&gt;div div:nth-of-type(1) svg"</span><span class="o">)</span>
-  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Menu</span> <span class="n">iconMenu</span><span class="o">;</span>
-  <span class="c1">//@FindBy(css = "div[class*=MuiPaper-root][style*='opacity: 1']")</span>
-  <span class="nd">@UI</span><span class="o">(</span><span class="s">"div[class*=MuiPaper-root][style*='opacity: 1']"</span><span class="o">)</span>
-  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Menu</span> <span class="n">paddingMenuList</span><span class="o">;</span>
+<h4 id='here-you-can-find-progress-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/feedback/ProgressTests.java" target="_blank">Here you can find Progress tests</a></h4><h3 id='link-2'>Link</h3><h4 id='https-material-ui-com-components-links'><a href="https://material-ui.com/components/links/" target="_blank"> https://material-ui.com/components/links/ </a></h4>
+<p>The Link component allows you to easily customize anchor elements with your theme colors and typography styles</p>
+
+<p><img src="images/material-ui/links.png" alt="Links" /></p>
+<pre class="highlight java tab-java"><code>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">colorInheritLinkTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">inheritColorLink</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">underlineHover</span><span class="o">();</span>
+        <span class="n">inheritColorLink</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">colorInherit</span><span class="o">();</span>
+        <span class="n">inheritColorLink</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">inheritColorLink</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">hasToString</span><span class="o">(</span><span class="s">"color=\"inherit\""</span><span class="o">));</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">bodyLinkTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">bodyLink</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">underlineHover</span><span class="o">();</span>
+        <span class="n">bodyLink</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">typographyBody</span><span class="o">();</span>
+        <span class="n">bodyLink</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">bodyLink</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">hasToString</span><span class="o">(</span><span class="s">"variant=\"body2\""</span><span class="o">));</span>
+    <span class="o">}</span>
+</code></pre>
+<p>Available methods in Java JDI Light:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>click()</strong></td>
+<td>click</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>isColorPrimary()</strong></td>
+<td>return is color primary</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isColorSecondary()</strong></td>
+<td>return is color Secondary</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isColorTextPrimary()</strong></td>
+<td>return is color text Primary</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isColorTextSecondary</strong></td>
+<td>return is color text Secondary</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isColorError()</strong></td>
+<td>return is color Error</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isUnderlineAlways()</strong></td>
+<td>return is UnderlineAlways</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isTypographyBody()</strong></td>
+<td>return is TypographyBody</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isColorInherit()</strong></td>
+<td>return is color Inherit</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isUnderlineHover()</strong></td>
+<td>return is UnderlineHover</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>is()</strong></td>
+<td>Various assert action for Link</td>
+<td>LinkAssert</td>
+</tr>
+<tr>
+<td><strong>getLinkText()</strong></td>
+<td>return text</td>
+<td>String</td>
+</tr>
+</tbody></table>
+<h4 id='here-you-can-find-link-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/LinkTests.java" target="_blank">Here you can find Link tests</a></h4>
+<p><br></br><br></br></p>
+<h3 id='simple-menu'>Simple Menu</h3><h3 id='https-material-ui-com-ru-components-menus'><a href="https://material-ui.com/ru/components/menus/" target="_blank"> https://material-ui.com/ru/components/menus/ </a></h3>
+<p>Menu is located in the following class:
+- <strong>Java</strong>: <em>com.epam.jdi.light.material.elements.navigation.Menu</em></p>
+
+<p>Menus display a list of choices on temporary surfaces.</p>
+
+<p>Available methods in Java JDI Light:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>click()</strong></td>
+<td>click</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>rightClick()</strong></td>
+<td>right-click</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>scrollToElement()</strong></td>
+<td>scroll to element</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>isDisplayed()</strong></td>
+<td>return answer is displayed</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>has()</strong></td>
+<td>Various assert action for Menu</td>
+<td>MenuAssert</td>
+</tr>
+<tr>
+<td><strong>is()</strong></td>
+<td>Various assert action for Menu</td>
+<td>MenuAssert</td>
+</tr>
+<tr>
+<td><strong>getText()</strong></td>
+<td>return text</td>
+<td>String</td>
+</tr>
+</tbody></table>
+<pre class="highlight java tab-java"><code>  <span class="c1">//@FindBy(css = "span.MuiButton-label")</span>
+  <span class="nd">@UI</span><span class="o">(</span><span class="s">"span.MuiButton-label"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Menu</span> <span class="n">menu</span><span class="o">;</span>
+
+  <span class="c1">//@FindBy(css = ".MuiMenu-list")</span>
+  <span class="nd">@UI</span><span class="o">(</span><span class="s">".MuiMenu-list"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Menu</span> <span class="n">menuList</span><span class="o">;</span>
+
   <span class="c1">//@FindBy(css = "li.MuiListItem-button:first-child")</span>
   <span class="nd">@UI</span><span class="o">(</span><span class="s">"li.MuiListItem-button:first-child"</span><span class="o">)</span>
   <span class="kd">public</span> <span class="kd">static</span> <span class="n">Menu</span> <span class="n">menuListFirstButton</span><span class="o">;</span>
 
-  <span class="nd">@BeforeMethod</span>
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">before</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">simpleMenuPage</span><span class="o">.</span><span class="na">open</span><span class="o">();</span>
-    <span class="n">simpleMenuPage</span><span class="o">.</span><span class="na">isOpened</span><span class="o">();</span>
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">simpleMenuTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">menu</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"OPEN MENU"</span><span class="o">);</span>
+    <span class="n">menu</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+    <span class="n">menuList</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+    <span class="n">menuListFirstButton</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Profile"</span><span class="o">);</span>
+    <span class="n">menuListFirstButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+    <span class="n">menu</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
   <span class="o">}</span>
+</code></pre>
+<p><img src="images/material-ui/simpleMenu.png" alt="SimpleMenu" /></p>
+<h3 id='icon-menu'>Icon Menu</h3><pre class="highlight java tab-java"><code>  <span class="c1">//@FindBy(css = "div[class^=MuiBox-root]&gt;div div:nth-of-type(1) svg")</span>
+  <span class="nd">@UI</span><span class="o">(</span><span class="s">"div[class^=MuiBox-root]&gt;div div:nth-of-type(1) svg"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Menu</span> <span class="n">iconMenu</span><span class="o">;</span>
+
+  <span class="c1">//@FindBy(css = "div[class*=MuiPaper-root][style*='opacity: 1']")</span>
+  <span class="nd">@UI</span><span class="o">(</span><span class="s">"div[class*=MuiPaper-root][style*='opacity: 1']"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Menu</span> <span class="n">paddingMenuList</span><span class="o">;</span>
+
+  <span class="c1">//@FindBy(css = "li.MuiListItem-button:first-child")</span>
+  <span class="nd">@UI</span><span class="o">(</span><span class="s">"li.MuiListItem-button:first-child"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Menu</span> <span class="n">menuListFirstButton</span><span class="o">;</span>
 
   <span class="nd">@Test</span>
   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">menuWithIconsTest</span><span class="o">()</span> <span class="o">{</span>
@@ -35244,14 +35426,43 @@ You can use for testing Text and Button classes, implemented in JDI-html section
     <span class="n">iconMenu</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
   <span class="o">}</span>
 </code></pre>
-<p>Menu is located in the following class:
-- <strong>Java</strong>: <em>com.epam.jdi.light.material.elements.navigation.Menu</em></p>
+<p><img src="images/material-ui/IconMenu.png" alt="IconMenu" /></p>
+<h3 id='selected-menu'>Selected Menu</h3><pre class="highlight java tab-java"><code>    <span class="c1">//@FindBy(xpath = "//div[contains(@class,'MuiListItemText-multiline')]")</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div[contains(@class,'MuiListItemText-multiline')]"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Menu</span> <span class="n">selelectedMenu</span><span class="o">;</span>
 
-<p>Menus display a list of choices on temporary surfaces.
-<img src="images/material-ui/MenuWithIcons.png" alt="Menu" /></p>
-<h5 id='here-you-can-find-menu-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/MenuTests.java" target="_blank">Here you can find Menu tests</a></h5>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">selectedVerticalPositioningTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">selelectedMenu</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Selected Menu\nMy account"</span><span class="o">);</span>
+        <span class="n">selelectedMenu</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">scrollMenuList</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+        <span class="n">menuListFirstButton</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Profile"</span><span class="o">);</span>
+        <span class="n">menuListFirstButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">menuSelectedField</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Profile"</span><span class="o">);</span>
+        <span class="n">selelectedMenu</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+    <span class="o">}</span>
+</code></pre>
+<p><img src="images/material-ui/selectedMenu.png" alt="SelectedMenu" /></p>
+<h3 id='max-height-menu'>Max height Menu</h3><pre class="highlight java tab-java"><code>    <span class="c1">//@FindBy(xpath = "button[class$=MuiIconButton-root][aria-controls='long-menu']")</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"button[class$=MuiIconButton-root][aria-controls='long-menu']"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Menu</span> <span class="n">scrollMenu</span><span class="o">;</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">scrollMenuTest</span><span class="o">()</span> <span class="o">{</span>
+      <span class="n">scrollMenu</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+      <span class="n">scrollMenuList</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+      <span class="n">menuListFirstButton</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"None"</span><span class="o">);</span>
+      <span class="n">menuListLastButton</span><span class="o">.</span><span class="na">scrollToElement</span><span class="o">();</span>
+      <span class="n">menuListLastButton</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+      <span class="n">menuListLastButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+      <span class="n">scrollMenu</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+      <span class="o">}</span>
+</code></pre>
+<p><img src="images/material-ui/heightMenu1.png" alt="HeightMenu" />
+<img src="images/material-ui/heightMenu2.png" alt="HeightMenu" /></p>
+<h4 id='here-you-can-find-menu-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/MenuTests.java" target="_blank">Here you can find Menu tests</a></h4>
 <p><br></br><br></br></p>
-<h4 id='contextmenu'>ContextMenu</h4><h4 id='https-material-ui-com-ru-components-menus-context-menu'><a href="https://material-ui.com/ru/components/menus/#context-menu" target="_blank"> https://material-ui.com/ru/components/menus/#context-menu </a></h4><pre class="highlight java tab-java"><code>  <span class="c1">//@FindBy(css = "li.MuiListItem-button:first-child")</span>
+<h3 id='context-menu'>Context Menu</h3><h3 id='https-material-ui-com-ru-components-menus-context-menu'><a href="https://material-ui.com/ru/components/menus/#context-menu" target="_blank"> https://material-ui.com/ru/components/menus/#context-menu </a></h3><pre class="highlight java tab-java"><code>  <span class="c1">//@FindBy(css = "li.MuiListItem-button:first-child")</span>
   <span class="nd">@UI</span><span class="o">(</span><span class="s">"li.MuiListItem-button:first-child"</span><span class="o">)</span>
   <span class="kd">public</span> <span class="kd">static</span> <span class="n">Menu</span> <span class="n">menuContextListFirstButton</span><span class="o">;</span>
 
@@ -36089,7 +36300,7 @@ Validations: <br></p>
 <a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-bdd-tests/src/test/resources/features/FileInput.feature" target="_blank">Cucumber tests</a> for FileInput<br></p>
 
 <p><br><br><br><br><br><br></p>
-<h3 id='link-2'>Link</h3><pre class="highlight gherkin tab-gherkin"><code><span class="err">Link action examples</span><span class="p">:</span>
+<h3 id='link-3'>Link</h3><pre class="highlight gherkin tab-gherkin"><code><span class="err">Link action examples</span><span class="p">:</span>
 
 <span class="nf">When</span> I click on <span class="s">"Github Link"</span>
 <span class="nf">When</span> I higlight <span class="s">"Github Link"</span>
@@ -36846,7 +37057,7 @@ More information in the <a href="https://jdi-docs.github.io/jdi-light/?java#tuto
 <br>
 <br>
 <br></p>
-<h3 id='menu-4'>Menu</h3><pre class="highlight gherkin tab-gherkin"><code><span class="err">Menu actions examples</span><span class="p">:</span>
+<h3 id='menu-3'>Menu</h3><pre class="highlight gherkin tab-gherkin"><code><span class="err">Menu actions examples</span><span class="p">:</span>
 
 <span class="nf">When</span> I select <span class="s">"Contact form"</span> in <span class="s">"Left Menu"</span> menu
 <span class="nf">When</span> I select <span class="s">"Service;Dates"</span> items in <span class="s">"Left Menu"</span> menu

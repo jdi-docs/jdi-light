@@ -25233,7 +25233,7 @@ ButtonGroup is located in the following class:
   Available methods in Java JDI Light:
   
   |Method | Description | Return Type
-  --- | --- | ---
+  | --- | --- | ---
   **getButtonByIndex()** | Get button index | int
   **select()** | Select the button | void
   **getMainButton()** | Get main button | String
@@ -25281,7 +25281,7 @@ ButtonGroupTests is located in the following class:
   Most applicable methods:
   
   |Method | Description | Return Type
-    --- | --- | ---
+  | --- | --- | ---
   **click()** | Click the button  | void
   **enabled()** | Assert that button is enabled | ButtonAssert 
   **is()**  | Assert action | ButtonAssert 

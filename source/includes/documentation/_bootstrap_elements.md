@@ -6977,7 +6977,7 @@ Available methods in Java JDI Light:
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/modal/ModalScrollingLongContentTests.java)
 
-#### [Vertically Centered Modal](https://getbootstrap.com/docs/4.3/components/modal/#vertically-centered)
+##### [Vertically Centered Modal](https://getbootstrap.com/docs/4.3/components/modal/#vertically-centered)
 
 Add ``.modal-dialog-centered`` to ``.modal-dialog`` to vertically center the modal.
 

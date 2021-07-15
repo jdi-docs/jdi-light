@@ -2,7 +2,7 @@
 
 ### Checkbox
 
-#### <a href="https://material-ui.com/components/checkboxes/" target="_blank"> https://material-ui.com/components/checkboxes/ </a>
+##### <a href="https://material-ui.com/components/checkboxes/" target="_blank"> https://material-ui.com/components/checkboxes/ </a>
 
 ```java 
     @UI("//h2[text()='Basic checkboxes']/following-sibling::div[1]/span")
@@ -48,11 +48,11 @@ Checkboxes allow the user to select one or more items from a set.
 **uncheck()** | unselect Checkbox | void
 
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/CheckboxTests.java" target="_blank">Here you can find Checkbox tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/CheckboxTests.java" target="_blank">Here you can find Checkbox tests</a>
 
 ### Chips
 
-#### <a href="https://material-ui.com/components/chips/" target="_blank"> https://material-ui.com/components/chips/ </a>
+##### <a href="https://material-ui.com/components/chips/" target="_blank"> https://material-ui.com/components/chips/ </a>
 
 ```java 
 @JDIChip
@@ -120,11 +120,11 @@ Chips are compact elements that represent an input, attribute, or action.
 **getChipRoot(int index)** | Gets root| UIElement
 **getChipIcon(int index)** | Gets Icon|UIElement
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/ChipTests.java" target="_blank">Here you can find Chips tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/ChipTests.java" target="_blank">Here you can find Chips tests</a>
 
 ### Tooltip
 
-#### <a href="https://material-ui.com/components/tooltips/" target="_blank"> https://material-ui.com/components/tooltips/ </a>
+##### <a href="https://material-ui.com/components/tooltips/" target="_blank"> https://material-ui.com/components/tooltips/ </a>
 
 ```java 
 @UI("//*[contains(@class, 'MuiIconButton-root')]")
@@ -155,11 +155,11 @@ Tooltips display informative text when users hover over, focus on, or tap an ele
 **isInteractive()** | Checks element is interactive| boolean
 **getValue()** | Gets value| String
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/TooltipTests.java" target="_blank">Here you can find Tooltip tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/TooltipTests.java" target="_blank">Here you can find Tooltip tests</a>
 
 ### Container
 
-#### <a href="https://material-ui.com/components/container/" target="_blank"> https://material-ui.com/components/container/ </a>
+##### <a href="https://material-ui.com/components/container/" target="_blank"> https://material-ui.com/components/container/ </a>
 
 ```java 
     @UI("//div[contains(@Class, 'MuiTypography-body1')]")
@@ -184,12 +184,12 @@ The container centers your content horizontally. It's the most basic layout elem
 **isDisplayed()** | Verify state | boolean
 
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/ContainerTests.java" target="_blank">Here you can find Container tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/ContainerTests.java" target="_blank">Here you can find Container tests</a>
 
 
 ### Avatar
 
-#### <a href="https://material-ui.com/ru/components/avatars/" target="_blank"> https://material-ui.com/ru/components/avatars/ </a>
+##### <a href="https://material-ui.com/ru/components/avatars/" target="_blank"> https://material-ui.com/ru/components/avatars/ </a>
 
 ```java 
     @UI("//span[@class='MuiBadge-root']/span")
@@ -225,11 +225,11 @@ Avatars are found throughout material design with uses in everything from tables
 **text()** | Asserts text | Assert
 **has()** | Verify state | boolean
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/AvatarTests.java" target="_blank">Here you can find Avatar tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/AvatarTests.java" target="_blank">Here you can find Avatar tests</a>
 
 ### Click Away Listener
 
-#### <a href="https://material-ui.com/ru/components/click-away-listener/" target="_blank"> https://material-ui.com/ru/components/click-away-listener/ </a>
+##### <a href="https://material-ui.com/ru/components/click-away-listener/" target="_blank"> https://material-ui.com/ru/components/click-away-listener/ </a>
 
 ```java     
     @UI("//h2[text()='Example']/following-sibling::div[1]/div/button")
@@ -278,11 +278,11 @@ Detect if a click event happened outside of an element. It listens for clicks th
 **displayed()** | Assert state | Assert
 **hidden()** | Assert state | Assert
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/ClickAwayListenerTests.java" target="_blank">Here you can find ClickAwayListener tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/ClickAwayListenerTests.java" target="_blank">Here you can find ClickAwayListener tests</a>
 
 ### Divider
 
-#### <a href="https://material-ui.com/components/dividers/" target="_blank"> https://material-ui.com/components/dividers/ </a>
+##### <a href="https://material-ui.com/components/dividers/" target="_blank"> https://material-ui.com/components/dividers/ </a>
 
 ```java 
     @UI("(//li[contains(@class, 'MuiDivider-root')])")
@@ -320,11 +320,11 @@ A divider is a thin line that groups content in lists and layouts.
 **isVertical()** | Assert vertical divider| boolean
 
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/DividerTests.java" target="_blank">Here you can find Divider tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/DividerTests.java" target="_blank">Here you can find Divider tests</a>
 
 ### Card
 
-#### <a href="https://material-ui.com/components/cards/" target="_blank"> https://material-ui.com/components/cards/ </a>
+##### <a href="https://material-ui.com/components/cards/" target="_blank"> https://material-ui.com/components/cards/ </a>
 
 ```java    
     @UI("//div[@class='MuiCardContent-root']/p[1]")
@@ -388,11 +388,11 @@ Cards contain content and actions about a single subject.
 **hidden()** | Assert state | Assert
 **classValue()** | Assert state | Assert
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/surfaces/CardTests.java" target="_blank">Here you can find Card tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/surfaces/CardTests.java" target="_blank">Here you can find Card tests</a>
 
 ### Radio
 
-#### <a href="https://material-ui.com/components/radio-buttons/" target="_blank"> https://material-ui.com/components/radio-buttons/ </a>
+##### <a href="https://material-ui.com/components/radio-buttons/" target="_blank"> https://material-ui.com/components/radio-buttons/ </a>
 
 ```java 
     @UI("//fieldset[@id='simpleRadio']//span[contains(@Class,'MuiRadio-root')]")
@@ -435,11 +435,11 @@ Radio buttons allow the user to select one option from a set.
 **displayed()** | Assert state | Assert
 **hidden()** | Assert state | Assert
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/RadioButtonTests.java" target="_blank">Here you can find Radio tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/RadioButtonTests.java" target="_blank">Here you can find Radio tests</a>
 
 ### App Bar
 
-#### <a href="https://material-ui.com/components/app-bar/" target="_blank"> https://material-ui.com/components/app-bar/ </a>
+##### <a href="https://material-ui.com/components/app-bar/" target="_blank"> https://material-ui.com/components/app-bar/ </a>
 
 ```java 
     @UI("//*[text()='App Bar with menu']/preceding::button[@aria-label='menu']")
@@ -504,11 +504,11 @@ The App Bar displays information and actions relating to the current screen.
 **displayed()** | Assert state | Assert
 **hidden()** | Assert state | Assert
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/surfaces/AppBarTests.java" target="_blank">Here you can find AppBar tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/surfaces/AppBarTests.java" target="_blank">Here you can find AppBar tests</a>
 
 ### Box
 
-#### <a href="https://material-ui.com/components/box/" target="_blank"> https://material-ui.com/components/box/ </a>
+##### <a href="https://material-ui.com/components/box/" target="_blank"> https://material-ui.com/components/box/ </a>
 
 ```java     
     @UI("//button[contains(@class,'MuiButton-outlined')]")
@@ -535,11 +535,11 @@ Java example code for the Button box:
 **displayed()** | Verify state | void
 **text()** | Verify text | void
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/BoxTests.java" target="_blank">Here you can find Box tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/BoxTests.java" target="_blank">Here you can find Box tests</a>
 
 ### Transitions
 
-#### <a href="https://material-ui.com/components/transitions/" target="_blank"> https://material-ui.com/components/transitions/ </a>
+##### <a href="https://material-ui.com/components/transitions/" target="_blank"> https://material-ui.com/components/transitions/ </a>
 
 ```java     
     @UI("//h1[text()='Transitions']/following::div[contains(@class,'MuiCollapse-container')]")
@@ -574,7 +574,7 @@ Transition helps make a UI expressive and easy to use.
 **classValue()** | Verify state | boolean
 **check()** | Checkbox selected | void
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/TransitionTests.java" target="_blank">Here you can find Transitions tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/TransitionTests.java" target="_blank">Here you can find Transitions tests</a>
 
 ### Material Icons
 
@@ -625,7 +625,7 @@ Transition helps make a UI expressive and easy to use.
     }
 ```
 
-#### <a href="https://material-ui.com/components/material-icons/" target="_blank"> https://material-ui.com/components/material-icons/ </a>
+##### <a href="https://material-ui.com/components/material-icons/" target="_blank"> https://material-ui.com/components/material-icons/ </a>
 
 The following npm package, @material-ui/icons, includes the 1,100+ official Material icons converted to SvgIcon components.
 
@@ -640,11 +640,11 @@ The following npm package, @material-ui/icons, includes the 1,100+ official Mate
 **click()** | Clicks on box | void
 **hover()** | Hovers on box | void
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/MaterialIconTests.java" target="_blank">Here you can find Material Icons tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/MaterialIconTests.java" target="_blank">Here you can find Material Icons tests</a>
 
 ### Icons
 
-#### <a href="https://material-ui.com/components/icons/" target="_blank"> https://material-ui.com/components/icons/ </a>
+##### <a href="https://material-ui.com/components/icons/" target="_blank"> https://material-ui.com/components/icons/ </a>
 
 ```java     
     @UI("//h2[text()='Color']/following::*[name()='svg']")
@@ -699,11 +699,11 @@ Material-UI provides icons support in three ways:
 **click()** | Clicks on box | void
 **hover()** | Hovers on box | void
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/IconTests.java" target="_blank">Here you can find Icons tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/IconTests.java" target="_blank">Here you can find Icons tests</a>
 
 ### Floating Action Button
 
-#### <a href="https://material-ui.com/components/floating-action-button/" target="_blank"> https://material-ui.com/components/floating-action-button/ </a>
+##### <a href="https://material-ui.com/components/floating-action-button/" target="_blank"> https://material-ui.com/components/floating-action-button/ </a>
 
 ```java     
     @UI("//div[@id='basicActionBtns']/button")
@@ -758,11 +758,11 @@ A floating action button appears in front of all screen content, typically as a 
 **text()** | Verify text | boolean
 **click()** | Clicks on box | void
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/FabTests.java" target="_blank">Here you can find Floating Action Button tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/FabTests.java" target="_blank">Here you can find Floating Action Button tests</a>
 
 ### Hidden
 
-#### <a href="https://material-ui.com/components/hidden/" target="_blank"> https://material-ui.com/components/hidden/ </a>
+##### <a href="https://material-ui.com/components/hidden/" target="_blank"> https://material-ui.com/components/hidden/ </a>
 
 ```java     
     @UI(".MuiTypography-subtitle1")
@@ -809,11 +809,11 @@ Quickly and responsively toggle the visibility value of components and more with
 **displayed()** | Verify state | boolean
 **text()** | Verify text | boolean
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/HiddenTests.java" target="_blank">Here you can find Hidden tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/HiddenTests.java" target="_blank">Here you can find Hidden tests</a>
 
 ### Stepper
 
-#### <a href="https://material-ui.com/components/steppers/" target="_blank"> https://material-ui.com/components/steppers/ </a>
+##### <a href="https://material-ui.com/components/steppers/" target="_blank"> https://material-ui.com/components/steppers/ </a>
 
 ![Stepper](../images/material-ui/Stepper.png)
 
@@ -851,11 +851,11 @@ You can use for testing Text and Button classes, implemented in JDI-html section
 **text()** | After is() allows to check state of text element | boolean
 **click()** | Click on button | void
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/StepperTests.java" target="_blank">Here you can find Stepper tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/StepperTests.java" target="_blank">Here you can find Stepper tests</a>
 
 ### Slider
 
-#### <a href="https://material-ui.com/components/slider/" target="_blank"> https://material-ui.com/components/slider/ </a>
+##### <a href="https://material-ui.com/components/slider/" target="_blank"> https://material-ui.com/components/slider/ </a>
 
 ```java
     @UI("//*[@id=\"continuous-slider\"]/following-sibling::div//span[contains(@class, \"MuiSlider-root\")]")
@@ -892,11 +892,11 @@ Sliders reflect a range of values along a bar, from which users may select a sin
 **moveLeft()** | Move left to one unit using arrow key on keyboard | void
 **is()** | Verify state | boolean
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/SliderTests.java" target="_blank">Here you can find Slider tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/SliderTests.java" target="_blank">Here you can find Slider tests</a>
 
 ### Tabs
 
-#### <a href="https://material-ui.com/components/Tabs/" target="_blank"> https://material-ui.com/components/Tabs/ </a>
+##### <a href="https://material-ui.com/components/Tabs/" target="_blank"> https://material-ui.com/components/Tabs/ </a>
 
 ```java
     private List<List<Button>> tableLocators;
@@ -949,11 +949,11 @@ Tabs organize and allow navigation between groups of content that are related an
 **has()** | Returns Assert class | Assert
 **text()** | Assert text | Assert
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/TabTests.java" target="_blank">Here you can find Tabs tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/TabTests.java" target="_blank">Here you can find Tabs tests</a>
 
 ### Table
 
-#### <a href="https://material-ui.com/components/Tables/" target="_blank"> https://material-ui.com/components/Tables/ </a>
+##### <a href="https://material-ui.com/components/Tables/" target="_blank"> https://material-ui.com/components/Tables/ </a>
 
 ```java
   @UI(".MuiDataGrid-main div[role='row'] div[tabindex]")
@@ -1001,11 +1001,11 @@ Tables display sets of data. They can be fully customized.
 **has()** | Returns Assert class | Assert
 **text()** | Assert text | Assert
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/TableTests.java" target="_blank">Here you can find Tables tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/TableTests.java" target="_blank">Here you can find Tables tests</a>
 
 ### Typography
 
-#### <a href="https://material-ui.com/ru/components/typography/" target="_blank"> https://material-ui.com/ru/components/typography/ </a>
+##### <a href="https://material-ui.com/ru/components/typography/" target="_blank"> https://material-ui.com/ru/components/typography/ </a>
 
 ```java
   @UI("//*[contains(@class,'MuiTypography-gutterBottom')]")
@@ -1044,11 +1044,11 @@ Use typography to present your design and content as clearly and efficiently as 
 
 ![Typography](../images/material-ui/Typography.png)
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/TypographyTests.java" target="_blank">Here you can find Typography tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/TypographyTests.java" target="_blank">Here you can find Typography tests</a>
 
 ### Badge
 
-#### <a href="https://material-ui.com/ru/components/badges/" target="_blank"> https://material-ui.com/ru/components/badges/ </a>
+##### <a href="https://material-ui.com/ru/components/badges/" target="_blank"> https://material-ui.com/ru/components/badges/ </a>
 
 ```java
   @UI("//span[@class='MuiBadge-root']")
@@ -1082,11 +1082,11 @@ Badge generates a small badge to the top-right of its child(ren).
 
 ![Badge](../images/material-ui/Badge.png)
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/BadgeTests.java" target="_blank">Here you can find Badge tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/BadgeTests.java" target="_blank">Here you can find Badge tests</a>
 
 ### Snackbars
 
-#### <a href="https://material-ui.com/components/snackbars/" target="_blank"> https://material-ui.com/components/snackbars/ </a>
+##### <a href="https://material-ui.com/components/snackbars/" target="_blank"> https://material-ui.com/components/snackbars/ </a>
 
 ```java
   @UI("//div[@class='MuiAlert-message']")
@@ -1115,11 +1115,11 @@ Snackbars provide brief messages about app processes. The component is also know
 
 ![Snackbars](../images/material-ui/Snackbars.png)
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/feedback/SnackbarTests.java" target="_blank">Here you can find Snackbars tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/feedback/SnackbarTests.java" target="_blank">Here you can find Snackbars tests</a>
 
 ### Backdrop
 
-#### <a href="https://material-ui.com/components/backdrop/" target="_blank"> https://material-ui.com/components/backdrop/ </a>
+##### <a href="https://material-ui.com/components/backdrop/" target="_blank"> https://material-ui.com/components/backdrop/ </a>
 
 ```java
   @UI(".MuiButton-root")
@@ -1140,11 +1140,11 @@ Snackbars provide brief messages about app processes. The component is also know
 The backdrop component is used to provide emphasis on a particular element or parts of it.
 ![Backdrop](../images/material-ui/Backdrop.png)
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/feedback/BackdropTests.java" target="_blank">Here you can find Backdrop tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/feedback/BackdropTests.java" target="_blank">Here you can find Backdrop tests</a>
 
 ### Dialog
 
-#### <a href="https://material-ui.com/components/dialogs/" target="_blank"> https://material-ui.com/components/dialogs/ </a>
+##### <a href="https://material-ui.com/components/dialogs/" target="_blank"> https://material-ui.com/components/dialogs/ </a>
 
 ```java
   @UI("//span[text()='Open simple dialog']/parent::*[contains(@class,'MuiButtonBase-root')]")
@@ -1183,11 +1183,11 @@ The backdrop component is used to provide emphasis on a particular element or pa
 Dialogs inform users about a task and can contain critical information, require decisions, or involve multiple tasks.
 ![Dialog](../images/material-ui/Dialog.png)
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/feedback/DialogTests.java" target="_blank">Here you can find Dialog tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/feedback/DialogTests.java" target="_blank">Here you can find Dialog tests</a>
 
 ### Date / Time pickers
 
-#### <a href="https://material-ui.com/components/pickers/" target="_blank"> https://material-ui.com/components/pickers/ </a>
+##### <a href="https://material-ui.com/components/pickers/" target="_blank"> https://material-ui.com/components/pickers/ </a>
 
 ```java
   @JDropdown(
@@ -1223,11 +1223,11 @@ Dropdown is located in the following class:
 Date pickers and Time pickers provide a simple way to select a single value from a pre-determined set.
 ![Dialog](../images/material-ui/DateTimePickers.png)
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/DateTimePickersTests.java" target="_blank">Here you can find Date/Time Pickers tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/DateTimePickersTests.java" target="_blank">Here you can find Date/Time Pickers tests</a>
 
 ### Select
 
-#### <a href="https://material-ui.com/components/selects/" target="_blank"> https://material-ui.com/components/selects/ </a>
+##### <a href="https://material-ui.com/components/selects/" target="_blank"> https://material-ui.com/components/selects/ </a>
 
 ```java
   @UI("//div[@id='simple-select']")
@@ -1260,11 +1260,11 @@ Date pickers and Time pickers provide a simple way to select a single value from
 Select components are used for collecting user provided information from a list of options.
 ![Select](../images/material-ui/Select.png)
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/SelectTests.java" target="_blank">Here you can find Select tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/SelectTests.java" target="_blank">Here you can find Select tests</a>
 
 ### Switch
 
-#### <a href="https://material-ui.com/components/switches/" target="_blank"> https://material-ui.com/components/switches/ </a>
+##### <a href="https://material-ui.com/components/switches/" target="_blank"> https://material-ui.com/components/switches/ </a>
 
 ```java
   @UI("//span[contains(@class,'MuiSwitch-switchBase')]")
@@ -1285,11 +1285,11 @@ Select components are used for collecting user provided information from a list 
 Switches toggle the state of a single setting on or off.
 ![Switch](../images/material-ui/Switch.png)
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/SwitchTests.java" target="_blank">Here you can find Switch tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/SwitchTests.java" target="_blank">Here you can find Switch tests</a>
 
 ### Button
 
-#### <a href="https://material-ui.com/components/buttons/" target="_blank"> https://material-ui.com/components/buttons/ </a>
+##### <a href="https://material-ui.com/components/buttons/" target="_blank"> https://material-ui.com/components/buttons/ </a>
 
 ```java
   @UI("//h2[text()='Contained buttons']/parent::div/div[1]/*")
@@ -1333,15 +1333,15 @@ Buttons allow users to take actions, and make choices, with a single tap.
 
 ![Buttons](../images/material-ui/Buttons.png)
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/ButtonTests.java" target="_blank">Here you can find Buttons tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/ButtonTests.java" target="_blank">Here you can find Buttons tests</a>
 
 <br></br><br></br>
 
 ### ButtonGroup
 
-#### <a href="https://jdi-testing.github.io/jdi-light/material/button_groups" target="_blank">Link to the site "Material UI test component"</a>
+##### <a href="https://jdi-testing.github.io/jdi-light/material/button_groups" target="_blank">Link to the site "Material UI test component"</a>
 
-#### Basic and Vertical button group
+##### Basic and Vertical button group
 
 **ButtonGroup** - element that represents a group of clickable button.
 
@@ -1352,13 +1352,13 @@ The ButtonGroup component can be used to group related buttons.
 
 <br></br>
 
-#### Split button
+##### Split button
 ButtonGroup can also be used to create a split button. The dropdown can change the button action (as in this example), or be used to immediately trigger a related action.
 
 ![ButtonGroup](../images/splitbutton.png)
 
 
-#### <a href="https://material-ui.com/ru/components/button-group/" target="_blank">Here you can find specification of Button Group</a>
+##### <a href="https://material-ui.com/ru/components/button-group/" target="_blank">Here you can find specification of Button Group</a>
 
 <br></br>
 
@@ -1369,7 +1369,7 @@ ButtonGroup is located in the following class:
 Available methods in Java JDI Light:
 
 |Method | Description | Return Type
-  --- | --- | ---
+  | --- | --- | ---
 **getButtonByIndex()** | Get button index | int
 **select()** | Select the button | void
 **getMainButton()** | Get main button | String
@@ -1378,7 +1378,7 @@ Available methods in Java JDI Light:
 
 <br></br>
 
-#### ButtonGroupPage
+##### ButtonGroupPage
 
 ButtonGroupPage class has been extended from WebPage. This class contains variables that are used in tests:
 - basicButtonGroup
@@ -1408,7 +1408,7 @@ public class ButtonGroupPage extends WebPage {
 
 <br></br>
 
-#### ButtonGroupTests
+##### ButtonGroupTests
 
 ButtonGroupTests is located in the following class:
 
@@ -1417,7 +1417,7 @@ ButtonGroupTests is located in the following class:
 Most applicable methods:
 
 |Method | Description | Return Type
-    --- | --- | ---
+  | --- | --- | ---
 **click()** | Click the button  | void
 **enabled()** | Assert that button is enabled | ButtonAssert
 **is()**  | Assert action | ButtonAssert
@@ -1474,13 +1474,13 @@ public class ButtonGroupTests extends TestsInit {
 
 ```
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/ButtonGroupTests.java" target="_blank">Here you can find Button group tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/ButtonGroupTests.java" target="_blank">Here you can find Button group tests</a>
 
 <br></br><br></br>
 
 ### Grid
 
-#### <a href="https://material-ui.com/components/grid/" target="_blank"> https://material-ui.com/components/grid/ </a>
+##### <a href="https://material-ui.com/components/grid/" target="_blank"> https://material-ui.com/components/grid/ </a>
 
 ```java
   @UI(".MuiContainer-root")
@@ -1514,11 +1514,11 @@ The Material Design responsive layout grid adapts to screen size and orientation
 
 ![Grid](../images/material-ui/Grids.png)
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/GridTests.java" target="_blank">Here you can find Grid tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/GridTests.java" target="_blank">Here you can find Grid tests</a>
 
 ### Drawer
 
-#### <a href="https://material-ui.com/components/drawers/" target="_blank"> https://material-ui.com/components/drawers/ </a>
+##### <a href="https://material-ui.com/components/drawers/" target="_blank"> https://material-ui.com/components/drawers/ </a>
 
 ```java
   @UI("//*[text()='left']")
@@ -1564,11 +1564,11 @@ Navigation drawers provide access to destinations in your app. Side sheets are s
 
 ![Drawer](../images/material-ui/Drawer.png)
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/DrawerTests.java" target="_blank">Here you can find Drawer tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/DrawerTests.java" target="_blank">Here you can find Drawer tests</a>
 
 ### Breadcrumbs
 
-#### <a href="https://material-ui.com/components/Breadcrumbs/" target="_blank"> https://material-ui.com/components/Breadcrumbs/ </a>
+##### <a href="https://material-ui.com/components/Breadcrumbs/" target="_blank"> https://material-ui.com/components/Breadcrumbs/ </a>
 
 ```java
   @UI(".MuiBreadcrumbs-li")
@@ -1599,11 +1599,11 @@ Breadcrumbs allow users to make selections from a range of values.
 
 ![Breadcrumbs](../images/material-ui/Breadcrumbs.png)
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/BreadcrumbsTests.java" target="_blank">Here you can find Breadcrumbs tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/BreadcrumbsTests.java" target="_blank">Here you can find Breadcrumbs tests</a>
 
 ### Bottom Navigation
 
-#### <a href="https://material-ui.com/components/bottom-navigation/" target="_blank"> https://material-ui.com/components/bottom-navigation/ </a>
+##### <a href="https://material-ui.com/components/bottom-navigation/" target="_blank"> https://material-ui.com/components/bottom-navigation/ </a>
 
 ```java
   @UI(".MuiBottomNavigationAction-root[2]")
@@ -1628,11 +1628,11 @@ Bottom navigation bars allow movement between primary destinations in an app.
 
 ![BottomNavigation](../images/material-ui/BottomNavigation.png)
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/BottomNavigationTests.java" target="_blank">Here you can find Bottom Navigation tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/BottomNavigationTests.java" target="_blank">Here you can find Bottom Navigation tests</a>
 
 ### Paper
 
-#### <a href="https://material-ui.com/components/paper/" target="_blank"> https://material-ui.com/components/paper/ </a>
+##### <a href="https://material-ui.com/components/paper/" target="_blank"> https://material-ui.com/components/paper/ </a>
 
 ```java
   @UI(".MuiPaper-root")
@@ -1658,11 +1658,11 @@ In Material Design, the physical properties of paper are translated to the scree
 
 ![Paper](../images/material-ui/Paper.png)
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/surfaces/PaperTests.java" target="_blank">Here you can find Paper tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/surfaces/PaperTests.java" target="_blank">Here you can find Paper tests</a>
 
 ### Accordion
 
-#### <a href="https://material-ui.com/components/Accordion/" target="_blank"> https://material-ui.com/components/Accordion/ </a>
+##### <a href="https://material-ui.com/components/Accordion/" target="_blank"> https://material-ui.com/components/Accordion/ </a>
 
 ```java
   @UI(".MuiBreadcrumbs-li")
@@ -1693,11 +1693,11 @@ Accordions contain creation flows and allow lightweight editing of an element.
 
 ![Accordion](../images/material-ui/Accordion.png)
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/surfaces/AccordionTests.java" target="_blank">Here you can find Accordion tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/surfaces/AccordionTests.java" target="_blank">Here you can find Accordion tests</a>
 
 ### Portal
 
-#### <a href="https://material-ui.com/components/Portal/" target="_blank"> https://material-ui.com/components/Portal/ </a>
+##### <a href="https://material-ui.com/components/Portal/" target="_blank"> https://material-ui.com/components/Portal/ </a>
 
 ```java
   @UI("//button")
@@ -1731,11 +1731,11 @@ The portal component renders its children into a new "subtree" outside of curren
 
 ![Portal](../images/material-ui/Portal.png)
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/PortalTests.java" target="_blank">Here you can find Portal tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/PortalTests.java" target="_blank">Here you can find Portal tests</a>
 
 ### Textarea Autosize
 
-#### <a href="https://material-ui.com/components/textarea-autosize/" target="_blank"> https://material-ui.com/components/textarea-autosize/ </a>
+##### <a href="https://material-ui.com/components/textarea-autosize/" target="_blank"> https://material-ui.com/components/textarea-autosize/ </a>
 
 ```java
   @UI("//textarea[@aria-label = 'empty textarea']")
@@ -1774,11 +1774,11 @@ A textarea component for React which grows with content.
 
 ![TextArea](../images/material-ui/TextareaAutosize.png)
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/TextAreaAutoSizeTests.java" target="_blank">Here you can find TextAreaAutosize tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/TextAreaAutoSizeTests.java" target="_blank">Here you can find TextAreaAutosize tests</a>
 
 ### Popover
 
-#### <a href="https://material-ui.com/components/popover/" target="_blank"> https://material-ui.com/components/popover/ </a>
+##### <a href="https://material-ui.com/components/popover/" target="_blank"> https://material-ui.com/components/popover/ </a>
 
 ```java
   @UI("//button[contains(@class,'MuiButtonBase-root')]/span[@class='MuiButton-label']")
@@ -1810,11 +1810,11 @@ A Popover can be used to display some content on top of another.
 
 ![Popover](../images/material-ui/Popover.png)
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/PopoverTests.java" target="_blank">Here you can find Popover tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/PopoverTests.java" target="_blank">Here you can find Popover tests</a>
 
 ### Modal
 
-#### <a href="https://material-ui.com/components/modal/" target="_blank"> https://material-ui.com/components/modal/ </a>
+##### <a href="https://material-ui.com/components/modal/" target="_blank"> https://material-ui.com/components/modal/ </a>
 
 ```java
   @UI("[id='simple-modal-description']")
@@ -1841,11 +1841,11 @@ The modal component provides a solid foundation for creating dialogs, popovers, 
 
 ![Modal](../images/material-ui/Modal.png)
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/ModalTests.java" target="_blank">Here you can find Modal tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/ModalTests.java" target="_blank">Here you can find Modal tests</a>
 
 ### Popper
 
-#### <a href="https://material-ui.com/components/popper/" target="_blank"> https://material-ui.com/components/popper/ </a>
+##### <a href="https://material-ui.com/components/popper/" target="_blank"> https://material-ui.com/components/popper/ </a>
 
 ```java
   @UI("button")
@@ -1871,11 +1871,11 @@ A Popper can be used to display some content on top of another. It's an alternat
 
 ![Popper](../images/material-ui/Popper.png)
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/PopperTests.java" target="_blank">Here you can find Popper tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/PopperTests.java" target="_blank">Here you can find Popper tests</a>
 
 ### Progress
 
-#### <a href="https://material-ui.com/components/progress/" target="_blank"> https://material-ui.com/components/progress/ </a>
+##### <a href="https://material-ui.com/components/progress/" target="_blank"> https://material-ui.com/components/progress/ </a>
 
 ```java
   @JDIProgressBar(root ="(//*[contains(@class, 'MuiCircularProgress-root')])[1]")
@@ -1911,31 +1911,115 @@ Progress indicators commonly known as spinners, express an unspecified wait time
 
 ![Progress](../images/material-ui/Progress.png)
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/feedback/ProgressTests.java" target="_blank">Here you can find Progress tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/feedback/ProgressTests.java" target="_blank">Here you can find Progress tests</a>
 
-### Menu
+### Link
+##### <a href="https://material-ui.com/components/links/" target="_blank"> https://material-ui.com/components/links/ </a>
 
-#### <a href="https://material-ui.com/ru/components/menus/" target="_blank"> https://material-ui.com/ru/components/menus/ </a>
+The Link component allows you to easily customize anchor elements with your theme colors and typography styles
+
+![Links](../images/material-ui/links.png)
 
 ```java
-  @Url("/simple_menu")
-  public static SimpleMenuPage simpleMenuPage;
-  //@FindBy(css = "div[class^=MuiBox-root]>div div:nth-of-type(1) svg")
-  @UI("div[class^=MuiBox-root]>div div:nth-of-type(1) svg")
-  public static Menu iconMenu;
-  //@FindBy(css = "div[class*=MuiPaper-root][style*='opacity: 1']")
-  @UI("div[class*=MuiPaper-root][style*='opacity: 1']")
-  public static Menu paddingMenuList;
+
+    @Test
+    public void colorInheritLinkTest() {
+        inheritColorLink.is().underlineHover();
+        inheritColorLink.is().colorInherit();
+        inheritColorLink.click();
+        inheritColorLink.is().text(hasToString("color=\"inherit\""));
+    }
+
+    @Test
+    public void bodyLinkTest() {
+        bodyLink.is().underlineHover();
+        bodyLink.is().typographyBody();
+        bodyLink.click();
+        bodyLink.is().text(hasToString("variant=\"body2\""));
+    }
+```
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return type
+| --- | --- | --- 
+**click()** | click | void
+**isColorPrimary()** | return is color primary | boolean
+**isColorSecondary()** | return is color Secondary | boolean
+**isColorTextPrimary()** | return is color text Primary | boolean
+**isColorTextSecondary** | return is color text Secondary | boolean
+**isColorError()** | return is color Error | boolean
+**isUnderlineAlways()** | return is UnderlineAlways | boolean
+**isTypographyBody()** | return is TypographyBody | boolean
+**isColorInherit()** | return is color Inherit | boolean
+**isUnderlineHover()** | return is UnderlineHover | boolean
+**is()** | Various assert action for Link | LinkAssert
+**getLinkText()** | return text | String
+
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/LinkTests.java" target="_blank">Here you can find Link tests</a>
+<br></br><br></br>
+### Simple Menu
+
+##### <a href="https://material-ui.com/ru/components/menus/" target="_blank"> https://material-ui.com/ru/components/menus/ </a>
+
+Menu is located in the following class:
+- __Java__: _com.epam.jdi.light.material.elements.navigation.Menu_
+
+Menus display a list of choices on temporary surfaces.
+
+Available methods in Java JDI Light:
+
+|Method | Description | Return type
+| --- | --- | --- 
+**click()** | click | void
+**rightClick()** | right-click | void
+**scrollToElement()** | scroll to element | void
+**isDisplayed()** | return answer is displayed | boolean
+**has()** | Various assert action for Menu  | MenuAssert
+**is()** | Various assert action for Menu | MenuAssert
+**getText()** | return text | String
+
+```java
+  //@FindBy(css = "span.MuiButton-label")
+  @UI("span.MuiButton-label")
+  public static Menu menu;
+  
+  //@FindBy(css = ".MuiMenu-list")
+  @UI(".MuiMenu-list")
+  public static Menu menuList;
+  
   //@FindBy(css = "li.MuiListItem-button:first-child")
   @UI("li.MuiListItem-button:first-child")
   public static Menu menuListFirstButton;
   
-  @BeforeMethod
-  public void before() {
-    simpleMenuPage.open();
-    simpleMenuPage.isOpened();
+  @Test
+  public void simpleMenuTest() {
+    menu.has().text("OPEN MENU");
+    menu.click();
+    menuList.is().displayed();
+    menuListFirstButton.has().text("Profile");
+    menuListFirstButton.click();
+    menu.is().displayed();
   }
+```
 
+![SimpleMenu](../images/material-ui/simpleMenu.png)
+
+### Icon Menu
+
+```java
+  //@FindBy(css = "div[class^=MuiBox-root]>div div:nth-of-type(1) svg")
+  @UI("div[class^=MuiBox-root]>div div:nth-of-type(1) svg")
+  public static Menu iconMenu;
+  
+  //@FindBy(css = "div[class*=MuiPaper-root][style*='opacity: 1']")
+  @UI("div[class*=MuiPaper-root][style*='opacity: 1']")
+  public static Menu paddingMenuList;
+  
+  //@FindBy(css = "li.MuiListItem-button:first-child")
+  @UI("li.MuiListItem-button:first-child")
+  public static Menu menuListFirstButton;
+  
   @Test
   public void menuWithIconsTest() {
     iconMenu.is().displayedSvg();
@@ -1947,51 +2031,108 @@ Progress indicators commonly known as spinners, express an unspecified wait time
     iconMenu.is().displayed();
   }
 ```
-Menu is located in the following class:
-- __Java__: _com.epam.jdi.light.material.elements.navigation.Menu_
 
-Menus display a list of choices on temporary surfaces.
-![Menu](../images/material-ui/MenuWithIcons.png)
+![IconMenu](../images/material-ui/IconMenu.png)
+
+### Selected Menu
+
+```java
+    //@FindBy(xpath = "//div[contains(@class,'MuiListItemText-multiline')]")
+    @UI("//div[contains(@class,'MuiListItemText-multiline')]")
+    public static Menu selelectedMenu;
+
+    @Test
+    public void selectedVerticalPositioningTest() {
+        selelectedMenu.has().text("Selected Menu\nMy account");
+        selelectedMenu.click();
+        scrollMenuList.is().displayed();
+        menuListFirstButton.has().text("Profile");
+        menuListFirstButton.click();
+        menuSelectedField.has().text("Profile");
+        selelectedMenu.is().displayed();
+    }
+```
+
+![SelectedMenu](../images/material-ui/selectedMenu.png)
+
+### Max height Menu
+
+```java
+    //@FindBy(xpath = "button[class$=MuiIconButton-root][aria-controls='long-menu']")
+    @UI("button[class$=MuiIconButton-root][aria-controls='long-menu']")
+    public static Menu scrollMenu;
+
+    @Test
+    public void scrollMenuTest() {
+      scrollMenu.click();
+      scrollMenuList.is().displayed();
+      menuListFirstButton.has().text("None");
+      menuListLastButton.scrollToElement();
+      menuListLastButton.is().displayed();
+      menuListLastButton.click();
+      scrollMenu.is().displayed();
+      }
+```
+
+![HeightMenu](../images/material-ui/heightMenu1.png)
+![HeightMenu](../images/material-ui/heightMenu2.png)
+
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/MenuTests.java" target="_blank">Here you can find Menu tests</a>
-#### ContextMenu
-#### <a href="https://material-ui.com/ru/components/menus/#context-menu" target="_blank"> https://material-ui.com/ru/components/menus/#context-menu </a>
+<br></br><br></br>
+
+### Context Menu
+##### <a href="https://material-ui.com/ru/components/menus/#context-menu" target="_blank"> https://material-ui.com/ru/components/menus/#context-menu </a>
  ```java
-package io.github.com.pages.navigation;
+  //@FindBy(css = "li.MuiListItem-button:first-child")
+  @UI("li.MuiListItem-button:first-child")
+  public static Menu menuContextListFirstButton;
 
-import com.epam.jdi.light.elements.composite.WebPage;
-import com.epam.jdi.light.elements.pageobjects.annotations.locators.UI;
-import com.epam.jdi.light.material.elements.navigation.Menu;
+  //@FindBy(css = "li.MuiListItem-button:last-child")
+  @UI("li.MuiListItem-button:last-child")
+  public static Menu menuContextListLastButton;
 
-public class ContextMenuPage extends WebPage {
-//@FindBy(css = "li.MuiListItem-button:first-child")
-    @UI("li.MuiListItem-button:first-child")
-    public static Menu menuContextListFirstButton;
-//@FindBy(css = "li.MuiListItem-button:last-child")
-    @UI("li.MuiListItem-button:last-child")
-    public static Menu menuContextListLastButton;
-//@FindBy(css = "li.MuiListItem-button:last-child")
-    @UI("//*/p[starts-with(@class, 'MuiTypography')]")
-    public static Menu contextMenu;
-}
-@Url("/context_menu")
-    public static ContextMenuPage contextMenuPage; 
-@Test
-    public void contextMenuTest() {
-        contextMenuPage.open();
-        contextMenu.rightClick();
-        menuContextListLastButton.has().text("Email");
-        menuContextListLastButton.click();
-        contextMenu.isDisplayed()
+  //@FindBy(css = "li.MuiListItem-button:last-child")
+  @UI("//*/p[starts-with(@class, 'MuiTypography')]")
+  public static Menu contextMenu;
+
+  @Url("/context_menu")
+  public static ContextMenuPage contextMenuPage;
+
+  @Test
+  public void contextMenuTest() {
+    contextMenuPage.open();
+    contextMenu.rightClick();
+    menuContextListLastButton.has().text("Email");
+    menuContextListLastButton.click();
+    contextMenu.isDisplayed();
+  }
  ```
 Menu is located in the following class:
 - __Java__: _com.epam.jdi.light.material.elements.navigation.Menu_
   Menus display a list of choices on temporary surfaces.
-  ![Menu](../images/material-ui/ContextMenu.png)
+
+![Menu](../images/material-ui/contextMenu.png)
 
 ### Lists
 
-#### <a href="https://material-ui.com/components/lists/" target="_blank"> https://material-ui.com/components/lists/ </a>
+##### <a href="https://material-ui.com/components/lists/" target="_blank"> https://material-ui.com/components/lists/ </a>
 
+Available methods in Java JDI Light:
+
+|Method | Description | Return type
+| --- | --- | --- 
+**togle()** | toggle | void
+**check()** | check | void
+**uncheck()** | uncheck | void
+**isChecked()** | return answer is checked | boolean
+**isUnchecked()** | return answer is unchecked | boolean
+**isDisabled()** | return answer is disabled | boolean
+**isEnabled()** | return answer is enabled | boolean
+**is()** | Various assert action for Lists | ListsAssert
+**getText()** | return text | String
+
+
+### Simple List
 ```java
   @Url("/simple_list")
   public static ListPage ListPage;
@@ -2010,9 +2151,86 @@ Lists is located in the following class:
 
 Lists are continuous, vertical indexes of text or images.
 
-![Lists](../images/material-ui/ListsSubheader.png)
+![simpleList](../images/material-ui/simpleList.png)
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/ListsTests.java" target="_blank">Here you can find Lists tests</a>
+### Text only and with text
+```java
+TODO
+```
+![textList](../images/material-ui/textOnly.png)
+
+### Avatar with text and icon
+```java
+TODO
+```
+![avatarList](../images/material-ui/avatarList.png)
+
+### Selected List
+```java
+TODO
+```
+![selectedList](../images/material-ui/selectedList.png)
+
+### Checkbox List
+
+```java
+    //FindBy(xpath = '//*[contains(text(),'Line item 1')]]')
+    @UI("//*[contains(text(),'Line item 1')]")
+    public Lists lineItemFirst;
+    
+    @XPath("//*[contains(text(),'Line item 1')]/../../div[contains(@class, 'MuiListItemIcon-root')]/span")
+    public Lists checkboxLineItemFirst;
+    
+    @Test
+    public void checkboxList() {
+        ListPage.lineItemFirst.is().enabled();
+        ListPage.lineItemFirst.is().text(hasToString("Line item 1"));
+        ListPage.checkboxLineItemFirst.is().checked();
+
+        ListPage.checkboxLineItemFirst.uncheck();
+        ListPage.checkboxLineItemFirst.is().unchecked();
+
+        ListPage.checkboxLineItemFirst.check();
+        ListPage.checkboxLineItemFirst.is().checked();
+    }
+```
+
+![checkboxList](../images/material-ui/checkboxList.png)
+
+### List with Switch
+
+```java
+TODO
+```
+
+![switchList](../images/material-ui/SwitchList.png)
+
+### Pinned subheader List
+
+```java
+//FindBy(xpath = '//*[contains(text(),'sticky 0')]')
+@UI("//*[contains(text(),'sticky 0')]")
+public Lists stickyZero;
+
+//FindBy(xpath = '//*[contains(text(),'sticky 1')]')
+@UI("//*[contains(text(),'sticky 1')]")
+public Lists stickyOne;
+ 
+@Test
+    public void pinnedSubHeaderList() {
+        ListPage.stickyZero.is().enabled();
+        ListPage.stickyZero.is().text(hasToString("I'm sticky 0"));
+        ListPage.stickyOne.is().enabled();
+        ListPage.stickyOne.is().text(hasToString("I'm sticky 1"));
+    }
+```
+
+![subheaderList](../images/material-ui/subheaderList.png)
+
+
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/ListsTests.java" target="_blank">Here you can find Lists tests</a>
+
+<br></br><br></br>
 
 ### Transfer List
 
@@ -2035,7 +2253,7 @@ Available methods in Java JDI Light:
 
 ### Simple Transfer List
 
-#### <a href="https://material-ui.com/components/transfer-list/#simple-transfer-list" target="_blank"> https://material-ui.com/components/transfer-list/#simple-transfer-list </a>
+##### <a href="https://material-ui.com/components/transfer-list/#simple-transfer-list" target="_blank"> https://material-ui.com/components/transfer-list/#simple-transfer-list </a>
 
 ```java
   @Test
@@ -2078,11 +2296,11 @@ Available methods in Java JDI Light:
 **moveAllElementsRight()** | Click on >> button | void
 **moveAllElementsLeft()** | Click on << button | void
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/TransferListTests.java" target="_blank">Here you can find Simple Transfer List tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/TransferListTests.java" target="_blank">Here you can find Simple Transfer List tests</a>
 
 ### Enhanced Transfer List
 
-#### <a href="https://material-ui.com/components/transfer-list/#enhanced-transfer-list" target="_blank"> https://material-ui.com/components/transfer-list/#enhanced-transfer-list </a>
+##### <a href="https://material-ui.com/components/transfer-list/#enhanced-transfer-list" target="_blank"> https://material-ui.com/components/transfer-list/#enhanced-transfer-list </a>
 
 ```java
     @Test
@@ -2117,7 +2335,7 @@ Available methods in Java JDI Light:
 **moveAllElementsRight()** | Select all elements on left list then click on > button | void
 **moveAllElementsLeft()** | Select all elements on right list then click on < button | void
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui/src/main/java/com/epam/jdi/light/material/elements/inputs/TextField.java">Here you can find Text Fields tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui/src/main/java/com/epam/jdi/light/material/elements/inputs/TextField.java">Here you can find Text Fields tests</a>
 
 ### Text Field
 
@@ -2134,7 +2352,7 @@ Available methods in Java JDI Light:
 
 ### Form Props
 
-#### <a href="https://material-ui.com/components/text-fields/#form-props" target="_blank"> https://material-ui.com/components/text-fields/#form-props </a>
+##### <a href="https://material-ui.com/components/text-fields/#form-props" target="_blank"> https://material-ui.com/components/text-fields/#form-props </a>
 
 ```java
     @Test
@@ -2192,7 +2410,7 @@ Available methods in Java JDI Light:
 
 ### Validation
 
-#### <a href="https://material-ui.com/components/text-fields/#validation" target="_blank"> https://material-ui.com/components/text-fields/#validation </a>
+##### <a href="https://material-ui.com/components/text-fields/#validation" target="_blank"> https://material-ui.com/components/text-fields/#validation </a>
 
 ```java
     @Test
@@ -2218,7 +2436,7 @@ Available methods in Java JDI Light:
 
 ### Multiline
 
-#### <a href="https://material-ui.com/components/text-fields/#multiline" target="_blank"> https://material-ui.com/components/text-fields/#multiline </a>
+##### <a href="https://material-ui.com/components/text-fields/#multiline" target="_blank"> https://material-ui.com/components/text-fields/#multiline </a>
 
 ```java
     @Test
@@ -2251,7 +2469,7 @@ Available methods in Java JDI Light:
 
 ### Select
 
-#### <a href="https://material-ui.com/components/text-fields/#select" target="_blank"> https://material-ui.com/components/text-fields/#select </a>
+##### <a href="https://material-ui.com/components/text-fields/#select" target="_blank"> https://material-ui.com/components/text-fields/#select </a>
 
 ```java
     @Test
@@ -2277,7 +2495,7 @@ Available methods in Java JDI Light:
 
 ### Input Adornments
 
-#### <a href="https://material-ui.com/components/text-fields/#input-adornments" target="_blank"> https://material-ui.com/components/text-fields/#input-adornments </a>
+##### <a href="https://material-ui.com/components/text-fields/#input-adornments" target="_blank"> https://material-ui.com/components/text-fields/#input-adornments </a>
 
 ```java
     @Test

@@ -26,6 +26,7 @@ includes:
   - documentation/angular_elements
   - documentation/bootstrap_elements
   - documentation/material_ui_elements
+  - documentation/vue_js_elements
   - documentation/jdi_features
 
 search: true

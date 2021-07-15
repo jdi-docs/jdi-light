@@ -1,7 +1,8 @@
-## Base Elements
-### UIBaseElement
+## Base information
+### Base Elements
+#### UIBaseElement
 
-### UIElement
+#### UIElement
 
 ```java 
 
@@ -98,10 +99,10 @@ Aliases in Java JDI Light:
 **text()** | Gets text | String
 
 
-### WebList
+#### WebList
 
-## Extended Selenium features
-### WaitAferMethod
+### Extended Selenium features
+#### WaitAferMethod
 
 
 You can specify the timeout that JDI will wait ater actions<br>
@@ -126,9 +127,3 @@ if methodName is empty it will be applied to all "action" methods (taht not get 
      assertEquals(colorValue.getText(), "Gold") - will wait ater getText 1 seconds
    }
  ```
-
-#### TestHeader4_1
-#### TestHeader4_2
-#### TestHeader4_3
-##### TestHeader5_1
-##### TestHeader5_2

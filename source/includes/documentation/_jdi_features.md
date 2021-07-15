@@ -1,6 +1,7 @@
-## JDI Features for parameters in BDD steps
+## JDI features
+### JDI Features for parameters in BDD steps
 
-### Using aliases as locators parameters
+#### Using aliases as locators parameters
 ```gherkin
    Scenario: input element
        When I input "simple 1234" in "Name"
@@ -35,7 +36,7 @@ Therefore it is **essential** that all the elements defined with **unique names*
 [BDD feature test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bdd-no-po-tests/src/test/resources/features/TestsWithProperties.feature)<br>
 [Json PageObject file example](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bdd-no-po-tests/src/test/resources/json/page/objects/html5page.json)
 <br><br><br>
-### Using locators as parameters
+#### Using locators as parameters
 ```gherkin
    Scenario: click element
        When I click on "[value*='Red Button']"
@@ -52,7 +53,7 @@ Feature allows to use locator as parameter instead of an element name.<br><br><b
 
 [BDD feature test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bdd-no-po-tests/src/test/resources/features/TestsWithLocators.feature)
 <br><br><br>
-### Using element names defined with capital letter as locator IDs
+#### Using element names defined with capital letter as locator IDs
 ```gherkin
    Scenario: isDisabled element
        Then the "Disabled Name" is disabled
@@ -76,7 +77,7 @@ Smart locator is generated like ID with lover case element name: **#element-name
 For better understanding of this test example remove **"Name": "#name"** from html5page.json to be sure how smart locator works.
 <br><br><br>
 
-### Using aliases for pages URLs
+#### Using aliases for pages URLs
 
 ```gherkin
    #Instead of this:
@@ -115,9 +116,9 @@ Note: domain is read from test.properties automatically. <br><br><br><br><br>
 [BDD feature test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bdd-no-po-tests/src/test/resources/features/JsonBasedPage.feature)
 <br><br><br>
 
-## JDI Light BDD Steps
+### JDI Light BDD Steps
 
-### Label
+#### Label
 
 ```gherkin
 Label action examples:
@@ -164,7 +165,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 <a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-bdd-tests/src/test/resources/features/Label.feature" target="_blank">Cucumber tests</a> for Label<br>
 <br><br><br><br>
 
-### ColorPicker
+#### ColorPicker
 
 ```gherkin
 ColorPicker action example:
@@ -217,7 +218,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 
 <br><br><br><br><br><br>
 
-### DropDown
+#### DropDown
 
 ```gherkin
 DropDown action example:
@@ -266,7 +267,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 
 <br><br><br><br><br>
 
-### Image
+#### Image
 
 ````gherkin
 Image validation examples:
@@ -311,7 +312,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-### Icon
+#### Icon
 
 ````gherkin
 Image validation examples:
@@ -356,7 +357,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi
 <a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-bdd-tests/src/test/resources/features/Image.feature" target="_blank">Cucumber tests</a> for Image <br>
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-### Alert
+#### Alert
 
 ````gherkin
 Alert action examples:
@@ -406,7 +407,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 <br>
 <br>
 
-### FileInput
+#### FileInput
 
 ```gherkin
 FileInput action examples:
@@ -468,7 +469,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 
 <br><br><br><br><br><br>
 
-### Link
+#### Link
 
 ```gherkin
 Link action examples:
@@ -551,7 +552,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi
 
 
 <br><br><br>
-### Button
+#### Button
 
 ```gherkin
 Button action examples:
@@ -637,7 +638,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 <a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-bdd-tests/src/test/resources/features/Button.feature" target="_blank">Cucumber tests</a>) for Button<br>
 
 <br>
-### DateTimeSelector
+#### DateTimeSelector
 
 ```gherkin
 DateTimeSelector action example:
@@ -695,7 +696,7 @@ There are BDD test examples for Input Type Date derivatives:<br>
 
 
 
-### Checkbox
+#### Checkbox
 
 ```gherkin
 Checkbox action examples:
@@ -755,7 +756,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 <a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-bdd-tests/src/test/resources/features/Checkbox.feature" target="_blank">Cucumber tests</a> for Checkbox<br>
 
 <br><br><br><br><br><br><br><br>
-### Progress Bar
+#### Progress Bar
 
 ```gherkin
 Progress Bar validation examples:
@@ -802,7 +803,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 <a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-bdd-tests/src/test/resources/features/ProgressBar.feature" target="_blank">Cucumber tests</a> for Progress Bar<br>
 <br><br><br><br><br><br><br><br>
 
-### Text
+#### Text
 
 ```gherkin
 Text validation examples:
@@ -852,7 +853,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi
 <a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-bdd-tests/src/test/resources/features/Text.feature" target="_blank">Cucumber tests</a> for Text<br><br>
 <br><br><br><br><br><br><br><br>
 
-### ComboBox
+#### ComboBox
 
 ```gherkin
 ComboBox action examples:
@@ -930,7 +931,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 <a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-bdd-tests/src/test/resources/features/ComboBox.feature" target="_blank">Cucumber tests</a> for ComboBox<br><br>
 <br><br><br><br><br><br><br><br>
 
-### DataList
+#### DataList
 
 <p style="color:#FFA500">Note: this element is an alias for ComboBox</p>
 ```gherkin
@@ -1004,7 +1005,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 <a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-bdd-tests/src/test/resources/features/DataList.feature" target="_blank">Cucumber tests</a> for DataList<br><br>
 <br><br><br><br><br><br><br><br>
 
-### NumberSelector
+#### NumberSelector
 
 ````gherkin
 
@@ -1110,7 +1111,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 <br>
 <br>
 
-### Range
+#### Range
 
 ```gherkin
 Range action examples:
@@ -1175,7 +1176,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 <br>
 <br>
 
-### TextArea
+#### TextArea
 
 ```gherkin
 TextArea actions examples:
@@ -1293,7 +1294,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi
 <br>
 <br>
 
-### Menu
+#### Menu
 
 ```gherkin
 Menu actions examples:
@@ -1362,7 +1363,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi
 <br>
 <br>
 <br>
-### TextField
+#### TextField
 ```gherkin
 TextField action example:
 
@@ -1416,7 +1417,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 <br>
 <br>
 
-### MultiSelector
+#### MultiSelector
 ```gherkin
 MultiSelector actions examples:
 
@@ -1482,7 +1483,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 <br>
 <br>
 
-### MultiDropDown
+#### MultiDropDown
 
 <p style="color:#FFA500">Note: this element is an alias for MultiSelector</p>
 
@@ -1550,7 +1551,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 <br>
 <br>
 
-### CheckList
+#### CheckList
 
 ```gherkin
 CheckList actions examples:
@@ -1633,7 +1634,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 
 <br><br><br><br><br><br><br><br><br><br><br>
 
-### Table
+#### Table
 
 ```gherkin
 Table actions examples:
@@ -1720,7 +1721,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi
 <a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-bdd-tests/src/test/resources/features/Table.feature" target="_blank">Cucumber tests</a> for Table<br>
 <br><br><br><br><br><br><br><br><br><br><br>
 
-### DataTable
+#### DataTable
 
 Note: this element is an alias for Table
 
@@ -1798,7 +1799,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi
 <a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-bdd-tests/src/test/resources/features/Table.feature" target="_blank">Cucumber tests</a> for Table<br>
 <br><br><br><br><br><br><br><br><br><br><br>
 
-### Form
+#### Form
 
 ```gherkin
 Form actions examples:
@@ -1903,7 +1904,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 
 
 <br>
-### Radiobuttons
+#### Radiobuttons
 
 ```gherkin
 Radiobuttons actions examples:
@@ -1976,7 +1977,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/#jdi
 <a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-bdd-tests/src/test/resources/features/RadioButtons.feature" target="_blank">Cucumber tests</a> for Radiobuttons<br>
 <br><br><br><br><br><br><br><br><br><br><br><br>
 
-### WebPage
+#### WebPage
 ```gherkin
 WebPage action examples:
 
@@ -2043,12 +2044,12 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 <br>
 
 
-## UI Objects
+### UI Objects
 TBD
 
-###Web
+####Web
 
-## Non-Static Site initialization
+### Non-Static Site initialization
 
 ```java
 
@@ -2087,11 +2088,11 @@ public class NonStaticTestsInit {
 Simple non-static site initialization example ------>
 
 
-## Smart Locators
+### Smart Locators
 
 [See details and examples for Smart locators in the documentation](https://jdi-docs.github.io/jdi-light/?java#smart-locators)
 
-## JDI Locators
+### JDI Locators
 
 JDI provides various ways for detecting elements (including using Css locators and Xpath expressions).
 JDI Light supports Selenium @FindBy(s) locators, while also providing custom locators such as Selenium-like **@FindBy(s)**, aliases **@Css**/**@XPath** and custom **@ByText** and **@WithText** locators.
@@ -2100,7 +2101,7 @@ Furthermore, JDI Light introduces the **@UI** locator, which provides additional
 
 Apart from locator annotations JDI Light provides support for smart locators. When using this feature, there is no need to explicitly provide locators for elements at all.
 
-### Selenium-like annotations
+#### Selenium-like annotations
 
 |Annotation | Description | Example
 --- | --- | ---
@@ -2108,7 +2109,7 @@ Apart from locator annotations JDI Light provides support for smart locators. Wh
 **@FindBy** | This JDI Light locator corresponds to Selenium @FindBy locator. It is used to locate an element using one of the predefined strategies. JDI Light supports most of the Selenium strategies: **id**, **name**, **className**, **css**, **tagName**, **linkText**, **partialLinkText**, **xpath**. Added strategy is **text**, which allows detecting element(s) with the given text inside its text nodes. The **group** annotation parameter allows to use different **@FindBy** locators for different test groups. | @FindBy(css = "#passport")
 **@FindBys** | TBD. The JDI Light annotation should correspond exactly to Selenium @FindBys annotation | @FindBys({@FindBy(css = ".main-form"), @FindBy(css = "#accept-conditions")})
 
-### JDI Light specific annotations
+#### JDI Light specific annotations
 
 |Annotation | Description | Example
 --- | --- | ---
@@ -2124,12 +2125,12 @@ Apart from locator annotations JDI Light provides support for smart locators. Wh
 **@XPath("expr")** | This locator is an alias for @FindBy(xpath = "expr") | @XPath(".//button\[@type='submit'\]")
 
 
-### Smart locators
+#### Smart locators
 
 [See details and examples for Smart locators in the documentation](https://jdi-docs.github.io/jdi-light/?java#smart-locators)
 
 
-## Windows/Tabs manager
+### Windows/Tabs manager
 ```java 
 //example 1
 homePage.shouldBeOpened();
@@ -2162,7 +2163,7 @@ JDI has good support for managing opened windows and tabs of the browser. It can
 **switchToWindow(int number)** | Switch to window with a number. _switchToWindow(2) means switch to the second window_ | void
 **windowsCount()** | Get window count | int
 
-## Alerts
+### Alerts
 ```java 
 alertButton.click();
 acceptAlert();
@@ -2241,7 +2242,7 @@ Available methods in Java
 
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#alert)
 
-## Logs
+### Logs
 ```java 
 //setup loglevel before running a test (for example in TestInit)
 logger.setLogLevel(STEP);
@@ -2276,8 +2277,8 @@ Level _STEP_ can show business-related information in the console output, and yo
 **ALL(MAX_VALUE)** | All log messages (do not use for production stage)
 
 
-## Reports
-### Allure
+### Reports
+#### Allure
 
 JDILogger
 <br>
@@ -2299,10 +2300,10 @@ AllureLoggerHelper
 
 <a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-examples/src/test/java/io/github/epam/tests/allurereport" target="_blank">Allure screenshoots tests</a> for WebPage<br>
 
-### Report Portal
+#### Report Portal
 TBD
 
-## SoftAsserts
+### SoftAsserts
 
 ```java 
     @Test
@@ -2385,7 +2386,7 @@ There are two ways to use **assertResults()** method:
 
 - As a separate method if you need to check several elements (e.g. _multipleValidationsTest_)
 
-## JDI asserts
+### JDI asserts
 
 Also we have some classes with JDI special asserts in the next packages:
 
@@ -2527,7 +2528,7 @@ Also we have some classes with JDI special asserts in the next packages:
 **minlength(Matcher<Integer> condition)** | - assert minimum length of element |
 **maxlength(Matcher<Integer> condition)** | - assert minimum length of element |
 
-## Driver Settings
+### Driver Settings
 We can change default settings placed in the test.properties file (src/test/resources)
 
 |Property name | Description | Examples
@@ -2563,7 +2564,7 @@ public class TestsInit {
 
 This is example how to initialize of custom driver:
 
-## JDI Settings
+### JDI Settings
 
 |Property name | Description | Examples
 --- | --- | ---
@@ -2581,17 +2582,17 @@ This is example how to initialize of custom driver:
 **smart.locators** | A list of templates for <a href="https://jdi-docs.github.io/jdi-light/#smart-locators">Smart locators</a>. Should be separated by ; symbol | smart.locators=#%s;[ui=%s]
 **timeout.wait.page** | JDI Light automatically defines that new page is opened and in this case will use this timeout (usually it is more than enough for an element). By default, it's 30 seconds. Valid values are integers from 0 to 999. | timeout.wait.page = 40
 
-## Parallel tests run
+### Parallel tests run
 TBD
 
-## Remote test runs
+### Remote test runs
 TBD
 
-## SauceLabs integration
+### SauceLabs integration
 
 Before running JDI project in Sauce Lab, you need to set up Sauce Lab Credentials.
 
-#### Set Your Sauce Labs Credentials
+##### Set Your Sauce Labs Credentials
 1. Copy your Sauce Labs **username** and **accessKey** in the [User Settings](https://app.saucelabs.com/user-settings) section of the [Sauce Labs Dashboard](https://app.saucelabs.com/dashboard/builds).
 2. Open a Terminal window (command prompt for Windows) and set your Sauce Labs Environment variables:
 
@@ -2640,7 +2641,7 @@ Before running JDI project in Sauce Lab, you need to set up Sauce Lab Credential
     > echo %SAUCE_ACCESS_KEY%
 ```
 
-#### Required Sauce Lab Capabilities
+##### Required Sauce Lab Capabilities
 
 Following capabilities are required for Sauce Lab:
 
@@ -2662,7 +2663,7 @@ Here some optional capabilities:
 
 More optional capabilities can be found [here](https://github.com/saucelabs-training/demo-java/blob/master/on-boarding-modules/testng/src/test/java/Module4TestNGTest.java)
 
-#### JDI options
+##### JDI options
 
 In order to run test with Sauce Lab you need set up remote settings in test.properties file:
 
@@ -2676,9 +2677,9 @@ Remote url should be different if you are from US.
 
 And that it. Set Sauce Lab capabilities, set remote execution in test.properties and you can run test with Sauce Labs.
 
-## Applitools Eyes integration
+### Applitools Eyes integration
 
-#### 1. Set your Applitools Eyes key as a system variable
+##### 1. Set your Applitools Eyes key as a system variable
 
 Open a Terminal window (command prompt for Windows) and set your Applitools Eyes key:
 
@@ -2721,7 +2722,7 @@ Check that the environment variable is set:
     > echo %APPLITOOLS_API_KEY%
 ```
 
-#### 2. Add Applitools Eyes dependency to the .pom file:
+##### 2. Add Applitools Eyes dependency to the .pom file:
 
 ```html
     <dependency>
@@ -2731,7 +2732,7 @@ Check that the environment variable is set:
     </dependency>
 ```
 
-#### 3. Configure before and after methods:
+##### 3. Configure before and after methods:
 
 In before suite method (if you use testNG, that'll the method annotated by @BeforeSuite) call
 
@@ -2753,7 +2754,7 @@ In after suite method call
 
 That's it, check your tests results [here](https://eyes.applitools.com/app/test-results)
 
-## Multiple domains example
+### Multiple domains example
 Here is the example [MultipleDomainsExampleTest.java](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/MultipleDomainsExampleTest.java)
 of test class with multiple domain. For this example the following files were added to the project:
 

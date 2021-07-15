@@ -1,4 +1,5 @@
-## Angular Common elements
+## Angular elements
+### Angular Common elements
 
 ```java 
     @UI("#divider-list mat-divider")
@@ -17,9 +18,9 @@
     }
 ```
 
-### Divider
+#### Divider
 
-#### <a href="https://material.angular.io/components/divider/overview" target="_blank">Divider overview</a>
+##### <a href="https://material.angular.io/components/divider/overview" target="_blank">Divider overview</a>
 
 Divider is located in the following class:
 
@@ -51,7 +52,7 @@ Divider icon:
 --- | --- | ---
 **isDisplayed** | Verify state | boolean
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/DividerTests.java" target="_blank">Here you can find Divider tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/DividerTests.java" target="_blank">Here you can find Divider tests</a>
 
 <br>  
 
@@ -83,9 +84,9 @@ Divider icon:
     }
 ```
 
-### Icons
+#### Icons
 
-#### <a href="https://material.angular.io/components/icon/overview" target="_blank">Icon overview</a>
+##### <a href="https://material.angular.io/components/icon/overview" target="_blank">Icon overview</a>
 
 Icon is located in the following class:
 
@@ -108,11 +109,11 @@ There is two different icons in Angular: Basic icon and SVG icon:
 **isDisplayed** | Verify state | boolean
 **show()** | Scroll to element | void
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/IconsTests.java" target="_blank">Here you can find Icons tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/IconsTests.java" target="_blank">Here you can find Icons tests</a>
 
 <br>  
 
-### Progress spinner
+#### Progress spinner
 
 ```java 
     //@FindBy(id="basic_progress_spinner") public static Icon basicIcon;
@@ -128,7 +129,7 @@ There is two different icons in Angular: Basic icon and SVG icon:
     }
 ```
 
-#### <a href="https://material.angular.io/components/progress-spinner/overview" target="_blank">Progress Spinner overview</a>
+##### <a href="https://material.angular.io/components/progress-spinner/overview" target="_blank">Progress Spinner overview</a>
 
 Progress Spinner is located in the following class:
 
@@ -146,10 +147,10 @@ Progress Spinner is located in the following class:
 **isDisplayed()** | Verify state | boolean
 **show()** | Scroll to element | void
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/SpinnerTests.java" target="_blank">Here you can find Spinner tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/SpinnerTests.java" target="_blank">Here you can find Spinner tests</a>
 
 
-### Slide toggle
+#### Slide toggle
 
 ```java 
     //@FindBy(id="slide-toggles-basic") public static SlideToggle basicSlideToggle;
@@ -175,7 +176,7 @@ Progress Spinner is located in the following class:
     }
 ```
 
-#### <a href="https://material.angular.io/components/slide-toggle/overview" target="_blank">Slide toggle overview</a>
+##### <a href="https://material.angular.io/components/slide-toggle/overview" target="_blank">Slide toggle overview</a>
 
 Slide toggle is located in the following class:
 
@@ -252,9 +253,9 @@ There is two different slide toggles in Angular: Basic and Configurable:
 **click()** | Click element | void
 **hasClass()** | Verify element class | boolean
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/SlideToggleTests.java" target="_blank">Here you can find Slide toggle tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/SlideToggleTests.java" target="_blank">Here you can find Slide toggle tests</a>
 
-### Checkbox
+#### Checkbox
 ```java 
 //@FindBy(id="basic-checkbox")
 public static Checkbox basicCheckbox;
@@ -274,7 +275,7 @@ public void checkBasicCheckbox() {
     basicCheckbox.is().selected();
 }
 ```
-#### <a href="https://material.angular.io/components/checkbox/overview" target="_blank">Checkbox overview</a>
+##### <a href="https://material.angular.io/components/checkbox/overview" target="_blank">Checkbox overview</a>
 
 Checkbox is located in the following class:
 
@@ -388,11 +389,11 @@ List of some available **Checkbox** methods:
 **isIndeterminate()** | Shows that Checkbox has indeterminate | boolean
 **label()** | Get element label | Label
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/CheckboxTests.java" target="_blank">Here you can find Checkbox tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/CheckboxTests.java" target="_blank">Here you can find Checkbox tests</a>
 
-### Inputs
+#### Inputs
 
-#### <a href="https://material.angular.io/components/input/overview" target="_blank">Input overview</a>
+##### <a href="https://material.angular.io/components/input/overview" target="_blank">Input overview</a>
 
 Input is located in the following class:
 
@@ -750,9 +751,9 @@ There are eight different inputs in Angular:
 **placeholder()** | returns value of placeholder attribute | String
 
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/InputTests.java" target="_blank">Java tests examples</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/InputTests.java" target="_blank">Java tests examples</a>
 
-### Toolbar
+#### Toolbar
 
 ```java 
     /**@FindBy(id = "toolbar-basic") public static ToolbarSection toolbarSection;*/
@@ -793,7 +794,7 @@ There are eight different inputs in Angular:
     }
    } 
 ```
-#### <a href="https://material.angular.io/components/toolbar/overview" target="_blank">Toolbar overview</a>
+##### <a href="https://material.angular.io/components/toolbar/overview" target="_blank">Toolbar overview</a>
 
 "mat-toolbar" is a container for headers, titles, or actions.
 
@@ -817,11 +818,11 @@ There is two different toolbars in Angular: Single row and Multiple row:
 **is()** | Assert action | TextAssert
 **displayed()** | Check that element is displayed | TextAssert
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/ToolbarTests.java" target="_blank">Here you can find Toolbar tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/ToolbarTests.java" target="_blank">Here you can find Toolbar tests</a>
 
-### Basic Button
+#### Basic Button
 
-#### <a href="https://material.angular.io/components/button/overview" target="_blank">Button overview</a>
+##### <a href="https://material.angular.io/components/button/overview" target="_blank">Button overview</a>
 
 Basic Button is located in the following class:
 
@@ -899,11 +900,11 @@ The angular Button:
 **getText()** | Get button text | String
 **is()** | Assert action | TextAssert
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/BasicButtonTests.java" target="_blank">Basic Button java tests examples</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/BasicButtonTests.java" target="_blank">Basic Button java tests examples</a>
 
-### Button toggle
+#### Button toggle
 
-#### <a href="https://material.angular.io/components/button-toggle/overview" target="_blank">Button toggle overview</a>
+##### <a href="https://material.angular.io/components/button-toggle/overview" target="_blank">Button toggle overview</a>
 
 Button toggle is based on Basic Button. Basic Button is located in the following class:
 
@@ -1010,11 +1011,11 @@ There are two different button toggles in Angular: Basic and Exclusive:
 **disabled()** | Check that element is disabled | TextAssert
 **text()** | Check whether a text matches a pattern | IsAssert
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/ButtonToggleTests.java" target="_blank">Here you can find Button toggle tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/ButtonToggleTests.java" target="_blank">Here you can find Button toggle tests</a>
 
-### Badge
+#### Badge
 
-#### <a href="https://material.angular.io/components/badge/overview" target="_blank">Badge overview</a>
+##### <a href="https://material.angular.io/components/badge/overview" target="_blank">Badge overview</a>
 
 Badge is located in the following class:
 
@@ -1068,11 +1069,11 @@ public void iconBadgeTest() {
 **has()** | Assert action | BadgeAssert
 **color()** | Check that color is correct | boolean
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/BadgeTests.java" target="_blank">Here you can find Badge tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/BadgeTests.java" target="_blank">Here you can find Badge tests</a>
 
-### Progress bar
+#### Progress bar
 
-#### <a href="https://material.angular.io/components/progress-bar/overview" target="_blank">Progress bar overview</a>
+##### <a href="https://material.angular.io/components/progress-bar/overview" target="_blank">Progress bar overview</a>
 
 Progress bar is located in the following class:
 
@@ -1220,11 +1221,11 @@ List of the available **Progress bar** methods:
 **bufferValue()** | Assert action | ProgressBarAssert
 **color()** | Assert action | ProgressBarAssert
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/ProgressBarTests.java" target="_blank">Progress bar java tests examples</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/ProgressBarTests.java" target="_blank">Progress bar java tests examples</a>
 
-### Slider
+#### Slider
 
-#### <a href="https://material.angular.io/components/slider/overview" target="_blank">Slider overview</a>
+##### <a href="https://material.angular.io/components/slider/overview" target="_blank">Slider overview</a>
 
 Progress bar locates in the following class:
 
@@ -1307,9 +1308,9 @@ List of the available **Slider** methods:
 **slide()** | Drag & drop based on percentage length | void
 **thumbLabelDisplayed()** | Assert action | SliderAssert
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/SliderTests.java" target="_blank">Slider java tests examples</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/SliderTests.java" target="_blank">Slider java tests examples</a>
 
-### Tooltip
+#### Tooltip
 
 ```java 
     @UI(".mat-tooltip")
@@ -1341,7 +1342,7 @@ List of the available **Slider** methods:
         );
     }	
 ```
-#### <a href="https://material.angular.io/components/tooltip/overview" target="_blank">Tooltip overview</a>
+##### <a href="https://material.angular.io/components/tooltip/overview" target="_blank">Tooltip overview</a>
 
 Tooltip is located in the following class:
 
@@ -1365,11 +1366,11 @@ Tooltip is located in the following class:
 **position(UIBaseElement<?> element)** | Get position relative to element | Position
 **is()** | Assert action | TooltipAssert
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/TooltipTests.java" target="_blank">Here you can find Tooltip tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/TooltipTests.java" target="_blank">Here you can find Tooltip tests</a>
 
-### Spinner
+#### Spinner
 
-#### <a href="https://material.angular.io/components/progress-spinner/overview" target="_blank">Tooltip overview</a>
+##### <a href="https://material.angular.io/components/progress-spinner/overview" target="_blank">Tooltip overview</a>
 
 Spinner is located in the following class:
 
@@ -1432,14 +1433,14 @@ public void checkSpinnerDurationTest() {
 **isDisplayed()** | Check that element is displayed | boolean
 **isHidden()** | Check that element is hidden | boolean
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/SpinnerTests.java" target="_blank">Here you can find Spinner tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/common/SpinnerTests.java" target="_blank">Here you can find Spinner tests</a>
 
 
-## Angular Complex elements
+### Angular Complex elements
 
-### Radio Buttons
+#### Radio Buttons
 
-#### <a href="https://material.angular.io/components/radio/overview" target="_blank">Radio button overview</a>
+##### <a href="https://material.angular.io/components/radio/overview" target="_blank">Radio button overview</a>
 
 Element that can be represented with one or more clickable buttons aiming to choose only one button of the group.
 
@@ -1515,11 +1516,11 @@ There are two different radio buttons types in Angular: Basic radios and Radios 
 **displayed()** | Check that element is displayed | TextAssert
 **text()** | Assert that element has presented text | TextAssert
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/RadioButtonTests.java" target="_blank">Here you can find Radio Button tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/RadioButtonTests.java" target="_blank">Here you can find Radio Button tests</a>
 
-### List
+#### List
 
-#### <a href="https://material.angular.io/components/list/overview" target="_blank">List overview</a>
+##### <a href="https://material.angular.io/components/list/overview" target="_blank">List overview</a>
 
 List is a container component that wraps and formats a series of line items.
 
@@ -1608,10 +1609,10 @@ See an example with HTML code describing list with sections element.
 **show()** | Scroll to element | void
 **text(String text)** | Check whether a text matches a pattern | TextAssert
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/ListTests.java" target="_blank">List java tests examples</a>
-### Grid list
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/ListTests.java" target="_blank">List java tests examples</a>
+#### Grid list
 
-#### <a href="https://material.angular.io/components/grid-list/overview" target="_blank">Grid list overview</a>
+##### <a href="https://material.angular.io/components/grid-list/overview" target="_blank">Grid list overview</a>
 
 Grid list is a two-dimensional list view that arranges cells into grid-based layout.
 
@@ -1701,11 +1702,11 @@ id="{{ 'dynamic-grid-list-' + tile.text.toLowerCase() }}"
 **text(String text)** | Check whether a text matches a pattern | TextAssert
 **has()** | Assert that element has attribute | TextAssert
 **css(String css, String value)** | Match passed value with the element css | IsAssert
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/GridListTests.java" target="_blank">Grid list java tests examples</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/GridListTests.java" target="_blank">Grid list java tests examples</a>
 
-### Card
+#### Card
 
-#### <a href="https://material.angular.io/components/card/overview" target="_blank">Card overview</a>
+##### <a href="https://material.angular.io/components/card/overview" target="_blank">Card overview</a>
 
 Card is a content container for text, photos, and actions in the context of a single subject
 
@@ -1772,10 +1773,10 @@ Card is located in the following classes:
 **getButtonByNumber** | Get button by number | UIElement
 **is()** | Assert action | CardAssert
 **displayed()** | Check that element is displayed | TextAssert
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/CardTests.java" target="_blank">Card java tests examples</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/CardTests.java" target="_blank">Card java tests examples</a>
 
-### Select
-#### <a href="https://material.angular.io/components/select/overview" target="_blank">Select overview</a>
+#### Select
+##### <a href="https://material.angular.io/components/select/overview" target="_blank">Select overview</a>
 
 Selectors are located in the following classes:
 
@@ -2475,10 +2476,10 @@ List of some available **NativeSelector** methods:
 **groups()** | Returns existing NativeSelector groups | ```List<String>```
 **groupsAndOptions()** | Returns NativeSelector map of the group and options if any | ```Map<String, List<String>>```
 
-### Form Field
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/FormFieldTests.java" target="_blank">Here you can find the Form Field tests</a>
+#### Form Field
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/FormFieldTests.java" target="_blank">Here you can find the Form Field tests</a>
 
-#### <a href="https://material.angular.io/components/form-field/overview" target="_blank">Form Field overview</a>
+##### <a href="https://material.angular.io/components/form-field/overview" target="_blank">Form Field overview</a>
 
 Form field combines different Angular materials within a single field.
 
@@ -2594,8 +2595,8 @@ public static FormField formFieldExampleContainerInputLimited;
 
 ---
 
-### Autocomplete
-#### <a href="https://material.angular.io/components/autocomplete/overview" target="_blank">Autocomplete overview</a>
+#### Autocomplete
+##### <a href="https://material.angular.io/components/autocomplete/overview" target="_blank">Autocomplete overview</a>
 
 You can find the autocomplete methods in the following class:
 
@@ -2866,9 +2867,9 @@ List of the available **AutoComplete** methods:
 ***expanded()*** | Returns true if the autocomplete is expanded | Boolean
 ***collapsed()*** | Returns true if the autocomplete is collapsed | Boolean
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/AutocompleteTests.java" target="_blank">AutoComplete java tests examples</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/AutocompleteTests.java" target="_blank">AutoComplete java tests examples</a>
 
-### Snackbar
+#### Snackbar
 
 ```java 
    @UI("//simple-snack-bar")
@@ -2904,7 +2905,7 @@ List of the available **AutoComplete** methods:
     }
 ```
 
-#### <a href="https://material.angular.io/components/snack-bar/overview" target="_blank">Snackbar overview</a>
+##### <a href="https://material.angular.io/components/snack-bar/overview" target="_blank">Snackbar overview</a>
 
 Snackbar is located in the following class:
 
@@ -2934,9 +2935,9 @@ Snackbar is located in the following class:
 **isActionDisplayed()** | Check that button is displayed | boolean
 **is()** | Assert action | SnackbarAssert
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/SnackbarTests.java" target="_blank">Here you can find Snackbar tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/SnackbarTests.java" target="_blank">Here you can find Snackbar tests</a>
 
-### Paginator
+#### Paginator
 
 ```java 
     @UI("//paginator-configurable-example/mat-paginator")
@@ -2968,7 +2969,7 @@ Snackbar is located in the following class:
     }
 ```
 
-#### <a href="https://material.angular.io/components/paginator/overview" target="_blank">Paginator overview</a>
+##### <a href="https://material.angular.io/components/paginator/overview" target="_blank">Paginator overview</a>
 
 Paginator is located in the following class:
 
@@ -2996,9 +2997,9 @@ Paginator is located in the following class:
 **next()** | Click next button | void
 **is()** | Assert action | PaginatorAssert
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/PaginatorTests.java" target="_blank">Here you can find Paginator tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/PaginatorTests.java" target="_blank">Here you can find Paginator tests</a>
 
-### Tab group
+#### Tab group
 
 <br>
 
@@ -3026,7 +3027,7 @@ Paginator is located in the following class:
         tabsSection.basicTab.is().assertTabPanelContent(stringForTest);
     }
 ```
-#### <a href="https://material.angular.io/components/tabs/overview" target="_blank">Tabs overview</a>
+##### <a href="https://material.angular.io/components/tabs/overview" target="_blank">Tabs overview</a>
 
 Angular Material tabs organize content into separate views where only one view can be visible at a time.
 
@@ -3365,9 +3366,9 @@ during initialization, it is advised to lazy load the tab's content.
 **clickTabLink(String tabName)** | Click required tab by tab name | void
 **getTabLinksCount()** | return number of tabs | int
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/tabgroup" target="_blank">Here you can find Tabs tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/tabgroup" target="_blank">Here you can find Tabs tests</a>
 
-### Datepicker
+#### Datepicker
 
 ```java 
 //@FindBy(css = "#basic-datepicker")
@@ -3425,7 +3426,7 @@ public void checkSelectedMonthDayYear() {
     basicDatepicker.is().selectedMonth(Month.OCTOBER).selectedDay(4).selectedYear(Year.of(2000));
 }
 ```
-#### <a href="https://material.angular.io/components/datepicker/overview" target="_blank">Datepicker overview</a>
+##### <a href="https://material.angular.io/components/datepicker/overview" target="_blank">Datepicker overview</a>
 
 The datepicker allows users to enter a date either through text input, or by choosing a date from the calendar.
 It is made up of several components and directives that work together.
@@ -4103,12 +4104,12 @@ List of some available **Datepicker** methods:
 **isLastChangeEvent(String lastChangeEvent)** | Check Datepicker has last change event | boolean
 **isLastInputEvent(String lastInputEvent)** | Check Datepicker has last input event | boolean
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/datepicker" target="_blank">Datepicker java tests examples</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/datepicker" target="_blank">Datepicker java tests examples</a>
 
 
-### Menu
+#### Menu
 
-#### <a href="https://material.angular.io/components/menu/overview" target="_blank">Menu overview</a>
+##### <a href="https://material.angular.io/components/menu/overview" target="_blank">Menu overview</a>
 
 Menu element represents a group of commands that a user can perform or activate.
 
@@ -4316,10 +4317,10 @@ public void checkNestedMenuAvailableOptionsTest() {
 **displayed()** | Check that element is displayed | TextAssert
 **text()** | Assert that element has presented text | TextAssert
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/menu" target="_blank">Menu java tests examples</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/menu" target="_blank">Menu java tests examples</a>
 
-### Ripple
-#### <a href="https://material.angular.io/components/ripple/overview" target="_blank">Ripple overview</a>
+#### Ripple
+##### <a href="https://material.angular.io/components/ripple/overview" target="_blank">Ripple overview</a>
 
 Connect user input to screen reactions by using ripples to both indicate the point of touch, and to confirm that touch
 input was received. For touch or mouse, this occurs at the point of contact.
@@ -4497,10 +4498,10 @@ List of some available **Ripple** methods:
 **clearRadius()** | Clear Ripple input radius | void
 **clearColor()** | Clear Ripple input color | void
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/RippleTests.java" target="_blank">Ripple java tests examples</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/RippleTests.java" target="_blank">Ripple java tests examples</a>
 
-### Expansion panel
-#### <a href="https://material.angular.io/components/expansion/overview" target="_blank">Expansion panel overview</a>
+#### Expansion panel
+##### <a href="https://material.angular.io/components/expansion/overview" target="_blank">Expansion panel overview</a>
 `<mat-expansion-panel>` provides an expandable details-summary view.
 Expansion panel is located in the following class:
 
@@ -4804,11 +4805,11 @@ List of some available **ExpansionPanel** methods:
 **description(int index)** | Get ExpansionPanel description value by index | String
 **content(int index)** | Get ExpansionPanel content value by index | String
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/ExpansionPanelTests.java" target="_blank">ExpansionPanel java tests examples</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/ExpansionPanelTests.java" target="_blank">ExpansionPanel java tests examples</a>
 ---
 
-### SideNav
-#### <a href="https://material.angular.io/components/sidenav/overview" target="_blank">SideNav</a>
+#### SideNav
+##### <a href="https://material.angular.io/components/sidenav/overview" target="_blank">SideNav</a>
 
 Sidenav is located in the following class:
 
@@ -5034,11 +5035,11 @@ List of some available **Sidenav** methods:
 **sendKeys(CharSequence… value)** | Sends specified value as keys | void
 **attr(String value)** | Gets attribute | String
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/SideNavTests.java" target="_blank">Sidenav java tests examples</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/SideNavTests.java" target="_blank">Sidenav java tests examples</a>
 
-### Bottom sheet
+#### Bottom sheet
 
-#### <a href="https://material.angular.io/components/bottom-sheet/overview" target="_blank">Bottom sheet overview</a>
+##### <a href="https://material.angular.io/components/bottom-sheet/overview" target="_blank">Bottom sheet overview</a>
 
 Bottom sheet locates in the following class:
 
@@ -5089,11 +5090,11 @@ List of the available **Bottom sheet** methods:
 **closed()** | Check that bottom sheet is closed | boolean
 **values()** | Get list of bottom sheet options | List
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/BottomSheetTests.java" target="_blank">Bottom sheet java tests examples</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/BottomSheetTests.java" target="_blank">Bottom sheet java tests examples</a>
 
-### Dialog
+#### Dialog
 
-#### <a href="https://material.angular.io/components/dialog/overview" target="_blank">Dialog overview</a>
+##### <a href="https://material.angular.io/components/dialog/overview" target="_blank">Dialog overview</a>
 
 Bottom sheet locates in the following class:
 
@@ -5140,11 +5141,11 @@ List of the available **Dialog** methods:
 **closed()** | Check that bottom sheet is closed | boolean
 **answerText()** | Check that answer is correct | boolean
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/DialogTests.java" target="_blank">Dialog java tests examples</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/DialogTests.java" target="_blank">Dialog java tests examples</a>
 
-### MatTable
+#### MatTable
 
-#### <a href="https://material.angular.io/components/table/overview" target="_blank">Table overview</a>
+##### <a href="https://material.angular.io/components/table/overview" target="_blank">Table overview</a>
 
 ---
 
@@ -5228,7 +5229,7 @@ List of the available **Table** methods:
 
 
 
-####<a href="https://material.angular.io/components/sort/overview"><i class="fa fa-info-circle"></i>Sort header</a>
+#####<a href="https://material.angular.io/components/sort/overview"><i class="fa fa-info-circle"></i>Sort header</a>
 ---   
 
 Table locates in the following class:
@@ -5370,11 +5371,11 @@ Here is a list of available methods in Java:
 **size(Matcher<Integer> condition)** | Asserts whether table size satisfies some matcher condition | BaseTableAssert
 **size(int size)** | Asserts whether table has a particular size | BaseTableAssert
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/unit/TableUnitTests.java" target="_blank">Table java tests examples</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/unit/TableUnitTests.java" target="_blank">Table java tests examples</a>
 
-### Tree
+#### Tree
 
-#### <a href="https://material.angular.io/components/tree/overview" target="_blank">Tree overview</a>
+##### <a href="https://material.angular.io/components/tree/overview" target="_blank">Tree overview</a>
 
 The mat-tree provides a Material Design styled tree that can be used to display hierarchy data.
 
@@ -5440,11 +5441,11 @@ public void turnOnOffNodeItemTest() {
 **getCheckbox(int level, String name)** | get element of checkbox from expanded level | Checkbox
 **addNode(int level, String rootName, String newName)** | add new node at expanded level | void
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/MaterialTreeTests.java" target="_blank"Tree java tests examples</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/MaterialTreeTests.java" target="_blank"Tree java tests examples</a>
 
-### Chips
+#### Chips
 
-#### <a href="https://material.angular.io/components/chips/overview" target="_blank">Chips overview</a>
+##### <a href="https://material.angular.io/components/chips/overview" target="_blank">Chips overview</a>
 
 Chips are located in the following class:
 
@@ -5657,4 +5658,4 @@ List of the available **Chips** methods:
 **has()** | Assert action | ChipsAssert
 **is()** | Assert action | ChipsAssert
 
-#### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/ChipsTests.java" target="_blank">Here you can find Chips tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-angular-tests/src/test/java/io/github/epam/angular/tests/elements/complex/ChipsTests.java" target="_blank">Here you can find Chips tests</a>

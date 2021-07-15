@@ -1,6 +1,7 @@
-## HTML5 Common elements
+## HTML5 elements
+### HTML5 Common elements
 
-### Label
+#### Label
 
 ```java 
    
@@ -94,7 +95,7 @@ Available methods in C# JDI Light:
 [BDD Steps examples](https://jdi-docs.github.io/jdi-light/?java#label-2)
 
 
-### Button
+#### Button
 
 ```java 
 @UI("[value*='Red Button']") // @FindBy(css = "[value*='Red Button']")
@@ -200,7 +201,7 @@ Available methods and properties in C# JDI Light:
 <br>
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#button-3)
 
-### Checkbox
+#### Checkbox
 
 **Checkbox** – Element allows you to select single value for submission.
 
@@ -372,7 +373,7 @@ Available methods in C# JDI Light:
 
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#checkbox-2)
 
-### ColorPicker
+#### ColorPicker
 
 ```java 
 @UI("#color-picker") // @FindBy(id = "color-picker")
@@ -452,7 +453,7 @@ Here is the list of some available methods in C#:
 <br>
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#colorpicker-2)<br>
 
-### DateTimeSelector
+#### DateTimeSelector
 
 **DateTimeSelector** - Is used for Input Type Date and its derivatives and allows users to set the value of date and/or time.
 
@@ -684,7 +685,7 @@ public void SetPartyTimeTest()
 <a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/DateTimeTests.cs" target="_blank">Test examples in C#</a>
 
 
-### FileInput
+#### FileInput
 
 **FileInput** - A graphical control element that allows user to upload documents to web site.
 
@@ -806,7 +807,7 @@ Available method in C# JDI Light:
 
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#fileinput-2)
 
-### Icon
+#### Icon
 
 **Icon** – Is a simple element type that represents icons and graphic images.
 
@@ -890,7 +891,7 @@ Here is a list of available methods in C#:
 
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#icon-2)
 
-### Image
+#### Image
 
 **Image** – Is a simple element type that represents graphic images.
 
@@ -966,7 +967,7 @@ Here is a list of available methods in C#:
 
 <a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/ImagesTests.cs" target="_blank">Test examples in C#</a>
 
-### Link
+#### Link
 
 ```java 
 //@FindBy(css = "[ui=github-link]") 
@@ -1050,7 +1051,7 @@ Here is the list of available methods in C#:
 <br>
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/#link-2)
 
-### Menu
+#### Menu
 
 **Menu** - A list of links, which leads to different pages or sections of website.
 
@@ -1198,7 +1199,7 @@ Available method in C# JDI Light:
 
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/#menu-2)
 
-### NumberSelector
+#### NumberSelector
 
 **NumberSelector** – A graphical control element, that allows the user to let the user enter a number.
 
@@ -1303,7 +1304,7 @@ Here is the list of available methods in C#:
 
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#numberselector-2)<br>
 
-### ProgressBar
+#### ProgressBar
 
 **Progress Bar** - Element for displaying an indicator showing the completion progress of a task.
 
@@ -1383,7 +1384,7 @@ Available method in C# JDI Light:
 <a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/ProgressTests.cs" target="_blank">Test examples in C#</a><br>
 [BDD Steps example](https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-bdd-tests/src/test/resources/features/ProgressBar.feature)<br>
 
-### Range
+#### Range
 
 ```java 
 @UI("#volume")  //@FindBy(id = "volume") 
@@ -1515,7 +1516,7 @@ And here are methods available in Java:
 <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/RangeTests.java" target="_blank">Test examples in Java</a></br>
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#range-2) <br>
 
-### Text
+#### Text
 **Text** - Is a combination of letters and textual symbols. When performing testing, the text is used in most operations: when typing text into the login field, when finding a button with some certain text in it, or when checking if actual text matches expected one.
 
 ```java 
@@ -1635,7 +1636,7 @@ And here are methods available in Java:
 
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#text-2)
 
-### TextField
+#### TextField
 ```java 
 @UI("#name") //@FindBy(css = "#name")
 public static TextField name;
@@ -1736,7 +1737,7 @@ And here are methods available in Java:
 <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/TextFieldTests.java" target="_blank">Test examples in Java</a><br>
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#textfield-2)<br>
 
-### TextArea
+#### TextArea
 
 **TextArea** – Is a simple element type that allows users to fill in text areas (they may contain a few lines).
 
@@ -1852,7 +1853,7 @@ Here is a list of available methods in C#:
 
 <a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/TextAreaTests.cs" target="_blank">Test examples in C#</a><br>
 
-### Title
+#### Title
 **Title** – A graphical control element representing document title, which is displayed in the title bar of the browser or tab page.
 
 Title is represented by the following class:
@@ -1942,8 +1943,8 @@ Here is the list of available methods in Java JDI Light:
 <a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/TitleTests.cs" target="_blank">Test examples in C#</a>
 
 
-## HTML5 Complex elements
-### RadioButtons
+### HTML5 Complex elements
+#### RadioButtons
 
 **RadioButtons** – Interface element that allows user to select a single option from a predefined group.
 
@@ -2054,7 +2055,7 @@ Here is the list of some available methods in C#:
 
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/#radiobuttons-2) <br>
 
-### Table
+#### Table
 
 **Table** – A complex element that consists of a header, a body (at least one row and one column) and a footer. You are able to perform a list of readonly interactions with this element.
 
@@ -2386,7 +2387,7 @@ And here are methods available in C#:
 
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#table-2)<br>
 
-### DataTable
+#### DataTable
 
 **DataTable** – A complex element that consists of header, a body (at least one row and one column) and a footer. You are
 able to perform a list of readonly interactions with this element in order to get all data based on specified criteria.
@@ -2528,7 +2529,7 @@ DataTableAssert methods in Java:
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#datatable-2)
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-### Dropdown
+#### Dropdown
 
 **Dropdown** – A graphical control element that allows user to choose a single value from a list.
 
@@ -2737,7 +2738,7 @@ Available Assert methods in C#:
 [BDD test examples](https://jdi-docs.github.io/jdi-light/?java#dropdown-3)
 <br><br><br>
 
-### MultiDropdown
+#### MultiDropdown
 
 **MultiDropdown** – A graphical control element that allows user to choose several values from a list.
 
@@ -2918,7 +2919,7 @@ Here is the list of some methods available for C# in JDI Light:
 <a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Composite/MultiDropdownTests.cs" target="_blank">Test examples in C#</a><br>
 
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#multidropdown-2)<br>
-### DataList
+#### DataList
 
 **DataList** – A graphical control element that allows user to choose one value from a list or enter it by himself.
 DataList element contains a set of options with values available as inputs.
@@ -3071,7 +3072,7 @@ The list of some methods available for C# in JDI Light:
 
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#datalist-2)
 
-### CheckList
+#### CheckList
 **CheckList** – A graphical control element representing a set of checkboxes, each of which allows user to control a two-state parameter (enabled or disabled).
 
 Checklist element type is available in the following packages:
@@ -3220,7 +3221,7 @@ Here is the list of some methods available for C# in JDI Light:
 
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#checklist-2)
 
-### MultiSelector
+#### MultiSelector
 **MultiSelector** – A graphical control element that allows user to make a multiple choice.
 MultiSelector is represented by the following class:
 
@@ -3305,7 +3306,7 @@ Here is the list of available methods/asserts in Java:
 
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#multidropdown-2)<br>
 
-### ComboBox
+#### ComboBox
 
 **ComboBox** – A graphical control element that allows user to choose a single
 value from a list or enter it by himself (is inherited from the [Datalist](#datalist))
@@ -3430,8 +3431,8 @@ Here is the list of some methods available for C# in JDI Light:
 
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#combobox-2)
 
-## HTML5 Composite elements
-###Section
+### HTML5 Composite elements
+####Section
 
 ```csharp
 
@@ -3559,7 +3560,7 @@ And here are methods available in Java:
 <a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Composite/SectionTests.cs" target="_blank">Test examples in C#</a>
 
 
-### Form
+#### Form
 
 
 
@@ -3837,7 +3838,7 @@ Methods available for Java in JDI Light:
 
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#form-2)
 
-### WebPage
+#### WebPage
 
 **WebPage** - A parent Java class for all JDI Page Object classes. WebPage class extends _DriverBase_ class, implements PageObject interface and contains a number of commonly used methods:
 

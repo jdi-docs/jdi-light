@@ -10,7 +10,7 @@ Checkbox is located in the following classes:
 - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.common.Checkbox_
 
 
-<!-- ![Checkbox default example](../images/bootstrap/checkbox-default.png) -->
+<!-- ![Checkbox default example](../../images/bootstrap/checkbox-default.png) -->
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -98,7 +98,7 @@ Checkbox is located in the following classes:
 - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.common.Checkbox_
 
 
-![Checkbox default inline example](../images/bootstrap/checkbox-default-inline.png)
+![Checkbox default inline example](../../images/bootstrap/checkbox-default-inline.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -196,7 +196,7 @@ Radio button is located in the following classes:
 - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.complex.RadioButtons_
 
 
-![Radio button example](../images/bootstrap/radio-button.png)
+![Radio button example](../../images/bootstrap/radio-button.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -290,7 +290,7 @@ Radio button is located in the following classes:
 - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.complex.RadioButtons_
 
 
-![Radio button inline example](../images/bootstrap/radio-default-inline.png)
+![Radio button inline example](../../images/bootstrap/radio-default-inline.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -391,7 +391,7 @@ Checkbox and Radio button are located in the following classes:
 - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.common.Checkbox_
 
 
-![Radio button and checkbox without labels example](../images/bootstrap/default-without-labels.png)
+![Radio button and checkbox without labels example](../../images/bootstrap/default-without-labels.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -482,7 +482,7 @@ Checkbox is located in the following classes:
 - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.common.Checkbox_
 
 
-![Checkbox custom example](../images/bootstrap/checkbox-custom.png)
+![Checkbox custom example](../../images/bootstrap/checkbox-custom.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -559,7 +559,7 @@ Radio button is located in the following classes:
 - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.complex.RadioButtons_
 
 
-![Radio button custom example](../images/bootstrap/custom-radio.png)
+![Radio button custom example](../../images/bootstrap/custom-radio.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -641,7 +641,7 @@ Radio button is located in the following classes:
 - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.complex.RadioButtons_
 
 
-![Radio button custom inline example](../images/bootstrap/custom-radio-inline.png)
+![Radio button custom inline example](../../images/bootstrap/custom-radio-inline.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -725,7 +725,7 @@ __Java__:
 - com.epam.jdi.light.ui.bootstrap.elements.common.Checkbox_
 
 
-![Custom disabled example](../images/bootstrap/custom-disabled.png)
+![Custom disabled example](../../images/bootstrap/custom-disabled.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -802,7 +802,7 @@ Checkbox is located in the following classes:
 - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.common.Checkbox_
 
 
-![Switches custom example](../images/bootstrap/switches.png)
+![Switches custom example](../../images/bootstrap/switches.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -898,7 +898,7 @@ Button group is represented by Section class in Java:
 ##### <a href="https://getbootstrap.com/docs/4.3/components/button-group/#basic-example" target="_blank">Button Group Basic</a>
 Wrap a series of buttons with .btn in .btn-group.
 
-![Button Group Basic Example HTML](../images/bootstrap/bgroup-basic-example-screen.png)
+![Button Group Basic Example HTML](../../images/bootstrap/bgroup-basic-example-screen.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -933,7 +933,7 @@ public void leftButtonTests() {
 
 <br>
 
-<!-- ![Button Group Basic Example Example](../images/bootstrap/bgroup-basic-example-html.png) -->
+<!-- ![Button Group Basic Example Example](../../images/bootstrap/bgroup-basic-example-html.png) -->
 ```html
 <div id="btn-md-group" class="btn-group mb-3" role="group" aria-label="Default button group">
     <button type="button" class="btn btn-secondary" ondblclick="alert('Left Button Double Clicked!');"
@@ -969,7 +969,7 @@ Available methods in Java JDI Light:
 ##### <a href="https://getbootstrap.com/docs/4.0/components/button-group/#button-toolbar" target="_blank">Button toolbar</a>
 Combine sets of button groups into button toolbars for more complex components. Use utility classes as needed to space out groups, buttons, and more.
 
-![Button toolbar](../images/bootstrap/button_toolbar.png)
+![Button toolbar](../../images/bootstrap/button_toolbar.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -1002,7 +1002,7 @@ public class ButtonGroupToolbar extends Section {
 }
 ```
 
-<!-- ![Button toolbar example](../images/bootstrap/button_toolbar-html.png) -->
+<!-- ![Button toolbar example](../../images/bootstrap/button_toolbar-html.png) -->
 
 ```html
 
@@ -1036,7 +1036,7 @@ public class ButtonGroupToolbar extends Section {
 
 It is possible to mix input groups with button groups in your toolbars.
 
-![Button toolbar_mixed](../images/bootstrap/button_toolbar_mixed.png)
+![Button toolbar_mixed](../../images/bootstrap/button_toolbar_mixed.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -1090,7 +1090,7 @@ Available methods in Java JDI Light:
 Instead of applying button sizing classes to every button in a group,
 just add ``.btn-group-*`` to each ``.btn-group``, including each one when nesting multiple groups.
 
-![Button Group Sizing Example](../images/bootstrap/bgroup-sizing.png)
+![Button Group Sizing Example](../../images/bootstrap/bgroup-sizing.png)
 
 ```java 
 @UI("#btn-lg-group") // @FindBy(id = "btn-lg-group")
@@ -1169,7 +1169,7 @@ Available methods in Java JDI Light:
 ##### <a href="https://getbootstrap.com/docs/4.3/components/button-group/#nesting" target="_blank">Button Group Nesting</a>
 Place a ``.btn-group`` within another ``.btn-group`` when you want dropdown menus mixed with a series of buttons.
 
-![Button Group Nesting Example](../images/bootstrap/bgroup-nesting.png)
+![Button Group Nesting Example](../../images/bootstrap/bgroup-nesting.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -1273,7 +1273,7 @@ Inner elements represented by the following classes:
 ##### <a href="https://getbootstrap.com/docs/4.3/components/button-group/#vertical-variation" target="_blank">Button Group Vertical Variation</a>
 Make a set of buttons appear vertically stacked rather than horizontally.
 
-![Button Group Nesting Example](../images/bootstrap/bgroup-vertical-variation.png)
+![Button Group Nesting Example](../../images/bootstrap/bgroup-vertical-variation.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -1380,7 +1380,7 @@ Alert is located in the following class: <br>
 
 **<a href="https://getbootstrap.com/docs/4.3/components/alerts/" target="_blank">Alert</a>** – Element that provides contextual feedback messages for typical user actions with the handful of available and flexible alert messages.
 
-![Alert](../images/bootstrap/alert-dismissible.png)
+![Alert](../../images/bootstrap/alert-dismissible.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -1468,7 +1468,7 @@ Available methods in Java JDI Light:
 
 Here is an example badge with provided Bootstrap v4.3 code:
 
-![Badge](../images/bootstrap/badge_heading.png)
+![Badge](../../images/bootstrap/badge_heading.png)
 
 ```java 
 // @FindBy(css = "#badge-secondary")
@@ -1502,7 +1502,7 @@ public void checkBadgeInButton(){
 
 An example nested badge in button with provided Bootstrap v4.3 code:
 
-![Badge](../images/bootstrap/badge_button.png)
+![Badge](../../images/bootstrap/badge_button.png)
 
 ```html 
 <button type="button" class="btn btn-primary" id="btn-primary" onclick="alert('Button with badge');">
@@ -1527,7 +1527,7 @@ Available methods in Java JDI Light:
 <br>
 **2) <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/badge/#links" target="_blank">Badge</a>** - .badge-* classes on an link element quickly provide actionable badges with hover and focus states.<br>
 
-![Badge](../images/bootstrap/badge_link.png)
+![Badge](../../images/bootstrap/badge_link.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -1576,7 +1576,7 @@ Available methods in Java JDI Light:
 
 <a href="https://getbootstrap.com/docs/4.3/components/breadcrumb/" target="_blank">Breadcrumb</a> is a control element  used for navigational on web pages
 
-![Breadcrumb example](../images/bootstrap/breadcrumb.png)
+![Breadcrumb example](../../images/bootstrap/breadcrumb.png)
 
 ```java 
 
@@ -1659,11 +1659,11 @@ that automatically collapses at the lg (large) breakpoint.
 <br>
 
 1. Navbar with content <br>
-   ![Supported content](../images/bootstrap/navbar-supported-content-normal.png)<br>
+   ![Supported content](../../images/bootstrap/navbar-supported-content-normal.png)<br>
 2. Collapsed navbar <br>
-   ![Supported content](../images/bootstrap/navbar-supported-content-collapsed.png)<br>
+   ![Supported content](../../images/bootstrap/navbar-supported-content-collapsed.png)<br>
 3. Expanded navbar <br>
-   ![Supported content](../images/bootstrap/navbar-supported-content-uncollapsed.png)
+   ![Supported content](../../images/bootstrap/navbar-supported-content-uncollapsed.png)
 
 ```java 
 // @FindBy(id = "navbar-supported-content")
@@ -1779,15 +1779,15 @@ The ``.navbar-brand`` can be applied to most elements, but an anchor works best 
 <br>
 
 Navbar brand as a link <br>
-![Brand](../images/bootstrap/navbar-brand-link.png)<br>
+![Brand](../../images/bootstrap/navbar-brand-link.png)<br>
 Navbar brand as heading <br>
-![Brand](../images/bootstrap/navbar-brand-heading.png)<br>
+![Brand](../../images/bootstrap/navbar-brand-heading.png)<br>
 <br>
 
 Adding images to the ```.navbar-brand``` will likely always require custom styles or utilities to properly size. Here are some examples to demonstrate.<br>
 
-![Brand](../images/bootstrap/navbar-brand-image.png)<br>
-![Brand](../images/bootstrap/navbar-brand-image-and-link.png)<br>
+![Brand](../../images/bootstrap/navbar-brand-image.png)<br>
+![Brand](../../images/bootstrap/navbar-brand-image-and-link.png)<br>
 
 ```java 
        //FindBy(css = "#brand-heading")
@@ -1946,7 +1946,7 @@ public void clickNavbarNavWithDropdownLinksTest() {
 
 ```
 
-![Color Nav example](../images/bootstrap/nav.png)
+![Color Nav example](../../images/bootstrap/nav.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -1979,7 +1979,7 @@ Here is an example with provided Bootstrap v4.3 code:
 
 With dropdown
 
-![Color Nav example](../images/bootstrap/nav-dropdown.png)
+![Color Nav example](../../images/bootstrap/nav-dropdown.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -2058,7 +2058,7 @@ Available methods in Java JDI Light:
 
 Place various form controls and components within a navbar with ``.form-inline``.
 
-![Forms example](../images/bootstrap/navbar-forms1.png)
+![Forms example](../../images/bootstrap/navbar-forms1.png)
 
 ```java 
 
@@ -2103,7 +2103,7 @@ Here is an example with provided Bootstrap v4.3 code:
 
 Immediate children elements in .navbar use flex layout and will default to justify-content: between.
 
-![Forms example](../images/bootstrap/navbar-forms2.png)
+![Forms example](../../images/bootstrap/navbar-forms2.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -2123,7 +2123,7 @@ Here is an example with provided Bootstrap v4.3 code:
 
 Input groups work, too:
 
-![Forms example](../images/bootstrap/navbar-forms3.png)
+![Forms example](../../images/bootstrap/navbar-forms3.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -2162,7 +2162,7 @@ This class adjusts vertical alignment and horizontal spacing for strings of text
 
 <br>
 
-![Text example](../images/bootstrap/navbar-text1.png)
+![Text example](../../images/bootstrap/navbar-text1.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -2194,7 +2194,7 @@ public void verifySimpleNavbarTextTest() {
 
 Mix and match with other components and utilities as needed.
 
-![Text example](../images/bootstrap/navbar-text2.png)
+![Text example](../../images/bootstrap/navbar-text2.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -2288,7 +2288,7 @@ Available methods and properties in C# JDI Light:
 Theming the navbar has never been easier thanks to the combination of theming classes and ``background-color`` utilities
 Choose from ``.navbar-light`` for use with light background colors, or ``.navbar-dark`` for dark background colors. Then, customize with ``.bg-*`` utilities.
 
-![Color schemes example](../images/bootstrap/navbar-color-schemes.png)
+![Color schemes example](../../images/bootstrap/navbar-color-schemes.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -2426,7 +2426,7 @@ public void clickNavbarCentredContainerLinksTest() {
 
 ```
 
-![Containers schemes example](../images/bootstrap/navbar-containers.png)
+![Containers schemes example](../../images/bootstrap/navbar-containers.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -2472,7 +2472,7 @@ Use our position utilities to place navbars in non-static positions. Choose from
 
 Also note that ``.sticky-top`` uses position: sticky, which isn’t fully supported in every browser.
 
-![Containers schemes example](../images/bootstrap/navbar-placement-sticky.png)
+![Containers schemes example](../../images/bootstrap/navbar-placement-sticky.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -2553,13 +2553,13 @@ Below are examples of different toggle styles.
 **1. With no ``.navbar-brand`` shown in lowest breakpoint**
 
 ``FullScreen``
-![No .navbar-brand full screen example](../images/bootstrap/nobrand-lg.png)
+![No .navbar-brand full screen example](../../images/bootstrap/nobrand-lg.png)
 
 ``Collapsed``
-![No .navbar-brand collapsed example](../images/bootstrap/nobrand-collapsed.png)
+![No .navbar-brand collapsed example](../../images/bootstrap/nobrand-collapsed.png)
 
 ``Expanded``
-![No .navbar-brand expanded example](../images/bootstrap/nobrand-expanded.png)
+![No .navbar-brand expanded example](../../images/bootstrap/nobrand-expanded.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -2600,13 +2600,13 @@ Here is an example with provided Bootstrap v4.3 code:
 **2. With a brand name shown on the left and toggler on the right**
 
 ``FullScreen``
-![Toggler Right FullScreen example](../images/bootstrap/toggler-right-lg.png)
+![Toggler Right FullScreen example](../../images/bootstrap/toggler-right-lg.png)
 
 ``Collapsed``
-![Toggler Right Collapsed example](../images/bootstrap/toggler-right-collapsed.png)
+![Toggler Right Collapsed example](../../images/bootstrap/toggler-right-collapsed.png)
 
 ``Expanded``
-![Toggler Right Expanded example](../images/bootstrap/toggler-right-expanded.png)
+![Toggler Right Expanded example](../../images/bootstrap/toggler-right-expanded.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -2647,13 +2647,13 @@ Here is an example with provided Bootstrap v4.3 code:
 **3. With a toggler on the left and brand name on the right**
 
 ``FullScreen``
-![Toggler Left FullScreen example](../images/bootstrap/toggler-left-lg.png)
+![Toggler Left FullScreen example](../../images/bootstrap/toggler-left-lg.png)
 
 ``Collapsed``
-![Toggler Left Collapsed example](../images/bootstrap/toggler-left-collapsed.png)
+![Toggler Left Collapsed example](../../images/bootstrap/toggler-left-collapsed.png)
 
 ``Expanded``
-![Toggler Left Expanded example](../images/bootstrap/toggler-left-expanded.png)
+![Toggler Left Expanded example](../../images/bootstrap/toggler-left-expanded.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -2697,7 +2697,7 @@ Here is an example with provided Bootstrap v4.3 code:
 ###### [External content](https://getbootstrap.com/docs/4.3/components/navbar/#external-content)
 Plugin to trigger hidden content elsewhere on the page.
 
-![External_content example](../images/bootstrap/navbar-external.png)
+![External_content example](../../images/bootstrap/navbar-external.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -2781,7 +2781,7 @@ Progress is located in the following class:
 There is also a complex element <a style="font-weight: bold;" href="https://jdi-docs.github.io/jdi-light/?java#multiple-progress-bars">MultiplebarsProgress</a> which may consist of several progress bars.
 
 
-![Progress example](../images/bootstrap/progress.png)
+![Progress example](../../images/bootstrap/progress.png)
 
 Here is an example with provided Bootstrap v4.3 code:_
 
@@ -2847,7 +2847,7 @@ Available methods in Java JDI Light:
 
 Add <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/progress/#labels">labels</a> to your progress bars by placing text within the `.progress-bar`.
 
-![Progress label example](../images/bootstrap/progress-label.png)
+![Progress label example](../../images/bootstrap/progress-label.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -2894,7 +2894,7 @@ public void getPercentTest() {
 We only set a <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/progress/#height">height</a>
 value on the .progress, so if you change that value the inner .progress-bar will automatically resize accordingly.
 
-![Progress height example](../images/bootstrap/progress_height.PNG)
+![Progress height example](../../images/bootstrap/progress_height.PNG)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -2948,7 +2948,7 @@ public void heightOfBarShouldBeValid() {
 
 Use <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/progress/#backgrounds">background</a> utility classes to change the appearance of individual progress bars.
 
-![Progress backgroundsexample](../images/bootstrap/progress-backgrounds.png)
+![Progress backgroundsexample](../../images/bootstrap/progress-backgrounds.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -3009,7 +3009,7 @@ public void isValidationTest(ICoreElement progressBackground, int widthNumber, S
 
 Add <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/progress/#striped">.progress-bar-striped</a> to any `.progress-bar to apply` a stripe via CSS gradient over the progress bar’s background color.
 
-![Progress striped example](../images/bootstrap/progress-striped.png)
+![Progress striped example](../../images/bootstrap/progress-striped.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -3142,7 +3142,7 @@ public void checkSpinnerAppearAndThenDisappear() {
 
 <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/spinners/#border-spinner" target="_blank">Border Spinner</a> - use the border spinners for a lightweight loading indicator.
 
-![Border Spinner Example](../images/bootstrap/borderspinner.png)
+![Border Spinner Example](../../images/bootstrap/borderspinner.png)
 
 
 Here is an example with provided Bootstrap v4.3 code:
@@ -3202,7 +3202,7 @@ meaning you can customize the color with <a href="https://getbootstrap.com/docs/
 You can use any of our text color utilities on the standard spinner.
 
 
-![Colored Spinners Example](../images/bootstrap/coloredspinners.png)
+![Colored Spinners Example](../../images/bootstrap/coloredspinners.png)
 Here is an example with provided Bootstrap v4.3 code:
 
 ```html
@@ -3294,7 +3294,7 @@ If you don’t fancy a border spinner, switch to the <a style="font-weight: bold
 Once again, this spinner is built with currentColor, so you can easily change its appearance with <a href="https://getbootstrap.com/docs/4.3/utilities/colors/" target="_blank">text color utilities</a>.
 Below it is in blue, along with the supported variants.
 
-![Growing Spinners Example](../images/bootstrap/growingspinners.png)
+![Growing Spinners Example](../../images/bootstrap/growingspinners.png)
 
 
 Here is an example with provided Bootstrap v4.3 code:
@@ -3365,7 +3365,7 @@ public void spinnerAlignmentStyleTest(Spinner spinner,
 
 Use margin utilities like ``.m-5`` for easy spacing.
 
-![Spinner Margin Example](../images/bootstrap/spinnermargin.png)
+![Spinner Margin Example](../../images/bootstrap/spinnermargin.png)
 
 
 Here is an example with provided Bootstrap v4.3 code:
@@ -3387,9 +3387,9 @@ to place spinners exactly where you need them in any situation.
 
 **Spinner Flex**
 
-![Spinner Flex Center Example](../images/bootstrap/spinner-flex-center.png)
+![Spinner Flex Center Example](../../images/bootstrap/spinner-flex-center.png)
 
-![Spinner Flex Center HTML Example](../images/bootstrap/spinner-flex-right.png)
+![Spinner Flex Center HTML Example](../../images/bootstrap/spinner-flex-right.png)
 
 Here are the examples with provided Bootstrap v4.3 code:
 
@@ -3411,7 +3411,7 @@ Here are the examples with provided Bootstrap v4.3 code:
 
 **Spinner Floats**
 
-![Spinner Float Right Example](../images/bootstrap/spinnerfloat.png)
+![Spinner Float Right Example](../../images/bootstrap/spinnerfloat.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -3426,7 +3426,7 @@ Here is an example with provided Bootstrap v4.3 code:
 
 **Spinner Text Align**
 
-![Spinner Text Align Center Example](../images/bootstrap/spinner-text-align.png)
+![Spinner Text Align Center Example](../../images/bootstrap/spinner-text-align.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -3511,7 +3511,7 @@ Add ``.spinner-border-sm`` and ``.spinner-grow-sm``
 to make a <a href="https://getbootstrap.com/docs/4.3/components/spinners/#size" target="_blank">smaller spinner</a>
 that can quickly be used within other components.
 
-![Spinner Size Native Example](../images/bootstrap/spinner-size-native.png)
+![Spinner Size Native Example](../../images/bootstrap/spinner-size-native.png)
 
 
 <br>
@@ -3530,7 +3530,7 @@ Here is an example with provided Bootstrap v4.3 code:
 <br>
 Or, use custom CSS or inline styles to change the dimensions as needed.
 
-![Spinner Size CSS Example](../images/bootstrap/spinner-size-css.png)
+![Spinner Size CSS Example](../../images/bootstrap/spinner-size-css.png)
 
 <br>
 Here is an example with provided Bootstrap v4.3 code:
@@ -3561,7 +3561,7 @@ Here is an example with provided Bootstrap v4.3 code:
 Use <a href="https://getbootstrap.com/docs/4.3/components/spinners/#buttons" target="_blank">spinners within buttons</a> to indicate an action is currently processing or taking place.
 You may also swap the text out of the spinner element and utilize button text as needed.
 
-![Spinner Buttons Example](../images/bootstrap/spinnerbuttons.png)
+![Spinner Buttons Example](../../images/bootstrap/spinnerbuttons.png)
 
 Buttons with spinner are represented by ButtonWithSpinner class in Java:
 
@@ -3666,17 +3666,17 @@ Here is an example with provided Bootstrap v4.3 code:
 #### Tooltip
 <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/tooltips/" target="_blank">Tooltip</a> is a hint that used in conjuction with a pointer.
 
-![Tooltip top](../images/bootstrap/tooltip_top.png)
+![Tooltip top](../../images/bootstrap/tooltip_top.png)
 
-![Tooltip bottom](../images/bootstrap/tooltip_bottom.png)
+![Tooltip bottom](../../images/bootstrap/tooltip_bottom.png)
 
-![Tooltip left](../images/bootstrap/tooltip_left.png)
+![Tooltip left](../../images/bootstrap/tooltip_left.png)
 
-![Tooltip right](../images/bootstrap/tooltip_right.png)
+![Tooltip right](../../images/bootstrap/tooltip_right.png)
 
-![Tooltip with title](../images/bootstrap/tooltip_with_html.png)
+![Tooltip with title](../../images/bootstrap/tooltip_with_html.png)
 
-![Tooltip disabled](../images/bootstrap/tooltip_disabled.png)
+![Tooltip disabled](../../images/bootstrap/tooltip_disabled.png)
 
 ```java 
 
@@ -3835,7 +3835,7 @@ Buttons or anchors are used as triggers that are mapped to specific elements you
 ``Collapse`` extends JDI Light's ``DropdownExpand``, thus inheriting its methods.<br>
 You can use a ``@JDropdown`` annotation to declare a Collapse within your Page Object.
 
-![Collapse example](../images/bootstrap/collapse.png)
+![Collapse example](../../images/bootstrap/collapse.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -3915,7 +3915,7 @@ Available methods in Java JDI Light:
 **Slides only**<br>
 Here’s a carousel with slides only. Note the presence of the .d-block and .w-100 on carousel images to prevent browser default image alignment.
 
-![Carousel slides only example](../images/bootstrap/carousel-slides-only.png)
+![Carousel slides only example](../../images/bootstrap/carousel-slides-only.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -3975,7 +3975,7 @@ public void getSlidesTextTest() {
 **With controls**<br>
 Adding in the previous and next controls:
 
-![Carousel with controls example](../images/bootstrap/carousel-with-controls.png)
+![Carousel with controls example](../../images/bootstrap/carousel-with-controls.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -4054,7 +4054,7 @@ public void getTextTest() {
 **With indicators**<br>
 You can also add the indicators to the carousel, alongside the controls, too.
 
-![Carousel with indicators example](../images/bootstrap/carousel-with-indicators.png)
+![Carousel with indicators example](../../images/bootstrap/carousel-with-indicators.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -4133,7 +4133,7 @@ Add captions to your slides easily with the .carousel-caption element within any
 They can be easily hidden on smaller viewports, as shown below, with optional display utilities.
 We hide them initially with .d-none and bring them back on medium-sized devices with .d-md-block.
 
-![Carousel with captions example](../images/bootstrap/carousel-with-captions.png)
+![Carousel with captions example](../../images/bootstrap/carousel-with-captions.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -4399,7 +4399,7 @@ Include <a style="font-weight: bold;" target="_blank" href="https://getbootstrap
 
 There is a common element <a style="font-weight: bold;" target="_blank" href="https://jdi-docs.github.io/jdi-light/#progress">Progress</a> which includes only one progress bar.
 
-![Progress multiple example](../images/bootstrap/progress-multiple.png)
+![Progress multiple example](../../images/bootstrap/progress-multiple.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -4463,7 +4463,7 @@ Available methods in Java JDI Light:
 ##### Base
 **[Base nav](https://getbootstrap.com/docs/4.3/components/navs/#base-nav)**
 
-![Nav base example](../images/bootstrap/nav-base.png)
+![Nav base example](../../images/bootstrap/nav-base.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -4570,9 +4570,9 @@ Nav group is represented by Section class in Java:
 ##### Horizontal alignment
 **[Nav horizontal alignmen](https://getbootstrap.com/docs/4.3/components/navs/#horizontal-alignment)**
 
-![Nav horizontal alignmen example](../images/bootstrap/nav-align-center.png)
+![Nav horizontal alignmen example](../../images/bootstrap/nav-align-center.png)
 
-![Nav horizontal alignmen example](../images/bootstrap/nav-align-right.png)
+![Nav horizontal alignmen example](../../images/bootstrap/nav-align-right.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -4689,7 +4689,7 @@ Nav group is represented by Section class in Java:
 ##### Vertical alignment
 **[Nav vertical alignmen](https://getbootstrap.com/docs/4.3/components/navs/#vertical)**
 
-![Nav vertical alignmen example](../images/bootstrap/nav-vertical.png)
+![Nav vertical alignmen example](../../images/bootstrap/nav-vertical.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -4794,7 +4794,7 @@ Nav group is represented by Section class in Java:
 ##### Tabs
 **[Nav tabs](https://getbootstrap.com/docs/4.3/components/navs/#tabs)**
 
-![Nav tabs example](../images/bootstrap/nav-tabs.png)
+![Nav tabs example](../../images/bootstrap/nav-tabs.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -4887,7 +4887,7 @@ Nav group is represented by Section class in Java:
 ##### Pills
 **[Nav pills](https://getbootstrap.com/docs/4.3/components/navs/#pills)**
 
-![Nav pills example](../images/bootstrap/nav-pills.png)
+![Nav pills example](../../images/bootstrap/nav-pills.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -4975,7 +4975,7 @@ Nav group is represented by Section class in Java:
 ##### Fill and justify
 **[Nav fill and justify](https://getbootstrap.com/docs/4.3/components/navs/#fill-and-justify)**
 
-![Nav fill and justify example](../images/bootstrap/nav-fill-and-justify.png)
+![Nav fill and justify example](../../images/bootstrap/nav-fill-and-justify.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -5063,7 +5063,7 @@ Nav group is represented by Section class in Java:
 ##### Tabs with dropdowns
 **[Nav tabs with dropdowns](https://getbootstrap.com/docs/4.3/components/navs/#tabs-with-dropdowns)**
 
-![Nav tabs with dropdowns example](../images/bootstrap/nav-tabs-with-dropdowns.png)
+![Nav tabs with dropdowns example](../../images/bootstrap/nav-tabs-with-dropdowns.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -5183,7 +5183,7 @@ Nav group is represented by Section class in Java:
 ##### Pills with dropdowns
 **[Nav pills with dropdowns](https://getbootstrap.com/docs/4.3/components/navs/#pills-with-dropdowns)**
 
-![Nav pills with dropdowns example](../images/bootstrap/nav-pills-with-dropdowns.png)
+![Nav pills with dropdowns example](../../images/bootstrap/nav-pills-with-dropdowns.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -5354,7 +5354,7 @@ Available methods in Java JDI Light:
 
 ##### Simple form
 This is an example of simple form consisting of some basic elements.
-![Simple form](../images/bootstrap/form-simple.png)
+![Simple form](../../images/bootstrap/form-simple.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -5426,7 +5426,7 @@ Here is an example with provided Bootstrap v4.3 code:
 
 ##### Complicated form
 This is an example of complicated form consisting of various specific elements.
-![Complicated form](../images/bootstrap/form-complicated.png)
+![Complicated form](../../images/bootstrap/form-complicated.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -5535,7 +5535,7 @@ Here is an example with provided Bootstrap v4.3 code:
 #####Sizing
 <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.0/components/forms/#sizing" target="_blank">Set</a> heights using classes like .form-control-lg and .form-control-sm.
 
-![Forms_sizing](../images/bootstrap/forms-sizing.png)
+![Forms_sizing](../../images/bootstrap/forms-sizing.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -5636,7 +5636,7 @@ Inner elements of Forms - Sizing are represented by the following classes:
 
 Add the <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/forms/#readonly">readonly</a> boolean attribute on an input to prevent modification of the input’s value. Read-only inputs appear lighter (just like disabled inputs), but retain the standard cursor.
 
-![Forms_readonly_example](../images/bootstrap/form-readonly.png)
+![Forms_readonly_example](../../images/bootstrap/form-readonly.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -5695,7 +5695,7 @@ If you want to have input readonly elements in your form styled as
 use the <b>.form-control-plaintext</b> class to remove the default form field styling and preserve the correct margin and padding.
 Compare items with plaintext mark (upper) and without it (lower):
 
-![Forms_readonly_plain_text_example](../images/bootstrap/readonly_plain_text.png)
+![Forms_readonly_plain_text_example](../../images/bootstrap/readonly_plain_text.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -5753,7 +5753,7 @@ Available methods in Java JDI Light:
 Set horizontally scrollable <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/forms/#range-inputs">range inputs</a>
 using .form-control-range.
 
-![Forms_range_input_example](../images/bootstrap/range_input.png)
+![Forms_range_input_example](../../images/bootstrap/range_input.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -5903,7 +5903,7 @@ Select menu is located in the following classes:
 - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.common.SelectMenu*_
 
 
-![Select menu](../images/bootstrap/form-select-menu.png) <br>
+![Select menu](../../images/bootstrap/form-select-menu.png) <br>
 Here is an example with provided Bootstrap v4.3 code:
 
 ```html
@@ -5917,7 +5917,7 @@ Here is an example with provided Bootstrap v4.3 code:
 <br>
 
 **Large select menu**
-![Select menu](../images/bootstrap/form-select-menu-large.png) <br>
+![Select menu](../../images/bootstrap/form-select-menu-large.png) <br>
 Here is an example with provided Bootstrap v4.3 code:
 
 ```html
@@ -5931,7 +5931,7 @@ Here is an example with provided Bootstrap v4.3 code:
  <br>
 
 **Small select menu**
-![Select menu](../images/bootstrap/form-select-menu-small.png) <br>
+![Select menu](../../images/bootstrap/form-select-menu-small.png) <br>
 Here is an example with provided Bootstrap v4.3 code:
 
 ```html
@@ -5945,7 +5945,7 @@ Here is an example with provided Bootstrap v4.3 code:
 <br>
 
 **Select menu multiple**
-![Select menu](../images/bootstrap/form-select-menu-multiple.png) <br>
+![Select menu](../../images/bootstrap/form-select-menu-multiple.png) <br>
 Here is an example with provided Bootstrap v4.3 code:
 
 ```html
@@ -5959,7 +5959,7 @@ Here is an example with provided Bootstrap v4.3 code:
 <br>
 
 **Select menu size**
-![Select menu](../images/bootstrap/form-select-menu-size.png) <br>
+![Select menu](../../images/bootstrap/form-select-menu-size.png) <br>
 Here is an example with provided Bootstrap v4.3 code:
 
 ```html
@@ -5990,7 +5990,7 @@ Create custom <a style="font-weight: bold;" target="_blank" href="https://getboo
 controls (`<input type="range">`) with .custom-range. The track (the background) and thumb (the value) are both styled to appear the same across browsers.
 Range inputs have implicit values for min and max: 0 and 100, respectively. You may specify new values for those using the min and max attributes.
 
-![Range_example](../images/bootstrap/range.png)
+![Range_example](../../images/bootstrap/range.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -6058,7 +6058,7 @@ Available methods in Java JDI Light:
 ###### Custom style
 You can use custom <a href = "https://getbootstrap.com/docs/4.3/components/forms/#custom-styles" target = "a_blank">Bootstrap form validation</a> messages.
 
-![Custom style validation](../images/bootstrap/form-bootstrap-validation.png)
+![Custom style validation](../../images/bootstrap/form-bootstrap-validation.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -6127,13 +6127,13 @@ public void bootstrapValidationTest() {
 
 Additional JavaScript code to use Bootstrap validation:
 
-![Browser default validation](../images/bootstrap/form-bootstrap-validation-js.png)
+![Browser default validation](../../images/bootstrap/form-bootstrap-validation-js.png)
 
 ###### Browser default
 
 Also you can use <a href = "https://getbootstrap.com/docs/4.3/components/forms/#browser-defaults" target = "a_blank">browser default validation</a>.
 
-![Browser default validation](../images/bootstrap/form-browser-defaults.png)
+![Browser default validation](../../images/bootstrap/form-browser-defaults.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -6212,7 +6212,7 @@ Available methods for form validation in Java JDI Light:
 
 
 
-![Scrollspy](../images/bootstrap/scroll_spy1.png)<br>
+![Scrollspy](../../images/bootstrap/scroll_spy1.png)<br>
 
 ```java 
     // @FindBy(css = "#navbar-example2")
@@ -6348,7 +6348,7 @@ Available methods for form validation in Java JDI Light:
 - [Scrollspy with nested nav] (https://getbootstrap.com/docs/4.3/components/scrollspy/#example-with-nested-nav)
   <br>
 
-![Scrollspy](../images/bootstrap/scroll_spy2.png)<br>
+![Scrollspy](../../images/bootstrap/scroll_spy2.png)<br>
 
 ```java 
 // @FindBy(css = "#navbar-example3")
@@ -6452,7 +6452,7 @@ public void isValidationTests() {
 - [Scrollspy with list-group] (https://getbootstrap.com/docs/4.3/components/scrollspy/#example-with-list-group)
   <br>
 
-![Scrollspy](../images/bootstrap/scroll_spy3.png)<br>
+![Scrollspy](../../images/bootstrap/scroll_spy3.png)<br>
 
 ```java 
 // @FindBy(css = "#list-example>a")
@@ -6578,7 +6578,7 @@ public class MediaObject extends Section {
 
 **Media object sample**
 
-![Media object sample](../images/bootstrap/media-object-sample.png)
+![Media object sample](../../images/bootstrap/media-object-sample.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -6628,7 +6628,7 @@ Here is an example with provided Bootstrap v4.3 code:
 
 **Media object nesting**
 
-![Media object nesting](../images/bootstrap/media-object-nesting.png)
+![Media object nesting](../../images/bootstrap/media-object-nesting.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -6691,7 +6691,7 @@ Here is an example with provided Bootstrap v4.3 code:
 **Media object list**
 
 
-![Media object list](../images/bootstrap/media-object-list.png)
+![Media object list](../../images/bootstrap/media-object-list.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -6769,7 +6769,7 @@ Inner elements of media object can be represented by the following classes:
 ##### [Modal Live demo](https://getbootstrap.com/docs/4.3/components/modal/#live-demo)
 Toggle a working modal demo by clicking the button below. It will slide down and fade in from the top of the page.
 
-![Modal_Live_demo](../images/bootstrap/modal-live-demo.png)
+![Modal_Live_demo](../../images/bootstrap/modal-live-demo.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -6859,7 +6859,7 @@ Available methods in Java JDI Light:
 
 When modals become too long for the user’s viewport or device, they scroll independent of the page itself.
 
-![Modal long scrollable](../images/bootstrap/modal_scrollable1.png)
+![Modal long scrollable](../../images/bootstrap/modal_scrollable1.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -6930,7 +6930,7 @@ public void bottomButtonsTest(Button showModal, ModalWithButtons modal) {
 </div>
 ```
 
-![Modal scrollable](../images/bootstrap/modal_scrollable2.png)
+![Modal scrollable](../../images/bootstrap/modal_scrollable2.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -6981,7 +6981,7 @@ Available methods in Java JDI Light:
 
 Add ``.modal-dialog-centered`` to ``.modal-dialog`` to vertically center the modal.
 
-![Modal Vertically Centered](../images/bootstrap/modal-vertically-centered.png)
+![Modal Vertically Centered](../../images/bootstrap/modal-vertically-centered.png)
 
 ```java 
 
@@ -7060,7 +7060,7 @@ Available methods in Java JDI Light:
 Tooltips and popovers can be placed within modals as needed. When modals are closed, any tooltips and popovers within are also automatically dismissed.
 
 
-![Modal - Tooltips and popovers](../images/bootstrap/modal-tooltips-and-popovers.png)
+![Modal - Tooltips and popovers](../../images/bootstrap/modal-tooltips-and-popovers.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -7168,7 +7168,7 @@ Available methods in Java JDI Light:
 
 <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/modal/#using-the-grid">Modal using grid</a>
 
-![Modal using grid example](../images/bootstrap/modal-grid.png)
+![Modal using grid example](../../images/bootstrap/modal-grid.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -7307,7 +7307,7 @@ Available methods in Java JDI Light:
 
 Have a bunch of buttons that all trigger the same modal with slightly different contents? Use event.relatedTarget and HTML data-* attributes (possibly via jQuery) to <a href="https://getbootstrap.com/docs/4.3/components/modal/#varying-modal-content">vary the contents</a> of the modal depending on which button was clicked.
 
-![Varying modal content example](../images/bootstrap/modal-varying-content.PNG)
+![Varying modal content example](../../images/bootstrap/modal-varying-content.PNG)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -7404,7 +7404,7 @@ Available methods in Java JDI Light:
 
 Embedding YouTube videos in modals requires additional JavaScript not in Bootstrap to automatically stop playback and more. See <a href="https://stackoverflow.com/questions/18622508/bootstrap-3-and-youtube-in-modal">this helpful Stack Overflow post</a> for more information.
 
-![Embedding YouTube video example](../images/bootstrap/modal-youtube.png)
+![Embedding YouTube video example](../../images/bootstrap/modal-youtube.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -7486,7 +7486,7 @@ Available methods in Java JDI Light:
 Modals have three <a style="font-weight: bold;" href="https://getbootstrap.com/docs/4.3/components/modal/#optional-sizes" target="_blank">optional sizes</a>, available via modifier classes to be placed on a ``.modal-dialog``.
 These sizes kick in at certain breakpoints to avoid horizontal scrollbars on narrower viewports.
 
-![Modal Optional Sizes Example](../images/bootstrap/modal-optional-sizes.jpg)
+![Modal Optional Sizes Example](../../images/bootstrap/modal-optional-sizes.jpg)
 
 ```java  
 // @FindBy(id = "modal-optional-sizes")
@@ -7577,7 +7577,7 @@ Available methods in Java JDI Light:
 ##### Example
 **[Popover example](https://getbootstrap.com/docs/4.3/components/popovers/#example)**
 
-![Popover example](../images/bootstrap/popover-title.png)
+![Popover example](../../images/bootstrap/popover-title.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -7698,7 +7698,7 @@ Inner elements of input group can be represented by following classes:
 
 Popover top
 
-![Four directions popover top example](../images/bootstrap/popover-top.png)
+![Four directions popover top example](../../images/bootstrap/popover-top.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -7779,7 +7779,7 @@ public void clickableTests() {
 
 Popover right
 
-![Four directions popover right example](../images/bootstrap/popover-right.png)
+![Four directions popover right example](../../images/bootstrap/popover-right.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -7805,7 +7805,7 @@ Here is an example with provided Bootstrap v4.3 code:
 
 Popover bottom
 
-![Four directions popover bottom example](../images/bootstrap/popover-bottom.png)
+![Four directions popover bottom example](../../images/bootstrap/popover-bottom.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -7830,7 +7830,7 @@ Here is an example with provided Bootstrap v4.3 code:
 
 Popover left
 
-![Four directions popover left example](../images/bootstrap/popover-left.png)
+![Four directions popover left example](../../images/bootstrap/popover-left.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -7891,7 +7891,7 @@ Inner elements of input group can be represented by following classes:
 ##### Dismissible
 **[Dismissible popover](https://getbootstrap.com/docs/4.3/components/popovers/#dismiss-on-next-click)**
 
-![Dismissible popover example](../images/bootstrap/popover-dismissible.png)
+![Dismissible popover example](../../images/bootstrap/popover-dismissible.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -8007,7 +8007,7 @@ Inner elements of input group can be represented by following classes:
 
 **[Disabled elements popover](https://getbootstrap.com/docs/4.3/components/popovers/#disabled-elements)**
 
-![Disabled elements popover example](../images/bootstrap/popover-disabled.png)
+![Disabled elements popover example](../../images/bootstrap/popover-disabled.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -8130,7 +8130,7 @@ List Group is located in the following classes:
 - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.complex.ListGroup_
 
 
-![List group basic example](../images/bootstrap/list-group-basic.png)
+![List group basic example](../../images/bootstrap/list-group-basic.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -8194,7 +8194,7 @@ List Group is located in the following classes:
 - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.complex.ListGroup_
 
 
-![List group active items example](../images/bootstrap/list-group-active.png)
+![List group active items example](../../images/bootstrap/list-group-active.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -8266,7 +8266,7 @@ List Group is located in the following classes:
 - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.complex.ListGroup_
 
 
-![List group disabled items example](../images/bootstrap/list-group-disabled.png)
+![List group disabled items example](../../images/bootstrap/list-group-disabled.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -8339,7 +8339,7 @@ List Group is located in the following classes:
 - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.complex.ListGroup_
 
 
-![List group links example](../images/bootstrap/list-group-links.png)
+![List group links example](../../images/bootstrap/list-group-links.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -8424,7 +8424,7 @@ List Group is located in the following classes:
 - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.complex.ListGroup_
 
 
-![List group buttons example](../images/bootstrap/list-group-buttons.png)
+![List group buttons example](../../images/bootstrap/list-group-buttons.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -8510,7 +8510,7 @@ List Group is located in the following classes:
 - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.complex.ListGroup_
 
 
-![List group flush example](../images/bootstrap/list-group-flush.png)
+![List group flush example](../../images/bootstrap/list-group-flush.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -8581,7 +8581,7 @@ List Group is located in the following classes:
 - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.complex.ListGroup_
 
 
-![List group horizontal example](../images/bootstrap/list-group-horizontal.png)
+![List group horizontal example](../../images/bootstrap/list-group-horizontal.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -8644,7 +8644,7 @@ List Group is located in the following classes:
 - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.complex.ListGroup_
 
 
-![List group with badges example](../images/bootstrap/list-group-badges.png)
+![List group with badges example](../../images/bootstrap/list-group-badges.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -8720,7 +8720,7 @@ List Group is located in the following classes:
 - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.complex.ListGroup_
 
 
-![List group custom content example](../images/bootstrap/list-group-custom.png)
+![List group custom content example](../../images/bootstrap/list-group-custom.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -8829,7 +8829,7 @@ __Options for toasts:__
 <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/toasts/#basic" target="_blank">**Simple Toast**</a>
 <br />
 
-![Simple toast example](../images/bootstrap/toast.png)
+![Simple toast example](../../images/bootstrap/toast.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -8870,7 +8870,7 @@ public void simpleToastValidationTest() {
 <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/toasts/#translucent" target="_blank">**Translucent Toast**</a>
 
 
-![Translucent toast example](../images/bootstrap/toast_center.png)
+![Translucent toast example](../../images/bootstrap/toast_center.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -8913,7 +8913,7 @@ public void translucentToastValidationTest() {
 
 When you have multiple toasts, we default to vertically stacking them in a readable manner
 
-![Toast stack example](../images/bootstrap/stack_of_toast.png)
+![Toast stack example](../../images/bootstrap/stack_of_toast.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -8979,7 +8979,7 @@ Place toasts with custom CSS as you need them. The top right is often used for n
 <br /><br />
 Example with top right align:
 
-![Toast top right example](../images/bootstrap/toast_align.png)
+![Toast top right example](../../images/bootstrap/toast_align.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -9023,7 +9023,7 @@ public void toastWithTopAlignValidationTest() {
 
 Example with top right align stack of toasts:
 
-![Toast top right stack example](../images/bootstrap/stack_top_html.png)
+![Toast top right stack example](../../images/bootstrap/stack_top_html.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -9090,7 +9090,7 @@ Here is an example with provided Bootstrap v4.3 code:
 
 Example with center align toast:
 
-![Toast top right stack example](../images/bootstrap/toast_center.png)
+![Toast top right stack example](../../images/bootstrap/toast_center.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -9163,7 +9163,7 @@ Pagination is located in the following classes:
 - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.complex.Pagination_
 
 
-![Pagination overview example](../images/bootstrap/pagination-overview-example.png)
+![Pagination overview example](../../images/bootstrap/pagination-overview-example.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -9256,7 +9256,7 @@ Pagination is located in the following classes:
 - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.complex.Pagination_
 
 
-![Pagination working with icons example](../images/bootstrap/pagination-icons-example.png)
+![Pagination working with icons example](../../images/bootstrap/pagination-icons-example.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -9346,7 +9346,7 @@ Pagination is located in the following classes:
 - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.complex.Pagination_
 
 
-![Pagination disabled and active states example](../images/bootstrap/pagination-dis-and-active-example.png)
+![Pagination disabled and active states example](../../images/bootstrap/pagination-dis-and-active-example.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -9439,7 +9439,7 @@ Pagination is located in the following classes:
 - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.complex.Pagination_
 
 
-![Pagination sizing example](../images/bootstrap/pagination-sizing-example.png)
+![Pagination sizing example](../../images/bootstrap/pagination-sizing-example.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -9545,7 +9545,7 @@ Pagination is located in the following classes:
 - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.complex.Pagination_
 
 
-![Pagination alignment example](../images/bootstrap/pagination-alignment-example.png)
+![Pagination alignment example](../../images/bootstrap/pagination-alignment-example.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -9898,7 +9898,7 @@ Inner elements of input group can be represented by following classes:
 
 
 **Sizing on the individual input group elements isn’t supported.**
-![Sizing](../images/bootstrap/sizing.png)
+![Sizing](../../images/bootstrap/sizing.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -9961,7 +9961,7 @@ And here are methods available in Java:
 
 **<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/input-group/#wrapping" target="_blank">Wrapping</a>** – Input groups wrap by default via flex-wrap: wrap in order to accommodate custom form field validation within an input group. You may disable this with .flex-nowrap.
 
-![Wrapping](../images/bootstrap/wrapping.png)
+![Wrapping](../../images/bootstrap/wrapping.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -10010,7 +10010,7 @@ __Example with radio__
  
 ```
 
-![radio](../images/bootstrap/input-group-radio.png)
+![radio](../../images/bootstrap/input-group-radio.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -10059,7 +10059,7 @@ This input group example is represented by the following classes in Java:
 ```
 __Example with checkbox__
 
-![Checkbox](../images/bootstrap/input-group-checkbox.png)
+![Checkbox](../../images/bootstrap/input-group-checkbox.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -10086,7 +10086,7 @@ This input group example is represented by the following classes in Java:
 ##### Multiple inputs
 <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/input-group/" target="_blank">Multiple inputs</a> – While multiple inputs are supported visually, validation styles are only available for input groups with a single input.
 
-![Multiple inputs](../images/bootstrap/multiple_inputs.png)
+![Multiple inputs](../../images/bootstrap/multiple_inputs.png)
 
 ```java 
 //FindBy(css = "#multiple-inputs"")
@@ -10195,7 +10195,7 @@ And here are methods available in Java:
 ##### Multiple addons
 <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/input-group/#multiple-addons" target="_blank">Multiple addons</a> are supported and can be mixed with checkbox and radio input versions.
 
-![Multiple addons](../images/bootstrap/multiple_addons.png)
+![Multiple addons](../../images/bootstrap/multiple_addons.png)
 
 ```java 
  @UI("#multiple-addons-1")  public static InputGroupMultipleAddonsUpper multipleAddonUpper; //@FindBy(css = "#multiple-addons-1")
@@ -10287,7 +10287,7 @@ Inner elements of multiple input can be represented by the following classes:
 **[Button addons](https://getbootstrap.com/docs/4.3/components/input-group/#button-addons)** – Multiple buttons have no detailed information on Bootstrap website
 
 
-![Button addons](../images/bootstrap/button_addons.png)
+![Button addons](../../images/bootstrap/button_addons.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -10410,7 +10410,7 @@ Inner elements of input group can be represented by following classes:
 
 **[Buttons with dropdowns](https://getbootstrap.com/docs/4.3/components/input-group/#buttons-with-dropdowns)** – Buttons with dropdowns have no detailed information on Bootstrap website
 
-![Buttons with dropdowns](../images/bootstrap/buttons_with_dropdowns.png)
+![Buttons with dropdowns](../../images/bootstrap/buttons_with_dropdowns.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -10513,7 +10513,7 @@ Inner elements of input group can be represented by following classes:
 ##### Segmented buttons
 **[Segmented buttons](https://getbootstrap.com/docs/4.3/components/input-group/#segmented-buttons)** – Segmented buttons have no detailed information on Bootstrap website
 
-![Segmented buttons](../images/bootstrap/segmented_buttons.png)
+![Segmented buttons](../../images/bootstrap/segmented_buttons.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -10637,7 +10637,7 @@ Inner elements of input group can be represented by following classes:
 ##### Custom select
 **[Custom select](https://getbootstrap.com/docs/4.3/components/input-group/#custom-select)** – Input groups include support for custom selects and text field. Browser default versions of these are not supported.
 
-![Custom select](../images/bootstrap/custom_select.png)
+![Custom select](../../images/bootstrap/custom_select.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -10709,7 +10709,7 @@ public void selectorIsValidationTests() {
 <br><br><br><br><br><br><br><br><br><br>
 **[Custom select with button](https://getbootstrap.com/docs/4.3/components/input-group/#custom-select)** – Input groups include support for custom selects and button. Browser default versions of these are not supported.
 
-![Custom select with button](../images/bootstrap/custom-select-with-button.png)
+![Custom select with button](../../images/bootstrap/custom-select-with-button.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -10830,7 +10830,7 @@ Inner elements of input group can be represented by following classes:
 
 [Custom file input](https://getbootstrap.com/docs/4.3/components/input-group/#custom-file-input) – Input groups include support for custom selects and custom file inputs. Browser default versions of these are not supported.
 
-![Custom file input](../images/bootstrap/custom_file_input.png)
+![Custom file input](../../images/bootstrap/custom_file_input.png)
 
 ```java 
 public class InputGroupCustomUploadFile extends Section {
@@ -10943,7 +10943,7 @@ content container with multiple variants and options.
 fixed width. Cards have no fixed width to start, so they’ll naturally fill the full width of its parent element.
 This is easily customized with our various sizing options.
 
-![Card Example](../images/bootstrap/simplecard.png)
+![Card Example](../../images/bootstrap/simplecard.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -11031,7 +11031,7 @@ Available methods in Java JDI Light:
 [Card Body](https://getbootstrap.com/docs/4.3/components/card/#body) - the building block of a card is the `.card-body`.
 Use it whenever you need a padded section within a card.
 
-![Card Body Example](../images/bootstrap/cardbody.png)
+![Card Body Example](../../images/bootstrap/cardbody.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -11086,7 +11086,7 @@ by adding `.card-link` to an `<a>` tag.
 Subtitles are used by adding a `.card-subtitle` to a `<h*>` tag. If the `.card-title` and the `.card-subtitle` items
 are placed in a `.card-body` item, the card title and subtitle are aligned nicely.
 
-![Card Titles, Text and Links Example](../images/bootstrap/cardsubslinks.png)
+![Card Titles, Text and Links Example](../../images/bootstrap/cardsubslinks.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -11162,7 +11162,7 @@ Available methods in Java JDI Light:
 to the top of the card. With `.card-text`, text can be added to the card. Text within `.card-text` can also be styled
 with the standard HTML tags.
 
-![Card Images Example](../images/bootstrap/card-image.png)
+![Card Images Example](../../images/bootstrap/card-image.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -11234,7 +11234,7 @@ And here are methods available in Java:
 [Card List Groups Example](https://getbootstrap.com/docs/4.3/components/card/#list-groups) – create lists of content in a card
 with a flush list group.
 
-![Card list groups](../images/bootstrap/card_list_groups.png)
+![Card list groups](../../images/bootstrap/card_list_groups.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -11306,7 +11306,7 @@ Inner elements of Card List Groups represented by the following classes:
 types to create the card you need, or throw everything in there. Shown below are image styles, blocks, text styles, and
 a list group—all wrapped in a fixed-width card.
 
-![Card Kitchen Sink Example](../images/bootstrap/card-kitchen-sink.png)
+![Card Kitchen Sink Example](../../images/bootstrap/card-kitchen-sink.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -11399,7 +11399,7 @@ Available methods in Java JDI Light:
 [Card with Header and Footer](https://getbootstrap.com/docs/4.3/components/card/#header-and-footer) - add an optional
 header and/or footer within a card.
 
-![Card with Header and Footer Example](../images/bootstrap/cardheaderfooter.png)
+![Card with Header and Footer Example](../../images/bootstrap/cardheaderfooter.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -11471,7 +11471,7 @@ Available methods in Java JDI Light:
 [Card with Grid Markup](https://getbootstrap.com/docs/4.3/components/card/#using-grid-markup) - using the grid,
 wrap cards in columns and rows as needed.
 
-![Card with Grid Markup Example](../images/bootstrap/card_grid.png)
+![Card with Grid Markup Example](../../images/bootstrap/card_grid.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -11577,7 +11577,7 @@ Available methods in Java JDI Light:
 [Card Utilities](https://getbootstrap.com/docs/4.3/components/card/#using-utilities) - use handful of available
 sizing utilities to quickly set a card’s width.
 
-![Card Utilities Example](../images/bootstrap/card_utilities.png)
+![Card Utilities Example](../../images/bootstrap/card_utilities.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -11629,7 +11629,7 @@ Available methods in Java JDI Light:
 [Card Using Custom CSS](https://getbootstrap.com/docs/4.3/components/card/#using-custom-css) - use custom CSS in your
 stylesheets or as inline styles to set a width.
 
-![Card Using Custom CSS Example](../images/bootstrap/card_custom_CSS.png)
+![Card Using Custom CSS Example](../../images/bootstrap/card_custom_CSS.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -11704,7 +11704,7 @@ Available methods in Java JDI Light:
 [Card Text Alignment](https://getbootstrap.com/docs/4.3/utilities/text/#text-alignment) - You can quickly change
 the text alignment of any card — in it's entirety or specific parts — with Bootstrap's text align classes.
 
-![Card Text Alignment Example](../images/bootstrap/cardtextalignment.png)
+![Card Text Alignment Example](../../images/bootstrap/cardtextalignment.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -11787,7 +11787,7 @@ Available methods in Java JDI Light:
 [Card Navigation](https://getbootstrap.com/docs/4.3/components/card/#navigation) adds some navigation to a card’s header
 (or block) with Bootstrap’s nav components.
 
-![Card Navigation Example](../images/bootstrap/cardnav.png)
+![Card Navigation Example](../../images/bootstrap/cardnav.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -11915,7 +11915,7 @@ Available methods in Java JDI Light:
 [Card Image Caps](https://getbootstrap.com/docs/4.3/components/card/#image-caps) - similar to headers and footers, cards
 can include top and bottom “image caps” — images at the top or bottom of a card.
 
-![Card Image Caps Example](../images/bootstrap/cardimagecaps.png)
+![Card Image Caps Example](../../images/bootstrap/cardimagecaps.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -11981,7 +11981,7 @@ Available methods in Java JDI Light:
 [Card Image Overlays](https://getbootstrap.com/docs/4.3/components/card/#image-overlays) turn an image into a card
 background and overlay your card’s text. Depending on the image, you may or may not need additional styles or utilities.
 
-![Card Image Overlays Example](../images/bootstrap/card-image-overlays.png)
+![Card Image Overlays Example](../../images/bootstrap/card-image-overlays.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -12067,7 +12067,7 @@ And here are methods available in Java:
 [Card Horizontal](https://getbootstrap.com/docs/4.3/components/card/#horizontal) - using a combination of grid and
 utility classes, cards can be made horizontal in a mobile-friendly and responsive way.
 
-![Card Horizontal Example](../images/bootstrap/card_horizontal.png)
+![Card Horizontal Example](../../images/bootstrap/card_horizontal.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -12159,7 +12159,7 @@ Available methods in Java JDI Light:
 [Card Background And Color](https://getbootstrap.com/docs/4.3/components/card/#background-and-color) - use text and
 background utilities to change the appearance of a card.
 
-![Card Background And Color Example](../images/bootstrap/cardbackgroundandcolor.png)
+![Card Background And Color Example](../../images/bootstrap/cardbackgroundandcolor.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -12229,7 +12229,7 @@ Available methods in Java JDI Light:
 border-color of a card. Note that you can put `.text-{color}` classes on the parent `.card` or a subset of the card’s
 contents as shown below.
 
-![Card Border Example](../images/bootstrap/cardborders.png)
+![Card Border Example](../../images/bootstrap/cardborders.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -12293,7 +12293,7 @@ Available methods in Java JDI Light:
 [Card Mixins Utilities](https://getbootstrap.com/docs/4.3/components/card/#mixins-utilities) - you can also change
 the borders on the card header and footer as needed, and even remove their background-color with `.bg-transparent`.
 
-![Card Mixins Utilities Example](../images/bootstrap/card-mixins-utilities.png)
+![Card Mixins Utilities Example](../../images/bootstrap/card-mixins-utilities.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -12361,7 +12361,7 @@ Available methods in Java JDI Light:
 [Card Groups](https://getbootstrap.com/docs/4.3/components/card/#card-groups) - use card groups to render cards as
 a single, attached element with equal width and height columns.
 
-![Card_Groups Example](../images/bootstrap/card-groups.png)
+![Card_Groups Example](../../images/bootstrap/card-groups.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -12429,7 +12429,7 @@ public void getAltTest() {
 
 ###### Card Groups with Footer
 
-![Card Groups with Footer Example](../images/bootstrap/card-groups-with-footer.png)
+![Card Groups with Footer Example](../../images/bootstrap/card-groups-with-footer.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -12515,7 +12515,7 @@ Inner elements of Card Grouped represented by the following classes:
 [Card Decks](https://getbootstrap.com/docs/4.3/components/card/#card-decks) - use card decks for a set of equal width
 and height cards that aren't attached to one another.
 
-![Card_Decks Example](../images/bootstrap/card-decks.png)
+![Card_Decks Example](../../images/bootstrap/card-decks.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -12585,7 +12585,7 @@ public void getMainTextTest() {
 
 ###### Card Decks with Footer
 
-![Card Decks with Footer Example](../images/bootstrap/card-decks-with-footer.png)
+![Card Decks with Footer Example](../../images/bootstrap/card-decks-with-footer.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -12687,7 +12687,7 @@ Available methods in Java JDI Light:
 with some additional code. For example `.card-columns` class to generate a set of responsive tiers for changing
 the number of columns.
 
-![Card Columns Example](../images/bootstrap/card-columns.png)
+![Card Columns Example](../../images/bootstrap/card-columns.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -12802,7 +12802,7 @@ Available methods in Java JDI Light:
 
 [Jumbotron](https://getbootstrap.com/docs/4.3/components/jumbotron) – Lightweight, flexible component for showcasing hero
 
-![Jumbotron](../images/bootstrap/jumbotron.png)
+![Jumbotron](../../images/bootstrap/jumbotron.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -12920,7 +12920,7 @@ Additional methods available for DropdownMenu class in Java JDI Light:
 ##### [Single button](https://getbootstrap.com/docs/4.3/components/dropdowns/#single-button)
 Any single `.btn` can be turned into a dropdown toggle with some markup changes. Here’s how you can put them to work with either `<button>` elements:
 
-![Dropdown example](../images/bootstrap/dropdown.png)
+![Dropdown example](../../images/bootstrap/dropdown.png)
 
 Here is an example with provided Bootstrap v4.3 code for `<button>` elements:
 
@@ -13021,7 +13021,7 @@ public void linkDropdownIsValidationTest() {
 ##### <a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#split-button">Split button</a>
 Similarly, create split button dropdowns with virtually the same markup as single button dropdowns, but with the addition of ``.dropdown-toggle-split`` for proper spacing around the dropdown caret.
 
-![Split button example](../images/bootstrap/dropdown-split.png)
+![Split button example](../../images/bootstrap/dropdown-split.png)
 
 Here is an example with provided Bootstrap v4.3 code:
 
@@ -13069,7 +13069,7 @@ public void splitDropdownIsValidationTest() {
 ##### <a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#sizing">Sizing</a>
 Button dropdowns work with buttons of all sizes, including default and split dropdown buttons.
 
-![Sizing example](../images/bootstrap/dropdown-sizing.png)
+![Sizing example](../../images/bootstrap/dropdown-sizing.png)
 
 Here is an example of Large button code:
 
@@ -13164,7 +13164,7 @@ Trigger dropdown menus <a href="https://getbootstrap.com/docs/4.3/components/dro
 Trigger dropdown menus <a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#dropright">at the right</a> of the elements by adding ``.dropright`` to the parent element.<br>
 Trigger dropdown menus <a href="https://getbootstrap.com/docs/4.3/components/dropdowns/#dropleft">at the left</a> of the elements by adding ``.dropleft`` to the parent element.
 
-![Directions example](../images/bootstrap/dropdown-directions-example.png)
+![Directions example](../../images/bootstrap/dropdown-directions-example.png)
 
 Here is an example of Dropup code:
 
@@ -13421,7 +13421,7 @@ Historically dropdown menu contents had to be links, but that’s no longer the 
 Now you can optionally use ``<button>`` elements in your dropdowns instead of just ``<a>``s.
 
 
-![Menu items example](../images/bootstrap/dropdown-menu-items.png)
+![Menu items example](../../images/bootstrap/dropdown-menu-items.png)
 
 Here is an example of Menu items code:
 
@@ -13469,7 +13469,7 @@ public void menuItemsActionsTest(String itemText, String alertText) {
 <br><br><br><br><br><br>
 You can also create non-interactive dropdown items with ``.dropdown-item-text``. Feel free to style further with custom CSS or text utilities.
 
-![Non-interactive items example](../images/bootstrap/dropdown-non-interactive-items.png)
+![Non-interactive items example](../../images/bootstrap/dropdown-non-interactive-items.png)
 
 Here is an example of non-interactive dropdown items code:
 
@@ -13518,7 +13518,7 @@ public void textItemTest() {
 
 Add ``.active`` to items in the dropdown to style them as active.
 
-![Active example](../images/bootstrap/dropdown-menu-items-active.png)
+![Active example](../../images/bootstrap/dropdown-menu-items-active.png)
 
 Here is a code example of items in the dropdown which are styled as active:
 
@@ -13572,7 +13572,7 @@ public void isActiveTest() {
 
 Add ``.disabled`` to items in the dropdown to style them as disabled.
 
-![Disabled example](../images/bootstrap/dropdown-menu-items-disabled.png)
+![Disabled example](../../images/bootstrap/dropdown-menu-items-disabled.png)
 
 Here is a code example of items in the dropdown which are styled as disabled:
 
@@ -13625,7 +13625,7 @@ By default, a dropdown menu is automatically positioned 100% from the top and al
 
 Here is an example of right-aligned menu:
 
-![Right-aligned-example](../images/bootstrap/dropdown-alignment-right.png)
+![Right-aligned-example](../../images/bootstrap/dropdown-alignment-right.png)
 
 Here is an example of right-aligned menu code:
 
@@ -13669,7 +13669,7 @@ To align **right** the dropdown menu with the given breakpoint or larger, add<br
 
 Here is an example of left-aligned but right aligned when large screen:
 
-![Right-aligned-when-large-screen-example](../images/bootstrap/dropdown-alignment-large-right.png)
+![Right-aligned-when-large-screen-example](../../images/bootstrap/dropdown-alignment-large-right.png)
 
 Here is an example of left-aligned but right aligned when large screen code:
 
@@ -13737,7 +13737,7 @@ public void leftAllignedDropdownIsValidationTest() {
 
 Add a header to label sections of actions in any dropdown menu.
 
-![Headers example](../images/bootstrap/dropdown-menu-content-headers.png)
+![Headers example](../../images/bootstrap/dropdown-menu-content-headers.png)
 
 Here is an example headers code in the menu items:
 
@@ -13779,7 +13779,7 @@ public void checkHeaderTest() {
 
 Separate groups of related menu items with a divider.
 
-![Dividers example](../images/bootstrap/dropdown-menu-content-dividers.png)
+![Dividers example](../../images/bootstrap/dropdown-menu-content-dividers.png)
 
 Here is an example dividers code in the menu items:
 
@@ -13821,7 +13821,7 @@ public void checkDividerTest() {
 
 Place any freeform text within a dropdown menu with text and use <a href="https://getbootstrap.com/docs/4.3/utilities/spacing/">spacing utilities</a>. Note that you’ll likely need additional sizing styles to constrain the menu width.
 
-![Text example](../images/bootstrap/dropdown-menu-content-text.png)
+![Text example](../../images/bootstrap/dropdown-menu-content-text.png)
 
 Here is an example text code in the menu items:
 
@@ -13858,7 +13858,7 @@ public void checkTextTest() {
 
 Put a form within a dropdown menu, or make it into a dropdown menu, and use <a href="https://getbootstrap.com/docs/4.3/utilities/spacing/">margin or padding utilities</a> to give it the negative space you require.
 
-![Form example](../images/bootstrap/dropdown-menu-content-form.png)
+![Form example](../../images/bootstrap/dropdown-menu-content-form.png)
 
 Here is an example form code in the menu items:
 
@@ -13940,7 +13940,7 @@ public void testButton(){
 
 Use ``data-offset`` or ``data-reference`` to change the location of the dropdown.
 
-![Dropdown Options Example](../images/bootstrap/dropdown-options.png)
+![Dropdown Options Example](../../images/bootstrap/dropdown-options.png)
 
 ```java 
 //@FindBy(id = "offsetDropdown")

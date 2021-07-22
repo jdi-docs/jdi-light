@@ -2190,7 +2190,7 @@ Handle Window alerts/confirm/prompt dialogs described on <a href='https://develo
 
 alert('Alert')
 
-![Alert](../images/alert.png)
+![Alert](../../images/alert.png)
 
 ```java 
 alertButton.click();
@@ -2215,7 +2215,7 @@ TBD ValidateAlert
 
 confirm()
 
-![Confirmation dialog](../images/confirm.png)
+![Confirmation dialog](../../images/confirm.png)
 
 ```java 
 alertButton.click();
@@ -2228,7 +2228,7 @@ GetAlert().InputAndAcceptAlert("Some text");
 
 prompt('Alert', 'Default value')
 
-![Prompt dialog](../images/prompt.png)
+![Prompt dialog](../../images/prompt.png)
 
 Available methods in Java
 

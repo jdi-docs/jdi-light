@@ -65,7 +65,7 @@
   ```
 **Label** – Elements' caption for a big number of JDI common elements.
 
-![Label](../images/colorpicker.png)
+![Label](../../images/colorpicker.png)
 
 ```html 
 <label for="test">Description</label>
@@ -148,7 +148,7 @@ public void GetTextTest()
 ```
 **Button** – Element that represents a clickable button.
 
-![Button](../images/button.png)
+![Button](../../images/button.png)
 
 ```html 
 <button type="button" id="red-button" class="btn btn-danger" onclick="alert('Red button');" 
@@ -168,7 +168,7 @@ Button is located in the following classes:
 
 Here is an example with provided HTML code:
 
-<!-- ![Button example](../images/html/button_html.png) -->
+<!-- ![Button example](../../images/html/button_html.png) -->
 
 ```html
 <input type="button" value="Big Red Button-Input" 
@@ -205,7 +205,7 @@ Available methods and properties in C# JDI Light:
 
 **Checkbox** – Element allows you to select single value for submission.
 
-![Checkbox](../images/checkbox.png)
+![Checkbox](../../images/checkbox.png)
 
 Checkbox is located in the following classes:
 
@@ -215,7 +215,7 @@ Checkbox is located in the following classes:
 
 Here is an example with provided HTML code:
 
-<!-- ![Checkbox example](../images/html/checkbox_html.png) -->
+<!-- ![Checkbox example](../../images/html/checkbox_html.png) -->
 
 ```java 
 //@FindBy(id = "accept-conditions") 
@@ -411,7 +411,7 @@ public void SetColorTest()
 ```
 **ColorPicker** – Elements of this type provide a user interface element that lets a user specify a color, either by using a visual color picker interface or by entering the color into a text field in "#rrggbb" hexadecimal format. Only simple colors (with no alpha channel) are allowed. The values are compatible with CSS.
 
-![ColorPicker](../images/colorpicker.png)
+![ColorPicker](../../images/colorpicker.png)
 
 Colorpicker is located in the following classes:
 
@@ -420,7 +420,7 @@ Colorpicker is located in the following classes:
 
 Here is an example with provided HTML code:
 
-<!-- ![ColorPicker](../images/html/colorpicker_html.png) -->
+<!-- ![ColorPicker](../../images/html/colorpicker_html.png) -->
 
 ```html
 <input type="color" value="#3fd7a6" id="color-picker">
@@ -554,7 +554,7 @@ public void SetBirthDateTest()
 ```
 **Input Type Date** – A graphical control element that allows user to set value for date.
 
-![InputTypeDate](../images/html/inputTypeDate_html2.png)
+![InputTypeDate](../../images/html/inputTypeDate_html2.png)
 
 ```html
 <label for="birth-date">Birth date</label>
@@ -585,7 +585,7 @@ public void AutumnDateTimeTest()
 ```
 **Input Type Week** – A graphical control element that allows user to set values for week and year.
 
-![InputTypeWeek](../images/html/inputTypeWeek_html2.png)
+![InputTypeWeek](../../images/html/inputTypeWeek_html2.png)
 
 ```html
 <label for="autumn-week">Autumn</label>
@@ -616,7 +616,7 @@ public void SetMonthTest()
 ```
 **Input Type Month** – a graphical control element that allows user to set values for month and year.
 
-![InputTypeMonth](../images/html/inputTypeMonth_html2.png)
+![InputTypeMonth](../../images/html/inputTypeMonth_html2.png)
 
 ```html
 <label for="month-date">Month of Holidays</label>
@@ -645,7 +645,7 @@ public void SetTimeTest()
 ```
 **Input Type Time** – A graphical control element that allows user to set time.
 
-![InputTypeTime](../images/html/inputTypeTime_html2.png)
+![InputTypeTime](../../images/html/inputTypeTime_html2.png)
 
 ```html
 <label for="booking-time">Booking Time:</label>
@@ -673,7 +673,7 @@ public void SetPartyTimeTest()
 ```
 **Input Type DateTime-Local** – A graphical control element that allows user to set time and date.
 
-![InputTypeDateTime](../images/html/inputDateTimeLocal_html2.png)
+![InputTypeDateTime](../../images/html/inputDateTimeLocal_html2.png)
 
 ```html
 <label for="party-time">Date/time:</label>
@@ -689,7 +689,7 @@ public void SetPartyTimeTest()
 
 **FileInput** - A graphical control element that allows user to upload documents to web site.
 
-![FileInput](../images/fileInputAndDownload.png)
+![FileInput](../../images/fileInputAndDownload.png)
 
 FileInput element is located in JDI Light in:
 
@@ -699,7 +699,7 @@ FileInput element is located in JDI Light in:
 
 Here is an example with HTML code provided:
 
-<!-- ![FileInput example](../images/html/fileinput_html.png) -->
+<!-- ![FileInput example](../../images/html/fileinput_html.png) -->
 
 ```java 
 //@FindBy(id = "avatar")
@@ -811,7 +811,7 @@ Available method in C# JDI Light:
 
 **Icon** – Is a simple element type that represents icons and graphic images.
 
-![Icon](../images/html/image_html2.png)
+![Icon](../../images/html/image_html2.png)
 
 ```java 
 @UI("#jdi-logo") 
@@ -895,7 +895,7 @@ Here is a list of available methods in C#:
 
 **Image** – Is a simple element type that represents graphic images.
 
-![Image](../images/html/image_html2.png)
+![Image](../../images/html/image_html2.png)
 
 ```java 
 @UI("#jdi-logo") 
@@ -1014,7 +1014,7 @@ Link are represented by the following class:
 - __C#__: _JDI.Light.Elements.Common.Link_
 
 
-![Link](../images/html/link_html2.png)
+![Link](../../images/html/link_html2.png)
 
 ```html 
 <a ui="github-link" href="https://github.com/jdi-testing" alt="Github JDI Link">Github JDI</a>
@@ -1061,11 +1061,11 @@ Menu element is located in JDI Light in:
   .Menu_
 - __C#__: _JDI.Light.Elements.Composite.Menu_
 
-![Menu example](../images/html/menu2.png)
+![Menu example](../../images/html/menu2.png)
 
 Here is an example with provided HTML code:
 
-<!-- ![Menu example](../images/html/menu.png) -->
+<!-- ![Menu example](../../images/html/menu.png) -->
 
 ```java 
 @UI(".sidebar-menu span<[*'%s']<<") 
@@ -1264,7 +1264,7 @@ public void GetNumberTest()
 ```
 
 
-![NumberSelector](../images/html/numberSelector_html2.png)
+![NumberSelector](../../images/html/numberSelector_html2.png)
 
 ```html
 <label for="height">Height (metres):</label>
@@ -1308,7 +1308,7 @@ Here is the list of available methods in C#:
 
 **Progress Bar** - Element for displaying an indicator showing the completion progress of a task.
 
-![ProgressBar](../images/progressbar.png)
+![ProgressBar](../../images/progressbar.png)
 
 ProgressBar is located in the following classes:
 
@@ -1352,7 +1352,7 @@ public void MaxTest()
 
 Here is an example with provided HTML code:
 
-<!-- ![ProgressBar example](../images/html/progressbar_html.png) -->
+<!-- ![ProgressBar example](../../images/html/progressbar_html.png) -->
 
 ```html
 <label for="progress">File progress</label>
@@ -1448,7 +1448,7 @@ public void checkMaxTest() {
 
 **Range** - A graphical control element that allows the user to set the value from the range.</br>
 
-![Range](../images/html/range_html2.png)</br>
+![Range](../../images/html/range_html2.png)</br>
 
 ```html
 <label for="volume">Volume</label>
@@ -1600,7 +1600,7 @@ public void textDoesNotContainWordTest() {
   
 ```
 
-![Text](../images/html/text_html2.png)
+![Text](../../images/html/text_html2.png)
 
 ```html 
 <p ui="jdi-text">Powerful Framework for UI Tests Automation. Suitable for any UI project: 
@@ -1689,7 +1689,7 @@ public ITextField NameField;
 ```
 **TextField** – Is a simple element type that allows users to fill in text fields.
 
-![InputTypeTextField](../images/html/textField_html2.png)
+![InputTypeTextField](../../images/html/textField_html2.png)
 
 ```html
 <label for="name">Your name:</label>
@@ -1741,7 +1741,7 @@ And here are methods available in Java:
 
 **TextArea** – Is a simple element type that allows users to fill in text areas (they may contain a few lines).
 
-![InputTypeTextArea](../images/html/textArea_html2.png)
+![InputTypeTextArea](../../images/html/textArea_html2.png)
 
 
 ```java 
@@ -1861,7 +1861,7 @@ Title is represented by the following class:
 - __Java__: _com.epam.jdi.light.ui.html.common.Title_
 - __C#__: _JDI.Light.Elements.Common.Title
 
-![Title](../images/html/title2.png)
+![Title](../../images/html/title2.png)
 
 ```java 
 @UI("[ui=jdi-title]") //@FindBy(css = "[ui=jdi-title]") 
@@ -1955,7 +1955,7 @@ Radio buttons are represented by the following class:
 
 Consider an example where each radio button is a particular color, described with given HTML code:
 
-![RadioButton](../images/html/radio_html2.png)
+![RadioButton](../../images/html/radio_html2.png)
 
 ```java 
     //@FindBy(name = "colors")
@@ -2064,7 +2064,7 @@ Tables are represented by the following classes in Java and C#:
 - __Java__: <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light/src/main/java/com/epam/jdi/light/elements/complex/table/Table.java">Table.java</a>
 - __C#__: <a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light/Elements/Complex/Table/Table.cs">Table.cs</a>
 
-![Table](../images/html/tableHtml2.png)
+![Table](../../images/html/tableHtml2.png)
 
 ```html 
 <table class="uui-table stripe tbl-without-header table-td-click"
@@ -2443,7 +2443,7 @@ public void rowMatcherChainTest() {
 
 - __Java__: _com.epam.jdi.light.elements.complex.table.DataTable.java_
 
-![DataTable](../images/html/tableHtml2.png)
+![DataTable](../../images/html/tableHtml2.png)
 
 ```html 
 <table class="uui-table stripe tbl-without-header table-td-click"
@@ -2533,7 +2533,7 @@ DataTableAssert methods in Java:
 
 **Dropdown** – A graphical control element that allows user to choose a single value from a list.
 
-![DropDown](../images/dropdown.png)
+![DropDown](../../images/dropdown.png)
 
 JDI Light has support for dropdown elements with their own type. There are several ways of dropdown usage in JDI Light, each serving different needs.
 
@@ -2545,7 +2545,7 @@ Also this class can be used when working with HTML5 elements in cases when dropd
 
 Consider an example of HTML5 dropdown with the given HTML code:
 
-![Dropdown HTML5](../images/html/dropdown_html52.png)
+![Dropdown HTML5](../../images/html/dropdown_html52.png)
 
 ```java 
 @JDropdown(root = "div[ui=dropdown]",
@@ -2644,7 +2644,7 @@ For better use, JDI Light provides a __*@JDropdown*__ annotation to locate dropd
 complex element that may consist of more a complicated html structure. JDropdown annotation allows customise navigation of the web element inner structure by using
 annotation default methods.
 
-<!-- ![Dropdown HTML](../images/html/dropdown_html.png) -->
+<!-- ![Dropdown HTML](../../images/html/dropdown_html.png) -->
 
 
 ```csharp 
@@ -2742,7 +2742,7 @@ Available Assert methods in C#:
 
 **MultiDropdown** – A graphical control element that allows user to choose several values from a list.
 
-![DropDown](../images/multidropdown.png)
+![DropDown](../../images/multidropdown.png)
 
 JDI Light provides a MultiSelector class which is using for MultiDropdown representation as a type of web element.
 
@@ -2924,7 +2924,7 @@ Here is the list of some methods available for C# in JDI Light:
 **DataList** – A graphical control element that allows user to choose one value from a list or enter it by himself.
 DataList element contains a set of options with values available as inputs.
 
-![DataList](../images/icecreamdatalist.png)
+![DataList](../../images/icecreamdatalist.png)
 
 __C# JDI DataList annotation__
 
@@ -3027,7 +3027,7 @@ public void selectNumTest() {
 ```
 
 
-<!-- ![Datalist example](../images/html/datalist_html.png) -->
+<!-- ![Datalist example](../../images/html/datalist_html.png) -->
 
 ```html
 <label for="ice-cream">Choose your lovely icecream</label>
@@ -3082,7 +3082,7 @@ Checklist element type is available in the following packages:
 
 See an example with HTML code describing checklist element.
 
-![Checklist Example](../images/html/checklist_html2.png)
+![Checklist Example](../../images/html/checklist_html2.png)
 
 ```java 
 //@FindBy(name = "checks-group")
@@ -3228,7 +3228,7 @@ MultiSelector is represented by the following class:
 - __Java__: _com.epam.jdi.light.ui.html.complex.MultiSelector_
 - __C#__: _JDI.Light.Elements.Common.MultiSelector_
 
-![MultiSelector](../images/html/multiSelectHtml2.png)
+![MultiSelector](../../images/html/multiSelectHtml2.png)
 
 ```java 
 @UI("#ages") // @FindBy(css = "#ages")  
@@ -3311,7 +3311,7 @@ Here is the list of available methods/asserts in Java:
 **ComboBox** – A graphical control element that allows user to choose a single
 value from a list or enter it by himself (is inherited from the [Datalist](#datalist))
 
-![ComboBox](../images/icecreamdatalist.png)
+![ComboBox](../../images/icecreamdatalist.png)
 
 ComboBox is provided by JDI Light in:
 
@@ -3390,7 +3390,7 @@ public void FillComboBox()
 
 Have a look at the following example with HTML code provided:
 
-<!-- ![Combobox example](../images/html/datalist_html.png) -->
+<!-- ![Combobox example](../../images/html/datalist_html.png) -->
 
 ```html
 <input list="ice-cream-flavors" id="ice-cream" placeholder="Ice cream">
@@ -3569,7 +3569,7 @@ Form consists of elements based on _SetValue_ interface and buttons with **submi
 
 Form provides the _fill, submit and verify/check_ functionality.
 
-![Form](../images/html/contact_form_example.png)
+![Form](../../images/html/contact_form_example.png)
 
 ```html
 <form class="form" id="contact-form">
@@ -3846,7 +3846,7 @@ Methods available for Java in JDI Light:
 
 - __Java__: _com.epam.jdi.light.elements.composite_
 
-![WebPage](../images/html/webpage.png)
+![WebPage](../../images/html/webpage.png)
 
 Methods available for Java in JDI Light:
 

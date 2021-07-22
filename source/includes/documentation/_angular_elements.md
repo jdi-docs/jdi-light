@@ -28,7 +28,7 @@ Divider is located in the following class:
 
 Divider icon:
 
-![Divider icon](../images/angular/divider.png)
+![Divider icon](../../images/angular/divider.png)
 
 ```html
 <mat-list class="mat-list mat-list-base">
@@ -94,7 +94,7 @@ Icon is located in the following class:
 
 There is two different icons in Angular: Basic icon and SVG icon:
 
-![Basic icon](../images/angular/basic_icon.png) ![Svg icon](../images/angular/svg_icon.png)
+![Basic icon](../../images/angular/basic_icon.png) ![Svg icon](../../images/angular/svg_icon.png)
 
 ```html
 <mat-icon _ngcontent-hkf-c334="" role="img" aria-hidden="false" aria-label="Example home icon" class="mat-icon notranslate material-icons mat-icon-no-color">home</mat-icon>
@@ -136,7 +136,7 @@ Progress Spinner is located in the following class:
 - __Java__: _com.epam.jdi.light.ui.angular.elements.common.Spinner_
 
 
-![Progress spinner](../images/angular/basic_progress_spinner.png)
+![Progress spinner](../../images/angular/basic_progress_spinner.png)
 
 ```html
 <mat-spinner _ngcontent-krq-c336="" role="progressbar" mode="indeterminate" class="mat-spinner mat-progress-spinner mat-primary mat-progress-spinner-indeterminate-animation" style="width: 100px; height: 100px;"><svg preserveAspectRatio="xMidYMid meet" focusable="false" viewBox="0 0 100 100" style="width: 100px; height: 100px;"><circle cx="50%" cy="50%" r="45" class="ng-star-inserted" style="animation-name: mat-progress-spinner-stroke-rotate-100; stroke-dasharray: 282.743px; stroke-width: 10%;"></circle><!----><!----></svg></mat-spinner>
@@ -184,7 +184,7 @@ Slide toggle is located in the following class:
 
 There is two different slide toggles in Angular: Basic and Configurable:
 
-![Basic slide toggle](../images/angular/basic_slide_toggle.png)
+![Basic slide toggle](../../images/angular/basic_slide_toggle.png)
 
 ```html
 <mat-slide-toggle _ngcontent-bco-c235="" class="mat-slide-toggle mat-accent mat-checked" id="mat-slide-toggle-1" tabindex="-1"><label class="mat-slide-toggle-label" for="mat-slide-toggle-1-input"><div class="mat-slide-toggle-bar"><input type="checkbox" role="switch" class="mat-slide-toggle-input cdk-visually-hidden" id="mat-slide-toggle-1-input" tabindex="0" aria-checked="true"><div class="mat-slide-toggle-thumb-container"><div class="mat-slide-toggle-thumb"></div><div mat-ripple="" class="mat-ripple mat-slide-toggle-ripple mat-focus-indicator"><div class="mat-ripple-element mat-slide-toggle-persistent-ripple"></div></div></div></div><span class="mat-slide-toggle-content"><span style="display: none;">&nbsp;</span>Slide me!</span></label></mat-slide-toggle>
@@ -236,7 +236,7 @@ There is two different slide toggles in Angular: Basic and Configurable:
     }
 ```  
 
-![Configurable slide toggle](../images/angular/configurable_slide_toggle.png)
+![Configurable slide toggle](../../images/angular/configurable_slide_toggle.png)
 
 ```html
 <mat-card-content _ngcontent-noq-c236="" class="mat-card-content"><h4 _ngcontent-noq-c236="">Slider configuration</h4><section _ngcontent-noq-c236="" class="example-section"><label _ngcontent-noq-c236="" class="example-margin">Color:</label><mat-radio-group _ngcontent-noq-c236="" role="radiogroup" class="mat-radio-group ng-untouched ng-pristine ng-valid"><mat-radio-button _ngcontent-noq-c236="" value="primary" class="mat-radio-button example-margin mat-accent" tabindex="-1" id="mat-radio-13"><label class="mat-radio-label" for="mat-radio-13-input"><div class="mat-radio-container"><div class="mat-radio-outer-circle"></div><div class="mat-radio-inner-circle"></div><input type="radio" class="mat-radio-input cdk-visually-hidden" id="mat-radio-13-input" tabindex="0" name="mat-radio-group-11" value="primary"><div mat-ripple="" class="mat-ripple mat-radio-ripple mat-focus-indicator"><div class="mat-ripple-element mat-radio-persistent-ripple"></div></div></div><div class="mat-radio-label-content"><span style="display: none;">&nbsp;</span> Primary </div></label></mat-radio-button><mat-radio-button _ngcontent-noq-c236="" value="accent" class="mat-radio-button example-margin mat-accent mat-radio-checked" tabindex="-1" id="mat-radio-14"><label class="mat-radio-label" for="mat-radio-14-input"><div class="mat-radio-container"><div class="mat-radio-outer-circle"></div><div class="mat-radio-inner-circle"></div><input type="radio" class="mat-radio-input cdk-visually-hidden" id="mat-radio-14-input" tabindex="0" name="mat-radio-group-11" value="accent"><div mat-ripple="" class="mat-ripple mat-radio-ripple mat-focus-indicator"><div class="mat-ripple-element mat-radio-persistent-ripple"></div></div></div><div class="mat-radio-label-content"><span style="display: none;">&nbsp;</span> Accent </div></label></mat-radio-button><mat-radio-button _ngcontent-noq-c236="" value="warn" class="mat-radio-button example-margin mat-accent" tabindex="-1" id="mat-radio-15"><label class="mat-radio-label" for="mat-radio-15-input"><div class="mat-radio-container"><div class="mat-radio-outer-circle"></div><div class="mat-radio-inner-circle"></div><input type="radio" class="mat-radio-input cdk-visually-hidden" id="mat-radio-15-input" tabindex="0" name="mat-radio-group-11" value="warn"><div mat-ripple="" class="mat-ripple mat-radio-ripple mat-focus-indicator"><div class="mat-ripple-element mat-radio-persistent-ripple"></div></div></div><div class="mat-radio-label-content"><span style="display: none;">&nbsp;</span> Warn </div></label></mat-radio-button></mat-radio-group></section><section _ngcontent-noq-c236="" class="example-section"><mat-checkbox _ngcontent-noq-c236="" class="mat-checkbox example-margin mat-accent ng-untouched ng-pristine ng-valid" id="mat-checkbox-6"><label class="mat-checkbox-layout" for="mat-checkbox-6-input"><div class="mat-checkbox-inner-container"><input type="checkbox" class="mat-checkbox-input cdk-visually-hidden" id="mat-checkbox-6-input" tabindex="0" aria-checked="false"><div matripple="" class="mat-ripple mat-checkbox-ripple mat-focus-indicator"><div class="mat-ripple-element mat-checkbox-persistent-ripple"></div></div><div class="mat-checkbox-frame"></div><div class="mat-checkbox-background"><svg version="1.1" focusable="false" viewBox="0 0 24 24" xml:space="preserve" class="mat-checkbox-checkmark"><path fill="none" stroke="white" d="M4.1,12.7 9,17.6 20.3,6.3" class="mat-checkbox-checkmark-path"></path></svg><div class="mat-checkbox-mixedmark"></div></div></div><span class="mat-checkbox-label"><span style="display: none;">&nbsp;</span>Checked</span></label></mat-checkbox></section><section _ngcontent-noq-c236="" class="example-section"><mat-checkbox _ngcontent-noq-c236="" class="mat-checkbox example-margin mat-accent ng-untouched ng-pristine ng-valid" id="mat-checkbox-7"><label class="mat-checkbox-layout" for="mat-checkbox-7-input"><div class="mat-checkbox-inner-container"><input type="checkbox" class="mat-checkbox-input cdk-visually-hidden" id="mat-checkbox-7-input" tabindex="0" aria-checked="false"><div matripple="" class="mat-ripple mat-checkbox-ripple mat-focus-indicator"><div class="mat-ripple-element mat-checkbox-persistent-ripple"></div></div><div class="mat-checkbox-frame"></div><div class="mat-checkbox-background"><svg version="1.1" focusable="false" viewBox="0 0 24 24" xml:space="preserve" class="mat-checkbox-checkmark"><path fill="none" stroke="white" d="M4.1,12.7 9,17.6 20.3,6.3" class="mat-checkbox-checkmark-path"></path></svg><div class="mat-checkbox-mixedmark"></div></div></div><span class="mat-checkbox-label"><span style="display: none;">&nbsp;</span>Disabled</span></label></mat-checkbox></section></mat-card-content>
@@ -285,7 +285,7 @@ There is two different checkboxes in Angular: Basic and Configurable.
 
 See examples with HTML code describing datepicker elements.
 
-![Basic checkbox](../images/angular/basic_checkbox.png)
+![Basic checkbox](../../images/angular/basic_checkbox.png)
 
 ```html 
 <section class="example-section">
@@ -325,7 +325,7 @@ public void configurableCheckboxTest() {
 }
 ```
 
-![Configurable checkbox](../images/angular/configurable_checkbox.png)
+![Configurable checkbox](../../images/angular/configurable_checkbox.png)
 
 ```html 
 <mat-card>
@@ -437,7 +437,7 @@ There are eight different inputs in Angular:
         leaveACommentBasicInput.is().text("Delicious");
     }
 ```
-![Basic inputs](../images/angular/basic_inputs.PNG)
+![Basic inputs](../../images/angular/basic_inputs.PNG)
 
 ```html
 <input _ngcontent-ohc-c255="" matinput="" id="inputs_basic_food" placeholder="Ex. Pizza" value="Sushi" class="mat-input-element mat-form-field-autofill-control ng-tns-c94-34 cdk-text-field-autofill-monitored" aria-invalid="false" aria-required="false">
@@ -473,7 +473,7 @@ There are eight different inputs in Angular:
         errorStateMatcherMessageInput.is().text("Please enter a valid email address");
     }
 ```
-![Input with a custom ErrorStateMatcher](../images/angular/input_with_a_custom_errorstatematcher.PNG)
+![Input with a custom ErrorStateMatcher](../../images/angular/input_with_a_custom_errorstatematcher.PNG)
 
 ```html
 <input _ngcontent-ohc-c256="" matinput="" id="inputs_errorStateMatcher_email" placeholder="Ex. pat@example.com" class="mat-input-element mat-form-field-autofill-control ng-tns-c94-39 cdk-text-field-autofill-monitored ng-untouched ng-pristine ng-invalid" aria-describedby="mat-hint-3" aria-invalid="false" aria-required="false">
@@ -511,7 +511,7 @@ There are eight different inputs in Angular:
         autoSizeTextArea.is().text(containsString("Text"));
     }
 ```
-![Auto-resizing textarea](../images/angular/auto_resizing_textarea.PNG)
+![Auto-resizing textarea](../../images/angular/auto_resizing_textarea.PNG)
 
 ```html
 <textarea _ngcontent-ohc-c257="" rows="1" matinput="" id="inputs_autosize_textarea" cdktextareaautosize="" cdkautosizeminrows="1" cdkautosizemaxrows="5" class="mat-input-element mat-form-field-autofill-control cdk-textarea-autosize ng-tns-c94-42 cdk-text-field-autofill-monitored" aria-invalid="false" aria-required="false" style="min-height: 18px; max-height: 90px; height: 18px;"></textarea>
@@ -554,7 +554,7 @@ There are eight different inputs in Angular:
         clearableInput.is().text("");
     }
 ```
-![Input with a clear button](../images/angular/input_with_a_clear_button.PNG)
+![Input with a clear button](../../images/angular/input_with_a_clear_button.PNG)
 
 ```html
 <input _ngcontent-ohc-c258="" matinput="" id="inputs_clearable_textbox" type="text" class="mat-input-element mat-form-field-autofill-control ng-tns-c94-43 cdk-text-field-autofill-monitored ng-untouched ng-pristine ng-valid" aria-invalid="false" aria-required="false">
@@ -593,7 +593,7 @@ There are eight different inputs in Angular:
         errorMessageInput.is().text("Please enter a valid email address");
     }
 ```
-![Input with error messages](../images/angular/input_with_error_messages.PNG)
+![Input with error messages](../../images/angular/input_with_error_messages.PNG)
 
 ```html
 <input _ngcontent-ohc-c259="" matinput="" id="inputs_error_email" placeholder="Ex. pat@example.com" class="mat-input-element mat-form-field-autofill-control ng-tns-c94-44 cdk-text-field-autofill-monitored ng-untouched ng-pristine ng-invalid" aria-invalid="false" aria-required="false">
@@ -630,7 +630,7 @@ There are eight different inputs in Angular:
         postalCode.is().text(DEFAULT_USER.postalCode);
     }
 ```
-![Inputs in a form](../images/angular/inputs_in_a_form.PNG)
+![Inputs in a form](../../images/angular/inputs_in_a_form.PNG)
 
 ```html
 <form _ngcontent-sod-c260="" novalidate="" class="example-form ng-untouched ng-pristine ng-valid"></form>
@@ -686,7 +686,7 @@ There are eight different inputs in Angular:
         messageCounterHint.is().text("4 / 256");
     }
 ```
-![Input with hints](../images/angular/input_with_hints.PNG)
+![Input with hints](../../images/angular/input_with_hints.PNG)
 
 ```html
 <input _ngcontent-ohc-c261="" matinput="" id="inputs_hints_message" maxlength="256" placeholder="Ex. I need help with..." class="mat-input-element mat-form-field-autofill-control ng-tns-c94-53 cdk-text-field-autofill-monitored" aria-describedby="inputs_hints_text inputs_hints_counter" aria-invalid="false" aria-required="false">
@@ -730,7 +730,7 @@ There are eight different inputs in Angular:
         telephoneInput.is().text("");
     }
 ```
-![Input with prefixes and suffixes](../images/angular/input_with_prefixes_and_suffixes.PNG)
+![Input with prefixes and suffixes](../../images/angular/input_with_prefixes_and_suffixes.PNG)
 
 ```html
 <span _ngcontent-ohc-c262="" matprefix="" id="inputs_prefixes" class="ng-tns-c94-54">+1 &nbsp;</span>
@@ -800,7 +800,7 @@ There are eight different inputs in Angular:
 
 There is two different toolbars in Angular: Single row and Multiple row:
 
-![Toolbar examples](../images/angular/toolbar_examples.png)
+![Toolbar examples](../../images/angular/toolbar_examples.png)
 
 ```html
 <mat-toolbar _ngcontent-duh-c290="" id="toolbar-basic" class="mat-toolbar mat-toolbar-single-row">My App</mat-toolbar>
@@ -878,7 +878,7 @@ The angular Button:
         basicDisabledButton.is().disabled();
     }
 ```
-![Button](../images/angular/basic_buttons.png)
+![Button](../../images/angular/basic_buttons.png)
 
 ```html
 <button _ngcontent-jos-c358="" mat-raised-button="" color="primary" id="raised-primary-button" class="mat-focus-indicator mat-raised-button mat-button-base mat-primary" ng-reflect-color="primary">
@@ -940,7 +940,7 @@ There are two different button toggles in Angular: Basic and Exclusive:
     }
 ```
 
-![Basic button toggle](../images/angular/basic_button_toggle.png)
+![Basic button toggle](../../images/angular/basic_button_toggle.png)
 
 ```html
 <mat-button-toggle _ngcontent-eoo-c327="" value="underline" id="underline-button-toggle" class="mat-button-toggle mat-focus-indicator mat-button-toggle-appearance-standard" tabindex="-1">
@@ -990,7 +990,7 @@ There are two different button toggles in Angular: Basic and Exclusive:
     }
 ```  
 
-![Exclusive button toggle](../images/angular/exclusive_button_toggle.png)
+![Exclusive button toggle](../../images/angular/exclusive_button_toggle.png)
 
 ```html
 <mat-button-toggle _ngcontent-pwh-c328="" value="left" aria-label="Text align left" id="left-align-button-toggle" class="mat-button-toggle mat-focus-indicator mat-button-toggle-appearance-standard" tabindex="-1">
@@ -1021,7 +1021,7 @@ Badge is located in the following class:
 
 - __Java__: _com.epam.jdi.light.angular.elements.common.Badge_
 
-![Badge](../images/angular/badge.PNG)
+![Badge](../../images/angular/badge.PNG)
 
 ```html
 <span _ngcontent-iwc-c329="" matbadge="4" matbadgeoverlap="false" id="text-with-badge" class="mat-badge mat-badge-above mat-badge-after mat-badge-medium">
@@ -1081,7 +1081,7 @@ Progress bar is located in the following class:
 
 There is 5 different progress bars in Angular: Buffer, Determinate, Indeterminate, Query and Configurable:
 
-![Buffer progress bar](../images/angular/buffer_progress_bar.png)
+![Buffer progress bar](../../images/angular/buffer_progress_bar.png)
 
 ```html  
 <progress-bar-buffer-example _nghost-pnn-c338="" ng-version="9.1.0"><h2 _ngcontent-pnn-c338="" class="example-h2"><a _ngcontent-pnn-c338="" href="https://material.angular.io/components/progress-bar/overview#buffer"> Buffer progress-bar </a></h2><button _ngcontent-pnn-c338="" mat-raised-button="" id="show-buffer-progress-bar-button" class="mat-focus-indicator mat-raised-button mat-button-base"><span class="mat-button-wrapper"> Show progress-bar for 5 seconds
@@ -1111,7 +1111,7 @@ public void verifyBufferProgressBarTest() throws Exception {
 }
 ```
 
-![Determinate progress bar](../images/angular/determinate_progress_bar.png)
+![Determinate progress bar](../../images/angular/determinate_progress_bar.png)
 
 ```html  
 <progress-bar-determinate-example _nghost-pnn-c339="" ng-version="9.1.0"><h2 _ngcontent-pnn-c339="" class="example-h2"><a _ngcontent-pnn-c339="" href="https://material.angular.io/components/progress-bar/overview#determinate"> Determinate progress-bar </a></h2><mat-progress-bar _ngcontent-pnn-c339="" role="progressbar" aria-valuemin="0" aria-valuemax="100" id="mat-progress-bar-determinate" mode="determinate" value="40" class="mat-progress-bar mat-primary" aria-valuenow="40"><svg width="100%" height="4" focusable="false" class="mat-progress-bar-background mat-progress-bar-element"><defs><pattern x="4" y="0" width="8" height="4" patternUnits="userSpaceOnUse" id="mat-progress-bar-1"><circle cx="2" cy="2" r="2"></circle></pattern></defs><rect width="100%" height="100%" fill="url('/jdi-light/angular.html#mat-progress-bar-1')"></rect></svg><div class="mat-progress-bar-buffer mat-progress-bar-element"></div><div class="mat-progress-bar-primary mat-progress-bar-fill mat-progress-bar-element" style="transform: scaleX(0.4);"></div><div class="mat-progress-bar-secondary mat-progress-bar-fill mat-progress-bar-element"></div></mat-progress-bar></progress-bar-determinate-example>
@@ -1134,7 +1134,7 @@ public static ProgressBar matProgressBarDeterminate;
          }
 ```
 
-![Indeterminate progress bar](../images/angular/indeterminate_progress_bar.png)
+![Indeterminate progress bar](../../images/angular/indeterminate_progress_bar.png)
 
 ```html  
 <progress-bar-indeterminate-example _nghost-pnn-c340="" ng-version="9.1.0"><h2 _ngcontent-pnn-c340="" class="example-h2"><a _ngcontent-pnn-c340="" href="https://material.angular.io/components/progress-bar/overview#indeterminate"> Indeterminate progress-bar </a></h2><button _ngcontent-pnn-c340="" mat-raised-button="" id="show-indeterminate-progress-bar-button" class="mat-focus-indicator mat-raised-button mat-button-base"><span class="mat-button-wrapper"> Show progress-bar for 5 seconds
@@ -1162,7 +1162,7 @@ public void verifyIndeterminateProgressBarTest() {
 }
 ```
 
-![Query progress bar](../images/angular/query_progress_bar.png)
+![Query progress bar](../../images/angular/query_progress_bar.png)
 
 ```html  
 <progress-bar-determinate-example _nghost-pnn-c339="" ng-version="9.1.0"><h2 _ngcontent-pnn-c339="" class="example-h2"><a _ngcontent-pnn-c339="" href="https://material.angular.io/components/progress-bar/overview#determinate"> Determinate progress-bar </a></h2><mat-progress-bar _ngcontent-pnn-c339="" role="progressbar" aria-valuemin="0" aria-valuemax="100" id="mat-progress-bar-determinate" mode="determinate" value="40" class="mat-progress-bar mat-primary" aria-valuenow="40"><svg width="100%" height="4" focusable="false" class="mat-progress-bar-background mat-progress-bar-element"><defs><pattern x="4" y="0" width="8" height="4" patternUnits="userSpaceOnUse" id="mat-progress-bar-1"><circle cx="2" cy="2" r="2"></circle></pattern></defs><rect width="100%" height="100%" fill="url('/jdi-light/angular.html#mat-progress-bar-1')"></rect></svg><div class="mat-progress-bar-buffer mat-progress-bar-element"></div><div class="mat-progress-bar-primary mat-progress-bar-fill mat-progress-bar-element" style="transform: scaleX(0.4);"></div><div class="mat-progress-bar-secondary mat-progress-bar-fill mat-progress-bar-element"></div></mat-progress-bar></progress-bar-determinate-example>
@@ -1184,7 +1184,7 @@ public void verifyQueryProgressBarTest() {
 }
 ```
 
-![Configurable progress bar](../images/angular/query_progress_bar.png)
+![Configurable progress bar](../../images/angular/query_progress_bar.png)
 
 ```html  
 <progress-bar-configurable-example _nghost-pnn-c342="" ng-version="9.1.0"><h2 _ngcontent-pnn-c342="" class="example-h2">Configurable progress bar</h2><mat-card _ngcontent-pnn-c342="" class="mat-card mat-focus-indicator"><mat-card-content _ngcontent-pnn-c342="" class="mat-card-content"><h4 _ngcontent-pnn-c342="">Progress bar configuration</h4><section _ngcontent-pnn-c342="" class="example-section"><label _ngcontent-pnn-c342="" class="example-margin">Color:</label><mat-radio-group _ngcontent-pnn-c342="" role="radiogroup" class="mat-radio-group ng-untouched ng-pristine ng-valid"><mat-radio-button _ngcontent-pnn-c342="" id="progress-bars-primary-color-radio" value="primary" class="mat-radio-button example-margin mat-accent mat-radio-checked" tabindex="-1"><label class="mat-radio-label" for="progress-bars-primary-color-radio-input"><div class="mat-radio-container"><div class="mat-radio-outer-circle"></div><div class="mat-radio-inner-circle"></div><input type="radio" class="mat-radio-input cdk-visually-hidden" id="progress-bars-primary-color-radio-input" tabindex="0" name="mat-radio-group-33" value="primary"><div mat-ripple="" class="mat-ripple mat-radio-ripple mat-focus-indicator"><div class="mat-ripple-element mat-radio-persistent-ripple"></div></div></div><div class="mat-radio-label-content"><span style="display: none;">&nbsp;</span> Primary </div></label></mat-radio-button><mat-radio-button _ngcontent-pnn-c342="" id="progress-bars-accent-color-radio" value="accent" class="mat-radio-button example-margin mat-accent" tabindex="-1"><label class="mat-radio-label" for="progress-bars-accent-color-radio-input"><div class="mat-radio-container"><div class="mat-radio-outer-circle"></div><div class="mat-radio-inner-circle"></div><input type="radio" class="mat-radio-input cdk-visually-hidden" id="progress-bars-accent-color-radio-input" tabindex="0" name="mat-radio-group-33" value="accent"><div mat-ripple="" class="mat-ripple mat-radio-ripple mat-focus-indicator"><div class="mat-ripple-element mat-radio-persistent-ripple"></div></div></div><div class="mat-radio-label-content"><span style="display: none;">&nbsp;</span> Accent </div></label></mat-radio-button><mat-radio-button _ngcontent-pnn-c342="" id="progress-bars-warn-color-radio" value="warn" class="mat-radio-button example-margin mat-accent" tabindex="-1"><label class="mat-radio-label" for="progress-bars-warn-color-radio-input"><div class="mat-radio-container"><div class="mat-radio-outer-circle"></div><div class="mat-radio-inner-circle"></div><input type="radio" class="mat-radio-input cdk-visually-hidden" id="progress-bars-warn-color-radio-input" tabindex="0" name="mat-radio-group-33" value="warn"><div mat-ripple="" class="mat-ripple mat-radio-ripple mat-focus-indicator"><div class="mat-ripple-element mat-radio-persistent-ripple"></div></div></div><div class="mat-radio-label-content"><span style="display: none;">&nbsp;</span> Warn </div></label></mat-radio-button></mat-radio-group></section><section _ngcontent-pnn-c342="" class="example-section"><label _ngcontent-pnn-c342="" class="example-margin">Mode:</label><mat-radio-group _ngcontent-pnn-c342="" role="radiogroup" class="mat-radio-group ng-untouched ng-pristine ng-valid"><mat-radio-button _ngcontent-pnn-c342="" id="progress-bars-determinate-mode-radio" value="determinate" class="mat-radio-button example-margin mat-accent mat-radio-checked" tabindex="-1"><label class="mat-radio-label" for="progress-bars-determinate-mode-radio-input"><div class="mat-radio-container"><div class="mat-radio-outer-circle"></div><div class="mat-radio-inner-circle"></div><input type="radio" class="mat-radio-input cdk-visually-hidden" id="progress-bars-determinate-mode-radio-input" tabindex="0" name="mat-radio-group-37" value="determinate"><div mat-ripple="" class="mat-ripple mat-radio-ripple mat-focus-indicator"><div class="mat-ripple-element mat-radio-persistent-ripple"></div></div></div><div class="mat-radio-label-content"><span style="display: none;">&nbsp;</span> Determinate </div></label></mat-radio-button><mat-radio-button _ngcontent-pnn-c342="" id="progress-bars-indeterminate-mode-radio" value="indeterminate" class="mat-radio-button example-margin mat-accent" tabindex="-1"><label class="mat-radio-label" for="progress-bars-indeterminate-mode-radio-input"><div class="mat-radio-container"><div class="mat-radio-outer-circle"></div><div class="mat-radio-inner-circle"></div><input type="radio" class="mat-radio-input cdk-visually-hidden" id="progress-bars-indeterminate-mode-radio-input" tabindex="0" name="mat-radio-group-37" value="indeterminate"><div mat-ripple="" class="mat-ripple mat-radio-ripple mat-focus-indicator"><div class="mat-ripple-element mat-radio-persistent-ripple"></div></div></div><div class="mat-radio-label-content"><span style="display: none;">&nbsp;</span> Indeterminate </div></label></mat-radio-button><mat-radio-button _ngcontent-pnn-c342="" id="progress-bars-buffer-mode-radio" value="buffer" class="mat-radio-button example-margin mat-accent" tabindex="-1"><label class="mat-radio-label" for="progress-bars-buffer-mode-radio-input"><div class="mat-radio-container"><div class="mat-radio-outer-circle"></div><div class="mat-radio-inner-circle"></div><input type="radio" class="mat-radio-input cdk-visually-hidden" id="progress-bars-buffer-mode-radio-input" tabindex="0" name="mat-radio-group-37" value="buffer"><div mat-ripple="" class="mat-ripple mat-radio-ripple mat-focus-indicator"><div class="mat-ripple-element mat-radio-persistent-ripple"></div></div></div><div class="mat-radio-label-content"><span style="display: none;">&nbsp;</span> Buffer </div></label></mat-radio-button><mat-radio-button _ngcontent-pnn-c342="" id="progress-bars-query-mode-radio" value="query" class="mat-radio-button example-margin mat-accent" tabindex="-1"><label class="mat-radio-label" for="progress-bars-query-mode-radio-input"><div class="mat-radio-container"><div class="mat-radio-outer-circle"></div><div class="mat-radio-inner-circle"></div><input type="radio" class="mat-radio-input cdk-visually-hidden" id="progress-bars-query-mode-radio-input" tabindex="0" name="mat-radio-group-37" value="query"><div mat-ripple="" class="mat-ripple mat-radio-ripple mat-focus-indicator"><div class="mat-ripple-element mat-radio-persistent-ripple"></div></div></div><div class="mat-radio-label-content"><span style="display: none;">&nbsp;</span> Query </div></label></mat-radio-button></mat-radio-group></section><section _ngcontent-pnn-c342="" class="example-section ng-star-inserted"><label _ngcontent-pnn-c342="" class="example-margin">Progress:</label><mat-slider _ngcontent-pnn-c342="" role="slider" id="progress-bars-progress-slider" class="mat-slider mat-focus-indicator example-margin mat-accent mat-slider-horizontal ng-untouched ng-pristine ng-valid" tabindex="0" aria-disabled="false" aria-valuemax="100" aria-valuemin="0" aria-valuenow="50" aria-orientation="horizontal"><div class="mat-slider-wrapper"><div class="mat-slider-track-wrapper"><div class="mat-slider-track-background" style="transform: translateX(0px) scale3d(0.5, 1, 1);"></div><div class="mat-slider-track-fill" style="transform: translateX(0px) scale3d(0.5, 1, 1);"></div></div><div class="mat-slider-ticks-container" style="transform: translateX(0%);"><div class="mat-slider-ticks" style="background-size: 0% 2px; transform: translateZ(0px) translateX(0%);"></div></div><div class="mat-slider-thumb-container" style="transform: translateX(-50%);"><div class="mat-slider-focus-ring"></div><div class="mat-slider-thumb"></div><div class="mat-slider-thumb-label"><span class="mat-slider-thumb-label-text">50</span></div></div></div></mat-slider></section><!----><!----></mat-card-content></mat-card><mat-card _ngcontent-pnn-c342="" class="mat-card mat-focus-indicator"><mat-card-content _ngcontent-pnn-c342="" class="mat-card-content"><h4 _ngcontent-pnn-c342="">Result</h4><section _ngcontent-pnn-c342="" class="example-section"><mat-progress-bar _ngcontent-pnn-c342="" role="progressbar" aria-valuemin="0" aria-valuemax="100" id="mat-progress-bar-configurable" class="mat-progress-bar example-margin mat-primary" aria-valuenow="50" mode="determinate"><svg width="100%" height="4" focusable="false" class="mat-progress-bar-background mat-progress-bar-element"><defs><pattern x="4" y="0" width="8" height="4" patternUnits="userSpaceOnUse" id="mat-progress-bar-4"><circle cx="2" cy="2" r="2"></circle></pattern></defs><rect width="100%" height="100%" fill="url('/jdi-light/angular.html#mat-progress-bar-4')"></rect></svg><div class="mat-progress-bar-buffer mat-progress-bar-element"></div><div class="mat-progress-bar-primary mat-progress-bar-fill mat-progress-bar-element" style="transform: scaleX(0.5);"></div><div class="mat-progress-bar-secondary mat-progress-bar-fill mat-progress-bar-element"></div></mat-progress-bar></section></mat-card-content></mat-card></progress-bar-configurable-example>
@@ -1233,7 +1233,7 @@ Progress bar locates in the following class:
 
 There is 3 different sliders in Angular: Basic, Slider with custom thumb label formatting and Configurable:
 
-![Basic slider](../images/angular/basic_slider.PNG)
+![Basic slider](../../images/angular/basic_slider.PNG)
 
 ```html  
 <slider-overview-example _nghost-ret-c263="" ng-version="9.1.0"><h2 _ngcontent-ret-c263="" class="example-h2"><a _ngcontent-ret-c263="" href="https://material.angular.io/components/slider/overview"> Basic slider </a></h2><mat-slider _ngcontent-ret-c263="" role="slider" id="mat-slider-basic" class="mat-slider mat-focus-indicator mat-accent mat-slider-horizontal mat-slider-min-value" tabindex="0" aria-disabled="false" aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" aria-orientation="horizontal"><div class="mat-slider-wrapper"><div class="mat-slider-track-wrapper"><div class="mat-slider-track-background" style="transform: translateX(7px) scale3d(1, 1, 1);"></div><div class="mat-slider-track-fill" style="transform: translateX(-7px) scale3d(0, 1, 1); display: none;"></div></div><div class="mat-slider-ticks-container" style="transform: translateX(0%);"><div class="mat-slider-ticks" style="background-size: 0% 2px; transform: translateZ(0px) translateX(0%); padding-left: 7px;"></div></div><div class="mat-slider-thumb-container" style="transform: translateX(-100%);"><div class="mat-slider-focus-ring"></div><div class="mat-slider-thumb"></div><div class="mat-slider-thumb-label"><span class="mat-slider-thumb-label-text">0</span></div></div></div></mat-slider></slider-overview-example>
@@ -1252,7 +1252,7 @@ public void sliderBasicGetValueTest() {
 }
 ```
 
-![Slider with custom thumb label formatting](../images/angular/slider_with_custom_thumb_label_formatting.PNG)
+![Slider with custom thumb label formatting](../../images/angular/slider_with_custom_thumb_label_formatting.PNG)
 
 ```html  
 <slider-formatting-example _nghost-ret-c264="" ng-version="9.1.0"><h2 _ngcontent-ret-c264="" class="example-h2"><a _ngcontent-ret-c264="" href="https://material.angular.io/components/slider/overview#formatting-the-thumb-label"> Slider with custom thumb label formatting </a></h2><mat-slider _ngcontent-ret-c264="" role="slider" id="mat-slider-formatting" thumblabel="" tickinterval="1000" min="1" max="100000" class="mat-slider mat-focus-indicator mat-accent mat-slider-has-ticks mat-slider-horizontal mat-slider-thumb-label-showing mat-slider-min-value" tabindex="0" aria-disabled="false" aria-valuemax="100000" aria-valuemin="1" aria-valuenow="1" aria-orientation="horizontal"><div class="mat-slider-wrapper"><div class="mat-slider-track-wrapper"><div class="mat-slider-track-background" style="transform: translateX(0px) scale3d(1, 1, 1);"></div><div class="mat-slider-track-fill" style="transform: translateX(0px) scale3d(0, 1, 1); display: none;"></div></div><div class="mat-slider-ticks-container" style="transform: translateX(-0.500005%);"><div class="mat-slider-ticks" style="background-size: 1.00001% 2px; transform: translateZ(0px) translateX(0.500005%);"></div></div><div class="mat-slider-thumb-container" style="transform: translateX(-100%);"><div class="mat-slider-focus-ring"></div><div class="mat-slider-thumb"></div><div class="mat-slider-thumb-label"><span class="mat-slider-thumb-label-text">1</span></div></div></div></mat-slider></slider-formatting-example>
@@ -1271,7 +1271,7 @@ public void sliderFormattingGetValueTest() {
 }
 ```
 
-![Configurable slider](../images/angular/configurable_slider.PNG)
+![Configurable slider](../../images/angular/configurable_slider.PNG)
 
 ```html  
 <slider-configurable-example _nghost-ret-c265="" ng-version="9.1.0"><h2 _ngcontent-ret-c265="" class="example-h2">Configurable slider</h2><mat-card _ngcontent-ret-c265="" class="mat-card mat-focus-indicator"><mat-card-content _ngcontent-ret-c265="" class="mat-card-content"><h4 _ngcontent-ret-c265="">Slider configuration</h4><section _ngcontent-ret-c265="" class="example-section"><mat-form-field _ngcontent-ret-c265="" class="mat-form-field example-margin ng-tns-c94-55 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-fill mat-form-field-can-float mat-form-field-has-label ng-untouched ng-pristine ng-valid mat-form-field-should-float"><div class="mat-form-field-wrapper ng-tns-c94-55"><div class="mat-form-field-flex ng-tns-c94-55"><!----><!----><div class="mat-form-field-infix ng-tns-c94-55"><input _ngcontent-ret-c265="" matinput="" type="number" id="slider-configurable-value" class="mat-input-element mat-form-field-autofill-control ng-tns-c94-55 cdk-text-field-autofill-monitored ng-untouched ng-pristine ng-valid" aria-invalid="false" aria-required="false"><span class="mat-form-field-label-wrapper ng-tns-c94-55"><label class="mat-form-field-label ng-tns-c94-55 ng-star-inserted" id="mat-form-field-label-85" for="slider-configurable-value" aria-owns="slider-configurable-value"><!----><mat-label _ngcontent-ret-c265="" class="ng-tns-c94-55 ng-star-inserted">Value</mat-label><!----><!----></label><!----></span></div><!----></div><div class="mat-form-field-underline ng-tns-c94-55 ng-star-inserted"><span class="mat-form-field-ripple ng-tns-c94-55"></span></div><!----><div class="mat-form-field-subscript-wrapper ng-tns-c94-55"><!----><div class="mat-form-field-hint-wrapper ng-tns-c94-55 ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);"><!----><div class="mat-form-field-hint-spacer ng-tns-c94-55"></div></div><!----></div></div></mat-form-field><mat-form-field _ngcontent-ret-c265="" class="mat-form-field example-margin ng-tns-c94-56 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-fill mat-form-field-can-float mat-form-field-has-label ng-untouched ng-pristine ng-valid mat-form-field-should-float"><div class="mat-form-field-wrapper ng-tns-c94-56"><div class="mat-form-field-flex ng-tns-c94-56"><!----><!----><div class="mat-form-field-infix ng-tns-c94-56"><input _ngcontent-ret-c265="" matinput="" type="number" id="slider-configurable-min" class="mat-input-element mat-form-field-autofill-control ng-tns-c94-56 cdk-text-field-autofill-monitored ng-untouched ng-pristine ng-valid" aria-invalid="false" aria-required="false"><span class="mat-form-field-label-wrapper ng-tns-c94-56"><label class="mat-form-field-label ng-tns-c94-56 ng-star-inserted" id="mat-form-field-label-87" for="slider-configurable-min" aria-owns="slider-configurable-min"><!----><mat-label _ngcontent-ret-c265="" class="ng-tns-c94-56 ng-star-inserted">Min value</mat-label><!----><!----></label><!----></span></div><!----></div><div class="mat-form-field-underline ng-tns-c94-56 ng-star-inserted"><span class="mat-form-field-ripple ng-tns-c94-56"></span></div><!----><div class="mat-form-field-subscript-wrapper ng-tns-c94-56"><!----><div class="mat-form-field-hint-wrapper ng-tns-c94-56 ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);"><!----><div class="mat-form-field-hint-spacer ng-tns-c94-56"></div></div><!----></div></div></mat-form-field><mat-form-field _ngcontent-ret-c265="" class="mat-form-field example-margin ng-tns-c94-57 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-fill mat-form-field-can-float mat-form-field-has-label ng-untouched ng-pristine ng-valid mat-form-field-should-float"><div class="mat-form-field-wrapper ng-tns-c94-57"><div class="mat-form-field-flex ng-tns-c94-57"><!----><!----><div class="mat-form-field-infix ng-tns-c94-57"><input _ngcontent-ret-c265="" matinput="" type="number" id="slider-configurable-max" class="mat-input-element mat-form-field-autofill-control ng-tns-c94-57 cdk-text-field-autofill-monitored ng-untouched ng-pristine ng-valid" aria-invalid="false" aria-required="false"><span class="mat-form-field-label-wrapper ng-tns-c94-57"><label class="mat-form-field-label ng-tns-c94-57 ng-star-inserted" id="mat-form-field-label-89" for="slider-configurable-max" aria-owns="slider-configurable-max"><!----><mat-label _ngcontent-ret-c265="" class="ng-tns-c94-57 ng-star-inserted">Max value</mat-label><!----><!----></label><!----></span></div><!----></div><div class="mat-form-field-underline ng-tns-c94-57 ng-star-inserted"><span class="mat-form-field-ripple ng-tns-c94-57"></span></div><!----><div class="mat-form-field-subscript-wrapper ng-tns-c94-57"><!----><div class="mat-form-field-hint-wrapper ng-tns-c94-57 ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);"><!----><div class="mat-form-field-hint-spacer ng-tns-c94-57"></div></div><!----></div></div></mat-form-field><mat-form-field _ngcontent-ret-c265="" class="mat-form-field example-margin ng-tns-c94-58 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-fill mat-form-field-can-float mat-form-field-has-label ng-untouched ng-pristine ng-valid mat-form-field-should-float"><div class="mat-form-field-wrapper ng-tns-c94-58"><div class="mat-form-field-flex ng-tns-c94-58"><!----><!----><div class="mat-form-field-infix ng-tns-c94-58"><input _ngcontent-ret-c265="" matinput="" type="number" id="slider-configurable-step" class="mat-input-element mat-form-field-autofill-control ng-tns-c94-58 cdk-text-field-autofill-monitored ng-untouched ng-pristine ng-valid" aria-invalid="false" aria-required="false"><span class="mat-form-field-label-wrapper ng-tns-c94-58"><label class="mat-form-field-label ng-tns-c94-58 ng-star-inserted" id="mat-form-field-label-91" for="slider-configurable-step" aria-owns="slider-configurable-step"><!----><mat-label _ngcontent-ret-c265="" class="ng-tns-c94-58 ng-star-inserted">Step size</mat-label><!----><!----></label><!----></span></div><!----></div><div class="mat-form-field-underline ng-tns-c94-58 ng-star-inserted"><span class="mat-form-field-ripple ng-tns-c94-58"></span></div><!----><div class="mat-form-field-subscript-wrapper ng-tns-c94-58"><!----><div class="mat-form-field-hint-wrapper ng-tns-c94-58 ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);"><!----><div class="mat-form-field-hint-spacer ng-tns-c94-58"></div></div><!----></div></div></mat-form-field></section><section _ngcontent-ret-c265="" class="example-section"><mat-checkbox _ngcontent-ret-c265="" id="slider-configurable-showTicks" class="mat-checkbox example-margin mat-accent ng-untouched ng-pristine ng-valid"><label class="mat-checkbox-layout" for="slider-configurable-showTicks-input"><div class="mat-checkbox-inner-container"><input type="checkbox" class="mat-checkbox-input cdk-visually-hidden" id="slider-configurable-showTicks-input" tabindex="0" aria-checked="false"><div matripple="" class="mat-ripple mat-checkbox-ripple mat-focus-indicator"><div class="mat-ripple-element mat-checkbox-persistent-ripple"></div></div><div class="mat-checkbox-frame"></div><div class="mat-checkbox-background"><svg version="1.1" focusable="false" viewBox="0 0 24 24" xml:space="preserve" class="mat-checkbox-checkmark"><path fill="none" stroke="white" d="M4.1,12.7 9,17.6 20.3,6.3" class="mat-checkbox-checkmark-path"></path></svg><div class="mat-checkbox-mixedmark"></div></div></div><span class="mat-checkbox-label"><span style="display: none;">&nbsp;</span>Show ticks</span></label></mat-checkbox><!----><!----></section><section _ngcontent-ret-c265="" class="example-section"><mat-checkbox _ngcontent-ret-c265="" id="slider-configurable-thumb-label" class="mat-checkbox example-margin mat-accent ng-untouched ng-pristine ng-valid"><label class="mat-checkbox-layout" for="slider-configurable-thumb-label-input"><div class="mat-checkbox-inner-container"><input type="checkbox" class="mat-checkbox-input cdk-visually-hidden" id="slider-configurable-thumb-label-input" tabindex="0" aria-checked="false"><div matripple="" class="mat-ripple mat-checkbox-ripple mat-focus-indicator"><div class="mat-ripple-element mat-checkbox-persistent-ripple"></div></div><div class="mat-checkbox-frame"></div><div class="mat-checkbox-background"><svg version="1.1" focusable="false" viewBox="0 0 24 24" xml:space="preserve" class="mat-checkbox-checkmark"><path fill="none" stroke="white" d="M4.1,12.7 9,17.6 20.3,6.3" class="mat-checkbox-checkmark-path"></path></svg><div class="mat-checkbox-mixedmark"></div></div></div><span class="mat-checkbox-label"><span style="display: none;">&nbsp;</span>Show thumb label</span></label></mat-checkbox></section><section _ngcontent-ret-c265="" class="example-section"><mat-checkbox _ngcontent-ret-c265="" id="slider-configurable-vertical" class="mat-checkbox example-margin mat-accent ng-untouched ng-pristine ng-valid"><label class="mat-checkbox-layout" for="slider-configurable-vertical-input"><div class="mat-checkbox-inner-container"><input type="checkbox" class="mat-checkbox-input cdk-visually-hidden" id="slider-configurable-vertical-input" tabindex="0" aria-checked="false"><div matripple="" class="mat-ripple mat-checkbox-ripple mat-focus-indicator"><div class="mat-ripple-element mat-checkbox-persistent-ripple"></div></div><div class="mat-checkbox-frame"></div><div class="mat-checkbox-background"><svg version="1.1" focusable="false" viewBox="0 0 24 24" xml:space="preserve" class="mat-checkbox-checkmark"><path fill="none" stroke="white" d="M4.1,12.7 9,17.6 20.3,6.3" class="mat-checkbox-checkmark-path"></path></svg><div class="mat-checkbox-mixedmark"></div></div></div><span class="mat-checkbox-label"><span style="display: none;">&nbsp;</span>Vertical</span></label></mat-checkbox><mat-checkbox _ngcontent-ret-c265="" id="slider-configurable-invert" class="mat-checkbox example-margin mat-accent ng-untouched ng-pristine ng-valid"><label class="mat-checkbox-layout" for="slider-configurable-invert-input"><div class="mat-checkbox-inner-container"><input type="checkbox" class="mat-checkbox-input cdk-visually-hidden" id="slider-configurable-invert-input" tabindex="0" aria-checked="false"><div matripple="" class="mat-ripple mat-checkbox-ripple mat-focus-indicator"><div class="mat-ripple-element mat-checkbox-persistent-ripple"></div></div><div class="mat-checkbox-frame"></div><div class="mat-checkbox-background"><svg version="1.1" focusable="false" viewBox="0 0 24 24" xml:space="preserve" class="mat-checkbox-checkmark"><path fill="none" stroke="white" d="M4.1,12.7 9,17.6 20.3,6.3" class="mat-checkbox-checkmark-path"></path></svg><div class="mat-checkbox-mixedmark"></div></div></div><span class="mat-checkbox-label"><span style="display: none;">&nbsp;</span>Inverted</span></label></mat-checkbox></section><section _ngcontent-ret-c265="" class="example-section"><mat-checkbox _ngcontent-ret-c265="" id="slider-configurable-disabled" class="mat-checkbox example-margin mat-accent ng-untouched ng-pristine ng-valid"><label class="mat-checkbox-layout" for="slider-configurable-disabled-input"><div class="mat-checkbox-inner-container"><input type="checkbox" class="mat-checkbox-input cdk-visually-hidden" id="slider-configurable-disabled-input" tabindex="0" aria-checked="false"><div matripple="" class="mat-ripple mat-checkbox-ripple mat-focus-indicator"><div class="mat-ripple-element mat-checkbox-persistent-ripple"></div></div><div class="mat-checkbox-frame"></div><div class="mat-checkbox-background"><svg version="1.1" focusable="false" viewBox="0 0 24 24" xml:space="preserve" class="mat-checkbox-checkmark"><path fill="none" stroke="white" d="M4.1,12.7 9,17.6 20.3,6.3" class="mat-checkbox-checkmark-path"></path></svg><div class="mat-checkbox-mixedmark"></div></div></div><span class="mat-checkbox-label"><span style="display: none;">&nbsp;</span>Disabled</span></label></mat-checkbox></section></mat-card-content></mat-card><mat-card _ngcontent-ret-c265="" class="mat-card mat-focus-indicator example-result-card"><mat-card-content _ngcontent-ret-c265="" class="mat-card-content"><h4 _ngcontent-ret-c265="">Result</h4><mat-slider _ngcontent-ret-c265="" role="slider" id="mat-slider-configurable" class="mat-slider mat-focus-indicator example-margin mat-accent mat-slider-horizontal mat-slider-min-value ng-untouched ng-pristine ng-valid" tabindex="0" aria-disabled="false" aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" aria-orientation="horizontal"><div class="mat-slider-wrapper"><div class="mat-slider-track-wrapper"><div class="mat-slider-track-background" style="transform: translateX(7px) scale3d(1, 1, 1);"></div><div class="mat-slider-track-fill" style="transform: translateX(-7px) scale3d(0, 1, 1); display: none;"></div></div><div class="mat-slider-ticks-container" style="transform: translateX(0%);"><div class="mat-slider-ticks" style="background-size: 0% 2px; transform: translateZ(0px) translateX(0%); padding-left: 7px;"></div></div><div class="mat-slider-thumb-container" style="transform: translateX(-100%);"><div class="mat-slider-focus-ring"></div><div class="mat-slider-thumb"></div><div class="mat-slider-thumb-label"><span class="mat-slider-thumb-label-text">0</span></div></div></div></mat-slider></mat-card-content></mat-card></slider-configurable-example>
@@ -1348,7 +1348,7 @@ Tooltip is located in the following class:
 
 - __Java__: _com.epam.jdi.light.angular.elements.common.Tooltip_
 
-![Tooltip](../images/angular/tooltip.PNG)
+![Tooltip](../../images/angular/tooltip.PNG)
 
 ```html
 <button mat-raised-button
@@ -1378,7 +1378,7 @@ Spinner is located in the following class:
 
 There is 2 different spinners in Angular: Basic and Configurable:
 
-![Basic progress spinner](../images/angular/basic_progress_spinner.png)
+![Basic progress spinner](../../images/angular/basic_progress_spinner.png)
 
 ```java  
 //FindBy(css = "#basic-progress-spinner") 
@@ -1488,7 +1488,7 @@ There are two different radio buttons types in Angular: Basic radios and Radios 
      }
 ```
 
-![Basic radios](../images/angular/basic_radios.png)
+![Basic radios](../../images/angular/basic_radios.png)
 
 ```html 
 <mat-radio-group id="basic-radio-group" aria-label="Select an option"> 
@@ -1497,7 +1497,7 @@ There are two different radio buttons types in Angular: Basic radios and Radios 
 </mat-radio-group>
 ```
 
-![Radios_with_ngmodel](../images/angular/radios_with_ngmodel.png)
+![Radios_with_ngmodel](../../images/angular/radios_with_ngmodel.png)
 
 ```html 
 <mat-radio-group id="season-radio-group" aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]="favoriteSeason">
@@ -1528,7 +1528,7 @@ There are two different lists in Angular: Basic list and List with sections.
 
 See an example with HTML code describing basic list element.
 
-![List examples](../images/angular/basic_list.png)
+![List examples](../../images/angular/basic_list.png)
 
 ```java 
 
@@ -1581,7 +1581,7 @@ Subheader can be added to a list by annotating a heading tag with an matSubheade
 
 See an example with HTML code describing list with sections element.
 
-![List examples](../images/angular/list_with_sections.png)
+![List examples](../../images/angular/list_with_sections.png)
 
 ```html 
 <mat-list id="list-with-sections"> 
@@ -1620,7 +1620,7 @@ There are two different grid lists in Angular: Basic grid list and Dynamic grid 
 
 See an example with HTML code describing basic grid list element.
 
-![Grid list examples](../images/angular/basic_grid_list.png)
+![Grid list examples](../../images/angular/basic_grid_list.png)
 
 ```java 
 
@@ -1679,7 +1679,7 @@ id="basic-grid-list" cols="2" rowHeight="2:1">
 
 See an example with HTML code describing dynamic grid list element.
 
-![Grid list examples](../images/angular/dynamic_grid_list.png)
+![Grid list examples](../../images/angular/dynamic_grid_list.png)
 
 ```html 
 <mat-grid-list id="dynamic-grid-list" cols="4" rowHeight="100px"> 
@@ -1752,7 +1752,7 @@ Card is located in the following classes:
     }
 ```
 
-![Card](../images/angular/card.png)
+![Card](../../images/angular/card.png)
 
 ```html 
 <mat-card class="mat-card mat-focus-indicator">Simple card</mat-card>
@@ -1828,7 +1828,7 @@ public void checkAvailableOptions() {
 
 See examples with HTML code describing select elements.
 
-![Basic Select](../images/angular/basic_select.png)
+![Basic Select](../../images/angular/basic_select.png)
 
 ```html 
 <mat-form-field>
@@ -1871,7 +1871,7 @@ public void checkNoneOptionCanBeSelectedByNameAndConfirmMessageWillBeEmpty() {
     selectBindingConfirm.assertThat().text("You selected:");
 }
 ```
-![Two Binding Select](../images/angular/two_binding_select.png)
+![Two Binding Select](../../images/angular/two_binding_select.png)
 
 ```html 
 <mat-form-field>
@@ -1921,7 +1921,7 @@ public void checkAvailableOptions() {
     formNativeSelect.assertThat().values(hasItem(VOLVO)).values(hasItems(VOLVO, SAAB, MERCEDES));
 }
 ```
-![Form Select](../images/angular/form_select.png)
+![Form Select](../../images/angular/form_select.png)
 
 ```html 
 <mat-form-field>
@@ -1985,7 +1985,7 @@ public void checkEmptyOptionCanBeSelectedByNameAndErrorMessageWillAppear() {
     formNativeFeatureSelect.error().assertThat().text("This field is required");
 }
 ```
-![Form Feature Select](../images/angular/form_feature_select.png)
+![Form Feature Select](../../images/angular/form_feature_select.png)
 
 ```html 
 <mat-form-field>
@@ -2055,7 +2055,7 @@ public void checkDisabledOptionCannotBeSelectedByName() {
     disableNativeSelect.is().selected(preselectedValue);
 }
 ```
-![Disabled Select](../images/angular/disabled_select.png)
+![Disabled Select](../../images/angular/disabled_select.png)
 
 ```html 
 <p>
@@ -2120,7 +2120,7 @@ public void checkAvailableOptions() {
     resetNativeSelect.assertThat().values(hasItem(MERCEDES)).values(hasItems(SAAB, AUDI, VOLVO));
 }
 ```
-![Reset Select](../images/angular/reset_select.png)
+![Reset Select](../../images/angular/reset_select.png)
 
 ```html 
 <mat-form-field>
@@ -2188,7 +2188,7 @@ public void checkAvailableOptionsAndGroups() {
     optionGroupsNativeSelect.assertThat().groupsAndOptions(getCarsMap());
 }
 ```
-![Option Groups Select](../images/angular/option_groups_select.png)
+![Option Groups Select](../../images/angular/option_groups_select.png)
 
 ```html 
 <mat-form-field>
@@ -2239,7 +2239,7 @@ public void checkThreeOptionsCanBeSelectedByName() {
 multiple property. This will allow the user to select multiple values at once. When using the ```<mat-select>``` in
 multiple selection mode, its value will be a sorted list of all selected values rather than a single value.
 
-![Multiple Select](../images/angular/multiple_select.png)
+![Multiple Select](../../images/angular/multiple_select.png)
 
 ```html 
 <mat-form-field>
@@ -2269,7 +2269,7 @@ public void checkAllOptionsCanBeSelectedById() {
     customTriggerTextSelect.multipleSelect(1, 2, 3, 4, 5, 6);
 }
 ```
-![Custom Trigger Text Select](../images/angular/custom_trigger_text_select.png)
+![Custom Trigger Text Select](../../images/angular/custom_trigger_text_select.png)
 
 ```html 
 <mat-form-field>
@@ -2302,7 +2302,7 @@ public void checkOptionCanBeSelectedByName() {
     noOptionRippleSelect.is().selected(OPTION_1);
 }
 ```
-![No Option Ripple Select](../images/angular/no_option_ripple_select.png)
+![No Option Ripple Select](../../images/angular/no_option_ripple_select.png)
 
 ```html 
 <mat-form-field>
@@ -2340,7 +2340,7 @@ public void checkBlueOptionCanBeSelectedByName() {
 In order to facilitate easily styling the dropdown panel, ```<mat-select>``` has a panelClass property which can be
 used to apply additional CSS classes to the dropdown panel.
 
-![Custom Panel Styling Select](../images/angular/custom_panel_styling_select.png)
+![Custom Panel Styling Select](../../images/angular/custom_panel_styling_select.png)
 
 ```html 
 <mat-form-field>
@@ -2403,7 +2403,7 @@ public void checkClearOptionCanBeSelectedByNameAndErrorMessageWillAppear() {
     nativeErrorStateMatcherSelect.error().assertThat().text(MUST_MAKE_SELECTION);
 }
 ```
-![Error State Matcher Select](../images/angular/error_state_matcher_select.png)
+![Error State Matcher Select](../../images/angular/error_state_matcher_select.png)
 
 ```html 
 <mat-form-field>
@@ -2488,7 +2488,7 @@ Test methods also allow to handle form fields in the form independently of the t
 
 See an example with HTML code describing a form field element.
 
-![Form fields example](../images/angular/form_field_example.png)
+![Form fields example](../../images/angular/form_field_example.png)
 
 ```java 
 
@@ -2528,7 +2528,7 @@ public void simpleFormFieldInput() {
 </div> 
 ``` 
 
-![Form fields with hints](../images/angular/form_field_with_hints.png)
+![Form fields with hints](../../images/angular/form_field_with_hints.png)
 
 ```java 
 
@@ -2606,7 +2606,7 @@ See the examples with HTML code describing autocomplete elements below.
 
 Autocomplete element is identified by the input node wrapped inside the ```mat-form-field``` (see the test examples).
 
-![Autocomplete Overview](../images/angular/autocomplete_overview.png)
+![Autocomplete Overview](../../images/angular/autocomplete_overview.png)
 
 ```html  
 <mat-form-field>
@@ -2646,7 +2646,7 @@ public void verifyautocompleteOverviewInput() {
 }
 ```
 
-![Disabled autocomplete](../images/angular/disabled_autocomplete.png)
+![Disabled autocomplete](../../images/angular/disabled_autocomplete.png)
 
 ```html  
 <mat-form-field class="mat-form-field mat-form-field-disabled">
@@ -2688,7 +2688,7 @@ public void verifyautocompleteOverviewInputDisabling() {
 }
 ```
 
-![Display value autocomplete](../images/angular/display_value_autocomplete.png)
+![Display value autocomplete](../../images/angular/display_value_autocomplete.png)
 
 ```html  
 <mat-form-field>
@@ -2733,7 +2733,7 @@ public void verifyautocompleteDisplayValueInput() {
 }
 ```
 
-![Filter autocomplete](../images/angular/filter_autocomplete.png)
+![Filter autocomplete](../../images/angular/filter_autocomplete.png)
 
 ```html  
 <mat-form-field>
@@ -2780,7 +2780,7 @@ public void verifyAutocompleteFilterInput() {
 }
 ```
 
-![Groups and options autocomplete](../images/angular/groups_and_options_autocomplete.png)
+![Groups and options autocomplete](../../images/angular/groups_and_options_autocomplete.png)
 
 ```html  
 <mat-form-field _class="mat-form-field mat-form-field-invalid ng-invalid">
@@ -2911,7 +2911,7 @@ Snackbar is located in the following class:
 
 - __Java__: com.epam.jdi.light.ui.angular.elements.complex.Snackbar
 
-![Snackbar](../images/angular/snackbar.png)
+![Snackbar](../../images/angular/snackbar.png)
 
 ```html 
 <mat-form-field>
@@ -2975,7 +2975,7 @@ Paginator is located in the following class:
 
 - __Java__: com.epam.jdi.light.ui.angular.elements.complex.Paginator
 
-![Paginator](../images/angular/paginator.png)
+![Paginator](../../images/angular/paginator.png)
 
 ```html 
 <mat-paginator [length]="100"
@@ -3031,7 +3031,7 @@ Paginator is located in the following class:
 
 Angular Material tabs organize content into separate views where only one view can be visible at a time.
 
-![Tabs examples](../images/angular/tab/tabs_base_group.PNG)
+![Tabs examples](../../images/angular/tab/tabs_base_group.PNG)
 
 ```html
 <mat-tab-group _ngcontent-sbh-c317 id="basic-tab" class="mat-tab-group mat-primary"></mat-tab-group>
@@ -3069,7 +3069,7 @@ Angular Material tabs organize content into separate views where only one view c
 If a tab's label is only text then the simple tab-group API can be used.
 For more complex labels, add a template with the mat-tab-label directive inside the mat-tab.
 
-![Tabs examples](../images/angular/tab/tabs_with_custom_label_content.PNG)
+![Tabs examples](../../images/angular/tab/tabs_with_custom_label_content.PNG)
 
 ```html
 <mat-tab-group _ngcontent-ecm-c350 id="tab-with-custom-label" class="mat-tab-group mat-primary"></mat-tab-group>
@@ -3116,7 +3116,7 @@ By default, the tab group will not change its height to the height of the curren
 To change this, set the dynamicHeight input to true. The tab body will animate its height according
 to the height of the active tab.
 
-![Tabs examples](../images/angular/tab/tabs_dynamic_height.PNG)
+![Tabs examples](../../images/angular/tab/tabs_dynamic_height.PNG)
 
 ```html
 <mat-tab-group _ngcontent-sbh-c351 dynamicheight id="tab-dynamic-height-based-on-content" class="mat-tab-group 
@@ -3156,7 +3156,7 @@ mat-primary mat-tab-group-dynamic-height"></mat-tab-group>
      }
 ```
 
-![Tabs examples](../images/angular/tab/tabs_dynamicly_changing.PNG)
+![Tabs examples](../../images/angular/tab/tabs_dynamicly_changing.PNG)
 
 ```html
 <mat-tab-group _ngcontent-sbh-c352  id="dynamically-changing-tabs" class="mat-tab-group mat-primary"></mat-tab-group>
@@ -3194,7 +3194,7 @@ mat-primary mat-tab-group-dynamic-height"></mat-tab-group>
     }
 ```
 
-![Tabs examples](../images/angular/tab/tabs_with_bottom_headers.PNG)
+![Tabs examples](../../images/angular/tab/tabs_with_bottom_headers.PNG)
 
 ```html
 <mat-tab-group _ngcontent-sbh-c353  id="tab-with-headers-on-the-bottom" headerposition="below" 
@@ -3241,7 +3241,7 @@ components but not inject them into the DOM until the tab is activated.
 If the tab contains several complex child components or the tab's contents rely on DOM calculations
 during initialization, it is advised to lazy load the tab's content.
 
-![Tabs examples](../images/angular/tab/tabs_lazy_loaded_content.PNG)
+![Tabs examples](../../images/angular/tab/tabs_lazy_loaded_content.PNG)
 
 ```html
 <mat-tab-group _ngcontent-sbh-c354 id="tabs-with-lazy-loaded-content" class="mat-tab-group mat-primary"></mat-tab-group>
@@ -3279,7 +3279,7 @@ during initialization, it is advised to lazy load the tab's content.
     }
 ```
 
-![Tabs examples](../images/angular/tab/tabs_theme_customizing.PNG)
+![Tabs examples](../../images/angular/tab/tabs_theme_customizing.PNG)
 
 ```html
 <mat-tab-group _ngcontent-sbh-c355 id="tab-group-theme-example" class="mat-tab-group mat-primary mat-background-primary"></mat-tab-group>
@@ -3315,7 +3315,7 @@ during initialization, it is advised to lazy load the tab's content.
     }
 ```
 
-![Tabs examples](../images/angular/tab/tabs_async_loading_tab_content.PNG)
+![Tabs examples](../../images/angular/tab/tabs_async_loading_tab_content.PNG)
 
 ```html
 <mat-tab-group _ngcontent-sbh-c356 id="tabs-async-loading-content" class="mat-tab-group mat-primary"></mat-tab-group>
@@ -3351,7 +3351,7 @@ during initialization, it is advised to lazy load the tab's content.
     }
 ```
 
-![Tabs examples](../images/angular/tab/tabs_with_nav_bar.PNG)
+![Tabs examples](../../images/angular/tab/tabs_with_nav_bar.PNG)
 
 ```html
 <nav _ngcontent-sbh-c357 id="tabs-nav-bar" class="mat-tab-nav-bar mat-tab-header mat-primary"></nav>
@@ -3442,7 +3442,7 @@ prefix or suffix on the Material input.
 
 See examples with HTML code describing datepicker elements.
 
-![Basic Datepicker](../images/angular/basic_datepicker.png)
+![Basic Datepicker](../../images/angular/basic_datepicker.png)
 
 ```html 
 <mat-form-field>
@@ -3483,7 +3483,7 @@ public void checkStartDayWithLocaleValue() {
     startDateDatepicker.has().startDay(1, Locale.US);
 }
 ```
-![Datepicker start date](../images/angular/start_date_datepicker.png)
+![Datepicker start date](../../images/angular/start_date_datepicker.png)
 
 ```html 
 <mat-form-field>
@@ -3565,7 +3565,7 @@ your backend to the datepicker. However, the datepicker will not accept date str
 As with other types of `<input>`, the datepicker works with `@angular/forms` directives such as `formGroup`, `formControl`,
 `ngModel`, etc.
 
-![Datepicker selected value](../images/angular/selected_datepicker.png)
+![Datepicker selected value](../../images/angular/selected_datepicker.png)
 
 ```html 
 <mat-form-field>
@@ -3625,7 +3625,7 @@ public void checkDisabledMonthsAndYearsNavigation() {
                                               secondDisabledYearCell);
 }
 ```
-![Datepicker with min & max validation](../images/angular/min_max_datepicker.png)
+![Datepicker with min & max validation](../../images/angular/min_max_datepicker.png)
 
 ```html 
 <mat-form-field class="example-full-width">
@@ -3677,7 +3677,7 @@ the dates on the calendar that are invalid. However, one important difference be
 using `min` or `max` is that filtering out all dates before or after a certain point, will not prevent the user from
 advancing the calendar past that point.
 
-![Datepicker with filter validation](../images/angular/filter_datepicker.png)
+![Datepicker with filter validation](../../images/angular/filter_datepicker.png)
 
 ```html 
 <mat-form-field class="example-full-width">
@@ -3735,7 +3735,7 @@ The `(dateInput)` event will fire whenever the value changes due to the user typ
 The `(dateChange)` event will fire whenever the user finishes typing input (on `<input>` blur), or when the user chooses
 a date from the calendar.
 
-![Datepicker input and change events](../images/angular/input_change_events_datepicker.png)
+![Datepicker input and change events](../../images/angular/input_change_events_datepicker.png)
 
 ```html 
 <mat-form-field>
@@ -3796,7 +3796,7 @@ public void checkSelectDateByEnabledToggle() {
 
 This can be useful if you want to disable text input but allow selection via the calendar or vice-versa.
 
-![Disabled datepicker](../images/angular/disabled_datepicker.png)
+![Disabled datepicker](../../images/angular/disabled_datepicker.png)
 
 ```html 
 <p>
@@ -3858,7 +3858,7 @@ public void checkSelectStringDate() {
     touchUiDatepicker.is().value("11/25/2020");
 }
 ```
-![Datepicker touch UI](../images/angular/touch_ui_datepicker.png)
+![Datepicker touch UI](../../images/angular/touch_ui_datepicker.png)
 
 ```html 
 <mat-form-field class="example-full-width">
@@ -3886,7 +3886,7 @@ public void checkSelectDate() {
 The calendar popup can be programmatically controlled using the `open` and `close` methods on the `<mat-datepicker>`.
 It also has an `opened` property that reflects the status of the popup.
 
-![Datepicker open method](../images/angular/open_method_datepicker.png)
+![Datepicker open method](../../images/angular/open_method_datepicker.png)
 
 ```html 
 <mat-form-field class="example-full-width">
@@ -3949,7 +3949,7 @@ public void checkSwitchLocale() {
 ```
 It's also possible to set the locale at runtime using the `setLocale` method of the `DateAdapter`.
 
-![Datepicker with different locale](../images/angular/different_locale_datepicker.png)
+![Datepicker with different locale](../../images/angular/different_locale_datepicker.png)
 
 ```html 
 <mat-form-field>
@@ -3999,7 +3999,7 @@ The datepicker was built to be date implementation agnostic. This means that it 
 of different date implementations. However it also means that developers need to make sure to provide the appropriate
 pieces for the datepicker to work with their chosen implementation.
 
-![Datepicker that uses Moment.js dates](../images/angular/moment_js_datepicker.png)
+![Datepicker that uses Moment.js dates](../../images/angular/moment_js_datepicker.png)
 
 ```html 
 <mat-form-field>
@@ -4044,7 +4044,7 @@ import the `NativeDateModule` or `MomentDateModule`. These modules are identical
 (`MatNativeDateModule` and `MatMomentDateModule`) except they do not include the default formats.
 
 
-![Datepicker with custom formats](../images/angular/custom_formats_datepicker.png)
+![Datepicker with custom formats](../../images/angular/custom_formats_datepicker.png)
 
 
 ```html 
@@ -4149,7 +4149,7 @@ public void checkBasicMenuAvailableOptionsTest() {
 }
 ```
 
-![Basic menu](../images/angular/basic_menu.png)
+![Basic menu](../../images/angular/basic_menu.png)
 
 ```html 
 <button aria-haspopup="true" id="nested-menu-button">
@@ -4209,7 +4209,7 @@ public void checkMenuWithIconsAvailableOptionsTest() {
 }
 ```
 
-![Menu with icons](../images/angular/menu_with_icons.png)
+![Menu with icons](../../images/angular/menu_with_icons.png)
 
 ```html 
 <button aria-haspopup="true" id="menu-with-icons-button">
@@ -4295,7 +4295,7 @@ public void checkNestedMenuAvailableOptionsTest() {
 }
 ```
 
-![Nested menu](../images/angular/nested_menu.png)
+![Nested menu](../../images/angular/nested_menu.png)
 
 ```html 
 <button aria-haspopup="true" id="nested-menu-button">
@@ -4440,7 +4440,7 @@ public void randomMouseClickCenteredAndUnboundedTest() {
 }
 ```
 
-![Ripple](../images/angular/ripple.png)
+![Ripple](../../images/angular/ripple.png)
 
 ```html 
 <mat-checkbox [(ngModel)]="centered" class="example-ripple-checkbox" id="ripple-centered-checkbox">Centered
@@ -4606,7 +4606,7 @@ put inside of the header.
 
 See examples with HTML code describing expansion panel element.
 
-![Basic expansion panel](../images/angular/basic_expansion_panel.png)
+![Basic expansion panel](../../images/angular/basic_expansion_panel.png)
 
 ```html 
 <mat-accordion id="basic-expansion-panel">
@@ -4716,7 +4716,7 @@ public void multiInputTest() {
 }
 ```
 
-![Accordion expansion panel](../images/angular/accordion_expansion_panel.png)
+![Accordion expansion panel](../../images/angular/accordion_expansion_panel.png)
 
 ```html 
 <mat-accordion class="example-headers-align" id="accordion-expansion-panel">
@@ -4842,7 +4842,7 @@ public static SideNav basicSideNav;
 <mat-sidenav-container></mat-sidenav-container>
 ```
 
-![Basic sidenav](../images/angular/sidenav/basic_sidenav.PNG)
+![Basic sidenav](../../images/angular/sidenav/basic_sidenav.PNG)
 
 ```java
     //@FindBy(css = "#basic-drawer")
@@ -4858,7 +4858,7 @@ public static SideNav basicSideNav;
     }
 ```
 
-![Basic drawer](../images/angular/sidenav/basic_drawer.PNG)
+![Basic drawer](../../images/angular/sidenav/basic_drawer.PNG)
 
 ```java
     //@FindBy(css = "#implicit-main-content")
@@ -4893,7 +4893,7 @@ public static SideNav basicSideNav;
 </mat-sidenav-container>
 ```
 
-![Implicit content with two sidenavs](../images/angular/sidenav/two_side_navs.PNG)
+![Implicit content with two sidenavs](../../images/angular/sidenav/two_side_navs.PNG)
 
 ```java
     //@FindBy(css = "#open-close-behavior")
@@ -4914,7 +4914,7 @@ public static SideNav basicSideNav;
     }
 ```
 
-![Sidenav open & close behavior](../images/angular/sidenav/open_close_behavior.PNG)
+![Sidenav open & close behavior](../../images/angular/sidenav/open_close_behavior.PNG)
 
 ```java
     //@FindBy(css = "#configurable-mode")
@@ -4934,7 +4934,7 @@ public static SideNav basicSideNav;
     }
 ```
 
-![Sidenav with configurable mode](../images/angular/sidenav/configurable_mode.PNG)
+![Sidenav with configurable mode](../../images/angular/sidenav/configurable_mode.PNG)
 
 ```java
     //@FindBy(css = "#custom-escape-backdrop")
@@ -4957,7 +4957,7 @@ public static SideNav basicSideNav;
     }
 ```
 
-![Sidenav with custom escape backdrop click behavior](../images/angular/sidenav/custom_backdrop.PNG)
+![Sidenav with custom escape backdrop click behavior](../../images/angular/sidenav/custom_backdrop.PNG)
 
 ```java
     //@FindBy(css = "#auto-size-side-nav")
@@ -4973,7 +4973,7 @@ public static SideNav basicSideNav;
     }
 ```
 
-![Autosize sidenav](../images/angular/sidenav/auto_size.PNG)
+![Autosize sidenav](../../images/angular/sidenav/auto_size.PNG)
 
 ```java
     //@FindBy(css = "#fixed-position")
@@ -5000,7 +5000,7 @@ public static SideNav basicSideNav;
     }
 ```
 
-![Fixed sidenav](../images/angular/sidenav/fixed_side_nav.PNG)
+![Fixed sidenav](../../images/angular/sidenav/fixed_side_nav.PNG)
 
 ```java
     //@FindBy(css = "#responsive-content")
@@ -5017,7 +5017,7 @@ public static SideNav basicSideNav;
         }
     }
 ```
-![Responsive sidenav](../images/angular/sidenav/responsive.PNG)
+![Responsive sidenav](../../images/angular/sidenav/responsive.PNG)
 
 List of some available **Sidenav** methods:
 
@@ -5049,7 +5049,7 @@ intended primarily as an interaction on mobile devices where they can be used as
 - __Java__: _com.epam.jdi.light.ui.angular.elements.complex.BottomSheet_
 
 
-![Bottom sheet](../images/angular/bottom_sheet.PNG)
+![Bottom sheet](../../images/angular/bottom_sheet.PNG)
 
 ```html  
 <mat-bottom-sheet-container tabindex="-1" role="dialog" aria-modal="true" class="mat-bottom-sheet-container ng-tns-c99-206 ng-trigger ng-trigger-state ng-star-inserted" style="transform: translateY(0%);"><bottom-sheet-overview-example-sheet class="ng-star-inserted"><mat-nav-list role="navigation" id="bottom-sheet-container" class="mat-nav-list mat-list-base"><a href="https://keep.google.com/" mat-list-item="" class="mat-list-item mat-focus-indicator mat-2-line"><div class="mat-list-item-content"><div mat-ripple="" class="mat-ripple mat-list-item-ripple"></div><div class="mat-list-text"><span mat-line="" class="mat-line">Google Keep</span><span mat-line="" class="mat-line">Add to a note</span></div></div></a><a href="https://docs.google.com/" mat-list-item="" class="mat-list-item mat-focus-indicator mat-2-line"><div class="mat-list-item-content"><div mat-ripple="" class="mat-ripple mat-list-item-ripple"></div><div class="mat-list-text"><span mat-line="" class="mat-line">Google Docs</span><span mat-line="" class="mat-line">Embed in a document</span></div></div></a><a href="https://plus.google.com/" mat-list-item="" class="mat-list-item mat-focus-indicator mat-2-line"><div class="mat-list-item-content"><div mat-ripple="" class="mat-ripple mat-list-item-ripple"></div><div class="mat-list-text"><span mat-line="" class="mat-line">Google Plus</span><span mat-line="" class="mat-line">Share with your friends</span></div></div></a><a href="https://hangouts.google.com/" mat-list-item="" class="mat-list-item mat-focus-indicator mat-2-line"><div class="mat-list-item-content"><div mat-ripple="" class="mat-ripple mat-list-item-ripple"></div><div class="mat-list-text"><span mat-line="" class="mat-line">Google Hangouts</span><span mat-line="" class="mat-line">Show to your coworkers</span></div></div></a></mat-nav-list></bottom-sheet-overview-example-sheet><!----></mat-bottom-sheet-container>
@@ -5103,7 +5103,7 @@ The `mat-dialog` service can be used to open modal dialogs with Material Design 
 - __Java__: _com.epam.jdi.light.ui.angular.elements.complex.Dialog_
 
 
-![Dialog](../images/angular/dialog.PNG)
+![Dialog](../../images/angular/dialog.PNG)
 
 ```html  
 <dialog-overview-example _nghost-agc-c348="" ng-version="9.1.0"><h2 _ngcontent-agc-c348="" class="example-h2"><a _ngcontent-agc-c348="" href="https://material.angular.io/components/dialog/overview"> Dialog Overview </a></h2><ol _ngcontent-agc-c348=""><li _ngcontent-agc-c348=""><mat-form-field _ngcontent-agc-c348="" class="mat-form-field ng-tns-c95-161 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-fill mat-form-field-can-float mat-form-field-has-label mat-form-field-hide-placeholder ng-untouched ng-pristine ng-valid"><div class="mat-form-field-wrapper ng-tns-c95-161"><div class="mat-form-field-flex ng-tns-c95-161"><!----><!----><div class="mat-form-field-infix ng-tns-c95-161"><input _ngcontent-agc-c348="" matinput="" class="mat-input-element mat-form-field-autofill-control ng-tns-c95-161 cdk-text-field-autofill-monitored ng-untouched ng-pristine ng-valid" id="mat-input-74" aria-invalid="false" aria-required="false"><span class="mat-form-field-label-wrapper ng-tns-c95-161"><label class="mat-form-field-label ng-tns-c95-161 mat-empty mat-form-field-empty ng-star-inserted" id="mat-form-field-label-189" for="mat-input-74" aria-owns="mat-input-74"><!----><mat-label _ngcontent-agc-c348="" class="ng-tns-c95-161 ng-star-inserted">What's your name?</mat-label><!----><!----></label><!----></span></div><!----></div><div class="mat-form-field-underline ng-tns-c95-161 ng-star-inserted"><span class="mat-form-field-ripple ng-tns-c95-161"></span></div><!----><div class="mat-form-field-subscript-wrapper ng-tns-c95-161"><!----><div class="mat-form-field-hint-wrapper ng-tns-c95-161 ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);"><!----><div class="mat-form-field-hint-spacer ng-tns-c95-161"></div></div><!----></div></div></mat-form-field></li><li _ngcontent-agc-c348=""><button _ngcontent-agc-c348="" id="dialog" mat-raised-button="" class="mat-focus-indicator mat-raised-button mat-button-base"><span class="mat-button-wrapper">Pick one</span><div matripple="" class="mat-ripple mat-button-ripple"></div><div class="mat-button-focus-overlay"></div></button></li><br _ngcontent-agc-c348=""><!----></ol></dialog-overview-example>
@@ -5155,7 +5155,7 @@ The `mat-sort-header` provide buttons to change table`s rows
 
     - __Java__: _com.epam.jdi.light.elements.complex.table.Table_
 
-![Sort Header](../images/angular/sorting_header.png)
+![Sort Header](../../images/angular/sorting_header.png)
 
 List of the available **Sorting Header** methods:
 
@@ -5238,7 +5238,7 @@ The `mat-table` provides a Material Design styled data-table that can be used to
 
 - __Java__: _com.epam.jdi.light.elements.complex.table.Table_
 
-![Table](../images/angular/Table.PNG)
+![Table](../../images/angular/Table.PNG)
 
 ```html  
 <table _ngcontent-nqb-c378="" mat-table="" class="mat-table cdk-table" role="grid">
@@ -5384,7 +5384,7 @@ This tree builds on the foundation of the CDK tree and uses a similar interface 
 There are two types of trees: Flat tree and nested tree. The DOM structures are different for these two types of trees.
 See an example with HTML code describing basic Tree element.
 
-![Tree examples](../images/angular/basic_tree.png)
+![Tree examples](../../images/angular/basic_tree.png)
 
 ```java 
 
@@ -5483,7 +5483,7 @@ There are four different Chips types in Angular: Basic Chips, Stacked Chips, Chi
     }  
 ```        
 
-![Chips](../images/angular/basicChips.png)
+![Chips](../../images/angular/basicChips.png)
 
 ```html  
  <mat-chip-list id="mat-chip-list-0" aria-label="Fish selection">
@@ -5522,7 +5522,7 @@ There are four different Chips types in Angular: Basic Chips, Stacked Chips, Chi
     } 
 ``` 
 
-![Chips](../images/angular/stackedChips.png)
+![Chips](../../images/angular/stackedChips.png)
 
 ```html  
  <mat-chip-list id="mat-chip-list-1" class="mat-chip-list-stacked" aria-label="Color selection">
@@ -5571,7 +5571,7 @@ There are four different Chips types in Angular: Basic Chips, Stacked Chips, Chi
     }   
 ```   
 
-![Chips](../images/angular/chipsAutocomplete.png)
+![Chips](../../images/angular/chipsAutocomplete.png)
 
 ```html  
  <mat-form-field id="chips-autocomplete-field" class="example-chip-list">
@@ -5622,7 +5622,7 @@ There are four different Chips types in Angular: Basic Chips, Stacked Chips, Chi
     }
 ```
 
-![Chips](../images/angular/chipsWithInput.png)
+![Chips](../../images/angular/chipsWithInput.png)
 
 ```html  
  <mat-form-field id="chips-with-input-field" class="example-chip-list">

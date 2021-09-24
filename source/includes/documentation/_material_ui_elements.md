@@ -218,52 +218,59 @@ The container centers your content horizontally. It's the most basic layout elem
 
 ![Avatar](../../images/material-ui/Avatar.png)
 
-Avatars are found throughout material design with uses in everything from tables to dialog menus.
+Avatars are graphical representations of users.
 
 |Method | Description | Return Type
 --- | --- | ---
-**hasImage()** | Checks image | boolean
-**classValue()** | Checks class | boolean
-**isDisplayed()** | Verify state | void
-**text()** | Asserts text | Assert
-**has()** | Verify state | boolean
+**hasBadge()** | Checks badge | boolean
+**hasIcon()** | Checks icon | boolean
+**hasPhoto()** | Checks photo | boolean
+**has()** | Verify state | AvatarAssert
+**is()** | Verify state | AvatarAssert
 
-##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/AvatarTests.java" target="_blank">Here you can find Avatar tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/AvatarTests.java" target="_blank">Here you can find Avatar tests</a>
 
 ### Click Away Listener
 
 ```java     
-    @UI("//h2[text()='Example']/following-sibling::div[1]/div/button")
-    public static Button exampleButton;
+    @UI("//span[@class = 'MuiBadge-root']")
+    public static List<Avatar> avatarsWithPhoto;
 
-    @UI("//h2[text()='Portal']/following-sibling::div[1]/div/button")
-    public static Button portalButton;
+    @UI("//div/div[contains(@class, 'MuiAvatar-root')]")
+    public static List<Avatar> avatarsWithoutPhoto;
 
-    @UI("//div[text()='Click me, I will stay visible until you click outside.']")
-    public static TextArea text;
+    @UI("//div/div[contains(@class, 'MuiAvatar-root') and not(*)] ")
+    public static List<Avatar> avatarsWithText;
+
+    @UI("//div[contains(@class, 'MuiAvatar-root')]/*[contains(@class, 'MuiSvgIcon-root')]/parent::div")
+    public static List<Avatar> avatarsWithIcon;
+
 
     @Test
-    public void exampleClickAwayListenerTest() {
-        textFieldTest(1);
+    public void avatarsWithTextTests() {
+        for(Avatar avatar : avatarsWithText) {
+            avatar.is().displayed();
+        }
+        avatarsWithText.get(1).is().text("L");
+        avatarsWithText.get(2).is().text("A");
     }
 
     @Test
-    public void portalExampleClickAwayListenerTest() {
-        textFieldTest(2);
+    public void avatarsWithPhotoTests() {
+        for(Avatar avatar : avatarsWithPhoto) {
+            avatar.is().displayed();
+            avatar.has().photo();
+            avatar.has().badge();
+        }
     }
 
-    private void textFieldTest(int buttonId) {
-        clickAwayListenerPage.clickButton(buttonId);
-        text.is().displayed();
-        clickAwayListenerPage.clickButton(buttonId);
-        text.is().hidden();
-        clickAwayListenerPage.clickButton(buttonId);
-        text.is().displayed();
-        clickAwayListenerPage.clickAroundTextPopup(text.getSize().width + 1, -1);
-        text.is().hidden();
-        clickAwayListenerPage.clickButton(buttonId);
-        clickAwayListenerPage.clickAroundButton(exampleButton.getSize().width + 1,0, buttonId);
-        text.is().hidden();
+    @Test
+    public void avatarsWithIconTests() {
+        for(Avatar avatar : avatarsWithIcon) {
+            avatar.is().displayed();
+            avatar.has().icon();
+            avatar.has().noPhoto();
+        }
     }
 ```
 

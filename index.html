@@ -1004,6 +1004,11 @@
                   </li>
                   <li>
                     <a href="#vue-js-elements" class="toc-h2 toc-link" data-title="Vue.js elements">Vue.js elements</a>
+                      <ul class="toc-list-h2">
+                          <li>
+								            <a href="#alerts" class="toc-h2 h3 toc-link" data-title="Alerts">Alerts</a>
+                          </li>
+                      </ul>
                   </li>
                   <li>
                     <a href="#jdi-features" class="toc-h2 toc-link" data-title="JDI features">JDI features</a>
@@ -35963,8 +35968,23 @@ You can use for testing Text and Button classes, implemented in JDI-html section
 <p>This is a CSS media query hook for React. It listens for matches to a CSS media query. It allows the rendering of components based on whether the query matches or not.</p>
 
 <p><br></br><br></br></p>
-<h2 id='vue-js-elements'>Vue.js elements</h2>
-<p>TBD</p>
+<h2 id='vue-js-elements'>Vue.js elements</h2><h3 id='alerts'>Alerts</h3>
+<p><a href="https://vuetifyjs.com/en/components/alerts/">Vuetify documentation page</a></p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.vuetify.elements.common.Alert.java</em></li>
+</ul>
+
+<p><img src="images/vuetify/alerts.png" alt="Alerts example" /></p>
+<pre class="highlight java tab-java"><code>  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">alertsWithPropsHaveProperCssProps</span><span class="o">(){</span>
+      <span class="n">redAlert</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"I'm an alert with a top border and red color"</span><span class="o">);</span>
+      <span class="n">redAlert</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">css</span><span class="o">(</span><span class="s">"background-color"</span><span class="o">,</span> <span class="n">Colors</span><span class="o">.</span><span class="na">RED_LIGHTEN_2</span><span class="o">.</span><span class="na">value</span><span class="o">());</span>
+      <span class="n">redAlert</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">cssClass</span><span class="o">(</span><span class="s">"v-alert--border-top"</span><span class="o">);</span>
+  <span class="o">}</span>
+</code></pre>
+<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/3118-implement-alerts/jdi-light-vuetify-tests/src/main/java/io/github/com/custom/CustomAlert.java">Custom vuetify alert example</a>
+and <a href="https://github.com/jdi-testing/jdi-light/blob/3118-implement-alerts/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/AlertsTests.java">JDI vuetify page tests for alerts</a>.</p>
 <h2 id='jdi-features'>JDI features</h2><h3 id='jdi-features-for-parameters-in-bdd-steps'>JDI Features for parameters in BDD steps</h3><h4 id='using-aliases-as-locators-parameters'>Using aliases as locators parameters</h4><pre class="highlight gherkin tab-gherkin"><code>   <span class="kn">Scenario</span><span class="p">:</span> input element
        <span class="nf">When</span> I input <span class="s">"simple 1234"</span> in <span class="s">"Name"</span>
        <span class="nf">Then</span> the <span class="s">"Name"</span> text matches to <span class="s">"\w{6} \d{4}"</span>

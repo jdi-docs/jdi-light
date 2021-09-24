@@ -34743,70 +34743,69 @@ You can use for testing Text and Button classes, implemented in JDI-html section
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>getButtonByIndex()</strong></td>
-<td>Get button index</td>
-<td>int</td>
+<td><strong>getButtonByIndex(int)</strong></td>
+<td>Get button by index</td>
+<td>Button</td>
 </tr>
 <tr>
-<td><strong>select()</strong></td>
-<td>Select the button</td>
-<td>void</td>
+<td><strong>getButtonByText(String)</strong></td>
+<td>Get button by text</td>
+<td>Button</td>
 </tr>
 <tr>
-<td><strong>getMainButton()</strong></td>
-<td>Get main button</td>
-<td>String</td>
-</tr>
-<tr>
-<td><strong>getButtonByText()</strong></td>
-<td>Get button text</td>
-<td>String</td>
+<td><strong>getAllButtons()</strong></td>
+<td>Get all buttons in a block</td>
+<td>Collection&lt;Button&gt;</td>
 </tr>
 </tbody></table>
 
 <p><br></br></p>
 <h5 id='buttongrouppage'>ButtonGroupPage</h5><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ButtonGroupPage</span> <span class="kd">extends</span> <span class="n">WebPage</span> <span class="o">{</span>
 
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//*[@id=\"__next\"]/div/div/div[2]/div/div/div/div[1]/div"</span><span class="o">)</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div[@aria-label = 'outlined primary button group']"</span><span class="o">)</span>
+    <span class="nd">@JDIButtonGroup</span><span class="o">(</span><span class="n">list</span> <span class="o">=</span> <span class="s">".MuiButtonGroup-groupedHorizontal"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">ButtonGroup</span> <span class="n">basicButtonGroup</span><span class="o">;</span>
 
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//*[@id=\"__next\"]/div/div/div[2]/div/div/div/div[2]/div"</span><span class="o">)</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div[@aria-label = 'vertical contained primary button group']"</span><span class="o">)</span>
+    <span class="nd">@JDIButtonGroup</span><span class="o">(</span><span class="n">list</span> <span class="o">=</span> <span class="s">".MuiButton-root"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">ButtonGroup</span> <span class="n">verticalButtonGroup</span><span class="o">;</span>
 
-    <span class="nd">@JDropdown</span><span class="o">(</span>
-            <span class="n">root</span> <span class="o">=</span> <span class="s">"//h2[contains(text(), 'Split button')]/following::div[1]"</span><span class="o">,</span>
-            <span class="n">value</span> <span class="o">=</span> <span class="s">"(//span[contains(@class, 'MuiButton-label')])[1]"</span><span class="o">,</span>
-            <span class="n">list</span> <span class="o">=</span> <span class="s">"//li[contains(@class, 'MuiListItem-root')]"</span><span class="o">,</span>
-            <span class="n">expand</span> <span class="o">=</span> <span class="s">"//button[contains(@aria-label, 'select merge strategy')]"</span>
-    <span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Dropdown</span> <span class="n">splitButtonGroup</span><span class="o">;</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div[@aria-label = 'split button']"</span><span class="o">)</span>
+    <span class="nd">@JDIButtonGroup</span><span class="o">(</span><span class="n">list</span> <span class="o">=</span> <span class="s">".MuiButtonBase-root"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">ButtonGroup</span> <span class="n">splitButtonGroup</span><span class="o">;</span>
+
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#split-button-menu"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Menu</span> <span class="n">splitButtonDropdown</span><span class="o">;</span>
 <span class="o">}</span>
 </code></pre>
 <p>ButtonGroupPage class has been extended from WebPage. This class contains variables that are used in tests:
 - basicButtonGroup
 - verticalButtonGroup
-- splitButtonGroup</p>
+- splitButtonGroup
+- splitButtonDropdown</p>
 
 <p><br></br></p>
-<h5 id='buttongrouptests'>ButtonGroupTests</h5><pre class="highlight java tab-java"><code>
-    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">basicButtonGroupTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">basicButtonGroup</span><span class="o">.</span><span class="na">getButtonByIndex</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">basicButtonGroup</span><span class="o">.</span><span class="na">getButtonByIndex</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">basicButtonGroup</span><span class="o">.</span><span class="na">getButtonByIndex</span><span class="o">(</span><span class="mi">3</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">basicButtonGroup</span><span class="o">.</span><span class="na">getButtonByText</span><span class="o">(</span><span class="s">"Three"</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">basicButtonGroup</span><span class="o">.</span><span class="na">getButtonByText</span><span class="o">(</span><span class="s">"Two"</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">basicButtonGroup</span><span class="o">.</span><span class="na">getButtonByText</span><span class="o">(</span><span class="s">"One"</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">basicButtonGroup</span><span class="o">.</span><span class="na">getButtonByIndex</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
-        <span class="n">basicButtonGroup</span><span class="o">.</span><span class="na">getButtonByIndex</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"ONE"</span><span class="o">);</span>
+<h5 id='buttongrouptests'>ButtonGroupTests</h5><pre class="highlight java tab-java"><code><span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">verticalButtonGroupTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">verticalButtonGroup</span><span class="o">.</span><span class="na">getButtonByIndex</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">verticalButtonGroup</span><span class="o">.</span><span class="na">getButtonByIndex</span><span class="o">(</span><span class="mi">3</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">verticalButtonGroup</span><span class="o">.</span><span class="na">getButtonByText</span><span class="o">(</span><span class="s">"Two"</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">verticalButtonGroup</span><span class="o">.</span><span class="na">getButtonByText</span><span class="o">(</span><span class="s">"One"</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">basicButtonGroup</span><span class="o">.</span><span class="na">getButtonByIndex</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
+        <span class="n">basicButtonGroup</span><span class="o">.</span><span class="na">getButtonByIndex</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"TWO"</span><span class="o">);</span>
     <span class="o">}</span>
 
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">splitButtonGroupTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">splitButtonGroup</span><span class="o">.</span><span class="na">expand</span><span class="o">();</span>
-        <span class="n">splitButtonGroup</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"SQUASH AND MERGE"</span><span class="o">);</span>
-        <span class="n">splitButtonGroup</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="s">"Create a merge commit"</span><span class="o">);</span>
-        <span class="n">splitButtonGroup</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"CREATE A MERGE COMMIT"</span><span class="o">);</span>
+        <span class="n">splitButtonGroup</span><span class="o">.</span><span class="na">getButtonByIndex</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"SQUASH AND MERGE"</span><span class="o">);</span>
+        <span class="n">splitButtonGroup</span><span class="o">.</span><span class="na">getButtonByText</span><span class="o">(</span><span class="s">"Squash and merge"</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">splitButtonGroup</span><span class="o">.</span><span class="na">getButtonByIndex</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">splitButtonDropdown</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">splitButtonGroup</span><span class="o">.</span><span class="na">getButtonByIndex</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"CREATE A MERGE COMMIT"</span><span class="o">);</span>
+        <span class="n">splitButtonGroup</span><span class="o">.</span><span class="na">getButtonByIndex</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">splitButtonDropdown</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">3</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">cssClass</span><span class="o">(</span><span class="s">"Mui-disabled"</span><span class="o">);</span>
+        <span class="n">splitButtonDropdown</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">splitButtonGroup</span><span class="o">.</span><span class="na">getButtonByIndex</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"SQUASH AND MERGE"</span><span class="o">);</span>
     <span class="o">}</span>
 </code></pre>
 <p>ButtonGroupTests is located in the following class:</p>
@@ -34845,7 +34844,7 @@ You can use for testing Text and Button classes, implemented in JDI-html section
 <td>ButtonAssert</td>
 </tr>
 </tbody></table>
-<h5 id='here-you-can-find-button-group-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/ButtonGroupTests.java" target="_blank">Here you can find Button group tests</a></h5>
+<h5 id='here-you-can-find-button-group-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/ButtonGroupTests.java" target="_blank">Here you can find Button group tests</a></h5>
 <p><br></br><br></br></p>
 <h3 id='grid'>Grid</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">".MuiContainer-root"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">UIElement</span> <span class="n">rootGrid</span><span class="o">;</span>

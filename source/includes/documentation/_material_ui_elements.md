@@ -1357,10 +1357,9 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 | --- | --- | ---
-**getButtonByIndex()** | Get button index | int
-**select()** | Select the button | void
-**getMainButton()** | Get main button | String
-**getButtonByText()** | Get button text | String
+**getButtonByIndex(int)** | Get button by index | Button
+**getButtonByText(String)** | Get button by text | Button
+**getAllButtons()**        | Get all buttons in a block | Collection\<Button\>
 
 
 <br></br>
@@ -1370,19 +1369,20 @@ Available methods in Java JDI Light:
 ```java 
 public class ButtonGroupPage extends WebPage {
 
-    @UI("//*[@id=\"__next\"]/div/div/div[2]/div/div/div/div[1]/div")
+    @UI("//div[@aria-label = 'outlined primary button group']")
+    @JDIButtonGroup(list = ".MuiButtonGroup-groupedHorizontal")
     public static ButtonGroup basicButtonGroup;
 
-    @UI("//*[@id=\"__next\"]/div/div/div[2]/div/div/div/div[2]/div")
+    @UI("//div[@aria-label = 'vertical contained primary button group']")
+    @JDIButtonGroup(list = ".MuiButton-root")
     public static ButtonGroup verticalButtonGroup;
 
-    @JDropdown(
-            root = "//h2[contains(text(), 'Split button')]/following::div[1]",
-            value = "(//span[contains(@class, 'MuiButton-label')])[1]",
-            list = "//li[contains(@class, 'MuiListItem-root')]",
-            expand = "//button[contains(@aria-label, 'select merge strategy')]"
-    )
-    public static Dropdown splitButtonGroup;
+    @UI("//div[@aria-label = 'split button']")
+    @JDIButtonGroup(list = ".MuiButtonBase-root")
+    public static ButtonGroup splitButtonGroup;
+
+    @UI("#split-button-menu")
+    public static Menu splitButtonDropdown;
 }
 ```
 
@@ -1390,31 +1390,34 @@ ButtonGroupPage class has been extended from WebPage. This class contains variab
 - basicButtonGroup
 - verticalButtonGroup
 - splitButtonGroup
+- splitButtonDropdown
 
 <br></br>
 
 ##### ButtonGroupTests
 
 ```java 
-
-    @Test
-    public void basicButtonGroupTest() {
-        basicButtonGroup.getButtonByIndex(1).click();
-        basicButtonGroup.getButtonByIndex(2).click();
-        basicButtonGroup.getButtonByIndex(3).click();
-        basicButtonGroup.getButtonByText("Three").click();
-        basicButtonGroup.getButtonByText("Two").click();
-        basicButtonGroup.getButtonByText("One").click();
-        basicButtonGroup.getButtonByIndex(1).is().enabled();
-        basicButtonGroup.getButtonByIndex(1).has().text("ONE");
+@Test
+    public void verticalButtonGroupTest() {
+        verticalButtonGroup.getButtonByIndex(2).click();
+        verticalButtonGroup.getButtonByIndex(3).click();
+        verticalButtonGroup.getButtonByText("Two").click();
+        verticalButtonGroup.getButtonByText("One").click();
+        basicButtonGroup.getButtonByIndex(2).is().enabled();
+        basicButtonGroup.getButtonByIndex(2).has().text("TWO");
     }
 
     @Test
     public void splitButtonGroupTest() {
-        splitButtonGroup.expand();
-        splitButtonGroup.has().text("SQUASH AND MERGE");
-        splitButtonGroup.select("Create a merge commit");
-        splitButtonGroup.has().text("CREATE A MERGE COMMIT");
+        splitButtonGroup.getButtonByIndex(1).has().text("SQUASH AND MERGE");
+        splitButtonGroup.getButtonByText("Squash and merge").click();
+        splitButtonGroup.getButtonByIndex(2).click();
+        splitButtonDropdown.get(1).click();
+        splitButtonGroup.getButtonByIndex(1).has().text("CREATE A MERGE COMMIT");
+        splitButtonGroup.getButtonByIndex(2).click();
+        splitButtonDropdown.get(3).has().cssClass("Mui-disabled");
+        splitButtonDropdown.get(2).click();
+        splitButtonGroup.getButtonByIndex(1).has().text("SQUASH AND MERGE");
     }
 ```
 
@@ -1431,7 +1434,7 @@ Most applicable methods:
 **is()**  | Assert action | ButtonAssert
 **text()** | Assert text | ButtonAssert
 
-##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/ButtonGroupTests.java" target="_blank">Here you can find Button group tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/ButtonGroupTests.java" target="_blank">Here you can find Button group tests</a>
 
 <br></br><br></br>
 

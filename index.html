@@ -33429,7 +33429,7 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
 </code></pre><h5 id='https-material-ui-com-ru-components-avatars'><a href="https://material-ui.com/ru/components/avatars/" target="_blank"> https://material-ui.com/ru/components/avatars/ </a></h5>
 <p><img src="images/material-ui/Avatar.png" alt="Avatar" /></p>
 
-<p>Avatars are found throughout material design with uses in everything from tables to dialog menus.</p>
+<p>Avatars are graphical representations of users.</p>
 
 <table><thead>
 <tr>
@@ -33439,62 +33439,69 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>hasImage()</strong></td>
-<td>Checks image</td>
+<td><strong>hasBadge()</strong></td>
+<td>Checks badge</td>
 <td>boolean</td>
 </tr>
 <tr>
-<td><strong>classValue()</strong></td>
-<td>Checks class</td>
+<td><strong>hasIcon()</strong></td>
+<td>Checks icon</td>
 <td>boolean</td>
 </tr>
 <tr>
-<td><strong>isDisplayed()</strong></td>
-<td>Verify state</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>text()</strong></td>
-<td>Asserts text</td>
-<td>Assert</td>
+<td><strong>hasPhoto()</strong></td>
+<td>Checks photo</td>
+<td>boolean</td>
 </tr>
 <tr>
 <td><strong>has()</strong></td>
 <td>Verify state</td>
-<td>boolean</td>
+<td>AvatarAssert</td>
+</tr>
+<tr>
+<td><strong>is()</strong></td>
+<td>Verify state</td>
+<td>AvatarAssert</td>
 </tr>
 </tbody></table>
-<h5 id='here-you-can-find-avatar-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/AvatarTests.java" target="_blank">Here you can find Avatar tests</a></h5><h3 id='click-away-listener'>Click Away Listener</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h2[text()='Example']/following-sibling::div[1]/div/button"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Button</span> <span class="n">exampleButton</span><span class="o">;</span>
+<h5 id='here-you-can-find-avatar-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/AvatarTests.java" target="_blank">Here you can find Avatar tests</a></h5><h3 id='click-away-listener'>Click Away Listener</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//span[@class = 'MuiBadge-root']"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Avatar</span><span class="o">&gt;</span> <span class="n">avatarsWithPhoto</span><span class="o">;</span>
 
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h2[text()='Portal']/following-sibling::div[1]/div/button"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Button</span> <span class="n">portalButton</span><span class="o">;</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div/div[contains(@class, 'MuiAvatar-root')]"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Avatar</span><span class="o">&gt;</span> <span class="n">avatarsWithoutPhoto</span><span class="o">;</span>
 
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div[text()='Click me, I will stay visible until you click outside.']"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">TextArea</span> <span class="n">text</span><span class="o">;</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div/div[contains(@class, 'MuiAvatar-root') and not(*)] "</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Avatar</span><span class="o">&gt;</span> <span class="n">avatarsWithText</span><span class="o">;</span>
+
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div[contains(@class, 'MuiAvatar-root')]/*[contains(@class, 'MuiSvgIcon-root')]/parent::div"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Avatar</span><span class="o">&gt;</span> <span class="n">avatarsWithIcon</span><span class="o">;</span>
+
 
     <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">exampleClickAwayListenerTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">textFieldTest</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">avatarsWithTextTests</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">for</span><span class="o">(</span><span class="n">Avatar</span> <span class="n">avatar</span> <span class="o">:</span> <span class="n">avatarsWithText</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">avatar</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+        <span class="o">}</span>
+        <span class="n">avatarsWithText</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"L"</span><span class="o">);</span>
+        <span class="n">avatarsWithText</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"A"</span><span class="o">);</span>
     <span class="o">}</span>
 
     <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">portalExampleClickAwayListenerTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">textFieldTest</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">avatarsWithPhotoTests</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">for</span><span class="o">(</span><span class="n">Avatar</span> <span class="n">avatar</span> <span class="o">:</span> <span class="n">avatarsWithPhoto</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">avatar</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+            <span class="n">avatar</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">photo</span><span class="o">();</span>
+            <span class="n">avatar</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">badge</span><span class="o">();</span>
+        <span class="o">}</span>
     <span class="o">}</span>
 
-    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">textFieldTest</span><span class="o">(</span><span class="kt">int</span> <span class="n">buttonId</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">clickAwayListenerPage</span><span class="o">.</span><span class="na">clickButton</span><span class="o">(</span><span class="n">buttonId</span><span class="o">);</span>
-        <span class="n">text</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-        <span class="n">clickAwayListenerPage</span><span class="o">.</span><span class="na">clickButton</span><span class="o">(</span><span class="n">buttonId</span><span class="o">);</span>
-        <span class="n">text</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">hidden</span><span class="o">();</span>
-        <span class="n">clickAwayListenerPage</span><span class="o">.</span><span class="na">clickButton</span><span class="o">(</span><span class="n">buttonId</span><span class="o">);</span>
-        <span class="n">text</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-        <span class="n">clickAwayListenerPage</span><span class="o">.</span><span class="na">clickAroundTextPopup</span><span class="o">(</span><span class="n">text</span><span class="o">.</span><span class="na">getSize</span><span class="o">().</span><span class="na">width</span> <span class="o">+</span> <span class="mi">1</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">);</span>
-        <span class="n">text</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">hidden</span><span class="o">();</span>
-        <span class="n">clickAwayListenerPage</span><span class="o">.</span><span class="na">clickButton</span><span class="o">(</span><span class="n">buttonId</span><span class="o">);</span>
-        <span class="n">clickAwayListenerPage</span><span class="o">.</span><span class="na">clickAroundButton</span><span class="o">(</span><span class="n">exampleButton</span><span class="o">.</span><span class="na">getSize</span><span class="o">().</span><span class="na">width</span> <span class="o">+</span> <span class="mi">1</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span> <span class="n">buttonId</span><span class="o">);</span>
-        <span class="n">text</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">hidden</span><span class="o">();</span>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">avatarsWithIconTests</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">for</span><span class="o">(</span><span class="n">Avatar</span> <span class="n">avatar</span> <span class="o">:</span> <span class="n">avatarsWithIcon</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">avatar</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+            <span class="n">avatar</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">icon</span><span class="o">();</span>
+            <span class="n">avatar</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">noPhoto</span><span class="o">();</span>
+        <span class="o">}</span>
     <span class="o">}</span>
 </code></pre><h5 id='https-material-ui-com-ru-components-click-away-listener'><a href="https://material-ui.com/ru/components/click-away-listener/" target="_blank"> https://material-ui.com/ru/components/click-away-listener/ </a></h5>
 <p><img src="images/material-ui/ClickAwayListener.png" alt="ClickAwayListener" /></p>

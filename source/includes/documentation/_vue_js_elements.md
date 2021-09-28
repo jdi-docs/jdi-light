@@ -61,3 +61,50 @@ It is **necessary** to specify **the root** of an element
 For examples of usage see: [Vuetify Breadcrumbs tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/BreadcrumbsTests.java).
 
 
+### Cards
+
+[Vuetify documentation page](https://vuetifyjs.com/en/components/cards/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.complex.Card.java_
+
+![Cards example](../../images/vuetify/cards.png)
+
+Cards may contain anything, you can inherit the `Card` class and customize it
+the way you want.
+
+```java
+public class MediaTextCard extends Card {
+    @UI(".v-image__image")
+    protected Image image;
+    public Image image() {
+        return image;
+    }
+    public Button shareButton() {
+        return new Button().setCore(Button.class, actions().find("//button[./span[contains(text(), 'Share')]]"));
+    }
+    public Button exploreButton() {
+        return new Button().setCore(Button.class, actions().find("//button[./span[contains(text(), 'Explore')]]"));
+    }
+}
+```
+
+```java
+    @Test
+    public void mediaTextCardTest() {
+        mediaTextCard.is().displayed();
+        mediaTextCard.image().has().css("background-size", "cover");
+        mediaTextCard.has().title("Top 10 Australian beaches");
+        mediaTextCard.has().subtitle(containsString("Number 10"));
+        mediaTextCard.content().has().text(containsString("Whitehaven Beach"));
+        mediaTextCard.shareButton().click();
+        mediaTextCard.exploreButton().click();
+    }
+```
+
+Basically, you have 4 methods: `title`, `subtitle`, `content` and `actions`.
+They return the parts of a card described [here](https://vuetifyjs.com/en/components/cards/#api). 
+The `content` method returns a
+card `text` element, but the `text` method is inherited from `UIBaseElement` that why it has a different name.
+
+For examples of usage see: [Custom vuetify card examples](https://github.com/jdi-testing/jdi-light/tree/vuetify-develop/jdi-light-vuetify-tests/src/main/java/io/github/com/custom/cards)
+and [JDI vuetify page tests for cards](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/CardsTests.java).

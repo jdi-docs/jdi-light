@@ -4,10 +4,6 @@
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/alerts/)
 
-- __Java__: _com.epam.jdi.light.vuetify.elements.common.Alert.java_
-
-![Alerts example](../../images/vuetify/alerts.png)
-
 ```java
   @Test
   public void alertsWithPropsHaveProperCssProps(){
@@ -16,6 +12,10 @@
       redAlert.has().cssClass("v-alert--border-top");
   }
 ```
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.common.Alert.java_
+
+![Alerts example](../../images/vuetify/alerts.png)
 
 For examples of usage see: [Custom vuetify alert example](https://github.com/jdi-testing/jdi-light/blob/3118-implement-alerts/jdi-light-vuetify-tests/src/main/java/io/github/com/custom/CustomAlert.java)
 and [JDI vuetify page tests for alerts](https://github.com/jdi-testing/jdi-light/blob/3118-implement-alerts/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/AlertsTests.java).
@@ -26,8 +26,6 @@ and [JDI vuetify page tests for alerts](https://github.com/jdi-testing/jdi-light
 [Vuetify documentation page](https://vuetifyjs.com/en/components/avatars/)
 
 - __Java__: _com.epam.jdi.light.vuetify.elements.common.Avatar.java_
-
-![Avatars example](../../images/vuetify/avatars.png)
 
 ```java
     @Test
@@ -44,6 +42,8 @@ and [JDI vuetify page tests for alerts](https://github.com/jdi-testing/jdi-light
     }
 ```
 
+![Avatars example](../../images/vuetify/avatars.png)
+
 For examples of usage see: [Custom vuetify avatar example (profile card)](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/main/java/io/github/com/custom/ProfileCard.java)
 and [JDI vuetify page tests for avatars](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/AvatarsTests.java).
 
@@ -53,11 +53,6 @@ and [JDI vuetify page tests for avatars](https://github.com/jdi-testing/jdi-ligh
 [Vuetify documentation page](https://vuetifyjs.com/en/components/banners/)
 
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.Banner.java_
-
-![Avatars example](../../images/vuetify/banners.png)
-
-Banners may contain anything, you can inherit the `Banner` class and customize it
-the way you want.
 
 ```java
     @Test
@@ -72,6 +67,12 @@ the way you want.
         singleBanner.is().checkerChecked();
     }
 ```
+
+![Banners example](../../images/vuetify/banners.png)
+
+Banners may contain anything, you can inherit the `Banner` class and customize it
+the way you want.
+
 Basically, you have methods that can return you elements containing in banner (buttons, checkers, icons, etc.).
 
 For examples of usage see: [JDI vuetify page tests for banners](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/BannersTests.java).
@@ -83,9 +84,6 @@ For examples of usage see: [JDI vuetify page tests for banners](https://github.c
 
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.Breadcrumbs.java_
 
-You can specify locators for the root, links and dividers
-explicitly through a `JDIBreadcrumbs` annotation:
-
 ```java
     @JDIBreadcrumbs(
             root = "#differentDividersBreadcrumbs > ul:nth-child(2)",
@@ -95,7 +93,8 @@ explicitly through a `JDIBreadcrumbs` annotation:
     public static Breadcrumbs forwardSlashedBreadcrumbs;
 ```
 
-It is **necessary** to specify **the root** of an element
+You can specify locators for the root, links and dividers
+explicitly through a `JDIBreadcrumbs` annotation:
 
 ```java
     @JDIBreadcrumbs(root = "#largeBreadcrumbs > ul")
@@ -114,6 +113,11 @@ It is **necessary** to specify **the root** of an element
     }
 ```
 
+
+It is **necessary** to specify **the root** of an element
+
+
+
 For examples of usage see: [Vuetify Breadcrumbs tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/BreadcrumbsTests.java).
 
 
@@ -122,11 +126,6 @@ For examples of usage see: [Vuetify Breadcrumbs tests](https://github.com/jdi-te
 [Vuetify documentation page](https://vuetifyjs.com/en/components/cards/)
 
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.Card.java_
-
-![Cards example](../../images/vuetify/cards.png)
-
-Cards may contain anything, you can inherit the `Card` class and customize it
-the way you want.
 
 ```java
 public class MediaTextCard extends Card {
@@ -157,8 +156,14 @@ public class MediaTextCard extends Card {
     }
 ```
 
+![Cards example](../../images/vuetify/cards.png)
+
+Cards may contain anything, you can inherit the `Card` class and customize it
+the way you want.
+
+
 Basically, you have 4 methods: `title`, `subtitle`, `content` and `actions`.
-They return the parts of a card described [here](https://vuetifyjs.com/en/components/cards/#api). 
+They return the parts of a card described [here](https://vuetifyjs.com/en/components/cards/#api).
 The `content` method returns a
 card `text` element, but the `text` method is inherited from `UIBaseElement` that why it has a different name.
 

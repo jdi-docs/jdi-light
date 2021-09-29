@@ -36001,12 +36001,6 @@ You can use for testing Text and Button classes, implemented in JDI-html section
 <p><br></br><br></br></p>
 <h2 id='vue-js-elements'>Vue.js elements</h2><h3 id='alerts'>Alerts</h3>
 <p><a href="https://vuetifyjs.com/en/components/alerts/">Vuetify documentation page</a></p>
-
-<ul>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.vuetify.elements.common.Alert.java</em></li>
-</ul>
-
-<p><img src="images/vuetify/alerts.png" alt="Alerts example" /></p>
 <pre class="highlight java tab-java"><code>  <span class="nd">@Test</span>
   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">alertsWithPropsHaveProperCssProps</span><span class="o">(){</span>
       <span class="n">redAlert</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"I'm an alert with a top border and red color"</span><span class="o">);</span>
@@ -36014,6 +36008,12 @@ You can use for testing Text and Button classes, implemented in JDI-html section
       <span class="n">redAlert</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">cssClass</span><span class="o">(</span><span class="s">"v-alert--border-top"</span><span class="o">);</span>
   <span class="o">}</span>
 </code></pre>
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.vuetify.elements.common.Alert.java</em></li>
+</ul>
+
+<p><img src="images/vuetify/alerts.png" alt="Alerts example" /></p>
+
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/3118-implement-alerts/jdi-light-vuetify-tests/src/main/java/io/github/com/custom/CustomAlert.java">Custom vuetify alert example</a>
 and <a href="https://github.com/jdi-testing/jdi-light/blob/3118-implement-alerts/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/AlertsTests.java">JDI vuetify page tests for alerts</a>.</p>
 <h3 id='avatars'>Avatars</h3>
@@ -36022,8 +36022,6 @@ and <a href="https://github.com/jdi-testing/jdi-light/blob/3118-implement-alerts
 <ul>
 <li><strong>Java</strong>: <em>com.epam.jdi.light.vuetify.elements.common.Avatar.java</em></li>
 </ul>
-
-<p><img src="images/vuetify/avatars.png" alt="Avatars example" /></p>
 <pre class="highlight java tab-java"><code>    <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">avatarsWithSizeTests</span><span class="o">()</span> <span class="o">{</span>
         <span class="k">for</span><span class="o">(</span><span class="n">Avatar</span> <span class="nl">avatar:</span> <span class="n">avatarsWithSize</span><span class="o">)</span> <span class="o">{</span>
@@ -36037,6 +36035,8 @@ and <a href="https://github.com/jdi-testing/jdi-light/blob/3118-implement-alerts
         <span class="n">avatarsWithSize</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">3</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">size</span><span class="o">(</span><span class="s">"62"</span><span class="o">);</span>
     <span class="o">}</span>
 </code></pre>
+<p><img src="images/vuetify/avatars.png" alt="Avatars example" /></p>
+
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/main/java/io/github/com/custom/ProfileCard.java">Custom vuetify avatar example (profile card)</a>
 and <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/AvatarsTests.java">JDI vuetify page tests for avatars</a>.</p>
 <h3 id='banners'>Banners</h3>
@@ -36045,11 +36045,6 @@ and <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-l
 <ul>
 <li><strong>Java</strong>: <em>com.epam.jdi.light.vuetify.elements.complex.Banner.java</em></li>
 </ul>
-
-<p><img src="images/vuetify/banners.png" alt="Avatars example" /></p>
-
-<p>Banners may contain anything, you can inherit the <code>Banner</code> class and customize it
-the way you want.</p>
 <pre class="highlight java tab-java"><code>    <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">singleBannerTests</span><span class="o">()</span> <span class="o">{</span>
         <span class="n">singleBanner</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
@@ -36062,6 +36057,11 @@ the way you want.</p>
         <span class="n">singleBanner</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">checkerChecked</span><span class="o">();</span>
     <span class="o">}</span>
 </code></pre>
+<p><img src="images/vuetify/banners.png" alt="Banners example" /></p>
+
+<p>Banners may contain anything, you can inherit the <code>Banner</code> class and customize it
+the way you want.</p>
+
 <p>Basically, you have methods that can return you elements containing in banner (buttons, checkers, icons, etc.).</p>
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/BannersTests.java">JDI vuetify page tests for banners</a>.</p>
@@ -36071,9 +36071,6 @@ the way you want.</p>
 <ul>
 <li><strong>Java</strong>: <em>com.epam.jdi.light.vuetify.elements.complex.Breadcrumbs.java</em></li>
 </ul>
-
-<p>You can specify locators for the root, links and dividers
-explicitly through a <code>JDIBreadcrumbs</code> annotation:</p>
 <pre class="highlight java tab-java"><code>    <span class="nd">@JDIBreadcrumbs</span><span class="o">(</span>
             <span class="n">root</span> <span class="o">=</span> <span class="s">"#differentDividersBreadcrumbs &gt; ul:nth-child(2)"</span><span class="o">,</span>
             <span class="n">items</span> <span class="o">=</span> <span class="s">".v-breadcrumbs__item"</span><span class="o">,</span>
@@ -36081,7 +36078,8 @@ explicitly through a <code>JDIBreadcrumbs</code> annotation:</p>
     <span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">Breadcrumbs</span> <span class="n">forwardSlashedBreadcrumbs</span><span class="o">;</span>
 </code></pre>
-<p>It is <strong>necessary</strong> to specify <strong>the root</strong> of an element</p>
+<p>You can specify locators for the root, links and dividers
+explicitly through a <code>JDIBreadcrumbs</code> annotation:</p>
 <pre class="highlight java tab-java"><code>    <span class="nd">@JDIBreadcrumbs</span><span class="o">(</span><span class="n">root</span> <span class="o">=</span> <span class="s">"#largeBreadcrumbs &gt; ul"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">Breadcrumbs</span> <span class="n">largeBreadcrumbs</span><span class="o">;</span>
 </code></pre><pre class="highlight java tab-java"><code>    <span class="nd">@Test</span>
@@ -36094,6 +36092,8 @@ explicitly through a <code>JDIBreadcrumbs</code> annotation:</p>
         <span class="n">jdiAssert</span><span class="o">(</span><span class="n">itemSlotsBreadcrumbs</span><span class="o">.</span><span class="na">selected</span><span class="o">(</span><span class="s">"LINK 2"</span><span class="o">),</span> <span class="n">Matchers</span><span class="o">.</span><span class="na">is</span><span class="o">(</span><span class="kc">true</span><span class="o">));</span>
     <span class="o">}</span>
 </code></pre>
+<p>It is <strong>necessary</strong> to specify <strong>the root</strong> of an element</p>
+
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/BreadcrumbsTests.java">Vuetify Breadcrumbs tests</a>.</p>
 <h3 id='cards'>Cards</h3>
 <p><a href="https://vuetifyjs.com/en/components/cards/">Vuetify documentation page</a></p>
@@ -36101,11 +36101,6 @@ explicitly through a <code>JDIBreadcrumbs</code> annotation:</p>
 <ul>
 <li><strong>Java</strong>: <em>com.epam.jdi.light.vuetify.elements.complex.Card.java</em></li>
 </ul>
-
-<p><img src="images/vuetify/cards.png" alt="Cards example" /></p>
-
-<p>Cards may contain anything, you can inherit the <code>Card</code> class and customize it
-the way you want.</p>
 <pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MediaTextCard</span> <span class="kd">extends</span> <span class="n">Card</span> <span class="o">{</span>
     <span class="nd">@UI</span><span class="o">(</span><span class="s">".v-image__image"</span><span class="o">)</span>
     <span class="kd">protected</span> <span class="n">Image</span> <span class="n">image</span><span class="o">;</span>
@@ -36130,8 +36125,13 @@ the way you want.</p>
         <span class="n">mediaTextCard</span><span class="o">.</span><span class="na">exploreButton</span><span class="o">().</span><span class="na">click</span><span class="o">();</span>
     <span class="o">}</span>
 </code></pre>
+<p><img src="images/vuetify/cards.png" alt="Cards example" /></p>
+
+<p>Cards may contain anything, you can inherit the <code>Card</code> class and customize it
+the way you want.</p>
+
 <p>Basically, you have 4 methods: <code>title</code>, <code>subtitle</code>, <code>content</code> and <code>actions</code>.
-They return the parts of a card described <a href="https://vuetifyjs.com/en/components/cards/#api">here</a>. 
+They return the parts of a card described <a href="https://vuetifyjs.com/en/components/cards/#api">here</a>.
 The <code>content</code> method returns a
 card <code>text</code> element, but the <code>text</code> method is inherited from <code>UIBaseElement</code> that why it has a different name.</p>
 

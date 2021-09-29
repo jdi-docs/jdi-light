@@ -21,6 +21,62 @@ For examples of usage see: [Custom vuetify alert example](https://github.com/jdi
 and [JDI vuetify page tests for alerts](https://github.com/jdi-testing/jdi-light/blob/3118-implement-alerts/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/AlertsTests.java).
 
 
+### Avatars
+
+[Vuetify documentation page](https://vuetifyjs.com/en/components/avatars/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.common.Avatar.java_
+
+![Avatars example](../../images/vuetify/avatars.png)
+
+```java
+    @Test
+    public void avatarsWithSizeTests() {
+        for(Avatar avatar: avatarsWithSize) {
+        avatar.is().displayed();
+        }
+        avatarsWithSize.get(1).is().text("36");
+        avatarsWithSize.get(2).is().text("48");
+        avatarsWithSize.get(3).is().text("62");
+        avatarsWithSize.get(1).has().size("36");
+        avatarsWithSize.get(2).has().size("48");
+        avatarsWithSize.get(3).has().size("62");
+    }
+```
+
+For examples of usage see: [Custom vuetify avatar example (profile card)](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/main/java/io/github/com/custom/ProfileCard.java)
+and [JDI vuetify page tests for avatars](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/AvatarsTests.java).
+
+
+### Banners
+
+[Vuetify documentation page](https://vuetifyjs.com/en/components/banners/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.complex.Banner.java_
+
+![Avatars example](../../images/vuetify/banners.png)
+
+Banners may contain anything, you can inherit the `Banner` class and customize it
+the way you want.
+
+```java
+    @Test
+    public void singleBannerTests() {
+        singleBanner.is().displayed();
+        singleBanner.has().properTitle("My Document");
+        singleBanner.has().properText("We can't save your edits");
+        singleBanner.has().button();
+        singleBanner.has().checker();
+        singleBanner.is().checkerUnchecked();
+        singleBanner.getChecker().click();
+        singleBanner.is().checkerChecked();
+    }
+```
+Basically, you have methods that can return you elements containing in banner (buttons, checkers, icons, etc.).
+
+For examples of usage see: [JDI vuetify page tests for banners](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/BannersTests.java).
+
+
 ### Breadcrumbs
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/breadcrumbs/)

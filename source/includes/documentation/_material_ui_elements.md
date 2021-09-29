@@ -192,47 +192,6 @@ The container centers your content horizontally. It's the most basic layout elem
 ### Avatar
 
 ```java 
-    @UI("//span[@class='MuiBadge-root']/span")
-    public static List<UIElement> onlineStatus;
-    
-    @UI("//span[@class='MuiBadge-root']/following-sibling::div")
-    public static List<UIElement> avatarWithoutPhoto;
-    
-    @UI("//span[@class='MuiBadge-root']/div")
-    public static List<UIElement> avatarWithPhoto;
-
-    @Test
-    public void avatarTests() {
-        Timer timer = new Timer(1000L);
-        timer.wait(() -> onlineStatus.get(1).is().displayed());
-        basicAvatarChecks(avatarWithoutPhoto, true);
-        basicAvatarChecks(avatarWithPhoto, false);
-        onlineStatus.get(1).has().classValue(Matchers.containsString("MuiBadge-dot"));
-        onlineStatus.get(2).has().text("R");
-        onlineStatus.get(2).has().classValue(Matchers.containsString("MuiBadge-anchorOriginBottomRightCircle"));
-    }
-```
-
-##### <a href="https://material-ui.com/ru/components/avatars/" target="_blank"> https://material-ui.com/ru/components/avatars/ </a>
-
-
-![Avatar](../../images/material-ui/Avatar.png)
-
-Avatars are graphical representations of users.
-
-|Method | Description | Return Type
---- | --- | ---
-**hasBadge()** | Checks badge | boolean
-**hasIcon()** | Checks icon | boolean
-**hasPhoto()** | Checks photo | boolean
-**has()** | Verify state | AvatarAssert
-**is()** | Verify state | AvatarAssert
-
-##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/AvatarTests.java" target="_blank">Here you can find Avatar tests</a>
-
-### Click Away Listener
-
-```java     
     @UI("//span[@class = 'MuiBadge-root']")
     public static List<Avatar> avatarsWithPhoto;
 
@@ -271,6 +230,60 @@ Avatars are graphical representations of users.
             avatar.has().icon();
             avatar.has().noPhoto();
         }
+    }
+```
+
+##### <a href="https://material-ui.com/ru/components/avatars/" target="_blank"> https://material-ui.com/ru/components/avatars/ </a>
+
+
+![Avatar](../../images/material-ui/Avatar.png)
+
+Avatars are graphical representations of users.
+
+|Method | Description | Return Type
+--- | --- | ---
+**hasBadge()** | Checks badge | boolean
+**hasIcon()** | Checks icon | boolean
+**hasPhoto()** | Checks photo | boolean
+**has()** | Verify state | AvatarAssert
+**is()** | Verify state | AvatarAssert
+
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/AvatarTests.java" target="_blank">Here you can find Avatar tests</a>
+
+### Click Away Listener
+
+```java     
+    @UI("//h2[text()='Example']/following-sibling::div[1]/div/button")
+    public static Button exampleButton;
+
+    @UI("//h2[text()='Portal']/following-sibling::div[1]/div/button")
+    public static Button portalButton;
+
+    @UI("//div[text()='Click me, I will stay visible until you click outside.']")
+    public static TextArea text;
+
+    @Test
+    public void exampleClickAwayListenerTest() {
+        textFieldTest(1);
+    }
+
+    @Test
+    public void portalExampleClickAwayListenerTest() {
+        textFieldTest(2);
+    }
+
+    private void textFieldTest(int buttonId) {
+        clickAwayListenerPage.clickButton(buttonId);
+        text.is().displayed();
+        clickAwayListenerPage.clickButton(buttonId);
+        text.is().hidden();
+        clickAwayListenerPage.clickButton(buttonId);
+        text.is().displayed();
+        clickAwayListenerPage.clickAroundTextPopup(text.getSize().width + 1, -1);
+        text.is().hidden();
+        clickAwayListenerPage.clickButton(buttonId);
+        clickAwayListenerPage.clickAroundButton(exampleButton.getSize().width + 1,0, buttonId);
+        text.is().hidden();
     }
 ```
 

@@ -77,6 +77,53 @@ Basically, you have methods that can return you elements containing in banner (b
 
 For examples of usage see: [JDI vuetify page tests for banners](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/BannersTests.java).
 
+### Bottom navigation
+
+[Vuetify documentation page](https://vuetifyjs.com/en/components/bottom-navigation/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.composite.BottomNavigation.java_
+
+```java
+    @UI("#colorBottomNavigation")
+    public static BottomNavigation bottomNavigationColor;
+
+    @UI("#growBottomNavigation")
+    public static BottomNavigation bottomNavigationGrow;
+
+
+
+    @Test
+    public void colorTest() {
+        bottomNavigationColor.is().displayed();
+        bottomNavigationColor.is().buttonColor(1, "rgba(0, 0, 0, 0.6)");
+        bottomNavigationColor.bottomNavigationButtonList().get(1).click();
+        bottomNavigationColor.is().buttonColor(1, Colors.BLUE_DARKEN_2.value());
+    }
+
+    @Test
+    public void wightTest() {
+      bottomNavigationGrow.is().displayed();
+      bottomNavigationGrow.is().buttonWight(1, "168px");
+      bottomNavigationGrow.is().buttonWight(2, "168px");
+      bottomNavigationGrow.is().buttonWight(3, "168px");
+    }
+```
+
+![Banners example](../../images/vuetify/bottomNavigation.png)
+
+This name contains a WebList of buttons and provides access to them by index.
+
+|Method | Description | Return Type
+--- | --- | ---
+**is()** | Returns Assert class | Assert
+**bottomNavigationButtonList()** | Return | WebList
+**getBackgroundColor()** | Return background color | String
+**getClassAttribute()** | Return Class Attribute | String
+**getButtonColor()** | Return Button RGBA Color value  | String
+**getButtonWight()** | Return Button Wight  | String
+**getButtonText** | Return Button Text | String
+
+
 
 ### Breadcrumbs
 

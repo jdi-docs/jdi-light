@@ -170,6 +170,65 @@ card `text` element, but the `text` method is inherited from `UIBaseElement` tha
 For examples of usage see: [Custom vuetify card examples](https://github.com/jdi-testing/jdi-light/tree/vuetify-develop/jdi-light-vuetify-tests/src/main/java/io/github/com/custom/cards)
 and [JDI vuetify page tests for cards](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/CardsTests.java).
 
+### Expansion Panels
+
+[Vuetify documentation page](https://vuetifyjs.com/en/components/expansion-panels/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.complex.panels.ExpansionPanels.java_
+- __Java__: _com.epam.jdi.light.vuetify.elements.complex.panels.ExpansionPanel.java_
+
+```java
+    @JDIExpansionPanels(
+        root = "#ModelExpansionPanel .v-expansion-panels",
+        panels = ".v-expansion-panel",
+        header = ".v-expansion-panel-header",
+        icon = ".v-expansion-panel-header__icon",
+        content = ".v-expansion-panel-content",
+        wrapper = ".v-expansion-panel-content__wrap"
+    )
+    public static ExpansionPanels modelExpansionPanels;
+```
+
+You can specify locators for the root and panels to find panels in root. 
+Also, you can specify header, content, icon and wrapper locators for all panels. All of it you can do
+explicitly through a `JDIExpansionPanels` annotation. 
+
+It is **necessary** to specify **the root** of an element.
+
+```java
+    @JDIExpansionPanels(
+        root = "#CustomIconExpansionPanel .v-expansion-panels:nth-child(1)",
+        icon = ".v-expansion-panel-header__icon .v-icon"
+    )
+    public static ExpansionPanels customIconExpansionPanelsSameIcons;
+```
+
+```java
+    @Test
+    public void customIconExpansionPanelTest() {
+        customIconExpansionPanelsSameIcons.has().size(5);
+        for (ExpansionPanel expansionPanel : customIconExpansionPanelsSameIcons.panels()) {
+            expansionPanel.header().has().text("Item");
+            expansionPanel.wrapper().has().text(LOREM_IPSUM_TEXT);
+            expansionPanel.is().expanded();
+            expansionPanel.expander().is().displayed();
+            expansionPanel.expander().has().cssClass("mdi-menu-down");
+        }
+    }
+```
+
+![Expansion panels example](../../images/vuetify/expansionPanels.png)
+
+ExpansionPanels is a list of ExpansionPanel.
+
+Expansion panel may contain anything, so you can inherit the `ExpansionPanel` class and customize it
+the way you need. This class has 4 base methods: `header`, `expander`, `content` and `wrapper`. 
+They return the parts of an expansion panel. 
+
+Also, you can inherit the `ExpansionPanels`.
+
+For examples of usage see: [Custom vuetify expansion panels examples](https://github.com/jdi-testing/jdi-light/tree/vuetify-develop/jdi-light-vuetify-tests/src/main/java/io/github/com/custom/panels)
+and [JDI vuetify page tests for expansion panels](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ExpansionPanelsTest.java).
 
 ### Tabs
 

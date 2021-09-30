@@ -169,3 +169,33 @@ card `text` element, but the `text` method is inherited from `UIBaseElement` tha
 
 For examples of usage see: [Custom vuetify card examples](https://github.com/jdi-testing/jdi-light/tree/vuetify-develop/jdi-light-vuetify-tests/src/main/java/io/github/com/custom/cards)
 and [JDI vuetify page tests for cards](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/CardsTests.java).
+
+
+###Tabs
+
+[Vuetify documentation page](https://vuetifyjs.com/en/components/tabs/)
+
+- __Java__: _com.epam.jdi.light.ui.html.elements.complex.Tabs.java_
+
+```java
+    @Test
+    public static void iconsTextTabsTest() {
+        iconAndTextTabs.select(1);
+        iconAndTextTabs.get(1).is().text("RECENTS");
+        iconAndTextTabsIcon.get(1).is().visible();
+
+        iconAndTextTabs.select(2);
+        iconAndTextTabs.get(2).is().text("FAVORITES");
+        iconAndTextTabsIcon.get(2).is().visible();
+
+        iconAndTextTabs.select(3);
+        iconAndTextTabs.get(3).is().text("NEARBY");
+        iconAndTextTabsIcon.get(3).is().visible();
+    }
+```
+
+![Cards example](../../images/vuetify/tabs.png)
+
+Tabs - a list of tabs which may be implemented as buttons, links, icons etc. You can inherit the `Tabs` class and customize it the way you want.
+
+For examples of usage see: [JDI vuetify page tests for tabs](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/TabsTests.java).

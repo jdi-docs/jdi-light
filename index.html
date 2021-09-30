@@ -1020,6 +1020,9 @@
                           <li>
 								            <a href="#cards" class="toc-h2 h3 toc-link" data-title="Cards">Cards</a>
                           </li>
+                          <li>
+								            <a href="#tabs" class="toc-h2 h3 toc-link" data-title="Tabs">Tabs</a>
+                          </li>
                       </ul>
                   </li>
                   <li>
@@ -36137,6 +36140,32 @@ card <code>text</code> element, but the <code>text</code> method is inherited fr
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/tree/vuetify-develop/jdi-light-vuetify-tests/src/main/java/io/github/com/custom/cards">Custom vuetify card examples</a>
 and <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/CardsTests.java">JDI vuetify page tests for cards</a>.</p>
+<h3 id='tabs'>Tabs</h3>
+<p><a href="https://vuetifyjs.com/en/components/tabs/">Vuetify documentation page</a></p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.elements.complex.Tabs.java</em></li>
+</ul>
+<pre class="highlight java tab-java"><code>    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">iconsTextTabsTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">iconAndTextTabs</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+        <span class="n">iconAndTextTabs</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"RECENTS"</span><span class="o">);</span>
+        <span class="n">iconAndTextTabsIcon</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">visible</span><span class="o">();</span>
+
+        <span class="n">iconAndTextTabs</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+        <span class="n">iconAndTextTabs</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"FAVORITES"</span><span class="o">);</span>
+        <span class="n">iconAndTextTabsIcon</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">visible</span><span class="o">();</span>
+
+        <span class="n">iconAndTextTabs</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+        <span class="n">iconAndTextTabs</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">3</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"NEARBY"</span><span class="o">);</span>
+        <span class="n">iconAndTextTabsIcon</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">3</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">visible</span><span class="o">();</span>
+    <span class="o">}</span>
+</code></pre>
+<p><img src="images/vuetify/tabs.png" alt="Cards example" /></p>
+
+<p>Tabs - a list of tabs which may be implemented as buttons, links, icons etc. You can inherit the <code>Tabs</code> class and customize it the way you want.</p>
+
+<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/TabsTests.java">JDI vuetify page tests for tabs</a>.</p>
 <h2 id='jdi-features'>JDI features</h2><h3 id='jdi-features-for-parameters-in-bdd-steps'>JDI Features for parameters in BDD steps</h3><h4 id='using-aliases-as-locators-parameters'>Using aliases as locators parameters</h4><pre class="highlight gherkin tab-gherkin"><code>   <span class="kn">Scenario</span><span class="p">:</span> input element
        <span class="nf">When</span> I input <span class="s">"simple 1234"</span> in <span class="s">"Name"</span>
        <span class="nf">Then</span> the <span class="s">"Name"</span> text matches to <span class="s">"\w{6} \d{4}"</span>

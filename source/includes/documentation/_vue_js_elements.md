@@ -171,7 +171,7 @@ For examples of usage see: [Custom vuetify card examples](https://github.com/jdi
 and [JDI vuetify page tests for cards](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/CardsTests.java).
 
 
-###Tabs
+### Tabs
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/tabs/)
 

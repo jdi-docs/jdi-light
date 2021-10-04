@@ -253,8 +253,31 @@ and [JDI vuetify page tests for expansion panels](https://github.com/jdi-testing
     }
 ```
 
-![Cards example](../../images/vuetify/tabs.png)
+![Tabs example](../../images/vuetify/tabs.png)
 
 Tabs - a list of tabs which may be implemented as buttons, links, icons etc. You can inherit the `Tabs` class and customize it the way you want.
 
 For examples of usage see: [JDI vuetify page tests for tabs](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/TabsTests.java).
+
+### Subheaders
+
+[Vuetify documentation page](https://vuetifyjs.com/en/components/subheaders/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.common.Subheader.java_
+
+```java
+  @Test
+  public void insetTest(){
+      insetSubheader.is().displayed();
+      insetSubheader.is().lightTheme();
+      insetSubheader.is().inset();
+      insetSubheader.is().text("Subheader");
+  }
+```
+
+The Subheader component is used to separate sections of lists.
+
+![Subheaders example](../../images/vuetify/subheader.png)
+
+For examples of usage see: [JDI vuetify page tests for subheaders](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/SubheaderTests.java)
+

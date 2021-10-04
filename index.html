@@ -1026,6 +1026,9 @@
                           <li>
 								            <a href="#tabs" class="toc-h2 h3 toc-link" data-title="Tabs">Tabs</a>
                           </li>
+                          <li>
+								            <a href="#subheaders" class="toc-h2 h3 toc-link" data-title="Subheaders">Subheaders</a>
+                          </li>
                       </ul>
                   </li>
                   <li>
@@ -36215,11 +36218,30 @@ and <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-l
         <span class="n">iconAndTextTabsIcon</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">3</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">visible</span><span class="o">();</span>
     <span class="o">}</span>
 </code></pre>
-<p><img src="images/vuetify/tabs.png" alt="Cards example" /></p>
+<p><img src="images/vuetify/tabs.png" alt="Tabs example" /></p>
 
 <p>Tabs - a list of tabs which may be implemented as buttons, links, icons etc. You can inherit the <code>Tabs</code> class and customize it the way you want.</p>
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/TabsTests.java">JDI vuetify page tests for tabs</a>.</p>
+<h3 id='subheaders'>Subheaders</h3>
+<p><a href="https://vuetifyjs.com/en/components/subheaders/">Vuetify documentation page</a></p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.vuetify.elements.common.Subheader.java</em></li>
+</ul>
+<pre class="highlight java tab-java"><code>  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">insetTest</span><span class="o">(){</span>
+      <span class="n">insetSubheader</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+      <span class="n">insetSubheader</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">lightTheme</span><span class="o">();</span>
+      <span class="n">insetSubheader</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">inset</span><span class="o">();</span>
+      <span class="n">insetSubheader</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Subheader"</span><span class="o">);</span>
+  <span class="o">}</span>
+</code></pre>
+<p>The Subheader component is used to separate sections of lists.</p>
+
+<p><img src="images/vuetify/subheader.png" alt="Subheaders example" /></p>
+
+<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/SubheaderTests.java">JDI vuetify page tests for subheaders</a></p>
 <h2 id='jdi-features'>JDI features</h2><h3 id='jdi-features-for-parameters-in-bdd-steps'>JDI Features for parameters in BDD steps</h3><h4 id='using-aliases-as-locators-parameters'>Using aliases as locators parameters</h4><pre class="highlight gherkin tab-gherkin"><code>   <span class="kn">Scenario</span><span class="p">:</span> input element
        <span class="nf">When</span> I input <span class="s">"simple 1234"</span> in <span class="s">"Name"</span>
        <span class="nf">Then</span> the <span class="s">"Name"</span> text matches to <span class="s">"\w{6} \d{4}"</span>

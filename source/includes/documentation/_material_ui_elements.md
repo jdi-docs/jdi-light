@@ -195,14 +195,9 @@ The container centers your content horizontally. It's the most basic layout elem
     @UI("//span[@class = 'MuiBadge-root']")
     public static List<Avatar> avatarsWithPhoto;
 
-    @UI("//div/div[contains(@class, 'MuiAvatar-root')]")
-    public static List<Avatar> avatarsWithoutPhoto;
-
     @UI("//div/div[contains(@class, 'MuiAvatar-root') and not(*)] ")
     public static List<Avatar> avatarsWithText;
 
-    @UI("//div[contains(@class, 'MuiAvatar-root')]/*[contains(@class, 'MuiSvgIcon-root')]/parent::div")
-    public static List<Avatar> avatarsWithIcon;
 
 
     @Test
@@ -220,15 +215,6 @@ The container centers your content horizontally. It's the most basic layout elem
             avatar.is().displayed();
             avatar.has().photo();
             avatar.has().badge();
-        }
-    }
-
-    @Test
-    public void avatarsWithIconTests() {
-        for(Avatar avatar : avatarsWithIcon) {
-            avatar.is().displayed();
-            avatar.has().icon();
-            avatar.has().noPhoto();
         }
     }
 ```

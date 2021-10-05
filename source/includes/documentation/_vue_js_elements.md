@@ -109,10 +109,8 @@ For examples of usage see: [JDI vuetify page tests for banners](https://github.c
 
 ![App bars example](../../images/vuetify/app-bars.png)
 
-App-bars may contain anything, you can inherit the `AppBar` class and customize it
-the way you want.
+The app bar component is pivotal to any graphical user interface (GUI), as it generally is the primary source of site navigation.
 
-Basically, you have methods that can return you elements containing in app bar (buttons, checkers, icons, etc.).
 
 For examples of usage see: [JDI vuetify page tests for app bars](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/AppBarsTests.java).
 
@@ -139,10 +137,7 @@ For examples of usage see: [JDI vuetify page tests for app bars](https://github.
 
 ![Toolbars example](../../images/vuetify/toolbars.png)
 
-Toolbars may contain anything, you can inherit the `ToolBar` class and customize it
-the way you want.
-
-Basically, you have methods that can return you elements containing in toolbar (buttons, checkers, icons, etc.).
+The toolbar component is pivotal to any gui, as it generally is the primary source of site navigation.
 
 For examples of usage see: [JDI vuetify page tests for toolbars](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ToolBarsTests.java).
 
@@ -167,12 +162,9 @@ For examples of usage see: [JDI vuetify page tests for toolbars](https://github.
 
 ![System bars example](../../images/vuetify/system-bars.png)
 
-Toolbars may contain anything, you can inherit the `ToolBar` class and customize it
-the way you want.
+The system bar component can be used for displaying statuses to the user. It looks like the Android system bar and can contain icons, spacers, and some text.
 
-Basically, you have methods that can return you elements containing in system bar (buttons, checkers, icons, etc.).
-
-For examples of usage see: [JDI vuetify page tests for toolbars](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ToolBarsTests.java).
+For examples of usage see: [JDI vuetify page tests for system bars](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SystemBarsTests.java).
 
 
 ### Breadcrumbs

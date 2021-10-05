@@ -78,6 +78,103 @@ Basically, you have methods that can return you elements containing in banner (b
 For examples of usage see: [JDI vuetify page tests for banners](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/BannersTests.java).
 
 
+### Bars
+
+### App Bars
+
+[Vuetify documentation page](https://vuetifyjs.com/en/components/app-bars/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.complex.bars.AppBar.java_
+
+```java
+    @Test
+    public void collapsibleBarTests() {
+        collapsibleBar.is().displayed();
+        collapsibleBar.has().menuButton();
+        collapsibleBar.has().title();
+        collapsibleBar.has().properTitleText("Collapsing Bar");
+        collapsibleBar.scrollBarToBottom();
+        collapsibleBar.has().hiddenTitle();
+        collapsibleBar.scrollBarToTop();
+        collapsibleBar.has().title();
+        collapsibleBar.has().checker();
+        collapsibleBar.is().checkerChecked();
+        collapsibleBar.getChecker().click();
+        collapsibleBar.is().checkerUnchecked();
+        collapsibleBar.has().hiddenTitle();
+        collapsibleBar.getChecker().click();
+        collapsibleBar.has().title();
+    }
+```
+
+![App bars example](../../images/vuetify/app-bars.png)
+
+App-bars may contain anything, you can inherit the `AppBar` class and customize it
+the way you want.
+
+Basically, you have methods that can return you elements containing in app bar (buttons, checkers, icons, etc.).
+
+For examples of usage see: [JDI vuetify page tests for app bars](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/AppBarsTests.java).
+
+### Toolbars
+
+[Vuetify documentation page](https://vuetifyjs.com/en/components/toolbars/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.complex.bars.ToolBar.java_
+
+```java
+    @Test
+    public void denseToolbarTests() {
+        denseToolbar.is().displayed();
+        denseToolbar.has().menuButton();
+        denseToolbar.has().title();
+        denseToolbar.has().properTitleText("Title");
+        denseToolbar.has().searchButton();
+        denseToolbar.has().heartButton();
+        denseToolbar.has().verticalDotsButton();
+        denseToolbar.is().dense();
+        denseToolbar.has().height("48");
+    }
+```
+
+![Toolbars example](../../images/vuetify/toolbars.png)
+
+Toolbars may contain anything, you can inherit the `ToolBar` class and customize it
+the way you want.
+
+Basically, you have methods that can return you elements containing in toolbar (buttons, checkers, icons, etc.).
+
+For examples of usage see: [JDI vuetify page tests for toolbars](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ToolBarsTests.java).
+
+### System bars
+
+[Vuetify documentation page](https://vuetifyjs.com/en/components/system-bars/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.complex.bars.SystemBar.java_
+
+```java
+    @Test
+    public void systemBarColoredPrimaryTests() {
+        systemBarColoredPrimary.is().displayed();
+        systemBarColoredPrimary.has().text("System bar color 1");
+        systemBarColoredPrimary.has().wiFiIcon();
+        systemBarColoredPrimary.has().signalIcon();
+        systemBarColoredPrimary.has().batteryIcon();
+        systemBarColoredPrimary.has().time("12:30");
+        systemBarColoredPrimary.has().backgroundColor(BLUE_DARKEN_2.value());
+    }
+```
+
+![System bars example](../../images/vuetify/system-bars.png)
+
+Toolbars may contain anything, you can inherit the `ToolBar` class and customize it
+the way you want.
+
+Basically, you have methods that can return you elements containing in system bar (buttons, checkers, icons, etc.).
+
+For examples of usage see: [JDI vuetify page tests for toolbars](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ToolBarsTests.java).
+
+
 ### Breadcrumbs
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/breadcrumbs/)

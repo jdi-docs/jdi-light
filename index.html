@@ -33431,14 +33431,9 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
 <h5 id='here-you-can-find-container-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/ContainerTests.java" target="_blank">Here you can find Container tests</a></h5><h3 id='avatar'>Avatar</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//span[@class = 'MuiBadge-root']"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Avatar</span><span class="o">&gt;</span> <span class="n">avatarsWithPhoto</span><span class="o">;</span>
 
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div/div[contains(@class, 'MuiAvatar-root')]"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Avatar</span><span class="o">&gt;</span> <span class="n">avatarsWithoutPhoto</span><span class="o">;</span>
-
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div/div[contains(@class, 'MuiAvatar-root') and not(*)] "</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Avatar</span><span class="o">&gt;</span> <span class="n">avatarsWithText</span><span class="o">;</span>
 
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div[contains(@class, 'MuiAvatar-root')]/*[contains(@class, 'MuiSvgIcon-root')]/parent::div"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Avatar</span><span class="o">&gt;</span> <span class="n">avatarsWithIcon</span><span class="o">;</span>
 
 
     <span class="nd">@Test</span>
@@ -33456,15 +33451,6 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
             <span class="n">avatar</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
             <span class="n">avatar</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">photo</span><span class="o">();</span>
             <span class="n">avatar</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">badge</span><span class="o">();</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">avatarsWithIconTests</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">for</span><span class="o">(</span><span class="n">Avatar</span> <span class="n">avatar</span> <span class="o">:</span> <span class="n">avatarsWithIcon</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">avatar</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-            <span class="n">avatar</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">icon</span><span class="o">();</span>
-            <span class="n">avatar</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">noPhoto</span><span class="o">();</span>
         <span class="o">}</span>
     <span class="o">}</span>
 </code></pre><h5 id='https-material-ui-com-ru-components-avatars'><a href="https://material-ui.com/ru/components/avatars/" target="_blank"> https://material-ui.com/ru/components/avatars/ </a></h5>

@@ -336,8 +336,11 @@ and [JDI vuetify page tests for expansion panels](https://github.com/jdi-testing
     public static Pagination circlePagination;
 ```
 
+![Pagination example](../../images/vuetify/pagination.png)
+
 You can specify locators for the root and items to find page buttons in the root.
-Also, you can specify locators of left and right navigation buttons, locators of button with 'more' value like '...'. All of it you can do
+Also, you can specify locators for left and right navigation buttons, 
+locators of button with 'more' value like '...'. All of it you can do
 explicitly through a `JDIPagination` annotation.
 
 It is **necessary** to specify **the root** of an element.
@@ -348,32 +351,44 @@ It is **necessary** to specify **the root** of an element.
 
     @Test
     public void totalVisiblePaginationTest() {
-        totalVisiblePagination.has().size(6);
-        totalVisiblePagination.has().hiddenButtons();
         totalVisiblePagination.is().enabled();
         totalVisiblePagination.is().started();
 
         totalVisiblePagination.select("15");
-        totalVisiblePagination.is().ended();
-        totalVisiblePagination.has().values("1", "2", "3", "13", "14", "15");
         totalVisiblePagination.has().selected("15");
-        totalVisiblePagination.has().selected(6);
+        totalVisiblePagination.is().ended();
 
         List<String> actualButtonsFromEndToStart = new ArrayList<>();
-        ListIterator<String> it = totalVisiblePagination.listIterator();
-        while (it.hasPrevious()) {
-            actualButtonsFromEndToStart.add(it.previous());
+        while (totalVisiblePagination.hasPrevious()) {
+            actualButtonsFromEndToStart.add(totalVisiblePagination.previous());
         }
-        totalVisiblePagination.is().started();
         assertThat(actualButtonsFromEndToStart, equalTo(Arrays.asList(
             "15", "14", "13", "12", "11", "10", "9", "8", "7", "6", "5", "4", "3", "2", "1"
         )));
+        totalVisiblePagination.is().started();
   }
 ```
 
-![Expansion panels example](../../images/vuetify/pagination.png)
+|Method | Description | Return Type
+--- | --- | ---
+**is()** | Returns Assert class | PaginationAssert
+**list()** | Returns list of visible buttons with page numbers | WebList
+**leftNavigation()** | Returns left button | UIElement
+**rightNavigation()** | Returns right button | UIElement
+**select(String value)** | Selects page button by text | void
+**select(int index)** | Selects page button by index | void
+**selected()** | Returns text of the selected page button | String
+**selected(String option)** | Returns true if page button with text is selected | boolean
+**selected(int index)** | Returns true if page button with index is selected | boolean
+**isStart()** | Shows that pagination is on first page | boolean
+**isEnd()** | Shows that pagination is on last page | boolean
+**hiddenButtons()** | Returns number of hidden buttons | int
+**hasNext()** | Returns true if next() could return element | boolean
+**next()** | Returns current element and go to next like iterator | String
+**hasPrevious()** | Returns true if previous() could return element | boolean
+**previous()** | Returns current element and go to previous like iterator | String
 
-For examples of usage see: [JDI vuetify page tests for pagination](https://github.com/jdi-testing/jdi-light).
+For examples of usage see: [JDI vuetify page tests for pagination](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/PaginationTests.java).
 
 ### Tabs
 

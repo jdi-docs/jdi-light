@@ -78,6 +78,95 @@ Basically, you have methods that can return you elements containing in banner (b
 For examples of usage see: [JDI vuetify page tests for banners](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/BannersTests.java).
 
 
+### Bars
+
+### App Bars
+
+[Vuetify documentation page](https://vuetifyjs.com/en/components/app-bars/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.complex.bars.AppBar.java_
+
+```java
+    @Test
+    public void collapsibleBarTests() {
+        collapsibleBar.is().displayed();
+        collapsibleBar.has().menuButton();
+        collapsibleBar.has().title();
+        collapsibleBar.has().properTitleText("Collapsing Bar");
+        collapsibleBar.scrollBarToBottom();
+        collapsibleBar.has().hiddenTitle();
+        collapsibleBar.scrollBarToTop();
+        collapsibleBar.has().title();
+        collapsibleBar.has().checker();
+        collapsibleBar.is().checkerChecked();
+        collapsibleBar.getChecker().click();
+        collapsibleBar.is().checkerUnchecked();
+        collapsibleBar.has().hiddenTitle();
+        collapsibleBar.getChecker().click();
+        collapsibleBar.has().title();
+    }
+```
+
+![App bars example](../../images/vuetify/app-bars.png)
+
+The app bar component is pivotal to any graphical user interface (GUI), as it generally is the primary source of site navigation.
+
+
+For examples of usage see: [JDI vuetify page tests for app bars](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/AppBarsTests.java).
+
+### Toolbars
+
+[Vuetify documentation page](https://vuetifyjs.com/en/components/toolbars/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.complex.bars.ToolBar.java_
+
+```java
+    @Test
+    public void denseToolbarTests() {
+        denseToolbar.is().displayed();
+        denseToolbar.has().menuButton();
+        denseToolbar.has().title();
+        denseToolbar.has().properTitleText("Title");
+        denseToolbar.has().searchButton();
+        denseToolbar.has().heartButton();
+        denseToolbar.has().verticalDotsButton();
+        denseToolbar.is().dense();
+        denseToolbar.has().height("48");
+    }
+```
+
+![Toolbars example](../../images/vuetify/toolbars.png)
+
+The toolbar component is pivotal to any gui, as it generally is the primary source of site navigation.
+
+For examples of usage see: [JDI vuetify page tests for toolbars](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ToolBarsTests.java).
+
+### System bars
+
+[Vuetify documentation page](https://vuetifyjs.com/en/components/system-bars/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.complex.bars.SystemBar.java_
+
+```java
+    @Test
+    public void systemBarColoredPrimaryTests() {
+        systemBarColoredPrimary.is().displayed();
+        systemBarColoredPrimary.has().text("System bar color 1");
+        systemBarColoredPrimary.has().wiFiIcon();
+        systemBarColoredPrimary.has().signalIcon();
+        systemBarColoredPrimary.has().batteryIcon();
+        systemBarColoredPrimary.has().time("12:30");
+        systemBarColoredPrimary.has().backgroundColor(BLUE_DARKEN_2.value());
+    }
+```
+
+![System bars example](../../images/vuetify/system-bars.png)
+
+The system bar component can be used for displaying statuses to the user. It looks like the Android system bar and can contain icons, spacers, and some text.
+
+For examples of usage see: [JDI vuetify page tests for system bars](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SystemBarsTests.java).
+
+
 ### Breadcrumbs
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/breadcrumbs/)
@@ -309,8 +398,31 @@ For examples of usage see: [JDI vuetify page tests for pagination](https://githu
     }
 ```
 
-![Cards example](../../images/vuetify/tabs.png)
+![Tabs example](../../images/vuetify/tabs.png)
 
 Tabs - a list of tabs which may be implemented as buttons, links, icons etc. You can inherit the `Tabs` class and customize it the way you want.
 
 For examples of usage see: [JDI vuetify page tests for tabs](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/TabsTests.java).
+
+### Subheaders
+
+[Vuetify documentation page](https://vuetifyjs.com/en/components/subheaders/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.common.Subheader.java_
+
+```java
+  @Test
+  public void insetTest(){
+      insetSubheader.is().displayed();
+      insetSubheader.is().lightTheme();
+      insetSubheader.is().inset();
+      insetSubheader.is().text("Subheader");
+  }
+```
+
+The Subheader component is used to separate sections of lists.
+
+![Subheaders example](../../images/vuetify/subheader.png)
+
+For examples of usage see: [JDI vuetify page tests for subheaders](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/SubheaderTests.java)
+

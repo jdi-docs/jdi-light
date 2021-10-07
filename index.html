@@ -1015,6 +1015,9 @@
 								            <a href="#banners" class="toc-h2 h3 toc-link" data-title="Banners">Banners</a>
                           </li>
                           <li>
+								            <a href="#bottom-navigation" class="toc-h2 h3 toc-link" data-title="Bottom navigation">Bottom navigation</a>
+                          </li>
+                          <li>
 								            <a href="#bars" class="toc-h2 h3 toc-link" data-title="Bars">Bars</a>
                           </li>
                           <li>
@@ -36075,6 +36078,83 @@ the way you want.</p>
 <p>Basically, you have methods that can return you elements containing in banner (buttons, checkers, icons, etc.).</p>
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/BannersTests.java">JDI vuetify page tests for banners</a>.</p>
+<h3 id='bottom-navigation'>Bottom navigation</h3>
+<p><a href="https://vuetifyjs.com/en/components/bottom-navigation/">Vuetify documentation page</a></p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.vuetify.elements.composite.BottomNavigation.java</em></li>
+</ul>
+<pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#colorBottomNavigation"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">BottomNavigation</span> <span class="n">bottomNavigationColor</span><span class="o">;</span>
+
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#growBottomNavigation"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">BottomNavigation</span> <span class="n">bottomNavigationGrow</span><span class="o">;</span>
+
+
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">colorTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">bottomNavigationColor</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+        <span class="n">bottomNavigationColor</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">buttonColor</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">"rgba(0, 0, 0, 0.6)"</span><span class="o">);</span>
+        <span class="n">bottomNavigationColor</span><span class="o">.</span><span class="na">bottomNavigationButtonList</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">bottomNavigationColor</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">buttonColor</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="n">Colors</span><span class="o">.</span><span class="na">BLUE_DARKEN_2</span><span class="o">.</span><span class="na">value</span><span class="o">());</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">wightTest</span><span class="o">()</span> <span class="o">{</span>
+      <span class="n">bottomNavigationGrow</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+      <span class="n">bottomNavigationGrow</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">buttonWight</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">"168px"</span><span class="o">);</span>
+      <span class="n">bottomNavigationGrow</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">buttonWight</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="s">"168px"</span><span class="o">);</span>
+      <span class="n">bottomNavigationGrow</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">buttonWight</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="s">"168px"</span><span class="o">);</span>
+    <span class="o">}</span>
+</code></pre>
+<p><img src="images/vuetify/bottomNavigation.png" alt="Banners example" /></p>
+
+<p>This name contains a WebList of buttons and provides access to them by index.</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>is()</strong></td>
+<td>Returns Assert class</td>
+<td>Assert</td>
+</tr>
+<tr>
+<td><strong>bottomNavigationButtonList()</strong></td>
+<td>Return</td>
+<td>WebList</td>
+</tr>
+<tr>
+<td><strong>getBackgroundColor()</strong></td>
+<td>Return background color</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>getClassAttribute()</strong></td>
+<td>Return Class Attribute</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>getButtonColor()</strong></td>
+<td>Return Button RGBA Color value</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>getButtonWight()</strong></td>
+<td>Return Button Wight</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>getButtonText</strong></td>
+<td>Return Button Text</td>
+<td>String</td>
+</tr>
+</tbody></table>
 <h3 id='bars'>Bars</h3><h3 id='app-bars'>App Bars</h3>
 <p><a href="https://vuetifyjs.com/en/components/app-bars/">Vuetify documentation page</a></p>
 

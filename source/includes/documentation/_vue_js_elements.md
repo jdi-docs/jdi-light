@@ -77,6 +77,44 @@ Basically, you have methods that can return you elements containing in banner (b
 
 For examples of usage see: [JDI vuetify page tests for banners](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/BannersTests.java).
 
+### Bottom sheets
+
+[Vuetify documentation page](https://vuetifyjs.com/en/components/bottom-sheets/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.composite.BottomSheet.java_
+
+```java
+public class TextBottomSheet extends BottomSheet {
+  @UI(".text-center > div")
+  protected Text text;
+  @UI("button")
+  protected Button button;
+  public void close() { button.click(); }
+  public Text sheetText() { return text; }
+}
+```
+
+Bottom sheet is a form of dialog that appears at the bottom of a page.
+You can inherit the class and define the inner content of the sheet. 
+
+
+```java
+@Test
+public void checkInsetSheetCssProps() {
+    insetBottomSheet.is().hidden();
+    insetBottomSheetButton.click();
+    insetBottomSheet.is().displayed();
+    insetBottomSheet.sheetText().has().text(containsString("the inset prop"));
+    insetBottomSheet.close();
+    insetBottomSheet.is().hidden();
+}
+```
+
+![Bottom sheet example](../../images/vuetify/bottom-sheet.png)
+
+For examples of usage see: [Vuetify Bottom sheets tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/composite/BottomSheetsTests.java).
+
+
 ### Bottom navigation
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/bottom-navigation/)
@@ -109,7 +147,7 @@ For examples of usage see: [JDI vuetify page tests for banners](https://github.c
     }
 ```
 
-![Banners example](../../images/vuetify/bottomNavigation.png)
+![Bottom navigation example](../../images/vuetify/bottomNavigation.png)
 
 This name contains a WebList of buttons and provides access to them by index.
 
@@ -249,9 +287,9 @@ explicitly through a `JDIBreadcrumbs` annotation:
     }
 ```
 
+![Breadcrumbs example](../../images/vuetify/breadcrumbs.png)
 
 It is **necessary** to specify **the root** of an element
-
 
 
 For examples of usage see: [Vuetify Breadcrumbs tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/BreadcrumbsTests.java).

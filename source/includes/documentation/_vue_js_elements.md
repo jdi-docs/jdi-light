@@ -77,6 +77,44 @@ Basically, you have methods that can return you elements containing in banner (b
 
 For examples of usage see: [JDI vuetify page tests for banners](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/BannersTests.java).
 
+### Bottom sheets
+
+[Vuetify documentation page](https://vuetifyjs.com/en/components/bottom-sheets/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.composite.BottomSheet.java_
+
+```java
+public class TextBottomSheet extends BottomSheet {
+  @UI(".text-center > div")
+  protected Text text;
+  @UI("button")
+  protected Button button;
+  public void close() { button.click(); }
+  public Text sheetText() { return text; }
+}
+```
+
+Bottom sheet is a form of dialog that appears at the bottom of a page.
+You can inherit the class and define the inner content of the sheet. 
+
+
+```java
+@Test
+public void checkInsetSheetCssProps() {
+    insetBottomSheet.is().hidden();
+    insetBottomSheetButton.click();
+    insetBottomSheet.is().displayed();
+    insetBottomSheet.sheetText().has().text(containsString("the inset prop"));
+    insetBottomSheet.close();
+    insetBottomSheet.is().hidden();
+}
+```
+
+![Bottom sheet example](../../images/vuetify/bottom-sheet.png)
+
+For examples of usage see: [Vuetify Bottom sheets tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/composite/BottomSheetsTests.java).
+
+
 ### Bottom navigation
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/bottom-navigation/)
@@ -109,7 +147,7 @@ For examples of usage see: [JDI vuetify page tests for banners](https://github.c
     }
 ```
 
-![Banners example](../../images/vuetify/bottomNavigation.png)
+![Bottom navigation example](../../images/vuetify/bottomNavigation.png)
 
 This name contains a WebList of buttons and provides access to them by index.
 
@@ -249,9 +287,9 @@ explicitly through a `JDIBreadcrumbs` annotation:
     }
 ```
 
+![Breadcrumbs example](../../images/vuetify/breadcrumbs.png)
 
 It is **necessary** to specify **the root** of an element
-
 
 
 For examples of usage see: [Vuetify Breadcrumbs tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/BreadcrumbsTests.java).
@@ -366,6 +404,53 @@ Also, you can inherit the `ExpansionPanels`.
 For examples of usage see: [Custom vuetify expansion panels examples](https://github.com/jdi-testing/jdi-light/tree/vuetify-develop/jdi-light-vuetify-tests/src/main/java/io/github/com/custom/panels)
 and [JDI vuetify page tests for expansion panels](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ExpansionPanelsTest.java).
 
+### Footers
+
+[Vuetify documentation page](https://vuetifyjs.com/en/components/footer/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.composite.Footer.java_
+
+```java
+public class IndigoFooter extends Footer { 
+    @UI("button")
+    protected List<Button> socialButtons;
+    @UI(".pt-0")
+    protected Text descriptionText;
+    @UI("hr")
+    protected Divider divider;
+    @UI("//div[contains(@class, 'v-card__text') and ./strong]")
+    protected Text footerText;
+    
+    public List<Button> socialButtons() { return socialButtons; }
+    public Text descriptionText() { return descriptionText; }
+    public Divider divider() { return divider; }
+    public Text footerText() { return footerText; }
+}
+```
+
+According to the documentation:
+"The v-footer component in its simplest form is a container".
+
+You can inherit the class and add elements inside.
+
+
+```java
+@Test
+public void indigoFooterTest() {
+    indigoFooter.is().displayed();
+    // footer itself does not have indigo color but the inner container has
+    indigoFooter.firstChild().has().css("background-color", Colors.INDIGO_LIGHTEN_1.value());
+    indigoFooter.footerText().has().text(containsString("2021 — Vuetify"));
+    indigoFooter.divider().is().darkTheme();
+    indigoFooter.descriptionText().has().text(containsString("Phasellus feugiat arcu sapien"));
+    indigoFooter.socialButtons().forEach(HasClick::click);
+}
+```
+
+![Footer example](../../images/vuetify/footer.png)
+
+For examples of usage see: [Vuetify Footers tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/composite/FootersTests.java).
+
 ### Pagination
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/paginations/)
@@ -436,6 +521,47 @@ It is **necessary** to specify **the root** of an element.
 **previous()** | Returns current element and go to previous like iterator | String
 
 For examples of usage see: [JDI vuetify page tests for pagination](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/PaginationTests.java).
+
+### Button Groups
+
+[Vuetify documentation page](https://vuetifyjs.com/en/components/button-groups/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.complex.ButtonGroup.java_
+
+```java
+@JDIButtonGroup(
+        root = "#RoundedButtonGroup .v-item-group", 
+        buttons = "//*[@type = 'button']"
+) // buttons search strategy is custom
+public static ButtonGroup roundedButtonGroup;
+```
+
+Button group is a complex container for buttons. 
+
+When you are using the `@UI` annotation, provide
+a selector not for the list of buttons, but for the container.
+See [different examples](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/main/java/io/github/com/pages/ButtonGroupsPage.java) of using `@UI` and `@JDIButtonGroup` annotations together and separately.
+
+
+```java
+@Test
+public void mandatoryButtonGroupTest() {
+    mandatoryButtonGroup.is().displayed();
+    mandatoryButtonGroup.has().css("width", "197px");
+    mandatoryButtonGroup.getButtonByIndex(1).has().css("width", "50px");
+    assertSelected(mandatoryButtonGroup.getButtonByIndex(1));
+    mandatoryButtonGroup.getButtonByIndex(2).click();
+    assertSelected(mandatoryButtonGroup.getButtonByIndex(2));
+    mandatoryButtonGroup.getAllButtons().forEach(HasClick::click);
+    assertSelected(mandatoryButtonGroup.getButtonByIndex(4));
+}
+```
+
+![Button group example](../../images/vuetify/button-group.png)
+
+
+For examples of usage see: [Vuetify Button groups tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ButtonGroupsTests.java).
+
 
 ### Tabs
 

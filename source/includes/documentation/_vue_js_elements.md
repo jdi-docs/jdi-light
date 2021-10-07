@@ -404,6 +404,53 @@ Also, you can inherit the `ExpansionPanels`.
 For examples of usage see: [Custom vuetify expansion panels examples](https://github.com/jdi-testing/jdi-light/tree/vuetify-develop/jdi-light-vuetify-tests/src/main/java/io/github/com/custom/panels)
 and [JDI vuetify page tests for expansion panels](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ExpansionPanelsTest.java).
 
+### Footers
+
+[Vuetify documentation page](https://vuetifyjs.com/en/components/footer/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.composite.Footer.java_
+
+```java
+public class IndigoFooter extends Footer { 
+    @UI("button")
+    protected List<Button> socialButtons;
+    @UI(".pt-0")
+    protected Text descriptionText;
+    @UI("hr")
+    protected Divider divider;
+    @UI("//div[contains(@class, 'v-card__text') and ./strong]")
+    protected Text footerText;
+    
+    public List<Button> socialButtons() { return socialButtons; }
+    public Text descriptionText() { return descriptionText; }
+    public Divider divider() { return divider; }
+    public Text footerText() { return footerText; }
+}
+```
+
+According to the documentation:
+"The v-footer component in its simplest form is a container".
+
+You can inherit the class and add elements inside.
+
+
+```java
+@Test
+public void indigoFooterTest() {
+    indigoFooter.is().displayed();
+    // footer itself does not have indigo color but the inner container has
+    indigoFooter.firstChild().has().css("background-color", Colors.INDIGO_LIGHTEN_1.value());
+    indigoFooter.footerText().has().text(containsString("2021 — Vuetify"));
+    indigoFooter.divider().is().darkTheme();
+    indigoFooter.descriptionText().has().text(containsString("Phasellus feugiat arcu sapien"));
+    indigoFooter.socialButtons().forEach(HasClick::click);
+}
+```
+
+![Footer example](../../images/vuetify/footer.png)
+
+For examples of usage see: [Vuetify Footers tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/composite/FootersTests.java).
+
 ### Pagination
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/paginations/)

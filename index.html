@@ -1015,6 +1015,9 @@
 								            <a href="#banners" class="toc-h2 h3 toc-link" data-title="Banners">Banners</a>
                           </li>
                           <li>
+								            <a href="#bottom-sheets" class="toc-h2 h3 toc-link" data-title="Bottom sheets">Bottom sheets</a>
+                          </li>
+                          <li>
 								            <a href="#bottom-navigation" class="toc-h2 h3 toc-link" data-title="Bottom navigation">Bottom navigation</a>
                           </li>
                           <li>
@@ -1039,7 +1042,13 @@
 								            <a href="#expansion-panels" class="toc-h2 h3 toc-link" data-title="Expansion Panels">Expansion Panels</a>
                           </li>
                           <li>
+								            <a href="#footers" class="toc-h2 h3 toc-link" data-title="Footers">Footers</a>
+                          </li>
+                          <li>
 								            <a href="#pagination" class="toc-h2 h3 toc-link" data-title="Pagination">Pagination</a>
+                          </li>
+                          <li>
+								            <a href="#button-groups" class="toc-h2 h3 toc-link" data-title="Button Groups">Button Groups</a>
                           </li>
                           <li>
 								            <a href="#tabs" class="toc-h2 h3 toc-link" data-title="Tabs">Tabs</a>
@@ -36078,6 +36087,36 @@ the way you want.</p>
 <p>Basically, you have methods that can return you elements containing in banner (buttons, checkers, icons, etc.).</p>
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/BannersTests.java">JDI vuetify page tests for banners</a>.</p>
+<h3 id='bottom-sheets'>Bottom sheets</h3>
+<p><a href="https://vuetifyjs.com/en/components/bottom-sheets/">Vuetify documentation page</a></p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.vuetify.elements.composite.BottomSheet.java</em></li>
+</ul>
+<pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">TextBottomSheet</span> <span class="kd">extends</span> <span class="n">BottomSheet</span> <span class="o">{</span>
+  <span class="nd">@UI</span><span class="o">(</span><span class="s">".text-center &gt; div"</span><span class="o">)</span>
+  <span class="kd">protected</span> <span class="n">Text</span> <span class="n">text</span><span class="o">;</span>
+  <span class="nd">@UI</span><span class="o">(</span><span class="s">"button"</span><span class="o">)</span>
+  <span class="kd">protected</span> <span class="n">Button</span> <span class="n">button</span><span class="o">;</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">close</span><span class="o">()</span> <span class="o">{</span> <span class="n">button</span><span class="o">.</span><span class="na">click</span><span class="o">();</span> <span class="o">}</span>
+  <span class="kd">public</span> <span class="n">Text</span> <span class="nf">sheetText</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">text</span><span class="o">;</span> <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+<p>Bottom sheet is a form of dialog that appears at the bottom of a page.
+You can inherit the class and define the inner content of the sheet. </p>
+<pre class="highlight java tab-java"><code><span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">checkInsetSheetCssProps</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">insetBottomSheet</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">hidden</span><span class="o">();</span>
+    <span class="n">insetBottomSheetButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+    <span class="n">insetBottomSheet</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+    <span class="n">insetBottomSheet</span><span class="o">.</span><span class="na">sheetText</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"the inset prop"</span><span class="o">));</span>
+    <span class="n">insetBottomSheet</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+    <span class="n">insetBottomSheet</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">hidden</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre>
+<p><img src="images/vuetify/bottom-sheet.png" alt="Bottom sheet example" /></p>
+
+<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/composite/BottomSheetsTests.java">Vuetify Bottom sheets tests</a>.</p>
 <h3 id='bottom-navigation'>Bottom navigation</h3>
 <p><a href="https://vuetifyjs.com/en/components/bottom-navigation/">Vuetify documentation page</a></p>
 
@@ -36108,7 +36147,7 @@ the way you want.</p>
       <span class="n">bottomNavigationGrow</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">buttonWight</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="s">"168px"</span><span class="o">);</span>
     <span class="o">}</span>
 </code></pre>
-<p><img src="images/vuetify/bottomNavigation.png" alt="Banners example" /></p>
+<p><img src="images/vuetify/bottomNavigation.png" alt="Bottom navigation example" /></p>
 
 <p>This name contains a WebList of buttons and provides access to them by index.</p>
 
@@ -36258,6 +36297,8 @@ explicitly through a <code>JDIBreadcrumbs</code> annotation:</p>
         <span class="n">jdiAssert</span><span class="o">(</span><span class="n">itemSlotsBreadcrumbs</span><span class="o">.</span><span class="na">selected</span><span class="o">(</span><span class="s">"LINK 2"</span><span class="o">),</span> <span class="n">Matchers</span><span class="o">.</span><span class="na">is</span><span class="o">(</span><span class="kc">true</span><span class="o">));</span>
     <span class="o">}</span>
 </code></pre>
+<p><img src="images/vuetify/breadcrumbs.png" alt="Breadcrumbs example" /></p>
+
 <p>It is <strong>necessary</strong> to specify <strong>the root</strong> of an element</p>
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/BreadcrumbsTests.java">Vuetify Breadcrumbs tests</a>.</p>
@@ -36354,6 +36395,46 @@ They return the parts of an expansion panel. </p>
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/tree/vuetify-develop/jdi-light-vuetify-tests/src/main/java/io/github/com/custom/panels">Custom vuetify expansion panels examples</a>
 and <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ExpansionPanelsTest.java">JDI vuetify page tests for expansion panels</a>.</p>
+<h3 id='footers'>Footers</h3>
+<p><a href="https://vuetifyjs.com/en/components/footer/">Vuetify documentation page</a></p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.vuetify.elements.composite.Footer.java</em></li>
+</ul>
+<pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">IndigoFooter</span> <span class="kd">extends</span> <span class="n">Footer</span> <span class="o">{</span> 
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"button"</span><span class="o">)</span>
+    <span class="kd">protected</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Button</span><span class="o">&gt;</span> <span class="n">socialButtons</span><span class="o">;</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">".pt-0"</span><span class="o">)</span>
+    <span class="kd">protected</span> <span class="n">Text</span> <span class="n">descriptionText</span><span class="o">;</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"hr"</span><span class="o">)</span>
+    <span class="kd">protected</span> <span class="n">Divider</span> <span class="n">divider</span><span class="o">;</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div[contains(@class, 'v-card__text') and ./strong]"</span><span class="o">)</span>
+    <span class="kd">protected</span> <span class="n">Text</span> <span class="n">footerText</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Button</span><span class="o">&gt;</span> <span class="nf">socialButtons</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">socialButtons</span><span class="o">;</span> <span class="o">}</span>
+    <span class="kd">public</span> <span class="n">Text</span> <span class="nf">descriptionText</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">descriptionText</span><span class="o">;</span> <span class="o">}</span>
+    <span class="kd">public</span> <span class="n">Divider</span> <span class="nf">divider</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">divider</span><span class="o">;</span> <span class="o">}</span>
+    <span class="kd">public</span> <span class="n">Text</span> <span class="nf">footerText</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">footerText</span><span class="o">;</span> <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+<p>According to the documentation:
+&quot;The v-footer component in its simplest form is a container&quot;.</p>
+
+<p>You can inherit the class and add elements inside.</p>
+<pre class="highlight java tab-java"><code><span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">indigoFooterTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">indigoFooter</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+    <span class="c1">// footer itself does not have indigo color but the inner container has</span>
+    <span class="n">indigoFooter</span><span class="o">.</span><span class="na">firstChild</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">css</span><span class="o">(</span><span class="s">"background-color"</span><span class="o">,</span> <span class="n">Colors</span><span class="o">.</span><span class="na">INDIGO_LIGHTEN_1</span><span class="o">.</span><span class="na">value</span><span class="o">());</span>
+    <span class="n">indigoFooter</span><span class="o">.</span><span class="na">footerText</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"2021 — Vuetify"</span><span class="o">));</span>
+    <span class="n">indigoFooter</span><span class="o">.</span><span class="na">divider</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">darkTheme</span><span class="o">();</span>
+    <span class="n">indigoFooter</span><span class="o">.</span><span class="na">descriptionText</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"Phasellus feugiat arcu sapien"</span><span class="o">));</span>
+    <span class="n">indigoFooter</span><span class="o">.</span><span class="na">socialButtons</span><span class="o">().</span><span class="na">forEach</span><span class="o">(</span><span class="nl">HasClick:</span><span class="o">:</span><span class="n">click</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<p><img src="images/vuetify/footer.png" alt="Footer example" /></p>
+
+<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/composite/FootersTests.java">Vuetify Footers tests</a>.</p>
 <h3 id='pagination'>Pagination</h3>
 <p><a href="https://vuetifyjs.com/en/components/paginations/">Vuetify documentation page</a></p>
 
@@ -36489,6 +36570,38 @@ explicitly through a <code>JDIPagination</code> annotation.</p>
 </tbody></table>
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/PaginationTests.java">JDI vuetify page tests for pagination</a>.</p>
+<h3 id='button-groups'>Button Groups</h3>
+<p><a href="https://vuetifyjs.com/en/components/button-groups/">Vuetify documentation page</a></p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.vuetify.elements.complex.ButtonGroup.java</em></li>
+</ul>
+<pre class="highlight java tab-java"><code><span class="nd">@JDIButtonGroup</span><span class="o">(</span>
+        <span class="n">root</span> <span class="o">=</span> <span class="s">"#RoundedButtonGroup .v-item-group"</span><span class="o">,</span> 
+        <span class="n">buttons</span> <span class="o">=</span> <span class="s">"//*[@type = 'button']"</span>
+<span class="o">)</span> <span class="c1">// buttons search strategy is custom</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">ButtonGroup</span> <span class="n">roundedButtonGroup</span><span class="o">;</span>
+</code></pre>
+<p>Button group is a complex container for buttons. </p>
+
+<p>When you are using the <code>@UI</code> annotation, provide
+a selector not for the list of buttons, but for the container.
+See <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/main/java/io/github/com/pages/ButtonGroupsPage.java">different examples</a> of using <code>@UI</code> and <code>@JDIButtonGroup</code> annotations together and separately.</p>
+<pre class="highlight java tab-java"><code><span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">mandatoryButtonGroupTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">mandatoryButtonGroup</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+    <span class="n">mandatoryButtonGroup</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">css</span><span class="o">(</span><span class="s">"width"</span><span class="o">,</span> <span class="s">"197px"</span><span class="o">);</span>
+    <span class="n">mandatoryButtonGroup</span><span class="o">.</span><span class="na">getButtonByIndex</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">css</span><span class="o">(</span><span class="s">"width"</span><span class="o">,</span> <span class="s">"50px"</span><span class="o">);</span>
+    <span class="n">assertSelected</span><span class="o">(</span><span class="n">mandatoryButtonGroup</span><span class="o">.</span><span class="na">getButtonByIndex</span><span class="o">(</span><span class="mi">1</span><span class="o">));</span>
+    <span class="n">mandatoryButtonGroup</span><span class="o">.</span><span class="na">getButtonByIndex</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+    <span class="n">assertSelected</span><span class="o">(</span><span class="n">mandatoryButtonGroup</span><span class="o">.</span><span class="na">getButtonByIndex</span><span class="o">(</span><span class="mi">2</span><span class="o">));</span>
+    <span class="n">mandatoryButtonGroup</span><span class="o">.</span><span class="na">getAllButtons</span><span class="o">().</span><span class="na">forEach</span><span class="o">(</span><span class="nl">HasClick:</span><span class="o">:</span><span class="n">click</span><span class="o">);</span>
+    <span class="n">assertSelected</span><span class="o">(</span><span class="n">mandatoryButtonGroup</span><span class="o">.</span><span class="na">getButtonByIndex</span><span class="o">(</span><span class="mi">4</span><span class="o">));</span>
+<span class="o">}</span>
+</code></pre>
+<p><img src="images/vuetify/button-group.png" alt="Button group example" /></p>
+
+<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ButtonGroupsTests.java">Vuetify Button groups tests</a>.</p>
 <h3 id='tabs'>Tabs</h3>
 <p><a href="https://vuetifyjs.com/en/components/tabs/">Vuetify documentation page</a></p>
 

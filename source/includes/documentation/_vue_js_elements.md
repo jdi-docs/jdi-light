@@ -522,6 +522,47 @@ It is **necessary** to specify **the root** of an element.
 
 For examples of usage see: [JDI vuetify page tests for pagination](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/PaginationTests.java).
 
+### Button Groups
+
+[Vuetify documentation page](https://vuetifyjs.com/en/components/button-groups/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.complex.ButtonGroup.java_
+
+```java
+@JDIButtonGroup(
+        root = "#RoundedButtonGroup .v-item-group", 
+        buttons = "//*[@type = 'button']"
+) // buttons search strategy is custom
+public static ButtonGroup roundedButtonGroup;
+```
+
+Button group is a complex container for buttons. 
+
+When you are using the `@UI` annotation, provide
+a selector not for the list of buttons, but for the container.
+See [different examples](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/main/java/io/github/com/pages/ButtonGroupsPage.java) of using `@UI` and `@JDIButtonGroup` annotations together and separately.
+
+
+```java
+@Test
+public void mandatoryButtonGroupTest() {
+    mandatoryButtonGroup.is().displayed();
+    mandatoryButtonGroup.has().css("width", "197px");
+    mandatoryButtonGroup.getButtonByIndex(1).has().css("width", "50px");
+    assertSelected(mandatoryButtonGroup.getButtonByIndex(1));
+    mandatoryButtonGroup.getButtonByIndex(2).click();
+    assertSelected(mandatoryButtonGroup.getButtonByIndex(2));
+    mandatoryButtonGroup.getAllButtons().forEach(HasClick::click);
+    assertSelected(mandatoryButtonGroup.getButtonByIndex(4));
+}
+```
+
+![Button group example](../../images/vuetify/button-group.png)
+
+
+For examples of usage see: [Vuetify Button groups tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ButtonGroupsTests.java).
+
+
 ### Tabs
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/tabs/)

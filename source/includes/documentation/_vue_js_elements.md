@@ -451,6 +451,49 @@ public void indigoFooterTest() {
 
 For examples of usage see: [Vuetify Footers tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/composite/FootersTests.java).
 
+### Lists
+
+[Vuetify documentation page](https://vuetifyjs.com/en/components/lists/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.complex.Lists.java_
+
+```java
+    @Test
+    public static void denseListTest() {
+        denseList.select(1);
+        jdiAssert(denseList.isActive(1), Matchers.is(true));
+        jdiAssert(denseList.hasIcon(1), Matchers.is(true));
+        jdiAssert(denseList.hasTitle(1, "Real-Time"), Matchers.is(true));
+
+        denseList.select(2);
+        jdiAssert(denseList.isActive(2), Matchers.is(true));
+        jdiAssert(denseList.hasIcon(2), Matchers.is(true));
+        jdiAssert(denseList.hasTitle(2, "Audience"), Matchers.is(true));
+
+        denseList.select(3);
+        jdiAssert(denseList.isActive(3), Matchers.is(true));
+        jdiAssert(denseList.hasIcon(3), Matchers.is(true));
+        jdiAssert(denseList.hasTitle(3, "Conversions"), Matchers.is(true));
+     }
+```
+
+![Lists example](../../images/vuetify/lists.png)
+
+Lists - a specific collection of items, which can contains an avatar, content, actions, subheaders etc. You can inherit the `Lists` class and customize it the way you need.
+
+|Method | Description | Return Type
+--- | --- | ---
+**select(String value)/select(int index)** | Finds required element by its name or index and selects | void
+**get(String value)/get(int index)** | Finds required element by its name or index and returns it | UIElement
+**isActive(int elementIndex)** | Shows that required element is active | boolean
+**isInactivate(int elementIndex)** | Shows that required element is inactive | boolen
+**hasIcon(int elementIndex)** | Shows that required element has icon | boolean
+**hasTitle(int elementIndex, String expectedTitle)** | Shows that required element has expected title | boolean
+**getSubList(int listElementIndex)** | Returns required element's sublist | WebList
+**isExpanded(int elementIndex)** | Shows that required element's sublist is expanded | boolean
+
+For examples of usage see: [JDI Vuetify Lists tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ListsTests.java).
+
 ### Pagination
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/paginations/)

@@ -1045,6 +1045,9 @@
 								            <a href="#footers" class="toc-h2 h3 toc-link" data-title="Footers">Footers</a>
                           </li>
                           <li>
+								            <a href="#lists" class="toc-h2 h3 toc-link" data-title="Lists">Lists</a>
+                          </li>
+                          <li>
 								            <a href="#pagination" class="toc-h2 h3 toc-link" data-title="Pagination">Pagination</a>
                           </li>
                           <li>
@@ -36435,6 +36438,84 @@ and <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-l
 <p><img src="images/vuetify/footer.png" alt="Footer example" /></p>
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/composite/FootersTests.java">Vuetify Footers tests</a>.</p>
+<h3 id='lists'>Lists</h3>
+<p><a href="https://vuetifyjs.com/en/components/lists/">Vuetify documentation page</a></p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.vuetify.elements.complex.Lists.java</em></li>
+</ul>
+<pre class="highlight java tab-java"><code>    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">denseListTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">denseList</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+        <span class="n">jdiAssert</span><span class="o">(</span><span class="n">denseList</span><span class="o">.</span><span class="na">isActive</span><span class="o">(</span><span class="mi">1</span><span class="o">),</span> <span class="n">Matchers</span><span class="o">.</span><span class="na">is</span><span class="o">(</span><span class="kc">true</span><span class="o">));</span>
+        <span class="n">jdiAssert</span><span class="o">(</span><span class="n">denseList</span><span class="o">.</span><span class="na">hasIcon</span><span class="o">(</span><span class="mi">1</span><span class="o">),</span> <span class="n">Matchers</span><span class="o">.</span><span class="na">is</span><span class="o">(</span><span class="kc">true</span><span class="o">));</span>
+        <span class="n">jdiAssert</span><span class="o">(</span><span class="n">denseList</span><span class="o">.</span><span class="na">hasTitle</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">"Real-Time"</span><span class="o">),</span> <span class="n">Matchers</span><span class="o">.</span><span class="na">is</span><span class="o">(</span><span class="kc">true</span><span class="o">));</span>
+
+        <span class="n">denseList</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+        <span class="n">jdiAssert</span><span class="o">(</span><span class="n">denseList</span><span class="o">.</span><span class="na">isActive</span><span class="o">(</span><span class="mi">2</span><span class="o">),</span> <span class="n">Matchers</span><span class="o">.</span><span class="na">is</span><span class="o">(</span><span class="kc">true</span><span class="o">));</span>
+        <span class="n">jdiAssert</span><span class="o">(</span><span class="n">denseList</span><span class="o">.</span><span class="na">hasIcon</span><span class="o">(</span><span class="mi">2</span><span class="o">),</span> <span class="n">Matchers</span><span class="o">.</span><span class="na">is</span><span class="o">(</span><span class="kc">true</span><span class="o">));</span>
+        <span class="n">jdiAssert</span><span class="o">(</span><span class="n">denseList</span><span class="o">.</span><span class="na">hasTitle</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="s">"Audience"</span><span class="o">),</span> <span class="n">Matchers</span><span class="o">.</span><span class="na">is</span><span class="o">(</span><span class="kc">true</span><span class="o">));</span>
+
+        <span class="n">denseList</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+        <span class="n">jdiAssert</span><span class="o">(</span><span class="n">denseList</span><span class="o">.</span><span class="na">isActive</span><span class="o">(</span><span class="mi">3</span><span class="o">),</span> <span class="n">Matchers</span><span class="o">.</span><span class="na">is</span><span class="o">(</span><span class="kc">true</span><span class="o">));</span>
+        <span class="n">jdiAssert</span><span class="o">(</span><span class="n">denseList</span><span class="o">.</span><span class="na">hasIcon</span><span class="o">(</span><span class="mi">3</span><span class="o">),</span> <span class="n">Matchers</span><span class="o">.</span><span class="na">is</span><span class="o">(</span><span class="kc">true</span><span class="o">));</span>
+        <span class="n">jdiAssert</span><span class="o">(</span><span class="n">denseList</span><span class="o">.</span><span class="na">hasTitle</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="s">"Conversions"</span><span class="o">),</span> <span class="n">Matchers</span><span class="o">.</span><span class="na">is</span><span class="o">(</span><span class="kc">true</span><span class="o">));</span>
+     <span class="o">}</span>
+</code></pre>
+<p><img src="images/vuetify/lists.png" alt="Lists example" /></p>
+
+<p>Lists - a specific collection of items, which can contains an avatar, content, actions, subheaders etc. You can inherit the <code>Lists</code> class and customize it the way you need.</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>select(String value)/select(int index)</strong></td>
+<td>Finds required element by its name or index and selects</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>get(String value)/get(int index)</strong></td>
+<td>Finds required element by its name or index and returns it</td>
+<td>UIElement</td>
+</tr>
+<tr>
+<td><strong>isActive(int elementIndex)</strong></td>
+<td>Shows that required element is active</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isInactivate(int elementIndex)</strong></td>
+<td>Shows that required element is inactive</td>
+<td>boolen</td>
+</tr>
+<tr>
+<td><strong>hasIcon(int elementIndex)</strong></td>
+<td>Shows that required element has icon</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>hasTitle(int elementIndex, String expectedTitle)</strong></td>
+<td>Shows that required element has expected title</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>getSubList(int listElementIndex)</strong></td>
+<td>Returns required element&#39;s sublist</td>
+<td>WebList</td>
+</tr>
+<tr>
+<td><strong>isExpanded(int elementIndex)</strong></td>
+<td>Shows that required element&#39;s sublist is expanded</td>
+<td>boolean</td>
+</tr>
+</tbody></table>
+
+<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ListsTests.java">JDI Vuetify Lists tests</a>.</p>
 <h3 id='pagination'>Pagination</h3>
 <p><a href="https://vuetifyjs.com/en/components/paginations/">Vuetify documentation page</a></p>
 

@@ -657,3 +657,63 @@ The Subheader component is used to separate sections of lists.
 
 For examples of usage see: [JDI vuetify page tests for subheaders](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/SubheaderTests.java)
 
+
+### Windows
+
+[Vuetify documentation page](https://vuetifyjs.com/en/components/windows/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.complex.Windows.java_
+
+```java
+    @UI("#ReverseWindow .v-window")
+    public static Windows<SlideWindow> reverseWindows;
+
+    @UI("#AccountCreationWindow .v-window")
+    public static Windows<?> accountCreationWindows;
+```
+
+![Windows example](../../images/vuetify/windows.png)
+
+The v-window component provides the baseline functionality for 
+transitioning content from 1 pane to another.
+
+Windows component is a container. So, you should use 
+it with another class for contained element. 
+**That class must implement `ICoreElement` interface**.
+For example: UIElement, Section or your custom class.
+
+There are two ways to use windows class:
+
+- With definite `T` type in diamond operator(<T\>)
+- With unknown type(<?>)
+
+**You should always use Windows component with diamond operator.**
+
+```java
+    @Test
+    public void reverseWindowsTest() {
+        int i = 1;
+        for (UIElement nav : reverseNavigation) {
+            nav.click();
+            reverseWindows.getActive().header().has().text("Slide " + i);
+            reverseWindows.getActive().header().has().css("color", WHITE.value());
+            reverseWindows.getActive().sheet().has().css("background-color", GREY.value());
+            i++;
+        }
+        reverseNext.click();
+        reverseWindows.getActive().header().has().text("Slide 1");
+        reverseBack.click();
+        reverseWindows.getActive().header().has().text("Slide 3");
+    }
+```
+
+|Method | Description | Return Type
+--- | --- | ---
+**getActive()** | Returns instance of `T` class from the diamond operator | T
+**getActive(Class\<U\> clazz)** | Returns instance of `U` class  | U
+
+**T and U should implement ICoreElement 
+or extend a class that already implemented it.**
+
+For examples of usage see: [Custom vuetify windows examples](https://github.com/jdi-testing/jdi-light/tree/vuetify-develop/jdi-light-vuetify-tests/src/main/java/io/github/com/custom/windows) 
+and [JDI vuetify page tests for windows](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/WindowsTests.java).

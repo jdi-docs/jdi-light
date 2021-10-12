@@ -670,6 +670,23 @@ For examples of usage see: [JDI vuetify page tests for subheaders](https://githu
 
     @UI("#AccountCreationWindow .v-window")
     public static Windows<?> accountCreationWindows;
+
+    public class SlideWindow extends Section {
+        
+        @UI("h1")
+        private UIElement header;
+
+        @UI(".v-sheet")
+        private UIElement sheet;
+
+        public UIElement header() {
+           return header;
+        }
+
+        public UIElement sheet() {
+           return sheet;
+        }
+    }
 ```
 
 ![Windows example](../../images/vuetify/windows.png)

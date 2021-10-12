@@ -1059,6 +1059,9 @@
                           <li>
 								            <a href="#subheaders" class="toc-h2 h3 toc-link" data-title="Subheaders">Subheaders</a>
                           </li>
+                          <li>
+								            <a href="#windows" class="toc-h2 h3 toc-link" data-title="Windows">Windows</a>
+                          </li>
                       </ul>
                   </li>
                   <li>
@@ -36728,6 +36731,76 @@ See <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-l
 <p><img src="images/vuetify/subheader.png" alt="Subheaders example" /></p>
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/SubheaderTests.java">JDI vuetify page tests for subheaders</a></p>
+<h3 id='windows'>Windows</h3>
+<p><a href="https://vuetifyjs.com/en/components/windows/">Vuetify documentation page</a></p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.vuetify.elements.complex.Windows.java</em></li>
+</ul>
+<pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#ReverseWindow .v-window"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Windows</span><span class="o">&lt;</span><span class="n">SlideWindow</span><span class="o">&gt;</span> <span class="n">reverseWindows</span><span class="o">;</span>
+
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#AccountCreationWindow .v-window"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Windows</span><span class="o">&lt;?&gt;</span> <span class="n">accountCreationWindows</span><span class="o">;</span>
+</code></pre>
+<p><img src="images/vuetify/windows.png" alt="Windows example" /></p>
+
+<p>The v-window component provides the baseline functionality for 
+transitioning content from 1 pane to another.</p>
+
+<p>Windows component is a container. So, you should use 
+it with another class for contained element. 
+<strong>That class must implement <code>ICoreElement</code> interface</strong>.
+For example: UIElement, Section or your custom class.</p>
+
+<p>There are two ways to use windows class:</p>
+
+<ul>
+<li>With definite <code>T</code> type in diamond operator(<T\>)</li>
+<li>With unknown type(&lt;?&gt;)</li>
+</ul>
+
+<p><strong>You should always use Windows component with diamond operator.</strong></p>
+<pre class="highlight java tab-java"><code>    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">reverseWindowsTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="k">for</span> <span class="o">(</span><span class="n">UIElement</span> <span class="n">nav</span> <span class="o">:</span> <span class="n">reverseNavigation</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">nav</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+            <span class="n">reverseWindows</span><span class="o">.</span><span class="na">getActive</span><span class="o">().</span><span class="na">header</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Slide "</span> <span class="o">+</span> <span class="n">i</span><span class="o">);</span>
+            <span class="n">reverseWindows</span><span class="o">.</span><span class="na">getActive</span><span class="o">().</span><span class="na">header</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">css</span><span class="o">(</span><span class="s">"color"</span><span class="o">,</span> <span class="n">WHITE</span><span class="o">.</span><span class="na">value</span><span class="o">());</span>
+            <span class="n">reverseWindows</span><span class="o">.</span><span class="na">getActive</span><span class="o">().</span><span class="na">sheet</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">css</span><span class="o">(</span><span class="s">"background-color"</span><span class="o">,</span> <span class="n">GREY</span><span class="o">.</span><span class="na">value</span><span class="o">());</span>
+            <span class="n">i</span><span class="o">++;</span>
+        <span class="o">}</span>
+        <span class="n">reverseNext</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">reverseWindows</span><span class="o">.</span><span class="na">getActive</span><span class="o">().</span><span class="na">header</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Slide 1"</span><span class="o">);</span>
+        <span class="n">reverseBack</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">reverseWindows</span><span class="o">.</span><span class="na">getActive</span><span class="o">().</span><span class="na">header</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Slide 3"</span><span class="o">);</span>
+    <span class="o">}</span>
+</code></pre>
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>getActive()</strong></td>
+<td>Returns instance of <code>T</code> class from the diamond operator</td>
+<td>T</td>
+</tr>
+<tr>
+<td><strong>getActive(Class&lt;U&gt; clazz)</strong></td>
+<td>Returns instance of <code>U</code> class</td>
+<td>U</td>
+</tr>
+</tbody></table>
+
+<p><strong>T and U should implement ICoreElement 
+or extend a class that already implemented it.</strong></p>
+
+<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/tree/vuetify-develop/jdi-light-vuetify-tests/src/main/java/io/github/com/custom/windows">Custom vuetify windows examples</a> 
+and <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/WindowsTests.java">JDI vuetify page tests for windows</a>.</p>
 <h2 id='jdi-features'>JDI features</h2><h3 id='jdi-features-for-parameters-in-bdd-steps'>JDI Features for parameters in BDD steps</h3><h4 id='using-aliases-as-locators-parameters'>Using aliases as locators parameters</h4><pre class="highlight gherkin tab-gherkin"><code>   <span class="kn">Scenario</span><span class="p">:</span> input element
        <span class="nf">When</span> I input <span class="s">"simple 1234"</span> in <span class="s">"Name"</span>
        <span class="nf">Then</span> the <span class="s">"Name"</span> text matches to <span class="s">"\w{6} \d{4}"</span>

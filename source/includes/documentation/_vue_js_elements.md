@@ -605,6 +605,172 @@ public void mandatoryButtonGroupTest() {
 
 For examples of usage see: [Vuetify Button groups tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ButtonGroupsTests.java).
 
+### List Item Groups
+[Vuetify documentation page](https://vuetifyjs.com/en/components/list-item-groups/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.complex.ListItemGroups.java_
+
+__List item groups__ - a group of selectable items from any component. Items can contains an icon, text, actions etc.
+
+List are a continuous group of text or images. They are composed of items containing primary and supplemental actions, which are represented by icons and text.
+
+```java
+    @UI("#ActiveClassListItemGroup .v-list-item")
+    public static ListItemGroups activeClassListItemGroup;
+
+    @UI("#MandatoryListItemGroup .v-list-item")
+    public static ListItemGroups mandatoryListItemGroup;
+
+    @UI("#MultipleListItemGroup .v-list-item")
+    public static ListItemGroups multipleListItemGroup;
+
+    @UI("#FlatListListItemGroup .v-list-item")
+    public static ListItemGroups flatListListItemGroup;
+
+    @UI("#SelectionControlsListItemGroup .v-list-item")
+    public static ListItemGroups selectionControlsListItemGroup;
+
+    @UI("#SelectionControlsListItemGroup div[role='option']")
+    public static List<Checkbox> selectionControlsListItemGroupCheckbox;
+```
+See [different examples](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/main/java/io/github/com/pages/ListItemGroupsPage.java)
+
+The v-list-item-group provides the ability to create a group of selectable v-list-items. The v-list-item-group component utilizes v-item-group at its core to provide a clean interface for interactive lists.
+
+![List item groups example](../../images/vuetify/list-item.png)
+![List item groups example](../../images/vuetify/checkbox-list-item.png)
+
+|Method | Description | Return Type
+--- | --- | ---
+**select(String value)** | Finds required element by its name and selects | void
+**select(int index)** | Finds required element by its index and selects | void
+**get(String value)** | Finds required element by its name and returns it | UIElement
+**get(int index)** | Finds required element by its index and returns it | UIElement
+**isActive(int elementIndex)** | Shows that required element is active | boolean
+**isInactivate(int elementIndex)** | Shows that required element is inactive | boolean
+**hasIcon(int elementIndex)** | Shows that required element has icon | boolean
+**hasTitle(int elementIndex, String expectedTitle)** | Shows that required element has expected title | boolean
+
+#### Active class
+
+You can set a class which will be added when an item is selected.
+
+```java
+@Test
+public static void activeClassListItemGroupTest() {
+
+  int elemIndex = 1;
+  String[] expectedTitles = {"Wifi", "Bluetooth", "Data Usage"};
+
+  for (String expectedTitle : expectedTitles) {
+    activeClassListItemGroup.select(elemIndex);
+    jdiAssert(activeClassListItemGroup.isActive(elemIndex), Matchers.is(true));
+    jdiAssert(activeClassListItemGroup.hasIcon(elemIndex), Matchers.is(true));
+    jdiAssert(activeClassListItemGroup.hasTitle(elemIndex, expectedTitle), Matchers.is(true));
+    activeClassListItemGroup.select(elemIndex);
+    jdiAssert(activeClassListItemGroup.isInactivate(elemIndex), Matchers.is(true));
+
+    elemIndex++;
+  }
+}
+```
+#### Mandatory class
+
+At least one item must be selected.
+
+```java
+@Test
+public static void mandatoryListItemGroupTest() {
+
+  for (int element = 1; element < 4; element++) {
+      mandatoryListItemGroup.select(element);
+      jdiAssert(mandatoryListItemGroup.isActive(element), Matchers.is(true));
+      mandatoryListItemGroup.select(element);
+      jdiAssert(mandatoryListItemGroup.isInactivate(element), Matchers.is(false));
+  }
+
+  for (int element = 1; element < 4; element++) {
+      mandatoryListItemGroup.select(element);
+  }
+
+  jdiAssert(mandatoryListItemGroup.isActive(3), Matchers.is(true));
+  jdiAssert(mandatoryListItemGroup.isInactivate(1), Matchers.is(true));
+  jdiAssert(mandatoryListItemGroup.isInactivate(2), Matchers.is(true));
+}
+```
+#### Multiple class
+
+You can select multiple items at one time.
+
+```java
+@Test
+public static void multipleListItemGroupsTest() {
+  for (int element = 1; element < 4; element++) {
+      if (multipleListItemGroup.isInactivate(element)) {
+          multipleListItemGroup.select(element);
+      }
+  }
+
+  for (int element = 1; element < 4; element++) {
+      jdiAssert(multipleListItemGroup.isActive(element), Matchers.is(true));
+  }
+
+  for (int element = 1; element < 4; element++) {
+      multipleListItemGroup.select(element);
+      jdiAssert(multipleListItemGroup.isInactivate(element), Matchers.is(true));
+  }
+}
+```
+
+#### Flat list 
+
+You can easily disable the default highlighting of selected v-list-items. This creates a lower profile for a user’s choices.
+
+```java
+@Test
+public static void flatListListItemGroupTest() {
+
+  for (int element = 1; element < 4; element++) {
+      flatListListItemGroup.select(element);
+      jdiAssert(flatListListItemGroup.isActive(element), Matchers.is(true));
+      jdiAssert(flatListListItemGroup.hasIcon(element), Matchers.is(true));
+      flatListListItemGroup.select(element);
+      jdiAssert(flatListListItemGroup.isInactivate(element), Matchers.is(true));
+  }
+}
+```
+
+#### Selection controls
+
+Using the default slot, you can access an items internal state and toggle it. Since the active property is a boolean, we use the true-value prop on the checkbox to link its state to the v-list-item.
+
+```java
+@Test
+public static void selectionControlsListItemGroupTest() {
+  int elemIndex = 1;
+  String[] expectedTitles = {"Dog Photos", "Cat Photos", "Potatoes", "Carrots"};
+
+  for (String expectedTitle : expectedTitles) {
+
+      jdiAssert(selectionControlsListItemGroup.hasTitle(elemIndex, expectedTitle), Matchers.is(true));
+      selectionControlsListItemGroupCheckbox.get(elemIndex).check();
+      selectionControlsListItemGroupCheckbox.get(elemIndex).is().checked();
+      selectionControlsListItemGroupCheckbox.get(elemIndex).uncheck();
+      selectionControlsListItemGroupCheckbox.get(elemIndex).is().unchecked();
+
+      elemIndex++;
+  }
+
+  for (int element = 1; element < 5; element++) {
+      selectionControlsListItemGroupCheckbox.get(element).check();
+  }
+  for (int element = 1; element < 5; element++) {
+      selectionControlsListItemGroupCheckbox.get(element).is().checked();
+  }
+}
+```
+
+For examples of usage see: [Vuetify List Item Groups tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ListItemGroupsTests.java).
 
 ### Tabs
 

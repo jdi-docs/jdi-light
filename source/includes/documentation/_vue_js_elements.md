@@ -77,6 +77,7 @@ Basically, you have methods that can return you elements containing in banner (b
 
 For examples of usage see: [JDI vuetify page tests for banners](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/BannersTests.java).
 
+
 ### Bottom sheets
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/bottom-sheets/)
@@ -199,6 +200,7 @@ The app bar component is pivotal to any graphical user interface (GUI), as it ge
 
 For examples of usage see: [JDI vuetify page tests for app bars](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/AppBarsTests.java).
 
+
 ### Toolbars
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/toolbars/)
@@ -225,6 +227,7 @@ For examples of usage see: [JDI vuetify page tests for app bars](https://github.
 The toolbar component is pivotal to any gui, as it generally is the primary source of site navigation.
 
 For examples of usage see: [JDI vuetify page tests for toolbars](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ToolBarsTests.java).
+
 
 ### System bars
 
@@ -344,6 +347,7 @@ card `text` element, but the `text` method is inherited from `UIBaseElement` tha
 For examples of usage see: [Custom vuetify card examples](https://github.com/jdi-testing/jdi-light/tree/vuetify-develop/jdi-light-vuetify-tests/src/main/java/io/github/com/custom/cards)
 and [JDI vuetify page tests for cards](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/CardsTests.java).
 
+
 ### Expansion Panels
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/expansion-panels/)
@@ -404,6 +408,7 @@ Also, you can inherit the `ExpansionPanels`.
 For examples of usage see: [Custom vuetify expansion panels examples](https://github.com/jdi-testing/jdi-light/tree/vuetify-develop/jdi-light-vuetify-tests/src/main/java/io/github/com/custom/panels)
 and [JDI vuetify page tests for expansion panels](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ExpansionPanelsTest.java).
 
+
 ### Footers
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/footer/)
@@ -451,6 +456,7 @@ public void indigoFooterTest() {
 
 For examples of usage see: [Vuetify Footers tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/composite/FootersTests.java).
 
+
 ### Lists
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/lists/)
@@ -493,6 +499,7 @@ Lists - a specific collection of items, which can contains an avatar, content, a
 **isExpanded(int elementIndex)** | Shows that required element's sublist is expanded | boolean
 
 For examples of usage see: [JDI Vuetify Lists tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ListsTests.java).
+
 
 ### Pagination
 
@@ -565,6 +572,7 @@ It is **necessary** to specify **the root** of an element.
 
 For examples of usage see: [JDI vuetify page tests for pagination](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/PaginationTests.java).
 
+
 ### Button Groups
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/button-groups/)
@@ -635,6 +643,7 @@ Tabs - a list of tabs which may be implemented as buttons, links, icons etc. You
 
 For examples of usage see: [JDI vuetify page tests for tabs](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/TabsTests.java).
 
+
 ### Subheaders
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/subheaders/)
@@ -656,6 +665,29 @@ The Subheader component is used to separate sections of lists.
 ![Subheaders example](../../images/vuetify/subheader.png)
 
 For examples of usage see: [JDI vuetify page tests for subheaders](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/SubheaderTests.java)
+
+
+### Slider
+
+[Vuetify documentation page](https://vuetifyjs.com/en/components/sliders/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.complex.Slider.java_
+
+```java
+  @Test
+  public void minAndMaxSliderTest() {
+    minAndMaxSlider.slideHorizontalTo(90);
+    minAndMaxSlider.is().value(90);
+    minAndMaxSlider.slideHorizontalTo(-50);
+    minAndMaxSlider.is().value(-50);
+  }
+```
+
+The Slider component is a better visualization of the number input. It is used for gathering numerical user data.
+
+![Slider example](../../images/vuetify/slider.png)
+
+For examples of usage see: [JDI vuetify page tests for slider](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SliderTests.java)
 
 
 ### Windows

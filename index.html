@@ -1060,6 +1060,9 @@
 								            <a href="#subheaders" class="toc-h2 h3 toc-link" data-title="Subheaders">Subheaders</a>
                           </li>
                           <li>
+								            <a href="#slider" class="toc-h2 h3 toc-link" data-title="Slider">Slider</a>
+                          </li>
+                          <li>
 								            <a href="#windows" class="toc-h2 h3 toc-link" data-title="Windows">Windows</a>
                           </li>
                       </ul>
@@ -36731,6 +36734,25 @@ See <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-l
 <p><img src="images/vuetify/subheader.png" alt="Subheaders example" /></p>
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/SubheaderTests.java">JDI vuetify page tests for subheaders</a></p>
+<h3 id='slider'>Slider</h3>
+<p><a href="https://vuetifyjs.com/en/components/sliders/">Vuetify documentation page</a></p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.vuetify.elements.complex.Slider.java</em></li>
+</ul>
+<pre class="highlight java tab-java"><code>  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">minAndMaxSliderTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">minAndMaxSlider</span><span class="o">.</span><span class="na">slideHorizontalTo</span><span class="o">(</span><span class="mi">90</span><span class="o">);</span>
+    <span class="n">minAndMaxSlider</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="mi">90</span><span class="o">);</span>
+    <span class="n">minAndMaxSlider</span><span class="o">.</span><span class="na">slideHorizontalTo</span><span class="o">(-</span><span class="mi">50</span><span class="o">);</span>
+    <span class="n">minAndMaxSlider</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">value</span><span class="o">(-</span><span class="mi">50</span><span class="o">);</span>
+  <span class="o">}</span>
+</code></pre>
+<p>The Slider component is a better visualization of the number input. It is used for gathering numerical user data.</p>
+
+<p><img src="images/vuetify/slider.png" alt="Slider example" /></p>
+
+<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SliderTests.java">JDI vuetify page tests for slider</a></p>
 <h3 id='windows'>Windows</h3>
 <p><a href="https://vuetifyjs.com/en/components/windows/">Vuetify documentation page</a></p>
 

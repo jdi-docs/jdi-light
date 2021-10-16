@@ -1054,6 +1054,26 @@
 								            <a href="#button-groups" class="toc-h2 h3 toc-link" data-title="Button Groups">Button Groups</a>
                           </li>
                           <li>
+								            <a href="#list-item-groups" class="toc-h2 h3 toc-link" data-title="List Item Groups">List Item Groups</a>
+									            <ul class="toc-list-h2">
+										              <li>
+										              <a href="#active-class" class="toc-h3 h4 toc-link" data-title="Active class">Active class</a>
+										              </li>
+										              <li>
+										              <a href="#mandatory-class" class="toc-h3 h4 toc-link" data-title="Mandatory class">Mandatory class</a>
+										              </li>
+										              <li>
+										              <a href="#multiple-class" class="toc-h3 h4 toc-link" data-title="Multiple class">Multiple class</a>
+										              </li>
+										              <li>
+										              <a href="#flat-list" class="toc-h3 h4 toc-link" data-title="Flat list">Flat list</a>
+										              </li>
+										              <li>
+										              <a href="#selection-controls" class="toc-h3 h4 toc-link" data-title="Selection controls">Selection controls</a>
+										              </li>
+									            </ul>
+                          </li>
+                          <li>
 								            <a href="#tabs" class="toc-h2 h3 toc-link" data-title="Tabs">Tabs</a>
                           </li>
                           <li>
@@ -36689,6 +36709,187 @@ See <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-l
 <p><img src="images/vuetify/button-group.png" alt="Button group example" /></p>
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ButtonGroupsTests.java">Vuetify Button groups tests</a>.</p>
+<h3 id='list-item-groups'>List Item Groups</h3>
+<p><a href="https://vuetifyjs.com/en/components/list-item-groups/">Vuetify documentation page</a></p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.vuetify.elements.complex.ListItemGroups.java</em></li>
+</ul>
+
+<p><strong>List item groups</strong> - a group of selectable items from any component. Items can contains an icon, text, actions etc.</p>
+
+<p>List are a continuous group of text or images. They are composed of items containing primary and supplemental actions, which are represented by icons and text.</p>
+<pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#ActiveClassListItemGroup .v-list-item"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">ListItemGroups</span> <span class="n">activeClassListItemGroup</span><span class="o">;</span>
+
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#MandatoryListItemGroup .v-list-item"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">ListItemGroups</span> <span class="n">mandatoryListItemGroup</span><span class="o">;</span>
+
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#MultipleListItemGroup .v-list-item"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">ListItemGroups</span> <span class="n">multipleListItemGroup</span><span class="o">;</span>
+
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#FlatListListItemGroup .v-list-item"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">ListItemGroups</span> <span class="n">flatListListItemGroup</span><span class="o">;</span>
+
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#SelectionControlsListItemGroup .v-list-item"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">ListItemGroups</span> <span class="n">selectionControlsListItemGroup</span><span class="o">;</span>
+
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#SelectionControlsListItemGroup div[role='option']"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Checkbox</span><span class="o">&gt;</span> <span class="n">selectionControlsListItemGroupCheckbox</span><span class="o">;</span>
+</code></pre>
+<p>See <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/main/java/io/github/com/pages/ListItemGroupsPage.java">different examples</a></p>
+
+<p>The v-list-item-group provides the ability to create a group of selectable v-list-items. The v-list-item-group component utilizes v-item-group at its core to provide a clean interface for interactive lists.</p>
+
+<p><img src="images/vuetify/list-item.png" alt="List item groups example" />
+<img src="images/vuetify/checkbox-list-item.png" alt="List item groups example" /></p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>select(String value)</strong></td>
+<td>Finds required element by its name and selects</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>select(int index)</strong></td>
+<td>Finds required element by its index and selects</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>get(String value)</strong></td>
+<td>Finds required element by its name and returns it</td>
+<td>UIElement</td>
+</tr>
+<tr>
+<td><strong>get(int index)</strong></td>
+<td>Finds required element by its index and returns it</td>
+<td>UIElement</td>
+</tr>
+<tr>
+<td><strong>isActive(int elementIndex)</strong></td>
+<td>Shows that required element is active</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isInactivate(int elementIndex)</strong></td>
+<td>Shows that required element is inactive</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>hasIcon(int elementIndex)</strong></td>
+<td>Shows that required element has icon</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>hasTitle(int elementIndex, String expectedTitle)</strong></td>
+<td>Shows that required element has expected title</td>
+<td>boolean</td>
+</tr>
+</tbody></table>
+<h4 id='active-class'>Active class</h4>
+<p>You can set a class which will be added when an item is selected.</p>
+<pre class="highlight java tab-java"><code><span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">activeClassListItemGroupTest</span><span class="o">()</span> <span class="o">{</span>
+
+  <span class="kt">int</span> <span class="n">elemIndex</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+  <span class="n">String</span><span class="o">[]</span> <span class="n">expectedTitles</span> <span class="o">=</span> <span class="o">{</span><span class="s">"Wifi"</span><span class="o">,</span> <span class="s">"Bluetooth"</span><span class="o">,</span> <span class="s">"Data Usage"</span><span class="o">};</span>
+
+  <span class="k">for</span> <span class="o">(</span><span class="n">String</span> <span class="n">expectedTitle</span> <span class="o">:</span> <span class="n">expectedTitles</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">activeClassListItemGroup</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">elemIndex</span><span class="o">);</span>
+    <span class="n">jdiAssert</span><span class="o">(</span><span class="n">activeClassListItemGroup</span><span class="o">.</span><span class="na">isActive</span><span class="o">(</span><span class="n">elemIndex</span><span class="o">),</span> <span class="n">Matchers</span><span class="o">.</span><span class="na">is</span><span class="o">(</span><span class="kc">true</span><span class="o">));</span>
+    <span class="n">jdiAssert</span><span class="o">(</span><span class="n">activeClassListItemGroup</span><span class="o">.</span><span class="na">hasIcon</span><span class="o">(</span><span class="n">elemIndex</span><span class="o">),</span> <span class="n">Matchers</span><span class="o">.</span><span class="na">is</span><span class="o">(</span><span class="kc">true</span><span class="o">));</span>
+    <span class="n">jdiAssert</span><span class="o">(</span><span class="n">activeClassListItemGroup</span><span class="o">.</span><span class="na">hasTitle</span><span class="o">(</span><span class="n">elemIndex</span><span class="o">,</span> <span class="n">expectedTitle</span><span class="o">),</span> <span class="n">Matchers</span><span class="o">.</span><span class="na">is</span><span class="o">(</span><span class="kc">true</span><span class="o">));</span>
+    <span class="n">activeClassListItemGroup</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">elemIndex</span><span class="o">);</span>
+    <span class="n">jdiAssert</span><span class="o">(</span><span class="n">activeClassListItemGroup</span><span class="o">.</span><span class="na">isInactivate</span><span class="o">(</span><span class="n">elemIndex</span><span class="o">),</span> <span class="n">Matchers</span><span class="o">.</span><span class="na">is</span><span class="o">(</span><span class="kc">true</span><span class="o">));</span>
+
+    <span class="n">elemIndex</span><span class="o">++;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre><h4 id='mandatory-class'>Mandatory class</h4>
+<p>At least one item must be selected.</p>
+<pre class="highlight java tab-java"><code><span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">mandatoryListItemGroupTest</span><span class="o">()</span> <span class="o">{</span>
+
+  <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">element</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">element</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="o">;</span> <span class="n">element</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="n">mandatoryListItemGroup</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">element</span><span class="o">);</span>
+      <span class="n">jdiAssert</span><span class="o">(</span><span class="n">mandatoryListItemGroup</span><span class="o">.</span><span class="na">isActive</span><span class="o">(</span><span class="n">element</span><span class="o">),</span> <span class="n">Matchers</span><span class="o">.</span><span class="na">is</span><span class="o">(</span><span class="kc">true</span><span class="o">));</span>
+      <span class="n">mandatoryListItemGroup</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">element</span><span class="o">);</span>
+      <span class="n">jdiAssert</span><span class="o">(</span><span class="n">mandatoryListItemGroup</span><span class="o">.</span><span class="na">isInactivate</span><span class="o">(</span><span class="n">element</span><span class="o">),</span> <span class="n">Matchers</span><span class="o">.</span><span class="na">is</span><span class="o">(</span><span class="kc">false</span><span class="o">));</span>
+  <span class="o">}</span>
+
+  <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">element</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">element</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="o">;</span> <span class="n">element</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="n">mandatoryListItemGroup</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">element</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="n">jdiAssert</span><span class="o">(</span><span class="n">mandatoryListItemGroup</span><span class="o">.</span><span class="na">isActive</span><span class="o">(</span><span class="mi">3</span><span class="o">),</span> <span class="n">Matchers</span><span class="o">.</span><span class="na">is</span><span class="o">(</span><span class="kc">true</span><span class="o">));</span>
+  <span class="n">jdiAssert</span><span class="o">(</span><span class="n">mandatoryListItemGroup</span><span class="o">.</span><span class="na">isInactivate</span><span class="o">(</span><span class="mi">1</span><span class="o">),</span> <span class="n">Matchers</span><span class="o">.</span><span class="na">is</span><span class="o">(</span><span class="kc">true</span><span class="o">));</span>
+  <span class="n">jdiAssert</span><span class="o">(</span><span class="n">mandatoryListItemGroup</span><span class="o">.</span><span class="na">isInactivate</span><span class="o">(</span><span class="mi">2</span><span class="o">),</span> <span class="n">Matchers</span><span class="o">.</span><span class="na">is</span><span class="o">(</span><span class="kc">true</span><span class="o">));</span>
+<span class="o">}</span>
+</code></pre><h4 id='multiple-class'>Multiple class</h4>
+<p>You can select multiple items at one time.</p>
+<pre class="highlight java tab-java"><code><span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">multipleListItemGroupsTest</span><span class="o">()</span> <span class="o">{</span>
+  <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">element</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">element</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="o">;</span> <span class="n">element</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="k">if</span> <span class="o">(</span><span class="n">multipleListItemGroup</span><span class="o">.</span><span class="na">isInactivate</span><span class="o">(</span><span class="n">element</span><span class="o">))</span> <span class="o">{</span>
+          <span class="n">multipleListItemGroup</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">element</span><span class="o">);</span>
+      <span class="o">}</span>
+  <span class="o">}</span>
+
+  <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">element</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">element</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="o">;</span> <span class="n">element</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="n">jdiAssert</span><span class="o">(</span><span class="n">multipleListItemGroup</span><span class="o">.</span><span class="na">isActive</span><span class="o">(</span><span class="n">element</span><span class="o">),</span> <span class="n">Matchers</span><span class="o">.</span><span class="na">is</span><span class="o">(</span><span class="kc">true</span><span class="o">));</span>
+  <span class="o">}</span>
+
+  <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">element</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">element</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="o">;</span> <span class="n">element</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="n">multipleListItemGroup</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">element</span><span class="o">);</span>
+      <span class="n">jdiAssert</span><span class="o">(</span><span class="n">multipleListItemGroup</span><span class="o">.</span><span class="na">isInactivate</span><span class="o">(</span><span class="n">element</span><span class="o">),</span> <span class="n">Matchers</span><span class="o">.</span><span class="na">is</span><span class="o">(</span><span class="kc">true</span><span class="o">));</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre><h4 id='flat-list'>Flat list</h4>
+<p>You can easily disable the default highlighting of selected v-list-items. This creates a lower profile for a user’s choices.</p>
+<pre class="highlight java tab-java"><code><span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">flatListListItemGroupTest</span><span class="o">()</span> <span class="o">{</span>
+
+  <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">element</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">element</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="o">;</span> <span class="n">element</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="n">flatListListItemGroup</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">element</span><span class="o">);</span>
+      <span class="n">jdiAssert</span><span class="o">(</span><span class="n">flatListListItemGroup</span><span class="o">.</span><span class="na">isActive</span><span class="o">(</span><span class="n">element</span><span class="o">),</span> <span class="n">Matchers</span><span class="o">.</span><span class="na">is</span><span class="o">(</span><span class="kc">true</span><span class="o">));</span>
+      <span class="n">jdiAssert</span><span class="o">(</span><span class="n">flatListListItemGroup</span><span class="o">.</span><span class="na">hasIcon</span><span class="o">(</span><span class="n">element</span><span class="o">),</span> <span class="n">Matchers</span><span class="o">.</span><span class="na">is</span><span class="o">(</span><span class="kc">true</span><span class="o">));</span>
+      <span class="n">flatListListItemGroup</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">element</span><span class="o">);</span>
+      <span class="n">jdiAssert</span><span class="o">(</span><span class="n">flatListListItemGroup</span><span class="o">.</span><span class="na">isInactivate</span><span class="o">(</span><span class="n">element</span><span class="o">),</span> <span class="n">Matchers</span><span class="o">.</span><span class="na">is</span><span class="o">(</span><span class="kc">true</span><span class="o">));</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre><h4 id='selection-controls'>Selection controls</h4>
+<p>Using the default slot, you can access an items internal state and toggle it. Since the active property is a boolean, we use the true-value prop on the checkbox to link its state to the v-list-item.</p>
+<pre class="highlight java tab-java"><code><span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">selectionControlsListItemGroupTest</span><span class="o">()</span> <span class="o">{</span>
+  <span class="kt">int</span> <span class="n">elemIndex</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+  <span class="n">String</span><span class="o">[]</span> <span class="n">expectedTitles</span> <span class="o">=</span> <span class="o">{</span><span class="s">"Dog Photos"</span><span class="o">,</span> <span class="s">"Cat Photos"</span><span class="o">,</span> <span class="s">"Potatoes"</span><span class="o">,</span> <span class="s">"Carrots"</span><span class="o">};</span>
+
+  <span class="k">for</span> <span class="o">(</span><span class="n">String</span> <span class="n">expectedTitle</span> <span class="o">:</span> <span class="n">expectedTitles</span><span class="o">)</span> <span class="o">{</span>
+
+      <span class="n">jdiAssert</span><span class="o">(</span><span class="n">selectionControlsListItemGroup</span><span class="o">.</span><span class="na">hasTitle</span><span class="o">(</span><span class="n">elemIndex</span><span class="o">,</span> <span class="n">expectedTitle</span><span class="o">),</span> <span class="n">Matchers</span><span class="o">.</span><span class="na">is</span><span class="o">(</span><span class="kc">true</span><span class="o">));</span>
+      <span class="n">selectionControlsListItemGroupCheckbox</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">elemIndex</span><span class="o">).</span><span class="na">check</span><span class="o">();</span>
+      <span class="n">selectionControlsListItemGroupCheckbox</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">elemIndex</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">checked</span><span class="o">();</span>
+      <span class="n">selectionControlsListItemGroupCheckbox</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">elemIndex</span><span class="o">).</span><span class="na">uncheck</span><span class="o">();</span>
+      <span class="n">selectionControlsListItemGroupCheckbox</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">elemIndex</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">unchecked</span><span class="o">();</span>
+
+      <span class="n">elemIndex</span><span class="o">++;</span>
+  <span class="o">}</span>
+
+  <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">element</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">element</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="o">;</span> <span class="n">element</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="n">selectionControlsListItemGroupCheckbox</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">element</span><span class="o">).</span><span class="na">check</span><span class="o">();</span>
+  <span class="o">}</span>
+  <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">element</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">element</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="o">;</span> <span class="n">element</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="n">selectionControlsListItemGroupCheckbox</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">element</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">checked</span><span class="o">();</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ListItemGroupsTests.java">Vuetify List Item Groups tests</a>.</p>
 <h3 id='tabs'>Tabs</h3>
 <p><a href="https://vuetifyjs.com/en/components/tabs/">Vuetify documentation page</a></p>
 

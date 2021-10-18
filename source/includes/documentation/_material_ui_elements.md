@@ -1,6 +1,6 @@
 ## Material UI elements
 
-### Checkbox
+### Material UI Checkbox
 
 ##### <a href="https://material-ui.com/components/checkboxes/" target="_blank"> https://material-ui.com/components/checkboxes/ </a>
 

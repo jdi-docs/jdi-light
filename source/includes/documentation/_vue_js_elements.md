@@ -950,3 +950,37 @@ For examples of usage see: [Custom vuetify windows examples](https://github.com/
 and [JDI vuetify page tests for windows](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/WindowsTests.java).
 
 ### Snackbars
+
+[Vuetify documentation page](https://vuetifyjs.com/en/components/snackbars/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.common.Snackbar.java_
+
+```java
+    @Test
+    public static void simpleSnackbarTest() {
+        simpleSnackbarOpen.click();
+        simpleSnackbar.is().visible();
+        simpleSnackbar.is().text("Hello, I'm a snackbar");
+        simpleSnackbar.close();
+        simpleSnackbar.is().closed();
+  }
+```
+
+![Snackbars example](../../images/vuetify/snackbars.png)
+
+The snackbar component is used to display a quick message to a user.
+
+|Method | Description | Return Type
+--- | --- | ---
+**is()** | Returns Assert class | SnackbarAssert
+**text()** | Returns snackbar's text | String
+**close()** | Closes snackbar | void
+**isOpen()** | Shows that snackbar is open | boolean
+**isClosed()** | Shows that snackbar is closed | boolean
+**isLeft()** | Shows that snackbar has left position | boolean
+**isRight()** | Shows that snackbar has right position | boolean
+**isCentered()** | Shows that snackbar is centered | boolean
+**isVertical()** | Shows that snackbar is vertical | boolean
+
+For examples of usage see: [JDI vuetify page tests for snackbars](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/SnackbarsTests.java).
+

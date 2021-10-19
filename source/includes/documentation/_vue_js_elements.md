@@ -832,7 +832,6 @@ The Subheader component is used to separate sections of lists.
 
 For examples of usage see: [JDI vuetify page tests for subheaders](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/SubheaderTests.java)
 
-
 ### Slider
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/sliders/)
@@ -855,6 +854,40 @@ The Slider component is a better visualization of the number input. It is used f
 
 For examples of usage see: [JDI vuetify page tests for slider](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SliderTests.java)
 
+### Tables
+
+### Simple Tables
+
+[Vuetify documentation page](https://vuetifyjs.com/en/components/simple-tables/)
+
+- __Java__: _package com.epam.jdi.light.vuetify.elements.complex.tables.SimpleTable.java_
+
+```java
+    @Test
+    public static void darkTableTests() {
+        darkTable.is().firstColumnHasElement(ECLAIR);
+        darkTable.is().secondColumnHasElement(1, FROZEN_YOGURT_CALORIES);
+        darkTable.is().dark();
+        darkTable.is().columnTitle(1, "Name");
+  }
+
+```
+
+The Simple Table component is a simple wrapper component around the table element.
+
+![Simple Table example](../../images/vuetify/simple_table.png)
+
+|Method | Description | Return Type
+--- | --- | ---
+**has()/is()** | Returns Assert class | SimpleTableAssert**has()** | Returns Assert class | SimpleTableAssert
+**firstColumnElement()** | Returns required element from first column | String
+**secondColumnElement()** | Returns required element from second column | String
+**columnTitle()** | Returns column title | String
+**isDark()** | Shows that table has dark theme | boolean
+**isLight()** | Shows that table has light theme | boolean
+**hasFixedHeight()** | Shows that table has fixed height | boolean
+
+For examples of usage see: [Vuetify Simple Table tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SimpleTablesTests.java#L40).
 
 ### Windows
 
@@ -915,3 +948,5 @@ or extend a class that already implemented it.**
 
 For examples of usage see: [Custom vuetify windows examples](https://github.com/jdi-testing/jdi-light/tree/vuetify-develop/jdi-light-vuetify-tests/src/main/java/io/github/com/custom/windows) 
 and [JDI vuetify page tests for windows](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/WindowsTests.java).
+
+### Snackbars

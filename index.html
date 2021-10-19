@@ -37097,7 +37097,81 @@ or extend a class that already implemented it.</strong></p>
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/tree/vuetify-develop/jdi-light-vuetify-tests/src/main/java/io/github/com/custom/windows">Custom vuetify windows examples</a> 
 and <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/WindowsTests.java">JDI vuetify page tests for windows</a>.</p>
-<h3 id='snackbars'>Snackbars</h3><h2 id='jdi-features'>JDI features</h2><h3 id='jdi-features-for-parameters-in-bdd-steps'>JDI Features for parameters in BDD steps</h3><h4 id='using-aliases-as-locators-parameters'>Using aliases as locators parameters</h4><pre class="highlight gherkin tab-gherkin"><code>   <span class="kn">Scenario</span><span class="p">:</span> input element
+<h3 id='snackbars'>Snackbars</h3>
+<p><a href="https://vuetifyjs.com/en/components/snackbars/">Vuetify documentation page</a></p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.vuetify.elements.common.Snackbar.java</em></li>
+</ul>
+<pre class="highlight java tab-java"><code>    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">simpleSnackbarTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">simpleSnackbarOpen</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">simpleSnackbar</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">visible</span><span class="o">();</span>
+        <span class="n">simpleSnackbar</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Hello, I'm a snackbar"</span><span class="o">);</span>
+        <span class="n">simpleSnackbar</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+        <span class="n">simpleSnackbar</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">closed</span><span class="o">();</span>
+  <span class="o">}</span>
+</code></pre>
+<p><img src="images/vuetify/snackbars.png" alt="Snackbars example" /></p>
+
+<p>The snackbar component is used to display a quick message to a user.</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>is()</strong></td>
+<td>Returns Assert class</td>
+<td>SnackbarAssert</td>
+</tr>
+<tr>
+<td><strong>text()</strong></td>
+<td>Returns snackbar&#39;s text</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>close()</strong></td>
+<td>Closes snackbar</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>isOpen()</strong></td>
+<td>Shows that snackbar is open</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isClosed()</strong></td>
+<td>Shows that snackbar is closed</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isLeft()</strong></td>
+<td>Shows that snackbar has left position</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isRight()</strong></td>
+<td>Shows that snackbar has right position</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isCentered()</strong></td>
+<td>Shows that snackbar is centered</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isVertical()</strong></td>
+<td>Shows that snackbar is vertical</td>
+<td>boolean</td>
+</tr>
+</tbody></table>
+
+<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/SnackbarsTests.java">JDI vuetify page tests for snackbars</a>.</p>
+<h2 id='jdi-features'>JDI features</h2><h3 id='jdi-features-for-parameters-in-bdd-steps'>JDI Features for parameters in BDD steps</h3><h4 id='using-aliases-as-locators-parameters'>Using aliases as locators parameters</h4><pre class="highlight gherkin tab-gherkin"><code>   <span class="kn">Scenario</span><span class="p">:</span> input element
        <span class="nf">When</span> I input <span class="s">"simple 1234"</span> in <span class="s">"Name"</span>
        <span class="nf">Then</span> the <span class="s">"Name"</span> text matches to <span class="s">"\w{6} \d{4}"</span>
        <span class="nf">Then</span> the <span class="s">"Logout"</span> is hidden

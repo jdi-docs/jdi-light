@@ -1083,7 +1083,16 @@
 								            <a href="#slider" class="toc-h2 h3 toc-link" data-title="Slider">Slider</a>
                           </li>
                           <li>
+								            <a href="#tables" class="toc-h2 h3 toc-link" data-title="Tables">Tables</a>
+                          </li>
+                          <li>
+								            <a href="#simple-tables" class="toc-h2 h3 toc-link" data-title="Simple Tables">Simple Tables</a>
+                          </li>
+                          <li>
 								            <a href="#windows" class="toc-h2 h3 toc-link" data-title="Windows">Windows</a>
+                          </li>
+                          <li>
+								            <a href="#snackbars" class="toc-h2 h3 toc-link" data-title="Snackbars">Snackbars</a>
                           </li>
                       </ul>
                   </li>
@@ -36954,6 +36963,70 @@ See <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-l
 <p><img src="images/vuetify/slider.png" alt="Slider example" /></p>
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SliderTests.java">JDI vuetify page tests for slider</a></p>
+<h3 id='tables'>Tables</h3><h3 id='simple-tables'>Simple Tables</h3>
+<p><a href="https://vuetifyjs.com/en/components/simple-tables/">Vuetify documentation page</a></p>
+
+<ul>
+<li><strong>Java</strong>: <em>package com.epam.jdi.light.vuetify.elements.complex.tables.SimpleTable.java</em></li>
+</ul>
+<pre class="highlight java tab-java"><code>    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">darkTableTests</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">darkTable</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">firstColumnHasElement</span><span class="o">(</span><span class="n">ECLAIR</span><span class="o">);</span>
+        <span class="n">darkTable</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">secondColumnHasElement</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="n">FROZEN_YOGURT_CALORIES</span><span class="o">);</span>
+        <span class="n">darkTable</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">dark</span><span class="o">();</span>
+        <span class="n">darkTable</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">columnTitle</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">"Name"</span><span class="o">);</span>
+  <span class="o">}</span>
+
+</code></pre>
+<p>The Simple Table component is a simple wrapper component around the table element.</p>
+
+<p><img src="images/vuetify/simple_table.png" alt="Simple Table example" /></p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>has()/is()</strong></td>
+<td>Returns Assert class</td>
+<td>SimpleTableAssert*<em>has()</em>*</td>
+</tr>
+<tr>
+<td><strong>firstColumnElement()</strong></td>
+<td>Returns required element from first column</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>secondColumnElement()</strong></td>
+<td>Returns required element from second column</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>columnTitle()</strong></td>
+<td>Returns column title</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>isDark()</strong></td>
+<td>Shows that table has dark theme</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isLight()</strong></td>
+<td>Shows that table has light theme</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>hasFixedHeight()</strong></td>
+<td>Shows that table has fixed height</td>
+<td>boolean</td>
+</tr>
+</tbody></table>
+
+<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SimpleTablesTests.java#L40">Vuetify Simple Table tests</a>.</p>
 <h3 id='windows'>Windows</h3>
 <p><a href="https://vuetifyjs.com/en/components/windows/">Vuetify documentation page</a></p>
 
@@ -37024,7 +37097,7 @@ or extend a class that already implemented it.</strong></p>
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/tree/vuetify-develop/jdi-light-vuetify-tests/src/main/java/io/github/com/custom/windows">Custom vuetify windows examples</a> 
 and <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/WindowsTests.java">JDI vuetify page tests for windows</a>.</p>
-<h2 id='jdi-features'>JDI features</h2><h3 id='jdi-features-for-parameters-in-bdd-steps'>JDI Features for parameters in BDD steps</h3><h4 id='using-aliases-as-locators-parameters'>Using aliases as locators parameters</h4><pre class="highlight gherkin tab-gherkin"><code>   <span class="kn">Scenario</span><span class="p">:</span> input element
+<h3 id='snackbars'>Snackbars</h3><h2 id='jdi-features'>JDI features</h2><h3 id='jdi-features-for-parameters-in-bdd-steps'>JDI Features for parameters in BDD steps</h3><h4 id='using-aliases-as-locators-parameters'>Using aliases as locators parameters</h4><pre class="highlight gherkin tab-gherkin"><code>   <span class="kn">Scenario</span><span class="p">:</span> input element
        <span class="nf">When</span> I input <span class="s">"simple 1234"</span> in <span class="s">"Name"</span>
        <span class="nf">Then</span> the <span class="s">"Name"</span> text matches to <span class="s">"\w{6} \d{4}"</span>
        <span class="nf">Then</span> the <span class="s">"Logout"</span> is hidden

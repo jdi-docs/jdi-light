@@ -899,6 +899,9 @@
 								            <a href="#grid" class="toc-h2 h3 toc-link" data-title="Grid">Grid</a>
                           </li>
                           <li>
+								            <a href="#gridlist" class="toc-h2 h3 toc-link" data-title="GridList">GridList</a>
+                          </li>
+                          <li>
 								            <a href="#drawer" class="toc-h2 h3 toc-link" data-title="Drawer">Drawer</a>
                           </li>
                           <li>
@@ -34964,7 +34967,27 @@ You can use for testing Text and Button classes, implemented in JDI-html section
 <p>The Material Design responsive layout grid adapts to screen size and orientation, ensuring consistency across layouts.</p>
 
 <p><img src="images/material-ui/Grids.png" alt="Grid" /></p>
-<h5 id='here-you-can-find-grid-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/GridTests.java" target="_blank">Here you can find Grid tests</a></h5><h3 id='drawer'>Drawer</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div[contains(@class,'MuiPaper-root')]"</span><span class="o">)</span>
+<h5 id='here-you-can-find-grid-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/GridTests.java" target="_blank">Here you can find Grid tests</a></h5><h3 id='gridlist'>GridList</h3><pre class="highlight java tab-java"><code>     <span class="nd">@UI</span><span class="o">(</span><span class="s">".MuiGridList-root.jss3"</span><span class="o">)</span>
+     <span class="kd">public</span> <span class="kd">static</span> <span class="n">GridList</span> <span class="n">imageGridList</span><span class="o">;</span>
+
+     <span class="nd">@UI</span><span class="o">(</span><span class="s">".MuiGridList-root.jss5"</span><span class="o">)</span>
+     <span class="kd">public</span> <span class="kd">static</span> <span class="n">GridList</span> <span class="n">singleLineGridList</span><span class="o">;</span>
+
+     <span class="nd">@UI</span><span class="o">(</span><span class="s">".MuiGridList-root.jss9"</span><span class="o">)</span>
+     <span class="kd">public</span> <span class="kd">static</span> <span class="n">GridList</span> <span class="n">titleBarGridList</span><span class="o">;</span>
+
+     <span class="nd">@Test</span>
+     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">singleLineGridTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">singleLineGridList</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">size</span><span class="o">(</span><span class="mi">5</span><span class="o">);</span>
+        <span class="n">singleLineGridList</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">image</span><span class="o">(</span><span class="mi">3</span><span class="o">).</span><span class="na">and</span><span class="o">().</span><span class="na">altImgName</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="n">HATS</span><span class="o">);</span>
+        <span class="n">singleLineGridList</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">image</span><span class="o">(</span><span class="mi">4</span><span class="o">).</span><span class="na">and</span><span class="o">().</span><span class="na">altImgName</span><span class="o">(</span><span class="mi">4</span><span class="o">,</span> <span class="n">BIKE</span><span class="o">);</span>
+        <span class="n">singleLineGridList</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">title</span><span class="o">(</span><span class="mi">5</span><span class="o">,</span> <span class="n">CAMERA</span><span class="o">);</span>
+    <span class="o">}</span>
+</code></pre><h5 id='https-material-ui-com-components-grid-2'><a href="https://material-ui.com/components/grid/" target="_blank"> https://material-ui.com/components/grid/ </a></h5>
+<p>The Grid List element - list of Material UI Grid elements.</p>
+
+<p><img src="images/material-ui/GridList.png" alt="GridList" /></p>
+<h5 id='here-you-can-find-gridlist-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/GridListTests.java" target="_blank">Here you can find GridList tests</a></h5><h3 id='drawer'>Drawer</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div[contains(@class,'MuiPaper-root')]"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">Drawer</span> <span class="n">drawer</span><span class="o">;</span>
 
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"//ul[contains(@class,'MuiList-padding')]//div[@class='MuiListItemIcon-root']"</span><span class="o">)</span>

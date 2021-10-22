@@ -1045,6 +1045,12 @@
 								            <a href="#footers" class="toc-h2 h3 toc-link" data-title="Footers">Footers</a>
                           </li>
                           <li>
+								            <a href="#form-input-amp-controls" class="toc-h2 h3 toc-link" data-title="Form input &amp; controls">Form input &amp; controls</a>
+                          </li>
+                          <li>
+								            <a href="#overflow-buttons" class="toc-h2 h3 toc-link" data-title="Overflow buttons">Overflow buttons</a>
+                          </li>
+                          <li>
 								            <a href="#lists" class="toc-h2 h3 toc-link" data-title="Lists">Lists</a>
                           </li>
                           <li>
@@ -36473,6 +36479,105 @@ and <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-l
 <p><img src="images/vuetify/footer.png" alt="Footer example" /></p>
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/composite/FootersTests.java">Vuetify Footers tests</a>.</p>
+<h3 id='form-input-amp-controls'>Form input &amp; controls</h3><h3 id='overflow-buttons'>Overflow buttons</h3>
+<p><a href="https://vuetifyjs.com/en/components/overflow-btns/">Vuetify documentation page</a></p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.vuetify.elements.composite.OverflowButton.java</em></li>
+</ul>
+<pre class="highlight java tab-java"><code>    <span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">baseFunctionalityOverflowButtonTest</span><span class="o">()</span> <span class="o">{</span>
+  <span class="n">counterOverflowButton</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">enable</span><span class="o">();</span>
+  <span class="n">counterOverflowButton</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">placeholder</span><span class="o">(</span><span class="s">"Overflow Btn w/ counter"</span><span class="o">);</span>
+  <span class="n">counterOverflowButton</span><span class="o">.</span><span class="na">expand</span><span class="o">();</span>
+  <span class="n">counterOverflowButton</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">expanded</span><span class="o">();</span>
+  <span class="n">counterOverflowButton</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+  <span class="n">counterOverflowButton</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">closed</span><span class="o">();</span>
+  <span class="n">counterOverflowButton</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="s">"50%"</span><span class="o">);</span>
+  <span class="n">counterOverflowButton</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="s">"50%"</span><span class="o">);</span>
+  <span class="n">counterOverflowButton</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+  <span class="n">counterOverflowButton</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="s">"100%"</span><span class="o">);</span>
+  <span class="o">}</span>
+</code></pre>
+<p><img src="images/vuetify/Overflow_buttons.png" alt="Lists example" /></p>
+
+<p>Overflow button is used to give the user the ability to select items from the list. It has 3 variations: editable, overflow and segmented</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>expand()/close()</strong></td>
+<td>Open/close dropdown menu</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>select(String text)/select(int index)</strong></td>
+<td>Select element</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>sendText(String text)</strong></td>
+<td>Snd text in input field</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>clear()</strong></td>
+<td>Clear input field</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>selected()</strong></td>
+<td>Get selected text</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>hint()</strong></td>
+<td>Get hint text</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>placeholder()</strong></td>
+<td>Get placeholder text</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>counterMessage()</strong></td>
+<td>Get counter text</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>isExpanded()/isClosed()</strong></td>
+<td>Shows that dropdown menu is open/close</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>isDisabled()/isEnabled()</strong></td>
+<td>Shows that required element is disabled/enabled</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>isEditable()</strong></td>
+<td>Shows that required element is editable</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>readOnly()</strong></td>
+<td>Shows that required element is readOnly</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>hasProgressBar</strong></td>
+<td>Shows that required element has progress bar</td>
+<td>void</td>
+</tr>
+</tbody></table>
+
+<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/OverflowButtonsTest.java">JDI Vuetify Lists tests</a>.</p>
 <h3 id='lists'>Lists</h3>
 <p><a href="https://vuetifyjs.com/en/components/lists/">Vuetify documentation page</a></p>
 

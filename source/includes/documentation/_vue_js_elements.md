@@ -503,6 +503,49 @@ Overflow button is used to give the user the ability to select items from the li
 For examples of usage see: [JDI Vuetify Lists tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/OverflowButtonsTest.java).
 
 
+### Switches
+
+[Vuetify documentation page](https://vuetifyjs.com/en/components/switches/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.common.Switch.java_
+
+```java
+    @Test
+public void colorTest() {
+  colorSwitches.forEach(Switch::isDisabled);
+
+  colorSwitches.get(1).is().inputColor(Colors.RED.value());
+  colorSwitches.get(1).uncheck();
+  colorSwitches.get(1).is().inputColor(Colors.BLACK_TRANSPARENT_087.value());
+
+  colorSwitches.get(6).is().inputColor(Colors.ORANGE_DARKEN_3.value());
+  colorSwitches.get(6).uncheck();
+  colorSwitches.get(6).is().inputColor(Colors.BLACK_TRANSPARENT_087.value());
+
+  colorSwitches.get(12).is().inputColor(Colors.RED_ACCENT_2.value());
+  colorSwitches.get(12).uncheck();
+  colorSwitches.get(12).is().inputColor(Colors.BLACK_TRANSPARENT_087.value());
+  }
+```
+
+![Lists example](../../images/vuetify/switches.png)
+
+The Switch - component provides users the ability to choose between two distinct values.
+
+|Method | Description | Return Type
+--- | --- | ---
+**check()/uncheck()** | Switch element between two states | void
+**getInputColor()** | Get color in RGBA format | String
+**getLabelText()** | Get label text  | String
+**getLabelHTML()** | Get label HTML element | boolen
+**isChecked()/isNotChecked()** | Shows that required element is selected/not selected | boolean
+**isDisabled()/isEnabled()** | Shows that required element is disabled/enabled | boolean
+**hasLabel()** | Shows that required element has label | boolean
+**hasInputProgressBar()** | Shows that required element has Progress bar | boolean
+
+For examples of usage see: [JDI Vuetify Lists tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/SwitchTests.java).
+
+
 ### Lists
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/lists/)

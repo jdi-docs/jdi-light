@@ -1054,6 +1054,9 @@
 								            <a href="#overflow-buttons" class="toc-h2 h3 toc-link" data-title="Overflow buttons">Overflow buttons</a>
                           </li>
                           <li>
+								            <a href="#switches" class="toc-h2 h3 toc-link" data-title="Switches">Switches</a>
+                          </li>
+                          <li>
 								            <a href="#lists" class="toc-h2 h3 toc-link" data-title="Lists">Lists</a>
                           </li>
                           <li>
@@ -36601,6 +36604,83 @@ and <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-l
 </tbody></table>
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/OverflowButtonsTest.java">JDI Vuetify Lists tests</a>.</p>
+<h3 id='switches'>Switches</h3>
+<p><a href="https://vuetifyjs.com/en/components/switches/">Vuetify documentation page</a></p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.vuetify.elements.common.Switch.java</em></li>
+</ul>
+<pre class="highlight java tab-java"><code>    <span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">colorTest</span><span class="o">()</span> <span class="o">{</span>
+  <span class="n">colorSwitches</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="nl">Switch:</span><span class="o">:</span><span class="n">isDisabled</span><span class="o">);</span>
+
+  <span class="n">colorSwitches</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">inputColor</span><span class="o">(</span><span class="n">Colors</span><span class="o">.</span><span class="na">RED</span><span class="o">.</span><span class="na">value</span><span class="o">());</span>
+  <span class="n">colorSwitches</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">uncheck</span><span class="o">();</span>
+  <span class="n">colorSwitches</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">inputColor</span><span class="o">(</span><span class="n">Colors</span><span class="o">.</span><span class="na">BLACK_TRANSPARENT_087</span><span class="o">.</span><span class="na">value</span><span class="o">());</span>
+
+  <span class="n">colorSwitches</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">6</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">inputColor</span><span class="o">(</span><span class="n">Colors</span><span class="o">.</span><span class="na">ORANGE_DARKEN_3</span><span class="o">.</span><span class="na">value</span><span class="o">());</span>
+  <span class="n">colorSwitches</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">6</span><span class="o">).</span><span class="na">uncheck</span><span class="o">();</span>
+  <span class="n">colorSwitches</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">6</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">inputColor</span><span class="o">(</span><span class="n">Colors</span><span class="o">.</span><span class="na">BLACK_TRANSPARENT_087</span><span class="o">.</span><span class="na">value</span><span class="o">());</span>
+
+  <span class="n">colorSwitches</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">12</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">inputColor</span><span class="o">(</span><span class="n">Colors</span><span class="o">.</span><span class="na">RED_ACCENT_2</span><span class="o">.</span><span class="na">value</span><span class="o">());</span>
+  <span class="n">colorSwitches</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">12</span><span class="o">).</span><span class="na">uncheck</span><span class="o">();</span>
+  <span class="n">colorSwitches</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">12</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">inputColor</span><span class="o">(</span><span class="n">Colors</span><span class="o">.</span><span class="na">BLACK_TRANSPARENT_087</span><span class="o">.</span><span class="na">value</span><span class="o">());</span>
+  <span class="o">}</span>
+</code></pre>
+<p><img src="images/vuetify/switches.png" alt="Lists example" /></p>
+
+<p>The Switch - component provides users the ability to choose between two distinct values.</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>check()/uncheck()</strong></td>
+<td>Switch element between two states</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>getInputColor()</strong></td>
+<td>Get color in RGBA format</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>getLabelText()</strong></td>
+<td>Get label text</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>getLabelHTML()</strong></td>
+<td>Get label HTML element</td>
+<td>boolen</td>
+</tr>
+<tr>
+<td><strong>isChecked()/isNotChecked()</strong></td>
+<td>Shows that required element is selected/not selected</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isDisabled()/isEnabled()</strong></td>
+<td>Shows that required element is disabled/enabled</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>hasLabel()</strong></td>
+<td>Shows that required element has label</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>hasInputProgressBar()</strong></td>
+<td>Shows that required element has Progress bar</td>
+<td>boolean</td>
+</tr>
+</tbody></table>
+
+<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/SwitchTests.java">JDI Vuetify Lists tests</a>.</p>
 <h3 id='lists'>Lists</h3>
 <p><a href="https://vuetifyjs.com/en/components/lists/">Vuetify documentation page</a></p>
 

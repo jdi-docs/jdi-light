@@ -456,6 +456,52 @@ public void indigoFooterTest() {
 
 For examples of usage see: [Vuetify Footers tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/composite/FootersTests.java).
 
+### Form input & controls
+
+### Overflow buttons
+
+[Vuetify documentation page](https://vuetifyjs.com/en/components/overflow-btns/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.composite.OverflowButton.java_
+
+```java
+    @Test
+public void baseFunctionalityOverflowButtonTest() {
+  counterOverflowButton.is().enable();
+  counterOverflowButton.is().placeholder("Overflow Btn w/ counter");
+  counterOverflowButton.expand();
+  counterOverflowButton.is().expanded();
+  counterOverflowButton.close();
+  counterOverflowButton.is().closed();
+  counterOverflowButton.select("50%");
+  counterOverflowButton.is().selected("50%");
+  counterOverflowButton.select(1);
+  counterOverflowButton.is().selected("100%");
+  }
+```
+
+![Lists example](../../images/vuetify/Overflow_buttons.png)
+
+Overflow button is used to give the user the ability to select items from the list. It has 3 variations: editable, overflow and segmented
+
+|Method | Description | Return Type
+--- | --- | ---
+**expand()/close()** | Open/close dropdown menu | void
+**select(String text)/select(int index)** | Select element | void
+**sendText(String text)** | Snd text in input field | void
+**clear()** | Clear input field | void
+**selected()** | Get selected text | String
+**hint()** | Get hint text | String
+**placeholder()** | Get placeholder text | String
+**counterMessage()** | Get counter text | String
+**isExpanded()/isClosed()** | Shows that dropdown menu is open/close | void
+**isDisabled()/isEnabled()** | Shows that required element is disabled/enabled | void
+**isEditable()** | Shows that required element is editable | void
+**readOnly()** | Shows that required element is readOnly | void
+**hasProgressBar** | Shows that required element has progress bar | void
+
+For examples of usage see: [JDI Vuetify Lists tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/OverflowButtonsTest.java).
+
 
 ### Lists
 

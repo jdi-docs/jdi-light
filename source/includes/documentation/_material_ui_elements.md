@@ -1473,6 +1473,35 @@ The Material Design responsive layout grid adapts to screen size and orientation
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/GridTests.java" target="_blank">Here you can find Grid tests</a>
 
+### GridList
+
+```java 
+     @UI(".MuiGridList-root.jss3")
+     public static GridList imageGridList;
+
+     @UI(".MuiGridList-root.jss5")
+     public static GridList singleLineGridList;
+
+     @UI(".MuiGridList-root.jss9")
+     public static GridList titleBarGridList;
+    
+     @Test
+     public static void singleLineGridTest() {
+        singleLineGridList.has().size(5);
+        singleLineGridList.has().image(3).and().altImgName(3, HATS);
+        singleLineGridList.has().image(4).and().altImgName(4, BIKE);
+        singleLineGridList.has().title(5, CAMERA);
+    }
+```
+
+##### <a href="https://material-ui.com/components/grid/" target="_blank"> https://material-ui.com/components/grid/ </a>
+
+The Grid List element - list of Material UI Grid elements.
+
+![GridList](../../images/material-ui/GridList.png)
+
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/GridListTests.java" target="_blank">Here you can find GridList tests</a>
+
 ### Drawer
 
 ```java 

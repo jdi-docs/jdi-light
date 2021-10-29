@@ -1069,6 +1069,9 @@
 								            <a href="#lists" class="toc-h2 h3 toc-link" data-title="Lists">Lists</a>
                           </li>
                           <li>
+								            <a href="#overlays" class="toc-h2 h3 toc-link" data-title="Overlays">Overlays</a>
+                          </li>
+                          <li>
 								            <a href="#pagination" class="toc-h2 h3 toc-link" data-title="Pagination">Pagination</a>
                           </li>
                           <li>
@@ -37053,6 +37056,68 @@ They are ideal for adjusting settings such as volume, brightness, or applying im
 </tbody></table>
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ListsTests.java">JDI Vuetify Lists tests</a>.</p>
+<h3 id='overlays'>Overlays</h3>
+<p><a href="https://vuetifyjs.com/en/components/overlays/">Vuetify documentation page</a></p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.vuetify.elements.common.Overlay.java</em></li>
+</ul>
+<pre class="highlight java tab-java"><code><span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">absoluteOverlayTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">absoluteOverlay</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">absolute</span><span class="o">();</span>
+    <span class="n">absoluteOverlay</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">notActive</span><span class="o">();</span>
+    <span class="n">absoluteOverlay</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">opacity</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+
+    <span class="n">absoluteOverlayButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+    <span class="n">absoluteOverlay</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">absolute</span><span class="o">();</span>
+    <span class="n">absoluteOverlay</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">active</span><span class="o">();</span>
+    <span class="n">absoluteOverlay</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">opacity</span><span class="o">(</span><span class="mf">0.46</span><span class="o">);</span>
+
+    <span class="n">absoluteOverlay</span><span class="o">.</span><span class="na">content</span><span class="o">().</span><span class="na">find</span><span class="o">(</span><span class="s">"button"</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+    <span class="n">absoluteOverlay</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">notActive</span><span class="o">();</span>
+    <span class="n">absoluteOverlay</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">opacity</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<p>The Overlay component is used to provide emphasis on a particular element or parts of it. It signals to the user of a state change within the application and can be used for creating loaders, dialogs and more. In its simplest form, the Overlay component will add a dimmed layer over your application.</p>
+
+<p><img src="images/vuetify/overlayBeforeClick.png" alt="Overlay example" />
+<img src="images/vuetify/overlayAfterClick.png" alt="Overlay example" /></p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>isActive()</strong></td>
+<td>Shows that required element is active</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isAbsolute()</strong></td>
+<td>Shows that required element is absolute</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>content()</strong></td>
+<td>Get content</td>
+<td>UIElement</td>
+</tr>
+<tr>
+<td><strong>zIndex()</strong></td>
+<td>Get z-index</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>opacity()</strong></td>
+<td>Get opacity</td>
+<td>double</td>
+</tr>
+</tbody></table>
+
+<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/OverlayTests.java">JDI Vuetify Overlays tests</a></p>
 <h3 id='pagination'>Pagination</h3>
 <p><a href="https://vuetifyjs.com/en/components/paginations/">Vuetify documentation page</a></p>
 

@@ -1054,6 +1054,9 @@
 								            <a href="#overflow-buttons" class="toc-h2 h3 toc-link" data-title="Overflow buttons">Overflow buttons</a>
                           </li>
                           <li>
+								            <a href="#range-slider" class="toc-h2 h3 toc-link" data-title="Range Slider">Range Slider</a>
+                          </li>
+                          <li>
 								            <a href="#slider" class="toc-h2 h3 toc-link" data-title="Slider">Slider</a>
                           </li>
                           <li>
@@ -36607,6 +36610,81 @@ and <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-l
 </tbody></table>
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/OverflowButtonsTest.java">JDI Vuetify Lists tests</a>.</p>
+<h3 id='range-slider'>Range Slider</h3>
+<p><a href="https://vuetifyjs.com/en/components/range-sliders/">Vuetify documentation page</a></p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.vuetify.elements.complex.RangeSlider.java</em></li>
+</ul>
+<pre class="highlight java tab-java"><code><span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">minAndMaxRangeSliderTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">minAndMaxRangeSlider</span><span class="o">.</span><span class="na">slideHorizontalTo</span><span class="o">(</span><span class="mi">11</span><span class="o">,</span> <span class="mi">66</span><span class="o">);</span>
+    <span class="n">minAndMaxRangeSlider</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="mi">11</span><span class="o">,</span> <span class="mi">66</span><span class="o">);</span>
+    <span class="n">minAndMaxRangeSlider</span><span class="o">.</span><span class="na">slideHorizontalTo</span><span class="o">(-</span><span class="mi">50</span><span class="o">,</span> <span class="mi">90</span><span class="o">);</span>
+    <span class="n">minAndMaxRangeSlider</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">value</span><span class="o">(-</span><span class="mi">50</span><span class="o">,</span> <span class="mi">90</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<p>The Range Slider component is a better visualization of the number input. 
+It is used for gathering numerical user data. Sliders reflect a range of values along a bar, from which users may select a single value. 
+They are ideal for adjusting settings such as volume, brightness, or applying image filters.</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>isDisabled()</strong></td>
+<td>Shows that required element is disabled</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isThumbLabelDisplayed()</strong></td>
+<td>Shows that thumb label of required element is displayed</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isAlwaysShow()</strong></td>
+<td>Shows that ticks of required element is always show</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isVertical()</strong></td>
+<td>Shows that required element is vertical</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>slideHorizontalTo(int valueLeft, int valueRight)</strong></td>
+<td>Set in horizontal slider left thumb to valueLeft and right thumb to valueRight</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>slideVerticalTo(int valueLeft, int valueRight)</strong></td>
+<td>Set in vertical slider upper thumb to valueLeft and lower thumb to valueRight</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>getThumbLabelValue()</strong></td>
+<td>Get label of the first and second thumb</td>
+<td>List<String></td>
+</tr>
+<tr>
+<td><strong>getValue()</strong></td>
+<td>Get first and second value</td>
+<td>List<Integer></td>
+</tr>
+<tr>
+<td><strong>getTickLabel()</strong></td>
+<td>Get tick label</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+<p><img src="images/vuetify/rangeSlider.png" alt="Range Slider example" /></p>
+
+<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/RangeSliderTests.java">JDI Vuetify Range sliders tests</a></p>
 <h3 id='slider'>Slider</h3>
 <p><a href="https://vuetifyjs.com/en/components/sliders/">Vuetify documentation page</a></p>
 
@@ -36724,7 +36802,7 @@ and <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-l
     <span class="n">passwordInputTextField</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">textType</span><span class="o">(</span><span class="s">"password"</span><span class="o">);</span>
 <span class="o">}</span>
 </code></pre>
-<p><img src="images/vuetify/textFields.png" alt="Lists example" /></p>
+<p><img src="images/vuetify/textFields.png" alt="Text fields example" /></p>
 
 <p>Text fields components are used for collecting user provided information.</p>
 

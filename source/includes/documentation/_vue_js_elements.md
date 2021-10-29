@@ -502,6 +502,42 @@ Overflow button is used to give the user the ability to select items from the li
 
 For examples of usage see: [JDI Vuetify Lists tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/OverflowButtonsTest.java).
 
+### Range Slider
+
+[Vuetify documentation page](https://vuetifyjs.com/en/components/range-sliders/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.complex.RangeSlider.java_
+
+```java
+@Test
+public void minAndMaxRangeSliderTest() {
+    minAndMaxRangeSlider.slideHorizontalTo(11, 66);
+    minAndMaxRangeSlider.is().value(11, 66);
+    minAndMaxRangeSlider.slideHorizontalTo(-50, 90);
+    minAndMaxRangeSlider.is().value(-50, 90);
+}
+```
+
+The Range Slider component is a better visualization of the number input. 
+It is used for gathering numerical user data. Sliders reflect a range of values along a bar, from which users may select a single value. 
+They are ideal for adjusting settings such as volume, brightness, or applying image filters.
+
+|Method | Description | Return Type
+--- | --- | ---
+**isDisabled()** | Shows that required element is disabled| boolean
+**isThumbLabelDisplayed()** | Shows that thumb label of required element is displayed| boolean
+**isAlwaysShow()** | Shows that ticks of required element is always show| boolean
+**isVertical()** | Shows that required element is vertical| boolean
+**slideHorizontalTo(int valueLeft, int valueRight)** | Set in horizontal slider left thumb to valueLeft and right thumb to valueRight| void
+**slideVerticalTo(int valueLeft, int valueRight)** | Set in vertical slider upper thumb to valueLeft and lower thumb to valueRight| void
+**getThumbLabelValue()** | Get label of the first and second thumb| List<String>
+**getValue()** | Get first and second value| List<Integer>
+**getTickLabel()** | Get tick label| String
+
+![Range Slider example](../../images/vuetify/rangeSlider.png)
+
+For examples of usage see: [JDI Vuetify Range sliders tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/RangeSliderTests.java)
+
 ### Slider
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/sliders/)
@@ -589,7 +625,7 @@ public void passwordInputTextFieldTest() {
 }
 ```
 
-![Lists example](../../images/vuetify/textFields.png)
+![Text fields example](../../images/vuetify/textFields.png)
 
 Text fields components are used for collecting user provided information.
 

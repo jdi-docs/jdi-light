@@ -558,7 +558,20 @@ The Slider component is a better visualization of the number input. It is used f
 
 ![Slider example](../../images/vuetify/slider.png)
 
-For examples of usage see: [JDI vuetify page tests for slider](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SliderTests.java)
+|Method | Description | Return Type
+--- | --- | ---
+**isDisabled()** | Shows that required element is disabled| boolean
+**isReadonly()** | Shows that required element is readonly| boolean
+**isThumbLabelDisplayed()** | Shows that thumb label of required element is displayed| boolean
+**isAlwaysShow()** | Shows that ticks of required element is always show| boolean
+**isVertical()** | Shows that required element is vertical| boolean
+**slideHorizontalTo(int value)** | Set in horizontal slider thumb to value| void
+**slideVerticalTo(int value)** | Set in vertical slider thumb to value| void
+**getThumbLabelValue()** | Get thumb label| String
+**getValue()** | Get value| Integer
+**getTickLabel()** | Get tick label| String
+
+For examples of usage see: [JDI Vuetify Sliders tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SliderTests.java)
 
 ### Switches
 

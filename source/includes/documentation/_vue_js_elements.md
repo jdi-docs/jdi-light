@@ -502,6 +502,27 @@ Overflow button is used to give the user the ability to select items from the li
 
 For examples of usage see: [JDI Vuetify Lists tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/OverflowButtonsTest.java).
 
+### Slider
+
+[Vuetify documentation page](https://vuetifyjs.com/en/components/sliders/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.complex.Slider.java_
+
+```java
+  @Test
+  public void minAndMaxSliderTest() {
+    minAndMaxSlider.slideHorizontalTo(90);
+    minAndMaxSlider.is().value(90);
+    minAndMaxSlider.slideHorizontalTo(-50);
+    minAndMaxSlider.is().value(-50);
+  }
+```
+
+The Slider component is a better visualization of the number input. It is used for gathering numerical user data.
+
+![Slider example](../../images/vuetify/slider.png)
+
+For examples of usage see: [JDI vuetify page tests for slider](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SliderTests.java)
 
 ### Switches
 
@@ -544,6 +565,58 @@ The Switch - component provides users the ability to choose between two distinct
 **hasInputProgressBar()** | Shows that required element has Progress bar | boolean
 
 For examples of usage see: [JDI Vuetify Lists tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/SwitchTests.java).
+
+### Text fields
+
+[Vuetify documentation page](https://vuetifyjs.com/en/components/text-fields/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.complex.TextFields.java_
+
+```java
+@Test(dataProvider = "counterTextFieldTestDataProvider", dataProviderClass = TextFieldsTestsDataProvider.class)
+public void counterTextFieldTest(int index, String text, int textLength, int maxLength) {
+    counterTextField.get(index).is().text(text);
+    counterTextField.get(index).is().counter(textLength, maxLength);
+}
+  
+@Test
+public void passwordInputTextFieldTest() {
+    passwordInputTextField.get(1).is().textType("password");
+    passwordInputTextField.get(1).getAppendInnerIcon().click();
+    passwordInputTextField.get(1).is().textType("text");
+    passwordInputTextField.get(1).getAppendInnerIcon().click();
+    passwordInputTextField.get(1).is().textType("password");
+}
+```
+
+![Lists example](../../images/vuetify/textFields.png)
+
+Text fields components are used for collecting user provided information.
+
+|Method | Description | Return Type
+--- | --- | ---
+**isDisabled()** | Shows that required element is disabled| boolean
+**isReadonly()** | Shows that required element is readonly| boolean
+**isFocused()** | Shows that required element is focused| boolean
+**textInputField()** |  Get text input field| UIElement
+**getText()** | Get text| String
+**setText(String text)** | Set text| void
+**getTextType()** | Get text type| String
+**clear()** |  Clear text field| void
+**clearAndSetText()** |  Clear text field and set text| void
+**focus()** |  Set mouse to text field| void
+**getMessage()** | Get message if it exists, otherwise an empty string| String
+**getCounter()** | Get counter if it exists, otherwise an empty string| String
+**placeholder()** | Get placeholder| String
+**getPrependOuterIcon()/getPrependOuterIcon(int index)**| Get prepend outer icon. If no index is given, the first object is taken. If the object is not found, null is returned| Icon
+**getPrependInnerIcon()/getPrependInnerIcon(int index)**| Get prepend inner icon. If no index is given, the first object is taken. If the object is not found, null is returned| Icon
+**getAppendOuterIcon()/getAppendOuterIcon(int index)**| Get append outer icon. If no index is given, the first object is taken. If the object is not found, null is returned| Icon
+**getAppendInnerIcon()/getAppendInnerIcon(int index)**| Get append inner icon. If no index is given, the first object is taken. If the object is not found, null is returned| Icon
+**getPrefix()** | Get prefix| String
+**getSuffix()** | Get suffix| String
+**labelText()** |  Get label text if it exists, otherwise an empty string| String
+
+For examples of usage see: [JDI Vuetify Text fields tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/TextFieldsTests.java).
 
 
 ### Lists
@@ -920,28 +993,6 @@ The Subheader component is used to separate sections of lists.
 ![Subheaders example](../../images/vuetify/subheader.png)
 
 For examples of usage see: [JDI vuetify page tests for subheaders](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/SubheaderTests.java)
-
-### Slider
-
-[Vuetify documentation page](https://vuetifyjs.com/en/components/sliders/)
-
-- __Java__: _com.epam.jdi.light.vuetify.elements.complex.Slider.java_
-
-```java
-  @Test
-  public void minAndMaxSliderTest() {
-    minAndMaxSlider.slideHorizontalTo(90);
-    minAndMaxSlider.is().value(90);
-    minAndMaxSlider.slideHorizontalTo(-50);
-    minAndMaxSlider.is().value(-50);
-  }
-```
-
-The Slider component is a better visualization of the number input. It is used for gathering numerical user data.
-
-![Slider example](../../images/vuetify/slider.png)
-
-For examples of usage see: [JDI vuetify page tests for slider](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SliderTests.java)
 
 ### Tables
 

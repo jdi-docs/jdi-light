@@ -1080,6 +1080,37 @@ It is **necessary** to specify **the root** of an element.
 
 For examples of usage see: [JDI vuetify page tests for pagination](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/PaginationTests.java).
 
+### Ratings
+
+[Vuetify documentation page](https://vuetifyjs.com/en/components/ratings/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.complex.Rating.java_
+
+```java
+@Test
+public void incrementedRatingTest() {
+    incrementedRating.setValue(3);
+    incrementedRating.is().value(3);
+    incrementedRating.setValue(3.5);
+    incrementedRating.is().value(3.5);
+  }
+```
+
+The rating component is a specialized but crucial piece in building user widgets. Collecting user feedback via ratings is a simple analytic that can provide a lot of feedback to your product or application.  
+
+![Ratongs example](../../images/vuetify/ratings.png)
+
+|Method | Description | Return Type
+--- | --- | ---
+**length()** | Get count rating buttons| int
+**size()** | Get size rating buttons| int
+**color()/ color(int index)** | Get color of rating button| String
+**setValue(double rating)** | Set rating to 'rating' with a mouse click| void
+**hoverSetValue(double rating)** | Set rating to 'rating' with a mouse hover| void
+**getValue()** | Get rating| Double
+
+For examples of usage see: [JDI Vuetify Ratingss tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/RatingTests.java)
+
 ### Snackbars
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/snackbars/)

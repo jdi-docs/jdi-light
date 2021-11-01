@@ -1104,6 +1104,9 @@
 								            <a href="#pagination" class="toc-h2 h3 toc-link" data-title="Pagination">Pagination</a>
                           </li>
                           <li>
+								            <a href="#ratings" class="toc-h2 h3 toc-link" data-title="Ratings">Ratings</a>
+                          </li>
+                          <li>
 								            <a href="#snackbars" class="toc-h2 h3 toc-link" data-title="Snackbars">Snackbars</a>
                           </li>
                           <li>
@@ -37539,6 +37542,64 @@ explicitly through a <code>JDIPagination</code> annotation.</p>
 </tbody></table>
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/PaginationTests.java">JDI vuetify page tests for pagination</a>.</p>
+<h3 id='ratings'>Ratings</h3>
+<p><a href="https://vuetifyjs.com/en/components/ratings/">Vuetify documentation page</a></p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.vuetify.elements.complex.Rating.java</em></li>
+</ul>
+<pre class="highlight java tab-java"><code><span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">incrementedRatingTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">incrementedRating</span><span class="o">.</span><span class="na">setValue</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+    <span class="n">incrementedRating</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+    <span class="n">incrementedRating</span><span class="o">.</span><span class="na">setValue</span><span class="o">(</span><span class="mf">3.5</span><span class="o">);</span>
+    <span class="n">incrementedRating</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="mf">3.5</span><span class="o">);</span>
+  <span class="o">}</span>
+</code></pre>
+<p>The rating component is a specialized but crucial piece in building user widgets. Collecting user feedback via ratings is a simple analytic that can provide a lot of feedback to your product or application.  </p>
+
+<p><img src="images/vuetify/ratings.png" alt="Ratongs example" /></p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>length()</strong></td>
+<td>Get count rating buttons</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>size()</strong></td>
+<td>Get size rating buttons</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>color()/ color(int index)</strong></td>
+<td>Get color of rating button</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>setValue(double rating)</strong></td>
+<td>Set rating to &#39;rating&#39; with a mouse click</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>hoverSetValue(double rating)</strong></td>
+<td>Set rating to &#39;rating&#39; with a mouse hover</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>getValue()</strong></td>
+<td>Get rating</td>
+<td>Double</td>
+</tr>
+</tbody></table>
+
+<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/RatingTests.java">JDI Vuetify Ratingss tests</a></p>
 <h3 id='snackbars'>Snackbars</h3>
 <p><a href="https://vuetifyjs.com/en/components/snackbars/">Vuetify documentation page</a></p>
 

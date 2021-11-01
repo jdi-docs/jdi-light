@@ -1146,6 +1146,50 @@ The snackbar component is used to display a quick message to a user.
 
 For examples of usage see: [JDI vuetify page tests for snackbars](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/SnackbarsTests.java).
 
+### Steppers
+
+[Vuetify documentation page](https://vuetifyjs.com/en/components/steppers/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.complex.stepper.Stepper.java_
+- __Java__: _com.epam.jdi.light.vuetify.elements.complex.stepper.Step.java_
+
+```java
+@Test
+public void nonLinearStepperCompleteTest() {
+    Stepper stepper = nonLinearStepper.get(3);
+  
+    stepper.getStepsList().forEach(step -> {
+    step.click();
+    step.is().active();
+    step.is().complete();
+    });
+}
+```
+
+The Stepper displays progress through numbered steps.
+
+![Steppers example](../../images/vuetify/steppers.png)
+
+#### Stepper
+|Method | Description | Return Type
+--- | --- | ---
+**getStepsList()** | Get a List of Steps| List<Step>
+**getStep(int index)** | Get step from List<Step> with index| Step
+**getContentList()** | Get a List of Content| WebList
+
+The Stepper consists of Step elements.
+
+#### Step
+|Method | Description | Return Type
+--- | --- | ---
+**stepIsActive()** | Check that step is active| boolean
+**stepIsComplete()** | Check that step is complete| boolean
+**stepIsEditable()** | Check that step is editable| boolean
+**getName()** | Get step name| String
+**click()** | Click on step| void
+
+For examples of usage see: [JDI Vuetify Steppers tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SteppersTests.java)
+
 ### Subheaders
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/subheaders/)

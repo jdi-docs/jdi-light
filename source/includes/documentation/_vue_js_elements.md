@@ -338,6 +338,58 @@ card `text` element, but the `text` method is inherited from `UIBaseElement` tha
 For examples of usage see: [Custom vuetify card examples](https://github.com/jdi-testing/jdi-light/tree/vuetify-develop/jdi-light-vuetify-tests/src/main/java/io/github/com/custom/cards)
 and [JDI vuetify page tests for cards](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/CardsTests.java).
 
+### Dialogs
+
+[Vuetify documentation page](https://vuetifyjs.com/en/components/dialogs/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.complex.Dialog.java_
+
+```java
+    @Test
+    public static void formDialogTest() {
+        formDialog.open();
+        formDialog.is().opened();
+        formDialog.has().title("User Profile");
+        formDialog.fillTheForm("John", "Hadley", "Chase", "john@hadley.com",
+                "12345", 4, "Soccer", "Skiing", "Writing");
+        formDialog.save();
+        formDialog.is().closed();
+    }
+
+```
+
+![Dialogs example](../../images/vuetify/dialogs1.png)
+![Dialogs example](../../images/vuetify/dialogs2.png)
+
+The Dialog component inform users about a specific task and may contain critical information, require decisions, or involve multiple tasks.
+
+|Method | Description | Return Type
+--- | --- | ---
+**open()** | Opens required dialog| void
+**isOpened()** | Shows that dialog is opened| boolean[
+**openMenu()** | Opens menu in dialog| void
+**selectMenuElement()** | Selects required menu's in element| void
+**openNestedDialog()** | Opens nested dialog| boolean
+**nestedDialogIsOpen()** | Shows that shows that nested dialog is opened| boolean
+**closeNestedDialog()** | Closes nested dialog| void
+**openTooltip()** | Opens the tooltip in dialog| void
+**tooltipIsOpened()** | Shows that tooltip is open| boolean
+**getTitle()** | Gets dialog title| String
+**elementText()** | Gets required dialog's element text| String
+**cardText()** | Gets dialog text| String
+**checkElement()** | Checks required dialog's element| void
+**uncheckElement()** | Unchecks required dialog's element| void
+**selectRadiobutton()** | Selects required dialog's radiobutton| void
+**isSelected()** | Shows that button is selected| boolean
+**isNotSelected()** | Shows that button is not selected| boolean
+**fillTheForm()** | Fills dialog's form with required value| void
+**save()** | Closes dialog and saves changes| void
+**cancel()** | Closes dialog without saves changes| void
+**isLoading()** | Shows that dialog is loading| boolean
+
+For examples of usage see: [JDI vuetify page tests for dialogs](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/DialogTests.java).
+
+
 ### Expansion Panels
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/expansion-panels/)
@@ -1203,6 +1255,65 @@ The Simple Table component is a simple wrapper component around the table elemen
 
 For examples of usage see: [Vuetify Simple Table tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SimpleTablesTests.java#L40).
 
+### Data Tables
+
+[Vuetify documentation page](https://vuetifyjs.com/en/components/data-tables/)
+
+- __Java__: _package com.epam.jdi.light.vuetify.elements.complex.tables.DataTable.java_
+
+```java
+    @Test
+    public static void searchTableTest() {
+        searchTable.search(TableTestData.DONUT);
+        searchTable.has().firstColumnHasElement(1, TableTestData.DONUT);
+        searchTable.clear();
+        searchTable.search(TableTestData.ECLAIR_CALORIES);
+        searchTable.has().firstColumnHasElement(1, TableTestData.ECLAIR);
+    }
+
+```
+
+The Data Table component is used for displaying tabular data and to extend the Simple Table element
+
+![Data Table example](../../images/vuetify/data_table.png)
+
+|Method | Description | Return Type
+--- | --- | ---
+**has()/is()** | Returns Assert class | DataTableAssert
+**columnElement()** | Returns required element from required column | String
+**search()** | Searches required element in table | void
+**clear()** | Clears search field | void
+**rowsPerPage()** | Shows the required value of rows in table | void
+**itemsPerPage()** | Shows the required value of elements in table | void
+**elementsInColumn()** | Returns size of the required column | Integer
+**previousPage()** | Switches to the previous page | void
+**firstPage()** | Switches to the first page | void
+**secondPage()** | Switches to the second page | void
+**nextPage()** | Switches to the next page | void
+**sortAscBy()** | Sorts elements by the required value in ascending order | void
+**sortDescBy()** | Sorts elements by the required value in descending order | void
+**sortOff()** | Turns off the sort | void
+**isSortedBy()** | Shows that elements sorted by the value | boolean
+**collapseGroup()** | Collapses the required group | void
+**expandGroup()** | Expands the required group | void
+**sortGroup()** | Sorts elements by required group | void
+**removeGroups()** | Remove all groups | void
+**hasGroup()** | Shows that elements required by the required group | boolean
+**isLoading()** | Shows that table is loading | boolean
+**isSelected()** | Shows that required element in required column is selected | boolean
+**singleSelectOn()** | Turns on single select | void
+**singleSelectOff()** | Turns off single select | void
+**elIsGreen()** | Shows that the required element is green | boolean
+**elIsOrange()** | Shows that the required element is orange | boolean
+**elIsRed()** | Shows that the required element is red | boolean
+**createWithSave()** | Creates new element with required values and save it | void
+**createWithoutSave()** | Creates new element with required values without save| void
+**editElement()** | Changes required element name to required value | void
+**confirm()** | Confirms changes in element | void
+**cancel()** | Cancels changes in element| void
+**expand()** | Expands required element| void
+
+For examples of usage see: [Vuetify Data Table tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/DataTablesTests.java).
 
 ### Tabs
 

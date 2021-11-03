@@ -1042,6 +1042,9 @@
 								            <a href="#cards" class="toc-h2 h3 toc-link" data-title="Cards">Cards</a>
                           </li>
                           <li>
+								            <a href="#dialogs" class="toc-h2 h3 toc-link" data-title="Dialogs">Dialogs</a>
+                          </li>
+                          <li>
 								            <a href="#expansion-panels" class="toc-h2 h3 toc-link" data-title="Expansion Panels">Expansion Panels</a>
                           </li>
                           <li>
@@ -1117,6 +1120,9 @@
                           </li>
                           <li>
 								            <a href="#simple-tables" class="toc-h2 h3 toc-link" data-title="Simple Tables">Simple Tables</a>
+                          </li>
+                          <li>
+								            <a href="#data-tables" class="toc-h2 h3 toc-link" data-title="Data Tables">Data Tables</a>
                           </li>
                           <li>
 								            <a href="#tabs" class="toc-h2 h3 toc-link" data-title="Tabs">Tabs</a>
@@ -36429,6 +36435,144 @@ card <code>text</code> element, but the <code>text</code> method is inherited fr
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/tree/vuetify-develop/jdi-light-vuetify-tests/src/main/java/io/github/com/custom/cards">Custom vuetify card examples</a>
 and <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/CardsTests.java">JDI vuetify page tests for cards</a>.</p>
+<h3 id='dialogs'>Dialogs</h3>
+<p><a href="https://vuetifyjs.com/en/components/dialogs/">Vuetify documentation page</a></p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.vuetify.elements.complex.Dialog.java</em></li>
+</ul>
+<pre class="highlight java tab-java"><code>    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">formDialogTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">formDialog</span><span class="o">.</span><span class="na">open</span><span class="o">();</span>
+        <span class="n">formDialog</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">opened</span><span class="o">();</span>
+        <span class="n">formDialog</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">title</span><span class="o">(</span><span class="s">"User Profile"</span><span class="o">);</span>
+        <span class="n">formDialog</span><span class="o">.</span><span class="na">fillTheForm</span><span class="o">(</span><span class="s">"John"</span><span class="o">,</span> <span class="s">"Hadley"</span><span class="o">,</span> <span class="s">"Chase"</span><span class="o">,</span> <span class="s">"john@hadley.com"</span><span class="o">,</span>
+                <span class="s">"12345"</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="s">"Soccer"</span><span class="o">,</span> <span class="s">"Skiing"</span><span class="o">,</span> <span class="s">"Writing"</span><span class="o">);</span>
+        <span class="n">formDialog</span><span class="o">.</span><span class="na">save</span><span class="o">();</span>
+        <span class="n">formDialog</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">closed</span><span class="o">();</span>
+    <span class="o">}</span>
+
+</code></pre>
+<p><img src="images/vuetify/dialogs1.png" alt="Dialogs example" />
+<img src="images/vuetify/dialogs2.png" alt="Dialogs example" /></p>
+
+<p>The Dialog component inform users about a specific task and may contain critical information, require decisions, or involve multiple tasks.</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>open()</strong></td>
+<td>Opens required dialog</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>isOpened()</strong></td>
+<td>Shows that dialog is opened</td>
+<td>boolean[</td>
+</tr>
+<tr>
+<td><strong>openMenu()</strong></td>
+<td>Opens menu in dialog</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>selectMenuElement()</strong></td>
+<td>Selects required menu&#39;s in element</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>openNestedDialog()</strong></td>
+<td>Opens nested dialog</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>nestedDialogIsOpen()</strong></td>
+<td>Shows that shows that nested dialog is opened</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>closeNestedDialog()</strong></td>
+<td>Closes nested dialog</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>openTooltip()</strong></td>
+<td>Opens the tooltip in dialog</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>tooltipIsOpened()</strong></td>
+<td>Shows that tooltip is open</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>getTitle()</strong></td>
+<td>Gets dialog title</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>elementText()</strong></td>
+<td>Gets required dialog&#39;s element text</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>cardText()</strong></td>
+<td>Gets dialog text</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>checkElement()</strong></td>
+<td>Checks required dialog&#39;s element</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>uncheckElement()</strong></td>
+<td>Unchecks required dialog&#39;s element</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>selectRadiobutton()</strong></td>
+<td>Selects required dialog&#39;s radiobutton</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>isSelected()</strong></td>
+<td>Shows that button is selected</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isNotSelected()</strong></td>
+<td>Shows that button is not selected</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>fillTheForm()</strong></td>
+<td>Fills dialog&#39;s form with required value</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>save()</strong></td>
+<td>Closes dialog and saves changes</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>cancel()</strong></td>
+<td>Closes dialog without saves changes</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>isLoading()</strong></td>
+<td>Shows that dialog is loading</td>
+<td>boolean</td>
+</tr>
+</tbody></table>
+
+<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/DialogTests.java">JDI vuetify page tests for dialogs</a>.</p>
 <h3 id='expansion-panels'>Expansion Panels</h3>
 <p><a href="https://vuetifyjs.com/en/components/expansion-panels/">Vuetify documentation page</a></p>
 
@@ -37757,6 +37901,201 @@ explicitly through a <code>JDIPagination</code> annotation.</p>
 </tbody></table>
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SimpleTablesTests.java#L40">Vuetify Simple Table tests</a>.</p>
+<h3 id='data-tables'>Data Tables</h3>
+<p><a href="https://vuetifyjs.com/en/components/data-tables/">Vuetify documentation page</a></p>
+
+<ul>
+<li><strong>Java</strong>: <em>package com.epam.jdi.light.vuetify.elements.complex.tables.DataTable.java</em></li>
+</ul>
+<pre class="highlight java tab-java"><code>    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">searchTableTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">searchTable</span><span class="o">.</span><span class="na">search</span><span class="o">(</span><span class="n">TableTestData</span><span class="o">.</span><span class="na">DONUT</span><span class="o">);</span>
+        <span class="n">searchTable</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">firstColumnHasElement</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="n">TableTestData</span><span class="o">.</span><span class="na">DONUT</span><span class="o">);</span>
+        <span class="n">searchTable</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
+        <span class="n">searchTable</span><span class="o">.</span><span class="na">search</span><span class="o">(</span><span class="n">TableTestData</span><span class="o">.</span><span class="na">ECLAIR_CALORIES</span><span class="o">);</span>
+        <span class="n">searchTable</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">firstColumnHasElement</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="n">TableTestData</span><span class="o">.</span><span class="na">ECLAIR</span><span class="o">);</span>
+    <span class="o">}</span>
+
+</code></pre>
+<p>The Data Table component is used for displaying tabular data and to extend the Simple Table element</p>
+
+<p><img src="images/vuetify/data_table.png" alt="Data Table example" /></p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>has()/is()</strong></td>
+<td>Returns Assert class</td>
+<td>DataTableAssert</td>
+</tr>
+<tr>
+<td><strong>columnElement()</strong></td>
+<td>Returns required element from required column</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>search()</strong></td>
+<td>Searches required element in table</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>clear()</strong></td>
+<td>Clears search field</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>rowsPerPage()</strong></td>
+<td>Shows the required value of rows in table</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>itemsPerPage()</strong></td>
+<td>Shows the required value of elements in table</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>elementsInColumn()</strong></td>
+<td>Returns size of the required column</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td><strong>previousPage()</strong></td>
+<td>Switches to the previous page</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>firstPage()</strong></td>
+<td>Switches to the first page</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>secondPage()</strong></td>
+<td>Switches to the second page</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>nextPage()</strong></td>
+<td>Switches to the next page</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>sortAscBy()</strong></td>
+<td>Sorts elements by the required value in ascending order</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>sortDescBy()</strong></td>
+<td>Sorts elements by the required value in descending order</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>sortOff()</strong></td>
+<td>Turns off the sort</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>isSortedBy()</strong></td>
+<td>Shows that elements sorted by the value</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>collapseGroup()</strong></td>
+<td>Collapses the required group</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>expandGroup()</strong></td>
+<td>Expands the required group</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>sortGroup()</strong></td>
+<td>Sorts elements by required group</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>removeGroups()</strong></td>
+<td>Remove all groups</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>hasGroup()</strong></td>
+<td>Shows that elements required by the required group</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isLoading()</strong></td>
+<td>Shows that table is loading</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isSelected()</strong></td>
+<td>Shows that required element in required column is selected</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>singleSelectOn()</strong></td>
+<td>Turns on single select</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>singleSelectOff()</strong></td>
+<td>Turns off single select</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>elIsGreen()</strong></td>
+<td>Shows that the required element is green</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>elIsOrange()</strong></td>
+<td>Shows that the required element is orange</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>elIsRed()</strong></td>
+<td>Shows that the required element is red</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>createWithSave()</strong></td>
+<td>Creates new element with required values and save it</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>createWithoutSave()</strong></td>
+<td>Creates new element with required values without save</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>editElement()</strong></td>
+<td>Changes required element name to required value</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>confirm()</strong></td>
+<td>Confirms changes in element</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>cancel()</strong></td>
+<td>Cancels changes in element</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>expand()</strong></td>
+<td>Expands required element</td>
+<td>void</td>
+</tr>
+</tbody></table>
+
+<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/DataTablesTests.java">Vuetify Data Table tests</a>.</p>
 <h3 id='tabs'>Tabs</h3>
 <p><a href="https://vuetifyjs.com/en/components/tabs/">Vuetify documentation page</a></p>
 

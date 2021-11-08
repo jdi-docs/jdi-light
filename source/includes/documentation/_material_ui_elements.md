@@ -1,6 +1,6 @@
 ## Material UI elements
 
-### Material UI Checkbox
+### Checkbox (Material UI)
 
 ```java 
     @UI("//h2[text()='Basic checkboxes']/following-sibling::div[1]/span")

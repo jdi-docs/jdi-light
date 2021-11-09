@@ -21,12 +21,7 @@ includes:
   - theory
   - faq
   - documentation
-  - documentation/base_information
-  - documentation/html5_elements
-  - documentation/angular_elements
-  - documentation/bootstrap_elements
-  - documentation/material_ui_elements
-  - documentation/vue_js_elements
+  - documentation/elements_documentation
   - documentation/jdi_features
 
 search: true

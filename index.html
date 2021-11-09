@@ -1113,6 +1113,9 @@
 								            <a href="#snackbars" class="toc-h2 h3 toc-link" data-title="Snackbars">Snackbars</a>
                           </li>
                           <li>
+								            <a href="#sparklines" class="toc-h2 h3 toc-link" data-title="Sparklines">Sparklines</a>
+                          </li>
+                          <li>
 								            <a href="#subheaders" class="toc-h2 h3 toc-link" data-title="Subheaders">Subheaders</a>
                           </li>
                           <li>
@@ -37818,6 +37821,67 @@ explicitly through a <code>JDIPagination</code> annotation.</p>
 </tbody></table>
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/SnackbarsTests.java">JDI vuetify page tests for snackbars</a>.</p>
+<h3 id='sparklines'>Sparklines</h3>
+<p><a href="https://vuetifyjs.com/en/components/sparklines/">Vuetify documentation page</a></p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.vuetify.elements.complex.Sparkline.java</em></li>
+</ul>
+<pre class="highlight java tab-java"><code>    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">heartRateSparklineTests</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">String</span> <span class="n">initialHeartRatePathShape</span> <span class="o">=</span> <span class="n">heartRateSparkline</span><span class="o">.</span><span class="na">getPathShape</span><span class="o">();</span>
+        <span class="n">heartRateSparkline</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">pathShapeEqualTo</span><span class="o">(</span><span class="n">initialHeartRatePathShape</span><span class="o">);</span>
+
+        <span class="n">heartRateRefreshButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">waitCondition</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">heartRateRefreshButton</span><span class="o">.</span><span class="na">hasAttribute</span><span class="o">(</span><span class="s">"red--text"</span><span class="o">));</span>
+
+        <span class="n">heartRateSparkline</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">pathShapeNotEqualTo</span><span class="o">(</span><span class="n">initialHeartRatePathShape</span><span class="o">);</span>
+    <span class="o">}</span>
+</code></pre>
+<p>The sparkline component can be used to create simple graphs, like GitHub’s contribution chart.</p>
+
+<p><img src="images/vuetify/sparkline.png" alt="Sparkline example" /></p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>is()/has()</strong></td>
+<td>Returns Assert class</td>
+<td>SparklineAssert</td>
+</tr>
+<tr>
+<td><strong>getLineWidth()</strong></td>
+<td>Returns sparkline stroke line width</td>
+<td>double</td>
+</tr>
+<tr>
+<td><strong>isFilled()</strong></td>
+<td>Shows that sparkline is filled</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>getPathShape()</strong></td>
+<td>Returns sparkline SVG path definition</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>getLabelTexts()</strong></td>
+<td>Returns sparkline data point label texts</td>
+<td>List&lt;String&gt;</td>
+</tr>
+<tr>
+<td><strong>getLinearGradientMap()</strong></td>
+<td>Returns map representation of sparkline linear gradient</td>
+<td>Map&lt;String, String&gt;</td>
+</tr>
+</tbody></table>
+
+<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SparklinesTests.java">JDI vuetify page tests for sparklines</a>.</p>
 <h3 id='subheaders'>Subheaders</h3>
 <p><a href="https://vuetifyjs.com/en/components/subheaders/">Vuetify documentation page</a></p>
 

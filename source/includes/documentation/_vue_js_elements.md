@@ -1198,6 +1198,40 @@ The snackbar component is used to display a quick message to a user.
 
 For examples of usage see: [JDI vuetify page tests for snackbars](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/SnackbarsTests.java).
 
+### Sparklines
+
+[Vuetify documentation page](https://vuetifyjs.com/en/components/sparklines/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.complex.Sparkline.java_
+
+```java
+    @Test
+    public void heartRateSparklineTests() {
+        String initialHeartRatePathShape = heartRateSparkline.getPathShape();
+        heartRateSparkline.has().pathShapeEqualTo(initialHeartRatePathShape);
+
+        heartRateRefreshButton.click();
+        waitCondition(() -> heartRateRefreshButton.hasAttribute("red--text"));
+
+        heartRateSparkline.has().pathShapeNotEqualTo(initialHeartRatePathShape);
+    }
+```
+
+The sparkline component can be used to create simple graphs, like GitHub’s contribution chart.
+
+![Sparkline example](../../images/vuetify/sparkline.png)
+
+|Method | Description | Return Type
+--- | --- | ---
+**is()/has()** | Returns Assert class | SparklineAssert
+**getLineWidth()** | Returns sparkline stroke line width | double
+**isFilled()** | Shows that sparkline is filled | boolean
+**getPathShape()** | Returns sparkline SVG path definition | String
+**getLabelTexts()** | Returns sparkline data point label texts | List\<String>
+**getLinearGradientMap()** | Returns map representation of sparkline linear gradient | Map\<String, String>
+
+For examples of usage see: [JDI vuetify page tests for sparklines](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SparklinesTests.java).
+
 ### Subheaders
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/subheaders/)

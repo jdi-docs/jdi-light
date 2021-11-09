@@ -1,8 +1,6 @@
 ## Material UI elements
 
-### Material UI Checkbox
-
-##### <a href="https://material-ui.com/components/checkboxes/" target="_blank"> https://material-ui.com/components/checkboxes/ </a>
+### Checkbox (Material UI)
 
 ```java 
     @UI("//h2[text()='Basic checkboxes']/following-sibling::div[1]/span")
@@ -28,6 +26,8 @@
         checkbox.is().hasClass(className);
     }
 ```
+
+##### <a href="https://material-ui.com/components/checkboxes/" target="_blank"> https://material-ui.com/components/checkboxes/ </a>
 
 Checkbox is located in the following class:
 
@@ -1146,8 +1146,6 @@ The backdrop component is used to provide emphasis on a particular element or pa
 
 ### Dialog
 
-##### <a href="https://material-ui.com/components/dialogs/" target="_blank"> https://material-ui.com/components/dialogs/ </a>
-
 ```java 
     @UI("//span[text()='Open simple dialog']/parent::*[contains(@class,'MuiButtonBase-root')]")
     public static Button simpleDialogButton;
@@ -1185,6 +1183,8 @@ The backdrop component is used to provide emphasis on a particular element or pa
           scrollableDialogField.is().text("Last clicked button: Cancel");
     }
 ```
+
+##### <a href="https://material-ui.com/components/dialogs/" target="_blank"> https://material-ui.com/components/dialogs/ </a>
 
 Dialogs inform users about a task and can contain critical information, require decisions, or involve multiple tasks.
 ![Dialog](../../images/material-ui/Dialog.png)

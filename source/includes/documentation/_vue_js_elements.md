@@ -1376,4 +1376,38 @@ Tabs - a list of tabs which may be implemented as buttons, links, icons etc. You
 
 For examples of usage see: [JDI vuetify page tests for tabs](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/TabsTests.java).
 
+#### 5.23 Icons
+
+[Vuetify documentation page](https://vuetifyjs.com/en/components/icons/)
+
+- __Java__: _package com.epam.jdi.light.vuetify.elements.common.Icon.java_
+
+```java
+    @Test
+    public void clickIconTests() {
+      clickIcon.is().displayed();
+      clickIcon.is().clickable();
+      clickIcon.has().type("mdi-chevron-right");
+      clickIcon.has().height(36);
+      clickIcon.has().width(36);
+      clickIcon.click();
+      clickIcon.has().alertOnIconClick("You clicked next!");
+      clickIcon.handleAlert();
+    }
+```
+
+Icon component provides a large set of graphial signs to provide context for various aspects of your application.
+
+![Icons example](../../images/vuetify/icons.png)
+
+|Method | Description | Return Type
+--- | --- | ---
+**has()/is()** | Returns Assert class | IconAssert
+**hasType()** | Returns type of icon (mdi, svg, etc.) | String
+**hasColor()** | Returns color of icon in rgba | String
+**hasHeight()** | Returns height of icon | String
+**hasWidth()** | Returns width of icon | String
+
+For examples of usage see: [Vuetify Icon tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/IconsTests.java).
+
 

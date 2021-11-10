@@ -1229,6 +1229,7 @@ The sparkline component can be used to create simple graphs, like GitHub’s con
 **getLinearGradientMap()** | Returns map representation of sparkline linear gradient | Map\<String, String>
 
 For examples of usage see: [JDI vuetify page tests for sparklines](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuet
+
 ### 5.20 Subheaders
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/subheaders/)

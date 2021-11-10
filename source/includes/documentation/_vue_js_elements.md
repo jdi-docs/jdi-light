@@ -1198,7 +1198,38 @@ The snackbar component is used to display a quick message to a user.
 
 For examples of usage see: [JDI vuetify page tests for snackbars](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/SnackbarsTests.java).
 
-### 5.19 Subheaders
+### 5.19 Sparklines
+
+[Vuetify documentation page](https://vuetifyjs.com/en/components/sparklines/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.complex.Sparkline.java_
+
+```java
+    @Test
+    public void heartRateSparklineTests() {
+        String initialHeartRatePathShape = heartRateSparkline.getPathShape();
+        heartRateSparkline.has().pathShapeEqualTo(initialHeartRatePathShape);
+        heartRateRefreshButton.click();
+        waitCondition(() -> heartRateRefreshButton.hasAttribute("red--text"));
+        heartRateSparkline.has().pathShapeNotEqualTo(initialHeartRatePathShape);
+    }
+```
+
+The sparkline component can be used to create simple graphs, like GitHub’s contribution chart.
+
+![Sparkline example](../../images/vuetify/sparkline.png)
+
+|Method | Description | Return Type
+--- | --- | ---
+**is()/has()** | Returns Assert class | SparklineAssert
+**getLineWidth()** | Returns sparkline stroke line width | double
+**isFilled()** | Shows that sparkline is filled | boolean
+**getPathShape()** | Returns sparkline SVG path definition | String
+**getLabelTexts()** | Returns sparkline data point label texts | List\<String>
+**getLinearGradientMap()** | Returns map representation of sparkline linear gradient | Map\<String, String>
+
+For examples of usage see: [JDI vuetify page tests for sparklines](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuet
+### 5.20 Subheaders
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/subheaders/)
 
@@ -1220,9 +1251,9 @@ The Subheader component is used to separate sections of lists.
 
 For examples of usage see: [JDI vuetify page tests for subheaders](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/SubheaderTests.java)
 
-### 5.20 Tables
+### 5.21 Tables
 
-#### 5.20.1 Simple Tables
+#### 5.21.1 Simple Tables
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/simple-tables/)
 
@@ -1255,7 +1286,7 @@ The Simple Table component is a simple wrapper component around the table elemen
 
 For examples of usage see: [Vuetify Simple Table tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SimpleTablesTests.java#L40).
 
-#### 5.20.2 Data Tables
+#### 5.21.2 Data Tables
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/data-tables/)
 
@@ -1315,7 +1346,7 @@ The Data Table component is used for displaying tabular data and to extend the S
 
 For examples of usage see: [Vuetify Data Table tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/DataTablesTests.java).
 
-### 5.21 Tabs
+### 5.22 Tabs
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/tabs/)
 

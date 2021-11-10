@@ -1376,7 +1376,7 @@ Tabs - a list of tabs which may be implemented as buttons, links, icons etc. You
 
 For examples of usage see: [JDI vuetify page tests for tabs](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/TabsTests.java).
 
-#### 5.23 Icons
+### 5.23 Icons
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/icons/)
 

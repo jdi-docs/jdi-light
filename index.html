@@ -1127,6 +1127,11 @@
                           </li>
                           <li>
 								            <a href="#5-22-tabs" class="toc-h2 h3 toc-link" data-title="5.22 Tabs">5.22 Tabs</a>
+									            <ul class="toc-list-h2">
+										              <li>
+										              <a href="#5-23-icons" class="toc-h3 h4 toc-link" data-title="5.23 Icons">5.23 Icons</a>
+										              </li>
+									            </ul>
                           </li>
                       </ul>
                   </li>
@@ -38182,6 +38187,63 @@ explicitly through a <code>JDIPagination</code> annotation.</p>
 <p>Tabs - a list of tabs which may be implemented as buttons, links, icons etc. You can inherit the <code>Tabs</code> class and customize it the way you want.</p>
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/TabsTests.java">JDI vuetify page tests for tabs</a>.</p>
+<h4 id='5-23-icons'>5.23 Icons</h4>
+<p><a href="https://vuetifyjs.com/en/components/icons/">Vuetify documentation page</a></p>
+
+<ul>
+<li><strong>Java</strong>: <em>package com.epam.jdi.light.vuetify.elements.common.Icon.java</em></li>
+</ul>
+<pre class="highlight java tab-java"><code>    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">clickIconTests</span><span class="o">()</span> <span class="o">{</span>
+      <span class="n">clickIcon</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+      <span class="n">clickIcon</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">clickable</span><span class="o">();</span>
+      <span class="n">clickIcon</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">type</span><span class="o">(</span><span class="s">"mdi-chevron-right"</span><span class="o">);</span>
+      <span class="n">clickIcon</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">height</span><span class="o">(</span><span class="mi">36</span><span class="o">);</span>
+      <span class="n">clickIcon</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">width</span><span class="o">(</span><span class="mi">36</span><span class="o">);</span>
+      <span class="n">clickIcon</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+      <span class="n">clickIcon</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">alertOnIconClick</span><span class="o">(</span><span class="s">"You clicked next!"</span><span class="o">);</span>
+      <span class="n">clickIcon</span><span class="o">.</span><span class="na">handleAlert</span><span class="o">();</span>
+    <span class="o">}</span>
+</code></pre>
+<p>Icon component provides a large set of graphial signs to provide context for various aspects of your application.</p>
+
+<p><img src="images/vuetify/icons.png" alt="Icons example" /></p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>has()/is()</strong></td>
+<td>Returns Assert class</td>
+<td>IconAssert</td>
+</tr>
+<tr>
+<td><strong>hasType()</strong></td>
+<td>Returns type of icon (mdi, svg, etc.)</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>hasColor()</strong></td>
+<td>Returns color of icon in rgba</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>hasHeight()</strong></td>
+<td>Returns height of icon</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>hasWidth()</strong></td>
+<td>Returns width of icon</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/IconsTests.java">Vuetify Icon tests</a>.</p>
 <h2 id='jdi-features'>JDI features</h2><h3 id='jdi-features-for-parameters-in-bdd-steps'>JDI Features for parameters in BDD steps</h3><h4 id='using-aliases-as-locators-parameters'>Using aliases as locators parameters</h4><pre class="highlight gherkin tab-gherkin"><code>   <span class="kn">Scenario</span><span class="p">:</span> input element
        <span class="nf">When</span> I input <span class="s">"simple 1234"</span> in <span class="s">"Name"</span>
        <span class="nf">Then</span> the <span class="s">"Name"</span> text matches to <span class="s">"\w{6} \d{4}"</span>

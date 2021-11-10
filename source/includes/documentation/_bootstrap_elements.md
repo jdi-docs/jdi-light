@@ -1,7 +1,7 @@
-## Bootstrap elements
-### Bootstrap Common elements
+## 3. Bootstrap elements
+### 3.1 Bootstrap Common elements
 
-#### Checkboxes and radios
+#### 3.1.1 Checkboxes and radios
 
 ##### <a href="https://getbootstrap.com/docs/4.3/components/buttons/" target="_blank">Checkbox default</a>
 
@@ -880,7 +880,7 @@ Button group is represented by Section class in Java:
 
 <br>
 
-#### Button group
+#### 3.1.2 Button group
 
 <a href="https://getbootstrap.com/docs/4.3/components/button-group/" target="_blank">Button group</a> – Element that groups a series of buttons together on a single line with the button group, and super-power them with JavaScript.
 
@@ -1374,7 +1374,7 @@ Inner elements represented by the following classes:
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/buttonGroup/VerticalVariationTests.java" target="_blank">Button Group Vertical Variation Tests Example</a>
 <br><br>
 
-#### Alert
+#### 3.1.3 Alert
 Alert is located in the following class: <br>
 - __Java__: _com.epam.jdi.light.ui.bootstrap.common.Alert_
 
@@ -1462,7 +1462,7 @@ Available methods in Java JDI Light:
 
 
 <br><br><br><br><br><br>
-#### Badge
+#### 3.1.4 Badge
 
 **1) <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/badge/" target="_blank">Badge</a>** - Element that scale to match the size of the immediate parent element by using relative font sizing and em units.<br>
 
@@ -1570,9 +1570,7 @@ Available methods in Java JDI Light:
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/BadgeTests.java" target="_blank">Bootstrap badge test examples</a><br>
 <br><br>
 
-#### Breadcrumb
-
-
+#### 3.1.5 Breadcrumb
 
 <a href="https://getbootstrap.com/docs/4.3/components/breadcrumb/" target="_blank">Breadcrumb</a> is a control element  used for navigational on web pages
 
@@ -1640,7 +1638,7 @@ Available methods in Java JDI Light:
 
 <br><br>
 
-#### Navbar
+#### 3.1.6 Navbar
 
 ##### <a href="https://getbootstrap.com/docs/4.3/components/navbar/#supported-content" target="_blank">Supported content</a>
 Navbars come with built-in support for a handful of sub-components.
@@ -2771,7 +2769,7 @@ Available methods in Java JDI Light:
 <br>
 
 
-####Progress
+#### 3.1.7 Progress
 Progress is located in the following class:
 
 - __Java__: _com.epam.jdi.light.ui.bootstrap.elements.common.Progress_
@@ -3092,7 +3090,7 @@ public void isValidationTest() {
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/progress/ProgressAnimatedStripesTests.java" target=a_blank> Bootstrap test examples </a>
 <br><br><br><br><br><br><br><br>
 
-####Spinners
+#### 3.1.8 Spinners
 
 Bootstrap “spinners” can be used to show the loading state in your projects.
 They’re built only with HTML and CSS, meaning you don’t need any JavaScript to create them.
@@ -3556,7 +3554,7 @@ Here is an example with provided Bootstrap v4.3 code:
 
 <br><br><br><br><br><br><br>
 
-#### Spinner Buttons
+#### 3.1.9 Spinner Buttons
 
 Use <a href="https://getbootstrap.com/docs/4.3/components/spinners/#buttons" target="_blank">spinners within buttons</a> to indicate an action is currently processing or taking place.
 You may also swap the text out of the spinner element and utilize button text as needed.
@@ -3663,7 +3661,7 @@ Here is an example with provided Bootstrap v4.3 code:
 ```
 
 
-#### Tooltip
+#### 3.1.10 Tooltip
 <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/tooltips/" target="_blank">Tooltip</a> is a hint that used in conjuction with a pointer.
 
 ![Tooltip top](../../images/bootstrap/tooltip_top.png)
@@ -3757,7 +3755,7 @@ is()	 |  Assert action	| UIAssert
 
 <br>
 
-####Image
+#### 3.1.11 Image
 
 <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/content/images/" target="_blank">Images</a> is a hint that used in conjuction with a pointer.
 
@@ -3825,9 +3823,9 @@ width() | Assert image width | ImageAssert
 <br>
 
 
-### Bootstrap Complex elements
+### 3.2 Bootstrap Complex elements
 
-####Collapse
+#### 3.2.1 Collapse
 
 The <a style="font-weight: bold;" href="https://getbootstrap.com/docs/4.3/components/collapse/" target="_blank">collapse</a> is used to show and hide content.
 Buttons or anchors are used as triggers that are mapped to specific elements you toggle.
@@ -3909,7 +3907,7 @@ Available methods in Java JDI Light:
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/complex/CollapseTests.java)
 
-####Carousel
+#### 3.2.2 Carousel
 <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/carousel/" target="_blank">Carousel</a> - a slideshow component for cycling through elements—images or slides of text—like a carousel.<br>
 
 **Slides only**<br>
@@ -4393,7 +4391,7 @@ select(int i) | Select slide by index  | void
 <br>
 <br>
 
-####Multiple progress bars
+#### 3.2.3 Multiple progress bars
 
 Include <a style="font-weight: bold;" target="_blank" href="https://getbootstrap.com/docs/4.3/components/progress/#multiple-bars">multiple progress bars</a>  in a progress component if you need.
 
@@ -4456,7 +4454,7 @@ Available methods in Java JDI Light:
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/complex/MultipleProgressBarsTests.java)
 <br><br><br>
 
-#### Navs
+#### 3.2.4 Navs
 
 ***[Navs](https://getbootstrap.com/docs/4.3/components/navs/)*** - Different types of combination of navigation components.
 
@@ -5292,7 +5290,7 @@ Nav group is represented by Section class in Java:
 <br>
 
 
-#### RadioButtons
+#### 3.2.5 RadioButtons
 
 **RadioButtons** – extends from <a href="https://jdi-docs.github.io/jdi-light/#radiobuttons">HTML 5 RadioButtons</a> class.
 
@@ -5305,8 +5303,8 @@ Is similar to the parent class but overrides its list() method and adds list(JFu
   <br>
 
 
-### Bootstrap Composite elements
-#### Forms
+### 3.3 Bootstrap Composite elements
+#### 3.3.1 Forms
 <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/forms/" target="_blank">Forms</a> – logical part of a web page that represents an HTML form.
 Form can consists of:
 <ul>
@@ -6204,7 +6202,7 @@ Available methods for form validation in Java JDI Light:
 
 
 
-#### Scrollspy
+#### 3.3.2 Scrollspy
 **[Scrollspy](https://getbootstrap.com/docs/4.3/components/scrollspy/#example-in-navbar)** – automatically update Bootstrap navigation or list group components based on scroll position to indicate which link is currently active in the viewport.
 <br><br>
 - [Scrollspy in navbar] (https://getbootstrap.com/docs/4.3/components/scrollspy/#example-in-navbar)
@@ -6567,7 +6565,7 @@ In these java test cases examples next classes have been used:
 
 <br><br>
 
-#### Media object
+#### 3.3.3 Media object
 
 ```java 
 public class MediaObject extends Section {
@@ -6763,7 +6761,7 @@ Inner elements of media object can be represented by the following classes:
    <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/mediaObject/MediaObjectTests.java" target=a_blank> Bootstrap test examples </a>
 
 
-#### Modal
+#### 3.3.4 Modal
 [Modal](https://getbootstrap.com/docs/4.3/components/modal/) is a dialog box/popup window that is displayed on page.
 
 ##### [Modal Live demo](https://getbootstrap.com/docs/4.3/components/modal/#live-demo)
@@ -7570,7 +7568,7 @@ Available methods in Java JDI Light:
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/modal/ModalOptionalSizesTests.java" target="_blank">Bootstrap Test Examples</a>
 
-#### Popovers
+#### 3.3.5 Popovers
 
 ***[Popovers](https://getbootstrap.com/docs/4.3/components/popovers/)***
 
@@ -8116,7 +8114,7 @@ Inner elements of input group can be represented by following classes:
     <li> [MediaObject](https://jdi-docs.github.io/jdi-light/#media-object) </li>
 </ul>
 
-#### List group
+#### 3.3.6 List group
 
 ***[List groups](https://getbootstrap.com/docs/4.3/components/list-group/)*** are a flexible and powerful component for displaying a series of content. Modify and extend them to support just about any content within.
 
@@ -8809,7 +8807,7 @@ Button group is represented by Section class in Java:
 
 <br>
 
-#### Toast
+#### 3.3.7 Toast
 <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/toasts/" target="_blank">Toast</a> - Toasts are lightweight notifications designed to mimic the push notifications.
 <br />
 __Options for toasts:__
@@ -9152,7 +9150,7 @@ Available methods in Java JDI Light:
 
 <br>
 
-#### Pagination
+#### 3.3.8 Pagination
 
 ##### Overview
 
@@ -9659,7 +9657,7 @@ Button group is represented by Section class in Java:
 <br>
 
 
-#### Input group
+#### 3.3.9 Input group
 ##### Basic Example
 **<a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/input-group/#basic-example" target="_blank">Input group</a>** – Place one add-on or button on either side of an input. You may also place one on both sides of an input.
 <br />
@@ -10932,7 +10930,7 @@ They are located in the following Java classes:
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/inputgroup/InputGroupCustomFileInputTests.java)
 
 
-#### Card
+#### 3.3.10 Card
 
 [Cards](https://getbootstrap.com/docs/4.3/components/card/) in Bootstrap provide a flexible and extensible
 content container with multiple variants and options.
@@ -12798,7 +12796,7 @@ Available methods in Java JDI Light:
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/card/CardColumnsTests.java)
 
-#### Jumbotron
+#### 3.3.11 Jumbotron
 
 [Jumbotron](https://getbootstrap.com/docs/4.3/components/jumbotron) – Lightweight, flexible component for showcasing hero
 
@@ -12864,7 +12862,7 @@ Inner elements of jumbotron can be represented by the following classes:
 
 [Bootstrap test examples](https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/composite/section/jumbotron)
 
-#### Dropdown
+#### 3.3.12 Dropdown
 <a style="font-weight:bold" href="https://getbootstrap.com/docs/4.3/components/dropdowns/" target="_blank">Dropdowns</a> are toggleable, contextual overlays for displaying lists of links and more.
 
 For working with Dropdown there are two classes available in JDI:

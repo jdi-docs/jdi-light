@@ -1,6 +1,6 @@
-## Vue.js elements
+## 5. Vue.js elements
 
-### Alerts
+### 5.1 Alerts
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/alerts/)
 
@@ -20,7 +20,7 @@
 For examples of usage see: [Custom vuetify alert example](https://github.com/jdi-testing/jdi-light/blob/3118-implement-alerts/jdi-light-vuetify-tests/src/main/java/io/github/com/custom/CustomAlert.java)
 and [JDI vuetify page tests for alerts](https://github.com/jdi-testing/jdi-light/blob/3118-implement-alerts/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/AlertsTests.java).
 
-### Avatars
+### 5.2 Avatars
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/avatars/)
 
@@ -46,7 +46,7 @@ and [JDI vuetify page tests for alerts](https://github.com/jdi-testing/jdi-light
 For examples of usage see: [Custom vuetify avatar example (profile card)](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/main/java/io/github/com/custom/ProfileCard.java)
 and [JDI vuetify page tests for avatars](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/AvatarsTests.java).
 
-### Banners
+### 5.3 Banners
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/banners/)
 
@@ -75,9 +75,9 @@ Basically, you have methods that can return you elements containing in banner (b
 
 For examples of usage see: [JDI vuetify page tests for banners](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/BannersTests.java).
 
-### Bars
+### 5.4 Bars
 
-### App Bars
+#### 5.4.1 App Bars
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/app-bars/)
 
@@ -111,7 +111,7 @@ The app bar component is pivotal to any graphical user interface (GUI), as it ge
 
 For examples of usage see: [JDI vuetify page tests for app bars](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/AppBarsTests.java).
 
-### Toolbars
+#### 5.4.2 Toolbars
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/toolbars/)
 
@@ -138,7 +138,7 @@ The toolbar component is pivotal to any gui, as it generally is the primary sour
 
 For examples of usage see: [JDI vuetify page tests for toolbars](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ToolBarsTests.java).
 
-### System bars
+#### 5.4.3 System bars
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/system-bars/)
 
@@ -164,7 +164,7 @@ The system bar component can be used for displaying statuses to the user. It loo
 For examples of usage see: [JDI vuetify page tests for system bars](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SystemBarsTests.java).
 
 
-### Bottom navigation
+### 5.5 Bottom navigation
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/bottom-navigation/)
 
@@ -210,7 +210,7 @@ This name contains a WebList of buttons and provides access to them by index.
 **getButtonWight()** | Return Button Wight  | String
 **getButtonText** | Return Button Text | String
 
-### Bottom sheets
+### 5.6 Bottom sheets
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/bottom-sheets/)
 
@@ -247,7 +247,7 @@ public void checkInsetSheetCssProps() {
 
 For examples of usage see: [Vuetify Bottom sheets tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/composite/BottomSheetsTests.java).
 
-### Breadcrumbs
+### 5.7 Breadcrumbs
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/breadcrumbs/)
 
@@ -289,7 +289,7 @@ It is **necessary** to specify **the root** of an element
 
 For examples of usage see: [Vuetify Breadcrumbs tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/BreadcrumbsTests.java).
 
-### Cards
+### 5.8 Cards
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/cards/)
 
@@ -338,7 +338,7 @@ card `text` element, but the `text` method is inherited from `UIBaseElement` tha
 For examples of usage see: [Custom vuetify card examples](https://github.com/jdi-testing/jdi-light/tree/vuetify-develop/jdi-light-vuetify-tests/src/main/java/io/github/com/custom/cards)
 and [JDI vuetify page tests for cards](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/CardsTests.java).
 
-### Dialogs
+### 5.9 Dialogs
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/dialogs/)
 
@@ -390,7 +390,7 @@ The Dialog component inform users about a specific task and may contain critical
 For examples of usage see: [JDI vuetify page tests for dialogs](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/DialogTests.java).
 
 
-### Expansion Panels
+### 5.10 Expansion Panels
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/expansion-panels/)
 
@@ -450,7 +450,7 @@ Also, you can inherit the `ExpansionPanels`.
 For examples of usage see: [Custom vuetify expansion panels examples](https://github.com/jdi-testing/jdi-light/tree/vuetify-develop/jdi-light-vuetify-tests/src/main/java/io/github/com/custom/panels)
 and [JDI vuetify page tests for expansion panels](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ExpansionPanelsTest.java).
 
-### Footers
+### 5.11 Footers
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/footer/)
 
@@ -497,9 +497,9 @@ public void indigoFooterTest() {
 
 For examples of usage see: [Vuetify Footers tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/composite/FootersTests.java).
 
-### Form input & controls
+### 5.12 Form input & controls
 
-### Overflow buttons
+#### 5.12.1 Overflow buttons
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/overflow-btns/)
 
@@ -543,7 +543,7 @@ Overflow button is used to give the user the ability to select items from the li
 
 For examples of usage see: [JDI Vuetify Lists tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/OverflowButtonsTest.java).
 
-### Range Slider
+#### 5.12.2 Range Slider
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/range-sliders/)
 
@@ -579,7 +579,7 @@ They are ideal for adjusting settings such as volume, brightness, or applying im
 
 For examples of usage see: [JDI Vuetify Range sliders tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/RangeSliderTests.java)
 
-### Slider
+#### 5.12.3 Slider
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/sliders/)
 
@@ -614,7 +614,7 @@ The Slider component is a better visualization of the number input. It is used f
 
 For examples of usage see: [JDI Vuetify Sliders tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SliderTests.java)
 
-### Switches
+#### 5.12.4 Switches
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/switches/)
 
@@ -656,7 +656,7 @@ The Switch - component provides users the ability to choose between two distinct
 
 For examples of usage see: [JDI Vuetify Lists tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/SwitchTests.java).
 
-### Text fields
+#### 5.12.5 Text fields
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/text-fields/)
 
@@ -709,9 +709,9 @@ Text fields components are used for collecting user provided information.
 For examples of usage see: [JDI Vuetify Text fields tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/TextFieldsTests.java).
 
 
-### Groups 
+### 5.13 Groups 
 
-### Button Groups
+#### 5.13.1 Button Groups
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/button-groups/)
 
@@ -751,7 +751,7 @@ public void mandatoryButtonGroupTest() {
 
 For examples of usage see: [Vuetify Button groups tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ButtonGroupsTests.java).
 
-### List Item Groups
+#### 5.13.2 List Item Groups
 [Vuetify documentation page](https://vuetifyjs.com/en/components/list-item-groups/)
 
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.ListItemGroups.java_
@@ -797,7 +797,7 @@ The v-list-item-group provides the ability to create a group of selectable v-lis
 **hasIcon(int elementIndex)** | Shows that required element has icon | boolean
 **hasTitle(int elementIndex, String expectedTitle)** | Shows that required element has expected title | boolean
 
-#### Active class
+##### Active class
 
 You can set a class which will be added when an item is selected.
 
@@ -820,7 +820,7 @@ public static void activeClassListItemGroupTest() {
   }
 }
 ```
-#### Mandatory class
+##### Mandatory class
 
 At least one item must be selected.
 
@@ -844,7 +844,7 @@ public static void mandatoryListItemGroupTest() {
   jdiAssert(mandatoryListItemGroup.isInactivate(2), Matchers.is(true));
 }
 ```
-#### Multiple class
+##### Multiple class
 
 You can select multiple items at one time.
 
@@ -868,7 +868,7 @@ public static void multipleListItemGroupsTest() {
 }
 ```
 
-#### Flat list
+##### Flat list
 
 You can easily disable the default highlighting of selected v-list-items. This creates a lower profile for a user’s choices.
 
@@ -886,7 +886,7 @@ public static void flatListListItemGroupTest() {
 }
 ```
 
-#### Selection controls
+##### Selection controls
 
 Using the default slot, you can access an items internal state and toggle it. Since the active property is a boolean, we use the true-value prop on the checkbox to link its state to the v-list-item.
 
@@ -918,7 +918,7 @@ public static void selectionControlsListItemGroupTest() {
 
 For examples of usage see: [Vuetify List Item Groups tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ListItemGroupsTests.java).
 
-### Windows
+#### 5.13.3 Windows
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/windows/)
 
@@ -979,7 +979,7 @@ For examples of usage see: [Custom vuetify windows examples](https://github.com/
 and [JDI vuetify page tests for windows](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/WindowsTests.java).
 
 
-### Lists
+### 5.14 Lists
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/lists/)
 
@@ -1022,7 +1022,7 @@ Lists - a specific collection of items, which can contains an avatar, content, a
 
 For examples of usage see: [JDI Vuetify Lists tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ListsTests.java).
 
-### Overlays
+### 5.15 Overlays
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/overlays/)
 
@@ -1061,7 +1061,7 @@ The Overlay component is used to provide emphasis on a particular element or par
 
 For examples of usage see: [JDI Vuetify Overlays tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/OverlayTests.java)
 
-### Pagination
+### 5.16 Pagination
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/paginations/)
 
@@ -1132,7 +1132,7 @@ It is **necessary** to specify **the root** of an element.
 
 For examples of usage see: [JDI vuetify page tests for pagination](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/PaginationTests.java).
 
-### Ratings
+### 5.17 Ratings
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/ratings/)
 
@@ -1163,7 +1163,7 @@ The rating component is a specialized but crucial piece in building user widgets
 
 For examples of usage see: [JDI Vuetify Ratingss tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/RatingTests.java)
 
-### Snackbars
+### 5.18 Snackbars
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/snackbars/)
 
@@ -1198,7 +1198,7 @@ The snackbar component is used to display a quick message to a user.
 
 For examples of usage see: [JDI vuetify page tests for snackbars](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/SnackbarsTests.java).
 
-### Sparklines
+### 5.19 Sparklines
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/sparklines/)
 
@@ -1209,10 +1209,8 @@ For examples of usage see: [JDI vuetify page tests for snackbars](https://github
     public void heartRateSparklineTests() {
         String initialHeartRatePathShape = heartRateSparkline.getPathShape();
         heartRateSparkline.has().pathShapeEqualTo(initialHeartRatePathShape);
-
         heartRateRefreshButton.click();
         waitCondition(() -> heartRateRefreshButton.hasAttribute("red--text"));
-
         heartRateSparkline.has().pathShapeNotEqualTo(initialHeartRatePathShape);
     }
 ```
@@ -1230,9 +1228,9 @@ The sparkline component can be used to create simple graphs, like GitHub’s con
 **getLabelTexts()** | Returns sparkline data point label texts | List\<String>
 **getLinearGradientMap()** | Returns map representation of sparkline linear gradient | Map\<String, String>
 
-For examples of usage see: [JDI vuetify page tests for sparklines](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SparklinesTests.java).
+For examples of usage see: [JDI vuetify page tests for sparklines](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuet
 
-### Subheaders
+### 5.20 Subheaders
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/subheaders/)
 
@@ -1254,9 +1252,9 @@ The Subheader component is used to separate sections of lists.
 
 For examples of usage see: [JDI vuetify page tests for subheaders](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/SubheaderTests.java)
 
-### Tables
+### 5.21 Tables
 
-### Simple Tables
+#### 5.21.1 Simple Tables
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/simple-tables/)
 
@@ -1289,7 +1287,7 @@ The Simple Table component is a simple wrapper component around the table elemen
 
 For examples of usage see: [Vuetify Simple Table tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SimpleTablesTests.java#L40).
 
-### Data Tables
+#### 5.21.2 Data Tables
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/data-tables/)
 
@@ -1349,7 +1347,7 @@ The Data Table component is used for displaying tabular data and to extend the S
 
 For examples of usage see: [Vuetify Data Table tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/DataTablesTests.java).
 
-### Tabs
+### 5.22 Tabs
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/tabs/)
 

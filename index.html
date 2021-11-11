@@ -1157,6 +1157,9 @@
                           <li>
 								            <a href="#5-28-menus" class="toc-h2 h3 toc-link" data-title="5.28 Menus">5.28 Menus</a>
                           </li>
+                          <li>
+								            <a href="#5-29-images" class="toc-h2 h3 toc-link" data-title="5.29 Images">5.29 Images</a>
+                          </li>
                       </ul>
                   </li>
                   <li>
@@ -38672,6 +38675,84 @@ explicitly through a <code>JDIPagination</code> annotation.</p>
 </tbody></table>
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/MenusTests.java">Menus tests</a>.</p>
+<h3 id='5-29-images'>5.29 Images</h3>
+<p><a href="https://vuetifyjs.com/en/components/images/">Vuetify documentation page</a></p>
+
+<ul>
+<li><strong>Java</strong>: <em>package com.epam.jdi.light.vuetify.elements.common.Image.java</em></li>
+</ul>
+<pre class="highlight java tab-java"><code>    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">gradientsImagesTests</span><span class="o">()</span> <span class="o">{</span>
+      <span class="k">for</span><span class="o">(</span><span class="n">Image</span> <span class="n">image</span> <span class="o">:</span> <span class="n">gradientsImages</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">image</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+      <span class="n">image</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">sourcePath</span><span class="o">(</span><span class="s">"https://cdn.vuetifyjs.com/images/parallax/material2.jpg"</span><span class="o">);</span>
+      <span class="n">image</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">width</span><span class="o">(</span><span class="mf">516.984</span><span class="o">);</span>
+      <span class="n">image</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">height</span><span class="o">(</span><span class="mf">290.797</span><span class="o">);</span>
+      <span class="n">image</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">gradient</span><span class="o">();</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">heightImagesTests</span><span class="o">()</span> <span class="o">{</span>
+      <span class="k">for</span><span class="o">(</span><span class="n">Image</span> <span class="n">image</span> <span class="o">:</span> <span class="n">heightImages</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">image</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+      <span class="n">image</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">sourcePath</span><span class="o">(</span><span class="s">"https://picsum.photos/350/165?random"</span><span class="o">);</span>
+      <span class="n">image</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">limitedHeight</span><span class="o">();</span>
+      <span class="n">image</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">width</span><span class="o">(</span><span class="mf">775.5</span><span class="o">);</span>
+      <span class="n">image</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">height</span><span class="o">(</span><span class="mi">125</span><span class="o">);</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+
+</code></pre>
+<p>Image component is packed with features to support wide variety of media files. By combining it with loader, you can add dynamic progressive images to provide better user experience.</p>
+
+<p><img src="images/vuetify/images.png" alt="Images examples" /></p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>has()/is()</strong></td>
+<td>Returns Assert class</td>
+<td>ImageAssert</td>
+</tr>
+<tr>
+<td><strong>hasSourcePath()</strong></td>
+<td>Returns image&#39;s source path</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>hasHeight()</strong></td>
+<td>Returns image&#39;s height</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>hasWidth()</strong></td>
+<td>Returns image&#39;s width</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>hasGradient()</strong></td>
+<td>Shows that image has gradient</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>hasLimitedHeight()</strong></td>
+<td>Shows that image has limited height</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isLoading()</strong></td>
+<td>Shows that image is loading</td>
+<td>boolean</td>
+</tr>
+</tbody></table>
+
+<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/ImagesTests.java">Images tests</a>.</p>
 <h2 id='jdi-features'>JDI features</h2><h3 id='jdi-features-for-parameters-in-bdd-steps'>JDI Features for parameters in BDD steps</h3><h4 id='using-aliases-as-locators-parameters'>Using aliases as locators parameters</h4><pre class="highlight gherkin tab-gherkin"><code>   <span class="kn">Scenario</span><span class="p">:</span> input element
        <span class="nf">When</span> I input <span class="s">"simple 1234"</span> in <span class="s">"Name"</span>
        <span class="nf">Then</span> the <span class="s">"Name"</span> text matches to <span class="s">"\w{6} \d{4}"</span>

@@ -33,8 +33,8 @@ public void loginTest() {
 So simple! But there's more to it. Try to run this test in your IDE and see what you get...
 
  - A detailed log in the console output (pictured to the right; nice, isn't it?)
- - Log file containing the same log (*src/test/.logs/*) in case you'd like to view the test execution results separately <i>(requires ***log4j2.xml*** file in src/test/resources)</i>
- - A neat Allure report of your test execution! <i>(requires proper Allure settings in ***pom.xml***)</i>
+ - Log file containing the same log (*src/test/.logs/*) in case you'd like to view the test execution results separately. <i>(requires ***log4j2.xml*** file in src/test/resources)</i>
+ - A neat Allure report of your test execution. <i>(requires proper Allure settings in ***pom.xml***)</i>
 ![Allure Report](../images/intro/allure-report.png)
 ![Allure Log](../images/intro/allure-report-log.png)
 
@@ -63,8 +63,8 @@ public class LoginForm extends Form<User> {
     @Css("[type=submit]") Button enter;
 }
 ```
-### UI PageObjects
-Now let's have a look at Page Objects in JDI. For example, we used the following Page Objects in the login test above:
+### UI Page Objects
+Now let's have a look at Page Objects in JDI. For example, we used the following objects in the login test above:
 
 - **Site** — your application entity. It contains all the Pages of your application and can be initiated with a single method call.
 

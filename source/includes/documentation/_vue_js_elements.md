@@ -1653,3 +1653,50 @@ Menu component shows a menu at the position of the element that was used to acti
 
 For examples of usage see: [Menus tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/MenusTests.java).
 
+### 5.29 Images
+
+[Vuetify documentation page](https://vuetifyjs.com/en/components/images/)
+
+- __Java__: _package com.epam.jdi.light.vuetify.elements.common.Image.java_
+
+```java
+    @Test
+    public void gradientsImagesTests() {
+      for(Image image : gradientsImages) {
+      image.is().displayed();
+      image.has().sourcePath("https://cdn.vuetifyjs.com/images/parallax/material2.jpg");
+      image.has().width(516.984);
+      image.has().height(290.797);
+      image.has().gradient();
+      }
+    }
+
+    @Test
+    public void heightImagesTests() {
+      for(Image image : heightImages) {
+      image.is().displayed();
+      image.has().sourcePath("https://picsum.photos/350/165?random");
+      image.has().limitedHeight();
+      image.has().width(775.5);
+      image.has().height(125);
+      }
+    }
+
+```
+
+Image component is packed with features to support wide variety of media files. By combining it with loader, you can add dynamic progressive images to provide better user experience.
+
+![Images examples](../../images/vuetify/images.png)
+
+|Method | Description | Return Type
+--- | --- | ---
+**has()/is()** | Returns Assert class | ImageAssert
+**hasSourcePath()** | Returns image's source path | String
+**hasHeight()** | Returns image's height | String
+**hasWidth()** | Returns image's width | String
+**hasGradient()** | Shows that image has gradient | boolean
+**hasLimitedHeight()** | Shows that image has limited height | boolean
+**isLoading()** | Shows that image is loading | boolean
+
+For examples of usage see: [Images tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/ImagesTests.java).
+

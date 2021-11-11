@@ -1536,7 +1536,7 @@ Tooltip component is useful for conveying information when a user hovers over an
 ![Tooltips examples](../../images/vuetify/tooltips.png)
 
 
-For examples of usage see: [Tooltips tests](https://github.com/jdi-testing/jdi-light/blob/3eaeee91902e34343907258097dce4d5d9eddac3/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/TooltipsTests.java).
+For examples of usage see: [Tooltips tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/TooltipsTests.java).
 
 ### 5.27 Progress
 
@@ -1610,4 +1610,46 @@ Progress linear component is used to convey data circularly to users. They can a
 **hasStream()** | Shows that bar has stream | boolean
 
 For examples of usage see: [Progress linear tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/ProgressBarsTests.java).
+
+### 5.28 Menus
+
+[Vuetify documentation page](https://vuetifyjs.com/en/components/menus/)
+
+- __Java__: _package com.epam.jdi.light.vuetify.elements.complex.Menu.java_
+
+```java
+    @Test
+    public void offsetXMenuTests() {
+      Timer.waitCondition(offsetXMenuButton::isDisplayed);
+      offsetXMenuButton.show();
+      offsetXMenuButton.click();
+      activeMenu.is().displayed();
+      activeMenu.has().numberOfOptions(4);
+      activeMenu.has().optionsTitles(optionsTitles);
+      activeMenu.has().position(1190, 1132);
+      offsetXMenuButton.click();
+      activeMenu.is().hidden();
+      offsetXMenuSwitch.uncheck();
+      offsetXMenuButton.click();
+      activeMenu.has().position(1190, 1011);
+      activeMenu.click();
+      activeMenu.is().hidden();
+    }
+```
+
+Menu component shows a menu at the position of the element that was used to activate it.
+
+![Menus examples](../../images/vuetify/menus.png)
+
+|Method | Description | Return Type
+--- | --- | ---
+**has()/is()** | Returns Assert class | MenuAssert
+**hasPosition()** | Returns position of menu | String
+**hasNumberOfOptions()** | Returns number of options in menu | int
+**hasOptionsTitles()** | Returns list of titles of options in menu | List<String>
+**hasRemovedRadius()** | Shows that menu has removed radius | boolean
+**hasLargeRadius()** | Shows that menu has large radius | boolean
+**hasCustomRadius()** | Shows that menu has custom radius | boolean
+
+For examples of usage see: [Menus tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/MenusTests.java).
 

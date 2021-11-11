@@ -46,7 +46,7 @@ JDI Light is powered by Selenium and has simple integration with Selenium-based 
 - Increases your overall test execution speed, especially for complex cases like searching huge tables, selecting dropdown items out of a hundred or entering text containing thousands of lines.
 - Provides detailed logs and well-readable reports of all user actions with no additional effort.
 - All UI Elements have assertions/matchers powered by Hamcrest and a wait with expected condition during timeout.
-- Easy integration with all modern automation tools: **CI** (*Jenkins*, *TC* etc.), **logging** (*Log4j* or any other *slf4j*-based logs), **reporting** (*Allure* or *Report Portal*); **browser/device farms** (*Selenium Grid*, *BrowserStack*, *Selenoid* etc.), **test runners** (*TestNG*, *JUnit*) etc.
+- Easy integration with all modern automation tools: ***CI*** (*Jenkins*, *TC* etc.), ***logging*** (*Log4j* or any other *slf4j*-based logs), ***reporting*** (*Allure* or *Report Portal*); ***browser/device farms*** (*Selenium Grid*, *BrowserStack*, *Selenoid* etc.), ***test runners*** (*TestNG*, *JUnit*) etc.
 
 # Navigation
 [Introduction](https://jdi-docs.github.io/jdi-light/?java#introduction) provides examples of common test automation tasks solved with JDI Light.

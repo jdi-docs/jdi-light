@@ -33,8 +33,8 @@ public void loginTest() {
 So simple! But there's more to it. Try to run this test in your IDE and see what you get...
 
  - A detailed log in the console output (pictured to the right; nice, isn't it?)
- - Log file containing the same log (*src/test/.logs/*) in case you'd like to view the test execution results separately *(requires **log4j2.xml** file in src/test/resources)*
- - A neat Allure report of your test execution! *(requires proper Allure settings in **pom.xml**)*
+ - Log file containing the same log (*src/test/.logs/*) in case you'd like to view the test execution results separately <i>(requires ***log4j2.xml*** file in src/test/resources)</i>
+ - A neat Allure report of your test execution! <i>(requires proper Allure settings in ***pom.xml***)</i>
 ![Allure Report](../images/intro/allure-report.png)
 ![Allure Log](../images/intro/allure-report-log.png)
 
@@ -93,7 +93,7 @@ public class LoginForm extends Form<User> {
 }
 ```
 ### Short term non-Page Object style
-If you need a quick test (i.e. you don't need Page Objects), you can simply use JQuery/Selenide style without any additional code.
+If you need a quick test (i.e. you don't need Page Objects), you can simply use jQuery/Selenide style without any additional code.
 
 You can also directly initialize UI elements defined in your Page Objects if you don't like annotations.
 <br/><br/><br/><br/><br/><br/><br/>

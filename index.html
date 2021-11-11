@@ -1361,7 +1361,7 @@
 <li>Increases your overall test execution speed, especially for complex cases like searching huge tables, selecting dropdown items out of a hundred or entering text containing thousands of lines.</li>
 <li>Provides detailed logs and well-readable reports of all user actions with no additional effort.</li>
 <li>All UI Elements have assertions/matchers powered by Hamcrest and a wait with expected condition during timeout.</li>
-<li>Easy integration with all modern automation tools: <strong>CI</strong> (<em>Jenkins</em>, <em>TC</em> etc.), <strong>logging</strong> (<em>Log4j</em> or any other <em>slf4j</em>-based logs), <strong>reporting</strong> (<em>Allure</em> or <em>Report Portal</em>); <strong>browser/device farms</strong> (<em>Selenium Grid</em>, <em>BrowserStack</em>, <em>Selenoid</em> etc.), <strong>test runners</strong> (<em>TestNG</em>, <em>JUnit</em>) etc.</li>
+<li>Easy integration with all modern automation tools: <strong><em>CI</em></strong> (<em>Jenkins</em>, <em>TC</em> etc.), <strong><em>logging</em></strong> (<em>Log4j</em> or any other <em>slf4j</em>-based logs), <strong><em>reporting</em></strong> (<em>Allure</em> or <em>Report Portal</em>); <strong><em>browser/device farms</em></strong> (<em>Selenium Grid</em>, <em>BrowserStack</em>, <em>Selenoid</em> etc.), <strong><em>test runners</em></strong> (<em>TestNG</em>, <em>JUnit</em>) etc.</li>
 </ul>
 <h1 id='navigation'>Navigation</h1>
 <p><a href="https://jdi-docs.github.io/jdi-light/?java#introduction">Introduction</a> provides examples of common test automation tasks solved with JDI Light.</p>
@@ -1374,7 +1374,7 @@
 <h1 id='introduction'>Introduction</h1><h2 id='simple-jdi-examples'>Simple JDI examples</h2><h3 id='create-a-simple-login-test'>Create a simple Login test</h3>
 <p>First of all, let&#39;s see how JDI solves typical problems. Let&#39;s start with Login, since most tests start with signing in.</p>
 
-<p>You can find a Java code example <a href='https://github.com/jdi-examples/jdi-introduction' target="_blank">here</a></p>
+<p>You can find a Java code example <a href='https://github.com/jdi-examples/jdi-introduction' target="_blank">here</a>.</p>
 
 <p><strong>Test Scenario</strong></p>
 <pre class="highlight java tab-java"><code><span class="nd">@Test</span>
@@ -1386,39 +1386,33 @@
 <span class="o">}</span>
 </code></pre>
 <ol>
-<li>Open HomePage (<a href='https://jdi-testing.github.io/jdi-light/index.html' target="_blank">https://jdi-testing.github.io/jdi-light/index.html</a>)</li>
+<li>Open Home Page (<a href='https://jdi-testing.github.io/jdi-light/index.html' target="_blank">https://jdi-testing.github.io/jdi-light/index.html</a>)</li>
 <li>Click on User Icon (to open login dialog)</li>
-<li>Login as default user
+<li>Log in as a default user:
 
 <ul>
-<li>Enter &#39;Roman&#39; in login textfield</li>
-<li>Enter &#39;Jdi1234&#39; in password textfield</li>
+<li>Enter &#39;Roman&#39; in login text field</li>
+<li>Enter &#39;Jdi1234&#39; in password text field</li>
 <li>Press &#39;Enter&#39;</li>
 </ul></li>
-<li>Validate that HomePage has been opened</li>
+<li>Verify that Home Page has been opened</li>
 </ol>
 <pre class="highlight plaintext"><code>[22:17.102  STEP] : Open 'Home Page'(url=&gt;https://jdi-testing.github.io/jdi-light/index.html)
 [22:23.617  STEP] : Click on 'User Icon'
 [22:23.727  STEP] : Login as User (userName:epam; password:1234)
 [22:24.516  STEP] : Check that 'Home Page' is opened (url CONTAINS '/index.html'; title EQUALS 'Home Page')
 </code></pre>
-<p><strong>So simple!</strong><br/>
-But this is not all. Try to run this test in your IDE and see what you get...</p>
+<p>So simple! But there&#39;s more to it. Try to run this test in your IDE and see what you get...</p>
 
 <ul>
-<li>A detailed log in the Console output:<br/></li>
-</ul>
-
-<p><strong>Nice</strong>, isn&#39;t it?</p>
-
-<ul>
-<li>The same log in the log file (<i>src/test/.logs/</i>) in case you&#39;d like to see the test execution results remotely <i>(requires <b>log4j2.xml</b> file in src/test/resources)</i><br/></li>
-<li>A nice Allure report of your test execution! (<i>requires Allure settings in <b>pom.xml</b></i>)<br/>
+<li>A detailed log in the console output (nice, isn&#39;t it?)</li>
+<li>Log file containing the same log (<em>src/test/.logs/</em>) in case you&#39;d like to view the test execution results separately <em>(requires *</em><em>log4j2.xml</em>** file in src/test/resources)*</li>
+<li>A neat Allure report of your test execution! <em>(requires proper Allure settings in *</em><em>pom.xml</em>*<em>)</em>
 <img src="images/intro/allure-report.png" alt="Allure Report" />
 <img src="images/intro/allure-report-log.png" alt="Allure Log" /></li>
 </ul>
 
-<p>Just move the <b>allure-results</b> folder to your local folder and run Maven &gt; Plugins &gt; Allure &gt; allure:serve<br/>
+<p>Just move the <em>allure-results</em> folder to your local folder and run <strong><em>Maven &gt; Plugins &gt; Allure &gt; allure:serve</em></strong> (see picture below). <br>
 <img src="images/intro/allure-serve.png" alt="Allure Serve" width="300px"></p>
 <pre class="highlight java tab-java"><code><span class="nd">@JSite</span><span class="o">(</span><span class="s">"https://jdi-testing.github.io/jdi-light/"</span><span class="o">)</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">JdiTestSite</span> <span class="o">{</span>
@@ -1441,13 +1435,13 @@ But this is not all. Try to run this test in your IDE and see what you get...</p
     <span class="nd">@Css</span><span class="o">(</span><span class="s">"[type=submit]"</span><span class="o">)</span> <span class="n">Button</span> <span class="n">enter</span><span class="o">;</span>
 <span class="o">}</span>
 </code></pre><h3 id='ui-pageobjects'>UI PageObjects</h3>
-<p>Now let&#39;s have a look at PageObjects in JDI. For example, for &quot;Login test&quot; above we used the following PageObjects:<br/></p>
+<p>Now let&#39;s have a look at Page Objects in JDI. For example, we used the following Page Objects in the login test above:</p>
 
 <ul>
-<li><p><strong>Site</strong> - your application entity. It contains all the Pages of your application and can be initiated with a single command.</p></li>
-<li><p><strong>HomePage</strong> - Pages contain elements: <i>common, complex</i> and <i>composite</i>. Pages also contain meta information about Url and Title, and you can execute common actions with them, e.g.: <i>open, checkOpened, get Url/Titile, zoom, scroll, work with cookies</i> etc.</p></li>
-<li><p><strong>LoginForm</strong> - Forms and Sections are logical parts of pages, they can include other sections or just elements. Forms also have additional actions like <i>fill, submit, check</i> etc.</p></li>
-<li><p><strong>UI elements</strong> (typified elements), e.g. <i>Button, TextField, Checkbox, Icon etc.</i>, are simple elements representing real UI ones.</p></li>
+<li><p><strong>Site</strong> — your application entity. It contains all the Pages of your application and can be initiated with a single method call.</p></li>
+<li><p><strong>HomePage</strong> — Pages contain UI elements: <em>common, complex</em> and <em>composite</em>. Pages also carry meta-information about their URLs and titles and allow executing common actions like <code>open</code>,<code>checkOpened</code>,<code>getUrl</code>, <code>getTitle</code>, <code>zoom</code>, <code>scroll</code> etc.</p></li>
+<li><p><strong>LoginForm</strong> — Forms and Sections are logical parts of pages; they can include other sections or just UI elements. Forms also offer additional actions like <code>fill</code>, <code>submit</code>, <code>check</code> etc.</p></li>
+<li><p><strong>UI elements</strong> (typified elements) — <code>Button</code>, <code>TextField</code>, <code>Checkbox</code>, <code>Icon</code> etc. are simple elements representing the elements of an actual UI.</p></li>
 </ul>
 
 <p>Below you can find a common JDI project structure:</p>
@@ -1466,9 +1460,9 @@ But this is not all. Try to run this test in your IDE and see what you get...</p
     <span class="n">Button</span> <span class="n">enter</span> <span class="o">=</span> <span class="err">$</span><span class="o">(</span><span class="s">"[type=submit]"</span><span class="o">);</span>
 <span class="o">}</span>
 </code></pre><h3 id='short-term-non-page-object-style'>Short term non-Page Object style</h3>
-<p>If you need a quick test (i.e. you don&#39;t need Page Objects), you can simply use &quot;JQuery/Selenide&quot; style without any additional code.</p>
+<p>If you need a quick test (i.e. you don&#39;t need Page Objects), you can simply use JQuery/Selenide style without any additional code.</p>
 
-<p>You can also initialize your Page Objects directly with elements if you don&#39;t like annotations.
+<p>You can also directly initialize UI elements defined in your Page Objects if you don&#39;t like annotations.
 <br/><br/><br/><br/><br/><br/><br/></p>
 <h3 id='smart-test-locators'>Smart Test locators</h3>
 <p><a href="https://jdi-docs.github.io/jdi-light/?java#smart-locators">See details and examples for Smart locators in the documentation</a></p>
@@ -1510,18 +1504,18 @@ But this is not all. Try to run this test in your IDE and see what you get...</p
 <p>JDI has a really flexible set of matchers integrated into it.</p>
 
 <ul>
-<li>To access elements matchers, you can use the following methods:<br/>
-<b>is()</b><br/>
-<b>assertThat()</b><br/>
-<b>has()</b><br/>
-<b>waitFor()</b><br/>
-<b>shouldBe()</b><br/>
-They all work similarly. The only difference is the name, which is just for readability. <br/></li>
+<li>To access element matchers, you can use the following methods: <br/>
+<code>is()</code><br/>
+<code>assertThat()</code><br/>
+<code>has()</code><br/>
+<code>waitFor()</code><br/>
+<code>shouldBe()</code><br/>
+All these methods are equivalent. Different names just help making code more descriptive and human-readable. <br/></li>
 <li>JDI matchers are powered by <a href="http://hamcrest.org/JavaHamcrest/">Hamcrest</a>, the most popular matcher library in the Java world. <br/>
-And of course, you can chain these matchers for validating multiple conditions.<br/></li>
-<li>With JDI you will no more have to wait or execute sloppy tests.<br/>
-JDI matchers handle most kinds of problems. They will pass when you expect them to and fail whenever there is a real error. <br/>
-<strong>Really useful, don&#39;t you agree?</strong>
+And of course, you can chain these matchers to verify multiple conditions.<br/></li>
+<li>With JDI you won&#39;t have to struggle with waits or execute sloppy tests.<br/>
+JDI matchers handle most kinds of problems. They will pass when you expect them to and fail whenever there is a real error. <br/><br/>
+Really useful, don&#39;t you agree?
 <br/><br/><br/><br/><br/><br/><br/><br/><br/></li>
 </ul>
 <h3 id='custom-elements'>Custom elements</h3><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Checklist</span> <span class="kd">extends</span> <span class="n">HtmlElement</span> <span class="o">{</span>
@@ -1549,15 +1543,18 @@ JDI matchers handle most kinds of problems. They will pass when you expect them 
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre>
-<p>JDI html elements can handle typical standard cases, but each application has its unique culture of layout development. <br/>
-So if your developers are not following common standards, you can easily create a pack of elements specific to your application and use them in JDI.<br/>
-You can create your own elements or just extend the existing ones by overriding a couple of functions. <br/>
-Check these examples: <br/>
-<a href='https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/main/java/io/github/com/custom/MenuItem.java' target="_blank">Menu Check item</a> <br/>
+<p>JDI HTML elements can handle typical standard cases, but each application has its unique culture of layout development.</p>
+
+<p>So if your developers are not following common standards, you can easily create a pack of elements specific to your application and use them with JDI.
+You can create your own elements or simply extend the existing ones, overriding a couple of methods.</p>
+
+<p>Check these examples:</p>
+
+<p><a href='https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/main/java/io/github/com/custom/MenuItem.java' target="_blank">Menu Check item</a> <br/>
 <a href='https://github.com/jdi-testing/jdi-light/blob/master/jdi-performance/src/main/java/org/mytests/uiobjects/example/site/sections/ContactForm.java' target="_blank">Contact Form</a></p>
 <h2 id='start-a-new-project-with-jdi'>Start a new project with JDI</h2>
-<p>You can start a new Test Automation Project with JDI in mere seconds! <br/>
-Just download one of the templates at <a href='https://github.com/jdi-templates' target="_blank">Github &gt; jdi-light-...</a> <br/></p>
+<p>You can start a new test automation project with JDI in mere seconds! <br/>
+Just download one of the templates at <a href='https://github.com/jdi-templates' target="_blank">Github JDI template repository</a>. <br/></p>
 <h3 id='java-allure-testng-recommended'>Java + Allure + TestNg (recommended)</h3>
 <p><a href='https://github.com/jdi-templates/jdi-light-testng-template' target="_blank">Github link</a> <br/></p>
 <h3 id='java-allure-junit'>Java + Allure + JUnit</h3>

@@ -1405,9 +1405,9 @@
 <p>So simple! But there&#39;s more to it. Try to run this test in your IDE and see what you get...</p>
 
 <ul>
-<li>A detailed log in the console output (nice, isn&#39;t it?)</li>
-<li>Log file containing the same log (<em>src/test/.logs/</em>) in case you&#39;d like to view the test execution results separately <em>(requires *</em><em>log4j2.xml</em>** file in src/test/resources)*</li>
-<li>A neat Allure report of your test execution! <em>(requires proper Allure settings in *</em><em>pom.xml</em>*<em>)</em>
+<li>A detailed log in the console output (pictured to the right; nice, isn&#39;t it?)</li>
+<li>Log file containing the same log (<em>src/test/.logs/</em>) in case you&#39;d like to view the test execution results separately <em>(requires **log4j2.xml</em>* file in src/test/resources)*</li>
+<li>A neat Allure report of your test execution! <em>(requires proper Allure settings in **pom.xml</em><em>)</em>
 <img src="images/intro/allure-report.png" alt="Allure Report" />
 <img src="images/intro/allure-report-log.png" alt="Allure Log" /></li>
 </ul>
@@ -1439,7 +1439,7 @@
 
 <ul>
 <li><p><strong>Site</strong> — your application entity. It contains all the Pages of your application and can be initiated with a single method call.</p></li>
-<li><p><strong>HomePage</strong> — Pages contain UI elements: <em>common, complex</em> and <em>composite</em>. Pages also carry meta-information about their URLs and titles and allow executing common actions like <code>open</code>,<code>checkOpened</code>,<code>getUrl</code>, <code>getTitle</code>, <code>zoom</code>, <code>scroll</code> etc.</p></li>
+<li><p><strong>HomePage</strong> — Pages contain UI elements: <em>common, complex</em> and <em>composite</em>. Pages also carry meta-information about their URLs and titles and allow executing common actions like <code>open</code>,<code>checkOpened</code>,<br/><code>getUrl</code>, <code>getTitle</code>, <code>zoom</code>, <code>scroll</code> etc.</p></li>
 <li><p><strong>LoginForm</strong> — Forms and Sections are logical parts of pages; they can include other sections or just UI elements. Forms also offer additional actions like <code>fill</code>, <code>submit</code>, <code>check</code> etc.</p></li>
 <li><p><strong>UI elements</strong> (typified elements) — <code>Button</code>, <code>TextField</code>, <code>Checkbox</code>, <code>Icon</code> etc. are simple elements representing the elements of an actual UI.</p></li>
 </ul>
@@ -1511,12 +1511,12 @@
 <code>waitFor()</code><br/>
 <code>shouldBe()</code><br/>
 All these methods are equivalent. Different names just help making code more descriptive and human-readable. <br/></li>
-<li>JDI matchers are powered by <a href="http://hamcrest.org/JavaHamcrest/">Hamcrest</a>, the most popular matcher library in the Java world. <br/>
-And of course, you can chain these matchers to verify multiple conditions.<br/></li>
+<li>JDI matchers are powered by <a href="http://hamcrest.org/JavaHamcrest/">Hamcrest</a>, the most popular matcher library in the Java world.
+And you can chain these matchers to verify multiple conditions.<br/></li>
 <li>With JDI you won&#39;t have to struggle with waits or execute sloppy tests.<br/>
 JDI matchers handle most kinds of problems. They will pass when you expect them to and fail whenever there is a real error. <br/><br/>
 Really useful, don&#39;t you agree?
-<br/><br/><br/><br/><br/><br/><br/><br/><br/></li>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></li>
 </ul>
 <h3 id='custom-elements'>Custom elements</h3><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Checklist</span> <span class="kd">extends</span> <span class="n">HtmlElement</span> <span class="o">{</span>
     <span class="nd">@Override</span>

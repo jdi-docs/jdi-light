@@ -32,9 +32,9 @@ public void loginTest() {
 ```
 So simple! But there's more to it. Try to run this test in your IDE and see what you get...
 
- - A detailed log in the console output (nice, isn't it?)
- - Log file containing the same log (*src/test/.logs/*) in case you'd like to view the test execution results separately *(requires ***log4j2.xml*** file in src/test/resources)*
- - A neat Allure report of your test execution! *(requires proper Allure settings in ***pom.xml***)*
+ - A detailed log in the console output (pictured to the right; nice, isn't it?)
+ - Log file containing the same log (*src/test/.logs/*) in case you'd like to view the test execution results separately *(requires **log4j2.xml** file in src/test/resources)*
+ - A neat Allure report of your test execution! *(requires proper Allure settings in **pom.xml**)*
 ![Allure Report](../images/intro/allure-report.png)
 ![Allure Log](../images/intro/allure-report-log.png)
 
@@ -68,7 +68,7 @@ Now let's have a look at Page Objects in JDI. For example, we used the following
 
 - **Site** — your application entity. It contains all the Pages of your application and can be initiated with a single method call.
 
-- **HomePage** — Pages contain UI elements: *common, complex* and *composite*. Pages also carry meta-information about their URLs and titles and allow executing common actions like `open`,`checkOpened`,`getUrl`, `getTitle`, `zoom`, `scroll` etc.
+- **HomePage** — Pages contain UI elements: *common, complex* and *composite*. Pages also carry meta-information about their URLs and titles and allow executing common actions like `open`,`checkOpened`,<br/>`getUrl`, `getTitle`, `zoom`, `scroll` etc.
 
 - **LoginForm** — Forms and Sections are logical parts of pages; they can include other sections or just UI elements. Forms also offer additional actions like `fill`, `submit`, `check` etc.
 
@@ -148,12 +148,12 @@ JDI has a really flexible set of matchers integrated into it.
 `waitFor()`<br/>
 `shouldBe()`<br/>
 All these methods are equivalent. Different names just help making code more descriptive and human-readable. <br/>
-- JDI matchers are powered by [Hamcrest](http://hamcrest.org/JavaHamcrest/), the most popular matcher library in the Java world. <br/>
-And of course, you can chain these matchers to verify multiple conditions.<br/>
+- JDI matchers are powered by [Hamcrest](http://hamcrest.org/JavaHamcrest/), the most popular matcher library in the Java world.
+And you can chain these matchers to verify multiple conditions.<br/>
 - With JDI you won't have to struggle with waits or execute sloppy tests.<br/>
 JDI matchers handle most kinds of problems. They will pass when you expect them to and fail whenever there is a real error. <br/><br/>
 Really useful, don't you agree?
-<br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 ### Custom elements
 

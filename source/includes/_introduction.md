@@ -3,7 +3,7 @@
 ### Create a simple Login test
 First of all, let's see how JDI solves typical problems. Let's start with Login, since most tests start with signing in.
 
-You can find a Java code example <a href='https://github.com/jdi-examples/jdi-introduction' target="_blank">here</a>
+You can find a Java code example <a href='https://github.com/jdi-examples/jdi-introduction' target="_blank">here</a>.
 
 **Test Scenario**
 
@@ -16,13 +16,13 @@ public void loginTest() {
     homePage.checkOpened();
 }
 ```
-1. Open HomePage (<a href='https://jdi-testing.github.io/jdi-light/index.html' target="_blank">https://jdi-testing.github.io/jdi-light/index.html</a>)
+1. Open Home Page (<a href='https://jdi-testing.github.io/jdi-light/index.html' target="_blank">https://jdi-testing.github.io/jdi-light/index.html</a>)
 2. Click on User Icon (to open login dialog)
-2. Login as default user
-    - Enter 'Roman' in login textfield
-    - Enter 'Jdi1234' in password textfield
+2. Log in as a default user:
+    - Enter 'Roman' in login text field
+    - Enter 'Jdi1234' in password text field
     - Press 'Enter'
-3. Validate that HomePage has been opened
+3. Verify that Home Page has been opened
 
 ```
 [22:17.102  STEP] : Open 'Home Page'(url=>https://jdi-testing.github.io/jdi-light/index.html)
@@ -30,19 +30,15 @@ public void loginTest() {
 [22:23.727  STEP] : Login as User (userName:epam; password:1234)
 [22:24.516  STEP] : Check that 'Home Page' is opened (url CONTAINS '/index.html'; title EQUALS 'Home Page')
 ```
-**So simple!**<br/>
-But this is not all. Try to run this test in your IDE and see what you get...
+So simple! But there's more to it. Try to run this test in your IDE and see what you get...
 
- - A detailed log in the Console output:<br/>
-
-**Nice**, isn't it?
-
- - The same log in the log file (<i>src/test/.logs/</i>) in case you'd like to see the test execution results remotely <i>(requires <b>log4j2.xml</b> file in src/test/resources)</i><br/>
- - A nice Allure report of your test execution! (<i>requires Allure settings in <b>pom.xml</b></i>)<br/>
+ - A detailed log in the console output (nice, isn't it?)
+ - Log file containing the same log (*src/test/.logs/*) in case you'd like to view the test execution results separately *(requires ***log4j2.xml*** file in src/test/resources)*
+ - A neat Allure report of your test execution! *(requires proper Allure settings in ***pom.xml***)*
 ![Allure Report](../images/intro/allure-report.png)
 ![Allure Log](../images/intro/allure-report-log.png)
 
-Just move the <b>allure-results</b> folder to your local folder and run Maven > Plugins > Allure > allure:serve<br/>
+Just move the *allure-results* folder to your local folder and run ***Maven > Plugins > Allure > allure:serve*** (see picture below). <br>
 <img src="images/intro/allure-serve.png" alt="Allure Serve" width="300px">
 
 ```java 
@@ -68,15 +64,15 @@ public class LoginForm extends Form<User> {
 }
 ```
 ### UI PageObjects
-Now let's have a look at PageObjects in JDI. For example, for "Login test" above we used the following PageObjects:<br/>
+Now let's have a look at Page Objects in JDI. For example, we used the following Page Objects in the login test above:
 
-- **Site** - your application entity. It contains all the Pages of your application and can be initiated with a single command.
+- **Site** — your application entity. It contains all the Pages of your application and can be initiated with a single method call.
 
-- **HomePage** - Pages contain elements: <i>common, complex</i> and <i>composite</i>. Pages also contain meta information about Url and Title, and you can execute common actions with them, e.g.: <i>open, checkOpened, get Url/Titile, zoom, scroll, work with cookies</i> etc.
+- **HomePage** — Pages contain UI elements: *common, complex* and *composite*. Pages also carry meta-information about their URLs and titles and allow executing common actions like `open`,`checkOpened`,`getUrl`, `getTitle`, `zoom`, `scroll` etc.
 
-- **LoginForm** - Forms and Sections are logical parts of pages, they can include other sections or just elements. Forms also have additional actions like <i>fill, submit, check</i> etc.
+- **LoginForm** — Forms and Sections are logical parts of pages; they can include other sections or just UI elements. Forms also offer additional actions like `fill`, `submit`, `check` etc.
 
-- **UI elements** (typified elements), e.g. <i>Button, TextField, Checkbox, Icon etc.</i>, are simple elements representing real UI ones.
+- **UI elements** (typified elements) — `Button`, `TextField`, `Checkbox`, `Icon` etc. are simple elements representing the elements of an actual UI.
 
 Below you can find a common JDI project structure:
 
@@ -97,9 +93,9 @@ public class LoginForm extends Form<User> {
 }
 ```
 ### Short term non-Page Object style
-If you need a quick test (i.e. you don't need Page Objects), you can simply use "JQuery/Selenide" style without any additional code.
+If you need a quick test (i.e. you don't need Page Objects), you can simply use JQuery/Selenide style without any additional code.
 
-You can also initialize your Page Objects directly with elements if you don't like annotations.
+You can also directly initialize UI elements defined in your Page Objects if you don't like annotations.
 <br/><br/><br/><br/><br/><br/><br/>
 ### Smart Test locators
 
@@ -145,18 +141,18 @@ public void tableChainTest() {
 
 JDI has a really flexible set of matchers integrated into it.
 
-- To access elements matchers, you can use the following methods:<br/>
-<b>is()</b><br/>
-<b>assertThat()</b><br/>
-<b>has()</b><br/>
-<b>waitFor()</b><br/>
-<b>shouldBe()</b><br/>
-They all work similarly. The only difference is the name, which is just for readability. <br/>
+- To access element matchers, you can use the following methods: <br/>
+`is()`<br/>
+`assertThat()`<br/>
+`has()`<br/>
+`waitFor()`<br/>
+`shouldBe()`<br/>
+All these methods are equivalent. Different names just help making code more descriptive and human-readable. <br/>
 - JDI matchers are powered by [Hamcrest](http://hamcrest.org/JavaHamcrest/), the most popular matcher library in the Java world. <br/>
-And of course, you can chain these matchers for validating multiple conditions.<br/>
-- With JDI you will no more have to wait or execute sloppy tests.<br/>
-JDI matchers handle most kinds of problems. They will pass when you expect them to and fail whenever there is a real error. <br/>
-**Really useful, don't you agree?**
+And of course, you can chain these matchers to verify multiple conditions.<br/>
+- With JDI you won't have to struggle with waits or execute sloppy tests.<br/>
+JDI matchers handle most kinds of problems. They will pass when you expect them to and fail whenever there is a real error. <br/><br/>
+Really useful, don't you agree?
 <br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 ### Custom elements
@@ -187,16 +183,19 @@ public class ContactForm extends Form<Contacts> {
 	}
 }
 ```
-JDI html elements can handle typical standard cases, but each application has its unique culture of layout development. <br/>
-So if your developers are not following common standards, you can easily create a pack of elements specific to your application and use them in JDI.<br/>
-You can create your own elements or just extend the existing ones by overriding a couple of functions. <br/>
-Check these examples: <br/>
+JDI HTML elements can handle typical standard cases, but each application has its unique culture of layout development.
+
+So if your developers are not following common standards, you can easily create a pack of elements specific to your application and use them with JDI.
+You can create your own elements or simply extend the existing ones, overriding a couple of methods.
+
+Check these examples:
+
 <a href='https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/main/java/io/github/com/custom/MenuItem.java' target="_blank">Menu Check item</a> <br/>
 <a href='https://github.com/jdi-testing/jdi-light/blob/master/jdi-performance/src/main/java/org/mytests/uiobjects/example/site/sections/ContactForm.java' target="_blank">Contact Form</a>
 
 ## Start a new project with JDI
-You can start a new Test Automation Project with JDI in mere seconds! <br/>
-Just download one of the templates at <a href='https://github.com/jdi-templates' target="_blank">Github > jdi-light-...</a> <br/>
+You can start a new test automation project with JDI in mere seconds! <br/>
+Just download one of the templates at <a href='https://github.com/jdi-templates' target="_blank">Github JDI template repository</a>. <br/>
 
 ### Java + Allure + TestNg (recommended)
 <a href='https://github.com/jdi-templates/jdi-light-testng-template' target="_blank">Github link</a> <br/>

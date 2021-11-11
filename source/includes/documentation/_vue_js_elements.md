@@ -1457,7 +1457,7 @@ Carousel component is used to display large numbers of visual content on a rotat
 
 For examples of usage see: [Vuetify Carousel tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/CarouselsTests.java).
 
-### 5.25 Navigation Drawer
+### 5.25 Navigation Drawers
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/navigation-drawers/)
 
@@ -1496,7 +1496,7 @@ Navigation drawer component is what users will utilize to navigate through the a
 
 For examples of usage see: [Navigation Drawers tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/NavigationDrawersTests.java).
 
-### 5.26 Tooltip
+### 5.26 Tooltips
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/tooltips/)
 
@@ -1537,4 +1537,77 @@ Tooltip component is useful for conveying information when a user hovers over an
 
 
 For examples of usage see: [Tooltips tests](https://github.com/jdi-testing/jdi-light/blob/3eaeee91902e34343907258097dce4d5d9eddac3/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/TooltipsTests.java).
+
+### 5.27 Progress
+
+#### 5.27.1 Progress circular
+
+[Vuetify documentation page](https://vuetifyjs.com/en/components/progress-circular/)
+
+- __Java__: _package com.epam.jdi.light.vuetify.elements.common.ProgressSpinner.java_
+
+```java
+    @Test(dataProvider = "sizeWidthProgressSpinnersTestsDataProvider",
+      dataProviderClass = ProgressSpinnersDataProvider.class)
+    public void sizeWidthProgressCircularsTests(int index, String color, String height, String width) {
+      sizeWidthProgressSpinners.get(index).is().displayed();
+      sizeWidthProgressSpinners.get(index).is().spinning();
+      sizeWidthProgressSpinners.get(index).has().color(color);
+      sizeWidthProgressSpinners.get(index).has().height(height);
+      sizeWidthProgressSpinners.get(index).has().width(width);
+    }
+
+```
+
+Progress circular component is used to convey data circularly to users. It also can be put into an indeterminate state to portray loading.
+
+![Progress Circular example](../../images/vuetify/progress-circular.png)
+
+|Method | Description | Return Type
+--- | --- | ---
+**has()/is()** | Returns Assert class | ProgressSpinnerAssert 
+**hasColor()** | Returns color of the element in rgba | String
+**hasHeight()** | Returns height of the element | String
+**hasWidth()** | Returns width of the element | String
+**isSpinning()** | Shows that element is spinning | boolean
+
+For examples of usage see: [Progress circular tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/ProgressSpinnersTests.java).
+
+#### 5.27.2 Progress linear
+
+[Vuetify documentation page](https://vuetifyjs.com/en/components/progress-linear/)
+
+- __Java__: _package com.epam.jdi.light.vuetify.elements.common.ProgressBar.java_
+
+```java
+    @Test(dataProvider = "bufferValueProgressBarsTestsDataProvider",
+      dataProviderClass = ProgressBarsDataProvider.class)
+    public void bufferValueProgressBarsTests(int index, String color) {
+      bufferValueProgressBars.get(index).is().displayed();
+      bufferValueProgressBars.get(index).is().reactive();
+      bufferValueProgressBars.get(index).is().determinate();
+      bufferValueProgressBars.get(index).has().color(color);
+      bufferValueProgressBars.get(index).click();
+      bufferValueProgressBars.get(index).has().value(50.0);
+    }
+
+```
+
+Progress linear component is used to convey data circularly to users. They can also represent an indeterminate amount, such as loading or processing.
+
+![Progress Linear example](../../images/vuetify/progress-linear.png)
+
+|Method | Description | Return Type
+--- | --- | ---
+**has()/is()** | Returns Assert class | ProgressBarAssert
+**hasBarColor()** | Returns color of the bar in rgba | String
+**isDeterminate()** | Shows that bar is determinate | boolean
+**isIndeterminate()** | Shows that bar is indeterminate | boolean
+**isReactive()** | Shows that bar is reactive | boolean
+**isRounded()** | Shows that bar is rounded | boolean
+**isStriped()** | Shows that bar is striped | boolean
+**hasValue()** | Returns bar's value | Double
+**hasStream()** | Shows that bar has stream | boolean
+
+For examples of usage see: [Progress linear tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/ProgressBarsTests.java).
 

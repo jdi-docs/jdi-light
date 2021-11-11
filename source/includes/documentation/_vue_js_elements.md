@@ -1457,4 +1457,42 @@ Carousel component is used to display large numbers of visual content on a rotat
 
 For examples of usage see: [Vuetify Carousel tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/CarouselsTests.java).
 
+### 5.25 Navigation Drawer
+
+[Vuetify documentation page](https://vuetifyjs.com/en/components/navigation-drawers/)
+
+- __Java__: _package com.epam.jdi.light.vuetify.elements.complex.NavigationDrawer.java_
+
+```java
+
+    @Test
+    public void coloredDrawerNavigationDrawerTests() {
+      coloredDrawerNavigationDrawer.is().displayed();
+      coloredDrawerNavigationDrawer.has().backgroundColor(DEEP_PURPLE_ACCENT_4.value());
+      coloredDrawerNavigationDrawer.has().numberOfOptions(3);
+      coloredDrawerNavigationDrawer.has().optionClickable(1);
+      coloredDrawerNavigationDrawer.has().optionClickable(2);
+      coloredDrawerNavigationDrawer.has().optionClickable(3);
+      coloredDrawerNavigationDrawer.has().button();
+    }
+
+```
+
+Navigation drawer component is what users will utilize to navigate through the application. Navigation drawer is primarily used to house links to the pages in your application.
+
+![Icons example](../../images/vuetify/navigation-drawer.png)
+
+|Method | Description | Return Type
+--- | --- | ---
+**has()/is()** | Returns Assert class | NavigationDrawerAssert
+**hasNumberOfOptions()** | Returns navigation drawer's number of options | int
+**optionIsSelected()** | Shows that option is selected | boolean
+**isExpanded()** | Shows that navigation drawer is expanded | boolean
+**isCollapsed()** | Shows that navigation drawer is collapsed | boolean
+**isOpened()** | Shows that navigation drawer is opened | boolean
+**hasBackgroundImage()** | Shows that navigation drawer's has background image | boolean
+**hasBackgroundColor()** | Returns navigation drawer's background color in rgba | String
+**selectOptionByIndex()** | Selects chosen option | void
+
+For examples of usage see: [Navigation Drawers tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/NavigationDrawersTests.java).
 

@@ -1804,9 +1804,6 @@ The modal component provides a solid foundation for creating dialogs, popovers, 
 ### 4.42 Popper
 
 ```java 
-    @UI("button")
-    public static List<Button> buttons;
-
     @UI("[role='tooltip']")
     public static UIElement tooltip;
     
@@ -1814,11 +1811,12 @@ The modal component provides a solid foundation for creating dialogs, popovers, 
     public void positionedPoppersTest() {
         Timer timer = new Timer(2000L);
         for (int i = 1; i <= 4; i++) {
-            buttons.get(i).click();
-            buttons.get(i).has().text(POPPER_TEXTS.get(i));
-            tooltip.has().attr("x-placement", TOOLTIP_CLASSES.get(i));
-            buttons.get(i).click();
-            timer.wait(() -> tooltip.is().notVisible());
+            popper.popperButton(POPPER_BUTTONS_TEXTS[i - 1]).click();
+            popper.assertThat().popperDisplayed();
+            popper.assertThat().popperTextCorrect(POPPER_CONTENT_TEXT);
+            popper.assertThat().popperPosition(POPPER_POSITIONS[i - 1]);
+            popper.popperButton(POPPER_BUTTONS_TEXTS[i - 1]).click();
+            timer.wait(() -> popper.assertThat().notVisible());
         }
     }
 ```
@@ -1829,7 +1827,8 @@ A Popper can be used to display some content on top of another. It's an alternat
 
 ![Popper](../../images/material-ui/Popper.png)
 
-##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/PopperTests.java" target="_blank">Here you can find Popper tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui/src/main/java/com/epam/jdi/light/material/elements/utils/Popper.java" target="_blank">Here you can find Popper element</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/PopperTests.java" target="_blank">Here you can find Popper tests</a>
 
 ### 4.43 Progress
 

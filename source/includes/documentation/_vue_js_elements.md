@@ -1443,7 +1443,7 @@ For examples of usage see: [Vuetify Icon tests](https://github.com/jdi-testing/j
 
 Carousel component is used to display large numbers of visual content on a rotating timer.
 
-![Icons example](../../images/vuetify/carousels.png)
+![Carousels examples](../../images/vuetify/carousels.png)
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -1480,7 +1480,7 @@ For examples of usage see: [Vuetify Carousel tests](https://github.com/jdi-testi
 
 Navigation drawer component is what users will utilize to navigate through the application. Navigation drawer is primarily used to house links to the pages in your application.
 
-![Icons example](../../images/vuetify/navigation-drawer.png)
+![Navigation Drawers examples](../../images/vuetify/navigation-drawer.png)
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -1495,4 +1495,46 @@ Navigation drawer component is what users will utilize to navigate through the a
 **selectOptionByIndex()** | Selects chosen option | void
 
 For examples of usage see: [Navigation Drawers tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/NavigationDrawersTests.java).
+
+### 5.26 Tooltip
+
+[Tooltips documentation page](https://vuetifyjs.com/en/components/tooltips/)
+
+- __Java__: _package com.epam.jdi.light.vuetify.elements.common.Tooltip.java_
+
+```java
+
+    @Test
+    public void tooltipsTests() {
+      homeIconWithTooltip.is().displayed();
+      buttonWithTooltip.hover();
+      tooltip.is().displayed();
+      tooltip.has().text("Tooltip");
+      homeIconWithTooltip.hover();
+      tooltip.is().displayed();
+      tooltip.has().text("Tooltip");
+      textWithTooltip.hover();
+      tooltip.is().displayed();
+      tooltip.has().text("Tooltip");
+      toggleButtonWithTooltip.hover();
+      tooltip.is().hidden();
+      toggleButtonWithTooltip.click();
+      tooltip.is().displayed();
+      tooltip.has().text("Programmatic tooltip");
+      toggleButtonWithTooltip.click();
+      tooltip.is().hidden();
+      cartIconWithTooltip.hover();
+      tooltip.is().displayed();
+      tooltip.has().text("Programmatic tooltip");
+      cartIconWithTooltip.click();
+      tooltip.is().hidden();
+    }
+```
+
+Tooltip component is useful for conveying information when a user hovers over an element. Its display can be controlled programmatically. When activated, tooltips display a text label identifying an element, such as a description of its function.
+
+![Tooltips examples](../../images/vuetify/tooltips.png)
+
+
+For examples of usage see: [Tooltips tests](https://github.com/jdi-testing/jdi-light/blob/3eaeee91902e34343907258097dce4d5d9eddac3/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/TooltipsTests.java).
 

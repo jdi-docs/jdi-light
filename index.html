@@ -1138,10 +1138,21 @@
 								            <a href="#5-24-carousels" class="toc-h2 h3 toc-link" data-title="5.24 Carousels">5.24 Carousels</a>
                           </li>
                           <li>
-								            <a href="#5-25-navigation-drawer" class="toc-h2 h3 toc-link" data-title="5.25 Navigation Drawer">5.25 Navigation Drawer</a>
+								            <a href="#5-25-navigation-drawers" class="toc-h2 h3 toc-link" data-title="5.25 Navigation Drawers">5.25 Navigation Drawers</a>
                           </li>
                           <li>
-								            <a href="#5-26-tooltip" class="toc-h2 h3 toc-link" data-title="5.26 Tooltip">5.26 Tooltip</a>
+								            <a href="#5-26-tooltips" class="toc-h2 h3 toc-link" data-title="5.26 Tooltips">5.26 Tooltips</a>
+                          </li>
+                          <li>
+								            <a href="#5-27-progress" class="toc-h2 h3 toc-link" data-title="5.27 Progress">5.27 Progress</a>
+									            <ul class="toc-list-h2">
+										              <li>
+										              <a href="#5-27-1-progress-circular" class="toc-h3 h4 toc-link" data-title="5.27.1 Progress circular">5.27.1 Progress circular</a>
+										              </li>
+										              <li>
+										              <a href="#5-27-2-progress-linear" class="toc-h3 h4 toc-link" data-title="5.27.2 Progress linear">5.27.2 Progress linear</a>
+										              </li>
+									            </ul>
                           </li>
                       </ul>
                   </li>
@@ -38338,7 +38349,7 @@ explicitly through a <code>JDIPagination</code> annotation.</p>
 </tbody></table>
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/CarouselsTests.java">Vuetify Carousel tests</a>.</p>
-<h3 id='5-25-navigation-drawer'>5.25 Navigation Drawer</h3>
+<h3 id='5-25-navigation-drawers'>5.25 Navigation Drawers</h3>
 <p><a href="https://vuetifyjs.com/en/components/navigation-drawers/">Vuetify documentation page</a></p>
 
 <ul>
@@ -38416,7 +38427,7 @@ explicitly through a <code>JDIPagination</code> annotation.</p>
 </tbody></table>
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/NavigationDrawersTests.java">Navigation Drawers tests</a>.</p>
-<h3 id='5-26-tooltip'>5.26 Tooltip</h3>
+<h3 id='5-26-tooltips'>5.26 Tooltips</h3>
 <p><a href="https://vuetifyjs.com/en/components/tooltips/">Vuetify documentation page</a></p>
 
 <ul>
@@ -38454,6 +38465,139 @@ explicitly through a <code>JDIPagination</code> annotation.</p>
 <p><img src="images/vuetify/tooltips.png" alt="Tooltips examples" /></p>
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/3eaeee91902e34343907258097dce4d5d9eddac3/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/TooltipsTests.java">Tooltips tests</a>.</p>
+<h3 id='5-27-progress'>5.27 Progress</h3><h4 id='5-27-1-progress-circular'>5.27.1 Progress circular</h4>
+<p><a href="https://vuetifyjs.com/en/components/progress-circular/">Vuetify documentation page</a></p>
+
+<ul>
+<li><strong>Java</strong>: <em>package com.epam.jdi.light.vuetify.elements.common.ProgressSpinner.java</em></li>
+</ul>
+<pre class="highlight java tab-java"><code>    <span class="nd">@Test</span><span class="o">(</span><span class="n">dataProvider</span> <span class="o">=</span> <span class="s">"sizeWidthProgressSpinnersTestsDataProvider"</span><span class="o">,</span>
+      <span class="n">dataProviderClass</span> <span class="o">=</span> <span class="n">ProgressSpinnersDataProvider</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">sizeWidthProgressCircularsTests</span><span class="o">(</span><span class="kt">int</span> <span class="n">index</span><span class="o">,</span> <span class="n">String</span> <span class="n">color</span><span class="o">,</span> <span class="n">String</span> <span class="n">height</span><span class="o">,</span> <span class="n">String</span> <span class="n">width</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">sizeWidthProgressSpinners</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">index</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+      <span class="n">sizeWidthProgressSpinners</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">index</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">spinning</span><span class="o">();</span>
+      <span class="n">sizeWidthProgressSpinners</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">index</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">color</span><span class="o">(</span><span class="n">color</span><span class="o">);</span>
+      <span class="n">sizeWidthProgressSpinners</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">index</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">height</span><span class="o">(</span><span class="n">height</span><span class="o">);</span>
+      <span class="n">sizeWidthProgressSpinners</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">index</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">width</span><span class="o">(</span><span class="n">width</span><span class="o">);</span>
+    <span class="o">}</span>
+
+</code></pre>
+<p>Progress circular component is used to convey data circularly to users. It also can be put into an indeterminate state to portray loading.</p>
+
+<p><img src="images/vuetify/progress-circular.png" alt="Progress Circular example" /></p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>has()/is()</strong></td>
+<td>Returns Assert class</td>
+<td>ProgressSpinnerAssert</td>
+</tr>
+<tr>
+<td><strong>hasColor()</strong></td>
+<td>Returns color of the element in rgba</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>hasHeight()</strong></td>
+<td>Returns height of the element</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>hasWidth()</strong></td>
+<td>Returns width of the element</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>isSpinning()</strong></td>
+<td>Shows that element is spinning</td>
+<td>boolean</td>
+</tr>
+</tbody></table>
+
+<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/ProgressSpinnersTests.java">Progress circular tests</a>.</p>
+<h4 id='5-27-2-progress-linear'>5.27.2 Progress linear</h4>
+<p><a href="https://vuetifyjs.com/en/components/progress-linear/">Vuetify documentation page</a></p>
+
+<ul>
+<li><strong>Java</strong>: <em>package com.epam.jdi.light.vuetify.elements.common.ProgressBar.java</em></li>
+</ul>
+<pre class="highlight java tab-java"><code>    <span class="nd">@Test</span><span class="o">(</span><span class="n">dataProvider</span> <span class="o">=</span> <span class="s">"bufferValueProgressBarsTestsDataProvider"</span><span class="o">,</span>
+      <span class="n">dataProviderClass</span> <span class="o">=</span> <span class="n">ProgressBarsDataProvider</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">bufferValueProgressBarsTests</span><span class="o">(</span><span class="kt">int</span> <span class="n">index</span><span class="o">,</span> <span class="n">String</span> <span class="n">color</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">bufferValueProgressBars</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">index</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+      <span class="n">bufferValueProgressBars</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">index</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">reactive</span><span class="o">();</span>
+      <span class="n">bufferValueProgressBars</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">index</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">determinate</span><span class="o">();</span>
+      <span class="n">bufferValueProgressBars</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">index</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">color</span><span class="o">(</span><span class="n">color</span><span class="o">);</span>
+      <span class="n">bufferValueProgressBars</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">index</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+      <span class="n">bufferValueProgressBars</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">index</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="mf">50.0</span><span class="o">);</span>
+    <span class="o">}</span>
+
+</code></pre>
+<p>Progress linear component is used to convey data circularly to users. They can also represent an indeterminate amount, such as loading or processing.</p>
+
+<p><img src="images/vuetify/progress-linear.png" alt="Progress Linear example" /></p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>has()/is()</strong></td>
+<td>Returns Assert class</td>
+<td>ProgressBarAssert</td>
+</tr>
+<tr>
+<td><strong>hasBarColor()</strong></td>
+<td>Returns color of the bar in rgba</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>isDeterminate()</strong></td>
+<td>Shows that bar is determinate</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isIndeterminate()</strong></td>
+<td>Shows that bar is indeterminate</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isReactive()</strong></td>
+<td>Shows that bar is reactive</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isRounded()</strong></td>
+<td>Shows that bar is rounded</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isStriped()</strong></td>
+<td>Shows that bar is striped</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>hasValue()</strong></td>
+<td>Returns bar&#39;s value</td>
+<td>Double</td>
+</tr>
+<tr>
+<td><strong>hasStream()</strong></td>
+<td>Shows that bar has stream</td>
+<td>boolean</td>
+</tr>
+</tbody></table>
+
+<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/ProgressBarsTests.java">Progress linear tests</a>.</p>
 <h2 id='jdi-features'>JDI features</h2><h3 id='jdi-features-for-parameters-in-bdd-steps'>JDI Features for parameters in BDD steps</h3><h4 id='using-aliases-as-locators-parameters'>Using aliases as locators parameters</h4><pre class="highlight gherkin tab-gherkin"><code>   <span class="kn">Scenario</span><span class="p">:</span> input element
        <span class="nf">When</span> I input <span class="s">"simple 1234"</span> in <span class="s">"Name"</span>
        <span class="nf">Then</span> the <span class="s">"Name"</span> text matches to <span class="s">"\w{6} \d{4}"</span>

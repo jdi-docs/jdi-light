@@ -1410,4 +1410,51 @@ Icon component provides a large set of graphial signs to provide context for var
 
 For examples of usage see: [Vuetify Icon tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/IconsTests.java).
 
+### 5.24 Carousels
+
+[Vuetify documentation page](https://vuetifyjs.com/en/components/carousels/)
+
+- __Java__: _package com.epam.jdi.light.vuetify.elements.complex.Carousel.java_
+
+```java
+
+    @Test
+    public void customTransitionCarouselTests() {
+      customTransitionCarousel.is().displayed();
+      customTransitionCarousel.has().numberOfDelimiters(4);
+      customTransitionCarousel.has().delimiterIcons("mdi-circle");
+      customTransitionCarousel.has().visibleNextButton();
+      customTransitionCarousel.has().visiblePreviousButton();
+      customTransitionCarousel.has().currentSlideBackgroundImage("squirrel");
+      customTransitionCarousel.clickOnNextButton();
+      customTransitionCarousel.has().currentSlideBackgroundImage("sky");
+      customTransitionCarousel.clickOnPreviousButton();
+      customTransitionCarousel.has().currentSlideBackgroundImage("squirrel");
+      customTransitionCarousel.goToSlide(4);
+      customTransitionCarousel.has().currentSlideBackgroundImage("planet");
+      customTransitionCarousel.clickOnNextButton();
+      customTransitionCarousel.has().currentSlideBackgroundImage("squirrel");
+      customTransitionCarousel.clickOnPreviousButton();
+      customTransitionCarousel.has().currentSlideBackgroundImage("planet");
+      customTransitionCarousel.goToSlide(3);
+      customTransitionCarousel.has().currentSlideBackgroundImage("bird");
+    }
+```
+
+Carousel component is used to display large numbers of visual content on a rotating timer.
+
+![Icons example](../../images/vuetify/carousels.png)
+
+|Method | Description | Return Type
+--- | --- | ---
+**has()/is()** | Returns Assert class | CarouselAssert
+**clickOnNextButton()** | Click on 'next' button | void
+**clickOnPreviousButton()** | Click on 'previous' button | void
+**goToSlide()** | Click on selected delimiter | void
+**currentSlideBackgroundImage()** | Returns source link to current slide's image | String
+**currentSlideText()** | Returns current slide's text | String
+**currentSlideColor()** | Returns current slide's background color in rgba | String
+
+For examples of usage see: [Vuetify Carousel tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/CarouselsTests.java).
+
 

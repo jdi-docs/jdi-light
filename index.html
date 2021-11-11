@@ -1140,6 +1140,9 @@
                           <li>
 								            <a href="#5-25-navigation-drawer" class="toc-h2 h3 toc-link" data-title="5.25 Navigation Drawer">5.25 Navigation Drawer</a>
                           </li>
+                          <li>
+								            <a href="#5-26-tooltip" class="toc-h2 h3 toc-link" data-title="5.26 Tooltip">5.26 Tooltip</a>
+                          </li>
                       </ul>
                   </li>
                   <li>
@@ -38291,7 +38294,7 @@ explicitly through a <code>JDIPagination</code> annotation.</p>
 </code></pre>
 <p>Carousel component is used to display large numbers of visual content on a rotating timer.</p>
 
-<p><img src="images/vuetify/carousels.png" alt="Icons example" /></p>
+<p><img src="images/vuetify/carousels.png" alt="Carousels examples" /></p>
 
 <table><thead>
 <tr>
@@ -38359,7 +38362,7 @@ explicitly through a <code>JDIPagination</code> annotation.</p>
 </code></pre>
 <p>Navigation drawer component is what users will utilize to navigate through the application. Navigation drawer is primarily used to house links to the pages in your application.</p>
 
-<p><img src="images/vuetify/navigation-drawer.png" alt="Icons example" /></p>
+<p><img src="images/vuetify/navigation-drawer.png" alt="Navigation Drawers examples" /></p>
 
 <table><thead>
 <tr>
@@ -38416,6 +38419,44 @@ explicitly through a <code>JDIPagination</code> annotation.</p>
 </tbody></table>
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/NavigationDrawersTests.java">Navigation Drawers tests</a>.</p>
+<h3 id='5-26-tooltip'>5.26 Tooltip</h3>
+<p><a href="https://vuetifyjs.com/en/components/tooltips/">Vuetify documentation page</a></p>
+
+<ul>
+<li><strong>Java</strong>: <em>package com.epam.jdi.light.vuetify.elements.common.Tooltip.java</em></li>
+</ul>
+<pre class="highlight java tab-java"><code>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">tooltipsTests</span><span class="o">()</span> <span class="o">{</span>
+      <span class="n">homeIconWithTooltip</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+      <span class="n">buttonWithTooltip</span><span class="o">.</span><span class="na">hover</span><span class="o">();</span>
+      <span class="n">tooltip</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+      <span class="n">tooltip</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Tooltip"</span><span class="o">);</span>
+      <span class="n">homeIconWithTooltip</span><span class="o">.</span><span class="na">hover</span><span class="o">();</span>
+      <span class="n">tooltip</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+      <span class="n">tooltip</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Tooltip"</span><span class="o">);</span>
+      <span class="n">textWithTooltip</span><span class="o">.</span><span class="na">hover</span><span class="o">();</span>
+      <span class="n">tooltip</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+      <span class="n">tooltip</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Tooltip"</span><span class="o">);</span>
+      <span class="n">toggleButtonWithTooltip</span><span class="o">.</span><span class="na">hover</span><span class="o">();</span>
+      <span class="n">tooltip</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">hidden</span><span class="o">();</span>
+      <span class="n">toggleButtonWithTooltip</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+      <span class="n">tooltip</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+      <span class="n">tooltip</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Programmatic tooltip"</span><span class="o">);</span>
+      <span class="n">toggleButtonWithTooltip</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+      <span class="n">tooltip</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">hidden</span><span class="o">();</span>
+      <span class="n">cartIconWithTooltip</span><span class="o">.</span><span class="na">hover</span><span class="o">();</span>
+      <span class="n">tooltip</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+      <span class="n">tooltip</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Programmatic tooltip"</span><span class="o">);</span>
+      <span class="n">cartIconWithTooltip</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+      <span class="n">tooltip</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">hidden</span><span class="o">();</span>
+    <span class="o">}</span>
+</code></pre>
+<p>Tooltip component is useful for conveying information when a user hovers over an element. Its display can be controlled programmatically. When activated, tooltips display a text label identifying an element, such as a description of its function.</p>
+
+<p><img src="images/vuetify/tooltips.png" alt="Tooltips examples" /></p>
+
+<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/3eaeee91902e34343907258097dce4d5d9eddac3/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/TooltipsTests.java">Tooltips tests</a>.</p>
 <h2 id='jdi-features'>JDI features</h2><h3 id='jdi-features-for-parameters-in-bdd-steps'>JDI Features for parameters in BDD steps</h3><h4 id='using-aliases-as-locators-parameters'>Using aliases as locators parameters</h4><pre class="highlight gherkin tab-gherkin"><code>   <span class="kn">Scenario</span><span class="p">:</span> input element
        <span class="nf">When</span> I input <span class="s">"simple 1234"</span> in <span class="s">"Name"</span>
        <span class="nf">Then</span> the <span class="s">"Name"</span> text matches to <span class="s">"\w{6} \d{4}"</span>

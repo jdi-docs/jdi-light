@@ -1134,6 +1134,9 @@
                           <li>
 								            <a href="#5-23-icons" class="toc-h2 h3 toc-link" data-title="5.23 Icons">5.23 Icons</a>
                           </li>
+                          <li>
+								            <a href="#5-24-carousels" class="toc-h2 h3 toc-link" data-title="5.24 Carousels">5.24 Carousels</a>
+                          </li>
                       </ul>
                   </li>
                   <li>
@@ -38254,6 +38257,84 @@ explicitly through a <code>JDIPagination</code> annotation.</p>
 </tbody></table>
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/IconsTests.java">Vuetify Icon tests</a>.</p>
+<h3 id='5-24-carousels'>5.24 Carousels</h3>
+<p><a href="https://vuetifyjs.com/en/components/carousels/">Vuetify documentation page</a></p>
+
+<ul>
+<li><strong>Java</strong>: <em>package com.epam.jdi.light.vuetify.elements.complex.Carousel.java</em></li>
+</ul>
+<pre class="highlight java tab-java"><code>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">customTransitionCarouselTests</span><span class="o">()</span> <span class="o">{</span>
+      <span class="n">customTransitionCarousel</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+      <span class="n">customTransitionCarousel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">numberOfDelimiters</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
+      <span class="n">customTransitionCarousel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">delimiterIcons</span><span class="o">(</span><span class="s">"mdi-circle"</span><span class="o">);</span>
+      <span class="n">customTransitionCarousel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">visibleNextButton</span><span class="o">();</span>
+      <span class="n">customTransitionCarousel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">visiblePreviousButton</span><span class="o">();</span>
+      <span class="n">customTransitionCarousel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">currentSlideBackgroundImage</span><span class="o">(</span><span class="s">"squirrel"</span><span class="o">);</span>
+      <span class="n">customTransitionCarousel</span><span class="o">.</span><span class="na">clickOnNextButton</span><span class="o">();</span>
+      <span class="n">customTransitionCarousel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">currentSlideBackgroundImage</span><span class="o">(</span><span class="s">"sky"</span><span class="o">);</span>
+      <span class="n">customTransitionCarousel</span><span class="o">.</span><span class="na">clickOnPreviousButton</span><span class="o">();</span>
+      <span class="n">customTransitionCarousel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">currentSlideBackgroundImage</span><span class="o">(</span><span class="s">"squirrel"</span><span class="o">);</span>
+      <span class="n">customTransitionCarousel</span><span class="o">.</span><span class="na">goToSlide</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
+      <span class="n">customTransitionCarousel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">currentSlideBackgroundImage</span><span class="o">(</span><span class="s">"planet"</span><span class="o">);</span>
+      <span class="n">customTransitionCarousel</span><span class="o">.</span><span class="na">clickOnNextButton</span><span class="o">();</span>
+      <span class="n">customTransitionCarousel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">currentSlideBackgroundImage</span><span class="o">(</span><span class="s">"squirrel"</span><span class="o">);</span>
+      <span class="n">customTransitionCarousel</span><span class="o">.</span><span class="na">clickOnPreviousButton</span><span class="o">();</span>
+      <span class="n">customTransitionCarousel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">currentSlideBackgroundImage</span><span class="o">(</span><span class="s">"planet"</span><span class="o">);</span>
+      <span class="n">customTransitionCarousel</span><span class="o">.</span><span class="na">goToSlide</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+      <span class="n">customTransitionCarousel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">currentSlideBackgroundImage</span><span class="o">(</span><span class="s">"bird"</span><span class="o">);</span>
+    <span class="o">}</span>
+</code></pre>
+<p>Carousel component is used to display large numbers of visual content on a rotating timer.</p>
+
+<p><img src="images/vuetify/carousels.png" alt="Icons example" /></p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>has()/is()</strong></td>
+<td>Returns Assert class</td>
+<td>CarouselAssert</td>
+</tr>
+<tr>
+<td><strong>clickOnNextButton()</strong></td>
+<td>Click on &#39;next&#39; button</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>clickOnPreviousButton()</strong></td>
+<td>Click on &#39;previous&#39; button</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>goToSlide()</strong></td>
+<td>Click on selected delimiter</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>currentSlideBackgroundImage()</strong></td>
+<td>Returns source link to current slide&#39;s image</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>currentSlideText()</strong></td>
+<td>Returns current slide&#39;s text</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>currentSlideColor()</strong></td>
+<td>Returns current slide&#39;s background color in rgba</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/CarouselsTests.java">Vuetify Carousel tests</a>.</p>
 <h2 id='jdi-features'>JDI features</h2><h3 id='jdi-features-for-parameters-in-bdd-steps'>JDI Features for parameters in BDD steps</h3><h4 id='using-aliases-as-locators-parameters'>Using aliases as locators parameters</h4><pre class="highlight gherkin tab-gherkin"><code>   <span class="kn">Scenario</span><span class="p">:</span> input element
        <span class="nf">When</span> I input <span class="s">"simple 1234"</span> in <span class="s">"Name"</span>
        <span class="nf">Then</span> the <span class="s">"Name"</span> text matches to <span class="s">"\w{6} \d{4}"</span>

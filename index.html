@@ -1154,6 +1154,9 @@
 										              </li>
 									            </ul>
                           </li>
+                          <li>
+								            <a href="#5-28-menus" class="toc-h2 h3 toc-link" data-title="5.28 Menus">5.28 Menus</a>
+                          </li>
                       </ul>
                   </li>
                   <li>
@@ -38462,7 +38465,7 @@ explicitly through a <code>JDIPagination</code> annotation.</p>
 
 <p><img src="images/vuetify/tooltips.png" alt="Tooltips examples" /></p>
 
-<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/3eaeee91902e34343907258097dce4d5d9eddac3/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/TooltipsTests.java">Tooltips tests</a>.</p>
+<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/TooltipsTests.java">Tooltips tests</a>.</p>
 <h3 id='5-27-progress'>5.27 Progress</h3><h4 id='5-27-1-progress-circular'>5.27.1 Progress circular</h4>
 <p><a href="https://vuetifyjs.com/en/components/progress-circular/">Vuetify documentation page</a></p>
 
@@ -38596,6 +38599,79 @@ explicitly through a <code>JDIPagination</code> annotation.</p>
 </tbody></table>
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/ProgressBarsTests.java">Progress linear tests</a>.</p>
+<h3 id='5-28-menus'>5.28 Menus</h3>
+<p><a href="https://vuetifyjs.com/en/components/menus/">Vuetify documentation page</a></p>
+
+<ul>
+<li><strong>Java</strong>: <em>package com.epam.jdi.light.vuetify.elements.complex.Menu.java</em></li>
+</ul>
+<pre class="highlight java tab-java"><code>    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">offsetXMenuTests</span><span class="o">()</span> <span class="o">{</span>
+      <span class="n">Timer</span><span class="o">.</span><span class="na">waitCondition</span><span class="o">(</span><span class="nl">offsetXMenuButton:</span><span class="o">:</span><span class="n">isDisplayed</span><span class="o">);</span>
+      <span class="n">offsetXMenuButton</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+      <span class="n">offsetXMenuButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+      <span class="n">activeMenu</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+      <span class="n">activeMenu</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">numberOfOptions</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
+      <span class="n">activeMenu</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">optionsTitles</span><span class="o">(</span><span class="n">optionsTitles</span><span class="o">);</span>
+      <span class="n">activeMenu</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">position</span><span class="o">(</span><span class="mi">1190</span><span class="o">,</span> <span class="mi">1132</span><span class="o">);</span>
+      <span class="n">offsetXMenuButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+      <span class="n">activeMenu</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">hidden</span><span class="o">();</span>
+      <span class="n">offsetXMenuSwitch</span><span class="o">.</span><span class="na">uncheck</span><span class="o">();</span>
+      <span class="n">offsetXMenuButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+      <span class="n">activeMenu</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">position</span><span class="o">(</span><span class="mi">1190</span><span class="o">,</span> <span class="mi">1011</span><span class="o">);</span>
+      <span class="n">activeMenu</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+      <span class="n">activeMenu</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">hidden</span><span class="o">();</span>
+    <span class="o">}</span>
+</code></pre>
+<p>Menu component shows a menu at the position of the element that was used to activate it.</p>
+
+<p><img src="images/vuetify/menus.png" alt="Menus examples" /></p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>has()/is()</strong></td>
+<td>Returns Assert class</td>
+<td>MenuAssert</td>
+</tr>
+<tr>
+<td><strong>hasPosition()</strong></td>
+<td>Returns position of menu</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>hasNumberOfOptions()</strong></td>
+<td>Returns number of options in menu</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>hasOptionsTitles()</strong></td>
+<td>Returns list of titles of options in menu</td>
+<td>List<String></td>
+</tr>
+<tr>
+<td><strong>hasRemovedRadius()</strong></td>
+<td>Shows that menu has removed radius</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>hasLargeRadius()</strong></td>
+<td>Shows that menu has large radius</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>hasCustomRadius()</strong></td>
+<td>Shows that menu has custom radius</td>
+<td>boolean</td>
+</tr>
+</tbody></table>
+
+<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/MenusTests.java">Menus tests</a>.</p>
 <h2 id='jdi-features'>JDI features</h2><h3 id='jdi-features-for-parameters-in-bdd-steps'>JDI Features for parameters in BDD steps</h3><h4 id='using-aliases-as-locators-parameters'>Using aliases as locators parameters</h4><pre class="highlight gherkin tab-gherkin"><code>   <span class="kn">Scenario</span><span class="p">:</span> input element
        <span class="nf">When</span> I input <span class="s">"simple 1234"</span> in <span class="s">"Name"</span>
        <span class="nf">Then</span> the <span class="s">"Name"</span> text matches to <span class="s">"\w{6} \d{4}"</span>

@@ -1498,7 +1498,7 @@ For examples of usage see: [Navigation Drawers tests](https://github.com/jdi-tes
 
 ### 5.26 Tooltip
 
-[Tooltips documentation page](https://vuetifyjs.com/en/components/tooltips/)
+[Vuetify documentation page](https://vuetifyjs.com/en/components/tooltips/)
 
 - __Java__: _package com.epam.jdi.light.vuetify.elements.common.Tooltip.java_
 

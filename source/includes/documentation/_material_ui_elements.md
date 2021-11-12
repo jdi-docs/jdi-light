@@ -1735,32 +1735,24 @@ A textarea component for React which grows with content.
 ### 4.40 Popover
 
 ```java 
-    @UI("//button[contains(@class,'MuiButtonBase-root')]/span[@class='MuiButton-label']")
-    public static Button buttonToClick;
-
-    @UI("//div[contains(@class,'MuiPaper-root')]/div")
-    public static Button popoverContent;
-
-    @UI("//span[@class='MuiTypography-root']")
-    public static Text popoverHoverField;
+    @UI(".MuiPopover-root .MuiPaper-root")
+    public static Popover popover;
     
-    @Test
+     @Test
     public void clickPopoverTest() {
-        buttonToClick.is().text("CLICK TO OPEN POPOVER");
-        buttonToClick.click();
-        popoverContent.is().text("Popover content");
-        popoverHoverField.doubleClick();
-        popoverContent.is().notVisible();
+        popover.button(CLICK_BUTTON).click();
+        popover.is().text(POPOVER_CONTENT);
+        popover.button(CLICK_BUTTON).click(1, 0);
+        popover.is().notVisible();
     }
 
     @Test
     public void hoverPopoverTest() {
-        popoverHoverField.is().text("[Hover to open Popover]");
-        popoverHoverField.hover();
-        popoverHoverField.has().attr("aria-owns", "mouse-over-popover");
-        popoverContent.is().text("Popover content");
-        buttonToClick.hover();
-        popoverContent.is().notVisible();
+        popover.button(HOVER_BUTTON).hover();
+        popover.button(HOVER_BUTTON).has().attr("aria-owns", "mouse-over-popover");
+        popover.is().text(POPOVER_CONTENT);
+        popover.button(CLICK_BUTTON).hover();
+        popover.is().notVisible();
     }
 ```
 
@@ -1770,7 +1762,8 @@ A Popover can be used to display some content on top of another.
 
 ![Popover](../../images/material-ui/Popover.png)
 
-##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/PopoverTests.java" target="_blank">Here you can find Popover tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui/src/main/java/com/epam/jdi/light/material/elements/utils/Popover.java" target="_blank">Here you can find Popover element</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/PopoverTests.java" target="_blank">Here you can find Popover tests</a>
 
 ### 4.41 Modal
 

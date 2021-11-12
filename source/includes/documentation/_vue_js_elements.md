@@ -710,29 +710,12 @@ For examples of usage see: [JDI Vuetify Text fields tests](https://github.com/jd
 
 
 ### 5.13 Groups 
-
-#### 5.13.1 Button Groups
-
-[Vuetify documentation page](https://vuetifyjs.com/en/components/button-groups/)
-
-- __Java__: _com.epam.jdi.light.vuetify.elements.complex.ButtonGroup.java_
-
 ```java
 @JDIButtonGroup(
-        root = "#RoundedButtonGroup .v-item-group", 
-        buttons = "//*[@type = 'button']"
+        root = "#RoundedButtonGroup .v-item-group", buttons = "//*[@type = 'button']"
 ) // buttons search strategy is custom
 public static ButtonGroup roundedButtonGroup;
-```
 
-Button group is a complex container for buttons.
-
-When you are using the `@UI` annotation, provide
-a selector not for the list of buttons, but for the container.
-See [different examples](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/main/java/io/github/com/pages/ButtonGroupsPage.java) of using `@UI` and `@JDIButtonGroup` annotations together and separately.
-
-
-```java
 @Test
 public void mandatoryButtonGroupTest() {
     mandatoryButtonGroup.is().displayed();
@@ -745,20 +728,24 @@ public void mandatoryButtonGroupTest() {
     assertSelected(mandatoryButtonGroup.getButtonByIndex(4));
 }
 ```
+#### 5.13.1 Button Groups
+
+[Vuetify documentation page](https://vuetifyjs.com/en/components/button-groups/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.complex.ButtonGroup.java_
+
+Button group is a complex container for buttons.
+
+When you are using the `@UI` annotation, provide
+a selector not for the list of buttons, but for the container.
+See [different examples](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/main/java/io/github/com/pages/ButtonGroupsPage.java) of using `@UI` and `@JDIButtonGroup` annotations together and separately.
+
 
 ![Button group example](../../images/vuetify/button-group.png)
-
 
 For examples of usage see: [Vuetify Button groups tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ButtonGroupsTests.java).
 
 #### 5.13.2 List Item Groups
-[Vuetify documentation page](https://vuetifyjs.com/en/components/list-item-groups/)
-
-- __Java__: _com.epam.jdi.light.vuetify.elements.complex.ListItemGroups.java_
-
-__List item groups__ - a group of selectable items from any component. Items can contains an icon, text, actions etc.
-
-List are a continuous group of text or images. They are composed of items containing primary and supplemental actions, which are represented by icons and text.
 
 ```java
     @UI("#ActiveClassListItemGroup .v-list-item")
@@ -778,7 +765,94 @@ List are a continuous group of text or images. They are composed of items contai
 
     @UI("#SelectionControlsListItemGroup div[role='option']")
     public static List<Checkbox> selectionControlsListItemGroupCheckbox;
+
+@Test
+public static void activeClassListItemGroupTest() {
+  int elemIndex = 1;
+  String[] expectedTitles = {"Wifi", "Bluetooth", "Data Usage"};
+  for (String expectedTitle : expectedTitles) {
+    activeClassListItemGroup.select(elemIndex);
+    jdiAssert(activeClassListItemGroup.isActive(elemIndex), Matchers.is(true));
+    jdiAssert(activeClassListItemGroup.hasIcon(elemIndex), Matchers.is(true));
+    jdiAssert(activeClassListItemGroup.hasTitle(elemIndex, expectedTitle), Matchers.is(true));
+    activeClassListItemGroup.select(elemIndex);
+    jdiAssert(activeClassListItemGroup.isInactivate(elemIndex), Matchers.is(true));
+    elemIndex++;
+  }
+}
+
+@Test
+public static void mandatoryListItemGroupTest() {
+  for (int element = 1; element < 4; element++) {
+      mandatoryListItemGroup.select(element);
+      jdiAssert(mandatoryListItemGroup.isActive(element), Matchers.is(true));
+      mandatoryListItemGroup.select(element);
+      jdiAssert(mandatoryListItemGroup.isInactivate(element), Matchers.is(false));
+  }
+  for (int element = 1; element < 4; element++) {
+      mandatoryListItemGroup.select(element);
+  }
+  jdiAssert(mandatoryListItemGroup.isActive(3), Matchers.is(true));
+  jdiAssert(mandatoryListItemGroup.isInactivate(1), Matchers.is(true));
+  jdiAssert(mandatoryListItemGroup.isInactivate(2), Matchers.is(true));
+}
+
+@Test
+public static void multipleListItemGroupsTest() {
+  for (int element = 1; element < 4; element++) {
+      if (multipleListItemGroup.isInactivate(element)) {
+          multipleListItemGroup.select(element);
+      }
+  }
+  for (int element = 1; element < 4; element++) {
+      jdiAssert(multipleListItemGroup.isActive(element), Matchers.is(true));
+  }
+  for (int element = 1; element < 4; element++) {
+      multipleListItemGroup.select(element);
+      jdiAssert(multipleListItemGroup.isInactivate(element), Matchers.is(true));
+  }
+}
+
+@Test
+public static void flatListListItemGroupTest() {
+  for (int element = 1; element < 4; element++) {
+      flatListListItemGroup.select(element);
+      jdiAssert(flatListListItemGroup.isActive(element), Matchers.is(true));
+      jdiAssert(flatListListItemGroup.hasIcon(element), Matchers.is(true));
+      flatListListItemGroup.select(element);
+      jdiAssert(flatListListItemGroup.isInactivate(element), Matchers.is(true));
+  }
+}
+
+@Test
+public static void selectionControlsListItemGroupTest() {
+  int elemIndex = 1;
+  String[] expectedTitles = {"Dog Photos", "Cat Photos", "Potatoes", "Carrots"};
+  for (String expectedTitle : expectedTitles) {
+      jdiAssert(selectionControlsListItemGroup.hasTitle(elemIndex, expectedTitle), Matchers.is(true));
+      selectionControlsListItemGroupCheckbox.get(elemIndex).check();
+      selectionControlsListItemGroupCheckbox.get(elemIndex).is().checked();
+      selectionControlsListItemGroupCheckbox.get(elemIndex).uncheck();
+      selectionControlsListItemGroupCheckbox.get(elemIndex).is().unchecked();
+      elemIndex++;
+  }
+  for (int element = 1; element < 5; element++) {
+      selectionControlsListItemGroupCheckbox.get(element).check();
+  }
+  for (int element = 1; element < 5; element++) {
+      selectionControlsListItemGroupCheckbox.get(element).is().checked();
+  }
+}
 ```
+
+[Vuetify documentation page](https://vuetifyjs.com/en/components/list-item-groups/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.complex.ListItemGroups.java_
+
+__List item groups__ - a group of selectable items from any component. Items can contains an icon, text, actions etc.
+
+List are a continuous group of text or images. They are composed of items containing primary and supplemental actions, which are represented by icons and text.
+
 See [different examples](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/main/java/io/github/com/pages/ListItemGroupsPage.java)
 
 The v-list-item-group provides the ability to create a group of selectable v-list-items. The v-list-item-group component utilizes v-item-group at its core to provide a clean interface for interactive lists.
@@ -801,124 +875,72 @@ The v-list-item-group provides the ability to create a group of selectable v-lis
 
 You can set a class which will be added when an item is selected.
 
-```java
-@Test
-public static void activeClassListItemGroupTest() {
-
-  int elemIndex = 1;
-  String[] expectedTitles = {"Wifi", "Bluetooth", "Data Usage"};
-
-  for (String expectedTitle : expectedTitles) {
-    activeClassListItemGroup.select(elemIndex);
-    jdiAssert(activeClassListItemGroup.isActive(elemIndex), Matchers.is(true));
-    jdiAssert(activeClassListItemGroup.hasIcon(elemIndex), Matchers.is(true));
-    jdiAssert(activeClassListItemGroup.hasTitle(elemIndex, expectedTitle), Matchers.is(true));
-    activeClassListItemGroup.select(elemIndex);
-    jdiAssert(activeClassListItemGroup.isInactivate(elemIndex), Matchers.is(true));
-
-    elemIndex++;
-  }
-}
-```
 ##### Mandatory class
 
 At least one item must be selected.
 
-```java
-@Test
-public static void mandatoryListItemGroupTest() {
-
-  for (int element = 1; element < 4; element++) {
-      mandatoryListItemGroup.select(element);
-      jdiAssert(mandatoryListItemGroup.isActive(element), Matchers.is(true));
-      mandatoryListItemGroup.select(element);
-      jdiAssert(mandatoryListItemGroup.isInactivate(element), Matchers.is(false));
-  }
-
-  for (int element = 1; element < 4; element++) {
-      mandatoryListItemGroup.select(element);
-  }
-
-  jdiAssert(mandatoryListItemGroup.isActive(3), Matchers.is(true));
-  jdiAssert(mandatoryListItemGroup.isInactivate(1), Matchers.is(true));
-  jdiAssert(mandatoryListItemGroup.isInactivate(2), Matchers.is(true));
-}
-```
 ##### Multiple class
 
 You can select multiple items at one time.
 
-```java
-@Test
-public static void multipleListItemGroupsTest() {
-  for (int element = 1; element < 4; element++) {
-      if (multipleListItemGroup.isInactivate(element)) {
-          multipleListItemGroup.select(element);
-      }
-  }
-
-  for (int element = 1; element < 4; element++) {
-      jdiAssert(multipleListItemGroup.isActive(element), Matchers.is(true));
-  }
-
-  for (int element = 1; element < 4; element++) {
-      multipleListItemGroup.select(element);
-      jdiAssert(multipleListItemGroup.isInactivate(element), Matchers.is(true));
-  }
-}
-```
 
 ##### Flat list
 
 You can easily disable the default highlighting of selected v-list-items. This creates a lower profile for a user’s choices.
 
-```java
-@Test
-public static void flatListListItemGroupTest() {
-
-  for (int element = 1; element < 4; element++) {
-      flatListListItemGroup.select(element);
-      jdiAssert(flatListListItemGroup.isActive(element), Matchers.is(true));
-      jdiAssert(flatListListItemGroup.hasIcon(element), Matchers.is(true));
-      flatListListItemGroup.select(element);
-      jdiAssert(flatListListItemGroup.isInactivate(element), Matchers.is(true));
-  }
-}
-```
 
 ##### Selection controls
 
 Using the default slot, you can access an items internal state and toggle it. Since the active property is a boolean, we use the true-value prop on the checkbox to link its state to the v-list-item.
 
-```java
-@Test
-public static void selectionControlsListItemGroupTest() {
-  int elemIndex = 1;
-  String[] expectedTitles = {"Dog Photos", "Cat Photos", "Potatoes", "Carrots"};
-
-  for (String expectedTitle : expectedTitles) {
-
-      jdiAssert(selectionControlsListItemGroup.hasTitle(elemIndex, expectedTitle), Matchers.is(true));
-      selectionControlsListItemGroupCheckbox.get(elemIndex).check();
-      selectionControlsListItemGroupCheckbox.get(elemIndex).is().checked();
-      selectionControlsListItemGroupCheckbox.get(elemIndex).uncheck();
-      selectionControlsListItemGroupCheckbox.get(elemIndex).is().unchecked();
-
-      elemIndex++;
-  }
-
-  for (int element = 1; element < 5; element++) {
-      selectionControlsListItemGroupCheckbox.get(element).check();
-  }
-  for (int element = 1; element < 5; element++) {
-      selectionControlsListItemGroupCheckbox.get(element).is().checked();
-  }
-}
-```
 
 For examples of usage see: [Vuetify List Item Groups tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ListItemGroupsTests.java).
 
-#### 5.13.3 Windows
+#### 5.13.3 Slide Groups
+
+[Vuetify documentation page](https://vuetifyjs.com/en/components/slide-groups/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.complex.SlideGroup.java_
+
+```java
+    @Test
+    public void centerActiveSlideGroupTests() {
+      List<Integer> slidesPositions = new SlideGroupTestsData().centerActiveSlideGroupTestData();
+      centerActiveSlideGroup.is().displayed();
+      for (int i = 1; i <= 3; i++) {
+      centerActiveSlideGroup.clickOnSlideByIndex(i);
+      centerActiveSlideGroup.has().slideSelected(i);
+      }
+      for (Integer slidesPosition : slidesPositions) {
+      centerActiveSlideGroup.clickOnSlideByIndex(4);
+      centerActiveSlideGroup.has().visibleSlidesPosition(slidesPosition);
+      centerActiveSlideGroup.has().slideSelected(3);
+       }
+      for (int i = 4; i <= 6; i++) {
+      centerActiveSlideGroup.clickOnSlideByIndex(i);
+      centerActiveSlideGroup.has().slideSelected(i);
+      centerActiveSlideGroup.has().visibleSlidesPosition(-1316);
+      }
+    }
+
+```
+
+![Slide Groups examples](../../images/vuetify/slide-groups.png)
+
+Slide group component is used to display pseudo paginated information. It uses Item Group at its core and provides a baseline for different components (for instance Tabs and Chip Group).
+
+|Method | Description | Return Type
+--- | --- | ---
+**has()/is()** | Returns Assert class | SlideGroupAssert
+**slidesPosition()** | Returns position of visible slides | String
+**slideIsSelected()** | Shows that slide is selected | boolean
+**clickOnSlideByIndex()** | Click on slide under specified index | void
+**clickOnNextButton()** | Click on 'next' button | void
+**clickOnPreviousButton()** | Click on 'previous' button | void
+
+For examples of usage see: [Slide Groups tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SlideGroupsTests.java)
+
+#### 5.13.4 Windows
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/windows/)
 
@@ -933,21 +955,6 @@ For examples of usage see: [Vuetify List Item Groups tests](https://github.com/j
 ```
 
 ![Windows example](../../images/vuetify/windows.png)
-
-The v-window component provides the baseline functionality for
-transitioning content from 1 pane to another.
-
-Windows component is a container. So, you should use
-it with another class for contained element.
-**That class must implement `ICoreElement` interface**.
-For example: UIElement, Section or your custom class.
-
-There are two ways to use windows class:
-
-- With definite `T` type in diamond operator(<T\>)
-- With unknown type(<?>)
-
-**You should always use Windows component with diamond operator.**
 
 ```java
     @Test
@@ -966,6 +973,22 @@ There are two ways to use windows class:
         reverseWindows.getActive().header().has().text("Slide 3");
     }
 ```
+
+The v-window component provides the baseline functionality for
+transitioning content from 1 pane to another.
+
+Windows component is a container. So, you should use
+it with another class for contained element.
+**That class must implement `ICoreElement` interface**.
+For example: UIElement, Section or your custom class.
+
+There are two ways to use windows class:
+
+- With definite `T` type in diamond operator(<T\>)
+- With unknown type(<?>)
+
+**You should always use Windows component with diamond operator.**
+
 
 |Method | Description | Return Type
 --- | --- | ---

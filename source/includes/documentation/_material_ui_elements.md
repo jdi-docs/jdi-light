@@ -47,7 +47,6 @@ Checkboxes allow the user to select one or more items from a set.
 **check()** | select Checkbox | void
 **uncheck()** | unselect Checkbox | void
 
-
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/CheckboxTests.java" target="_blank">Here you can find Checkbox tests</a>
 
 ### 4.2 Chips
@@ -175,7 +174,6 @@ Tooltips display informative text when users hover over, focus on, or tap an ele
 
 ##### <a href="https://material-ui.com/components/container/" target="_blank"> https://material-ui.com/components/container/ </a>
 
-
 ![Container](../../images/material-ui/Container.png)
 
 The container centers your content horizontally. It's the most basic layout element.
@@ -185,9 +183,7 @@ The container centers your content horizontally. It's the most basic layout elem
 **is()** | Verify state | boolean
 **isDisplayed()** | Verify state | boolean
 
-
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/ContainerTests.java" target="_blank">Here you can find Container tests</a>
-
 
 ### 4.5 Avatar
 
@@ -220,7 +216,6 @@ The container centers your content horizontally. It's the most basic layout elem
 ```
 
 ##### <a href="https://material-ui.com/ru/components/avatars/" target="_blank"> https://material-ui.com/ru/components/avatars/ </a>
-
 
 ![Avatar](../../images/material-ui/Avatar.png)
 
@@ -327,7 +322,6 @@ A divider is a thin line that groups content in lists and layouts.
 **is()** | Returns DividerAssert class | DividerAssert
 **isInset()** | Assert inset divider | boolean
 **isVertical()** | Assert vertical divider| boolean
-
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/DividerTests.java" target="_blank">Here you can find Divider tests</a>
 
@@ -526,8 +520,7 @@ The App Bar displays information and actions relating to the current screen.
 
 ##### <a href="https://material-ui.com/components/box/" target="_blank"> https://material-ui.com/components/box/ </a>
 
-The Box component serves as a wrapper component for most of the CSS utility needs.
-Java example code for the Button box:
+The Box component serves as a wrapper component for most of the CSS utility needs. Java example code for the Button box:
 
 ![Box](../../images/material-ui/Box.png)
 
@@ -631,7 +624,8 @@ Transition helps make a UI expressive and easy to use.
 
 ##### <a href="https://material-ui.com/components/material-icons/" target="_blank"> https://material-ui.com/components/material-icons/ </a>
 
-The following npm package, @material-ui/icons, includes the 1,100+ official Material icons converted to SvgIcon components.
+The following npm package, @material-ui/icons, includes the 1,100+ official Material icons converted to SvgIcon
+components.
 
 ![Material Icons](../../images/material-ui/MaterialIcons.png)
 
@@ -749,7 +743,8 @@ Material-UI provides icons support in three ways:
 
 ##### <a href="https://material-ui.com/components/floating-action-button/" target="_blank"> https://material-ui.com/components/floating-action-button/ </a>
 
-A floating action button appears in front of all screen content, typically as a circular shape with an icon in its center. FABs come in two types: regular, and extended.
+A floating action button appears in front of all screen content, typically as a circular shape with an icon in its
+center. FABs come in two types: regular, and extended.
 
 ![Floating action button](../../images/material-ui/Fab.png)
 
@@ -842,8 +837,8 @@ Quickly and responsively toggle the visibility value of components and more with
 
 ![Stepper](../../images/material-ui/Stepper.png)
 
-Steppers convey progress through numbered steps. It provides a wizard-like workflow.
-You can use for testing Text and Button classes, implemented in JDI-html section.
+Steppers convey progress through numbered steps. It provides a wizard-like workflow. You can use for testing Text and
+Button classes, implemented in JDI-html section.
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -877,7 +872,8 @@ You can use for testing Text and Button classes, implemented in JDI-html section
 
 ##### <a href="https://material-ui.com/components/slider/" target="_blank"> https://material-ui.com/components/slider/ </a>
 
-Sliders reflect a range of values along a bar, from which users may select a single value. They are ideal for adjusting settings such as volume, brightness, or applying image filters.
+Sliders reflect a range of values along a bar, from which users may select a single value. They are ideal for adjusting
+settings such as volume, brightness, or applying image filters.
 
 ![Slider](../../images/material-ui/Slider.png)
 
@@ -1194,42 +1190,34 @@ Dialogs inform users about a task and can contain critical information, require 
 ### 4.26 Date / Time pickers
 
 ```java 
-    @JDropdown(
-            root = "//*[@id = 'date-picker-dialog-label']/parent::div",
-            value = "//*[@id ='date-picker-dialog']",
-            list = "//*[@id = 'date-picker-dialog-label']/parent::div /ancestor::body " +
-                    "//div[@class = 'MuiPickersBasePicker-pickerView']//p",
-            expand = "//span[@class = 'MuiIconButton-label']")
-    public static Dropdown dialogPicker;
-  
+    @UI("//*[@id = 'date-picker-dialog-label']/parent::div")
+    public static DateTimePicker dialogPicker;
+
     @Test
     public void datePickerDialogTest() {
-        dialogPicker.iCore().label().has().text("Date picker dialog");
+        dialogPicker.has().title("Date picker dialog");
         dialogPicker.expand();
-        dialogPicker.select("12");
-        dialogPicker.command("ENTER");
-        timer.wait(() -> dialogPicker.has().text(containsString("/12/")));
+        dialogPicker.selectDate("12");
+        dialogPicker.confirm();
+        dialogPicker.has().text(containsString("/12/"));
 
         dialogPicker.expand();
-        dialogPicker.select("11");
-        dialogPicker.command("ESCAPE");
-        timer.wait(() -> dialogPicker.has().text("08/12/2014"));
+        dialogPicker.selectDate("11");
+        dialogPicker.cancel();
+        dialogPicker.has().text("08/12/2014");
 
-        dialogPicker.value().setText("10/10/2021");
+        dialogPicker.input("10/10/2021");
         dialogPicker.has().text("10/10/2021");
     }
 ```
 
 ##### <a href="https://material-ui.com/components/pickers/" target="_blank"> https://material-ui.com/components/pickers/ </a>
 
-Dropdown is located in the following class:
-
-- __Java__: _com.epam.jdi.light.elements.complex.dropdown.Dropdown_
-
 Date pickers and Time pickers provide a simple way to select a single value from a pre-determined set.
-![Dialog](../../images/material-ui/DateTimePickers.png)
+![DateTimePickers](../../images/material-ui/DateTimePickers.png)
 
-##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/DateTimePickersTests.java" target="_blank">Here you can find Date/Time Pickers tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/09441eab3fdfa0c51f0b62e5f0e5d76332bc3bcb/jdi-light-material-ui/src/main/java/com/epam/jdi/light/material/elements/inputs/DateTimePicker.java#L15" target="_blank">Here you can find Date/Time Pickers element</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/09441eab3fdfa0c51f0b62e5f0e5d76332bc3bcb/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/DateTimePickersTests.java" target="_blank">Here you can find Date/Time Pickers tests</a>
 
 ### 4.27 Select
 
@@ -1330,8 +1318,6 @@ Buttons allow users to take actions, and make choices, with a single tap.
 
 ### 4.30 ButtonGroup
 
-
-
 ##### <a href="https://jdi-testing.github.io/jdi-light/material/button_groups" target="_blank">Link to the site "Material UI test component"</a>
 
 ##### Basic and Vertical button group
@@ -1346,10 +1332,11 @@ The ButtonGroup component can be used to group related buttons.
 <br></br>
 
 ##### Split button
-ButtonGroup can also be used to create a split button. The dropdown can change the button action (as in this example), or be used to immediately trigger a related action.
+
+ButtonGroup can also be used to create a split button. The dropdown can change the button action (as in this example),
+or be used to immediately trigger a related action.
 
 ![ButtonGroup](../../images/splitbutton.png)
-
 
 ##### <a href="https://material-ui.com/ru/components/button-group/" target="_blank">Here you can find specification of Button Group</a>
 
@@ -1366,7 +1353,6 @@ Available methods in Java JDI Light:
 **getButtonByIndex(int)** | Get button by index | Button
 **getButtonByText(String)** | Get button by text | Button
 **getAllButtons()**        | Get all buttons in a block | Collection\<Button\>
-
 
 <br></br>
 
@@ -1393,6 +1379,7 @@ public class ButtonGroupPage extends WebPage {
 ```
 
 ButtonGroupPage class has been extended from WebPage. This class contains variables that are used in tests:
+
 - basicButtonGroup
 - verticalButtonGroup
 - splitButtonGroup
@@ -1540,7 +1527,8 @@ The Grid List element - list of Material UI Grid elements.
 
 ##### <a href="https://material-ui.com/components/drawers/" target="_blank"> https://material-ui.com/components/drawers/ </a>
 
-Navigation drawers provide access to destinations in your app. Side sheets are surfaces containing supplementary content that are anchored to the left or right edge of the screen.
+Navigation drawers provide access to destinations in your app. Side sheets are surfaces containing supplementary content
+that are anchored to the left or right edge of the screen.
 
 ![Drawer](../../images/material-ui/Drawer.png)
 
@@ -1602,7 +1590,6 @@ Breadcrumbs allow users to make selections from a range of values.
 ##### <a href="https://material-ui.com/components/bottom-navigation/" target="_blank"> https://material-ui.com/components/bottom-navigation/ </a>
 
 Bottom navigation bars allow movement between primary destinations in an app.
-
 
 ![BottomNavigation](../../images/material-ui/BottomNavigation.png)
 
@@ -1828,6 +1815,7 @@ A Popper can be used to display some content on top of another. It's an alternat
 ![Popper](../../images/material-ui/Popper.png)
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui/src/main/java/com/epam/jdi/light/material/elements/utils/Popper.java" target="_blank">Here you can find Popper element</a>
+
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/PopperTests.java" target="_blank">Here you can find Popper tests</a>
 
 ### 4.43 Progress
@@ -1872,9 +1860,11 @@ A Popper can be used to display some content on top of another. It's an alternat
 ##### <a href="https://material-ui.com/components/progress/" target="_blank"> https://material-ui.com/components/progress/ </a>
 
 ProgressBar is located in the following class:
+
 - __Java__: _com.epam.jdi.light.material.elements.feedback.ProgressBar_
 
-Progress indicators commonly known as spinners, express an unspecified wait time or display the length of a process. The animation works with CSS, not JavaScript.
+Progress indicators commonly known as spinners, express an unspecified wait time or display the length of a process. The
+animation works with CSS, not JavaScript.
 
 ![Progress](../../images/material-ui/Progress.png)
 
@@ -1930,6 +1920,7 @@ Available methods in Java JDI Light:
 **getLinkText()** | return text | String
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/LinkTests.java" target="_blank">Here you can find Link tests</a>
+
 <br></br><br></br>
 
 ### 4.45 Menus
@@ -1963,6 +1954,7 @@ Available methods in Java JDI Light:
 ##### <a href="https://material-ui.com/ru/components/menus/" target="_blank"> https://material-ui.com/ru/components/menus/ </a>
 
 Menu is located in the following class:
+
 - __Java__: _com.epam.jdi.light.material.elements.navigation.Menu_
 
 Menus display a list of choices on temporary surfaces.
@@ -2054,6 +2046,7 @@ Available methods in Java JDI Light:
 ![HeightMenu](../../images/material-ui/heightMenu2.png)
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/MenuTests.java" target="_blank">Here you can find Menu tests</a>
+
 <br></br><br></br>
 
 #### 4.45.5 Context Menu
@@ -2087,6 +2080,7 @@ Available methods in Java JDI Light:
 ##### <a href="https://material-ui.com/ru/components/menus/#context-menu" target="_blank"> https://material-ui.com/ru/components/menus/#context-menu </a>
 
 Menu is located in the following class:
+
 - __Java__: _com.epam.jdi.light.material.elements.navigation.Menu_
   Menus display a list of choices on temporary surfaces.
 
@@ -2110,7 +2104,6 @@ Available methods in Java JDI Light:
 **is()** | Various assert action for Lists | ListsAssert
 **getText()** | return text | String
 
-
 #### 4.46.1 Simple List
 
 ```java 
@@ -2128,7 +2121,9 @@ Available methods in Java JDI Light:
         ListPage.secondListItem.is().text(hasToString("List item 2"));
     }
 ```
+
 Lists is located in the following class:
+
 - __Java__: _com.epam.jdi.light.material.elements.displaydata.Lists_
 
 Lists are continuous, vertical indexes of text or images.
@@ -2237,7 +2232,6 @@ Lists are continuous, vertical indexes of text or images.
 ```
 
 ![subheaderList](../../images/material-ui/subheaderList.png)
-
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/ListsTests.java" target="_blank">Here you can find Lists tests</a>
 
@@ -2587,6 +2581,7 @@ Available methods in Java JDI Light:
 
 ##### <a href="https://material-ui.com/components/use-media-query/#usemediaquery" target="_blank"> https://material-ui.com/components/use-media-query/#usemediaquery </a>
 
-This is a CSS media query hook for React. It listens for matches to a CSS media query. It allows the rendering of components based on whether the query matches or not.
+This is a CSS media query hook for React. It listens for matches to a CSS media query. It allows the rendering of
+components based on whether the query matches or not.
 
 <br></br><br></br>

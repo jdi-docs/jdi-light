@@ -789,7 +789,7 @@ public void counterTextAreaTest() {
 }
 ```
 
-![Text fields example](../../images/vuetify/textAreas.png)
+![Text area example](../../images/vuetify/textAreas.png)
 
 Text area components are used for collecting large amounts of textual data.
 
@@ -826,7 +826,7 @@ Text area components are used for collecting large amounts of textual data.
 **height()** | Returns height of text area | int 
 **rows()** | Returns number of rows in text area | int
 
-For examples of usage see: [JDI Vuetify Text fields tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/TextAreasTests.java).
+For examples of usage see: [JDI Vuetify Text areas tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/TextAreasTests.java).
 
 ### 5.13 Groups 
 ```java
@@ -1843,3 +1843,72 @@ Image component is packed with features to support wide variety of media files. 
 
 For examples of usage see: [Images tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/ImagesTests.java).
 
+#### 5.30 Timelines
+
+[Vuetify documentation page](https://vuetifyjs.com/en/components/timelines/)
+
+__Java__:
+- _com.epam.jdi.light.vuetify.elements.complex.timelines.TimeLine.java_
+- _com.epam.jdi.light.vuetify.elements.complex.timelines.TimeLineItem.java_
+
+```java
+@JDITimeLine(
+    root = "#IconTimeline.v-timeline",
+    body = ".v-timeline-item__body .v-card",
+    divider = ".v-timeline-item__divider .v-avatar"
+)
+public static TimeLine<Card, Avatar> iconTimeLine;
+```
+
+You can specify locators for the TimeLine by using `JDITimeLine` annotation:
+- `root` - used to set the root of the TimeLine
+- `items` - used to find TimeLineItems in the TimeLine
+- `body` - used to set body of each TimeLineItem
+- `divider` - used to set divider of each TimeLineItem
+- `opposite` - used to set opposite of each TimeLineItem
+
+It is **necessary** to specify **the root** of an element.
+
+Also, you can specify classes for `body` as `T` and for `divider` as `U` in your 
+element by using generic. **That classes must implement `ICoreElement` interface**.
+
+```java
+@Test
+public void iconTimeLineTest() {
+    iconTimeLine.items().forEach(item -> {
+        item.opposite().has().text("Tus eu perfecto");
+        item.divider().has().photo();
+        item.body().has().title("Lorem ipsum");
+        item.body().content().has().text(LOREM_IPSUM_TEXT);
+    });
+}
+```
+
+![TimeLine example](../../images/vuetify/timelines.png)
+
+The TimeLine is used for stylistically displaying chronological information.
+
+`TimeLine<T extends ICoreElement, U extends ICoreElement>` methods:
+
+|Method | Description | Return Type
+--- | --- | ---
+**isAlignTop()** | Shows that element is align to top | boolean
+**isDense()** | Shows that element is dense | boolean
+**isReversed()** | Shows that element is reversed | boolean
+**list()** | Returns list of TimeListItem as UIElement by `items` locator from annotation | WebList
+**items()** | Returns list of TimeListItem by `items` locator from annotation | List\<TimeListItem\<T, U>>
+**item(int index)** | Returns TimeListItem from items() by index | TimeListItem\<T, U>
+**defaultItem(int index)** | Returns TimeListItem with UIElements from items() by index | TimeListItem\<UIElement, UIElement>
+
+`TimeLineItems<T extends ICoreElement, U extends ICoreElement>` methods:
+
+|Method | Description | Return Type
+--- | --- | ---
+**body()** | Returns body element by `body` locator from annotation | T
+**divider()** | Returns divider element by `divider` locator from annotation | U
+**opposite()** | Returns opposite element by `opposite` locator from annotation | UIElement
+**isSmall()** | Shows that divider is small | boolean
+**isLarge()** | Shows that divider is large | boolean
+**dotColor()** | Returns color of divider | String
+
+For examples of usage see: [JDI Vuetify TimeLine tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/TimelinesTests.java).

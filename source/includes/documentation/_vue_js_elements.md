@@ -680,10 +680,20 @@ For examples of usage see: [JDI Vuetify Lists tests](https://github.com/jdi-test
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.TextFields.java_
 
 ```java
-@Test(dataProvider = "counterTextFieldTestDataProvider", dataProviderClass = TextFieldsTestsDataProvider.class)
-public void counterTextFieldTest(int index, String text, int textLength, int maxLength) {
-    counterTextField.get(index).is().text(text);
-    counterTextField.get(index).is().counter(textLength, maxLength);
+@Test
+public void hideDetailsTextFieldTest() {
+    hideDetailsTextField.get(1).is().noMessage();
+    hideDetailsTextField.get(1).focus();
+    hideDetailsTextField.get(2).focus();
+    hideDetailsTextField.get(1).message().has().text("Required.");
+    hideDetailsTextField.get(1).setText("a");
+    hideDetailsTextField.get(1).message().has().text("Min 3 characters");
+    hideDetailsTextField.get(1).setText("aaa");
+    hideDetailsTextField.get(1).is().noMessage();
+    hideDetailsTextField.get(2).focus();
+    hideDetailsTextField.get(2).is().noMessage();
+    hideDetailsTextField.get(2).setText("a");
+    hideDetailsTextField.get(2).is().noMessage();
 }
   
 @Test
@@ -702,26 +712,37 @@ Text fields components are used for collecting user provided information.
 
 |Method | Description | Return Type
 --- | --- | ---
-**isDisabled()** | Shows that required element is disabled| boolean
-**isReadonly()** | Shows that required element is readonly| boolean
-**isFocused()** | Shows that required element is focused| boolean
-**textInputField()** |  Get text input field| UIElement
-**getText()** | Get text| String
+**isReadonly()** | Shows that element is readonly| boolean
+**isFocused()** | Shows that element is focused| boolean
+**isFilled()** | Shows that element is filled| boolean
+**isOutlined()** | Shows that element is outlined| boolean
+**isShaped()** | Shows that element is shaped| boolean
+**isSolo()** | Shows that element is solo| boolean
+**isFullWidth()** | Shows that element has full-width input type| boolean
+**textInputField()** | Returns text input field| UIElement
+**slot()** | Returns input slot | UIElement
+**message()** |  Returns message | UIElement
+**counter()** |  Returns counter | UIElement
+**prefix()** |  Return prefix | UIElement
+**suffix()** |  Returns suffix | UIElement
+**prependOuterIcons()** | Returns list of prepend outer icons | List\<Icon>
+**prependInnerIcons()** | Returns list of prepend inner icons | List\<Icon>
+**appendInnerIcons()** | Returns list of append inner icons | List\<Icon>
+**appendOuterIcons()** | Returns list of append outer icons | List\<Icon>
+**getPrependOuterIcon()** | Returns first prepend outer icon | Icon
+**getPrependInnerIcon()** | Returns first prepend inner icon | Icon
+**getAppendInnerIcon()** | Returns first append inner icon | Icon
+**getAppendOuterIcon()** | Returns first append outer icon | Icon
+**getText()** | Returns text from input field | String
+**getTextType()** | Returns type of text | String
+**label()** |  Returns label | Label
+**labelText()** | Returns label text | String
+**placeholder()** | Returns placeholder text| String
 **setText(String text)** | Set text| void
-**getTextType()** | Get text type| String
+**input(String text)** | Set text| void
+**sendKeys(String text)** | Add text| void
 **clear()** |  Clear text field| void
-**clearAndSetText()** |  Clear text field and set text| void
 **focus()** |  Set mouse to text field| void
-**getMessage()** | Get message if it exists, otherwise an empty string| String
-**getCounter()** | Get counter if it exists, otherwise an empty string| String
-**placeholder()** | Get placeholder| String
-**getPrependOuterIcon()/getPrependOuterIcon(int index)**| Get prepend outer icon. If no index is given, the first object is taken. If the object is not found, null is returned| Icon
-**getPrependInnerIcon()/getPrependInnerIcon(int index)**| Get prepend inner icon. If no index is given, the first object is taken. If the object is not found, null is returned| Icon
-**getAppendOuterIcon()/getAppendOuterIcon(int index)**| Get append outer icon. If no index is given, the first object is taken. If the object is not found, null is returned| Icon
-**getAppendInnerIcon()/getAppendInnerIcon(int index)**| Get append inner icon. If no index is given, the first object is taken. If the object is not found, null is returned| Icon
-**getPrefix()** | Get prefix| String
-**getSuffix()** | Get suffix| String
-**labelText()** |  Get label text if it exists, otherwise an empty string| String
 
 For examples of usage see: [JDI Vuetify Text fields tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/TextFieldsTests.java).
 

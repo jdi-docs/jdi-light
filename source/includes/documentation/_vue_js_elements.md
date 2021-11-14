@@ -746,6 +746,87 @@ Text fields components are used for collecting user provided information.
 
 For examples of usage see: [JDI Vuetify Text fields tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/TextFieldsTests.java).
 
+#### 5.12.6 Text areas
+
+[Vuetify documentation page](https://vuetifyjs.com/en/components/textareas/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.complex.TextArea.java_
+
+```java
+@Test
+public void autoGrowTextAreaTest() {
+    autoGrowTextArea.is().autoGrow();
+    autoGrowTextArea.is().notResizable();
+    autoGrowTextArea.is().filled();
+    autoGrowTextArea.has().lines("The Woodman set to work at once, and so " +
+        "sharp was his axe that the tree was soon chopped nearly through.");
+    autoGrowTextArea.label().is().displayed();
+    autoGrowTextArea.label().has().text(equalTo("Label"));
+    autoGrowTextArea.has().height(is(120));
+    autoGrowTextArea.setLines(" 1 row", "2 row", "3 row", "4 row");
+    autoGrowTextArea.has().height(is(120));
+    autoGrowTextArea.addNewLine("5 row");
+    autoGrowTextArea.has().height(is(140));
+}
+
+@Test
+public void counterTextAreaTest() {
+    counterTextArea.label().has().text("Text");
+    counterTextArea.has().text("Hello!");
+    counterTextArea.counter().has().text("6");
+    counterTextArea.counter().has().css("color", "rgba(0, 0, 0, 0.6)");
+    counterTextArea.sendKeys("This is text for 25");
+    counterTextArea.counter().has().text("25");
+    counterTextArea.counter().has().css("color", "rgba(0, 0, 0, 0.6)");
+    counterTextArea.sendKeys("-");
+    counterTextArea.message().has().text("Max 25 characters");
+    counterTextArea.message().has().css("color", RED_ACCENT_2.toString());
+    counterTextArea.counter().has().text("26");
+    counterTextArea.counter().has().css("color", RED_ACCENT_2.toString());
+    counterTextArea.label().has().css("color", RED_ACCENT_2.toString());
+    counterTextArea.clear();
+    counterTextArea.counter().has().text("0");
+}
+```
+
+![Text fields example](../../images/vuetify/textAreas.png)
+
+Text area components are used for collecting large amounts of textual data.
+
+|Method | Description | Return Type
+--- | --- | ---
+**isFilled()** | Shows that element is filled| boolean
+**isOutlined()** | Shows that element is outlined| boolean
+**isAutoGrow()** | Shows that element is auto grow| boolean
+**isNotResizable()** | Shows that element is not resizable| boolean
+**textArea()** | Returns text input area| UIElement
+**slot()** | Returns input slot | UIElement
+**details()** | Returns details | UIElement
+**message()** |  Returns message | UIElement
+**counter()** |  Returns counter | UIElement
+**getPrependOuterIcon()** | Returns prepend outer icon | Icon
+**getPrependInnerIcon()** | Returns prepend inner icon | Icon
+**getAppendInnerIcon()** | Returns append inner icon | Icon
+**getAppendOuterIcon()** | Returns append outer icon | Icon
+**getText()** | Returns text | String
+**getLines()** | Returns lines dividing text using '\\n'  | List\<String>
+**label()** |  Returns label | Label
+**labelText()** | Returns label text | String
+**placeholder()** | Returns placeholder text| String
+**setText(String text)** | Set text| void
+**input(String text)** | Set text| void
+**sendKeys(String text)** | Add text| void
+**setLines(String... lines)** | Add lines as one string with '\n' delimiter| void
+**setLines(List<String> lines)** | Add lines as one string with '\n' delimiter| void
+**addNewLine(String line)** | Add text on a new line| void
+**clear()** | Clear text area| void
+**focus()** | Set mouse to text area| void
+**color()** | Returns slot color | String
+**backgroundColor()** | Returns slot background color | String
+**height()** | Returns height of text area | int 
+**rows()** | Returns number of rows in text area | int
+
+For examples of usage see: [JDI Vuetify Text fields tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/TextAreasTests.java).
 
 ### 5.13 Groups 
 ```java

@@ -35219,38 +35219,30 @@ You can use for testing Text and Button classes, implemented in JDI-html section
 <p>A textarea component for React which grows with content.</p>
 
 <p><img src="images/material-ui/TextareaAutosize.png" alt="TextArea" /></p>
-<h5 id='here-you-can-find-textareaautosize-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/TextAreaAutoSizeTests.java" target="_blank">Here you can find TextAreaAutosize tests</a></h5><h3 id='4-40-popover'>4.40 Popover</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//button[contains(@class,'MuiButtonBase-root')]/span[@class='MuiButton-label']"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Button</span> <span class="n">buttonToClick</span><span class="o">;</span>
+<h5 id='here-you-can-find-textareaautosize-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/TextAreaAutoSizeTests.java" target="_blank">Here you can find TextAreaAutosize tests</a></h5><h3 id='4-40-popover'>4.40 Popover</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">".MuiPopover-root .MuiPaper-root"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Popover</span> <span class="n">popover</span><span class="o">;</span>
 
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div[contains(@class,'MuiPaper-root')]/div"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Button</span> <span class="n">popoverContent</span><span class="o">;</span>
-
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//span[@class='MuiTypography-root']"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Text</span> <span class="n">popoverHoverField</span><span class="o">;</span>
-
-    <span class="nd">@Test</span>
+     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">clickPopoverTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">buttonToClick</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"CLICK TO OPEN POPOVER"</span><span class="o">);</span>
-        <span class="n">buttonToClick</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">popoverContent</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Popover content"</span><span class="o">);</span>
-        <span class="n">popoverHoverField</span><span class="o">.</span><span class="na">doubleClick</span><span class="o">();</span>
-        <span class="n">popoverContent</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">notVisible</span><span class="o">();</span>
+        <span class="n">popover</span><span class="o">.</span><span class="na">button</span><span class="o">(</span><span class="n">CLICK_BUTTON</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">popover</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">POPOVER_CONTENT</span><span class="o">);</span>
+        <span class="n">popover</span><span class="o">.</span><span class="na">button</span><span class="o">(</span><span class="n">CLICK_BUTTON</span><span class="o">).</span><span class="na">click</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
+        <span class="n">popover</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">notVisible</span><span class="o">();</span>
     <span class="o">}</span>
 
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">hoverPopoverTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">popoverHoverField</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"[Hover to open Popover]"</span><span class="o">);</span>
-        <span class="n">popoverHoverField</span><span class="o">.</span><span class="na">hover</span><span class="o">();</span>
-        <span class="n">popoverHoverField</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">attr</span><span class="o">(</span><span class="s">"aria-owns"</span><span class="o">,</span> <span class="s">"mouse-over-popover"</span><span class="o">);</span>
-        <span class="n">popoverContent</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Popover content"</span><span class="o">);</span>
-        <span class="n">buttonToClick</span><span class="o">.</span><span class="na">hover</span><span class="o">();</span>
-        <span class="n">popoverContent</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">notVisible</span><span class="o">();</span>
+        <span class="n">popover</span><span class="o">.</span><span class="na">button</span><span class="o">(</span><span class="n">HOVER_BUTTON</span><span class="o">).</span><span class="na">hover</span><span class="o">();</span>
+        <span class="n">popover</span><span class="o">.</span><span class="na">button</span><span class="o">(</span><span class="n">HOVER_BUTTON</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">attr</span><span class="o">(</span><span class="s">"aria-owns"</span><span class="o">,</span> <span class="s">"mouse-over-popover"</span><span class="o">);</span>
+        <span class="n">popover</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">POPOVER_CONTENT</span><span class="o">);</span>
+        <span class="n">popover</span><span class="o">.</span><span class="na">button</span><span class="o">(</span><span class="n">CLICK_BUTTON</span><span class="o">).</span><span class="na">hover</span><span class="o">();</span>
+        <span class="n">popover</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">notVisible</span><span class="o">();</span>
     <span class="o">}</span>
 </code></pre><h5 id='https-material-ui-com-components-popover'><a href="https://material-ui.com/components/popover/" target="_blank"> https://material-ui.com/components/popover/ </a></h5>
 <p>A Popover can be used to display some content on top of another.</p>
 
 <p><img src="images/material-ui/Popover.png" alt="Popover" /></p>
-<h5 id='here-you-can-find-popover-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/PopoverTests.java" target="_blank">Here you can find Popover tests</a></h5><h3 id='4-41-modal'>4.41 Modal</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"[id='simple-modal-description']"</span><span class="o">)</span>
+<h5 id='here-you-can-find-popover-element'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui/src/main/java/com/epam/jdi/light/material/elements/utils/Popover.java" target="_blank">Here you can find Popover element</a></h5><h5 id='here-you-can-find-popover-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/PopoverTests.java" target="_blank">Here you can find Popover tests</a></h5><h3 id='4-41-modal'>4.41 Modal</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"[id='simple-modal-description']"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Text</span><span class="o">&gt;</span> <span class="n">modalTexts</span><span class="o">;</span>
 
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"button"</span><span class="o">)</span>
@@ -36616,36 +36608,32 @@ and <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-l
 <h3 id='5-10-expansion-panels'>5.10 Expansion Panels</h3>
 <p><a href="https://vuetifyjs.com/en/components/expansion-panels/">Vuetify documentation page</a></p>
 
-<ul>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.vuetify.elements.complex.panels.ExpansionPanels.java</em></li>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.vuetify.elements.complex.panels.ExpansionPanel.java</em></li>
-</ul>
-<pre class="highlight java tab-java"><code>    <span class="nd">@JDIExpansionPanels</span><span class="o">(</span>
+<p><strong>Java</strong>:
+- <em>com.epam.jdi.light.vuetify.elements.complex.panels.ExpansionPanels.java</em>
+- <em>com.epam.jdi.light.vuetify.elements.complex.panels.ExpansionPanel.java</em></p>
+<pre class="highlight java tab-java"><code>    <span class="c1">//Default locators(except root):</span>
+    <span class="nd">@JDIExpansionPanels</span><span class="o">(</span>
         <span class="n">root</span> <span class="o">=</span> <span class="s">"#ModelExpansionPanel .v-expansion-panels"</span><span class="o">,</span>
         <span class="n">panels</span> <span class="o">=</span> <span class="s">".v-expansion-panel"</span><span class="o">,</span>
         <span class="n">header</span> <span class="o">=</span> <span class="s">".v-expansion-panel-header"</span><span class="o">,</span>
-        <span class="n">icon</span> <span class="o">=</span> <span class="s">".v-expansion-panel-header__icon"</span><span class="o">,</span>
-        <span class="n">content</span> <span class="o">=</span> <span class="s">".v-expansion-panel-content"</span><span class="o">,</span>
-        <span class="n">wrapper</span> <span class="o">=</span> <span class="s">".v-expansion-panel-content__wrap"</span>
+        <span class="n">icon</span> <span class="o">=</span> <span class="s">".v-expansion-panel-header__icon .v-icon"</span><span class="o">,</span>
+        <span class="n">content</span> <span class="o">=</span> <span class="s">".v-expansion-panel-content"</span>
     <span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">ExpansionPanels</span> <span class="n">modelExpansionPanels</span><span class="o">;</span>
 </code></pre>
 <p>You can specify locators for the root and panels to find panels in root. 
-Also, you can specify header, content, icon and wrapper locators for all panels. All of it you can do
+Also, you can specify header, icon and content locators for all panels. All of it you can do
 explicitly through a <code>JDIExpansionPanels</code> annotation. </p>
 
 <p>It is <strong>necessary</strong> to specify <strong>the root</strong> of an element.</p>
-<pre class="highlight java tab-java"><code>    <span class="nd">@JDIExpansionPanels</span><span class="o">(</span>
-        <span class="n">root</span> <span class="o">=</span> <span class="s">"#CustomIconExpansionPanel .v-expansion-panels:nth-child(1)"</span><span class="o">,</span>
-        <span class="n">icon</span> <span class="o">=</span> <span class="s">".v-expansion-panel-header__icon .v-icon"</span>
-    <span class="o">)</span>
+<pre class="highlight java tab-java"><code>    <span class="nd">@JDIExpansionPanels</span><span class="o">(</span><span class="n">root</span> <span class="o">=</span> <span class="s">"#CustomIconExpansionPanel .v-expansion-panels:nth-child(1)"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">ExpansionPanels</span> <span class="n">customIconExpansionPanelsSameIcons</span><span class="o">;</span>
 </code></pre><pre class="highlight java tab-java"><code>    <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">customIconExpansionPanelTest</span><span class="o">()</span> <span class="o">{</span>
         <span class="n">customIconExpansionPanelsSameIcons</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">size</span><span class="o">(</span><span class="mi">5</span><span class="o">);</span>
         <span class="k">for</span> <span class="o">(</span><span class="n">ExpansionPanel</span> <span class="n">expansionPanel</span> <span class="o">:</span> <span class="n">customIconExpansionPanelsSameIcons</span><span class="o">.</span><span class="na">panels</span><span class="o">())</span> <span class="o">{</span>
             <span class="n">expansionPanel</span><span class="o">.</span><span class="na">header</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Item"</span><span class="o">);</span>
-            <span class="n">expansionPanel</span><span class="o">.</span><span class="na">wrapper</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">LOREM_IPSUM_TEXT</span><span class="o">);</span>
+            <span class="n">expansionPanel</span><span class="o">.</span><span class="na">content</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">LOREM_IPSUM_TEXT</span><span class="o">);</span>
             <span class="n">expansionPanel</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">expanded</span><span class="o">();</span>
             <span class="n">expansionPanel</span><span class="o">.</span><span class="na">expander</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
             <span class="n">expansionPanel</span><span class="o">.</span><span class="na">expander</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">cssClass</span><span class="o">(</span><span class="s">"mdi-menu-down"</span><span class="o">);</span>
@@ -36657,10 +36645,77 @@ explicitly through a <code>JDIExpansionPanels</code> annotation. </p>
 <p>ExpansionPanels is a list of ExpansionPanel.</p>
 
 <p>Expansion panel may contain anything, so you can inherit the <code>ExpansionPanel</code> class and customize it
-the way you need. This class has 4 base methods: <code>header</code>, <code>expander</code>, <code>content</code> and <code>wrapper</code>. 
+the way you need. This class has 3 base methods: <code>header</code>, <code>expander</code> and <code>content</code>. 
 They return the parts of an expansion panel. </p>
 
 <p>Also, you can inherit the <code>ExpansionPanels</code>.</p>
+
+<p><code>ExpansionPanels</code> methods:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>panels()</strong></td>
+<td>Returns list of panels as Expansion Panel</td>
+<td>List&lt;ExpansionPanel&gt;</td>
+</tr>
+<tr>
+<td><strong>list()</strong></td>
+<td>Returns list of panels as UIElement</td>
+<td>WebList</td>
+</tr>
+</tbody></table>
+
+<p><code>ExpansionPanel</code> methods:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>header()</strong></td>
+<td>Returns header element by header locator from JDIExpansionPanels annotation</td>
+<td>UIElement</td>
+</tr>
+<tr>
+<td><strong>expander()</strong></td>
+<td>Returns expander element by icon locator from JDIExpansionPanels annotation</td>
+<td>Icon</td>
+</tr>
+<tr>
+<td><strong>content()</strong></td>
+<td>Expands if panel is closed. Returns content element by content locator from JDIExpansionPanels annotation</td>
+<td>UIElement</td>
+</tr>
+<tr>
+<td><strong>expand()</strong></td>
+<td>Expands panel</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>close()</strong></td>
+<td>Closes panel</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>isExpanded()</strong></td>
+<td>Returns true if panel is expanded</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isClosed()</strong></td>
+<td>Returns true if panel is closed</td>
+<td>boolean</td>
+</tr>
+</tbody></table>
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/tree/vuetify-develop/jdi-light-vuetify-tests/src/main/java/io/github/com/custom/panels">Custom vuetify expansion panels examples</a>
 and <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ExpansionPanelsTest.java">JDI vuetify page tests for expansion panels</a>.</p>

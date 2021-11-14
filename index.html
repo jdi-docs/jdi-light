@@ -1080,6 +1080,9 @@
 										              <li>
 										              <a href="#5-12-5-text-fields" class="toc-h3 h4 toc-link" data-title="5.12.5 Text fields">5.12.5 Text fields</a>
 										              </li>
+										              <li>
+										              <a href="#5-12-6-text-areas" class="toc-h3 h4 toc-link" data-title="5.12.6 Text areas">5.12.6 Text areas</a>
+										              </li>
 									            </ul>
                           </li>
                           <li>
@@ -37288,6 +37291,211 @@ They are ideal for adjusting settings such as volume, brightness, or applying im
 </tbody></table>
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/TextFieldsTests.java">JDI Vuetify Text fields tests</a>.</p>
+<h4 id='5-12-6-text-areas'>5.12.6 Text areas</h4>
+<p><a href="https://vuetifyjs.com/en/components/textareas/">Vuetify documentation page</a></p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.vuetify.elements.complex.TextArea.java</em></li>
+</ul>
+<pre class="highlight java tab-java"><code><span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">autoGrowTextAreaTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">autoGrowTextArea</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">autoGrow</span><span class="o">();</span>
+    <span class="n">autoGrowTextArea</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">notResizable</span><span class="o">();</span>
+    <span class="n">autoGrowTextArea</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">filled</span><span class="o">();</span>
+    <span class="n">autoGrowTextArea</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">lines</span><span class="o">(</span><span class="s">"The Woodman set to work at once, and so "</span> <span class="o">+</span>
+        <span class="s">"sharp was his axe that the tree was soon chopped nearly through."</span><span class="o">);</span>
+    <span class="n">autoGrowTextArea</span><span class="o">.</span><span class="na">label</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+    <span class="n">autoGrowTextArea</span><span class="o">.</span><span class="na">label</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">equalTo</span><span class="o">(</span><span class="s">"Label"</span><span class="o">));</span>
+    <span class="n">autoGrowTextArea</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">height</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="mi">120</span><span class="o">));</span>
+    <span class="n">autoGrowTextArea</span><span class="o">.</span><span class="na">setLines</span><span class="o">(</span><span class="s">" 1 row"</span><span class="o">,</span> <span class="s">"2 row"</span><span class="o">,</span> <span class="s">"3 row"</span><span class="o">,</span> <span class="s">"4 row"</span><span class="o">);</span>
+    <span class="n">autoGrowTextArea</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">height</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="mi">120</span><span class="o">));</span>
+    <span class="n">autoGrowTextArea</span><span class="o">.</span><span class="na">addNewLine</span><span class="o">(</span><span class="s">"5 row"</span><span class="o">);</span>
+    <span class="n">autoGrowTextArea</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">height</span><span class="o">(</span><span class="n">is</span><span class="o">(</span><span class="mi">140</span><span class="o">));</span>
+<span class="o">}</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">counterTextAreaTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">counterTextArea</span><span class="o">.</span><span class="na">label</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Text"</span><span class="o">);</span>
+    <span class="n">counterTextArea</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Hello!"</span><span class="o">);</span>
+    <span class="n">counterTextArea</span><span class="o">.</span><span class="na">counter</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"6"</span><span class="o">);</span>
+    <span class="n">counterTextArea</span><span class="o">.</span><span class="na">counter</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">css</span><span class="o">(</span><span class="s">"color"</span><span class="o">,</span> <span class="s">"rgba(0, 0, 0, 0.6)"</span><span class="o">);</span>
+    <span class="n">counterTextArea</span><span class="o">.</span><span class="na">sendKeys</span><span class="o">(</span><span class="s">"This is text for 25"</span><span class="o">);</span>
+    <span class="n">counterTextArea</span><span class="o">.</span><span class="na">counter</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"25"</span><span class="o">);</span>
+    <span class="n">counterTextArea</span><span class="o">.</span><span class="na">counter</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">css</span><span class="o">(</span><span class="s">"color"</span><span class="o">,</span> <span class="s">"rgba(0, 0, 0, 0.6)"</span><span class="o">);</span>
+    <span class="n">counterTextArea</span><span class="o">.</span><span class="na">sendKeys</span><span class="o">(</span><span class="s">"-"</span><span class="o">);</span>
+    <span class="n">counterTextArea</span><span class="o">.</span><span class="na">message</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Max 25 characters"</span><span class="o">);</span>
+    <span class="n">counterTextArea</span><span class="o">.</span><span class="na">message</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">css</span><span class="o">(</span><span class="s">"color"</span><span class="o">,</span> <span class="n">RED_ACCENT_2</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+    <span class="n">counterTextArea</span><span class="o">.</span><span class="na">counter</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"26"</span><span class="o">);</span>
+    <span class="n">counterTextArea</span><span class="o">.</span><span class="na">counter</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">css</span><span class="o">(</span><span class="s">"color"</span><span class="o">,</span> <span class="n">RED_ACCENT_2</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+    <span class="n">counterTextArea</span><span class="o">.</span><span class="na">label</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">css</span><span class="o">(</span><span class="s">"color"</span><span class="o">,</span> <span class="n">RED_ACCENT_2</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+    <span class="n">counterTextArea</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
+    <span class="n">counterTextArea</span><span class="o">.</span><span class="na">counter</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"0"</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<p><img src="images/vuetify/textAreas.png" alt="Text fields example" /></p>
+
+<p>Text area components are used for collecting large amounts of textual data.</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>isFilled()</strong></td>
+<td>Shows that element is filled</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isOutlined()</strong></td>
+<td>Shows that element is outlined</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isAutoGrow()</strong></td>
+<td>Shows that element is auto grow</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isNotResizable()</strong></td>
+<td>Shows that element is not resizable</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>textArea()</strong></td>
+<td>Returns text input area</td>
+<td>UIElement</td>
+</tr>
+<tr>
+<td><strong>slot()</strong></td>
+<td>Returns input slot</td>
+<td>UIElement</td>
+</tr>
+<tr>
+<td><strong>details()</strong></td>
+<td>Returns details</td>
+<td>UIElement</td>
+</tr>
+<tr>
+<td><strong>message()</strong></td>
+<td>Returns message</td>
+<td>UIElement</td>
+</tr>
+<tr>
+<td><strong>counter()</strong></td>
+<td>Returns counter</td>
+<td>UIElement</td>
+</tr>
+<tr>
+<td><strong>getPrependOuterIcon()</strong></td>
+<td>Returns prepend outer icon</td>
+<td>Icon</td>
+</tr>
+<tr>
+<td><strong>getPrependInnerIcon()</strong></td>
+<td>Returns prepend inner icon</td>
+<td>Icon</td>
+</tr>
+<tr>
+<td><strong>getAppendInnerIcon()</strong></td>
+<td>Returns append inner icon</td>
+<td>Icon</td>
+</tr>
+<tr>
+<td><strong>getAppendOuterIcon()</strong></td>
+<td>Returns append outer icon</td>
+<td>Icon</td>
+</tr>
+<tr>
+<td><strong>getText()</strong></td>
+<td>Returns text</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>getLines()</strong></td>
+<td>Returns lines dividing text using &#39;\n&#39;</td>
+<td>List&lt;String&gt;</td>
+</tr>
+<tr>
+<td><strong>label()</strong></td>
+<td>Returns label</td>
+<td>Label</td>
+</tr>
+<tr>
+<td><strong>labelText()</strong></td>
+<td>Returns label text</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>placeholder()</strong></td>
+<td>Returns placeholder text</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>setText(String text)</strong></td>
+<td>Set text</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>input(String text)</strong></td>
+<td>Set text</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>sendKeys(String text)</strong></td>
+<td>Add text</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>setLines(String... lines)</strong></td>
+<td>Add lines as one string with &#39;\n&#39; delimiter</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>setLines(List<String> lines)</strong></td>
+<td>Add lines as one string with &#39;\n&#39; delimiter</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>addNewLine(String line)</strong></td>
+<td>Add text on a new line</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>clear()</strong></td>
+<td>Clear text area</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>focus()</strong></td>
+<td>Set mouse to text area</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>color()</strong></td>
+<td>Returns slot color</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>backgroundColor()</strong></td>
+<td>Returns slot background color</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>height()</strong></td>
+<td>Returns height of text area</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>rows()</strong></td>
+<td>Returns number of rows in text area</td>
+<td>int</td>
+</tr>
+</tbody></table>
+
+<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/TextAreasTests.java">JDI Vuetify Text fields tests</a>.</p>
 <h3 id='5-13-groups'>5.13 Groups</h3><pre class="highlight java tab-java"><code><span class="nd">@JDIButtonGroup</span><span class="o">(</span>
         <span class="n">root</span> <span class="o">=</span> <span class="s">"#RoundedButtonGroup .v-item-group"</span><span class="o">,</span> <span class="n">buttons</span> <span class="o">=</span> <span class="s">"//*[@type = 'button']"</span>
 <span class="o">)</span> <span class="c1">// buttons search strategy is custom</span>

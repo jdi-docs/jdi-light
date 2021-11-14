@@ -37728,7 +37728,7 @@ and <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-l
 
 <p>You can specify locators for the root and items to find page buttons in the root.
 Also, you can specify locators for left and right navigation buttons, 
-locators of button with &#39;more&#39; value like &#39;...&#39;. All of it you can do
+locator for buttons with &#39;more&#39; value like &#39;...&#39;. All of it you can do
 explicitly through a <code>JDIPagination</code> annotation.</p>
 
 <p>It is <strong>necessary</strong> to specify <strong>the root</strong> of an element.</p>
@@ -37745,10 +37745,12 @@ explicitly through a <code>JDIPagination</code> annotation.</p>
         <span class="n">totalVisiblePagination</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">ended</span><span class="o">();</span>
 
         <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">actualButtonsFromEndToStart</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
+        <span class="n">actualButtonsFromEndToStart</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">totalVisiblePagination</span><span class="o">.</span><span class="na">selected</span><span class="o">());</span>
         <span class="k">while</span> <span class="o">(</span><span class="n">totalVisiblePagination</span><span class="o">.</span><span class="na">hasPrevious</span><span class="o">())</span> <span class="o">{</span>
-            <span class="n">actualButtonsFromEndToStart</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">totalVisiblePagination</span><span class="o">.</span><span class="na">previous</span><span class="o">());</span>
+            <span class="n">totalVisiblePagination</span><span class="o">.</span><span class="na">back</span><span class="o">();</span>
+            <span class="n">actualButtonsFromEndToStart</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">totalVisiblePagination</span><span class="o">.</span><span class="na">selected</span><span class="o">());</span>
         <span class="o">}</span>
-        <span class="n">assertThat</span><span class="o">(</span><span class="n">actualButtonsFromEndToStart</span><span class="o">,</span> <span class="n">equalTo</span><span class="o">(</span><span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span>
+        <span class="n">jdiAssert</span><span class="o">(</span><span class="n">actualButtonsFromEndToStart</span><span class="o">,</span> <span class="n">equalTo</span><span class="o">(</span><span class="n">asList</span><span class="o">(</span>
             <span class="s">"15"</span><span class="o">,</span> <span class="s">"14"</span><span class="o">,</span> <span class="s">"13"</span><span class="o">,</span> <span class="s">"12"</span><span class="o">,</span> <span class="s">"11"</span><span class="o">,</span> <span class="s">"10"</span><span class="o">,</span> <span class="s">"9"</span><span class="o">,</span> <span class="s">"8"</span><span class="o">,</span> <span class="s">"7"</span><span class="o">,</span> <span class="s">"6"</span><span class="o">,</span> <span class="s">"5"</span><span class="o">,</span> <span class="s">"4"</span><span class="o">,</span> <span class="s">"3"</span><span class="o">,</span> <span class="s">"2"</span><span class="o">,</span> <span class="s">"1"</span>
         <span class="o">)));</span>
         <span class="n">totalVisiblePagination</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">started</span><span class="o">();</span>
@@ -37768,17 +37770,17 @@ explicitly through a <code>JDIPagination</code> annotation.</p>
 </tr>
 <tr>
 <td><strong>list()</strong></td>
-<td>Returns list of visible buttons with page numbers</td>
+<td>Returns list of page buttons by <code>items</code> locator from JDIPagination annotation</td>
 <td>WebList</td>
 </tr>
 <tr>
 <td><strong>leftNavigation()</strong></td>
-<td>Returns left button</td>
+<td>Returns left navigation button by <code>left</code> locator from JDIPagination annotation</td>
 <td>UIElement</td>
 </tr>
 <tr>
 <td><strong>rightNavigation()</strong></td>
-<td>Returns right button</td>
+<td>Returns right navigation button by <code>right</code> locator from JDIPagination annotation</td>
 <td>UIElement</td>
 </tr>
 <tr>
@@ -37808,38 +37810,33 @@ explicitly through a <code>JDIPagination</code> annotation.</p>
 </tr>
 <tr>
 <td><strong>isStart()</strong></td>
-<td>Shows that pagination is on first page</td>
+<td>Returns true if left navigation is disable</td>
 <td>boolean</td>
 </tr>
 <tr>
 <td><strong>isEnd()</strong></td>
-<td>Shows that pagination is on last page</td>
+<td>Returns true if right navigation is disable</td>
 <td>boolean</td>
 </tr>
 <tr>
-<td><strong>hiddenButtons()</strong></td>
-<td>Returns number of hidden buttons</td>
-<td>int</td>
-</tr>
-<tr>
 <td><strong>hasNext()</strong></td>
-<td>Returns true if next() could return element</td>
+<td>Returns true if right navigation button is enabled</td>
 <td>boolean</td>
 </tr>
 <tr>
 <td><strong>next()</strong></td>
-<td>Returns current element and go to next like iterator</td>
-<td>String</td>
+<td>Click on right navigation button</td>
+<td>void</td>
 </tr>
 <tr>
 <td><strong>hasPrevious()</strong></td>
-<td>Returns true if previous() could return element</td>
+<td>Returns true if left navigation button is enabled</td>
 <td>boolean</td>
 </tr>
 <tr>
-<td><strong>previous()</strong></td>
-<td>Returns current element and go to previous like iterator</td>
-<td>String</td>
+<td><strong>back()</strong></td>
+<td>Click on left navigation button</td>
+<td>void</td>
 </tr>
 </tbody></table>
 

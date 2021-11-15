@@ -1165,11 +1165,9 @@
                           </li>
                           <li>
 								            <a href="#5-29-images" class="toc-h2 h3 toc-link" data-title="5.29 Images">5.29 Images</a>
-									            <ul class="toc-list-h2">
-										              <li>
-										              <a href="#5-30-timelines" class="toc-h3 h4 toc-link" data-title="5.30 Timelines">5.30 Timelines</a>
-										              </li>
-									            </ul>
+                          </li>
+                          <li>
+								            <a href="#5-30-timelines" class="toc-h2 h3 toc-link" data-title="5.30 Timelines">5.30 Timelines</a>
                           </li>
                       </ul>
                   </li>
@@ -39149,7 +39147,7 @@ explicitly through a <code>JDIPagination</code> annotation.</p>
 </tbody></table>
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/ImagesTests.java">Images tests</a>.</p>
-<h4 id='5-30-timelines'>5.30 Timelines</h4>
+<h3 id='5-30-timelines'>5.30 Timelines</h3>
 <p><a href="https://vuetifyjs.com/en/components/timelines/">Vuetify documentation page</a></p>
 
 <p><strong>Java</strong>:
@@ -39162,12 +39160,35 @@ explicitly through a <code>JDIPagination</code> annotation.</p>
 <span class="o">)</span>
 <span class="kd">public</span> <span class="kd">static</span> <span class="n">TimeLine</span><span class="o">&lt;</span><span class="n">Card</span><span class="o">,</span> <span class="n">Avatar</span><span class="o">&gt;</span> <span class="n">iconTimeLine</span><span class="o">;</span>
 </code></pre>
-<p>You can specify locators for the TimeLine by using <code>JDITimeLine</code> annotation:
-- <code>root</code> - used to set the root of the TimeLine
-- <code>items</code> - used to find TimeLineItems in the TimeLine
-- <code>body</code> - used to set body of each TimeLineItem
-- <code>divider</code> - used to set divider of each TimeLineItem
-- <code>opposite</code> - used to set opposite of each TimeLineItem</p>
+<p>You can specify locators for the TimeLine by using <code>JDITimeLine</code> annotation:</p>
+
+<table><thead>
+<tr>
+<th>Locator in <code>JDITimeLine</code></th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>root</code></td>
+<td>used to set the root of the TimeLine</td>
+</tr>
+<tr>
+<td><code>items</code></td>
+<td>used to find TimeLineItems in the TimeLine</td>
+</tr>
+<tr>
+<td><code>body</code></td>
+<td>used to set body of each TimeLineItem</td>
+</tr>
+<tr>
+<td><code>divider</code></td>
+<td>used to set divider of each TimeLineItem</td>
+</tr>
+<tr>
+<td><code>opposite</code></td>
+<td>used to set opposite of each TimeLineItem</td>
+</tr>
+</tbody></table>
 
 <p>It is <strong>necessary</strong> to specify <strong>the root</strong> of an element.</p>
 

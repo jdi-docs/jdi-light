@@ -1700,11 +1700,14 @@ Page Objects will help us!</p>
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"#user-name"</span><span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">Text</span> <span class="n">userName</span><span class="o">;</span>
 <span class="o">}</span>
 </code></pre>
-<p>Let’s develop our first simple Page Object and see how the test case will look like. We have our Home Page with several elements on it: </br>
-* <strong>user icon</strong> — clicking on it opens the login form. </br>
-* <strong>name, password</strong> — two text fields in the login form. </br>
-* <strong>login button</strong> — clicking on it starts a login attempt. </br>
-* <strong>user name</strong> — element that will appear after a successful login. </br></p>
+<p>Let’s develop our first simple Page Object and see how the test case will look like. We have our Home Page with several elements on it:</p>
+
+<ul>
+<li><b>user icon</b> — clicking on it opens the login form. </br></li>
+<li><strong>name, password</strong> — two text fields in the login form. </br></li>
+<li><strong>login button</strong> — clicking on it starts a login attempt. </br></li>
+<li><strong>user name</strong> — element that will appear after a successful login. </br></li>
+</ul>
 
 <p>In order to make the code simple, in JDI Light we can use a unified annotation, <code>@UI(&quot;...&quot;)</code>. It handles both CSS and XPath locators, thus reducing the amount of code. <br/>
 It&#39;s also a good use case for one of the main JDI Light features: typified elements like <code>TextField</code>, <code>Button</code> and <code>Text</code>. <br/>

@@ -1843,7 +1843,7 @@ Image component is packed with features to support wide variety of media files. 
 
 For examples of usage see: [Images tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/ImagesTests.java).
 
-#### 5.30 Timelines
+### 5.30 Timelines
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/timelines/)
 

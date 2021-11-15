@@ -44,7 +44,7 @@ domain=https://jdi-testing.github.io/jdi-light/
 #browser.size=MAXIMIZE | 1024x762
 ...
 ```
-Let’s look at some of them in details: <br/>
+Let’s have a detailed look at some options: <br/>
 - __driver__ — we can specify the driver used to run our tests. Common options include _chrome_, _firefox_, _ie_… or we can just replace it with _${driver}_ and read the driver name from the command line.<br/>
 - **driver.version** — by default JDI Light will download the latest version of a driver for us, but if we need a specific version we can specify it here (in which case the framework will find and download exactly this version).<br/>
 - **timeout.wait.element** — the maximum amount of time in seconds that will be spent waiting for an element on the opened page to load. The default element loading timeout is 10 seconds.<br/>
@@ -56,6 +56,7 @@ Let’s look at some of them in details: <br/>
 - **html.code.strategy** = *off* | *on fail* | *on assert* | *new page* — html code of pages.<br/>
 - **requests.strategy** = *off* | *on fail* | *on assert* | *new page* — requests 4ХХ, 5ХХ errors in console log.<br/>
 - **allure.steps** = *true* — turn on the steps for Allure.<br/>
+
 
 _Note: you can find more examples in the documentation._ <br/>
 <a href="https://github.com/jdi-tutorials/01-jdi-light-intro/blob/master/src/test/resources/test.properties" target="_blank">See examples on Github</a>

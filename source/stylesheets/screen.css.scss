@@ -344,6 +344,14 @@ html, body {
     clear: both;
   }
 
+  code {
+    background-color: rgba(0,0,0,0.05);
+    padding: 3px;
+    border-radius: 3px;
+    @extend %code-font;
+    word-break: keep-all;
+  }
+
   &>h1, &>h2, &>h3, &>h4, &>h5, &>h6, &>p, &>table, &>ul, &>ol, &>aside, &>dl {
     margin-right: $examples-width;
     padding: 0 $main-padding;

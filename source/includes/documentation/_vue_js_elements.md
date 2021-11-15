@@ -1915,3 +1915,44 @@ The TimeLine is used for stylistically displaying chronological information.
 **dotColor()** | Returns color of divider | String
 
 For examples of usage see: [JDI Vuetify TimeLine tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/TimelinesTests.java).
+
+### 5.31 Pickers
+
+#### 5.31.1 Time pickers
+
+[Vuetify documentation page](https://vuetifyjs.com/en/components/time-pickers/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.complex.TimePickers.java_
+
+```java
+    @Test
+    public static void allowedTimesTimePickerTest() {
+        allowedTimesTimePicker.is().enabled();
+        allowedTimesTimePicker.has().size(24);
+        allowedTimesTimePicker.select("9");
+        allowedTimesTimePicker.select("30");
+        allowedTimesTimePicker.is().selected("30");
+        allowedTimesTimePicker.has().values("00", "05", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55");
+        allowedTimesTimePicker.is().displayed();
+        allowedTimesTimePicker.has().elementDisabled("55");
+    }
+```
+
+The v-time-picker is stand-alone component that can be utilized in many existing Vuetify components.
+It offers the user a visual representation for selecting the time.
+
+![TimePickers example](../../images/vuetify/time_pickers.png)
+
+|Method | Description | Return Type
+--- | --- | ---
+**select()** | Select time | void
+**enabled()/disabled()** | Returns true/false whether TimePicker is enabled | boolean
+**elementEnabled()/elementDisabled()** | Returns true/false whether time is enabled/disabled | boolean
+**is()/has()** | Returns Assert class | TimePickersAssert
+**enabled()/disabled()** |  Assert that TimePicker is enabled | TimePickersAssert
+**elementEnabled()/elementDisabled()** | Assert that _time_ in TimePicker is enabled | TimePickersAssert
+**selected()** | Assert that _time_ in TimePicker is selected | TimePickersAssert
+
+TimePickers have also a lot of list-based JDI elements methods.
+
+For examples of usage see: [JDI Vuetify TimePickers tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/TimePickersTests.java).

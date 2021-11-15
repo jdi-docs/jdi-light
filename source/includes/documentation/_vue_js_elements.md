@@ -1861,11 +1861,14 @@ public static TimeLine<Card, Avatar> iconTimeLine;
 ```
 
 You can specify locators for the TimeLine by using `JDITimeLine` annotation:
-- `root` - used to set the root of the TimeLine
-- `items` - used to find TimeLineItems in the TimeLine
-- `body` - used to set body of each TimeLineItem
-- `divider` - used to set divider of each TimeLineItem
-- `opposite` - used to set opposite of each TimeLineItem
+
+|Locator in `JDITimeLine` | Description
+--- | --- 
+`root` | used to set the root of the TimeLine
+`items` | used to find TimeLineItems in the TimeLine
+`body` | used to set body of each TimeLineItem
+`divider` | used to set divider of each TimeLineItem
+`opposite` | used to set opposite of each TimeLineItem
 
 It is **necessary** to specify **the root** of an element.
 

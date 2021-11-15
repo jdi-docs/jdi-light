@@ -116,11 +116,12 @@ public class HomePage extends WebPage {
     @UI("#user-name") public static Text userName;
 }
 ```
-Let’s develop our first simple Page Object and see how the test case will look like. We have our Home Page with several elements on it: </br>
-* **user icon** — clicking on it opens the login form. </br>
-* **name, password** — two text fields in the login form. </br>
-* **login button** — clicking on it starts a login attempt. </br>
-* **user name** — element that will appear after a successful login. </br>
+Let’s develop our first simple Page Object and see how the test case will look like. We have our Home Page with several elements on it:
+
+- <b>user icon</b> — clicking on it opens the login form. </br>
+- **name, password** — two text fields in the login form. </br>
+- **login button** — clicking on it starts a login attempt. </br>
+- **user name** — element that will appear after a successful login. </br>
 
 In order to make the code simple, in JDI Light we can use a unified annotation, `@UI("...")`. It handles both CSS and XPath locators, thus reducing the amount of code. <br/>
 It's also a good use case for one of the main JDI Light features: typified elements like `TextField`, `Button` and `Text`. <br/>

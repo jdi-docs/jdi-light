@@ -1165,6 +1165,11 @@
                           </li>
                           <li>
 								            <a href="#5-29-images" class="toc-h2 h3 toc-link" data-title="5.29 Images">5.29 Images</a>
+									            <ul class="toc-list-h2">
+										              <li>
+										              <a href="#5-30-timelines" class="toc-h3 h4 toc-link" data-title="5.30 Timelines">5.30 Timelines</a>
+										              </li>
+									            </ul>
                           </li>
                       </ul>
                   </li>
@@ -37332,7 +37337,7 @@ They are ideal for adjusting settings such as volume, brightness, or applying im
     <span class="n">counterTextArea</span><span class="o">.</span><span class="na">counter</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"0"</span><span class="o">);</span>
 <span class="o">}</span>
 </code></pre>
-<p><img src="images/vuetify/textAreas.png" alt="Text fields example" /></p>
+<p><img src="images/vuetify/textAreas.png" alt="Text area example" /></p>
 
 <p>Text area components are used for collecting large amounts of textual data.</p>
 
@@ -37495,7 +37500,7 @@ They are ideal for adjusting settings such as volume, brightness, or applying im
 </tr>
 </tbody></table>
 
-<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/TextAreasTests.java">JDI Vuetify Text fields tests</a>.</p>
+<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/TextAreasTests.java">JDI Vuetify Text areas tests</a>.</p>
 <h3 id='5-13-groups'>5.13 Groups</h3><pre class="highlight java tab-java"><code><span class="nd">@JDIButtonGroup</span><span class="o">(</span>
         <span class="n">root</span> <span class="o">=</span> <span class="s">"#RoundedButtonGroup .v-item-group"</span><span class="o">,</span> <span class="n">buttons</span> <span class="o">=</span> <span class="s">"//*[@type = 'button']"</span>
 <span class="o">)</span> <span class="c1">// buttons search strategy is custom</span>
@@ -39144,6 +39149,132 @@ explicitly through a <code>JDIPagination</code> annotation.</p>
 </tbody></table>
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/ImagesTests.java">Images tests</a>.</p>
+<h4 id='5-30-timelines'>5.30 Timelines</h4>
+<p><a href="https://vuetifyjs.com/en/components/timelines/">Vuetify documentation page</a></p>
+
+<p><strong>Java</strong>:
+- <em>com.epam.jdi.light.vuetify.elements.complex.timelines.TimeLine.java</em>
+- <em>com.epam.jdi.light.vuetify.elements.complex.timelines.TimeLineItem.java</em></p>
+<pre class="highlight java tab-java"><code><span class="nd">@JDITimeLine</span><span class="o">(</span>
+    <span class="n">root</span> <span class="o">=</span> <span class="s">"#IconTimeline.v-timeline"</span><span class="o">,</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="s">".v-timeline-item__body .v-card"</span><span class="o">,</span>
+    <span class="n">divider</span> <span class="o">=</span> <span class="s">".v-timeline-item__divider .v-avatar"</span>
+<span class="o">)</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">TimeLine</span><span class="o">&lt;</span><span class="n">Card</span><span class="o">,</span> <span class="n">Avatar</span><span class="o">&gt;</span> <span class="n">iconTimeLine</span><span class="o">;</span>
+</code></pre>
+<p>You can specify locators for the TimeLine by using <code>JDITimeLine</code> annotation:
+- <code>root</code> - used to set the root of the TimeLine
+- <code>items</code> - used to find TimeLineItems in the TimeLine
+- <code>body</code> - used to set body of each TimeLineItem
+- <code>divider</code> - used to set divider of each TimeLineItem
+- <code>opposite</code> - used to set opposite of each TimeLineItem</p>
+
+<p>It is <strong>necessary</strong> to specify <strong>the root</strong> of an element.</p>
+
+<p>Also, you can specify classes for <code>body</code> as <code>T</code> and for <code>divider</code> as <code>U</code> in your 
+element by using generic. <strong>That classes must implement <code>ICoreElement</code> interface</strong>.</p>
+<pre class="highlight java tab-java"><code><span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">iconTimeLineTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">iconTimeLine</span><span class="o">.</span><span class="na">items</span><span class="o">().</span><span class="na">forEach</span><span class="o">(</span><span class="n">item</span> <span class="o">-&gt;</span> <span class="o">{</span>
+        <span class="n">item</span><span class="o">.</span><span class="na">opposite</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Tus eu perfecto"</span><span class="o">);</span>
+        <span class="n">item</span><span class="o">.</span><span class="na">divider</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">photo</span><span class="o">();</span>
+        <span class="n">item</span><span class="o">.</span><span class="na">body</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">title</span><span class="o">(</span><span class="s">"Lorem ipsum"</span><span class="o">);</span>
+        <span class="n">item</span><span class="o">.</span><span class="na">body</span><span class="o">().</span><span class="na">content</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">LOREM_IPSUM_TEXT</span><span class="o">);</span>
+    <span class="o">});</span>
+<span class="o">}</span>
+</code></pre>
+<p><img src="images/vuetify/timelines.png" alt="TimeLine example" /></p>
+
+<p>The TimeLine is used for stylistically displaying chronological information.</p>
+
+<p><code>TimeLine&lt;T extends ICoreElement, U extends ICoreElement&gt;</code> methods:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>isAlignTop()</strong></td>
+<td>Shows that element is align to top</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isDense()</strong></td>
+<td>Shows that element is dense</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isReversed()</strong></td>
+<td>Shows that element is reversed</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>list()</strong></td>
+<td>Returns list of TimeListItem as UIElement by <code>items</code> locator from annotation</td>
+<td>WebList</td>
+</tr>
+<tr>
+<td><strong>items()</strong></td>
+<td>Returns list of TimeListItem by <code>items</code> locator from annotation</td>
+<td>List&lt;TimeListItem&lt;T, U&gt;&gt;</td>
+</tr>
+<tr>
+<td><strong>item(int index)</strong></td>
+<td>Returns TimeListItem from items() by index</td>
+<td>TimeListItem&lt;T, U&gt;</td>
+</tr>
+<tr>
+<td><strong>defaultItem(int index)</strong></td>
+<td>Returns TimeListItem with UIElements from items() by index</td>
+<td>TimeListItem&lt;UIElement, UIElement&gt;</td>
+</tr>
+</tbody></table>
+
+<p><code>TimeLineItems&lt;T extends ICoreElement, U extends ICoreElement&gt;</code> methods:</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>body()</strong></td>
+<td>Returns body element by <code>body</code> locator from annotation</td>
+<td>T</td>
+</tr>
+<tr>
+<td><strong>divider()</strong></td>
+<td>Returns divider element by <code>divider</code> locator from annotation</td>
+<td>U</td>
+</tr>
+<tr>
+<td><strong>opposite()</strong></td>
+<td>Returns opposite element by <code>opposite</code> locator from annotation</td>
+<td>UIElement</td>
+</tr>
+<tr>
+<td><strong>isSmall()</strong></td>
+<td>Shows that divider is small</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isLarge()</strong></td>
+<td>Shows that divider is large</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>dotColor()</strong></td>
+<td>Returns color of divider</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/TimelinesTests.java">JDI Vuetify TimeLine tests</a>.</p>
 <h2 id='jdi-features'>JDI features</h2><h3 id='jdi-features-for-parameters-in-bdd-steps'>JDI Features for parameters in BDD steps</h3><h4 id='using-aliases-as-locators-parameters'>Using aliases as locators parameters</h4><pre class="highlight gherkin tab-gherkin"><code>   <span class="kn">Scenario</span><span class="p">:</span> input element
        <span class="nf">When</span> I input <span class="s">"simple 1234"</span> in <span class="s">"Name"</span>
        <span class="nf">Then</span> the <span class="s">"Name"</span> text matches to <span class="s">"\w{6} \d{4}"</span>

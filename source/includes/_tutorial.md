@@ -6,7 +6,7 @@ In this tutorial we’ll take a glance at [JDI Light](https://github.com/jdi-tes
 3. **JDI Light Forms** — a small complex element example that showcases the primary benefits of using JDI Light.<br/>
 4. **UI Elements and optimization** — a more sophisticated example elaborating on types of elements in JDI Light and demonstrating their capabilities.<br/>
 5. **Reduce the amount of code with JDI Light** — a concise example of how JDI Light can decrease the amount of code threefold compared to Selenium.
-Demontrates that you can write clear and stable tests with 3 times less effort.<br/>
+Demonstrates that you can write clear and stable tests with 3 times less effort.<br/>
 
 ## 1. Quick Start
 1. Adding JDI Light to your projects
@@ -31,7 +31,7 @@ _The latest version can be found in the [Maven Central Repository](https://searc
 ### Configuration
 That’s all! We don’t need to explicitly configure anything else to start working. By default, JDI Light will download Chrome driver automatically, set it up and run it as soon as we try to access the first page.<br/>
 
-We can change the default settings by altering the ***test.properties*** file (located within *src/test/resources*).
+We can change the default settings by altering the ***test.properties*** file (located within *src/test/resources* directory).
 
 ```java
 src/test/resources/test.properties
@@ -44,16 +44,16 @@ domain=https://jdi-testing.github.io/jdi-light/
 #browser.size=MAXIMIZE | 1024x762
 ...
 ```
-Let’s have a detailed look at some options: <br/>
-- __driver__ — we can specify the driver used to run our tests. Common options include _chrome_, _firefox_, _ie_… or we can just replace it with _${driver}_ and read the driver name from the command line.<br/>
-- **driver.version** — by default JDI Light will download the latest version of a driver for us, but if we need a specific version we can specify it here (in which case the framework will find and download exactly this version).<br/>
+Let’s have a detailed look at some options:
+- **driver** — we can specify the driver used to run our tests. Common options include _chrome_, _firefox_, _ie_… or we can just replace it with _${driver}_ and read the driver name from the command line.<br/>
+- **driver.version** — by default, JDI Light will download the latest version of a driver for us, but if we need a specific version we can write it here (in which case the framework will find and download exactly this version).<br/>
 - **timeout.wait.element** — the maximum amount of time in seconds that will be spent waiting for an element on the opened page to load. The default element loading timeout is 10 seconds.<br/>
 - **timeout.wait.page** — JDI Light automatically defines a newly opened page and uses this value as page loading timeout (it is usually greater than the element loading timeout). The default is 30 seconds.<br/>
 - **domain** — web application root URL (used when our tests work with a single application). Can also be read from the command line if set up as _${domain}._ <br/>
 - **page.load.strategy** — similarly to Selenium, page loading strategies are: _normal, eager, none_. <br/>
 - **browser.size** — browser window size. By default, JDI Light will maximize the browser window, but we can set the exact size.<br/>
 - **screenshot.strategy** = *off* | *on fail* | *on assert* | *new page* — take screenshot, it's used by AllureLogger.class and upper or lower standing classes. Can be overwritten in test project.<br/>
-- **html.code.strategy** = *off* | *on fail* | *on assert* | *new page* — html code of pages.<br/>
+- **html.code.strategy** = *off* | *on fail* | *on assert* | *new page* — logs page HTML code.<br/>
 - **requests.strategy** = *off* | *on fail* | *on assert* | *new page* — requests 4ХХ, 5ХХ errors in console log.<br/>
 - **allure.steps** = *true* — turn on the steps for Allure.<br/>
 
@@ -74,7 +74,7 @@ public void openJDITestSite() {
     openUrl("https://jdi-testing.github.io/jdi-light/");
 }
 ```
-OK, now let’s write our first test case. We can open the JDI test site (https://jdi-testing.github.io/jdi-light) by using a static method `openUrl()` of the `WebPage` class.
+OK, now let’s write our first test case. We can open the [JDI test site](https://jdi-testing.github.io/jdi-light) by using a static method `openUrl()` of the `WebPage` class.
 
 `WebPage` provides essential methods to work with a browser: `getUrl()`, `getTitle()`, `back()`, `forward()`, `getHtml()`, `refresh()`. It also provides methods that allow to **scroll up / down / left / right / to page top / to page bottom** or **zoom** the page.
 
@@ -90,13 +90,17 @@ public void loginSimpleTest() {
     $("#user-name").is().displayed();
 }
 ```
-Now we can write a more involved typical test: log in to a page.<br/>
-Every test should contain an assertion, so let’s add it to our test. </br>
-Code like this is easy to write. However, it will inevitably become **hard to maintain** as the number of tests grows and elements used get repeated throughout the tests. <br/>
-For example, if we have a `$(".menu-about a")` element in more than 10 tests and its locator gets changed, we must go through all the tests and adjust the locator...</br>
+Now we can write a more involved typical test: log in to a page.
 
-<a href="https://github.com/jdi-tutorials/01-jdi-light-intro/blob/master/src/test/java/nopageobjects/tests/JDILightExample.java" target="_blank">See examples above on Github</a></br>
-Page Objects will help us!
+Every test should contain an assertion, so let’s add it to our test.
+
+Code like this is easy to write. However, it will inevitably become **hard to maintain** as the number of tests grows and elements used get repeated throughout the tests.
+
+For example, if we have an element found by `$(".menu-about a")` locator in more than 10 tests and its locator gets changed, we must go through all the tests and adjust the locator.
+
+Page Objects are here to help us!
+
+<a href="https://github.com/jdi-tutorials/01-jdi-light-intro/blob/master/src/test/java/nopageobjects/tests/JDILightExample.java" target="_blank">See the examples above on Github</a></br>
 
 ### Page Objects
 
@@ -118,14 +122,16 @@ public class HomePage extends WebPage {
 ```
 Let’s develop our first simple Page Object and see how the test case will look like. We have our Home Page with several elements on it:
 
-- <b>user icon</b> — clicking on it opens the login form. </br>
+- **user icon** — clicking on it opens the login form. </br>
 - **name, password** — two text fields in the login form. </br>
 - **login button** — clicking on it starts a login attempt. </br>
 - **user name** — element that will appear after a successful login. </br>
 
-In order to make the code simple, in JDI Light we can use a unified annotation, `@UI("...")`. It handles both CSS and XPath locators, thus reducing the amount of code. <br/>
-It's also a good use case for one of the main JDI Light features: typified elements like `TextField`, `Button` and `Text`. <br/>
-The other great news is that we can make our Page Object elements static and keep tests clearer and more obvious. <br/></br>
+In order to make the code simple, in JDI Light we can use a unified annotation, `@UI("...")`. It handles both CSS and XPath locators, thus reducing the amount of code.
+
+It's also a good use case for one of the main JDI Light features: typified elements like `TextField`, `Button` and `Text`.
+
+The other great news is that we can make our Page Object elements `static` and keep tests clearer and more obvious. <br/>
 
 ```java
 @JSite("https://jdi-testing.github.io/jdi-light/")
@@ -135,10 +141,11 @@ public class SiteJdi {
     public static ContactsPage contactPage;
 }
 ```
-Page Objects in JDI Light are called **UI Objects** and extend standard Selenium Page Objects' capabilities with typified elements like `TextField`, `Button`, `Text` etc. They also carry additional meta-information about a page like `Url` and `Title`. 
+Page Objects in JDI Light are called **UI Objects** and extend standard Selenium Page Objects' capabilities with typified elements like `TextField`, `Button`, `Text` etc. They also carry additional meta-information about a page, like URL and title. 
 Pretty simple and obvious, isn’t it? <br/>
 <a class="github-button" href="https://github.com/jdi-testing/jdi-light" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star jdi-testing/jdi-light on GitHub">Nice!</a><br/>
-Page URLs are relative to the site domain specified in the `@JSite` annotation or in ***test.properties*** file. <br/>
+Page URLs are relative to the site domain specified in the `@JSite` annotation or in ***test.properties*** file.
+
 _Note: We won't be calling `ContactsPage` methods in this example; it is put here to demonstrate the usage of `@Url` and `@Title` annotations._ 
 
 ```java
@@ -149,8 +156,9 @@ public interface TestsInit {
     }
 }
 ```
-And the last thing to consider before writing a test: all UI Objects of our application are initialized at once. We can do it in the setup method that runs before all tests with just a single line of code. <br/>
-_Note: in other frameworks we have to call initElements() for each Page Object._ <br/>
+And the last thing to consider before writing a test: all UI Objects of our application are initialized at once. We can do it in the setup method that runs before all tests with just a single line of code.
+
+_Note: in other frameworks we have to call `initElements()` for each Page Object._ <br/>
 <br/><br/><br/>
 
 ```java
@@ -182,15 +190,15 @@ public class PageObjectExample implements TestsInit {
 ```
 Now we can write our test using these UI Objects and execute it.
 
-- This test scenario is pretty clear and based on real UI elements.<br/>
+- This test scenario is pretty clear and references the actual UI elements.<br/>
 - We can easily update elements placed in UI Objects without going through all the tests.<br/>
 - We have all metadata about pages in one place and can open and validate pages without URL and title duplication in the test code.<br/>
-- JDI Light tests are stable and will not fail in cases where Selenium throws exceptions (like _StaleElement_ or _NoSuchElement_)<br/><br/><br/><br/>
+- JDI Light tests are stable and will not fail in cases where Selenium throws exceptions (like _StaleElementException_ or _NoSuchElementException_)<br/><br/><br/><br/>
 - We get the following text in the log: <br/>
 
-It lists exactly what we do in our test with all the details and without any effort on our part. Fabulous! <br/>
-<br/>
-We can change the log level to ***STEP*** (just add `logger.setLogLevel(STEP)` to the `setUp()` method) and remove the details. The resulting log will be fit to share with a Customer, a Business Analyst or a Manual QA to let them know what our automated tests verify.<br/>
+It lists exactly what we do in our test with all the details and without any extra effort on our part. Fabulous! <br/>
+
+We can change the log level to ***STEP*** (just add `logger.setLogLevel(STEP)` to the `setUp()` method) and remove the details. The resulting log will be fit to share with a Customer, a Business Analyst or a Manual QA to let them know what our automated tests verify.
 
 <a href="https://github.com/jdi-tutorials/01-jdi-light-intro" target="_blank">See PageObject examples in PageObjectExample.java on Github</a>
 

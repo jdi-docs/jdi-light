@@ -148,8 +148,6 @@ public class SiteJdi {
 Page Objects in JDI Light are called **UI Objects** and extend standard Selenium Page Objects' capabilities with typified elements like `TextField`, `Button`, `Text` etc. They also carry additional meta-information about a page, like URL and title. 
 Pretty simple and obvious, isn’t it?
 
-<a class="github-button" href="https://github.com/jdi-testing/jdi-light" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star jdi-testing/jdi-light on GitHub">Nice!</a>
-
 Page URLs are relative to the site domain specified in the `@JSite` annotation or in ***test.properties*** file.
 
 _Note: We won't be calling `ContactsPage` methods in this example; it is put here to demonstrate the usage of `@Url` and `@Title` annotations._ 
@@ -164,8 +162,7 @@ public interface TestsInit {
 ```
 And the last thing to consider before writing a test: all UI Objects of our application are initialized at once. We can do it with just a single line of code in the setup method that runs before all tests.
 
-_Note: in other frameworks we have to call `initElements()` for each Page Object._ <br/>
-<br/><br/><br/>
+_Note: in other frameworks we have to call `initElements()` for each Page Object._
 
 ```java
 public class PageObjectExample implements TestsInit {
@@ -238,13 +235,14 @@ public class User extends DataClass<User> {
 ```
 Now we will optimize the previous example using *forms*. <br/>
 Let's move the login form elements to a separate UI Object — `LoginForm`.<br/>
-Then we'll set `LoginForm` as a root UI Object in our `JDISite` class.<br/><br/><br/>
+Then we'll set `LoginForm` as a root UI Object in our `JDISite` class.<br/><br/><br/><br/><br/><br/>
 
-Now we can rewrite our test in the following way:<br/>
-_Note: `ROMAN` is a business entity of class `User` associated with Login Form<br/>_
+Now we can rewrite our test in the following way:
+
 <a class="github-button" href="https://github.com/jdi-testing/jdi-light" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star jdi-testing/jdi-light on GitHub">I Like it!</a><br/>
 
-`User` class is a simple data class with two `String` fields that have the same names as `TextField` elements in `LoginForm`. <br/>
+`ROMAN` is a business entity of class `User` associated with Login Form. `User` class is a simple data class with two `String` fields that have the same names as `TextField` elements in `LoginForm`.
+
 Aligning data class field names with form field names works for every kind of form field that supports fill-like interaction: `TextField`, `TextArea`, `Checkbox`, `DropDown` etc.
 
 _This gets covered more in depth in <a href="https://jdi-docs.github.io/jdi-light/?java#ui-elements-on-contact-form" target="_blank">Contact Form example</a>._<br/>
@@ -306,19 +304,17 @@ This lets us easily increase the amount of different tests.
 
 Let's cover login functionality with tests checking the following cases:
 
-1. No password<br/>
-2. Wrong credentials<br/>
-3. No credentials<br/>
+1) No password; 2. Wrong credentials; 3. No credentials.
 
 In order to do this we will create a separate file (***UsersDataProvider.java***) for our test data and put `User` entities with the corresponding field values there.
 
-_Note: if you leave some fields `null`, this data will not be provided._<br/>
+_Note: if you leave some fields `null`, this data will not be provided._
 _Since we would like to validate empty values in fields for `NO_CREDENTIALS` user we'll have to set them as empty strings._
 
-<br/>
 Now we can write our tests:
 
-_Note: we don't need to write any other code except test scenarios. Already written UI Objects will be enough._<br/>
+_Note: we don't need to write any other code except test scenarios. Already written UI Objects will be enough._
+
 _Note: In order to be sure that **the user is logged out** and **login form is opened** before each test we can add these conditions as `loggedOut()` and `loginFormShown()`States in `@BeforeMethod`._
 
 <a href="https://github.com/jdi-tutorials/02-jdi-light-forms-elements" target="_blank">See this example in LoginExample.java on Github</a>
@@ -524,7 +520,7 @@ Now if we would like to fill only the `TextField` elements, we only need to chan
 
 _Note: In the second example we use `MenuOptions` enum value (`ContactForm`) to select a `sideMenu` item. It reduces the chance of making a mistake by limiting the choice of options. The enum is found at ***src/main/java/jdisite/enums***._
 
-<a href="https://github.com/jdi-tutorials/03-jdi-light-forms-ui-elements" target="_blank">See this example in ContactFormExamples.java on Github</a><br/><br/><br/><br/><br/>
+<a href="https://github.com/jdi-tutorials/03-jdi-light-forms-ui-elements" target="_blank">See this example in ContactFormExamples.java on Github</a><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 ### Failed form example in logs
 
@@ -639,10 +635,10 @@ See _Example 2_<br/>
 <a href="https://github.com/jdi-tutorials/04-jdi-light-different-forms/blob/master/src/main/java/jdisite/sections/SeleniumLoginForm.java" target="_blank">See the example in Selenium LoginForm.java on Github</a><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 **JQuery/Selenide** — Selenide or jQuery-like style, where instead of `@FindBy` annotations you can use direct initialization.<br/>
-<a href="https://github.com/jdi-tutorials/04-jdi-light-different-forms/blob/master/src/main/java/jdisite/sections/SelenideLoginForm.java" target="_blank">See the example in SelenideLoginForm.java on Github</a><br/><br/><br/><br/><br/><br/>
+<a href="https://github.com/jdi-tutorials/04-jdi-light-different-forms/blob/master/src/main/java/jdisite/sections/SelenideLoginForm.java" target="_blank">See the example in SelenideLoginForm.java on Github</a><br/><br/><br/><br/>
 
 **Regular JDI Light Form** — typical JDI Forms with *typified elements*, `@UI` annotations, extending from Form without overriding `fill`/`check` methods.<br/>
-<a href="https://github.com/jdi-tutorials/04-jdi-light-different-forms/blob/master/src/main/java/jdisite/sections/LoginForm.java" target="_blank">See the example in LoginForm.java on Github</a><br/>
+<a href="https://github.com/jdi-tutorials/04-jdi-light-different-forms/blob/master/src/main/java/jdisite/sections/LoginForm.java" target="_blank">See the example in LoginForm.java on Github</a><br/><br/><br/>
 
 **JDI Light Form with smart locators** — If it's possible to align field names with locators, you can use smart locators for elements and remove locator annotations from Forms. This also allows you to declare form fields with the same type in one line, separated by commas.
 
@@ -780,7 +776,7 @@ public static LoginForm loginForm = initElements(DRIVER, LoginForm.class);
 This form contains WebElements (`name`, `password`, `loginButton`) and actions like `loginAs()` and `isHidden()`.
 
 <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/sections/LoginForm.java" target="_blank">Code example</a><br/>
-<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 **JDI Light**(1 line of code)<br/> 
 
@@ -861,7 +857,7 @@ Instead of `Combobox` we can use a one-line `WebElement` (just using it as a sta
 But instead of `MultiDropdown` we'll need to add 4 WebElements and a few methods: *select* and *isExpanded*.
 The general problem with Complex elements in standard Selenium approach is that we have to create methods like these for every equivalent of `Dropdown`, `MultiDropdown` etc. JDI Light allows to define an element once (or pick one from element library) and then just use it in one line in all Page Objects.
 
-<a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/elements/MultiDropdown.java" target="_blank">MultiDropdown example</a><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/elements/MultiDropdown.java" target="_blank">MultiDropdown example</a>
 
 ```java
     Dropdown gender;

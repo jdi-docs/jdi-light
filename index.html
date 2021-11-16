@@ -1623,10 +1623,10 @@ Demonstrates that you can write clear and stable tests with 3 times less effort.
 </code></pre>
 <p>First, we need to add JDI Light to the <em>dependency</em> section of our <strong><em>pom.xml</em></strong> file: <br/></p>
 
-<p><em>The latest version can be found in the <a href="https://search.maven.org/classic/#search%7Cga%7C1%7Cjdi-light">Maven Central Repository</a></em><br/>
+<p><em>The latest version can be found in the <a href="https://search.maven.org/classic/#search%7Cga%7C1%7Cjdi-light">Maven Central Repository</a></em>.
 <br/><br/></p>
 <h3 id='configuration'>Configuration</h3>
-<p>That’s all! We don’t need to explicitly configure anything else to start working. By default, JDI Light will download Chrome driver automatically, set it up and run it as soon as we try to access the first page.<br/></p>
+<p>That’s all! We don’t need to explicitly configure anything else to start working. By default, JDI Light will download Chrome driver automatically, set it up and run it as soon as we try to access the first page.</p>
 
 <p>We can change the default settings by altering the <strong><em>test.properties</em></strong> file (located within <em>src/test/resources</em> directory).</p>
 <pre class="highlight java tab-java"><code><span class="n">src</span><span class="o">/</span><span class="n">test</span><span class="o">/</span><span class="n">resources</span><span class="o">/</span><span class="n">test</span><span class="o">.</span><span class="na">properties</span>
@@ -1639,21 +1639,25 @@ Demonstrates that you can write clear and stable tests with 3 times less effort.
 <span class="err">#</span><span class="n">browser</span><span class="o">.</span><span class="na">size</span><span class="o">=</span><span class="n">MAXIMIZE</span> <span class="o">|</span> <span class="mi">1024</span><span class="n">x762</span>
 <span class="o">...</span>
 </code></pre>
-<p>Let’s have a detailed look at some options:
-- <strong>driver</strong> — we can specify the driver used to run our tests. Common options include <em>chrome</em>, <em>firefox</em>, <em>ie</em>… or we can just replace it with <em>${driver}</em> and read the driver name from the command line.<br/>
-- <strong>driver.version</strong> — by default, JDI Light will download the latest version of a driver for us, but if we need a specific version we can write it here (in which case the framework will find and download exactly this version).<br/>
-- <strong>timeout.wait.element</strong> — the maximum amount of time in seconds that will be spent waiting for an element on the opened page to load. The default element loading timeout is 10 seconds.<br/>
-- <strong>timeout.wait.page</strong> — JDI Light automatically defines a newly opened page and uses this value as page loading timeout (it is usually greater than the element loading timeout). The default is 30 seconds.<br/>
-- <strong>domain</strong> — web application root URL (used when our tests work with a single application). Can also be read from the command line if set up as <em>${domain}.</em> <br/>
-- <strong>page.load.strategy</strong> — similarly to Selenium, page loading strategies are: <em>normal, eager, none</em>. <br/>
-- <strong>browser.size</strong> — browser window size. By default, JDI Light will maximize the browser window, but we can set the exact size.<br/>
-- <strong>screenshot.strategy</strong> = <em>off</em> | <em>on fail</em> | <em>on assert</em> | <em>new page</em> — take screenshot, it&#39;s used by AllureLogger.class and upper or lower standing classes. Can be overwritten in test project.<br/>
-- <strong>html.code.strategy</strong> = <em>off</em> | <em>on fail</em> | <em>on assert</em> | <em>new page</em> — logs page HTML code.<br/>
-- <strong>requests.strategy</strong> = <em>off</em> | <em>on fail</em> | <em>on assert</em> | <em>new page</em> — requests 4ХХ, 5ХХ errors in console log.<br/>
-- <strong>allure.steps</strong> = <em>true</em> — turn on the steps for Allure.<br/></p>
+<p>Let’s have a detailed look at some options:</p>
 
-<p><em>Note: you can find more examples in the documentation.</em> <br/>
-<a href="https://github.com/jdi-tutorials/01-jdi-light-intro/blob/master/src/test/resources/test.properties" target="_blank">See examples on Github</a></p>
+<ul>
+<li><strong>driver</strong> — we can specify the driver used to run our tests. Common options include <em>chrome</em>, <em>firefox</em>, <em>ie</em>; we can also just put <em>${driver}</em> here and read the driver name from the command line.<br/></li>
+<li><strong>driver.version</strong> — by default, JDI Light will download the latest version of a driver for us, but if we need a specific version we can put it here (in which case the framework will find and download exactly this version).<br/></li>
+<li><strong>timeout.wait.element</strong> — the maximum amount of time in seconds that will be spent waiting for an element on the opened page to load. The default element loading timeout is 10 seconds.<br/></li>
+<li><strong>timeout.wait.page</strong> — JDI Light automatically defines a newly opened page and uses this value as page loading timeout (it is usually greater than the element loading timeout). The default is 30 seconds.<br/></li>
+<li><strong>domain</strong> — web application root URL (used when our tests work with a single application). Can also be read from the command line if set up as <em>${domain}.</em> <br/></li>
+<li><strong>page.load.strategy</strong> — similarly to Selenium, page loading strategies are: <em>normal, eager, none</em>. <br/></li>
+<li><strong>browser.size</strong> — browser window size. By default, JDI Light will maximize the browser window, but we can set the exact size.<br/></li>
+<li><strong>screenshot.strategy</strong> = <em>off</em> | <em>on fail</em> | <em>on assert</em> | <em>new page</em> — take screenshot, it&#39;s used by AllureLogger.class and upper or lower standing classes. Can be overwritten in test project.<br/></li>
+<li><strong>html.code.strategy</strong> = <em>off</em> | <em>on fail</em> | <em>on assert</em> | <em>new page</em> — logs page HTML code.<br/></li>
+<li><strong>requests.strategy</strong> = <em>off</em> | <em>on fail</em> | <em>on assert</em> | <em>new page</em> — requests 4ХХ, 5ХХ errors in console log.<br/></li>
+<li><strong>allure.steps</strong> = <em>true</em> — turn on the steps for Allure.<br/></li>
+</ul>
+
+<p><em>Note: you can find more examples in the <a href="https://jdi-docs.github.io/jdi-light/#driver-settings">documentation</a>.</em></p>
+
+<p><a href="https://github.com/jdi-tutorials/01-jdi-light-intro/blob/master/src/test/resources/test.properties" target="_blank">See the examples on Github</a></p>
 <h2 id='2-jdi-light-at-a-glance'>2. JDI Light at a glance</h2>
 <ol>
 <li>Simple Open page test</li>
@@ -1667,7 +1671,7 @@ Demonstrates that you can write clear and stable tests with 3 times less effort.
 </code></pre>
 <p>OK, now let’s write our first test case. We can open the <a href="https://jdi-testing.github.io/jdi-light">JDI test site</a> by using a static method <code>openUrl()</code> of the <code>WebPage</code> class.</p>
 
-<p><code>WebPage</code> provides essential methods to work with a browser: <code>getUrl()</code>, <code>getTitle()</code>, <code>back()</code>, <code>forward()</code>, <code>getHtml()</code>, <code>refresh()</code>. It also provides methods that allow to <strong>scroll up / down / left / right / to page top / to page bottom</strong> or <strong>zoom</strong> the page.</p>
+<p><code>WebPage</code> provides essential methods to work with a browser: <code>getUrl()</code>, <code>getTitle()</code>, <code>back()</code>, <code>forward()</code>, <code>getHtml()</code>, <code>refresh()</code>. It also provides methods that allow to <em>scroll up / down / left / right / to page top / to page bottom</em> or <em>zoom</em> the page.</p>
 <h3 id='simple-test-scenario'>Simple test scenario</h3><pre class="highlight java tab-java"><code><span class="nd">@Test</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">loginSimpleTest</span><span class="o">()</span> <span class="o">{</span>
     <span class="n">openUrl</span><span class="o">(</span><span class="s">"https://jdi-testing.github.io/jdi-light/"</span><span class="o">);</span>
@@ -1726,9 +1730,11 @@ Demonstrates that you can write clear and stable tests with 3 times less effort.
 <span class="o">}</span>
 </code></pre>
 <p>Page Objects in JDI Light are called <strong>UI Objects</strong> and extend standard Selenium Page Objects&#39; capabilities with typified elements like <code>TextField</code>, <code>Button</code>, <code>Text</code> etc. They also carry additional meta-information about a page, like URL and title. 
-Pretty simple and obvious, isn’t it? <br/>
-<a class="github-button" href="https://github.com/jdi-testing/jdi-light" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star jdi-testing/jdi-light on GitHub">Nice!</a><br/>
-Page URLs are relative to the site domain specified in the <code>@JSite</code> annotation or in <strong><em>test.properties</em></strong> file.</p>
+Pretty simple and obvious, isn’t it?</p>
+
+<p><a class="github-button" href="https://github.com/jdi-testing/jdi-light" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star jdi-testing/jdi-light on GitHub">Nice!</a></p>
+
+<p>Page URLs are relative to the site domain specified in the <code>@JSite</code> annotation or in <strong><em>test.properties</em></strong> file.</p>
 
 <p><em>Note: We won&#39;t be calling <code>ContactsPage</code> methods in this example; it is put here to demonstrate the usage of <code>@Url</code> and <code>@Title</code> annotations.</em> </p>
 <pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">TestsInit</span> <span class="o">{</span>
@@ -1738,7 +1744,7 @@ Page URLs are relative to the site domain specified in the <code>@JSite</code> a
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre>
-<p>And the last thing to consider before writing a test: all UI Objects of our application are initialized at once. We can do it in the setup method that runs before all tests with just a single line of code.</p>
+<p>And the last thing to consider before writing a test: all UI Objects of our application are initialized at once. We can do it with just a single line of code in the setup method that runs before all tests.</p>
 
 <p><em>Note: in other frameworks we have to call <code>initElements()</code> for each Page Object.</em> <br/>
 <br/><br/><br/></p>
@@ -1774,7 +1780,7 @@ Page URLs are relative to the site domain specified in the <code>@JSite</code> a
 <li>This test scenario is pretty clear and references the actual UI elements.<br/></li>
 <li>We can easily update elements placed in UI Objects without going through all the tests.<br/></li>
 <li>We have all metadata about pages in one place and can open and validate pages without URL and title duplication in the test code.<br/></li>
-<li>JDI Light tests are stable and will not fail in cases where Selenium throws exceptions (like <em>StaleElementException</em> or <em>NoSuchElementException</em>)<br/><br/><br/><br/></li>
+<li>JDI Light tests are stable and will not fail in cases where Selenium throws exceptions (like <em>StaleElementException</em> or <em>NoSuchElementException</em>)<br/><br/></li>
 <li>We get the following text in the log: <br/></li>
 </ul>
 
@@ -1818,19 +1824,24 @@ Then we&#39;ll set <code>LoginForm</code> as a root UI Object in our <code>JDISi
 <a class="github-button" href="https://github.com/jdi-testing/jdi-light" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star jdi-testing/jdi-light on GitHub">I Like it!</a><br/></p>
 
 <p><code>User</code> class is a simple data class with two <code>String</code> fields that have the same names as <code>TextField</code> elements in <code>LoginForm</code>. <br/>
-Aligning data class field names with form field names works for every kind of form field that supports fill-like interaction: <code>TextField</code>, <code>TextArea</code>, <code>Checkbox</code>, <code>DropDown</code> etc. <br/>
-<em>This gets covered more in depth in <a href="https://jdi-docs.github.io/jdi-light/?java#ui-elements-on-contact-form" target="_blank">Contact Form example</a>.</em><br/></p>
+Aligning data class field names with form field names works for every kind of form field that supports fill-like interaction: <code>TextField</code>, <code>TextArea</code>, <code>Checkbox</code>, <code>DropDown</code> etc.</p>
+
+<p><em>This gets covered more in depth in <a href="https://jdi-docs.github.io/jdi-light/?java#ui-elements-on-contact-form" target="_blank">Contact Form example</a>.</em><br/></p>
 <pre class="highlight java tab-java"><code>  <span class="n">User</span> <span class="n">ROMAN</span> <span class="o">=</span> <span class="k">new</span> <span class="n">User</span><span class="o">().</span><span class="na">set</span><span class="o">(</span><span class="n">c</span> <span class="o">-&gt;</span> <span class="o">{</span>
       <span class="n">c</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">"Roman"</span><span class="o">;</span> <span class="n">c</span><span class="o">.</span><span class="na">password</span> <span class="o">=</span> <span class="s">"Jdi1234"</span><span class="o">;</span>
   <span class="o">}</span> <span class="o">);</span>
 <span class="nl">Output:</span> <span class="n">ROMAN</span><span class="o">.</span><span class="na">toString</span><span class="o">()</span> <span class="o">--&gt;</span> <span class="n">User</span><span class="o">(</span><span class="nl">name:</span><span class="n">Roman</span><span class="o">;</span> <span class="nl">password:</span><span class="n">Jdi1234</span><span class="o">)</span>
 <span class="k">new</span> <span class="nf">User</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="k">new</span> <span class="n">User</span><span class="o">());</span>
 </code></pre>
-<p>Any class can be used as data class, but extending it from <em>DataClass</em> (<code>User extends DataClass&lt;User&gt;</code> in this case) gives us additional benefits:<br/>
-- It won&#39;t be necessary to keep the same order of fields in the data class and the form.<br/>
-- Two data class instances will be compared by equality of their fields and not by reference (so NOT like it would have been with the <code>equals()</code> method). <br/>
-- There will be a good-looking <code>toString()</code> representation of the data class instance based on its fields.<br/>
-<a href="https://github.com/jdi-tutorials/01-jdi-light-intro" target="_blank">See this example in LoginExample.java on Github</a></p>
+<p>Any class can be used as data class, but extending it from <em>DataClass</em> (<code>User extends DataClass&lt;User&gt;</code> in this case) gives us additional benefits:</p>
+
+<ul>
+<li>It won&#39;t be necessary to keep the same order of fields in the data class and the form.<br/></li>
+<li>Two data class instances will be compared by equality of their fields and not by reference (so NOT like it would have been with the <code>equals()</code> method). <br/></li>
+<li>There will be a good-looking <code>toString()</code> representation of the data class instance based on its fields.<br/></li>
+</ul>
+
+<p><a href="https://github.com/jdi-tutorials/01-jdi-light-intro" target="_blank">See this example in LoginExample.java on Github</a></p>
 <h3 id='cover-login-form-with-data-driven-tests'>Cover Login Form with Data-Driven tests</h3><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">UsersDataProvider</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">User</span> <span class="n">NO_PASSWORD</span> <span class="o">=</span> <span class="k">new</span> <span class="n">User</span><span class="o">().</span><span class="na">set</span><span class="o">(</span><span class="n">c</span> <span class="o">-&gt;</span> <span class="n">c</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">"Roman"</span><span class="o">);</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">User</span> <span class="n">NO_CREDENTIALS</span> <span class="o">=</span> <span class="k">new</span> <span class="n">User</span><span class="o">().</span><span class="na">set</span><span class="o">(</span><span class="n">c</span> <span class="o">-&gt;</span> <span class="o">{</span>
@@ -1866,21 +1877,28 @@ Aligning data class field names with form field names works for every kind of fo
     <span class="o">...</span>
 <span class="o">}</span>
 </code></pre>
-<p>This lets us easily increase the amount of different tests.<br/></p>
+<p>This lets us easily increase the amount of different tests.</p>
 
-<p>Let&#39;s cover login functionality with tests checking the following cases:<br/>
-1. No password<br/>
-2. Wrong credentials<br/>
-3. No credentials<br/>
-<br/>
-In order to do this we will create a separate file (<strong><em>UsersDataProvider.java</em></strong>) for our test data and put <code>User</code> entities with the corresponding field values there.<br/>
-<em>Note: if you leave some fields <code>null</code>, this data will not be provided.</em><br/>
-<em>Since we would like to validate empty values in fields for <code>NO_CREDENTIALS</code> user we&#39;ll have to set them as empty strings.</em><br/>
-<br/>
-Now we can write our tests: <br/>
-<em>Note: we don&#39;t need to write any other code except test scenarios. Already written UI Objects will be enough.</em><br/>
-<em>Note: In order to be sure that the user is <strong>logged out</strong> and <strong>Login form is opened</strong> before each test we can add these conditions as <code>loggedOut()</code> and <code>loginFormShown()</code>States in <code>@BeforeMethod</code>.</em><br/>
-<a href="https://github.com/jdi-tutorials/02-jdi-light-forms-elements" target="_blank">See this example in LoginExample.java on Github</a>
+<p>Let&#39;s cover login functionality with tests checking the following cases:</p>
+
+<ol>
+<li>No password<br/></li>
+<li>Wrong credentials<br/></li>
+<li>No credentials<br/></li>
+</ol>
+
+<p>In order to do this we will create a separate file (<strong><em>UsersDataProvider.java</em></strong>) for our test data and put <code>User</code> entities with the corresponding field values there.</p>
+
+<p><em>Note: if you leave some fields <code>null</code>, this data will not be provided.</em><br/>
+<em>Since we would like to validate empty values in fields for <code>NO_CREDENTIALS</code> user we&#39;ll have to set them as empty strings.</em></p>
+
+<p><br/>
+Now we can write our tests:</p>
+
+<p><em>Note: we don&#39;t need to write any other code except test scenarios. Already written UI Objects will be enough.</em><br/>
+<em>Note: In order to be sure that <strong>the user is logged out</strong> and <strong>login form is opened</strong> before each test we can add these conditions as <code>loggedOut()</code> and <code>loginFormShown()</code>States in <code>@BeforeMethod</code>.</em></p>
+
+<p><a href="https://github.com/jdi-tutorials/02-jdi-light-forms-elements" target="_blank">See this example in LoginExample.java on Github</a>
 <br/><br/><br/><br/><br/><br/><br/><br/><br/></p>
 <h3 id='failed-login-form-tests-with-data-provider'>Failed Login Form tests with Data Provider</h3><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">UsersDataProvider</span> <span class="o">{</span>
     <span class="o">...</span>
@@ -1890,7 +1908,7 @@ Now we can write our tests: <br/>
     <span class="o">}</span>
 </code></pre>
 <p>But the scenarios in previous example are pretty much the same. The only difference is the test data. We can simplify our tests using <em>DataProvider</em>.<br/>
-Let&#39;s add <code>failedUsers()</code> method that returns test data for our cases as a 2D array of Users to our <strong><em>UsersDataProvider.java</em></strong> file, then mark this method with <code>@DataProvider(name = &quot;failedUsers&quot;)</code>.<br/></p>
+Let&#39;s add <code>failedUsers()</code> method that returns test data for our cases as a 2D array of <code>User</code> instances to our <strong><em>UsersDataProvider.java</em></strong> file, then mark this method with <code>@DataProvider(name = &quot;failedUsers&quot;)</code>.<br/></p>
 <pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">UsersDataProvider</span> <span class="o">{</span>
     <span class="o">...</span>
     <span class="nd">@Test</span><span class="o">(</span><span class="n">dataProvider</span> <span class="o">=</span> <span class="s">"failedUsers"</span><span class="o">,</span> <span class="n">dataProviderClass</span> <span class="o">=</span> <span class="n">UsersDataProvider</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
@@ -1899,12 +1917,13 @@ Let&#39;s add <code>failedUsers()</code> method that returns test data for our c
         <span class="n">userName</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">hidden</span><span class="o">();</span>
     <span class="o">}</span>
 </code></pre>
-<p>As a next step, we will create one common test scenario that accepts User instance as a parameter. <br/></p>
+<p>As a next step, we will create one common test scenario that accepts <code>User</code> instance as a parameter. <br/></p>
 
 <p>And the last step is just to link our test to the data provider method using <code>@Test</code> annotation attributes.<br/></p>
 
-<p>That&#39;s it! If we run this scenario, it will execute 3 tests that validate different cases of login failure. This way you can easily manage same scenarios with different test data, increase testing coverage, add new data sets or update them without changing the actual tests. It&#39;s that simple! </br>
-<a class="github-button" href="https://github.com/jdi-testing/jdi-light" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star jdi-testing/jdi-light on GitHub">I Like it!</a><br/> 
+<p>That&#39;s it! If we run this scenario, it will execute 3 tests that validate different cases of login failure. This way you can easily manage same scenarios with different test data, increase testing coverage, add new data sets or update them without changing the actual tests. It&#39;s that simple!</p>
+
+<p><a class="github-button" href="https://github.com/jdi-testing/jdi-light" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star jdi-testing/jdi-light on GitHub">I Like it!</a><br/> 
 <a href="https://github.com/jdi-tutorials/02-jdi-light-forms-elements" target="_blank">See this example in LoginExample.java on Github</a></p>
 <h2 id='4-ui-elements-and-optimization'>4. UI Elements and optimization</h2>
 <ol>
@@ -1914,17 +1933,21 @@ Let&#39;s add <code>failedUsers()</code> method that returns test data for our c
 <li>5 Ways to describe Form with a complex Selenium example (17 lines) to 1 line Form<br/></li>
 </ol>
 <h3 id='ui-elements-on-contact-form'>UI Elements on Contact Form</h3>
-<p>We&#39;ve had a quick look at JDI Light; now let&#39;s look closer at UI Elements. In JDI we have 3 kinds of elements:<br/>
-1. <strong>Common Elements</strong>: <code>Button</code>, <code>TextField</code>, <code>Text</code>, <code>Checkbox</code> etc. Some of them we have already used in Login Form. All of these elements have simple structure and can be described using one locator or Selenium element.<br/>
-<em>Note: See the full list and more details in <a href="https://jdi-docs.github.io/jdi-light/?java#common-elements">Documentation</a></em><br/>
-2. <strong>Complex elements</strong> like <code>Dropdown</code>, <code>Checklist</code>, <code>RadioButtons</code>, <code>MultiSelect</code>, <code>DataList</code> etc. These elements are made up of several Common Elements. For example, <code>Dropdown</code> is made up of different common elements representing <em>value</em>, <em>caret (expand dropdown) arrow</em> and <em>list of options</em>;
-<code>Checklist</code> is just a list of <code>Checkbox</code> elements.<br/>
-<em>Note: See the full list and more details in <a href="https://jdi-docs.github.io/jdi-light/?java#complex-elements">Documentation</a></em><br/>
-3. <strong>Composite elements</strong> are typified Page Objects. These are <code>WebPage</code>, <code>Form</code>, <code>Section</code>: classes having Common, Complex Elements or sub-sections as their fields.<br/>
-<em>Note: See the full list and more details in <a href="https://jdi-docs.github.io/jdi-light/?java#composite-elements">Documentation</a></em><br/></p>
+<p>We&#39;ve had a quick look at JDI Light; now let&#39;s look closer at UI Elements. In JDI we have 3 kinds of elements:</p>
 
-<p>Let&#39;s look at an example: Contact Form on <a href="https://jdi-testing.github.io/jdi-light/contacts.html" target="_blank">Contacts page</a>. <br/>
-This form, compared to the Login Form, has more different UI elements. Let&#39;s describe it.<br/></p>
+<ol>
+<li><strong>Common Elements</strong>: <code>Button</code>, <code>TextField</code>, <code>Text</code>, <code>Checkbox</code> etc. Some of them we have already used in Login Form. All of these elements have simple structure and can be described using one locator or Selenium element.</br></br>
+<em>Note: See the full list and more details in <a href="https://jdi-docs.github.io/jdi-light/?java#common-elements">Documentation</a></em><br/></br></li>
+<li><strong>Complex elements</strong> like <code>Dropdown</code>, <code>Checklist</code>, <code>RadioButtons</code>, <code>MultiSelect</code>, <code>DataList</code> etc. These elements are made up of several Common Elements. For example, <code>Dropdown</code> is made up of different common elements representing <em>value</em>, <em>caret (expand dropdown) arrow</em> and <em>list of options</em>;
+<code>Checklist</code> is just a list of <code>Checkbox</code> elements.<br/></br>
+<em>Note: See the full list and more details in <a href="https://jdi-docs.github.io/jdi-light/?java#complex-elements">Documentation</a></em><br/></br></li>
+<li><strong>Composite elements</strong> are typified Page Objects. These are <code>WebPage</code>, <code>Form</code>, <code>Section</code>: classes having Common, Complex Elements or sub-sections as their fields.<br/></br>
+<em>Note: See the full list and more details in <a href="https://jdi-docs.github.io/jdi-light/?java#composite-elements">Documentation</a></em><br/></li>
+</ol>
+
+<p>Let&#39;s look at an example: Contact Form on <a href="https://jdi-testing.github.io/jdi-light/contacts.html" target="_blank">Contacts page</a>.</p>
+
+<p>This form, compared to the Login Form, has more different UI elements. Let&#39;s describe it.<br/></p>
 <pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ContactForm</span> <span class="kd">extends</span> <span class="n">Form</span><span class="o">&lt;</span><span class="n">ContactInfo</span><span class="o">&gt;</span> <span class="o">{</span>
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"#passport"</span><span class="o">)</span> <span class="n">Checkbox</span> <span class="n">passport</span><span class="o">;</span>
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"#name"</span><span class="o">)</span> <span class="n">TextField</span> <span class="n">name</span><span class="o">;</span>
@@ -1938,8 +1961,9 @@ This form, compared to the Login Form, has more different UI elements. Let&#39;s
     <span class="o">...</span>
 <span class="o">}</span>
 </code></pre>
-<p>Here we have <b><u>Common</u></b> elements: <br/>
-5 <code>TextField</code> elements (<code>name</code>, <code>lastName</code>, <code>position</code>, <code>passportNumber</code>, <code>passportSeria</code>)<br/>
+<p>Here we have <b><u>Common</u></b> elements:</p>
+
+<p>5 <code>TextField</code> elements (<code>name</code>, <code>lastName</code>, <code>position</code>, <code>passportNumber</code>, <code>passportSeria</code>)<br/>
 <img src="images/tutorial/textfield.png" alt="TextField" width="200px"><br/>
 2 <code>Checkbox</code> elements (<code>passport</code>, <code>acceptConditions</code>)<br/>
 <img src="images/tutorial/checkbox.png" alt="Checkbox" width="100px"><br/>
@@ -1977,24 +2001,29 @@ This form, compared to the Login Form, has more different UI elements. Let&#39;s
     <span class="k">return</span> <span class="n">weatherValue</span><span class="o">.</span><span class="na">getText</span><span class="o">();</span>
 <span class="o">}</span>
 </code></pre>
-<p>And <b><u>Complex</u></b> elements:<br/>
-<code>Dropdown</code> (gender) — An element with one selectable value, expand arrow and a list of options. <br/>
+<p>And <b><u>Complex</u></b> elements:</p>
+
+<p><code>Dropdown</code> (gender) — An element with one selectable value, expand arrow and a list of options. <br/>
 <img src="images/tutorial/dropdown.png" alt="Dropdown" width="200"><br/>
 <code>Combobox</code> (religion) — Mix of <code>Dropdown</code> and <code>TextField</code>. You can select a value from a list of options or enter your own value.<br/>
 <img src="images/tutorial/combobox.png" alt="Combobox" width="200"><br/>
-<code>MultiDropdown</code> (weather) — Dropdown that allows selection of multiple options.<br/>
-As an example check the amount of code that should be implemented in Selenium for one Complex element<br/>
+<code>MultiDropdown</code> (weather) — Dropdown that allows selection of multiple options. We also provide an example of Selenium implementation of equivalent functionality for comparison.</br>
 <img src="images/tutorial/multiselect.png" alt="MultiDropdown" width="200"><br/></p>
 <pre class="highlight java tab-java"><code><span class="nd">@Url</span><span class="o">(</span><span class="s">"/contacts"</span><span class="o">)</span> <span class="nd">@Title</span><span class="o">(</span><span class="s">"Contact Form"</span><span class="o">)</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">ContactPage</span> <span class="kd">extends</span> <span class="n">WebPage</span> <span class="o">{</span>
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"#contact-form"</span><span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">ContactForm</span> <span class="n">contactForm</span><span class="o">;</span>
 <span class="o">}</span>
 </code></pre>
-<p>And the <strong>Contact Form</strong> itself is a <b><u>Composite</u></b> UI Object (PageObject with additional capabilities in JDI).<br/>
-Contact Form placed on another Composite Page Object is called <strong>Contact Page</strong>.<br/>
-Pay attention to the fact that Contact Form and Contact Page have the additional meta-information: <br/>
-- <code>@Url</code> and <code>@Title</code> for Contact Page. <br/>
-- Locator for Contact Form specified with the <code>@UI</code> annotation. It ensures that all elements that belong to Contact Form Page Object are searched only within the context of Contact Form: in case when there are multiple elements with a locator like <code>&quot;button[type=submit]&quot;</code> on the webpage (for example, this locator is valid for the logout button on Contact Page), it will be the element belonging to Contact Form that gets found.<br/></p>
+<p>And the Contact Form itself is a <b><u>Composite</u></b> UI Object (PageObject with additional capabilities in JDI).</p>
+
+<p>We will call the Contact Form placed on another Composite Page Object a <strong>Contact Page</strong>.</p>
+
+<p>Pay attention to the fact that Contact Form and Contact Page have the additional meta-information:</p>
+
+<ul>
+<li><code>@Url</code> and <code>@Title</code> for Contact Page. <br/></li>
+<li>Locator for Contact Form specified with the <code>@UI</code> annotation. It ensures that all elements that belong to Contact Form Page Object are searched only within the context of Contact Form: in case when there are multiple elements with a locator like <code>&quot;button[type=submit]&quot;</code> on the webpage (for example, this locator is valid for the logout button on Contact Page), it will be the element belonging to Contact Form that gets found.<br/></li>
+</ul>
 <pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ContactInfo</span> <span class="kd">extends</span> <span class="n">DataClass</span><span class="o">&lt;</span><span class="n">ContactInfo</span><span class="o">&gt;</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="n">String</span> <span class="n">passport</span><span class="o">,</span> <span class="n">name</span><span class="o">,</span> <span class="n">lastName</span><span class="o">,</span> <span class="n">position</span><span class="o">,</span> <span class="n">passportNumber</span><span class="o">,</span> 
         <span class="n">passportSeria</span><span class="o">,</span> <span class="n">gender</span><span class="o">,</span> <span class="n">religion</span><span class="o">,</span> <span class="n">weather</span><span class="o">,</span> <span class="n">acceptConditions</span><span class="o">,</span> <span class="n">description</span><span class="o">;</span>
@@ -2006,9 +2035,12 @@ Pay attention to the fact that Contact Form and Contact Page have the additional
 <span class="nd">@UI</span><span class="o">(</span><span class="s">"#user-name"</span><span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">Text</span> <span class="n">userName</span><span class="o">;</span>
 <span class="nd">@UI</span><span class="o">(</span><span class="s">".sidebar-menu span"</span><span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">Menu</span> <span class="n">sideMenu</span><span class="o">;</span>
 </code></pre>
-<p>We also have a few <u>Common</u> elements that are placed directly in Site: <br/>
-1. <code>Link</code> element <code>userIcon</code> and <code>Text</code> element <code>userName</code>; we have already been using them in earlier tests.</br>
-2. One new <u>Complex</u> element, <code>Menu</code>, representing the list of links in the left sidebar. This element is also found by one locator but contains 16 menu items, and you can also select the item you need by its name defined in <code>MenuOptions</code> enum (found in <em>src/main/java/jdisite/enums</em>).</br></p>
+<p>We also have a few <u>Common</u> elements that are placed directly in Site:</p>
+
+<ol>
+<li><code>Link</code> element <code>userIcon</code> and <code>Text</code> element <code>userName</code>; we have already been using them in earlier tests.</br></li>
+<li>One new <u>Complex</u> element, <code>Menu</code>, representing the list of links in the left sidebar. This element is also found by one locator but contains 16 menu items, and you can also select the item you need by its name defined in <code>MenuOptions</code> enum (found in <em>src/main/java/jdisite/enums</em>).</br></li>
+</ol>
 <h3 id='contact-form-test-scenario'>Contact Form test scenario</h3><pre class="highlight java tab-java"><code><span class="nd">@Test</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">simpleContactFormTest</span><span class="o">()</span> <span class="o">{</span>
     <span class="n">sideMenu</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="s">"Contact form"</span><span class="o">);</span>
@@ -2017,12 +2049,17 @@ Pay attention to the fact that Contact Form and Contact Page have the additional
     <span class="n">contactForm</span><span class="o">.</span><span class="na">check</span><span class="o">(</span><span class="n">FULL_CONTACT</span><span class="o">);</span>
 <span class="o">}</span>
 </code></pre>
-<p>Now let&#39;s write a complex test that:<br/> 
-- Opens the Contacts Page by selecting a corresponding menu option<br/>
-- Verifies that this page has the correct URL and title<br/>
-- Fills all 11 different elements in this Complex form with some values<br/>
-- And verifies that the form has been filled correctly<br/><br/>
-This is just as simple as filling the Login Form! <a class="github-button" href="https://github.com/jdi-testing/jdi-light" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star jdi-testing/jdi-light on GitHub">Amazing!</a><br/></p>
+<p>Now let&#39;s write a complex test that:</p>
+
+<ul>
+<li>Opens the Contacts Page by selecting a corresponding menu option<br/></li>
+<li>Verifies that this page has the correct URL and title<br/></li>
+<li>Fills all 11 different elements in this Complex form with some values<br/></li>
+<li>And verifies that the form has been filled correctly<br/></li>
+</ul>
+
+<p>This is just as simple as filling the Login Form! </br>
+<a class="github-button" href="https://github.com/jdi-testing/jdi-light" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star jdi-testing/jdi-light on GitHub">Amazing!</a><br/></p>
 <pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">static</span> <span class="n">ContactInfo</span> <span class="n">FULL_CONTACT</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ContactInfo</span><span class="o">().</span><span class="na">set</span><span class="o">(</span><span class="n">c</span> <span class="o">-&gt;</span> <span class="o">{</span>
     <span class="n">c</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">"Roman"</span><span class="o">;</span> <span class="n">c</span><span class="o">.</span><span class="na">lastName</span> <span class="o">=</span> <span class="s">"Full Contact"</span><span class="o">;</span> <span class="n">c</span><span class="o">.</span><span class="na">position</span> <span class="o">=</span> <span class="s">"ChiefQA"</span><span class="o">;</span> 
     <span class="n">c</span><span class="o">.</span><span class="na">passportNumber</span> <span class="o">=</span> <span class="mi">4321</span><span class="o">;</span> <span class="n">c</span><span class="o">.</span><span class="na">passportSeria</span> <span class="o">=</span> <span class="mi">123456</span><span class="o">;</span> 
@@ -2033,8 +2070,7 @@ This is just as simple as filling the Login Form! <a class="github-button" href=
     <span class="o">}</span>
 <span class="o">);</span>
 </code></pre>
-<p>The most complicated part is creating the test data that we would like to utilize:<br/>
-<br/><br/><br/><br/><br/><br/><br/><br/></p>
+<p>The most complicated part is creating the test data that we would like to utilize:</p>
 <pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">static</span> <span class="n">ContactInfo</span> <span class="n">SIMPLE_CONTACT</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ContactInfo</span><span class="o">().</span><span class="na">set</span><span class="o">(</span><span class="n">c</span> <span class="o">-&gt;</span> <span class="o">{</span>
     <span class="n">c</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">"Roman"</span><span class="o">;</span> <span class="n">c</span><span class="o">.</span><span class="na">lastName</span> <span class="o">=</span> <span class="s">"Iovlev"</span><span class="o">;</span> <span class="n">c</span><span class="o">.</span><span class="na">position</span> <span class="o">=</span> <span class="s">"ChiefQA"</span><span class="o">;</span>
     <span class="n">c</span><span class="o">.</span><span class="na">passportNumber</span> <span class="o">=</span> <span class="mi">4321</span><span class="o">;</span> <span class="n">c</span><span class="o">.</span><span class="na">passportSeria</span> <span class="o">=</span> <span class="mi">123456</span><span class="o">;</span> <span class="o">}</span>
@@ -2047,9 +2083,11 @@ This is just as simple as filling the Login Form! <a class="github-button" href=
     <span class="n">contactForm</span><span class="o">.</span><span class="na">check</span><span class="o">(</span><span class="n">SIMPLE_CONTACT</span><span class="o">);</span>
 <span class="o">}</span>
 </code></pre>
-<p>Now if we would like to fill only the <code>TextField</code> elements, we only need to change our test data.<br/>
-<em>Note: In the second example we use <code>MenuOptions</code> enum value (<code>ContactForm</code>) to select a <code>sideMenu</code> item. It reduces the chance of making a mistake by limiting the choice of options. The enum is found at <strong><em>src/main/java/jdisite/enums</em></strong>.</em><br/>
-<a href="https://github.com/jdi-tutorials/03-jdi-light-forms-ui-elements" target="_blank">See this example in ContactFormExamples.java on Github</a><br/><br/><br/><br/><br/></p>
+<p>Now if we would like to fill only the <code>TextField</code> elements, we only need to change our test data.</p>
+
+<p><em>Note: In the second example we use <code>MenuOptions</code> enum value (<code>ContactForm</code>) to select a <code>sideMenu</code> item. It reduces the chance of making a mistake by limiting the choice of options. The enum is found at <strong><em>src/main/java/jdisite/enums</em></strong>.</em></p>
+
+<p><a href="https://github.com/jdi-tutorials/03-jdi-light-forms-ui-elements" target="_blank">See this example in ContactFormExamples.java on Github</a><br/><br/><br/><br/><br/></p>
 <h3 id='failed-form-example-in-logs'>Failed form example in logs</h3><pre class="highlight java tab-java"><code><span class="nd">@Test</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">failCheckExample</span><span class="o">()</span> <span class="o">{</span>
     <span class="n">sideMenu</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">ContactForm</span><span class="o">);</span>
@@ -2064,11 +2102,14 @@ This is just as simple as filling the Login Form! <a class="github-button" href=
 </code></pre>
 <p>Now let&#39;s fail the validation of our form and see how JDI Light will display the failure results. We can build upon the previous example and just change some field before the check. Let&#39;s write a test that does this, execute it and observe the results. </p>
 
-<p>Forms in JDI have two methods which verify the entered data.<br/>
-<code>check</code> — commonly used verification that validates a form, then throws an exception indicating all the incorrect values if there are any.<br/>
-<code>verify</code> — has the same behavior as <code>check</code>, but instead of throwing an exception this method returns a string list containing messages with expected/actual values for each incorrectly filled field, so it&#39;s up to you to decide how to manage the result.</p>
+<p>Forms in JDI have two methods which verify the entered data:</p>
 
-<p>In our example we revert one field, <code>acceptConditions</code>, to an unchecked state, and the resulting exception gets presented in a clear way:<br/></p>
+<ul>
+<li><code>check</code> — commonly used verification that validates a form, then throws an exception indicating all the incorrect values if there are any.<br/></li>
+<li><code>verify</code> — has the same behavior as <code>check</code>, but instead of throwing an exception this method returns a string list containing messages with expected/actual values for each incorrectly filled field, so it&#39;s up to you to decide how to manage the result.</li>
+</ul>
+
+<p>In our example we revert one field, <code>acceptConditions</code>, to an unchecked state, and the resulting exception gets presented in a clear way (pictured to the right):<br/></p>
 
 <blockquote>
 <p>&quot;Field &#39;acceptConditions&#39; (Actual: &#39;false&#39; &lt;&gt; Expected: &#39;true&#39;)&quot;</p>
@@ -2082,9 +2123,11 @@ This is just as simple as filling the Login Form! <a class="github-button" href=
             <span class="n">userIcon</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
     <span class="o">}</span>
 </code></pre>
-<p>We&#39;ve had a first look at UI Elements in JDI Light and at the capabilities of Forms, and now we can look deeper at Form initialization and see how it can help you write less code.<br/>
-Let&#39;s start with a simple Form — Login.<br/>
-We&#39;re planning to have a lot of tests with the preconditions <em>&quot;User is logged out&quot;</em> and <em>&quot;Login form is opened&quot;</em>, so let&#39;s write a corresponding <code>@BeforeMethod</code> state for this set of test cases.<br/><br/></p>
+<p>We&#39;ve had a first look at UI Elements in JDI Light and at the capabilities of Forms, and now we can look deeper at Form initialization and see how it can help you write less code.</p>
+
+<p>Let&#39;s start with a simple Form — Login.</p>
+
+<p>We&#39;re planning to have a lot of tests with the preconditions <em>&quot;User is logged out&quot;</em> and <em>&quot;Login form is opened&quot;</em>, so let&#39;s write a corresponding <code>@BeforeMethod</code> state for this set of test cases.<br/><br/></p>
 <pre class="highlight java tab-java"><code><span class="c1">//Example 1</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">SeleniumLoginForm</span> <span class="o">{</span>
     <span class="nd">@FindBy</span><span class="o">(</span><span class="n">id</span> <span class="o">=</span> <span class="s">"name"</span><span class="o">)</span> <span class="kd">public</span> <span class="n">WebElement</span> <span class="n">name</span><span class="o">;</span>
@@ -2141,8 +2184,9 @@ We&#39;re planning to have a lot of tests with the preconditions <em>&quot;User 
 <span class="c1">//now we should add the class LoginFormSmart on JDISite.java:</span>
 <span class="kd">public</span> <span class="kd">static</span> <span class="n">LoginFormSmart</span> <span class="n">loginFormSmart</span><span class="o">;</span>
 </code></pre>
-<p>In JDI Light we can describe a Form in different styles: <br/>
-<strong>Selenium</strong> — a typical Page Object with <code>WebElement</code>s and <code>@FindBy</code> annotations, Selenium actions upon Web Elements and no inheritance from JDI Light classes. Code like that will still work in pure Selenium projects without JDI.<br/></p>
+<p>In JDI Light we can describe a Form in different styles:</p>
+
+<p><strong>Selenium</strong> — a typical Page Object with <code>WebElement</code>s and <code>@FindBy</code> annotations, Selenium actions upon Web Elements and no inheritance from JDI Light classes. Code like that will still work in pure Selenium projects without JDI.<br/></p>
 
 <p>See <em>Example 1</em><br/></p>
 
@@ -2150,16 +2194,17 @@ We&#39;re planning to have a lot of tests with the preconditions <em>&quot;User 
 
 <p>See <em>Example 2</em><br/></p>
 
-<p><a href="https://github.com/jdi-tutorials/04-jdi-light-different-forms/blob/master/src/main/java/jdisite/sections/SeleniumLoginForm.java" target="_blank">See example in Selenium LoginForm.java on Github</a><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></p>
+<p><a href="https://github.com/jdi-tutorials/04-jdi-light-different-forms/blob/master/src/main/java/jdisite/sections/SeleniumLoginForm.java" target="_blank">See the example in Selenium LoginForm.java on Github</a><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></p>
 
 <p><strong>JQuery/Selenide</strong> — Selenide or jQuery-like style, where instead of <code>@FindBy</code> annotations you can use direct initialization.<br/>
-<a href="https://github.com/jdi-tutorials/04-jdi-light-different-forms/blob/master/src/main/java/jdisite/sections/SelenideLoginForm.java" target="_blank">See example in SelenideLoginForm.java on Github</a><br/><br/><br/><br/><br/><br/></p>
+<a href="https://github.com/jdi-tutorials/04-jdi-light-different-forms/blob/master/src/main/java/jdisite/sections/SelenideLoginForm.java" target="_blank">See the example in SelenideLoginForm.java on Github</a><br/><br/><br/><br/><br/><br/></p>
 
 <p><strong>Regular JDI Light Form</strong> — typical JDI Forms with <em>typified elements</em>, <code>@UI</code> annotations, extending from Form without overriding <code>fill</code>/<code>check</code> methods.<br/>
-<a href="https://github.com/jdi-tutorials/04-jdi-light-different-forms/blob/master/src/main/java/jdisite/sections/LoginForm.java" target="_blank">See example in LoginForm.java on Github</a><br/></p>
+<a href="https://github.com/jdi-tutorials/04-jdi-light-different-forms/blob/master/src/main/java/jdisite/sections/LoginForm.java" target="_blank">See the example in LoginForm.java on Github</a><br/></p>
 
-<p><strong>JDI Light Form with smart locators</strong> — If it&#39;s possible to align field names with locators, you can use smart locators for elements and remove locator annotations from Forms. This also allows you to declare form fields with the same type in one line, separated by commas.<br/>
-<a href="https://jdi-docs.github.io/jdi-light/?java#smart-locators">See more details and examples for Smart locators in documentation</a><br/>
+<p><strong>JDI Light Form with smart locators</strong> — If it&#39;s possible to align field names with locators, you can use smart locators for elements and remove locator annotations from Forms. This also allows you to declare form fields with the same type in one line, separated by commas.</p>
+
+<p><a href="https://jdi-docs.github.io/jdi-light/?java#smart-locators">See more details and examples for Smart locators in documentation</a><br/>
 <a href="https://github.com/jdi-tutorials/04-jdi-light-different-forms/blob/master/src/main/java/jdisite/sections/LoginFormSmart.java" target="_blank">See example in LoginFormSmart.java on Github</a></p>
 <pre class="highlight java tab-java"><code><span class="n">on</span> <span class="n">JDISite</span><span class="o">.</span><span class="na">java</span> <span class="o">&gt;&gt;</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">Form</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">lightLoginForm</span><span class="o">;</span>
 </code></pre>
@@ -2178,19 +2223,24 @@ We&#39;re planning to have a lot of tests with the preconditions <em>&quot;User 
 <li>Discuss example results</li>
 </ol>
 
-<p>Now we know enough about Forms, so let&#39;s see how this can help us write code faster (by writing less code).<br/>
-Let&#39;s try to code in Selenium the same <a href="https://jdi-docs.github.io/jdi-light/?java#contact-form-test-scenario">Fill Contact Form test scenario</a> that we have already covered with JDI Light:<br/>
-- Open Home Page by URL<br/>
-- Open Contact Page by selecting a menu item<br/>
-- Validate that this Page has the correct URL and title<br/>
-- Fill all 11 different elements in the contact form with values<br/>
-- And verify that the form is filled correctly<br/></p>
+<p>Now we know enough about Forms, so let&#39;s see how this can help us write code faster (by writing less code).</p>
+
+<p>Let&#39;s try to code in Selenium the same <a href="https://jdi-docs.github.io/jdi-light/?java#contact-form-test-scenario">Fill Contact Form test scenario</a> that we have already covered with JDI Light:</p>
+
+<ul>
+<li>Open Home Page by URL<br/></li>
+<li>Open Contact Page by selecting a menu item<br/></li>
+<li>Validate that this Page has the correct URL and title<br/></li>
+<li>Fill all 11 different elements in the contact form with values<br/></li>
+<li>And verify that the form is filled correctly<br/></li>
+</ul>
 
 <p><em>Note: You can find all the Selenium code <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium" target="_blank">here</a>.<br/></em>
 <em>The same scenario with JDI Light is found <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-reduce-code" target="_blank">here</a>.<br/></em></p>
 
-<p>In this example I will develop Selenium code solution as effectively as possible while trying to keep the same look and feel of the test scenario.<br/>
-In parallel, we will see how this code can be optimized using knowledge we got from <a href="https://jdi-docs.github.io/jdi-light/?java#use-form-in-different-ways">Use Forms in different ways</a> topic.<br/></p>
+<p>In this example I will develop Selenium code solution as effectively as possible while trying to keep the same look and feel of the test scenario.</p>
+
+<p>At the same time, we will see how this code can be optimized using knowledge we got from <a href="https://jdi-docs.github.io/jdi-light/?java#use-form-in-different-ways">Use Forms in different ways</a> topic.<br/></p>
 
 <p>I will list the amount of lines of code we wrote for each action in brackets.<br/></p>
 <h3 id='1-set-up-and-run-chrome-driver'>1. Set up and run Chrome driver</h3><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">static</span> <span class="n">WebDriver</span> <span class="n">DRIVER</span><span class="o">;</span>
@@ -2201,8 +2251,9 @@ In parallel, we will see how this code can be optimized using knowledge we got f
 <span class="o">}</span>
 </code></pre>
 <p><strong>Selenium:</strong> (6 lines of code)<br/>
-Here it is done with a simple method, <code>runChromeDriver()</code>.<br/> 
-<em>Note: To run the driver in Selenium you need to download the latest version from <a href="https://chromedriver.storage.googleapis.com/index.html" target="_blank">the official site </a> and put it in Selenium folder.</em><br/></p>
+Here it is done with a simple method, <code>runChromeDriver()</code>.</p>
+
+<p><em>Note: To run the driver in Selenium you need to download the latest version from <a href="https://chromedriver.storage.googleapis.com/index.html" target="_blank">the official site </a> and put it in Selenium folder.</em><br/></p>
 
 <p><strong>JDI Light</strong> (0 lines of code)<br/> 
 You don&#39;t need to write any code for this. By default, the latest version of ChromeDriver will be downloaded automatically.</p>
@@ -2223,8 +2274,9 @@ You don&#39;t need to write any code for this. By default, the latest version of
 <p><strong>Selenium:</strong> (12 lines of code)<br/>
 Using <code>PageFactory.initElements()</code>, we can create simple Page Objects with minimum code like in the example.<br/></p>
 
-<p>If you want to have cool pages in Selenium, you can use <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/pages/BasePage.java" target="_blank">BasePage</a>, which handles all the standard stuff related to opening and checking pages.<br/>
-<em>Note: I hope this &quot;BasePage&quot; approach will be useful for your Selenium projects.</em><br/><br/><br/><br/><br/><br/><br/><br/></p>
+<p>If you want to have cool pages in Selenium, you can use <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/pages/BasePage.java" target="_blank">BasePage</a>, which handles all the standard stuff related to opening and checking pages.</p>
+
+<p><em>Note: I hope this &quot;BasePage&quot; approach will be useful for your Selenium projects.</em><br/><br/><br/><br/><br/><br/><br/><br/></p>
 <pre class="highlight java tab-java"><code><span class="nd">@Url</span><span class="o">(</span><span class="s">"/"</span><span class="o">)</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">HomePage</span> <span class="kd">extends</span> <span class="n">WebPage</span> <span class="o">{</span>
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"#user-icon"</span><span class="o">)</span> <span class="kd">public</span> <span class="kd">static</span> <span class="n">Link</span> <span class="n">userIcon</span><span class="o">;</span>
@@ -2239,12 +2291,16 @@ Using <code>PageFactory.initElements()</code>, we can create simple Page Objects
 <span class="kd">public</span> <span class="kd">static</span> <span class="n">ContactPage</span> <span class="n">contactPage</span><span class="o">;</span>
 </code></pre>
 <p><strong>JDI Light</strong> (11 lines of code)<br/> 
-In JDI Light we already have all the functions related to webpages. You can find them in the <code>WebPage</code> class, so you just need to extend your Page Object from it and use <code>@Url</code> and <code>@Title</code> annotations to set page metadata.<br/> 
-The code for UI Objects in Selenium and JDI Light in this case looks pretty much the same.<br/> 
-However, there are several points worth noting:<br/> 
-- Locators are a little bit shorter thanks to <code>@UI</code> annotations.<br/> 
-- Forms can have root locators, so their sub-element locators can be simplified.<br/> 
-- We don&#39;t have to initialize each page with the <code>PageFactory.initElements()</code> method, like Selenium does it.<br/> </p>
+In JDI Light we already have all the functions related to webpages. You can find them in the <code>WebPage</code> class, so you just need to extend your Page Object from it and use <code>@Url</code> and <code>@Title</code> annotations to set page metadata.</p>
+
+<p>The code for UI Objects in Selenium and JDI Light in this case looks pretty much the same.<br/> 
+However, there are several points worth noting:</p>
+
+<ul>
+<li>Locators are a little bit shorter thanks to <code>@UI</code> annotations.<br/> </li>
+<li>Forms can have root locators, so their sub-element locators can be simplified.<br/> </li>
+<li>We don&#39;t have to initialize each page with the <code>PageFactory.initElements()</code> method, like Selenium does it.<br/> </li>
+</ul>
 <pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LoginForm</span> <span class="o">{</span>
     <span class="nd">@FindBy</span><span class="o">(</span><span class="n">id</span> <span class="o">=</span> <span class="s">"name"</span><span class="o">)</span> <span class="n">WebElement</span> <span class="n">name</span><span class="o">;</span>
     <span class="nd">@FindBy</span><span class="o">(</span><span class="n">id</span> <span class="o">=</span> <span class="s">"password"</span><span class="o">)</span> <span class="n">WebElement</span> <span class="n">password</span><span class="o">;</span>
@@ -2268,20 +2324,24 @@ However, there are several points worth noting:<br/>
 <span class="kd">public</span> <span class="kd">static</span> <span class="n">LoginForm</span> <span class="n">loginForm</span> <span class="o">=</span> <span class="n">initElements</span><span class="o">(</span><span class="n">DRIVER</span><span class="o">,</span> <span class="n">LoginForm</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
 </code></pre><h3 id='3-create-a-simple-login-form'>3. Create a simple Login Form</h3>
 <p><strong>Selenium:</strong> (21 lines of code)<br/> 
-This form contains WebElements (<code>name</code>, <code>password</code>, <code>loginButton</code>) and actions like <code>loginAs()</code> and <code>isHidden()</code>.<br/>
-<a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/sections/LoginForm.java" target="_blank">Code example</a><br/>
-<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></p>
+This form contains WebElements (<code>name</code>, <code>password</code>, <code>loginButton</code>) and actions like <code>loginAs()</code> and <code>isHidden()</code>.</p>
+
+<p><a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/sections/LoginForm.java" target="_blank">Code example</a><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></p>
 
 <p><strong>JDI Light</strong>(1 line of code)<br/> </p>
 <pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">static</span> <span class="n">Form</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">loginForm</span><span class="o">;</span>
 </code></pre>
-<p>In JDI Light you don&#39;t need to create a UI Object for such a simple form. Just declare it in your site class.<br/>
-<em>Note: And, of course, you don&#39;t need to initialize this form.</em></p>
+<p>In JDI Light you don&#39;t need to create a UI Object for such a simple form. Just declare it in your site class.</p>
+
+<p><em>Note: And, of course, you don&#39;t need to initialize this form.</em></p>
 <h3 id='4-creating-a-complex-contact-form'>4. Creating a complex Contact Form</h3>
-<p>In total, we have 97 lines of code for Selenium and only 8 lines of code in JDI Light, but let&#39;s go step by step and see the difference in details.<br/>
-<a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/sections/ContactForm.java" target="_blank">Selenium Contact Form code (97)</a><br/>
-<a href="https://github.com/jdi-tutorials/05-jdi-light-forms-reduce-code/blob/master/src/main/java/jdisite/sections/ContactForm.java" target="_blank">JDI Light Contact Form code (8)</a><br/>
-<em>Note: Unfortunately, we can&#39;t use one-liner Form in this case because the form has elements of different kinds, but we still can use short form descriptions with Smart locators. Just describe element types and names and one-line initialization with your root <code>&quot;#contact-form&quot;</code> locator.</em><br/></p>
+<p>In total, we have 97 lines of code for Selenium and only 8 lines of code in JDI Light, but let&#39;s go step by step and see the difference in details.</p>
+
+<p><a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/sections/ContactForm.java" target="_blank">Selenium Contact Form code (97)</a><br/>
+<a href="https://github.com/jdi-tutorials/05-jdi-light-forms-reduce-code/blob/master/src/main/java/jdisite/sections/ContactForm.java" target="_blank">JDI Light Contact Form code (8)</a><br/></p>
+
+<p><em>Note: Unfortunately, we can&#39;t use one-liner Form in this case because the form has elements of different kinds, but we still can use short form descriptions with Smart locators. Just describe element types and names and use one-line initialization with your root <code>&quot;#contact-form&quot;</code> locator.</em><br/></p>
 <pre class="highlight java tab-java"><code>    <span class="nd">@FindBy</span><span class="o">(</span><span class="n">css</span> <span class="o">=</span><span class="s">"#contact-form #name"</span><span class="o">)</span> <span class="n">WebElement</span> <span class="n">name</span><span class="o">;</span> 
     <span class="c1">// +4 more TextFields</span>
     <span class="nd">@FindBy</span><span class="o">(</span><span class="n">css</span> <span class="o">=</span><span class="s">"#contact-form #accept-conditions"</span><span class="o">)</span> <span class="n">WebElement</span> <span class="n">acceptConditionsCheckbox</span><span class="o">;</span>
@@ -2290,9 +2350,11 @@ This form contains WebElements (<code>name</code>, <code>password</code>, <code>
     <span class="nd">@FindBy</span><span class="o">(</span><span class="n">css</span> <span class="o">=</span><span class="s">"#contact-form [type=submit]"</span><span class="o">)</span> <span class="n">WebElement</span> <span class="n">submitButton</span><span class="o">;</span>
 </code></pre>
 <p><strong>Selenium:</strong> (9 lines of code)<br/> 
-In Selenium we have to describe all elements of the form. This is easy to do for simple elements like <code>TextField</code>, <code>Checkbox</code>, <code>TextArea</code> and buttons.<br/>
-<em>Note: You must add <strong>#contact-form</strong> to some element locators.</em><br/>
-And because <code>WebElement</code> doesn&#39;t give us any clues about the type of element, it is a good practice to denote an element type in a variable name.
+In Selenium we have to describe all elements of the form. This is easy to do for simple elements like <code>TextField</code>, <code>Checkbox</code>, <code>TextArea</code> and buttons.</p>
+
+<p><em>Note: You must add <strong>#contact-form</strong> to some element locators.</em></p>
+
+<p>And because <code>WebElement</code> doesn&#39;t give us any clues about the type of element, it is a good practice to denote an element type in a variable name.
 <br/><br/></p>
 <pre class="highlight java tab-java"><code>    <span class="n">TextField</span> <span class="n">name</span><span class="o">,</span> <span class="n">lastName</span><span class="o">,</span> <span class="n">position</span><span class="o">,</span> <span class="n">passportNumber</span><span class="o">,</span> <span class="n">passportSeria</span><span class="o">;</span>
     <span class="n">Checkbox</span> <span class="n">passport</span><span class="o">,</span> <span class="n">acceptConditions</span><span class="o">;</span>
@@ -2328,19 +2390,24 @@ In JDI Light we just need to describe the types of elements and list them for ea
     <span class="o">}</span>
 </code></pre>
 <p><strong>Selenium:</strong> (23 lines of code)<br/> 
-The situation with Complex elements is more interesting: <br/>
-Instead of <code>Dropdown</code> we can use <code>Select</code> class from <strong><em>selenium-support</em></strong> package and <code>WebElement</code> + <code>gender()</code> method. These are enough to handle all actions.<br/>
-Instead of <code>Combobox</code> we can use a one-line <code>WebElement</code> (just using it as a standard <code>TextField</code>).<br/>
-But instead of <code>MultiDropdown</code> we&#39;ll need to add 4 WebElements and a few methods: <em>select</em> and <em>isExpanded</em>.
-The general problem with Complex elements in standard Selenium approach is that we have to create methods like these for every equivalent of <code>Dropdown</code>, <code>MultiDropdown</code> etc. JDI Light allows to define an element once (or pick one from element library) and then just use it in one line in all Page Objects.<br/>
-<a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/elements/MultiDropdown.java" target="_blank">Multidropdown example</a><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></p>
+The situation with Complex elements is more interesting:</p>
+
+<p>Instead of <code>Dropdown</code> we can use <code>Select</code> class from <strong><em>selenium-support</em></strong> package and <code>WebElement</code> + <code>gender()</code> method. These are enough to handle all actions.</p>
+
+<p>Instead of <code>Combobox</code> we can use a one-line <code>WebElement</code> (just using it as a standard <code>TextField</code>).</p>
+
+<p>But instead of <code>MultiDropdown</code> we&#39;ll need to add 4 WebElements and a few methods: <em>select</em> and <em>isExpanded</em>.
+The general problem with Complex elements in standard Selenium approach is that we have to create methods like these for every equivalent of <code>Dropdown</code>, <code>MultiDropdown</code> etc. JDI Light allows to define an element once (or pick one from element library) and then just use it in one line in all Page Objects.</p>
+
+<p><a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/elements/MultiDropdown.java" target="_blank">MultiDropdown example</a><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></p>
 <pre class="highlight java tab-java"><code>    <span class="n">Dropdown</span> <span class="n">gender</span><span class="o">;</span>
     <span class="n">Combobox</span> <span class="n">religion</span><span class="o">;</span>
     <span class="n">MultiDropdown</span> <span class="n">weather</span><span class="o">;</span>
 </code></pre>
 <p><strong>JDI Light</strong> (3 lines of code)<br/> 
-In JDI Light it is as simple as for Common elements. 
-<em>Note: They are so short that we could write them in one line, but let&#39;s keep each on its own line.</em><br/><br/></p>
+In JDI Light it is as simple as for Common elements. </p>
+
+<p><em>Note: They are so short that we could write them in one line, but let&#39;s keep each on its own line.</em><br/><br/></p>
 <pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kt">void</span> <span class="nf">submit</span><span class="o">(</span><span class="n">ContactInfo</span> <span class="n">contact</span><span class="o">)</span> <span class="o">{</span>
     <span class="k">if</span> <span class="o">(</span><span class="n">contact</span><span class="o">.</span><span class="na">name</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
         <span class="n">nameTextField</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
@@ -2369,12 +2436,16 @@ In JDI Light it is as simple as for Common elements.
 <span class="o">}</span>
 </code></pre>
 <p><strong>Selenium:</strong> (65(37) lines of code)<br/> 
-We&#39;ll need to write two methods: <code>submit</code> and <code>check</code>.<br/>
-Like with the Login Form, in order to manage different test data fed into the Contact Form we&#39;ll have to check values for <code>null</code>. We can avoid this check in only one case (for example, just fill all fields with <code>null</code> and save a few lines of code).<br/>
-Using a flexible approach, we need 43 + 22 = 65 lines of code.<br/>
-We can improve this code by using a common method that clears and sends keys to an abstract WebElement: this will reduce our code to 55 lines.<br/>
-If we remove <code>null</code> validations, it will make our methods less universal, but will save additional 18 lines and reduce the code to 37 lines for Form methods.<br/>
-<a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/sections/ContactForm.java" target="_blank">Selenium Contact Form code (97)</a><br/>
+We&#39;ll need to write two methods: <code>submit</code> and <code>check</code>.</p>
+
+<p>Like with the Login Form, in order to manage different test data fed into the Contact Form we&#39;ll have to check values for <code>null</code>. We can avoid this check in only one case (for example, just fill all fields with <code>null</code> and save a few lines of code).<br/>
+Using a flexible approach, we need 43 + 22 = 65 lines of code.</p>
+
+<p>We can improve this code by using a common method that clears and sends keys to an abstract WebElement: this will reduce our code to 55 lines.</p>
+
+<p>If we remove <code>null</code> validations, it will make our methods less universal, but will save additional 18 lines and reduce the code to 37 lines for Form methods.<br/></p>
+
+<p><a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/sections/ContactForm.java" target="_blank">Selenium Contact Form code (97)</a><br/>
 <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/sections/ShortContactForm.java" target="_blank">Short Selenium Contact Form code (69)</a><br/><br/><br/><br/><br/><br/><br/></p>
 
 <p><strong>JDI Light</strong> (0 lines of code)<br/> 
@@ -2406,17 +2477,19 @@ In JDI Light we don&#39;t need methods for these typical actions. Standard Form 
 <span class="o">);</span>
 </code></pre>
 <p><strong>Selenium:</strong> (134 lines of code)<br/> 
-For a simple <code>User</code> entity with two fields we should have at least one constructor, but it would be nice to override <code>equals()</code>, <code>hashCode()</code> and <code>toString()</code> methods in order to have a log-friendly representation of an entity and ability to compare the actual and expected results by class fields.<br/>
-Additionally, if we want to have the ability to set up different data, we have to create setter methods for each field.<br/>
-You can generate all of these methods using &quot;Generate&quot; option in IntelliJ IDEA (right-click the data class and select &quot;Generate&quot;).<br/>
-We need at least 7 lines of code, but for a reusable entity we should write 31 lines of code.<br/>
-The same holds true for <code>ContactInfo</code> and for any Data entity in the standard approach. For <code>ContactInfo</code> the full declaration is more important because we plan to make use of more fields, and it will take more lines of code.<br/>
-After these manipulations, we can create transparent test data.<br/>
-<a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/entities/User.java" target="_blank">User data</a><br/>
+For a simple <code>User</code> entity with two fields we should have at least one constructor, but it would be nice to override <code>equals()</code>, <code>hashCode()</code> and <code>toString()</code> methods in order to have a log-friendly representation of an entity and ability to compare the actual and expected results by class fields. Additionally, if we want to have the ability to set up different data, we have to create setter methods for each field.</p>
+
+<p>You can generate all of these methods using &quot;Generate&quot; option in IntelliJ IDEA (right-click the data class and select &quot;Generate&quot;).</p>
+
+<p>We need at least 7 lines of code, but for a reusable entity we should write 31 lines of code.<br/>
+The same holds true for <code>ContactInfo</code> and for any Data entity in the standard approach. For <code>ContactInfo</code> the full declaration is more important because we plan to make use of more fields, and it will take more lines of code.</p>
+
+<p>After these manipulations, we can create transparent test data.</p>
+
+<p><a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/entities/User.java" target="_blank">User data</a><br/>
 <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/entities/ContactInfo.java" target="_blank">ContactInfo data</a><br/>
 <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/entities/DefaultData.java" target="_blank">User Roman</a><br/>
-<a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/test/java/com/jdi/test/data/DefaultDataProvider.java" target="_blank">Full and Simple Contact info</a><br/>
-<br/><br/><br/></p>
+<a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/test/java/com/jdi/test/data/DefaultDataProvider.java" target="_blank">Full and Simple Contact info</a><br/></p>
 <pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">User</span> <span class="kd">extends</span> <span class="n">DataClass</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="n">password</span><span class="o">;</span>
 <span class="o">}</span>
@@ -2441,9 +2514,11 @@ After these manipulations, we can create transparent test data.<br/>
 <span class="o">);</span>
 </code></pre>
 <p><strong>JDI Light</strong> (22 lines of code)<br/> 
-To create Test Data in JDI Light, we can use <code>DataClass</code>. It allows us to create different test data, compare data entities, print their meaningful representations and at the same preserve code clearness.<br/>
-No constructors, no method overriding and with all functions in place thanks to <code>DataClass</code>.<br/>
-<a href="https://github.com/jdi-tutorials/05-jdi-light-forms-reduce-code/blob/master/src/main/java/jdisite/entities/User.java" target="_blank">User data</a><br/>
+To create Test Data in JDI Light, we can use <code>DataClass</code>. It allows us to create different test data, compare data entities, print their meaningful representations and at the same preserve code clearness.</p>
+
+<p>No constructors, no method overriding and with all functions in place thanks to <code>DataClass</code>.</p>
+
+<p><a href="https://github.com/jdi-tutorials/05-jdi-light-forms-reduce-code/blob/master/src/main/java/jdisite/entities/User.java" target="_blank">User data</a><br/>
 <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-reduce-code/blob/master/src/main/java/jdisite/entities/ContactInfo.java" target="_blank">ContactInfo data</a><br/>
 <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-reduce-code/blob/master/src/test/java/com/jdi/test/data/DefaultDataProvider.java" target="_blank">Test Data</a><br/>
 <br/><br/><br/><br/><br/><br/><br/><br/><br/></p>
@@ -2498,18 +2573,25 @@ No constructors, no method overriding and with all functions in place thanks to 
     <span class="n">contactForm</span><span class="o">.</span><span class="na">check</span><span class="o">(</span><span class="n">SIMPLE_CONTACT</span><span class="o">);</span>
 <span class="o">}</span>
 </code></pre>
-<p>As a result, we have test scenarios that look pretty much the same in Selenium and JDI Light, but the amount of code and time spent writing the code is significantly different.<br/>
-You can find the complete project code in the <strong><em>&quot;result&quot;</em></strong> branch of <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/tree/result" target="_blank">Selenium</a> and <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-reduce-code/tree/result" target="_blank">JDI Light</a> example repositories.<br/></p>
+<p>As a result, we have test scenarios that look pretty much the same in Selenium and JDI Light, but the amount of code and time spent writing the code is significantly different.</p>
 
-<p>Statistical results:<br/>
+<p>You can find the complete project code in the <strong><em>&quot;result&quot;</em></strong> branch of <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/tree/result" target="_blank">Selenium</a> and <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-reduce-code/tree/result" target="_blank">JDI Light</a> example repositories.<br/></p>
+
+<p><strong>Statistical results:</strong><br/>
 <img src="images/tutorial/selenium-results.png" alt="Selenium Statistic" width="400"><br/>
-<img src="images/tutorial/jdi-light-results.png" alt="JDI Light Statistic" width="400"><br/>
-In our example, we wrote <strong>3 times less amount of code with JDI Light</strong>. <br/>
-This means that if a regular Test Automation engineer writes these tests using <strong>Selenium</strong>, it will take him about <strong>1 working day</strong>, while using <strong>JDI Light</strong> this work will only take him <strong>2-3 hours</strong>. <strong>Or</strong> he can <strong>automate 3 times more test cases</strong> in the same period of time.<br/>
-<em>Note: You can try to automate this test scenario by yourself from scratch without clues and check how much time this will take in your case.</em><br/><br/>
-But JDI Light does not only save your time. Less amount of code <strong>increases code clearness</strong>.<br/>
-In addition, if you run test scenarios with JDI Light, you will <strong>get logs of all your actions</strong> in a readable format. If you would like to have the same format of logs in Selenium, you need to write additional 30-50 lines of code for this example and spend 5-10% of your total effort on logs.<br/>
-<em>Note: JDI Light removes only waste code and keeps all the business-relevant parts in place.</em> <br/><br/>
+<img src="images/tutorial/jdi-light-results.png" alt="JDI Light Statistic" width="400"></p>
+
+<p>In our example, we wrote <strong>3 times less amount of code with JDI Light</strong>.</p>
+
+<p>This means that if a regular Test Automation engineer writes these tests using <strong>Selenium</strong>, it will take about <strong>1 working day</strong>, while using <strong>JDI Light</strong> this work will only take <strong>2-3 hours</strong>. In other words, an engineer can <strong>automate 3 times more test cases</strong> in the same period of time.</p>
+
+<p><em>Note: You can try to automate this test scenario by yourself from scratch without clues and check how much time this will take in your case.</em></p>
+
+<p>But JDI Light does not only save your time. Less amount of code <strong>increases code clearness</strong>.</p>
+
+<p>In addition, if you run test scenarios with JDI Light, you will <strong>get logs of all your actions</strong> in a readable format. If you would like to have the same format of logs in Selenium, you need to write additional 30-50 lines of code for this example and spend 5-10% of your total effort on logs.</p>
+
+<p><em>Note: JDI Light removes only waste code and keeps all the business-relevant parts in place.</em> <br/><br/>
 <strong>Lesser amount of code, stable tests and clear logs will reduce maintenance effort during regression testing</strong> and <strong>increase the credibility of your tests</strong>, because with JDI Light, once tests are written, they will only fail in case of real application changes or performance issues, but not because of test instability.<br/></p>
 <h2 id='jdi-light-in-bdd-style-even-for-manual-qa'>JDI Light in BDD Style (even for Manual QA)</h2>
 <p>TBD</p>

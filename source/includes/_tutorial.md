@@ -361,8 +361,8 @@ We've had a quick look at JDI Light; now let's look closer at UI Elements. In JD
 
 1. **Common Elements**: `Button`, `TextField`, `Text`, `Checkbox` etc. Some of them we have already used in Login Form. All of these elements have simple structure and can be described using one locator or Selenium element.</br></br>
 _Note: See the full list and more details in <a href="https://jdi-docs.github.io/jdi-light/?java#common-elements">Documentation</a>_<br/></br>
-2. **Complex elements** like `Dropdown`, `Checklist`, `RadioButtons`, `MultiSelect`, `DataList` etc. These elements are made up of several Common Elements. For example, `Dropdown` is made up of different common elements representing _value_, _caret (expand dropdown) arrow_ and _list of options_;
-`Checklist` is just a list of `Checkbox` elements.<br/></br>
+2. **Complex elements** like `Dropdown`, `Checklist`, `RadioButtons`, `MultiSelect`, `DataList` etc. They represent actual UI elements that encompass the functionality of multiple Common Elements. For example, `Dropdown` may be regarded as combination of elements that represent _value_, _caret (expand dropdown) arrow_ and _list of options_;
+`Checklist` is basically a list of `Checkbox` elements.<br/></br>
 _Note: See the full list and more details in <a href="https://jdi-docs.github.io/jdi-light/?java#complex-elements">Documentation</a>_<br/></br>
 3. **Composite elements** are typified Page Objects. These are `WebPage`, `Form`, `Section`: classes having Common, Complex Elements or sub-sections as their fields.<br/></br>
 _Note: See the full list and more details in <a href="https://jdi-docs.github.io/jdi-light/?java#composite-elements">Documentation</a>_<br/>
@@ -484,7 +484,7 @@ Now let's write a complex test that:
 
 - Opens the Contacts Page by selecting a corresponding menu option<br/>
 - Verifies that this page has the correct URL and title<br/>
-- Fills all 11 different elements in this Complex form with some values<br/>
+- Fills all 11 different elements in the Contact Form with some values<br/>
 - And verifies that the form has been filled correctly<br/>
 
 This is just as simple as filling the Login Form! </br>

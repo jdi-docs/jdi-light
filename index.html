@@ -432,7 +432,7 @@
 								            <a href="#smart-annotations" class="toc-h2 h3 toc-link" data-title="Smart Annotations">Smart Annotations</a>
                           </li>
                           <li>
-								            <a href="#custom-smart-annotation" class="toc-h2 h3 toc-link" data-title="Custom Smart Annotation">Custom Smart Annotation</a>
+								            <a href="#custom-smart-annotations" class="toc-h2 h3 toc-link" data-title="Custom Smart Annotations">Custom Smart Annotations</a>
                           </li>
                       </ul>
                   </li>
@@ -2596,7 +2596,7 @@ To create Test Data in JDI Light, we can use <code>DataClass</code>. It allows u
 <h2 id='test-framework-structure'>Test Framework structure</h2>
 <p>TBD</p>
 <h1 id='theory'>Theory</h1><h2 id='ui-elements'>UI Elements</h2>
-<p>In order to effectively utilize <a href="https://github.com/SeleniumHQ/selenium/wiki/PageObjects" target="_blank">Page Objects pattern</a> we need to place elements on pages. Instead of Selenium <code>WebElement</code> objects that basically represent HTML tags in JDI we introduce <em>UI Elements</em> that represent UI elements interacted with by an actual user.</p>
+<p>In order to effectively utilize <a href="https://github.com/SeleniumHQ/selenium/wiki/PageObjects" target="_blank">Page Objects pattern</a> we need to place elements on pages. Instead of Selenium <code>WebElement</code> objects that basically represent HTML tags, in JDI we introduce <em>UI Elements</em> that represent UI elements interacted with by an actual user.</p>
 
 <p>JDI provides the ability to create your own elements or use standard elements from a rich collection.</p>
 <h3 id='common-elements'>Common elements</h3><pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"input[type=text].name"</span><span class="o">)</span> <span class="kd">public</span> <span class="n">TextField</span> <span class="n">name</span><span class="o">;</span>
@@ -2676,11 +2676,11 @@ To create Test Data in JDI Light, we can use <code>DataClass</code>. It allows u
 <p>Composite elements represent webpages or webpage sections and are mainly used as containers for elements and actions.
 Typical examples of Composite elements are <code>WebPage</code> and <code>Section</code>.</p>
 
-<p>Composite elements can also have a locator that defines a context for all elements inside. This means that all elements in composite element will be searched relatively under this locator.</p>
+<p>Composite elements can also have a locator that defines a context for all elements within them. This means that all elements in a composite element will be searched relatively under this locator.</p>
 
 <p>Composite elements might have predefined actions like <code>fill</code>, <code>submit</code> and <code>check</code> for <code>Form</code>, or <code>open()</code>, <code>checkOpened()</code> for <code>WebPage</code>.</p>
 
-<p>Remember that you can create your own Composite elements with JDI Light when you need to describe sections like Header, Navigation Bar, Footer, Sidebar, Advertisement Section or the main part of the page.</br></p>
+<p>Remember that you can create your own Composite elements with JDI Light when you need to describe sections like Header, Navigation Bar, Footer, Sidebar, Advertisement Section or the main section of a page.</br></p>
 
 <p>In JDI we have the following Composite elements:</p>
 
@@ -2767,22 +2767,22 @@ Typical examples of Composite elements are <code>WebPage</code> and <code>Sectio
 </code></pre>
 <p><em>Entity Driven Testing (EDT)</em> is an approach that implies utilizing Business Entities instead of unnamed test data in the test scenarios.</p>
 
-<p>EDT can be organically combined with Data Driven Testing that uses Business Entities as input to similar scenarios.</p>
+<p>EDT can be organically combined with Data Driven Testing that uses Business Entities as input with similar scenarios.</p>
 
 <p>JDI Light natively supports EDT with <code>Form</code>, <code>Table</code> and <code>DataList</code>. See the examples in the right panel:</p>
 
 <p>Example scenario:</p>
 <pre class="highlight html tab-html"><code>&gt; Provide List<span class="nt">&lt;User&gt;</span> for test
-0. Have user in DB
-1. Login with user
-2. Submit Contact Us Form for user
-3. Get Act. Opening from Vacancy table
-4. Assert Act. Opening equals to Exp. Opening
+0. Check that there is a user in the database
+1. Login with user data
+2. Submit user data in Contact Us form
+3. Get actual opening from vacancy table
+4. Assert that actual opening equals to expected opening
 </code></pre>
 <p>Code example:</p>
 <pre class="highlight html tab-html"><code>@Test(dataProvider = “users")                      //&gt;
 public void formTest(User user) {
-    DB.users.shouldHas(user);                      //0.
+    DB.users.shouldHave(user);                      //0.
     loginForm.loginAs(user);                       //1.
     contactUsForm.submit(user);                    //2.
     Vacancy vacancy = vacancyTable.getEntity(3);   //3.
@@ -2793,17 +2793,15 @@ public void formTest(User user) {
 
 <p>Let&#39;s assume you have <code>@UI(&quot;[ui=last-name]&quot;) public TextField lastName</code>  element in JDI. In this case you simplify it to <code>public TextField lastName</code> and omit the locator.</p>
 
-<p>Now for more complex example. Suppose you have the following HTML:
-<code>html
-&lt;input type=&quot;text&quot; ui=&quot;name&quot;/&gt;
-&lt;input type=&quot;text&quot; ui=&quot;last-name&quot;/&gt;
-&lt;input type=&quot;text&quot; ui=&quot;pin-code&quot;/&gt;
-&lt;input type=&quot;text&quot; ui=&quot;promo-code&quot;/&gt;
-&lt;input type=&quot;checkbox&quot; ui=&quot;accept-conditions&quot;/&gt;
-&lt;a href=&quot;...&quot; ui=&quot;external-link&quot;&gt;External link&lt;/a&gt;
-&lt;button ui=&quot;submit-button&quot;&gt;
-</code></p>
-<pre class="highlight csharp tab-csharp"><code><span class="k">public</span> <span class="k">class</span> <span class="nc">UserCard</span> <span class="p">:</span> <span class="n">Form</span><span class="p">&lt;</span><span class="n">User</span><span class="p">&gt;</span>
+<p>Now for more complex example. Suppose you have the following HTML:</p>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">ui=</span><span class="s">"name"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">ui=</span><span class="s">"last-name"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">ui=</span><span class="s">"pin-code"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">ui=</span><span class="s">"promo-code"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">ui=</span><span class="s">"accept-conditions"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"..."</span> <span class="na">ui=</span><span class="s">"external-link"</span><span class="nt">&gt;</span>External link<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">ui=</span><span class="s">"submit-button"</span><span class="nt">&gt;</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="k">public</span> <span class="k">class</span> <span class="nc">UserCard</span> <span class="p">:</span> <span class="n">Form</span><span class="p">&lt;</span><span class="n">User</span><span class="p">&gt;</span>
 <span class="p">{</span>
     <span class="p">[</span><span class="nf">FindBy</span><span class="p">(</span><span class="n">Css</span> <span class="p">=</span> <span class="s">"#name"</span><span class="p">)]</span> <span class="k">public</span> <span class="n">TextField</span> <span class="n">Name</span><span class="p">;</span>
     <span class="p">[</span><span class="nf">FindBy</span><span class="p">(</span><span class="n">Css</span> <span class="p">=</span> <span class="s">"#last-name"</span><span class="p">)]</span> <span class="k">public</span> <span class="n">TextField</span> <span class="n">LastName</span><span class="p">;</span>
@@ -2830,7 +2828,8 @@ public void formTest(User user) {
 <span class="nd">@FindBy</span><span class="o">(</span><span class="n">css</span> <span class="o">=</span> <span class="s">"[ui=submit-button]"</span><span class="o">)</span> 
 <span class="kd">public</span> <span class="n">WebElement</span> <span class="n">submitButton</span><span class="o">;</span> 
 </code></pre>
-<p>With pure Selenium, Page Object elements for that will look like this:</p>
+<p>With pure Selenium, Page Object elements for that will look like this: 
+</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></p>
 <pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"[ui=name]"</span><span class="o">)</span> <span class="kd">public</span> <span class="n">Textfield</span> <span class="n">name</span><span class="o">;</span>
 <span class="nd">@UI</span><span class="o">(</span><span class="s">"[ui=last-name]"</span><span class="o">)</span> <span class="kd">public</span> <span class="n">Textfield</span> <span class="n">lastName</span><span class="o">;</span>
 <span class="nd">@UI</span><span class="o">(</span><span class="s">"[ui=pin-code]"</span><span class="o">)</span> <span class="kd">public</span> <span class="n">Textfield</span> <span class="n">pinCode</span><span class="o">;</span>
@@ -2838,7 +2837,8 @@ public void formTest(User user) {
 <span class="nd">@UI</span><span class="o">(</span><span class="s">"[ui=accept-conditions]"</span><span class="o">)</span> <span class="kd">public</span> <span class="n">Checkbox</span> <span class="n">acceptConditions</span><span class="o">;</span>
 <span class="nd">@UI</span><span class="o">(</span><span class="s">"[ui=submit-button]"</span><span class="o">)</span> <span class="kd">public</span> <span class="n">Button</span> <span class="n">submitButton</span><span class="o">;</span>
 </code></pre>
-<p>In JDI Light with standard UI Objects the code gets more descriptive, but there still are duplications in locator and element names:</p>
+<p>In JDI Light with standard UI Objects the code gets more descriptive, but there still are duplications in locator and element names:
+</br></br></br></br></br></br></br></br></p>
 <pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="n">Textfield</span> <span class="n">name</span><span class="o">,</span> <span class="n">lastName</span><span class="o">,</span> <span class="n">pinCode</span><span class="o">,</span> <span class="n">promoCode</span><span class="o">;</span>
 <span class="kd">public</span> <span class="n">Checkbox</span> <span class="n">acceptConditions</span><span class="o">;</span>
 <span class="kd">public</span> <span class="n">Button</span> <span class="n">submitButton</span><span class="o">;</span>
@@ -2848,11 +2848,9 @@ Looks cool, doesn&#39;t it?</p>
 <h3 id='define-smart-locator-using-test-properties'>Define smart locator using test.properties</h3><pre class="highlight java tab-java"><code><span class="n">smart</span><span class="o">.</span><span class="na">locators</span><span class="o">=</span><span class="s">"[ui=%s]"</span>
 <span class="n">smart</span><span class="o">.</span><span class="na">locators</span><span class="o">.</span><span class="na">toName</span><span class="o">=</span><span class="n">UPPER_SNAKE_CASE</span>
 </code></pre>
-<p>You can set up your smart locators in <strong><em>test.properties</em></strong> file the following way:</br></p>
+<p>You can set up your smart locators in <strong><em>test.properties</em></strong> file the following way.</br></p>
 
-<ol>
-<li>Assign a value to the <code>smart.locators</code> property:</li>
-</ol>
+<p>First, assign a value to the <code>smart.locators</code> property:</p>
 
 <ul>
 <li>set it to <code>#%s</code> in case your smart locator translates to id </br></li>
@@ -2860,23 +2858,18 @@ Looks cool, doesn&#39;t it?</p>
 <li>set it to <code>[name=%s]</code> for name (or swap <code>name</code> for any other attribute) </br></li>
 </ul>
 
-<ol>
-<li>Assign a value to the <code>smart.toName</code> property. Suppose that you have set <code>smart.locators</code> to <code>[ui=%s]</code>:
-</br></br>
-
-<ul>
-<li><code>kebab-case</code> will provide <code>[ui=last-name]</code> locator for public WebElement <code>lastName</code>.</li>
-<li><code>camelCase</code> will provide <code>[ui=lastName]</code> locator for public WebElement <code>lastName</code>.</br></li>
-<li><code>snake_case</code> will provide <code>[ui=last_name]</code> locator for public WebElement <code>lastName</code>.</br></li>
-<li><code>PascalCase</code> will provide <code>[ui=LastName]</code> locator for public WebElement <code>lastName</code>.</br></li>
-<li><code>UPPER_SNAKE_CASE</code> will provide <code>[ui=LAST_NAME]</code> locator for public WebElement <code>lastName</code>.</br></br></li>
-</ul></li>
-</ol>
-
-<p>...or if the property looks like <code>smart.locators=//*[text()=&#39;%s&#39;]</code>:
+<p>Then, assign a value to the <code>smart.toName</code> property. Suppose that you have set <code>smart.locators</code> to <code>[ui=%s]</code>:
    </br></br>
-   - <code>First Upper Case</code> will provide <code>//*[text()=&#39;Submit Form&#39;]</code> locator for public WebElement <code>submitForm</code>.</br>
-   - <code>ALL UPPER CASE</code> will provide <code>//*[text()=&#39;SUBMIT FORM&#39;]</code> locator for public WebElement <code>submitForm</code>.</br></p>
+- <code>kebab-case</code> will provide <code>[ui=last-name]</code> locator for public WebElement <code>lastName</code>.
+- <code>camelCase</code> will provide <code>[ui=lastName]</code> locator for public WebElement <code>lastName</code>.</br>
+- <code>snake_case</code> will provide <code>[ui=last_name]</code> locator for public WebElement <code>lastName</code>.</br>
+- <code>PascalCase</code> will provide <code>[ui=LastName]</code> locator for public WebElement <code>lastName</code>.</br>
+- <code>UPPER_SNAKE_CASE</code> will provide <code>[ui=LAST_NAME]</code> locator for public WebElement <code>lastName</code>.</br></br></p>
+
+<p>...or, if the property looks like <code>smart.locators=//*[text()=&#39;%s&#39;]</code>:
+  </br></br>
+- <code>First Upper Case</code> will provide <code>//*[text()=&#39;Submit Form&#39;]</code> locator for public WebElement <code>submitForm</code>.</br>
+- <code>ALL UPPER CASE</code> will provide <code>//*[text()=&#39;SUBMIT FORM&#39;]</code> locator for public WebElement <code>submitForm</code>.</br></p>
 <h3 id='define-smart-locator-using-websettings'>Define smart locator using WebSettings</h3><pre class="highlight java tab-java"><code><span class="n">WebSettings</span><span class="o">.</span><span class="na">SMART_SEARCH_LOCATORS</span> <span class="o">=</span> <span class="n">asList</span><span class="o">(</span><span class="s">"#%s"</span><span class="o">);</span>
 <span class="n">WebSettings</span><span class="o">.</span><span class="na">SMART_SEARCH_NAME</span> <span class="o">=</span> <span class="nl">StringUtils:</span><span class="o">:</span><span class="n">toKebabCase</span><span class="o">;</span>
 <span class="c1">// JDI Light style</span>
@@ -2915,20 +2908,19 @@ use <code>@SName Checkbox acceptConditions;</code></br></p>
 <p>For <code>@UI(&quot;[data-type=data-multi-combobox]&quot;) MultiCombobox dataMultiCombobox;</code></br>
 use <code>@Smart(&quot;data-type&quot;) MultiCombobox dataMultiCombobox;</code></br>
 </br></p>
-<h3 id='custom-smart-annotation'>Custom Smart Annotation</h3>
+<h3 id='custom-smart-annotations'>Custom Smart Annotations</h3>
 <p>You can also always create your own annotation enabling smart behavior.</p>
 
-<p>Let&#39;s assume you would like to use smart locators for buttons like <code>//button[text()=&#39;Button Text&#39;]</code>.
-1. Create a new annotation:</p>
+<p>Let&#39;s assume you would like to use smart locators for buttons like <code>//button[text()=&#39;Button Text&#39;]</code>.</p>
+
+<p>First, create a new annotation:</p>
 <pre class="highlight html tab-html"><code>SButton.java
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.TYPE, ElementType.FIELD})
 public @interface SButton {
 }
 </code></pre>
-<ol>
-<li>Set up the behavior for this annotation before you call <code>initSite</code>:</li>
-</ol>
+<p>Then set up the behavior for this annotation before you call <code>initSite</code>:</p>
 <pre class="highlight html tab-html"><code>@BeforeSuite(alwaysRun = true)
 public static void setUp() {
     JDI_ANNOTATIONS.add("Buttons", aRule(SButton.class,
@@ -2950,32 +2942,57 @@ public WebElement useVipAccess;
 </code></pre><h2 id='jdi-annotations'>JDI Annotations</h2>
 <p>In order to control element behavior in JDI Light you can use the following standard annotations:</p>
 
-<p><code>@Root</code> — ignores all parent sections locators for this element and uses only locator that specified for element (including smart locators)</br>
-<code>@Frame(&quot;frame-id&quot;)</code> or <code>@Frame({&quot;frame-id&quot;, &quot;div[name-adv]&quot;})</code> — in case you have two or more frames above the element, use <code>driver.switchTo().frame(...)</code> before searching your element. Or call it multiple times if <code>@Frame</code> has list of locators. Can be used together with <code>@UI</code> locator.</br>
-<code>@Css(&quot;div.dropdown&quot;)</code> — if your element has a CSS locator (deprecated, recommended to use universal <code>@UI</code> locator instead.)</br>
-<code>@XPath(&quot;//div[text()=&quot;Submit&quot;]&quot;)</code> — if your element has an XPath locator (deprecated, recommended to use universal <code>@UI</code> locator instead.)</br>
-<code>@ByText(&quot;Submit&quot;)</code> — used to locate elements by text (uses locator <code>&quot;.//*/text()[normalize-space(.) = %s]/parent::*&quot;</code>.)</br>
-<code>@WithText(&quot;Navigation&quot;)</code> — used to locate elements by text containing given substring (uses locator <code>&quot;.//*/text()[contains(normalize-space(.), %s)]/parent::*&quot;</code>)</br>
-<code>@ClickArea(...)</code> — specifies how click will be performed. Allowed values: <code>SMART_CLICK</code> (tries to find area where user able to click), <code>TOP_LEFT</code> (click top left corner of the element), <code>TOP_RIGHT</code> (click top right corner of the element), <code>BOTTOM_LEFT</code> (click bottom left corner of the element), <code>BOTTOM_RIGHT</code> (click bottom right corner of the element), <code>CENTER</code> (standard Selenium click in the center of the element), <code>JS</code> (using JS click).</br>
-<code>@GetTextAs(...)</code> — specifies how getText will be performed. Allowed values: <code>TEXT</code> (<code>getText()</code>), <code>VALUE</code> (<code>getAttribute(&quot;value&quot;)</code>), <code>INNER</code> (<code>jsExecute(&quot;innerText&quot;)</code>), <code>LABEL</code> (using a label related to the element; good for checkboxes and radio buttons), <code>SMART_TEXT</code> (tries smart value search).</br>
-<code>@SetTextAs(...)</code> — specifies how text input will be performed. Allowed values: <code>SEND_KEYS</code> (<code>sendKeys(...)</code>), <code>SET_TEXT</code> (set <code>value</code> attribute using JS), <code>CLEAR_SEND_KEYS</code> (<code>clear()</code> then <code>sendKeys(...)</code>).</br>
-<code>@NoCache</code> — always get the element from the page. Do not use cache.</br>
-<code>@WaitTimeout(sec)</code> — set <em>sec</em> seconds implicit wait for the element.</br>
-<code>@NoWait</code> — no element wait timeout; the element won&#39;t be found unless it&#39;s present on the page.</br>
-<code>@Name(“Test”)</code> — sets the name of an element to the provided value.</br>
-<code>@GetAny</code> — gets element without validation.
-<code>@GetVisible</code> — returns displayed element.
-<code>@GetVisibleEnabled</code> — returns displayed and enabled element.
-<code>@GetShowInView</code> — returns displayed and clickable element.
-<code>@PageName</code> — sets <code>pageName</code> variable for the element.
-<code>@SId</code> — sets smart ID locator, e.g <code>“By.cssSelector: #Test”</code>, where “Test” is the element&#39;s <code>id</code> attribute.</br>
-<code>@SText</code> — sets smart text locator, e.g. <code>“By.xpath: .//*/text()[normalize-space(.) = &quot;S Text&quot;]/parent::*”</code>, where “SText” is the name of the element. Be aware that it’s creating a locator with white space for words starting with capital letter.</br>
-<code>@SName</code> — sets smart name locator, e.g. for <code>“@Name(“Test”) @SName”</code> it will be <code>“By.cssSelector: [name=&#39;test&#39;]”</code>.</br>
-<code>@Smart</code> — sets smart locator, e.g. for <code>“@Name(“Smart”) @Smart(“id”)”</code> it will be <code>“By.cssSelector: [id=’smart’]”</code>.</br>
-<code>@SClass</code> — sets smart class locator, e.g. for <code>“@Name(“Test”) @SName”</code> it will be <code>“By.cssSelector: .test”</code>.</br>
-<code>@UI</code> — for list UI locator, e.g. <code>@UI(&quot;img&quot;)</code>, see more examples in the previous section.</br>
-<code>@FindBy</code> — an annotation that can have attributes such as: <code>css</code>, <code>tagName</code>, <code>linkText</code>, <code>partialLinkText</code>, <code>xpath</code>; <code>text</code>, <code>id</code>, <code>name</code>, <code>className</code>, <code>group</code>. Could be quickly changed to from Selenium <code>@FindBy</code> by changing the import line.</br>
-<code>@VisualCheck</code> — adds the <code>“(“visualCheck”, “”)”</code> pair to params.</p>
+<p><code>@Root</code> — ignores all parent sections locators for this element and uses only locator that specified for element (including smart locators).</br></p>
+
+<p><code>@Frame(&quot;frame-id&quot;)</code> or <code>@Frame({&quot;frame-id&quot;, &quot;div[name-adv]&quot;})</code> — in case you have two or more frames above the element, use <code>driver.switchTo().frame(...)</code> before searching your element. Or call it multiple times if <code>@Frame</code> has list of locators. Can be used together with <code>@UI</code> locator.</br></p>
+
+<p><code>@Css(&quot;div.dropdown&quot;)</code> — if your element has a CSS locator (deprecated, recommended to use universal <code>@UI</code> locator instead.)</br></p>
+
+<p><code>@XPath(&quot;//div[text()=&quot;Submit&quot;]&quot;)</code> — if your element has an XPath locator (deprecated, recommended to use universal <code>@UI</code> locator instead.)</br></p>
+
+<p><code>@ByText(&quot;Submit&quot;)</code> — used to locate elements by text (uses locator <code>&quot;.//*/text()[normalize-space(.) = %s]/parent::*&quot;</code>.)</br></p>
+
+<p><code>@WithText(&quot;Navigation&quot;)</code> — used to locate elements by text containing given substring (uses locator <code>&quot;.//*/text()[contains(normalize-space(.), %s)]/parent::*&quot;</code>)</br></p>
+
+<p><code>@ClickArea(...)</code> — specifies how click will be performed. Allowed values: <code>SMART_CLICK</code> (tries to find area where user able to click), <code>TOP_LEFT</code> (click top left corner of the element), <code>TOP_RIGHT</code> (click top right corner of the element), <code>BOTTOM_LEFT</code> (click bottom left corner of the element), <code>BOTTOM_RIGHT</code> (click bottom right corner of the element), <code>CENTER</code> (standard Selenium click in the center of the element), <code>JS</code> (using JS click).</br></p>
+
+<p><code>@GetTextAs(...)</code> — specifies how getText will be performed. Allowed values: <code>TEXT</code> (<code>getText()</code>), <code>VALUE</code> (<code>getAttribute(&quot;value&quot;)</code>), <code>INNER</code> (<code>jsExecute(&quot;innerText&quot;)</code>), <code>LABEL</code> (using a label related to the element; good for checkboxes and radio buttons), <code>SMART_TEXT</code> (tries smart value search).</br></p>
+
+<p><code>@SetTextAs(...)</code> — specifies how text input will be performed. Allowed values: <code>SEND_KEYS</code> (<code>sendKeys(...)</code>), <code>SET_TEXT</code> (set <code>value</code> attribute using JS), <code>CLEAR_SEND_KEYS</code> (<code>clear()</code> then <code>sendKeys(...)</code>).</br></p>
+
+<p><code>@NoCache</code> — always get the element from the page. Do not use cache.</br></p>
+
+<p><code>@WaitTimeout(sec)</code> — set <em>sec</em> seconds implicit wait for the element.</br></p>
+
+<p><code>@NoWait</code> — no element wait timeout; the element won&#39;t be found unless it&#39;s present on the page.</br></p>
+
+<p><code>@Name(“Test”)</code> — sets the name of an element to the provided value.</br></p>
+
+<p><code>@GetAny</code> — gets element without validation.</br></p>
+
+<p><code>@GetVisible</code> — returns displayed element.</br></p>
+
+<p><code>@GetVisibleEnabled</code> — returns displayed and enabled element.</br></p>
+
+<p><code>@GetShowInView</code> — returns displayed and clickable element.</br></p>
+
+<p><code>@PageName</code> — sets <code>pageName</code> variable for the element.</br></p>
+
+<p><code>@SId</code> — sets smart ID locator, e.g <code>“By.cssSelector: #Test”</code>, where “Test” is the element&#39;s <code>id</code> attribute.</br></p>
+
+<p><code>@SText</code> — sets smart text locator, e.g. <code>“By.xpath: .//*/text()[normalize-space(.) = &quot;S Text&quot;]/parent::*”</code>, where “SText” is the name of the element. Be aware that it’s creating a locator with white space for words starting with capital letter.</br></p>
+
+<p><code>@SName</code> — sets smart name locator, e.g. for <code>“@Name(“Test”) @SName”</code> it will be <code>“By.cssSelector: [name=&#39;test&#39;]”</code>.</br></p>
+
+<p><code>@Smart</code> — sets smart locator, e.g. for <code>“@Name(“Smart”) @Smart(“id”)”</code> it will be <code>“By.cssSelector: [id=’smart’]”</code>.</br></p>
+
+<p><code>@SClass</code> — sets smart class locator, e.g. for <code>“@Name(“Test”) @SName”</code> it will be <code>“By.cssSelector: .test”</code>.</br></p>
+
+<p><code>@UI</code> — for list UI locator, e.g. <code>@UI(&quot;img&quot;)</code>, see more examples in the previous section.</br></p>
+
+<p><code>@FindBy</code> — an annotation that can have attributes such as: <code>css</code>, <code>tagName</code>, <code>linkText</code>, <code>partialLinkText</code>, <code>xpath</code>; <code>text</code>, <code>id</code>, <code>name</code>, <code>className</code>, <code>group</code>. Could be quickly changed to from Selenium <code>@FindBy</code> by changing the import line.</br></p>
+
+<p><code>@VisualCheck</code> — adds the <code>“(“visualCheck”, “”)”</code> pair to params.</p>
 <h2 id='jdi-locators-as-simple-as-css-as-powerful-as-xpath'>JDI Locators (as simple as CSS, as powerful as XPath)</h2><pre class="highlight java tab-java"><code><span class="nd">@XPath</span><span class="o">(</span><span class="s">"//div[contains(@class,'btn')]//*[text()='Submit']"</span><span class="o">)</span>
 <span class="nd">@UI</span><span class="o">(</span><span class="s">"div.btn['Submit']"</span><span class="o">)</span>
 
@@ -2988,8 +3005,9 @@ public WebElement useVipAccess;
 <span class="nd">@XPath</span><span class="o">(</span><span class="s">"//*[contains(@class,'nav-menu')]//*[@data-role='header'][3]"</span><span class="o">)</span>
 <span class="nd">@UI</span><span class="o">(</span><span class="s">".nav-menu [data-role=header][3]"</span><span class="o">)</span>
 </code></pre>
-<p>With JDI Light you can use simple and fast CSS-like selectors with the power of XPath locators. Now you can search by text or index with CSS-like syntax or even move up the DOM tree.</br>
-See some examples below:</p>
+<p>With JDI Light you can use simple and fast CSS-like selectors with the power of XPath locators. Now you can search by text or index with CSS-like syntax or even move up the DOM tree.</p>
+
+<p>See some examples below:</p>
 
 <p>XPath: <code>//div[contains(@class,&#39;btn&#39;)]//*[text()=&#39;Submit&#39;]</code></br>
 JDI Locator: <code>div.btn[&#39;Submit&#39;]</code></p>

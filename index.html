@@ -34799,47 +34799,55 @@ You can use for testing Text and Button classes, implemented in JDI-html section
 <p>Badge generates a small badge to the top-right of its child(ren).</p>
 
 <p><img src="images/material-ui/Badge.png" alt="Badge" /></p>
-<h5 id='here-you-can-find-badge-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/BadgeTests.java" target="_blank">Here you can find Badge tests</a></h5><h3 id='4-23-snackbars'>4.23 Snackbars</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div[@direction='up']/div[@class='MuiSnackbarContent-message']"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Text</span> <span class="n">simpleSnackbarPopUp</span><span class="o">;</span>
+<h5 id='here-you-can-find-badge-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/BadgeTests.java" target="_blank">Here you can find Badge tests</a></h5><h3 id='4-23-snackbars'>4.23 Snackbars</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//span[text()='Open simple snackbar']/parent::button"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Button</span> <span class="n">simpleSnackbarButton</span><span class="o">;</span>
 
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div[@class='MuiSnackbarContent-action']//span[text()='UNDO']"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Button</span> <span class="n">undoSnackbarButton</span><span class="o">;</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"[direction='up']"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Snackbar</span> <span class="n">simpleSnackbar</span><span class="o">;</span>
 
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//button[@aria-label='close']"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Button</span> <span class="n">closePopUpSnackbarButton</span><span class="o">;</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//span[text()='Open success snackbar']/parent::button"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Button</span> <span class="n">successSnackbarButton</span><span class="o">;</span>
 
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h2[text()='Consecutive Snackbars']/following::span[@class='MuiButton-label']"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Button</span><span class="o">&gt;</span> <span class="n">otherButtons</span><span class="o">;</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div[@direction]/div[@class='MuiAlert-message']/parent::div"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Snackbar</span> <span class="n">successSnackbar</span><span class="o">;</span>
 
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div[@style]/div[@class='MuiSnackbarContent-message']"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Text</span> <span class="n">snackbarPopUpText</span><span class="o">;</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div[@class='MuiAlert-message']/parent::div"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Snackbar</span><span class="o">&gt;</span> <span class="n">customizedSnackbar</span><span class="o">;</span>
+
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h2[text()='Message Length']/preceding::button/span[@class='MuiButton-label' and not(text()='Open simple snackbar') and not(text()='Open success snackbar')]"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Button</span><span class="o">&gt;</span> <span class="n">positionedSnackbarButtons</span><span class="o">;</span>
+
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div[contains(@class,'MuiSnackbar-root')]"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Snackbar</span> <span class="n">positionedSnackbar</span><span class="o">;</span>
 
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">simpleSnackbarTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">simpleSnackbarPopUp</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">notVisible</span><span class="o">();</span>
+        <span class="n">simpleSnackbar</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">notVisible</span><span class="o">();</span>
         <span class="n">simpleSnackbarButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">timer</span><span class="o">.</span><span class="na">wait</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">simpleSnackbarPopUp</span><span class="o">.</span><span class="na">isDisplayed</span><span class="o">());</span>
-        <span class="n">simpleSnackbarPopUp</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Note archived"</span><span class="o">);</span>
-        <span class="n">undoSnackbarButton</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"UNDO"</span><span class="o">);</span>
-        <span class="n">undoSnackbarButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">timer</span><span class="o">.</span><span class="na">wait</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">simpleSnackbarPopUp</span><span class="o">.</span><span class="na">waitFor</span><span class="o">().</span><span class="na">hidden</span><span class="o">());</span>
-        <span class="n">simpleSnackbarPopUp</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">notVisible</span><span class="o">();</span>
+        <span class="n">simpleSnackbar</span><span class="o">.</span><span class="na">waitFor</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+        <span class="n">simpleSnackbar</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Note archived"</span><span class="o">);</span>
+        <span class="n">simpleSnackbar</span><span class="o">.</span><span class="na">snackbarButton</span><span class="o">(</span><span class="n">UNDO</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">simpleSnackbar</span><span class="o">.</span><span class="na">waitFor</span><span class="o">().</span><span class="na">hidden</span><span class="o">();</span>
+        <span class="n">simpleSnackbar</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">notVisible</span><span class="o">();</span>
         <span class="n">simpleSnackbarButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">timer</span><span class="o">.</span><span class="na">wait</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">simpleSnackbarPopUp</span><span class="o">.</span><span class="na">isDisplayed</span><span class="o">());</span>
-        <span class="n">closePopUpSnackbarButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">simpleSnackbarPopUp</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">notVisible</span><span class="o">();</span>
+        <span class="n">simpleSnackbar</span><span class="o">.</span><span class="na">waitFor</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+        <span class="n">simpleSnackbar</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+        <span class="n">simpleSnackbar</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">notVisible</span><span class="o">();</span>
     <span class="o">}</span>
 
     <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">consecutiveSnackbarsTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">otherButtons</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-        <span class="n">otherButtons</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"SHOW MESSAGE A"</span><span class="o">);</span>
-        <span class="n">otherButtons</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">snackbarPopUpText</span><span class="o">.</span><span class="na">base</span><span class="o">().</span><span class="na">timer</span><span class="o">().</span><span class="na">wait</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">snackbarPopUpText</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">());</span>
-        <span class="n">snackbarPopUpText</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Message A"</span><span class="o">);</span>
-        <span class="n">undoSnackbarButton</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-        <span class="n">undoSnackbarButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">snackbarPopUpText</span><span class="o">.</span><span class="na">base</span><span class="o">().</span><span class="na">timer</span><span class="o">().</span><span class="na">wait</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">snackbarPopUpText</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">notVisible</span><span class="o">());</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">customizedSnackbarTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">successSnackbar</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">notVisible</span><span class="o">();</span>
+        <span class="n">successSnackbarButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">successSnackbar</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+        <span class="n">successSnackbar</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"This is a success message!"</span><span class="o">);</span>
+        <span class="n">successSnackbar</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+        <span class="n">successSnackbar</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">notVisible</span><span class="o">();</span>
+
+        <span class="n">customizedSnackbar</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"This is an error message!"</span><span class="o">).</span><span class="na">and</span><span class="o">().</span><span class="na">messageType</span><span class="o">(</span><span class="s">"error"</span><span class="o">);</span>
+        <span class="n">customizedSnackbar</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"This is a warning message!"</span><span class="o">).</span><span class="na">and</span><span class="o">().</span><span class="na">messageType</span><span class="o">(</span><span class="s">"warning"</span><span class="o">);</span>
+        <span class="n">customizedSnackbar</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">3</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"This is an information message!"</span><span class="o">).</span><span class="na">and</span><span class="o">().</span><span class="na">messageType</span><span class="o">(</span><span class="s">"info"</span><span class="o">);</span>
+        <span class="n">customizedSnackbar</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">4</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"This is a success message!"</span><span class="o">).</span><span class="na">and</span><span class="o">().</span><span class="na">messageType</span><span class="o">(</span><span class="s">"success"</span><span class="o">);</span>
     <span class="o">}</span>
 </code></pre><h5 id='https-material-ui-com-components-snackbars'><a href="https://material-ui.com/components/snackbars/" target="_blank"> https://material-ui.com/components/snackbars/ </a></h5>
 <p>Snackbars provide brief messages about app processes. The component is also known as a toast.</p>

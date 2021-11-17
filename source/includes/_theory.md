@@ -1,7 +1,8 @@
 ﻿# Theory
 ## UI Elements
-In order to effectiviely utilize <a href="https://github.com/SeleniumHQ/selenium/wiki/PageObjects" target="_blank">Page Objects pattern</a> we need to use elements on the pages. Instead of tag-like Selenium ```WebElement``` s that represents tag in html in JDI we introduce UI Elements that represrent element on UI used by real user.</br>
-JDI provides an ability to create your own element or reuse standard element from our rich collection</br>
+In order to effectively utilize <a href="https://github.com/SeleniumHQ/selenium/wiki/PageObjects" target="_blank">Page Objects pattern</a> we need to place elements on pages. Instead of Selenium `WebElement` objects that basically represent HTML tags in JDI we introduce _UI Elements_ that represent UI elements interacted with by an actual user.
+
+JDI provides the ability to create your own elements or use standard elements from a rich collection.
 
 ### Common elements
 
@@ -12,12 +13,13 @@ JDI provides an ability to create your own element or reuse standard element fro
 @UI("textarea[ui=description]") public TextArea description;
 @UI("//*[text()='Submit']") public Button submit;
 ```
-- Used to make your Page Objects more intuitive and clear
-- In addition we use elements type and name in our logs and reports that simplifies tests maintenance
-- And of course we expect from UI elements only actions that are relevant to them (e.g. you can't sendKeys in ```Button``` but this is possible with ```WebElement``` or ```SelenideElement```)
+- Are used to make your Page Objects more intuitive and clear.
+- An element's type and name is displayed in JDI logs and reports, which simplifies test maintenance.
+- And, of course, we expect that the actions each UI element provides are specific to its type (for example, `Button` won't allow you to `sendKeys`, unlike `WebElement` or `SelenideElement`).
 
-In JDI we have the following Common elements:</br>
-- [Label](https://jdi-docs.github.io/jdi-light/?java#label), 
+In JDI we have the following Common elements:
+
+[Label](https://jdi-docs.github.io/jdi-light/?java#label), 
 [Button](https://jdi-docs.github.io/jdi-light/?java#button),
 [Checkbox](https://jdi-docs.github.io/jdi-light/?java#checkbox),
 [ColorPicker](https://jdi-docs.github.io/jdi-light/?java#colorpicker),
@@ -46,13 +48,17 @@ public Dropdown colors;
 @UI("[ui=label] li") public JList<Labels> tabs;
 @UI("//button[text()='%s']") public JList<Button> buttons;
 ```
-In addition to [Common elements](https://jdi-docs.github.io/jdi-light/?java#common-elements) features Complex elements helps to combine list of different elements in one UI element</br>
-Typical example of Complex element is ```Dropdown```, ```Combobx```, ```Table``` etc.</br>
-Other examples are lists of similar elements like ```List<WebElement>``` in Selenium. Typical examples are: ```Menu```, ```Checklist```, ```RadioButtons```, ```Tabs``` etc.
-Also you can use list of Common elements as ```List<...>``` e.g. ```List<Button>``` or ```List<Label>```
+In addition to [Common elements](https://jdi-docs.github.io/jdi-light/?java#common-elements), JDI Light features Complex elements: they represent UI elements encompassing the functionality of multiple Common elements.
 
-In JDI we have the following Complex elements:</br>
-- [RadioButtons](https://jdi-docs.github.io/jdi-light/?java#radiobuttons),
+Some Complex elements may be regarded as sets of similar Common elements (something you would likely implement as `List<WebElement>` in Selenium). Typical examples of such Complex elements are `Menu`, `Checklist`, `RadioButtons`, or `Tabs`. 
+
+_Note: You can use lists of Common elements like `List<Button>` or `List<Label>` if need be._
+
+Other Complex elements may be regarded as made up of different Common elements. Typical examples would be `Dropdown` or `Combobox`.
+
+In JDI we have the following Complex elements:
+
+[RadioButtons](https://jdi-docs.github.io/jdi-light/?java#radiobuttons),
 [Table](https://jdi-docs.github.io/jdi-light/?java#table),
 [DataTable](https://jdi-docs.github.io/jdi-light/?java#datatable),
 [Dropdown](https://jdi-docs.github.io/jdi-light/?java#dropdown),
@@ -82,15 +88,18 @@ public class LoginPage extends WebPage {
     ...
 }
 ```
-Composite elements represents part of page and often used just as container for elements and actions</br>
-Typical examples are ```WebPage``` and ```Section```.</br>
-In the same time composite elements also can have a locator that defines a context for all elements inside. That means that all elements in composite element will be searched relatively under this locator.</br>
-Composite elements also can have predefined actions like fill(...), submit(...) and check(...) for ```Form``` or open(), checkOpened() for ```WebPage```.</br>
-Remember that you can create your own Composite elements with JDI Light for example for Header, Navigation bar, Footer, Left sidebar, advertisement or main part ofr the page.</br>
+Composite elements represent webpages or webpage sections and are mainly used as containers for elements and actions.
+Typical examples of Composite elements are `WebPage` and `Section`.
 
-In JDI we have the following Composite elements:</br>
+Composite elements can also have a locator that defines a context for all elements inside. This means that all elements in composite element will be searched relatively under this locator.
+
+Composite elements might have predefined actions like `fill`, `submit` and `check` for `Form`, or `open()`, `checkOpened()` for `WebPage`.
+
+Remember that you can create your own Composite elements with JDI Light when you need to describe sections like Header, Navigation Bar, Footer, Sidebar, Advertisement Section or the main part of the page.</br>
+
+In JDI we have the following Composite elements:
  
-- [Section](https://jdi-docs.github.io/jdi-light/?java#section),
+[Section](https://jdi-docs.github.io/jdi-light/?java#section),
 [Form](https://jdi-docs.github.io/jdi-light/?java#form),
 [WebPage](https://jdi-docs.github.io/jdi-light/?java#webpage).
 
@@ -114,12 +123,14 @@ public class TopPanel extends Section {
     ...
 }
 ```
-UI objects extend the typical <a href="https://github.com/SeleniumHQ/selenium/wiki/PageObjects" target="_blank">Page Objects pattern</a> with [UI Elements](https://jdi-docs.github.io/jdi-light/?java#ui-elements) and allow users to split pages into sections.</br>
-A typical UI object structure consists of:</br>
-- A ```Site class``` that contains all pages and common parts of application like header, footer or navigation panel</br>
-- ```Page Objects``` extending from ```WebPage``` and representing respective application pages</br>
-- Composite elements typically represented by ```Sections``` or other [Composite elements](https://jdi-docs.github.io/jdi-light/?java#composite-elements), acting as Containers for other elements and smaller sections</br>
-- UI Elements representing functional elements on page utilized by end user
+_UI Objects_ extend the standard <a href="https://github.com/SeleniumHQ/selenium/wiki/PageObjects" target="_blank">Page Objects pattern</a> with [UI Elements](https://jdi-docs.github.io/jdi-light/?java#ui-elements) and allow users to split pages into sections.
+
+A typical UI object structure consists of:
+
+- A ***Site class*** that contains all the pages of an application and its common parts like header, footer or navigation panel.
+- ***Page Objects*** extending `WebPage` and representing respective application pages.
+- ***Composite elements*** (typically represented by `Section` objects or other [Composite elements](https://jdi-docs.github.io/jdi-light/?java#composite-elements)), acting as containers for other elements and smaller sections.
+- ***UI Elements*** representing functional elements on a page utilized by the end user.
 
 
 ## Entity Driven Testing
@@ -177,11 +188,13 @@ public void resultsTest() {
     .and(not(hasItems(CORRUPTED, CORRUPTED_2)));
 }
 ```
-Entites Driven Testing(EDT) is approach where Business Entites going through test scenarios instead of unnamed data.</br>
-EDT can be orgnically combined with DDT that use Business Entites as input to similar scenarios.</br>
-JDI Light natively supports EDT with Forms, Tables and DataLists. See more examples in the right panel.</br>
-</br>
-Example scenario:</br>
+_Entity Driven Testing (EDT)_ is an approach that implies utilizing Business Entities instead of unnamed test data in the test scenarios.
+
+EDT can be organically combined with Data Driven Testing that uses Business Entities as input to similar scenarios.
+
+JDI Light natively supports EDT with `Form`, `Table` and `DataList`. See the examples in the right panel:
+
+Example scenario:
 
 ```html
 > Provide List<User> for test
@@ -191,7 +204,7 @@ Example scenario:</br>
 3. Get Act. Opening from Vacancy table
 4. Assert Act. Opening equals to Exp. Opening
 ```
-Code example:</br>
+Code example:
 
 ```html
 @Test(dataProvider = “users")                      //>
@@ -206,11 +219,11 @@ public void formTest(User user) {
 
 ## Smart Locators
 ### Smart locators example
-Let's assume you have some typical way to locate most of the elements for example most of elements has id or name or special attribute to locate ui elements valuable for automation. </br>
-Let's asume you have `@UI("[ui=last-name]") public TextField lastName;`  element in JDI. In this case you simplify it to `public TextField lastName;` and omit locator</br>
-See more complex example below and in code panel at the right:</br>
-For example you have following html</br>
+Let's assume you have a uniform method to locate most of the elements (for example, most of the elements involved in UI test automation have a predictable id, or a name, or a special attribute to locate them.)
 
+Let's assume you have `@UI("[ui=last-name]") public TextField lastName`  element in JDI. In this case you simplify it to `public TextField lastName` and omit the locator.
+
+Now for more complex example. Suppose you have the following HTML:
 ```html
 <input type="text" ui="name"/>
 <input type="text" ui="last-name"/>
@@ -238,7 +251,6 @@ public class UserCard : Form<User>
 }
 ```
 ```java
-Selenium
 @FindBy(css = "[ui=name]") 
 public WebElement name;
 @FindBy(css = "[ui=last-name]") 
@@ -252,8 +264,7 @@ public WebElement acceptConditions;
 @FindBy(css = "[ui=submit-button]") 
 public WebElement submitButton; 
 ```
-In standard way in Selenium in Page Objects you need to write following code for this elements.
-</br></br></br></br></br></br></br></br></br></br></br></br>
+With pure Selenium, Page Object elements for that will look like this:
 
 ```java
 @UI("[ui=name]") public Textfield name;
@@ -263,16 +274,15 @@ In standard way in Selenium in Page Objects you need to write following code for
 @UI("[ui=accept-conditions]") public Checkbox acceptConditions;
 @UI("[ui=submit-button]") public Button submitButton;
 ```
-In JDI Light with standard UI Objects code be more obvious but still has duplications in locator and element name.
-</br></br></br></br></br></br>
+In JDI Light with standard UI Objects the code gets more descriptive, but there still are duplications in locator and element names:
 
 ```java
 public Textfield name, lastName, pinCode, promoCode;
 public Checkbox acceptConditions;
 public Button submitButton;
 ```
-And using smart locators you can write this without any duplications (without locators) just in few lines</br>
-Isn't this looks cool?</br></br>
+But by using smart locators you can write this without any duplications (without locators) in just a few lines.
+Looks cool, doesn't it?
 
 ### Define smart locator using test.properties
 
@@ -280,63 +290,76 @@ Isn't this looks cool?</br></br>
 smart.locators="[ui=%s]"
 smart.locators.toName=UPPER_SNAKE_CASE
 ```
-You can setup your smart locators in `test.properties` in following way:</br>
-Setup `smart.locators=`</br>
-put `#%s` in case you smart locator is id</br>
-put `.%s` for class</br>
-put `[name=%s]` for name or other attribute</br>
-</br>
-For example you set `smart.locators=[ui=%s]`</br>
-Setup `smart.toName=`</br>
-`kebab-case` will produce `[ui=last-name]` locator for public WebElement lastName;</br>
-`camelCase` will produce `[ui=lastName]` locator for public WebElement lastName;</br>
-`snake_case` will produce `[ui=last_name]` locator for public WebElement lastName;</br>
-`PascalCase` will produce `[ui=LastName]` locator for public WebElement lastName;</br>
-`UPPER_SNAKE_CASE` will produce `[ui=LAST_NAME]` locator for public WebElement lastName;</br>
-or if you have `smart.locators=//*[text()='%s']`</br>
-`First Upper Case` will produce `//*[text()='Submit Form']` locator for public WebElement submitForm;</br>
-`ALL UPPER CASE` will produce `//*[text()='SUBMIT FORM']` locator for public WebElement submitForm;</br>
+You can set up your smart locators in ***test.properties*** file the following way:</br>
+
+1. Assign a value to the `smart.locators` property:
+
+   - set it to `#%s` in case your smart locator translates to id </br>
+   - set it to `.%s` for classname </br>
+   - set it to `[name=%s]` for name (or swap `name` for any other attribute) </br>
+   
+
+2. Assign a value to the `smart.toName` property. Suppose that you have set `smart.locators` to `[ui=%s]`:
+   </br></br>
+   - `kebab-case` will provide `[ui=last-name]` locator for public WebElement `lastName`.
+   - `camelCase` will provide `[ui=lastName]` locator for public WebElement `lastName`.</br>
+   - `snake_case` will provide `[ui=last_name]` locator for public WebElement `lastName`.</br>
+   - `PascalCase` will provide `[ui=LastName]` locator for public WebElement `lastName`.</br>
+   - `UPPER_SNAKE_CASE` will provide `[ui=LAST_NAME]` locator for public WebElement `lastName`.</br></br>
+   
+   ...or if the property looks like `smart.locators=//*[text()='%s']`:
+   </br></br>
+   - `First Upper Case` will provide `//*[text()='Submit Form']` locator for public WebElement `submitForm`.</br>
+   - `ALL UPPER CASE` will provide `//*[text()='SUBMIT FORM']` locator for public WebElement `submitForm`.</br>
 
 ### Define smart locator using WebSettings
 
 ```java
 WebSettings.SMART_SEARCH_LOCATORS = asList("#%s");
 WebSettings.SMART_SEARCH_NAME = StringUtils::toKebabCase;
-JDI Light like
+// JDI Light style
 WebSettings.SMART_SEARCH = el -> {
   String locatorName = toKebabCase(el.getName());
   UIElement element = $("[auto="+locatorName+"]", el.base().parent));
   element.setName(el.getName());
   return element.getWebElement();
 }
-Selenium like:
+// Selenium style
 WebSettings.SMART_SEARCH = el -> {
   String locatorName = toKebabCase(el.getName());
   return getDriver.findElement(By.cssClass("[auto="+locatorName+"]"));
 }
 ```
-From other hands you can setup Smart Locators in code using `WebSettings.SMART_SEARCH_NAME` and `WebSettings.SMART_SEARCH_LOCATORS` variables</br>
-Or you can define by yourself what should be done in case of UI Element has no locator using `WebSettings.SMART_SEARCH` function
+You can also set up Smart Locators in code using `WebSettings.SMART_SEARCH_NAME` and `WebSettings.SMART_SEARCH_LOCATORS` variables:
+
+Or you can define by yourself what should be done when UI Element has no locator using `WebSettings.SMART_SEARCH`.
 
 ### Smart Annotations 
-In case you have few standart patterns for locators you can use Smart Annotations in order to mark the elements with this locators.</br>
-For `@UI("#last-name") TextFiled lastName;`</br>
+When your locators follow standard patterns you can use Smart Annotations to mark elements:
+
+For `@UI("#last-name") TextField lastName;`</br>
 use `@SId TextField lastName;`</br>
+
 For `@UI(".contact-form") Form<CardData> contactForm;`</br>
 use `@SClass Form<CardData> contactForm;`</br>
+
 For `@UI("//*[text()='Submit Card']") Button submitCard;`</br>
 use `@SText Button submitCard;`</br>
+
 For `@UI("[name='accept-conditions']") Checkbox acceptConditions;`</br>
 use `@SName Checkbox acceptConditions;`</br>
-or use @Smart annotation for any specific html attribute
-For `@UI("[data-type=data-multy-combobx]") MultiCombobox dataMultyCombobx;`</br>
-use `@Smart("data-type") MultiCombobox dataMultyCombobx;`</br>
+
+Or use `@Smart` annotation for any specific HTML attribute:
+
+For `@UI("[data-type=data-multi-combobox]") MultiCombobox dataMultiCombobox;`</br>
+use `@Smart("data-type") MultiCombobox dataMultiCombobox;`</br>
 </br>
 
 ### Custom Smart Annotation
-Or you always can create your own annotation for smart behaviour</br>
-Let's assume you would like to use smart locators for buttons like `//button[text()='Button Text']`</br>
-1. Create new annotation</br>
+You can also always create your own annotation enabling smart behavior.
+
+Let's assume you would like to use smart locators for buttons like `//button[text()='Button Text']`.
+1. Create a new annotation:
 
 ```html
 SButton.java
@@ -345,7 +368,7 @@ SButton.java
 public @interface SButton {
 }
 ```
-2. setup behaviour for this annotations before you call initSite(...)
+2. Set up the behavior for this annotation before you call `initSite`:
 
 ```html
 @BeforeSuite(alwaysRun = true)
@@ -354,12 +377,12 @@ public static void setUp() {
         (e, a) -> e.setLocator(format("//button[text()='%s']", splitCamelCase(e.getName())))));
     initSite(YourAwesomeSite.class);
 ```
-Thats all. Now we can write</br>
+That's all. Now we can write:
 
 ```html
 @SButton public Button logIn, signIn, cancel, useVipAccess;
 ```
-instead of </br>
+Instead of:
 
 ```html
 @FindBy(xpath = "//button[text()='Log In']")
@@ -373,35 +396,36 @@ public WebElement useVipAccess;
 ```
 
 ## JDI Annotations
-In order to control elements behaviour in JDI Light you can use following standard annotations:</br>
-**@Root** - ignores all parent sections locators for this element and uses only locator that specified for element (including smart locators)</br>
-**@Frame("frame-id")** or **@Frame({"frame-id", "div[name-adv]"})** - in case you have two or more frames above element - use driver.switchTo().frame(...) before searching your element. Or call it multiple times if @Frame has list of locators. Can be used together with @UI locator</br>
-**@Css("div.dropdown")** - if your element has Css locator (deprecated, recommended to use universal **@UI**)</br>
-**@XPath("//div[text()="Submit"]")** - if your element has Xpath locator (deprecated, recommended to use universal **@UI**)</br>
-**@ByText("Submit")** - is used for elements that can be found by text (uses locator `".//*/text()[normalize-space(.) = %s]/parent::*"`)</br>
-**@WithText("Navigation")** - is used for elements that can be found as text contains(uses locator `".//*/text()[contains(normalize-space(.), %s)]/parent::*"`)</br>
-**@ClickArea(...)** - specify how click will be performed. Allowed values: SMART_CLICK(try to find area where user able to click), TOP_LEFT(click top-left corner of the element), TOP_RIGHT(click top-right corner of the element), BOTTOM_LEFT(click bottom-left corner of the element), BOTTOM_RIGHT(click bottom-right corner of the element), CENTER(Selenium standard click in the center of the element), JS(using JS click)</br>
-**@GetTextAs(...)** - specify how getText will be performed. Allowed values: TEXT(getText()), VALUE(getAttribute("value")), INNER(jsExecute("innerText")), LABEL(using label related to element - good for checkboxes and radio), SMART_TEXT (try to find value smart)</br>
-**@SetTextAs(...)** - specify how input text will be performed. Allowed values: SEND_KEYS(sendKeys(...)), SET_TEXT(set `value` attribute using JS), CLEAR_SEND_KEYS(clear(); sendKeys(...))</br>
-**@NoCache** - always gets element from page. Not use cache</br>
-**@WaitTimeout(sec)** – waits element for sec seconds implicitly</br>
-**@NoWait** – doesn’t wait element to appear, so to be found it should be already on page</br>
-**@Name(“Test”)** – sets name of element to e.g. “Test” like in example</br>
-**@GetAny** – gets element without validation</br>
-**@GetVisible** – returns displayed element</br>
-**@GetVisibleEnabled** – returns displayed and enabled element</br>
-**@GetShowInView** – returns displayed and clickable element</br>
-**@PageName** – sets pageName variable for element</br>
-**@SId** – sets smart Id locator, e.g `“By.cssSelector: #Test”`, where “Test” is name of the element</br>
-**@SText** – sets smart text locator, e.g. `“By.xpath: .//*/text()[normalize-space(.) = "S Text"]/parent::*”`, where “SText” is name of the element. Pay attention that it’s creating locator with white space for words staring with capital letter</br>
-**@SName** – sets smart name locator, e.g. for `“@Name(“Test”) @SName”` it will be `“By.cssSelector: [name='test']”`</br>
-**@Smart** – sets smart locator, e.g. for the variant `“@Name(“Smart”) @Smart(“id”)”` it will be `“By.cssSelector: [id=’smart’]”`</br>
-**@SClass** – sets smart class locator, e.g. for `“@Name(“Test”) @SName”` it will be `“By.cssSelector: .test”`</br>
-**@UI** – for list UI locator, e.g. @UI("img"), see more examples in previous section</br>
-**@FindBy** – annotation that could have fields: css, tagName, linkText, partialLinkText, xpath; text, id, name, className, group. Could be quickly changed to from Selenium @FindBy by changing import line</br>
-**@VisualCheck** – adds pair “(“visualCheck”, “”)” to params
+In order to control element behavior in JDI Light you can use the following standard annotations:
 
-## JDI Locators (simple as css powerful as xpath)
+`@Root` — ignores all parent sections locators for this element and uses only locator that specified for element (including smart locators)</br>
+`@Frame("frame-id")` or `@Frame({"frame-id", "div[name-adv]"})` — in case you have two or more frames above the element, use `driver.switchTo().frame(...)` before searching your element. Or call it multiple times if `@Frame` has list of locators. Can be used together with `@UI` locator.</br>
+`@Css("div.dropdown")` — if your element has a CSS locator (deprecated, recommended to use universal `@UI` locator instead.)</br>
+`@XPath("//div[text()="Submit"]")` — if your element has an XPath locator (deprecated, recommended to use universal `@UI` locator instead.)</br>
+`@ByText("Submit")` — used to locate elements by text (uses locator `".//*/text()[normalize-space(.) = %s]/parent::*"`.)</br>
+`@WithText("Navigation")` — used to locate elements by text containing given substring (uses locator `".//*/text()[contains(normalize-space(.), %s)]/parent::*"`)</br>
+`@ClickArea(...)` — specifies how click will be performed. Allowed values: `SMART_CLICK` (tries to find area where user able to click), `TOP_LEFT` (click top left corner of the element), `TOP_RIGHT` (click top right corner of the element), `BOTTOM_LEFT` (click bottom left corner of the element), `BOTTOM_RIGHT` (click bottom right corner of the element), `CENTER` (standard Selenium click in the center of the element), `JS` (using JS click).</br>
+`@GetTextAs(...)` — specifies how getText will be performed. Allowed values: `TEXT` (`getText()`), `VALUE` (`getAttribute("value")`), `INNER` (`jsExecute("innerText")`), `LABEL` (using a label related to the element; good for checkboxes and radio buttons), `SMART_TEXT` (tries smart value search).</br>
+`@SetTextAs(...)` — specifies how text input will be performed. Allowed values: `SEND_KEYS` (`sendKeys(...)`), `SET_TEXT` (set `value` attribute using JS), `CLEAR_SEND_KEYS` (`clear()` then `sendKeys(...)`).</br>
+`@NoCache` — always get the element from the page. Do not use cache.</br>
+`@WaitTimeout(sec)` — set _sec_ seconds implicit wait for the element.</br>
+`@NoWait` — no element wait timeout; the element won't be found unless it's present on the page.</br>
+`@Name(“Test”)` — sets the name of an element to the provided value.</br>
+`@GetAny` — gets element without validation.
+`@GetVisible` — returns displayed element.
+`@GetVisibleEnabled` — returns displayed and enabled element.
+`@GetShowInView` — returns displayed and clickable element.
+`@PageName` — sets `pageName` variable for the element.
+`@SId` — sets smart ID locator, e.g `“By.cssSelector: #Test”`, where “Test” is the element's `id` attribute.</br>
+`@SText` — sets smart text locator, e.g. `“By.xpath: .//*/text()[normalize-space(.) = "S Text"]/parent::*”`, where “SText” is the name of the element. Be aware that it’s creating a locator with white space for words starting with capital letter.</br>
+`@SName` — sets smart name locator, e.g. for `“@Name(“Test”) @SName”` it will be `“By.cssSelector: [name='test']”`.</br>
+`@Smart` — sets smart locator, e.g. for `“@Name(“Smart”) @Smart(“id”)”` it will be `“By.cssSelector: [id=’smart’]”`.</br>
+`@SClass` — sets smart class locator, e.g. for `“@Name(“Test”) @SName”` it will be `“By.cssSelector: .test”`.</br>
+`@UI` — for list UI locator, e.g. `@UI("img")`, see more examples in the previous section.</br>
+`@FindBy` — an annotation that can have attributes such as: `css`, `tagName`, `linkText`, `partialLinkText`, `xpath`; `text`, `id`, `name`, `className`, `group`. Could be quickly changed to from Selenium `@FindBy` by changing the import line.</br>
+`@VisualCheck` — adds the `“(“visualCheck”, “”)”` pair to params.
+
+## JDI Locators (as simple as CSS, as powerful as XPath)
 
 ```java
 @XPath("//div[contains(@class,'btn')]//*[text()='Submit']")
@@ -417,8 +441,9 @@ In order to control elements behaviour in JDI Light you can use following standa
 @UI(".nav-menu [data-role=header][3]")
 ```
 
-With JDI Light you can use simple and fast css selecctors with power of xpath locators. Now you can search by text or index in css or even move up and down in html tree.</br>
-See some examples below:</br>
+With JDI Light you can use simple and fast CSS-like selectors with the power of XPath locators. Now you can search by text or index with CSS-like syntax or even move up the DOM tree.</br>
+See some examples below:
+
 XPath: `//div[contains(@class,'btn')]//*[text()='Submit']`</br>
 JDI Locator: `div.btn['Submit']`
 

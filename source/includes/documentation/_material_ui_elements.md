@@ -1067,47 +1067,55 @@ Badge generates a small badge to the top-right of its child(ren).
 ### 4.23 Snackbars
 
 ```java 
-    @UI("//div[@direction='up']/div[@class='MuiSnackbarContent-message']")
-    public static Text simpleSnackbarPopUp;
-    
-    @UI("//div[@class='MuiSnackbarContent-action']//span[text()='UNDO']")
-    public static Button undoSnackbarButton;
-    
-    @UI("//button[@aria-label='close']")
-    public static Button closePopUpSnackbarButton;
-    
-    @UI("//h2[text()='Consecutive Snackbars']/following::span[@class='MuiButton-label']")
-    public static List<Button> otherButtons;
+    @UI("//span[text()='Open simple snackbar']/parent::button")
+    public static Button simpleSnackbarButton;
 
-    @UI("//div[@style]/div[@class='MuiSnackbarContent-message']")
-    public static Text snackbarPopUpText;
+    @UI("[direction='up']")
+    public static Snackbar simpleSnackbar;
 
+    @UI("//span[text()='Open success snackbar']/parent::button")
+    public static Button successSnackbarButton;
+
+    @UI("//div[@direction]/div[@class='MuiAlert-message']/parent::div")
+    public static Snackbar successSnackbar;
+
+    @UI("//div[@class='MuiAlert-message']/parent::div")
+    public static List<Snackbar> customizedSnackbar;
+
+    @UI("//h2[text()='Message Length']/preceding::button/span[@class='MuiButton-label' and not(text()='Open simple snackbar') and not(text()='Open success snackbar')]")
+    public static List<Button> positionedSnackbarButtons;
+
+    @UI("//div[contains(@class,'MuiSnackbar-root')]")
+    public static Snackbar positionedSnackbar;
+    
     @Test
     public void simpleSnackbarTest() {
-        simpleSnackbarPopUp.is().notVisible();
+        simpleSnackbar.is().notVisible();
         simpleSnackbarButton.click();
-        timer.wait(() -> simpleSnackbarPopUp.isDisplayed());
-        simpleSnackbarPopUp.is().text("Note archived");
-        undoSnackbarButton.is().text("UNDO");
-        undoSnackbarButton.click();
-        timer.wait(() -> simpleSnackbarPopUp.waitFor().hidden());
-        simpleSnackbarPopUp.is().notVisible();
+        simpleSnackbar.waitFor().displayed();
+        simpleSnackbar.has().text("Note archived");
+        simpleSnackbar.snackbarButton(UNDO).click();
+        simpleSnackbar.waitFor().hidden();
+        simpleSnackbar.is().notVisible();
         simpleSnackbarButton.click();
-        timer.wait(() -> simpleSnackbarPopUp.isDisplayed());
-        closePopUpSnackbarButton.click();
-        simpleSnackbarPopUp.is().notVisible();
+        simpleSnackbar.waitFor().displayed();
+        simpleSnackbar.close();
+        simpleSnackbar.is().notVisible();
     }
-    
+
     @Test
-    public void consecutiveSnackbarsTest() {
-        otherButtons.get(1).is().displayed();
-        otherButtons.get(1).has().text("SHOW MESSAGE A");
-        otherButtons.get(1).click();
-        snackbarPopUpText.base().timer().wait(() -> snackbarPopUpText.is().displayed());
-        snackbarPopUpText.has().text("Message A");
-        undoSnackbarButton.is().displayed();
-        undoSnackbarButton.click();
-        snackbarPopUpText.base().timer().wait(() -> snackbarPopUpText.is().notVisible());
+    public void customizedSnackbarTest() {
+        successSnackbar.is().notVisible();
+        successSnackbarButton.click();
+        successSnackbar.is().displayed();
+        successSnackbar.has().text("This is a success message!");
+        successSnackbar.close();
+        successSnackbar.is().notVisible();
+
+        customizedSnackbar.get(1).has().text("This is an error message!").and().messageType("error");
+        customizedSnackbar.get(2).has().text("This is a warning message!").and().messageType("warning");
+        customizedSnackbar.get(3).has().text("This is an information message!").and().messageType("info");
+        customizedSnackbar.get(4).has().text("This is a success message!").and().messageType("success");
     }
 ```
 

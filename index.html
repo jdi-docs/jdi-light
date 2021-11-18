@@ -39490,17 +39490,17 @@ element by using generic. <strong>That classes must implement <code>ICoreElement
 <ul>
 <li><strong>Java</strong>: <em>com.epam.jdi.light.vuetify.elements.complex.TimePickers.java</em></li>
 </ul>
-<pre class="highlight java tab-java"><code>    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">allowedTimesTimePickerTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">allowedTimesTimePicker</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
-        <span class="n">allowedTimesTimePicker</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">size</span><span class="o">(</span><span class="mi">24</span><span class="o">);</span>
-        <span class="n">allowedTimesTimePicker</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="s">"9"</span><span class="o">);</span>
-        <span class="n">allowedTimesTimePicker</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="s">"30"</span><span class="o">);</span>
-        <span class="n">allowedTimesTimePicker</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="s">"30"</span><span class="o">);</span>
-        <span class="n">allowedTimesTimePicker</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">values</span><span class="o">(</span><span class="s">"00"</span><span class="o">,</span> <span class="s">"05"</span><span class="o">,</span> <span class="s">"10"</span><span class="o">,</span> <span class="s">"15"</span><span class="o">,</span> <span class="s">"20"</span><span class="o">,</span> <span class="s">"25"</span><span class="o">,</span> <span class="s">"30"</span><span class="o">,</span> <span class="s">"35"</span><span class="o">,</span> <span class="s">"40"</span><span class="o">,</span> <span class="s">"45"</span><span class="o">,</span> <span class="s">"50"</span><span class="o">,</span> <span class="s">"55"</span><span class="o">);</span>
-        <span class="n">allowedTimesTimePicker</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-        <span class="n">allowedTimesTimePicker</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">elementDisabled</span><span class="o">(</span><span class="s">"55"</span><span class="o">);</span>
-    <span class="o">}</span>
+<pre class="highlight java tab-java"><code>  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">allowedTimesTimePickerTest</span><span class="o">()</span> <span class="o">{</span>
+      <span class="n">allowedTimesTimePicker</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
+      <span class="n">allowedTimesTimePicker</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">size</span><span class="o">(</span><span class="mi">24</span><span class="o">);</span>
+      <span class="n">allowedTimesTimePicker</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="s">"9"</span><span class="o">);</span>
+      <span class="n">allowedTimesTimePicker</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="s">"30"</span><span class="o">);</span>
+      <span class="n">allowedTimesTimePicker</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="s">"30"</span><span class="o">);</span>
+      <span class="n">allowedTimesTimePicker</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">values</span><span class="o">(</span><span class="s">"00"</span><span class="o">,</span> <span class="s">"05"</span><span class="o">,</span> <span class="s">"10"</span><span class="o">,</span> <span class="s">"15"</span><span class="o">,</span> <span class="s">"20"</span><span class="o">,</span> <span class="s">"25"</span><span class="o">);</span>
+      <span class="n">allowedTimesTimePicker</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+      <span class="n">allowedTimesTimePicker</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">elementDisabled</span><span class="o">(</span><span class="s">"55"</span><span class="o">);</span>
+  <span class="o">}</span>
 </code></pre>
 <p>The v-time-picker is stand-alone component that can be utilized in many existing Vuetify components.
 It offers the user a visual representation for selecting the time.</p>

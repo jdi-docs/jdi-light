@@ -34356,39 +34356,17 @@ Java example code for the Button box:</p>
 <td>void</td>
 </tr>
 </tbody></table>
-<h5 id='here-you-can-find-material-icons-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/MaterialIconTests.java" target="_blank">Here you can find Material Icons tests</a></h5><h3 id='4-14-icons'>4.14 Icons</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h2[text()='Color']/following::*[name()='svg']"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">UIElement</span><span class="o">&gt;</span> <span class="n">color</span><span class="o">;</span>
+<h5 id='here-you-can-find-material-icons-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/MaterialIconTests.java" target="_blank">Here you can find Material Icons tests</a></h5><h3 id='4-14-icons'>4.14 Icons</h3><pre class="highlight java tab-java"><code>    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">simpleIconsTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">simpleIcons</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">hover</span><span class="o">();</span>
+        <span class="n">simpleLastHover</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Last hover: DeleteIcon"</span><span class="o">);</span>
+        <span class="n">simpleIcons</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">simpleLastClick</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Last click: DeleteForeverIcon"</span><span class="o">);</span>
 
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#colorLastClick"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Text</span> <span class="n">colorLastClick</span><span class="o">;</span>
-
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#colorLastHover"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Text</span> <span class="n">colorLastHover</span><span class="o">;</span>
-
-    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">colorIconsTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">color</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">el</span> <span class="o">-&gt;</span> <span class="n">el</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">());</span>
-        <span class="n">colorLastClick</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Last click:"</span><span class="o">);</span>
-        <span class="n">colorLastHover</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Last hover:"</span><span class="o">);</span>
-
-        <span class="n">Map</span><span class="o">&lt;</span><span class="n">UIElement</span><span class="o">,</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;&gt;&gt;</span> <span class="n">allColorIcons</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedHashMap</span><span class="o">&lt;&gt;();</span>
-        <span class="n">allColorIcons</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">color</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">),</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">""</span><span class="o">,</span> <span class="s">" default"</span><span class="o">),</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">" default"</span><span class="o">,</span> <span class="s">" default"</span><span class="o">)));</span>
-        <span class="n">allColorIcons</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">color</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">),</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">" default"</span><span class="o">,</span> <span class="s">" primary"</span><span class="o">),</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">" primary"</span><span class="o">,</span> <span class="s">" primary"</span><span class="o">)));</span>
-        <span class="n">allColorIcons</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">color</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">3</span><span class="o">),</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">" primary"</span><span class="o">,</span> <span class="s">" secondary"</span><span class="o">),</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">" secondary"</span><span class="o">,</span> <span class="s">" secondary"</span><span class="o">)));</span>
-        <span class="n">allColorIcons</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">color</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">4</span><span class="o">),</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">" secondary"</span><span class="o">,</span> <span class="s">" action"</span><span class="o">),</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">" action"</span><span class="o">,</span> <span class="s">" action"</span><span class="o">)));</span>
-        <span class="n">allColorIcons</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">color</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">5</span><span class="o">),</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">" action"</span><span class="o">,</span> <span class="s">" disabled"</span><span class="o">),</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">" disabled"</span><span class="o">,</span> <span class="s">" disabled"</span><span class="o">)));</span>
-        <span class="n">allColorIcons</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">color</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">6</span><span class="o">),</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">" disabled"</span><span class="o">,</span> <span class="s">" green[500]"</span><span class="o">),</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">" green[500]"</span><span class="o">,</span> <span class="s">" green[500]"</span><span class="o">)));</span>
-
-        <span class="n">allColorIcons</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span>
-                <span class="o">(</span><span class="n">k</span><span class="o">,</span> <span class="n">v</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="o">{</span>
-                    <span class="n">k</span><span class="o">.</span><span class="na">hover</span><span class="o">();</span>
-                    <span class="n">colorLastClick</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">"Last click:%s"</span><span class="o">,</span> <span class="n">v</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">).</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">)));</span>
-                    <span class="n">colorLastHover</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">"Last hover:%s"</span><span class="o">,</span> <span class="n">v</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">).</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">)));</span>
-                    <span class="n">k</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
-                    <span class="n">colorLastClick</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">"Last click:%s"</span><span class="o">,</span> <span class="n">v</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">)));</span>
-                    <span class="n">colorLastHover</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">"Last hover:%s"</span><span class="o">,</span> <span class="n">v</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">)));</span>
-                <span class="o">}</span>
-        <span class="o">);</span>
+        <span class="n">simpleIcons</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">icon</span> <span class="o">-&gt;</span> <span class="n">icon</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">notColored</span><span class="o">());</span>
+        <span class="n">simpleIcons</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">icon</span> <span class="o">-&gt;</span> <span class="n">icon</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">color</span><span class="o">(</span><span class="s">"rgba(0, 0, 0, 0.87)"</span><span class="o">));</span>
+        <span class="n">simpleIcons</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">icon</span> <span class="o">-&gt;</span> <span class="n">icon</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">height</span><span class="o">(</span><span class="mi">24</span><span class="o">));</span>
+        <span class="n">simpleIcons</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">icon</span> <span class="o">-&gt;</span> <span class="n">icon</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">width</span><span class="o">(</span><span class="mi">24</span><span class="o">));</span>
     <span class="o">}</span>
 </code></pre><h5 id='https-material-ui-com-components-icons'><a href="https://material-ui.com/components/icons/" target="_blank"> https://material-ui.com/components/icons/ </a></h5>
 <p>Material-UI provides icons support in three ways:</p>
@@ -34409,31 +34387,48 @@ Java example code for the Button box:</p>
 </tr>
 </thead><tbody>
 <tr>
+<td><strong>colored()</strong></td>
+<td>Check whether element is colored (not black)</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>getColor()</strong></td>
+<td>Get color of icon</td>
+<td>String</td>
+</tr>
+<tr>
 <td><strong>is()</strong></td>
-<td>Verify state</td>
-<td>boolean</td>
+<td>Assert method</td>
+<td>IconAssert</td>
 </tr>
 <tr>
-<td><strong>displayed()</strong></td>
-<td>Verify state</td>
-<td>boolean</td>
+<td><strong>colored()</strong></td>
+<td>Assert whether icon is colored (not black)</td>
+<td>IconAssert</td>
 </tr>
 <tr>
-<td><strong>text()</strong></td>
-<td>Verify text</td>
-<td>boolean</td>
+<td><strong>notColored()</strong></td>
+<td>Assert whether icon is not colored (black)</td>
+<td>IconAssert</td>
 </tr>
 <tr>
-<td><strong>click()</strong></td>
-<td>Clicks on box</td>
-<td>void</td>
+<td><strong>color(String)</strong></td>
+<td>Assert that icon&#39;s color is certain color</td>
+<td>IconAssert</td>
 </tr>
 <tr>
-<td><strong>hover()</strong></td>
-<td>Hovers on box</td>
-<td>void</td>
+<td><strong>height(int)</strong></td>
+<td>Assert that icon has specified height</td>
+<td>IconAssert</td>
+</tr>
+<tr>
+<td><strong>width(int)</strong></td>
+<td>Assert that icon has specified width</td>
+<td>IconAssert</td>
 </tr>
 </tbody></table>
+
+<p>Icons have also a lot of UIElement methods.</p>
 <h5 id='here-you-can-find-icons-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/IconTests.java" target="_blank">Here you can find Icons tests</a></h5><h3 id='4-15-floating-action-button'>4.15 Floating Action Button</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div[@id='basicActionBtns']/button"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Button</span><span class="o">&gt;</span> <span class="n">basicBtns</span><span class="o">;</span>
 

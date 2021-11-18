@@ -52,7 +52,7 @@ In addition to [Common elements](https://jdi-docs.github.io/jdi-light/?java#comm
 
 Some Complex elements may be regarded as sets of similar Common elements (something you would likely implement as `List<WebElement>` in Selenium). Typical examples of such Complex elements are `Menu`, `Checklist`, `RadioButtons`, or `Tabs`. 
 
-_Note: You can use lists of Common elements like `List<Button>` or `List<Label>` if need be._
+_Note: You can still use lists of Common elements like `List<Button>` or `List<Label>` if need be._
 
 Other Complex elements may be regarded as made up of different Common elements. Typical examples would be `Dropdown` or `Combobox`.
 
@@ -199,7 +199,7 @@ Example scenario:
 ```html
 > Provide List<User> for test
 0. Check that there is a user in the database
-1. Login with user data
+1. Log in with user data
 2. Submit user data in Contact Us form
 3. Get actual opening from vacancy table
 4. Assert that actual opening equals to expected opening
@@ -209,7 +209,7 @@ Code example:
 ```html
 @Test(dataProvider = “users")                      //>
 public void formTest(User user) {
-    DB.users.shouldHave(user);                      //0.
+    DB.users.shouldHave(user);                     //0.
     loginForm.loginAs(user);                       //1.
     contactUsForm.submit(user);                    //2.
     Vacancy vacancy = vacancyTable.getEntity(3);   //3.
@@ -219,9 +219,9 @@ public void formTest(User user) {
 
 ## Smart Locators
 ### Smart locators example
-Let's assume you have a uniform method to locate most of the elements (for example, most of the elements involved in UI test automation have a predictable id, or a name, or a special attribute to locate them.)
+Let's assume you have a uniform method to locate most of the elements (for example, most of the elements involved in UI test automation have a predictable id, or a name, or a special attribute used to locate them.)
 
-Let's assume you have `@UI("[ui=last-name]") public TextField lastName`  element in JDI. In this case you simplify it to `public TextField lastName` and omit the locator.
+Let's assume you have `@UI("[ui=last-name]") public TextField lastName`  element in JDI. In this case you can simplify it to `public TextField lastName` and omit the locator.
 
 Now for more complex example. Suppose you have the following HTML:
 
@@ -266,7 +266,7 @@ public WebElement acceptConditions;
 public WebElement submitButton; 
 ```
 With pure Selenium, Page Object elements for that will look like this: 
-</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+</br></br></br></br></br></br>
 
 ```java
 @UI("[ui=name]") public Textfield name;
@@ -277,7 +277,7 @@ With pure Selenium, Page Object elements for that will look like this:
 @UI("[ui=submit-button]") public Button submitButton;
 ```
 In JDI Light with standard UI Objects the code gets more descriptive, but there still are duplications in locator and element names:
-</br></br></br></br></br></br></br></br>
+</br></br></br>
 
 ```java
 public Textfield name, lastName, pinCode, promoCode;
@@ -293,29 +293,28 @@ Looks cool, doesn't it?
 smart.locators="[ui=%s]"
 smart.locators.toName=UPPER_SNAKE_CASE
 ```
-You can set up your smart locators in ***test.properties*** file the following way.</br>
+You can set up your smart locators in the ***test.properties*** file the following way.</br>
 
 First, assign a value to the `smart.locators` property:
 
 - set it to `#%s` in case your smart locator translates to id </br>
 - set it to `.%s` for classname </br>
 - set it to `[name=%s]` for name (or swap `name` for any other attribute) </br>
-   
 
 Then, assign a value to the `smart.toName` property. Suppose that you have set `smart.locators` to `[ui=%s]`:
-   </br></br>
-- `kebab-case` will provide `[ui=last-name]` locator for public WebElement `lastName`.
+
+- `kebab-case` will provide `[ui=last-name]` locator for public WebElement `lastName`.</br>
 - `camelCase` will provide `[ui=lastName]` locator for public WebElement `lastName`.</br>
 - `snake_case` will provide `[ui=last_name]` locator for public WebElement `lastName`.</br>
 - `PascalCase` will provide `[ui=LastName]` locator for public WebElement `lastName`.</br>
-- `UPPER_SNAKE_CASE` will provide `[ui=LAST_NAME]` locator for public WebElement `lastName`.</br></br>
-   
-  ...or, if the property looks like `smart.locators=//*[text()='%s']`:
-  </br></br>
+- `UPPER_SNAKE_CASE` will provide `[ui=LAST_NAME]` locator for public WebElement `lastName`.</br>
+
+...or, if the property looks like `smart.locators=//*[text()='%s']`:
+
 - `First Upper Case` will provide `//*[text()='Submit Form']` locator for public WebElement `submitForm`.</br>
 - `ALL UPPER CASE` will provide `//*[text()='SUBMIT FORM']` locator for public WebElement `submitForm`.</br>
 
-### Define smart locator using WebSettings
+### Define a Smart Locator using WebSettings
 
 ```java
 WebSettings.SMART_SEARCH_LOCATORS = asList("#%s");
@@ -336,6 +335,7 @@ WebSettings.SMART_SEARCH = el -> {
 You can also set up Smart Locators in code using `WebSettings.SMART_SEARCH_NAME` and `WebSettings.SMART_SEARCH_LOCATORS` variables:
 
 Or you can define by yourself what should be done when UI Element has no locator using `WebSettings.SMART_SEARCH`.
+</br></br></br></br></br></br></br></br></br></br></br></br>
 
 ### Smart Annotations 
 When your locators follow standard patterns you can use Smart Annotations to mark elements:
@@ -402,57 +402,57 @@ public WebElement useVipAccess;
 ## JDI Annotations
 In order to control element behavior in JDI Light you can use the following standard annotations:
 
-`@Root` — ignores all parent sections locators for this element and uses only locator that specified for element (including smart locators).</br>
+**@Root** — ignores all parent sections locators for this element and uses only locator that specified for element (including smart locators).</br>
 
-`@Frame("frame-id")` or `@Frame({"frame-id", "div[name-adv]"})` — in case you have two or more frames above the element, use `driver.switchTo().frame(...)` before searching your element. Or call it multiple times if `@Frame` has list of locators. Can be used together with `@UI` locator.</br>
+**@Frame("frame-id")** or **@Frame({"frame-id", "div[name-adv]"})** — in case you have two or more frames above the element, use `driver.switchTo().frame(...)` before searching your element. Or call it multiple times if `@Frame` has list of locators. Can be used together with `@UI` locator.</br>
 
-`@Css("div.dropdown")` — if your element has a CSS locator (deprecated, recommended to use universal `@UI` locator instead.)</br>
+**@Css("div.dropdown")** — if your element has a CSS locator (deprecated, recommended to use universal `@UI` locator instead.)</br>
 
-`@XPath("//div[text()="Submit"]")` — if your element has an XPath locator (deprecated, recommended to use universal `@UI` locator instead.)</br>
+**@XPath("//div[text()='Submit']")** — if your element has an XPath locator (deprecated, recommended to use universal `@UI` locator instead.)</br>
 
-`@ByText("Submit")` — used to locate elements by text (uses locator `".//*/text()[normalize-space(.) = %s]/parent::*"`.)</br>
+**@ByText("Submit")** — used to locate elements by text (uses locator `".//*/text()[normalize-space(.) = %s]/parent::*"`.)</br>
 
-`@WithText("Navigation")` — used to locate elements by text containing given substring (uses locator `".//*/text()[contains(normalize-space(.), %s)]/parent::*"`)</br>
+**@WithText("Navigation")** — used to locate elements by text containing given substring (uses locator `".//*/text()[contains(normalize-space(.), %s)]/parent::*"`)</br>
 
-`@ClickArea(...)` — specifies how click will be performed. Allowed values: `SMART_CLICK` (tries to find area where user able to click), `TOP_LEFT` (click top left corner of the element), `TOP_RIGHT` (click top right corner of the element), `BOTTOM_LEFT` (click bottom left corner of the element), `BOTTOM_RIGHT` (click bottom right corner of the element), `CENTER` (standard Selenium click in the center of the element), `JS` (using JS click).</br>
+**@ClickArea(...)** — specifies how click will be performed. Allowed values: `SMART_CLICK` (tries to find area where user able to click), `TOP_LEFT` (click top left corner of the element), `TOP_RIGHT` (click top right corner of the element), `BOTTOM_LEFT` (click bottom left corner of the element), `BOTTOM_RIGHT` (click bottom right corner of the element), `CENTER` (standard Selenium click in the center of the element), `JS` (using JS click).</br>
 
-`@GetTextAs(...)` — specifies how getText will be performed. Allowed values: `TEXT` (`getText()`), `VALUE` (`getAttribute("value")`), `INNER` (`jsExecute("innerText")`), `LABEL` (using a label related to the element; good for checkboxes and radio buttons), `SMART_TEXT` (tries smart value search).</br>
+**@GetTextAs(...)** — specifies how getText will be performed. Allowed values: `TEXT` (`getText()`), `VALUE` (`getAttribute("value")`), `INNER` (`jsExecute("innerText")`), `LABEL` (using a label related to the element; good for checkboxes and radio buttons), `SMART_TEXT` (tries smart value search).</br>
 
-`@SetTextAs(...)` — specifies how text input will be performed. Allowed values: `SEND_KEYS` (`sendKeys(...)`), `SET_TEXT` (set `value` attribute using JS), `CLEAR_SEND_KEYS` (`clear()` then `sendKeys(...)`).</br>
+**@SetTextAs(...)** — specifies how text input will be performed. Allowed values: `SEND_KEYS` (`sendKeys(...)`), `SET_TEXT` (set `value` attribute using JS), `CLEAR_SEND_KEYS` (`clear()` then `sendKeys(...)`).</br>
 
-`@NoCache` — always get the element from the page. Do not use cache.</br>
+**@NoCache** — always get the element from the page. Do not use cache.</br>
 
-`@WaitTimeout(sec)` — set _sec_ seconds implicit wait for the element.</br>
+**@WaitTimeout(sec)** — set _sec_ seconds implicit wait for the element.</br>
 
-`@NoWait` — no element wait timeout; the element won't be found unless it's present on the page.</br>
+**@NoWait** — no element wait timeout; the element won't be found unless it's present on the page.</br>
 
-`@Name(“Test”)` — sets the name of an element to the provided value.</br>
+**@Name(“Test”)** — sets the name of an element to the provided value.</br>
 
-`@GetAny` — gets element without validation.</br>
+**@GetAny** — gets element without validation.</br>
 
-`@GetVisible` — returns displayed element.</br>
+**@GetVisible** — returns displayed element.</br>
 
-`@GetVisibleEnabled` — returns displayed and enabled element.</br>
+**@GetVisibleEnabled** — returns displayed and enabled element.</br>
 
-`@GetShowInView` — returns displayed and clickable element.</br>
+**@GetShowInView** — returns displayed and clickable element.</br>
 
-`@PageName` — sets `pageName` variable for the element.</br>
+**@PageName** — sets `pageName` variable for the element.</br>
 
-`@SId` — sets smart ID locator, e.g `“By.cssSelector: #Test”`, where “Test” is the element's `id` attribute.</br>
+**@SId** — sets smart ID locator, e.g `“By.cssSelector: #Test”`, where “Test” is the element's `id` attribute.</br>
 
-`@SText` — sets smart text locator, e.g. `“By.xpath: .//*/text()[normalize-space(.) = "S Text"]/parent::*”`, where “SText” is the name of the element. Be aware that it’s creating a locator with white space for words starting with capital letter.</br>
+**@SText** — sets smart text locator, e.g. `“By.xpath: .//*/text()[normalize-space(.) = "S Text"]/parent::*”`, where “SText” is the name of the element. Be aware that it’s creating a locator with white space for words starting with capital letter.</br>
 
-`@SName` — sets smart name locator, e.g. for `“@Name(“Test”) @SName”` it will be `“By.cssSelector: [name='test']”`.</br>
+**@SName** — sets smart name locator, e.g. for `“@Name(“Test”) @SName”` it will be `“By.cssSelector: [name='test']”`.</br>
 
-`@Smart` — sets smart locator, e.g. for `“@Name(“Smart”) @Smart(“id”)”` it will be `“By.cssSelector: [id=’smart’]”`.</br>
+**@Smart** — sets smart locator, e.g. for `“@Name(“Smart”) @Smart(“id”)”` it will be `“By.cssSelector: [id=’smart’]”`.</br>
 
-`@SClass` — sets smart class locator, e.g. for `“@Name(“Test”) @SName”` it will be `“By.cssSelector: .test”`.</br>
+**@SClass** — sets smart class locator, e.g. for `“@Name(“Test”) @SName”` it will be `“By.cssSelector: .test”`.</br>
 
-`@UI` — for list UI locator, e.g. `@UI("img")`, see more examples in the previous section.</br>
+**@UI** — for list UI locator, e.g. `@UI("img")`, see more examples in the previous section.</br>
 
-`@FindBy` — an annotation that can have attributes such as: `css`, `tagName`, `linkText`, `partialLinkText`, `xpath`; `text`, `id`, `name`, `className`, `group`. Could be quickly changed to from Selenium `@FindBy` by changing the import line.</br>
+**@FindBy** — an annotation that can have attributes such as: `css`, `tagName`, `linkText`, `partialLinkText`, `xpath`; `text`, `id`, `name`, `className`, `group`. Could be quickly changed to from Selenium `@FindBy` by changing the import line.</br>
 
-`@VisualCheck` — adds the `“(“visualCheck”, “”)”` pair to params.
+**@VisualCheck** — adds the `“(“visualCheck”, “”)”` pair to params.
 
 ## JDI Locators (as simple as CSS, as powerful as XPath)
 

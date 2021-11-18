@@ -358,7 +358,7 @@ For `@UI("[data-type=data-multi-combobox]") MultiCombobox dataMultiCombobox;`</b
 use `@Smart("data-type") MultiCombobox dataMultiCombobox;`</br>
 </br>
 
-### Custom Smart Annotations
+### Custom Smart Annotation
 You can also always create your own annotation enabling smart behavior.
 
 Let's assume you would like to use smart locators for buttons like `//button[text()='Button Text']`.

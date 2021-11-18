@@ -649,39 +649,17 @@ The following npm package, @material-ui/icons, includes the 1,100+ official Mate
 ### 4.14 Icons
 
 ```java     
-    @UI("//h2[text()='Color']/following::*[name()='svg']")
-    public static List<UIElement> color;
-
-    @UI("#colorLastClick")
-    public static Text colorLastClick;
-
-    @UI("#colorLastHover")
-    public static Text colorLastHover;
-
     @Test
-    public void colorIconsTest() {
-        color.forEach(el -> el.is().displayed());
-        colorLastClick.is().text("Last click:");
-        colorLastHover.is().text("Last hover:");
+    public void simpleIconsTest() {
+        simpleIcons.get(1).hover();
+        simpleLastHover.has().text("Last hover: DeleteIcon");
+        simpleIcons.get(2).click();
+        simpleLastClick.has().text("Last click: DeleteForeverIcon");
 
-        Map<UIElement, List<List<String>>> allColorIcons = new LinkedHashMap<>();
-        allColorIcons.put(color.get(1), Arrays.asList(Arrays.asList("", " default"), Arrays.asList(" default", " default")));
-        allColorIcons.put(color.get(2), Arrays.asList(Arrays.asList(" default", " primary"), Arrays.asList(" primary", " primary")));
-        allColorIcons.put(color.get(3), Arrays.asList(Arrays.asList(" primary", " secondary"), Arrays.asList(" secondary", " secondary")));
-        allColorIcons.put(color.get(4), Arrays.asList(Arrays.asList(" secondary", " action"), Arrays.asList(" action", " action")));
-        allColorIcons.put(color.get(5), Arrays.asList(Arrays.asList(" action", " disabled"), Arrays.asList(" disabled", " disabled")));
-        allColorIcons.put(color.get(6), Arrays.asList(Arrays.asList(" disabled", " green[500]"), Arrays.asList(" green[500]", " green[500]")));
-
-        allColorIcons.forEach(
-                (k, v) -> {
-                    k.hover();
-                    colorLastClick.is().text(String.format("Last click:%s", v.get(0).get(0)));
-                    colorLastHover.is().text(String.format("Last hover:%s", v.get(0).get(1)));
-                    k.click();
-                    colorLastClick.is().text(String.format("Last click:%s", v.get(1).get(0)));
-                    colorLastHover.is().text(String.format("Last hover:%s", v.get(1).get(1)));
-                }
-        );
+        simpleIcons.forEach(icon -> icon.is().notColored());
+        simpleIcons.forEach(icon -> icon.has().color("rgba(0, 0, 0, 0.87)"));
+        simpleIcons.forEach(icon -> icon.has().height(24));
+        simpleIcons.forEach(icon -> icon.has().width(24));
     }
 ```
 
@@ -697,11 +675,16 @@ Material-UI provides icons support in three ways:
 
 |Method | Description | Return Type
 --- | --- | ---
-**is()** | Verify state | boolean
-**displayed()** | Verify state | boolean
-**text()** | Verify text | boolean
-**click()** | Clicks on box | void
-**hover()** | Hovers on box | void
+**colored()** | Check whether element is colored (not black) | boolean
+**getColor()** | Get color of icon | String
+**is()** | Assert method | IconAssert
+**colored()** | Assert whether icon is colored (not black) | IconAssert
+**notColored()** | Assert whether icon is not colored (black) | IconAssert
+**color(String)** | Assert that icon's color is certain color | IconAssert
+**height(int)** | Assert that icon has specified height | IconAssert
+**width(int)** | Assert that icon has specified width | IconAssert
+
+Icons have also a lot of UIElement methods.
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/IconTests.java" target="_blank">Here you can find Icons tests</a>
 

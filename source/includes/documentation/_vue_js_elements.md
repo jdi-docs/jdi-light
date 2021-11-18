@@ -1925,17 +1925,17 @@ For examples of usage see: [JDI Vuetify TimeLine tests](https://github.com/jdi-t
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.TimePickers.java_
 
 ```java
-    @Test
-    public static void allowedTimesTimePickerTest() {
-        allowedTimesTimePicker.is().enabled();
-        allowedTimesTimePicker.has().size(24);
-        allowedTimesTimePicker.select("9");
-        allowedTimesTimePicker.select("30");
-        allowedTimesTimePicker.is().selected("30");
-        allowedTimesTimePicker.has().values("00", "05", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55");
-        allowedTimesTimePicker.is().displayed();
-        allowedTimesTimePicker.has().elementDisabled("55");
-    }
+  @Test
+  public static void allowedTimesTimePickerTest() {
+      allowedTimesTimePicker.is().enabled();
+      allowedTimesTimePicker.has().size(24);
+      allowedTimesTimePicker.select("9");
+      allowedTimesTimePicker.select("30");
+      allowedTimesTimePicker.is().selected("30");
+      allowedTimesTimePicker.has().values("00", "05", "10", "15", "20", "25");
+      allowedTimesTimePicker.is().displayed();
+      allowedTimesTimePicker.has().elementDisabled("55");
+  }
 ```
 
 The v-time-picker is stand-alone component that can be utilized in many existing Vuetify components.

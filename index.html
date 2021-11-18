@@ -451,9 +451,6 @@
             <a href="#documentation" class="toc-h1 toc-link" data-title="Documentation">Documentation</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#5-32-lazy" class="toc-h2 toc-link" data-title="5.32 Lazy">5.32 Lazy</a>
-                  </li>
-                  <li>
                     <a href="#base-information" class="toc-h2 toc-link" data-title="Base information">Base information</a>
                       <ul class="toc-list-h2">
                           <li>
@@ -1179,6 +1176,9 @@
 										              <a href="#5-31-1-time-pickers" class="toc-h3 h4 toc-link" data-title="5.31.1 Time pickers">5.31.1 Time pickers</a>
 										              </li>
 									            </ul>
+                          </li>
+                          <li>
+								            <a href="#5-32-lazy" class="toc-h2 h3 toc-link" data-title="5.32 Lazy">5.32 Lazy</a>
                           </li>
                       </ul>
                   </li>
@@ -3030,62 +3030,7 @@ JDI Locator: <code>label[&#39;Gold status&#39;]&lt;input[type=checkbox]</code></
 JDI Locator: <code>.nav-menu [data-role=header][3]</code></br></p>
 <h1 id='faq'>FAQ</h1>
 <p>TBD</p>
-<h1 id='documentation'>Documentation</h1><h3 id='5-32-lazy'>5.32 Lazy</h3>
-<p><a href="https://vuetifyjs.com/en/components/lazy/">Vuetify documentation page</a></p>
-
-<ul>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.vuetify.elements.complex.Lazy.java</em></li>
-</ul>
-<pre class="highlight java tab-java"><code><span class="nd">@Test</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">itemIsLoadedTest</span><span class="o">()</span> <span class="o">{</span>
-<span class="n">lazy</span><span class="o">.</span><span class="na">scrollIntoView</span><span class="o">();</span>
-<span class="n">lazy</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-<span class="n">lazy</span><span class="o">.</span><span class="na">hiddenItem</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-<span class="n">lazy</span><span class="o">.</span><span class="na">core</span><span class="o">().</span><span class="na">find</span><span class="o">(</span><span class="n">ITEM_TITLE</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Card title"</span><span class="o">);</span>
-<span class="n">lazy</span><span class="o">.</span><span class="na">core</span><span class="o">().</span><span class="na">find</span><span class="o">(</span><span class="n">ITEM_TEXT</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-<span class="n">lazy</span><span class="o">.</span><span class="na">core</span><span class="o">().</span><span class="na">find</span><span class="o">(</span><span class="n">ITEM_TEXT</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">Matchers</span><span class="o">.</span><span class="na">containsString</span><span class="o">(</span><span class="s">"Aliquam lobortis"</span><span class="o">));</span>
-    <span class="o">}</span>
-</code></pre>
-<p><img src="images/vuetify/lazy.png" alt="Lazy example" /></p>
-
-<p>The Lazy component is used to dynamically load components based upon an elements visibility.</p>
-
-<table><thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-<th>Return Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>hiddenItem()</strong></td>
-<td>Returns hidden item by <code>item</code> locator from JDILazy annotation</td>
-<td>UIElement</td>
-</tr>
-<tr>
-<td><strong>isHidden()</strong></td>
-<td>Returns true if element is hidden</td>
-<td>boolean</td>
-</tr>
-<tr>
-<td><strong>isDisplayed()</strong></td>
-<td>Returns true if element is displayed</td>
-<td>boolean</td>
-</tr>
-<tr>
-<td><strong>scrollIntoView()</strong></td>
-<td>Scrolls down until element is displayed</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>is()</strong></td>
-<td>Returns Assert class</td>
-<td>LazyAssert</td>
-</tr>
-</tbody></table>
-
-<p>For examples of usage see: JDI vuetify page tests for lazy.</p>
-<h2 id='base-information'>Base information</h2><h3 id='base-elements'>Base Elements</h3><h4 id='uibaseelement'>UIBaseElement</h4><h4 id='uielement'>UIElement</h4><pre class="highlight java tab-java"><code>
+<h1 id='documentation'>Documentation</h1><h2 id='base-information'>Base information</h2><h3 id='base-elements'>Base Elements</h3><h4 id='uibaseelement'>UIBaseElement</h4><h4 id='uielement'>UIElement</h4><pre class="highlight java tab-java"><code>
   <span class="nd">@Test</span>
   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">click</span><span class="o">()</span> <span class="o">{</span>
       <span class="n">submit</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
@@ -39609,6 +39554,61 @@ It offers the user a visual representation for selecting the time.</p>
 <p>TimePickers have also a lot of list-based JDI elements methods.</p>
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/TimePickersTests.java">JDI Vuetify TimePickers tests</a>.</p>
+<h3 id='5-32-lazy'>5.32 Lazy</h3>
+<p><a href="https://vuetifyjs.com/en/components/lazy/">Vuetify documentation page</a></p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.vuetify.elements.complex.Lazy.java</em></li>
+</ul>
+<pre class="highlight java tab-java"><code><span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">itemIsLoadedTest</span><span class="o">()</span> <span class="o">{</span>
+<span class="n">lazy</span><span class="o">.</span><span class="na">scrollIntoView</span><span class="o">();</span>
+<span class="n">lazy</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+<span class="n">lazy</span><span class="o">.</span><span class="na">hiddenItem</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+<span class="n">lazy</span><span class="o">.</span><span class="na">core</span><span class="o">().</span><span class="na">find</span><span class="o">(</span><span class="n">ITEM_TITLE</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Card title"</span><span class="o">);</span>
+<span class="n">lazy</span><span class="o">.</span><span class="na">core</span><span class="o">().</span><span class="na">find</span><span class="o">(</span><span class="n">ITEM_TEXT</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+<span class="n">lazy</span><span class="o">.</span><span class="na">core</span><span class="o">().</span><span class="na">find</span><span class="o">(</span><span class="n">ITEM_TEXT</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">Matchers</span><span class="o">.</span><span class="na">containsString</span><span class="o">(</span><span class="s">"Aliquam lobortis"</span><span class="o">));</span>
+    <span class="o">}</span>
+</code></pre>
+<p><img src="images/vuetify/lazy.png" alt="Lazy example" /></p>
+
+<p>The Lazy component is used to dynamically load components based upon an elements visibility.</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>hiddenItem()</strong></td>
+<td>Returns hidden item by <code>item</code> locator from JDILazy annotation</td>
+<td>UIElement</td>
+</tr>
+<tr>
+<td><strong>isHidden()</strong></td>
+<td>Returns true if element is hidden</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isDisplayed()</strong></td>
+<td>Returns true if element is displayed</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>scrollIntoView()</strong></td>
+<td>Scrolls down until element is displayed</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>is()</strong></td>
+<td>Returns Assert class</td>
+<td>LazyAssert</td>
+</tr>
+</tbody></table>
+
+<p>For examples of usage see: JDI vuetify page tests for lazy.</p>
 <h2 id='jdi-features'>JDI features</h2><h3 id='jdi-features-for-parameters-in-bdd-steps'>JDI Features for parameters in BDD steps</h3><h4 id='using-aliases-as-locators-parameters'>Using aliases as locators parameters</h4><pre class="highlight gherkin tab-gherkin"><code>   <span class="kn">Scenario</span><span class="p">:</span> input element
        <span class="nf">When</span> I input <span class="s">"simple 1234"</span> in <span class="s">"Name"</span>
        <span class="nf">Then</span> the <span class="s">"Name"</span> text matches to <span class="s">"\w{6} \d{4}"</span>

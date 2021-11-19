@@ -266,7 +266,7 @@ public WebElement acceptConditions;
 public WebElement submitButton; 
 ```
 With pure Selenium, Page Object elements for that will look like this: 
-</br></br></br></br></br></br>
+</br></br></br></br></br></br></br></br></br>
 
 ```java
 @UI("[ui=name]") public Textfield name;
@@ -277,7 +277,7 @@ With pure Selenium, Page Object elements for that will look like this:
 @UI("[ui=submit-button]") public Button submitButton;
 ```
 In JDI Light with standard UI Objects the code gets more descriptive, but there still are duplications in locator and element names:
-</br></br></br>
+</br></br></br></br></br></br>
 
 ```java
 public Textfield name, lastName, pinCode, promoCode;
@@ -335,7 +335,7 @@ WebSettings.SMART_SEARCH = el -> {
 You can also set up Smart Locators in code using `WebSettings.SMART_SEARCH_NAME` and `WebSettings.SMART_SEARCH_LOCATORS` variables:
 
 Or you can define by yourself what should be done when UI Element has no locator using `WebSettings.SMART_SEARCH`.
-</br></br></br></br></br></br></br></br></br></br></br></br>
+</br></br></br></br></br></br></br></br></br></br>
 
 ### Smart Annotations 
 When your locators follow standard patterns you can use Smart Annotations to mark elements:

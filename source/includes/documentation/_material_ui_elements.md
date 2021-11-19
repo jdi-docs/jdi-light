@@ -880,37 +880,49 @@ Sliders reflect a range of values along a bar, from which users may select a sin
 ### 4.19 Tabs
 
 ```java 
-    @UI("//*[contains(@class, 'MuiTabs-scrollButtons')]")
-    public static List<Button> scrollButtons;
-    
     @UI("//button[contains(@aria-controls,'simple-tabpanel')]")
-    public static List<Button> simpleTabs;
-    
+    public static List<Tabs> simpleTabs;
+
+    @UI("//button[contains(@aria-controls,'scrollable-auto-tab')]")
+    public static List<Tabs> scrollableTabs;
+
+    @UI("//button[contains(@aria-controls,'scrollable-prevent-tab')]")
+    public static List<Tabs> preventScrollTabs;
+
     @UI("//button[contains(@aria-controls,'vertical-tabpanel')]")
-    public static List<Button> verticalTabs;
+    public static List<Tabs> verticalTabs;
     
     @Test
     public void simpleTabTest() {
-        tableIndex = 1;
-        clickButton(1);
-        checkLastItemText(itemList.get(1));
-        tableLocators.get(tableIndex).get(4).has().classValue(containsString("Mui-disabled"));
-        clickButton(5);
-        checkLastItemText(itemList.get(5));
+        simpleTabs.get(1).click();
+        simpleTabs.get(1).is().enabled();
+        simpleTabs.get(1).is().selected(1);
+
+        simpleTabs.get(2).click();
+
+        simpleTabs.get(4).is().disabled();
+
+        jdiAssert(simpleTabs.size(), Matchers.is(5));
     }
 
     @Test
-    public void verticalTabTest() {
-        tableIndex = 4;
-        clickButton(1);
-        checkLastItemText(itemList.get(1));
-        scrollButtons.get(4).click();
-        clickButton(4);
-        checkLastItemText(itemList.get(4));
-        scrollButtons.get(4).click();
-        clickButton(7);
-        checkLastItemText(itemList.get(7));
+    public void scrollableTabTest() {
+        scrollableTabs.get(1).click();
+        scrollableTabs.get(1).is().enabled();
+        scrollableTabs.get(1).is().selected(1);
+
+        scrollableTabs.get(7).click();
+        scrollableTabs.get(7).is().enabled();
+
+        scrollableTabs.get(11).click();
+        scrollableTabs.get(11).is().enabled();
+
+        scrollableTabs.get(1).click();
+        scrollableTabs.get(1).is().enabled();
+
+        jdiAssert(scrollableTabs.size(), Matchers.is(11));
     }
+
 ```
 
 ##### <a href="https://material-ui.com/components/Tabs/" target="_blank"> https://material-ui.com/components/Tabs/ </a>
@@ -922,10 +934,12 @@ Tabs organize and allow navigation between groups of content that are related an
 |Method | Description | Return Type
 --- | --- | ---
 **click()** | Clicks on button | void
-**has()** | Returns Assert class | Assert
-**text()** | Assert text | Assert
+**is()** | Assert method | Tabs Assert
+**enabled()** | Check if tab is enabled | boolean
+**disabled()** | Check if tab is disabled | boolean
+**selected()** | Check if tab is selected | boolean
 
-##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/TabTests.java" target="_blank">Here you can find Tabs tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/pull/3518/commits/c82c82512d73a84716eead8f0d4744cf4dd34f98#diff-fbe7d79cccd062917f385eca9e9db7fde3c41058b8dff308f33693d160ee60e8" target="_blank">Here you can find Tabs tests</a>
 
 ### 4.20 Table
 

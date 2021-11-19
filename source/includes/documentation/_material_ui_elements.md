@@ -1587,20 +1587,17 @@ Breadcrumbs allow users to make selections from a range of values.
 ### 4.35 Bottom Navigation
 
 ```java 
-    @UI(".MuiBottomNavigationAction-root[2]")
-    public static BottomNavigation favorites;
-    
-    @UI("#currentPosition")
-    public static Text currentPosition;
+    @UI(".MuiBottomNavigationAction-root")
+    public static List<BottomNavigation> bottomNavigationItems;
     
     @Test
-    public void defaultBottomNavigationTest(){
-        favorites.is().enabled();
-        assertTrue(favorites.core().text().contains("Favorites"));
-        assertFalse(favorites.isSelected());
-        favorites.core().click();
-        assertTrue(currentPosition.getText().contains("Favorites"));
-        favorites.is().selected();
+    public void defaultBottomNavigationTest() {
+        bottomNavigationItems.get(1).click();
+        bottomNavigationItems.get(1).is().selected();
+        bottomNavigationItems.get(2).is().notSelected();
+        bottomNavigationItems.get(3).is().notSelected();
+
+        jdiAssert(bottomNavigationItems.size(), Matchers.is(3));
     }
 ```
 
@@ -1610,6 +1607,14 @@ Bottom navigation bars allow movement between primary destinations in an app.
 
 
 ![BottomNavigation](../../images/material-ui/BottomNavigation.png)
+
+|Method | Description | Return Type
+--- | --- | ---
+**click()** | Clicks on button | void
+**is()** | Assert method | BottomNavigation Assert
+**isSelected** | Check if item is selected | boolean
+**isNotSelected()** | Check if item is not selected | boolean
+
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/BottomNavigationTests.java" target="_blank">Here you can find Bottom Navigation tests</a>
 

@@ -34697,37 +34697,49 @@ You can use for testing Text and Button classes, implemented in JDI-html section
 <td>boolean</td>
 </tr>
 </tbody></table>
-<h5 id='here-you-can-find-slider-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/SliderTests.java" target="_blank">Here you can find Slider tests</a></h5><h3 id='4-19-tabs'>4.19 Tabs</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//*[contains(@class, 'MuiTabs-scrollButtons')]"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Button</span><span class="o">&gt;</span> <span class="n">scrollButtons</span><span class="o">;</span>
+<h5 id='here-you-can-find-slider-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/SliderTests.java" target="_blank">Here you can find Slider tests</a></h5><h3 id='4-19-tabs'>4.19 Tabs</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//button[contains(@aria-controls,'simple-tabpanel')]"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Tabs</span><span class="o">&gt;</span> <span class="n">simpleTabs</span><span class="o">;</span>
 
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//button[contains(@aria-controls,'simple-tabpanel')]"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Button</span><span class="o">&gt;</span> <span class="n">simpleTabs</span><span class="o">;</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//button[contains(@aria-controls,'scrollable-auto-tab')]"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Tabs</span><span class="o">&gt;</span> <span class="n">scrollableTabs</span><span class="o">;</span>
+
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//button[contains(@aria-controls,'scrollable-prevent-tab')]"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Tabs</span><span class="o">&gt;</span> <span class="n">preventScrollTabs</span><span class="o">;</span>
 
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"//button[contains(@aria-controls,'vertical-tabpanel')]"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Button</span><span class="o">&gt;</span> <span class="n">verticalTabs</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Tabs</span><span class="o">&gt;</span> <span class="n">verticalTabs</span><span class="o">;</span>
 
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">simpleTabTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">tableIndex</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-        <span class="n">clickButton</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
-        <span class="n">checkLastItemText</span><span class="o">(</span><span class="n">itemList</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">));</span>
-        <span class="n">tableLocators</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">tableIndex</span><span class="o">).</span><span class="na">get</span><span class="o">(</span><span class="mi">4</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">classValue</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"Mui-disabled"</span><span class="o">));</span>
-        <span class="n">clickButton</span><span class="o">(</span><span class="mi">5</span><span class="o">);</span>
-        <span class="n">checkLastItemText</span><span class="o">(</span><span class="n">itemList</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">5</span><span class="o">));</span>
+        <span class="n">simpleTabs</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">simpleTabs</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
+        <span class="n">simpleTabs</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+
+        <span class="n">simpleTabs</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+
+        <span class="n">simpleTabs</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">4</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">disabled</span><span class="o">();</span>
+
+        <span class="n">jdiAssert</span><span class="o">(</span><span class="n">simpleTabs</span><span class="o">.</span><span class="na">size</span><span class="o">(),</span> <span class="n">Matchers</span><span class="o">.</span><span class="na">is</span><span class="o">(</span><span class="mi">5</span><span class="o">));</span>
     <span class="o">}</span>
 
     <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">verticalTabTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">tableIndex</span> <span class="o">=</span> <span class="mi">4</span><span class="o">;</span>
-        <span class="n">clickButton</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
-        <span class="n">checkLastItemText</span><span class="o">(</span><span class="n">itemList</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">));</span>
-        <span class="n">scrollButtons</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">4</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">clickButton</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
-        <span class="n">checkLastItemText</span><span class="o">(</span><span class="n">itemList</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">4</span><span class="o">));</span>
-        <span class="n">scrollButtons</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">4</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">clickButton</span><span class="o">(</span><span class="mi">7</span><span class="o">);</span>
-        <span class="n">checkLastItemText</span><span class="o">(</span><span class="n">itemList</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">7</span><span class="o">));</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">scrollableTabTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">scrollableTabs</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">scrollableTabs</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
+        <span class="n">scrollableTabs</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+
+        <span class="n">scrollableTabs</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">7</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">scrollableTabs</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">7</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
+
+        <span class="n">scrollableTabs</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">11</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">scrollableTabs</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">11</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
+
+        <span class="n">scrollableTabs</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">scrollableTabs</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
+
+        <span class="n">jdiAssert</span><span class="o">(</span><span class="n">scrollableTabs</span><span class="o">.</span><span class="na">size</span><span class="o">(),</span> <span class="n">Matchers</span><span class="o">.</span><span class="na">is</span><span class="o">(</span><span class="mi">11</span><span class="o">));</span>
     <span class="o">}</span>
+
 </code></pre><h5 id='https-material-ui-com-components-tabs'><a href="https://material-ui.com/components/Tabs/" target="_blank"> https://material-ui.com/components/Tabs/ </a></h5>
 <p>Tabs organize and allow navigation between groups of content that are related and at the same level of hierarchy.</p>
 
@@ -34746,17 +34758,27 @@ You can use for testing Text and Button classes, implemented in JDI-html section
 <td>void</td>
 </tr>
 <tr>
-<td><strong>has()</strong></td>
-<td>Returns Assert class</td>
-<td>Assert</td>
+<td><strong>is()</strong></td>
+<td>Assert method</td>
+<td>Tabs Assert</td>
 </tr>
 <tr>
-<td><strong>text()</strong></td>
-<td>Assert text</td>
-<td>Assert</td>
+<td><strong>enabled()</strong></td>
+<td>Check if tab is enabled</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>disabled()</strong></td>
+<td>Check if tab is disabled</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>selected()</strong></td>
+<td>Check if tab is selected</td>
+<td>boolean</td>
 </tr>
 </tbody></table>
-<h5 id='here-you-can-find-tabs-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/TabTests.java" target="_blank">Here you can find Tabs tests</a></h5><h3 id='4-20-table'>4.20 Table</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#basicTable"</span><span class="o">)</span>
+<h5 id='here-you-can-find-tabs-tests'><a href="https://github.com/jdi-testing/jdi-light/pull/3518/commits/c82c82512d73a84716eead8f0d4744cf4dd34f98#diff-fbe7d79cccd062917f385eca9e9db7fde3c41058b8dff308f33693d160ee60e8" target="_blank">Here you can find Tabs tests</a></h5><h3 id='4-20-table'>4.20 Table</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#basicTable"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">Table</span> <span class="n">basicTable</span><span class="o">;</span>
 
     <span class="nd">@UI</span><span class="o">(</span><span class="s">".MuiDataGrid-selectedRowCount"</span><span class="o">)</span>

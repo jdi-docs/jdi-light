@@ -37,44 +37,44 @@ Available methods in Java JDI Light:
 |Method | Description | Return Type
 --- | --- | --- 
 **check()** | Clicks on element if it's not selected | void
-**classes()** | Gets all classes as list | List<String>
+**classes()** | Gets all element's classes as list | List<String>
 **clear()** | Clears input field | void
 **click()** | Clicks on element | void
-**click(Element area)** | Clicks on element area(Element area could be SMART_CLICK, TOP_LEFT, TOP_RIGHT, BOTTOM_LEFT, BOTTOM_RIGHT, CENTER, JS) | void
+**click(ElementArea area)** | Clicks on element area (possible ElementArea values are SMART_CLICK, TOP_LEFT, TOP_RIGHT, BOTTOM_LEFT, BOTTOM_RIGHT, CENTER, JS) | void
 **click(int x, int y)** | Clicks on point (x, y) | void
 **doubleClick()** | Double clicks on the element | void
-**dragAndDropTo(int x, int y)** | Drags and drops it to certain coordinates | void
-**dragAndDropTo(WebElement to)** | Drags and drops it to another element | void
+**dragAndDropTo(int x, int y)** | Drags and drops element to certain coordinates | void
+**dragAndDropTo(WebElement to)** | Drags and drops element to another element | void
 **focus()** | Focuses on element | void
-**getAllAttributes()** | Gets all element’s attributes | MapArray<String, String>
-**getAttribute(String value)** | Gets the attribute value | String
-**getCssValue(String value)** | Gets element css value | String
+**getAllAttributes()** | Gets all element attributes | MapArray<String, String>
+**getAttribute(String value)** | Gets the value of specified element attribute | String
+**getCssValue(String value)** | Gets element CSS value | String
 **getLocation()** | Gets element location as point | Point
 **getRect()** | Gets element rectangle | Rectangle
 **getSize()** | Gets element size | Dimension
-**getTagName()** | Returns tag name | String
-**getText()** | Gets text of the element | String
-**getValue()** | Gets text | String
-**hasAttribute(String attrName)** | Returns true if element has expected attribute | boolean
-**hasClass(String className)** | Returns true if element has expected class | boolean
+**getTagName()** | Gets element tag name | String
+**getText()** | Gets element text| String
+**getValue()** | Gets element text | String
+**hasAttribute(String attrName)** | Returns true if the element has an expected attribute | boolean
+**hasClass(String className)** | Returns true if the element has an expected class | boolean
 **highlight()** | Highlights element with red color | void
-**highlight(String color)** | Scrolls view to element and makes a border around with specified color | void
-**hover()** | Hovers mouse to element | void
+**highlight(String color)** | Scrolls view to element and highlights it with a border of specified color | void
+**hover()** | Hovers mouse cursor over the element | void
 **input(String value)** | Inputs specified value as keys | void
 **isDeselected()** | Checks that element is deselected | boolean
-**isDisabled()** | Checks element is disabled | boolean
-**isDisplayed()** | Checks the element is displayed | boolean
-**isEnabled()** | Checks element exists | boolean
-**isHidden()** | Checks element is hidden | boolean
-**isNotExist()** | Checks element doesn’t exist | boolean
-**isNotVisible()** | Checks element is not visible by user | boolean
+**isDisabled()** | Checks that element is disabled | boolean
+**isDisplayed()** | Checks that element is displayed | boolean
+**isEnabled()** | Checks that element exists | boolean
+**isHidden()** | Checks that element is hidden | boolean
+**isNotExist()** | Checks that element does not exist | boolean
+**isNotVisible()** | Checks that element is not visible by user | boolean
 **isSelected()** | Checks that element is selected | boolean
-**isVisible()** | Checks element is displayed | boolean
-**jsExecute(String jsCode)** | Executes java script call | String
+**isVisible()** | Checks that element is visible by user | boolean
+**jsExecute(String jsCode)** | Executes JavaScript code | String
 **labelText()** | Gets label text | String
-**makePhoto()** | Gets element’s screenshot | File
-**placeholder()** | Gets attribute ‘placeholder’ | String
-**printHtml()** | Gets the element attribute “innerHTML” value | String
+**makePhoto()** | Gets a screenshot of the element | File
+**placeholder()** | Gets element “placeholder” attribute value | String
+**printHtml()** | Gets element “innerHTML” attribute value | String
 **rightClick()** | Right clicks on the element | void
 **select()** | Selects item | void
 **select(int index)** | Selects item by index | void
@@ -85,7 +85,6 @@ Available methods in Java JDI Light:
 **setText(String value)** | Puts value as text | void
 **setValue()** | Inputs value | void
 **show()** | Scrolls screen view to item | void
-**text()** | Gets text | String
 **uncheck()** | Clicks on element if selected | void
 
 
@@ -93,37 +92,42 @@ Aliases in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | --- 
-**attr(String value)** | Gets attribute | String
-**attrs()** | Gets all attributes | MapArray<String, String>
-**css(String prop)** | Gets css value | String
-**text()** | Gets text | String
+**attr(String value)** | Gets element attribute | String
+**attrs()** | Gets all element attributes | MapArray<String, String>
+**css(String prop)** | Gets element css value | String
+**text()** | Gets element text | String
 
 
 #### WebList
 
 ### Extended Selenium features
-#### WaitAferMethod
+#### Wait After Action
 
 
-You can specify the timeout that JDI will wait ater actions<br>
-@WaitAfterAction("getText", 3) - will wait after action getText() for 3 seconds<br>
-default timeout = 1 second so you can mit it<br>
-if methodName is empty it will be applied to all "action" methods (taht not get something). List of methods depend on element, for example click() or check("Gold") or select("blue")<br>
+You can annotate a UI element with `@WaitAfterAction`. This tells JDI to wait after executing this element's methods.
+
+`@WaitAfterAction(value = 3, method = "getText")` would mean that JDI will wait 3 seconds after executing the annotated element's `getText()` method.
+
+If the method name is not specified, the wait will be applied to all action methods of the element (like `click`, `check` or `select`, depending on the element), and you can write the annotation like `@WaitAfterAction(3)`.
+
+You can also apply the default `@WaitAfterAction` which sets the wait to 1 second for all action methods.
 
 ```java 
-   @WaitAfterMethod("gettext", 3)
+   @WaitAfterAction(value = 3, method = "getText")
    public Text colorValue;
 
-   @WaitAfterMethod(2)
+   @WaitAfterAction(2)
    public Dropdown detailsButton;
    
-   @WaitAfterMethod
+   @WaitAfterAction
    public Dropdown colors;
-...  
+   
+   ...  
+   
    @Test
    public void selectColor() {
-     detailsButton.click() - will wait ater click 2 seconds
-     colors.select("Gold"); - will wait ater select 3 seconds
-     assertEquals(colorValue.getText(), "Gold") - will wait ater getText 1 seconds
+     detailsButton.click()  // will wait 2 seconds after click
+     colors.select("Gold");  // will wait 1 second after select 
+     assertEquals(colorValue.getText(), "Gold") // will wait 3 seconds after getText 
    }
  ```

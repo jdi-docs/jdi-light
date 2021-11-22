@@ -2100,7 +2100,7 @@ Apart from locator annotations JDI Light provides support for smart locators. Wh
 
 |Annotation | Description | Example
 --- | --- | ---
-**@FindAll** | TBD. The JDI Light annotation should correspond exactly to Selenium @FindAll annotation | TBD
+**@FindAll** | <font color="olive"> TBD. The JDI Light annotation should correspond exactly to Selenium @FindAll annotation </font> | <font color="olive"> TBD </font>
 **@FindBy** | This JDI Light locator corresponds to Selenium @FindBy locator. It is used to locate an element using one of the predefined strategies. JDI Light supports most of the Selenium strategies: **id**, **name**, **className**, **css**, **tagName**, **linkText**, **partialLinkText**, **xpath**. Added strategy is **text**, which allows detecting element(s) with the given text inside its text nodes. The **group** annotation parameter allows to use different **@FindBy** locators for different test groups. | @FindBy(css = "#passport")
 **@FindBys** | TBD. The JDI Light annotation should correspond exactly to Selenium @FindBys annotation | @FindBys({@FindBy(css = ".main-form"), @FindBy(css = "#accept-conditions")})
 
@@ -2111,13 +2111,13 @@ Apart from locator annotations JDI Light provides support for smart locators. Wh
 **@ByText("text")** | This locator allows detecting element(s) with the given text inside its text nodes. It is equivalent to `xpath = ".//*/text()\[normalize-space(.) = 'text'\]/parent::\*"` | `@ByText("Calculate")`
 **@Css("expr")** | This locator is an alias for `@FindBy(css = "expr")`| `@Css(".fa-sign-out")`
 **@JDropdown** | This locator helps locate dropdown elements and <a href='https://jdi-docs.github.io/jdi-light/?java#dropdown' target="_blank">provides additional features</a> | `@JDropdown(root = "div\[ui=combobox\]", value = "input", list = "li", expand = ".caret")`
-**@UI("'expr\[n\]")** | This notation allows to enhance CSS locators to choose an element at a specific position. It is equivalent to xpath = ".//xpath-expr\[n\]" | @UI("\[type=checkbox\]\[1\]")
-**@UI("\['text'\]")** | This notation allows to enhance CSS locators to detect element(s) with given text inside its text nodes. It is equivalent to xpath = ".//\*/text()\[normalize-space(.) = 'text'\]/parent::\*" | @UI(".user\['Roman'\]") or @UI("\['Accept'\] input")
-**@UI("\[\*'text'\]")** | This notation allows to enhance CSS locators to detect element(s) which contain(s) given text inside its text nodes. It is equivalent to xpath = ".//\*/text()\[contains(normalize-space(.), 'text')\]/parent::\*" | @UI(".user\[\*'Roma'\]") or @UI("\[\*'Accept'\] input")
-**@UI("expr")** | This locator accepts either a CSS locator or an XPath expression as an argument and locates element accordingly. It provides additional features as described below. Additionally, the **group** annotation parameter allows to use different **@UI** locators for different test groups. | @UI("#users-table")
-**@UI("expr<")** | Such notation allows to enhance CSS locators by allowing to move up the DOM to the parent of the element. E.g. \[’text’\]**<**\[type=checkbox\] is the same as //\*\[text()=’text’\]/..//*\[@type=‘checkbox’\] | @UI("\[’Ice Cream’\]<\[type=checkbox\]")
-**@WithText("text")** | This locator allows detecting element with the given text inside its text nodes. It is equivalent to xpath = ".//*/text()\[contains(normalize-space(.), 'text')\]/parent::\*" | @WithText("Calculat")
-**@XPath("expr")** | This locator is an alias for @FindBy(xpath = "expr") | @XPath(".//button\[@type='submit'\]")
+**@UI("'expr\[n\]")** | This notation allows to enhance CSS locators to choose an element at a specific position. It is equivalent to `xpath = ".//xpath-expr\[n\]"` | `@UI("\[type=checkbox\]\[1\]")`
+**@UI("\['text'\]")** | This notation allows to enhance CSS locators to detect element(s) with given text inside its text nodes. It is equivalent to `xpath = ".//\*/text()\[normalize-space(.) = 'text'\]/parent::\*"` | `@UI(".user\['Roman'\]") or @UI("\['Accept'\] input")`
+**@UI("\[\*'text'\]")** | This notation allows to enhance CSS locators to detect element(s) which contain(s) given text inside its text nodes. It is equivalent to `xpath = ".//\*/text()\[contains(normalize-space(.), 'text')\]/parent::\*"` | `@UI(".user\[\*'Roma'\]") or @UI("\[\*'Accept'\] input")`
+**@UI("expr")** | This locator accepts either a CSS locator or an XPath expression as an argument and locates element accordingly. It provides additional features as described below. Additionally, the **group** annotation attribute allows to use different **@UI** locators for different test groups. | `@UI("#users-table")`
+**@UI("expr<")** | This notation allows to enhance CSS locators by making it possible to move up the DOM to the parent of the element. E.g. `\[’text’\]**<**\[type=checkbox\]` is the same as `//\*\[text()=’text’\]/..//*\[@type=‘checkbox’\]` | `@UI("\[’Ice Cream’\]<\[type=checkbox\]"`)
+**@WithText("text")** | This locator allows detecting element with the given text inside its text nodes. It is equivalent to `xpath = ".//*/text()\[contains(normalize-space(.), 'text')\]/parent::\*"` | `@WithText("Calculate")`
+**@XPath("expr")** | This locator is an alias for `@FindBy(xpath = "expr")` | `@XPath(".//button\[@type='submit'\]")`
 
 
 #### Smart locators
@@ -2154,7 +2154,7 @@ JDI supports managing opened browser windows and tabs. It can help create/switch
 **originalWindow()** | Switch to the original window | void
 **setWindowName(String value)** | Set readable name for current opened windows | void
 **switchToNewWindow()** | Switch to a new window | void
-**switchToWindow(String value)** | Switch to windows with names. To set name for the current window, we should use the **setWindowName()** method | void
+**switchToWindow(String value)** | Switch to windows with names. To set name for the current window, we should use the `setWindowName()` method | void
 **switchToWindow(int number)** | Switch to window with a number. _switchToWindow(2) means switch to the second window_ | void
 **windowsCount()** | Get window count | int
 
@@ -2175,7 +2175,7 @@ dismissAlert();
 AlertButton.Click();
 GetAlert().DismissAlert();
 ```
-**Alert** –  a window with a message that displays on the screen and pauses the execution of the script until user performs an action
+**Alert** is message window that gets displayed on the screen and pauses the execution of the script until user performs an action.
 
 <aside class="notice">
 Note that you can make a static import (Alerts.acceptAlert() > acceptAlert()) in order to simplify your code.

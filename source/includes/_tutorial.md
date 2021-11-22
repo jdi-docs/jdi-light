@@ -60,8 +60,9 @@ Let’s have a detailed look at some options:
 - **requests.strategy** = *off* | *on fail* | *on assert* | *new page* — requests 4ХХ, 5ХХ errors in console log.<br/>
 - **allure.steps** = *true* — turn on the steps for Allure.<br/>
 
-
-_Note: you can find more examples in the [documentation](https://jdi-docs.github.io/jdi-light/#driver-settings)._
+<aside class="notice">
+Note: you can find more examples in the [documentation](https://jdi-docs.github.io/jdi-light/#driver-settings).
+</aside>
 
 <a href="https://github.com/jdi-tutorials/01-jdi-light-intro/blob/master/src/test/resources/test.properties" target="_blank">See the examples on Github</a>
 

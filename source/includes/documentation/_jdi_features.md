@@ -1,7 +1,7 @@
 ## JDI features
 ### JDI Features for parameters in BDD steps
 
-#### Using aliases as locators parameters
+#### Using locator aliases as parameters
 ```gherkin
    Scenario: input element
        When I input "simple 1234" in "Name"
@@ -13,11 +13,11 @@
        When I click on "Red Button"
        Then the Alert text equals to "Red button"
  ```
-Features have locators taken from file-based PageObjects instead of an element name.
+Features have locators taken from file-based PageObjects instead of element names.
 <br><br><br><br><br><br><br><br>
 
 ```
-html5page.json for json-based locators (contains css locators):
+html5page.json for JSON-based locators (contains CSS locators):
 ```
 ```json
     {
@@ -27,11 +27,10 @@ html5page.json for json-based locators (contains css locators):
     }
 ```
 
-**Note**: Locators are defined via json file/files with an arbitrary name. <br>
-But these json file/files **must be** located in **json.page.objects** package.<br>
+_Note: Locators are defined via JSON file/files with an arbitrary name. But these JSON file/files_ **must** _be located in **json.page.objects** package._<br>
 
-**Keep in mind**: All the elements are collected from these json file/files and are stored in global hash map.<br>
-Therefore it is **essential** that all the elements defined with **unique names**.<br>
+**Keep in mind**: All the elements are collected from these JSON file/files and stored in a global hash map.<br>
+Therefore it is **essential** that all the elements are defined with **unique names**.<br>
 
 [BDD feature test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bdd-no-po-tests/src/test/resources/features/TestsWithProperties.feature)<br>
 [Json PageObject file example](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bdd-no-po-tests/src/test/resources/json/page/objects/html5page.json)
@@ -49,7 +48,7 @@ Therefore it is **essential** that all the elements defined with **unique names*
        Then the "#name" text equals to ""
  ```
 
-Feature allows to use locator as parameter instead of an element name.<br><br><br><br><br><br><br>
+Feature allows using a locator instead of an element name as a parameter.<br><br><br><br><br><br><br>
 
 [BDD feature test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bdd-no-po-tests/src/test/resources/features/TestsWithLocators.feature)
 <br><br><br>
@@ -63,30 +62,30 @@ Feature allows to use locator as parameter instead of an element name.<br><br><b
        Then the "Accept Conditions" is selected
  ```
 ```
-"Disabled Name" element is automatically searched by the smart locator #disabled-name. 
-"Accept Conditions" element is automatically searched by the smart locator #accept-conditions.
+"Disabled Name" element is automatically searched by #disabled-name smart locator. 
+"Accept Conditions" element is automatically searched by #accept-conditions smart locator.
 ```
 
-Features have locators automatically generated if there is no available PageObject json implementation
-and element name defined with capital letter.<br><br>
+Features have locators automatically generated if there is no available PageObject JSON alias
+and the element name is defined with a capital letter.<br><br>
 **When** \<I\> click on "Element name" <br>
-Smart locator is generated like ID with lover case element name: **#element-name**.
+Smart locator is generated as an ID with lowercase element name: **#element-name**.
 <br><br><br>
 
 [BDD feature test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bdd-no-po-tests/src/test/resources/features/TestsWithName.feature) <br>
-For better understanding of this test example remove **"Name": "#name"** from html5page.json to be sure how smart locator works.
+For better understanding of this test example remove **"Name": "#name"** from html5page.json to make sure the smart locator works.
 <br><br><br>
 
-#### Using aliases for pages URLs
+#### Using aliases for page URLs
 
 ```gherkin
    #Instead of this:
    Scenario: bootstrap page
-       Given Page with url "\<LINK TO HOME PAGE\>" opened
+       Given Page with URL "\<LINK TO HOME PAGE\>" opened
    
    Scenario: contacts page
-       When I open url "\<LINK TO CONTACTS PAGE\>"
-       Then the url "\<LINK TO CONTACTS PAGE\>" is opened
+       When I open URL "\<LINK TO CONTACTS PAGE\>"
+       Then the URL "\<LINK TO CONTACTS PAGE\>" is opened
  ```
 ```gherkin
    #Use this:
@@ -99,7 +98,7 @@ For better understanding of this test example remove **"Name": "#name"** from ht
        Then the "Contacts Page" page is opened
  ```
 
-Pages can be opened by alias name instead of URL.
+Pages can be opened by alias instead of URL.
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 ```
@@ -111,8 +110,8 @@ pages.json:
       "Bootstrap Page": "/bootstrap.html"
     }
  ```
-Alias for pages are defined via **[pages.json](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bdd-no-po-tests/src/test/resources/json/page/objects/pages.json)**. <br>
-Note: domain is read from test.properties automatically. <br><br><br><br><br>
+Aliases for pages are defined in **[pages.json](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bdd-no-po-tests/src/test/resources/json/page/objects/pages.json)**. <br>
+_Note: the domain URL part is read from ***test.properties*** automatically._ <br><br><br><br><br>
 [BDD feature test examples](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bdd-no-po-tests/src/test/resources/features/JsonBasedPage.feature)
 <br><br><br>
 
@@ -340,7 +339,7 @@ Scenario example for Image:
     And the "Jdi Logo" attribute "width" contains "101"
 
 ````
-Note: this element is an alias for Image<br>
+_Note: this element is an alias for Image._<br>
 <br>
 Validations: <br>
 **Then** the "\<ELEMENT NAME\>" attribute "\<ATTRIBUTE NAME\>" equals to "\<TEXT\>" <br>
@@ -2078,26 +2077,22 @@ public class NonStaticTestsInit {
 
 ```
 
-- Project is <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-examples">here</a>
+- The project can be found <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-examples">here</a>.
 
-- Simple non-static Page Object is <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-examples/src/main/java/io/github/com/NonStaticSite.java">here</a>
+- A simple non-static Page Object can be found <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-examples/src/main/java/io/github/com/NonStaticSite.java">here</a>.
 
-- Parent class for test-cases with non-static initialization is <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-examples/src/test/java/io/github/epam/NonStaticTestsInit.java">here</a>
+- Parent class for test cases with non-static initialization can be found <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-examples/src/test/java/io/github/epam/NonStaticTestsInit.java">here</a>.
 
 <br><br><br><br><br>
-Simple non-static site initialization example ------>
+A simple non-static site initialization example is presented in the code panel to the right:
 
-
-### Smart Locators
-
-[See details and examples for Smart locators in the documentation](https://jdi-docs.github.io/jdi-light/?java#smart-locators)
 
 ### JDI Locators
 
-JDI provides various ways for detecting elements (including using Css locators and Xpath expressions).
+JDI provides various means of locating elements (including using CSS locators and XPath expressions).
 JDI Light supports Selenium @FindBy(s) locators, while also providing custom locators such as Selenium-like **@FindBy(s)**, aliases **@Css**/**@XPath** and custom **@ByText** and **@WithText** locators.
 
-Furthermore, JDI Light introduces the **@UI** locator, which provides additional features for css support.
+Furthermore, JDI Light introduces the **@UI** locator, which enriches CSS locator syntax with several XPath syntax features.
 
 Apart from locator annotations JDI Light provides support for smart locators. When using this feature, there is no need to explicitly provide locators for elements at all.
 
@@ -2109,18 +2104,18 @@ Apart from locator annotations JDI Light provides support for smart locators. Wh
 **@FindBy** | This JDI Light locator corresponds to Selenium @FindBy locator. It is used to locate an element using one of the predefined strategies. JDI Light supports most of the Selenium strategies: **id**, **name**, **className**, **css**, **tagName**, **linkText**, **partialLinkText**, **xpath**. Added strategy is **text**, which allows detecting element(s) with the given text inside its text nodes. The **group** annotation parameter allows to use different **@FindBy** locators for different test groups. | @FindBy(css = "#passport")
 **@FindBys** | TBD. The JDI Light annotation should correspond exactly to Selenium @FindBys annotation | @FindBys({@FindBy(css = ".main-form"), @FindBy(css = "#accept-conditions")})
 
-#### JDI Light specific annotations
+#### JDI Light-specific annotations
 
 |Annotation | Description | Example
 --- | --- | ---
-**@ByText("text")** | This locator allows detecting element(s) with the given text inside its text nodes. It is equivalent to xpath = ".//*/text()\[normalize-space(.) = 'text'\]/parent::\*" | @ByText("Calculate")
-**@Css("expr")** | This locator is an alias for @FindBy(css = "expr")| @Css(".fa-sign-out")
-**@JDropdown** | This locator helps locate dropdown elements and <a href='https://jdi-docs.github.io/jdi-light/?java#dropdown' target="_blank">provides additional features</a> | @JDropdown(root = "div\[ui=combobox\]", value = "input", list = "li", expand = ".caret")
-**@UI("'expr\[n\]")** | Such notation allows to enhance css locators to choose an element at a specific position. It is equivalent to xpath = ".//xpath-expr\[n\]" | @UI("\[type=checkbox\]\[1\]")
-**@UI("\['text'\]")** | Such notation allows to enhance css locators to detect element(s) with given text inside its text nodes. It is equivalent to xpath = ".//\*/text()\[normalize-space(.) = 'text'\]/parent::\*" | @UI(".user\['Roman'\]") or @UI("\['Accept'\] input")
-**@UI("\[\*'text'\]")** | Such notation allows to enhance css locators to detect element(s) which contain(s) given text inside its text nodes. It is equivalent to xpath = ".//\*/text()\[contains(normalize-space(.), 'text')\]/parent::\*" | @UI(".user\[\*'Roma'\]") or @UI("\[\*'Accept'\] input")
-**@UI("expr")** | This locator accepts either a css locator or an xpath expression as an argument and locates element accordingly. It provides additional features as described below. Additionally, the **group** annotation parameter allows to use different **@UI** locators for different test groups. | @UI("#users-table")
-**@UI("expr<")** | Such notation allows to enhance css locators by allowing to move up the DOM to the parent of the element. E.g. \[’text’\]**<**\[type=checkbox\] is the same as //\*\[text()=’text’\]/..//*\[@type=‘checkbox’\] | @UI("\[’Ice Cream’\]<\[type=checkbox\]")
+**@ByText("text")** | This locator allows detecting element(s) with the given text inside its text nodes. It is equivalent to `xpath = ".//*/text()\[normalize-space(.) = 'text'\]/parent::\*"` | `@ByText("Calculate")`
+**@Css("expr")** | This locator is an alias for `@FindBy(css = "expr")`| `@Css(".fa-sign-out")`
+**@JDropdown** | This locator helps locate dropdown elements and <a href='https://jdi-docs.github.io/jdi-light/?java#dropdown' target="_blank">provides additional features</a> | `@JDropdown(root = "div\[ui=combobox\]", value = "input", list = "li", expand = ".caret")`
+**@UI("'expr\[n\]")** | This notation allows to enhance CSS locators to choose an element at a specific position. It is equivalent to xpath = ".//xpath-expr\[n\]" | @UI("\[type=checkbox\]\[1\]")
+**@UI("\['text'\]")** | This notation allows to enhance CSS locators to detect element(s) with given text inside its text nodes. It is equivalent to xpath = ".//\*/text()\[normalize-space(.) = 'text'\]/parent::\*" | @UI(".user\['Roman'\]") or @UI("\['Accept'\] input")
+**@UI("\[\*'text'\]")** | This notation allows to enhance CSS locators to detect element(s) which contain(s) given text inside its text nodes. It is equivalent to xpath = ".//\*/text()\[contains(normalize-space(.), 'text')\]/parent::\*" | @UI(".user\[\*'Roma'\]") or @UI("\[\*'Accept'\] input")
+**@UI("expr")** | This locator accepts either a CSS locator or an XPath expression as an argument and locates element accordingly. It provides additional features as described below. Additionally, the **group** annotation parameter allows to use different **@UI** locators for different test groups. | @UI("#users-table")
+**@UI("expr<")** | Such notation allows to enhance CSS locators by allowing to move up the DOM to the parent of the element. E.g. \[’text’\]**<**\[type=checkbox\] is the same as //\*\[text()=’text’\]/..//*\[@type=‘checkbox’\] | @UI("\[’Ice Cream’\]<\[type=checkbox\]")
 **@WithText("text")** | This locator allows detecting element with the given text inside its text nodes. It is equivalent to xpath = ".//*/text()\[contains(normalize-space(.), 'text')\]/parent::\*" | @WithText("Calculat")
 **@XPath("expr")** | This locator is an alias for @FindBy(xpath = "expr") | @XPath(".//button\[@type='submit'\]")
 
@@ -2147,7 +2142,7 @@ openNewTab();
 switchToWindow(2);
 contactFormPage.open();
 ```
-JDI has good support for managing opened windows and tabs of the browser. It can help create/switch/close windows/tabs in the browser. Let's look at methods available in Java:
+JDI supports managing opened browser windows and tabs. It can help create/switch/close windows/tabs in the browser. Let's look at the methods available in Java:
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -2756,7 +2751,7 @@ That's it, check your tests results [here](https://eyes.applitools.com/app/test-
 
 ### Multiple domains example
 Here is the example [MultipleDomainsExampleTest.java](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/MultipleDomainsExampleTest.java)
-of test class with multiple domain. For this example the following files were added to the project:
+of test class with multiple domains. For this example the following files were added to the project:
 
 - [MultipleDomainsTestInit.java](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/MultipleDomainsTestInit.java)
 

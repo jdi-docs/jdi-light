@@ -1200,7 +1200,7 @@
 								            <a href="#jdi-features-for-parameters-in-bdd-steps" class="toc-h2 h3 toc-link" data-title="JDI Features for parameters in BDD steps">JDI Features for parameters in BDD steps</a>
 									            <ul class="toc-list-h2">
 										              <li>
-										              <a href="#using-aliases-as-locators-parameters" class="toc-h3 h4 toc-link" data-title="Using aliases as locators parameters">Using aliases as locators parameters</a>
+										              <a href="#using-locator-aliases-as-parameters" class="toc-h3 h4 toc-link" data-title="Using locator aliases as parameters">Using locator aliases as parameters</a>
 										              </li>
 										              <li>
 										              <a href="#using-locators-as-parameters" class="toc-h3 h4 toc-link" data-title="Using locators as parameters">Using locators as parameters</a>
@@ -1209,7 +1209,7 @@
 										              <a href="#using-element-names-defined-with-capital-letter-as-locator-ids" class="toc-h3 h4 toc-link" data-title="Using element names defined with capital letter as locator IDs">Using element names defined with capital letter as locator IDs</a>
 										              </li>
 										              <li>
-										              <a href="#using-aliases-for-pages-urls" class="toc-h3 h4 toc-link" data-title="Using aliases for pages URLs">Using aliases for pages URLs</a>
+										              <a href="#using-aliases-for-page-urls" class="toc-h3 h4 toc-link" data-title="Using aliases for page URLs">Using aliases for page URLs</a>
 										              </li>
 									            </ul>
                           </li>
@@ -1314,19 +1314,16 @@
 								            <a href="#non-static-site-initialization" class="toc-h2 h3 toc-link" data-title="Non-Static Site initialization">Non-Static Site initialization</a>
                           </li>
                           <li>
-								            <a href="#smart-locators" class="toc-h2 h3 toc-link" data-title="Smart Locators">Smart Locators</a>
-                          </li>
-                          <li>
 								            <a href="#jdi-locators" class="toc-h2 h3 toc-link" data-title="JDI Locators">JDI Locators</a>
 									            <ul class="toc-list-h2">
 										              <li>
 										              <a href="#selenium-like-annotations" class="toc-h3 h4 toc-link" data-title="Selenium-like annotations">Selenium-like annotations</a>
 										              </li>
 										              <li>
-										              <a href="#jdi-light-specific-annotations" class="toc-h3 h4 toc-link" data-title="JDI Light specific annotations">JDI Light specific annotations</a>
+										              <a href="#jdi-light-specific-annotations" class="toc-h3 h4 toc-link" data-title="JDI Light-specific annotations">JDI Light-specific annotations</a>
 										              </li>
 										              <li>
-										              <a href="#smart-locators-2" class="toc-h3 h4 toc-link" data-title="Smart locators">Smart locators</a>
+										              <a href="#smart-locators" class="toc-h3 h4 toc-link" data-title="Smart locators">Smart locators</a>
 										              </li>
 									            </ul>
                           </li>
@@ -39727,7 +39724,7 @@ It offers the user a visual representation for selecting the time.</p>
 </tbody></table>
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/VirtualScrollerTests.java">JDI vuetify page tests for Virtual Scroller</a>.</p>
-<h2 id='jdi-features'>JDI features</h2><h3 id='jdi-features-for-parameters-in-bdd-steps'>JDI Features for parameters in BDD steps</h3><h4 id='using-aliases-as-locators-parameters'>Using aliases as locators parameters</h4><pre class="highlight gherkin tab-gherkin"><code>   <span class="kn">Scenario</span><span class="p">:</span> input element
+<h2 id='jdi-features'>JDI features</h2><h3 id='jdi-features-for-parameters-in-bdd-steps'>JDI Features for parameters in BDD steps</h3><h4 id='using-locator-aliases-as-parameters'>Using locator aliases as parameters</h4><pre class="highlight gherkin tab-gherkin"><code>   <span class="kn">Scenario</span><span class="p">:</span> input element
        <span class="nf">When</span> I input <span class="s">"simple 1234"</span> in <span class="s">"Name"</span>
        <span class="nf">Then</span> the <span class="s">"Name"</span> text matches to <span class="s">"\w{6} \d{4}"</span>
        <span class="nf">Then</span> the <span class="s">"Logout"</span> is hidden
@@ -39737,20 +39734,19 @@ It offers the user a visual representation for selecting the time.</p>
        <span class="nf">When</span> I click on <span class="s">"Red Button"</span>
        <span class="nf">Then</span> the Alert text equals to <span class="s">"Red button"</span>
 </code></pre>
-<p>Features have locators taken from file-based PageObjects instead of an element name.
+<p>Features have locators taken from file-based PageObjects instead of element names.
 <br><br><br><br><br><br><br><br></p>
-<pre class="highlight plaintext"><code>html5page.json for json-based locators (contains css locators):
+<pre class="highlight plaintext"><code>html5page.json for JSON-based locators (contains CSS locators):
 </code></pre><pre class="highlight json tab-json"><code><span class="w">    </span><span class="p">{</span><span class="w">
       </span><span class="s2">"Red Button"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[value*='Red Button']"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#name"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"Logout"</span><span class="p">:</span><span class="w"> </span><span class="s2">".fa-sign-out"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>Note</strong>: Locators are defined via json file/files with an arbitrary name. <br>
-But these json file/files <strong>must be</strong> located in <strong>json.page.objects</strong> package.<br></p>
+<p><em>Note: Locators are defined via JSON file/files with an arbitrary name. But these JSON file/files</em> <strong>must</strong> <em>be located in <strong>json.page.objects</strong> package.</em><br></p>
 
-<p><strong>Keep in mind</strong>: All the elements are collected from these json file/files and are stored in global hash map.<br>
-Therefore it is <strong>essential</strong> that all the elements defined with <strong>unique names</strong>.<br></p>
+<p><strong>Keep in mind</strong>: All the elements are collected from these JSON file/files and stored in a global hash map.<br>
+Therefore it is <strong>essential</strong> that all the elements are defined with <strong>unique names</strong>.<br></p>
 
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bdd-no-po-tests/src/test/resources/features/TestsWithProperties.feature">BDD feature test examples</a><br>
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bdd-no-po-tests/src/test/resources/json/page/objects/html5page.json">Json PageObject file example</a>
@@ -39765,7 +39761,7 @@ Therefore it is <strong>essential</strong> that all the elements defined with <s
        <span class="nf">When</span> I clear <span class="s">"#name"</span>
        <span class="nf">Then</span> the <span class="s">"#name"</span> text equals to <span class="s">""</span>
 </code></pre>
-<p>Feature allows to use locator as parameter instead of an element name.<br><br><br><br><br><br><br></p>
+<p>Feature allows using a locator instead of an element name as a parameter.<br><br><br><br><br><br><br></p>
 
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bdd-no-po-tests/src/test/resources/features/TestsWithLocators.feature">BDD feature test examples</a>
 <br><br><br></p>
@@ -39775,25 +39771,25 @@ Therefore it is <strong>essential</strong> that all the elements defined with <s
    <span class="kn">Scenario</span><span class="p">:</span> check element
        <span class="nf">When</span> check <span class="s">"Accept Conditions"</span>
        <span class="nf">Then</span> the <span class="s">"Accept Conditions"</span> is selected
-</code></pre><pre class="highlight plaintext"><code>"Disabled Name" element is automatically searched by the smart locator #disabled-name. 
-"Accept Conditions" element is automatically searched by the smart locator #accept-conditions.
+</code></pre><pre class="highlight plaintext"><code>"Disabled Name" element is automatically searched by #disabled-name smart locator. 
+"Accept Conditions" element is automatically searched by #accept-conditions smart locator.
 </code></pre>
-<p>Features have locators automatically generated if there is no available PageObject json implementation
-and element name defined with capital letter.<br><br>
+<p>Features have locators automatically generated if there is no available PageObject JSON alias
+and the element name is defined with a capital letter.<br><br>
 <strong>When</strong> &lt;I&gt; click on &quot;Element name&quot; <br>
-Smart locator is generated like ID with lover case element name: <strong>#element-name</strong>.
+Smart locator is generated as an ID with lowercase element name: <strong>#element-name</strong>.
 <br><br><br></p>
 
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bdd-no-po-tests/src/test/resources/features/TestsWithName.feature">BDD feature test examples</a> <br>
-For better understanding of this test example remove <strong>&quot;Name&quot;: &quot;#name&quot;</strong> from html5page.json to be sure how smart locator works.
+For better understanding of this test example remove <strong>&quot;Name&quot;: &quot;#name&quot;</strong> from html5page.json to make sure the smart locator works.
 <br><br><br></p>
-<h4 id='using-aliases-for-pages-urls'>Using aliases for pages URLs</h4><pre class="highlight gherkin tab-gherkin"><code>   <span class="c">#Instead of this:</span>
+<h4 id='using-aliases-for-page-urls'>Using aliases for page URLs</h4><pre class="highlight gherkin tab-gherkin"><code>   <span class="c">#Instead of this:</span>
    <span class="kn">Scenario</span><span class="p">:</span> bootstrap page
-       <span class="nf">Given</span> Page with url <span class="s">"\&lt;LINK TO HOME PAGE\&gt;"</span> opened
+       <span class="nf">Given</span> Page with URL <span class="s">"\&lt;LINK TO HOME PAGE\&gt;"</span> opened
 
    <span class="kn">Scenario</span><span class="p">:</span> contacts page
-       <span class="nf">When</span> I open url <span class="s">"\&lt;LINK TO CONTACTS PAGE\&gt;"</span>
-       <span class="nf">Then</span> the url <span class="s">"\&lt;LINK TO CONTACTS PAGE\&gt;"</span> is opened
+       <span class="nf">When</span> I open URL <span class="s">"\&lt;LINK TO CONTACTS PAGE\&gt;"</span>
+       <span class="nf">Then</span> the URL <span class="s">"\&lt;LINK TO CONTACTS PAGE\&gt;"</span> is opened
 </code></pre><pre class="highlight gherkin tab-gherkin"><code>   <span class="c">#Use this:</span>
    <span class="kn">Scenario</span><span class="p">:</span> json based bootstrap page
        <span class="nf">When</span> I open <span class="s">"Bootstrap Page"</span> page
@@ -39803,7 +39799,7 @@ For better understanding of this test example remove <strong>&quot;Name&quot;: &
        <span class="nf">When</span> I open <span class="s">"Contacts Page"</span> page
        <span class="nf">Then</span> the <span class="s">"Contacts Page"</span> page is opened
 </code></pre>
-<p>Pages can be opened by alias name instead of URL.
+<p>Pages can be opened by alias instead of URL.
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
 <pre class="highlight plaintext"><code>pages.json:
 </code></pre><pre class="highlight json tab-json"><code><span class="w">    </span><span class="p">{</span><span class="w">
@@ -39811,8 +39807,8 @@ For better understanding of this test example remove <strong>&quot;Name&quot;: &
       </span><span class="s2">"Bootstrap Page"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/bootstrap.html"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Alias for pages are defined via <strong><a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bdd-no-po-tests/src/test/resources/json/page/objects/pages.json">pages.json</a></strong>. <br>
-Note: domain is read from test.properties automatically. <br><br><br><br><br>
+<p>Aliases for pages are defined in <strong><a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bdd-no-po-tests/src/test/resources/json/page/objects/pages.json">pages.json</a></strong>. <br>
+<em>Note: the domain URL part is read from <strong><em>test.properties</em></strong> automatically.</em> <br><br><br><br><br>
 <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bdd-no-po-tests/src/test/resources/features/JsonBasedPage.feature">BDD feature test examples</a>
 <br><br><br></p>
 <h3 id='jdi-light-bdd-steps'>JDI Light BDD Steps</h3><h4 id='label'>Label</h4><pre class="highlight gherkin tab-gherkin"><code><span class="err">Label action examples</span><span class="p">:</span>
@@ -40015,7 +40011,7 @@ Validations: <br></p>
     <span class="nf">And</span> the <span class="s">"Jdi Logo"</span> attribute <span class="s">"width"</span> contains <span class="s">"101"</span>
 
 </code></pre>
-<p>Note: this element is an alias for Image<br>
+<p><em>Note: this element is an alias for Image.</em><br>
 <br>
 Validations: <br>
 <strong>Then</strong> the &quot;&lt;ELEMENT NAME&gt;&quot; attribute &quot;&lt;ATTRIBUTE NAME&gt;&quot; equals to &quot;&lt;TEXT&gt;&quot; <br>
@@ -41619,20 +41615,18 @@ More information in the <a href="https://jdi-docs.github.io/jdi-light/?java#tuto
 
 </code></pre>
 <ul>
-<li><p>Project is <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-examples">here</a></p></li>
-<li><p>Simple non-static Page Object is <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-examples/src/main/java/io/github/com/NonStaticSite.java">here</a></p></li>
-<li><p>Parent class for test-cases with non-static initialization is <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-examples/src/test/java/io/github/epam/NonStaticTestsInit.java">here</a></p></li>
+<li><p>The project can be found <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-examples">here</a>.</p></li>
+<li><p>A simple non-static Page Object can be found <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-examples/src/main/java/io/github/com/NonStaticSite.java">here</a>.</p></li>
+<li><p>Parent class for test cases with non-static initialization can be found <a href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-examples/src/test/java/io/github/epam/NonStaticTestsInit.java">here</a>.</p></li>
 </ul>
 
 <p><br><br><br><br><br>
-Simple non-static site initialization example ------&gt;</p>
-<h3 id='smart-locators'>Smart Locators</h3>
-<p><a href="https://jdi-docs.github.io/jdi-light/?java#smart-locators">See details and examples for Smart locators in the documentation</a></p>
+A simple non-static site initialization example is presented in the code panel to the right:</p>
 <h3 id='jdi-locators'>JDI Locators</h3>
-<p>JDI provides various ways for detecting elements (including using Css locators and Xpath expressions).
+<p>JDI provides various means of locating elements (including using CSS locators and XPath expressions).
 JDI Light supports Selenium @FindBy(s) locators, while also providing custom locators such as Selenium-like <strong>@FindBy(s)</strong>, aliases <strong>@Css</strong>/<strong>@XPath</strong> and custom <strong>@ByText</strong> and <strong>@WithText</strong> locators.</p>
 
-<p>Furthermore, JDI Light introduces the <strong>@UI</strong> locator, which provides additional features for css support.</p>
+<p>Furthermore, JDI Light introduces the <strong>@UI</strong> locator, which enriches CSS locator syntax with several XPath syntax features.</p>
 
 <p>Apart from locator annotations JDI Light provides support for smart locators. When using this feature, there is no need to explicitly provide locators for elements at all.</p>
 <h4 id='selenium-like-annotations'>Selenium-like annotations</h4>
@@ -41659,7 +41653,7 @@ JDI Light supports Selenium @FindBy(s) locators, while also providing custom loc
 <td>@FindBys({@FindBy(css = &quot;.main-form&quot;), @FindBy(css = &quot;#accept-conditions&quot;)})</td>
 </tr>
 </tbody></table>
-<h4 id='jdi-light-specific-annotations'>JDI Light specific annotations</h4>
+<h4 id='jdi-light-specific-annotations'>JDI Light-specific annotations</h4>
 <table><thead>
 <tr>
 <th>Annotation</th>
@@ -41669,42 +41663,42 @@ JDI Light supports Selenium @FindBy(s) locators, while also providing custom loc
 </thead><tbody>
 <tr>
 <td><strong>@ByText(&quot;text&quot;)</strong></td>
-<td>This locator allows detecting element(s) with the given text inside its text nodes. It is equivalent to xpath = &quot;.//*/text()[normalize-space(.) = &#39;text&#39;]/parent::*&quot;</td>
-<td>@ByText(&quot;Calculate&quot;)</td>
+<td>This locator allows detecting element(s) with the given text inside its text nodes. It is equivalent to <code>xpath = &quot;.//*/text()\[normalize-space(.) = &#39;text&#39;\]/parent::\*&quot;</code></td>
+<td><code>@ByText(&quot;Calculate&quot;)</code></td>
 </tr>
 <tr>
 <td><strong>@Css(&quot;expr&quot;)</strong></td>
-<td>This locator is an alias for @FindBy(css = &quot;expr&quot;)</td>
-<td>@Css(&quot;.fa-sign-out&quot;)</td>
+<td>This locator is an alias for <code>@FindBy(css = &quot;expr&quot;)</code></td>
+<td><code>@Css(&quot;.fa-sign-out&quot;)</code></td>
 </tr>
 <tr>
 <td><strong>@JDropdown</strong></td>
 <td>This locator helps locate dropdown elements and <a href='https://jdi-docs.github.io/jdi-light/?java#dropdown' target="_blank">provides additional features</a></td>
-<td>@JDropdown(root = &quot;div[ui=combobox]&quot;, value = &quot;input&quot;, list = &quot;li&quot;, expand = &quot;.caret&quot;)</td>
+<td><code>@JDropdown(root = &quot;div\[ui=combobox\]&quot;, value = &quot;input&quot;, list = &quot;li&quot;, expand = &quot;.caret&quot;)</code></td>
 </tr>
 <tr>
 <td><strong>@UI(&quot;&#39;expr[n]&quot;)</strong></td>
-<td>Such notation allows to enhance css locators to choose an element at a specific position. It is equivalent to xpath = &quot;.//xpath-expr[n]&quot;</td>
+<td>This notation allows to enhance CSS locators to choose an element at a specific position. It is equivalent to xpath = &quot;.//xpath-expr[n]&quot;</td>
 <td>@UI(&quot;[type=checkbox][1]&quot;)</td>
 </tr>
 <tr>
 <td><strong>@UI(&quot;[&#39;text&#39;]&quot;)</strong></td>
-<td>Such notation allows to enhance css locators to detect element(s) with given text inside its text nodes. It is equivalent to xpath = &quot;.//*/text()[normalize-space(.) = &#39;text&#39;]/parent::*&quot;</td>
+<td>This notation allows to enhance CSS locators to detect element(s) with given text inside its text nodes. It is equivalent to xpath = &quot;.//*/text()[normalize-space(.) = &#39;text&#39;]/parent::*&quot;</td>
 <td>@UI(&quot;.user[&#39;Roman&#39;]&quot;) or @UI(&quot;[&#39;Accept&#39;] input&quot;)</td>
 </tr>
 <tr>
 <td><strong>@UI(&quot;[*&#39;text&#39;]&quot;)</strong></td>
-<td>Such notation allows to enhance css locators to detect element(s) which contain(s) given text inside its text nodes. It is equivalent to xpath = &quot;.//*/text()[contains(normalize-space(.), &#39;text&#39;)]/parent::*&quot;</td>
+<td>This notation allows to enhance CSS locators to detect element(s) which contain(s) given text inside its text nodes. It is equivalent to xpath = &quot;.//*/text()[contains(normalize-space(.), &#39;text&#39;)]/parent::*&quot;</td>
 <td>@UI(&quot;.user[*&#39;Roma&#39;]&quot;) or @UI(&quot;[*&#39;Accept&#39;] input&quot;)</td>
 </tr>
 <tr>
 <td><strong>@UI(&quot;expr&quot;)</strong></td>
-<td>This locator accepts either a css locator or an xpath expression as an argument and locates element accordingly. It provides additional features as described below. Additionally, the <strong>group</strong> annotation parameter allows to use different <strong>@UI</strong> locators for different test groups.</td>
+<td>This locator accepts either a CSS locator or an XPath expression as an argument and locates element accordingly. It provides additional features as described below. Additionally, the <strong>group</strong> annotation parameter allows to use different <strong>@UI</strong> locators for different test groups.</td>
 <td>@UI(&quot;#users-table&quot;)</td>
 </tr>
 <tr>
 <td><strong>@UI(&quot;expr&lt;&quot;)</strong></td>
-<td>Such notation allows to enhance css locators by allowing to move up the DOM to the parent of the element. E.g. [’text’]<strong>&lt;</strong>[type=checkbox] is the same as //*[text()=’text’]/..//*[@type=‘checkbox’]</td>
+<td>Such notation allows to enhance CSS locators by allowing to move up the DOM to the parent of the element. E.g. [’text’]<strong>&lt;</strong>[type=checkbox] is the same as //*[text()=’text’]/..//*[@type=‘checkbox’]</td>
 <td>@UI(&quot;[’Ice Cream’]&lt;[type=checkbox]&quot;)</td>
 </tr>
 <tr>
@@ -41718,7 +41712,7 @@ JDI Light supports Selenium @FindBy(s) locators, while also providing custom loc
 <td>@XPath(&quot;.//button[@type=&#39;submit&#39;]&quot;)</td>
 </tr>
 </tbody></table>
-<h4 id='smart-locators-2'>Smart locators</h4>
+<h4 id='smart-locators'>Smart locators</h4>
 <p><a href="https://jdi-docs.github.io/jdi-light/?java#smart-locators">See details and examples for Smart locators in the documentation</a></p>
 <h3 id='windows-tabs-manager'>Windows/Tabs manager</h3><pre class="highlight java tab-java"><code><span class="c1">//example 1</span>
 <span class="n">homePage</span><span class="o">.</span><span class="na">shouldBeOpened</span><span class="o">();</span>
@@ -41735,7 +41729,7 @@ JDI Light supports Selenium @FindBy(s) locators, while also providing custom loc
 <span class="n">switchToWindow</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
 <span class="n">contactFormPage</span><span class="o">.</span><span class="na">open</span><span class="o">();</span>
 </code></pre>
-<p>JDI has good support for managing opened windows and tabs of the browser. It can help create/switch/close windows/tabs in the browser. Let&#39;s look at methods available in Java:</p>
+<p>JDI supports managing opened browser windows and tabs. It can help create/switch/close windows/tabs in the browser. Let&#39;s look at the methods available in Java:</p>
 
 <table><thead>
 <tr>
@@ -42786,7 +42780,7 @@ Variables &gt; Edit &gt; New</strong></p></li>
 <p>That&#39;s it, check your tests results <a href="https://eyes.applitools.com/app/test-results">here</a></p>
 <h3 id='multiple-domains-example'>Multiple domains example</h3>
 <p>Here is the example <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/MultipleDomainsExampleTest.java">MultipleDomainsExampleTest.java</a>
-of test class with multiple domain. For this example the following files were added to the project:</p>
+of test class with multiple domains. For this example the following files were added to the project:</p>
 
 <ul>
 <li><p><a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/MultipleDomainsTestInit.java">MultipleDomainsTestInit.java</a></p></li>

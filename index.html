@@ -35383,16 +35383,13 @@ You can use for testing Text and Button classes, implemented in JDI-html section
 
 <p><img src="images/material-ui/Breadcrumbs.png" alt="Breadcrumbs" /></p>
 <h5 id='here-you-can-find-breadcrumbs-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/BreadcrumbsTests.java" target="_blank">Here you can find Breadcrumbs tests</a></h5><h3 id='4-35-bottom-navigation'>4.35 Bottom Navigation</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">".MuiBottomNavigationAction-root"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">BottomNavigation</span><span class="o">&gt;</span> <span class="n">bottomNavigationItems</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">BottomNavigation</span> <span class="n">bottomNavigationItems</span><span class="o">;</span>
 
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">defaultBottomNavigationTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">bottomNavigationItems</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">bottomNavigationItems</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">();</span>
-        <span class="n">bottomNavigationItems</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">notSelected</span><span class="o">();</span>
-        <span class="n">bottomNavigationItems</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">3</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">notSelected</span><span class="o">();</span>
-
-        <span class="n">jdiAssert</span><span class="o">(</span><span class="n">bottomNavigationItems</span><span class="o">.</span><span class="na">size</span><span class="o">(),</span> <span class="n">Matchers</span><span class="o">.</span><span class="na">is</span><span class="o">(</span><span class="mi">3</span><span class="o">));</span>
+        <span class="n">bottomNavigationItems</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+        <span class="n">bottomNavigationItems</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">elementSelected</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+        <span class="n">bottomNavigationItems</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">elementNotSelected</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
     <span class="o">}</span>
 </code></pre><h5 id='https-material-ui-com-components-bottom-navigation'><a href="https://material-ui.com/components/bottom-navigation/" target="_blank"> https://material-ui.com/components/bottom-navigation/ </a></h5>
 <p>Bottom navigation bars allow movement between primary destinations in an app.</p>
@@ -35406,11 +35403,6 @@ You can use for testing Text and Button classes, implemented in JDI-html section
 <th>Return Type</th>
 </tr>
 </thead><tbody>
-<tr>
-<td><strong>click()</strong></td>
-<td>Clicks on button</td>
-<td>void</td>
-</tr>
 <tr>
 <td><strong>is()</strong></td>
 <td>Assert method</td>

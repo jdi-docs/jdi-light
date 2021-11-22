@@ -1605,16 +1605,13 @@ Breadcrumbs allow users to make selections from a range of values.
 
 ```java 
     @UI(".MuiBottomNavigationAction-root")
-    public static List<BottomNavigation> bottomNavigationItems;
+    public static BottomNavigation bottomNavigationItems;
     
     @Test
     public void defaultBottomNavigationTest() {
-        bottomNavigationItems.get(1).click();
-        bottomNavigationItems.get(1).is().selected();
-        bottomNavigationItems.get(2).is().notSelected();
-        bottomNavigationItems.get(3).is().notSelected();
-
-        jdiAssert(bottomNavigationItems.size(), Matchers.is(3));
+        bottomNavigationItems.select(2);
+        bottomNavigationItems.has().elementSelected(2);
+        bottomNavigationItems.has().elementNotSelected(3);
     }
 ```
 
@@ -1627,7 +1624,6 @@ Bottom navigation bars allow movement between primary destinations in an app.
 
 |Method | Description | Return Type
 --- | --- | ---
-**click()** | Clicks on button | void
 **is()** | Assert method | BottomNavigation Assert
 **isSelected** | Check if item is selected | boolean
 **isNotSelected()** | Check if item is not selected | boolean

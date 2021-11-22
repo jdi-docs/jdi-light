@@ -2031,3 +2031,31 @@ The Dialog component inform users about a specific task and may contain critical
 **show()** | Focuses on the specified UIElement| void
 
 For examples of usage see: [JDI vuetify page tests for Virtual Scroller](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/VirtualScrollerTests.java).
+
+### 5.34 Skeleton loader
+
+[Vuetify documentation page](https://vuetifyjs.com/en/components/skeleton-loaders/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.complex.SkeletonLoader.java_
+
+```java
+@Test
+public void tableImageSkeletonLoaderTest() {
+    tableImageSkeletonLoader.is().displayed();
+    tableImageSkeletonLoader.headingBoilerplate().is().displayed();
+    tableImageSkeletonLoader.textBoilerplate().is().displayed();
+    tableImageSkeletonLoader.imageBoilerplate().is().displayed();
+    tableImageSkeletonLoader.avatarBoilerplate().is().displayed();
+  }
+```
+The `v-skeleton-loader` component is a versatile tool that can fill many roles within a project. 
+At its heart, the component provides an indication to the user that something is coming but not yet available. 
+There are over 30 pre-defined options available that can be combined to make custom examples.
+
+####Boilerplate component
+The `v-skeleton-loader` can be used as boilerplate designs when creating mockups. 
+Mix and match various pre-defined options or create your own unique implementations. 
+
+![Skeleton Loader example](../../images/vuetify/skeletonLoaders.png)
+
+For examples of usage see: [JDI vuetify page tests for Skeleton Loader](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SkeletonLoadersTests.java).

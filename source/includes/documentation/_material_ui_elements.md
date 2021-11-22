@@ -161,15 +161,15 @@ Tooltips display informative text when users hover over, focus on, or tap an ele
 ### 4.4 Container
 
 ```java 
-    @UI("//div[contains(@Class, 'MuiTypography-body1')]")
-    public static UIElement container;
+    @UI(".MuiContainer-root.MuiContainer-maxWidthSm")
+    public static Container container;
 
     @Test
-    public void defaultContainerTest(){
-        Timer timer = new Timer(1000L);
-        timer.wait(() -> container.isDisplayed());
-        container.is().text("Example text");
-        container.is().attr("style", "background-color: rgb(207, 232, 252); height: 100vh;");
+    public void fluidContainerTest() {
+        container.has().maxWidth("600px");
+        container.is().fluid();
+        container.is().displayed();
+        container.is().enabled();
     }
 ```
 
@@ -179,11 +179,20 @@ Tooltips display informative text when users hover over, focus on, or tap an ele
 ![Container](../../images/material-ui/Container.png)
 
 The container centers your content horizontally. It's the most basic layout element.
+A fluid container width is bounded by the maxWidth prop value.
+If you prefer to design for a fixed set of sizes instead of trying to accommodate a fully fluid viewport,
+you can set the fixed prop. The max-width matches the min-width of the current breakpoint.
+
 
 |Method | Description | Return Type
 --- | --- | ---
-**is()** | Verify state | boolean
-**isDisplayed()** | Verify state | boolean
+**fixed()** | Check whether container is fixed | boolean
+**fluid()** | Check whether container is fluid | boolean
+**getMaxWidth()** | Get max width of container | String
+**is()** | Assert method | ContainerAssert
+**fixed()** | Assert that container is fixed | ContainerAssert
+**fluid()** | Assert that container is fluid | ContainerAssert
+**maxWidth(String)** | Assert that container's max width is specified width | ContainerAssert
 
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/ContainerTests.java" target="_blank">Here you can find Container tests</a>

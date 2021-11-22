@@ -1666,7 +1666,9 @@ Demonstrates that you can write clear and stable tests with 3 times less effort.
 <li><strong>allure.steps</strong> = <em>true</em> — turn on the steps for Allure.<br/></li>
 </ul>
 
-<p><em>Note: you can find more examples in the <a href="https://jdi-docs.github.io/jdi-light/#driver-settings">documentation</a>.</em></p>
+<aside class="notice">
+Note: you can find more examples in the [documentation](https://jdi-docs.github.io/jdi-light/#driver-settings).
+</aside>
 
 <p><a href="https://github.com/jdi-tutorials/01-jdi-light-intro/blob/master/src/test/resources/test.properties" target="_blank">See the examples on Github</a></p>
 <h2 id='2-jdi-light-at-a-glance'>2. JDI Light at a glance</h2>
@@ -41639,8 +41641,8 @@ JDI Light supports Selenium @FindBy(s) locators, while also providing custom loc
 </thead><tbody>
 <tr>
 <td><strong>@FindAll</strong></td>
-<td>TBD. The JDI Light annotation should correspond exactly to Selenium @FindAll annotation</td>
-<td>TBD</td>
+<td><font color="olive"> TBD. The JDI Light annotation should correspond exactly to Selenium @FindAll annotation </font></td>
+<td><font color="olive"> TBD </font></td>
 </tr>
 <tr>
 <td><strong>@FindBy</strong></td>
@@ -41678,38 +41680,38 @@ JDI Light supports Selenium @FindBy(s) locators, while also providing custom loc
 </tr>
 <tr>
 <td><strong>@UI(&quot;&#39;expr[n]&quot;)</strong></td>
-<td>This notation allows to enhance CSS locators to choose an element at a specific position. It is equivalent to xpath = &quot;.//xpath-expr[n]&quot;</td>
-<td>@UI(&quot;[type=checkbox][1]&quot;)</td>
+<td>This notation allows to enhance CSS locators to choose an element at a specific position. It is equivalent to <code>xpath = &quot;.//xpath-expr\[n\]&quot;</code></td>
+<td><code>@UI(&quot;\[type=checkbox\]\[1\]&quot;)</code></td>
 </tr>
 <tr>
 <td><strong>@UI(&quot;[&#39;text&#39;]&quot;)</strong></td>
-<td>This notation allows to enhance CSS locators to detect element(s) with given text inside its text nodes. It is equivalent to xpath = &quot;.//*/text()[normalize-space(.) = &#39;text&#39;]/parent::*&quot;</td>
-<td>@UI(&quot;.user[&#39;Roman&#39;]&quot;) or @UI(&quot;[&#39;Accept&#39;] input&quot;)</td>
+<td>This notation allows to enhance CSS locators to detect element(s) with given text inside its text nodes. It is equivalent to <code>xpath = &quot;.//\*/text()\[normalize-space(.) = &#39;text&#39;\]/parent::\*&quot;</code></td>
+<td><code>@UI(&quot;.user\[&#39;Roman&#39;\]&quot;) or @UI(&quot;\[&#39;Accept&#39;\] input&quot;)</code></td>
 </tr>
 <tr>
 <td><strong>@UI(&quot;[*&#39;text&#39;]&quot;)</strong></td>
-<td>This notation allows to enhance CSS locators to detect element(s) which contain(s) given text inside its text nodes. It is equivalent to xpath = &quot;.//*/text()[contains(normalize-space(.), &#39;text&#39;)]/parent::*&quot;</td>
-<td>@UI(&quot;.user[*&#39;Roma&#39;]&quot;) or @UI(&quot;[*&#39;Accept&#39;] input&quot;)</td>
+<td>This notation allows to enhance CSS locators to detect element(s) which contain(s) given text inside its text nodes. It is equivalent to <code>xpath = &quot;.//\*/text()\[contains(normalize-space(.), &#39;text&#39;)\]/parent::\*&quot;</code></td>
+<td><code>@UI(&quot;.user\[\*&#39;Roma&#39;\]&quot;) or @UI(&quot;\[\*&#39;Accept&#39;\] input&quot;)</code></td>
 </tr>
 <tr>
 <td><strong>@UI(&quot;expr&quot;)</strong></td>
-<td>This locator accepts either a CSS locator or an XPath expression as an argument and locates element accordingly. It provides additional features as described below. Additionally, the <strong>group</strong> annotation parameter allows to use different <strong>@UI</strong> locators for different test groups.</td>
-<td>@UI(&quot;#users-table&quot;)</td>
+<td>This locator accepts either a CSS locator or an XPath expression as an argument and locates element accordingly. It provides additional features as described below. Additionally, the <strong>group</strong> annotation attribute allows to use different <strong>@UI</strong> locators for different test groups.</td>
+<td><code>@UI(&quot;#users-table&quot;)</code></td>
 </tr>
 <tr>
 <td><strong>@UI(&quot;expr&lt;&quot;)</strong></td>
-<td>Such notation allows to enhance CSS locators by allowing to move up the DOM to the parent of the element. E.g. [’text’]<strong>&lt;</strong>[type=checkbox] is the same as //*[text()=’text’]/..//*[@type=‘checkbox’]</td>
-<td>@UI(&quot;[’Ice Cream’]&lt;[type=checkbox]&quot;)</td>
+<td>This notation allows to enhance CSS locators by making it possible to move up the DOM to the parent of the element. E.g. <code>\[’text’\]**&lt;**\[type=checkbox\]</code> is the same as <code>//\*\[text()=’text’\]/..//*\[@type=‘checkbox’\]</code></td>
+<td><code>@UI(&quot;\[’Ice Cream’\]&lt;\[type=checkbox\]&quot;</code>)</td>
 </tr>
 <tr>
 <td><strong>@WithText(&quot;text&quot;)</strong></td>
-<td>This locator allows detecting element with the given text inside its text nodes. It is equivalent to xpath = &quot;.//*/text()[contains(normalize-space(.), &#39;text&#39;)]/parent::*&quot;</td>
-<td>@WithText(&quot;Calculat&quot;)</td>
+<td>This locator allows detecting element with the given text inside its text nodes. It is equivalent to <code>xpath = &quot;.//*/text()\[contains(normalize-space(.), &#39;text&#39;)\]/parent::\*&quot;</code></td>
+<td><code>@WithText(&quot;Calculate&quot;)</code></td>
 </tr>
 <tr>
 <td><strong>@XPath(&quot;expr&quot;)</strong></td>
-<td>This locator is an alias for @FindBy(xpath = &quot;expr&quot;)</td>
-<td>@XPath(&quot;.//button[@type=&#39;submit&#39;]&quot;)</td>
+<td>This locator is an alias for <code>@FindBy(xpath = &quot;expr&quot;)</code></td>
+<td><code>@XPath(&quot;.//button\[@type=&#39;submit&#39;\]&quot;)</code></td>
 </tr>
 </tbody></table>
 <h4 id='smart-locators'>Smart locators</h4>
@@ -41780,7 +41782,7 @@ JDI Light supports Selenium @FindBy(s) locators, while also providing custom loc
 </tr>
 <tr>
 <td><strong>switchToWindow(String value)</strong></td>
-<td>Switch to windows with names. To set name for the current window, we should use the <strong>setWindowName()</strong> method</td>
+<td>Switch to windows with names. To set name for the current window, we should use the <code>setWindowName()</code> method</td>
 <td>void</td>
 </tr>
 <tr>
@@ -41803,7 +41805,7 @@ JDI Light supports Selenium @FindBy(s) locators, while also providing custom loc
 </code></pre><pre class="highlight csharp tab-csharp"><code><span class="n">AlertButton</span><span class="p">.</span><span class="nf">Click</span><span class="p">();</span>
 <span class="nf">GetAlert</span><span class="p">().</span><span class="nf">DismissAlert</span><span class="p">();</span>
 </code></pre>
-<p><strong>Alert</strong> –  a window with a message that displays on the screen and pauses the execution of the script until user performs an action</p>
+<p><strong>Alert</strong> is message window that gets displayed on the screen and pauses the execution of the script until user performs an action.</p>
 
 <aside class="notice">
 Note that you can make a static import (Alerts.acceptAlert() > acceptAlert()) in order to simplify your code.

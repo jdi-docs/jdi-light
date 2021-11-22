@@ -1377,10 +1377,10 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 | --- | --- | ---
-**getButtonByIndex(int)** | Get button by index | Button
-**getButtonByText(String)** | Get button by text | Button
-**getAllButtons()**        | Get all buttons in a block | Collection\<Button\>
-
+**getButtonByIndex(int)** | Get button by index | MaterialButton
+**getButtonByText(String)** | Get button by text | MaterialButton
+**getAllButtons()**        | Get all buttons in a block | Collection\<MaterialButton\>
+**is()** | Returns Assert class | ButtonGroupAssert
 
 <br></br>
 
@@ -1419,23 +1419,31 @@ ButtonGroupPage class has been extended from WebPage. This class contains variab
 ```java 
 @Test
     public void verticalButtonGroupTest() {
+
         verticalButtonGroup.getButtonByIndex(2).click();
         verticalButtonGroup.getButtonByIndex(3).click();
+
         verticalButtonGroup.getButtonByText("Two").click();
         verticalButtonGroup.getButtonByText("One").click();
+
         basicButtonGroup.getButtonByIndex(2).is().enabled();
         basicButtonGroup.getButtonByIndex(2).has().text("TWO");
     }
 
-    @Test
+
+   @Test
     public void splitButtonGroupTest() {
         splitButtonGroup.getButtonByIndex(1).has().text("SQUASH AND MERGE");
         splitButtonGroup.getButtonByText("Squash and merge").click();
+
         splitButtonGroup.getButtonByIndex(2).click();
         splitButtonDropdown.get(1).click();
         splitButtonGroup.getButtonByIndex(1).has().text("CREATE A MERGE COMMIT");
+
         splitButtonGroup.getButtonByIndex(2).click();
         splitButtonDropdown.get(3).has().cssClass("Mui-disabled");
+        splitButtonDropdown.get(3).has().text("Rebase and merge");
+
         splitButtonDropdown.get(2).click();
         splitButtonGroup.getButtonByIndex(1).has().text("SQUASH AND MERGE");
     }

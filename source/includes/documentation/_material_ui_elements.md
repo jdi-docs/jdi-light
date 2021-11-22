@@ -2003,6 +2003,8 @@ Available methods in Java JDI Light:
 
 #### 4.45.2 Icon Menu
 
+##### <a href="https://mui.com/components/menus/#icon-menu" target="_blank"> https://mui.com/components/menus/#icon-menu </a>
+
 ```java 
     //@FindBy(css = "div[class^=MuiBox-root]>div div:nth-of-type(1) svg")
     @UI("div[class^=MuiBox-root]>div div:nth-of-type(1) svg")

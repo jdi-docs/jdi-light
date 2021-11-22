@@ -33731,20 +33731,23 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
 <td>String</td>
 </tr>
 </tbody></table>
-<h5 id='here-you-can-find-tooltip-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/TooltipTests.java" target="_blank">Here you can find Tooltip tests</a></h5><h3 id='4-4-container'>4.4 Container</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div[contains(@Class, 'MuiTypography-body1')]"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">UIElement</span> <span class="n">container</span><span class="o">;</span>
+<h5 id='here-you-can-find-tooltip-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/TooltipTests.java" target="_blank">Here you can find Tooltip tests</a></h5><h3 id='4-4-container'>4.4 Container</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">".MuiContainer-root.MuiContainer-maxWidthSm"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Container</span> <span class="n">container</span><span class="o">;</span>
 
     <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">defaultContainerTest</span><span class="o">(){</span>
-        <span class="n">Timer</span> <span class="n">timer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Timer</span><span class="o">(</span><span class="mi">1000L</span><span class="o">);</span>
-        <span class="n">timer</span><span class="o">.</span><span class="na">wait</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">container</span><span class="o">.</span><span class="na">isDisplayed</span><span class="o">());</span>
-        <span class="n">container</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Example text"</span><span class="o">);</span>
-        <span class="n">container</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">attr</span><span class="o">(</span><span class="s">"style"</span><span class="o">,</span> <span class="s">"background-color: rgb(207, 232, 252); height: 100vh;"</span><span class="o">);</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">fluidContainerTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">container</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">maxWidth</span><span class="o">(</span><span class="s">"600px"</span><span class="o">);</span>
+        <span class="n">container</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">fluid</span><span class="o">();</span>
+        <span class="n">container</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+        <span class="n">container</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
     <span class="o">}</span>
 </code></pre><h5 id='https-material-ui-com-components-container'><a href="https://material-ui.com/components/container/" target="_blank"> https://material-ui.com/components/container/ </a></h5>
 <p><img src="images/material-ui/Container.png" alt="Container" /></p>
 
-<p>The container centers your content horizontally. It&#39;s the most basic layout element.</p>
+<p>The container centers your content horizontally. It&#39;s the most basic layout element.
+A fluid container width is bounded by the maxWidth prop value.
+If you prefer to design for a fixed set of sizes instead of trying to accommodate a fully fluid viewport,
+you can set the fixed prop. The max-width matches the min-width of the current breakpoint.</p>
 
 <table><thead>
 <tr>
@@ -33754,14 +33757,39 @@ You can also create non-interactive dropdown items with <code>.dropdown-item-tex
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>is()</strong></td>
-<td>Verify state</td>
+<td><strong>fixed()</strong></td>
+<td>Check whether container is fixed</td>
 <td>boolean</td>
 </tr>
 <tr>
-<td><strong>isDisplayed()</strong></td>
-<td>Verify state</td>
+<td><strong>fluid()</strong></td>
+<td>Check whether container is fluid</td>
 <td>boolean</td>
+</tr>
+<tr>
+<td><strong>getMaxWidth()</strong></td>
+<td>Get max width of container</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>is()</strong></td>
+<td>Assert method</td>
+<td>ContainerAssert</td>
+</tr>
+<tr>
+<td><strong>fixed()</strong></td>
+<td>Assert that container is fixed</td>
+<td>ContainerAssert</td>
+</tr>
+<tr>
+<td><strong>fluid()</strong></td>
+<td>Assert that container is fluid</td>
+<td>ContainerAssert</td>
+</tr>
+<tr>
+<td><strong>maxWidth(String)</strong></td>
+<td>Assert that container&#39;s max width is specified width</td>
+<td>ContainerAssert</td>
 </tr>
 </tbody></table>
 <h5 id='here-you-can-find-container-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/ContainerTests.java" target="_blank">Here you can find Container tests</a></h5><h3 id='4-5-avatar'>4.5 Avatar</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//span[@class = 'MuiBadge-root']"</span><span class="o">)</span>

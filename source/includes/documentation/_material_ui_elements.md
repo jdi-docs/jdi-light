@@ -890,44 +890,44 @@ Sliders reflect a range of values along a bar, from which users may select a sin
 
 ```java 
     @UI("//button[contains(@aria-controls,'simple-tabpanel')]")
-    public static List<Tabs> simpleTabs;
+    public static Tabs simpleTabs;
 
     @UI("//button[contains(@aria-controls,'scrollable-auto-tab')]")
-    public static List<Tabs> scrollableTabs;
+    public static Tabs scrollableTabs;
 
     @UI("//button[contains(@aria-controls,'scrollable-prevent-tab')]")
-    public static List<Tabs> preventScrollTabs;
+    public static Tabs preventScrollTabs;
 
     @UI("//button[contains(@aria-controls,'vertical-tabpanel')]")
-    public static List<Tabs> verticalTabs;
+    public static Tabs verticalTabs;
     
     @Test
     public void simpleTabTest() {
-        simpleTabs.get(1).click();
-        simpleTabs.get(1).is().enabled();
-        simpleTabs.get(1).is().selected(1);
-
-        simpleTabs.get(2).click();
-
-        simpleTabs.get(4).is().disabled();
+        simpleTabs.select(2);
+        simpleTabs.has().elementSelected(2);
+        simpleTabs.has().elementNotSelected(3);
+        simpleTabs.has().elementDisabled(4);
 
         jdiAssert(simpleTabs.size(), Matchers.is(5));
     }
 
     @Test
     public void scrollableTabTest() {
-        scrollableTabs.get(1).click();
-        scrollableTabs.get(1).is().enabled();
-        scrollableTabs.get(1).is().selected(1);
+        scrollableTabs.select(1);
+        scrollableTabs.has().elementSelected(1);
+        scrollableTabs.has().elementEnabled(1);
 
-        scrollableTabs.get(7).click();
-        scrollableTabs.get(7).is().enabled();
+        scrollableTabs.select(7);
+        scrollableTabs.has().elementSelected(7);
+        scrollableTabs.has().elementEnabled(7);
 
-        scrollableTabs.get(11).click();
-        scrollableTabs.get(11).is().enabled();
+        scrollableTabs.select(11);
+        scrollableTabs.has().elementSelected(11);
+        scrollableTabs.has().elementEnabled(11);
 
-        scrollableTabs.get(1).click();
-        scrollableTabs.get(1).is().enabled();
+        scrollableTabs.select(1);
+        scrollableTabs.has().elementSelected(1);
+        scrollableTabs.has().elementEnabled(1);
 
         jdiAssert(scrollableTabs.size(), Matchers.is(11));
     }
@@ -942,11 +942,11 @@ Tabs organize and allow navigation between groups of content that are related an
 
 |Method | Description | Return Type
 --- | --- | ---
-**click()** | Clicks on button | void
 **is()** | Assert method | Tabs Assert
 **enabled()** | Check if tab is enabled | boolean
 **disabled()** | Check if tab is disabled | boolean
 **selected()** | Check if tab is selected | boolean
+**notSelected()** | Check if tab is not selected | boolean
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/pull/3518/commits/c82c82512d73a84716eead8f0d4744cf4dd34f98#diff-fbe7d79cccd062917f385eca9e9db7fde3c41058b8dff308f33693d160ee60e8" target="_blank">Here you can find Tabs tests</a>
 

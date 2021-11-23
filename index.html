@@ -1414,7 +1414,7 @@
 <li>Increases your overall test execution speed, especially for complex cases like searching huge tables, selecting dropdown items out of a hundred or entering text containing thousands of lines.</li>
 <li>Provides detailed logs and well-readable reports of all user actions with no additional effort.</li>
 <li>All UI Elements have assertions/matchers powered by Hamcrest and a wait with expected condition during timeout.</li>
-<li>Easy integration with all modern automation tools: <strong><em>CI</em></strong> (<em>Jenkins</em>, <em>TC</em> etc.), <strong><em>logging</em></strong> (<em>Log4j</em> or any other <em>slf4j</em>-based logs), <strong><em>reporting</em></strong> (<em>Allure</em> or <em>Report Portal</em>); <strong><em>browser/device farms</em></strong> (<em>Selenium Grid</em>, <em>BrowserStack</em>, <em>Selenoid</em> etc.), <strong><em>test runners</em></strong> (<em>TestNG</em>, <em>JUnit</em>) etc.</li>
+<li>Easy integration with all modern automation tools: <strong>CI</strong> (<em>Jenkins</em>, <em>TC</em> etc.), <strong>logging</strong> (<em>Log4j</em> or any other <em>slf4j</em>-based logs), <strong>reporting</strong> (<em>Allure</em> or <em>Report Portal</em>); <strong>browser/device farms</strong> (<em>Selenium Grid</em>, <em>BrowserStack</em>, <em>Selenoid</em> etc.), <strong>test runners</strong> (<em>TestNG</em>, <em>JUnit</em>) etc.</li>
 </ul>
 <h1 id='navigation'>Navigation</h1>
 <p><a href="https://jdi-docs.github.io/jdi-light/?java#introduction">Introduction</a> provides examples of common test automation tasks solved with JDI Light.</p>
@@ -1423,7 +1423,7 @@
 
 <p><a href="https://jdi-docs.github.io/jdi-light/?java#theory">Theory</a> addresses the key principles behind JDI Light framework and the tools it offers to put these principles into practice.</p>
 
-<p><a href="https://jdi-docs.github.io/jdi-light/?java#documentation">Documentation</a> contains technical description of JDI Light features and UI Element sets.</p>
+<p><a href="https://jdi-docs.github.io/jdi-light/?java#documentation">Documentation</a> contains technical description of JDI Light features/settings and UI Element sets.</p>
 <h1 id='introduction'>Introduction</h1><h2 id='simple-jdi-examples'>Simple JDI examples</h2><h3 id='create-a-simple-login-test'>Create a simple Login test</h3>
 <p>First of all, let&#39;s see how JDI solves typical problems. Let&#39;s start with Login, since most tests start with signing in.</p>
 
@@ -1661,22 +1661,20 @@ Demonstrates that you can write clear and stable tests with 3 times less effort.
 <p>Let’s have a detailed look at some options:</p>
 
 <ul>
-<li><strong>driver</strong> — we can specify the driver used to run our tests. Common options include <em>chrome</em>, <em>firefox</em>, <em>ie</em>; we can also just put <em>${driver}</em> here and read the driver name from the command line.<br/></li>
+<li><strong>driver</strong> — we can specify the driver used to run our tests. Common options include <code>chrome</code>, <code>firefox</code>, <code>ie</code>; we can also just put <code>${driver}</code> here and read the driver name from the command line.<br/></li>
 <li><strong>driver.version</strong> — by default, JDI Light will download the latest version of a driver for us, but if we need a specific version we can put it here (in which case the framework will find and download exactly this version).<br/></li>
 <li><strong>timeout.wait.element</strong> — the maximum amount of time in seconds that will be spent waiting for an element on the opened page to load. The default element loading timeout is 10 seconds.<br/></li>
 <li><strong>timeout.wait.page</strong> — JDI Light automatically defines a newly opened page and uses this value as page loading timeout (it is usually greater than the element loading timeout). The default is 30 seconds.<br/></li>
-<li><strong>domain</strong> — web application root URL (used when our tests work with a single application). Can also be read from the command line if set up as <em>${domain}.</em> <br/></li>
-<li><strong>page.load.strategy</strong> — similarly to Selenium, page loading strategies are: <em>normal, eager, none</em>. <br/></li>
+<li><strong>domain</strong> — web application root URL (used when our tests work with a single application). Can also be read from the command line if set up as <code>${domain}.</code> <br/></li>
+<li><strong>page.load.strategy</strong> — similarly to Selenium, page loading strategies are: <code>normal</code>, <code>eager</code>, <code>none</code>. <br/></li>
 <li><strong>browser.size</strong> — browser window size. By default, JDI Light will maximize the browser window, but we can set the exact size.<br/></li>
-<li><strong>screenshot.strategy</strong> = <em>off</em> | <em>on fail</em> | <em>on assert</em> | <em>new page</em> — take screenshot, it&#39;s used by AllureLogger.class and upper or lower standing classes. Can be overwritten in test project.<br/></li>
-<li><strong>html.code.strategy</strong> = <em>off</em> | <em>on fail</em> | <em>on assert</em> | <em>new page</em> — logs page HTML code.<br/></li>
-<li><strong>requests.strategy</strong> = <em>off</em> | <em>on fail</em> | <em>on assert</em> | <em>new page</em> — requests 4ХХ, 5ХХ errors in console log.<br/></li>
-<li><strong>allure.steps</strong> = <em>true</em> — turn on the steps for Allure.<br/></li>
+<li><strong>screenshot.strategy</strong> = <code>off</code> | <code>on failure</code> | <code>on assert</code> | <code>new page</code> — determines when screenshots are taken; it&#39;s used by AllureLogger.class and its sub/superclasses. Can be overwritten in test project.<br/></li>
+<li><strong>html.code.strategy</strong> = <code>off</code> | <code>on failure</code> | <code>on assert</code> | <code>new page</code> — logs the last processed element HTML code.<br/></li>
+<li><strong>requests.strategy</strong> = <code>off</code> | <code>on failure</code> | <code>on assert</code> | <code>new page</code> — logs 4ХХ, 5ХХ errors in the console.<br/></li>
+<li><strong>allure.steps</strong> = <code>true</code> — turn on the steps for Allure.<br/></li>
 </ul>
 
-<aside class="notice">
-Note: you can find more examples in the [documentation](https://jdi-docs.github.io/jdi-light/#driver-settings).
-</aside>
+<p><em>Note: you can find more examples in the <a href="https://jdi-docs.github.io/jdi-light/#driver-settings">documentation</a>.</em></p>
 
 <p><a href="https://github.com/jdi-tutorials/01-jdi-light-intro/blob/master/src/test/resources/test.properties" target="_blank">See the examples on Github</a></p>
 <h2 id='2-jdi-light-at-a-glance'>2. JDI Light at a glance</h2>
@@ -1804,7 +1802,7 @@ Pretty simple and obvious, isn’t it?</p>
 
 <p>It lists exactly what we do in our test with all the details and without any extra effort on our part. Fabulous! <br/></p>
 
-<p>We can change the log level to <strong><em>STEP</em></strong> (just add <code>logger.setLogLevel(STEP)</code> to the <code>setUp()</code> method) and remove the details. The resulting log will be fit to share with a Customer, a Business Analyst or a Manual QA to let them know what our automated tests verify.</p>
+<p>We can change the log level to <code>STEP</code> (just add <code>logger.setLogLevel(STEP)</code> to the <code>setUp()</code> method) and remove the details. The resulting log will be fit to share with a Customer, a Business Analyst or a Manual QA to let them know what our automated tests verify.</p>
 
 <p><a href="https://github.com/jdi-tutorials/01-jdi-light-intro" target="_blank">See PageObject examples in PageObjectExample.java on Github</a></p>
 <h2 id='3-jdi-light-forms'>3. JDI Light Forms</h2>
@@ -1911,7 +1909,7 @@ Then we&#39;ll set <code>LoginForm</code> as a root UI Object in our <code>JDISi
 
 <p><em>Note: we don&#39;t need to write any other code except test scenarios. Already written UI Objects will be enough.</em></p>
 
-<p><em>Note: In order to be sure that <strong>the user is logged out</strong> and <strong>login form is opened</strong> before each test we can add these conditions as <code>loggedOut()</code> and <code>loginFormShown()</code>States in <code>@BeforeMethod</code>.</em></p>
+<p><em>Note: In order to be sure that</em> <strong>the user is logged out</strong> <em>and</em> <strong>login form is opened</strong> <em>before each test we can add these conditions as <code>loggedOut()</code> and <code>loginFormShown()</code>States in <code>@BeforeMethod</code>.</em></p>
 
 <p><a href="https://github.com/jdi-tutorials/02-jdi-light-forms-elements" target="_blank">See this example in LoginExample.java on Github</a>
 <br/><br/><br/><br/><br/><br/><br/><br/><br/></p>
@@ -2243,11 +2241,11 @@ Let&#39;s add <code>failedUsers()</code> method that returns test data for our c
 <p>Let&#39;s try to code in Selenium the same <a href="https://jdi-docs.github.io/jdi-light/?java#contact-form-test-scenario">Fill Contact Form test scenario</a> that we have already covered with JDI Light:</p>
 
 <ul>
-<li>Open Home Page by URL<br/></li>
-<li>Open Contact Page by selecting a menu item<br/></li>
-<li>Validate that this Page has the correct URL and title<br/></li>
-<li>Fill all 11 different elements in the contact form with values<br/></li>
-<li>And verify that the form is filled correctly<br/></li>
+<li>Open Home Page by URL.<br/></li>
+<li>Open Contact Page by selecting a menu item.<br/></li>
+<li>Validate that this Page has the correct URL and title.<br/></li>
+<li>Fill all 11 different elements in the contact form with values.<br/></li>
+<li>And verify that the form is filled correctly.<br/></li>
 </ul>
 
 <p><em>Note: You can find all the Selenium code <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium" target="_blank">here</a>.<br/></em>
@@ -2270,7 +2268,7 @@ Here it is done with a simple method, <code>runChromeDriver()</code>.</p>
 
 <p><em>Note: To run the driver in Selenium you need to download the latest version from <a href="https://chromedriver.storage.googleapis.com/index.html" target="_blank">the official site </a> and put it in Selenium folder.</em><br/></p>
 
-<p><strong>JDI Light</strong> (0 lines of code)<br/> 
+<p><strong>JDI Light:</strong> (0 lines of code)<br/> 
 You don&#39;t need to write any code for this. By default, the latest version of ChromeDriver will be downloaded automatically.</p>
 <h3 id='2-create-page-objects-for-home-and-contact-pages'>2. Create Page Objects for Home and Contact pages</h3><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">HomePage</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">URL</span> <span class="o">=</span> <span class="s">"https://jdi-testing.github.io/jdi-light/"</span><span class="o">;</span>
@@ -2305,7 +2303,7 @@ Using <code>PageFactory.initElements()</code>, we can create simple Page Objects
 <span class="o">}</span>
 <span class="kd">public</span> <span class="kd">static</span> <span class="n">ContactPage</span> <span class="n">contactPage</span><span class="o">;</span>
 </code></pre>
-<p><strong>JDI Light</strong> (11 lines of code)<br/> 
+<p><strong>JDI Light:</strong> (11 lines of code)<br/> 
 In JDI Light we already have all the functions related to webpages. You can find them in the <code>WebPage</code> class, so you just need to extend your Page Object from it and use <code>@Url</code> and <code>@Title</code> annotations to set page metadata.</p>
 
 <p>The code for UI Objects in Selenium and JDI Light in this case looks pretty much the same.<br/> 
@@ -2375,7 +2373,7 @@ In Selenium we have to describe all elements of the form. This is easy to do for
     <span class="n">Checkbox</span> <span class="n">passport</span><span class="o">,</span> <span class="n">acceptConditions</span><span class="o">;</span>
     <span class="n">TextArea</span> <span class="n">description</span><span class="o">;</span>
 </code></pre>
-<p><strong>JDI Light</strong> (3 lines of code)<br/> 
+<p><strong>JDI Light:</strong> (3 lines of code)<br/> 
 In JDI Light we just need to describe the types of elements and list them for each type. In this example, locators align with field names, so we can utilize Smart locators without writing explicit ones.<br/><br/></p>
 <pre class="highlight java tab-java"><code>    <span class="c1">// Dropdown</span>
     <span class="nd">@FindBy</span><span class="o">(</span><span class="n">id</span> <span class="o">=</span> <span class="s">"gender"</span><span class="o">)</span> <span class="n">WebElement</span> <span class="n">gender</span><span class="o">;</span>
@@ -2407,11 +2405,11 @@ In JDI Light we just need to describe the types of elements and list them for ea
 <p><strong>Selenium:</strong> (23 lines of code)<br/> 
 The situation with Complex elements is more interesting:</p>
 
-<p>Instead of <code>Dropdown</code> we can use <code>Select</code> class from <strong><em>selenium-support</em></strong> package and <code>WebElement</code> + <code>gender()</code> method. These are enough to handle all actions.</p>
+<p>Instead of <code>Dropdown</code> we can use <code>Select</code> class from <em>selenium-support</em> package and <code>WebElement</code> + <code>gender()</code> method. These are enough to handle all actions.</p>
 
 <p>Instead of <code>Combobox</code> we can use a one-line <code>WebElement</code> (just using it as a standard <code>TextField</code>).</p>
 
-<p>But instead of <code>MultiDropdown</code> we&#39;ll need to add 4 WebElements and a few methods: <em>select</em> and <em>isExpanded</em>.
+<p>But instead of <code>MultiDropdown</code> we&#39;ll need to add 4 WebElements and a few methods: <code>select</code> and <code>isExpanded</code>.
 The general problem with Complex elements in standard Selenium approach is that we have to create methods like these for every equivalent of <code>Dropdown</code>, <code>MultiDropdown</code> etc. JDI Light allows to define an element once (or pick one from element library) and then just use it in one line in all Page Objects.</p>
 
 <p><a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/elements/MultiDropdown.java" target="_blank">MultiDropdown example</a></p>
@@ -2419,7 +2417,7 @@ The general problem with Complex elements in standard Selenium approach is that 
     <span class="n">Combobox</span> <span class="n">religion</span><span class="o">;</span>
     <span class="n">MultiDropdown</span> <span class="n">weather</span><span class="o">;</span>
 </code></pre>
-<p><strong>JDI Light</strong> (3 lines of code)<br/> 
+<p><strong>JDI Light:</strong> (3 lines of code)<br/> 
 In JDI Light it is as simple as for Common elements. </p>
 
 <p><em>Note: They are so short that we could write them in one line, but let&#39;s keep each on its own line.</em><br/><br/></p>
@@ -2463,7 +2461,7 @@ Using a flexible approach, we need 43 + 22 = 65 lines of code.</p>
 <p><a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/sections/ContactForm.java" target="_blank">Selenium Contact Form code (97)</a><br/>
 <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/sections/ShortContactForm.java" target="_blank">Short Selenium Contact Form code (69)</a><br/><br/><br/><br/><br/><br/><br/></p>
 
-<p><strong>JDI Light</strong> (0 lines of code)<br/> 
+<p><strong>JDI Light:</strong> (0 lines of code)<br/> 
 In JDI Light we don&#39;t need methods for these typical actions. Standard Form actions are flexible and allow to operate with any kind of data.<br/>
 <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-reduce-code/blob/master/src/main/java/jdisite/sections/ContactForm.java" target="_blank">JDI Light Contact Form code (8)</a><br/></p>
 <h3 id='5-test-data'>5. Test Data</h3><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">User</span> <span class="o">{</span>
@@ -2528,7 +2526,7 @@ The same holds true for <code>ContactInfo</code> and for any Data entity in the 
     <span class="n">c</span><span class="o">.</span><span class="na">passport</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span> <span class="n">c</span><span class="o">.</span><span class="na">description</span> <span class="o">=</span> <span class="s">"JDI - awesome UI automation tool"</span><span class="o">;</span> <span class="o">}</span>
 <span class="o">);</span>
 </code></pre>
-<p><strong>JDI Light</strong> (22 lines of code)<br/> 
+<p><strong>JDI Light:</strong> (22 lines of code)<br/> 
 To create Test Data in JDI Light, we can use <code>DataClass</code>. It allows us to create different test data, compare data entities, print their meaningful representations and at the same preserve code clearness.</p>
 
 <p>No constructors, no method overriding and with all functions in place thanks to <code>DataClass</code>.</p>
@@ -2590,7 +2588,7 @@ To create Test Data in JDI Light, we can use <code>DataClass</code>. It allows u
 </code></pre>
 <p>As a result, we have test scenarios that look pretty much the same in Selenium and JDI Light, but the amount of code and time spent writing the code is significantly different.</p>
 
-<p>You can find the complete project code in the <strong><em>&quot;result&quot;</em></strong> branch of <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/tree/result" target="_blank">Selenium</a> and <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-reduce-code/tree/result" target="_blank">JDI Light</a> example repositories.<br/></p>
+<p>You can find the complete project code in the <em>&quot;result&quot;</em> branch of <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/tree/result" target="_blank">Selenium</a> and <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-reduce-code/tree/result" target="_blank">JDI Light</a> example repositories.<br/></p>
 
 <p><strong>Statistical results:</strong><br/>
 <img src="images/tutorial/selenium-results.png" alt="Selenium Statistic" width="400"><br/>
@@ -2609,13 +2607,13 @@ To create Test Data in JDI Light, we can use <code>DataClass</code>. It allows u
 <p><em>Note: JDI Light removes only waste code and keeps all the business-relevant parts in place.</em> <br/><br/>
 <strong>Lesser amount of code, stable tests and clear logs will reduce maintenance effort during regression testing</strong> and <strong>increase the credibility of your tests</strong>, because with JDI Light, once tests are written, they will only fail in case of real application changes or performance issues, but not because of test instability.<br/></p>
 <h2 id='jdi-light-in-bdd-style-even-for-manual-qa'>JDI Light in BDD Style (even for Manual QA)</h2>
-<p>TBD</p>
+<p><font color="olive">TBD</font></p>
 <h2 id='create-custom-controls'>Create Custom controls</h2>
-<p>TBD</p>
+<p><font color="olive">TBD</font></p>
 <h2 id='jdi-settings-at-a-glance'>JDI settings at a glance</h2>
-<p>TBD</p>
+<p><font color="olive">TBD</font></p>
 <h2 id='test-framework-structure'>Test Framework structure</h2>
-<p>TBD</p>
+<p><font color="olive">TBD</font></p>
 <h1 id='theory'>Theory</h1><h2 id='ui-elements'>UI Elements</h2>
 <p>In order to effectively utilize <a href="https://github.com/SeleniumHQ/selenium/wiki/PageObjects" target="_blank">Page Objects pattern</a> we need to place elements on pages. Instead of Selenium <code>WebElement</code> objects that basically represent HTML tags, in JDI we introduce <em>UI Elements</em> that represent UI elements interacted with by an actual user.</p>
 
@@ -3047,7 +3045,7 @@ JDI Locator: <code>label[&#39;Gold status&#39;]&lt;input[type=checkbox]</code></
 <p>XPath: <code>//*[contains(@class,&#39;nav-menu&#39;)]//*[@data-role=&#39;header&#39;][3]</code></br>
 JDI Locator: <code>.nav-menu [data-role=header][3]</code></br></p>
 <h1 id='faq'>FAQ</h1>
-<p>TBD</p>
+<p><font color="olive">TBD</font></p>
 <h1 id='documentation'>Documentation</h1><h2 id='base-information'>Base information</h2><h3 id='base-elements'>Base Elements</h3><h4 id='uibaseelement'>UIBaseElement</h4><h4 id='uielement'>UIElement</h4><pre class="highlight java tab-java"><code>
   <span class="nd">@Test</span>
   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">click</span><span class="o">()</span> <span class="o">{</span>
@@ -3391,7 +3389,7 @@ JDI Locator: <code>.nav-menu [data-role=header][3]</code></br></p>
      <span class="n">assertEquals</span><span class="o">(</span><span class="n">colorValue</span><span class="o">.</span><span class="na">getText</span><span class="o">(),</span> <span class="s">"Gold"</span><span class="o">)</span> <span class="c1">// will wait 3 seconds after getText </span>
    <span class="o">}</span>
 </code></pre><h2 id='1-html5-elements'>1. HTML5 elements</h2><h3 id='1-1-html5-common-elements'>1.1 HTML5 Common elements</h3><h4 id='1-1-1-label'>1.1.1 Label</h4><pre class="highlight java tab-java"><code>
-  <span class="c1">//In the next test Label is found from 'name' and 'disabledName' locators:</span>
+  <span class="c1">//In the following test, 'name' and 'disabledName' labels are found by utilizing their element locators:</span>
 
   <span class="c1">// @FindBy(css = "#name")</span>
   <span class="nd">@UI</span><span class="o">(</span><span class="s">"#name"</span><span class="o">)</span> 
@@ -3401,7 +3399,7 @@ JDI Locator: <code>.nav-menu [data-role=header][3]</code></br></p>
   <span class="nd">@UI</span><span class="o">(</span><span class="s">"#disabled-name"</span><span class="o">)</span> 
   <span class="kd">public</span> <span class="kd">static</span> <span class="n">TextField</span> <span class="n">disabledName</span><span class="o">;</span>
 
-  <span class="c1">//By default Label is found by locator </span>
+  <span class="c1">//By default, Label locator is constructed like this: </span>
   <span class="n">By</span><span class="o">.</span><span class="na">cssSelector</span><span class="o">(</span><span class="s">"[for="</span><span class="o">+</span><span class="n">getAttribute</span><span class="o">(</span><span class="s">"id"</span><span class="o">)+</span><span class="s">"]"</span><span class="o">)</span>
 
   <span class="nd">@Test</span>
@@ -3428,7 +3426,7 @@ JDI Locator: <code>.nav-menu [data-role=header][3]</code></br></p>
  <span class="p">[</span><span class="nf">FindBy</span><span class="p">(</span><span class="n">Css</span> <span class="p">=</span> <span class="s">"div.main-content #name"</span><span class="p">)]</span>
  <span class="k">public</span> <span class="n">TextField</span> <span class="n">NameTextField</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
 
- <span class="n">By</span> <span class="k">default</span> <span class="n">Label</span> <span class="k">is</span> <span class="n">found</span> <span class="k">by</span> <span class="n">locator</span> <span class="n">By</span><span class="p">.</span><span class="nf">CssSelector</span><span class="p">(</span><span class="err">$</span><span class="s">"[for={WebElement.GetAttribute("</span><span class="n">id</span><span class="s">")}]"</span><span class="p">)</span>
+ <span class="n">By</span> <span class="k">default</span><span class="p">,</span> <span class="n">Label</span> <span class="k">is</span> <span class="n">found</span> <span class="k">by</span> <span class="n">locator</span> <span class="n">By</span><span class="p">.</span><span class="nf">CssSelector</span><span class="p">(</span><span class="err">$</span><span class="s">"[for={WebElement.GetAttribute("</span><span class="n">id</span><span class="s">")}]"</span><span class="p">)</span>
 
  <span class="p">[</span><span class="n">Test</span><span class="p">]</span> 
  <span class="k">public</span> <span class="k">void</span> <span class="nf">LabelTest</span><span class="p">()</span> 
@@ -3446,18 +3444,11 @@ JDI Locator: <code>.nav-menu [data-role=header][3]</code></br></p>
  <span class="p">}</span> 
 
 </code></pre>
-<p><strong>Label</strong> – Elements&#39; caption for a big number of JDI common elements.</p>
+<p><strong>Label</strong> — Elements&#39; caption for a large number of JDI common elements.</p>
 
 <p><img src="images/colorpicker.png" alt="Label" /></p>
 <pre class="highlight html tab-html"><code><span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"test"</span><span class="nt">&gt;</span>Description<span class="nt">&lt;/label&gt;</span>
 </code></pre>
-<p>Label&#39;s implementation is located in the following classes:</p>
-
-<ul>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.elements.base.BaseUIElement</em></li>
-<li><strong>C#</strong>: <em>JDI.Light.Elements.Base.UIElement</em></li>
-</ul>
-
 <p>Available methods in C# JDI Light:</p>
 
 <table><thead>
@@ -3550,7 +3541,7 @@ JDI Locator: <code>.nav-menu [data-role=header][3]</code></br></p>
 <span class="p">}</span>
 
 </code></pre>
-<p><strong>Button</strong> – Element that represents a clickable button.</p>
+<p><strong>Button</strong> — Element that represents a clickable button.</p>
 
 <p><img src="images/button.png" alt="Button" /></p>
 <pre class="highlight html tab-html"><code><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">id=</span><span class="s">"red-button"</span> <span class="na">class=</span><span class="s">"btn btn-danger"</span> <span class="na">onclick=</span><span class="s">"alert('Red button');"</span> 
@@ -3643,7 +3634,7 @@ class="uui-button red" onclick="alert('Red button');"&gt;
 <br>
 <a href="https://jdi-docs.github.io/jdi-light/?java#button-3">BDD Steps example</a></p>
 <h4 id='1-1-3-checkbox'>1.1.3 Checkbox</h4>
-<p><strong>Checkbox</strong> – Element allows you to select single value for submission.</p>
+<p><strong>Checkbox</strong> — Element allows you to select a single value for submission.</p>
 
 <p><img src="images/checkbox.png" alt="Checkbox" /></p>
 
@@ -3790,7 +3781,7 @@ class="uui-button red" onclick="alert('Red button');"&gt;
 </tr>
 <tr>
 <td><strong>check(String)</strong></td>
-<td>Set to checked on &quot;true&quot; (case insensitive) or unchecked otherwise</td>
+<td>Set to checked if string value equals &quot;true&quot; (case insensitive), otherwise set to unchecked</td>
 <td>void</td>
 </tr>
 <tr>
@@ -3912,11 +3903,11 @@ class="uui-button red" onclick="alert('Red button');"&gt;
 <span class="p">}</span>
 
 </code></pre>
-<p><strong>ColorPicker</strong> – Elements of this type provide a user interface element that lets a user specify a color, either by using a visual color picker interface or by entering the color into a text field in &quot;#rrggbb&quot; hexadecimal format. Only simple colors (with no alpha channel) are allowed. The values are compatible with CSS.</p>
+<p><strong>ColorPicker</strong> — Elements of this type provide a user interface element that lets a user specify a color, either by using a visual color picker interface or by entering the color into a text field in &quot;#rrggbb&quot; hexadecimal format. Only simple colors (with no alpha channel) are allowed. The values are compatible with CSS.</p>
 
 <p><img src="images/colorpicker.png" alt="ColorPicker" /></p>
 
-<p>Colorpicker is located in the following classes:</p>
+<p>Color Picker is located in the following classes:</p>
 
 <ul>
 <li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.ColorPicker</em></li>
@@ -3939,7 +3930,7 @@ class="uui-button red" onclick="alert('Red button');"&gt;
 </thead><tbody>
 <tr>
 <td><strong>assertThat()</strong></td>
-<td>Assert acton color</td>
+<td>Assert action</td>
 <td>ColorAssert</td>
 </tr>
 <tr>
@@ -3949,7 +3940,7 @@ class="uui-button red" onclick="alert('Red button');"&gt;
 </tr>
 <tr>
 <td><strong>is()</strong></td>
-<td>Assert acton color</td>
+<td>Assert action</td>
 <td>ColorAssert</td>
 </tr>
 <tr>
@@ -3974,7 +3965,7 @@ class="uui-button red" onclick="alert('Red button');"&gt;
 </thead><tbody>
 <tr>
 <td><strong>AssertThat()</strong></td>
-<td>Assert acton color</td>
+<td>Assert action</td>
 <td>ColorAssert</td>
 </tr>
 <tr>
@@ -3984,7 +3975,7 @@ class="uui-button red" onclick="alert('Red button');"&gt;
 </tr>
 <tr>
 <td><strong>Is()</strong></td>
-<td>Assert acton color</td>
+<td>Assert action</td>
 <td>ColorAssert</td>
 </tr>
 <tr>
@@ -3998,7 +3989,7 @@ class="uui-button red" onclick="alert('Red button');"&gt;
 <br>
 <a href="https://jdi-docs.github.io/jdi-light/?java#colorpicker-2">BDD Steps example</a><br></p>
 <h4 id='1-1-5-datetimeselector'>1.1.5 DateTimeSelector</h4>
-<p><strong>DateTimeSelector</strong> - Is used for Input Type Date and its derivatives and allows users to set the value of date and/or time.</p>
+<p><strong>DateTimeSelector</strong> — Is used for Input Type Date and its derivatives and allows users to set the value of date and/or time.</p>
 
 <p>The list of supported elements:</p>
 
@@ -4028,7 +4019,7 @@ class="uui-button red" onclick="alert('Red button');"&gt;
 </thead><tbody>
 <tr>
 <td><strong>AssertThat()</strong></td>
-<td>Asserts action of DateTimeSelector</td>
+<td>Assert action of DateTimeSelector</td>
 <td>DateTimeSelectorAssert</td>
 </tr>
 <tr>
@@ -4038,17 +4029,17 @@ class="uui-button red" onclick="alert('Red button');"&gt;
 </tr>
 <tr>
 <td><strong>Is()</strong></td>
-<td>Asserts action of DateTimeSelector</td>
+<td>Assert action of DateTimeSelector</td>
 <td>DateTimeSelectorAssert</td>
 </tr>
 <tr>
 <td><strong>Max()</strong></td>
-<td>Gets attribute with name max</td>
+<td>Gets attribute with name &#39;max&#39;</td>
 <td>string</td>
 </tr>
 <tr>
 <td><strong>Min()</strong></td>
-<td>Gets attribute with name min</td>
+<td>Gets attribute with name &#39;min&#39;</td>
 <td>string</td>
 </tr>
 <tr>
@@ -4159,7 +4150,7 @@ class="uui-button red" onclick="alert('Red button');"&gt;
     <span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">BirthDate</span><span class="p">.</span><span class="nf">AssertThat</span><span class="p">().</span><span class="nf">SelectedTime</span><span class="p">(</span><span class="n">Is</span><span class="p">.</span><span class="nf">EqualToIgnoringCase</span><span class="p">(</span><span class="s">"2019-04-01"</span><span class="p">));</span>   
 <span class="p">}</span>
 </code></pre>
-<p><strong>Input Type Date</strong> – A graphical control element that allows user to set value for date.</p>
+<p><strong>Input Type Date</strong> — A graphical control element that allows user to set value for date.</p>
 
 <p><img src="images/html/inputTypeDate_html2.png" alt="InputTypeDate" /></p>
 <pre class="highlight html tab-html"><code><span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"birth-date"</span><span class="nt">&gt;</span>Birth date<span class="nt">&lt;/label&gt;</span>
@@ -4185,7 +4176,7 @@ class="uui-button red" onclick="alert('Red button');"&gt;
     <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">setValue</span><span class="p">,</span> <span class="s">"2019-W13"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre>
-<p><strong>Input Type Week</strong> – A graphical control element that allows user to set values for week and year.</p>
+<p><strong>Input Type Week</strong> — A graphical control element that allows user to set values for week and year.</p>
 
 <p><img src="images/html/inputTypeWeek_html2.png" alt="InputTypeWeek" /></p>
 <pre class="highlight html tab-html"><code><span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"autumn-week"</span><span class="nt">&gt;</span>Autumn<span class="nt">&lt;/label&gt;</span>
@@ -4209,7 +4200,7 @@ class="uui-button red" onclick="alert('Red button');"&gt;
     <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">setValue</span><span class="p">,</span> <span class="s">"2019-04"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre>
-<p><strong>Input Type Month</strong> – a graphical control element that allows user to set values for month and year.</p>
+<p><strong>Input Type Month</strong> — a graphical control element that allows user to set values for month and year.</p>
 
 <p><img src="images/html/inputTypeMonth_html2.png" alt="InputTypeMonth" /></p>
 <pre class="highlight html tab-html"><code><span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"month-date"</span><span class="nt">&gt;</span>Month of Holidays<span class="nt">&lt;/label&gt;</span>
@@ -4233,7 +4224,7 @@ class="uui-button red" onclick="alert('Red button');"&gt;
     <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">setValue</span><span class="p">,</span> <span class="s">"15:00"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre>
-<p><strong>Input Type Time</strong> – A graphical control element that allows user to set time.</p>
+<p><strong>Input Type Time</strong> — A graphical control element that allows user to set time.</p>
 
 <p><img src="images/html/inputTypeTime_html2.png" alt="InputTypeTime" /></p>
 <pre class="highlight html tab-html"><code><span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"booking-time"</span><span class="nt">&gt;</span>Booking Time:<span class="nt">&lt;/label&gt;</span>
@@ -4256,7 +4247,7 @@ class="uui-button red" onclick="alert('Red button');"&gt;
     <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">setValue</span><span class="p">,</span> <span class="n">_dateTime</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre>
-<p><strong>Input Type DateTime-Local</strong> – A graphical control element that allows user to set time and date.</p>
+<p><strong>Input Type DateTime-Local</strong> — A graphical control element that allows user to set time and date.</p>
 
 <p><img src="images/html/inputDateTimeLocal_html2.png" alt="InputTypeDateTime" /></p>
 <pre class="highlight html tab-html"><code><span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"party-time"</span><span class="nt">&gt;</span>Date/time:<span class="nt">&lt;/label&gt;</span>
@@ -4266,7 +4257,7 @@ class="uui-button red" onclick="alert('Red button');"&gt;
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/DateTimeTests.cs" target="_blank">Test examples in C#</a></p>
 <h4 id='1-1-6-fileinput'>1.1.6 FileInput</h4>
-<p><strong>FileInput</strong> - A graphical control element that allows user to upload documents to web site.</p>
+<p><strong>FileInput</strong> — A graphical control element that allows user to upload documents to web site.</p>
 
 <p><img src="images/fileInputAndDownload.png" alt="FileInput" /></p>
 
@@ -4451,7 +4442,7 @@ class="uui-button red" onclick="alert('Red button');"&gt;
 
 <p><a href="https://jdi-docs.github.io/jdi-light/?java#fileinput-2">BDD Steps example</a></p>
 <h4 id='1-1-7-icon'>1.1.7 Icon</h4>
-<p><strong>Icon</strong> – Is a simple element type that represents icons and graphic images.</p>
+<p><strong>Icon</strong> — Is a simple element type that represents icons and graphic images.</p>
 
 <p><img src="images/html/image_html2.png" alt="Icon" /></p>
 <pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#jdi-logo"</span><span class="o">)</span> 
@@ -4592,7 +4583,7 @@ class="uui-button red" onclick="alert('Red button');"&gt;
 
 <p><a href="https://jdi-docs.github.io/jdi-light/?java#icon-2">BDD Steps example</a></p>
 <h4 id='1-1-8-image'>1.1.8 Image</h4>
-<p><strong>Image</strong> – Is a simple element type that represents graphic images.</p>
+<p><strong>Image</strong> — Is a simple element type that represents graphic images.</p>
 
 <p><img src="images/html/image_html2.png" alt="Image" /></p>
 <pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#jdi-logo"</span><span class="o">)</span> 
@@ -4761,7 +4752,7 @@ class="uui-button red" onclick="alert('Red button');"&gt;
      <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">GithubLink</span><span class="p">.</span><span class="nf">Url</span><span class="p">(),</span> <span class="s">"https://epam.github.io/JDI/html5.html"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre>
-<p><strong>Link</strong> – A graphical control element that allows user to link from one page to other web pages, files, locations within the same page, email addresses, or any other URL.</p>
+<p><strong>Link</strong> — A graphical control element that allows user to link from one page to other web pages, files, locations within the same page, email addresses, or any other URL.</p>
 
 <p>Link are represented by the following class:</p>
 
@@ -4872,7 +4863,7 @@ class="uui-button red" onclick="alert('Red button');"&gt;
 <br>
 <a href="https://jdi-docs.github.io/jdi-light/#link-2">BDD Steps example</a></p>
 <h4 id='1-1-10-menu'>1.1.10 Menu</h4>
-<p><strong>Menu</strong> - A list of links, which leads to different pages or sections of website.</p>
+<p><strong>Menu</strong> — A list of links which lead to different pages or sections of website.</p>
 
 <p>Menu element is located in JDI Light in:</p>
 
@@ -4973,7 +4964,7 @@ class="uui-button red" onclick="alert('Red button');"&gt;
     <span class="nt">&lt;/li&gt;</span>        
 <span class="nt">&lt;/ul&gt;</span>
 </code></pre>
-<p>Available method in Java JDI Light:</p>
+<p>Available methods in Java JDI Light:</p>
 
 <table><thead>
 <tr>
@@ -5034,7 +5025,7 @@ class="uui-button red" onclick="alert('Red button');"&gt;
 </tr>
 </tbody></table>
 
-<p>Available method in C# JDI Light:</p>
+<p>Available methods in C# JDI Light:</p>
 
 <table><thead>
 <tr>
@@ -5111,9 +5102,9 @@ class="uui-button red" onclick="alert('Red button');"&gt;
 
 <p><a href="https://jdi-docs.github.io/jdi-light/#menu-2">BDD Steps example</a></p>
 <h4 id='1-1-11-numberselector'>1.1.11 NumberSelector</h4>
-<p><strong>NumberSelector</strong> – A graphical control element, that allows the user to let the user enter a number.</p>
+<p><strong>NumberSelector</strong> — A graphical control element that allows the user to enter a number.</p>
 
-<p>NumberSelector are represented by the following class:</p>
+<p>NumberSelector is represented by the following classes:</p>
 
 <ul>
 <li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.NumberSelector</em></li>
@@ -5282,11 +5273,11 @@ class="uui-button red" onclick="alert('Red button');"&gt;
 
 <p><a href="https://jdi-docs.github.io/jdi-light/?java#numberselector-2">BDD Steps example</a><br></p>
 <h4 id='1-1-12-progressbar'>1.1.12 ProgressBar</h4>
-<p><strong>Progress Bar</strong> - Element for displaying an indicator showing the completion progress of a task.</p>
+<p><strong>Progress Bar</strong> — Element for displaying an indicator showing the completion progress of a task.</p>
 
 <p><img src="images/progressbar.png" alt="ProgressBar" /></p>
 
-<p>ProgressBar is located in the following classes:</p>
+<p>ProgressBar is located in the following class:</p>
 
 <ul>
 <li><strong>Java</strong>: <em>com.epam.jdi.light.ui.html.common.ProgressBar</em></li>
@@ -5329,7 +5320,7 @@ class="uui-button red" onclick="alert('Red button');"&gt;
 <pre class="highlight html tab-html"><code><span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"progress"</span><span class="nt">&gt;</span>File progress<span class="nt">&lt;/label&gt;</span>
 <span class="nt">&lt;progress</span> <span class="na">id=</span><span class="s">"progress"</span> <span class="na">max=</span><span class="s">"100"</span> <span class="na">value=</span><span class="s">"70"</span><span class="nt">&gt;&lt;/progress&gt;</span>
 </code></pre>
-<p>Available method in Java JDI Light:</p>
+<p>Available methods in Java JDI Light:</p>
 
 <table><thead>
 <tr>
@@ -5363,7 +5354,7 @@ class="uui-button red" onclick="alert('Red button');"&gt;
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/ProgressTests.java" target="_blank">Test examples in Java</a><br>
 <a href="https://jdi-docs.github.io/jdi-light/?java#progress-bar">BDD Steps example</a> <br></p>
 
-<p>Available method in C# JDI Light:</p>
+<p>Available methods in C# JDI Light:</p>
 
 <table><thead>
 <tr>
@@ -5451,7 +5442,7 @@ class="uui-button red" onclick="alert('Red button');"&gt;
       <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">Html5Page</span><span class="p">.</span><span class="n">Volume</span><span class="p">.</span><span class="nf">GetValue</span><span class="p">(),</span> <span class="s">"30"</span><span class="p">);</span>
   <span class="p">}</span>
 </code></pre>
-<p><strong>Range</strong> - A graphical control element that allows the user to set the value from the range.</br></p>
+<p><strong>Range</strong> — A graphical control element that allows the user to set the value within a range.</br></p>
 
 <p><img src="images/html/range_html2.png" alt="Range" /></br></p>
 <pre class="highlight html tab-html"><code><span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"volume"</span><span class="nt">&gt;</span>Volume<span class="nt">&lt;/label&gt;</span>
@@ -5604,7 +5595,7 @@ class="uui-button red" onclick="alert('Red button');"&gt;
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/RangeTests.java" target="_blank">Test examples in Java</a></br>
 <a href="https://jdi-docs.github.io/jdi-light/?java#range-2">BDD Steps example</a> <br></p>
 <h4 id='1-1-14-text'>1.1.14 Text</h4>
-<p><strong>Text</strong> - Is a combination of letters and textual symbols. When performing testing, the text is used in most operations: when typing text into the login field, when finding a button with some certain text in it, or when checking if actual text matches expected one.</p>
+<p><strong>Text</strong> — Is a combination of letters and text symbols. Most testing activities involve working with text: text is typed into login fields, buttons get located by their texts, actual text gets compared to expected.</p>
 <pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"[ui=jdi-text]"</span><span class="o">)</span> <span class="c1">//@FindBy(css = "[ui=jdi-text]") </span>
 <span class="kd">public</span> <span class="kd">static</span> <span class="n">Text</span> <span class="n">jdiText</span><span class="o">;</span>
 
@@ -5806,7 +5797,7 @@ Web(Html5, Angular, React...), Mobile(Android IOs), Desktop(Win app) etc.<span c
             <span class="n">Jdi</span><span class="p">.</span><span class="n">Assert</span><span class="p">.</span><span class="nf">AreEquals</span><span class="p">(</span><span class="n">TestSite</span><span class="p">.</span><span class="n">ContactFormPage</span><span class="p">.</span><span class="n">NameField</span><span class="p">.</span><span class="n">Value</span><span class="p">,</span> <span class="s">""</span><span class="p">);</span>
         <span class="p">}</span>
 </code></pre>
-<p><strong>TextField</strong> – Is a simple element type that allows users to fill in text fields.</p>
+<p><strong>TextField</strong> — Is a simple element type that allows users to fill in text fields.</p>
 
 <p><img src="images/html/textField_html2.png" alt="InputTypeTextField" /></p>
 <pre class="highlight html tab-html"><code><span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"name"</span><span class="nt">&gt;</span>Your name:<span class="nt">&lt;/label&gt;</span>
@@ -5939,7 +5930,7 @@ Web(Html5, Angular, React...), Mobile(Android IOs), Desktop(Win app) etc.<span c
 <p><a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/TextFieldTests.java" target="_blank">Test examples in Java</a><br>
 <a href="https://jdi-docs.github.io/jdi-light/?java#textfield-2">BDD Steps example</a><br></p>
 <h4 id='1-1-16-textarea'>1.1.16 TextArea</h4>
-<p><strong>TextArea</strong> – Is a simple element type that allows users to fill in text areas (they may contain a few lines).</p>
+<p><strong>TextArea</strong> — Is a simple element type that allows users to fill in text areas (unlike TextField, multiple lines of text are allowed).</p>
 
 <p><img src="images/html/textArea_html2.png" alt="InputTypeTextArea" /></p>
 <pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#text-area"</span><span class="o">)</span> 
@@ -6006,7 +5997,7 @@ Web(Html5, Angular, React...), Mobile(Android IOs), Desktop(Win app) etc.<span c
 <li><strong>C#</strong>: <em>JDI.Light.Elements.Common.TextArea</em></li>
 </ul>
 
-<p>In JAVA TextArea is a descendant of UIBaseElement with HasLabel, SetValue, HasPlaceholder, IsInput interfaces parameterized with TextAreaAssert and inherits its methods. But TextArea also has methods of its own.</p>
+<p>In Java TextArea is a descendant of UIBaseElement with HasLabel, SetValue, HasPlaceholder, IsInput interfaces parameterized with TextAreaAssert and inherits its methods. But TextArea also has methods of its own.</p>
 
 <p>In C# TextArea is a descendant of TextField and inherits its methods. But TextArea also has methods of its own.</p>
 
@@ -6146,7 +6137,7 @@ Web(Html5, Angular, React...), Mobile(Android IOs), Desktop(Win app) etc.<span c
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/TextAreaTests.cs" target="_blank">Test examples in C#</a><br></p>
 <h4 id='1-1-17-title'>1.1.17 Title</h4>
-<p><strong>Title</strong> – A graphical control element representing document title, which is displayed in the title bar of the browser or tab page.</p>
+<p><strong>Title</strong> — A graphical control element representing document title, which is displayed in the title bar of the browser or tab page.</p>
 
 <p>Title is represented by the following class:</p>
 
@@ -6264,7 +6255,7 @@ Web(Html5, Angular, React...), Mobile(Android IOs), Desktop(Win app) etc.<span c
 
 <p><a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/TitleTests.cs" target="_blank">Test examples in C#</a></p>
 <h3 id='1-2-html5-complex-elements'>1.2 HTML5 Complex elements</h3><h4 id='1-2-1-radiobuttons'>1.2.1 RadioButtons</h4>
-<p><strong>RadioButtons</strong> – Interface element that allows user to select a single option from a predefined group.</p>
+<p><strong>RadioButtons</strong> — Interface element that allows user to select a single option from a predefined group.</p>
 
 <p>Radio buttons are represented by the following class:</p>
 
@@ -6273,7 +6264,7 @@ Web(Html5, Angular, React...), Mobile(Android IOs), Desktop(Win app) etc.<span c
 <li><strong>C#</strong>: <em>JDI.Light.Elements.Complex.RadioButtons</em></li>
 </ul>
 
-<p>Consider an example where each radio button is a particular color, described with given HTML code:</p>
+<p>Consider an example where each radio button has a particular color, described by the following HTML code:</p>
 
 <p><img src="images/html/radio_html2.png" alt="RadioButton" /></p>
 <pre class="highlight java tab-java"><code>    <span class="c1">//@FindBy(name = "colors")</span>
@@ -6418,7 +6409,7 @@ Web(Html5, Angular, React...), Mobile(Android IOs), Desktop(Win app) etc.<span c
 
 <p><a href="https://jdi-docs.github.io/jdi-light/#radiobuttons-2">BDD Steps example</a> <br></p>
 <h4 id='1-2-2-table'>1.2.2 Table</h4>
-<p><strong>Table</strong> – A complex element that consists of a header, a body (at least one row and one column) and a footer. You are able to perform a list of readonly interactions with this element.</p>
+<p><strong>Table</strong> — A complex element that consists of a header, a body (at least one row and one column) and a footer. This element allows several read-only interactions.</p>
 
 <p>Tables are represented by the following classes in Java and C#:</p>
 
@@ -7064,8 +7055,8 @@ or if a column contains e.g. an icon or a checkbox and should not be processed t
 
 <p><a href="https://jdi-docs.github.io/jdi-light/?java#table-2">BDD Steps example</a><br></p>
 <h4 id='1-2-3-datatable'>1.2.3 DataTable</h4>
-<p><strong>DataTable</strong> – A complex element that consists of header, a body (at least one row and one column) and a footer. You are
-able to perform a list of readonly interactions with this element in order to get all data based on specified criteria.</p>
+<p><strong>DataTable</strong> — A complex element that consists of a header, a body (at least one row and one column) and a footer. You are
+able to perform a list of read-only interactions with this element in order to get all data based on specified criteria.</p>
 
 <p>DataTables are represented by the following classes in Java:</p>
 <pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"#users-table"</span><span class="o">)</span> <span class="c1">//@FindBy(id = "users-table")</span>
@@ -7150,7 +7141,7 @@ able to perform a list of readonly interactions with this element in order to ge
 </code></pre>
 <p>Here is a list of available methods in Java (DataTable expand <a href="#table">Table</a> class - methods from previous table are available too_):</p>
 
-<p>In return types column <em>&quot;D&quot;</em> refers to the user data object and <em>&quot;L&quot;</em> refers to the table line object.</p>
+<p>In return types, column <em>&quot;D&quot;</em> refers to the user data object and <em>&quot;L&quot;</em> refers to the table line object.</p>
 
 <table><thead>
 <tr>
@@ -7352,7 +7343,7 @@ able to perform a list of readonly interactions with this element in order to ge
 <p><a href="https://jdi-docs.github.io/jdi-light/?java#datatable-2">BDD Steps example</a>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
 <h4 id='1-2-4-dropdown'>1.2.4 Dropdown</h4>
-<p><strong>Dropdown</strong> – A graphical control element that allows user to choose a single value from a list.</p>
+<p><strong>Dropdown</strong> — A graphical control element that allows user to choose a single value from a list.</p>
 
 <p><img src="images/dropdown.png" alt="DropDown" /></p>
 
@@ -7362,7 +7353,7 @@ able to perform a list of readonly interactions with this element in order to ge
 
 <p>JDI Light provides a <strong>Dropdown</strong> class which is using for dropdown representation as a type of web element.</p>
 
-<p>Also this class can be used when working with HTML5 elements in cases when dropdown is represented with HTML <em>&lt;select&gt;</em> tag.</p>
+<p>This class can also be used when working with HTML5 elements in cases when dropdown is represented with HTML <em>&lt;select&gt;</em> tag.</p>
 
 <p>Consider an example of HTML5 dropdown with the given HTML code:</p>
 
@@ -7451,8 +7442,8 @@ able to perform a list of readonly interactions with this element in order to ge
 </code></pre>
 <p><strong>JDI Dropdown annotation</strong></p>
 
-<p>For better use, JDI Light provides a <strong><em>@JDropdown</em></strong> annotation to locate dropdown elements. This annotation can be used in cases when working with a
-complex element that may consist of more a complicated html structure. JDropdown annotation allows customise navigation of the web element inner structure by using
+<p>For convenience, JDI Light provides a <strong><em>@JDropdown</em></strong> annotation to locate dropdown elements. This annotation can be used in cases when working with a
+complex element that may have a more complicated HTML structure. JDropdown annotation allows to customize navigation of the web element inner structure by using
 annotation default methods.</p>
 
 <!-- ![Dropdown HTML](../../images/html/dropdown_html.png) -->
@@ -41656,7 +41647,7 @@ More information in the <a href="https://jdi-docs.github.io/jdi-light/?java#tuto
 <a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-bdd-tests/src/test/resources/features/WebPage.feature" target="_blank">Cucumber tests</a> for WebPage<br>
 <br></p>
 <h3 id='ui-objects'>UI Objects</h3>
-<p>TBD</p>
+<p><font color="olive">TBD</font></p>
 <h4 id='web'>Web</h4><h3 id='non-static-site-initialization'>Non-Static Site initialization</h3><pre class="highlight java tab-java"><code>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">NonStaticTestsInit</span> <span class="o">{</span>
 
@@ -41717,7 +41708,7 @@ JDI Light supports Selenium @FindBy(s) locators, while also providing custom loc
 </tr>
 <tr>
 <td><strong>@FindBys</strong></td>
-<td>TBD. The JDI Light annotation should correspond exactly to Selenium @FindBys annotation</td>
+<td><font color="olive">TBD. The JDI Light annotation should correspond exactly to Selenium @FindBys annotation </font></td>
 <td>@FindBys({@FindBy(css = &quot;.main-form&quot;), @FindBy(css = &quot;#accept-conditions&quot;)})</td>
 </tr>
 </tbody></table>
@@ -41873,11 +41864,9 @@ JDI Light supports Selenium @FindBy(s) locators, while also providing custom loc
 </code></pre>
 <p><strong>Alert</strong> is message window that gets displayed on the screen and pauses the execution of the script until user performs an action.</p>
 
-<aside class="notice">
-Note that you can make a static import (Alerts.acceptAlert() > acceptAlert()) in order to simplify your code.
-</aside>
+<p><em>Note that you can make a static import <code>(Alerts.acceptAlert() &gt; acceptAlert())</code> in order to simplify your code.</em></p>
 
-<p>Handle Window alerts/confirm/prompt dialogs described on <a href='https://developer.mozilla.org/en-US/docs/Web/API/Window' target="_blank">MDN</a></p>
+<p>Handle Window alerts/confirm/prompt dialogs described on <a href='https://developer.mozilla.org/en-US/docs/Web/API/Window' target="_blank">MDN</a>:</p>
 
 <p>alert(&#39;Alert&#39;)</p>
 
@@ -41907,7 +41896,7 @@ Note that you can make a static import (Alerts.acceptAlert() > acceptAlert()) in
 
 <p><img src="images/prompt.png" alt="Prompt dialog" /></p>
 
-<p>Available methods in Java</p>
+<p>Available methods in Java:</p>
 
 <table><thead>
 <tr>
@@ -41944,7 +41933,7 @@ Note that you can make a static import (Alerts.acceptAlert() > acceptAlert()) in
 </tbody></table>
 
 <p><a href="https://jdi-docs.github.io/jdi-light/?java#alert">BDD Steps example</a></p>
-<h3 id='logs'>Logs</h3><pre class="highlight java tab-java"><code><span class="c1">//setup loglevel before running a test (for example in TestInit)</span>
+<h3 id='logs'>Logs</h3><pre class="highlight java tab-java"><code><span class="c1">//set up log level before running a test (for example in TestInit)</span>
 <span class="n">logger</span><span class="o">.</span><span class="na">setLogLevel</span><span class="o">(</span><span class="n">STEP</span><span class="o">);</span>
 
 <span class="nd">@Test</span>
@@ -41960,8 +41949,9 @@ Note that you can make a static import (Alerts.acceptAlert() > acceptAlert()) in
 <span class="o">[</span><span class="mi">22</span><span class="o">:</span><span class="mf">23.727</span>  <span class="n">STEP</span><span class="o">]</span> <span class="o">:</span> <span class="n">Login</span> <span class="n">as</span> <span class="nf">User</span><span class="o">(</span><span class="nl">userName:</span><span class="n">epam</span><span class="o">;</span> <span class="nl">password:</span><span class="mi">1234</span><span class="o">)</span>
 <span class="o">[</span><span class="mi">22</span><span class="o">:</span><span class="mf">24.516</span>  <span class="n">STEP</span><span class="o">]</span> <span class="o">:</span> <span class="n">Check</span> <span class="n">that</span> <span class="err">'</span><span class="n">Home</span> <span class="n">Page</span><span class="err">'</span> <span class="n">is</span> <span class="nf">opened</span> <span class="o">(</span><span class="n">url</span> <span class="n">CONTAINS</span> <span class="err">'</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="na">html</span><span class="err">'</span><span class="o">;</span> <span class="n">title</span> <span class="n">EQUALS</span> <span class="err">'</span><span class="n">Home</span> <span class="n">Page</span><span class="err">'</span><span class="o">)</span>
 </code></pre>
-<p>JDI uses the <em>log4j library</em>, but provides more levels of logging. (require log4j.xml / log2j2.xml)
-<strong>logger.setLogLevel(STEP);</strong>
+<p>JDI uses the <em>log4j</em> library, but provides more levels of logging (requires <strong><em>log4j.xml / log2j2.xml</em></strong>).</p>
+
+<p><code>logger.setLogLevel(STEP);</code>
 Level <em>STEP</em> can show business-related information in the console output, and you will find the same log in the <strong><em>target/.logs/<logName>.log</em></strong> file.</p>
 
 <table><thead>
@@ -41984,11 +41974,11 @@ Level <em>STEP</em> can show business-related information in the console output,
 </tr>
 <tr>
 <td><strong>WARNING(300)</strong></td>
-<td>Errors due to wrong params</td>
+<td>Errors due to wrong parameters</td>
 </tr>
 <tr>
 <td><strong>STEP(350)</strong></td>
-<td>Business related info (JDI related loglevel)</td>
+<td>Business related info (JDI-related log level)</td>
 </tr>
 <tr>
 <td><strong>INFO(400)</strong></td>
@@ -41996,19 +41986,19 @@ Level <em>STEP</em> can show business-related information in the console output,
 </tr>
 <tr>
 <td><strong>DEBUG(500)</strong></td>
-<td>Debug info (do not use for production stage)</td>
+<td>Debug info <font color="red">(<em>do not use for production stage!</em><font>)</td>
 </tr>
 <tr>
 <td><strong>TRACE(600)</strong></td>
-<td>Trace info (do not use for production stage)</td>
+<td>Trace info (<font color="red"><em>do not use for production stage!</em><font>)</td>
 </tr>
 <tr>
 <td><strong>ALL(MAX_VALUE)</strong></td>
-<td>All log messages (do not use for production stage)</td>
+<td>All log messages (<font color="red"><em>do not use for production stage!</em><font>)</td>
 </tr>
 </tbody></table>
 <h3 id='reports'>Reports</h3><h4 id='allure'>Allure</h4>
-<p>JDILogger
+<p><em>JDILogger:</em>
 <br></p>
 
 <table><thead>
@@ -42027,7 +42017,7 @@ Level <em>STEP</em> can show business-related information in the console output,
 </tr>
 </tbody></table>
 
-<p>AllureLoggerHelper
+<p><em>AllureLoggerHelper:</em>
 <br></p>
 
 <table><thead>
@@ -42050,9 +42040,9 @@ Level <em>STEP</em> can show business-related information in the console output,
 </tr>
 </tbody></table>
 
-<p><a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-examples/src/test/java/io/github/epam/tests/allurereport" target="_blank">Allure screenshoots tests</a> for WebPage<br></p>
+<p><a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-examples/src/test/java/io/github/epam/tests/allurereport" target="_blank">Allure screenshots tests</a> for WebPage.</p>
 <h4 id='report-portal'>Report Portal</h4>
-<p>TBD</p>
+<p><font color="olive">TBD</font></p>
 <h3 id='softasserts'>SoftAsserts</h3><pre class="highlight java tab-java"><code>    <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">buttonSoftAssertTest</span><span class="o">()</span> <span class="o">{</span>
         <span class="n">assertSoft</span><span class="o">();</span>
@@ -42106,7 +42096,7 @@ Level <em>STEP</em> can show business-related information in the console output,
         <span class="o">}</span>
     <span class="o">}</span>
 </code></pre>
-<p><strong>Soft Assert</strong> - assert that collects errors during test run. It doesn&#39;t throw exceptions when asserts fail but instead saves them.</p>
+<p><strong>Soft Assert</strong> — assert that collects errors during test run. It doesn&#39;t throw exceptions when asserts fail, saving information about failures instead.</p>
 
 <p>Here is the list of available SoftAssert class methods:</p>
 
@@ -42147,26 +42137,26 @@ Level <em>STEP</em> can show business-related information in the console output,
 <p><strong>Settings:</strong></p>
 
 <ul>
-<li><p><strong>test.properties</strong> file - to choose the type of assertions, you need to update the <strong>assert.type</strong> property - select <strong>soft</strong> or <strong>strict</strong> type (<em>#assert.type=soft | strict</em>)</p></li>
-<li><p>to enable or disable SoftAssert in code, use <strong>assertSoft()</strong> or <strong>assertStrict()</strong> methods from SoftAssert class</p></li>
+<li><p><strong><em>test.properties</em></strong> file — to choose the type of assertions, you need to update the <code>assert.type</code> property value; select <code>soft</code> or <code>strict</code> type (<em>#assert.type=soft | strict</em>).</p></li>
+<li><p>to enable or disable SoftAssert in code, use <code>assertSoft()</code> or <code>assertStrict()</code> methods from SoftAssert class.</p></li>
 </ul>
 
 <p><strong>Output results</strong></p>
 
-<p>There are two ways to use <strong>assertResults()</strong> method:</p>
+<p>There are two ways to use <code>assertResults()</code> method:</p>
 
 <ul>
-<li><p>As a method in a chain after asserts (e.g. <em>buttonSoftAssertTest</em>)</p></li>
-<li><p>As a separate method if you need to check several elements (e.g. <em>multipleValidationsTest</em>)</p></li>
+<li><p>As a terminal method in a chain of multiple assertions (like in the <code>buttonSoftAssertTest</code> example).</p></li>
+<li><p>As a separate method if you need to check several elements (like in the <code>multipleValidationsTest</code> example).</p></li>
 </ul>
 <h3 id='jdi-asserts'>JDI asserts</h3>
-<p>Also we have some classes with JDI special asserts in the next packages:</p>
+<p>We also have some classes with JDI special asserts in the following packages:</p>
 
 <ul>
-<li>com.epam.jdi.light.asserts.generic</li>
+<li><em>com.epam.jdi.light.asserts.generic</em></li>
 </ul>
 
-<p><strong>ListAssert.class</strong> includes next asserts:</p>
+<p><strong>ListAssert.class</strong> includes the following asserts:</p>
 
 <table><thead>
 <tr>
@@ -42192,7 +42182,7 @@ Level <em>STEP</em> can show business-related information in the console output,
 </tr>
 </tbody></table>
 
-<p><strong>TextAssert.class</strong> includes next asserts:</p>
+<p><strong>TextAssert.class</strong> includes the following asserts:</p>
 
 <table><thead>
 <tr>
@@ -42206,7 +42196,7 @@ Level <em>STEP</em> can show business-related information in the console output,
 </tr>
 </tbody></table>
 
-<p><strong>UIAssert.class</strong> includes next asserts:</p>
+<p><strong>UIAssert.class</strong> includes the following asserts:</p>
 
 <table><thead>
 <tr>
@@ -42264,7 +42254,7 @@ Level <em>STEP</em> can show business-related information in the console output,
 </tr>
 </tbody></table>
 
-<p><strong>UISelectAssert.class</strong> includes next asserts:</p>
+<p><strong>UISelectAssert.class</strong> includes the following asserts:</p>
 
 <table><thead>
 <tr>
@@ -42339,10 +42329,10 @@ Level <em>STEP</em> can show business-related information in the console output,
 </tbody></table>
 
 <ul>
-<li>com.epam.jdi.light.ui.html.asserts</li>
+<li><em>com.epam.jdi.light.ui.html.asserts</em></li>
 </ul>
 
-<p><strong>CheckboxAssert.class</strong> includes next asserts:</p>
+<p><strong>CheckboxAssert.class</strong> includes the following asserts:</p>
 
 <table><thead>
 <tr>
@@ -42364,7 +42354,7 @@ Level <em>STEP</em> can show business-related information in the console output,
 </tr>
 </tbody></table>
 
-<p><strong>ColorAssert.class</strong> includes next asserts:</p>
+<p><strong>ColorAssert.class</strong> includes the following asserts:</p>
 
 <table><thead>
 <tr>
@@ -42378,7 +42368,7 @@ Level <em>STEP</em> can show business-related information in the console output,
 </tr>
 </tbody></table>
 
-<p><strong>DateTimeAssert.class</strong> includes next asserts:</p>
+<p><strong>DateTimeAssert.class</strong> includes the following asserts:</p>
 
 <table><thead>
 <tr>
@@ -42416,7 +42406,7 @@ Level <em>STEP</em> can show business-related information in the console output,
 </tr>
 </tbody></table>
 
-<p><strong>ImageAssert.class</strong> includes next asserts:</p>
+<p><strong>ImageAssert.class</strong> includes the following asserts:</p>
 
 <table><thead>
 <tr>
@@ -42446,7 +42436,7 @@ Level <em>STEP</em> can show business-related information in the console output,
 </tr>
 </tbody></table>
 
-<p><strong>LinkAssert.class</strong> includes next asserts:</p>
+<p><strong>LinkAssert.class</strong> includes the following asserts:</p>
 
 <table><thead>
 <tr>
@@ -42468,7 +42458,7 @@ Level <em>STEP</em> can show business-related information in the console output,
 </tr>
 </tbody></table>
 
-<p><strong>NumberAssert.class</strong> includes next asserts:</p>
+<p><strong>NumberAssert.class</strong> includes the following asserts:</p>
 
 <table><thead>
 <tr>
@@ -42502,7 +42492,7 @@ Level <em>STEP</em> can show business-related information in the console output,
 </tr>
 </tbody></table>
 
-<p><strong>ProgressAssert.class</strong> includes next asserts:</p>
+<p><strong>ProgressAssert.class</strong> includes the following asserts:</p>
 
 <table><thead>
 <tr>
@@ -42520,7 +42510,7 @@ Level <em>STEP</em> can show business-related information in the console output,
 </tr>
 </tbody></table>
 
-<p><strong>RangeAssert.class</strong> includes next asserts:</p>
+<p><strong>RangeAssert.class</strong> includes the following asserts:</p>
 
 <table><thead>
 <tr>
@@ -42546,7 +42536,7 @@ Level <em>STEP</em> can show business-related information in the console output,
 </tr>
 </tbody></table>
 
-<p><strong>TextAreaAssert.class</strong> includes next asserts:</p>
+<p><strong>TextAreaAssert.class</strong> includes the following asserts:</p>
 
 <table><thead>
 <tr>
@@ -42576,7 +42566,7 @@ Level <em>STEP</em> can show business-related information in the console output,
 </tr>
 </tbody></table>
 <h3 id='driver-settings'>Driver Settings</h3>
-<p>We can change default settings placed in the test.properties file (src/test/resources)</p>
+<p>We can change default settings placed in the <strong><em>test.properties</em></strong> file (located in <em>src/test/resources</em>):</p>
 
 <table><thead>
 <tr>
@@ -42587,47 +42577,47 @@ Level <em>STEP</em> can show business-related information in the console output,
 </thead><tbody>
 <tr>
 <td><strong>chrome.capabilities.path</strong></td>
-<td>Path to the Chrome properties file. File should be located in (src/test/resources).</td>
+<td>Path to the Chrome properties file. File should be located in <em>src/test/resources</em>.</td>
 <td>chrome.capabilities.path=chrome.properties</td>
 </tr>
 <tr>
 <td><strong>driver</strong></td>
-<td>Describe what kind of driver we want to use: chrome, firefox, ie… or we can just replace it with ${driver} and read the exact driver name from command line or pom file</td>
+<td>Specify which driver we want to use: <em>chrome, firefox, ie, edge, opera, safari</em>; or we can just replace it with <em>${driver}</em> and read the exact driver name from command line or POM file.</td>
 <td>driver = ${driver} <br> driver=chrome</td>
 </tr>
 <tr>
 <td><strong>driver.remote.url</strong></td>
-<td><a href="https://jdi-docs.github.io/jdi-light/?java#remote-test-runs">Tests can run on remote web servers<a></td>
+<td><a href="https://jdi-docs.github.io/jdi-light/?java#remote-test-runs">Tests can run on remote web servers<a>.</td>
 <td>driver.remote.url=http://localhost:4444/wd/hub</td>
 </tr>
 <tr>
 <td><strong>driver.remote.run</strong></td>
-<td>Explicitly specifies whether JDI should use local or remote driver. If not set, JDI would try to select driver based on presence of driver.remote.url and path to local driver</td>
+<td>Explicitly specifies whether JDI should use a local or a remote driver. If not set, JDI would try to select driver based on the presence of <code>driver.remote.url</code> property and path to local driver.</td>
 <td>driver.remote.run=true</td>
 </tr>
 <tr>
 <td><strong>drivers.folder</strong></td>
-<td>Set up the driver folder. Use only absolute path. If no parameter specified default value is &quot;resources\drivers&quot;. Note there is no filename specifying  required, use &#39;driver&#39; property instead</td>
+<td>Set up the driver folder. Use only absolute paths. The default value equals <code>&quot;resources\drivers&quot;</code>. Note that drivers themselves are governed by the <code>driver</code> property.</td>
 <td>drivers.folder = C:\Selenium</td>
 </tr>
 <tr>
 <td><strong>driver.version</strong></td>
-<td>By default, JDI Light will download the latest version of the driver for us, but if we need a specific version we can put it here (in this case the framework will find and download exactly the version specified)</td>
+<td>By default, JDI Light will download the latest version of a driver for us, but if we need a specific version we can put it here (in which case the framework will find and download exactly this version).</td>
 <td>driver.version = LATEST<br>driver.version = PRELATEST<br> driver.version = 2.23.0 <br> driver.version=3.0.0-beta4</td>
 </tr>
 <tr>
 <td><strong>ff.capabilities.path</strong></td>
-<td>Path to the Firefox properties file. File should be located in (src/test/resources).</td>
+<td>Path to the Firefox properties file. File should be located in <em>src/test/resources</em>.</td>
 <td>ff.capabilities.path=ff.properties</td>
 </tr>
 <tr>
 <td><strong>ie.capabilities.path</strong></td>
-<td>Path to the Internet Explorer properties file. File should be located in (src/test/resources).</td>
+<td>Path to the Internet Explorer properties file. File should be located in <em>src/test/resources</em>.</td>
 <td>ie.capabilities.path=ie.properties</td>
 </tr>
 <tr>
 <td><strong>timeout.wait.element</strong></td>
-<td>Wait for an element on the opened page, by default = 10 seconds. Valid values are integers from 0 to 999.</td>
+<td>Set maximum wait for elements on an opened page; by default, equal to 10 seconds. Valid values are integers from 0 to 999.</td>
 <td>timeout.wait.element = 20</td>
 </tr>
 </tbody></table>
@@ -42648,7 +42638,8 @@ Level <em>STEP</em> can show business-related information in the console output,
 <span class="o">}</span>
 
 </code></pre>
-<p>This is example how to initialize of custom driver:</p>
+<p>Here is an example of a custom driver initialization:
+</br></br></br></br></br></br></br></br></br></p>
 <h3 id='jdi-settings'>JDI Settings</h3>
 <table><thead>
 <tr>
@@ -42659,62 +42650,62 @@ Level <em>STEP</em> can show business-related information in the console output,
 </thead><tbody>
 <tr>
 <td><strong>assert.type</strong></td>
-<td><a href="https://jdi-docs.github.io/jdi-light/?java#softasserts">Assert type</a>: soft or strict</td>
+<td><a href="https://jdi-docs.github.io/jdi-light/?java#softasserts">Assert type</a>: soft or strict.</td>
 <td>assert.type = soft</td>
 </tr>
 <tr>
 <td><strong>browser.kill</strong></td>
-<td>Set up at what time browser should be shut down</td>
+<td>Specify when to shut down the browser.</td>
 <td>browser.kill=afterAndBefore<br>browser.kill=after<br>browser.kill=before</td>
 </tr>
 <tr>
 <td><strong>browser.size</strong></td>
-<td>the size of the tested browser. By default, JDI Light will maximize the browser, but we can set exact values</td>
+<td>Browser window size. By default, JDI Light will maximize the browser window, but we can set the exact size.</td>
 <td>browser.size = MAXIMIZE<br>browser.size = 1024x762</td>
 </tr>
 <tr>
 <td><strong>domain</strong></td>
-<td>Web application root URL (used if we&#39;re working with one application in tests). Can be also read from the command line, e.g. <em>${domain}</em></td>
+<td>Web application root URL (used when our tests work with a single application). Can also be read from the command line if set up as <code>${domain}</code>.</td>
 <td>domain = https://jdi-testing.github.io/jdi-light/ <br> domain = http://127.0.0.1:8080</td>
 </tr>
 <tr>
 <td><strong>element.search.strategy</strong></td>
-<td>Can find only one element on a page (<em>single</em>), many elements on a page (<em>multiple</em>). Also, we can define whether we want to search through visible elements only or not. Consists of 2 params: visibility (<em>visible</em> can use <em>displayed</em>, <em>inview</em>, <em>enabled</em> or <em>any</em>), and the type of search. Options: <em>soft (=any, multiple)</em>; <em>strict(=visible, single)</em>; or <em>combined from visible/displayed/inview/enabled/any/all and single/multiple</em>. Note: <em>visible=displayed</em>, <em>any=all</em></td>
-<td>element.search.strategy = visible, multiple<br>element.search.strategy = inview, strict</td>
+<td>This property controls two aspects of element search. First, it limits the scope of searched elements on certain criteria (<code>any</code> (all elements on the page), <code>displayed</code> (elements for which Selenium <em>isDisplayed()</em> is true), <code>enabled</code> (Selenium <em>isDisplayed()</em> and <em>isEnabled()</em> are true), <code>inview</code> (Selenium <em>isDisplayed()</em> and JDI <em>isClickable()</em> are true). Second, it defines a number of found elements (<code>single</code> or <code>multiple</code>). You can set the value of this property either as a comma-separated combination of these options (say, <code>enabled, single</code>), or one of special values: <code>soft</code> (equal to <code>any, multiple</code>) and <code>strict</code> (equal to <code>displayed, single</code>).</td>
+<td>element.search.strategy = soft<br>element.search.strategy = enabled, multiple</td>
 </tr>
 <tr>
-<td><strong>html.code.logging</strong></td>
-<td>Defines a strategy for writting html-code of the web element last processed before test failure to log. If it set to &quot;on fail&quot; value, then web element&#39;s html-code will be logged (and added to Allure report as well) when test fails, if possible. Options: <em>on fail, off</em></td>
-<td>html.code.logging = off</td>
+<td><strong>html.code.strategy</strong></td>
+<td>Defines a strategy for writing HTML code of the last web element processed before test failure to log. If it set to <code>on failure</code> value, then web element&#39;s HTML code will be logged (and added to Allure report as well) when test fails, if possible. Options: <code>off</code>, <code>on failure</code>, <code>on assert</code>, <code>new page</code>.</td>
+<td>html.code.strategy = off</td>
 </tr>
 <tr>
 <td><strong>log.level</strong></td>
-<td>Defines a level of categorizing the entries in your log file: <em>OFF</em> - no logging; <em>FATAL</em> - unexpected errors; <em>ERROR</em> - critical errors; <em>WARNING</em> - errors due to wrong params; <em>STEP</em> - business related info; <em>INFO</em> - actions info; <em>DEBUG</em> - debug messages; <em>TRACE</em> - trace info; <em>ALL</em> - all log messages. If no level specified log level is <em>INFO</em> by default</td>
+<td>Defines level of detail in log entries: <code>OFF</code> (no logging); <code>FATAL</code> (unexpected errors); <code>ERROR</code> (critical errors); <code>WARNING</code> (errors due to wrong parameters); <code>STEP</code> (business-related info); <code>INFO</code> (actions info); <code>DEBUG</code> (debug messages); <code>TRACE</code> (trace info); <code>ALL</code> (all log messages). If no level is explicitly specified, it will be treated as <code>INFO</code>.</td>
 <td>log.level = STEP <br> log.level = ERROR</td>
 </tr>
 <tr>
 <td><strong>page.check.after.open</strong></td>
-<td>Check the page has been opened. Available options: <em>NONE, NEW_PAGE, EVERY_PAGE</em></td>
+<td>Check if a page has been opened. Available options: <code>NONE</code>, <code>NEW_PAGE</code>, <code>EVERY_PAGE</code>.</td>
 <td>page.check.after.open = NONE</td>
 </tr>
 <tr>
 <td><strong>page.load.strategy</strong></td>
-<td>Like in <a href="https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/capabilities_exports_PageLoadStrategy.html" target="_blank">Selenium strategies</a> to load the page. Options: <em>normal, eager, none</em></td>
+<td>Similar to <a href="https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/capabilities_exports_PageLoadStrategy.html" target="_blank">Selenium strategies</a> to load the page. Options: <code>normal</code>, <code>eager</code>, <code>none</code>.</td>
 <td>page.load.strategy = normal</td>
 </tr>
 <tr>
 <td><strong>screens.folder</strong></td>
-<td>Set up the screenshot folder</td>
+<td>Set up the screenshot folder.</td>
 <td>screens.folder = C:\Test-screenshot</td>
 </tr>
 <tr>
 <td><strong>screenshot.strategy</strong></td>
-<td>Defines screenshoting strategy. If it set to &quot;on fail&quot; value, then when test fails, web element last processed will be highlighted and page screenshot will be taken, saved and added to Allure report as well, if possible. Options: <em>on fail, off</em></td>
+<td>Defines a strategy for taking screenshots. If it set to <code>on fail</code> value, then when a test fails, the last web element processed will be highlighted and page screenshot will be taken, saved and added to Allure report as well, if possible. Options: <code>off</code>, <code>on failure</code>, <code>on assert</code>, <code>new page</code>.</td>
 <td>screenshot.strategy = off</td>
 </tr>
 <tr>
 <td><strong>smart.locators</strong></td>
-<td>A list of templates for <a href="https://jdi-docs.github.io/jdi-light/#smart-locators">Smart locators</a>. Should be separated by ; symbol</td>
+<td>A list of templates for <a href="https://jdi-docs.github.io/jdi-light/#smart-locators">Smart locators</a>. Must be separated by <code>;</code> symbol.</td>
 <td>smart.locators=#%s;[ui=%s]</td>
 </tr>
 <tr>
@@ -42724,9 +42715,9 @@ Level <em>STEP</em> can show business-related information in the console output,
 </tr>
 </tbody></table>
 <h3 id='parallel-tests-run'>Parallel tests run</h3>
-<p>TBD</p>
+<p><font color="olive">TBD</font></p>
 <h3 id='remote-test-runs'>Remote test runs</h3>
-<p>TBD</p>
+<p><font color="olive">TBD</font></p>
 <h3 id='saucelabs-integration'>SauceLabs integration</h3>
 <p>Before running JDI project in Sauce Lab, you need to set up Sauce Lab Credentials.</p>
 <h5 id='set-your-sauce-labs-credentials'>Set Your Sauce Labs Credentials</h5>
@@ -42744,14 +42735,14 @@ Level <em>STEP</em> can show business-related information in the console output,
     &gt; set SAUCE_ACCESS_KEY="accessKey"
 </code></pre>
 <ul>
-<li><p>To set an environment variables permanently in Windows, you must append it to the <code>PATH</code> variable.</p></li>
+<li><p>To set an environment variable permanently in Windows, you must append it to the <code>PATH</code> variable.</p></li>
 <li><p>Go to <strong>Control Panel &gt; System &gt; Windows version &gt; Advanced System Settings &gt; Environment Variables &gt; System
-Variables &gt; Edit &gt; New</strong></p></li>
-<li><p>Then set the &quot;Name&quot; and &quot;Value&quot; for each variable</p></li>
+Variables &gt; Edit &gt; New</strong>.</p></li>
+<li><p>Then set the &quot;Name&quot; and &quot;Value&quot; for each variable.</p></li>
 </ul>
 
 <ol>
-<li>Test the environment variables</li>
+<li>Test the environment variables:</li>
 </ol>
 
 <p><strong>Mac OSX:</strong></p>
@@ -42770,37 +42761,37 @@ Variables &gt; Edit &gt; New</strong></p></li>
 <pre class="highlight html tab-html"><code>    &gt; echo %SAUCE_USERNAME%
     &gt; echo %SAUCE_ACCESS_KEY%
 </code></pre><h5 id='required-sauce-lab-capabilities'>Required Sauce Lab Capabilities</h5>
-<p>Following capabilities are required for Sauce Lab:</p>
+<p>The following capabilities are required for Sauce Lab:</p>
 
 <ul>
-<li><p>username - Sauce Lab username</p></li>
-<li><p>accessKey - Sauce Lab access key</p></li>
-<li><p>seleniumVersion - preferred version of Selenium</p></li>
-<li><p>name - test run name</p></li>
+<li><p><code>username</code> — Sauce Lab username.</p></li>
+<li><p><code>accessKey</code> — Sauce Lab access key.</p></li>
+<li><p><code>seleniumVersion</code> — preferred version of Selenium.</p></li>
+<li><p><code>name</code> — test run name.</p></li>
 </ul>
 
-<p>Here some optional capabilities:</p>
+<p>Here are some optional capabilities:</p>
 
 <ul>
-<li><p>maxDuration - how long is the whole test allowed to run</p></li>
-<li><p>commandTimeout - the max time allowed to wait for a Selenium command</p></li>
-<li><p>idleTimeout - how long can the browser wait for a new command</p></li>
+<li><p><code>maxDuration</code> — how long is the whole test allowed to run.</p></li>
+<li><p><code>commandTimeout</code> — the max time allowed to wait for a Selenium command.</p></li>
+<li><p><code>idleTimeout</code> — how long can the browser wait for a new command.</p></li>
 </ul>
 
-<p>More optional capabilities can be found <a href="https://github.com/saucelabs-training/demo-java/blob/master/on-boarding-modules/testng/src/test/java/Module4TestNGTest.java">here</a></p>
+<p>More optional capabilities can be found <a href="https://github.com/saucelabs-training/demo-java/blob/master/on-boarding-modules/testng/src/test/java/Module4TestNGTest.java">here</a>.</p>
 <h5 id='jdi-options'>JDI options</h5>
-<p>In order to run test with Sauce Lab you need set up remote settings in test.properties file:</p>
+<p>In order to run tests with Sauce Lab you need to set up remote settings in <strong><em>test.properties</em></strong> file:</p>
 
 <ul>
 <li><p>remote.type=sauce</p></li>
 <li><p>driver.remote.url=https://ondemand.eu-central-1.saucelabs.com:443/wd/hub</p></li>
 </ul>
 
-<p>See your personal remote url: <a href="https://app.saucelabs.com/user-settings">here</a> look at the &#39;Driver Creation&#39; section.</p>
+<p>See your personal remote URL: look at the &#39;Driver Creation&#39; section <a href="https://app.saucelabs.com/user-settings">here</a>.</p>
 
-<p>Remote url should be different if you are from US.</p>
+<p>Remote URL should be different if you are from US.</p>
 
-<p>And that it. Set Sauce Lab capabilities, set remote execution in test.properties and you can run test with Sauce Labs.</p>
+<p>And that&#39;s it. Set Sauce Lab capabilities, set remote execution in <strong><em>test.properties</em></strong>, and you can run tests with Sauce Labs.</p>
 <h3 id='applitools-eyes-integration'>Applitools Eyes integration</h3><h5 id='1-set-your-applitools-eyes-key-as-a-system-variable'>1. Set your Applitools Eyes key as a system variable</h5>
 <p>Open a Terminal window (command prompt for Windows) and set your Applitools Eyes key:</p>
 
@@ -42811,9 +42802,9 @@ Variables &gt; Edit &gt; New</strong></p></li>
 <pre class="highlight html tab-html"><code>    &gt; set APPLITOOLS_API_KEY="Applitools_Eyes_key"
 </code></pre>
 <ul>
-<li><p>To set an environment variables permanently in Windows, go to <strong>Control Panel &gt; System &gt; Windows version &gt; Advanced System Settings &gt; Environment Variables &gt; System
-Variables &gt; Edit &gt; New</strong></p></li>
-<li><p>Then set the &quot;Name&quot; to APPLITOOLS_API_KEY and &quot;Value&quot; to Applitools_Eyes_key</p></li>
+<li><p>To set an environment variable permanently in Windows, go to <strong>Control Panel &gt; System &gt; Windows version &gt; Advanced System Settings &gt; Environment Variables &gt; System
+Variables &gt; Edit &gt; New</strong>.</p></li>
+<li><p>Then set the &quot;Name&quot; to APPLITOOLS_API_KEY and &quot;Value&quot; to Applitools_Eyes_key.</p></li>
 </ul>
 
 <p>Check that the environment variable is set:</p>
@@ -42830,22 +42821,22 @@ Variables &gt; Edit &gt; New</strong></p></li>
 </code></pre>
 <p><strong>Windows:</strong></p>
 <pre class="highlight html tab-html"><code>    &gt; echo %APPLITOOLS_API_KEY%
-</code></pre><h5 id='2-add-applitools-eyes-dependency-to-the-pom-file'>2. Add Applitools Eyes dependency to the .pom file:</h5><pre class="highlight html tab-html"><code>    <span class="nt">&lt;dependency&gt;</span>
+</code></pre><h5 id='2-add-applitools-eyes-dependency-to-the-pom-xml-file'>2. Add Applitools Eyes dependency to the pom.xml file:</h5><pre class="highlight html tab-html"><code>    <span class="nt">&lt;dependency&gt;</span>
         <span class="nt">&lt;groupId&gt;</span>com.epam.jdi<span class="nt">&lt;/groupId&gt;</span>
         <span class="nt">&lt;artifactId&gt;</span>jdi-light-eyes<span class="nt">&lt;/artifactId&gt;</span>
         <span class="nt">&lt;version&gt;</span>RELEASE<span class="nt">&lt;/version&gt;</span>
     <span class="nt">&lt;/dependency&gt;</span>
 </code></pre><h5 id='3-configure-before-and-after-methods'>3. Configure before and after methods:</h5>
-<p>In before suite method (if you use testNG, that&#39;ll the method annotated by @BeforeSuite) call</p>
+<p>In the before suite method (if you use testNG, that&#39;ll the method annotated by <code>@BeforeSuite</code>) call</p>
 <pre class="highlight html tab-html"><code>    visualTestInitJdi();
 </code></pre>
-<p>Before each test call (if you use testNG, that&#39;ll be in the method annotated by @BeforeMethod)</p>
+<p>Before each test call (if you use testNG, that&#39;ll be in the method annotated by <code>@BeforeMethod</code>)</p>
 <pre class="highlight html tab-html"><code>    newVisualTest(method);
 </code></pre>
-<p>In after suite method call</p>
+<p>In the after suite method call</p>
 <pre class="highlight html tab-html"><code>    closeAllEyes();
 </code></pre>
-<p>That&#39;s it, check your tests results <a href="https://eyes.applitools.com/app/test-results">here</a></p>
+<p>That&#39;s it, check your tests results <a href="https://eyes.applitools.com/app/test-results">here</a>.</p>
 <h3 id='multiple-domains-example'>Multiple domains example</h3>
 <p>Here is the example <a href="https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/MultipleDomainsExampleTest.java">MultipleDomainsExampleTest.java</a>
 of test class with multiple domains. For this example the following files were added to the project:</p>

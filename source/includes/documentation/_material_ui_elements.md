@@ -805,29 +805,30 @@ Quickly and responsively toggle the visibility value of components and more with
 
 ### 4.17 Stepper
 
-```java     
-    @UI("//*[@id='simpleStepper']//following-sibling::div//*[@class='MuiTypography-root MuiTypography-body1']")
-    public static Text simpleLinearStepperTitle;
+```java 
+    @UI("#nonLinearStepper .MuiStep-root")
+    public static Stepper nonlinearStepper;
 
-    @UI("//*[@id='simpleStepper']//following-sibling::div//button[contains(@class, 'MuiButtonBase-root')]")
-    public static WebList simpleLinearStepperButton;
+    @UI("//p[@id='activeNonLinearStep']/..//button[2]")
+    public static MaterialButton nonlinearStepperNextButton;
 
+    @UI("//p[@id='activeNonLinearStep']/..//button[3]")
+    public static MaterialButton nonlinearStepperCompleteStepButton;
+        
     @Test
-    public void simpleLinearStepperTest() {
-      simpleLinearStepperTitle.is().text("You are on Step #1");
-      simpleLinearStepperButton.get(2).click();
-      simpleLinearStepperTitle.is().text("You are on Step #2");
-      simpleLinearStepperButton.get(1).click();
-      simpleLinearStepperTitle.is().text("You are on Step #1");
-      simpleLinearStepperButton.get(2).click();
-      simpleLinearStepperTitle.is().text("You are on Step #2");
-      simpleLinearStepperButton.get(2).click();
-      simpleLinearStepperTitle.is().text("You are on Step #3");
-      simpleLinearStepperButton.get(2).click();
-      simpleLinearStepperTitle.is().text("All steps completed");
-      simpleLinearStepperButton.get(1).click();
-      simpleLinearStepperTitle.is().text("You are on Step #1");
-      }
+    public void nonlinearStepperForwardTest() {
+        nonlinearStepper.show();
+        nonlinearStepper.is().displayed().and().has().steps(Arrays.asList(steps));
+
+        nonlinearStepperNextButton.click();
+        nonlinearStepperNextButton.click();
+        nonlinearStepper.list().get(2).click();
+        nonlinearStepperCompleteStepButton.click();
+        
+        nonlinearStepper.is().stepEnabled(1).and().stepCompleted(1);
+        nonlinearStepper.is().stepEnabled(2).and().stepCompleted(2);
+        nonlinearStepper.is().stepEnabled(3).and().stepIncomplete(3);
+    }
 ```
 
 ##### <a href="https://material-ui.com/components/steppers/" target="_blank"> https://material-ui.com/components/steppers/ </a>
@@ -839,9 +840,8 @@ You can use for testing Text and Button classes, implemented in JDI-html section
 
 |Method | Description | Return Type
 --- | --- | ---
-**is()** | Verify state | boolean
-**text()** | After is() allows to check state of text element | boolean
-**click()** | Click on button | void
+**stepCompleted()** | Check that specified step is completed | boolean
+**stepEnabled()** | Check that specified step is enabled | boolean
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/StepperTests.java" target="_blank">Here you can find Stepper tests</a>
 

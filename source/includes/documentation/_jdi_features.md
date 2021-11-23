@@ -2044,7 +2044,7 @@ More information in the [**Tutorial**](https://jdi-docs.github.io/jdi-light/?jav
 
 
 ### UI Objects
-TBD
+<font color="olive">TBD</font>
 
 ####Web
 
@@ -2102,7 +2102,7 @@ Apart from locator annotations JDI Light provides support for smart locators. Wh
 --- | --- | ---
 **@FindAll** | <font color="olive"> TBD. The JDI Light annotation should correspond exactly to Selenium @FindAll annotation </font> | <font color="olive"> TBD </font>
 **@FindBy** | This JDI Light locator corresponds to Selenium @FindBy locator. It is used to locate an element using one of the predefined strategies. JDI Light supports most of the Selenium strategies: **id**, **name**, **className**, **css**, **tagName**, **linkText**, **partialLinkText**, **xpath**. Added strategy is **text**, which allows detecting element(s) with the given text inside its text nodes. The **group** annotation parameter allows to use different **@FindBy** locators for different test groups. | @FindBy(css = "#passport")
-**@FindBys** | TBD. The JDI Light annotation should correspond exactly to Selenium @FindBys annotation | @FindBys({@FindBy(css = ".main-form"), @FindBy(css = "#accept-conditions")})
+**@FindBys** | <font color="olive">TBD. The JDI Light annotation should correspond exactly to Selenium @FindBys annotation </font> | @FindBys({@FindBy(css = ".main-form"), @FindBy(css = "#accept-conditions")})
 
 #### JDI Light-specific annotations
 
@@ -2177,11 +2177,10 @@ GetAlert().DismissAlert();
 ```
 **Alert** is message window that gets displayed on the screen and pauses the execution of the script until user performs an action.
 
-<aside class="notice">
-Note that you can make a static import (Alerts.acceptAlert() > acceptAlert()) in order to simplify your code.
-</aside>
 
-Handle Window alerts/confirm/prompt dialogs described on <a href='https://developer.mozilla.org/en-US/docs/Web/API/Window' target="_blank">MDN</a>
+_Note that you can make a static import `(Alerts.acceptAlert() > acceptAlert())` in order to simplify your code._
+
+Handle Window alerts/confirm/prompt dialogs described on <a href='https://developer.mozilla.org/en-US/docs/Web/API/Window' target="_blank">MDN</a>:
 
 alert('Alert')
 
@@ -2225,7 +2224,7 @@ prompt('Alert', 'Default value')
 
 ![Prompt dialog](../../images/prompt.png)
 
-Available methods in Java
+Available methods in Java:
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -2239,7 +2238,7 @@ Available methods in Java
 
 ### Logs
 ```java 
-//setup loglevel before running a test (for example in TestInit)
+//set up log level before running a test (for example in TestInit)
 logger.setLogLevel(STEP);
 
 @Test
@@ -2255,27 +2254,28 @@ public void loginTest() {
 [22:23.727  STEP] : Login as User(userName:epam; password:1234)
 [22:24.516  STEP] : Check that 'Home Page' is opened (url CONTAINS '/index.html'; title EQUALS 'Home Page')
 ```
-JDI uses the _log4j library_, but provides more levels of logging. (require log4j.xml / log2j2.xml)
-**logger.setLogLevel(STEP);**
-Level _STEP_ can show business-related information in the console output, and you will find the same log in the **_target/.logs/<logName>.log_** file.
+JDI uses the _log4j_ library, but provides more levels of logging (requires ***log4j.xml / log2j2.xml***).
+
+`logger.setLogLevel(STEP);`
+Level _STEP_ can show business-related information in the console output, and you will find the same log in the ***target/.logs/<logName>.log*** file.
 
 |LogLevel | Description
 --- | --- 
 **OFF(0)** | No logging
 **FATAL(100)** | Unexpected errors
 **ERROR(200)** | Critical errors
-**WARNING(300)** | Errors due to wrong params
-**STEP(350)** | Business related info (JDI related loglevel)
+**WARNING(300)** | Errors due to wrong parameters
+**STEP(350)** | Business related info (JDI-related log level)
 **INFO(400)** | Actions Info
-**DEBUG(500)** | Debug info (do not use for production stage)
-**TRACE(600)** | Trace info (do not use for production stage)
-**ALL(MAX_VALUE)** | All log messages (do not use for production stage)
+**DEBUG(500)** | Debug info <font color="red">(_do not use for production stage!_<font>)
+**TRACE(600)** | Trace info (<font color="red">_do not use for production stage!_<font>)
+**ALL(MAX_VALUE)** | All log messages (<font color="red">_do not use for production stage!_<font>)
 
 
 ### Reports
 #### Allure
 
-JDILogger
+_JDILogger:_
 <br>
 
 |Method | Description
@@ -2284,7 +2284,7 @@ JDILogger
 **void step(String msg, Object... args)** | Log successful step
 
 
-AllureLoggerHelper
+_AllureLoggerHelper:_
 <br>
 
 |Method | Description
@@ -2296,7 +2296,7 @@ AllureLoggerHelper
 <a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-examples/src/test/java/io/github/epam/tests/allurereport" target="_blank">Allure screenshoots tests</a> for WebPage<br>
 
 #### Report Portal
-TBD
+<font color="olive">TBD</font>
 
 ### SoftAsserts
 
@@ -2355,7 +2355,7 @@ TBD
     }
 ```
 
-**Soft Assert** - assert that collects errors during test run. It doesn't throw exceptions when asserts fail but instead saves them.
+**Soft Assert** — assert that collects errors during test run. It doesn't throw exceptions when asserts fail, saving information about failures instead.
 
 Here is the list of available SoftAssert class methods:
 
@@ -2369,25 +2369,25 @@ Here is the list of available SoftAssert class methods:
 
 **Settings:**
 
-- **test.properties** file - to choose the type of assertions, you need to update the **assert.type** property - select **soft** or **strict** type (_#assert.type=soft | strict_)
+- ***test.properties*** file — to choose the type of assertions, you need to update the `assert.type` property value; select `soft` or `strict` type (_#assert.type=soft | strict_).
 
-- to enable or disable SoftAssert in code, use **assertSoft()** or **assertStrict()** methods from SoftAssert class
+- to enable or disable SoftAssert in code, use `assertSoft()` or `assertStrict()` methods from SoftAssert class.
 
 **Output results**
 
-There are two ways to use **assertResults()** method:
+There are two ways to use `assertResults()` method:
 
-- As a method in a chain after asserts (e.g. _buttonSoftAssertTest_)
+- As a terminal method in a chain of multiple assertions (like in the `buttonSoftAssertTest` example).
 
-- As a separate method if you need to check several elements (e.g. _multipleValidationsTest_)
+- As a separate method if you need to check several elements (like in the `multipleValidationsTest` example).
 
 ### JDI asserts
 
-Also we have some classes with JDI special asserts in the next packages:
+We also have some classes with JDI special asserts in the following packages:
 
-- com.epam.jdi.light.asserts.generic
+- _com.epam.jdi.light.asserts.generic_
 
-**ListAssert.class** includes next asserts:
+**ListAssert.class** includes the following asserts:
 
 |Method | Description |
 --- | --- |
@@ -2396,13 +2396,13 @@ Also we have some classes with JDI special asserts in the next packages:
 **onlyOne(JFunc1<T, Boolean> condition)** | - assert that only one of list elements meet condition |
 **noOne(JFunc1<T, Boolean> condition)** | - assert that none of list elements meet condition |
 
-**TextAssert.class** includes next asserts:
+**TextAssert.class** includes the following asserts:
 
 |Method | Description |
 --- | --- |
 **text(Matcher<String> condition)** | - asserts that element has presented text |
 
-**UIAssert.class** includes next asserts:
+**UIAssert.class** includes the following asserts:
 
 |Method | Description |
 --- | --- |
@@ -2419,7 +2419,7 @@ Also we have some classes with JDI special asserts in the next packages:
 **enabled()** | - assert that element is enabled |
 **disabled()** | - assert that element is disabled |
 
-**UISelectAssert.class** includes next asserts:
+**UISelectAssert.class** includes the following asserts:
 
 |Method | Description |
 --- | --- |
@@ -2440,9 +2440,9 @@ Also we have some classes with JDI special asserts in the next packages:
 **hidden()** | - assert that element is hidden |
 **notAppear(int timeoutSec)** | - assert that element does not appear during presented seconds |
 
-- com.epam.jdi.light.ui.html.asserts
+- _com.epam.jdi.light.ui.html.asserts_
 
-**CheckboxAssert.class** includes next asserts:
+**CheckboxAssert.class** includes the following asserts:
 
 |Method | Description |
 --- | --- |
@@ -2450,13 +2450,13 @@ Also we have some classes with JDI special asserts in the next packages:
 **text(Matcher<String> condition)** | - assert that element has presented text |
 **deselected()** | - assert that element is not selected | 
 
-**ColorAssert.class** includes next asserts:
+**ColorAssert.class** includes the following asserts:
 
 |Method | Description |
 --- | --- |
 **color(String color)** | - assert that element has presented color |
 
-**DateTimeAssert.class** includes next asserts:
+**DateTimeAssert.class** includes the following asserts:
 
 |Method | Description |
 --- | --- |
@@ -2468,7 +2468,7 @@ Also we have some classes with JDI special asserts in the next packages:
 **min(Matcher<Float> min)** | - assert that element has presented minimum value |
 **max(Matcher<Float> max)** | - assert that element has presented maximum value |
 
-**ImageAssert.class** includes next asserts:
+**ImageAssert.class** includes the following asserts:
 
 |Method | Description |
 --- | --- |
@@ -2478,7 +2478,7 @@ Also we have some classes with JDI special asserts in the next packages:
 **height(Matcher<Integer> condition)** | - assert that element has presented height |
 **width(Matcher<Integer> condition)** | - assert that element has presented width |
 
-**LinkAssert.class** includes next asserts:
+**LinkAssert.class** includes the following asserts:
 
 |Method | Description |
 --- | --- |
@@ -2486,7 +2486,7 @@ Also we have some classes with JDI special asserts in the next packages:
 **alt(Matcher<String> condition)** | - assert that element has presented alt |
 **ref(Matcher<String> condition)** | - assert that element has presented ref |
 
-**NumberAssert.class** includes next asserts:
+**NumberAssert.class** includes the following asserts:
 
 |Method | Description |
 --- | --- |
@@ -2497,14 +2497,14 @@ Also we have some classes with JDI special asserts in the next packages:
 **placeholder(Matcher<String> placeholder)** | - assert that element placeholder is equals to presented |
 **number(Matcher<Double> number)** | - assert that element number is equals to presented |
 
-**ProgressAssert.class** includes next asserts:
+**ProgressAssert.class** includes the following asserts:
 
 |Method | Description |
 --- | --- |
 **max(Matcher<Integer> max)** | - assert that element has presented maximum value |
 **value(Matcher<Integer> value)** | - assert that element value is equals to presented
 
-**RangeAssert.class** includes next asserts:
+**RangeAssert.class** includes the following asserts:
 
 |Method | Description |
 --- | --- |
@@ -2513,7 +2513,7 @@ Also we have some classes with JDI special asserts in the next packages:
 **max(Matcher<Integer> max)** | - assert that element has presented maximum value |
 **step(Matcher<Integer> step)** | - assert that element step is equals to presented |
 
-**TextAreaAssert.class** includes next asserts:
+**TextAreaAssert.class** includes the following asserts:
 
 |Method | Description |
 --- | --- |
@@ -2524,19 +2524,19 @@ Also we have some classes with JDI special asserts in the next packages:
 **maxlength(Matcher<Integer> condition)** | - assert minimum length of element |
 
 ### Driver Settings
-We can change default settings placed in the test.properties file (src/test/resources)
+We can change default settings placed in the ***test.properties*** file (located in _src/test/resources_):
 
 |Property name | Description | Examples
 --- | --- | ---
-**chrome.capabilities.path** | Path to the Chrome properties file. File should be located in (src/test/resources). | chrome.capabilities.path=chrome.properties
-**driver** | Describe what kind of driver we want to use: chrome, firefox, ie… or we can just replace it with ${driver} and read the exact driver name from command line or pom file | driver = ${driver} <br> driver=chrome
-**driver.remote.url** | <a href="https://jdi-docs.github.io/jdi-light/?java#remote-test-runs">Tests can run on remote web servers<a> | driver.remote.url=http://localhost:4444/wd/hub
-**driver.remote.run** | Explicitly specifies whether JDI should use local or remote driver. If not set, JDI would try to select driver based on presence of driver.remote.url and path to local driver | driver.remote.run=true
-**drivers.folder** | Set up the driver folder. Use only absolute path. If no parameter specified default value is "resources\drivers". Note there is no filename specifying  required, use 'driver' property instead  | drivers.folder = C:\\Selenium
-**driver.version** | By default, JDI Light will download the latest version of the driver for us, but if we need a specific version we can put it here (in this case the framework will find and download exactly the version specified) | driver.version = LATEST<br>driver.version = PRELATEST<br> driver.version = 2.23.0 <br> driver.version=3.0.0-beta4
-**ff.capabilities.path** | Path to the Firefox properties file. File should be located in (src/test/resources). | ff.capabilities.path=ff.properties
-**ie.capabilities.path** | Path to the Internet Explorer properties file. File should be located in (src/test/resources). | ie.capabilities.path=ie.properties
-**timeout.wait.element** | Wait for an element on the opened page, by default = 10 seconds. Valid values are integers from 0 to 999. | timeout.wait.element = 20
+**chrome.capabilities.path** | Path to the Chrome properties file. File should be located in _src/test/resources_. | chrome.capabilities.path=chrome.properties
+**driver** | Specify which driver we want to use: _chrome, firefox, ie, edge, opera, safari_; or we can just replace it with _${driver}_ and read the exact driver name from command line or POM file. | driver = ${driver} <br> driver=chrome
+**driver.remote.url** | <a href="https://jdi-docs.github.io/jdi-light/?java#remote-test-runs">Tests can run on remote web servers<a>. | driver.remote.url=http://localhost:4444/wd/hub
+**driver.remote.run** | Explicitly specifies whether JDI should use a local or a remote driver. If not set, JDI would try to select driver based on the presence of `driver.remote.url` property and path to local driver. | driver.remote.run=true
+**drivers.folder** | Set up the driver folder. Use only absolute paths. The default value equals `"resources\drivers"`. Note that drivers themselves are governed by the `driver` property. | drivers.folder = C:\\Selenium
+**driver.version** | By default, JDI Light will download the latest version of a driver for us, but if we need a specific version we can put it here (in which case the framework will find and download exactly this version). | driver.version = LATEST<br>driver.version = PRELATEST<br> driver.version = 2.23.0 <br> driver.version=3.0.0-beta4
+**ff.capabilities.path** | Path to the Firefox properties file. File should be located in _src/test/resources_. | ff.capabilities.path=ff.properties
+**ie.capabilities.path** | Path to the Internet Explorer properties file. File should be located in _src/test/resources_. | ie.capabilities.path=ie.properties
+**timeout.wait.element** | Set maximum wait for elements on an opened page; by default, equal to 10 seconds. Valid values are integers from 0 to 999. | timeout.wait.element = 20
 
 ```java 
 public class TestsInit {
@@ -2557,31 +2557,32 @@ public class TestsInit {
     
 ```
 
-This is example how to initialize of custom driver:
+Here is an example of a custom driver initialization:
+</br></br></br></br></br></br></br></br></br>
 
 ### JDI Settings
 
 |Property name | Description | Examples
 --- | --- | ---
-**assert.type** | <a href="https://jdi-docs.github.io/jdi-light/?java#softasserts">Assert type</a>: soft or strict | assert.type = soft
-**browser.kill** | Set up at what time browser should be shut down | browser.kill=afterAndBefore<br>browser.kill=after<br>browser.kill=before
-**browser.size** | the size of the tested browser. By default, JDI Light will maximize the browser, but we can set exact values | browser.size = MAXIMIZE<br>browser.size = 1024x762
-**domain** | Web application root URL (used if we're working with one application in tests). Can be also read from the command line, e.g. _${domain}_ | domain = https://jdi-testing.github.io/jdi-light/ <br> domain = http://127.0.0.1:8080
-**element.search.strategy** | Can find only one element on a page (_single_), many elements on a page (_multiple_). Also, we can define whether we want to search through visible elements only or not. Consists of 2 params: visibility (_visible_ can use _displayed_, _inview_, _enabled_ or _any_), and the type of search. Options: _soft (=any, multiple)_; _strict(=visible, single)_; or _combined from visible/displayed/inview/enabled/any/all and single/multiple_. Note: _visible=displayed_, _any=all_ | element.search.strategy = visible, multiple<br>element.search.strategy = inview, strict
-**html.code.logging** | Defines a strategy for writting html-code of the web element last processed before test failure to log. If it set to "on fail" value, then web element's html-code will be logged (and added to Allure report as well) when test fails, if possible. Options: _on fail, off_ | html.code.logging = off
-**log.level** | Defines a level of categorizing the entries in your log file: _OFF_ - no logging; _FATAL_ - unexpected errors; _ERROR_ - critical errors; _WARNING_ - errors due to wrong params; _STEP_ - business related info; _INFO_ - actions info; _DEBUG_ - debug messages; _TRACE_ - trace info; _ALL_ - all log messages. If no level specified log level is _INFO_ by default | log.level = STEP <br> log.level = ERROR
-**page.check.after.open** | Check the page has been opened. Available options: _NONE, NEW_PAGE, EVERY_PAGE_ | page.check.after.open = NONE
-**page.load.strategy** | Like in <a href="https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/capabilities_exports_PageLoadStrategy.html" target="_blank">Selenium strategies</a> to load the page. Options: _normal, eager, none_ | page.load.strategy = normal
-**screens.folder** | Set up the screenshot folder | screens.folder = C:\\Test-screenshot
-**screenshot.strategy** | Defines screenshoting strategy. If it set to "on fail" value, then when test fails, web element last processed will be highlighted and page screenshot will be taken, saved and added to Allure report as well, if possible. Options: _on fail, off_ | screenshot.strategy = off
-**smart.locators** | A list of templates for <a href="https://jdi-docs.github.io/jdi-light/#smart-locators">Smart locators</a>. Should be separated by ; symbol | smart.locators=#%s;[ui=%s]
+**assert.type** | <a href="https://jdi-docs.github.io/jdi-light/?java#softasserts">Assert type</a>: soft or strict. | assert.type = soft
+**browser.kill** | Specify when to shut down the browser. | browser.kill=afterAndBefore<br>browser.kill=after<br>browser.kill=before
+**browser.size** | Browser window size. By default, JDI Light will maximize the browser window, but we can set the exact size. | browser.size = MAXIMIZE<br>browser.size = 1024x762
+**domain** | Web application root URL (used when our tests work with a single application). Can also be read from the command line if set up as `${domain}`. | domain = https://jdi-testing.github.io/jdi-light/ <br> domain = http://127.0.0.1:8080
+**element.search.strategy** | This property controls two aspects of element search. First, it limits the scope of searched elements on certain criteria (`any` (all elements on the page), `displayed` (elements for which Selenium _isDisplayed()_ is true), `enabled` (Selenium _isDisplayed()_ and _isEnabled()_ are true), `inview` (Selenium _isDisplayed()_ and JDI _isClickable()_ are true). Second, it defines a number of found elements (`single` or `multiple`). You can set the value of this property either as a comma-separated combination of these options (say, `enabled, single`), or one of special values: `soft` (equal to `any, multiple`) and `strict` (equal to `displayed, single`). | element.search.strategy = soft<br>element.search.strategy = enabled, multiple
+**html.code.strategy** | Defines a strategy for writing HTML code of the last web element processed before test failure to log. If it set to `on failure` value, then web element's HTML code will be logged (and added to Allure report as well) when test fails, if possible. Options: `off`, `on failure`, `on assert`, `new page`. | html.code.strategy = off
+**log.level** | Defines level of detail in log entries: `OFF` (no logging); `FATAL` (unexpected errors); `ERROR` (critical errors); `WARNING` (errors due to wrong parameters); `STEP` (business-related info); `INFO` (actions info); `DEBUG` (debug messages); `TRACE` (trace info); `ALL` (all log messages). If no level is explicitly specified, it will be treated as `INFO`. | log.level = STEP <br> log.level = ERROR
+**page.check.after.open** | Check if a page has been opened. Available options: `NONE`, `NEW_PAGE`, `EVERY_PAGE`. | page.check.after.open = NONE
+**page.load.strategy** | Similar to <a href="https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/capabilities_exports_PageLoadStrategy.html" target="_blank">Selenium strategies</a> to load the page. Options: `normal`, `eager`, `none`. | page.load.strategy = normal
+**screens.folder** | Set up the screenshot folder. | screens.folder = C:\\Test-screenshot
+**screenshot.strategy** | Defines a strategy for taking screenshots. If it set to `on fail` value, then when a test fails, the last web element processed will be highlighted and page screenshot will be taken, saved and added to Allure report as well, if possible. Options: `off`, `on failure`, `on assert`, `new page`. | screenshot.strategy = off
+**smart.locators** | A list of templates for <a href="https://jdi-docs.github.io/jdi-light/#smart-locators">Smart locators</a>. Must be separated by `;` symbol. | smart.locators=#%s;[ui=%s]
 **timeout.wait.page** | JDI Light automatically defines that new page is opened and in this case will use this timeout (usually it is more than enough for an element). By default, it's 30 seconds. Valid values are integers from 0 to 999. | timeout.wait.page = 40
 
 ### Parallel tests run
-TBD
+<font color="olive">TBD</font>
 
 ### Remote test runs
-TBD
+<font color="olive">TBD</font>
 
 ### SauceLabs integration
 
@@ -2604,14 +2605,14 @@ Before running JDI project in Sauce Lab, you need to set up Sauce Lab Credential
     > set SAUCE_USERNAME="username"
     > set SAUCE_ACCESS_KEY="accessKey"
 ```
-- To set an environment variables permanently in Windows, you must append it to the `PATH` variable.
+- To set an environment variable permanently in Windows, you must append it to the `PATH` variable.
 
 - Go to **Control Panel > System > Windows version > Advanced System Settings > Environment Variables > System
-  Variables > Edit > New**
+  Variables > Edit > New**.
 
-- Then set the "Name" and "Value" for each variable
+- Then set the "Name" and "Value" for each variable.
 
-3. Test the environment variables
+3. Test the environment variables:
 
    **Mac OSX:**
 
@@ -2638,39 +2639,39 @@ Before running JDI project in Sauce Lab, you need to set up Sauce Lab Credential
 
 ##### Required Sauce Lab Capabilities
 
-Following capabilities are required for Sauce Lab:
+The following capabilities are required for Sauce Lab:
 
-- username - Sauce Lab username
+- `username` — Sauce Lab username.
 
-- accessKey - Sauce Lab access key
+- `accessKey` — Sauce Lab access key.
 
-- seleniumVersion - preferred version of Selenium
+- `seleniumVersion` — preferred version of Selenium.
 
-- name - test run name
+- `name` — test run name.
 
-Here some optional capabilities:
+Here are some optional capabilities:
 
-- maxDuration - how long is the whole test allowed to run
+- `maxDuration` — how long is the whole test allowed to run.
 
-- commandTimeout - the max time allowed to wait for a Selenium command
+- `commandTimeout` — the max time allowed to wait for a Selenium command.
 
-- idleTimeout - how long can the browser wait for a new command
+- `idleTimeout` — how long can the browser wait for a new command.
 
-More optional capabilities can be found [here](https://github.com/saucelabs-training/demo-java/blob/master/on-boarding-modules/testng/src/test/java/Module4TestNGTest.java)
+More optional capabilities can be found [here](https://github.com/saucelabs-training/demo-java/blob/master/on-boarding-modules/testng/src/test/java/Module4TestNGTest.java).
 
 ##### JDI options
 
-In order to run test with Sauce Lab you need set up remote settings in test.properties file:
+In order to run tests with Sauce Lab you need to set up remote settings in ***test.properties*** file:
 
 - remote.type=sauce
 
 - driver.remote.url=https://ondemand.eu-central-1.saucelabs.com:443/wd/hub
 
-See your personal remote url: [here](https://app.saucelabs.com/user-settings) look at the 'Driver Creation' section.
+See your personal remote URL: look at the 'Driver Creation' section [here](https://app.saucelabs.com/user-settings).
 
-Remote url should be different if you are from US.
+Remote URL should be different if you are from US.
 
-And that it. Set Sauce Lab capabilities, set remote execution in test.properties and you can run test with Sauce Labs.
+And that's it. Set Sauce Lab capabilities, set remote execution in ***test.properties***, and you can run tests with Sauce Labs.
 
 ### Applitools Eyes integration
 
@@ -2690,10 +2691,10 @@ Open a Terminal window (command prompt for Windows) and set your Applitools Eyes
     > set APPLITOOLS_API_KEY="Applitools_Eyes_key"
 ```
 
-- To set an environment variables permanently in Windows, go to **Control Panel > System > Windows version > Advanced System Settings > Environment Variables > System
-  Variables > Edit > New**
+- To set an environment variable permanently in Windows, go to **Control Panel > System > Windows version > Advanced System Settings > Environment Variables > System
+  Variables > Edit > New**.
 
-- Then set the "Name" to APPLITOOLS_API_KEY and "Value" to Applitools_Eyes_key
+- Then set the "Name" to APPLITOOLS_API_KEY and "Value" to Applitools_Eyes_key.
 
 Check that the environment variable is set:
 
@@ -2717,7 +2718,7 @@ Check that the environment variable is set:
     > echo %APPLITOOLS_API_KEY%
 ```
 
-##### 2. Add Applitools Eyes dependency to the .pom file:
+##### 2. Add Applitools Eyes dependency to the pom.xml file:
 
 ```html
     <dependency>
@@ -2729,25 +2730,25 @@ Check that the environment variable is set:
 
 ##### 3. Configure before and after methods:
 
-In before suite method (if you use testNG, that'll the method annotated by @BeforeSuite) call
+In the before suite method (if you use testNG, that'll the method annotated by `@BeforeSuite`) call
 
 ```html
     visualTestInitJdi();
 ```
 
-Before each test call (if you use testNG, that'll be in the method annotated by @BeforeMethod)
+Before each test call (if you use testNG, that'll be in the method annotated by `@BeforeMethod`)
 
 ```html
     newVisualTest(method);
 ```
 
-In after suite method call
+In the after suite method call
 
 ```html
     closeAllEyes();
 ```
 
-That's it, check your tests results [here](https://eyes.applitools.com/app/test-results)
+That's it, check your tests results [here](https://eyes.applitools.com/app/test-results).
 
 ### Multiple domains example
 Here is the example [MultipleDomainsExampleTest.java](https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-bootstrap-tests/src/test/java/io/github/epam/bootstrap/tests/common/MultipleDomainsExampleTest.java)

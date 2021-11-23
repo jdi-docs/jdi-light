@@ -2075,9 +2075,6 @@ Available methods in Java JDI Light:
 
 If the height of a menu prevents all menu items from being displayed, the menu can scroll internally.
 
-##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/MenuTests.java" target="_blank">Here you can find Menu tests</a>
-<br></br><br></br>
-
 #### 4.45.5 Context Menu
 
  ```java  
@@ -2108,11 +2105,11 @@ If the height of a menu prevents all menu items from being displayed, the menu c
 
 ##### <a href="https://material-ui.com/ru/components/menus/#context-menu" target="_blank"> https://material-ui.com/ru/components/menus/#context-menu </a>
 
-Menu is located in the following class:
-- __Java__: _com.epam.jdi.light.material.elements.navigation.Menu_
-  Menus display a list of choices on temporary surfaces.
 
 ![Menu](../../images/material-ui/contextMenu.png)
+
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/MenuTests.java" target="_blank">Here you can find Menu tests</a>
+<br></br><br></br>
 
 ### 4.46 Lists
 

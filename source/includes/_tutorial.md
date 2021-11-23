@@ -55,14 +55,13 @@ Let’s have a detailed look at some options:
 - **domain** — web application root URL (used when our tests work with a single application). Can also be read from the command line if set up as _${domain}._ <br/>
 - **page.load.strategy** — similarly to Selenium, page loading strategies are: _normal, eager, none_. <br/>
 - **browser.size** — browser window size. By default, JDI Light will maximize the browser window, but we can set the exact size.<br/>
-- **screenshot.strategy** = *off* | *on fail* | *on assert* | *new page* — take screenshot, it's used by AllureLogger.class and upper or lower standing classes. Can be overwritten in test project.<br/>
-- **html.code.strategy** = *off* | *on fail* | *on assert* | *new page* — logs page HTML code.<br/>
-- **requests.strategy** = *off* | *on fail* | *on assert* | *new page* — requests 4ХХ, 5ХХ errors in console log.<br/>
+- **screenshot.strategy** = *off* | *on failure* | *on assert* | *new page* — determines when screenshots are taken; it's used by AllureLogger.class and its sub/superclasses. Can be overwritten in test project.<br/>
+- **html.code.strategy** = *off* | *on failure* | *on assert* | *new page* — logs the last processed element HTML code.<br/>
+- **requests.strategy** = *off* | *on failure* | *on assert* | *new page* — logs 4ХХ, 5ХХ errors in the console.<br/>
 - **allure.steps** = *true* — turn on the steps for Allure.<br/>
 
-<aside class="notice">
-Note: you can find more examples in the [documentation](https://jdi-docs.github.io/jdi-light/#driver-settings).
-</aside>
+
+_Note: you can find more examples in the [documentation](https://jdi-docs.github.io/jdi-light/#driver-settings)._
 
 <a href="https://github.com/jdi-tutorials/01-jdi-light-intro/blob/master/src/test/resources/test.properties" target="_blank">See the examples on Github</a>
 
@@ -1069,13 +1068,13 @@ _Note: JDI Light removes only waste code and keeps all the business-relevant par
 **Lesser amount of code, stable tests and clear logs will reduce maintenance effort during regression testing** and **increase the credibility of your tests**, because with JDI Light, once tests are written, they will only fail in case of real application changes or performance issues, but not because of test instability.<br/>
 
 ## JDI Light in BDD Style (even for Manual QA)
-TBD
+<font color="olive">TBD</font>
 
 ## Create Custom controls
-TBD
+<font color="olive">TBD</font>
 
 ## JDI settings at a glance
-TBD
+<font color="olive">TBD</font>
 
 ## Test Framework structure
-TBD
+<font color="olive">TBD</font>

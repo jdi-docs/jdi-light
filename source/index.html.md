@@ -55,4 +55,4 @@ JDI Light is powered by Selenium and has simple integration with Selenium-based 
 
 [Theory](https://jdi-docs.github.io/jdi-light/?java#theory) addresses the key principles behind JDI Light framework and the tools it offers to put these principles into practice.
 
-[Documentation](https://jdi-docs.github.io/jdi-light/?java#documentation) contains technical description of JDI Light features and UI Element sets.
+[Documentation](https://jdi-docs.github.io/jdi-light/?java#documentation) contains technical description of JDI Light features/settings and UI Element sets.

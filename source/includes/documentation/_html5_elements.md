@@ -5,7 +5,7 @@
 
 ```java 
    
-  //In the next test Label is found from 'name' and 'disabledName' locators:
+  //In the following test, 'name' and 'disabledName' labels are found by utilizing their element locators:
    
   // @FindBy(css = "#name")
   @UI("#name") 
@@ -15,7 +15,7 @@
   @UI("#disabled-name") 
   public static TextField disabledName;
 	
-  //By default Label is found by locator 
+  //By default, Label locator is constructed like this: 
   By.cssSelector("[for="+getAttribute("id")+"]")
    
   @Test
@@ -45,7 +45,7 @@
  [FindBy(Css = "div.main-content #name")]
  public TextField NameTextField { get; set; }
 	
- By default Label is found by locator By.CssSelector($"[for={WebElement.GetAttribute("id")}]")
+ By default, Label is found by locator By.CssSelector($"[for={WebElement.GetAttribute("id")}]")
 
  [Test] 
  public void LabelTest() 
@@ -63,18 +63,13 @@
  } 
  
   ```
-**Label** – Elements' caption for a big number of JDI common elements.
+**Label** — Elements' caption for a large number of JDI common elements.
 
 ![Label](../../images/colorpicker.png)
 
 ```html 
 <label for="test">Description</label>
 ```
-
-Label's implementation is located in the following classes:
-
-- __Java__: _com.epam.jdi.light.elements.base.BaseUIElement_
-- __C#__: _JDI.Light.Elements.Base.UIElement_
 
 
 
@@ -146,7 +141,7 @@ public void GetTextTest()
 }
 
 ```
-**Button** – Element that represents a clickable button.
+**Button** — Element that represents a clickable button.
 
 ![Button](../../images/button.png)
 
@@ -203,7 +198,7 @@ Available methods and properties in C# JDI Light:
 
 #### 1.1.3 Checkbox
 
-**Checkbox** – Element allows you to select single value for submission.
+**Checkbox** — Element allows you to select a single value for submission.
 
 ![Checkbox](../../images/checkbox.png)
 
@@ -346,7 +341,7 @@ Available methods in Java JDI Light:
 |Methods | Description | Return Type
 --- | --- | ---
 **assertThat()** | Assert action checkbox | CheckboxAssert
-**check(String)**| Set to checked on "true" (case insensitive) or unchecked otherwise | void
+**check(String)**| Set to checked if string value equals "true" (case insensitive), otherwise set to unchecked | void
 **check()**| Set to checked | void
 **click()** | Click the checkbox  | void
 **is()** | Assert action checkbox | CheckboxAssert
@@ -409,11 +404,11 @@ public void SetColorTest()
 }
  
 ```
-**ColorPicker** – Elements of this type provide a user interface element that lets a user specify a color, either by using a visual color picker interface or by entering the color into a text field in "#rrggbb" hexadecimal format. Only simple colors (with no alpha channel) are allowed. The values are compatible with CSS.
+**ColorPicker** — Elements of this type provide a user interface element that lets a user specify a color, either by using a visual color picker interface or by entering the color into a text field in "#rrggbb" hexadecimal format. Only simple colors (with no alpha channel) are allowed. The values are compatible with CSS.
 
 ![ColorPicker](../../images/colorpicker.png)
 
-Colorpicker is located in the following classes:
+Color Picker is located in the following classes:
 
 - __Java__: _com.epam.jdi.light.ui.html.common.ColorPicker_
 
@@ -431,9 +426,9 @@ Here is the list of some available methods in Java:
 
 |Methods | Description | Return Type
 --- | --- | ---
-**assertThat()** | Assert acton color | ColorAssert
+**assertThat()** | Assert action | ColorAssert
 **color()** | Returns color code in  hexadecimal format ("#rrggbb") | String
-**is()** | Assert acton color | ColorAssert
+**is()** | Assert action | ColorAssert
 **setColor(String)** | Set color from string hex representation ("#rrggbb") | void
 
 <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-html-tests/src/test/java/io/github/epam/html/tests/elements/common/ColorPickerTests.java" target="_blank">Java test examples</a>
@@ -444,9 +439,9 @@ Here is the list of some available methods in C#:
 
 |Methods | Description | Return Type
 --- | --- | ---
-**AssertThat()** | Assert acton color | ColorAssert
+**AssertThat()** | Assert action | ColorAssert
 **Color()** | Returns color code in  hexadecimal format ("#rrggbb") | string
-**Is()** | Assert acton color | ColorAssert
+**Is()** | Assert action | ColorAssert
 **SetColor(String)** | Set color from string hex representation ("#rrggbb") | void
 
 <a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/ColorPickerTests.cs" target="_blank">Test examples in C#</a>
@@ -455,7 +450,7 @@ Here is the list of some available methods in C#:
 
 #### 1.1.5 DateTimeSelector
 
-**DateTimeSelector** - Is used for Input Type Date and its derivatives and allows users to set the value of date and/or time.
+**DateTimeSelector** — Is used for Input Type Date and its derivatives and allows users to set the value of date and/or time.
 
 The list of supported elements:
 
@@ -474,11 +469,11 @@ Here is the list of some methods available in C#:
 
 |Method | Description | Return Type
 --- | --- | ---
-**AssertThat()** | Asserts action of DateTimeSelector | DateTimeSelectorAssert
+**AssertThat()** | Assert action of DateTimeSelector | DateTimeSelectorAssert
 **GetDateTime()** | Returns the set date or time | DateTime
-**Is()** | Asserts action of DateTimeSelector | DateTimeSelectorAssert
-**Max()** | Gets attribute with name max | string
-**Min()** | Gets attribute with name min | string
+**Is()** | Assert action of DateTimeSelector | DateTimeSelectorAssert
+**Max()** | Gets attribute with name 'max' | string
+**Min()** | Gets attribute with name 'min' | string
 **SetDateTime(string/DateTime value)** | Sets a date or time | void
 **Value()** | Returns value attribute | string
 
@@ -552,7 +547,7 @@ public void SetBirthDateTest()
     TestSite.Html5Page.BirthDate.AssertThat().SelectedTime(Is.EqualToIgnoringCase("2019-04-01"));	
 }
 ```
-**Input Type Date** – A graphical control element that allows user to set value for date.
+**Input Type Date** — A graphical control element that allows user to set value for date.
 
 ![InputTypeDate](../../images/html/inputTypeDate_html2.png)
 
@@ -583,7 +578,7 @@ public void AutumnDateTimeTest()
     Assert.AreEqual(setValue, "2019-W13");
 }
 ```
-**Input Type Week** – A graphical control element that allows user to set values for week and year.
+**Input Type Week** — A graphical control element that allows user to set values for week and year.
 
 ![InputTypeWeek](../../images/html/inputTypeWeek_html2.png)
 
@@ -614,7 +609,7 @@ public void SetMonthTest()
     Assert.AreEqual(setValue, "2019-04");
 }
 ```
-**Input Type Month** – a graphical control element that allows user to set values for month and year.
+**Input Type Month** — a graphical control element that allows user to set values for month and year.
 
 ![InputTypeMonth](../../images/html/inputTypeMonth_html2.png)
 
@@ -643,7 +638,7 @@ public void SetTimeTest()
     Assert.AreEqual(setValue, "15:00");
 }
 ```
-**Input Type Time** – A graphical control element that allows user to set time.
+**Input Type Time** — A graphical control element that allows user to set time.
 
 ![InputTypeTime](../../images/html/inputTypeTime_html2.png)
 
@@ -671,7 +666,7 @@ public void SetPartyTimeTest()
     Assert.AreEqual(setValue, _dateTime);
 }
 ```
-**Input Type DateTime-Local** – A graphical control element that allows user to set time and date.
+**Input Type DateTime-Local** — A graphical control element that allows user to set time and date.
 
 ![InputTypeDateTime](../../images/html/inputDateTimeLocal_html2.png)
 
@@ -687,7 +682,7 @@ public void SetPartyTimeTest()
 
 #### 1.1.6 FileInput
 
-**FileInput** - A graphical control element that allows user to upload documents to web site.
+**FileInput** — A graphical control element that allows user to upload documents to web site.
 
 ![FileInput](../../images/fileInputAndDownload.png)
 
@@ -809,7 +804,7 @@ Available method in C# JDI Light:
 
 #### 1.1.7 Icon
 
-**Icon** – Is a simple element type that represents icons and graphic images.
+**Icon** — Is a simple element type that represents icons and graphic images.
 
 ![Icon](../../images/html/image_html2.png)
 
@@ -893,7 +888,7 @@ Here is a list of available methods in C#:
 
 #### 1.1.8 Image
 
-**Image** – Is a simple element type that represents graphic images.
+**Image** — Is a simple element type that represents graphic images.
 
 ![Image](../../images/html/image_html2.png)
 
@@ -1006,7 +1001,7 @@ public void GetUrlTest()
 }
 ```
 
-**Link** – A graphical control element that allows user to link from one page to other web pages, files, locations within the same page, email addresses, or any other URL.
+**Link** — A graphical control element that allows user to link from one page to other web pages, files, locations within the same page, email addresses, or any other URL.
 
 Link are represented by the following class:
 
@@ -1053,7 +1048,7 @@ Here is the list of available methods in C#:
 
 #### 1.1.10 Menu
 
-**Menu** - A list of links, which leads to different pages or sections of website.
+**Menu** — A list of links which lead to different pages or sections of website.
 
 Menu element is located in JDI Light in:
 
@@ -1161,7 +1156,7 @@ public void AssertValidationTest()
 ```
 
 
-Available method in Java JDI Light:
+Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -1176,7 +1171,7 @@ Available method in Java JDI Light:
 **void select(TEnum...)** | Select menu element and subelement | void
 **void select(TEnum)** | Select menu element | void
 
-Available method in C# JDI Light:
+Available methods in C# JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -1201,9 +1196,9 @@ Available method in C# JDI Light:
 
 #### 1.1.11 NumberSelector
 
-**NumberSelector** – A graphical control element, that allows the user to let the user enter a number.
+**NumberSelector** — A graphical control element that allows the user to enter a number.
 
-NumberSelector are represented by the following class:
+NumberSelector is represented by the following classes:
 
 - __Java__: _com.epam.jdi.light.ui.html.common.NumberSelector_
 - __C#__: _JDI.Light.Elements.Common.NumberSelector_
@@ -1306,11 +1301,11 @@ Here is the list of available methods in C#:
 
 #### 1.1.12 ProgressBar
 
-**Progress Bar** - Element for displaying an indicator showing the completion progress of a task.
+**Progress Bar** — Element for displaying an indicator showing the completion progress of a task.
 
 ![ProgressBar](../../images/progressbar.png)
 
-ProgressBar is located in the following classes:
+ProgressBar is located in the following class:
 
 - __Java__: _com.epam.jdi.light.ui.html.common.ProgressBar_
 - __C#__: _JDI.Light.Elements.Common.ProgressBar_
@@ -1359,7 +1354,7 @@ Here is an example with provided HTML code:
 <progress id="progress" max="100" value="70"></progress>
 ```
 
-Available method in Java JDI Light:
+Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -1372,7 +1367,7 @@ Available method in Java JDI Light:
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#progress-bar) <br>
 
 
-Available method in C# JDI Light:
+Available methods in C# JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -1446,7 +1441,7 @@ public void checkMaxTest() {
   }
 ```
 
-**Range** - A graphical control element that allows the user to set the value from the range.</br>
+**Range** — A graphical control element that allows the user to set the value within a range.</br>
 
 ![Range](../../images/html/range_html2.png)</br>
 
@@ -1517,7 +1512,8 @@ And here are methods available in Java:
 [BDD Steps example](https://jdi-docs.github.io/jdi-light/?java#range-2) <br>
 
 #### 1.1.14 Text
-**Text** - Is a combination of letters and textual symbols. When performing testing, the text is used in most operations: when typing text into the login field, when finding a button with some certain text in it, or when checking if actual text matches expected one.
+**Text** — Is a combination of letters and text symbols. Most testing activities involve working with text: text is typed into login fields, buttons get located by their texts, actual text gets compared to expected.
+
 
 ```java 
 @UI("[ui=jdi-text]") //@FindBy(css = "[ui=jdi-text]") 
@@ -1687,7 +1683,7 @@ public ITextField NameField;
             Jdi.Assert.AreEquals(TestSite.ContactFormPage.NameField.Value, "");
         }
 ```
-**TextField** – Is a simple element type that allows users to fill in text fields.
+**TextField** — Is a simple element type that allows users to fill in text fields.
 
 ![InputTypeTextField](../../images/html/textField_html2.png)
 
@@ -1739,7 +1735,7 @@ And here are methods available in Java:
 
 #### 1.1.16 TextArea
 
-**TextArea** – Is a simple element type that allows users to fill in text areas (they may contain a few lines).
+**TextArea** — Is a simple element type that allows users to fill in text areas (unlike TextField, multiple lines of text are allowed).
 
 ![InputTypeTextArea](../../images/html/textArea_html2.png)
 
@@ -1812,7 +1808,7 @@ Text areas are represented by the following classes:
 - __Java__: <a href='https://github.com/jdi-testing/jdi-light/blob/bootstrap/jdi-light-html/src/main/java/com/epam/jdi/light/ui/html/elements/common/TextArea.java'>TextArea</a>
 - __C#__: _JDI.Light.Elements.Common.TextArea_
 
-In JAVA TextArea is a descendant of UIBaseElement with HasLabel, SetValue, HasPlaceholder, IsInput interfaces parameterized with TextAreaAssert and inherits its methods. But TextArea also has methods of its own.
+In Java TextArea is a descendant of UIBaseElement with HasLabel, SetValue, HasPlaceholder, IsInput interfaces parameterized with TextAreaAssert and inherits its methods. But TextArea also has methods of its own.
 
 In C# TextArea is a descendant of TextField and inherits its methods. But TextArea also has methods of its own.
 
@@ -1854,7 +1850,7 @@ Here is a list of available methods in C#:
 <a href="https://github.com/jdi-testing/jdi-light-csharp/blob/master/JDI.Light/JDI.Light.Tests/Tests/Simple/TextAreaTests.cs" target="_blank">Test examples in C#</a><br>
 
 #### 1.1.17 Title
-**Title** – A graphical control element representing document title, which is displayed in the title bar of the browser or tab page.
+**Title** — A graphical control element representing document title, which is displayed in the title bar of the browser or tab page.
 
 Title is represented by the following class:
 
@@ -1946,14 +1942,14 @@ Here is the list of available methods in Java JDI Light:
 ### 1.2 HTML5 Complex elements
 #### 1.2.1 RadioButtons
 
-**RadioButtons** – Interface element that allows user to select a single option from a predefined group.
+**RadioButtons** — Interface element that allows user to select a single option from a predefined group.
 
 Radio buttons are represented by the following class:
 
 - __Java__: _com.epam.jdi.light.ui.html.complex.elements.RadioButtons_
 - __C#__: _JDI.Light.Elements.Complex.RadioButtons_
 
-Consider an example where each radio button is a particular color, described with given HTML code:
+Consider an example where each radio button has a particular color, described by the following HTML code:
 
 ![RadioButton](../../images/html/radio_html2.png)
 
@@ -2057,7 +2053,7 @@ Here is the list of some available methods in C#:
 
 #### 1.2.2 Table
 
-**Table** – A complex element that consists of a header, a body (at least one row and one column) and a footer. You are able to perform a list of readonly interactions with this element.
+**Table** — A complex element that consists of a header, a body (at least one row and one column) and a footer. This element allows several read-only interactions.
 
 Tables are represented by the following classes in Java and C#:
 
@@ -2389,8 +2385,8 @@ And here are methods available in C#:
 
 #### 1.2.3 DataTable
 
-**DataTable** – A complex element that consists of header, a body (at least one row and one column) and a footer. You are
-able to perform a list of readonly interactions with this element in order to get all data based on specified criteria.
+**DataTable** — A complex element that consists of a header, a body (at least one row and one column) and a footer. You are
+able to perform a list of read-only interactions with this element in order to get all data based on specified criteria.
 
 DataTables are represented by the following classes in Java:
 
@@ -2479,7 +2475,7 @@ public void rowMatcherChainTest() {
 
 Here is a list of available methods in Java (DataTable expand [Table](#table) class - methods from previous table are available too_):
 
-In return types column _"D"_ refers to the user data object and _"L"_ refers to the table line object.
+In return types, column _"D"_ refers to the user data object and _"L"_ refers to the table line object.
 
 | Method | Description | Return Type|
 --- | --- | ---
@@ -2531,7 +2527,7 @@ DataTableAssert methods in Java:
 
 #### 1.2.4 Dropdown
 
-**Dropdown** – A graphical control element that allows user to choose a single value from a list.
+**Dropdown** — A graphical control element that allows user to choose a single value from a list.
 
 ![DropDown](../../images/dropdown.png)
 
@@ -2541,7 +2537,7 @@ __Dropdown representation__
 
 JDI Light provides a __Dropdown__ class which is using for dropdown representation as a type of web element.
 
-Also this class can be used when working with HTML5 elements in cases when dropdown is represented with HTML _\<select>_ tag.
+This class can also be used when working with HTML5 elements in cases when dropdown is represented with HTML _\<select>_ tag.
 
 Consider an example of HTML5 dropdown with the given HTML code:
 
@@ -2640,8 +2636,8 @@ public void BaseValidationTest()
 
 __JDI Dropdown annotation__
 
-For better use, JDI Light provides a __*@JDropdown*__ annotation to locate dropdown elements. This annotation can be used in cases when working with a
-complex element that may consist of more a complicated html structure. JDropdown annotation allows customise navigation of the web element inner structure by using
+For convenience, JDI Light provides a __*@JDropdown*__ annotation to locate dropdown elements. This annotation can be used in cases when working with a
+complex element that may have a more complicated HTML structure. JDropdown annotation allows to customize navigation of the web element inner structure by using
 annotation default methods.
 
 <!-- ![Dropdown HTML](../../images/html/dropdown_html.png) -->

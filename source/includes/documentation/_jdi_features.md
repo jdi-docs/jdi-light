@@ -2293,7 +2293,7 @@ _AllureLoggerHelper:_
 **void passStep(String uuid)** | Log step is successfully completed
 **void startStep(String uuid, String message)** | Start logging step
 
-<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-examples/src/test/java/io/github/epam/tests/allurereport" target="_blank">Allure screenshoots tests</a> for WebPage<br>
+<a style="font-weight:bold" href="https://github.com/jdi-testing/jdi-light/tree/bootstrap/jdi-light-examples/src/test/java/io/github/epam/tests/allurereport" target="_blank">Allure screenshots tests</a> for WebPage.
 
 #### Report Portal
 <font color="olive">TBD</font>

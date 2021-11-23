@@ -46,7 +46,7 @@ JDI Light is powered by Selenium and has simple integration with Selenium-based 
 - Increases your overall test execution speed, especially for complex cases like searching huge tables, selecting dropdown items out of a hundred or entering text containing thousands of lines.
 - Provides detailed logs and well-readable reports of all user actions with no additional effort.
 - All UI Elements have assertions/matchers powered by Hamcrest and a wait with expected condition during timeout.
-- Easy integration with all modern automation tools: ***CI*** (*Jenkins*, *TC* etc.), ***logging*** (*Log4j* or any other *slf4j*-based logs), ***reporting*** (*Allure* or *Report Portal*); ***browser/device farms*** (*Selenium Grid*, *BrowserStack*, *Selenoid* etc.), ***test runners*** (*TestNG*, *JUnit*) etc.
+- Easy integration with all modern automation tools: **CI** (_Jenkins_, _TC_ etc.), **logging** (_Log4j_ or any other _slf4j_-based logs), **reporting** (_Allure_ or _Report Portal_); **browser/device farms** (_Selenium Grid_, _BrowserStack_, _Selenoid_ etc.), **test runners** (_TestNG_, _JUnit_) etc.
 
 # Navigation
 [Introduction](https://jdi-docs.github.io/jdi-light/?java#introduction) provides examples of common test automation tasks solved with JDI Light.
@@ -55,4 +55,4 @@ JDI Light is powered by Selenium and has simple integration with Selenium-based 
 
 [Theory](https://jdi-docs.github.io/jdi-light/?java#theory) addresses the key principles behind JDI Light framework and the tools it offers to put these principles into practice.
 
-[Documentation](https://jdi-docs.github.io/jdi-light/?java#documentation) contains technical description of JDI Light features and UI Element sets.
+[Documentation](https://jdi-docs.github.io/jdi-light/?java#documentation) contains technical description of JDI Light features/settings and UI Element sets.

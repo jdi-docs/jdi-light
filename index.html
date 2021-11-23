@@ -34602,28 +34602,29 @@ Java example code for the Button box:</p>
 <td>boolean</td>
 </tr>
 </tbody></table>
-<h5 id='here-you-can-find-hidden-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/HiddenTests.java" target="_blank">Here you can find Hidden tests</a></h5><h3 id='4-17-stepper'>4.17 Stepper</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//*[@id='simpleStepper']//following-sibling::div//*[@class='MuiTypography-root MuiTypography-body1']"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Text</span> <span class="n">simpleLinearStepperTitle</span><span class="o">;</span>
+<h5 id='here-you-can-find-hidden-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/HiddenTests.java" target="_blank">Here you can find Hidden tests</a></h5><h3 id='4-17-stepper'>4.17 Stepper</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#nonLinearStepper .MuiStep-root"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Stepper</span> <span class="n">nonlinearStepper</span><span class="o">;</span>
 
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//*[@id='simpleStepper']//following-sibling::div//button[contains(@class, 'MuiButtonBase-root')]"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">WebList</span> <span class="n">simpleLinearStepperButton</span><span class="o">;</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//p[@id='activeNonLinearStep']/..//button[2]"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">MaterialButton</span> <span class="n">nonlinearStepperNextButton</span><span class="o">;</span>
+
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//p[@id='activeNonLinearStep']/..//button[3]"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">MaterialButton</span> <span class="n">nonlinearStepperCompleteStepButton</span><span class="o">;</span>
 
     <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">simpleLinearStepperTest</span><span class="o">()</span> <span class="o">{</span>
-      <span class="n">simpleLinearStepperTitle</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"You are on Step #1"</span><span class="o">);</span>
-      <span class="n">simpleLinearStepperButton</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
-      <span class="n">simpleLinearStepperTitle</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"You are on Step #2"</span><span class="o">);</span>
-      <span class="n">simpleLinearStepperButton</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
-      <span class="n">simpleLinearStepperTitle</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"You are on Step #1"</span><span class="o">);</span>
-      <span class="n">simpleLinearStepperButton</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
-      <span class="n">simpleLinearStepperTitle</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"You are on Step #2"</span><span class="o">);</span>
-      <span class="n">simpleLinearStepperButton</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
-      <span class="n">simpleLinearStepperTitle</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"You are on Step #3"</span><span class="o">);</span>
-      <span class="n">simpleLinearStepperButton</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
-      <span class="n">simpleLinearStepperTitle</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"All steps completed"</span><span class="o">);</span>
-      <span class="n">simpleLinearStepperButton</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
-      <span class="n">simpleLinearStepperTitle</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"You are on Step #1"</span><span class="o">);</span>
-      <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">nonlinearStepperForwardTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">nonlinearStepper</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+        <span class="n">nonlinearStepper</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">().</span><span class="na">and</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">steps</span><span class="o">(</span><span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="n">steps</span><span class="o">));</span>
+
+        <span class="n">nonlinearStepperNextButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">nonlinearStepperNextButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">nonlinearStepper</span><span class="o">.</span><span class="na">list</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+        <span class="n">nonlinearStepperCompleteStepButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+
+        <span class="n">nonlinearStepper</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">stepEnabled</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">and</span><span class="o">().</span><span class="na">stepCompleted</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+        <span class="n">nonlinearStepper</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">stepEnabled</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">and</span><span class="o">().</span><span class="na">stepCompleted</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+        <span class="n">nonlinearStepper</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">stepEnabled</span><span class="o">(</span><span class="mi">3</span><span class="o">).</span><span class="na">and</span><span class="o">().</span><span class="na">stepIncomplete</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+    <span class="o">}</span>
 </code></pre><h5 id='https-material-ui-com-components-steppers'><a href="https://material-ui.com/components/steppers/" target="_blank"> https://material-ui.com/components/steppers/ </a></h5>
 <p><img src="images/material-ui/Stepper.png" alt="Stepper" /></p>
 
@@ -34638,19 +34639,14 @@ You can use for testing Text and Button classes, implemented in JDI-html section
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>is()</strong></td>
-<td>Verify state</td>
+<td><strong>stepCompleted()</strong></td>
+<td>Check that specified step is completed</td>
 <td>boolean</td>
 </tr>
 <tr>
-<td><strong>text()</strong></td>
-<td>After is() allows to check state of text element</td>
+<td><strong>stepEnabled()</strong></td>
+<td>Check that specified step is enabled</td>
 <td>boolean</td>
-</tr>
-<tr>
-<td><strong>click()</strong></td>
-<td>Click on button</td>
-<td>void</td>
 </tr>
 </tbody></table>
 <h5 id='here-you-can-find-stepper-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/StepperTests.java" target="_blank">Here you can find Stepper tests</a></h5><h3 id='4-18-slider'>4.18 Slider</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//*[@id=\"continuous-slider\"]/following-sibling::div//span[contains(@class, \"MuiSlider-root\")]"</span><span class="o">)</span>

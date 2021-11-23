@@ -48,17 +48,17 @@ domain=https://jdi-testing.github.io/jdi-light/
 ```
 Let’s have a detailed look at some options:
 
-- **driver** — we can specify the driver used to run our tests. Common options include _chrome_, _firefox_, _ie_; we can also just put _${driver}_ here and read the driver name from the command line.<br/>
+- **driver** — we can specify the driver used to run our tests. Common options include `chrome`, `firefox`, `ie`; we can also just put `${driver}` here and read the driver name from the command line.<br/>
 - **driver.version** — by default, JDI Light will download the latest version of a driver for us, but if we need a specific version we can put it here (in which case the framework will find and download exactly this version).<br/>
 - **timeout.wait.element** — the maximum amount of time in seconds that will be spent waiting for an element on the opened page to load. The default element loading timeout is 10 seconds.<br/>
 - **timeout.wait.page** — JDI Light automatically defines a newly opened page and uses this value as page loading timeout (it is usually greater than the element loading timeout). The default is 30 seconds.<br/>
-- **domain** — web application root URL (used when our tests work with a single application). Can also be read from the command line if set up as _${domain}._ <br/>
-- **page.load.strategy** — similarly to Selenium, page loading strategies are: _normal, eager, none_. <br/>
+- **domain** — web application root URL (used when our tests work with a single application). Can also be read from the command line if set up as `${domain}.` <br/>
+- **page.load.strategy** — similarly to Selenium, page loading strategies are: `normal`, `eager`, `none`. <br/>
 - **browser.size** — browser window size. By default, JDI Light will maximize the browser window, but we can set the exact size.<br/>
-- **screenshot.strategy** = *off* | *on failure* | *on assert* | *new page* — determines when screenshots are taken; it's used by AllureLogger.class and its sub/superclasses. Can be overwritten in test project.<br/>
-- **html.code.strategy** = *off* | *on failure* | *on assert* | *new page* — logs the last processed element HTML code.<br/>
-- **requests.strategy** = *off* | *on failure* | *on assert* | *new page* — logs 4ХХ, 5ХХ errors in the console.<br/>
-- **allure.steps** = *true* — turn on the steps for Allure.<br/>
+- **screenshot.strategy** = `off` | `on failure` | `on assert` | `new page` — determines when screenshots are taken; it's used by AllureLogger.class and its sub/superclasses. Can be overwritten in test project.<br/>
+- **html.code.strategy** = `off` | `on failure` | `on assert` | `new page` — logs the last processed element HTML code.<br/>
+- **requests.strategy** = `off` | `on failure` | `on assert` | `new page` — logs 4ХХ, 5ХХ errors in the console.<br/>
+- **allure.steps** = `true` — turn on the steps for Allure.<br/>
 
 
 _Note: you can find more examples in the [documentation](https://jdi-docs.github.io/jdi-light/#driver-settings)._
@@ -201,7 +201,7 @@ Now we can write our test using these UI Objects and execute it.
 
 It lists exactly what we do in our test with all the details and without any extra effort on our part. Fabulous! <br/>
 
-We can change the log level to ***STEP*** (just add `logger.setLogLevel(STEP)` to the `setUp()` method) and remove the details. The resulting log will be fit to share with a Customer, a Business Analyst or a Manual QA to let them know what our automated tests verify.
+We can change the log level to `STEP` (just add `logger.setLogLevel(STEP)` to the `setUp()` method) and remove the details. The resulting log will be fit to share with a Customer, a Business Analyst or a Manual QA to let them know what our automated tests verify.
 
 <a href="https://github.com/jdi-tutorials/01-jdi-light-intro" target="_blank">See PageObject examples in PageObjectExample.java on Github</a>
 
@@ -315,7 +315,7 @@ Now we can write our tests:
 
 _Note: we don't need to write any other code except test scenarios. Already written UI Objects will be enough._
 
-_Note: In order to be sure that **the user is logged out** and **login form is opened** before each test we can add these conditions as `loggedOut()` and `loginFormShown()`States in `@BeforeMethod`._
+_Note: In order to be sure that_ **the user is logged out** _and_ **login form is opened** _before each test we can add these conditions as `loggedOut()` and `loginFormShown()`States in `@BeforeMethod`._
 
 <a href="https://github.com/jdi-tutorials/02-jdi-light-forms-elements" target="_blank">See this example in LoginExample.java on Github</a>
 <br/><br/><br/><br/><br/><br/><br/><br/><br/>
@@ -666,11 +666,11 @@ Now we know enough about Forms, so let's see how this can help us write code fas
 
 Let's try to code in Selenium the same [Fill Contact Form test scenario](https://jdi-docs.github.io/jdi-light/?java#contact-form-test-scenario) that we have already covered with JDI Light:
 
-- Open Home Page by URL<br/>
-- Open Contact Page by selecting a menu item<br/>
-- Validate that this Page has the correct URL and title<br/>
-- Fill all 11 different elements in the contact form with values<br/>
-- And verify that the form is filled correctly<br/>
+- Open Home Page by URL.<br/>
+- Open Contact Page by selecting a menu item.<br/>
+- Validate that this Page has the correct URL and title.<br/>
+- Fill all 11 different elements in the contact form with values.<br/>
+- And verify that the form is filled correctly.<br/>
 
 _Note: You can find all the Selenium code <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium" target="_blank">here</a>.<br/>_
 _The same scenario with JDI Light is found <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-reduce-code" target="_blank">here</a>.<br/>_
@@ -696,7 +696,7 @@ Here it is done with a simple method, `runChromeDriver()`.
 
 _Note: To run the driver in Selenium you need to download the latest version from <a href="https://chromedriver.storage.googleapis.com/index.html" target="_blank">the official site </a> and put it in Selenium folder._<br/>
 
-**JDI Light** (0 lines of code)<br/> 
+**JDI Light:** (0 lines of code)<br/> 
 You don't need to write any code for this. By default, the latest version of ChromeDriver will be downloaded automatically.
 
 ### 2. Create Page Objects for Home and Contact pages
@@ -737,7 +737,7 @@ public class ContactPage extends WebPage {
 }
 public static ContactPage contactPage;
 ```
-**JDI Light** (11 lines of code)<br/> 
+**JDI Light:** (11 lines of code)<br/> 
 In JDI Light we already have all the functions related to webpages. You can find them in the `WebPage` class, so you just need to extend your Page Object from it and use `@Url` and `@Title` annotations to set page metadata.
 
 The code for UI Objects in Selenium and JDI Light in this case looks pretty much the same.<br/> 
@@ -816,7 +816,7 @@ And because `WebElement` doesn't give us any clues about the type of element, it
     Checkbox passport, acceptConditions;
     TextArea description;
 ```
-**JDI Light** (3 lines of code)<br/> 
+**JDI Light:** (3 lines of code)<br/> 
 In JDI Light we just need to describe the types of elements and list them for each type. In this example, locators align with field names, so we can utilize Smart locators without writing explicit ones.<br/><br/>
 
 ```java
@@ -850,11 +850,11 @@ In JDI Light we just need to describe the types of elements and list them for ea
 **Selenium:** (23 lines of code)<br/> 
 The situation with Complex elements is more interesting:
 
-Instead of `Dropdown` we can use `Select` class from ***selenium-support*** package and `WebElement` + `gender()` method. These are enough to handle all actions.
+Instead of `Dropdown` we can use `Select` class from _selenium-support_ package and `WebElement` + `gender()` method. These are enough to handle all actions.
 
 Instead of `Combobox` we can use a one-line `WebElement` (just using it as a standard `TextField`).
 
-But instead of `MultiDropdown` we'll need to add 4 WebElements and a few methods: *select* and *isExpanded*.
+But instead of `MultiDropdown` we'll need to add 4 WebElements and a few methods: `select` and `isExpanded`.
 The general problem with Complex elements in standard Selenium approach is that we have to create methods like these for every equivalent of `Dropdown`, `MultiDropdown` etc. JDI Light allows to define an element once (or pick one from element library) and then just use it in one line in all Page Objects.
 
 <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/elements/MultiDropdown.java" target="_blank">MultiDropdown example</a>
@@ -864,7 +864,7 @@ The general problem with Complex elements in standard Selenium approach is that 
     Combobox religion;
     MultiDropdown weather;
 ```
-**JDI Light** (3 lines of code)<br/> 
+**JDI Light:** (3 lines of code)<br/> 
 In JDI Light it is as simple as for Common elements. 
 
 _Note: They are so short that we could write them in one line, but let's keep each on its own line._<br/><br/>
@@ -910,7 +910,7 @@ If we remove `null` validations, it will make our methods less universal, but wi
 <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/sections/ContactForm.java" target="_blank">Selenium Contact Form code (97)</a><br/>
 <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/blob/master/src/main/java/jdisite/sections/ShortContactForm.java" target="_blank">Short Selenium Contact Form code (69)</a><br/><br/><br/><br/><br/><br/><br/>
 
-**JDI Light** (0 lines of code)<br/> 
+**JDI Light:** (0 lines of code)<br/> 
 In JDI Light we don't need methods for these typical actions. Standard Form actions are flexible and allow to operate with any kind of data.<br/>
 <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-reduce-code/blob/master/src/main/java/jdisite/sections/ContactForm.java" target="_blank">JDI Light Contact Form code (8)</a><br/>
 
@@ -982,7 +982,7 @@ public static ContactInfo FULL_CONTACT = new ContactInfo().set(c -> {
     c.passport = true; c.description = "JDI - awesome UI automation tool"; }
 );
 ```
-**JDI Light** (22 lines of code)<br/> 
+**JDI Light:** (22 lines of code)<br/> 
 To create Test Data in JDI Light, we can use `DataClass`. It allows us to create different test data, compare data entities, print their meaningful representations and at the same preserve code clearness.
 
 No constructors, no method overriding and with all functions in place thanks to `DataClass`.
@@ -1048,7 +1048,7 @@ public void simpleContactFormTest() {
 ```
 As a result, we have test scenarios that look pretty much the same in Selenium and JDI Light, but the amount of code and time spent writing the code is significantly different.
 
-You can find the complete project code in the ***"result"*** branch of <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/tree/result" target="_blank">Selenium</a> and <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-reduce-code/tree/result" target="_blank">JDI Light</a> example repositories.<br/>
+You can find the complete project code in the _"result"_ branch of <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-selenium/tree/result" target="_blank">Selenium</a> and <a href="https://github.com/jdi-tutorials/05-jdi-light-forms-reduce-code/tree/result" target="_blank">JDI Light</a> example repositories.<br/>
 
 **Statistical results:**<br/>
 <img src="images/tutorial/selenium-results.png" alt="Selenium Statistic" width="400"><br/>

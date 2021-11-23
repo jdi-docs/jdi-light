@@ -2,7 +2,7 @@
 
 This document is a byproduct of a major JDI Light documentation edit. The editor was mainly concerned with making it read more naturally for the international audience, but ultimately couldn't ignore the matter of making the style more uniform.
 
-Here are some useful tips that should help to preserve this uniformity.
+Here are some tips that should help to preserve this uniformity until the next major overhaul.
 
 ### Italic
 
@@ -34,10 +34,10 @@ _Italic_ text, marked by underscores, is generally used for:
 
 ### Bulleted Lists
 
-At this point you'll likely get how to use bulleted lists, but there is a problem worth mentioning:
+Bulleted lists are easy: items start with  `-` and a space, you usually put `.` after an item, there is an empty line between the introductory phrase and the actual list items. There is a problem worth mentioning, though:
 
-- Line breaks between list items might not behave as you expect, so you'll have to put `<br/>` after each item for them to render properly. <br/>
-- Seriously, items can lose the bullets and try to hump each other, and that's the only hack that worked for me. Feel free to investigate the matter.
+- Line breaks between list items might not behave as you expect, so you'll have to put `<br/>` after each item for them to render properly.<br/>
+- Seriously, items can lose the bullets and try to hump each other, and that's the only hack that worked for me. Feel free to investigate the matter.<br/>
 
 ### Aligning Code Examples With Text
 

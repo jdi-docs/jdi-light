@@ -967,7 +967,7 @@
 										              <a href="#4-46-1-simple-list" class="toc-h3 h4 toc-link" data-title="4.46.1 Simple List">4.46.1 Simple List</a>
 										              </li>
 										              <li>
-										              <a href="#4-46-2-text-only-and-with-text-avatar-with-text-and-icon" class="toc-h3 h4 toc-link" data-title="4.46.2 Text only and with text, avatar with text and icon">4.46.2 Text only and with text, avatar with text and icon</a>
+										              <a href="#4-46-2-text-only-icon-with-text-avatar-with-text-and-icon" class="toc-h3 h4 toc-link" data-title="4.46.2 Text only, Icon with text, Avatar with text and icon">4.46.2 Text only, Icon with text, Avatar with text and icon</a>
 										              </li>
 										              <li>
 										              <a href="#4-46-3-selected-list" class="toc-h3 h4 toc-link" data-title="4.46.3 Selected List">4.46.3 Selected List</a>
@@ -983,12 +983,6 @@
 										              </li>
 										              <li>
 										              <a href="#4-46-7-transfer-list" class="toc-h3 h4 toc-link" data-title="4.46.7 Transfer List">4.46.7 Transfer List</a>
-										              </li>
-										              <li>
-										              <a href="#4-46-8-simple-transfer-list" class="toc-h3 h4 toc-link" data-title="4.46.8 Simple Transfer List">4.46.8 Simple Transfer List</a>
-										              </li>
-										              <li>
-										              <a href="#4-46-9-enhanced-transfer-list" class="toc-h3 h4 toc-link" data-title="4.46.9 Enhanced Transfer List">4.46.9 Enhanced Transfer List</a>
 										              </li>
 									            </ul>
                           </li>
@@ -35860,8 +35854,29 @@ You can use for testing Text and Button classes, implemented in JDI-html section
 <p><img src="images/material-ui/contextMenu.png" alt="Menu" /></p>
 <h5 id='here-you-can-find-menu-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/MenuTests.java" target="_blank">Here you can find Menu tests</a></h5>
 <p><br></br><br></br></p>
-<h3 id='4-46-lists'>4.46 Lists</h3><h5 id='https-material-ui-com-components-lists'><a href="https://material-ui.com/components/lists/" target="_blank"> https://material-ui.com/components/lists/ </a></h5>
-<p>Available methods in Java JDI Light:</p>
+<h3 id='4-46-lists'>4.46 Lists</h3><h4 id='4-46-1-simple-list'>4.46.1 Simple List</h4><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//*[contains(text(),'List item 1')]"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">Lists</span> <span class="n">firstListItem</span><span class="o">;</span>
+
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//*[contains(text(),'List item 2')]"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">Lists</span> <span class="n">secondListItem</span><span class="o">;</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">simpleList</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">ListPage</span><span class="o">.</span><span class="na">firstListItem</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
+        <span class="n">ListPage</span><span class="o">.</span><span class="na">firstListItem</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">hasToString</span><span class="o">(</span><span class="s">"List item 1"</span><span class="o">));</span>
+        <span class="n">ListPage</span><span class="o">.</span><span class="na">secondListItem</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
+        <span class="n">ListPage</span><span class="o">.</span><span class="na">secondListItem</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">hasToString</span><span class="o">(</span><span class="s">"List item 2"</span><span class="o">));</span>
+    <span class="o">}</span>
+</code></pre><h5 id='https-mui-com-components-lists-basic-list'><a href="https://mui.com/components/lists/#basic-list" target="_blank"> https://mui.com/components/lists/#basic-list </a></h5>
+<p>Lists is located in the following class:</p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.material.elements.displaydata.Lists</em></li>
+</ul>
+
+<p><img src="images/material-ui/simpleList.png" alt="simpleList" /></p>
+
+<p>Lists are a continuous group of text or images. They are composed of items containing primary and supplemental actions, which are represented by icons and text.</p>
 
 <table><thead>
 <tr>
@@ -35916,27 +35931,7 @@ You can use for testing Text and Button classes, implemented in JDI-html section
 <td>String</td>
 </tr>
 </tbody></table>
-<h4 id='4-46-1-simple-list'>4.46.1 Simple List</h4><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//*[contains(text(),'List item 1')]"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="n">Lists</span> <span class="n">firstListItem</span><span class="o">;</span>
-
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//*[contains(text(),'List item 2')]"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="n">Lists</span> <span class="n">secondListItem</span><span class="o">;</span>
-
-    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">simpleList</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">ListPage</span><span class="o">.</span><span class="na">firstListItem</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
-        <span class="n">ListPage</span><span class="o">.</span><span class="na">firstListItem</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">hasToString</span><span class="o">(</span><span class="s">"List item 1"</span><span class="o">));</span>
-        <span class="n">ListPage</span><span class="o">.</span><span class="na">secondListItem</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
-        <span class="n">ListPage</span><span class="o">.</span><span class="na">secondListItem</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">hasToString</span><span class="o">(</span><span class="s">"List item 2"</span><span class="o">));</span>
-    <span class="o">}</span>
-</code></pre>
-<p>Lists is located in the following class:
-- <strong>Java</strong>: <em>com.epam.jdi.light.material.elements.displaydata.Lists</em></p>
-
-<p>Lists are continuous, vertical indexes of text or images.</p>
-
-<p><img src="images/material-ui/simpleList.png" alt="simpleList" /></p>
-<h4 id='4-46-2-text-only-and-with-text-avatar-with-text-and-icon'>4.46.2 Text only and with text, avatar with text and icon</h4><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span> <span class="o">(</span><span class="s">"//p[text()='Secondary text']"</span><span class="o">)</span>
+<h5 id='here-you-can-find-lists-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/ListsTests.java" target="_blank">Here you can find Lists tests</a></h5><h4 id='4-46-2-text-only-icon-with-text-avatar-with-text-and-icon'>4.46.2 Text only, Icon with text, Avatar with text and icon</h4><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span> <span class="o">(</span><span class="s">"//p[text()='Secondary text']"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Text</span><span class="o">&gt;</span> <span class="n">secondaryLineListItems</span><span class="o">;</span>
 
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"(//span[contains(@class,'MuiCheckbox-root')])"</span><span class="o">)</span>
@@ -35951,7 +35946,7 @@ You can use for testing Text and Button classes, implemented in JDI-html section
         <span class="n">ListPage</span><span class="o">.</span><span class="na">enableSecondaryTextCheckbox</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">uncheck</span><span class="o">();</span>
         <span class="n">ListPage</span><span class="o">.</span><span class="na">secondaryLineListItems</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">notVisible</span><span class="o">();</span>
     <span class="o">}</span>
-</code></pre>
+</code></pre><h5 id='https-mui-com-components-lists-interactive'><a href="https://mui.com/components/lists/#interactive" target="_blank"> https://mui.com/components/lists/#interactive </a></h5>
 <p><img src="images/material-ui/textOnly.png" alt="textList" /></p>
 
 <p><img src="images/material-ui/avatarList.png" alt="avatarList" /></p>
@@ -35968,7 +35963,7 @@ You can use for testing Text and Button classes, implemented in JDI-html section
         <span class="n">ListPage</span><span class="o">.</span><span class="na">trashSelectedListItem</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
         <span class="n">ListPage</span><span class="o">.</span><span class="na">trashSelectedListItem</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">((</span><span class="n">hasToString</span><span class="o">(</span><span class="s">"Trash"</span><span class="o">)));</span>
     <span class="o">}</span>
-</code></pre>
+</code></pre><h5 id='https-mui-com-components-lists-selected-listitem'><a href="https://mui.com/components/lists/#selected-listitem" target="_blank"> https://mui.com/components/lists/#selected-listitem </a></h5>
 <p><img src="images/material-ui/selectedList.png" alt="selectedList" /></p>
 <h4 id='4-46-4-checkbox-list'>4.46.4 Checkbox List</h4><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//*[contains(text(),'Line item 1')]"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="n">Lists</span> <span class="n">lineItemFirst</span><span class="o">;</span>
@@ -35988,8 +35983,12 @@ You can use for testing Text and Button classes, implemented in JDI-html section
         <span class="n">ListPage</span><span class="o">.</span><span class="na">checkboxLineItemFirst</span><span class="o">.</span><span class="na">check</span><span class="o">();</span>
         <span class="n">ListPage</span><span class="o">.</span><span class="na">checkboxLineItemFirst</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">checked</span><span class="o">();</span>
     <span class="o">}</span>
-</code></pre>
+</code></pre><h5 id='https-mui-com-components-lists-checkbox'><a href="https://mui.com/components/lists/#checkbox" target="_blank"> https://mui.com/components/lists/#checkbox </a></h5>
 <p><img src="images/material-ui/checkboxList.png" alt="checkboxList" /></p>
+
+<p>A checkbox can either be a primary action or a secondary action.</p>
+
+<p>In this example the checkbox is the primary action and the state indicator for the list item. The comment button is a secondary action and a separate target.</p>
 <h4 id='4-46-5-list-with-switch'>4.46.5 List with Switch</h4><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h2[contains(text(),'List with Switch')]/following-sibling::ul[1]/li"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Checkbox</span><span class="o">&gt;</span> <span class="n">switchList</span><span class="o">;</span>
 
@@ -35997,8 +35996,10 @@ You can use for testing Text and Button classes, implemented in JDI-html section
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">switchList</span><span class="o">()</span> <span class="o">{</span>
         <span class="n">assertTrue</span><span class="o">(</span><span class="n">ListPage</span><span class="o">.</span><span class="na">switchList</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="na">children</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="mi">9</span><span class="o">).</span><span class="na">hasClass</span><span class="o">(</span><span class="s">"MuiSwitch-switchBase"</span><span class="o">));</span>
     <span class="o">}</span>
-</code></pre>
+</code></pre><h5 id='https-mui-com-components-lists-switch'><a href="https://mui.com/components/lists/#switch" target="_blank"> https://mui.com/components/lists/#switch </a></h5>
 <p><img src="images/material-ui/SwitchList.png" alt="switchList" /></p>
+
+<p>The switch is the secondary action and a separate target.</p>
 <h4 id='4-46-6-pinned-subheader-list'>4.46.6 Pinned subheader List</h4><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//*[contains(text(),'sticky 0')]"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="n">Lists</span> <span class="n">stickyZero</span><span class="o">;</span>
 
@@ -36012,12 +36013,18 @@ You can use for testing Text and Button classes, implemented in JDI-html section
         <span class="n">ListPage</span><span class="o">.</span><span class="na">stickyOne</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">enabled</span><span class="o">();</span>
         <span class="n">ListPage</span><span class="o">.</span><span class="na">stickyOne</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">hasToString</span><span class="o">(</span><span class="s">"I'm sticky 1"</span><span class="o">));</span>
     <span class="o">}</span>
-</code></pre>
+</code></pre><h5 id='https-mui-com-components-lists-sticky-subheader'><a href="https://mui.com/components/lists/#sticky-subheader" target="_blank"> https://mui.com/components/lists/#sticky-subheader </a></h5>
 <p><img src="images/material-ui/subheaderList.png" alt="subheaderList" /></p>
-<h5 id='here-you-can-find-lists-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/ListsTests.java" target="_blank">Here you can find Lists tests</a></h5>
-<p><br></br><br></br></p>
-<h4 id='4-46-7-transfer-list'>4.46.7 Transfer List</h4>
-<p>Available methods in Java JDI Light:</p>
+
+<p>Upon scrolling, subheaders remain pinned to the top of the screen until pushed off screen by the next subheader. This feature relies on CSS sticky positioning.</p>
+<h4 id='4-46-7-transfer-list'>4.46.7 Transfer List</h4><h5 id='https-mui-com-components-transfer-list'><a href="https://mui.com/components/transfer-list/" target="_blank"> https://mui.com/components/transfer-list/ </a></h5>
+<p>Transfer List is located in the following class:</p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.material.elements.inputs.transferlist.TransferList</em></li>
+</ul>
+
+<p>A transfer list (or &quot;shuttle&quot;) enables the user to move one or more list items between lists.</p>
 
 <table><thead>
 <tr>
@@ -36087,7 +36094,7 @@ You can use for testing Text and Button classes, implemented in JDI-html section
 <td>TransferListAssert</td>
 </tr>
 </tbody></table>
-<h4 id='4-46-8-simple-transfer-list'>4.46.8 Simple Transfer List</h4><pre class="highlight java tab-java"><code>    <span class="nd">@JDITransferList</span><span class="o">(</span><span class="n">root</span> <span class="o">=</span> <span class="s">"#root"</span><span class="o">,</span> <span class="n">moveAllLeftButton</span> <span class="o">=</span> <span class="s">"button[aria-label='move all left']"</span><span class="o">,</span>
+<h5 id='here-you-can-find-transfer-list-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/TransferListTests.java" target="_blank">Here you can find Transfer List tests</a></h5><h5 id='4-46-7-1-simple-transfer-list'>4.46.7.1 Simple Transfer List</h5><pre class="highlight java tab-java"><code>    <span class="nd">@JDITransferList</span><span class="o">(</span><span class="n">root</span> <span class="o">=</span> <span class="s">"#root"</span><span class="o">,</span> <span class="n">moveAllLeftButton</span> <span class="o">=</span> <span class="s">"button[aria-label='move all left']"</span><span class="o">,</span>
             <span class="n">moveAllRightButton</span> <span class="o">=</span> <span class="s">"button[aria-label='move all right']"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">SimpleTransferList</span> <span class="n">simpleTransferList</span><span class="o">;</span>
 
@@ -36121,9 +36128,15 @@ You can use for testing Text and Button classes, implemented in JDI-html section
           <span class="s">"List item 3"</span><span class="o">,</span> <span class="s">"List item 4"</span><span class="o">,</span> <span class="s">"List item 5"</span><span class="o">,</span> <span class="s">"List item 6"</span><span class="o">,</span> <span class="s">"List item 7"</span><span class="o">,</span> <span class="s">"List item 8"</span><span class="o">);</span>
     <span class="o">}</span>
 </code></pre><h5 id='https-material-ui-com-components-transfer-list-simple-transfer-list'><a href="https://material-ui.com/components/transfer-list/#simple-transfer-list" target="_blank"> https://material-ui.com/components/transfer-list/#simple-transfer-list </a></h5>
-<p>Available methods in Java JDI Light:</p>
+<p>Simple Transfer List is located in the following class:</p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.material.elements.inputs.transferlist.SimpleTransferList</em></li>
+</ul>
 
 <p><img src="images/material-ui/SimpleTransferList.png" alt="Simple Transfer Lists" /></p>
+
+<p>For completeness, this example includes buttons for &quot;move all&quot;, but not every transfer list needs these.</p>
 
 <table><thead>
 <tr>
@@ -36143,7 +36156,7 @@ You can use for testing Text and Button classes, implemented in JDI-html section
 <td>void</td>
 </tr>
 </tbody></table>
-<h5 id='here-you-can-find-simple-transfer-list-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/TransferListTests.java" target="_blank">Here you can find Simple Transfer List tests</a></h5><h4 id='4-46-9-enhanced-transfer-list'>4.46.9 Enhanced Transfer List</h4><pre class="highlight java tab-java"><code>    <span class="nd">@JDITransferList</span><span class="o">(</span><span class="n">root</span> <span class="o">=</span> <span class="s">"#root"</span><span class="o">,</span> <span class="n">allItemsLeftCheckbox</span> <span class="o">=</span> <span class="s">"(//span[./input[@aria-label='all items selected']])[1]"</span><span class="o">,</span>
+<h5 id='4-46-7-2-enhanced-transfer-list'>4.46.7.2 Enhanced Transfer List</h5><pre class="highlight java tab-java"><code>    <span class="nd">@JDITransferList</span><span class="o">(</span><span class="n">root</span> <span class="o">=</span> <span class="s">"#root"</span><span class="o">,</span> <span class="n">allItemsLeftCheckbox</span> <span class="o">=</span> <span class="s">"(//span[./input[@aria-label='all items selected']])[1]"</span><span class="o">,</span>
         <span class="n">allItemsRightCheckbox</span> <span class="o">=</span> <span class="s">"(//span[./input[@aria-label='all items selected']])[2]"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">EnhancedTransferList</span> <span class="n">enhancedTransferList</span><span class="o">;</span>
 
@@ -36169,7 +36182,11 @@ You can use for testing Text and Button classes, implemented in JDI-html section
             <span class="s">"List item 3"</span><span class="o">,</span> <span class="s">"List item 4"</span><span class="o">,</span> <span class="s">"List item 5"</span><span class="o">,</span> <span class="s">"List item 6"</span><span class="o">,</span> <span class="s">"List item 7"</span><span class="o">,</span> <span class="s">"List item 8"</span><span class="o">);</span>
     <span class="o">}</span>
 </code></pre><h5 id='https-material-ui-com-components-transfer-list-enhanced-transfer-list'><a href="https://material-ui.com/components/transfer-list/#enhanced-transfer-list" target="_blank"> https://material-ui.com/components/transfer-list/#enhanced-transfer-list </a></h5>
-<p>Available methods in Java JDI Light:</p>
+<p>Enhanced Transfer List is located in the following class:</p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.material.elements.inputs.transferlist.EnchancedTransferList</em></li>
+</ul>
 
 <p><img src="images/material-ui/EnhancedTransferList.png" alt="Enhanced Transfer Lists" /></p>
 
@@ -36191,7 +36208,7 @@ You can use for testing Text and Button classes, implemented in JDI-html section
 <td>void</td>
 </tr>
 </tbody></table>
-<h5 id='here-you-can-find-text-fields-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui/src/main/java/com/epam/jdi/light/material/elements/inputs/TextField.java">Here you can find Text Fields tests</a></h5><h3 id='4-47-text-field'>4.47 Text Field</h3>
+<h3 id='4-47-text-field'>4.47 Text Field</h3>
 <p>Available methods in Java JDI Light:</p>
 
 <table><thead>
@@ -36232,7 +36249,7 @@ You can use for testing Text and Button classes, implemented in JDI-html section
 <td>TextFieldAssert</td>
 </tr>
 </tbody></table>
-<h3 id='4-48-form-props'>4.48 Form Props</h3><pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"//input[@id='standard-required']"</span><span class="o">)</span>
+<h5 id='here-you-can-find-text-fields-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui/src/main/java/com/epam/jdi/light/material/elements/inputs/TextField.java">Here you can find Text Fields tests</a></h5><h3 id='4-48-form-props'>4.48 Form Props</h3><pre class="highlight java tab-java"><code><span class="nd">@UI</span><span class="o">(</span><span class="s">"//input[@id='standard-required']"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="n">TextField</span> <span class="n">textFieldRequired</span><span class="o">;</span>
 
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"//input[@id='standard-disabled']"</span><span class="o">)</span>

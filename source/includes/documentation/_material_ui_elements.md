@@ -2047,7 +2047,11 @@ Available methods in Java JDI Light:
     }
 ```
 
+##### <a href="https://mui.com/components/menus/#selected-menu" target="_blank"> https://mui.com/components/menus/#selected-menu </a>
+
 ![SelectedMenu](../../images/material-ui/selectedMenu.png)
+
+If used for item selection, when opened, simple menus places the initial focus on the selected menu item. The currently selected menu item is set using the `selected` prop (from `ListItem`). To use a selected menu item without impacting the initial focus, set the `variant` prop to "menu".
 
 #### 4.45.4 Max height Menu
 

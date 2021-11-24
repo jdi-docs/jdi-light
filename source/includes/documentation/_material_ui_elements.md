@@ -161,15 +161,15 @@ Tooltips display informative text when users hover over, focus on, or tap an ele
 ### 4.4 Container
 
 ```java 
-    @UI("//div[contains(@Class, 'MuiTypography-body1')]")
-    public static UIElement container;
+    @UI(".MuiContainer-root.MuiContainer-maxWidthSm")
+    public static Container container;
 
     @Test
-    public void defaultContainerTest(){
-        Timer timer = new Timer(1000L);
-        timer.wait(() -> container.isDisplayed());
-        container.is().text("Example text");
-        container.is().attr("style", "background-color: rgb(207, 232, 252); height: 100vh;");
+    public void fluidContainerTest() {
+        container.has().maxWidth("600px");
+        container.is().fluid();
+        container.is().displayed();
+        container.is().enabled();
     }
 ```
 
@@ -179,11 +179,20 @@ Tooltips display informative text when users hover over, focus on, or tap an ele
 ![Container](../../images/material-ui/Container.png)
 
 The container centers your content horizontally. It's the most basic layout element.
+A fluid container width is bounded by the maxWidth prop value.
+If you prefer to design for a fixed set of sizes instead of trying to accommodate a fully fluid viewport,
+you can set the fixed prop. The max-width matches the min-width of the current breakpoint.
+
 
 |Method | Description | Return Type
 --- | --- | ---
-**is()** | Verify state | boolean
-**isDisplayed()** | Verify state | boolean
+**fixed()** | Check whether container is fixed | boolean
+**fluid()** | Check whether container is fluid | boolean
+**getMaxWidth()** | Get max width of container | String
+**is()** | Assert method | ContainerAssert
+**fixed()** | Assert that container is fixed | ContainerAssert
+**fluid()** | Assert that container is fluid | ContainerAssert
+**maxWidth(String)** | Assert that container's max width is specified width | ContainerAssert
 
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/ContainerTests.java" target="_blank">Here you can find Container tests</a>
@@ -649,39 +658,17 @@ The following npm package, @material-ui/icons, includes the 1,100+ official Mate
 ### 4.14 Icons
 
 ```java     
-    @UI("//h2[text()='Color']/following::*[name()='svg']")
-    public static List<UIElement> color;
-
-    @UI("#colorLastClick")
-    public static Text colorLastClick;
-
-    @UI("#colorLastHover")
-    public static Text colorLastHover;
-
     @Test
-    public void colorIconsTest() {
-        color.forEach(el -> el.is().displayed());
-        colorLastClick.is().text("Last click:");
-        colorLastHover.is().text("Last hover:");
+    public void simpleIconsTest() {
+        simpleIcons.get(1).hover();
+        simpleLastHover.has().text("Last hover: DeleteIcon");
+        simpleIcons.get(2).click();
+        simpleLastClick.has().text("Last click: DeleteForeverIcon");
 
-        Map<UIElement, List<List<String>>> allColorIcons = new LinkedHashMap<>();
-        allColorIcons.put(color.get(1), Arrays.asList(Arrays.asList("", " default"), Arrays.asList(" default", " default")));
-        allColorIcons.put(color.get(2), Arrays.asList(Arrays.asList(" default", " primary"), Arrays.asList(" primary", " primary")));
-        allColorIcons.put(color.get(3), Arrays.asList(Arrays.asList(" primary", " secondary"), Arrays.asList(" secondary", " secondary")));
-        allColorIcons.put(color.get(4), Arrays.asList(Arrays.asList(" secondary", " action"), Arrays.asList(" action", " action")));
-        allColorIcons.put(color.get(5), Arrays.asList(Arrays.asList(" action", " disabled"), Arrays.asList(" disabled", " disabled")));
-        allColorIcons.put(color.get(6), Arrays.asList(Arrays.asList(" disabled", " green[500]"), Arrays.asList(" green[500]", " green[500]")));
-
-        allColorIcons.forEach(
-                (k, v) -> {
-                    k.hover();
-                    colorLastClick.is().text(String.format("Last click:%s", v.get(0).get(0)));
-                    colorLastHover.is().text(String.format("Last hover:%s", v.get(0).get(1)));
-                    k.click();
-                    colorLastClick.is().text(String.format("Last click:%s", v.get(1).get(0)));
-                    colorLastHover.is().text(String.format("Last hover:%s", v.get(1).get(1)));
-                }
-        );
+        simpleIcons.forEach(icon -> icon.is().notColored());
+        simpleIcons.forEach(icon -> icon.has().color("rgba(0, 0, 0, 0.87)"));
+        simpleIcons.forEach(icon -> icon.has().height(24));
+        simpleIcons.forEach(icon -> icon.has().width(24));
     }
 ```
 
@@ -697,11 +684,16 @@ Material-UI provides icons support in three ways:
 
 |Method | Description | Return Type
 --- | --- | ---
-**is()** | Verify state | boolean
-**displayed()** | Verify state | boolean
-**text()** | Verify text | boolean
-**click()** | Clicks on box | void
-**hover()** | Hovers on box | void
+**colored()** | Check whether element is colored (not black) | boolean
+**getColor()** | Get color of icon | String
+**is()** | Assert method | IconAssert
+**colored()** | Assert whether icon is colored (not black) | IconAssert
+**notColored()** | Assert whether icon is not colored (black) | IconAssert
+**color(String)** | Assert that icon's color is certain color | IconAssert
+**height(int)** | Assert that icon has specified height | IconAssert
+**width(int)** | Assert that icon has specified width | IconAssert
+
+Icons have also a lot of UIElement methods.
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/IconTests.java" target="_blank">Here you can find Icons tests</a>
 
@@ -813,29 +805,30 @@ Quickly and responsively toggle the visibility value of components and more with
 
 ### 4.17 Stepper
 
-```java     
-    @UI("//*[@id='simpleStepper']//following-sibling::div//*[@class='MuiTypography-root MuiTypography-body1']")
-    public static Text simpleLinearStepperTitle;
+```java 
+    @UI("#nonLinearStepper .MuiStep-root")
+    public static Stepper nonlinearStepper;
 
-    @UI("//*[@id='simpleStepper']//following-sibling::div//button[contains(@class, 'MuiButtonBase-root')]")
-    public static WebList simpleLinearStepperButton;
+    @UI("//p[@id='activeNonLinearStep']/..//button[2]")
+    public static MaterialButton nonlinearStepperNextButton;
 
+    @UI("//p[@id='activeNonLinearStep']/..//button[3]")
+    public static MaterialButton nonlinearStepperCompleteStepButton;
+        
     @Test
-    public void simpleLinearStepperTest() {
-      simpleLinearStepperTitle.is().text("You are on Step #1");
-      simpleLinearStepperButton.get(2).click();
-      simpleLinearStepperTitle.is().text("You are on Step #2");
-      simpleLinearStepperButton.get(1).click();
-      simpleLinearStepperTitle.is().text("You are on Step #1");
-      simpleLinearStepperButton.get(2).click();
-      simpleLinearStepperTitle.is().text("You are on Step #2");
-      simpleLinearStepperButton.get(2).click();
-      simpleLinearStepperTitle.is().text("You are on Step #3");
-      simpleLinearStepperButton.get(2).click();
-      simpleLinearStepperTitle.is().text("All steps completed");
-      simpleLinearStepperButton.get(1).click();
-      simpleLinearStepperTitle.is().text("You are on Step #1");
-      }
+    public void nonlinearStepperForwardTest() {
+        nonlinearStepper.show();
+        nonlinearStepper.is().displayed().and().has().steps(Arrays.asList(steps));
+
+        nonlinearStepperNextButton.click();
+        nonlinearStepperNextButton.click();
+        nonlinearStepper.list().get(2).click();
+        nonlinearStepperCompleteStepButton.click();
+        
+        nonlinearStepper.is().stepEnabled(1).and().stepCompleted(1);
+        nonlinearStepper.is().stepEnabled(2).and().stepCompleted(2);
+        nonlinearStepper.is().stepEnabled(3).and().stepIncomplete(3);
+    }
 ```
 
 ##### <a href="https://material-ui.com/components/steppers/" target="_blank"> https://material-ui.com/components/steppers/ </a>
@@ -847,9 +840,8 @@ You can use for testing Text and Button classes, implemented in JDI-html section
 
 |Method | Description | Return Type
 --- | --- | ---
-**is()** | Verify state | boolean
-**text()** | After is() allows to check state of text element | boolean
-**click()** | Click on button | void
+**stepCompleted()** | Check that specified step is completed | boolean
+**stepEnabled()** | Check that specified step is enabled | boolean
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/StepperTests.java" target="_blank">Here you can find Stepper tests</a>
 
@@ -897,37 +889,49 @@ Sliders reflect a range of values along a bar, from which users may select a sin
 ### 4.19 Tabs
 
 ```java 
-    @UI("//*[contains(@class, 'MuiTabs-scrollButtons')]")
-    public static List<Button> scrollButtons;
-    
     @UI("//button[contains(@aria-controls,'simple-tabpanel')]")
-    public static List<Button> simpleTabs;
-    
+    public static Tabs simpleTabs;
+
+    @UI("//button[contains(@aria-controls,'scrollable-auto-tab')]")
+    public static Tabs scrollableTabs;
+
+    @UI("//button[contains(@aria-controls,'scrollable-prevent-tab')]")
+    public static Tabs preventScrollTabs;
+
     @UI("//button[contains(@aria-controls,'vertical-tabpanel')]")
-    public static List<Button> verticalTabs;
+    public static Tabs verticalTabs;
     
     @Test
     public void simpleTabTest() {
-        tableIndex = 1;
-        clickButton(1);
-        checkLastItemText(itemList.get(1));
-        tableLocators.get(tableIndex).get(4).has().classValue(containsString("Mui-disabled"));
-        clickButton(5);
-        checkLastItemText(itemList.get(5));
+        simpleTabs.select(2);
+        simpleTabs.has().elementSelected(2);
+        simpleTabs.has().elementNotSelected(3);
+        simpleTabs.has().elementDisabled(4);
+
+        jdiAssert(simpleTabs.size(), Matchers.is(5));
     }
 
     @Test
-    public void verticalTabTest() {
-        tableIndex = 4;
-        clickButton(1);
-        checkLastItemText(itemList.get(1));
-        scrollButtons.get(4).click();
-        clickButton(4);
-        checkLastItemText(itemList.get(4));
-        scrollButtons.get(4).click();
-        clickButton(7);
-        checkLastItemText(itemList.get(7));
+    public void scrollableTabTest() {
+        scrollableTabs.select(1);
+        scrollableTabs.has().elementSelected(1);
+        scrollableTabs.has().elementEnabled(1);
+
+        scrollableTabs.select(7);
+        scrollableTabs.has().elementSelected(7);
+        scrollableTabs.has().elementEnabled(7);
+
+        scrollableTabs.select(11);
+        scrollableTabs.has().elementSelected(11);
+        scrollableTabs.has().elementEnabled(11);
+
+        scrollableTabs.select(1);
+        scrollableTabs.has().elementSelected(1);
+        scrollableTabs.has().elementEnabled(1);
+
+        jdiAssert(scrollableTabs.size(), Matchers.is(11));
     }
+
 ```
 
 ##### <a href="https://material-ui.com/components/Tabs/" target="_blank"> https://material-ui.com/components/Tabs/ </a>
@@ -938,11 +942,13 @@ Tabs organize and allow navigation between groups of content that are related an
 
 |Method | Description | Return Type
 --- | --- | ---
-**click()** | Clicks on button | void
-**has()** | Returns Assert class | Assert
-**text()** | Assert text | Assert
+**is()** | Assert method | Tabs Assert
+**enabled()** | Check if tab is enabled | boolean
+**disabled()** | Check if tab is disabled | boolean
+**selected()** | Check if tab is selected | boolean
+**notSelected()** | Check if tab is not selected | boolean
 
-##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/TabTests.java" target="_blank">Here you can find Tabs tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/pull/3518/commits/c82c82512d73a84716eead8f0d4744cf4dd34f98#diff-fbe7d79cccd062917f385eca9e9db7fde3c41058b8dff308f33693d160ee60e8" target="_blank">Here you can find Tabs tests</a>
 
 ### 4.20 Table
 
@@ -1067,47 +1073,55 @@ Badge generates a small badge to the top-right of its child(ren).
 ### 4.23 Snackbars
 
 ```java 
-    @UI("//div[@direction='up']/div[@class='MuiSnackbarContent-message']")
-    public static Text simpleSnackbarPopUp;
-    
-    @UI("//div[@class='MuiSnackbarContent-action']//span[text()='UNDO']")
-    public static Button undoSnackbarButton;
-    
-    @UI("//button[@aria-label='close']")
-    public static Button closePopUpSnackbarButton;
-    
-    @UI("//h2[text()='Consecutive Snackbars']/following::span[@class='MuiButton-label']")
-    public static List<Button> otherButtons;
+    @UI("//span[text()='Open simple snackbar']/parent::button")
+    public static Button simpleSnackbarButton;
 
-    @UI("//div[@style]/div[@class='MuiSnackbarContent-message']")
-    public static Text snackbarPopUpText;
+    @UI("[direction='up']")
+    public static Snackbar simpleSnackbar;
 
+    @UI("//span[text()='Open success snackbar']/parent::button")
+    public static Button successSnackbarButton;
+
+    @UI("//div[@direction]/div[@class='MuiAlert-message']/parent::div")
+    public static Snackbar successSnackbar;
+
+    @UI("//div[@class='MuiAlert-message']/parent::div")
+    public static List<Snackbar> customizedSnackbar;
+
+    @UI("//h2[text()='Message Length']/preceding::button/span[@class='MuiButton-label' and not(text()='Open simple snackbar') and not(text()='Open success snackbar')]")
+    public static List<Button> positionedSnackbarButtons;
+
+    @UI("//div[contains(@class,'MuiSnackbar-root')]")
+    public static Snackbar positionedSnackbar;
+    
     @Test
     public void simpleSnackbarTest() {
-        simpleSnackbarPopUp.is().notVisible();
+        simpleSnackbar.is().notVisible();
         simpleSnackbarButton.click();
-        timer.wait(() -> simpleSnackbarPopUp.isDisplayed());
-        simpleSnackbarPopUp.is().text("Note archived");
-        undoSnackbarButton.is().text("UNDO");
-        undoSnackbarButton.click();
-        timer.wait(() -> simpleSnackbarPopUp.waitFor().hidden());
-        simpleSnackbarPopUp.is().notVisible();
+        simpleSnackbar.waitFor().displayed();
+        simpleSnackbar.has().text("Note archived");
+        simpleSnackbar.snackbarButton(UNDO).click();
+        simpleSnackbar.waitFor().hidden();
+        simpleSnackbar.is().notVisible();
         simpleSnackbarButton.click();
-        timer.wait(() -> simpleSnackbarPopUp.isDisplayed());
-        closePopUpSnackbarButton.click();
-        simpleSnackbarPopUp.is().notVisible();
+        simpleSnackbar.waitFor().displayed();
+        simpleSnackbar.close();
+        simpleSnackbar.is().notVisible();
     }
-    
+
     @Test
-    public void consecutiveSnackbarsTest() {
-        otherButtons.get(1).is().displayed();
-        otherButtons.get(1).has().text("SHOW MESSAGE A");
-        otherButtons.get(1).click();
-        snackbarPopUpText.base().timer().wait(() -> snackbarPopUpText.is().displayed());
-        snackbarPopUpText.has().text("Message A");
-        undoSnackbarButton.is().displayed();
-        undoSnackbarButton.click();
-        snackbarPopUpText.base().timer().wait(() -> snackbarPopUpText.is().notVisible());
+    public void customizedSnackbarTest() {
+        successSnackbar.is().notVisible();
+        successSnackbarButton.click();
+        successSnackbar.is().displayed();
+        successSnackbar.has().text("This is a success message!");
+        successSnackbar.close();
+        successSnackbar.is().notVisible();
+
+        customizedSnackbar.get(1).has().text("This is an error message!").and().messageType("error");
+        customizedSnackbar.get(2).has().text("This is a warning message!").and().messageType("warning");
+        customizedSnackbar.get(3).has().text("This is an information message!").and().messageType("info");
+        customizedSnackbar.get(4).has().text("This is a success message!").and().messageType("success");
     }
 ```
 
@@ -1363,10 +1377,10 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 | --- | --- | ---
-**getButtonByIndex(int)** | Get button by index | Button
-**getButtonByText(String)** | Get button by text | Button
-**getAllButtons()**        | Get all buttons in a block | Collection\<Button\>
-
+**getButtonByIndex(int)** | Get button by index | MaterialButton
+**getButtonByText(String)** | Get button by text | MaterialButton
+**getAllButtons()**        | Get all buttons in a block | Collection\<MaterialButton\>
+**is()** | Returns Assert class | ButtonGroupAssert
 
 <br></br>
 
@@ -1405,23 +1419,31 @@ ButtonGroupPage class has been extended from WebPage. This class contains variab
 ```java 
 @Test
     public void verticalButtonGroupTest() {
+
         verticalButtonGroup.getButtonByIndex(2).click();
         verticalButtonGroup.getButtonByIndex(3).click();
+
         verticalButtonGroup.getButtonByText("Two").click();
         verticalButtonGroup.getButtonByText("One").click();
+
         basicButtonGroup.getButtonByIndex(2).is().enabled();
         basicButtonGroup.getButtonByIndex(2).has().text("TWO");
     }
 
-    @Test
+
+   @Test
     public void splitButtonGroupTest() {
         splitButtonGroup.getButtonByIndex(1).has().text("SQUASH AND MERGE");
         splitButtonGroup.getButtonByText("Squash and merge").click();
+
         splitButtonGroup.getButtonByIndex(2).click();
         splitButtonDropdown.get(1).click();
         splitButtonGroup.getButtonByIndex(1).has().text("CREATE A MERGE COMMIT");
+
         splitButtonGroup.getButtonByIndex(2).click();
         splitButtonDropdown.get(3).has().cssClass("Mui-disabled");
+        splitButtonDropdown.get(3).has().text("Rebase and merge");
+
         splitButtonDropdown.get(2).click();
         splitButtonGroup.getButtonByIndex(1).has().text("SQUASH AND MERGE");
     }
@@ -1582,20 +1604,14 @@ Breadcrumbs allow users to make selections from a range of values.
 ### 4.35 Bottom Navigation
 
 ```java 
-    @UI(".MuiBottomNavigationAction-root[2]")
-    public static BottomNavigation favorites;
-    
-    @UI("#currentPosition")
-    public static Text currentPosition;
+    @UI(".MuiBottomNavigationAction-root")
+    public static BottomNavigation bottomNavigationItems;
     
     @Test
-    public void defaultBottomNavigationTest(){
-        favorites.is().enabled();
-        assertTrue(favorites.core().text().contains("Favorites"));
-        assertFalse(favorites.isSelected());
-        favorites.core().click();
-        assertTrue(currentPosition.getText().contains("Favorites"));
-        favorites.is().selected();
+    public void defaultBottomNavigationTest() {
+        bottomNavigationItems.select(2);
+        bottomNavigationItems.has().elementSelected(2);
+        bottomNavigationItems.has().elementNotSelected(3);
     }
 ```
 
@@ -1605,6 +1621,13 @@ Bottom navigation bars allow movement between primary destinations in an app.
 
 
 ![BottomNavigation](../../images/material-ui/BottomNavigation.png)
+
+|Method | Description | Return Type
+--- | --- | ---
+**is()** | Assert method | BottomNavigation Assert
+**isSelected** | Check if item is selected | boolean
+**isNotSelected()** | Check if item is not selected | boolean
+
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/BottomNavigationTests.java" target="_blank">Here you can find Bottom Navigation tests</a>
 
@@ -1956,6 +1979,7 @@ Available methods in Java JDI Light:
 ##### <a href="https://material-ui.com/ru/components/menus/" target="_blank"> https://material-ui.com/ru/components/menus/ </a>
 
 Menu is located in the following class:
+
 - __Java__: _com.epam.jdi.light.material.elements.navigation.Menu_
 
 Menus display a list of choices on temporary surfaces.
@@ -2000,6 +2024,7 @@ Available methods in Java JDI Light:
         iconMenu.is().displayed();
     }
 ```
+##### <a href="https://material-ui.com/ru/components/menus/#icon-menu" target="_blank"> https://material-ui.com/ru/components/menus/#icon-menu </a>
 
 ![IconMenu](../../images/material-ui/IconMenu.png)
 
@@ -2022,7 +2047,11 @@ Available methods in Java JDI Light:
     }
 ```
 
+##### <a href="https://mui.com/components/menus/#selected-menu" target="_blank"> https://mui.com/components/menus/#selected-menu </a>
+
 ![SelectedMenu](../../images/material-ui/selectedMenu.png)
+
+If used for item selection, when opened, simple menus places the initial focus on the selected menu item. The currently selected menu item is set using the `selected` prop (from `ListItem`). To use a selected menu item without impacting the initial focus, set the `variant` prop to "menu".
 
 #### 4.45.4 Max height Menu
 
@@ -2043,11 +2072,12 @@ Available methods in Java JDI Light:
     }
 ```
 
+##### <a href="https://mui.com/components/menus/#max-height-menu" target="_blank"> https://mui.com/components/menus/#max-height-menu </a>
+
 ![HeightMenu](../../images/material-ui/heightMenu1.png)
 ![HeightMenu](../../images/material-ui/heightMenu2.png)
 
-##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/MenuTests.java" target="_blank">Here you can find Menu tests</a>
-<br></br><br></br>
+If the height of a menu prevents all menu items from being displayed, the menu can scroll internally.
 
 #### 4.45.5 Context Menu
 
@@ -2079,30 +2109,13 @@ Available methods in Java JDI Light:
 
 ##### <a href="https://material-ui.com/ru/components/menus/#context-menu" target="_blank"> https://material-ui.com/ru/components/menus/#context-menu </a>
 
-Menu is located in the following class:
-- __Java__: _com.epam.jdi.light.material.elements.navigation.Menu_
-  Menus display a list of choices on temporary surfaces.
 
 ![Menu](../../images/material-ui/contextMenu.png)
 
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/MenuTests.java" target="_blank">Here you can find Menu tests</a>
+<br></br><br></br>
+
 ### 4.46 Lists
-
-##### <a href="https://material-ui.com/components/lists/" target="_blank"> https://material-ui.com/components/lists/ </a>
-
-Available methods in Java JDI Light:
-
-|Method | Description | Return type
-| --- | --- | --- 
-**togle()** | toggle | void
-**check()** | check | void
-**uncheck()** | uncheck | void
-**isChecked()** | return answer is checked | boolean
-**isUnchecked()** | return answer is unchecked | boolean
-**isDisabled()** | return answer is disabled | boolean
-**isEnabled()** | return answer is enabled | boolean
-**is()** | Various assert action for Lists | ListsAssert
-**getText()** | return text | String
-
 
 #### 4.46.1 Simple List
 
@@ -2121,14 +2134,32 @@ Available methods in Java JDI Light:
         ListPage.secondListItem.is().text(hasToString("List item 2"));
     }
 ```
-Lists is located in the following class:
-- __Java__: _com.epam.jdi.light.material.elements.displaydata.Lists_
 
-Lists are continuous, vertical indexes of text or images.
+##### <a href="https://mui.com/components/lists/#basic-list" target="_blank"> https://mui.com/components/lists/#basic-list </a>
+
+Lists is located in the following class:
+
+- __Java__: _com.epam.jdi.light.material.elements.displaydata.Lists_
 
 ![simpleList](../../images/material-ui/simpleList.png)
 
-#### 4.46.2 Text only and with text, avatar with text and icon
+Lists are a continuous group of text or images. They are composed of items containing primary and supplemental actions, which are represented by icons and text.
+
+|Method | Description | Return type
+| --- | --- | --- 
+**togle()** | toggle | void
+**check()** | check | void
+**uncheck()** | uncheck | void
+**isChecked()** | return answer is checked | boolean
+**isUnchecked()** | return answer is unchecked | boolean
+**isDisabled()** | return answer is disabled | boolean
+**isEnabled()** | return answer is enabled | boolean
+**is()** | Various assert action for Lists | ListsAssert
+**getText()** | return text | String
+
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/ListsTests.java" target="_blank">Here you can find Lists tests</a>
+
+#### 4.46.2 Text only, Icon with text, Avatar with text and icon
 
 ```java 
     @UI ("//p[text()='Secondary text']")
@@ -2147,6 +2178,8 @@ Lists are continuous, vertical indexes of text or images.
         ListPage.secondaryLineListItems.get(1).is().notVisible();
     }
 ```
+
+##### <a href="https://mui.com/components/lists/#interactive" target="_blank"> https://mui.com/components/lists/#interactive </a>
 
 ![textList](../../images/material-ui/textOnly.png)
 
@@ -2169,6 +2202,8 @@ Lists are continuous, vertical indexes of text or images.
         ListPage.trashSelectedListItem.is().text((hasToString("Trash")));
     }
 ```
+
+##### <a href="https://mui.com/components/lists/#selected-listitem" target="_blank"> https://mui.com/components/lists/#selected-listitem </a>
 
 ![selectedList](../../images/material-ui/selectedList.png)
 
@@ -2195,7 +2230,13 @@ Lists are continuous, vertical indexes of text or images.
     }
 ```
 
+##### <a href="https://mui.com/components/lists/#checkbox" target="_blank"> https://mui.com/components/lists/#checkbox </a>
+
 ![checkboxList](../../images/material-ui/checkboxList.png)
+
+A checkbox can either be a primary action or a secondary action.
+
+In this example the checkbox is the primary action and the state indicator for the list item. The comment button is a secondary action and a separate target.
 
 #### 4.46.5 List with Switch
 
@@ -2209,7 +2250,11 @@ Lists are continuous, vertical indexes of text or images.
     }
 ```
 
+##### <a href="https://mui.com/components/lists/#switch" target="_blank"> https://mui.com/components/lists/#switch </a>
+
 ![switchList](../../images/material-ui/SwitchList.png)
+
+The switch is the secondary action and a separate target.
 
 #### 4.46.6 Pinned subheader List
 
@@ -2229,16 +2274,21 @@ Lists are continuous, vertical indexes of text or images.
     }
 ```
 
+##### <a href="https://mui.com/components/lists/#sticky-subheader" target="_blank"> https://mui.com/components/lists/#sticky-subheader </a>
+
 ![subheaderList](../../images/material-ui/subheaderList.png)
 
-
-##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/ListsTests.java" target="_blank">Here you can find Lists tests</a>
-
-<br></br><br></br>
+Upon scrolling, subheaders remain pinned to the top of the screen until pushed off screen by the next subheader. This feature relies on CSS sticky positioning.
 
 #### 4.46.7 Transfer List
 
-Available methods in Java JDI Light:
+##### <a href="https://mui.com/components/transfer-list/" target="_blank"> https://mui.com/components/transfer-list/ </a>
+
+Transfer List is located in the following class:
+
+- __Java__: _com.epam.jdi.light.material.elements.inputs.transferlist.TransferList_
+
+A transfer list (or "shuttle") enables the user to move one or more list items between lists.
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -2255,7 +2305,9 @@ Available methods in Java JDI Light:
 **itemsMovedLeft()** | Assert items are existed on Right List | TransferListAssert
 **checked()** | Assert items is selected | TransferListAssert
 
-#### 4.46.8 Simple Transfer List
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/TransferListTests.java" target="_blank">Here you can find Transfer List tests</a>
+
+##### 4.46.7.1 Simple Transfer List
 
 ```java 
     @JDITransferList(root = "#root", moveAllLeftButton = "button[aria-label='move all left']",
@@ -2295,18 +2347,20 @@ Available methods in Java JDI Light:
 
 ##### <a href="https://material-ui.com/components/transfer-list/#simple-transfer-list" target="_blank"> https://material-ui.com/components/transfer-list/#simple-transfer-list </a>
 
-Available methods in Java JDI Light:
+Simple Transfer List is located in the following class:
+
+- __Java__: _com.epam.jdi.light.material.elements.inputs.transferlist.SimpleTransferList_
 
 ![Simple Transfer Lists](../../images/material-ui/SimpleTransferList.png)
+
+For completeness, this example includes buttons for "move all", but not every transfer list needs these.
 
 |Method | Description | Return Type
 --- | --- | ---
 **moveAllElementsRight()** | Click on >> button | void
 **moveAllElementsLeft()** | Click on << button | void
 
-##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/TransferListTests.java" target="_blank">Here you can find Simple Transfer List tests</a>
-
-#### 4.46.9 Enhanced Transfer List
+##### 4.46.7.2 Enhanced Transfer List
 
 ```java 
     @JDITransferList(root = "#root", allItemsLeftCheckbox = "(//span[./input[@aria-label='all items selected']])[1]",
@@ -2338,7 +2392,9 @@ Available methods in Java JDI Light:
 
 ##### <a href="https://material-ui.com/components/transfer-list/#enhanced-transfer-list" target="_blank"> https://material-ui.com/components/transfer-list/#enhanced-transfer-list </a>
 
-Available methods in Java JDI Light:
+Enhanced Transfer List is located in the following class:
+
+- __Java__: _com.epam.jdi.light.material.elements.inputs.transferlist.EnchancedTransferList_
 
 ![Enhanced Transfer Lists](../../images/material-ui/EnhancedTransferList.png)
 
@@ -2346,8 +2402,6 @@ Available methods in Java JDI Light:
 --- | --- | ---
 **moveAllElementsRight()** | Select all elements on left list then click on > button | void
 **moveAllElementsLeft()** | Select all elements on right list then click on < button | void
-
-##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui/src/main/java/com/epam/jdi/light/material/elements/inputs/TextField.java">Here you can find Text Fields tests</a>
 
 ### 4.47 Text Field
 
@@ -2361,6 +2415,8 @@ Available methods in Java JDI Light:
 |**GetText()**|Get current Text from Text Field| String
 |**is()** |Various assert action for Text Field| TextFieldAssert
 |**has()**|Various assert action for data of Text Field|TextFieldAssert
+
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui/src/main/java/com/epam/jdi/light/material/elements/inputs/TextField.java">Here you can find Text Fields tests</a>
 
 ### 4.48 Form Props
 

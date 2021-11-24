@@ -1956,17 +1956,17 @@ For examples of usage see: [JDI Vuetify TimeLine tests](https://github.com/jdi-t
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.TimePickers.java_
 
 ```java
-    @Test
-    public static void allowedTimesTimePickerTest() {
-        allowedTimesTimePicker.is().enabled();
-        allowedTimesTimePicker.has().size(24);
-        allowedTimesTimePicker.select("9");
-        allowedTimesTimePicker.select("30");
-        allowedTimesTimePicker.is().selected("30");
-        allowedTimesTimePicker.has().values("00", "05", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55");
-        allowedTimesTimePicker.is().displayed();
-        allowedTimesTimePicker.has().elementDisabled("55");
-    }
+  @Test
+  public static void allowedTimesTimePickerTest() {
+      allowedTimesTimePicker.is().enabled();
+      allowedTimesTimePicker.has().size(24);
+      allowedTimesTimePicker.select("9");
+      allowedTimesTimePicker.select("30");
+      allowedTimesTimePicker.is().selected("30");
+      allowedTimesTimePicker.has().values("00", "05", "10", "15", "20", "25");
+      allowedTimesTimePicker.is().displayed();
+      allowedTimesTimePicker.has().elementDisabled("55");
+  }
 ```
 
 The v-time-picker is stand-alone component that can be utilized in many existing Vuetify components.
@@ -1987,3 +1987,106 @@ It offers the user a visual representation for selecting the time.
 TimePickers have also a lot of list-based JDI elements methods.
 
 For examples of usage see: [JDI Vuetify TimePickers tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/TimePickersTests.java).
+
+### 5.32 Lazy
+
+[Vuetify documentation page](https://vuetifyjs.com/en/components/lazy/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.complex.Lazy.java_
+
+```java
+@Test
+public void itemIsLoadedTest() {
+lazy.scrollIntoView();
+lazy.is().displayed();
+lazy.hiddenItem().is().displayed();
+lazy.core().find(ITEM_TITLE).has().text("Card title");
+lazy.core().find(ITEM_TEXT).is().displayed();
+lazy.core().find(ITEM_TEXT).has().text(Matchers.containsString("Aliquam lobortis"));
+    }
+```
+
+![Lazy example](../../images/vuetify/lazy.png)
+
+The Lazy component is used to dynamically load components based upon an elements visibility.
+
+|Method | Description | Return Type
+--- | --- | ---
+**hiddenItem()** | Returns hidden item by `item` locator from JDILazy annotation| UIElement
+**isHidden()** | Returns true if element is hidden | boolean
+**isDisplayed()** | Returns true if element is displayed | boolean
+**scrollIntoView()** | Scrolls down until element is displayed | void
+**is()** | Returns Assert class | LazyAssert
+
+For examples of usage see: JDI vuetify page tests for lazy.
+
+### 5.33 Virtual Scroller
+
+[Vuetify documentation page](https://vuetifyjs.com/en/components/virtual-scroller/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.complex.VirtualScroller.java_
+
+```java
+@Test(dataProvider = "bench items text", dataProviderClass = VirtualScrollerDataProvider.class)
+public static void benchScrollToItemTest(String itemText) {
+    benchScroller.is().displayed();
+    benchScroller.show();
+
+    benchScroller.scrollToElementWithText(itemText);
+    jdiAssert(benchScroller.getItems().get(3).find(".v-list-item__content").text(),
+    Matchers.equalTo(itemText));
+}
+
+```
+The `v-virtual-scroll` component displays a virtual, infinite list. It supports dynamic height and scrolling vertically.
+
+####Bench
+By default the `v-virtual-scroll` does not pre-render additional items outside of the viewport. Using the **bench** prop will have the scroller render additional items as padding. It is recommended to keep this number as low as possible for the best possible performance.
+
+
+![Virtual Scroller example](../../images/vuetify/virtualScrollerBench.png)
+####User Directory
+The `v-virtual-scroll` component can render an unlimited amount of items by rendering only what it needs to fill the scroller’s viewport.
+
+
+![Virtual Scroller example](../../images/vuetify/virtualScrollerUser.png)
+
+The Dialog component inform users about a specific task and may contain critical information, require decisions, or involve multiple tasks.
+
+|Method | Description | Return Type
+--- | --- | ---
+**scrollToPosition()** | Scrolls to the position specified by y coordinate| void
+**scrollToElementWithText()** | Scrolls to the element that contains specified text| void
+**position()** | Returns the position of the first element in the scroller| int
+**getItems()** | Returns the list of rendered items| WebList
+**show()** | Focuses on the specified UIElement| void
+
+For examples of usage see: [JDI vuetify page tests for Virtual Scroller](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/VirtualScrollerTests.java).
+
+### 5.34 Skeleton loader
+
+[Vuetify documentation page](https://vuetifyjs.com/en/components/skeleton-loaders/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.complex.SkeletonLoader.java_
+
+```java
+@Test
+public void tableImageSkeletonLoaderTest() {
+    tableImageSkeletonLoader.is().displayed();
+    tableImageSkeletonLoader.headingBoilerplate().is().displayed();
+    tableImageSkeletonLoader.textBoilerplate().is().displayed();
+    tableImageSkeletonLoader.imageBoilerplate().is().displayed();
+    tableImageSkeletonLoader.avatarBoilerplate().is().displayed();
+  }
+```
+The `v-skeleton-loader` component is a versatile tool that can fill many roles within a project. 
+At its heart, the component provides an indication to the user that something is coming but not yet available. 
+There are over 30 pre-defined options available that can be combined to make custom examples.
+
+####Boilerplate component
+The `v-skeleton-loader` can be used as boilerplate designs when creating mockups. 
+Mix and match various pre-defined options or create your own unique implementations. 
+
+![Skeleton Loader example](../../images/vuetify/skeletonLoaders.png)
+
+For examples of usage see: [JDI vuetify page tests for Skeleton Loader](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SkeletonLoadersTests.java).

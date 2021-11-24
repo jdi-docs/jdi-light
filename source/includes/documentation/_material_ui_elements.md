@@ -2117,23 +2117,6 @@ If the height of a menu prevents all menu items from being displayed, the menu c
 
 ### 4.46 Lists
 
-##### <a href="https://material-ui.com/components/lists/" target="_blank"> https://material-ui.com/components/lists/ </a>
-
-Available methods in Java JDI Light:
-
-|Method | Description | Return type
-| --- | --- | --- 
-**togle()** | toggle | void
-**check()** | check | void
-**uncheck()** | uncheck | void
-**isChecked()** | return answer is checked | boolean
-**isUnchecked()** | return answer is unchecked | boolean
-**isDisabled()** | return answer is disabled | boolean
-**isEnabled()** | return answer is enabled | boolean
-**is()** | Various assert action for Lists | ListsAssert
-**getText()** | return text | String
-
-
 #### 4.46.1 Simple List
 
 ```java 
@@ -2151,14 +2134,32 @@ Available methods in Java JDI Light:
         ListPage.secondListItem.is().text(hasToString("List item 2"));
     }
 ```
-Lists is located in the following class:
-- __Java__: _com.epam.jdi.light.material.elements.displaydata.Lists_
 
-Lists are continuous, vertical indexes of text or images.
+##### <a href="https://mui.com/components/lists/#basic-list" target="_blank"> https://mui.com/components/lists/#basic-list </a>
+
+Lists is located in the following class:
+
+- __Java__: _com.epam.jdi.light.material.elements.displaydata.Lists_
 
 ![simpleList](../../images/material-ui/simpleList.png)
 
-#### 4.46.2 Text only and with text, avatar with text and icon
+Lists are a continuous group of text or images. They are composed of items containing primary and supplemental actions, which are represented by icons and text.
+
+|Method | Description | Return type
+| --- | --- | --- 
+**togle()** | toggle | void
+**check()** | check | void
+**uncheck()** | uncheck | void
+**isChecked()** | return answer is checked | boolean
+**isUnchecked()** | return answer is unchecked | boolean
+**isDisabled()** | return answer is disabled | boolean
+**isEnabled()** | return answer is enabled | boolean
+**is()** | Various assert action for Lists | ListsAssert
+**getText()** | return text | String
+
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/ListsTests.java" target="_blank">Here you can find Lists tests</a>
+
+#### 4.46.2 Text only, Icon with text, Avatar with text and icon
 
 ```java 
     @UI ("//p[text()='Secondary text']")
@@ -2177,6 +2178,8 @@ Lists are continuous, vertical indexes of text or images.
         ListPage.secondaryLineListItems.get(1).is().notVisible();
     }
 ```
+
+##### <a href="https://mui.com/components/lists/#interactive" target="_blank"> https://mui.com/components/lists/#interactive </a>
 
 ![textList](../../images/material-ui/textOnly.png)
 
@@ -2199,6 +2202,8 @@ Lists are continuous, vertical indexes of text or images.
         ListPage.trashSelectedListItem.is().text((hasToString("Trash")));
     }
 ```
+
+##### <a href="https://mui.com/components/lists/#selected-listitem" target="_blank"> https://mui.com/components/lists/#selected-listitem </a>
 
 ![selectedList](../../images/material-ui/selectedList.png)
 
@@ -2225,7 +2230,13 @@ Lists are continuous, vertical indexes of text or images.
     }
 ```
 
+##### <a href="https://mui.com/components/lists/#checkbox" target="_blank"> https://mui.com/components/lists/#checkbox </a>
+
 ![checkboxList](../../images/material-ui/checkboxList.png)
+
+A checkbox can either be a primary action or a secondary action.
+
+In this example the checkbox is the primary action and the state indicator for the list item. The comment button is a secondary action and a separate target.
 
 #### 4.46.5 List with Switch
 
@@ -2239,7 +2250,11 @@ Lists are continuous, vertical indexes of text or images.
     }
 ```
 
+##### <a href="https://mui.com/components/lists/#switch" target="_blank"> https://mui.com/components/lists/#switch </a>
+
 ![switchList](../../images/material-ui/SwitchList.png)
+
+The switch is the secondary action and a separate target.
 
 #### 4.46.6 Pinned subheader List
 
@@ -2259,16 +2274,21 @@ Lists are continuous, vertical indexes of text or images.
     }
 ```
 
+##### <a href="https://mui.com/components/lists/#sticky-subheader" target="_blank"> https://mui.com/components/lists/#sticky-subheader </a>
+
 ![subheaderList](../../images/material-ui/subheaderList.png)
 
-
-##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/ListsTests.java" target="_blank">Here you can find Lists tests</a>
-
-<br></br><br></br>
+Upon scrolling, subheaders remain pinned to the top of the screen until pushed off screen by the next subheader. This feature relies on CSS sticky positioning.
 
 #### 4.46.7 Transfer List
 
-Available methods in Java JDI Light:
+##### <a href="https://mui.com/components/transfer-list/" target="_blank"> https://mui.com/components/transfer-list/ </a>
+
+Transfer List is located in the following class:
+
+- __Java__: _com.epam.jdi.light.material.elements.inputs.transferlist.TransferList_
+
+A transfer list (or "shuttle") enables the user to move one or more list items between lists.
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -2285,7 +2305,9 @@ Available methods in Java JDI Light:
 **itemsMovedLeft()** | Assert items are existed on Right List | TransferListAssert
 **checked()** | Assert items is selected | TransferListAssert
 
-#### 4.46.8 Simple Transfer List
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/TransferListTests.java" target="_blank">Here you can find Transfer List tests</a>
+
+##### 4.46.7.1 Simple Transfer List
 
 ```java 
     @JDITransferList(root = "#root", moveAllLeftButton = "button[aria-label='move all left']",
@@ -2325,18 +2347,20 @@ Available methods in Java JDI Light:
 
 ##### <a href="https://material-ui.com/components/transfer-list/#simple-transfer-list" target="_blank"> https://material-ui.com/components/transfer-list/#simple-transfer-list </a>
 
-Available methods in Java JDI Light:
+Simple Transfer List is located in the following class:
+
+- __Java__: _com.epam.jdi.light.material.elements.inputs.transferlist.SimpleTransferList_
 
 ![Simple Transfer Lists](../../images/material-ui/SimpleTransferList.png)
+
+For completeness, this example includes buttons for "move all", but not every transfer list needs these.
 
 |Method | Description | Return Type
 --- | --- | ---
 **moveAllElementsRight()** | Click on >> button | void
 **moveAllElementsLeft()** | Click on << button | void
 
-##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/TransferListTests.java" target="_blank">Here you can find Simple Transfer List tests</a>
-
-#### 4.46.9 Enhanced Transfer List
+##### 4.46.7.2 Enhanced Transfer List
 
 ```java 
     @JDITransferList(root = "#root", allItemsLeftCheckbox = "(//span[./input[@aria-label='all items selected']])[1]",
@@ -2368,7 +2392,9 @@ Available methods in Java JDI Light:
 
 ##### <a href="https://material-ui.com/components/transfer-list/#enhanced-transfer-list" target="_blank"> https://material-ui.com/components/transfer-list/#enhanced-transfer-list </a>
 
-Available methods in Java JDI Light:
+Enhanced Transfer List is located in the following class:
+
+- __Java__: _com.epam.jdi.light.material.elements.inputs.transferlist.EnchancedTransferList_
 
 ![Enhanced Transfer Lists](../../images/material-ui/EnhancedTransferList.png)
 
@@ -2376,8 +2402,6 @@ Available methods in Java JDI Light:
 --- | --- | ---
 **moveAllElementsRight()** | Select all elements on left list then click on > button | void
 **moveAllElementsLeft()** | Select all elements on right list then click on < button | void
-
-##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui/src/main/java/com/epam/jdi/light/material/elements/inputs/TextField.java">Here you can find Text Fields tests</a>
 
 ### 4.47 Text Field
 
@@ -2391,6 +2415,8 @@ Available methods in Java JDI Light:
 |**GetText()**|Get current Text from Text Field| String
 |**is()** |Various assert action for Text Field| TextFieldAssert
 |**has()**|Various assert action for data of Text Field|TextFieldAssert
+
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui/src/main/java/com/epam/jdi/light/material/elements/inputs/TextField.java">Here you can find Text Fields tests</a>
 
 ### 4.48 Form Props
 

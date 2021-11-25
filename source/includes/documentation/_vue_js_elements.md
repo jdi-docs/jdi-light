@@ -665,7 +665,7 @@ The Switch - component provides users the ability to choose between two distinct
 **check()/uncheck()** | Switch element between two states | void
 **getInputColor()** | Get color in RGBA format | String
 **getLabelText()** | Get label text  | String
-**getLabelHTML()** | Get label HTML element | boolen
+**getLabelHTML()** | Get label HTML element | boolean
 **isChecked()/isNotChecked()** | Shows that required element is selected/not selected | boolean
 **isDisabled()/isEnabled()** | Shows that required element is disabled/enabled | boolean
 **hasLabel()** | Shows that required element has label | boolean
@@ -829,6 +829,9 @@ Text area components are used for collecting large amounts of textual data.
 For examples of usage see: [JDI Vuetify Text areas tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/TextAreasTests.java).
 
 ### 5.13 Groups 
+
+#### 5.13.1 Button Groups
+
 ```java
 @JDIButtonGroup(
         root = "#RoundedButtonGroup .v-item-group", buttons = "//*[@type = 'button']"
@@ -847,7 +850,6 @@ public void mandatoryButtonGroupTest() {
     assertSelected(mandatoryButtonGroup.getButtonByIndex(4));
 }
 ```
-#### 5.13.1 Button Groups
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/button-groups/)
 
@@ -864,131 +866,160 @@ See [different examples](https://github.com/jdi-testing/jdi-light/blob/vuetify-d
 
 For examples of usage see: [Vuetify Button groups tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ButtonGroupsTests.java).
 
-#### 5.13.2 List Item Groups
+#### 5.13.2 Chip Groups
+[Vuetify documentation page](https://vuetifyjs.com/en/components/chip-groups/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.complex.ChipGroups.java_
 
 ```java
-    @UI("#ActiveClassListItemGroup .v-list-item")
-    public static ListItemGroups activeClassListItemGroup;
+    
+    @UI("#FilterResultsChipGroup .v-chip")
+    public static List<ChipGroups> filterResultsChipGroup;
+ ```
 
-    @UI("#MandatoryListItemGroup .v-list-item")
-    public static ListItemGroups mandatoryListItemGroup;
+![Chip groups example](../../images/vuetify/chip-groups.png)
 
-    @UI("#MultipleListItemGroup .v-list-item")
-    public static ListItemGroups multipleListItemGroup;
+```java
+    @Test(dataProvider = "chooseAmenitiesAndNeighborhoodsDataProvider", 
+                                dataProviderClass = ChipGroupsDataProviders.class)
+    public void filterResultsChipGroupTest(List<String> chooseAmenitiesAndNeighborhoods) {
+        new Timer(TIMEOUTS.page.get() * 1000L).getResult(() -> filterResultsChipGroup.size() != 0);
+          for (int i = 1; i <= chooseAmenitiesAndNeighborhoods.size(); i++) {
+            filterResultsChipGroup.get(i).click();
+            filterResultsChipGroup.get(i).is().containsText(chooseAmenitiesAndNeighborhoods.get(i - 1));
+              if (chipIsSelected(filterResultsChipGroup.get(i))) {
+                  filterResultsChipGroup.get(1).has().filter();
+              } else { 
+                  filterResultsChipGroup.get(i).has().notFilter();
+              }
+          }
+    }
+ ```
 
-    @UI("#FlatListListItemGroup .v-list-item")
-    public static ListItemGroups flatListListItemGroup;
+__Chip groups__ - a group of compact elements that represent an input, attribute, or action.
+Chips can contains an icon, text, actions etc. Chip groups make it easy for users to select 
+filtering options for more complex implementations.
 
-    @UI("#SelectionControlsListItemGroup .v-list-item")
-    public static ListItemGroups selectionControlsListItemGroup;
+See [different examples](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/main/java/io/github/com/pages/ChipGroupsPage.java)
 
-    @UI("#SelectionControlsListItemGroup div[role='option']")
-    public static List<Checkbox> selectionControlsListItemGroupCheckbox;
+The v-chip-group supercharges the v-chip component by providing groupable functionality. 
+It is used for creating groups of selections using chips.
 
-@Test
-public static void activeClassListItemGroupTest() {
-  int elemIndex = 1;
-  String[] expectedTitles = {"Wifi", "Bluetooth", "Data Usage"};
-  for (String expectedTitle : expectedTitles) {
-    activeClassListItemGroup.select(elemIndex);
-    jdiAssert(activeClassListItemGroup.isActive(elemIndex), Matchers.is(true));
-    jdiAssert(activeClassListItemGroup.hasIcon(elemIndex), Matchers.is(true));
-    jdiAssert(activeClassListItemGroup.hasTitle(elemIndex, expectedTitle), Matchers.is(true));
-    activeClassListItemGroup.select(elemIndex);
-    jdiAssert(activeClassListItemGroup.isInactivate(elemIndex), Matchers.is(true));
-    elemIndex++;
-  }
-}
+|Method | Description | Return Type
+--- | --- | ---
+**is()/has()** | Returns Assert class | ChipGroupsAssert
+**click()** | Clicks on chip | void
+**chipIsSelected(ChipGroups chip)** | Returns true if chip is selected | boolean
+**hasFilter** | Shows that selected chip has filter | boolean
+**hasNoFilter** | Shows that selected chip has no filter | boolean
+**getText()** | Returns text | String
 
-@Test
-public static void mandatoryListItemGroupTest() {
-  for (int element = 1; element < 4; element++) {
-      mandatoryListItemGroup.select(element);
-      jdiAssert(mandatoryListItemGroup.isActive(element), Matchers.is(true));
-      mandatoryListItemGroup.select(element);
-      jdiAssert(mandatoryListItemGroup.isInactivate(element), Matchers.is(false));
-  }
-  for (int element = 1; element < 4; element++) {
-      mandatoryListItemGroup.select(element);
-  }
-  jdiAssert(mandatoryListItemGroup.isActive(3), Matchers.is(true));
-  jdiAssert(mandatoryListItemGroup.isInactivate(1), Matchers.is(true));
-  jdiAssert(mandatoryListItemGroup.isInactivate(2), Matchers.is(true));
-}
+For examples of usage see: [Chip Groups tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ChipGroupsTests.java)
 
-@Test
-public static void multipleListItemGroupsTest() {
-  for (int element = 1; element < 4; element++) {
-      if (multipleListItemGroup.isInactivate(element)) {
-          multipleListItemGroup.select(element);
-      }
-  }
-  for (int element = 1; element < 4; element++) {
-      jdiAssert(multipleListItemGroup.isActive(element), Matchers.is(true));
-  }
-  for (int element = 1; element < 4; element++) {
-      multipleListItemGroup.select(element);
-      jdiAssert(multipleListItemGroup.isInactivate(element), Matchers.is(true));
-  }
-}
 
-@Test
-public static void flatListListItemGroupTest() {
-  for (int element = 1; element < 4; element++) {
-      flatListListItemGroup.select(element);
-      jdiAssert(flatListListItemGroup.isActive(element), Matchers.is(true));
-      jdiAssert(flatListListItemGroup.hasIcon(element), Matchers.is(true));
-      flatListListItemGroup.select(element);
-      jdiAssert(flatListListItemGroup.isInactivate(element), Matchers.is(true));
-  }
-}
+#### 5.13.3 Item Groups
 
-@Test
-public static void selectionControlsListItemGroupTest() {
-  int elemIndex = 1;
-  String[] expectedTitles = {"Dog Photos", "Cat Photos", "Potatoes", "Carrots"};
-  for (String expectedTitle : expectedTitles) {
-      jdiAssert(selectionControlsListItemGroup.hasTitle(elemIndex, expectedTitle), Matchers.is(true));
-      selectionControlsListItemGroupCheckbox.get(elemIndex).check();
-      selectionControlsListItemGroupCheckbox.get(elemIndex).is().checked();
-      selectionControlsListItemGroupCheckbox.get(elemIndex).uncheck();
-      selectionControlsListItemGroupCheckbox.get(elemIndex).is().unchecked();
-      elemIndex++;
-  }
-  for (int element = 1; element < 5; element++) {
-      selectionControlsListItemGroupCheckbox.get(element).check();
-  }
-  for (int element = 1; element < 5; element++) {
-      selectionControlsListItemGroupCheckbox.get(element).is().checked();
-  }
-}
+[Vuetify documentation page](https://vuetifyjs.com/en/components/item-groups/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.complex.ItemGroups.java_
+
+```java
+  @UI("#ActiveClassItemGroup .col-md-4")
+  public static List<ItemGroups> activeClassItemGroup;
 ```
+![List item groups example](../../images/vuetify/item-group.png)
+
+Item groups__ - a group of selectable items from any component.
+Items can contains an icon, text, actions etc.
+
+See [different examples](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/main/java/io/github/com/pages/ItemGroupsPage.java)
+
+The v-item-group provides the ability to create a group of selectable items out of any component.
+This is the baseline functionality for components such as v-tabs and v-carousel.
+
+##### Usage
+The core usage of the v-item-group is to create groups of anything that should be controlled by a model.
+![List item groups example](../../images/vuetify/item-group-active.png)
+
+##### Selection
+Icons can be used as toggle buttons when they allow selection, or deselection,
+of a single choice, such as marking an item as a favorite.
+
+![List item groups example](../../images/vuetify/selection.png)
+
+For examples of usage see: [Item Groups tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ItemGroupTests.java)
+
+
+#### 5.13.4 List Item Groups
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/list-item-groups/)
 
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.ListItemGroups.java_
 
-__List item groups__ - a group of selectable items from any component. Items can contains an icon, text, actions etc.
+```java
+    @UI("#ActiveClassListItemGroup .v-list-item")
+    public static List<ListItemGroups> activeClassListItemGroup;
+    
+    @UI("#SelectionControlsListItemGroup div[role='option']")
+    public static List<Checkbox> selectionControlsListItemGroupCheckbox;
+  ```
 
-List are a continuous group of text or images. They are composed of items containing primary and supplemental actions, which are represented by icons and text.
+  ![List item groups example](../../images/vuetify/list-item.png)
+
+```java
+    @Test(dataProvider = "listItemGroupsDataProvider", dataProviderClass = ListItemGroupDataProvider.class)
+    public void activeClassListItemGroupTest(List<String> expectedTitles) {
+        for (int element = 1; element <= expectedTitles.size(); element++) {
+          activeClassListItemGroup.get(element).click();
+          activeClassListItemGroup.get(element).is().active();
+          activeClassListItemGroup.get(element).has().icon();
+          activeClassListItemGroup.get(element).is().containsText(expectedTitles.get(element - 1));
+          activeClassListItemGroup.get(element).has().border();
+          activeClassListItemGroup.get(element).click();
+          activeClassListItemGroup.get(element).is().notActive();
+          activeClassListItemGroup.get(element).has().notBorder();
+        }
+    }
+```
+
+  ![List item groups example](../../images/vuetify/checkbox-list-item.png)
+
+  ```java
+    @Test(dataProvider = "selectionControlsListDataProvider", dataProviderClass = ListItemGroupDataProvider.class)
+    public void selectionControlsListItemGroupTest(List<String> titlesInCheckboxes) {
+      for (int element = 1; element <= titlesInCheckboxes.size(); element++) {
+        selectionControlsListItemGroup.get(element).is().containsText(titlesInCheckboxes.get(element - 1));
+        selectionControlsListItemGroupCheckbox.get(element).check();
+        selectionControlsListItemGroupCheckbox.get(element).is().checked();
+        selectionControlsListItemGroupCheckbox.get(element).uncheck();
+        selectionControlsListItemGroupCheckbox.get(element).is().unchecked();
+        }
+      for (int element = 1; element <= titlesInCheckboxes.size(); element++) {
+        selectionControlsListItemGroupCheckbox.get(element).check();
+        selectionControlsListItemGroupCheckbox.get(element).is().checked();
+        }
+      }
+```
+
+__List item groups__ - a group of selectable items from any component. 
+Items can contains an icon, text, actions etc.
+
+List are a continuous group of text or images. They are composed of items containing primary 
+and supplemental actions, which are represented by icons and text.
 
 See [different examples](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/main/java/io/github/com/pages/ListItemGroupsPage.java)
 
-The v-list-item-group provides the ability to create a group of selectable v-list-items. The v-list-item-group component utilizes v-item-group at its core to provide a clean interface for interactive lists.
-
-![List item groups example](../../images/vuetify/list-item.png)
-![List item groups example](../../images/vuetify/checkbox-list-item.png)
+The v-list-item-group provides the ability to create a group of selectable v-list-items. 
+The v-list-item-group component utilizes v-item-group at its core to provide a clean interface for interactive lists.
 
 |Method | Description | Return Type
 --- | --- | ---
-**select(String value)** | Finds required element by its name and selects | void
-**select(int index)** | Finds required element by its index and selects | void
-**get(String value)** | Finds required element by its name and returns it | UIElement
-**get(int index)** | Finds required element by its index and returns it | UIElement
-**isActive(int elementIndex)** | Shows that required element is active | boolean
-**isInactivate(int elementIndex)** | Shows that required element is inactive | boolean
-**hasIcon(int elementIndex)** | Shows that required element has icon | boolean
-**hasTitle(int elementIndex, String expectedTitle)** | Shows that required element has expected title | boolean
+**has()/is()** | Returns Assert class | ListItemGroupsAssert
+**isActive** | Shows that required element is active | boolean
+**hasBorder** | Shows that selected item has border  | boolean
+**hasIcon()** | Shows that required element has icon | boolean
+**hasTitle()** | Shows that required element has expected title | boolean
+**getText()** | Returns text | String
 
 ##### Active class
 
@@ -1015,7 +1046,7 @@ Using the default slot, you can access an items internal state and toggle it. Si
 
 For examples of usage see: [Vuetify List Item Groups tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ListItemGroupsTests.java).
 
-#### 5.13.3 Slide Groups
+#### 5.13.5 Slide Groups
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/slide-groups/)
 
@@ -1059,7 +1090,7 @@ Slide group component is used to display pseudo paginated information. It uses I
 
 For examples of usage see: [Slide Groups tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SlideGroupsTests.java)
 
-#### 5.13.4 Windows
+#### 5.13.6 Windows
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/windows/)
 

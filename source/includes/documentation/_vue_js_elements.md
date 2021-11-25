@@ -2054,8 +2054,8 @@ There are over 30 pre-defined options available that can be combined to make cus
 
 ####Boilerplate component
 The `v-skeleton-loader` can be used as boilerplate designs when creating mockups. 
-Mix and match various pre-defined options or create your own unique implementations. 
+Mix and match various pre-defined options or create your own unique implementations.
 
-![Skeleton Loader example](../../images/vuetify/skeletonLoaders.png)
+![Skeleton Loader example](../../images/vuetify/skeleton_loaders.png)
 
 For examples of usage see: [JDI vuetify page tests for Skeleton Loader](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SkeletonLoadersTests.java).

@@ -34061,33 +34061,38 @@ you can set the fixed prop. The max-width matches the min-width of the current b
 <td>Assert</td>
 </tr>
 </tbody></table>
-<h5 id='here-you-can-find-card-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/surfaces/CardTests.java" target="_blank">Here you can find Card tests</a></h5><h3 id='4-9-radio'>4.9 Radio</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//fieldset[@id='simpleRadio']//span[contains(@Class,'MuiRadio-root')]"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Button</span><span class="o">&gt;</span> <span class="n">simpleRadioButtons</span><span class="o">;</span>
+<h5 id='here-you-can-find-card-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/surfaces/CardTests.java" target="_blank">Here you can find Card tests</a></h5><h3 id='4-9-radio'>4.9 Radio</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#simpleRadio .MuiRadio-root"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">RadioButtons</span> <span class="n">simpleRadioButtons</span><span class="o">;</span>
 
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//fieldset[@id='simpleRadio']//span[contains(@Class,'MuiFormControlLabel-label')]"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Button</span><span class="o">&gt;</span> <span class="n">simpleRadioButtonsLabel</span><span class="o">;</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#lastClickContent"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Text</span> <span class="n">lastRadioText</span><span class="o">;</span>
 
-    <span class="kd">static</span> <span class="kd">private</span> <span class="kd">final</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">"First"</span><span class="o">,</span> <span class="s">"Second"</span><span class="o">,</span> <span class="s">"Third"</span><span class="o">,</span> <span class="s">"Disabled"</span><span class="o">);</span>
-    <span class="kd">static</span> <span class="kd">private</span> <span class="kd">final</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">classes</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">"Top"</span><span class="o">,</span> <span class="s">"Start"</span><span class="o">,</span> <span class="s">"Bottom"</span><span class="o">);</span>
-    <span class="kd">static</span> <span class="kd">private</span> <span class="kd">final</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">messages</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">"You got it!"</span><span class="o">,</span> <span class="s">"Sorry, wrong answer!"</span><span class="o">);</span>
-    <span class="kd">static</span> <span class="kd">private</span> <span class="kd">final</span> <span class="n">Timer</span> <span class="n">timer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Timer</span><span class="o">(</span><span class="mi">2000L</span><span class="o">);</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">".MuiFormControl-root[2] .MuiRadio-root"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">RadioButtons</span> <span class="n">labelPlacementRadioButtons</span><span class="o">;</span>
 
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">simpleRadioTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">4</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="n">Button</span> <span class="n">currentRadioButton</span> <span class="o">=</span> <span class="n">simpleRadioButtons</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
-            <span class="n">Button</span> <span class="n">currentRadioButtonLabel</span> <span class="o">=</span> <span class="n">simpleRadioButtonsLabel</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">!=</span> <span class="mi">4</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">currentRadioButton</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
-                <span class="n">timer</span><span class="o">.</span><span class="na">wait</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">currentRadioButton</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">classValue</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"Mui-checked"</span><span class="o">)));</span>
-                <span class="n">lastRadioText</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="n">currentRadioButton</span><span class="o">.</span><span class="na">text</span><span class="o">()));</span>
-            <span class="o">}</span>
-            <span class="k">else</span>
-                <span class="n">timer</span><span class="o">.</span><span class="na">wait</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">currentRadioButton</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">classValue</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"Mui-disabled"</span><span class="o">)));</span>
-            <span class="n">currentRadioButtonLabel</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">labels</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">));</span>
-        <span class="o">}</span>
+        <span class="n">simpleRadioButtons</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">values</span><span class="o">(</span><span class="s">"First"</span><span class="o">,</span> <span class="s">"Second"</span><span class="o">,</span> <span class="s">"Third"</span><span class="o">,</span> <span class="s">"Disabled"</span><span class="o">);</span>
+        <span class="n">simpleRadioButtons</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">enabled</span><span class="o">(</span><span class="s">"First"</span><span class="o">,</span> <span class="s">"Second"</span><span class="o">,</span> <span class="s">"Third"</span><span class="o">);</span>
+        <span class="n">simpleRadioButtons</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">disabled</span><span class="o">(</span><span class="s">"Disabled"</span><span class="o">);</span>
+        <span class="n">asList</span><span class="o">(</span><span class="s">"First"</span><span class="o">,</span> <span class="s">"Second"</span><span class="o">,</span> <span class="s">"Third"</span><span class="o">).</span><span class="na">forEach</span><span class="o">(</span><span class="n">label</span> <span class="o">-&gt;</span> <span class="o">{</span>
+            <span class="n">simpleRadioButtons</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">label</span><span class="o">);</span>
+            <span class="n">simpleRadioButtons</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="n">label</span><span class="o">);</span>
+            <span class="n">lastRadioText</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="n">label</span><span class="o">));</span>
+        <span class="o">});</span>
     <span class="o">}</span>
-</code></pre><h5 id='https-material-ui-com-components-radio-buttons'><a href="https://material-ui.com/components/radio-buttons/" target="_blank"> https://material-ui.com/components/radio-buttons/ </a></h5>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">labelPlacementTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">labelPlacementRadioButtons</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">size</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
+        <span class="n">labelPlacementRadioButtons</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+        <span class="n">labelPlacementRadioButtons</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="s">"Top"</span><span class="o">);</span>
+        <span class="n">labelPlacementRadioButtons</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">labelPosition</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="n">LabelPosition</span><span class="o">.</span><span class="na">TOP</span><span class="o">);</span>
+        <span class="n">labelPlacementRadioButtons</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">labelPosition</span><span class="o">(</span><span class="s">"Start"</span><span class="o">,</span> <span class="n">LabelPosition</span><span class="o">.</span><span class="na">START</span><span class="o">);</span>
+        <span class="n">labelPlacementRadioButtons</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">labelPosition</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="n">LabelPosition</span><span class="o">.</span><span class="na">BOTTOM</span><span class="o">);</span>
+        <span class="n">labelPlacementRadioButtons</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">labelPosition</span><span class="o">(</span><span class="s">"End"</span><span class="o">,</span> <span class="n">LabelPosition</span><span class="o">.</span><span class="na">END</span><span class="o">);</span>
+    <span class="o">}</span>
+</code></pre><h5 id='https-mui-com-components-radio-buttons'><a href="https://mui.com/components/radio-buttons/" target="_blank"> https://mui.com/components/radio-buttons/ </a></h5>
 <p><img src="images/material-ui/Radio.png" alt="Radio" /></p>
 
 <p>Radio buttons allow the user to select one option from a set.</p>
@@ -34100,32 +34105,47 @@ you can set the fixed prop. The max-width matches the min-width of the current b
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>click()</strong></td>
-<td>Clicks on box</td>
-<td>void</td>
-</tr>
-<tr>
-<td><strong>click(int x, int y)</strong></td>
-<td>Clicks on point in box</td>
-<td>void</td>
-</tr>
-<tr>
 <td><strong>is()</strong></td>
-<td>Returns Assert class</td>
-<td>Assert</td>
+<td>Returns object for work with assertions</td>
+<td>RadioAssert</td>
 </tr>
 <tr>
-<td><strong>displayed()</strong></td>
-<td>Assert state</td>
-<td>Assert</td>
+<td><strong>select(String/int/Enum)</strong></td>
+<td>Select radiobutton by value/index</td>
+<td>void</td>
 </tr>
 <tr>
-<td><strong>hidden()</strong></td>
-<td>Assert state</td>
-<td>Assert</td>
+<td><strong>selected()</strong></td>
+<td>Get selected radiobutton value</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>values()</strong></td>
+<td>Returns list of values</td>
+<td>List&lt;String&gt;</td>
+</tr>
+<tr>
+<td><strong>labels()</strong></td>
+<td>Returns list of labels</td>
+<td>List&lt;Label&gt;</td>
+</tr>
+<tr>
+<td><strong>listEnabled()</strong></td>
+<td>Returns list of enabled values</td>
+<td>List&lt;String&gt;</td>
+</tr>
+<tr>
+<td><strong>listDisabled()</strong></td>
+<td>Returns list of disabled values</td>
+<td>List&lt;String&gt;</td>
+</tr>
+<tr>
+<td><strong>get(String/int)</strong></td>
+<td>Returns radio button by value/index</td>
+<td>UIElement</td>
 </tr>
 </tbody></table>
-<h5 id='here-you-can-find-radio-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/RadioButtonTests.java" target="_blank">Here you can find Radio tests</a></h5><h3 id='4-10-app-bar'>4.10 App Bar</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//*[text()='App Bar with menu']/preceding::button[@aria-label='menu']"</span><span class="o">)</span>
+<h5 id='here-you-can-find-radio-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/RadioButtonsTests.java" target="_blank">Here you can find Radio tests</a></h5><h3 id='4-10-app-bar'>4.10 App Bar</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//*[text()='App Bar with menu']/preceding::button[@aria-label='menu']"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">UIElement</span> <span class="n">simpleMenu</span><span class="o">;</span>
 
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"//*[text()='Prominent App Bar']/preceding::button[@aria-label='menu'][1]"</span><span class="o">)</span>

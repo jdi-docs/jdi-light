@@ -35511,7 +35511,7 @@ You can use for testing Text and Button classes, implemented in JDI-html section
 <h5 id='here-you-can-find-textareaautosize-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/TextAreaAutoSizeTests.java" target="_blank">Here you can find TextAreaAutosize tests</a></h5><h3 id='4-40-popover'>4.40 Popover</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">".MuiPopover-root .MuiPaper-root"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">Popover</span> <span class="n">popover</span><span class="o">;</span>
 
-     <span class="nd">@Test</span>
+    <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">clickPopoverTest</span><span class="o">()</span> <span class="o">{</span>
         <span class="n">popover</span><span class="o">.</span><span class="na">button</span><span class="o">(</span><span class="n">CLICK_BUTTON</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
         <span class="n">popover</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">POPOVER_CONTENT</span><span class="o">);</span>
@@ -35531,28 +35531,30 @@ You can use for testing Text and Button classes, implemented in JDI-html section
 <p>A Popover can be used to display some content on top of another.</p>
 
 <p><img src="images/material-ui/Popover.png" alt="Popover" /></p>
-<h5 id='here-you-can-find-popover-element'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui/src/main/java/com/epam/jdi/light/material/elements/utils/Popover.java" target="_blank">Here you can find Popover element</a></h5><h5 id='here-you-can-find-popover-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/PopoverTests.java" target="_blank">Here you can find Popover tests</a></h5><h3 id='4-41-modal'>4.41 Modal</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"[id='simple-modal-description']"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Text</span><span class="o">&gt;</span> <span class="n">modalTexts</span><span class="o">;</span>
+<h5 id='here-you-can-find-popover-element'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui/src/main/java/com/epam/jdi/light/material/elements/utils/Popover.java" target="_blank">Here you can find Popover element</a></h5><h5 id='here-you-can-find-popover-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/PopoverTests.java" target="_blank">Here you can find Popover tests</a></h5><h3 id='4-41-modal'>4.41 Modal</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"div.jss2"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Modal</span> <span class="n">modal</span><span class="o">;</span>
 
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"button"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Button</span><span class="o">&gt;</span> <span class="n">buttonModal</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">MaterialButton</span> <span class="n">buttonModal</span><span class="o">;</span>
 
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">modalTests</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">modalCounter</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">modalCounter</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="o">;</span> <span class="n">modalCounter</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="n">buttonModal</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">modalCounter</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
-            <span class="n">modalTexts</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">modalCounter</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">EXPECTED_TEXT</span><span class="o">);</span>
+        <span class="n">buttonModal</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">3</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">modal</span><span class="o">.</span><span class="na">open</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">visible</span><span class="o">();</span>
+            <span class="n">modal</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">title</span><span class="o">(</span><span class="s">"Text in a modal"</span><span class="o">).</span><span class="na">and</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">EXPECTED_TEXT</span><span class="o">);</span>
         <span class="o">}</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">modalCounter</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span> <span class="n">modalCounter</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="o">;</span> <span class="n">modalCounter</span><span class="o">--)</span> <span class="o">{</span>
-            <span class="n">buttonModal</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">modalCounter</span><span class="o">).</span><span class="na">core</span><span class="o">().</span><span class="na">click</span><span class="o">(-</span><span class="mi">200</span><span class="o">,</span> <span class="o">-</span><span class="mi">100</span><span class="o">);</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">4</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">modal</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
         <span class="o">}</span>
+        <span class="n">modal</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">notVisible</span><span class="o">();</span>
     <span class="o">}</span>
 </code></pre><h5 id='https-material-ui-com-components-modal'><a href="https://material-ui.com/components/modal/" target="_blank"> https://material-ui.com/components/modal/ </a></h5>
 <p>The modal component provides a solid foundation for creating dialogs, popovers, lightboxes, or whatever else.</p>
 
 <p><img src="images/material-ui/Modal.png" alt="Modal" /></p>
 <h5 id='here-you-can-find-modal-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/ModalTests.java" target="_blank">Here you can find Modal tests</a></h5><h3 id='4-42-popper'>4.42 Popper</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"[role='tooltip']"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">UIElement</span> <span class="n">tooltip</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Popper</span> <span class="n">popper</span><span class="o">;</span>
 
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">positionedPoppersTest</span><span class="o">()</span> <span class="o">{</span>

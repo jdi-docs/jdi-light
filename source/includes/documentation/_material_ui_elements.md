@@ -1763,7 +1763,7 @@ A textarea component for React which grows with content.
     @UI(".MuiPopover-root .MuiPaper-root")
     public static Popover popover;
     
-     @Test
+    @Test
     public void clickPopoverTest() {
         popover.button(CLICK_BUTTON).click();
         popover.is().text(POPOVER_CONTENT);
@@ -1793,21 +1793,23 @@ A Popover can be used to display some content on top of another.
 ### 4.41 Modal
 
 ```java 
-    @UI("[id='simple-modal-description']")
-    public static List<Text> modalTexts;
-  
+    @UI("div.jss2")
+    public static Modal modal;
+
     @UI("button")
-    public static List<Button> buttonModal;
+    public static MaterialButton buttonModal;
     
     @Test
     public void modalTests() {
-        for (int modalCounter = 1; modalCounter < 3; modalCounter++) {
-            buttonModal.get(modalCounter).click();
-            modalTexts.get(modalCounter).has().text(EXPECTED_TEXT);
+        buttonModal.click();
+        for (int i = 0; i <= 3; i++) {
+            modal.open().is().visible();
+            modal.has().title("Text in a modal").and().text(EXPECTED_TEXT);
         }
-        for (int modalCounter = 3; modalCounter > 1; modalCounter--) {
-            buttonModal.get(modalCounter).core().click(-200, -100);
+        for (int i = 0; i <= 4; i++) {
+            modal.close();
         }
+        modal.is().notVisible();
     }
 ```
 
@@ -1823,7 +1825,7 @@ The modal component provides a solid foundation for creating dialogs, popovers, 
 
 ```java 
     @UI("[role='tooltip']")
-    public static UIElement tooltip;
+    public static Popper popper;
     
     @Test
     public void positionedPoppersTest() {

@@ -1013,40 +1013,56 @@ Tables display sets of data. They can be fully customized.
 ### 4.21 Typography
 
 ```java 
-  @UI("//*[contains(@class,'MuiTypography-gutterBottom')]")
-  public static List<Text> typographyTexts;
+    @UI(".MuiGrid-root[3] .MuiTypography-root")
+    public static List<Typography> typographyTexts;
+    
+    @Test
+    public void typographyTextsTest() {
+        typographyTexts.get(1).has().text("Head 1");
 
-  @Test
-    public void typographyTextTest() {
+        List<String> expectedText = Arrays.asList(
+                "Head 1", "Head 2", "Head 3", "Head 4", "Head 5", "Head 6",
+                "Subtitle 1", "Subtitle 2", "Body 1", "Body 2",
+                "BUTTON TEXT", "Caption text", "OVERLINE TEXT");
 
-        List<String> expectedTextFields = Arrays.asList("Head 1", "Head 2", "Head 3", "Head 4", "Head 5", "Head 6",
-                "Subtitle 1", "Subtitle 2", "Body 1", "Body 2", "BUTTON TEXT", "Caption text", "OVERLINE TEXT");
+        List<String> actualTexts = typographyTexts.stream()
+                .map(IsText::getText)
+                .collect(Collectors.toList());
 
-        List<String> expectedTypographyClasses = Arrays.asList("MuiTypography-h1", "MuiTypography-h2",
-                "MuiTypography-h3", "MuiTypography-h4", "MuiTypography-h5", "MuiTypography-h6",
-                "MuiTypography-subtitle1", "MuiTypography-subtitle2", "MuiTypography-body1", "MuiTypography-body2",
-                "MuiTypography-button", "MuiTypography-caption", "MuiTypography-overline");
+        jdiAssert(actualTexts, equalTo(expectedText));
+    }
 
-        List<String> actualTextFields = new ArrayList<>();
+    @Test
+    public void typographyStylesTest() {
+        typographyTexts.get(1).has().style(HEAD_1);
 
-        for (Text typographyText : typographyTexts) {
-            actualTextFields.add(typographyText.getText());
-        }
+        List<TypographyStyles> expectedStyles = Arrays.asList(
+                HEAD_1, HEAD_2, HEAD_3, HEAD_4, HEAD_5, HEAD_6,
+                SUBTITLE_1, SUBTITLE_2, BODY_1, BODY_2,
+                BUTTON, CAPTION, OVERLINE);
 
-        for (int i = 0; i < typographyTexts.size(); i++) {
-            assertEquals(expectedTextFields.get(i), actualTextFields.get(i));
-            typographyTexts.get(i + 1).has().classValue(containsString(expectedTypographyClasses.get(i)));
-        }
+        List<TypographyStyles> actualStyles = typographyTexts.stream()
+                .map(Typography::getStyle)
+                .collect(Collectors.toList());
+
+        jdiAssert(actualStyles, equalTo(expectedStyles));
     }
 ```
 
-##### <a href="https://material-ui.com/ru/components/typography/" target="_blank"> https://material-ui.com/ru/components/typography/ </a>
-
-Use typography to present your design and content as clearly and efficiently as possible.
+##### <a href="https://mui.com/components/typography/" target="_blank"> https://mui.com/components/typography/ </a>
 
 ![Typography](../../images/material-ui/Typography.png)
 
-##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/TypographyTests.java" target="_blank">Here you can find Typography tests</a>
+Use typography to present your design and content as clearly and efficiently as possible.
+
+|Method | Description | Return Type
+--- | --- | ---
+**is()** | Returns object for work with assertions | TypographyAssert
+**getStyle()** | Returns style of component | TypographyStyles
+**getText()** | Returns text of component | String
+
+
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/3529-rework-typography/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/TypographyTests.java" target="_blank">Here you can find Typography tests</a>
 
 ### 4.22 Badge
 

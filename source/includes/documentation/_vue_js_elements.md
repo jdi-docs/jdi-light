@@ -1376,7 +1376,7 @@ For examples of usage see: [JDI vuetify page tests for snackbars](https://github
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/sparklines/)
 
-- __Java__: _com.epam.jdi.light.vuetify.elements.complex.Sparkline.java_
+- __Java__: _com.epam.jdi.light.vuetify.elements.common.Sparkline.java_
 
 ```java
     @Test
@@ -1402,7 +1402,7 @@ The sparkline component can be used to create simple graphs, like GitHub’s con
 **getLabelTexts()** | Returns sparkline data point label texts | List\<String>
 **getLinearGradientMap()** | Returns map representation of sparkline linear gradient | Map\<String, String>
 
-For examples of usage see: [JDI vuetify page tests for sparklines](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuet
+For examples of usage see: [JDI vuetify page tests for sparklines](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/SparklinesTests.java)
 
 ### 5.20 Subheaders
 

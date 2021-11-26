@@ -35330,36 +35330,30 @@ You can use for testing Text and Button classes, implemented in JDI-html section
 <p>The Grid List element - list of Material UI Grid elements.</p>
 
 <p><img src="images/material-ui/GridList.png" alt="GridList" /></p>
-<h5 id='here-you-can-find-gridlist-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/GridListTests.java" target="_blank">Here you can find GridList tests</a></h5><h3 id='4-33-drawer'>4.33 Drawer</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div[contains(@class,'MuiPaper-root')]"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Drawer</span> <span class="n">drawer</span><span class="o">;</span>
+<h5 id='here-you-can-find-gridlist-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/GridListTests.java" target="_blank">Here you can find GridList tests</a></h5><h3 id='4-33-drawer'>4.33 Drawer</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"[type=button]"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Button</span><span class="o">&gt;</span> <span class="n">temporaryDrawerButtons</span><span class="o">;</span>
 
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//ul[contains(@class,'MuiList-padding')]//div[@class='MuiListItemIcon-root']"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Drawer</span><span class="o">&gt;</span> <span class="n">drawerElementsIcon</span><span class="o">;</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"div .MuiDrawer-paper"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Drawer</span> <span class="n">temporaryDrawer</span><span class="o">;</span>
 
-    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//ul[contains(@class,'MuiList-padding')]//div[@class='MuiListItemText-root']/span"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Button</span><span class="o">&gt;</span> <span class="n">drawerElementsText</span><span class="o">;</span>
-
-    <span class="nd">@Test</span><span class="o">(</span><span class="n">priority</span> <span class="o">=</span> <span class="mi">1</span><span class="o">)</span>
+    <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">temporaryDrawerTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">temporaryDrawerPage</span><span class="o">.</span><span class="na">open</span><span class="o">();</span>
-        <span class="n">List</span><span class="o">&lt;</span><span class="n">Button</span><span class="o">&gt;</span> <span class="n">buttons</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="n">leftButton</span><span class="o">,</span> <span class="n">rightButton</span><span class="o">,</span> <span class="n">topButton</span><span class="o">,</span> <span class="n">bottomButton</span><span class="o">);</span>
-        <span class="n">buttons</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span>
-            <span class="n">button</span> <span class="o">-&gt;</span> <span class="o">{</span>
-                <span class="n">button</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
-                <span class="n">drawer</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-                <span class="n">String</span> <span class="n">currentButtonName</span> <span class="o">=</span> <span class="n">button</span><span class="o">.</span><span class="na">getName</span><span class="o">();</span>
-                <span class="n">drawer</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">classValue</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="n">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">"MuiDrawer-paperAnchor%s"</span><span class="o">,</span> <span class="n">currentButtonName</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span><span class="n">currentButtonName</span><span class="o">.</span><span class="na">lastIndexOf</span><span class="o">(</span><span class="s">" "</span><span class="o">)</span> <span class="o">+</span> <span class="mi">1</span><span class="o">))));</span>
-                <span class="n">drawerElementsIcon</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span>
-                    <span class="n">icon</span> <span class="o">-&gt;</span> <span class="n">icon</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayedSvg</span><span class="o">()</span>
-                <span class="o">);</span>
-                <span class="n">drawerElementsText</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span>
-                    <span class="n">text</span> <span class="o">-&gt;</span> <span class="n">actualDrawerTexts</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">text</span><span class="o">.</span><span class="na">getText</span><span class="o">())</span>
-                <span class="o">);</span>
-                <span class="n">assertEquals</span><span class="o">(</span><span class="n">actualDrawerTexts</span><span class="o">,</span> <span class="n">expectedDrawerTexts</span><span class="o">);</span>
-                <span class="n">actualDrawerTexts</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
-                <span class="n">drawerElementsText</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">temporaryDrawerButtons</span><span class="o">.</span><span class="na">size</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">temporaryDrawerButtons</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
+            <span class="n">temporaryDrawer</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">visible</span><span class="o">();</span>
+            <span class="n">temporaryDrawer</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">position</span><span class="o">(</span><span class="n">position</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">]);</span>
+            <span class="n">temporaryDrawer</span><span class="o">.</span><span class="na">elements</span><span class="o">().</span><span class="na">forEach</span><span class="o">(</span><span class="n">element</span> <span class="o">-&gt;</span> <span class="n">actualDrawerTexts</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">element</span><span class="o">.</span><span class="na">text</span><span class="o">()));</span>
+
+            <span class="n">jdiAssert</span><span class="o">(</span><span class="n">actualDrawerTexts</span><span class="o">.</span><span class="na">containsAll</span><span class="o">(</span><span class="n">expectedDrawerTexts</span><span class="o">)</span> <span class="o">?</span> <span class="s">"elements text is visible"</span>
+                    <span class="o">:</span> <span class="s">"elements text isn't visible"</span><span class="o">,</span> <span class="n">Matchers</span><span class="o">.</span><span class="na">is</span><span class="o">(</span><span class="s">"elements text is visible"</span><span class="o">));</span>
+            <span class="n">actualDrawerTexts</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
+
+            <span class="k">for</span> <span class="o">(</span><span class="n">UIElement</span> <span class="n">element</span> <span class="o">:</span> <span class="n">temporaryDrawer</span><span class="o">.</span><span class="na">elements</span><span class="o">())</span> <span class="o">{</span>
+                <span class="n">element</span><span class="o">.</span><span class="na">find</span><span class="o">(</span><span class="s">".MuiSvgIcon-root"</span><span class="o">).</span><span class="na">is</span><span class="o">().</span><span class="na">visible</span><span class="o">();</span>
             <span class="o">}</span>
-        <span class="o">);</span>
+            <span class="n">temporaryDrawer</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+        <span class="o">}</span>
     <span class="o">}</span>
 </code></pre><h5 id='https-material-ui-com-components-drawers'><a href="https://material-ui.com/components/drawers/" target="_blank"> https://material-ui.com/components/drawers/ </a></h5>
 <p>Navigation drawers provide access to destinations in your app. Side sheets are surfaces containing supplementary content that are anchored to the left or right edge of the screen.</p>

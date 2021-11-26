@@ -1535,36 +1535,30 @@ The Grid List element - list of Material UI Grid elements.
 ### 4.33 Drawer
 
 ```java 
-    @UI("//div[contains(@class,'MuiPaper-root')]")
-    public static Drawer drawer;
-    
-    @UI("//ul[contains(@class,'MuiList-padding')]//div[@class='MuiListItemIcon-root']")
-    public static List<Drawer> drawerElementsIcon;
-    
-    @UI("//ul[contains(@class,'MuiList-padding')]//div[@class='MuiListItemText-root']/span")
-    public static List<Button> drawerElementsText;
+    @UI("[type=button]")
+    public static List<Button> temporaryDrawerButtons;
+
+    @UI("div .MuiDrawer-paper")
+    public static Drawer temporaryDrawer;
   
-    @Test(priority = 1)
+    @Test
     public void temporaryDrawerTest() {
-        temporaryDrawerPage.open();
-        List<Button> buttons = Arrays.asList(leftButton, rightButton, topButton, bottomButton);
-        buttons.forEach(
-            button -> {
-                button.click();
-                drawer.is().displayed();
-                String currentButtonName = button.getName();
-                drawer.has().classValue(containsString(String.format("MuiDrawer-paperAnchor%s", currentButtonName.substring(0,currentButtonName.lastIndexOf(" ") + 1))));
-                drawerElementsIcon.forEach(
-                    icon -> icon.is().displayedSvg()
-                );
-                drawerElementsText.forEach(
-                    text -> actualDrawerTexts.add(text.getText())
-                );
-                assertEquals(actualDrawerTexts, expectedDrawerTexts);
-                actualDrawerTexts.clear();
-                drawerElementsText.get(1).click();
+
+        for (int i = 1; i <= temporaryDrawerButtons.size(); i++) {
+            temporaryDrawerButtons.get(i).click();
+            temporaryDrawer.is().visible();
+            temporaryDrawer.has().position(position[i - 1]);
+            temporaryDrawer.elements().forEach(element -> actualDrawerTexts.add(element.text()));
+
+            jdiAssert(actualDrawerTexts.containsAll(expectedDrawerTexts) ? "elements text is visible"
+                    : "elements text isn't visible", Matchers.is("elements text is visible"));
+            actualDrawerTexts.clear();
+
+            for (UIElement element : temporaryDrawer.elements()) {
+                element.find(".MuiSvgIcon-root").is().visible();
             }
-        );
+            temporaryDrawer.close();
+        }
     }
 ```
 

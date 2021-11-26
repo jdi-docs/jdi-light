@@ -411,35 +411,40 @@ Cards contain content and actions about a single subject.
 ### 4.9 Radio
 
 ```java 
-    @UI("//fieldset[@id='simpleRadio']//span[contains(@Class,'MuiRadio-root')]")
-    public static List<Button> simpleRadioButtons;
-
-    @UI("//fieldset[@id='simpleRadio']//span[contains(@Class,'MuiFormControlLabel-label')]")
-    public static List<Button> simpleRadioButtonsLabel;
-
-    static private final List<String> labels = Arrays.asList("First", "Second", "Third", "Disabled");
-    static private final List<String> classes = Arrays.asList("Top", "Start", "Bottom");
-    static private final List<String> messages = Arrays.asList("You got it!", "Sorry, wrong answer!");
-    static private final Timer timer = new Timer(2000L);
+    @UI("#simpleRadio .MuiRadio-root")
+    public static RadioButtons simpleRadioButtons;
+    
+    @UI("#lastClickContent")
+    public static Text lastRadioText;
+    
+    @UI(".MuiFormControl-root[2] .MuiRadio-root")
+    public static RadioButtons labelPlacementRadioButtons;
 
     @Test
     public void simpleRadioTest() {
-        for (int i = 1; i <= 4; i++) {
-            Button currentRadioButton = simpleRadioButtons.get(i);
-            Button currentRadioButtonLabel = simpleRadioButtonsLabel.get(i);
-            if (i != 4) {
-                currentRadioButton.click();
-                timer.wait(() -> currentRadioButton.has().classValue(containsString("Mui-checked")));
-                lastRadioText.has().text(containsString(currentRadioButton.text()));
-            }
-            else
-                timer.wait(() -> currentRadioButton.has().classValue(containsString("Mui-disabled")));
-            currentRadioButtonLabel.has().text(labels.get(i - 1));
-        }
+        simpleRadioButtons.has().values("First", "Second", "Third", "Disabled");
+        simpleRadioButtons.has().enabled("First", "Second", "Third");
+        simpleRadioButtons.has().disabled("Disabled");
+        asList("First", "Second", "Third").forEach(label -> {
+            simpleRadioButtons.select(label);
+            simpleRadioButtons.has().selected(label);
+            lastRadioText.has().text(containsString(label));
+        });
+    }
+    
+    @Test
+    public void labelPlacementTest() {
+        labelPlacementRadioButtons.has().size(4);
+        labelPlacementRadioButtons.has().selected(1);
+        labelPlacementRadioButtons.has().selected("Top");
+        labelPlacementRadioButtons.has().labelPosition(1, LabelPosition.TOP);
+        labelPlacementRadioButtons.has().labelPosition("Start", LabelPosition.START);
+        labelPlacementRadioButtons.has().labelPosition(2, LabelPosition.BOTTOM);
+        labelPlacementRadioButtons.has().labelPosition("End", LabelPosition.END);
     }
 ```
 
-##### <a href="https://material-ui.com/components/radio-buttons/" target="_blank"> https://material-ui.com/components/radio-buttons/ </a>
+##### <a href="https://mui.com/components/radio-buttons/" target="_blank"> https://mui.com/components/radio-buttons/ </a>
 
 ![Radio](../../images/material-ui/Radio.png)
 
@@ -447,13 +452,16 @@ Radio buttons allow the user to select one option from a set.
 
 |Method | Description | Return Type
 --- | --- | ---
-**click()** | Clicks on box | void
-**click(int x, int y)** | Clicks on point in box | void
-**is()** | Returns Assert class | Assert
-**displayed()** | Assert state | Assert
-**hidden()** | Assert state | Assert
+**is()** | Returns object for work with assertions | RadioAssert
+**select(String/int/Enum)** | Select radiobutton by value/index  | void
+**selected()** | Get selected radiobutton value | String
+**values()** | Returns list of values | List\<String>
+**labels()** | Returns list of labels | List\<Label>
+**listEnabled()** | Returns list of enabled values | List\<String>
+**listDisabled()** | Returns list of disabled values | List\<String>
+**get(String/int)** | Returns radio button by value/index | UIElement
 
-##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/RadioButtonTests.java" target="_blank">Here you can find Radio tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/RadioButtonsTests.java" target="_blank">Here you can find Radio tests</a>
 
 ### 4.10 App Bar
 

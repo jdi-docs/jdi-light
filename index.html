@@ -34881,36 +34881,69 @@ You can use for testing Text and Button classes, implemented in JDI-html section
 <td>Assert</td>
 </tr>
 </tbody></table>
-<h5 id='here-you-can-find-tables-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/TableTests.java" target="_blank">Here you can find Tables tests</a></h5><h3 id='4-21-typography'>4.21 Typography</h3><pre class="highlight java tab-java"><code>  <span class="nd">@UI</span><span class="o">(</span><span class="s">"//*[contains(@class,'MuiTypography-gutterBottom')]"</span><span class="o">)</span>
-  <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Text</span><span class="o">&gt;</span> <span class="n">typographyTexts</span><span class="o">;</span>
+<h5 id='here-you-can-find-tables-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/TableTests.java" target="_blank">Here you can find Tables tests</a></h5><h3 id='4-21-typography'>4.21 Typography</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">".MuiGrid-root[3] .MuiTypography-root"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Typography</span><span class="o">&gt;</span> <span class="n">typographyTexts</span><span class="o">;</span>
 
-  <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">typographyTextTest</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">typographyTextsTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">typographyTexts</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Head 1"</span><span class="o">);</span>
 
-        <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">expectedTextFields</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">"Head 1"</span><span class="o">,</span> <span class="s">"Head 2"</span><span class="o">,</span> <span class="s">"Head 3"</span><span class="o">,</span> <span class="s">"Head 4"</span><span class="o">,</span> <span class="s">"Head 5"</span><span class="o">,</span> <span class="s">"Head 6"</span><span class="o">,</span>
-                <span class="s">"Subtitle 1"</span><span class="o">,</span> <span class="s">"Subtitle 2"</span><span class="o">,</span> <span class="s">"Body 1"</span><span class="o">,</span> <span class="s">"Body 2"</span><span class="o">,</span> <span class="s">"BUTTON TEXT"</span><span class="o">,</span> <span class="s">"Caption text"</span><span class="o">,</span> <span class="s">"OVERLINE TEXT"</span><span class="o">);</span>
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">expectedText</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span>
+                <span class="s">"Head 1"</span><span class="o">,</span> <span class="s">"Head 2"</span><span class="o">,</span> <span class="s">"Head 3"</span><span class="o">,</span> <span class="s">"Head 4"</span><span class="o">,</span> <span class="s">"Head 5"</span><span class="o">,</span> <span class="s">"Head 6"</span><span class="o">,</span>
+                <span class="s">"Subtitle 1"</span><span class="o">,</span> <span class="s">"Subtitle 2"</span><span class="o">,</span> <span class="s">"Body 1"</span><span class="o">,</span> <span class="s">"Body 2"</span><span class="o">,</span>
+                <span class="s">"BUTTON TEXT"</span><span class="o">,</span> <span class="s">"Caption text"</span><span class="o">,</span> <span class="s">"OVERLINE TEXT"</span><span class="o">);</span>
 
-        <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">expectedTypographyClasses</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">"MuiTypography-h1"</span><span class="o">,</span> <span class="s">"MuiTypography-h2"</span><span class="o">,</span>
-                <span class="s">"MuiTypography-h3"</span><span class="o">,</span> <span class="s">"MuiTypography-h4"</span><span class="o">,</span> <span class="s">"MuiTypography-h5"</span><span class="o">,</span> <span class="s">"MuiTypography-h6"</span><span class="o">,</span>
-                <span class="s">"MuiTypography-subtitle1"</span><span class="o">,</span> <span class="s">"MuiTypography-subtitle2"</span><span class="o">,</span> <span class="s">"MuiTypography-body1"</span><span class="o">,</span> <span class="s">"MuiTypography-body2"</span><span class="o">,</span>
-                <span class="s">"MuiTypography-button"</span><span class="o">,</span> <span class="s">"MuiTypography-caption"</span><span class="o">,</span> <span class="s">"MuiTypography-overline"</span><span class="o">);</span>
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">actualTexts</span> <span class="o">=</span> <span class="n">typographyTexts</span><span class="o">.</span><span class="na">stream</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">map</span><span class="o">(</span><span class="nl">IsText:</span><span class="o">:</span><span class="n">getText</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">collect</span><span class="o">(</span><span class="n">Collectors</span><span class="o">.</span><span class="na">toList</span><span class="o">());</span>
 
-        <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">actualTextFields</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
-
-        <span class="k">for</span> <span class="o">(</span><span class="n">Text</span> <span class="n">typographyText</span> <span class="o">:</span> <span class="n">typographyTexts</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">actualTextFields</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">typographyText</span><span class="o">.</span><span class="na">getText</span><span class="o">());</span>
-        <span class="o">}</span>
-
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">typographyTexts</span><span class="o">.</span><span class="na">size</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="n">assertEquals</span><span class="o">(</span><span class="n">expectedTextFields</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">),</span> <span class="n">actualTextFields</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">));</span>
-            <span class="n">typographyTexts</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">classValue</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="n">expectedTypographyClasses</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">)));</span>
-        <span class="o">}</span>
+        <span class="n">jdiAssert</span><span class="o">(</span><span class="n">actualTexts</span><span class="o">,</span> <span class="n">equalTo</span><span class="o">(</span><span class="n">expectedText</span><span class="o">));</span>
     <span class="o">}</span>
-</code></pre><h5 id='https-material-ui-com-ru-components-typography'><a href="https://material-ui.com/ru/components/typography/" target="_blank"> https://material-ui.com/ru/components/typography/ </a></h5>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">typographyStylesTest</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">typographyTexts</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">has</span><span class="o">().</span><span class="na">style</span><span class="o">(</span><span class="n">HEAD_1</span><span class="o">);</span>
+
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">TypographyStyles</span><span class="o">&gt;</span> <span class="n">expectedStyles</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span>
+                <span class="n">HEAD_1</span><span class="o">,</span> <span class="n">HEAD_2</span><span class="o">,</span> <span class="n">HEAD_3</span><span class="o">,</span> <span class="n">HEAD_4</span><span class="o">,</span> <span class="n">HEAD_5</span><span class="o">,</span> <span class="n">HEAD_6</span><span class="o">,</span>
+                <span class="n">SUBTITLE_1</span><span class="o">,</span> <span class="n">SUBTITLE_2</span><span class="o">,</span> <span class="n">BODY_1</span><span class="o">,</span> <span class="n">BODY_2</span><span class="o">,</span>
+                <span class="n">BUTTON</span><span class="o">,</span> <span class="n">CAPTION</span><span class="o">,</span> <span class="n">OVERLINE</span><span class="o">);</span>
+
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">TypographyStyles</span><span class="o">&gt;</span> <span class="n">actualStyles</span> <span class="o">=</span> <span class="n">typographyTexts</span><span class="o">.</span><span class="na">stream</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">map</span><span class="o">(</span><span class="nl">Typography:</span><span class="o">:</span><span class="n">getStyle</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">collect</span><span class="o">(</span><span class="n">Collectors</span><span class="o">.</span><span class="na">toList</span><span class="o">());</span>
+
+        <span class="n">jdiAssert</span><span class="o">(</span><span class="n">actualStyles</span><span class="o">,</span> <span class="n">equalTo</span><span class="o">(</span><span class="n">expectedStyles</span><span class="o">));</span>
+    <span class="o">}</span>
+</code></pre><h5 id='https-mui-com-components-typography'><a href="https://mui.com/components/typography/" target="_blank"> https://mui.com/components/typography/ </a></h5>
+<p><img src="images/material-ui/Typography.png" alt="Typography" /></p>
+
 <p>Use typography to present your design and content as clearly and efficiently as possible.</p>
 
-<p><img src="images/material-ui/Typography.png" alt="Typography" /></p>
-<h5 id='here-you-can-find-typography-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/TypographyTests.java" target="_blank">Here you can find Typography tests</a></h5><h3 id='4-22-badge'>4.22 Badge</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//span[@class='MuiBadge-root']"</span><span class="o">)</span>
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>is()</strong></td>
+<td>Returns object for work with assertions</td>
+<td>TypographyAssert</td>
+</tr>
+<tr>
+<td><strong>getStyle()</strong></td>
+<td>Returns style of component</td>
+<td>TypographyStyles</td>
+</tr>
+<tr>
+<td><strong>getText()</strong></td>
+<td>Returns text of component</td>
+<td>String</td>
+</tr>
+</tbody></table>
+<h5 id='here-you-can-find-typography-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/TypographyTests.java" target="_blank">Here you can find Typography tests</a></h5><h3 id='4-22-badge'>4.22 Badge</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//span[@class='MuiBadge-root']"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Badge</span><span class="o">&gt;</span> <span class="n">badge</span><span class="o">;</span>
 
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"//span[contains(@class,'MuiBadge-badge')]"</span><span class="o">)</span>

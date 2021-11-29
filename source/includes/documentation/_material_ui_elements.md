@@ -1062,7 +1062,7 @@ Use typography to present your design and content as clearly and efficiently as 
 **getText()** | Returns text of component | String
 
 
-##### <a href="https://github.com/jdi-testing/jdi-light/blob/3529-rework-typography/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/TypographyTests.java" target="_blank">Here you can find Typography tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/TypographyTests.java" target="_blank">Here you can find Typography tests</a>
 
 ### 4.22 Badge
 

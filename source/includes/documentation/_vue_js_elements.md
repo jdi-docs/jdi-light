@@ -2011,10 +2011,6 @@ It is **necessary** to specify **the root** of an element. Also, if you work wit
     @Test
     public void testColorDatePicker() {
         Timer.waitCondition(() -> colorFirstDatePicker.isVisible());
-        String nextMonth = date.plusMonths(1).getMonth().toString().substring(0, 1)
-                + date.plusMonths(1).getMonth().toString().substring(1).toLowerCase();
-        String previousMonth = date.minusMonths(1).getMonth().toString().substring(0, 1)
-                + date.minusMonths(1).getMonth().toString().substring(1).toLowerCase();
         colorFirstDatePicker.has().date(date.format(formatterDow));
         colorFirstDatePicker.has().color(GREEN_COLOR_HEX);
         colorSecondDatePicker.has().color(BLUE_COLOR_HEX);
@@ -2036,11 +2032,6 @@ It is **necessary** to specify **the root** of an element. Also, if you work wit
         colorFirstDatePicker.changeYear();
         colorFirstDatePicker.selectYear(Integer.toString(currentYear + 100));
         colorFirstDatePicker.has().year(Integer.toString(currentYear + 100));
-        colorFirstDatePicker.changeYear();
-        colorFirstDatePicker.selectYear(Integer.toString(currentYear));
-        colorFirstDatePicker.changeYear();
-        colorFirstDatePicker.selectYear(Integer.toString(currentYear - 100));
-        colorFirstDatePicker.has().year(Integer.toString(currentYear - 100));
         colorFirstDatePicker.changeYearCornerButton();
         colorFirstDatePicker.selectYear(Integer.toString(currentYear));
         colorFirstDatePicker.has().year(Integer.toString(currentYear));
@@ -2067,7 +2058,7 @@ The v-date-picker is a fully featured date selection component that lets users s
 **getDayOfMonth(Locale locale)** | Gets day of month from top color field taking into account specific locale | String
 **getActiveDayOfMonth()** | Gets active day of month from date picker table | String
 **changeMonth()** | Clicks button to change month (the same as the field between arrow buttons) | void
-**selectMonth()** | Selects month after change month button is clicked | void
+**selectMonth(String month)** | Selects month after change month button is clicked | void
 **clickCancel()** | Clicks Cancel button (only for expandable date picker, in case this button exists) | void
 **clickOk()** | Clicks OK button (only for expandable date picker, in case this button exists) | void
 **changeYear()** | Clicks change year button (after month menu is appeared) | void

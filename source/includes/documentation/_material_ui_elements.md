@@ -1092,6 +1092,15 @@ Badge generates a small badge to the top-right of its child(ren).
 
 ![Badge](../../images/material-ui/Badge.png)
 
+|Method | Description | Return Type
+--- | --- | ---
+**is()** | Returns object for work with assertions | BadgeAssert
+**has()** | Returns object for work with assertions | BadgeAssert
+**getIcon()** | Returns element's component | UIElement
+**getCounterValue()** | Returns component's value| String
+**hasDot()** | Shows that element has component 'dot'| boolean
+**hasIconStatus(String)** | Shows that element has required color status| boolean
+
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/BadgeTests.java" target="_blank">Here you can find Badge tests</a>
 
 ### 4.23 Snackbars
@@ -1155,6 +1164,15 @@ Snackbars provide brief messages about app processes. The component is also know
 
 ![Snackbars](../../images/material-ui/Snackbars.png)
 
+|Method | Description | Return Type
+--- | --- | ---
+**is()** | Returns object for work with assertions | SnackbarAssert
+**snackbarButton(String)** | Returns element's button | UIElement
+**text()** | Returns component's text| String
+**close()** | Closes element| void
+**messageType(String)** | Shows that element's message has required type| boolean
+**position(String)** | Shows that element has required position| boolean
+
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/feedback/SnackbarTests.java" target="_blank">Here you can find Snackbars tests</a>
 
 ### 4.24 Backdrop
@@ -1179,6 +1197,10 @@ Snackbars provide brief messages about app processes. The component is also know
 
 The backdrop component is used to provide emphasis on a particular element or parts of it.
 ![Backdrop](../../images/material-ui/Backdrop.png)
+
+|Method | Description | Return Type
+--- | --- | ---
+**is()** | Returns object for work with assertions | BackdropAssert
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/feedback/BackdropTests.java" target="_blank">Here you can find Backdrop tests</a>
 
@@ -1227,45 +1249,57 @@ The backdrop component is used to provide emphasis on a particular element or pa
 Dialogs inform users about a task and can contain critical information, require decisions, or involve multiple tasks.
 ![Dialog](../../images/material-ui/Dialog.png)
 
+|Method | Description | Return Type
+--- | --- | ---
+**is()** | Returns object for work with assertions | BackdropAssert
+**snackbarButton(String)** | Returns element's button | UIElement
+**text()** | Returns component's text| String
+**close()** | Closes element| void
+**messageType(String)** | Shows that element's message has required type| boolean
+**position(String)** | Shows that element has required position| boolean
+
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/feedback/DialogTests.java" target="_blank">Here you can find Dialog tests</a>
 
 ### 4.26 Date / Time pickers
 
 ```java 
-    @JDropdown(
-            root = "//*[@id = 'date-picker-dialog-label']/parent::div",
-            value = "//*[@id ='date-picker-dialog']",
-            list = "//*[@id = 'date-picker-dialog-label']/parent::div /ancestor::body " +
-                    "//div[@class = 'MuiPickersBasePicker-pickerView']//p",
-            expand = "//span[@class = 'MuiIconButton-label']")
-    public static Dropdown dialogPicker;
+    @UI("//*[@id = 'date-picker-dialog-label']/parent::div")
+    public static DateTimePicker dialogPicker;
   
     @Test
     public void datePickerDialogTest() {
-        dialogPicker.iCore().label().has().text("Date picker dialog");
+        dialogPicker.has().title("Date picker dialog");
         dialogPicker.expand();
-        dialogPicker.select("12");
-        dialogPicker.command("ENTER");
-        timer.wait(() -> dialogPicker.has().text(containsString("/12/")));
+        dialogPicker.selectDate("12");
+        dialogPicker.confirm();
+        dialogPicker.has().text(containsString("/12/"));
 
         dialogPicker.expand();
-        dialogPicker.select("11");
-        dialogPicker.command("ESCAPE");
-        timer.wait(() -> dialogPicker.has().text("08/12/2014"));
+        dialogPicker.selectDate("11");
+        dialogPicker.cancel();
+        dialogPicker.has().text("08/12/2014");
 
-        dialogPicker.value().setText("10/10/2021");
+        dialogPicker.input("10/10/2021");
         dialogPicker.has().text("10/10/2021");
     }
 ```
 
 ##### <a href="https://material-ui.com/components/pickers/" target="_blank"> https://material-ui.com/components/pickers/ </a>
 
-Dropdown is located in the following class:
-
-- __Java__: _com.epam.jdi.light.elements.complex.dropdown.Dropdown_
-
 Date pickers and Time pickers provide a simple way to select a single value from a pre-determined set.
-![Dialog](../../images/material-ui/DateTimePickers.png)
+![DateTimePickers](../../images/material-ui/DateTimePickers.png)
+
+|Method | Description | Return Type
+--- | --- | ---
+**is()** | Returns object for work with assertions| DateTimePickerAssert
+**selectDate(String)** | Selects required date| void
+**expand()** | Expands element| void
+**cancel()** | Closes element without saving changes| void
+**confirm()** | Closes element with saving changes| void
+**input(String)** | Sets text in element's input field| void
+**title()** | Returns element's title| String
+**isExpanded()** | Shows that element is expanded| boolean
+**getText()** | Returns text from input field| String
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/DateTimePickersTests.java" target="_blank">Here you can find Date/Time Pickers tests</a>
 
@@ -1304,6 +1338,15 @@ Date pickers and Time pickers provide a simple way to select a single value from
 Select components are used for collecting user provided information from a list of options.
 ![Select](../../images/material-ui/Select.png)
 
+|Method | Description | Return Type
+--- | --- | ---
+**is()** | Returns object for work with assertions| SelectAssert
+**close()** | Closes element| void
+**select(String)** | Selects required value in element| void
+**selected()** | Returns value of selected element| String
+**getText()** | Returns value of selected element| String
+**text()** | Returns value of selected element| String
+
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/SelectTests.java" target="_blank">Here you can find Select tests</a>
 
 ### 4.28 Switch
@@ -1330,6 +1373,22 @@ Select components are used for collecting user provided information from a list 
 
 Switches toggle the state of a single setting on or off.
 ![Switch](../../images/material-ui/Switch.png)
+
+|Method | Description | Return Type
+--- | --- | ---
+**is()** | Returns object for work with assertions| SwitchAssert
+**has()** | Returns object for work with assertions| SwitchAssert
+**isTurnedOn()** | Shows that element turned on| boolean
+**isTurnedOff()** | Shows that element turned off| boolean
+**turnOn()** | Turns element on| void
+**turnOff()** | Turns element off| void
+**hasPrimaryColor()** | Shows that element has primary color| boolean
+**hasSecondaryColor()** | Shows that element has secondary color| boolean
+**hasUndefinedColor()** | Shows that element has undefined color| boolean
+**isDisabled()** | Shows that element is disabled| boolean
+**isEnabled()** | Shows that element is enabled| boolean
+**label()** | Returns element's label| Label
+**labelText()** | Returns label's text| String
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/SwitchTests.java" target="_blank">Here you can find Switch tests</a>
 
@@ -1494,13 +1553,13 @@ Most applicable methods:
 
 ```java 
     @UI(".MuiContainer-root")
-    public static UIElement rootGrid;
+    public static Grid rootGrid;
 
     @UI("//h2[text()='Complex grid']/preceding::div[contains(@class,'MuiGrid-spacing')]")
-    public static UIElement basicGrid;
+    public static Grid basicGrid;
 
     @UI("//h2[text()='Complex grid']/following::div[contains(@class,'MuiPaper-rounded')]/div[contains(@class,'MuiGrid-spacing')]")
-    public static UIElement complexGrid;
+    public static Grid complexGrid;
   
     @Test
     public void gridTest() {
@@ -1546,6 +1605,13 @@ The Grid List element - list of Material UI Grid elements.
 
 ![GridList](../../images/material-ui/GridList.png)
 
+|Method | Description | Return Type
+--- | --- | ---
+**is()** | Returns object for work with assertions| GridListAssert
+**hasImage(int)** | Shows that required element has image| boolean
+**getAltImgName(int)** | Returns required element's image alternative name| String
+**getTitle(int)** | Returns required element's title | String
+
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/GridListTests.java" target="_blank">Here you can find GridList tests</a>
 
 ### 4.33 Drawer
@@ -1584,6 +1650,11 @@ Navigation drawers provide access to destinations in your app. Side sheets are s
 
 ![Drawer](../../images/material-ui/Drawer.png)
 
+|Method | Description | Return Type
+--- | --- | ---
+**is()** | Returns object for work with assertions| DrawerAssert
+**isDisplayed()** | Shows that element is displayed| boolean
+
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/DrawerTests.java" target="_blank">Here you can find Drawer tests</a>
 
 ### 4.34 Breadcrumbs
@@ -1617,6 +1688,15 @@ Breadcrumbs allow users to make selections from a range of values.
 
 ![Breadcrumbs](../../images/material-ui/Breadcrumbs.png)
 
+|Method | Description | Return Type
+--- | --- | ---
+**click()** | Clicks on element| void
+**isDisplayed()** | Shows that element is displayed| boolean
+**getText()** | Returns element's text | String
+**list()** | Returns element's list | WebList
+**getIcons()** | Returns element's icon list | WebList
+**getSeparators()** | Returns element's separator list | WebList
+
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/BreadcrumbsTests.java" target="_blank">Here you can find Breadcrumbs tests</a>
 
 ### 4.35 Bottom Navigation
@@ -1637,7 +1717,6 @@ Breadcrumbs allow users to make selections from a range of values.
 
 Bottom navigation bars allow movement between primary destinations in an app.
 
-
 ![BottomNavigation](../../images/material-ui/BottomNavigation.png)
 
 |Method | Description | Return Type
@@ -1645,7 +1724,6 @@ Bottom navigation bars allow movement between primary destinations in an app.
 **is()** | Assert method | BottomNavigation Assert
 **isSelected** | Check if item is selected | boolean
 **isNotSelected()** | Check if item is not selected | boolean
-
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/BottomNavigationTests.java" target="_blank">Here you can find Bottom Navigation tests</a>
 
@@ -1672,6 +1750,10 @@ Bottom navigation bars allow movement between primary destinations in an app.
 In Material Design, the physical properties of paper are translated to the screen.
 
 ![Paper](../../images/material-ui/Paper.png)
+
+|Method | Description | Return Type
+--- | --- | ---
+**is()** | Returns object for work with assertions| TextAssert
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/surfaces/PaperTests.java" target="_blank">Here you can find Paper tests</a>
 
@@ -1701,6 +1783,10 @@ In Material Design, the physical properties of paper are translated to the scree
 Accordions contain creation flows and allow lightweight editing of an element.
 
 ![Accordion](../../images/material-ui/Accordion.png)
+
+|Method | Description | Return Type
+--- | --- | ---
+**isDisabled()** | Shows that element is disabled| boolean
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/surfaces/AccordionTests.java" target="_blank">Here you can find Accordion tests</a>
 
@@ -1739,6 +1825,12 @@ Accordions contain creation flows and allow lightweight editing of an element.
 The portal component renders its children into a new "subtree" outside of current DOM hierarchy.
 
 ![Portal](../../images/material-ui/Portal.png)
+
+|Method | Description | Return Type
+--- | --- | ---
+**is()** | Returns object for work with assertions| PortalAssert
+**field(int)** | Returns required element's field| UIElement
+**button()** | Returns element's button| UIElement
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/PortalTests.java" target="_blank">Here you can find Portal tests</a>
 
@@ -1803,13 +1895,17 @@ A Popover can be used to display some content on top of another.
 
 ![Popover](../../images/material-ui/Popover.png)
 
-##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui/src/main/java/com/epam/jdi/light/material/elements/utils/Popover.java" target="_blank">Here you can find Popover element</a>
+|Method | Description | Return Type
+--- | --- | ---
+**is()** | Returns object for work with assertions| PopoverAssert
+**button(String)** | Returns required element's button| UIElement
+
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/PopoverTests.java" target="_blank">Here you can find Popover tests</a>
 
 ### 4.41 Modal
 
 ```java 
-    @UI("div.jss2")
+    @UI("//*[@role='presentation' and not(@aria-hidden='true')]")
     public static Modal modal;
 
     @UI("button")
@@ -1817,11 +1913,15 @@ A Popover can be used to display some content on top of another.
     
     @Test
     public void modalTests() {
+    
         buttonModal.click();
         for (int i = 0; i <= 3; i++) {
-            modal.open().is().visible();
-            modal.has().title("Text in a modal").and().text(EXPECTED_TEXT);
+            modal.is().visible();
+            modal.title().has().text("Text in a modal");
+            modal.has().text(EXPECTED_TEXT);
+            modal.find("button").click();
         }
+
         for (int i = 0; i <= 4; i++) {
             modal.close();
         }
@@ -1834,6 +1934,13 @@ A Popover can be used to display some content on top of another.
 The modal component provides a solid foundation for creating dialogs, popovers, lightboxes, or whatever else.
 
 ![Modal](../../images/material-ui/Modal.png)
+
+|Method | Description | Return Type
+--- | --- | ---
+**is()** | Returns object for work with assertions| ModalAssert
+**getText()** | Returns element's text| String
+**title()** | Returns element's title| UIElement
+**close()** | Closes element| void
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/ModalTests.java" target="_blank">Here you can find Modal tests</a>
 
@@ -1863,7 +1970,12 @@ A Popper can be used to display some content on top of another. It's an alternat
 
 ![Popper](../../images/material-ui/Popper.png)
 
-##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui/src/main/java/com/epam/jdi/light/material/elements/utils/Popper.java" target="_blank">Here you can find Popper element</a>
+|Method | Description | Return Type
+--- | --- | ---
+**is()** | Returns object for work with assertions| PopperAssert
+**position()** | Returns element's position| String
+**popperButton(String)** | Returns required element's button| UIElement
+
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/PopperTests.java" target="_blank">Here you can find Popper tests</a>
 
 ### 4.43 Progress
@@ -1913,6 +2025,18 @@ ProgressBar is located in the following class:
 Progress indicators commonly known as spinners, express an unspecified wait time or display the length of a process. The animation works with CSS, not JavaScript.
 
 ![Progress](../../images/material-ui/Progress.png)
+
+|Method | Description | Return Type
+--- | --- | ---
+**is()** | Returns object for work with assertions| ProgressAssert
+**has()** | Returns object for work with assertions| ProgressAssert
+**getValueNow()** | Returns current element's value| int
+**getMaxValue()** | Returns element's max value| int
+**getMinValue()** | Returns element's min value| int
+**isIndeterminate()** | Shows that element is indeterminate| boolean
+**isDeterminate()** | Shows that element is determinate| boolean
+**isColorCorrect(String)** | Shows that element has required color| Boolean
+**bufferColors(String, String)** | Shows that element has required colors| Boolean
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/feedback/ProgressTests.java" target="_blank">Here you can find Progress tests</a>
 
@@ -2479,6 +2603,8 @@ Available methods in Java JDI Light:
 
 ![Form Props](../../images/material-ui/FormProps.png)
 
+You can find methods in `Text Field` element
+
 ### 4.49 Validation
 
 ```java 
@@ -2512,6 +2638,8 @@ Available methods in Java JDI Light:
 ##### <a href="https://material-ui.com/components/text-fields/#validation" target="_blank"> https://material-ui.com/components/text-fields/#validation </a>
 
 ![Validation](../../images/material-ui/Validation.png)
+
+You can find methods in `Text Field` element
 
 ### 4.50 Multiline
 
@@ -2553,6 +2681,8 @@ Available methods in Java JDI Light:
 ##### <a href="https://material-ui.com/components/text-fields/#multiline" target="_blank"> https://material-ui.com/components/text-fields/#multiline </a>
 
 ![Multiline](../../images/material-ui/Multiline.png)
+
+You can find methods in `Text Field` element
 
 ### 4.51 Select
 
@@ -2636,6 +2766,8 @@ Available methods in Java JDI Light:
 ##### <a href="https://material-ui.com/components/text-fields/#input-adornments" target="_blank"> https://material-ui.com/components/text-fields/#input-adornments </a>
 
 ![Input Adornments](../../images/material-ui/InputAdornments.png)
+
+You can find methods in `Text Field` element
 
 ### 4.53 UseMediaQuery
 

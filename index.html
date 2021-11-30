@@ -34967,6 +34967,45 @@ You can use for testing Text and Button classes, implemented in JDI-html section
 <p>Badge generates a small badge to the top-right of its child(ren).</p>
 
 <p><img src="images/material-ui/Badge.png" alt="Badge" /></p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>is()</strong></td>
+<td>Returns object for work with assertions</td>
+<td>BadgeAssert</td>
+</tr>
+<tr>
+<td><strong>has()</strong></td>
+<td>Returns object for work with assertions</td>
+<td>BadgeAssert</td>
+</tr>
+<tr>
+<td><strong>getIcon()</strong></td>
+<td>Returns element&#39;s component</td>
+<td>UIElement</td>
+</tr>
+<tr>
+<td><strong>getCounterValue()</strong></td>
+<td>Returns component&#39;s value</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>hasDot()</strong></td>
+<td>Shows that element has component &#39;dot&#39;</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>hasIconStatus(String)</strong></td>
+<td>Shows that element has required color status</td>
+<td>boolean</td>
+</tr>
+</tbody></table>
 <h5 id='here-you-can-find-badge-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/BadgeTests.java" target="_blank">Here you can find Badge tests</a></h5><h3 id='4-23-snackbars'>4.23 Snackbars</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//span[text()='Open simple snackbar']/parent::button"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">Button</span> <span class="n">simpleSnackbarButton</span><span class="o">;</span>
 
@@ -35021,6 +35060,45 @@ You can use for testing Text and Button classes, implemented in JDI-html section
 <p>Snackbars provide brief messages about app processes. The component is also known as a toast.</p>
 
 <p><img src="images/material-ui/Snackbars.png" alt="Snackbars" /></p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>is()</strong></td>
+<td>Returns object for work with assertions</td>
+<td>SnackbarAssert</td>
+</tr>
+<tr>
+<td><strong>snackbarButton(String)</strong></td>
+<td>Returns element&#39;s button</td>
+<td>UIElement</td>
+</tr>
+<tr>
+<td><strong>text()</strong></td>
+<td>Returns component&#39;s text</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>close()</strong></td>
+<td>Closes element</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>messageType(String)</strong></td>
+<td>Shows that element&#39;s message has required type</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>position(String)</strong></td>
+<td>Shows that element has required position</td>
+<td>boolean</td>
+</tr>
+</tbody></table>
 <h5 id='here-you-can-find-snackbars-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/feedback/SnackbarTests.java" target="_blank">Here you can find Snackbars tests</a></h5><h3 id='4-24-backdrop'>4.24 Backdrop</h3><pre class="highlight java tab-java"><code>  <span class="nd">@UI</span><span class="o">(</span><span class="s">".MuiButton-root"</span><span class="o">)</span>
   <span class="kd">public</span> <span class="kd">static</span> <span class="n">Button</span> <span class="n">showBackdropButton</span><span class="o">;</span>
 
@@ -35037,6 +35115,20 @@ You can use for testing Text and Button classes, implemented in JDI-html section
 </code></pre><h5 id='https-material-ui-com-components-backdrop'><a href="https://material-ui.com/components/backdrop/" target="_blank"> https://material-ui.com/components/backdrop/ </a></h5>
 <p>The backdrop component is used to provide emphasis on a particular element or parts of it.
 <img src="images/material-ui/Backdrop.png" alt="Backdrop" /></p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>is()</strong></td>
+<td>Returns object for work with assertions</td>
+<td>BackdropAssert</td>
+</tr>
+</tbody></table>
 <h5 id='here-you-can-find-backdrop-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/feedback/BackdropTests.java" target="_blank">Here you can find Backdrop tests</a></h5><h3 id='4-25-dialog'>4.25 Dialog</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//span[text()='Open simple dialog']/parent::*[contains(@class,'MuiButtonBase-root')]"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">Button</span> <span class="n">simpleDialogButton</span><span class="o">;</span>
 
@@ -35075,39 +35167,121 @@ You can use for testing Text and Button classes, implemented in JDI-html section
 </code></pre><h5 id='https-material-ui-com-components-dialogs'><a href="https://material-ui.com/components/dialogs/" target="_blank"> https://material-ui.com/components/dialogs/ </a></h5>
 <p>Dialogs inform users about a task and can contain critical information, require decisions, or involve multiple tasks.
 <img src="images/material-ui/Dialog.png" alt="Dialog" /></p>
-<h5 id='here-you-can-find-dialog-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/feedback/DialogTests.java" target="_blank">Here you can find Dialog tests</a></h5><h3 id='4-26-date-time-pickers'>4.26 Date / Time pickers</h3><pre class="highlight java tab-java"><code>    <span class="nd">@JDropdown</span><span class="o">(</span>
-            <span class="n">root</span> <span class="o">=</span> <span class="s">"//*[@id = 'date-picker-dialog-label']/parent::div"</span><span class="o">,</span>
-            <span class="n">value</span> <span class="o">=</span> <span class="s">"//*[@id ='date-picker-dialog']"</span><span class="o">,</span>
-            <span class="n">list</span> <span class="o">=</span> <span class="s">"//*[@id = 'date-picker-dialog-label']/parent::div /ancestor::body "</span> <span class="o">+</span>
-                    <span class="s">"//div[@class = 'MuiPickersBasePicker-pickerView']//p"</span><span class="o">,</span>
-            <span class="n">expand</span> <span class="o">=</span> <span class="s">"//span[@class = 'MuiIconButton-label']"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Dropdown</span> <span class="n">dialogPicker</span><span class="o">;</span>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>is()</strong></td>
+<td>Returns object for work with assertions</td>
+<td>BackdropAssert</td>
+</tr>
+<tr>
+<td><strong>snackbarButton(String)</strong></td>
+<td>Returns element&#39;s button</td>
+<td>UIElement</td>
+</tr>
+<tr>
+<td><strong>text()</strong></td>
+<td>Returns component&#39;s text</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>close()</strong></td>
+<td>Closes element</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>messageType(String)</strong></td>
+<td>Shows that element&#39;s message has required type</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>position(String)</strong></td>
+<td>Shows that element has required position</td>
+<td>boolean</td>
+</tr>
+</tbody></table>
+<h5 id='here-you-can-find-dialog-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/feedback/DialogTests.java" target="_blank">Here you can find Dialog tests</a></h5><h3 id='4-26-date-time-pickers'>4.26 Date / Time pickers</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//*[@id = 'date-picker-dialog-label']/parent::div"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">DateTimePicker</span> <span class="n">dialogPicker</span><span class="o">;</span>
 
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">datePickerDialogTest</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">dialogPicker</span><span class="o">.</span><span class="na">iCore</span><span class="o">().</span><span class="na">label</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Date picker dialog"</span><span class="o">);</span>
+        <span class="n">dialogPicker</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">title</span><span class="o">(</span><span class="s">"Date picker dialog"</span><span class="o">);</span>
         <span class="n">dialogPicker</span><span class="o">.</span><span class="na">expand</span><span class="o">();</span>
-        <span class="n">dialogPicker</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="s">"12"</span><span class="o">);</span>
-        <span class="n">dialogPicker</span><span class="o">.</span><span class="na">command</span><span class="o">(</span><span class="s">"ENTER"</span><span class="o">);</span>
-        <span class="n">timer</span><span class="o">.</span><span class="na">wait</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">dialogPicker</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"/12/"</span><span class="o">)));</span>
+        <span class="n">dialogPicker</span><span class="o">.</span><span class="na">selectDate</span><span class="o">(</span><span class="s">"12"</span><span class="o">);</span>
+        <span class="n">dialogPicker</span><span class="o">.</span><span class="na">confirm</span><span class="o">();</span>
+        <span class="n">dialogPicker</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">containsString</span><span class="o">(</span><span class="s">"/12/"</span><span class="o">));</span>
 
         <span class="n">dialogPicker</span><span class="o">.</span><span class="na">expand</span><span class="o">();</span>
-        <span class="n">dialogPicker</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="s">"11"</span><span class="o">);</span>
-        <span class="n">dialogPicker</span><span class="o">.</span><span class="na">command</span><span class="o">(</span><span class="s">"ESCAPE"</span><span class="o">);</span>
-        <span class="n">timer</span><span class="o">.</span><span class="na">wait</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">dialogPicker</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"08/12/2014"</span><span class="o">));</span>
+        <span class="n">dialogPicker</span><span class="o">.</span><span class="na">selectDate</span><span class="o">(</span><span class="s">"11"</span><span class="o">);</span>
+        <span class="n">dialogPicker</span><span class="o">.</span><span class="na">cancel</span><span class="o">();</span>
+        <span class="n">dialogPicker</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"08/12/2014"</span><span class="o">);</span>
 
-        <span class="n">dialogPicker</span><span class="o">.</span><span class="na">value</span><span class="o">().</span><span class="na">setText</span><span class="o">(</span><span class="s">"10/10/2021"</span><span class="o">);</span>
+        <span class="n">dialogPicker</span><span class="o">.</span><span class="na">input</span><span class="o">(</span><span class="s">"10/10/2021"</span><span class="o">);</span>
         <span class="n">dialogPicker</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"10/10/2021"</span><span class="o">);</span>
     <span class="o">}</span>
 </code></pre><h5 id='https-material-ui-com-components-pickers'><a href="https://material-ui.com/components/pickers/" target="_blank"> https://material-ui.com/components/pickers/ </a></h5>
-<p>Dropdown is located in the following class:</p>
-
-<ul>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.elements.complex.dropdown.Dropdown</em></li>
-</ul>
-
 <p>Date pickers and Time pickers provide a simple way to select a single value from a pre-determined set.
-<img src="images/material-ui/DateTimePickers.png" alt="Dialog" /></p>
+<img src="images/material-ui/DateTimePickers.png" alt="DateTimePickers" /></p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>is()</strong></td>
+<td>Returns object for work with assertions</td>
+<td>DateTimePickerAssert</td>
+</tr>
+<tr>
+<td><strong>selectDate(String)</strong></td>
+<td>Selects required date</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>expand()</strong></td>
+<td>Expands element</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>cancel()</strong></td>
+<td>Closes element without saving changes</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>confirm()</strong></td>
+<td>Closes element with saving changes</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>input(String)</strong></td>
+<td>Sets text in element&#39;s input field</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>title()</strong></td>
+<td>Returns element&#39;s title</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>isExpanded()</strong></td>
+<td>Shows that element is expanded</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>getText()</strong></td>
+<td>Returns text from input field</td>
+<td>String</td>
+</tr>
+</tbody></table>
 <h5 id='here-you-can-find-date-time-pickers-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/DateTimePickersTests.java" target="_blank">Here you can find Date/Time Pickers tests</a></h5><h3 id='4-27-select'>4.27 Select</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div[@id='simple-select']"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">Button</span> <span class="n">simpleSelectExpand</span><span class="o">;</span>
 
@@ -35136,6 +35310,45 @@ You can use for testing Text and Button classes, implemented in JDI-html section
 </code></pre><h5 id='https-material-ui-com-components-selects'><a href="https://material-ui.com/components/selects/" target="_blank"> https://material-ui.com/components/selects/ </a></h5>
 <p>Select components are used for collecting user provided information from a list of options.
 <img src="images/material-ui/Select.png" alt="Select" /></p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>is()</strong></td>
+<td>Returns object for work with assertions</td>
+<td>SelectAssert</td>
+</tr>
+<tr>
+<td><strong>close()</strong></td>
+<td>Closes element</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>select(String)</strong></td>
+<td>Selects required value in element</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>selected()</strong></td>
+<td>Returns value of selected element</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>getText()</strong></td>
+<td>Returns value of selected element</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>text()</strong></td>
+<td>Returns value of selected element</td>
+<td>String</td>
+</tr>
+</tbody></table>
 <h5 id='here-you-can-find-select-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/SelectTests.java" target="_blank">Here you can find Select tests</a></h5><h3 id='4-28-switch'>4.28 Switch</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//span[contains(@class,'MuiSwitch-switchBase')]"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Checkbox</span><span class="o">&gt;</span> <span class="n">switches</span><span class="o">;</span>
 
@@ -35154,6 +35367,80 @@ You can use for testing Text and Button classes, implemented in JDI-html section
 </code></pre><h5 id='https-material-ui-com-components-switches'><a href="https://material-ui.com/components/switches/" target="_blank"> https://material-ui.com/components/switches/ </a></h5>
 <p>Switches toggle the state of a single setting on or off.
 <img src="images/material-ui/Switch.png" alt="Switch" /></p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>is()</strong></td>
+<td>Returns object for work with assertions</td>
+<td>SwitchAssert</td>
+</tr>
+<tr>
+<td><strong>has()</strong></td>
+<td>Returns object for work with assertions</td>
+<td>SwitchAssert</td>
+</tr>
+<tr>
+<td><strong>isTurnedOn()</strong></td>
+<td>Shows that element turned on</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isTurnedOff()</strong></td>
+<td>Shows that element turned off</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>turnOn()</strong></td>
+<td>Turns element on</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>turnOff()</strong></td>
+<td>Turns element off</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>hasPrimaryColor()</strong></td>
+<td>Shows that element has primary color</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>hasSecondaryColor()</strong></td>
+<td>Shows that element has secondary color</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>hasUndefinedColor()</strong></td>
+<td>Shows that element has undefined color</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isDisabled()</strong></td>
+<td>Shows that element is disabled</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isEnabled()</strong></td>
+<td>Shows that element is enabled</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>label()</strong></td>
+<td>Returns element&#39;s label</td>
+<td>Label</td>
+</tr>
+<tr>
+<td><strong>labelText()</strong></td>
+<td>Returns label&#39;s text</td>
+<td>String</td>
+</tr>
+</tbody></table>
 <h5 id='here-you-can-find-switch-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/SwitchTests.java" target="_blank">Here you can find Switch tests</a></h5><h3 id='4-29-button'>4.29 Button</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h2[text()='Contained buttons']/parent::div/div[1]/*"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Button</span><span class="o">&gt;</span> <span class="n">containedButtons</span><span class="o">;</span>
 
@@ -35327,13 +35614,13 @@ You can use for testing Text and Button classes, implemented in JDI-html section
 <h5 id='here-you-can-find-button-group-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/ButtonGroupTests.java" target="_blank">Here you can find Button group tests</a></h5>
 <p><br></br><br></br></p>
 <h3 id='4-31-grid'>4.31 Grid</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">".MuiContainer-root"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">UIElement</span> <span class="n">rootGrid</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Grid</span> <span class="n">rootGrid</span><span class="o">;</span>
 
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h2[text()='Complex grid']/preceding::div[contains(@class,'MuiGrid-spacing')]"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">UIElement</span> <span class="n">basicGrid</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Grid</span> <span class="n">basicGrid</span><span class="o">;</span>
 
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"//h2[text()='Complex grid']/following::div[contains(@class,'MuiPaper-rounded')]/div[contains(@class,'MuiGrid-spacing')]"</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">UIElement</span> <span class="n">complexGrid</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Grid</span> <span class="n">complexGrid</span><span class="o">;</span>
 
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">gridTest</span><span class="o">()</span> <span class="o">{</span>
@@ -35366,6 +35653,35 @@ You can use for testing Text and Button classes, implemented in JDI-html section
 <p>The Grid List element - list of Material UI Grid elements.</p>
 
 <p><img src="images/material-ui/GridList.png" alt="GridList" /></p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>is()</strong></td>
+<td>Returns object for work with assertions</td>
+<td>GridListAssert</td>
+</tr>
+<tr>
+<td><strong>hasImage(int)</strong></td>
+<td>Shows that required element has image</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>getAltImgName(int)</strong></td>
+<td>Returns required element&#39;s image alternative name</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>getTitle(int)</strong></td>
+<td>Returns required element&#39;s title</td>
+<td>String</td>
+</tr>
+</tbody></table>
 <h5 id='here-you-can-find-gridlist-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/GridListTests.java" target="_blank">Here you can find GridList tests</a></h5><h3 id='4-33-drawer'>4.33 Drawer</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"[type=button]"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Button</span><span class="o">&gt;</span> <span class="n">temporaryDrawerButtons</span><span class="o">;</span>
 
@@ -35395,6 +35711,25 @@ You can use for testing Text and Button classes, implemented in JDI-html section
 <p>Navigation drawers provide access to destinations in your app. Side sheets are surfaces containing supplementary content that are anchored to the left or right edge of the screen.</p>
 
 <p><img src="images/material-ui/Drawer.png" alt="Drawer" /></p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>is()</strong></td>
+<td>Returns object for work with assertions</td>
+<td>DrawerAssert</td>
+</tr>
+<tr>
+<td><strong>isDisplayed()</strong></td>
+<td>Shows that element is displayed</td>
+<td>boolean</td>
+</tr>
+</tbody></table>
 <h5 id='here-you-can-find-drawer-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/DrawerTests.java" target="_blank">Here you can find Drawer tests</a></h5><h3 id='4-34-breadcrumbs'>4.34 Breadcrumbs</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">".MuiBreadcrumbs-li"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">UIElement</span><span class="o">&gt;</span> <span class="n">breadcrumbs</span><span class="o">;</span>
 
@@ -35419,6 +35754,45 @@ You can use for testing Text and Button classes, implemented in JDI-html section
 <p>Breadcrumbs allow users to make selections from a range of values.</p>
 
 <p><img src="images/material-ui/Breadcrumbs.png" alt="Breadcrumbs" /></p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>click()</strong></td>
+<td>Clicks on element</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>isDisplayed()</strong></td>
+<td>Shows that element is displayed</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>getText()</strong></td>
+<td>Returns element&#39;s text</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>list()</strong></td>
+<td>Returns element&#39;s list</td>
+<td>WebList</td>
+</tr>
+<tr>
+<td><strong>getIcons()</strong></td>
+<td>Returns element&#39;s icon list</td>
+<td>WebList</td>
+</tr>
+<tr>
+<td><strong>getSeparators()</strong></td>
+<td>Returns element&#39;s separator list</td>
+<td>WebList</td>
+</tr>
+</tbody></table>
 <h5 id='here-you-can-find-breadcrumbs-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/BreadcrumbsTests.java" target="_blank">Here you can find Breadcrumbs tests</a></h5><h3 id='4-35-bottom-navigation'>4.35 Bottom Navigation</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">".MuiBottomNavigationAction-root"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">BottomNavigation</span> <span class="n">bottomNavigationItems</span><span class="o">;</span>
 
@@ -35473,6 +35847,20 @@ You can use for testing Text and Button classes, implemented in JDI-html section
 <p>In Material Design, the physical properties of paper are translated to the screen.</p>
 
 <p><img src="images/material-ui/Paper.png" alt="Paper" /></p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>is()</strong></td>
+<td>Returns object for work with assertions</td>
+<td>TextAssert</td>
+</tr>
+</tbody></table>
 <h5 id='here-you-can-find-paper-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/surfaces/PaperTests.java" target="_blank">Here you can find Paper tests</a></h5><h3 id='4-37-accordion'>4.37 Accordion</h3><pre class="highlight java tab-java"><code>    <span class="nd">@JDropdown</span><span class="o">(</span>
             <span class="n">root</span> <span class="o">=</span> <span class="s">".MuiAccordion-root[1]"</span><span class="o">,</span>
             <span class="n">value</span> <span class="o">=</span> <span class="s">".MuiButtonBase-root.MuiAccordionSummary-root"</span><span class="o">,</span>
@@ -35493,6 +35881,20 @@ You can use for testing Text and Button classes, implemented in JDI-html section
 <p>Accordions contain creation flows and allow lightweight editing of an element.</p>
 
 <p><img src="images/material-ui/Accordion.png" alt="Accordion" /></p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>isDisabled()</strong></td>
+<td>Shows that element is disabled</td>
+<td>boolean</td>
+</tr>
+</tbody></table>
 <h5 id='here-you-can-find-accordion-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/surfaces/AccordionTests.java" target="_blank">Here you can find Accordion tests</a></h5><h3 id='4-38-portal'>4.38 Portal</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//button"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">Button</span> <span class="n">button</span><span class="o">;</span>
 
@@ -35522,6 +35924,30 @@ You can use for testing Text and Button classes, implemented in JDI-html section
 <p>The portal component renders its children into a new &quot;subtree&quot; outside of current DOM hierarchy.</p>
 
 <p><img src="images/material-ui/Portal.png" alt="Portal" /></p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>is()</strong></td>
+<td>Returns object for work with assertions</td>
+<td>PortalAssert</td>
+</tr>
+<tr>
+<td><strong>field(int)</strong></td>
+<td>Returns required element&#39;s field</td>
+<td>UIElement</td>
+</tr>
+<tr>
+<td><strong>button()</strong></td>
+<td>Returns element&#39;s button</td>
+<td>UIElement</td>
+</tr>
+</tbody></table>
 <h5 id='here-you-can-find-portal-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/PortalTests.java" target="_blank">Here you can find Portal tests</a></h5><h3 id='4-39-textarea-autosize'>4.39 Textarea Autosize</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//textarea[@aria-label = 'empty textarea']"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">TextArea</span> <span class="n">emptyTextArea</span><span class="o">;</span>
 
@@ -35567,7 +35993,26 @@ You can use for testing Text and Button classes, implemented in JDI-html section
 <p>A Popover can be used to display some content on top of another.</p>
 
 <p><img src="images/material-ui/Popover.png" alt="Popover" /></p>
-<h5 id='here-you-can-find-popover-element'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui/src/main/java/com/epam/jdi/light/material/elements/utils/Popover.java" target="_blank">Here you can find Popover element</a></h5><h5 id='here-you-can-find-popover-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/PopoverTests.java" target="_blank">Here you can find Popover tests</a></h5><h3 id='4-41-modal'>4.41 Modal</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"div.jss2"</span><span class="o">)</span>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>is()</strong></td>
+<td>Returns object for work with assertions</td>
+<td>PopoverAssert</td>
+</tr>
+<tr>
+<td><strong>button(String)</strong></td>
+<td>Returns required element&#39;s button</td>
+<td>UIElement</td>
+</tr>
+</tbody></table>
+<h5 id='here-you-can-find-popover-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/PopoverTests.java" target="_blank">Here you can find Popover tests</a></h5><h3 id='4-41-modal'>4.41 Modal</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//*[@role='presentation' and not(@aria-hidden='true')]"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">Modal</span> <span class="n">modal</span><span class="o">;</span>
 
     <span class="nd">@UI</span><span class="o">(</span><span class="s">"button"</span><span class="o">)</span>
@@ -35575,11 +36020,15 @@ You can use for testing Text and Button classes, implemented in JDI-html section
 
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">modalTests</span><span class="o">()</span> <span class="o">{</span>
+
         <span class="n">buttonModal</span><span class="o">.</span><span class="na">click</span><span class="o">();</span>
         <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">3</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="n">modal</span><span class="o">.</span><span class="na">open</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">visible</span><span class="o">();</span>
-            <span class="n">modal</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">title</span><span class="o">(</span><span class="s">"Text in a modal"</span><span class="o">).</span><span class="na">and</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">EXPECTED_TEXT</span><span class="o">);</span>
+            <span class="n">modal</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">visible</span><span class="o">();</span>
+            <span class="n">modal</span><span class="o">.</span><span class="na">title</span><span class="o">().</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Text in a modal"</span><span class="o">);</span>
+            <span class="n">modal</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">EXPECTED_TEXT</span><span class="o">);</span>
+            <span class="n">modal</span><span class="o">.</span><span class="na">find</span><span class="o">(</span><span class="s">"button"</span><span class="o">).</span><span class="na">click</span><span class="o">();</span>
         <span class="o">}</span>
+
         <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">4</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
             <span class="n">modal</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
         <span class="o">}</span>
@@ -35589,6 +36038,35 @@ You can use for testing Text and Button classes, implemented in JDI-html section
 <p>The modal component provides a solid foundation for creating dialogs, popovers, lightboxes, or whatever else.</p>
 
 <p><img src="images/material-ui/Modal.png" alt="Modal" /></p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>is()</strong></td>
+<td>Returns object for work with assertions</td>
+<td>ModalAssert</td>
+</tr>
+<tr>
+<td><strong>getText()</strong></td>
+<td>Returns element&#39;s text</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>title()</strong></td>
+<td>Returns element&#39;s title</td>
+<td>UIElement</td>
+</tr>
+<tr>
+<td><strong>close()</strong></td>
+<td>Closes element</td>
+<td>void</td>
+</tr>
+</tbody></table>
 <h5 id='here-you-can-find-modal-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/ModalTests.java" target="_blank">Here you can find Modal tests</a></h5><h3 id='4-42-popper'>4.42 Popper</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"[role='tooltip']"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">Popper</span> <span class="n">popper</span><span class="o">;</span>
 
@@ -35608,7 +36086,31 @@ You can use for testing Text and Button classes, implemented in JDI-html section
 <p>A Popper can be used to display some content on top of another. It&#39;s an alternative to react-popper.</p>
 
 <p><img src="images/material-ui/Popper.png" alt="Popper" /></p>
-<h5 id='here-you-can-find-popper-element'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui/src/main/java/com/epam/jdi/light/material/elements/utils/Popper.java" target="_blank">Here you can find Popper element</a></h5><h5 id='here-you-can-find-popper-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/PopperTests.java" target="_blank">Here you can find Popper tests</a></h5><h3 id='4-43-progress'>4.43 Progress</h3><pre class="highlight java tab-java"><code>    <span class="nd">@JDIProgressBar</span><span class="o">(</span><span class="n">root</span> <span class="o">=</span><span class="s">"(//*[contains(@class, 'MuiCircularProgress-root')])[1]"</span><span class="o">)</span>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>is()</strong></td>
+<td>Returns object for work with assertions</td>
+<td>PopperAssert</td>
+</tr>
+<tr>
+<td><strong>position()</strong></td>
+<td>Returns element&#39;s position</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>popperButton(String)</strong></td>
+<td>Returns required element&#39;s button</td>
+<td>UIElement</td>
+</tr>
+</tbody></table>
+<h5 id='here-you-can-find-popper-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/PopperTests.java" target="_blank">Here you can find Popper tests</a></h5><h3 id='4-43-progress'>4.43 Progress</h3><pre class="highlight java tab-java"><code>    <span class="nd">@JDIProgressBar</span><span class="o">(</span><span class="n">root</span> <span class="o">=</span><span class="s">"(//*[contains(@class, 'MuiCircularProgress-root')])[1]"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">ProgressBar</span> <span class="n">circularIndeterminate</span><span class="o">;</span>
 
     <span class="nd">@JDIProgressBar</span><span class="o">(</span><span class="n">root</span> <span class="o">=</span><span class="s">"(//*[contains(@class, 'MuiCircularProgress-root')])[6]"</span><span class="o">)</span>
@@ -35649,6 +36151,60 @@ You can use for testing Text and Button classes, implemented in JDI-html section
 <p>Progress indicators commonly known as spinners, express an unspecified wait time or display the length of a process. The animation works with CSS, not JavaScript.</p>
 
 <p><img src="images/material-ui/Progress.png" alt="Progress" /></p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>is()</strong></td>
+<td>Returns object for work with assertions</td>
+<td>ProgressAssert</td>
+</tr>
+<tr>
+<td><strong>has()</strong></td>
+<td>Returns object for work with assertions</td>
+<td>ProgressAssert</td>
+</tr>
+<tr>
+<td><strong>getValueNow()</strong></td>
+<td>Returns current element&#39;s value</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>getMaxValue()</strong></td>
+<td>Returns element&#39;s max value</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>getMinValue()</strong></td>
+<td>Returns element&#39;s min value</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>isIndeterminate()</strong></td>
+<td>Shows that element is indeterminate</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isDeterminate()</strong></td>
+<td>Shows that element is determinate</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isColorCorrect(String)</strong></td>
+<td>Shows that element has required color</td>
+<td>Boolean</td>
+</tr>
+<tr>
+<td><strong>bufferColors(String, String)</strong></td>
+<td>Shows that element has required colors</td>
+<td>Boolean</td>
+</tr>
+</tbody></table>
 <h5 id='here-you-can-find-progress-tests'><a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/feedback/ProgressTests.java" target="_blank">Here you can find Progress tests</a></h5><h3 id='4-44-link'>4.44 Link</h3><pre class="highlight java tab-java"><code>    <span class="nd">@Css</span><span class="o">(</span><span class="s">"div a[href='#link2']"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">Link</span> <span class="n">inheritColorLink</span><span class="o">;</span>
 
@@ -36341,6 +36897,8 @@ You can use for testing Text and Button classes, implemented in JDI-html section
     <span class="o">}</span>
 </code></pre><h5 id='https-material-ui-com-components-text-fields-form-props'><a href="https://material-ui.com/components/text-fields/#form-props" target="_blank"> https://material-ui.com/components/text-fields/#form-props </a></h5>
 <p><img src="images/material-ui/FormProps.png" alt="Form Props" /></p>
+
+<p>You can find methods in <code>Text Field</code> element</p>
 <h3 id='4-49-validation'>4.49 Validation</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//input[@id='filled-error']"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="n">TextField</span> <span class="n">textFieldFilledError</span><span class="o">;</span>
 
@@ -36368,6 +36926,8 @@ You can use for testing Text and Button classes, implemented in JDI-html section
     <span class="o">}</span>
 </code></pre><h5 id='https-material-ui-com-components-text-fields-validation'><a href="https://material-ui.com/components/text-fields/#validation" target="_blank"> https://material-ui.com/components/text-fields/#validation </a></h5>
 <p><img src="images/material-ui/Validation.png" alt="Validation" /></p>
+
+<p>You can find methods in <code>Text Field</code> element</p>
 <h3 id='4-50-multiline'>4.50 Multiline</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//textarea[@id='outlined-multiline-flexible']"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="n">TextField</span> <span class="n">textFieldMultiLine</span><span class="o">;</span>
 
@@ -36402,6 +36962,8 @@ You can use for testing Text and Button classes, implemented in JDI-html section
     <span class="o">}</span>
 </code></pre><h5 id='https-material-ui-com-components-text-fields-multiline'><a href="https://material-ui.com/components/text-fields/#multiline" target="_blank"> https://material-ui.com/components/text-fields/#multiline </a></h5>
 <p><img src="images/material-ui/Multiline.png" alt="Multiline" /></p>
+
+<p>You can find methods in <code>Text Field</code> element</p>
 <h3 id='4-51-select'>4.51 Select</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//div[contains(@class, 'MuiSelect-selectMenu')]"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="n">TextField</span> <span class="n">selectElementField</span><span class="o">;</span>
 
@@ -36481,6 +37043,8 @@ You can use for testing Text and Button classes, implemented in JDI-html section
     <span class="o">}</span>
 </code></pre><h5 id='https-material-ui-com-components-text-fields-input-adornments'><a href="https://material-ui.com/components/text-fields/#input-adornments" target="_blank"> https://material-ui.com/components/text-fields/#input-adornments </a></h5>
 <p><img src="images/material-ui/InputAdornments.png" alt="Input Adornments" /></p>
+
+<p>You can find methods in <code>Text Field</code> element</p>
 <h3 id='4-53-usemediaquery'>4.53 UseMediaQuery</h3><pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"//span[contains(.,'min-width')]"</span><span class="o">)</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">Text</span> <span class="n">useMediaQueryText</span><span class="o">;</span>
 

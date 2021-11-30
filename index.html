@@ -1175,6 +1175,9 @@
 										              <li>
 										              <a href="#5-31-1-time-pickers" class="toc-h3 h4 toc-link" data-title="5.31.1 Time pickers">5.31.1 Time pickers</a>
 										              </li>
+										              <li>
+										              <a href="#5-31-2-date-pickers" class="toc-h3 h4 toc-link" data-title="5.31.2 Date pickers">5.31.2 Date pickers</a>
+										              </li>
 									            </ul>
                           </li>
                           <li>
@@ -39744,6 +39747,250 @@ It offers the user a visual representation for selecting the time.</p>
 <p>TimePickers have also a lot of list-based JDI elements methods.</p>
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/TimePickersTests.java">JDI Vuetify TimePickers tests</a>.</p>
+<h4 id='5-31-2-date-pickers'>5.31.2 Date pickers</h4>
+<p><a href="https://vuetifyjs.com/en/components/date-pickers/">Vuetify documentation page</a></p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.vuetify.elements.complex.DatePicker.java</em></li>
+</ul>
+<pre class="highlight java tab-java"><code>    <span class="nd">@JDatePicker</span><span class="o">(</span>
+            <span class="n">root</span> <span class="o">=</span> <span class="s">"#ColorsDatePicker &gt; div:nth-child(1)"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">DatePicker</span> <span class="n">colorFirstDatePicker</span><span class="o">;</span>
+
+    <span class="nd">@JDatePicker</span><span class="o">(</span>
+            <span class="n">root</span> <span class="o">=</span> <span class="s">"#MultipleDatePicker &gt; div:nth-child(2)"</span><span class="o">,</span>
+            <span class="n">expandedRoot</span> <span class="o">=</span> <span class="s">"#app &gt; div.v-menu__content.theme--light.menuable__content__active"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">DatePicker</span> <span class="n">multipleInMenuDatePicker</span><span class="o">;</span>
+</code></pre>
+<p>It is <strong>necessary</strong> to specify <strong>the root</strong> of an element. Also, if you work with expandable date pickers (such as active pickers, dialog and menu pickers etc), you have to define <strong>expandedRoot</strong>. This is the root of element after expansion is done.</p>
+<pre class="highlight java tab-java"><code>    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testColorDatePicker</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">Timer</span><span class="o">.</span><span class="na">waitCondition</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">colorFirstDatePicker</span><span class="o">.</span><span class="na">isVisible</span><span class="o">());</span>
+        <span class="n">colorFirstDatePicker</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">date</span><span class="o">(</span><span class="n">date</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="n">formatterDow</span><span class="o">));</span>
+        <span class="n">colorFirstDatePicker</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">color</span><span class="o">(</span><span class="n">GREEN_COLOR_HEX</span><span class="o">);</span>
+        <span class="n">colorSecondDatePicker</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">color</span><span class="o">(</span><span class="n">BLUE_COLOR_HEX</span><span class="o">);</span>
+        <span class="n">colorFirstDatePicker</span><span class="o">.</span><span class="na">selectDay</span><span class="o">(</span><span class="n">Integer</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">CHOSEN_DAY</span><span class="o">));</span>
+        <span class="n">colorFirstDatePicker</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">dayOfMonth</span><span class="o">(</span><span class="n">Integer</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">CHOSEN_DAY</span><span class="o">));</span>
+        <span class="n">colorFirstDatePicker</span><span class="o">.</span><span class="na">selectDay</span><span class="o">(</span><span class="n">Integer</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">CHOSEN_DAY_TWO</span><span class="o">));</span>
+        <span class="n">colorFirstDatePicker</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">dayOfMonth</span><span class="o">(</span><span class="n">Integer</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">CHOSEN_DAY_TWO</span><span class="o">));</span>
+        <span class="n">colorFirstDatePicker</span><span class="o">.</span><span class="na">selectDay</span><span class="o">(</span><span class="n">Integer</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">CHOSEN_DAY_THREE</span><span class="o">));</span>
+        <span class="n">colorFirstDatePicker</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">dayOfMonth</span><span class="o">(</span><span class="n">Integer</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">CHOSEN_DAY_THREE</span><span class="o">));</span>
+        <span class="n">colorFirstDatePicker</span><span class="o">.</span><span class="na">nextMonth</span><span class="o">();</span>
+        <span class="n">colorFirstDatePicker</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">month</span><span class="o">(</span><span class="n">nextMonth</span><span class="o">);</span>
+        <span class="n">colorFirstDatePicker</span><span class="o">.</span><span class="na">previousMonth</span><span class="o">();</span>
+        <span class="n">colorFirstDatePicker</span><span class="o">.</span><span class="na">previousMonth</span><span class="o">();</span>
+        <span class="n">colorFirstDatePicker</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">month</span><span class="o">(</span><span class="n">previousMonth</span><span class="o">);</span>
+        <span class="n">colorFirstDatePicker</span><span class="o">.</span><span class="na">changeMonth</span><span class="o">();</span>
+        <span class="n">colorFirstDatePicker</span><span class="o">.</span><span class="na">selectMonth</span><span class="o">(</span><span class="n">CHOSEN_MONTH</span><span class="o">);</span>
+        <span class="n">colorFirstDatePicker</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">month</span><span class="o">(</span><span class="n">CHOSEN_MONTH</span><span class="o">);</span>
+        <span class="n">colorFirstDatePicker</span><span class="o">.</span><span class="na">changeMonth</span><span class="o">();</span>
+        <span class="n">colorFirstDatePicker</span><span class="o">.</span><span class="na">changeYear</span><span class="o">();</span>
+        <span class="n">colorFirstDatePicker</span><span class="o">.</span><span class="na">selectYear</span><span class="o">(</span><span class="n">Integer</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">currentYear</span> <span class="o">+</span> <span class="mi">100</span><span class="o">));</span>
+        <span class="n">colorFirstDatePicker</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">year</span><span class="o">(</span><span class="n">Integer</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">currentYear</span> <span class="o">+</span> <span class="mi">100</span><span class="o">));</span>
+        <span class="n">colorFirstDatePicker</span><span class="o">.</span><span class="na">changeYearCornerButton</span><span class="o">();</span>
+        <span class="n">colorFirstDatePicker</span><span class="o">.</span><span class="na">selectYear</span><span class="o">(</span><span class="n">Integer</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">currentYear</span><span class="o">));</span>
+        <span class="n">colorFirstDatePicker</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">year</span><span class="o">(</span><span class="n">Integer</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">currentYear</span><span class="o">));</span>
+    <span class="o">}</span>
+</code></pre>
+<p>The v-date-picker is a fully featured date selection component that lets users select a date, or range of dates.</p>
+
+<p><img src="images/vuetify/date_pickers.png" alt="DatePickers example" /></p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>expand()</strong></td>
+<td>Expands date picker (if this is expandable date picker)</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>nextMonth()</strong></td>
+<td>Clicks right arrow button (next month)</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>previousMonth()</strong></td>
+<td>Clicks left arrow button (previous month)</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>selectDay(String day)</strong></td>
+<td>Selects day of month</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>getMonthAndYear()</strong></td>
+<td>Gets month and year (from the field between arrow buttons)</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>getMonth()</strong></td>
+<td>Gets month (from the field between arrow buttons)</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>getMonth(Locale locale)</strong></td>
+<td>Gets month (from the field between arrow buttons) taking into account specific locale</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>getYear()</strong></td>
+<td>Gets year (from the field between arrow buttons)</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>getYear(Locale locale)</strong></td>
+<td>Gets year (from the field between arrow buttons) taking into account specific locale</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>getDate()</strong></td>
+<td>Gets date from top color field</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>getDayOfMonth()</strong></td>
+<td>Gets day of month from top color field</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>getDayOfMonth(Locale locale)</strong></td>
+<td>Gets day of month from top color field taking into account specific locale</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>getActiveDayOfMonth()</strong></td>
+<td>Gets active day of month from date picker table</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>changeMonth()</strong></td>
+<td>Clicks button to change month (the same as the field between arrow buttons)</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>selectMonth(String month)</strong></td>
+<td>Selects month after change month button is clicked</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>clickCancel()</strong></td>
+<td>Clicks Cancel button (only for expandable date picker, in case this button exists)</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>clickOk()</strong></td>
+<td>Clicks OK button (only for expandable date picker, in case this button exists)</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>changeYear()</strong></td>
+<td>Clicks change year button (after month menu is appeared)</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>selectYear(String year)</strong></td>
+<td>Selects year (after change year button is clicked)</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>getResultDate()</strong></td>
+<td>Gets result date (only for expandable date picker), this is the date appearing after expandable part is closed</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>clear()</strong></td>
+<td>Clears result date (only for writable expandable date picker)</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>setDate(String date)</strong></td>
+<td>Sets result date (only for writable expandable date picker)</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>changeYearCornerButton()</strong></td>
+<td>Clicks change year button (small button in top left corner)</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>getColor()</strong></td>
+<td>Gets color of top color field</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>getDisabledDates()</strong></td>
+<td>Gets list of all disabled dates</td>
+<td>List<String></td>
+</tr>
+<tr>
+<td><strong>getEnabledDates()</strong></td>
+<td>Gets list of all enabled dates</td>
+<td>List<String></td>
+</tr>
+<tr>
+<td><strong>getElevation()</strong></td>
+<td>Gets picker elevation value</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>getAllActiveDaysOfMonth()</strong></td>
+<td>Gets list of all active days of month (to check multiple and range date picker)</td>
+<td>List<String></td>
+</tr>
+<tr>
+<td><strong>getShownMultipleDates()</strong></td>
+<td>Gets list of shown multiple dates (for multiple picker in menu)</td>
+<td>List<String></td>
+</tr>
+<tr>
+<td><strong>getPickerWidth()</strong></td>
+<td>Gets picker width</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>doubleClickDay(String date)</strong></td>
+<td>Double clicks the date</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>hoverMonth(String month)</strong></td>
+<td>Hovers month</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>rightClickYear(String year)</strong></td>
+<td>Right clicks year</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>switchOrientation()</strong></td>
+<td>Switches orientation (clicks Landscape checkbox)</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>getColorFieldWidth()</strong></td>
+<td>Gets width of color field</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>getColorFieldHeight()</strong></td>
+<td>Gets height of color field</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>has()/is()</strong></td>
+<td>Returns Assert class</td>
+<td>DatePickerAssert</td>
+</tr>
+</tbody></table>
+
+<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/DatePickersTests.java">JDI Vuetify DatePickers tests</a>.</p>
 <h3 id='5-32-lazy'>5.32 Lazy</h3>
 <p><a href="https://vuetifyjs.com/en/components/lazy/">Vuetify documentation page</a></p>
 

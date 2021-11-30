@@ -828,6 +828,65 @@ Text area components are used for collecting large amounts of textual data.
 
 For examples of usage see: [JDI Vuetify Text areas tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/TextAreasTests.java).
 
+
+#### 5.12.7 Radio buttons
+
+[Vuetify documentation page](https://jdi-testing.github.io/jdi-light/vuetify/radio-buttons/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.common.RadioButton.java_
+
+```java
+    @Test
+public void selectTest() {
+  colorLeftRadioButtons.select("indigo");
+  colorLeftRadioButtons.is().selected("indigo");
+  colorRightRadioButtons.select("success");
+  colorRightRadioButtons.is().selected("success");
+  }
+
+@Test
+public void getValueTest() {
+  directionRadioButtons.has().value("Option 1");
+  directionRadioButtons.has().value("Option 2");
+  }
+
+@Test
+public void selectEnumTest() {
+  colorLeftRadioButtons.select(RadioTestData.indigo);
+  colorLeftRadioButtons.is().selected(RadioTestData.indigo);
+  colorLeftRadioButtons.select(RadioTestData.orange);
+  colorLeftRadioButtons.is().selected(RadioTestData.orange);
+  colorLeftRadioButtons.select(RadioTestData.red);
+  colorLeftRadioButtons.is().selected(RadioTestData.red);
+  }
+
+@Test
+public void mandatoryTest() {
+  mandatoryRadioButtons.select("Radio 2");
+  mandatoryText.is().text("radio-2");
+  }
+
+@Test
+public void labelTest() {
+  labelRadioButtons.has().value("Of course it's Google");
+  labelRadioButtons.has().text("Definitely Duckduckgo");
+  }
+```
+![Radiobuttons example](../../images/vuetify/radiobuttons.png)
+
+Radio button -  a simple component that can be combined into groups, have different colors and html elements in a label
+
+|Method | Description | Return Type
+--- | --- | ---
+**select(String/int/Enum)** | Select radiobutton by value/index | void
+**labelText()** | Gets the text of a label | String
+**selected()** | Get selected radiobutton value | String
+**values()** | Returns list of values | List
+**is()** | Assert action | UISelectAssert
+**has()** | Assert action | UISelectAssert
+
+For examples of usage see: [JDI Vuetify Radiobuttons tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/RadioButtonsTests.java).
+
 ### 5.13 Groups 
 
 #### 5.13.1 Button Groups

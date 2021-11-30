@@ -77,7 +77,26 @@ For examples of usage see: [JDI vuetify page tests for banners](https://github.c
 
 ### 5.4 Bars
 
-#### 5.4.1 App Bars
+#### 5.4.1 Basic bar
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.complex.bars.BasicBar.java_
+
+Basic bar is an abstract class that contains methods that are common for its specific realisations such as App Bar, Tool Bar and System Bar following below.
+
+|Method | Description | Return Type
+--- | --- | ---
+**hasMenuButton()** | Returns true if element contains 'Menu' button | boolean
+**hasTitle()** | Returns true if element has title | boolean
+**hasHiddenTitle()** | Returns true if element's title is hidden | boolean
+**hasSearchButton()** | Returns true if element contains 'Search' button | boolean
+**hasHeartButton()** | Returns true if element contains 'Heart' button | boolean
+**hasVerticalDotsButton** | Returns true if element contains 'Vertical Dots' button | boolean
+**titleText** | Returns text of element's title | String
+**clickOnMenuButton** | Clicks on 'Menu' button | void
+**clickOnVerticalDotsButton** | Clicks on 'Vertical Dots' button | void
+
+
+#### 5.4.2 App Bars
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/app-bars/)
 
@@ -106,12 +125,25 @@ For examples of usage see: [JDI vuetify page tests for banners](https://github.c
 
 ![App bars example](../../images/vuetify/app-bars.png)
 
-The app bar component is pivotal to any graphical user interface (GUI), as it generally is the primary source of site navigation.
+App bar component extends abstract class Basic Bar. It is pivotal to any graphical user interface (GUI), as it generally is the primary source of site navigation.
+
+|Method | Description | Return Type
+--- | --- | ---
+**checkbox()** | Returns checkbox containing in the element | Checkbox
+**hasCheckbox()** | Returns true if element contains checkbox | boolean
+**hasClickableTabs()** | Returns true if element has clickable tabs | boolean
+**hasHiddenHeader()** | Returns true if element's header is hidden | boolean
+**hasVisibleHeader()** | Returns true if element's header is visible | boolean
+**getHeaderHeight()** | Returns element's header's height | String
+**getHeaderOpacity** | Returns element's header's opacity | Integer
+**hasHiddenHeaderShadow** | Returns true if element's header's shadow is hidden | boolean
+**hasVisibleHeaderShadow** | Returns true if element's header's shadow is visible | boolean
+**hasNavigationMenu** | Returns true if element contains navigation menu | void
 
 
 For examples of usage see: [JDI vuetify page tests for app bars](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/AppBarsTests.java).
 
-#### 5.4.2 Toolbars
+#### 5.4.3 Toolbars
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/toolbars/)
 
@@ -138,7 +170,7 @@ The toolbar component is pivotal to any gui, as it generally is the primary sour
 
 For examples of usage see: [JDI vuetify page tests for toolbars](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ToolBarsTests.java).
 
-#### 5.4.3 System bars
+#### 5.4.4 System bars
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/system-bars/)
 

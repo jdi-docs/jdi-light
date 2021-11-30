@@ -1988,6 +1988,111 @@ TimePickers have also a lot of list-based JDI elements methods.
 
 For examples of usage see: [JDI Vuetify TimePickers tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/TimePickersTests.java).
 
+#### 5.31.2 Date pickers
+
+[Vuetify documentation page](https://vuetifyjs.com/en/components/date-pickers/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.complex.DatePicker.java_
+
+```java
+    @JDatePicker(
+            root = "#ColorsDatePicker > div:nth-child(1)")
+    public static DatePicker colorFirstDatePicker;
+
+    @JDatePicker(
+            root = "#MultipleDatePicker > div:nth-child(2)",
+            expandedRoot = "#app > div.v-menu__content.theme--light.menuable__content__active")
+    public static DatePicker multipleInMenuDatePicker;
+```
+
+It is **necessary** to specify **the root** of an element. Also, if you work with expandable date pickers (such as active pickers, dialog and menu pickers etc), you have to define **expandedRoot**. This is the root of element after expansion is done.
+
+```java
+    @Test
+    public void testColorDatePicker() {
+        Timer.waitCondition(() -> colorFirstDatePicker.isVisible());
+        String nextMonth = date.plusMonths(1).getMonth().toString().substring(0, 1)
+                + date.plusMonths(1).getMonth().toString().substring(1).toLowerCase();
+        String previousMonth = date.minusMonths(1).getMonth().toString().substring(0, 1)
+                + date.minusMonths(1).getMonth().toString().substring(1).toLowerCase();
+        colorFirstDatePicker.has().date(date.format(formatterDow));
+        colorFirstDatePicker.has().color(GREEN_COLOR_HEX);
+        colorSecondDatePicker.has().color(BLUE_COLOR_HEX);
+        colorFirstDatePicker.selectDay(Integer.toString(CHOSEN_DAY));
+        colorFirstDatePicker.has().dayOfMonth(Integer.toString(CHOSEN_DAY));
+        colorFirstDatePicker.selectDay(Integer.toString(CHOSEN_DAY_TWO));
+        colorFirstDatePicker.has().dayOfMonth(Integer.toString(CHOSEN_DAY_TWO));
+        colorFirstDatePicker.selectDay(Integer.toString(CHOSEN_DAY_THREE));
+        colorFirstDatePicker.has().dayOfMonth(Integer.toString(CHOSEN_DAY_THREE));
+        colorFirstDatePicker.nextMonth();
+        colorFirstDatePicker.has().month(nextMonth);
+        colorFirstDatePicker.previousMonth();
+        colorFirstDatePicker.previousMonth();
+        colorFirstDatePicker.has().month(previousMonth);
+        colorFirstDatePicker.changeMonth();
+        colorFirstDatePicker.selectMonth(CHOSEN_MONTH);
+        colorFirstDatePicker.has().month(CHOSEN_MONTH);
+        colorFirstDatePicker.changeMonth();
+        colorFirstDatePicker.changeYear();
+        colorFirstDatePicker.selectYear(Integer.toString(currentYear + 100));
+        colorFirstDatePicker.has().year(Integer.toString(currentYear + 100));
+        colorFirstDatePicker.changeYear();
+        colorFirstDatePicker.selectYear(Integer.toString(currentYear));
+        colorFirstDatePicker.changeYear();
+        colorFirstDatePicker.selectYear(Integer.toString(currentYear - 100));
+        colorFirstDatePicker.has().year(Integer.toString(currentYear - 100));
+        colorFirstDatePicker.changeYearCornerButton();
+        colorFirstDatePicker.selectYear(Integer.toString(currentYear));
+        colorFirstDatePicker.has().year(Integer.toString(currentYear));
+    }
+```
+
+The v-date-picker is a fully featured date selection component that lets users select a date, or range of dates.
+
+![DatePickers example](../../images/vuetify/date_pickers.png)
+
+|Method | Description | Return Type
+--- | --- | ---
+**expand()** | Expands date picker (if this is expandable date picker) | void
+**nextMonth()** | Clicks right arrow button (next month) | void
+**previousMonth()** | Clicks left arrow button (previous month) | void
+**selectDay(String day)** | Selects day of month | void
+**getMonthAndYear()** | Gets month and year (from the field between arrow buttons) | String
+**getMonth()** | Gets month (from the field between arrow buttons) | String
+**getMonth(Locale locale)** | Gets month (from the field between arrow buttons) taking into account specific locale | String
+**getYear()** | Gets year (from the field between arrow buttons) | String
+**getYear(Locale locale)** | Gets year (from the field between arrow buttons) taking into account specific locale | String
+**getDate()** | Gets date from top color field | String
+**getDayOfMonth()** | Gets day of month from top color field | String
+**getDayOfMonth(Locale locale)** | Gets day of month from top color field taking into account specific locale | String
+**getActiveDayOfMonth()** | Gets active day of month from date picker table | String
+**changeMonth()** | Clicks button to change month (the same as the field between arrow buttons) | void
+**selectMonth()** | Selects month after change month button is clicked | void
+**clickCancel()** | Clicks Cancel button (only for expandable date picker, in case this button exists) | void
+**clickOk()** | Clicks OK button (only for expandable date picker, in case this button exists) | void
+**changeYear()** | Clicks change year button (after month menu is appeared) | void
+**selectYear(String year)** | Selects year (after change year button is clicked) | void
+**getResultDate()** | Gets result date (only for expandable date picker), this is the date appearing after expandable part is closed | String
+**clear()** | Clears result date (only for writable expandable date picker) | void
+**setDate(String date)** | Sets result date (only for writable expandable date picker) | void
+**changeYearCornerButton()** | Clicks change year button (small button in top left corner) | void
+**getColor()** | Gets color of top color field | String
+**getDisabledDates()** | Gets list of all disabled dates | List<String>
+**getEnabledDates()** | Gets list of all enabled dates | List<String>
+**getElevation()** | Gets picker elevation value | String
+**getAllActiveDaysOfMonth()** | Gets list of all active days of month (to check multiple and range date picker) | List<String>
+**getShownMultipleDates()** | Gets list of shown multiple dates (for multiple picker in menu) | List<String>
+**getPickerWidth()** | Gets picker width | int
+**doubleClickDay(String date)** | Double clicks the date | void
+**hoverMonth(String month)** | Hovers month | void
+**rightClickYear(String year)** | Right clicks year | void
+**switchOrientation()** | Switches orientation (clicks Landscape checkbox) | void
+**getColorFieldWidth()** | Gets width of color field | int
+**getColorFieldHeight()** | Gets height of color field | int
+**has()/is()** | Returns Assert class | DatePickerAssert
+
+For examples of usage see: [JDI Vuetify DatePickers tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/DatePickersTests.java).
+
 ### 5.32 Lazy
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/lazy/)

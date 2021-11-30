@@ -887,10 +887,6 @@ Radio button -  a simple component that can be combined into groups, have differ
 
 For examples of usage see: [JDI Vuetify Radiobuttons tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/RadioButtonsTests.java).
 
-
-
-
-
 ### 5.13 Groups 
 
 #### 5.13.1 Button Groups

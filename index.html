@@ -1077,6 +1077,9 @@
 										              <li>
 										              <a href="#5-12-6-text-areas" class="toc-h3 h4 toc-link" data-title="5.12.6 Text areas">5.12.6 Text areas</a>
 										              </li>
+										              <li>
+										              <a href="#5-12-7-radio-buttons" class="toc-h3 h4 toc-link" data-title="5.12.7 Radio buttons">5.12.7 Radio buttons</a>
+										              </li>
 									            </ul>
                           </li>
                           <li>
@@ -38410,6 +38413,92 @@ They are ideal for adjusting settings such as volume, brightness, or applying im
 </tbody></table>
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/TextAreasTests.java">JDI Vuetify Text areas tests</a>.</p>
+<h4 id='5-12-7-radio-buttons'>5.12.7 Radio buttons</h4>
+<p><a href="https://jdi-testing.github.io/jdi-light/vuetify/radio-buttons/">Vuetify documentation page</a></p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.vuetify.elements.common.RadioButton.java</em></li>
+</ul>
+<pre class="highlight java tab-java"><code>    <span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">selectTest</span><span class="o">()</span> <span class="o">{</span>
+  <span class="n">colorLeftRadioButtons</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="s">"indigo"</span><span class="o">);</span>
+  <span class="n">colorLeftRadioButtons</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="s">"indigo"</span><span class="o">);</span>
+  <span class="n">colorRightRadioButtons</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="s">"success"</span><span class="o">);</span>
+  <span class="n">colorRightRadioButtons</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="s">"success"</span><span class="o">);</span>
+  <span class="o">}</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">getValueTest</span><span class="o">()</span> <span class="o">{</span>
+  <span class="n">directionRadioButtons</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="s">"Option 1"</span><span class="o">);</span>
+  <span class="n">directionRadioButtons</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="s">"Option 2"</span><span class="o">);</span>
+  <span class="o">}</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">selectEnumTest</span><span class="o">()</span> <span class="o">{</span>
+  <span class="n">colorLeftRadioButtons</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">RadioTestData</span><span class="o">.</span><span class="na">indigo</span><span class="o">);</span>
+  <span class="n">colorLeftRadioButtons</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="n">RadioTestData</span><span class="o">.</span><span class="na">indigo</span><span class="o">);</span>
+  <span class="n">colorLeftRadioButtons</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">RadioTestData</span><span class="o">.</span><span class="na">orange</span><span class="o">);</span>
+  <span class="n">colorLeftRadioButtons</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="n">RadioTestData</span><span class="o">.</span><span class="na">orange</span><span class="o">);</span>
+  <span class="n">colorLeftRadioButtons</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">RadioTestData</span><span class="o">.</span><span class="na">red</span><span class="o">);</span>
+  <span class="n">colorLeftRadioButtons</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="n">RadioTestData</span><span class="o">.</span><span class="na">red</span><span class="o">);</span>
+  <span class="o">}</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">mandatoryTest</span><span class="o">()</span> <span class="o">{</span>
+  <span class="n">mandatoryRadioButtons</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="s">"Radio 2"</span><span class="o">);</span>
+  <span class="n">mandatoryText</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"radio-2"</span><span class="o">);</span>
+  <span class="o">}</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">labelTest</span><span class="o">()</span> <span class="o">{</span>
+  <span class="n">labelRadioButtons</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">value</span><span class="o">(</span><span class="s">"Of course it's Google"</span><span class="o">);</span>
+  <span class="n">labelRadioButtons</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"Definitely Duckduckgo"</span><span class="o">);</span>
+  <span class="o">}</span>
+</code></pre>
+<p><img src="images/vuetify/radiobuttons.png" alt="Radiobuttons example" /></p>
+
+<p>Radio button -  a simple component that can be combined into groups, have different colors and html elements in a label</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>select(String/int/Enum)</strong></td>
+<td>Select radiobutton by value/index</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>labelText()</strong></td>
+<td>Gets the text of a label</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>selected()</strong></td>
+<td>Get selected radiobutton value</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>values()</strong></td>
+<td>Returns list of values</td>
+<td>List</td>
+</tr>
+<tr>
+<td><strong>is()</strong></td>
+<td>Assert action</td>
+<td>UISelectAssert</td>
+</tr>
+<tr>
+<td><strong>has()</strong></td>
+<td>Assert action</td>
+<td>UISelectAssert</td>
+</tr>
+</tbody></table>
+
+<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/RadioButtonsTests.java">JDI Vuetify Radiobuttons tests</a>.</p>
 <h3 id='5-13-groups'>5.13 Groups</h3><h4 id='5-13-1-button-groups'>5.13.1 Button Groups</h4><pre class="highlight java tab-java"><code><span class="nd">@JDIButtonGroup</span><span class="o">(</span>
         <span class="n">root</span> <span class="o">=</span> <span class="s">"#RoundedButtonGroup .v-item-group"</span><span class="o">,</span> <span class="n">buttons</span> <span class="o">=</span> <span class="s">"//*[@type = 'button']"</span>
 <span class="o">)</span> <span class="c1">// buttons search strategy is custom</span>

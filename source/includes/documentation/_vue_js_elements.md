@@ -887,6 +887,57 @@ Radio button -  a simple component that can be combined into groups, have differ
 
 For examples of usage see: [JDI Vuetify Radiobuttons tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/RadioButtonsTests.java).
 
+#### 5.12.8 Combobox
+
+[Vuetify documentation page](https://jdi-testing.github.io/jdi-light/vuetify/combobox/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.complex.Combobox.java_
+
+```java
+    @Test
+public void baseFunctionalityTest() {
+  List<String> testValueList = Arrays.asList("Programming", "Design", "Vue", "Vuetify");
+
+  denseCombobox.expand();
+  denseCombobox.is().expanded();
+  denseCombobox.close();
+  denseCombobox.is().closed();
+  denseCombobox.is().label("Combobox");
+  denseCombobox.select("Design");
+  denseCombobox.select("Vue");
+  denseCombobox.is().selected(testValueList);
+  denseCombobox.unselect(testValueList);
+  denseCombobox.is().notSelected(testValueList);
+  }
+
+@Test
+public void noDataWithChipsComboboxTest() {
+  List<String> list = Arrays.asList("Gaming", "Programming", "Vue");
+  String message = "Maximum of 5 tags";
+  String firstTestWord = "Test";
+  String secondTestWord = "Not to add";
+
+  noDataWithChipsCombobox.is().message(message);
+  noDataWithChipsCombobox.select(list);
+  noDataWithChipsCombobox.sendKeys(firstTestWord);
+  noDataWithChipsCombobox.sendKeys(secondTestWord);
+  noDataWithChipsCombobox.is().notSelected(secondTestWord);
+  }
+```
+![Combobox example](../../images/vuetify/combobox.png)
+The combobox component allows the user to enter values that do not exist within the provided items.
+
+|Method | Description | Return Type
+--- | --- | ---
+**select(String/List<String>)** | Select values from list | void
+**unselect(String/List<String>)** | Unselect values from list | void
+**sendKeys(String keys)** | Enter values that do not exist in list | void
+**isExpanded()** | Returns true if list of values is open | boolean
+**isSelected(String, list<String>)** | Returns true if values is selected | boolean
+**is()** | Assert action | ComboboxAssert
+
+For examples of usage see: [JDI Vuetify Combobox tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ComboboxTest.java).
+
 ### 5.13 Groups 
 
 #### 5.13.1 Button Groups

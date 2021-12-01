@@ -37070,6 +37070,25 @@ You can use for testing Text and Button classes, implemented in JDI-html section
 
 <p><img src="images/vuetify/alerts.png" alt="Alerts example" /></p>
 
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>is()</strong></td>
+<td>Returns Assert class</td>
+<td>TextAssert</td>
+</tr>
+<tr>
+<td><strong>getValue()</strong></td>
+<td>Returns element value</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/3118-implement-alerts/jdi-light-vuetify-tests/src/main/java/io/github/com/custom/CustomAlert.java">Custom vuetify alert example</a>
 and <a href="https://github.com/jdi-testing/jdi-light/blob/3118-implement-alerts/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/AlertsTests.java">JDI vuetify page tests for alerts</a>.</p>
 <h3 id='5-2-avatars'>5.2 Avatars</h3>
@@ -37092,6 +37111,50 @@ and <a href="https://github.com/jdi-testing/jdi-light/blob/3118-implement-alerts
     <span class="o">}</span>
 </code></pre>
 <p><img src="images/vuetify/avatars.png" alt="Avatars example" /></p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>is()</strong></td>
+<td>Returns Assert class</td>
+<td>AvatarAssert</td>
+</tr>
+<tr>
+<td><strong>has()</strong></td>
+<td>Returns Assert class</td>
+<td>AvatarAssert</td>
+</tr>
+<tr>
+<td><strong>getPhoto()</strong></td>
+<td>Returns element&#39;s photo</td>
+<td>UIElement</td>
+</tr>
+<tr>
+<td><strong>getIcon()</strong></td>
+<td>Returns element&#39;s icon</td>
+<td>UIElement</td>
+</tr>
+<tr>
+<td><strong>hasPhoto()</strong></td>
+<td>Shows that element has photo</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>hasIcon()</strong></td>
+<td>Shows that element has icon</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>hasSize()</strong></td>
+<td>Returns element&#39;s size</td>
+<td>String</td>
+</tr>
+</tbody></table>
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/main/java/io/github/com/custom/ProfileCard.java">Custom vuetify avatar example (profile card)</a>
 and <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/AvatarsTests.java">JDI vuetify page tests for avatars</a>.</p>
@@ -37119,6 +37182,100 @@ and <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-l
 the way you want.</p>
 
 <p>Basically, you have methods that can return you elements containing in banner (buttons, checkers, icons, etc.).</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>is()</strong></td>
+<td>Returns Assert class</td>
+<td>BannerAssert</td>
+</tr>
+<tr>
+<td><strong>has()</strong></td>
+<td>Returns Assert class</td>
+<td>BannerAssert</td>
+</tr>
+<tr>
+<td><strong>hasHiddenTextField()</strong></td>
+<td>Shows that element&#39;s text field is hidden</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>hasText()</strong></td>
+<td>Returns element&#39;s text</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>hasTitle()</strong></td>
+<td>Returns element&#39;s title</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>hasChecker()</strong></td>
+<td>Shows that element has &#39;checker&#39; element</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>hasIcon()</strong></td>
+<td>Shows that element has icon</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>hasAlertOnIconClick()</strong></td>
+<td>Returns element&#39;s icon alert message</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>hasButtons()</strong></td>
+<td>Returns number of element&#39;s buttons</td>
+<td>int</td>
+</tr>
+<tr>
+<td><strong>hasVisibleButtons()</strong></td>
+<td>Shows that element&#39;s buttons are visible</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>hasHiddenButtons()</strong></td>
+<td>Shows that element&#39;s buttons are hidden</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>hasCheckerChecked()</strong></td>
+<td>Shows that element&#39;s checker is checked</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>hasCheckerUnchecked()</strong></td>
+<td>Shows that element&#39;s checker is unchecked</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>checkerCheck()</strong></td>
+<td>Checks element&#39;s checker</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>checkerUnCheck()</strong></td>
+<td>Unchecks element&#39;s checker</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>handleAlert()</strong></td>
+<td>Dismisses element&#39;s alert</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>clickOnIcon()</strong></td>
+<td>Clicks on element&#39;s icon</td>
+<td>void</td>
+</tr>
+</tbody></table>
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/BannersTests.java">JDI vuetify page tests for banners</a>.</p>
 <h3 id='5-4-bars'>5.4 Bars</h3><h4 id='5-4-1-basic-bar'>5.4.1 Basic bar</h4>
@@ -37570,6 +37727,60 @@ You can inherit the class and define the inner content of the sheet.</p>
 </code></pre>
 <p><img src="images/vuetify/bottom-sheet.png" alt="Bottom sheet example" /></p>
 
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>is()</strong></td>
+<td>Returns Assert class</td>
+<td>BottomNavigationAssert</td>
+</tr>
+<tr>
+<td><strong>getBackgroundColor()</strong></td>
+<td>Returns element&#39;s background color</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>getClassAttribute()</strong></td>
+<td>Returns element&#39;s class attribute</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>getTransform()</strong></td>
+<td>Returns element&#39;s transform</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>bottomNavigationButtonList()</strong></td>
+<td>Returns element&#39;s buttons</td>
+<td>WebList</td>
+</tr>
+<tr>
+<td><strong>getButtonColor(int)</strong></td>
+<td>Returns color of required element&#39;s button</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>getButtonWight(int)</strong></td>
+<td>Returns width of required element&#39;s button</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>getButtonDirection(int)</strong></td>
+<td>Returns direction of required element&#39;s button</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>getButtonText(int)</strong></td>
+<td>Returns text of required element&#39;s button</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/composite/BottomSheetsTests.java">Vuetify Bottom sheets tests</a>.</p>
 <h3 id='5-7-breadcrumbs'>5.7 Breadcrumbs</h3>
 <p><a href="https://vuetifyjs.com/en/components/breadcrumbs/">Vuetify documentation page</a></p>
@@ -37601,6 +37812,35 @@ explicitly through a <code>JDIBreadcrumbs</code> annotation:</p>
 <p><img src="images/vuetify/breadcrumbs.png" alt="Breadcrumbs example" /></p>
 
 <p>It is <strong>necessary</strong> to specify <strong>the root</strong> of an element</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>selected()</strong></td>
+<td>Returns selected element</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>selected(String)</strong></td>
+<td>Shows that required element is selected</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>dividers()</strong></td>
+<td>Returns element&#39;s dividers</td>
+<td>WebList</td>
+</tr>
+<tr>
+<td><strong>items()</strong></td>
+<td>Returns element&#39;s items</td>
+<td>WebList</td>
+</tr>
+</tbody></table>
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/BreadcrumbsTests.java">Vuetify Breadcrumbs tests</a>.</p>
 <h3 id='5-8-cards'>5.8 Cards</h3>
@@ -37642,6 +37882,40 @@ the way you want.</p>
 They return the parts of a card described <a href="https://vuetifyjs.com/en/components/cards/#api">here</a>.
 The <code>content</code> method returns a
 card <code>text</code> element, but the <code>text</code> method is inherited from <code>UIBaseElement</code> that why it has a different name.</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>is()</strong></td>
+<td>Returns Assert class</td>
+<td>CardAssert</td>
+</tr>
+<tr>
+<td><strong>title()</strong></td>
+<td>Returns element&#39;s title</td>
+<td>UIElement</td>
+</tr>
+<tr>
+<td><strong>subtitle()</strong></td>
+<td>Returns element&#39;s subtitle</td>
+<td>UIElement</td>
+</tr>
+<tr>
+<td><strong>content()</strong></td>
+<td>Returns element&#39;s content</td>
+<td>UIElement</td>
+</tr>
+<tr>
+<td><strong>actions()</strong></td>
+<td>Returns element&#39;s action</td>
+<td>UIElement</td>
+</tr>
+</tbody></table>
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/tree/vuetify-develop/jdi-light-vuetify-tests/src/main/java/io/github/com/custom/cards">Custom vuetify card examples</a>
 and <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/CardsTests.java">JDI vuetify page tests for cards</a>.</p>
@@ -38929,6 +39203,30 @@ See <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-l
 
 <p><img src="images/vuetify/button-group.png" alt="Button group example" /></p>
 
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>getButtonByIndex(int)</strong></td>
+<td>Returns button with required index</td>
+<td>Button</td>
+</tr>
+<tr>
+<td><strong>getButtonByText()</strong></td>
+<td>Returns button with required text</td>
+<td>Button</td>
+</tr>
+<tr>
+<td><strong>getAllButtons()</strong></td>
+<td>Returns all buttons</td>
+<td>List</td>
+</tr>
+</tbody></table>
+
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ButtonGroupsTests.java">Vuetify Button groups tests</a>.</p>
 <h4 id='5-13-2-chip-groups'>5.13.2 Chip Groups</h4>
 <p><a href="https://vuetifyjs.com/en/components/chip-groups/">Vuetify documentation page</a></p>
@@ -39314,42 +39612,42 @@ and <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-l
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>select(String value)/select(int index)</strong></td>
+<td><strong>select(String)/select(int)</strong></td>
 <td>Finds required element by its name or index and selects</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>get(String value)/get(int index)</strong></td>
+<td><strong>get(String)/get(int)</strong></td>
 <td>Finds required element by its name or index and returns it</td>
 <td>UIElement</td>
 </tr>
 <tr>
-<td><strong>isActive(int elementIndex)</strong></td>
+<td><strong>isActive(int)</strong></td>
 <td>Shows that required element is active</td>
 <td>boolean</td>
 </tr>
 <tr>
-<td><strong>isInactivate(int elementIndex)</strong></td>
+<td><strong>isInactivate(int)</strong></td>
 <td>Shows that required element is inactive</td>
-<td>boolen</td>
+<td>boolean</td>
 </tr>
 <tr>
-<td><strong>hasIcon(int elementIndex)</strong></td>
+<td><strong>hasIcon(int)</strong></td>
 <td>Shows that required element has icon</td>
 <td>boolean</td>
 </tr>
 <tr>
-<td><strong>hasTitle(int elementIndex, String expectedTitle)</strong></td>
+<td><strong>hasTitle(int, String)</strong></td>
 <td>Shows that required element has expected title</td>
 <td>boolean</td>
 </tr>
 <tr>
-<td><strong>getSubList(int listElementIndex)</strong></td>
+<td><strong>getSubList(int)</strong></td>
 <td>Returns required element&#39;s sublist</td>
 <td>WebList</td>
 </tr>
 <tr>
-<td><strong>isExpanded(int elementIndex)</strong></td>
+<td><strong>isExpanded(int)</strong></td>
 <td>Shows that required element&#39;s sublist is expanded</td>
 <td>boolean</td>
 </tr>
@@ -39576,6 +39874,11 @@ explicitly through a <code>JDIPagination</code> annotation.</p>
 </tr>
 </thead><tbody>
 <tr>
+<td><strong>is()</strong></td>
+<td>Returns Assert class</td>
+<td>RatingAssert</td>
+</tr>
+<tr>
 <td><strong>length()</strong></td>
 <td>Get count rating buttons</td>
 <td>int</td>
@@ -39586,17 +39889,17 @@ explicitly through a <code>JDIPagination</code> annotation.</p>
 <td>int</td>
 </tr>
 <tr>
-<td><strong>color()/ color(int index)</strong></td>
+<td><strong>color()/ color(int)</strong></td>
 <td>Get color of rating button</td>
 <td>String</td>
 </tr>
 <tr>
-<td><strong>setValue(double rating)</strong></td>
+<td><strong>setValue(double)</strong></td>
 <td>Set rating to &#39;rating&#39; with a mouse click</td>
 <td>void</td>
 </tr>
 <tr>
-<td><strong>hoverSetValue(double rating)</strong></td>
+<td><strong>hoverSetValue(double)</strong></td>
 <td>Set rating to &#39;rating&#39; with a mouse hover</td>
 <td>void</td>
 </tr>
@@ -39789,20 +40092,20 @@ explicitly through a <code>JDIPagination</code> annotation.</p>
 <tr>
 <td><strong>has()/is()</strong></td>
 <td>Returns Assert class</td>
-<td>SimpleTableAssert*<em>has()</em>*</td>
+<td>SimpleTableAssert</td>
 </tr>
 <tr>
-<td><strong>firstColumnElement()</strong></td>
+<td><strong>firstColumnElement(int/String)</strong></td>
 <td>Returns required element from first column</td>
 <td>String</td>
 </tr>
 <tr>
-<td><strong>secondColumnElement()</strong></td>
+<td><strong>secondColumnElement(int?String)</strong></td>
 <td>Returns required element from second column</td>
 <td>String</td>
 </tr>
 <tr>
-<td><strong>columnTitle()</strong></td>
+<td><strong>columnTitle(int)</strong></td>
 <td>Returns column title</td>
 <td>String</td>
 </tr>
@@ -40294,6 +40597,20 @@ explicitly through a <code>JDIPagination</code> annotation.</p>
 <p>Tooltip component is useful for conveying information when a user hovers over an element. Its display can be controlled programmatically. When activated, tooltips display a text label identifying an element, such as a description of its function.</p>
 
 <p><img src="images/vuetify/tooltips.png" alt="Tooltips examples" /></p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>has()/is()</strong></td>
+<td>Returns Assert class</td>
+<td>TooltipAssert</td>
+</tr>
+</tbody></table>
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/TooltipsTests.java">Tooltips tests</a>.</p>
 <h3 id='5-27-progress'>5.27 Progress</h3><h4 id='5-27-1-progress-circular'>5.27.1 Progress circular</h4>

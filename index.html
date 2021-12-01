@@ -1200,14 +1200,6 @@
                           </li>
                           <li>
 								            <a href="#5-33-virtual-scroller" class="toc-h2 h3 toc-link" data-title="5.33 Virtual Scroller">5.33 Virtual Scroller</a>
-									            <ul class="toc-list-h2">
-										              <li>
-										              <a href="#bench" class="toc-h3 h4 toc-link" data-title="Bench">Bench</a>
-										              </li>
-										              <li>
-										              <a href="#user-directory" class="toc-h3 h4 toc-link" data-title="User Directory">User Directory</a>
-										              </li>
-									            </ul>
                           </li>
                           <li>
 								            <a href="#5-34-skeleton-loader" class="toc-h2 h3 toc-link" data-title="5.34 Skeleton loader">5.34 Skeleton loader</a>
@@ -41585,28 +41577,28 @@ It offers the user a visual representation for selecting the time.</p>
 <ul>
 <li><strong>Java</strong>: <em>com.epam.jdi.light.vuetify.elements.complex.VirtualScroller.java</em></li>
 </ul>
-<pre class="highlight java tab-java"><code><span class="nd">@Test</span><span class="o">(</span><span class="n">dataProvider</span> <span class="o">=</span> <span class="s">"bench items text"</span><span class="o">,</span> <span class="n">dataProviderClass</span> <span class="o">=</span> <span class="n">VirtualScrollerDataProvider</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">benchScrollToItemTest</span><span class="o">(</span><span class="n">String</span> <span class="n">itemText</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">benchScroller</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-    <span class="n">benchScroller</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+<pre class="highlight java tab-java"><code>    <span class="nd">@UI</span><span class="o">(</span><span class="s">"input"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">TextField</span> <span class="n">totalBenched</span><span class="o">;</span>
 
-    <span class="n">benchScroller</span><span class="o">.</span><span class="na">scrollToElementWithText</span><span class="o">(</span><span class="n">itemText</span><span class="o">);</span>
-    <span class="n">jdiAssert</span><span class="o">(</span><span class="n">benchScroller</span><span class="o">.</span><span class="na">getItems</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="mi">3</span><span class="o">).</span><span class="na">find</span><span class="o">(</span><span class="s">".v-list-item__content"</span><span class="o">).</span><span class="na">text</span><span class="o">(),</span>
-    <span class="n">Matchers</span><span class="o">.</span><span class="na">equalTo</span><span class="o">(</span><span class="n">itemText</span><span class="o">));</span>
-<span class="o">}</span>
+    <span class="nd">@UI</span><span class="o">(</span><span class="s">"#BenchVirtualScroller .v-virtual-scroll"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">VirtualScroller</span> <span class="n">benchScroller</span><span class="o">;</span>
 
+    <span class="nd">@Test</span><span class="o">(</span><span class="n">dataProvider</span> <span class="o">=</span> <span class="s">"bench items text"</span><span class="o">,</span> 
+            <span class="n">dataProviderClass</span> <span class="o">=</span> <span class="n">VirtualScrollerDataProvider</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">benchScrollToItemTest</span><span class="o">(</span><span class="n">String</span> <span class="n">itemText</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">benchScroller</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+        <span class="n">benchScroller</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+
+        <span class="n">benchScroller</span><span class="o">.</span><span class="na">scrollToElementWithText</span><span class="o">(</span><span class="n">itemText</span><span class="o">);</span>
+        <span class="n">benchScroller</span><span class="o">.</span><span class="na">items</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="mi">3</span><span class="o">).</span><span class="na">find</span><span class="o">(</span><span class="s">".v-list-item__content"</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="n">itemText</span><span class="o">);</span>
+    <span class="o">}</span>
 </code></pre>
-<p>The <code>v-virtual-scroll</code> component displays a virtual, infinite list. It supports dynamic height and scrolling vertically.</p>
-<h4 id='bench'>Bench</h4>
-<p>By default the <code>v-virtual-scroll</code> does not pre-render additional items outside of the viewport. Using the <strong>bench</strong> prop will have the scroller render additional items as padding. It is recommended to keep this number as low as possible for the best possible performance.</p>
-
 <p><img src="images/vuetify/virtualScrollerBench.png" alt="Virtual Scroller example" /></p>
-<h4 id='user-directory'>User Directory</h4>
-<p>The <code>v-virtual-scroll</code> component can render an unlimited amount of items by rendering only what it needs to fill the scroller’s viewport.</p>
 
-<p><img src="images/vuetify/virtualScrollerUser.png" alt="Virtual Scroller example" /></p>
+<p>The <code>v-virtual-scroll</code> component displays a virtual, infinite list. It supports dynamic height and scrolling vertically.</p>
 
-<p>The Dialog component inform users about a specific task and may contain critical information, require decisions, or involve multiple tasks.</p>
+<p>It can render an unlimited amount of items by rendering only what it needs to fill the scroller’s viewport.</p>
 
 <table><thead>
 <tr>
@@ -41631,7 +41623,7 @@ It offers the user a visual representation for selecting the time.</p>
 <td>int</td>
 </tr>
 <tr>
-<td><strong>getItems()</strong></td>
+<td><strong>items()</strong></td>
 <td>Returns the list of rendered items</td>
 <td>WebList</td>
 </tr>

@@ -190,15 +190,15 @@ For examples of usage see: [JDI vuetify page tests for system bars](https://gith
 ```java
     @Test
     public void denseToolbarTests() {
-        denseToolbar.is().displayed();
-        denseToolbar.has().menuButton();
-        denseToolbar.has().title();
-        denseToolbar.has().properTitleText("Title");
-        denseToolbar.has().searchButton();
-        denseToolbar.has().heartButton();
-        denseToolbar.has().verticalDotsButton();
-        denseToolbar.is().dense();
-        denseToolbar.has().height("48");
+      denseToolbar.is().displayed();
+      denseToolbar.menuButton().is().displayed();
+      denseToolbar.has().title();
+      denseToolbar.has().textInTitle("Title");
+      denseToolbar.searchButton().is().displayed();
+      denseToolbar.heartButton().is().displayed();
+      denseToolbar.verticalDotsButton().is().displayed();
+      denseToolbar.has().denseHeader();
+      denseToolbar.has().heightOfHeader(48);
     }
 ```
 

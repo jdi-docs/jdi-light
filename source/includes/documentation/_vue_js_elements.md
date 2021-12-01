@@ -85,15 +85,13 @@ Basic bar is an abstract class that contains methods that are common for its spe
 
 |Method | Description | Return Type
 --- | --- | ---
-**hasMenuButton()** | Returns true if element contains 'Menu' button | boolean
+**menuButton()** | Returns 'Menu' button containing in the element | Button
+**verticalDotsButton()** | Returns 'Vertical Dots' button containing in the element | Button
+**searchButton()** | Returns 'Search' button containing in the element | Button
+**heartButton()** | Returns 'Heart' button containing in the element | Button
 **hasTitle()** | Returns true if element has title | boolean
 **hasHiddenTitle()** | Returns true if element's title is hidden | boolean
-**hasSearchButton()** | Returns true if element contains 'Search' button | boolean
-**hasHeartButton()** | Returns true if element contains 'Heart' button | boolean
-**hasVerticalDotsButton** | Returns true if element contains 'Vertical Dots' button | boolean
-**titleText** | Returns text of element's title | String
-**clickOnMenuButton** | Clicks on 'Menu' button | void
-**clickOnVerticalDotsButton** | Clicks on 'Vertical Dots' button | void
+**titleText()** | Returns text of element's title | String
 
 
 #### 5.4.2 App Bars
@@ -105,21 +103,21 @@ Basic bar is an abstract class that contains methods that are common for its spe
 ```java
     @Test
     public void collapsibleBarTests() {
-        collapsibleBar.is().displayed();
-        collapsibleBar.has().menuButton();
-        collapsibleBar.has().title();
-        collapsibleBar.has().properTitleText("Collapsing Bar");
-        collapsibleBar.scrollBarToBottom();
-        collapsibleBar.has().hiddenTitle();
-        collapsibleBar.scrollBarToTop();
-        collapsibleBar.has().title();
-        collapsibleBar.has().checker();
-        collapsibleBar.is().checkerChecked();
-        collapsibleBar.getChecker().click();
-        collapsibleBar.is().checkerUnchecked();
-        collapsibleBar.has().hiddenTitle();
-        collapsibleBar.getChecker().click();
-        collapsibleBar.has().title();
+      collapsibleBar.is().displayed();
+      collapsibleBar.menuButton().is().displayed();
+      collapsibleBar.has().title();
+      collapsibleBar.has().textInTitle("Collapsing Bar");
+      collapsibleBar.scrollBarToBottom();
+      collapsibleBar.has().hiddenTitle();
+      collapsibleBar.scrollBarToTop();
+      collapsibleBar.has().title();
+      collapsibleBar.checkbox().is().displayed();
+      collapsibleBar.checkbox().is().checked();
+      collapsibleBar.checkbox().uncheck();
+      collapsibleBar.checkbox().is().unchecked();
+      collapsibleBar.has().hiddenTitle();
+      collapsibleBar.checkbox().check();
+      collapsibleBar.has().title();
     }
 ```
 
@@ -129,21 +127,61 @@ App bar component extends abstract class Basic Bar. It is pivotal to any graphic
 
 |Method | Description | Return Type
 --- | --- | ---
+**is()/has()** | Returns Assert class | AppBarAssert
 **checkbox()** | Returns checkbox containing in the element | Checkbox
-**hasCheckbox()** | Returns true if element contains checkbox | boolean
 **hasClickableTabs()** | Returns true if element has clickable tabs | boolean
 **hasHiddenHeader()** | Returns true if element's header is hidden | boolean
 **hasVisibleHeader()** | Returns true if element's header is visible | boolean
 **getHeaderHeight()** | Returns element's header's height | String
-**getHeaderOpacity** | Returns element's header's opacity | Integer
-**hasHiddenHeaderShadow** | Returns true if element's header's shadow is hidden | boolean
-**hasVisibleHeaderShadow** | Returns true if element's header's shadow is visible | boolean
-**hasNavigationMenu** | Returns true if element contains navigation menu | void
-
+**getHeaderOpacity()** | Returns element's header's opacity | Integer
+**hasHiddenHeaderShadow()** | Returns true if element's header's shadow is hidden | boolean
+**hasVisibleHeaderShadow()** | Returns true if element's header's shadow is visible | boolean
+**hasNavigationMenu()** | Returns true if element contains navigation menu | boolean
+**scrollBarToBottom()** | Scrolls element to bottom | void
+**scrollBarToTop()** | Scrolls element to top | void
 
 For examples of usage see: [JDI vuetify page tests for app bars](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/AppBarsTests.java).
 
-#### 5.4.3 Toolbars
+#### 5.4.3 System bars
+
+[Vuetify documentation page](https://vuetifyjs.com/en/components/system-bars/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.complex.bars.SystemBar.java_
+
+```java
+    @Test
+    public void systemBarColoredPrimaryTests() {
+      systemBarColoredPrimary.is().displayed();
+      systemBarColoredPrimary.has().text("System bar color 1");
+      systemBarColoredPrimary.wiFiIcon().is().displayed();
+      systemBarColoredPrimary.signalIcon().is().displayed();
+      systemBarColoredPrimary.batteryIcon().is().displayed();
+      systemBarColoredPrimary.has().time("12:30");
+      systemBarColoredPrimary.has().backgroundColor(BLUE_DARKEN_2.value());
+    }
+```
+
+![System bars example](../../images/vuetify/system-bars.png)
+
+System bar component extends abstract class Basic Bar. It can be used for displaying statuses to the user. It looks like the Android system bar and can contain icons, spacers, and some text.
+
+|Method | Description | Return Type
+--- | --- | ---
+**is()/has()** | Returns Assert class | SystemBarAssert
+**getBackgroundColor()** | Returns element's background color | String
+**getPosition()** | Returns element's position | String
+**getTime()** | Returns text from element's 'time' field | String
+**wiFiIcon()** | Returns 'Wi-Fi' icon containing in the element | Icon
+**signalIcon()** | Returns 'Signal' icon containing in the element | Icon
+**batteryIcon()** | Returns 'Battery' icon containing in the element | Icon
+**messageIcon()** | Returns 'Message' icon containing in the element | Icon
+**minusIcon()** | Returns 'Minus' icon containing in the element | Icon
+**blankCheckboxIcon()** | Returns 'Blank Checkbox' icon containing in the element | Icon
+**closeIcon()** | Returns 'Close' icon containing in the element | Icon
+
+For examples of usage see: [JDI vuetify page tests for system bars](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SystemBarsTests.java).
+
+#### 5.4.4 Toolbars
 
 [Vuetify documentation page](https://vuetifyjs.com/en/components/toolbars/)
 
@@ -166,34 +204,27 @@ For examples of usage see: [JDI vuetify page tests for app bars](https://github.
 
 ![Toolbars example](../../images/vuetify/toolbars.png)
 
-The toolbar component is pivotal to any gui, as it generally is the primary source of site navigation.
+Toolbar component extends abstract class Basic Bar. It is pivotal to any gui, as it generally is the primary source of site navigation.
+
+|Method | Description | Return Type
+--- | --- | ---
+**is()/has()** | Returns Assert class | ToolBarAssert
+**closeButton()** | Returns 'Close' button containing in the element | Button
+**deleteButton()** | Returns 'Delete' button containing in the element | Button
+**exportButton()** | Returns 'Export' button containing in the element | Button
+**gpsButton()** | Returns 'GPS' button containing in the element | Button
+**appsButton()** | Returns 'Apps' button containing in the element | Button
+**searchIcon()** | Returns 'Search' icon containing in the element | Icon
+**input()** | Returns input field containing in the element | Input
+**backgroundImage()** | Returns element's background image | Image
+**getHeaderHeight()** | Returns element's header's height | String
+**getHeaderColor()** | Returns element's header's height | String
+**hasHiddenButtons()** | Returns true if element's buttons are hidden | boolean
+**hasCollapsedHeader()** | Returns true if element has collapsed header | boolean
+**hasDenseHeader()** | Returns true if element has dense header | boolean
+**hasExtendedHeader()** | Returns true if element extended header | boolean
 
 For examples of usage see: [JDI vuetify page tests for toolbars](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ToolBarsTests.java).
-
-#### 5.4.4 System bars
-
-[Vuetify documentation page](https://vuetifyjs.com/en/components/system-bars/)
-
-- __Java__: _com.epam.jdi.light.vuetify.elements.complex.bars.SystemBar.java_
-
-```java
-    @Test
-    public void systemBarColoredPrimaryTests() {
-        systemBarColoredPrimary.is().displayed();
-        systemBarColoredPrimary.has().text("System bar color 1");
-        systemBarColoredPrimary.has().wiFiIcon();
-        systemBarColoredPrimary.has().signalIcon();
-        systemBarColoredPrimary.has().batteryIcon();
-        systemBarColoredPrimary.has().time("12:30");
-        systemBarColoredPrimary.has().backgroundColor(BLUE_DARKEN_2.value());
-    }
-```
-
-![System bars example](../../images/vuetify/system-bars.png)
-
-The system bar component can be used for displaying statuses to the user. It looks like the Android system bar and can contain icons, spacers, and some text.
-
-For examples of usage see: [JDI vuetify page tests for system bars](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SystemBarsTests.java).
 
 
 ### 5.5 Bottom navigation

@@ -1025,13 +1025,16 @@
 								            <a href="#5-4-bars" class="toc-h2 h3 toc-link" data-title="5.4 Bars">5.4 Bars</a>
 									            <ul class="toc-list-h2">
 										              <li>
-										              <a href="#5-4-1-app-bars" class="toc-h3 h4 toc-link" data-title="5.4.1 App Bars">5.4.1 App Bars</a>
+										              <a href="#5-4-1-basic-bar" class="toc-h3 h4 toc-link" data-title="5.4.1 Basic bar">5.4.1 Basic bar</a>
 										              </li>
 										              <li>
-										              <a href="#5-4-2-toolbars" class="toc-h3 h4 toc-link" data-title="5.4.2 Toolbars">5.4.2 Toolbars</a>
+										              <a href="#5-4-2-app-bars" class="toc-h3 h4 toc-link" data-title="5.4.2 App Bars">5.4.2 App Bars</a>
 										              </li>
 										              <li>
 										              <a href="#5-4-3-system-bars" class="toc-h3 h4 toc-link" data-title="5.4.3 System bars">5.4.3 System bars</a>
+										              </li>
+										              <li>
+										              <a href="#5-4-4-toolbars" class="toc-h3 h4 toc-link" data-title="5.4.4 Toolbars">5.4.4 Toolbars</a>
 										              </li>
 									            </ul>
                           </li>
@@ -37130,7 +37133,57 @@ the way you want.</p>
 <p>Basically, you have methods that can return you elements containing in banner (buttons, checkers, icons, etc.).</p>
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/BannersTests.java">JDI vuetify page tests for banners</a>.</p>
-<h3 id='5-4-bars'>5.4 Bars</h3><h4 id='5-4-1-app-bars'>5.4.1 App Bars</h4>
+<h3 id='5-4-bars'>5.4 Bars</h3><h4 id='5-4-1-basic-bar'>5.4.1 Basic bar</h4>
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.vuetify.elements.complex.bars.BasicBar.java</em></li>
+</ul>
+
+<p>Basic bar is an abstract class that contains methods that are common for its specific realisations such as App Bar, Tool Bar and System Bar following below.</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>menuButton()</strong></td>
+<td>Returns &#39;Menu&#39; button containing in the element</td>
+<td>Button</td>
+</tr>
+<tr>
+<td><strong>verticalDotsButton()</strong></td>
+<td>Returns &#39;Vertical Dots&#39; button containing in the element</td>
+<td>Button</td>
+</tr>
+<tr>
+<td><strong>searchButton()</strong></td>
+<td>Returns &#39;Search&#39; button containing in the element</td>
+<td>Button</td>
+</tr>
+<tr>
+<td><strong>heartButton()</strong></td>
+<td>Returns &#39;Heart&#39; button containing in the element</td>
+<td>Button</td>
+</tr>
+<tr>
+<td><strong>hasTitle()</strong></td>
+<td>Returns true if element has title</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>hasHiddenTitle()</strong></td>
+<td>Returns true if element&#39;s title is hidden</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>titleText()</strong></td>
+<td>Returns text of element&#39;s title</td>
+<td>String</td>
+</tr>
+</tbody></table>
+<h4 id='5-4-2-app-bars'>5.4.2 App Bars</h4>
 <p><a href="https://vuetifyjs.com/en/components/app-bars/">Vuetify documentation page</a></p>
 
 <ul>
@@ -37138,52 +37191,97 @@ the way you want.</p>
 </ul>
 <pre class="highlight java tab-java"><code>    <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">collapsibleBarTests</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">collapsibleBar</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-        <span class="n">collapsibleBar</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">menuButton</span><span class="o">();</span>
-        <span class="n">collapsibleBar</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">title</span><span class="o">();</span>
-        <span class="n">collapsibleBar</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">properTitleText</span><span class="o">(</span><span class="s">"Collapsing Bar"</span><span class="o">);</span>
-        <span class="n">collapsibleBar</span><span class="o">.</span><span class="na">scrollBarToBottom</span><span class="o">();</span>
-        <span class="n">collapsibleBar</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">hiddenTitle</span><span class="o">();</span>
-        <span class="n">collapsibleBar</span><span class="o">.</span><span class="na">scrollBarToTop</span><span class="o">();</span>
-        <span class="n">collapsibleBar</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">title</span><span class="o">();</span>
-        <span class="n">collapsibleBar</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">checker</span><span class="o">();</span>
-        <span class="n">collapsibleBar</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">checkerChecked</span><span class="o">();</span>
-        <span class="n">collapsibleBar</span><span class="o">.</span><span class="na">getChecker</span><span class="o">().</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">collapsibleBar</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">checkerUnchecked</span><span class="o">();</span>
-        <span class="n">collapsibleBar</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">hiddenTitle</span><span class="o">();</span>
-        <span class="n">collapsibleBar</span><span class="o">.</span><span class="na">getChecker</span><span class="o">().</span><span class="na">click</span><span class="o">();</span>
-        <span class="n">collapsibleBar</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">title</span><span class="o">();</span>
+      <span class="n">collapsibleBar</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+      <span class="n">collapsibleBar</span><span class="o">.</span><span class="na">menuButton</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+      <span class="n">collapsibleBar</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">title</span><span class="o">();</span>
+      <span class="n">collapsibleBar</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">textInTitle</span><span class="o">(</span><span class="s">"Collapsing Bar"</span><span class="o">);</span>
+      <span class="n">collapsibleBar</span><span class="o">.</span><span class="na">scrollBarToBottom</span><span class="o">();</span>
+      <span class="n">collapsibleBar</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">hiddenTitle</span><span class="o">();</span>
+      <span class="n">collapsibleBar</span><span class="o">.</span><span class="na">scrollBarToTop</span><span class="o">();</span>
+      <span class="n">collapsibleBar</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">title</span><span class="o">();</span>
+      <span class="n">collapsibleBar</span><span class="o">.</span><span class="na">checkbox</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+      <span class="n">collapsibleBar</span><span class="o">.</span><span class="na">checkbox</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">checked</span><span class="o">();</span>
+      <span class="n">collapsibleBar</span><span class="o">.</span><span class="na">checkbox</span><span class="o">().</span><span class="na">uncheck</span><span class="o">();</span>
+      <span class="n">collapsibleBar</span><span class="o">.</span><span class="na">checkbox</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">unchecked</span><span class="o">();</span>
+      <span class="n">collapsibleBar</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">hiddenTitle</span><span class="o">();</span>
+      <span class="n">collapsibleBar</span><span class="o">.</span><span class="na">checkbox</span><span class="o">().</span><span class="na">check</span><span class="o">();</span>
+      <span class="n">collapsibleBar</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">title</span><span class="o">();</span>
     <span class="o">}</span>
 </code></pre>
 <p><img src="images/vuetify/app-bars.png" alt="App bars example" /></p>
 
-<p>The app bar component is pivotal to any graphical user interface (GUI), as it generally is the primary source of site navigation.</p>
+<p>App bar component extends abstract class Basic Bar. It is pivotal to any graphical user interface (GUI), as it generally is the primary source of site navigation.</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>is()/has()</strong></td>
+<td>Returns Assert class</td>
+<td>AppBarAssert</td>
+</tr>
+<tr>
+<td><strong>checkbox()</strong></td>
+<td>Returns checkbox containing in the element</td>
+<td>Checkbox</td>
+</tr>
+<tr>
+<td><strong>hasClickableTabs()</strong></td>
+<td>Returns true if element has clickable tabs</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>hasHiddenHeader()</strong></td>
+<td>Returns true if element&#39;s header is hidden</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>hasVisibleHeader()</strong></td>
+<td>Returns true if element&#39;s header is visible</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>getHeaderHeight()</strong></td>
+<td>Returns element&#39;s header&#39;s height</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>getHeaderOpacity()</strong></td>
+<td>Returns element&#39;s header&#39;s opacity</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td><strong>hasHiddenHeaderShadow()</strong></td>
+<td>Returns true if element&#39;s header&#39;s shadow is hidden</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>hasVisibleHeaderShadow()</strong></td>
+<td>Returns true if element&#39;s header&#39;s shadow is visible</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>hasNavigationMenu()</strong></td>
+<td>Returns true if element contains navigation menu</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>scrollBarToBottom()</strong></td>
+<td>Scrolls element to bottom</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>scrollBarToTop()</strong></td>
+<td>Scrolls element to top</td>
+<td>void</td>
+</tr>
+</tbody></table>
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/AppBarsTests.java">JDI vuetify page tests for app bars</a>.</p>
-<h4 id='5-4-2-toolbars'>5.4.2 Toolbars</h4>
-<p><a href="https://vuetifyjs.com/en/components/toolbars/">Vuetify documentation page</a></p>
-
-<ul>
-<li><strong>Java</strong>: <em>com.epam.jdi.light.vuetify.elements.complex.bars.ToolBar.java</em></li>
-</ul>
-<pre class="highlight java tab-java"><code>    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">denseToolbarTests</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">denseToolbar</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-        <span class="n">denseToolbar</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">menuButton</span><span class="o">();</span>
-        <span class="n">denseToolbar</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">title</span><span class="o">();</span>
-        <span class="n">denseToolbar</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">properTitleText</span><span class="o">(</span><span class="s">"Title"</span><span class="o">);</span>
-        <span class="n">denseToolbar</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">searchButton</span><span class="o">();</span>
-        <span class="n">denseToolbar</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">heartButton</span><span class="o">();</span>
-        <span class="n">denseToolbar</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">verticalDotsButton</span><span class="o">();</span>
-        <span class="n">denseToolbar</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">dense</span><span class="o">();</span>
-        <span class="n">denseToolbar</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">height</span><span class="o">(</span><span class="s">"48"</span><span class="o">);</span>
-    <span class="o">}</span>
-</code></pre>
-<p><img src="images/vuetify/toolbars.png" alt="Toolbars example" /></p>
-
-<p>The toolbar component is pivotal to any gui, as it generally is the primary source of site navigation.</p>
-
-<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ToolBarsTests.java">JDI vuetify page tests for toolbars</a>.</p>
 <h4 id='5-4-3-system-bars'>5.4.3 System bars</h4>
 <p><a href="https://vuetifyjs.com/en/components/system-bars/">Vuetify documentation page</a></p>
 
@@ -37192,20 +37290,192 @@ the way you want.</p>
 </ul>
 <pre class="highlight java tab-java"><code>    <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">systemBarColoredPrimaryTests</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">systemBarColoredPrimary</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
-        <span class="n">systemBarColoredPrimary</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"System bar color 1"</span><span class="o">);</span>
-        <span class="n">systemBarColoredPrimary</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">wiFiIcon</span><span class="o">();</span>
-        <span class="n">systemBarColoredPrimary</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">signalIcon</span><span class="o">();</span>
-        <span class="n">systemBarColoredPrimary</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">batteryIcon</span><span class="o">();</span>
-        <span class="n">systemBarColoredPrimary</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">time</span><span class="o">(</span><span class="s">"12:30"</span><span class="o">);</span>
-        <span class="n">systemBarColoredPrimary</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">backgroundColor</span><span class="o">(</span><span class="n">BLUE_DARKEN_2</span><span class="o">.</span><span class="na">value</span><span class="o">());</span>
+      <span class="n">systemBarColoredPrimary</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+      <span class="n">systemBarColoredPrimary</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">text</span><span class="o">(</span><span class="s">"System bar color 1"</span><span class="o">);</span>
+      <span class="n">systemBarColoredPrimary</span><span class="o">.</span><span class="na">wiFiIcon</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+      <span class="n">systemBarColoredPrimary</span><span class="o">.</span><span class="na">signalIcon</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+      <span class="n">systemBarColoredPrimary</span><span class="o">.</span><span class="na">batteryIcon</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+      <span class="n">systemBarColoredPrimary</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">time</span><span class="o">(</span><span class="s">"12:30"</span><span class="o">);</span>
+      <span class="n">systemBarColoredPrimary</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">backgroundColor</span><span class="o">(</span><span class="n">BLUE_DARKEN_2</span><span class="o">.</span><span class="na">value</span><span class="o">());</span>
     <span class="o">}</span>
 </code></pre>
 <p><img src="images/vuetify/system-bars.png" alt="System bars example" /></p>
 
-<p>The system bar component can be used for displaying statuses to the user. It looks like the Android system bar and can contain icons, spacers, and some text.</p>
+<p>System bar component extends abstract class Basic Bar. It can be used for displaying statuses to the user. It looks like the Android system bar and can contain icons, spacers, and some text.</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>is()/has()</strong></td>
+<td>Returns Assert class</td>
+<td>SystemBarAssert</td>
+</tr>
+<tr>
+<td><strong>getBackgroundColor()</strong></td>
+<td>Returns element&#39;s background color</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>getPosition()</strong></td>
+<td>Returns element&#39;s position</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>getTime()</strong></td>
+<td>Returns text from element&#39;s &#39;time&#39; field</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>wiFiIcon()</strong></td>
+<td>Returns &#39;Wi-Fi&#39; icon containing in the element</td>
+<td>Icon</td>
+</tr>
+<tr>
+<td><strong>signalIcon()</strong></td>
+<td>Returns &#39;Signal&#39; icon containing in the element</td>
+<td>Icon</td>
+</tr>
+<tr>
+<td><strong>batteryIcon()</strong></td>
+<td>Returns &#39;Battery&#39; icon containing in the element</td>
+<td>Icon</td>
+</tr>
+<tr>
+<td><strong>messageIcon()</strong></td>
+<td>Returns &#39;Message&#39; icon containing in the element</td>
+<td>Icon</td>
+</tr>
+<tr>
+<td><strong>minusIcon()</strong></td>
+<td>Returns &#39;Minus&#39; icon containing in the element</td>
+<td>Icon</td>
+</tr>
+<tr>
+<td><strong>blankCheckboxIcon()</strong></td>
+<td>Returns &#39;Blank Checkbox&#39; icon containing in the element</td>
+<td>Icon</td>
+</tr>
+<tr>
+<td><strong>closeIcon()</strong></td>
+<td>Returns &#39;Close&#39; icon containing in the element</td>
+<td>Icon</td>
+</tr>
+</tbody></table>
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SystemBarsTests.java">JDI vuetify page tests for system bars</a>.</p>
+<h4 id='5-4-4-toolbars'>5.4.4 Toolbars</h4>
+<p><a href="https://vuetifyjs.com/en/components/toolbars/">Vuetify documentation page</a></p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.vuetify.elements.complex.bars.ToolBar.java</em></li>
+</ul>
+<pre class="highlight java tab-java"><code>    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">denseToolbarTests</span><span class="o">()</span> <span class="o">{</span>
+      <span class="n">denseToolbar</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+      <span class="n">denseToolbar</span><span class="o">.</span><span class="na">menuButton</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+      <span class="n">denseToolbar</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">title</span><span class="o">();</span>
+      <span class="n">denseToolbar</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">textInTitle</span><span class="o">(</span><span class="s">"Title"</span><span class="o">);</span>
+      <span class="n">denseToolbar</span><span class="o">.</span><span class="na">searchButton</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+      <span class="n">denseToolbar</span><span class="o">.</span><span class="na">heartButton</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+      <span class="n">denseToolbar</span><span class="o">.</span><span class="na">verticalDotsButton</span><span class="o">().</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+      <span class="n">denseToolbar</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">denseHeader</span><span class="o">();</span>
+      <span class="n">denseToolbar</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">heightOfHeader</span><span class="o">(</span><span class="mi">48</span><span class="o">);</span>
+    <span class="o">}</span>
+</code></pre>
+<p><img src="images/vuetify/toolbars.png" alt="Toolbars example" /></p>
+
+<p>Toolbar component extends abstract class Basic Bar. It is pivotal to any gui, as it generally is the primary source of site navigation.</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>is()/has()</strong></td>
+<td>Returns Assert class</td>
+<td>ToolBarAssert</td>
+</tr>
+<tr>
+<td><strong>closeButton()</strong></td>
+<td>Returns &#39;Close&#39; button containing in the element</td>
+<td>Button</td>
+</tr>
+<tr>
+<td><strong>deleteButton()</strong></td>
+<td>Returns &#39;Delete&#39; button containing in the element</td>
+<td>Button</td>
+</tr>
+<tr>
+<td><strong>exportButton()</strong></td>
+<td>Returns &#39;Export&#39; button containing in the element</td>
+<td>Button</td>
+</tr>
+<tr>
+<td><strong>gpsButton()</strong></td>
+<td>Returns &#39;GPS&#39; button containing in the element</td>
+<td>Button</td>
+</tr>
+<tr>
+<td><strong>appsButton()</strong></td>
+<td>Returns &#39;Apps&#39; button containing in the element</td>
+<td>Button</td>
+</tr>
+<tr>
+<td><strong>searchIcon()</strong></td>
+<td>Returns &#39;Search&#39; icon containing in the element</td>
+<td>Icon</td>
+</tr>
+<tr>
+<td><strong>input()</strong></td>
+<td>Returns input field containing in the element</td>
+<td>Input</td>
+</tr>
+<tr>
+<td><strong>backgroundImage()</strong></td>
+<td>Returns element&#39;s background image</td>
+<td>Image</td>
+</tr>
+<tr>
+<td><strong>getHeaderHeight()</strong></td>
+<td>Returns element&#39;s header&#39;s height</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>getHeaderColor()</strong></td>
+<td>Returns element&#39;s header&#39;s height</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>hasHiddenButtons()</strong></td>
+<td>Returns true if element&#39;s buttons are hidden</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>hasCollapsedHeader()</strong></td>
+<td>Returns true if element has collapsed header</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>hasDenseHeader()</strong></td>
+<td>Returns true if element has dense header</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>hasExtendedHeader()</strong></td>
+<td>Returns true if element extended header</td>
+<td>boolean</td>
+</tr>
+</tbody></table>
+
+<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ToolBarsTests.java">JDI vuetify page tests for toolbars</a>.</p>
 <h3 id='5-5-bottom-navigation'>5.5 Bottom navigation</h3>
 <p><a href="https://vuetifyjs.com/en/components/bottom-navigation/">Vuetify documentation page</a></p>
 

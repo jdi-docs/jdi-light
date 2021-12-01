@@ -1086,6 +1086,9 @@
 										              <li>
 										              <a href="#5-12-8-combobox" class="toc-h3 h4 toc-link" data-title="5.12.8 Combobox">5.12.8 Combobox</a>
 										              </li>
+										              <li>
+										              <a href="#5-12-8-selects" class="toc-h3 h4 toc-link" data-title="5.12.8 Selects">5.12.8 Selects</a>
+										              </li>
 									            </ul>
                           </li>
                           <li>
@@ -38755,7 +38758,7 @@ They are ideal for adjusting settings such as volume, brightness, or applying im
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/RadioButtonsTests.java">JDI Vuetify Radiobuttons tests</a>.</p>
 <h4 id='5-12-8-combobox'>5.12.8 Combobox</h4>
-<p><a href="https://jdi-testing.github.io/jdi-light/vuetify/combobox/">Vuetify documentation page</a></p>
+<p><a href="https://vuetifyjs.com/en/components/combobox/">Vuetify documentation page</a></p>
 
 <ul>
 <li><strong>Java</strong>: <em>com.epam.jdi.light.vuetify.elements.complex.Combobox.java</em></li>
@@ -38790,8 +38793,9 @@ They are ideal for adjusting settings such as volume, brightness, or applying im
   <span class="n">noDataWithChipsCombobox</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">notSelected</span><span class="o">(</span><span class="n">secondTestWord</span><span class="o">);</span>
   <span class="o">}</span>
 </code></pre>
-<p><img src="images/vuetify/combobox.png" alt="Combobox example" />
-The combobox component allows the user to enter values that do not exist within the provided items.</p>
+<p><img src="images/vuetify/combobox.png" alt="Combobox example" /></p>
+
+<p>The combobox component allows the user to enter values that do not exist within the provided items.</p>
 
 <table><thead>
 <tr>
@@ -38833,6 +38837,67 @@ The combobox component allows the user to enter values that do not exist within 
 </tbody></table>
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ComboboxTest.java">JDI Vuetify Combobox tests</a>.</p>
+<h4 id='5-12-8-selects'>5.12.8 Selects</h4>
+<p><a href="https://vuetifyjs.com/en/components/selects/">Vuetify documentation page</a></p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.vuetify.elements.complex.Select.java</em></li>
+</ul>
+<pre class="highlight java tab-java"><code>    <span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">basicFunctionalityTest</span><span class="o">()</span> <span class="o">{</span>
+  <span class="n">standardDenseSelect</span><span class="o">.</span><span class="na">expand</span><span class="o">();</span>
+  <span class="n">standardDenseSelect</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">expanded</span><span class="o">();</span>
+  <span class="n">standardDenseSelect</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+  <span class="n">standardDenseSelect</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">collapsed</span><span class="o">();</span>
+  <span class="n">standardDenseSelect</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="s">"Bar"</span><span class="o">);</span>
+  <span class="n">standardDenseSelect</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="s">"Bar"</span><span class="o">);</span>
+  <span class="n">standardDenseSelect</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">displayed</span><span class="o">();</span>
+  <span class="o">}</span>
+</code></pre>
+<p><img src="images/vuetify/select.png" alt="Select example" /></p>
+
+<p>Select components are used for collecting user provided information from a list of options.</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>expand()/close()</strong></td>
+<td>Open/close list of values</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>select()</strong></td>
+<td>Select option from list of value</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>labelText()</strong></td>
+<td>Return label text</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>messageText()</strong></td>
+<td>Return message text</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>selected()</strong></td>
+<td>Returns selected value</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>is()</strong></td>
+<td>Assert action</td>
+<td>DropdownAssert()</td>
+</tr>
+</tbody></table>
+
+<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SelectTests.java">JDI Vuetify Select tests</a>.</p>
 <h3 id='5-13-groups'>5.13 Groups</h3><h4 id='5-13-1-button-groups'>5.13.1 Button Groups</h4><pre class="highlight java tab-java"><code><span class="nd">@JDIButtonGroup</span><span class="o">(</span>
         <span class="n">root</span> <span class="o">=</span> <span class="s">"#RoundedButtonGroup .v-item-group"</span><span class="o">,</span> <span class="n">buttons</span> <span class="o">=</span> <span class="s">"//*[@type = 'button']"</span>
 <span class="o">)</span> <span class="c1">// buttons search strategy is custom</span>

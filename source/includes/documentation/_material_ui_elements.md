@@ -1382,9 +1382,6 @@ Switches toggle the state of a single setting on or off.
 **isTurnedOff()** | Shows that element turned off| boolean
 **turnOn()** | Turns element on| void
 **turnOff()** | Turns element off| void
-**hasPrimaryColor()** | Shows that element has primary color| boolean
-**hasSecondaryColor()** | Shows that element has secondary color| boolean
-**hasUndefinedColor()** | Shows that element has undefined color| boolean
 **isDisabled()** | Shows that element is disabled| boolean
 **isEnabled()** | Shows that element is enabled| boolean
 **label()** | Returns element's label| Label

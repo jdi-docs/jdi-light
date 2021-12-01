@@ -2475,38 +2475,35 @@ For examples of usage see: JDI vuetify page tests for lazy.
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.VirtualScroller.java_
 
 ```java
-@Test(dataProvider = "bench items text", dataProviderClass = VirtualScrollerDataProvider.class)
-public static void benchScrollToItemTest(String itemText) {
-    benchScroller.is().displayed();
-    benchScroller.show();
+    @UI("input")
+    public static TextField totalBenched;
 
-    benchScroller.scrollToElementWithText(itemText);
-    jdiAssert(benchScroller.getItems().get(3).find(".v-list-item__content").text(),
-    Matchers.equalTo(itemText));
-}
+    @UI("#BenchVirtualScroller .v-virtual-scroll")
+    public static VirtualScroller benchScroller;
 
+    @Test(dataProvider = "bench items text", 
+            dataProviderClass = VirtualScrollerDataProvider.class)
+    public static void benchScrollToItemTest(String itemText) {
+        benchScroller.is().displayed();
+        benchScroller.show();
+        
+        benchScroller.scrollToElementWithText(itemText);
+        benchScroller.items().get(3).find(".v-list-item__content")
+                .has().text(itemText);
+    }
 ```
+![Virtual Scroller example](../../images/vuetify/virtualScrollerBench.png)
+
 The `v-virtual-scroll` component displays a virtual, infinite list. It supports dynamic height and scrolling vertically.
 
-####Bench
-By default the `v-virtual-scroll` does not pre-render additional items outside of the viewport. Using the **bench** prop will have the scroller render additional items as padding. It is recommended to keep this number as low as possible for the best possible performance.
-
-
-![Virtual Scroller example](../../images/vuetify/virtualScrollerBench.png)
-####User Directory
-The `v-virtual-scroll` component can render an unlimited amount of items by rendering only what it needs to fill the scroller’s viewport.
-
-
-![Virtual Scroller example](../../images/vuetify/virtualScrollerUser.png)
-
-The Dialog component inform users about a specific task and may contain critical information, require decisions, or involve multiple tasks.
+It can render an unlimited amount of items by rendering only what it needs to fill the scroller’s viewport.
 
 |Method | Description | Return Type
 --- | --- | ---
 **scrollToPosition()** | Scrolls to the position specified by y coordinate| void
 **scrollToElementWithText()** | Scrolls to the element that contains specified text| void
 **position()** | Returns the position of the first element in the scroller| int
-**getItems()** | Returns the list of rendered items| WebList
+**items()** | Returns the list of rendered items| WebList
 **show()** | Focuses on the specified UIElement| void
 
 For examples of usage see: [JDI vuetify page tests for Virtual Scroller](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/VirtualScrollerTests.java).

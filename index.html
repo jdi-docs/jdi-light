@@ -1080,6 +1080,9 @@
 										              <li>
 										              <a href="#5-12-7-radio-buttons" class="toc-h3 h4 toc-link" data-title="5.12.7 Radio buttons">5.12.7 Radio buttons</a>
 										              </li>
+										              <li>
+										              <a href="#5-12-8-combobox" class="toc-h3 h4 toc-link" data-title="5.12.8 Combobox">5.12.8 Combobox</a>
+										              </li>
 									            </ul>
                           </li>
                           <li>
@@ -38502,6 +38505,85 @@ They are ideal for adjusting settings such as volume, brightness, or applying im
 </tbody></table>
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/RadioButtonsTests.java">JDI Vuetify Radiobuttons tests</a>.</p>
+<h4 id='5-12-8-combobox'>5.12.8 Combobox</h4>
+<p><a href="https://jdi-testing.github.io/jdi-light/vuetify/combobox/">Vuetify documentation page</a></p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.vuetify.elements.complex.Combobox.java</em></li>
+</ul>
+<pre class="highlight java tab-java"><code>    <span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">baseFunctionalityTest</span><span class="o">()</span> <span class="o">{</span>
+  <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">testValueList</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">"Programming"</span><span class="o">,</span> <span class="s">"Design"</span><span class="o">,</span> <span class="s">"Vue"</span><span class="o">,</span> <span class="s">"Vuetify"</span><span class="o">);</span>
+
+  <span class="n">denseCombobox</span><span class="o">.</span><span class="na">expand</span><span class="o">();</span>
+  <span class="n">denseCombobox</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">expanded</span><span class="o">();</span>
+  <span class="n">denseCombobox</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+  <span class="n">denseCombobox</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">closed</span><span class="o">();</span>
+  <span class="n">denseCombobox</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">label</span><span class="o">(</span><span class="s">"Combobox"</span><span class="o">);</span>
+  <span class="n">denseCombobox</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="s">"Design"</span><span class="o">);</span>
+  <span class="n">denseCombobox</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="s">"Vue"</span><span class="o">);</span>
+  <span class="n">denseCombobox</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="n">testValueList</span><span class="o">);</span>
+  <span class="n">denseCombobox</span><span class="o">.</span><span class="na">unselect</span><span class="o">(</span><span class="n">testValueList</span><span class="o">);</span>
+  <span class="n">denseCombobox</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">notSelected</span><span class="o">(</span><span class="n">testValueList</span><span class="o">);</span>
+  <span class="o">}</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">noDataWithChipsComboboxTest</span><span class="o">()</span> <span class="o">{</span>
+  <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">"Gaming"</span><span class="o">,</span> <span class="s">"Programming"</span><span class="o">,</span> <span class="s">"Vue"</span><span class="o">);</span>
+  <span class="n">String</span> <span class="n">message</span> <span class="o">=</span> <span class="s">"Maximum of 5 tags"</span><span class="o">;</span>
+  <span class="n">String</span> <span class="n">firstTestWord</span> <span class="o">=</span> <span class="s">"Test"</span><span class="o">;</span>
+  <span class="n">String</span> <span class="n">secondTestWord</span> <span class="o">=</span> <span class="s">"Not to add"</span><span class="o">;</span>
+
+  <span class="n">noDataWithChipsCombobox</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">message</span><span class="o">(</span><span class="n">message</span><span class="o">);</span>
+  <span class="n">noDataWithChipsCombobox</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">list</span><span class="o">);</span>
+  <span class="n">noDataWithChipsCombobox</span><span class="o">.</span><span class="na">sendKeys</span><span class="o">(</span><span class="n">firstTestWord</span><span class="o">);</span>
+  <span class="n">noDataWithChipsCombobox</span><span class="o">.</span><span class="na">sendKeys</span><span class="o">(</span><span class="n">secondTestWord</span><span class="o">);</span>
+  <span class="n">noDataWithChipsCombobox</span><span class="o">.</span><span class="na">is</span><span class="o">().</span><span class="na">notSelected</span><span class="o">(</span><span class="n">secondTestWord</span><span class="o">);</span>
+  <span class="o">}</span>
+</code></pre>
+<p><img src="images/vuetify/combobox.png" alt="Combobox example" />
+The combobox component allows the user to enter values that do not exist within the provided items.</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>select(String/List<String>)</strong></td>
+<td>Select values from list</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>unselect(String/List<String>)</strong></td>
+<td>Unselect values from list</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>sendKeys(String keys)</strong></td>
+<td>Enter values that do not exist in list</td>
+<td>void</td>
+</tr>
+<tr>
+<td><strong>isExpanded()</strong></td>
+<td>Returns true if list of values is open</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>isSelected(String, list<String>)</strong></td>
+<td>Returns true if values is selected</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>is()</strong></td>
+<td>Assert action</td>
+<td>ComboboxAssert</td>
+</tr>
+</tbody></table>
+
+<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ComboboxTest.java">JDI Vuetify Combobox tests</a>.</p>
 <h3 id='5-13-groups'>5.13 Groups</h3><h4 id='5-13-1-button-groups'>5.13.1 Button Groups</h4><pre class="highlight java tab-java"><code><span class="nd">@JDIButtonGroup</span><span class="o">(</span>
         <span class="n">root</span> <span class="o">=</span> <span class="s">"#RoundedButtonGroup .v-item-group"</span><span class="o">,</span> <span class="n">buttons</span> <span class="o">=</span> <span class="s">"//*[@type = 'button']"</span>
 <span class="o">)</span> <span class="c1">// buttons search strategy is custom</span>

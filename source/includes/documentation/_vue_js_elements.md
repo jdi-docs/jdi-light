@@ -17,6 +17,11 @@
 
 ![Alerts example](../../images/vuetify/alerts.png)
 
+|Method | Description | Return Type
+--- | --- | ---
+**is()** | Returns Assert class | TextAssert
+**getValue()** | Returns element value | String
+
 For examples of usage see: [Custom vuetify alert example](https://github.com/jdi-testing/jdi-light/blob/3118-implement-alerts/jdi-light-vuetify-tests/src/main/java/io/github/com/custom/CustomAlert.java)
 and [JDI vuetify page tests for alerts](https://github.com/jdi-testing/jdi-light/blob/3118-implement-alerts/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/AlertsTests.java).
 
@@ -42,6 +47,16 @@ and [JDI vuetify page tests for alerts](https://github.com/jdi-testing/jdi-light
 ```
 
 ![Avatars example](../../images/vuetify/avatars.png)
+
+|Method | Description | Return Type
+--- | --- | ---
+**is()** | Returns Assert class | AvatarAssert
+**has()** | Returns Assert class | AvatarAssert
+**getPhoto()** | Returns element's photo | UIElement
+**getIcon()** | Returns element's icon | UIElement
+**hasPhoto()** | Shows that element has photo | boolean
+**hasIcon()** | Shows that element has icon | boolean
+**hasSize()** | Returns element's size | String
 
 For examples of usage see: [Custom vuetify avatar example (profile card)](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/main/java/io/github/com/custom/ProfileCard.java)
 and [JDI vuetify page tests for avatars](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/AvatarsTests.java).
@@ -72,6 +87,26 @@ Banners may contain anything, you can inherit the `Banner` class and customize i
 the way you want.
 
 Basically, you have methods that can return you elements containing in banner (buttons, checkers, icons, etc.).
+
+|Method | Description | Return Type
+--- | --- | ---
+**is()** | Returns Assert class | BannerAssert
+**has()** | Returns Assert class | BannerAssert
+**hasHiddenTextField()** | Shows that element's text field is hidden | boolean
+**hasText()** | Returns element's text | String
+**hasTitle()** | Returns element's title | String
+**hasChecker()** | Shows that element has 'checker' element | boolean
+**hasIcon()** | Shows that element has icon | boolean
+**hasAlertOnIconClick()** | Returns element's icon alert message | String
+**hasButtons()** | Returns number of element's buttons | int
+**hasVisibleButtons()** | Shows that element's buttons are visible | boolean
+**hasHiddenButtons()** | Shows that element's buttons are hidden | boolean
+**hasCheckerChecked()** | Shows that element's checker is checked | boolean
+**hasCheckerUnchecked()** | Shows that element's checker is unchecked | boolean
+**checkerCheck()** | Checks element's checker | void
+**checkerUnCheck()** | Unchecks element's checker | void
+**handleAlert()** | Dismisses element's alert | void
+**clickOnIcon()** | Clicks on element's icon | void
 
 For examples of usage see: [JDI vuetify page tests for banners](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/BannersTests.java).
 
@@ -308,6 +343,18 @@ public void checkInsetSheetCssProps() {
 
 ![Bottom sheet example](../../images/vuetify/bottom-sheet.png)
 
+|Method | Description | Return Type
+--- | --- | ---
+**is()** | Returns Assert class | BottomNavigationAssert
+**getBackgroundColor()** | Returns element's background color | String
+**getClassAttribute()** | Returns element's class attribute | String
+**getTransform()** | Returns element's transform | String
+**bottomNavigationButtonList()** | Returns element's buttons | WebList
+**getButtonColor(int)** | Returns color of required element's button | String
+**getButtonWight(int)** | Returns width of required element's button | String
+**getButtonDirection(int)** | Returns direction of required element's button | String
+**getButtonText(int)** | Returns text of required element's button | String
+
 For examples of usage see: [Vuetify Bottom sheets tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/composite/BottomSheetsTests.java).
 
 ### 5.7 Breadcrumbs
@@ -349,6 +396,12 @@ explicitly through a `JDIBreadcrumbs` annotation:
 
 It is **necessary** to specify **the root** of an element
 
+|Method | Description | Return Type
+--- | --- | ---
+**selected()** | Returns selected element | String
+**selected(String)** | Shows that required element is selected | String
+**dividers()** | Returns element's dividers | WebList
+**items()** | Returns element's items | WebList
 
 For examples of usage see: [Vuetify Breadcrumbs tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/BreadcrumbsTests.java).
 
@@ -397,6 +450,14 @@ Basically, you have 4 methods: `title`, `subtitle`, `content` and `actions`.
 They return the parts of a card described [here](https://vuetifyjs.com/en/components/cards/#api).
 The `content` method returns a
 card `text` element, but the `text` method is inherited from `UIBaseElement` that why it has a different name.
+
+|Method | Description | Return Type
+--- | --- | ---
+**is()** | Returns Assert class | CardAssert
+**title()** | Returns element's title | UIElement
+**subtitle()** | Returns element's subtitle | UIElement
+**content()** | Returns element's content | UIElement
+**actions()** | Returns element's action | UIElement
 
 For examples of usage see: [Custom vuetify card examples](https://github.com/jdi-testing/jdi-light/tree/vuetify-develop/jdi-light-vuetify-tests/src/main/java/io/github/com/custom/cards)
 and [JDI vuetify page tests for cards](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/CardsTests.java).
@@ -451,7 +512,6 @@ The Dialog component inform users about a specific task and may contain critical
 **isLoading()** | Shows that dialog is loading| boolean
 
 For examples of usage see: [JDI vuetify page tests for dialogs](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/DialogTests.java).
-
 
 ### 5.10 Expansion Panels
 
@@ -1068,8 +1128,13 @@ When you are using the `@UI` annotation, provide
 a selector not for the list of buttons, but for the container.
 See [different examples](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/main/java/io/github/com/pages/ButtonGroupsPage.java) of using `@UI` and `@JDIButtonGroup` annotations together and separately.
 
-
 ![Button group example](../../images/vuetify/button-group.png)
+
+|Method | Description | Return Type
+--- | --- | ---
+**getButtonByIndex(int)** | Returns button with required index | Button
+**getButtonByText()** | Returns button with required text | Button
+**getAllButtons()** | Returns all buttons | List
 
 For examples of usage see: [Vuetify Button groups tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ButtonGroupsTests.java).
 
@@ -1391,14 +1456,14 @@ Lists - a specific collection of items, which can contains an avatar, content, a
 
 |Method | Description | Return Type
 --- | --- | ---
-**select(String value)/select(int index)** | Finds required element by its name or index and selects | void
-**get(String value)/get(int index)** | Finds required element by its name or index and returns it | UIElement
-**isActive(int elementIndex)** | Shows that required element is active | boolean
-**isInactivate(int elementIndex)** | Shows that required element is inactive | boolen
-**hasIcon(int elementIndex)** | Shows that required element has icon | boolean
-**hasTitle(int elementIndex, String expectedTitle)** | Shows that required element has expected title | boolean
-**getSubList(int listElementIndex)** | Returns required element's sublist | WebList
-**isExpanded(int elementIndex)** | Shows that required element's sublist is expanded | boolean
+**select(String)/select(int)** | Finds required element by its name or index and selects | void
+**get(String)/get(int)** | Finds required element by its name or index and returns it | UIElement
+**isActive(int)** | Shows that required element is active | boolean
+**isInactivate(int)** | Shows that required element is inactive | boolean
+**hasIcon(int)** | Shows that required element has icon | boolean
+**hasTitle(int, String)** | Shows that required element has expected title | boolean
+**getSubList(int)** | Returns required element's sublist | WebList
+**isExpanded(int)** | Shows that required element's sublist is expanded | boolean
 
 For examples of usage see: [JDI Vuetify Lists tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ListsTests.java).
 
@@ -1535,11 +1600,12 @@ The rating component is a specialized but crucial piece in building user widgets
 
 |Method | Description | Return Type
 --- | --- | ---
+**is()** | Returns Assert class | RatingAssert
 **length()** | Get count rating buttons| int
 **size()** | Get size rating buttons| int
-**color()/ color(int index)** | Get color of rating button| String
-**setValue(double rating)** | Set rating to 'rating' with a mouse click| void
-**hoverSetValue(double rating)** | Set rating to 'rating' with a mouse hover| void
+**color()/ color(int)** | Get color of rating button| String
+**setValue(double)** | Set rating to 'rating' with a mouse click| void
+**hoverSetValue(double)** | Set rating to 'rating' with a mouse hover| void
 **getValue()** | Get rating| Double
 
 For examples of usage see: [JDI Vuetify Ratingss tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/RatingTests.java)
@@ -1658,10 +1724,10 @@ The Simple Table component is a simple wrapper component around the table elemen
 
 |Method | Description | Return Type
 --- | --- | ---
-**has()/is()** | Returns Assert class | SimpleTableAssert**has()** | Returns Assert class | SimpleTableAssert
-**firstColumnElement()** | Returns required element from first column | String
-**secondColumnElement()** | Returns required element from second column | String
-**columnTitle()** | Returns column title | String
+**has()/is()** | Returns Assert class | SimpleTableAssert
+**firstColumnElement(int/String)** | Returns required element from first column | String
+**secondColumnElement(int?String)** | Returns required element from second column | String
+**columnTitle(int)** | Returns column title | String
 **isDark()** | Shows that table has dark theme | boolean
 **isLight()** | Shows that table has light theme | boolean
 **hasFixedHeight()** | Shows that table has fixed height | boolean
@@ -1916,6 +1982,9 @@ Tooltip component is useful for conveying information when a user hovers over an
 
 ![Tooltips examples](../../images/vuetify/tooltips.png)
 
+|Method | Description | Return Type
+--- | --- | ---
+**has()/is()** | Returns Assert class | TooltipAssert
 
 For examples of usage see: [Tooltips tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/common/TooltipsTests.java).
 

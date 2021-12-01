@@ -952,7 +952,7 @@ For examples of usage see: [JDI Vuetify Radiobuttons tests](https://github.com/j
 
 #### 5.12.8 Combobox
 
-[Vuetify documentation page](https://jdi-testing.github.io/jdi-light/vuetify/combobox/)
+[Vuetify documentation page](https://vuetifyjs.com/en/components/combobox/)
 
 - __Java__: _com.epam.jdi.light.vuetify.elements.complex.Combobox.java_
 
@@ -988,6 +988,7 @@ public void noDataWithChipsComboboxTest() {
   }
 ```
 ![Combobox example](../../images/vuetify/combobox.png)
+
 The combobox component allows the user to enter values that do not exist within the provided items.
 
 |Method | Description | Return Type
@@ -1000,6 +1001,39 @@ The combobox component allows the user to enter values that do not exist within 
 **is()** | Assert action | ComboboxAssert
 
 For examples of usage see: [JDI Vuetify Combobox tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/ComboboxTest.java).
+
+#### 5.12.8 Selects
+
+[Vuetify documentation page](https://vuetifyjs.com/en/components/selects/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.complex.Select.java_
+
+```java
+    @Test
+public void basicFunctionalityTest() {
+  standardDenseSelect.expand();
+  standardDenseSelect.is().expanded();
+  standardDenseSelect.close();
+  standardDenseSelect.is().collapsed();
+  standardDenseSelect.select("Bar");
+  standardDenseSelect.is().selected("Bar");
+  standardDenseSelect.is().displayed();
+  }
+```
+![Select example](../../images/vuetify/select.png)
+
+Select components are used for collecting user provided information from a list of options.
+
+|Method | Description | Return Type
+--- | --- | ---
+**expand()/close()** | Open/close list of values | void
+**select()** | Select option from list of value | void
+**labelText()** | Return label text | String
+**messageText()** |Return message text | String
+**selected()** | Returns selected value | String
+**is()** | Assert action | DropdownAssert()
+
+For examples of usage see: [JDI Vuetify Select tests](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SelectTests.java).
 
 ### 5.13 Groups 
 

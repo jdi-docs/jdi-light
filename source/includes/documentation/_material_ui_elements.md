@@ -1708,8 +1708,7 @@ Breadcrumbs allow users to make selections from a range of values.
     @Test
     public void defaultBottomNavigationTest() {
         bottomNavigationItems.select(2);
-        bottomNavigationItems.has().elementSelected(2);
-        bottomNavigationItems.has().elementNotSelected(3);
+        bottomNavigationItems.has().selected(2);
     }
 ```
 
@@ -1722,8 +1721,7 @@ Bottom navigation bars allow movement between primary destinations in an app.
 |Method | Description | Return Type
 --- | --- | ---
 **is()** | Assert method | BottomNavigation Assert
-**isSelected** | Check if item is selected | boolean
-**isNotSelected()** | Check if item is not selected | boolean
+**selected** | Check if item is selected | boolean
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/BottomNavigationTests.java" target="_blank">Here you can find Bottom Navigation tests</a>
 

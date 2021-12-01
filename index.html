@@ -35808,8 +35808,7 @@ You can use for testing Text and Button classes, implemented in JDI-html section
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">defaultBottomNavigationTest</span><span class="o">()</span> <span class="o">{</span>
         <span class="n">bottomNavigationItems</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
-        <span class="n">bottomNavigationItems</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">elementSelected</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
-        <span class="n">bottomNavigationItems</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">elementNotSelected</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+        <span class="n">bottomNavigationItems</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">selected</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
     <span class="o">}</span>
 </code></pre><h5 id='https-material-ui-com-components-bottom-navigation'><a href="https://material-ui.com/components/bottom-navigation/" target="_blank"> https://material-ui.com/components/bottom-navigation/ </a></h5>
 <p>Bottom navigation bars allow movement between primary destinations in an app.</p>
@@ -35829,13 +35828,8 @@ You can use for testing Text and Button classes, implemented in JDI-html section
 <td>BottomNavigation Assert</td>
 </tr>
 <tr>
-<td><strong>isSelected</strong></td>
+<td><strong>selected</strong></td>
 <td>Check if item is selected</td>
-<td>boolean</td>
-</tr>
-<tr>
-<td><strong>isNotSelected()</strong></td>
-<td>Check if item is not selected</td>
 <td>boolean</td>
 </tr>
 </tbody></table>

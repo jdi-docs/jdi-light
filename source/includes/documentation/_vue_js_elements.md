@@ -2535,3 +2535,35 @@ Mix and match various pre-defined options or create your own unique implementati
 ![Skeleton Loader example](../../images/vuetify/skeleton_loaders.png)
 
 For examples of usage see: [JDI vuetify page tests for Skeleton Loader](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SkeletonLoadersTests.java).
+
+### 5.35 Parallax
+
+[Vuetify documentation page](https://vuetifyjs.com/en/components/parallax/)
+
+- __Java__: _com.epam.jdi.light.vuetify.elements.composite.Parallax.java_
+
+```java
+@Test
+    public void customHeightParallaxTests() {
+        customHeightParallax.has().noContent();
+
+        int expectedHeight = 300;
+        customHeightParallax.has().height(expectedHeight);
+    }
+```
+
+The `v-parallax` component creates a 3D effect that makes an image appear to scroll slower than the window. A parallax causes a shift in a background image when the user scrolls the page.
+
+|Method | Description | Return Type
+--- | --- | ---
+**height()** | Returns the value of the parallax container height attribute | String
+**hasContent()** | Checks if the parallax container has any elements within | boolean
+**image()** | Returns the background image of the parallax container (return type is JDI Light HTML Image) | Image
+**is()/has()** | Returns Assert class | ParallaxAssert
+
+For examples of usage see: [JDI vuetify page tests for Parallax](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/composite/ParallaxTests.java).
+
+
+
+
+

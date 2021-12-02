@@ -1209,6 +1209,9 @@
 										              </li>
 									            </ul>
                           </li>
+                          <li>
+								            <a href="#5-35-parallax" class="toc-h2 h3 toc-link" data-title="5.35 Parallax">5.35 Parallax</a>
+                          </li>
                       </ul>
                   </li>
                   <li>
@@ -41660,6 +41663,52 @@ Mix and match various pre-defined options or create your own unique implementati
 <p><img src="images/vuetify/skeleton_loaders.png" alt="Skeleton Loader example" /></p>
 
 <p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/SkeletonLoadersTests.java">JDI vuetify page tests for Skeleton Loader</a>.</p>
+<h3 id='5-35-parallax'>5.35 Parallax</h3>
+<p><a href="https://vuetifyjs.com/en/components/parallax/">Vuetify documentation page</a></p>
+
+<ul>
+<li><strong>Java</strong>: <em>com.epam.jdi.light.vuetify.elements.composite.Parallax.java</em></li>
+</ul>
+<pre class="highlight java tab-java"><code><span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">customHeightParallaxTests</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">customHeightParallax</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">noContent</span><span class="o">();</span>
+
+        <span class="kt">int</span> <span class="n">expectedHeight</span> <span class="o">=</span> <span class="mi">300</span><span class="o">;</span>
+        <span class="n">customHeightParallax</span><span class="o">.</span><span class="na">has</span><span class="o">().</span><span class="na">height</span><span class="o">(</span><span class="n">expectedHeight</span><span class="o">);</span>
+    <span class="o">}</span>
+</code></pre>
+<p>The <code>v-parallax</code> component creates a 3D effect that makes an image appear to scroll slower than the window. A parallax causes a shift in a background image when the user scrolls the page.</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Return Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>height()</strong></td>
+<td>Returns the value of the parallax container height attribute</td>
+<td>String</td>
+</tr>
+<tr>
+<td><strong>hasContent()</strong></td>
+<td>Checks if the parallax container has any elements within</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>image()</strong></td>
+<td>Returns the background image of the parallax container (return type is JDI Light HTML Image)</td>
+<td>Image</td>
+</tr>
+<tr>
+<td><strong>is()/has()</strong></td>
+<td>Returns Assert class</td>
+<td>ParallaxAssert</td>
+</tr>
+</tbody></table>
+
+<p>For examples of usage see: <a href="https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/composite/ParallaxTests.java">JDI vuetify page tests for Parallax</a>.</p>
 <h2 id='jdi-features'>JDI features</h2><h3 id='jdi-features-for-parameters-in-bdd-steps'>JDI Features for parameters in BDD steps</h3><h4 id='using-locator-aliases-as-parameters'>Using locator aliases as parameters</h4><pre class="highlight gherkin tab-gherkin"><code>   <span class="kn">Scenario</span><span class="p">:</span> input element
        <span class="nf">When</span> I input <span class="s">"simple 1234"</span> in <span class="s">"Name"</span>
        <span class="nf">Then</span> the <span class="s">"Name"</span> text matches to <span class="s">"\w{6} \d{4}"</span>

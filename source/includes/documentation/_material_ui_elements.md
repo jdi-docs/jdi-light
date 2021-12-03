@@ -3,7 +3,8 @@
 ### 4.1 Checkbox
 
 ```java 
-    @UI("//h2[text()='Basic checkboxes']/following-sibling::div[1]/span")
+    // @FindBy(xpath = "//h2[text()='Basic checkboxes']/following-sibling::div/span[contains(@class,'MuiCheckbox-root')]")
+    @UI("//h2[text()='Basic checkboxes']/following-sibling::div/span[contains(@class,'MuiCheckbox-root')]")
     public List<Checkbox> basicCheckbox;
 
     @Test
@@ -27,11 +28,25 @@
     }
 ```
 
-##### <a href="https://material-ui.com/components/checkboxes/" target="_blank"> https://material-ui.com/components/checkboxes/ </a>
+##### <a href="https://material-ui.com/components/checkboxes/" target="_blank"> Checkbox overview </a>
 
 Checkbox is located in the following class:
 
 - __Java__: _com.epam.jdi.light.material.elements.inputs.Checkbox_
+
+Here is an example with provided Material-UI v4.12.3
+```html
+<span class="MuiButtonBase-root MuiIconButton-root jss40 MuiCheckbox-root MuiCheckbox-colorSecondary jss41 Mui-checked MuiIconButton-colorSecondary" aria-disabled="false">
+  <span class="MuiIconButton-label">
+    <input class="jss43" type="checkbox" data-indeterminate="false" aria-label="primary checkbox" value="" checked="">
+    <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z">
+      </path>
+    </svg>
+  </span>
+  <span class="MuiTouchRipple-root"></span>
+</span>
+```
 
 ![Checkbox](../../images/material-ui/Checkbox.png)
 

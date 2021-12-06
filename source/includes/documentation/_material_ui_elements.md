@@ -9,22 +9,24 @@
 
     @Test
     public void basicCheckboxTest() {
-        for (int i = 1; i < 3; i++)
+        for (int i = 1; i < 3; i++) {
             checkboxTestLogic(
-                    checkboxPage.basicCheckbox.get(i),
-                    i != 2 && i != 7 ? "MuiCheckbox-colorSecondary" :
-                            i == 2 ? "MuiCheckbox-colorPrimary" : "jss3");
+                    basicCheckbox.get(i),
+                    i != 2 ? "MuiCheckbox-colorSecondary" :
+                            "MuiCheckbox-colorPrimary");
+        }
     }
     
     private void checkboxTestLogic(Checkbox checkbox, String className) {
         if (checkbox.isEnabled()) {
             checkbox.check();
-            checkbox.is().checked();
+            checkbox.is().selected();
             checkbox.uncheck();
-            checkbox.is().unChecked();
-        } else
+            checkbox.is().deselected();
+        } else {
             checkbox.is().disabled();
-        checkbox.is().hasClass(className);
+        }
+        checkbox.hasClass(className);
     }
 ```
 
@@ -34,7 +36,10 @@ Checkbox is located in the following class:
 
 - __Java__: _com.epam.jdi.light.material.elements.inputs.Checkbox_
 
-Here is an example with provided Material-UI v4.12.3
+![Checkbox](../../images/material-ui/Checkbox.png)
+
+Here is an example with provided Material-UI v4.12.3 code:
+
 ```html
 <span class="MuiButtonBase-root MuiIconButton-root jss40 MuiCheckbox-root MuiCheckbox-colorSecondary jss41 Mui-checked MuiIconButton-colorSecondary" aria-disabled="false">
   <span class="MuiIconButton-label">
@@ -48,9 +53,9 @@ Here is an example with provided Material-UI v4.12.3
 </span>
 ```
 
-![Checkbox](../../images/material-ui/Checkbox.png)
+__Checkbox__ - element that allows the user to select one or more items from a set. It can be used to turn an option on or off.
 
-Checkboxes allow the user to select one or more items from a set.
+Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -62,52 +67,43 @@ Checkboxes allow the user to select one or more items from a set.
 **check()** | select Checkbox | void
 **uncheck()** | unselect Checkbox | void
 
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/CheckboxTests.java" target="_blank">Here you can find Checkbox tests</a>
 
-##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/CheckboxTests.java" target="_blank">Here you can find Checkbox tests</a>
+<br></br>
 
 ### 4.2 Chips
 
 ```java 
-    @JDIChip
-    @UI("//h2[text() = 'Chip']/following-sibling::*[1]")
-    public static Chip defaultChips;
+    // @FindBy(xpath = "//h2[text()='Chip array']/following-sibling::div//div[contains(@class, 'MuiChip-root')]")
+    @UI("//h2[text()='Chip array']/following-sibling::div//div[contains(@class, 'MuiChip-root')]")
+    public static List<Chip> arrayChips;
     
-    @JDIChip
-    @UI("//h2[text() = 'Outlined Chips']/following-sibling::*[1]")
-    public static Chip outlinedChips;
-    
-    @JDIChip
-    @UI("//h2[text() = 'Chip array']/following-sibling::*[1]")
-    public static Chip chipArrays;
-    
-    @Test
-    public void defaultChipTest() {
-        basicCheck(defaultChips);
-        disabledCheck(defaultChips);// first variant of class value
-        clickableCheck(defaultChips,3);
-        clickableLinkCheck(defaultChips,7);
+    @Test(dataProvider = "arrayChipsTestsDataProvider", 
+            dataProviderClass = ChipDataProvider.class)
+    public void arrayChipsTests(int index, String text) {
+        arrayChipsTestLogic(arrayChips.get(index), text);
     }
     
-    @Test
-    public void outlinedChipTest() {
-        basicCheck(outlinedChips);
-        disabledCheck(outlinedChips); // second variant of class value
-        clickableCheck(outlinedChips, 3);
-        clickableLinkCheck(outlinedChips, 7);
-    }
-    
-    @Test
-    public void chipArrayTest() {
-        chipArrays.is().displayed(1);
-        chipArrays.is().text(1, hasToString("Angular"));
-        chipArrays.is().displayed(2);
-        chipArrays.is().text(2, hasToString("jQuery"));
-        chipArrays.getChipIcon(1).click();
-        chipArrays.is().text(1, hasToString("jQuery")); // "jQuery" became first element as "Angular" element was deleted
+    public void arrayChipsTestLogic(Chip chip, String text) {
+        String clickInfoText = String.format(basicClickText + " %s", text).trim();
+        chip.is().displayed();
+        chip.label().has().text(text);
+        chip.is().enabled();
+        chip.is().clickable();
+        chip.click();
+        lastClickArrayInfo.has().text(clickInfoText);
+        if (chip.icon().isDisplayed()) {
+            chip.icon().is().displayed();
+            chip.icon().click();
+            lastClickArrayInfo.has().text(basicClickText);
+        }
+        if (chip.isDeletable()) {
+            chip.is().deletable();
+        }
     }
 ```
 
-##### <a href="https://material-ui.com/components/chips/" target="_blank"> https://material-ui.com/components/chips/ </a>
+##### <a href="https://material-ui.com/components/chips/" target="_blank"> Chips overview </a>
 
 Chip is located in the following class:
 
@@ -115,7 +111,65 @@ Chip is located in the following class:
 
 ![Chip](../../images/material-ui/Chip.png)
 
-Chips are compact elements that represent an input, attribute, or action.
+Here is an example with provided Material-UI v4.12.3 code:
+
+```html
+<h2>Chip array</h2>
+<div>
+  <ul class="MuiPaper-root jss4 MuiPaper-elevation1 MuiPaper-rounded">
+    <li>
+      <div class="MuiButtonBase-root MuiChip-root jss5 MuiChip-clickable MuiChip-deletable" tabindex="0" role="button">
+        <span class="MuiChip-label">Angular</span>
+        <svg class="MuiSvgIcon-root MuiChip-deleteIcon" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"></path>
+        </svg>
+        <span class="MuiTouchRipple-root"></span>
+      </div>
+    </li>
+    <li>
+      <div class="MuiButtonBase-root MuiChip-root jss5 MuiChip-clickable MuiChip-deletable" tabindex="0" role="button">
+        <span class="MuiChip-label">jQuery</span>
+        <svg class="MuiSvgIcon-root MuiChip-deleteIcon" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"></path>
+        </svg>
+        <span class="MuiTouchRipple-root"></span>
+      </div>
+    </li>
+    <li>
+      <div class="MuiButtonBase-root MuiChip-root jss5 MuiChip-clickable MuiChip-deletable" tabindex="0" role="button">
+        <span class="MuiChip-label">Polymer</span>
+        <svg class="MuiSvgIcon-root MuiChip-deleteIcon" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"></path>
+        </svg>
+        <span class="MuiTouchRipple-root"></span>
+      </div>
+    </li>
+    <li>
+      <div class="MuiButtonBase-root MuiChip-root jss5 MuiChip-clickable" tabindex="0" role="button">
+        <svg class="MuiSvgIcon-root MuiChip-icon" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"></path>
+        </svg>
+        <span class="MuiChip-label">React</span>
+        <span class="MuiTouchRipple-root"></span>
+      </div>
+    </li>
+    <li>
+      <div class="MuiButtonBase-root MuiChip-root jss5 MuiChip-clickable MuiChip-deletable" tabindex="0" role="button">
+        <span class="MuiChip-label">Vue.js</span>
+        <svg class="MuiSvgIcon-root MuiChip-deleteIcon" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"></path>
+        </svg>
+        <span class="MuiTouchRipple-root"></span>
+      </div>
+    </li>
+  </ul>
+  <p id="lastChipArrayClickInfo">You clicked on: jQuery</p>
+</div>
+```
+
+__Chips__ - compact elements that represent an input, attribute, or action. Chips allow users to enter information, make selections, filter content, or trigger actions.
+
+Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -125,35 +179,33 @@ Chips are compact elements that represent an input, attribute, or action.
 **getChipRoot(int index)** | Gets root| UIElement
 **getChipIcon(int index)** | Gets Icon|UIElement
 
-##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/ChipTests.java" target="_blank">Here you can find Chips tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/ChipTests.java" target="_blank">Here you can find Chips tests</a>
+
+<br></br>
 
 ### 4.3 Tooltip
 
 ```java 
-    @UI("//div[@id='touchItem']/button")
-    public static ButtonWithTooltip hoverOrTouchButtonWithTooltip;
-    
-    @UI("//div[@id='clickItem']/*/button")
-    public static ButtonWithTooltip clickButtonWithTooltip;
+    // @FindBy(xpath = "//button[contains(@title, 'Add')][1]")
+    @UI("//button[contains(@title, 'Add')][1]")
+    public static MaterialButton addButtonWithTooltip;
     
     @Test
-    public void hoverOrTouchTooltip() {
-        hoverOrTouchButtonWithTooltip.is().visible();
-        hoverOrTouchButtonWithTooltip.hover();
-        hoverOrTouchButtonWithTooltip.tooltip().is().visible();
-        hoverOrTouchButtonWithTooltip.tooltip().has().text("Add");
+    public void addButtonWithTooltipTest() {
+        addButtonWithTooltip.is().visible();
+        addButtonWithTooltip.hover();
+        addButtonWithTooltip.tooltip().is().visible();
+        addButtonWithTooltip.tooltip().has().text("Add");
     }
     
-    @Test
-    public void clickButtonTooltipTest() {
-        clickButtonWithTooltip.is().visible();
-        clickButtonWithTooltip.click();
-        clickButtonWithTooltip.tooltip().is().visible();
-        clickButtonWithTooltip.tooltip().has().text("Add");
+    public interface HasTooltip extends ICoreElement {
+        default Tooltip tooltip() {
+            return new Tooltip(core());
+        }
     }
 ```
 
-##### <a href="https://material-ui.com/components/tooltips/" target="_blank"> https://material-ui.com/components/tooltips/ </a>
+##### <a href="https://material-ui.com/components/tooltips/" target="_blank"> Tooltip overview </a>
 
 Tooltip is located in the following class:
 
@@ -161,7 +213,22 @@ Tooltip is located in the following class:
 
 ![Tooltip](../../images/material-ui/Tooltip.png)
 
-Tooltips display informative text when users hover over, focus on, or tap an element.
+Here is an example with provided Material-UI v4.12.3 code:
+
+```html
+<button class="MuiButtonBase-root MuiFab-root jss8 MuiFab-secondary" tabindex="0" type="button" title="Add" aria-label="add">
+  <span class="MuiFab-label">
+    <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path>
+    </svg>
+  </span>
+  <span class="MuiTouchRipple-root"></span>
+</button>
+```
+
+__Tooltips__ - elements that display informative text when users hover over, focus on, or tap an element.
+
+Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -171,11 +238,14 @@ Tooltips display informative text when users hover over, focus on, or tap an ele
 **isInteractive()** | Checks element is interactive| boolean
 **getValue()** | Gets value| String
 
-##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/TooltipTests.java" target="_blank">Here you can find Tooltip tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/TooltipTests.java" target="_blank">Here you can find Tooltip tests</a>
+
+<br></br>
 
 ### 4.4 Container
 
 ```java 
+    // @FindBy(css = ".MuiContainer-root.MuiContainer-maxWidthSm")
     @UI(".MuiContainer-root.MuiContainer-maxWidthSm")
     public static Container container;
 
@@ -188,16 +258,27 @@ Tooltips display informative text when users hover over, focus on, or tap an ele
     }
 ```
 
-##### <a href="https://material-ui.com/components/container/" target="_blank"> https://material-ui.com/components/container/ </a>
+##### <a href="https://material-ui.com/components/container/" target="_blank"> Container overview </a>
 
+Container is located in the following class:
+
+- __Java__: _com.epam.jdi.light.material.elements.layout.Container_
 
 ![Container](../../images/material-ui/Container.png)
 
-The container centers your content horizontally. It's the most basic layout element.
-A fluid container width is bounded by the maxWidth prop value.
-If you prefer to design for a fixed set of sizes instead of trying to accommodate a fully fluid viewport,
-you can set the fixed prop. The max-width matches the min-width of the current breakpoint.
+Here is an example with provided Material-UI v4.12.3 code:
 
+```html
+<div class="MuiContainer-root MuiContainer-maxWidthSm">
+  <div class="MuiTypography-root MuiTypography-body1" style="background-color: rgb(207, 232, 252); height: 100vh;">
+    Example text
+  </div>
+</div>
+```
+
+__Container__ - the most basic layout element. It centers your content horizontally.
+
+Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -210,45 +291,55 @@ you can set the fixed prop. The max-width matches the min-width of the current b
 **maxWidth(String)** | Assert that container's max width is specified width | ContainerAssert
 
 
-##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/ContainerTests.java" target="_blank">Here you can find Container tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/ContainerTests.java" target="_blank"> Here you can find Container tests </a>
 
+<br></br>
 
 ### 4.5 Avatar
 
 ```java 
+    // @FindBy(xpath = "//span[@class = 'MuiBadge-root']")
     @UI("//span[@class = 'MuiBadge-root']")
     public static List<Avatar> avatarsWithPhoto;
 
-    @UI("//div/div[contains(@class, 'MuiAvatar-root') and not(*)] ")
-    public static List<Avatar> avatarsWithText;
-
-
-
-    @Test
-    public void avatarsWithTextTests() {
-        for(Avatar avatar : avatarsWithText) {
-            avatar.is().displayed();
-        }
-        avatarsWithText.get(1).is().text("L");
-        avatarsWithText.get(2).is().text("A");
-    }
-
     @Test
     public void avatarsWithPhotoTests() {
-        for(Avatar avatar : avatarsWithPhoto) {
+        for (Avatar avatar : avatarsWithPhoto) {
             avatar.is().displayed();
-            avatar.has().photo();
+            avatar.has().image();
             avatar.has().badge();
         }
     }
 ```
 
-##### <a href="https://material-ui.com/ru/components/avatars/" target="_blank"> https://material-ui.com/ru/components/avatars/ </a>
+##### <a href="https://material-ui.com/ru/components/avatars/" target="_blank"> Avatars overview </a>
 
+Avatar is located in the following class:
+
+- __Java__: _com.epam.jdi.light.material.elements.displaydata.Avatar_
 
 ![Avatar](../../images/material-ui/Avatar.png)
 
-Avatars are graphical representations of users.
+Here is an example with provided Material-UI v4.12.3 code:
+```html
+<span class="MuiBadge-root">
+  <div class="MuiAvatar-root MuiAvatar-circle">
+    <img alt="Remy Sharp" src="https://mui.com/static/images/avatar/1.jpg" class="MuiAvatar-img"></div>
+  <span class="MuiBadge-badge jss37 MuiBadge-anchorOriginBottomRightCircle MuiBadge-dot"></span>
+</span>
+
+<span class="MuiBadge-root">
+  <div class="MuiAvatar-root MuiAvatar-circle">
+    <img alt="Travis Howard" src="https://mui.com/static/images/avatar/1.jpg" class="MuiAvatar-img"></div>
+  <span class="MuiBadge-badge MuiBadge-anchorOriginBottomRightCircle">
+    <div class="MuiAvatar-root jss39 MuiAvatar-circle MuiAvatar-colorDefault">R</div>
+  </span>
+</span>
+```
+
+__Avatars__ - graphical representations of users.
+
+Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -260,26 +351,22 @@ Avatars are graphical representations of users.
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/AvatarTests.java" target="_blank">Here you can find Avatar tests</a>
 
+<br></br>
+
 ### 4.6 Click Away Listener
 
 ```java     
-    @UI("//h2[text()='Example']/following-sibling::div[1]/div/button")
+    // @FindBy(xpath = "//h2[text()='Portal']/preceding::button")
+    @UI("//h2[text()='Portal']/preceding::button")
     public static Button exampleButton;
 
-    @UI("//h2[text()='Portal']/following-sibling::div[1]/div/button")
-    public static Button portalButton;
-
+    // @FindBy(xpath = "//div[text()='Click me, I will stay visible until you click outside.']")
     @UI("//div[text()='Click me, I will stay visible until you click outside.']")
     public static TextArea text;
 
     @Test
     public void exampleClickAwayListenerTest() {
         textFieldTest(1);
-    }
-
-    @Test
-    public void portalExampleClickAwayListenerTest() {
-        textFieldTest(2);
     }
 
     private void textFieldTest(int buttonId) {
@@ -297,11 +384,22 @@ Avatars are graphical representations of users.
     }
 ```
 
-##### <a href="https://material-ui.com/ru/components/click-away-listener/" target="_blank"> https://material-ui.com/ru/components/click-away-listener/ </a>
+##### <a href="https://material-ui.com/ru/components/click-away-listener/" target="_blank"> Click Away Listener overview </a>
 
 ![ClickAwayListener](../../images/material-ui/ClickAwayListener.png)
 
-Detect if a click event happened outside of an element. It listens for clicks that occur somewhere in the document.
+Here is an example with provided Material-UI v4.12.3 code:
+
+```html
+<div class="jss42">
+  <button type="button">Open menu dropdown</button>
+  <div class="jss43">Click me, I will stay visible until you click outside.</div>
+</div>
+<h2>Portal</h2>
+```
+__Click Away Listener__ - element that detects if a click event happened outside an element. It listens for clicks that occur somewhere in the document.
+
+Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -311,40 +409,46 @@ Detect if a click event happened outside of an element. It listens for clicks th
 **displayed()** | Assert state | Assert
 **hidden()** | Assert state | Assert
 
-##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/ClickAwayListenerTests.java" target="_blank">Here you can find ClickAwayListener tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/utils/ClickAwayListenerTests.java" target="_blank">Here you can find ClickAwayListener tests</a>
+
+<br></br>
 
 ### 4.7 Divider
 
 ```java 
-    @UI("(//li[contains(@class, 'MuiDivider-root')])")
-    public static List<Divider> insetDividers;
+    // @FindBy(css = "li.MuiDivider-root")
+    @UI("li.MuiDivider-root")
+    public static List<Divider> insetDivider;
     
-    @UI(".MuiDivider-root")
-    public static Divider verticalDivider;
-
     @Test
     public void insetDividerTest() {
-        insetDividers.forEach(
-            d-> d.is().inset()
-        );
-    }
-    
-    @Test
-    public void verticalDividerTest() {
-        verticalDivider.is().vertical();
+        insetDivider.forEach(d -> d.is().inset());
     }
 ```
 
-##### <a href="https://material-ui.com/components/dividers/" target="_blank"> https://material-ui.com/components/dividers/ </a>
+##### <a href="https://material-ui.com/components/dividers/" target="_blank"> Divider overview </a>
 
 Divider is located in the following class:
 
 - __Java__: _com.epam.jdi.light.material.elements.displaydata.Divider_
 
 ![InsetDivider](../../images/material-ui/InsetDivider.png)
-![VerticalDivider](../../images/material-ui/VerticalDivider.png)
 
-A divider is a thin line that groups content in lists and layouts.
+Here is an example with provided Material-UI v4.12.3 code:
+
+```html
+<ul class="MuiList-root jss46 MuiList-padding">
+  <li class="MuiListItem-root MuiListItem-gutters">...</li>
+  <li class="MuiDivider-root MuiDivider-inset" role="separator"></li>
+  <li class="MuiListItem-root MuiListItem-gutters">...</li>
+  <li class="MuiDivider-root MuiDivider-inset" role="separator"></li>
+  <li class="MuiListItem-root MuiListItem-gutters">...</li>
+</ul>
+```
+
+__Divider__ - a thin line that groups content in lists and layouts.
+
+Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -352,66 +456,68 @@ A divider is a thin line that groups content in lists and layouts.
 **isInset()** | Assert inset divider | boolean
 **isVertical()** | Assert vertical divider| boolean
 
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/InsetDividerTests.java" target="_blank">Here you can find Divider tests</a>
 
-##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/DividerTests.java" target="_blank">Here you can find Divider tests</a>
+<br></br>
 
 ### 4.8 Card
 
 ```java    
-    @UI("//div[@class='MuiCardContent-root']/p[1]")
-    public static List<Text> pTagTexts;
-
-    @UI("//div[@class='MuiCardContent-root']/h2[1]")
-    public static List<Text> h2TagTexts;
-
-    @UI("//div[@class='MuiCardActions-root']/button[1]")
-    public static Button complexCardHeartIconButton;
-
-    @UI("//div[@class='MuiCardActions-root']/button[1]/span[1]/*")
-    public static Icon complexCardHeartIcon;
-
-    @UI("//div[@class='MuiCardActions-root']/button[3]")
-    public static Button complexCardSliderDownButton;
-
-    @UI("//div[@class='MuiCardActions-root']/preceding-sibling::div[2]")
-    public static Image complexCardImage;
-
-    @UI("//div[@class='MuiCardActions-root']/following-sibling::div[1]")
-    public static TextArea complexCardHiddenTextArea;
-
-    @UI("//div[@class='MuiCardActions-root']/following-sibling::div[1]/div/div/div/p[1]")
-    public static Text complexCardHiddenText;
-
-    private void textCheck(int index) {
-        pTagTexts.get(index).has().text(Matchers.is("Word of the Day"));
-        h2TagTexts.get(index).has().text(Matchers.is("be•nev•o•lent"));
-    }
+    // @FindBy(id = "simpleCard")
+    @UI("#simpleCard")
+    public static Card simpleCard;
 
     @Test
-    public void complexCardTest() {
-        String expectedText = "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup of frozen peas along with the mussels, if you like.";
-        pTagTexts.get(3).has().text(Matchers.is(expectedText));
-        complexCardImage.is().displayed();
-
-        complexCardHeartIconButton.click();
-        new Timer(1000L)
-                .wait(() -> complexCardHeartIcon.has().classValue(Matchers.containsString("jss")));
-
-        complexCardHeartIconButton.click();
-        new Timer(1000L)
-                .wait(() -> complexCardHeartIcon.has().classValue(Matchers.not("jss")));
-
-        complexCardSliderDownButton.click();
-        complexCardHiddenTextArea.is().displayed();
-        complexCardHiddenText.has().text(Matchers.containsString("Method:"));
+    public void simpleCardTestContent() {
+        simpleCard.getContent().is().text(containsString("Word of the Day"));
+        simpleCard.getContent().is().text(containsString("be•nev•o•lent"));
     }
 ```
 
-##### <a href="https://material-ui.com/components/cards/" target="_blank"> https://material-ui.com/components/cards/ </a>
+##### <a href="https://material-ui.com/components/cards/" target="_blank"> Card overview </a>
+
+Card is located in the following class:
+
+- __Java__: _com.epam.jdi.light.material.elements.surfaces.Card_
 
 ![Сard](../../images/material-ui/Card.png)
 
-Cards contain content and actions about a single subject.
+Here is an example with provided Material-UI v4.12.3 code:
+
+```html
+<div class="MuiPaper-root MuiCard-root jss54 MuiPaper-elevation1 MuiPaper-rounded" id="simpleCard">
+  <div class="MuiCardContent-root">
+    <p class="MuiTypography-root jss56 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom">
+      Word of the Day
+    </p>
+    <h2 class="MuiTypography-root MuiTypography-h5">
+      be
+      <span class="jss55">•</span>
+      nev
+      <span class="jss55">•</span>
+      o
+      <span class="jss55">•</span>
+      lent
+    </h2>
+    <p class="MuiTypography-root jss57 MuiTypography-body1 MuiTypography-colorTextSecondary">
+      adjective
+    </p>
+    <p class="MuiTypography-root MuiTypography-body2">
+      well meaning and kindly.<br>a benevolent smile
+    </p>
+  </div>
+  <div class="MuiCardActions-root MuiCardActions-spacing">
+    <button class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textSizeSmall MuiButton-sizeSmall" tabindex="0" type="button">
+      <span class="MuiButton-label">Learn More</span>
+      <span class="MuiTouchRipple-root"></span>
+    </button>
+  </div>
+</div>
+```
+
+__Card__ - element that contains content and actions about a single subject.
+
+Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -421,19 +527,16 @@ Cards contain content and actions about a single subject.
 **hidden()** | Assert state | Assert
 **classValue()** | Assert state | Assert
 
-##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/surfaces/CardTests.java" target="_blank">Here you can find Card tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/surfaces/CardTests.java" target="_blank">Here you can find Card tests</a>
+
+<br></br>
 
 ### 4.9 Radio
 
 ```java 
+    // @FindBy(css = "#simpleRadio .MuiRadio-root")
     @UI("#simpleRadio .MuiRadio-root")
     public static RadioButtons simpleRadioButtons;
-    
-    @UI("#lastClickContent")
-    public static Text lastRadioText;
-    
-    @UI(".MuiFormControl-root[2] .MuiRadio-root")
-    public static RadioButtons labelPlacementRadioButtons;
 
     @Test
     public void simpleRadioTest() {
@@ -446,24 +549,98 @@ Cards contain content and actions about a single subject.
             lastRadioText.has().text(containsString(label));
         });
     }
-    
-    @Test
-    public void labelPlacementTest() {
-        labelPlacementRadioButtons.has().size(4);
-        labelPlacementRadioButtons.has().selected(1);
-        labelPlacementRadioButtons.has().selected("Top");
-        labelPlacementRadioButtons.has().labelPosition(1, LabelPosition.TOP);
-        labelPlacementRadioButtons.has().labelPosition("Start", LabelPosition.START);
-        labelPlacementRadioButtons.has().labelPosition(2, LabelPosition.BOTTOM);
-        labelPlacementRadioButtons.has().labelPosition("End", LabelPosition.END);
-    }
 ```
 
-##### <a href="https://mui.com/components/radio-buttons/" target="_blank"> https://mui.com/components/radio-buttons/ </a>
+##### <a href="https://mui.com/components/radio-buttons/" target="_blank"> Radio overview </a>
+
+Radio is located in the following class:
+
+- __Java__: _com.epam.jdi.light.material.elements.inputs.RadioButtons_
 
 ![Radio](../../images/material-ui/Radio.png)
 
-Radio buttons allow the user to select one option from a set.
+Here is an example with provided Material-UI v4.12.3 code:
+```html
+<fieldset class="MuiFormControl-root" id="simpleRadio">
+  <div class="MuiFormGroup-root MuiFormGroup-row" role="radiogroup" aria-label="position">
+    <label class="MuiFormControlLabel-root">
+      <span class="MuiButtonBase-root MuiIconButton-root jss63 MuiRadio-root MuiRadio-colorPrimary MuiIconButton-colorPrimary" aria-disabled="false">
+        <span class="MuiIconButton-label">
+          <input class="jss66" name="position" type="radio" value="first">
+          <div class="jss67">
+            <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"></path>
+            </svg>
+            <svg class="MuiSvgIcon-root jss68" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M8.465 8.465C9.37 7.56 10.62 7 12 7C14.76 7 17 9.24 17 12C17 13.38 16.44 14.63 15.535 15.535C14.63 16.44 13.38 17 12 17C9.24 17 7 14.76 7 12C7 10.62 7.56 9.37 8.465 8.465Z"></path>
+            </svg>
+          </div>
+        </span>
+        <span class="MuiTouchRipple-root"></span>
+      </span>
+      <span class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1">First</span>
+    </label>
+    
+    <label class="MuiFormControlLabel-root">
+      <span class="MuiButtonBase-root MuiIconButton-root jss63 MuiRadio-root MuiRadio-colorPrimary jss64 Mui-checked MuiIconButton-colorPrimary" aria-disabled="false">
+        <span class="MuiIconButton-label">
+          <input class="jss66" name="position" type="radio" value="second">
+          <div class="jss67 jss69">
+            <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"></path>
+            </svg>
+            <svg class="MuiSvgIcon-root jss68" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M8.465 8.465C9.37 7.56 10.62 7 12 7C14.76 7 17 9.24 17 12C17 13.38 16.44 14.63 15.535 15.535C14.63 16.44 13.38 17 12 17C9.24 17 7 14.76 7 12C7 10.62 7.56 9.37 8.465 8.465Z"></path>
+            </svg>
+          </div>
+        </span>
+        <span class="MuiTouchRipple-root"></span>
+      </span>
+      <span class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1">Second</span>
+    </label>
+    
+    <label class="MuiFormControlLabel-root">
+      <span class="MuiButtonBase-root MuiIconButton-root jss63 MuiRadio-root MuiRadio-colorPrimary MuiIconButton-colorPrimary" aria-disabled="false">
+        <span class="MuiIconButton-label">
+          <input class="jss66" name="position" type="radio" value="third">
+          <div class="jss67">
+            <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"></path>
+            </svg>
+            <svg class="MuiSvgIcon-root jss68" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M8.465 8.465C9.37 7.56 10.62 7 12 7C14.76 7 17 9.24 17 12C17 13.38 16.44 14.63 15.535 15.535C14.63 16.44 13.38 17 12 17C9.24 17 7 14.76 7 12C7 10.62 7.56 9.37 8.465 8.465Z"></path>
+            </svg>
+          </div>
+        </span>
+        <span class="MuiTouchRipple-root"></span>
+      </span>
+      <span class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1">Third</span>
+    </label>
+    
+    <label class="MuiFormControlLabel-root Mui-disabled">
+      <span class="MuiButtonBase-root MuiIconButton-root jss63 MuiRadio-root MuiRadio-colorPrimary jss65 Mui-disabled MuiIconButton-colorPrimary Mui-disabled Mui-disabled" tabindex="-1" aria-disabled="true">
+        <span class="MuiIconButton-label">
+          <input class="jss66" disabled="" name="position" type="radio" value="disabled">
+          <div class="jss67">
+            <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"></path>
+            </svg>
+            <svg class="MuiSvgIcon-root jss68" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M8.465 8.465C9.37 7.56 10.62 7 12 7C14.76 7 17 9.24 17 12C17 13.38 16.44 14.63 15.535 15.535C14.63 16.44 13.38 17 12 17C9.24 17 7 14.76 7 12C7 10.62 7.56 9.37 8.465 8.465Z"></path>
+            </svg>
+          </div>
+        </span>
+      </span>
+      <span class="MuiTypography-root MuiFormControlLabel-label Mui-disabled MuiTypography-body1">Disabled</span>
+    </label>
+  </div>
+  <p id="lastClickContent">You clicked Second</p>
+</fieldset>
+```
+
+__Radio buttons__ - elements that allow the user to select one option from a set.
+
+Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -478,49 +655,44 @@ Radio buttons allow the user to select one option from a set.
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/RadioButtonsTests.java" target="_blank">Here you can find Radio tests</a>
 
+<br></br>
+
 ### 4.10 App Bar
 
 ```java 
-    @UI("//*[text()='App Bar with menu']/preceding::button[@aria-label='menu']")
-    public static UIElement simpleMenu;
-
-    @UI("//*[text()='Prominent App Bar']/preceding::button[@aria-label='menu'][1]")
-    public static UIElement appBarMenu;
-
-    @UI("//*[text()='Prominent App Bar']/following::button[@aria-label='open drawer']")
-    public static UIElement prominentMenu;
-
-    @UI("//*[text()='Simple App bar']/following::h6[1]")
-    public static Text simpleText;
-
-    @UI("//*[text()='Simple App bar']/following::button[2]")
-    public static Button simpleButton;
+    @JAppBar(
+            root = "(//header[contains(@class, 'MuiAppBar-root')])[1]",
+            actionItems = {"//*[text()='News']/following-sibling::button"}
+    )
+    public static AppBar simpleAppBar;
 
     @Test
     public void simpleAppBarTest() {
         simpleAppBarPage.open();
         simpleAppBarPage.shouldBeOpened();
-        simpleMenu.isDisplayed();
-        appBarMenu.isDisplayed();
-        prominentMenu.isDisplayed();
-        simpleText.has().text("News");
-        appBarText.has().text("Photos");
-        prominentText.has().text("Material-UI");
-        simpleButton.is().displayed();
-        appBarIcon.is().displayed();
-        prominentSearch.is().displayed();
-        prominentSecondMenu.is().displayed();
-        logoutSwitch.uncheck();
-        timer.wait(() -> appBarIcon.isNotVisible());
-        logoutSwitch.check();
-        timer.wait(() -> appBarIcon.isDisplayed());
-        appBarIcon.click();
-        timer.wait(() -> appBarIconOptions.get(1).isDisplayed());
-        appBarIconOptions.get(1).click();
-        timer.wait(() -> {
-            appBarIconOptions.get(1).isNotVisible();
-            appBarIcon.isVisible();
-        });
+
+        simpleAppBar.isDisplayed();
+        simpleAppBar.getNavigationButton().isDisplayed();
+        simpleAppBar.getNavigationButton().click();
+        simpleAppBar.getTitle().has().text("News");
+        simpleAppBar.getActionItems().get(1).isDisplayed();
+        simpleAppBar.getActionItems().get(1).click();
+
+        appBarMenu.getNavigationButton().isDisplayed();
+        appBarMenu.getNavigationButton().click();
+        appBarMenu.getTitle().has().text("Photos");
+        appBarMenu.getOverflowMenuButton().isDisplayed();
+        appBarMenu.getOverflowMenuButton().click();
+        appBarMenuItems.get(1).has().text("Profile");
+        appBarMenuItems.get(1).click();
+        userIconSwitch.check();
+        timer.wait(() -> appBarMenu.getOverflowMenuButton().isNotDisplayed());
+
+        prominentMenu.getNavigationButton().isDisplayed();
+        prominentMenu.getNavigationButton().click();
+        prominentMenu.getTitle().has().text("Material-UI");
+        prominentMenu.getActionItems().get(1).click();
+        prominentMenu.getOverflowMenuButton().click();
     }
 ```
 

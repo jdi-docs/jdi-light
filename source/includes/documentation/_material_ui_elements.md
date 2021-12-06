@@ -1198,6 +1198,7 @@ Available methods in Java JDI Light:
 --- | --- | ---
 **stepCompleted()** | Check that specified step is completed | boolean
 **stepEnabled()** | Check that specified step is enabled | boolean
+**is()** | Verify state | boolean
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/StepperTests.java" target="_blank">Here you can find Stepper tests</a>
 

@@ -806,57 +806,70 @@ Available methods in Java JDI Light:
 ### 4.13 Material Icons
 
 ```java     
-    @UI("#defaultAccessAlarm")
-    public static UIElement defaultAlarm;
+    // @FindBy(xpath = "//h2[text()='Access Alarm']/following::*[name()='svg']")
+    @UI("//h2[text()='Access Alarm']/following::*[name()='svg']")
+    public static List<Icon> iconsList;
 
-    @UI("#largeAccessAlarm")
-    public static UIElement largeAlarm;
-
-    @UI("#secondaryAccessAlarm")
-    public static UIElement secondaryAlarm;
-
+    // @FindBy(id = "miconLastClick")
     @UI("#miconLastClick")
-    public static UIElement lastClick;
+    public static Text lastClick;
 
+    // @FindBy(id = "miconLastHover")
     @UI("#miconLastHover")
-    public static UIElement lastHover;
+    public static Text lastHover;
 
     @Test
     public void defaultMaterialIconTest() {
         lastClick.is().text("Last click:");
         lastHover.is().text("Last hover:");
 
-        defaultAlarm.hover();
+        iconsList.get(1).hover();
         lastClick.is().text("Last click:");
         lastHover.is().text("Last hover: default");
 
-        defaultAlarm.click();
+        iconsList.get(1).click();
         lastClick.is().text("Last click: default");
         lastHover.is().text("Last hover: default");
 
-        largeAlarm.hover();
+        iconsList.get(2).hover();
         lastClick.is().text("Last click: default");
         lastHover.is().text("Last hover: large");
 
-        largeAlarm.click();
+        iconsList.get(2).click();
         lastClick.is().text("Last click: large");
         lastHover.is().text("Last hover: large");
 
-        secondaryAlarm.hover();
+        iconsList.get(3).hover();
         lastClick.is().text("Last click: large");
         lastHover.is().text("Last hover: secondary");
 
-        secondaryAlarm.click();
+        iconsList.get(3).click();
         lastClick.is().text("Last click: secondary");
         lastHover.is().text("Last hover: secondary");
     }
 ```
 
-##### <a href="https://material-ui.com/components/material-icons/" target="_blank"> https://material-ui.com/components/material-icons/ </a>
+##### <a href="https://material-ui.com/components/material-icons/" target="_blank"> Material Icons overview </a>
 
-The following npm package, @material-ui/icons, includes the 1,100+ official Material icons converted to SvgIcon components.
+__Material Icons__ - set of icons provided by npm package, @material-ui/icons, that includes the 1,100+ official Material icons converted to SvgIcon components.
 
 ![Material Icons](../../images/material-ui/MaterialIcons.png)
+
+Here is an example with provided Material-UI v4.12.3 code:
+
+```html
+<div>
+  <h1>Material Icons</h1>
+  <h2>Access Alarm</h2>
+  <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true" id="defaultAccessAlarm">...</svg>
+  <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeLarge" focusable="false" viewBox="0 0 24 24" aria-hidden="true" id="largeAccessAlarm">...</svg>
+  <svg class="MuiSvgIcon-root MuiSvgIcon-colorSecondary" focusable="false" viewBox="0 0 24 24" aria-hidden="true" id="secondaryAccessAlarm">...</svg>
+  <p id="miconLastClick">Last click: default</p>
+  <p id="miconLastHover">Last hover: large</p>
+</div>
+```
+
+Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -867,34 +880,56 @@ The following npm package, @material-ui/icons, includes the 1,100+ official Mate
 **click()** | Clicks on box | void
 **hover()** | Hovers on box | void
 
-##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/MaterialIconTests.java" target="_blank">Here you can find Material Icons tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/MaterialIconTests.java" target="_blank">Here you can find Material Icons tests</a>
+
+<br></br>
 
 ### 4.14 Icons
 
 ```java     
-    @Test
-    public void simpleIconsTest() {
-        simpleIcons.get(1).hover();
-        simpleLastHover.has().text("Last hover: DeleteIcon");
-        simpleIcons.get(2).click();
-        simpleLastClick.has().text("Last click: DeleteForeverIcon");
+    // FindBy(xpath = "//div[contains(@class, 'MuiGrid-grid-xs-8')]/*[local-name()='svg']")
+    @UI(".MuiGrid-grid-xs-8 > svg")
+    public static List<Icon> simpleIcons;
+    
+    // @FindBy(id = "simpleLastClick")
+    @UI("#simpleLastClick")
+    public static Text simpleLastClick;
 
-        simpleIcons.forEach(icon -> icon.is().notColored());
-        simpleIcons.forEach(icon -> icon.has().color("rgba(0, 0, 0, 0.87)"));
-        simpleIcons.forEach(icon -> icon.has().height(24));
-        simpleIcons.forEach(icon -> icon.has().width(24));
+    // @FindBy(id = "simpleLastHover")
+    @UI("#simpleLastHover")
+    public static Text simpleLastHover;
+    
+    @Test(dataProviderClass = IconsDataProvider.class, 
+            dataProvider = "simpleIconsTestDataProvider")
+    public void simpleIconsTest(int elementIndexForHover, String resultHoverFieldText,
+                                int elementIndexForClick, String resultClickFieldText) {
+        simpleIcons.get(elementIndexForHover).hover();
+        simpleLastHover.has().text(resultHoverFieldText);
+        simpleIcons.get(elementIndexForClick).click();
+        simpleLastClick.has().text(resultClickFieldText);
     }
 ```
 
-##### <a href="https://material-ui.com/components/icons/" target="_blank"> https://material-ui.com/components/icons/ </a>
+##### <a href="https://material-ui.com/components/icons/" target="_blank"> Icons overview </a>
 
-Material-UI provides icons support in three ways:
+Icon is located in the following class:
 
-1. Standardized Material Design icons exported as React components (SVG icons).
-2. With the SvgIcon component, a React wrapper for custom SVG icons.
-3. With the Icon component, a React wrapper for custom font icons.
+- __Java__: _com.epam.jdi.light.material.elements.displaydata.Icon_
+
+__Icon__ - element that represents a small clickable  picture.
 
 ![Icons](../../images/material-ui/Icon.png)
+
+Here is an example with provided Material-UI v4.12.3 code:
+
+```html
+<div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-8">
+  <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">...</svg>
+  <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">...</svg>
+</div>
+```
+
+Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -907,57 +942,96 @@ Material-UI provides icons support in three ways:
 **height(int)** | Assert that icon has specified height | IconAssert
 **width(int)** | Assert that icon has specified width | IconAssert
 
-Icons have also a lot of UIElement methods.
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/IconsTests.java" target="_blank">Here you can find Icons tests</a>
 
-##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/IconTests.java" target="_blank">Here you can find Icons tests</a>
+<br></br>
 
 ### 4.15 Floating Action Button
 
 ```java     
+    // @FindBy(xpath = "//div[@id='basicActionBtns']/button")
     @UI("//div[@id='basicActionBtns']/button")
-    public static List<Button> basicBtns;
-
-    @UI("//button[@aria-label='add']")
-    public static Button addBtn;
-
-    @UI("//button[@aria-label='edit']")
-    public static Button editBtn;
-
-    @UI("//button[contains(@class,'MuiFab-extended')]")
-    public static Button extendedBtn;
-
-    @UI("//button[@aria-label='like']")
-    public static Button disabledBtn;
-
+    public static List<Button> buttonsBasic;
+    
+    // @FindBy(id = "basicActionBtnsLastClick")
     @UI("#basicActionBtnsLastClick")
-    public static Text basicBtnsLastClick;
+    public static Text labelLastClick;
+    
+    // @FindBy(xpath = "//button[@aria-label='add']")
+    @UI("//button[@aria-label='add']")
+    public static Button buttonAdd;
+    
+    // @FindBy(xpath = "//button[@aria-label='edit']")
+    @UI("//button[@aria-label='edit']")
+    public static Button buttonEdit;
+
+    // @FindBy(xpath = "//button[contains(@class,'MuiFab-extended')]")
+    @UI("//button[contains(@class,'MuiFab-extended')]")
+    public static Button buttonNavigate;
+    
+    // @FindBy(xpath = "//button[@aria-label='like']")
+    @UI("//button[@aria-label='like']")
+    public static Button buttonLike;
 
     @Test
     public void basicButtonsTest() {
-        basicBtns.forEach(el -> el.is().displayed());
-        basicBtnsLastClick.is().text("Last click:");
+        buttonsBasic.forEach(el -> el.is().displayed());
+        labelLastClick.has().text("Last click:");
 
-        addBtn.is().enabled();
-        addBtn.click();
-        basicBtnsLastClick.is().text("Last click: Add");
+        buttonAdd.is().enabled();
+        buttonAdd.click();
+        labelLastClick.has().text("Last click: Add");
 
-        editBtn.is().enabled();
-        editBtn.click();
-        basicBtnsLastClick.is().text("Last click: Edit");
+        buttonEdit.is().enabled();
+        buttonEdit.click();
+        labelLastClick.has().text("Last click: Edit");
 
-        extendedBtn.is().enabled();
-        extendedBtn.click();
-        basicBtnsLastClick.is().text("Last click: Navigate");
+        buttonNavigate.is().enabled();
+        buttonNavigate.click();
+        labelLastClick.is().text("Last click: Navigate");
 
-        disabledBtn.is().disabled();
+        buttonLike.is().disabled();
     }
 ```
 
-##### <a href="https://material-ui.com/components/floating-action-button/" target="_blank"> https://material-ui.com/components/floating-action-button/ </a>
+##### <a href="https://material-ui.com/components/floating-action-button/" target="_blank"> Floating Action Button overview </a>
 
-A floating action button appears in front of all screen content, typically as a circular shape with an icon in its center. FABs come in two types: regular, and extended.
+__Floating Fction Button__ - element that appears in front of all screen content, typically as a circular shape with an icon in its center. 
 
 ![Floating action button](../../images/material-ui/Fab.png)
+
+Here is an example with provided Material-UI v4.12.3 code:
+
+```html
+<div class="jss182" id="basicActionBtns">
+  <button class="MuiButtonBase-root MuiFab-root MuiFab-primary" tabindex="0" type="button" aria-label="add">
+    <span class="MuiFab-label">
+      <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">...</svg>
+    </span>
+    <span class="MuiTouchRipple-root"></span>
+  </button>
+  <button class="MuiButtonBase-root MuiFab-root MuiFab-secondary" tabindex="0" type="button" aria-label="edit">
+    <span class="MuiFab-label">
+      <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">...</svg>
+    </span>
+    <span class="MuiTouchRipple-root"></span>
+  </button>
+  <button class="MuiButtonBase-root MuiFab-root MuiFab-extended" tabindex="0" type="button">
+    <span class="MuiFab-label">
+      <svg class="MuiSvgIcon-root jss183" focusable="false" viewBox="0 0 24 24" aria-hidden="true">...</svg>
+      Navigate
+    </span>
+    <span class="MuiTouchRipple-root"></span>
+  </button>
+  <button class="MuiButtonBase-root MuiFab-root Mui-disabled Mui-disabled" tabindex="-1" type="button" disabled="" aria-label="like">
+    <span class="MuiFab-label">
+      <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">...</svg>
+    </span>
+  </button>
+</div>
+```
+
+Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -968,46 +1042,57 @@ A floating action button appears in front of all screen content, typically as a 
 **text()** | Verify text | boolean
 **click()** | Clicks on box | void
 
-##### <a href="https://github.com/jdi-testing/jdi-light/blob/master/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/FabTests.java" target="_blank">Here you can find Floating Action Button tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/FloatingActionButtonTests.java" target="_blank">Here you can find Floating Action Button tests</a>
+
+<br></br>
 
 ### 4.16 Hidden
 
-```java     
-   @UI(".MuiTypography-subtitle1")
+```java    
+    // @FindBy(className = "MuiTypography-subtitle1")
+    @UI(".MuiTypography-subtitle1")
     public static Text currentWidth;
 
-    @UI("//div[contains(text(),'xsDown')]")
-    public static Button xsDown;
-
-    @UI("//div[text()='smDown']")
-    public static Button smDown;
-
-    @UI("//div[text()='mdDown']")
-    public static Button mdDown;
-
-    @UI("//div[text()='lgDown']")
-    public static Button lgDown;
-
-    @UI("//div[text()='xlDown']")
-    public static Button xlDown;
-
-    @Test(dataProvider = "Screen Width Dividers")
-    public void hiddenTestWithScreenWidthDifferentScreenWidth(int divider) {
-        currentWidth.is().displayed();
-        xsDown.is().displayed();
-        smDown.is().displayed();
-        mdDown.is().displayed();
-        divideScreenWidthSize(divider);
-        String width = getWidth(currentWidth);
-        checkWidth(width);
+    // @FindBy(className = "MuiPaper-root")
+    @UI(".MuiPaper-root")
+    public static WebList papers;
+    
+    @Test(dataProvider = "Screen Width")
+    public void hiddenTestWithScreenWidthDifferentScreenWidth(int width, int size, String expectedWidth) {
+        setWidth(width);
+        papers.has().size(size);
+        if (size > 0) {
+            papers.is().displayed();
+        } else {
+            papers.is().hidden();
+        }
+        currentWidth.has().text("Current width: " + expectedWidth);
     }
 ```
 
-##### <a href="https://material-ui.com/components/hidden/" target="_blank"> https://material-ui.com/components/hidden/ </a>
+##### <a href="https://material-ui.com/components/hidden/" target="_blank"> Hidden overview </a>
 
-Quickly and responsively toggle the visibility value of components and more with the hidden utilities.
+__Hidden__ - element that allows you to quickly and responsively toggle the visibility value of components and much more.
 
 ![Hidden](../../images/material-ui/Hidden.png)
+
+Here is an example with provided Material-UI v4.12.3 code:
+
+```html
+<div class="jss193">
+  <h1>Hidden</h1>
+  <h6 class="MuiTypography-root MuiTypography-subtitle1">
+    Current width: sm
+  </h6>
+  <div class="jss194">
+    <div class="MuiPaper-root jss195 MuiPaper-elevation1 MuiPaper-rounded">
+      xsDown
+    </div>
+  </div>
+</div>
+```
+
+Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -1015,17 +1100,22 @@ Quickly and responsively toggle the visibility value of components and more with
 **displayed()** | Verify state | boolean
 **text()** | Verify text | boolean
 
-##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/HiddenTests.java" target="_blank">Here you can find Hidden tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/layout/HiddenTests.java" target="_blank">Here you can find Hidden tests</a>
+
+<br></br>
 
 ### 4.17 Stepper
 
 ```java 
+    // @FindBy(css = "#nonLinearStepper .MuiStep-root")
     @UI("#nonLinearStepper .MuiStep-root")
     public static Stepper nonlinearStepper;
 
+    // @FindBy(xpath = "//p[@id='activeNonLinearStep']/..//button[2]")
     @UI("//p[@id='activeNonLinearStep']/..//button[2]")
     public static MaterialButton nonlinearStepperNextButton;
 
+    // @FindBy(xpath = "//p[@id='activeNonLinearStep']/..//button[3]")
     @UI("//p[@id='activeNonLinearStep']/..//button[3]")
     public static MaterialButton nonlinearStepperCompleteStepButton;
         
@@ -1045,28 +1135,85 @@ Quickly and responsively toggle the visibility value of components and more with
     }
 ```
 
-##### <a href="https://material-ui.com/components/steppers/" target="_blank"> https://material-ui.com/components/steppers/ </a>
+##### <a href="https://material-ui.com/components/steppers/" target="_blank"> Stepper overview </a>
+
+Stepper is located in the following class:
+
+- __Java__: _com.epam.jdi.light.material.elements.navigation.Stepper_
+
+__Stepper__ - element that allows you to convey progress through numbered steps.
 
 ![Stepper](../../images/material-ui/Stepper.png)
 
-Steppers convey progress through numbered steps. It provides a wizard-like workflow.
-You can use for testing Text and Button classes, implemented in JDI-html section.
+Here is an example with provided Material-UI v4.12.3 code:
+
+```html
+<div class="MuiPaper-root MuiStepper-root MuiStepper-horizontal MuiPaper-elevation0" id="nonLinearStepper">
+  <div class="MuiStep-root MuiStep-horizontal">
+    <button class="MuiButtonBase-root MuiStepButton-root MuiStepButton-horizontal" tabindex="0" type="button">
+      <span class="MuiStepLabel-root MuiStepLabel-horizontal">
+        <span class="MuiStepLabel-iconContainer">
+          <svg class="MuiSvgIcon-root MuiStepIcon-root MuiStepIcon-active" focusable="false" viewBox="0 0 24 24" aria-hidden="true">...</svg>
+        </span>
+        <span class="MuiStepLabel-labelContainer">
+          <span class="MuiTypography-root MuiStepLabel-label MuiStepLabel-active MuiTypography-body2 MuiTypography-displayBlock">Step #1</span>
+        </span>
+      </span>
+      <span class="MuiTouchRipple-root MuiStepButton-touchRipple"></span>
+    </button>
+  </div>
+  <div class="MuiStepConnector-root MuiStepConnector-horizontal Mui-disabled">
+    <span class="MuiStepConnector-line MuiStepConnector-lineHorizontal"></span>
+  </div>
+  <div class="MuiStep-root MuiStep-horizontal">
+    <button class="MuiButtonBase-root MuiStepButton-root MuiStepButton-horizontal Mui-disabled" tabindex="-1" type="button" disabled="">
+      <span class="MuiStepLabel-root MuiStepLabel-horizontal Mui-disabled"><span class="MuiStepLabel-iconContainer">
+        <svg class="MuiSvgIcon-root MuiStepIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">...</svg>
+      </span>
+        <span class="MuiStepLabel-labelContainer">
+          <span class="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock">Step #2</span>
+        </span>
+      </span>
+    </button>
+  </div>
+  <div class="MuiStepConnector-root MuiStepConnector-horizontal Mui-disabled">
+    <span class="MuiStepConnector-line MuiStepConnector-lineHorizontal"></span>
+  </div>
+  <div class="MuiStep-root MuiStep-horizontal">
+    <button class="MuiButtonBase-root MuiStepButton-root MuiStepButton-horizontal Mui-disabled" tabindex="-1" type="button" disabled="">
+      <span class="MuiStepLabel-root MuiStepLabel-horizontal Mui-disabled">
+        <span class="MuiStepLabel-iconContainer">
+          <svg class="MuiSvgIcon-root MuiStepIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">...</svg>
+        </span>
+        <span class="MuiStepLabel-labelContainer">
+          <span class="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock">Step #3</span>
+        </span>
+      </span>
+    </button>
+  </div>
+</div>
+```
+
+Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
 **stepCompleted()** | Check that specified step is completed | boolean
 **stepEnabled()** | Check that specified step is enabled | boolean
 
-##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/StepperTests.java" target="_blank">Here you can find Stepper tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/StepperTests.java" target="_blank">Here you can find Stepper tests</a>
+
+<br></br>
 
 ### 4.18 Slider
 
-```java     
-    @UI("//*[@id=\"continuous-slider\"]/following-sibling::div//span[contains(@class, \"MuiSlider-root\")]")
+```java 
+    // @FindBy(xpath = "//*[@id="continuous-slider"]/following-sibling::div//span[contains(@class, "MuiSlider-root")]")
+    @UI("//*[@id="continuous-slider"]/following-sibling::div//span[contains(@class, "MuiSlider-root")]")
     public static Slider continuousSlider;
     
     @Test
-    public void continuousSliderTest(){
+    public void continuousSliderTest() {
         continuousSlider.is().enabled();
         continuousSlider.is().orientation("horizontal");
         continuousSlider.is().value(30);
@@ -1081,11 +1228,36 @@ You can use for testing Text and Button classes, implemented in JDI-html section
     }
 ```
 
-##### <a href="https://material-ui.com/components/slider/" target="_blank"> https://material-ui.com/components/slider/ </a>
+##### <a href="https://material-ui.com/components/slider/" target="_blank"> Slider overview </a>
 
-Sliders reflect a range of values along a bar, from which users may select a single value. They are ideal for adjusting settings such as volume, brightness, or applying image filters.
+Slider is located in the following class:
+
+- __Java__: _com.epam.jdi.light.material.elements.inputs.Slider_
+
+__Slider__ - element that reflects a range of values along a bar, from which users may select a single value. 
+
+It is ideal for adjusting settings such as volume, brightness, or applying image filters.
 
 ![Slider](../../images/material-ui/Slider.png)
+
+Here is an example with provided Material-UI v4.12.3 code:
+
+```html
+<p class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom" id="continuous-slider">Default Slider</p>
+<div class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2">
+  <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true">
+    <span class="MuiSlider-root MuiSlider-colorPrimary">
+      <span class="MuiSlider-rail"></span>
+      <span class="MuiSlider-track" style="left: 0%; width: 60%;"></span>
+      <input type="hidden" value="30">
+      <span class="MuiSlider-thumb MuiSlider-thumbColorPrimary" tabindex="0" role="slider" data-index="0" aria-labelledby="continuous-slider" aria-orientation="horizontal" aria-valuemax="100" aria-valuemin="0" aria-valuenow="30" style="left: 30%;"></span>
+    </span>
+  </div>
+  <p class="MuiTypography-root MuiTypography-body1" id="continuousValue">Selected value: 30</p>
+</div>
+```
+
+Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -1098,61 +1270,65 @@ Sliders reflect a range of values along a bar, from which users may select a sin
 **moveLeft()** | Move left to one unit using arrow key on keyboard | void
 **is()** | Verify state | boolean
 
-##### <a href="https://github.com/jdi-testing/jdi-light/blob/Material-UI/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/SliderTests.java" target="_blank">Here you can find Slider tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/inputs/SliderTests.java" target="_blank">Here you can find Slider tests</a>
+
+<br></br>
 
 ### 4.19 Tabs
 
 ```java 
-    @UI("//button[contains(@aria-controls,'simple-tabpanel')]")
+    // @FindBy(css = "h2+div[1] .MuiTab-root")
+    @UI("h2+div[1] .MuiTab-root")
     public static Tabs simpleTabs;
-
-    @UI("//button[contains(@aria-controls,'scrollable-auto-tab')]")
-    public static Tabs scrollableTabs;
-
-    @UI("//button[contains(@aria-controls,'scrollable-prevent-tab')]")
-    public static Tabs preventScrollTabs;
-
-    @UI("//button[contains(@aria-controls,'vertical-tabpanel')]")
-    public static Tabs verticalTabs;
     
     @Test
     public void simpleTabTest() {
+        simpleTabs.has().values(equalTo(asList("ITEM ONE", "ITEM TWO", "ITEM THREE", "ITEM FOUR", "ITEM FIVE")));
+        simpleTabs.has().selected(1);
         simpleTabs.select(2);
-        simpleTabs.has().elementSelected(2);
-        simpleTabs.has().elementNotSelected(3);
-        simpleTabs.has().elementDisabled(4);
-
-        jdiAssert(simpleTabs.size(), Matchers.is(5));
+        simpleTabs.has().selected(2);
+        simpleTabs.has().disabled(4);
+        simpleTabs.has().size(5);
     }
-
-    @Test
-    public void scrollableTabTest() {
-        scrollableTabs.select(1);
-        scrollableTabs.has().elementSelected(1);
-        scrollableTabs.has().elementEnabled(1);
-
-        scrollableTabs.select(7);
-        scrollableTabs.has().elementSelected(7);
-        scrollableTabs.has().elementEnabled(7);
-
-        scrollableTabs.select(11);
-        scrollableTabs.has().elementSelected(11);
-        scrollableTabs.has().elementEnabled(11);
-
-        scrollableTabs.select(1);
-        scrollableTabs.has().elementSelected(1);
-        scrollableTabs.has().elementEnabled(1);
-
-        jdiAssert(scrollableTabs.size(), Matchers.is(11));
-    }
-
 ```
 
-##### <a href="https://material-ui.com/components/Tabs/" target="_blank"> https://material-ui.com/components/Tabs/ </a>
+##### <a href="https://material-ui.com/components/Tabs/" target="_blank"> Tabs overview </a>
 
-Tabs organize and allow navigation between groups of content that are related and at the same level of hierarchy.
+Tabs is located in the following class:
+
+- __Java__: _com.epam.jdi.light.material.elements.navigation.Tabs_
+
+__Tabs__ - elements that organize and allow navigation between groups of content that are related and at the same level of hierarchy.
 
 ![Tabs](../../images/material-ui/Tabs.png)
+
+Here is an example with provided Material-UI v4.12.3 code:
+
+```html
+<div aria-label="simple tabs example" class="MuiTabs-flexContainer" role="tablist">
+  <button class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit Mui-selected" tabindex="0" type="button" role="tab" aria-selected="true" id="simple-tab-0" aria-controls="simple-tabpanel-0">
+    <span class="MuiTab-wrapper">Item One</span>
+    <span class="MuiTouchRipple-root"></span>
+  </button>
+  <button class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit" tabindex="-1" type="button" role="tab" aria-selected="false" id="simple-tab-1" aria-controls="simple-tabpanel-1">
+    <span class="MuiTab-wrapper">Item Two</span>
+    <span class="MuiTouchRipple-root"></span>
+  </button>
+  <button class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit" tabindex="-1" type="button" role="tab" aria-selected="false" id="simple-tab-2" aria-controls="simple-tabpanel-2">
+    <span class="MuiTab-wrapper">Item Three</span>
+    <span class="MuiTouchRipple-root"></span>
+  </button>
+  <button class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit Mui-disabled Mui-disabled" tabindex="-1" type="button" disabled="" role="tab" aria-selected="false" id="simple-tab-3" aria-controls="simple-tabpanel-3">
+    <span class="MuiTab-wrapper">Item Four</span>
+  </button>
+  <button class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit" tabindex="-1" type="button" role="tab" aria-selected="false" id="simple-tab-4" aria-controls="simple-tabpanel-4">
+    <span class="MuiTab-wrapper">Item Five</span>
+    <span class="MuiTouchRipple-root"></span>
+  </button>
+</div>
+```
+
+Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
@@ -1160,9 +1336,10 @@ Tabs organize and allow navigation between groups of content that are related an
 **enabled()** | Check if tab is enabled | boolean
 **disabled()** | Check if tab is disabled | boolean
 **selected()** | Check if tab is selected | boolean
-**notSelected()** | Check if tab is not selected | boolean
 
-##### <a href="https://github.com/jdi-testing/jdi-light/pull/3518/commits/c82c82512d73a84716eead8f0d4744cf4dd34f98#diff-fbe7d79cccd062917f385eca9e9db7fde3c41058b8dff308f33693d160ee60e8" target="_blank">Here you can find Tabs tests</a>
+##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/navigation/TabTests.java" target="_blank">Here you can find Tabs tests</a>
+
+<br></br>
 
 ### 4.20 Table
 

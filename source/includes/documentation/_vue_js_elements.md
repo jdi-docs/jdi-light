@@ -92,21 +92,15 @@ Basically, you have methods that can return you elements containing in banner (b
 --- | --- | ---
 **is()** | Returns Assert class | BannerAssert
 **has()** | Returns Assert class | BannerAssert
-**hasHiddenTextField()** | Shows that element's text field is hidden | boolean
-**hasText()** | Returns element's text | String
-**hasTitle()** | Returns element's title | String
-**hasChecker()** | Shows that element has 'checker' element | boolean
-**hasIcon()** | Shows that element has icon | boolean
-**hasAlertOnIconClick()** | Returns element's icon alert message | String
-**hasButtons()** | Returns number of element's buttons | int
-**hasVisibleButtons()** | Shows that element's buttons are visible | boolean
-**hasHiddenButtons()** | Shows that element's buttons are hidden | boolean
-**hasCheckerChecked()** | Shows that element's checker is checked | boolean
-**hasCheckerUnchecked()** | Shows that element's checker is unchecked | boolean
-**checkerCheck()** | Checks element's checker | void
-**checkerUnCheck()** | Unchecks element's checker | void
-**handleAlert()** | Dismisses element's alert | void
-**clickOnIcon()** | Clicks on element's icon | void
+**getSwitch()** | Returns switch containing in the element | Switch
+**checkbox()** | Returns checkbox containing in the element | Checkbox
+**button()** | Returns button containing in the element | Button
+**buttons()** | Returns button group containing in the element | ButtonGroup
+**icon()** | Returns icon containing in the element | Icon
+**textContent()** | Returns text content of the element | Text
+**getTitle()** | Returns element's title's text | String
+**getAlertText()** | Returns element's alert's text | String
+**dismissAlert()** | Dismisses alert | void
 
 For examples of usage see: [JDI vuetify page tests for banners](https://github.com/jdi-testing/jdi-light/blob/vuetify-develop/jdi-light-vuetify-tests/src/test/java/io/github/epam/vuetify/tests/complex/BannersTests.java).
 

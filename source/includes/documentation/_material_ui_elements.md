@@ -292,8 +292,8 @@ Available methods in Java JDI Light:
     public void avatarsWithPhotoTests() {
         for (Avatar avatar : avatarsWithPhoto) {
             avatar.is().displayed();
-            avatar.has().image();
-            avatar.has().badge();
+            avatar.image().is().displayed();
+            avatar.badge().is().displayed();
         }
     }
 ```
@@ -329,11 +329,9 @@ Available methods in Java JDI Light:
 
 |Method | Description | Return Type
 --- | --- | ---
-**hasBadge()** | Checks badge | boolean
-**hasIcon()** | Checks icon | boolean
-**hasPhoto()** | Checks photo | boolean
-**has()** | Verify state | AvatarAssert
-**is()** | Verify state | AvatarAssert
+**icon()** | Returns icon containing in the element | Icon
+**has()** | Returns assert class | AvatarAssert
+**is()** | Returns assert class | AvatarAssert
 
 ##### <a href="https://github.com/jdi-testing/jdi-light/blob/master_material_ui/jdi-light-material-ui-tests/src/test/java/io/github/epam/material/tests/displaydata/AvatarTests.java" target="_blank">Here you can find Avatar tests</a>
 
